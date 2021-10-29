@@ -14,6 +14,7 @@
 .implements Landroidx/lifecycle/LifecycleOwner;
 .implements Lcom/android/systemui/statusbar/policy/BatteryController$BatteryStateChangeCallback;
 .implements Lcom/android/systemui/animation/ActivityLaunchAnimator$Callback;
+.implements Lcom/android/wubydax/GearContentObserver$OnContentChangedListener;
 
 
 # annotations
@@ -9293,6 +9294,8 @@
     move-result-object v0
 
     iput-object v0, v6, Lcom/android/systemui/statusbar/phone/StatusBar;->mCameraLaunchGestureVibrationEffect:Landroid/os/VibrationEffect;
+    
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->registerObserver()V
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->registerBroadcastReceiver()V
 
@@ -13567,5 +13570,165 @@
     invoke-interface {p0}, Lcom/android/systemui/classifier/FalsingCollector;->onScreenOnFromTouch()V
 
     :cond_0
+    return-void
+.end method
+
+.method public registerObserver()V
+    .registers 11
+
+    .line 99
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    .line 100
+    .local v0, "arrayList":Ljava/util/ArrayList;
+    const-string v1, "system_settings_key_observer"
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 102
+    new-instance v1, Lcom/android/wubydax/GearContentObserver;
+
+    new-instance v2, Landroid/os/Handler;
+
+    invoke-direct {v2}, Landroid/os/Handler;-><init>()V
+
+    invoke-direct {v1, v2, p0}, Lcom/android/wubydax/GearContentObserver;-><init>(Landroid/os/Handler;Lcom/android/wubydax/GearContentObserver$OnContentChangedListener;)V
+
+    .line 103
+    .local v1, "gearContentObserver":Lcom/android/wubydax/GearContentObserver;
+    invoke-static {}, Lcom/android/systemui/SystemUIApplication;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    .line 105
+    .local v2, "contentResolver":Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    .line 106
+    .local v3, "it":Ljava/util/Iterator;
+    :goto_20
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    const/4 v5, 0x0
+
+    if-eqz v4, :cond_35
+
+    .line 107
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Ljava/lang/String;
+
+    invoke-static {v4}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v4
+
+    invoke-virtual {v2, v4, v5, v1}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    goto :goto_20
+
+    .line 110
+    :cond_35
+    new-instance v4, Ljava/util/ArrayList;
+
+    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
+
+    .line 111
+    .local v4, "GlobalSettings":Ljava/util/ArrayList;
+    const-string v6, "global_settings_key_observer"
+
+    invoke-virtual {v4, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 113
+    invoke-virtual {v4}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v6
+
+    .line 114
+    .local v6, "it2":Ljava/util/Iterator;
+    :goto_43
+    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_57
+
+    .line 115
+    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Ljava/lang/String;
+
+    invoke-static {v7}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v7
+
+    invoke-virtual {v2, v7, v5, v1}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    goto :goto_43
+
+    .line 118
+    :cond_57
+    new-instance v7, Ljava/util/ArrayList;
+
+    invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
+
+    .line 119
+    .local v7, "SecureSettings":Ljava/util/ArrayList;
+    const-string v8, "secure_settings_key_observer"
+
+    invoke-virtual {v4, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    .line 121
+    invoke-virtual {v4}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v8
+
+    .line 122
+    .local v8, "it3":Ljava/util/Iterator;
+    :goto_65
+    invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v9
+
+    if-eqz v9, :cond_79
+
+    .line 123
+    invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v9
+
+    check-cast v9, Ljava/lang/String;
+
+    invoke-static {v9}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v9
+
+    invoke-virtual {v2, v9, v5, v1}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    goto :goto_65
+
+    .line 125
+    :cond_79
+    return-void
+.end method
+
+.method public onContentChanged(Ljava/lang/String;)V
+    .registers 2
+    .param p1, "str"    # Ljava/lang/String;
+
+    .line 149
     return-void
 .end method
