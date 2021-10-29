@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple android:color="?android:textColorPrimary"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:androidprv="http://schemas.android.com/apk/prv/res/android">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="?*android:^attr-private/colorSurface" />
+            <size android:height="@dimen/keyguard_affordance_height" android:width="@dimen/keyguard_affordance_width" />
+        </shape>
+    </item>
+</ripple>
