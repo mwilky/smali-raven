@@ -1,0 +1,152 @@
+.class Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$DefaultStarter;
+.super Ljava/lang/Object;
+.source "DragAndDropPolicy.java"
+
+# interfaces
+.implements Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Starter;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0xa
+    name = "DefaultStarter"
+.end annotation
+
+
+# instance fields
+.field private final mContext:Landroid/content/Context;
+
+
+# direct methods
+.method public constructor <init>(Landroid/content/Context;)V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$DefaultStarter;->mContext:Landroid/content/Context;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public startIntent(Landroid/app/PendingIntent;Landroid/content/Intent;IILandroid/os/Bundle;)V
+    .locals 8
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$DefaultStarter;->mContext:Landroid/content/Context;
+
+    const/4 v2, 0x0
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
+    move-object v0, p1
+
+    move-object v3, p2
+
+    move-object v7, p5
+
+    invoke-virtual/range {v0 .. v7}, Landroid/app/PendingIntent;->send(Landroid/content/Context;ILandroid/content/Intent;Landroid/app/PendingIntent$OnFinished;Landroid/os/Handler;Ljava/lang/String;Landroid/os/Bundle;)V
+    :try_end_0
+    .catch Landroid/app/PendingIntent$CanceledException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception p0
+
+    invoke-static {}, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->access$000()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string p2, "Failed to launch activity"
+
+    invoke-static {p1, p2, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :goto_0
+    return-void
+.end method
+
+.method public startShortcut(Ljava/lang/String;Ljava/lang/String;IILandroid/os/Bundle;Landroid/os/UserHandle;)V
+    .locals 6
+
+    :try_start_0
+    iget-object p0, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$DefaultStarter;->mContext:Landroid/content/Context;
+
+    const-class p3, Landroid/content/pm/LauncherApps;
+
+    invoke-virtual {p0, p3}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    move-object v0, p0
+
+    check-cast v0, Landroid/content/pm/LauncherApps;
+
+    const/4 v3, 0x0
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move-object v4, p5
+
+    move-object v5, p6
+
+    invoke-virtual/range {v0 .. v5}, Landroid/content/pm/LauncherApps;->startShortcut(Ljava/lang/String;Ljava/lang/String;Landroid/graphics/Rect;Landroid/os/Bundle;Landroid/os/UserHandle;)V
+    :try_end_0
+    .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception p0
+
+    invoke-static {}, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->access$000()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string p2, "Failed to launch shortcut"
+
+    invoke-static {p1, p2, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :goto_0
+    return-void
+.end method
+
+.method public startTask(IIILandroid/os/Bundle;)V
+    .locals 0
+
+    :try_start_0
+    invoke-static {}, Landroid/app/ActivityTaskManager;->getService()Landroid/app/IActivityTaskManager;
+
+    move-result-object p0
+
+    invoke-interface {p0, p1, p4}, Landroid/app/IActivityTaskManager;->startActivityFromRecents(ILandroid/os/Bundle;)I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception p0
+
+    invoke-static {}, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->access$000()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string p2, "Failed to launch task"
+
+    invoke-static {p1, p2, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :goto_0
+    return-void
+.end method
