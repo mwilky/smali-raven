@@ -9295,7 +9295,7 @@
 
     iput-object v0, v6, Lcom/android/systemui/statusbar/phone/StatusBar;->mCameraLaunchGestureVibrationEffect:Landroid/os/VibrationEffect;
     
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->registerObserver()V
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->registerObserver()V
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->registerBroadcastReceiver()V
 

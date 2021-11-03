@@ -3109,7 +3109,6 @@
     <style name="TextAppearance.MediaRouter.Title" parent="@style/TextAppearance.AppCompat.Title" />
     <style name="TextAppearance.NotificationImportanceApp" parent="@style/TextAppearance">
         <item name="android:textSize">@dimen/notification_importance_channel_group_text</item>
-        <item name="android:textSize">@dimen/notification_importance_channel_group_text</item>
         <item name="android:textColor">@color/notification_guts_sub_text_color</item>
         <item name="android:fontFamily">@*android:string/config_headlineFontFamily</item>
     </style>
@@ -3121,12 +3120,10 @@
     </style>
     <style name="TextAppearance.NotificationImportanceChannel" parent="@style/TextAppearance">
         <item name="android:textSize">@dimen/notification_importance_channel_text</item>
-        <item name="android:textSize">@dimen/notification_importance_channel_text</item>
         <item name="android:textColor">@color/notification_guts_header_text_color</item>
         <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
     </style>
     <style name="TextAppearance.NotificationImportanceChannelGroup" parent="@style/TextAppearance">
-        <item name="android:textSize">@dimen/notification_importance_channel_group_text</item>
         <item name="android:textSize">@dimen/notification_importance_channel_group_text</item>
         <item name="android:textColor">@color/notification_guts_header_text_color</item>
         <item name="android:fontFamily">@*android:string/config_headlineFontFamily</item>
