@@ -13026,7 +13026,7 @@
 
     and-int/lit16 v0, v0, 0x2000
 
-    const/4 v1, 0x1
+    sget-boolean v1, Lcom/android/server/wm/WindowManagerService;->mSecureWindows:Z
 
     if-eqz v0, :cond_0
 
@@ -13045,7 +13045,12 @@
 
     move-result v0
 
-    xor-int/2addr v0, v1
+    if-nez v0, :cond_yes
+    
+    return v1
+    
+    :cond_yes
+    const/4 v0, 0x0
 
     return v0
 .end method

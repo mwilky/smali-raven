@@ -23,6 +23,8 @@
 
 
 # static fields
+.field public static mSecureWindows:Z
+
 .field private static final ALWAYS_KEEP_CURRENT:Z = true
 
 .field private static final ANIMATION_COMPLETED_TIMEOUT_MS:I = 0x1388
@@ -1705,6 +1707,10 @@
     invoke-direct {v1, v7, v2}, Lcom/android/server/wm/BlurController;-><init>(Landroid/content/Context;Landroid/os/PowerManager;)V
 
     iput-object v1, v0, Lcom/android/server/wm/WindowManagerService;->mBlurController:Lcom/android/server/wm/BlurController;
+    
+    iput-object v1, v0, Lcom/android/server/wm/WindowManagerService;->mBlurController:Lcom/android/server/wm/BlurController;
+    
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/wm/WindowManagerService;->setSecureWindows()V
 
     return-void
 .end method
@@ -30504,4 +30510,26 @@
     move-result-object v0
 
     return-object v0
+.end method
+
+.method public setSecureWindows()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/wm/WindowManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v2, "tweaks_secure_window"
+
+    const/4 v1, 0x1
+
+    invoke-static {v0, v2, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    sput-boolean v1, Lcom/android/server/wm/WindowManagerService;->mSecureWindows:Z
+
+    return-void
 .end method
