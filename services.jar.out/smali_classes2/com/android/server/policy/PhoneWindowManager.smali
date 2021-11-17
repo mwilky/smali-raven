@@ -24,6 +24,18 @@
 
 
 # static fields
+.field static final LONG_PRESS_POWER_TORCH:I = 0x6
+
+.field private static final MSG_TOGGLE_TORCH:I = 0x19
+
+.field public static mTorchPowerScreenOff:Z
+
+.field public isTorchEnabled:Z
+
+.field public mTorchCallback:Landroid/hardware/camera2/CameraManager$TorchCallback;
+
+.field public mCameraManager:Landroid/hardware/camera2/CameraManager;
+
 .field private static final BRIGHTNESS_STEPS:I = 0xa
 
 .field private static final BUGREPORT_TV_GESTURE_TIMEOUT_MILLIS:J = 0x3e8L
@@ -178,6 +190,8 @@
 
 
 # instance fields
+.field private mResolvedLongPressOnPowerBehavior:I
+
 .field mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
 
 .field private mAccessibilityShortcutController:Lcom/android/internal/accessibility/AccessibilityShortcutController;
@@ -2222,6 +2236,21 @@
     return v0
 
     :cond_1
+    sget-boolean v0, Lcom/android/server/policy/PhoneWindowManager;->mTorchPowerScreenOff:Z
+
+    if-eqz v0, :cond_2
+
+    invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->skipWake()Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    const/4 v0, 0x6
+
+    return v0
+
+    :cond_2
     iget v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mLongPressOnPowerBehavior:I
 
     return v0
@@ -3216,6 +3245,18 @@
     if-nez v3, :cond_5
 
     if-nez p2, :cond_6
+    
+    invoke-direct {p0}, Lcom/android/server/policy/PhoneWindowManager;->getResolvedLongPressOnPowerBehavior()I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mResolvedLongPressOnPowerBehavior:I
+
+    iget v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mResolvedLongPressOnPowerBehavior:I
+
+    const/4 v2, 0x6
+
+    if-eq v1, v2, :cond_mw
 
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getDownTime()J
 
@@ -3223,6 +3264,7 @@
 
     invoke-direct {p0, v3, v4}, Lcom/android/server/policy/PhoneWindowManager;->wakeUpFromPowerKey(J)V
 
+    :cond_mw
     goto :goto_3
 
     :cond_5
@@ -4151,6 +4193,35 @@
     invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->showGlobalActions()V
 
     goto :goto_1
+    
+    :pswitch_torch
+    const v3, 0x1
+    
+    iput-boolean v3, p0, Lcom/android/server/policy/PhoneWindowManager;->mPowerKeyHandled:Z
+
+    iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mHandler:Landroid/os/Handler;
+
+    const/16 v1, 0x19
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
+
+    iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v3}, Landroid/os/Message;->setAsynchronous(Z)V
+
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+    
+    const/4 v2, 0x0
+    
+    const-string v1, "Power - Long Press - Torch"
+
+    invoke-direct {p0, v2, v2, v1}, Lcom/android/server/policy/PhoneWindowManager;->performHapticFeedback(IZLjava/lang/String;)Z
+
+    goto :goto_1
 
     :pswitch_4
     nop
@@ -4166,6 +4237,7 @@
         :pswitch_2
         :pswitch_1
         :pswitch_0
+        :pswitch_torch
     .end packed-switch
 .end method
 
@@ -4281,33 +4353,12 @@
 .end method
 
 .method private powerPress(JIZ)V
-    .locals 4
+    .registers 11
+    .param p1, "eventTime"    # J
+    .param p3, "count"    # I
+    .param p4, "beganFromNonInteractive"    # Z
 
-    iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mDefaultDisplayPolicy:Lcom/android/server/wm/DisplayPolicy;
-
-    invoke-virtual {v0}, Lcom/android/server/wm/DisplayPolicy;->isScreenOnEarly()Z
-
-    move-result v0
-
-    const-string v1, "WindowManager"
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mDefaultDisplayPolicy:Lcom/android/server/wm/DisplayPolicy;
-
-    invoke-virtual {v0}, Lcom/android/server/wm/DisplayPolicy;->isScreenOnFully()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    const-string v0, "Suppressed redundant power key press while already in the process of turning the screen on."
-
-    invoke-static {v1, v0}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_0
+    .line 251
     iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mDefaultDisplay:Landroid/view/Display;
 
     invoke-virtual {v0}, Landroid/view/Display;->getState()I
@@ -4318,108 +4369,157 @@
 
     move-result v0
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    .line 252
+    .local v0, "interactive":Z
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "powerPress: eventTime="
+    const-string v2, "powerPress: eventTime="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    const-string v3, " interactive="
+    invoke-virtual {v1, p1, p2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    const-string v2, " interactive="
 
-    const-string v3, " count="
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {v2, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    const-string v3, " beganFromNonInteractive="
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, " count="
 
-    invoke-virtual {v2, p4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, " mShortPressOnPowerBehavior="
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    iget v3, p0, Lcom/android/server/policy/PhoneWindowManager;->mShortPressOnPowerBehavior:I
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v2, " beganFromNonInteractive="
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v1, p4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    const/4 v2, 0x2
+    move-result-object v1
 
-    if-ne p3, v2, :cond_1
+    const-string v2, " mShortPressOnPowerBehavior="
 
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mShortPressOnPowerBehavior:I
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "WindowManager"
+
+    invoke-static {v2, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 253
+    const/4 v1, 0x2
+
+    if-ne p3, v1, :cond_4c
+
+    .line 254
     iget v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mDoublePressOnPowerBehavior:I
 
     invoke-direct {p0, p1, p2, v0, v1}, Lcom/android/server/policy/PhoneWindowManager;->powerMultiPressAction(JZI)V
 
-    goto :goto_0
+    goto :goto_b7
 
-    :cond_1
-    const/4 v2, 0x3
+    .line 255
+    :cond_4c
+    const/4 v3, 0x3
 
-    if-ne p3, v2, :cond_2
+    if-ne p3, v3, :cond_55
 
+    .line 256
     iget v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mTriplePressOnPowerBehavior:I
 
     invoke-direct {p0, p1, p2, v0, v1}, Lcom/android/server/policy/PhoneWindowManager;->powerMultiPressAction(JZI)V
 
-    goto :goto_0
+    goto :goto_b7
 
-    :cond_2
-    if-eqz v0, :cond_6
+    .line 257
+    :cond_55
+    if-eqz v0, :cond_ad
 
-    if-nez p4, :cond_6
+    if-nez p4, :cond_ad
 
-    iget-object v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mSideFpsEventHandler:Lcom/android/server/policy/SideFpsEventHandler;
+    .line 258
+    iget-object v4, p0, Lcom/android/server/policy/PhoneWindowManager;->mSideFpsEventHandler:Lcom/android/server/policy/SideFpsEventHandler;
 
-    invoke-virtual {v2, p1, p2}, Lcom/android/server/policy/SideFpsEventHandler;->onSinglePressDetected(J)Z
+    invoke-virtual {v4, p1, p2}, Lcom/android/server/policy/SideFpsEventHandler;->onSinglePressDetected(J)Z
 
-    move-result v2
+    move-result v4
 
-    if-eqz v2, :cond_3
+    if-eqz v4, :cond_67
 
-    const-string v2, "Suppressing power key because the user is interacting with the fingerprint sensor"
+    .line 259
+    const-string v1, "Suppressing power key because the user is interacting with the fingerprint sensor"
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    .line 260
     return-void
 
-    :cond_3
-    iget v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mShortPressOnPowerBehavior:I
+    .line 262
+    :cond_67
+    iget v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mShortPressOnPowerBehavior:I
 
-    const/4 v2, 0x1
+    const/4 v4, 0x0
 
-    const/4 v3, 0x0
+    const/4 v5, 0x1
 
-    packed-switch v1, :pswitch_data_0
+    if-eq v2, v5, :cond_a9
 
-    goto :goto_0
+    if-eq v2, v1, :cond_a5
 
-    :pswitch_0
+    if-eq v2, v3, :cond_9a
+
+    const/4 v1, 0x4
+
+    if-eq v2, v1, :cond_96
+
+    const/4 v1, 0x5
+
+    if-eq v2, v1, :cond_78
+
+    .line 265
+    return-void
+
+    .line 282
+    :cond_78
     iget-boolean v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mDismissImeOnBackKeyPressed:Z
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_92
 
+    .line 283
     iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mInputMethodManagerInternal:Lcom/android/server/inputmethod/InputMethodManagerInternal;
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_87
 
+    .line 284
     const-class v1, Lcom/android/server/inputmethod/InputMethodManagerInternal;
 
     invoke-static {v1}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
@@ -4430,65 +4530,92 @@
 
     iput-object v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mInputMethodManagerInternal:Lcom/android/server/inputmethod/InputMethodManagerInternal;
 
-    :cond_4
+    .line 286
+    :cond_87
     iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mInputMethodManagerInternal:Lcom/android/server/inputmethod/InputMethodManagerInternal;
 
-    if-eqz v1, :cond_6
+    .line 287
+    .local v1, "inputMethodManagerInternal":Lcom/android/server/inputmethod/InputMethodManagerInternal;
+    if-eqz v1, :cond_91
 
+    .line 288
     const/16 v2, 0x10
 
     invoke-virtual {v1, v2}, Lcom/android/server/inputmethod/InputMethodManagerInternal;->hideCurrentInputMethod(I)V
 
-    goto :goto_0
+    .line 289
+    return-void
 
-    :cond_5
+    .line 291
+    :cond_91
+    return-void
+
+    .line 293
+    .end local v1    # "inputMethodManagerInternal":Lcom/android/server/inputmethod/InputMethodManagerInternal;
+    :cond_92
     invoke-direct {p0}, Lcom/android/server/policy/PhoneWindowManager;->shortPressPowerGoHome()V
 
-    goto :goto_0
+    .line 294
+    return-void
 
-    :pswitch_1
+    .line 279
+    :cond_96
     invoke-direct {p0}, Lcom/android/server/policy/PhoneWindowManager;->shortPressPowerGoHome()V
 
-    goto :goto_0
+    .line 280
+    return-void
 
-    :pswitch_2
-    invoke-direct {p0, p1, p2, v2}, Lcom/android/server/policy/PhoneWindowManager;->sleepDefaultDisplayFromPowerButton(JI)Z
+    .line 273
+    :cond_9a
+    invoke-direct {p0, p1, p2, v5}, Lcom/android/server/policy/PhoneWindowManager;->sleepDefaultDisplayFromPowerButton(JI)Z
 
     move-result v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_a4
 
-    invoke-virtual {p0, v3}, Lcom/android/server/policy/PhoneWindowManager;->launchHomeFromHotKey(I)V
+    .line 274
+    invoke-virtual {p0, v4}, Lcom/android/server/policy/PhoneWindowManager;->launchHomeFromHotKey(I)V
 
-    goto :goto_0
-
-    :pswitch_3
-    invoke-direct {p0, p1, p2, v2}, Lcom/android/server/policy/PhoneWindowManager;->sleepDefaultDisplayFromPowerButton(JI)Z
-
-    goto :goto_0
-
-    :pswitch_4
-    invoke-direct {p0, p1, p2, v3}, Lcom/android/server/policy/PhoneWindowManager;->sleepDefaultDisplayFromPowerButton(JI)Z
-
-    nop
-
-    :cond_6
-    :goto_0
-    :pswitch_5
+    .line 275
     return-void
 
-    nop
+    .line 277
+    :cond_a4
+    return-void
 
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
+    .line 270
+    :cond_a5
+    invoke-direct {p0, p1, p2, v5}, Lcom/android/server/policy/PhoneWindowManager;->sleepDefaultDisplayFromPowerButton(JI)Z
+
+    .line 271
+    return-void
+
+    .line 267
+    :cond_a9
+    invoke-direct {p0, p1, p2, v4}, Lcom/android/server/policy/PhoneWindowManager;->sleepDefaultDisplayFromPowerButton(JI)Z
+
+    .line 268
+    return-void
+
+    .line 296
+    :cond_ad
+    iget v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mResolvedLongPressOnPowerBehavior:I
+
+    const/4 v2, 0x6
+
+    if-ne v1, v2, :cond_b7
+
+    if-eqz p4, :cond_b7
+
+    .line 297
+    invoke-direct {p0, p1, p2}, Lcom/android/server/policy/PhoneWindowManager;->wakeUpFromPowerKey(J)V
+
+    .line 299
+    :cond_b7
+    :goto_b7
+    return-void
 .end method
+
 
 .method private powerVeryLongPress()V
     .locals 2
@@ -9709,6 +9836,24 @@
     invoke-direct {v3, v4, v5, v6}, Lcom/android/server/policy/SideFpsEventHandler;-><init>(Landroid/content/Context;Landroid/os/Handler;Landroid/os/PowerManager;)V
 
     iput-object v3, v0, Lcom/android/server/policy/PhoneWindowManager;->mSideFpsEventHandler:Lcom/android/server/policy/SideFpsEventHandler;
+    
+    const-string v1, "camera"
+
+    invoke-virtual {v8, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/hardware/camera2/CameraManager;
+
+    iput-object v1, v0, Lcom/android/server/policy/PhoneWindowManager;->mCameraManager:Landroid/hardware/camera2/CameraManager;
+    
+    new-instance v1, Lcom/android/server/policy/PhoneWindowManager$TorchCallback;
+
+    invoke-direct {v1, v0}, Lcom/android/server/policy/PhoneWindowManager$TorchCallback;-><init>(Lcom/android/server/policy/PhoneWindowManager;)V
+
+    iput-object v1, v0, Lcom/android/server/policy/PhoneWindowManager;->mTorchCallback:Landroid/hardware/camera2/CameraManager$TorchCallback;
+    
+    invoke-virtual {v0}, Lcom/android/server/policy/PhoneWindowManager;->registerCameraManagerCallbacks()V
 
     return-void
 .end method
@@ -14150,6 +14295,8 @@
 
 .method public updateSettings()V
     .locals 10
+    
+    invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->setTorchPower()V
 
     iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mContext:Landroid/content/Context;
 
@@ -14473,4 +14620,355 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
+.end method
+
+.method public setTorchPower()V
+    .locals 3
+
+    iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "tweaks_torch_power"
+
+    const/4 v0, 0x0
+
+    invoke-static {v1, v2, v0}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+    
+    sput-boolean v0, Lcom/android/server/policy/PhoneWindowManager;->mTorchPowerScreenOff:Z
+    
+    iput-boolean v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mSupportLongPressPowerWhenNonInteractive:Z
+
+    return-void
+.end method
+
+
+.method public getCameraId()Ljava/lang/String;
+    .locals 8
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/hardware/camera2/CameraAccessException;
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mCameraManager:Landroid/hardware/camera2/CameraManager;
+
+    invoke-virtual {v0}, Landroid/hardware/camera2/CameraManager;->getCameraIdList()[Ljava/lang/String;
+
+    move-result-object v0
+
+    array-length v1, v0
+
+    const/4 v2, 0x0
+
+    :goto_0
+    const/4 v3, 0x0
+
+    if-ge v2, v1, :cond_1
+
+    aget-object v4, v0, v2
+
+    :try_start_0
+    iget-object v5, p0, Lcom/android/server/policy/PhoneWindowManager;->mCameraManager:Landroid/hardware/camera2/CameraManager;
+
+    invoke-virtual {v5, v4}, Landroid/hardware/camera2/CameraManager;->getCameraCharacteristics(Ljava/lang/String;)Landroid/hardware/camera2/CameraCharacteristics;
+
+    move-result-object v5
+
+    sget-object v6, Landroid/hardware/camera2/CameraCharacteristics;->FLASH_INFO_AVAILABLE:Landroid/hardware/camera2/CameraCharacteristics$Key;
+
+    invoke-virtual {v5, v6}, Landroid/hardware/camera2/CameraCharacteristics;->get(Landroid/hardware/camera2/CameraCharacteristics$Key;)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Ljava/lang/Boolean;
+
+    sget-object v7, Landroid/hardware/camera2/CameraCharacteristics;->LENS_FACING:Landroid/hardware/camera2/CameraCharacteristics$Key;
+
+    invoke-virtual {v5, v7}, Landroid/hardware/camera2/CameraCharacteristics;->get(Landroid/hardware/camera2/CameraCharacteristics$Key;)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Ljava/lang/Integer;
+
+    if-eqz v6, :cond_0
+
+    invoke-virtual {v6}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    if-eqz v5, :cond_0
+
+    invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
+
+    move-result v3
+    :try_end_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+
+    const/4 v5, 0x1
+
+    if-ne v3, v5, :cond_0
+
+    return-object v4
+
+    :cond_0
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :catch_0
+    move-exception p0
+
+    const-string v0, "PhoneWindowManager"
+
+    const-string v1, "Couldn\'t get torch mode characteristics."
+
+    invoke-static {v0, v1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :cond_1
+    return-object v3
+.end method
+
+.method public registerCameraManagerCallbacks()V
+    .locals 2
+
+    const-string v0, "mwilky"
+
+    const-string v1, "registerCameraManagerCallbacks() called."
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mCameraManager:Landroid/hardware/camera2/CameraManager;
+
+    iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mTorchCallback:Landroid/hardware/camera2/CameraManager$TorchCallback;
+
+    iget-object p0, p0, Lcom/android/server/policy/PhoneWindowManager;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {v0, v1, p0}, Landroid/hardware/camera2/CameraManager;->registerTorchCallback(Landroid/hardware/camera2/CameraManager$TorchCallback;Landroid/os/Handler;)V
+
+    return-void
+.end method
+
+.method static synthetic getTorchEnabled(Lcom/android/server/policy/PhoneWindowManager;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/server/policy/PhoneWindowManager;->isTorchEnabled:Z
+
+    return p0
+.end method
+
+.method static synthetic setTorchEnabled(Lcom/android/server/policy/PhoneWindowManager;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/policy/PhoneWindowManager;->isTorchEnabled:Z
+
+    return p1
+.end method
+
+.method public setTorchMode(Z)Z
+    .locals 3
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "setTorchMode() called: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "PhoneWindowManager"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    monitor-enter p0
+
+    :try_start_0
+    iget-boolean v0, p0, Lcom/android/server/policy/PhoneWindowManager;->isTorchEnabled:Z
+
+    const/4 v1, 0x0
+
+    if-eq v0, p1, :cond_2
+
+    iput-boolean p1, p0, Lcom/android/server/policy/PhoneWindowManager;->isTorchEnabled:Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :try_start_1
+    invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->getCameraId()Ljava/lang/String;
+
+    move-result-object v0
+
+    iget-object v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mCameraManager:Landroid/hardware/camera2/CameraManager;
+
+    if-eqz v0, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    const-string v0, "0"
+
+    :goto_0
+    invoke-virtual {v2, v0, p1}, Landroid/hardware/camera2/CameraManager;->setTorchMode(Ljava/lang/String;Z)V
+    :try_end_1
+    .catch Landroid/hardware/camera2/CameraAccessException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    const/4 p1, 0x1
+
+    :try_start_2
+    monitor-exit p0
+
+    return p1
+
+    :catch_0
+    move-exception p1
+
+    const-string v0, "PhoneWindowManager"
+
+    const-string v2, "CameraAccessException: Couldn\'t set torch mode."
+
+    invoke-static {v0, v2, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    iput-boolean v1, p0, Lcom/android/server/policy/PhoneWindowManager;->isTorchEnabled:Z
+
+    monitor-exit p0
+
+    return v1
+
+    :cond_2
+    monitor-exit p0
+
+    return v1
+
+    :catchall_0
+    move-exception p1
+
+    monitor-exit p0
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    throw p1
+.end method
+
+.method public toggleTorchMode()V
+    .registers 2
+
+    .line 111
+    iget-boolean v0, p0, Lcom/android/server/policy/PhoneWindowManager;->isTorchEnabled:Z
+
+    if-eqz v0, :cond_9
+
+    .line 112
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/server/policy/PhoneWindowManager;->setTorchMode(Z)Z
+
+    goto :goto_d
+
+    .line 114
+    :cond_9
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0}, Lcom/android/server/policy/PhoneWindowManager;->setTorchMode(Z)Z
+
+    .line 117
+    :goto_d
+    return-void
+.end method
+
+.method public isDozeMode()Z
+    .locals 2
+
+    invoke-static {}, Lcom/android/server/policy/PhoneWindowManager;->getDreamManager()Landroid/service/dreams/IDreamManager;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_0
+
+    :try_start_0
+    invoke-interface {v0}, Landroid/service/dreams/IDreamManager;->isDreaming()Z
+
+    move-result v0
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    return v0
+
+    :catch_0
+    move-exception v0
+
+    return v1
+
+    :cond_0
+    nop
+
+    return v1
+.end method
+
+.method public skipWake()Z
+    .registers 4
+
+    .line 115
+    invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->isScreenOn()Z
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    const-string v2, "mwilky"
+
+    if-nez v0, :cond_f
+
+    .line 116
+    const-string v0, "screenon false - return false"
+
+    invoke-static {v2, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 117
+    return v1
+
+    .line 119
+    :cond_f
+    invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->isDozeMode()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1b
+
+    .line 120
+    const-string v0, "doze true - return false"
+
+    invoke-static {v2, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 121
+    return v1
+
+    .line 123
+    :cond_1b
+    const-string v0, "none - return true"
+
+    invoke-static {v2, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 124
+    const/4 v0, 0x1
+
+    return v0
 .end method
