@@ -1612,4 +1612,5 @@
     <item type="id" name="zero_corner_chip" />
     <item type="id" name="zerostate" />
     <item type="id" name="zerostate_icon_image" />
+    <item type="id" name="clock_right" />
 </resources>

@@ -402,7 +402,7 @@
 .end method
 
 .method private setShown(Z)V
-    .locals 3
+    .locals 4
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/HeadsUpAppearanceController;->mShown:Z
 
@@ -425,13 +425,21 @@
     iget-object p1, p0, Lcom/android/systemui/statusbar/phone/HeadsUpAppearanceController;->mHeadsUpStatusBarView:Lcom/android/systemui/statusbar/HeadsUpStatusBarView;
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/HeadsUpAppearanceController;->show(Landroid/view/View;)V
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/phone/HeadsUpAppearanceController;->mClockView:Landroid/view/View;
-
+    
     const/4 v2, 0x4
+    
+    sget v3, Lcom/android/mwilky/Renovate;->mClockPosition:I
+    
+    if-eqz v3, :cond_stock
+    
+    goto :goto_mw
+
+    :cond_stock
+    iget-object p1, p0, Lcom/android/systemui/statusbar/phone/HeadsUpAppearanceController;->mClockView:Landroid/view/View;
 
     invoke-direct {p0, p1, v2}, Lcom/android/systemui/statusbar/phone/HeadsUpAppearanceController;->hide(Landroid/view/View;I)V
 
+    :goto_mw
     iget-object p1, p0, Lcom/android/systemui/statusbar/phone/HeadsUpAppearanceController;->mCenteredIconView:Landroid/view/View;
 
     invoke-virtual {p1}, Landroid/view/View;->getVisibility()I
@@ -454,10 +462,18 @@
     goto :goto_0
 
     :cond_1
+    sget v3, Lcom/android/mwilky/Renovate;->mClockPosition:I
+    
+    if-eqz v3, :cond_stock2
+    
+    goto :goto_mw2
+    
+    :cond_stock2
     iget-object p1, p0, Lcom/android/systemui/statusbar/phone/HeadsUpAppearanceController;->mClockView:Landroid/view/View;
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/HeadsUpAppearanceController;->show(Landroid/view/View;)V
 
+    :goto_mw2
     iget-object p1, p0, Lcom/android/systemui/statusbar/phone/HeadsUpAppearanceController;->mCenteredIconView:Landroid/view/View;
 
     invoke-virtual {p1}, Landroid/view/View;->getVisibility()I

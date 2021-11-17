@@ -23,7 +23,7 @@
 
 .field private mCenteredIconArea:Landroid/view/View;
 
-.field private mClockView:Landroid/view/View;
+.field private mClockController:Lcom/android/systemui/statusbar/phone/ClockController;
 
 .field private final mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
 
@@ -364,7 +364,15 @@
 .method private hideClock(Z)V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/CollapsedStatusBarFragment;->mClockView:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/CollapsedStatusBarFragment;->mClockController:Lcom/android/systemui/statusbar/phone/ClockController;
+    
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/ClockController;->updateActiveClock()V
+    
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/ClockController;->getClock()Lcom/android/systemui/statusbar/policy/Clock;
+
+    move-result-object v0
+    
+    if-eqz v0, :cond_exit
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/CollapsedStatusBarFragment;->clockHiddenMode()I
 
@@ -372,6 +380,7 @@
 
     invoke-direct {p0, v0, v1, p1}, Lcom/android/systemui/statusbar/phone/CollapsedStatusBarFragment;->animateHiddenState(Landroid/view/View;IZ)V
 
+    :cond_exit
     return-void
 .end method
 
@@ -585,10 +594,17 @@
 .method private showClock(Z)V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/CollapsedStatusBarFragment;->mClockView:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/CollapsedStatusBarFragment;->mClockController:Lcom/android/systemui/statusbar/phone/ClockController;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/ClockController;->getClock()Lcom/android/systemui/statusbar/policy/Clock;
+
+    move-result-object v0
+    
+    if-eqz v0, :cond_exit
 
     invoke-direct {p0, v0, p1}, Lcom/android/systemui/statusbar/phone/CollapsedStatusBarFragment;->animateShow(Landroid/view/View;Z)V
 
+    :cond_exit
     return-void
 .end method
 
@@ -950,11 +966,21 @@
 
     if-nez p2, :cond_7
 
-    iget-object p2, p0, Lcom/android/systemui/statusbar/phone/CollapsedStatusBarFragment;->mClockView:Landroid/view/View;
+    iget-object p2, p0, Lcom/android/systemui/statusbar/phone/CollapsedStatusBarFragment;->mClockController:Lcom/android/systemui/statusbar/phone/ClockController;
+    
+    invoke-virtual {p2}, Lcom/android/systemui/statusbar/phone/ClockController;->updateActiveClock()V
+
+    invoke-virtual {p2}, Lcom/android/systemui/statusbar/phone/ClockController;->getClock()Lcom/android/systemui/statusbar/policy/Clock;
+
+    move-result-object p2
+    
+    if-eqz p2, :cond_9
 
     invoke-virtual {p2}, Landroid/view/View;->getVisibility()I
 
     move-result p2
+    
+    if-eqz p2, :cond_9
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/CollapsedStatusBarFragment;->clockHiddenMode()I
 
@@ -1481,13 +1507,11 @@
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/phone/CollapsedStatusBarFragment;->mStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;
 
-    sget p2, Lcom/android/systemui/R$id;->clock:I
-
-    invoke-virtual {p1, p2}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/CollapsedStatusBarFragment;->mClockView:Landroid/view/View;
+    new-instance v0, Lcom/android/systemui/statusbar/phone/ClockController;
+    
+    invoke-direct {v0, p1}, Lcom/android/systemui/statusbar/phone/ClockController;-><init>(Landroid/view/View;)V
+    
+    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/CollapsedStatusBarFragment;->mClockController:Lcom/android/systemui/statusbar/phone/ClockController;
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/phone/CollapsedStatusBarFragment;->mStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;
 

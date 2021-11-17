@@ -10,7 +10,7 @@
 
 .field private mCenterIconSpace:Landroid/view/View;
 
-.field private mClock:Lcom/android/systemui/plugins/DarkIconDispatcher$DarkReceiver;
+.field private mClockController:Lcom/android/systemui/statusbar/phone/ClockController;
 
 .field private final mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
 
@@ -492,15 +492,7 @@
 
     invoke-interface {v1, v2}, Lcom/android/systemui/plugins/DarkIconDispatcher;->addDarkReceiver(Lcom/android/systemui/plugins/DarkIconDispatcher$DarkReceiver;)V
 
-    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/plugins/DarkIconDispatcher;
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->mClock:Lcom/android/systemui/plugins/DarkIconDispatcher$DarkReceiver;
-
-    invoke-interface {v0, v1}, Lcom/android/systemui/plugins/DarkIconDispatcher;->addDarkReceiver(Lcom/android/systemui/plugins/DarkIconDispatcher$DarkReceiver;)V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->addClockDarkReceiver()V
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->updateOrientationAndCutout()Z
 
@@ -570,10 +562,21 @@
 
     check-cast v0, Lcom/android/systemui/plugins/DarkIconDispatcher;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->mClock:Lcom/android/systemui/plugins/DarkIconDispatcher$DarkReceiver;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->mClockController:Lcom/android/systemui/statusbar/phone/ClockController;
+    
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/ClockController;->updateActiveClock()V
+    
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/ClockController;->getClock()Lcom/android/systemui/statusbar/policy/Clock;
+
+    move-result-object v1
+    
+    check-cast v1, Lcom/android/systemui/plugins/DarkIconDispatcher$DarkReceiver;
+    
+    if-eqz v1, :cond_exit
 
     invoke-interface {v0, v1}, Lcom/android/systemui/plugins/DarkIconDispatcher;->removeDarkReceiver(Lcom/android/systemui/plugins/DarkIconDispatcher$DarkReceiver;)V
 
+    :cond_exit
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->mDisplayCutout:Landroid/view/DisplayCutout;
@@ -606,15 +609,11 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->mBattery:Lcom/android/systemui/plugins/DarkIconDispatcher$DarkReceiver;
 
-    sget v0, Lcom/android/systemui/R$id;->clock:I
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/plugins/DarkIconDispatcher$DarkReceiver;
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->mClock:Lcom/android/systemui/plugins/DarkIconDispatcher$DarkReceiver;
+    new-instance v0, Lcom/android/systemui/statusbar/phone/ClockController;
+    
+    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/phone/ClockController;-><init>(Landroid/view/View;)V
+    
+    iput-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->mClockController:Lcom/android/systemui/statusbar/phone/ClockController;
 
     sget v0, Lcom/android/systemui/R$id;->cutout_space_view:I
 
@@ -1024,5 +1023,34 @@
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->updateStatusBarHeight()V
 
+    return-void
+.end method
+
+.method public addClockDarkReceiver()V
+    .locals 2
+
+    const-class v0, Lcom/android/systemui/plugins/DarkIconDispatcher;
+
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/plugins/DarkIconDispatcher;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->mClockController:Lcom/android/systemui/statusbar/phone/ClockController;
+    
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/ClockController;->updateActiveClock()V
+    
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/ClockController;->getClock()Lcom/android/systemui/statusbar/policy/Clock;
+
+    move-result-object v1
+    
+    check-cast v1, Lcom/android/systemui/plugins/DarkIconDispatcher$DarkReceiver;
+    
+    if-eqz v1, :cond_exit
+
+    invoke-interface {v0, v1}, Lcom/android/systemui/plugins/DarkIconDispatcher;->addDarkReceiver(Lcom/android/systemui/plugins/DarkIconDispatcher$DarkReceiver;)V
+
+	:cond_exit
     return-void
 .end method
