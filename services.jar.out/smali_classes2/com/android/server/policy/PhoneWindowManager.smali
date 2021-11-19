@@ -24,6 +24,8 @@
 
 
 # static fields
+.field public static mBlockPowerMenuKeyguard:Z
+
 .field static final LONG_PRESS_POWER_TORCH:I = 0x6
 
 .field private static final MSG_TOGGLE_TORCH:I = 0x19
@@ -4185,7 +4187,24 @@
 
     :pswitch_3
     iput-boolean v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mPowerKeyHandled:Z
+    
+    sget-boolean v0, Lcom/android/server/policy/PhoneWindowManager;->mBlockPowerMenuKeyguard:Z
 
+    if-eqz v0, :cond_mw
+
+    invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->isScreenOn()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_mw
+
+    invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->keyguardOn()Z
+
+    move-result v0
+
+    if-nez v0, :cond_exit
+
+    :cond_mw
     const-string v1, "Power - Long Press - Global Actions"
 
     invoke-direct {p0, v2, v2, v1}, Lcom/android/server/policy/PhoneWindowManager;->performHapticFeedback(IZLjava/lang/String;)Z
@@ -4226,6 +4245,7 @@
     :pswitch_4
     nop
 
+	:cond_exit
     :goto_1
     return-void
 
@@ -4618,7 +4638,7 @@
 
 
 .method private powerVeryLongPress()V
-    .locals 2
+    .locals 3
 
     iget v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mVeryLongPressOnPowerBehavior:I
 
@@ -4635,6 +4655,23 @@
 
     const-string v1, "Power - Very Long Press - Show Global Actions"
 
+    sget-boolean v2, Lcom/android/server/policy/PhoneWindowManager;->mBlockPowerMenuKeyguard:Z
+
+    if-eqz v2, :cond_mw
+
+    invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->isScreenOn()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_mw
+
+    invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->keyguardOn()Z
+
+    move-result v2
+
+    if-nez v2, :cond_exit
+
+    :cond_mw
     invoke-direct {p0, v0, v0, v1}, Lcom/android/server/policy/PhoneWindowManager;->performHapticFeedback(IZLjava/lang/String;)Z
 
     invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->showGlobalActions()V
@@ -4644,6 +4681,7 @@
     :pswitch_1
     nop
 
+	:cond_exit
     :goto_0
     return-void
 
@@ -14296,6 +14334,8 @@
 .method public updateSettings()V
     .locals 10
     
+    invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->setBlockPowerMenuKeyguard()V
+    
     invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->setTorchPower()V
 
     iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mContext:Landroid/content/Context;
@@ -14971,4 +15011,26 @@
     const/4 v0, 0x1
 
     return v0
+.end method
+
+.method public setBlockPowerMenuKeyguard()V
+	.locals 3
+
+    iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "tweaks_block_power_menu_keyguard"
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/server/policy/PhoneWindowManager;->mBlockPowerMenuKeyguard:Z
+
+    return-void   
 .end method
