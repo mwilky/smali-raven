@@ -51,8 +51,6 @@
 
 .field private mSecondsHandler:Landroid/os/Handler;
 
-.field private mShowSeconds:Z
-
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -262,7 +260,7 @@
 
     move-result-object v0
 
-    iget-boolean v2, p0, Lcom/android/systemui/statusbar/policy/Clock;->mShowSeconds:Z
+    sget-boolean v2, Lcom/android/mwilky/Renovate;->mClockShowSeconds:Z
 
     if-eqz v2, :cond_1
 
@@ -553,10 +551,10 @@
     return-void
 .end method
 
-.method private updateShowSeconds()V
+.method public updateShowSeconds()V
     .locals 6
 
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/Clock;->mShowSeconds:Z
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mClockShowSeconds:Z
 
     if-eqz v0, :cond_1
 
@@ -926,7 +924,7 @@
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/Clock;->updateClockVisibility()V
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/Clock;->updateShowSeconds()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/Clock;->updateShowSeconds()V
 
     return-void
 .end method
@@ -1156,16 +1154,6 @@
 
     iput-boolean v0, p0, Lcom/android/systemui/statusbar/policy/Clock;->mClockVisibleByUser:Z
 
-    const/4 v0, 0x0
-
-    const-string v1, "show_seconds"
-
-    invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/policy/Clock;->mShowSeconds:Z
-
     const-string v0, "visibility"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
@@ -1223,12 +1211,6 @@
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    iget-boolean v1, p0, Lcom/android/systemui/statusbar/policy/Clock;->mShowSeconds:Z
-
-    const-string v2, "show_seconds"
-
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
-
     invoke-virtual {p0}, Landroid/widget/TextView;->getVisibility()I
 
     move-result p0
@@ -1243,27 +1225,6 @@
 .method public onTuningChanged(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
 
-    const-string v0, "clock_seconds"
-
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/4 p1, 0x0
-
-    invoke-static {p2, p1}, Lcom/android/systemui/tuner/TunerService;->parseIntegerSwitch(Ljava/lang/String;Z)Z
-
-    move-result p1
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/policy/Clock;->mShowSeconds:Z
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/Clock;->updateShowSeconds()V
-
-    goto :goto_0
-
-    :cond_0
     const-string v0, "icon_blacklist"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
