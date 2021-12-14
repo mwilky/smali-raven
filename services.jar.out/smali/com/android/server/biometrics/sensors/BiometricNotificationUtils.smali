@@ -128,19 +128,19 @@
     :cond_0
     sput-wide v8, Lcom/android/server/biometrics/sensors/BiometricNotificationUtils;->sLastAlertTime:J
 
-    const v0, 0x104039d
+    const v0, 0x104039f
 
     invoke-virtual {v7, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v12
 
-    const v0, 0x104039e
+    const v0, 0x10403a0
 
     invoke-virtual {v7, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v13
 
-    const v0, 0x104039c
+    const v0, 0x104039e
 
     invoke-virtual {v7, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -290,7 +290,7 @@
 
     nop
 
-    const v0, 0x104036c
+    const v0, 0x104036d
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -298,7 +298,7 @@
 
     nop
 
-    const v0, 0x104036d
+    const v0, 0x104036e
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -306,7 +306,7 @@
 
     nop
 
-    const v0, 0x104036b
+    const v0, 0x104036c
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

@@ -26,6 +26,8 @@
 
 .field private final mHandler:Landroid/os/Handler;
 
+.field private final mHbmActive:Landroid/util/SparseBooleanArray;
+
 .field private final mHbmMode:Landroid/util/SparseIntArray;
 
 .field private final mInjector:Lcom/android/server/display/DisplayModeDirector$Injector;
@@ -46,6 +48,12 @@
     invoke-direct {v0}, Landroid/util/SparseIntArray;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/display/DisplayModeDirector$HbmObserver;->mHbmMode:Landroid/util/SparseIntArray;
+
+    new-instance v0, Landroid/util/SparseBooleanArray;
+
+    invoke-direct {v0}, Landroid/util/SparseBooleanArray;-><init>()V
+
+    iput-object v0, p0, Lcom/android/server/display/DisplayModeDirector$HbmObserver;->mHbmActive:Landroid/util/SparseBooleanArray;
 
     iput-object p1, p0, Lcom/android/server/display/DisplayModeDirector$HbmObserver;->mInjector:Lcom/android/server/display/DisplayModeDirector$Injector;
 
@@ -89,105 +97,144 @@
 .end method
 
 .method private recalculateVotesForDisplay(I)V
-    .locals 7
+    .locals 8
 
-    iget-object v0, p0, Lcom/android/server/display/DisplayModeDirector$HbmObserver;->mHbmMode:Landroid/util/SparseIntArray;
+    const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    iget-object v1, p0, Lcom/android/server/display/DisplayModeDirector$HbmObserver;->mHbmActive:Landroid/util/SparseBooleanArray;
 
-    invoke-virtual {v0, p1, v1}, Landroid/util/SparseIntArray;->get(II)I
+    const/4 v2, 0x0
 
-    move-result v0
+    invoke-virtual {v1, p1, v2}, Landroid/util/SparseBooleanArray;->get(IZ)Z
 
-    const/4 v1, 0x0
+    move-result v1
+
+    const/4 v3, 0x2
+
+    if-eqz v1, :cond_5
+
+    iget-object v1, p0, Lcom/android/server/display/DisplayModeDirector$HbmObserver;->mHbmMode:Landroid/util/SparseIntArray;
+
+    invoke-virtual {v1, p1, v2}, Landroid/util/SparseIntArray;->get(II)I
+
+    move-result v1
 
     const/4 v2, 0x1
 
-    if-ne v0, v2, :cond_2
+    if-ne v1, v2, :cond_3
 
-    iget v3, p0, Lcom/android/server/display/DisplayModeDirector$HbmObserver;->mRefreshRateInHbmSunlight:I
+    iget v4, p0, Lcom/android/server/display/DisplayModeDirector$HbmObserver;->mRefreshRateInHbmSunlight:I
 
-    if-lez v3, :cond_0
+    if-lez v4, :cond_0
 
-    int-to-float v2, v3
+    int-to-float v2, v4
 
-    int-to-float v3, v3
+    int-to-float v4, v4
 
-    invoke-static {v2, v3}, Lcom/android/server/display/DisplayModeDirector$Vote;->forRefreshRates(FF)Lcom/android/server/display/DisplayModeDirector$Vote;
+    invoke-static {v2, v4}, Lcom/android/server/display/DisplayModeDirector$Vote;->forRefreshRates(FF)Lcom/android/server/display/DisplayModeDirector$Vote;
 
-    move-result-object v1
+    move-result-object v0
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_0
-    iget-object v3, p0, Lcom/android/server/display/DisplayModeDirector$HbmObserver;->mDisplayManagerInternal:Landroid/hardware/display/DisplayManagerInternal;
+    iget-object v4, p0, Lcom/android/server/display/DisplayModeDirector$HbmObserver;->mDisplayManagerInternal:Landroid/hardware/display/DisplayManagerInternal;
 
-    invoke-virtual {v3, p1}, Landroid/hardware/display/DisplayManagerInternal;->getRefreshRateLimitations(I)Ljava/util/List;
+    invoke-virtual {v4, p1}, Landroid/hardware/display/DisplayManagerInternal;->getRefreshRateLimitations(I)Ljava/util/List;
 
-    move-result-object v3
+    move-result-object v4
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
     :goto_0
-    if-eqz v3, :cond_2
+    if-eqz v4, :cond_2
 
-    invoke-interface {v3}, Ljava/util/List;->size()I
+    invoke-interface {v4}, Ljava/util/List;->size()I
 
-    move-result v5
+    move-result v6
 
-    if-ge v4, v5, :cond_2
+    if-ge v5, v6, :cond_2
 
-    invoke-interface {v3, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v4, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v6
 
-    check-cast v5, Landroid/hardware/display/DisplayManagerInternal$RefreshRateLimitation;
+    check-cast v6, Landroid/hardware/display/DisplayManagerInternal$RefreshRateLimitation;
 
-    iget v6, v5, Landroid/hardware/display/DisplayManagerInternal$RefreshRateLimitation;->type:I
+    iget v7, v6, Landroid/hardware/display/DisplayManagerInternal$RefreshRateLimitation;->type:I
 
-    if-ne v6, v2, :cond_1
+    if-ne v7, v2, :cond_1
 
-    iget-object v2, v5, Landroid/hardware/display/DisplayManagerInternal$RefreshRateLimitation;->range:Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;
+    iget-object v2, v6, Landroid/hardware/display/DisplayManagerInternal$RefreshRateLimitation;->range:Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;
 
     iget v2, v2, Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;->min:F
 
-    iget-object v6, v5, Landroid/hardware/display/DisplayManagerInternal$RefreshRateLimitation;->range:Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;
+    iget-object v7, v6, Landroid/hardware/display/DisplayManagerInternal$RefreshRateLimitation;->range:Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;
 
-    iget v6, v6, Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;->max:F
+    iget v7, v7, Landroid/hardware/display/DisplayManagerInternal$RefreshRateRange;->max:F
 
-    invoke-static {v2, v6}, Lcom/android/server/display/DisplayModeDirector$Vote;->forRefreshRates(FF)Lcom/android/server/display/DisplayModeDirector$Vote;
+    invoke-static {v2, v7}, Lcom/android/server/display/DisplayModeDirector$Vote;->forRefreshRates(FF)Lcom/android/server/display/DisplayModeDirector$Vote;
 
-    move-result-object v1
+    move-result-object v0
 
     goto :goto_1
 
     :cond_1
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v5, v5, 0x1
 
     goto :goto_0
 
     :cond_2
     :goto_1
-    const/4 v2, 0x2
-
-    if-ne v0, v2, :cond_3
-
-    iget v3, p0, Lcom/android/server/display/DisplayModeDirector$HbmObserver;->mRefreshRateInHbmHdr:I
-
-    if-lez v3, :cond_3
-
-    int-to-float v4, v3
-
-    int-to-float v3, v3
-
-    invoke-static {v4, v3}, Lcom/android/server/display/DisplayModeDirector$Vote;->forRefreshRates(FF)Lcom/android/server/display/DisplayModeDirector$Vote;
-
-    move-result-object v1
+    goto :goto_2
 
     :cond_3
-    iget-object v3, p0, Lcom/android/server/display/DisplayModeDirector$HbmObserver;->mBallotBox:Lcom/android/server/display/DisplayModeDirector$BallotBox;
+    if-ne v1, v3, :cond_4
 
-    invoke-interface {v3, p1, v2, v1}, Lcom/android/server/display/DisplayModeDirector$BallotBox;->vote(IILcom/android/server/display/DisplayModeDirector$Vote;)V
+    iget v2, p0, Lcom/android/server/display/DisplayModeDirector$HbmObserver;->mRefreshRateInHbmHdr:I
+
+    if-lez v2, :cond_4
+
+    int-to-float v4, v2
+
+    int-to-float v2, v2
+
+    invoke-static {v4, v2}, Lcom/android/server/display/DisplayModeDirector$Vote;->forRefreshRates(FF)Lcom/android/server/display/DisplayModeDirector$Vote;
+
+    move-result-object v0
+
+    goto :goto_2
+
+    :cond_4
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "Unexpected HBM mode "
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v4, " for display ID "
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v4, "DisplayModeDirector"
+
+    invoke-static {v4, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_5
+    :goto_2
+    iget-object v1, p0, Lcom/android/server/display/DisplayModeDirector$HbmObserver;->mBallotBox:Lcom/android/server/display/DisplayModeDirector$BallotBox;
+
+    invoke-interface {v1, p1, v3, v0}, Lcom/android/server/display/DisplayModeDirector$BallotBox;->vote(IILcom/android/server/display/DisplayModeDirector$Vote;)V
 
     return-void
 .end method
@@ -210,6 +257,24 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object v1, p0, Lcom/android/server/display/DisplayModeDirector$HbmObserver;->mHbmMode:Landroid/util/SparseIntArray;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "     mHbmActive: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v1, p0, Lcom/android/server/display/DisplayModeDirector$HbmObserver;->mHbmActive:Landroid/util/SparseBooleanArray;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -351,7 +416,7 @@
 .end method
 
 .method public onDisplayChanged(I)V
-    .locals 3
+    .locals 4
 
     iget-object v0, p0, Lcom/android/server/display/DisplayModeDirector$HbmObserver;->mInjector:Lcom/android/server/display/DisplayModeDirector$Injector;
 
@@ -366,20 +431,50 @@
     :cond_0
     iget v1, v0, Landroid/hardware/display/BrightnessInfo;->highBrightnessMode:I
 
-    iget-object v2, p0, Lcom/android/server/display/DisplayModeDirector$HbmObserver;->mHbmMode:Landroid/util/SparseIntArray;
+    if-eqz v1, :cond_1
 
-    invoke-virtual {v2, p1}, Landroid/util/SparseIntArray;->get(I)I
+    iget v2, v0, Landroid/hardware/display/BrightnessInfo;->adjustedBrightness:F
 
-    move-result v2
+    iget v3, v0, Landroid/hardware/display/BrightnessInfo;->highBrightnessTransitionPoint:F
 
-    if-ne v1, v2, :cond_1
+    cmpl-float v2, v2, v3
+
+    if-lez v2, :cond_1
+
+    const/4 v2, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v2, 0x0
+
+    :goto_0
+    iget-object v3, p0, Lcom/android/server/display/DisplayModeDirector$HbmObserver;->mHbmMode:Landroid/util/SparseIntArray;
+
+    invoke-virtual {v3, p1}, Landroid/util/SparseIntArray;->get(I)I
+
+    move-result v3
+
+    if-ne v1, v3, :cond_2
+
+    iget-object v3, p0, Lcom/android/server/display/DisplayModeDirector$HbmObserver;->mHbmActive:Landroid/util/SparseBooleanArray;
+
+    invoke-virtual {v3, p1}, Landroid/util/SparseBooleanArray;->get(I)Z
+
+    move-result v3
+
+    if-ne v2, v3, :cond_2
 
     return-void
 
-    :cond_1
-    iget-object v2, p0, Lcom/android/server/display/DisplayModeDirector$HbmObserver;->mHbmMode:Landroid/util/SparseIntArray;
+    :cond_2
+    iget-object v3, p0, Lcom/android/server/display/DisplayModeDirector$HbmObserver;->mHbmMode:Landroid/util/SparseIntArray;
 
-    invoke-virtual {v2, p1, v1}, Landroid/util/SparseIntArray;->put(II)V
+    invoke-virtual {v3, p1, v1}, Landroid/util/SparseIntArray;->put(II)V
+
+    iget-object v3, p0, Lcom/android/server/display/DisplayModeDirector$HbmObserver;->mHbmActive:Landroid/util/SparseBooleanArray;
+
+    invoke-virtual {v3, p1, v2}, Landroid/util/SparseBooleanArray;->put(IZ)V
 
     invoke-direct {p0, p1}, Lcom/android/server/display/DisplayModeDirector$HbmObserver;->recalculateVotesForDisplay(I)V
 
@@ -400,6 +495,10 @@
     iget-object v0, p0, Lcom/android/server/display/DisplayModeDirector$HbmObserver;->mHbmMode:Landroid/util/SparseIntArray;
 
     invoke-virtual {v0, p1}, Landroid/util/SparseIntArray;->delete(I)V
+
+    iget-object v0, p0, Lcom/android/server/display/DisplayModeDirector$HbmObserver;->mHbmActive:Landroid/util/SparseBooleanArray;
+
+    invoke-virtual {v0, p1}, Landroid/util/SparseBooleanArray;->delete(I)V
 
     return-void
 .end method

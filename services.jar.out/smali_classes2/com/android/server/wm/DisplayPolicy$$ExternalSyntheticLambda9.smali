@@ -27,7 +27,7 @@
 
     iget-object v0, p0, Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda9;->f$0:Lcom/android/internal/policy/GestureNavigationSettingsObserver;
 
-    invoke-virtual {v0}, Lcom/android/internal/policy/GestureNavigationSettingsObserver;->unregister()V
+    invoke-virtual {v0}, Lcom/android/internal/policy/GestureNavigationSettingsObserver;->register()V
 
     return-void
 .end method

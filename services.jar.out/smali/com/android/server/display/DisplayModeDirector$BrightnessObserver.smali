@@ -1,6 +1,9 @@
 .class public Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;
-.super Landroid/database/ContentObserver;
+.super Ljava/lang/Object;
 .source "DisplayModeDirector.java"
+
+# interfaces
+.implements Landroid/hardware/display/DisplayManager$DisplayListener;
 
 
 # annotations
@@ -35,9 +38,13 @@
 
 .field private mDefaultDisplayState:I
 
+.field private final mHandler:Landroid/os/Handler;
+
 .field private mHighAmbientBrightnessThresholds:[I
 
 .field private mHighDisplayBrightnessThresholds:[I
+
+.field private final mInjector:Lcom/android/server/display/DisplayModeDirector$Injector;
 
 .field private mLightSensor:Landroid/hardware/Sensor;
 
@@ -71,12 +78,12 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/display/DisplayModeDirector;Landroid/content/Context;Landroid/os/Handler;)V
+.method constructor <init>(Lcom/android/server/display/DisplayModeDirector;Landroid/content/Context;Landroid/os/Handler;Lcom/android/server/display/DisplayModeDirector$Injector;)V
     .locals 4
 
     iput-object p1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->this$0:Lcom/android/server/display/DisplayModeDirector;
 
-    invoke-direct {p0, p3}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     new-instance v0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver$LightSensorEventListener;
 
@@ -103,6 +110,10 @@
     iput-boolean v0, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mLowPowerModeEnabled:Z
 
     iput-object p2, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mContext:Landroid/content/Context;
+
+    iput-object p3, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mHandler:Landroid/os/Handler;
+
+    iput-object p4, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mInjector:Lcom/android/server/display/DisplayModeDirector$Injector;
 
     invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -259,7 +270,7 @@
     throw v0
 .end method
 
-.method static synthetic access$1600(Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;)F
+.method static synthetic access$1500(Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;)F
     .locals 1
 
     iget v0, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mAmbientLux:F
@@ -267,7 +278,7 @@
     return v0
 .end method
 
-.method static synthetic access$1602(Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;F)F
+.method static synthetic access$1502(Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;F)F
     .locals 0
 
     iput p1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mAmbientLux:F
@@ -275,7 +286,7 @@
     return p1
 .end method
 
-.method static synthetic access$1700(Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;)[I
+.method static synthetic access$1600(Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;)[I
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mLowAmbientBrightnessThresholds:[I
@@ -283,7 +294,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1800(Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;)[I
+.method static synthetic access$1700(Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;)[I
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mHighAmbientBrightnessThresholds:[I
@@ -291,10 +302,18 @@
     return-object v0
 .end method
 
-.method static synthetic access$1900(Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;)Lcom/android/server/display/utils/AmbientFilter;
+.method static synthetic access$1800(Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;)Lcom/android/server/display/utils/AmbientFilter;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mAmbientFilter:Lcom/android/server/display/utils/AmbientFilter;
+
+    return-object v0
+.end method
+
+.method static synthetic access$1900(Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;)Landroid/os/Handler;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mHandler:Landroid/os/Handler;
 
     return-object v0
 .end method
@@ -305,6 +324,31 @@
     invoke-direct {p0}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->onBrightnessChangedLocked()V
 
     return-void
+.end method
+
+.method private getBrightness(I)I
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mInjector:Lcom/android/server/display/DisplayModeDirector$Injector;
+
+    invoke-interface {v0, p1}, Lcom/android/server/display/DisplayModeDirector$Injector;->getBrightnessInfo(I)Landroid/hardware/display/BrightnessInfo;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget v1, v0, Landroid/hardware/display/BrightnessInfo;->adjustedBrightness:F
+
+    invoke-static {v1}, Lcom/android/internal/display/BrightnessSynchronizer;->brightnessFloatToInt(F)I
+
+    move-result v1
+
+    return v1
+
+    :cond_0
+    const/4 v1, -0x1
+
+    return v1
 .end method
 
 .method private hasValidHighZone()Z
@@ -689,262 +733,216 @@
 .end method
 
 .method private restartObserver()V
-    .locals 8
+    .locals 7
 
-    iget-object v0, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mContext:Landroid/content/Context;
+    iget v0, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mRefreshRateInLowZone:I
 
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    const/4 v1, 0x0
 
-    move-result-object v0
+    if-lez v0, :cond_0
 
-    iget v1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mRefreshRateInLowZone:I
+    iget-object v0, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mLowDisplayBrightnessThresholds:[I
 
-    const/4 v2, 0x0
+    invoke-direct {p0, v0}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->hasValidThreshold([I)Z
 
-    if-lez v1, :cond_0
+    move-result v0
 
-    iget-object v1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mLowDisplayBrightnessThresholds:[I
+    iput-boolean v0, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mShouldObserveDisplayLowChange:Z
 
-    invoke-direct {p0, v1}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->hasValidThreshold([I)Z
+    iget-object v0, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mLowAmbientBrightnessThresholds:[I
 
-    move-result v1
+    invoke-direct {p0, v0}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->hasValidThreshold([I)Z
 
-    iput-boolean v1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mShouldObserveDisplayLowChange:Z
+    move-result v0
 
-    iget-object v1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mLowAmbientBrightnessThresholds:[I
-
-    invoke-direct {p0, v1}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->hasValidThreshold([I)Z
-
-    move-result v1
-
-    iput-boolean v1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mShouldObserveAmbientLowChange:Z
+    iput-boolean v0, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mShouldObserveAmbientLowChange:Z
 
     goto :goto_0
 
     :cond_0
-    iput-boolean v2, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mShouldObserveDisplayLowChange:Z
+    iput-boolean v1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mShouldObserveDisplayLowChange:Z
 
-    iput-boolean v2, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mShouldObserveAmbientLowChange:Z
+    iput-boolean v1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mShouldObserveAmbientLowChange:Z
 
     :goto_0
-    iget v1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mRefreshRateInHighZone:I
+    iget v0, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mRefreshRateInHighZone:I
 
-    if-lez v1, :cond_1
+    if-lez v0, :cond_1
 
-    iget-object v1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mHighDisplayBrightnessThresholds:[I
+    iget-object v0, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mHighDisplayBrightnessThresholds:[I
 
-    invoke-direct {p0, v1}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->hasValidThreshold([I)Z
+    invoke-direct {p0, v0}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->hasValidThreshold([I)Z
 
-    move-result v1
+    move-result v0
 
-    iput-boolean v1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mShouldObserveDisplayHighChange:Z
+    iput-boolean v0, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mShouldObserveDisplayHighChange:Z
 
-    iget-object v1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mHighAmbientBrightnessThresholds:[I
+    iget-object v0, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mHighAmbientBrightnessThresholds:[I
 
-    invoke-direct {p0, v1}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->hasValidThreshold([I)Z
+    invoke-direct {p0, v0}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->hasValidThreshold([I)Z
 
-    move-result v1
+    move-result v0
 
-    iput-boolean v1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mShouldObserveAmbientHighChange:Z
+    iput-boolean v0, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mShouldObserveAmbientHighChange:Z
 
     goto :goto_1
 
     :cond_1
-    iput-boolean v2, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mShouldObserveDisplayHighChange:Z
+    iput-boolean v1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mShouldObserveDisplayHighChange:Z
 
-    iput-boolean v2, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mShouldObserveAmbientHighChange:Z
+    iput-boolean v1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mShouldObserveAmbientHighChange:Z
 
     :goto_1
-    iget-boolean v1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mShouldObserveDisplayLowChange:Z
+    iget-boolean v0, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mShouldObserveAmbientLowChange:Z
 
-    if-nez v1, :cond_3
+    if-nez v0, :cond_3
 
-    iget-boolean v1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mShouldObserveDisplayHighChange:Z
+    iget-boolean v0, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mShouldObserveAmbientHighChange:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_2
 
     goto :goto_2
 
     :cond_2
-    iget-object v1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->this$0:Lcom/android/server/display/DisplayModeDirector;
+    const/4 v0, 0x0
 
-    invoke-static {v1}, Lcom/android/server/display/DisplayModeDirector;->access$500(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$Injector;
+    iput-object v0, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mAmbientFilter:Lcom/android/server/display/utils/AmbientFilter;
 
-    move-result-object v1
+    iput-object v0, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mLightSensor:Landroid/hardware/Sensor;
 
-    invoke-interface {v1, v0, p0}, Lcom/android/server/display/DisplayModeDirector$Injector;->unregisterBrightnessObserver(Landroid/content/ContentResolver;Landroid/database/ContentObserver;)V
-
-    goto :goto_3
+    goto :goto_5
 
     :cond_3
     :goto_2
-    iget-object v1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->this$0:Lcom/android/server/display/DisplayModeDirector;
+    iget-object v0, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mContext:Landroid/content/Context;
 
-    invoke-static {v1}, Lcom/android/server/display/DisplayModeDirector;->access$500(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$Injector;
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1, v0, p0}, Lcom/android/server/display/DisplayModeDirector$Injector;->unregisterBrightnessObserver(Landroid/content/ContentResolver;Landroid/database/ContentObserver;)V
+    const v1, 0x1040233
 
-    iget-object v1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->this$0:Lcom/android/server/display/DisplayModeDirector;
-
-    invoke-static {v1}, Lcom/android/server/display/DisplayModeDirector;->access$500(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$Injector;
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-interface {v1, v0, p0}, Lcom/android/server/display/DisplayModeDirector$Injector;->registerBrightnessObserver(Landroid/content/ContentResolver;Landroid/database/ContentObserver;)V
+    const/4 v2, 0x0
+
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_5
+
+    iget-object v3, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mSensorManager:Landroid/hardware/SensorManager;
+
+    const/4 v4, -0x1
+
+    invoke-virtual {v3, v4}, Landroid/hardware/SensorManager;->getSensorList(I)Ljava/util/List;
+
+    move-result-object v3
+
+    const/4 v4, 0x0
 
     :goto_3
-    iget-boolean v1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mShouldObserveAmbientLowChange:Z
+    invoke-interface {v3}, Ljava/util/List;->size()I
 
-    if-nez v1, :cond_5
+    move-result v5
 
-    iget-boolean v1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mShouldObserveAmbientHighChange:Z
+    if-ge v4, v5, :cond_5
 
-    if-eqz v1, :cond_4
+    invoke-interface {v3, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/hardware/Sensor;
+
+    invoke-virtual {v5}, Landroid/hardware/Sensor;->getStringType()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v1, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_4
+
+    move-object v2, v5
 
     goto :goto_4
 
     :cond_4
-    const/4 v1, 0x0
+    add-int/lit8 v4, v4, 0x1
 
-    iput-object v1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mAmbientFilter:Lcom/android/server/display/utils/AmbientFilter;
-
-    iput-object v1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mLightSensor:Landroid/hardware/Sensor;
-
-    goto :goto_7
+    goto :goto_3
 
     :cond_5
     :goto_4
-    iget-object v1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mContext:Landroid/content/Context;
+    if-nez v2, :cond_6
 
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    iget-object v3, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mSensorManager:Landroid/hardware/SensorManager;
 
-    move-result-object v1
+    const/4 v4, 0x5
 
-    const v2, 0x1040233
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v3, v4}, Landroid/hardware/SensorManager;->getDefaultSensor(I)Landroid/hardware/Sensor;
 
     move-result-object v2
 
-    const/4 v3, 0x0
-
-    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_7
-
-    iget-object v4, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mSensorManager:Landroid/hardware/SensorManager;
-
-    const/4 v5, -0x1
-
-    invoke-virtual {v4, v5}, Landroid/hardware/SensorManager;->getSensorList(I)Ljava/util/List;
-
-    move-result-object v4
-
-    const/4 v5, 0x0
-
-    :goto_5
-    invoke-interface {v4}, Ljava/util/List;->size()I
-
-    move-result v6
-
-    if-ge v5, v6, :cond_7
-
-    invoke-interface {v4, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Landroid/hardware/Sensor;
-
-    invoke-virtual {v6}, Landroid/hardware/Sensor;->getStringType()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v2, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_6
-
-    move-object v3, v6
-
-    goto :goto_6
-
     :cond_6
-    add-int/lit8 v5, v5, 0x1
+    if-eqz v2, :cond_7
 
-    goto :goto_5
+    iget-object v3, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mContext:Landroid/content/Context;
 
-    :cond_7
-    :goto_6
-    if-nez v3, :cond_8
-
-    iget-object v4, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mSensorManager:Landroid/hardware/SensorManager;
-
-    const/4 v5, 0x5
-
-    invoke-virtual {v4, v5}, Landroid/hardware/SensorManager;->getDefaultSensor(I)Landroid/hardware/Sensor;
+    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    :cond_8
-    if-eqz v3, :cond_9
+    const-string v4, "DisplayModeDirector"
 
-    iget-object v4, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-static {v4, v3}, Lcom/android/server/display/utils/AmbientFilterFactory;->createBrightnessFilter(Ljava/lang/String;Landroid/content/res/Resources;)Lcom/android/server/display/utils/AmbientFilter;
 
     move-result-object v4
 
-    const-string v5, "DisplayModeDirector"
+    iput-object v4, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mAmbientFilter:Lcom/android/server/display/utils/AmbientFilter;
 
-    invoke-static {v5, v4}, Lcom/android/server/display/utils/AmbientFilterFactory;->createBrightnessFilter(Ljava/lang/String;Landroid/content/res/Resources;)Lcom/android/server/display/utils/AmbientFilter;
+    iput-object v2, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mLightSensor:Landroid/hardware/Sensor;
 
-    move-result-object v5
-
-    iput-object v5, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mAmbientFilter:Lcom/android/server/display/utils/AmbientFilter;
-
-    iput-object v3, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mLightSensor:Landroid/hardware/Sensor;
-
-    :cond_9
+    :cond_7
     nop
 
-    :goto_7
-    iget-boolean v1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mRefreshRateChangeable:Z
+    :goto_5
+    iget-boolean v0, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mRefreshRateChangeable:Z
 
-    if-eqz v1, :cond_a
+    if-eqz v0, :cond_8
 
     invoke-direct {p0}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->updateSensorStatus()V
 
-    iget-object v1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->this$0:Lcom/android/server/display/DisplayModeDirector;
+    iget-object v0, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->this$0:Lcom/android/server/display/DisplayModeDirector;
 
-    invoke-static {v1}, Lcom/android/server/display/DisplayModeDirector;->access$700(Lcom/android/server/display/DisplayModeDirector;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/display/DisplayModeDirector;->access$700(Lcom/android/server/display/DisplayModeDirector;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    monitor-enter v1
+    monitor-enter v0
 
     :try_start_0
     invoke-direct {p0}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->onBrightnessChangedLocked()V
 
-    monitor-exit v1
+    monitor-exit v0
 
-    goto :goto_8
+    goto :goto_6
 
     :catchall_0
-    move-exception v2
+    move-exception v1
 
-    monitor-exit v1
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v2
+    throw v1
 
-    :cond_a
-    :goto_8
+    :cond_8
+    :goto_6
     return-void
 .end method
 
@@ -1085,11 +1083,7 @@
 
     const v4, 0x3d090
 
-    iget-object v5, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->this$0:Lcom/android/server/display/DisplayModeDirector;
-
-    invoke-static {v5}, Lcom/android/server/display/DisplayModeDirector;->access$1500(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;
-
-    move-result-object v5
+    iget-object v5, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, v2, v3, v4, v5}, Landroid/hardware/SensorManager;->registerListener(Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;ILandroid/os/Handler;)Z
 
@@ -1513,7 +1507,7 @@
 .end method
 
 .method public observe(Landroid/hardware/SensorManager;)V
-    .locals 7
+    .locals 9
 
     iput-object p1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mSensorManager:Landroid/hardware/SensorManager;
 
@@ -1523,17 +1517,9 @@
 
     move-result-object v0
 
-    nop
+    const/4 v1, 0x0
 
-    invoke-virtual {v0}, Landroid/content/ContentResolver;->getUserId()I
-
-    move-result v1
-
-    const-string/jumbo v2, "screen_brightness"
-
-    const/4 v3, -0x1
-
-    invoke-static {v0, v2, v3, v1}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+    invoke-direct {p0, v1}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->getBrightness(I)I
 
     move-result v1
 
@@ -1643,60 +1629,15 @@
 
     invoke-virtual {v5}, Lcom/android/server/display/DisplayModeDirector$DeviceConfigDisplaySettings;->startListening()V
 
-    return-void
-.end method
+    iget-object v5, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mInjector:Lcom/android/server/display/DisplayModeDirector$Injector;
 
-.method public onChange(ZLandroid/net/Uri;I)V
-    .locals 5
+    iget-object v6, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mHandler:Landroid/os/Handler;
 
-    iget-object v0, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->this$0:Lcom/android/server/display/DisplayModeDirector;
+    const-wide/16 v7, 0xc
 
-    invoke-static {v0}, Lcom/android/server/display/DisplayModeDirector;->access$700(Lcom/android/server/display/DisplayModeDirector;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    monitor-enter v0
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v1
-
-    const-string/jumbo v2, "screen_brightness"
-
-    const/4 v3, -0x1
-
-    invoke-virtual {v1}, Landroid/content/ContentResolver;->getUserId()I
-
-    move-result v4
-
-    invoke-static {v1, v2, v3, v4}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
-
-    move-result v2
-
-    iget v3, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mBrightness:I
-
-    if-eq v2, v3, :cond_0
-
-    iput v2, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mBrightness:I
-
-    invoke-direct {p0}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->onBrightnessChangedLocked()V
-
-    :cond_0
-    monitor-exit v0
+    invoke-interface {v5, p0, v6, v7, v8}, Lcom/android/server/display/DisplayModeDirector$Injector;->registerDisplayListener(Landroid/hardware/display/DisplayManager$DisplayListener;Landroid/os/Handler;J)V
 
     return-void
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
 .end method
 
 .method public onDeviceConfigHighBrightnessThresholdsChanged([I[I)V
@@ -1837,14 +1778,62 @@
     return-void
 .end method
 
-.method public onDisplayChanged(I)V
+.method public onDisplayAdded(I)V
     .locals 0
 
-    if-nez p1, :cond_0
+    return-void
+.end method
+
+.method public onDisplayChanged(I)V
+    .locals 3
+
+    if-nez p1, :cond_1
 
     invoke-direct {p0}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->updateDefaultDisplayState()V
 
+    invoke-direct {p0, p1}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->getBrightness(I)I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->this$0:Lcom/android/server/display/DisplayModeDirector;
+
+    invoke-static {v1}, Lcom/android/server/display/DisplayModeDirector;->access$700(Lcom/android/server/display/DisplayModeDirector;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    monitor-enter v1
+
+    :try_start_0
+    iget v2, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mBrightness:I
+
+    if-eq v0, v2, :cond_0
+
+    iput v0, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mBrightness:I
+
+    invoke-direct {p0}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->onBrightnessChangedLocked()V
+
     :cond_0
+    monitor-exit v1
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v2
+
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v2
+
+    :cond_1
+    :goto_0
+    return-void
+.end method
+
+.method public onDisplayRemoved(I)V
+    .locals 0
+
     return-void
 .end method
 
@@ -1925,11 +1914,7 @@
 
     iget-object v0, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mLightSensorListener:Lcom/android/server/display/DisplayModeDirector$BrightnessObserver$LightSensorEventListener;
 
-    iget-object v1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->this$0:Lcom/android/server/display/DisplayModeDirector;
-
-    invoke-static {v1}, Lcom/android/server/display/DisplayModeDirector;->access$1500(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;
-
-    move-result-object v1
+    iget-object v1, p0, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->mHandler:Landroid/os/Handler;
 
     const v2, 0x3d090
 

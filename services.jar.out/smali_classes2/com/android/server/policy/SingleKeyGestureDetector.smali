@@ -44,8 +44,6 @@
 
 .field private volatile mKeyPressCounter:I
 
-.field private final mLongPressTimeout:J
-
 .field private final mRules:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -55,8 +53,6 @@
         }
     .end annotation
 .end field
-
-.field private final mVeryLongPressTimeout:J
 
 
 # direct methods
@@ -74,7 +70,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;)V
+.method public constructor <init>()V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -96,30 +92,6 @@
     iput v0, p0, Lcom/android/server/policy/SingleKeyGestureDetector;->mDownKeyCode:I
 
     iput-boolean v0, p0, Lcom/android/server/policy/SingleKeyGestureDetector;->mHandledByLongPress:Z
-
-    invoke-static {p1}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/view/ViewConfiguration;->getDeviceGlobalActionKeyTimeout()J
-
-    move-result-wide v0
-
-    iput-wide v0, p0, Lcom/android/server/policy/SingleKeyGestureDetector;->mLongPressTimeout:J
-
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x10e00db
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v0
-
-    int-to-long v0, v0
-
-    iput-wide v0, p0, Lcom/android/server/policy/SingleKeyGestureDetector;->mVeryLongPressTimeout:J
 
     new-instance v0, Lcom/android/server/policy/SingleKeyGestureDetector$KeyHandler;
 
@@ -310,7 +282,11 @@
 
     iget-object v6, p0, Lcom/android/server/policy/SingleKeyGestureDetector;->mHandler:Landroid/os/Handler;
 
-    iget-wide v7, p0, Lcom/android/server/policy/SingleKeyGestureDetector;->mLongPressTimeout:J
+    iget-object v7, p0, Lcom/android/server/policy/SingleKeyGestureDetector;->mActiveRule:Lcom/android/server/policy/SingleKeyGestureDetector$SingleKeyRule;
+
+    invoke-virtual {v7}, Lcom/android/server/policy/SingleKeyGestureDetector$SingleKeyRule;->getLongPressTimeoutMs()J
+
+    move-result-wide v7
 
     invoke-virtual {v6, v1, v7, v8}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
@@ -337,7 +313,11 @@
 
     iget-object v2, p0, Lcom/android/server/policy/SingleKeyGestureDetector;->mHandler:Landroid/os/Handler;
 
-    iget-wide v6, p0, Lcom/android/server/policy/SingleKeyGestureDetector;->mVeryLongPressTimeout:J
+    iget-object v3, p0, Lcom/android/server/policy/SingleKeyGestureDetector;->mActiveRule:Lcom/android/server/policy/SingleKeyGestureDetector$SingleKeyRule;
+
+    invoke-virtual {v3}, Lcom/android/server/policy/SingleKeyGestureDetector$SingleKeyRule;->getVeryLongPressTimeoutMs()J
+
+    move-result-wide v6
 
     invoke-virtual {v2, v1, v6, v7}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 

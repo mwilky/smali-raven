@@ -542,14 +542,6 @@
     return-object p1
 .end method
 
-.method static synthetic access$1500(Lcom/android/server/vcn/VcnGatewayConnection;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/vcn/VcnGatewayConnection;->mIsInSafeMode:Z
-
-    return v0
-.end method
-
 .method static synthetic access$1502(Lcom/android/server/vcn/VcnGatewayConnection;Z)Z
     .locals 0
 

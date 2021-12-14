@@ -32,6 +32,8 @@
 
 .field private static final MSG_PROFILE_TIMED_OUT:I = 0x5
 
+.field private static final MSG_SCREEN_POLICY:I = 0x7
+
 .field private static final MSG_USER_ACTIVITY:I = 0x1
 
 .field private static final MSG_WIRED_CHARGING_STARTED:I = 0x6
@@ -89,6 +91,8 @@
 .field private final mScreenOffIntent:Landroid/content/Intent;
 
 .field private final mScreenOnIntent:Landroid/content/Intent;
+
+.field private final mScreenUndimDetector:Lcom/android/server/power/ScreenUndimDetector;
 
 .field private final mShowWirelessChargingAnimationConfig:Z
 
@@ -198,7 +202,7 @@
     .end array-data
 .end method
 
-.method public constructor <init>(Landroid/os/Looper;Landroid/content/Context;Lcom/android/internal/app/IBatteryStats;Lcom/android/server/power/SuspendBlocker;Lcom/android/server/policy/WindowManagerPolicy;Lcom/android/server/power/FaceDownDetector;)V
+.method public constructor <init>(Landroid/os/Looper;Landroid/content/Context;Lcom/android/internal/app/IBatteryStats;Lcom/android/server/power/SuspendBlocker;Lcom/android/server/policy/WindowManagerPolicy;Lcom/android/server/power/FaceDownDetector;Lcom/android/server/power/ScreenUndimDetector;)V
     .locals 4
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -244,6 +248,8 @@
     iput-object p5, p0, Lcom/android/server/power/Notifier;->mPolicy:Lcom/android/server/policy/WindowManagerPolicy;
 
     iput-object p6, p0, Lcom/android/server/power/Notifier;->mFaceDownDetector:Lcom/android/server/power/FaceDownDetector;
+
+    iput-object p7, p0, Lcom/android/server/power/Notifier;->mScreenUndimDetector:Lcom/android/server/power/ScreenUndimDetector;
 
     const-class v1, Landroid/app/ActivityManagerInternal;
 
@@ -443,6 +449,14 @@
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/power/Notifier;->showWiredChargingStarted(I)V
+
+    return-void
+.end method
+
+.method static synthetic access$800(Lcom/android/server/power/Notifier;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/power/Notifier;->screenPolicyChanging(I)V
 
     return-void
 .end method
@@ -833,6 +847,16 @@
     return-void
 .end method
 
+.method private screenPolicyChanging(I)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/power/Notifier;->mScreenUndimDetector:Lcom/android/server/power/ScreenUndimDetector;
+
+    invoke-virtual {v0, p1}, Lcom/android/server/power/ScreenUndimDetector;->recordScreenPolicy(I)V
+
+    return-void
+.end method
+
 .method private sendEnhancedDischargePredictionBroadcast()V
     .locals 3
 
@@ -1110,6 +1134,10 @@
     iget-object v1, p0, Lcom/android/server/power/Notifier;->mFaceDownDetector:Lcom/android/server/power/FaceDownDetector;
 
     invoke-virtual {v1, p1}, Lcom/android/server/power/FaceDownDetector;->userActivity(I)V
+
+    iget-object v1, p0, Lcom/android/server/power/Notifier;->mScreenUndimDetector:Lcom/android/server/power/ScreenUndimDetector;
+
+    invoke-virtual {v1}, Lcom/android/server/power/ScreenUndimDetector;->userActivity()V
 
     return-void
 
@@ -1546,6 +1574,48 @@
     invoke-virtual {v1, v0}, Lcom/android/server/power/Notifier$NotifierHandler;->sendMessage(Landroid/os/Message;)Z
 
     return-void
+.end method
+
+.method public onScreenPolicyUpdate(I)V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/power/Notifier;->mLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/power/Notifier;->mHandler:Lcom/android/server/power/Notifier$NotifierHandler;
+
+    const/4 v2, 0x7
+
+    invoke-virtual {v1, v2}, Lcom/android/server/power/Notifier$NotifierHandler;->obtainMessage(I)Landroid/os/Message;
+
+    move-result-object v1
+
+    iput p1, v1, Landroid/os/Message;->arg1:I
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v1, v2}, Landroid/os/Message;->setAsynchronous(Z)V
+
+    iget-object v2, p0, Lcom/android/server/power/Notifier;->mHandler:Lcom/android/server/power/Notifier$NotifierHandler;
+
+    invoke-virtual {v2, v1}, Lcom/android/server/power/Notifier$NotifierHandler;->sendMessage(Landroid/os/Message;)Z
+
+    nop
+
+    monitor-exit v0
+
+    return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v1
 .end method
 
 .method public onUserActivity(II)V

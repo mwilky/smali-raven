@@ -55,7 +55,7 @@
     return-void
 .end method
 
-.method static synthetic access$7900(Lcom/android/server/pm/PackageManagerService$MoveCallbacks;ILandroid/os/Bundle;)V
+.method static synthetic access$8200(Lcom/android/server/pm/PackageManagerService$MoveCallbacks;ILandroid/os/Bundle;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/pm/PackageManagerService$MoveCallbacks;->notifyCreated(ILandroid/os/Bundle;)V
@@ -63,7 +63,7 @@
     return-void
 .end method
 
-.method static synthetic access$8000(Lcom/android/server/pm/PackageManagerService$MoveCallbacks;II)V
+.method static synthetic access$8300(Lcom/android/server/pm/PackageManagerService$MoveCallbacks;II)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/pm/PackageManagerService$MoveCallbacks;->notifyStatusChanged(II)V
@@ -71,7 +71,7 @@
     return-void
 .end method
 
-.method static synthetic access$8300(Lcom/android/server/pm/PackageManagerService$MoveCallbacks;IIJ)V
+.method static synthetic access$8600(Lcom/android/server/pm/PackageManagerService$MoveCallbacks;IIJ)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/pm/PackageManagerService$MoveCallbacks;->notifyStatusChanged(IIJ)V
@@ -79,7 +79,7 @@
     return-void
 .end method
 
-.method static synthetic access$8400(Lcom/android/server/pm/PackageManagerService$MoveCallbacks;)Landroid/util/SparseIntArray;
+.method static synthetic access$8700(Lcom/android/server/pm/PackageManagerService$MoveCallbacks;)Landroid/util/SparseIntArray;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$MoveCallbacks;->mLastStatus:Landroid/util/SparseIntArray;

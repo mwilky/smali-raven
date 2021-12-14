@@ -27,7 +27,7 @@
 
     iget-object v0, p0, Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/location/gnss/GnssLocationProvider;
 
-    invoke-static {v0, p1}, Lcom/android/server/location/gnss/GnssLocationProvider;->$r8$lambda$Wg-yoEB-VMU5sJo1WeAMRYSmm_Y(Lcom/android/server/location/gnss/GnssLocationProvider;Landroid/location/Location;)V
+    invoke-static {v0, p1}, Lcom/android/server/location/gnss/GnssLocationProvider;->$r8$lambda$DM2jogNw2zqn2FJTIr0Ka-JQdtY(Lcom/android/server/location/gnss/GnssLocationProvider;Landroid/location/Location;)V
 
     return-void
 .end method

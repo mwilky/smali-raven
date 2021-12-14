@@ -150,7 +150,7 @@
 
     iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$3;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v2}, Lcom/android/server/pm/PackageManagerService;->access$4000(Lcom/android/server/pm/PackageManagerService;)V
+    invoke-static {v2}, Lcom/android/server/pm/PackageManagerService;->access$4300(Lcom/android/server/pm/PackageManagerService;)V
 
     monitor-exit v0
 
@@ -193,7 +193,7 @@
 
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$3;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v1, v0}, Lcom/android/server/pm/PackageManagerService;->access$4500(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;)V
+    invoke-static {v1, v0}, Lcom/android/server/pm/PackageManagerService;->access$4800(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;)V
 
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$3;->this$0:Lcom/android/server/pm/PackageManagerService;
 
@@ -203,7 +203,7 @@
 
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$3;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v1, p1}, Lcom/android/server/pm/PackageManagerService;->access$4600(Lcom/android/server/pm/PackageManagerService;Landroid/os/storage/VolumeInfo;)V
+    invoke-static {v1, p1}, Lcom/android/server/pm/PackageManagerService;->access$4900(Lcom/android/server/pm/PackageManagerService;Landroid/os/storage/VolumeInfo;)V
 
     goto :goto_0
 
@@ -216,7 +216,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$3;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/pm/PackageManagerService;->access$4700(Lcom/android/server/pm/PackageManagerService;Landroid/os/storage/VolumeInfo;)V
+    invoke-static {v0, p1}, Lcom/android/server/pm/PackageManagerService;->access$5000(Lcom/android/server/pm/PackageManagerService;Landroid/os/storage/VolumeInfo;)V
 
     nop
 

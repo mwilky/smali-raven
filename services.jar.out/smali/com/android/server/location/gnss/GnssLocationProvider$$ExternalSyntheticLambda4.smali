@@ -5,27 +5,17 @@
 .implements Landroid/location/LocationListener;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda4;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/location/gnss/GnssLocationProvider;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda4;
-
-    invoke-direct {v0}, Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda4;-><init>()V
-
-    sput-object v0, Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda4;->INSTANCE:Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda4;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/location/gnss/GnssLocationProvider;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/location/gnss/GnssLocationProvider;
 
     return-void
 .end method
@@ -33,9 +23,11 @@
 
 # virtual methods
 .method public final onLocationChanged(Landroid/location/Location;)V
-    .locals 0
+    .locals 1
 
-    invoke-static {p1}, Lcom/android/server/location/gnss/GnssLocationProvider;->lambda$handleRequestLocation$1(Landroid/location/Location;)V
+    iget-object v0, p0, Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda4;->f$0:Lcom/android/server/location/gnss/GnssLocationProvider;
+
+    invoke-static {v0, p1}, Lcom/android/server/location/gnss/GnssLocationProvider;->$r8$lambda$Wg-yoEB-VMU5sJo1WeAMRYSmm_Y(Lcom/android/server/location/gnss/GnssLocationProvider;Landroid/location/Location;)V
 
     return-void
 .end method

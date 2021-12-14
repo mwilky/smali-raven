@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 9
+    .locals 11
 
     iget v0, p1, Landroid/os/Message;->what:I
 
@@ -123,9 +123,23 @@
     goto/16 :goto_0
 
     :pswitch_6
-    iget-object v0, p0, Lcom/android/server/biometrics/BiometricService$1;->this$0:Lcom/android/server/biometrics/BiometricService;
+    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    invoke-static {v0}, Lcom/android/server/biometrics/BiometricService;->access$800(Lcom/android/server/biometrics/BiometricService;)V
+    check-cast v0, Lcom/android/internal/os/SomeArgs;
+
+    iget-object v1, p0, Lcom/android/server/biometrics/BiometricService$1;->this$0:Lcom/android/server/biometrics/BiometricService;
+
+    iget-object v2, v0, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
+
+    check-cast v2, Ljava/lang/Long;
+
+    invoke-virtual {v2}, Ljava/lang/Long;->longValue()J
+
+    move-result-wide v2
+
+    invoke-static {v1, v2, v3}, Lcom/android/server/biometrics/BiometricService;->access$800(Lcom/android/server/biometrics/BiometricService;J)V
+
+    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
     goto/16 :goto_0
 
@@ -140,7 +154,7 @@
 
     check-cast v2, Landroid/os/IBinder;
 
-    iget-object v3, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+    iget-object v3, v0, Lcom/android/internal/os/SomeArgs;->arg6:Ljava/lang/Object;
 
     check-cast v3, Ljava/lang/Long;
 
@@ -148,21 +162,29 @@
 
     move-result-wide v3
 
-    iget v5, v0, Lcom/android/internal/os/SomeArgs;->argi1:I
+    iget-object v5, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
-    iget-object v6, v0, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
+    check-cast v5, Ljava/lang/Long;
 
-    check-cast v6, Landroid/hardware/biometrics/IBiometricServiceReceiver;
+    invoke-virtual {v5}, Ljava/lang/Long;->longValue()J
 
-    iget-object v7, v0, Lcom/android/internal/os/SomeArgs;->arg4:Ljava/lang/Object;
+    move-result-wide v5
 
-    check-cast v7, Ljava/lang/String;
+    iget v7, v0, Lcom/android/internal/os/SomeArgs;->argi1:I
 
-    iget-object v8, v0, Lcom/android/internal/os/SomeArgs;->arg5:Ljava/lang/Object;
+    iget-object v8, v0, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
 
-    check-cast v8, Landroid/hardware/biometrics/PromptInfo;
+    check-cast v8, Landroid/hardware/biometrics/IBiometricServiceReceiver;
 
-    invoke-static/range {v1 .. v8}, Lcom/android/server/biometrics/BiometricService;->access$700(Lcom/android/server/biometrics/BiometricService;Landroid/os/IBinder;JILandroid/hardware/biometrics/IBiometricServiceReceiver;Ljava/lang/String;Landroid/hardware/biometrics/PromptInfo;)V
+    iget-object v9, v0, Lcom/android/internal/os/SomeArgs;->arg4:Ljava/lang/Object;
+
+    check-cast v9, Ljava/lang/String;
+
+    iget-object v10, v0, Lcom/android/internal/os/SomeArgs;->arg5:Ljava/lang/Object;
+
+    check-cast v10, Landroid/hardware/biometrics/PromptInfo;
+
+    invoke-static/range {v1 .. v10}, Lcom/android/server/biometrics/BiometricService;->access$700(Lcom/android/server/biometrics/BiometricService;Landroid/os/IBinder;JJILandroid/hardware/biometrics/IBiometricServiceReceiver;Ljava/lang/String;Landroid/hardware/biometrics/PromptInfo;)V
 
     invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
@@ -271,8 +293,6 @@
 
     :goto_0
     return-void
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x2

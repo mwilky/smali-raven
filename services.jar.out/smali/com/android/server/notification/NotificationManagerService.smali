@@ -16,6 +16,7 @@
         Lcom/android/server/notification/NotificationManagerService$FlagChecker;,
         Lcom/android/server/notification/NotificationManagerService$RankingHandlerWorker;,
         Lcom/android/server/notification/NotificationManagerService$WorkerHandler;,
+        Lcom/android/server/notification/NotificationManagerService$NotificationRecordExtractorData;,
         Lcom/android/server/notification/NotificationManagerService$PostNotificationRunnable;,
         Lcom/android/server/notification/NotificationManagerService$EnqueueNotificationRunnable;,
         Lcom/android/server/notification/NotificationManagerService$CancelNotificationRunnable;,
@@ -5895,7 +5896,7 @@
 
     move-result-object v1
 
-    const v2, 0x10405b4
+    const v2, 0x10405b6
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -9906,7 +9907,7 @@
 .end method
 
 .method buzzBeepBlinkLocked(Lcom/android/server/notification/NotificationRecord;)I
-    .locals 20
+    .locals 21
 
     move-object/from16 v0, p0
 
@@ -10058,21 +10059,21 @@
     :cond_7
     const-string v3, "NotificationService"
 
-    if-eqz v7, :cond_19
+    if-eqz v7, :cond_1a
 
     invoke-direct/range {p0 .. p1}, Lcom/android/server/notification/NotificationManagerService;->isNotificationForCurrentUser(Lcom/android/server/notification/NotificationRecord;)Z
 
     move-result v16
 
-    if-eqz v16, :cond_19
+    if-eqz v16, :cond_1a
 
     iget-boolean v15, v0, Lcom/android/server/notification/NotificationManagerService;->mSystemReady:Z
 
-    if-eqz v15, :cond_18
+    if-eqz v15, :cond_19
 
     iget-object v15, v0, Lcom/android/server/notification/NotificationManagerService;->mAudioManager:Landroid/media/AudioManager;
 
-    if-eqz v15, :cond_18
+    if-eqz v15, :cond_19
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/notification/NotificationRecord;->getSound()Landroid/net/Uri;
 
@@ -10197,13 +10198,13 @@
     const/4 v2, 0x1
 
     :goto_9
-    if-eqz v2, :cond_16
+    if-eqz v2, :cond_17
 
     invoke-virtual/range {p0 .. p1}, Lcom/android/server/notification/NotificationManagerService;->shouldMuteNotificationLocked(Lcom/android/server/notification/NotificationRecord;)Z
 
     move-result v4
 
-    if-nez v4, :cond_16
+    if-nez v4, :cond_17
 
     if-nez v13, :cond_f
 
@@ -10223,34 +10224,40 @@
     invoke-static {v3, v4}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_10
-    if-eqz v12, :cond_12
-
-    invoke-direct/range {p0 .. p0}, Lcom/android/server/notification/NotificationManagerService;->isInCall()Z
+    invoke-virtual/range {p0 .. p1}, Lcom/android/server/notification/NotificationManagerService;->isInsistentUpdate(Lcom/android/server/notification/NotificationRecord;)Z
 
     move-result v4
+
+    if-eqz v12, :cond_13
 
     if-eqz v4, :cond_11
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/server/notification/NotificationManagerService;->playInCallNotification()V
-
-    const/4 v4, 0x1
-
-    goto :goto_a
-
-    :cond_11
-    invoke-direct {v0, v1, v15}, Lcom/android/server/notification/NotificationManagerService;->playSound(Lcom/android/server/notification/NotificationRecord;Landroid/net/Uri;)Z
-
-    move-result v4
-
-    :goto_a
-    if-eqz v4, :cond_13
-
-    iput-object v6, v0, Lcom/android/server/notification/NotificationManagerService;->mSoundNotificationKey:Ljava/lang/String;
+    const/16 v18, 0x1
 
     goto :goto_b
 
+    :cond_11
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/notification/NotificationManagerService;->isInCall()Z
+
+    move-result v19
+
+    if-eqz v19, :cond_12
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/notification/NotificationManagerService;->playInCallNotification()V
+
+    const/16 v18, 0x1
+
+    goto :goto_a
+
     :cond_12
-    move/from16 v4, v18
+    invoke-direct {v0, v1, v15}, Lcom/android/server/notification/NotificationManagerService;->playSound(Lcom/android/server/notification/NotificationRecord;Landroid/net/Uri;)Z
+
+    move-result v18
+
+    :goto_a
+    if-eqz v18, :cond_13
+
+    iput-object v6, v0, Lcom/android/server/notification/NotificationManagerService;->mSoundNotificationKey:Ljava/lang/String;
 
     :cond_13
     :goto_b
@@ -10274,32 +10281,42 @@
     :goto_c
     invoke-direct/range {p0 .. p0}, Lcom/android/server/notification/NotificationManagerService;->isInCall()Z
 
-    move-result v18
+    move-result v20
 
-    if-nez v18, :cond_15
+    if-nez v20, :cond_16
 
-    if-eqz v11, :cond_15
+    if-eqz v11, :cond_16
 
-    if-nez v2, :cond_15
+    if-nez v2, :cond_16
 
+    if-eqz v4, :cond_15
+
+    const/16 v17, 0x1
+
+    move/from16 v2, v17
+
+    goto :goto_d
+
+    :cond_15
     invoke-direct {v0, v1, v9, v12}, Lcom/android/server/notification/NotificationManagerService;->playVibration(Lcom/android/server/notification/NotificationRecord;Landroid/os/VibrationEffect;Z)Z
 
     move-result v17
 
-    if-eqz v17, :cond_15
+    if-eqz v17, :cond_16
 
     iput-object v6, v0, Lcom/android/server/notification/NotificationManagerService;->mVibrateNotificationKey:Ljava/lang/String;
 
-    :cond_15
+    :cond_16
     move/from16 v2, v17
 
-    move v9, v4
+    :goto_d
+    move/from16 v9, v18
 
     const/4 v4, 0x4
 
-    goto :goto_e
+    goto :goto_f
 
-    :cond_16
+    :cond_17
     move/from16 v19, v2
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/notification/NotificationRecord;->getFlags()I
@@ -10310,7 +10327,7 @@
 
     and-int/2addr v2, v4
 
-    if-eqz v2, :cond_17
+    if-eqz v2, :cond_18
 
     const/4 v12, 0x0
 
@@ -10318,23 +10335,14 @@
 
     move/from16 v9, v18
 
-    goto :goto_e
+    goto :goto_f
 
-    :cond_17
+    :cond_18
     move/from16 v2, v17
 
     move/from16 v9, v18
 
-    goto :goto_e
-
-    :cond_18
-    move/from16 v17, v2
-
-    move/from16 v18, v4
-
-    const/4 v4, 0x4
-
-    goto :goto_d
+    goto :goto_f
 
     :cond_19
     move/from16 v17, v2
@@ -10343,26 +10351,35 @@
 
     const/4 v4, 0x4
 
-    :goto_d
+    goto :goto_e
+
+    :cond_1a
+    move/from16 v17, v2
+
+    move/from16 v18, v4
+
+    const/4 v4, 0x4
+
+    :goto_e
     move/from16 v2, v17
 
     move/from16 v9, v18
 
-    :goto_e
-    if-eqz v8, :cond_1a
+    :goto_f
+    if-eqz v8, :cond_1b
 
-    if-nez v12, :cond_1a
+    if-nez v12, :cond_1b
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/notification/NotificationManagerService;->clearSoundLocked()V
 
-    :cond_1a
-    if-eqz v10, :cond_1b
+    :cond_1b
+    if-eqz v10, :cond_1c
 
-    if-nez v11, :cond_1b
+    if-nez v11, :cond_1c
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/notification/NotificationManagerService;->clearVibrateLocked()V
 
-    :cond_1b
+    :cond_1c
     iget-object v15, v0, Lcom/android/server/notification/NotificationManagerService;->mLights:Ljava/util/ArrayList;
 
     invoke-virtual {v15, v6}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
@@ -10373,7 +10390,7 @@
 
     move-result v16
 
-    if-eqz v16, :cond_1d
+    if-eqz v16, :cond_1e
 
     iget-object v4, v0, Lcom/android/server/notification/NotificationManagerService;->mLights:Ljava/util/ArrayList;
 
@@ -10383,51 +10400,51 @@
 
     iget-boolean v4, v0, Lcom/android/server/notification/NotificationManagerService;->mUseAttentionLight:Z
 
-    if-eqz v4, :cond_1c
+    if-eqz v4, :cond_1d
 
     iget-object v4, v0, Lcom/android/server/notification/NotificationManagerService;->mAttentionLight:Lcom/android/server/lights/LogicalLight;
 
-    if-eqz v4, :cond_1c
+    if-eqz v4, :cond_1d
 
     invoke-virtual {v4}, Lcom/android/server/lights/LogicalLight;->pulse()V
 
-    :cond_1c
-    const/4 v5, 0x1
-
-    goto :goto_f
-
     :cond_1d
-    if-eqz v15, :cond_1e
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/server/notification/NotificationManagerService;->updateLightsLocked()V
-
-    :cond_1e
-    :goto_f
-    if-eqz v9, :cond_1f
-
-    const/4 v4, 0x2
+    const/4 v5, 0x1
 
     goto :goto_10
 
+    :cond_1e
+    if-eqz v15, :cond_1f
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/notification/NotificationManagerService;->updateLightsLocked()V
+
     :cond_1f
-    const/4 v4, 0x0
-
     :goto_10
-    or-int/2addr v4, v2
+    if-eqz v9, :cond_20
 
-    if-eqz v5, :cond_20
-
-    const/16 v16, 0x4
+    const/4 v4, 0x2
 
     goto :goto_11
 
     :cond_20
-    const/16 v16, 0x0
+    const/4 v4, 0x0
 
     :goto_11
+    or-int/2addr v4, v2
+
+    if-eqz v5, :cond_21
+
+    const/16 v16, 0x4
+
+    goto :goto_12
+
+    :cond_21
+    const/16 v16, 0x0
+
+    :goto_12
     or-int v4, v4, v16
 
-    if-lez v4, :cond_25
+    if-lez v4, :cond_26
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/notification/NotificationRecord;->getSbn()Landroid/service/notification/StatusBarNotification;
 
@@ -10439,7 +10456,7 @@
 
     const-string v0, "INTERRUPTIVENESS: "
 
-    if-eqz v16, :cond_22
+    if-eqz v16, :cond_23
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/notification/NotificationRecord;->getSbn()Landroid/service/notification/StatusBarNotification;
 
@@ -10453,11 +10470,11 @@
 
     move-result v16
 
-    if-eqz v16, :cond_22
+    if-eqz v16, :cond_23
 
     sget-boolean v16, Lcom/android/server/notification/NotificationManagerService;->DEBUG_INTERRUPTIVENESS:Z
 
-    if-eqz v16, :cond_21
+    if-eqz v16, :cond_22
 
     move/from16 v16, v7
 
@@ -10483,25 +10500,25 @@
 
     invoke-static {v3, v0}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_12
-
-    :cond_21
-    move/from16 v16, v7
-
-    goto :goto_12
+    goto :goto_13
 
     :cond_22
+    move/from16 v16, v7
+
+    goto :goto_13
+
+    :cond_23
     move/from16 v16, v7
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/notification/NotificationRecord;->canBubble()Z
 
     move-result v7
 
-    if-eqz v7, :cond_23
+    if-eqz v7, :cond_24
 
     sget-boolean v7, Lcom/android/server/notification/NotificationManagerService;->DEBUG_INTERRUPTIVENESS:Z
 
-    if-eqz v7, :cond_24
+    if-eqz v7, :cond_25
 
     new-instance v7, Ljava/lang/StringBuilder;
 
@@ -10525,16 +10542,16 @@
 
     invoke-static {v3, v0}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_12
+    goto :goto_13
 
-    :cond_23
+    :cond_24
     const/4 v7, 0x1
 
     invoke-virtual {v1, v7}, Lcom/android/server/notification/NotificationRecord;->setInterruptive(Z)V
 
     sget-boolean v7, Lcom/android/server/notification/NotificationManagerService;->DEBUG_INTERRUPTIVENESS:Z
 
-    if-eqz v7, :cond_24
+    if-eqz v7, :cond_25
 
     new-instance v7, Ljava/lang/StringBuilder;
 
@@ -10558,8 +10575,8 @@
 
     invoke-static {v3, v0}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_24
-    :goto_12
+    :cond_25
+    :goto_13
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/notification/NotificationRecord;->getLogMaker()Landroid/metrics/LogMaker;
 
     move-result-object v0
@@ -10584,25 +10601,25 @@
 
     invoke-static {v6, v2, v9, v5}, Lcom/android/server/EventLogTags;->writeNotificationAlert(Ljava/lang/String;III)V
 
-    goto :goto_13
+    goto :goto_14
 
-    :cond_25
+    :cond_26
     move/from16 v16, v7
 
     const/4 v3, 0x1
 
-    :goto_13
-    if-nez v2, :cond_27
+    :goto_14
+    if-nez v2, :cond_28
 
-    if-eqz v9, :cond_26
+    if-eqz v9, :cond_27
 
-    goto :goto_14
-
-    :cond_26
-    const/4 v3, 0x0
+    goto :goto_15
 
     :cond_27
-    :goto_14
+    const/4 v3, 0x0
+
+    :cond_28
+    :goto_15
     invoke-virtual {v1, v3}, Lcom/android/server/notification/NotificationRecord;->setAudiblyAlerted(Z)V
 
     return v4
@@ -12239,7 +12256,7 @@
 
     move-result-object v2
 
-    const v3, 0x10403c8
+    const v3, 0x10403ca
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -12249,9 +12266,9 @@
 
     invoke-virtual {v1, v3, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    const v2, 0x104056c
+    const v2, 0x104056e
 
-    const v3, 0x1040567
+    const v3, 0x1040569
 
     new-instance v4, Landroid/content/Intent;
 
@@ -12327,7 +12344,7 @@
 
     move-result-object v13
 
-    const v14, 0x1040569
+    const v14, 0x104056b
 
     invoke-virtual {v13, v14}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -12349,7 +12366,7 @@
 
     move-result-object v14
 
-    const v15, 0x1040568
+    const v15, 0x104056a
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -12371,7 +12388,7 @@
 
     move-result-object v15
 
-    const v0, 0x104056a
+    const v0, 0x104056c
 
     invoke-virtual {v15, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -15111,7 +15128,7 @@
 .end method
 
 .method handleRankingSort()V
-    .locals 21
+    .locals 25
 
     move-object/from16 v1, p0
 
@@ -15133,457 +15150,253 @@
 
     move-result v0
 
-    new-instance v3, Ljava/util/ArrayList;
+    new-instance v3, Landroid/util/ArrayMap;
 
-    invoke-direct {v3, v0}, Ljava/util/ArrayList;-><init>(I)V
+    invoke-direct {v3, v0}, Landroid/util/ArrayMap;-><init>(I)V
 
-    new-array v4, v0, [I
-
-    new-array v5, v0, [Z
-
-    new-array v6, v0, [Z
-
-    new-array v7, v0, [Z
-
-    new-instance v8, Ljava/util/ArrayList;
-
-    invoke-direct {v8, v0}, Ljava/util/ArrayList;-><init>(I)V
-
-    new-instance v9, Ljava/util/ArrayList;
-
-    invoke-direct {v9, v0}, Ljava/util/ArrayList;-><init>(I)V
-
-    new-instance v10, Ljava/util/ArrayList;
-
-    invoke-direct {v10, v0}, Ljava/util/ArrayList;-><init>(I)V
-
-    new-instance v11, Ljava/util/ArrayList;
-
-    invoke-direct {v11, v0}, Ljava/util/ArrayList;-><init>(I)V
-
-    new-instance v12, Ljava/util/ArrayList;
-
-    invoke-direct {v12, v0}, Ljava/util/ArrayList;-><init>(I)V
-
-    new-instance v13, Ljava/util/ArrayList;
-
-    invoke-direct {v13, v0}, Ljava/util/ArrayList;-><init>(I)V
-
-    new-instance v14, Ljava/util/ArrayList;
-
-    invoke-direct {v14, v0}, Ljava/util/ArrayList;-><init>(I)V
-
-    new-instance v15, Ljava/util/ArrayList;
-
-    invoke-direct {v15, v0}, Ljava/util/ArrayList;-><init>(I)V
-
-    move-object/from16 v16, v15
-
-    new-array v15, v0, [I
-
-    const/16 v17, 0x0
-
-    move-object/from16 v18, v15
-
-    move/from16 v15, v17
+    const/4 v4, 0x0
 
     :goto_0
-    if-ge v15, v0, :cond_1
+    if-ge v4, v0, :cond_1
 
-    move/from16 v17, v0
+    iget-object v5, v1, Lcom/android/server/notification/NotificationManagerService;->mNotificationList:Ljava/util/ArrayList;
 
-    iget-object v0, v1, Lcom/android/server/notification/NotificationManagerService;->mNotificationList:Ljava/util/ArrayList;
+    invoke-virtual {v5, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    invoke-virtual {v0, v15}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    move-result-object v5
 
-    move-result-object v0
+    check-cast v5, Lcom/android/server/notification/NotificationRecord;
 
-    check-cast v0, Lcom/android/server/notification/NotificationRecord;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    move-object v15, v5
 
-    :try_start_1
-    invoke-virtual {v0}, Lcom/android/server/notification/NotificationRecord;->getKey()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    invoke-virtual {v0}, Lcom/android/server/notification/NotificationRecord;->getPackageVisibilityOverride()I
-
-    move-result v1
-
-    aput v1, v4, v15
-
-    invoke-virtual {v0}, Lcom/android/server/notification/NotificationRecord;->canShowBadge()Z
-
-    move-result v1
-
-    aput-boolean v1, v5, v15
-
-    invoke-virtual {v0}, Lcom/android/server/notification/NotificationRecord;->canBubble()Z
-
-    move-result v1
-
-    aput-boolean v1, v6, v15
-
-    invoke-virtual {v0}, Lcom/android/server/notification/NotificationRecord;->getNotification()Landroid/app/Notification;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/app/Notification;->isBubbleNotification()Z
-
-    move-result v1
-
-    aput-boolean v1, v7, v15
-
-    invoke-virtual {v0}, Lcom/android/server/notification/NotificationRecord;->getChannel()Landroid/app/NotificationChannel;
-
-    move-result-object v1
-
-    invoke-virtual {v8, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    invoke-virtual {v0}, Lcom/android/server/notification/NotificationRecord;->getGroupKey()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v9, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    invoke-virtual {v0}, Lcom/android/server/notification/NotificationRecord;->getPeopleOverride()Ljava/util/ArrayList;
-
-    move-result-object v1
-
-    invoke-virtual {v10, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    invoke-virtual {v0}, Lcom/android/server/notification/NotificationRecord;->getSnoozeCriteria()Ljava/util/ArrayList;
-
-    move-result-object v1
-
-    invoke-virtual {v11, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    invoke-virtual {v0}, Lcom/android/server/notification/NotificationRecord;->getUserSentiment()I
-
-    move-result v1
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-virtual {v12, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    invoke-virtual {v0}, Lcom/android/server/notification/NotificationRecord;->getSuppressedVisualEffects()I
-
-    move-result v1
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-virtual {v13, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    invoke-virtual {v0}, Lcom/android/server/notification/NotificationRecord;->getSystemGeneratedSmartActions()Ljava/util/ArrayList;
-
-    move-result-object v1
-
-    invoke-virtual {v14, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    invoke-virtual {v0}, Lcom/android/server/notification/NotificationRecord;->getSmartReplies()Ljava/util/ArrayList;
-
-    move-result-object v1
-
-    move-object/from16 v19, v14
-
-    move-object/from16 v14, v16
-
-    invoke-virtual {v14, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    invoke-virtual {v0}, Lcom/android/server/notification/NotificationRecord;->getImportance()I
-
-    move-result v1
-
-    aput v1, v18, v15
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    move-object/from16 v1, p0
-
-    move-object/from16 v16, v14
-
-    :try_start_2
-    iget-object v14, v1, Lcom/android/server/notification/NotificationManagerService;->mRankingHelper:Lcom/android/server/notification/RankingHelper;
-
-    invoke-virtual {v14, v0}, Lcom/android/server/notification/RankingHelper;->extractSignals(Lcom/android/server/notification/NotificationRecord;)V
-
-    add-int/lit8 v15, v15, 0x1
-
-    move/from16 v0, v17
-
-    move-object/from16 v14, v19
-
-    goto/16 :goto_0
-
-    :catchall_0
-    move-exception v0
-
-    move-object/from16 v1, p0
-
-    goto/16 :goto_3
-
-    :cond_1
-    move/from16 v17, v0
-
-    move-object/from16 v19, v14
-
-    iget-object v0, v1, Lcom/android/server/notification/NotificationManagerService;->mRankingHelper:Lcom/android/server/notification/RankingHelper;
-
-    iget-object v14, v1, Lcom/android/server/notification/NotificationManagerService;->mNotificationList:Ljava/util/ArrayList;
-
-    invoke-virtual {v0, v14}, Lcom/android/server/notification/RankingHelper;->sort(Ljava/util/ArrayList;)V
-
-    const/4 v0, 0x0
-
-    :goto_1
-    move/from16 v14, v17
-
-    if-ge v0, v14, :cond_4
-
-    iget-object v15, v1, Lcom/android/server/notification/NotificationManagerService;->mNotificationList:Ljava/util/ArrayList;
-
-    invoke-virtual {v15, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v15
-
-    check-cast v15, Lcom/android/server/notification/NotificationRecord;
-
-    invoke-virtual {v3, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v17
-
-    move-object/from16 v20, v3
-
-    move-object/from16 v3, v17
-
-    check-cast v3, Ljava/lang/String;
-
-    move/from16 v17, v14
-
-    invoke-virtual {v15}, Lcom/android/server/notification/NotificationRecord;->getKey()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-virtual {v3, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_3
-
-    aget v3, v4, v0
+    new-instance v22, Lcom/android/server/notification/NotificationManagerService$NotificationRecordExtractorData;
 
     invoke-virtual {v15}, Lcom/android/server/notification/NotificationRecord;->getPackageVisibilityOverride()I
 
-    move-result v14
-
-    if-ne v3, v14, :cond_3
-
-    aget-boolean v3, v5, v0
+    move-result v7
 
     invoke-virtual {v15}, Lcom/android/server/notification/NotificationRecord;->canShowBadge()Z
 
-    move-result v14
-
-    if-ne v3, v14, :cond_3
-
-    aget-boolean v3, v6, v0
+    move-result v8
 
     invoke-virtual {v15}, Lcom/android/server/notification/NotificationRecord;->canBubble()Z
 
-    move-result v14
-
-    if-ne v3, v14, :cond_3
-
-    aget-boolean v3, v7, v0
+    move-result v9
 
     invoke-virtual {v15}, Lcom/android/server/notification/NotificationRecord;->getNotification()Landroid/app/Notification;
 
-    move-result-object v14
+    move-result-object v5
 
-    invoke-virtual {v14}, Landroid/app/Notification;->isBubbleNotification()Z
+    invoke-virtual {v5}, Landroid/app/Notification;->isBubbleNotification()Z
 
-    move-result v14
-
-    if-ne v3, v14, :cond_3
-
-    invoke-virtual {v8, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v3
+    move-result v10
 
     invoke-virtual {v15}, Lcom/android/server/notification/NotificationRecord;->getChannel()Landroid/app/NotificationChannel;
 
-    move-result-object v14
-
-    invoke-static {v3, v14}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_3
-
-    invoke-virtual {v9, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v3
+    move-result-object v11
 
     invoke-virtual {v15}, Lcom/android/server/notification/NotificationRecord;->getGroupKey()Ljava/lang/String;
 
-    move-result-object v14
-
-    invoke-static {v3, v14}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_3
-
-    invoke-virtual {v10, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v3
+    move-result-object v12
 
     invoke-virtual {v15}, Lcom/android/server/notification/NotificationRecord;->getPeopleOverride()Ljava/util/ArrayList;
 
-    move-result-object v14
-
-    invoke-static {v3, v14}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_3
-
-    invoke-virtual {v11, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v3
+    move-result-object v13
 
     invoke-virtual {v15}, Lcom/android/server/notification/NotificationRecord;->getSnoozeCriteria()Ljava/util/ArrayList;
 
     move-result-object v14
 
-    invoke-static {v3, v14}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_3
-
-    invoke-virtual {v12, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v3
-
     invoke-virtual {v15}, Lcom/android/server/notification/NotificationRecord;->getUserSentiment()I
 
-    move-result v14
+    move-result v5
 
-    invoke-static {v14}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v14
-
-    invoke-static {v3, v14}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_3
-
-    invoke-virtual {v13, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v3
+    move-result-object v16
 
     invoke-virtual {v15}, Lcom/android/server/notification/NotificationRecord;->getSuppressedVisualEffects()I
 
-    move-result v14
+    move-result v5
 
-    invoke-static {v14}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v14
-
-    invoke-static {v3, v14}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_3
-
-    move-object/from16 v3, v19
-
-    invoke-virtual {v3, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v14
-
-    move-object/from16 v19, v3
+    move-result-object v17
 
     invoke-virtual {v15}, Lcom/android/server/notification/NotificationRecord;->getSystemGeneratedSmartActions()Ljava/util/ArrayList;
 
-    move-result-object v3
-
-    invoke-static {v14, v3}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_3
-
-    move-object/from16 v3, v16
-
-    invoke-virtual {v3, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v14
-
-    move-object/from16 v16, v3
+    move-result-object v18
 
     invoke-virtual {v15}, Lcom/android/server/notification/NotificationRecord;->getSmartReplies()Ljava/util/ArrayList;
 
-    move-result-object v3
-
-    invoke-static {v14, v3}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_3
-
-    aget v3, v18, v0
+    move-result-object v19
 
     invoke-virtual {v15}, Lcom/android/server/notification/NotificationRecord;->getImportance()I
 
-    move-result v14
+    move-result v20
 
-    if-eq v3, v14, :cond_2
+    invoke-virtual {v15}, Lcom/android/server/notification/NotificationRecord;->getRankingScore()F
+
+    move-result v21
+
+    invoke-virtual {v15}, Lcom/android/server/notification/NotificationRecord;->isConversation()Z
+
+    move-result v23
+
+    move-object/from16 v5, v22
+
+    move v6, v4
+
+    move-object/from16 v24, v15
+
+    move-object/from16 v15, v16
+
+    move-object/from16 v16, v17
+
+    move-object/from16 v17, v18
+
+    move-object/from16 v18, v19
+
+    move/from16 v19, v20
+
+    move/from16 v20, v21
+
+    move/from16 v21, v23
+
+    invoke-direct/range {v5 .. v21}, Lcom/android/server/notification/NotificationManagerService$NotificationRecordExtractorData;-><init>(IIZZZLandroid/app/NotificationChannel;Ljava/lang/String;Ljava/util/ArrayList;Ljava/util/ArrayList;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/util/ArrayList;Ljava/util/ArrayList;IFZ)V
+
+    move-object/from16 v5, v22
+
+    invoke-virtual/range {v24 .. v24}, Lcom/android/server/notification/NotificationRecord;->getKey()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v3, v6, v5}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v6, v1, Lcom/android/server/notification/NotificationManagerService;->mRankingHelper:Lcom/android/server/notification/RankingHelper;
+
+    move-object/from16 v7, v24
+
+    invoke-virtual {v6, v7}, Lcom/android/server/notification/RankingHelper;->extractSignals(Lcom/android/server/notification/NotificationRecord;)V
+
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v4, v1, Lcom/android/server/notification/NotificationManagerService;->mRankingHelper:Lcom/android/server/notification/RankingHelper;
+
+    iget-object v5, v1, Lcom/android/server/notification/NotificationManagerService;->mNotificationList:Ljava/util/ArrayList;
+
+    invoke-virtual {v4, v5}, Lcom/android/server/notification/RankingHelper;->sort(Ljava/util/ArrayList;)V
+
+    const/4 v4, 0x0
+
+    :goto_1
+    if-ge v4, v0, :cond_6
+
+    iget-object v5, v1, Lcom/android/server/notification/NotificationManagerService;->mNotificationList:Ljava/util/ArrayList;
+
+    invoke-virtual {v5, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/android/server/notification/NotificationRecord;
+
+    invoke-virtual {v5}, Lcom/android/server/notification/NotificationRecord;->getKey()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v3, v6}, Landroid/util/ArrayMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_2
 
     goto :goto_2
 
     :cond_2
-    add-int/lit8 v0, v0, 0x1
+    invoke-virtual {v5}, Lcom/android/server/notification/NotificationRecord;->getKey()Ljava/lang/String;
 
-    move-object/from16 v3, v20
+    move-result-object v6
 
-    goto/16 :goto_1
+    invoke-virtual {v3, v6}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/android/server/notification/NotificationManagerService$NotificationRecordExtractorData;
+
+    invoke-virtual {v6, v5, v4}, Lcom/android/server/notification/NotificationManagerService$NotificationRecordExtractorData;->hasDiffForRankingLocked(Lcom/android/server/notification/NotificationRecord;I)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_3
+
+    iget-object v6, v1, Lcom/android/server/notification/NotificationManagerService;->mHandler:Lcom/android/server/notification/NotificationManagerService$WorkerHandler;
+
+    invoke-virtual {v6}, Lcom/android/server/notification/NotificationManagerService$WorkerHandler;->scheduleSendRankingUpdate()V
 
     :cond_3
-    :goto_2
-    iget-object v3, v1, Lcom/android/server/notification/NotificationManagerService;->mHandler:Lcom/android/server/notification/NotificationManagerService$WorkerHandler;
+    invoke-virtual {v5}, Lcom/android/server/notification/NotificationRecord;->hasPendingLogUpdate()Z
 
-    invoke-virtual {v3}, Lcom/android/server/notification/NotificationManagerService$WorkerHandler;->scheduleSendRankingUpdate()V
+    move-result v6
 
-    monitor-exit v2
+    if-eqz v6, :cond_5
 
-    return-void
+    invoke-virtual {v5}, Lcom/android/server/notification/NotificationRecord;->getKey()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v3, v6}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/android/server/notification/NotificationManagerService$NotificationRecordExtractorData;
+
+    invoke-virtual {v6, v5, v4}, Lcom/android/server/notification/NotificationManagerService$NotificationRecordExtractorData;->hasDiffForLoggingLocked(Lcom/android/server/notification/NotificationRecord;I)Z
+
+    move-result v7
+
+    const/4 v8, 0x0
+
+    if-eqz v7, :cond_4
+
+    iget-object v7, v1, Lcom/android/server/notification/NotificationManagerService;->mNotificationRecordLogger:Lcom/android/server/notification/NotificationRecordLogger;
+
+    invoke-virtual {v5}, Lcom/android/server/notification/NotificationRecord;->getSbn()Landroid/service/notification/StatusBarNotification;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Landroid/service/notification/StatusBarNotification;->getGroupKey()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v1, v9}, Lcom/android/server/notification/NotificationManagerService;->getGroupInstanceId(Ljava/lang/String;)Lcom/android/internal/logging/InstanceId;
+
+    move-result-object v9
+
+    invoke-interface {v7, v5, v4, v8, v9}, Lcom/android/server/notification/NotificationRecordLogger;->logNotificationAdjusted(Lcom/android/server/notification/NotificationRecord;IILcom/android/internal/logging/InstanceId;)V
 
     :cond_4
-    move-object/from16 v20, v3
+    invoke-virtual {v5, v8}, Lcom/android/server/notification/NotificationRecord;->setPendingLogUpdate(Z)V
 
-    move/from16 v17, v14
+    :cond_5
+    :goto_2
+    add-int/lit8 v4, v4, 0x1
 
+    goto :goto_1
+
+    :cond_6
     monitor-exit v2
 
     return-void
 
-    :catchall_1
+    :catchall_0
     move-exception v0
 
-    :goto_3
     monitor-exit v2
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 .end method
@@ -16019,7 +15832,7 @@
 
     iput-object v0, v1, Lcom/android/server/notification/NotificationManagerService;->mUiHandler:Landroid/os/Handler;
 
-    const v0, 0x1070068
+    const v0, 0x1070069
 
     const/4 v3, 0x0
 
@@ -16368,7 +16181,7 @@
 
     new-instance v0, Lcom/android/server/notification/NotificationManagerService$Archive;
 
-    const v3, 0x10e009c
+    const v3, 0x10e009d
 
     invoke-virtual {v5, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -16442,7 +16255,7 @@
 
     move-result-object v2
 
-    const v3, 0x1070065
+    const v3, 0x1070066
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -16460,7 +16273,7 @@
 
     move-result-object v2
 
-    const v3, 0x107006c
+    const v3, 0x107006d
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -16476,7 +16289,7 @@
 
     move-result-object v0
 
-    const v2, 0x10e009e
+    const v2, 0x10e009f
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -16492,7 +16305,7 @@
 
     move-result-object v0
 
-    const v2, 0x10e009d
+    const v2, 0x10e009e
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -16500,7 +16313,7 @@
 
     iput v0, v1, Lcom/android/server/notification/NotificationManagerService;->mStripRemoteViewsSizeBytes:I
 
-    const v0, 0x1070067
+    const v0, 0x1070068
 
     invoke-virtual {v1, v0}, Lcom/android/server/notification/NotificationManagerService;->getStringArrayResource(I)[Ljava/lang/String;
 
@@ -16969,6 +16782,101 @@
 
     :goto_0
     return v1
+.end method
+
+.method isCurrentlyInsistent()Z
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService;->mNotificationsByKey:Landroid/util/ArrayMap;
+
+    iget-object v1, p0, Lcom/android/server/notification/NotificationManagerService;->mSoundNotificationKey:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/notification/NotificationRecord;
+
+    invoke-direct {p0, v0}, Lcom/android/server/notification/NotificationManagerService;->isLoopingRingtoneNotification(Lcom/android/server/notification/NotificationRecord;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService;->mNotificationsByKey:Landroid/util/ArrayMap;
+
+    iget-object v1, p0, Lcom/android/server/notification/NotificationManagerService;->mVibrateNotificationKey:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/notification/NotificationRecord;
+
+    invoke-direct {p0, v0}, Lcom/android/server/notification/NotificationManagerService;->isLoopingRingtoneNotification(Lcom/android/server/notification/NotificationRecord;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    const/4 v0, 0x1
+
+    :goto_1
+    return v0
+.end method
+
+.method isInsistentUpdate(Lcom/android/server/notification/NotificationRecord;)Z
+    .locals 2
+
+    invoke-virtual {p1}, Lcom/android/server/notification/NotificationRecord;->getKey()Ljava/lang/String;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/server/notification/NotificationManagerService;->mSoundNotificationKey:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-virtual {p1}, Lcom/android/server/notification/NotificationRecord;->getKey()Ljava/lang/String;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/server/notification/NotificationManagerService;->mVibrateNotificationKey:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/server/notification/NotificationManagerService;->isCurrentlyInsistent()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
 .end method
 
 .method isNASMigrationDone(I)Z
@@ -21227,39 +21135,19 @@
     return v2
 
     :cond_5
-    iget-object v4, p0, Lcom/android/server/notification/NotificationManagerService;->mNotificationsByKey:Landroid/util/ArrayMap;
-
-    iget-object v5, p0, Lcom/android/server/notification/NotificationManagerService;->mSoundNotificationKey:Ljava/lang/String;
-
-    invoke-virtual {v4, v5}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lcom/android/server/notification/NotificationRecord;
-
-    invoke-direct {p0, v4}, Lcom/android/server/notification/NotificationManagerService;->isLoopingRingtoneNotification(Lcom/android/server/notification/NotificationRecord;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_a
-
-    iget-object v4, p0, Lcom/android/server/notification/NotificationManagerService;->mNotificationsByKey:Landroid/util/ArrayMap;
-
-    iget-object v5, p0, Lcom/android/server/notification/NotificationManagerService;->mVibrateNotificationKey:Ljava/lang/String;
-
-    invoke-virtual {v4, v5}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lcom/android/server/notification/NotificationRecord;
-
-    invoke-direct {p0, v4}, Lcom/android/server/notification/NotificationManagerService;->isLoopingRingtoneNotification(Lcom/android/server/notification/NotificationRecord;)Z
+    invoke-virtual {p0}, Lcom/android/server/notification/NotificationManagerService;->isCurrentlyInsistent()Z
 
     move-result v4
 
     if-eqz v4, :cond_6
 
-    goto :goto_1
+    invoke-virtual {p0, p1}, Lcom/android/server/notification/NotificationManagerService;->isInsistentUpdate(Lcom/android/server/notification/NotificationRecord;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_6
+
+    return v2
 
     :cond_6
     invoke-virtual {p1}, Lcom/android/server/notification/NotificationRecord;->canBubble()Z
@@ -21335,10 +21223,6 @@
 
     :cond_9
     return v5
-
-    :cond_a
-    :goto_1
-    return v2
 .end method
 
 .method showNextToastLocked(Z)V
@@ -21496,9 +21380,7 @@
 
     if-nez p5, :cond_0
 
-    const/4 v0, 0x0
-
-    goto :goto_0
+    return-void
 
     :cond_0
     iget-object v0, p5, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->component:Landroid/content/ComponentName;
@@ -21507,7 +21389,6 @@
 
     move-result-object v0
 
-    :goto_0
     const-wide/16 v1, 0x0
 
     cmp-long v1, p2, v1
@@ -21523,45 +21404,84 @@
     return-void
 
     :cond_3
-    sget-boolean v1, Lcom/android/server/notification/NotificationManagerService;->DBG:Z
+    iget-object v1, p0, Lcom/android/server/notification/NotificationManagerService;->mNotificationLock:Ljava/lang/Object;
 
-    if-eqz v1, :cond_4
+    monitor-enter v1
 
-    const/4 v1, 0x4
+    :try_start_0
+    invoke-direct {p0, p1}, Lcom/android/server/notification/NotificationManagerService;->findInCurrentAndSnoozedNotificationByKeyLocked(Ljava/lang/String;)Lcom/android/server/notification/NotificationRecord;
 
-    new-array v1, v1, [Ljava/lang/Object;
+    move-result-object v2
 
-    const/4 v2, 0x0
+    if-nez v2, :cond_4
 
-    aput-object p1, v1, v2
+    monitor-exit v1
 
-    const/4 v2, 0x1
+    return-void
 
-    invoke-static {p2, p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    :cond_4
+    invoke-virtual {v2}, Lcom/android/server/notification/NotificationRecord;->getSbn()Landroid/service/notification/StatusBarNotification;
 
     move-result-object v3
 
-    aput-object v3, v1, v2
+    invoke-virtual {v3}, Landroid/service/notification/StatusBarNotification;->getNormalizedUserId()I
 
-    const/4 v2, 0x2
+    move-result v3
 
-    aput-object p4, v1, v2
+    invoke-virtual {p5, v3}, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->enabledAndUserMatches(I)Z
 
-    const/4 v2, 0x3
+    move-result v3
 
-    aput-object v0, v1, v2
+    if-nez v3, :cond_5
+
+    monitor-exit v1
+
+    return-void
+
+    :cond_5
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    sget-boolean v1, Lcom/android/server/notification/NotificationManagerService;->DBG:Z
+
+    if-eqz v1, :cond_6
+
+    const-string v1, "NotificationService"
 
     const-string/jumbo v2, "snooze event(%s, %d, %s, %s)"
 
-    invoke-static {v2, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    const/4 v3, 0x4
 
-    move-result-object v1
+    new-array v3, v3, [Ljava/lang/Object;
 
-    const-string v2, "NotificationService"
+    const/4 v4, 0x0
 
-    invoke-static {v2, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    aput-object p1, v3, v4
 
-    :cond_4
+    const/4 v4, 0x1
+
+    invoke-static {p2, p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v5
+
+    aput-object v5, v3, v4
+
+    const/4 v4, 0x2
+
+    aput-object p4, v3, v4
+
+    const/4 v4, 0x3
+
+    aput-object v0, v3, v4
+
+    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_6
     iget-object v1, p0, Lcom/android/server/notification/NotificationManagerService;->mHandler:Lcom/android/server/notification/NotificationManagerService$WorkerHandler;
 
     new-instance v8, Lcom/android/server/notification/NotificationManagerService$SnoozeNotificationRunnable;
@@ -21581,6 +21501,16 @@
     invoke-virtual {v1, v8}, Lcom/android/server/notification/NotificationManagerService$WorkerHandler;->post(Ljava/lang/Runnable;)Z
 
     return-void
+
+    :catchall_0
+    move-exception v2
+
+    :try_start_1
+    monitor-exit v1
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw v2
 .end method
 
 .method unsnoozeNotificationInt(Ljava/lang/String;Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;Z)V

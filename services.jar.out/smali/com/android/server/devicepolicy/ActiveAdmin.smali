@@ -1524,7 +1524,7 @@
 
     invoke-virtual {p1, v1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/Object;)V
 
-    const-string v1, "isParent="
+    const-string/jumbo v1, "isParent="
 
     invoke-virtual {p1, v1}, Landroid/util/IndentingPrintWriter;->print(Ljava/lang/String;)V
 

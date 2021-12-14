@@ -10386,12 +10386,12 @@
 
     if-eqz v0, :cond_1
 
-    const v2, 0x10405d1
+    const v2, 0x10405d3
 
     goto :goto_1
 
     :cond_1
-    const v2, 0x10405d0
+    const v2, 0x10405d2
 
     :goto_1
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;

@@ -22531,7 +22531,7 @@
     move v3, v4
 
     :cond_2
-    const v4, 0x10e008e
+    const v4, 0x10e008f
 
     invoke-virtual {v8, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -49908,6 +49908,12 @@
     const-string v2, "Too many Binders sent to SYSTEM"
 
     invoke-virtual {p0, v0, v1, v2}, Lcom/android/server/am/ActivityManagerService;->killUid(IILjava/lang/String;)V
+
+    invoke-static {}, Ldalvik/system/VMRuntime;->getRuntime()Ldalvik/system/VMRuntime;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ldalvik/system/VMRuntime;->requestConcurrentGC()V
 
     :goto_0
     return-void

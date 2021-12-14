@@ -1841,13 +1841,40 @@
 .end method
 
 .method public forgetUid(I)V
-    .locals 1
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/audio/PlaybackActivityMonitor;->mPlayerLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/audio/PlaybackActivityMonitor;->mPlayers:Ljava/util/HashMap;
+
+    invoke-virtual {v1}, Ljava/util/HashMap;->clone()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/util/HashMap;
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     iget-object v0, p0, Lcom/android/server/audio/PlaybackActivityMonitor;->mFadingManager:Lcom/android/server/audio/FadeOutManager;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/audio/FadeOutManager;->forgetUid(I)V
+    invoke-virtual {v0, p1, v1}, Lcom/android/server/audio/FadeOutManager;->unfadeOutUid(ILjava/util/HashMap;)V
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    :try_start_1
+    monitor-exit v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw v1
 .end method
 
 .method getActivePlaybackConfigurations(Z)Ljava/util/List;

@@ -27,7 +27,7 @@
 
     iget-object v0, p0, Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda11;->f$0:Lcom/android/server/wm/DisplayPolicy;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/DisplayPolicy;->lambda$notifyDisplayReady$11$DisplayPolicy()V
+    invoke-virtual {v0}, Lcom/android/server/wm/DisplayPolicy;->lambda$new$0$DisplayPolicy()V
 
     return-void
 .end method

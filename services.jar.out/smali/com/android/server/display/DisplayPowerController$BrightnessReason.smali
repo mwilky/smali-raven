@@ -240,7 +240,7 @@
 
     iget-object v0, p0, Lcom/android/server/display/DisplayPowerController$BrightnessReason;->this$0:Lcom/android/server/display/DisplayPowerController;
 
-    invoke-static {v0}, Lcom/android/server/display/DisplayPowerController;->access$2400(Lcom/android/server/display/DisplayPowerController;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/android/server/display/DisplayPowerController;->access$2500(Lcom/android/server/display/DisplayPowerController;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -293,7 +293,7 @@
     :goto_0
     iget-object v0, p0, Lcom/android/server/display/DisplayPowerController$BrightnessReason;->this$0:Lcom/android/server/display/DisplayPowerController;
 
-    invoke-static {v0}, Lcom/android/server/display/DisplayPowerController;->access$2400(Lcom/android/server/display/DisplayPowerController;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/android/server/display/DisplayPowerController;->access$2500(Lcom/android/server/display/DisplayPowerController;)Ljava/lang/String;
 
     move-result-object v0
 

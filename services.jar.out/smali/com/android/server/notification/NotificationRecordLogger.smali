@@ -47,6 +47,9 @@
 .method public abstract log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;Lcom/android/server/notification/NotificationRecord;)V
 .end method
 
+.method public abstract logNotificationAdjusted(Lcom/android/server/notification/NotificationRecord;IILcom/android/internal/logging/InstanceId;)V
+.end method
+
 .method public logNotificationCancelled(Lcom/android/server/notification/NotificationRecord;II)V
     .locals 1
 

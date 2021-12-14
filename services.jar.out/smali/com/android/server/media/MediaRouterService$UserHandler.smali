@@ -145,7 +145,7 @@
 
     new-instance v0, Lcom/android/server/media/RemoteDisplayProviderWatcher;
 
-    invoke-static {p1}, Lcom/android/server/media/MediaRouterService;->access$800(Lcom/android/server/media/MediaRouterService;)Landroid/content/Context;
+    invoke-static {p1}, Lcom/android/server/media/MediaRouterService;->access$600(Lcom/android/server/media/MediaRouterService;)Landroid/content/Context;
 
     move-result-object v1
 

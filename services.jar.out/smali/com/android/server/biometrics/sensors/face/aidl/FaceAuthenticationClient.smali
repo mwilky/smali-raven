@@ -42,7 +42,7 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;IJZLjava/lang/String;IZIZILcom/android/server/biometrics/sensors/face/UsageStats;Lcom/android/server/biometrics/sensors/LockoutCache;ZZ)V
+.method constructor <init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;JLcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;IJZLjava/lang/String;IZIZILcom/android/server/biometrics/sensors/face/UsageStats;Lcom/android/server/biometrics/sensors/LockoutCache;ZZ)V
     .locals 21
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -52,6 +52,7 @@
             "Landroid/hardware/biometrics/face/ISession;",
             ">;",
             "Landroid/os/IBinder;",
+            "J",
             "Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;",
             "IJZ",
             "Ljava/lang/String;",
@@ -72,31 +73,31 @@
 
     move-object/from16 v3, p3
 
-    move-object/from16 v4, p4
+    move-object/from16 v4, p6
 
-    move/from16 v5, p5
+    move/from16 v5, p7
 
-    move-wide/from16 v6, p6
+    move-wide/from16 v6, p8
 
-    move/from16 v8, p8
+    move/from16 v8, p10
 
-    move-object/from16 v9, p9
+    move-object/from16 v9, p11
 
-    move/from16 v10, p10
+    move/from16 v10, p12
 
-    move/from16 v11, p11
+    move/from16 v11, p13
 
-    move/from16 v12, p12
+    move/from16 v12, p14
 
-    move/from16 v13, p13
+    move/from16 v13, p15
 
-    move/from16 v15, p14
+    move/from16 v15, p16
 
-    move-object/from16 v17, p16
+    move-object/from16 v17, p18
 
-    move/from16 v18, p17
+    move/from16 v18, p19
 
-    move/from16 v20, p18
+    move/from16 v20, p20
 
     const/16 v16, 0x4
 
@@ -114,65 +115,69 @@
 
     iput v0, v1, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->mLastAcquire:I
 
-    move-object/from16 v0, p15
+    move-wide/from16 v2, p4
+
+    invoke-virtual {v1, v2, v3}, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->setRequestId(J)V
+
+    move-object/from16 v0, p17
 
     iput-object v0, v1, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->mUsageStats:Lcom/android/server/biometrics/sensors/face/UsageStats;
 
-    move-object/from16 v2, p16
+    move-object/from16 v4, p18
 
-    iput-object v2, v1, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->mLockoutCache:Lcom/android/server/biometrics/sensors/LockoutCache;
+    iput-object v4, v1, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->mLockoutCache:Lcom/android/server/biometrics/sensors/LockoutCache;
 
-    const-class v3, Landroid/app/NotificationManager;
+    const-class v5, Landroid/app/NotificationManager;
 
-    move-object/from16 v4, p1
+    move-object/from16 v6, p1
 
-    invoke-virtual {v4, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {v6, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v5
 
-    check-cast v3, Landroid/app/NotificationManager;
+    check-cast v5, Landroid/app/NotificationManager;
 
-    iput-object v3, v1, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->mNotificationManager:Landroid/app/NotificationManager;
+    iput-object v5, v1, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->mNotificationManager:Landroid/app/NotificationManager;
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->getContext()Landroid/content/Context;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v3
-
-    const v5, 0x1070046
-
-    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getIntArray(I)[I
+    invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v5
 
-    iput-object v5, v1, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->mBiometricPromptIgnoreList:[I
+    const v7, 0x1070046
 
-    const v5, 0x1070049
+    invoke-virtual {v5, v7}, Landroid/content/res/Resources;->getIntArray(I)[I
 
-    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getIntArray(I)[I
+    move-result-object v7
 
-    move-result-object v5
+    iput-object v7, v1, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->mBiometricPromptIgnoreList:[I
 
-    iput-object v5, v1, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->mBiometricPromptIgnoreListVendor:[I
+    const v7, 0x1070049
 
-    const v5, 0x1070048
+    invoke-virtual {v5, v7}, Landroid/content/res/Resources;->getIntArray(I)[I
 
-    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getIntArray(I)[I
+    move-result-object v7
 
-    move-result-object v5
+    iput-object v7, v1, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->mBiometricPromptIgnoreListVendor:[I
 
-    iput-object v5, v1, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->mKeyguardIgnoreList:[I
+    const v7, 0x1070048
 
-    const v5, 0x107004b
+    invoke-virtual {v5, v7}, Landroid/content/res/Resources;->getIntArray(I)[I
 
-    invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getIntArray(I)[I
+    move-result-object v7
 
-    move-result-object v5
+    iput-object v7, v1, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->mKeyguardIgnoreList:[I
 
-    iput-object v5, v1, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->mKeyguardIgnoreListVendor:[I
+    const v7, 0x107004b
+
+    invoke-virtual {v5, v7}, Landroid/content/res/Resources;->getIntArray(I)[I
+
+    move-result-object v7
+
+    iput-object v7, v1, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->mKeyguardIgnoreListVendor:[I
 
     return-void
 .end method

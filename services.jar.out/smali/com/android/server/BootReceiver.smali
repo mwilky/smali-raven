@@ -1032,19 +1032,22 @@
 
     check-cast v0, Landroid/os/DropBoxManager;
 
-    const-string/jumbo v1, "ro.boot.bootreason"
+    const-string v7, "BootReceiver"
 
-    const/4 v2, 0x0
+    if-nez v0, :cond_0
 
-    invoke-static {v1, v2}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    const-string v1, "Can\'t log tombstone: DropBoxManager not available"
 
-    move-result-object v7
+    invoke-static {v7, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    return-void
+
+    :cond_0
     invoke-static {}, Lcom/android/server/BootReceiver;->readTimestamps()Ljava/util/HashMap;
 
     move-result-object v8
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_1
 
     :try_start_0
     const-string v1, "SYSTEM_TOMBSTONE_PROTO"
@@ -1055,7 +1058,7 @@
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     invoke-static {}, Lcom/android/server/BootReceiver;->getBootHeadersToLogAndUpdate()Ljava/lang/String;
 
     move-result-object v3
@@ -1082,11 +1085,9 @@
     :catch_0
     move-exception v1
 
-    const-string v2, "BootReceiver"
+    const-string v2, "Can\'t log tombstone"
 
-    const-string v3, "Can\'t log tombstone"
-
-    invoke-static {v2, v3, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v7, v2, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_1
     invoke-static {v8}, Lcom/android/server/BootReceiver;->writeTimestamps(Ljava/util/HashMap;)V

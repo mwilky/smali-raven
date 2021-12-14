@@ -126,3 +126,70 @@
 
     return-object v1
 .end method
+
+.method public isAirplaneModeOn()Z
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/uwb/UwbInjector;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "airplane_mode_on"
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_0
+
+    move v2, v1
+
+    :cond_0
+    return v2
+.end method
+
+.method public isPersistedUwbStateEnabled()Z
+    .locals 5
+
+    const-string v0, "uwb_enabled"
+
+    iget-object v1, p0, Lcom/android/server/uwb/UwbInjector;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const/4 v2, 0x1
+
+    const/4 v3, 0x2
+
+    :try_start_0
+    invoke-static {v1, v0}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
+
+    move-result v0
+    :try_end_0
+    .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    if-ne v0, v3, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v2, 0x0
+
+    :goto_0
+    return v2
+
+    :catch_0
+    move-exception v4
+
+    invoke-static {v1, v0, v3}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    return v2
+.end method

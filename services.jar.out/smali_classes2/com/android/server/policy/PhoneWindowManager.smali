@@ -380,6 +380,8 @@
 
 .field private mLongPressOnHomeBehavior:I
 
+.field mLongPressOnPowerAssistantTimeoutMs:J
+
 .field mLongPressOnPowerBehavior:I
 
 .field mLongPressVibePattern:[J
@@ -998,7 +1000,17 @@
     return-void
 .end method
 
-.method static synthetic access$4600(Lcom/android/server/policy/PhoneWindowManager;)Z
+.method static synthetic access$4600(Lcom/android/server/policy/PhoneWindowManager;)I
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/server/policy/PhoneWindowManager;->getResolvedLongPressOnPowerBehavior()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic access$4700(Lcom/android/server/policy/PhoneWindowManager;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mSupportLongPressPowerWhenNonInteractive:Z
@@ -1006,7 +1018,7 @@
     return v0
 .end method
 
-.method static synthetic access$4700(Lcom/android/server/policy/PhoneWindowManager;J)V
+.method static synthetic access$4800(Lcom/android/server/policy/PhoneWindowManager;J)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/policy/PhoneWindowManager;->powerLongPress(J)V
@@ -1014,22 +1026,12 @@
     return-void
 .end method
 
-.method static synthetic access$4800(Lcom/android/server/policy/PhoneWindowManager;)V
+.method static synthetic access$4900(Lcom/android/server/policy/PhoneWindowManager;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/policy/PhoneWindowManager;->powerVeryLongPress()V
 
     return-void
-.end method
-
-.method static synthetic access$4900(Lcom/android/server/policy/PhoneWindowManager;)Z
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/server/policy/PhoneWindowManager;->backKeyPress()Z
-
-    move-result v0
-
-    return v0
 .end method
 
 .method static synthetic access$500(Lcom/android/server/policy/PhoneWindowManager;Ljava/lang/String;IJI)V
@@ -1040,7 +1042,17 @@
     return-void
 .end method
 
-.method static synthetic access$5000(Lcom/android/server/policy/PhoneWindowManager;)V
+.method static synthetic access$5000(Lcom/android/server/policy/PhoneWindowManager;)Z
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/server/policy/PhoneWindowManager;->backKeyPress()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic access$5100(Lcom/android/server/policy/PhoneWindowManager;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/policy/PhoneWindowManager;->backLongPress()V
@@ -1048,7 +1060,7 @@
     return-void
 .end method
 
-.method static synthetic access$5300(Lcom/android/server/policy/PhoneWindowManager;)Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;
+.method static synthetic access$5400(Lcom/android/server/policy/PhoneWindowManager;)Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mKeyguardDelegate:Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;
@@ -1056,7 +1068,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$5402(Lcom/android/server/policy/PhoneWindowManager;Z)Z
+.method static synthetic access$5502(Lcom/android/server/policy/PhoneWindowManager;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/policy/PhoneWindowManager;->mLockNowPending:Z
@@ -2943,9 +2955,7 @@
 
     new-instance v0, Lcom/android/server/policy/SingleKeyGestureDetector;
 
-    iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mContext:Landroid/content/Context;
-
-    invoke-direct {v0, v1}, Lcom/android/server/policy/SingleKeyGestureDetector;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0}, Lcom/android/server/policy/SingleKeyGestureDetector;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mSingleKeyGestureDetector:Lcom/android/server/policy/SingleKeyGestureDetector;
 
@@ -7684,6 +7694,16 @@
 
     invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
+    const-string v0, "mLongPressOnPowerAssistantTimeoutMs="
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-wide v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mLongPressOnPowerAssistantTimeoutMs:J
+
+    invoke-virtual {p2, v0, v1}, Ljava/io/PrintWriter;->println(J)V
+
+    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
     const-string v0, "mVeryLongPressOnPowerBehavior="
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -9336,7 +9356,7 @@
 
     move-result-object v1
 
-    const v3, 0x10e00c7
+    const v3, 0x10e00c8
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -9364,7 +9384,23 @@
 
     move-result-object v1
 
-    const v3, 0x10e00da
+    const v3, 0x10e007a
+
+    invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v1
+
+    int-to-long v3, v1
+
+    iput-wide v3, v0, Lcom/android/server/policy/PhoneWindowManager;->mLongPressOnPowerAssistantTimeoutMs:J
+
+    iget-object v1, v0, Lcom/android/server/policy/PhoneWindowManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v3, 0x10e00db
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -9392,7 +9428,7 @@
 
     move-result-object v1
 
-    const v3, 0x10e00d5
+    const v3, 0x10e00d6
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -9406,7 +9442,7 @@
 
     move-result-object v1
 
-    const v3, 0x10e00c8
+    const v3, 0x10e00c9
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -9494,7 +9530,7 @@
 
     move-result-object v1
 
-    const v2, 0x10e00e1
+    const v2, 0x10e00e2
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -9615,7 +9651,7 @@
 
     move-result-object v4
 
-    const v5, 0x107005a
+    const v5, 0x107005b
 
     invoke-static {v4, v5}, Lcom/android/server/policy/PhoneWindowManager;->getLongIntArray(Landroid/content/res/Resources;I)[J
 
@@ -9643,7 +9679,7 @@
 
     move-result-object v4
 
-    const v5, 0x1070072
+    const v5, 0x1070073
 
     invoke-static {v4, v5}, Lcom/android/server/policy/PhoneWindowManager;->getLongIntArray(Landroid/content/res/Resources;I)[J
 
@@ -9939,7 +9975,7 @@
 
     invoke-direct {v0, p0, v1}, Lcom/android/server/policy/PhoneWindowManager$HdmiVideoExtconUEventObserver;-><init>(Lcom/android/server/policy/PhoneWindowManager;Lcom/android/server/policy/PhoneWindowManager$1;)V
 
-    invoke-static {v0}, Lcom/android/server/policy/PhoneWindowManager$HdmiVideoExtconUEventObserver;->access$5200(Lcom/android/server/policy/PhoneWindowManager$HdmiVideoExtconUEventObserver;)Z
+    invoke-static {v0}, Lcom/android/server/policy/PhoneWindowManager$HdmiVideoExtconUEventObserver;->access$5300(Lcom/android/server/policy/PhoneWindowManager$HdmiVideoExtconUEventObserver;)Z
 
     move-result v2
 
@@ -14149,7 +14185,7 @@
 .end method
 
 .method public updateSettings()V
-    .locals 10
+    .locals 11
 
     iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mContext:Landroid/content/Context;
 
@@ -14328,6 +14364,34 @@
 
     iput v7, p0, Lcom/android/server/policy/PhoneWindowManager;->mLongPressOnPowerBehavior:I
 
+    iget-object v7, p0, Lcom/android/server/policy/PhoneWindowManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v7}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v7
+
+    const-string v8, "power_button_long_press_duration_ms"
+
+    iget-object v9, p0, Lcom/android/server/policy/PhoneWindowManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v9}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v9
+
+    const v10, 0x10e007a
+
+    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v9
+
+    int-to-long v9, v9
+
+    invoke-static {v7, v8, v9, v10}, Landroid/provider/Settings$Global;->getLong(Landroid/content/ContentResolver;Ljava/lang/String;J)J
+
+    move-result-wide v7
+
+    iput-wide v7, p0, Lcom/android/server/policy/PhoneWindowManager;->mLongPressOnPowerAssistantTimeoutMs:J
+
     const-string v7, "power_button_very_long_press"
 
     iget-object v8, p0, Lcom/android/server/policy/PhoneWindowManager;->mContext:Landroid/content/Context;
@@ -14336,7 +14400,7 @@
 
     move-result-object v8
 
-    const v9, 0x10e00da
+    const v9, 0x10e00db
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getInteger(I)I
 

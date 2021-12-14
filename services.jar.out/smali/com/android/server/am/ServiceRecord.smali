@@ -2613,6 +2613,18 @@
 .method public postNotification()V
     .locals 15
 
+    iget-boolean v0, p0, Lcom/android/server/am/ServiceRecord;->isForeground:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/am/ServiceRecord;->foregroundNoti:Landroid/app/Notification;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/am/ServiceRecord;->app:Lcom/android/server/am/ProcessRecord;
+
+    if-eqz v0, :cond_0
+
     iget-object v0, p0, Lcom/android/server/am/ServiceRecord;->appInfo:Landroid/content/pm/ApplicationInfo;
 
     iget v0, v0, Landroid/content/pm/ApplicationInfo;->uid:I
@@ -2622,14 +2634,6 @@
     invoke-virtual {v1}, Lcom/android/server/am/ProcessRecord;->getPid()I
 
     move-result v9
-
-    iget-boolean v1, p0, Lcom/android/server/am/ServiceRecord;->isForeground:Z
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/am/ServiceRecord;->foregroundNoti:Landroid/app/Notification;
-
-    if-eqz v1, :cond_0
 
     iget-object v10, p0, Lcom/android/server/am/ServiceRecord;->packageName:Ljava/lang/String;
 

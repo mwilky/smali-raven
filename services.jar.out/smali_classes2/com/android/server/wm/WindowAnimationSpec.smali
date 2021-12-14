@@ -126,16 +126,28 @@
 .end method
 
 .method private static findAlmostThereFraction(Landroid/view/animation/Interpolator;)F
-    .locals 4
+    .locals 2
+
+    const v0, 0x3f7d70a4    # 0.99f
+
+    const v1, 0x3c23d70a    # 0.01f
+
+    invoke-static {p0, v0, v1}, Lcom/android/server/wm/WindowAnimationSpec;->findInterpolationAdjustedTargetFraction(Landroid/view/animation/Interpolator;FF)F
+
+    move-result v0
+
+    return v0
+.end method
+
+.method private static findInterpolationAdjustedTargetFraction(Landroid/view/animation/Interpolator;FF)F
+    .locals 3
 
     const/high16 v0, 0x3f000000    # 0.5f
 
     const/high16 v1, 0x3e800000    # 0.25f
 
     :goto_0
-    const v2, 0x3c23d70a    # 0.01f
-
-    cmpl-float v2, v1, v2
+    cmpl-float v2, v1, p2
 
     if-ltz v2, :cond_1
 
@@ -143,9 +155,7 @@
 
     move-result v2
 
-    const v3, 0x3f7d70a4    # 0.99f
-
-    cmpg-float v2, v2, v3
+    cmpg-float v2, v2, p1
 
     if-gez v2, :cond_0
 
@@ -164,6 +174,20 @@
     goto :goto_0
 
     :cond_1
+    return v0
+.end method
+
+.method private findMiddleOfTranslationFraction(Landroid/view/animation/Interpolator;)F
+    .locals 2
+
+    const/high16 v0, 0x3f000000    # 0.5f
+
+    const v1, 0x3c23d70a    # 0.01f
+
+    invoke-static {p1, v0, v1}, Lcom/android/server/wm/WindowAnimationSpec;->findInterpolationAdjustedTargetFraction(Landroid/view/animation/Interpolator;FF)F
+
+    move-result v0
+
     return v0
 .end method
 
@@ -401,8 +425,57 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
+    invoke-virtual {v0}, Landroid/view/animation/TranslateAnimation;->isXAxisTransition()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v0}, Landroid/view/animation/TranslateAnimation;->isFullWidthTranslate()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v0}, Landroid/view/animation/TranslateAnimation;->getInterpolator()Landroid/view/animation/Interpolator;
+
+    move-result-object v1
+
+    invoke-direct {p0, v1}, Lcom/android/server/wm/WindowAnimationSpec;->findMiddleOfTranslationFraction(Landroid/view/animation/Interpolator;)F
+
+    move-result v1
+
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v2
+
+    invoke-virtual {v0}, Landroid/view/animation/TranslateAnimation;->getStartOffset()J
+
+    move-result-wide v4
+
+    add-long/2addr v2, v4
+
+    invoke-virtual {v0}, Landroid/view/animation/TranslateAnimation;->getDuration()J
+
+    move-result-wide v4
+
+    long-to-float v4, v4
+
+    mul-float/2addr v4, v1
+
+    float-to-long v4, v4
+
+    add-long/2addr v2, v4
+
+    const-wide/16 v4, 0x3c
+
+    sub-long/2addr v2, v4
+
+    return-wide v2
+
+    :cond_0
     invoke-virtual {v0}, Landroid/view/animation/TranslateAnimation;->getInterpolator()Landroid/view/animation/Interpolator;
 
     move-result-object v1
@@ -439,7 +512,7 @@
 
     return-wide v2
 
-    :cond_0
+    :cond_1
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v1

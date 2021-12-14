@@ -322,7 +322,7 @@
 .end method
 
 .method public startEnroll(I)V
-    .locals 11
+    .locals 10
 
     iget-object v0, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl;->mContext:Landroid/content/Context;
 
@@ -350,13 +350,11 @@
 
     move-result-object v8
 
-    iget-object v10, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/BiometricTestSessionImpl;->mFingerprintStateCallback:Lcom/android/server/biometrics/sensors/fingerprint/FingerprintStateCallback;
-
     const/4 v9, 0x2
 
     move v6, p1
 
-    invoke-virtual/range {v2 .. v10}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/Fingerprint21;->scheduleEnroll(ILandroid/os/IBinder;[BILandroid/hardware/fingerprint/IFingerprintServiceReceiver;Ljava/lang/String;ILcom/android/server/biometrics/sensors/fingerprint/FingerprintStateCallback;)V
+    invoke-virtual/range {v2 .. v9}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/Fingerprint21;->scheduleEnroll(ILandroid/os/IBinder;[BILandroid/hardware/fingerprint/IFingerprintServiceReceiver;Ljava/lang/String;I)V
 
     return-void
 .end method

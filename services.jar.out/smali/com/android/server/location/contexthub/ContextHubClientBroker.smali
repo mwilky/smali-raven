@@ -57,6 +57,8 @@
 
 .field private mIsPendingIntentCancelled:Ljava/util/concurrent/atomic/AtomicBoolean;
 
+.field private mIsPermQueryIssued:Ljava/util/concurrent/atomic/AtomicBoolean;
+
 .field private final mMessageChannelNanoappIdMap:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -151,6 +153,12 @@
     invoke-direct {v1, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
 
     iput-object v1, p0, Lcom/android/server/location/contexthub/ContextHubClientBroker;->mIsPendingIntentCancelled:Ljava/util/concurrent/atomic/AtomicBoolean;
+
+    new-instance v1, Ljava/util/concurrent/atomic/AtomicBoolean;
+
+    invoke-direct {v1, v2}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
+
+    iput-object v1, p0, Lcom/android/server/location/contexthub/ContextHubClientBroker;->mIsPermQueryIssued:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     new-instance v1, Ljava/util/concurrent/ConcurrentHashMap;
 
@@ -287,7 +295,15 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/server/location/contexthub/ContextHubClientBroker;)Ljava/util/Map;
+.method static synthetic access$000(Lcom/android/server/location/contexthub/ContextHubClientBroker;)Ljava/util/concurrent/atomic/AtomicBoolean;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/location/contexthub/ContextHubClientBroker;->mIsPermQueryIssued:Ljava/util/concurrent/atomic/AtomicBoolean;
+
+    return-object v0
+.end method
+
+.method static synthetic access$100(Lcom/android/server/location/contexthub/ContextHubClientBroker;)Ljava/util/Map;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/location/contexthub/ContextHubClientBroker;->mMessageChannelNanoappIdMap:Ljava/util/Map;
@@ -295,7 +311,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$100(Lcom/android/server/location/contexthub/ContextHubClientBroker;JLjava/util/List;Z)I
+.method static synthetic access$200(Lcom/android/server/location/contexthub/ContextHubClientBroker;JLjava/util/List;Z)I
     .locals 1
 
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/location/contexthub/ContextHubClientBroker;->updateNanoAppAuthState(JLjava/util/List;Z)I
@@ -342,6 +358,16 @@
 .method private checkNanoappPermsAsync()V
     .locals 4
 
+    iget-object v0, p0, Lcom/android/server/location/contexthub/ContextHubClientBroker;->mIsPermQueryIssued:Ljava/util/concurrent/atomic/AtomicBoolean;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->getAndSet(Z)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
     iget-object v0, p0, Lcom/android/server/location/contexthub/ContextHubClientBroker;->mTransactionManager:Lcom/android/server/location/contexthub/ContextHubTransactionManager;
 
     iget-object v1, p0, Lcom/android/server/location/contexthub/ContextHubClientBroker;->mAttachedContextHubInfo:Landroid/hardware/location/ContextHubInfo;
@@ -362,6 +388,7 @@
 
     invoke-virtual {v1, v0}, Lcom/android/server/location/contexthub/ContextHubTransactionManager;->addTransaction(Lcom/android/server/location/contexthub/ContextHubServiceTransaction;)V
 
+    :cond_0
     return-void
 .end method
 

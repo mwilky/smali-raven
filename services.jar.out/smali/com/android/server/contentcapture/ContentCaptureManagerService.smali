@@ -598,23 +598,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$3600(Lcom/android/server/contentcapture/ContentCaptureManagerService;)Ljava/util/concurrent/Executor;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/contentcapture/ContentCaptureManagerService;->mDataShareExecutor:Ljava/util/concurrent/Executor;
-
-    return-object v0
-.end method
-
-.method static synthetic access$3700(Lcom/android/server/contentcapture/ContentCaptureManagerService;)Landroid/os/Handler;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/contentcapture/ContentCaptureManagerService;->mHandler:Landroid/os/Handler;
-
-    return-object v0
-.end method
-
-.method static synthetic access$3800(Lcom/android/server/contentcapture/ContentCaptureManagerService;)Ljava/lang/Object;
+.method static synthetic access$3600(Lcom/android/server/contentcapture/ContentCaptureManagerService;)Ljava/lang/Object;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/contentcapture/ContentCaptureManagerService;->mLock:Ljava/lang/Object;
@@ -622,10 +606,26 @@
     return-object v0
 .end method
 
-.method static synthetic access$3900(Lcom/android/server/contentcapture/ContentCaptureManagerService;)Lcom/android/server/infra/ServiceNameResolver;
+.method static synthetic access$3700(Lcom/android/server/contentcapture/ContentCaptureManagerService;)Ljava/lang/Object;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/contentcapture/ContentCaptureManagerService;->mServiceNameResolver:Lcom/android/server/infra/ServiceNameResolver;
+    iget-object v0, p0, Lcom/android/server/contentcapture/ContentCaptureManagerService;->mLock:Ljava/lang/Object;
+
+    return-object v0
+.end method
+
+.method static synthetic access$3800(Lcom/android/server/contentcapture/ContentCaptureManagerService;)Ljava/util/concurrent/Executor;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/contentcapture/ContentCaptureManagerService;->mDataShareExecutor:Ljava/util/concurrent/Executor;
+
+    return-object v0
+.end method
+
+.method static synthetic access$3900(Lcom/android/server/contentcapture/ContentCaptureManagerService;)Landroid/os/Handler;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/contentcapture/ContentCaptureManagerService;->mHandler:Landroid/os/Handler;
 
     return-object v0
 .end method
@@ -641,6 +641,22 @@
 .end method
 
 .method static synthetic access$4000(Lcom/android/server/contentcapture/ContentCaptureManagerService;)Ljava/lang/Object;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/contentcapture/ContentCaptureManagerService;->mLock:Ljava/lang/Object;
+
+    return-object v0
+.end method
+
+.method static synthetic access$4100(Lcom/android/server/contentcapture/ContentCaptureManagerService;)Lcom/android/server/infra/ServiceNameResolver;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/contentcapture/ContentCaptureManagerService;->mServiceNameResolver:Lcom/android/server/infra/ServiceNameResolver;
+
+    return-object v0
+.end method
+
+.method static synthetic access$4200(Lcom/android/server/contentcapture/ContentCaptureManagerService;)Ljava/lang/Object;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/contentcapture/ContentCaptureManagerService;->mLock:Ljava/lang/Object;

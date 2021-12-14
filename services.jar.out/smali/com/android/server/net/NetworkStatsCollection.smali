@@ -1085,7 +1085,7 @@
 .end method
 
 .method public getHistory(Landroid/net/NetworkTemplate;Landroid/telephony/SubscriptionPlan;IIIIJJII)Landroid/net/NetworkStatsHistory;
-    .locals 46
+    .locals 44
 
     move-object/from16 v0, p0
 
@@ -1455,69 +1455,85 @@
 
     add-long/2addr v12, v14
 
-    iget-wide v14, v5, Landroid/net/NetworkStatsHistory$Entry;->rxBytes:J
+    cmp-long v12, v12, v3
 
-    cmp-long v14, v14, v3
+    if-nez v12, :cond_c
 
-    const-wide/16 v15, 0x1
-
-    if-nez v14, :cond_c
-
-    move-wide/from16 v30, v15
+    const-wide/16 v32, 0x1
 
     goto :goto_8
 
     :cond_c
-    iget-wide v3, v5, Landroid/net/NetworkStatsHistory$Entry;->rxBytes:J
+    iget-wide v13, v5, Landroid/net/NetworkStatsHistory$Entry;->rxBytes:J
 
-    move-wide/from16 v30, v3
-
-    :goto_8
     iget-wide v3, v5, Landroid/net/NetworkStatsHistory$Entry;->txBytes:J
 
-    const-wide/16 v22, 0x0
+    add-long/2addr v13, v3
 
-    cmp-long v3, v3, v22
+    move-wide/from16 v32, v13
+
+    :goto_8
+    nop
+
+    iget-wide v3, v5, Landroid/net/NetworkStatsHistory$Entry;->rxBytes:J
+
+    const-wide/16 v12, 0x0
+
+    cmp-long v3, v3, v12
 
     if-nez v3, :cond_d
 
-    move-wide/from16 v36, v15
+    const-wide/16 v30, 0x1
 
     goto :goto_9
 
     :cond_d
-    iget-wide v3, v5, Landroid/net/NetworkStatsHistory$Entry;->txBytes:J
+    iget-wide v3, v5, Landroid/net/NetworkStatsHistory$Entry;->rxBytes:J
 
-    move-wide/from16 v36, v3
+    move-wide/from16 v30, v3
 
     :goto_9
+    iget-wide v3, v5, Landroid/net/NetworkStatsHistory$Entry;->txBytes:J
+
+    cmp-long v3, v3, v12
+
+    if-nez v3, :cond_e
+
+    const-wide/16 v36, 0x1
+
+    goto :goto_a
+
+    :cond_e
+    iget-wide v13, v5, Landroid/net/NetworkStatsHistory$Entry;->txBytes:J
+
+    move-wide/from16 v36, v13
+
+    :goto_a
     invoke-virtual/range {p2 .. p2}, Landroid/telephony/SubscriptionPlan;->getDataUsageBytes()J
 
-    move-result-wide v14
+    move-result-wide v12
 
-    move-wide/from16 v28, v14
-
-    move-wide/from16 v32, v12
+    move-wide/from16 v28, v12
 
     invoke-static/range {v28 .. v33}, Lcom/android/internal/net/NetworkUtilsInternal;->multiplySafeByRational(JJJ)J
 
-    move-result-wide v16
+    move-result-wide v14
 
-    move-wide/from16 v34, v14
+    move-wide/from16 v34, v12
 
-    move-wide/from16 v38, v12
+    move-wide/from16 v38, v32
 
     invoke-static/range {v34 .. v39}, Lcom/android/internal/net/NetworkUtilsInternal;->multiplySafeByRational(JJJ)J
 
-    move-result-wide v28
+    move-result-wide v16
 
     invoke-virtual {v7}, Landroid/net/NetworkStatsHistory;->getTotalBytes()J
 
-    move-result-wide v32
+    move-result-wide v28
 
     const/4 v3, 0x0
 
-    :goto_a
+    :goto_b
     invoke-virtual {v7}, Landroid/net/NetworkStatsHistory;->size()I
 
     move-result v4
@@ -1532,81 +1548,73 @@
 
     cmp-long v4, v12, v18
 
-    if-ltz v4, :cond_e
+    if-ltz v4, :cond_f
 
     iget-wide v12, v5, Landroid/net/NetworkStatsHistory$Entry;->bucketStart:J
 
-    move-wide/from16 v44, v14
+    iget-wide v8, v5, Landroid/net/NetworkStatsHistory$Entry;->bucketDuration:J
 
-    iget-wide v14, v5, Landroid/net/NetworkStatsHistory$Entry;->bucketDuration:J
-
-    add-long/2addr v12, v14
+    add-long/2addr v12, v8
 
     cmp-long v4, v12, v24
 
     if-gtz v4, :cond_f
 
-    iget-wide v12, v5, Landroid/net/NetworkStatsHistory$Entry;->rxBytes:J
+    iget-wide v8, v5, Landroid/net/NetworkStatsHistory$Entry;->rxBytes:J
 
-    move-wide/from16 v38, v16
+    move-wide/from16 v38, v14
 
-    move-wide/from16 v40, v12
+    move-wide/from16 v40, v8
 
     move-wide/from16 v42, v30
 
     invoke-static/range {v38 .. v43}, Lcom/android/internal/net/NetworkUtilsInternal;->multiplySafeByRational(JJJ)J
 
-    move-result-wide v12
+    move-result-wide v8
 
-    iput-wide v12, v5, Landroid/net/NetworkStatsHistory$Entry;->rxBytes:J
+    iput-wide v8, v5, Landroid/net/NetworkStatsHistory$Entry;->rxBytes:J
 
-    iget-wide v12, v5, Landroid/net/NetworkStatsHistory$Entry;->txBytes:J
+    iget-wide v8, v5, Landroid/net/NetworkStatsHistory$Entry;->txBytes:J
 
-    move-wide/from16 v38, v28
+    move-wide/from16 v38, v16
 
-    move-wide/from16 v40, v12
+    move-wide/from16 v40, v8
 
     move-wide/from16 v42, v36
 
     invoke-static/range {v38 .. v43}, Lcom/android/internal/net/NetworkUtilsInternal;->multiplySafeByRational(JJJ)J
 
-    move-result-wide v12
+    move-result-wide v8
 
-    iput-wide v12, v5, Landroid/net/NetworkStatsHistory$Entry;->txBytes:J
+    iput-wide v8, v5, Landroid/net/NetworkStatsHistory$Entry;->txBytes:J
 
-    const-wide/16 v12, 0x0
+    const-wide/16 v8, 0x0
 
-    iput-wide v12, v5, Landroid/net/NetworkStatsHistory$Entry;->rxPackets:J
+    iput-wide v8, v5, Landroid/net/NetworkStatsHistory$Entry;->rxPackets:J
 
-    iput-wide v12, v5, Landroid/net/NetworkStatsHistory$Entry;->txPackets:J
+    iput-wide v8, v5, Landroid/net/NetworkStatsHistory$Entry;->txPackets:J
 
     invoke-virtual {v7, v3, v5}, Landroid/net/NetworkStatsHistory;->setValues(ILandroid/net/NetworkStatsHistory$Entry;)V
 
-    goto :goto_b
-
-    :cond_e
-    move-wide/from16 v44, v14
-
     :cond_f
-    :goto_b
     add-int/lit8 v3, v3, 0x1
+
+    move/from16 v8, p4
+
+    move/from16 v9, p12
 
     move-wide/from16 v12, v34
 
-    move-wide/from16 v14, v44
-
-    goto :goto_a
+    goto :goto_b
 
     :cond_10
     move-wide/from16 v34, v12
-
-    move-wide/from16 v44, v14
 
     invoke-virtual {v7}, Landroid/net/NetworkStatsHistory;->getTotalBytes()J
 
     move-result-wide v3
 
-    sub-long v12, v3, v32
+    sub-long v12, v3, v28
 
     const-wide/16 v3, 0x0
 
@@ -1639,30 +1647,30 @@
     :cond_11
     new-instance v3, Landroid/net/NetworkStatsHistory;
 
-    iget-wide v14, v0, Lcom/android/server/net/NetworkStatsCollection;->mBucketDuration:J
+    iget-wide v8, v0, Lcom/android/server/net/NetworkStatsCollection;->mBucketDuration:J
 
-    invoke-direct {v3, v14, v15, v11, v2}, Landroid/net/NetworkStatsHistory;-><init>(JII)V
+    invoke-direct {v3, v8, v9, v11, v2}, Landroid/net/NetworkStatsHistory;-><init>(JII)V
 
-    move-object v14, v3
+    move-object v9, v3
 
     move-object v4, v7
 
-    move-object v15, v5
+    move-object/from16 v22, v5
 
     move-wide/from16 v5, p7
 
-    move-object/from16 v22, v7
+    move-object/from16 v23, v7
 
     move-wide/from16 v7, p9
 
     invoke-virtual/range {v3 .. v8}, Landroid/net/NetworkStatsHistory;->recordHistory(Landroid/net/NetworkStatsHistory;JJ)V
 
-    return-object v14
+    return-object v9
 
     :cond_12
-    move-object/from16 v22, v7
+    move-object/from16 v23, v7
 
-    return-object v22
+    return-object v23
 
     :cond_13
     new-instance v3, Ljava/lang/SecurityException;
@@ -1681,7 +1689,9 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move/from16 v5, p12
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

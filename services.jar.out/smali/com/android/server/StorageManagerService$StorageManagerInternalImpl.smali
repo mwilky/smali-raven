@@ -439,6 +439,46 @@
     throw v1
 .end method
 
+.method public isCeStoragePrepared(I)Z
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/StorageManagerService$StorageManagerInternalImpl;->this$0:Lcom/android/server/StorageManagerService;
+
+    invoke-static {v0}, Lcom/android/server/StorageManagerService;->access$3400(Lcom/android/server/StorageManagerService;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/StorageManagerService$StorageManagerInternalImpl;->this$0:Lcom/android/server/StorageManagerService;
+
+    invoke-static {v1}, Lcom/android/server/StorageManagerService;->access$7000(Lcom/android/server/StorageManagerService;)Ljava/util/Set;
+
+    move-result-object v1
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-interface {v1, v2}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    monitor-exit v0
+
+    return v1
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v1
+.end method
+
 .method public isExternalStorageService(I)Z
     .locals 2
 
@@ -494,6 +534,44 @@
     monitor-exit v0
 
     return v1
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v1
+.end method
+
+.method public markCeStoragePrepared(I)V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/StorageManagerService$StorageManagerInternalImpl;->this$0:Lcom/android/server/StorageManagerService;
+
+    invoke-static {v0}, Lcom/android/server/StorageManagerService;->access$3400(Lcom/android/server/StorageManagerService;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/StorageManagerService$StorageManagerInternalImpl;->this$0:Lcom/android/server/StorageManagerService;
+
+    invoke-static {v1}, Lcom/android/server/StorageManagerService;->access$7000(Lcom/android/server/StorageManagerService;)Ljava/util/Set;
+
+    move-result-object v1
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-interface {v1, v2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    monitor-exit v0
+
+    return-void
 
     :catchall_0
     move-exception v1

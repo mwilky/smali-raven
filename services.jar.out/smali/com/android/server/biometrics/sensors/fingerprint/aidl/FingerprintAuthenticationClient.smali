@@ -46,7 +46,7 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;IJZLjava/lang/String;IZIZILandroid/app/TaskStackListener;Lcom/android/server/biometrics/sensors/LockoutCache;Landroid/hardware/fingerprint/IUdfpsOverlayController;ZLandroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;)V
+.method constructor <init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;JLcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;IJZLjava/lang/String;IZIZILandroid/app/TaskStackListener;Lcom/android/server/biometrics/sensors/LockoutCache;Landroid/hardware/fingerprint/IUdfpsOverlayController;ZLandroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;)V
     .locals 21
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -56,6 +56,7 @@
             "Landroid/hardware/biometrics/fingerprint/ISession;",
             ">;",
             "Landroid/os/IBinder;",
+            "J",
             "Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;",
             "IJZ",
             "Ljava/lang/String;",
@@ -79,31 +80,31 @@
 
     move-object/from16 v3, p3
 
-    move-object/from16 v4, p4
+    move-object/from16 v4, p6
 
-    move/from16 v5, p5
+    move/from16 v5, p7
 
-    move-wide/from16 v6, p6
+    move-wide/from16 v6, p8
 
-    move/from16 v8, p8
+    move/from16 v8, p10
 
-    move-object/from16 v9, p9
+    move-object/from16 v9, p11
 
-    move/from16 v10, p10
+    move/from16 v10, p12
 
-    move/from16 v11, p11
+    move/from16 v11, p13
 
-    move/from16 v12, p12
+    move/from16 v12, p14
 
-    move/from16 v13, p13
+    move/from16 v13, p15
 
-    move/from16 v15, p14
+    move/from16 v15, p16
 
-    move-object/from16 v16, p15
+    move-object/from16 v16, p17
 
-    move-object/from16 v17, p16
+    move-object/from16 v17, p18
 
-    move/from16 v18, p18
+    move/from16 v18, p20
 
     const/16 v19, 0x1
 
@@ -113,25 +114,29 @@
 
     invoke-direct/range {v0 .. v20}, Lcom/android/server/biometrics/sensors/AuthenticationClient;-><init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;IJZLjava/lang/String;IZIZIILandroid/app/TaskStackListener;Lcom/android/server/biometrics/sensors/LockoutTracker;ZZZ)V
 
-    move-object/from16 v1, p16
+    move-wide/from16 v1, p4
 
-    iput-object v1, v0, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintAuthenticationClient;->mLockoutCache:Lcom/android/server/biometrics/sensors/LockoutCache;
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintAuthenticationClient;->setRequestId(J)V
 
-    move-object/from16 v2, p17
+    move-object/from16 v3, p18
 
-    iput-object v2, v0, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintAuthenticationClient;->mUdfpsOverlayController:Landroid/hardware/fingerprint/IUdfpsOverlayController;
+    iput-object v3, v0, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintAuthenticationClient;->mLockoutCache:Lcom/android/server/biometrics/sensors/LockoutCache;
 
-    move-object/from16 v3, p19
+    move-object/from16 v4, p19
 
-    iput-object v3, v0, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintAuthenticationClient;->mSensorProps:Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
+    iput-object v4, v0, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintAuthenticationClient;->mUdfpsOverlayController:Landroid/hardware/fingerprint/IUdfpsOverlayController;
 
-    const/4 v4, 0x0
+    move-object/from16 v5, p21
 
-    invoke-virtual {v0, v4}, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintAuthenticationClient;->createALSCallback(Z)Lcom/android/server/biometrics/sensors/LoggableMonitor$CallbackWithProbe;
+    iput-object v5, v0, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintAuthenticationClient;->mSensorProps:Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
 
-    move-result-object v4
+    const/4 v6, 0x0
 
-    iput-object v4, v0, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintAuthenticationClient;->mALSProbeCallback:Lcom/android/server/biometrics/sensors/LoggableMonitor$CallbackWithProbe;
+    invoke-virtual {v0, v6}, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintAuthenticationClient;->createALSCallback(Z)Lcom/android/server/biometrics/sensors/LoggableMonitor$CallbackWithProbe;
+
+    move-result-object v6
+
+    iput-object v6, v0, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintAuthenticationClient;->mALSProbeCallback:Lcom/android/server/biometrics/sensors/LoggableMonitor$CallbackWithProbe;
 
     return-void
 .end method

@@ -43,7 +43,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$PackageChangeObserverDeathRecipient;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$8500(Lcom/android/server/pm/PackageManagerService;)Ljava/util/ArrayList;
+    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$8800(Lcom/android/server/pm/PackageManagerService;)Ljava/util/ArrayList;
 
     move-result-object v0
 
@@ -52,7 +52,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$PackageChangeObserverDeathRecipient;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$8500(Lcom/android/server/pm/PackageManagerService;)Ljava/util/ArrayList;
+    invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$8800(Lcom/android/server/pm/PackageManagerService;)Ljava/util/ArrayList;
 
     move-result-object v1
 
@@ -72,7 +72,7 @@
 
     iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$PackageChangeObserverDeathRecipient;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v3}, Lcom/android/server/pm/PackageManagerService;->access$8500(Lcom/android/server/pm/PackageManagerService;)Ljava/util/ArrayList;
+    invoke-static {v3}, Lcom/android/server/pm/PackageManagerService;->access$8800(Lcom/android/server/pm/PackageManagerService;)Ljava/util/ArrayList;
 
     move-result-object v3
 

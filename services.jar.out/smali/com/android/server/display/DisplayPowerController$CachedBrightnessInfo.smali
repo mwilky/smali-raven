@@ -15,6 +15,8 @@
 
 
 # instance fields
+.field public adjustedBrightness:F
+
 .field public brightness:F
 
 .field public brightnessMax:F
@@ -22,6 +24,8 @@
 .field public brightnessMin:F
 
 .field public hbmMode:I
+
+.field public highBrightnessTransitionPoint:F
 
 
 # direct methods

@@ -39,7 +39,7 @@
 
     iget-object v2, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$$ExternalSyntheticLambda9;->f$2:Landroid/os/IBinder;
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;->lambda$cancelAuthentication$10$FaceProvider(ILandroid/os/IBinder;)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;->lambda$cancelEnrollment$6$FaceProvider(ILandroid/os/IBinder;)V
 
     return-void
 .end method

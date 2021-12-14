@@ -5201,6 +5201,40 @@
     return v1
 .end method
 
+.method private verifyCallerUserId(I)V
+    .locals 3
+
+    invoke-direct {p0}, Lcom/android/server/pm/ShortcutService;->isCallerSystem()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/server/pm/ShortcutService;->injectBinderCallingUid()I
+
+    move-result v0
+
+    invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v1
+
+    if-ne v1, p1, :cond_1
+
+    return-void
+
+    :cond_1
+    new-instance v1, Ljava/lang/SecurityException;
+
+    const-string v2, "Invalid user-ID"
+
+    invoke-direct {v1, v2}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+.end method
+
 .method private verifyShortcutInfoPackage(Ljava/lang/String;Landroid/content/pm/ShortcutInfo;)V
     .locals 4
 
@@ -8998,6 +9032,8 @@
 
 .method public isRequestPinItemSupported(II)Z
     .locals 3
+
+    invoke-direct {p0, p1}, Lcom/android/server/pm/ShortcutService;->verifyCallerUserId(I)V
 
     invoke-virtual {p0}, Lcom/android/server/pm/ShortcutService;->injectClearCallingIdentity()J
 

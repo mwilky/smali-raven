@@ -18,6 +18,8 @@
 # static fields
 .field private static final DEBUG:Z = false
 
+.field static final HBM_TRANSITION_POINT_INVALID:F = Infinityf
+
 .field private static final HDR_PERCENT_OF_SCREEN_REQUIRED:F = 0.5f
 
 .field private static final TAG:Ljava/lang/String; = "HighBrightnessModeController"
@@ -1404,6 +1406,27 @@
     iget v0, p0, Lcom/android/server/display/HighBrightnessModeController;->mBrightnessMax:F
 
     :goto_0
+    return v0
+.end method
+
+.method getTransitionPoint()F
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/server/display/HighBrightnessModeController;->deviceSupportsHbm()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/display/HighBrightnessModeController;->mHbmData:Lcom/android/server/display/DisplayDeviceConfig$HighBrightnessModeData;
+
+    iget v0, v0, Lcom/android/server/display/DisplayDeviceConfig$HighBrightnessModeData;->transitionPoint:F
+
+    return v0
+
+    :cond_0
+    const/high16 v0, 0x7f800000    # Float.POSITIVE_INFINITY
+
     return v0
 .end method
 

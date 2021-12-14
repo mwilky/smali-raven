@@ -9,6 +9,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/server/audio/MediaFocusControl$ForgetFadeUidInfo;,
         Lcom/android/server/audio/MediaFocusControl$AudioFocusDeathHandler;
     }
 .end annotation
@@ -30,6 +31,8 @@
 .field private static final MAX_STACK_SIZE:I = 0x64
 
 .field private static final MSG_L_FOCUS_LOSS_AFTER_FADE:I = 0x1
+
+.field private static final MSL_L_FORGET_UID:I = 0x2
 
 .field private static final RING_CALL_MUTING_ENFORCEMENT_DELAY_MS:I = 0x64
 
@@ -313,6 +316,14 @@
     iget-object v0, p0, Lcom/android/server/audio/MediaFocusControl;->mFocusEnforcer:Lcom/android/server/audio/PlayerFocusEnforcer;
 
     return-object v0
+.end method
+
+.method static synthetic access$900(Lcom/android/server/audio/MediaFocusControl;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/audio/MediaFocusControl;->postForgetUidLater(I)V
+
+    return-void
 .end method
 
 .method private canReassignAudioFocus()Z
@@ -781,6 +792,28 @@
     goto :goto_0
 
     :cond_2
+    return-void
+.end method
+
+.method private postForgetUidLater(I)V
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/server/audio/MediaFocusControl;->mFocusHandler:Landroid/os/Handler;
+
+    new-instance v1, Lcom/android/server/audio/MediaFocusControl$ForgetFadeUidInfo;
+
+    invoke-direct {v1, p1}, Lcom/android/server/audio/MediaFocusControl$ForgetFadeUidInfo;-><init>(I)V
+
+    const/4 v2, 0x2
+
+    invoke-virtual {v0, v2, v1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+
+    move-result-object v1
+
+    const-wide/16 v2, 0x7d0
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
+
     return-void
 .end method
 
@@ -3549,11 +3582,25 @@
 .end method
 
 .method public restoreVShapedPlayers(Lcom/android/server/audio/FocusRequester;)V
-    .locals 1
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/audio/MediaFocusControl;->mFocusEnforcer:Lcom/android/server/audio/PlayerFocusEnforcer;
 
     invoke-interface {v0, p1}, Lcom/android/server/audio/PlayerFocusEnforcer;->restoreVShapedPlayers(Lcom/android/server/audio/FocusRequester;)V
+
+    iget-object v0, p0, Lcom/android/server/audio/MediaFocusControl;->mFocusHandler:Landroid/os/Handler;
+
+    new-instance v1, Lcom/android/server/audio/MediaFocusControl$ForgetFadeUidInfo;
+
+    invoke-virtual {p1}, Lcom/android/server/audio/FocusRequester;->getClientUid()I
+
+    move-result v2
+
+    invoke-direct {v1, v2}, Lcom/android/server/audio/MediaFocusControl$ForgetFadeUidInfo;-><init>(I)V
+
+    const/4 v2, 0x2
+
+    invoke-virtual {v0, v2, v1}, Landroid/os/Handler;->removeEqualMessages(ILjava/lang/Object;)V
 
     return-void
 .end method

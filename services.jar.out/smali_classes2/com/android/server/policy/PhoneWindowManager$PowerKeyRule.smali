@@ -20,19 +20,48 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/policy/PhoneWindowManager;I)V
-    .locals 0
+    .locals 1
 
     iput-object p1, p0, Lcom/android/server/policy/PhoneWindowManager$PowerKeyRule;->this$0:Lcom/android/server/policy/PhoneWindowManager;
 
-    const/16 p1, 0x1a
+    iget-object p1, p1, Lcom/android/server/policy/PhoneWindowManager;->mContext:Landroid/content/Context;
 
-    invoke-direct {p0, p1, p2}, Lcom/android/server/policy/SingleKeyGestureDetector$SingleKeyRule;-><init>(II)V
+    const/16 v0, 0x1a
+
+    invoke-direct {p0, p1, v0, p2}, Lcom/android/server/policy/SingleKeyGestureDetector$SingleKeyRule;-><init>(Landroid/content/Context;II)V
 
     return-void
 .end method
 
 
 # virtual methods
+.method getLongPressTimeoutMs()J
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$PowerKeyRule;->this$0:Lcom/android/server/policy/PhoneWindowManager;
+
+    invoke-static {v0}, Lcom/android/server/policy/PhoneWindowManager;->access$4600(Lcom/android/server/policy/PhoneWindowManager;)I
+
+    move-result v0
+
+    const/4 v1, 0x5
+
+    if-ne v0, v1, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$PowerKeyRule;->this$0:Lcom/android/server/policy/PhoneWindowManager;
+
+    iget-wide v0, v0, Lcom/android/server/policy/PhoneWindowManager;->mLongPressOnPowerAssistantTimeoutMs:J
+
+    return-wide v0
+
+    :cond_0
+    invoke-super {p0}, Lcom/android/server/policy/SingleKeyGestureDetector$SingleKeyRule;->getLongPressTimeoutMs()J
+
+    move-result-wide v0
+
+    return-wide v0
+.end method
+
 .method getMaxMultiPressCount()I
     .locals 1
 
@@ -62,7 +91,7 @@
 
     iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$PowerKeyRule;->this$0:Lcom/android/server/policy/PhoneWindowManager;
 
-    invoke-static {v0}, Lcom/android/server/policy/PhoneWindowManager;->access$4600(Lcom/android/server/policy/PhoneWindowManager;)Z
+    invoke-static {v0}, Lcom/android/server/policy/PhoneWindowManager;->access$4700(Lcom/android/server/policy/PhoneWindowManager;)Z
 
     move-result v0
 
@@ -79,7 +108,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$PowerKeyRule;->this$0:Lcom/android/server/policy/PhoneWindowManager;
 
-    invoke-static {v0, p1, p2}, Lcom/android/server/policy/PhoneWindowManager;->access$4700(Lcom/android/server/policy/PhoneWindowManager;J)V
+    invoke-static {v0, p1, p2}, Lcom/android/server/policy/PhoneWindowManager;->access$4800(Lcom/android/server/policy/PhoneWindowManager;J)V
 
     return-void
 .end method
@@ -133,7 +162,7 @@
 
     iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$PowerKeyRule;->this$0:Lcom/android/server/policy/PhoneWindowManager;
 
-    invoke-static {v0}, Lcom/android/server/policy/PhoneWindowManager;->access$4800(Lcom/android/server/policy/PhoneWindowManager;)V
+    invoke-static {v0}, Lcom/android/server/policy/PhoneWindowManager;->access$4900(Lcom/android/server/policy/PhoneWindowManager;)V
 
     return-void
 .end method

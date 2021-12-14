@@ -24,8 +24,8 @@
 
 
 # virtual methods
-.method public cancelAuthenticationFromService(Landroid/os/IBinder;Ljava/lang/String;)V
-    .locals 2
+.method public cancelAuthenticationFromService(Landroid/os/IBinder;Ljava/lang/String;J)V
+    .locals 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -36,7 +36,13 @@
 
     iget v1, p0, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintAuthenticator;->mSensorId:I
 
-    invoke-interface {v0, v1, p1, p2}, Landroid/hardware/fingerprint/IFingerprintService;->cancelAuthenticationFromService(ILandroid/os/IBinder;Ljava/lang/String;)V
+    move-object v2, p1
+
+    move-object v3, p2
+
+    move-wide v4, p3
+
+    invoke-interface/range {v0 .. v5}, Landroid/hardware/fingerprint/IFingerprintService;->cancelAuthenticationFromService(ILandroid/os/IBinder;Ljava/lang/String;J)V
 
     return-void
 .end method
@@ -191,8 +197,8 @@
     return v0
 .end method
 
-.method public prepareForAuthentication(ZLandroid/os/IBinder;JILandroid/hardware/biometrics/IBiometricSensorReceiver;Ljava/lang/String;IZ)V
-    .locals 11
+.method public prepareForAuthentication(ZLandroid/os/IBinder;JILandroid/hardware/biometrics/IBiometricSensorReceiver;Ljava/lang/String;JIZ)V
+    .locals 13
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -207,7 +213,7 @@
 
     move-object v3, p2
 
-    move-wide v4, p3
+    move-wide/from16 v4, p3
 
     move/from16 v6, p5
 
@@ -215,11 +221,13 @@
 
     move-object/from16 v8, p7
 
-    move/from16 v9, p8
+    move-wide/from16 v9, p8
 
-    move/from16 v10, p9
+    move/from16 v11, p10
 
-    invoke-interface/range {v1 .. v10}, Landroid/hardware/fingerprint/IFingerprintService;->prepareForAuthentication(ILandroid/os/IBinder;JILandroid/hardware/biometrics/IBiometricSensorReceiver;Ljava/lang/String;IZ)V
+    move/from16 v12, p11
+
+    invoke-interface/range {v1 .. v12}, Landroid/hardware/fingerprint/IFingerprintService;->prepareForAuthentication(ILandroid/os/IBinder;JILandroid/hardware/biometrics/IBiometricSensorReceiver;Ljava/lang/String;JIZ)V
 
     return-void
 .end method

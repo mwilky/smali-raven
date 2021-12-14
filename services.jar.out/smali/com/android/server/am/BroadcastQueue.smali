@@ -7885,15 +7885,6 @@
     move/from16 v22, v2
 
     :goto_1a
-    if-nez v22, :cond_37
-
-    const/4 v2, 0x1
-
-    move/from16 v1, v22
-
-    goto :goto_1b
-
-    :cond_37
     invoke-static {v3}, Landroid/app/AppOpsManager;->permissionToOpCode(Ljava/lang/String;)I
 
     move-result v0
@@ -7901,6 +7892,8 @@
     const/4 v2, -0x1
 
     if-eq v0, v2, :cond_38
+
+    if-nez v22, :cond_37
 
     iget-object v2, v11, Lcom/android/server/am/BroadcastQueue;->mService:Lcom/android/server/am/ActivityManagerService;
 
@@ -7930,12 +7923,26 @@
 
     move/from16 v1, v22
 
+    goto :goto_1c
+
+    :cond_37
+    move-object/from16 v26, v3
+
     goto :goto_1b
 
     :cond_38
     move-object/from16 v26, v3
 
+    if-nez v22, :cond_39
+
+    const/4 v2, 0x1
+
+    move/from16 v1, v22
+
+    goto :goto_1c
+
     :cond_39
+    :goto_1b
     add-int/lit8 v1, v1, 0x1
 
     move/from16 v2, v24
@@ -7947,7 +7954,7 @@
 
     move/from16 v1, v22
 
-    goto :goto_1b
+    goto :goto_1c
 
     :cond_3b
     move/from16 v24, v2
@@ -7956,7 +7963,7 @@
 
     move/from16 v2, v24
 
-    :goto_1b
+    :goto_1c
     if-nez v2, :cond_3f
 
     iget-object v0, v14, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
@@ -7985,7 +7992,7 @@
 
     move v1, v0
 
-    :goto_1c
+    :goto_1d
     iget-object v0, v8, Lcom/android/server/am/BroadcastRecord;->requiredPermissions:[Ljava/lang/String;
 
     array-length v0, v0
@@ -8035,19 +8042,19 @@
 
     move v3, v0
 
-    goto :goto_1e
+    goto :goto_1f
 
     :catch_7
     move-exception v0
 
-    goto :goto_1d
+    goto :goto_1e
 
     :catch_8
     move-exception v0
 
     move/from16 v22, v3
 
-    goto :goto_1d
+    goto :goto_1e
 
     :catch_9
     move-exception v0
@@ -8056,12 +8063,12 @@
 
     move/from16 v22, v3
 
-    :goto_1d
+    :goto_1e
     const/4 v2, -0x1
 
     move v3, v2
 
-    :goto_1e
+    :goto_1f
     if-eqz v3, :cond_3c
 
     const-string v0, "BroadcastQueue"
@@ -8124,7 +8131,7 @@
 
     const/4 v2, 0x1
 
-    goto :goto_1f
+    goto :goto_20
 
     :cond_3c
     move/from16 v22, v3
@@ -8149,7 +8156,7 @@
 
     const/4 v2, 0x1
 
-    goto :goto_1f
+    goto :goto_20
 
     :cond_3d
     add-int/lit8 v1, v1, 0x1
@@ -8158,14 +8165,14 @@
 
     move/from16 v3, v22
 
-    goto/16 :goto_1c
+    goto/16 :goto_1d
 
     :cond_3e
     move/from16 v20, v2
 
     move/from16 v22, v3
 
-    goto :goto_1f
+    goto :goto_20
 
     :cond_3f
     move/from16 v20, v2
@@ -8174,7 +8181,7 @@
 
     move/from16 v2, v20
 
-    :goto_1f
+    :goto_20
     if-nez v2, :cond_40
 
     iget v0, v8, Lcom/android/server/am/BroadcastRecord;->appOp:I
@@ -8195,12 +8202,12 @@
 
     move v12, v2
 
-    goto :goto_20
+    goto :goto_21
 
     :cond_40
     move v12, v2
 
-    :goto_20
+    :goto_21
     if-eqz v12, :cond_41
 
     iget-object v0, v8, Lcom/android/server/am/BroadcastRecord;->delivery:[I
@@ -8264,12 +8271,12 @@
 
     move v3, v1
 
-    goto :goto_21
+    goto :goto_22
 
     :cond_42
     const/4 v3, 0x0
 
-    :goto_21
+    :goto_22
     move/from16 v17, v3
 
     invoke-virtual {v11, v6, v8, v10}, Lcom/android/server/am/BroadcastQueue;->maybeScheduleTempAllowlistLocked(ILcom/android/server/am/BroadcastRecord;Landroid/app/BroadcastOptions;)V
@@ -8337,7 +8344,7 @@
     .catch Landroid/os/RemoteException; {:try_start_d .. :try_end_d} :catch_b
     .catch Ljava/lang/IllegalArgumentException; {:try_start_d .. :try_end_d} :catch_a
 
-    goto :goto_22
+    goto :goto_23
 
     :catch_a
     move-exception v0
@@ -8372,15 +8379,15 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_23
+    goto :goto_24
 
     :catch_b
     move-exception v0
 
-    :goto_22
+    :goto_23
     nop
 
-    :goto_23
+    :goto_24
     if-eqz v4, :cond_44
 
     invoke-virtual {v4}, Lcom/android/server/am/ProcessRecord;->getThread()Landroid/app/IApplicationThread;
@@ -8438,7 +8445,7 @@
 
     move v10, v6
 
-    goto :goto_24
+    goto :goto_25
 
     :catch_d
     move-exception v0
@@ -8534,7 +8541,7 @@
 
     move v10, v6
 
-    :goto_24
+    :goto_25
     const-string v1, "BroadcastQueue"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -8555,7 +8562,7 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_25
+    goto :goto_26
 
     :cond_44
     move-object/from16 v24, v4
@@ -8568,7 +8575,7 @@
 
     move v10, v6
 
-    :goto_25
+    :goto_26
     iget-object v0, v11, Lcom/android/server/am/BroadcastQueue;->mService:Lcom/android/server/am/ActivityManagerService;
 
     iget-object v1, v14, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
@@ -8597,12 +8604,12 @@
 
     const/16 v34, 0x1
 
-    goto :goto_26
+    goto :goto_27
 
     :cond_45
     const/16 v34, 0x0
 
-    :goto_26
+    :goto_27
     iget-object v3, v8, Lcom/android/server/am/BroadcastRecord;->intent:Landroid/content/Intent;
 
     invoke-virtual {v3}, Landroid/content/Intent;->getFlags()I
@@ -8617,12 +8624,12 @@
 
     const/16 v35, 0x1
 
-    goto :goto_27
+    goto :goto_28
 
     :cond_46
     const/16 v35, 0x0
 
-    :goto_27
+    :goto_28
     const/16 v36, 0x0
 
     move-object/from16 v28, v0

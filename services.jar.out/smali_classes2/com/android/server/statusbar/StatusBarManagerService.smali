@@ -1563,7 +1563,7 @@
 
     move-result-object v0
 
-    const v1, 0x107007c
+    const v1, 0x107007d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -3438,8 +3438,8 @@
     return-void
 .end method
 
-.method public showAuthenticationDialog(Landroid/hardware/biometrics/PromptInfo;Landroid/hardware/biometrics/IBiometricSysuiReceiver;[IZZILjava/lang/String;JI)V
-    .locals 13
+.method public showAuthenticationDialog(Landroid/hardware/biometrics/PromptInfo;Landroid/hardware/biometrics/IBiometricSysuiReceiver;[IZZIJLjava/lang/String;JI)V
+    .locals 15
 
     move-object v1, p0
 
@@ -3452,9 +3452,9 @@
     :try_start_0
     iget-object v2, v1, Lcom/android/server/statusbar/StatusBarManagerService;->mBar:Lcom/android/internal/statusbar/IStatusBar;
 
-    move-object v3, p1
+    move-object/from16 v3, p1
 
-    move-object v4, p2
+    move-object/from16 v4, p2
 
     move-object/from16 v5, p3
 
@@ -3464,13 +3464,15 @@
 
     move/from16 v8, p6
 
-    move-object/from16 v9, p7
+    move-wide/from16 v9, p7
 
-    move-wide/from16 v10, p8
+    move-object/from16 v11, p9
 
-    move/from16 v12, p10
+    move-wide/from16 v12, p10
 
-    invoke-interface/range {v2 .. v12}, Lcom/android/internal/statusbar/IStatusBar;->showAuthenticationDialog(Landroid/hardware/biometrics/PromptInfo;Landroid/hardware/biometrics/IBiometricSysuiReceiver;[IZZILjava/lang/String;JI)V
+    move/from16 v14, p12
+
+    invoke-interface/range {v2 .. v14}, Lcom/android/internal/statusbar/IStatusBar;->showAuthenticationDialog(Landroid/hardware/biometrics/PromptInfo;Landroid/hardware/biometrics/IBiometricSysuiReceiver;[IZZIJLjava/lang/String;JI)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 

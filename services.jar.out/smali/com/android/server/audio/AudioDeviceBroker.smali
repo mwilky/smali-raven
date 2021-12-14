@@ -1069,7 +1069,7 @@
 .end method
 
 .method private onCommunicationRouteClientDied(Lcom/android/server/audio/AudioDeviceBroker$CommunicationRouteClient;)V
-    .locals 2
+    .locals 8
 
     if-nez p1, :cond_0
 
@@ -1078,27 +1078,30 @@
     :cond_0
     const-string v0, "AS.AudioDeviceBroker"
 
-    const-string v1, "Speaker client died"
+    const-string v1, "Communication client died"
 
     invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    nop
+
     invoke-virtual {p1}, Lcom/android/server/audio/AudioDeviceBroker$CommunicationRouteClient;->getBinder()Landroid/os/IBinder;
 
-    move-result-object v0
+    move-result-object v3
 
-    const/4 v1, 0x0
+    invoke-virtual {p1}, Lcom/android/server/audio/AudioDeviceBroker$CommunicationRouteClient;->getPid()I
 
-    invoke-direct {p0, v0, v1}, Lcom/android/server/audio/AudioDeviceBroker;->removeCommunicationRouteClient(Landroid/os/IBinder;Z)Lcom/android/server/audio/AudioDeviceBroker$CommunicationRouteClient;
+    move-result v4
 
-    move-result-object v0
+    const/4 v5, 0x0
 
-    if-eqz v0, :cond_1
+    const/4 v6, -0x1
 
-    const-string/jumbo v0, "onCommunicationRouteClientDied"
+    const-string/jumbo v7, "onCommunicationRouteClientDied"
 
-    invoke-direct {p0, v0}, Lcom/android/server/audio/AudioDeviceBroker;->onUpdateCommunicationRoute(Ljava/lang/String;)V
+    move-object v2, p0
 
-    :cond_1
+    invoke-virtual/range {v2 .. v7}, Lcom/android/server/audio/AudioDeviceBroker;->setCommunicationRouteForClient(Landroid/os/IBinder;ILandroid/media/AudioDeviceAttributes;ILjava/lang/String;)V
+
     return-void
 .end method
 

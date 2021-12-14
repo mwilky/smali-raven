@@ -36,6 +36,8 @@
 
 .field private final mOwner:Ljava/lang/String;
 
+.field private mRequestId:J
+
 .field private final mSensorId:I
 
 .field private final mSequentialId:I
@@ -78,6 +80,10 @@
     iput-object p1, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mContext:Landroid/content/Context;
 
     iput-object p2, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mToken:Landroid/os/IBinder;
+
+    const-wide/16 v0, -0x1
+
+    iput-wide v0, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mRequestId:J
 
     iput-object p3, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mListener:Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;
 
@@ -309,7 +315,15 @@
 .method public abstract getProtoEnum()I
 .end method
 
-.method public final getSensorId()I
+.method public final getRequestId()J
+    .locals 2
+
+    iget-wide v0, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mRequestId:J
+
+    return-wide v0
+.end method
+
+.method public getSensorId()I
     .locals 1
 
     iget v0, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mSensorId:I
@@ -333,6 +347,28 @@
     return-object v0
 .end method
 
+.method public final hasRequestId()Z
+    .locals 4
+
+    iget-wide v0, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mRequestId:J
+
+    const-wide/16 v2, 0x0
+
+    cmp-long v0, v0, v2
+
+    if-lez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
 .method public interruptsPrecedingClients()Z
     .locals 1
 
@@ -347,6 +383,29 @@
     iget-boolean v0, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mAlreadyDone:Z
 
     return v0
+.end method
+
+.method protected final setRequestId(J)V
+    .locals 2
+
+    const-wide/16 v0, 0x0
+
+    cmp-long v0, p1, v0
+
+    if-lez v0, :cond_0
+
+    iput-wide p1, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mRequestId:J
+
+    return-void
+
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v1, "request id must be positive"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method
 
 .method public start(Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;)V
@@ -364,7 +423,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .locals 3
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -421,6 +480,16 @@
     move-result v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, ", requestId="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->getRequestId()J
+
+    move-result-wide v1
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     const-string v1, ", userId="
 

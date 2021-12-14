@@ -9,6 +9,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/server/location/provider/LocationProviderManager$GatedCallback;,
         Lcom/android/server/location/provider/LocationProviderManager$SingleUseCallback;,
         Lcom/android/server/location/provider/LocationProviderManager$LastLocation;,
         Lcom/android/server/location/provider/LocationProviderManager$GetCurrentLocationListenerRegistration;,
@@ -4162,7 +4163,7 @@
 .end method
 
 .method protected reregisterWithService(Landroid/location/provider/ProviderRequest;Landroid/location/provider/ProviderRequest;Ljava/util/Collection;)Z
-    .locals 7
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -4187,148 +4188,137 @@
     invoke-static {v0}, Lcom/android/internal/util/Preconditions;->checkState(Z)V
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/location/provider/LocationProviderManager;->mDelayedRegister:Landroid/app/AlarmManager$OnAlarmListener;
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_1
-
-    iget-object v2, p0, Lcom/android/server/location/provider/LocationProviderManager;->mAlarmHelper:Lcom/android/server/location/injector/AlarmHelper;
-
-    invoke-virtual {v2, v0}, Lcom/android/server/location/injector/AlarmHelper;->cancel(Landroid/app/AlarmManager$OnAlarmListener;)V
-
-    iput-object v1, p0, Lcom/android/server/location/provider/LocationProviderManager;->mDelayedRegister:Landroid/app/AlarmManager$OnAlarmListener;
-
-    :cond_1
     invoke-virtual {p1}, Landroid/location/provider/ProviderRequest;->isBypass()Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1
 
     invoke-virtual {p2}, Landroid/location/provider/ProviderRequest;->isBypass()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
-    const-wide/16 v2, 0x0
+    const-wide/16 v0, 0x0
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {p2}, Landroid/location/provider/ProviderRequest;->getIntervalMillis()J
+
+    move-result-wide v0
+
+    invoke-virtual {p1}, Landroid/location/provider/ProviderRequest;->getIntervalMillis()J
+
+    move-result-wide v2
+
+    cmp-long v0, v0, v2
+
+    if-lez v0, :cond_2
+
+    const-wide/16 v0, 0x0
 
     goto :goto_0
 
     :cond_2
     invoke-virtual {p2}, Landroid/location/provider/ProviderRequest;->getIntervalMillis()J
 
-    move-result-wide v2
+    move-result-wide v0
 
-    invoke-virtual {p1}, Landroid/location/provider/ProviderRequest;->getIntervalMillis()J
+    invoke-virtual {p0, v0, v1, p3}, Lcom/android/server/location/provider/LocationProviderManager;->calculateRequestDelayMillis(JLjava/util/Collection;)J
+
+    move-result-wide v0
+
+    :goto_0
+    const-wide/16 v2, 0x0
+
+    cmp-long v2, v0, v2
+
+    const/4 v3, 0x1
+
+    if-ltz v2, :cond_3
+
+    invoke-virtual {p2}, Landroid/location/provider/ProviderRequest;->getIntervalMillis()J
 
     move-result-wide v4
 
-    cmp-long v0, v2, v4
+    cmp-long v2, v0, v4
 
-    if-lez v0, :cond_3
+    if-gtz v2, :cond_3
 
-    const-wide/16 v2, 0x0
-
-    goto :goto_0
-
-    :cond_3
-    invoke-virtual {p2}, Landroid/location/provider/ProviderRequest;->getIntervalMillis()J
-
-    move-result-wide v2
-
-    invoke-virtual {p0, v2, v3, p3}, Lcom/android/server/location/provider/LocationProviderManager;->calculateRequestDelayMillis(JLjava/util/Collection;)J
-
-    move-result-wide v2
-
-    :goto_0
-    const-wide/16 v4, 0x0
-
-    cmp-long v0, v2, v4
-
-    const/4 v4, 0x1
-
-    if-ltz v0, :cond_4
-
-    invoke-virtual {p2}, Landroid/location/provider/ProviderRequest;->getIntervalMillis()J
-
-    move-result-wide v5
-
-    cmp-long v0, v2, v5
-
-    if-gtz v0, :cond_4
-
-    move v0, v4
+    move v2, v3
 
     goto :goto_1
 
-    :cond_4
-    const/4 v0, 0x0
+    :cond_3
+    const/4 v2, 0x0
 
     :goto_1
-    invoke-static {v0}, Lcom/android/internal/util/Preconditions;->checkState(Z)V
+    invoke-static {v2}, Lcom/android/internal/util/Preconditions;->checkState(Z)V
 
-    const-wide/16 v5, 0x7530
+    const-wide/16 v4, 0x7530
 
-    cmp-long v0, v2, v5
+    cmp-long v2, v0, v4
 
-    if-gez v0, :cond_5
+    if-gez v2, :cond_4
 
     invoke-virtual {p0, p2}, Lcom/android/server/location/provider/LocationProviderManager;->setProviderRequest(Landroid/location/provider/ProviderRequest;)V
 
     goto :goto_2
 
+    :cond_4
+    sget-boolean v2, Lcom/android/server/location/LocationManagerService;->D:Z
+
+    if-eqz v2, :cond_5
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v4, p0, Lcom/android/server/location/provider/LocationProviderManager;->mName:Ljava/lang/String;
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v4, " provider delaying request update "
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v4, " by "
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {v0, v1}, Landroid/util/TimeUtils;->formatDuration(J)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v4, "LocationManagerService"
+
+    invoke-static {v4, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     :cond_5
-    sget-boolean v0, Lcom/android/server/location/LocationManagerService;->D:Z
+    new-instance v2, Lcom/android/server/location/provider/LocationProviderManager$2;
 
-    if-eqz v0, :cond_6
+    invoke-direct {v2, p0, p2}, Lcom/android/server/location/provider/LocationProviderManager$2;-><init>(Lcom/android/server/location/provider/LocationProviderManager;Landroid/location/provider/ProviderRequest;)V
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    iput-object v2, p0, Lcom/android/server/location/provider/LocationProviderManager;->mDelayedRegister:Landroid/app/AlarmManager$OnAlarmListener;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    iget-object v4, p0, Lcom/android/server/location/provider/LocationProviderManager;->mAlarmHelper:Lcom/android/server/location/injector/AlarmHelper;
 
-    iget-object v5, p0, Lcom/android/server/location/provider/LocationProviderManager;->mName:Ljava/lang/String;
+    const/4 v5, 0x0
 
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v5, " provider delaying request update "
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string v5, " by "
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static {v2, v3}, Landroid/util/TimeUtils;->formatDuration(J)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v5, "LocationManagerService"
-
-    invoke-static {v5, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_6
-    new-instance v0, Lcom/android/server/location/provider/LocationProviderManager$2;
-
-    invoke-direct {v0, p0, p2}, Lcom/android/server/location/provider/LocationProviderManager$2;-><init>(Lcom/android/server/location/provider/LocationProviderManager;Landroid/location/provider/ProviderRequest;)V
-
-    iput-object v0, p0, Lcom/android/server/location/provider/LocationProviderManager;->mDelayedRegister:Landroid/app/AlarmManager$OnAlarmListener;
-
-    iget-object v5, p0, Lcom/android/server/location/provider/LocationProviderManager;->mAlarmHelper:Lcom/android/server/location/injector/AlarmHelper;
-
-    invoke-virtual {v5, v2, v3, v0, v1}, Lcom/android/server/location/injector/AlarmHelper;->setDelayedAlarm(JLandroid/app/AlarmManager$OnAlarmListener;Landroid/os/WorkSource;)V
+    invoke-virtual {v4, v0, v1, v2, v5}, Lcom/android/server/location/injector/AlarmHelper;->setDelayedAlarm(JLandroid/app/AlarmManager$OnAlarmListener;Landroid/os/WorkSource;)V
 
     :goto_2
-    return v4
+    return v3
 .end method
 
 .method protected bridge synthetic reregisterWithService(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/Collection;)Z
@@ -4720,6 +4710,19 @@
 .method setProviderRequest(Landroid/location/provider/ProviderRequest;)V
     .locals 2
 
+    iget-object v0, p0, Lcom/android/server/location/provider/LocationProviderManager;->mDelayedRegister:Landroid/app/AlarmManager$OnAlarmListener;
+
+    if-eqz v0, :cond_0
+
+    iget-object v1, p0, Lcom/android/server/location/provider/LocationProviderManager;->mAlarmHelper:Lcom/android/server/location/injector/AlarmHelper;
+
+    invoke-virtual {v1, v0}, Lcom/android/server/location/injector/AlarmHelper;->cancel(Landroid/app/AlarmManager$OnAlarmListener;)V
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/server/location/provider/LocationProviderManager;->mDelayedRegister:Landroid/app/AlarmManager$OnAlarmListener;
+
+    :cond_0
     sget-object v0, Lcom/android/server/location/eventlog/LocationEventLog;->EVENT_LOG:Lcom/android/server/location/eventlog/LocationEventLog;
 
     iget-object v1, p0, Lcom/android/server/location/provider/LocationProviderManager;->mName:Ljava/lang/String;

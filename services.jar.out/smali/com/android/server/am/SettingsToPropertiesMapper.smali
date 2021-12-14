@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 15
+    .locals 16
 
     const-string/jumbo v0, "native_flags_health_check_enabled"
 
@@ -55,25 +55,27 @@
 
     const-string v5, "intelligence_content_suggestions"
 
-    const-string/jumbo v6, "media_native"
+    const-string/jumbo v6, "lmkd_native"
 
-    const-string/jumbo v7, "netd_native"
+    const-string/jumbo v7, "media_native"
 
-    const-string/jumbo v8, "profcollect_native_boot"
+    const-string/jumbo v8, "netd_native"
 
-    const-string/jumbo v9, "runtime_native"
+    const-string/jumbo v9, "profcollect_native_boot"
 
-    const-string/jumbo v10, "runtime_native_boot"
+    const-string/jumbo v10, "runtime_native"
 
-    const-string/jumbo v11, "statsd_native"
+    const-string/jumbo v11, "runtime_native_boot"
 
-    const-string/jumbo v12, "statsd_native_boot"
+    const-string/jumbo v12, "statsd_native"
 
-    const-string/jumbo v13, "storage_native_boot"
+    const-string/jumbo v13, "statsd_native_boot"
 
-    const-string/jumbo v14, "window_manager_native_boot"
+    const-string/jumbo v14, "storage_native_boot"
 
-    filled-new-array/range {v1 .. v14}, [Ljava/lang/String;
+    const-string/jumbo v15, "window_manager_native_boot"
+
+    filled-new-array/range {v1 .. v15}, [Ljava/lang/String;
 
     move-result-object v0
 

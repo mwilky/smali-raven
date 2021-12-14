@@ -53,6 +53,8 @@
 
     iput-object p2, p0, Lcom/android/server/uwb/UwbServiceImpl;->mUwbInjector:Lcom/android/server/uwb/UwbInjector;
 
+    invoke-direct {p0}, Lcom/android/server/uwb/UwbServiceImpl;->registerAirplaneModeReceiver()V
+
     return-void
 .end method
 
@@ -72,6 +74,14 @@
     return-object v0
 .end method
 
+.method static synthetic access$300(Lcom/android/server/uwb/UwbServiceImpl;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/uwb/UwbServiceImpl;->handleAirplaneModeEvent()V
+
+    return-void
+.end method
+
 .method private enforceUwbPrivilegedPermission()V
     .locals 3
 
@@ -87,10 +97,11 @@
 .end method
 
 .method private declared-synchronized getVendorUwbAdapter()Landroid/uwb/IUwbAdapter;
-    .locals 2
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
-            Ljava/lang/IllegalStateException;
+            Ljava/lang/IllegalStateException;,
+            Landroid/os/RemoteException;
         }
     .end annotation
 
@@ -99,7 +110,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/uwb/UwbServiceImpl;->mVendorUwbAdapter:Landroid/uwb/IUwbAdapter;
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     if-eqz v0, :cond_0
 
@@ -125,18 +136,47 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    :try_start_2
+    iget-object v2, p0, Lcom/android/server/uwb/UwbServiceImpl;->mVendorUwbAdapter:Landroid/uwb/IUwbAdapter;
+
+    invoke-direct {p0}, Lcom/android/server/uwb/UwbServiceImpl;->isEnabled()Z
+
+    move-result v3
+
+    invoke-interface {v2, v3}, Landroid/uwb/IUwbAdapter;->setEnabled(Z)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    :try_start_3
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    nop
+
     invoke-direct {p0}, Lcom/android/server/uwb/UwbServiceImpl;->linkToVendorServiceDeath()V
 
-    iget-object v0, p0, Lcom/android/server/uwb/UwbServiceImpl;->mVendorUwbAdapter:Landroid/uwb/IUwbAdapter;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    iget-object v2, p0, Lcom/android/server/uwb/UwbServiceImpl;->mVendorUwbAdapter:Landroid/uwb/IUwbAdapter;
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     monitor-exit p0
 
-    return-object v0
+    return-object v2
+
+    :catchall_0
+    move-exception v2
+
+    :try_start_4
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v2
 
     :cond_1
-    :try_start_2
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "No vendor service found!"
@@ -144,15 +184,77 @@
     invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
-    :catchall_0
+    :catchall_1
     move-exception v0
 
     monitor-exit p0
 
     throw v0
+.end method
+
+.method private handleAirplaneModeEvent()V
+    .locals 3
+
+    :try_start_0
+    invoke-direct {p0}, Lcom/android/server/uwb/UwbServiceImpl;->getVendorUwbAdapter()Landroid/uwb/IUwbAdapter;
+
+    move-result-object v0
+
+    invoke-direct {p0}, Lcom/android/server/uwb/UwbServiceImpl;->isEnabled()Z
+
+    move-result v1
+
+    invoke-interface {v0, v1}, Landroid/uwb/IUwbAdapter;->setEnabled(Z)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    const-string v1, "UwbServiceImpl"
+
+    const-string v2, "Unable to set UWB Adapter state."
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :goto_0
+    return-void
+.end method
+
+.method private isEnabled()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/uwb/UwbServiceImpl;->mUwbInjector:Lcom/android/server/uwb/UwbInjector;
+
+    invoke-virtual {v0}, Lcom/android/server/uwb/UwbInjector;->isPersistedUwbStateEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/uwb/UwbServiceImpl;->mUwbInjector:Lcom/android/server/uwb/UwbInjector;
+
+    invoke-virtual {v0}, Lcom/android/server/uwb/UwbInjector;->isAirplaneModeOn()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
 .end method
 
 .method private linkToVendorServiceDeath()V
@@ -183,6 +285,52 @@
     invoke-static {v2, v3, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
+    return-void
+.end method
+
+.method private persistUwbState(Z)V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/uwb/UwbServiceImpl;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    if-eqz p1, :cond_0
+
+    const/4 v1, 0x2
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x0
+
+    :goto_0
+    const-string v2, "uwb_enabled"
+
+    invoke-static {v0, v2, v1}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    return-void
+.end method
+
+.method private registerAirplaneModeReceiver()V
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/server/uwb/UwbServiceImpl;->mContext:Landroid/content/Context;
+
+    new-instance v1, Lcom/android/server/uwb/UwbServiceImpl$1;
+
+    invoke-direct {v1, p0}, Lcom/android/server/uwb/UwbServiceImpl$1;-><init>(Lcom/android/server/uwb/UwbServiceImpl;)V
+
+    new-instance v2, Landroid/content/IntentFilter;
+
+    const-string v3, "android.intent.action.AIRPLANE_MODE"
+
+    invoke-direct {v2, v3}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+
     return-void
 .end method
 
@@ -495,7 +643,7 @@
 .end method
 
 .method public declared-synchronized setEnabled(Z)V
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -505,11 +653,17 @@
     monitor-enter p0
 
     :try_start_0
+    invoke-direct {p0, p1}, Lcom/android/server/uwb/UwbServiceImpl;->persistUwbState(Z)V
+
     invoke-direct {p0}, Lcom/android/server/uwb/UwbServiceImpl;->getVendorUwbAdapter()Landroid/uwb/IUwbAdapter;
 
     move-result-object v0
 
-    invoke-interface {v0, p1}, Landroid/uwb/IUwbAdapter;->setEnabled(Z)V
+    invoke-direct {p0}, Lcom/android/server/uwb/UwbServiceImpl;->isEnabled()Z
+
+    move-result v1
+
+    invoke-interface {v0, v1}, Landroid/uwb/IUwbAdapter;->setEnabled(Z)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

@@ -1497,7 +1497,7 @@
 .end method
 
 .method private grantDefaultSystemHandlerPermissions(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;I)V
-    .locals 41
+    .locals 42
 
     move-object/from16 v8, p0
 
@@ -1766,8 +1766,6 @@
 
     invoke-direct {v8, v9, v3, v10, v6}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->grantPermissionsToSystemPackage(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/lang/String;I[Ljava/util/Set;)V
 
-    nop
-
     invoke-direct {v8, v5, v10}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->getKnownPackages(II)[Ljava/lang/String;
 
     move-result-object v6
@@ -1802,23 +1800,54 @@
 
     sget-object v4, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->CAMERA_PERMISSIONS:Ljava/util/Set;
 
-    const/4 v5, 0x3
+    const/16 v26, 0x3
 
-    aput-object v4, v3, v5
+    aput-object v4, v3, v26
 
     invoke-direct {v8, v9, v6, v10, v3}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->grantPermissionsToSystemPackage(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/lang/String;I[Ljava/util/Set;)V
 
+    iget-object v3, v8, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v3
+
+    const-string v5, "android.hardware.type.automotive"
+
+    move-object/from16 v31, v7
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v3, v5, v7}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;I)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_9
+
+    const/4 v3, 0x1
+
+    new-array v5, v3, [Ljava/util/Set;
+
+    sget-object v3, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->NEARBY_DEVICES_PERMISSIONS:Ljava/util/Set;
+
+    aput-object v3, v5, v7
+
+    invoke-direct {v8, v9, v6, v10, v5}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->grantPermissionsToSystemPackage(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/lang/String;I[Ljava/util/Set;)V
+
+    :cond_9
     const-string v3, "android.media.action.IMAGE_CAPTURE"
 
     invoke-direct {v8, v9, v3, v10}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->getDefaultSystemHandlerActivityPackage(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object v3
 
+    move-object/from16 v26, v6
+
+    const/4 v5, 0x3
+
     new-array v6, v5, [Ljava/util/Set;
 
-    const/16 v26, 0x0
-
-    aput-object v4, v6, v26
+    aput-object v4, v6, v7
 
     sget-object v4, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->MICROPHONE_PERMISSIONS:Ljava/util/Set;
 
@@ -1840,7 +1869,7 @@
 
     new-array v6, v5, [Ljava/util/Set;
 
-    aput-object v4, v6, v26
+    aput-object v4, v6, v7
 
     invoke-direct {v8, v9, v3, v10, v6}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->grantPermissionsToSystemPackage(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/lang/String;I[Ljava/util/Set;)V
 
@@ -1852,7 +1881,7 @@
 
     new-array v4, v5, [Ljava/util/Set;
 
-    aput-object v24, v4, v26
+    aput-object v24, v4, v7
 
     invoke-direct {v8, v9, v3, v10, v4}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->grantSystemFixedPermissionsToSystemPackage(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/lang/String;I[Ljava/util/Set;)V
 
@@ -1864,7 +1893,7 @@
 
     new-array v4, v5, [Ljava/util/Set;
 
-    aput-object v24, v4, v26
+    aput-object v24, v4, v7
 
     invoke-direct {v8, v9, v3, v10, v4}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->grantSystemFixedPermissionsToSystemPackage(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/lang/String;I[Ljava/util/Set;)V
 
@@ -1876,7 +1905,7 @@
 
     new-array v4, v5, [Ljava/util/Set;
 
-    aput-object v24, v4, v26
+    aput-object v24, v4, v7
 
     invoke-direct {v8, v9, v3, v10, v4}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->grantSystemFixedPermissionsToSystemPackage(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/lang/String;I[Ljava/util/Set;)V
 
@@ -1888,7 +1917,7 @@
 
     new-array v4, v5, [Ljava/util/Set;
 
-    aput-object v24, v4, v26
+    aput-object v24, v4, v7
 
     invoke-direct {v8, v9, v3, v10, v4}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->grantSystemFixedPermissionsToSystemPackage(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/lang/String;I[Ljava/util/Set;)V
 
@@ -1900,13 +1929,13 @@
 
     new-array v4, v5, [Ljava/util/Set;
 
-    aput-object v24, v4, v26
+    aput-object v24, v4, v7
 
     invoke-direct {v8, v9, v3, v10, v4}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->grantSystemFixedPermissionsToSystemPackage(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/lang/String;I[Ljava/util/Set;)V
 
-    move-object/from16 v6, v17
+    move-object/from16 v7, v17
 
-    if-nez v6, :cond_9
+    if-nez v7, :cond_a
 
     const-string v3, "android.intent.action.DIAL"
 
@@ -1918,15 +1947,15 @@
 
     goto :goto_a
 
-    :cond_9
-    array-length v3, v6
+    :cond_a
+    array-length v3, v7
 
     const/4 v4, 0x0
 
     :goto_9
-    if-ge v4, v3, :cond_a
+    if-ge v4, v3, :cond_b
 
-    aget-object v5, v6, v4
+    aget-object v5, v7, v4
 
     invoke-direct {v8, v9, v5, v10}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->grantDefaultPermissionsToDefaultSystemDialerApp(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/lang/String;I)V
 
@@ -1934,59 +1963,50 @@
 
     goto :goto_9
 
-    :cond_a
+    :cond_b
     :goto_a
-    move-object/from16 v5, v18
+    move-object/from16 v6, v18
 
-    if-eqz v5, :cond_b
+    if-eqz v6, :cond_c
+
+    array-length v3, v6
+
+    const/4 v4, 0x0
+
+    :goto_b
+    if-ge v4, v3, :cond_c
+
+    aget-object v5, v6, v4
+
+    invoke-direct {v8, v9, v5, v10}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->grantDefaultPermissionsToDefaultSystemSimCallManager(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/lang/String;I)V
+
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_b
+
+    :cond_c
+    move-object/from16 v5, v19
+
+    if-eqz v5, :cond_d
 
     array-length v3, v5
 
     const/4 v4, 0x0
 
-    :goto_b
-    if-ge v4, v3, :cond_b
+    :goto_c
+    if-ge v4, v3, :cond_d
 
     move/from16 v17, v3
 
     aget-object v3, v5, v4
 
-    invoke-direct {v8, v9, v3, v10}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->grantDefaultPermissionsToDefaultSystemSimCallManager(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/lang/String;I)V
+    invoke-direct {v8, v9, v3, v10}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->grantDefaultPermissionsToDefaultSystemUseOpenWifiApp(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/lang/String;I)V
 
     add-int/lit8 v4, v4, 0x1
 
     move/from16 v3, v17
 
-    goto :goto_b
-
-    :cond_b
-    move-object/from16 v4, v19
-
-    if-eqz v4, :cond_c
-
-    array-length v3, v4
-
-    move-object/from16 v17, v5
-
-    const/4 v5, 0x0
-
-    :goto_c
-    if-ge v5, v3, :cond_d
-
-    move/from16 v18, v3
-
-    aget-object v3, v4, v5
-
-    invoke-direct {v8, v9, v3, v10}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->grantDefaultPermissionsToDefaultSystemUseOpenWifiApp(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/lang/String;I)V
-
-    add-int/lit8 v5, v5, 0x1
-
-    move/from16 v3, v18
-
     goto :goto_c
-
-    :cond_c
-    move-object/from16 v17, v5
 
     :cond_d
     if-nez v2, :cond_e
@@ -2004,20 +2024,20 @@
     :cond_e
     array-length v3, v2
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
     :goto_d
-    if-ge v5, v3, :cond_f
+    if-ge v4, v3, :cond_f
 
-    move/from16 v18, v3
+    move/from16 v17, v3
 
-    aget-object v3, v2, v5
+    aget-object v3, v2, v4
 
     invoke-direct {v8, v9, v3, v10}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->grantDefaultPermissionsToDefaultSystemSmsApp(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/lang/String;I)V
 
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v4, v4, 0x1
 
-    move/from16 v3, v18
+    move/from16 v3, v17
 
     goto :goto_d
 
@@ -2029,25 +2049,25 @@
 
     move-result-object v3
 
-    move-object/from16 v18, v2
+    move-object/from16 v17, v2
 
-    const/4 v5, 0x2
+    const/4 v4, 0x2
 
-    new-array v2, v5, [Ljava/util/Set;
+    new-array v2, v4, [Ljava/util/Set;
 
-    sget-object v5, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
+    sget-object v4, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
 
-    const/16 v19, 0x0
+    const/16 v18, 0x0
 
-    aput-object v5, v2, v19
+    aput-object v4, v2, v18
 
-    sget-object v24, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->NEARBY_DEVICES_PERMISSIONS:Ljava/util/Set;
+    sget-object v19, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->NEARBY_DEVICES_PERMISSIONS:Ljava/util/Set;
 
-    move-object/from16 v26, v4
+    move-object/from16 v24, v5
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    aput-object v24, v2, v4
+    aput-object v19, v2, v5
 
     invoke-direct {v8, v9, v3, v10, v2}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->grantSystemFixedPermissionsToSystemPackage(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/lang/String;I[Ljava/util/Set;)V
 
@@ -2057,9 +2077,9 @@
 
     move-result-object v2
 
-    new-array v3, v4, [Ljava/util/Set;
+    new-array v3, v5, [Ljava/util/Set;
 
-    aput-object v5, v3, v19
+    aput-object v4, v3, v18
 
     invoke-direct {v8, v9, v2, v10, v3}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->grantPermissionsToSystemPackage(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/lang/String;I[Ljava/util/Set;)V
 
@@ -2075,11 +2095,11 @@
 
     sget-object v3, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->CALENDAR_PERMISSIONS:Ljava/util/Set;
 
-    aput-object v3, v4, v19
+    aput-object v3, v4, v18
 
     sget-object v5, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
 
-    move-object/from16 v24, v6
+    move-object/from16 v19, v6
 
     const/4 v6, 0x1
 
@@ -2097,11 +2117,11 @@
 
     new-array v6, v2, [Ljava/util/Set;
 
-    aput-object v5, v6, v19
+    aput-object v5, v6, v18
 
     sget-object v2, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
 
-    move-object/from16 v32, v7
+    move-object/from16 v33, v7
 
     const/4 v7, 0x1
 
@@ -2111,7 +2131,7 @@
 
     new-array v6, v7, [Ljava/util/Set;
 
-    aput-object v3, v6, v19
+    aput-object v3, v6, v18
 
     invoke-direct {v8, v9, v4, v10, v6}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->grantSystemFixedPermissionsToSystemPackage(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/lang/String;I[Ljava/util/Set;)V
 
@@ -2123,18 +2143,18 @@
 
     move-result-object v6
 
-    move-object/from16 v33, v0
+    move-object/from16 v34, v0
 
     new-array v0, v7, [Ljava/util/Set;
 
-    aput-object v3, v0, v19
+    aput-object v3, v0, v18
 
     invoke-direct {v8, v9, v6, v10, v0}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->grantPermissionToEachSystemPackage(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/util/ArrayList;I[Ljava/util/Set;)V
 
     goto :goto_f
 
     :cond_10
-    move-object/from16 v33, v0
+    move-object/from16 v34, v0
 
     :goto_f
     const-string v0, "android.intent.category.APP_CONTACTS"
@@ -2147,11 +2167,11 @@
 
     new-array v7, v6, [Ljava/util/Set;
 
-    aput-object v5, v7, v19
+    aput-object v5, v7, v18
 
     sget-object v6, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
 
-    move-object/from16 v34, v4
+    move-object/from16 v35, v4
 
     const/4 v4, 0x1
 
@@ -2169,7 +2189,7 @@
 
     new-array v7, v4, [Ljava/util/Set;
 
-    aput-object v5, v7, v19
+    aput-object v5, v7, v18
 
     invoke-direct {v8, v9, v0, v10, v7}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->grantPermissionToEachSystemPackage(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/util/ArrayList;I[Ljava/util/Set;)V
 
@@ -2220,7 +2240,7 @@
 
     move-result-object v2
 
-    move-object/from16 v19, v0
+    move-object/from16 v18, v0
 
     const/4 v6, 0x2
 
@@ -2301,29 +2321,33 @@
 
     move-object/from16 v3, v22
 
-    move-object/from16 v35, v27
+    move-object/from16 v36, v27
 
-    move-object/from16 v27, v34
+    move-object/from16 v27, v35
 
-    move/from16 v34, v4
+    move/from16 v35, v4
 
     move/from16 v4, p2
 
-    move-object/from16 v36, v11
+    move-object/from16 v37, v11
 
-    move-object/from16 v31, v12
+    move-object/from16 v32, v12
 
     move-object/from16 v11, v21
 
-    move/from16 v12, v34
+    move-object/from16 v21, v24
 
-    const/16 v21, 0x4
+    move/from16 v12, v35
+
+    const/16 v24, 0x4
 
     const/16 v30, 0x3
 
     move v6, v7
 
-    move-object/from16 v30, v32
+    move-object/from16 v30, v31
+
+    move-object/from16 v31, v33
 
     move-object/from16 v7, v28
 
@@ -2372,7 +2396,7 @@
 
     sget-object v28, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
 
-    aput-object v28, v7, v21
+    aput-object v28, v7, v24
 
     sget-object v28, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->ALWAYS_LOCATION_PERMISSIONS:Ljava/util/Set;
 
@@ -2464,7 +2488,7 @@
 
     invoke-direct {v8, v9, v5, v10, v7}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->grantPermissionsToSystemPackage(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/lang/String;I[Ljava/util/Set;)V
 
-    move-object/from16 v5, v35
+    move-object/from16 v5, v36
 
     if-eqz v5, :cond_17
 
@@ -2481,69 +2505,69 @@
 
     new-array v3, v3, [Ljava/util/Set;
 
-    sget-object v37, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
+    sget-object v38, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
 
     const/16 v25, 0x0
 
-    aput-object v37, v3, v25
+    aput-object v38, v3, v25
 
-    sget-object v37, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->CALENDAR_PERMISSIONS:Ljava/util/Set;
+    sget-object v38, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->CALENDAR_PERMISSIONS:Ljava/util/Set;
 
-    const/16 v34, 0x1
+    const/16 v35, 0x1
 
-    aput-object v37, v3, v34
+    aput-object v38, v3, v35
 
-    sget-object v37, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->MICROPHONE_PERMISSIONS:Ljava/util/Set;
+    sget-object v38, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->MICROPHONE_PERMISSIONS:Ljava/util/Set;
 
-    aput-object v37, v3, v2
+    aput-object v38, v3, v2
 
-    sget-object v37, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
+    sget-object v38, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
 
-    aput-object v37, v3, v12
+    aput-object v38, v3, v12
 
-    sget-object v37, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
+    sget-object v38, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
 
-    aput-object v37, v3, v21
+    aput-object v38, v3, v24
 
-    sget-object v37, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->CAMERA_PERMISSIONS:Ljava/util/Set;
+    sget-object v38, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->CAMERA_PERMISSIONS:Ljava/util/Set;
 
-    const/16 v35, 0x5
+    const/16 v36, 0x5
 
-    aput-object v37, v3, v35
+    aput-object v38, v3, v36
 
-    sget-object v37, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->SENSORS_PERMISSIONS:Ljava/util/Set;
+    sget-object v38, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->SENSORS_PERMISSIONS:Ljava/util/Set;
 
     const/16 v28, 0x6
 
-    aput-object v37, v3, v28
+    aput-object v38, v3, v28
 
-    sget-object v37, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
+    sget-object v38, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
 
-    const/16 v32, 0x7
+    const/16 v33, 0x7
 
-    aput-object v37, v3, v32
+    aput-object v38, v3, v33
 
-    const/16 v37, 0x8
+    const/16 v38, 0x8
 
-    sget-object v38, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->NEARBY_DEVICES_PERMISSIONS:Ljava/util/Set;
+    sget-object v39, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->NEARBY_DEVICES_PERMISSIONS:Ljava/util/Set;
 
-    aput-object v38, v3, v37
+    aput-object v39, v3, v38
 
     invoke-direct {v8, v9, v1, v10, v3}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->grantPermissionsToSystemPackage(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/lang/String;I[Ljava/util/Set;)V
 
     new-array v3, v2, [Ljava/util/Set;
 
-    sget-object v37, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->ALWAYS_LOCATION_PERMISSIONS:Ljava/util/Set;
+    sget-object v38, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->ALWAYS_LOCATION_PERMISSIONS:Ljava/util/Set;
 
     const/16 v25, 0x0
 
-    aput-object v37, v3, v25
+    aput-object v38, v3, v25
 
-    sget-object v37, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->ACTIVITY_RECOGNITION_PERMISSIONS:Ljava/util/Set;
+    sget-object v38, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->ACTIVITY_RECOGNITION_PERMISSIONS:Ljava/util/Set;
 
-    const/16 v34, 0x1
+    const/16 v35, 0x1
 
-    aput-object v37, v3, v34
+    aput-object v38, v3, v35
 
     invoke-direct {v8, v9, v1, v10, v3}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->grantSystemFixedPermissionsToSystemPackage(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/lang/String;I[Ljava/util/Set;)V
 
@@ -2702,7 +2726,7 @@
 
     move-result-object v6
 
-    move-object/from16 v32, v1
+    move-object/from16 v33, v1
 
     const/4 v12, 0x3
 
@@ -2800,7 +2824,7 @@
     :cond_1a
     move/from16 v25, v0
 
-    move-object/from16 v32, v1
+    move-object/from16 v33, v1
 
     const/4 v1, 0x1
 
@@ -2827,9 +2851,9 @@
 
     aput-object v6, v12, v25
 
-    sget-object v39, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
+    sget-object v40, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->PHONE_PERMISSIONS:Ljava/util/Set;
 
-    aput-object v39, v12, v1
+    aput-object v40, v12, v1
 
     invoke-direct {v8, v9, v0, v10, v12}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->grantSystemFixedPermissionsToSystemPackage(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/lang/String;I[Ljava/util/Set;)V
 
@@ -2851,7 +2875,7 @@
 
     move-result-object v1
 
-    move-object/from16 v40, v0
+    move-object/from16 v41, v0
 
     const/4 v12, 0x2
 
@@ -2863,7 +2887,7 @@
 
     const/4 v6, 0x1
 
-    aput-object v39, v0, v6
+    aput-object v40, v0, v6
 
     invoke-direct {v8, v9, v1, v10, v0}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->grantPermissionsToSystemPackage(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/lang/String;I[Ljava/util/Set;)V
 
@@ -2934,9 +2958,9 @@
 
     sget-object v7, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->CONTACTS_PERMISSIONS:Ljava/util/Set;
 
-    const/16 v34, 0x1
+    const/16 v35, 0x1
 
-    aput-object v7, v12, v34
+    aput-object v7, v12, v35
 
     invoke-direct {v8, v9, v6, v10, v12}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->grantPermissionsToSystemPackage(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/lang/String;I[Ljava/util/Set;)V
 
@@ -2991,7 +3015,7 @@
 
     sget-object v3, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->STORAGE_PERMISSIONS:Ljava/util/Set;
 
-    aput-object v3, v1, v21
+    aput-object v3, v1, v24
 
     invoke-direct {v8, v9, v0, v10, v1}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->grantPermissionsToSystemPackage(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/lang/String;I[Ljava/util/Set;)V
 
@@ -3064,9 +3088,9 @@
 
     sget-object v12, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->MICROPHONE_PERMISSIONS:Ljava/util/Set;
 
-    const/16 v21, 0x0
+    const/16 v24, 0x0
 
-    aput-object v12, v7, v21
+    aput-object v12, v7, v24
 
     invoke-direct {v8, v9, v3, v10, v7}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->grantPermissionsToSystemPackage(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/lang/String;I[Ljava/util/Set;)V
 
@@ -3075,7 +3099,7 @@
     :cond_1e
     const/4 v6, 0x1
 
-    const/16 v21, 0x0
+    const/16 v24, 0x0
 
     :goto_18
     const-string v7, "com.android.bluetoothmidiservice"
@@ -3084,7 +3108,7 @@
 
     sget-object v12, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->NEARBY_DEVICES_PERMISSIONS:Ljava/util/Set;
 
-    aput-object v12, v6, v21
+    aput-object v12, v6, v24
 
     invoke-direct {v8, v9, v7, v10, v6}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->grantSystemFixedPermissionsToSystemPackage(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/lang/String;I[Ljava/util/Set;)V
 

@@ -94,8 +94,61 @@
     return v0
 .end method
 
-.method public onClientFinished(Lcom/android/server/biometrics/sensors/BaseClientMonitor;Z)V
+.method notifyAllFingerprintEnrollmentStateChanged(IIZ)V
     .locals 2
+
+    iget-object v0, p0, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintStateCallback;->mFingerprintStateListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-virtual {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/hardware/fingerprint/IFingerprintStateListener;
+
+    invoke-virtual {p0, v1, p1, p2, p3}, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintStateCallback;->notifyFingerprintEnrollmentStateChanged(Landroid/hardware/fingerprint/IFingerprintStateListener;IIZ)V
+
+    goto :goto_0
+
+    :cond_0
+    return-void
+.end method
+
+.method notifyFingerprintEnrollmentStateChanged(Landroid/hardware/fingerprint/IFingerprintStateListener;IIZ)V
+    .locals 3
+
+    :try_start_0
+    invoke-interface {p1, p2, p3, p4}, Landroid/hardware/fingerprint/IFingerprintStateListener;->onEnrollmentsChanged(IIZ)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    const-string v1, "FingerprintService"
+
+    const-string v2, "Remote exception"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :goto_0
+    return-void
+.end method
+
+.method public onClientFinished(Lcom/android/server/biometrics/sensors/BaseClientMonitor;Z)V
+    .locals 5
 
     const/4 v0, 0x0
 
@@ -127,6 +180,51 @@
 
     invoke-static {v1, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    instance-of v0, p1, Lcom/android/server/biometrics/sensors/EnrollmentModifier;
+
+    if-eqz v0, :cond_0
+
+    move-object v0, p1
+
+    check-cast v0, Lcom/android/server/biometrics/sensors/EnrollmentModifier;
+
+    invoke-interface {v0}, Lcom/android/server/biometrics/sensors/EnrollmentModifier;->hasEnrollmentStateChanged()Z
+
+    move-result v2
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "Enrollment state changed: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v1, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {p1}, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->getTargetUserId()I
+
+    move-result v1
+
+    invoke-virtual {p1}, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->getSensorId()I
+
+    move-result v3
+
+    invoke-interface {v0}, Lcom/android/server/biometrics/sensors/EnrollmentModifier;->hasEnrollments()Z
+
+    move-result v4
+
+    invoke-virtual {p0, v1, v3, v4}, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintStateCallback;->notifyAllFingerprintEnrollmentStateChanged(IIZ)V
+
+    :cond_0
     iget v0, p0, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintStateCallback;->mFingerprintState:I
 
     invoke-direct {p0, v0}, Lcom/android/server/biometrics/sensors/fingerprint/FingerprintStateCallback;->notifyFingerprintStateListeners(I)V

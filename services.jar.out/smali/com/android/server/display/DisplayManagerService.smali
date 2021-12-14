@@ -49,7 +49,7 @@
 
 .field private static final TAG:Ljava/lang/String; = "DisplayManagerService"
 
-.field private static final THRESHOLD_FOR_REFRESH_RATES_DIVIDERS:F = 0.1f
+.field private static final THRESHOLD_FOR_REFRESH_RATES_DIVIDERS:F = 9.0E-4f
 
 .field private static final WAIT_FOR_DEFAULT_DISPLAY_TIMEOUT:J = 0x2710L
 
@@ -444,7 +444,7 @@
 
     iput v3, p0, Lcom/android/server/display/DisplayManagerService;->mDefaultDisplayTopInset:I
 
-    const v3, 0x107005d
+    const v3, 0x107005e
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->obtainTypedArray(I)Landroid/content/res/TypedArray;
 
@@ -454,7 +454,7 @@
 
     move-result-object v3
 
-    const v4, 0x107005e
+    const v4, 0x107005f
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->obtainTypedArray(I)Landroid/content/res/TypedArray;
 
@@ -2560,7 +2560,7 @@
 
     move-result v8
 
-    const v9, 0x3dcccccd    # 0.1f
+    const v9, 0x3a6bedfa    # 9.0E-4f
 
     cmpl-float v8, v8, v9
 
@@ -3765,13 +3765,13 @@
 
     move-result-object v1
 
-    const v2, 0x10e00ce
+    const v2, 0x10e00cf
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v2
 
-    const v3, 0x10e00cd
+    const v3, 0x10e00ce
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getInteger(I)I
 

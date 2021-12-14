@@ -3339,7 +3339,7 @@
 
     iget-object v11, p0, Lcom/android/server/connectivity/Vpn;->mContext:Landroid/content/Context;
 
-    const v12, 0x10408ab
+    const v12, 0x10408ad
 
     invoke-virtual {v11, v12}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3351,7 +3351,7 @@
 
     iget-object v11, p0, Lcom/android/server/connectivity/Vpn;->mContext:Landroid/content/Context;
 
-    const v12, 0x10408a8
+    const v12, 0x10408aa
 
     invoke-virtual {v11, v12}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

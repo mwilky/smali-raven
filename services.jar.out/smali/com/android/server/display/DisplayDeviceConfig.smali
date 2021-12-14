@@ -257,7 +257,7 @@
 
     cmpl-float v9, v9, v10
 
-    if-gtz v9, :cond_3
+    if-gez v9, :cond_3
 
     array-length v9, v8
 
@@ -1078,7 +1078,7 @@
 
     move-result-object v2
 
-    const v3, 0x10e00be
+    const v3, 0x10e00bf
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1096,7 +1096,7 @@
 
     move-result-object v2
 
-    const v3, 0x10e00bd
+    const v3, 0x10e00be
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1139,7 +1139,7 @@
 
     move-result-object v1
 
-    const v2, 0x10e00bc
+    const v2, 0x10e00bd
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1361,7 +1361,7 @@
 
     move-result-object v0
 
-    const v1, 0x1070075
+    const v1, 0x1070076
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->obtainTypedArray(I)Landroid/content/res/TypedArray;
 
@@ -1371,7 +1371,7 @@
 
     move-result-object v1
 
-    const v2, 0x1070074
+    const v2, 0x1070075
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getIntArray(I)[I
 

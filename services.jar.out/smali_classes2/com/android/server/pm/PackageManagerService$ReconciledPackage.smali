@@ -112,7 +112,7 @@
     return-void
 .end method
 
-.method static synthetic access$5200(Lcom/android/server/pm/PackageManagerService$ReconciledPackage;)Ljava/util/Map;
+.method static synthetic access$5500(Lcom/android/server/pm/PackageManagerService$ReconciledPackage;)Ljava/util/Map;
     .locals 1
 
     invoke-direct {p0}, Lcom/android/server/pm/PackageManagerService$ReconciledPackage;->getCombinedAvailablePackages()Ljava/util/Map;

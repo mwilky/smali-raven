@@ -10,12 +10,19 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$Callback;
+        Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$Callback;,
+        Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$PowerBoostSetter;
     }
 .end annotation
 
 
 # static fields
+.field static final BOOST_TIMEOUT_MS:I = 0x12c
+
+.field static final MAX_POWER_BOOST_TIMEOUT:I = 0x2710
+
+.field static final POWER_BOOST_TIMEOUT_MS:I
+
 .field static final TAG:Ljava/lang/String; = "VoiceInteractionServiceManager"
 
 
@@ -37,6 +44,8 @@
 .field mCanceled:Z
 
 .field final mContext:Landroid/content/Context;
+
+.field private final mFgHandler:Landroid/os/Handler;
 
 .field final mFullConnection:Landroid/content/ServiceConnection;
 
@@ -72,11 +81,15 @@
 
 .field final mPermissionOwner:Landroid/os/IBinder;
 
+.field private final mPowerManagerInternal:Landroid/os/PowerManagerInternal;
+
 .field mService:Landroid/service/voice/IVoiceInteractionSessionService;
 
 .field mSession:Landroid/service/voice/IVoiceInteractionSession;
 
 .field final mSessionComponentName:Landroid/content/ComponentName;
+
+.field private mSetPowerBoostRunnable:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$PowerBoostSetter;
 
 .field mShowArgs:Landroid/os/Bundle;
 
@@ -96,6 +109,28 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 2
+
+    nop
+
+    const-string v0, "vendor.powerhal.interaction.max"
+
+    const-string v1, "200"
+
+    invoke-static {v0, v1}, Ljava/lang/System;->getProperty(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    sput v0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->POWER_BOOST_TIMEOUT_MS:I
+
+    return-void
+.end method
+
 .method public constructor <init>(Ljava/lang/Object;Landroid/content/ComponentName;ILandroid/content/Context;Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$Callback;ILandroid/os/Handler;)V
     .locals 20
 
@@ -199,6 +234,16 @@
 
     iput-object v6, v9, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mIWindowManager:Landroid/view/IWindowManager;
 
+    const-class v1, Landroid/os/PowerManagerInternal;
+
+    invoke-static {v1}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/os/PowerManagerInternal;
+
+    iput-object v1, v9, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mPowerManagerInternal:Landroid/os/PowerManagerInternal;
+
     const-class v1, Landroid/app/AppOpsManager;
 
     invoke-virtual {v12, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
@@ -208,6 +253,12 @@
     check-cast v1, Landroid/app/AppOpsManager;
 
     iput-object v1, v9, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mAppOps:Landroid/app/AppOpsManager;
+
+    invoke-static {}, Lcom/android/server/FgThread;->getHandler()Landroid/os/Handler;
+
+    move-result-object v1
+
+    iput-object v1, v9, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mFgHandler:Landroid/os/Handler;
 
     new-instance v5, Lcom/android/server/am/AssistDataRequester;
 
@@ -351,7 +402,31 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;)V
+.method static synthetic access$000(Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;)Landroid/os/PowerManagerInternal;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mPowerManagerInternal:Landroid/os/PowerManagerInternal;
+
+    return-object v0
+.end method
+
+.method static synthetic access$100(Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;)Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$PowerBoostSetter;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mSetPowerBoostRunnable:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$PowerBoostSetter;
+
+    return-object v0
+.end method
+
+.method static synthetic access$200(Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;)Landroid/os/Handler;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mFgHandler:Landroid/os/Handler;
+
+    return-object v0
+.end method
+
+.method static synthetic access$300(Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->notifyPendingShowCallbacksFailedLocked()V
@@ -359,7 +434,7 @@
     return-void
 .end method
 
-.method static synthetic access$100(Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;)V
+.method static synthetic access$400(Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->notifyPendingShowCallbacksShownLocked()V
@@ -1127,11 +1202,11 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
     iget-boolean v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mShown:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     iput-boolean v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mShown:Z
 
@@ -1175,36 +1250,51 @@
 
     invoke-interface {v2, v3, v0, v4, v5}, Lcom/android/server/uri/UriGrantsManagerInternal;->revokeUriPermissionFromOwner(Landroid/os/IBinder;Landroid/net/Uri;II)V
 
-    iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mSession:Landroid/service/voice/IVoiceInteractionSession;
+    iget-object v2, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mSession:Landroid/service/voice/IVoiceInteractionSession;
 
-    if-eqz v0, :cond_1
+    if-eqz v2, :cond_1
 
     :try_start_1
     invoke-static {}, Landroid/app/ActivityTaskManager;->getService()Landroid/app/IActivityTaskManager;
 
-    move-result-object v0
+    move-result-object v2
 
-    iget-object v2, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mSession:Landroid/service/voice/IVoiceInteractionSession;
+    iget-object v3, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mSession:Landroid/service/voice/IVoiceInteractionSession;
 
-    invoke-interface {v0, v2}, Landroid/app/IActivityTaskManager;->finishVoiceTask(Landroid/service/voice/IVoiceInteractionSession;)V
+    invoke-interface {v2, v3}, Landroid/app/IActivityTaskManager;->finishVoiceTask(Landroid/service/voice/IVoiceInteractionSession;)V
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
 
     goto :goto_1
 
     :catch_1
-    move-exception v0
+    move-exception v2
 
     :cond_1
     :goto_1
+    iget-object v2, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mSetPowerBoostRunnable:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$PowerBoostSetter;
+
+    if-eqz v2, :cond_2
+
+    invoke-virtual {v2}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$PowerBoostSetter;->cancel()V
+
+    iput-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mSetPowerBoostRunnable:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$PowerBoostSetter;
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mPowerManagerInternal:Landroid/os/PowerManagerInternal;
+
+    const/4 v2, -0x1
+
+    invoke-virtual {v0, v1, v2}, Landroid/os/PowerManagerInternal;->setPowerBoost(II)V
+
     iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mCallback:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$Callback;
 
     invoke-interface {v0, p0}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$Callback;->onSessionHidden(Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;)V
 
-    :cond_2
+    :cond_3
     iget-boolean v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mFullyBound:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mContext:Landroid/content/Context;
 
@@ -1214,12 +1304,12 @@
 
     iput-boolean v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mFullyBound:Z
 
-    :cond_3
+    :cond_4
     const/4 v0, 0x1
 
     return v0
 
-    :cond_4
+    :cond_5
     return v1
 .end method
 
@@ -1579,7 +1669,7 @@
 
     const/4 v5, 0x0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_10
 
     iget-boolean v0, v1, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mFullyBound:Z
 
@@ -1849,16 +1939,43 @@
 
     :cond_e
     :goto_a
+    iget-object v0, v1, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mSetPowerBoostRunnable:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$PowerBoostSetter;
+
+    if-eqz v0, :cond_f
+
+    invoke-virtual {v0}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$PowerBoostSetter;->cancel()V
+
+    :cond_f
+    new-instance v0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$PowerBoostSetter;
+
+    invoke-static {}, Ljava/time/Instant;->now()Ljava/time/Instant;
+
+    move-result-object v5
+
+    const-wide/16 v9, 0x2710
+
+    invoke-virtual {v5, v9, v10}, Ljava/time/Instant;->plusMillis(J)Ljava/time/Instant;
+
+    move-result-object v5
+
+    invoke-direct {v0, v1, v5}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$PowerBoostSetter;-><init>(Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;Ljava/time/Instant;)V
+
+    iput-object v0, v1, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mSetPowerBoostRunnable:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$PowerBoostSetter;
+
+    iget-object v5, v1, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mFgHandler:Landroid/os/Handler;
+
+    invoke-virtual {v5, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
     iget-object v0, v1, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mCallback:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$Callback;
 
     invoke-interface {v0, v1}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$Callback;->onSessionShown(Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;)V
 
     return v6
 
-    :cond_f
+    :cond_10
     move-object/from16 v7, p1
 
-    if-eqz v3, :cond_10
+    if-eqz v3, :cond_11
 
     :try_start_1
     invoke-interface/range {p4 .. p4}, Lcom/android/internal/app/IVoiceInteractionSessionShowCallback;->onFailed()V
@@ -1870,7 +1987,7 @@
     :catch_1
     move-exception v0
 
-    :cond_10
+    :cond_11
     :goto_b
     return v5
 .end method

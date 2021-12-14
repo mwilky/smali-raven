@@ -1184,7 +1184,7 @@
 
     move-result-object v8
 
-    const/4 v0, 0x6
+    const/4 v0, 0x5
 
     new-array v0, v0, [Ljava/lang/Object;
 
@@ -1210,10 +1210,6 @@
 
     const/4 v1, 0x4
 
-    aput-object v15, v0, v1
-
-    const/4 v1, 0x5
-
     iget-object v3, v9, Lcom/android/server/location/gnss/GnssNetworkConnectivityHandler;->mAvailableNetworkAttributes:Ljava/util/HashMap;
 
     invoke-virtual {v3}, Ljava/util/HashMap;->size()I
@@ -1226,7 +1222,7 @@
 
     aput-object v3, v0, v1
 
-    const-string/jumbo v1, "updateNetworkState, state=%s, connected=%s, network=%s, capabilities=%s, apn: %s, availableNetworkCount: %d"
+    const-string/jumbo v1, "updateNetworkState, state=%s, connected=%s, network=%s, capabilities=%s, availableNetworkCount: %d"
 
     invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 

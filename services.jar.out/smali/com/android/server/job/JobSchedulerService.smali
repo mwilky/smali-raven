@@ -8161,41 +8161,7 @@
     return-void
 .end method
 
-.method public onUserStopping(Lcom/android/server/SystemService$TargetUser;)V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/server/job/JobSchedulerService;->mLock:Ljava/lang/Object;
-
-    monitor-enter v0
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/job/JobSchedulerService;->mStartedUsers:[I
-
-    invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
-
-    move-result v2
-
-    invoke-static {v1, v2}, Lcom/android/internal/util/jobs/ArrayUtils;->removeInt([II)[I
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/server/job/JobSchedulerService;->mStartedUsers:[I
-
-    monitor-exit v0
-
-    return-void
-
-    :catchall_0
-    move-exception v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v1
-.end method
-
-.method public onUserUnlocked(Lcom/android/server/SystemService$TargetUser;)V
+.method public onUserStarting(Lcom/android/server/SystemService$TargetUser;)V
     .locals 3
 
     iget-object v0, p0, Lcom/android/server/job/JobSchedulerService;->mLock:Ljava/lang/Object;
@@ -8240,6 +8206,56 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
+.end method
+
+.method public onUserStopping(Lcom/android/server/SystemService$TargetUser;)V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/job/JobSchedulerService;->mLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/job/JobSchedulerService;->mStartedUsers:[I
+
+    invoke-virtual {p1}, Lcom/android/server/SystemService$TargetUser;->getUserIdentifier()I
+
+    move-result v2
+
+    invoke-static {v1, v2}, Lcom/android/internal/util/jobs/ArrayUtils;->removeInt([II)[I
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/server/job/JobSchedulerService;->mStartedUsers:[I
+
+    monitor-exit v0
+
+    return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v1
+.end method
+
+.method public onUserUnlocked(Lcom/android/server/SystemService$TargetUser;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/job/JobSchedulerService;->mHandler:Lcom/android/server/job/JobSchedulerService$JobHandler;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/android/server/job/JobSchedulerService$JobHandler;->obtainMessage(I)Landroid/os/Message;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+
+    return-void
 .end method
 
 .method reportActiveLocked()V

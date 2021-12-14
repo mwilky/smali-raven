@@ -29,6 +29,8 @@
 # static fields
 .field private static final synthetic $VALUES:[Lcom/android/server/notification/NotificationRecordLogger$NotificationReportedEvent;
 
+.field public static final enum NOTIFICATION_ADJUSTED:Lcom/android/server/notification/NotificationRecordLogger$NotificationReportedEvent;
+
 .field public static final enum NOTIFICATION_POSTED:Lcom/android/server/notification/NotificationRecordLogger$NotificationReportedEvent;
 
 .field public static final enum NOTIFICATION_UPDATED:Lcom/android/server/notification/NotificationRecordLogger$NotificationReportedEvent;
@@ -40,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .locals 8
 
     new-instance v0, Lcom/android/server/notification/NotificationRecordLogger$NotificationReportedEvent;
 
@@ -66,15 +68,29 @@
 
     sput-object v1, Lcom/android/server/notification/NotificationRecordLogger$NotificationReportedEvent;->NOTIFICATION_UPDATED:Lcom/android/server/notification/NotificationRecordLogger$NotificationReportedEvent;
 
-    const/4 v3, 0x2
+    new-instance v3, Lcom/android/server/notification/NotificationRecordLogger$NotificationReportedEvent;
 
-    new-array v3, v3, [Lcom/android/server/notification/NotificationRecordLogger$NotificationReportedEvent;
+    const-string v5, "NOTIFICATION_ADJUSTED"
 
-    aput-object v0, v3, v2
+    const/4 v6, 0x2
 
-    aput-object v1, v3, v4
+    const/16 v7, 0x38c
 
-    sput-object v3, Lcom/android/server/notification/NotificationRecordLogger$NotificationReportedEvent;->$VALUES:[Lcom/android/server/notification/NotificationRecordLogger$NotificationReportedEvent;
+    invoke-direct {v3, v5, v6, v7}, Lcom/android/server/notification/NotificationRecordLogger$NotificationReportedEvent;-><init>(Ljava/lang/String;II)V
+
+    sput-object v3, Lcom/android/server/notification/NotificationRecordLogger$NotificationReportedEvent;->NOTIFICATION_ADJUSTED:Lcom/android/server/notification/NotificationRecordLogger$NotificationReportedEvent;
+
+    const/4 v5, 0x3
+
+    new-array v5, v5, [Lcom/android/server/notification/NotificationRecordLogger$NotificationReportedEvent;
+
+    aput-object v0, v5, v2
+
+    aput-object v1, v5, v4
+
+    aput-object v3, v5, v6
+
+    sput-object v5, Lcom/android/server/notification/NotificationRecordLogger$NotificationReportedEvent;->$VALUES:[Lcom/android/server/notification/NotificationRecordLogger$NotificationReportedEvent;
 
     return-void
 .end method

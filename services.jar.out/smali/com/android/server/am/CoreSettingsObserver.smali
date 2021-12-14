@@ -158,12 +158,6 @@
 
     const-class v0, Ljava/lang/String;
 
-    const-string v1, "angle_allowlist"
-
-    invoke-interface {v2, v1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    const-class v0, Ljava/lang/String;
-
     const-string v1, "angle_egl_features"
 
     invoke-interface {v2, v1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;

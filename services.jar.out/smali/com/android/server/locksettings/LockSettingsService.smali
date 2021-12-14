@@ -5626,19 +5626,19 @@
 
     move-result-object v0
 
-    const v1, 0x104074c
+    const v1, 0x104074e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v1
 
-    const v2, 0x104074b
+    const v2, 0x104074d
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v8
 
-    const v2, 0x104074a
+    const v2, 0x104074c
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 

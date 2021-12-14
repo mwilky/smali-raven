@@ -35,7 +35,7 @@
 .method private onTransportFailure(Ljava/lang/Exception;)V
     .locals 3
 
-    instance-of v0, p1, Landroid/os/RemoteException;
+    instance-of v0, p1, Landroid/app/PendingIntent$CanceledException;
 
     if-eqz v0, :cond_0
 

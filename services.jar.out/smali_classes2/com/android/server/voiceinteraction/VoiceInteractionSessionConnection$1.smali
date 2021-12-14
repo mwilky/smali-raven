@@ -48,7 +48,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$1;->this$0:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
 
-    invoke-static {v1}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->access$000(Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;)V
+    invoke-static {v1}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->access$300(Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;)V
 
     monitor-exit v0
 
@@ -81,7 +81,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$1;->this$0:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
 
-    invoke-static {v1}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->access$100(Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;)V
+    invoke-static {v1}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->access$400(Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;)V
 
     monitor-exit v0
 

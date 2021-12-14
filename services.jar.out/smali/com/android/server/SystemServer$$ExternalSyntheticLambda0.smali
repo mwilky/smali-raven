@@ -35,7 +35,7 @@
 .method public final onModuleServiceConnected(Landroid/os/IBinder;)V
     .locals 0
 
-    invoke-static {p1}, Lcom/android/server/SystemServer;->lambda$startOtherServices$5(Landroid/os/IBinder;)V
+    invoke-static {p1}, Lcom/android/server/SystemServer;->lambda$startOtherServices$4(Landroid/os/IBinder;)V
 
     return-void
 .end method

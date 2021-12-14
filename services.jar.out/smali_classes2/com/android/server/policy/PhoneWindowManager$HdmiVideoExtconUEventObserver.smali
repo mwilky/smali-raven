@@ -61,7 +61,7 @@
     return-void
 .end method
 
-.method static synthetic access$5200(Lcom/android/server/policy/PhoneWindowManager$HdmiVideoExtconUEventObserver;)Z
+.method static synthetic access$5300(Lcom/android/server/policy/PhoneWindowManager$HdmiVideoExtconUEventObserver;)Z
     .locals 1
 
     invoke-direct {p0}, Lcom/android/server/policy/PhoneWindowManager$HdmiVideoExtconUEventObserver;->init()Z

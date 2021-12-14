@@ -247,7 +247,9 @@
 
     move v15, v5
 
-    invoke-virtual/range {v14 .. v19}, Lcom/android/internal/os/BatteryStatsImpl;->removeIsolatedUidLocked(IJJ)V
+    invoke-virtual/range {v14 .. v19}, Lcom/android/internal/os/BatteryStatsImpl;->maybeRemoveIsolatedUidLocked(IJJ)Z
+
+    nop
 
     add-int/lit8 v3, v3, 0x1
 

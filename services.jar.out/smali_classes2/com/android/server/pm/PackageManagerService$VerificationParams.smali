@@ -260,7 +260,7 @@
 
     iget v5, p0, Lcom/android/server/pm/PackageManagerService$VerificationParams;->installFlags:I
 
-    invoke-static {v2, v0, v3, v4, v5}, Lcom/android/server/pm/PackageManagerService;->access$5700(Lcom/android/server/pm/PackageManagerService;Landroid/content/pm/PackageInfoLite;JI)I
+    invoke-static {v2, v0, v3, v4, v5}, Lcom/android/server/pm/PackageManagerService;->access$6000(Lcom/android/server/pm/PackageManagerService;Landroid/content/pm/PackageInfoLite;JI)I
 
     move-result v2
 
@@ -386,7 +386,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$VerificationParams;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$5908(Lcom/android/server/pm/PackageManagerService;)I
+    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$6208(Lcom/android/server/pm/PackageManagerService;)I
 
     move-result v0
 
@@ -429,7 +429,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$VerificationParams;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$6008(Lcom/android/server/pm/PackageManagerService;)I
+    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$6308(Lcom/android/server/pm/PackageManagerService;)I
 
     move-result v0
 
@@ -513,7 +513,7 @@
 
     iget-object v3, v0, Lcom/android/server/pm/PackageManagerService$VerificationParams;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v3}, Lcom/android/server/pm/PackageManagerService;->access$6100(Lcom/android/server/pm/PackageManagerService;)Z
+    invoke-static {v3}, Lcom/android/server/pm/PackageManagerService;->access$6400(Lcom/android/server/pm/PackageManagerService;)Z
 
     move-result v3
 
@@ -709,7 +709,7 @@
 
     iget v9, v0, Lcom/android/server/pm/PackageManagerService$VerificationParams;->installFlags:I
 
-    invoke-static {v6, v2, v7, v9, v14}, Lcom/android/server/pm/PackageManagerService;->access$6300(Lcom/android/server/pm/PackageManagerService;Landroid/content/pm/PackageInfoLite;III)Z
+    invoke-static {v6, v2, v7, v9, v14}, Lcom/android/server/pm/PackageManagerService;->access$6600(Lcom/android/server/pm/PackageManagerService;Landroid/content/pm/PackageInfoLite;III)Z
 
     move-result v17
 
@@ -817,7 +817,7 @@
 
     move-object/from16 v21, v12
 
-    invoke-static/range {v20 .. v25}, Lcom/android/server/pm/PackageManagerService;->access$6400(Lcom/android/server/pm/PackageManagerService;Landroid/content/Intent;Ljava/lang/String;IIZ)Ljava/util/List;
+    invoke-static/range {v20 .. v25}, Lcom/android/server/pm/PackageManagerService;->access$6700(Lcom/android/server/pm/PackageManagerService;Landroid/content/Intent;Ljava/lang/String;IIZ)Ljava/util/List;
 
     move-result-object v11
 
@@ -857,7 +857,7 @@
 
     iget-object v6, v0, Lcom/android/server/pm/PackageManagerService$VerificationParams;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v6, v2, v11, v3}, Lcom/android/server/pm/PackageManagerService;->access$6500(Lcom/android/server/pm/PackageManagerService;Landroid/content/pm/PackageInfoLite;Ljava/util/List;Lcom/android/server/pm/PackageVerificationState;)Ljava/util/List;
+    invoke-static {v6, v2, v11, v3}, Lcom/android/server/pm/PackageManagerService;->access$6800(Lcom/android/server/pm/PackageManagerService;Landroid/content/pm/PackageInfoLite;Ljava/util/List;Lcom/android/server/pm/PackageVerificationState;)Ljava/util/List;
 
     move-result-object v10
 
@@ -1003,7 +1003,7 @@
 
     iget-object v6, v2, Lcom/android/server/pm/PackageManagerService;->mRequiredVerifierPackage:Ljava/lang/String;
 
-    invoke-static {v2, v6, v11}, Lcom/android/server/pm/PackageManagerService;->access$6600(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;Ljava/util/List;)Landroid/content/ComponentName;
+    invoke-static {v2, v6, v11}, Lcom/android/server/pm/PackageManagerService;->access$6900(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;Ljava/util/List;)Landroid/content/ComponentName;
 
     move-result-object v2
 

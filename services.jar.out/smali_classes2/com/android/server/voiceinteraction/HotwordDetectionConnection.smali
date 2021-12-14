@@ -1258,14 +1258,6 @@
 
     iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mRemoteHotwordDetectionService:Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;
 
-    invoke-virtual {v1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->isBound()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mRemoteHotwordDetectionService:Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;
-
     invoke-virtual {v1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->unbind()V
 
     const-class v1, Lcom/android/server/pm/permission/PermissionManagerServiceInternal;
@@ -1286,7 +1278,6 @@
 
     invoke-direct {p0, v1}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->updateServiceUidForAudioPolicy(I)V
 
-    :cond_0
     iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mCancellationTaskFuture:Ljava/util/concurrent/ScheduledFuture;
 
     const/4 v2, 0x1
@@ -1295,13 +1286,13 @@
 
     iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mAudioFlinger:Landroid/os/IBinder;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
     iget-object v2, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->mAudioServerDeathRecipient:Landroid/os/IBinder$DeathRecipient;
 
     invoke-interface {v1, v2, v0}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
-    :cond_1
+    :cond_0
     return-void
 .end method
 

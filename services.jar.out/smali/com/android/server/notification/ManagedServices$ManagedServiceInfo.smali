@@ -107,7 +107,7 @@
 
     iget v2, p0, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->userid:I
 
-    invoke-static {v0, v1, v2}, Lcom/android/server/notification/ManagedServices;->access$800(Lcom/android/server/notification/ManagedServices;Landroid/os/IInterface;I)Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;
+    invoke-static {v0, v1, v2}, Lcom/android/server/notification/ManagedServices;->access$700(Lcom/android/server/notification/ManagedServices;Landroid/os/IInterface;I)Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;
 
     return-void
 .end method
@@ -211,7 +211,7 @@
 
     iget-object v0, p0, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->this$0:Lcom/android/server/notification/ManagedServices;
 
-    invoke-static {v0}, Lcom/android/server/notification/ManagedServices;->access$700(Lcom/android/server/notification/ManagedServices;)Lcom/android/server/notification/ManagedServices$UserProfiles;
+    invoke-static {v0}, Lcom/android/server/notification/ManagedServices;->access$600(Lcom/android/server/notification/ManagedServices;)Lcom/android/server/notification/ManagedServices$UserProfiles;
 
     move-result-object v0
 
@@ -427,7 +427,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->this$0:Lcom/android/server/notification/ManagedServices;
 
-    invoke-static {v0}, Lcom/android/server/notification/ManagedServices;->access$900(Lcom/android/server/notification/ManagedServices;)Landroid/util/ArraySet;
+    invoke-static {v0}, Lcom/android/server/notification/ManagedServices;->access$800(Lcom/android/server/notification/ManagedServices;)Landroid/util/ArraySet;
 
     move-result-object v0
 
@@ -463,7 +463,7 @@
 
     iget-object v0, p0, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->this$0:Lcom/android/server/notification/ManagedServices;
 
-    invoke-static {v0}, Lcom/android/server/notification/ManagedServices;->access$700(Lcom/android/server/notification/ManagedServices;)Lcom/android/server/notification/ManagedServices$UserProfiles;
+    invoke-static {v0}, Lcom/android/server/notification/ManagedServices;->access$600(Lcom/android/server/notification/ManagedServices;)Lcom/android/server/notification/ManagedServices$UserProfiles;
 
     move-result-object v0
 

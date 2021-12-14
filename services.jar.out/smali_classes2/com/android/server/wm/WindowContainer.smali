@@ -861,7 +861,55 @@
     return-object v0
 .end method
 
-.method static synthetic lambda$applyAnimationUnchecked$13(ILcom/android/server/wm/AnimationAdapter;)V
+.method private isTransitionWithBackgroundColor(I)Z
+    .locals 1
+
+    const/16 v0, 0x8
+
+    if-eq p1, v0, :cond_1
+
+    const/16 v0, 0x9
+
+    if-eq p1, v0, :cond_1
+
+    const/16 v0, 0xa
+
+    if-eq p1, v0, :cond_1
+
+    const/16 v0, 0xb
+
+    if-ne p1, v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    const/4 v0, 0x1
+
+    :goto_1
+    return v0
+.end method
+
+.method static synthetic lambda$applyAnimationUnchecked$13()V
+    .locals 0
+
+    return-void
+.end method
+
+.method static synthetic lambda$applyAnimationUnchecked$14(Ljava/lang/Runnable;ILcom/android/server/wm/AnimationAdapter;)V
+    .locals 0
+
+    invoke-interface {p0}, Ljava/lang/Runnable;->run()V
+
+    return-void
+.end method
+
+.method static synthetic lambda$applyAnimationUnchecked$15(ILcom/android/server/wm/AnimationAdapter;)V
     .locals 0
 
     return-void
@@ -2115,7 +2163,7 @@
 .end method
 
 .method protected applyAnimationUnchecked(Landroid/view/WindowManager$LayoutParams;ZIZLjava/util/ArrayList;)V
-    .locals 8
+    .locals 21
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2127,134 +2175,239 @@
         }
     .end annotation
 
-    invoke-virtual {p0}, Lcom/android/server/wm/WindowContainer;->asTask()Lcom/android/server/wm/Task;
+    move-object/from16 v7, p0
 
-    move-result-object v0
+    move/from16 v8, p2
 
-    const/4 v1, 0x1
+    move/from16 v9, p3
 
-    if-eqz v0, :cond_1
+    move-object/from16 v10, p5
 
-    if-nez p2, :cond_1
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/wm/WindowContainer;->asTask()Lcom/android/server/wm/Task;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/Task;->isHomeOrRecentsRootTask()Z
+    move-result-object v11
 
-    move-result v2
+    const/4 v0, 0x0
 
-    if-nez v2, :cond_1
+    const/4 v12, 0x1
 
-    iget-object v2, p0, Lcom/android/server/wm/WindowContainer;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
+    if-eqz v11, :cond_1
 
-    const/4 v3, 0x0
+    if-nez v8, :cond_1
 
-    invoke-virtual {v2, v3}, Lcom/android/server/wm/DisplayContent;->getImeTarget(I)Lcom/android/server/wm/InsetsControlTarget;
+    invoke-virtual {v11}, Lcom/android/server/wm/Task;->isHomeOrRecentsRootTask()Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    iget-object v1, v7, Lcom/android/server/wm/WindowContainer;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
+
+    invoke-virtual {v1, v0}, Lcom/android/server/wm/DisplayContent;->getImeTarget(I)Lcom/android/server/wm/InsetsControlTarget;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    invoke-interface {v1}, Lcom/android/server/wm/InsetsControlTarget;->getWindow()Lcom/android/server/wm/WindowState;
 
     move-result-object v2
 
     if-eqz v2, :cond_0
 
-    invoke-interface {v2}, Lcom/android/server/wm/InsetsControlTarget;->getWindow()Lcom/android/server/wm/WindowState;
+    invoke-interface {v1}, Lcom/android/server/wm/InsetsControlTarget;->getWindow()Lcom/android/server/wm/WindowState;
 
-    move-result-object v4
+    move-result-object v2
 
-    if-eqz v4, :cond_0
+    invoke-virtual {v2}, Lcom/android/server/wm/WindowState;->getTask()Lcom/android/server/wm/Task;
 
-    invoke-interface {v2}, Lcom/android/server/wm/InsetsControlTarget;->getWindow()Lcom/android/server/wm/WindowState;
+    move-result-object v2
 
-    move-result-object v4
+    if-ne v2, v11, :cond_0
 
-    invoke-virtual {v4}, Lcom/android/server/wm/WindowState;->getTask()Lcom/android/server/wm/Task;
-
-    move-result-object v4
-
-    if-ne v4, v0, :cond_0
-
-    move v3, v1
+    move v2, v12
 
     goto :goto_0
 
     :cond_0
-    nop
+    move v2, v0
 
     :goto_0
+    if-eqz v2, :cond_1
+
+    invoke-static/range {p3 .. p3}, Lcom/android/server/wm/AppTransition;->isTaskCloseTransitOld(I)Z
+
+    move-result v3
+
     if-eqz v3, :cond_1
 
-    invoke-static {p3}, Lcom/android/server/wm/AppTransition;->isTaskCloseTransitOld(I)Z
+    iget-object v3, v7, Lcom/android/server/wm/WindowContainer;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    iget-object v4, p0, Lcom/android/server/wm/WindowContainer;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
-
-    invoke-virtual {v4}, Lcom/android/server/wm/DisplayContent;->showImeScreenshot()V
+    invoke-virtual {v3}, Lcom/android/server/wm/DisplayContent;->showImeScreenshot()V
 
     :cond_1
-    invoke-virtual {p0, p1, p3, p2, p4}, Lcom/android/server/wm/WindowContainer;->getAnimationAdapter(Landroid/view/WindowManager$LayoutParams;IZZ)Landroid/util/Pair;
+    move-object/from16 v13, p1
 
-    move-result-object v2
+    move/from16 v14, p4
 
-    iget-object v3, v2, Landroid/util/Pair;->first:Ljava/lang/Object;
+    invoke-virtual {v7, v13, v9, v8, v14}, Lcom/android/server/wm/WindowContainer;->getAnimationAdapter(Landroid/view/WindowManager$LayoutParams;IZZ)Landroid/util/Pair;
 
-    check-cast v3, Lcom/android/server/wm/AnimationAdapter;
+    move-result-object v15
 
-    iget-object v4, v2, Landroid/util/Pair;->second:Ljava/lang/Object;
+    iget-object v1, v15, Landroid/util/Pair;->first:Ljava/lang/Object;
 
-    check-cast v4, Lcom/android/server/wm/AnimationAdapter;
+    move-object/from16 v16, v1
 
-    if-eqz v3, :cond_4
+    check-cast v16, Lcom/android/server/wm/AnimationAdapter;
 
-    if-eqz p5, :cond_2
+    iget-object v1, v15, Landroid/util/Pair;->second:Ljava/lang/Object;
 
-    iget-object v5, p0, Lcom/android/server/wm/WindowContainer;->mSurfaceAnimationSources:Landroid/util/ArraySet;
+    move-object v6, v1
 
-    invoke-virtual {v5, p5}, Landroid/util/ArraySet;->addAll(Ljava/util/Collection;)Z
+    check-cast v6, Lcom/android/server/wm/AnimationAdapter;
+
+    if-eqz v16, :cond_7
+
+    if-eqz v10, :cond_2
+
+    iget-object v1, v7, Lcom/android/server/wm/WindowContainer;->mSurfaceAnimationSources:Landroid/util/ArraySet;
+
+    invoke-virtual {v1, v10}, Landroid/util/ArraySet;->addAll(Ljava/util/Collection;)Z
 
     :cond_2
-    invoke-virtual {p0}, Lcom/android/server/wm/WindowContainer;->getPendingTransaction()Landroid/view/SurfaceControl$Transaction;
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/wm/WindowContainer;->getTaskDisplayArea()Lcom/android/server/wm/TaskDisplayArea;
 
     move-result-object v5
-
-    invoke-virtual {p0}, Lcom/android/server/wm/WindowContainer;->isVisible()Z
-
-    move-result v6
-
-    xor-int/2addr v6, v1
-
-    invoke-virtual {p0, v5, v3, v6, v1}, Lcom/android/server/wm/WindowContainer;->startAnimation(Landroid/view/SurfaceControl$Transaction;Lcom/android/server/wm/AnimationAdapter;ZI)V
-
-    invoke-interface {v3}, Lcom/android/server/wm/AnimationAdapter;->getShowWallpaper()Z
-
-    move-result v5
 
     if-eqz v5, :cond_3
 
-    invoke-virtual {p0}, Lcom/android/server/wm/WindowContainer;->getDisplayContent()Lcom/android/server/wm/DisplayContent;
+    invoke-direct {v7, v9}, Lcom/android/server/wm/WindowContainer;->isTransitionWithBackgroundColor(I)Z
 
-    move-result-object v5
+    move-result v1
 
-    iget v6, v5, Lcom/android/server/wm/DisplayContent;->pendingLayoutChanges:I
+    if-eqz v1, :cond_3
 
-    or-int/lit8 v6, v6, 0x4
+    move v0, v12
 
-    iput v6, v5, Lcom/android/server/wm/DisplayContent;->pendingLayoutChanges:I
+    goto :goto_1
 
     :cond_3
-    if-eqz v4, :cond_4
+    nop
 
-    iget-object v5, p0, Lcom/android/server/wm/WindowContainer;->mSurfaceFreezer:Lcom/android/server/wm/SurfaceFreezer;
+    :goto_1
+    move/from16 v17, v0
 
-    iget-object v5, v5, Lcom/android/server/wm/SurfaceFreezer;->mSnapshot:Lcom/android/server/wm/SurfaceFreezer$Snapshot;
+    if-eqz v17, :cond_4
 
-    invoke-virtual {p0}, Lcom/android/server/wm/WindowContainer;->getPendingTransaction()Landroid/view/SurfaceControl$Transaction;
+    invoke-static {}, Landroid/app/ActivityThread;->currentActivityThread()Landroid/app/ActivityThread;
 
-    move-result-object v6
+    move-result-object v0
 
-    sget-object v7, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda1;
+    invoke-virtual {v0}, Landroid/app/ActivityThread;->getSystemUiContext()Landroid/app/ContextImpl;
 
-    invoke-virtual {v5, v6, v4, v1, v7}, Lcom/android/server/wm/SurfaceFreezer$Snapshot;->startAnimation(Landroid/view/SurfaceControl$Transaction;Lcom/android/server/wm/AnimationAdapter;ILcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;)V
+    move-result-object v0
+
+    const v1, 0x1060227
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getColor(I)I
+
+    move-result v1
+
+    invoke-virtual {v5, v1}, Lcom/android/server/wm/TaskDisplayArea;->setBackgroundColor(I)V
 
     :cond_4
+    if-eqz v17, :cond_5
+
+    invoke-static {v5}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda3;
+
+    invoke-direct {v0, v5}, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda3;-><init>(Lcom/android/server/wm/TaskDisplayArea;)V
+
+    goto :goto_2
+
+    :cond_5
+    sget-object v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda4;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda4;
+
+    :goto_2
+    move-object v4, v0
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/wm/WindowContainer;->getPendingTransaction()Landroid/view/SurfaceControl$Transaction;
+
+    move-result-object v1
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/wm/WindowContainer;->isVisible()Z
+
+    move-result v0
+
+    xor-int/lit8 v3, v0, 0x1
+
+    const/16 v18, 0x1
+
+    new-instance v2, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda1;
+
+    invoke-direct {v2, v4}, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda1;-><init>(Ljava/lang/Runnable;)V
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v19, v2
+
+    move-object/from16 v2, v16
+
+    move-object/from16 v20, v4
+
+    move/from16 v4, v18
+
+    move-object/from16 v18, v5
+
+    move-object/from16 v5, v19
+
+    move-object v12, v6
+
+    move-object/from16 v6, v20
+
+    invoke-virtual/range {v0 .. v6}, Lcom/android/server/wm/WindowContainer;->startAnimation(Landroid/view/SurfaceControl$Transaction;Lcom/android/server/wm/AnimationAdapter;ZILcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;Ljava/lang/Runnable;)V
+
+    invoke-interface/range {v16 .. v16}, Lcom/android/server/wm/AnimationAdapter;->getShowWallpaper()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/wm/WindowContainer;->getDisplayContent()Lcom/android/server/wm/DisplayContent;
+
+    move-result-object v0
+
+    iget v1, v0, Lcom/android/server/wm/DisplayContent;->pendingLayoutChanges:I
+
+    or-int/lit8 v1, v1, 0x4
+
+    iput v1, v0, Lcom/android/server/wm/DisplayContent;->pendingLayoutChanges:I
+
+    :cond_6
+    if-eqz v12, :cond_8
+
+    iget-object v0, v7, Lcom/android/server/wm/WindowContainer;->mSurfaceFreezer:Lcom/android/server/wm/SurfaceFreezer;
+
+    iget-object v0, v0, Lcom/android/server/wm/SurfaceFreezer;->mSnapshot:Lcom/android/server/wm/SurfaceFreezer$Snapshot;
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/wm/WindowContainer;->getPendingTransaction()Landroid/view/SurfaceControl$Transaction;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda2;
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v0, v1, v12, v3, v2}, Lcom/android/server/wm/SurfaceFreezer$Snapshot;->startAnimation(Landroid/view/SurfaceControl$Transaction;Lcom/android/server/wm/AnimationAdapter;ILcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;)V
+
+    goto :goto_3
+
+    :cond_7
+    move-object v12, v6
+
+    :cond_8
+    :goto_3
     return-void
 .end method
 
@@ -4537,7 +4690,7 @@
 .method getActivityAbove(Lcom/android/server/wm/ActivityRecord;)Lcom/android/server/wm/ActivityRecord;
     .locals 2
 
-    sget-object v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda3;
+    sget-object v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda6;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda6;
 
     const/4 v1, 0x0
 
@@ -4551,7 +4704,7 @@
 .method getActivityBelow(Lcom/android/server/wm/ActivityRecord;)Lcom/android/server/wm/ActivityRecord;
     .locals 3
 
-    sget-object v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda4;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda4;
+    sget-object v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda7;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda7;
 
     const/4 v1, 0x0
 
@@ -5197,7 +5350,7 @@
 .method getBottomMostActivity()Lcom/android/server/wm/ActivityRecord;
     .locals 2
 
-    sget-object v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda5;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda5;
+    sget-object v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda8;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda8;
 
     const/4 v1, 0x0
 
@@ -5211,7 +5364,7 @@
 .method getBottomMostTask()Lcom/android/server/wm/Task;
     .locals 2
 
-    sget-object v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda12;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda12;
+    sget-object v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda15;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda15;
 
     const/4 v1, 0x0
 
@@ -6384,7 +6537,7 @@
 .method getTaskAbove(Lcom/android/server/wm/Task;)Lcom/android/server/wm/Task;
     .locals 2
 
-    sget-object v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda13;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda13;
+    sget-object v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda16;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda16;
 
     const/4 v1, 0x0
 
@@ -6398,7 +6551,7 @@
 .method getTaskBelow(Lcom/android/server/wm/Task;)Lcom/android/server/wm/Task;
     .locals 3
 
-    sget-object v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda14;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda14;
+    sget-object v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda17;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda17;
 
     const/4 v1, 0x0
 
@@ -6411,6 +6564,28 @@
     return-object v0
 .end method
 
+.method getTaskDisplayArea()Lcom/android/server/wm/TaskDisplayArea;
+    .locals 2
+
+    invoke-virtual {p0}, Lcom/android/server/wm/WindowContainer;->getParent()Lcom/android/server/wm/WindowContainer;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/server/wm/WindowContainer;->getTaskDisplayArea()Lcom/android/server/wm/TaskDisplayArea;
+
+    move-result-object v1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x0
+
+    :goto_0
+    return-object v1
+.end method
+
 .method getTopActivity(ZZ)Lcom/android/server/wm/ActivityRecord;
     .locals 1
 
@@ -6418,7 +6593,7 @@
 
     if-eqz p2, :cond_0
 
-    sget-object v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda6;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda6;
+    sget-object v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda9;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda9;
 
     invoke-virtual {p0, v0}, Lcom/android/server/wm/WindowContainer;->getActivity(Ljava/util/function/Predicate;)Lcom/android/server/wm/ActivityRecord;
 
@@ -6427,7 +6602,7 @@
     return-object v0
 
     :cond_0
-    sget-object v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda7;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda7;
+    sget-object v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda10;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda10;
 
     invoke-virtual {p0, v0}, Lcom/android/server/wm/WindowContainer;->getActivity(Ljava/util/function/Predicate;)Lcom/android/server/wm/ActivityRecord;
 
@@ -6438,7 +6613,7 @@
     :cond_1
     if-eqz p2, :cond_2
 
-    sget-object v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda8;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda8;
+    sget-object v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda11;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda11;
 
     invoke-virtual {p0, v0}, Lcom/android/server/wm/WindowContainer;->getActivity(Ljava/util/function/Predicate;)Lcom/android/server/wm/ActivityRecord;
 
@@ -6447,7 +6622,7 @@
     return-object v0
 
     :cond_2
-    sget-object v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda9;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda9;
+    sget-object v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda12;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda12;
 
     invoke-virtual {p0, v0}, Lcom/android/server/wm/WindowContainer;->getActivity(Ljava/util/function/Predicate;)Lcom/android/server/wm/ActivityRecord;
 
@@ -6478,7 +6653,7 @@
 .method getTopMostActivity()Lcom/android/server/wm/ActivityRecord;
     .locals 2
 
-    sget-object v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda10;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda10;
+    sget-object v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda13;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda13;
 
     const/4 v1, 0x1
 
@@ -6492,7 +6667,7 @@
 .method getTopMostTask()Lcom/android/server/wm/Task;
     .locals 2
 
-    sget-object v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda15;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda15;
+    sget-object v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda18;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda18;
 
     const/4 v1, 0x1
 
@@ -6849,7 +7024,7 @@
 .method isAppTransitioning()Z
     .locals 1
 
-    sget-object v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda11;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda11;
+    sget-object v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda14;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda14;
 
     invoke-virtual {p0, v0}, Lcom/android/server/wm/WindowContainer;->getActivity(Ljava/util/function/Predicate;)Lcom/android/server/wm/ActivityRecord;
 
@@ -7237,7 +7412,7 @@
     return v0
 .end method
 
-.method public synthetic lambda$waitForAllWindowsDrawn$14$WindowContainer(Lcom/android/server/wm/WindowState;)V
+.method public synthetic lambda$waitForAllWindowsDrawn$16$WindowContainer(Lcom/android/server/wm/WindowState;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/WindowContainer;->mWaitingForDrawn:Ljava/util/ArrayList;
@@ -9374,9 +9549,9 @@
 .method startAnimation(Landroid/view/SurfaceControl$Transaction;Lcom/android/server/wm/AnimationAdapter;ZILcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;)V
     .locals 7
 
-    iget-object v0, p0, Lcom/android/server/wm/WindowContainer;->mSurfaceAnimator:Lcom/android/server/wm/SurfaceAnimator;
+    const/4 v6, 0x0
 
-    iget-object v6, p0, Lcom/android/server/wm/WindowContainer;->mSurfaceFreezer:Lcom/android/server/wm/SurfaceFreezer;
+    move-object v0, p0
 
     move-object v1, p1
 
@@ -9388,7 +9563,31 @@
 
     move-object v5, p5
 
-    invoke-virtual/range {v0 .. v6}, Lcom/android/server/wm/SurfaceAnimator;->startAnimation(Landroid/view/SurfaceControl$Transaction;Lcom/android/server/wm/AnimationAdapter;ZILcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;Lcom/android/server/wm/SurfaceFreezer;)V
+    invoke-virtual/range {v0 .. v6}, Lcom/android/server/wm/WindowContainer;->startAnimation(Landroid/view/SurfaceControl$Transaction;Lcom/android/server/wm/AnimationAdapter;ZILcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;Ljava/lang/Runnable;)V
+
+    return-void
+.end method
+
+.method startAnimation(Landroid/view/SurfaceControl$Transaction;Lcom/android/server/wm/AnimationAdapter;ZILcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;Ljava/lang/Runnable;)V
+    .locals 8
+
+    iget-object v0, p0, Lcom/android/server/wm/WindowContainer;->mSurfaceAnimator:Lcom/android/server/wm/SurfaceAnimator;
+
+    iget-object v7, p0, Lcom/android/server/wm/WindowContainer;->mSurfaceFreezer:Lcom/android/server/wm/SurfaceFreezer;
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move v3, p3
+
+    move v4, p4
+
+    move-object v5, p5
+
+    move-object v6, p6
+
+    invoke-virtual/range {v0 .. v7}, Lcom/android/server/wm/SurfaceAnimator;->startAnimation(Landroid/view/SurfaceControl$Transaction;Lcom/android/server/wm/AnimationAdapter;ZILcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;Ljava/lang/Runnable;Lcom/android/server/wm/SurfaceFreezer;)V
 
     return-void
 .end method
@@ -9571,9 +9770,9 @@
 .method waitForAllWindowsDrawn()V
     .locals 2
 
-    new-instance v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda2;
+    new-instance v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda5;
 
-    invoke-direct {v0, p0}, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda2;-><init>(Lcom/android/server/wm/WindowContainer;)V
+    invoke-direct {v0, p0}, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda5;-><init>(Lcom/android/server/wm/WindowContainer;)V
 
     const/4 v1, 0x1
 

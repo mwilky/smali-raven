@@ -15,20 +15,50 @@
 
 
 # instance fields
+.field private final mDefaultLongPressTimeout:J
+
+.field private final mDefaultVeryLongPressTimeout:J
+
 .field private final mKeyCode:I
 
 .field private final mSupportedGestures:I
 
 
 # direct methods
-.method constructor <init>(II)V
-    .locals 0
+.method constructor <init>(Landroid/content/Context;II)V
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput p1, p0, Lcom/android/server/policy/SingleKeyGestureDetector$SingleKeyRule;->mKeyCode:I
+    iput p2, p0, Lcom/android/server/policy/SingleKeyGestureDetector$SingleKeyRule;->mKeyCode:I
 
-    iput p2, p0, Lcom/android/server/policy/SingleKeyGestureDetector$SingleKeyRule;->mSupportedGestures:I
+    iput p3, p0, Lcom/android/server/policy/SingleKeyGestureDetector$SingleKeyRule;->mSupportedGestures:I
+
+    nop
+
+    invoke-static {p1}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/ViewConfiguration;->getDeviceGlobalActionKeyTimeout()J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Lcom/android/server/policy/SingleKeyGestureDetector$SingleKeyRule;->mDefaultLongPressTimeout:J
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x10e00dc
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v0
+
+    int-to-long v0, v0
+
+    iput-wide v0, p0, Lcom/android/server/policy/SingleKeyGestureDetector$SingleKeyRule;->mDefaultVeryLongPressTimeout:J
 
     return-void
 .end method
@@ -131,12 +161,28 @@
 
 
 # virtual methods
+.method getLongPressTimeoutMs()J
+    .locals 2
+
+    iget-wide v0, p0, Lcom/android/server/policy/SingleKeyGestureDetector$SingleKeyRule;->mDefaultLongPressTimeout:J
+
+    return-wide v0
+.end method
+
 .method getMaxMultiPressCount()I
     .locals 1
 
     const/4 v0, 0x1
 
     return v0
+.end method
+
+.method getVeryLongPressTimeoutMs()J
+    .locals 2
+
+    iget-wide v0, p0, Lcom/android/server/policy/SingleKeyGestureDetector$SingleKeyRule;->mDefaultVeryLongPressTimeout:J
+
+    return-wide v0
 .end method
 
 .method onLongPress(J)V

@@ -270,7 +270,7 @@
     return-void
 .end method
 
-.method public authenticate(Landroid/os/IBinder;JILandroid/hardware/face/IFaceServiceReceiver;Ljava/lang/String;Z)V
+.method public authenticate(Landroid/os/IBinder;JILandroid/hardware/face/IFaceServiceReceiver;Ljava/lang/String;Z)J
     .locals 18
 
     move-object/from16 v0, p0
@@ -339,7 +339,9 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-void
+    const-wide/16 v1, -0x1
+
+    return-wide v1
 
     :cond_1
     iget-object v1, v13, Landroid/util/Pair;->second:Ljava/lang/Object;
@@ -378,12 +380,14 @@
 
     move/from16 v13, p7
 
-    invoke-interface/range {v1 .. v13}, Lcom/android/server/biometrics/sensors/face/ServiceProvider;->scheduleAuthenticate(ILandroid/os/IBinder;JIILcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;Ljava/lang/String;ZIZZ)V
+    invoke-interface/range {v1 .. v13}, Lcom/android/server/biometrics/sensors/face/ServiceProvider;->scheduleAuthenticate(ILandroid/os/IBinder;JIILcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;Ljava/lang/String;ZIZZ)J
 
-    return-void
+    move-result-wide v1
+
+    return-wide v1
 .end method
 
-.method public cancelAuthentication(Landroid/os/IBinder;Ljava/lang/String;)V
+.method public cancelAuthentication(Landroid/os/IBinder;Ljava/lang/String;J)V
     .locals 3
 
     iget-object v0, p0, Lcom/android/server/biometrics/sensors/face/FaceService$FaceServiceWrapper;->this$0:Lcom/android/server/biometrics/sensors/face/FaceService;
@@ -425,12 +429,12 @@
 
     move-result v2
 
-    invoke-interface {v1, v2, p1}, Lcom/android/server/biometrics/sensors/face/ServiceProvider;->cancelAuthentication(ILandroid/os/IBinder;)V
+    invoke-interface {v1, v2, p1, p3, p4}, Lcom/android/server/biometrics/sensors/face/ServiceProvider;->cancelAuthentication(ILandroid/os/IBinder;J)V
 
     return-void
 .end method
 
-.method public cancelAuthenticationFromService(ILandroid/os/IBinder;Ljava/lang/String;)V
+.method public cancelAuthenticationFromService(ILandroid/os/IBinder;Ljava/lang/String;J)V
     .locals 3
 
     iget-object v0, p0, Lcom/android/server/biometrics/sensors/face/FaceService$FaceServiceWrapper;->this$0:Lcom/android/server/biometrics/sensors/face/FaceService;
@@ -460,7 +464,7 @@
     return-void
 
     :cond_0
-    invoke-interface {v0, p1, p2}, Lcom/android/server/biometrics/sensors/face/ServiceProvider;->cancelAuthentication(ILandroid/os/IBinder;)V
+    invoke-interface {v0, p1, p2, p4, p5}, Lcom/android/server/biometrics/sensors/face/ServiceProvider;->cancelAuthentication(ILandroid/os/IBinder;J)V
 
     return-void
 .end method
@@ -512,7 +516,7 @@
     return-void
 .end method
 
-.method public cancelFaceDetect(Landroid/os/IBinder;Ljava/lang/String;)V
+.method public cancelFaceDetect(Landroid/os/IBinder;Ljava/lang/String;J)V
     .locals 3
 
     iget-object v0, p0, Lcom/android/server/biometrics/sensors/face/FaceService$FaceServiceWrapper;->this$0:Lcom/android/server/biometrics/sensors/face/FaceService;
@@ -585,7 +589,7 @@
 
     move-result v2
 
-    invoke-interface {v1, v2, p1}, Lcom/android/server/biometrics/sensors/face/ServiceProvider;->cancelFaceDetect(ILandroid/os/IBinder;)V
+    invoke-interface {v1, v2, p1, p3, p4}, Lcom/android/server/biometrics/sensors/face/ServiceProvider;->cancelFaceDetect(ILandroid/os/IBinder;J)V
 
     return-void
 .end method
@@ -641,7 +645,7 @@
     return-object v1
 .end method
 
-.method public detectFace(Landroid/os/IBinder;ILandroid/hardware/face/IFaceServiceReceiver;Ljava/lang/String;)V
+.method public detectFace(Landroid/os/IBinder;ILandroid/hardware/face/IFaceServiceReceiver;Ljava/lang/String;)J
     .locals 9
 
     iget-object v0, p0, Lcom/android/server/biometrics/sensors/face/FaceService$FaceServiceWrapper;->this$0:Lcom/android/server/biometrics/sensors/face/FaceService;
@@ -664,7 +668,9 @@
 
     move-result v0
 
-    const-string v1, "FaceService"
+    const-wide/16 v1, -0x1
+
+    const-string v3, "FaceService"
 
     if-nez v0, :cond_0
 
@@ -672,9 +678,9 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "detectFace called from non-sysui package: "
+    const-string v4, "detectFace called from non-sysui package: "
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -682,9 +688,9 @@
 
     move-result-object v0
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-void
+    return-wide v1
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/biometrics/sensors/face/FaceService$FaceServiceWrapper;->this$0:Lcom/android/server/biometrics/sensors/face/FaceService;
@@ -701,9 +707,9 @@
 
     const-string v0, "detectFace invoked when user is not encrypted or lockdown"
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-void
+    return-wide v1
 
     :cond_1
     iget-object v0, p0, Lcom/android/server/biometrics/sensors/face/FaceService$FaceServiceWrapper;->this$0:Lcom/android/server/biometrics/sensors/face/FaceService;
@@ -714,11 +720,11 @@
 
     if-nez v0, :cond_2
 
-    const-string v2, "Null provider for detectFace"
+    const-string v4, "Null provider for detectFace"
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-void
+    return-wide v1
 
     :cond_2
     iget-object v1, v0, Landroid/util/Pair;->second:Ljava/lang/Object;
@@ -747,9 +753,11 @@
 
     move-object v7, p4
 
-    invoke-interface/range {v2 .. v8}, Lcom/android/server/biometrics/sensors/face/ServiceProvider;->scheduleFaceDetect(ILandroid/os/IBinder;ILcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;Ljava/lang/String;I)V
+    invoke-interface/range {v2 .. v8}, Lcom/android/server/biometrics/sensors/face/ServiceProvider;->scheduleFaceDetect(ILandroid/os/IBinder;ILcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;Ljava/lang/String;I)J
 
-    return-void
+    move-result-wide v1
+
+    return-wide v1
 .end method
 
 .method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
@@ -1920,8 +1928,8 @@
     return-void
 .end method
 
-.method public prepareForAuthentication(IZLandroid/os/IBinder;JILandroid/hardware/biometrics/IBiometricSensorReceiver;Ljava/lang/String;IZ)V
-    .locals 19
+.method public prepareForAuthentication(IZLandroid/os/IBinder;JILandroid/hardware/biometrics/IBiometricSensorReceiver;Ljava/lang/String;JIZ)V
+    .locals 20
 
     move-object/from16 v0, p0
 
@@ -1954,9 +1962,9 @@
     return-void
 
     :cond_0
-    const/16 v16, 0x0
+    const/16 v17, 0x0
 
-    const/16 v17, 0x1
+    const/16 v18, 0x1
 
     new-instance v9, Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;
 
@@ -1964,11 +1972,11 @@
 
     invoke-direct {v9, v14}, Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;-><init>(Landroid/hardware/biometrics/IBiometricSensorReceiver;)V
 
-    const/4 v11, 0x1
+    const/4 v13, 0x1
 
-    const/4 v12, 0x2
+    const/16 v16, 0x2
 
-    const/16 v18, 0x0
+    const/16 v19, 0x0
 
     move-object v2, v1
 
@@ -1980,15 +1988,19 @@
 
     move/from16 v7, p6
 
-    move/from16 v8, p9
+    move/from16 v8, p11
 
     move-object/from16 v10, p8
 
-    move/from16 v13, p10
+    move-wide/from16 v11, p9
 
-    move/from16 v14, v18
+    move/from16 v14, v16
 
-    invoke-interface/range {v2 .. v14}, Lcom/android/server/biometrics/sensors/face/ServiceProvider;->scheduleAuthenticate(ILandroid/os/IBinder;JIILcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;Ljava/lang/String;ZIZZ)V
+    move/from16 v15, p12
+
+    move/from16 v16, v19
+
+    invoke-interface/range {v2 .. v16}, Lcom/android/server/biometrics/sensors/face/ServiceProvider;->scheduleAuthenticate(ILandroid/os/IBinder;JIILcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;Ljava/lang/String;JZIZZ)V
 
     return-void
 .end method

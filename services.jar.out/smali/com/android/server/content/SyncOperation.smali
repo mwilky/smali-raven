@@ -470,7 +470,7 @@
 
     move-result v27
 
-    const-string v10, "isPeriodic"
+    const-string/jumbo v10, "isPeriodic"
 
     invoke-virtual {v0, v10, v3}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;Z)Z
 
@@ -2002,7 +2002,7 @@
 
     iget-boolean v3, p0, Lcom/android/server/content/SyncOperation;->isPeriodic:Z
 
-    const-string v4, "isPeriodic"
+    const-string/jumbo v4, "isPeriodic"
 
     invoke-virtual {v0, v4, v3}, Landroid/os/PersistableBundle;->putBoolean(Ljava/lang/String;Z)V
 

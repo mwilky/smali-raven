@@ -988,7 +988,7 @@
 
     move-result-object v2
 
-    const v3, 0x107005c
+    const v3, 0x107005d
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -2278,7 +2278,7 @@
 
     move-result-object v1
 
-    const v2, 0x10e00af
+    const v2, 0x10e00b0
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 

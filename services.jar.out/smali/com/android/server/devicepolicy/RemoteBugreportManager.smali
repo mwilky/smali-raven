@@ -269,7 +269,7 @@
 
     iget-object v5, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mContext:Landroid/content/Context;
 
-    const v7, 0x10407e1
+    const v7, 0x10407e3
 
     invoke-virtual {v5, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -288,7 +288,7 @@
 
     iget-object v5, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mContext:Landroid/content/Context;
 
-    const v7, 0x104084f
+    const v7, 0x1040851
 
     invoke-virtual {v5, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -361,7 +361,7 @@
 
     iget-object v9, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mContext:Landroid/content/Context;
 
-    const v10, 0x10407dc
+    const v10, 0x10407de
 
     invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -379,7 +379,7 @@
 
     iget-object v7, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mContext:Landroid/content/Context;
 
-    const v8, 0x10407de
+    const v8, 0x10407e0
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -391,7 +391,7 @@
 
     iget-object v7, p0, Lcom/android/server/devicepolicy/RemoteBugreportManager;->mContext:Landroid/content/Context;
 
-    const v8, 0x10407dd
+    const v8, 0x10407df
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

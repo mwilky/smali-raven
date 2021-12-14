@@ -307,6 +307,10 @@
 
     const/16 v0, 0x7ef
 
+    if-eq p0, v0, :cond_1
+
+    const/16 v0, 0x7f9
+
     if-ne p0, v0, :cond_0
 
     goto :goto_0

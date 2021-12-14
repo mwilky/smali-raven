@@ -14,6 +14,8 @@
 # static fields
 .field private static final DEBUG:Z = false
 
+.field static final DELAY_FADE_IN_OFFENDERS_MS:J = 0x7d0L
+
 .field private static final FADEABLE_USAGES:[I
 
 .field private static final FADEOUT_VSHAPE:Landroid/media/VolumeShaper$Configuration;
@@ -551,16 +553,6 @@
     monitor-exit p0
 
     throw p1
-.end method
-
-.method declared-synchronized forgetUid(I)V
-    .locals 0
-
-    monitor-enter p0
-
-    monitor-exit p0
-
-    return-void
 .end method
 
 .method declared-synchronized removeReleased(Landroid/media/AudioPlaybackConfiguration;)V

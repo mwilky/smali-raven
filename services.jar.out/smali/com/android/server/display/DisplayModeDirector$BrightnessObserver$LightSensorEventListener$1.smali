@@ -55,7 +55,7 @@
 
     iget-object v4, v4, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver$LightSensorEventListener;->this$1:Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;
 
-    invoke-static {v4}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->access$1600(Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;)F
+    invoke-static {v4}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->access$1500(Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;)F
 
     move-result v4
 
@@ -63,7 +63,7 @@
 
     iget-object v5, v5, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver$LightSensorEventListener;->this$1:Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;
 
-    invoke-static {v5}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->access$1700(Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;)[I
+    invoke-static {v5}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->access$1600(Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;)[I
 
     move-result-object v5
 
@@ -83,7 +83,7 @@
 
     iget-object v4, v4, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver$LightSensorEventListener;->this$1:Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;
 
-    invoke-static {v4}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->access$1600(Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;)F
+    invoke-static {v4}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->access$1500(Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;)F
 
     move-result v4
 
@@ -91,7 +91,7 @@
 
     iget-object v5, v5, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver$LightSensorEventListener;->this$1:Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;
 
-    invoke-static {v5}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->access$1800(Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;)[I
+    invoke-static {v5}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->access$1700(Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;)[I
 
     move-result-object v5
 
@@ -106,9 +106,7 @@
 
     iget-object v2, v2, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver$LightSensorEventListener;->this$1:Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;
 
-    iget-object v2, v2, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->this$0:Lcom/android/server/display/DisplayModeDirector;
-
-    invoke-static {v2}, Lcom/android/server/display/DisplayModeDirector;->access$1500(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;
+    invoke-static {v2}, Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;->access$1900(Lcom/android/server/display/DisplayModeDirector$BrightnessObserver;)Landroid/os/Handler;
 
     move-result-object v2
 
@@ -120,7 +118,7 @@
 
     const-wide/16 v4, 0xfa
 
-    invoke-virtual {v2, v3, v4, v5}, Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v2, v3, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     :cond_1
     return-void

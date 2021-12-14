@@ -35,7 +35,7 @@
 .method public final run()V
     .locals 0
 
-    invoke-static {}, Lcom/android/server/SystemServer;->lambda$startOtherServices$1()V
+    invoke-static {}, Lcom/android/server/SystemServer;->lambda$startOtherServices$2()V
 
     return-void
 .end method

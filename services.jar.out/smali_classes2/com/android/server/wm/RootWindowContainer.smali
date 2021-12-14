@@ -7107,6 +7107,8 @@
 
     move-object v6, v1
 
+    invoke-virtual {v6}, Lcom/android/server/wm/Task;->maybeApplyLastRecentsAnimationTransaction()V
+
     goto/16 :goto_1
 
     :cond_2

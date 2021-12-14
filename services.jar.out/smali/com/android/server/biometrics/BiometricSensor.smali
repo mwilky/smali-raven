@@ -106,7 +106,7 @@
     return v0
 .end method
 
-.method goToStateCancelling(Landroid/os/IBinder;Ljava/lang/String;)V
+.method goToStateCancelling(Landroid/os/IBinder;Ljava/lang/String;J)V
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -116,7 +116,7 @@
 
     iget-object v0, p0, Lcom/android/server/biometrics/BiometricSensor;->impl:Landroid/hardware/biometrics/IBiometricAuthenticator;
 
-    invoke-interface {v0, p1, p2}, Landroid/hardware/biometrics/IBiometricAuthenticator;->cancelAuthenticationFromService(Landroid/os/IBinder;Ljava/lang/String;)V
+    invoke-interface {v0, p1, p2, p3, p4}, Landroid/hardware/biometrics/IBiometricAuthenticator;->cancelAuthenticationFromService(Landroid/os/IBinder;Ljava/lang/String;J)V
 
     const/4 v0, 0x4
 
@@ -180,8 +180,8 @@
     return-void
 .end method
 
-.method goToStateWaitingForCookie(ZLandroid/os/IBinder;JILandroid/hardware/biometrics/IBiometricSensorReceiver;Ljava/lang/String;IZ)V
-    .locals 12
+.method goToStateWaitingForCookie(ZLandroid/os/IBinder;JILandroid/hardware/biometrics/IBiometricSensorReceiver;Ljava/lang/String;JIZ)V
+    .locals 14
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -190,17 +190,17 @@
 
     move-object v0, p0
 
-    move/from16 v11, p8
+    move/from16 v13, p10
 
-    iput v11, v0, Lcom/android/server/biometrics/BiometricSensor;->mCookie:I
+    iput v13, v0, Lcom/android/server/biometrics/BiometricSensor;->mCookie:I
 
     iget-object v1, v0, Lcom/android/server/biometrics/BiometricSensor;->impl:Landroid/hardware/biometrics/IBiometricAuthenticator;
 
     move v2, p1
 
-    move-object v3, p2
+    move-object/from16 v3, p2
 
-    move-wide v4, p3
+    move-wide/from16 v4, p3
 
     move/from16 v6, p5
 
@@ -208,11 +208,13 @@
 
     move-object/from16 v8, p7
 
-    move/from16 v9, p8
+    move-wide/from16 v9, p8
 
-    move/from16 v10, p9
+    move/from16 v11, p10
 
-    invoke-interface/range {v1 .. v10}, Landroid/hardware/biometrics/IBiometricAuthenticator;->prepareForAuthentication(ZLandroid/os/IBinder;JILandroid/hardware/biometrics/IBiometricSensorReceiver;Ljava/lang/String;IZ)V
+    move/from16 v12, p11
+
+    invoke-interface/range {v1 .. v12}, Landroid/hardware/biometrics/IBiometricAuthenticator;->prepareForAuthentication(ZLandroid/os/IBinder;JILandroid/hardware/biometrics/IBiometricSensorReceiver;Ljava/lang/String;JIZ)V
 
     const/4 v1, 0x1
 

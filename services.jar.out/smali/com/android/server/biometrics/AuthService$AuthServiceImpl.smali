@@ -82,7 +82,7 @@
 
 
 # virtual methods
-.method public authenticate(Landroid/os/IBinder;JILandroid/hardware/biometrics/IBiometricServiceReceiver;Ljava/lang/String;Landroid/hardware/biometrics/PromptInfo;)V
+.method public authenticate(Landroid/os/IBinder;JILandroid/hardware/biometrics/IBiometricServiceReceiver;Ljava/lang/String;Landroid/hardware/biometrics/PromptInfo;)J
     .locals 18
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -156,15 +156,17 @@
 
     move-result v0
 
+    const-wide/16 v2, -0x1
+
     if-nez v0, :cond_1
 
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Denied by app ops: "
+    const-string v4, "Denied by app ops: "
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -174,7 +176,7 @@
 
     invoke-direct {v1, v0, v11}, Lcom/android/server/biometrics/AuthService$AuthServiceImpl;->authenticateFastFail(Ljava/lang/String;Landroid/hardware/biometrics/IBiometricServiceReceiver;)V
 
-    return-void
+    return-wide v2
 
     :cond_1
     if-eqz p1, :cond_6
@@ -198,9 +200,9 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Caller is not foreground: "
+    const-string v4, "Caller is not foreground: "
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -210,7 +212,7 @@
 
     invoke-direct {v1, v0, v11}, Lcom/android/server/biometrics/AuthService$AuthServiceImpl;->authenticateFastFail(Ljava/lang/String;Landroid/hardware/biometrics/IBiometricServiceReceiver;)V
 
-    return-void
+    return-wide v2
 
     :cond_3
     invoke-virtual/range {p7 .. p7}, Landroid/hardware/biometrics/PromptInfo;->containsTestConfigurations()Z
@@ -272,15 +274,15 @@
 
     move-object/from16 v9, p7
 
-    invoke-interface/range {v2 .. v9}, Landroid/hardware/biometrics/IBiometricService;->authenticate(Landroid/os/IBinder;JILandroid/hardware/biometrics/IBiometricServiceReceiver;Ljava/lang/String;Landroid/hardware/biometrics/PromptInfo;)V
+    invoke-interface/range {v2 .. v9}, Landroid/hardware/biometrics/IBiometricService;->authenticate(Landroid/os/IBinder;JILandroid/hardware/biometrics/IBiometricServiceReceiver;Ljava/lang/String;Landroid/hardware/biometrics/PromptInfo;)J
+
+    move-result-wide v2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     invoke-static/range {v16 .. v17}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    nop
-
-    return-void
+    return-wide v2
 
     :catchall_0
     move-exception v0
@@ -295,7 +297,7 @@
 
     invoke-direct {v1, v0, v11}, Lcom/android/server/biometrics/AuthService$AuthServiceImpl;->authenticateFastFail(Ljava/lang/String;Landroid/hardware/biometrics/IBiometricServiceReceiver;)V
 
-    return-void
+    return-wide v2
 .end method
 
 .method public canAuthenticate(Ljava/lang/String;II)I
@@ -391,7 +393,7 @@
     throw v3
 .end method
 
-.method public cancelAuthentication(Landroid/os/IBinder;Ljava/lang/String;)V
+.method public cancelAuthentication(Landroid/os/IBinder;Ljava/lang/String;J)V
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -421,7 +423,7 @@
 
     move-result-object v2
 
-    invoke-interface {v2, p1, p2}, Landroid/hardware/biometrics/IBiometricService;->cancelAuthentication(Landroid/os/IBinder;Ljava/lang/String;)V
+    invoke-interface {v2, p1, p2, p3, p4}, Landroid/hardware/biometrics/IBiometricService;->cancelAuthentication(Landroid/os/IBinder;Ljava/lang/String;J)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -629,7 +631,7 @@
 
     move-result-object v4
 
-    const v5, 0x104038a
+    const v5, 0x104038b
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -644,7 +646,7 @@
 
     move-result-object v4
 
-    const v5, 0x10407ab
+    const v5, 0x10407ad
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -759,7 +761,7 @@
 
     move-result-object v5
 
-    const v6, 0x104036a
+    const v6, 0x104036b
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -791,7 +793,7 @@
 
     move-result-object v5
 
-    const v6, 0x104039b
+    const v6, 0x104039d
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -806,7 +808,7 @@
 
     move-result-object v5
 
-    const v6, 0x104038c
+    const v6, 0x104038d
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -821,7 +823,7 @@
 
     move-result-object v5
 
-    const v6, 0x10407ac
+    const v6, 0x10407ae
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1036,7 +1038,7 @@
 
     move-result-object v4
 
-    const v5, 0x104038a
+    const v5, 0x104038b
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1051,7 +1053,7 @@
 
     move-result-object v4
 
-    const v5, 0x10407ab
+    const v5, 0x10407ad
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1088,7 +1090,7 @@
 
     move-result-object v5
 
-    const v6, 0x104039a
+    const v6, 0x104039c
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1109,7 +1111,7 @@
 
     move-result-object v5
 
-    const v6, 0x1040369
+    const v6, 0x104036a
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
