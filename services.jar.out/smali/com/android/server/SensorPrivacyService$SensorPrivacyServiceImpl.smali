@@ -911,47 +911,65 @@
     monitor-enter v1
 
     :try_start_0
-    iget-object v2, p0, Lcom/android/server/SensorPrivacyService$SensorPrivacyServiceImpl;->mSuppressReminders:Landroid/util/ArrayMap;
+    iget-object v2, p0, Lcom/android/server/SensorPrivacyService$SensorPrivacyServiceImpl;->this$0:Lcom/android/server/SensorPrivacyService;
 
-    new-instance v3, Landroid/util/Pair;
-
-    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    invoke-direct {v3, v4, v0}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
-
-    invoke-virtual {v2, v3}, Landroid/util/ArrayMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    invoke-static {}, Lcom/android/server/SensorPrivacyService;->access$700()Ljava/lang/String;
+    invoke-static {v2}, Lcom/android/server/SensorPrivacyService;->access$600(Lcom/android/server/SensorPrivacyService;)Lcom/android/server/pm/UserManagerInternal;
 
     move-result-object v2
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Landroid/os/UserHandle;->getIdentifier()I
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    move-result v3
 
-    const-string v4, "Suppressed sensor privacy reminder for "
+    invoke-virtual {v2, v3}, Lcom/android/server/pm/UserManagerInternal;->getProfileParentId(I)I
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v2
 
-    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v2}, Landroid/os/UserHandle;->of(I)Landroid/os/UserHandle;
 
-    const-string v4, "/"
+    move-result-object v2
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v3, p0, Lcom/android/server/SensorPrivacyService$SensorPrivacyServiceImpl;->mSuppressReminders:Landroid/util/ArrayMap;
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    new-instance v4, Landroid/util/Pair;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    invoke-direct {v4, v5, v2}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    invoke-virtual {v3, v4}, Landroid/util/ArrayMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    invoke-static {}, Lcom/android/server/SensorPrivacyService;->access$700()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "Suppressed sensor privacy reminder for "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v5, "/"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     monitor-exit v1
 
@@ -2467,7 +2485,7 @@
 
     const v7, 0x10804ec
 
-    const v8, 0x10407c6
+    const v8, 0x10407c8
 
     const/16 v9, 0x41
 
@@ -2476,7 +2494,7 @@
     :cond_0
     const v7, 0x1080351
 
-    const v8, 0x10407c4
+    const v8, 0x10407c6
 
     const/16 v9, 0x42
 
@@ -2503,7 +2521,7 @@
 
     move-result-object v12
 
-    const v13, 0x10407c3
+    const v13, 0x10407c5
 
     invoke-virtual {v12, v13}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2571,7 +2589,7 @@
 
     move-result-object v14
 
-    const v15, 0x10407c7
+    const v15, 0x10407c9
 
     new-array v6, v6, [Ljava/lang/Object;
 
@@ -2601,7 +2619,7 @@
 
     move-result-object v13
 
-    const v14, 0x10407c5
+    const v14, 0x10407c7
 
     invoke-virtual {v13, v14}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3099,7 +3117,7 @@
 .end method
 
 .method private userSwitching(II)V
-    .locals 7
+    .locals 8
 
     iget-object v0, p0, Lcom/android/server/SensorPrivacyService$SensorPrivacyServiceImpl;->mLock:Ljava/lang/Object;
 
@@ -3130,24 +3148,32 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eq v2, v5, :cond_0
+    const/16 v0, -0x2710
 
-    iget-object v0, p0, Lcom/android/server/SensorPrivacyService$SensorPrivacyServiceImpl;->mHandler:Lcom/android/server/SensorPrivacyService$SensorPrivacyHandler;
+    if-eq p1, v0, :cond_0
 
-    invoke-virtual {v0, v1, v5}, Lcom/android/server/SensorPrivacyService$SensorPrivacyHandler;->onUserGlobalSensorPrivacyChanged(IZ)V
+    if-eq v2, v5, :cond_1
+
+    :cond_0
+    iget-object v7, p0, Lcom/android/server/SensorPrivacyService$SensorPrivacyServiceImpl;->mHandler:Lcom/android/server/SensorPrivacyService$SensorPrivacyHandler;
+
+    invoke-virtual {v7, v1, v5}, Lcom/android/server/SensorPrivacyService$SensorPrivacyHandler;->onUserGlobalSensorPrivacyChanged(IZ)V
 
     invoke-direct {p0, v1, v5}, Lcom/android/server/SensorPrivacyService$SensorPrivacyServiceImpl;->setGlobalRestriction(IZ)V
 
-    :cond_0
-    if-eq v4, v6, :cond_1
+    :cond_1
+    if-eq p1, v0, :cond_2
 
+    if-eq v4, v6, :cond_3
+
+    :cond_2
     iget-object v0, p0, Lcom/android/server/SensorPrivacyService$SensorPrivacyServiceImpl;->mHandler:Lcom/android/server/SensorPrivacyService$SensorPrivacyHandler;
 
     invoke-virtual {v0, v3, v6}, Lcom/android/server/SensorPrivacyService$SensorPrivacyHandler;->onUserGlobalSensorPrivacyChanged(IZ)V
 
-    invoke-direct {p0, v3, v5}, Lcom/android/server/SensorPrivacyService$SensorPrivacyServiceImpl;->setGlobalRestriction(IZ)V
+    invoke-direct {p0, v3, v6}, Lcom/android/server/SensorPrivacyService$SensorPrivacyServiceImpl;->setGlobalRestriction(IZ)V
 
-    :cond_1
+    :cond_3
     return-void
 
     :catchall_0

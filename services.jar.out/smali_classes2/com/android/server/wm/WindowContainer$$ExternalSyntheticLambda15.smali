@@ -37,7 +37,7 @@
 
     check-cast p1, Lcom/android/server/wm/Task;
 
-    invoke-static {p1}, Lcom/android/server/wm/WindowContainer;->lambda$getTopMostTask$12(Lcom/android/server/wm/Task;)Z
+    invoke-static {p1}, Lcom/android/server/wm/WindowContainer;->lambda$getBottomMostTask$11(Lcom/android/server/wm/Task;)Z
 
     move-result p1
 

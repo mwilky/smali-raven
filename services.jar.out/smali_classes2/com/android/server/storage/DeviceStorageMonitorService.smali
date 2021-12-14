@@ -746,13 +746,13 @@
 
     invoke-virtual {v14, v3}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    const v3, 0x10404bc
+    const v3, 0x10404be
 
     invoke-virtual {v9, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v15
 
-    const v3, 0x10404ba
+    const v3, 0x10404bc
 
     invoke-virtual {v9, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

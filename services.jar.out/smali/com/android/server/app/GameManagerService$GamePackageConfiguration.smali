@@ -21,6 +21,8 @@
 
 
 # static fields
+.field public static final METADATA_ANGLE_ALLOW_ANGLE:Ljava/lang/String; = "com.android.graphics.intervention.angle.allowAngle"
+
 .field public static final METADATA_BATTERY_MODE_ENABLE:Ljava/lang/String; = "com.android.app.gamemode.battery.enabled"
 
 .field public static final METADATA_PERFORMANCE_MODE_ENABLE:Ljava/lang/String; = "com.android.app.gamemode.performance.enabled"
@@ -31,6 +33,8 @@
 
 
 # instance fields
+.field private mAllowAngle:Z
+
 .field private mAllowDownscale:Z
 
 .field private mBatteryModeOptedIn:Z
@@ -120,6 +124,16 @@
 
     iput-boolean v3, p0, Lcom/android/server/app/GameManagerService$GamePackageConfiguration;->mAllowDownscale:Z
 
+    iget-object v3, v2, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
+
+    const-string v5, "com.android.graphics.intervention.angle.allowAngle"
+
+    invoke-virtual {v3, v5, v4}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v3
+
+    iput-boolean v3, p0, Lcom/android/server/app/GameManagerService$GamePackageConfiguration;->mAllowAngle:Z
+
     goto :goto_0
 
     :cond_0
@@ -128,6 +142,8 @@
     iput-boolean v1, p0, Lcom/android/server/app/GameManagerService$GamePackageConfiguration;->mBatteryModeOptedIn:Z
 
     iput-boolean v4, p0, Lcom/android/server/app/GameManagerService$GamePackageConfiguration;->mAllowDownscale:Z
+
+    iput-boolean v4, p0, Lcom/android/server/app/GameManagerService$GamePackageConfiguration;->mAllowAngle:Z
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -198,6 +214,16 @@
     return-void
 .end method
 
+.method static synthetic access$1000(Lcom/android/server/app/GameManagerService$GamePackageConfiguration;)I
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/server/app/GameManagerService$GamePackageConfiguration;->getAvailableGameModesBitfield()I
+
+    move-result v0
+
+    return v0
+.end method
+
 .method static synthetic access$500(Lcom/android/server/app/GameManagerService$GamePackageConfiguration;)Z
     .locals 1
 
@@ -206,12 +232,10 @@
     return v0
 .end method
 
-.method static synthetic access$900(Lcom/android/server/app/GameManagerService$GamePackageConfiguration;)I
+.method static synthetic access$600(Lcom/android/server/app/GameManagerService$GamePackageConfiguration;)Z
     .locals 1
 
-    invoke-direct {p0}, Lcom/android/server/app/GameManagerService$GamePackageConfiguration;->getAvailableGameModesBitfield()I
-
-    move-result v0
+    iget-boolean v0, p0, Lcom/android/server/app/GameManagerService$GamePackageConfiguration;->mAllowAngle:Z
 
     return v0
 .end method
@@ -250,7 +274,7 @@
 
     iget-object v3, p0, Lcom/android/server/app/GameManagerService$GamePackageConfiguration;->this$0:Lcom/android/server/app/GameManagerService;
 
-    invoke-static {v3, v2}, Lcom/android/server/app/GameManagerService;->access$600(Lcom/android/server/app/GameManagerService;I)I
+    invoke-static {v3, v2}, Lcom/android/server/app/GameManagerService;->access$700(Lcom/android/server/app/GameManagerService;I)I
 
     move-result v3
 
@@ -267,7 +291,7 @@
 
     const/4 v2, 0x3
 
-    invoke-static {v1, v2}, Lcom/android/server/app/GameManagerService;->access$600(Lcom/android/server/app/GameManagerService;I)I
+    invoke-static {v1, v2}, Lcom/android/server/app/GameManagerService;->access$700(Lcom/android/server/app/GameManagerService;I)I
 
     move-result v1
 
@@ -282,7 +306,7 @@
 
     const/4 v2, 0x2
 
-    invoke-static {v1, v2}, Lcom/android/server/app/GameManagerService;->access$600(Lcom/android/server/app/GameManagerService;I)I
+    invoke-static {v1, v2}, Lcom/android/server/app/GameManagerService;->access$700(Lcom/android/server/app/GameManagerService;I)I
 
     move-result v1
 
@@ -295,7 +319,7 @@
 
     iget-object v2, p0, Lcom/android/server/app/GameManagerService$GamePackageConfiguration;->this$0:Lcom/android/server/app/GameManagerService;
 
-    invoke-static {v2, v1}, Lcom/android/server/app/GameManagerService;->access$600(Lcom/android/server/app/GameManagerService;I)I
+    invoke-static {v2, v1}, Lcom/android/server/app/GameManagerService;->access$700(Lcom/android/server/app/GameManagerService;I)I
 
     move-result v1
 
@@ -308,7 +332,7 @@
 
     const/4 v2, 0x0
 
-    invoke-static {v1, v2}, Lcom/android/server/app/GameManagerService;->access$600(Lcom/android/server/app/GameManagerService;I)I
+    invoke-static {v1, v2}, Lcom/android/server/app/GameManagerService;->access$700(Lcom/android/server/app/GameManagerService;I)I
 
     move-result v1
 
@@ -455,38 +479,6 @@
     return-object v0
 .end method
 
-.method public isGameModeOptedIn(I)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/app/GameManagerService$GamePackageConfiguration;->mBatteryModeOptedIn:Z
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x3
-
-    if-eq p1, v0, :cond_1
-
-    :cond_0
-    iget-boolean v0, p0, Lcom/android/server/app/GameManagerService$GamePackageConfiguration;->mPerfModeOptedIn:Z
-
-    if-eqz v0, :cond_2
-
-    const/4 v0, 0x2
-
-    if-ne p1, v0, :cond_2
-
-    :cond_1
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_2
-    const/4 v0, 0x0
-
-    :goto_0
-    return v0
-.end method
-
 .method public isValid()Z
     .locals 1
 
@@ -557,4 +549,36 @@
     move-result-object v0
 
     return-object v0
+.end method
+
+.method public willGamePerformOptimizations(I)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/app/GameManagerService$GamePackageConfiguration;->mBatteryModeOptedIn:Z
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x3
+
+    if-eq p1, v0, :cond_1
+
+    :cond_0
+    iget-boolean v0, p0, Lcom/android/server/app/GameManagerService$GamePackageConfiguration;->mPerfModeOptedIn:Z
+
+    if-eqz v0, :cond_2
+
+    const/4 v0, 0x2
+
+    if-ne p1, v0, :cond_2
+
+    :cond_1
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
 .end method

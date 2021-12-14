@@ -4273,25 +4273,25 @@
 .end method
 
 .method addPowerSaveTempWhitelistAppDirectInternal(IIJIZILjava/lang/String;)V
-    .locals 23
+    .locals 28
 
     move-object/from16 v10, p0
 
-    move/from16 v11, p2
+    move/from16 v15, p2
 
-    move/from16 v12, p7
+    move/from16 v14, p7
 
     move-object/from16 v13, p8
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    move-result-wide v14
+    move-result-wide v21
 
-    const/16 v16, 0x0
+    const/16 v23, 0x0
 
     invoke-static/range {p2 .. p2}, Landroid/os/UserHandle;->getAppId(I)I
 
-    move-result v9
+    move-result v12
 
     monitor-enter p0
 
@@ -4300,7 +4300,7 @@
 
     iget-wide v0, v0, Lcom/android/server/DeviceIdleController$Constants;->MAX_TEMP_APP_ALLOWLIST_DURATION_MS:J
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_3
+    .catchall {:try_start_0 .. :try_end_0} :catchall_6
 
     move-wide/from16 v2, p3
 
@@ -4309,26 +4309,26 @@
 
     move-result-wide v0
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_2
+    .catchall {:try_start_1 .. :try_end_1} :catchall_5
 
-    move-wide v7, v0
+    move-wide v8, v0
 
     :try_start_2
     iget-object v0, v10, Lcom/android/server/DeviceIdleController;->mTempWhitelistAppIdEndTimes:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, v9}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, v12}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/util/Pair;
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    .catchall {:try_start_2 .. :try_end_2} :catchall_4
 
-    const/4 v6, 0x1
+    const/4 v11, 0x1
 
     if-nez v0, :cond_0
 
-    move v1, v6
+    move v1, v11
 
     goto :goto_0
 
@@ -4336,9 +4336,9 @@
     const/4 v1, 0x0
 
     :goto_0
-    move/from16 v17, v1
+    move/from16 v24, v1
 
-    if-eqz v17, :cond_1
+    if-eqz v24, :cond_1
 
     :try_start_3
     new-instance v1, Landroid/util/Pair;
@@ -4355,48 +4355,50 @@
 
     iget-object v1, v10, Lcom/android/server/DeviceIdleController;->mTempWhitelistAppIdEndTimes:Landroid/util/SparseArray;
 
-    invoke-virtual {v1, v9, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v1, v12, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    move-object v4, v0
+    move-object v7, v0
 
     goto :goto_1
 
     :catchall_0
     move-exception v0
 
-    move-wide/from16 v19, v7
+    move-wide/from16 v26, v8
 
-    move-wide/from16 v21, v14
+    move v4, v12
 
-    move v14, v9
+    move-object v1, v13
 
-    goto/16 :goto_6
+    move v5, v14
+
+    goto/16 :goto_5
 
     :cond_1
-    move-object v4, v0
+    move-object v7, v0
 
     :goto_1
     :try_start_4
-    iget-object v0, v4, Landroid/util/Pair;->first:Ljava/lang/Object;
+    iget-object v0, v7, Landroid/util/Pair;->first:Ljava/lang/Object;
 
     check-cast v0, Landroid/util/MutableLong;
 
-    add-long v1, v14, v7
+    add-long v1, v21, v8
 
     iput-wide v1, v0, Landroid/util/MutableLong;->value:J
     :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    .catchall {:try_start_4 .. :try_end_4} :catchall_4
 
-    if-eqz v17, :cond_3
+    if-eqz v24, :cond_3
 
     :try_start_5
     iget-object v0, v10, Lcom/android/server/DeviceIdleController;->mBatteryStats:Lcom/android/internal/app/IBatteryStats;
 
     const v1, 0x8011
 
-    invoke-interface {v0, v1, v13, v11}, Lcom/android/internal/app/IBatteryStats;->noteEvent(ILjava/lang/String;I)V
+    invoke-interface {v0, v1, v13, v15}, Lcom/android/internal/app/IBatteryStats;->noteEvent(ILjava/lang/String;I)V
     :try_end_5
     .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_0
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
@@ -4408,9 +4410,9 @@
 
     :goto_2
     :try_start_6
-    invoke-direct {v10, v11, v7, v8}, Lcom/android/server/DeviceIdleController;->postTempActiveTimeoutMessage(IJ)V
+    invoke-direct {v10, v15, v8, v9}, Lcom/android/server/DeviceIdleController;->postTempActiveTimeoutMessage(IJ)V
     :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_1
+    .catchall {:try_start_6 .. :try_end_6} :catchall_2
 
     const/4 v3, 0x1
 
@@ -4418,21 +4420,17 @@
 
     move/from16 v2, p2
 
-    move-object/from16 v18, v4
-
-    move-wide v4, v7
+    move-wide v4, v8
 
     move/from16 v6, p5
 
-    move-wide/from16 v19, v7
+    move-object/from16 v25, v7
 
     move/from16 v7, p7
 
+    move-wide/from16 v26, v8
+
     move-object/from16 v8, p8
-
-    move-wide/from16 v21, v14
-
-    move v14, v9
 
     move/from16 v9, p1
 
@@ -4443,7 +4441,7 @@
 
     const/4 v0, 0x1
 
-    move/from16 v16, v0
+    move/from16 v23, v0
 
     goto :goto_3
 
@@ -4452,84 +4450,183 @@
 
     const/16 v1, 0xe
 
-    invoke-virtual {v0, v1, v14, v12, v13}, Lcom/android/server/DeviceIdleController$MyHandler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {v0, v1, v12, v14, v13}, Lcom/android/server/DeviceIdleController$MyHandler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
     :goto_3
-    const/4 v1, 0x1
+    invoke-direct {v10, v15, v11}, Lcom/android/server/DeviceIdleController;->reportTempWhitelistChangedLocked(IZ)V
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_1
 
-    invoke-direct {v10, v11, v1}, Lcom/android/server/DeviceIdleController;->reportTempWhitelistChangedLocked(IZ)V
+    move v3, v11
+
+    move v4, v12
+
+    move-object v1, v13
+
+    move v5, v14
 
     goto :goto_4
-
-    :cond_3
-    move-object/from16 v18, v4
-
-    move v1, v6
-
-    move-wide/from16 v19, v7
-
-    move-wide/from16 v21, v14
-
-    move v14, v9
-
-    :goto_4
-    monitor-exit p0
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_4
-
-    if-eqz v16, :cond_4
-
-    iget-object v0, v10, Lcom/android/server/DeviceIdleController;->mNetworkPolicyManagerInternal:Lcom/android/server/net/NetworkPolicyManagerInternal;
-
-    invoke-virtual {v0, v14, v1, v12, v13}, Lcom/android/server/net/NetworkPolicyManagerInternal;->onTempPowerSaveWhitelistChange(IZILjava/lang/String;)V
-
-    :cond_4
-    return-void
 
     :catchall_1
     move-exception v0
 
-    move-wide/from16 v19, v7
+    move v4, v12
 
-    move-wide/from16 v21, v14
+    move-object v1, v13
 
-    move v14, v9
+    move v5, v14
 
-    goto :goto_6
+    goto/16 :goto_5
 
     :catchall_2
     move-exception v0
 
-    goto :goto_5
+    move-wide/from16 v26, v8
+
+    move v4, v12
+
+    move-object v1, v13
+
+    move v5, v14
+
+    goto/16 :goto_5
+
+    :cond_3
+    move-object/from16 v25, v7
+
+    move-wide/from16 v26, v8
+
+    :try_start_8
+    iget-object v0, v10, Lcom/android/server/DeviceIdleController;->mLocalActivityManager:Landroid/app/ActivityManagerInternal;
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_3
+
+    if-eqz v0, :cond_4
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x1
+
+    move v3, v11
+
+    move-object v11, v0
+
+    move v4, v12
+
+    move-object v12, v1
+
+    move-object v1, v13
+
+    move/from16 v13, p2
+
+    move v5, v14
+
+    move v14, v2
+
+    move-wide/from16 v15, v26
+
+    move/from16 v17, p5
+
+    move/from16 v18, p7
+
+    move-object/from16 v19, p8
+
+    move/from16 v20, p1
+
+    :try_start_9
+    invoke-virtual/range {v11 .. v20}, Landroid/app/ActivityManagerInternal;->updateDeviceIdleTempAllowlist([IIZJIILjava/lang/String;I)V
+
+    goto :goto_4
+
+    :cond_4
+    move v3, v11
+
+    move v4, v12
+
+    move-object v1, v13
+
+    move v5, v14
+
+    :goto_4
+    monitor-exit p0
+    :try_end_9
+    .catchall {:try_start_9 .. :try_end_9} :catchall_7
+
+    if-eqz v23, :cond_5
+
+    iget-object v0, v10, Lcom/android/server/DeviceIdleController;->mNetworkPolicyManagerInternal:Lcom/android/server/net/NetworkPolicyManagerInternal;
+
+    invoke-virtual {v0, v4, v3, v5, v1}, Lcom/android/server/net/NetworkPolicyManagerInternal;->onTempPowerSaveWhitelistChange(IZILjava/lang/String;)V
+
+    :cond_5
+    return-void
 
     :catchall_3
     move-exception v0
 
-    move-wide/from16 v2, p3
+    move v4, v12
 
-    :goto_5
-    move-wide/from16 v21, v14
+    move-object v1, v13
 
-    move v14, v9
+    move v5, v14
 
-    move-wide/from16 v19, v2
-
-    :goto_6
-    :try_start_8
-    monitor-exit p0
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_4
-
-    throw v0
+    goto :goto_5
 
     :catchall_4
     move-exception v0
 
-    goto :goto_6
+    move-wide/from16 v26, v8
+
+    move v4, v12
+
+    move-object v1, v13
+
+    move v5, v14
+
+    goto :goto_5
+
+    :catchall_5
+    move-exception v0
+
+    move v4, v12
+
+    move-object v1, v13
+
+    move v5, v14
+
+    move-wide/from16 v26, v2
+
+    goto :goto_5
+
+    :catchall_6
+    move-exception v0
+
+    move-wide/from16 v2, p3
+
+    move v4, v12
+
+    move-object v1, v13
+
+    move v5, v14
+
+    move-wide/from16 v26, v2
+
+    :goto_5
+    :try_start_a
+    monitor-exit p0
+    :try_end_a
+    .catchall {:try_start_a .. :try_end_a} :catchall_7
+
+    throw v0
+
+    :catchall_7
+    move-exception v0
+
+    goto :goto_5
 .end method
 
 .method public addPowerSaveWhitelistExceptIdleInternal(Ljava/lang/String;)Z

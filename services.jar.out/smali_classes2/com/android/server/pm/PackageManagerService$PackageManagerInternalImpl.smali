@@ -470,7 +470,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/pm/PackageManagerService;->access$8900(Lcom/android/server/pm/PackageManagerService;I)Landroid/content/pm/PackageParser$SigningDetails;
+    invoke-static {v0, p1}, Lcom/android/server/pm/PackageManagerService;->access$9200(Lcom/android/server/pm/PackageManagerService;I)Landroid/content/pm/PackageParser$SigningDetails;
 
     move-result-object v0
 
@@ -482,7 +482,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/pm/PackageManagerService;->access$8800(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;)Landroid/content/pm/PackageParser$SigningDetails;
+    invoke-static {v0, p1}, Lcom/android/server/pm/PackageManagerService;->access$9100(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;)Landroid/content/pm/PackageParser$SigningDetails;
 
     move-result-object v0
 
@@ -585,7 +585,7 @@
 
     move v7, p3
 
-    invoke-static/range {v2 .. v7}, Lcom/android/server/pm/PackageManagerService;->access$11700(Lcom/android/server/pm/PackageManagerService;Lcom/android/server/pm/PackageSetting;ILandroid/content/ComponentName;II)Z
+    invoke-static/range {v2 .. v7}, Lcom/android/server/pm/PackageManagerService;->access$12000(Lcom/android/server/pm/PackageManagerService;Lcom/android/server/pm/PackageSetting;ILandroid/content/ComponentName;II)Z
 
     move-result v2
 
@@ -618,7 +618,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0, p1, p2}, Lcom/android/server/pm/PackageManagerService;->access$11600(Lcom/android/server/pm/PackageManagerService;II)Z
+    invoke-static {v0, p1, p2}, Lcom/android/server/pm/PackageManagerService;->access$11900(Lcom/android/server/pm/PackageManagerService;II)Z
 
     move-result v0
 
@@ -732,7 +732,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0, p1, p2, p3}, Lcom/android/server/pm/PackageManagerService;->access$9100(Lcom/android/server/pm/PackageManagerService;Lcom/android/server/pm/parsing/pkg/AndroidPackage;II)Z
+    invoke-static {v0, p1, p2, p3}, Lcom/android/server/pm/PackageManagerService;->access$9400(Lcom/android/server/pm/PackageManagerService;Lcom/android/server/pm/parsing/pkg/AndroidPackage;II)Z
 
     move-result v0
 
@@ -744,7 +744,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0, p1, p2, p3}, Lcom/android/server/pm/PackageManagerService;->access$9200(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;II)Z
+    invoke-static {v0, p1, p2, p3}, Lcom/android/server/pm/PackageManagerService;->access$9500(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;II)Z
 
     move-result v0
 
@@ -773,7 +773,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v1, p1}, Lcom/android/server/pm/PackageManagerService;->access$7700(Lcom/android/server/pm/PackageManagerService;I)V
+    invoke-static {v1, p1}, Lcom/android/server/pm/PackageManagerService;->access$8000(Lcom/android/server/pm/PackageManagerService;I)V
 
     monitor-exit v0
 
@@ -915,7 +915,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0, p1, p2, p3, p4}, Lcom/android/server/pm/PackageManagerService;->access$9900(Lcom/android/server/pm/PackageManagerService;Landroid/content/ComponentName;III)Landroid/content/pm/ActivityInfo;
+    invoke-static {v0, p1, p2, p3, p4}, Lcom/android/server/pm/PackageManagerService;->access$10200(Lcom/android/server/pm/PackageManagerService;Landroid/content/ComponentName;III)Landroid/content/pm/ActivityInfo;
 
     move-result-object v0
 
@@ -998,7 +998,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0, p1, p2, p3, p4}, Lcom/android/server/pm/PackageManagerService;->access$9800(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;III)Landroid/content/pm/ApplicationInfo;
+    invoke-static {v0, p1, p2, p3, p4}, Lcom/android/server/pm/PackageManagerService;->access$10100(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;III)Landroid/content/pm/ApplicationInfo;
 
     move-result-object v0
 
@@ -1025,7 +1025,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$11900(Lcom/android/server/pm/PackageManagerService;)Landroid/util/SparseArray;
+    invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$12200(Lcom/android/server/pm/PackageManagerService;)Landroid/util/SparseArray;
 
     move-result-object v1
 
@@ -1093,7 +1093,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0, p1, p2, p3}, Lcom/android/server/pm/PackageManagerService;->access$12100(Lcom/android/server/pm/PackageManagerService;Landroid/content/ComponentName;II)I
+    invoke-static {v0, p1, p2, p3}, Lcom/android/server/pm/PackageManagerService;->access$12400(Lcom/android/server/pm/PackageManagerService;Landroid/content/ComponentName;II)I
 
     move-result v0
 
@@ -1105,7 +1105,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/pm/PackageManagerService;->access$10200(Lcom/android/server/pm/PackageManagerService;I)Landroid/content/ComponentName;
+    invoke-static {v0, p1}, Lcom/android/server/pm/PackageManagerService;->access$10500(Lcom/android/server/pm/PackageManagerService;I)Landroid/content/ComponentName;
 
     move-result-object v0
 
@@ -1391,7 +1391,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0, p1, p2, p3}, Lcom/android/server/pm/PackageManagerService;->access$8700(Lcom/android/server/pm/PackageManagerService;III)Ljava/util/List;
+    invoke-static {v0, p1, p2, p3}, Lcom/android/server/pm/PackageManagerService;->access$9000(Lcom/android/server/pm/PackageManagerService;III)Ljava/util/List;
 
     move-result-object v0
 
@@ -1403,7 +1403,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/pm/PackageManagerService;->access$9000(Lcom/android/server/pm/PackageManagerService;I)Ljava/lang/String;
+    invoke-static {v0, p1}, Lcom/android/server/pm/PackageManagerService;->access$9300(Lcom/android/server/pm/PackageManagerService;I)Ljava/lang/String;
 
     move-result-object v0
 
@@ -1436,7 +1436,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0, p1, p2}, Lcom/android/server/pm/PackageManagerService;->access$12300(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
+    invoke-static {v0, p1, p2}, Lcom/android/server/pm/PackageManagerService;->access$12600(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
 
     move-result-object v0
 
@@ -1520,7 +1520,7 @@
 
     const/4 v6, 0x0
 
-    invoke-static {v4, v5, v6, p1}, Lcom/android/server/pm/PackageManagerService;->access$10700(Lcom/android/server/pm/PackageManagerService;Lcom/android/server/pm/PackageSetting;II)Landroid/content/pm/PackageInfo;
+    invoke-static {v4, v5, v6, p1}, Lcom/android/server/pm/PackageManagerService;->access$11000(Lcom/android/server/pm/PackageManagerService;Lcom/android/server/pm/PackageSetting;II)Landroid/content/pm/PackageInfo;
 
     move-result-object v4
 
@@ -1551,7 +1551,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/pm/PackageManagerService;->access$9300(Lcom/android/server/pm/PackageManagerService;I)Lcom/android/server/pm/parsing/pkg/AndroidPackage;
+    invoke-static {v0, p1}, Lcom/android/server/pm/PackageManagerService;->access$9600(Lcom/android/server/pm/PackageManagerService;I)Lcom/android/server/pm/parsing/pkg/AndroidPackage;
 
     move-result-object v0
 
@@ -1585,7 +1585,7 @@
 
     move v6, p4
 
-    invoke-static/range {v0 .. v6}, Lcom/android/server/pm/PackageManagerService;->access$9600(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;JIII)Landroid/content/pm/PackageInfo;
+    invoke-static/range {v0 .. v6}, Lcom/android/server/pm/PackageManagerService;->access$9900(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;JIII)Landroid/content/pm/PackageInfo;
 
     move-result-object v0
 
@@ -1644,7 +1644,7 @@
 
     iget-object v4, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v4}, Lcom/android/server/pm/PackageManagerService;->access$9400(Lcom/android/server/pm/PackageManagerService;)Landroid/util/ArraySet;
+    invoke-static {v4}, Lcom/android/server/pm/PackageManagerService;->access$9700(Lcom/android/server/pm/PackageManagerService;)Landroid/util/ArraySet;
 
     move-result-object v4
 
@@ -1689,7 +1689,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v1, p1}, Lcom/android/server/pm/PackageManagerService;->access$11500(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;)I
+    invoke-static {v1, p1}, Lcom/android/server/pm/PackageManagerService;->access$11800(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;)I
 
     move-result v1
 
@@ -1714,7 +1714,7 @@
 
     const/16 v1, 0x3e8
 
-    invoke-static {v0, p1, p2, p3, v1}, Lcom/android/server/pm/PackageManagerService;->access$9700(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;III)I
+    invoke-static {v0, p1, p2, p3, v1}, Lcom/android/server/pm/PackageManagerService;->access$10000(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;III)I
 
     move-result v0
 
@@ -1798,7 +1798,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v1, p1, p2}, Lcom/android/server/pm/PackageManagerService;->access$12000(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;I)[Ljava/lang/String;
+    invoke-static {v1, p1, p2}, Lcom/android/server/pm/PackageManagerService;->access$12300(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;I)[Ljava/lang/String;
 
     move-result-object v1
 
@@ -2176,7 +2176,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v1, p1}, Lcom/android/server/pm/PackageManagerService;->access$11400(Lcom/android/server/pm/PackageManagerService;I)I
+    invoke-static {v1, p1}, Lcom/android/server/pm/PackageManagerService;->access$11700(Lcom/android/server/pm/PackageManagerService;I)I
 
     move-result v1
 
@@ -2229,7 +2229,7 @@
 
     move-result-object v4
 
-    invoke-static {v3, v4, p1, p4}, Lcom/android/server/pm/PackageManagerService;->access$10500(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;II)Z
+    invoke-static {v3, v4, p1, p4}, Lcom/android/server/pm/PackageManagerService;->access$10800(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;II)Z
 
     move-result v3
 
@@ -2699,7 +2699,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0, p1, p2, p3}, Lcom/android/server/pm/PackageManagerService;->access$12600(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;II)I
+    invoke-static {v0, p1, p2, p3}, Lcom/android/server/pm/PackageManagerService;->access$12900(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;II)I
 
     move-result v0
 
@@ -3009,7 +3009,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/pm/PackageManagerService;->access$12400(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0, p1}, Lcom/android/server/pm/PackageManagerService;->access$12700(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -3057,7 +3057,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v1, p1, p2}, Lcom/android/server/pm/PackageManagerService;->access$11800(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;I)V
+    invoke-static {v1, p1, p2}, Lcom/android/server/pm/PackageManagerService;->access$12100(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;I)V
 
     monitor-exit v0
 
@@ -3086,7 +3086,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$10600(Lcom/android/server/pm/PackageManagerService;)Ljava/io/File;
+    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$10900(Lcom/android/server/pm/PackageManagerService;)Ljava/io/File;
 
     move-result-object v0
 
@@ -3099,7 +3099,7 @@
 
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$10600(Lcom/android/server/pm/PackageManagerService;)Ljava/io/File;
+    invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$10900(Lcom/android/server/pm/PackageManagerService;)Ljava/io/File;
 
     move-result-object v1
 
@@ -3238,7 +3238,7 @@
 
     move v6, p5
 
-    invoke-static/range {v0 .. v8}, Lcom/android/server/pm/PackageManagerService;->access$10000(Lcom/android/server/pm/PackageManagerService;Landroid/content/Intent;Ljava/lang/String;IIIIZZ)Ljava/util/List;
+    invoke-static/range {v0 .. v8}, Lcom/android/server/pm/PackageManagerService;->access$10300(Lcom/android/server/pm/PackageManagerService;Landroid/content/Intent;Ljava/lang/String;IIIIZZ)Ljava/util/List;
 
     move-result-object v0
 
@@ -3284,7 +3284,7 @@
 
     move v6, p3
 
-    invoke-static/range {v1 .. v7}, Lcom/android/server/pm/PackageManagerService;->access$10100(Lcom/android/server/pm/PackageManagerService;Landroid/content/Intent;Ljava/lang/String;IIIZ)Ljava/util/List;
+    invoke-static/range {v1 .. v7}, Lcom/android/server/pm/PackageManagerService;->access$10400(Lcom/android/server/pm/PackageManagerService;Landroid/content/Intent;Ljava/lang/String;IIIZ)Ljava/util/List;
 
     move-result-object v1
 
@@ -3328,7 +3328,7 @@
     :cond_1
     iget-object v2, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v2}, Lcom/android/server/pm/PackageManagerService;->access$6800(Lcom/android/server/pm/PackageManagerService;)Landroid/os/incremental/IncrementalManager;
+    invoke-static {v2}, Lcom/android/server/pm/PackageManagerService;->access$7100(Lcom/android/server/pm/PackageManagerService;)Landroid/os/incremental/IncrementalManager;
 
     move-result-object v2
 
@@ -3343,7 +3343,7 @@
     :cond_2
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$6800(Lcom/android/server/pm/PackageManagerService;)Landroid/os/incremental/IncrementalManager;
+    invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$7100(Lcom/android/server/pm/PackageManagerService;)Landroid/os/incremental/IncrementalManager;
 
     move-result-object v1
 
@@ -3543,7 +3543,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$9400(Lcom/android/server/pm/PackageManagerService;)Landroid/util/ArraySet;
+    invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$9700(Lcom/android/server/pm/PackageManagerService;)Landroid/util/ArraySet;
 
     move-result-object v1
 
@@ -3588,7 +3588,7 @@
 
     move-object/from16 v10, p9
 
-    invoke-static/range {v1 .. v10}, Lcom/android/server/pm/PackageManagerService;->access$12500(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;ZIILjava/util/List;Landroid/content/pm/IOnChecksumsReadyListener;ILjava/util/concurrent/Executor;Landroid/os/Handler;)V
+    invoke-static/range {v1 .. v10}, Lcom/android/server/pm/PackageManagerService;->access$12800(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;ZIILjava/util/List;Landroid/content/pm/IOnChecksumsReadyListener;ILjava/util/concurrent/Executor;Landroid/os/Handler;)V
 
     return-void
 .end method
@@ -3616,7 +3616,7 @@
 
     move/from16 v9, p8
 
-    invoke-static/range {v1 .. v9}, Lcom/android/server/pm/PackageManagerService;->access$10400(Lcom/android/server/pm/PackageManagerService;Landroid/content/pm/AuxiliaryResolveInfo;Landroid/content/Intent;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLandroid/os/Bundle;I)V
+    invoke-static/range {v1 .. v9}, Lcom/android/server/pm/PackageManagerService;->access$10700(Lcom/android/server/pm/PackageManagerService;Landroid/content/pm/AuxiliaryResolveInfo;Landroid/content/Intent;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLandroid/os/Bundle;I)V
 
     return-void
 .end method
@@ -3626,7 +3626,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0, p1, p2, p3}, Lcom/android/server/pm/PackageManagerService;->access$11200(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;II)Landroid/content/pm/ProviderInfo;
+    invoke-static {v0, p1, p2, p3}, Lcom/android/server/pm/PackageManagerService;->access$11500(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;II)Landroid/content/pm/ProviderInfo;
 
     move-result-object v0
 
@@ -3638,7 +3638,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0, p1, p2, p3, p4}, Lcom/android/server/pm/PackageManagerService;->access$11300(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;III)Landroid/content/pm/ProviderInfo;
+    invoke-static {v0, p1, p2, p3, p4}, Lcom/android/server/pm/PackageManagerService;->access$11600(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;III)Landroid/content/pm/ProviderInfo;
 
     move-result-object v0
 
@@ -3664,7 +3664,7 @@
 
     move v7, p7
 
-    invoke-static/range {v0 .. v7}, Lcom/android/server/pm/PackageManagerService;->access$11000(Lcom/android/server/pm/PackageManagerService;Landroid/content/Intent;Ljava/lang/String;IIIZI)Landroid/content/pm/ResolveInfo;
+    invoke-static/range {v0 .. v7}, Lcom/android/server/pm/PackageManagerService;->access$11300(Lcom/android/server/pm/PackageManagerService;Landroid/content/Intent;Ljava/lang/String;IIIZI)Landroid/content/pm/ResolveInfo;
 
     move-result-object v0
 
@@ -3686,7 +3686,7 @@
 
     move v5, p5
 
-    invoke-static/range {v0 .. v5}, Lcom/android/server/pm/PackageManagerService;->access$11100(Lcom/android/server/pm/PackageManagerService;Landroid/content/Intent;Ljava/lang/String;III)Landroid/content/pm/ResolveInfo;
+    invoke-static/range {v0 .. v5}, Lcom/android/server/pm/PackageManagerService;->access$11400(Lcom/android/server/pm/PackageManagerService;Landroid/content/Intent;Ljava/lang/String;III)Landroid/content/pm/ResolveInfo;
 
     move-result-object v0
 
@@ -3784,7 +3784,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0, p1, p2}, Lcom/android/server/pm/PackageManagerService;->access$12200(Lcom/android/server/pm/PackageManagerService;II)V
+    invoke-static {v0, p1, p2}, Lcom/android/server/pm/PackageManagerService;->access$12500(Lcom/android/server/pm/PackageManagerService;II)V
 
     return-void
 .end method
@@ -3871,7 +3871,7 @@
 
     const-wide/16 v12, -0x1
 
-    invoke-static {v11, v10, v12, v13}, Lcom/android/server/pm/PackageManagerService;->access$10800(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;J)Landroid/content/pm/SharedLibraryInfo;
+    invoke-static {v11, v10, v12, v13}, Lcom/android/server/pm/PackageManagerService;->access$11100(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;J)Landroid/content/pm/SharedLibraryInfo;
 
     move-result-object v11
 
@@ -3884,7 +3884,7 @@
 
     const/16 v13, 0x3e8
 
-    invoke-static {v12, v11, v8, v13, v2}, Lcom/android/server/pm/PackageManagerService;->access$10900(Lcom/android/server/pm/PackageManagerService;Landroid/content/pm/SharedLibraryInfo;III)Ljava/util/List;
+    invoke-static {v12, v11, v8, v13, v2}, Lcom/android/server/pm/PackageManagerService;->access$11200(Lcom/android/server/pm/PackageManagerService;Landroid/content/pm/SharedLibraryInfo;III)Ljava/util/List;
 
     move-result-object v12
 
@@ -4076,7 +4076,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/pm/PackageManagerService;->access$9500(Lcom/android/server/pm/PackageManagerService;Ljava/util/List;)V
+    invoke-static {v0, p1}, Lcom/android/server/pm/PackageManagerService;->access$9800(Lcom/android/server/pm/PackageManagerService;Ljava/util/List;)V
 
     return-void
 .end method
@@ -4379,7 +4379,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v1, p1}, Lcom/android/server/pm/PackageManagerService;->access$10300(Lcom/android/server/pm/PackageManagerService;I)Z
+    invoke-static {v1, p1}, Lcom/android/server/pm/PackageManagerService;->access$10600(Lcom/android/server/pm/PackageManagerService;I)Z
 
     move-result v1
 
@@ -4444,13 +4444,13 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$3500(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$Computer;
+    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$3800(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$Computer;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$12700(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$ComputerLocked;
+    invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$13000(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$ComputerLocked;
 
     move-result-object v1
 
@@ -4514,13 +4514,13 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$3500(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$Computer;
+    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$3800(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$Computer;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$12700(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$ComputerLocked;
+    invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$13000(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$ComputerLocked;
 
     move-result-object v1
 
@@ -4595,13 +4595,13 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$3500(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$Computer;
+    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$3800(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$Computer;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$12700(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$ComputerLocked;
+    invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$13000(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$ComputerLocked;
 
     move-result-object v1
 
@@ -4674,13 +4674,13 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$3500(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$Computer;
+    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$3800(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$Computer;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$12700(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$ComputerLocked;
+    invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$13000(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$ComputerLocked;
 
     move-result-object v1
 
@@ -4753,13 +4753,13 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$3500(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$Computer;
+    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$3800(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$Computer;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$12700(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$ComputerLocked;
+    invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$13000(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$ComputerLocked;
 
     move-result-object v1
 
@@ -4883,7 +4883,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$PackageManagerInternalImpl;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$4000(Lcom/android/server/pm/PackageManagerService;)V
+    invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$4300(Lcom/android/server/pm/PackageManagerService;)V
 
     :goto_0
     monitor-exit v0

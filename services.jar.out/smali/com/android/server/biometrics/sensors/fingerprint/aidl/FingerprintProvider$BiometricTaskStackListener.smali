@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public synthetic lambda$onTaskStackChanged$0$FingerprintProvider$BiometricTaskStackListener()V
-    .locals 7
+    .locals 8
 
     const/4 v0, 0x0
 
@@ -231,7 +231,11 @@
 
     move-result-object v5
 
-    invoke-virtual {v4, v5}, Lcom/android/server/biometrics/sensors/BiometricScheduler;->cancelAuthenticationOrDetection(Landroid/os/IBinder;)V
+    invoke-virtual {v1}, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->getRequestId()J
+
+    move-result-wide v6
+
+    invoke-virtual {v4, v5, v6, v7}, Lcom/android/server/biometrics/sensors/BiometricScheduler;->cancelAuthenticationOrDetection(Landroid/os/IBinder;J)V
 
     :cond_2
     :goto_1

@@ -27,7 +27,7 @@
 
     iget-object v0, p0, Lcom/android/server/location/gnss/GnssLocationProvider$$ExternalSyntheticLambda7;->f$0:Lcom/android/server/location/gnss/GnssLocationProvider;
 
-    invoke-static {v0}, Lcom/android/server/location/gnss/GnssLocationProvider;->$r8$lambda$-PME8ZL8sG3USjmYPKRmOppFXaY(Lcom/android/server/location/gnss/GnssLocationProvider;)V
+    invoke-virtual {v0}, Lcom/android/server/location/gnss/GnssLocationProvider;->lambda$onCapabilitiesChanged$5$GnssLocationProvider()V
 
     return-void
 .end method

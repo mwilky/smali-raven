@@ -39,8 +39,8 @@
 
 
 # virtual methods
-.method public authenticate(Landroid/os/IBinder;JILandroid/hardware/biometrics/IBiometricServiceReceiver;Ljava/lang/String;Landroid/hardware/biometrics/PromptInfo;)V
-    .locals 3
+.method public authenticate(Landroid/os/IBinder;JILandroid/hardware/biometrics/IBiometricServiceReceiver;Ljava/lang/String;Landroid/hardware/biometrics/PromptInfo;)J
+    .locals 5
 
     iget-object v0, p0, Lcom/android/server/biometrics/BiometricService$BiometricServiceWrapper;->this$0:Lcom/android/server/biometrics/BiometricService;
 
@@ -96,39 +96,55 @@
     invoke-virtual {p7, v0}, Landroid/hardware/biometrics/PromptInfo;->setTitle(Ljava/lang/CharSequence;)V
 
     :cond_1
-    invoke-static {}, Lcom/android/internal/os/SomeArgs;->obtain()Lcom/android/internal/os/SomeArgs;
+    iget-object v0, p0, Lcom/android/server/biometrics/BiometricService$BiometricServiceWrapper;->this$0:Lcom/android/server/biometrics/BiometricService;
+
+    invoke-static {v0}, Lcom/android/server/biometrics/BiometricService;->access$1700(Lcom/android/server/biometrics/BiometricService;)Ljava/util/concurrent/atomic/AtomicLong;
 
     move-result-object v0
 
-    iput-object p1, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicLong;->incrementAndGet()J
+
+    move-result-wide v0
+
+    invoke-static {}, Lcom/android/internal/os/SomeArgs;->obtain()Lcom/android/internal/os/SomeArgs;
+
+    move-result-object v2
+
+    iput-object p1, v2, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
     invoke-static {p2, p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v1
+    move-result-object v3
 
-    iput-object v1, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+    iput-object v3, v2, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
-    iput p4, v0, Lcom/android/internal/os/SomeArgs;->argi1:I
+    iput p4, v2, Lcom/android/internal/os/SomeArgs;->argi1:I
 
-    iput-object p5, v0, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
+    iput-object p5, v2, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
 
-    iput-object p6, v0, Lcom/android/internal/os/SomeArgs;->arg4:Ljava/lang/Object;
+    iput-object p6, v2, Lcom/android/internal/os/SomeArgs;->arg4:Ljava/lang/Object;
 
-    iput-object p7, v0, Lcom/android/internal/os/SomeArgs;->arg5:Ljava/lang/Object;
+    iput-object p7, v2, Lcom/android/internal/os/SomeArgs;->arg5:Ljava/lang/Object;
 
-    iget-object v1, p0, Lcom/android/server/biometrics/BiometricService$BiometricServiceWrapper;->this$0:Lcom/android/server/biometrics/BiometricService;
+    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    iget-object v1, v1, Lcom/android/server/biometrics/BiometricService;->mHandler:Landroid/os/Handler;
+    move-result-object v3
 
-    const/16 v2, 0x9
+    iput-object v3, v2, Lcom/android/internal/os/SomeArgs;->arg6:Ljava/lang/Object;
 
-    invoke-virtual {v1, v2, v0}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    iget-object v3, p0, Lcom/android/server/biometrics/BiometricService$BiometricServiceWrapper;->this$0:Lcom/android/server/biometrics/BiometricService;
 
-    move-result-object v1
+    iget-object v3, v3, Lcom/android/server/biometrics/BiometricService;->mHandler:Landroid/os/Handler;
 
-    invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
+    const/16 v4, 0x9
 
-    return-void
+    invoke-virtual {v3, v4, v2}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/os/Message;->sendToTarget()V
+
+    return-wide v0
 
     :cond_2
     new-instance v0, Ljava/lang/SecurityException;
@@ -147,7 +163,9 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-void
+    const-wide/16 v0, -0x1
+
+    return-wide v0
 .end method
 
 .method public canAuthenticate(Ljava/lang/String;III)I
@@ -196,7 +214,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/biometrics/BiometricService$BiometricServiceWrapper;->this$0:Lcom/android/server/biometrics/BiometricService;
 
-    invoke-static {v0, p1, p2, p4}, Lcom/android/server/biometrics/BiometricService;->access$1700(Lcom/android/server/biometrics/BiometricService;Ljava/lang/String;II)Lcom/android/server/biometrics/PreAuthInfo;
+    invoke-static {v0, p1, p2, p4}, Lcom/android/server/biometrics/BiometricService;->access$1800(Lcom/android/server/biometrics/BiometricService;Ljava/lang/String;II)Lcom/android/server/biometrics/PreAuthInfo;
 
     move-result-object v0
 
@@ -229,24 +247,38 @@
     throw v0
 .end method
 
-.method public cancelAuthentication(Landroid/os/IBinder;Ljava/lang/String;)V
-    .locals 2
+.method public cancelAuthentication(Landroid/os/IBinder;Ljava/lang/String;J)V
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/biometrics/BiometricService$BiometricServiceWrapper;->this$0:Lcom/android/server/biometrics/BiometricService;
 
     invoke-static {v0}, Lcom/android/server/biometrics/BiometricService;->access$1600(Lcom/android/server/biometrics/BiometricService;)V
 
-    iget-object v0, p0, Lcom/android/server/biometrics/BiometricService$BiometricServiceWrapper;->this$0:Lcom/android/server/biometrics/BiometricService;
-
-    iget-object v0, v0, Lcom/android/server/biometrics/BiometricService;->mHandler:Landroid/os/Handler;
-
-    const/16 v1, 0xa
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+    invoke-static {}, Lcom/android/internal/os/SomeArgs;->obtain()Lcom/android/internal/os/SomeArgs;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+    iput-object p1, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+
+    iput-object p2, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
+
+    invoke-static {p3, p4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
+
+    iget-object v1, p0, Lcom/android/server/biometrics/BiometricService$BiometricServiceWrapper;->this$0:Lcom/android/server/biometrics/BiometricService;
+
+    iget-object v1, v1, Lcom/android/server/biometrics/BiometricService;->mHandler:Landroid/os/Handler;
+
+    const/16 v2, 0xa
+
+    invoke-virtual {v1, v2, v0}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
 
     return-void
 .end method
@@ -473,7 +505,7 @@
     :cond_4
     iget-object v0, p0, Lcom/android/server/biometrics/BiometricService$BiometricServiceWrapper;->this$0:Lcom/android/server/biometrics/BiometricService;
 
-    invoke-static {v0, p2}, Lcom/android/server/biometrics/BiometricService;->access$1900(Lcom/android/server/biometrics/BiometricService;Ljava/io/PrintWriter;)V
+    invoke-static {v0, p2}, Lcom/android/server/biometrics/BiometricService;->access$2000(Lcom/android/server/biometrics/BiometricService;Ljava/io/PrintWriter;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -725,7 +757,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/biometrics/BiometricService$BiometricServiceWrapper;->this$0:Lcom/android/server/biometrics/BiometricService;
 
-    invoke-static {v0, p1, p2, p4}, Lcom/android/server/biometrics/BiometricService;->access$1700(Lcom/android/server/biometrics/BiometricService;Ljava/lang/String;II)Lcom/android/server/biometrics/PreAuthInfo;
+    invoke-static {v0, p1, p2, p4}, Lcom/android/server/biometrics/BiometricService;->access$1800(Lcom/android/server/biometrics/BiometricService;Ljava/lang/String;II)Lcom/android/server/biometrics/PreAuthInfo;
 
     move-result-object v0
 
@@ -1343,7 +1375,7 @@
 
     iget-object v0, p0, Lcom/android/server/biometrics/BiometricService$BiometricServiceWrapper;->this$0:Lcom/android/server/biometrics/BiometricService;
 
-    invoke-static {v0, p3}, Lcom/android/server/biometrics/BiometricService;->access$1800(Lcom/android/server/biometrics/BiometricService;I)Lcom/android/server/biometrics/BiometricSensor;
+    invoke-static {v0, p3}, Lcom/android/server/biometrics/BiometricService;->access$1900(Lcom/android/server/biometrics/BiometricService;I)Lcom/android/server/biometrics/BiometricSensor;
 
     move-result-object v0
 

@@ -442,7 +442,21 @@
 
     move-result v2
 
-    if-eq v0, v2, :cond_3
+    if-ne v0, v2, :cond_2
+
+    iget-object v0, p0, Lcom/android/server/notification/NotificationRecordLogger$NotificationRecordPair;->r:Lcom/android/server/notification/NotificationRecord;
+
+    iget-object v2, p0, Lcom/android/server/notification/NotificationRecordLogger$NotificationRecordPair;->old:Lcom/android/server/notification/NotificationRecord;
+
+    invoke-virtual {v2}, Lcom/android/server/notification/NotificationRecord;->getRankingScore()F
+
+    move-result v2
+
+    invoke-virtual {v0, v2}, Lcom/android/server/notification/NotificationRecord;->rankingScoreMatches(F)Z
+
+    move-result v0
+
+    if-nez v0, :cond_3
 
     :cond_2
     move v1, v3

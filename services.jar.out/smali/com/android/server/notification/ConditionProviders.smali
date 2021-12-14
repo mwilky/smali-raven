@@ -76,7 +76,7 @@
 
     const-string/jumbo v1, "system.condition.providers"
 
-    const v2, 0x107007d
+    const v2, 0x107007e
 
     invoke-static {v0, v1, v2}, Lcom/android/server/notification/PropConfig;->getStringArray(Landroid/content/Context;Ljava/lang/String;I)[Ljava/lang/String;
 

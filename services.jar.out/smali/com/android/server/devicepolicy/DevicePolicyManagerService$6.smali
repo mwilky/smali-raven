@@ -83,7 +83,7 @@
 
     iget v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$6;->val$userId:I
 
-    invoke-static {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->access$4100(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Ljava/lang/String;I)V
+    invoke-static {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->access$4200(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Ljava/lang/String;I)V
 
     return-void
 .end method

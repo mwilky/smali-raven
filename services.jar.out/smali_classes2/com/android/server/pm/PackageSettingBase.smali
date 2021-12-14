@@ -467,8 +467,8 @@
     return-void
 .end method
 
-.method addOrUpdateSuspension(Ljava/lang/String;Landroid/content/pm/SuspendDialogInfo;Landroid/os/PersistableBundle;Landroid/os/PersistableBundle;I)V
-    .locals 3
+.method addOrUpdateSuspension(Ljava/lang/String;Landroid/content/pm/SuspendDialogInfo;Landroid/os/PersistableBundle;Landroid/os/PersistableBundle;I)Z
+    .locals 5
 
     invoke-virtual {p0, p5}, Lcom/android/server/pm/PackageSettingBase;->modifyUserState(I)Landroid/content/pm/PackageUserState;
 
@@ -495,13 +495,23 @@
 
     invoke-virtual {v2, p1, v1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const/4 v2, 0x1
+    move-result-object v2
 
-    iput-boolean v2, v0, Landroid/content/pm/PackageUserState;->suspended:Z
+    check-cast v2, Landroid/content/pm/PackageUserState$SuspendParams;
+
+    const/4 v3, 0x1
+
+    iput-boolean v3, v0, Landroid/content/pm/PackageUserState;->suspended:Z
 
     invoke-virtual {p0}, Lcom/android/server/pm/PackageSettingBase;->onChanged()V
 
-    return-void
+    invoke-static {v2, v1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v4
+
+    xor-int/2addr v3, v4
+
+    return v3
 .end method
 
 .method public copyFrom(Lcom/android/server/pm/PackageSettingBase;)V
@@ -1371,53 +1381,6 @@
     return-void
 .end method
 
-.method removeSuspension(Ljava/lang/String;I)V
-    .locals 2
-
-    invoke-virtual {p0, p2}, Lcom/android/server/pm/PackageSettingBase;->modifyUserState(I)Landroid/content/pm/PackageUserState;
-
-    move-result-object v0
-
-    iget-object v1, v0, Landroid/content/pm/PackageUserState;->suspendParams:Landroid/util/ArrayMap;
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, v0, Landroid/content/pm/PackageUserState;->suspendParams:Landroid/util/ArrayMap;
-
-    invoke-virtual {v1, p1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v1, v0, Landroid/content/pm/PackageUserState;->suspendParams:Landroid/util/ArrayMap;
-
-    invoke-virtual {v1}, Landroid/util/ArrayMap;->size()I
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const/4 v1, 0x0
-
-    iput-object v1, v0, Landroid/content/pm/PackageUserState;->suspendParams:Landroid/util/ArrayMap;
-
-    :cond_0
-    iget-object v1, v0, Landroid/content/pm/PackageUserState;->suspendParams:Landroid/util/ArrayMap;
-
-    if-eqz v1, :cond_1
-
-    const/4 v1, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v1, 0x0
-
-    :goto_0
-    iput-boolean v1, v0, Landroid/content/pm/PackageUserState;->suspended:Z
-
-    invoke-virtual {p0}, Lcom/android/server/pm/PackageSettingBase;->onChanged()V
-
-    return-void
-.end method
-
 .method removeSuspension(Ljava/util/function/Predicate;I)V
     .locals 5
     .annotation system Ldalvik/annotation/Signature;
@@ -1502,6 +1465,62 @@
     invoke-virtual {p0}, Lcom/android/server/pm/PackageSettingBase;->onChanged()V
 
     return-void
+.end method
+
+.method removeSuspension(Ljava/lang/String;I)Z
+    .locals 3
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, p2}, Lcom/android/server/pm/PackageSettingBase;->modifyUserState(I)Landroid/content/pm/PackageUserState;
+
+    move-result-object v1
+
+    iget-object v2, v1, Landroid/content/pm/PackageUserState;->suspendParams:Landroid/util/ArrayMap;
+
+    if-eqz v2, :cond_1
+
+    iget-object v2, v1, Landroid/content/pm/PackageUserState;->suspendParams:Landroid/util/ArrayMap;
+
+    invoke-virtual {v2, p1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    iget-object v2, v1, Landroid/content/pm/PackageUserState;->suspendParams:Landroid/util/ArrayMap;
+
+    invoke-virtual {v2}, Landroid/util/ArrayMap;->size()I
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    const/4 v2, 0x0
+
+    iput-object v2, v1, Landroid/content/pm/PackageUserState;->suspendParams:Landroid/util/ArrayMap;
+
+    :cond_1
+    iget-object v2, v1, Landroid/content/pm/PackageUserState;->suspendParams:Landroid/util/ArrayMap;
+
+    if-eqz v2, :cond_2
+
+    const/4 v2, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    const/4 v2, 0x0
+
+    :goto_0
+    iput-boolean v2, v1, Landroid/content/pm/PackageUserState;->suspended:Z
+
+    invoke-virtual {p0}, Lcom/android/server/pm/PackageSettingBase;->onChanged()V
+
+    return v0
 .end method
 
 .method removeUser(I)V

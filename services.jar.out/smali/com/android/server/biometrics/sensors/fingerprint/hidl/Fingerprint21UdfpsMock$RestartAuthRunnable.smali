@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 26
+    .locals 25
 
     move-object/from16 v0, p0
 
@@ -135,39 +135,39 @@
 
     invoke-virtual {v1}, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->getToken()Landroid/os/IBinder;
 
-    move-result-object v16
+    move-result-object v15
 
     invoke-virtual {v2}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintAuthenticationClient;->getOperationId()J
 
-    move-result-wide v17
+    move-result-wide v16
 
     invoke-virtual {v1}, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->getTargetUserId()I
 
-    move-result v19
+    move-result v18
 
     invoke-virtual {v1}, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->getCookie()I
 
-    move-result v20
+    move-result v19
 
     invoke-virtual {v1}, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->getListener()Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;
 
-    move-result-object v21
+    move-result-object v20
 
     invoke-virtual {v1}, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->getOwnerString()Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v21
 
     invoke-virtual {v2}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintAuthenticationClient;->isRestricted()Z
 
-    move-result v23
+    move-result v22
 
     invoke-virtual {v1}, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->getStatsClient()I
 
-    move-result v24
+    move-result v23
 
     invoke-virtual {v2}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintAuthenticationClient;->isKeyguard()Z
 
-    move-result v25
+    move-result v24
 
     iget-object v3, v0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/Fingerprint21UdfpsMock$RestartAuthRunnable;->mScheduler:Lcom/android/server/biometrics/sensors/fingerprint/hidl/Fingerprint21UdfpsMock$TestableBiometricScheduler;
 
@@ -187,27 +187,25 @@
 
     iget v4, v4, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->sensorId:I
 
-    const/4 v15, 0x0
+    move-object v5, v15
 
-    move-object/from16 v5, v16
+    move-wide/from16 v6, v16
 
-    move-wide/from16 v6, v17
+    move/from16 v8, v18
 
-    move/from16 v8, v19
+    move/from16 v9, v19
 
-    move/from16 v9, v20
+    move-object/from16 v10, v20
 
-    move-object/from16 v10, v21
+    move-object/from16 v11, v21
 
-    move-object/from16 v11, v22
+    move/from16 v12, v22
 
-    move/from16 v12, v23
+    move/from16 v13, v23
 
-    move/from16 v13, v24
+    move/from16 v14, v24
 
-    move/from16 v14, v25
-
-    invoke-virtual/range {v3 .. v15}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/Fingerprint21UdfpsMock;->scheduleAuthenticate(ILandroid/os/IBinder;JIILcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;Ljava/lang/String;ZIZLcom/android/server/biometrics/sensors/fingerprint/FingerprintStateCallback;)V
+    invoke-virtual/range {v3 .. v14}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/Fingerprint21UdfpsMock;->scheduleAuthenticate(ILandroid/os/IBinder;JIILcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;Ljava/lang/String;ZIZ)J
 
     return-void
 .end method

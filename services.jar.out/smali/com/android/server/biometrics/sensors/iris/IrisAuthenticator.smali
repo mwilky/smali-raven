@@ -20,7 +20,7 @@
 
 
 # virtual methods
-.method public cancelAuthenticationFromService(Landroid/os/IBinder;Ljava/lang/String;)V
+.method public cancelAuthenticationFromService(Landroid/os/IBinder;Ljava/lang/String;J)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -128,7 +128,7 @@
     return v0
 .end method
 
-.method public prepareForAuthentication(ZLandroid/os/IBinder;JILandroid/hardware/biometrics/IBiometricSensorReceiver;Ljava/lang/String;IZ)V
+.method public prepareForAuthentication(ZLandroid/os/IBinder;JILandroid/hardware/biometrics/IBiometricSensorReceiver;Ljava/lang/String;JIZ)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {

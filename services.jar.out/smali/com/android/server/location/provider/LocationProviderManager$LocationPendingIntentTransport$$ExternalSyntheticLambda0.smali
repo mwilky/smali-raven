@@ -6,16 +6,16 @@
 
 
 # instance fields
-.field public final synthetic f$0:Ljava/lang/Runnable;
+.field public final synthetic f$0:Lcom/android/server/location/provider/LocationProviderManager$GatedCallback;
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/lang/Runnable;)V
+.method public synthetic constructor <init>(Lcom/android/server/location/provider/LocationProviderManager$GatedCallback;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/location/provider/LocationProviderManager$LocationPendingIntentTransport$$ExternalSyntheticLambda0;->f$0:Ljava/lang/Runnable;
+    iput-object p1, p0, Lcom/android/server/location/provider/LocationProviderManager$LocationPendingIntentTransport$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/location/provider/LocationProviderManager$GatedCallback;
 
     return-void
 .end method
@@ -25,7 +25,7 @@
 .method public final onSendFinished(Landroid/app/PendingIntent;Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;)V
     .locals 6
 
-    iget-object v0, p0, Lcom/android/server/location/provider/LocationProviderManager$LocationPendingIntentTransport$$ExternalSyntheticLambda0;->f$0:Ljava/lang/Runnable;
+    iget-object v0, p0, Lcom/android/server/location/provider/LocationProviderManager$LocationPendingIntentTransport$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/location/provider/LocationProviderManager$GatedCallback;
 
     move-object v1, p1
 
@@ -37,7 +37,7 @@
 
     move-object v5, p5
 
-    invoke-static/range {v0 .. v5}, Lcom/android/server/location/provider/LocationProviderManager$LocationPendingIntentTransport;->lambda$deliverOnLocationChanged$0(Ljava/lang/Runnable;Landroid/app/PendingIntent;Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;)V
+    invoke-static/range {v0 .. v5}, Lcom/android/server/location/provider/LocationProviderManager$LocationPendingIntentTransport;->lambda$deliverOnLocationChanged$0(Lcom/android/server/location/provider/LocationProviderManager$GatedCallback;Landroid/app/PendingIntent;Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;)V
 
     return-void
 .end method

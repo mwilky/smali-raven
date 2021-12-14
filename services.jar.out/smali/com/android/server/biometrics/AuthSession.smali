@@ -25,6 +25,8 @@
 # instance fields
 .field private mAuthenticatedTimeMs:J
 
+.field private mCancelled:Z
+
 .field private final mClientDeathReceiver:Lcom/android/server/biometrics/AuthSession$ClientDeathReceiver;
 
 .field private final mClientReceiver:Landroid/hardware/biometrics/IBiometricServiceReceiver;
@@ -61,6 +63,8 @@
 
 .field private final mRandom:Ljava/util/Random;
 
+.field private final mRequestId:J
+
 .field private final mSensorReceiver:Landroid/hardware/biometrics/IBiometricSensorReceiver;
 
 .field private mSensors:[I
@@ -83,7 +87,7 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Lcom/android/internal/statusbar/IStatusBarService;Landroid/hardware/biometrics/IBiometricSysuiReceiver;Landroid/security/KeyStore;Ljava/util/Random;Lcom/android/server/biometrics/AuthSession$ClientDeathReceiver;Lcom/android/server/biometrics/PreAuthInfo;Landroid/os/IBinder;JILandroid/hardware/biometrics/IBiometricSensorReceiver;Landroid/hardware/biometrics/IBiometricServiceReceiver;Ljava/lang/String;Landroid/hardware/biometrics/PromptInfo;ZLjava/util/List;)V
+.method constructor <init>(Landroid/content/Context;Lcom/android/internal/statusbar/IStatusBarService;Landroid/hardware/biometrics/IBiometricSysuiReceiver;Landroid/security/KeyStore;Ljava/util/Random;Lcom/android/server/biometrics/AuthSession$ClientDeathReceiver;Lcom/android/server/biometrics/PreAuthInfo;Landroid/os/IBinder;JJILandroid/hardware/biometrics/IBiometricSensorReceiver;Landroid/hardware/biometrics/IBiometricServiceReceiver;Ljava/lang/String;Landroid/hardware/biometrics/PromptInfo;ZLjava/util/List;)V
     .locals 16
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -96,7 +100,7 @@
             "Lcom/android/server/biometrics/AuthSession$ClientDeathReceiver;",
             "Lcom/android/server/biometrics/PreAuthInfo;",
             "Landroid/os/IBinder;",
-            "JI",
+            "JJI",
             "Landroid/hardware/biometrics/IBiometricSensorReceiver;",
             "Landroid/hardware/biometrics/IBiometricServiceReceiver;",
             "Ljava/lang/String;",
@@ -168,38 +172,44 @@
 
     move-wide/from16 v11, p9
 
-    iput-wide v11, v1, Lcom/android/server/biometrics/AuthSession;->mOperationId:J
+    iput-wide v11, v1, Lcom/android/server/biometrics/AuthSession;->mRequestId:J
 
-    move/from16 v13, p11
+    move-wide/from16 v13, p11
 
-    iput v13, v1, Lcom/android/server/biometrics/AuthSession;->mUserId:I
+    iput-wide v13, v1, Lcom/android/server/biometrics/AuthSession;->mOperationId:J
 
-    move-object/from16 v14, p12
+    move/from16 v15, p13
 
-    iput-object v14, v1, Lcom/android/server/biometrics/AuthSession;->mSensorReceiver:Landroid/hardware/biometrics/IBiometricSensorReceiver;
-
-    move-object/from16 v15, p13
-
-    iput-object v15, v1, Lcom/android/server/biometrics/AuthSession;->mClientReceiver:Landroid/hardware/biometrics/IBiometricServiceReceiver;
+    iput v15, v1, Lcom/android/server/biometrics/AuthSession;->mUserId:I
 
     move-object/from16 v2, p14
 
-    iput-object v2, v1, Lcom/android/server/biometrics/AuthSession;->mOpPackageName:Ljava/lang/String;
+    iput-object v2, v1, Lcom/android/server/biometrics/AuthSession;->mSensorReceiver:Landroid/hardware/biometrics/IBiometricSensorReceiver;
 
     move-object/from16 v2, p15
 
-    iput-object v2, v1, Lcom/android/server/biometrics/AuthSession;->mPromptInfo:Landroid/hardware/biometrics/PromptInfo;
+    iput-object v2, v1, Lcom/android/server/biometrics/AuthSession;->mClientReceiver:Landroid/hardware/biometrics/IBiometricServiceReceiver;
 
-    move/from16 v2, p16
+    move-object/from16 v2, p16
 
-    iput-boolean v2, v1, Lcom/android/server/biometrics/AuthSession;->mDebugEnabled:Z
+    iput-object v2, v1, Lcom/android/server/biometrics/AuthSession;->mOpPackageName:Ljava/lang/String;
 
     move-object/from16 v2, p17
 
+    iput-object v2, v1, Lcom/android/server/biometrics/AuthSession;->mPromptInfo:Landroid/hardware/biometrics/PromptInfo;
+
+    move/from16 v2, p18
+
+    iput-boolean v2, v1, Lcom/android/server/biometrics/AuthSession;->mDebugEnabled:Z
+
+    move-object/from16 v2, p19
+
     iput-object v2, v1, Lcom/android/server/biometrics/AuthSession;->mFingerprintSensorProperties:Ljava/util/List;
 
+    iput-boolean v0, v1, Lcom/android/server/biometrics/AuthSession;->mCancelled:Z
+
     :try_start_0
-    invoke-interface/range {p13 .. p13}, Landroid/hardware/biometrics/IBiometricServiceReceiver;->asBinder()Landroid/os/IBinder;
+    invoke-interface/range {p15 .. p15}, Landroid/hardware/biometrics/IBiometricServiceReceiver;->asBinder()Landroid/os/IBinder;
 
     move-result-object v0
 
@@ -235,7 +245,7 @@
 .end method
 
 .method private cancelAllSensors(Ljava/util/function/Function;)V
-    .locals 6
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -310,7 +320,9 @@
 
     iget-object v5, p0, Lcom/android/server/biometrics/AuthSession;->mOpPackageName:Ljava/lang/String;
 
-    invoke-virtual {v2, v4, v5}, Lcom/android/server/biometrics/BiometricSensor;->goToStateCancelling(Landroid/os/IBinder;Ljava/lang/String;)V
+    iget-wide v6, p0, Lcom/android/server/biometrics/AuthSession;->mRequestId:J
+
+    invoke-virtual {v2, v4, v5, v6, v7}, Lcom/android/server/biometrics/BiometricSensor;->goToStateCancelling(Landroid/os/IBinder;Ljava/lang/String;J)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -900,71 +912,75 @@
 .end method
 
 .method private setSensorsToStateWaitingForCookie()V
-    .locals 14
+    .locals 17
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/biometrics/AuthSession;->mPreAuthInfo:Lcom/android/server/biometrics/PreAuthInfo;
+    move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/server/biometrics/PreAuthInfo;->eligibleSensors:Ljava/util/List;
+    iget-object v1, v0, Lcom/android/server/biometrics/AuthSession;->mPreAuthInfo:Lcom/android/server/biometrics/PreAuthInfo;
 
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    iget-object v1, v1, Lcom/android/server/biometrics/PreAuthInfo;->eligibleSensors:Ljava/util/List;
 
-    move-result-object v0
-
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    check-cast v1, Lcom/android/server/biometrics/BiometricSensor;
-
-    iget-object v2, p0, Lcom/android/server/biometrics/AuthSession;->mRandom:Ljava/util/Random;
-
-    const v3, 0x7ffffffe
-
-    invoke-virtual {v2, v3}, Ljava/util/Random;->nextInt(I)I
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    add-int/lit8 v12, v2, 0x1
+    if-eqz v2, :cond_0
 
-    invoke-direct {p0, v1}, Lcom/android/server/biometrics/AuthSession;->isConfirmationRequired(Lcom/android/server/biometrics/BiometricSensor;)Z
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result v13
+    move-result-object v2
 
-    iget-object v4, p0, Lcom/android/server/biometrics/AuthSession;->mToken:Landroid/os/IBinder;
+    check-cast v2, Lcom/android/server/biometrics/BiometricSensor;
 
-    iget-wide v5, p0, Lcom/android/server/biometrics/AuthSession;->mOperationId:J
+    iget-object v3, v0, Lcom/android/server/biometrics/AuthSession;->mRandom:Ljava/util/Random;
 
-    iget v7, p0, Lcom/android/server/biometrics/AuthSession;->mUserId:I
+    const v4, 0x7ffffffe
 
-    iget-object v8, p0, Lcom/android/server/biometrics/AuthSession;->mSensorReceiver:Landroid/hardware/biometrics/IBiometricSensorReceiver;
+    invoke-virtual {v3, v4}, Ljava/util/Random;->nextInt(I)I
 
-    iget-object v9, p0, Lcom/android/server/biometrics/AuthSession;->mOpPackageName:Ljava/lang/String;
+    move-result v3
 
-    iget-object v2, p0, Lcom/android/server/biometrics/AuthSession;->mPromptInfo:Landroid/hardware/biometrics/PromptInfo;
+    add-int/lit8 v15, v3, 0x1
 
-    invoke-virtual {v2}, Landroid/hardware/biometrics/PromptInfo;->isAllowBackgroundAuthentication()Z
+    invoke-direct {v0, v2}, Lcom/android/server/biometrics/AuthSession;->isConfirmationRequired(Lcom/android/server/biometrics/BiometricSensor;)Z
 
-    move-result v11
+    move-result v16
 
-    move-object v2, v1
+    iget-object v5, v0, Lcom/android/server/biometrics/AuthSession;->mToken:Landroid/os/IBinder;
 
-    move v3, v13
+    iget-wide v6, v0, Lcom/android/server/biometrics/AuthSession;->mOperationId:J
 
-    move v10, v12
+    iget v8, v0, Lcom/android/server/biometrics/AuthSession;->mUserId:I
 
-    invoke-virtual/range {v2 .. v11}, Lcom/android/server/biometrics/BiometricSensor;->goToStateWaitingForCookie(ZLandroid/os/IBinder;JILandroid/hardware/biometrics/IBiometricSensorReceiver;Ljava/lang/String;IZ)V
+    iget-object v9, v0, Lcom/android/server/biometrics/AuthSession;->mSensorReceiver:Landroid/hardware/biometrics/IBiometricSensorReceiver;
+
+    iget-object v10, v0, Lcom/android/server/biometrics/AuthSession;->mOpPackageName:Ljava/lang/String;
+
+    iget-wide v11, v0, Lcom/android/server/biometrics/AuthSession;->mRequestId:J
+
+    iget-object v3, v0, Lcom/android/server/biometrics/AuthSession;->mPromptInfo:Landroid/hardware/biometrics/PromptInfo;
+
+    invoke-virtual {v3}, Landroid/hardware/biometrics/PromptInfo;->isAllowBackgroundAuthentication()Z
+
+    move-result v14
+
+    move-object v3, v2
+
+    move/from16 v4, v16
+
+    move v13, v15
+
+    invoke-virtual/range {v3 .. v14}, Lcom/android/server/biometrics/BiometricSensor;->goToStateWaitingForCookie(ZLandroid/os/IBinder;JILandroid/hardware/biometrics/IBiometricSensorReceiver;Ljava/lang/String;JIZ)V
 
     goto :goto_0
 
@@ -1214,6 +1230,14 @@
     return-void
 .end method
 
+.method getRequestId()J
+    .locals 2
+
+    iget-wide v0, p0, Lcom/android/server/biometrics/AuthSession;->mRequestId:J
+
+    return-wide v0
+.end method
+
 .method getState()I
     .locals 1
 
@@ -1223,7 +1247,7 @@
 .end method
 
 .method goToInitialState()V
-    .locals 12
+    .locals 14
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -1256,9 +1280,9 @@
 
     iput-object v4, p0, Lcom/android/server/biometrics/AuthSession;->mSensors:[I
 
-    const/4 v11, 0x0
+    const/4 v13, 0x0
 
-    iput v11, p0, Lcom/android/server/biometrics/AuthSession;->mMultiSensorMode:I
+    iput v13, p0, Lcom/android/server/biometrics/AuthSession;->mMultiSensorMode:I
 
     iput v0, p0, Lcom/android/server/biometrics/AuthSession;->mMultiSensorState:I
 
@@ -1274,11 +1298,13 @@
 
     iget v7, p0, Lcom/android/server/biometrics/AuthSession;->mUserId:I
 
-    iget-object v8, p0, Lcom/android/server/biometrics/AuthSession;->mOpPackageName:Ljava/lang/String;
+    iget-wide v8, p0, Lcom/android/server/biometrics/AuthSession;->mOperationId:J
 
-    iget-wide v9, p0, Lcom/android/server/biometrics/AuthSession;->mOperationId:J
+    iget-object v10, p0, Lcom/android/server/biometrics/AuthSession;->mOpPackageName:Ljava/lang/String;
 
-    invoke-interface/range {v1 .. v11}, Lcom/android/internal/statusbar/IStatusBarService;->showAuthenticationDialog(Landroid/hardware/biometrics/PromptInfo;Landroid/hardware/biometrics/IBiometricSysuiReceiver;[IZZILjava/lang/String;JI)V
+    iget-wide v11, p0, Lcom/android/server/biometrics/AuthSession;->mRequestId:J
+
+    invoke-interface/range {v1 .. v13}, Lcom/android/internal/statusbar/IStatusBarService;->showAuthenticationDialog(Landroid/hardware/biometrics/PromptInfo;Landroid/hardware/biometrics/IBiometricSysuiReceiver;[IZZIJLjava/lang/String;JI)V
 
     goto :goto_0
 
@@ -1556,37 +1582,39 @@
 .method onCancelAuthSession(Z)Z
     .locals 6
 
-    iget v0, p0, Lcom/android/server/biometrics/AuthSession;->mState:I
+    const/4 v0, 0x1
 
-    const/4 v1, 0x1
+    iput-boolean v0, p0, Lcom/android/server/biometrics/AuthSession;->mCancelled:Z
+
+    iget v1, p0, Lcom/android/server/biometrics/AuthSession;->mState:I
 
     const/4 v2, 0x0
 
-    if-eq v0, v1, :cond_1
+    if-eq v1, v0, :cond_1
 
     const/4 v3, 0x2
 
-    if-eq v0, v3, :cond_1
+    if-eq v1, v3, :cond_1
 
     const/4 v3, 0x3
 
-    if-ne v0, v3, :cond_0
+    if-ne v1, v3, :cond_0
 
     goto :goto_0
 
     :cond_0
-    move v0, v2
+    move v1, v2
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    move v0, v1
+    move v1, v0
 
     :goto_1
     invoke-direct {p0}, Lcom/android/server/biometrics/AuthSession;->cancelAllSensors()V
 
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_2
 
     if-nez p1, :cond_2
 
@@ -1610,16 +1638,16 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return v1
+    return v0
 
     :catch_0
-    move-exception v1
+    move-exception v0
 
     const-string v3, "BiometricService/AuthSession"
 
     const-string v4, "Remote exception"
 
-    invoke-static {v3, v4, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v3, v4, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     return v2
 .end method
@@ -1687,9 +1715,38 @@
 .end method
 
 .method onCookieReceived(I)V
-    .locals 14
+    .locals 18
 
-    iget-object v0, p0, Lcom/android/server/biometrics/AuthSession;->mPreAuthInfo:Lcom/android/server/biometrics/PreAuthInfo;
+    move-object/from16 v1, p0
+
+    move/from16 v2, p1
+
+    iget-boolean v0, v1, Lcom/android/server/biometrics/AuthSession;->mCancelled:Z
+
+    const-string v3, "BiometricService/AuthSession"
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "Received cookie but already cancelled (ignoring): "
+
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v3, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    iget-object v0, v1, Lcom/android/server/biometrics/AuthSession;->mPreAuthInfo:Lcom/android/server/biometrics/PreAuthInfo;
 
     iget-object v0, v0, Lcom/android/server/biometrics/PreAuthInfo;->eligibleSensors:Ljava/util/List;
 
@@ -1700,49 +1757,47 @@
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v4
 
-    if-eqz v1, :cond_0
+    if-eqz v4, :cond_1
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v4
 
-    check-cast v1, Lcom/android/server/biometrics/BiometricSensor;
+    check-cast v4, Lcom/android/server/biometrics/BiometricSensor;
 
-    invoke-virtual {v1, p1}, Lcom/android/server/biometrics/BiometricSensor;->goToStateCookieReturnedIfCookieMatches(I)V
+    invoke-virtual {v4, v2}, Lcom/android/server/biometrics/BiometricSensor;->goToStateCookieReturnedIfCookieMatches(I)V
 
     goto :goto_0
 
-    :cond_0
-    invoke-virtual {p0}, Lcom/android/server/biometrics/AuthSession;->allCookiesReceived()Z
+    :cond_1
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/biometrics/AuthSession;->allCookiesReceived()Z
 
     move-result v0
 
-    const-string v1, "BiometricService/AuthSession"
-
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v2
+    move-result-wide v4
 
-    iput-wide v2, p0, Lcom/android/server/biometrics/AuthSession;->mStartTimeMs:J
+    iput-wide v4, v1, Lcom/android/server/biometrics/AuthSession;->mStartTimeMs:J
 
-    invoke-direct {p0}, Lcom/android/server/biometrics/AuthSession;->startAllPreparedSensorsExceptFingerprint()V
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/biometrics/AuthSession;->startAllPreparedSensorsExceptFingerprint()V
 
-    iget v0, p0, Lcom/android/server/biometrics/AuthSession;->mState:I
+    iget v0, v1, Lcom/android/server/biometrics/AuthSession;->mState:I
 
-    const/4 v2, 0x5
+    const/4 v4, 0x5
 
-    if-eq v0, v2, :cond_2
+    if-eq v0, v4, :cond_3
 
     :try_start_0
-    invoke-direct {p0}, Lcom/android/server/biometrics/AuthSession;->isConfirmationRequiredByAnyEligibleSensor()Z
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/biometrics/AuthSession;->isConfirmationRequiredByAnyEligibleSensor()Z
 
-    move-result v8
+    move-result v10
 
-    iget-object v0, p0, Lcom/android/server/biometrics/AuthSession;->mPreAuthInfo:Lcom/android/server/biometrics/PreAuthInfo;
+    iget-object v0, v1, Lcom/android/server/biometrics/AuthSession;->mPreAuthInfo:Lcom/android/server/biometrics/PreAuthInfo;
 
     iget-object v0, v0, Lcom/android/server/biometrics/PreAuthInfo;->eligibleSensors:Ljava/util/List;
 
@@ -1752,43 +1807,43 @@
 
     new-array v0, v0, [I
 
-    iput-object v0, p0, Lcom/android/server/biometrics/AuthSession;->mSensors:[I
+    iput-object v0, v1, Lcom/android/server/biometrics/AuthSession;->mSensors:[I
 
     const/4 v0, 0x0
 
     :goto_1
-    iget-object v2, p0, Lcom/android/server/biometrics/AuthSession;->mPreAuthInfo:Lcom/android/server/biometrics/PreAuthInfo;
+    iget-object v4, v1, Lcom/android/server/biometrics/AuthSession;->mPreAuthInfo:Lcom/android/server/biometrics/PreAuthInfo;
 
-    iget-object v2, v2, Lcom/android/server/biometrics/PreAuthInfo;->eligibleSensors:Ljava/util/List;
+    iget-object v4, v4, Lcom/android/server/biometrics/PreAuthInfo;->eligibleSensors:Ljava/util/List;
 
-    invoke-interface {v2}, Ljava/util/List;->size()I
+    invoke-interface {v4}, Ljava/util/List;->size()I
 
-    move-result v2
+    move-result v4
 
-    if-ge v0, v2, :cond_1
+    if-ge v0, v4, :cond_2
 
-    iget-object v2, p0, Lcom/android/server/biometrics/AuthSession;->mSensors:[I
+    iget-object v4, v1, Lcom/android/server/biometrics/AuthSession;->mSensors:[I
 
-    iget-object v3, p0, Lcom/android/server/biometrics/AuthSession;->mPreAuthInfo:Lcom/android/server/biometrics/PreAuthInfo;
+    iget-object v5, v1, Lcom/android/server/biometrics/AuthSession;->mPreAuthInfo:Lcom/android/server/biometrics/PreAuthInfo;
 
-    iget-object v3, v3, Lcom/android/server/biometrics/PreAuthInfo;->eligibleSensors:Ljava/util/List;
+    iget-object v5, v5, Lcom/android/server/biometrics/PreAuthInfo;->eligibleSensors:Ljava/util/List;
 
-    invoke-interface {v3, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v5, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v5
 
-    check-cast v3, Lcom/android/server/biometrics/BiometricSensor;
+    check-cast v5, Lcom/android/server/biometrics/BiometricSensor;
 
-    iget v3, v3, Lcom/android/server/biometrics/BiometricSensor;->id:I
+    iget v5, v5, Lcom/android/server/biometrics/BiometricSensor;->id:I
 
-    aput v3, v2, v0
+    aput v5, v4, v0
 
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    :cond_1
-    iget-object v0, p0, Lcom/android/server/biometrics/AuthSession;->mPreAuthInfo:Lcom/android/server/biometrics/PreAuthInfo;
+    :cond_2
+    iget-object v0, v1, Lcom/android/server/biometrics/AuthSession;->mPreAuthInfo:Lcom/android/server/biometrics/PreAuthInfo;
 
     iget-object v0, v0, Lcom/android/server/biometrics/PreAuthInfo;->eligibleSensors:Ljava/util/List;
 
@@ -1796,67 +1851,88 @@
 
     move-result v0
 
-    iput v0, p0, Lcom/android/server/biometrics/AuthSession;->mMultiSensorMode:I
+    iput v0, v1, Lcom/android/server/biometrics/AuthSession;->mMultiSensorMode:I
 
     const/4 v0, 0x0
 
-    iput v0, p0, Lcom/android/server/biometrics/AuthSession;->mMultiSensorState:I
+    iput v0, v1, Lcom/android/server/biometrics/AuthSession;->mMultiSensorState:I
 
-    iget-object v3, p0, Lcom/android/server/biometrics/AuthSession;->mStatusBarService:Lcom/android/internal/statusbar/IStatusBarService;
+    iget-object v5, v1, Lcom/android/server/biometrics/AuthSession;->mStatusBarService:Lcom/android/internal/statusbar/IStatusBarService;
 
-    iget-object v4, p0, Lcom/android/server/biometrics/AuthSession;->mPromptInfo:Landroid/hardware/biometrics/PromptInfo;
+    iget-object v6, v1, Lcom/android/server/biometrics/AuthSession;->mPromptInfo:Landroid/hardware/biometrics/PromptInfo;
 
-    iget-object v5, p0, Lcom/android/server/biometrics/AuthSession;->mSysuiReceiver:Landroid/hardware/biometrics/IBiometricSysuiReceiver;
+    iget-object v7, v1, Lcom/android/server/biometrics/AuthSession;->mSysuiReceiver:Landroid/hardware/biometrics/IBiometricSysuiReceiver;
 
-    iget-object v6, p0, Lcom/android/server/biometrics/AuthSession;->mSensors:[I
+    iget-object v8, v1, Lcom/android/server/biometrics/AuthSession;->mSensors:[I
 
-    iget-object v0, p0, Lcom/android/server/biometrics/AuthSession;->mPreAuthInfo:Lcom/android/server/biometrics/PreAuthInfo;
+    iget-object v0, v1, Lcom/android/server/biometrics/AuthSession;->mPreAuthInfo:Lcom/android/server/biometrics/PreAuthInfo;
 
     invoke-virtual {v0}, Lcom/android/server/biometrics/PreAuthInfo;->shouldShowCredential()Z
 
-    move-result v7
+    move-result v9
 
-    iget v9, p0, Lcom/android/server/biometrics/AuthSession;->mUserId:I
+    iget v11, v1, Lcom/android/server/biometrics/AuthSession;->mUserId:I
 
-    iget-object v10, p0, Lcom/android/server/biometrics/AuthSession;->mOpPackageName:Ljava/lang/String;
+    iget-wide v12, v1, Lcom/android/server/biometrics/AuthSession;->mOperationId:J
 
-    iget-wide v11, p0, Lcom/android/server/biometrics/AuthSession;->mOperationId:J
+    iget-object v14, v1, Lcom/android/server/biometrics/AuthSession;->mOpPackageName:Ljava/lang/String;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
 
-    iget v13, p0, Lcom/android/server/biometrics/AuthSession;->mMultiSensorMode:I
+    move-object v4, v3
 
-    invoke-interface/range {v3 .. v13}, Lcom/android/internal/statusbar/IStatusBarService;->showAuthenticationDialog(Landroid/hardware/biometrics/PromptInfo;Landroid/hardware/biometrics/IBiometricSysuiReceiver;[IZZILjava/lang/String;JI)V
+    :try_start_1
+    iget-wide v2, v1, Lcom/android/server/biometrics/AuthSession;->mRequestId:J
+
+    iget v0, v1, Lcom/android/server/biometrics/AuthSession;->mMultiSensorMode:I
+
+    move-wide v15, v2
+
+    move/from16 v17, v0
+
+    invoke-interface/range {v5 .. v17}, Lcom/android/internal/statusbar/IStatusBarService;->showAuthenticationDialog(Landroid/hardware/biometrics/PromptInfo;Landroid/hardware/biometrics/IBiometricSysuiReceiver;[IZZIJLjava/lang/String;JI)V
 
     const/4 v0, 0x2
 
-    iput v0, p0, Lcom/android/server/biometrics/AuthSession;->mState:I
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    iput v0, v1, Lcom/android/server/biometrics/AuthSession;->mState:I
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_2
+    goto :goto_3
 
     :catch_0
     move-exception v0
 
-    const-string v2, "Remote exception"
+    goto :goto_2
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :catch_1
+    move-exception v0
+
+    move-object v4, v3
 
     :goto_2
-    goto :goto_3
+    const-string v2, "Remote exception"
 
-    :cond_2
-    const/4 v0, 0x3
-
-    iput v0, p0, Lcom/android/server/biometrics/AuthSession;->mState:I
-
-    goto :goto_3
-
-    :cond_3
-    const-string/jumbo v0, "onCookieReceived: still waiting"
-
-    invoke-static {v1, v0}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_3
+    goto :goto_4
+
+    :cond_3
+    const/4 v0, 0x3
+
+    iput v0, v1, Lcom/android/server/biometrics/AuthSession;->mState:I
+
+    goto :goto_4
+
+    :cond_4
+    move-object v4, v3
+
+    const-string/jumbo v0, "onCookieReceived: still waiting"
+
+    invoke-static {v4, v0}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_4
     return-void
 .end method
 
@@ -2109,7 +2185,7 @@
 .end method
 
 .method onErrorReceived(IIII)Z
-    .locals 21
+    .locals 23
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2321,7 +2397,7 @@
 
     invoke-interface {v6, v4, v2, v3}, Lcom/android/internal/statusbar/IStatusBarService;->onBiometricError(III)V
 
-    goto :goto_3
+    goto/16 :goto_3
 
     :cond_5
     const/4 v9, 0x5
@@ -2405,27 +2481,33 @@
 
     iget-object v12, v0, Lcom/android/server/biometrics/AuthSession;->mSysuiReceiver:Landroid/hardware/biometrics/IBiometricSysuiReceiver;
 
+    iget v9, v0, Lcom/android/server/biometrics/AuthSession;->mUserId:I
+
+    iget-wide v7, v0, Lcom/android/server/biometrics/AuthSession;->mOperationId:J
+
+    iget-object v15, v0, Lcom/android/server/biometrics/AuthSession;->mOpPackageName:Ljava/lang/String;
+
+    move-object/from16 v18, v15
+
+    iget-wide v14, v0, Lcom/android/server/biometrics/AuthSession;->mRequestId:J
+
+    move-wide/from16 v20, v14
+
     const/4 v14, 0x1
+
+    move-object/from16 v19, v18
 
     const/4 v15, 0x0
 
-    iget v9, v0, Lcom/android/server/biometrics/AuthSession;->mUserId:I
-
-    iget-object v7, v0, Lcom/android/server/biometrics/AuthSession;->mOpPackageName:Ljava/lang/String;
-
     move/from16 v16, v9
 
-    iget-wide v8, v0, Lcom/android/server/biometrics/AuthSession;->mOperationId:J
-
-    move-object/from16 v17, v7
-
-    move-wide/from16 v18, v8
+    move-wide/from16 v17, v7
 
     const/4 v7, 0x0
 
-    move/from16 v20, v7
+    move/from16 v22, v7
 
-    invoke-interface/range {v10 .. v20}, Lcom/android/internal/statusbar/IStatusBarService;->showAuthenticationDialog(Landroid/hardware/biometrics/PromptInfo;Landroid/hardware/biometrics/IBiometricSysuiReceiver;[IZZILjava/lang/String;JI)V
+    invoke-interface/range {v10 .. v22}, Lcom/android/internal/statusbar/IStatusBarService;->showAuthenticationDialog(Landroid/hardware/biometrics/PromptInfo;Landroid/hardware/biometrics/IBiometricSysuiReceiver;[IZZIJLjava/lang/String;JI)V
 
     goto :goto_3
 
@@ -2440,6 +2522,8 @@
     const/4 v6, 0x0
 
     return v6
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -2633,7 +2717,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .locals 3
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -2646,6 +2730,14 @@
     iget v1, p0, Lcom/android/server/biometrics/AuthSession;->mState:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, ", cancelled: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-boolean v1, p0, Lcom/android/server/biometrics/AuthSession;->mCancelled:Z
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     const-string v1, ", isCrypto: "
 
@@ -2664,6 +2756,14 @@
     iget-object v1, p0, Lcom/android/server/biometrics/AuthSession;->mPreAuthInfo:Lcom/android/server/biometrics/PreAuthInfo;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v1, ", requestId: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-wide v1, p0, Lcom/android/server/biometrics/AuthSession;->mRequestId:J
+
+    invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

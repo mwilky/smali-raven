@@ -133,18 +133,6 @@
     return v0
 .end method
 
-.method public registerBrightnessObserver(Landroid/content/ContentResolver;Landroid/database/ContentObserver;)V
-    .locals 2
-
-    sget-object v0, Lcom/android/server/display/DisplayModeDirector$RealInjector;->DISPLAY_BRIGHTNESS_URI:Landroid/net/Uri;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p1, v0, v1, p2, v1}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
-
-    return-void
-.end method
-
 .method public registerDisplayListener(Landroid/hardware/display/DisplayManager$DisplayListener;Landroid/os/Handler;J)V
     .locals 1
 
@@ -165,14 +153,6 @@
     const/4 v1, 0x0
 
     invoke-virtual {p1, v0, v1, p2, v1}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
-
-    return-void
-.end method
-
-.method public unregisterBrightnessObserver(Landroid/content/ContentResolver;Landroid/database/ContentObserver;)V
-    .locals 0
-
-    invoke-virtual {p1, p2}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
     return-void
 .end method

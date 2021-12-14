@@ -4779,7 +4779,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x10e008a
+    const v0, 0x10e008b
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -4787,7 +4787,7 @@
 
     iput v0, p0, Lcom/android/server/wm/RecentTasks;->mMinNumVisibleTasks:I
 
-    const v0, 0x10e0081
+    const v0, 0x10e0082
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -4808,7 +4808,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x10e0089
+    const v0, 0x10e008a
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -4816,7 +4816,7 @@
 
     iput v0, p0, Lcom/android/server/wm/RecentTasks;->mMinNumVisibleTasks:I
 
-    const v0, 0x10e0080
+    const v0, 0x10e0081
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -4827,7 +4827,7 @@
     goto :goto_0
 
     :cond_1
-    const v0, 0x10e0088
+    const v0, 0x10e0089
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -4835,7 +4835,7 @@
 
     iput v0, p0, Lcom/android/server/wm/RecentTasks;->mMinNumVisibleTasks:I
 
-    const v0, 0x10e007f
+    const v0, 0x10e0080
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getInteger(I)I
 

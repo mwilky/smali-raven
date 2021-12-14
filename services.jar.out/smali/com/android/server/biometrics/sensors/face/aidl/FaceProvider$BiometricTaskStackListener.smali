@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public synthetic lambda$onTaskStackChanged$0$FaceProvider$BiometricTaskStackListener()V
-    .locals 7
+    .locals 8
 
     const/4 v0, 0x0
 
@@ -99,7 +99,7 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :cond_0
     iget-object v2, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider$BiometricTaskStackListener;->this$0:Lcom/android/server/biometrics/sensors/face/aidl/FaceProvider;
@@ -215,7 +215,11 @@
 
     move-result-object v5
 
-    invoke-virtual {v4, v5}, Lcom/android/server/biometrics/sensors/BiometricScheduler;->cancelAuthenticationOrDetection(Landroid/os/IBinder;)V
+    invoke-virtual {v1}, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->getRequestId()J
+
+    move-result-wide v6
+
+    invoke-virtual {v4, v5, v6, v7}, Lcom/android/server/biometrics/sensors/BiometricScheduler;->cancelAuthenticationOrDetection(Landroid/os/IBinder;J)V
 
     :cond_2
     :goto_1

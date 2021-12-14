@@ -28,8 +28,8 @@
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;ILjava/lang/String;IZI)V
-    .locals 13
+.method public constructor <init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;JLcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;ILjava/lang/String;IZI)V
+    .locals 14
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -38,12 +38,15 @@
             "Landroid/hardware/biometrics/face/ISession;",
             ">;",
             "Landroid/os/IBinder;",
+            "J",
             "Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;",
             "I",
             "Ljava/lang/String;",
             "IZI)V"
         }
     .end annotation
+
+    move-object v13, p0
 
     const/4 v7, 0x0
 
@@ -57,25 +60,29 @@
 
     move-object v1, p1
 
-    move-object v2, p2
+    move-object/from16 v2, p2
 
     move-object/from16 v3, p3
 
-    move-object/from16 v4, p4
+    move-object/from16 v4, p6
 
-    move/from16 v5, p5
+    move/from16 v5, p7
 
-    move-object/from16 v6, p6
+    move-object/from16 v6, p8
 
-    move/from16 v8, p7
+    move/from16 v8, p9
 
-    move/from16 v12, p9
+    move/from16 v12, p11
 
     invoke-direct/range {v0 .. v12}, Lcom/android/server/biometrics/sensors/AcquisitionClient;-><init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;ILjava/lang/String;IIZIII)V
 
-    move/from16 v1, p8
+    move-wide/from16 v0, p4
 
-    iput-boolean v1, v0, Lcom/android/server/biometrics/sensors/face/aidl/FaceDetectClient;->mIsStrongBiometric:Z
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/biometrics/sensors/face/aidl/FaceDetectClient;->setRequestId(J)V
+
+    move/from16 v2, p10
+
+    iput-boolean v2, v13, Lcom/android/server/biometrics/sensors/face/aidl/FaceDetectClient;->mIsStrongBiometric:Z
 
     return-void
 .end method

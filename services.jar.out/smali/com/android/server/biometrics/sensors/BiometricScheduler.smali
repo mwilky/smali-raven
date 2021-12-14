@@ -222,6 +222,40 @@
     return v0
 .end method
 
+.method private static canCancelAuthOperation(Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;Landroid/os/IBinder;J)Z
+    .locals 1
+
+    invoke-static {p0}, Lcom/android/server/biometrics/sensors/BiometricScheduler;->isAuthenticationOrDetectionOperation(Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;->mClientMonitor:Lcom/android/server/biometrics/sensors/BaseClientMonitor;
+
+    invoke-virtual {v0}, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->getToken()Landroid/os/IBinder;
+
+    move-result-object v0
+
+    if-ne v0, p1, :cond_0
+
+    invoke-static {p0, p2, p3}, Lcom/android/server/biometrics/sensors/BiometricScheduler;->isMatchingRequestId(Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;J)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
 .method private cancelInternal(Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;)V
     .locals 5
 
@@ -392,14 +426,14 @@
     return-void
 .end method
 
-.method private isAuthenticationOrDetectionOperation(Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;)Z
+.method private static isAuthenticationOrDetectionOperation(Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;)Z
     .locals 3
 
-    iget-object v0, p1, Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;->mClientMonitor:Lcom/android/server/biometrics/sensors/BaseClientMonitor;
+    iget-object v0, p0, Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;->mClientMonitor:Lcom/android/server/biometrics/sensors/BaseClientMonitor;
 
     instance-of v0, v0, Lcom/android/server/biometrics/sensors/AuthenticationConsumer;
 
-    iget-object v1, p1, Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;->mClientMonitor:Lcom/android/server/biometrics/sensors/BaseClientMonitor;
+    iget-object v1, p0, Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;->mClientMonitor:Lcom/android/server/biometrics/sensors/BaseClientMonitor;
 
     instance-of v1, v1, Lcom/android/server/biometrics/sensors/DetectionConsumer;
 
@@ -420,6 +454,42 @@
 
     :goto_1
     return v2
+.end method
+
+.method private static isMatchingRequestId(Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;J)Z
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;->mClientMonitor:Lcom/android/server/biometrics/sensors/BaseClientMonitor;
+
+    invoke-virtual {v0}, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->hasRequestId()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;->mClientMonitor:Lcom/android/server/biometrics/sensors/BaseClientMonitor;
+
+    invoke-virtual {v0}, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->getRequestId()J
+
+    move-result-wide v0
+
+    cmp-long v0, v0, p1
+
+    if-nez v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    const/4 v0, 0x1
+
+    :goto_1
+    return v0
 .end method
 
 .method public static sensorTypeFromFingerprintProperties(Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;)I
@@ -481,77 +551,112 @@
 
 
 # virtual methods
-.method public cancelAuthenticationOrDetection(Landroid/os/IBinder;)V
-    .locals 8
-
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/BiometricScheduler;->mCurrentOperation:Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;
-
-    if-nez v0, :cond_0
+.method public cancelAuthenticationOrDetection(Landroid/os/IBinder;J)V
+    .locals 5
 
     invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/BiometricScheduler;->getTag()Ljava/lang/String;
 
     move-result-object v0
 
-    const-string v1, "Unable to cancel authentication, null operation"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-static {v0, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    return-void
+    const-string v2, "cancelAuthenticationOrDetection, requestId: "
 
-    :cond_0
-    invoke-direct {p0, v0}, Lcom/android/server/biometrics/sensors/BiometricScheduler;->isAuthenticationOrDetectionOperation(Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result v0
+    invoke-virtual {v1, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/android/server/biometrics/sensors/BiometricScheduler;->mCurrentOperation:Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;
+    const-string v2, " current: "
 
-    iget-object v1, v1, Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;->mClientMonitor:Lcom/android/server/biometrics/sensors/BaseClientMonitor;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->getToken()Landroid/os/IBinder;
+    iget-object v2, p0, Lcom/android/server/biometrics/sensors/BiometricScheduler;->mCurrentOperation:Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v2, " stack size: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v2, p0, Lcom/android/server/biometrics/sensors/BiometricScheduler;->mPendingOperations:Ljava/util/Deque;
+
+    invoke-interface {v2}, Ljava/util/Deque;->size()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    const/4 v2, 0x1
+    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-ne v1, p1, :cond_1
+    iget-object v0, p0, Lcom/android/server/biometrics/sensors/BiometricScheduler;->mCurrentOperation:Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;
 
-    move v1, v2
+    if-eqz v0, :cond_0
 
-    goto :goto_0
+    invoke-static {v0, p1, p2, p3}, Lcom/android/server/biometrics/sensors/BiometricScheduler;->canCancelAuthOperation(Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;Landroid/os/IBinder;J)Z
 
-    :cond_1
-    const/4 v1, 0x0
+    move-result v0
 
-    :goto_0
+    if-eqz v0, :cond_0
+
     invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/BiometricScheduler;->getTag()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "cancelAuthenticationOrDetection, isCorrectClient: "
+    const-string v2, "Cancelling: "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    iget-object v2, p0, Lcom/android/server/biometrics/sensors/BiometricScheduler;->mCurrentOperation:Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;
 
-    const-string v5, ", tokenMatches: "
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v4
+    iget-object v0, p0, Lcom/android/server/biometrics/sensors/BiometricScheduler;->mCurrentOperation:Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;
 
-    invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {p0, v0}, Lcom/android/server/biometrics/sensors/BiometricScheduler;->cancelInternal(Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;)V
 
-    if-eqz v0, :cond_2
+    goto :goto_1
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/biometrics/sensors/BiometricScheduler;->mPendingOperations:Ljava/util/Deque;
+
+    invoke-interface {v0}, Ljava/util/Deque;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
 
     if-eqz v1, :cond_2
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;
+
+    invoke-static {v1, p1, p2, p3}, Lcom/android/server/biometrics/sensors/BiometricScheduler;->canCancelAuthOperation(Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;Landroid/os/IBinder;J)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
 
     invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/BiometricScheduler;->getTag()Ljava/lang/String;
 
@@ -561,13 +666,15 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "Cancelling: "
+    const-string v4, "Marking "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v4, p0, Lcom/android/server/biometrics/sensors/BiometricScheduler;->mCurrentOperation:Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    const-string v4, " as STATE_WAITING_IN_QUEUE_CANCELING"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -575,79 +682,15 @@
 
     invoke-static {v2, v3}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v2, p0, Lcom/android/server/biometrics/sensors/BiometricScheduler;->mCurrentOperation:Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;
+    const/4 v2, 0x1
 
-    invoke-direct {p0, v2}, Lcom/android/server/biometrics/sensors/BiometricScheduler;->cancelInternal(Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;)V
+    iput v2, v1, Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;->mState:I
 
-    goto :goto_2
+    :cond_1
+    goto :goto_0
 
     :cond_2
-    if-nez v0, :cond_4
-
-    iget-object v3, p0, Lcom/android/server/biometrics/sensors/BiometricScheduler;->mPendingOperations:Ljava/util/Deque;
-
-    invoke-interface {v3}, Ljava/util/Deque;->iterator()Ljava/util/Iterator;
-
-    move-result-object v3
-
     :goto_1
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_4
-
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;
-
-    invoke-direct {p0, v4}, Lcom/android/server/biometrics/sensors/BiometricScheduler;->isAuthenticationOrDetectionOperation(Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_3
-
-    iget-object v5, v4, Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;->mClientMonitor:Lcom/android/server/biometrics/sensors/BaseClientMonitor;
-
-    invoke-virtual {v5}, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->getToken()Landroid/os/IBinder;
-
-    move-result-object v5
-
-    if-ne v5, p1, :cond_3
-
-    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/BiometricScheduler;->getTag()Ljava/lang/String;
-
-    move-result-object v5
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "Marking "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string v7, " as STATE_WAITING_IN_QUEUE_CANCELING"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iput v2, v4, Lcom/android/server/biometrics/sensors/BiometricScheduler$Operation;->mState:I
-
-    :cond_3
-    goto :goto_1
-
-    :cond_4
-    :goto_2
     return-void
 .end method
 

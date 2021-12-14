@@ -218,7 +218,7 @@
     return-void
 .end method
 
-.method static synthetic access$2200(Lcom/android/server/biometrics/BiometricService$SettingObserver;)Z
+.method static synthetic access$2300(Lcom/android/server/biometrics/BiometricService$SettingObserver;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/biometrics/BiometricService$SettingObserver;->mUseLegacyFaceOnlySettings:Z

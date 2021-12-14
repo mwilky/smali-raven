@@ -4526,6 +4526,1237 @@
     return v3
 .end method
 
+.method public final findPersistentPreferredActivityLP(Landroid/content/Intent;Ljava/lang/String;ILjava/util/List;ZI)Landroid/content/pm/ResolveInfo;
+    .locals 16
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Intent;",
+            "Ljava/lang/String;",
+            "I",
+            "Ljava/util/List<",
+            "Landroid/content/pm/ResolveInfo;",
+            ">;ZI)",
+            "Landroid/content/pm/ResolveInfo;"
+        }
+    .end annotation
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, p3
+
+    move/from16 v2, p6
+
+    invoke-interface/range {p4 .. p4}, Ljava/util/List;->size()I
+
+    move-result v3
+
+    iget-object v4, v0, Lcom/android/server/pm/PackageManagerService$ComputerEngine;->mSettings:Lcom/android/server/pm/Settings;
+
+    invoke-virtual {v4, v2}, Lcom/android/server/pm/Settings;->getPersistentPreferredActivities(I)Lcom/android/server/pm/PersistentPreferredIntentResolver;
+
+    move-result-object v4
+
+    const-string v5, "PackageManager"
+
+    if-eqz p5, :cond_0
+
+    const-string v6, "Looking for persistent preferred activities..."
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    const/4 v6, 0x0
+
+    if-eqz v4, :cond_2
+
+    const/high16 v8, 0x10000
+
+    and-int/2addr v8, v1
+
+    if-eqz v8, :cond_1
+
+    const/4 v8, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    move v8, v6
+
+    :goto_0
+    move-object/from16 v9, p1
+
+    move-object/from16 v10, p2
+
+    invoke-virtual {v4, v9, v10, v8, v2}, Lcom/android/server/pm/PersistentPreferredIntentResolver;->queryIntent(Landroid/content/Intent;Ljava/lang/String;ZI)Ljava/util/List;
+
+    move-result-object v8
+
+    goto :goto_1
+
+    :cond_2
+    move-object/from16 v9, p1
+
+    move-object/from16 v10, p2
+
+    const/4 v8, 0x0
+
+    :goto_1
+    nop
+
+    if-eqz v8, :cond_d
+
+    invoke-interface {v8}, Ljava/util/List;->size()I
+
+    move-result v11
+
+    if-lez v11, :cond_d
+
+    invoke-interface {v8}, Ljava/util/List;->size()I
+
+    move-result v11
+
+    const/4 v12, 0x0
+
+    :goto_2
+    if-ge v12, v11, :cond_c
+
+    invoke-interface {v8, v12}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v13
+
+    check-cast v13, Lcom/android/server/pm/PersistentPreferredActivity;
+
+    const-string v14, "  "
+
+    if-eqz p5, :cond_4
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v15, "Checking PersistentPreferredActivity ds="
+
+    invoke-virtual {v7, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v13}, Lcom/android/server/pm/PersistentPreferredActivity;->countDataSchemes()I
+
+    move-result v15
+
+    if-lez v15, :cond_3
+
+    invoke-virtual {v13, v6}, Lcom/android/server/pm/PersistentPreferredActivity;->getDataScheme(I)Ljava/lang/String;
+
+    move-result-object v15
+
+    goto :goto_3
+
+    :cond_3
+    const-string v15, "<none>"
+
+    :goto_3
+    invoke-virtual {v7, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v15, "\n  component="
+
+    invoke-virtual {v7, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v15, v13, Lcom/android/server/pm/PersistentPreferredActivity;->mComponent:Landroid/content/ComponentName;
+
+    invoke-virtual {v7, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v5, v7}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v7, Landroid/util/LogPrinter;
+
+    const/4 v6, 0x2
+
+    const/4 v15, 0x3
+
+    invoke-direct {v7, v6, v5, v15}, Landroid/util/LogPrinter;-><init>(ILjava/lang/String;I)V
+
+    invoke-virtual {v13, v7, v14}, Lcom/android/server/pm/PersistentPreferredActivity;->dump(Landroid/util/Printer;Ljava/lang/String;)V
+
+    :cond_4
+    iget-object v6, v13, Lcom/android/server/pm/PersistentPreferredActivity;->mComponent:Landroid/content/ComponentName;
+
+    or-int/lit16 v7, v1, 0x200
+
+    invoke-virtual {v0, v6, v7, v2}, Lcom/android/server/pm/PackageManagerService$ComputerEngine;->getActivityInfo(Landroid/content/ComponentName;II)Landroid/content/pm/ActivityInfo;
+
+    move-result-object v6
+
+    if-eqz p5, :cond_6
+
+    const-string v7, "Found persistent preferred activity:"
+
+    invoke-static {v5, v7}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-eqz v6, :cond_5
+
+    new-instance v7, Landroid/util/LogPrinter;
+
+    const/4 v0, 0x2
+
+    const/4 v15, 0x3
+
+    invoke-direct {v7, v0, v5, v15}, Landroid/util/LogPrinter;-><init>(ILjava/lang/String;I)V
+
+    invoke-virtual {v6, v7, v14}, Landroid/content/pm/ActivityInfo;->dump(Landroid/util/Printer;Ljava/lang/String;)V
+
+    goto :goto_4
+
+    :cond_5
+    const-string v0, "  null"
+
+    invoke-static {v5, v0}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_6
+    :goto_4
+    if-nez v6, :cond_7
+
+    move-object/from16 v7, p4
+
+    goto :goto_7
+
+    :cond_7
+    const/4 v0, 0x0
+
+    :goto_5
+    if-ge v0, v3, :cond_b
+
+    move-object/from16 v7, p4
+
+    invoke-interface {v7, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v14
+
+    check-cast v14, Landroid/content/pm/ResolveInfo;
+
+    iget-object v15, v14, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v15, v15, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget-object v15, v15, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+
+    iget-object v1, v6, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget-object v1, v1, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v15, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_8
+
+    goto :goto_6
+
+    :cond_8
+    iget-object v1, v14, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v1, v1, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+
+    iget-object v15, v6, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+
+    invoke-virtual {v1, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_9
+
+    nop
+
+    :goto_6
+    add-int/lit8 v0, v0, 0x1
+
+    move/from16 v1, p3
+
+    goto :goto_5
+
+    :cond_9
+    if-eqz p5, :cond_a
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v15, "Returning persistent preferred activity: "
+
+    invoke-virtual {v1, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v15, v14, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v15, v15, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v1, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v15, "/"
+
+    invoke-virtual {v1, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v15, v14, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v15, v15, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+
+    invoke-virtual {v1, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v5, v1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_a
+    return-object v14
+
+    :cond_b
+    move-object/from16 v7, p4
+
+    :goto_7
+    add-int/lit8 v12, v12, 0x1
+
+    const/4 v6, 0x0
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, p3
+
+    goto/16 :goto_2
+
+    :cond_c
+    move-object/from16 v7, p4
+
+    goto :goto_8
+
+    :cond_d
+    move-object/from16 v7, p4
+
+    :goto_8
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
+.method protected findPreferredActivityBody(Landroid/content/Intent;Ljava/lang/String;ILjava/util/List;ZZZIZIZ)Lcom/android/server/pm/PackageManagerService$FindPreferredActivityBodyResult;
+    .locals 29
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Intent;",
+            "Ljava/lang/String;",
+            "I",
+            "Ljava/util/List<",
+            "Landroid/content/pm/ResolveInfo;",
+            ">;ZZZIZIZ)",
+            "Lcom/android/server/pm/PackageManagerService$FindPreferredActivityBodyResult;"
+        }
+    .end annotation
+
+    move-object/from16 v7, p0
+
+    move-object/from16 v8, p2
+
+    move-object/from16 v9, p4
+
+    move/from16 v10, p8
+
+    new-instance v0, Lcom/android/server/pm/PackageManagerService$FindPreferredActivityBodyResult;
+
+    const/4 v11, 0x0
+
+    invoke-direct {v0, v11}, Lcom/android/server/pm/PackageManagerService$FindPreferredActivityBodyResult;-><init>(Lcom/android/server/pm/PackageManagerService$1;)V
+
+    move-object v12, v0
+
+    nop
+
+    move-object/from16 v6, p1
+
+    move/from16 v13, p3
+
+    invoke-virtual {v7, v6, v10, v8, v13}, Lcom/android/server/pm/PackageManagerService$ComputerEngine;->isImplicitImageCaptureIntentAndNotSetByDpcLocked(Landroid/content/Intent;ILjava/lang/String;I)Z
+
+    move-result v5
+
+    const/4 v4, 0x0
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, p3
+
+    move/from16 v2, p8
+
+    move/from16 v3, p10
+
+    invoke-virtual/range {v0 .. v5}, Lcom/android/server/pm/PackageManagerService$ComputerEngine;->updateFlagsForResolve(IIIZZ)I
+
+    move-result v13
+
+    invoke-static/range {p1 .. p1}, Lcom/android/server/pm/PackageManagerService;->access$3400(Landroid/content/Intent;)Landroid/content/Intent;
+
+    move-result-object v14
+
+    move-object v1, v14
+
+    move-object/from16 v2, p2
+
+    move v3, v13
+
+    move-object/from16 v4, p4
+
+    move/from16 v5, p7
+
+    move/from16 v6, p8
+
+    invoke-virtual/range {v0 .. v6}, Lcom/android/server/pm/PackageManagerService$ComputerEngine;->findPersistentPreferredActivityLP(Landroid/content/Intent;Ljava/lang/String;ILjava/util/List;ZI)Landroid/content/pm/ResolveInfo;
+
+    move-result-object v0
+
+    iput-object v0, v12, Lcom/android/server/pm/PackageManagerService$FindPreferredActivityBodyResult;->mPreferredResolveInfo:Landroid/content/pm/ResolveInfo;
+
+    iget-object v0, v12, Lcom/android/server/pm/PackageManagerService$FindPreferredActivityBodyResult;->mPreferredResolveInfo:Landroid/content/pm/ResolveInfo;
+
+    if-eqz v0, :cond_0
+
+    return-object v12
+
+    :cond_0
+    iget-object v0, v7, Lcom/android/server/pm/PackageManagerService$ComputerEngine;->mSettings:Lcom/android/server/pm/Settings;
+
+    invoke-virtual {v0, v10}, Lcom/android/server/pm/Settings;->getPreferredActivities(I)Lcom/android/server/pm/PreferredIntentResolver;
+
+    move-result-object v0
+
+    const-string v1, "PackageManager"
+
+    if-eqz p7, :cond_1
+
+    const-string v2, "Looking for preferred activities..."
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    if-eqz v0, :cond_3
+
+    const/high16 v4, 0x10000
+
+    and-int/2addr v4, v13
+
+    if-eqz v4, :cond_2
+
+    const/4 v4, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    const/4 v4, 0x0
+
+    :goto_0
+    invoke-virtual {v0, v14, v8, v4, v10}, Lcom/android/server/pm/PreferredIntentResolver;->queryIntent(Landroid/content/Intent;Ljava/lang/String;ZI)Ljava/util/List;
+
+    move-result-object v4
+
+    goto :goto_1
+
+    :cond_3
+    move-object v4, v11
+
+    :goto_1
+    nop
+
+    if-eqz v4, :cond_1f
+
+    invoke-interface {v4}, Ljava/util/List;->size()I
+
+    move-result v5
+
+    if-lez v5, :cond_1f
+
+    const/4 v5, 0x0
+
+    if-eqz p7, :cond_4
+
+    const-string v6, "Figuring out best match..."
+
+    invoke-static {v1, v6}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_4
+    invoke-interface/range {p4 .. p4}, Ljava/util/List;->size()I
+
+    move-result v6
+
+    const/4 v15, 0x0
+
+    :goto_2
+    if-ge v15, v6, :cond_7
+
+    invoke-interface {v9, v15}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v16
+
+    move-object/from16 v11, v16
+
+    check-cast v11, Landroid/content/pm/ResolveInfo;
+
+    if-eqz p7, :cond_5
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Match for "
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v2, v11, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v2, ": 0x"
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {v5}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_5
+    iget v2, v11, Landroid/content/pm/ResolveInfo;->match:I
+
+    if-le v2, v5, :cond_6
+
+    iget v2, v11, Landroid/content/pm/ResolveInfo;->match:I
+
+    move v5, v2
+
+    :cond_6
+    add-int/lit8 v15, v15, 0x1
+
+    const/4 v11, 0x0
+
+    goto :goto_2
+
+    :cond_7
+    if-eqz p7, :cond_8
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Best match: 0x"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {v5}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_8
+    const/high16 v2, 0xfff0000
+
+    and-int/2addr v2, v5
+
+    invoke-interface {v4}, Ljava/util/List;->size()I
+
+    move-result v3
+
+    const/4 v5, 0x0
+
+    :goto_3
+    if-ge v5, v3, :cond_1e
+
+    invoke-interface {v4, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v11
+
+    check-cast v11, Lcom/android/server/pm/PreferredActivity;
+
+    const-string v15, "  "
+
+    move/from16 v16, v3
+
+    if-eqz p7, :cond_a
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    move-object/from16 v23, v4
+
+    const-string v4, "Checking PreferredActivity ds="
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v11}, Lcom/android/server/pm/PreferredActivity;->countDataSchemes()I
+
+    move-result v4
+
+    if-lez v4, :cond_9
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v11, v4}, Lcom/android/server/pm/PreferredActivity;->getDataScheme(I)Ljava/lang/String;
+
+    move-result-object v19
+
+    goto :goto_4
+
+    :cond_9
+    const/4 v4, 0x0
+
+    const-string v19, "<none>"
+
+    :goto_4
+    move-object/from16 v4, v19
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v4, "\n  component="
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v4, v11, Lcom/android/server/pm/PreferredActivity;->mPref:Lcom/android/server/pm/PreferredComponent;
+
+    iget-object v4, v4, Lcom/android/server/pm/PreferredComponent;->mComponent:Landroid/content/ComponentName;
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v1, v3}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v3, Landroid/util/LogPrinter;
+
+    move/from16 v24, v5
+
+    const/4 v4, 0x3
+
+    const/4 v5, 0x2
+
+    invoke-direct {v3, v5, v1, v4}, Landroid/util/LogPrinter;-><init>(ILjava/lang/String;I)V
+
+    invoke-virtual {v11, v3, v15}, Lcom/android/server/pm/PreferredActivity;->dump(Landroid/util/Printer;Ljava/lang/String;)V
+
+    goto :goto_5
+
+    :cond_a
+    move-object/from16 v23, v4
+
+    move/from16 v24, v5
+
+    :goto_5
+    iget-object v3, v11, Lcom/android/server/pm/PreferredActivity;->mPref:Lcom/android/server/pm/PreferredComponent;
+
+    iget v3, v3, Lcom/android/server/pm/PreferredComponent;->mMatch:I
+
+    if-eq v3, v2, :cond_c
+
+    if-eqz p7, :cond_b
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "Skipping bad match "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v4, v11, Lcom/android/server/pm/PreferredActivity;->mPref:Lcom/android/server/pm/PreferredComponent;
+
+    iget v4, v4, Lcom/android/server/pm/PreferredComponent;->mMatch:I
+
+    invoke-static {v4}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v1, v3}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    move/from16 v25, v2
+
+    move/from16 v26, v6
+
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
+
+    goto/16 :goto_c
+
+    :cond_b
+    move/from16 v25, v2
+
+    move/from16 v26, v6
+
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
+
+    goto/16 :goto_c
+
+    :cond_c
+    if-eqz p5, :cond_e
+
+    iget-object v3, v11, Lcom/android/server/pm/PreferredActivity;->mPref:Lcom/android/server/pm/PreferredComponent;
+
+    iget-boolean v3, v3, Lcom/android/server/pm/PreferredComponent;->mAlways:Z
+
+    if-nez v3, :cond_e
+
+    if-eqz p7, :cond_d
+
+    const-string v3, "Skipping mAlways=false entry"
+
+    invoke-static {v1, v3}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_d
+    move/from16 v25, v2
+
+    move/from16 v26, v6
+
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
+
+    goto/16 :goto_c
+
+    :cond_e
+    iget-object v3, v11, Lcom/android/server/pm/PreferredActivity;->mPref:Lcom/android/server/pm/PreferredComponent;
+
+    iget-object v3, v3, Lcom/android/server/pm/PreferredComponent;->mComponent:Landroid/content/ComponentName;
+
+    or-int/lit16 v4, v13, 0x200
+
+    const/high16 v5, 0x80000
+
+    or-int/2addr v4, v5
+
+    const/high16 v5, 0x40000
+
+    or-int/2addr v4, v5
+
+    invoke-virtual {v7, v3, v4, v10}, Lcom/android/server/pm/PackageManagerService$ComputerEngine;->getActivityInfo(Landroid/content/ComponentName;II)Landroid/content/pm/ActivityInfo;
+
+    move-result-object v3
+
+    if-eqz p7, :cond_10
+
+    const-string v4, "Found preferred activity:"
+
+    invoke-static {v1, v4}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-eqz v3, :cond_f
+
+    new-instance v4, Landroid/util/LogPrinter;
+
+    move/from16 v25, v2
+
+    const/4 v2, 0x2
+
+    const/4 v5, 0x3
+
+    invoke-direct {v4, v2, v1, v5}, Landroid/util/LogPrinter;-><init>(ILjava/lang/String;I)V
+
+    invoke-virtual {v3, v4, v15}, Landroid/content/pm/ActivityInfo;->dump(Landroid/util/Printer;Ljava/lang/String;)V
+
+    goto :goto_6
+
+    :cond_f
+    move/from16 v25, v2
+
+    const-string v2, "  null"
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_6
+
+    :cond_10
+    move/from16 v25, v2
+
+    :goto_6
+    invoke-static {v14}, Lcom/android/server/pm/PackageManagerService;->access$3500(Landroid/content/Intent;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_11
+
+    if-nez p11, :cond_11
+
+    const/4 v2, 0x1
+
+    goto :goto_7
+
+    :cond_11
+    const/4 v2, 0x0
+
+    :goto_7
+    if-nez v2, :cond_12
+
+    if-nez p9, :cond_12
+
+    const/4 v4, 0x1
+
+    goto :goto_8
+
+    :cond_12
+    const/4 v4, 0x0
+
+    :goto_8
+    if-nez v3, :cond_14
+
+    if-nez v4, :cond_13
+
+    move/from16 v26, v6
+
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
+
+    goto/16 :goto_c
+
+    :cond_13
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v15, "Removing dangling preferred activity: "
+
+    invoke-virtual {v5, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v15, v11, Lcom/android/server/pm/PreferredActivity;->mPref:Lcom/android/server/pm/PreferredComponent;
+
+    iget-object v15, v15, Lcom/android/server/pm/PreferredComponent;->mComponent:Landroid/content/ComponentName;
+
+    invoke-virtual {v5, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v1, v5}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v0, v11}, Lcom/android/server/pm/PreferredIntentResolver;->removeFilter(Lcom/android/server/pm/WatchedIntentFilter;)V
+
+    const/4 v5, 0x1
+
+    iput-boolean v5, v12, Lcom/android/server/pm/PackageManagerService$FindPreferredActivityBodyResult;->mChanged:Z
+
+    move/from16 v26, v6
+
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
+
+    goto/16 :goto_c
+
+    :cond_14
+    const/4 v5, 0x0
+
+    :goto_9
+    if-ge v5, v6, :cond_1d
+
+    invoke-interface {v9, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v15
+
+    check-cast v15, Landroid/content/pm/ResolveInfo;
+
+    move/from16 v26, v6
+
+    iget-object v6, v15, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v6, v6, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget-object v6, v6, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+
+    iget-object v7, v3, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget-object v7, v7, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_15
+
+    goto :goto_a
+
+    :cond_15
+    iget-object v6, v15, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v6, v6, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+
+    iget-object v7, v3, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+
+    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_16
+
+    nop
+
+    :goto_a
+    add-int/lit8 v5, v5, 0x1
+
+    move-object/from16 v7, p0
+
+    move/from16 v6, v26
+
+    goto :goto_9
+
+    :cond_16
+    if-eqz p6, :cond_17
+
+    if-eqz v4, :cond_17
+
+    invoke-virtual {v0, v11}, Lcom/android/server/pm/PreferredIntentResolver;->removeFilter(Lcom/android/server/pm/WatchedIntentFilter;)V
+
+    const/4 v6, 0x1
+
+    iput-boolean v6, v12, Lcom/android/server/pm/PackageManagerService$FindPreferredActivityBodyResult;->mChanged:Z
+
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
+
+    goto/16 :goto_c
+
+    :cond_17
+    if-eqz p5, :cond_1b
+
+    iget-object v6, v11, Lcom/android/server/pm/PreferredActivity;->mPref:Lcom/android/server/pm/PreferredComponent;
+
+    invoke-virtual {v6, v9, v2}, Lcom/android/server/pm/PreferredComponent;->sameSet(Ljava/util/List;Z)Z
+
+    move-result v6
+
+    if-nez v6, :cond_1b
+
+    iget-object v6, v11, Lcom/android/server/pm/PreferredActivity;->mPref:Lcom/android/server/pm/PreferredComponent;
+
+    invoke-virtual {v6, v9, v2}, Lcom/android/server/pm/PreferredComponent;->isSuperset(Ljava/util/List;Z)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_19
+
+    if-eqz v4, :cond_18
+
+    new-instance v6, Lcom/android/server/pm/PreferredActivity;
+
+    iget-object v7, v11, Lcom/android/server/pm/PreferredActivity;->mPref:Lcom/android/server/pm/PreferredComponent;
+
+    iget v7, v7, Lcom/android/server/pm/PreferredComponent;->mMatch:I
+
+    move/from16 v27, v2
+
+    iget-object v2, v11, Lcom/android/server/pm/PreferredActivity;->mPref:Lcom/android/server/pm/PreferredComponent;
+
+    invoke-virtual {v2, v9}, Lcom/android/server/pm/PreferredComponent;->discardObsoleteComponents(Ljava/util/List;)[Landroid/content/ComponentName;
+
+    move-result-object v20
+
+    iget-object v2, v11, Lcom/android/server/pm/PreferredActivity;->mPref:Lcom/android/server/pm/PreferredComponent;
+
+    iget-object v2, v2, Lcom/android/server/pm/PreferredComponent;->mComponent:Landroid/content/ComponentName;
+
+    move-object/from16 v28, v3
+
+    iget-object v3, v11, Lcom/android/server/pm/PreferredActivity;->mPref:Lcom/android/server/pm/PreferredComponent;
+
+    iget-boolean v3, v3, Lcom/android/server/pm/PreferredComponent;->mAlways:Z
+
+    move-object/from16 v17, v6
+
+    move-object/from16 v18, v11
+
+    move/from16 v19, v7
+
+    move-object/from16 v21, v2
+
+    move/from16 v22, v3
+
+    invoke-direct/range {v17 .. v22}, Lcom/android/server/pm/PreferredActivity;-><init>(Lcom/android/server/pm/WatchedIntentFilter;I[Landroid/content/ComponentName;Landroid/content/ComponentName;Z)V
+
+    move-object v2, v6
+
+    invoke-virtual {v0, v11}, Lcom/android/server/pm/PreferredIntentResolver;->removeFilter(Lcom/android/server/pm/WatchedIntentFilter;)V
+
+    invoke-virtual {v0, v2}, Lcom/android/server/pm/PreferredIntentResolver;->addFilter(Lcom/android/server/pm/WatchedIntentFilter;)V
+
+    const/4 v3, 0x1
+
+    iput-boolean v3, v12, Lcom/android/server/pm/PackageManagerService$FindPreferredActivityBodyResult;->mChanged:Z
+
+    goto :goto_b
+
+    :cond_18
+    move/from16 v27, v2
+
+    move-object/from16 v28, v3
+
+    goto :goto_b
+
+    :cond_19
+    move/from16 v27, v2
+
+    move-object/from16 v28, v3
+
+    if-eqz v4, :cond_1a
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Result set changed, dropping preferred activity for "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v3, " type "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v0, v11}, Lcom/android/server/pm/PreferredIntentResolver;->removeFilter(Lcom/android/server/pm/WatchedIntentFilter;)V
+
+    new-instance v1, Lcom/android/server/pm/PreferredActivity;
+
+    iget-object v2, v11, Lcom/android/server/pm/PreferredActivity;->mPref:Lcom/android/server/pm/PreferredComponent;
+
+    iget v2, v2, Lcom/android/server/pm/PreferredComponent;->mMatch:I
+
+    const/16 v20, 0x0
+
+    iget-object v3, v11, Lcom/android/server/pm/PreferredActivity;->mPref:Lcom/android/server/pm/PreferredComponent;
+
+    iget-object v3, v3, Lcom/android/server/pm/PreferredComponent;->mComponent:Landroid/content/ComponentName;
+
+    const/16 v22, 0x0
+
+    move-object/from16 v17, v1
+
+    move-object/from16 v18, v11
+
+    move/from16 v19, v2
+
+    move-object/from16 v21, v3
+
+    invoke-direct/range {v17 .. v22}, Lcom/android/server/pm/PreferredActivity;-><init>(Lcom/android/server/pm/WatchedIntentFilter;I[Landroid/content/ComponentName;Landroid/content/ComponentName;Z)V
+
+    invoke-virtual {v0, v1}, Lcom/android/server/pm/PreferredIntentResolver;->addFilter(Lcom/android/server/pm/WatchedIntentFilter;)V
+
+    const/4 v2, 0x1
+
+    iput-boolean v2, v12, Lcom/android/server/pm/PackageManagerService$FindPreferredActivityBodyResult;->mChanged:Z
+
+    :cond_1a
+    const/4 v3, 0x0
+
+    iput-object v3, v12, Lcom/android/server/pm/PackageManagerService$FindPreferredActivityBodyResult;->mPreferredResolveInfo:Landroid/content/pm/ResolveInfo;
+
+    return-object v12
+
+    :cond_1b
+    move/from16 v27, v2
+
+    move-object/from16 v28, v3
+
+    :goto_b
+    if-eqz p7, :cond_1c
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Returning preferred activity: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v3, v15, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v3, v3, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v3, "/"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v3, v15, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v3, v3, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1c
+    iput-object v15, v12, Lcom/android/server/pm/PackageManagerService$FindPreferredActivityBodyResult;->mPreferredResolveInfo:Landroid/content/pm/ResolveInfo;
+
+    return-object v12
+
+    :cond_1d
+    move/from16 v27, v2
+
+    move-object/from16 v28, v3
+
+    move/from16 v26, v6
+
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
+
+    :goto_c
+    add-int/lit8 v5, v24, 0x1
+
+    move-object/from16 v7, p0
+
+    move/from16 v3, v16
+
+    move-object/from16 v4, v23
+
+    move/from16 v2, v25
+
+    move/from16 v6, v26
+
+    goto/16 :goto_3
+
+    :cond_1e
+    move/from16 v25, v2
+
+    move/from16 v16, v3
+
+    move-object/from16 v23, v4
+
+    move/from16 v24, v5
+
+    move/from16 v26, v6
+
+    goto :goto_d
+
+    :cond_1f
+    move-object/from16 v23, v4
+
+    :goto_d
+    return-object v12
+.end method
+
+.method public final findPreferredActivityInternal(Landroid/content/Intent;Ljava/lang/String;ILjava/util/List;ZZZIZ)Lcom/android/server/pm/PackageManagerService$FindPreferredActivityBodyResult;
+    .locals 14
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Intent;",
+            "Ljava/lang/String;",
+            "I",
+            "Ljava/util/List<",
+            "Landroid/content/pm/ResolveInfo;",
+            ">;ZZZIZ)",
+            "Lcom/android/server/pm/PackageManagerService$FindPreferredActivityBodyResult;"
+        }
+    .end annotation
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v12
+
+    move-object v13, p0
+
+    iget-object v0, v13, Lcom/android/server/pm/PackageManagerService$ComputerEngine;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "device_provisioned"
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_0
+
+    move v11, v1
+
+    goto :goto_0
+
+    :cond_0
+    move v11, v2
+
+    :goto_0
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-object/from16 v2, p2
+
+    move/from16 v3, p3
+
+    move-object/from16 v4, p4
+
+    move/from16 v5, p5
+
+    move/from16 v6, p6
+
+    move/from16 v7, p7
+
+    move/from16 v8, p8
+
+    move/from16 v9, p9
+
+    move v10, v12
+
+    invoke-virtual/range {v0 .. v11}, Lcom/android/server/pm/PackageManagerService$ComputerEngine;->findPreferredActivityBody(Landroid/content/Intent;Ljava/lang/String;ILjava/util/List;ZZZIZIZ)Lcom/android/server/pm/PackageManagerService$FindPreferredActivityBodyResult;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public final generateApplicationInfoFromSettingsLPw(Ljava/lang/String;III)Landroid/content/pm/ApplicationInfo;
     .locals 3
 
@@ -5543,7 +6774,7 @@
 .end method
 
 .method public final getHomeActivitiesAsUser(Ljava/util/List;I)Landroid/content/ComponentName;
-    .locals 9
+    .locals 18
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -5554,88 +6785,160 @@
         }
     .end annotation
 
-    invoke-virtual {p0}, Lcom/android/server/pm/PackageManagerService$ComputerEngine;->getHomeIntent()Landroid/content/Intent;
+    move-object/from16 v10, p0
 
-    move-result-object v0
+    move/from16 v11, p2
 
-    const/4 v1, 0x0
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/pm/PackageManagerService$ComputerEngine;->getHomeIntent()Landroid/content/Intent;
 
-    const/16 v2, 0x80
+    move-result-object v12
 
-    invoke-virtual {p0, v0, v1, v2, p2}, Lcom/android/server/pm/PackageManagerService$ComputerEngine;->queryIntentActivitiesInternal(Landroid/content/Intent;Ljava/lang/String;II)Ljava/util/List;
+    const/4 v13, 0x0
 
-    move-result-object v2
+    const/16 v0, 0x80
 
-    invoke-interface {p1}, Ljava/util/List;->clear()V
+    invoke-virtual {v10, v12, v13, v0, v11}, Lcom/android/server/pm/PackageManagerService$ComputerEngine;->queryIntentActivitiesInternal(Landroid/content/Intent;Ljava/lang/String;II)Ljava/util/List;
 
-    if-nez v2, :cond_0
+    move-result-object v14
 
-    return-object v1
+    invoke-interface/range {p1 .. p1}, Ljava/util/List;->clear()V
+
+    if-nez v14, :cond_0
+
+    return-object v13
 
     :cond_0
-    invoke-interface {p1, v2}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+    move-object/from16 v15, p1
 
-    iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$ComputerEngine;->mDefaultAppProvider:Lcom/android/server/pm/DefaultAppProvider;
+    invoke-interface {v15, v14}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
 
-    invoke-virtual {v3, p2}, Lcom/android/server/pm/DefaultAppProvider;->getDefaultHome(I)Ljava/lang/String;
+    iget-object v0, v10, Lcom/android/server/pm/PackageManagerService$ComputerEngine;->mDefaultAppProvider:Lcom/android/server/pm/DefaultAppProvider;
 
-    move-result-object v3
+    invoke-virtual {v0, v11}, Lcom/android/server/pm/DefaultAppProvider;->getDefaultHome(I)Ljava/lang/String;
 
-    if-nez v3, :cond_1
+    move-result-object v16
 
-    return-object v1
+    if-nez v16, :cond_2
 
-    :cond_1
-    invoke-interface {v2}, Ljava/util/List;->size()I
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v4
+    move-result v0
 
-    const/4 v5, 0x0
+    invoke-static {v0}, Landroid/os/UserHandle;->getAppId(I)I
 
-    :goto_0
-    if-ge v5, v4, :cond_3
+    move-result v8
 
-    invoke-interface {v2, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    const/16 v0, 0x2710
 
-    move-result-object v6
+    if-lt v8, v0, :cond_1
 
-    check-cast v6, Landroid/content/pm/ResolveInfo;
-
-    iget-object v7, v6, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
-
-    if-eqz v7, :cond_2
-
-    iget-object v7, v6, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
-
-    iget-object v7, v7, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
-
-    invoke-static {v7, v3}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_2
-
-    new-instance v1, Landroid/content/ComponentName;
-
-    iget-object v7, v6, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
-
-    iget-object v7, v7, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
-
-    iget-object v8, v6, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
-
-    iget-object v8, v8, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
-
-    invoke-direct {v1, v7, v8}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    return-object v1
-
-    :cond_2
-    add-int/lit8 v5, v5, 0x1
+    const/4 v0, 0x1
 
     goto :goto_0
 
+    :cond_1
+    const/4 v0, 0x0
+
+    :goto_0
+    move v9, v0
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
+
+    const/4 v5, 0x1
+
+    const/4 v6, 0x0
+
+    const/4 v7, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object v1, v12
+
+    move-object v4, v14
+
+    move/from16 v17, v8
+
+    move/from16 v8, p2
+
+    invoke-virtual/range {v0 .. v9}, Lcom/android/server/pm/PackageManagerService$ComputerEngine;->findPreferredActivityInternal(Landroid/content/Intent;Ljava/lang/String;ILjava/util/List;ZZZIZ)Lcom/android/server/pm/PackageManagerService$FindPreferredActivityBodyResult;
+
+    move-result-object v0
+
+    iget-object v1, v0, Lcom/android/server/pm/PackageManagerService$FindPreferredActivityBodyResult;->mPreferredResolveInfo:Landroid/content/pm/ResolveInfo;
+
+    if-eqz v1, :cond_2
+
+    iget-object v2, v1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    if-eqz v2, :cond_2
+
+    iget-object v2, v1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v2, v2, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+
+    goto :goto_1
+
+    :cond_2
+    move-object/from16 v2, v16
+
+    :goto_1
+    if-nez v2, :cond_3
+
+    return-object v13
+
     :cond_3
-    return-object v1
+    invoke-interface {v14}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    :goto_2
+    if-ge v1, v0, :cond_5
+
+    invoke-interface {v14, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/content/pm/ResolveInfo;
+
+    iget-object v4, v3, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    if-eqz v4, :cond_4
+
+    iget-object v4, v3, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v4, v4, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+
+    invoke-static {v4, v2}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    new-instance v4, Landroid/content/ComponentName;
+
+    iget-object v5, v3, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v5, v5, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+
+    iget-object v6, v3, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v6, v6, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+
+    invoke-direct {v4, v5, v6}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-object v4
+
+    :cond_4
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_2
+
+    :cond_5
+    return-object v13
 .end method
 
 .method public final getHomeIntent()Landroid/content/Intent;

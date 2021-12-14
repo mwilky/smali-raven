@@ -128,6 +128,8 @@
 
 .field static final SYNC_RECEIVED_WHILE_FROZEN:I = 0x1
 
+.field static final TXNS_PENDING_WHILE_FROZEN:I = 0x4
+
 
 # instance fields
 .field private final mAm:Lcom/android/server/am/ActivityManagerService;
@@ -641,12 +643,14 @@
     return v0
 .end method
 
-.method static synthetic access$2900(IZ)V
-    .locals 0
+.method static synthetic access$2900(IZ)I
+    .locals 1
 
-    invoke-static {p0, p1}, Lcom/android/server/am/CachedAppOptimizer;->freezeBinder(IZ)V
+    invoke-static {p0, p1}, Lcom/android/server/am/CachedAppOptimizer;->freezeBinder(IZ)I
 
-    return-void
+    move-result v0
+
+    return v0
 .end method
 
 .method static synthetic access$300(Lcom/android/server/am/CachedAppOptimizer;)V
@@ -665,7 +669,17 @@
     return-object v0
 .end method
 
-.method static synthetic access$3100(II)V
+.method static synthetic access$3100(I)I
+    .locals 1
+
+    invoke-static {p0}, Lcom/android/server/am/CachedAppOptimizer;->getBinderFreezeInfo(I)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic access$3200(II)V
     .locals 0
 
     invoke-static {p0, p1}, Lcom/android/server/am/CachedAppOptimizer;->compactProcess(II)V
@@ -752,7 +766,7 @@
 .method private native compactSystem()V
 .end method
 
-.method private static native freezeBinder(IZ)V
+.method private static native freezeBinder(IZ)I
 .end method
 
 .method private static native getBinderFreezeInfo(I)I
@@ -2946,56 +2960,16 @@
     invoke-static {v2}, Lcom/android/server/am/CachedAppOptimizer;->getBinderFreezeInfo(I)I
 
     move-result v9
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     and-int/lit8 v10, v9, 0x1
 
-    const-string/jumbo v11, "pid "
-
     if-eqz v10, :cond_2
 
-    :try_start_1
     new-instance v10, Ljava/lang/StringBuilder;
 
     invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v10, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v10, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v12, p1, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
-
-    invoke-virtual {v10, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v12, "  received sync transactions while frozen, killing"
-
-    invoke-virtual {v10, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-static {v1, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string v10, "Sync transaction while in frozen state"
-
-    const/16 v12, 0x14
-
-    invoke-virtual {p1, v10, v7, v12, v8}, Lcom/android/server/am/ProcessRecord;->killLocked(Ljava/lang/String;IIZ)V
-
-    const/4 v4, 0x1
-
-    :cond_2
-    and-int/lit8 v10, v9, 0x2
-
-    if-eqz v10, :cond_3
-
-    new-instance v10, Ljava/lang/StringBuilder;
-
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v11, "pid "
 
     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3007,7 +2981,7 @@
 
     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v11, "  received async transactions while frozen"
+    const-string v11, " received sync transactions while frozen, killing"
 
     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3016,10 +2990,20 @@
     move-result-object v10
 
     invoke-static {v1, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    :cond_3
+    const-string v10, "Sync transaction while in frozen state"
+
+    const/16 v11, 0x14
+
+    invoke-virtual {p1, v10, v7, v11, v8}, Lcom/android/server/am/ProcessRecord;->killLocked(Ljava/lang/String;IIZ)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    const/4 v4, 0x1
+
+    :cond_2
+    nop
+
     goto :goto_0
 
     :catch_0
@@ -3060,23 +3044,23 @@
     const/4 v4, 0x1
 
     :goto_0
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_3
 
     return-void
 
-    :cond_4
+    :cond_3
     invoke-virtual {v3}, Lcom/android/server/am/ProcessCachedOptimizerRecord;->getFreezeUnfreezeTime()J
 
     move-result-wide v9
 
-    :try_start_2
-    invoke-static {v2, v5}, Lcom/android/server/am/CachedAppOptimizer;->freezeBinder(IZ)V
-    :try_end_2
-    .catch Ljava/lang/RuntimeException; {:try_start_2 .. :try_end_2} :catch_2
+    :try_start_1
+    invoke-static {v2, v5}, Lcom/android/server/am/CachedAppOptimizer;->freezeBinder(IZ)I
+    :try_end_1
+    .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_2
 
     nop
 
-    :try_start_3
+    :try_start_2
     iget v6, p1, Lcom/android/server/am/ProcessRecord;->uid:I
 
     invoke-static {v2, v6, v5}, Landroid/os/Process;->setProcessFrozen(IIZ)V
@@ -3088,8 +3072,8 @@
     invoke-virtual {v3, v6, v7}, Lcom/android/server/am/ProcessCachedOptimizerRecord;->setFreezeUnfreezeTime(J)V
 
     invoke-virtual {v3, v5}, Lcom/android/server/am/ProcessCachedOptimizerRecord;->setFrozen(Z)V
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
 
     goto :goto_1
 
@@ -3127,7 +3111,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_5
+    if-nez v5, :cond_4
 
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -3177,7 +3161,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    :cond_5
+    :cond_4
     return-void
 
     :catch_2

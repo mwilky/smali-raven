@@ -32,7 +32,7 @@
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;ILjava/lang/String;ILandroid/hardware/fingerprint/IUdfpsOverlayController;ZI)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;JLcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;ILjava/lang/String;ILandroid/hardware/fingerprint/IUdfpsOverlayController;ZI)V
     .locals 14
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -42,6 +42,7 @@
             "Landroid/hardware/biometrics/fingerprint/V2_1/IBiometricsFingerprint;",
             ">;",
             "Landroid/os/IBinder;",
+            "J",
             "Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;",
             "I",
             "Ljava/lang/String;",
@@ -69,25 +70,29 @@
 
     move-object/from16 v3, p3
 
-    move-object/from16 v4, p4
+    move-object/from16 v4, p6
 
-    move/from16 v5, p5
+    move/from16 v5, p7
 
-    move-object/from16 v6, p6
+    move-object/from16 v6, p8
 
-    move/from16 v8, p7
+    move/from16 v8, p9
 
-    move/from16 v12, p10
+    move/from16 v12, p12
 
     invoke-direct/range {v0 .. v12}, Lcom/android/server/biometrics/sensors/AcquisitionClient;-><init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;ILjava/lang/String;IIZIII)V
 
-    move-object/from16 v0, p8
+    move-wide/from16 v0, p4
 
-    iput-object v0, v13, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintDetectClient;->mUdfpsOverlayController:Landroid/hardware/fingerprint/IUdfpsOverlayController;
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintDetectClient;->setRequestId(J)V
 
-    move/from16 v1, p9
+    move-object/from16 v2, p10
 
-    iput-boolean v1, v13, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintDetectClient;->mIsStrongBiometric:Z
+    iput-object v2, v13, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintDetectClient;->mUdfpsOverlayController:Landroid/hardware/fingerprint/IUdfpsOverlayController;
+
+    move/from16 v3, p11
+
+    iput-boolean v3, v13, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintDetectClient;->mIsStrongBiometric:Z
 
     return-void
 .end method

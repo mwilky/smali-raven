@@ -17,14 +17,26 @@
 # instance fields
 .field private final mContext:Landroid/content/Context;
 
+.field private final mPackageManagerInternal:Landroid/content/pm/PackageManagerInternal;
+
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/pm/permission/LegacyPermissionManagerService$Injector;->mContext:Landroid/content/Context;
+
+    const-class v0, Landroid/content/pm/PackageManagerInternal;
+
+    invoke-static {v0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/pm/PackageManagerInternal;
+
+    iput-object v0, p0, Lcom/android/server/pm/permission/LegacyPermissionManagerService$Injector;->mPackageManagerInternal:Landroid/content/pm/PackageManagerInternal;
 
     return-void
 .end method
@@ -94,6 +106,20 @@
     .locals 1
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public getPackageUidForUser(Ljava/lang/String;I)I
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/pm/permission/LegacyPermissionManagerService$Injector;->mPackageManagerInternal:Landroid/content/pm/PackageManagerInternal;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, p1, v1, p2}, Landroid/content/pm/PackageManagerInternal;->getPackageUid(Ljava/lang/String;II)I
 
     move-result v0
 

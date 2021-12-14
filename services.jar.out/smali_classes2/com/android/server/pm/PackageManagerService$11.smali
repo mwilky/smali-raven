@@ -46,13 +46,13 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$11;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$8100(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$MoveCallbacks;
+    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$8400(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$MoveCallbacks;
 
     move-result-object v0
 
     iget v1, p0, Lcom/android/server/pm/PackageManagerService$11;->val$realMoveId:I
 
-    invoke-static {v0, v1, p2, p3, p4}, Lcom/android/server/pm/PackageManagerService$MoveCallbacks;->access$8300(Lcom/android/server/pm/PackageManagerService$MoveCallbacks;IIJ)V
+    invoke-static {v0, v1, p2, p3, p4}, Lcom/android/server/pm/PackageManagerService$MoveCallbacks;->access$8600(Lcom/android/server/pm/PackageManagerService$MoveCallbacks;IIJ)V
 
     return-void
 .end method

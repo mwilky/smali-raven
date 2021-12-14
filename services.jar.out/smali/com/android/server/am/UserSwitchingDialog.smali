@@ -147,7 +147,7 @@
 
     if-nez v4, :cond_0
 
-    const v4, 0x1040891
+    const v4, 0x1040893
 
     new-array v5, v5, [Ljava/lang/Object;
 
@@ -221,7 +221,7 @@
     :goto_0
     if-nez v3, :cond_5
 
-    const v4, 0x1040894
+    const v4, 0x1040896
 
     new-array v5, v5, [Ljava/lang/Object;
 

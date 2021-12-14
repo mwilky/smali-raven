@@ -2,44 +2,32 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/lang/Runnable;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda3;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/wm/TaskDisplayArea;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda3;
-
-    invoke-direct {v0}, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda3;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda3;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/wm/TaskDisplayArea;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/wm/TaskDisplayArea;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
-    .locals 0
+.method public final run()V
+    .locals 1
 
-    check-cast p1, Lcom/android/server/wm/ActivityRecord;
+    iget-object v0, p0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/wm/TaskDisplayArea;
 
-    invoke-static {p1}, Lcom/android/server/wm/WindowContainer;->lambda$getActivityAbove$1(Lcom/android/server/wm/ActivityRecord;)Z
+    invoke-virtual {v0}, Lcom/android/server/wm/TaskDisplayArea;->clearBackgroundColor()V
 
-    move-result p1
-
-    return p1
+    return-void
 .end method

@@ -134,6 +134,18 @@
     return-object v0
 .end method
 
+.method public getRequestGenerator()Ljava/util/concurrent/atomic/AtomicLong;
+    .locals 3
+
+    new-instance v0, Ljava/util/concurrent/atomic/AtomicLong;
+
+    const-wide/16 v1, 0x0
+
+    invoke-direct {v0, v1, v2}, Ljava/util/concurrent/atomic/AtomicLong;-><init>(J)V
+
+    return-object v0
+.end method
+
 .method public getSettingObserver(Landroid/content/Context;Landroid/os/Handler;Ljava/util/List;)Lcom/android/server/biometrics/BiometricService$SettingObserver;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -256,7 +268,7 @@
 
     const-string v0, "biometric"
 
-    invoke-static {p1, v0, p2}, Lcom/android/server/biometrics/BiometricService;->access$2000(Lcom/android/server/biometrics/BiometricService;Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-static {p1, v0, p2}, Lcom/android/server/biometrics/BiometricService;->access$2100(Lcom/android/server/biometrics/BiometricService;Ljava/lang/String;Landroid/os/IBinder;)V
 
     return-void
 .end method

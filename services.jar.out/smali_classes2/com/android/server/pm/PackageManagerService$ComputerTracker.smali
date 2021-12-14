@@ -53,7 +53,7 @@
 .method private live()Lcom/android/server/pm/PackageManagerService$ThreadComputer;
     .locals 2
 
-    invoke-static {}, Lcom/android/server/pm/PackageManagerService;->access$3300()Ljava/lang/ThreadLocal;
+    invoke-static {}, Lcom/android/server/pm/PackageManagerService;->access$3600()Ljava/lang/ThreadLocal;
 
     move-result-object v0
 
@@ -78,7 +78,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$ComputerTracker;->mService:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$3400(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$Computer;
+    invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$3700(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$Computer;
 
     move-result-object v1
 
@@ -91,7 +91,7 @@
 .method private snapshot()Lcom/android/server/pm/PackageManagerService$ThreadComputer;
     .locals 2
 
-    invoke-static {}, Lcom/android/server/pm/PackageManagerService;->access$3300()Ljava/lang/ThreadLocal;
+    invoke-static {}, Lcom/android/server/pm/PackageManagerService;->access$3600()Ljava/lang/ThreadLocal;
 
     move-result-object v0
 
@@ -116,7 +116,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$ComputerTracker;->mService:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$3500(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$Computer;
+    invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$3800(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$Computer;
 
     move-result-object v1
 
@@ -495,6 +495,116 @@
     invoke-virtual {v0}, Lcom/android/server/pm/PackageManagerService$ThreadComputer;->release()V
 
     throw v1
+.end method
+
+.method public final findPersistentPreferredActivityLP(Landroid/content/Intent;Ljava/lang/String;ILjava/util/List;ZI)Landroid/content/pm/ResolveInfo;
+    .locals 8
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Intent;",
+            "Ljava/lang/String;",
+            "I",
+            "Ljava/util/List<",
+            "Landroid/content/pm/ResolveInfo;",
+            ">;ZI)",
+            "Landroid/content/pm/ResolveInfo;"
+        }
+    .end annotation
+
+    invoke-direct {p0}, Lcom/android/server/pm/PackageManagerService$ComputerTracker;->live()Lcom/android/server/pm/PackageManagerService$ThreadComputer;
+
+    move-result-object v0
+
+    :try_start_0
+    iget-object v1, v0, Lcom/android/server/pm/PackageManagerService$ThreadComputer;->mComputer:Lcom/android/server/pm/PackageManagerService$Computer;
+
+    move-object v2, p1
+
+    move-object v3, p2
+
+    move v4, p3
+
+    move-object v5, p4
+
+    move v6, p5
+
+    move v7, p6
+
+    invoke-interface/range {v1 .. v7}, Lcom/android/server/pm/PackageManagerService$Computer;->findPersistentPreferredActivityLP(Landroid/content/Intent;Ljava/lang/String;ILjava/util/List;ZI)Landroid/content/pm/ResolveInfo;
+
+    move-result-object v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v0}, Lcom/android/server/pm/PackageManagerService$ThreadComputer;->release()V
+
+    return-object v1
+
+    :catchall_0
+    move-exception v1
+
+    invoke-virtual {v0}, Lcom/android/server/pm/PackageManagerService$ThreadComputer;->release()V
+
+    throw v1
+.end method
+
+.method public final findPreferredActivityInternal(Landroid/content/Intent;Ljava/lang/String;ILjava/util/List;ZZZIZ)Lcom/android/server/pm/PackageManagerService$FindPreferredActivityBodyResult;
+    .locals 12
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Intent;",
+            "Ljava/lang/String;",
+            "I",
+            "Ljava/util/List<",
+            "Landroid/content/pm/ResolveInfo;",
+            ">;ZZZIZ)",
+            "Lcom/android/server/pm/PackageManagerService$FindPreferredActivityBodyResult;"
+        }
+    .end annotation
+
+    invoke-direct {p0}, Lcom/android/server/pm/PackageManagerService$ComputerTracker;->live()Lcom/android/server/pm/PackageManagerService$ThreadComputer;
+
+    move-result-object v1
+
+    :try_start_0
+    iget-object v2, v1, Lcom/android/server/pm/PackageManagerService$ThreadComputer;->mComputer:Lcom/android/server/pm/PackageManagerService$Computer;
+
+    move-object v3, p1
+
+    move-object v4, p2
+
+    move v5, p3
+
+    move-object/from16 v6, p4
+
+    move/from16 v7, p5
+
+    move/from16 v8, p6
+
+    move/from16 v9, p7
+
+    move/from16 v10, p8
+
+    move/from16 v11, p9
+
+    invoke-interface/range {v2 .. v11}, Lcom/android/server/pm/PackageManagerService$Computer;->findPreferredActivityInternal(Landroid/content/Intent;Ljava/lang/String;ILjava/util/List;ZZZIZ)Lcom/android/server/pm/PackageManagerService$FindPreferredActivityBodyResult;
+
+    move-result-object v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v1}, Lcom/android/server/pm/PackageManagerService$ThreadComputer;->release()V
+
+    return-object v0
+
+    :catchall_0
+    move-exception v0
+
+    invoke-virtual {v1}, Lcom/android/server/pm/PackageManagerService$ThreadComputer;->release()V
+
+    throw v0
 .end method
 
 .method public final generateApplicationInfoFromSettingsLPw(Ljava/lang/String;III)Landroid/content/pm/ApplicationInfo;

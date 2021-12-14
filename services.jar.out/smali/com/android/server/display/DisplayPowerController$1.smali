@@ -35,23 +35,27 @@
 
 # virtual methods
 .method public onReduceBrightColorsActivationChanged(ZZ)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/display/DisplayPowerController$1;->this$0:Lcom/android/server/display/DisplayPowerController;
-
-    invoke-static {v0, p2}, Lcom/android/server/display/DisplayPowerController;->access$100(Lcom/android/server/display/DisplayPowerController;Z)V
-
-    return-void
-.end method
-
-.method public onReduceBrightColorsStrengthChanged(I)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/display/DisplayPowerController$1;->this$0:Lcom/android/server/display/DisplayPowerController;
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/server/display/DisplayPowerController;->access$100(Lcom/android/server/display/DisplayPowerController;Z)V
+    invoke-static {v0, v1, p1}, Lcom/android/server/display/DisplayPowerController;->access$100(Lcom/android/server/display/DisplayPowerController;ZZ)V
+
+    return-void
+.end method
+
+.method public onReduceBrightColorsStrengthChanged(I)V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/display/DisplayPowerController$1;->this$0:Lcom/android/server/display/DisplayPowerController;
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Lcom/android/server/display/DisplayPowerController;->access$100(Lcom/android/server/display/DisplayPowerController;ZZ)V
 
     return-void
 .end method

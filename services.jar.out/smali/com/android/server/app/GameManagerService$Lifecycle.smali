@@ -63,11 +63,11 @@
 
     iget-object v0, p0, Lcom/android/server/app/GameManagerService$Lifecycle;->mService:Lcom/android/server/app/GameManagerService;
 
-    invoke-static {v0}, Lcom/android/server/app/GameManagerService;->access$700(Lcom/android/server/app/GameManagerService;)V
+    invoke-static {v0}, Lcom/android/server/app/GameManagerService;->access$800(Lcom/android/server/app/GameManagerService;)V
 
     iget-object v0, p0, Lcom/android/server/app/GameManagerService$Lifecycle;->mService:Lcom/android/server/app/GameManagerService;
 
-    invoke-static {v0}, Lcom/android/server/app/GameManagerService;->access$800(Lcom/android/server/app/GameManagerService;)V
+    invoke-static {v0}, Lcom/android/server/app/GameManagerService;->access$900(Lcom/android/server/app/GameManagerService;)V
 
     return-void
 .end method

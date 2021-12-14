@@ -148,6 +148,16 @@
 
 .field private final mCallbacks:Lcom/android/server/StorageManagerService$Callbacks;
 
+.field private final mCeStoragePreparedUsers:Ljava/util/Set;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Set<",
+            "Ljava/lang/Integer;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final mContext:Landroid/content/Context;
 
 .field private volatile mCurrentUserId:I
@@ -380,6 +390,12 @@
     invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/StorageManagerService;->mFuseMountedUser:Ljava/util/Set;
+
+    new-instance v0, Landroid/util/ArraySet;
+
+    invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
+
+    iput-object v0, p0, Lcom/android/server/StorageManagerService;->mCeStoragePreparedUsers:Ljava/util/Set;
 
     const/4 v0, 0x4
 
@@ -1282,6 +1298,14 @@
     invoke-direct {p0, p1}, Lcom/android/server/StorageManagerService;->onUnlockUser(I)V
 
     return-void
+.end method
+
+.method static synthetic access$7000(Lcom/android/server/StorageManagerService;)Ljava/util/Set;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/StorageManagerService;->mCeStoragePreparedUsers:Ljava/util/Set;
+
+    return-object v0
 .end method
 
 .method static synthetic access$800(Lcom/android/server/StorageManagerService;I)V

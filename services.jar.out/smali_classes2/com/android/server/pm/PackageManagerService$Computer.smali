@@ -103,6 +103,44 @@
     .end annotation
 .end method
 
+.method public abstract findPersistentPreferredActivityLP(Landroid/content/Intent;Ljava/lang/String;ILjava/util/List;ZI)Landroid/content/pm/ResolveInfo;
+    .annotation runtime Lcom/android/server/pm/PackageManagerService$Computer$LiveImplementation;
+        override = 0x2
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Intent;",
+            "Ljava/lang/String;",
+            "I",
+            "Ljava/util/List<",
+            "Landroid/content/pm/ResolveInfo;",
+            ">;ZI)",
+            "Landroid/content/pm/ResolveInfo;"
+        }
+    .end annotation
+.end method
+
+.method public abstract findPreferredActivityInternal(Landroid/content/Intent;Ljava/lang/String;ILjava/util/List;ZZZIZ)Lcom/android/server/pm/PackageManagerService$FindPreferredActivityBodyResult;
+    .annotation runtime Lcom/android/server/pm/PackageManagerService$Computer$LiveImplementation;
+        override = 0x2
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Intent;",
+            "Ljava/lang/String;",
+            "I",
+            "Ljava/util/List<",
+            "Landroid/content/pm/ResolveInfo;",
+            ">;ZZZIZ)",
+            "Lcom/android/server/pm/PackageManagerService$FindPreferredActivityBodyResult;"
+        }
+    .end annotation
+.end method
+
 .method public abstract generateApplicationInfoFromSettingsLPw(Ljava/lang/String;III)Landroid/content/pm/ApplicationInfo;
     .annotation runtime Lcom/android/server/pm/PackageManagerService$Computer$LiveImplementation;
         override = 0x2

@@ -279,23 +279,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$600(Lcom/android/server/media/MediaRouterService;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/media/MediaRouterService;->mCurrentUserId:I
-
-    return v0
-.end method
-
-.method static synthetic access$700(Lcom/android/server/media/MediaRouterService;)Landroid/util/SparseArray;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/media/MediaRouterService;->mUserRecords:Landroid/util/SparseArray;
-
-    return-object v0
-.end method
-
-.method static synthetic access$800(Lcom/android/server/media/MediaRouterService;)Landroid/content/Context;
+.method static synthetic access$600(Lcom/android/server/media/MediaRouterService;)Landroid/content/Context;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/media/MediaRouterService;->mContext:Landroid/content/Context;

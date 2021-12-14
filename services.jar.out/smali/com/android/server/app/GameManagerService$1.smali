@@ -156,7 +156,7 @@
 
     iget-object v3, p0, Lcom/android/server/app/GameManagerService$1;->this$0:Lcom/android/server/app/GameManagerService;
 
-    invoke-static {v3}, Lcom/android/server/app/GameManagerService;->access$1000(Lcom/android/server/app/GameManagerService;)Ljava/lang/Object;
+    invoke-static {v3}, Lcom/android/server/app/GameManagerService;->access$1100(Lcom/android/server/app/GameManagerService;)Ljava/lang/Object;
 
     move-result-object v3
 
@@ -167,7 +167,7 @@
     :try_start_3
     iget-object v4, p0, Lcom/android/server/app/GameManagerService$1;->this$0:Lcom/android/server/app/GameManagerService;
 
-    invoke-static {v4}, Lcom/android/server/app/GameManagerService;->access$1100(Lcom/android/server/app/GameManagerService;)Landroid/util/ArrayMap;
+    invoke-static {v4}, Lcom/android/server/app/GameManagerService;->access$1200(Lcom/android/server/app/GameManagerService;)Landroid/util/ArrayMap;
 
     move-result-object v4
 

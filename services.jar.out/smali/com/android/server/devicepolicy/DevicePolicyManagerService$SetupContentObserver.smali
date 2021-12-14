@@ -85,7 +85,7 @@
     return-void
 .end method
 
-.method static synthetic access$4200(Lcom/android/server/devicepolicy/DevicePolicyManagerService$SetupContentObserver;I)V
+.method static synthetic access$4300(Lcom/android/server/devicepolicy/DevicePolicyManagerService$SetupContentObserver;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$SetupContentObserver;->addPendingChangeByOwnerLocked(I)V

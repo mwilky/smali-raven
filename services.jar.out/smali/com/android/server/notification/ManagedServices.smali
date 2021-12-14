@@ -383,15 +383,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$600(Lcom/android/server/notification/ManagedServices;)Ljava/util/ArrayList;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/notification/ManagedServices;->mServicesBound:Ljava/util/ArrayList;
-
-    return-object v0
-.end method
-
-.method static synthetic access$700(Lcom/android/server/notification/ManagedServices;)Lcom/android/server/notification/ManagedServices$UserProfiles;
+.method static synthetic access$600(Lcom/android/server/notification/ManagedServices;)Lcom/android/server/notification/ManagedServices$UserProfiles;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/notification/ManagedServices;->mUserProfiles:Lcom/android/server/notification/ManagedServices$UserProfiles;
@@ -399,7 +391,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$800(Lcom/android/server/notification/ManagedServices;Landroid/os/IInterface;I)Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;
+.method static synthetic access$700(Lcom/android/server/notification/ManagedServices;Landroid/os/IInterface;I)Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;
     .locals 1
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/notification/ManagedServices;->removeServiceImpl(Landroid/os/IInterface;I)Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;
@@ -409,7 +401,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$900(Lcom/android/server/notification/ManagedServices;)Landroid/util/ArraySet;
+.method static synthetic access$800(Lcom/android/server/notification/ManagedServices;)Landroid/util/ArraySet;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/notification/ManagedServices;->mEnabledServicesForCurrentProfiles:Landroid/util/ArraySet;

@@ -1871,7 +1871,7 @@
 .end method
 
 .method private checkExistsAndEnforceCannotModifyImmutablyRestrictedPermission(Ljava/lang/String;)Z
-    .locals 6
+    .locals 9
 
     iget-object v0, p0, Lcom/android/server/pm/permission/PermissionManagerService;->mLock:Ljava/lang/Object;
 
@@ -1911,72 +1911,117 @@
     return v2
 
     :cond_0
+    invoke-virtual {v1}, Lcom/android/server/pm/permission/Permission;->getPackageName()Ljava/lang/String;
+
+    move-result-object v3
+
     invoke-virtual {v1}, Lcom/android/server/pm/permission/Permission;->isHardOrSoftRestricted()Z
 
-    move-result v3
+    move-result v4
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    if-eqz v3, :cond_1
+    if-eqz v4, :cond_1
 
     invoke-virtual {v1}, Lcom/android/server/pm/permission/Permission;->isImmutablyRestricted()Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_1
+    if-eqz v4, :cond_1
 
-    move v2, v4
+    move v4, v5
 
     goto :goto_0
 
     :cond_1
-    nop
+    move v4, v2
 
     :goto_0
-    move v1, v2
+    move v1, v4
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eqz v1, :cond_3
-
-    iget-object v0, p0, Lcom/android/server/pm/permission/PermissionManagerService;->mContext:Landroid/content/Context;
-
-    const-string v2, "android.permission.WHITELIST_RESTRICTED_PERMISSIONS"
-
-    invoke-virtual {v0, v2}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
+    invoke-static {}, Lcom/android/server/pm/permission/PermissionManagerService;->getCallingUid()I
 
     move-result v0
 
-    if-nez v0, :cond_2
+    invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v4
+
+    iget-object v6, p0, Lcom/android/server/pm/permission/PermissionManagerService;->mPackageManagerInt:Landroid/content/pm/PackageManagerInternal;
+
+    invoke-virtual {v6, v3, v0, v4}, Landroid/content/pm/PackageManagerInternal;->filterAppAccess(Ljava/lang/String;II)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_2
+
+    const v6, 0x534e4554
+
+    const/4 v7, 0x3
+
+    new-array v7, v7, [Ljava/lang/Object;
+
+    const-string v8, "186404356"
+
+    aput-object v8, v7, v2
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v8
+
+    aput-object v8, v7, v5
+
+    const/4 v5, 0x2
+
+    aput-object p1, v7, v5
+
+    invoke-static {v6, v7}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+
+    return v2
+
+    :cond_2
+    if-eqz v1, :cond_4
+
+    iget-object v2, p0, Lcom/android/server/pm/permission/PermissionManagerService;->mContext:Landroid/content/Context;
+
+    const-string v6, "android.permission.WHITELIST_RESTRICTED_PERMISSIONS"
+
+    invoke-virtual {v2, v6}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
+
+    move-result v2
+
+    if-nez v2, :cond_3
 
     goto :goto_1
 
-    :cond_2
-    new-instance v0, Ljava/lang/SecurityException;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Cannot modify allowlisting of an immutably restricted permission: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-direct {v0, v2}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
     :cond_3
+    new-instance v2, Ljava/lang/SecurityException;
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "Cannot modify allowlisting of an immutably restricted permission: "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-direct {v2, v5}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+
+    throw v2
+
+    :cond_4
     :goto_1
-    return v4
+    return v5
 
     :catchall_0
     move-exception v1

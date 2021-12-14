@@ -7931,12 +7931,6 @@
 
     if-eqz v13, :cond_10
 
-    invoke-virtual {v8}, Landroid/app/NotificationChannel;->isSoundMissing()Z
-
-    move-result v13
-
-    if-nez v13, :cond_10
-
     iget-object v13, v1, Lcom/android/server/notification/PreferencesHelper$PackagePreferences;->channels:Landroid/util/ArrayMap;
 
     invoke-virtual {v13, v3, v8}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;

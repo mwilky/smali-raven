@@ -1094,7 +1094,7 @@
 
     move-result-object v1
 
-    const v2, 0x10e0084
+    const v2, 0x10e0085
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -10963,7 +10963,7 @@
     return-void
 .end method
 
-.method public attachWindowContextToDisplayArea(Landroid/os/IBinder;IILandroid/os/Bundle;)Z
+.method public attachWindowContextToDisplayArea(Landroid/os/IBinder;IILandroid/os/Bundle;)Landroid/content/res/Configuration;
     .locals 17
 
     move-object/from16 v1, p0
@@ -10993,7 +10993,7 @@
 
     monitor-enter v14
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_3
 
     :try_start_1
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->boostPriorityForLockedSection()V
@@ -11003,8 +11003,6 @@
     invoke-virtual {v0, v2}, Lcom/android/server/wm/RootWindowContainer;->getDisplayContentOrCreate(I)Lcom/android/server/wm/DisplayContent;
 
     move-result-object v0
-
-    const/4 v15, 0x1
 
     if-nez v0, :cond_1
 
@@ -11020,17 +11018,21 @@
 
     const-string v9, "attachWindowContextToDisplayArea: trying to attach to a non-existing display:%d"
 
-    new-array v10, v15, [Ljava/lang/Object;
+    const/4 v10, 0x1
+
+    new-array v15, v10, [Ljava/lang/Object;
 
     invoke-static {v5, v6}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v16
 
-    aput-object v16, v10, v4
+    aput-object v16, v15, v4
 
-    invoke-static {v7, v8, v15, v9, v10}, Lcom/android/internal/protolog/ProtoLogImpl;->w(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v7, v8, v10, v9, v15}, Lcom/android/internal/protolog/ProtoLogImpl;->w(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
     :cond_0
+    const/4 v4, 0x0
+
     monitor-exit v14
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -11039,15 +11041,15 @@
 
     invoke-static {v12, v13}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v4
+    return-object v4
 
     :cond_1
-    move/from16 v10, p2
+    move/from16 v15, p2
 
-    move-object/from16 v9, p4
+    move-object/from16 v10, p4
 
     :try_start_2
-    invoke-virtual {v0, v10, v9, v3, v4}, Lcom/android/server/wm/DisplayContent;->findAreaForWindowType(ILandroid/os/Bundle;ZZ)Lcom/android/server/wm/DisplayArea;
+    invoke-virtual {v0, v15, v10, v3, v4}, Lcom/android/server/wm/DisplayContent;->findAreaForWindowType(ILandroid/os/Bundle;ZZ)Lcom/android/server/wm/DisplayArea;
 
     move-result-object v7
 
@@ -11063,23 +11065,30 @@
 
     invoke-virtual/range {v5 .. v10}, Lcom/android/server/wm/WindowContextListenerController;->registerWindowContainerListener(Landroid/os/IBinder;Lcom/android/server/wm/WindowContainer;IILandroid/os/Bundle;)V
 
+    invoke-virtual {v7}, Lcom/android/server/wm/DisplayArea;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v4
+
     monitor-exit v14
     :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
     invoke-static {v12, v13}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v15
+    return-object v4
 
     :catchall_0
     move-exception v0
 
+    move/from16 v15, p2
+
+    :goto_0
     :try_start_3
     monitor-exit v14
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_2
 
     :try_start_4
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
@@ -11091,6 +11100,19 @@
     :catchall_1
     move-exception v0
 
+    goto :goto_1
+
+    :catchall_2
+    move-exception v0
+
+    goto :goto_0
+
+    :catchall_3
+    move-exception v0
+
+    move/from16 v15, p2
+
+    :goto_1
     invoke-static {v12, v13}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     throw v0
@@ -22745,6 +22767,12 @@
 
     invoke-virtual {v9, v1}, Landroid/view/ScrollCaptureResponse$Builder;->setWindowTitle(Ljava/lang/String;)Landroid/view/ScrollCaptureResponse$Builder;
 
+    invoke-virtual {v13}, Lcom/android/server/wm/WindowState;->getOwningPackage()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v9, v1}, Landroid/view/ScrollCaptureResponse$Builder;->setPackageName(Ljava/lang/String;)Landroid/view/ScrollCaptureResponse$Builder;
+
     const-string v1, "caught exception: %s"
 
     const/4 v2, 0x1
@@ -26546,11 +26574,11 @@
 
     :cond_1
     :try_start_2
-    iget-object v4, p0, Lcom/android/server/wm/WindowManagerService;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
+    iget v4, v3, Lcom/android/server/wm/Task;->mTaskId:I
 
-    iget v5, v3, Lcom/android/server/wm/Task;->mTaskId:I
+    iget v5, v3, Lcom/android/server/wm/Task;->mUserId:I
 
-    invoke-virtual {v4, v5, v2}, Lcom/android/server/wm/ActivityTaskManagerService;->getTaskSnapshot(IZ)Landroid/window/TaskSnapshot;
+    invoke-virtual {p0, v4, v5, v2, v2}, Lcom/android/server/wm/WindowManagerService;->getTaskSnapshot(IIZZ)Landroid/window/TaskSnapshot;
 
     move-result-object v4
 

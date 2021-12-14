@@ -311,7 +311,7 @@
 
     move-result v8
 
-    const v10, 0x10408ac
+    const v10, 0x10408ae
 
     const v11, 0x108090a
 
@@ -330,7 +330,7 @@
 
     invoke-static {v9, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v8, 0x10408aa
+    const v8, 0x10408ac
 
     invoke-direct {p0, v8, v11}, Lcom/android/server/net/LockdownVpnTracker;->showNotification(II)V
 
@@ -400,7 +400,7 @@
 
     invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v9, 0x10408a9
+    const v9, 0x10408ab
 
     const v10, 0x1080909
 
@@ -522,7 +522,7 @@
 
     iget-object v1, p0, Lcom/android/server/net/LockdownVpnTracker;->mContext:Landroid/content/Context;
 
-    const v2, 0x10408a8
+    const v2, 0x10408aa
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -546,7 +546,7 @@
 
     iget-object v1, p0, Lcom/android/server/net/LockdownVpnTracker;->mContext:Landroid/content/Context;
 
-    const v2, 0x1040771
+    const v2, 0x1040773
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

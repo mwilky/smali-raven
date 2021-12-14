@@ -112,6 +112,8 @@
 
 .field private mPackageVisibility:I
 
+.field private mPendingLogUpdate:Z
+
 .field private mPeopleOverride:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -249,9 +251,11 @@
 
     iput v0, p0, Lcom/android/server/notification/NotificationRecord;->mSuppressedVisualEffects:I
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    iput-boolean v0, p0, Lcom/android/server/notification/NotificationRecord;->mPreChannelsNotification:Z
+    iput-boolean v1, p0, Lcom/android/server/notification/NotificationRecord;->mPreChannelsNotification:Z
+
+    iput-boolean v0, p0, Lcom/android/server/notification/NotificationRecord;->mPendingLogUpdate:Z
 
     iput-object p2, p0, Lcom/android/server/notification/NotificationRecord;->sbn:Landroid/service/notification/StatusBarNotification;
 
@@ -1886,7 +1890,7 @@
 
     move-result-object v0
 
-    const v1, 0x1040415
+    const v1, 0x1040417
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2234,6 +2238,20 @@
 
     invoke-virtual {p0, v6}, Lcom/android/server/notification/NotificationRecord;->setPeopleOverride(Ljava/util/ArrayList;)V
 
+    nop
+
+    invoke-virtual {p0}, Lcom/android/server/notification/NotificationRecord;->getKey()Ljava/lang/String;
+
+    move-result-object v7
+
+    const-string/jumbo v8, "key_people"
+
+    invoke-virtual {v6}, Ljava/util/ArrayList;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v7, v8, v9}, Lcom/android/server/EventLogTags;->writeNotificationAdjusted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
     :cond_0
     const-string/jumbo v6, "key_snooze_criteria"
 
@@ -2257,6 +2275,18 @@
 
     invoke-virtual {p0, v6}, Lcom/android/server/notification/NotificationRecord;->setSnoozeCriteria(Ljava/util/ArrayList;)V
 
+    invoke-virtual {p0}, Lcom/android/server/notification/NotificationRecord;->getKey()Ljava/lang/String;
+
+    move-result-object v7
+
+    const-string/jumbo v8, "key_snooze_criteria"
+
+    invoke-virtual {v6}, Ljava/util/ArrayList;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v7, v8, v9}, Lcom/android/server/EventLogTags;->writeNotificationAdjusted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
     :cond_1
     const-string/jumbo v6, "key_group_key"
 
@@ -2279,6 +2309,14 @@
     move-result-object v6
 
     invoke-virtual {p0, v6}, Lcom/android/server/notification/NotificationRecord;->setOverrideGroupKey(Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Lcom/android/server/notification/NotificationRecord;->getKey()Ljava/lang/String;
+
+    move-result-object v7
+
+    const-string/jumbo v8, "key_group_key"
+
+    invoke-static {v7, v8, v6}, Lcom/android/server/EventLogTags;->writeNotificationAdjusted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_2
     const-string/jumbo v6, "key_user_sentiment"
@@ -2321,6 +2359,22 @@
 
     invoke-direct {p0, v6}, Lcom/android/server/notification/NotificationRecord;->setUserSentiment(I)V
 
+    invoke-virtual {p0}, Lcom/android/server/notification/NotificationRecord;->getKey()Ljava/lang/String;
+
+    move-result-object v6
+
+    const-string/jumbo v8, "key_user_sentiment"
+
+    invoke-virtual {p0}, Lcom/android/server/notification/NotificationRecord;->getUserSentiment()I
+
+    move-result v9
+
+    invoke-static {v9}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v6, v8, v9}, Lcom/android/server/EventLogTags;->writeNotificationAdjusted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
     :cond_3
     const-string/jumbo v6, "key_contextual_actions"
 
@@ -2338,6 +2392,22 @@
 
     invoke-virtual {p0, v6}, Lcom/android/server/notification/NotificationRecord;->setSystemGeneratedSmartActions(Ljava/util/ArrayList;)V
 
+    invoke-virtual {p0}, Lcom/android/server/notification/NotificationRecord;->getKey()Ljava/lang/String;
+
+    move-result-object v6
+
+    const-string/jumbo v8, "key_contextual_actions"
+
+    invoke-virtual {p0}, Lcom/android/server/notification/NotificationRecord;->getSystemGeneratedSmartActions()Ljava/util/ArrayList;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/util/ArrayList;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v6, v8, v9}, Lcom/android/server/EventLogTags;->writeNotificationAdjusted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
     :cond_4
     const-string/jumbo v6, "key_text_replies"
 
@@ -2354,6 +2424,22 @@
     move-result-object v6
 
     invoke-virtual {p0, v6}, Lcom/android/server/notification/NotificationRecord;->setSmartReplies(Ljava/util/ArrayList;)V
+
+    invoke-virtual {p0}, Lcom/android/server/notification/NotificationRecord;->getKey()Ljava/lang/String;
+
+    move-result-object v6
+
+    const-string/jumbo v8, "key_text_replies"
+
+    invoke-virtual {p0}, Lcom/android/server/notification/NotificationRecord;->getSmartReplies()Ljava/util/ArrayList;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/util/ArrayList;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v6, v8, v9}, Lcom/android/server/EventLogTags;->writeNotificationAdjusted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_5
     const-string/jumbo v6, "key_importance"
@@ -2386,6 +2472,18 @@
 
     invoke-virtual {p0, v6}, Lcom/android/server/notification/NotificationRecord;->setAssistantImportance(I)V
 
+    invoke-virtual {p0}, Lcom/android/server/notification/NotificationRecord;->getKey()Ljava/lang/String;
+
+    move-result-object v7
+
+    const-string/jumbo v8, "key_importance"
+
+    invoke-static {v6}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v7, v8, v9}, Lcom/android/server/EventLogTags;->writeNotificationAdjusted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
     :cond_6
     const-string/jumbo v6, "key_ranking_score"
 
@@ -2403,6 +2501,20 @@
 
     iput v6, p0, Lcom/android/server/notification/NotificationRecord;->mRankingScore:F
 
+    invoke-virtual {p0}, Lcom/android/server/notification/NotificationRecord;->getKey()Ljava/lang/String;
+
+    move-result-object v6
+
+    const-string/jumbo v7, "key_ranking_score"
+
+    iget v8, p0, Lcom/android/server/notification/NotificationRecord;->mRankingScore:F
+
+    invoke-static {v8}, Ljava/lang/Float;->toString(F)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v6, v7, v8}, Lcom/android/server/EventLogTags;->writeNotificationAdjusted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
     :cond_7
     const-string/jumbo v6, "key_not_conversation"
 
@@ -2419,6 +2531,20 @@
     move-result v6
 
     iput-boolean v6, p0, Lcom/android/server/notification/NotificationRecord;->mIsNotConversationOverride:Z
+
+    invoke-virtual {p0}, Lcom/android/server/notification/NotificationRecord;->getKey()Ljava/lang/String;
+
+    move-result-object v6
+
+    const-string/jumbo v7, "key_not_conversation"
+
+    iget-boolean v8, p0, Lcom/android/server/notification/NotificationRecord;->mIsNotConversationOverride:Z
+
+    invoke-static {v8}, Ljava/lang/Boolean;->toString(Z)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v6, v7, v8}, Lcom/android/server/EventLogTags;->writeNotificationAdjusted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_8
     invoke-virtual {v5}, Landroid/os/Bundle;->isEmpty()Z
@@ -4984,6 +5110,14 @@
     return v0
 .end method
 
+.method protected hasPendingLogUpdate()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/notification/NotificationRecord;->mPendingLogUpdate:Z
+
+    return v0
+.end method
+
 .method public hasRecordedInterruption()Z
     .locals 1
 
@@ -5366,6 +5500,36 @@
     return-void
 .end method
 
+.method public rankingScoreMatches(F)Z
+    .locals 4
+
+    iget v0, p0, Lcom/android/server/notification/NotificationRecord;->mRankingScore:F
+
+    sub-float/2addr v0, p1
+
+    invoke-static {v0}, Ljava/lang/Math;->abs(F)F
+
+    move-result v0
+
+    float-to-double v0, v0
+
+    const-wide v2, 0x3f1a36e2eb1c432dL    # 1.0E-4
+
+    cmpg-double v0, v0, v2
+
+    if-gez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
 .method public recordDirectReplied()V
     .locals 1
 
@@ -5653,6 +5817,14 @@
     .locals 0
 
     iput p1, p0, Lcom/android/server/notification/NotificationRecord;->mPackageVisibility:I
+
+    return-void
+.end method
+
+.method protected setPendingLogUpdate(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/notification/NotificationRecord;->mPendingLogUpdate:Z
 
     return-void
 .end method

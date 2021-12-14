@@ -42,7 +42,7 @@
 
 .field private mAnimation:Lcom/android/server/wm/AnimationAdapter;
 
-.field private mAnimationFinishedCallback:Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
+.field private mAnimationCancelledCallback:Ljava/lang/Runnable;
 
 .field private mAnimationStartDelayed:Z
 
@@ -55,6 +55,8 @@
 .field private final mService:Lcom/android/server/wm/WindowManagerService;
 
 .field final mStaticAnimationFinishedCallback:Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
+
+.field private mSurfaceAnimationFinishedCallback:Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
 
 
 # direct methods
@@ -159,7 +161,7 @@
 .end method
 
 .method private cancelAnimation(Landroid/view/SurfaceControl$Transaction;ZZ)V
-    .locals 6
+    .locals 7
 
     iget-object v0, p0, Lcom/android/server/wm/SurfaceAnimator;->mLeash:Landroid/view/SurfaceControl;
 
@@ -167,30 +169,36 @@
 
     iget v2, p0, Lcom/android/server/wm/SurfaceAnimator;->mAnimationType:I
 
-    iget-object v3, p0, Lcom/android/server/wm/SurfaceAnimator;->mAnimationFinishedCallback:Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
+    iget-object v3, p0, Lcom/android/server/wm/SurfaceAnimator;->mSurfaceAnimationFinishedCallback:Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
 
-    const/4 v4, 0x0
+    iget-object v4, p0, Lcom/android/server/wm/SurfaceAnimator;->mAnimationCancelledCallback:Ljava/lang/Runnable;
 
-    invoke-direct {p0, p1, v4}, Lcom/android/server/wm/SurfaceAnimator;->reset(Landroid/view/SurfaceControl$Transaction;Z)V
+    const/4 v5, 0x0
+
+    invoke-direct {p0, p1, v5}, Lcom/android/server/wm/SurfaceAnimator;->reset(Landroid/view/SurfaceControl$Transaction;Z)V
 
     if-eqz v1, :cond_2
 
-    iget-boolean v5, p0, Lcom/android/server/wm/SurfaceAnimator;->mAnimationStartDelayed:Z
+    iget-boolean v6, p0, Lcom/android/server/wm/SurfaceAnimator;->mAnimationStartDelayed:Z
 
-    if-nez v5, :cond_0
+    if-nez v6, :cond_0
 
     if-eqz p3, :cond_0
 
     invoke-interface {v1, v0}, Lcom/android/server/wm/AnimationAdapter;->onAnimationCancelled(Landroid/view/SurfaceControl;)V
 
+    if-eqz v4, :cond_0
+
+    invoke-interface {v4}, Ljava/lang/Runnable;->run()V
+
     :cond_0
     if-nez p2, :cond_2
 
-    iget-object v5, p0, Lcom/android/server/wm/SurfaceAnimator;->mStaticAnimationFinishedCallback:Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
+    iget-object v6, p0, Lcom/android/server/wm/SurfaceAnimator;->mStaticAnimationFinishedCallback:Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
 
-    if-eqz v5, :cond_1
+    if-eqz v6, :cond_1
 
-    invoke-interface {v5, v2, v1}, Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;->onAnimationFinished(ILcom/android/server/wm/AnimationAdapter;)V
+    invoke-interface {v6, v2, v1}, Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;->onAnimationFinished(ILcom/android/server/wm/AnimationAdapter;)V
 
     :cond_1
     if-eqz v3, :cond_2
@@ -204,14 +212,14 @@
 
     invoke-virtual {p1, v0}, Landroid/view/SurfaceControl$Transaction;->remove(Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
 
-    iget-object v5, p0, Lcom/android/server/wm/SurfaceAnimator;->mService:Lcom/android/server/wm/WindowManagerService;
+    iget-object v6, p0, Lcom/android/server/wm/SurfaceAnimator;->mService:Lcom/android/server/wm/WindowManagerService;
 
-    invoke-virtual {v5}, Lcom/android/server/wm/WindowManagerService;->scheduleAnimationLocked()V
+    invoke-virtual {v6}, Lcom/android/server/wm/WindowManagerService;->scheduleAnimationLocked()V
 
     :cond_3
     if-nez p2, :cond_4
 
-    iput-boolean v4, p0, Lcom/android/server/wm/SurfaceAnimator;->mAnimationStartDelayed:Z
+    iput-boolean v5, p0, Lcom/android/server/wm/SurfaceAnimator;->mAnimationStartDelayed:Z
 
     :cond_4
     return-void
@@ -400,7 +408,7 @@
 
     iput-object v0, p0, Lcom/android/server/wm/SurfaceAnimator;->mAnimation:Lcom/android/server/wm/AnimationAdapter;
 
-    iput-object v0, p0, Lcom/android/server/wm/SurfaceAnimator;->mAnimationFinishedCallback:Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
+    iput-object v0, p0, Lcom/android/server/wm/SurfaceAnimator;->mSurfaceAnimationFinishedCallback:Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
 
     const/4 v1, 0x0
 
@@ -683,7 +691,7 @@
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/wm/SurfaceAnimator;->mAnimationFinishedCallback:Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
+    iget-object v0, p0, Lcom/android/server/wm/SurfaceAnimator;->mSurfaceAnimationFinishedCallback:Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
 
     iget-object v1, p0, Lcom/android/server/wm/SurfaceAnimator;->mAnimatable:Lcom/android/server/wm/SurfaceAnimator$Animatable;
 
@@ -869,30 +877,14 @@
 .end method
 
 .method startAnimation(Landroid/view/SurfaceControl$Transaction;Lcom/android/server/wm/AnimationAdapter;ZI)V
-    .locals 6
+    .locals 8
 
     const/4 v5, 0x0
 
-    move-object v0, p0
-
-    move-object v1, p1
-
-    move-object v2, p2
-
-    move v3, p3
-
-    move v4, p4
-
-    invoke-virtual/range {v0 .. v5}, Lcom/android/server/wm/SurfaceAnimator;->startAnimation(Landroid/view/SurfaceControl$Transaction;Lcom/android/server/wm/AnimationAdapter;ZILcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;)V
-
-    return-void
-.end method
-
-.method startAnimation(Landroid/view/SurfaceControl$Transaction;Lcom/android/server/wm/AnimationAdapter;ZILcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;)V
-    .locals 7
-
     const/4 v6, 0x0
 
+    const/4 v7, 0x0
+
     move-object v0, p0
 
     move-object v1, p1
@@ -903,15 +895,13 @@
 
     move v4, p4
 
-    move-object v5, p5
-
-    invoke-virtual/range {v0 .. v6}, Lcom/android/server/wm/SurfaceAnimator;->startAnimation(Landroid/view/SurfaceControl$Transaction;Lcom/android/server/wm/AnimationAdapter;ZILcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;Lcom/android/server/wm/SurfaceFreezer;)V
+    invoke-virtual/range {v0 .. v7}, Lcom/android/server/wm/SurfaceAnimator;->startAnimation(Landroid/view/SurfaceControl$Transaction;Lcom/android/server/wm/AnimationAdapter;ZILcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;Ljava/lang/Runnable;Lcom/android/server/wm/SurfaceFreezer;)V
 
     return-void
 .end method
 
-.method startAnimation(Landroid/view/SurfaceControl$Transaction;Lcom/android/server/wm/AnimationAdapter;ZILcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;Lcom/android/server/wm/SurfaceFreezer;)V
-    .locals 16
+.method startAnimation(Landroid/view/SurfaceControl$Transaction;Lcom/android/server/wm/AnimationAdapter;ZILcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;Ljava/lang/Runnable;Lcom/android/server/wm/SurfaceFreezer;)V
+    .locals 17
 
     move-object/from16 v0, p0
 
@@ -931,15 +921,19 @@
 
     move-object/from16 v14, p5
 
-    iput-object v14, v0, Lcom/android/server/wm/SurfaceAnimator;->mAnimationFinishedCallback:Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
+    iput-object v14, v0, Lcom/android/server/wm/SurfaceAnimator;->mSurfaceAnimationFinishedCallback:Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
+
+    move-object/from16 v15, p6
+
+    iput-object v15, v0, Lcom/android/server/wm/SurfaceAnimator;->mAnimationCancelledCallback:Ljava/lang/Runnable;
 
     iget-object v1, v0, Lcom/android/server/wm/SurfaceAnimator;->mAnimatable:Lcom/android/server/wm/SurfaceAnimator$Animatable;
 
     invoke-interface {v1}, Lcom/android/server/wm/SurfaceAnimator$Animatable;->getSurfaceControl()Landroid/view/SurfaceControl;
 
-    move-result-object v15
+    move-result-object v16
 
-    if-nez v15, :cond_0
+    if-nez v16, :cond_0
 
     const-string v1, "WindowManager"
 
@@ -952,9 +946,9 @@
     return-void
 
     :cond_0
-    if-eqz p6, :cond_1
+    if-eqz p7, :cond_1
 
-    invoke-virtual/range {p6 .. p6}, Lcom/android/server/wm/SurfaceFreezer;->takeLeashForAnimation()Landroid/view/SurfaceControl;
+    invoke-virtual/range {p7 .. p7}, Lcom/android/server/wm/SurfaceFreezer;->takeLeashForAnimation()Landroid/view/SurfaceControl;
 
     move-result-object v1
 
@@ -988,7 +982,7 @@
 
     iget-object v10, v2, Lcom/android/server/wm/WindowManagerService;->mTransactionFactory:Ljava/util/function/Supplier;
 
-    move-object v2, v15
+    move-object/from16 v2, v16
 
     move-object/from16 v3, p1
 
@@ -1101,9 +1095,13 @@
 
     iput v3, p0, Lcom/android/server/wm/SurfaceAnimator;->mAnimationType:I
 
-    iget-object v3, p1, Lcom/android/server/wm/SurfaceAnimator;->mAnimationFinishedCallback:Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
+    iget-object v3, p1, Lcom/android/server/wm/SurfaceAnimator;->mSurfaceAnimationFinishedCallback:Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
 
-    iput-object v3, p0, Lcom/android/server/wm/SurfaceAnimator;->mAnimationFinishedCallback:Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
+    iput-object v3, p0, Lcom/android/server/wm/SurfaceAnimator;->mSurfaceAnimationFinishedCallback:Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
+
+    iget-object v3, p1, Lcom/android/server/wm/SurfaceAnimator;->mAnimationCancelledCallback:Ljava/lang/Runnable;
+
+    iput-object v3, p0, Lcom/android/server/wm/SurfaceAnimator;->mAnimationCancelledCallback:Ljava/lang/Runnable;
 
     const/4 v3, 0x0
 

@@ -2,6 +2,9 @@
 .super Lcom/android/server/biometrics/sensors/AcquisitionClient;
 .source "EnrollClient.java"
 
+# interfaces
+.implements Lcom/android/server/biometrics/sensors/EnrollmentModifier;
+
 
 # annotations
 .annotation system Ldalvik/annotation/Signature;
@@ -10,7 +13,8 @@
         "Ljava/lang/Object;",
         ">",
         "Lcom/android/server/biometrics/sensors/AcquisitionClient<",
-        "TT;>;"
+        "TT;>;",
+        "Lcom/android/server/biometrics/sensors/EnrollmentModifier;"
     }
 .end annotation
 
@@ -25,6 +29,8 @@
 .field private mEnrollmentStartTimeMs:J
 
 .field protected final mHardwareAuthToken:[B
+
+.field private final mHasEnrollmentsBeforeStarting:Z
 
 .field protected final mTimeoutSec:I
 
@@ -95,6 +101,12 @@
 
     iput v1, v13, Lcom/android/server/biometrics/sensors/EnrollClient;->mTimeoutSec:I
 
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/EnrollClient;->hasEnrollments()Z
+
+    move-result v2
+
+    iput-boolean v2, v13, Lcom/android/server/biometrics/sensors/EnrollClient;->mHasEnrollmentsBeforeStarting:Z
+
     return-void
 .end method
 
@@ -104,6 +116,54 @@
     .locals 1
 
     const/4 v0, 0x2
+
+    return v0
+.end method
+
+.method public hasEnrollmentStateChanged()Z
+    .locals 2
+
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/EnrollClient;->hasEnrollments()Z
+
+    move-result v0
+
+    iget-boolean v1, p0, Lcom/android/server/biometrics/sensors/EnrollClient;->mHasEnrollmentsBeforeStarting:Z
+
+    if-eq v0, v1, :cond_0
+
+    const/4 v1, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x0
+
+    :goto_0
+    return v1
+.end method
+
+.method public hasEnrollments()Z
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/biometrics/sensors/EnrollClient;->mBiometricUtils:Lcom/android/server/biometrics/sensors/BiometricUtils;
+
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/EnrollClient;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/EnrollClient;->getTargetUserId()I
+
+    move-result v2
+
+    invoke-interface {v0, v1, v2}, Lcom/android/server/biometrics/sensors/BiometricUtils;->getBiometricsForUser(Landroid/content/Context;I)Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
 
     return v0
 .end method

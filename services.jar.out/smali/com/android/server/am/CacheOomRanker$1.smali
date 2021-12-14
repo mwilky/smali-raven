@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/server/am/CacheOomRanker$1;->this$0:Lcom/android/server/am/CacheOomRanker;
 
-    invoke-static {v0}, Lcom/android/server/am/CacheOomRanker;->access$400(Lcom/android/server/am/CacheOomRanker;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/am/CacheOomRanker;->access$500(Lcom/android/server/am/CacheOomRanker;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -59,7 +59,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_8
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -77,7 +77,7 @@
 
     iget-object v3, p0, Lcom/android/server/am/CacheOomRanker$1;->this$0:Lcom/android/server/am/CacheOomRanker;
 
-    invoke-static {v3}, Lcom/android/server/am/CacheOomRanker;->access$500(Lcom/android/server/am/CacheOomRanker;)V
+    invoke-static {v3}, Lcom/android/server/am/CacheOomRanker;->access$600(Lcom/android/server/am/CacheOomRanker;)V
 
     goto :goto_1
 
@@ -92,12 +92,12 @@
 
     iget-object v3, p0, Lcom/android/server/am/CacheOomRanker$1;->this$0:Lcom/android/server/am/CacheOomRanker;
 
-    invoke-static {v3}, Lcom/android/server/am/CacheOomRanker;->access$600(Lcom/android/server/am/CacheOomRanker;)V
+    invoke-static {v3}, Lcom/android/server/am/CacheOomRanker;->access$700(Lcom/android/server/am/CacheOomRanker;)V
 
     goto :goto_1
 
     :cond_1
-    const-string/jumbo v3, "oom_re_ranking_lru_weight"
+    const-string/jumbo v3, "oom_re_ranking_preserve_top_n_apps"
 
     invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -107,12 +107,12 @@
 
     iget-object v3, p0, Lcom/android/server/am/CacheOomRanker$1;->this$0:Lcom/android/server/am/CacheOomRanker;
 
-    invoke-static {v3}, Lcom/android/server/am/CacheOomRanker;->access$700(Lcom/android/server/am/CacheOomRanker;)V
+    invoke-static {v3}, Lcom/android/server/am/CacheOomRanker;->access$800(Lcom/android/server/am/CacheOomRanker;)V
 
     goto :goto_1
 
     :cond_2
-    const-string/jumbo v3, "oom_re_ranking_uses_weight"
+    const-string/jumbo v3, "oom_re_ranking_rss_use_frequent_rss"
 
     invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -122,12 +122,12 @@
 
     iget-object v3, p0, Lcom/android/server/am/CacheOomRanker$1;->this$0:Lcom/android/server/am/CacheOomRanker;
 
-    invoke-static {v3}, Lcom/android/server/am/CacheOomRanker;->access$800(Lcom/android/server/am/CacheOomRanker;)V
+    invoke-static {v3}, Lcom/android/server/am/CacheOomRanker;->access$900(Lcom/android/server/am/CacheOomRanker;)V
 
     goto :goto_1
 
     :cond_3
-    const-string/jumbo v3, "oom_re_ranking_rss_weight"
+    const-string/jumbo v3, "oom_re_ranking_rss_update_rate_ms"
 
     invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -137,13 +137,58 @@
 
     iget-object v3, p0, Lcom/android/server/am/CacheOomRanker$1;->this$0:Lcom/android/server/am/CacheOomRanker;
 
-    invoke-static {v3}, Lcom/android/server/am/CacheOomRanker;->access$900(Lcom/android/server/am/CacheOomRanker;)V
+    invoke-static {v3}, Lcom/android/server/am/CacheOomRanker;->access$1000(Lcom/android/server/am/CacheOomRanker;)V
+
+    goto :goto_1
 
     :cond_4
-    :goto_1
-    goto :goto_0
+    const-string/jumbo v3, "oom_re_ranking_lru_weight"
+
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_5
+
+    iget-object v3, p0, Lcom/android/server/am/CacheOomRanker$1;->this$0:Lcom/android/server/am/CacheOomRanker;
+
+    invoke-static {v3}, Lcom/android/server/am/CacheOomRanker;->access$1100(Lcom/android/server/am/CacheOomRanker;)V
+
+    goto :goto_1
 
     :cond_5
+    const-string/jumbo v3, "oom_re_ranking_uses_weight"
+
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_6
+
+    iget-object v3, p0, Lcom/android/server/am/CacheOomRanker$1;->this$0:Lcom/android/server/am/CacheOomRanker;
+
+    invoke-static {v3}, Lcom/android/server/am/CacheOomRanker;->access$1200(Lcom/android/server/am/CacheOomRanker;)V
+
+    goto :goto_1
+
+    :cond_6
+    const-string/jumbo v3, "oom_re_ranking_rss_weight"
+
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_7
+
+    iget-object v3, p0, Lcom/android/server/am/CacheOomRanker$1;->this$0:Lcom/android/server/am/CacheOomRanker;
+
+    invoke-static {v3}, Lcom/android/server/am/CacheOomRanker;->access$1300(Lcom/android/server/am/CacheOomRanker;)V
+
+    :cond_7
+    :goto_1
+    goto/16 :goto_0
+
+    :cond_8
     monitor-exit v0
 
     return-void

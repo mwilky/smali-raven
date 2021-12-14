@@ -4,13 +4,13 @@
 
 
 # virtual methods
-.method public abstract cancelAuthentication(ILandroid/os/IBinder;)V
+.method public abstract cancelAuthentication(ILandroid/os/IBinder;J)V
 .end method
 
 .method public abstract cancelEnrollment(ILandroid/os/IBinder;)V
 .end method
 
-.method public abstract cancelFaceDetect(ILandroid/os/IBinder;)V
+.method public abstract cancelFaceDetect(ILandroid/os/IBinder;J)V
 .end method
 
 .method public abstract containsSensor(I)Z
@@ -65,13 +65,16 @@
 .method public abstract isHardwareDetected(I)Z
 .end method
 
-.method public abstract scheduleAuthenticate(ILandroid/os/IBinder;JIILcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;Ljava/lang/String;ZIZZ)V
+.method public abstract scheduleAuthenticate(ILandroid/os/IBinder;JIILcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;Ljava/lang/String;ZIZZ)J
+.end method
+
+.method public abstract scheduleAuthenticate(ILandroid/os/IBinder;JIILcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;Ljava/lang/String;JZIZZ)V
 .end method
 
 .method public abstract scheduleEnroll(ILandroid/os/IBinder;[BILandroid/hardware/face/IFaceServiceReceiver;Ljava/lang/String;[ILandroid/view/Surface;Z)V
 .end method
 
-.method public abstract scheduleFaceDetect(ILandroid/os/IBinder;ILcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;Ljava/lang/String;I)V
+.method public abstract scheduleFaceDetect(ILandroid/os/IBinder;ILcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;Ljava/lang/String;I)J
 .end method
 
 .method public abstract scheduleGenerateChallenge(IILandroid/os/IBinder;Landroid/hardware/face/IFaceServiceReceiver;Ljava/lang/String;)V

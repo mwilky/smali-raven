@@ -241,7 +241,7 @@
 
     iput v1, p0, Lcom/android/server/wm/DisplayRotation;->mDeskDockRotation:I
 
-    const v1, 0x10e00d7
+    const v1, 0x10e00d8
 
     invoke-direct {p0, v1}, Lcom/android/server/wm/DisplayRotation;->readRotation(I)I
 
@@ -3988,6 +3988,16 @@
     iget-object v8, v8, Lcom/android/server/wm/DisplayContent;->mFixedRotationTransitionListener:Lcom/android/server/wm/DisplayContent$FixedRotationTransitionListener;
 
     invoke-virtual {v8}, Lcom/android/server/wm/DisplayContent$FixedRotationTransitionListener;->isTopFixedOrientationRecentsAnimating()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_7
+
+    iget-object v8, v0, Lcom/android/server/wm/DisplayRotation;->mService:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v8, v8, Lcom/android/server/wm/WindowManagerService;->mPolicy:Lcom/android/server/policy/WindowManagerPolicy;
+
+    invoke-interface {v8, v4}, Lcom/android/server/policy/WindowManagerPolicy;->okToAnimate(Z)Z
 
     move-result v8
 

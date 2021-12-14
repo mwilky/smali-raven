@@ -309,14 +309,6 @@
 
     iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$ConnectedStateBase;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
-    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$1500(Lcom/android/server/vcn/VcnGatewayConnection;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$ConnectedStateBase;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
-
     invoke-static {v0, v1}, Lcom/android/server/vcn/VcnGatewayConnection;->access$1502(Lcom/android/server/vcn/VcnGatewayConnection;Z)Z
 
     iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$ConnectedStateBase;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
@@ -327,7 +319,6 @@
 
     invoke-interface {v0}, Lcom/android/server/vcn/Vcn$VcnGatewayStatusCallback;->onSafeModeStatusChanged()V
 
-    :cond_0
     return-void
 .end method
 

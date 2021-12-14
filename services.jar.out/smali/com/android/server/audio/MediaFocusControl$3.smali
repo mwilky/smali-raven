@@ -41,6 +41,25 @@
     goto :goto_0
 
     :pswitch_0
+    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v0, Lcom/android/server/audio/MediaFocusControl$ForgetFadeUidInfo;
+
+    invoke-static {v0}, Lcom/android/server/audio/MediaFocusControl$ForgetFadeUidInfo;->access$1000(Lcom/android/server/audio/MediaFocusControl$ForgetFadeUidInfo;)I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/server/audio/MediaFocusControl$3;->this$0:Lcom/android/server/audio/MediaFocusControl;
+
+    invoke-static {v1}, Lcom/android/server/audio/MediaFocusControl;->access$800(Lcom/android/server/audio/MediaFocusControl;)Lcom/android/server/audio/PlayerFocusEnforcer;
+
+    move-result-object v1
+
+    invoke-interface {v1, v0}, Lcom/android/server/audio/PlayerFocusEnforcer;->forgetUid(I)V
+
+    goto :goto_0
+
+    :pswitch_1
     invoke-static {}, Lcom/android/server/audio/MediaFocusControl;->access$000()Ljava/lang/Object;
 
     move-result-object v0
@@ -66,15 +85,11 @@
 
     iget-object v2, p0, Lcom/android/server/audio/MediaFocusControl$3;->this$0:Lcom/android/server/audio/MediaFocusControl;
 
-    invoke-static {v2}, Lcom/android/server/audio/MediaFocusControl;->access$800(Lcom/android/server/audio/MediaFocusControl;)Lcom/android/server/audio/PlayerFocusEnforcer;
-
-    move-result-object v2
-
     invoke-virtual {v1}, Lcom/android/server/audio/FocusRequester;->getClientUid()I
 
     move-result v3
 
-    invoke-interface {v2, v3}, Lcom/android/server/audio/PlayerFocusEnforcer;->forgetUid(I)V
+    invoke-static {v2, v3}, Lcom/android/server/audio/MediaFocusControl;->access$900(Lcom/android/server/audio/MediaFocusControl;I)V
 
     :cond_0
     monitor-exit v0
@@ -97,6 +112,7 @@
 
     :pswitch_data_0
     .packed-switch 0x1
+        :pswitch_1
         :pswitch_0
     .end packed-switch
 .end method

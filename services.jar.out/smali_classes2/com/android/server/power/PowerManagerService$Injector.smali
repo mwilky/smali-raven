@@ -143,12 +143,12 @@
     return-object v0
 .end method
 
-.method createNotifier(Landroid/os/Looper;Landroid/content/Context;Lcom/android/internal/app/IBatteryStats;Lcom/android/server/power/SuspendBlocker;Lcom/android/server/policy/WindowManagerPolicy;Lcom/android/server/power/FaceDownDetector;)Lcom/android/server/power/Notifier;
-    .locals 8
+.method createNotifier(Landroid/os/Looper;Landroid/content/Context;Lcom/android/internal/app/IBatteryStats;Lcom/android/server/power/SuspendBlocker;Lcom/android/server/policy/WindowManagerPolicy;Lcom/android/server/power/FaceDownDetector;Lcom/android/server/power/ScreenUndimDetector;)Lcom/android/server/power/Notifier;
+    .locals 9
 
-    new-instance v7, Lcom/android/server/power/Notifier;
+    new-instance v8, Lcom/android/server/power/Notifier;
 
-    move-object v0, v7
+    move-object v0, v8
 
     move-object v1, p1
 
@@ -162,9 +162,11 @@
 
     move-object v6, p6
 
-    invoke-direct/range {v0 .. v6}, Lcom/android/server/power/Notifier;-><init>(Landroid/os/Looper;Landroid/content/Context;Lcom/android/internal/app/IBatteryStats;Lcom/android/server/power/SuspendBlocker;Lcom/android/server/policy/WindowManagerPolicy;Lcom/android/server/power/FaceDownDetector;)V
+    move-object/from16 v7, p7
 
-    return-object v7
+    invoke-direct/range {v0 .. v7}, Lcom/android/server/power/Notifier;-><init>(Landroid/os/Looper;Landroid/content/Context;Lcom/android/internal/app/IBatteryStats;Lcom/android/server/power/SuspendBlocker;Lcom/android/server/policy/WindowManagerPolicy;Lcom/android/server/power/FaceDownDetector;Lcom/android/server/power/ScreenUndimDetector;)V
+
+    return-object v8
 .end method
 
 .method createSuspendBlocker(Lcom/android/server/power/PowerManagerService;Ljava/lang/String;)Lcom/android/server/power/SuspendBlocker;

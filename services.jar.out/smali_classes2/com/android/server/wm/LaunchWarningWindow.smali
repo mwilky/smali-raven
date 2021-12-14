@@ -35,7 +35,7 @@
 
     invoke-virtual {p0, v1}, Lcom/android/server/wm/LaunchWarningWindow;->setContentView(I)V
 
-    const v1, 0x1040477
+    const v1, 0x1040479
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -125,7 +125,7 @@
 
     aput-object v6, v5, v7
 
-    const v6, 0x1040476
+    const v6, 0x1040478
 
     invoke-virtual {v3, v6, v5}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -191,7 +191,7 @@
 
     aput-object v5, v4, v7
 
-    const v5, 0x1040475
+    const v5, 0x1040477
 
     invoke-virtual {v3, v5, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

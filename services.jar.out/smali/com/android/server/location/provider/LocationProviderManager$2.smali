@@ -58,15 +58,15 @@
 
     iget-object v1, p0, Lcom/android/server/location/provider/LocationProviderManager$2;->this$0:Lcom/android/server/location/provider/LocationProviderManager;
 
-    iget-object v2, p0, Lcom/android/server/location/provider/LocationProviderManager$2;->val$newRequest:Landroid/location/provider/ProviderRequest;
-
-    invoke-virtual {v1, v2}, Lcom/android/server/location/provider/LocationProviderManager;->setProviderRequest(Landroid/location/provider/ProviderRequest;)V
-
-    iget-object v1, p0, Lcom/android/server/location/provider/LocationProviderManager$2;->this$0:Lcom/android/server/location/provider/LocationProviderManager;
-
     const/4 v2, 0x0
 
     invoke-static {v1, v2}, Lcom/android/server/location/provider/LocationProviderManager;->access$402(Lcom/android/server/location/provider/LocationProviderManager;Landroid/app/AlarmManager$OnAlarmListener;)Landroid/app/AlarmManager$OnAlarmListener;
+
+    iget-object v1, p0, Lcom/android/server/location/provider/LocationProviderManager$2;->this$0:Lcom/android/server/location/provider/LocationProviderManager;
+
+    iget-object v2, p0, Lcom/android/server/location/provider/LocationProviderManager$2;->val$newRequest:Landroid/location/provider/ProviderRequest;
+
+    invoke-virtual {v1, v2}, Lcom/android/server/location/provider/LocationProviderManager;->setProviderRequest(Landroid/location/provider/ProviderRequest;)V
 
     :cond_0
     monitor-exit v0

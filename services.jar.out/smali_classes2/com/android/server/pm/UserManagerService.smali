@@ -5153,7 +5153,7 @@
     if-eqz v1, :cond_2
 
     :cond_0
-    const v1, 0x10405ce
+    const v1, 0x10405d0
 
     iget-object v2, p0, Lcom/android/server/pm/UserManagerService;->mOwnerNameTypedValue:Landroid/util/TypedValue;
 
@@ -16150,7 +16150,7 @@
 .end method
 
 .method public onBeforeUnlockUser(I)V
-    .locals 5
+    .locals 6
 
     invoke-virtual {p0, p1}, Lcom/android/server/pm/UserManagerService;->getUserInfo(I)Landroid/content/pm/UserInfo;
 
@@ -16179,9 +16179,19 @@
 
     invoke-virtual {v3, p1, v1, v4}, Lcom/android/server/pm/UserDataPreparer;->prepareUserData(III)V
 
-    iget-object v3, p0, Lcom/android/server/pm/UserManagerService;->mPm:Lcom/android/server/pm/PackageManagerService;
+    const-class v3, Landroid/os/storage/StorageManagerInternal;
 
-    invoke-virtual {v3, p1, v4, v2}, Lcom/android/server/pm/PackageManagerService;->reconcileAppsData(IIZ)V
+    invoke-static {v3}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/os/storage/StorageManagerInternal;
+
+    invoke-virtual {v3, p1}, Landroid/os/storage/StorageManagerInternal;->markCeStoragePrepared(I)V
+
+    iget-object v5, p0, Lcom/android/server/pm/UserManagerService;->mPm:Lcom/android/server/pm/PackageManagerService;
+
+    invoke-virtual {v5, p1, v4, v2}, Lcom/android/server/pm/PackageManagerService;->reconcileAppsData(IIZ)V
 
     return-void
 .end method
@@ -19090,7 +19100,7 @@
 
     move-result-object v7
 
-    const v8, 0x10405ce
+    const v8, 0x10405d0
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

@@ -68,7 +68,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-static {p2, v1}, Lcom/android/server/am/CachedAppOptimizer;->access$3100(II)V
+    invoke-static {p2, v1}, Lcom/android/server/am/CachedAppOptimizer;->access$3200(II)V
 
     goto :goto_0
 
@@ -87,7 +87,7 @@
 
     if-eqz v0, :cond_1
 
-    invoke-static {p2, v1}, Lcom/android/server/am/CachedAppOptimizer;->access$3100(II)V
+    invoke-static {p2, v1}, Lcom/android/server/am/CachedAppOptimizer;->access$3200(II)V
 
     goto :goto_0
 
@@ -106,7 +106,7 @@
 
     if-eqz v0, :cond_2
 
-    invoke-static {p2, v1}, Lcom/android/server/am/CachedAppOptimizer;->access$3100(II)V
+    invoke-static {p2, v1}, Lcom/android/server/am/CachedAppOptimizer;->access$3200(II)V
 
     :cond_2
     :goto_0

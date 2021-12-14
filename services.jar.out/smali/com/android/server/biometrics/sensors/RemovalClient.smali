@@ -4,6 +4,7 @@
 
 # interfaces
 .implements Lcom/android/server/biometrics/sensors/RemovalConsumer;
+.implements Lcom/android/server/biometrics/sensors/EnrollmentModifier;
 
 
 # annotations
@@ -16,7 +17,8 @@
         ">",
         "Lcom/android/server/biometrics/sensors/HalClientMonitor<",
         "TT;>;",
-        "Lcom/android/server/biometrics/sensors/RemovalConsumer;"
+        "Lcom/android/server/biometrics/sensors/RemovalConsumer;",
+        "Lcom/android/server/biometrics/sensors/EnrollmentModifier;"
     }
 .end annotation
 
@@ -46,10 +48,12 @@
     .end annotation
 .end field
 
+.field private final mHasEnrollmentsBeforeStarting:Z
+
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;ILjava/lang/String;Lcom/android/server/biometrics/sensors/BiometricUtils;ILjava/util/Map;I)V
-    .locals 13
+    .locals 14
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -71,6 +75,8 @@
 
     move-object v12, p0
 
+    move-object/from16 v13, p7
+
     const/4 v7, 0x0
 
     const/4 v10, 0x4
@@ -81,7 +87,7 @@
 
     move-object v1, p1
 
-    move-object v2, p2
+    move-object/from16 v2, p2
 
     move-object/from16 v3, p3
 
@@ -97,13 +103,25 @@
 
     invoke-direct/range {v0 .. v11}, Lcom/android/server/biometrics/sensors/HalClientMonitor;-><init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;ILjava/lang/String;IIIII)V
 
-    move-object/from16 v0, p7
+    iput-object v13, v12, Lcom/android/server/biometrics/sensors/RemovalClient;->mBiometricUtils:Lcom/android/server/biometrics/sensors/BiometricUtils;
 
-    iput-object v0, v12, Lcom/android/server/biometrics/sensors/RemovalClient;->mBiometricUtils:Lcom/android/server/biometrics/sensors/BiometricUtils;
+    move-object/from16 v0, p9
 
-    move-object/from16 v1, p9
+    iput-object v0, v12, Lcom/android/server/biometrics/sensors/RemovalClient;->mAuthenticatorIds:Ljava/util/Map;
 
-    iput-object v1, v12, Lcom/android/server/biometrics/sensors/RemovalClient;->mAuthenticatorIds:Ljava/util/Map;
+    move/from16 v2, p5
+
+    invoke-interface {v13, p1, v2}, Lcom/android/server/biometrics/sensors/BiometricUtils;->getBiometricsForUser(Landroid/content/Context;I)Ljava/util/List;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/util/List;->isEmpty()Z
+
+    move-result v3
+
+    xor-int/lit8 v3, v3, 0x1
+
+    iput-boolean v3, v12, Lcom/android/server/biometrics/sensors/RemovalClient;->mHasEnrollmentsBeforeStarting:Z
 
     return-void
 .end method
@@ -114,6 +132,70 @@
     .locals 1
 
     const/4 v0, 0x4
+
+    return v0
+.end method
+
+.method public hasEnrollmentStateChanged()Z
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/biometrics/sensors/RemovalClient;->mBiometricUtils:Lcom/android/server/biometrics/sensors/BiometricUtils;
+
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/RemovalClient;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/RemovalClient;->getTargetUserId()I
+
+    move-result v2
+
+    invoke-interface {v0, v1, v2}, Lcom/android/server/biometrics/sensors/BiometricUtils;->getBiometricsForUser(Landroid/content/Context;I)Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    xor-int/2addr v0, v1
+
+    iget-boolean v2, p0, Lcom/android/server/biometrics/sensors/RemovalClient;->mHasEnrollmentsBeforeStarting:Z
+
+    if-eq v0, v2, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x0
+
+    :goto_0
+    return v1
+.end method
+
+.method public hasEnrollments()Z
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/biometrics/sensors/RemovalClient;->mBiometricUtils:Lcom/android/server/biometrics/sensors/BiometricUtils;
+
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/RemovalClient;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/RemovalClient;->getTargetUserId()I
+
+    move-result v2
+
+    invoke-interface {v0, v1, v2}, Lcom/android/server/biometrics/sensors/BiometricUtils;->getBiometricsForUser(Landroid/content/Context;I)Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
 
     return v0
 .end method

@@ -206,7 +206,7 @@
 
     iget-object v0, p0, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->mParentService:Lcom/android/server/contentcapture/ContentCaptureManagerService;
 
-    invoke-static {v0}, Lcom/android/server/contentcapture/ContentCaptureManagerService;->access$3800(Lcom/android/server/contentcapture/ContentCaptureManagerService;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/contentcapture/ContentCaptureManagerService;->access$4000(Lcom/android/server/contentcapture/ContentCaptureManagerService;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -394,7 +394,7 @@
 
     iget-object v1, p0, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->mParentService:Lcom/android/server/contentcapture/ContentCaptureManagerService;
 
-    invoke-static {v1}, Lcom/android/server/contentcapture/ContentCaptureManagerService;->access$3900(Lcom/android/server/contentcapture/ContentCaptureManagerService;)Lcom/android/server/infra/ServiceNameResolver;
+    invoke-static {v1}, Lcom/android/server/contentcapture/ContentCaptureManagerService;->access$4100(Lcom/android/server/contentcapture/ContentCaptureManagerService;)Lcom/android/server/infra/ServiceNameResolver;
 
     move-result-object v1
 
@@ -457,10 +457,68 @@
     return-void
 .end method
 
+.method private setUpSharingPipeline(Landroid/view/contentcapture/IDataShareWriteAdapter;Landroid/service/contentcapture/IDataShareReadAdapter;Landroid/os/ParcelFileDescriptor;Landroid/os/ParcelFileDescriptor;)Z
+    .locals 4
+
+    const/4 v0, 0x0
+
+    :try_start_0
+    invoke-interface {p1, p3}, Landroid/view/contentcapture/IDataShareWriteAdapter;->write(Landroid/os/ParcelFileDescriptor;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
+
+    nop
+
+    :try_start_1
+    invoke-interface {p2, p4}, Landroid/service/contentcapture/IDataShareReadAdapter;->start(Landroid/os/ParcelFileDescriptor;)V
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+
+    nop
+
+    const/4 v0, 0x1
+
+    return v0
+
+    :catch_0
+    move-exception v1
+
+    invoke-static {}, Lcom/android/server/contentcapture/ContentCaptureManagerService;->access$1100()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v3, "Failed to call start() the service operation"
+
+    invoke-static {v2, v3, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    const/16 v2, 0xd
+
+    invoke-direct {p0, v2}, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->logServiceEvent(I)V
+
+    return v0
+
+    :catch_1
+    move-exception v1
+
+    invoke-static {}, Lcom/android/server/contentcapture/ContentCaptureManagerService;->access$1100()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v3, "Failed to call write() the client operation"
+
+    invoke-static {v2, v3, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    const/16 v2, 0xc
+
+    invoke-direct {p0, v2}, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->logServiceEvent(I)V
+
+    return v0
+.end method
+
 
 # virtual methods
 .method public accept(Landroid/service/contentcapture/IDataShareReadAdapter;)V
-    .locals 17
+    .locals 16
 
     move-object/from16 v8, p0
 
@@ -482,30 +540,30 @@
 
     move-result-object v10
 
-    const/16 v1, 0xc
-
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
     if-nez v10, :cond_0
 
+    const/16 v1, 0xc
+
     invoke-direct {v8, v1}, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->logServiceEvent(I)V
 
-    iget-object v0, v8, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->mClientAdapter:Landroid/view/contentcapture/IDataShareWriteAdapter;
+    iget-object v1, v8, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->mClientAdapter:Landroid/view/contentcapture/IDataShareWriteAdapter;
 
-    invoke-static {v0, v9, v2}, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->sendErrorSignal(Landroid/view/contentcapture/IDataShareWriteAdapter;Landroid/service/contentcapture/IDataShareReadAdapter;I)V
+    invoke-static {v1, v9, v0}, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->sendErrorSignal(Landroid/view/contentcapture/IDataShareWriteAdapter;Landroid/service/contentcapture/IDataShareReadAdapter;I)V
 
     return-void
 
     :cond_0
-    iget-object v0, v10, Landroid/util/Pair;->second:Ljava/lang/Object;
+    iget-object v1, v10, Landroid/util/Pair;->second:Ljava/lang/Object;
 
-    move-object v11, v0
+    move-object v11, v1
 
     check-cast v11, Landroid/os/ParcelFileDescriptor;
 
-    iget-object v0, v10, Landroid/util/Pair;->first:Ljava/lang/Object;
+    iget-object v1, v10, Landroid/util/Pair;->first:Ljava/lang/Object;
 
-    move-object v12, v0
+    move-object v12, v1
 
     check-cast v12, Landroid/os/ParcelFileDescriptor;
 
@@ -513,84 +571,146 @@
 
     move-result-object v13
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    const/4 v3, 0x2
-
-    const/16 v4, 0xd
+    const/4 v2, 0x2
 
     if-nez v13, :cond_1
 
-    invoke-direct {v8, v4}, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->logServiceEvent(I)V
+    const/16 v3, 0xd
 
-    new-array v1, v3, [Landroid/os/ParcelFileDescriptor;
+    invoke-direct {v8, v3}, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->logServiceEvent(I)V
 
-    aput-object v11, v1, v0
+    new-array v2, v2, [Landroid/os/ParcelFileDescriptor;
 
-    aput-object v12, v1, v2
+    aput-object v11, v2, v1
 
-    invoke-direct {v8, v1}, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->bestEffortCloseFileDescriptors([Landroid/os/ParcelFileDescriptor;)V
+    aput-object v12, v2, v0
 
-    iget-object v0, v8, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->mClientAdapter:Landroid/view/contentcapture/IDataShareWriteAdapter;
+    invoke-direct {v8, v2}, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->bestEffortCloseFileDescriptors([Landroid/os/ParcelFileDescriptor;)V
 
-    invoke-static {v0, v9, v2}, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->sendErrorSignal(Landroid/view/contentcapture/IDataShareWriteAdapter;Landroid/service/contentcapture/IDataShareReadAdapter;I)V
+    iget-object v1, v8, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->mClientAdapter:Landroid/view/contentcapture/IDataShareWriteAdapter;
+
+    invoke-static {v1, v9, v0}, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->sendErrorSignal(Landroid/view/contentcapture/IDataShareWriteAdapter;Landroid/service/contentcapture/IDataShareReadAdapter;I)V
 
     return-void
 
     :cond_1
-    iget-object v5, v13, Landroid/util/Pair;->second:Ljava/lang/Object;
+    iget-object v3, v13, Landroid/util/Pair;->second:Ljava/lang/Object;
 
-    move-object v14, v5
+    move-object v14, v3
 
     check-cast v14, Landroid/os/ParcelFileDescriptor;
 
-    iget-object v5, v13, Landroid/util/Pair;->first:Ljava/lang/Object;
+    iget-object v3, v13, Landroid/util/Pair;->first:Ljava/lang/Object;
 
-    move-object v15, v5
+    move-object v15, v3
 
     check-cast v15, Landroid/os/ParcelFileDescriptor;
 
-    iget-object v5, v8, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->mParentService:Lcom/android/server/contentcapture/ContentCaptureManagerService;
+    iget-object v3, v8, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->mParentService:Lcom/android/server/contentcapture/ContentCaptureManagerService;
 
-    invoke-static {v5}, Lcom/android/server/contentcapture/ContentCaptureManagerService;->access$1600(Lcom/android/server/contentcapture/ContentCaptureManagerService;)Ljava/util/Set;
+    invoke-static {v3}, Lcom/android/server/contentcapture/ContentCaptureManagerService;->access$3600(Lcom/android/server/contentcapture/ContentCaptureManagerService;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    monitor-enter v3
+
+    :try_start_0
+    iget-object v4, v8, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->mParentService:Lcom/android/server/contentcapture/ContentCaptureManagerService;
+
+    invoke-static {v4}, Lcom/android/server/contentcapture/ContentCaptureManagerService;->access$1600(Lcom/android/server/contentcapture/ContentCaptureManagerService;)Ljava/util/Set;
+
+    move-result-object v4
+
+    iget-object v5, v8, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->mDataShareRequest:Landroid/view/contentcapture/DataShareRequest;
+
+    invoke-virtual {v5}, Landroid/view/contentcapture/DataShareRequest;->getPackageName()Ljava/lang/String;
 
     move-result-object v5
 
-    iget-object v6, v8, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->mDataShareRequest:Landroid/view/contentcapture/DataShareRequest;
+    invoke-interface {v4, v5}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {v6}, Landroid/view/contentcapture/DataShareRequest;->getPackageName()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-interface {v5, v6}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    :try_start_0
-    iget-object v5, v8, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->mClientAdapter:Landroid/view/contentcapture/IDataShareWriteAdapter;
-
-    invoke-interface {v5, v11}, Landroid/view/contentcapture/IDataShareWriteAdapter;->write(Landroid/os/ParcelFileDescriptor;)V
+    monitor-exit v3
     :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    nop
+    iget-object v3, v8, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->mClientAdapter:Landroid/view/contentcapture/IDataShareWriteAdapter;
 
-    :try_start_1
-    invoke-interface {v9, v15}, Landroid/service/contentcapture/IDataShareReadAdapter;->start(Landroid/os/ParcelFileDescriptor;)V
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+    invoke-direct {v8, v3, v9, v11, v15}, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->setUpSharingPipeline(Landroid/view/contentcapture/IDataShareWriteAdapter;Landroid/service/contentcapture/IDataShareReadAdapter;Landroid/os/ParcelFileDescriptor;Landroid/os/ParcelFileDescriptor;)Z
 
-    nop
+    move-result v3
 
-    new-array v1, v3, [Landroid/os/ParcelFileDescriptor;
+    if-nez v3, :cond_2
 
-    aput-object v11, v1, v0
+    iget-object v3, v8, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->mClientAdapter:Landroid/view/contentcapture/IDataShareWriteAdapter;
 
-    aput-object v15, v1, v2
+    invoke-static {v3, v9, v0}, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->sendErrorSignal(Landroid/view/contentcapture/IDataShareWriteAdapter;Landroid/service/contentcapture/IDataShareReadAdapter;I)V
 
-    invoke-direct {v8, v1}, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->bestEffortCloseFileDescriptors([Landroid/os/ParcelFileDescriptor;)V
+    const/4 v3, 0x4
+
+    new-array v3, v3, [Landroid/os/ParcelFileDescriptor;
+
+    aput-object v11, v3, v1
+
+    aput-object v12, v3, v0
+
+    aput-object v14, v3, v2
+
+    const/4 v0, 0x3
+
+    aput-object v15, v3, v0
+
+    invoke-direct {v8, v3}, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->bestEffortCloseFileDescriptors([Landroid/os/ParcelFileDescriptor;)V
 
     iget-object v0, v8, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->mParentService:Lcom/android/server/contentcapture/ContentCaptureManagerService;
 
-    invoke-static {v0}, Lcom/android/server/contentcapture/ContentCaptureManagerService;->access$3600(Lcom/android/server/contentcapture/ContentCaptureManagerService;)Ljava/util/concurrent/Executor;
+    invoke-static {v0}, Lcom/android/server/contentcapture/ContentCaptureManagerService;->access$3700(Lcom/android/server/contentcapture/ContentCaptureManagerService;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    monitor-enter v3
+
+    :try_start_1
+    iget-object v0, v8, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->mParentService:Lcom/android/server/contentcapture/ContentCaptureManagerService;
+
+    invoke-static {v0}, Lcom/android/server/contentcapture/ContentCaptureManagerService;->access$1600(Lcom/android/server/contentcapture/ContentCaptureManagerService;)Ljava/util/Set;
+
+    move-result-object v0
+
+    iget-object v1, v8, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->mDataShareRequest:Landroid/view/contentcapture/DataShareRequest;
+
+    invoke-virtual {v1}, Landroid/view/contentcapture/DataShareRequest;->getPackageName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
+
+    monitor-exit v3
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v3
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw v0
+
+    :cond_2
+    new-array v2, v2, [Landroid/os/ParcelFileDescriptor;
+
+    aput-object v11, v2, v1
+
+    aput-object v15, v2, v0
+
+    invoke-direct {v8, v2}, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->bestEffortCloseFileDescriptors([Landroid/os/ParcelFileDescriptor;)V
+
+    iget-object v0, v8, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->mParentService:Lcom/android/server/contentcapture/ContentCaptureManagerService;
+
+    invoke-static {v0}, Lcom/android/server/contentcapture/ContentCaptureManagerService;->access$3800(Lcom/android/server/contentcapture/ContentCaptureManagerService;)Ljava/util/concurrent/Executor;
 
     move-result-object v0
 
@@ -602,7 +722,7 @@
 
     iget-object v0, v8, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->mParentService:Lcom/android/server/contentcapture/ContentCaptureManagerService;
 
-    invoke-static {v0}, Lcom/android/server/contentcapture/ContentCaptureManagerService;->access$3700(Lcom/android/server/contentcapture/ContentCaptureManagerService;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/server/contentcapture/ContentCaptureManagerService;->access$3900(Lcom/android/server/contentcapture/ContentCaptureManagerService;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -620,9 +740,7 @@
 
     move-object v6, v15
 
-    move-object/from16 v16, v10
-
-    move-object v10, v7
+    move-object v8, v7
 
     move-object/from16 v7, p1
 
@@ -630,55 +748,19 @@
 
     const-wide/32 v1, 0x493e0
 
-    invoke-virtual {v0, v10, v1, v2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v0, v8, v1, v2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     return-void
 
-    :catch_0
+    :catchall_1
     move-exception v0
 
-    move-object/from16 v16, v10
+    :try_start_2
+    monitor-exit v3
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    move-object v1, v0
-
-    move-object v0, v1
-
-    invoke-static {}, Lcom/android/server/contentcapture/ContentCaptureManagerService;->access$1100()Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string v3, "Failed to call start() the service operation"
-
-    invoke-static {v1, v3, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    iget-object v1, v8, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->mClientAdapter:Landroid/view/contentcapture/IDataShareWriteAdapter;
-
-    invoke-static {v1, v9, v2}, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->sendErrorSignal(Landroid/view/contentcapture/IDataShareWriteAdapter;Landroid/service/contentcapture/IDataShareReadAdapter;I)V
-
-    invoke-direct {v8, v4}, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->logServiceEvent(I)V
-
-    return-void
-
-    :catch_1
-    move-exception v0
-
-    move-object/from16 v16, v10
-
-    invoke-static {}, Lcom/android/server/contentcapture/ContentCaptureManagerService;->access$1100()Ljava/lang/String;
-
-    move-result-object v3
-
-    const-string v4, "Failed to call write() the client operation"
-
-    invoke-static {v3, v4, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    iget-object v3, v8, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->mClientAdapter:Landroid/view/contentcapture/IDataShareWriteAdapter;
-
-    invoke-static {v3, v9, v2}, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->sendErrorSignal(Landroid/view/contentcapture/IDataShareWriteAdapter;Landroid/service/contentcapture/IDataShareReadAdapter;I)V
-
-    invoke-direct {v8, v1}, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->logServiceEvent(I)V
-
-    return-void
+    throw v0
 .end method
 
 .method public synthetic lambda$accept$0$ContentCaptureManagerService$DataShareCallbackDelegate(Landroid/os/ParcelFileDescriptor;Landroid/os/ParcelFileDescriptor;Landroid/service/contentcapture/IDataShareReadAdapter;)V
@@ -738,7 +820,7 @@
 
     iget-object v4, p0, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->mParentService:Lcom/android/server/contentcapture/ContentCaptureManagerService;
 
-    invoke-static {v4}, Lcom/android/server/contentcapture/ContentCaptureManagerService;->access$4000(Lcom/android/server/contentcapture/ContentCaptureManagerService;)Ljava/lang/Object;
+    invoke-static {v4}, Lcom/android/server/contentcapture/ContentCaptureManagerService;->access$4200(Lcom/android/server/contentcapture/ContentCaptureManagerService;)Ljava/lang/Object;
 
     move-result-object v4
 
@@ -925,7 +1007,7 @@
 
     iget-object v4, p0, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->mParentService:Lcom/android/server/contentcapture/ContentCaptureManagerService;
 
-    invoke-static {v4}, Lcom/android/server/contentcapture/ContentCaptureManagerService;->access$4000(Lcom/android/server/contentcapture/ContentCaptureManagerService;)Ljava/lang/Object;
+    invoke-static {v4}, Lcom/android/server/contentcapture/ContentCaptureManagerService;->access$4200(Lcom/android/server/contentcapture/ContentCaptureManagerService;)Ljava/lang/Object;
 
     move-result-object v4
 
@@ -1011,7 +1093,7 @@
     :goto_7
     iget-object v5, p0, Lcom/android/server/contentcapture/ContentCaptureManagerService$DataShareCallbackDelegate;->mParentService:Lcom/android/server/contentcapture/ContentCaptureManagerService;
 
-    invoke-static {v5}, Lcom/android/server/contentcapture/ContentCaptureManagerService;->access$4000(Lcom/android/server/contentcapture/ContentCaptureManagerService;)Ljava/lang/Object;
+    invoke-static {v5}, Lcom/android/server/contentcapture/ContentCaptureManagerService;->access$4200(Lcom/android/server/contentcapture/ContentCaptureManagerService;)Ljava/lang/Object;
 
     move-result-object v5
 

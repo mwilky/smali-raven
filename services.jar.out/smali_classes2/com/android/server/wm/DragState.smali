@@ -785,15 +785,19 @@
 
     const/4 v3, 0x1
 
+    invoke-virtual {p1, p2}, Lcom/android/server/wm/WindowState;->translateToWindowX(F)F
+
+    move-result v4
+
+    invoke-virtual {p1, p3}, Lcom/android/server/wm/WindowState;->translateToWindowY(F)F
+
+    move-result v5
+
     const/4 v7, 0x0
 
     const/4 v8, 0x0
 
     move-object v2, p0
-
-    move v4, p2
-
-    move v5, p3
 
     invoke-direct/range {v2 .. v8}, Lcom/android/server/wm/DragState;->obtainDragEvent(IFFLandroid/content/ClipData;ZLcom/android/internal/view/IDragAndDropPermissions;)Landroid/view/DragEvent;
 

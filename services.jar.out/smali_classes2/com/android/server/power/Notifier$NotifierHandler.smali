@@ -49,7 +49,7 @@
 
     iget v1, p1, Landroid/os/Message;->arg1:I
 
-    invoke-static {v0, v1}, Lcom/android/server/power/Notifier;->access$700(Lcom/android/server/power/Notifier;I)V
+    invoke-static {v0, v1}, Lcom/android/server/power/Notifier;->access$800(Lcom/android/server/power/Notifier;I)V
 
     goto :goto_0
 
@@ -58,11 +58,20 @@
 
     iget v1, p1, Landroid/os/Message;->arg1:I
 
-    invoke-static {v0, v1}, Lcom/android/server/power/Notifier;->access$600(Lcom/android/server/power/Notifier;I)V
+    invoke-static {v0, v1}, Lcom/android/server/power/Notifier;->access$700(Lcom/android/server/power/Notifier;I)V
 
     goto :goto_0
 
     :pswitch_2
+    iget-object v0, p0, Lcom/android/server/power/Notifier$NotifierHandler;->this$0:Lcom/android/server/power/Notifier;
+
+    iget v1, p1, Landroid/os/Message;->arg1:I
+
+    invoke-static {v0, v1}, Lcom/android/server/power/Notifier;->access$600(Lcom/android/server/power/Notifier;I)V
+
+    goto :goto_0
+
+    :pswitch_3
     const/4 v0, 0x4
 
     invoke-virtual {p0, v0}, Lcom/android/server/power/Notifier$NotifierHandler;->removeMessages(I)V
@@ -73,7 +82,7 @@
 
     goto :goto_0
 
-    :pswitch_3
+    :pswitch_4
     iget-object v0, p0, Lcom/android/server/power/Notifier$NotifierHandler;->this$0:Lcom/android/server/power/Notifier;
 
     iget v1, p1, Landroid/os/Message;->arg1:I
@@ -84,14 +93,14 @@
 
     goto :goto_0
 
-    :pswitch_4
+    :pswitch_5
     iget-object v0, p0, Lcom/android/server/power/Notifier$NotifierHandler;->this$0:Lcom/android/server/power/Notifier;
 
     invoke-static {v0}, Lcom/android/server/power/Notifier;->access$200(Lcom/android/server/power/Notifier;)V
 
     goto :goto_0
 
-    :pswitch_5
+    :pswitch_6
     iget-object v0, p0, Lcom/android/server/power/Notifier$NotifierHandler;->this$0:Lcom/android/server/power/Notifier;
 
     iget v1, p1, Landroid/os/Message;->arg1:I
@@ -107,6 +116,7 @@
 
     :pswitch_data_0
     .packed-switch 0x1
+        :pswitch_6
         :pswitch_5
         :pswitch_4
         :pswitch_3

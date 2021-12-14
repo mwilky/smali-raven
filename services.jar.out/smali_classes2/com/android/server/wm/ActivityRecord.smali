@@ -11006,13 +11006,17 @@
 
     new-instance v0, Lcom/android/internal/content/ReferrerIntent;
 
-    move-object/from16 v4, p2
+    move-object/from16 v4, p4
 
-    move-object/from16 v6, p4
+    invoke-virtual {v1, v4}, Lcom/android/server/wm/ActivityRecord;->getFilteredReferrer(Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-direct {v0, v4, v6}, Lcom/android/internal/content/ReferrerIntent;-><init>(Landroid/content/Intent;Ljava/lang/String;)V
+    move-result-object v6
 
-    move-object v7, v0
+    move-object/from16 v7, p2
+
+    invoke-direct {v0, v7, v6}, Lcom/android/internal/content/ReferrerIntent;-><init>(Landroid/content/Intent;Ljava/lang/String;)V
+
+    move-object v6, v0
 
     const/4 v8, 0x1
 
@@ -11066,7 +11070,7 @@
 
     invoke-direct {v0, v10}, Ljava/util/ArrayList;-><init>(I)V
 
-    invoke-virtual {v0, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     iget-object v12, v1, Lcom/android/server/wm/ActivityRecord;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
 
@@ -11152,7 +11156,7 @@
     :goto_3
     if-eqz v8, :cond_4
 
-    invoke-direct {v1, v7}, Lcom/android/server/wm/ActivityRecord;->addNewIntentLocked(Lcom/android/internal/content/ReferrerIntent;)V
+    invoke-direct {v1, v6}, Lcom/android/server/wm/ActivityRecord;->addNewIntentLocked(Lcom/android/internal/content/ReferrerIntent;)V
 
     :cond_4
     return-void
@@ -15759,6 +15763,49 @@
     move-result v1
 
     return v1
+.end method
+
+.method getFilteredReferrer(Ljava/lang/String;)Ljava/lang/String;
+    .locals 3
+
+    if-eqz p1, :cond_1
+
+    iget-object v0, p0, Lcom/android/server/wm/ActivityRecord;->packageName:Ljava/lang/String;
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/wm/ActivityRecord;->mWmService:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mPmInternal:Landroid/content/pm/PackageManagerInternal;
+
+    iget-object v1, p0, Lcom/android/server/wm/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
+
+    iget-object v1, v1, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget v1, v1, Landroid/content/pm/ApplicationInfo;->uid:I
+
+    iget v2, p0, Lcom/android/server/wm/ActivityRecord;->mUserId:I
+
+    invoke-virtual {v0, p1, v1, v2}, Landroid/content/pm/PackageManagerInternal;->filterAppAccess(Ljava/lang/String;II)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    return-object p1
+
+    :cond_1
+    :goto_0
+    const/4 v0, 0x0
+
+    return-object v0
 .end method
 
 .method getHighestAnimLayerWindow(Lcom/android/server/wm/WindowState;)Lcom/android/server/wm/WindowState;

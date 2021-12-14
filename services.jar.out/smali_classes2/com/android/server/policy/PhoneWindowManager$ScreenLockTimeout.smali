@@ -44,7 +44,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$ScreenLockTimeout;->this$0:Lcom/android/server/policy/PhoneWindowManager;
 
-    invoke-static {v0}, Lcom/android/server/policy/PhoneWindowManager;->access$5300(Lcom/android/server/policy/PhoneWindowManager;)Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;
+    invoke-static {v0}, Lcom/android/server/policy/PhoneWindowManager;->access$5400(Lcom/android/server/policy/PhoneWindowManager;)Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;
 
     move-result-object v0
 
@@ -52,7 +52,7 @@
 
     iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$ScreenLockTimeout;->this$0:Lcom/android/server/policy/PhoneWindowManager;
 
-    invoke-static {v0}, Lcom/android/server/policy/PhoneWindowManager;->access$5300(Lcom/android/server/policy/PhoneWindowManager;)Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;
+    invoke-static {v0}, Lcom/android/server/policy/PhoneWindowManager;->access$5400(Lcom/android/server/policy/PhoneWindowManager;)Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;
 
     move-result-object v0
 
@@ -69,7 +69,7 @@
 
     iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$ScreenLockTimeout;->this$0:Lcom/android/server/policy/PhoneWindowManager;
 
-    invoke-static {v0, v1}, Lcom/android/server/policy/PhoneWindowManager;->access$5402(Lcom/android/server/policy/PhoneWindowManager;Z)Z
+    invoke-static {v0, v1}, Lcom/android/server/policy/PhoneWindowManager;->access$5502(Lcom/android/server/policy/PhoneWindowManager;Z)Z
 
     const/4 v0, 0x0
 

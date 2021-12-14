@@ -391,6 +391,8 @@
 
 .field private mScreenOffTimeoutSetting:J
 
+.field private final mScreenUndimDetector:Lcom/android/server/power/ScreenUndimDetector;
+
 .field private mSettingsObserver:Lcom/android/server/power/PowerManagerService$SettingsObserver;
 
 .field private mSleepTimeoutSetting:J
@@ -702,6 +704,12 @@
 
     iput-object v8, v1, Lcom/android/server/power/PowerManagerService;->mFaceDownDetector:Lcom/android/server/power/FaceDownDetector;
 
+    new-instance v8, Lcom/android/server/power/ScreenUndimDetector;
+
+    invoke-direct {v8}, Lcom/android/server/power/ScreenUndimDetector;-><init>()V
+
+    iput-object v8, v1, Lcom/android/server/power/PowerManagerService;->mScreenUndimDetector:Lcom/android/server/power/ScreenUndimDetector;
+
     new-instance v8, Lcom/android/server/power/batterysaver/BatterySavingStats;
 
     invoke-direct {v8, v4}, Lcom/android/server/power/batterysaver/BatterySavingStats;-><init>(Ljava/lang/Object;)V
@@ -819,7 +827,7 @@
 
     move-result-object v14
 
-    const v15, 0x10e00be
+    const v15, 0x10e00bf
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -837,7 +845,7 @@
 
     move-result-object v14
 
-    const v15, 0x10e00bd
+    const v15, 0x10e00be
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -855,7 +863,7 @@
 
     move-result-object v14
 
-    const v15, 0x10e00bc
+    const v15, 0x10e00bd
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -878,7 +886,7 @@
 
     move-result-object v14
 
-    const v15, 0x10e00b8
+    const v15, 0x10e00b9
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -906,7 +914,7 @@
 
     move-result-object v14
 
-    const v15, 0x10e00b7
+    const v15, 0x10e00b8
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -985,7 +993,7 @@
 
     move-result-object v0
 
-    const v13, 0x10e00bb
+    const v13, 0x10e00bc
 
     invoke-virtual {v0, v13}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1003,7 +1011,7 @@
 
     move-result-object v0
 
-    const v13, 0x10e00ba
+    const v13, 0x10e00bb
 
     invoke-virtual {v0, v13}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1021,7 +1029,7 @@
 
     move-result-object v0
 
-    const v13, 0x10e00b9
+    const v13, 0x10e00ba
 
     invoke-virtual {v0, v13}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -11076,6 +11084,12 @@
 
     move-result v12
 
+    iget-object v13, v0, Lcom/android/server/power/PowerManagerService;->mNotifier:Lcom/android/server/power/Notifier;
+
+    iget v14, v9, Landroid/hardware/display/DisplayManagerInternal$DisplayPowerRequest;->policy:I
+
+    invoke-virtual {v13, v14}, Lcom/android/server/power/Notifier;->onScreenPolicyUpdate(I)V
+
     iget-object v13, v0, Lcom/android/server/power/PowerManagerService;->mDisplayGroupPowerStateMapper:Lcom/android/server/power/DisplayGroupPowerStateMapper;
 
     invoke-virtual {v13, v8, v12}, Lcom/android/server/power/DisplayGroupPowerStateMapper;->setDisplayGroupReadyLocked(IZ)Z
@@ -14708,7 +14722,7 @@
 
     iput-boolean v1, p0, Lcom/android/server/power/PowerManagerService;->mDozeAfterScreenOff:Z
 
-    const v1, 0x10e008b
+    const v1, 0x10e008c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -14718,7 +14732,7 @@
 
     iput-wide v1, p0, Lcom/android/server/power/PowerManagerService;->mMinimumScreenOffTimeoutConfig:J
 
-    const v1, 0x10e0086
+    const v1, 0x10e0087
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -15182,7 +15196,7 @@
 .end method
 
 .method public systemReady(Lcom/android/internal/app/IAppOpsService;)V
-    .locals 13
+    .locals 14
 
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService;->mLock:Ljava/lang/Object;
 
@@ -15319,7 +15333,9 @@
 
     iget-object v12, p0, Lcom/android/server/power/PowerManagerService;->mFaceDownDetector:Lcom/android/server/power/FaceDownDetector;
 
-    invoke-virtual/range {v6 .. v12}, Lcom/android/server/power/PowerManagerService$Injector;->createNotifier(Landroid/os/Looper;Landroid/content/Context;Lcom/android/internal/app/IBatteryStats;Lcom/android/server/power/SuspendBlocker;Lcom/android/server/policy/WindowManagerPolicy;Lcom/android/server/power/FaceDownDetector;)Lcom/android/server/power/Notifier;
+    iget-object v13, p0, Lcom/android/server/power/PowerManagerService;->mScreenUndimDetector:Lcom/android/server/power/ScreenUndimDetector;
+
+    invoke-virtual/range {v6 .. v13}, Lcom/android/server/power/PowerManagerService$Injector;->createNotifier(Landroid/os/Looper;Landroid/content/Context;Lcom/android/internal/app/IBatteryStats;Lcom/android/server/power/SuspendBlocker;Lcom/android/server/policy/WindowManagerPolicy;Lcom/android/server/power/FaceDownDetector;Lcom/android/server/power/ScreenUndimDetector;)Lcom/android/server/power/Notifier;
 
     move-result-object v2
 
@@ -15439,6 +15455,12 @@
     iget-object v2, p0, Lcom/android/server/power/PowerManagerService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v2}, Lcom/android/server/power/FaceDownDetector;->systemReady(Landroid/content/Context;)V
+
+    iget-object v1, p0, Lcom/android/server/power/PowerManagerService;->mScreenUndimDetector:Lcom/android/server/power/ScreenUndimDetector;
+
+    iget-object v2, p0, Lcom/android/server/power/PowerManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1, v2}, Lcom/android/server/power/ScreenUndimDetector;->systemReady(Landroid/content/Context;)V
 
     const-string v1, "screensaver_enabled"
 

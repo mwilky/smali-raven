@@ -20809,6 +20809,110 @@
     throw v1
 .end method
 
+.method schedulePauseActivity(Lcom/android/server/wm/ActivityRecord;ZZLjava/lang/String;)V
+    .locals 6
+
+    sget-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_STATES_enabled:Z
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    sget-object v2, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_STATES:Lcom/android/internal/protolog/ProtoLogGroup;
+
+    const v3, 0x70e7ce00
+
+    const/4 v4, 0x1
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    const/4 v5, 0x0
+
+    aput-object v0, v4, v5
+
+    invoke-static {v2, v3, v5, v1, v4}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+
+    :cond_0
+    :try_start_0
+    iget v0, p1, Lcom/android/server/wm/ActivityRecord;->mUserId:I
+
+    invoke-static {p1}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I
+
+    move-result v2
+
+    iget-object v3, p1, Lcom/android/server/wm/ActivityRecord;->shortComponentName:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "userLeaving="
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v0, v2, v3, v4, p4}, Lcom/android/server/wm/EventLogTags;->writeWmPauseActivity(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/android/server/wm/Task;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    invoke-virtual {v0}, Lcom/android/server/wm/ActivityTaskManagerService;->getLifecycleManager()Lcom/android/server/wm/ClientLifecycleManager;
+
+    move-result-object v0
+
+    iget-object v2, p1, Lcom/android/server/wm/ActivityRecord;->app:Lcom/android/server/wm/WindowProcessController;
+
+    invoke-virtual {v2}, Lcom/android/server/wm/WindowProcessController;->getThread()Landroid/app/IApplicationThread;
+
+    move-result-object v2
+
+    iget-object v3, p1, Lcom/android/server/wm/ActivityRecord;->appToken:Lcom/android/server/wm/ActivityRecord$Token;
+
+    iget-boolean v4, p1, Lcom/android/server/wm/ActivityRecord;->finishing:Z
+
+    iget v5, p1, Lcom/android/server/wm/ActivityRecord;->configChangeFlags:I
+
+    invoke-static {v4, p2, v5, p3}, Landroid/app/servertransaction/PauseActivityItem;->obtain(ZZIZ)Landroid/app/servertransaction/PauseActivityItem;
+
+    move-result-object v4
+
+    invoke-virtual {v0, v2, v3, v4}, Lcom/android/server/wm/ClientLifecycleManager;->scheduleTransaction(Landroid/app/IApplicationThread;Landroid/os/IBinder;Landroid/app/servertransaction/ActivityLifecycleItem;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    const-string v2, "ActivityTaskManager"
+
+    const-string v3, "Exception thrown during pause"
+
+    invoke-static {v2, v3, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    iput-object v1, p0, Lcom/android/server/wm/Task;->mPausingActivity:Lcom/android/server/wm/ActivityRecord;
+
+    iput-object v1, p0, Lcom/android/server/wm/Task;->mLastPausedActivity:Lcom/android/server/wm/ActivityRecord;
+
+    iget-object v1, p0, Lcom/android/server/wm/Task;->mTaskSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
+
+    iget-object v1, v1, Lcom/android/server/wm/ActivityTaskSupervisor;->mNoHistoryActivities:Ljava/util/ArrayList;
+
+    invoke-virtual {v1, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+
+    :goto_0
+    return-void
+.end method
+
 .method setActivityWindowingMode(I)V
     .locals 3
 
@@ -22728,62 +22832,56 @@
 .end method
 
 .method final startPausingLocked(ZZLcom/android/server/wm/ActivityRecord;Ljava/lang/String;)Z
-    .locals 16
+    .locals 11
 
-    move-object/from16 v1, p0
-
-    move/from16 v8, p1
-
-    move-object/from16 v9, p3
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/server/wm/Task;->isLeafTask()Z
+    invoke-virtual {p0}, Lcom/android/server/wm/Task;->isLeafTask()Z
 
     move-result v0
 
-    const/4 v10, 0x1
+    const/4 v1, 0x1
 
-    const/4 v11, 0x0
+    const/4 v2, 0x0
 
     if-nez v0, :cond_1
 
-    new-array v0, v10, [I
+    new-array v0, v1, [I
 
-    aput v11, v0, v11
+    aput v2, v0, v2
 
-    new-instance v12, Lcom/android/server/wm/Task$$ExternalSyntheticLambda29;
+    new-instance v9, Lcom/android/server/wm/Task$$ExternalSyntheticLambda29;
 
-    move-object v2, v12
+    move-object v3, v9
 
-    move/from16 v3, p1
+    move v4, p1
 
-    move/from16 v4, p2
+    move v5, p2
 
-    move-object/from16 v5, p3
+    move-object v6, p3
 
-    move-object/from16 v6, p4
+    move-object v7, p4
 
-    move-object v7, v0
+    move-object v8, v0
 
-    invoke-direct/range {v2 .. v7}, Lcom/android/server/wm/Task$$ExternalSyntheticLambda29;-><init>(ZZLcom/android/server/wm/ActivityRecord;Ljava/lang/String;[I)V
+    invoke-direct/range {v3 .. v8}, Lcom/android/server/wm/Task$$ExternalSyntheticLambda29;-><init>(ZZLcom/android/server/wm/ActivityRecord;Ljava/lang/String;[I)V
 
-    invoke-virtual {v1, v12, v10}, Lcom/android/server/wm/Task;->forAllLeafTasks(Ljava/util/function/Consumer;Z)V
+    invoke-virtual {p0, v9, v1}, Lcom/android/server/wm/Task;->forAllLeafTasks(Ljava/util/function/Consumer;Z)V
 
-    aget v2, v0, v11
+    aget v3, v0, v2
 
-    if-lez v2, :cond_0
+    if-lez v3, :cond_0
 
     goto :goto_0
 
     :cond_0
-    move v10, v11
+    move v1, v2
 
     :goto_0
-    return v10
+    return v1
 
     :cond_1
-    iget-object v0, v1, Lcom/android/server/wm/Task;->mPausingActivity:Lcom/android/server/wm/ActivityRecord;
+    iget-object v0, p0, Lcom/android/server/wm/Task;->mPausingActivity:Lcom/android/server/wm/ActivityRecord;
 
-    const-string v2, "ActivityTaskManager"
+    const-string v3, "ActivityTaskManager"
 
     if-eqz v0, :cond_2
 
@@ -22791,139 +22889,139 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Going to pause when pause is already pending for "
+    const-string v4, "Going to pause when pause is already pending for "
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v3, v1, Lcom/android/server/wm/Task;->mPausingActivity:Lcom/android/server/wm/ActivityRecord;
+    iget-object v4, p0, Lcom/android/server/wm/Task;->mPausingActivity:Lcom/android/server/wm/ActivityRecord;
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v3, " state="
+    const-string v4, " state="
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v3, v1, Lcom/android/server/wm/Task;->mPausingActivity:Lcom/android/server/wm/ActivityRecord;
+    iget-object v4, p0, Lcom/android/server/wm/Task;->mPausingActivity:Lcom/android/server/wm/ActivityRecord;
 
-    invoke-virtual {v3}, Lcom/android/server/wm/ActivityRecord;->getState()Lcom/android/server/wm/Task$ActivityState;
+    invoke-virtual {v4}, Lcom/android/server/wm/ActivityRecord;->getState()Lcom/android/server/wm/Task$ActivityState;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {v2, v0}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v0}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/server/wm/Task;->shouldSleepActivities()Z
+    invoke-virtual {p0}, Lcom/android/server/wm/Task;->shouldSleepActivities()Z
 
     move-result v0
 
     if-nez v0, :cond_2
 
-    invoke-virtual {v1, v11, v9}, Lcom/android/server/wm/Task;->completePauseLocked(ZLcom/android/server/wm/ActivityRecord;)V
+    invoke-virtual {p0, v2, p3}, Lcom/android/server/wm/Task;->completePauseLocked(ZLcom/android/server/wm/ActivityRecord;)V
 
     :cond_2
-    iget-object v3, v1, Lcom/android/server/wm/Task;->mResumedActivity:Lcom/android/server/wm/ActivityRecord;
+    iget-object v0, p0, Lcom/android/server/wm/Task;->mResumedActivity:Lcom/android/server/wm/ActivityRecord;
 
-    if-nez v3, :cond_4
+    if-nez v0, :cond_4
 
-    if-nez v9, :cond_3
+    if-nez p3, :cond_3
 
-    const-string v0, "Trying to pause when nothing is resumed"
+    const-string v1, "Trying to pause when nothing is resumed"
 
-    invoke-static {v2, v0}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v1}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, v1, Lcom/android/server/wm/Task;->mRootWindowContainer:Lcom/android/server/wm/RootWindowContainer;
+    iget-object v1, p0, Lcom/android/server/wm/Task;->mRootWindowContainer:Lcom/android/server/wm/RootWindowContainer;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/RootWindowContainer;->resumeFocusedTasksTopActivities()Z
+    invoke-virtual {v1}, Lcom/android/server/wm/RootWindowContainer;->resumeFocusedTasksTopActivities()Z
 
     :cond_3
-    return v11
+    return v2
 
     :cond_4
-    if-ne v3, v9, :cond_5
+    if-ne v0, p3, :cond_5
 
-    const-string v0, "Trying to pause activity that is in process of being resumed"
+    const-string v1, "Trying to pause activity that is in process of being resumed"
 
-    invoke-static {v2, v0}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v1}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v11
+    return v2
 
     :cond_5
-    sget-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_STATES_enabled:Z
+    sget-boolean v3, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_STATES_enabled:Z
 
     const/4 v4, 0x0
 
-    if-eqz v0, :cond_6
+    if-eqz v3, :cond_6
 
-    invoke-static {v3}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
     sget-object v5, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_STATES:Lcom/android/internal/protolog/ProtoLogGroup;
 
     const v6, -0x10a7dd47
 
-    new-array v7, v10, [Ljava/lang/Object;
+    new-array v7, v1, [Ljava/lang/Object;
 
-    aput-object v0, v7, v11
+    aput-object v3, v7, v2
 
-    invoke-static {v5, v6, v11, v4, v7}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v5, v6, v2, v4, v7}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
     :cond_6
-    iput-object v3, v1, Lcom/android/server/wm/Task;->mPausingActivity:Lcom/android/server/wm/ActivityRecord;
+    iput-object v0, p0, Lcom/android/server/wm/Task;->mPausingActivity:Lcom/android/server/wm/ActivityRecord;
 
-    iput-object v3, v1, Lcom/android/server/wm/Task;->mLastPausedActivity:Lcom/android/server/wm/ActivityRecord;
+    iput-object v0, p0, Lcom/android/server/wm/Task;->mLastPausedActivity:Lcom/android/server/wm/ActivityRecord;
 
-    invoke-virtual {v3}, Lcom/android/server/wm/ActivityRecord;->isNoHistory()Z
+    invoke-virtual {v0}, Lcom/android/server/wm/ActivityRecord;->isNoHistory()Z
 
-    move-result v0
+    move-result v3
 
-    if-eqz v0, :cond_7
+    if-eqz v3, :cond_7
 
-    iget-object v0, v1, Lcom/android/server/wm/Task;->mTaskSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
+    iget-object v3, p0, Lcom/android/server/wm/Task;->mTaskSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
 
-    iget-object v0, v0, Lcom/android/server/wm/ActivityTaskSupervisor;->mNoHistoryActivities:Ljava/util/ArrayList;
+    iget-object v3, v3, Lcom/android/server/wm/ActivityTaskSupervisor;->mNoHistoryActivities:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v0}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v3
 
-    if-nez v0, :cond_7
+    if-nez v3, :cond_7
 
-    iget-object v0, v1, Lcom/android/server/wm/Task;->mTaskSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
+    iget-object v3, p0, Lcom/android/server/wm/Task;->mTaskSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
 
-    iget-object v0, v0, Lcom/android/server/wm/ActivityTaskSupervisor;->mNoHistoryActivities:Ljava/util/ArrayList;
+    iget-object v3, v3, Lcom/android/server/wm/ActivityTaskSupervisor;->mNoHistoryActivities:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :cond_7
-    sget-object v0, Lcom/android/server/wm/Task$ActivityState;->PAUSING:Lcom/android/server/wm/Task$ActivityState;
+    sget-object v3, Lcom/android/server/wm/Task$ActivityState;->PAUSING:Lcom/android/server/wm/Task$ActivityState;
 
     const-string v5, "startPausingLocked"
 
-    invoke-virtual {v3, v0, v5}, Lcom/android/server/wm/ActivityRecord;->setState(Lcom/android/server/wm/Task$ActivityState;Ljava/lang/String;)V
+    invoke-virtual {v0, v3, v5}, Lcom/android/server/wm/ActivityRecord;->setState(Lcom/android/server/wm/Task$ActivityState;Ljava/lang/String;)V
 
-    invoke-virtual {v3}, Lcom/android/server/wm/ActivityRecord;->getTask()Lcom/android/server/wm/Task;
+    invoke-virtual {v0}, Lcom/android/server/wm/ActivityRecord;->getTask()Lcom/android/server/wm/Task;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-virtual {v0}, Lcom/android/server/wm/Task;->touchActiveTime()V
+    invoke-virtual {v3}, Lcom/android/server/wm/Task;->touchActiveTime()V
 
-    iget-object v0, v1, Lcom/android/server/wm/Task;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
+    iget-object v3, p0, Lcom/android/server/wm/Task;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/ActivityTaskManagerService;->updateCpuStats()V
+    invoke-virtual {v3}, Lcom/android/server/wm/ActivityTaskManagerService;->updateCpuStats()V
 
-    const/4 v0, 0x0
+    const/4 v3, 0x0
 
     const/4 v5, 0x0
 
-    if-eqz v9, :cond_a
+    if-eqz p3, :cond_a
 
-    iget-object v6, v9, Lcom/android/server/wm/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
+    iget-object v6, p3, Lcom/android/server/wm/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
 
     iget v6, v6, Landroid/content/pm/ActivityInfo;->flags:I
 
@@ -22931,27 +23029,27 @@
 
     if-eqz v6, :cond_a
 
-    if-eqz v3, :cond_8
+    if-eqz v0, :cond_8
 
     const-string v6, "shouldResumeWhilePausing"
 
-    invoke-virtual {v3, v6, v8}, Lcom/android/server/wm/ActivityRecord;->checkEnterPictureInPictureState(Ljava/lang/String;Z)Z
+    invoke-virtual {v0, v6, p1}, Lcom/android/server/wm/ActivityRecord;->checkEnterPictureInPictureState(Ljava/lang/String;Z)Z
 
     move-result v6
 
     if-eqz v6, :cond_8
 
-    move v6, v10
+    move v6, v1
 
     goto :goto_1
 
     :cond_8
-    move v6, v11
+    move v6, v2
 
     :goto_1
     if-eqz v6, :cond_9
 
-    iget-object v7, v3, Lcom/android/server/wm/ActivityRecord;->pictureInPictureArgs:Landroid/app/PictureInPictureParams;
+    iget-object v7, v0, Lcom/android/server/wm/ActivityRecord;->pictureInPictureArgs:Landroid/app/PictureInPictureParams;
 
     invoke-virtual {v7}, Landroid/app/PictureInPictureParams;->isAutoEnterEnabled()Z
 
@@ -22961,273 +23059,148 @@
 
     const/4 v5, 0x1
 
-    move v6, v5
-
-    move v5, v0
-
     goto :goto_2
 
     :cond_9
     if-nez v6, :cond_a
 
-    const/4 v0, 0x1
-
-    move v6, v5
-
-    move v5, v0
-
-    goto :goto_2
+    const/4 v3, 0x1
 
     :cond_a
-    move v6, v5
-
-    move v5, v0
-
     :goto_2
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
-    invoke-virtual {v3}, Lcom/android/server/wm/ActivityRecord;->attachedToProcess()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_e
-
-    if-eqz v6, :cond_c
-
-    sget-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_STATES_enabled:Z
-
-    if-eqz v0, :cond_b
-
-    invoke-static {v3}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    sget-object v2, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_STATES:Lcom/android/internal/protolog/ProtoLogGroup;
-
-    const v12, 0x3bb1d3d1
-
-    new-array v13, v10, [Ljava/lang/Object;
-
-    aput-object v0, v13, v11
-
-    invoke-static {v2, v12, v11, v4, v13}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
-
-    :cond_b
-    iget-object v0, v1, Lcom/android/server/wm/Task;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
-
-    iget-object v2, v3, Lcom/android/server/wm/ActivityRecord;->pictureInPictureArgs:Landroid/app/PictureInPictureParams;
-
-    invoke-virtual {v0, v3, v2}, Lcom/android/server/wm/ActivityTaskManagerService;->enterPictureInPictureMode(Lcom/android/server/wm/ActivityRecord;Landroid/app/PictureInPictureParams;)Z
+    invoke-virtual {v0}, Lcom/android/server/wm/ActivityRecord;->attachedToProcess()Z
 
     move-result v7
 
-    iput-object v4, v1, Lcom/android/server/wm/Task;->mPausingActivity:Lcom/android/server/wm/ActivityRecord;
+    if-eqz v7, :cond_d
 
-    move-object/from16 v15, p4
+    if-eqz v5, :cond_c
 
-    goto :goto_5
+    sget-boolean v7, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_STATES_enabled:Z
 
-    :cond_c
-    sget-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_STATES_enabled:Z
+    if-eqz v7, :cond_b
 
-    if-eqz v0, :cond_d
+    invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v3}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v7
 
-    move-result-object v0
+    sget-object v8, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_STATES:Lcom/android/internal/protolog/ProtoLogGroup;
 
-    sget-object v12, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_STATES:Lcom/android/internal/protolog/ProtoLogGroup;
+    const v9, 0x3bb1d3d1
 
-    const v13, 0x70e7ce00
+    new-array v10, v1, [Ljava/lang/Object;
 
-    new-array v14, v10, [Ljava/lang/Object;
+    aput-object v7, v10, v2
 
-    aput-object v0, v14, v11
+    invoke-static {v8, v9, v2, v4, v10}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
-    invoke-static {v12, v13, v11, v4, v14}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+    :cond_b
+    iget-object v7, p0, Lcom/android/server/wm/Task;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    :cond_d
-    :try_start_0
-    iget v0, v3, Lcom/android/server/wm/ActivityRecord;->mUserId:I
+    iget-object v8, v0, Lcom/android/server/wm/ActivityRecord;->pictureInPictureArgs:Landroid/app/PictureInPictureParams;
 
-    invoke-static {v3}, Ljava/lang/System;->identityHashCode(Ljava/lang/Object;)I
+    invoke-virtual {v7, v0, v8}, Lcom/android/server/wm/ActivityTaskManagerService;->enterPictureInPictureMode(Lcom/android/server/wm/ActivityRecord;Landroid/app/PictureInPictureParams;)Z
 
-    move-result v12
-
-    iget-object v13, v3, Lcom/android/server/wm/ActivityRecord;->shortComponentName:Ljava/lang/String;
-
-    new-instance v14, Ljava/lang/StringBuilder;
-
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v15, "userLeaving="
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v14, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v14
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
-
-    move-object/from16 v15, p4
-
-    :try_start_1
-    invoke-static {v0, v12, v13, v14, v15}, Lcom/android/server/wm/EventLogTags;->writeWmPauseActivity(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v0, v1, Lcom/android/server/wm/Task;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
-
-    invoke-virtual {v0}, Lcom/android/server/wm/ActivityTaskManagerService;->getLifecycleManager()Lcom/android/server/wm/ClientLifecycleManager;
-
-    move-result-object v0
-
-    iget-object v12, v3, Lcom/android/server/wm/ActivityRecord;->app:Lcom/android/server/wm/WindowProcessController;
-
-    invoke-virtual {v12}, Lcom/android/server/wm/WindowProcessController;->getThread()Landroid/app/IApplicationThread;
-
-    move-result-object v12
-
-    iget-object v13, v3, Lcom/android/server/wm/ActivityRecord;->appToken:Lcom/android/server/wm/ActivityRecord$Token;
-
-    iget-boolean v14, v3, Lcom/android/server/wm/ActivityRecord;->finishing:Z
-
-    iget v10, v3, Lcom/android/server/wm/ActivityRecord;->configChangeFlags:I
-
-    invoke-static {v14, v8, v10, v5}, Landroid/app/servertransaction/PauseActivityItem;->obtain(ZZIZ)Landroid/app/servertransaction/PauseActivityItem;
-
-    move-result-object v10
-
-    invoke-virtual {v0, v12, v13, v10}, Lcom/android/server/wm/ClientLifecycleManager;->scheduleTransaction(Landroid/app/IApplicationThread;Landroid/os/IBinder;Landroid/app/servertransaction/ActivityLifecycleItem;)V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-
-    goto :goto_4
-
-    :catch_0
-    move-exception v0
+    move-result v6
 
     goto :goto_3
 
-    :catch_1
-    move-exception v0
+    :cond_c
+    invoke-virtual {p0, v0, p1, v3, p4}, Lcom/android/server/wm/Task;->schedulePauseActivity(Lcom/android/server/wm/ActivityRecord;ZZLjava/lang/String;)V
 
-    move-object/from16 v15, p4
+    goto :goto_3
+
+    :cond_d
+    iput-object v4, p0, Lcom/android/server/wm/Task;->mPausingActivity:Lcom/android/server/wm/ActivityRecord;
+
+    iput-object v4, p0, Lcom/android/server/wm/Task;->mLastPausedActivity:Lcom/android/server/wm/ActivityRecord;
+
+    iget-object v7, p0, Lcom/android/server/wm/Task;->mTaskSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
+
+    iget-object v7, v7, Lcom/android/server/wm/ActivityTaskSupervisor;->mNoHistoryActivities:Ljava/util/ArrayList;
+
+    invoke-virtual {v7, v0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
     :goto_3
-    const-string v10, "Exception thrown during pause"
+    if-nez p2, :cond_e
 
-    invoke-static {v2, v10, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    iget-object v7, p0, Lcom/android/server/wm/Task;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    iput-object v4, v1, Lcom/android/server/wm/Task;->mPausingActivity:Lcom/android/server/wm/ActivityRecord;
+    invoke-virtual {v7}, Lcom/android/server/wm/ActivityTaskManagerService;->isSleepingOrShuttingDownLocked()Z
 
-    iput-object v4, v1, Lcom/android/server/wm/Task;->mLastPausedActivity:Lcom/android/server/wm/ActivityRecord;
+    move-result v7
 
-    iget-object v2, v1, Lcom/android/server/wm/Task;->mTaskSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
+    if-nez v7, :cond_e
 
-    iget-object v2, v2, Lcom/android/server/wm/ActivityTaskSupervisor;->mNoHistoryActivities:Ljava/util/ArrayList;
+    iget-object v7, p0, Lcom/android/server/wm/Task;->mTaskSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
 
-    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
-
-    :goto_4
-    goto :goto_5
+    invoke-virtual {v7}, Lcom/android/server/wm/ActivityTaskSupervisor;->acquireLaunchWakelock()V
 
     :cond_e
-    move-object/from16 v15, p4
+    iget-object v7, p0, Lcom/android/server/wm/Task;->mPausingActivity:Lcom/android/server/wm/ActivityRecord;
 
-    iput-object v4, v1, Lcom/android/server/wm/Task;->mPausingActivity:Lcom/android/server/wm/ActivityRecord;
+    if-eqz v7, :cond_12
 
-    iput-object v4, v1, Lcom/android/server/wm/Task;->mLastPausedActivity:Lcom/android/server/wm/ActivityRecord;
-
-    iget-object v0, v1, Lcom/android/server/wm/Task;->mTaskSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
-
-    iget-object v0, v0, Lcom/android/server/wm/ActivityTaskSupervisor;->mNoHistoryActivities:Ljava/util/ArrayList;
-
-    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
-
-    :goto_5
     if-nez p2, :cond_f
 
-    iget-object v0, v1, Lcom/android/server/wm/Task;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
+    invoke-virtual {v0}, Lcom/android/server/wm/ActivityRecord;->pauseKeyDispatchingLocked()V
 
-    invoke-virtual {v0}, Lcom/android/server/wm/ActivityTaskManagerService;->isSleepingOrShuttingDownLocked()Z
-
-    move-result v0
-
-    if-nez v0, :cond_f
-
-    iget-object v0, v1, Lcom/android/server/wm/Task;->mTaskSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
-
-    invoke-virtual {v0}, Lcom/android/server/wm/ActivityTaskSupervisor;->acquireLaunchWakelock()V
+    goto :goto_4
 
     :cond_f
-    iget-object v0, v1, Lcom/android/server/wm/Task;->mPausingActivity:Lcom/android/server/wm/ActivityRecord;
+    sget-boolean v7, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_STATES_enabled:Z
 
-    if-eqz v0, :cond_13
+    if-eqz v7, :cond_10
 
-    if-nez v7, :cond_13
+    sget-object v7, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_STATES:Lcom/android/internal/protolog/ProtoLogGroup;
 
-    if-nez p2, :cond_10
+    const v8, -0x18e2c569
 
-    invoke-virtual {v3}, Lcom/android/server/wm/ActivityRecord;->pauseKeyDispatchingLocked()V
+    move-object v9, v4
 
-    goto :goto_6
+    check-cast v9, [Ljava/lang/Object;
+
+    invoke-static {v7, v8, v2, v4, v9}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
     :cond_10
-    sget-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_STATES_enabled:Z
+    :goto_4
+    if-eqz v3, :cond_11
 
-    if-eqz v0, :cond_11
-
-    sget-object v0, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_STATES:Lcom/android/internal/protolog/ProtoLogGroup;
-
-    const v2, -0x18e2c569
-
-    move-object v10, v4
-
-    check-cast v10, [Ljava/lang/Object;
-
-    invoke-static {v0, v2, v11, v4, v10}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
-
-    :cond_11
-    :goto_6
-    if-eqz v5, :cond_12
-
-    invoke-virtual {v1, v11, v9}, Lcom/android/server/wm/Task;->completePauseLocked(ZLcom/android/server/wm/ActivityRecord;)V
-
-    return v11
-
-    :cond_12
-    invoke-virtual {v3}, Lcom/android/server/wm/ActivityRecord;->schedulePauseTimeout()V
-
-    const/4 v2, 0x1
+    invoke-virtual {p0, v2, p3}, Lcom/android/server/wm/Task;->completePauseLocked(ZLcom/android/server/wm/ActivityRecord;)V
 
     return v2
 
+    :cond_11
+    invoke-virtual {v0}, Lcom/android/server/wm/ActivityRecord;->schedulePauseTimeout()V
+
+    return v1
+
+    :cond_12
+    sget-boolean v1, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_STATES_enabled:Z
+
+    if-eqz v1, :cond_13
+
+    sget-object v1, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_STATES:Lcom/android/internal/protolog/ProtoLogGroup;
+
+    const v7, 0x6e1d4f8e
+
+    move-object v8, v4
+
+    check-cast v8, [Ljava/lang/Object;
+
+    invoke-static {v1, v7, v2, v4, v8}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+
     :cond_13
-    sget-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_STATES_enabled:Z
+    if-nez p3, :cond_14
 
-    if-eqz v0, :cond_14
+    iget-object v1, p0, Lcom/android/server/wm/Task;->mRootWindowContainer:Lcom/android/server/wm/RootWindowContainer;
 
-    sget-object v0, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_STATES:Lcom/android/internal/protolog/ProtoLogGroup;
-
-    const v2, 0x6e1d4f8e
-
-    move-object v10, v4
-
-    check-cast v10, [Ljava/lang/Object;
-
-    invoke-static {v0, v2, v11, v4, v10}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-virtual {v1}, Lcom/android/server/wm/RootWindowContainer;->resumeFocusedTasksTopActivities()Z
 
     :cond_14
-    if-nez v9, :cond_15
-
-    iget-object v0, v1, Lcom/android/server/wm/Task;->mRootWindowContainer:Lcom/android/server/wm/RootWindowContainer;
-
-    invoke-virtual {v0}, Lcom/android/server/wm/RootWindowContainer;->resumeFocusedTasksTopActivities()Z
-
-    :cond_15
-    return v11
+    return v2
 .end method
 
 .method supportsFreeform()Z

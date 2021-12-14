@@ -42,6 +42,16 @@
         }
     .end annotation
 
+    iget-object v0, p0, Lcom/android/server/location/contexthub/ContextHubClientBroker$1;->this$0:Lcom/android/server/location/contexthub/ContextHubClientBroker;
+
+    invoke-static {v0}, Lcom/android/server/location/contexthub/ContextHubClientBroker;->access$000(Lcom/android/server/location/contexthub/ContextHubClientBroker;)Ljava/util/concurrent/atomic/AtomicBoolean;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
+
     if-eqz p1, :cond_0
 
     if-eqz p2, :cond_0
@@ -64,49 +74,47 @@
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_2
+    if-eqz v2, :cond_2
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
-
-    check-cast v1, Landroid/hardware/location/NanoAppState;
-
-    iget-object v2, p0, Lcom/android/server/location/contexthub/ContextHubClientBroker$1;->this$0:Lcom/android/server/location/contexthub/ContextHubClientBroker;
-
-    invoke-static {v2}, Lcom/android/server/location/contexthub/ContextHubClientBroker;->access$000(Lcom/android/server/location/contexthub/ContextHubClientBroker;)Ljava/util/Map;
-
     move-result-object v2
 
-    invoke-virtual {v1}, Landroid/hardware/location/NanoAppState;->getNanoAppId()J
-
-    move-result-wide v3
-
-    invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v3
-
-    invoke-interface {v2, v3}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    invoke-virtual {v1}, Landroid/hardware/location/NanoAppState;->getNanoAppPermissions()Ljava/util/List;
-
-    move-result-object v2
+    check-cast v2, Landroid/hardware/location/NanoAppState;
 
     iget-object v3, p0, Lcom/android/server/location/contexthub/ContextHubClientBroker$1;->this$0:Lcom/android/server/location/contexthub/ContextHubClientBroker;
 
-    invoke-virtual {v1}, Landroid/hardware/location/NanoAppState;->getNanoAppId()J
+    invoke-static {v3}, Lcom/android/server/location/contexthub/ContextHubClientBroker;->access$100(Lcom/android/server/location/contexthub/ContextHubClientBroker;)Ljava/util/Map;
+
+    move-result-object v3
+
+    invoke-virtual {v2}, Landroid/hardware/location/NanoAppState;->getNanoAppId()J
 
     move-result-wide v4
 
-    const/4 v6, 0x0
+    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    invoke-static {v3, v4, v5, v2, v6}, Lcom/android/server/location/contexthub/ContextHubClientBroker;->access$100(Lcom/android/server/location/contexthub/ContextHubClientBroker;JLjava/util/List;Z)I
+    move-result-object v4
+
+    invoke-interface {v3, v4}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    invoke-virtual {v2}, Landroid/hardware/location/NanoAppState;->getNanoAppPermissions()Ljava/util/List;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/android/server/location/contexthub/ContextHubClientBroker$1;->this$0:Lcom/android/server/location/contexthub/ContextHubClientBroker;
+
+    invoke-virtual {v2}, Landroid/hardware/location/NanoAppState;->getNanoAppId()J
+
+    move-result-wide v5
+
+    invoke-static {v4, v5, v6, v3, v1}, Lcom/android/server/location/contexthub/ContextHubClientBroker;->access$200(Lcom/android/server/location/contexthub/ContextHubClientBroker;JLjava/util/List;Z)I
 
     :cond_1
     goto :goto_0

@@ -64,7 +64,7 @@
 
     iget-object v2, v2, Lcom/android/server/pm/PackageManagerService$VerificationParams;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v2}, Lcom/android/server/pm/PackageManagerService;->access$6200(Lcom/android/server/pm/PackageManagerService;)J
+    invoke-static {v2}, Lcom/android/server/pm/PackageManagerService;->access$6500(Lcom/android/server/pm/PackageManagerService;)J
 
     move-result-wide v2
 

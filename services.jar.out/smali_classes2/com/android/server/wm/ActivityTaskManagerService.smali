@@ -2581,7 +2581,7 @@
 
     iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mContext:Landroid/content/Context;
 
-    const v2, 0x10403e4
+    const v2, 0x10403e6
 
     const/4 v4, 0x1
 
@@ -2651,7 +2651,7 @@
 
     iget-object v2, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mContext:Landroid/content/Context;
 
-    const v3, 0x10403e5
+    const v3, 0x10403e7
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -8991,7 +8991,7 @@
 .end method
 
 .method public synthetic lambda$enterPictureInPictureMode$3$ActivityTaskManagerService(Lcom/android/server/wm/ActivityRecord;Landroid/app/PictureInPictureParams;)V
-    .locals 5
+    .locals 6
 
     iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mGlobalLock:Lcom/android/server/wm/WindowManagerGlobalLock;
 
@@ -9054,7 +9054,7 @@
 
     invoke-virtual {v3, p1, v4}, Lcom/android/server/wm/RootWindowContainer;->moveActivityToPinnedRootTask(Lcom/android/server/wm/ActivityRecord;Ljava/lang/String;)V
 
-    invoke-virtual {p1}, Lcom/android/server/wm/ActivityRecord;->getRootTask()Lcom/android/server/wm/Task;
+    invoke-virtual {p1}, Lcom/android/server/wm/ActivityRecord;->getTask()Lcom/android/server/wm/Task;
 
     move-result-object v3
 
@@ -9062,6 +9062,19 @@
 
     invoke-virtual {v3, v2}, Lcom/android/server/wm/Task;->setPictureInPictureActions(Ljava/util/List;)V
 
+    invoke-virtual {v3}, Lcom/android/server/wm/Task;->getPausingActivity()Lcom/android/server/wm/ActivityRecord;
+
+    move-result-object v4
+
+    if-ne v4, p1, :cond_1
+
+    const-string v4, "auto-pip"
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v3, p1, v5, v5, v4}, Lcom/android/server/wm/Task;->schedulePauseActivity(Lcom/android/server/wm/ActivityRecord;ZZLjava/lang/String;)V
+
+    :cond_1
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -11990,7 +12003,7 @@
 
     move-result-object v0
 
-    const v13, 0x10e00d0
+    const v13, 0x10e00d1
 
     invoke-virtual {v0, v13}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -12002,7 +12015,7 @@
 
     move-result-object v0
 
-    const v14, 0x10e00b3
+    const v14, 0x10e00b4
 
     invoke-virtual {v0, v14}, Landroid/content/res/Resources;->getInteger(I)I
 

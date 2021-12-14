@@ -20,13 +20,15 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/policy/PhoneWindowManager;I)V
-    .locals 0
+    .locals 1
 
     iput-object p1, p0, Lcom/android/server/policy/PhoneWindowManager$BackKeyRule;->this$0:Lcom/android/server/policy/PhoneWindowManager;
 
-    const/4 p1, 0x4
+    iget-object p1, p1, Lcom/android/server/policy/PhoneWindowManager;->mContext:Landroid/content/Context;
 
-    invoke-direct {p0, p1, p2}, Lcom/android/server/policy/SingleKeyGestureDetector$SingleKeyRule;-><init>(II)V
+    const/4 v0, 0x4
+
+    invoke-direct {p0, p1, v0, p2}, Lcom/android/server/policy/SingleKeyGestureDetector$SingleKeyRule;-><init>(Landroid/content/Context;II)V
 
     return-void
 .end method
@@ -46,7 +48,7 @@
 
     iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager$BackKeyRule;->this$0:Lcom/android/server/policy/PhoneWindowManager;
 
-    invoke-static {v0}, Lcom/android/server/policy/PhoneWindowManager;->access$5000(Lcom/android/server/policy/PhoneWindowManager;)V
+    invoke-static {v0}, Lcom/android/server/policy/PhoneWindowManager;->access$5100(Lcom/android/server/policy/PhoneWindowManager;)V
 
     return-void
 .end method
@@ -60,7 +62,7 @@
 
     iget-object v2, p0, Lcom/android/server/policy/PhoneWindowManager$BackKeyRule;->this$0:Lcom/android/server/policy/PhoneWindowManager;
 
-    invoke-static {v2}, Lcom/android/server/policy/PhoneWindowManager;->access$4900(Lcom/android/server/policy/PhoneWindowManager;)Z
+    invoke-static {v2}, Lcom/android/server/policy/PhoneWindowManager;->access$5000(Lcom/android/server/policy/PhoneWindowManager;)Z
 
     move-result v2
 

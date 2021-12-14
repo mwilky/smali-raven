@@ -2,44 +2,34 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/util/function/Consumer;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda5;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/wm/WindowContainer;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda5;
-
-    invoke-direct {v0}, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda5;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda5;->INSTANCE:Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda5;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/wm/WindowContainer;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda5;->f$0:Lcom/android/server/wm/WindowContainer;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
-    .locals 0
+.method public final accept(Ljava/lang/Object;)V
+    .locals 1
 
-    check-cast p1, Lcom/android/server/wm/ActivityRecord;
+    iget-object v0, p0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda5;->f$0:Lcom/android/server/wm/WindowContainer;
 
-    invoke-static {p1}, Lcom/android/server/wm/WindowContainer;->lambda$getBottomMostActivity$3(Lcom/android/server/wm/ActivityRecord;)Z
+    check-cast p1, Lcom/android/server/wm/WindowState;
 
-    move-result p1
+    invoke-virtual {v0, p1}, Lcom/android/server/wm/WindowContainer;->lambda$waitForAllWindowsDrawn$16$WindowContainer(Lcom/android/server/wm/WindowState;)V
 
-    return p1
+    return-void
 .end method

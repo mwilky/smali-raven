@@ -368,7 +368,7 @@
 
     iget-object v1, p0, Lcom/android/server/display/DisplayModeDirector$DeviceConfigDisplaySettings;->this$0:Lcom/android/server/display/DisplayModeDirector;
 
-    invoke-static {v1}, Lcom/android/server/display/DisplayModeDirector;->access$1500(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;
+    invoke-static {v1}, Lcom/android/server/display/DisplayModeDirector;->access$2800(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;
 
     move-result-object v1
 
@@ -394,7 +394,7 @@
 
     iget-object v4, p0, Lcom/android/server/display/DisplayModeDirector$DeviceConfigDisplaySettings;->this$0:Lcom/android/server/display/DisplayModeDirector;
 
-    invoke-static {v4}, Lcom/android/server/display/DisplayModeDirector;->access$1500(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;
+    invoke-static {v4}, Lcom/android/server/display/DisplayModeDirector;->access$2800(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;
 
     move-result-object v4
 
@@ -412,7 +412,7 @@
 
     iget-object v4, p0, Lcom/android/server/display/DisplayModeDirector$DeviceConfigDisplaySettings;->this$0:Lcom/android/server/display/DisplayModeDirector;
 
-    invoke-static {v4}, Lcom/android/server/display/DisplayModeDirector;->access$1500(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;
+    invoke-static {v4}, Lcom/android/server/display/DisplayModeDirector;->access$2800(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;
 
     move-result-object v4
 
@@ -440,7 +440,7 @@
 
     iget-object v8, p0, Lcom/android/server/display/DisplayModeDirector$DeviceConfigDisplaySettings;->this$0:Lcom/android/server/display/DisplayModeDirector;
 
-    invoke-static {v8}, Lcom/android/server/display/DisplayModeDirector;->access$1500(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;
+    invoke-static {v8}, Lcom/android/server/display/DisplayModeDirector;->access$2800(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;
 
     move-result-object v8
 
@@ -458,7 +458,7 @@
 
     iget-object v8, p0, Lcom/android/server/display/DisplayModeDirector$DeviceConfigDisplaySettings;->this$0:Lcom/android/server/display/DisplayModeDirector;
 
-    invoke-static {v8}, Lcom/android/server/display/DisplayModeDirector;->access$1500(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;
+    invoke-static {v8}, Lcom/android/server/display/DisplayModeDirector;->access$2800(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;
 
     move-result-object v8
 
@@ -476,7 +476,7 @@
 
     iget-object v9, p0, Lcom/android/server/display/DisplayModeDirector$DeviceConfigDisplaySettings;->this$0:Lcom/android/server/display/DisplayModeDirector;
 
-    invoke-static {v9}, Lcom/android/server/display/DisplayModeDirector;->access$1500(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;
+    invoke-static {v9}, Lcom/android/server/display/DisplayModeDirector;->access$2800(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;
 
     move-result-object v9
 
@@ -494,7 +494,7 @@
 
     iget-object v10, p0, Lcom/android/server/display/DisplayModeDirector$DeviceConfigDisplaySettings;->this$0:Lcom/android/server/display/DisplayModeDirector;
 
-    invoke-static {v10}, Lcom/android/server/display/DisplayModeDirector;->access$1500(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;
+    invoke-static {v10}, Lcom/android/server/display/DisplayModeDirector;->access$2800(Lcom/android/server/display/DisplayModeDirector;)Lcom/android/server/display/DisplayModeDirector$DisplayModeDirectorHandler;
 
     move-result-object v10
 

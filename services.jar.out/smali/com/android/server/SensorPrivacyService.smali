@@ -137,7 +137,7 @@
 
     iput-object v0, p0, Lcom/android/server/SensorPrivacyService;->mAppOpsRestrictionToken:Landroid/os/IBinder;
 
-    const/4 v0, -0x1
+    const/16 v0, -0x2710
 
     iput v0, p0, Lcom/android/server/SensorPrivacyService;->mCurrentUser:I
 
@@ -490,7 +490,7 @@
 
     iget v0, p0, Lcom/android/server/SensorPrivacyService;->mCurrentUser:I
 
-    const/4 v1, -0x1
+    const/16 v1, -0x2710
 
     if-ne v0, v1, :cond_0
 

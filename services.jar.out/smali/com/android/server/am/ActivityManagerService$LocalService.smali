@@ -4233,40 +4233,40 @@
 
     move-object v1, p0
 
-    move/from16 v2, p2
+    move-object v2, p1
 
-    move/from16 v3, p3
+    move/from16 v3, p2
 
-    iget-object v4, v1, Lcom/android/server/am/ActivityManagerService$LocalService;->this$0:Lcom/android/server/am/ActivityManagerService;
+    move/from16 v4, p3
 
-    monitor-enter v4
+    iget-object v5, v1, Lcom/android/server/am/ActivityManagerService$LocalService;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    monitor-enter v5
 
     :try_start_0
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForLockedSection()V
 
     iget-object v0, v1, Lcom/android/server/am/ActivityManagerService$LocalService;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v5, v0, Lcom/android/server/am/ActivityManagerService;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
+    iget-object v6, v0, Lcom/android/server/am/ActivityManagerService;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
 
-    monitor-enter v5
+    monitor-enter v6
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_3
+    .catchall {:try_start_0 .. :try_end_0} :catchall_2
 
     :try_start_1
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForProcLockedSection()V
 
+    if-eqz v2, :cond_0
+
     iget-object v0, v1, Lcom/android/server/am/ActivityManagerService$LocalService;->this$0:Lcom/android/server/am/ActivityManagerService;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
-    move-object v6, p1
+    iput-object v2, v0, Lcom/android/server/am/ActivityManagerService;->mDeviceIdleTempAllowlist:[I
 
-    :try_start_2
-    iput-object v6, v0, Lcom/android/server/am/ActivityManagerService;->mDeviceIdleTempAllowlist:[I
+    :cond_0
+    if-eqz v4, :cond_2
 
-    if-eqz v3, :cond_1
-
-    if-nez p6, :cond_0
+    if-nez p6, :cond_1
 
     iget-object v0, v1, Lcom/android/server/am/ActivityManagerService$LocalService;->this$0:Lcom/android/server/am/ActivityManagerService;
 
@@ -4285,49 +4285,45 @@
     move/from16 v12, p9
 
     invoke-direct/range {v7 .. v12}, Lcom/android/server/am/ActivityManagerService$FgsTempAllowListItem;-><init>(JILjava/lang/String;I)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     move-wide/from16 v7, p4
 
-    :try_start_3
-    invoke-virtual {v0, v2, v7, v8, v13}, Lcom/android/server/am/FgsTempAllowList;->add(IJLjava/lang/Object;)V
-
-    goto :goto_0
-
-    :cond_0
-    move-wide/from16 v7, p4
+    :try_start_2
+    invoke-virtual {v0, v3, v7, v8, v13}, Lcom/android/server/am/FgsTempAllowList;->add(IJLjava/lang/Object;)V
 
     goto :goto_0
 
     :cond_1
     move-wide/from16 v7, p4
 
+    goto :goto_0
+
+    :cond_2
+    move-wide/from16 v7, p4
+
     iget-object v0, v1, Lcom/android/server/am/ActivityManagerService$LocalService;->this$0:Lcom/android/server/am/ActivityManagerService;
 
     iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mFgsStartTempAllowList:Lcom/android/server/am/FgsTempAllowList;
 
-    invoke-static/range {p2 .. p2}, Landroid/os/UserHandle;->getAppId(I)I
-
-    move-result v9
-
-    invoke-virtual {v0, v9}, Lcom/android/server/am/FgsTempAllowList;->removeAppId(I)V
+    invoke-virtual {v0, v3}, Lcom/android/server/am/FgsTempAllowList;->removeUid(I)V
 
     :goto_0
     iget-object v0, v1, Lcom/android/server/am/ActivityManagerService$LocalService;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    invoke-virtual {v0, v2, v3}, Lcom/android/server/am/ActivityManagerService;->setAppIdTempAllowlistStateLSP(IZ)V
+    invoke-virtual {v0, v3, v4}, Lcom/android/server/am/ActivityManagerService;->setAppIdTempAllowlistStateLSP(IZ)V
+
+    monitor-exit v6
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+
+    :try_start_3
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterProcLockedSection()V
 
     monitor-exit v5
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_2
-
-    :try_start_4
-    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterProcLockedSection()V
-
-    monitor-exit v4
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_4
+    .catchall {:try_start_3 .. :try_end_3} :catchall_3
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
@@ -4336,52 +4332,42 @@
     :catchall_0
     move-exception v0
 
-    goto :goto_1
-
-    :catchall_1
-    move-exception v0
-
-    move-object v6, p1
-
-    :goto_1
     move-wide/from16 v7, p4
 
-    :goto_2
-    :try_start_5
-    monitor-exit v5
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_2
+    :goto_1
+    :try_start_4
+    monitor-exit v6
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
-    :try_start_6
+    :try_start_5
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterProcLockedSection()V
 
     throw v0
 
+    :catchall_1
+    move-exception v0
+
+    goto :goto_1
+
     :catchall_2
     move-exception v0
 
-    goto :goto_2
-
-    :catchall_3
-    move-exception v0
-
-    move-object v6, p1
-
     move-wide/from16 v7, p4
 
-    :goto_3
-    monitor-exit v4
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_4
+    :goto_2
+    monitor-exit v5
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_3
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterLockedSection()V
 
     throw v0
 
-    :catchall_4
+    :catchall_3
     move-exception v0
 
-    goto :goto_3
+    goto :goto_2
 .end method
 
 .method public updateForegroundTimeIfOnBattery(Ljava/lang/String;IJ)V

@@ -164,6 +164,44 @@
     throw v1
 .end method
 
+.method public final findPreferredActivityBody(Landroid/content/Intent;Ljava/lang/String;ILjava/util/List;ZZZIZIZ)Lcom/android/server/pm/PackageManagerService$FindPreferredActivityBodyResult;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Intent;",
+            "Ljava/lang/String;",
+            "I",
+            "Ljava/util/List<",
+            "Landroid/content/pm/ResolveInfo;",
+            ">;ZZZIZIZ)",
+            "Lcom/android/server/pm/PackageManagerService$FindPreferredActivityBodyResult;"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$ComputerLocked;->mLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    invoke-super/range {p0 .. p11}, Lcom/android/server/pm/PackageManagerService$ComputerEngine;->findPreferredActivityBody(Landroid/content/Intent;Ljava/lang/String;ILjava/util/List;ZZZIZIZ)Lcom/android/server/pm/PackageManagerService$FindPreferredActivityBodyResult;
+
+    move-result-object v1
+
+    monitor-exit v0
+
+    return-object v1
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v1
+.end method
+
 .method public final getActivityInfoInternalBody(Landroid/content/ComponentName;III)Landroid/content/pm/ActivityInfo;
     .locals 2
 

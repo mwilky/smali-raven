@@ -124,6 +124,8 @@
 
 .field public static final NOTIFICATION_ACTION_CLICKED:I = 0x6b81
 
+.field public static final NOTIFICATION_ADJUSTED:I = 0x6b8f
+
 .field public static final NOTIFICATION_ALERT:I = 0x6b8c
 
 .field public static final NOTIFICATION_AUTOGROUPED:I = 0x6b8d
@@ -1808,6 +1810,32 @@
     aput-object v1, v0, v2
 
     const/16 v1, 0x6b81
+
+    invoke-static {v1, v0}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+
+    return-void
+.end method
+
+.method public static writeNotificationAdjusted(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 2
+
+    const/4 v0, 0x3
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    const/4 v1, 0x0
+
+    aput-object p0, v0, v1
+
+    const/4 v1, 0x1
+
+    aput-object p1, v0, v1
+
+    const/4 v1, 0x2
+
+    aput-object p2, v0, v1
+
+    const/16 v1, 0x6b8f
 
     invoke-static {v1, v0}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 

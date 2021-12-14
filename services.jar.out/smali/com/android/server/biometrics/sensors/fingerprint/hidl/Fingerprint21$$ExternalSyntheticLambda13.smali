@@ -33,7 +33,7 @@
 
     iget-object v1, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/Fingerprint21$$ExternalSyntheticLambda13;->f$1:Landroid/os/IBinder;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/Fingerprint21;->lambda$cancelAuthentication$11$Fingerprint21(Landroid/os/IBinder;)V
+    invoke-virtual {v0, v1}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/Fingerprint21;->lambda$cancelEnrollment$7$Fingerprint21(Landroid/os/IBinder;)V
 
     return-void
 .end method

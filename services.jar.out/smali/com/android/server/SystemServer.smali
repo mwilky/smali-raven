@@ -217,15 +217,6 @@
 # instance fields
 .field private mActivityManagerService:Lcom/android/server/am/ActivityManagerService;
 
-.field private mBlobStoreServiceStart:Ljava/util/concurrent/Future;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/concurrent/Future<",
-            "*>;"
-        }
-    .end annotation
-.end field
-
 .field private mContentResolver:Landroid/content/ContentResolver;
 
 .field private mDataLoaderManagerService:Lcom/android/server/pm/DataLoaderManagerService;
@@ -1047,7 +1038,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$startOtherServices$5(Landroid/os/IBinder;)V
+.method static synthetic lambda$startOtherServices$4(Landroid/os/IBinder;)V
     .locals 3
 
     const-string/jumbo v0, "tethering"
@@ -1878,7 +1869,7 @@
 
     invoke-virtual {p1, v5}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
 
-    sget-object v6, Lcom/android/server/SystemServer$$ExternalSyntheticLambda6;->INSTANCE:Lcom/android/server/SystemServer$$ExternalSyntheticLambda6;
+    sget-object v6, Lcom/android/server/SystemServer$$ExternalSyntheticLambda5;->INSTANCE:Lcom/android/server/SystemServer$$ExternalSyntheticLambda5;
 
     invoke-static {v6, v5}, Lcom/android/server/SystemServerInitThreadPool;->submit(Ljava/lang/Runnable;Ljava/lang/String;)Ljava/util/concurrent/Future;
 
@@ -2996,7 +2987,7 @@
     :try_start_0
     const-string v0, "SecondaryZygotePreload"
 
-    sget-object v9, Lcom/android/server/SystemServer$$ExternalSyntheticLambda7;->INSTANCE:Lcom/android/server/SystemServer$$ExternalSyntheticLambda7;
+    sget-object v9, Lcom/android/server/SystemServer$$ExternalSyntheticLambda6;->INSTANCE:Lcom/android/server/SystemServer$$ExternalSyntheticLambda6;
 
     const-string v10, "SecondaryZygotePreload"
 
@@ -3434,7 +3425,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    sget-object v7, Lcom/android/server/SystemServer$$ExternalSyntheticLambda8;->INSTANCE:Lcom/android/server/SystemServer$$ExternalSyntheticLambda8;
+    sget-object v7, Lcom/android/server/SystemServer$$ExternalSyntheticLambda7;->INSTANCE:Lcom/android/server/SystemServer$$ExternalSyntheticLambda7;
 
     const-string v8, "StartHidlServices"
 
@@ -5963,17 +5954,17 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    new-instance v0, Lcom/android/server/SystemServer$$ExternalSyntheticLambda3;
+    const-string/jumbo v0, "startBlobStoreManagerService"
 
-    invoke-direct {v0, v5}, Lcom/android/server/SystemServer$$ExternalSyntheticLambda3;-><init>(Lcom/android/server/SystemServer;)V
+    invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
 
-    const-string/jumbo v2, "startBlobStoreManagerService"
+    iget-object v0, v5, Lcom/android/server/SystemServer;->mSystemServiceManager:Lcom/android/server/SystemServiceManager;
 
-    invoke-static {v0, v2}, Lcom/android/server/SystemServerInitThreadPool;->submit(Ljava/lang/Runnable;Ljava/lang/String;)Ljava/util/concurrent/Future;
+    const-string v2, "com.android.server.blob.BlobStoreManagerService"
 
-    move-result-object v0
+    invoke-virtual {v0, v2}, Lcom/android/server/SystemServiceManager;->startService(Ljava/lang/String;)Lcom/android/server/SystemService;
 
-    iput-object v0, v5, Lcom/android/server/SystemServer;->mBlobStoreServiceStart:Ljava/util/concurrent/Future;
+    invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     const-string v0, "StartDreamManager"
 
@@ -7246,12 +7237,6 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    iget-object v0, v5, Lcom/android/server/SystemServer;->mBlobStoreServiceStart:Ljava/util/concurrent/Future;
-
-    const-string/jumbo v1, "startBlobStoreManagerService"
-
-    invoke-static {v0, v1}, Lcom/android/internal/util/ConcurrentUtils;->waitForFutureNoInterrupt(Ljava/util/concurrent/Future;Ljava/lang/String;)Ljava/lang/Object;
-
     move-object/from16 v7, v35
 
     move-object/from16 v10, v45
@@ -7304,7 +7289,7 @@
 
     move-object/from16 v24, v0
 
-    new-instance v0, Lcom/android/server/SystemServer$$ExternalSyntheticLambda5;
+    new-instance v0, Lcom/android/server/SystemServer$$ExternalSyntheticLambda4;
 
     move-object/from16 v57, v1
 
@@ -7322,7 +7307,7 @@
 
     move/from16 v5, v36
 
-    invoke-direct/range {v1 .. v18}, Lcom/android/server/SystemServer$$ExternalSyntheticLambda5;-><init>(Lcom/android/server/SystemServer;Lcom/android/server/utils/TimingsTraceAndSlog;Lcom/android/server/devicepolicy/DevicePolicyManagerService$Lifecycle;ZLandroid/net/ConnectivityManager;Lcom/android/server/NetworkManagementService;Lcom/android/server/net/NetworkPolicyManagerService;Lcom/android/server/IpSecService;Lcom/android/server/net/NetworkStatsService;Lcom/android/server/VpnManagerService;Lcom/android/server/VcnManagementService;Lcom/android/server/CountryDetectorService;Lcom/android/server/NetworkTimeUpdateService;Lcom/android/server/input/InputManagerService;Lcom/android/server/TelephonyRegistry;Lcom/android/server/media/MediaRouterService;Lcom/android/server/MmsServiceBroker;)V
+    invoke-direct/range {v1 .. v18}, Lcom/android/server/SystemServer$$ExternalSyntheticLambda4;-><init>(Lcom/android/server/SystemServer;Lcom/android/server/utils/TimingsTraceAndSlog;Lcom/android/server/devicepolicy/DevicePolicyManagerService$Lifecycle;ZLandroid/net/ConnectivityManager;Lcom/android/server/NetworkManagementService;Lcom/android/server/net/NetworkPolicyManagerService;Lcom/android/server/IpSecService;Lcom/android/server/net/NetworkStatsService;Lcom/android/server/VpnManagerService;Lcom/android/server/VcnManagementService;Lcom/android/server/CountryDetectorService;Lcom/android/server/NetworkTimeUpdateService;Lcom/android/server/input/InputManagerService;Lcom/android/server/TelephonyRegistry;Lcom/android/server/media/MediaRouterService;Lcom/android/server/MmsServiceBroker;)V
 
     move-object/from16 v1, v24
 
@@ -7746,28 +7731,6 @@
 .method public synthetic lambda$startOtherServices$3$SystemServer()V
     .locals 3
 
-    invoke-static {}, Lcom/android/server/utils/TimingsTraceAndSlog;->newAsyncLog()Lcom/android/server/utils/TimingsTraceAndSlog;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "startBlobStoreManagerService"
-
-    invoke-virtual {v0, v1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
-
-    iget-object v1, p0, Lcom/android/server/SystemServer;->mSystemServiceManager:Lcom/android/server/SystemServiceManager;
-
-    const-string v2, "com.android.server.blob.BlobStoreManagerService"
-
-    invoke-virtual {v1, v2}, Lcom/android/server/SystemServiceManager;->startService(Ljava/lang/String;)Lcom/android/server/SystemService;
-
-    invoke-virtual {v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
-
-    return-void
-.end method
-
-.method public synthetic lambda$startOtherServices$4$SystemServer()V
-    .locals 3
-
     const-string v0, "SystemServer"
 
     const-string v1, "WebViewFactoryPreparation"
@@ -7799,7 +7762,7 @@
     return-void
 .end method
 
-.method public synthetic lambda$startOtherServices$6$SystemServer(Lcom/android/server/utils/TimingsTraceAndSlog;Lcom/android/server/devicepolicy/DevicePolicyManagerService$Lifecycle;ZLandroid/net/ConnectivityManager;Lcom/android/server/NetworkManagementService;Lcom/android/server/net/NetworkPolicyManagerService;Lcom/android/server/IpSecService;Lcom/android/server/net/NetworkStatsService;Lcom/android/server/VpnManagerService;Lcom/android/server/VcnManagementService;Lcom/android/server/CountryDetectorService;Lcom/android/server/NetworkTimeUpdateService;Lcom/android/server/input/InputManagerService;Lcom/android/server/TelephonyRegistry;Lcom/android/server/media/MediaRouterService;Lcom/android/server/MmsServiceBroker;)V
+.method public synthetic lambda$startOtherServices$5$SystemServer(Lcom/android/server/utils/TimingsTraceAndSlog;Lcom/android/server/devicepolicy/DevicePolicyManagerService$Lifecycle;ZLandroid/net/ConnectivityManager;Lcom/android/server/NetworkManagementService;Lcom/android/server/net/NetworkPolicyManagerService;Lcom/android/server/IpSecService;Lcom/android/server/net/NetworkStatsService;Lcom/android/server/VpnManagerService;Lcom/android/server/VcnManagementService;Lcom/android/server/CountryDetectorService;Lcom/android/server/NetworkTimeUpdateService;Lcom/android/server/input/InputManagerService;Lcom/android/server/TelephonyRegistry;Lcom/android/server/media/MediaRouterService;Lcom/android/server/MmsServiceBroker;)V
     .locals 14
 
     move-object v1, p0
@@ -7894,9 +7857,9 @@
 
     if-eqz v6, :cond_0
 
-    new-instance v6, Lcom/android/server/SystemServer$$ExternalSyntheticLambda4;
+    new-instance v6, Lcom/android/server/SystemServer$$ExternalSyntheticLambda3;
 
-    invoke-direct {v6, p0}, Lcom/android/server/SystemServer$$ExternalSyntheticLambda4;-><init>(Lcom/android/server/SystemServer;)V
+    invoke-direct {v6, p0}, Lcom/android/server/SystemServer$$ExternalSyntheticLambda3;-><init>(Lcom/android/server/SystemServer;)V
 
     invoke-static {v6, v7}, Lcom/android/server/SystemServerInitThreadPool;->submit(Ljava/lang/Runnable;Ljava/lang/String;)Ljava/util/concurrent/Future;
 

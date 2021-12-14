@@ -201,7 +201,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1000(Lcom/android/server/app/GameManagerService;)Ljava/lang/Object;
+.method static synthetic access$1100(Lcom/android/server/app/GameManagerService;)Ljava/lang/Object;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/app/GameManagerService;->mDeviceConfigLock:Ljava/lang/Object;
@@ -209,7 +209,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1100(Lcom/android/server/app/GameManagerService;)Landroid/util/ArrayMap;
+.method static synthetic access$1200(Lcom/android/server/app/GameManagerService;)Landroid/util/ArrayMap;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/app/GameManagerService;->mConfigs:Landroid/util/ArrayMap;
@@ -243,7 +243,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$600(Lcom/android/server/app/GameManagerService;I)I
+.method static synthetic access$700(Lcom/android/server/app/GameManagerService;I)I
     .locals 1
 
     invoke-direct {p0, p1}, Lcom/android/server/app/GameManagerService;->modeToBitmask(I)I
@@ -253,7 +253,7 @@
     return v0
 .end method
 
-.method static synthetic access$700(Lcom/android/server/app/GameManagerService;)V
+.method static synthetic access$800(Lcom/android/server/app/GameManagerService;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/app/GameManagerService;->registerDeviceConfigListener()V
@@ -261,7 +261,7 @@
     return-void
 .end method
 
-.method static synthetic access$800(Lcom/android/server/app/GameManagerService;)V
+.method static synthetic access$900(Lcom/android/server/app/GameManagerService;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/app/GameManagerService;->registerPackageReceiver()V
@@ -1221,7 +1221,7 @@
     return-void
 
     :cond_1
-    invoke-virtual {v1, p2}, Lcom/android/server/app/GameManagerService$GamePackageConfiguration;->isGameModeOptedIn(I)Z
+    invoke-virtual {v1, p2}, Lcom/android/server/app/GameManagerService$GamePackageConfiguration;->willGamePerformOptimizations(I)Z
 
     move-result v2
 
@@ -1334,6 +1334,22 @@
     throw v1
 .end method
 
+.method private updateInterventions(Ljava/lang/String;I)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/app/GameManagerService;->updateCompatModeDownscale(Ljava/lang/String;I)V
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/app/GameManagerService;->updateUseAngle(Ljava/lang/String;I)V
+
+    return-void
+.end method
+
+.method private updateUseAngle(Ljava/lang/String;I)V
+    .locals 0
+
+    return-void
+.end method
+
 
 # virtual methods
 .method public disableCompatScale(Ljava/lang/String;)V
@@ -1415,6 +1431,76 @@
     invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     throw v0
+.end method
+
+.method public getAngleEnabled(Ljava/lang/String;I)Z
+    .locals 5
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/SecurityException;
+        }
+    .end annotation
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/server/app/GameManagerService;->getGameMode(Ljava/lang/String;I)I
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    if-nez v0, :cond_0
+
+    return v1
+
+    :cond_0
+    iget-object v2, p0, Lcom/android/server/app/GameManagerService;->mDeviceConfigLock:Ljava/lang/Object;
+
+    monitor-enter v2
+
+    :try_start_0
+    iget-object v3, p0, Lcom/android/server/app/GameManagerService;->mConfigs:Landroid/util/ArrayMap;
+
+    invoke-virtual {v3, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/server/app/GameManagerService$GamePackageConfiguration;
+
+    if-nez v3, :cond_1
+
+    monitor-exit v2
+
+    return v1
+
+    :cond_1
+    nop
+
+    invoke-virtual {v3, v0}, Lcom/android/server/app/GameManagerService$GamePackageConfiguration;->getGameModeConfiguration(I)Lcom/android/server/app/GameManagerService$GamePackageConfiguration$GameModeConfiguration;
+
+    move-result-object v4
+
+    if-nez v4, :cond_2
+
+    monitor-exit v2
+
+    return v1
+
+    :cond_2
+    invoke-virtual {v4}, Lcom/android/server/app/GameManagerService$GamePackageConfiguration$GameModeConfiguration;->getUseAngle()Z
+
+    move-result v1
+
+    monitor-exit v2
+
+    return v1
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v1
 .end method
 
 .method public getAvailableGameModes(Ljava/lang/String;)[I
@@ -1951,7 +2037,7 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/server/app/GameManagerService;->updateCompatModeDownscale(Ljava/lang/String;I)V
+    invoke-direct {p0, p1, p2}, Lcom/android/server/app/GameManagerService;->updateInterventions(Ljava/lang/String;I)V
 
     return-void
 
@@ -2106,7 +2192,7 @@
     if-eqz v7, :cond_3
 
     :try_start_4
-    invoke-static {v7}, Lcom/android/server/app/GameManagerService$GamePackageConfiguration;->access$900(Lcom/android/server/app/GameManagerService$GamePackageConfiguration;)I
+    invoke-static {v7}, Lcom/android/server/app/GameManagerService$GamePackageConfiguration;->access$1000(Lcom/android/server/app/GameManagerService$GamePackageConfiguration;)I
 
     move-result v6
 
@@ -2158,7 +2244,7 @@
     invoke-virtual {p0, v3, v5, p1}, Lcom/android/server/app/GameManagerService;->setGameMode(Ljava/lang/String;II)V
 
     :cond_5
-    invoke-direct {p0, v3, v4}, Lcom/android/server/app/GameManagerService;->updateCompatModeDownscale(Ljava/lang/String;I)V
+    invoke-direct {p0, v3, v4}, Lcom/android/server/app/GameManagerService;->updateInterventions(Ljava/lang/String;I)V
     :try_end_4
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
 
@@ -2208,11 +2294,17 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Failed to update compat modes for user: "
+    const-string v3, "Failed to update compat modes for user "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v3, ": "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
