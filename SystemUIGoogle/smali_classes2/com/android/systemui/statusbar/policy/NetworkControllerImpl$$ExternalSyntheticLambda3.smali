@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$$ExternalSyntheticLambda3;->f$0:Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->$r8$lambda$4MbNXZj4hp-woNLdmnPepod-zks(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)V
+    invoke-static {p0}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->$r8$lambda$00hdgK7yNKI2xjfQBesmrqbsJNI(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)V
 
     return-void
 .end method

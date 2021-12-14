@@ -28,6 +28,8 @@
 
 .field private final mBgExecutor:Ljava/util/concurrent/ExecutorService;
 
+.field private mBlockAttach:Z
+
 .field private final mCameraSound:Landroid/media/MediaActionSound;
 
 .field private final mConfigChanges:Lcom/android/settingslib/applications/InterestingConfigChanges;
@@ -546,6 +548,14 @@
     return-void
 .end method
 
+.method static synthetic access$702(Lcom/android/systemui/screenshot/ScreenshotController;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/screenshot/ScreenshotController;->mBlockAttach:Z
+
+    return p1
+.end method
+
 .method private allowLongScreenshots()Z
     .locals 0
 
@@ -656,11 +666,19 @@
 
     move-result v1
 
+    if-nez v1, :cond_1
+
+    iget-boolean v1, p0, Lcom/android/systemui/screenshot/ScreenshotController;->mBlockAttach:Z
+
     if-eqz v1, :cond_0
 
-    return-void
+    goto :goto_0
 
     :cond_0
+    const/4 v1, 0x1
+
+    iput-boolean v1, p0, Lcom/android/systemui/screenshot/ScreenshotController;->mBlockAttach:Z
+
     iget-object v1, p0, Lcom/android/systemui/screenshot/ScreenshotController;->mWindowManager:Landroid/view/WindowManager;
 
     iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotController;->mWindowLayoutParams:Landroid/view/WindowManager$LayoutParams;
@@ -669,6 +687,8 @@
 
     invoke-virtual {v0}, Landroid/view/View;->requestApplyInsets()V
 
+    :cond_1
+    :goto_0
     return-void
 .end method
 
@@ -1229,11 +1249,7 @@
 
     move-result-object p2
 
-    invoke-virtual {p2}, Landroid/view/WindowInsets;->getDisplayCutout()Landroid/view/DisplayCutout;
-
-    move-result-object p2
-
-    invoke-virtual {p1, p2}, Lcom/android/systemui/screenshot/ScreenshotView;->updateDisplayCutoutMargins(Landroid/view/DisplayCutout;)V
+    invoke-virtual {p1, p2}, Lcom/android/systemui/screenshot/ScreenshotView;->updateInsets(Landroid/view/WindowInsets;)V
 
     iget-object p1, p0, Lcom/android/systemui/screenshot/ScreenshotController;->mScreenshotAnimation:Landroid/animation/Animator;
 
@@ -1564,11 +1580,15 @@
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/ScreenshotController;->mScreenshotView:Lcom/android/systemui/screenshot/ScreenshotView;
 
-    new-instance v1, Lcom/android/systemui/screenshot/ScreenshotController$$ExternalSyntheticLambda14;
+    invoke-virtual {p1}, Landroid/view/ScrollCaptureResponse;->getPackageName()Ljava/lang/String;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/screenshot/ScreenshotController$$ExternalSyntheticLambda14;-><init>(Lcom/android/systemui/screenshot/ScreenshotController;Landroid/view/ScrollCaptureResponse;)V
+    move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/screenshot/ScreenshotView;->showScrollChip(Ljava/lang/Runnable;)V
+    new-instance v2, Lcom/android/systemui/screenshot/ScreenshotController$$ExternalSyntheticLambda14;
+
+    invoke-direct {v2, p0, p1}, Lcom/android/systemui/screenshot/ScreenshotController$$ExternalSyntheticLambda14;-><init>(Lcom/android/systemui/screenshot/ScreenshotController;Landroid/view/ScrollCaptureResponse;)V
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/screenshot/ScreenshotView;->showScrollChip(Ljava/lang/String;Ljava/lang/Runnable;)V
     :try_end_1
     .catch Ljava/util/concurrent/CancellationException; {:try_start_1 .. :try_end_1} :catch_1
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
@@ -1828,11 +1848,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Landroid/view/WindowInsets;->getDisplayCutout()Landroid/view/DisplayCutout;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/screenshot/ScreenshotView;->updateOrientation(Landroid/view/DisplayCutout;)V
+    invoke-virtual {v0, v1}, Lcom/android/systemui/screenshot/ScreenshotView;->updateOrientation(Landroid/view/WindowInsets;)V
 
     iput-object p1, p0, Lcom/android/systemui/screenshot/ScreenshotController;->mScreenBitmap:Landroid/graphics/Bitmap;
 
@@ -2208,7 +2224,7 @@
 
     sget-object p1, Lcom/android/systemui/screenshot/ScreenshotController;->TAG:Ljava/lang/String;
 
-    const-string p2, "takeScreenshotInternal: Screenshot bitmap was null"
+    const-string/jumbo p2, "takeScreenshotInternal: Screenshot bitmap was null"
 
     invoke-static {p1, p2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 

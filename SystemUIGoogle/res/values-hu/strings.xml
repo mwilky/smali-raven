@@ -363,6 +363,7 @@ Ha ez az engedély ki van kapcsolva, az alkalmazás által beállított ébreszt
     <string name="alarms_and_reminders_label">Ébresztések és emlékeztetők</string>
     <string name="alarms_and_reminders_switch_title">Beállíthat ébresztéseket és emlékeztetőket</string>
     <string name="alarms_and_reminders_title">Ébresztések és emlékeztetők</string>
+    <string name="all_network_unavailable">Nincs rendelkezésre álló hálózat</string>
     <string name="allow_mock_location">Helyutánzatok engedélyezése</string>
     <string name="allow_mock_location_summary">Helyutánzatok engedélyezése</string>
     <string name="always_use_accessory">Mindig a(z) %1$s nyíljon meg, ha a(z) %2$s csatlakozik</string>
@@ -618,6 +619,11 @@ Kiválasztás"</string>
     <string name="clock_title_analog">Analóg</string>
     <string name="clock_title_bubble">Buborék</string>
     <string name="clock_title_default">Alapértelmezett</string>
+    <string name="columbus_bouncer_message">Oldja fel a zárolást a Gyors koppintás művelet befejezéséhez</string>
+    <string name="columbus_target_request_dialog_allow">Engedélyezés</string>
+    <string name="columbus_target_request_dialog_deny">Tiltás</string>
+    <string name="columbus_target_request_dialog_summary">Amikor duplán rákoppint telefonja hátuljára, megnyílik a(z) %1$s. Ezt bármikor módosíthatja a Beállításokban.</string>
+    <string name="columbus_target_request_dialog_title">Engedélyezi, hogy a Gyors koppintás megnyissa a következőt: %1$s?</string>
     <string name="compat_mode_off">Nyújtás kitöltéshez</string>
     <string name="compat_mode_on">Nagyítás a kitöltéshez</string>
     <string name="confirm_enable_oem_unlock_text">FIGYELEM! Az eszközvédelmi funkciók addig nem fognak működni ezen az eszközön, amíg ez a beállítás be van kapcsolva.</string>
@@ -740,6 +746,8 @@ Ha a folytatást választja, szolgáltatója adathasználati díjat számíthat 
     <string name="defender_notify_learn_more">További információ</string>
     <string name="defender_notify_resume_charge">Töltés folytatása</string>
     <string name="defender_notify_title">Töltés ideiglenesen korlátozva</string>
+    <string name="defender_post_notify_des">A töltés %1$s százalékra korlátozva %2$s és %3$s között az akkumulátor állapotának megőrzése érdekében.</string>
+    <string name="defender_post_notify_title">Normál töltés</string>
     <string name="delete_blob_confirmation_text">Biztosan törli ezt a megosztott adatot?</string>
     <string name="delete_blob_text">Megosztott adat törlése</string>
     <string name="demo_mode">A rendszer kezelőfelületének demómódja</string>
@@ -885,6 +893,7 @@ Az arcalapú feloldáshoz használt arcadatokat véglegesen és biztonságosan t
     <string name="game_status">Játékban</string>
     <string name="global_action_lock_message">További lehetőségekért oldja fel a telefont</string>
     <string name="global_action_screenshot">Képernyőkép</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock kikapcsolva</string>
     <string name="global_actions_change_description">A(z) %1$s szolgáltatáshoz és az eszközvezérlőkhöz való hozzáféréshez csúsztasson lefelé a képernyő tetejétől.</string>
     <string name="go_to_web">Ugrás a böngészőbe</string>
     <string name="google_services_wallpaper_permission"><b>Engedélyezheti, hogy a Google élő háttérképei tükrözzék aktuális tartózkodási helyét</b> a Google helyszolgáltatásainak igénybevételével.</string>
@@ -1232,7 +1241,7 @@ Próbálja újra %2$d másodperc múlva."</string>
     <string name="media_projection_dialog_text">A(z) %s hozzáfér majd minden olyan információhoz, amely látható az Ön képernyőjén, vagy amelyet az Ön eszközéről játszanak le rögzítés vagy átküldés során. Ez olyan információkat is tartalmaz, mint a jelszavak, a fizetési részletek, fotók, üzenetek és lejátszott audiotartalmak.</string>
     <string name="media_projection_dialog_title">Elkezdi a rögzítést vagy átküldést a következővel: %s?</string>
     <string name="media_projection_remember_text">Ne jelenjen meg többé</string>
-    <string name="media_seamless_remote_device">Eszköz</string>
+    <string name="media_seamless_other_device">Más eszköz</string>
     <string name="media_transfer_this_device_name">Telefon hangszórója</string>
     <string name="media_transfer_this_phone">Ez a telefon</string>
     <string name="media_transfer_wired_device_name">Vezetékes audioeszköz</string>
@@ -1249,9 +1258,13 @@ Próbálja újra %2$d másodperc múlva."</string>
     <string name="mobile_data">Mobiladatok</string>
     <string name="mobile_data_always_on">A mobilhálózati kapcsolat mindig aktív</string>
     <string name="mobile_data_always_on_summary">A mobiladat-kapcsolat mindig maradjon aktív, még akkor is, ha a Wi‑Fi aktív (a gyors hálózatváltás érdekében).</string>
+    <string name="mobile_data_connection_active">Csatlakozva</string>
     <string name="mobile_data_disable_message">Nem lesz adat-, illetve internet-hozzáférése a %s szolgáltatón keresztül. Az internethez csak Wi-Fi-n keresztül csatlakozhat.</string>
     <string name="mobile_data_disable_message_default_carrier">saját mobilszolgáltató</string>
     <string name="mobile_data_disable_title">Kikapcsolja a mobiladatokat?</string>
+    <string name="mobile_data_no_connection">Nincs kapcsolat</string>
+    <string name="mobile_data_off_summary">Nincs automatikus mobiladat-kapcsolat</string>
+    <string name="mobile_data_settings_title">Mobiladat</string>
     <string name="mobile_data_text_format">%1$s – %2$s</string>
     <string name="mock_location_app">Helyimitáló alkalmazás kiválasztása</string>
     <string name="mock_location_app_not_set">Nincs kiválasztott helyimitáló alkalmazás</string>
@@ -1391,6 +1404,7 @@ Ha kérdései vannak, forduljon a következőhöz: %2$s."</string>
     <string name="no_content_in_select_mode">NIncs kijelölhető szöveg vagy kép</string>
     <string name="no_conversations_text">Legutóbbi beszélgetései itt jelennek majd meg</string>
     <string name="no_shortcut">A(z) %1$s nem támogatja a beszélgetési funkciókat</string>
+    <string name="non_carrier_network_unavailable">Nincs több rendelkezésre álló hálózat</string>
     <string name="not_default_data_content_description">Nincs beállítva az adathasználat</string>
     <string name="not_set">Nincs beállítva</string>
     <string name="notif_inline_reply_remove_attachment_description">Melléklet eltávolítása</string>
@@ -1571,8 +1585,9 @@ Ha kérdései vannak, forduljon a következőhöz: %2$s."</string>
     <string name="power_remaining_only_more_than_subtext">Több mint %1$s van hátra</string>
     <string name="power_remaining_settings_home_page">%1$s – %2$s</string>
     <string name="power_suggestion_battery_run_out">Az akkumulátor lemerülhet: %1$s</string>
+    <string name="pref_title_network_details">Hálózati információk</string>
     <string name="preference_copied">„%1$s” a vágólapra lett másolva.</string>
-    <string name="preference_summary_default_combination">%1$s / %2$s</string>
+    <string name="preference_summary_default_combination">%2$s/%1$s</string>
     <string name="priority_conversations">Fontos beszélgetések</string>
     <string name="privacy_type_camera">kamera</string>
     <string name="privacy_type_location">helyadatok</string>
@@ -1613,7 +1628,7 @@ Ha kérdései vannak, forduljon a következőhöz: %2$s."</string>
     <string name="quick_settings_brightness_dialog_auto_brightness_label">automatikus</string>
     <string name="quick_settings_brightness_dialog_title">Fényerő</string>
     <string name="quick_settings_brightness_label">Fényerő</string>
-    <string name="quick_settings_camera_label">Kameraelérés</string>
+    <string name="quick_settings_camera_label">Hozzáférés a kamerához</string>
     <string name="quick_settings_camera_mic_available">Rendelkezésre áll</string>
     <string name="quick_settings_camera_mic_blocked">Letiltva</string>
     <string name="quick_settings_cast_detail_empty_text">Nem áll rendelkezésre eszköz</string>
@@ -1740,6 +1755,7 @@ Ha kérdései vannak, forduljon a következőhöz: %2$s."</string>
     <string name="right_keycode">Jobb oldali billentyűkód</string>
     <string name="right_nav_bar_button_type">További jobb oldali gombtípus</string>
     <string name="ring_toggle_title">Hívások</string>
+    <string name="rotation_lock_camera_rotation_on">Be: Arcalapú</string>
     <string name="running_foreground_services_msg">Koppintson az akkumulátor- és adathasználat részleteinek megtekintéséhez</string>
     <string name="running_foreground_services_title">A háttérben még futnak alkalmazások</string>
     <string name="running_process_item_user_label">Felhasználó: %1$s</string>
@@ -1814,6 +1830,7 @@ Ha kérdései vannak, forduljon a következőhöz: %2$s."</string>
     <string name="screenshot_top_boundary_pct">Felső rész %1$d százaléka</string>
     <string name="search_menu">Beállítások keresése</string>
     <string name="search_menu_title">Keresés</string>
+    <string name="see_all_networks">Megtekintés</string>
     <string name="see_more_title">Továbbiak</string>
     <string name="select_application">Alkalmazás kiválasztása</string>
     <string name="select_conversation_text">Koppintson a kívánt beszélgetésre a kezdőképernyőre való felvételhez</string>
@@ -1926,6 +1943,7 @@ hálózat felügyelt"</string>
     <string name="switch_bar_off">Ki</string>
     <string name="switch_bar_on">Be</string>
     <string name="system_ui_tuner">Kezelőfelület-hangoló</string>
+    <string name="tap_a_network_to_connect">A kapcsolódáshoz koppintson a kívánt hálózatra</string>
     <string name="tap_again">Koppintson újra</string>
     <string name="tap_to_sign_up">Koppintson a regisztrációhoz</string>
     <string name="tether_settings_title_all">Megosztás és hotspot</string>
@@ -1951,6 +1969,7 @@ Koppintson, ha további információra van szüksége."</string>
     <string name="time_unit_just_now">Az imént</string>
     <string name="title_convert_fbe">Konvertálás fájlalapú titkosításra</string>
     <string name="title_usb_accessory">USB-kellék</string>
+    <string name="to_switch_networks_disconnect_ethernet">Hálózatváltáshoz válassza le az ethernetet</string>
     <string name="too_hot_label">A Pixel telefon túl forró</string>
     <string name="touch_filtered_warning">Mivel az egyik alkalmazás eltakarja az engedélykérést, a Beállítások alkalmazás nem tudja ellenőrizni az Ön válaszát.</string>
     <string name="track_frame_time">Profil HWUI-renderelése</string>
@@ -2009,10 +2028,12 @@ Koppintson, ha további információra van szüksége."</string>
     <string name="tuner_toast">Gratulálunk! A Kezelőfelület-hangolót hozzáadtuk a Beállításokhoz</string>
     <string name="tuner_warning">A Kezelőfelület-hangoló az Android felhasználói felületének szerkesztéséhez és testreszabásához nyújt további megoldásokat. Ezek a kísérleti funkciók változhatnak vagy megsérülhetnek a későbbi kiadásokban, illetve eltűnhetnek azokból. Körültekintően járjon el.</string>
     <string name="tuner_warning_title">Egyeseknek tetszik, másoknak nem</string>
+    <string name="turn_on_wifi">Wi-Fi</string>
     <string name="tv_notification_panel_no_notifications">Nincs értesítés</string>
     <string name="tv_notification_panel_title">Értesítések</string>
     <string name="two_weeks_timestamp">2 hete</string>
     <string name="unknown">Ismeretlen</string>
+    <string name="unlock_to_view_networks">Zárolás feloldása a hálózatok megtekintéséhez</string>
     <string name="upcoming_birthday_status">Közelgő születésnap</string>
     <string name="upcoming_birthday_status_content_description">Hamarosan %1$s születésnapja lesz</string>
     <string name="url_menu_copy">Másolás</string>
@@ -2151,9 +2172,11 @@ Wi‑Fi-cím (BSSID):
     <string name="wifi_disconnected">Leválasztva</string>
     <string name="wifi_display_certification">Vezeték nélküli kijelző tanúsítványa</string>
     <string name="wifi_display_certification_summary">Vezeték nélküli kijelző tanúsítványával kapcsolatos lehetőségek megjelenítése</string>
+    <string name="wifi_empty_list_wifi_on">Hálózatok keresése…</string>
     <string name="wifi_enhanced_mac_randomization">Wi‑Fi nem állandó MAC-randomizációja</string>
     <string name="wifi_enhanced_mac_randomization_summary">Ha ez a mód be van kapcsolva, akkor ennek az eszköznek a MAC-címe minden alkalommal módosulhat, amikor olyan hálózathoz csatlakozik, amelyen engedélyezve van a MAC-címek randomizálása.</string>
     <string name="wifi_fail_to_scan">Nem lehet beolvasni a hálózatokat</string>
+    <string name="wifi_failed_connect_message">Nem sikerült hálózathoz csatlakozni.</string>
     <string name="wifi_hotspot_switch_off_text">Ki</string>
     <string name="wifi_hotspot_switch_on_text">Be</string>
     <string name="wifi_is_off">A Wi-Fi ki van kapcsolva</string>
@@ -2164,6 +2187,7 @@ Wi‑Fi-cím (BSSID):
     <string name="wifi_not_in_range">Hatókörön kívül</string>
     <string name="wifi_passpoint_expired">Lejárt</string>
     <string name="wifi_remembered">Mentve</string>
+    <string name="wifi_scan_notify_message">Az eszközhasználati élmény javítása érdekében az alkalmazások és a szolgáltatások továbbra is bármikor kereshetnek Wi-Fi-hálózatokat, még akkor is, ha a Wi-Fi ki van kapcsolva. A funkciót a „Wi-Fi scanning settings” (Wi-Fi-keresési beállítások) részben módosíthatja. <annotation id="link">Módosítás</annotation></string>
     <string name="wifi_scan_throttling">Wi-Fi-hálózat szabályozása</string>
     <string name="wifi_scan_throttling_summary">Csökkenti az akkumulátorhasználatot, és javítja a hálózat teljesítményét</string>
     <string name="wifi_security_none">Nincs</string>
@@ -2173,6 +2197,7 @@ Wi‑Fi-cím (BSSID):
     <string name="wifi_unmetered_label">Nem forgalomkorlátos</string>
     <string name="wifi_verbose_logging">Részletes Wi-Fi-naplózás engedélyezése</string>
     <string name="wifi_verbose_logging_summary">Wi‑Fi-naplózási szint növelése, RSSI/SSID megjelenítése a Wi‑Fi-választóban</string>
+    <string name="wifi_wont_autoconnect_for_now">A Wi-Fi-re történő csatlakozás jelenleg nem automatikus</string>
     <string name="wifitrackerlib_auto_connect_disable">Automatikus csatlakozás kikapcsolva</string>
     <string name="wifitrackerlib_available_via_app">Rendelkezésre áll a(z) %1$s alkalmazáson keresztül</string>
     <string name="wifitrackerlib_connected_via_app">Kapcsolódva a következőn keresztül: %1$s</string>

@@ -363,6 +363,7 @@
     <string name="alarms_and_reminders_label">එලාම සහ සිහිකැඳවීම්</string>
     <string name="alarms_and_reminders_switch_title">එලාම සහ සිහිකැඳවීම් සැකසීමට ඉඩ දෙන්න</string>
     <string name="alarms_and_reminders_title">එලාම සහ සිහිකැඳවීම්</string>
+    <string name="all_network_unavailable">ජාලය නොතිබේ</string>
     <string name="allow_mock_location">ව්‍යාජ ස්ථානයන්ට අවසර දෙන්න</string>
     <string name="allow_mock_location_summary">ව්‍යාජ ස්ථාන අනුමත කරන්න</string>
     <string name="always_use_accessory">%2$s සම්බන්ධ විට %1$s සැම විටම විවෘත කරන්න</string>
@@ -618,6 +619,11 @@ Codec තේරීම: පසුධාවන ගුණත්වය"</string>
     <string name="clock_title_analog">ප්‍රතිසමය</string>
     <string name="clock_title_bubble">බුබුළ</string>
     <string name="clock_title_default">පෙරනිමි</string>
+    <string name="columbus_bouncer_message">ඉක්මන් තට්ටු කිරීම සම්පූර්ණ කිරීමට අගුලු හරින්න</string>
+    <string name="columbus_target_request_dialog_allow">ඉඩ දෙන්න</string>
+    <string name="columbus_target_request_dialog_deny">ඉඩ නොදෙන්න</string>
+    <string name="columbus_target_request_dialog_summary">ඔබ ඔබගේ දුරකථනයේ පිටුපස දෙවරක් තට්ටු කළ විට, %1$s විවෘත වනු ඇත. ඔබට සැකසීම් තුළ ඕනෑම වේලාවක මෙම මනාපය වෙනස් කළ හැකිය.</string>
+    <string name="columbus_target_request_dialog_title">%1$s විවෘත කිරීමට ඉක්මන් තට්ටු කිරීමට ඉඩ දෙන්නද?</string>
     <string name="compat_mode_off">තිරය පිරවීමට අදින්න</string>
     <string name="compat_mode_on">තිරය පිරවීමට විශාලනය කරන්න</string>
     <string name="confirm_enable_oem_unlock_text">අවවාදයයි: මෙම සැකසීම සක්‍රිය විට මෙම උපාංගයේ උපාංගය ආරක්ෂා කිරීමේ විශේෂාංගය වැඩනොකරයි.</string>
@@ -740,6 +746,8 @@ Codec තේරීම: පසුධාවන ගුණත්වය"</string>
     <string name="defender_notify_learn_more">තව දැන ගන්න</string>
     <string name="defender_notify_resume_charge">ආරෝපණය යළි ආරම්භ කරන්න</string>
     <string name="defender_notify_title">ආරෝපණය කිරීම තාවකාලිකව සීමා කර ඇත</string>
+    <string name="defender_post_notify_des">බැටරි සෞඛ්‍යය රැක ගැනීමට %2$s සිට %3$s දක්වා ආරෝපණය කිරීම %1$sට සීමා කරන ලදි</string>
+    <string name="defender_post_notify_title">සාමාන්‍ය ලෙස ආරෝපණය වේ</string>
     <string name="delete_blob_confirmation_text">ඔබට මෙම බෙදා ගත් දත්ත මැකීමට අවශ්‍ය බව විශ්වාසද?</string>
     <string name="delete_blob_text">බෙදා ගත් දත්ත මකන්න</string>
     <string name="demo_mode">පද්ධති UI ආදර්ශන ප්‍රකාරය</string>
@@ -885,6 +893,7 @@ Codec තේරීම: පසුධාවන ගුණත්වය"</string>
     <string name="game_status">ක්‍රීඩා කරමින්</string>
     <string name="global_action_lock_message">තව විකල්ප සඳහා ඔබේ දුරකථනය අගුලු හරින්න</string>
     <string name="global_action_screenshot">තිර රුව</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock අබලයි</string>
     <string name="global_actions_change_description">%1$s සහ උපාංග පාලන වෙත පිවිසීමට, ඔබගේ තිරය මුදුනේ සිට පහළට ස්වයිප් කරන්න</string>
     <string name="go_to_web">බ්‍රවුසරය වෙත යන්න</string>
     <string name="google_services_wallpaper_permission"><b>ඔබේ ස්ථානයට ප්‍රතිචාර දැක්වීමට Google හි ස්ථාන සේවාවට ප්‍රවේශ වීමෙන් Google සජීවී වෝල්පේපර්වලට ඉඩ දෙන්න</b></string>
@@ -1232,7 +1241,7 @@ Codec තේරීම: පසුධාවන ගුණත්වය"</string>
     <string name="media_projection_dialog_text">%sට පටිගත කරන හෝ විකාශ කරන අතරතුර ඔබේ තිරයේ දිස් වන හෝ ඔබේ උපාංගයෙන් වාදනය කරන සියලු තොරතුරු වෙත ප්‍රවේශ ලැබෙනු ඇත. මෙහි මුරපද, ගෙවීම් විස්තර, ඡායාරූප, පණිවිඩ සහ ඔබ වාදනය කරන ඕඩියෝ යනාදි තොරතුරු ඇතුළත් වේ.</string>
     <string name="media_projection_dialog_title">%s සමග පටිගත කිරීම හෝ විකාශය කිරීම ආරම්භ කරන්නද?</string>
     <string name="media_projection_remember_text">නැවත නොපෙන්වන්න</string>
-    <string name="media_seamless_remote_device">උපාංගය</string>
+    <string name="media_seamless_other_device">වෙනත් උපාංගය</string>
     <string name="media_transfer_this_device_name">දුරකථන ස්පීකරය</string>
     <string name="media_transfer_this_phone">මෙම දුරකථනය</string>
     <string name="media_transfer_wired_device_name">රැහැන්ගත කළ ඕඩියෝ උපාංගය</string>
@@ -1249,9 +1258,13 @@ Codec තේරීම: පසුධාවන ගුණත්වය"</string>
     <string name="mobile_data">ජංගම දත්ත</string>
     <string name="mobile_data_always_on">ජංගම දත්ත සැමවිට ක්‍රියාකාරීය</string>
     <string name="mobile_data_always_on_summary">Wi‑Fi අක්‍රිය විට පවා, සැම විටම ජංගම දත්ත ක්‍රියාකාරීව තබන්න (අවසන් ජාල මාරුව සඳහා).</string>
+    <string name="mobile_data_connection_active">සම්බන්ධයි</string>
     <string name="mobile_data_disable_message">ඔබට %s හරහා දත්ත හෝ අන්තර්ජාලයට පිවිසීමේ හැකියාවක් නැත. අන්තර්ජාලය Wi-Fi හරහා පමණක් ලබා ගත හැකිය.</string>
     <string name="mobile_data_disable_message_default_carrier">ඔබගේ වාහකය</string>
     <string name="mobile_data_disable_title">ජංගම දත්ත ක්‍රියාවිරහිත කරන්නද?</string>
+    <string name="mobile_data_no_connection">සම්බන්ධතාවයක් නැත</string>
+    <string name="mobile_data_off_summary">ජංගම දත්ත ස්වංක්‍රියව සම්බන්ධ නොවනු ඇත</string>
+    <string name="mobile_data_settings_title">ජංගම දත්ත</string>
     <string name="mobile_data_text_format">%1$s — %2$s</string>
     <string name="mock_location_app">ව්‍යාජ ස්ථාන යෙදුම තේරීම</string>
     <string name="mock_location_app_not_set">ව්‍යාජ ස්ථාන යෙදුම සකසා නැත</string>
@@ -1391,6 +1404,7 @@ Codec තේරීම: පසුධාවන ගුණත්වය"</string>
     <string name="no_content_in_select_mode">තෝරා ගැනීමට පෙළක් හෝ රූපයක් නැත</string>
     <string name="no_conversations_text">ඔබගේ මෑත සංවාද මෙහි පෙන්වනු ඇත</string>
     <string name="no_shortcut">%1$s සංවාද විශේෂාංගවලට සහාය නොදක්වයි</string>
+    <string name="non_carrier_network_unavailable">ලබා ගත හැකි වෙනත් ජාල නැත</string>
     <string name="not_default_data_content_description">දත්ත භාවිත කිරීමට සකසා නැත</string>
     <string name="not_set">සකසා නැත</string>
     <string name="notif_inline_reply_remove_attachment_description">ඇමුණුම ඉවත් කරන්න</string>
@@ -1571,6 +1585,7 @@ Codec තේරීම: පසුධාවන ගුණත්වය"</string>
     <string name="power_remaining_only_more_than_subtext">%1$sට වඩා වැඩියෙන් ඉතිරිය</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">බැටරි බලය %1$s වන විට අවසන් විය හැකිය</string>
+    <string name="pref_title_network_details">ජාල විස්තර</string>
     <string name="preference_copied">\"%1$s\" පසුරු පුවරුවට පිටපත් කරන ලදී.</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">ප්‍රමුඛතා සංවාද</string>
@@ -1740,6 +1755,7 @@ Codec තේරීම: පසුධාවන ගුණත්වය"</string>
     <string name="right_keycode">දකුණු යතුරු කේතය</string>
     <string name="right_nav_bar_button_type">අමතර දකුණු බොත්තම් වර්ගය</string>
     <string name="ring_toggle_title">ඇමතුම්</string>
+    <string name="rotation_lock_camera_rotation_on">ක්‍රියාත්මකයි - මුහුණ-පදනම්ව</string>
     <string name="running_foreground_services_msg">බැටරි හා දත්ත භාවිතය පිළිබඳව විස්තර සඳහා තට්ටු කරන්න</string>
     <string name="running_foreground_services_title">පසුබිමින් ධාවනය වන යෙදුම්</string>
     <string name="running_process_item_user_label">පරිශීලකයා: %1$s</string>
@@ -1814,6 +1830,7 @@ Codec තේරීම: පසුධාවන ගුණත්වය"</string>
     <string name="screenshot_top_boundary_pct">ඉහළ සීමාව සියයට %1$d</string>
     <string name="search_menu">සෙවීම් සැකසීම්</string>
     <string name="search_menu_title">සෙවීම</string>
+    <string name="see_all_networks">සියල්ල බලන්න</string>
     <string name="see_more_title">තවත් බලන්න</string>
     <string name="select_application">යෙදුම තේරීම</string>
     <string name="select_conversation_text">ඔබගේ මුල් තිරයට එය එක් කිරීමට සංවාදයක් තට්ටු කරන්න</string>
@@ -1926,6 +1943,7 @@ Codec තේරීම: පසුධාවන ගුණත්වය"</string>
     <string name="switch_bar_off">ක්‍රියාවිරහිතයි</string>
     <string name="switch_bar_on">ක්‍රියාත්මකයි</string>
     <string name="system_ui_tuner">පද්ධති UI සුසරකය</string>
+    <string name="tap_a_network_to_connect">සම්බන්ධ වීමට ජාලයක් තට්ටු කරන්න</string>
     <string name="tap_again">නැවත තට්ටු කරන්න</string>
     <string name="tap_to_sign_up">ලියාපදිංචි වීමට තට්ටු කරන්න</string>
     <string name="tether_settings_title_all">ටෙදරින් සහ සුවහනීය හොට්ස්පොට්</string>
@@ -1951,6 +1969,7 @@ Codec තේරීම: පසුධාවන ගුණත්වය"</string>
     <string name="time_unit_just_now">මේ දැන්</string>
     <string name="title_convert_fbe">ගොනු පදනම් සංකේතනයට පරිවර්තනය කිරීම</string>
     <string name="title_usb_accessory">USB මෙවලම</string>
+    <string name="to_switch_networks_disconnect_ethernet">ජාල මාරු කිරීමට, ඊතර්නෙට් විසන්ධි කරන්න</string>
     <string name="too_hot_label">Pixel උණුසුම් වැඩිය</string>
     <string name="touch_filtered_warning">යෙදුමක් අවසර ඉල්ලීමක් කරන නිසා, සැකසීම්වලට ඔබගේ ප්‍රතිචාරය සත්‍යාපනය කළ නොහැකිය.</string>
     <string name="track_frame_time">පැතිකඩ HWUI විදහමින්</string>
@@ -2009,10 +2028,12 @@ Codec තේරීම: පසුධාවන ගුණත්වය"</string>
     <string name="tuner_toast">සුබ පැතුම්! පද්ධති UI සුසරකය සැකසීම් වෙත එක් කර ඇත</string>
     <string name="tuner_warning">පද්ධති UI සුසරකය ඔබට Android පරිශීලක අතුරු මුහුණත වෙනස් කිරීමට හෝ අභිරුචිකරණය කිරීමට අමතර ක්‍රම ලබා දේ. මෙම පර්යේෂණාත්මක අංග ඉදිරි නිකුත් වීම් වල වෙනස් වීමට, වැඩ නොකිරීමට, හෝ නැතිවීමට හැක. ප්‍රවේශමෙන් ඉදිරියට යන්න.</string>
     <string name="tuner_warning_title">සමහරක් දේවල් වලට විනෝදයි, නමුත් සියල්ලටම නොවේ</string>
+    <string name="turn_on_wifi">Wi-Fi</string>
     <string name="tv_notification_panel_no_notifications">දැනුම්දීම් නැත</string>
     <string name="tv_notification_panel_title">දැනුම්දීම්</string>
     <string name="two_weeks_timestamp">සති 2කට පෙර</string>
     <string name="unknown">නොදනී</string>
+    <string name="unlock_to_view_networks">ජාල බැලීමට අගුලු හරින්න</string>
     <string name="upcoming_birthday_status">උපන් දිනය ඉක්මනින්</string>
     <string name="upcoming_birthday_status_content_description">මේ ළඟදීම %1$sගේ උපන් දිනයයි</string>
     <string name="url_menu_copy">පිටපත් කරන්න</string>
@@ -2151,9 +2172,11 @@ Wi‑Fi ලිපිනය (BSSID)
     <string name="wifi_disconnected">විසන්ධි විය</string>
     <string name="wifi_display_certification">නොරැහැන් සංදර්ශක සහතිකය</string>
     <string name="wifi_display_certification_summary">නොරැහැන් සංදර්ශක සහතිකය සඳහා විකල්ප පෙන්වන්න</string>
+    <string name="wifi_empty_list_wifi_on">ජාල සඳහා සොයමින්…</string>
     <string name="wifi_enhanced_mac_randomization">Wi‑Fi අඛණ්ඩ නොවන MAC සසම්භාවීකරණය</string>
     <string name="wifi_enhanced_mac_randomization_summary">මෙම ප්‍රකාරය අබල කළ විට, මෙම උපාංගයේ MAC ලිපිනය එය MAC සසම්භාවීකරණය සබල කර ඇති ජාලයකට සම්බන්ධවන ඒ ඒ අවස්ථාවල වෙනස් විය හැකිය.</string>
     <string name="wifi_fail_to_scan">ජාල සඳහා පරිලෝකනය කළ නොහැක</string>
+    <string name="wifi_failed_connect_message">ජාලය වෙත සම්බන්ධ වීම අසාර්ථක විය</string>
     <string name="wifi_hotspot_switch_off_text">ක්‍රියාවිරහිතයි</string>
     <string name="wifi_hotspot_switch_on_text">ක්‍රියාත්මකයි</string>
     <string name="wifi_is_off">Wi-Fi ක්‍රියා විරහිතයි</string>
@@ -2164,6 +2187,7 @@ Wi‑Fi ලිපිනය (BSSID)
     <string name="wifi_not_in_range">පරාසයේ නැත</string>
     <string name="wifi_passpoint_expired">කල් ඉකුත් විය</string>
     <string name="wifi_remembered">සුරකින ලදි</string>
+    <string name="wifi_scan_notify_message">උපාංග අත්දැකීම වැඩි දියුණු කිරිමට, Wi‑Fi ක්‍රියාවිරහිත විට පවා, ඕනෑම අවස්ථාවක Wi‑Fi ජාල සඳහා ස්කෑන් කිරීමට යෙදුම් සහ සේවාවලට හැකිය. ඔබට මෙය Wi‑Fi ස්කෑන් කිරීමේ සැකසීම් තුළ වෙනස් කළ හැකිය. <annotation id="link">වෙනස් කරන්න</annotation></string>
     <string name="wifi_scan_throttling">Wi‑Fi ස්කෑන් අවකරණය</string>
     <string name="wifi_scan_throttling_summary">බැටරි බැසීම අඩු කරන අතර ජාල කාර්ය සාධනය වැඩි දියුණු කරයි</string>
     <string name="wifi_security_none">කිසිවක් නැත</string>
@@ -2173,6 +2197,7 @@ Wi‑Fi ලිපිනය (BSSID)
     <string name="wifi_unmetered_label">මනින්නේ නැත</string>
     <string name="wifi_verbose_logging">විස්තරාත්මක Wi‑Fi ලොග් කිරීම සබල කරන්න</string>
     <string name="wifi_verbose_logging_summary">Wi‑Fi ලොග් මට්ටම වැඩි කරන්න, Wi‑Fi තෝරනයෙහි SSID RSSI අනුව පෙන්වන්න</string>
+    <string name="wifi_wont_autoconnect_for_now">Wi-Fi දැනට ස්වයං-සබැඳි නොවනු ඇත</string>
     <string name="wifitrackerlib_auto_connect_disable">ස්වයං සබැඳීම ක්‍රියාවිරහිතයි</string>
     <string name="wifitrackerlib_available_via_app">%1$s හරහා ලබා ගත හැකිය</string>
     <string name="wifitrackerlib_connected_via_app">%1$s හරහා සම්බන්ධිතයි</string>

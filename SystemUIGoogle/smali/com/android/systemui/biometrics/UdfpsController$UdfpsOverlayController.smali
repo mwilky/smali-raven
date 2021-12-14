@@ -255,7 +255,13 @@
 
     move-result-object v1
 
-    invoke-direct {v0, v1, p1}, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;-><init>(Landroid/content/Context;I)V
+    iget-object v2, p0, Lcom/android/systemui/biometrics/UdfpsController$UdfpsOverlayController;->this$0:Lcom/android/systemui/biometrics/UdfpsController;
+
+    invoke-static {v2}, Lcom/android/systemui/biometrics/UdfpsController;->access$700(Lcom/android/systemui/biometrics/UdfpsController;)Landroid/hardware/fingerprint/FingerprintManager;
+
+    move-result-object v2
+
+    invoke-direct {v0, v1, v2, p1}, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;-><init>(Landroid/content/Context;Landroid/hardware/fingerprint/FingerprintManager;I)V
 
     :goto_1
     iget-object v1, p0, Lcom/android/systemui/biometrics/UdfpsController$UdfpsOverlayController;->this$0:Lcom/android/systemui/biometrics/UdfpsController;

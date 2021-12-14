@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 9
+    .locals 13
 
     invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
 
@@ -131,25 +131,65 @@
 
     if-eqz v5, :cond_0
 
-    iget-object v6, p0, Lcom/google/android/systemui/columbus/actions/LaunchApp$updateAvailableAppsAndShortcutsAsync$1;->this$0:Lcom/google/android/systemui/columbus/actions/LaunchApp;
+    new-instance v8, Landroid/content/Intent;
 
-    invoke-static {v6}, Lcom/google/android/systemui/columbus/actions/LaunchApp;->access$getAvailableApps$p(Lcom/google/android/systemui/columbus/actions/LaunchApp;)Ljava/util/Map;
+    invoke-virtual {v5}, Landroid/app/PendingIntent;->getIntent()Landroid/content/Intent;
 
-    move-result-object v6
+    move-result-object v5
+
+    invoke-direct {v8, v5}, Landroid/content/Intent;-><init>(Landroid/content/Intent;)V
+
+    const-string v5, "systemui_google_quick_tap_is_source"
+
+    const/4 v6, 0x1
+
+    invoke-virtual {v8, v5, v6}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
+    iget-object v5, p0, Lcom/google/android/systemui/columbus/actions/LaunchApp$updateAvailableAppsAndShortcutsAsync$1;->this$0:Lcom/google/android/systemui/columbus/actions/LaunchApp;
+
+    invoke-static {v5}, Lcom/google/android/systemui/columbus/actions/LaunchApp;->access$getAvailableApps$p(Lcom/google/android/systemui/columbus/actions/LaunchApp;)Ljava/util/Map;
+
+    move-result-object v5
 
     invoke-virtual {v4}, Landroid/content/pm/LauncherActivityInfo;->getComponentName()Landroid/content/ComponentName;
 
-    move-result-object v7
+    move-result-object v12
 
-    invoke-virtual {v7}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+    const-string v6, "appInfo.componentName"
 
-    move-result-object v7
+    invoke-static {v12, v6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v8, "appInfo.componentName.packageName"
+    iget-object v6, p0, Lcom/google/android/systemui/columbus/actions/LaunchApp$updateAvailableAppsAndShortcutsAsync$1;->this$0:Lcom/google/android/systemui/columbus/actions/LaunchApp;
 
-    invoke-static {v7, v8}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-virtual {v6}, Lcom/google/android/systemui/columbus/actions/Action;->getContext()Landroid/content/Context;
 
-    invoke-interface {v6, v7, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v6
+
+    const/4 v7, 0x0
+
+    const/high16 v9, 0x4000000
+
+    const/4 v10, 0x0
+
+    iget-object v11, p0, Lcom/google/android/systemui/columbus/actions/LaunchApp$updateAvailableAppsAndShortcutsAsync$1;->this$0:Lcom/google/android/systemui/columbus/actions/LaunchApp;
+
+    invoke-static {v11}, Lcom/google/android/systemui/columbus/actions/LaunchApp;->access$getUserTracker$p(Lcom/google/android/systemui/columbus/actions/LaunchApp;)Lcom/android/systemui/settings/UserTracker;
+
+    move-result-object v11
+
+    invoke-interface {v11}, Lcom/android/systemui/settings/UserTracker;->getUserHandle()Landroid/os/UserHandle;
+
+    move-result-object v11
+
+    invoke-static/range {v6 .. v11}, Landroid/app/PendingIntent;->getActivityAsUser(Landroid/content/Context;ILandroid/content/Intent;ILandroid/os/Bundle;Landroid/os/UserHandle;)Landroid/app/PendingIntent;
+
+    move-result-object v6
+
+    const-string v7, "getActivityAsUser(\n                                            context,\n                                            0,\n                                            sourcedIntent,\n                                            FLAG_IMMUTABLE,\n                                            null,\n                                            userTracker.userHandle)"
+
+    invoke-static {v6, v7}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    invoke-interface {v5, v12, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     iget-object v5, p0, Lcom/google/android/systemui/columbus/actions/LaunchApp$updateAvailableAppsAndShortcutsAsync$1;->this$0:Lcom/google/android/systemui/columbus/actions/LaunchApp;
 

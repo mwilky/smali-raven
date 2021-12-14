@@ -198,10 +198,15 @@
         </intent>
     </queries>
     <uses-permission android:name="com.google.android.ambientindication.permission.AMBIENT_INDICATION"/>
-    <application android:allowClearUserData="false" android:appComponentFactory="com.android.systemui.SystemUIAppComponentFactory" android:backupAgent="com.android.systemui.backup.BackupHelper" android:defaultToDeviceProtectedStorage="true" android:directBootAware="true" android:extractNativeLibs="false" android:hardwareAccelerated="true" android:icon="@drawable/icon" android:killAfterRestore="false" android:label="@string/app_label" android:name="com.android.systemui.SystemUIApplication" android:persistent="true" android:process="com.android.systemui" android:supportsRtl="true" android:theme="@style/Theme.SystemUI" android:usesNonSdkApi="true">
+    <application android:allowClearUserData="false" android:appComponentFactory="com.android.systemui.SystemUIAppComponentFactory" android:backupAgent="com.google.android.systemui.backup.BackupHelperGoogle" android:defaultToDeviceProtectedStorage="true" android:directBootAware="true" android:extractNativeLibs="false" android:hardwareAccelerated="true" android:icon="@drawable/icon" android:killAfterRestore="false" android:label="@string/app_label" android:name="com.android.systemui.SystemUIApplication" android:persistent="true" android:process="com.android.systemui" android:supportsRtl="true" android:theme="@style/Theme.SystemUI" android:usesNonSdkApi="true">
         <profileable android:shell="true"/>
         <service android:exported="true" android:name="com.google.android.systemui.elmyra.ElmyraServiceProxy" android:permission="com.google.android.elmyra.permission.CONFIGURE_ASSIST_GESTURE"/>
         <service android:exported="true" android:name="com.google.android.systemui.columbus.ColumbusServiceProxy" android:permission="com.google.android.columbus.permission.CONFIGURE_COLUMBUS_GESTURE"/>
+        <service android:exported="true" android:name="com.google.android.systemui.columbus.ColumbusTargetRequestService">
+            <intent-filter>
+                <action android:name="com.google.android.systemui.QUICK_TAP_TARGET_REQUEST"/>
+            </intent-filter>
+        </service>
         <service android:exported="true" android:name="com.google.android.systemui.statusbar.NotificationVoiceReplyManagerService"/>
         <provider android:authorities="com.android.systemui.keyguard" android:enabled="false" android:exported="true" android:name="com.google.android.systemui.keyguard.KeyguardSliceProviderGoogle"/>
         <activity android:excludeFromRecents="true" android:exported="false" android:finishOnCloseSystemDialogs="true" android:launchMode="singleTask" android:name="com.google.android.systemui.gamedashboard.GameMenuActivity" android:screenOrientation="behind" android:showForAllUsers="true" android:theme="@style/GameMenuTheme"/>

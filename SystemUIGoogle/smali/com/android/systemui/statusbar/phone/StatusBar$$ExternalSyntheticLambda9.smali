@@ -2,32 +2,32 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/android/wm/shell/bubbles/Bubbles$BubbleExpandListener;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/systemui/statusbar/phone/StatusBar;
+.field public final synthetic f$0:Lcom/android/systemui/plugins/ActivityStarter$Callback;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/statusbar/phone/StatusBar;)V
+.method public synthetic constructor <init>(Lcom/android/systemui/plugins/ActivityStarter$Callback;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/StatusBar$$ExternalSyntheticLambda9;->f$0:Lcom/android/systemui/statusbar/phone/StatusBar;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/StatusBar$$ExternalSyntheticLambda9;->f$0:Lcom/android/systemui/plugins/ActivityStarter$Callback;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onBubbleExpandChanged(ZLjava/lang/String;)V
+.method public final run()V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBar$$ExternalSyntheticLambda9;->f$0:Lcom/android/systemui/statusbar/phone/StatusBar;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBar$$ExternalSyntheticLambda9;->f$0:Lcom/android/systemui/plugins/ActivityStarter$Callback;
 
-    invoke-static {p0, p1, p2}, Lcom/android/systemui/statusbar/phone/StatusBar;->$r8$lambda$qhgd00-G17BouIYgXKo_Ure1IcM(Lcom/android/systemui/statusbar/phone/StatusBar;ZLjava/lang/String;)V
+    invoke-static {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->$r8$lambda$lX6kKQs7rtq3V2R7p0V0-CJVhUU(Lcom/android/systemui/plugins/ActivityStarter$Callback;)V
 
     return-void
 .end method

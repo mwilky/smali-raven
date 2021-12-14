@@ -683,7 +683,7 @@
 
     move-result-object v2
 
-    const v3, 0x1040479
+    const v3, 0x104047b
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 

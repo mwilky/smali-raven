@@ -17,7 +17,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nNotificationShadeDepthController.kt\nKotlin\n*S Kotlin\n*F\n+ 1 NotificationShadeDepthController.kt\ncom/android/systemui/statusbar/NotificationShadeDepthController$updateBlurCallback$1\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,529:1\n1819#2,2:530\n*E\n*S KotlinDebug\n*F\n+ 1 NotificationShadeDepthController.kt\ncom/android/systemui/statusbar/NotificationShadeDepthController$updateBlurCallback$1\n*L\n222#1,2:530\n*E\n"
+    value = "SMAP\nNotificationShadeDepthController.kt\nKotlin\n*S Kotlin\n*F\n+ 1 NotificationShadeDepthController.kt\ncom/android/systemui/statusbar/NotificationShadeDepthController$updateBlurCallback$1\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,536:1\n1819#2,2:537\n*E\n*S KotlinDebug\n*F\n+ 1 NotificationShadeDepthController.kt\ncom/android/systemui/statusbar/NotificationShadeDepthController$updateBlurCallback$1\n*L\n227#1,2:537\n*E\n"
 .end annotation
 
 
@@ -105,7 +105,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController$updateBlurCallback$1;->this$0:Lcom/android/systemui/statusbar/NotificationShadeDepthController;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->access$getShadeExpansion$p(Lcom/android/systemui/statusbar/NotificationShadeDepthController;)F
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->getShadeExpansion()F
 
     move-result v2
 
@@ -139,9 +139,13 @@
 
     move-result p2
 
+    invoke-static {p2, v0}, Lcom/android/systemui/animation/Interpolators;->getNotificationScrimAlpha(FZ)F
+
+    move-result p2
+
     iget-object v2, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController$updateBlurCallback$1;->this$0:Lcom/android/systemui/statusbar/NotificationShadeDepthController;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->access$getShadeExpansion$p(Lcom/android/systemui/statusbar/NotificationShadeDepthController;)F
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->getShadeExpansion()F
 
     move-result v2
 

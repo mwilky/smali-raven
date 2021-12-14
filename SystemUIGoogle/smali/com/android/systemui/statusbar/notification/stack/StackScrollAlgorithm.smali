@@ -1702,6 +1702,59 @@
     return p0
 .end method
 
+.method public hasOngoingNotifs(Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$StackScrollAlgorithmState;)Z
+    .locals 3
+
+    const/4 p0, 0x0
+
+    move v0, p0
+
+    :goto_0
+    iget-object v1, p1, Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$StackScrollAlgorithmState;->visibleChildren:Ljava/util/ArrayList;
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+
+    move-result v1
+
+    if-ge v0, v1, :cond_2
+
+    iget-object v1, p1, Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$StackScrollAlgorithmState;->visibleChildren:Ljava/util/ArrayList;
+
+    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/view/View;
+
+    instance-of v2, v1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    if-nez v2, :cond_0
+
+    goto :goto_1
+
+    :cond_0
+    check-cast v1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->canViewBeDismissed()Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    const/4 p0, 0x1
+
+    return p0
+
+    :cond_1
+    :goto_1
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    return p0
+.end method
+
 .method public initView(Landroid/content/Context;)V
     .locals 0
 
@@ -1984,7 +2037,19 @@
 
     if-nez v6, :cond_a
 
+    if-nez v5, :cond_a
+
+    invoke-virtual {p3}, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->isDismissAllInProgress()Z
+
+    move-result v5
+
     if-eqz v5, :cond_b
+
+    invoke-virtual {p0, p2}, Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm;->hasOngoingNotifs(Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$StackScrollAlgorithmState;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_b
 
     :cond_a
     move v2, v4

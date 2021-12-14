@@ -18,7 +18,7 @@
 .method public static drag(Lcom/android/systemui/controls/ControlsMetricsLogger;Lcom/android/systemui/controls/ui/ControlViewHolder;Z)V
     .locals 2
 
-    const-string v0, "this"
+    const-string/jumbo v0, "this"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -48,7 +48,7 @@
 .method public static longPress(Lcom/android/systemui/controls/ControlsMetricsLogger;Lcom/android/systemui/controls/ui/ControlViewHolder;Z)V
     .locals 2
 
-    const-string v0, "this"
+    const-string/jumbo v0, "this"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -78,7 +78,7 @@
 .method public static refreshBegin(Lcom/android/systemui/controls/ControlsMetricsLogger;IZ)V
     .locals 2
 
-    const-string v0, "this"
+    const-string/jumbo v0, "this"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -100,7 +100,7 @@
 .method public static refreshEnd(Lcom/android/systemui/controls/ControlsMetricsLogger;Lcom/android/systemui/controls/ui/ControlViewHolder;Z)V
     .locals 2
 
-    const-string v0, "this"
+    const-string/jumbo v0, "this"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -130,7 +130,7 @@
 .method public static touch(Lcom/android/systemui/controls/ControlsMetricsLogger;Lcom/android/systemui/controls/ui/ControlViewHolder;Z)V
     .locals 2
 
-    const-string v0, "this"
+    const-string/jumbo v0, "this"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 

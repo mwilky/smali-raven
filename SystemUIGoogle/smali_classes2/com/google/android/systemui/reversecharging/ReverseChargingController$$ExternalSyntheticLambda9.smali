@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/google/android/systemui/reversecharging/ReverseChargingController$$ExternalSyntheticLambda9;->f$0:Lcom/google/android/systemui/reversecharging/ReverseChargingController;
 
-    invoke-static {p0}, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->$r8$lambda$WaRVcVcyrQ1IfeFqZQK5AK9Xe24(Lcom/google/android/systemui/reversecharging/ReverseChargingController;)V
+    invoke-static {p0}, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->$r8$lambda$9bdcCulnqaDUbhpWXFYttXSWUUI(Lcom/google/android/systemui/reversecharging/ReverseChargingController;)V
 
     return-void
 .end method

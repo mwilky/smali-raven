@@ -95,6 +95,24 @@
     return p0
 .end method
 
+.method public final isKeyguardSecure()Z
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/systemui/columbus/gates/KeyguardVisibility;->keyguardStateController:Ldagger/Lazy;
+
+    invoke-interface {p0}, Ldagger/Lazy;->get()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+
+    invoke-interface {p0}, Lcom/android/systemui/statusbar/policy/KeyguardStateController;->isMethodSecure()Z
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public final isKeyguardShowing()Z
     .locals 0
 

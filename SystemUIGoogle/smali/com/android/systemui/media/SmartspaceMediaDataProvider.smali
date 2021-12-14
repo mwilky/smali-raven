@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nSmartspaceMediaDataProvider.kt\nKotlin\n*S Kotlin\n*F\n+ 1 SmartspaceMediaDataProvider.kt\ncom/android/systemui/media/SmartspaceMediaDataProvider\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,40:1\n1819#2,2:41\n*E\n*S KotlinDebug\n*F\n+ 1 SmartspaceMediaDataProvider.kt\ncom/android/systemui/media/SmartspaceMediaDataProvider\n*L\n35#1,2:41\n*E\n"
+    value = "SMAP\nSmartspaceMediaDataProvider.kt\nKotlin\n*S Kotlin\n*F\n+ 1 SmartspaceMediaDataProvider.kt\ncom/android/systemui/media/SmartspaceMediaDataProvider\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,47:1\n1819#2,2:48\n*E\n*S KotlinDebug\n*F\n+ 1 SmartspaceMediaDataProvider.kt\ncom/android/systemui/media/SmartspaceMediaDataProvider\n*L\n42#1,2:48\n*E\n"
 .end annotation
 
 
@@ -68,7 +68,7 @@
         }
     .end annotation
 
-    const-string v0, "targets"
+    const-string/jumbo v0, "targets"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -107,6 +107,23 @@
     goto :goto_0
 
     :cond_1
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+
+    move-result p1
+
+    if-nez p1, :cond_2
+
+    const-string p1, "Forwarding Smartspace media updates "
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v1, "SsMediaDataProvider"
+
+    invoke-static {v1, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2
     iput-object v0, p0, Lcom/android/systemui/media/SmartspaceMediaDataProvider;->smartspaceMediaTargets:Ljava/util/List;
 
     iget-object p1, p0, Lcom/android/systemui/media/SmartspaceMediaDataProvider;->smartspaceMediaTargetListeners:Ljava/util/List;
@@ -120,7 +137,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -134,7 +151,7 @@
 
     goto :goto_1
 
-    :cond_2
+    :cond_3
     return-void
 .end method
 

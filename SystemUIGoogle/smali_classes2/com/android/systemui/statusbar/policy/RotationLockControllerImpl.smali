@@ -21,9 +21,11 @@
 
 .field private final mRotationPolicyListener:Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
 
+.field private final mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
+
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/util/settings/SecureSettings;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,6 +43,8 @@
     iput-object v0, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mRotationPolicyListener:Lcom/android/internal/view/RotationPolicy$RotationPolicyListener;
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mContext:Landroid/content/Context;
+
+    iput-object p2, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
 
     const/4 p1, 0x1
 
@@ -141,6 +145,31 @@
     move-result p0
 
     return p0
+.end method
+
+.method public isCameraRotationEnabled()Z
+    .locals 3
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;->mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
+
+    const-string v0, "camera_autorotate"
+
+    const/4 v1, 0x0
+
+    const/4 v2, -0x2
+
+    invoke-interface {p0, v0, v1, v2}, Lcom/android/systemui/util/settings/SettingsProxy;->getIntForUser(Ljava/lang/String;II)I
+
+    move-result p0
+
+    const/4 v0, 0x1
+
+    if-ne p0, v0, :cond_0
+
+    move v1, v0
+
+    :cond_0
+    return v1
 .end method
 
 .method public isRotationLocked()Z

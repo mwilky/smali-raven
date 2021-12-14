@@ -4,7 +4,6 @@
 
 # interfaces
 .implements Lcom/android/systemui/doze/DozeReceiver;
-.implements Landroid/view/View$OnClickListener;
 .implements Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;
 .implements Lcom/android/systemui/statusbar/NotificationMediaManager$MediaListener;
 
@@ -15,8 +14,6 @@
 .field private mAmbientIndicationIconSize:I
 
 .field private mAmbientMusicAnimation:Landroid/graphics/drawable/Drawable;
-
-.field private mAmbientMusicIntent:Landroid/app/PendingIntent;
 
 .field private mAmbientMusicNoteIcon:Landroid/graphics/drawable/Drawable;
 
@@ -32,19 +29,23 @@
 
 .field private mDozing:Z
 
-.field private mDrawablePadding:I
+.field private mFavoritingIntent:Landroid/app/PendingIntent;
 
 .field private final mHandler:Landroid/os/Handler;
 
 .field private final mIconBounds:Landroid/graphics/Rect;
 
-.field private mIndicationTextMode:I
+.field private mIconOverride:I
 
-.field private mIsKeyguardLayoutEnabled:Z
+.field private mIconView:Landroid/widget/ImageView;
+
+.field private mIndicationTextMode:I
 
 .field private mMediaPlaybackState:I
 
 .field private mNotificationsHidden:Z
+
+.field private mOpenIntent:Landroid/app/PendingIntent;
 
 .field private mReverseChargingAnimation:Landroid/graphics/drawable/Drawable;
 
@@ -54,11 +55,11 @@
 
 .field private mStatusBarState:I
 
-.field private mText:Landroid/widget/TextView;
-
 .field private mTextColor:I
 
 .field private mTextColorAnimator:Landroid/animation/ValueAnimator;
+
+.field private mTextView:Landroid/widget/TextView;
 
 .field private final mWakeLock:Lcom/android/systemui/util/wakelock/WakeLock;
 
@@ -66,10 +67,26 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$-bcPq_N_Csx24DoJye7MuyjV3sU(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;Landroid/view/View;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->onTextClick(Landroid/view/View;)V
+
+    return-void
+.end method
+
 .method public static synthetic $r8$lambda$4wspJduuXRC5_KURJ0gcwMF_k8Q()V
     .locals 0
 
     invoke-static {}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->lambda$updatePill$3()V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$9vdiZSQZXJA1QkqiZWlGskvZVsI(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;Landroid/view/View;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->onIconClick(Landroid/view/View;)V
 
     return-void
 .end method
@@ -117,6 +134,10 @@
 
     iput-object p1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mIconBounds:Landroid/graphics/Rect;
 
+    const/4 p1, -0x1
+
+    iput p1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mIconOverride:I
+
     new-instance p1, Landroid/os/Handler;
 
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
@@ -138,7 +159,15 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;)Lcom/android/systemui/util/wakelock/WakeLock;
+.method static synthetic access$000(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;)Landroid/graphics/Rect;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mIconBounds:Landroid/graphics/Rect;
+
+    return-object p0
+.end method
+
+.method static synthetic access$100(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;)Lcom/android/systemui/util/wakelock/WakeLock;
     .locals 0
 
     iget-object p0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mWakeLock:Lcom/android/systemui/util/wakelock/WakeLock;
@@ -146,7 +175,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$102(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
+.method static synthetic access$202(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
     .locals 0
 
     iput-object p1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mTextColorAnimator:Landroid/animation/ValueAnimator;
@@ -154,10 +183,10 @@
     return-object p1
 .end method
 
-.method static getAmbientIconOverride(ILandroid/content/Context;)Landroid/graphics/drawable/Drawable;
+.method private getAmbientIconOverride(ILandroid/content/Context;)Landroid/graphics/drawable/Drawable;
     .locals 0
 
-    packed-switch p0, :pswitch_data_0
+    packed-switch p1, :pswitch_data_0
 
     :pswitch_0
     const/4 p0, 0x0
@@ -167,7 +196,7 @@
     :pswitch_1
     sget p0, Lcom/android/systemui/R$drawable;->ic_favorite_note:I
 
-    invoke-virtual {p1, p0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p2, p0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object p0
 
@@ -176,7 +205,7 @@
     :pswitch_2
     sget p0, Lcom/android/systemui/R$drawable;->ic_error:I
 
-    invoke-virtual {p1, p0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p2, p0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object p0
 
@@ -185,7 +214,7 @@
     :pswitch_3
     sget p0, Lcom/android/systemui/R$drawable;->ic_favorite_border:I
 
-    invoke-virtual {p1, p0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p2, p0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object p0
 
@@ -194,7 +223,7 @@
     :pswitch_4
     sget p0, Lcom/android/systemui/R$drawable;->ic_favorite:I
 
-    invoke-virtual {p1, p0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p2, p0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object p0
 
@@ -203,7 +232,7 @@
     :pswitch_5
     sget p0, Lcom/android/systemui/R$drawable;->ic_cloud_off:I
 
-    invoke-virtual {p1, p0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p2, p0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object p0
 
@@ -212,7 +241,7 @@
     :pswitch_6
     sget p0, Lcom/android/systemui/R$drawable;->ic_music_not_found:I
 
-    invoke-virtual {p1, p0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p2, p0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object p0
 
@@ -221,7 +250,7 @@
     :pswitch_7
     sget p0, Lcom/android/systemui/R$drawable;->ic_music_search:I
 
-    invoke-virtual {p1, p0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p2, p0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object p0
 
@@ -241,68 +270,6 @@
     .end packed-switch
 .end method
 
-.method public static getNowPlayingIcon(ILandroid/content/Context;)Landroid/graphics/drawable/Drawable;
-    .locals 4
-
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    sget v1, Lcom/android/systemui/R$dimen;->ambient_indication_note_icon_size:I
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v0
-
-    invoke-static {p0, p1}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->getAmbientIconOverride(ILandroid/content/Context;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p0
-
-    if-nez p0, :cond_0
-
-    sget p0, Lcom/android/systemui/R$drawable;->ic_music_note:I
-
-    invoke-virtual {p1, p0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p0
-
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p1
-
-    sget v0, Lcom/android/systemui/R$dimen;->ambient_indication_icon_size:I
-
-    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v0
-
-    :cond_0
-    if-eqz p0, :cond_1
-
-    new-instance p1, Landroid/graphics/Rect;
-
-    invoke-direct {p1}, Landroid/graphics/Rect;-><init>()V
-
-    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
-
-    move-result v1
-
-    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
-
-    move-result v2
-
-    const/4 v3, 0x0
-
-    invoke-virtual {p1, v3, v3, v1, v2}, Landroid/graphics/Rect;->set(IIII)V
-
-    invoke-static {p1, v0}, Landroid/util/MathUtils;->fitRect(Landroid/graphics/Rect;I)V
-
-    invoke-virtual {p0, p1}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
-
-    :cond_1
-    return-object p0
-.end method
-
 .method private synthetic lambda$initializeView$0(Landroid/view/View;)V
     .locals 1
 
@@ -314,7 +281,17 @@
 
     check-cast p1, Landroid/widget/TextView;
 
-    iput-object p1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mText:Landroid/widget/TextView;
+    iput-object p1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mTextView:Landroid/widget/TextView;
+
+    sget p1, Lcom/android/systemui/R$id;->ambient_indication_icon:I
+
+    invoke-virtual {p0, p1}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/widget/ImageView;
+
+    iput-object p1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mIconView:Landroid/widget/ImageView;
 
     iget-object p1, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
 
@@ -346,7 +323,7 @@
 
     iput-object p1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mReverseChargingAnimation:Landroid/graphics/drawable/Drawable;
 
-    iget-object p1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mText:Landroid/widget/TextView;
+    iget-object p1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mTextView:Landroid/widget/TextView;
 
     invoke-virtual {p1}, Landroid/widget/TextView;->getCurrentTextColor()I
 
@@ -390,21 +367,25 @@
 
     iput p1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mBurnInPreventionOffset:I
 
-    iget-object p1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mText:Landroid/widget/TextView;
-
-    invoke-virtual {p1}, Landroid/widget/TextView;->getCompoundDrawablePadding()I
-
-    move-result p1
-
-    iput p1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mDrawablePadding:I
-
     invoke-direct {p0}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->updateColors()V
 
     invoke-direct {p0}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->updatePill()V
 
-    iget-object p1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mText:Landroid/widget/TextView;
+    iget-object p1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mTextView:Landroid/widget/TextView;
 
-    invoke-virtual {p1, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    new-instance v0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$$ExternalSyntheticLambda1;
+
+    invoke-direct {v0, p0}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$$ExternalSyntheticLambda1;-><init>(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;)V
+
+    invoke-virtual {p1, v0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iget-object p1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mIconView:Landroid/widget/ImageView;
+
+    new-instance v0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$$ExternalSyntheticLambda2;
+
+    invoke-direct {v0, p0}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$$ExternalSyntheticLambda2;-><init>(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;)V
+
+    invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     return-void
 .end method
@@ -430,17 +411,17 @@
 
     move-result p1
 
-    iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mText:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mTextView:Landroid/widget/TextView;
 
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setTextColor(I)V
 
-    iget-object p0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mText:Landroid/widget/TextView;
+    iget-object p0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mIconView:Landroid/widget/ImageView;
 
     invoke-static {p1}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
 
     move-result-object p1
 
-    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setCompoundDrawableTintList(Landroid/content/res/ColorStateList;)V
+    invoke-virtual {p0, p1}, Landroid/widget/ImageView;->setImageTintList(Landroid/content/res/ColorStateList;)V
 
     return-void
 .end method
@@ -454,6 +435,75 @@
 .method private static synthetic lambda$updatePill$3()V
     .locals 0
 
+    return-void
+.end method
+
+.method private onIconClick(Landroid/view/View;)V
+    .locals 4
+
+    iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mFavoritingIntent:Landroid/app/PendingIntent;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v1
+
+    const-string v3, "AMBIENT_MUSIC_CLICK"
+
+    invoke-virtual {v0, v1, v2, p1, v3}, Lcom/android/systemui/statusbar/phone/StatusBar;->wakeUpIfDozing(JLandroid/view/View;Ljava/lang/String;)V
+
+    iget-object p1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mFavoritingIntent:Landroid/app/PendingIntent;
+
+    invoke-direct {p0, p1}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->sendBroadcastWithoutDismissingKeyguard(Landroid/app/PendingIntent;)V
+
+    goto :goto_0
+
+    :cond_0
+    invoke-direct {p0, p1}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->onTextClick(Landroid/view/View;)V
+
+    :goto_0
+    return-void
+.end method
+
+.method private onTextClick(Landroid/view/View;)V
+    .locals 4
+
+    iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mOpenIntent:Landroid/app/PendingIntent;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v1
+
+    const-string v3, "AMBIENT_MUSIC_CLICK"
+
+    invoke-virtual {v0, v1, v2, p1, v3}, Lcom/android/systemui/statusbar/phone/StatusBar;->wakeUpIfDozing(JLandroid/view/View;Ljava/lang/String;)V
+
+    iget-boolean p1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mAmbientSkipUnlock:Z
+
+    if-eqz p1, :cond_0
+
+    iget-object p1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mOpenIntent:Landroid/app/PendingIntent;
+
+    invoke-direct {p0, p1}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->sendBroadcastWithoutDismissingKeyguard(Landroid/app/PendingIntent;)V
+
+    goto :goto_0
+
+    :cond_0
+    iget-object p1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+
+    iget-object p0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mOpenIntent:Landroid/app/PendingIntent;
+
+    invoke-virtual {p1, p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->startPendingIntentDismissingKeyguard(Landroid/app/PendingIntent;)V
+
+    :cond_1
+    :goto_0
     return-void
 .end method
 
@@ -510,7 +560,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mText:Landroid/widget/TextView;
+    iget-object v1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mTextView:Landroid/widget/TextView;
 
     invoke-virtual {v1}, Landroid/widget/TextView;->getVisibility()I
 
@@ -611,7 +661,7 @@
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->cancel()V
 
     :cond_0
-    iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mText:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mTextView:Landroid/widget/TextView;
 
     invoke-virtual {v0}, Landroid/widget/TextView;->getTextColors()Landroid/content/res/ColorStateList;
 
@@ -635,17 +685,17 @@
     :goto_0
     if-ne v0, v1, :cond_2
 
-    iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mText:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mTextView:Landroid/widget/TextView;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
 
-    iget-object p0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mText:Landroid/widget/TextView;
+    iget-object p0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mIconView:Landroid/widget/ImageView;
 
     invoke-static {v1}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
 
     move-result-object v0
 
-    invoke-virtual {p0, v0}, Landroid/widget/TextView;->setCompoundDrawableTintList(Landroid/content/res/ColorStateList;)V
+    invoke-virtual {p0, v0}, Landroid/widget/ImageView;->setImageTintList(Landroid/content/res/ColorStateList;)V
 
     return-void
 
@@ -688,9 +738,9 @@
 
     iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mTextColorAnimator:Landroid/animation/ValueAnimator;
 
-    new-instance v1, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$2;
+    new-instance v1, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$3;
 
-    invoke-direct {v1, p0}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$2;-><init>(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;)V
+    invoke-direct {v1, p0}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$3;-><init>(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;)V
 
     invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
@@ -702,7 +752,7 @@
 .end method
 
 .method private updatePill()V
-    .locals 12
+    .locals 11
 
     iget v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mIndicationTextMode:I
 
@@ -712,7 +762,7 @@
 
     iget-object v2, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mAmbientMusicText:Ljava/lang/CharSequence;
 
-    iget-object v3, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mText:Landroid/widget/TextView;
+    iget-object v3, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mTextView:Landroid/widget/TextView;
 
     invoke-virtual {v3}, Landroid/widget/TextView;->getVisibility()I
 
@@ -765,9 +815,9 @@
     move v6, v4
 
     :goto_2
-    iget-object v7, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mText:Landroid/widget/TextView;
+    iget-object v7, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mTextView:Landroid/widget/TextView;
 
-    iget-object v8, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mAmbientMusicIntent:Landroid/app/PendingIntent;
+    iget-object v8, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mOpenIntent:Landroid/app/PendingIntent;
 
     if-eqz v8, :cond_4
 
@@ -781,6 +831,30 @@
     :goto_3
     invoke-virtual {v7, v8}, Landroid/widget/TextView;->setClickable(Z)V
 
+    iget-object v7, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mIconView:Landroid/widget/ImageView;
+
+    iget-object v8, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mFavoritingIntent:Landroid/app/PendingIntent;
+
+    if-nez v8, :cond_6
+
+    iget-object v8, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mOpenIntent:Landroid/app/PendingIntent;
+
+    if-eqz v8, :cond_5
+
+    goto :goto_4
+
+    :cond_5
+    move v8, v4
+
+    goto :goto_5
+
+    :cond_6
+    :goto_4
+    move v8, v1
+
+    :goto_5
+    invoke-virtual {v7, v8}, Landroid/widget/ImageView;->setClickable(Z)V
+
     iget-object v7, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mReverseChargingMessage:Ljava/lang/CharSequence;
 
     invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -789,9 +863,7 @@
 
     const/4 v8, 0x2
 
-    const/4 v9, 0x0
-
-    if-nez v7, :cond_5
+    if-nez v7, :cond_7
 
     iput v8, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mIndicationTextMode:I
 
@@ -799,22 +871,27 @@
 
     iget-object v5, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mReverseChargingAnimation:Landroid/graphics/drawable/Drawable;
 
-    iget-object v6, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mText:Landroid/widget/TextView;
+    iget-object v6, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mTextView:Landroid/widget/TextView;
 
     invoke-virtual {v6, v4}, Landroid/widget/TextView;->setClickable(Z)V
 
+    iget-object v6, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mIconView:Landroid/widget/ImageView;
+
+    invoke-virtual {v6, v4}, Landroid/widget/ImageView;->setClickable(Z)V
+
+    :goto_6
     move v6, v4
 
-    goto :goto_4
+    goto :goto_7
 
-    :cond_5
+    :cond_7
     iget-object v7, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mWirelessChargingMessage:Ljava/lang/CharSequence;
 
     invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v7
 
-    if-nez v7, :cond_6
+    if-nez v7, :cond_8
 
     const/4 v2, 0x3
 
@@ -822,160 +899,129 @@
 
     iget-object v2, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mWirelessChargingMessage:Ljava/lang/CharSequence;
 
-    iget-object v5, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mText:Landroid/widget/TextView;
+    const/4 v5, 0x0
 
-    invoke-virtual {v5, v4}, Landroid/widget/TextView;->setClickable(Z)V
+    iget-object v6, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mTextView:Landroid/widget/TextView;
 
-    move v6, v4
+    invoke-virtual {v6, v4}, Landroid/widget/TextView;->setClickable(Z)V
 
-    move-object v5, v9
+    iget-object v6, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mIconView:Landroid/widget/ImageView;
 
-    :cond_6
-    :goto_4
-    iget-object v7, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mText:Landroid/widget/TextView;
+    invoke-virtual {v6, v4}, Landroid/widget/ImageView;->setClickable(Z)V
+
+    goto :goto_6
+
+    :cond_8
+    :goto_7
+    iget-object v7, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mTextView:Landroid/widget/TextView;
 
     invoke-virtual {v7, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    iget-object v7, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mText:Landroid/widget/TextView;
+    iget-object v7, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mTextView:Landroid/widget/TextView;
 
     invoke-virtual {v7, v2}, Landroid/widget/TextView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_a
 
     iget-object v7, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mIconBounds:Landroid/graphics/Rect;
 
     invoke-virtual {v5}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
-    move-result v10
+    move-result v9
 
     invoke-virtual {v5}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
-    move-result v11
+    move-result v10
 
-    invoke-virtual {v7, v4, v4, v10, v11}, Landroid/graphics/Rect;->set(IIII)V
-
-    iget-object v7, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mIconBounds:Landroid/graphics/Rect;
-
-    iget-object v10, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mAmbientMusicNoteIcon:Landroid/graphics/drawable/Drawable;
-
-    if-ne v5, v10, :cond_7
-
-    iget v10, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mAmbientMusicNoteIconIconSize:I
-
-    goto :goto_5
-
-    :cond_7
-    iget v10, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mAmbientIndicationIconSize:I
-
-    :goto_5
-    invoke-static {v7, v10}, Landroid/util/MathUtils;->fitRect(Landroid/graphics/Rect;I)V
+    invoke-virtual {v7, v4, v4, v9, v10}, Landroid/graphics/Rect;->set(IIII)V
 
     iget-object v7, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mIconBounds:Landroid/graphics/Rect;
 
-    invoke-virtual {v5, v7}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
+    iget-object v9, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mAmbientMusicNoteIcon:Landroid/graphics/drawable/Drawable;
 
-    :cond_8
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->isLayoutRtl()Z
+    if-ne v5, v9, :cond_9
 
-    move-result v7
-
-    if-eqz v7, :cond_9
-
-    move-object v7, v9
-
-    goto :goto_6
-
-    :cond_9
-    move-object v7, v5
-
-    :goto_6
-    if-nez v7, :cond_a
-
-    move-object v10, v5
-
-    goto :goto_7
-
-    :cond_a
-    move-object v10, v9
-
-    :goto_7
-    iget-object v11, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mText:Landroid/widget/TextView;
-
-    invoke-virtual {v11, v7, v9, v10, v9}, Landroid/widget/TextView;->setCompoundDrawables(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
-
-    iget-object v7, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mText:Landroid/widget/TextView;
-
-    if-nez v6, :cond_c
-
-    if-nez v5, :cond_b
+    iget v9, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mAmbientMusicNoteIconIconSize:I
 
     goto :goto_8
 
-    :cond_b
-    iget v9, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mDrawablePadding:I
+    :cond_9
+    iget v9, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mAmbientIndicationIconSize:I
+
+    :goto_8
+    invoke-static {v7, v9}, Landroid/util/MathUtils;->fitRect(Landroid/graphics/Rect;I)V
+
+    new-instance v7, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$1;
+
+    invoke-direct {v7, p0, v5}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$1;-><init>(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;Landroid/graphics/drawable/Drawable;)V
 
     goto :goto_9
 
-    :cond_c
-    :goto_8
-    move v9, v4
+    :cond_a
+    move-object v7, v5
 
     :goto_9
-    invoke-virtual {v7, v9}, Landroid/widget/TextView;->setCompoundDrawablePadding(I)V
+    iget-object v9, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mIconView:Landroid/widget/ImageView;
+
+    invoke-virtual {v9, v7}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_d
+    if-eqz v2, :cond_b
 
-    if-eqz v6, :cond_e
+    if-eqz v6, :cond_c
 
-    :cond_d
+    :cond_b
     iget-boolean v2, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mNotificationsHidden:Z
 
-    if-nez v2, :cond_e
+    if-nez v2, :cond_c
 
     goto :goto_a
 
-    :cond_e
+    :cond_c
     move v1, v4
 
     :goto_a
-    iget-object v2, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mText:Landroid/widget/TextView;
-
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_d
 
     goto :goto_b
 
-    :cond_f
+    :cond_d
     const/16 v4, 0x8
 
     :goto_b
+    iget-object v2, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mTextView:Landroid/widget/TextView;
+
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setVisibility(I)V
 
-    if-eqz v1, :cond_13
+    iget-object v2, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mIconView:Landroid/widget/ImageView;
+
+    invoke-virtual {v2, v4}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    if-eqz v1, :cond_11
 
     const-string v1, "AmbientIndication"
 
-    if-nez v3, :cond_11
+    if-nez v3, :cond_f
 
     iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mWakeLock:Lcom/android/systemui/util/wakelock/WakeLock;
 
     invoke-interface {v0, v1}, Lcom/android/systemui/util/wakelock/WakeLock;->acquire(Ljava/lang/String;)V
 
-    if-eqz v5, :cond_10
+    if-eqz v5, :cond_e
 
     instance-of v0, v5, Landroid/graphics/drawable/AnimatedVectorDrawable;
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_e
 
     check-cast v5, Landroid/graphics/drawable/AnimatedVectorDrawable;
 
     invoke-virtual {v5}, Landroid/graphics/drawable/AnimatedVectorDrawable;->start()V
 
-    :cond_10
-    iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mText:Landroid/widget/TextView;
+    :cond_e
+    iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mTextView:Landroid/widget/TextView;
 
     invoke-virtual {v0}, Landroid/widget/TextView;->getHeight()I
 
@@ -987,13 +1033,13 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTranslationY(F)V
 
-    iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mText:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mTextView:Landroid/widget/TextView;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setAlpha(F)V
 
-    iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mText:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mTextView:Landroid/widget/TextView;
 
     invoke-virtual {v0}, Landroid/widget/TextView;->animate()Landroid/view/ViewPropertyAnimator;
 
@@ -1021,9 +1067,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$1;
+    new-instance v1, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$2;
 
-    invoke-direct {v1, p0}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$1;-><init>(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;)V
+    invoke-direct {v1, p0}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$2;-><init>(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;)V
 
     invoke-virtual {v0, v1}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
 
@@ -1039,16 +1085,16 @@
 
     goto :goto_c
 
-    :cond_11
+    :cond_f
     iget v2, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mIndicationTextMode:I
 
-    if-eq v0, v2, :cond_12
+    if-eq v0, v2, :cond_10
 
-    if-eqz v5, :cond_15
+    if-eqz v5, :cond_13
 
     instance-of v0, v5, Landroid/graphics/drawable/AnimatedVectorDrawable;
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_13
 
     iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mWakeLock:Lcom/android/systemui/util/wakelock/WakeLock;
 
@@ -1064,12 +1110,12 @@
 
     goto :goto_c
 
-    :cond_12
+    :cond_10
     iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mWakeLock:Lcom/android/systemui/util/wakelock/WakeLock;
 
-    sget-object v2, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$$ExternalSyntheticLambda4;->INSTANCE:Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$$ExternalSyntheticLambda4;
+    sget-object v2, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$$ExternalSyntheticLambda6;->INSTANCE:Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$$ExternalSyntheticLambda6;
 
     invoke-interface {v1, v2}, Lcom/android/systemui/util/wakelock/WakeLock;->wrap(Ljava/lang/Runnable;)Ljava/lang/Runnable;
 
@@ -1079,8 +1125,8 @@
 
     goto :goto_c
 
-    :cond_13
-    iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mText:Landroid/widget/TextView;
+    :cond_11
+    iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mTextView:Landroid/widget/TextView;
 
     invoke-virtual {v0}, Landroid/widget/TextView;->animate()Landroid/view/ViewPropertyAnimator;
 
@@ -1088,22 +1134,22 @@
 
     invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->cancel()V
 
-    if-eqz v5, :cond_14
+    if-eqz v5, :cond_12
 
     instance-of v0, v5, Landroid/graphics/drawable/AnimatedVectorDrawable;
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_12
 
     check-cast v5, Landroid/graphics/drawable/AnimatedVectorDrawable;
 
     invoke-virtual {v5}, Landroid/graphics/drawable/AnimatedVectorDrawable;->reset()V
 
-    :cond_14
+    :cond_12
     iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mWakeLock:Lcom/android/systemui/util/wakelock/WakeLock;
 
-    sget-object v2, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$$ExternalSyntheticLambda3;->INSTANCE:Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$$ExternalSyntheticLambda3;
+    sget-object v2, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$$ExternalSyntheticLambda5;->INSTANCE:Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$$ExternalSyntheticLambda5;
 
     invoke-interface {v1, v2}, Lcom/android/systemui/util/wakelock/WakeLock;->wrap(Ljava/lang/Runnable;)Ljava/lang/Runnable;
 
@@ -1111,7 +1157,7 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    :cond_15
+    :cond_13
     :goto_c
     invoke-direct {p0}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->updateBottomPadding()V
 
@@ -1173,37 +1219,39 @@
 .end method
 
 .method public hideAmbientMusic()V
-    .locals 2
-
-    const/4 v0, 0x0
+    .locals 6
 
     const/4 v1, 0x0
 
-    invoke-virtual {p0, v0, v0, v1, v1}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->setAmbientMusic(Ljava/lang/CharSequence;Landroid/app/PendingIntent;IZ)V
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    move-object v0, p0
+
+    invoke-virtual/range {v0 .. v5}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->setAmbientMusic(Ljava/lang/CharSequence;Landroid/app/PendingIntent;Landroid/app/PendingIntent;IZ)V
 
     return-void
 .end method
 
-.method public initializeView(Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/systemui/statusbar/FeatureFlags;)V
+.method public initializeView(Lcom/android/systemui/statusbar/phone/StatusBar;)V
     .locals 0
 
     iput-object p1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    invoke-virtual {p2}, Lcom/android/systemui/statusbar/FeatureFlags;->isKeyguardLayoutEnabled()Z
+    new-instance p1, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$$ExternalSyntheticLambda4;
 
-    move-result p1
-
-    iput-boolean p1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mIsKeyguardLayoutEnabled:Z
-
-    new-instance p1, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$$ExternalSyntheticLambda2;
-
-    invoke-direct {p1, p0}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$$ExternalSyntheticLambda2;-><init>(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;)V
+    invoke-direct {p1, p0}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$$ExternalSyntheticLambda4;-><init>(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;)V
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/AutoReinflateContainer;->addInflateListener(Lcom/android/systemui/AutoReinflateContainer$InflateListener;)V
 
-    new-instance p1, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$$ExternalSyntheticLambda1;
+    new-instance p1, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$$ExternalSyntheticLambda3;
 
-    invoke-direct {p1, p0}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$$ExternalSyntheticLambda1;-><init>(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;)V
+    invoke-direct {p1, p0}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$$ExternalSyntheticLambda3;-><init>(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;)V
 
     invoke-virtual {p0, p1}, Landroid/widget/FrameLayout;->addOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
 
@@ -1247,47 +1295,6 @@
 
     invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/NotificationMediaManager;->addCallback(Lcom/android/systemui/statusbar/NotificationMediaManager$MediaListener;)V
 
-    return-void
-.end method
-
-.method public onClick(Landroid/view/View;)V
-    .locals 4
-
-    iget-object p1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mAmbientMusicIntent:Landroid/app/PendingIntent;
-
-    if-eqz p1, :cond_1
-
-    iget-object p1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
-
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
-
-    move-result-wide v0
-
-    iget-object v2, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mText:Landroid/widget/TextView;
-
-    const-string v3, "AMBIENT_MUSIC_CLICK"
-
-    invoke-virtual {p1, v0, v1, v2, v3}, Lcom/android/systemui/statusbar/phone/StatusBar;->wakeUpIfDozing(JLandroid/view/View;Ljava/lang/String;)V
-
-    iget-boolean p1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mAmbientSkipUnlock:Z
-
-    if-eqz p1, :cond_0
-
-    iget-object p1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mAmbientMusicIntent:Landroid/app/PendingIntent;
-
-    invoke-direct {p0, p1}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->sendBroadcastWithoutDismissingKeyguard(Landroid/app/PendingIntent;)V
-
-    goto :goto_0
-
-    :cond_0
-    iget-object p1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
-
-    iget-object p0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mAmbientMusicIntent:Landroid/app/PendingIntent;
-
-    invoke-virtual {p1, p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->startPendingIntentDismissingKeyguard(Landroid/app/PendingIntent;)V
-
-    :cond_1
-    :goto_0
     return-void
 .end method
 
@@ -1340,7 +1347,7 @@
 
     invoke-direct {p0}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->updateVisibility()V
 
-    iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mText:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mTextView:Landroid/widget/TextView;
 
     xor-int/lit8 p1, p1, 0x1
 
@@ -1384,18 +1391,57 @@
     return-void
 .end method
 
-.method public setAmbientMusic(Ljava/lang/CharSequence;Landroid/app/PendingIntent;IZ)V
-    .locals 0
+.method public setAmbientMusic(Ljava/lang/CharSequence;Landroid/app/PendingIntent;Landroid/app/PendingIntent;IZ)V
+    .locals 1
 
+    iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mAmbientMusicText:Ljava/lang/CharSequence;
+
+    invoke-static {v0, p1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mOpenIntent:Landroid/app/PendingIntent;
+
+    invoke-static {v0, p2}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mFavoritingIntent:Landroid/app/PendingIntent;
+
+    invoke-static {v0, p3}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mIconOverride:I
+
+    if-ne v0, p4, :cond_0
+
+    iget-boolean v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mAmbientSkipUnlock:Z
+
+    if-ne v0, p5, :cond_0
+
+    return-void
+
+    :cond_0
     iput-object p1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mAmbientMusicText:Ljava/lang/CharSequence;
 
-    iput-object p2, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mAmbientMusicIntent:Landroid/app/PendingIntent;
+    iput-object p2, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mOpenIntent:Landroid/app/PendingIntent;
 
-    iput-boolean p4, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mAmbientSkipUnlock:Z
+    iput-object p3, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mFavoritingIntent:Landroid/app/PendingIntent;
+
+    iput-boolean p5, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mAmbientSkipUnlock:Z
+
+    iput p4, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mIconOverride:I
 
     iget-object p1, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
 
-    invoke-static {p3, p1}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->getAmbientIconOverride(ILandroid/content/Context;)Landroid/graphics/drawable/Drawable;
+    invoke-direct {p0, p4, p1}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->getAmbientIconOverride(ILandroid/content/Context;)Landroid/graphics/drawable/Drawable;
 
     move-result-object p1
 
@@ -1409,6 +1455,21 @@
 .method public setReverseChargingMessage(Ljava/lang/CharSequence;)V
     .locals 1
 
+    iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mReverseChargingMessage:Ljava/lang/CharSequence;
+
+    invoke-static {v0, p1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mWirelessChargingMessage:Ljava/lang/CharSequence;
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mWirelessChargingMessage:Ljava/lang/CharSequence;
@@ -1421,8 +1482,23 @@
 .end method
 
 .method public setWirelessChargingMessage(Ljava/lang/CharSequence;)V
-    .locals 0
+    .locals 1
 
+    iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mWirelessChargingMessage:Ljava/lang/CharSequence;
+
+    invoke-static {v0, p1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mReverseChargingMessage:Ljava/lang/CharSequence;
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
     iput-object p1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->mWirelessChargingMessage:Ljava/lang/CharSequence;
 
     const/4 p1, 0x0

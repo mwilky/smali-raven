@@ -138,6 +138,16 @@
     .end annotation
 .end field
 
+.field private final variableDateViewControllerFactoryProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/policy/VariableDateViewController$Factory;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final viewProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -150,7 +160,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -193,6 +203,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/FeatureFlags;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/policy/VariableDateViewController$Factory;",
             ">;)V"
         }
     .end annotation
@@ -225,11 +238,13 @@
 
     iput-object p13, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
 
+    iput-object p14, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController_Factory;->variableDateViewControllerFactoryProvider:Ljavax/inject/Provider;
+
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/qs/QuickStatusBarHeaderController_Factory;
-    .locals 15
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/qs/QuickStatusBarHeaderController_Factory;
+    .locals 16
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -271,16 +286,19 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/FeatureFlags;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/policy/VariableDateViewController$Factory;",
             ">;)",
             "Lcom/android/systemui/qs/QuickStatusBarHeaderController_Factory;"
         }
     .end annotation
 
-    new-instance v14, Lcom/android/systemui/qs/QuickStatusBarHeaderController_Factory;
+    new-instance v15, Lcom/android/systemui/qs/QuickStatusBarHeaderController_Factory;
 
-    move-object v0, v14
+    move-object v0, v15
 
-    move-object v1, p0
+    move-object/from16 v1, p0
 
     move-object/from16 v2, p1
 
@@ -306,19 +324,21 @@
 
     move-object/from16 v13, p12
 
-    invoke-direct/range {v0 .. v13}, Lcom/android/systemui/qs/QuickStatusBarHeaderController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v14, p13
 
-    return-object v14
+    invoke-direct/range {v0 .. v14}, Lcom/android/systemui/qs/QuickStatusBarHeaderController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v15
 .end method
 
-.method public static newInstance(Lcom/android/systemui/qs/QuickStatusBarHeader;Lcom/android/systemui/privacy/PrivacyItemController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/phone/StatusBarIconController;Lcom/android/systemui/demomode/DemoModeController;Lcom/android/systemui/qs/QuickQSPanelController;Lcom/android/systemui/qs/carrier/QSCarrierGroupController$Builder;Lcom/android/systemui/privacy/logging/PrivacyLogger;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/systemui/privacy/PrivacyDialogController;Lcom/android/systemui/qs/QSExpansionPathInterpolator;Lcom/android/systemui/statusbar/FeatureFlags;)Lcom/android/systemui/qs/QuickStatusBarHeaderController;
-    .locals 15
+.method public static newInstance(Lcom/android/systemui/qs/QuickStatusBarHeader;Lcom/android/systemui/privacy/PrivacyItemController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/phone/StatusBarIconController;Lcom/android/systemui/demomode/DemoModeController;Lcom/android/systemui/qs/QuickQSPanelController;Lcom/android/systemui/qs/carrier/QSCarrierGroupController$Builder;Lcom/android/systemui/privacy/logging/PrivacyLogger;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/systemui/privacy/PrivacyDialogController;Lcom/android/systemui/qs/QSExpansionPathInterpolator;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/statusbar/policy/VariableDateViewController$Factory;)Lcom/android/systemui/qs/QuickStatusBarHeaderController;
+    .locals 16
 
-    new-instance v14, Lcom/android/systemui/qs/QuickStatusBarHeaderController;
+    new-instance v15, Lcom/android/systemui/qs/QuickStatusBarHeaderController;
 
-    move-object v0, v14
+    move-object v0, v15
 
-    move-object v1, p0
+    move-object/from16 v1, p0
 
     move-object/from16 v2, p1
 
@@ -344,15 +364,17 @@
 
     move-object/from16 v13, p12
 
-    invoke-direct/range {v0 .. v13}, Lcom/android/systemui/qs/QuickStatusBarHeaderController;-><init>(Lcom/android/systemui/qs/QuickStatusBarHeader;Lcom/android/systemui/privacy/PrivacyItemController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/phone/StatusBarIconController;Lcom/android/systemui/demomode/DemoModeController;Lcom/android/systemui/qs/QuickQSPanelController;Lcom/android/systemui/qs/carrier/QSCarrierGroupController$Builder;Lcom/android/systemui/privacy/logging/PrivacyLogger;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/systemui/privacy/PrivacyDialogController;Lcom/android/systemui/qs/QSExpansionPathInterpolator;Lcom/android/systemui/statusbar/FeatureFlags;)V
+    move-object/from16 v14, p13
 
-    return-object v14
+    invoke-direct/range {v0 .. v14}, Lcom/android/systemui/qs/QuickStatusBarHeaderController;-><init>(Lcom/android/systemui/qs/QuickStatusBarHeader;Lcom/android/systemui/privacy/PrivacyItemController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/phone/StatusBarIconController;Lcom/android/systemui/demomode/DemoModeController;Lcom/android/systemui/qs/QuickQSPanelController;Lcom/android/systemui/qs/carrier/QSCarrierGroupController$Builder;Lcom/android/systemui/privacy/logging/PrivacyLogger;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/systemui/privacy/PrivacyDialogController;Lcom/android/systemui/qs/QSExpansionPathInterpolator;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/statusbar/policy/VariableDateViewController$Factory;)V
+
+    return-object v15
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/systemui/qs/QuickStatusBarHeaderController;
-    .locals 14
+    .locals 15
 
     iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController_Factory;->viewProvider:Ljavax/inject/Provider;
 
@@ -474,17 +496,27 @@
 
     check-cast v12, Lcom/android/systemui/qs/QSExpansionPathInterpolator;
 
-    iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v13, v0
+
+    check-cast v13, Lcom/android/systemui/statusbar/FeatureFlags;
+
+    iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController_Factory;->variableDateViewControllerFactoryProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    move-object v13, p0
+    move-object v14, p0
 
-    check-cast v13, Lcom/android/systemui/statusbar/FeatureFlags;
+    check-cast v14, Lcom/android/systemui/statusbar/policy/VariableDateViewController$Factory;
 
-    invoke-static/range {v1 .. v13}, Lcom/android/systemui/qs/QuickStatusBarHeaderController_Factory;->newInstance(Lcom/android/systemui/qs/QuickStatusBarHeader;Lcom/android/systemui/privacy/PrivacyItemController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/phone/StatusBarIconController;Lcom/android/systemui/demomode/DemoModeController;Lcom/android/systemui/qs/QuickQSPanelController;Lcom/android/systemui/qs/carrier/QSCarrierGroupController$Builder;Lcom/android/systemui/privacy/logging/PrivacyLogger;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/systemui/privacy/PrivacyDialogController;Lcom/android/systemui/qs/QSExpansionPathInterpolator;Lcom/android/systemui/statusbar/FeatureFlags;)Lcom/android/systemui/qs/QuickStatusBarHeaderController;
+    invoke-static/range {v1 .. v14}, Lcom/android/systemui/qs/QuickStatusBarHeaderController_Factory;->newInstance(Lcom/android/systemui/qs/QuickStatusBarHeader;Lcom/android/systemui/privacy/PrivacyItemController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/phone/StatusBarIconController;Lcom/android/systemui/demomode/DemoModeController;Lcom/android/systemui/qs/QuickQSPanelController;Lcom/android/systemui/qs/carrier/QSCarrierGroupController$Builder;Lcom/android/systemui/privacy/logging/PrivacyLogger;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/systemui/privacy/PrivacyDialogController;Lcom/android/systemui/qs/QSExpansionPathInterpolator;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/statusbar/policy/VariableDateViewController$Factory;)Lcom/android/systemui/qs/QuickStatusBarHeaderController;
 
     move-result-object p0
 

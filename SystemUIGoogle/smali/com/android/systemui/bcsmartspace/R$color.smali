@@ -6,4 +6,4 @@
 # static fields
 .field public static final ambient_text_shadow_color:I = 0x7f06003c
 
-.field public static final key_text_shadow_color:I = 0x7f060109
+.field public static final key_text_shadow_color:I = 0x7f06010b

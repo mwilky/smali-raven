@@ -26,6 +26,8 @@
 
 .field public static final enum COLUMBUS_INVOKED_LAUNCH_APP:Lcom/google/android/systemui/columbus/ColumbusEvent;
 
+.field public static final enum COLUMBUS_INVOKED_LAUNCH_APP_SECURE:Lcom/google/android/systemui/columbus/ColumbusEvent;
+
 .field public static final enum COLUMBUS_INVOKED_LAUNCH_SHORTCUT:Lcom/google/android/systemui/columbus/ColumbusEvent;
 
 .field public static final enum COLUMBUS_INVOKED_NOTIFICATION_SHADE_CLOSE:Lcom/google/android/systemui/columbus/ColumbusEvent;
@@ -48,6 +50,16 @@
 
 .field public static final enum COLUMBUS_MODE_LOW_POWER_ACTIVE:Lcom/google/android/systemui/columbus/ColumbusEvent;
 
+.field public static final enum COLUMBUS_RETARGET_APPROVED:Lcom/google/android/systemui/columbus/ColumbusEvent;
+
+.field public static final enum COLUMBUS_RETARGET_DIALOG_SHOWN:Lcom/google/android/systemui/columbus/ColumbusEvent;
+
+.field public static final enum COLUMBUS_RETARGET_FOLLOW_ON_APPROVED:Lcom/google/android/systemui/columbus/ColumbusEvent;
+
+.field public static final enum COLUMBUS_RETARGET_FOLLOW_ON_NOT_APPROVED:Lcom/google/android/systemui/columbus/ColumbusEvent;
+
+.field public static final enum COLUMBUS_RETARGET_NOT_APPROVED:Lcom/google/android/systemui/columbus/ColumbusEvent;
+
 .field public static final enum COLUMBUS_UNKNOWN_EVENT:Lcom/google/android/systemui/columbus/ColumbusEvent;
 
 
@@ -57,7 +69,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 18
+    .locals 24
 
     new-instance v0, Lcom/google/android/systemui/columbus/ColumbusEvent;
 
@@ -191,57 +203,141 @@
 
     new-instance v6, Lcom/google/android/systemui/columbus/ColumbusEvent;
 
-    const-string v15, "COLUMBUS_INVOKED_ON_SETTINGS"
+    const-string v15, "COLUMBUS_INVOKED_LAUNCH_APP_SECURE"
 
     const/16 v14, 0xb
 
-    const/16 v4, 0x331
+    const/16 v4, 0x382
 
     invoke-direct {v6, v15, v14, v4}, Lcom/google/android/systemui/columbus/ColumbusEvent;-><init>(Ljava/lang/String;II)V
 
-    sput-object v6, Lcom/google/android/systemui/columbus/ColumbusEvent;->COLUMBUS_INVOKED_ON_SETTINGS:Lcom/google/android/systemui/columbus/ColumbusEvent;
+    sput-object v6, Lcom/google/android/systemui/columbus/ColumbusEvent;->COLUMBUS_INVOKED_LAUNCH_APP_SECURE:Lcom/google/android/systemui/columbus/ColumbusEvent;
 
     new-instance v4, Lcom/google/android/systemui/columbus/ColumbusEvent;
 
-    const-string v15, "COLUMBUS_MODE_LOW_POWER_ACTIVE"
+    const-string v15, "COLUMBUS_INVOKED_ON_SETTINGS"
 
     const/16 v14, 0xc
 
-    const/16 v2, 0x27b
+    const/16 v2, 0x331
 
     invoke-direct {v4, v15, v14, v2}, Lcom/google/android/systemui/columbus/ColumbusEvent;-><init>(Ljava/lang/String;II)V
 
-    sput-object v4, Lcom/google/android/systemui/columbus/ColumbusEvent;->COLUMBUS_MODE_LOW_POWER_ACTIVE:Lcom/google/android/systemui/columbus/ColumbusEvent;
+    sput-object v4, Lcom/google/android/systemui/columbus/ColumbusEvent;->COLUMBUS_INVOKED_ON_SETTINGS:Lcom/google/android/systemui/columbus/ColumbusEvent;
 
     new-instance v2, Lcom/google/android/systemui/columbus/ColumbusEvent;
 
-    const-string v15, "COLUMBUS_MODE_HIGH_POWER_ACTIVE"
+    const-string v15, "COLUMBUS_MODE_LOW_POWER_ACTIVE"
 
     const/16 v14, 0xd
 
     move-object/from16 v16, v4
 
-    const/16 v4, 0x27c
+    const/16 v4, 0x27b
 
     invoke-direct {v2, v15, v14, v4}, Lcom/google/android/systemui/columbus/ColumbusEvent;-><init>(Ljava/lang/String;II)V
 
-    sput-object v2, Lcom/google/android/systemui/columbus/ColumbusEvent;->COLUMBUS_MODE_HIGH_POWER_ACTIVE:Lcom/google/android/systemui/columbus/ColumbusEvent;
+    sput-object v2, Lcom/google/android/systemui/columbus/ColumbusEvent;->COLUMBUS_MODE_LOW_POWER_ACTIVE:Lcom/google/android/systemui/columbus/ColumbusEvent;
 
     new-instance v4, Lcom/google/android/systemui/columbus/ColumbusEvent;
 
-    const-string v15, "COLUMBUS_MODE_INACTIVE"
+    const-string v15, "COLUMBUS_MODE_HIGH_POWER_ACTIVE"
 
     const/16 v14, 0xe
 
     move-object/from16 v17, v2
 
-    const/16 v2, 0x27d
+    const/16 v2, 0x27c
 
     invoke-direct {v4, v15, v14, v2}, Lcom/google/android/systemui/columbus/ColumbusEvent;-><init>(Ljava/lang/String;II)V
 
-    sput-object v4, Lcom/google/android/systemui/columbus/ColumbusEvent;->COLUMBUS_MODE_INACTIVE:Lcom/google/android/systemui/columbus/ColumbusEvent;
+    sput-object v4, Lcom/google/android/systemui/columbus/ColumbusEvent;->COLUMBUS_MODE_HIGH_POWER_ACTIVE:Lcom/google/android/systemui/columbus/ColumbusEvent;
 
-    const/16 v2, 0xf
+    new-instance v2, Lcom/google/android/systemui/columbus/ColumbusEvent;
+
+    const-string v15, "COLUMBUS_MODE_INACTIVE"
+
+    const/16 v14, 0xf
+
+    move-object/from16 v18, v4
+
+    const/16 v4, 0x27d
+
+    invoke-direct {v2, v15, v14, v4}, Lcom/google/android/systemui/columbus/ColumbusEvent;-><init>(Ljava/lang/String;II)V
+
+    sput-object v2, Lcom/google/android/systemui/columbus/ColumbusEvent;->COLUMBUS_MODE_INACTIVE:Lcom/google/android/systemui/columbus/ColumbusEvent;
+
+    new-instance v4, Lcom/google/android/systemui/columbus/ColumbusEvent;
+
+    const-string v15, "COLUMBUS_RETARGET_DIALOG_SHOWN"
+
+    const/16 v14, 0x10
+
+    move-object/from16 v19, v2
+
+    const/16 v2, 0x383
+
+    invoke-direct {v4, v15, v14, v2}, Lcom/google/android/systemui/columbus/ColumbusEvent;-><init>(Ljava/lang/String;II)V
+
+    sput-object v4, Lcom/google/android/systemui/columbus/ColumbusEvent;->COLUMBUS_RETARGET_DIALOG_SHOWN:Lcom/google/android/systemui/columbus/ColumbusEvent;
+
+    new-instance v2, Lcom/google/android/systemui/columbus/ColumbusEvent;
+
+    const-string v15, "COLUMBUS_RETARGET_APPROVED"
+
+    const/16 v14, 0x11
+
+    move-object/from16 v20, v4
+
+    const/16 v4, 0x384
+
+    invoke-direct {v2, v15, v14, v4}, Lcom/google/android/systemui/columbus/ColumbusEvent;-><init>(Ljava/lang/String;II)V
+
+    sput-object v2, Lcom/google/android/systemui/columbus/ColumbusEvent;->COLUMBUS_RETARGET_APPROVED:Lcom/google/android/systemui/columbus/ColumbusEvent;
+
+    new-instance v4, Lcom/google/android/systemui/columbus/ColumbusEvent;
+
+    const-string v15, "COLUMBUS_RETARGET_NOT_APPROVED"
+
+    const/16 v14, 0x12
+
+    move-object/from16 v21, v2
+
+    const/16 v2, 0x385
+
+    invoke-direct {v4, v15, v14, v2}, Lcom/google/android/systemui/columbus/ColumbusEvent;-><init>(Ljava/lang/String;II)V
+
+    sput-object v4, Lcom/google/android/systemui/columbus/ColumbusEvent;->COLUMBUS_RETARGET_NOT_APPROVED:Lcom/google/android/systemui/columbus/ColumbusEvent;
+
+    new-instance v2, Lcom/google/android/systemui/columbus/ColumbusEvent;
+
+    const-string v15, "COLUMBUS_RETARGET_FOLLOW_ON_APPROVED"
+
+    const/16 v14, 0x13
+
+    move-object/from16 v22, v4
+
+    const/16 v4, 0x386
+
+    invoke-direct {v2, v15, v14, v4}, Lcom/google/android/systemui/columbus/ColumbusEvent;-><init>(Ljava/lang/String;II)V
+
+    sput-object v2, Lcom/google/android/systemui/columbus/ColumbusEvent;->COLUMBUS_RETARGET_FOLLOW_ON_APPROVED:Lcom/google/android/systemui/columbus/ColumbusEvent;
+
+    new-instance v4, Lcom/google/android/systemui/columbus/ColumbusEvent;
+
+    const-string v15, "COLUMBUS_RETARGET_FOLLOW_ON_NOT_APPROVED"
+
+    const/16 v14, 0x14
+
+    move-object/from16 v23, v2
+
+    const/16 v2, 0x387
+
+    invoke-direct {v4, v15, v14, v2}, Lcom/google/android/systemui/columbus/ColumbusEvent;-><init>(Ljava/lang/String;II)V
+
+    sput-object v4, Lcom/google/android/systemui/columbus/ColumbusEvent;->COLUMBUS_RETARGET_FOLLOW_ON_NOT_APPROVED:Lcom/google/android/systemui/columbus/ColumbusEvent;
+
+    const/16 v2, 0x15
 
     new-array v2, v2, [Lcom/google/android/systemui/columbus/ColumbusEvent;
 
@@ -300,6 +396,30 @@
     const/16 v0, 0xd
 
     aput-object v17, v2, v0
+
+    const/16 v0, 0xe
+
+    aput-object v18, v2, v0
+
+    const/16 v0, 0xf
+
+    aput-object v19, v2, v0
+
+    const/16 v0, 0x10
+
+    aput-object v20, v2, v0
+
+    const/16 v0, 0x11
+
+    aput-object v21, v2, v0
+
+    const/16 v0, 0x12
+
+    aput-object v22, v2, v0
+
+    const/16 v0, 0x13
+
+    aput-object v23, v2, v0
 
     aput-object v4, v2, v14
 

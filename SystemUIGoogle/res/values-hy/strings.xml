@@ -363,6 +363,7 @@
     <string name="alarms_and_reminders_label">Զարթուցիչներ և հիշեցումներ</string>
     <string name="alarms_and_reminders_switch_title">Թույլատրել զարթուցիչների և հիշեցումների սահմանումը</string>
     <string name="alarms_and_reminders_title">Զարթուցիչներ և հիշեցումներ</string>
+    <string name="all_network_unavailable">Հասանելի ցանցեր չկան</string>
     <string name="allow_mock_location">Թույատրել կեղծ տեղադրությունները</string>
     <string name="allow_mock_location_summary">Թույլ տալ կեղծ տեղադրություններ</string>
     <string name="always_use_accessory">Միշտ բացել %1$s հավելվածը, երբ %2$s լրասարքը միացված է</string>
@@ -618,6 +619,11 @@
     <string name="clock_title_analog">Անալոգային</string>
     <string name="clock_title_bubble">Պղպջակ</string>
     <string name="clock_title_default">Կանխադրված</string>
+    <string name="columbus_bouncer_message">Արագ հպումը կատարելու համար ապակողպեք էկրանը</string>
+    <string name="columbus_target_request_dialog_allow">Թույլատրել</string>
+    <string name="columbus_target_request_dialog_deny">Չթույլատրել</string>
+    <string name="columbus_target_request_dialog_summary">Հեռախոսի հետևի կողմին կրկնակի հպելու դեպքում %1$s հավելվածը կբացվի։ Այս ընտրությունը ցանկացած պահի կարող եք փոխել կարգավորումներում։</string>
+    <string name="columbus_target_request_dialog_title">Թույլատրե՞լ, որ %1$s հավելվածը բացվի կարճ հպումով</string>
     <string name="compat_mode_off">Ձգել` էկրանը լցնելու համար</string>
     <string name="compat_mode_on">Խոշորացնել` էկրանը լցնելու համար</string>
     <string name="confirm_enable_oem_unlock_text">ԶԳՈՒՇԱՑՈՒՄ. Այս կարգավորումը միացրած ժամանակ սարքի պաշտպանության գործառույթները չեն աջակցվի այս սարքի վրա:</string>
@@ -740,6 +746,8 @@
     <string name="defender_notify_learn_more">Իմանալ ավելին</string>
     <string name="defender_notify_resume_charge">Վերսկսել լիցքավորումը</string>
     <string name="defender_notify_title">Լիցքավորումը ժամանակավորապես սահմանափակված է</string>
+    <string name="defender_post_notify_des">Լիցքավորման մակարդակը %2$s - %3$s ժամանակահատվածի համար սահմանափակված է մինչև %1$s՝ մարտկոցի երկարակեցությունը ապահովելու նպատակով</string>
+    <string name="defender_post_notify_title">Սովորական լիցքավորում</string>
     <string name="delete_blob_confirmation_text">Իսկապե՞ս ուզում եք ջնջել հասանելի դարձված այս տվյալները։</string>
     <string name="delete_blob_text">Ջնջել հասանելի դարձված տվյալները</string>
     <string name="demo_mode">Համակարգի միջերեսի ցուցադրական ռեժիմ</string>
@@ -885,6 +893,7 @@
     <string name="game_status">Խաղ եմ խաղում</string>
     <string name="global_action_lock_message">Ապակողպեք ձեր հեռախոսը՝ լրացուցիչ կարգավորումները տեսնելու համար</string>
     <string name="global_action_screenshot">Սքրինշոթ</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock-ն անջատված է</string>
     <string name="global_actions_change_description">%1$s-ն ու սարքի կառավարման տարրերը բացելու համար մատը էկրանի վերևից սահեցրեք ներքև։</string>
     <string name="go_to_web">Անցնել դիտարկիչ</string>
     <string name="google_services_wallpaper_permission"><b>Թույլ տալ Google-ի կենդանի պաստառներին արձագանքել ձեր տեղադրությանը՝</b> Google-ի տեղորոշման ծառայությունն օգտագործելու միջոցով:</string>
@@ -1232,7 +1241,7 @@
     <string name="media_projection_dialog_text">Ձայնագրման և հեռարձակման ընթացքում %s հավելվածին հասանելի կլինեն ձեր սարքի էկրանին ցուցադրվող տեղեկությունները և ձեր սարքով նվագարկվող նյութերը։ Սա ներառում է այնպիսի տեղեկություններ, ինչպիսիք են, օրինակ, գաղտնաբառերը, վճարային տվյալները, լուսանկարները, հաղորդագրությունները և նվագարկվող աուդիո ֆայլերը։</string>
     <string name="media_projection_dialog_title">Սկսե՞լ ձայնագրումը կամ հեռարձակումը %s հավելվածով</string>
     <string name="media_projection_remember_text">Այլևս ցույց չտալ</string>
-    <string name="media_seamless_remote_device">Սարք</string>
+    <string name="media_seamless_other_device">Այլ սարք</string>
     <string name="media_transfer_this_device_name">Հեռախոսի բարձրախոս</string>
     <string name="media_transfer_this_phone">Այս հեռախոսը</string>
     <string name="media_transfer_wired_device_name">Լարով աուդիո սարք</string>
@@ -1249,9 +1258,13 @@
     <string name="mobile_data">Բջջային ինտերնետ</string>
     <string name="mobile_data_always_on">Բջջային ինտերնետը միշտ ակտիվ է</string>
     <string name="mobile_data_always_on_summary">Միշտ ակտիվացրած պահել բջջային տվյալները, նույնիսկ Wi‑Fi-ը միացրած ժամանակ (ցանցերի միջև արագ փոխարկման համար):</string>
+    <string name="mobile_data_connection_active">Միացած է</string>
     <string name="mobile_data_disable_message">"%s օպերատորի բջջային ինտերնետը հասանելի չի լինի: Համացանցից կկարողանաք  օգտվել միայն Wi-Fi-ի միջոցով:"</string>
     <string name="mobile_data_disable_message_default_carrier">Ձեր</string>
     <string name="mobile_data_disable_title">Անջատե՞լ բջջային ինտերնետը</string>
+    <string name="mobile_data_no_connection">Կապ չկա</string>
+    <string name="mobile_data_off_summary">Բջջային ինտերնետն ավտոմատ չի միանա</string>
+    <string name="mobile_data_settings_title">Բջջային ինտերնետ</string>
     <string name="mobile_data_text_format">%1$s — %2$s</string>
     <string name="mock_location_app">Ընտրել կեղծ տեղադրության հավելված</string>
     <string name="mock_location_app_not_set">Տեղադրությունը կեղծող հավելված տեղակայված չէ</string>
@@ -1391,6 +1404,7 @@
     <string name="no_content_in_select_mode">Ոչ մի տեքստ կամ պատկեր չի ընտրվի</string>
     <string name="no_conversations_text">Ձեր վերջին զրույցները կցուցադրվեն այստեղ</string>
     <string name="no_shortcut">%1$s հավելվածը զրույցի գործառույթներ չի աջակցում</string>
+    <string name="non_carrier_network_unavailable">Այլ հասանելի ցանցեր չկան</string>
     <string name="not_default_data_content_description">Բջջային ինտերնետն ըստ կանխադրման չի օգտագործվում</string>
     <string name="not_set">Կարգավորված չէ</string>
     <string name="notif_inline_reply_remove_attachment_description">Հեռացնել առդիրը</string>
@@ -1571,8 +1585,9 @@
     <string name="power_remaining_only_more_than_subtext">Մնացել է ավելի քան %1$s</string>
     <string name="power_remaining_settings_home_page">%1$s – %2$s</string>
     <string name="power_suggestion_battery_run_out">Լիցքը կարող է սպառվել մինչև %1$s</string>
+    <string name="pref_title_network_details">Ցանցի տվյալներ</string>
     <string name="preference_copied">«%1$s». պատճենվեց սեղմատախտակին:</string>
-    <string name="preference_summary_default_combination">%1$s / %2$s</string>
+    <string name="preference_summary_default_combination">%1$s/%2$s</string>
     <string name="priority_conversations">Կարևոր զրույցներ</string>
     <string name="privacy_type_camera">տեսախցիկը</string>
     <string name="privacy_type_location">վայրը</string>
@@ -1740,6 +1755,7 @@
     <string name="right_keycode">Աջ ստեղնային կոդ</string>
     <string name="right_nav_bar_button_type">Լրացուցիչ աջ կոճակի տեսակ</string>
     <string name="ring_toggle_title">Զանգեր</string>
+    <string name="rotation_lock_camera_rotation_on">Միաց․ – Դիմաճանաչման հիման վրա</string>
     <string name="running_foreground_services_msg">Հպեք՝ մարտկոցի և թրաֆիկի մանրամասները տեսնելու համար</string>
     <string name="running_foreground_services_title">Ֆոնային ռեժիմում աշխատող հավելվածներ</string>
     <string name="running_process_item_user_label">Օգտատեր՝ %1$s</string>
@@ -1814,6 +1830,7 @@
     <string name="screenshot_top_boundary_pct">Վերևի սահմանագիծը՝ %1$d%%</string>
     <string name="search_menu">Որոնեք կարգավորումներ</string>
     <string name="search_menu_title">Որոնել</string>
+    <string name="see_all_networks">Տեսնել բոլորը</string>
     <string name="see_more_title">Իմանալ ավելին</string>
     <string name="select_application">Ընտրել հավելվածը</string>
     <string name="select_conversation_text">Հպեք զրույցին՝ այն հիմնական էկրանին ավելացնելու համար</string>
@@ -1926,6 +1943,7 @@
     <string name="switch_bar_off">Անջատված է</string>
     <string name="switch_bar_on">Միացված է</string>
     <string name="system_ui_tuner">Համակարգի ՕՄ-ի կարգավորիչ</string>
+    <string name="tap_a_network_to_connect">Հպեք ցանցին՝ միանալու համար</string>
     <string name="tap_again">Նորից հպեք</string>
     <string name="tap_to_sign_up">Հպեք՝ գրանցվելու համար</string>
     <string name="tether_settings_title_all">Մոդեմի ռեժիմ</string>
@@ -1951,6 +1969,7 @@
     <string name="time_unit_just_now">Հենց նոր</string>
     <string name="title_convert_fbe">Վերածում ֆայլային գաղտնագրման</string>
     <string name="title_usb_accessory">USB լրասարք</string>
+    <string name="to_switch_networks_disconnect_ethernet">Մի ցանցից մյուսին անցնելու համար անջատեք Ethernet-ը</string>
     <string name="too_hot_label">Pixel-ը գերտաքացած է</string>
     <string name="touch_filtered_warning">Քանի որ ներածումն արգելափակված է ինչ-որ հավելվածի կողմից, Կարգավորումները չեն կարող հաստատել ձեր պատասխանը:</string>
     <string name="track_frame_time">Պրոֆիլի HWUI արտապատկերում</string>
@@ -2009,10 +2028,12 @@
     <string name="tuner_toast">Համակարգի ՕՄ-ի կարգավորիչը ավելացվել է կարգավորումներին</string>
     <string name="tuner_warning">Համակարգի ՕՄ-ի կարգավորիչը հնարավորություն է տալիս հարմարեցնել Android-ի օգտատիրոջ միջերեսը: Այս փորձնական գործառույթները կարող են հետագա թողարկումների մեջ փոփոխվել, խափանվել կամ ընդհանրապես չհայտնվել: Եթե շարունակում եք, զգուշացեք:</string>
     <string name="tuner_warning_title">Զվարճանք մեկ՝ որոշակի մարդու համար</string>
+    <string name="turn_on_wifi">Wi‑Fi</string>
     <string name="tv_notification_panel_no_notifications">Ծանուցումներ չկան</string>
     <string name="tv_notification_panel_title">Ծանուցումներ</string>
     <string name="two_weeks_timestamp">2 շաբաթ առաջ</string>
     <string name="unknown">Անհայտ</string>
+    <string name="unlock_to_view_networks">Ապակողպեք՝ ցանցերը դիտելու համար</string>
     <string name="upcoming_birthday_status">Շուտով ծննդյանս օրն է</string>
     <string name="upcoming_birthday_status_content_description">Շուտով %1$s-ի տարեդարձն է</string>
     <string name="url_menu_copy">Պատճենել</string>
@@ -2151,9 +2172,11 @@ Wi‑Fi-ի հասցեն (BSSID)
     <string name="wifi_disconnected">Կապ չկա</string>
     <string name="wifi_display_certification">Անլար էկրանների հավաստագրում</string>
     <string name="wifi_display_certification_summary">Ցույց տալ անլար էկրանների հավաստագրման ընտրանքները</string>
+    <string name="wifi_empty_list_wifi_on">Ցանցերի որոնում…</string>
     <string name="wifi_enhanced_mac_randomization">Պատահական հերթականությամբ դասավորված MAC հասցեներ Wi‑Fi ցանցում</string>
     <string name="wifi_enhanced_mac_randomization_summary">Երբ այս ռեժիմը միացված է, MAC հասցեն կարող է փոխվել ամեն անգամ, երբ սարքը միանա որևէ ցանցի, որում միացված է MAC հասցեների պատահական ընտրությունը։</string>
     <string name="wifi_fail_to_scan">Հնարավոր չէ սկանավորել ցանցերը</string>
+    <string name="wifi_failed_connect_message">Չհաջողվեց միանալ ցանցին</string>
     <string name="wifi_hotspot_switch_off_text">Անջատել</string>
     <string name="wifi_hotspot_switch_on_text">Միացնել</string>
     <string name="wifi_is_off">Wi-Fi-ն անջատված է</string>
@@ -2164,6 +2187,7 @@ Wi‑Fi-ի հասցեն (BSSID)
     <string name="wifi_not_in_range">Ընդգրկույթից դուրս է</string>
     <string name="wifi_passpoint_expired">Սպառվել է</string>
     <string name="wifi_remembered">Պահված է</string>
+    <string name="wifi_scan_notify_message">Սարքի աշխատանքը բարելավելու համար հավելվածներն ու ծառայությունները կորոնեն Wi‑Fi ցանցեր, նույնիսկ երբ Wi‑Fi-ն անջատված է։ Այս պարամետրը կարող եք փոխել Wi‑Fi ցանցերի որոնման կարգավորումներում։ <annotation id="link">Փոխել</annotation></string>
     <string name="wifi_scan_throttling">Wi‑Fi-ի որոնման սահմանափակում</string>
     <string name="wifi_scan_throttling_summary">Նվազեցնում է մարտկոցի սպառումը և լավացնում ցանցի աշխատանքը</string>
     <string name="wifi_security_none">Ոչ մեկը</string>
@@ -2173,6 +2197,7 @@ Wi‑Fi-ի հասցեն (BSSID)
     <string name="wifi_unmetered_label">Անսահմանափակ թրաֆիկ</string>
     <string name="wifi_verbose_logging">Միացնել Wi‑Fi մանրամասն գրանցամատյանները</string>
     <string name="wifi_verbose_logging_summary">Բարձրացնել մակարդակը, Wi‑Fi ընտրիչում ամեն մի SSID-ի համար ցույց տալ RSSI</string>
+    <string name="wifi_wont_autoconnect_for_now">Wi-Fi-ն ավտոմատ չի միանա</string>
     <string name="wifitrackerlib_auto_connect_disable">Ավտոմատ միացումն անջատված է</string>
     <string name="wifitrackerlib_available_via_app">Հասանելի է %1$s հավելվածի միջոցով</string>
     <string name="wifitrackerlib_connected_via_app">Միացվել է %1$s հավելվածի միջոցով</string>

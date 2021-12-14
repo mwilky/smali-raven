@@ -695,22 +695,6 @@
 
 
 # virtual methods
-.method addRotationCallback(Ljava/util/function/Consumer;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/function/Consumer<",
-            "Ljava/lang/Integer;",
-            ">;)V"
-        }
-    .end annotation
-
-    iput-object p1, p0, Lcom/android/systemui/navigationbar/RotationButtonController;->mRotWatcherListener:Ljava/util/function/Consumer;
-
-    return-void
-.end method
-
 .method public getContext()Landroid/content/Context;
     .locals 0
 
@@ -1262,6 +1246,22 @@
     iget-object p0, p0, Lcom/android/systemui/navigationbar/RotationButtonController;->mRotationButton:Lcom/android/systemui/navigationbar/RotationButton;
 
     invoke-interface {p0, p2}, Lcom/android/systemui/navigationbar/RotationButton;->setVisibilityChangedCallback(Ljava/util/function/Consumer;)V
+
+    return-void
+.end method
+
+.method setRotationCallback(Ljava/util/function/Consumer;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/function/Consumer<",
+            "Ljava/lang/Integer;",
+            ">;)V"
+        }
+    .end annotation
+
+    iput-object p1, p0, Lcom/android/systemui/navigationbar/RotationButtonController;->mRotWatcherListener:Ljava/util/function/Consumer;
 
     return-void
 .end method

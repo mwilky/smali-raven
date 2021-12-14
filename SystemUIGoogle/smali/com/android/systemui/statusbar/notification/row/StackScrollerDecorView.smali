@@ -34,6 +34,14 @@
     return-void
 .end method
 
+.method public static synthetic $r8$lambda$SBSPKjlP49D2M5BTiNL4d_3qdGM(Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;Ljava/lang/Runnable;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;->lambda$setContentVisible$2(Ljava/lang/Runnable;)V
+
+    return-void
+.end method
+
 .method public static synthetic $r8$lambda$ZC1UHri925F0QdzJaL26Va9_-kg(Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;)V
     .locals 0
 
@@ -151,33 +159,15 @@
     return-void
 .end method
 
-.method private setContentVisible(ZZ)V
-    .locals 2
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;->mContentVisible:Z
-
-    if-eq v0, p1, :cond_0
-
-    iput-boolean p2, p0, Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;->mContentAnimating:Z
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;->mContentVisible:Z
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;->mContent:Landroid/view/View;
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;->mContentVisibilityEndRunnable:Ljava/lang/Runnable;
-
-    invoke-direct {p0, v0, p1, p2, v1}, Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;->setViewVisible(Landroid/view/View;ZZLjava/lang/Runnable;)V
-
-    :cond_0
-    iget-boolean p1, p0, Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;->mContentAnimating:Z
-
-    if-nez p1, :cond_1
+.method private synthetic lambda$setContentVisible$2(Ljava/lang/Runnable;)V
+    .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;->mContentVisibilityEndRunnable:Ljava/lang/Runnable;
 
     invoke-interface {p0}, Ljava/lang/Runnable;->run()V
 
-    :cond_1
+    invoke-interface {p1}, Ljava/lang/Runnable;->run()V
+
     return-void
 .end method
 
@@ -374,12 +364,56 @@
 .end method
 
 .method public setContentVisible(Z)V
-    .locals 1
+    .locals 2
 
     const/4 v0, 0x1
 
-    invoke-direct {p0, p1, v0}, Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;->setContentVisible(ZZ)V
+    const/4 v1, 0x0
 
+    invoke-virtual {p0, p1, v0, v1}, Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;->setContentVisible(ZZLjava/lang/Runnable;)V
+
+    return-void
+.end method
+
+.method public setContentVisible(ZZLjava/lang/Runnable;)V
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;->mContentVisible:Z
+
+    if-eq v0, p1, :cond_1
+
+    iput-boolean p2, p0, Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;->mContentAnimating:Z
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;->mContentVisible:Z
+
+    if-nez p3, :cond_0
+
+    iget-object p3, p0, Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;->mContentVisibilityEndRunnable:Ljava/lang/Runnable;
+
+    goto :goto_0
+
+    :cond_0
+    new-instance v0, Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView$$ExternalSyntheticLambda2;
+
+    invoke-direct {v0, p0, p3}, Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;Ljava/lang/Runnable;)V
+
+    move-object p3, v0
+
+    :goto_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;->mContent:Landroid/view/View;
+
+    invoke-direct {p0, v0, p1, p2, p3}, Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;->setViewVisible(Landroid/view/View;ZZLjava/lang/Runnable;)V
+
+    :cond_1
+    iget-boolean p1, p0, Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;->mContentAnimating:Z
+
+    if-nez p1, :cond_2
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;->mContentVisibilityEndRunnable:Ljava/lang/Runnable;
+
+    invoke-interface {p0}, Ljava/lang/Runnable;->run()V
+
+    :cond_2
     return-void
 .end method
 
@@ -416,6 +450,16 @@
 .method public setVisible(ZZ)V
     .locals 1
 
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, p1, p2, v0}, Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;->setVisible(ZZLjava/lang/Runnable;)V
+
+    return-void
+.end method
+
+.method public setVisible(ZZLjava/lang/Runnable;)V
+    .locals 1
+
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;->mIsVisible:Z
 
     if-eq v0, p1, :cond_3
@@ -442,7 +486,7 @@
     invoke-virtual {p0, p2}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->setWillBeGone(Z)V
 
     :goto_0
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;->setContentVisible(ZZ)V
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;->setContentVisible(ZZLjava/lang/Runnable;)V
 
     goto :goto_2
 
@@ -459,7 +503,7 @@
     :goto_1
     invoke-virtual {p0, p2}, Landroid/widget/FrameLayout;->setVisibility(I)V
 
-    invoke-direct {p0, p1, v0}, Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;->setContentVisible(ZZ)V
+    invoke-virtual {p0, p1, v0, p3}, Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;->setContentVisible(ZZLjava/lang/Runnable;)V
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->setWillBeGone(Z)V
 

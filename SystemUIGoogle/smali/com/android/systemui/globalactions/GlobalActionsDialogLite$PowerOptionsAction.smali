@@ -29,7 +29,7 @@
 
     sget v0, Lcom/android/systemui/R$drawable;->ic_settings_power:I
 
-    const v1, 0x10403c5
+    const v1, 0x10403c7
 
     invoke-direct {p0, p1, v0, v1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$SinglePressAction;-><init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;II)V
 

@@ -4,6 +4,6 @@
 
 
 # static fields
-.field public static final DialogTheme:I = 0x7f140119
+.field public static final DialogTheme:I = 0x7f14011a
 
-.field public static final Widget_SliceView:I = 0x7f140472
+.field public static final Widget_SliceView:I = 0x7f140481

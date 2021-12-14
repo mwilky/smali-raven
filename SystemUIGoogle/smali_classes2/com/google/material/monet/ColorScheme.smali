@@ -85,17 +85,40 @@
 .end method
 
 .method public constructor <init>(IZ)V
-    .locals 1
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-boolean p2, p0, Lcom/google/material/monet/ColorScheme;->darkTheme:Z
 
+    invoke-static {p1}, Lcom/android/internal/graphics/cam/Cam;->fromInt(I)Lcom/android/internal/graphics/cam/Cam;
+
+    move-result-object p2
+
+    const v0, -0xe4910d
+
     if-nez p1, :cond_0
 
-    const p1, -0xe4910d
+    :goto_0
+    move p1, v0
+
+    goto :goto_1
 
     :cond_0
+    invoke-virtual {p2}, Lcom/android/internal/graphics/cam/Cam;->getChroma()F
+
+    move-result p2
+
+    const/high16 v1, 0x40a00000    # 5.0f
+
+    cmpg-float p2, p2, v1
+
+    if-gez p2, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    :goto_1
     invoke-static {p1}, Lcom/android/internal/graphics/cam/Cam;->fromInt(I)Lcom/android/internal/graphics/cam/Cam;
 
     move-result-object p1

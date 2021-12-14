@@ -170,7 +170,7 @@
     invoke-virtual {v3, v8}, Landroid/widget/ImageView;->setVisibility(I)V
 
     :goto_0
-    const v0, 0x10407c5
+    const v0, 0x10407c7
 
     invoke-virtual {v4, v0}, Landroid/widget/Button;->setText(I)V
 
@@ -288,6 +288,14 @@
     .locals 2
 
     invoke-super {p0, p1}, Lcom/android/systemui/tv/TvBottomSheetActivity;->onCreate(Landroid/os/Bundle;)V
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+
+    move-result-object p1
+
+    const/high16 v0, 0x80000
+
+    invoke-virtual {p1, v0}, Landroid/view/Window;->addSystemFlags(I)V
 
     invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 

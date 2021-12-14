@@ -37,7 +37,7 @@
 
     check-cast p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    invoke-static {p1}, Lcom/android/systemui/statusbar/phone/StatusBar;->$r8$lambda$CcV68ZIE6OL2XvUYFtXqnzx01ug(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+    invoke-static {p1}, Lcom/android/systemui/statusbar/phone/StatusBar;->$r8$lambda$ZL6UP51qhnXdgdfHYf5w9jmpqBQ(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
 
     return-void
 .end method

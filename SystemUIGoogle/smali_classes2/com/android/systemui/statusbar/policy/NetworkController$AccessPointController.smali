@@ -24,6 +24,9 @@
 .method public abstract addAccessPointCallback(Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController$AccessPointCallback;)V
 .end method
 
+.method public abstract canConfigMobileData()Z
+.end method
+
 .method public abstract canConfigWifi()Z
 .end method
 
@@ -31,6 +34,9 @@
 .end method
 
 .method public abstract getIcon(Lcom/android/wifitrackerlib/WifiEntry;)I
+.end method
+
+.method public abstract getMergedCarrierEntry()Lcom/android/wifitrackerlib/MergedCarrierEntry;
 .end method
 
 .method public abstract removeAccessPointCallback(Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController$AccessPointCallback;)V

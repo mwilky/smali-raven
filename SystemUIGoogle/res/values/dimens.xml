@@ -291,6 +291,24 @@
     <dimen name="close_handle_underlap">32.0dip</dimen>
     <dimen name="cloud_size_max">100.0dip</dimen>
     <dimen name="cloud_size_min">10.0dip</dimen>
+    <dimen name="columbus_target_request_dialog_bottom_padding">18.0dip</dimen>
+    <dimen name="columbus_target_request_dialog_button_background_radius">18.0dip</dimen>
+    <dimen name="columbus_target_request_dialog_button_background_vertical_insets">6.0dip</dimen>
+    <dimen name="columbus_target_request_dialog_button_height">48.0dip</dimen>
+    <dimen name="columbus_target_request_dialog_button_to_button_space">8.0dip</dimen>
+    <dimen name="columbus_target_request_dialog_content_line_height">20.0sp</dimen>
+    <dimen name="columbus_target_request_dialog_content_text_size">14.0sp</dimen>
+    <dimen name="columbus_target_request_dialog_content_to_button_space">32.0dip</dimen>
+    <dimen name="columbus_target_request_dialog_end_padding">24.0dip</dimen>
+    <dimen name="columbus_target_request_dialog_icon_size">32.0dip</dimen>
+    <dimen name="columbus_target_request_dialog_icon_to_title_space">16.0dip</dimen>
+    <dimen name="columbus_target_request_dialog_start_padding">24.0dip</dimen>
+    <dimen name="columbus_target_request_dialog_title_line_height">32.0sp</dimen>
+    <dimen name="columbus_target_request_dialog_title_text_size">24.0sp</dimen>
+    <dimen name="columbus_target_request_dialog_title_to_content_space">16.0dip</dimen>
+    <dimen name="columbus_target_request_dialog_top_padding">24.0dip</dimen>
+    <dimen name="columbus_target_request_dialog_width">348.0dip</dimen>
+    <item type="dimen" name="communal_source_height_percentage">0.8</item>
     <dimen name="compat_button_inset_horizontal_material">4.0dip</dimen>
     <dimen name="compat_button_inset_vertical_material">6.0dip</dimen>
     <dimen name="compat_button_padding_horizontal_material">8.0dip</dimen>
@@ -456,6 +474,7 @@
     <dimen name="docked_divider_handle_width">16.0dip</dimen>
     <dimen name="docked_stack_divider_lift_elevation">4.0dip</dimen>
     <dimen name="double_tap_slop">32.0dip</dimen>
+    <dimen name="drag_and_drop_icon_size">70.0dip</dimen>
     <dimen name="drop_layout_display_margin">16.0dip</dimen>
     <dimen name="eca_overlap">-10.0dip</dimen>
     <dimen name="edge_margin">8.0dip</dimen>
@@ -600,6 +619,11 @@
     <dimen name="indicator_margin">12.0dip</dimen>
     <dimen name="indicator_max_overlap">12.0dip</dimen>
     <dimen name="indicator_size">48.0dip</dimen>
+    <dimen name="internet_dialog_corner_radius">24.0dip</dimen>
+    <dimen name="internet_dialog_list_margin">12.0dip</dimen>
+    <dimen name="internet_dialog_list_max_height">646.0dip</dimen>
+    <item type="dimen" name="internet_dialog_list_max_width">@dimen/match_parent</item>
+    <dimen name="internet_dialog_network_layout_margin">16.0dip</dimen>
     <dimen name="item_touch_helper_max_drag_scroll_per_frame">20.0dip</dimen>
     <dimen name="item_touch_helper_swipe_escape_max_velocity">800.0dip</dimen>
     <dimen name="item_touch_helper_swipe_escape_velocity">120.0dip</dimen>
@@ -622,9 +646,8 @@
     <dimen name="keyguard_carrier_text_margin">16.0dip</dimen>
     <item type="dimen" name="keyguard_clock_line_spacing_scale">0.7</item>
     <item type="dimen" name="keyguard_clock_line_spacing_scale_burmese">1.0</item>
-    <dimen name="keyguard_clock_lock_margin">16.0dip</dimen>
     <dimen name="keyguard_clock_switch_y_shift">10.0dip</dimen>
-    <dimen name="keyguard_clock_top_margin">36.0dip</dimen>
+    <dimen name="keyguard_clock_top_margin">18.0dip</dimen>
     <dimen name="keyguard_drag_down_min_distance">100.0dip</dimen>
     <dimen name="keyguard_eca_bottom_margin">12.0dip</dimen>
     <dimen name="keyguard_eca_top_margin">18.0dip</dimen>
@@ -901,10 +924,7 @@
     <dimen name="lockscreen_shade_notification_movement">24.0dip</dimen>
     <dimen name="lockscreen_shade_qs_transition_distance">200.0dip</dimen>
     <dimen name="lockscreen_shade_scrim_transition_distance">80.0dip</dimen>
-    <dimen name="logout_button_corner_radius">4.0dip</dimen>
-    <dimen name="logout_button_layout_height">32.0dip</dimen>
-    <dimen name="logout_button_margin_bottom">12.0dip</dimen>
-    <dimen name="logout_button_padding_horizontal">16.0dip</dimen>
+    <dimen name="logout_button_corner_radius">50.0dip</dimen>
     <dimen name="long_press_detection_size_x">20.0dip</dimen>
     <dimen name="long_press_detection_size_y">20.0dip</dimen>
     <dimen name="magnification_border_drag_size">35.0dip</dimen>
@@ -1354,7 +1374,7 @@
     <dimen name="ongoing_appops_chip_min_width">56.0dip</dimen>
     <dimen name="ongoing_appops_chip_side_padding">8.0dip</dimen>
     <dimen name="ongoing_appops_dialog_circle_size">32.0dip</dimen>
-    <dimen name="ongoing_appops_dialog_icon_size">20.0dip</dimen>
+    <dimen name="ongoing_appops_dialog_icon_size">16.0dip</dimen>
     <item type="dimen" name="ongoing_appops_dialog_side_margins">@dimen/notification_shade_content_margin_horizontal</item>
     <dimen name="ongoing_appops_dialog_side_padding">16.0dip</dimen>
     <dimen name="ongoing_appops_dot_diameter">6.0dip</dimen>
@@ -1440,6 +1460,7 @@
     <dimen name="pulsing_notification_appear_translation">10.0dip</dimen>
     <dimen name="qq_aa_media_rec_header_text_size">16.0sp</dimen>
     <dimen name="qqs_layout_margin_top">16.0dip</dimen>
+    <dimen name="qs_aa_media_gradient_bg_width">32.0dip</dimen>
     <dimen name="qs_aa_media_rec_album_margin">8.0dip</dimen>
     <dimen name="qs_aa_media_rec_album_margin_vert">4.0dip</dimen>
     <dimen name="qs_aa_media_rec_album_size_collapsed">72.0dip</dimen>
@@ -1537,8 +1558,6 @@
     <dimen name="qs_peek_height">0.0dip</dimen>
     <dimen name="qs_quick_header_panel_height">128.0dip</dimen>
     <dimen name="qs_quick_tile_size">60.0dip</dimen>
-    <item type="dimen" name="qs_seamless_fallback_icon_size">@dimen/qs_seamless_icon_size</item>
-    <dimen name="qs_seamless_fallback_margin">20.0dip</dimen>
     <dimen name="qs_seamless_height">24.0dip</dimen>
     <dimen name="qs_seamless_icon_size">12.0dip</dimen>
     <dimen name="qs_security_footer_background_inset">0.0dip</dimen>
@@ -1622,7 +1641,6 @@
     <dimen name="screenshot_action_chip_text_size">14.0sp</dimen>
     <dimen name="screenshot_action_container_corner_radius">18.0dip</dimen>
     <dimen name="screenshot_action_container_margin_horizontal">8.0dip</dimen>
-    <dimen name="screenshot_action_container_offset_y">16.0dip</dimen>
     <dimen name="screenshot_action_container_padding_right">8.0dip</dimen>
     <dimen name="screenshot_action_container_padding_vertical">4.0dip</dimen>
     <dimen name="screenshot_bg_protection_height">242.0dip</dimen>
@@ -1632,7 +1650,7 @@
     <dimen name="screenshot_dismiss_button_tappable_size">48.0dip</dimen>
     <dimen name="screenshot_dismissal_height_delta">80.0dip</dimen>
     <dimen name="screenshot_offset_x">16.0dip</dimen>
-    <dimen name="screenshot_offset_y">24.0dip</dimen>
+    <dimen name="screenshot_offset_y">8.0dip</dimen>
     <dimen name="screenshot_preview_elevation">4.0dip</dimen>
     <item type="dimen" name="scrim_behind_alpha">0.62</item>
     <dimen name="scrim_touchable_height">132.0dip</dimen>
@@ -1659,7 +1677,12 @@
     <item type="dimen" name="settingslib_restricted_icon_size">@android:dimen/config_restrictedIconSize</item>
     <dimen name="settingslib_scrim_visible_height_trigger">137.0dip</dimen>
     <dimen name="settingslib_switch_bar_radius">28.0dip</dimen>
+    <dimen name="settingslib_switch_thumb_margin">4.0dip</dimen>
+    <dimen name="settingslib_switch_thumb_size">20.0dip</dimen>
     <dimen name="settingslib_switch_title_margin">16.0dip</dimen>
+    <dimen name="settingslib_switch_track_height">28.0dip</dimen>
+    <dimen name="settingslib_switch_track_radius">35.0dip</dimen>
+    <dimen name="settingslib_switch_track_width">52.0dip</dimen>
     <dimen name="settingslib_switchbar_margin">16.0dip</dimen>
     <dimen name="settingslib_switchbar_padding_left">24.0dip</dimen>
     <dimen name="settingslib_switchbar_padding_right">16.0dip</dimen>
@@ -1674,6 +1697,7 @@
     <dimen name="signal_cluster_margin_start">2.5dip</dimen>
     <dimen name="signal_icon_size">15.0dip</dimen>
     <dimen name="signal_indicator_to_icon_frame_spacing">3.0dip</dimen>
+    <dimen name="signal_strength_icon_size">24.0dip</dimen>
     <dimen name="size_compat_button_size">48.0dip</dimen>
     <dimen name="smart_action_button_icon_padding">8.0dip</dimen>
     <dimen name="smart_action_button_icon_size">18.0dip</dimen>
@@ -1721,7 +1745,7 @@
     <dimen name="status_bar_icon_padding">0.0dip</dimen>
     <item type="dimen" name="status_bar_icon_scale_factor">1.0</item>
     <item type="dimen" name="status_bar_icon_size">@*android:dimen/status_bar_icon_size</item>
-    <dimen name="status_bar_left_clock_end_padding">7.0dip</dimen>
+    <dimen name="status_bar_left_clock_end_padding">2.0dip</dimen>
     <dimen name="status_bar_left_clock_starting_padding">0.0dip</dimen>
     <dimen name="status_bar_padding_end">8.0dip</dimen>
     <dimen name="status_bar_padding_start">8.0dip</dimen>
@@ -1772,8 +1796,8 @@
     <dimen name="two_target_min_width">72.0dip</dimen>
     <dimen name="two_target_pref_medium_icon_size">32.0dip</dimen>
     <dimen name="two_target_pref_small_icon_size">24.0dip</dimen>
-    <dimen name="udfps_burn_in_offset_x">2.0dip</dimen>
-    <dimen name="udfps_burn_in_offset_y">8.0dip</dimen>
+    <dimen name="udfps_burn_in_offset_x">7.0px</dimen>
+    <dimen name="udfps_burn_in_offset_y">28.0px</dimen>
     <dimen name="udfps_unlock_icon_inset">16.0dip</dimen>
     <dimen name="unlock_falsing_threshold">80.0dip</dimen>
     <dimen name="unlock_move_distance">75.0dip</dimen>

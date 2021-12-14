@@ -6,17 +6,19 @@
 # instance fields
 .field private final gradientPaint:Landroid/graphics/Paint;
 
-.field private revealAmount:F
+.field private isScrimOpaque:Z
 
-.field public revealAmountListener:Ljava/util/function/Consumer;
+.field public isScrimOpaqueChangedListener:Ljava/util/function/Consumer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/function/Consumer<",
-            "Ljava/lang/Float;",
+            "Ljava/lang/Boolean;",
             ">;"
         }
     .end annotation
 .end field
+
+.field private revealAmount:F
 
 .field private revealEffect:Lcom/android/systemui/statusbar/LightRevealEffect;
 
@@ -178,6 +180,93 @@
     return-void
 .end method
 
+.method private final setScrimOpaque(Z)V
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/LightRevealScrim;->isScrimOpaque:Z
+
+    if-eq v0, p1, :cond_0
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/LightRevealScrim;->isScrimOpaque:Z
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/LightRevealScrim;->isScrimOpaqueChangedListener()Ljava/util/function/Consumer;
+
+    move-result-object p1
+
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/LightRevealScrim;->isScrimOpaque:Z
+
+    invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object p0
+
+    invoke-interface {p1, p0}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method private final updateScrimOpaque()V
+    .locals 4
+
+    iget v0, p0, Lcom/android/systemui/statusbar/LightRevealScrim;->revealAmount:F
+
+    const/4 v1, 0x0
+
+    cmpg-float v0, v0, v1
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    if-nez v0, :cond_0
+
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_0
+    move v0, v2
+
+    :goto_0
+    if-eqz v0, :cond_2
+
+    invoke-virtual {p0}, Landroid/view/View;->getAlpha()F
+
+    move-result v0
+
+    const/high16 v3, 0x3f800000    # 1.0f
+
+    cmpg-float v0, v0, v3
+
+    if-nez v0, :cond_1
+
+    move v0, v1
+
+    goto :goto_1
+
+    :cond_1
+    move v0, v2
+
+    :goto_1
+    if-eqz v0, :cond_2
+
+    invoke-virtual {p0}, Landroid/view/View;->getVisibility()I
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    goto :goto_2
+
+    :cond_2
+    move v1, v2
+
+    :goto_2
+    invoke-direct {p0, v1}, Lcom/android/systemui/statusbar/LightRevealScrim;->setScrimOpaque(Z)V
+
+    return-void
+.end method
+
 
 # virtual methods
 .method public final getRevealAmount()F
@@ -186,33 +275,6 @@
     iget p0, p0, Lcom/android/systemui/statusbar/LightRevealScrim;->revealAmount:F
 
     return p0
-.end method
-
-.method public final getRevealAmountListener()Ljava/util/function/Consumer;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/function/Consumer<",
-            "Ljava/lang/Float;",
-            ">;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/LightRevealScrim;->revealAmountListener:Ljava/util/function/Consumer;
-
-    if-eqz p0, :cond_0
-
-    return-object p0
-
-    :cond_0
-    const-string p0, "revealAmountListener"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    const/4 p0, 0x0
-
-    throw p0
 .end method
 
 .method public final getRevealEffect()Lcom/android/systemui/statusbar/LightRevealEffect;
@@ -245,6 +307,41 @@
     iget p0, p0, Lcom/android/systemui/statusbar/LightRevealScrim;->revealGradientWidth:F
 
     return p0
+.end method
+
+.method public final isScrimOpaque()Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/LightRevealScrim;->isScrimOpaque:Z
+
+    return p0
+.end method
+
+.method public final isScrimOpaqueChangedListener()Ljava/util/function/Consumer;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/function/Consumer<",
+            "Ljava/lang/Boolean;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/LightRevealScrim;->isScrimOpaqueChangedListener:Ljava/util/function/Consumer;
+
+    if-eqz p0, :cond_0
+
+    return-object p0
+
+    :cond_0
+    const-string p0, "isScrimOpaqueChangedListener"
+
+    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    const/4 p0, 0x0
+
+    throw p0
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
@@ -351,6 +448,16 @@
     return-void
 .end method
 
+.method public setAlpha(F)V
+    .locals 0
+
+    invoke-super {p0, p1}, Landroid/view/View;->setAlpha(F)V
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/LightRevealScrim;->updateScrimOpaque()V
+
+    return-void
+.end method
+
 .method public final setRevealAmount(F)V
     .locals 1
 
@@ -376,39 +483,11 @@
 
     invoke-interface {v0, p1, p0}, Lcom/android/systemui/statusbar/LightRevealEffect;->setRevealAmountOnScrim(FLcom/android/systemui/statusbar/LightRevealScrim;)V
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/LightRevealScrim;->getRevealAmountListener()Ljava/util/function/Consumer;
-
-    move-result-object v0
-
-    invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object p1
-
-    invoke-interface {v0, p1}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/LightRevealScrim;->updateScrimOpaque()V
 
     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
     :cond_1
-    return-void
-.end method
-
-.method public final setRevealAmountListener(Ljava/util/function/Consumer;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/function/Consumer<",
-            "Ljava/lang/Float;",
-            ">;)V"
-        }
-    .end annotation
-
-    const-string v0, "<set-?>"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/LightRevealScrim;->revealAmountListener:Ljava/util/function/Consumer;
-
     return-void
 .end method
 
@@ -493,5 +572,35 @@
     invoke-direct {p0}, Lcom/android/systemui/statusbar/LightRevealScrim;->setPaintColorFilter()V
 
     :cond_1
+    return-void
+.end method
+
+.method public final setScrimOpaqueChangedListener(Ljava/util/function/Consumer;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/function/Consumer<",
+            "Ljava/lang/Boolean;",
+            ">;)V"
+        }
+    .end annotation
+
+    const-string v0, "<set-?>"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/LightRevealScrim;->isScrimOpaqueChangedListener:Ljava/util/function/Consumer;
+
+    return-void
+.end method
+
+.method public setVisibility(I)V
+    .locals 0
+
+    invoke-super {p0, p1}, Landroid/view/View;->setVisibility(I)V
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/LightRevealScrim;->updateScrimOpaque()V
+
     return-void
 .end method

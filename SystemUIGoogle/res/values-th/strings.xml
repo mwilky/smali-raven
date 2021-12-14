@@ -363,6 +363,7 @@
     <string name="alarms_and_reminders_label">การปลุกและการช่วยเตือน</string>
     <string name="alarms_and_reminders_switch_title">อนุญาตให้ตั้งปลุกและการช่วยเตือน</string>
     <string name="alarms_and_reminders_title">การปลุกและการช่วยเตือน</string>
+    <string name="all_network_unavailable">ไม่มีเครือข่ายที่พร้อมใช้งาน</string>
     <string name="allow_mock_location">อนุญาตให้จำลองตำแหน่ง</string>
     <string name="allow_mock_location_summary">อนุญาตให้จำลองตำแหน่ง</string>
     <string name="always_use_accessory">เปิด %1$s ทุกครั้งเมื่อเชื่อมต่อกับ %2$s</string>
@@ -618,6 +619,11 @@
     <string name="clock_title_analog">แอนะล็อก</string>
     <string name="clock_title_bubble">บับเบิล</string>
     <string name="clock_title_default">ค่าเริ่มต้น</string>
+    <string name="columbus_bouncer_message">ปลดล็อกเพื่อดำเนินการแตะด่วนให้เสร็จสมบูรณ์</string>
+    <string name="columbus_target_request_dialog_allow">อนุญาต</string>
+    <string name="columbus_target_request_dialog_deny">ไม่อนุญาต</string>
+    <string name="columbus_target_request_dialog_summary">เมื่อแตะสองครั้งที่ด้านหลังของโทรศัพท์ %1$s จะเปิดขึ้นมา คุณเปลี่ยนค่ากำหนดนี้ได้ทุกเมื่อในการตั้งค่า</string>
+    <string name="columbus_target_request_dialog_title">อนุญาตให้การแตะด่วนเปิด %1$s ใช่ไหม</string>
     <string name="compat_mode_off">ยืดจนเต็มหน้าจอ</string>
     <string name="compat_mode_on">ขยายจนเต็มหน้าจอ</string>
     <string name="confirm_enable_oem_unlock_text">คำเตือน: ฟีเจอร์การปกป้องอุปกรณ์จะไม่ทำงานบนอุปกรณ์นี้ขณะที่การตั้งค่านี้เปิดอยู่</string>
@@ -740,6 +746,8 @@
     <string name="defender_notify_learn_more">ดูข้อมูลเพิ่มเติม</string>
     <string name="defender_notify_resume_charge">ชาร์จต่อ</string>
     <string name="defender_notify_title">จำกัดการชาร์จชั่วคราว</string>
+    <string name="defender_post_notify_des">จำกัดการชาร์จไว้ที่ %1$s ตั้งแต่ %2$s ถึง %3$s เพื่อรักษาประสิทธิภาพของแบตเตอรี่</string>
+    <string name="defender_post_notify_title">ชาร์จตามปกติ</string>
     <string name="delete_blob_confirmation_text">คุณแน่ใจไหมว่าต้องการลบข้อมูลที่แชร์นี้</string>
     <string name="delete_blob_text">ลบข้อมูลที่แชร์</string>
     <string name="demo_mode">โหมดสาธิต UI ของระบบ</string>
@@ -885,6 +893,7 @@
     <string name="game_status">กำลังเล่น</string>
     <string name="global_action_lock_message">ปลดล็อกโทรศัพท์เพื่อดูตัวเลือกเพิ่มเติม</string>
     <string name="global_action_screenshot">ภาพหน้าจอ</string>
+    <string name="global_action_smart_lock_disabled">ปิดใช้ Smart Lock แล้ว</string>
     <string name="global_actions_change_description">หากต้องการเข้าถึง %1$s และระบบควบคุมอุปกรณ์ ให้ปัดลงจากด้านบนของหน้าจอ</string>
     <string name="go_to_web">ไปที่เบราว์เซอร์</string>
     <string name="google_services_wallpaper_permission"><b>อนุญาตให้วอลเปเปอร์ภาพเคลื่อนไหวของ Google ตอบสนองสถานที่ของคุณ</b>โดยเข้าถึงบริการตำแหน่งของ Google ได้</string>
@@ -1232,7 +1241,7 @@
     <string name="media_projection_dialog_text">%s จะมีสิทธิ์เข้าถึงข้อมูลทั้งหมดที่ปรากฏบนหน้าจอหรือเปิดจากอุปกรณ์ของคุณขณะบันทึกหรือแคสต์ ซึ่งรวมถึงข้อมูลอย่างเช่นรหัสผ่าน รายละเอียดการชำระเงิน รูปภาพ ข้อความ และเสียงที่คุณเล่น</string>
     <string name="media_projection_dialog_title">เริ่มบันทึกหรือแคสต์ด้วย %s เลยไหม</string>
     <string name="media_projection_remember_text">ไม่ต้องแสดงข้อความนี้อีก</string>
-    <string name="media_seamless_remote_device">อุปกรณ์</string>
+    <string name="media_seamless_other_device">อุปกรณ์อื่น</string>
     <string name="media_transfer_this_device_name">ลำโพงโทรศัพท์</string>
     <string name="media_transfer_this_phone">โทรศัพท์เครื่องนี้</string>
     <string name="media_transfer_wired_device_name">อุปกรณ์เสียงแบบมีสาย</string>
@@ -1249,9 +1258,13 @@
     <string name="mobile_data">เน็ตมือถือ</string>
     <string name="mobile_data_always_on">เปิดใช้เน็ตมือถือเสมอ</string>
     <string name="mobile_data_always_on_summary">เปิดใช้เน็ตมือถือเสมอ แม้ในเวลาที่ใช้งาน Wi-Fi ได้ (เพื่อเปลี่ยนเครือข่ายได้อย่างรวดเร็ว)</string>
+    <string name="mobile_data_connection_active">เชื่อมต่อแล้ว</string>
     <string name="mobile_data_disable_message">คุณจะใช้เน็ตมือถือหรืออินเทอร์เน็ตผ่าน \"%s\" ไม่ได้ แต่จะใช้ผ่าน Wi-Fi ได้เท่านั้น</string>
     <string name="mobile_data_disable_message_default_carrier">ผู้ให้บริการของคุณ</string>
     <string name="mobile_data_disable_title">ปิดอินเทอร์เน็ตมือถือไหม</string>
+    <string name="mobile_data_no_connection">ไม่มีการเชื่อมต่อ</string>
+    <string name="mobile_data_off_summary">อินเทอร์เน็ตมือถือจะไม่เชื่อมต่ออัตโนมัติ</string>
+    <string name="mobile_data_settings_title">อินเทอร์เน็ตมือถือ</string>
     <string name="mobile_data_text_format">%1$s — %2$s</string>
     <string name="mock_location_app">เลือกแอปจำลองสถานที่</string>
     <string name="mock_location_app_not_set">ไม่ได้ตั้งค่าแอปจำลองสถานที่</string>
@@ -1391,6 +1404,7 @@
     <string name="no_content_in_select_mode">ไม่มีข้อความหรือรูปภาพให้เลือก</string>
     <string name="no_conversations_text">การสนทนาล่าสุดของคุณจะแสดงขึ้นที่นี่</string>
     <string name="no_shortcut">%1$s ไม่รองรับฟีเจอร์การสนทนา</string>
+    <string name="non_carrier_network_unavailable">ไม่มีเครือข่ายอื่นๆ ที่พร้อมใช้งาน</string>
     <string name="not_default_data_content_description">ไม่ได้ตั้งค่าให้ใช้อินเทอร์เน็ตมือถือ</string>
     <string name="not_set">ไม่ได้ตั้งค่า</string>
     <string name="notif_inline_reply_remove_attachment_description">นำไฟล์แนบออก</string>
@@ -1571,8 +1585,9 @@
     <string name="power_remaining_only_more_than_subtext">เหลืออีกกว่า %1$s</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">แบตเตอรี่อาจหมดภายใน %1$s</string>
+    <string name="pref_title_network_details">รายละเอียดเครือข่าย</string>
     <string name="preference_copied">คัดลอก \"%1$s\" ไปยังคลิปบอร์ดแล้ว</string>
-    <string name="preference_summary_default_combination">%1$s/%2$s</string>
+    <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">การสนทนาสำคัญ</string>
     <string name="privacy_type_camera">กล้องถ่ายรูป</string>
     <string name="privacy_type_location">ตำแหน่ง</string>
@@ -1740,6 +1755,7 @@
     <string name="right_keycode">Keycode ทางขวา</string>
     <string name="right_nav_bar_button_type">ประเภทปุ่มทางขวาเพิ่มเติม</string>
     <string name="ring_toggle_title">การโทร</string>
+    <string name="rotation_lock_camera_rotation_on">เปิด - ตามใบหน้า</string>
     <string name="running_foreground_services_msg">แตะเพื่อดูรายละเอียดเกี่ยวกับแบตเตอรี่และปริมาณการใช้อินเทอร์เน็ต</string>
     <string name="running_foreground_services_title">แอปที่กำลังทำงานในเบื้องหลัง</string>
     <string name="running_process_item_user_label">ผู้ใช้: %1$s</string>
@@ -1814,6 +1830,7 @@
     <string name="screenshot_top_boundary_pct">ขอบเขตด้านบน %1$d เปอร์เซ็นต์</string>
     <string name="search_menu">ค้นหาการตั้งค่า</string>
     <string name="search_menu_title">ค้นหา</string>
+    <string name="see_all_networks">ดูทั้งหมด</string>
     <string name="see_more_title">ดูเพิ่ม</string>
     <string name="select_application">เลือกแอปพลิเคชัน</string>
     <string name="select_conversation_text">แตะการสนทนาเพื่อเพิ่มไปยังหน้าจอหลัก</string>
@@ -1926,6 +1943,7 @@
     <string name="switch_bar_off">ปิด</string>
     <string name="switch_bar_on">เปิด</string>
     <string name="system_ui_tuner">ตัวรับสัญญาณ UI ระบบ</string>
+    <string name="tap_a_network_to_connect">แตะเครือข่ายเพื่อเชื่อมต่อ</string>
     <string name="tap_again">แตะอีกครั้ง</string>
     <string name="tap_to_sign_up">แตะเพื่อลงชื่อสมัครใช้</string>
     <string name="tether_settings_title_all">การปล่อยสัญญาณและฮอตสปอต</string>
@@ -1951,6 +1969,7 @@
     <string name="time_unit_just_now">เมื่อสักครู่</string>
     <string name="title_convert_fbe">การแปลงเป็นการเข้ารหัสตามไฟล์</string>
     <string name="title_usb_accessory">อุปกรณ์เสริม USB</string>
+    <string name="to_switch_networks_disconnect_ethernet">ตัดการเชื่อมต่ออีเทอร์เน็ตเพื่อสลับเครือข่าย</string>
     <string name="too_hot_label">Pixel ร้อนเกินไป</string>
     <string name="touch_filtered_warning">เนื่องจากแอปหนึ่งได้บดบังคำขอสิทธิ์ ระบบจึงไม่สามารถยืนยันคำตอบของคุณสำหรับการตั้งค่าได้</string>
     <string name="track_frame_time">การแสดงผล HWUI ตามโปรไฟล์</string>
@@ -2009,10 +2028,12 @@
     <string name="tuner_toast">ยินดีด้วย! เพิ่มตัวรับสัญญาณ UI ระบบไปยังการตั้งค่าแล้ว</string>
     <string name="tuner_warning">ตัวรับสัญญาณ UI ระบบช่วยให้คุณมีวิธีพิเศษในการปรับแต่งและกำหนดค่าส่วนติดต่อผู้ใช้ Android ฟีเจอร์รุ่นทดลองเหล่านี้อาจมีการเปลี่ยนแปลง ขัดข้อง หรือหายไปในเวอร์ชันอนาคต โปรดดำเนินการด้วยความระมัดระวัง</string>
     <string name="tuner_warning_title">เพลิดเพลินกับบางส่วนแต่ไม่ใช่ทั้งหมด</string>
+    <string name="turn_on_wifi">Wi-Fi</string>
     <string name="tv_notification_panel_no_notifications">ไม่มีการแจ้งเตือน</string>
     <string name="tv_notification_panel_title">การแจ้งเตือน</string>
     <string name="two_weeks_timestamp">2 สัปดาห์ที่ผ่านมา</string>
     <string name="unknown">ไม่ทราบ</string>
+    <string name="unlock_to_view_networks">ปลดล็อกเพื่อดูเครือข่าย</string>
     <string name="upcoming_birthday_status">ใกล้ถึงวันเกิดแล้ว</string>
     <string name="upcoming_birthday_status_content_description">ใกล้ถึงวันเกิดของ %1$s แล้ว</string>
     <string name="url_menu_copy">คัดลอก</string>
@@ -2151,9 +2172,11 @@
     <string name="wifi_disconnected">ยกเลิกการเชื่อมต่อแล้ว</string>
     <string name="wifi_display_certification">การรับรองการแสดงผลแบบไร้สาย</string>
     <string name="wifi_display_certification_summary">แสดงตัวเลือกสำหรับการรับรองการแสดงผลแบบไร้สาย</string>
+    <string name="wifi_empty_list_wifi_on">กำลังค้นหาเครือข่าย…</string>
     <string name="wifi_enhanced_mac_randomization">การสุ่ม MAC ที่มี Wi-Fi ไม่ถาวร</string>
     <string name="wifi_enhanced_mac_randomization_summary">เมื่อเปิดใช้โหมดนี้ ที่อยู่ MAC ของอุปกรณ์นี้อาจเปลี่ยนทุกครั้งที่เชื่อมต่อกับเครือข่ายที่มีการเปิดใช้การสุ่ม MAC</string>
     <string name="wifi_fail_to_scan">ไม่สามารถสแกนหาเครือข่าย</string>
+    <string name="wifi_failed_connect_message">เชื่อมต่อเครือข่ายไม่สำเร็จ</string>
     <string name="wifi_hotspot_switch_off_text">ปิด</string>
     <string name="wifi_hotspot_switch_on_text">เปิด</string>
     <string name="wifi_is_off">Wi-Fi ปิดอยู่</string>
@@ -2164,6 +2187,7 @@
     <string name="wifi_not_in_range">ไม่อยู่ในพื้นที่ให้บริการ</string>
     <string name="wifi_passpoint_expired">หมดอายุแล้ว</string>
     <string name="wifi_remembered">บันทึกแล้ว</string>
+    <string name="wifi_scan_notify_message">เพื่อปรับปรุงประสบการณ์การใช้อุปกรณ์ แอปและบริการต่างๆ จะยังคงสแกนหาเครือข่าย Wi‑Fi ได้ทุกเมื่อแม้ว่า Wi‑Fi จะปิดอยู่ คุณเปลี่ยนตัวเลือกนี้ได้ในการตั้งค่าการสแกนหา Wi-Fi <annotation id="link">เปลี่ยน</annotation></string>
     <string name="wifi_scan_throttling">การควบคุมการสแกนหา Wi‑Fi</string>
     <string name="wifi_scan_throttling_summary">ลดการเปลืองแบตเตอรี่และเพิ่มประสิทธิภาพเครือข่าย</string>
     <string name="wifi_security_none">ไม่มี</string>
@@ -2173,6 +2197,7 @@
     <string name="wifi_unmetered_label">ไม่มีการวัดปริมาณอินเทอร์เน็ต</string>
     <string name="wifi_verbose_logging">เปิดใช้การบันทึกรายละเอียด Wi-Fi</string>
     <string name="wifi_verbose_logging_summary">เพิ่มระดับการบันทึก Wi‑Fi แสดงต่อ SSID RSSI ในตัวเลือก Wi‑Fi</string>
+    <string name="wifi_wont_autoconnect_for_now">Wi-Fi จะไม่เชื่อมต่ออัตโนมัติในตอนนี้</string>
     <string name="wifitrackerlib_auto_connect_disable">การเชื่อมต่ออัตโนมัติปิดอยู่</string>
     <string name="wifitrackerlib_available_via_app">ใช้งานได้ผ่านทาง %1$s</string>
     <string name="wifitrackerlib_connected_via_app">เชื่อมต่อแล้วผ่าน %1$s</string>

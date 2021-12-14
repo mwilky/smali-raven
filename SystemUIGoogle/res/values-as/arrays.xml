@@ -184,7 +184,7 @@
         <item>৪কে. (সুৰক্ষিত)</item>
         <item>৪কে. (বৰ্ধিত)</item>
         <item>৪কে. (বৰ্ধিত, সুৰক্ষিত)</item>
-        <item>৭২০পি., ১০৮০পি. (দ্বৈত স্ক্ৰীণ)</item>
+        <item>৭২০পি., ১০৮০পি. (দ্বৈত স্ক্ৰীন)</item>
     </string-array>
     <string-array name="select_logd_size_lowram_titles">
         <item>অফ কৰক</item>
@@ -352,7 +352,7 @@
     </string-array>
     <string-array name="track_frame_time_entries">
         <item>অফ হৈ আছে</item>
-        <item>স্ক্ৰীণত দণ্ড হিচাপে</item>
+        <item>স্ক্ৰীনত দণ্ড হিচাপে</item>
         <item>adb shell dumpsys gfxinfoত</item>
     </string-array>
     <string-array name="transition_animation_scale_entries">

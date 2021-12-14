@@ -19,11 +19,13 @@
 
 .field private mDisplaySurface:I
 
+.field private mFeatureType:I
+
 .field private mInstanceId:I
 
-.field private mLoggingCardType:I
-
 .field private mRank:I
+
+.field private mReceivedLatency:I
 
 
 # direct methods
@@ -50,7 +52,7 @@
 .method static synthetic access$100(Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;)I
     .locals 0
 
-    iget p0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;->mLoggingCardType:I
+    iget p0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;->mDisplaySurface:I
 
     return p0
 .end method
@@ -58,7 +60,7 @@
 .method static synthetic access$200(Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;)I
     .locals 0
 
-    iget p0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;->mDisplaySurface:I
+    iget p0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;->mRank:I
 
     return p0
 .end method
@@ -66,7 +68,7 @@
 .method static synthetic access$300(Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;)I
     .locals 0
 
-    iget p0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;->mRank:I
+    iget p0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;->mCardinality:I
 
     return p0
 .end method
@@ -74,7 +76,15 @@
 .method static synthetic access$400(Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;)I
     .locals 0
 
-    iget p0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;->mCardinality:I
+    iget p0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;->mFeatureType:I
+
+    return p0
+.end method
+
+.method static synthetic access$500(Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;)I
+    .locals 0
+
+    iget p0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;->mReceivedLatency:I
 
     return p0
 .end method
@@ -109,6 +119,14 @@
     return-object p0
 .end method
 
+.method public setFeatureType(I)Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;
+    .locals 0
+
+    iput p1, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;->mFeatureType:I
+
+    return-object p0
+.end method
+
 .method public setInstanceId(I)Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;
     .locals 0
 
@@ -117,18 +135,18 @@
     return-object p0
 .end method
 
-.method public setLoggingCardType(I)Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;
-    .locals 0
-
-    iput p1, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;->mLoggingCardType:I
-
-    return-object p0
-.end method
-
 .method public setRank(I)Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;
     .locals 0
 
     iput p1, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;->mRank:I
+
+    return-object p0
+.end method
+
+.method public setReceivedLatency(I)Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;
+    .locals 0
+
+    iput p1, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;->mReceivedLatency:I
 
     return-object p0
 .end method

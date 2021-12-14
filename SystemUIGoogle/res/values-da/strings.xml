@@ -164,7 +164,7 @@
     <string name="accessibility_home">Hjem</string>
     <string name="accessibility_ime_switch_button">Skift indtastningsmetode</string>
     <string name="accessibility_key">Tilpasset navigationsknap</string>
-    <string name="accessibility_location_active">Aktive placeringsanmodninger</string>
+    <string name="accessibility_location_active">Aktive lokationsanmodninger</string>
     <string name="accessibility_lock_icon">Enheden er låst</string>
     <string name="accessibility_long_click_tile">Åbn indstillinger</string>
     <string name="accessibility_manage_notification">Administrer notifikationer</string>
@@ -197,15 +197,15 @@
     <string name="accessibility_phone_signal_full">Telefonsignal fuldt.</string>
     <string name="accessibility_phone_three_bars">Telefon tre bjælker.</string>
     <string name="accessibility_phone_two_bars">Telefon to bjælker.</string>
-    <string name="accessibility_qs_edit_position">Placering %1$d</string>
-    <string name="accessibility_qs_edit_remove_tile_action">fjern kortet</string>
-    <string name="accessibility_qs_edit_tile_add_action">føj kortet til slutningen</string>
-    <string name="accessibility_qs_edit_tile_add_to_position">Føj til placering %1$d</string>
-    <string name="accessibility_qs_edit_tile_added">Kortet blev tilføjet</string>
+    <string name="accessibility_qs_edit_position">Lokation %1$d</string>
+    <string name="accessibility_qs_edit_remove_tile_action">fjern felt</string>
+    <string name="accessibility_qs_edit_tile_add_action">føj feltet til slutningen</string>
+    <string name="accessibility_qs_edit_tile_add_to_position">Føj til lokation %1$d</string>
+    <string name="accessibility_qs_edit_tile_added">Feltet blev tilføjet</string>
     <string name="accessibility_qs_edit_tile_move_to_position">Flyt til %1$d</string>
-    <string name="accessibility_qs_edit_tile_removed">Kortet blev fjernet</string>
-    <string name="accessibility_qs_edit_tile_start_add">Tilføj et kort</string>
-    <string name="accessibility_qs_edit_tile_start_move">Flyt kortet</string>
+    <string name="accessibility_qs_edit_tile_removed">Feltet blev fjernet</string>
+    <string name="accessibility_qs_edit_tile_start_add">Tilføj felt</string>
+    <string name="accessibility_qs_edit_tile_start_move">Flyt felt</string>
     <string name="accessibility_quick_settings_airplane_changed_off">Flytilstand er slået fra.</string>
     <string name="accessibility_quick_settings_airplane_changed_on">Flytilstand er slået til.</string>
     <string name="accessibility_quick_settings_airplane_off">Flytilstand er slået fra.</string>
@@ -243,10 +243,10 @@
     <string name="accessibility_quick_settings_hotspot_changed_off">Mobilhotspot er slået fra.</string>
     <string name="accessibility_quick_settings_hotspot_changed_on">Mobilhotspot er slået til.</string>
     <string name="accessibility_quick_settings_less_time">Mindre tid.</string>
-    <string name="accessibility_quick_settings_location_changed_off">Placeringsrapportering er slået fra.</string>
-    <string name="accessibility_quick_settings_location_changed_on">Placeringsrapportering er slået til.</string>
-    <string name="accessibility_quick_settings_location_off">Placeringsrapportering er slået fra.</string>
-    <string name="accessibility_quick_settings_location_on">Placeringsrapportering er slået til.</string>
+    <string name="accessibility_quick_settings_location_changed_off">Lokationsrapportering er slået fra.</string>
+    <string name="accessibility_quick_settings_location_changed_on">Lokationsrapportering er slået til.</string>
+    <string name="accessibility_quick_settings_location_off">Lokationsrapportering er slået fra.</string>
+    <string name="accessibility_quick_settings_location_on">Lokationsrapportering er slået til.</string>
     <string name="accessibility_quick_settings_mobile">Mobil %1$s. %2$s. %3$s.</string>
     <string name="accessibility_quick_settings_more_time">Mere tid.</string>
     <string name="accessibility_quick_settings_not_available">Ikke tilgængelig på grund af %s</string>
@@ -351,7 +351,7 @@
     <string name="adb_wireless_verifying_qrcode_text">Parrer enhed…</string>
     <string name="adbwifi_warning_message">Trådløs fejlretning er kun beregnet til udvikling og kan bruges til at kopiere data mellem din computer og enheden, installere apps på enheden uden notifikation og læse logdata.</string>
     <string name="adbwifi_warning_title">Vil du tillade trådløs fejlretning?</string>
-    <string name="add_tile">Tilføj et felt</string>
+    <string name="add_tile">Tilføj felt</string>
     <string name="add_user_failed">Der kunne ikke oprettes en ny bruger</string>
     <string name="adjust_button_width">Juster knappens bredde</string>
     <string name="airplane_mode">Flytilstand</string>
@@ -363,8 +363,9 @@ Hvis denne tilladelse er deaktiveret, vil eksisterende alarmer og tidsbestemte h
     <string name="alarms_and_reminders_label">Alarmer og påmindelser</string>
     <string name="alarms_and_reminders_switch_title">Tillad indstilling af alarmer og påmindelser</string>
     <string name="alarms_and_reminders_title">Alarmer og påmindelser</string>
-    <string name="allow_mock_location">Imiterede placeringer</string>
-    <string name="allow_mock_location_summary">Tillad imiterede placeringer</string>
+    <string name="all_network_unavailable">Der er ingen tilgængelige netværk</string>
+    <string name="allow_mock_location">Imiterede lokationer</string>
+    <string name="allow_mock_location_summary">Tillad imiterede lokationer</string>
     <string name="always_use_accessory">Åbn altid %1$s, når %2$s er tilsluttet</string>
     <string name="always_use_device">Åbn altid %1$s, når %2$s er tilsluttet</string>
     <string name="animator_duration_scale_title">Animatorvarighedsskala</string>
@@ -560,7 +561,7 @@ Valg"</string>
     <string name="bottomsheet_action_expand_halfway">Udvid halvdelen</string>
     <string name="branded_monitoring_description_app_personal">Du har forbindelse til %1$s, som kan overvåge din private netværksaktivitet, bl.a. e-mails, apps og websites.</string>
     <string name="branded_vpn_footer">Netværket kan være overvåget</string>
-    <string name="broadcast_tile">Broadcast-ikon</string>
+    <string name="broadcast_tile">Broadcast-felt</string>
     <string name="bt_hci_snoop_log">Aktivér Bluetooth HCI spionlog</string>
     <string name="bt_hci_snoop_log_summary">Gem Bluetooth-pakker. (slå Bluetooth til/fra, efter du har ændret denne indstilling)</string>
     <string name="bt_is_off">Bluetooth er slået fra</string>
@@ -618,6 +619,11 @@ Valg"</string>
     <string name="clock_title_analog">Analog</string>
     <string name="clock_title_bubble">Boble</string>
     <string name="clock_title_default">Standard</string>
+    <string name="columbus_bouncer_message">Lås op for at udføre et Kviktryk</string>
+    <string name="columbus_target_request_dialog_allow">Tillad</string>
+    <string name="columbus_target_request_dialog_deny">Tillad ikke</string>
+    <string name="columbus_target_request_dialog_summary">Når du trykker to gange på bagsiden af din telefon, åbnes %1$s. Du kan til enhver tid ændre denne præference i Indstillinger.</string>
+    <string name="columbus_target_request_dialog_title">Vil du tillade, at %1$s åbnes med Kviktryk?</string>
     <string name="compat_mode_off">Stræk til fuld skærm</string>
     <string name="compat_mode_on">Zoom til fuld skærm</string>
     <string name="confirm_enable_oem_unlock_text">ADVARSEL! Funktioner, der beskytter enheden, fungerer ikke på denne enhed, når denne indstilling er aktiveret.</string>
@@ -740,6 +746,8 @@ Hvis du fortsætter, bliver du muligvis opkrævet betaling for dit dataforbrug."
     <string name="defender_notify_learn_more">Få flere oplysninger</string>
     <string name="defender_notify_resume_charge">Genoptag opladning</string>
     <string name="defender_notify_title">Opladningen er midlertidigt begrænset</string>
+    <string name="defender_post_notify_des">Opladningen blev begrænset til %1$s fra kl. %2$s til %3$s for at spare på batteriet</string>
+    <string name="defender_post_notify_title">Normal opladning</string>
     <string name="delete_blob_confirmation_text">Er du sikker på, at du vil slette disse delte data?</string>
     <string name="delete_blob_text">Slet delte data</string>
     <string name="demo_mode">Demotilstand for systemets brugerflade</string>
@@ -885,10 +893,11 @@ De ansigtsdata, der anvendes af ansigtslåsen, slettes permanent og forsvarligt.
     <string name="game_status">Spiller</string>
     <string name="global_action_lock_message">Lås din telefon op for at se flere valgmuligheder</string>
     <string name="global_action_screenshot">Screenshot</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock er deaktiveret</string>
     <string name="global_actions_change_description">Hvis du vil tilgå %1$s og enhedsstyring, skal du stryge nedad fra toppen af skærmen</string>
     <string name="go_to_web">Gå til en browser</string>
-    <string name="google_services_wallpaper_permission"><b>Tillad, at Googles Animerede baggrunde reagere på din placering</b>, ved at give adgang til Googles placeringstjeneste.</string>
-    <string name="google_services_wallpaper_permission_dialog_text">Du kan aktivere eller deaktivere adgang til Googles placeringstjeneste for Animerede baggrunde ved at gå til Indstillinger > Apps > Systemapps i prikmenuen > Animerede baggrunde, der indeholder data/Animerede baggrunde med billeder af jorden. Her trykker du på Tilladelser.</string>
+    <string name="google_services_wallpaper_permission"><b>Tillad, at Googles Animerede baggrunde reagere på din lokation</b>, ved at give adgang til Googles lokationstjeneste.</string>
+    <string name="google_services_wallpaper_permission_dialog_text">Du kan aktivere eller deaktivere adgang til Googles lokationstjeneste for Animerede baggrunde ved at gå til Indstillinger > Apps > Systemapps i prikmenuen > Animerede baggrunde, der indeholder data/Animerede baggrunde med billeder af jorden. Her trykker du på Tilladelser.</string>
     <string name="got_it">OK</string>
     <string name="gps_notification_found_text">Placeringen er angivet ved hjælp af GPS</string>
     <string name="gps_notification_searching_text">Søger efter GPS</string>
@@ -1188,8 +1197,8 @@ Prøv igen om %2$d sekunder."</string>
     <string name="local_backup_password_toast_confirmation_mismatch">Ny adgangskode og bekræftelse matcher ikke</string>
     <string name="local_backup_password_toast_success">Ny adgangskode til sikkerhedskopi er angivet</string>
     <string name="local_backup_password_toast_validation_failure">Fejl ved angivelse af adgangskode til sikkerhedskopi</string>
-    <string name="location_status">Deler placering</string>
-    <string name="location_status_content_description">%1$s deler sin placering</string>
+    <string name="location_status">Deler lokation</string>
+    <string name="location_status_content_description">%1$s deler sin lokation</string>
     <string name="lockscreen_none">Ingen</string>
     <string name="lockscreen_shortcut_left">Venstre genvej</string>
     <string name="lockscreen_shortcut_right">Højre genvej</string>
@@ -1232,7 +1241,7 @@ Prøv igen om %2$d sekunder."</string>
     <string name="media_projection_dialog_text">%s får adgang til alle de oplysninger, der er synlige på din skærm, eller som afspilles på din enhed, når du optager eller caster. Dette omfatter oplysninger som f.eks. adgangskoder, betalingsoplysninger, billeder, beskeder og afspillet lyd.</string>
     <string name="media_projection_dialog_title">Vil du begynde at optage eller caste via %s?</string>
     <string name="media_projection_remember_text">Vis ikke igen</string>
-    <string name="media_seamless_remote_device">Enhed</string>
+    <string name="media_seamless_other_device">Anden enhed</string>
     <string name="media_transfer_this_device_name">Telefonens højttaler</string>
     <string name="media_transfer_this_phone">Denne telefon</string>
     <string name="media_transfer_wired_device_name">Lydenhed med ledning</string>
@@ -1249,13 +1258,17 @@ Prøv igen om %2$d sekunder."</string>
     <string name="mobile_data">Mobildata</string>
     <string name="mobile_data_always_on">Mobildata er altid aktiveret</string>
     <string name="mobile_data_always_on_summary">Hold altid mobildata aktiveret, selv når Wi-Fi er aktiveret (for at skifte hurtigt mellem netværk).</string>
+    <string name="mobile_data_connection_active">Forbundet</string>
     <string name="mobile_data_disable_message">Du vil ikke have data- eller internetadgang via %s. Der vil kun være adgang til internettet via Wi-Fi.</string>
     <string name="mobile_data_disable_message_default_carrier">dit mobilselskab</string>
     <string name="mobile_data_disable_title">Vil du deaktivere mobildata?</string>
+    <string name="mobile_data_no_connection">Der er ingen forbindelse</string>
+    <string name="mobile_data_off_summary">Der oprettes ikke automatisk mobildataforbindelse</string>
+    <string name="mobile_data_settings_title">Mobildata</string>
     <string name="mobile_data_text_format">%1$s – %2$s</string>
-    <string name="mock_location_app">Vælg app til falsk placering</string>
-    <string name="mock_location_app_not_set">Der er ikke angivet nogen app til falsk placering</string>
-    <string name="mock_location_app_set">App til falsk placering: %1$s</string>
+    <string name="mock_location_app">Vælg app til falsk lokation</string>
+    <string name="mock_location_app_not_set">Der er ikke angivet nogen app til falsk lokation</string>
+    <string name="mock_location_app_set">App til falsk lokation: %1$s</string>
     <string name="monitoring_button_view_controls">Se indstillinger</string>
     <string name="monitoring_button_view_policies">Se politikker</string>
     <string name="monitoring_description_app">Du har forbindelse til %1$s, som kan overvåge din netværksaktivitet, bl.a. mails, apps og websites.</string>
@@ -1269,7 +1282,7 @@ Kontakt din administrator for at få flere oplysninger."</string>
     <string name="monitoring_description_ca_cert_settings">Åbn pålidelige loginoplysninger</string>
     <string name="monitoring_description_ca_cert_settings_separator">" "</string>
     <string name="monitoring_description_ca_certificate">Der er installeret et nøglecenter på denne enhed. Din sikre netværkstrafik kan overvåges eller ændres.</string>
-    <string name="monitoring_description_do_body">Din administrator kan overvåge og administrere indstillinger, virksomhedsadgang, apps og data, der er knyttet til denne enhed, samt enhedens placeringsoplysninger.</string>
+    <string name="monitoring_description_do_body">Din administrator kan overvåge og administrere indstillinger, virksomhedsadgang, apps og data, der er knyttet til denne enhed, samt enhedens lokationsoplysninger.</string>
     <string name="monitoring_description_do_body_vpn">Du har forbindelse til %1$s, som kan overvåge din netværksaktivitet, bl.a. e-mails, apps og websites.</string>
     <string name="monitoring_description_do_header_generic">Din enhed administreres af %1$s.</string>
     <string name="monitoring_description_do_header_with_name">%1$s bruger %2$s til at administrere din enhed.</string>
@@ -1280,21 +1293,21 @@ Kontakt din administrator for at få flere oplysninger."</string>
     <string name="monitoring_description_managed_profile_network_logging">Din administrator har aktiveret netværkslogging, som overvåger trafik på din arbejdsprofil, men ikke på din personlige profil.</string>
     <string name="monitoring_description_management">"Denne enhed tilhører din organisation.
 
-Din it-administrator kan overvåge og administrere indstillinger, virksomhedsadgang, apps, data, der er tilknyttet din enhed, og din enheds placeringsdata.
+Din it-administrator kan overvåge og administrere indstillinger, virksomhedsadgang, apps, data, der er tilknyttet din enhed, og din enheds lokationsdata.
 
 Kontakt din it-administrator for at få mere at vide."</string>
     <string name="monitoring_description_management_ca_certificate">Din organisation har installeret et nøglecenter på denne enhed. Din sikre netværkstrafik kan overvåges eller ændres.</string>
     <string name="monitoring_description_management_network_logging">Din administrator har aktiveret netværksregistrering, som overvåger trafik på din enhed.</string>
     <string name="monitoring_description_named_management">"Denne enhed tilhører %1$s.
 
-Din it-administrator kan overvåge og administrere indstillinger, virksomhedsadgang, apps, data, der er tilknyttet din enhed, og din enheds placeringsdata.
+Din it-administrator kan overvåge og administrere indstillinger, virksomhedsadgang, apps, data, der er tilknyttet din enhed, og din enheds lokationsdata.
 
 Kontakt din it-administrator for at få mere at vide."</string>
     <string name="monitoring_description_named_vpn">Du har forbindelse til %1$s, som kan overvåge din netværksaktivitet, bl.a. mails, apps og websites.</string>
     <string name="monitoring_description_network_logging">"Din administrator har aktiveret netværksregistrering, som overvåger trafik på din enhed.
 
 Kontakt din administrator for at få flere oplysninger."</string>
-    <string name="monitoring_description_parental_controls">Denne enhed administreres af din forælder. Din forælder kan se og administrere oplysninger såsom de apps, du bruger, din placering og din skærmtid.</string>
+    <string name="monitoring_description_parental_controls">Denne enhed administreres af din forælder. Din forælder kan se og administrere oplysninger såsom de apps, du bruger, din lokation og din skærmtid.</string>
     <string name="monitoring_description_personal_profile_named_vpn">Din personlige profil har forbindelse til %1$s, som kan overvåge din netværksaktivitet, bl.a. mails, apps og websites.</string>
     <string name="monitoring_description_two_named_vpns">Du har forbindelse til %1$s og %2$s, som kan overvåge din netværksaktivitet, bl.a. mails, apps og websites.</string>
     <string name="monitoring_description_vpn">"Du gav en app tilladelse til at konfigurere en VPN-forbindelse.
@@ -1391,6 +1404,7 @@ Kontakt %2$s, hvis du har spørgsmål."</string>
     <string name="no_content_in_select_mode">Der er ingen tekst eller billeder, der kan vælges</string>
     <string name="no_conversations_text">Dine seneste samtaler vises her</string>
     <string name="no_shortcut">%1$s understøtter ikke samtalefunktioner</string>
+    <string name="non_carrier_network_unavailable">Der er ingen andre tilgængelige netværk</string>
     <string name="not_default_data_content_description">Ikke indstillet til at anvende data</string>
     <string name="not_set">Ikke angivet</string>
     <string name="notif_inline_reply_remove_attachment_description">Fjern vedhæftet fil</string>
@@ -1519,7 +1533,7 @@ Kontakt %2$s, hvis du har spørgsmål."</string>
     <string name="pip_play">Afspil</string>
     <string name="pip_skip_to_next">Gå videre til næste</string>
     <string name="pip_skip_to_prev">Gå til forrige</string>
-    <string name="pointer_location">Markørens placering</string>
+    <string name="pointer_location">Markørens lokation</string>
     <string name="pointer_location_summary">Skærmoverlejringen viser de aktuelle berøringsdata</string>
     <string name="power_charging">%1$s – %2$s</string>
     <string name="power_charging_duration">%1$s – fuldt opladet om %2$s</string>
@@ -1571,11 +1585,12 @@ Kontakt %2$s, hvis du har spørgsmål."</string>
     <string name="power_remaining_only_more_than_subtext">Der er mere end %1$s tilbage</string>
     <string name="power_remaining_settings_home_page">%1$s – %2$s</string>
     <string name="power_suggestion_battery_run_out">Batteriet aflades muligvis inden %1$s</string>
+    <string name="pref_title_network_details">Netværksoplysninger</string>
     <string name="preference_copied">\"%1$s\" blev kopieret til udklipsholderen.</string>
-    <string name="preference_summary_default_combination">%1$s – %2$s</string>
+    <string name="preference_summary_default_combination">%1$s/%2$s</string>
     <string name="priority_conversations">Prioriterede samtaler</string>
     <string name="privacy_type_camera">kameraet</string>
-    <string name="privacy_type_location">placering</string>
+    <string name="privacy_type_location">lokation</string>
     <string name="privacy_type_microphone">mikrofonen</string>
     <string name="private_dns_broken">Der er ikke adgang til den private DNS-server</string>
     <string name="private_dns_mode_off">Fra</string>
@@ -1670,9 +1685,9 @@ Kontakt %2$s, hvis du har spørgsmål."</string>
     <string name="quick_settings_hotspot_secondary_label_transient">Aktiverer…</string>
     <string name="quick_settings_ime_label">Inputmetode</string>
     <string name="quick_settings_internet_label">Internet</string>
-    <string name="quick_settings_inversion_label">Byt om på farver</string>
-    <string name="quick_settings_location_label">Placering</string>
-    <string name="quick_settings_location_off_label">Placering fra</string>
+    <string name="quick_settings_inversion_label">Ombyt farver</string>
+    <string name="quick_settings_location_label">Lokation</string>
+    <string name="quick_settings_location_off_label">Lokation fra</string>
     <string name="quick_settings_media_device_label">Medieenhed</string>
     <string name="quick_settings_mic_label">Mikrofonadgang</string>
     <string name="quick_settings_more_settings">Flere indstillinger</string>
@@ -1740,6 +1755,7 @@ Kontakt %2$s, hvis du har spørgsmål."</string>
     <string name="right_keycode">Højre tastekode</string>
     <string name="right_nav_bar_button_type">Ekstra højre knaptype</string>
     <string name="ring_toggle_title">Opkald</string>
+    <string name="rotation_lock_camera_rotation_on">Til – ansigtsbaseret</string>
     <string name="running_foreground_services_msg">Tryk for at se info om batteri- og dataforbrug</string>
     <string name="running_foreground_services_title">Apps, der kører i baggrunden</string>
     <string name="running_process_item_user_label">Bruger: %1$s</string>
@@ -1814,6 +1830,7 @@ Kontakt %2$s, hvis du har spørgsmål."</string>
     <string name="screenshot_top_boundary_pct">Øverste kant: %1$d procent</string>
     <string name="search_menu">Søg efter indstillinger</string>
     <string name="search_menu_title">Søg</string>
+    <string name="see_all_networks">Se alle</string>
     <string name="see_more_title">Se mere</string>
     <string name="select_application">Vælg applikation</string>
     <string name="select_conversation_text">Tryk på en samtale for at føje den til din startskærm</string>
@@ -1926,6 +1943,7 @@ være overvåget"</string>
     <string name="switch_bar_off">Fra</string>
     <string name="switch_bar_on">Til</string>
     <string name="system_ui_tuner">System UI Tuner</string>
+    <string name="tap_a_network_to_connect">Tryk på et netværk for at oprette forbindelse</string>
     <string name="tap_again">Tryk igen</string>
     <string name="tap_to_sign_up">Tryk for at registrere dig</string>
     <string name="tether_settings_title_all">Netdeling og hotspot</string>
@@ -1951,6 +1969,7 @@ Tryk for at få flere oplysninger"</string>
     <string name="time_unit_just_now">Lige nu</string>
     <string name="title_convert_fbe">Konverterer til filbaseret kryptering</string>
     <string name="title_usb_accessory">USB-ekstraudstyr</string>
+    <string name="to_switch_networks_disconnect_ethernet">Afbryd ethernetforbindelsen for at skifte netværk</string>
     <string name="too_hot_label">Din Pixel er for varm</string>
     <string name="touch_filtered_warning">Indstillinger kan ikke bekræfte dit svar, da en app dækker for en anmodning om tilladelse.</string>
     <string name="track_frame_time">HWUI-profilgengivelse</string>
@@ -2009,10 +2028,12 @@ Tryk for at få flere oplysninger"</string>
     <string name="tuner_toast">System UI Tuner blev føjet til Indstillinger</string>
     <string name="tuner_warning">System UI Tuner giver dig flere muligheder for at justere og tilpasse Android-brugerfladen. Disse eksperimentelle funktioner kan ændres, gå i stykker eller forsvinde i fremtidige udgivelser. Vær forsigtig, hvis du fortsætter.</string>
     <string name="tuner_warning_title">Sjovt for nogle, men ikke for alle</string>
+    <string name="turn_on_wifi">Wi-Fi</string>
     <string name="tv_notification_panel_no_notifications">Ingen notifikationer</string>
     <string name="tv_notification_panel_title">Notifikationer</string>
     <string name="two_weeks_timestamp">For 2 uger siden</string>
     <string name="unknown">Ukendt</string>
+    <string name="unlock_to_view_networks">Lås op for at se netværk</string>
     <string name="upcoming_birthday_status">Fødselsdag snart</string>
     <string name="upcoming_birthday_status_content_description">%1$s har snart fødselsdag</string>
     <string name="url_menu_copy">Kopiér</string>
@@ -2151,9 +2172,11 @@ Wi‑Fi-adresse (BSSID)
     <string name="wifi_disconnected">Afbrudt</string>
     <string name="wifi_display_certification">Certificering af trådløs skærm</string>
     <string name="wifi_display_certification_summary">Vis valgmuligheder for certificering af trådløs skærm</string>
+    <string name="wifi_empty_list_wifi_on">Søger efter netværk…</string>
     <string name="wifi_enhanced_mac_randomization">Ikke-vedvarende MAC-randomisering via Wi-Fi</string>
     <string name="wifi_enhanced_mac_randomization_summary">Når denne tilstand er aktiveret, skifter enhedens MAC-adresse muligvis, hver gang den opretter forbindelse til et netværk, hvor MAC-randomisering er aktiveret.</string>
     <string name="wifi_fail_to_scan">Der kan ikke søges efter netværk</string>
+    <string name="wifi_failed_connect_message">Der kunne ikke oprettes forbindelse til netværket</string>
     <string name="wifi_hotspot_switch_off_text">Fra</string>
     <string name="wifi_hotspot_switch_on_text">Til</string>
     <string name="wifi_is_off">Wi-Fi er slået fra</string>
@@ -2164,6 +2187,7 @@ Wi‑Fi-adresse (BSSID)
     <string name="wifi_not_in_range">Ikke inden for rækkevidde</string>
     <string name="wifi_passpoint_expired">Udløbet</string>
     <string name="wifi_remembered">Gemt</string>
+    <string name="wifi_scan_notify_message">For at forbedre brugeroplevelsen på enheden kan apps og tjenester stadig til enhver tid scanne efter Wi‑Fi-netværk, også selvom Wi‑Fi er deaktiveret. Du kan ændre dette i indstillingerne for Wi-Fi-scanning. <annotation id="link">Skift indstilling</annotation></string>
     <string name="wifi_scan_throttling">Begrænsning af Wi-Fi-scanning</string>
     <string name="wifi_scan_throttling_summary">Reducerer batteriforbruget og forbedrer netværkets effektivitet</string>
     <string name="wifi_security_none">Ingen</string>
@@ -2173,12 +2197,13 @@ Wi‑Fi-adresse (BSSID)
     <string name="wifi_unmetered_label">Ikke forbrugsafregnet</string>
     <string name="wifi_verbose_logging">Aktivér detaljeret Wi-Fi-logføring</string>
     <string name="wifi_verbose_logging_summary">Øg mængden af Wi‑Fi-logføring. Vis opdelt efter SSID RSSI i Wi‑Fi-vælgeren</string>
+    <string name="wifi_wont_autoconnect_for_now">Ingen automatisk forbindelse til Wi-Fi i øjeblikket</string>
     <string name="wifitrackerlib_auto_connect_disable">Automatisk forbindelse er deaktiveret</string>
     <string name="wifitrackerlib_available_via_app">Tilgængeligt via %1$s</string>
     <string name="wifitrackerlib_connected_via_app">Forbundet via %1$s</string>
     <string name="wifitrackerlib_connected_via_network_scorer">Automatisk forbundet via %1$s</string>
     <string name="wifitrackerlib_connected_via_network_scorer_default">Automatisk forbundet via udbyder af netværksvurdering</string>
-    <string name="wifitrackerlib_imsi_protection_warning">Dette netværk kræver et SIM-id, der kan bruges til at spore enhedens placering. <annotation id="url">Få flere oplysninger</annotation></string>
+    <string name="wifitrackerlib_imsi_protection_warning">Dette netværk kræver et SIM-id, der kan bruges til at spore enhedens lokation. <annotation id="url">Få flere oplysninger</annotation></string>
     <string name="wifitrackerlib_osu_completing_sign_up">Fuldfører registrering…</string>
     <string name="wifitrackerlib_osu_connect_failed">Der kunne ikke oprettes forbindelse</string>
     <string name="wifitrackerlib_osu_opening_provider">Åbner %1$s</string>

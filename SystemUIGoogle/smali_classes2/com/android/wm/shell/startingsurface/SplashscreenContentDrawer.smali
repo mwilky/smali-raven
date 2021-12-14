@@ -1333,7 +1333,7 @@
 
     move-result-object v0
 
-    const v1, 0x1050272
+    const v1, 0x1050273
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1347,7 +1347,7 @@
 
     move-result-object v0
 
-    const v1, 0x1050271
+    const v1, 0x1050272
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1472,6 +1472,22 @@
     invoke-virtual {v0, v8}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
+.end method
+
+.method createViewContextWrapper(Landroid/content/Context;)Landroid/view/ContextThemeWrapper;
+    .locals 1
+
+    new-instance v0, Landroid/view/ContextThemeWrapper;
+
+    iget-object p0, p0, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p0}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
+
+    move-result-object p0
+
+    invoke-direct {v0, p1, p0}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;Landroid/content/res/Resources$Theme;)V
+
+    return-object v0
 .end method
 
 .method estimateTaskBackgroundColor(Landroid/content/Context;)I

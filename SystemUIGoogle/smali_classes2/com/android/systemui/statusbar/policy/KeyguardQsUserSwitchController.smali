@@ -13,7 +13,7 @@
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lcom/android/systemui/util/ViewController<",
-        "Lcom/android/systemui/statusbar/phone/UserAvatarView;",
+        "Landroid/widget/FrameLayout;",
         ">;"
     }
 .end annotation
@@ -54,6 +54,8 @@
 
 .field private final mStatusBarStateListener:Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;
 
+.field private mUserAvatarView:Lcom/android/systemui/statusbar/phone/UserAvatarView;
+
 .field private final mUserDetailAdapter:Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController$KeyguardUserDetailAdapter;
 
 .field private final mUserSwitcherController:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
@@ -86,12 +88,12 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/systemui/statusbar/phone/UserAvatarView;Landroid/content/Context;Landroid/content/res/Resources;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/phone/DozeParameters;Ljavax/inject/Provider;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)V
+.method public constructor <init>(Landroid/widget/FrameLayout;Landroid/content/Context;Landroid/content/res/Resources;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/phone/DozeParameters;Ljavax/inject/Provider;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)V
     .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/android/systemui/statusbar/phone/UserAvatarView;",
+            "Landroid/widget/FrameLayout;",
             "Landroid/content/Context;",
             "Landroid/content/res/Resources;",
             "Lcom/android/systemui/keyguard/ScreenLifecycle;",
@@ -418,9 +420,7 @@
     move-result-object p1
 
     :goto_0
-    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast v0, Lcom/android/systemui/statusbar/phone/UserAvatarView;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->mUserAvatarView:Lcom/android/systemui/statusbar/phone/UserAvatarView;
 
     invoke-virtual {v0}, Landroid/view/View;->getContentDescription()Ljava/lang/CharSequence;
 
@@ -432,9 +432,7 @@
 
     if-nez v0, :cond_2
 
-    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast v0, Lcom/android/systemui/statusbar/phone/UserAvatarView;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->mUserAvatarView:Lcom/android/systemui/statusbar/phone/UserAvatarView;
 
     invoke-virtual {v0, p1}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
 
@@ -453,9 +451,7 @@
     const/16 p1, -0x2710
 
     :goto_1
-    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast v0, Lcom/android/systemui/statusbar/phone/UserAvatarView;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->mUserAvatarView:Lcom/android/systemui/statusbar/phone/UserAvatarView;
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->getCurrentUserIcon()Landroid/graphics/drawable/Drawable;
 
@@ -583,9 +579,7 @@
 .method public getUserIconHeight()I
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast p0, Lcom/android/systemui/statusbar/phone/UserAvatarView;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->mUserAvatarView:Lcom/android/systemui/statusbar/phone/UserAvatarView;
 
     invoke-virtual {p0}, Landroid/view/View;->getHeight()I
 
@@ -599,6 +593,20 @@
 
     invoke-super {p0}, Lcom/android/systemui/util/ViewController;->onInit()V
 
+    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast v0, Landroid/widget/FrameLayout;
+
+    sget v1, Lcom/android/systemui/R$id;->kg_multi_user_avatar:I
+
+    invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/phone/UserAvatarView;
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->mUserAvatarView:Lcom/android/systemui/statusbar/phone/UserAvatarView;
+
     new-instance v0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController$3;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->mUserSwitcherController:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
@@ -607,9 +615,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->mAdapter:Lcom/android/systemui/statusbar/policy/UserSwitcherController$BaseUserAdapter;
 
-    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast v0, Lcom/android/systemui/statusbar/phone/UserAvatarView;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->mUserAvatarView:Lcom/android/systemui/statusbar/phone/UserAvatarView;
 
     new-instance v1, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController$$ExternalSyntheticLambda0;
 
@@ -617,9 +623,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast v0, Lcom/android/systemui/statusbar/phone/UserAvatarView;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->mUserAvatarView:Lcom/android/systemui/statusbar/phone/UserAvatarView;
 
     new-instance v1, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController$4;
 
@@ -699,9 +703,9 @@
 
     iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
-    check-cast p0, Lcom/android/systemui/statusbar/phone/UserAvatarView;
+    check-cast p0, Landroid/widget/FrameLayout;
 
-    invoke-virtual {p0, p1}, Landroid/view/View;->setAlpha(F)V
+    invoke-virtual {p0, p1}, Landroid/widget/FrameLayout;->setAlpha(F)V
 
     :cond_0
     return-void
@@ -730,7 +734,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
-    check-cast v0, Lcom/android/systemui/statusbar/phone/UserAvatarView;
+    check-cast v0, Landroid/widget/FrameLayout;
 
     sget-object v1, Lcom/android/systemui/statusbar/notification/AnimatableProperty;->Y:Lcom/android/systemui/statusbar/notification/AnimatableProperty;
 
@@ -742,7 +746,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
-    check-cast p0, Lcom/android/systemui/statusbar/phone/UserAvatarView;
+    check-cast p0, Landroid/widget/FrameLayout;
 
     sget-object p2, Lcom/android/systemui/statusbar/notification/AnimatableProperty;->TRANSLATION_X:Lcom/android/systemui/statusbar/notification/AnimatableProperty;
 

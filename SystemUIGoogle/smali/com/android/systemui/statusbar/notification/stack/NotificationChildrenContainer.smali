@@ -725,7 +725,7 @@
 
     iput v2, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationChildrenContainer;->mHeaderHeight:I
 
-    const v1, 0x10501e0
+    const v1, 0x10501e1
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

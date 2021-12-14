@@ -363,6 +363,7 @@ Se este permiso está desactivado, non funcionarán as alarmas que xa se definis
     <string name="alarms_and_reminders_label">Alarmas e recordatorios</string>
     <string name="alarms_and_reminders_switch_title">Permitir axuste de alarmas e recordatorios</string>
     <string name="alarms_and_reminders_title">Alarmas e recordatorios</string>
+    <string name="all_network_unavailable">Non hai redes dispoñibles</string>
     <string name="allow_mock_location">Permitir localizacións falsas</string>
     <string name="allow_mock_location_summary">Permite localizacións falsas</string>
     <string name="always_use_accessory">Abrir sempre %1$s cando se conecte %2$s</string>
@@ -618,6 +619,11 @@ Selección"</string>
     <string name="clock_title_analog">Analóxico</string>
     <string name="clock_title_bubble">Burbulla</string>
     <string name="clock_title_default">Predeterminado</string>
+    <string name="columbus_bouncer_message">Desbloquea o dispositivo para completar Toque rápido</string>
+    <string name="columbus_target_request_dialog_allow">Permitir</string>
+    <string name="columbus_target_request_dialog_deny">Non permitir</string>
+    <string name="columbus_target_request_dialog_summary">Ao tocar dúas veces a parte posterior do teléfono, abrirase a aplicación %1$s. Podes cambiar esta preferencia cando queiras en Configuración.</string>
+    <string name="columbus_target_request_dialog_title">Queres permitir o uso de Toque rápido para abrir a aplicación %1$s?</string>
     <string name="compat_mode_off">Estirar ata ocupar todo</string>
     <string name="compat_mode_on">Ampliar ata ocupar todo</string>
     <string name="confirm_enable_oem_unlock_text">AVISO: As funcións de protección do dispositivo non funcionarán neste dispositivo se está activada esta configuración.</string>
@@ -740,6 +746,8 @@ Se os reactivas, pódense aplicar cargos polo seu uso."</string>
     <string name="defender_notify_learn_more">Máis información</string>
     <string name="defender_notify_resume_charge">Retomar carga</string>
     <string name="defender_notify_title">Carga limitada temporalmente</string>
+    <string name="defender_post_notify_des">Para manter a batería en bo estado, a carga limitouse ao %1$s neste horario: %2$s-%3$s</string>
+    <string name="defender_post_notify_title">Cargando con normalidade</string>
     <string name="delete_blob_confirmation_text">Seguro que queres eliminar estes datos compartidos?</string>
     <string name="delete_blob_text">Eliminar datos compartidos</string>
     <string name="demo_mode">Modo de demostración da IU do sistema</string>
@@ -885,6 +893,7 @@ Os datos das caras usados por esta función eliminaranse de modo permanente e se
     <string name="game_status">Xogando</string>
     <string name="global_action_lock_message">Desbloquea o teléfono para ver máis opcións</string>
     <string name="global_action_screenshot">Facer captura</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock está desactivado</string>
     <string name="global_actions_change_description">Para acceder a %1$s e aos controis dos dispositivos, pasa o dedo cara abaixo desde a parte superior da pantalla</string>
     <string name="go_to_web">Ir ao navegador</string>
     <string name="google_services_wallpaper_permission"><b>Permite que os fondos de pantalla animados de Google respondan á túa localización</b> accedendo ao servizo de localización de Google.</string>
@@ -1232,7 +1241,7 @@ Téntao de novo en %2$d segundos."</string>
     <string name="media_projection_dialog_text">%s terá acceso a toda a información visible na pantalla ou reproducida desde o teu dispositivo mentres graves ou emitas contido. Isto inclúe información como contrasinais, detalles de pago, fotos, mensaxes e o audio que reproduzas.</string>
     <string name="media_projection_dialog_title">Queres comezar a gravar ou emitir contido con %s?</string>
     <string name="media_projection_remember_text">Non mostrar outra vez</string>
-    <string name="media_seamless_remote_device">Dispositivo</string>
+    <string name="media_seamless_other_device">Outro dispositivo</string>
     <string name="media_transfer_this_device_name">Altofalante do teléfono</string>
     <string name="media_transfer_this_phone">Este teléfono</string>
     <string name="media_transfer_wired_device_name">Dispositivo de audio con cable</string>
@@ -1249,9 +1258,13 @@ Téntao de novo en %2$d segundos."</string>
     <string name="mobile_data">Datos móbiles</string>
     <string name="mobile_data_always_on">Datos móbiles sempre activados</string>
     <string name="mobile_data_always_on_summary">Mantén sempre os datos móbiles activados, aínda que a wifi estea activa (para cambiar de rede rapidamente)</string>
+    <string name="mobile_data_connection_active">Conectada</string>
     <string name="mobile_data_disable_message">Non terás acceso aos datos nin a Internet a través de %s. Internet só estará dispoñible mediante a wifi.</string>
     <string name="mobile_data_disable_message_default_carrier">o teu operador</string>
     <string name="mobile_data_disable_title">Queres desactivar os datos móbiles?</string>
+    <string name="mobile_data_no_connection">Sen conexión</string>
+    <string name="mobile_data_off_summary">Os datos móbiles non se conectarán automaticamente</string>
+    <string name="mobile_data_settings_title">Datos móbiles</string>
     <string name="mobile_data_text_format">%1$s-%2$s</string>
     <string name="mock_location_app">Seleccionar aplicación de localización simulada</string>
     <string name="mock_location_app_not_set">Non se definiu aplicación de localización simulada</string>
@@ -1391,6 +1404,7 @@ Se tes preguntas, ponte en contacto con %2$s."</string>
     <string name="no_content_in_select_mode">Non hai texto nin imaxes que seleccionar</string>
     <string name="no_conversations_text">As túas conversas recentes aparecerán aquí</string>
     <string name="no_shortcut">%1$s non admite funcións de conversa</string>
+    <string name="non_carrier_network_unavailable">Non hai outras redes dispoñibles</string>
     <string name="not_default_data_content_description">Non se configurou para utilizar datos</string>
     <string name="not_set">Sen configurar</string>
     <string name="notif_inline_reply_remove_attachment_description">Quitar anexo</string>
@@ -1477,7 +1491,7 @@ Se tes preguntas, ponte en contacto con %2$s."</string>
     <string name="ongoing_privacy_dialog_phonecall">Chamada de teléfono</string>
     <string name="ongoing_privacy_dialog_recent_op">Opción usada recentemente por %1$s</string>
     <string name="ongoing_privacy_dialog_separator">", "</string>
-    <string name="ongoing_privacy_dialog_using_op">Opción en uso por %1$s</string>
+    <string name="ongoing_privacy_dialog_using_op">En uso por: %1$s</string>
     <string name="open_saver_setting_action">Configuración</string>
     <string name="orb_search_action">Acción de busca</string>
     <string name="osu_completing_sign_up">Completando o rexistro…</string>
@@ -1571,6 +1585,7 @@ Se tes preguntas, ponte en contacto con %2$s."</string>
     <string name="power_remaining_only_more_than_subtext">Tempo restante: máis de %1$s</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">A batería pode esgotarse a esta hora: %1$s</string>
+    <string name="pref_title_network_details">Detalles da rede</string>
     <string name="preference_copied">Copiouse \"%1$s\" no portapapeis.</string>
     <string name="preference_summary_default_combination">%1$s/%2$s</string>
     <string name="priority_conversations">Conversas prioritarias</string>
@@ -1740,6 +1755,7 @@ Se tes preguntas, ponte en contacto con %2$s."</string>
     <string name="right_keycode">Código de teclas á dereita</string>
     <string name="right_nav_bar_button_type">Tipo de botón adicional á dereita</string>
     <string name="ring_toggle_title">Chamadas</string>
+    <string name="rotation_lock_camera_rotation_on">Activada: baseada na cara</string>
     <string name="running_foreground_services_msg">Toca para obter información sobre o uso de datos e a batería</string>
     <string name="running_foreground_services_title">Aplicacións que se executan en segundo plano</string>
     <string name="running_process_item_user_label">Usuario: %1$s</string>
@@ -1814,6 +1830,7 @@ Se tes preguntas, ponte en contacto con %2$s."</string>
     <string name="screenshot_top_boundary_pct">Bordo superior: %1$d %%</string>
     <string name="search_menu">Busca na configuración</string>
     <string name="search_menu_title">Buscar</string>
+    <string name="see_all_networks">Ver todo</string>
     <string name="see_more_title">Ver máis</string>
     <string name="select_application">Seleccionar aplicación</string>
     <string name="select_conversation_text">Toca unha conversa para engadila á pantalla de inicio</string>
@@ -1926,6 +1943,7 @@ supervise a rede"</string>
     <string name="switch_bar_off">Desactivado</string>
     <string name="switch_bar_on">Activado</string>
     <string name="system_ui_tuner">Configurador da IU do sistema</string>
+    <string name="tap_a_network_to_connect">Toca unha rede para conectarte a ela</string>
     <string name="tap_again">Toca de novo</string>
     <string name="tap_to_sign_up">Toca para rexistrarte</string>
     <string name="tether_settings_title_all">Conexión comp./zona wifi</string>
@@ -1951,6 +1969,7 @@ Toca para obter máis información"</string>
     <string name="time_unit_just_now">Agora mesmo</string>
     <string name="title_convert_fbe">Convertendo no encriptado baseado en ficheiros</string>
     <string name="title_usb_accessory">Accesorio USB</string>
+    <string name="to_switch_networks_disconnect_ethernet">Para cambiar de rede, desconecta a Ethernet</string>
     <string name="too_hot_label">O Pixel queceu demasiado</string>
     <string name="touch_filtered_warning">Dado que unha aplicación se superpón sobre unha solicitude de permiso, a configuración non pode verificar a túa resposta.</string>
     <string name="track_frame_time">Perfil procesamento HWUI</string>
@@ -2009,10 +2028,12 @@ Toca para obter máis información"</string>
     <string name="tuner_toast">Parabéns! O configurador da IU do sistema engadiuse a Configuración</string>
     <string name="tuner_warning">O configurador da IU do sistema ofréceche formas adicionais de modificar e personalizar a interface de usuario de Android. Estas funcións experimentais poden cambiar, interromperse ou desaparecer en futuras versións. Continúa con precaución.</string>
     <string name="tuner_warning_title">Diversión só para algúns</string>
+    <string name="turn_on_wifi">Wifi</string>
     <string name="tv_notification_panel_no_notifications">Non hai notificacións</string>
     <string name="tv_notification_panel_title">Notificacións</string>
     <string name="two_weeks_timestamp">Hai 2 semanas</string>
     <string name="unknown">Descoñecida</string>
+    <string name="unlock_to_view_networks">Desbloquea a pantalla para ver as redes</string>
     <string name="upcoming_birthday_status">Aniversario a caer</string>
     <string name="upcoming_birthday_status_content_description">%1$s está pronto de aniversario</string>
     <string name="url_menu_copy">Copiar</string>
@@ -2151,9 +2172,11 @@ Enderezo wifi (BSSID)
     <string name="wifi_disconnected">Rede desconectada</string>
     <string name="wifi_display_certification">Certificado de visualización sen fíos</string>
     <string name="wifi_display_certification_summary">Mostra opcións para o certificado de visualización sen fíos</string>
+    <string name="wifi_empty_list_wifi_on">Buscando redes…</string>
     <string name="wifi_enhanced_mac_randomization">Orde aleatoria de enderezos MAC non persistentes para conexións wifi</string>
     <string name="wifi_enhanced_mac_randomization_summary">Cando este modo está activado, o enderezo MAC pode cambiar cada vez que se este dispositivo se conecta a unha rede que teña activada a orde aleatoria de enderezos MAC</string>
     <string name="wifi_fail_to_scan">Non se poden explorar redes</string>
+    <string name="wifi_failed_connect_message">Produciuse un erro ao conectarse á rede</string>
     <string name="wifi_hotspot_switch_off_text">Desactivada</string>
     <string name="wifi_hotspot_switch_on_text">Activada</string>
     <string name="wifi_is_off">A wifi está desactivada</string>
@@ -2164,6 +2187,7 @@ Enderezo wifi (BSSID)
     <string name="wifi_not_in_range">Non está dentro da zona de cobertura</string>
     <string name="wifi_passpoint_expired">Caducou</string>
     <string name="wifi_remembered">Gardada</string>
+    <string name="wifi_scan_notify_message">Para mellorar a experiencia que ofrece o dispositivo, as aplicacións e os servizos poden seguir buscando redes wifi en calquera momento, aínda que esta conexión estea desactivada. Podes cambiar esta opción na configuración da función Busca de redes wifi. <annotation id="link">Cambiar</annotation></string>
     <string name="wifi_scan_throttling">Limitación da busca de wifi</string>
     <string name="wifi_scan_throttling_summary">Reduce o consumo de batería e mellora o rendemento da rede</string>
     <string name="wifi_security_none">Ningunha</string>
@@ -2173,6 +2197,7 @@ Enderezo wifi (BSSID)
     <string name="wifi_unmetered_label">Rede con tarifa plana</string>
     <string name="wifi_verbose_logging">Activar rexistro detallado da wifi</string>
     <string name="wifi_verbose_logging_summary">Aumenta o nivel de rexistro da wifi, móstrao por SSID RSSI no selector de wifi</string>
+    <string name="wifi_wont_autoconnect_for_now">De momento, a wifi non se conectará automaticamente</string>
     <string name="wifitrackerlib_auto_connect_disable">A conexión automática está desactivada</string>
     <string name="wifitrackerlib_available_via_app">Dispoñible a través de %1$s</string>
     <string name="wifitrackerlib_connected_via_app">Conectada a través de %1$s</string>

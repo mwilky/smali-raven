@@ -2261,7 +2261,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->mOnPropertiesChangedListener:Landroid/provider/DeviceConfig$OnPropertiesChangedListener;
 
-    const-string v4, "systemui"
+    const-string/jumbo v4, "systemui"
 
     invoke-static {v4, v3, v0}, Landroid/provider/DeviceConfig;->addOnPropertiesChangedListener(Ljava/lang/String;Ljava/util/concurrent/Executor;Landroid/provider/DeviceConfig$OnPropertiesChangedListener;)V
 
@@ -2350,7 +2350,7 @@
 
     const/4 v1, 0x1
 
-    const-string v2, "systemui"
+    const-string/jumbo v2, "systemui"
 
     const/4 v3, 0x0
 
@@ -3260,7 +3260,7 @@
 
     div-float/2addr v0, v3
 
-    const-string v3, "systemui"
+    const-string/jumbo v3, "systemui"
 
     const-string v4, "back_gesture_bottom_height"
 

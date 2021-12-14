@@ -141,7 +141,7 @@
 
     const-string v0, "shortcut"
 
-    const-string v3, "title"
+    const-string/jumbo v3, "title"
 
     filled-new-array {v0, v3}, [Ljava/lang/String;
 
@@ -497,7 +497,7 @@
 
     if-nez v0, :cond_0
 
-    const-string v0, "text"
+    const-string/jumbo v0, "text"
 
     const/4 v2, 0x0
 

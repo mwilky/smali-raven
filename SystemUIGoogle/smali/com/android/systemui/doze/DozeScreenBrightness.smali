@@ -18,6 +18,8 @@
 
 .field private mDefaultDozeBrightness:I
 
+.field private final mDockManager:Lcom/android/systemui/dock/DockManager;
+
 .field private final mDozeHost:Lcom/android/systemui/doze/DozeHost;
 
 .field private final mDozeParameters:Lcom/android/systemui/statusbar/phone/DozeParameters;
@@ -74,7 +76,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/doze/DozeMachine$Service;Lcom/android/systemui/util/sensors/AsyncSensorManager;Ljava/util/Optional;Lcom/android/systemui/doze/DozeHost;Landroid/os/Handler;Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/doze/DozeMachine$Service;Lcom/android/systemui/util/sensors/AsyncSensorManager;Ljava/util/Optional;Lcom/android/systemui/doze/DozeHost;Landroid/os/Handler;Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/dock/DockManager;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -90,6 +92,7 @@
             "Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;",
             "Lcom/android/systemui/keyguard/WakefulnessLifecycle;",
             "Lcom/android/systemui/statusbar/phone/DozeParameters;",
+            "Lcom/android/systemui/dock/DockManager;",
             "Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;",
             ")V"
         }
@@ -125,7 +128,9 @@
 
     iput-object p6, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mHandler:Landroid/os/Handler;
 
-    iput-object p10, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mUnlockedScreenOffAnimationController:Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
+    iput-object p10, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mDockManager:Lcom/android/systemui/dock/DockManager;
+
+    iput-object p11, p0, Lcom/android/systemui/doze/DozeScreenBrightness;->mUnlockedScreenOffAnimationController:Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
 
     iget p1, p7, Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;->defaultDozeBrightness:I
 
@@ -450,36 +455,6 @@
     return-void
 .end method
 
-.method public onScreenState(I)V
-    .locals 1
-
-    const/4 v0, 0x3
-
-    if-eq p1, v0, :cond_1
-
-    const/4 v0, 0x4
-
-    if-ne p1, v0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p1, 0x0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/doze/DozeScreenBrightness;->setLightSensorEnabled(Z)V
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    const/4 p1, 0x1
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/doze/DozeScreenBrightness;->setLightSensorEnabled(Z)V
-
-    :goto_1
-    return-void
-.end method
-
 .method public onSensorChanged(Landroid/hardware/SensorEvent;)V
     .locals 3
 
@@ -546,63 +521,76 @@
 
     aget p1, p1, v0
 
-    const/4 v0, 0x1
+    const/4 v0, 0x0
 
-    if-eq p1, v0, :cond_1
+    const/4 v1, 0x1
 
-    const/4 v1, 0x2
-
-    if-eq p1, v1, :cond_1
-
-    const/4 v1, 0x3
-
-    if-eq p1, v1, :cond_0
+    packed-switch p1, :pswitch_data_0
 
     goto :goto_0
 
-    :cond_0
+    :pswitch_0
     invoke-direct {p0}, Lcom/android/systemui/doze/DozeScreenBrightness;->onDestroy()V
 
     goto :goto_0
 
-    :cond_1
+    :pswitch_1
+    invoke-direct {p0, v0}, Lcom/android/systemui/doze/DozeScreenBrightness;->setLightSensorEnabled(Z)V
+
+    invoke-direct {p0}, Lcom/android/systemui/doze/DozeScreenBrightness;->resetBrightnessToDefault()V
+
+    goto :goto_0
+
+    :pswitch_2
+    invoke-direct {p0, v1}, Lcom/android/systemui/doze/DozeScreenBrightness;->setLightSensorEnabled(Z)V
+
+    goto :goto_0
+
+    :pswitch_3
     invoke-direct {p0}, Lcom/android/systemui/doze/DozeScreenBrightness;->resetBrightnessToDefault()V
 
     :goto_0
     sget-object p1, Lcom/android/systemui/doze/DozeMachine$State;->FINISH:Lcom/android/systemui/doze/DozeMachine$State;
 
-    if-eq p2, p1, :cond_4
+    if-eq p2, p1, :cond_2
 
     sget-object p1, Lcom/android/systemui/doze/DozeMachine$State;->DOZE:Lcom/android/systemui/doze/DozeMachine$State;
 
-    const/4 v1, 0x0
+    if-ne p2, p1, :cond_0
 
-    if-ne p2, p1, :cond_2
-
-    move p1, v0
+    move p1, v1
 
     goto :goto_1
 
-    :cond_2
-    move p1, v1
+    :cond_0
+    move p1, v0
 
     :goto_1
     invoke-direct {p0, p1}, Lcom/android/systemui/doze/DozeScreenBrightness;->setScreenOff(Z)V
 
     sget-object p1, Lcom/android/systemui/doze/DozeMachine$State;->DOZE_AOD_PAUSED:Lcom/android/systemui/doze/DozeMachine$State;
 
-    if-ne p2, p1, :cond_3
+    if-ne p2, p1, :cond_1
 
-    goto :goto_2
-
-    :cond_3
     move v0, v1
 
-    :goto_2
+    :cond_1
     invoke-direct {p0, v0}, Lcom/android/systemui/doze/DozeScreenBrightness;->setPaused(Z)V
 
-    :cond_4
+    :cond_2
     return-void
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_3
+        :pswitch_2
+        :pswitch_2
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method
 
 .method public updateBrightnessAndReady(Z)V

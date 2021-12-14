@@ -1,5 +1,5 @@
 .class public final Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;
-.super Lcom/android/internal/app/AlertActivity;
+.super Landroid/app/Activity;
 .source "SensorUseStartedActivity.kt"
 
 # interfaces
@@ -26,6 +26,8 @@
 .field private final keyguardDismissUtil:Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;
 
 .field private final keyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+
+.field private mDialog:Landroid/app/AlertDialog;
 
 .field private sensor:I
 
@@ -80,7 +82,7 @@
 
     invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-direct {p0}, Lcom/android/internal/app/AlertActivity;-><init>()V
+    invoke-direct {p0}, Landroid/app/Activity;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->sensorPrivacyController:Lcom/android/systemui/statusbar/policy/IndividualSensorPrivacyController;
 
@@ -182,7 +184,7 @@
 
     const/4 v0, -0x1
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/app/AlertActivity;->setResult(I)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->setResult(I)V
 
     return-void
 .end method
@@ -305,7 +307,7 @@
     invoke-static {v2, p1, p2}, Lcom/android/internal/util/FrameworkStatsLog;->write(IILjava/lang/String;)V
 
     :goto_0
-    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->dismiss()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     return-void
 
@@ -316,21 +318,21 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 8
+    .locals 3
 
-    invoke-super {p0, p1}, Lcom/android/internal/app/AlertActivity;->onCreate(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
     const/4 p1, 0x1
 
-    invoke-virtual {p0, p1}, Lcom/android/internal/app/AlertActivity;->setShowWhenLocked(Z)V
+    invoke-virtual {p0, p1}, Landroid/app/Activity;->setShowWhenLocked(Z)V
 
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/app/AlertActivity;->setFinishOnTouchOutside(Z)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->setFinishOnTouchOutside(Z)V
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/app/AlertActivity;->setResult(I)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->setResult(I)V
 
-    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
 
@@ -347,7 +349,7 @@
     :cond_0
     iput-object v1, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->sensorUsePackageName:Ljava/lang/String;
 
-    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v1
 
@@ -355,298 +357,106 @@
 
     invoke-virtual {v1, v2, v0}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    move-result v1
+    move-result v0
 
-    const/4 v2, 0x2
+    if-eqz v0, :cond_1
 
-    const v3, 0x7fffffff
+    const v0, 0x7fffffff
 
-    if-eqz v1, :cond_1
+    iput v0, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->sensor:I
 
-    iput v3, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->sensor:I
+    new-instance v0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity$onCreate$1;
 
-    new-instance v1, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity$onCreate$1;
+    invoke-direct {v0, p0}, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity$onCreate$1;-><init>(Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;)V
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity$onCreate$1;-><init>(Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;)V
-
-    iput-object v1, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->sensorPrivacyListener:Lcom/android/systemui/statusbar/policy/IndividualSensorPrivacyController$Callback;
-
-    iget-object v4, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->sensorPrivacyController:Lcom/android/systemui/statusbar/policy/IndividualSensorPrivacyController;
-
-    invoke-interface {v4, v1}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
+    iput-object v0, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->sensorPrivacyListener:Lcom/android/systemui/statusbar/policy/IndividualSensorPrivacyController$Callback;
 
     iget-object v1, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->sensorPrivacyController:Lcom/android/systemui/statusbar/policy/IndividualSensorPrivacyController;
 
-    invoke-interface {v1, p1}, Lcom/android/systemui/statusbar/policy/IndividualSensorPrivacyController;->isSensorBlocked(I)Z
+    invoke-interface {v1, v0}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
 
-    move-result v1
+    iget-object v0, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->sensorPrivacyController:Lcom/android/systemui/statusbar/policy/IndividualSensorPrivacyController;
 
-    if-nez v1, :cond_3
+    invoke-interface {v0, p1}, Lcom/android/systemui/statusbar/policy/IndividualSensorPrivacyController;->isSensorBlocked(I)Z
 
-    iget-object v1, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->sensorPrivacyController:Lcom/android/systemui/statusbar/policy/IndividualSensorPrivacyController;
+    move-result p1
 
-    invoke-interface {v1, v2}, Lcom/android/systemui/statusbar/policy/IndividualSensorPrivacyController;->isSensorBlocked(I)Z
+    if-nez p1, :cond_3
 
-    move-result v1
+    iget-object p1, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->sensorPrivacyController:Lcom/android/systemui/statusbar/policy/IndividualSensorPrivacyController;
 
-    if-nez v1, :cond_3
+    const/4 v0, 0x2
 
-    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->finish()V
+    invoke-interface {p1, v0}, Lcom/android/systemui/statusbar/policy/IndividualSensorPrivacyController;->isSensorBlocked(I)Z
+
+    move-result p1
+
+    if-nez p1, :cond_3
+
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     return-void
 
     :cond_1
-    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->getIntent()Landroid/content/Intent;
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
-    move-result-object v1
+    move-result-object p1
 
-    sget-object v4, Landroid/hardware/SensorPrivacyManager;->EXTRA_SENSOR:Ljava/lang/String;
+    sget-object v0, Landroid/hardware/SensorPrivacyManager;->EXTRA_SENSOR:Ljava/lang/String;
 
-    const/4 v5, -0x1
+    const/4 v1, -0x1
 
-    invoke-virtual {v1, v4, v5}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {p1, v0, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v1
+    move-result p1
 
-    if-ne v1, v5, :cond_2
+    if-ne p1, v1, :cond_2
 
-    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->finish()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     return-void
 
     :cond_2
-    sget-object v4, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+    sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    iput v1, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->sensor:I
+    iput p1, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->sensor:I
 
-    new-instance v1, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity$onCreate$3;
+    new-instance p1, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity$onCreate$3;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity$onCreate$3;-><init>(Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;)V
+    invoke-direct {p1, p0}, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity$onCreate$3;-><init>(Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;)V
 
-    iput-object v1, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->sensorPrivacyListener:Lcom/android/systemui/statusbar/policy/IndividualSensorPrivacyController$Callback;
+    iput-object p1, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->sensorPrivacyListener:Lcom/android/systemui/statusbar/policy/IndividualSensorPrivacyController$Callback;
 
-    iget-object v4, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->sensorPrivacyController:Lcom/android/systemui/statusbar/policy/IndividualSensorPrivacyController;
+    iget-object v0, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->sensorPrivacyController:Lcom/android/systemui/statusbar/policy/IndividualSensorPrivacyController;
 
-    invoke-interface {v4, v1}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
+    invoke-interface {v0, p1}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
 
-    iget-object v1, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->sensorPrivacyController:Lcom/android/systemui/statusbar/policy/IndividualSensorPrivacyController;
+    iget-object p1, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->sensorPrivacyController:Lcom/android/systemui/statusbar/policy/IndividualSensorPrivacyController;
 
-    new-instance v4, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity$onCreate$4;
+    iget v0, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->sensor:I
 
-    invoke-direct {v4, p0}, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity$onCreate$4;-><init>(Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;)V
+    invoke-interface {p1, v0}, Lcom/android/systemui/statusbar/policy/IndividualSensorPrivacyController;->isSensorBlocked(I)Z
 
-    invoke-interface {v1, v4}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
+    move-result p1
 
-    :cond_3
-    iget-object v1, p0, Lcom/android/internal/app/AlertActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
+    if-nez p1, :cond_3
 
-    :try_start_0
-    iget-object v4, v1, Lcom/android/internal/app/AlertController$AlertParams;->mInflater:Landroid/view/LayoutInflater;
-
-    sget v5, Lcom/android/systemui/R$layout;->sensor_use_started_title:I
-
-    const/4 v6, 0x0
-
-    invoke-virtual {v4, v5, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v4
-
-    iput-object v4, v1, Lcom/android/internal/app/AlertController$AlertParams;->mCustomTitleView:Landroid/view/View;
-
-    sget v5, Lcom/android/systemui/R$id;->sensor_use_started_title_message:I
-
-    invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v4
-
-    check-cast v4, Lcom/android/internal/widget/DialogTitle;
-
-    invoke-static {v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
-
-    iget v5, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->sensor:I
-
-    if-eq v5, p1, :cond_6
-
-    if-eq v5, v2, :cond_5
-
-    if-eq v5, v3, :cond_4
-
-    move v5, v0
-
-    goto :goto_0
-
-    :cond_4
-    sget v5, Lcom/android/systemui/R$string;->sensor_privacy_start_use_mic_camera_dialog_title:I
-
-    goto :goto_0
-
-    :cond_5
-    sget v5, Lcom/android/systemui/R$string;->sensor_privacy_start_use_camera_dialog_title:I
-
-    goto :goto_0
-
-    :cond_6
-    sget v5, Lcom/android/systemui/R$string;->sensor_privacy_start_use_mic_dialog_title:I
-
-    :goto_0
-    invoke-virtual {v4, v5}, Lcom/android/internal/widget/DialogTitle;->setText(I)V
-
-    iget-object v4, v1, Lcom/android/internal/app/AlertController$AlertParams;->mCustomTitleView:Landroid/view/View;
-
-    sget v5, Lcom/android/systemui/R$id;->sensor_use_microphone_icon:I
-
-    invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/widget/ImageView;
-
-    invoke-static {v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
-
-    iget v5, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->sensor:I
-
-    const/16 v7, 0x8
-
-    if-eq v5, p1, :cond_8
-
-    if-ne v5, v3, :cond_7
-
-    goto :goto_1
-
-    :cond_7
-    move v5, v7
-
-    goto :goto_2
-
-    :cond_8
-    :goto_1
-    move v5, v0
-
-    :goto_2
-    invoke-virtual {v4, v5}, Landroid/widget/ImageView;->setVisibility(I)V
-
-    iget-object v4, v1, Lcom/android/internal/app/AlertController$AlertParams;->mCustomTitleView:Landroid/view/View;
-
-    sget v5, Lcom/android/systemui/R$id;->sensor_use_camera_icon:I
-
-    invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/widget/ImageView;
-
-    invoke-static {v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
-
-    iget v5, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->sensor:I
-
-    if-eq v5, v2, :cond_9
-
-    if-ne v5, v3, :cond_a
-
-    :cond_9
-    move v7, v0
-
-    :cond_a
-    invoke-virtual {v4, v7}, Landroid/widget/ImageView;->setVisibility(I)V
-
-    iget v4, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->sensor:I
-
-    if-eq v4, p1, :cond_d
-
-    if-eq v4, v2, :cond_c
-
-    if-eq v4, v3, :cond_b
-
-    move v2, v0
-
-    goto :goto_3
-
-    :cond_b
-    sget v2, Lcom/android/systemui/R$string;->sensor_privacy_start_use_mic_camera_dialog_content:I
-
-    goto :goto_3
-
-    :cond_c
-    sget v2, Lcom/android/systemui/R$string;->sensor_privacy_start_use_camera_dialog_content:I
-
-    goto :goto_3
-
-    :cond_d
-    sget v2, Lcom/android/systemui/R$string;->sensor_privacy_start_use_mic_dialog_content:I
-
-    :goto_3
-    new-array p1, p1, [Ljava/lang/Object;
-
-    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->sensorUsePackageName:Ljava/lang/String;
-
-    if-eqz v4, :cond_e
-
-    invoke-virtual {v3, v4, v0}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
-
-    move-result-object v3
-
-    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Landroid/content/pm/ApplicationInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
-
-    move-result-object v3
-
-    aput-object v3, p1, v0
-
-    invoke-virtual {p0, v2, p1}, Lcom/android/internal/app/AlertActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-static {p1, v0}, Landroid/text/Html;->fromHtml(Ljava/lang/String;I)Landroid/text/Spanned;
-
-    move-result-object p1
-
-    iput-object p1, v1, Lcom/android/internal/app/AlertController$AlertParams;->mMessage:Ljava/lang/CharSequence;
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-
-    const p1, 0x10407c5
-
-    invoke-virtual {p0, p1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
-
-    move-result-object p1
-
-    iput-object p1, v1, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonText:Ljava/lang/CharSequence;
-
-    const/high16 p1, 0x1040000
-
-    invoke-virtual {p0, p1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
-
-    move-result-object p1
-
-    iput-object p1, v1, Lcom/android/internal/app/AlertController$AlertParams;->mNegativeButtonText:Ljava/lang/CharSequence;
-
-    iput-object p0, v1, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonListener:Landroid/content/DialogInterface$OnClickListener;
-
-    iput-object p0, v1, Lcom/android/internal/app/AlertController$AlertParams;->mNegativeButtonListener:Landroid/content/DialogInterface$OnClickListener;
-
-    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->setupAlert()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     return-void
 
-    :cond_e
-    :try_start_1
-    const-string p1, "sensorUsePackageName"
+    :cond_3
+    new-instance p1, Lcom/android/systemui/sensorprivacy/SensorUseDialog;
 
-    invoke-static {p1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    iget v0, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->sensor:I
 
-    throw v6
-    :try_end_1
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
+    invoke-direct {p1, p0, v0, p0}, Lcom/android/systemui/sensorprivacy/SensorUseDialog;-><init>(Landroid/content/Context;ILandroid/content/DialogInterface$OnClickListener;)V
 
-    :catch_0
-    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->finish()V
+    iput-object p1, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->mDialog:Landroid/app/AlertDialog;
+
+    invoke-static {p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
+
+    invoke-virtual {p1}, Landroid/app/AlertDialog;->show()V
 
     return-void
 .end method
@@ -654,19 +464,29 @@
 .method protected onDestroy()V
     .locals 1
 
-    invoke-super {p0}, Lcom/android/internal/app/AlertActivity;->onDestroy()V
+    invoke-super {p0}, Landroid/app/Activity;->onDestroy()V
 
+    iget-object v0, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->mDialog:Landroid/app/AlertDialog;
+
+    if-nez v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+
+    :goto_0
     iget-object v0, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->sensorPrivacyController:Lcom/android/systemui/statusbar/policy/IndividualSensorPrivacyController;
 
     iget-object p0, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->sensorPrivacyListener:Lcom/android/systemui/statusbar/policy/IndividualSensorPrivacyController$Callback;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_1
 
     invoke-interface {v0, p0}, Lcom/android/systemui/statusbar/policy/CallbackController;->removeCallback(Ljava/lang/Object;)V
 
     return-void
 
-    :cond_0
+    :cond_1
     const-string p0, "sensorPrivacyListener"
 
     invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
@@ -679,9 +499,9 @@
 .method protected onNewIntent(Landroid/content/Intent;)V
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/android/internal/app/AlertActivity;->setIntent(Landroid/content/Intent;)V
+    invoke-virtual {p0, p1}, Landroid/app/Activity;->setIntent(Landroid/content/Intent;)V
 
-    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->recreate()V
+    invoke-virtual {p0}, Landroid/app/Activity;->recreate()V
 
     return-void
 .end method
@@ -689,7 +509,7 @@
 .method protected onStart()V
     .locals 1
 
-    invoke-super {p0}, Lcom/android/internal/app/AlertActivity;->onStart()V
+    invoke-super {p0}, Landroid/app/Activity;->onStart()V
 
     const/4 v0, 0x1
 
@@ -705,7 +525,7 @@
 .method protected onStop()V
     .locals 4
 
-    invoke-super {p0}, Lcom/android/internal/app/AlertActivity;->onStop()V
+    invoke-super {p0}, Landroid/app/Activity;->onStop()V
 
     iget-boolean v0, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->unsuppressImmediately:Z
 

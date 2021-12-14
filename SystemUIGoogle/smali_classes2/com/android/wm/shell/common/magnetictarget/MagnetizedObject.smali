@@ -22,7 +22,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nMagnetizedObject.kt\nKotlin\n*S Kotlin\n*F\n+ 1 MagnetizedObject.kt\ncom/android/wm/shell/common/magnetictarget/MagnetizedObject\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n+ 3 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,699:1\n1#2:700\n256#3,2:701\n256#3,2:703\n1819#3,2:705\n*E\n*S KotlinDebug\n*F\n+ 1 MagnetizedObject.kt\ncom/android/wm/shell/common/magnetictarget/MagnetizedObject\n*L\n351#1,2:701\n435#1,2:703\n579#1,2:705\n*E\n"
+    value = "SMAP\nMagnetizedObject.kt\nKotlin\n*S Kotlin\n*F\n+ 1 MagnetizedObject.kt\ncom/android/wm/shell/common/magnetictarget/MagnetizedObject\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n+ 3 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,706:1\n1#2:707\n256#3,2:708\n256#3,2:710\n1819#3,2:712\n*E\n*S KotlinDebug\n*F\n+ 1 MagnetizedObject.kt\ncom/android/wm/shell/common/magnetictarget/MagnetizedObject\n*L\n358#1,2:708\n442#1,2:710\n586#1,2:712\n*E\n"
 .end annotation
 
 
@@ -766,6 +766,16 @@
     aput-object p0, v1, v2
 
     invoke-virtual {v0, v1}, Lcom/android/wm/shell/animation/PhysicsAnimator;->cancel([Landroidx/dynamicanimation/animation/FloatPropertyCompat;)V
+
+    return-void
+.end method
+
+.method public final clearAllTargets()V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject;->associatedTargets:Ljava/util/ArrayList;
+
+    invoke-virtual {p0}, Ljava/util/ArrayList;->clear()V
 
     return-void
 .end method

@@ -114,7 +114,7 @@
 
     const-string v1, ":settings:fragment_args_key"
 
-    const-string v2, "toggle_inversion_preference"
+    const-string/jumbo v2, "toggle_inversion_preference"
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 

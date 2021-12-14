@@ -62,7 +62,7 @@
 
     invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v0, "systemSettings"
+    const-string/jumbo v0, "systemSettings"
 
     invoke-static {p5, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -100,7 +100,7 @@
 
     move-result p1
 
-    const-string p2, "sysui.use_face_auth_wallpaper"
+    const-string/jumbo p2, "sysui.use_face_auth_wallpaper"
 
     invoke-interface {p4, p2, p1}, Lcom/android/systemui/util/settings/SettingsProxy;->getInt(Ljava/lang/String;I)I
 
@@ -122,7 +122,7 @@
 
     move-result-wide p1
 
-    const-string p3, "sysui.face_brightness_anim_duration"
+    const-string/jumbo p3, "sysui.face_brightness_anim_duration"
 
     invoke-interface {p4, p3, p1, p2}, Lcom/android/systemui/util/settings/SettingsProxy;->getLong(Ljava/lang/String;J)J
 
@@ -134,7 +134,7 @@
 
     move-result p1
 
-    const-string p2, "sysui.face_max_brightness"
+    const-string/jumbo p2, "sysui.face_max_brightness"
 
     invoke-interface {p4, p2, p1}, Lcom/android/systemui/util/settings/SettingsProxy;->getInt(Ljava/lang/String;I)I
 
@@ -152,7 +152,7 @@
 
     move-result p1
 
-    const-string p3, "sysui.face_max_scrim_opacity"
+    const-string/jumbo p3, "sysui.face_max_scrim_opacity"
 
     invoke-interface {p4, p3, p1}, Lcom/android/systemui/util/settings/SettingsProxy;->getInt(Ljava/lang/String;I)I
 
@@ -469,7 +469,7 @@
 
     move-result-object v0
 
-    const-string v1, "this.javaClass.name"
+    const-string/jumbo v1, "this.javaClass.name"
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 

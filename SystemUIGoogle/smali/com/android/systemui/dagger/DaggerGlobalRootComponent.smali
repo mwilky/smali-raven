@@ -706,6 +706,16 @@
     return-object p0
 .end method
 
+.method static synthetic access$12200(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Landroid/content/res/Resources;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->mainResources()Landroid/content/res/Resources;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method static synthetic access$1300(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
     .locals 0
 
@@ -762,17 +772,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$20600(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Landroid/content/res/Resources;
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->mainResources()Landroid/content/res/Resources;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method static synthetic access$20800(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljava/util/concurrent/Executor;
+.method static synthetic access$20900(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljava/util/concurrent/Executor;
     .locals 0
 
     invoke-direct {p0}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->mainExecutor()Ljava/util/concurrent/Executor;
@@ -790,7 +790,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$21700(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
+.method static synthetic access$21800(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->qSExpansionPathInterpolatorProvider:Ljavax/inject/Provider;

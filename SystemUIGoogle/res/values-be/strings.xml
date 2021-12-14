@@ -363,6 +363,7 @@
     <string name="alarms_and_reminders_label">Будзільнікі і напаміны</string>
     <string name="alarms_and_reminders_switch_title">Дазволіць усталёўваць будзільнікі і напаміны</string>
     <string name="alarms_and_reminders_title">Будзільнікі і напаміны</string>
+    <string name="all_network_unavailable">Няма даступных сетак</string>
     <string name="allow_mock_location">Дазволіць несапраўдныя месцы</string>
     <string name="allow_mock_location_summary">Дазволіць несапраўдныя месцы</string>
     <string name="always_use_accessory">Заўсёды адкрываць %1$s, калі падключаны аксесуар %2$s</string>
@@ -618,6 +619,11 @@
     <string name="clock_title_analog">Са стрэлкамі</string>
     <string name="clock_title_bubble">Бурбалкі</string>
     <string name="clock_title_default">Стандартны</string>
+    <string name="columbus_bouncer_message">Разблакіруйце, каб выканаць хуткі дотык</string>
+    <string name="columbus_target_request_dialog_allow">Дазволіць</string>
+    <string name="columbus_target_request_dialog_deny">Не дазваляць</string>
+    <string name="columbus_target_request_dialog_summary">Пасля двайнога націскання на заднюю панэль тэлефона адкрыецца %1$s. Вы можаце змяніць свой выбар у любы час у Наладах.</string>
+    <string name="columbus_target_request_dialog_title">Дазволіць хуткі дотык для адкрыцця праграмы \"%1$s\"?</string>
     <string name="compat_mode_off">Расцягн. на ўвесь экран</string>
     <string name="compat_mode_on">Павял. на ўвесь экран</string>
     <string name="confirm_enable_oem_unlock_text">ПАПЯРЭДЖАННЕ: Пакуль гэты параметр уключаны, абарона прылады не функцыянуе.</string>
@@ -650,7 +656,7 @@
     <string name="controls_favorite_rearrange">Каб змяніць парадак элементаў кіравання, утрымлівайце і перацягвайце іх</string>
     <string name="controls_favorite_removed">Усе элементы кіравання выдалены</string>
     <string name="controls_favorite_see_other_apps">Паказаць іншыя праграмы</string>
-    <string name="controls_favorite_subtitle">Выберыце элементы кіравання, да якіх вы хочаце мець доступ з Хуткіх налад</string>
+    <string name="controls_favorite_subtitle">Выберыце элементы кіравання, да якіх вы хочаце мець доступ з хуткіх налад</string>
     <string name="controls_favorite_toast_no_changes">Змяненні не захаваны</string>
     <string name="controls_in_progress">Выконваецца</string>
     <string name="controls_media_active_session">Не ўдалося схаваць бягучы сеанс мультымедыя.</string>
@@ -740,6 +746,8 @@
     <string name="defender_notify_learn_more">Даведацца больш</string>
     <string name="defender_notify_resume_charge">Узнавіць зарадку</string>
     <string name="defender_notify_title">Зарадка часова абмежавана</string>
+    <string name="defender_post_notify_des">Каб павялічыць тэрмін службы акумулятара, з %2$s да %3$s зарадка абмежавана %1$s</string>
+    <string name="defender_post_notify_title">Звычайны рэжым зарадкі</string>
     <string name="delete_blob_confirmation_text">Сапраўды выдаліць гэтыя абагуленыя даныя?</string>
     <string name="delete_blob_text">Выдаліць абагуленыя даныя</string>
     <string name="demo_mode">Рэжым дэманстрацыі сістэмнага інтэрфейсу карыстальніка</string>
@@ -885,6 +893,7 @@
     <string name="game_status">Ідзе гульня</string>
     <string name="global_action_lock_message">Каб адкрыць іншыя параметры, разблакіруйце тэлефон</string>
     <string name="global_action_screenshot">Здымак экрана</string>
+    <string name="global_action_smart_lock_disabled">Функцыя \"Smart Lock\" адключана</string>
     <string name="global_actions_change_description">Каб атрымаць доступ да кашалька \"%1$s\" і элементаў кіравання прыладай, правядзіце пальцам па экране зверху ўніз</string>
     <string name="go_to_web">Перайсці ў браўзер</string>
     <string name="google_services_wallpaper_permission"><b>Дазволіць Жывым шпалерам Google адпавядаць вашаму месцазнаходжанню</b>, атрымліваючы доступ да службы вызначэння месцазнаходжання Google.</string>
@@ -1232,7 +1241,7 @@
     <string name="media_projection_dialog_text">Падчас запісу ці трансляцыі праграма \"%s\" будзе мець доступ да ўсёй інфармацыі, адлюстраванай на экране вашай прылады, ці той, якая праз яе прайграецца. Гэта інфармацыя ўключае паролі, звесткі пра аплату, фота, паведамленні і аўдыя, якое вы прайграяце.</string>
     <string name="media_projection_dialog_title">Пачаць запіс або трансляцыю з дапамогай праграмы \"%s\"?</string>
     <string name="media_projection_remember_text">Не паказваць зноў</string>
-    <string name="media_seamless_remote_device">Прылада</string>
+    <string name="media_seamless_other_device">Іншая прылада</string>
     <string name="media_transfer_this_device_name">Дынамік тэлефона</string>
     <string name="media_transfer_this_phone">Гэты тэлефон</string>
     <string name="media_transfer_wired_device_name">Правадная аўдыяпрылада</string>
@@ -1249,9 +1258,13 @@
     <string name="mobile_data">Маб. перадача даных</string>
     <string name="mobile_data_always_on">Мабільная перадача даных заўсёды актыўная</string>
     <string name="mobile_data_always_on_summary">Перадача даных мабільнай сувязі заўсёды актыўная, нават калі актыўная сетка Wi‑Fi (для хуткага пераключэння паміж сеткамі).</string>
+    <string name="mobile_data_connection_active">Падключана</string>
     <string name="mobile_data_disable_message">У вас не будзе доступу да даных ці інтэрнэту праз аператара %s. Інтэрнэт будзе даступны толькі праз Wi-Fi.</string>
     <string name="mobile_data_disable_message_default_carrier">ваш аператар</string>
     <string name="mobile_data_disable_title">Выключыць мабільную перадачу даных?</string>
+    <string name="mobile_data_no_connection">Няма падключэння</string>
+    <string name="mobile_data_off_summary">Мабільная перадача даных не ўключаецца аўтаматычна</string>
+    <string name="mobile_data_settings_title">Мабільная перадача даных</string>
     <string name="mobile_data_text_format">%1$s — %2$s</string>
     <string name="mock_location_app">Выбраць праграму для фіктыўных месцазнаходжанняў</string>
     <string name="mock_location_app_not_set">Няма праграмы для фіктыўных месцазнаходжанняў</string>
@@ -1391,6 +1404,7 @@
     <string name="no_content_in_select_mode">Не патрабуецца выбар ні тэксту, ні відарыса</string>
     <string name="no_conversations_text">Тут будуць паказвацца вашы нядаўнія размовы</string>
     <string name="no_shortcut">%1$s не падтрымлівае функцыі размовы</string>
+    <string name="non_carrier_network_unavailable">Больш няма даступных сетак</string>
     <string name="not_default_data_content_description">Не зададзена для выкарыстання даных</string>
     <string name="not_set">Не зададзена</string>
     <string name="notif_inline_reply_remove_attachment_description">Выдаліць далучэнне</string>
@@ -1571,6 +1585,7 @@
     <string name="power_remaining_only_more_than_subtext">Засталося больш за %1$s</string>
     <string name="power_remaining_settings_home_page">%1$s – %2$s</string>
     <string name="power_suggestion_battery_run_out">Акумулятар разрадзіцца ў %1$s</string>
+    <string name="pref_title_network_details">Інфармацыя пра сетку</string>
     <string name="preference_copied">\"%1$s\": скапіравана ў буфер абмену.</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">Прыярытэтныя размовы</string>
@@ -1595,7 +1610,7 @@
     <string name="qs_dnd_replace">Замяніць</string>
     <string name="qs_dnd_until">Да %s</string>
     <string name="qs_edit">Рэдагаваць</string>
-    <string name="qs_rearrange">Змяніць парадак Хуткіх налад</string>
+    <string name="qs_rearrange">Змяніць парадак хуткіх налад</string>
     <string name="qs_status_phone_muted">Тэлефон у рэжыме без гуку</string>
     <string name="qs_status_phone_vibrate">Тэлефон у рэжыме вібрацыі</string>
     <string name="quick_controls_title">Элементы кіравання прыладай</string>
@@ -1740,6 +1755,7 @@
     <string name="right_keycode">Код клавішы \"управа\"</string>
     <string name="right_nav_bar_button_type">Дадатковы тып кнопкі \"ўправа\"</string>
     <string name="ring_toggle_title">Выклікі</string>
+    <string name="rotation_lock_camera_rotation_on">Уключана – З улікам паставы галавы</string>
     <string name="running_foreground_services_msg">Дакраніцеся, каб даведацца пра выкарыстанне трафіка і акумулятара</string>
     <string name="running_foreground_services_title">Праграмы, якія працуюць у фонавым рэжыме</string>
     <string name="running_process_item_user_label">Карыстальнiк: %1$s</string>
@@ -1814,6 +1830,7 @@
     <string name="screenshot_top_boundary_pct">Верхняя граніца: %1$d%%</string>
     <string name="search_menu">Пошук налад</string>
     <string name="search_menu_title">Пошук</string>
+    <string name="see_all_networks">Паказаць усе</string>
     <string name="see_more_title">Яшчэ</string>
     <string name="select_application">Выберыце прыкладанне</string>
     <string name="select_conversation_text">Націсніце на размову, каб дадаць яе на галоўны экран</string>
@@ -1848,7 +1865,7 @@
     <string name="show_all_anrs_summary">Паведамляць аб тым, што праграма не адказвае</string>
     <string name="show_battery_percentage">Паказваць працэнт зараду акумулятара</string>
     <string name="show_battery_percentage_summary">Паказваць працэнт узроўню акумулятара ўнутры значка панэлі стану, калі ён не зараджаецца</string>
-    <string name="show_brightness">Паказваць яркасць у Хуткіх наладах</string>
+    <string name="show_brightness">Паказваць яркасць у хуткіх наладах</string>
     <string name="show_demo_mode">Паказваць дэманстрацыйны рэжым</string>
     <string name="show_hw_layers_updates">Паказаць абнаўленнi апаратных слаёў</string>
     <string name="show_hw_layers_updates_summary">Апаратныя слаі набываюць зялёны колер, калi абнаўляюцца</string>
@@ -1926,6 +1943,7 @@
     <string name="switch_bar_off">Выключана</string>
     <string name="switch_bar_on">Уключана</string>
     <string name="system_ui_tuner">Наладка сістэмнага інтэрфейсу карыстальніка</string>
+    <string name="tap_a_network_to_connect">Каб падключыцца, націсніце на сетку</string>
     <string name="tap_again">Націсніце яшчэ раз</string>
     <string name="tap_to_sign_up">Націсніце, каб зарэгістравацца</string>
     <string name="tether_settings_title_all">Рэжым мадэма</string>
@@ -1951,6 +1969,7 @@
     <string name="time_unit_just_now">Толькі што</string>
     <string name="title_convert_fbe">Пераход на шыфраванне файлаў</string>
     <string name="title_usb_accessory">USB-прылада</string>
+    <string name="to_switch_networks_disconnect_ethernet">Каб падключыцца да сетак, выключыце Ethernet</string>
     <string name="too_hot_label">Прылада Pixel перагрэлася</string>
     <string name="touch_filtered_warning">Праграма хавае запыт на дазвол, таму ваш адказ немагчыма спраўдзіць у Наладах.</string>
     <string name="track_frame_time">Профіль візуалізацыі HWUI</string>
@@ -2009,10 +2028,12 @@
     <string name="tuner_toast">Віншуем! Наладка сістэмнага інтэрфейсу карыстальніка была дададзена ў Налады</string>
     <string name="tuner_warning">Наладка сістэмнага інтэрфейсу карыстальніка дае вам дадатковыя спосабы наладжвання і дапасоўвання карыстальніцкага інтэрфейсу Android. Гэтыя эксперыментальныя функцыі могуць змяніцца, перастаць працаваць або знікнуць у будучых версіях. Карыстайцеся з асцярожнасцю.</string>
     <string name="tuner_warning_title">Цікава для некаторых, але не для ўсіх</string>
+    <string name="turn_on_wifi">Wi-Fi</string>
     <string name="tv_notification_panel_no_notifications">Апавяшчэнняў няма</string>
     <string name="tv_notification_panel_title">Апавяшчэнні</string>
     <string name="two_weeks_timestamp">2 тыдні таму</string>
     <string name="unknown">Невядома</string>
+    <string name="unlock_to_view_networks">Разблакіраваць для прагляду сетак</string>
     <string name="upcoming_birthday_status">Хутка свята</string>
     <string name="upcoming_birthday_status_content_description">Неўзабаве %1$s святкуе дзень нараджэння</string>
     <string name="url_menu_copy">Капіраваць</string>
@@ -2151,9 +2172,11 @@
     <string name="wifi_disconnected">Адключана</string>
     <string name="wifi_display_certification">Сертыфікацыя бесправаднога экрана</string>
     <string name="wifi_display_certification_summary">Паказаць опцыі сертыфікацыі бесправаднога экрана</string>
+    <string name="wifi_empty_list_wifi_on">Выконваецца пошук сетак…</string>
     <string name="wifi_enhanced_mac_randomization">Рандамізацыя выпадковых MAC-адрасоў у сетках Wi‑Fi</string>
     <string name="wifi_enhanced_mac_randomization_summary">Калі ўключаны гэты рэжым, MAC-адрас гэтай прылады можа змяняцца падчас кожнага падключэння да сеткі з актыўнай рандамізацыяй MAC-адрасоў.</string>
     <string name="wifi_fail_to_scan">Не атрымлiваецца выканаць сканаванне для сетак</string>
+    <string name="wifi_failed_connect_message">Не ўдалося падключыцца да сеткі</string>
     <string name="wifi_hotspot_switch_off_text">Выключана</string>
     <string name="wifi_hotspot_switch_on_text">Уключана</string>
     <string name="wifi_is_off">Wi-Fi выключаны</string>
@@ -2164,6 +2187,7 @@
     <string name="wifi_not_in_range">Не ў зоне дасягальнасці</string>
     <string name="wifi_passpoint_expired">Тэрмін скончыўся</string>
     <string name="wifi_remembered">Захавана</string>
+    <string name="wifi_scan_notify_message">Каб палепшыць працу прылады, вы можаце дазволіць праграмам і сэрвісам шукаць сеткі Wi-Fi, нават калі Wi‑Fi выключаны. Змяніць гэты рэжым можна ў наладах пошуку сетак Wi-Fi. <annotation id="link">Змяніць</annotation></string>
     <string name="wifi_scan_throttling">Рэгуляванне пошуку сетак Wi‑Fi</string>
     <string name="wifi_scan_throttling_summary">Зніжае расход зараду акумулятара і павышае прадукцыйнасць мабільных сетак</string>
     <string name="wifi_security_none">Няма</string>
@@ -2173,6 +2197,7 @@
     <string name="wifi_unmetered_label">Сетка без уліку трафіка</string>
     <string name="wifi_verbose_logging">Уключыць падрабязны журнал Wi‑Fi</string>
     <string name="wifi_verbose_logging_summary">Пры выбары сеткі Wi-Fi указваць у журнале RSSI для кожнага SSID</string>
+    <string name="wifi_wont_autoconnect_for_now">Аўтаматычнае падключэнне да Wi-Fi адсутнічае</string>
     <string name="wifitrackerlib_auto_connect_disable">Аўтападключэнне выключана</string>
     <string name="wifitrackerlib_available_via_app">Даступна праз праграму \"%1$s\"</string>
     <string name="wifitrackerlib_connected_via_app">Падключана праз праграму \"%1$s\"</string>

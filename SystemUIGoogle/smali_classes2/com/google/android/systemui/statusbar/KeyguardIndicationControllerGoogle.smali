@@ -62,14 +62,6 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$v_-DRSAcmRpLHks7pbD2avf-190(Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;ZLandroid/app/PendingIntent;Landroid/view/View;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;->lambda$setAmbientMusic$2(ZLandroid/app/PendingIntent;Landroid/view/View;)V
-
-    return-void
-.end method
-
 .method public static synthetic $r8$lambda$yZgrf-h8m_m1LrAMnhtNr-uxB2I(Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;Landroid/provider/DeviceConfig$Properties;)V
     .locals 0
 
@@ -269,30 +261,6 @@
     return-void
 .end method
 
-.method private synthetic lambda$setAmbientMusic$2(ZLandroid/app/PendingIntent;Landroid/view/View;)V
-    .locals 0
-
-    if-nez p1, :cond_1
-
-    iget-object p1, p0, Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
-
-    if-nez p1, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {p1, p2}, Lcom/android/systemui/statusbar/phone/StatusBar;->startPendingIntentDismissingKeyguard(Landroid/app/PendingIntent;)V
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    invoke-direct {p0, p2}, Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;->sendBroadcastWithoutDismissingKeyguard(Landroid/app/PendingIntent;)V
-
-    :goto_1
-    return-void
-.end method
-
 .method private refreshAdaptiveChargingEnabled()V
     .locals 1
 
@@ -322,50 +290,6 @@
     :goto_0
     iput-boolean v0, p0, Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;->mAdaptiveChargingEnabledInSettings:Z
 
-    return-void
-.end method
-
-.method private sendBroadcastWithoutDismissingKeyguard(Landroid/app/PendingIntent;)V
-    .locals 1
-
-    invoke-virtual {p1}, Landroid/app/PendingIntent;->isActivity()Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    return-void
-
-    :cond_0
-    :try_start_0
-    invoke-virtual {p1}, Landroid/app/PendingIntent;->send()V
-    :try_end_0
-    .catch Landroid/app/PendingIntent$CanceledException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception p0
-
-    new-instance p1, Ljava/lang/StringBuilder;
-
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v0, "Sending intent failed: "
-
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    const-string p1, "KgrdIndicationCtrlGoogle"
-
-    invoke-static {p1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_0
     return-void
 .end method
 
@@ -517,18 +441,6 @@
     return-object p0
 .end method
 
-.method public hideAmbientMusic()V
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mRotateTextViewController:Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;
-
-    const/16 v0, 0x9
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->hideIndication(I)V
-
-    return-void
-.end method
-
 .method public init()V
     .locals 4
 
@@ -547,9 +459,9 @@
 
     iget-object v0, p0, Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;->mTunerService:Lcom/android/systemui/tuner/TunerService;
 
-    new-instance v1, Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle$$ExternalSyntheticLambda2;
+    new-instance v1, Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0}, Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle$$ExternalSyntheticLambda2;-><init>(Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;)V
+    invoke-direct {v1, p0}, Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle$$ExternalSyntheticLambda1;-><init>(Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;)V
 
     const-string v2, "adaptive_charging_enabled"
 
@@ -592,74 +504,6 @@
     sget-object v3, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
     invoke-virtual {v1, p0, v0, v2, v3}, Lcom/android/systemui/broadcast/BroadcastDispatcher;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/util/concurrent/Executor;Landroid/os/UserHandle;)V
-
-    return-void
-.end method
-
-.method public setAmbientMusic(Ljava/lang/CharSequence;Landroid/app/PendingIntent;IZ)V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mRotateTextViewController:Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;
-
-    new-instance v1, Lcom/android/systemui/keyguard/KeyguardIndication$Builder;
-
-    invoke-direct {v1}, Lcom/android/systemui/keyguard/KeyguardIndication$Builder;-><init>()V
-
-    invoke-virtual {v1, p1}, Lcom/android/systemui/keyguard/KeyguardIndication$Builder;->setMessage(Ljava/lang/CharSequence;)Lcom/android/systemui/keyguard/KeyguardIndication$Builder;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;->mContext:Landroid/content/Context;
-
-    invoke-static {p3, v2}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->getNowPlayingIcon(ILandroid/content/Context;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p3
-
-    invoke-virtual {v1, p3}, Lcom/android/systemui/keyguard/KeyguardIndication$Builder;->setIcon(Landroid/graphics/drawable/Drawable;)Lcom/android/systemui/keyguard/KeyguardIndication$Builder;
-
-    move-result-object p3
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mInitialTextColorState:Landroid/content/res/ColorStateList;
-
-    invoke-virtual {p3, v1}, Lcom/android/systemui/keyguard/KeyguardIndication$Builder;->setTextColor(Landroid/content/res/ColorStateList;)Lcom/android/systemui/keyguard/KeyguardIndication$Builder;
-
-    move-result-object p3
-
-    if-nez p2, :cond_0
-
-    const/4 p0, 0x0
-
-    goto :goto_0
-
-    :cond_0
-    new-instance v1, Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle$$ExternalSyntheticLambda1;
-
-    invoke-direct {v1, p0, p4, p2}, Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle$$ExternalSyntheticLambda1;-><init>(Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;ZLandroid/app/PendingIntent;)V
-
-    move-object p0, v1
-
-    :goto_0
-    invoke-virtual {p3, p0}, Lcom/android/systemui/keyguard/KeyguardIndication$Builder;->setClickListener(Landroid/view/View$OnClickListener;)Lcom/android/systemui/keyguard/KeyguardIndication$Builder;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardIndication$Builder;->build()Lcom/android/systemui/keyguard/KeyguardIndication;
-
-    move-result-object p0
-
-    if-nez p1, :cond_1
-
-    const/4 p1, 0x1
-
-    goto :goto_1
-
-    :cond_1
-    const/4 p1, 0x0
-
-    :goto_1
-    const/16 p2, 0x9
-
-    invoke-virtual {v0, p2, p0, p1}, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->updateIndication(ILcom/android/systemui/keyguard/KeyguardIndication;Z)V
 
     return-void
 .end method

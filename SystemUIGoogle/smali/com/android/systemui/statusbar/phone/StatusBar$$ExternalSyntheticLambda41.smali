@@ -47,7 +47,7 @@
 
     check-cast p1, Landroid/view/RemoteAnimationAdapter;
 
-    invoke-static {v0, v1, v2, p0, p1}, Lcom/android/systemui/statusbar/phone/StatusBar;->$r8$lambda$r53c-E7DXrJPzZhDeCD46bAItxY(Lcom/android/systemui/statusbar/phone/StatusBar;ZLandroid/content/Intent;[ILandroid/view/RemoteAnimationAdapter;)Ljava/lang/Integer;
+    invoke-static {v0, v1, v2, p0, p1}, Lcom/android/systemui/statusbar/phone/StatusBar;->$r8$lambda$eFOBHxnScA-_l1p2rxcnAOApntI(Lcom/android/systemui/statusbar/phone/StatusBar;ZLandroid/content/Intent;[ILandroid/view/RemoteAnimationAdapter;)Ljava/lang/Integer;
 
     move-result-object p0
 

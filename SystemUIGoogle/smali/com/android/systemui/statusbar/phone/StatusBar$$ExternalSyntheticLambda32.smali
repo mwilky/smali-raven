@@ -33,7 +33,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBar$$ExternalSyntheticLambda32;->f$1:Ljava/lang/Runnable;
 
-    invoke-static {v0, p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->$r8$lambda$PxyRqoOfiDPVQ2jhBqBPnjgo1zQ(Lcom/android/systemui/statusbar/phone/StatusBar;Ljava/lang/Runnable;)V
+    invoke-static {v0, p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->$r8$lambda$yWmlvjEiGKU0z59qxDrHUlFnIBM(Lcom/android/systemui/statusbar/phone/StatusBar;Ljava/lang/Runnable;)V
 
     return-void
 .end method

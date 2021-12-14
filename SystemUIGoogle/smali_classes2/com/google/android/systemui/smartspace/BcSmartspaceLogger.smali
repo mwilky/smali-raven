@@ -23,7 +23,7 @@
 .end method
 
 .method public static log(Lcom/google/android/systemui/smartspace/EventEnum;Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;)V
-    .locals 7
+    .locals 12
 
     invoke-interface {p0}, Lcom/google/android/systemui/smartspace/EventEnum;->getId()I
 
@@ -32,10 +32,6 @@
     invoke-virtual {p1}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;->getInstanceId()I
 
     move-result v2
-
-    invoke-virtual {p1}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;->getLoggingCardType()I
-
-    move-result v3
 
     invoke-virtual {p1}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;->getDisplaySurface()I
 
@@ -49,9 +45,25 @@
 
     move-result v6
 
+    invoke-virtual {p1}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;->getFeatureType()I
+
+    move-result v7
+
+    invoke-virtual {p1}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;->getReceivedLatency()I
+
+    move-result v11
+
     const/16 v0, 0x160
 
-    invoke-static/range {v0 .. v6}, Lcom/android/systemui/shared/system/SysUiStatsLog;->write(IIIIIII)V
+    const/4 v3, 0x0
+
+    const/4 v8, -0x1
+
+    const/4 v9, 0x0
+
+    const/4 v10, 0x0
+
+    invoke-static/range {v0 .. v11}, Lcom/android/systemui/shared/system/SysUiStatsLog;->write(IIIIIIIIIIII)V
 
     sget-boolean v0, Lcom/google/android/systemui/smartspace/BcSmartspaceLogger;->IS_VERBOSE:Z
 

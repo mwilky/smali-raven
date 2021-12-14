@@ -80,7 +80,7 @@
 .method public final logDuplicateTopLevelKey(ILjava/lang/String;)V
     .locals 3
 
-    const-string v0, "topLevelKey"
+    const-string/jumbo v0, "topLevelKey"
 
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 

@@ -38,6 +38,16 @@
     .end annotation
 .end field
 
+.field private final globalSettingsProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/util/settings/GlobalSettings;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final keyguardStateControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -80,7 +90,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -102,6 +112,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/phone/DozeParameters;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/util/settings/GlobalSettings;",
             ">;)V"
         }
     .end annotation
@@ -120,11 +133,13 @@
 
     iput-object p6, p0, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController_Factory;->dozeParametersProvider:Ljavax/inject/Provider;
 
+    iput-object p7, p0, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController_Factory;->globalSettingsProvider:Ljavax/inject/Provider;
+
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController_Factory;
-    .locals 8
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController_Factory;
+    .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -145,14 +160,17 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/phone/DozeParameters;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/util/settings/GlobalSettings;",
             ">;)",
             "Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController_Factory;"
         }
     .end annotation
 
-    new-instance v7, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController_Factory;
+    new-instance v8, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController_Factory;
 
-    move-object v0, v7
+    move-object v0, v8
 
     move-object v1, p0
 
@@ -166,13 +184,15 @@
 
     move-object v6, p5
 
-    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object v7, p6
 
-    return-object v7
+    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v8
 .end method
 
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;Ldagger/Lazy;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ldagger/Lazy;)Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
-    .locals 8
+.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;Ldagger/Lazy;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ldagger/Lazy;Lcom/android/systemui/util/settings/GlobalSettings;)Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
+    .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -185,14 +205,16 @@
             "Lcom/android/systemui/statusbar/policy/KeyguardStateController;",
             "Ldagger/Lazy<",
             "Lcom/android/systemui/statusbar/phone/DozeParameters;",
-            ">;)",
+            ">;",
+            "Lcom/android/systemui/util/settings/GlobalSettings;",
+            ")",
             "Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;"
         }
     .end annotation
 
-    new-instance v7, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
+    new-instance v8, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
 
-    move-object v0, v7
+    move-object v0, v8
 
     move-object v1, p0
 
@@ -206,15 +228,17 @@
 
     move-object v6, p5
 
-    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;-><init>(Landroid/content/Context;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;Ldagger/Lazy;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ldagger/Lazy;)V
+    move-object v7, p6
 
-    return-object v7
+    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;-><init>(Landroid/content/Context;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;Ldagger/Lazy;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ldagger/Lazy;Lcom/android/systemui/util/settings/GlobalSettings;)V
+
+    return-object v8
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
-    .locals 7
+    .locals 8
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -262,13 +286,23 @@
 
     check-cast v5, Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController_Factory;->dozeParametersProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController_Factory;->dozeParametersProvider:Ljavax/inject/Provider;
 
-    invoke-static {p0}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
+    invoke-static {v0}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
 
     move-result-object v6
 
-    invoke-static/range {v1 .. v6}, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;Ldagger/Lazy;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ldagger/Lazy;)Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController_Factory;->globalSettingsProvider:Ljavax/inject/Provider;
+
+    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object p0
+
+    move-object v7, p0
+
+    check-cast v7, Lcom/android/systemui/util/settings/GlobalSettings;
+
+    invoke-static/range {v1 .. v7}, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;Ldagger/Lazy;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ldagger/Lazy;Lcom/android/systemui/util/settings/GlobalSettings;)Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
 
     move-result-object p0
 

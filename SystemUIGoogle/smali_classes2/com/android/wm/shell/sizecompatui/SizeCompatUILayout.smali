@@ -40,7 +40,7 @@
 
 .field mShouldShowHint:Z
 
-.field private final mSyncQueue:Lcom/android/wm/shell/common/SyncTransactionQueue;
+.field final mSyncQueue:Lcom/android/wm/shell/common/SyncTransactionQueue;
 
 .field private mTaskConfig:Landroid/content/res/Configuration;
 
@@ -170,8 +170,23 @@
 .end method
 
 .method private static synthetic lambda$updateSurfacePosition$0(Landroid/view/SurfaceControl;IILandroid/view/SurfaceControl$Transaction;)V
-    .locals 0
+    .locals 1
 
+    invoke-virtual {p0}, Landroid/view/SurfaceControl;->isValid()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string p0, "SizeCompatUILayout"
+
+    const-string p1, "The leash has been released."
+
+    invoke-static {p0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
     int-to-float p1, p1
 
     int-to-float p2, p2

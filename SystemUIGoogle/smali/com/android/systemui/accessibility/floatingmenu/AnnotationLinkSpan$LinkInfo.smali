@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan$LinkInfo;
+.class public Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan$LinkInfo;
 .super Ljava/lang/Object;
 .source "AnnotationLinkSpan.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "LinkInfo"
 .end annotation
 
@@ -37,7 +37,7 @@
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;Landroid/view/View$OnClickListener;)V
+.method public constructor <init>(Ljava/lang/String;Landroid/view/View$OnClickListener;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

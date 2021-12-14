@@ -30,7 +30,7 @@
 
     sput-object v0, Lcom/airbnb/lottie/parser/KeyframeParser;->LINEAR_INTERPOLATOR:Landroid/view/animation/Interpolator;
 
-    const-string v1, "t"
+    const-string/jumbo v1, "t"
 
     const-string v2, "s"
 
@@ -42,9 +42,9 @@
 
     const-string v6, "h"
 
-    const-string v7, "to"
+    const-string/jumbo v7, "to"
 
-    const-string v8, "ti"
+    const-string/jumbo v8, "ti"
 
     filled-new-array/range {v1 .. v8}, [Ljava/lang/String;
 

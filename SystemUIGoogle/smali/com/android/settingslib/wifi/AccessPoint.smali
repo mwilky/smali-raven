@@ -3156,6 +3156,14 @@
     return-object p0
 .end method
 
+.method public getInfo()Landroid/net/wifi/WifiInfo;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/wifi/AccessPoint;->mInfo:Landroid/net/wifi/WifiInfo;
+
+    return-object p0
+.end method
+
 .method public getKey()Ljava/lang/String;
     .locals 0
 
@@ -3180,6 +3188,65 @@
     return p0
 .end method
 
+.method public getScanResults()Ljava/util/Set;
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Set<",
+            "Landroid/net/wifi/ScanResult;",
+            ">;"
+        }
+    .end annotation
+
+    new-instance v0, Landroid/util/ArraySet;
+
+    invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
+
+    iget-object v1, p0, Lcom/android/settingslib/wifi/AccessPoint;->mLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/settingslib/wifi/AccessPoint;->mScanResults:Landroid/util/ArraySet;
+
+    invoke-interface {v0, v2}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
+
+    iget-object p0, p0, Lcom/android/settingslib/wifi/AccessPoint;->mExtraScanResults:Landroid/util/ArraySet;
+
+    invoke-interface {v0, p0}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
+
+    monitor-exit v1
+
+    return-object v0
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method
+
+.method public getScoredNetworkCache()Ljava/util/Map;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Map<",
+            "Ljava/lang/String;",
+            "Lcom/android/settingslib/wifi/TimestampedScoredNetwork;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/android/settingslib/wifi/AccessPoint;->mScoredNetworkCache:Ljava/util/Map;
+
+    return-object p0
+.end method
+
 .method public getSecurity()I
     .locals 0
 
@@ -3194,6 +3261,30 @@
     iget p0, p0, Lcom/android/settingslib/wifi/AccessPoint;->mSpeed:I
 
     return p0
+.end method
+
+.method getSpeedLabel()Ljava/lang/String;
+    .locals 1
+
+    iget v0, p0, Lcom/android/settingslib/wifi/AccessPoint;->mSpeed:I
+
+    invoke-virtual {p0, v0}, Lcom/android/settingslib/wifi/AccessPoint;->getSpeedLabel(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method getSpeedLabel(I)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/wifi/AccessPoint;->mContext:Landroid/content/Context;
+
+    invoke-static {p0, p1}, Lcom/android/settingslib/wifi/AccessPoint;->getSpeedLabel(Landroid/content/Context;I)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public getSsidStr()Ljava/lang/String;

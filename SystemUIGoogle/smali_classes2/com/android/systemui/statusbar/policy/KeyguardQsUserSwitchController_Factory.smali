@@ -132,7 +132,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/UserAvatarView;",
+            "Landroid/widget/FrameLayout;",
             ">;"
         }
     .end annotation
@@ -146,7 +146,7 @@
         value = {
             "(",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/UserAvatarView;",
+            "Landroid/widget/FrameLayout;",
             ">;",
             "Ljavax/inject/Provider<",
             "Landroid/content/Context;",
@@ -219,7 +219,7 @@
         value = {
             "(",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/UserAvatarView;",
+            "Landroid/widget/FrameLayout;",
             ">;",
             "Ljavax/inject/Provider<",
             "Landroid/content/Context;",
@@ -291,12 +291,12 @@
     return-object v13
 .end method
 
-.method public static newInstance(Lcom/android/systemui/statusbar/phone/UserAvatarView;Landroid/content/Context;Landroid/content/res/Resources;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/phone/DozeParameters;Ljavax/inject/Provider;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;
+.method public static newInstance(Landroid/widget/FrameLayout;Landroid/content/Context;Landroid/content/res/Resources;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/phone/DozeParameters;Ljavax/inject/Provider;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;
     .locals 14
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/android/systemui/statusbar/phone/UserAvatarView;",
+            "Landroid/widget/FrameLayout;",
             "Landroid/content/Context;",
             "Landroid/content/res/Resources;",
             "Lcom/android/systemui/keyguard/ScreenLifecycle;",
@@ -343,7 +343,7 @@
 
     move-object/from16 v12, p11
 
-    invoke-direct/range {v0 .. v12}, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;-><init>(Lcom/android/systemui/statusbar/phone/UserAvatarView;Landroid/content/Context;Landroid/content/res/Resources;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/phone/DozeParameters;Ljavax/inject/Provider;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)V
+    invoke-direct/range {v0 .. v12}, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;-><init>(Landroid/widget/FrameLayout;Landroid/content/Context;Landroid/content/res/Resources;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/phone/DozeParameters;Ljavax/inject/Provider;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)V
 
     return-object v13
 .end method
@@ -361,7 +361,7 @@
 
     move-object v1, v0
 
-    check-cast v1, Lcom/android/systemui/statusbar/phone/UserAvatarView;
+    check-cast v1, Landroid/widget/FrameLayout;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -465,7 +465,7 @@
 
     check-cast v12, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
 
-    invoke-static/range {v1 .. v12}, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController_Factory;->newInstance(Lcom/android/systemui/statusbar/phone/UserAvatarView;Landroid/content/Context;Landroid/content/res/Resources;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/phone/DozeParameters;Ljavax/inject/Provider;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;
+    invoke-static/range {v1 .. v12}, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController_Factory;->newInstance(Landroid/widget/FrameLayout;Landroid/content/Context;Landroid/content/res/Resources;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/phone/DozeParameters;Ljavax/inject/Provider;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;
 
     move-result-object p0
 

@@ -30,7 +30,7 @@
 .end method
 
 .method private onAffordanceClick()Z
-    .locals 2
+    .locals 3
 
     iget-object v0, p0, Lcom/android/keyguard/LockIconViewController$6;->this$0:Lcom/android/keyguard/LockIconViewController;
 
@@ -59,11 +59,23 @@
 
     iget-object v0, p0, Lcom/android/keyguard/LockIconViewController$6;->this$0:Lcom/android/keyguard/LockIconViewController;
 
-    invoke-static {v0}, Lcom/android/keyguard/LockIconViewController;->access$900(Lcom/android/keyguard/LockIconViewController;)V
+    invoke-static {v0}, Lcom/android/keyguard/LockIconViewController;->access$3100(Lcom/android/keyguard/LockIconViewController;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/keyguard/LockIconViewController$6;->this$0:Lcom/android/keyguard/LockIconViewController;
 
-    invoke-static {v0}, Lcom/android/keyguard/LockIconViewController;->access$3100(Lcom/android/keyguard/LockIconViewController;)Ljava/lang/Runnable;
+    invoke-static {v0}, Lcom/android/keyguard/LockIconViewController;->access$400(Lcom/android/keyguard/LockIconViewController;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/keyguard/LockIconViewController$6;->this$0:Lcom/android/keyguard/LockIconViewController;
+
+    invoke-static {v0}, Lcom/android/keyguard/LockIconViewController;->access$3200(Lcom/android/keyguard/LockIconViewController;)Lcom/android/systemui/biometrics/AuthRippleController;
 
     move-result-object v0
 
@@ -71,13 +83,36 @@
 
     iget-object v0, p0, Lcom/android/keyguard/LockIconViewController$6;->this$0:Lcom/android/keyguard/LockIconViewController;
 
-    invoke-static {v0}, Lcom/android/keyguard/LockIconViewController;->access$3100(Lcom/android/keyguard/LockIconViewController;)Ljava/lang/Runnable;
+    invoke-static {v0}, Lcom/android/keyguard/LockIconViewController;->access$3200(Lcom/android/keyguard/LockIconViewController;)Lcom/android/systemui/biometrics/AuthRippleController;
+
+    move-result-object v0
+
+    sget-object v2, Landroid/hardware/biometrics/BiometricSourceType;->FINGERPRINT:Landroid/hardware/biometrics/BiometricSourceType;
+
+    invoke-virtual {v0, v2}, Lcom/android/systemui/biometrics/AuthRippleController;->showRipple(Landroid/hardware/biometrics/BiometricSourceType;)V
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/keyguard/LockIconViewController$6;->this$0:Lcom/android/keyguard/LockIconViewController;
+
+    invoke-static {v0}, Lcom/android/keyguard/LockIconViewController;->access$900(Lcom/android/keyguard/LockIconViewController;)V
+
+    iget-object v0, p0, Lcom/android/keyguard/LockIconViewController$6;->this$0:Lcom/android/keyguard/LockIconViewController;
+
+    invoke-static {v0}, Lcom/android/keyguard/LockIconViewController;->access$3300(Lcom/android/keyguard/LockIconViewController;)Ljava/lang/Runnable;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/keyguard/LockIconViewController$6;->this$0:Lcom/android/keyguard/LockIconViewController;
+
+    invoke-static {v0}, Lcom/android/keyguard/LockIconViewController;->access$3300(Lcom/android/keyguard/LockIconViewController;)Ljava/lang/Runnable;
 
     move-result-object v0
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
-    :cond_1
+    :cond_2
     iget-object p0, p0, Lcom/android/keyguard/LockIconViewController$6;->this$0:Lcom/android/keyguard/LockIconViewController;
 
     invoke-static {p0}, Lcom/android/keyguard/LockIconViewController;->access$1200(Lcom/android/keyguard/LockIconViewController;)Lcom/android/keyguard/KeyguardViewController;

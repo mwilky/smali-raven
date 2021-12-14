@@ -1,5 +1,5 @@
 .class Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$1;
-.super Landroid/animation/AnimatorListenerAdapter;
+.super Landroid/graphics/drawable/DrawableWrapper;
 .source "AmbientIndicationContainer.java"
 
 
@@ -19,30 +19,46 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;)V
+.method constructor <init>(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;Landroid/graphics/drawable/Drawable;)V
     .locals 0
 
     iput-object p1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$1;->this$0:Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;
 
-    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
+    invoke-direct {p0, p2}, Landroid/graphics/drawable/DrawableWrapper;-><init>(Landroid/graphics/drawable/Drawable;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public getIntrinsicHeight()I
     .locals 0
 
     iget-object p0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$1;->this$0:Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;
 
-    invoke-static {p0}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->access$000(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;)Lcom/android/systemui/util/wakelock/WakeLock;
+    invoke-static {p0}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->access$000(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;)Landroid/graphics/Rect;
 
     move-result-object p0
 
-    const-string p1, "AmbientIndication"
+    invoke-virtual {p0}, Landroid/graphics/Rect;->height()I
 
-    invoke-interface {p0, p1}, Lcom/android/systemui/util/wakelock/WakeLock;->release(Ljava/lang/String;)V
+    move-result p0
 
-    return-void
+    return p0
+.end method
+
+.method public getIntrinsicWidth()I
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$1;->this$0:Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;
+
+    invoke-static {p0}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->access$000(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;)Landroid/graphics/Rect;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/graphics/Rect;->width()I
+
+    move-result p0
+
+    return p0
 .end method

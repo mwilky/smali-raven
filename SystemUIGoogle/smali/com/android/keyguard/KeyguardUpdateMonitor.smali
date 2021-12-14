@@ -1281,7 +1281,7 @@
 
     move-result-object v0
 
-    const-string v2, "time_12_24"
+    const-string/jumbo v2, "time_12_24"
 
     invoke-static {v2}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 

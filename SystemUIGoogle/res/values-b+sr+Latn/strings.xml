@@ -363,6 +363,7 @@ Ako je ova dozvola isključena, postojeći alarmi i događaji zasnovani na vreme
     <string name="alarms_and_reminders_label">Alarmi i podsetnici</string>
     <string name="alarms_and_reminders_switch_title">Omogući podešavanje alarma i podsetnika</string>
     <string name="alarms_and_reminders_title">Alarmi i podsetnici</string>
+    <string name="all_network_unavailable">Nema dostupnih mreža</string>
     <string name="allow_mock_location">Dozvoli lažne lokacije</string>
     <string name="allow_mock_location_summary">Dozvoli lažne lokacije</string>
     <string name="always_use_accessory">Uvek otvaraj aplikaciju %1$s kada je uređaj %2$s povezan</string>
@@ -618,6 +619,11 @@ Ako je ova dozvola isključena, postojeći alarmi i događaji zasnovani na vreme
     <string name="clock_title_analog">Analogni</string>
     <string name="clock_title_bubble">Mehurići</string>
     <string name="clock_title_default">Podrazumevani</string>
+    <string name="columbus_bouncer_message">Otključajte da biste obavili brzi dodir</string>
+    <string name="columbus_target_request_dialog_allow">Dozvoli</string>
+    <string name="columbus_target_request_dialog_deny">Ne dozvoli</string>
+    <string name="columbus_target_request_dialog_summary">Kada dvaput dodirnete poleđinu telefona, %1$s se otvara. Ovo možete da promenite bilo kada u Podešavanjima.</string>
+    <string name="columbus_target_request_dialog_title">Želite da dozvolite da se brzim dodirom otvara %1$s?</string>
     <string name="compat_mode_off">Razvuci na ceo ekran</string>
     <string name="compat_mode_on">Zumiraj na celom ekranu</string>
     <string name="confirm_enable_oem_unlock_text">UPOZORENJE: Funkcije za zaštitu uređaja neće funkcionisati na ovom uređaju dok je ovo podešavanje uključeno.</string>
@@ -740,6 +746,8 @@ Ako nastavite, možda će važiti tarife za potrošnju podataka."</string>
     <string name="defender_notify_learn_more">Saznajte više</string>
     <string name="defender_notify_resume_charge">Nastavi sa punjenjem</string>
     <string name="defender_notify_title">Punjenje je privremeno ograničeno</string>
+    <string name="defender_post_notify_des">Punjenje je ograničeno na %1$s od %2$s do %3$s radi boljeg stanja baterije</string>
+    <string name="defender_post_notify_title">Normalno punjenje</string>
     <string name="delete_blob_confirmation_text">Želite li stvarno da izbrišete ove deljene podatke?</string>
     <string name="delete_blob_text">Izbriši deljene podatke</string>
     <string name="demo_mode">Režim demonstracije za korisnički interfejs sistema</string>
@@ -885,6 +893,7 @@ Podaci o licu koje koristi otključavanje licem biće trajno i bezbedno izbrisan
     <string name="game_status">Igra se</string>
     <string name="global_action_lock_message">Otključajte telefon za još opcija</string>
     <string name="global_action_screenshot">Snimak ekrana</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock je onemogućen</string>
     <string name="global_actions_change_description">Da biste pristupili usluzi %1$s i kontrolama uređaja, prevucite nadole sa vrha ekrana</string>
     <string name="go_to_web">Idi na pregledač</string>
     <string name="google_services_wallpaper_permission"><b>Dozvolite Google animiranim pozadinama da se usklade sa vašom lokacijom</b> putem pristupa Google usluzi lokacije.</string>
@@ -1232,7 +1241,7 @@ Probajte ponovo za %2$d sek."</string>
     <string name="media_projection_dialog_text">%s će imati pristup svim informacijama koje se prikazuju na ekranu ili reprodukuju sa uređaja tokom snimanja ili prebacivanja. To obuhvata informacije poput lozinki, informacija o plaćanju, slika, poruka i zvuka koji puštate.</string>
     <string name="media_projection_dialog_title">Želite da počnete snimanje ili prebacivanje pomoću aplikacije %s?</string>
     <string name="media_projection_remember_text">Ne prikazuj ponovo</string>
-    <string name="media_seamless_remote_device">Uređaj</string>
+    <string name="media_seamless_other_device">Drugi uređaj</string>
     <string name="media_transfer_this_device_name">Zvučnik telefona</string>
     <string name="media_transfer_this_phone">Ovaj telefon</string>
     <string name="media_transfer_wired_device_name">Žičani audio uređaj</string>
@@ -1249,9 +1258,13 @@ Probajte ponovo za %2$d sek."</string>
     <string name="mobile_data">Mobilni podaci</string>
     <string name="mobile_data_always_on">Mobilni podaci su uvek aktivni</string>
     <string name="mobile_data_always_on_summary">Mobilni podaci su uvek aktivni, čak i kada je Wi‑Fi aktivan (radi brze promene mreže).</string>
+    <string name="mobile_data_connection_active">Povezano</string>
     <string name="mobile_data_disable_message">Nećete imati pristup podacima ili internetu preko mobilnog operatera %s. Internet će biti dostupan samo preko WiFi veze.</string>
     <string name="mobile_data_disable_message_default_carrier">mobilni operater</string>
     <string name="mobile_data_disable_title">Želite da isključite mobilne podatke?</string>
+    <string name="mobile_data_no_connection">Veza nije uspostavljena</string>
+    <string name="mobile_data_off_summary">Nije uspelo autom. povezivanje preko mob. podataka</string>
+    <string name="mobile_data_settings_title">Mobilni podaci</string>
     <string name="mobile_data_text_format">%1$s – %2$s</string>
     <string name="mock_location_app">Izaberite aplikaciju za lažnu lokaciju</string>
     <string name="mock_location_app_not_set">Aplikacija za lažnu lokaciju nije podešena</string>
@@ -1391,6 +1404,7 @@ Ako imate pitanja, obratite se organizaciji %2$s."</string>
     <string name="no_content_in_select_mode">Nema teksta ili slike za odabir</string>
     <string name="no_conversations_text">Nedavne konverzacije će se prikazati ovde</string>
     <string name="no_shortcut">%1$s ne podržava funkcije konverzacije</string>
+    <string name="non_carrier_network_unavailable">Nije dostupna nijedna druga mreža</string>
     <string name="not_default_data_content_description">Nije podešeno za korišćenje podataka</string>
     <string name="not_set">Nije podešeno</string>
     <string name="notif_inline_reply_remove_attachment_description">Ukloni prilog</string>
@@ -1477,7 +1491,7 @@ Ako imate pitanja, obratite se organizaciji %2$s."</string>
     <string name="ongoing_privacy_dialog_phonecall">Telefonski poziv</string>
     <string name="ongoing_privacy_dialog_recent_op">Nedavno koristio/la %1$s</string>
     <string name="ongoing_privacy_dialog_separator">", "</string>
-    <string name="ongoing_privacy_dialog_using_op">Koristi %1$s</string>
+    <string name="ongoing_privacy_dialog_using_op">Koristi: %1$s</string>
     <string name="open_saver_setting_action">Podešavanja</string>
     <string name="orb_search_action">Radnja pretrage</string>
     <string name="osu_completing_sign_up">Registracija se dovršava…</string>
@@ -1571,6 +1585,7 @@ Ako imate pitanja, obratite se organizaciji %2$s."</string>
     <string name="power_remaining_only_more_than_subtext">Još više od %1$s</string>
     <string name="power_remaining_settings_home_page">%1$s–%2$s</string>
     <string name="power_suggestion_battery_run_out">Baterija će se možda isprazniti do %1$s</string>
+    <string name="pref_title_network_details">Detalji o mreži</string>
     <string name="preference_copied">Rezime „%1$s“ je kopiran u privremenu memoriju.</string>
     <string name="preference_summary_default_combination">%1$s/%2$s</string>
     <string name="priority_conversations">Prioritetne konverzacije</string>
@@ -1740,6 +1755,7 @@ Ako imate pitanja, obratite se organizaciji %2$s."</string>
     <string name="right_keycode">Desno dugme za kôd tastera</string>
     <string name="right_nav_bar_button_type">Dodatni tip desnog dugmeta</string>
     <string name="ring_toggle_title">Pozivi</string>
+    <string name="rotation_lock_camera_rotation_on">Uključeno – na osnovu lica</string>
     <string name="running_foreground_services_msg">Dodirnite za detalje o bateriji i potrošnji podataka</string>
     <string name="running_foreground_services_title">Aplikacije pokrenute u pozadini</string>
     <string name="running_process_item_user_label">Korisnik: %1$s</string>
@@ -1814,6 +1830,7 @@ Ako imate pitanja, obratite se organizaciji %2$s."</string>
     <string name="screenshot_top_boundary_pct">Gornja ivica %1$d odsto</string>
     <string name="search_menu">Pretražite podešavanja</string>
     <string name="search_menu_title">Pretražite</string>
+    <string name="see_all_networks">Pogledajte sve</string>
     <string name="see_more_title">Prikaži još</string>
     <string name="select_application">Biranje aplikacije</string>
     <string name="select_conversation_text">Dodirnite konverzaciju da biste je dodali na početni ekran</string>
@@ -1926,6 +1943,7 @@ nadgleda"</string>
     <string name="switch_bar_off">Isključeno</string>
     <string name="switch_bar_on">Uključeno</string>
     <string name="system_ui_tuner">Tjuner za korisnički interfejs sistema</string>
+    <string name="tap_a_network_to_connect">Dodirnite mrežu da biste se povezali</string>
     <string name="tap_again">Dodirnite ponovo</string>
     <string name="tap_to_sign_up">Dodirnite da biste se registrovali</string>
     <string name="tether_settings_title_all">Privezivanje i prenosni hotspot</string>
@@ -1951,6 +1969,7 @@ Dodirnite za više informacija"</string>
     <string name="time_unit_just_now">Upravo</string>
     <string name="title_convert_fbe">Konvertovanje u šifrovanje pojedinačnih datoteka</string>
     <string name="title_usb_accessory">USB pomoćni uređaj</string>
+    <string name="to_switch_networks_disconnect_ethernet">Da biste promenili mrežu, prekinite eternet vezu</string>
     <string name="too_hot_label">Pixel je previše zagrejan</string>
     <string name="touch_filtered_warning">Podešavanja ne mogu da verifikuju vaš odgovor jer aplikacija skriva zahtev za dozvolu.</string>
     <string name="track_frame_time">Renderuj pomoću HWUI-a</string>
@@ -2009,10 +2028,12 @@ Dodirnite za više informacija"</string>
     <string name="tuner_toast">Čestitamo! Tjuner za korisnički interfejs sistema je dodat u Podešavanja</string>
     <string name="tuner_warning">Tjuner za korisnički interfejs sistema vam pruža dodatne načine za podešavanje i prilagođavanje Android korisničkog interfejsa. Ove eksperimentalne funkcije mogu da se promene, otkažu ili nestanu u budućim izdanjima. Budite oprezni.</string>
     <string name="tuner_warning_title">Zabava za neke, ali ne za sve</string>
+    <string name="turn_on_wifi">WiFi</string>
     <string name="tv_notification_panel_no_notifications">Nema obaveštenja</string>
     <string name="tv_notification_panel_title">Obaveštenja</string>
     <string name="two_weeks_timestamp">Pre 2 nedelje</string>
     <string name="unknown">Nepoznato</string>
+    <string name="unlock_to_view_networks">Otključajte da biste videli mreže</string>
     <string name="upcoming_birthday_status">Rođendan je uskoro</string>
     <string name="upcoming_birthday_status_content_description">%1$s uskoro slavi rođendan</string>
     <string name="url_menu_copy">Kopiraj</string>
@@ -2151,9 +2172,11 @@ Wi‑Fi adresa (BSSID)
     <string name="wifi_disconnected">Veza je prekinuta</string>
     <string name="wifi_display_certification">Sertifikacija bežičnog ekrana</string>
     <string name="wifi_display_certification_summary">Prikazuje opcije za sertifikaciju bežičnog ekrana</string>
+    <string name="wifi_empty_list_wifi_on">Traže se mreže…</string>
     <string name="wifi_enhanced_mac_randomization">Nasumično razvrstavanje MAC adresa po WiFi-ju sa prekidima</string>
     <string name="wifi_enhanced_mac_randomization_summary">Kada je ovaj režim omogućen, MAC adresa ovog uređaja može da se promeni svaki put kada se poveže sa mrežom na kojoj je omogućeno nasumično razvrstavanje MAC adresa.</string>
     <string name="wifi_fail_to_scan">Nije moguće skenirati mreže</string>
+    <string name="wifi_failed_connect_message">Povezivanje sa mrežom nije uspelo</string>
     <string name="wifi_hotspot_switch_off_text">Isključeno</string>
     <string name="wifi_hotspot_switch_on_text">Uključeno</string>
     <string name="wifi_is_off">WiFi je isključen</string>
@@ -2164,6 +2187,7 @@ Wi‑Fi adresa (BSSID)
     <string name="wifi_not_in_range">Nije u opsegu</string>
     <string name="wifi_passpoint_expired">Isteklo</string>
     <string name="wifi_remembered">Sačuvano</string>
+    <string name="wifi_scan_notify_message">Radi boljeg doživljaja uređaja, aplikacije i usluge i dalje mogu da traže WiFi mreže u bilo kom trenutku, čak i kada je WiFi isključen. To možete da promenite u podešavanjima WiFi skeniranja. <annotation id="link">Promenite</annotation></string>
     <string name="wifi_scan_throttling">Usporavanje WiFi skeniranja</string>
     <string name="wifi_scan_throttling_summary">Smanjuje potrošnju baterije i poboljšava učinak mreže</string>
     <string name="wifi_security_none">Nema</string>
@@ -2173,6 +2197,7 @@ Wi‑Fi adresa (BSSID)
     <string name="wifi_unmetered_label">Bez ograničenja</string>
     <string name="wifi_verbose_logging">Omogući detaljniju evidenciju za Wi‑Fi</string>
     <string name="wifi_verbose_logging_summary">Povećava nivo evidentiranja za Wi‑Fi. Prikaz po SSID RSSI-u u biraču Wi‑Fi mreže</string>
+    <string name="wifi_wont_autoconnect_for_now">WiFi trenutno ne može da se automatski poveže</string>
     <string name="wifitrackerlib_auto_connect_disable">Automatsko povezivanje je isključeno</string>
     <string name="wifitrackerlib_available_via_app">Dostupno preko aplikacije %1$s</string>
     <string name="wifitrackerlib_connected_via_app">Povezano pomoću aplikacije %1$s</string>

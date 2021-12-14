@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan;
+.class public Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan;
 .super Landroid/text/style/ClickableSpan;
 .source "AnnotationLinkSpan.java"
 
@@ -206,7 +206,7 @@
     return-void
 .end method
 
-.method static varargs linkify(Ljava/lang/CharSequence;[Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan$LinkInfo;)Ljava/lang/CharSequence;
+.method public static varargs linkify(Ljava/lang/CharSequence;[Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan$LinkInfo;)Ljava/lang/CharSequence;
     .locals 3
 
     new-instance v0, Landroid/text/SpannableString;

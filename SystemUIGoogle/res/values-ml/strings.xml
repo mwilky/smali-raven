@@ -277,7 +277,7 @@
     <string name="accessibility_rotation_lock_on_portrait">സ്‌ക്രീൻ പോർട്രെയ്‌റ്റ് ഓറിയന്റേഷനിൽ ലോക്കുചെയ്‌തു.</string>
     <string name="accessibility_rotation_lock_on_portrait_changed">പോർട്രെയ്‌റ്റ് ഓറിയന്റേഷനിൽ ഇപ്പോൾ സ്ക്രീൻ ലോക്കുചെയ്‌തു.</string>
     <string name="accessibility_scanning_face">മുഖം സ്കാൻ ചെയ്യുന്നു</string>
-    <string name="accessibility_search_light">Search</string>
+    <string name="accessibility_search_light">തിരയൽ</string>
     <string name="accessibility_send_smart_reply">അയയ്ക്കുക</string>
     <string name="accessibility_sensors_off_active">സെൻസറുകൾ ഓഫ് സജീവമാണ്</string>
     <string name="accessibility_settings_button">സിസ്‌റ്റം ക്രമീകരണങ്ങൾ.</string>
@@ -363,6 +363,7 @@
     <string name="alarms_and_reminders_label">അലാറങ്ങളും റിമെെൻഡറുകളും</string>
     <string name="alarms_and_reminders_switch_title">അലാറവും റിമെെൻഡറും സജ്ജീകരിക്കാൻ അനുവദിക്കുക</string>
     <string name="alarms_and_reminders_title">അലാറങ്ങളും റിമെെൻഡറുകളും</string>
+    <string name="all_network_unavailable">നെറ്റ്‌വർക്കുകളൊന്നും ലഭ്യമല്ല</string>
     <string name="allow_mock_location">വ്യാജ ലൊക്കേഷനുകൾ അനുവദിക്കുക</string>
     <string name="allow_mock_location_summary">വ്യാജ ലൊക്കേഷനുകൾ അനുവദിക്കുക</string>
     <string name="always_use_accessory">%2$s കണക്‌റ്റ് ചെയ്‌തിരിക്കുമ്പോൾ എപ്പോഴും %1$s തുറക്കൂ</string>
@@ -618,6 +619,11 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="clock_title_analog">അനലോഗ്</string>
     <string name="clock_title_bubble">ബബിൾ</string>
     <string name="clock_title_default">ഡിഫോൾട്ട്</string>
+    <string name="columbus_bouncer_message">വേഗത്തിലുള്ള ടാപ്പ് പൂർത്തിയാക്കാൻ അൺലോക്ക് ചെയ്യുക</string>
+    <string name="columbus_target_request_dialog_allow">അനുവദിക്കുക</string>
+    <string name="columbus_target_request_dialog_deny">അനുവദിക്കരുത്</string>
+    <string name="columbus_target_request_dialog_summary">നിങ്ങളുടെ ഫോണിന്റെ പിൻഭാഗത്ത് ഡബിൾ ടാപ്പ് ചെയ്യുമ്പോൾ, %1$s തുറക്കും. ഏത് സമയത്തും ക്രമീകരണത്തിൽ ഈ തിരഞ്ഞെടുപ്പ് നിങ്ങൾക്ക് മാറ്റാം.</string>
+    <string name="columbus_target_request_dialog_title">%1$s തുറക്കാൻ വേഗത്തിലുള്ള ടാപ്പ് അനുവദിക്കണോ?</string>
     <string name="compat_mode_off">സ്‌ക്രീനിൽ ഉൾക്കൊള്ളിക്കാൻ വലിച്ചുനീട്ടുക</string>
     <string name="compat_mode_on">സ്‌ക്രീനിൽ ഉൾക്കൊള്ളിക്കാൻ സൂം ചെയ്യുക</string>
     <string name="confirm_enable_oem_unlock_text">മുന്നറിയിപ്പ്: ഈ ക്രമീകരണം ഓണായിരിക്കുമ്പോൾ, ഉപകരണ സുരക്ഷാ ഫീച്ചറുകൾ ഈ ഉപകരണത്തിൽ പ്രവർത്തിക്കില്ല.</string>
@@ -740,13 +746,15 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="defender_notify_learn_more">കൂടുതലറിയുക</string>
     <string name="defender_notify_resume_charge">ചാർജ് ചെയ്യൽ പുനരാരംഭിക്കുക</string>
     <string name="defender_notify_title">ചാർജ് ചെയ്യൽ താൽക്കാലികമായി പരിമിതപ്പെടുത്തിയിരിക്കുന്നു</string>
+    <string name="defender_post_notify_des">ബാറ്ററിയുടെ ആരോഗ്യം സംരക്ഷിക്കാൻ, ചാർജ് ചെയ്യൽ %2$s മുതൽ %3$sവരെ %1$s ആയി പരിമിതപ്പെടുത്തി</string>
+    <string name="defender_post_notify_title">സാധാരണ ഗതിയിൽ ചാർജ് ചെയ്യുന്നു</string>
     <string name="delete_blob_confirmation_text">പങ്കിട്ട ഈ ഡാറ്റ ഇല്ലാതാക്കണമെന്ന് തീർച്ചയാണോ?</string>
     <string name="delete_blob_text">പങ്കിട്ട ഡാറ്റ ഇല്ലാതാക്കുക</string>
     <string name="demo_mode">സിസ്റ്റം UI ഡെമോ മോഡ്</string>
     <string name="demote">ഈ അറിയിപ്പ് സംഭാഷണമല്ലെന്ന് അടയാളപ്പെടുത്തുക</string>
     <string name="description_direction_left">%s എന്നതിനായി ഇടത്തേയ്‌ക്ക് സ്ലൈഡുചെയ്യുക.</string>
     <string name="description_direction_up">%s എന്നതിനായി മുകളിലേയ്‌ക്ക് സ്ലൈഡുചെയ്യുക.</string>
-    <string name="description_target_search">Search</string>
+    <string name="description_target_search">തിരയൽ</string>
     <string name="dessert_case">ഡെസേർട്ട് കെയ്സ്</string>
     <string name="dev_logpersist_clear_warning_message">സ്ഥിര ലോഗർ ഉപയോഗിച്ച് ഞങ്ങൾ തുടർന്നങ്ങോട്ട് നിരീക്ഷിക്കാത്ത സാഹചര്യത്തിൽ, നിങ്ങളുടെ ഉപകരണത്തിൽ നിലവിലുള്ള ലോഗർ വിവരങ്ങൾ ഞങ്ങൾ മായ്ക്കേണ്ടതുണ്ട്.</string>
     <string name="dev_logpersist_clear_warning_title">ലോഗർ സ്ഥിര സ്റ്റോറേജ് മായ്ക്കണോ?</string>
@@ -885,6 +893,7 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="game_status">കളിക്കുന്നു</string>
     <string name="global_action_lock_message">കൂടുതൽ ഓപ്ഷനുകൾക്ക് നിങ്ങളുടെ ഫോൺ അൺലോക്ക് ചെയ്യുക</string>
     <string name="global_action_screenshot">സ്ക്രീൻഷോട്ട്</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock പ്രവർത്തനരഹിതമാക്കി</string>
     <string name="global_actions_change_description">%1$s, ഉപകരണ നിയന്ത്രണങ്ങൾ എന്നിവ ആക്‌സസ് ചെയ്യാൻ, നിങ്ങളുടെ സ്ക്രീനിന്റെ മുകളിൽ നിന്ന് താഴേക്ക് സ്വൈപ്പ് ചെയ്യുക</string>
     <string name="go_to_web">ബ്രൗസറിലേക്ക് പോവുക</string>
     <string name="google_services_wallpaper_permission">Google ലൊക്കേഷൻ സേവനം ആക്സസ്സുചെയ്യുക വഴി <b>നിങ്ങളുടെ ലൊക്കേഷനോട് പ്രതികരിക്കാൻ Google തത്സമയ വാൾപേപ്പറുകളെ അനുവദിക്കുക</b>.</string>
@@ -1232,7 +1241,7 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="media_projection_dialog_text">റെക്കോർഡ് ചെയ്യുമ്പോഴോ കാസ്‌റ്റ് ചെയ്യുമ്പോഴോ നിങ്ങളുടെ ഉപകരണത്തിൽ നിന്ന് പ്ലേ ചെയ്യുന്നതോ നിങ്ങളുടെ സ്‌ക്രീനിൽ ദൃശ്യമാകുന്നതോ ആയ എല്ലാ വിവരങ്ങളിലേക്കും %s-ന് ആക്‌സസ് ഉണ്ടായിരിക്കും. നിങ്ങൾ പ്ലേ ചെയ്യുന്ന ഒഡിയോ, സന്ദേശങ്ങൾ, ഫോട്ടോകൾ, പേയ്‌മെന്റ് വിശദാംശങ്ങൾ, പാസ്‌വേഡുകൾ എന്നിവ പോലുള്ള വിവരങ്ങൾ ഇതിൽ ഉൾപ്പെടുന്നു.</string>
     <string name="media_projection_dialog_title">%s ഉപയോഗിച്ച് റെക്കോർഡ് ചെയ്യൽ അല്ലെങ്കിൽ കാസ്‌റ്റ് ചെയ്യൽ ആരംഭിക്കണോ?</string>
     <string name="media_projection_remember_text">വീണ്ടും കാണിക്കരുത്</string>
-    <string name="media_seamless_remote_device">ഉപകരണം</string>
+    <string name="media_seamless_other_device">മറ്റ് ഉപകരണം</string>
     <string name="media_transfer_this_device_name">ഫോൺ സ്‌പീക്കർ</string>
     <string name="media_transfer_this_phone">ഈ ഫോൺ</string>
     <string name="media_transfer_wired_device_name">വയർ മുഖേന ബന്ധിപ്പിച്ച ഓഡിയോ ഉപകരണം</string>
@@ -1249,9 +1258,13 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="mobile_data">മൊബൈൽ ഡാറ്റ</string>
     <string name="mobile_data_always_on">മൊബൈൽ ഡാറ്റ എല്ലായ്‌പ്പോഴും സജീവം</string>
     <string name="mobile_data_always_on_summary">വൈഫൈ സജീവമാണെങ്കിലും, മൊബൈൽ ഡാറ്റ സജീവമായി നിർത്തുക (വേഗത്തിൽ നെറ്റ്‌വർക്ക് മാറുന്നതിനായി).</string>
+    <string name="mobile_data_connection_active">കണക്റ്റ് ചെയ്തു</string>
     <string name="mobile_data_disable_message">നിങ്ങൾക്ക് ഡാറ്റയിലേക്ക് ആക്‌സസോ അല്ലെങ്കിൽ %s മുഖേനയുള്ള ഇന്റർനെറ്റോ ഉണ്ടാകില്ല. വൈഫൈ മുഖേന മാത്രമായിരിക്കും ഇന്റർനെറ്റ് ലഭ്യത.</string>
     <string name="mobile_data_disable_message_default_carrier">നിങ്ങളുടെ കാരിയർ</string>
     <string name="mobile_data_disable_title">മൊബൈൽ ഡാറ്റ ഓഫാക്കണോ?</string>
+    <string name="mobile_data_no_connection">കണക്ഷനില്ല</string>
+    <string name="mobile_data_off_summary">മൊബൈൽ ഡാറ്റ സ്വയമേവ കണക്റ്റ് ചെയ്യില്ല</string>
+    <string name="mobile_data_settings_title">മൊബൈൽ ഡാറ്റ</string>
     <string name="mobile_data_text_format">%1$s — %2$s</string>
     <string name="mock_location_app">മോക്ക്‌ലൊക്കേഷൻ ആപ്പ് തിരഞ്ഞെടുക്കൂ</string>
     <string name="mock_location_app_not_set">മോക്ക് ലൊക്കേഷൻ ആപ്പ് സജ്ജീകരിച്ചിട്ടില്ല</string>
@@ -1391,6 +1404,7 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="no_content_in_select_mode">തിരഞ്ഞെടുക്കാൻ ടെക്‌സ്റ്റോ ചിത്രമോ ഇല്ല</string>
     <string name="no_conversations_text">നിങ്ങളുടെ സമീപകാല സംഭാഷണങ്ങൾ ഇവിടെ ദൃശ്യമാകും</string>
     <string name="no_shortcut">സംഭാഷണ ഫീച്ചറുകളെ %1$s പിന്തുണയ്‌ക്കുന്നില്ല</string>
+    <string name="non_carrier_network_unavailable">മറ്റ് നെറ്റ്‌വർക്കുകളൊന്നും ലഭ്യമല്ല</string>
     <string name="not_default_data_content_description">ഡാറ്റ ഉപയോഗിക്കുന്നതിന് സജ്ജീകരിച്ചിട്ടില്ല</string>
     <string name="not_set">സജ്ജീകരിച്ചിട്ടില്ല</string>
     <string name="notif_inline_reply_remove_attachment_description">അറ്റാച്ച്മെന്റ് നീക്കം ചെയ്യുക</string>
@@ -1571,6 +1585,7 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="power_remaining_only_more_than_subtext">%1$s-ൽ കൂടുതൽ ശേഷിക്കുന്നു</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">%1$s ആവുമ്പോഴേക്ക് ബാറ്ററി തീർന്നേക്കാം</string>
+    <string name="pref_title_network_details">നെറ്റ്‌വർക്ക് വിശദാംശങ്ങൾ</string>
     <string name="preference_copied">\"%1$s\" ക്ലിപ്‌ബോർഡിലേക്ക് പകർത്തി.</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">മുൻഗണനാ സംഭാഷണങ്ങൾ</string>
@@ -1740,6 +1755,7 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="right_keycode">വലതുവശത്തെ കീകോഡ്</string>
     <string name="right_nav_bar_button_type">അധിക വലത് ബട്ടൺ തരം</string>
     <string name="ring_toggle_title">കോളുകൾ</string>
+    <string name="rotation_lock_camera_rotation_on">ഓണാണ് - ഫേസ് ബേസ്‌ഡ്</string>
     <string name="running_foreground_services_msg">ബാറ്ററി, ഡാറ്റ ഉപയോഗം എന്നിവയുടെ വിശദാംശങ്ങളറിയാൻ ടാപ്പുചെയ്യുക</string>
     <string name="running_foreground_services_title">ആപ്പുകൾ പശ്ചാത്തലത്തിൽ റൺ ചെയ്യുന്നു</string>
     <string name="running_process_item_user_label">ഉപയോക്താവ്: %1$s</string>
@@ -1814,6 +1830,7 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="screenshot_top_boundary_pct">മുകളിലെ അതിർത്തി %1$d ശതമാനം</string>
     <string name="search_menu">ക്രമീകരണത്തിൽ തിരയുക</string>
     <string name="search_menu_title">Search</string>
+    <string name="see_all_networks">എല്ലാം കാണുക</string>
     <string name="see_more_title">കൂടുതൽ കാണുക</string>
     <string name="select_application">ആപ്പ് തിരഞ്ഞെടുക്കൂ</string>
     <string name="select_conversation_text">നിങ്ങളുടെ ഹോം സ്‌ക്രീനിൽ ചേർക്കാൻ സംഭാഷണത്തിൽ ടാപ്പ് ചെയ്യുക</string>
@@ -1926,6 +1943,7 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="switch_bar_off">ഓഫ്</string>
     <string name="switch_bar_on">ഓൺ</string>
     <string name="system_ui_tuner">സിസ്റ്റം UI ട്യൂണർ</string>
+    <string name="tap_a_network_to_connect">കണക്‌റ്റ് ചെയ്യാൻ ഒരു നെറ്റ്‌വർക്കിൽ ടാപ്പ് ചെയ്യുക</string>
     <string name="tap_again">വീണ്ടും ടാപ്പ് ചെയ്യുക</string>
     <string name="tap_to_sign_up">സൈൻ അപ്പ് ചെയ്യാൻ ടാപ്പ് ചെയ്യുക</string>
     <string name="tether_settings_title_all">ടെതറിംഗും പോർട്ടബിൾ ഹോട്ട്സ്‌പോട്ടും</string>
@@ -1951,6 +1969,7 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="time_unit_just_now">ഇപ്പോൾ</string>
     <string name="title_convert_fbe">ഫയൽ അധിഷ്ഠിത എൻക്രിപ്ഷനിലേക്ക് പരിവർത്തിപ്പിക്കുന്നു</string>
     <string name="title_usb_accessory">USB ആക്‌സസ്സറി</string>
+    <string name="to_switch_networks_disconnect_ethernet">മറ്റ് നെറ്റ്‌വർക്കുകളിലേക്ക് മാറാൻ, ഇതർനെറ്റ് വിച്ഛേദിക്കുക</string>
     <string name="too_hot_label">Pixel വളരെയധികം ചൂടായിരിക്കുന്നു</string>
     <string name="touch_filtered_warning">അനുമതി അഭ്യർത്ഥനയെ ഒരു ആപ്പ് മറയ്‌ക്കുന്നതിനാൽ, ക്രമീകരണത്തിന് നിങ്ങളുടെ പ്രതികരണം പരിശോധിച്ചുറപ്പിക്കാനാകില്ല.</string>
     <string name="track_frame_time">HWUI റെൻഡറിംഗ് പ്രൊഫൈൽ</string>
@@ -2009,10 +2028,12 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="tuner_toast">അഭിനന്ദനങ്ങൾ! ക്രമീകരണത്തിലേക്ക് സിസ്റ്റം UI ട്യൂണർ ചേർത്തിരിക്കുന്നു</string>
     <string name="tuner_warning">Android ഉപയോക്തൃ ഇന്റർഫേസ് ആവശ്യമുള്ള രീതിയിൽ മാറ്റുന്നതിനും ഇഷ്ടാനുസൃതമാക്കുന്നതിനും സിസ്റ്റം UI ട്യൂണർ നിങ്ങൾക്ക് അധിക വഴികൾ നൽകുന്നു. ഭാവി റിലീസുകളിൽ ഈ പരീക്ഷണാത്മക ഫീച്ചറുകൾ മാറ്റുകയോ നിർത്തുകയോ അപ്രത്യക്ഷമാവുകയോ ചെയ്തേക്കാം. ശ്രദ്ധയോടെ മുന്നോട്ടുപോകുക.</string>
     <string name="tuner_warning_title">ചിലർക്ക് വിനോദം, എന്നാൽ എല്ലാവർക്കുമില്ല</string>
+    <string name="turn_on_wifi">വൈഫൈ</string>
     <string name="tv_notification_panel_no_notifications">അറിയിപ്പുകൾ ഒന്നുമില്ല</string>
     <string name="tv_notification_panel_title">അറിയിപ്പുകൾ</string>
     <string name="two_weeks_timestamp">2 ആഴ്ച മുമ്പ്</string>
     <string name="unknown">അജ്ഞാതം</string>
+    <string name="unlock_to_view_networks">നെറ്റ്‌വർക്കുകൾ കാണാൻ അൺ‌ലോക്ക് ചെയ്യുക</string>
     <string name="upcoming_birthday_status">ഉടൻ വരുന്ന ജന്മദിനം</string>
     <string name="upcoming_birthday_status_content_description">%1$s എന്നയാളുടെ ജന്മദിനം അടുത്തെത്തി</string>
     <string name="url_menu_copy">പകർത്തുക</string>
@@ -2151,9 +2172,11 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="wifi_disconnected">വിച്ഛേദിച്ചു</string>
     <string name="wifi_display_certification">വയർലെസ് ഡിസ്‌പ്ലേ സർട്ടിഫിക്കേഷൻ</string>
     <string name="wifi_display_certification_summary">വയർലെസ് ഡിസ്‌പ്ലേ സർട്ടിഫിക്കേഷനായി ഓപ്‌ഷനുകൾ ദൃശ്യമാക്കുക</string>
+    <string name="wifi_empty_list_wifi_on">നെറ്റ്‌വർക്കുകൾ തിരയുന്നു…</string>
     <string name="wifi_enhanced_mac_randomization">വൈഫൈ വഴിയുള്ള, സ്ഥിരതയില്ലാത്ത MAC ക്രമരഹിതമാക്കൽ</string>
     <string name="wifi_enhanced_mac_randomization_summary">ഈ മോഡ് പ്രവർത്തനക്ഷമമാക്കുമ്പോൾ, MAC ക്രമരഹിതമാക്കൽ പ്രവർത്തനക്ഷമമാക്കിയിരിക്കുന്ന നെറ്റ്‌വർക്കിലേക്ക് കണക്റ്റ് ചെയ്യുമ്പോഴെല്ലാം ഈ ഉപകരണത്തിന്റെ MAC വിലാസം മാറിയേക്കാം.</string>
     <string name="wifi_fail_to_scan">നെ‌റ്റ്‌വർക്കുകൾക്കായി സ്കാൻ ചെയ്യാനായില്ല</string>
+    <string name="wifi_failed_connect_message">നെറ്റ്‌വർക്കിൽ കണക്റ്റ് ചെയ്യാനായില്ല</string>
     <string name="wifi_hotspot_switch_off_text">ഓഫാണ്</string>
     <string name="wifi_hotspot_switch_on_text">ഓണാണ്</string>
     <string name="wifi_is_off">വൈഫൈ ഓഫാണ്</string>
@@ -2164,6 +2187,7 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="wifi_not_in_range">പരിധിയിലില്ല</string>
     <string name="wifi_passpoint_expired">കാലഹരണപ്പെട്ടത്</string>
     <string name="wifi_remembered">സംരക്ഷിച്ചു</string>
+    <string name="wifi_scan_notify_message">ഉപകരണ അനുഭവം മെച്ചപ്പെടുത്താൻ, വൈഫൈ ഓഫാക്കിയിരിക്കുമ്പോൾ പോലും ആപ്പുകൾക്കും സേവനങ്ങൾക്കും വൈഫൈ നെറ്റ്‌വർക്കുകൾ കണ്ടെത്താൻ ഏത് സമയത്തും സ്‌കാൻ ചെയ്യാനാകും. നിങ്ങൾക്ക് ഇത് വൈഫൈ സ്‌കാനിംഗ് ക്രമീകരണത്തിൽ മാറ്റാം. <annotation id="link">മാറ്റുക</annotation></string>
     <string name="wifi_scan_throttling">വൈഫൈ സ്‌കാൻ ത്രോട്ടിലിംഗ്</string>
     <string name="wifi_scan_throttling_summary">ബാറ്ററി ചാർജ് വേഗത്തിൽ തീരുന്ന അവസ്ഥ കുറച്ച് നെറ്റ്‌വർക്ക് പ്രകടനം മെച്ചപ്പെടുത്തുന്നു</string>
     <string name="wifi_security_none">ഒന്നുമില്ല</string>
@@ -2173,6 +2197,7 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="wifi_unmetered_label">മീറ്റർമാപകമല്ലാത്തത്</string>
     <string name="wifi_verbose_logging">വൈഫൈ വെർബോസ് ലോഗിംഗ് പ്രവർത്തനക്ഷമമാക്കുക</string>
     <string name="wifi_verbose_logging_summary">വൈഫൈ പിക്കറിൽ ഓരോ SSID RSSI പ്രകാരം കാണിക്കാൻ വൈഫൈ ലോഗിംഗ് നില വർദ്ധിപ്പിക്കുക</string>
+    <string name="wifi_wont_autoconnect_for_now">വൈഫൈ ഇപ്പോൾ സ്വയമേവ കണക്റ്റ് ചെയ്യില്ല</string>
     <string name="wifitrackerlib_auto_connect_disable">ഓട്ടോ-കണക്റ്റ് ഓഫാണ്</string>
     <string name="wifitrackerlib_available_via_app">%1$s മുഖേന ലഭ്യമാണ്</string>
     <string name="wifitrackerlib_connected_via_app">%1$s മുഖേന കണക്‌റ്റ് ചെയ്‌തു</string>

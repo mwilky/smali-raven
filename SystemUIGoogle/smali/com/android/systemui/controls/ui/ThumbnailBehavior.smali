@@ -329,7 +329,7 @@
     return-object p0
 
     :cond_0
-    const-string p0, "template"
+    const-string/jumbo p0, "template"
 
     invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 

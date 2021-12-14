@@ -74,6 +74,10 @@
 
 .field private final mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
+.field private final mVariableDateViewControllerClockDateView:Lcom/android/systemui/statusbar/policy/VariableDateViewController;
+
+.field private final mVariableDateViewControllerDateView:Lcom/android/systemui/statusbar/policy/VariableDateViewController;
+
 
 # direct methods
 .method public static synthetic $r8$lambda$cFqUFu8nFqfUEvSWLdscueAdKd4(Lcom/android/systemui/qs/QuickStatusBarHeaderController;Lcom/android/internal/colorextraction/ColorExtractor;I)V
@@ -84,7 +88,7 @@
     return-void
 .end method
 
-.method constructor <init>(Lcom/android/systemui/qs/QuickStatusBarHeader;Lcom/android/systemui/privacy/PrivacyItemController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/phone/StatusBarIconController;Lcom/android/systemui/demomode/DemoModeController;Lcom/android/systemui/qs/QuickQSPanelController;Lcom/android/systemui/qs/carrier/QSCarrierGroupController$Builder;Lcom/android/systemui/privacy/logging/PrivacyLogger;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/systemui/privacy/PrivacyDialogController;Lcom/android/systemui/qs/QSExpansionPathInterpolator;Lcom/android/systemui/statusbar/FeatureFlags;)V
+.method constructor <init>(Lcom/android/systemui/qs/QuickStatusBarHeader;Lcom/android/systemui/privacy/PrivacyItemController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/phone/StatusBarIconController;Lcom/android/systemui/demomode/DemoModeController;Lcom/android/systemui/qs/QuickQSPanelController;Lcom/android/systemui/qs/carrier/QSCarrierGroupController$Builder;Lcom/android/systemui/privacy/logging/PrivacyLogger;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/systemui/privacy/PrivacyDialogController;Lcom/android/systemui/qs/QSExpansionPathInterpolator;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/statusbar/policy/VariableDateViewController$Factory;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/util/ViewController;-><init>(Landroid/view/View;)V
@@ -185,6 +189,42 @@
 
     iput-object p2, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mIconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
 
+    iget-object p3, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast p3, Lcom/android/systemui/qs/QuickStatusBarHeader;
+
+    sget p4, Lcom/android/systemui/R$id;->date:I
+
+    invoke-virtual {p3, p4}, Landroid/widget/FrameLayout;->requireViewById(I)Landroid/view/View;
+
+    move-result-object p3
+
+    check-cast p3, Lcom/android/systemui/statusbar/policy/VariableDateView;
+
+    invoke-virtual {p14, p3}, Lcom/android/systemui/statusbar/policy/VariableDateViewController$Factory;->create(Lcom/android/systemui/statusbar/policy/VariableDateView;)Lcom/android/systemui/statusbar/policy/VariableDateViewController;
+
+    move-result-object p3
+
+    iput-object p3, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mVariableDateViewControllerDateView:Lcom/android/systemui/statusbar/policy/VariableDateViewController;
+
+    iget-object p3, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast p3, Lcom/android/systemui/qs/QuickStatusBarHeader;
+
+    sget p4, Lcom/android/systemui/R$id;->date_clock:I
+
+    invoke-virtual {p3, p4}, Landroid/widget/FrameLayout;->requireViewById(I)Landroid/view/View;
+
+    move-result-object p3
+
+    check-cast p3, Lcom/android/systemui/statusbar/policy/VariableDateView;
+
+    invoke-virtual {p14, p3}, Lcom/android/systemui/statusbar/policy/VariableDateViewController$Factory;->create(Lcom/android/systemui/statusbar/policy/VariableDateView;)Lcom/android/systemui/statusbar/policy/VariableDateViewController;
+
+    move-result-object p3
+
+    iput-object p3, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mVariableDateViewControllerClockDateView:Lcom/android/systemui/statusbar/policy/VariableDateViewController;
+
     new-instance p3, Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;
 
     invoke-direct {p3, p2, p13}, Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;-><init>(Landroid/view/ViewGroup;Lcom/android/systemui/statusbar/FeatureFlags;)V
@@ -211,7 +251,7 @@
 
     move-result-object p1
 
-    const p2, 0x1040817
+    const p2, 0x1040819
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -223,7 +263,7 @@
 
     move-result-object p1
 
-    const p2, 0x1040823
+    const p2, 0x1040825
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -235,7 +275,7 @@
 
     move-result-object p1
 
-    const p2, 0x1040821
+    const p2, 0x1040823
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -547,7 +587,7 @@
 
     move-result-object v1
 
-    const v2, 0x1040822
+    const v2, 0x1040824
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -618,7 +658,7 @@
 
     move-result-object v0
 
-    const v1, 0x1040827
+    const v1, 0x1040829
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -628,7 +668,7 @@
 
     move-result-object v1
 
-    const v2, 0x1040816
+    const v2, 0x1040818
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -645,7 +685,7 @@
 
     move-result-object v0
 
-    const v1, 0x1040824
+    const v1, 0x1040826
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -668,9 +708,17 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mDemoModeController:Lcom/android/systemui/demomode/DemoModeController;
 
-    iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mDemoModeReceiver:Lcom/android/systemui/demomode/DemoMode;
+    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mDemoModeReceiver:Lcom/android/systemui/demomode/DemoMode;
 
-    invoke-virtual {v0, p0}, Lcom/android/systemui/demomode/DemoModeController;->addCallback(Lcom/android/systemui/demomode/DemoMode;)V
+    invoke-virtual {v0, v1}, Lcom/android/systemui/demomode/DemoModeController;->addCallback(Lcom/android/systemui/demomode/DemoMode;)V
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mVariableDateViewControllerDateView:Lcom/android/systemui/statusbar/policy/VariableDateViewController;
+
+    invoke-virtual {v0}, Lcom/android/systemui/util/ViewController;->init()V
+
+    iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mVariableDateViewControllerClockDateView:Lcom/android/systemui/statusbar/policy/VariableDateViewController;
+
+    invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->init()V
 
     return-void
 .end method

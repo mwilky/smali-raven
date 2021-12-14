@@ -127,6 +127,7 @@
     <item type="id" name="am_pm_view" />
     <item type="id" name="ambient_indication" />
     <item type="id" name="ambient_indication_container" />
+    <item type="id" name="ambient_indication_icon" />
     <item type="id" name="ambient_indication_text" />
     <item type="id" name="analog_clock" />
     <item type="id" name="animatable_clock_view" />
@@ -149,6 +150,7 @@
     <item type="id" name="app_views_container" />
     <item type="id" name="appendix" />
     <item type="id" name="arrow" />
+    <item type="id" name="arrow_forward" />
     <item type="id" name="arrow_left" />
     <item type="id" name="arrow_right" />
     <item type="id" name="assist_orb" />
@@ -318,6 +320,7 @@
     <item type="id" name="circle_center" />
     <item type="id" name="clip_layer" />
     <item type="id" name="clock" />
+    <item type="id" name="clock_container" />
     <item type="id" name="close" />
     <item type="id" name="collapsing_toolbar" />
     <item type="id" name="column" />
@@ -380,6 +383,7 @@
     <item type="id" name="customizer_transparent_view" />
     <item type="id" name="cutout_space_view" />
     <item type="id" name="date" />
+    <item type="id" name="date_clock" />
     <item type="id" name="date_container" />
     <item type="id" name="date_picker_actions" />
     <item type="id" name="debug_container" />
@@ -435,6 +439,7 @@
     <item type="id" name="docked_top_icon" />
     <item type="id" name="done" />
     <item type="id" name="done_button" />
+    <item type="id" name="done_layout" />
     <item type="id" name="dot_view" />
     <item type="id" name="down_control" />
     <item type="id" name="doze_intensity_tag" />
@@ -487,6 +492,7 @@
     <item type="id" name="error" />
     <item type="id" name="error_frame" />
     <item type="id" name="error_view" />
+    <item type="id" name="ethernet_layout" />
     <item type="id" name="expand" />
     <item type="id" name="expand_activities_button" />
     <item type="id" name="expand_button" />
@@ -654,6 +660,10 @@
     <item type="id" name="inline_controls" />
     <item type="id" name="inout_container" />
     <item type="id" name="install_type" />
+    <item type="id" name="internet_connectivity_dialog" />
+    <item type="id" name="internet_container" />
+    <item type="id" name="internet_dialog_subtitle" />
+    <item type="id" name="internet_dialog_title" />
     <item type="id" name="interruptiveness_settings" />
     <item type="id" name="invocation_lights" />
     <item type="id" name="is_clicked_heads_up_tag" />
@@ -705,6 +715,7 @@
     <item type="id" name="keyguard_user_switcher_list" />
     <item type="id" name="keyguard_user_switcher_stub" />
     <item type="id" name="keyguard_user_switcher_view" />
+    <item type="id" name="kg_multi_user_avatar" />
     <item type="id" name="klondike_text" />
     <item type="id" name="label" />
     <item type="id" name="last_interaction" />
@@ -837,7 +848,6 @@
     <item type="id" name="media_progress_bar" />
     <item type="id" name="media_recommendations" />
     <item type="id" name="media_seamless" />
-    <item type="id" name="media_seamless_fallback" />
     <item type="id" name="media_seamless_image" />
     <item type="id" name="media_seamless_text" />
     <item type="id" name="media_total_time" />
@@ -854,11 +864,15 @@
     <item type="id" name="mobile_combo" />
     <item type="id" name="mobile_group" />
     <item type="id" name="mobile_in" />
+    <item type="id" name="mobile_network_layout" />
     <item type="id" name="mobile_out" />
     <item type="id" name="mobile_roaming" />
     <item type="id" name="mobile_roaming_large" />
     <item type="id" name="mobile_roaming_space" />
     <item type="id" name="mobile_signal" />
+    <item type="id" name="mobile_summary" />
+    <item type="id" name="mobile_title" />
+    <item type="id" name="mobile_toggle" />
     <item type="id" name="mobile_type" />
     <item type="id" name="month_grid" />
     <item type="id" name="month_navigation_bar" />
@@ -959,6 +973,7 @@
     <item type="id" name="navigation_header_container" />
     <item type="id" name="navigation_inflater" />
     <item type="id" name="navigator_container" />
+    <item type="id" name="negative_button" />
     <item type="id" name="network_logging_disclosures" />
     <item type="id" name="network_logging_subtitle" />
     <item type="id" name="network_logging_warning" />
@@ -1061,6 +1076,7 @@
     <item type="id" name="plugin_frame" />
     <item type="id" name="pm_lite" />
     <item type="id" name="pointer_view" />
+    <item type="id" name="positive_button" />
     <item type="id" name="predefined_icon" />
     <item type="id" name="presentation" />
     <item type="id" name="preview" />
@@ -1126,6 +1142,7 @@
     <item type="id" name="recent_tiles" />
     <item type="id" name="recommendation_card_icon" />
     <item type="id" name="recommendation_card_text" />
+    <item type="id" name="recommendation_gradient_view" />
     <item type="id" name="record" />
     <item type="id" name="recycler_view" />
     <item type="id" name="red" />
@@ -1254,6 +1271,7 @@
     <item type="id" name="second_sub_card" />
     <item type="id" name="secondary_controls_dock" />
     <item type="id" name="secondary_home_handle" />
+    <item type="id" name="see_all_layout" />
     <item type="id" name="see_more_button" />
     <item type="id" name="seekbar" />
     <item type="id" name="seekbar_value" />
@@ -1288,6 +1306,7 @@
     <item type="id" name="shelf_menu_anchor_anchor" />
     <item type="id" name="shortcut" />
     <item type="id" name="sidefps_view" />
+    <item type="id" name="signal_icon" />
     <item type="id" name="silence" />
     <item type="id" name="silence_icon" />
     <item type="id" name="silence_label" />
@@ -1461,6 +1480,7 @@
     <item type="id" name="tuner_zen_mode_panel" />
     <item type="id" name="tuner_zen_switch" />
     <item type="id" name="turn_off_notifications" />
+    <item type="id" name="turn_on_wifi_layout" />
     <item type="id" name="tv_notification_details" />
     <item type="id" name="tv_notification_panel" />
     <item type="id" name="tv_notification_title" />
@@ -1576,11 +1596,28 @@
     <item type="id" name="width" />
     <item type="id" name="wifi_airplane_spacer" />
     <item type="id" name="wifi_combo" />
+    <item type="id" name="wifi_connected_icon" />
+    <item type="id" name="wifi_connected_layout" />
+    <item type="id" name="wifi_connected_summary" />
+    <item type="id" name="wifi_connected_title" />
+    <item type="id" name="wifi_end_icon" />
     <item type="id" name="wifi_group" />
+    <item type="id" name="wifi_icon" />
     <item type="id" name="wifi_in" />
+    <item type="id" name="wifi_list" />
+    <item type="id" name="wifi_list_layout" />
+    <item type="id" name="wifi_network_layout" />
     <item type="id" name="wifi_out" />
+    <item type="id" name="wifi_scan_notify_layout" />
+    <item type="id" name="wifi_scan_notify_text" />
+    <item type="id" name="wifi_searching_progress" />
+    <item type="id" name="wifi_settings_icon" />
     <item type="id" name="wifi_signal" />
     <item type="id" name="wifi_signal_spacer" />
+    <item type="id" name="wifi_summary" />
+    <item type="id" name="wifi_title" />
+    <item type="id" name="wifi_toggle" />
+    <item type="id" name="wifi_toggle_title" />
     <item type="id" name="wireless_charging_percentage" />
     <item type="id" name="wireless_charging_ripple" />
     <item type="id" name="wireless_charging_text_layout" />

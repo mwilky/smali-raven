@@ -13,7 +13,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 36
+    .locals 37
 
     const-string v0, "android.media.metadata.ALBUM_ART_URI"
 
@@ -107,9 +107,11 @@
 
     const/16 v35, 0x0
 
+    const/16 v36, 0x0
+
     move-object/from16 v28, v0
 
-    invoke-direct/range {v28 .. v35}, Lcom/android/systemui/media/SmartspaceMediaData;-><init>(Ljava/lang/String;ZZLjava/lang/String;Landroid/app/smartspace/SmartspaceAction;Ljava/util/List;I)V
+    invoke-direct/range {v28 .. v36}, Lcom/android/systemui/media/SmartspaceMediaData;-><init>(Ljava/lang/String;ZZLjava/lang/String;Landroid/app/smartspace/SmartspaceAction;Ljava/util/List;Landroid/content/Intent;I)V
 
     sput-object v0, Lcom/android/systemui/media/MediaDataManagerKt;->EMPTY_SMARTSPACE_MEDIA_DATA:Lcom/android/systemui/media/SmartspaceMediaData;
 

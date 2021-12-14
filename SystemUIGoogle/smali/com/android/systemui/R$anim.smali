@@ -50,20 +50,20 @@
 
 .field public static final lock_unlock_rounded:I = 0x7f010262
 
-.field public static final reverse_charging_animation:I = 0x7f01027a
+.field public static final reverse_charging_animation:I = 0x7f01027b
 
-.field public static final search_launch_enter:I = 0x7f01027b
+.field public static final search_launch_enter:I = 0x7f01027c
 
-.field public static final search_launch_exit:I = 0x7f01027c
+.field public static final search_launch_exit:I = 0x7f01027d
 
-.field public static final tv_bottom_sheet_enter:I = 0x7f01027e
+.field public static final tv_bottom_sheet_enter:I = 0x7f01027f
 
-.field public static final tv_bottom_sheet_exit:I = 0x7f01027f
+.field public static final tv_bottom_sheet_exit:I = 0x7f010280
 
-.field public static final tv_privacy_chip_collapse:I = 0x7f010284
+.field public static final tv_privacy_chip_collapse:I = 0x7f010285
 
-.field public static final tv_privacy_chip_expand:I = 0x7f010285
+.field public static final tv_privacy_chip_expand:I = 0x7f010286
 
-.field public static final tv_privacy_chip_fade_in:I = 0x7f010286
+.field public static final tv_privacy_chip_fade_in:I = 0x7f010287
 
-.field public static final tv_privacy_chip_fade_out:I = 0x7f010287
+.field public static final tv_privacy_chip_fade_out:I = 0x7f010288

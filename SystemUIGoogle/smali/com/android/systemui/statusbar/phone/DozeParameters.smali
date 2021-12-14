@@ -173,16 +173,6 @@
 
 
 # virtual methods
-.method public addCallback(Lcom/android/systemui/statusbar/phone/DozeParameters$Callback;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/DozeParameters;->mCallbacks:Ljava/util/Set;
-
-    invoke-interface {p0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    return-void
-.end method
-
 .method public canControlUnlockedScreenOff()Z
     .locals 1
 
@@ -233,6 +223,16 @@
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 0
+
+    const-string p1, "getAlwaysOn(): "
+
+    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getAlwaysOn()Z
+
+    move-result p1
+
+    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Z)V
 
     const-string p1, "getDisplayStateSupported(): "
 
@@ -560,7 +560,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/phone/DozeParameters;->mResources:Landroid/content/res/Resources;
 
-    const v0, 0x10e00b8
+    const v0, 0x10e00b9
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getInteger(I)I
 

@@ -363,6 +363,7 @@
     <string name="alarms_and_reminders_label">ໂມງປຸກ ແລະ ການແຈ້ງເຕືອນ</string>
     <string name="alarms_and_reminders_switch_title">ອະນຸຍາດໃຫ້ຕັ້ງໂມງປຸກ ແລະ ການແຈ້ງເຕືອນ</string>
     <string name="alarms_and_reminders_title">ໂມງປຸກ ແລະ ການແຈ້ງເຕືອນ</string>
+    <string name="all_network_unavailable">ບໍ່​ມ​ີ​ເຄືອ​ຂ່າຍ​ທີ່​ສາ​ມາດ​ໃຊ້​ໄດ້</string>
     <string name="allow_mock_location">ອະນຸຍາດໃຫ້ຈຳລອງຕຳແໜ່ງ</string>
     <string name="allow_mock_location_summary">ອະນຸຍາດໃຫ້ຈຳລອງຕຳແໜ່ງ</string>
     <string name="always_use_accessory">ເປີດ %1$s ທຸກເທື່ອທີ່ເຊື່ອມຕໍ່ %2$s</string>
@@ -618,6 +619,11 @@
     <string name="clock_title_analog">ໂມງເຂັມ</string>
     <string name="clock_title_bubble">ຟອງ</string>
     <string name="clock_title_default">ຄ່າເລີ່ມຕົ້ນ</string>
+    <string name="columbus_bouncer_message">ປົດລັອກເພື່ອໃຊ້ການແຕະດ່ວນໃຫ້ສຳເລັດ</string>
+    <string name="columbus_target_request_dialog_allow">ອະນຸຍາດ</string>
+    <string name="columbus_target_request_dialog_deny">ບໍ່ອະນຸຍາດ</string>
+    <string name="columbus_target_request_dialog_summary">ເມື່ອທ່ານແຕະສອງເທື່ອໃສ່ທາງຫຼັງຂອງໂທລະສັບທ່ານ, %1$s ຈະເປີດຂຶ້ນມາ. ທ່ານສາມາດປ່ຽນຄຸນສົມບັດນີ້ຕອນໃດກໍໄດ້ໃນການຕັ້ງຄ່າ.</string>
+    <string name="columbus_target_request_dialog_title">ອະນຸຍາດການແຕະດ່ວນໃຫ້ເປີດ %1$s ບໍ?</string>
     <string name="compat_mode_off">ປັບໃຫ້ເຕັມໜ້າຈໍ</string>
     <string name="compat_mode_on">ຊູມໃຫ້ເຕັມໜ້າຈໍ</string>
     <string name="confirm_enable_oem_unlock_text">ຄຳ​ເຕືອນ: ຄຸນ​ສົມ​ບັດ​ປົກ​ປ້ອງ​ອຸ​ປະ​ກອນ​ຈະ​ບໍ່​ເຮັດ​ວຽກຢູ່​ໃນ​ອຸ​ປະ​ກອນ​ນີ້ ໃນ​ຂະ​ນະ​ທີ່​ການ​ຕັ້ງ​ຄ່ານີ້​ເປີດ​ຢູ່.</string>
@@ -740,6 +746,8 @@
     <string name="defender_notify_learn_more">ສຶກສາເພີ່ມເຕີມ</string>
     <string name="defender_notify_resume_charge">ສືບຕໍ່ການສາກໄຟ</string>
     <string name="defender_notify_title">ຈຳກັດການສາກໄຟຊົ່ວຄາວແລ້ວ</string>
+    <string name="defender_post_notify_des">ການສາກໄຟຖືກຈຳກັດໄວ້ເປັນ %1$s ຈາກ %2$s ຫາ %3$s ເພື່ອຖະໜອມອາຍຸແບັດເຕີຣີ</string>
+    <string name="defender_post_notify_title">ກຳລັງສາກໄຟປົກກະຕິ</string>
     <string name="delete_blob_confirmation_text">ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບຂໍ້ມູນທີ່ແບ່ງປັນແລ້ວນີ້ອອກ?</string>
     <string name="delete_blob_text">ລຶບຂໍ້ມູນທີ່ແບ່ງປັນອອກ</string>
     <string name="demo_mode">ໂໝດເດໂມສ່ວນຕິດຕໍ່ຜູ້ໃຊ້ລະບົບ</string>
@@ -885,6 +893,7 @@
     <string name="game_status">ກຳລັງຫຼິ້ນ</string>
     <string name="global_action_lock_message">ປົດລັອກໂທລະສັບຂອງທ່ານເພື່ອໃຊ້ຕົວເລືອກເພີ່ມເຕີມ</string>
     <string name="global_action_screenshot">ພາບໜ້າຈໍ</string>
+    <string name="global_action_smart_lock_disabled">ປິດການນຳໃຊ້ Smart Lock ແລ້ວ</string>
     <string name="global_actions_change_description">ເພື່ອເຂົ້າເຖິງ %1$s ແລະ ການຄວບຄຸມອຸປະກອນ, ໃຫ້ປັດລົງຈາກເທິງສຸດຂອງໜ້າຈໍທ່ານ</string>
     <string name="go_to_web">ໄປທີ່ໂປຣແກຣມທ່ອງເວັບ</string>
     <string name="google_services_wallpaper_permission"><b>ອະນຸຍາດໃຫ້ພາບພື້ນຫຼັງແບບສົດໆຂອງ Google ຕອບສະໜອງຕໍ່ສະຖານທີ່ຂອງທ່ານ</b> ໂດຍການເຂົ້າເຖິງບໍລິການສະຖານທີ່ຂອງ Google.</string>
@@ -1066,7 +1075,7 @@
     <string name="keyguard_permanent_disabled_sim_message_short">SIM card ບໍ່ສາມາດໃຊ້ໄດ້.</string>
     <string name="keyguard_plugged_in">%s • ກຳລັງສາກ</string>
     <string name="keyguard_plugged_in_charging_fast">%s • ກຳລັງສາກແບບດ່ວນ</string>
-    <string name="keyguard_plugged_in_charging_limited">%s • ຈຳກັດການສາກໄຟຊົ່ວຄາວ</string>
+    <string name="keyguard_plugged_in_charging_limited">%s • ຈຳກັດການສາກໄຟຊົ່ວຄາວແລ້ວ</string>
     <string name="keyguard_plugged_in_charging_slowly">%s • ກຳລັງສາກແບບຊ້າ</string>
     <string name="keyguard_plugged_in_wireless">%s • ກຳ​ລັງ​ສາກ​ໄຟໄຮ້​ສາຍ</string>
     <string name="keyguard_retry">ປັດຂຶ້ນເພື່ອລອງໃໝ່</string>
@@ -1232,7 +1241,7 @@
     <string name="media_projection_dialog_text">%s ຈະມີສິດເຂົ້າເຖິງຂໍ້ມູນທັງໝົດທີ່ປາກົດຢູ່ໜ້າຈໍຂອງທ່ານ ຫຼື ຫຼິ້ນຈາກອຸປະກອນຂອງທ່ານໃນເວລາບັນທຶກ ຫຼື ສົ່ງສັນຍານໜ້າຈໍ. ນີ້ຮວມເຖິງຂໍ້ມູນຕ່າງໆ ເຊັ່ນ: ລະຫັດຜ່ານ, ລາຍລະອຽດການຈ່າຍເງິນ, ຮູບ, ຂໍ້ຄວາມ ແລະ ສຽງທີ່ທ່ານຫຼິ້ນ.</string>
     <string name="media_projection_dialog_title">ເລີ່ມການບັນທຶກ ຫຼື ການສົ່ງສັນຍານໜ້າຈໍກັບ %s ບໍ?</string>
     <string name="media_projection_remember_text">ບໍ່​ຕ້ອງ​ສະ​ແດງ​ອີກ</string>
-    <string name="media_seamless_remote_device">ອຸປະກອນ</string>
+    <string name="media_seamless_other_device">ອຸປະກອນອື່ນໆ</string>
     <string name="media_transfer_this_device_name">ລຳໂພງໂທລະສັບ</string>
     <string name="media_transfer_this_phone">ໂທລະສັບນີ້</string>
     <string name="media_transfer_wired_device_name">ອຸປະກອນສຽງແບບມີສາຍ</string>
@@ -1249,9 +1258,13 @@
     <string name="mobile_data">ອິນເຕີເນັດມືຖື</string>
     <string name="mobile_data_always_on">ເປີດໃຊ້ອິນເຕີເນັດມືຖືຕະຫຼອດເວລາ</string>
     <string name="mobile_data_always_on_summary">ເປີດໃຊ້ອິນເຕີເນັດມືຖືໄວ້ຕະຫຼອດ, ເຖິງແມ່ນວ່າ Wi-Fi ຈະເຮັດວຽກຢູ່ກໍຕາມ (ສຳລັບການສະຫຼັບເຄືອຂ່າຍແບບໄວ).</string>
+    <string name="mobile_data_connection_active">ເຊື່ອມຕໍ່ແລ້ວ</string>
     <string name="mobile_data_disable_message">ທ່ານຈະບໍ່ມີສິດເຂົ້າເຖິງຂໍ້ມູນ ຫຼື ອິນເຕີເນັດຜ່ານ %s. ອິນເຕີເນັດຈະສາມາດໃຊ້ໄດ້ຜ່ານ Wi-Fi ເທົ່ານັ້ນ.</string>
     <string name="mobile_data_disable_message_default_carrier">ຜູ້​ໃຫ້​ບໍ​ລິ​ການ​ຂອງ​ທ່ານ</string>
     <string name="mobile_data_disable_title">ປິດອິນເຕີເນັດມືຖືໄວ້ບໍ?</string>
+    <string name="mobile_data_no_connection">ບໍ່ມີການເຊື່ອມຕໍ່</string>
+    <string name="mobile_data_off_summary">ຈະບໍ່ເຊື່ອມຕໍ່ອິນເຕີເນັດມືຖືອັດຕະໂນມັດ</string>
+    <string name="mobile_data_settings_title">ອິນເຕີເນັດມືຖື</string>
     <string name="mobile_data_text_format">%1$s — %2$s</string>
     <string name="mock_location_app">ເລືອກ​ແອັບ​ທີ່​ຕັ້ງ​ຈຳ​ລອງ</string>
     <string name="mock_location_app_not_set">ບໍ່​ມີ​ແອັບ​ທີ່​ຕັ້ງ​ຈຳ​ລອງທີ່ຕັ້ງ​ໄວ້</string>
@@ -1391,6 +1404,7 @@ You're also connected to a VPN, which can monitor your network activity."</strin
     <string name="no_content_in_select_mode">ບໍ່ມີຂໍ້ຄວາມ ຫຼື ຮູບໃຫ້ເລືອກ</string>
     <string name="no_conversations_text">ການສົນທະນາຫຼ້າສຸດຂອງທ່ານຈະສະແດງຢູ່ບ່ອນນີ້</string>
     <string name="no_shortcut">%1$s ບໍ່ຮອງຮັບຄຸນສົມບັດການສົນທະນາ</string>
+    <string name="non_carrier_network_unavailable">ບໍ່ມີເຄືອຂ່າຍອື່ນທີ່ສາມາດໃຊ້ໄດ້</string>
     <string name="not_default_data_content_description">ບໍ່ໄດ້ຕັ້ງໃຫ້ໃຊ້ອິນເຕີເນັດ</string>
     <string name="not_set">ບໍ່ໄດ້ຕັ້ງຄ່າ</string>
     <string name="notif_inline_reply_remove_attachment_description">ລຶບໄຟລ໌ແນບ</string>
@@ -1571,6 +1585,7 @@ You're also connected to a VPN, which can monitor your network activity."</strin
     <string name="power_remaining_only_more_than_subtext">ເຫຼືອຫຼາຍກວ່າ %1$s</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">ແບັດເຕີຣີອາດຈະໝົດພາຍໃນເວລາ %1$s</string>
+    <string name="pref_title_network_details">ລາຍລະອຽດເຄືອຂ່າຍ</string>
     <string name="preference_copied">ສຳເນົາ \"%1$s\" ໄປໃສ່ຄລິບບອດແລ້ວ.</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">ການສົນທະນາສຳຄັນ</string>
@@ -1740,6 +1755,7 @@ You're also connected to a VPN, which can monitor your network activity."</strin
     <string name="right_keycode">ລະຫັດປຸ່ມຂວາ</string>
     <string name="right_nav_bar_button_type">ປະເພດປຸ່ມຂວາພິເສດ</string>
     <string name="ring_toggle_title">ການໂທ</string>
+    <string name="rotation_lock_camera_rotation_on">ເປີດ - ອ້າງອີງໃບໜ້າ</string>
     <string name="running_foreground_services_msg">ແຕະເພື່ອເບິ່ງລາຍລະອຽດການນຳໃຊ້ແບັດເຕີຣີ ແລະ ອິນເຕີເນັດ</string>
     <string name="running_foreground_services_title">ແອັບທີ່ກຳລັງເຮັດວຽກໃນພື້ນຫຼັງ</string>
     <string name="running_process_item_user_label">ຜູ້ໃຊ້: %1$s</string>
@@ -1814,6 +1830,7 @@ You're also connected to a VPN, which can monitor your network activity."</strin
     <string name="screenshot_top_boundary_pct">ຂອບເຂດທາງເທິງ %1$d ເປີເຊັນ</string>
     <string name="search_menu">ຊອກຫາການຕັ້ງຄ່າ</string>
     <string name="search_menu_title">ຊອກຫາ</string>
+    <string name="see_all_networks">ເບິ່ງທັງໝົດ</string>
     <string name="see_more_title">ເບິ່ງເພີ່ມເຕີມ</string>
     <string name="select_application">ເລືອກແອັບພລິເຄຊັນ</string>
     <string name="select_conversation_text">ແຕະໃສ່ການສົນທະນາໃດໜຶ່ງເພື່ອເພີ່ມມັນໃສ່ໂຮມສະກຣີນຂອງທ່ານ</string>
@@ -1926,6 +1943,7 @@ You're also connected to a VPN, which can monitor your network activity."</strin
     <string name="switch_bar_off">ປິດ</string>
     <string name="switch_bar_on">ເປີດ</string>
     <string name="system_ui_tuner">System UI Tuner</string>
+    <string name="tap_a_network_to_connect">ແຕະເຄືອຂ່າຍໃດໜຶ່ງເພື່ອເຊື່ອມຕໍ່</string>
     <string name="tap_again">ແຕະອີກເທື່ອໜຶ່ງ</string>
     <string name="tap_to_sign_up">ແຕະເພື່ອສະໝັກ</string>
     <string name="tether_settings_title_all">ການປ່ອຍສັນຍານ &amp; ຮັອດສະປອດເຄື່ອນທີ່</string>
@@ -1951,6 +1969,7 @@ You're also connected to a VPN, which can monitor your network activity."</strin
     <string name="time_unit_just_now">ຕອນນີ້</string>
     <string name="title_convert_fbe">ກຳລັງປ່ຽນເປັນການເຂົ້າລະຫັດແບບອີງໃສ່ໄຟລ໌</string>
     <string name="title_usb_accessory">ອຸປະກອນເສີມ USB</string>
+    <string name="to_switch_networks_disconnect_ethernet">ເພື່ອສະຫຼັບເຄືອຂ່າຍ, ໃຫ້ຕັດການເຊື່ອມຕໍ່ອີເທີເນັດກ່ອນ</string>
     <string name="too_hot_label">Pixel ຮ້ອນເກີນໄປ</string>
     <string name="touch_filtered_warning">ເນື່ອງຈາກມີແອັບໃດໜຶ່ງກຳລັງຂັດຂວາງການຂໍອະນຸຍາດ, ການຕັ້ງຄ່າຈຶ່ງບໍ່ສາມາດຢັ້ງຢືນການຕອບຮັບຂອງທ່ານໄດ້.</string>
     <string name="track_frame_time">ການປະມວນຜົນໂປຣໄຟລ໌ HWUI</string>
@@ -2009,10 +2028,12 @@ You're also connected to a VPN, which can monitor your network activity."</strin
     <string name="tuner_toast">ຍິນດີດ້ວຍ! System UI Tuner ໄດ້ຖືກເພີ່ມໃສ່ການຕັ້ງຄ່າແລ້ວ</string>
     <string name="tuner_warning">System UI Tuner ໃຫ້ທ່ານມີວິທີພິເສດຕື່ມອີກໃນການປັບປ່ຽນ ແລະຕົບແຕ່ງສ່ວນຕໍ່ປະສານຜູ້ໃຊ້ຂອງ Android. ຄຸນສົມບັດທົດລອງໃຊ້ເຫຼົ່ານີ້ອາດຈະປ່ຽນແປງ, ຢຸດເຊົາ ຫຼືຫາຍໄປໃນການວາງຈຳໜ່າຍໃນອະນາຄົດ. ຈົ່ງດຳເນີນຕໍ່ດ້ວຍຄວາມລະມັດລະວັງ.</string>
     <string name="tuner_warning_title">ມ່ວນຊື່ນສຳລັບບາງຄົນ ແຕ່ບໍ່ແມ່ນສຳລັບທຸກຄົນ</string>
+    <string name="turn_on_wifi">Wi-Fi</string>
     <string name="tv_notification_panel_no_notifications">ບໍ່ມີການແຈ້ງເຕືອນ</string>
     <string name="tv_notification_panel_title">ການແຈ້ງເຕືອນ</string>
     <string name="two_weeks_timestamp">2 ອາທິດກ່ອນ</string>
     <string name="unknown">ບໍ່ຮູ້ຈັກ</string>
+    <string name="unlock_to_view_networks">ປົດລັອກເພື່ອເບິ່ງເຄືອຂ່າຍ</string>
     <string name="upcoming_birthday_status">ວັນເກີດໃນໄວໆນີ້</string>
     <string name="upcoming_birthday_status_content_description">ອີກບໍ່ດົນຈະຮອດວັນເກີດຂອງ %1$s</string>
     <string name="url_menu_copy">ສຳເນົາ</string>
@@ -2151,9 +2172,11 @@ You're also connected to a VPN, which can monitor your network activity."</strin
     <string name="wifi_disconnected">ຕັດການເຊື່ອມຕໍ່ແລ້ວ</string>
     <string name="wifi_display_certification">ສະແດງການຮັບຮອງຂອງລະບົບໄຮ້ສາຍ</string>
     <string name="wifi_display_certification_summary">ສະແດງໂຕເລືອກສຳລັບການສະແດງການຮັບຮອງລະບົບໄຮ້ສາຍ</string>
+    <string name="wifi_empty_list_wifi_on">ກຳລັງຊອກຫາເຄືອຂ່າຍ…</string>
     <string name="wifi_enhanced_mac_randomization">ການສຸ່ມ MAC ທີ່ມີ Wi-Fi ບໍ່ຖາວອນ</string>
     <string name="wifi_enhanced_mac_randomization_summary">ຫາກເປີດການນຳໃຊ້ໂໝດນີ້, ທີ່ຢູ່ MAC ຂອງອຸປະກອນນີ້ອາດມີການປ່ຽນແປງໃນແຕ່ລະເທື່ອທີ່ມັນເຊື່ອມຕໍ່ຫາເຄືອຂ່າຍໃດໜຶ່ງທີ່ເປີດການນຳໃຊ້ການສຸ່ມ MAC.</string>
     <string name="wifi_fail_to_scan">ບໍ່ສາມາດກວດຫາເຄືອຂ່າຍໄດ້</string>
+    <string name="wifi_failed_connect_message">ເຊື່ອມຕໍ່ເຄືອຂ່າຍບໍ່ສຳເລັດ</string>
     <string name="wifi_hotspot_switch_off_text">ປິດ</string>
     <string name="wifi_hotspot_switch_on_text">ເປີດ</string>
     <string name="wifi_is_off">Wi-Fi ປິດຢູ່</string>
@@ -2164,6 +2187,7 @@ You're also connected to a VPN, which can monitor your network activity."</strin
     <string name="wifi_not_in_range">ບໍ່ຢູ່ໃນໄລຍະທີ່ເຊື່ອມຕໍ່ໄດ້</string>
     <string name="wifi_passpoint_expired">ໝົດອາຍຸແລ້ວ</string>
     <string name="wifi_remembered">ບັນ​ທຶກແລ້ວ</string>
+    <string name="wifi_scan_notify_message">ເພື່ອປັບປຸງປະສົບການອຸປະກອນ, ແອັບ ແລະ ບໍລິການຍັງຄົງສາມາດສະແກນຫາເຄືອຂ່າຍ Wi‑Fi ຕອນໃດກໍໄດ້, ເຖິງແມ່ນວ່າຈະປິດ Wi‑Fi ໄວ້ກໍຕາມ. ທ່ານສາມາດປ່ຽນສິ່ງນີ້ໄດ້ໃນການຕັ້ງຄ່າການສະແກນ Wi‑Fi. <annotation id="link">ປ່ຽນ</annotation></string>
     <string name="wifi_scan_throttling">ການຈຳກັດການສະແກນ Wi‑Fi</string>
     <string name="wifi_scan_throttling_summary">ຫຼຸດການໃຊ້ແບັດເຕີຣີ ແລະ ປັບປຸງປະສິດທິພາບເຄືອຂ່າຍ</string>
     <string name="wifi_security_none">ບໍ່ໃຊ້</string>
@@ -2173,6 +2197,7 @@ You're also connected to a VPN, which can monitor your network activity."</strin
     <string name="wifi_unmetered_label">ບໍ່ໄດ້ວັດແທກ</string>
     <string name="wifi_verbose_logging">​ເປີດ​ນຳ​ໃຊ້ການ​ເກັບ​ປະ​ຫວັດ​ Verbose Wi‑Fi</string>
     <string name="wifi_verbose_logging_summary">ເພີ່ມ​ລະ​ດັບ​ການ​ເກັບ​ປະ​ຫວັດ Wi‑Fi, ສະ​ແດງ​ຕໍ່ SSID RSSI ​ໃນ​ Wi‑Fi Picker</string>
+    <string name="wifi_wont_autoconnect_for_now">Wi-Fi ຈະບໍ່ເຊື່ອມຕໍ່ອັດຕະໂນມັດສຳລັບຕອນນີ້</string>
     <string name="wifitrackerlib_auto_connect_disable">ການເຊື່ອມຕໍ່ອັດຕະໂນມັດປິດຢູ່</string>
     <string name="wifitrackerlib_available_via_app">ສາມາດໃຊ້ໄດ້ຜ່ານ %1$s</string>
     <string name="wifitrackerlib_connected_via_app">ເຊື່ອມ​ຕໍ່​ຜ່ານ %1$s ແລ້ວ</string>

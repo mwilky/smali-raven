@@ -66,6 +66,8 @@
 
 .field private final notificationShadeWindowController:Lcom/android/systemui/statusbar/NotificationShadeWindowController;
 
+.field private panelPullDownMinFraction:F
+
 .field private prevShadeDirection:I
 
 .field private prevShadeVelocity:F
@@ -356,14 +358,6 @@
     return p0
 .end method
 
-.method public static final synthetic access$getShadeExpansion$p(Lcom/android/systemui/statusbar/NotificationShadeDepthController;)F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->shadeExpansion:F
-
-    return p0
-.end method
-
 .method public static final synthetic access$getWakeAndUnlockBlurRadius$p(Lcom/android/systemui/statusbar/NotificationShadeDepthController;)F
     .locals 0
 
@@ -491,6 +485,12 @@
 .end method
 
 .method public static synthetic getBrightnessMirrorSpring$annotations()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public static synthetic getShadeExpansion$annotations()V
     .locals 0
 
     return-void
@@ -784,7 +784,9 @@
 
     invoke-virtual {p1}, Landroid/util/IndentingPrintWriter;->increaseIndent()Landroid/util/IndentingPrintWriter;
 
-    iget p2, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->shadeExpansion:F
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->getShadeExpansion()F
+
+    move-result p2
 
     invoke-static {p2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
@@ -984,6 +986,14 @@
     return-object p0
 .end method
 
+.method public final getShadeExpansion()F
+    .locals 0
+
+    iget p0, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->shadeExpansion:F
+
+    return p0
+.end method
+
 .method public final getTransitionToFullShadeProgress()F
     .locals 0
 
@@ -999,15 +1009,29 @@
 
     move-result-wide v0
 
+    iget v2, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->panelPullDownMinFraction:F
+
+    sub-float/2addr p1, v2
+
+    const/high16 v3, 0x3f800000    # 1.0f
+
+    sub-float v2, v3, v2
+
+    div-float/2addr p1, v2
+
+    invoke-static {p1}, Landroid/util/MathUtils;->saturate(F)F
+
+    move-result p1
+
     iget v2, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->shadeExpansion:F
 
     cmpg-float v2, v2, p1
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
     if-nez v2, :cond_0
 
-    move v2, v3
+    move v2, v4
 
     goto :goto_0
 
@@ -1026,13 +1050,11 @@
     return-void
 
     :cond_1
-    iget-wide v4, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->prevTimestamp:J
+    iget-wide v5, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->prevTimestamp:J
 
-    const-wide/16 v6, 0x0
+    const-wide/16 v7, 0x0
 
-    cmp-long v2, v4, v6
-
-    const/high16 v6, 0x3f800000    # 1.0f
+    cmp-long v2, v5, v7
 
     if-gez v2, :cond_2
 
@@ -1041,21 +1063,21 @@
     goto :goto_1
 
     :cond_2
-    sub-long v4, v0, v4
+    sub-long v5, v0, v5
 
-    long-to-double v4, v4
+    long-to-double v5, v5
 
     const-wide v7, 0x41cdcd6500000000L    # 1.0E9
 
-    div-double/2addr v4, v7
+    div-double/2addr v5, v7
 
-    double-to-float v2, v4
+    double-to-float v2, v5
 
-    const v4, 0x3727c5ac    # 1.0E-5f
+    const v5, 0x3727c5ac    # 1.0E-5f
 
-    invoke-static {v2, v4, v6}, Landroid/util/MathUtils;->constrain(FFF)F
+    invoke-static {v2, v5, v3}, Landroid/util/MathUtils;->constrain(FFF)F
 
-    move-result v6
+    move-result v3
 
     :goto_1
     iget v2, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->shadeExpansion:F
@@ -1064,27 +1086,27 @@
 
     invoke-static {v2}, Ljava/lang/Math;->signum(F)F
 
-    move-result v4
+    move-result v5
 
-    float-to-int v4, v4
+    float-to-int v5, v5
 
-    const/high16 v5, 0x42c80000    # 100.0f
+    const/high16 v6, 0x42c80000    # 100.0f
 
-    mul-float/2addr v2, v5
+    mul-float/2addr v2, v6
 
-    div-float/2addr v2, v6
+    div-float/2addr v2, v3
 
-    const v5, -0x3ac48000    # -3000.0f
+    const v3, -0x3ac48000    # -3000.0f
 
     const v6, 0x453b8000    # 3000.0f
 
-    invoke-static {v2, v5, v6}, Landroid/util/MathUtils;->constrain(FFF)F
+    invoke-static {v2, v3, v6}, Landroid/util/MathUtils;->constrain(FFF)F
 
     move-result v2
 
-    invoke-direct {p0, p1, p2, v2, v4}, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->updateShadeAnimationBlur(FZFI)V
+    invoke-direct {p0, p1, p2, v2, v5}, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->updateShadeAnimationBlur(FZFI)V
 
-    iput v4, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->prevShadeDirection:I
+    iput v5, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->prevShadeDirection:I
 
     iput v2, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->prevShadeVelocity:F
 
@@ -1096,7 +1118,7 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1, v3, p1}, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->scheduleUpdate$default(Lcom/android/systemui/statusbar/NotificationShadeDepthController;Landroid/view/View;ILjava/lang/Object;)V
+    invoke-static {p0, p1, v4, p1}, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->scheduleUpdate$default(Lcom/android/systemui/statusbar/NotificationShadeDepthController;Landroid/view/View;ILjava/lang/Object;)V
 
     return-void
 .end method
@@ -1222,6 +1244,14 @@
     const/4 v1, 0x0
 
     invoke-static {v0, p0, v1, p1, v1}, Lcom/android/systemui/statusbar/NotificationShadeDepthController$DepthAnimation;->animateTo$default(Lcom/android/systemui/statusbar/NotificationShadeDepthController$DepthAnimation;ILandroid/view/View;ILjava/lang/Object;)V
+
+    return-void
+.end method
+
+.method public final setPanelPullDownMinFraction(F)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->panelPullDownMinFraction:F
 
     return-void
 .end method

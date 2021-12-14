@@ -14,7 +14,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nColorScheme.kt\nKotlin\n*S Kotlin\n*F\n+ 1 ColorScheme.kt\ncom/google/material/monet/ColorScheme$Companion\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n+ 3 Maps.kt\nkotlin/collections/MapsKt__MapsKt\n+ 4 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,246:1\n2475#2,7:247\n1517#2:254\n1588#2,3:255\n734#2:258\n825#2,2:259\n1206#2,4:263\n1206#2,4:269\n1206#2,4:275\n1206#2,4:288\n979#2,2:292\n436#3:261\n386#3:262\n436#3:267\n386#3:268\n436#3:273\n386#3:274\n509#3:279\n494#3,6:280\n436#3:286\n386#3:287\n1#4:294\n*E\n*S KotlinDebug\n*F\n+ 1 ColorScheme.kt\ncom/google/material/monet/ColorScheme$Companion\n*L\n120#1,7:247\n129#1:254\n129#1,3:255\n131#1:258\n131#1,2:259\n143#1,4:263\n146#1,4:269\n151#1,4:275\n172#1,4:288\n176#1,2:292\n143#1:261\n143#1:262\n146#1:267\n146#1:268\n151#1:273\n151#1:274\n163#1:279\n163#1,6:280\n172#1:286\n172#1:287\n*E\n"
+    value = "SMAP\nColorScheme.kt\nKotlin\n*S Kotlin\n*F\n+ 1 ColorScheme.kt\ncom/google/material/monet/ColorScheme$Companion\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n+ 3 Maps.kt\nkotlin/collections/MapsKt__MapsKt\n+ 4 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,261:1\n2475#2,7:262\n1517#2:269\n1588#2,3:270\n734#2:273\n825#2,2:274\n1206#2,4:278\n1206#2,4:284\n1206#2,4:290\n1206#2,4:303\n979#2,2:307\n436#3:276\n386#3:277\n436#3:282\n386#3:283\n436#3:288\n386#3:289\n509#3:294\n494#3,6:295\n436#3:301\n386#3:302\n1#4:309\n*E\n*S KotlinDebug\n*F\n+ 1 ColorScheme.kt\ncom/google/material/monet/ColorScheme$Companion\n*L\n126#1,7:262\n135#1:269\n135#1,3:270\n137#1:273\n137#1,2:274\n147#1,4:278\n150#1,4:284\n155#1,4:290\n175#1,4:303\n179#1,2:307\n147#1:276\n147#1:277\n150#1:282\n150#1:283\n155#1:288\n155#1:289\n167#1:294\n167#1,6:295\n175#1:301\n175#1:302\n*E\n"
 .end annotation
 
 
@@ -128,7 +128,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -164,6 +164,19 @@
 
     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
+    invoke-virtual {v2}, Lcom/android/internal/graphics/cam/Cam;->getChroma()F
+
+    move-result v5
+
+    const/high16 v6, 0x40a00000    # 5.0f
+
+    cmpg-float v5, v5, v6
+
+    if-gtz v5, :cond_1
+
+    goto :goto_1
+
+    :cond_1
     invoke-virtual {v2}, Lcom/android/internal/graphics/cam/Cam;->getHue()F
 
     move-result v2
@@ -194,7 +207,7 @@
 
     goto :goto_1
 
-    :cond_1
+    :cond_2
     return-object p0
 .end method
 
@@ -329,7 +342,7 @@
 .end method
 
 .method public final getSeedColors(Landroid/app/WallpaperColors;)Ljava/util/List;
-    .locals 19
+    .locals 21
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -363,7 +376,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1a
+    if-eqz v2, :cond_1c
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -417,6 +430,8 @@
 
     cmpg-double v0, v2, v4
 
+    const/4 v6, 0x0
+
     const/4 v7, 0x1
 
     if-nez v0, :cond_1
@@ -426,14 +441,12 @@
     goto :goto_1
 
     :cond_1
-    const/4 v0, 0x0
+    move v0, v6
 
     :goto_1
-    const/high16 v8, 0x41200000    # 10.0f
+    const v8, -0xe4910d
 
-    const v9, -0xe4910d
-
-    const/high16 v10, 0x41700000    # 15.0f
+    const/high16 v9, 0x40a00000    # 5.0f
 
     if-eqz v0, :cond_7
 
@@ -519,21 +532,13 @@
 
     invoke-static {v3}, Lcom/android/internal/graphics/cam/Cam;->fromInt(I)Lcom/android/internal/graphics/cam/Cam;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-static {v3}, Lcom/android/internal/graphics/cam/CamUtils;->lstarFromInt(I)F
+    invoke-virtual {v3}, Lcom/android/internal/graphics/cam/Cam;->getChroma()F
 
     move-result v3
 
-    invoke-virtual {v4}, Lcom/android/internal/graphics/cam/Cam;->getChroma()F
-
-    move-result v4
-
-    cmpl-float v4, v4, v10
-
-    if-ltz v4, :cond_4
-
-    cmpl-float v3, v3, v8
+    cmpl-float v3, v3, v9
 
     if-ltz v3, :cond_4
 
@@ -542,7 +547,7 @@
     goto :goto_4
 
     :cond_4
-    const/4 v3, 0x0
+    move v3, v6
 
     :goto_4
     if-eqz v3, :cond_3
@@ -562,7 +567,7 @@
 
     if-eqz v1, :cond_6
 
-    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
@@ -576,60 +581,60 @@
     :cond_7
     invoke-virtual/range {p1 .. p1}, Landroid/app/WallpaperColors;->getAllColors()Ljava/util/Map;
 
-    move-result-object v11
+    move-result-object v10
 
-    const-string v12, "wallpaperColors.allColors"
+    const-string v11, "wallpaperColors.allColors"
 
-    invoke-static {v11, v12}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v10, v11}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    new-instance v13, Ljava/util/LinkedHashMap;
+    new-instance v12, Ljava/util/LinkedHashMap;
 
-    invoke-interface {v11}, Ljava/util/Map;->size()I
+    invoke-interface {v10}, Ljava/util/Map;->size()I
 
-    move-result v14
+    move-result v13
 
-    invoke-static {v14}, Lkotlin/collections/MapsKt;->mapCapacity(I)I
+    invoke-static {v13}, Lkotlin/collections/MapsKt;->mapCapacity(I)I
 
-    move-result v14
+    move-result v13
 
-    invoke-direct {v13, v14}, Ljava/util/LinkedHashMap;-><init>(I)V
+    invoke-direct {v12, v13}, Ljava/util/LinkedHashMap;-><init>(I)V
 
-    invoke-interface {v11}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+    invoke-interface {v10}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
-    move-result-object v11
+    move-result-object v10
 
-    invoke-interface {v11}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-interface {v10}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v11
+    move-result-object v10
 
     :goto_5
-    invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v14
+    move-result v13
 
-    if-eqz v14, :cond_8
+    if-eqz v13, :cond_8
 
-    invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v14
+    move-result-object v13
 
-    check-cast v14, Ljava/util/Map$Entry;
+    check-cast v13, Ljava/util/Map$Entry;
 
-    invoke-interface {v14}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v15
-
-    invoke-interface {v14}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {v13}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v14
 
-    check-cast v14, Ljava/lang/Number;
+    invoke-interface {v13}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    invoke-virtual {v14}, Ljava/lang/Number;->intValue()I
+    move-result-object v13
 
-    move-result v14
+    check-cast v13, Ljava/lang/Number;
 
-    int-to-double v4, v14
+    invoke-virtual {v13}, Ljava/lang/Number;->intValue()I
+
+    move-result v13
+
+    int-to-double v4, v13
 
     div-double/2addr v4, v2
 
@@ -637,7 +642,7 @@
 
     move-result-object v4
 
-    invoke-interface {v13, v15, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v12, v14, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const-wide/16 v4, 0x0
 
@@ -648,7 +653,7 @@
 
     move-result-object v2
 
-    invoke-static {v2, v12}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v2, v11}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     new-instance v3, Ljava/util/LinkedHashMap;
 
@@ -687,7 +692,7 @@
 
     invoke-interface {v4}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v11
+    move-result-object v10
 
     invoke-interface {v4}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
@@ -705,14 +710,14 @@
 
     move-result-object v4
 
-    invoke-interface {v3, v11, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v10, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_6
 
     :cond_9
     move-object/from16 v4, p0
 
-    invoke-direct {v4, v3, v13}, Lcom/google/material/monet/ColorScheme$Companion;->huePopulations(Ljava/util/Map;Ljava/util/Map;)Ljava/util/List;
+    invoke-direct {v4, v3, v12}, Lcom/google/material/monet/ColorScheme$Companion;->huePopulations(Ljava/util/Map;Ljava/util/Map;)Ljava/util/List;
 
     move-result-object v2
 
@@ -720,19 +725,19 @@
 
     move-result-object v1
 
-    invoke-static {v1, v12}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v1, v11}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     new-instance v4, Ljava/util/LinkedHashMap;
 
     invoke-interface {v1}, Ljava/util/Map;->size()I
 
-    move-result v11
+    move-result v10
 
-    invoke-static {v11}, Lkotlin/collections/MapsKt;->mapCapacity(I)I
+    invoke-static {v10}, Lkotlin/collections/MapsKt;->mapCapacity(I)I
 
-    move-result v11
+    move-result v10
 
-    invoke-direct {v4, v11}, Ljava/util/LinkedHashMap;-><init>(I)V
+    invoke-direct {v4, v10}, Ljava/util/LinkedHashMap;-><init>(I)V
 
     invoke-interface {v1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
@@ -745,85 +750,87 @@
     :goto_7
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v11
+    move-result v10
 
-    if-eqz v11, :cond_c
+    const/16 v11, 0xf
+
+    if-eqz v10, :cond_c
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v11
+    move-result-object v10
 
-    check-cast v11, Ljava/util/Map$Entry;
+    check-cast v10, Ljava/util/Map$Entry;
 
-    invoke-interface {v11}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {v10}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v12
 
-    invoke-interface {v11}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {v10}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v11
+    move-result-object v10
 
-    invoke-interface {v3, v11}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v3, v10}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v11
+    move-result-object v10
 
-    check-cast v11, Lcom/android/internal/graphics/cam/Cam;
+    check-cast v10, Lcom/android/internal/graphics/cam/Cam;
 
-    invoke-static {v11}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
+    invoke-static {v10}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
-    invoke-virtual {v11}, Lcom/android/internal/graphics/cam/Cam;->getHue()F
+    invoke-virtual {v10}, Lcom/android/internal/graphics/cam/Cam;->getHue()F
 
-    move-result v11
+    move-result v10
 
-    invoke-static {v11}, Lkotlin/math/MathKt;->roundToInt(F)I
+    invoke-static {v10}, Lkotlin/math/MathKt;->roundToInt(F)I
 
-    move-result v11
+    move-result v10
 
-    add-int/lit8 v13, v11, -0xf
+    add-int/lit8 v13, v10, -0xf
 
-    add-int/lit8 v11, v11, 0xf
+    add-int/2addr v10, v11
 
-    const-wide/16 v14, 0x0
+    const-wide/16 v17, 0x0
 
-    if-gt v13, v11, :cond_b
+    if-gt v13, v10, :cond_b
 
     :goto_8
-    add-int/lit8 v16, v13, 0x1
+    add-int/lit8 v11, v13, 0x1
 
-    sget-object v6, Lcom/google/material/monet/ColorScheme;->Companion:Lcom/google/material/monet/ColorScheme$Companion;
+    sget-object v14, Lcom/google/material/monet/ColorScheme;->Companion:Lcom/google/material/monet/ColorScheme$Companion;
 
-    invoke-direct {v6, v13}, Lcom/google/material/monet/ColorScheme$Companion;->wrapDegrees(I)I
+    invoke-direct {v14, v13}, Lcom/google/material/monet/ColorScheme$Companion;->wrapDegrees(I)I
 
-    move-result v6
+    move-result v14
 
-    invoke-interface {v2, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v2, v14}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v14
 
-    check-cast v6, Ljava/lang/Number;
+    check-cast v14, Ljava/lang/Number;
 
-    invoke-virtual {v6}, Ljava/lang/Number;->doubleValue()D
+    invoke-virtual {v14}, Ljava/lang/Number;->doubleValue()D
 
-    move-result-wide v17
+    move-result-wide v19
 
-    add-double v14, v14, v17
+    add-double v17, v17, v19
 
-    if-ne v13, v11, :cond_a
+    if-ne v13, v10, :cond_a
 
     goto :goto_9
 
     :cond_a
-    move/from16 v13, v16
+    move v13, v11
 
     goto :goto_8
 
     :cond_b
     :goto_9
-    invoke-static {v14, v15}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+    invoke-static/range {v17 .. v18}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
-    move-result-object v6
+    move-result-object v10
 
-    invoke-interface {v4, v12, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v4, v12, v10}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_7
 
@@ -844,39 +851,37 @@
     :goto_a
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v6
+    move-result v10
 
-    if-eqz v6, :cond_10
+    if-eqz v10, :cond_10
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v10
 
-    check-cast v6, Ljava/util/Map$Entry;
+    check-cast v10, Ljava/util/Map$Entry;
 
-    invoke-interface {v6}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object v11
-
-    check-cast v11, Lcom/android/internal/graphics/cam/Cam;
-
-    invoke-interface {v6}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {v10}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v12
 
-    invoke-static {v12, v5}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    check-cast v12, Lcom/android/internal/graphics/cam/Cam;
 
-    check-cast v12, Ljava/lang/Number;
+    invoke-interface {v10}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    invoke-virtual {v12}, Ljava/lang/Number;->intValue()I
+    move-result-object v13
 
-    move-result v12
+    invoke-static {v13, v5}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {v12}, Lcom/android/internal/graphics/cam/CamUtils;->lstarFromInt(I)F
+    check-cast v13, Ljava/lang/Number;
 
-    move-result v12
+    invoke-virtual {v13}, Ljava/lang/Number;->intValue()I
 
-    invoke-interface {v6}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    move-result v13
+
+    invoke-static {v13}, Lcom/android/internal/graphics/cam/CamUtils;->lstarFromInt(I)F
+
+    invoke-interface {v10}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v13
 
@@ -892,65 +897,57 @@
 
     move-result-wide v13
 
-    invoke-virtual {v11}, Lcom/android/internal/graphics/cam/Cam;->getChroma()F
+    invoke-virtual {v12}, Lcom/android/internal/graphics/cam/Cam;->getChroma()F
 
-    move-result v11
+    move-result v12
 
-    cmpl-float v11, v11, v10
+    cmpl-float v12, v12, v9
 
-    if-ltz v11, :cond_f
-
-    cmpl-float v11, v12, v8
-
-    if-ltz v11, :cond_f
+    if-ltz v12, :cond_f
 
     if-nez v0, :cond_e
 
-    const-wide v11, 0x3f847ae147ae147bL    # 0.01
+    const-wide v15, 0x3f847ae147ae147bL    # 0.01
 
-    cmpl-double v11, v13, v11
+    cmpl-double v12, v13, v15
 
-    if-lez v11, :cond_f
+    if-lez v12, :cond_f
 
     :cond_e
-    move v11, v7
+    move v12, v7
 
     goto :goto_b
 
     :cond_f
-    const/4 v11, 0x0
+    move v12, v6
 
     :goto_b
-    if-eqz v11, :cond_d
+    if-eqz v12, :cond_d
 
-    invoke-interface {v6}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+    invoke-interface {v10}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    move-result-object v11
+    move-result-object v12
 
-    invoke-interface {v6}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+    invoke-interface {v10}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v10
 
-    invoke-interface {v1, v11, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, v12, v10}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_a
 
     :cond_10
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    new-instance v2, Ljava/util/LinkedHashMap;
+    new-instance v0, Ljava/util/LinkedHashMap;
 
     invoke-interface {v1}, Ljava/util/Map;->size()I
 
-    move-result v5
+    move-result v2
 
-    invoke-static {v5}, Lkotlin/collections/MapsKt;->mapCapacity(I)I
+    invoke-static {v2}, Lkotlin/collections/MapsKt;->mapCapacity(I)I
 
-    move-result v5
+    move-result v2
 
-    invoke-direct {v2, v5}, Ljava/util/LinkedHashMap;-><init>(I)V
+    invoke-direct {v0, v2}, Ljava/util/LinkedHashMap;-><init>(I)V
 
     invoke-interface {v1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
@@ -963,92 +960,9 @@
     :goto_c
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v5
-
-    if-eqz v5, :cond_11
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Ljava/util/Map$Entry;
-
-    invoke-interface {v5}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v6
-
-    sget-object v8, Lcom/google/material/monet/ColorScheme;->Companion:Lcom/google/material/monet/ColorScheme$Companion;
-
-    invoke-interface {v5}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
-
-    move-result-object v11
-
-    const-string v12, "it.value"
-
-    invoke-static {v11, v12}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    check-cast v11, Lcom/android/internal/graphics/cam/Cam;
-
-    invoke-interface {v5}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object v5
-
-    invoke-interface {v4, v5}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Ljava/lang/Double;
-
-    invoke-static {v5}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
-
-    invoke-virtual {v5}, Ljava/lang/Double;->doubleValue()D
-
-    move-result-wide v12
-
-    invoke-direct {v8, v11, v12, v13}, Lcom/google/material/monet/ColorScheme$Companion;->score(Lcom/android/internal/graphics/cam/Cam;D)D
-
-    move-result-wide v11
-
-    invoke-static {v11, v12}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
-
-    move-result-object v5
-
-    invoke-interface {v2, v6, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    goto :goto_c
-
-    :cond_11
-    invoke-interface {v2}, Ljava/util/Map;->entrySet()Ljava/util/Set;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lkotlin/collections/CollectionsKt;->toMutableList(Ljava/util/Collection;)Ljava/util/List;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/List;->size()I
-
     move-result v2
 
-    if-le v2, v7, :cond_12
-
-    new-instance v2, Lcom/google/material/monet/ColorScheme$Companion$getSeedColors$$inlined$sortByDescending$1;
-
-    invoke-direct {v2}, Lcom/google/material/monet/ColorScheme$Companion$getSeedColors$$inlined$sortByDescending$1;-><init>()V
-
-    invoke-static {v1, v2}, Lkotlin/collections/CollectionsKt;->sortWith(Ljava/util/List;Ljava/util/Comparator;)V
-
-    :cond_12
-    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :goto_d
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_18
+    if-eqz v2, :cond_11
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1058,127 +972,240 @@
 
     invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
+    move-result-object v5
+
+    sget-object v9, Lcom/google/material/monet/ColorScheme;->Companion:Lcom/google/material/monet/ColorScheme$Companion;
+
+    invoke-interface {v2}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v10
+
+    const-string v12, "it.value"
+
+    invoke-static {v10, v12}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    check-cast v10, Lcom/android/internal/graphics/cam/Cam;
+
+    invoke-interface {v2}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
     move-result-object v2
 
-    check-cast v2, Ljava/lang/Integer;
+    invoke-interface {v4, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    move-result-object v2
 
-    move-result-object v4
+    check-cast v2, Ljava/lang/Double;
 
-    :cond_13
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+    invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
-    move-result v5
+    invoke-virtual {v2}, Ljava/lang/Double;->doubleValue()D
 
-    if-eqz v5, :cond_15
+    move-result-wide v12
 
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-direct {v9, v10, v12, v13}, Lcom/google/material/monet/ColorScheme$Companion;->score(Lcom/android/internal/graphics/cam/Cam;D)D
+
+    move-result-wide v9
+
+    invoke-static {v9, v10}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+
+    move-result-object v2
+
+    invoke-interface {v0, v5, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_c
+
+    :cond_11
+    invoke-interface {v0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lkotlin/collections/CollectionsKt;->toMutableList(Ljava/util/Collection;)Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    if-le v1, v7, :cond_12
+
+    new-instance v1, Lcom/google/material/monet/ColorScheme$Companion$getSeedColors$$inlined$sortByDescending$1;
+
+    invoke-direct {v1}, Lcom/google/material/monet/ColorScheme$Companion$getSeedColors$$inlined$sortByDescending$1;-><init>()V
+
+    invoke-static {v0, v1}, Lkotlin/collections/CollectionsKt;->sortWith(Ljava/util/List;Ljava/util/Comparator;)V
+
+    :cond_12
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+
+    const/16 v2, 0x5a
+
+    :goto_d
+    add-int/lit8 v4, v2, -0x1
+
+    invoke-interface {v1}, Ljava/util/List;->clear()V
+
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v5
 
-    move-object v6, v5
+    :cond_13
+    :goto_e
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
-    check-cast v6, Ljava/lang/Number;
+    move-result v9
 
-    invoke-virtual {v6}, Ljava/lang/Number;->intValue()I
+    if-eqz v9, :cond_19
 
-    move-result v6
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    invoke-interface {v3, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v9
 
-    move-result-object v8
+    check-cast v9, Ljava/util/Map$Entry;
 
-    check-cast v8, Lcom/android/internal/graphics/cam/Cam;
+    invoke-interface {v9}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
-    invoke-static {v8}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
+    move-result-object v9
 
-    invoke-virtual {v8}, Lcom/android/internal/graphics/cam/Cam;->getHue()F
+    check-cast v9, Ljava/lang/Integer;
 
-    move-result v8
+    invoke-interface {v1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v6
-
-    invoke-interface {v3, v6}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Lcom/android/internal/graphics/cam/Cam;
-
-    invoke-static {v6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
-
-    invoke-virtual {v6}, Lcom/android/internal/graphics/cam/Cam;->getHue()F
-
-    move-result v6
-
-    sget-object v11, Lcom/google/material/monet/ColorScheme;->Companion:Lcom/google/material/monet/ColorScheme$Companion;
-
-    invoke-direct {v11, v8, v6}, Lcom/google/material/monet/ColorScheme$Companion;->hueDiff(FF)F
-
-    move-result v6
-
-    cmpg-float v6, v6, v10
-
-    if-gez v6, :cond_14
-
-    move v6, v7
-
-    goto :goto_e
+    move-result-object v10
 
     :cond_14
-    const/4 v6, 0x0
+    invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
-    :goto_e
-    if-eqz v6, :cond_13
+    move-result v12
+
+    if-eqz v12, :cond_16
+
+    invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v12
+
+    move-object v13, v12
+
+    check-cast v13, Ljava/lang/Number;
+
+    invoke-virtual {v13}, Ljava/lang/Number;->intValue()I
+
+    move-result v13
+
+    invoke-interface {v3, v9}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v14
+
+    check-cast v14, Lcom/android/internal/graphics/cam/Cam;
+
+    invoke-static {v14}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
+
+    invoke-virtual {v14}, Lcom/android/internal/graphics/cam/Cam;->getHue()F
+
+    move-result v14
+
+    invoke-static {v13}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v13
+
+    invoke-interface {v3, v13}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v13
+
+    check-cast v13, Lcom/android/internal/graphics/cam/Cam;
+
+    invoke-static {v13}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
+
+    invoke-virtual {v13}, Lcom/android/internal/graphics/cam/Cam;->getHue()F
+
+    move-result v13
+
+    sget-object v15, Lcom/google/material/monet/ColorScheme;->Companion:Lcom/google/material/monet/ColorScheme$Companion;
+
+    invoke-direct {v15, v14, v13}, Lcom/google/material/monet/ColorScheme$Companion;->hueDiff(FF)F
+
+    move-result v13
+
+    int-to-float v14, v2
+
+    cmpg-float v13, v13, v14
+
+    if-gez v13, :cond_15
+
+    move v13, v7
 
     goto :goto_f
 
     :cond_15
-    const/4 v5, 0x0
+    move v13, v6
 
     :goto_f
-    if-eqz v5, :cond_16
-
-    move v4, v7
+    if-eqz v13, :cond_14
 
     goto :goto_10
 
     :cond_16
-    const/4 v4, 0x0
+    const/4 v12, 0x0
 
     :goto_10
-    if-eqz v4, :cond_17
+    if-eqz v12, :cond_17
 
-    goto :goto_d
+    move v10, v7
+
+    goto :goto_11
 
     :cond_17
-    const-string v4, "int"
+    move v10, v6
 
-    invoke-static {v2, v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    :goto_11
+    if-eqz v10, :cond_18
 
-    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto :goto_d
+    goto :goto_e
 
     :cond_18
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+    const-string v10, "int"
 
-    move-result v1
+    invoke-static {v9, v10}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    if-eqz v1, :cond_19
+    invoke-interface {v1, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-interface {v1}, Ljava/util/List;->size()I
 
-    move-result-object v1
+    move-result v9
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    const/4 v10, 0x4
+
+    if-lt v9, v10, :cond_13
+
+    goto :goto_12
 
     :cond_19
-    return-object v0
+    if-ne v2, v11, :cond_1b
+
+    :goto_12
+    invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1a
+
+    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_1a
+    return-object v1
+
+    :cond_1b
+    move v2, v4
+
+    goto/16 :goto_d
+
+    :cond_1c
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "Empty collection can\'t be reduced."

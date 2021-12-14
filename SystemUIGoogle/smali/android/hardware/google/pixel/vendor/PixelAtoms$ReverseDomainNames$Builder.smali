@@ -30,7 +30,7 @@
 .method private constructor <init>()V
     .locals 1
 
-    invoke-static {}, Landroid/hardware/google/pixel/vendor/PixelAtoms$ReverseDomainNames;->access$34800()Landroid/hardware/google/pixel/vendor/PixelAtoms$ReverseDomainNames;
+    invoke-static {}, Landroid/hardware/google/pixel/vendor/PixelAtoms$ReverseDomainNames;->access$36800()Landroid/hardware/google/pixel/vendor/PixelAtoms$ReverseDomainNames;
 
     move-result-object v0
 

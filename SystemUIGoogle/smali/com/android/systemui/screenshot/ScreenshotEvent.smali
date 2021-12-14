@@ -26,13 +26,25 @@
 
 .field public static final enum SCREENSHOT_INTERACTION_TIMEOUT:Lcom/android/systemui/screenshot/ScreenshotEvent;
 
+.field public static final enum SCREENSHOT_LONG_SCREENSHOT_ACTIVITY_CACHED_IMAGE_LOADED:Lcom/android/systemui/screenshot/ScreenshotEvent;
+
+.field public static final enum SCREENSHOT_LONG_SCREENSHOT_ACTIVITY_FINISHED:Lcom/android/systemui/screenshot/ScreenshotEvent;
+
+.field public static final enum SCREENSHOT_LONG_SCREENSHOT_ACTIVITY_STARTED:Lcom/android/systemui/screenshot/ScreenshotEvent;
+
+.field public static final enum SCREENSHOT_LONG_SCREENSHOT_COMPLETED:Lcom/android/systemui/screenshot/ScreenshotEvent;
+
 .field public static final enum SCREENSHOT_LONG_SCREENSHOT_EDIT:Lcom/android/systemui/screenshot/ScreenshotEvent;
+
+.field public static final enum SCREENSHOT_LONG_SCREENSHOT_FAILURE:Lcom/android/systemui/screenshot/ScreenshotEvent;
 
 .field public static final enum SCREENSHOT_LONG_SCREENSHOT_IMPRESSION:Lcom/android/systemui/screenshot/ScreenshotEvent;
 
 .field public static final enum SCREENSHOT_LONG_SCREENSHOT_REQUESTED:Lcom/android/systemui/screenshot/ScreenshotEvent;
 
 .field public static final enum SCREENSHOT_LONG_SCREENSHOT_SHARE:Lcom/android/systemui/screenshot/ScreenshotEvent;
+
+.field public static final enum SCREENSHOT_LONG_SCREENSHOT_STARTED:Lcom/android/systemui/screenshot/ScreenshotEvent;
 
 .field public static final enum SCREENSHOT_NOT_SAVED:Lcom/android/systemui/screenshot/ScreenshotEvent;
 
@@ -71,7 +83,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 25
+    .locals 31
 
     new-instance v0, Lcom/android/systemui/screenshot/ScreenshotEvent;
 
@@ -355,13 +367,97 @@
 
     sput-object v2, Lcom/android/systemui/screenshot/ScreenshotEvent;->SCREENSHOT_LONG_SCREENSHOT_EDIT:Lcom/android/systemui/screenshot/ScreenshotEvent;
 
-    const/16 v4, 0x16
+    new-instance v4, Lcom/android/systemui/screenshot/ScreenshotEvent;
+
+    const-string v15, "SCREENSHOT_LONG_SCREENSHOT_STARTED"
+
+    const/16 v14, 0x16
+
+    move-object/from16 v25, v2
+
+    const/16 v2, 0x370
+
+    invoke-direct {v4, v15, v14, v2}, Lcom/android/systemui/screenshot/ScreenshotEvent;-><init>(Ljava/lang/String;II)V
+
+    sput-object v4, Lcom/android/systemui/screenshot/ScreenshotEvent;->SCREENSHOT_LONG_SCREENSHOT_STARTED:Lcom/android/systemui/screenshot/ScreenshotEvent;
+
+    new-instance v2, Lcom/android/systemui/screenshot/ScreenshotEvent;
+
+    const-string v14, "SCREENSHOT_LONG_SCREENSHOT_FAILURE"
+
+    const/16 v15, 0x17
+
+    move-object/from16 v26, v4
+
+    const/16 v4, 0x371
+
+    invoke-direct {v2, v14, v15, v4}, Lcom/android/systemui/screenshot/ScreenshotEvent;-><init>(Ljava/lang/String;II)V
+
+    sput-object v2, Lcom/android/systemui/screenshot/ScreenshotEvent;->SCREENSHOT_LONG_SCREENSHOT_FAILURE:Lcom/android/systemui/screenshot/ScreenshotEvent;
+
+    new-instance v4, Lcom/android/systemui/screenshot/ScreenshotEvent;
+
+    const-string v14, "SCREENSHOT_LONG_SCREENSHOT_COMPLETED"
+
+    const/16 v15, 0x18
+
+    move-object/from16 v27, v2
+
+    const/16 v2, 0x372
+
+    invoke-direct {v4, v14, v15, v2}, Lcom/android/systemui/screenshot/ScreenshotEvent;-><init>(Ljava/lang/String;II)V
+
+    sput-object v4, Lcom/android/systemui/screenshot/ScreenshotEvent;->SCREENSHOT_LONG_SCREENSHOT_COMPLETED:Lcom/android/systemui/screenshot/ScreenshotEvent;
+
+    new-instance v2, Lcom/android/systemui/screenshot/ScreenshotEvent;
+
+    const-string v14, "SCREENSHOT_LONG_SCREENSHOT_ACTIVITY_STARTED"
+
+    const/16 v15, 0x19
+
+    move-object/from16 v28, v4
+
+    const/16 v4, 0x379
+
+    invoke-direct {v2, v14, v15, v4}, Lcom/android/systemui/screenshot/ScreenshotEvent;-><init>(Ljava/lang/String;II)V
+
+    sput-object v2, Lcom/android/systemui/screenshot/ScreenshotEvent;->SCREENSHOT_LONG_SCREENSHOT_ACTIVITY_STARTED:Lcom/android/systemui/screenshot/ScreenshotEvent;
+
+    new-instance v4, Lcom/android/systemui/screenshot/ScreenshotEvent;
+
+    const-string v14, "SCREENSHOT_LONG_SCREENSHOT_ACTIVITY_CACHED_IMAGE_LOADED"
+
+    const/16 v15, 0x1a
+
+    move-object/from16 v29, v2
+
+    const/16 v2, 0x37a
+
+    invoke-direct {v4, v14, v15, v2}, Lcom/android/systemui/screenshot/ScreenshotEvent;-><init>(Ljava/lang/String;II)V
+
+    sput-object v4, Lcom/android/systemui/screenshot/ScreenshotEvent;->SCREENSHOT_LONG_SCREENSHOT_ACTIVITY_CACHED_IMAGE_LOADED:Lcom/android/systemui/screenshot/ScreenshotEvent;
+
+    new-instance v2, Lcom/android/systemui/screenshot/ScreenshotEvent;
+
+    const-string v14, "SCREENSHOT_LONG_SCREENSHOT_ACTIVITY_FINISHED"
+
+    const/16 v15, 0x1b
+
+    move-object/from16 v30, v4
+
+    const/16 v4, 0x37b
+
+    invoke-direct {v2, v14, v15, v4}, Lcom/android/systemui/screenshot/ScreenshotEvent;-><init>(Ljava/lang/String;II)V
+
+    sput-object v2, Lcom/android/systemui/screenshot/ScreenshotEvent;->SCREENSHOT_LONG_SCREENSHOT_ACTIVITY_FINISHED:Lcom/android/systemui/screenshot/ScreenshotEvent;
+
+    const/16 v4, 0x1c
 
     new-array v4, v4, [Lcom/android/systemui/screenshot/ScreenshotEvent;
 
-    const/4 v15, 0x0
+    const/4 v14, 0x0
 
-    aput-object v0, v4, v15
+    aput-object v0, v4, v14
 
     const/4 v0, 0x1
 
@@ -443,7 +539,33 @@
 
     aput-object v24, v4, v0
 
-    aput-object v2, v4, v14
+    const/16 v0, 0x15
+
+    aput-object v25, v4, v0
+
+    const/16 v0, 0x16
+
+    aput-object v26, v4, v0
+
+    const/16 v0, 0x17
+
+    aput-object v27, v4, v0
+
+    const/16 v0, 0x18
+
+    aput-object v28, v4, v0
+
+    const/16 v0, 0x19
+
+    aput-object v29, v4, v0
+
+    const/16 v0, 0x1a
+
+    aput-object v30, v4, v0
+
+    const/16 v0, 0x1b
+
+    aput-object v2, v4, v0
 
     sput-object v4, Lcom/android/systemui/screenshot/ScreenshotEvent;->$VALUES:[Lcom/android/systemui/screenshot/ScreenshotEvent;
 

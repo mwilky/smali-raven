@@ -6,4 +6,4 @@
 # static fields
 .field public static final alpha:I = 0x7f040033
 
-.field public static final nestedScrollViewStyle:I = 0x7f040363
+.field public static final nestedScrollViewStyle:I = 0x7f040364

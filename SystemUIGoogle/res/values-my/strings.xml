@@ -363,6 +363,7 @@
     <string name="alarms_and_reminders_label">နှိုးစက်နှင့် သတိပေးချက်များ</string>
     <string name="alarms_and_reminders_switch_title">နှိုးစက်နှင့် သတိပေးချက်များ သတ်မှတ်ခွင့်ပြုရန်</string>
     <string name="alarms_and_reminders_title">နှိုးစက်နှင့် သတိပေးချက်များ</string>
+    <string name="all_network_unavailable">ကွန်ရက်များ မရှိပါ</string>
     <string name="allow_mock_location">ပုံစံတုတည်နေရာများကို ခွင့်ပြုရန်</string>
     <string name="allow_mock_location_summary">ပုံစံတုတည်နေရာများကို ခွင့်ပြုရန်</string>
     <string name="always_use_accessory">%2$s ချိတ်ဆက်သည့်အခါ %1$s ကို အမြဲဖွင့်ပါ</string>
@@ -618,6 +619,11 @@
     <string name="clock_title_analog">ရိုးရိုး</string>
     <string name="clock_title_bubble">ပူဖောင်းကွက်</string>
     <string name="clock_title_default">မူလ</string>
+    <string name="columbus_bouncer_message">‘အမြန်တို့’ ကို အပြီးသတ်ရန် ဖွင့်ပါ</string>
+    <string name="columbus_target_request_dialog_allow">ခွင့်ပြုရန်</string>
+    <string name="columbus_target_request_dialog_deny">ခွင့်မပြုပါ</string>
+    <string name="columbus_target_request_dialog_summary">သင့်ဖုန်း၏ နောက်ဘက်ကို နှစ်ချက်တို့ပါက %1$s ပွင့်လာမည်။ ‘ဆက်တင်များ’ တွင် ဤသတ်မှတ်ချက်ကို အချိန်မရွေး ပြောင်းနိုင်သည်။</string>
+    <string name="columbus_target_request_dialog_title">%1$s ဖွင့်ရန် ‘အမြန်တို့’ ကို ခွင့်ပြုမလား။</string>
     <string name="compat_mode_off">ဖန်သားပြင်အပြည့်ဆန့်ခြင်း</string>
     <string name="compat_mode_on">ဇူးမ်အပြည့်ဆွဲခြင်း</string>
     <string name="confirm_enable_oem_unlock_text">သတိပေးချက်: ဤချိန်ညှိချက်ဖွင့်ထားလျှင်၊ ဤစက်ပစ္စည်းပေါ်တွင် စက်ပစ္စည်းကာကွယ်သည့် အထူးပြုလုပ်ချက် အလုပ်လုပ်မည်မဟုတ်ပါ။</string>
@@ -740,6 +746,8 @@
     <string name="defender_notify_learn_more">ပိုမိုလေ့လာရန်</string>
     <string name="defender_notify_resume_charge">ဆက်အားသွင်းရန်</string>
     <string name="defender_notify_title">အားသွင်းခြင်းကို လောလောဆယ် ကန့်သတ်ထားသည်</string>
+    <string name="defender_post_notify_des">ဘက်ထရီသက်တမ်း ပိုကြာစေရန် %2$s မှ %3$s အတွင်း %1$s အထိသာ အားသွင်းပါမည်</string>
+    <string name="defender_post_notify_title">ပုံမှန်အားသွင်းနေသည်</string>
     <string name="delete_blob_confirmation_text">ဤမျှဝေထားသောဒေတာကို ဖျက်လိုသည်မှာ သေချာသလား။</string>
     <string name="delete_blob_text">မျှဝေထားသော ဒေတာကို ဖျက်ရန်</string>
     <string name="demo_mode">စနစ် UI စရုပ်ပြမုဒ်</string>
@@ -885,6 +893,7 @@
     <string name="game_status">ကစားနေသည်</string>
     <string name="global_action_lock_message">နောက်ထပ် ထိန်းချုပ်မှုများအတွက် သင့်ဖုန်းကို လော့ခ်ဖွင့်ပါ</string>
     <string name="global_action_screenshot">ဖန်သားပြင်ဓာတ်ပုံ</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock ပိတ်ထားသည်</string>
     <string name="global_actions_change_description">%1$s နှင့် စက်ထိန်းစနစ်ကို သုံးရန် သင့်ဖန်သားပြင်၏ ထိပ်ပိုင်းမှ အောက်သို့ ပွတ်ဆွဲပါ</string>
     <string name="go_to_web">ဘရောင်ဇာသို့ သွားပါ</string>
     <string name="google_services_wallpaper_permission">Google တည်နေရာဝန်ဆောင်မှုကို အသုံးပြုပြီး <b>Google သက်ဝင်နောက်ခံပုံများကိုသင်၏တည်နေရာအပေါ် တုန့်ပြန်ခွင့်ပြုပါ</b>။</string>
@@ -1232,7 +1241,7 @@
     <string name="media_projection_dialog_text">%s သည် အသံဖမ်းနေစဉ် (သို့) ကာစ်လုပ်နေစဉ် သင့်ဖန်သားပြင်တွင် မြင်ရသော (သို့) သင့်စက်တွင် ဖွင့်ထားသော အချက်အလက်မှန်သမျှကို သုံးနိုင်နိုင်ပါမည်။ ၎င်းတွင် စကားဝှက်များ၊ ငွေပေးချေမှုအသေးစိတ်များ၊ ဓာတ်ပုံများ၊ မက်ဆေ့ဂျ်များနှင့် သင်ဖွင့်သည့်အသံကဲ့သို့သော အချက်အလက်များ ပါဝင်သည်။</string>
     <string name="media_projection_dialog_title">%s နှင့် ဖမ်းယူခြင်း သို့မဟုတ် ကာစ်လုပ်ခြင်း စတင်မလား။</string>
     <string name="media_projection_remember_text">နောက်ထပ် မပြပါနှင့်</string>
-    <string name="media_seamless_remote_device">စက်</string>
+    <string name="media_seamless_other_device">အခြားစက်ပစ္စည်း</string>
     <string name="media_transfer_this_device_name">ဖုန်းစပီကာ</string>
     <string name="media_transfer_this_phone">ဤဖုန်း</string>
     <string name="media_transfer_wired_device_name">ကြိုးတပ် အသံစက်ပစ္စည်း</string>
@@ -1249,9 +1258,13 @@
     <string name="mobile_data">မိုဘိုင်းဒေတာ</string>
     <string name="mobile_data_always_on">မိုဘိုင်းဒေတာကို အမြဲဖွင့်ထားရန်</string>
     <string name="mobile_data_always_on_summary">Wi-Fi ဖွင့်ထားချိန်တွင်လည်း မိုဘိုင်းဒေတာ အမြဲတမ်းဖွင့်မည် (မြန်ဆန်သည့် ကွန်ရက် ပြောင်းခြင်းအတွက်)။</string>
+    <string name="mobile_data_connection_active">ချိတ်ဆက်ထားသည်</string>
     <string name="mobile_data_disable_message">%s မှတစ်ဆင့် ဒေတာ သို့မဟုတ် အင်တာနက်ကို မသုံးနိုင်ပါ။ Wi-Fi ဖြင့်သာ အင်တာနက် သုံးနိုင်သည်။</string>
     <string name="mobile_data_disable_message_default_carrier">သင်၏ ဝန်ဆောင်မှုပေးသူ</string>
     <string name="mobile_data_disable_title">မိုဘိုင်းဒေတာ ပိတ်မလား။</string>
+    <string name="mobile_data_no_connection">ချိတ်ဆက်မှုမရှိပါ</string>
+    <string name="mobile_data_off_summary">မိုဘိုင်းဒေတာက အလိုအလျောက် ချိတ်ဆက်မည်မဟုတ်ပါ</string>
+    <string name="mobile_data_settings_title">မိုဘိုင်းဒေတာ</string>
     <string name="mobile_data_text_format">%1$s —%2$s</string>
     <string name="mock_location_app">တည်နေရာအတုပြု အက်ပ်ရွေးရန်</string>
     <string name="mock_location_app_not_set">တည်နေရာအတုပြု အက်ပ်သတ်မှတ်ထားခြင်းမရှိပါ</string>
@@ -1391,6 +1404,7 @@
     <string name="no_content_in_select_mode">ရွေးချယ်ရန် စာသား သို့မဟုတ် ပုံ မရှိပါ</string>
     <string name="no_conversations_text">သင်၏မကြာသေးမီက စကားဝိုင်းများကို ဤနေရာတွင် ပြပါမည်</string>
     <string name="no_shortcut">%1$s က စကားဝိုင်းဝန်ဆောင်မှုများကို မပံ့ပိုးပါ</string>
+    <string name="non_carrier_network_unavailable">အခြားကွန်ရက်များ မရှိပါ</string>
     <string name="not_default_data_content_description">ဒေတာအသုံးပြုရန် သတ်မှတ်မထားပါ</string>
     <string name="not_set">သတ်မှတ်မထားပါ</string>
     <string name="notif_inline_reply_remove_attachment_description">ပူးတွဲပါဖိုင်ကို ဖယ်ရှားရန်</string>
@@ -1571,6 +1585,7 @@
     <string name="power_remaining_only_more_than_subtext">%1$s အထက် ကျန်သည်</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">%1$s တွင် ဘက်ထရီကုန်သွားနိုင်သည်</string>
+    <string name="pref_title_network_details">ကွန်ရက် အသေးစိတ်များ</string>
     <string name="preference_copied">\"%1$s\" ကို ကလစ်ဘုတ်သို့ မိတ္တူကူးယူပြီးပါပြီ။</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">ဦးစားပေး စကားဝိုင်းများ</string>
@@ -1740,6 +1755,7 @@
     <string name="right_keycode">လက်ယာကီးကုဒ်</string>
     <string name="right_nav_bar_button_type">လက်ယာခလုတ် အမျိုးအစားအပို</string>
     <string name="ring_toggle_title">ခေါ်ဆိုမှုများ</string>
+    <string name="rotation_lock_camera_rotation_on">ဖွင့် - မျက်နှာအခြေခံ</string>
     <string name="running_foreground_services_msg">ဘက်ထရီနှင့် ဒေတာအသုံးပြုမှု အသေးစိတ်ကို ကြည့်ရန် တို့ပါ</string>
     <string name="running_foreground_services_title">နောက်ခံတွင် ပွင့်နေသော အက်ပ်များ</string>
     <string name="running_process_item_user_label">အသုံးပြုသူ- %1$s</string>
@@ -1814,6 +1830,7 @@
     <string name="screenshot_top_boundary_pct">ထိပ်ပိုင်းအနားသတ် %1$d ရာခိုင်နှုန်း</string>
     <string name="search_menu">ရှာဖွေမှု ဆက်တင်များ</string>
     <string name="search_menu_title">ရှာဖွေမှု</string>
+    <string name="see_all_networks">အားလုံးကြည့်ရန်</string>
     <string name="see_more_title">ပိုကြည့်ရန်</string>
     <string name="select_application">အပလီကေးရှင်းရွေးချယ်ရန်</string>
     <string name="select_conversation_text">စကားဝိုင်းကို သင်၏ ‘ပင်မစာမျက်နှာ’ သို့ထည့်ရန် တို့ပါ</string>
@@ -1926,6 +1943,7 @@
     <string name="switch_bar_off">ပိတ်</string>
     <string name="switch_bar_on">ဖွင့်</string>
     <string name="system_ui_tuner">စနစ် UI ဖမ်းစက်</string>
+    <string name="tap_a_network_to_connect">ချိတ်ဆက်ရန် ကွန်ရက်ကို တို့ပါ</string>
     <string name="tap_again">ထပ်တို့ပါ</string>
     <string name="tap_to_sign_up">အကောင့်ဖွင့်ရန် တို့ပါ</string>
     <string name="tether_settings_title_all">တဆင့်ချိတ်ဆက်ခြင်း၊ ဟော့စပေါ့</string>
@@ -1951,6 +1969,7 @@
     <string name="time_unit_just_now">ယခုလေးတင်</string>
     <string name="title_convert_fbe">ဖိုင်အခြေပြုလုံခြုံအောင်ပြုလုပ်ခြင်းသို့ ပြောင်းလဲရန်</string>
     <string name="title_usb_accessory">USBတွဲဖက်ပစ္စည်းများ</string>
+    <string name="to_switch_networks_disconnect_ethernet">ကွန်ရက်ပြောင်းရန် အီသာနက်ကို ချိတ်ဆက်မှုဖြုတ်ပါ</string>
     <string name="too_hot_label">Pixel အလွန်ပူနေသည်</string>
     <string name="touch_filtered_warning">အပလီကေးရှင်းတစ်ခုက ခွင့်ပြုချက်တောင်းခံမှုကို ပိတ်ထားသောကြောင့် ဆက်တင်များသည် သင်၏ လုပ်ဆောင်ကို တုံ့ပြန်နိုင်ခြင်းမရှိပါ။</string>
     <string name="track_frame_time">HWUI ပရိုဖိုင် ဆောင်ရွက်ခြင်း</string>
@@ -2009,10 +2028,12 @@
     <string name="tuner_toast">ဂုဏ်ပြုပါရစေ! စနစ် UI ဖမ်းစက်ကို ဆက်တင်ထဲသို့ ထည့်ပြီးပြီ။</string>
     <string name="tuner_warning">စနစ် UI ဖမ်းစက်က သင့်အတွက် Android အသုံးပြုသူ အင်တာဖေ့စ်ကို ပြောင်းကြည့်ရန် နှင့် စိတ်ကြိုက်ပြုလုပ်ရန် နည်းလမ်း အပိုများကို သင့်အတွက် စီစဉ်ပေးသည်။ ဤ စမ်းသပ်ရေး အင်္ဂါရပ်များမှာ ပြောင်းလဲ၊ ကျိုးပျက် သို့မဟုတ် ပျောက်ကွယ် သွားနိုင်သည်။ သတိထားလျက် ဆက်လက် ဆောင်ရွက်ပါ။</string>
     <string name="tuner_warning_title">အချို့သူများ အတွက် ပျော်စရာ ဖြစ်ပေမဲ့ အားလုံး အတွက် မဟုတ်ပါ</string>
+    <string name="turn_on_wifi">Wi-Fi</string>
     <string name="tv_notification_panel_no_notifications">အကြောင်းကြားချက်များ မရှိပါ</string>
     <string name="tv_notification_panel_title">အကြောင်းကြားချက်များ</string>
     <string name="two_weeks_timestamp">ပြီးခဲ့သော 2 ပတ်</string>
     <string name="unknown">မသိ</string>
+    <string name="unlock_to_view_networks">ကွန်ရက်များကြည့်ရန် ဖွင့်ပါ</string>
     <string name="upcoming_birthday_status">မကြာမီလာမည့် မွေးနေ့</string>
     <string name="upcoming_birthday_status_content_description">မကြာမီ %1$s ၏ မွေးနေ့ ရောက်တော့မည်</string>
     <string name="url_menu_copy">မိတ္တူကူးရန်</string>
@@ -2151,9 +2172,11 @@ Wi‑Fi လိပ်စာ (BSSID)
     <string name="wifi_disconnected">ချိတ်ဆက်မထားပါ</string>
     <string name="wifi_display_certification">ကြိုးမဲ့ပြသမှု အသိအမှတ်ပြုလက်မှတ်</string>
     <string name="wifi_display_certification_summary">ကြိုးမဲ့ အခင်းအကျင်း အသိအမှတ်ပြုလက်မှတ်အတွက် ရွေးချယ်စရာများပြရန်</string>
+    <string name="wifi_empty_list_wifi_on">ကွန်ရက်များကို ရှာဖွေနေသည်…</string>
     <string name="wifi_enhanced_mac_randomization">Wi‑Fi ပြောင်းလဲသော MAC ကျပန်းပြုလုပ်ခြင်း</string>
     <string name="wifi_enhanced_mac_randomization_summary">ဤမုဒ်ကို ဖွင့်ထားသည့်အခါ MAC ကျပန်းပြုလုပ်ထားသည့် ကွန်ရက်သို့ ချိတ်ဆက်လိုက်သည့်အခါတိုင်း ဤစက်၏ MAC လိပ်စာ ပြောင်းသွားပါမည်။</string>
     <string name="wifi_fail_to_scan">ကွန်ယက်များကို စကင်မလုပ်နိုင်ပါ</string>
+    <string name="wifi_failed_connect_message">ကွန်ရက်သို့ ချိတ်ဆက်၍မရပါ</string>
     <string name="wifi_hotspot_switch_off_text">ပိတ်</string>
     <string name="wifi_hotspot_switch_on_text">ဖွင့်</string>
     <string name="wifi_is_off">Wi-Fi ပိတ်ထားသည်</string>
@@ -2164,6 +2187,7 @@ Wi‑Fi လိပ်စာ (BSSID)
     <string name="wifi_not_in_range">စက်ကွင်းထဲတွင် မဟုတ်ပါ</string>
     <string name="wifi_passpoint_expired">သက်တမ်းကုန်သွားပါပြီ</string>
     <string name="wifi_remembered">သိမ်းဆည်းပြီး</string>
+    <string name="wifi_scan_notify_message">စက်ပစ္စည်းကို ပိုမိုကောင်းမွန်စွာ အသုံးပြုနိုင်ရန် Wi-Fi ပိတ်ထားသည့်တိုင် အက်ပ်နှင့် ဝန်ဆောင်မှုများက Wi-Fi ကွန်ရက်များကို အချိန်မရွေး စကင်ဖတ်နိုင်သည်။ ၎င်းကို Wi-Fi ရှာဖွေခြင်း ဆက်တင်များတွင် ပြောင်းနိုင်သည်။ <annotation id="link">ပြောင်းရန်</annotation></string>
     <string name="wifi_scan_throttling">Wi‑Fi ရှာဖွေခြင်း ထိန်းချုပ်မှု</string>
     <string name="wifi_scan_throttling_summary">ဘက်ထရီ အသုံးပြုမှုကို လျှော့ကျစေပြီး ကွန်ရက်စွမ်းဆောင်ရည်ကို ပိုမိုကောင်းမွန်စေသည်</string>
     <string name="wifi_security_none">မရှိ</string>
@@ -2173,6 +2197,7 @@ Wi‑Fi လိပ်စာ (BSSID)
     <string name="wifi_unmetered_label">အခမဲ့</string>
     <string name="wifi_verbose_logging">Wi‑Fi Verbose မှတ်တမ်းတင်ခြင်းအား ဖွင့်မည်</string>
     <string name="wifi_verbose_logging_summary">Wi‑Fi မှတ်တမ်းတင်ခြင်း နှုန်းအားမြင့်ကာ၊ Wi‑Fi ရွေးရာတွင် SSID RSSI ဖြင့်ပြပါ</string>
+    <string name="wifi_wont_autoconnect_for_now">Wi-Fi က လောလောဆယ် အလိုအလျောက် ချိတ်ဆက်မည်မဟုတ်ပါ</string>
     <string name="wifitrackerlib_auto_connect_disable">အော်တိုချိတ်ဆက်မှု ပိတ်ထားသည်</string>
     <string name="wifitrackerlib_available_via_app">%1$sမှတစ်ဆင့် ရနိုင်သည်</string>
     <string name="wifitrackerlib_connected_via_app">%1$s မှတစ်ဆင့် ချိတ်ဆက်ထားသည်</string>

@@ -33,7 +33,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBar$$ExternalSyntheticLambda5;->f$1:Lcom/android/systemui/statusbar/BackDropView;
 
-    invoke-static {v0, p0, p1}, Lcom/android/systemui/statusbar/phone/StatusBar;->$r8$lambda$MH19w6K2ytRpy4c8C2oNeoY6QrI(FLcom/android/systemui/statusbar/BackDropView;F)V
+    invoke-static {v0, p0, p1}, Lcom/android/systemui/statusbar/phone/StatusBar;->$r8$lambda$QPmpofxYmtX_pYMyDpHzYhC__mg(FLcom/android/systemui/statusbar/BackDropView;F)V
 
     return-void
 .end method

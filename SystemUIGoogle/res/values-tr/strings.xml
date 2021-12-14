@@ -363,6 +363,7 @@ Bu izin verilmezse bu uygulama tarafından programlanmış mevcut alarmlar ve za
     <string name="alarms_and_reminders_label">Alarmlar ve hatırlatıcılar</string>
     <string name="alarms_and_reminders_switch_title">Alarm ve hatırlatıcı ayarlanmasına izin ver</string>
     <string name="alarms_and_reminders_title">Alarmlar ve hatırlatıcılar</string>
+    <string name="all_network_unavailable">Kullanılabilir ağ yok</string>
     <string name="allow_mock_location">Sahte konumlara izin ver</string>
     <string name="allow_mock_location_summary">Sahte konumlara izin ver</string>
     <string name="always_use_accessory">%2$s bağlandığında %1$s uygulamasını her zaman aç</string>
@@ -618,6 +619,11 @@ Seçimi"</string>
     <string name="clock_title_analog">Analog</string>
     <string name="clock_title_bubble">Baloncuk</string>
     <string name="clock_title_default">Varsayılan</string>
+    <string name="columbus_bouncer_message">Hızlı Dokun hareketini tamamlamak için kilidi açın</string>
+    <string name="columbus_target_request_dialog_allow">İzin ver</string>
+    <string name="columbus_target_request_dialog_deny">İzin verme</string>
+    <string name="columbus_target_request_dialog_summary">"Telefonunuzun arkasına iki kez dokunduğunuzda %1$s açılır. Bu tercihi istediğiniz zaman Ayarlar'dan değiştirebilirsiniz."</string>
+    <string name="columbus_target_request_dialog_title">Hızlı Dokun özelliğinin %1$s uygulamasını açmasına izin verilsin mi?</string>
     <string name="compat_mode_off">Genişlet (ekran kapansın)</string>
     <string name="compat_mode_on">Yakınlaştır (ekranı kaplasın)</string>
     <string name="confirm_enable_oem_unlock_text">UYARI: Bu ayar açıkken cihaz koruma özellikleri bu cihazda çalışmayacaktır.</string>
@@ -740,6 +746,8 @@ Devam ettirirseniz veri kullanımı için sizden ödeme alınabilir."</string>
     <string name="defender_notify_learn_more">Daha fazla bilgi</string>
     <string name="defender_notify_resume_charge">Şarja devam et</string>
     <string name="defender_notify_title">Şarj etme geçici olarak sınırlı</string>
+    <string name="defender_post_notify_des">Pil sağlığını korumak için %2$s-%3$s saatleri arasında şarj kapasitesi %1$s ile sınırlandırılacaktır</string>
+    <string name="defender_post_notify_title">Normal olarak şarj oluyor</string>
     <string name="delete_blob_confirmation_text">Bu paylaşılan verileri silmek istediğinizden emin misiniz?</string>
     <string name="delete_blob_text">Paylaşılan verileri sil</string>
     <string name="demo_mode">Sistem kullanıcı arayüzü demo modu</string>
@@ -885,6 +893,7 @@ Yüz tanıma kilidinin kullandığı yüz verileri güvenli bir şekilde kalıc�
     <string name="game_status">Çalınıyor</string>
     <string name="global_action_lock_message">Diğer seçenekler için telefonunuzun kilidini açın</string>
     <string name="global_action_screenshot">Ekran görüntüsü</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock devre dışı</string>
     <string name="global_actions_change_description">%1$s ve cihaz kontrollerine erişmek için ekranınızın üst kısmından aşağı doğru kaydırın</string>
     <string name="go_to_web">Tarayıcıya git</string>
     <string name="google_services_wallpaper_permission">"Google'ın konum hizmetine erişerek "<b>Google Animasyonlu duvar kağıtlarınızın konumunuza uygun şekilde değişmesine izin verin</b>.</string>
@@ -1232,7 +1241,7 @@ sessiz"</string>
     <string name="media_projection_dialog_text">%s, ekranınızda görünen veya kayıt ya da yayın sırasında cihazınızdan oynatılan tüm bilgilere erişecektir. Bu bilgiler arasında şifreler, ödeme detayları, fotoğraflar, mesajlar ve çaldığınız sesler gibi bilgiler yer alır.</string>
     <string name="media_projection_dialog_title">%s ile kayıt veya yayınlama başlatılsın mı?</string>
     <string name="media_projection_remember_text">Bir daha gösterme</string>
-    <string name="media_seamless_remote_device">Cihaz</string>
+    <string name="media_seamless_other_device">Diğer cihaz</string>
     <string name="media_transfer_this_device_name">Telefon hoparlörü</string>
     <string name="media_transfer_this_phone">Bu telefon</string>
     <string name="media_transfer_wired_device_name">Kablolu ses cihazı</string>
@@ -1249,9 +1258,13 @@ sessiz"</string>
     <string name="mobile_data">Mobil veri</string>
     <string name="mobile_data_always_on">Mobil veri her zaman etkin</string>
     <string name="mobile_data_always_on_summary">Kablosuz bağlantı etkin bile olsa mobil veri kullanımını her zaman etkin tut (ağlar arasında hızlı geçiş yapmak için).</string>
+    <string name="mobile_data_connection_active">Bağlı</string>
     <string name="mobile_data_disable_message">%s üzerinden veri veya internet erişiminiz olmayacak. İnternet yalnızca kablosuz bağlantı üzerinden kullanılabilecek.</string>
     <string name="mobile_data_disable_message_default_carrier">operatörünüz</string>
     <string name="mobile_data_disable_title">Mobil veri kapatılsın mı?</string>
+    <string name="mobile_data_no_connection">Bağlantı yok</string>
+    <string name="mobile_data_off_summary">Mobil veri otomatik olarak bağlanmıyor</string>
+    <string name="mobile_data_settings_title">Mobil veri</string>
     <string name="mobile_data_text_format">%1$s — %2$s</string>
     <string name="mock_location_app">Sahte konum uygulamasını seç</string>
     <string name="mock_location_app_not_set">Sahte konum uygulaması ayarlanmadı</string>
@@ -1391,6 +1404,7 @@ Sorularınız varsa %2$s ile iletişime geçin."</string>
     <string name="no_content_in_select_mode">Seçilecek metin veya resim yok</string>
     <string name="no_conversations_text">Son görüşmeleriniz burada gösterilir</string>
     <string name="no_shortcut">%1$s, sohbet özelliklerini desteklemiyor</string>
+    <string name="non_carrier_network_unavailable">Kullanılabilir başka ağ yok</string>
     <string name="not_default_data_content_description">Veri kullanmak üzere ayarlanmadı</string>
     <string name="not_set">Ayarlanmadı</string>
     <string name="notif_inline_reply_remove_attachment_description">Eki kaldır</string>
@@ -1571,6 +1585,7 @@ Sorularınız varsa %2$s ile iletişime geçin."</string>
     <string name="power_remaining_only_more_than_subtext">En az %1$s kaldı</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">Pilin tahmini bitiş zamanı: %1$s</string>
+    <string name="pref_title_network_details">Ağ bilgileri</string>
     <string name="preference_copied">\"%1$s\" panoya kopyalandı.</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">Öncelikli görüşmeler</string>
@@ -1740,6 +1755,7 @@ Sorularınız varsa %2$s ile iletişime geçin."</string>
     <string name="right_keycode">Sağ tuş kodu</string>
     <string name="right_nav_bar_button_type">Ekstra sağ düğme türü</string>
     <string name="ring_toggle_title">Aramalar</string>
+    <string name="rotation_lock_camera_rotation_on">Açık - Yüze göre</string>
     <string name="running_foreground_services_msg">Pil ve veri kullanımı ile ilgili ayrıntılar için dokunun</string>
     <string name="running_foreground_services_title">Arka planda çalışan uygulamalar</string>
     <string name="running_process_item_user_label">Kullanıcı: %1$s</string>
@@ -1814,6 +1830,7 @@ Sorularınız varsa %2$s ile iletişime geçin."</string>
     <string name="screenshot_top_boundary_pct">Üst sınır yüzde %1$d</string>
     <string name="search_menu">Ayarlarda arayın</string>
     <string name="search_menu_title">Ara</string>
+    <string name="see_all_networks">Tümünü göster</string>
     <string name="see_more_title">Daha fazla göster</string>
     <string name="select_application">Uygulama seçin</string>
     <string name="select_conversation_text">Ana ekranınıza eklemek için bir ileti dizisine dokunun</string>
@@ -1926,6 +1943,7 @@ olabilir"</string>
     <string name="switch_bar_off">Kapalı</string>
     <string name="switch_bar_on">Açık</string>
     <string name="system_ui_tuner">Sistem Arayüzü Ayarlayıcısı</string>
+    <string name="tap_a_network_to_connect">Bağlanmak için bir ağa dokunun</string>
     <string name="tap_again">Tekrar dokunun</string>
     <string name="tap_to_sign_up">Kaydolmak için dokunun</string>
     <string name="tether_settings_title_all">Tethering ve taşnblr hotspot</string>
@@ -1951,6 +1969,7 @@ Daha fazla bilgi için dokunun"</string>
     <string name="time_unit_just_now">Az önce</string>
     <string name="title_convert_fbe">Dosya tabanlı şifrelemeye dönüştürme</string>
     <string name="title_usb_accessory">USB aksesuarı</string>
+    <string name="to_switch_networks_disconnect_ethernet">Ağ değiştirmek için ethernet bağlantısını kesin</string>
     <string name="too_hot_label">Pixel çok sıcak</string>
     <string name="touch_filtered_warning">Bir uygulama bir izin isteğinin anlaşılmasını engellediğinden, Ayarlar, yanıtınızı doğrulayamıyor.</string>
     <string name="track_frame_time">Profil HWUI oluşturma</string>
@@ -2009,10 +2028,12 @@ Daha fazla bilgi için dokunun"</string>
     <string name="tuner_toast">"Tebrikler! Sistem Kullanıcı Arayüzü Ayarlayıcı Ayarlar'a eklendi"</string>
     <string name="tuner_warning">Sistem Kullanıcı Arayüzü Ayarlayıcı, Android kullanıcı arayüzünde değişiklikler yapmanız ve arayüzü özelleştirmeniz için ekstra yollar sağlar. Bu deneysel özellikler değişebilir, bozulabilir veya gelecekteki sürümlerde yer almayabilir. Dikkatli bir şekilde devam edin.</string>
     <string name="tuner_warning_title">Bazıları için eğlenceliyken diğerleri için olmayabilir</string>
+    <string name="turn_on_wifi">Kablosuz</string>
     <string name="tv_notification_panel_no_notifications">Bildirim Yok</string>
     <string name="tv_notification_panel_title">Bildirimler</string>
     <string name="two_weeks_timestamp">2 hafta önce</string>
     <string name="unknown">Bilinmiyor</string>
+    <string name="unlock_to_view_networks">Ağları görmek için kilidi açın</string>
     <string name="upcoming_birthday_status">Yaklaşan doğum günü</string>
     <string name="upcoming_birthday_status_content_description">%1$s adlı kişinin doğum günü yaklaşıyor</string>
     <string name="url_menu_copy">Kopyala</string>
@@ -2151,9 +2172,11 @@ Kablosuz Adresi (BSSID)
     <string name="wifi_disconnected">Bağlı değil</string>
     <string name="wifi_display_certification">Kablosuz ekran sertifikası</string>
     <string name="wifi_display_certification_summary">Kablosuz ekran sertifikası seçeneklerini göster</string>
+    <string name="wifi_empty_list_wifi_on">Ağlar aranıyor…</string>
     <string name="wifi_enhanced_mac_randomization">Kablosuz kalıcı olmayan MAC rastgele hale getirme süreci</string>
     <string name="wifi_enhanced_mac_randomization_summary">Bu mod etkinleştirildiğinde, bu cihaz MAC rastgele hale getirme işlevi açık olan bir ağa her bağlandığında cihazın MAC adresi değişebilir.</string>
     <string name="wifi_fail_to_scan">Ağlar taranamıyor</string>
+    <string name="wifi_failed_connect_message">Ağa bağlanılamadı</string>
     <string name="wifi_hotspot_switch_off_text">Kapalı</string>
     <string name="wifi_hotspot_switch_on_text">Açık</string>
     <string name="wifi_is_off">Kablosuz bağlantı kapalı</string>
@@ -2164,6 +2187,7 @@ Kablosuz Adresi (BSSID)
     <string name="wifi_not_in_range">Kapsama alanı dışında</string>
     <string name="wifi_passpoint_expired">Süresi sona erdi</string>
     <string name="wifi_remembered">Kaydedildi</string>
+    <string name="wifi_scan_notify_message">Uygulamalar ve hizmetler, cihaz deneyimini iyileştirmek için Kablosuz özelliği kapalı bile olsa kablosuz ağlar herhangi bir zamanda tarayabilir. Bunu kablosuz ağ taraması ayarlarından değiştirebilirsiniz. <annotation id="link">Değiştir</annotation></string>
     <string name="wifi_scan_throttling">Kablosuz ağ taramasını kısma</string>
     <string name="wifi_scan_throttling_summary">Pili daha az harcar ve ağ performansını iyileştirir</string>
     <string name="wifi_security_none">Yok</string>
@@ -2173,6 +2197,7 @@ Kablosuz Adresi (BSSID)
     <string name="wifi_unmetered_label">Sayaçsız</string>
     <string name="wifi_verbose_logging">Kablosuz Ayrıntılı Günlük Kaydını etkinleştir</string>
     <string name="wifi_verbose_logging_summary">"Kablosuz günlük kaydı seviyesini artır. Kablosuz Seçici'de her bir SSID RSSI için göster."</string>
+    <string name="wifi_wont_autoconnect_for_now">Şu anda kablosuz ağa otomatik olarak bağlanılamıyor</string>
     <string name="wifitrackerlib_auto_connect_disable">Otomatik bağlanma kapalı</string>
     <string name="wifitrackerlib_available_via_app">%1$s ile kullanılabilir</string>
     <string name="wifitrackerlib_connected_via_app">%1$s ile bağlandı</string>

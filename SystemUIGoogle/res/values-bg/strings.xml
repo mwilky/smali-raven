@@ -363,6 +363,7 @@
     <string name="alarms_and_reminders_label">Будилници и напомняния</string>
     <string name="alarms_and_reminders_switch_title">Разреш. на задаването на будилници и напомняния</string>
     <string name="alarms_and_reminders_title">Будилници и напомняния</string>
+    <string name="all_network_unavailable">Няма налични мрежи</string>
     <string name="allow_mock_location">Разрешаване на измислени местоположения</string>
     <string name="allow_mock_location_summary">Разрешаване на измислени местоположения</string>
     <string name="always_use_accessory">%1$s да се отваря винаги при връзка с/ъс %2$s</string>
@@ -618,6 +619,11 @@
     <string name="clock_title_analog">Аналогов</string>
     <string name="clock_title_bubble">Балонен</string>
     <string name="clock_title_default">Стандартен</string>
+    <string name="columbus_bouncer_message">Отключете, за да завършите жеста „Бързо докосване“</string>
+    <string name="columbus_target_request_dialog_allow">Разрешаване</string>
+    <string name="columbus_target_request_dialog_deny">Забраняване</string>
+    <string name="columbus_target_request_dialog_summary">Когато докоснете двукратно задната част на телефона си, ще се отвори %1$s. Можете да промените това предпочитание по всяко време от настройките.</string>
+    <string name="columbus_target_request_dialog_title">Да се отваря ли %1$s посредством жеста „Бързо докосване“?</string>
     <string name="compat_mode_off">Разпъване – запълва екрана</string>
     <string name="compat_mode_on">Мащаб – запълва екрана</string>
     <string name="confirm_enable_oem_unlock_text">ПРЕДУПРЕЖДЕНИЕ: Функциите за защита на устройството няма да работят, докато следната настройка е включена.</string>
@@ -740,6 +746,8 @@
     <string name="defender_notify_learn_more">Научете повече</string>
     <string name="defender_notify_resume_charge">Възобновяване на зареждането</string>
     <string name="defender_notify_title">Зареждането временно е ограничено</string>
+    <string name="defender_post_notify_des">Зареждането бе ограничено до %1$s от %2$s до %3$s с цел запазване на състоянието на батерията</string>
+    <string name="defender_post_notify_title">Зарежда се нормално</string>
     <string name="delete_blob_confirmation_text">Наистина ли искате да изтриете тези споделени данни?</string>
     <string name="delete_blob_text">Изтриване на споделените данни</string>
     <string name="demo_mode">Демонстрационен режим на системния ПИ</string>
@@ -885,6 +893,7 @@
     <string name="game_status">Играете</string>
     <string name="global_action_lock_message">Отключете телефона си за още опции</string>
     <string name="global_action_screenshot">Екранна снимка</string>
+    <string name="global_action_smart_lock_disabled">Функцията Smart Lock е деактивирана</string>
     <string name="global_actions_change_description">За достъп до %1$s и контролите за устройството прекарайте пръст надолу от горната част на екрана</string>
     <string name="go_to_web">Към браузъра</string>
     <string name="google_services_wallpaper_permission"><b>Разрешете динамичните ни тапети да реагират на местоположението ви</b>, като им предоставите достъп до услугата на Google за местоположение.</string>
@@ -1232,7 +1241,7 @@
     <string name="media_projection_dialog_text">%s ще има достъп до цялата информация, която е видима на екрана или възпроизвеждана от устройството ви по време на записване или предаване. Това включва различна информация, като например пароли, данни за плащане, снимки, съобщения и възпроизвеждано аудио.</string>
     <string name="media_projection_dialog_title">Да се стартира ли записване или предаване чрез %s?</string>
     <string name="media_projection_remember_text">Да не се показва отново</string>
-    <string name="media_seamless_remote_device">Устройство</string>
+    <string name="media_seamless_other_device">Друго устройство</string>
     <string name="media_transfer_this_device_name">Високоговорител</string>
     <string name="media_transfer_this_phone">Този телефон</string>
     <string name="media_transfer_wired_device_name">Аудиоустройство с кабел</string>
@@ -1249,9 +1258,13 @@
     <string name="mobile_data">Мобилни данни</string>
     <string name="mobile_data_always_on">Винаги активни мобилни данни</string>
     <string name="mobile_data_always_on_summary">Мобилните данни са активни винаги – дори когато функцията за Wi‑Fi е включена (за бързо превключване между мрежите).</string>
+    <string name="mobile_data_connection_active">Свързано</string>
     <string name="mobile_data_disable_message">Няма да можете да използвате данни или интернет чрез %s. Ще имате достъп до интернет само през Wi-Fi.</string>
     <string name="mobile_data_disable_message_default_carrier">оператора си</string>
     <string name="mobile_data_disable_title">Да се изключат ли мобилните данни?</string>
+    <string name="mobile_data_no_connection">Няма връзка</string>
+    <string name="mobile_data_off_summary">Връзката за мобилни данни няма да е автоматична</string>
+    <string name="mobile_data_settings_title">Мобилни данни</string>
     <string name="mobile_data_text_format">%1$s – %2$s</string>
     <string name="mock_location_app">Избиране на приложение за мнимо местоположение</string>
     <string name="mock_location_app_not_set">Няма зададено приложение за мнимо местоположение</string>
@@ -1391,6 +1404,7 @@
     <string name="no_content_in_select_mode">Няма текст или изображение за избиране</string>
     <string name="no_conversations_text">Скорошните ви разговори ще се показват тук</string>
     <string name="no_shortcut">%1$s не поддържа функциите за разговор</string>
+    <string name="non_carrier_network_unavailable">Няма други налични мрежи</string>
     <string name="not_default_data_content_description">Не е зададено да използва данни</string>
     <string name="not_set">Не е зададено</string>
     <string name="notif_inline_reply_remove_attachment_description">Премахване на прикачения файл</string>
@@ -1571,6 +1585,7 @@
     <string name="power_remaining_only_more_than_subtext">Остава(т) повече от %1$s</string>
     <string name="power_remaining_settings_home_page">%1$s – %2$s</string>
     <string name="power_suggestion_battery_run_out">Батерията може да се изтощи до %1$s</string>
+    <string name="pref_title_network_details">Подробности за мрежата</string>
     <string name="preference_copied">Копирахте „%1$s“ в буферната памет.</string>
     <string name="preference_summary_default_combination">%1$s/%2$s</string>
     <string name="priority_conversations">Разговори с приоритет</string>
@@ -1740,6 +1755,7 @@
     <string name="right_keycode">Десен бутон за клавишен код</string>
     <string name="right_nav_bar_button_type">Тип на допълнителния десен бутон</string>
     <string name="ring_toggle_title">Обаждания</string>
+    <string name="rotation_lock_camera_rotation_on">Вкл. – въз основа на лицето</string>
     <string name="running_foreground_services_msg">Докоснете за информация относно използването на батерията и преноса на данни</string>
     <string name="running_foreground_services_title">Приложения, работещи на заден план</string>
     <string name="running_process_item_user_label">Потребител: %1$s</string>
@@ -1814,6 +1830,7 @@
     <string name="screenshot_top_boundary_pct">Горна граница: %1$d%%</string>
     <string name="search_menu">Настройки за търсене</string>
     <string name="search_menu_title">Търсене</string>
+    <string name="see_all_networks">Вижте всички</string>
     <string name="see_more_title">Вижте още</string>
     <string name="select_application">Избиране на приложение</string>
     <string name="select_conversation_text">Докоснете разговор, за да го добавите към началния си екран</string>
@@ -1926,6 +1943,7 @@
     <string name="switch_bar_off">Изкл.</string>
     <string name="switch_bar_on">Вкл.</string>
     <string name="system_ui_tuner">Тунер на системния потребителски интерфейс</string>
+    <string name="tap_a_network_to_connect">Докоснете мрежа, за да се свържете</string>
     <string name="tap_again">Докоснете отново</string>
     <string name="tap_to_sign_up">Докоснете, за да се регистрирате</string>
     <string name="tether_settings_title_all">Тетъринг и пренос. точка за достъп</string>
@@ -1951,6 +1969,7 @@
     <string name="time_unit_just_now">Току-що</string>
     <string name="title_convert_fbe">Преобразуване към шифроване на ниво файл</string>
     <string name="title_usb_accessory">Аксесоар за USB</string>
+    <string name="to_switch_networks_disconnect_ethernet">За да превключите мрежите, прекъснете връзката с Ethernet</string>
     <string name="too_hot_label">Pixel е твърде горещ</string>
     <string name="touch_filtered_warning">От Настройки не може да се получи потвърждение за отговора ви, защото заявката за разрешение се прикрива от приложение.</string>
     <string name="track_frame_time">Изобр. на HWUI: Профилир.</string>
@@ -2009,10 +2028,12 @@
     <string name="tuner_toast">Поздравления! Тунерът на системния потребителски интерфейс е добавен към „Настройки“</string>
     <string name="tuner_warning">Тунерът на системния потребителски интерфейс ви предоставя допълнителни възможности за прецизиране и персонализиране на практическата работа с Android. Тези експериментални функции може да се променят, повредят или да изчезнат в бъдещите версии. Действайте внимателно.</string>
     <string name="tuner_warning_title">Забавно – но не за всички</string>
+    <string name="turn_on_wifi">Wi‑Fi</string>
     <string name="tv_notification_panel_no_notifications">Няма известия</string>
     <string name="tv_notification_panel_title">Известия</string>
     <string name="two_weeks_timestamp">Преди 2 седмици</string>
     <string name="unknown">Неизвестно</string>
+    <string name="unlock_to_view_networks">Отключване с цел преглед на мрежите</string>
     <string name="upcoming_birthday_status">Предстоящ рожден ден</string>
     <string name="upcoming_birthday_status_content_description">Скоро е рожденият ден на %1$s</string>
     <string name="url_menu_copy">Копиране</string>
@@ -2151,9 +2172,11 @@
     <string name="wifi_disconnected">Няма връзка</string>
     <string name="wifi_display_certification">Безжичен дисплей</string>
     <string name="wifi_display_certification_summary">Показване на опциите за сертифициране на безжичния дисплей</string>
+    <string name="wifi_empty_list_wifi_on">Търсят се мрежи…</string>
     <string name="wifi_enhanced_mac_randomization">Рандомизиране на временните MAC адреси за Wi‑Fi</string>
     <string name="wifi_enhanced_mac_randomization_summary">Когато този режим е включен, MAC адресът на устройството може да се променя при всяко свързване с мрежа, за която е активирана функцията за рандомизиране на MAC адреса.</string>
     <string name="wifi_fail_to_scan">Не може да се сканира за мрежи</string>
+    <string name="wifi_failed_connect_message">Свързването с мрежата не бе успешно</string>
     <string name="wifi_hotspot_switch_off_text">Изключване</string>
     <string name="wifi_hotspot_switch_on_text">Включване</string>
     <string name="wifi_is_off">Функцията за Wi‑Fi е изключена</string>
@@ -2164,6 +2187,7 @@
     <string name="wifi_not_in_range">Извън обхват</string>
     <string name="wifi_passpoint_expired">Изтекло</string>
     <string name="wifi_remembered">Запазено</string>
+    <string name="wifi_scan_notify_message">С цел подобряване на практическата работа с устройството приложенията и услугите пак могат да сканират за Wi‑Fi мрежи по всяко време дори когато функцията за Wi‑Fi e изключена. Можете да промените съответното поведение от настройките за сканиране за Wi‑Fi. <annotation id="link">Промяна</annotation></string>
     <string name="wifi_scan_throttling">Ограничаване на сканирането за Wi-Fi</string>
     <string name="wifi_scan_throttling_summary">Намалява изразходването на батерията и подобрява ефективността на мрежата</string>
     <string name="wifi_security_none">Няма</string>
@@ -2173,6 +2197,7 @@
     <string name="wifi_unmetered_label">Без отчитане</string>
     <string name="wifi_verbose_logging">Активиране на „многословно“ регистр. на Wi‑Fi</string>
     <string name="wifi_verbose_logging_summary">По-подробно регистр. на Wi‑Fi – данни за RSSI на SSID в инстр. за избор на Wi‑Fi</string>
+    <string name="wifi_wont_autoconnect_for_now">Засега Wi-Fi няма да се свързва автоматично</string>
     <string name="wifitrackerlib_auto_connect_disable">Автом. свързване е изкл.</string>
     <string name="wifitrackerlib_available_via_app">Достъпно през %1$s</string>
     <string name="wifitrackerlib_connected_via_app">Установена е връзка през %1$s</string>

@@ -2,40 +2,32 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lcom/android/systemui/AutoReinflateContainer$InflateListener;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$$ExternalSyntheticLambda4;
+# instance fields
+.field public final synthetic f$0:Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$$ExternalSyntheticLambda4;
-
-    invoke-direct {v0}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$$ExternalSyntheticLambda4;-><init>()V
-
-    sput-object v0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$$ExternalSyntheticLambda4;->INSTANCE:Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$$ExternalSyntheticLambda4;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$$ExternalSyntheticLambda4;->f$0:Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
+.method public final onInflated(Landroid/view/View;)V
     .locals 0
 
-    invoke-static {}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->$r8$lambda$QqHLQARCmQkg8W30_l3RTBGGgC8()V
+    iget-object p0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$$ExternalSyntheticLambda4;->f$0:Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;
+
+    invoke-static {p0, p1}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->$r8$lambda$RS2LyJfsB7EBKgXGxegrO8uwkJA(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;Landroid/view/View;)V
 
     return-void
 .end method

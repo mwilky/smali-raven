@@ -33,7 +33,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBar$$ExternalSyntheticLambda28;->f$1:Landroid/view/IRemoteAnimationRunner;
 
-    invoke-static {v0, p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->$r8$lambda$GBT4qQBlcpuOzJfTD96W-M5cOCY(Lcom/android/systemui/statusbar/phone/StatusBar;Landroid/view/IRemoteAnimationRunner;)V
+    invoke-static {v0, p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->$r8$lambda$fp8HzEdthx2RSomwUlJvF2FUxK4(Lcom/android/systemui/statusbar/phone/StatusBar;Landroid/view/IRemoteAnimationRunner;)V
 
     return-void
 .end method

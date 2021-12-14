@@ -57,7 +57,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/statusbar/phone/StatusBar$$ExternalSyntheticLambda29;->f$5:Ljava/lang/Runnable;
 
-    invoke-static/range {v0 .. v5}, Lcom/android/systemui/statusbar/phone/StatusBar;->$r8$lambda$JD9NHxrg215CVS_41kfJrmOfrwY(Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;Landroid/app/PendingIntent;ZZLjava/lang/Runnable;)V
+    invoke-static/range {v0 .. v5}, Lcom/android/systemui/statusbar/phone/StatusBar;->$r8$lambda$1yCtUDaeXkk7ifmdADNEN_BS5lI(Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;Landroid/app/PendingIntent;ZZLjava/lang/Runnable;)V
 
     return-void
 .end method

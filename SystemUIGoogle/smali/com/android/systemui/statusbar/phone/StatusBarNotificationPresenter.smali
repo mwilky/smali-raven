@@ -630,13 +630,13 @@
 .method private onNotificationRemoved(Ljava/lang/String;Landroid/service/notification/StatusBarNotification;I)V
     .locals 0
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_0
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBarNotificationPresenter;->hasActiveNotifications()Z
 
     move-result p1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_0
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/phone/StatusBarNotificationPresenter;->mNotificationPanel:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;
 
@@ -644,7 +644,7 @@
 
     move-result p1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_0
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/phone/StatusBarNotificationPresenter;->mNotificationPanel:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;
 
@@ -652,49 +652,31 @@
 
     move-result p1
 
-    if-nez p1, :cond_1
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/phone/StatusBarNotificationPresenter;->mStatusBarStateController:Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
-
-    invoke-interface {p1}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->getState()I
-
-    move-result p1
-
-    const/4 p2, 0x1
-
     if-nez p1, :cond_0
 
-    if-eq p3, p2, :cond_0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBarNotificationPresenter;->mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/CommandQueue;->animateCollapsePanels()V
-
-    goto :goto_0
-
-    :cond_0
     iget-object p1, p0, Lcom/android/systemui/statusbar/phone/StatusBarNotificationPresenter;->mStatusBarStateController:Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
 
     invoke-interface {p1}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->getState()I
 
     move-result p1
 
-    const/4 p3, 0x2
+    const/4 p2, 0x2
 
-    if-ne p1, p3, :cond_1
+    if-ne p1, p2, :cond_0
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBarNotificationPresenter;->isCollapsing()Z
 
     move-result p1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBarNotificationPresenter;->mStatusBarStateController:Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
 
-    invoke-interface {p0, p2}, Lcom/android/systemui/statusbar/SysuiStatusBarStateController;->setState(I)Z
+    const/4 p1, 0x1
 
-    :cond_1
-    :goto_0
+    invoke-interface {p0, p1}, Lcom/android/systemui/statusbar/SysuiStatusBarStateController;->setState(I)Z
+
+    :cond_0
     return-void
 .end method
 

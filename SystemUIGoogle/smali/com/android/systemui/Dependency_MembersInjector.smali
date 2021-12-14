@@ -760,6 +760,23 @@
     return-void
 .end method
 
+.method public static injectMInternetDialogFactory(Lcom/android/systemui/Dependency;Ldagger/Lazy;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/android/systemui/Dependency;",
+            "Ldagger/Lazy<",
+            "Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;",
+            ">;)V"
+        }
+    .end annotation
+
+    iput-object p1, p0, Lcom/android/systemui/Dependency;->mInternetDialogFactory:Ldagger/Lazy;
+
+    return-void
+.end method
+
 .method public static injectMKeyguardDismissUtil(Lcom/android/systemui/Dependency;Ldagger/Lazy;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;

@@ -323,7 +323,7 @@
     <string name="adaptive_charging_time_estimate">%1$s • Karga egokitua (%2$s geratzen dira guztiz kargatu arte)</string>
     <string name="adb_device_fingerprint_title_format">Gailuaren erreferentzia-gako digitala: %1$s</string>
     <string name="adb_device_forget">Ahaztu</string>
-    <string name="adb_keys_warning_message">Aurretik baimendutako ordenagailu guztiei USB bidezko arazketarako sarbidea baliogabetu nahi diezu?</string>
+    <string name="adb_keys_warning_message">Aurretik baimendutako ordenagailu guztiei USB bidezko arazketarako sarbidea kendu nahi diezu?</string>
     <string name="adb_pair_method_code_summary">Parekatu gailu gehiago sei digituko kode batekin</string>
     <string name="adb_pair_method_code_title">Parekatu gailua parekatze-kode batekin</string>
     <string name="adb_pair_method_qrcode_summary">Parekatu gailu gehiago QR kode bat eskaneatuta</string>
@@ -363,6 +363,7 @@ Ez baduzu ematen baimen hori, ez dute funtzionatuko aplikazio honen bidez progra
     <string name="alarms_and_reminders_label">Alarmak eta abisuak</string>
     <string name="alarms_and_reminders_switch_title">Eman alarmak eta abisuak ezartzeko baimena</string>
     <string name="alarms_and_reminders_title">Alarmak eta abisuak</string>
+    <string name="all_network_unavailable">Ez dago sare erabilgarririk</string>
     <string name="allow_mock_location">Onartu kokapen faltsuak</string>
     <string name="allow_mock_location_summary">Onartu kokapen faltsuak</string>
     <string name="always_use_accessory">Ireki %1$s %2$s konektatzen den guztietan</string>
@@ -618,6 +619,11 @@ Hautapena"</string>
     <string name="clock_title_analog">Analogikoa</string>
     <string name="clock_title_bubble">Puxikak</string>
     <string name="clock_title_default">Lehenetsia</string>
+    <string name="columbus_bouncer_message">Sakatze bizkorra osatzeko, desblokeatu</string>
+    <string name="columbus_target_request_dialog_allow">Eman baimena</string>
+    <string name="columbus_target_request_dialog_deny">Ez eman baimenik</string>
+    <string name="columbus_target_request_dialog_summary">Telefonoaren atzealdea birritan sakatzen duzunean, %1$s irekiko da. Ezarpenetan alda dezakezu hobespen hori.</string>
+    <string name="columbus_target_request_dialog_title">%1$s irekitzeko baimena eman nahi diozu Sakatze bizkorra keinuari?</string>
     <string name="compat_mode_off">Luzatu pantaila betetzeko</string>
     <string name="compat_mode_on">Handiagotu pantaila betetzeko</string>
     <string name="confirm_enable_oem_unlock_text">ABISUA: ezarpen hau aktibatuta dagoen bitartean, gailua babesteko eginbideek ez dute gailu honetan funtzionatuko.</string>
@@ -712,7 +718,7 @@ Hautapena"</string>
     <string name="data_saver">Datu-aurrezlea</string>
     <string name="data_usage_disabled_dialog">"Iritsi zara ezarri zenuen datu-mugara. Datu-konexioa erabiltzeari utzi diozu.
 
-Datu-konexioa erabiltzeari berrekiten badiozu, datuen erabileragatiko gastuak izango dituzu."</string>
+Datu-konexioa erabiltzeari berrekiten badiozu, baliteke zerbait ordaindu behar izatea datuak erabiltzeagatik."</string>
     <string name="data_usage_disabled_dialog_3g_title">2G-3G datuen erab. pausatu da</string>
     <string name="data_usage_disabled_dialog_4g_title">4G datuen erabilera pausatu da</string>
     <string name="data_usage_disabled_dialog_enable">Jarraitu erabiltzen</string>
@@ -739,7 +745,9 @@ Datu-konexioa erabiltzeari berrekiten badiozu, datuen erabileragatiko gastuak iz
     <string name="defender_notify_des">Telefonoak kargatzea eten du bateria honda ez dadin</string>
     <string name="defender_notify_learn_more">Lortu informazio gehiago</string>
     <string name="defender_notify_resume_charge">Jarraitu kargatzen</string>
-    <string name="defender_notify_title">Kargatzeari utzi zaio aldi baterako</string>
+    <string name="defender_notify_title">Kargatzeko aukera mugatuta dago aldi baterako</string>
+    <string name="defender_post_notify_des">Gehienez %1$s arte kargatu ahal izan da telefonoa %2$s eta %3$s bitartean, bateria ez kaltetzeko</string>
+    <string name="defender_post_notify_title">Ohi bezala kargatzen</string>
     <string name="delete_blob_confirmation_text">Ziur partekatutako datuak ezabatu nahi dituzula?</string>
     <string name="delete_blob_text">Ezabatu partekatutako datuak</string>
     <string name="demo_mode">Sistemaren erabiltzaile-interfazearen demo modua</string>
@@ -885,6 +893,7 @@ Eginbide horrek erabiltzen dituen aurpegiaren datuak modu seguruan eta betiko ez
     <string name="game_status">Jolasten</string>
     <string name="global_action_lock_message">Desblokeatu telefonoa aukera gehiago ikusteko</string>
     <string name="global_action_screenshot">Pantaila-argazkia</string>
+    <string name="global_action_smart_lock_disabled">Desgaitu da Smart Lock</string>
     <string name="global_actions_change_description">%1$s eta gailuak kontrolatzeko aukerak atzitzeko, pasatu hatza behera pantailaren goialdetik</string>
     <string name="go_to_web">Joan arakatzailera</string>
     <string name="google_services_wallpaper_permission"><b>Baimendu Google Horma-paper dinamikoak kokapenaren arabera doitzea</b> Google-ren kokapen-zerbitzuak atzituta.</string>
@@ -1016,7 +1025,7 @@ soilik"</string>
     <string name="keyboard_shortcut_group_applications_contacts">Kontaktuak</string>
     <string name="keyboard_shortcut_group_applications_email">Posta</string>
     <string name="keyboard_shortcut_group_applications_music">Musika</string>
-    <string name="keyboard_shortcut_group_applications_sms">SMS mezuak</string>
+    <string name="keyboard_shortcut_group_applications_sms">SMSak</string>
     <string name="keyboard_shortcut_group_applications_youtube">YouTube</string>
     <string name="keyboard_shortcut_group_system">Sistema</string>
     <string name="keyboard_shortcut_group_system_back">Atzera</string>
@@ -1232,7 +1241,7 @@ Saiatu berriro %2$d segundo barru."</string>
     <string name="media_projection_dialog_text">Zerbait grabatzen edo igortzen duzunean, pantailan ikus daitekeen edo gailuak erreproduzitzen duen informazio guztia atzitu ahalko du %s aplikazioak; besteak beste, pasahitzak, ordainketen xehetasunak, argazkiak, mezuak eta erreproduzitzen dituzun audioak.</string>
     <string name="media_projection_dialog_title">%s aplikazioarekin grabatzen edo igortzen hasi nahi duzu?</string>
     <string name="media_projection_remember_text">Ez erakutsi berriro</string>
-    <string name="media_seamless_remote_device">Gailua</string>
+    <string name="media_seamless_other_device">Beste gailu bat</string>
     <string name="media_transfer_this_device_name">Telefonoaren bozgorailua</string>
     <string name="media_transfer_this_phone">Telefono hau</string>
     <string name="media_transfer_wired_device_name">Audio-gailu kableduna</string>
@@ -1249,9 +1258,13 @@ Saiatu berriro %2$d segundo barru."</string>
     <string name="mobile_data">Datu-konexioa</string>
     <string name="mobile_data_always_on">Datu-konexioa beti aktibo</string>
     <string name="mobile_data_always_on_summary">Mantendu datu-konexioa beti aktibo, baita wifi-konexioa aktibo dagoenean ere (sare batetik bestera bizkor aldatu ahal izateko).</string>
+    <string name="mobile_data_connection_active">Konektatuta</string>
     <string name="mobile_data_disable_message">%s erabilita ezingo dituzu erabili datuak edo Internet. Wifi-sare baten bidez soilik konektatu ahal izango zara Internetera.</string>
     <string name="mobile_data_disable_message_default_carrier">Zure operadorea</string>
     <string name="mobile_data_disable_title">Datu-konexioa desaktibatu nahi duzu?</string>
+    <string name="mobile_data_no_connection">Konexiorik gabe</string>
+    <string name="mobile_data_off_summary">Ez da automatikoki aktibatuko datu-konexioa</string>
+    <string name="mobile_data_settings_title">Datu-konexioa</string>
     <string name="mobile_data_text_format">%1$s - %2$s</string>
     <string name="mock_location_app">Hautatu kokapen faltsuen aplikazioa</string>
     <string name="mock_location_app_not_set">Ez da ezarri kokapen faltsuen aplikaziorik</string>
@@ -1387,10 +1400,11 @@ Galderarik baduzu, jarri harremanetan %2$s erakundearekin."</string>
     <string name="new_story_status">Istorio berria</string>
     <string name="new_story_status_content_description">%1$s erabiltzaileak istorio berri bat partekatu du</string>
     <string name="no_application">Ezer ez</string>
-    <string name="no_auto_saver_action">Ez</string>
+    <string name="no_auto_saver_action">Ez, eskerrik asko</string>
     <string name="no_content_in_select_mode">Ez dago hauta daitekeen testu edo irudirik</string>
     <string name="no_conversations_text">Azken elkarrizketak agertuko dira hemen</string>
     <string name="no_shortcut">%1$s aplikazioak ez ditu onartzen elkarrizketetarako eginbideak</string>
+    <string name="non_carrier_network_unavailable">Ez dago beste sare erabilgarririk</string>
     <string name="not_default_data_content_description">Ez dago ezarrita datuak erabiltzeko</string>
     <string name="not_set">Ez da ezarri</string>
     <string name="notif_inline_reply_remove_attachment_description">Kendu eranskina</string>
@@ -1571,8 +1585,9 @@ Galderarik baduzu, jarri harremanetan %2$s erakundearekin."</string>
     <string name="power_remaining_only_more_than_subtext">%1$s baino gehiago geratzen dira</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">Baliteke bateria ordu honetan agortzea: %1$s</string>
+    <string name="pref_title_network_details">Sarearen xehetasunak</string>
     <string name="preference_copied">Arbelean kopiatu da \"%1$s\".</string>
-    <string name="preference_summary_default_combination">%1$s / %2$s</string>
+    <string name="preference_summary_default_combination">%1$s (%2$s)</string>
     <string name="priority_conversations">Lehentasunezko elkarrizketak</string>
     <string name="privacy_type_camera">kamera</string>
     <string name="privacy_type_location">kokapena</string>
@@ -1740,6 +1755,7 @@ Galderarik baduzu, jarri harremanetan %2$s erakundearekin."</string>
     <string name="right_keycode">Eskuineko teklaren kodea</string>
     <string name="right_nav_bar_button_type">Eskuineko botoi gehigarriaren mota</string>
     <string name="ring_toggle_title">Deiak</string>
+    <string name="rotation_lock_camera_rotation_on">Aktibatuta: aurpegian oinarrituta</string>
     <string name="running_foreground_services_msg">Sakatu bateria eta datuen erabilerari buruzko xehetasunak ikusteko</string>
     <string name="running_foreground_services_title">Aplikazioak abian dira atzeko planoan</string>
     <string name="running_process_item_user_label">Erabiltzailea: %1$s</string>
@@ -1814,6 +1830,7 @@ Galderarik baduzu, jarri harremanetan %2$s erakundearekin."</string>
     <string name="screenshot_top_boundary_pct">Goiko ertza: ehuneko %1$d</string>
     <string name="search_menu">Bilatu ezarpenetan</string>
     <string name="search_menu_title">Bilatu</string>
+    <string name="see_all_networks">Ikusi guztiak</string>
     <string name="see_more_title">Ikusi gehiago</string>
     <string name="select_application">Hautatu aplikazioa</string>
     <string name="select_conversation_text">Sakatu elkarrizketa bat hasierako pantailan gehitzeko</string>
@@ -1926,6 +1943,7 @@ kontrolatuta egotea"</string>
     <string name="switch_bar_off">Desaktibatuta</string>
     <string name="switch_bar_on">Aktibatuta</string>
     <string name="system_ui_tuner">Sistemako erabiltzaile-interfazearen konfiguratzailea</string>
+    <string name="tap_a_network_to_connect">Sakatu sare bat hartara konektatzeko</string>
     <string name="tap_again">Sakatu berriro</string>
     <string name="tap_to_sign_up">Sakatu erregistratzeko</string>
     <string name="tether_settings_title_all">Konexioa partekatzea eta wifi-gune eramangarriak</string>
@@ -1951,6 +1969,7 @@ Informazio gehiago lortzeko, sakatu hau."</string>
     <string name="time_unit_just_now">Oraintxe</string>
     <string name="title_convert_fbe">Fitxategietan oinarritutako enkriptatzea ematea</string>
     <string name="title_usb_accessory">USB osagarria</string>
+    <string name="to_switch_networks_disconnect_ethernet">Sarea aldatzeko, deskonektatu Ethernet-a</string>
     <string name="too_hot_label">Pixel beroegi dago</string>
     <string name="touch_filtered_warning">Aplikazio bat baimen-eskaera oztopatzen ari denez, ezarpenek ezin dute egiaztatu erantzuna.</string>
     <string name="track_frame_time">Profilaren HWUI errendatzea</string>
@@ -2009,10 +2028,12 @@ Informazio gehiago lortzeko, sakatu hau."</string>
     <string name="tuner_toast">Zorionak! Sistemako erabiltzaile-interfazearen konfiguratzailea Ezarpenak atalean gehitu da</string>
     <string name="tuner_warning">Sistemako erabiltzaile-interfazearen konfiguratzaileak Android erabiltzaile-interfazea moldatzeko eta pertsonalizatzeko modu gehiago eskaintzen dizkizu. Baliteke eginbide esperimental horiek hurrengo kaleratzeetan aldatuta, etenda edo desagertuta egotea. Kontuz erabili.</string>
     <string name="tuner_warning_title">Dibertsioa batzuentzat, baina ez guztientzat</string>
+    <string name="turn_on_wifi">Wifia</string>
     <string name="tv_notification_panel_no_notifications">Ez dago jakinarazpenik</string>
     <string name="tv_notification_panel_title">Jakinarazpenak</string>
     <string name="two_weeks_timestamp">Duela bi aste</string>
     <string name="unknown">Ezezaguna</string>
+    <string name="unlock_to_view_networks">Sareak ikusteko, desblokeatu pantaila</string>
     <string name="upcoming_birthday_status">Badator urtebetetzea</string>
     <string name="upcoming_birthday_status_content_description">Badator %1$s erabiltzailearen urtebetetzea</string>
     <string name="url_menu_copy">Kopiatu</string>
@@ -2151,9 +2172,11 @@ Wifi-helbidea (BSSID)
     <string name="wifi_disconnected">Deskonektatuta</string>
     <string name="wifi_display_certification">Hari gabe bistaratzeko ziurtagiria</string>
     <string name="wifi_display_certification_summary">Erakutsi hari gabe bistaratzeko ziurtagiriaren aukerak</string>
+    <string name="wifi_empty_list_wifi_on">Sareak bilatzen…</string>
     <string name="wifi_enhanced_mac_randomization">Wifi-konexioetan iraunkorrak ez diren MAC helbideak ausaz antolatzea</string>
     <string name="wifi_enhanced_mac_randomization_summary">Modu hau gaituta dagoenean, baliteke gailuaren MAC helbidea aldatzea MAC helbideak ausaz antolatzeko aukera gaituta daukan sare batera konektatzen den bakoitzean.</string>
     <string name="wifi_fail_to_scan">Ezin dira sareak bilatu</string>
+    <string name="wifi_failed_connect_message">Ezin izan da konektatu sarera</string>
     <string name="wifi_hotspot_switch_off_text">Desaktibatu</string>
     <string name="wifi_hotspot_switch_on_text">Aktibatu</string>
     <string name="wifi_is_off">Wi-Fi konexioa desaktibatuta dago</string>
@@ -2164,6 +2187,7 @@ Wifi-helbidea (BSSID)
     <string name="wifi_not_in_range">Urrunegi</string>
     <string name="wifi_passpoint_expired">Iraungita</string>
     <string name="wifi_remembered">Gordeta</string>
+    <string name="wifi_scan_notify_message">Gailuaren funtzionamendua hobetzeko, aplikazioek eta zerbitzuek wifi-sareak bilatzen jarraituko dute, baita wifi-konexioa desaktibatuta dagoenean ere. Aukera hori aldatzeko, joan wifi-sareen bilaketaren ezarpenetara. <annotation id="link">Aldatu</annotation></string>
     <string name="wifi_scan_throttling">Wifi-sareen bilaketaren muga</string>
     <string name="wifi_scan_throttling_summary">Bateria gutxiago kontsumituko da, eta sarearen errendimendua hobetuko</string>
     <string name="wifi_security_none">Bat ere ez</string>
@@ -2173,6 +2197,7 @@ Wifi-helbidea (BSSID)
     <string name="wifi_unmetered_label">Neurtu gabeko sarea</string>
     <string name="wifi_verbose_logging">Gaitu wifi-sareetan saioa hasteko modu xehatua</string>
     <string name="wifi_verbose_logging_summary">Erakutsi datu gehiago wifi-sareetan saioa hastean. Erakutsi sarearen identifikatzailea eta seinalearen indarra wifi-sareen hautatzailean.</string>
+    <string name="wifi_wont_autoconnect_for_now">Oraingoz ez da automatikoki konektatuko wifira</string>
     <string name="wifitrackerlib_auto_connect_disable">Konexio automatikoa desaktibatuta</string>
     <string name="wifitrackerlib_available_via_app">%1$s bidez erabilgarri</string>
     <string name="wifitrackerlib_connected_via_app">%1$s bidez konektatuta</string>

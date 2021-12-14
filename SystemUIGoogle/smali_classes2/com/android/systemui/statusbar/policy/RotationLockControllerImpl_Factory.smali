@@ -28,15 +28,28 @@
     .end annotation
 .end field
 
+.field private final secureSettingsProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/util/settings/SecureSettings;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljavax/inject/Provider<",
             "Landroid/content/Context;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/util/settings/SecureSettings;",
             ">;)V"
         }
     .end annotation
@@ -45,16 +58,21 @@
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl_Factory;->contextProvider:Ljavax/inject/Provider;
 
+    iput-object p2, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl_Factory;->secureSettingsProvider:Ljavax/inject/Provider;
+
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl_Factory;
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl_Factory;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljavax/inject/Provider<",
             "Landroid/content/Context;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/util/settings/SecureSettings;",
             ">;)",
             "Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl_Factory;"
         }
@@ -62,17 +80,17 @@
 
     new-instance v0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl_Factory;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl_Factory;-><init>(Ljavax/inject/Provider;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;)V
 
     return-object v0
 .end method
 
-.method public static newInstance(Landroid/content/Context;)Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;
+.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/util/settings/SecureSettings;)Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;
     .locals 1
 
     new-instance v0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;-><init>(Landroid/content/Context;Lcom/android/systemui/util/settings/SecureSettings;)V
 
     return-object v0
 .end method
@@ -80,17 +98,25 @@
 
 # virtual methods
 .method public get()Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;
-    .locals 0
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl_Factory;->contextProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl_Factory;->contextProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/Context;
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl_Factory;->secureSettingsProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    check-cast p0, Landroid/content/Context;
+    check-cast p0, Lcom/android/systemui/util/settings/SecureSettings;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl_Factory;->newInstance(Landroid/content/Context;)Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;
+    invoke-static {v0, p0}, Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/util/settings/SecureSettings;)Lcom/android/systemui/statusbar/policy/RotationLockControllerImpl;
 
     move-result-object p0
 

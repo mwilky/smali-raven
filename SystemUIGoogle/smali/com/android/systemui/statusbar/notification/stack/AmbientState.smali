@@ -505,6 +505,14 @@
     return p0
 .end method
 
+.method public isDismissAllInProgress()Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mDismissAllInProgress:Z
+
+    return p0
+.end method
+
 .method public isDozing()Z
     .locals 0
 

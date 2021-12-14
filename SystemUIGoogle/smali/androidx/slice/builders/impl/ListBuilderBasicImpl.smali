@@ -292,9 +292,9 @@
     :cond_5
     iget-object v3, p0, Landroidx/slice/builders/impl/ListBuilderBasicImpl;->mTitle:Ljava/lang/CharSequence;
 
-    const-string v4, "title"
+    const-string/jumbo v4, "title"
 
-    const-string v5, "text"
+    const-string/jumbo v5, "text"
 
     if-eqz v3, :cond_6
 

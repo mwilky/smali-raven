@@ -58,26 +58,6 @@
     .end annotation
 .end field
 
-.field private final featureFlagsProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final keyguardIndicationControllerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 .field private final serviceConfigurationGoogleProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -110,7 +90,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -129,12 +109,6 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/google/android/systemui/columbus/ColumbusServiceWrapper;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;",
             ">;",
             "Ljavax/inject/Provider<",
             "Landroid/app/AlarmManager;",
@@ -157,19 +131,15 @@
 
     iput-object p5, p0, Lcom/google/android/systemui/GoogleServices_Factory;->columbusServiceLazyProvider:Ljavax/inject/Provider;
 
-    iput-object p6, p0, Lcom/google/android/systemui/GoogleServices_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
+    iput-object p6, p0, Lcom/google/android/systemui/GoogleServices_Factory;->alarmManagerProvider:Ljavax/inject/Provider;
 
-    iput-object p7, p0, Lcom/google/android/systemui/GoogleServices_Factory;->keyguardIndicationControllerProvider:Ljavax/inject/Provider;
-
-    iput-object p8, p0, Lcom/google/android/systemui/GoogleServices_Factory;->alarmManagerProvider:Ljavax/inject/Provider;
-
-    iput-object p9, p0, Lcom/google/android/systemui/GoogleServices_Factory;->autorotateDataServiceProvider:Ljavax/inject/Provider;
+    iput-object p7, p0, Lcom/google/android/systemui/GoogleServices_Factory;->autorotateDataServiceProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/google/android/systemui/GoogleServices_Factory;
-    .locals 11
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/google/android/systemui/GoogleServices_Factory;
+    .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -187,12 +157,6 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/google/android/systemui/columbus/ColumbusServiceWrapper;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;",
             ">;",
             "Ljavax/inject/Provider<",
             "Landroid/app/AlarmManager;",
@@ -204,9 +168,9 @@
         }
     .end annotation
 
-    new-instance v10, Lcom/google/android/systemui/GoogleServices_Factory;
+    new-instance v8, Lcom/google/android/systemui/GoogleServices_Factory;
 
-    move-object v0, v10
+    move-object v0, v8
 
     move-object v1, p0
 
@@ -218,21 +182,17 @@
 
     move-object v5, p4
 
-    move-object/from16 v6, p5
+    move-object v6, p5
 
-    move-object/from16 v7, p6
+    move-object v7, p6
 
-    move-object/from16 v8, p7
+    invoke-direct/range {v0 .. v7}, Lcom/google/android/systemui/GoogleServices_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
 
-    move-object/from16 v9, p8
-
-    invoke-direct/range {v0 .. v9}, Lcom/google/android/systemui/GoogleServices_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v10
+    return-object v8
 .end method
 
-.method public static newInstance(Landroid/content/Context;Ldagger/Lazy;Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/internal/logging/UiEventLogger;Ldagger/Lazy;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;Landroid/app/AlarmManager;Lcom/google/android/systemui/autorotate/AutorotateDataService;)Lcom/google/android/systemui/GoogleServices;
-    .locals 11
+.method public static newInstance(Landroid/content/Context;Ldagger/Lazy;Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/internal/logging/UiEventLogger;Ldagger/Lazy;Landroid/app/AlarmManager;Lcom/google/android/systemui/autorotate/AutorotateDataService;)Lcom/google/android/systemui/GoogleServices;
+    .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -245,8 +205,6 @@
             "Ldagger/Lazy<",
             "Lcom/google/android/systemui/columbus/ColumbusServiceWrapper;",
             ">;",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
-            "Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;",
             "Landroid/app/AlarmManager;",
             "Lcom/google/android/systemui/autorotate/AutorotateDataService;",
             ")",
@@ -254,9 +212,9 @@
         }
     .end annotation
 
-    new-instance v10, Lcom/google/android/systemui/GoogleServices;
+    new-instance v8, Lcom/google/android/systemui/GoogleServices;
 
-    move-object v0, v10
+    move-object v0, v8
 
     move-object v1, p0
 
@@ -268,23 +226,19 @@
 
     move-object v5, p4
 
-    move-object/from16 v6, p5
+    move-object v6, p5
 
-    move-object/from16 v7, p6
+    move-object v7, p6
 
-    move-object/from16 v8, p7
+    invoke-direct/range {v0 .. v7}, Lcom/google/android/systemui/GoogleServices;-><init>(Landroid/content/Context;Ldagger/Lazy;Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/internal/logging/UiEventLogger;Ldagger/Lazy;Landroid/app/AlarmManager;Lcom/google/android/systemui/autorotate/AutorotateDataService;)V
 
-    move-object/from16 v9, p8
-
-    invoke-direct/range {v0 .. v9}, Lcom/google/android/systemui/GoogleServices;-><init>(Landroid/content/Context;Ldagger/Lazy;Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/internal/logging/UiEventLogger;Ldagger/Lazy;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;Landroid/app/AlarmManager;Lcom/google/android/systemui/autorotate/AutorotateDataService;)V
-
-    return-object v10
+    return-object v8
 .end method
 
 
 # virtual methods
 .method public get()Lcom/google/android/systemui/GoogleServices;
-    .locals 10
+    .locals 8
 
     iget-object v0, p0, Lcom/google/android/systemui/GoogleServices_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -328,7 +282,7 @@
 
     move-result-object v5
 
-    iget-object v0, p0, Lcom/google/android/systemui/GoogleServices_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/google/android/systemui/GoogleServices_Factory;->alarmManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -336,27 +290,7 @@
 
     move-object v6, v0
 
-    check-cast v6, Lcom/android/systemui/statusbar/FeatureFlags;
-
-    iget-object v0, p0, Lcom/google/android/systemui/GoogleServices_Factory;->keyguardIndicationControllerProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v7, v0
-
-    check-cast v7, Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;
-
-    iget-object v0, p0, Lcom/google/android/systemui/GoogleServices_Factory;->alarmManagerProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v8, v0
-
-    check-cast v8, Landroid/app/AlarmManager;
+    check-cast v6, Landroid/app/AlarmManager;
 
     iget-object p0, p0, Lcom/google/android/systemui/GoogleServices_Factory;->autorotateDataServiceProvider:Ljavax/inject/Provider;
 
@@ -364,11 +298,11 @@
 
     move-result-object p0
 
-    move-object v9, p0
+    move-object v7, p0
 
-    check-cast v9, Lcom/google/android/systemui/autorotate/AutorotateDataService;
+    check-cast v7, Lcom/google/android/systemui/autorotate/AutorotateDataService;
 
-    invoke-static/range {v1 .. v9}, Lcom/google/android/systemui/GoogleServices_Factory;->newInstance(Landroid/content/Context;Ldagger/Lazy;Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/internal/logging/UiEventLogger;Ldagger/Lazy;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;Landroid/app/AlarmManager;Lcom/google/android/systemui/autorotate/AutorotateDataService;)Lcom/google/android/systemui/GoogleServices;
+    invoke-static/range {v1 .. v7}, Lcom/google/android/systemui/GoogleServices_Factory;->newInstance(Landroid/content/Context;Ldagger/Lazy;Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/internal/logging/UiEventLogger;Ldagger/Lazy;Landroid/app/AlarmManager;Lcom/google/android/systemui/autorotate/AutorotateDataService;)Lcom/google/android/systemui/GoogleServices;
 
     move-result-object p0
 

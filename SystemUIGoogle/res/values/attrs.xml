@@ -1155,6 +1155,7 @@
     <attr name="lockScreenWeight" format="integer" />
     <attr name="logo" format="reference" />
     <attr name="logoDescription" format="string" />
+    <attr name="longDatePattern" format="string" />
     <attr name="lottie_autoPlay" format="boolean" />
     <attr name="lottie_cacheComposition" format="boolean" />
     <attr name="lottie_colorFilter" format="color" />
@@ -1542,6 +1543,7 @@
     <attr name="shapeAppearanceMediumComponent" format="reference" />
     <attr name="shapeAppearanceOverlay" format="reference" />
     <attr name="shapeAppearanceSmallComponent" format="reference" />
+    <attr name="shortDatePattern" format="string" />
     <attr name="shortcutMatchRequired" format="boolean" />
     <attr name="shouldDisableView" format="boolean" />
     <attr name="showAirplaneMode" format="boolean" />

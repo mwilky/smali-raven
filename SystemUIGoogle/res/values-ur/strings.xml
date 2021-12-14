@@ -363,6 +363,7 @@
     <string name="alarms_and_reminders_label">الارمز اور یاد دہانیاں</string>
     <string name="alarms_and_reminders_switch_title">الارمز اور یاد دہانیاں سیٹ کرنے کی اجازت دیں</string>
     <string name="alarms_and_reminders_title">الارمز اور یاد دہانیاں</string>
+    <string name="all_network_unavailable">کوئی نیٹ ورکس دستیاب نہیں ہیں</string>
     <string name="allow_mock_location">فرضی مقامات کی اجازت دیں</string>
     <string name="allow_mock_location_summary">فرضی مقامات کی اجازت دیں</string>
     <string name="always_use_accessory">ہمیشہ %2$s کے منسلک ہونے پر ہی %1$s کھولیں</string>
@@ -618,6 +619,11 @@
     <string name="clock_title_analog">اینالاگ</string>
     <string name="clock_title_bubble">بلبلہ</string>
     <string name="clock_title_default">ڈیفالٹ</string>
+    <string name="columbus_bouncer_message">فوری تھپتھپاہٹ کو مکمل کرنے کے لیے غیر مقفل کریں</string>
+    <string name="columbus_target_request_dialog_allow">اجازت دیں</string>
+    <string name="columbus_target_request_dialog_deny">اجازت نہ دیں</string>
+    <string name="columbus_target_request_dialog_summary">جب آپ اپنے فون کے پچھلے حصے پر دو بار تھپتھپائیں گے، %1$s کھل جائے گا۔ آپ اس انتخاب کو کسی بھی وقت ترتیبات میں تبدیل کر سکتے ہیں۔</string>
+    <string name="columbus_target_request_dialog_title">فوری تھپتھپاہٹ کو %1$s کو کھولنے کی اجازت دیں؟</string>
     <string name="compat_mode_off">پوری سکرین پر پھیلائیں</string>
     <string name="compat_mode_on">پوری سکرین پر زوم کریں</string>
     <string name="confirm_enable_oem_unlock_text">انتباہ: یہ ترتیب آن ہونے پر آلہ کے تحفظ کی خصوصیات اس آلہ پر کام نہیں کریں گی۔</string>
@@ -739,7 +745,9 @@
     <string name="defender_notify_des">آپ کا فون بیٹری کی صحت محفوظ رکھنے میں مدد کرنے کے لیے چارج کرنے کو محدود کر رہا ہے</string>
     <string name="defender_notify_learn_more">مزید جانیں</string>
     <string name="defender_notify_resume_charge">چارج کرنا دوبارہ شروع کریں</string>
-    <string name="defender_notify_title">چارج کرنا عارضی طور پر محدود ہے</string>
+    <string name="defender_notify_title">چارجنگ عارضی طور پر محدود ہے</string>
+    <string name="defender_post_notify_des">بیٹری کی صحت کو محفوظ رکھنے کے لیے چارجنگ %2$s تا %3$s %1$s تک محدود تھی</string>
+    <string name="defender_post_notify_title">معمول کے مطابق چارجنگ ہو رہی ہے</string>
     <string name="delete_blob_confirmation_text">کیا آپ واقعی اس اشتراک کردہ ڈیٹا کو حذف کرنا چاہتے ہیں؟</string>
     <string name="delete_blob_text">اشتراک کردہ ڈیٹا کو حذف کریں</string>
     <string name="demo_mode">‏سسٹم UI ڈیمو موڈ</string>
@@ -885,6 +893,7 @@
     <string name="game_status">کھیلی جا رہی ہے</string>
     <string name="global_action_lock_message">مزید اختیارات کے لیے اپنا فون غیر مقفل کریں</string>
     <string name="global_action_screenshot">اسکرین شاٹ</string>
+    <string name="global_action_smart_lock_disabled">‏Smart Lock کو غیر فعال کیا گیا</string>
     <string name="global_actions_change_description">%1$s اور آلہ کے کنٹرولز تک رسائی حاصل کرنے کیلئے اپنی اسکرین کے اوپری حصے سے نیچے سوائپ کریں</string>
     <string name="go_to_web">براؤزر پر جائیں</string>
     <string name="google_services_wallpaper_permission">‏Google کی مقام کی سروس تک رسائی کرکے <b>Google لائیو وال پیپیرز کو اپنے مقام کا جواب دینے دیں</b>۔</string>
@@ -1232,7 +1241,7 @@
     <string name="media_projection_dialog_text">%s کو ان تمام معلومات تک رسائی حاصل ہوگی جو آپ کی اسکرین پر مرئی ہے یا ریکارڈنگ یا کاسٹنگ کے دوران آپ کے آلے سے چلائے گئے ہوں۔ اس میں پاس ورڈز، ادائیگی کی تفصیلات، تصاویر، پیغامات، اور آپ کے ذریعے چلائی جانے والی آڈیو جیسی معلومات شامل ہے۔</string>
     <string name="media_projection_dialog_title">%s کے ذریعے ریکارڈنگ یا کاسٹنگ شروع کریں؟</string>
     <string name="media_projection_remember_text">دوبارہ نہ دکھائیں</string>
-    <string name="media_seamless_remote_device">آلہ</string>
+    <string name="media_seamless_other_device">دوسرا آلہ</string>
     <string name="media_transfer_this_device_name">فون اسپیکر</string>
     <string name="media_transfer_this_phone">یہ فون</string>
     <string name="media_transfer_wired_device_name">وائرڈ آڈیو آلہ</string>
@@ -1249,9 +1258,13 @@
     <string name="mobile_data">موبائل ڈیٹا</string>
     <string name="mobile_data_always_on">موبائل ڈیٹا ہمیشہ فعال رکھیں</string>
     <string name="mobile_data_always_on_summary">‏Wi‑Fi فعال ہونے پر بھی موبائل ڈیٹا کو ہمیشہ فعال رکھیں (تیزی سے نیٹ ورک سوئچ کرنے کیلئے)۔</string>
+    <string name="mobile_data_connection_active">منسلک ہے</string>
     <string name="mobile_data_disable_message">‏آپ کو %s کے ذریعے ڈیٹا یا انٹرنیٹ تک رسائی حاصل نہیں ہوگی۔ انٹرنیٹ صرف Wi-Fi کے ذریعے دستیاب ہوگا۔</string>
     <string name="mobile_data_disable_message_default_carrier">آپ کا کریئر</string>
     <string name="mobile_data_disable_title">موبائل ڈیٹا آف کریں؟</string>
+    <string name="mobile_data_no_connection">کوئی کنکشن نہیں</string>
+    <string name="mobile_data_off_summary">موبائل ڈیٹا خودکار طور پر منسلک نہیں ہوگا</string>
+    <string name="mobile_data_settings_title">موبائل ڈیٹا</string>
     <string name="mobile_data_text_format">%1$s — %2$s</string>
     <string name="mock_location_app">فرضی مقام کی ایپ منتخب کریں</string>
     <string name="mock_location_app_not_set">فرضی مقام کی کوئی ایپ سیٹ نہیں ہے</string>
@@ -1391,6 +1404,7 @@
     <string name="no_content_in_select_mode">منتخب کرنے کے لیے کوئی ٹیکسٹ یا تصویر نہیں ہے</string>
     <string name="no_conversations_text">آپ کی حالیہ گفتگوئیں یہاں دکھائی دیں گی</string>
     <string name="no_shortcut">%1$s ایپ گفتگو کی خصوصیات کو سپورٹ نہیں کرتی ہے</string>
+    <string name="non_carrier_network_unavailable">کوئی دوسرا نیٹ ورک دستیاب نہیں ہے</string>
     <string name="not_default_data_content_description">ڈیٹا استعمال کرنے کے لیے سیٹ نہیں ہے</string>
     <string name="not_set">سیٹ نہیں ہے</string>
     <string name="notif_inline_reply_remove_attachment_description">منسلکہ ہٹائیں</string>
@@ -1571,8 +1585,9 @@
     <string name="power_remaining_only_more_than_subtext">%1$s سے زیادہ باقی ہے</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">‫%1$s تک بیٹری ختم ہو سکتی ہے</string>
+    <string name="pref_title_network_details">نیٹ ورک کی تفصیلات</string>
     <string name="preference_copied">\"%1$s\" کلپ بورڈ میں کاپی ہو گیا۔</string>
-    <string name="preference_summary_default_combination">%1$s / %2$s</string>
+    <string name="preference_summary_default_combination">%2$s / %1$s</string>
     <string name="priority_conversations">ترجیحی گفتگوئیں</string>
     <string name="privacy_type_camera">کیمرا</string>
     <string name="privacy_type_location">مقام</string>
@@ -1740,6 +1755,7 @@
     <string name="right_keycode">دائيں جانب کا کی کوڈ</string>
     <string name="right_nav_bar_button_type">دائیں جانب کی اضافی بٹن کی قسم</string>
     <string name="ring_toggle_title">کالز</string>
+    <string name="rotation_lock_camera_rotation_on">آن - چہرے پر مبنی</string>
     <string name="running_foreground_services_msg">بیٹری اور ڈیٹا استعمال کے بارے میں تفصیلات کے لیے تھپتھپائیں</string>
     <string name="running_foreground_services_title">ایپس پس منظر میں چل رہی ہیں</string>
     <string name="running_process_item_user_label">صارف: %1$s</string>
@@ -1814,6 +1830,7 @@
     <string name="screenshot_top_boundary_pct">اوپر کا احاطہ %1$d فیصد</string>
     <string name="search_menu">ترتیبات تلاش کریں</string>
     <string name="search_menu_title">تلاش کریں</string>
+    <string name="see_all_networks">سبھی دیکھیں</string>
     <string name="see_more_title">مزید دیکھیں</string>
     <string name="select_application">ایپلیکیشن منتخب کریں</string>
     <string name="select_conversation_text">اسے اپنے ہوم اسکرین پر شامل کرنے کے لیے گفتگو پر تھپتھپائیں</string>
@@ -1926,6 +1943,7 @@
     <string name="switch_bar_off">آف</string>
     <string name="switch_bar_on">آن</string>
     <string name="system_ui_tuner">‏سسٹم UI ٹیونر</string>
+    <string name="tap_a_network_to_connect">منسلک کرنے کے لیے نیٹ ورک پر تھپتھپائیں</string>
     <string name="tap_again">دوبارہ تھپتھپائیں</string>
     <string name="tap_to_sign_up">سائن اپ کے لیے تھپتھپائیں</string>
     <string name="tether_settings_title_all">ٹیدرنگ و پورٹیبل ہاٹ اسپاٹ</string>
@@ -1951,6 +1969,7 @@
     <string name="time_unit_just_now">ابھی ابھی</string>
     <string name="title_convert_fbe">فائل پر مبنی مرموز کاری میں بدلا جا رہا ہے</string>
     <string name="title_usb_accessory">‏USB لوازم</string>
+    <string name="to_switch_networks_disconnect_ethernet">نیٹ ورکس پر سوئچ کرنے کیلئے، ایتھرنیٹ غیر منسلک کریں</string>
     <string name="too_hot_label">‏Pixel بہت گرم ہے</string>
     <string name="touch_filtered_warning">چونکہ ایک ایپ اجازت کی درخواست کو مبہم کر رہی ہے، لہذا ترتیبات آپ کے جواب کی توثیق نہیں کر سکتی ہیں۔</string>
     <string name="track_frame_time">‏پروفائل HWUI رینڈرنگ</string>
@@ -2009,10 +2028,12 @@
     <string name="tuner_toast">‏مبارک ہو! سسٹم UI ٹیونر کو ترتیبات میں شامل کر دیا گیا ہے</string>
     <string name="tuner_warning">‏سسٹم UI ٹیونر Android صارف انٹر فیس میں ردوبدل کرنے اور اسے حسب ضرورت بنانے کیلئے آپ کو اضافی طریقے دیتا ہے۔ یہ تجرباتی خصوصیات مستقبل کی ریلیزز میں تبدیل ہو سکتی، رک سکتی یا غائب ہو سکتی ہیں۔ احتیاط کے ساتھ آگے بڑھیں۔</string>
     <string name="tuner_warning_title">کچھ کیلئے دلچسپ لیکن سبھی کیلئے نہیں</string>
+    <string name="turn_on_wifi">Wi‑Fi</string>
     <string name="tv_notification_panel_no_notifications">کوئی اطلاع نہیں ہے</string>
     <string name="tv_notification_panel_title">اطلاعات</string>
     <string name="two_weeks_timestamp">2 ہفتے پہلے</string>
     <string name="unknown">نامعلوم</string>
+    <string name="unlock_to_view_networks">نیٹ ورکس کو دیکھنے کے لیے غیر مقفل کریں</string>
     <string name="upcoming_birthday_status">سالگرہ قریب ہے</string>
     <string name="upcoming_birthday_status_content_description">جلدی ہی %1$s کی یوم پیدائش ہے</string>
     <string name="url_menu_copy">کاپی کریں</string>
@@ -2151,9 +2172,11 @@ USB پورٹ کا دوبارہ استعمال کرنا ٹھیک ہونے پر آ
     <string name="wifi_disconnected">غیر منسلک</string>
     <string name="wifi_display_certification">وائرلیس ڈسپلے سرٹیفیکیشن</string>
     <string name="wifi_display_certification_summary">وائرلیس ڈسپلے سرٹیفیکیشن کیلئے اختیارات دکھائیں</string>
+    <string name="wifi_empty_list_wifi_on">نیٹ ورکس تلاش کیے جا رہے ہیں…</string>
     <string name="wifi_enhanced_mac_randomization">‏Wi-Fi غیر مستقل MAC کی رینڈمائزیشن</string>
     <string name="wifi_enhanced_mac_randomization_summary">‏جب یہ وضع فعال ہوتا ہے تو، اس آلہ کا MAC پتہ ہر بار تبدیل ہو سکتا ہے جب یہ کسی نیٹ ورک سے منسلک ہوتا ہے جس میں MAC ہے رینڈمائزیشن کو فعال کرتا ہے۔</string>
     <string name="wifi_fail_to_scan">نیٹ ورکس کیلئے اسکین نہيں کر سکتے ہیں</string>
+    <string name="wifi_failed_connect_message">نیٹ ورک سے منسلک ہونے میں ناکام ہو گیا</string>
     <string name="wifi_hotspot_switch_off_text">آف</string>
     <string name="wifi_hotspot_switch_on_text">آن</string>
     <string name="wifi_is_off">‏Wi-Fi آف ہے</string>
@@ -2164,6 +2187,7 @@ USB پورٹ کا دوبارہ استعمال کرنا ٹھیک ہونے پر آ
     <string name="wifi_not_in_range">رینج میں نہیں ہے</string>
     <string name="wifi_passpoint_expired">میعاد ختم ہو گئی</string>
     <string name="wifi_remembered">محفوظ کردیا گیا</string>
+    <string name="wifi_scan_notify_message">‏آلے کے تجربے کو بہتر بنانے کے لیے، Wi‑Fi کے آف ہونے پر بھی ایپس اور سروسز کسی بھی وقت Wi‑Fi نیٹ ورکس اسکین کر سکتی ہیں۔ آپ اسے Wi‑Fi اسکیننگ کی ترتیبات میں تبدیل کر سکتے ہیں۔ <annotation id="link">تبدیل کریں</annotation></string>
     <string name="wifi_scan_throttling">‏Wi‑Fi اسکین کو زبردستی روکا جا رہا ہے</string>
     <string name="wifi_scan_throttling_summary">بیٹری ڈرین کم کرتا ہے اور نیٹ ورک کارکردگی کو بہتر بناتا ہے</string>
     <string name="wifi_security_none">کوئی نہیں</string>
@@ -2173,6 +2197,7 @@ USB پورٹ کا دوبارہ استعمال کرنا ٹھیک ہونے پر آ
     <string name="wifi_unmetered_label">غیر میٹر شدہ</string>
     <string name="wifi_verbose_logging">‏Wi‑Fi وربوس لاگنگ فعال کریں</string>
     <string name="wifi_verbose_logging_summary">‏Wi‑Fi لاگنگ لیول میں اضافہ کریں، Wi‑Fi منتخب کنندہ میں فی SSID RSSI دکھائیں</string>
+    <string name="wifi_wont_autoconnect_for_now">‏ابھی Wi-Fi خود کار طور پر منسلک نہیں ہوگا</string>
     <string name="wifitrackerlib_auto_connect_disable">خود کار طور پر منسلک ہونا آف ہے</string>
     <string name="wifitrackerlib_available_via_app">دستیاب بذریعہ %1$s</string>
     <string name="wifitrackerlib_connected_via_app">‫%1$s کے ذریعے منسلک</string>

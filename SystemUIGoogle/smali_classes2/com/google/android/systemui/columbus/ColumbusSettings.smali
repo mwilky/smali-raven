@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nColumbusSettings.kt\nKotlin\n*S Kotlin\n*F\n+ 1 ColumbusSettings.kt\ncom/google/android/systemui/columbus/ColumbusSettings\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,204:1\n1517#2:205\n1588#2,3:206\n1819#2,2:209\n1819#2,2:211\n*E\n*S KotlinDebug\n*F\n+ 1 ColumbusSettings.kt\ncom/google/android/systemui/columbus/ColumbusSettings\n*L\n107#1:205\n107#1,3:206\n114#1,2:209\n122#1,2:211\n*E\n"
+    value = "SMAP\nColumbusSettings.kt\nKotlin\n*S Kotlin\n*F\n+ 1 ColumbusSettings.kt\ncom/google/android/systemui/columbus/ColumbusSettings\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,203:1\n1517#2:204\n1588#2,3:205\n1819#2,2:208\n*E\n*S KotlinDebug\n*F\n+ 1 ColumbusSettings.kt\ncom/google/android/systemui/columbus/ColumbusSettings\n*L\n113#1:204\n113#1,3:205\n114#1,2:208\n*E\n"
 .end annotation
 
 
@@ -45,6 +45,8 @@
 
 
 # instance fields
+.field private final backupPackage:Ljava/lang/String;
+
 .field private final callback:Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -78,7 +80,7 @@
     .end annotation
 .end field
 
-.field private registered:Z
+.field private final userTracker:Lcom/android/systemui/settings/UserTracker;
 
 
 # direct methods
@@ -190,18 +192,30 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Lcom/google/android/systemui/columbus/ColumbusContentObserver$Factory;)V
-    .locals 3
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/settings/UserTracker;Lcom/google/android/systemui/columbus/ColumbusContentObserver$Factory;)V
+    .locals 2
 
     const-string v0, "context"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v0, "contentObserverFactory"
+    const-string v0, "userTracker"
 
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
+    const-string v0, "contentObserverFactory"
+
+    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p2, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->userTracker:Lcom/android/systemui/settings/UserTracker;
+
+    invoke-virtual {p1}, Landroid/content/Context;->getBasePackageName()Ljava/lang/String;
+
+    move-result-object p2
+
+    iput-object p2, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->backupPackage:Ljava/lang/String;
 
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -223,15 +237,15 @@
 
     sget-object p1, Lcom/google/android/systemui/columbus/ColumbusSettings;->MONITORED_URIS:Ljava/util/Set;
 
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance p2, Ljava/util/ArrayList;
 
-    const/16 v1, 0xa
+    const/16 v0, 0xa
 
-    invoke-static {p1, v1}, Lkotlin/collections/CollectionsKt;->collectionSizeOrDefault(Ljava/lang/Iterable;I)I
+    invoke-static {p1, v0}, Lkotlin/collections/CollectionsKt;->collectionSizeOrDefault(Ljava/lang/Iterable;I)I
 
-    move-result v1
+    move-result v0
 
-    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
+    invoke-direct {p2, v0}, Ljava/util/ArrayList;-><init>(I)V
 
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -240,38 +254,68 @@
     :goto_0
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/net/Uri;
+    check-cast v0, Landroid/net/Uri;
 
-    const-string v2, "it"
+    const-string v1, "it"
 
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    iget-object v2, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->callback:Lkotlin/jvm/functions/Function1;
+    iget-object v1, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->callback:Lkotlin/jvm/functions/Function1;
 
-    invoke-virtual {p2, v1, v2}, Lcom/google/android/systemui/columbus/ColumbusContentObserver$Factory;->create(Landroid/net/Uri;Lkotlin/jvm/functions/Function1;)Lcom/google/android/systemui/columbus/ColumbusContentObserver;
+    invoke-virtual {p3, v0, v1}, Lcom/google/android/systemui/columbus/ColumbusContentObserver$Factory;->create(Landroid/net/Uri;Lkotlin/jvm/functions/Function1;)Lcom/google/android/systemui/columbus/ColumbusContentObserver;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v0, v1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+    invoke-interface {p2, v0}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
     :cond_0
-    invoke-static {v0}, Lkotlin/collections/CollectionsKt;->toSet(Ljava/lang/Iterable;)Ljava/util/Set;
+    invoke-static {p2}, Lkotlin/collections/CollectionsKt;->toSet(Ljava/lang/Iterable;)Ljava/util/Set;
 
     move-result-object p1
 
     iput-object p1, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->contentObservers:Ljava/util/Set;
 
+    invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :goto_1
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/google/android/systemui/columbus/ColumbusContentObserver;
+
+    invoke-virtual {p1}, Lcom/google/android/systemui/columbus/ColumbusContentObserver;->activate()V
+
+    goto :goto_1
+
+    :cond_1
     return-void
+.end method
+
+.method public static final synthetic access$getBackupPackage$p(Lcom/google/android/systemui/columbus/ColumbusSettings;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->backupPackage:Ljava/lang/String;
+
+    return-object p0
 .end method
 
 .method public static final synthetic access$getCOLUMBUS_ACTION_URI$cp()Landroid/net/Uri;
@@ -338,22 +382,32 @@
     return-object p0
 .end method
 
+.method public static final synthetic access$getUserTracker$p(Lcom/google/android/systemui/columbus/ColumbusSettings;)Lcom/android/systemui/settings/UserTracker;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->userTracker:Lcom/android/systemui/settings/UserTracker;
+
+    return-object p0
+.end method
+
 
 # virtual methods
 .method public isColumbusEnabled()Z
     .locals 3
 
-    iget-object p0, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->contentResolver:Landroid/content/ContentResolver;
+    iget-object v0, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->contentResolver:Landroid/content/ContentResolver;
 
-    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
+    iget-object p0, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->userTracker:Lcom/android/systemui/settings/UserTracker;
 
-    move-result v0
+    invoke-interface {p0}, Lcom/android/systemui/settings/UserTracker;->getUserId()I
+
+    move-result p0
 
     const-string v1, "columbus_enabled"
 
     const/4 v2, 0x0
 
-    invoke-static {p0, v1, v2, v0}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+    invoke-static {v0, v1, v2, p0}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
 
     move-result p0
 
@@ -372,67 +426,27 @@
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->listeners:Ljava/util/Set;
+    iget-object p0, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->listeners:Ljava/util/Set;
 
-    invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {p0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    iget-boolean p1, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->registered:Z
-
-    if-nez p1, :cond_0
-
-    iget-object p1, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->listeners:Ljava/util/Set;
-
-    invoke-interface {p1}, Ljava/util/Collection;->isEmpty()Z
-
-    move-result p1
-
-    const/4 v0, 0x1
-
-    xor-int/2addr p1, v0
-
-    if-eqz p1, :cond_0
-
-    iput-boolean v0, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->registered:Z
-
-    iget-object p0, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->contentObservers:Ljava/util/Set;
-
-    invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object p0
-
-    :goto_0
-    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_0
-
-    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/google/android/systemui/columbus/ColumbusContentObserver;
-
-    invoke-virtual {p1}, Lcom/google/android/systemui/columbus/ColumbusContentObserver;->activate()V
-
-    goto :goto_0
-
-    :cond_0
     return-void
 .end method
 
 .method public selectedAction()Ljava/lang/String;
     .locals 2
 
-    iget-object p0, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->contentResolver:Landroid/content/ContentResolver;
+    iget-object v0, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->contentResolver:Landroid/content/ContentResolver;
 
-    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
+    iget-object p0, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->userTracker:Lcom/android/systemui/settings/UserTracker;
 
-    move-result v0
+    invoke-interface {p0}, Lcom/android/systemui/settings/UserTracker;->getUserId()I
+
+    move-result p0
 
     const-string v1, "columbus_action"
 
-    invoke-static {p0, v1, v0}, Landroid/provider/Settings$Secure;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
+    invoke-static {v0, v1, p0}, Landroid/provider/Settings$Secure;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object p0
 
@@ -447,15 +461,17 @@
 .method public selectedApp()Ljava/lang/String;
     .locals 2
 
-    iget-object p0, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->contentResolver:Landroid/content/ContentResolver;
+    iget-object v0, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->contentResolver:Landroid/content/ContentResolver;
 
-    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
+    iget-object p0, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->userTracker:Lcom/android/systemui/settings/UserTracker;
 
-    move-result v0
+    invoke-interface {p0}, Lcom/android/systemui/settings/UserTracker;->getUserId()I
+
+    move-result p0
 
     const-string v1, "columbus_launch_app"
 
-    invoke-static {p0, v1, v0}, Landroid/provider/Settings$Secure;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
+    invoke-static {v0, v1, p0}, Landroid/provider/Settings$Secure;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object p0
 
@@ -470,15 +486,17 @@
 .method public selectedAppShortcut()Ljava/lang/String;
     .locals 2
 
-    iget-object p0, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->contentResolver:Landroid/content/ContentResolver;
+    iget-object v0, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->contentResolver:Landroid/content/ContentResolver;
 
-    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
+    iget-object p0, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->userTracker:Lcom/android/systemui/settings/UserTracker;
 
-    move-result v0
+    invoke-interface {p0}, Lcom/android/systemui/settings/UserTracker;->getUserId()I
+
+    move-result p0
 
     const-string v1, "columbus_launch_app_shortcut"
 
-    invoke-static {p0, v1, v0}, Landroid/provider/Settings$Secure;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
+    invoke-static {v0, v1, p0}, Landroid/provider/Settings$Secure;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object p0
 
@@ -493,17 +511,19 @@
 .method public silenceAlertsEnabled()Z
     .locals 3
 
-    iget-object p0, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->contentResolver:Landroid/content/ContentResolver;
+    iget-object v0, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->contentResolver:Landroid/content/ContentResolver;
 
-    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
+    iget-object p0, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->userTracker:Lcom/android/systemui/settings/UserTracker;
 
-    move-result v0
+    invoke-interface {p0}, Lcom/android/systemui/settings/UserTracker;->getUserId()I
+
+    move-result p0
 
     const-string v1, "columbus_silence_alerts"
 
     const/4 v2, 0x1
 
-    invoke-static {p0, v1, v2, v0}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+    invoke-static {v0, v1, v2, p0}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
 
     move-result p0
 
@@ -525,67 +545,29 @@
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->listeners:Ljava/util/Set;
+    iget-object p0, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->listeners:Ljava/util/Set;
 
-    invoke-interface {v0, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
+    invoke-interface {p0, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
-    iget-boolean p1, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->registered:Z
-
-    if-eqz p1, :cond_0
-
-    iget-object p1, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->listeners:Ljava/util/Set;
-
-    invoke-interface {p1}, Ljava/util/Set;->isEmpty()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_0
-
-    const/4 p1, 0x0
-
-    iput-boolean p1, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->registered:Z
-
-    iget-object p0, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->contentObservers:Ljava/util/Set;
-
-    invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object p0
-
-    :goto_0
-    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_0
-
-    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/google/android/systemui/columbus/ColumbusContentObserver;
-
-    invoke-virtual {p1}, Lcom/google/android/systemui/columbus/ColumbusContentObserver;->deactivate()V
-
-    goto :goto_0
-
-    :cond_0
     return-void
 .end method
 
 .method public useApSensor()Z
     .locals 3
 
-    iget-object p0, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->contentResolver:Landroid/content/ContentResolver;
+    iget-object v0, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->contentResolver:Landroid/content/ContentResolver;
 
-    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
+    iget-object p0, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->userTracker:Lcom/android/systemui/settings/UserTracker;
 
-    move-result v0
+    invoke-interface {p0}, Lcom/android/systemui/settings/UserTracker;->getUserId()I
+
+    move-result p0
 
     const-string v1, "columbus_ap_sensor"
 
     const/4 v2, 0x0
 
-    invoke-static {p0, v1, v2, v0}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+    invoke-static {v0, v1, v2, p0}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
 
     move-result p0
 
@@ -600,17 +582,19 @@
 .method public useLowSensitivity()Z
     .locals 3
 
-    iget-object p0, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->contentResolver:Landroid/content/ContentResolver;
+    iget-object v0, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->contentResolver:Landroid/content/ContentResolver;
 
-    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
+    iget-object p0, p0, Lcom/google/android/systemui/columbus/ColumbusSettings;->userTracker:Lcom/android/systemui/settings/UserTracker;
 
-    move-result v0
+    invoke-interface {p0}, Lcom/android/systemui/settings/UserTracker;->getUserId()I
+
+    move-result p0
 
     const-string v1, "columbus_low_sensitivity"
 
     const/4 v2, 0x0
 
-    invoke-static {p0, v1, v2, v0}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+    invoke-static {v0, v1, v2, p0}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
 
     move-result p0
 

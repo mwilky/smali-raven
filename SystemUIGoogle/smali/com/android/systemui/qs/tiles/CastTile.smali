@@ -487,6 +487,40 @@
     return-void
 .end method
 
+.method private willPopDetail()Z
+    .locals 2
+
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/CastTile;->getActiveDevices()Ljava/util/List;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Ljava/util/List;->isEmpty()Z
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    if-nez v0, :cond_0
+
+    invoke-interface {p0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/systemui/statusbar/policy/CastController$CastDevice;
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/CastController$CastDevice;->tag:Ljava/lang/Object;
+
+    instance-of p0, p0, Landroid/media/MediaRouter$RouteInfo;
+
+    if-eqz p0, :cond_1
+
+    :cond_0
+    const/4 v1, 0x1
+
+    :cond_1
+    return v1
+.end method
+
 
 # virtual methods
 .method protected composeChangeAnnouncement()Ljava/lang/String;
@@ -559,7 +593,7 @@
 .end method
 
 .method protected handleClick(Landroid/view/View;)V
-    .locals 2
+    .locals 1
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->getState()Lcom/android/systemui/plugins/qs/QSTile$State;
 
@@ -578,30 +612,26 @@
 
     move-result-object p1
 
-    invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/CastTile;->willPopDetail()Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-eqz v0, :cond_1
 
-    const/4 v0, 0x0
+    iget-object p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
 
-    invoke-interface {p1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    new-instance v0, Lcom/android/systemui/qs/tiles/CastTile$$ExternalSyntheticLambda1;
 
-    move-result-object v1
+    invoke-direct {v0, p0}, Lcom/android/systemui/qs/tiles/CastTile$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/qs/tiles/CastTile;)V
 
-    check-cast v1, Lcom/android/systemui/statusbar/policy/CastController$CastDevice;
-
-    iget-object v1, v1, Lcom/android/systemui/statusbar/policy/CastController$CastDevice;->tag:Ljava/lang/Object;
-
-    instance-of v1, v1, Landroid/media/MediaRouter$RouteInfo;
-
-    if-eqz v1, :cond_1
+    invoke-interface {p1, v0}, Lcom/android/systemui/plugins/ActivityStarter;->postQSRunnableDismissingKeyguard(Ljava/lang/Runnable;)V
 
     goto :goto_0
 
     :cond_1
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/CastTile;->mController:Lcom/android/systemui/statusbar/policy/CastController;
+
+    const/4 v0, 0x0
 
     invoke-interface {p1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -611,19 +641,7 @@
 
     invoke-interface {p0, p1}, Lcom/android/systemui/statusbar/policy/CastController;->stopCasting(Lcom/android/systemui/statusbar/policy/CastController$CastDevice;)V
 
-    goto :goto_1
-
-    :cond_2
     :goto_0
-    iget-object p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
-
-    new-instance v0, Lcom/android/systemui/qs/tiles/CastTile$$ExternalSyntheticLambda1;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/qs/tiles/CastTile$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/qs/tiles/CastTile;)V
-
-    invoke-interface {p1, v0}, Lcom/android/systemui/plugins/ActivityStarter;->postQSRunnableDismissingKeyguard(Ljava/lang/Runnable;)V
-
-    :goto_1
     return-void
 .end method
 
@@ -839,13 +857,15 @@
 
     iget-object p2, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
 
-    sget v0, Lcom/android/systemui/R$string;->quick_settings_cast_no_wifi:I
+    sget v2, Lcom/android/systemui/R$string;->quick_settings_cast_no_wifi:I
 
-    invoke-virtual {p2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {p2, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object p2
 
     iput-object p2, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->secondaryLabel:Ljava/lang/CharSequence;
+
+    iput-boolean v0, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->forceExpandIcon:Z
 
     goto :goto_5
 
@@ -901,6 +921,12 @@
     move-result-object p2
 
     iput-object p2, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->expandedAccessibilityClassName:Ljava/lang/String;
+
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/CastTile;->willPopDetail()Z
+
+    move-result p2
+
+    iput-boolean p2, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->forceExpandIcon:Z
 
     :goto_5
     new-instance p2, Ljava/lang/StringBuilder;

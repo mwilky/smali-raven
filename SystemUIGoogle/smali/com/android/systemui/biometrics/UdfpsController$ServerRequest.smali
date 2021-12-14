@@ -40,13 +40,7 @@
 
 # virtual methods
 .method onAcquiredGood()V
-    .locals 2
-
-    const-string v0, "UdfpsController"
-
-    const-string v1, "onAcquiredGood"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsController$ServerRequest;->mEnrollHelper:Lcom/android/systemui/biometrics/UdfpsEnrollHelper;
 
@@ -59,13 +53,7 @@
 .end method
 
 .method onEnrollmentHelp()V
-    .locals 2
-
-    const-string v0, "UdfpsController"
-
-    const-string v1, "onEnrollmentHelp"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsController$ServerRequest;->mEnrollHelper:Lcom/android/systemui/biometrics/UdfpsEnrollHelper;
 

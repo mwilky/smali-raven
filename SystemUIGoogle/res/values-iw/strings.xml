@@ -363,6 +363,7 @@
     <string name="alarms_and_reminders_label">שעונים מעוררים ותזכורות</string>
     <string name="alarms_and_reminders_switch_title">אישור להגדיר שעונים מעוררים ותזכורות</string>
     <string name="alarms_and_reminders_title">שעונים מעוררים ותזכורות</string>
+    <string name="all_network_unavailable">אין רשתות זמינות</string>
     <string name="allow_mock_location">אפשרות של מיקומים מדומים</string>
     <string name="allow_mock_location_summary">אפשרות של מיקומים מדומים</string>
     <string name="always_use_accessory">האפליקציה %1$s תמיד תיפתח כשההתקן %2$s יחובר</string>
@@ -618,6 +619,11 @@
     <string name="clock_title_analog">אנלוגי</string>
     <string name="clock_title_bubble">בועה</string>
     <string name="clock_title_default">ברירת מחדל</string>
+    <string name="columbus_bouncer_message">כדי להשלים את ההקשה המהירה, צריך לבטל את הנעילה</string>
+    <string name="columbus_target_request_dialog_allow">אישור</string>
+    <string name="columbus_target_request_dialog_deny">אין אישור</string>
+    <string name="columbus_target_request_dialog_summary">"כשלוחצים פעמיים על גב הטלפון, האפליקציה %1$s נפתחת. אפשר לשנות את ההעדפה הזו בכל שלב ב'הגדרות'."</string>
+    <string name="columbus_target_request_dialog_title">להשתמש בהקשה מהירה כדי לפתוח את %1$s?</string>
     <string name="compat_mode_off">מתיחה למילוי של המסך</string>
     <string name="compat_mode_on">הגדלת התצוגה למילוי המסך</string>
     <string name="confirm_enable_oem_unlock_text">אזהרה: תכונות הגנת מכשיר לא יפעלו במכשיר הזה כשההגדרה הזו פועלת.</string>
@@ -740,6 +746,8 @@
     <string name="defender_notify_learn_more">מידע נוסף</string>
     <string name="defender_notify_resume_charge">המשך הטעינה</string>
     <string name="defender_notify_title">הטעינה מוגבלת באופן זמני</string>
+    <string name="defender_post_notify_des">כדי לשמור על תקינות הסוללה, הטעינה הוגבלה ל-%1$s משעה %2$s עד %3$s</string>
+    <string name="defender_post_notify_title">הטעינה מתבצעת כרגיל</string>
     <string name="delete_blob_confirmation_text">הנתונים המשותפים יימחקו. להמשיך?</string>
     <string name="delete_blob_text">מחיקת הנתונים המשותפים</string>
     <string name="demo_mode">מצב הדגמה בממשק המשתמש של המערכת</string>
@@ -885,6 +893,7 @@
     <string name="game_status">במשחק פעיל</string>
     <string name="global_action_lock_message">לאפשרויות נוספות, יש לבטל את נעילת הטלפון</string>
     <string name="global_action_screenshot">צילום מסך</string>
+    <string name="global_action_smart_lock_disabled">‏השבתת את Smart Lock</string>
     <string name="global_actions_change_description">כדי לגשת אל %1$s ולפקדי המכשירים, צריך להחליק למטה מהחלק העליון של המסך</string>
     <string name="go_to_web">מעבר אל הדפדפן</string>
     <string name="google_services_wallpaper_permission">‏<b>לאשר לטפטים הדינמיים של Google להגיב למיקום שלך</b> על ידי גישה לשירות המיקום של Google.</string>
@@ -1066,7 +1075,7 @@
     <string name="keyguard_permanent_disabled_sim_message_short">‏לא ניתן להשתמש בכרטיס SIM זה.</string>
     <string name="keyguard_plugged_in">%s • בטעינה</string>
     <string name="keyguard_plugged_in_charging_fast">%s • בטעינה מהירה</string>
-    <string name="keyguard_plugged_in_charging_limited">%s • הטעינה מוגבלת זמנית</string>
+    <string name="keyguard_plugged_in_charging_limited">%s • הטעינה מוגבלת באופן זמני</string>
     <string name="keyguard_plugged_in_charging_slowly">%s • בטעינה איטית</string>
     <string name="keyguard_plugged_in_wireless">%s • בטעינה אלחוטית</string>
     <string name="keyguard_retry">יש להחליק למעלה כדי לנסות שוב</string>
@@ -1232,7 +1241,7 @@
     <string name="media_projection_dialog_text">‏לאפליקציית %s תהיה גישה לכל המידע הגלוי במסך שלך ולכל תוכן שמופעל במכשיר שלך בזמן הקלטה או העברה (casting). המידע הזה כולל פרטים כמו סיסמאות, פרטי תשלום, תמונות, הודעות ואודיו שמושמע מהמכשיר.</string>
     <string name="media_projection_dialog_title">‏להתחיל להקליט או להעביר (cast) באמצעות %s?</string>
     <string name="media_projection_remember_text">לא להציג שוב</string>
-    <string name="media_seamless_remote_device">מכשיר</string>
+    <string name="media_seamless_other_device">מכשיר אחר</string>
     <string name="media_transfer_this_device_name">רמקול של הטלפון</string>
     <string name="media_transfer_this_phone">הטלפון הזה</string>
     <string name="media_transfer_wired_device_name">התקן אודיו חוטי</string>
@@ -1249,9 +1258,13 @@
     <string name="mobile_data">חבילת גלישה</string>
     <string name="mobile_data_always_on">חבילת הגלישה פעילה תמיד</string>
     <string name="mobile_data_always_on_summary">‏השארת חבילת הגלישה פעילה תמיד, גם כש-Wi‑Fi פעיל (למעבר מהיר בין רשתות).</string>
+    <string name="mobile_data_connection_active">מחובר</string>
     <string name="mobile_data_disable_message">‏לא תהיה לך גישה לנתונים או לאינטרנט באמצעות %s. אינטרנט יהיה זמין רק באמצעות Wi-Fi.</string>
     <string name="mobile_data_disable_message_default_carrier">הספק שלך</string>
     <string name="mobile_data_disable_title">לכבות את חבילת הגלישה?</string>
+    <string name="mobile_data_no_connection">אין חיבור</string>
+    <string name="mobile_data_off_summary">החיבור לנתונים סלולריים לא מתבצע באופן אוטומטי</string>
+    <string name="mobile_data_settings_title">חבילת גלישה</string>
     <string name="mobile_data_text_format">%1$s ‏— %2$s</string>
     <string name="mock_location_app">בחירת אפליקציה להדמיית מיקום</string>
     <string name="mock_location_app_not_set">לא הוגדרה אפליקציה להדמיית מיקום</string>
@@ -1391,6 +1404,7 @@
     <string name="no_content_in_select_mode">אין טקסט או תמונה לבחירה</string>
     <string name="no_conversations_text">השיחות האחרונות שלך יופיעו כאן</string>
     <string name="no_shortcut">האפליקציה %1$s לא תומכת בתכונות השיחה</string>
+    <string name="non_carrier_network_unavailable">אין רשתות זמינות אחרות</string>
     <string name="not_default_data_content_description">לא מוגדרת לשימוש בנתונים</string>
     <string name="not_set">לא מוגדרת</string>
     <string name="notif_inline_reply_remove_attachment_description">הסרת הקובץ המצורף</string>
@@ -1571,6 +1585,7 @@
     <string name="power_remaining_only_more_than_subtext">יש יותר מ-%1$s</string>
     <string name="power_remaining_settings_home_page">%1$s – %2$s</string>
     <string name="power_suggestion_battery_run_out">ייתכן שהסוללה תתרוקן עד %1$s</string>
+    <string name="pref_title_network_details">פרטי הרשת</string>
     <string name="preference_copied">\"%1$s\" הועתק ללוח.</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">שיחות בעדיפות גבוהה</string>
@@ -1740,6 +1755,7 @@
     <string name="right_keycode">קוד מפתח ימני</string>
     <string name="right_nav_bar_button_type">סוג נוסף של לחצן ימני</string>
     <string name="ring_toggle_title">שיחות</string>
+    <string name="rotation_lock_camera_rotation_on">פועל – מבוסס על זיהוי פנים</string>
     <string name="running_foreground_services_msg">אפשר להקיש לקבלת פרטים על צריכה של נתונים וסוללה</string>
     <string name="running_foreground_services_title">אפליקציות שפועלות ברקע</string>
     <string name="running_process_item_user_label">משתמש: %1$s</string>
@@ -1814,6 +1830,7 @@
     <string name="screenshot_top_boundary_pct">%1$d אחוז מהשוליים העליונים</string>
     <string name="search_menu">חיפוש בהגדרות</string>
     <string name="search_menu_title">חיפוש</string>
+    <string name="see_all_networks">הצגת הכול</string>
     <string name="see_more_title">עוד</string>
     <string name="select_application">בחירת אפליקציה</string>
     <string name="select_conversation_text">יש להקיש על שיחה כדי להוסיף אותה למסך הבית</string>
@@ -1926,6 +1943,7 @@
     <string name="switch_bar_off">כבוי</string>
     <string name="switch_bar_on">פועל</string>
     <string name="system_ui_tuner">System UI Tuner</string>
+    <string name="tap_a_network_to_connect">צריך להקיש על רשת כדי להתחבר</string>
     <string name="tap_again">צריך להקיש פעם נוספת</string>
     <string name="tap_to_sign_up">יש להקיש כדי להירשם</string>
     <string name="tether_settings_title_all">נקודה לשיתוף אינטרנט</string>
@@ -1951,6 +1969,7 @@
     <string name="time_unit_just_now">הרגע</string>
     <string name="title_convert_fbe">המרה להצפנה מבוססת קבצים</string>
     <string name="title_usb_accessory">‏אביזר USB</string>
+    <string name="to_switch_networks_disconnect_ethernet">כדי לעבור בין רשתות, צריך לנתק את האתרנט</string>
     <string name="too_hot_label">‏מכשיר ה-Pixel התחמם יותר מדי</string>
     <string name="touch_filtered_warning">יש אפליקציה שמסתירה את בקשת ההרשאה, ולכן אין אפשרות לאמת את התשובה בהגדרות.</string>
     <string name="track_frame_time">‏עיבוד פרופיל ב-HWUI</string>
@@ -2009,10 +2028,12 @@
     <string name="tuner_toast">"‏מעולה, ה-System UI Tuner נוסף ל'הגדרות'"</string>
     <string name="tuner_warning">‏התכונה System UI Tuner מספקת לך דרכים נוספות להתאים אישית את ממשק המשתמש של Android. התכונות הניסיוניות האלה עשויות להשתנות, לא לעבוד כראוי או להיעלם בגרסאות עתידיות. יש להמשיך בזהירות.</string>
     <string name="tuner_warning_title">מהנה בשביל חלק מהאנשים, אבל לא בשביל כולם</string>
+    <string name="turn_on_wifi">Wi-Fi</string>
     <string name="tv_notification_panel_no_notifications">אין התראות</string>
     <string name="tv_notification_panel_title">התראות</string>
     <string name="two_weeks_timestamp">לפני שבועיים</string>
     <string name="unknown">לא ידוע</string>
+    <string name="unlock_to_view_networks">צריך לבטל את הנעילה כדי להציג את הרשתות</string>
     <string name="upcoming_birthday_status">יום הולדת יחול בקרוב</string>
     <string name="upcoming_birthday_status_content_description">יום ההולדת של %1$s מתקרב</string>
     <string name="url_menu_copy">העתקה</string>
@@ -2151,9 +2172,11 @@
     <string name="wifi_disconnected">מנותקת</string>
     <string name="wifi_display_certification">‏אישור של תצוגת Wi-Fi</string>
     <string name="wifi_display_certification_summary">‏הצגת אפשרויות עבור אישור של תצוגת Wi-Fi</string>
+    <string name="wifi_empty_list_wifi_on">בתהליך חיפוש רשתות…</string>
     <string name="wifi_enhanced_mac_randomization">‏רנדומיזציה של כתובות MAC בלי חיבור יציב ל-Wi-Fi</string>
     <string name="wifi_enhanced_mac_randomization_summary">‏כשמצב זה מופעל, כתובת ה-MAC של המכשיר הזה עשויה להשתנות בכל פעם שהוא מתחבר לרשת שפועלת בה רנדומיזציה של כתובות MAC.</string>
     <string name="wifi_fail_to_scan">לא ניתן לסרוק לאיתור רשתות</string>
+    <string name="wifi_failed_connect_message">נכשל הניסיון להתחבר לרשת</string>
     <string name="wifi_hotspot_switch_off_text">מצב כבוי</string>
     <string name="wifi_hotspot_switch_on_text">פועלת</string>
     <string name="wifi_is_off">‏Wi-Fi כבוי</string>
@@ -2164,6 +2187,7 @@
     <string name="wifi_not_in_range">מחוץ לטווח</string>
     <string name="wifi_passpoint_expired">התוקף פג</string>
     <string name="wifi_remembered">נשמר</string>
+    <string name="wifi_scan_notify_message">‏כדי לשפר את חוויית השימוש במכשיר, אפליקציות ושירותים יוכלו לחפש רשתות Wi-Fi בכל שלב, גם כאשר ה-Wi-Fi כבוי. אפשר לשנות זאת בהגדרות של חיפוש נקודות Wi-Fi. <annotation id="link">שינוי</annotation></string>
     <string name="wifi_scan_throttling">‏ויסות סריקה לנקודות Wi-Fi</string>
     <string name="wifi_scan_throttling_summary">אפשרות זו מפחיתה את קצב התרוקנות הסוללה ומשפרת את ביצועי הרשת</string>
     <string name="wifi_security_none">ללא</string>
@@ -2173,6 +2197,7 @@
     <string name="wifi_unmetered_label">לא נמדדת</string>
     <string name="wifi_verbose_logging">‏הפעלת רישום מפורט של Wi‑Fi ביומן</string>
     <string name="wifi_verbose_logging_summary">‏העלאת רמת הרישום של Wi‑Fi ביומן, הצגה לכל SSID RSSI ב-Wi‑Fi Picker</string>
+    <string name="wifi_wont_autoconnect_for_now">‏ה-Wi-Fi לא יתחבר באופן אוטומטי בינתיים</string>
     <string name="wifitrackerlib_auto_connect_disable">החיבור האוטומטי כבוי</string>
     <string name="wifitrackerlib_available_via_app">זמינה דרך %1$s</string>
     <string name="wifitrackerlib_connected_via_app">מחובר דרך %1$s</string>

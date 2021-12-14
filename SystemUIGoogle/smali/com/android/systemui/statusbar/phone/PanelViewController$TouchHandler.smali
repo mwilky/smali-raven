@@ -45,7 +45,7 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_e
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
 
@@ -53,7 +53,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_e
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
 
@@ -61,7 +61,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_e
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
 
@@ -77,7 +77,7 @@
 
     if-eqz v0, :cond_0
 
-    goto/16 :goto_3
+    goto/16 :goto_2
 
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
@@ -123,9 +123,9 @@
 
     const/4 v5, 0x1
 
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_b
 
-    if-eq v4, v5, :cond_8
+    if-eq v4, v5, :cond_a
 
     const/4 v6, 0x2
 
@@ -133,7 +133,7 @@
 
     const/4 v0, 0x3
 
-    if-eq v4, v0, :cond_8
+    if-eq v4, v0, :cond_a
 
     const/4 v0, 0x5
 
@@ -160,7 +160,7 @@
 
     move-result v2
 
-    if-ne v2, v0, :cond_c
+    if-ne v2, v0, :cond_e
 
     invoke-virtual {p1, v1}, Landroid/view/MotionEvent;->getPointerId(I)I
 
@@ -168,37 +168,32 @@
 
     if-eq v2, v0, :cond_3
 
-    move v0, v1
-
-    goto :goto_0
+    move v5, v1
 
     :cond_3
-    move v0, v5
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
 
-    :goto_0
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
+    invoke-virtual {p1, v5}, Landroid/view/MotionEvent;->getPointerId(I)I
 
-    invoke-virtual {p1, v0}, Landroid/view/MotionEvent;->getPointerId(I)I
+    move-result v2
 
-    move-result v3
+    invoke-static {v0, v2}, Lcom/android/systemui/statusbar/phone/PanelViewController;->access$1402(Lcom/android/systemui/statusbar/phone/PanelViewController;I)I
 
-    invoke-static {v2, v3}, Lcom/android/systemui/statusbar/phone/PanelViewController;->access$1402(Lcom/android/systemui/statusbar/phone/PanelViewController;I)I
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
+    invoke-virtual {p1, v5}, Landroid/view/MotionEvent;->getX(I)F
 
-    invoke-virtual {p1, v0}, Landroid/view/MotionEvent;->getX(I)F
+    move-result v2
 
-    move-result v3
+    invoke-static {v0, v2}, Lcom/android/systemui/statusbar/phone/PanelViewController;->access$2102(Lcom/android/systemui/statusbar/phone/PanelViewController;F)F
 
-    invoke-static {v2, v3}, Lcom/android/systemui/statusbar/phone/PanelViewController;->access$2102(Lcom/android/systemui/statusbar/phone/PanelViewController;F)F
+    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
-
-    invoke-virtual {p1, v0}, Landroid/view/MotionEvent;->getY(I)F
+    invoke-virtual {p1, v5}, Landroid/view/MotionEvent;->getY(I)F
 
     move-result p1
 
-    invoke-static {v2, p1}, Lcom/android/systemui/statusbar/phone/PanelViewController;->access$2002(Lcom/android/systemui/statusbar/phone/PanelViewController;F)F
+    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/phone/PanelViewController;->access$2002(Lcom/android/systemui/statusbar/phone/PanelViewController;F)F
 
     goto/16 :goto_2
 
@@ -211,19 +206,19 @@
 
     move-result p1
 
-    if-ne p1, v5, :cond_c
+    if-ne p1, v5, :cond_e
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
 
     invoke-static {p1, v5}, Lcom/android/systemui/statusbar/phone/PanelViewController;->access$1302(Lcom/android/systemui/statusbar/phone/PanelViewController;Z)Z
 
-    iget-object p1, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
 
-    invoke-static {p1}, Lcom/android/systemui/statusbar/phone/PanelViewController;->access$2900(Lcom/android/systemui/statusbar/phone/PanelViewController;)Landroid/view/VelocityTracker;
+    invoke-static {p0}, Lcom/android/systemui/statusbar/phone/PanelViewController;->access$2900(Lcom/android/systemui/statusbar/phone/PanelViewController;)Landroid/view/VelocityTracker;
 
-    move-result-object p1
+    move-result-object p0
 
-    invoke-virtual {p1}, Landroid/view/VelocityTracker;->clear()V
+    invoke-virtual {p0}, Landroid/view/VelocityTracker;->clear()V
 
     goto/16 :goto_2
 
@@ -240,7 +235,31 @@
 
     invoke-static {v6, p1}, Lcom/android/systemui/statusbar/phone/PanelViewController;->access$2800(Lcom/android/systemui/statusbar/phone/PanelViewController;Landroid/view/MotionEvent;)V
 
-    if-nez v3, :cond_6
+    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
+
+    invoke-static {v6}, Lcom/android/systemui/statusbar/phone/PanelViewController;->access$2300(Lcom/android/systemui/statusbar/phone/PanelViewController;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_6
+
+    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
+
+    invoke-static {v6}, Lcom/android/systemui/statusbar/phone/PanelViewController;->access$2400(Lcom/android/systemui/statusbar/phone/PanelViewController;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_6
+
+    move v6, v5
+
+    goto :goto_0
+
+    :cond_6
+    move v6, v1
+
+    :goto_0
+    if-nez v3, :cond_7
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
 
@@ -248,7 +267,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_6
+    if-nez v3, :cond_7
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
 
@@ -256,24 +275,28 @@
 
     move-result v3
 
-    if-eqz v3, :cond_c
+    if-nez v3, :cond_7
 
-    :cond_6
+    if-eqz v6, :cond_e
+
+    :cond_7
     invoke-static {v4}, Ljava/lang/Math;->abs(F)F
 
     move-result v3
 
-    iget-object v6, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
 
-    invoke-virtual {v6, p1}, Lcom/android/systemui/statusbar/phone/PanelViewController;->getTouchSlop(Landroid/view/MotionEvent;)F
+    invoke-virtual {v7, p1}, Lcom/android/systemui/statusbar/phone/PanelViewController;->getTouchSlop(Landroid/view/MotionEvent;)F
 
     move-result p1
 
-    neg-float v6, p1
+    neg-float v7, p1
 
-    cmpg-float v4, v4, v6
+    cmpg-float v4, v4, v7
 
-    if-ltz v4, :cond_7
+    if-ltz v4, :cond_9
+
+    if-nez v6, :cond_8
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
 
@@ -281,13 +304,14 @@
 
     move-result v4
 
-    if-eqz v4, :cond_c
+    if-eqz v4, :cond_e
 
+    :cond_8
     cmpl-float p1, v3, p1
 
-    if-lez p1, :cond_c
+    if-lez p1, :cond_e
 
-    :cond_7
+    :cond_9
     iget-object p1, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
 
     invoke-static {p1}, Lcom/android/systemui/statusbar/phone/PanelViewController;->access$2100(Lcom/android/systemui/statusbar/phone/PanelViewController;)F
@@ -302,7 +326,7 @@
 
     cmpl-float p1, v3, p1
 
-    if-lez p1, :cond_c
+    if-lez p1, :cond_e
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
 
@@ -316,18 +340,18 @@
 
     return v5
 
-    :cond_8
-    iget-object p1, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
+    :cond_a
+    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
 
-    invoke-static {p1}, Lcom/android/systemui/statusbar/phone/PanelViewController;->access$2900(Lcom/android/systemui/statusbar/phone/PanelViewController;)Landroid/view/VelocityTracker;
+    invoke-static {p0}, Lcom/android/systemui/statusbar/phone/PanelViewController;->access$2900(Lcom/android/systemui/statusbar/phone/PanelViewController;)Landroid/view/VelocityTracker;
 
-    move-result-object p1
+    move-result-object p0
 
-    invoke-virtual {p1}, Landroid/view/VelocityTracker;->clear()V
+    invoke-virtual {p0}, Landroid/view/VelocityTracker;->clear()V
 
     goto/16 :goto_2
 
-    :cond_9
+    :cond_b
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
 
     iget-object v3, v3, Lcom/android/systemui/statusbar/phone/PanelViewController;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
@@ -340,7 +364,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_c
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
 
@@ -348,13 +372,13 @@
 
     move-result v4
 
-    if-nez v4, :cond_a
+    if-nez v4, :cond_c
 
     move v4, v5
 
     goto :goto_1
 
-    :cond_a
+    :cond_c
     move v4, v1
 
     :goto_1
@@ -380,7 +404,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_d
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
 
@@ -388,13 +412,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_d
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
 
     iget-boolean v4, v3, Lcom/android/systemui/statusbar/phone/PanelViewController;->mHintAnimationRunning:Z
 
-    if-nez v4, :cond_b
+    if-nez v4, :cond_d
 
     invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/PanelViewController;->cancelHeightAnimator()V
 
@@ -404,7 +428,7 @@
 
     return v5
 
-    :cond_b
+    :cond_d
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
 
     invoke-static {v3, v0}, Lcom/android/systemui/statusbar/phone/PanelViewController;->access$2002(Lcom/android/systemui/statusbar/phone/PanelViewController;F)F
@@ -457,28 +481,12 @@
 
     invoke-static {v0, v1}, Lcom/android/systemui/statusbar/phone/PanelViewController;->access$2702(Lcom/android/systemui/statusbar/phone/PanelViewController;Z)Z
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
-
-    invoke-static {v0, p1}, Lcom/android/systemui/statusbar/phone/PanelViewController;->access$2800(Lcom/android/systemui/statusbar/phone/PanelViewController;Landroid/view/MotionEvent;)V
-
-    :cond_c
-    :goto_2
     iget-object p0, p0, Lcom/android/systemui/statusbar/phone/PanelViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/phone/PanelViewController;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/phone/PanelViewController;->access$100(Lcom/android/systemui/statusbar/phone/PanelViewController;)Lcom/android/systemui/statusbar/phone/PanelView;
+    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/phone/PanelViewController;->access$2800(Lcom/android/systemui/statusbar/phone/PanelViewController;Landroid/view/MotionEvent;)V
 
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getVisibility()I
-
-    move-result p0
-
-    if-eqz p0, :cond_d
-
-    move v1, v5
-
-    :cond_d
-    :goto_3
+    :cond_e
+    :goto_2
     return v1
 .end method
 

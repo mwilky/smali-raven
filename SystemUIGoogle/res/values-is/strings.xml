@@ -363,6 +363,7 @@ Ef slökkt er á þessari heimild munu núverandi vekjarar og tímasettir viðbu
     <string name="alarms_and_reminders_label">Vekjarar og áminningar</string>
     <string name="alarms_and_reminders_switch_title">Leyfa stillingu vekjara og áminninga</string>
     <string name="alarms_and_reminders_title">Vekjarar og áminningar</string>
+    <string name="all_network_unavailable">Ekkert net í boði</string>
     <string name="allow_mock_location">Leyfa gervistaðsetningar</string>
     <string name="allow_mock_location_summary">Leyfa gervistaðsetningar</string>
     <string name="always_use_accessory">Opna alltaf %1$s þegar %2$s er tengt</string>
@@ -618,6 +619,11 @@ Val"</string>
     <string name="clock_title_analog">Með vísum</string>
     <string name="clock_title_bubble">Blaðra</string>
     <string name="clock_title_default">Sjálfgefið</string>
+    <string name="columbus_bouncer_message">Taktu úr lás til að ljúka við að pikka</string>
+    <string name="columbus_target_request_dialog_allow">Leyfa</string>
+    <string name="columbus_target_request_dialog_deny">Ekki leyfa</string>
+    <string name="columbus_target_request_dialog_summary">%1$s opnast þegar þú ýtir tvisvar á bakhlið símans. Þú getur breytt þessu vali hvenær sem er í stillingunum.</string>
+    <string name="columbus_target_request_dialog_title">Leyfa pikki að opna %1$s?</string>
     <string name="compat_mode_off">Teygja yfir allan skjáinn</string>
     <string name="compat_mode_on">Fylla skjá með aðdrætti</string>
     <string name="confirm_enable_oem_unlock_text">VIÐVÖRUN: Öryggiseiginleikar til að vernda tækið virka ekki í þessu tæki þegar þessi stilling er virk.</string>
@@ -740,6 +746,8 @@ Ef þú heldur áfram gætu gjöld verið innheimt fyrir gagnanotkun."</string>
     <string name="defender_notify_learn_more">Nánar</string>
     <string name="defender_notify_resume_charge">Halda hleðslu áfram</string>
     <string name="defender_notify_title">Hleðsla takmörkuð tímabundið</string>
+    <string name="defender_post_notify_des">Hleðsla var takmörkuð við %1$s frá %2$s til %3$s til að lengja rafhlöðuendingu</string>
+    <string name="defender_post_notify_title">Hleður eins og venjulega</string>
     <string name="delete_blob_confirmation_text">Ertu viss um að þú viljir eyða þessum deildu gögnum?</string>
     <string name="delete_blob_text">Eyða deildum gögnum</string>
     <string name="demo_mode">Prufustilling kerfisviðmóts</string>
@@ -885,6 +893,7 @@ Andlitsgögnum sem andlitskenni notar verður eytt varanlega og á öruggan hát
     <string name="game_status">Spilar</string>
     <string name="global_action_lock_message">Taktu símann úr lás til að fá fleiri valkosti</string>
     <string name="global_action_screenshot">Skjámynd</string>
+    <string name="global_action_smart_lock_disabled">Slökkt á Smart Lock</string>
     <string name="global_actions_change_description">Til að opna %1$s og tækjastjórnun skaltu strjúka niður frá efri hluta skjásins</string>
     <string name="go_to_web">Opna vafra</string>
     <string name="google_services_wallpaper_permission"><b>Leyfa kviku veggfóðri Google að bregðast við staðsetningu þinni</b> með því að fá aðgang að staðsetningarþjónustu Google.</string>
@@ -1232,7 +1241,7 @@ Reyndu aftur eftir %2$d sekúndur."</string>
     <string name="media_projection_dialog_text">%s mun hafa aðgang að öllum upplýsingum sem sjást á skjánum eða eru spilaðar í tækinu á meðan upptaka eða útsending er í gangi. Þar á meðal eru upplýsingar á borð við aðgangsorð, greiðsluupplýsingar, myndir, skilaboð og hljóð sem þú spilar.</string>
     <string name="media_projection_dialog_title">Viltu hefja upptöku eða útsendingu með %s?</string>
     <string name="media_projection_remember_text">Ekki sýna þetta aftur</string>
-    <string name="media_seamless_remote_device">Tæki</string>
+    <string name="media_seamless_other_device">Annað tæki</string>
     <string name="media_transfer_this_device_name">Símahátalari</string>
     <string name="media_transfer_this_phone">Þessi sími</string>
     <string name="media_transfer_wired_device_name">Snúrutengt hljómtæki</string>
@@ -1249,9 +1258,13 @@ Reyndu aftur eftir %2$d sekúndur."</string>
     <string name="mobile_data">Farsímagögn</string>
     <string name="mobile_data_always_on">Alltaf kveikt á farsímagögnum</string>
     <string name="mobile_data_always_on_summary">Hafa alltaf kveikt á farsímagögnum, líka þegar kveikt er á Wi-Fi (til að skipta megi hratt milli kerfa).</string>
+    <string name="mobile_data_connection_active">Tengt</string>
     <string name="mobile_data_disable_message">Þú munt ekki hafa aðgang að gögnum eða internetinu í gegnum %s. Aðeins verður hægt að tengjast internetinu með Wi-Fi.</string>
     <string name="mobile_data_disable_message_default_carrier">símafyrirtækið þitt</string>
     <string name="mobile_data_disable_title">Viltu slökkva á farsímagögnum?</string>
+    <string name="mobile_data_no_connection">Engin tenging</string>
+    <string name="mobile_data_off_summary">Farsímagögn tengjast ekki sjálfkrafa</string>
+    <string name="mobile_data_settings_title">Farsímagögn</string>
     <string name="mobile_data_text_format">%1$s – %2$s</string>
     <string name="mock_location_app">Velja forrit fyrir gervistaðsetningar</string>
     <string name="mock_location_app_not_set">Ekkert forrit fyrir gervistaðsetningar sett upp</string>
@@ -1391,6 +1404,7 @@ Ef spurningar vakna skaltu hafa samband við %2$s."</string>
     <string name="no_content_in_select_mode">Enginn texti eða mynd til að velja</string>
     <string name="no_conversations_text">Hér birtast nýleg samtöl frá þér</string>
     <string name="no_shortcut">%1$s styður ekki samtalseiginleika</string>
+    <string name="non_carrier_network_unavailable">Engin önnur net í boði</string>
     <string name="not_default_data_content_description">Ekki stillt á að nota gögn</string>
     <string name="not_set">Ekki stillt</string>
     <string name="notif_inline_reply_remove_attachment_description">Fjarlægja viðhengi</string>
@@ -1571,6 +1585,7 @@ Ef spurningar vakna skaltu hafa samband við %2$s."</string>
     <string name="power_remaining_only_more_than_subtext">Meira en %1$s eftir</string>
     <string name="power_remaining_settings_home_page">%1$s – %2$s</string>
     <string name="power_suggestion_battery_run_out">Rafhlaðan gæti tæmst kl. %1$s</string>
+    <string name="pref_title_network_details">Upplýsingar um net</string>
     <string name="preference_copied">„%1$s“ afritað á klippiborðið.</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">Forgangssamtöl</string>
@@ -1740,6 +1755,7 @@ Ef spurningar vakna skaltu hafa samband við %2$s."</string>
     <string name="right_keycode">Lykiltákn til hægri</string>
     <string name="right_nav_bar_button_type">Gerð aukahnapps til hægri</string>
     <string name="ring_toggle_title">Símtöl</string>
+    <string name="rotation_lock_camera_rotation_on">Kveikt – út frá andliti</string>
     <string name="running_foreground_services_msg">Ýttu til að fá upplýsingar um rafhlöðu- og gagnanotkun</string>
     <string name="running_foreground_services_title">Forrit sem keyra í bakgrunni</string>
     <string name="running_process_item_user_label">Notandi: %1$s</string>
@@ -1814,6 +1830,7 @@ Ef spurningar vakna skaltu hafa samband við %2$s."</string>
     <string name="screenshot_top_boundary_pct">Efri mörk %1$d prósent</string>
     <string name="search_menu">Leita í stillingum</string>
     <string name="search_menu_title">Leit</string>
+    <string name="see_all_networks">Sjá allt</string>
     <string name="see_more_title">Sjá meira</string>
     <string name="select_application">Veldu forrit</string>
     <string name="select_conversation_text">Ýttu á samtal til að bæta því á heimaskjáinn</string>
@@ -1926,6 +1943,7 @@ fylgst með netinu"</string>
     <string name="switch_bar_off">Slökkt</string>
     <string name="switch_bar_on">Kveikt</string>
     <string name="system_ui_tuner">Fínstillingar kerfisviðmóts</string>
+    <string name="tap_a_network_to_connect">Ýttu á net til að tengjast</string>
     <string name="tap_again">Ýttu aftur</string>
     <string name="tap_to_sign_up">Ýttu til að skrá þig</string>
     <string name="tether_settings_title_all">Tjóðrun og heitur reitur</string>
@@ -1951,6 +1969,7 @@ Síminn getur orðið of heitur ef þú:
     <string name="time_unit_just_now">Rétt í þessu</string>
     <string name="title_convert_fbe">Umbreytir í dulkóðun á grundvelli skráa</string>
     <string name="title_usb_accessory">USB-aukabúnaður</string>
+    <string name="to_switch_networks_disconnect_ethernet">Aftengdu ethernet til að skipta um net</string>
     <string name="too_hot_label">Pixel er of heitur</string>
     <string name="touch_filtered_warning">Stillingar geta ekki staðfest svarið þitt vegna þess að forrit er að fela heimildarbeiðni.</string>
     <string name="track_frame_time">HWUI-teiknun prófíls</string>
@@ -2009,10 +2028,12 @@ Síminn getur orðið of heitur ef þú:
     <string name="tuner_toast">Til hamingju! Fínstillingum kerfisviðmóts hefur verið bætt við stillingar</string>
     <string name="tuner_warning">Fínstillingar kerfisviðmóts gera þér kleift að fínstilla og sérsníða notendaviðmót Android. Þessir tilraunaeiginleikar geta breyst, bilað eða horfið í síðari útgáfum. Gakktu því hægt um gleðinnar dyr.</string>
     <string name="tuner_warning_title">Þetta er ekki allra</string>
+    <string name="turn_on_wifi">Wi-Fi</string>
     <string name="tv_notification_panel_no_notifications">Engar tilkynningar</string>
     <string name="tv_notification_panel_title">Tilkynningar</string>
     <string name="two_weeks_timestamp">Fyrir 2 vikum</string>
     <string name="unknown">Óþekkt</string>
+    <string name="unlock_to_view_networks">Taktu úr lás til að skoða netkerfi</string>
     <string name="upcoming_birthday_status">Afmæli á næstunni</string>
     <string name="upcoming_birthday_status_content_description">%1$s á bráðum afmæli</string>
     <string name="url_menu_copy">Afrita</string>
@@ -2151,9 +2172,11 @@ Wi‑Fi vistfang (BSSID)
     <string name="wifi_disconnected">Aftengt</string>
     <string name="wifi_display_certification">Vottun þráðlausra skjáa</string>
     <string name="wifi_display_certification_summary">Sýna valkosti fyrir vottun þráðlausra skjáa</string>
+    <string name="wifi_empty_list_wifi_on">Leitar að netum…</string>
     <string name="wifi_enhanced_mac_randomization">Slembiröðun tímabundinna MAC-vistfanga um Wi-Fi tengingu</string>
     <string name="wifi_enhanced_mac_randomization_summary">Þegar kveikt er á þessari stillingu gæti MAC-vistfang þessa tækis breyst í hvert sinn sem það tengist neti sem er með kveikt á slembivali MAC-vistfanga.</string>
     <string name="wifi_fail_to_scan">Ekki er hægt að leita að netum</string>
+    <string name="wifi_failed_connect_message">Ekki tókst að tengjast neti</string>
     <string name="wifi_hotspot_switch_off_text">Slökkt</string>
     <string name="wifi_hotspot_switch_on_text">Kveikt</string>
     <string name="wifi_is_off">Slökkt á Wi-Fi</string>
@@ -2164,6 +2187,7 @@ Wi‑Fi vistfang (BSSID)
     <string name="wifi_not_in_range">Ekkert samband</string>
     <string name="wifi_passpoint_expired">Útrunnin</string>
     <string name="wifi_remembered">Vistað</string>
+    <string name="wifi_scan_notify_message">Til að bæta tækjaupplifun geta forrit og þjónustur áfram leitað að WiFi-netum hvenær sem er, jafnvel þótt slökkt sé á WiFi. Hægt er að breyta þessu í stillingum WiFi-leitar. <annotation id="link">Breyta</annotation></string>
     <string name="wifi_scan_throttling">Hægja á Wi‑Fi leit</string>
     <string name="wifi_scan_throttling_summary">Dregur úr rafhlöðunotkun og eykur netafköst</string>
     <string name="wifi_security_none">Ekkert</string>
@@ -2173,6 +2197,7 @@ Wi‑Fi vistfang (BSSID)
     <string name="wifi_unmetered_label">Notkun ekki mæld</string>
     <string name="wifi_verbose_logging">Kveikja á ítarlegri skráningu Wi-Fi</string>
     <string name="wifi_verbose_logging_summary">Auka skráningarstig Wi-Fi, sýna RSSI fyrir hvert SSID í Wi-Fi vali</string>
+    <string name="wifi_wont_autoconnect_for_now">Wi-Fi tengist ekki sjálfkrafa eins og er</string>
     <string name="wifitrackerlib_auto_connect_disable">Slökkt er á sjálfvirkri tengingu</string>
     <string name="wifitrackerlib_available_via_app">Í boði með %1$s</string>
     <string name="wifitrackerlib_connected_via_app">Tenging í gegnum %1$s</string>

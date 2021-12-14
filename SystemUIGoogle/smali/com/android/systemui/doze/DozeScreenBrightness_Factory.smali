@@ -38,6 +38,16 @@
     .end annotation
 .end field
 
+.field private final dockManagerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dock/DockManager;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final dozeParametersProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -121,7 +131,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -155,6 +165,9 @@
             "Lcom/android/systemui/statusbar/phone/DozeParameters;",
             ">;",
             "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dock/DockManager;",
+            ">;",
+            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;",
             ">;)V"
         }
@@ -180,13 +193,15 @@
 
     iput-object p9, p0, Lcom/android/systemui/doze/DozeScreenBrightness_Factory;->dozeParametersProvider:Ljavax/inject/Provider;
 
-    iput-object p10, p0, Lcom/android/systemui/doze/DozeScreenBrightness_Factory;->unlockedScreenOffAnimationControllerProvider:Ljavax/inject/Provider;
+    iput-object p10, p0, Lcom/android/systemui/doze/DozeScreenBrightness_Factory;->dockManagerProvider:Ljavax/inject/Provider;
+
+    iput-object p11, p0, Lcom/android/systemui/doze/DozeScreenBrightness_Factory;->unlockedScreenOffAnimationControllerProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/doze/DozeScreenBrightness_Factory;
-    .locals 12
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/doze/DozeScreenBrightness_Factory;
+    .locals 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -219,15 +234,18 @@
             "Lcom/android/systemui/statusbar/phone/DozeParameters;",
             ">;",
             "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dock/DockManager;",
+            ">;",
+            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;",
             ">;)",
             "Lcom/android/systemui/doze/DozeScreenBrightness_Factory;"
         }
     .end annotation
 
-    new-instance v11, Lcom/android/systemui/doze/DozeScreenBrightness_Factory;
+    new-instance v12, Lcom/android/systemui/doze/DozeScreenBrightness_Factory;
 
-    move-object v0, v11
+    move-object v0, v12
 
     move-object v1, p0
 
@@ -235,7 +253,7 @@
 
     move-object v3, p2
 
-    move-object v4, p3
+    move-object/from16 v4, p3
 
     move-object/from16 v5, p4
 
@@ -249,13 +267,15 @@
 
     move-object/from16 v10, p9
 
-    invoke-direct/range {v0 .. v10}, Lcom/android/systemui/doze/DozeScreenBrightness_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v11, p10
 
-    return-object v11
+    invoke-direct/range {v0 .. v11}, Lcom/android/systemui/doze/DozeScreenBrightness_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v12
 .end method
 
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/doze/DozeMachine$Service;Lcom/android/systemui/util/sensors/AsyncSensorManager;Ljava/util/Optional;Lcom/android/systemui/doze/DozeHost;Landroid/os/Handler;Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)Lcom/android/systemui/doze/DozeScreenBrightness;
-    .locals 12
+.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/doze/DozeMachine$Service;Lcom/android/systemui/util/sensors/AsyncSensorManager;Ljava/util/Optional;Lcom/android/systemui/doze/DozeHost;Landroid/os/Handler;Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/dock/DockManager;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)Lcom/android/systemui/doze/DozeScreenBrightness;
+    .locals 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -270,15 +290,16 @@
             "Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;",
             "Lcom/android/systemui/keyguard/WakefulnessLifecycle;",
             "Lcom/android/systemui/statusbar/phone/DozeParameters;",
+            "Lcom/android/systemui/dock/DockManager;",
             "Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;",
             ")",
             "Lcom/android/systemui/doze/DozeScreenBrightness;"
         }
     .end annotation
 
-    new-instance v11, Lcom/android/systemui/doze/DozeScreenBrightness;
+    new-instance v12, Lcom/android/systemui/doze/DozeScreenBrightness;
 
-    move-object v0, v11
+    move-object v0, v12
 
     move-object v1, p0
 
@@ -286,7 +307,7 @@
 
     move-object v3, p2
 
-    move-object v4, p3
+    move-object/from16 v4, p3
 
     move-object/from16 v5, p4
 
@@ -300,15 +321,17 @@
 
     move-object/from16 v10, p9
 
-    invoke-direct/range {v0 .. v10}, Lcom/android/systemui/doze/DozeScreenBrightness;-><init>(Landroid/content/Context;Lcom/android/systemui/doze/DozeMachine$Service;Lcom/android/systemui/util/sensors/AsyncSensorManager;Ljava/util/Optional;Lcom/android/systemui/doze/DozeHost;Landroid/os/Handler;Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)V
+    move-object/from16 v11, p10
 
-    return-object v11
+    invoke-direct/range {v0 .. v11}, Lcom/android/systemui/doze/DozeScreenBrightness;-><init>(Landroid/content/Context;Lcom/android/systemui/doze/DozeMachine$Service;Lcom/android/systemui/util/sensors/AsyncSensorManager;Ljava/util/Optional;Lcom/android/systemui/doze/DozeHost;Landroid/os/Handler;Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/dock/DockManager;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)V
+
+    return-object v12
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/systemui/doze/DozeScreenBrightness;
-    .locals 11
+    .locals 12
 
     iget-object v0, p0, Lcom/android/systemui/doze/DozeScreenBrightness_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -400,17 +423,27 @@
 
     check-cast v9, Lcom/android/systemui/statusbar/phone/DozeParameters;
 
+    iget-object v0, p0, Lcom/android/systemui/doze/DozeScreenBrightness_Factory;->dockManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v10, v0
+
+    check-cast v10, Lcom/android/systemui/dock/DockManager;
+
     iget-object p0, p0, Lcom/android/systemui/doze/DozeScreenBrightness_Factory;->unlockedScreenOffAnimationControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    move-object v10, p0
+    move-object v11, p0
 
-    check-cast v10, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
+    check-cast v11, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
 
-    invoke-static/range {v1 .. v10}, Lcom/android/systemui/doze/DozeScreenBrightness_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/doze/DozeMachine$Service;Lcom/android/systemui/util/sensors/AsyncSensorManager;Ljava/util/Optional;Lcom/android/systemui/doze/DozeHost;Landroid/os/Handler;Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)Lcom/android/systemui/doze/DozeScreenBrightness;
+    invoke-static/range {v1 .. v11}, Lcom/android/systemui/doze/DozeScreenBrightness_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/doze/DozeMachine$Service;Lcom/android/systemui/util/sensors/AsyncSensorManager;Ljava/util/Optional;Lcom/android/systemui/doze/DozeHost;Landroid/os/Handler;Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/dock/DockManager;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)Lcom/android/systemui/doze/DozeScreenBrightness;
 
     move-result-object p0
 

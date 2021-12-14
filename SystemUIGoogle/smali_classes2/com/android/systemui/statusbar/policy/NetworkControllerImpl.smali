@@ -101,6 +101,8 @@
 
 .field private mInetCondition:Z
 
+.field private mInternetDialogFactory:Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;
+
 .field private mIsEmergency:Z
 
 .field private mLastDefaultNetworkCapabilities:Landroid/net/NetworkCapabilities;
@@ -118,6 +120,8 @@
 .field private mLocale:Ljava/util/Locale;
 
 .field private final mLock:Ljava/lang/Object;
+
+.field private mMainHandler:Landroid/os/Handler;
 
 .field final mMobileSignalControllers:Landroid/util/SparseArray;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
@@ -173,6 +177,22 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$00hdgK7yNKI2xjfQBesmrqbsJNI(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->lambda$onReceive$4()V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$3B1XNOWLdNNDGaTYiapVW_WWhRU(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->lambda$setUserSetupComplete$5(Z)V
+
+    return-void
+.end method
+
 .method public static synthetic $r8$lambda$3cIJLi0hcwRiw64D6EhJn1rK6GY(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;I)V
     .locals 0
 
@@ -189,6 +209,14 @@
     return-void
 .end method
 
+.method public static synthetic $r8$lambda$An5DHhsBScsF3D0j8fzxi0nH7Fc(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->lambda$new$6()V
+
+    return-void
+.end method
+
 .method public static synthetic $r8$lambda$BBiAjJ8vrjVqK88gByAuxXF_RmQ(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)V
     .locals 0
 
@@ -201,22 +229,6 @@
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->lambda$new$0(I)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$ToxZvRdm7_yrnzFqwh6RpIE3j4Y(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->lambda$new$5()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$h0WhZ9GX0VjvA5bNnWFTqtn3ijY(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->lambda$setUserSetupComplete$4(Z)V
 
     return-void
 .end method
@@ -350,9 +362,9 @@
 
     iput-object v2, v9, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mConfigurationListener:Lcom/android/systemui/statusbar/policy/ConfigurationController$ConfigurationListener;
 
-    new-instance v2, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$$ExternalSyntheticLambda6;
+    new-instance v2, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$$ExternalSyntheticLambda7;
 
-    invoke-direct {v2, v9}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$$ExternalSyntheticLambda6;-><init>(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)V
+    invoke-direct {v2, v9}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$$ExternalSyntheticLambda7;-><init>(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)V
 
     iput-object v2, v9, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mClearForceValidated:Ljava/lang/Runnable;
 
@@ -569,7 +581,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Landroid/os/Looper;Ljava/util/concurrent/Executor;Landroid/telephony/SubscriptionManager;Lcom/android/systemui/statusbar/policy/CallbackHandler;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/net/ConnectivityManager;Landroid/telephony/TelephonyManager;Lcom/android/systemui/telephony/TelephonyListenerManager;Landroid/net/wifi/WifiManager;Landroid/net/NetworkScoreManager;Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;Lcom/android/systemui/demomode/DemoModeController;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/dump/DumpManager;)V
+.method public constructor <init>(Landroid/content/Context;Landroid/os/Looper;Ljava/util/concurrent/Executor;Landroid/telephony/SubscriptionManager;Lcom/android/systemui/statusbar/policy/CallbackHandler;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/net/ConnectivityManager;Landroid/telephony/TelephonyManager;Lcom/android/systemui/telephony/TelephonyListenerManager;Landroid/net/wifi/WifiManager;Landroid/net/NetworkScoreManager;Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;Lcom/android/systemui/demomode/DemoModeController;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/dump/DumpManager;Landroid/os/Handler;Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;)V
     .locals 22
 
     move-object/from16 v14, p0
@@ -640,9 +652,17 @@
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mReceiverHandler:Landroid/os/Handler;
 
-    iget-object v0, v0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mRegisterListeners:Ljava/lang/Runnable;
+    iget-object v2, v0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mRegisterListeners:Ljava/lang/Runnable;
 
-    invoke-virtual {v1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    move-object/from16 v1, p18
+
+    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mMainHandler:Landroid/os/Handler;
+
+    move-object/from16 v1, p19
+
+    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mInternetDialogFactory:Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;
 
     return-void
 .end method
@@ -1381,9 +1401,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mBgExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v1, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$$ExternalSyntheticLambda7;
+    new-instance v1, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$$ExternalSyntheticLambda8;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$$ExternalSyntheticLambda7;-><init>(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;I)V
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$$ExternalSyntheticLambda8;-><init>(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;I)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -1413,10 +1433,34 @@
     return-void
 .end method
 
-.method private synthetic lambda$new$5()V
+.method private synthetic lambda$new$6()V
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->registerListeners()V
+
+    return-void
+.end method
+
+.method private synthetic lambda$onReceive$4()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mInternetDialogFactory:Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mAccessPoints:Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;
+
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;->canConfigMobileData()Z
+
+    move-result v1
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mAccessPoints:Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;->canConfigWifi()Z
+
+    move-result p0
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v0, v2, v1, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;->create(ZZZ)V
 
     return-void
 .end method
@@ -1450,7 +1494,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$setUserSetupComplete$4(Z)V
+.method private synthetic lambda$setUserSetupComplete$5(Z)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->handleSetUserSetupComplete(Z)V
@@ -1686,9 +1730,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mReceiverHandler:Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$$ExternalSyntheticLambda8;
+    new-instance v1, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$$ExternalSyntheticLambda9;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$$ExternalSyntheticLambda8;-><init>(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;Z)V
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$$ExternalSyntheticLambda9;-><init>(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;Z)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
@@ -4523,10 +4567,10 @@
     :goto_0
     move p1, v1
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :sswitch_0
-    const-string v0, "android.intent.action.ACTION_DEFAULT_DATA_SUBSCRIPTION_CHANGED"
+    const-string v0, "android.settings.panel.action.INTERNET_CONNECTIVITY"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -4537,12 +4581,12 @@
     goto :goto_0
 
     :cond_1
-    const/4 p1, 0x6
+    const/4 p1, 0x7
 
     goto :goto_1
 
     :sswitch_1
-    const-string v0, "android.intent.action.SIM_STATE_CHANGED"
+    const-string v0, "android.intent.action.ACTION_DEFAULT_DATA_SUBSCRIPTION_CHANGED"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -4553,12 +4597,12 @@
     goto :goto_0
 
     :cond_2
-    const/4 p1, 0x5
+    const/4 p1, 0x6
 
     goto :goto_1
 
     :sswitch_2
-    const-string v0, "android.intent.action.AIRPLANE_MODE"
+    const-string v0, "android.intent.action.SIM_STATE_CHANGED"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -4569,12 +4613,12 @@
     goto :goto_0
 
     :cond_3
-    const/4 p1, 0x4
+    const/4 p1, 0x5
 
     goto :goto_1
 
     :sswitch_3
-    const-string v0, "android.telephony.action.CARRIER_CONFIG_CHANGED"
+    const-string v0, "android.intent.action.AIRPLANE_MODE"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -4585,12 +4629,12 @@
     goto :goto_0
 
     :cond_4
-    const/4 p1, 0x3
+    const/4 p1, 0x4
 
     goto :goto_1
 
     :sswitch_4
-    const-string v0, "android.net.conn.CONNECTIVITY_CHANGE"
+    const-string v0, "android.telephony.action.CARRIER_CONFIG_CHANGED"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -4601,12 +4645,12 @@
     goto :goto_0
 
     :cond_5
-    const/4 p1, 0x2
+    const/4 p1, 0x3
 
     goto :goto_1
 
     :sswitch_5
-    const-string v0, "android.intent.action.ACTION_DEFAULT_VOICE_SUBSCRIPTION_CHANGED"
+    const-string v0, "android.net.conn.CONNECTIVITY_CHANGE"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -4617,12 +4661,12 @@
     goto :goto_0
 
     :cond_6
-    const/4 p1, 0x1
+    const/4 p1, 0x2
 
     goto :goto_1
 
     :sswitch_6
-    const-string v0, "android.intent.action.SERVICE_STATE"
+    const-string v0, "android.intent.action.ACTION_DEFAULT_VOICE_SUBSCRIPTION_CHANGED"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -4633,6 +4677,22 @@
     goto :goto_0
 
     :cond_7
+    const/4 p1, 0x1
+
+    goto :goto_1
+
+    :sswitch_7
+    const-string v0, "android.intent.action.SERVICE_STATE"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-nez p1, :cond_8
+
+    goto :goto_0
+
+    :cond_8
     move p1, v2
 
     :goto_1
@@ -4648,7 +4708,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_a
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mMobileSignalControllers:Landroid/util/SparseArray;
 
@@ -4656,7 +4716,7 @@
 
     move-result v0
 
-    if-ltz v0, :cond_8
+    if-ltz v0, :cond_9
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mMobileSignalControllers:Landroid/util/SparseArray;
 
@@ -4670,27 +4730,38 @@
 
     goto/16 :goto_3
 
-    :cond_8
+    :cond_9
     invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->updateMobileControllers()V
 
     goto/16 :goto_3
 
-    :cond_9
+    :cond_a
     iget-object p0, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mWifiSignalController:Lcom/android/systemui/statusbar/policy/WifiSignalController;
 
     invoke-virtual {p0, p2}, Lcom/android/systemui/statusbar/policy/WifiSignalController;->handleBroadcast(Landroid/content/Intent;)V
 
     goto/16 :goto_3
 
-    :goto_2
     :pswitch_0
+    iget-object p1, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mMainHandler:Landroid/os/Handler;
+
+    new-instance p2, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$$ExternalSyntheticLambda3;
+
+    invoke-direct {p2, p0}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)V
+
+    invoke-virtual {p1, p2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    goto/16 :goto_3
+
+    :goto_2
+    :pswitch_1
     iget-object p1, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mMobileSignalControllers:Landroid/util/SparseArray;
 
     invoke-virtual {p1}, Landroid/util/SparseArray;->size()I
 
     move-result p1
 
-    if-ge v2, p1, :cond_a
+    if-ge v2, p1, :cond_b
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mMobileSignalControllers:Landroid/util/SparseArray;
 
@@ -4706,7 +4777,7 @@
 
     goto :goto_2
 
-    :cond_a
+    :cond_b
     iget-object p1, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mContext:Landroid/content/Context;
 
     invoke-static {p1}, Lcom/android/settingslib/mobile/MobileMappings$Config;->readConfig(Landroid/content/Context;)Lcom/android/settingslib/mobile/MobileMappings$Config;
@@ -4725,30 +4796,30 @@
 
     goto :goto_3
 
-    :pswitch_1
+    :pswitch_2
     const-string p1, "rebroadcastOnUnlock"
 
     invoke-virtual {p2, p1, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
     move-result p1
 
-    if-eqz p1, :cond_b
+    if-eqz p1, :cond_c
 
     goto :goto_3
 
-    :cond_b
+    :cond_c
     invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->updateMobileControllers()V
 
     goto :goto_3
 
-    :pswitch_2
+    :pswitch_3
     invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->refreshLocale()V
 
     invoke-direct {p0, v2}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->updateAirplaneMode(Z)V
 
     goto :goto_3
 
-    :pswitch_3
+    :pswitch_4
     iget-object p1, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mContext:Landroid/content/Context;
 
     invoke-static {p1}, Lcom/android/settingslib/mobile/MobileMappings$Config;->readConfig(Landroid/content/Context;)Lcom/android/settingslib/mobile/MobileMappings$Config;
@@ -4767,17 +4838,17 @@
 
     goto :goto_3
 
-    :pswitch_4
+    :pswitch_5
     invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->updateConnectivity()V
 
     goto :goto_3
 
-    :pswitch_5
+    :pswitch_6
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->recalculateEmergency()V
 
     goto :goto_3
 
-    :pswitch_6
+    :pswitch_7
     invoke-virtual {p2}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
     move-result-object p1
@@ -4794,27 +4865,29 @@
 
     move-result p1
 
-    if-nez p1, :cond_c
+    if-nez p1, :cond_d
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->recalculateEmergency()V
 
-    :cond_c
+    :cond_d
     :goto_3
     return-void
 
     :sswitch_data_0
     .sparse-switch
-        -0x7d6de25e -> :sswitch_6
-        -0x5753691f -> :sswitch_5
-        -0x45e5283a -> :sswitch_4
-        -0x43dd7a3f -> :sswitch_3
-        -0x402b4235 -> :sswitch_2
-        -0xdb21ee7 -> :sswitch_1
-        -0x18365bb -> :sswitch_0
+        -0x7d6de25e -> :sswitch_7
+        -0x5753691f -> :sswitch_6
+        -0x45e5283a -> :sswitch_5
+        -0x43dd7a3f -> :sswitch_4
+        -0x402b4235 -> :sswitch_3
+        -0xdb21ee7 -> :sswitch_2
+        -0x18365bb -> :sswitch_1
+        0x1babcc93 -> :sswitch_0
     .end sparse-switch
 
     :pswitch_data_0
     .packed-switch 0x0
+        :pswitch_7
         :pswitch_6
         :pswitch_5
         :pswitch_4
@@ -4937,6 +5010,19 @@
 
     invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mContext:Landroid/content/Context;
+
+    invoke-static {v1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogUtil;->isProviderModelEnabled(Landroid/content/Context;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    const-string v1, "android.settings.panel.action.INTERNET_CONNECTIVITY"
+
+    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    :cond_2
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mReceiverHandler:Landroid/os/Handler;
@@ -4949,9 +5035,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mReceiverHandler:Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$$ExternalSyntheticLambda3;
+    new-instance v1, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$$ExternalSyntheticLambda4;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$$ExternalSyntheticLambda4;-><init>(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
@@ -4961,17 +5047,17 @@
 
     invoke-static {v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-instance v2, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$$ExternalSyntheticLambda9;
+    new-instance v2, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$$ExternalSyntheticLambda10;
 
-    invoke-direct {v2, v1}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$$ExternalSyntheticLambda9;-><init>(Lcom/android/systemui/statusbar/policy/WifiSignalController;)V
+    invoke-direct {v2, v1}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$$ExternalSyntheticLambda10;-><init>(Lcom/android/systemui/statusbar/policy/WifiSignalController;)V
 
     invoke-virtual {v0, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;->mReceiverHandler:Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$$ExternalSyntheticLambda4;
+    new-instance v1, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$$ExternalSyntheticLambda6;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$$ExternalSyntheticLambda4;-><init>(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl$$ExternalSyntheticLambda6;-><init>(Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 

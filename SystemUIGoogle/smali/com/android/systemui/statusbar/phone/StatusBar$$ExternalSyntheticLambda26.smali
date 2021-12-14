@@ -63,7 +63,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/statusbar/phone/StatusBar$$ExternalSyntheticLambda26;->f$6:Lcom/android/systemui/plugins/ActivityStarter$Callback;
 
-    invoke-static/range {v0 .. v6}, Lcom/android/systemui/statusbar/phone/StatusBar;->$r8$lambda$9gn9w5bWsnWSdXOXJ1xq-ll-elw(Lcom/android/systemui/statusbar/phone/StatusBar;Landroid/content/Intent;ILcom/android/systemui/animation/ActivityLaunchAnimator$Controller;ZZLcom/android/systemui/plugins/ActivityStarter$Callback;)V
+    invoke-static/range {v0 .. v6}, Lcom/android/systemui/statusbar/phone/StatusBar;->$r8$lambda$X8-2mOaS5iXfT8zoRY2ChPJ3NNQ(Lcom/android/systemui/statusbar/phone/StatusBar;Landroid/content/Intent;ILcom/android/systemui/animation/ActivityLaunchAnimator$Controller;ZZLcom/android/systemui/plugins/ActivityStarter$Callback;)V
 
     return-void
 .end method

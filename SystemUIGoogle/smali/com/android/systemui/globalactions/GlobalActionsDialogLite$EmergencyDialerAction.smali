@@ -29,7 +29,7 @@
 
     sget v0, Lcom/android/systemui/R$drawable;->ic_emergency_star:I
 
-    const v1, 0x10403c0
+    const v1, 0x10403c2
 
     invoke-direct {p0, p1, v0, v1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$EmergencyAction;-><init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;II)V
 

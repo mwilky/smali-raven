@@ -55,7 +55,7 @@
 .method public final invoke(Ljava/lang/String;Ljava/lang/Float;Ljava/lang/Float;)F
     .locals 1
 
-    const-string v0, "tag"
+    const-string/jumbo v0, "tag"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 

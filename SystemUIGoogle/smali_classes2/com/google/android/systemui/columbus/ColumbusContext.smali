@@ -57,7 +57,7 @@
 
     iget-object p0, p0, Lcom/google/android/systemui/columbus/ColumbusContext;->packageManager:Landroid/content/pm/PackageManager;
 
-    const-string v0, "com.google.android.feature.PIXEL_2020_EXPERIENCE"
+    const-string v0, "com.google.android.feature.QUICK_TAP"
 
     invoke-virtual {p0, v0}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
 

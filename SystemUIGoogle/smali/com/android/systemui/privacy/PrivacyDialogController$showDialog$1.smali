@@ -17,7 +17,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nPrivacyDialogController.kt\nKotlin\n*S Kotlin\n*F\n+ 1 PrivacyDialogController.kt\ncom/android/systemui/privacy/PrivacyDialogController$showDialog$1\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n+ 3 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,274:1\n1571#2,9:275\n1819#2:284\n256#2,2:285\n1820#2:288\n1580#2:289\n1#3:287\n*E\n*S KotlinDebug\n*F\n+ 1 PrivacyDialogController.kt\ncom/android/systemui/privacy/PrivacyDialogController$showDialog$1\n*L\n155#1,9:275\n155#1:284\n157#1,2:285\n155#1:288\n155#1:289\n155#1:287\n*E\n"
+    value = "SMAP\nPrivacyDialogController.kt\nKotlin\n*S Kotlin\n*F\n+ 1 PrivacyDialogController.kt\ncom/android/systemui/privacy/PrivacyDialogController$showDialog$1\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n+ 3 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,285:1\n1571#2,9:286\n1819#2:295\n256#2,2:296\n1820#2:299\n1580#2:300\n1#3:298\n*E\n*S KotlinDebug\n*F\n+ 1 PrivacyDialogController.kt\ncom/android/systemui/privacy/PrivacyDialogController$showDialog$1\n*L\n162#1,9:286\n162#1:295\n164#1,2:296\n162#1:299\n162#1:300\n162#1:298\n*E\n"
 .end annotation
 
 
@@ -87,7 +87,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_9
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -122,61 +122,67 @@
 
     const/4 v9, 0x0
 
+    const/4 v10, 0x0
+
     if-eqz v7, :cond_3
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v7
 
-    move-object v10, v7
+    move-object v11, v7
 
-    check-cast v10, Landroid/content/pm/UserInfo;
+    check-cast v11, Landroid/content/pm/UserInfo;
 
-    iget v10, v10, Landroid/content/pm/UserInfo;->id:I
+    iget v11, v11, Landroid/content/pm/UserInfo;->id:I
 
     invoke-virtual {v5}, Landroid/permission/PermGroupUsage;->getUid()I
 
-    move-result v11
+    move-result v12
 
-    invoke-static {v11}, Landroid/os/UserHandle;->getUserId(I)I
+    invoke-static {v12}, Landroid/os/UserHandle;->getUserId(I)I
 
-    move-result v11
+    move-result v12
 
-    if-ne v10, v11, :cond_2
+    if-ne v11, v12, :cond_2
 
-    const/4 v10, 0x1
+    const/4 v11, 0x1
 
     goto :goto_1
 
     :cond_2
-    const/4 v10, 0x0
+    move v11, v9
 
     :goto_1
-    if-eqz v10, :cond_1
+    if-eqz v11, :cond_1
 
     goto :goto_2
 
     :cond_3
-    move-object v7, v9
+    move-object v7, v10
 
     :goto_2
     check-cast v7, Landroid/content/pm/UserInfo;
 
     if-nez v7, :cond_4
 
-    goto :goto_4
+    invoke-virtual {v5}, Landroid/permission/PermGroupUsage;->isPhoneCall()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_8
 
     :cond_4
     if-nez v8, :cond_5
 
-    goto :goto_4
+    goto :goto_5
 
     :cond_5
     invoke-virtual {v5}, Landroid/permission/PermGroupUsage;->isPhoneCall()Z
 
     move-result v6
 
-    const-string v9, "it.packageName"
+    const-string v10, "it.packageName"
 
     if-eqz v6, :cond_6
 
@@ -189,13 +195,13 @@
 
     move-result-object v6
 
-    invoke-static {v6, v9}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v6, v10}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-virtual {v5}, Landroid/permission/PermGroupUsage;->getUid()I
 
-    move-result v10
+    move-result v11
 
-    invoke-static {v3, v6, v10}, Lcom/android/systemui/privacy/PrivacyDialogController;->access$getLabelForPackage(Lcom/android/systemui/privacy/PrivacyDialogController;Ljava/lang/String;I)Ljava/lang/CharSequence;
+    invoke-static {v3, v6, v11}, Lcom/android/systemui/privacy/PrivacyDialogController;->access$getLabelForPackage(Lcom/android/systemui/privacy/PrivacyDialogController;Ljava/lang/String;I)Ljava/lang/CharSequence;
 
     move-result-object v6
 
@@ -206,17 +212,17 @@
 
     invoke-virtual {v5}, Landroid/permission/PermGroupUsage;->getPackageName()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v12
 
-    invoke-static {v10, v9}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v12, v10}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-virtual {v5}, Landroid/permission/PermGroupUsage;->getUid()I
 
-    move-result v9
+    move-result v10
 
-    invoke-static {v9}, Landroid/os/UserHandle;->getUserId(I)I
+    invoke-static {v10}, Landroid/os/UserHandle;->getUserId(I)I
 
-    move-result v12
+    move-result v10
 
     invoke-virtual {v5}, Landroid/permission/PermGroupUsage;->getAttribution()Ljava/lang/CharSequence;
 
@@ -230,19 +236,27 @@
 
     move-result v16
 
+    if-nez v7, :cond_7
+
+    move/from16 v17, v9
+
+    goto :goto_4
+
+    :cond_7
     invoke-virtual {v7}, Landroid/content/pm/UserInfo;->isManagedProfile()Z
 
-    move-result v17
+    move-result v7
 
+    move/from16 v17, v7
+
+    :goto_4
     invoke-virtual {v5}, Landroid/permission/PermGroupUsage;->isPhoneCall()Z
 
     move-result v5
 
     move-object v7, v6
 
-    move-object v9, v10
-
-    move v10, v12
+    move-object v9, v12
 
     move-object v12, v13
 
@@ -256,16 +270,17 @@
 
     invoke-direct/range {v7 .. v17}, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;-><init>(Lcom/android/systemui/privacy/PrivacyType;Ljava/lang/String;ILjava/lang/CharSequence;Ljava/lang/CharSequence;JZZZ)V
 
-    move-object v9, v6
+    move-object v10, v6
 
-    :goto_4
-    if-eqz v9, :cond_0
+    :cond_8
+    :goto_5
+    if-eqz v10, :cond_0
 
-    invoke-interface {v4, v9}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+    invoke-interface {v4, v10}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     goto/16 :goto_0
 
-    :cond_7
+    :cond_9
     iget-object v1, v0, Lcom/android/systemui/privacy/PrivacyDialogController$showDialog$1;->this$0:Lcom/android/systemui/privacy/PrivacyDialogController;
 
     invoke-static {v1}, Lcom/android/systemui/privacy/PrivacyDialogController;->access$getUiExecutor$p(Lcom/android/systemui/privacy/PrivacyDialogController;)Ljava/util/concurrent/Executor;

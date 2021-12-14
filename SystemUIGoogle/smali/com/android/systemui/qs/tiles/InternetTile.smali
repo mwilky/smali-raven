@@ -24,15 +24,19 @@
 
 
 # static fields
-.field private static final INTERNET_PANEL:Landroid/content/Intent;
-
 .field private static final WIFI_SETTINGS:Landroid/content/Intent;
 
 
 # instance fields
+.field private final mAccessPointController:Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;
+
 .field protected final mController:Lcom/android/systemui/statusbar/policy/NetworkController;
 
 .field private final mDataController:Lcom/android/settingslib/net/DataUsageController;
+
+.field final mHandler:Landroid/os/Handler;
+
+.field private final mInternetDialogFactory:Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;
 
 .field private mLastTileState:I
 
@@ -40,6 +44,14 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$Svrz4gD1541YJWI2GU-xHFA193o(Lcom/android/systemui/qs/tiles/InternetTile;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/InternetTile;->lambda$handleClick$0()V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 2
 
@@ -51,18 +63,10 @@
 
     sput-object v0, Lcom/android/systemui/qs/tiles/InternetTile;->WIFI_SETTINGS:Landroid/content/Intent;
 
-    new-instance v0, Landroid/content/Intent;
-
-    const-string v1, "android.settings.panel.action.INTERNET_CONNECTIVITY"
-
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    sput-object v0, Lcom/android/systemui/qs/tiles/InternetTile;->INTERNET_PANEL:Landroid/content/Intent;
-
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/NetworkController;)V
+.method public constructor <init>(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/NetworkController;Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;)V
     .locals 0
 
     invoke-direct/range {p0 .. p8}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;-><init>(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;)V
@@ -77,7 +81,13 @@
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/InternetTile;->mSignalCallback:Lcom/android/systemui/qs/tiles/InternetTile$InternetSignalCallback;
 
+    iput-object p11, p0, Lcom/android/systemui/qs/tiles/InternetTile;->mInternetDialogFactory:Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;
+
+    iput-object p3, p0, Lcom/android/systemui/qs/tiles/InternetTile;->mHandler:Landroid/os/Handler;
+
     iput-object p9, p0, Lcom/android/systemui/qs/tiles/InternetTile;->mController:Lcom/android/systemui/statusbar/policy/NetworkController;
+
+    iput-object p10, p0, Lcom/android/systemui/qs/tiles/InternetTile;->mAccessPointController:Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;
 
     invoke-interface {p9}, Lcom/android/systemui/statusbar/policy/NetworkController;->getMobileDataController()Lcom/android/settingslib/net/DataUsageController;
 
@@ -556,32 +566,24 @@
 
     iput-object p2, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->secondaryLabel:Ljava/lang/CharSequence;
 
-    goto :goto_2
+    goto :goto_3
 
     :cond_4
     iget-boolean v2, p2, Lcom/android/systemui/qs/tiles/InternetTile$CellularCallbackInfo;->mNoDefaultNetwork:Z
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_7
 
     iget-boolean p2, p2, Lcom/android/systemui/qs/tiles/InternetTile$CellularCallbackInfo;->mNoNetworksAvailable:Z
 
-    if-eqz p2, :cond_5
+    if-nez p2, :cond_6
 
-    sget p2, Lcom/android/systemui/R$drawable;->ic_qs_no_internet_unavailable:I
+    iget-object p2, p0, Lcom/android/systemui/qs/tiles/InternetTile;->mSignalCallback:Lcom/android/systemui/qs/tiles/InternetTile$InternetSignalCallback;
 
-    invoke-static {p2}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->get(I)Lcom/android/systemui/plugins/qs/QSTile$Icon;
+    iget-object p2, p2, Lcom/android/systemui/qs/tiles/InternetTile$InternetSignalCallback;->mWifiInfo:Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;
 
-    move-result-object p2
+    iget-boolean p2, p2, Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;->mEnabled:Z
 
-    iput-object p2, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
-
-    sget p2, Lcom/android/systemui/R$string;->quick_settings_networks_unavailable:I
-
-    invoke-virtual {v1, p2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object p2
-
-    iput-object p2, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->secondaryLabel:Ljava/lang/CharSequence;
+    if-nez p2, :cond_5
 
     goto :goto_2
 
@@ -602,9 +604,29 @@
 
     iput-object p2, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->secondaryLabel:Ljava/lang/CharSequence;
 
-    goto :goto_2
+    goto :goto_3
 
     :cond_6
+    :goto_2
+    sget p2, Lcom/android/systemui/R$drawable;->ic_qs_no_internet_unavailable:I
+
+    invoke-static {p2}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->get(I)Lcom/android/systemui/plugins/qs/QSTile$Icon;
+
+    move-result-object p2
+
+    iput-object p2, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
+
+    sget p2, Lcom/android/systemui/R$string;->quick_settings_networks_unavailable:I
+
+    invoke-virtual {v1, p2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object p2
+
+    iput-object p2, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->secondaryLabel:Ljava/lang/CharSequence;
+
+    goto :goto_3
+
+    :cond_7
     new-instance v1, Lcom/android/systemui/qs/tiles/InternetTile$SignalIcon;
 
     iget v2, p2, Lcom/android/systemui/qs/tiles/InternetTile$CellularCallbackInfo;->mMobileSignalIconId:I
@@ -625,28 +647,28 @@
 
     iput-object p2, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->secondaryLabel:Ljava/lang/CharSequence;
 
-    :goto_2
+    :goto_3
     iget-object p2, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->label:Ljava/lang/CharSequence;
 
     iput-object p2, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->contentDescription:Ljava/lang/CharSequence;
 
     iget p2, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
 
-    if-ne p2, v4, :cond_7
+    if-ne p2, v4, :cond_8
 
     const-string p2, ""
 
     iput-object p2, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->stateDescription:Ljava/lang/CharSequence;
 
-    goto :goto_3
+    goto :goto_4
 
-    :cond_7
+    :cond_8
     iget-object p2, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->secondaryLabel:Ljava/lang/CharSequence;
 
     iput-object p2, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->stateDescription:Ljava/lang/CharSequence;
 
-    :goto_3
-    if-eqz v0, :cond_8
+    :goto_4
+    if-eqz v0, :cond_9
 
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->TAG:Ljava/lang/String;
 
@@ -670,7 +692,7 @@
 
     invoke-static {p0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_8
+    :cond_9
     return-void
 .end method
 
@@ -976,7 +998,7 @@
 
     iput-object v5, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->secondaryLabel:Ljava/lang/CharSequence;
 
-    goto/16 :goto_5
+    goto/16 :goto_6
 
     :cond_8
     if-nez v4, :cond_a
@@ -1001,7 +1023,7 @@
 
     iput-object v5, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->secondaryLabel:Ljava/lang/CharSequence;
 
-    goto/16 :goto_5
+    goto/16 :goto_6
 
     :cond_9
     sget v5, Lcom/android/systemui/R$string;->quick_settings_networks_available:I
@@ -1012,7 +1034,7 @@
 
     iput-object v5, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->secondaryLabel:Ljava/lang/CharSequence;
 
-    goto/16 :goto_5
+    goto/16 :goto_6
 
     :cond_a
     iget v5, p2, Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;->mWifiSignalIconId:I
@@ -1023,32 +1045,20 @@
 
     iput-object v5, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
-    goto :goto_5
+    goto/16 :goto_6
 
     :cond_b
     iget-boolean v9, p2, Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;->mNoDefaultNetwork:Z
 
-    if-eqz v9, :cond_d
+    if-eqz v9, :cond_e
 
     iget-boolean v5, p2, Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;->mNoNetworksAvailable:Z
 
-    if-eqz v5, :cond_c
+    if-nez v5, :cond_d
 
-    sget v5, Lcom/android/systemui/R$drawable;->ic_qs_no_internet_unavailable:I
+    iget-boolean v5, p2, Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;->mEnabled:Z
 
-    invoke-static {v5}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->get(I)Lcom/android/systemui/plugins/qs/QSTile$Icon;
-
-    move-result-object v5
-
-    iput-object v5, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
-
-    sget v5, Lcom/android/systemui/R$string;->quick_settings_networks_unavailable:I
-
-    invoke-virtual {v7, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v5
-
-    iput-object v5, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->secondaryLabel:Ljava/lang/CharSequence;
+    if-nez v5, :cond_c
 
     goto :goto_5
 
@@ -1069,12 +1079,32 @@
 
     iput-object v5, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->secondaryLabel:Ljava/lang/CharSequence;
 
-    goto :goto_5
+    goto :goto_6
 
     :cond_d
+    :goto_5
+    sget v5, Lcom/android/systemui/R$drawable;->ic_qs_no_internet_unavailable:I
+
+    invoke-static {v5}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->get(I)Lcom/android/systemui/plugins/qs/QSTile$Icon;
+
+    move-result-object v5
+
+    iput-object v5, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
+
+    sget v5, Lcom/android/systemui/R$string;->quick_settings_networks_unavailable:I
+
+    invoke-virtual {v7, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    iput-object v5, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->secondaryLabel:Ljava/lang/CharSequence;
+
+    goto :goto_6
+
+    :cond_e
     iget-boolean v9, p2, Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;->mIsTransient:Z
 
-    if-eqz v9, :cond_e
+    if-eqz v9, :cond_f
 
     const v5, 0x1080545
 
@@ -1084,14 +1114,14 @@
 
     iput-object v5, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
-    goto :goto_5
+    goto :goto_6
 
-    :cond_e
+    :cond_f
     iget-boolean v9, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
 
     const v10, 0x1080565
 
-    if-nez v9, :cond_f
+    if-nez v9, :cond_10
 
     iget-object v5, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->slash:Lcom/android/systemui/plugins/qs/QSTile$SlashState;
 
@@ -1105,10 +1135,10 @@
 
     iput-object v5, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
-    goto :goto_5
+    goto :goto_6
 
-    :cond_f
-    if-eqz v4, :cond_10
+    :cond_10
+    if-eqz v4, :cond_11
 
     iget v5, p2, Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;->mWifiSignalIconId:I
 
@@ -1118,27 +1148,27 @@
 
     iput-object v5, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
-    goto :goto_5
-
-    :cond_10
-    if-eqz v5, :cond_11
-
-    invoke-static {v10}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->get(I)Lcom/android/systemui/plugins/qs/QSTile$Icon;
-
-    move-result-object v5
-
-    iput-object v5, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
-
-    goto :goto_5
+    goto :goto_6
 
     :cond_11
+    if-eqz v5, :cond_12
+
     invoke-static {v10}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->get(I)Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
     move-result-object v5
 
     iput-object v5, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
-    :goto_5
+    goto :goto_6
+
+    :cond_12
+    invoke-static {v10}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->get(I)Lcom/android/systemui/plugins/qs/QSTile$Icon;
+
+    move-result-object v5
+
+    iput-object v5, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
+
+    :goto_6
     iget-object v5, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
 
     invoke-virtual {v5, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -1153,9 +1183,9 @@
 
     iget-boolean v8, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
 
-    if-eqz v8, :cond_12
+    if-eqz v8, :cond_13
 
-    if-eqz v4, :cond_12
+    if-eqz v4, :cond_13
 
     iget-object v4, p2, Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;->mWifiSignalContentDescription:Ljava/lang/String;
 
@@ -1169,16 +1199,16 @@
 
     invoke-virtual {v1, p2}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    goto :goto_6
+    goto :goto_7
 
-    :cond_12
+    :cond_13
     iget-object p2, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->secondaryLabel:Ljava/lang/CharSequence;
 
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result p2
 
-    if-nez p2, :cond_13
+    if-nez p2, :cond_14
 
     invoke-virtual {v1, v5}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
@@ -1186,8 +1216,8 @@
 
     invoke-virtual {v1, p2}, Ljava/lang/StringBuffer;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuffer;
 
-    :cond_13
-    :goto_6
+    :cond_14
+    :goto_7
     invoke-virtual {v6}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object p2
@@ -1224,7 +1254,7 @@
 
     iput-object p2, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->expandedAccessibilityClassName:Ljava/lang/String;
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_15
 
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->TAG:Ljava/lang/String;
 
@@ -1248,7 +1278,31 @@
 
     invoke-static {p0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_14
+    :cond_15
+    return-void
+.end method
+
+.method private synthetic lambda$handleClick$0()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/InternetTile;->mInternetDialogFactory:Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/InternetTile;->mAccessPointController:Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;
+
+    invoke-interface {v1}, Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;->canConfigMobileData()Z
+
+    move-result v1
+
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/InternetTile;->mAccessPointController:Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;
+
+    invoke-interface {p0}, Lcom/android/systemui/statusbar/policy/NetworkController$AccessPointController;->canConfigWifi()Z
+
+    move-result p0
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v0, v2, v1, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;->create(ZZZ)V
+
     return-void
 .end method
 
@@ -1429,13 +1483,13 @@
 .method protected handleClick(Landroid/view/View;)V
     .locals 1
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/InternetTile;->mHandler:Landroid/os/Handler;
 
-    sget-object p1, Lcom/android/systemui/qs/tiles/InternetTile;->INTERNET_PANEL:Landroid/content/Intent;
+    new-instance v0, Lcom/android/systemui/qs/tiles/InternetTile$$ExternalSyntheticLambda0;
 
-    const/4 v0, 0x0
+    invoke-direct {v0, p0}, Lcom/android/systemui/qs/tiles/InternetTile$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/qs/tiles/InternetTile;)V
 
-    invoke-interface {p0, p1, v0}, Lcom/android/systemui/plugins/ActivityStarter;->postStartActivityDismissingKeyguard(Landroid/content/Intent;I)V
+    invoke-virtual {p1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method

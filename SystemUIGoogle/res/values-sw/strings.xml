@@ -363,6 +363,7 @@ Ikiwa ruhusa hii itazimwa, kengele zilizopo na ratiba za vitendo vinavyotegemea 
     <string name="alarms_and_reminders_label">"Ving'ora na vikumbusho"</string>
     <string name="alarms_and_reminders_switch_title">Ruhusu iweke kengele na vikumbusho</string>
     <string name="alarms_and_reminders_title">Kengele na vikumbusho</string>
+    <string name="all_network_unavailable">Hakuna mitandao inayopatikana</string>
     <string name="allow_mock_location">Ruhusu maeneo ya jaribio</string>
     <string name="allow_mock_location_summary">Ruhusu maeneo ya majaribio</string>
     <string name="always_use_accessory">Fungua %1$s kila wakati %2$s inaunganishwa</string>
@@ -618,6 +619,11 @@ Uteuzi"</string>
     <string name="clock_title_analog">Analogi</string>
     <string name="clock_title_bubble">Kiputo</string>
     <string name="clock_title_default">Chaguomsingi</string>
+    <string name="columbus_bouncer_message">Fungua ili umalize Kugusa Haraka</string>
+    <string name="columbus_target_request_dialog_allow">Ruhusu</string>
+    <string name="columbus_target_request_dialog_deny">Usiruhusu</string>
+    <string name="columbus_target_request_dialog_summary">Ukigusa nyuma ya simu mara mbili, %1$s itafunguka. Unaweza kubadilisha mapendeleo haya wakati wowote katika Mipangilio.</string>
+    <string name="columbus_target_request_dialog_title">Ungependa kuruhusu ishara ya Kugusa Haraka ifungue %1$s?</string>
     <string name="compat_mode_off">Tanua ili kujaza skrini</string>
     <string name="compat_mode_on">Kuza ili kujaza skrini</string>
     <string name="confirm_enable_oem_unlock_text">ONYO: Vipengele vya ulinzi wa kifaa havitafanya kazi kwenye kifaa hiki wakati mpangilio huu umewashwa.</string>
@@ -739,7 +745,9 @@ Ukiendelea, huenda ukatozwa ada ya matumizi ya data."</string>
     <string name="defender_notify_des">Simu yako inadhibiti hali ya kuchaji ili kusaidia kuboresha muda wa kutumia betri</string>
     <string name="defender_notify_learn_more">Pata maelezo zaidi</string>
     <string name="defender_notify_resume_charge">Endelea kuchaji</string>
-    <string name="defender_notify_title">Hali ya kuchaji imedhibitiwa kwa muda</string>
+    <string name="defender_notify_title">Kuchaji kumedhibitiwa kwa muda</string>
+    <string name="defender_post_notify_des">Iliruhusiwa kuchaji %1$s kuanzia %2$s hadi %3$s ili kuboresha muda wa matumizi ya betri</string>
+    <string name="defender_post_notify_title">Inachaji kwa njia ya kawaida</string>
     <string name="delete_blob_confirmation_text">Una uhakika unataka kufuta data hii iliyoshirikiwa?</string>
     <string name="delete_blob_text">Futa data iliyoshirikiwa</string>
     <string name="demo_mode">Hali ya onyesho la kirekebishi cha kiolesura cha mfumo</string>
@@ -885,6 +893,7 @@ Ukiendelea, huenda ukatozwa ada ya matumizi ya data."</string>
     <string name="game_status">Unacheza</string>
     <string name="global_action_lock_message">Fungua simu yako ili upate chaguo zaidi</string>
     <string name="global_action_screenshot">Picha ya skrini</string>
+    <string name="global_action_smart_lock_disabled">Kipengele cha Smart Lock kimezimwa</string>
     <string name="global_actions_change_description">Ili ufikie %1$s na vidhibiti vya vifaa, telezesha kidole chini kuanzia sehemu ya juu ya skrini yako</string>
     <string name="go_to_web">Tumia kivinjari</string>
     <string name="google_services_wallpaper_permission"><b>Ruhusu Mandhari Hai ya Google itumie vipengee vya mahali ulipo</b> kwa kufikia huduma ya Google ya kutambua mahali.</string>
@@ -1232,7 +1241,7 @@ pekee"</string>
     <string name="media_projection_dialog_text">%s itaweza kufikia maelezo yote yanayoonekana kwenye skrini yako au yanayochezwa kwenye kifaa chako wakati wa kurekodi au kutuma. Hii ni pamoja na maelezo kama vile manenosiri, maelezo ya malipo, picha, ujumbe na sauti unayocheza.</string>
     <string name="media_projection_dialog_title">Ungependa kuanza kurekodi au kutuma ukitumia %s?</string>
     <string name="media_projection_remember_text">Usionyeshe tena</string>
-    <string name="media_seamless_remote_device">Kifaa</string>
+    <string name="media_seamless_other_device">Kifaa kingine</string>
     <string name="media_transfer_this_device_name">Spika ya simu</string>
     <string name="media_transfer_this_phone">Simu hii</string>
     <string name="media_transfer_wired_device_name">Kifaa cha sauti kinachotumia waya</string>
@@ -1249,9 +1258,13 @@ pekee"</string>
     <string name="mobile_data">Data ya simu</string>
     <string name="mobile_data_always_on">Iendelee kutumia data ya simu</string>
     <string name="mobile_data_always_on_summary">Washa data ya kifaa cha mkononi kila wakati, hata kama Wi-Fi inatumika (ili kubadili mtandao kwa haraka).</string>
+    <string name="mobile_data_connection_active">Imeunganishwa</string>
     <string name="mobile_data_disable_message">Hutaweza kufikia data au intaneti kupitia %s. Intaneti itapatikana kupitia Wi-Fi pekee.</string>
     <string name="mobile_data_disable_message_default_carrier">mtoa huduma wako</string>
     <string name="mobile_data_disable_title">Ungependa kuzima data ya mtandao wa simu?</string>
+    <string name="mobile_data_no_connection">Hakuna muunganisho</string>
+    <string name="mobile_data_off_summary">Data ya mtandao wa simu haitaunganishwa kiotomatiki</string>
+    <string name="mobile_data_settings_title">Data ya mtandao wa simu</string>
     <string name="mobile_data_text_format">%1$s%2$s</string>
     <string name="mock_location_app">Chagua programu ya eneo ya majaribio</string>
     <string name="mock_location_app_not_set">Hakuna programu ya eneo ya majaribio iliyosanidiwa</string>
@@ -1391,6 +1404,7 @@ Ikiwa una maswali yoyote, wasiliana na %2$s."</string>
     <string name="no_content_in_select_mode">Hamna maandishi wala picha ya kuchagua</string>
     <string name="no_conversations_text">Mazungumzo yako ya hivi majuzi yataonekana hapa</string>
     <string name="no_shortcut">%1$s haitumii vipengele vya mazungumzo</string>
+    <string name="non_carrier_network_unavailable">Hakuna mitandao mingine inayopatikana</string>
     <string name="not_default_data_content_description">Haijawekewa mipangilio ya kutumia data</string>
     <string name="not_set">Haijawekwa</string>
     <string name="notif_inline_reply_remove_attachment_description">Ondoa kiambatisho</string>
@@ -1571,6 +1585,7 @@ Ikiwa una maswali yoyote, wasiliana na %2$s."</string>
     <string name="power_remaining_only_more_than_subtext">Zimesalia zaidi ya %1$s</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">Huenda chaji ikaisha kufikia %1$s</string>
+    <string name="pref_title_network_details">Maelezo ya mtandao</string>
     <string name="preference_copied">\"%1$s\" imenakiliwa kwenye ubao wa kunakili.</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">Mazungumzo yenye kipaumbele</string>
@@ -1740,6 +1755,7 @@ Ikiwa una maswali yoyote, wasiliana na %2$s."</string>
     <string name="right_keycode">Msimbo wa ufunguo wa kulia</string>
     <string name="right_nav_bar_button_type">Aina ya kitufe cha kulia cha ziada</string>
     <string name="ring_toggle_title">Simu</string>
+    <string name="rotation_lock_camera_rotation_on">Imewashwa - Inayolenga nyuso</string>
     <string name="running_foreground_services_msg">Gusa ili upate maelezo kuhusu betri na matumizi ya data</string>
     <string name="running_foreground_services_title">Programu zinatumika chinichini</string>
     <string name="running_process_item_user_label">Mtumiaji: %1$s</string>
@@ -1806,7 +1822,7 @@ Ikiwa una maswali yoyote, wasiliana na %2$s."</string>
     <string name="screenshot_left_boundary_pct">Mpaka wa sehemu ya kushoto wa asilimia %1$d</string>
     <string name="screenshot_preview_description">Onyesho la kukagua picha ya skrini</string>
     <string name="screenshot_right_boundary_pct">Mpaka wa sehemu ya kulia wa asilimia %1$d</string>
-    <string name="screenshot_saved_text">Gusa ili utazame picha ya skrini uliyohifadhi</string>
+    <string name="screenshot_saved_text">Gusa ili uone picha ya skrini uliyohifadhi</string>
     <string name="screenshot_saved_title">Imehifadhi picha ya skrini</string>
     <string name="screenshot_saving_ticker">Inahifadhi picha ya skrini...</string>
     <string name="screenshot_saving_title">Inahifadhi picha ya skrini...</string>
@@ -1814,6 +1830,7 @@ Ikiwa una maswali yoyote, wasiliana na %2$s."</string>
     <string name="screenshot_top_boundary_pct">Mpaka wa sehemu ya juu wa asilimia %1$d</string>
     <string name="search_menu">Tafuta katika mipangilio</string>
     <string name="search_menu_title">Tafuta</string>
+    <string name="see_all_networks">Angalia yote</string>
     <string name="see_more_title">Angalia zaidi</string>
     <string name="select_application">Chagua programu</string>
     <string name="select_conversation_text">Gusa mazungumzo ili uyaweke kwenye Skrini yako ya kwanza</string>
@@ -1926,6 +1943,7 @@ unafuatiliwa"</string>
     <string name="switch_bar_off">Imezimwa</string>
     <string name="switch_bar_on">Imewashwa</string>
     <string name="system_ui_tuner">Kirekebishi cha kiolesura cha mfumo</string>
+    <string name="tap_a_network_to_connect">Gusa mtandao ili uunganishe</string>
     <string name="tap_again">Gusa tena</string>
     <string name="tap_to_sign_up">Gusa ili ujisajili</string>
     <string name="tether_settings_title_all">Kushiriki na kusambaza mtandao</string>
@@ -1951,6 +1969,7 @@ Gusa ili upate maelezo zaidi"</string>
     <string name="time_unit_just_now">Sasa hivi</string>
     <string name="title_convert_fbe">Inabadilisha kuwa usimbaji fiche unaotegemea faili</string>
     <string name="title_usb_accessory">Kifaa cha Usb</string>
+    <string name="to_switch_networks_disconnect_ethernet">Ili kubadili mitandao, tenganisha ethaneti</string>
     <string name="too_hot_label">Pixel ina joto jingi</string>
     <string name="touch_filtered_warning">Kwa sababu programu nyingine inazuia ombi la ruhusa, hatuwezi kuthibitisha jibu lako katika Mipangilio.</string>
     <string name="track_frame_time">Kutekeleza HWUI ya wasifu</string>
@@ -2009,10 +2028,12 @@ Gusa ili upate maelezo zaidi"</string>
     <string name="tuner_toast">Hongera! Kirekebishi cha kiolesura cha mfumo kimeongezwa kwenye mipangilio</string>
     <string name="tuner_warning">Kirekebishi cha kiolesura cha mfumo kinakupa njia zaidi za kugeuza na kubadilisha kiolesura cha Android ili kikufae. Vipengele hivi vya majaribio vinaweza kubadilika, kuharibika au kupotea katika matoleo ya siku zijazo. Endelea kwa uangalifu.</string>
     <string name="tuner_warning_title">Kinafurahisha kwa baadhi ya watu lakini si wote</string>
+    <string name="turn_on_wifi">Wi-Fi</string>
     <string name="tv_notification_panel_no_notifications">Hakuna Arifa</string>
     <string name="tv_notification_panel_title">Arifa</string>
     <string name="two_weeks_timestamp">Wiki mbili zilizopita</string>
     <string name="unknown">Haijulikani</string>
+    <string name="unlock_to_view_networks">Fungua ili uangalie mitandao</string>
     <string name="upcoming_birthday_status">Siku ya kuzaliwa inakaribia</string>
     <string name="upcoming_birthday_status_content_description">Siku ya kuzaliwa ya %1$s inakaribia</string>
     <string name="url_menu_copy">Nakili</string>
@@ -2151,9 +2172,11 @@ Anwani ya Wi-Fi (BSSID)
     <string name="wifi_disconnected">Hujaunganishwa</string>
     <string name="wifi_display_certification">Chaguo za cheti cha kuonyesha pasiwaya</string>
     <string name="wifi_display_certification_summary">Onyesha chaguo za cheti cha kuonyesha pasiwaya</string>
+    <string name="wifi_empty_list_wifi_on">Inatafuta mitandao…</string>
     <string name="wifi_enhanced_mac_randomization">Kuweka kwa unasibu anwani za MAC zisizo na muunganisho endelevu wa Wi-Fi</string>
     <string name="wifi_enhanced_mac_randomization_summary">Wakati hali hii imewashwa, huenda anwani ya MAC ya kifaa hiki ikabadilika kila wakati kinapounganisha kwenye mtandao ambapo kipengele cha unasibu wa MAC kimewashwa.</string>
     <string name="wifi_fail_to_scan">Haiwezi kutambaza mitandao</string>
+    <string name="wifi_failed_connect_message">Imeshindwa kuunganisha kwenye mtandao</string>
     <string name="wifi_hotspot_switch_off_text">Umezimwa</string>
     <string name="wifi_hotspot_switch_on_text">Umewashwa</string>
     <string name="wifi_is_off">Wi-Fi imezimwa</string>
@@ -2164,6 +2187,7 @@ Anwani ya Wi-Fi (BSSID)
     <string name="wifi_not_in_range">Haiko karibu</string>
     <string name="wifi_passpoint_expired">Muda umeisha</string>
     <string name="wifi_remembered">Imehifadhiwa</string>
+    <string name="wifi_scan_notify_message">Ili kuboresha hali ya matumizi ya kifaa, programu na huduma bado zinaweza kutafuta mitandao ya Wi‑Fi wakati wowote, hata wakati umezima Wi‑Fi. Unaweza kubadilisha mipangilio hii katika mipangilio ya kutafuta Wi-Fi. <annotation id="link">Badilisha</annotation></string>
     <string name="wifi_scan_throttling">Kudhibiti utafutaji wa Wi-Fi</string>
     <string name="wifi_scan_throttling_summary">Hupunguza matumizi ya chaji ya betri na kuboresha utendaji wa mtandao</string>
     <string name="wifi_security_none">Hamna</string>
@@ -2173,6 +2197,7 @@ Anwani ya Wi-Fi (BSSID)
     <string name="wifi_unmetered_label">Mtandao usiopima data</string>
     <string name="wifi_verbose_logging">Washa Uwekaji kumbukumbu za WiFi kutumia Sauti</string>
     <string name="wifi_verbose_logging_summary">Ongeza hatua ya uwekaji kumbukumbu ya Wi-Fi, onyesha kwa kila SSID RSSI kwenye Kichukuzi cha Wi-Fi</string>
+    <string name="wifi_wont_autoconnect_for_now">Wi-Fi haitaunganishwa kiotomatiki kwa sasa</string>
     <string name="wifitrackerlib_auto_connect_disable">Kipengele cha kuunganisha kiotomatiki kimezimwa</string>
     <string name="wifitrackerlib_available_via_app">Inapatikana kupitia %1$s</string>
     <string name="wifitrackerlib_connected_via_app">Imeunganishwa kupitia %1$s</string>

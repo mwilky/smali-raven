@@ -38,6 +38,16 @@
     .end annotation
 .end field
 
+.field private final authRippleControllerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/biometrics/AuthRippleController;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final configurationControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -140,7 +150,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -180,6 +190,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Landroid/os/Vibrator;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/biometrics/AuthRippleController;",
             ">;)V"
         }
     .end annotation
@@ -210,11 +223,13 @@
 
     iput-object p12, p0, Lcom/android/keyguard/LockIconViewController_Factory;->vibratorProvider:Ljavax/inject/Provider;
 
+    iput-object p13, p0, Lcom/android/keyguard/LockIconViewController_Factory;->authRippleControllerProvider:Ljavax/inject/Provider;
+
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/keyguard/LockIconViewController_Factory;
-    .locals 14
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/keyguard/LockIconViewController_Factory;
+    .locals 15
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -253,18 +268,21 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Landroid/os/Vibrator;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/biometrics/AuthRippleController;",
             ">;)",
             "Lcom/android/keyguard/LockIconViewController_Factory;"
         }
     .end annotation
 
-    new-instance v13, Lcom/android/keyguard/LockIconViewController_Factory;
+    new-instance v14, Lcom/android/keyguard/LockIconViewController_Factory;
 
-    move-object v0, v13
+    move-object v0, v14
 
     move-object v1, p0
 
-    move-object v2, p1
+    move-object/from16 v2, p1
 
     move-object/from16 v3, p2
 
@@ -286,21 +304,23 @@
 
     move-object/from16 v12, p11
 
-    invoke-direct/range {v0 .. v12}, Lcom/android/keyguard/LockIconViewController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v13, p12
 
-    return-object v13
+    invoke-direct/range {v0 .. v13}, Lcom/android/keyguard/LockIconViewController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v14
 .end method
 
-.method public static newInstance(Lcom/android/keyguard/LockIconView;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/keyguard/KeyguardViewController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/dump/DumpManager;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/util/concurrency/DelayableExecutor;Landroid/os/Vibrator;)Lcom/android/keyguard/LockIconViewController;
-    .locals 14
+.method public static newInstance(Lcom/android/keyguard/LockIconView;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/keyguard/KeyguardViewController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/dump/DumpManager;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/util/concurrency/DelayableExecutor;Landroid/os/Vibrator;Lcom/android/systemui/biometrics/AuthRippleController;)Lcom/android/keyguard/LockIconViewController;
+    .locals 15
 
-    new-instance v13, Lcom/android/keyguard/LockIconViewController;
+    new-instance v14, Lcom/android/keyguard/LockIconViewController;
 
-    move-object v0, v13
+    move-object v0, v14
 
     move-object v1, p0
 
-    move-object v2, p1
+    move-object/from16 v2, p1
 
     move-object/from16 v3, p2
 
@@ -322,15 +342,17 @@
 
     move-object/from16 v12, p11
 
-    invoke-direct/range {v0 .. v12}, Lcom/android/keyguard/LockIconViewController;-><init>(Lcom/android/keyguard/LockIconView;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/keyguard/KeyguardViewController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/dump/DumpManager;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/util/concurrency/DelayableExecutor;Landroid/os/Vibrator;)V
+    move-object/from16 v13, p12
 
-    return-object v13
+    invoke-direct/range {v0 .. v13}, Lcom/android/keyguard/LockIconViewController;-><init>(Lcom/android/keyguard/LockIconView;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/keyguard/KeyguardViewController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/dump/DumpManager;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/util/concurrency/DelayableExecutor;Landroid/os/Vibrator;Lcom/android/systemui/biometrics/AuthRippleController;)V
+
+    return-object v14
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/keyguard/LockIconViewController;
-    .locals 13
+    .locals 14
 
     iget-object v0, p0, Lcom/android/keyguard/LockIconViewController_Factory;->viewProvider:Ljavax/inject/Provider;
 
@@ -442,17 +464,27 @@
 
     check-cast v11, Lcom/android/systemui/util/concurrency/DelayableExecutor;
 
-    iget-object p0, p0, Lcom/android/keyguard/LockIconViewController_Factory;->vibratorProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/keyguard/LockIconViewController_Factory;->vibratorProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v12, v0
+
+    check-cast v12, Landroid/os/Vibrator;
+
+    iget-object p0, p0, Lcom/android/keyguard/LockIconViewController_Factory;->authRippleControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    move-object v12, p0
+    move-object v13, p0
 
-    check-cast v12, Landroid/os/Vibrator;
+    check-cast v13, Lcom/android/systemui/biometrics/AuthRippleController;
 
-    invoke-static/range {v1 .. v12}, Lcom/android/keyguard/LockIconViewController_Factory;->newInstance(Lcom/android/keyguard/LockIconView;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/keyguard/KeyguardViewController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/dump/DumpManager;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/util/concurrency/DelayableExecutor;Landroid/os/Vibrator;)Lcom/android/keyguard/LockIconViewController;
+    invoke-static/range {v1 .. v13}, Lcom/android/keyguard/LockIconViewController_Factory;->newInstance(Lcom/android/keyguard/LockIconView;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/keyguard/KeyguardViewController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/dump/DumpManager;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/util/concurrency/DelayableExecutor;Landroid/os/Vibrator;Lcom/android/systemui/biometrics/AuthRippleController;)Lcom/android/keyguard/LockIconViewController;
 
     move-result-object p0
 

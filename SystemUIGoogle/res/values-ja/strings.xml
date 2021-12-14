@@ -363,6 +363,7 @@
     <string name="alarms_and_reminders_label">アラームとリマインダー</string>
     <string name="alarms_and_reminders_switch_title">アラームとリマインダーの設定を許可する</string>
     <string name="alarms_and_reminders_title">アラームとリマインダー</string>
+    <string name="all_network_unavailable">ネットワークを利用できません</string>
     <string name="allow_mock_location">擬似ロケーションを許可</string>
     <string name="allow_mock_location_summary">擬似ロケーションを許可する</string>
     <string name="always_use_accessory">%2$s を接続したら常に %1$s を起動する</string>
@@ -618,6 +619,11 @@
     <string name="clock_title_analog">アナログ</string>
     <string name="clock_title_bubble">バブル</string>
     <string name="clock_title_default">デフォルト</string>
+    <string name="columbus_bouncer_message">クイックタップを完了するにはロックを解除してください</string>
+    <string name="columbus_target_request_dialog_allow">許可</string>
+    <string name="columbus_target_request_dialog_deny">許可しない</string>
+    <string name="columbus_target_request_dialog_summary">スマートフォンの背面をダブルタップすると %1$s が開きます。この設定は [設定] でいつでも変更できます。</string>
+    <string name="columbus_target_request_dialog_title">クイックタップで %1$s を開くことを許可しますか？</string>
     <string name="compat_mode_off">画面サイズに合わせて拡大</string>
     <string name="compat_mode_on">画面サイズに合わせて拡大</string>
     <string name="confirm_enable_oem_unlock_text">警告: この設定をONにしている場合、このデバイスではデバイス保護機能を利用できません。</string>
@@ -740,6 +746,8 @@
     <string name="defender_notify_learn_more">詳細</string>
     <string name="defender_notify_resume_charge">充電を再開</string>
     <string name="defender_notify_title">充電を一時的に制限しています</string>
+    <string name="defender_post_notify_des">バッテリーの状態を正常に保つため、%2$sから%3$sまでは充電量が %1$s に制限されました</string>
+    <string name="defender_post_notify_title">通常の充電</string>
     <string name="delete_blob_confirmation_text">この共有データを削除してもよろしいですか？</string>
     <string name="delete_blob_text">共有データを削除</string>
     <string name="demo_mode">システム UI デモモード</string>
@@ -885,6 +893,7 @@
     <string name="game_status">プレイ中</string>
     <string name="global_action_lock_message">スマートフォンのロックを解除してその他のオプションを表示する</string>
     <string name="global_action_screenshot">スクリーンショット</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock は無効です</string>
     <string name="global_actions_change_description">%1$s とデバイス コントロールにアクセスするには、画面の上部から下にスワイプします</string>
     <string name="go_to_web">ブラウザに移動</string>
     <string name="google_services_wallpaper_permission"><b>現在地に合った壁紙を表示するために、</b>Google ライブ壁紙に Google の位置情報サービスへのアクセスを許可します。</string>
@@ -1066,7 +1075,7 @@
     <string name="keyguard_permanent_disabled_sim_message_short">SIM カードは使用できません。</string>
     <string name="keyguard_plugged_in">%s • 充電中</string>
     <string name="keyguard_plugged_in_charging_fast">%s • 急速充電中</string>
-    <string name="keyguard_plugged_in_charging_limited">%s • 充電は一時的に制限されています</string>
+    <string name="keyguard_plugged_in_charging_limited">%s • 充電を一時的に制限しています</string>
     <string name="keyguard_plugged_in_charging_slowly">%s • 低速充電中</string>
     <string name="keyguard_plugged_in_wireless">%s • ワイヤレス充電中</string>
     <string name="keyguard_retry">上にスワイプしてもう一度お試しください</string>
@@ -1232,7 +1241,7 @@
     <string name="media_projection_dialog_text">%s は、録画中やキャスト中に画面に表示されたり、デバイスで再生されるすべての情報にアクセスできます。これには、パスワード、お支払いの詳細、写真、メッセージ、再生される音声などが含まれます。</string>
     <string name="media_projection_dialog_title">%s で録画やキャストを開始しますか？</string>
     <string name="media_projection_remember_text">次回から表示しない</string>
-    <string name="media_seamless_remote_device">デバイス</string>
+    <string name="media_seamless_other_device">その他のデバイス</string>
     <string name="media_transfer_this_device_name">スマートフォンのスピーカー</string>
     <string name="media_transfer_this_phone">このスマートフォン</string>
     <string name="media_transfer_wired_device_name">有線オーディオ デバイス</string>
@@ -1249,9 +1258,13 @@
     <string name="mobile_data">モバイルデータ</string>
     <string name="mobile_data_always_on">モバイルデータを常に ON にする</string>
     <string name="mobile_data_always_on_summary">ネットワークの切替速度を向上させるため、Wi‑Fi の利用時でもモバイルデータを常に ON にします。</string>
+    <string name="mobile_data_connection_active">接続済み</string>
     <string name="mobile_data_disable_message">%sでデータやインターネットにアクセスできなくなります。インターネットには Wi-Fi からのみ接続できます。</string>
     <string name="mobile_data_disable_message_default_carrier">携帯通信会社</string>
     <string name="mobile_data_disable_title">モバイルデータを OFF にしますか？</string>
+    <string name="mobile_data_no_connection">接続なし</string>
+    <string name="mobile_data_off_summary">モバイルデータには自動接続しません</string>
+    <string name="mobile_data_settings_title">モバイルデータ</string>
     <string name="mobile_data_text_format">%1$s — %2$s</string>
     <string name="mock_location_app">現在地情報の強制変更アプリを選択</string>
     <string name="mock_location_app_not_set">現在地情報の強制変更アプリが設定されていません</string>
@@ -1391,6 +1404,7 @@ IT 管理者が、このデバイスに関連付けられている設定、コ�
     <string name="no_content_in_select_mode">テキストや画像が選択されていません</string>
     <string name="no_conversations_text">最近の会話がここに表示されます</string>
     <string name="no_shortcut">%1$sは会話機能に対応していません</string>
+    <string name="non_carrier_network_unavailable">利用できるネットワークはありません</string>
     <string name="not_default_data_content_description">データを使用するように設定されていません</string>
     <string name="not_set">未設定</string>
     <string name="notif_inline_reply_remove_attachment_description">添付ファイルを削除</string>
@@ -1571,6 +1585,7 @@ IT 管理者が、このデバイスに関連付けられている設定、コ�
     <string name="power_remaining_only_more_than_subtext">残り時間: %1$s以上</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">%1$s 頃に電池がなくなります</string>
+    <string name="pref_title_network_details">ネットワークの詳細</string>
     <string name="preference_copied">「%1$s」をクリップボードにコピーしました。</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">優先度の高い会話</string>
@@ -1740,6 +1755,7 @@ IT 管理者が、このデバイスに関連付けられている設定、コ�
     <string name="right_keycode">右キーコード</string>
     <string name="right_nav_bar_button_type">その他の右ボタンタイプ</string>
     <string name="ring_toggle_title">通話</string>
+    <string name="rotation_lock_camera_rotation_on">ON - 顔ベース</string>
     <string name="running_foreground_services_msg">タップしてバッテリーやデータの使用量を確認</string>
     <string name="running_foreground_services_title">バックグラウンドで実行中のアプリ</string>
     <string name="running_process_item_user_label">ユーザー: %1$s</string>
@@ -1814,6 +1830,7 @@ IT 管理者が、このデバイスに関連付けられている設定、コ�
     <string name="screenshot_top_boundary_pct">上部の境界線 %1$d パーセント</string>
     <string name="search_menu">設定を検索</string>
     <string name="search_menu_title">検索</string>
+    <string name="see_all_networks">すべて表示</string>
     <string name="see_more_title">詳細</string>
     <string name="select_application">アプリを選択</string>
     <string name="select_conversation_text">会話をタップするとホーム画面に追加されます</string>
@@ -1926,6 +1943,7 @@ IT 管理者が、このデバイスに関連付けられている設定、コ�
     <string name="switch_bar_off">OFF</string>
     <string name="switch_bar_on">ON</string>
     <string name="system_ui_tuner">システムUI調整ツール</string>
+    <string name="tap_a_network_to_connect">ネットワークをタップして接続</string>
     <string name="tap_again">もう一度タップしてください</string>
     <string name="tap_to_sign_up">タップして登録してください</string>
     <string name="tether_settings_title_all">テザリングとポータブルアクセスポイント</string>
@@ -1951,6 +1969,7 @@ IT 管理者が、このデバイスに関連付けられている設定、コ�
     <string name="time_unit_just_now">たった今</string>
     <string name="title_convert_fbe">ファイルベースの暗号化に変換しています</string>
     <string name="title_usb_accessory">USBアクセサリ</string>
+    <string name="to_switch_networks_disconnect_ethernet">ネットワークを変更するにはイーサネット接続を解除してください</string>
     <string name="too_hot_label">Pixel が過熱しています</string>
     <string name="touch_filtered_warning">アプリが許可リクエストを隠しているため、設定側でユーザーの応答を確認できません。</string>
     <string name="track_frame_time">HWUI レンダリングのプロファイル作成</string>
@@ -2009,10 +2028,12 @@ IT 管理者が、このデバイスに関連付けられている設定、コ�
     <string name="tuner_toast">システムUI調整ツールを設定に追加しました</string>
     <string name="tuner_warning">システムUI調整ツールでは、Androidユーザーインターフェースの調整やカスタマイズを行えます。これらの試験運用機能は今後のリリースで変更となったり、中止となったり、削除されたりする可能性がありますのでご注意ください。</string>
     <string name="tuner_warning_title">一部の方のみお楽しみいただける限定公開ツール</string>
+    <string name="turn_on_wifi">Wi-Fi</string>
     <string name="tv_notification_panel_no_notifications">通知はありません</string>
     <string name="tv_notification_panel_title">通知</string>
     <string name="two_weeks_timestamp">2 週間前</string>
     <string name="unknown">不明</string>
+    <string name="unlock_to_view_networks">ネットワークを表示するにはロック解除してください</string>
     <string name="upcoming_birthday_status">もうすぐ誕生日</string>
     <string name="upcoming_birthday_status_content_description">まもなく %1$s さんのお誕生日です</string>
     <string name="url_menu_copy">コピー</string>
@@ -2151,9 +2172,11 @@ Wi‑Fi アドレス（BSSID）
     <string name="wifi_disconnected">未接続</string>
     <string name="wifi_display_certification">ワイヤレス ディスプレイ認証</string>
     <string name="wifi_display_certification_summary">ワイヤレス ディスプレイ認証のオプションを表示</string>
+    <string name="wifi_empty_list_wifi_on">ネットワークを検索しています…</string>
     <string name="wifi_enhanced_mac_randomization">Wi-Fi 非永続的 MAC ランダム化</string>
     <string name="wifi_enhanced_mac_randomization_summary">ON にすると、MAC アドレスのランダム化が有効なネットワークに接続するたびに、このデバイスの MAC アドレスが変わる可能性があります。</string>
     <string name="wifi_fail_to_scan">ネットワークをスキャンできません</string>
+    <string name="wifi_failed_connect_message">ネットワークに接続できませんでした</string>
     <string name="wifi_hotspot_switch_off_text">OFF</string>
     <string name="wifi_hotspot_switch_on_text">ON</string>
     <string name="wifi_is_off">Wi-Fi は OFF です</string>
@@ -2164,6 +2187,7 @@ Wi‑Fi アドレス（BSSID）
     <string name="wifi_not_in_range">圏外</string>
     <string name="wifi_passpoint_expired">期限切れ</string>
     <string name="wifi_remembered">保存済み</string>
+    <string name="wifi_scan_notify_message">デバイスの機能向上のため、アプリやサービスは、Wi-Fi が OFF の場合でも、いつでも Wi-Fi ネットワークをスキャンできます。この設定は Wi-Fi スキャンの設定で変更できます。<annotation id="link">変更</annotation></string>
     <string name="wifi_scan_throttling">Wi‑Fi スキャン スロットリング</string>
     <string name="wifi_scan_throttling_summary">電池の消耗が軽減され、ネットワーク パフォーマンスが改善されます</string>
     <string name="wifi_security_none">なし</string>
@@ -2173,6 +2197,7 @@ Wi‑Fi アドレス（BSSID）
     <string name="wifi_unmetered_label">定額制</string>
     <string name="wifi_verbose_logging">Wi-Fi 詳細ログの有効化</string>
     <string name="wifi_verbose_logging_summary">Wi-Fi ログレベルを上げて、Wi-Fi 選択ツールで SSID RSSI ごとに表示します</string>
+    <string name="wifi_wont_autoconnect_for_now">Wi-Fi に自動接続しません</string>
     <string name="wifitrackerlib_auto_connect_disable">自動接続が OFF です</string>
     <string name="wifitrackerlib_available_via_app">%1$sで利用可能</string>
     <string name="wifitrackerlib_connected_via_app">%1$sで接続しました</string>

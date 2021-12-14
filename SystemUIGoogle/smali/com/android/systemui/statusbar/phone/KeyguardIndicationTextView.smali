@@ -3,6 +3,12 @@
 .source "KeyguardIndicationTextView.java"
 
 
+# static fields
+.field private static sButtonStyleId:I
+
+.field private static sStyleId:I
+
+
 # instance fields
 .field private mAnimationsEnabled:Z
 
@@ -30,6 +36,20 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    sget v0, Lcom/android/systemui/R$style;->TextAppearance_Keyguard_BottomArea:I
+
+    sput v0, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->sStyleId:I
+
+    sget v0, Lcom/android/systemui/R$style;->TextAppearance_Keyguard_BottomArea_Button:I
+
+    sput v0, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->sButtonStyleId:I
+
+    return-void
+.end method
+
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 2
 
@@ -150,7 +170,23 @@
     return-object p0
 .end method
 
-.method static synthetic access$100(Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;)Ljava/util/LinkedList;
+.method static synthetic access$100()I
+    .locals 1
+
+    sget v0, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->sButtonStyleId:I
+
+    return v0
+.end method
+
+.method static synthetic access$200()I
+    .locals 1
+
+    sget v0, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->sStyleId:I
+
+    return v0
+.end method
+
+.method static synthetic access$300(Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;)Ljava/util/LinkedList;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;->mMessages:Ljava/util/LinkedList;

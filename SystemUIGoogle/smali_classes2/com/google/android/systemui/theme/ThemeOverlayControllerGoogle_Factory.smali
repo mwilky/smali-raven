@@ -48,6 +48,16 @@
     .end annotation
 .end field
 
+.field private final configurationControllerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final contextProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -98,11 +108,31 @@
     .end annotation
 .end field
 
+.field private final resourcesProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Landroid/content/res/Resources;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final secureSettingsProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/util/settings/SecureSettings;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final systemPropertiesProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/flags/SystemPropertiesHelper;",
             ">;"
         }
     .end annotation
@@ -160,8 +190,8 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-    .locals 0
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -187,6 +217,12 @@
             "Lcom/android/systemui/util/settings/SecureSettings;",
             ">;",
             "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/flags/SystemPropertiesHelper;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Landroid/content/res/Resources;",
+            ">;",
+            "Ljavax/inject/Provider<",
             "Landroid/app/WallpaperManager;",
             ">;",
             "Ljavax/inject/Provider<",
@@ -206,45 +242,90 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/keyguard/WakefulnessLifecycle;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
             ">;)V"
         }
     .end annotation
 
+    move-object v0, p0
+
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->contextProvider:Ljavax/inject/Provider;
+    move-object v1, p1
 
-    iput-object p2, p0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->contextProvider:Ljavax/inject/Provider;
 
-    iput-object p3, p0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->bgHandlerProvider:Ljavax/inject/Provider;
+    move-object v1, p2
 
-    iput-object p4, p0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->mainExecutorProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
 
-    iput-object p5, p0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->bgExecutorProvider:Ljavax/inject/Provider;
+    move-object v1, p3
 
-    iput-object p6, p0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->themeOverlayApplierProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->bgHandlerProvider:Ljavax/inject/Provider;
 
-    iput-object p7, p0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->secureSettingsProvider:Ljavax/inject/Provider;
+    move-object v1, p4
 
-    iput-object p8, p0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->wallpaperManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->mainExecutorProvider:Ljavax/inject/Provider;
 
-    iput-object p9, p0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->userManagerProvider:Ljavax/inject/Provider;
+    move-object v1, p5
 
-    iput-object p10, p0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->bgExecutorProvider:Ljavax/inject/Provider;
 
-    iput-object p11, p0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->deviceProvisionedControllerProvider:Ljavax/inject/Provider;
+    move-object v1, p6
 
-    iput-object p12, p0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->userTrackerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->themeOverlayApplierProvider:Ljavax/inject/Provider;
 
-    iput-object p13, p0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
+    move-object v1, p7
 
-    iput-object p14, p0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->wakefulnessLifecycleProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->secureSettingsProvider:Ljavax/inject/Provider;
+
+    move-object v1, p8
+
+    iput-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->systemPropertiesProvider:Ljavax/inject/Provider;
+
+    move-object v1, p9
+
+    iput-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->resourcesProvider:Ljavax/inject/Provider;
+
+    move-object v1, p10
+
+    iput-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->wallpaperManagerProvider:Ljavax/inject/Provider;
+
+    move-object v1, p11
+
+    iput-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->userManagerProvider:Ljavax/inject/Provider;
+
+    move-object v1, p12
+
+    iput-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
+
+    move-object v1, p13
+
+    iput-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->deviceProvisionedControllerProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p14
+
+    iput-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->userTrackerProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p15
+
+    iput-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p16
+
+    iput-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->wakefulnessLifecycleProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p17
+
+    iput-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;
-    .locals 16
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;
+    .locals 19
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -270,6 +351,12 @@
             "Lcom/android/systemui/util/settings/SecureSettings;",
             ">;",
             "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/flags/SystemPropertiesHelper;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Landroid/content/res/Resources;",
+            ">;",
+            "Ljavax/inject/Provider<",
             "Landroid/app/WallpaperManager;",
             ">;",
             "Ljavax/inject/Provider<",
@@ -289,15 +376,14 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/keyguard/WakefulnessLifecycle;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
             ">;)",
             "Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;"
         }
     .end annotation
 
-    new-instance v15, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;
-
-    move-object v0, v15
-
     move-object/from16 v1, p0
 
     move-object/from16 v2, p1
@@ -326,17 +412,23 @@
 
     move-object/from16 v14, p13
 
-    invoke-direct/range {v0 .. v14}, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v15, p14
 
-    return-object v15
+    move-object/from16 v16, p15
+
+    move-object/from16 v17, p16
+
+    new-instance v18, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;
+
+    move-object/from16 v0, v18
+
+    invoke-direct/range {v0 .. v17}, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v18
 .end method
 
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/os/Handler;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/theme/ThemeOverlayApplier;Lcom/android/systemui/util/settings/SecureSettings;Landroid/app/WallpaperManager;Landroid/os/UserManager;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/keyguard/WakefulnessLifecycle;)Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle;
-    .locals 16
-
-    new-instance v15, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle;
-
-    move-object v0, v15
+.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/os/Handler;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/theme/ThemeOverlayApplier;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/flags/SystemPropertiesHelper;Landroid/content/res/Resources;Landroid/app/WallpaperManager;Landroid/os/UserManager;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/policy/ConfigurationController;)Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle;
+    .locals 19
 
     move-object/from16 v1, p0
 
@@ -366,161 +458,203 @@
 
     move-object/from16 v14, p13
 
-    invoke-direct/range {v0 .. v14}, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle;-><init>(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/os/Handler;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/theme/ThemeOverlayApplier;Lcom/android/systemui/util/settings/SecureSettings;Landroid/app/WallpaperManager;Landroid/os/UserManager;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/keyguard/WakefulnessLifecycle;)V
+    move-object/from16 v15, p14
 
-    return-object v15
+    move-object/from16 v16, p15
+
+    move-object/from16 v17, p16
+
+    new-instance v18, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle;
+
+    move-object/from16 v0, v18
+
+    invoke-direct/range {v0 .. v17}, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle;-><init>(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/os/Handler;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/theme/ThemeOverlayApplier;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/flags/SystemPropertiesHelper;Landroid/content/res/Resources;Landroid/app/WallpaperManager;Landroid/os/UserManager;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/policy/ConfigurationController;)V
+
+    return-object v18
 .end method
 
 
 # virtual methods
 .method public get()Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle;
-    .locals 15
+    .locals 19
 
-    iget-object v0, p0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->contextProvider:Ljavax/inject/Provider;
+    move-object/from16 v0, p0
 
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    iget-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->contextProvider:Ljavax/inject/Provider;
 
-    move-result-object v0
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    move-object v1, v0
+    move-result-object v1
 
-    check-cast v1, Landroid/content/Context;
+    move-object v2, v1
 
-    iget-object v0, p0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
+    check-cast v2, Landroid/content/Context;
 
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    iget-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
 
-    move-result-object v0
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    move-object v2, v0
+    move-result-object v1
 
-    check-cast v2, Lcom/android/systemui/broadcast/BroadcastDispatcher;
+    move-object v3, v1
 
-    iget-object v0, p0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->bgHandlerProvider:Ljavax/inject/Provider;
+    check-cast v3, Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    iget-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->bgHandlerProvider:Ljavax/inject/Provider;
 
-    move-result-object v0
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    move-object v3, v0
+    move-result-object v1
 
-    check-cast v3, Landroid/os/Handler;
+    move-object v4, v1
 
-    iget-object v0, p0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->mainExecutorProvider:Ljavax/inject/Provider;
+    check-cast v4, Landroid/os/Handler;
 
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    iget-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->mainExecutorProvider:Ljavax/inject/Provider;
 
-    move-result-object v0
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    move-object v4, v0
+    move-result-object v1
 
-    check-cast v4, Ljava/util/concurrent/Executor;
-
-    iget-object v0, p0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->bgExecutorProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v5, v0
+    move-object v5, v1
 
     check-cast v5, Ljava/util/concurrent/Executor;
 
-    iget-object v0, p0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->themeOverlayApplierProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->bgExecutorProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v6, v1
+
+    check-cast v6, Ljava/util/concurrent/Executor;
+
+    iget-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->themeOverlayApplierProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v7, v1
+
+    check-cast v7, Lcom/android/systemui/theme/ThemeOverlayApplier;
+
+    iget-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->secureSettingsProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v8, v1
+
+    check-cast v8, Lcom/android/systemui/util/settings/SecureSettings;
+
+    iget-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->systemPropertiesProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v9, v1
+
+    check-cast v9, Lcom/android/systemui/flags/SystemPropertiesHelper;
+
+    iget-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->resourcesProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v10, v1
+
+    check-cast v10, Landroid/content/res/Resources;
+
+    iget-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->wallpaperManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v11, v1
+
+    check-cast v11, Landroid/app/WallpaperManager;
+
+    iget-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->userManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v12, v1
+
+    check-cast v12, Landroid/os/UserManager;
+
+    iget-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v13, v1
+
+    check-cast v13, Lcom/android/systemui/dump/DumpManager;
+
+    iget-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->deviceProvisionedControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v14, v1
+
+    check-cast v14, Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
+
+    iget-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->userTrackerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v15, v1
+
+    check-cast v15, Lcom/android/systemui/settings/UserTracker;
+
+    iget-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object/from16 v16, v1
+
+    check-cast v16, Lcom/android/systemui/statusbar/FeatureFlags;
+
+    iget-object v1, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->wakefulnessLifecycleProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object/from16 v17, v1
+
+    check-cast v17, Lcom/android/systemui/keyguard/WakefulnessLifecycle;
+
+    iget-object v0, v0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    move-object v6, v0
+    move-object/from16 v18, v0
 
-    check-cast v6, Lcom/android/systemui/theme/ThemeOverlayApplier;
+    check-cast v18, Lcom/android/systemui/statusbar/policy/ConfigurationController;
 
-    iget-object v0, p0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->secureSettingsProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    invoke-static/range {v2 .. v18}, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/os/Handler;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/theme/ThemeOverlayApplier;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/flags/SystemPropertiesHelper;Landroid/content/res/Resources;Landroid/app/WallpaperManager;Landroid/os/UserManager;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/policy/ConfigurationController;)Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle;
 
     move-result-object v0
 
-    move-object v7, v0
-
-    check-cast v7, Lcom/android/systemui/util/settings/SecureSettings;
-
-    iget-object v0, p0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->wallpaperManagerProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v8, v0
-
-    check-cast v8, Landroid/app/WallpaperManager;
-
-    iget-object v0, p0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->userManagerProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v9, v0
-
-    check-cast v9, Landroid/os/UserManager;
-
-    iget-object v0, p0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v10, v0
-
-    check-cast v10, Lcom/android/systemui/dump/DumpManager;
-
-    iget-object v0, p0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->deviceProvisionedControllerProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v11, v0
-
-    check-cast v11, Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
-
-    iget-object v0, p0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->userTrackerProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v12, v0
-
-    check-cast v12, Lcom/android/systemui/settings/UserTracker;
-
-    iget-object v0, p0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v13, v0
-
-    check-cast v13, Lcom/android/systemui/statusbar/FeatureFlags;
-
-    iget-object p0, p0, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->wakefulnessLifecycleProvider:Ljavax/inject/Provider;
-
-    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object p0
-
-    move-object v14, p0
-
-    check-cast v14, Lcom/android/systemui/keyguard/WakefulnessLifecycle;
-
-    invoke-static/range {v1 .. v14}, Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/os/Handler;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/theme/ThemeOverlayApplier;Lcom/android/systemui/util/settings/SecureSettings;Landroid/app/WallpaperManager;Landroid/os/UserManager;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/keyguard/WakefulnessLifecycle;)Lcom/google/android/systemui/theme/ThemeOverlayControllerGoogle;
-
-    move-result-object p0
-
-    return-object p0
+    return-object v0
 .end method
 
 .method public bridge synthetic get()Ljava/lang/Object;

@@ -111,7 +111,7 @@
     <string name="accessibility_desc_notification_shade">ବିଜ୍ଞପ୍ତି ଶେଡ୍‍।</string>
     <string name="accessibility_desc_off">ବନ୍ଦ।</string>
     <string name="accessibility_desc_on">ଚାଲୁ ଅଛି।</string>
-    <string name="accessibility_desc_quick_settings">ଦ୍ରୁତ ସେଟିଂସ୍।</string>
+    <string name="accessibility_desc_quick_settings">କ୍ୱିକ୍ ସେଟିଂସ୍।</string>
     <string name="accessibility_desc_quick_settings_edit">ଦ୍ରୁତ ସେଟିଙ୍ଗ ଏଡିଟର୍।</string>
     <string name="accessibility_desc_recent_apps">ସଂକ୍ଷିପ୍ତ ବିବରଣୀ</string>
     <string name="accessibility_desc_settings">ସେଟିଂସ୍</string>
@@ -227,7 +227,7 @@
     <string name="accessibility_quick_settings_color_inversion_changed_on">ରଙ୍ଗ ବିପରୀତିକରଣକୁ ଚାଲୁ କରିଦିଆଗଲା।</string>
     <string name="accessibility_quick_settings_data_saver_changed_off">ଡାଟା ସେଭର୍‌ ଅଫ୍‍ କରାଗଲା।</string>
     <string name="accessibility_quick_settings_data_saver_changed_on">ଡାଟା ସେଭର୍‌ ଅନ୍‍ କରାଗଲା।</string>
-    <string name="accessibility_quick_settings_detail">ଦ୍ରୁତ ସେଟିଙ୍ଗ, %s।</string>
+    <string name="accessibility_quick_settings_detail">କ୍ୱିକ୍ ସେଟିଂସ୍, %s।</string>
     <string name="accessibility_quick_settings_dnd">ବିରକ୍ତ କରନ୍ତୁ ନାହିଁ।</string>
     <string name="accessibility_quick_settings_dnd_alarms_on">କେବଳ ଆଲାର୍ମ</string>
     <string name="accessibility_quick_settings_dnd_changed_off">\"ବିରକ୍ତ କରନ୍ତୁ ନାହିଁ\"କୁ ବନ୍ଦ କରାଯାଇଛି।</string>
@@ -277,7 +277,7 @@
     <string name="accessibility_rotation_lock_on_portrait">ପୋର୍ଟ୍ରେଟ୍‍ ଅବସ୍ଥାରେ ସ୍କ୍ରୀନ୍‍କୁ ଲକ୍‌ କରାଯାଇଛି।</string>
     <string name="accessibility_rotation_lock_on_portrait_changed">ବର୍ତ୍ତମାନ ସ୍କ୍ରୀନ୍‌ଟି ପୋର୍ଟେଟ୍ ଦିଗରେ ଲକ୍‌ ଅଛି।</string>
     <string name="accessibility_scanning_face">ଫେସ୍ ସ୍କାନିଙ୍ଗ କରାଯାଉଛି</string>
-    <string name="accessibility_search_light">Search</string>
+    <string name="accessibility_search_light">ସନ୍ଧାନ କରନ୍ତୁ</string>
     <string name="accessibility_send_smart_reply">ପଠାନ୍ତୁ</string>
     <string name="accessibility_sensors_off_active">"'ସେନ୍‌ସର୍ ବନ୍ଦ' ସକ୍ରିୟ ଅଛି"</string>
     <string name="accessibility_settings_button">ସିଷ୍ଟମ୍‍ ସେଟିଂସ୍।</string>
@@ -363,6 +363,7 @@
     <string name="alarms_and_reminders_label">ଆଲାରାମ୍ ଏବଂ ରିମାଇଣ୍ଡରଗୁଡ଼ିକ</string>
     <string name="alarms_and_reminders_switch_title">ଆଲାରାମ ଓ ରିମାଇଣ୍ଡରଗୁଡ଼ିକ ସେଟ କରିବାକୁ ଅନୁମତି ଦିଅନ୍ତୁ</string>
     <string name="alarms_and_reminders_title">ଆଲାରାମ୍ ଏବଂ ରିମାଇଣ୍ଡରଗୁଡ଼ିକ</string>
+    <string name="all_network_unavailable">କୌଣସି ନେଟୱାର୍କ ଉପଲବ୍ଧ ନାହିଁ</string>
     <string name="allow_mock_location">ନକଲି ଲୋକେଶନ୍‌ର ଅନୁମତି ଦିଅନ୍ତୁ</string>
     <string name="allow_mock_location_summary">ନକଲି ଲୋକେଶନ୍‌ର ଅନୁମତି ଦିଅନ୍ତୁ</string>
     <string name="always_use_accessory">%2$s କନେକ୍ଟ ଥିବାବେଳେ %1$s ସର୍ବଦା ଖୋଲନ୍ତୁ</string>
@@ -618,6 +619,11 @@
     <string name="clock_title_analog">ଆନାଲଗ୍</string>
     <string name="clock_title_bubble">ବବଲ୍</string>
     <string name="clock_title_default">ଡିଫଲ୍ଟ</string>
+    <string name="columbus_bouncer_message">କୁଇକ୍ ଟାପ୍ ସମ୍ପୂର୍ଣ୍ଣ କରିବା ପାଇଁ ଅନଲକ୍ କରନ୍ତୁ</string>
+    <string name="columbus_target_request_dialog_allow">ଅନୁମତି ଦିଅନ୍ତୁ</string>
+    <string name="columbus_target_request_dialog_deny">ଅନୁମତି ଦିଅନାହିଁ</string>
+    <string name="columbus_target_request_dialog_summary">ଆପଣ ଆପଣଙ୍କ ଫୋନର ପଛ ପଟକୁ ଦୁଇଥର-ଟାପ୍ କଲେ, %1$s ଖୋଲିବ। ଆପଣ ଯେ କୌଣସି ସମୟରେ ସେଟିଂସରେ ଏହି ପସନ୍ଦକୁ ପରିବର୍ତ୍ତନ କରିପାରିବେ।</string>
+    <string name="columbus_target_request_dialog_title">%1$s ଖୋଲିବାକୁ କୁଇକ୍ ଟାପକୁ ଅନୁମତି ଦେବେ କି?</string>
     <string name="compat_mode_off">ସ୍କ୍ରୀନ୍‌କୁ ଭରିବା ପାଇଁ ଟାଣନ୍ତୁ</string>
     <string name="compat_mode_on">ସ୍କ୍ରୀନ ଭରିବା ପାଇଁ ଜୁମ୍ କରନ୍ତୁ</string>
     <string name="confirm_enable_oem_unlock_text">ଚେତାବନୀ: ଏହି ସେଟିଙ୍ଗ ଚାଲୁ ଥିବାବେଳେ ଡିଭାଇସ୍‌ର ସୁରକ୍ଷା ବୈଶିଷ୍ଟ୍ୟ କାମ କରିବ ନାହିଁ</string>
@@ -740,13 +746,15 @@
     <string name="defender_notify_learn_more">ଅଧିକ ଜାଣନ୍ତୁ</string>
     <string name="defender_notify_resume_charge">ଚାର୍ଜିଂ ପୁଣି ଆରମ୍ଭ କରନ୍ତୁ</string>
     <string name="defender_notify_title">ଚାର୍ଜିଂ ଅସ୍ଥାୟୀ ଭାବେ ସୀମିତ କରାଯାଇଛି</string>
+    <string name="defender_post_notify_des">ବ୍ୟାଟେରୀ ହେଲ୍ଥକୁ ସଂରକ୍ଷିତ ରଖିବା ପାଇଁ %2$sରୁ %3$s ପର୍ଯ୍ୟନ୍ତ ଚାର୍ଜିଂକୁ %1$sରେ ସୀମିତ ରଖାଯାଇଛି</string>
+    <string name="defender_post_notify_title">ସାଧାରଣ ଭାବେ ଚାର୍ଜ ହେଉଛି</string>
     <string name="delete_blob_confirmation_text">ଆପଣ ସେୟାର୍ କରାଯାଇଥିବା ଏହି ଡାଟା ଡିଲିଟ୍ କରିବାକୁ ଚାହୁଁଥିବା ନିଶ୍ଚିତ କି?</string>
     <string name="delete_blob_text">ସେୟାର୍ କରାଯାଇଥିବା ଡାଟା ଡିଲିଟ୍ କରନ୍ତୁ</string>
     <string name="demo_mode">ସିଷ୍ଟମ୍‌ UI ଡେମୋ ମୋଡ୍‌</string>
     <string name="demote">ଏହି ବିଜ୍ଞପ୍ତି କୌଣସି ବାର୍ତ୍ତାଳାପ ନୁହେଁ ବୋଲି ଚିହ୍ନଟ କରନ୍ତୁ</string>
     <string name="description_direction_left">%s ପାଇଁ ବାମକୁ ସ୍ଲାଇଡ୍ କରନ୍ତୁ</string>
     <string name="description_direction_up">%s ପାଇଁ ଉପରକୁ ସ୍ଲାଇଡ୍‍ କରନ୍ତୁ।</string>
-    <string name="description_target_search">Search</string>
+    <string name="description_target_search">ସନ୍ଧାନ କରନ୍ତୁ</string>
     <string name="dessert_case">ଡେଜର୍ଟ କେସ୍‌</string>
     <string name="dev_logpersist_clear_warning_message">ଯଦି ଆମେ ଦୃଢ ଲଗର୍‌ ସହିତ ଆଉ ତଦାରଖ କରୁନଥିବୁ, ତେବେ ଆମକୁ ଆପଣଙ୍କ ଡିଭାଇସ୍‌ରେ ଥିବା ଲଗର୍‌ ଡାଟାକୁ ଲିଭାଇବାକୁ ପଡ଼ିବ।</string>
     <string name="dev_logpersist_clear_warning_title">ଲଗର୍‌ ରୋଧି ଷ୍ଟୋରେଜ୍‌ ଖାଲି କରିବେ?</string>
@@ -885,6 +893,7 @@
     <string name="game_status">ଚାଲୁଛି</string>
     <string name="global_action_lock_message">ଅଧିକ ବିକଳ୍ପ ପାଇଁ ଆପଣଙ୍କ ଫୋନ୍ ଅନଲକ୍ କରନ୍ତୁ</string>
     <string name="global_action_screenshot">ସ୍କ୍ରିନ୍‌ସଟ୍ ନିଅନ୍ତୁ</string>
+    <string name="global_action_smart_lock_disabled">ସ୍ମାର୍ଟ ଲକ୍ ଅକ୍ଷମ କରାଯାଇଛି</string>
     <string name="global_actions_change_description">%1$s ଏବଂ ଡିଭାଇସ୍ ନିୟନ୍ତ୍ରଣଗୁଡ଼ିକୁ ଆକ୍ସେସ୍ କରିବା ପାଇଁ ଆପଣଙ୍କ ସ୍କ୍ରିନର ଉପରୁ ତଳକୁ ସ୍ୱାଇପ୍ କରନ୍ତୁ</string>
     <string name="go_to_web">ବ୍ରାଉଜର୍‌କୁ ଯାଆନ୍ତୁ</string>
     <string name="google_services_wallpaper_permission">Googleର ଲୋକେସନ୍‍ ସେବାକୁ ଆକ୍ସେସ୍ କରି <b>ଆପଣଙ୍କର ଲୋକେସନ୍‌କୁ</b> ପ୍ରତିକ୍ରିୟା ଦେବାପାଇଁ Google ଲାଇଭ୍‍ ୱାଲପେପର୍‍‍କୁ ଅନୁମତି ଦିଅନ୍ତୁ।</string>
@@ -1232,7 +1241,7 @@
     <string name="media_projection_dialog_text">%sରେ ସମସ୍ତ ସୂଚନାକୁ ଆକ୍ସେସ୍ ରହିବ ଯାହା ଆପଣଙ୍କର ସ୍କ୍ରିନ୍‌ରେ ଦେଖାଯିବ ବା ରେକର୍ଡିଂ ବା କାଷ୍ଟିଂ ବେଳେ ଆପଣଙ୍କର ଡିଭାଇସ୍ ଠାରୁ ଚାଲିବ। ପାସ୍‌ୱାର୍ଡ, ପେମେଣ୍ଟ ବିବରଣୀ, ଫଟୋ, ମେସେଜ୍ ଏବଂ ଆପଣ ଚଲାଉଥିବା ଅଡିଓ ପରି ସୂଚନା ଅନ୍ତର୍ଭୁକ୍ତ ଅଛି।</string>
     <string name="media_projection_dialog_title">%s ସହ ରେକର୍ଡିଂ ବା କାଷ୍ଟିଂ ଆରମ୍ଭ କରିବେ?</string>
     <string name="media_projection_remember_text">ପୁଣି ଦେଖାନ୍ତୁ ନାହିଁ</string>
-    <string name="media_seamless_remote_device">ଡିଭାଇସ୍</string>
+    <string name="media_seamless_other_device">ଅନ୍ୟ ଡିଭାଇସ୍</string>
     <string name="media_transfer_this_device_name">ଫୋନ୍ ସ୍ପିକର୍</string>
     <string name="media_transfer_this_phone">ଏହି ଫୋନ୍</string>
     <string name="media_transfer_wired_device_name">ତାରଯୁକ୍ତ ଅଡିଓ ଡିଭାଇସ୍</string>
@@ -1249,9 +1258,13 @@
     <string name="mobile_data">ମୋବାଇଲ୍‌ ଡାଟା</string>
     <string name="mobile_data_always_on">ମୋବାଇଲ୍‌ ଡାଟା ସର୍ବଦା ସକ୍ରିୟ</string>
     <string name="mobile_data_always_on_summary">ୱାଇ-ଫାଇ ସକ୍ରିୟ ଥିଲେ ମଧ୍ୟ ସର୍ବଦା ମୋବାଇଲ୍‌ ଡାଟାକୁ ସକ୍ରିୟ ରଖନ୍ତୁ (ଦ୍ରୁତ ନେଟ୍‌ୱର୍କ ସ୍ୱିଚିଙ୍ଗ ପାଇଁ)।</string>
+    <string name="mobile_data_connection_active">ସଂଯୋଗ କରାଯାଇଛି</string>
     <string name="mobile_data_disable_message">"ଡାଟା କିମ୍ବା ଇଣ୍ଟରନେଟ୍‌କୁ %s ଦ୍ଵାରା ଆପଣଙ୍କର  ଆକ୍ସେସ୍ ରହିବ ନାହିଁ। ଇଣ୍ଟରନେଟ୍‌ କେବଳ ୱାଇ-ଫାଇ ମାଧ୍ୟମରେ ଉପଲବ୍ଧ ହେବ।"</string>
     <string name="mobile_data_disable_message_default_carrier">ଆପଣଙ୍କ କେରିଅର୍</string>
     <string name="mobile_data_disable_title">ମୋବାଇଲ୍‌ ଡାଟା ବନ୍ଦ କରିବେ?</string>
+    <string name="mobile_data_no_connection">ସଂଯୋଗ ନାହିଁ</string>
+    <string name="mobile_data_off_summary">ମୋବାଇଲ ଡାଟା ସ୍ୱତଃ-ସଂଯୋଗ ହେବ ନାହିଁ</string>
+    <string name="mobile_data_settings_title">ମୋବାଇଲ ଡାଟା</string>
     <string name="mobile_data_text_format">%1$s — %2$s</string>
     <string name="mock_location_app">ମକ୍ ଲୋକେସନ୍‌ ଆପ୍‌ର ଚୟନ କରନ୍ତୁ</string>
     <string name="mock_location_app_not_set">କୌଣସି ମକ୍ ଲୋକେସନ ଆପ୍ ସେଟ୍ କରାଯାଇନାହିଁ</string>
@@ -1391,6 +1404,7 @@
     <string name="no_content_in_select_mode">ଚୟନ କରିବା ପାଇଁ କୌଣସି ଟେକ୍ସଟ୍ କିମ୍ବା ଛବି ନାହିଁ</string>
     <string name="no_conversations_text">ଆପଣଙ୍କ ବର୍ତ୍ତମାନର ବାର୍ତ୍ତାଳାପଗୁଡ଼ିକ ଏଠାରେ ଦେଖାଯିବ</string>
     <string name="no_shortcut">%1$s ବାର୍ତ୍ତାଳାପ ଫିଚରଗୁଡ଼ିକୁ ସମର୍ଥନ କରେ ନାହିଁ</string>
+    <string name="non_carrier_network_unavailable">ଅନ୍ୟ କୌଣସି ନେଟୱାର୍କ ଉପଲବ୍ଧ ନାହିଁ</string>
     <string name="not_default_data_content_description">ବ୍ୟବହୃତ ଡାଟା ପାଇଁ ସେଟ୍ ହୋଇନାହିଁ</string>
     <string name="not_set">ସେଟ୍ ହୋଇନାହିଁ</string>
     <string name="notif_inline_reply_remove_attachment_description">ଆଟାଚମେଣ୍ଟ୍ କାଢ଼ି ଦିଅନ୍ତୁ</string>
@@ -1571,6 +1585,7 @@
     <string name="power_remaining_only_more_than_subtext">%1$sରୁ ଅଧିକ ବ୍ୟାଟେରୀ ବାକି ଅଛି</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">%1$s ସୁଦ୍ଧା ବ୍ୟାଟେରୀର ଚାର୍ଜ ଶେଷ ହୋଇ ଯାଇପାରେ</string>
+    <string name="pref_title_network_details">ନେଟୱାର୍କ ବିବରଣୀ</string>
     <string name="preference_copied">\"%1$s\" କ୍ଲିପବୋର୍ଡକୁ କପି ହୋ‍ଇଗଲା।</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">ପ୍ରାଥମିକତା ଦିଆଯାଇଥିବା ବାର୍ତ୍ତାଳାପଗୁଡ଼ିକ</string>
@@ -1599,7 +1614,7 @@
     <string name="qs_status_phone_muted">ଫୋନ୍‌ ମ୍ୟୁଟ୍‌ରେ ଅଛି</string>
     <string name="qs_status_phone_vibrate">ଫୋନ୍ ଭାଇବ୍ରେଟ୍‌ରେ ଅଛି</string>
     <string name="quick_controls_title">ଡିଭାଇସ୍ ନିୟନ୍ତ୍ରଣଗୁଡ଼ିକ</string>
-    <string name="quick_settings">ଦ୍ରୁତ ସେଟିଂସ୍</string>
+    <string name="quick_settings">କ୍ୱିକ୍ ସେଟିଂସ୍</string>
     <string name="quick_settings_bluetooth_detail_empty_text">ପେୟାର୍‍ ହୋଇଥିବା କୌଣସି ଡିଭାଇସ୍ ଉପଲବ୍ଧ ନାହିଁ</string>
     <string name="quick_settings_bluetooth_label">ବ୍ଲୁଟୁଥ</string>
     <string name="quick_settings_bluetooth_multiple_devices_label">ବ୍ଲୁଟୂଥ୍‍‌ (%dଟି ଡିଭାଇସ୍‌)</string>
@@ -1740,6 +1755,7 @@
     <string name="right_keycode">"ଡାହାଣ କୀ'କୋଡ୍‍"</string>
     <string name="right_nav_bar_button_type">ସମ୍ପୂର୍ଣ୍ଣ ଡାହାଣ ବଟନ୍‍ ପ୍ରକାର</string>
     <string name="ring_toggle_title">କଲ୍‌</string>
+    <string name="rotation_lock_camera_rotation_on">ଚାଲୁ ଅଛି - ଫେସ-ଆଧାରିତ</string>
     <string name="running_foreground_services_msg">ବ୍ୟାଟେରୀ ଏବଂ ଡାଟା ବ୍ୟବହାର ଉପରେ ବିବରଣୀ ପାଇଁ ଟାପ୍‍ କରନ୍ତୁ</string>
     <string name="running_foreground_services_title">ବ୍ୟାକଗ୍ରାଉଣ୍ଡରେ ଆପ୍‍ ଚାଲୁଛି</string>
     <string name="running_process_item_user_label">ଉପଯୋଗକର୍ତ୍ତା: %1$s</string>
@@ -1814,6 +1830,7 @@
     <string name="screenshot_top_boundary_pct">ଶୀର୍ଷ ସୀମାରେଖା %1$d ଶତକଡ଼ା</string>
     <string name="search_menu">ସେଟିଂସ୍ ସନ୍ଧାନ କରନ୍ତୁ</string>
     <string name="search_menu_title">Search</string>
+    <string name="see_all_networks">ସବୁ ଦେଖନ୍ତୁ</string>
     <string name="see_more_title">ଅଧିକ ଦେଖନ୍ତୁ</string>
     <string name="select_application">ଆପ୍ଲିକେଶନ୍‌ ବାଛନ୍ତୁ</string>
     <string name="select_conversation_text">ଏକ ବାର୍ତ୍ତାଳାପକୁ ଆପଣଙ୍କ ମୂଳସ୍କ୍ରିନରେ ଯୋଗ କରିବା ପାଇଁ ସେଥିରେ ଟାପ୍ କରନ୍ତୁ</string>
@@ -1926,6 +1943,7 @@
     <string name="switch_bar_off">ବନ୍ଦ</string>
     <string name="switch_bar_on">ଚାଲୁ</string>
     <string name="system_ui_tuner">ସିଷ୍ଟମ୍ UI ଟ୍ୟୁନର୍‍</string>
+    <string name="tap_a_network_to_connect">ସଂଯୋଗ କରିବାକୁ ଏକ ନେଟୱାର୍କରେ ଟାପ୍ କରନ୍ତୁ</string>
     <string name="tap_again">ପୁଣି ଟାପ୍ କରନ୍ତୁ</string>
     <string name="tap_to_sign_up">ସାଇନ୍ ଅପ୍ ପାଇଁ ଟାପ୍ କରନ୍ତୁ</string>
     <string name="tether_settings_title_all">ଟିଥରିଙ୍ଗ ଓ ପୋର୍ଟବଲ୍ ହଟ୍‌ସ୍ପଟ୍‌</string>
@@ -1951,6 +1969,7 @@
     <string name="time_unit_just_now">ଏହିକ୍ଷଣି</string>
     <string name="title_convert_fbe">ଫାଇଲ୍‌ ଭିତ୍ତିକ ଏନ୍‌କ୍ରିପ୍ସନ୍‌ ପାଇଁ ବଦଳାଉଛି</string>
     <string name="title_usb_accessory">USB ଆକ୍ସେସରୀ</string>
+    <string name="to_switch_networks_disconnect_ethernet">ନେଟୱାର୍କ ସ୍ୱିଚ୍ କରିବାକୁ, ଇଥରନେଟ୍ ବିଚ୍ଛିନ୍ନ କରନ୍ତୁ</string>
     <string name="too_hot_label">Pixel ବହୁତ ଗରମ ହୋଇଛି</string>
     <string name="touch_filtered_warning">ଗୋଟିଏ ଆପ୍‍ ଏକ ଅନୁମତି ଅନୁରୋଧକୁ ଦେଖିବାରେ ବାଧା ଦେଉଥିବାରୁ, ସେଟିଙ୍ଗ ଆପଣଙ୍କ ଉତ୍ତରକୁ ଯାଞ୍ଚ କରିପାରିବ ନାହିଁ।</string>
     <string name="track_frame_time">ପ୍ରୋଫାଇଲ୍ HWUI ରେଣ୍ଡର୍ ହେଉଛି</string>
@@ -1982,7 +2001,7 @@
     <string name="tts_play_example_title">ଗୋଟିଏ ଉଦାହରଣକୁ ଶୁଣନ୍ତୁ</string>
     <string name="tts_reset_speech_pitch_summary">ପିଚକୁ ରିସେଟ କରନ୍ତୁ, ଯେଉଁଠାରେ ଲେଖା, ଡିଫଲ୍ଟ ଭାବେ କୁହାଯାଏ।</string>
     <string name="tts_reset_speech_pitch_title">ସ୍ପୀଚ୍‌ର ପିଚ୍‌ ରିସେଟ୍‌ କରନ୍ତୁ</string>
-    <string name="tts_settings">ଟେକ୍ସଟ-ରୁ-ସ୍ପିଚ୍ ସେଟିଂସ୍</string>
+    <string name="tts_settings">ଟେକ୍ସଟ୍-ଟୁ-ସ୍ପିଚ୍ ସେଟିଂସ</string>
     <string name="tts_settings_title">ଟେକ୍ସଟ୍‍-ଟୁ-ସ୍ପିଚ୍‍ ଆଉଟ୍‍ପୁଟ୍‌</string>
     <string name="tts_status_checking">ଯାଞ୍ଚ କରାଯାଉଛି…</string>
     <string name="tts_status_not_supported">%1$s ସପୋର୍ଟ କରୁ ନାହିଁ</string>
@@ -2009,10 +2028,12 @@
     <string name="tuner_toast">ଅଭିନନ୍ଦନ! ସିଷ୍ଟମ୍‍ UI ଟ୍ୟୁନର୍‍କୁ ସେଟିଙ୍ଗରେ ଯୋଡ଼ାଯାଇଛି</string>
     <string name="tuner_warning">Android ୟୁଜର୍‍ ଇଣ୍ଟରଫେସ୍‍ ବଦଳାଇବାକୁ ତଥା ନିଜ ପସନ୍ଦ ଅନୁଯାୟୀ କରିବାକୁ ସିଷ୍ଟମ୍‍ UI ଟ୍ୟୁନର୍‍ ଆପଣଙ୍କୁ ଅତିରିକ୍ତ ଉପାୟ ପ୍ରଦାନ କରେ। ଏହି ପରୀକ୍ଷାମୂଳକ ସୁବିଧାମାନ ବଦଳିପାରେ, ଭାଙ୍ଗିପାରେ କିମ୍ବା ଭବିଷ୍ୟତର ରିଲିଜ୍‌ଗୁଡ଼ିକରେ ନଦେଖାଯାଇପାରେ। ସତର୍କତାର ସହ ଆଗକୁ ବଢ଼ନ୍ତୁ।</string>
     <string name="tuner_warning_title">କେତେକଙ୍କ ପାଇଁ ମଜାଦାର, କିନ୍ତୁ ସମସ୍ତଙ୍କ ପାଇଁ ନୁହେଁ</string>
+    <string name="turn_on_wifi">ୱାଇ-ଫାଇ</string>
     <string name="tv_notification_panel_no_notifications">କୌଣସି ବିଜ୍ଞପ୍ତି ନାହିଁ</string>
     <string name="tv_notification_panel_title">ବିଜ୍ଞପ୍ତିଗୁଡ଼ିକ</string>
     <string name="two_weeks_timestamp">2 ସପ୍ତାହ ପୂର୍ବେ</string>
     <string name="unknown">ଅଜଣା</string>
+    <string name="unlock_to_view_networks">ନେଟୱାର୍କଗୁଡ଼ିକୁ ଦେଖିବା ପାଇଁ ଅନଲକ୍ କରନ୍ତୁ</string>
     <string name="upcoming_birthday_status">ଜନ୍ମଦିନ ଶୀଘ୍ର ଆସୁଛି</string>
     <string name="upcoming_birthday_status_content_description">%1$sଙ୍କ ଜନ୍ମଦିନ ଶୀଘ୍ର ଆସୁଛି</string>
     <string name="url_menu_copy">କପି କରନ୍ତୁ</string>
@@ -2151,9 +2172,11 @@
     <string name="wifi_disconnected">ବିଛିନ୍ନ କରାଯାଇଛି</string>
     <string name="wifi_display_certification">ୱାୟରଲେସ୍‌ ଡିସ୍‌ପ୍ଲେ ସାର୍ଟିଫିକେସନ୍</string>
     <string name="wifi_display_certification_summary">ୱେୟାରଲେସ୍‌ ଡିସ୍‌ପ୍ଲେ ସାର୍ଟିଫିକେସନ୍ ପାଇଁ ବିକଳ୍ପ ଦେଖାନ୍ତୁ</string>
+    <string name="wifi_empty_list_wifi_on">ନେଟୱାର୍କଗୁଡ଼ିକ ସନ୍ଧାନ କରାଯାଉଛି…</string>
     <string name="wifi_enhanced_mac_randomization">ୱାଇ-ଫାଇ ଅଣ-ଅବିରତ MAC ରେଣ୍ଡମାଇଜେସନ୍</string>
     <string name="wifi_enhanced_mac_randomization_summary">ଯେତେବେଳେ ଏହି ମୋଡ୍ ସକ୍ଷମ ହୁଏ, ପ୍ରତ୍ୟେକ ଥର MAC ରେଣ୍ଡୋମାଇଜେସନ୍ ସକ୍ଷମ ଥିବା କୌଣସି ନେଟୱାର୍କ ସହ ଏହି ଡିଭାଇସ୍ ସଂଯୋଗ ହେଲେ ଏହାର MAC ଠିକଣା ବଦଳିପାରେ।</string>
     <string name="wifi_fail_to_scan">ନେଟ୍‌ୱର୍କଗୁଡ଼ିକୁ ଖୋଜିପାରୁନାହିଁ</string>
+    <string name="wifi_failed_connect_message">ନେଟୱାର୍କକୁ ସଂଯୋଗ କରିବାରେ ବିଫଳ ହୋଇଛି</string>
     <string name="wifi_hotspot_switch_off_text">ବନ୍ଦ ଅଛି</string>
     <string name="wifi_hotspot_switch_on_text">ଚାଲୁ ଅଛି</string>
     <string name="wifi_is_off">ୱାଇ-ଫାଇ ଅଫ୍‍ ଅଛି</string>
@@ -2164,6 +2187,7 @@
     <string name="wifi_not_in_range">ପରିସୀମାରେ ନାହିଁ</string>
     <string name="wifi_passpoint_expired">ମିଆଦ ଶେଷ ହୋଇଯାଇଛି</string>
     <string name="wifi_remembered">ସେଭ୍‌ ହୋଇଗଲା</string>
+    <string name="wifi_scan_notify_message">ଡିଭାଇସ ଅନୁଭୂତିକୁ ଉନ୍ନତ କରିବା ପାଇଁ, ୱାଇ-ଫାଇ ବନ୍ଦ ଥିଲେ ମଧ୍ୟ ଆପ ଓ ସେବାଗୁଡ଼ିକ ଏବେ ବି ଯେ କୌଣସି ସମୟରେ ୱାଇ-ଫାଇ ନେଟୱାର୍କ ପାଇଁ ସ୍କାନ କରିପାରିବ। ଆପଣ ଏହାକୁ ୱାଇ-ଫାଇ ସ୍କାନିଂ ସେଟିଂସରେ ପରିବର୍ତ୍ତନ କରିପାରିବେ। <annotation id="link">ପରିବର୍ତ୍ତନ କରନ୍ତୁ</annotation></string>
     <string name="wifi_scan_throttling">ୱାଇ-ଫାଇ ସ୍କାନ୍ ନିୟନ୍ତ୍ରଣ</string>
     <string name="wifi_scan_throttling_summary">ବ୍ୟାଟେରୀ ଖର୍ଚ୍ଚ କମ୍ ଏବଂ ନେଟ୍‌ୱାର୍କ କାର୍ଯ୍ୟକ୍ଷମତା ଉନ୍ନତ କରିଥାଏ</string>
     <string name="wifi_security_none">କିଛି ନାହିଁ</string>
@@ -2173,6 +2197,7 @@
     <string name="wifi_unmetered_label">ମପାଯାଉନଥିବା</string>
     <string name="wifi_verbose_logging">ୱାଇ-ଫାଇ ଭର୍ବୋସ୍‌ ଲଗିଙ୍ଗ ସକ୍ଷମ କରନ୍ତୁ</string>
     <string name="wifi_verbose_logging_summary">ୱାଇ-ଫାଇ ଲଗିଙ୍ଗ ସ୍ତର ବଢ଼ାନ୍ତୁ, ୱାଇ-ଫାଇ ପିକର୍‌ରେ ପ୍ରତି SSID RSSI ଦେଖାନ୍ତୁ</string>
+    <string name="wifi_wont_autoconnect_for_now">ବର୍ତ୍ତମାନ ପାଇଁ ୱାଇ-ଫାଇ ସ୍ୱତଃ-ସଂଯୋଗ ହେବ ନାହିଁ</string>
     <string name="wifitrackerlib_auto_connect_disable">ସ୍ୱତଃ-ସଂଯୋଗ ବନ୍ଦ ଅଛି</string>
     <string name="wifitrackerlib_available_via_app">%1$s ମାଧ୍ୟମରେ ଉପଲବ୍ଧ ଅଛି</string>
     <string name="wifitrackerlib_connected_via_app">%1$s ମାଧ୍ୟମରେ ସଂଯୋଗ କରାଯାଇଛି</string>

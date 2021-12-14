@@ -99,13 +99,13 @@
 .method private updateThemeColors()V
     .locals 4
 
-    new-instance v0, Landroidx/appcompat/view/ContextThemeWrapper;
+    new-instance v0, Landroid/view/ContextThemeWrapper;
 
     iget-object v1, p0, Lcom/android/wm/shell/onehanded/OneHandedBackgroundPanelOrganizer;->mContext:Landroid/content/Context;
 
     const v2, 0x10302e3
 
-    invoke-direct {v0, v1, v2}, Landroidx/appcompat/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
+    invoke-direct {v0, v1, v2}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
     sget v1, Lcom/android/wm/shell/R$color;->one_handed_tutorial_background_color:I
 

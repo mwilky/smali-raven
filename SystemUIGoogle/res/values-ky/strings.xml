@@ -363,6 +363,7 @@
     <string name="alarms_and_reminders_label">Ойготкучтар жана эстеткичтер</string>
     <string name="alarms_and_reminders_switch_title">Ойготкуч жана эстеткичтерди коюуга уруксат берүү</string>
     <string name="alarms_and_reminders_title">Ойготкучтар жана эстеткичтер</string>
+    <string name="all_network_unavailable">Тармактар жеткиликтүү эмес</string>
     <string name="allow_mock_location">Жасалма жайгашкан жерди көрсөтүүгө уруксат берилсин</string>
     <string name="allow_mock_location_summary">Жасалма жайгашкан жерди көрсөтүүгө уруксат берилсин</string>
     <string name="always_use_accessory">%2$s туташып турганда, %1$s ар дайым ачык болсун</string>
@@ -618,6 +619,11 @@
     <string name="clock_title_analog">Аналог</string>
     <string name="clock_title_bubble">Көбүк</string>
     <string name="clock_title_default">Демейки</string>
+    <string name="columbus_bouncer_message">Тез баскылоо жаңсоосун аягына чыгаруу үчүн кулпуну ачыңыз</string>
+    <string name="columbus_target_request_dialog_allow">Уруксат берүү</string>
+    <string name="columbus_target_request_dialog_deny">Тыюу салуу</string>
+    <string name="columbus_target_request_dialog_summary">Телефонуңуздун аркасын эки жолу басканда %1$s ачылат. Бул функциянын параметрлерин \"Жөндөөлөр\" бөлүмүнөн өзгөртө аласыз.</string>
+    <string name="columbus_target_request_dialog_title">%1$s колдонмосун ачуу үчүн тез баскылоо функциясын иштетесизби?</string>
     <string name="compat_mode_off">Экранды толтуруу ү-н чоюу</string>
     <string name="compat_mode_on">Экрнд тлтр ү. чен өлч өзг</string>
     <string name="confirm_enable_oem_unlock_text">ЭСКЕРТҮҮ: Бул жөндөө күйгүзүлүп турганда түзмөктү коргоо өзгөчөлүктөрү иштебейт.</string>
@@ -740,6 +746,8 @@
     <string name="defender_notify_learn_more">Кененирээк</string>
     <string name="defender_notify_resume_charge">Кубаттоону улантуу</string>
     <string name="defender_notify_title">Кубаттоо убактылуу чектелген</string>
+    <string name="defender_post_notify_des">Батареяны көбүрөөк убакытка жеткирүү үчүн саат %2$s баштап, %3$s чейин кубаттоо %1$s менен чектелди</string>
+    <string name="defender_post_notify_title">Кадимкидей кубатталууда</string>
     <string name="delete_blob_confirmation_text">Бул бөлүшүлгөн маалыматты чын эле жок кыласызбы?</string>
     <string name="delete_blob_text">Бөлүшүлгөн маалыматты жок кылуу</string>
     <string name="demo_mode">Тутум интерфейсинин демо режими</string>
@@ -751,7 +759,7 @@
     <string name="dev_logpersist_clear_warning_message">Туруктуу таржымалга көз салууну токтотсок, анын түзмөктө сакталган дайындарын жок кылууга аргасыз болобуз.</string>
     <string name="dev_logpersist_clear_warning_title">Таржымалдын туруктуу диски тазалансынбы?</string>
     <string name="dev_settings_warning_message">Бул орнотуулар өндүрүүчүлөр үчүн гана берилген. Булар түзмөгүңүздүн колдонмолорун бузулушуна же туура эмес иштешине алып келиши мүмкүн.</string>
-    <string name="dev_settings_warning_title">Жөндөөлөрдү өзгөртүү</string>
+    <string name="dev_settings_warning_title">Параметрлерди өзгөртүү</string>
     <string name="development_settings_enable">Иштеп чыгуучунун параметрлерин иштетүү</string>
     <string name="development_settings_not_available">Бул колдонуучуга өнүктүүрүүчү мүмкүнчүлүктөрү берилген эмес.</string>
     <string name="development_settings_summary">Колдонмо өндүрүү мүмкүнчүлүктөрүн орнотуу</string>
@@ -885,6 +893,7 @@
     <string name="game_status">Ойнотулууда</string>
     <string name="global_action_lock_message">Дагы башка параметрлерди көрүү үчүн телефонуңуздун кулпусун ачыңыз</string>
     <string name="global_action_screenshot">Скриншот</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock өчүрүлдү</string>
     <string name="global_actions_change_description">%1$s жана түзмөктү башкаруу элементтерин пайдалануу үчүн экранды ылдый сүрүп коюңуз</string>
     <string name="go_to_web">Серепчиге өтүү</string>
     <string name="google_services_wallpaper_permission">"Google'дун Жайгашкан жерди аныктоо кызматын иштетсеңиз, "<b>жандуу тушкагаз жүргөн жериңизге жараша өзгөрүп турат</b>.</string>
@@ -1232,7 +1241,7 @@
     <string name="media_projection_dialog_text">Жаздырып же тышкы экранга чыгарып жатканда, %s колдонмосу экраныңыздагы бардык маалыматты же түзмөктө ойнолуп жаткан бардык нерселерди (сырсөздөрдү, төлөмдүн чоо-жайын, сүрөттөрдү, билдирүүлөрдү жана угуп жаткан аудиофайлдарды) көрө алат.</string>
     <string name="media_projection_dialog_title">%s колдонмосу аркылуу жаздырып же тышкы экранга чыгарып баштайсызбы?</string>
     <string name="media_projection_remember_text">Экинчи көрүнбөсүн</string>
-    <string name="media_seamless_remote_device">Түзмөк</string>
+    <string name="media_seamless_other_device">Башка түзмөк</string>
     <string name="media_transfer_this_device_name">Телефондун динамиги</string>
     <string name="media_transfer_this_phone">Ушул телефон</string>
     <string name="media_transfer_wired_device_name">Зымдуу аудио түзмөк</string>
@@ -1249,9 +1258,13 @@
     <string name="mobile_data">Мобилдик Интернет</string>
     <string name="mobile_data_always_on">Мобилдик Интернет иштей берет</string>
     <string name="mobile_data_always_on_summary">Wi-Fi иштеп турганда да дайындар мобилдик тармак аркылуу өткөрүлө берет (бир тармактан экинчисине тезирээк которулуу үчүн).</string>
+    <string name="mobile_data_connection_active">Туташты</string>
     <string name="mobile_data_disable_message">%s байланыш оператору аркылуу Интернетке кире албай каласыз. Интернетке Wi-Fi аркылуу гана кирүүгө болот.</string>
     <string name="mobile_data_disable_message_default_carrier">байланыш операторуңуз</string>
     <string name="mobile_data_disable_title">Мобилдик Интернетти өчүрөсүзбү?</string>
+    <string name="mobile_data_no_connection">Байланыш жок</string>
+    <string name="mobile_data_off_summary">Мобилдик трафик автоматтык түрдө туташтырылбайт</string>
+    <string name="mobile_data_settings_title">Мобилдик трафик</string>
     <string name="mobile_data_text_format">%1$s — %2$s</string>
     <string name="mock_location_app">Жалган жайгашкан жерлерди көрсөткөн колдонмону тандоо</string>
     <string name="mock_location_app_not_set">Жалган жайгашкан жерлерди көрсөткөн колдонмо жок</string>
@@ -1391,6 +1404,7 @@
     <string name="no_content_in_select_mode">Тандоо үчүн текст же сүрөт жок</string>
     <string name="no_conversations_text">Акыркы жазышууларыңыз ушул жерде көрүнөт</string>
     <string name="no_shortcut">%1$s колдонмосунда оозеки сүйлөшкөнгө болбойт</string>
+    <string name="non_carrier_network_unavailable">Башка тармактар жеткиликсиз</string>
     <string name="not_default_data_content_description">Дайындарды колдонуу үчүн жөндөлгөн эмес</string>
     <string name="not_set">Коюлган эмес</string>
     <string name="notif_inline_reply_remove_attachment_description">Тиркемени алып салуу</string>
@@ -1571,8 +1585,9 @@
     <string name="power_remaining_only_more_than_subtext">%1$s көбүрөөк калды</string>
     <string name="power_remaining_settings_home_page">%1$s – %2$s</string>
     <string name="power_suggestion_battery_run_out">Батарея %1$s отуруп калышы мүмкүн</string>
+    <string name="pref_title_network_details">Тармактын чоо-жайы</string>
     <string name="preference_copied">\"%1$s\" алмашуу буферине көчүрүлдү.</string>
-    <string name="preference_summary_default_combination">%1$s/%2$s</string>
+    <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">Маанилүү сүйлөшүүлөр</string>
     <string name="privacy_type_camera">камера</string>
     <string name="privacy_type_location">жайгашкан жер</string>
@@ -1740,6 +1755,7 @@
     <string name="right_keycode">Оң жактагы баскыч коду</string>
     <string name="right_nav_bar_button_type">Оң жактагы кошумча баскычтын түрү</string>
     <string name="ring_toggle_title">Чалуулар</string>
+    <string name="rotation_lock_camera_rotation_on">Күйүк – Жүздүн негизинде</string>
     <string name="running_foreground_services_msg">Батареянын кубаты жана трафиктин көлөмү жөнүндө билүү үчүн таптап коюңуз</string>
     <string name="running_foreground_services_title">Фондо иштеп жаткан колдонмолор</string>
     <string name="running_process_item_user_label">Колдонуучу: %1$s</string>
@@ -1814,6 +1830,7 @@
     <string name="screenshot_top_boundary_pct">Өйдө жагы %1$d пайызга</string>
     <string name="search_menu">Жөндөөлөрдү издөө</string>
     <string name="search_menu_title">Издөө</string>
+    <string name="see_all_networks">Баарын көрүү</string>
     <string name="see_more_title">Дагы көрүү</string>
     <string name="select_application">Колдонмо тандоо</string>
     <string name="select_conversation_text">Сүйлөшүүнү башкы экранга кошуу үчүн таптап коюңуз</string>
@@ -1926,6 +1943,7 @@
     <string name="switch_bar_off">Өчүк</string>
     <string name="switch_bar_on">Күйүк</string>
     <string name="system_ui_tuner">System UI Tuner</string>
+    <string name="tap_a_network_to_connect">Кайсы тармакка туташасыз?</string>
     <string name="tap_again">Кайра таптап коюңуз</string>
     <string name="tap_to_sign_up">Катталуу үчүн таптап коюңуз</string>
     <string name="tether_settings_title_all">Модем режими</string>
@@ -1951,6 +1969,7 @@
     <string name="time_unit_just_now">Жаңы эле</string>
     <string name="title_convert_fbe">Файл негизиндеги шифрлөөгө айландырылууда</string>
     <string name="title_usb_accessory">USB шайманы</string>
+    <string name="to_switch_networks_disconnect_ethernet">Башка тармактарга которулуу үчүн Ethernet кабелин ажыратыңыз</string>
     <string name="too_hot_label">Pixel өтө ысып кетти</string>
     <string name="touch_filtered_warning">Уруксат берүү сурамыңыз көрүнбөй калгандыктан, Жөндөөлөр жообуңузду ырастай албай жатат.</string>
     <string name="track_frame_time">HWUI профили түзүлүүдө</string>
@@ -2009,10 +2028,12 @@
     <string name="tuner_toast">Куттуктайбыз! Жөндөөлөргө System UI Tuner кошулду</string>
     <string name="tuner_warning">System UI Tuner Android колдонуучу интерфейсин жөнгө салып жана ыңгайлаштыруунун кошумча ыкмаларын сунуштайт. Бул сынамык функциялар кийинки чыгарылыштарда өзгөрүлүп, бузулуп же жоголуп кетиши мүмкүн. Абайлап колдонуңуз.</string>
     <string name="tuner_warning_title">Баарына эле жага бербейт</string>
+    <string name="turn_on_wifi">Wi‑Fi</string>
     <string name="tv_notification_panel_no_notifications">Билдирме жок</string>
     <string name="tv_notification_panel_title">Билдирмелер</string>
     <string name="two_weeks_timestamp">2 апта мурда</string>
     <string name="unknown">Белгисиз</string>
+    <string name="unlock_to_view_networks">Тармактарды көрүү үчүн кулпусун ачыңыз</string>
     <string name="upcoming_birthday_status">Алдыдагы туулган күн</string>
     <string name="upcoming_birthday_status_content_description">Жакында %1$s туулган күнүн белгилейт</string>
     <string name="url_menu_copy">Көчүрүү</string>
@@ -2151,9 +2172,11 @@ Wi‑Fi дареги (BSSID)
     <string name="wifi_disconnected">Ажыратылды</string>
     <string name="wifi_display_certification">Зымсыз мониторлорду тастыктамалоо</string>
     <string name="wifi_display_certification_summary">Зымсыз мониторлорду тастыктамалоо параметрлери көрүнүп турат</string>
+    <string name="wifi_empty_list_wifi_on">Тармактар изделүүдө…</string>
     <string name="wifi_enhanced_mac_randomization">Wi‑Fi туташуусу туруксуз MAC даректерин башаламан түзүү</string>
     <string name="wifi_enhanced_mac_randomization_summary">Бул режим өчүрүлгөндөн кийин түзмөк MAC даректи башаламан иретте түзүү функциясы иштетилген тармакка туташкан сайын анын MAC дареги өзгөрүшү мүмкүн.</string>
     <string name="wifi_fail_to_scan">Түйүндөрдү издөө мүмкүн эмес</string>
+    <string name="wifi_failed_connect_message">Тармакка туташпай калды</string>
     <string name="wifi_hotspot_switch_off_text">Өчүрүү</string>
     <string name="wifi_hotspot_switch_on_text">Күйгүзүү</string>
     <string name="wifi_is_off">Wi-Fi өчүк</string>
@@ -2164,6 +2187,7 @@ Wi‑Fi дареги (BSSID)
     <string name="wifi_not_in_range">Тейлөө аймагында эмес</string>
     <string name="wifi_passpoint_expired">Эскирип калган</string>
     <string name="wifi_remembered">Сакталды</string>
+    <string name="wifi_scan_notify_message">Түзмөктүн колдонулушун жакшыртуу үчүн колдонмолор менен кызматтар Wi‑Fi өчүп турса да зымсыз тармактарды издей беришет. Аны Wi-Fi тармактарын издөө жөндөөлөрүнөн өзгөртө аласыз. <annotation id="link">Өзгөртүү</annotation></string>
     <string name="wifi_scan_throttling">Wi‑Fi тармактарын издөөнү жөнгө салуу</string>
     <string name="wifi_scan_throttling_summary">Батареяны үнөмдөп, тармактын иштешин жакшыртат</string>
     <string name="wifi_security_none">Жок</string>
@@ -2173,6 +2197,7 @@ Wi‑Fi дареги (BSSID)
     <string name="wifi_unmetered_label">Чектелбеген тармак</string>
     <string name="wifi_verbose_logging">Wi‑Fi таржымалы</string>
     <string name="wifi_verbose_logging_summary">Wi-Fi тандалганда ар бир SSID үчүн RSSI көрүнүп турат</string>
+    <string name="wifi_wont_autoconnect_for_now">Wi-Fi азырынча автоматтык түрдө туташпайт</string>
     <string name="wifitrackerlib_auto_connect_disable">Автоматтык түрдө туташуу өчүк</string>
     <string name="wifitrackerlib_available_via_app">%1$s аркылуу жеткиликтүү</string>
     <string name="wifitrackerlib_connected_via_app">%1$s аркылуу туташты</string>

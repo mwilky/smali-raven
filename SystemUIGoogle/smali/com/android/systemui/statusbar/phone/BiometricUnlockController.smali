@@ -199,7 +199,7 @@
 
     iput-object v1, v0, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->mHandler:Landroid/os/Handler;
 
-    const v1, 0x10e00e0
+    const v1, 0x10e00e1
 
     move-object/from16 v3, p10
 

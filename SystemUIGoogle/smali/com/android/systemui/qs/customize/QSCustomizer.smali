@@ -121,7 +121,7 @@
 
     iget-object v0, p0, Landroid/widget/LinearLayout;->mContext:Landroid/content/Context;
 
-    const v1, 0x1040771
+    const v1, 0x1040773
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -563,7 +563,7 @@
 
     move-result-object v1
 
-    const v2, 0x1050243
+    const v2, 0x1050244
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

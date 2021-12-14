@@ -363,6 +363,7 @@ Uma le mvume ivaliwe, ama-alamu asele nemicimbi esekelwe esikhathini ehlelwe yil
     <string name="alarms_and_reminders_label">Ama-alamu nezikhumbuzi</string>
     <string name="alarms_and_reminders_switch_title">Vumela ukusetha ama-alamu nezikhumbuzi</string>
     <string name="alarms_and_reminders_title">Ama-alamu nezikhumbuzi</string>
+    <string name="all_network_unavailable">Awekho amanethiwekhi atholakalayo</string>
     <string name="allow_mock_location">Vumela izindawo mbumbulu</string>
     <string name="allow_mock_location_summary">Vumela izindawo mbumbulu</string>
     <string name="always_use_accessory">Njalo vula i-%1$s uma i-%2$s ixhumekile</string>
@@ -618,6 +619,11 @@ Ukukhethwa"</string>
     <string name="clock_title_analog">I-Analog</string>
     <string name="clock_title_bubble">Ibhamuza</string>
     <string name="clock_title_default">Okuzenzekelayo</string>
+    <string name="columbus_bouncer_message">Vula ukuze uqedele Ukuthepha Okusheshayo</string>
+    <string name="columbus_target_request_dialog_allow">Vumela</string>
+    <string name="columbus_target_request_dialog_deny">Ungavumeli</string>
+    <string name="columbus_target_request_dialog_summary">Uma uthepha kabili ngemuva kwefoni yakho, i-%1$s izovuleka. Ungashintsha lokhu okuncanyelwayo noma kunini Kumasethingi.</string>
+    <string name="columbus_target_request_dialog_title">Vumela Ukuthepha Okusheshayo ukuze uvule i-%1$s?</string>
     <string name="compat_mode_off">Nweba ukugcwalisa isikrini</string>
     <string name="compat_mode_on">Sondeza ukugcwalisa isikrini</string>
     <string name="confirm_enable_oem_unlock_text">ISEXWAYISO: Izici zokuvikela idivayisi ngeke zisebenze kule divayisi ngenkathi le sethingi ivuliwe.</string>
@@ -740,6 +746,8 @@ Uma uqhubeka futhi, izindleko zingasebenza ekusetshenzisweni kwedatha."</string>
     <string name="defender_notify_learn_more">Funda kabanzi</string>
     <string name="defender_notify_resume_charge">Qalisa kabusha ukukhokhisa</string>
     <string name="defender_notify_title">Ukushaja kukhawulelwe okwesikhashana</string>
+    <string name="defender_post_notify_des">Ukushaja kukhawulelwe ku-%1$s kusuka ku-%2$s ukuya ku-%3$s ukonga impilo yebhethri</string>
+    <string name="defender_post_notify_title">Ukushaja ngokuvamile</string>
     <string name="delete_blob_confirmation_text">Uyaqiniseka yini ngokuthi ufuna ukususa le datha eyabiwe?</string>
     <string name="delete_blob_text">Susa idatha eyabiwe</string>
     <string name="demo_mode">Imodi yedemo ye-UI yesistimu</string>
@@ -885,6 +893,7 @@ Idatha yobuso esetshenziswe ukuvula ngobuso izosuswa unaphakade futhi nangokuvik
     <string name="game_status">Iyadlala</string>
     <string name="global_action_lock_message">Vula ifoni yakho ukuthola izinketho ezengeziwe</string>
     <string name="global_action_screenshot">Isithombe-skrini</string>
+    <string name="global_action_smart_lock_disabled">Ukhiye oSmathi ukhutshaziwe</string>
     <string name="global_actions_change_description">Ukuze ufinyelele ku-%1$s nezilawuli zedivayisi, swayiphela phansi kusuka phezulu kusikrini sakho</string>
     <string name="go_to_web">Iya kusiphequluli</string>
     <string name="google_services_wallpaper_permission"><b>Vumela izithombe zangemuva ze-Google ukuthi ziphendule kundawo yakho</b> ngokufinyelela kusevisi yendawo ye-Google.</string>
@@ -1232,7 +1241,7 @@ Zama futhi emasekhondini angu-%2$d."</string>
     <string name="media_projection_dialog_text">%s izithola ukufinyelela kulo lonke ulwazi olubonakalayo esikrinini sakho noma idlalwe kusuka kudivayisi yakho ngenkathi urekhoda noma usakaza. Lokhu kubandakanya ulwazi olufana namaphasiwedi, imininingwane yenkokhelo, izithombe, imilayezo, nomsindo owudlalayo.</string>
     <string name="media_projection_dialog_title">Qala ukurekhoda noma ukusakaza nge-%s?</string>
     <string name="media_projection_remember_text">Ungabonisi futhi</string>
-    <string name="media_seamless_remote_device">Idivayisi</string>
+    <string name="media_seamless_other_device">Enye idivayisi</string>
     <string name="media_transfer_this_device_name">Isipikha sefoni</string>
     <string name="media_transfer_this_phone">Le foni</string>
     <string name="media_transfer_wired_device_name">Idivayisi yomsindo enentambo</string>
@@ -1249,9 +1258,13 @@ Zama futhi emasekhondini angu-%2$d."</string>
     <string name="mobile_data">Idatha yeselula</string>
     <string name="mobile_data_always_on">Idatha yeselula ihlala isebenza</string>
     <string name="mobile_data_always_on_summary">Hlala ugcine idatha yeselula isebenza, nanoma i-Wi-Fi isebenza (ngokushintshwa kwenethiwekhi okusheshayo).</string>
+    <string name="mobile_data_connection_active">Ixhunyiwe</string>
     <string name="mobile_data_disable_message">Ngeke ube nokufinyelela kudatha noma ku-inthanethi nge-%s. I-inthanethi izotholakala kuphela nge-Wi-Fi.</string>
     <string name="mobile_data_disable_message_default_carrier">inkampani yakho yenethiwekhi</string>
     <string name="mobile_data_disable_title">Vala idatha yeselula?</string>
+    <string name="mobile_data_no_connection">Alukho uxhumano</string>
+    <string name="mobile_data_off_summary">Idatha yeselula ngeke ikwazi ukuxhuma ngokuzenzekelayo</string>
+    <string name="mobile_data_settings_title">Idatha yeselula</string>
     <string name="mobile_data_text_format">%1$s — %2$s</string>
     <string name="mock_location_app">Khetha uhlelo lokusebenza lwendawo mbumbulu</string>
     <string name="mock_location_app_not_set">Alikho uhlelo lokusebenza lwendawo mbumbulu esethiwe</string>
@@ -1391,6 +1404,7 @@ Uma unemibuzo, xhumana ne-%2$s."</string>
     <string name="no_content_in_select_mode">Awukho umbhalo noma umfanekiso okhethiwe</string>
     <string name="no_conversations_text">Izingxoxo zakho zakamuva zizovela lapha</string>
     <string name="no_shortcut">I-%1$s ayisekeli izici zengxoxo</string>
+    <string name="non_carrier_network_unavailable">Awekho amanye amanethiwekhi atholakalayo</string>
     <string name="not_default_data_content_description">Akusethiwe ukuze kusetshenziswe idatha</string>
     <string name="not_set">Ayisethiwe</string>
     <string name="notif_inline_reply_remove_attachment_description">Susa okunamathiselwe</string>
@@ -1571,6 +1585,7 @@ Uma unemibuzo, xhumana ne-%2$s."</string>
     <string name="power_remaining_only_more_than_subtext">Kusele okungaphezu kuka-%1$s</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">Ibhethri lingaphela ngo-%1$s</string>
+    <string name="pref_title_network_details">Imininingwane yenethiwekhi</string>
     <string name="preference_copied">\"%1$s\" kukopishelwe kuklibhodi.</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">Izingxoxo ezibalulekile</string>
@@ -1740,6 +1755,7 @@ Uma unemibuzo, xhumana ne-%2$s."</string>
     <string name="right_keycode">Ikhodi yokhiye yangakwesokudla</string>
     <string name="right_nav_bar_button_type">Uhlobo lwenkinobho engakwesokudla engeziwe</string>
     <string name="ring_toggle_title">Amakholi</string>
+    <string name="rotation_lock_camera_rotation_on">Vuliwe - Kususelwe kubuso</string>
     <string name="running_foreground_services_msg">Thepha ngemininingwane ekusetshenzisweni kwebhethri nedatha</string>
     <string name="running_foreground_services_title">Izinhlelo zokusebenza zisebenza ngasemuva</string>
     <string name="running_process_item_user_label">Umsebenzisi: %1$s</string>
@@ -1814,6 +1830,7 @@ Uma unemibuzo, xhumana ne-%2$s."</string>
     <string name="screenshot_top_boundary_pct">Iphesenti elingu-%1$d lomngcele ophezulu</string>
     <string name="search_menu">Sesha izilungiselelo</string>
     <string name="search_menu_title">Sesha</string>
+    <string name="see_all_networks">Bona konke</string>
     <string name="see_more_title">Bona okwengeziwe</string>
     <string name="select_application">Khetha uhlelo lokusebenza</string>
     <string name="select_conversation_text">Thepha ingxoxo ukuyengeza Kusikrini sakho sasekhaya</string>
@@ -1926,6 +1943,7 @@ iqashiwe"</string>
     <string name="switch_bar_off">Valiwe</string>
     <string name="switch_bar_on">Vuliwe</string>
     <string name="system_ui_tuner">Isishuni se-UI yesistimu</string>
+    <string name="tap_a_network_to_connect">Thepha inethiwekhi ukuze uxhume</string>
     <string name="tap_again">Thepha futhi</string>
     <string name="tap_to_sign_up">Thepha ukuze ubhalisele</string>
     <string name="tether_settings_title_all">Ukusebenzisa njengemodemu &amp; i-hotspot ephathekayo</string>
@@ -1951,6 +1969,7 @@ Thepha ukuze uthole ulwazi olungeziwe"</string>
     <string name="time_unit_just_now">Khona manje</string>
     <string name="title_convert_fbe">Ukuphendulela kuya ekubethelweni okususelwe kwifayela</string>
     <string name="title_usb_accessory">ama-accessory e-USB</string>
+    <string name="to_switch_networks_disconnect_ethernet">Ukuze ushintshe amanethiwekhi, nqamula i-ethernet</string>
     <string name="too_hot_label">I-Pixel ishisa kakhulu</string>
     <string name="touch_filtered_warning">Ngoba uhlelo lokusebenza lusitha isicelo semvume, Izilungiselelo azikwazi ukuqinisekisa impendulo yakho.</string>
     <string name="track_frame_time">Inikezela iphrofayela ye-HWUI</string>
@@ -2009,10 +2028,12 @@ Thepha ukuze uthole ulwazi olungeziwe"</string>
     <string name="tuner_toast">Siyakuhalalisela! Isishuni se-UI sesistimu singeziwe kuzilungiselelo</string>
     <string name="tuner_warning">Isishuni se-UI sesistimu sikunika izindlela ezingeziwe zokuhlobisa nokwenza ngezifiso isixhumanisi sokubona se-Android. Lezi zici zesilingo zingashintsha, zephuke, noma zinyamalale ekukhishweni kwangakusasa. Qhubeka ngokuqaphela.</string>
     <string name="tuner_warning_title">Kuyajabulisa kwabanye kodwa hhayi bonke</string>
+    <string name="turn_on_wifi">Wi‑Fi</string>
     <string name="tv_notification_panel_no_notifications">Azikho Izaziso</string>
     <string name="tv_notification_panel_title">Izaziso</string>
     <string name="two_weeks_timestamp">amaviki adlule 2</string>
     <string name="unknown">Akwaziwa</string>
+    <string name="unlock_to_view_networks">Vula ukuze ubuke amanethiwekhi</string>
     <string name="upcoming_birthday_status">Usuku lokuzalwa maduze</string>
     <string name="upcoming_birthday_status_content_description">Wusuku lokuzalwa luka-%1$s maduze</string>
     <string name="url_menu_copy">Kopisha</string>
@@ -2151,9 +2172,11 @@ Ikheli le-Wi‑Fi (BSSID)
     <string name="wifi_disconnected">Inqamukile</string>
     <string name="wifi_display_certification">Ukunikezwa isitifiketi sokubukeka okungenantambo</string>
     <string name="wifi_display_certification_summary">Bonisa izinketho zokunikeza isitifiketi ukubukeka okungenantambo</string>
+    <string name="wifi_empty_list_wifi_on">Iseshela amanethiwekhi…</string>
     <string name="wifi_enhanced_mac_randomization">Okungahleliwe kwe-MAC engaphikeleli ye-Wi‑Fi</string>
     <string name="wifi_enhanced_mac_randomization_summary">Uma le modi inikwe amandla, ikheli le-MAC lale divayisi lingashintsha njalo uma ixhuma kunethiwekhi ene-MAC engahleliwe enikwe amandla.</string>
     <string name="wifi_fail_to_scan">Ayikwazi ukuhlola amanethiwekhi</string>
+    <string name="wifi_failed_connect_message">Yehlulekile ukuxhuma kunethiwekhi</string>
     <string name="wifi_hotspot_switch_off_text">Valiwe</string>
     <string name="wifi_hotspot_switch_on_text">Vuliwe</string>
     <string name="wifi_is_off">I-Wi-Fi ivaliwe</string>
@@ -2164,6 +2187,7 @@ Ikheli le-Wi‑Fi (BSSID)
     <string name="wifi_not_in_range">Ayikho ebubanzini</string>
     <string name="wifi_passpoint_expired">Iphelelwe isikhathi</string>
     <string name="wifi_remembered">Kulondoloziwe</string>
+    <string name="wifi_scan_notify_message">Ukuze kuthuthukiswe ukuzizwela kwedivayisi, ama-app namasevisi kusengakwazi ukuskena amanethiwekhi we-Wi-Fi noma kunini, ngisho noma i-Wi-Fi ivaliwe, Ungashintsha lokhu kumasethingi Wokuskena i-Wi-Fi. <annotation id="link">Shintsha</annotation></string>
     <string name="wifi_scan_throttling">I-throttling yokuskena kwe-Wi-Fi</string>
     <string name="wifi_scan_throttling_summary">Yehlisa ukuphela kwebhethri futhi ithuthukise ukusebenza kwenethiwekhi</string>
     <string name="wifi_security_none">Lutho</string>
@@ -2173,6 +2197,7 @@ Ikheli le-Wi‑Fi (BSSID)
     <string name="wifi_unmetered_label">Akulinganiselwa</string>
     <string name="wifi_verbose_logging">Nika amandlaukungena kwe-Wi-Fi Verbose</string>
     <string name="wifi_verbose_logging_summary">khuphula izinga lokungena le-Wi-Fi, bonisa nge-SSID RSSI engayodwana kusikhethi se-Wi-Fi</string>
+    <string name="wifi_wont_autoconnect_for_now">I-Wi-Fi ngeke ixhume ngokuzenzakalelayo okwamanje</string>
     <string name="wifitrackerlib_auto_connect_disable">Ukuxhuma ngokuzenzakalelayo kuvaliwe</string>
     <string name="wifitrackerlib_available_via_app">Kutholakala nge-%1$s</string>
     <string name="wifitrackerlib_connected_via_app">Ixhumeke nge-%1$s</string>

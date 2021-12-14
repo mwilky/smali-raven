@@ -16,11 +16,13 @@
 
 .field private final mDisplaySurface:I
 
+.field private final mFeatureType:I
+
 .field private final mInstanceId:I
 
-.field private final mLoggingCardType:I
-
 .field private final mRank:I
+
+.field private final mReceivedLatency:I
 
 
 # direct methods
@@ -39,25 +41,31 @@
 
     move-result v0
 
-    iput v0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;->mLoggingCardType:I
+    iput v0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;->mDisplaySurface:I
 
     invoke-static {p1}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;->access$200(Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;)I
 
     move-result v0
 
-    iput v0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;->mDisplaySurface:I
+    iput v0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;->mRank:I
 
     invoke-static {p1}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;->access$300(Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;)I
 
     move-result v0
 
-    iput v0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;->mRank:I
+    iput v0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;->mCardinality:I
 
     invoke-static {p1}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;->access$400(Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;)I
 
+    move-result v0
+
+    iput v0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;->mFeatureType:I
+
+    invoke-static {p1}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;->access$500(Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo$Builder;)I
+
     move-result p1
 
-    iput p1, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;->mCardinality:I
+    iput p1, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;->mReceivedLatency:I
 
     return-void
 .end method
@@ -88,6 +96,14 @@
     return p0
 .end method
 
+.method public getFeatureType()I
+    .locals 0
+
+    iget p0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;->mFeatureType:I
+
+    return p0
+.end method
+
 .method public getInstanceId()I
     .locals 0
 
@@ -96,18 +112,18 @@
     return p0
 .end method
 
-.method public getLoggingCardType()I
-    .locals 0
-
-    iget p0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;->mLoggingCardType:I
-
-    return p0
-.end method
-
 .method public getRank()I
     .locals 0
 
     iget p0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;->mRank:I
+
+    return p0
+.end method
+
+.method public getReceivedLatency()I
+    .locals 0
+
+    iget p0, p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;->mReceivedLatency:I
 
     return p0
 .end method
@@ -129,11 +145,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v1, ", card type = "
+    const-string v1, ", feature type = "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;->getLoggingCardType()I
+    invoke-virtual {p0}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;->getFeatureType()I
 
     move-result v1
 
@@ -164,6 +180,16 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {p0}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;->getCardinality()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, ", receivedLatencyMillis = "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Lcom/google/android/systemui/smartspace/BcSmartspaceCardLoggingInfo;->getReceivedLatency()I
 
     move-result p0
 

@@ -711,6 +711,40 @@
     return-void
 .end method
 
+.method public onPanelMinFractionChanged(F)V
+    .locals 1
+
+    invoke-static {p1}, Ljava/lang/Float;->isNaN(F)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/phone/PanelBar;->onPanelMinFractionChanged(F)V
+
+    iget v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->mMinFraction:F
+
+    cmpl-float v0, v0, p1
+
+    if-eqz v0, :cond_0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->mMinFraction:F
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->updateScrimFraction()V
+
+    :cond_0
+    return-void
+
+    :cond_1
+    new-instance p0, Ljava/lang/IllegalArgumentException;
+
+    const-string p1, "minFraction cannot be NaN"
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+.end method
+
 .method public onPanelPeeked()V
     .locals 1
 
@@ -892,38 +926,6 @@
 
     :cond_2
     return-void
-.end method
-
-.method public panelScrimMinFractionChanged(F)V
-    .locals 1
-
-    invoke-static {p1}, Ljava/lang/Float;->isNaN(F)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    iget v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->mMinFraction:F
-
-    cmpl-float v0, v0, p1
-
-    if-eqz v0, :cond_0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->mMinFraction:F
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->updateScrimFraction()V
-
-    :cond_0
-    return-void
-
-    :cond_1
-    new-instance p0, Ljava/lang/IllegalArgumentException;
-
-    const-string p1, "minFraction cannot be NaN"
-
-    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw p0
 .end method
 
 .method public removePendingHideExpandedRunnables()V

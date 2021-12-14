@@ -2627,6 +2627,14 @@
 
     invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(F)V
 
+    const-string p1, "  mExpansionAffectsAlpha="
+
+    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-boolean p1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mExpansionAffectsAlpha:Z
+
+    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Z)V
+
     const-string p1, "  mState.getMaxLightRevealScrimAlpha="
 
     invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
@@ -3211,18 +3219,22 @@
     return-void
 
     :cond_0
-    const/4 v0, 0x1
+    const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    invoke-static {p1, v0}, Lcom/android/systemui/animation/Interpolators;->getNotificationScrimAlpha(FZ)F
+
+    move-result p1
+
+    const/4 v1, 0x1
 
     if-lez p2, :cond_1
 
-    move p2, v0
+    move p2, v1
 
     goto :goto_0
 
     :cond_1
-    move p2, v1
+    move p2, v0
 
     :goto_0
     iget v2, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mQsExpansion:F
@@ -3244,40 +3256,37 @@
 
     sget-object p2, Lcom/android/systemui/statusbar/phone/ScrimState;->SHADE_LOCKED:Lcom/android/systemui/statusbar/phone/ScrimState;
 
-    if-eq p1, p2, :cond_4
+    if-eq p1, p2, :cond_3
 
     sget-object p2, Lcom/android/systemui/statusbar/phone/ScrimState;->KEYGUARD:Lcom/android/systemui/statusbar/phone/ScrimState;
 
-    if-eq p1, p2, :cond_4
+    if-eq p1, p2, :cond_3
 
     sget-object p2, Lcom/android/systemui/statusbar/phone/ScrimState;->PULSING:Lcom/android/systemui/statusbar/phone/ScrimState;
 
-    if-eq p1, p2, :cond_4
+    if-eq p1, p2, :cond_3
 
     sget-object p2, Lcom/android/systemui/statusbar/phone/ScrimState;->BUBBLE_EXPANDED:Lcom/android/systemui/statusbar/phone/ScrimState;
 
-    if-ne p1, p2, :cond_3
-
-    goto :goto_1
+    if-ne p1, p2, :cond_4
 
     :cond_3
     move v0, v1
 
     :cond_4
-    :goto_1
     if-eqz v0, :cond_6
 
     iget-boolean p1, p0, Lcom/android/systemui/statusbar/phone/ScrimController;->mExpansionAffectsAlpha:Z
 
     if-nez p1, :cond_5
 
-    goto :goto_2
+    goto :goto_1
 
     :cond_5
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/ScrimController;->applyAndDispatchState()V
 
     :cond_6
-    :goto_2
+    :goto_1
     return-void
 .end method
 

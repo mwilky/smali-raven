@@ -946,7 +946,7 @@
 .method public final requestFinishDemoMode()V
     .locals 2
 
-    const-string v0, "sysui_tuner_demo_on"
+    const-string/jumbo v0, "sysui_tuner_demo_on"
 
     const/4 v1, 0x0
 
@@ -958,7 +958,7 @@
 .method public final requestSetDemoModeAllowed(Z)V
     .locals 1
 
-    const-string v0, "sysui_demo_allowed"
+    const-string/jumbo v0, "sysui_demo_allowed"
 
     invoke-direct {p0, v0, p1}, Lcom/android/systemui/demomode/DemoModeController;->setGlobal(Ljava/lang/String;I)V
 
@@ -968,7 +968,7 @@
 .method public final requestStartDemoMode()V
     .locals 2
 
-    const-string v0, "sysui_tuner_demo_on"
+    const-string/jumbo v0, "sysui_tuner_demo_on"
 
     const/4 v1, 0x1
 

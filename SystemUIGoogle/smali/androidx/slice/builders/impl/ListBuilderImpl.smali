@@ -428,7 +428,7 @@
     :goto_1
     const-string v4, "shortcut"
 
-    const-string v6, "title"
+    const-string/jumbo v6, "title"
 
     filled-new-array {v4, v6}, [Ljava/lang/String;
 

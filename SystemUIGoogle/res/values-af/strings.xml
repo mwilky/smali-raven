@@ -363,6 +363,7 @@ As hierdie toestemming af is, sal bestaande wekkers en tydgegronde geleenthede w
     <string name="alarms_and_reminders_label">Wekkers en onthounotas</string>
     <string name="alarms_and_reminders_switch_title">Laat toe dat wekkers en onthounotas gestel word</string>
     <string name="alarms_and_reminders_title">Wekkers en onthounotas</string>
+    <string name="all_network_unavailable">Geen netwerke beskikbaar nie</string>
     <string name="allow_mock_location">Laat skynliggings toe</string>
     <string name="allow_mock_location_summary">Laat skynliggings toe</string>
     <string name="always_use_accessory">Maak %1$s altyd oop wanneer %2$s gekoppel is</string>
@@ -618,6 +619,11 @@ Keuse"</string>
     <string name="clock_title_analog">Analoog</string>
     <string name="clock_title_bubble">Borrel</string>
     <string name="clock_title_default">Verstek</string>
+    <string name="columbus_bouncer_message">Ontsluit om Dubbeltik te voltooi</string>
+    <string name="columbus_target_request_dialog_allow">Laat toe</string>
+    <string name="columbus_target_request_dialog_deny">Weier</string>
+    <string name="columbus_target_request_dialog_summary">%1$s sal oopmaak wanneer jy op die agterkant van jou foon dubbeltik. Jy kan hierdie keuse enige tyd in Instellings verander.</string>
+    <string name="columbus_target_request_dialog_title">Laat toe dat Dubbeltik %1$s oopmaak?</string>
     <string name="compat_mode_off">Strek om skerm te vul</string>
     <string name="compat_mode_on">Zoem om skerm te vul</string>
     <string name="confirm_enable_oem_unlock_text">WAARSKUWING: Toestelbeskermingkenmerke sal nie op hierdie toestel werk terwyl hierdie instelling aangeskakel is nie.</string>
@@ -740,6 +746,8 @@ As jy voortgaan, kan heffings vir datagebruik geld."</string>
     <string name="defender_notify_learn_more">Kom meer te wete</string>
     <string name="defender_notify_resume_charge">Hervat laaiproses</string>
     <string name="defender_notify_title">Laaiproses word tydelik beperk</string>
+    <string name="defender_post_notify_des">Laaiproses is beperk tot %1$s van %2$s tot %3$s om batterygesondheid in stand te hou</string>
+    <string name="defender_post_notify_title">Laai tans normaal</string>
     <string name="delete_blob_confirmation_text">Is jy seker jy wil hierdie gedeelde data uitvee?</string>
     <string name="delete_blob_text">Vee gedeelde data uit?</string>
     <string name="demo_mode">Stelsel-UI-demonstrasiemodus</string>
@@ -885,6 +893,7 @@ Die gesigdata wat Gesigslot gebruik, sal permanent en veilig uitgevee word. Nada
     <string name="game_status">Speel tans</string>
     <string name="global_action_lock_message">Ontsluit jou foon vir meer opsies</string>
     <string name="global_action_screenshot">Skermkiekie</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock is gedeaktiveer</string>
     <string name="global_actions_change_description">Swiep van die bokant van jou skerm na onder om toegang tot %1$s en toestelkontroles te kry</string>
     <string name="go_to_web">Gaan na blaaier</string>
     <string name="google_services_wallpaper_permission"><b>Stel Google se aktiewe muurpapiere in staat om op jou ligging te reageer</b> deur by Google se liggingdiens in te gaan.</string>
@@ -1232,7 +1241,7 @@ Probeer weer oor %2$d sekondes."</string>
     <string name="media_projection_dialog_text">"%s sal toegang hê tot al die inligting wat op jou skerm sigbaar is of wat op jou toestel gespeel word terwyl dit opneem of uitsaai. Dit sluit in inligting soos wagwoorde, betalingbesonderhede, foto's, boodskappe en oudio wat jy speel."</string>
     <string name="media_projection_dialog_title">Begin opneem of uitsaai met %s?</string>
     <string name="media_projection_remember_text">Moenie weer wys nie</string>
-    <string name="media_seamless_remote_device">Toestel</string>
+    <string name="media_seamless_other_device">Ander toestel</string>
     <string name="media_transfer_this_device_name">Foonluidspreker</string>
     <string name="media_transfer_this_phone">Hierdie foon</string>
     <string name="media_transfer_wired_device_name">Bedrade oudiotoestel</string>
@@ -1249,9 +1258,13 @@ Probeer weer oor %2$d sekondes."</string>
     <string name="mobile_data">Mobiele data</string>
     <string name="mobile_data_always_on">Mobiele data is altyd aktief</string>
     <string name="mobile_data_always_on_summary">Hou mobiele data altyd aktief, selfs wanneer Wi‑Fi aktief is (vir vinnige netwerkwisseling).</string>
+    <string name="mobile_data_connection_active">Gekoppel</string>
     <string name="mobile_data_disable_message">Jy sal nie deur %s toegang tot data of die internet hê nie. Internet sal net deur Wi-Fi beskikbaar wees.</string>
     <string name="mobile_data_disable_message_default_carrier">jou diensverskaffer</string>
     <string name="mobile_data_disable_title">Skakel mobiele data af?</string>
+    <string name="mobile_data_no_connection">Geen verbinding nie</string>
+    <string name="mobile_data_off_summary">Mobiele data sal nie outomaties koppel nie</string>
+    <string name="mobile_data_settings_title">Mobiele data</string>
     <string name="mobile_data_text_format">%1$s – %2$s</string>
     <string name="mock_location_app">Kies skynliggingprogram</string>
     <string name="mock_location_app_not_set">Geen skynliggingprogram gestel nie</string>
@@ -1391,6 +1404,7 @@ Kontak %2$s as jy enige vrae het."</string>
     <string name="no_content_in_select_mode">Geen teks of prent om te kies nie</string>
     <string name="no_conversations_text">Jou onlangse gesprekke sal hier verskyn</string>
     <string name="no_shortcut">%1$s steun nie gesprekskenmerke nie</string>
+    <string name="non_carrier_network_unavailable">Geen ander netwerke beskikbaar nie</string>
     <string name="not_default_data_content_description">Nie gestel om data te gebruik nie</string>
     <string name="not_set">Nie gestel nie</string>
     <string name="notif_inline_reply_remove_attachment_description">Verwyder aanhegsel</string>
@@ -1571,8 +1585,9 @@ Kontak %2$s as jy enige vrae het."</string>
     <string name="power_remaining_only_more_than_subtext">Meer as %1$s oor</string>
     <string name="power_remaining_settings_home_page">%1$s – %2$s</string>
     <string name="power_suggestion_battery_run_out">Battery kan teen %1$s afloop</string>
+    <string name="pref_title_network_details">Netwerkbesonderhede</string>
     <string name="preference_copied">\"%1$s\" is na knipbord gekopieer.</string>
-    <string name="preference_summary_default_combination">%1$s / %2$s</string>
+    <string name="preference_summary_default_combination">%1$s/%2$s</string>
     <string name="priority_conversations">Prioriteitgesprekke</string>
     <string name="privacy_type_camera">kamera</string>
     <string name="privacy_type_location">ligging</string>
@@ -1740,6 +1755,7 @@ Kontak %2$s as jy enige vrae het."</string>
     <string name="right_keycode">Regs-sleutelkode</string>
     <string name="right_nav_bar_button_type">Ekstra regsknoppie-tipe</string>
     <string name="ring_toggle_title">Oproepe</string>
+    <string name="rotation_lock_camera_rotation_on">Aan – gesiggegrond</string>
     <string name="running_foreground_services_msg">Tik vir besonderhede oor battery- en datagebruik</string>
     <string name="running_foreground_services_title">Programme wat op die agtergrond loop</string>
     <string name="running_process_item_user_label">Gebruiker: %1$s</string>
@@ -1814,6 +1830,7 @@ Kontak %2$s as jy enige vrae het."</string>
     <string name="screenshot_top_boundary_pct">Bogrens %1$d persent</string>
     <string name="search_menu">Soekinstellings</string>
     <string name="search_menu_title">Soek</string>
+    <string name="see_all_networks">Sien alles</string>
     <string name="see_more_title">Sien meer</string>
     <string name="select_application">Kies program</string>
     <string name="select_conversation_text">"Tik op 'n gesprek om dit by jou tuisskerm te voeg"</string>
@@ -1926,6 +1943,7 @@ dalk gemonitor"</string>
     <string name="switch_bar_off">Af</string>
     <string name="switch_bar_on">Aan</string>
     <string name="system_ui_tuner">Stelsel-UI-ontvanger</string>
+    <string name="tap_a_network_to_connect">"Tik op 'n netwerk om te koppel"</string>
     <string name="tap_again">Tik weer</string>
     <string name="tap_to_sign_up">Tik om aan te meld</string>
     <string name="tether_settings_title_all">USB-verbinding en Wi-Fi-warmkol</string>
@@ -1951,6 +1969,7 @@ Tik vir meer inligting"</string>
     <string name="time_unit_just_now">Sopas</string>
     <string name="title_convert_fbe">Skakel tans na lêer-gebaseerde enkripsie om</string>
     <string name="title_usb_accessory">USB-toebehoorsel</string>
+    <string name="to_switch_networks_disconnect_ethernet">Ontkoppel Ethernet om netwerke te wissel</string>
     <string name="too_hot_label">Pixel is te warm</string>
     <string name="touch_filtered_warning">"Instellings kan nie jou antwoord verifieer nie omdat 'n program 'n toestemmingversoek verberg."</string>
     <string name="track_frame_time">Profiel-HWUI-lewering</string>
@@ -2009,10 +2028,12 @@ Tik vir meer inligting"</string>
     <string name="tuner_toast">Geluk! Stelsel-UI-ontvanger is by Instellings gevoeg</string>
     <string name="tuner_warning">Stelsel-UI-ontvanger gee jou ekstra maniere om die Android-gebruikerkoppelvlak in te stel en te pasmaak. Hierdie eksperimentele kenmerke kan in toekomstige uitreikings verander, breek of verdwyn. Gaan versigtig voort.</string>
     <string name="tuner_warning_title">Pret vir party mense, maar nie vir almal nie</string>
+    <string name="turn_on_wifi">Wi-fi</string>
     <string name="tv_notification_panel_no_notifications">Geen kennisgewings nie</string>
     <string name="tv_notification_panel_title">Kennisgewings</string>
     <string name="two_weeks_timestamp">2 weke gelede</string>
     <string name="unknown">Onbekend</string>
+    <string name="unlock_to_view_networks">Ontsluit om netwerke te bekyk</string>
     <string name="upcoming_birthday_status">Verjaar binnekort</string>
     <string name="upcoming_birthday_status_content_description">Dit is binnekort %1$s se verjaarsdag</string>
     <string name="url_menu_copy">Kopieer</string>
@@ -2151,9 +2172,11 @@ Wi‑Fi-adres (BSSID)
     <string name="wifi_disconnected">Ontkoppel</string>
     <string name="wifi_display_certification">Draadlose skermsertifisering</string>
     <string name="wifi_display_certification_summary">Wys opsies vir draadlose skermsertifisering</string>
+    <string name="wifi_empty_list_wifi_on">Soek tans na netwerke …</string>
     <string name="wifi_enhanced_mac_randomization">Nie-aanhoudende MAC-verewekansiging vir wi-fi</string>
     <string name="wifi_enhanced_mac_randomization_summary">"Wanneer hierdie modus geaktiveer is, kan hierdie toestel se MAC-adres verander elke keer wanneer dit aan 'n netwerk koppel waarvoor MAC-verewekansiging geaktiveer is."</string>
     <string name="wifi_fail_to_scan">Kan nie skandeer vir netwerke nie</string>
+    <string name="wifi_failed_connect_message">Kon nie aan netwerk koppel nie</string>
     <string name="wifi_hotspot_switch_off_text">Af</string>
     <string name="wifi_hotspot_switch_on_text">Aan</string>
     <string name="wifi_is_off">Wi-Fi is af</string>
@@ -2164,6 +2187,7 @@ Wi‑Fi-adres (BSSID)
     <string name="wifi_not_in_range">Nie binne ontvangs nie</string>
     <string name="wifi_passpoint_expired">Verval</string>
     <string name="wifi_remembered">Gestoor</string>
+    <string name="wifi_scan_notify_message">Om toestelervaring te verbeter, kan programme en dienste steeds enige tyd na wi‑fi-netwerke soek, selfs wanneer wi‑fi af is. Jy kan dit in Wi-fi-opsporing-instellings verander. <annotation id="link">Verander</annotation></string>
     <string name="wifi_scan_throttling">Regulering van Wi-Fi-opsporing</string>
     <string name="wifi_scan_throttling_summary">Verlaag batteryverbruik en verbeter netwerk se werkverrigting</string>
     <string name="wifi_security_none">Geen</string>
@@ -2173,6 +2197,7 @@ Wi‑Fi-adres (BSSID)
     <string name="wifi_unmetered_label">Onbeperk</string>
     <string name="wifi_verbose_logging">Aktiveer Wi-Fi-woordryke aanmelding</string>
     <string name="wifi_verbose_logging_summary">Verhoog Wi-Fi-aantekeningvlak, wys per SSID RSSI in Wi‑Fi-kieser</string>
+    <string name="wifi_wont_autoconnect_for_now">Wi-fi sal vir nou nie outomaties koppel nie</string>
     <string name="wifitrackerlib_auto_connect_disable">Outomatiese koppeling is af</string>
     <string name="wifitrackerlib_available_via_app">Beskikbaar deur %1$s</string>
     <string name="wifitrackerlib_connected_via_app">Gekoppel deur %1$s</string>

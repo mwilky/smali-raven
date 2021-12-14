@@ -101,7 +101,7 @@
 
     if-gez p1, :cond_0
 
-    const p1, 0x1050275
+    const p1, 0x1050276
 
     invoke-virtual {p6, p1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -383,7 +383,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowController;->mResources:Landroid/content/res/Resources;
 
-    const v1, 0x1050275
+    const v1, 0x1050276
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

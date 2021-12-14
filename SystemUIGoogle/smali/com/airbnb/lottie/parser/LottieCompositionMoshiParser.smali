@@ -85,7 +85,7 @@
 
     const-string v0, "cm"
 
-    const-string v1, "tm"
+    const-string/jumbo v1, "tm"
 
     const-string v2, "dr"
 

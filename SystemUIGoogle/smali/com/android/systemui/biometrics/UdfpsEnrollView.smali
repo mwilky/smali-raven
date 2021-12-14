@@ -24,14 +24,6 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$73FRivnz5sA61xbYsqrrf84OPJc(Lcom/android/systemui/biometrics/UdfpsEnrollView;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/biometrics/UdfpsEnrollView;->lambda$onLastStepAcquired$2()V
-
-    return-void
-.end method
-
 .method public static synthetic $r8$lambda$szBVW0G5dEJL0XyFac_l4BXD_Pc(Lcom/android/systemui/biometrics/UdfpsEnrollView;II)V
     .locals 0
 
@@ -77,7 +69,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollView;->mFingerprintProgressDrawable:Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarDrawable;
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarDrawable;->setEnrollmentProgress(II)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarDrawable;->onEnrollmentHelp(II)V
 
     return-void
 .end method
@@ -87,21 +79,11 @@
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollView;->mFingerprintProgressDrawable:Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarDrawable;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarDrawable;->setEnrollmentProgress(II)V
+    invoke-virtual {v0, p1, p2}, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarDrawable;->onEnrollmentProgress(II)V
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollView;->mFingerprintDrawable:Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;
 
     invoke-virtual {p0, p1, p2}, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->onEnrollmentProgress(II)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$onLastStepAcquired$2()V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollView;->mFingerprintProgressDrawable:Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarDrawable;
-
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarDrawable;->onLastStepAcquired()V
 
     return-void
 .end method
@@ -195,9 +177,13 @@
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollView;->mHandler:Landroid/os/Handler;
 
+    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollView;->mFingerprintProgressDrawable:Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarDrawable;
+
+    invoke-static {p0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
     new-instance v1, Lcom/android/systemui/biometrics/UdfpsEnrollView$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/biometrics/UdfpsEnrollView$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/biometrics/UdfpsEnrollView;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/biometrics/UdfpsEnrollView$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarDrawable;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
@@ -205,7 +191,11 @@
 .end method
 
 .method setEnrollHelper(Lcom/android/systemui/biometrics/UdfpsEnrollHelper;)V
-    .locals 0
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollView;->mFingerprintProgressDrawable:Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarDrawable;
+
+    invoke-virtual {v0, p1}, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarDrawable;->setEnrollHelper(Lcom/android/systemui/biometrics/UdfpsEnrollHelper;)V
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollView;->mFingerprintDrawable:Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;
 

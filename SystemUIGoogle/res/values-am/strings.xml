@@ -363,6 +363,7 @@
     <string name="alarms_and_reminders_label">ማንቂያዎች እና አስታዋሾች</string>
     <string name="alarms_and_reminders_switch_title">ማንቂያዎች እና አስታዋሾች እንዲዋቀሩ ይፍቀዱ</string>
     <string name="alarms_and_reminders_title">ማንቂያዎች እና አስታዋሾች</string>
+    <string name="all_network_unavailable">ምንም አውታረ መረቦች የሉም</string>
     <string name="allow_mock_location">አስቂኝ ሥፍራዎችን ፍቀድ</string>
     <string name="allow_mock_location_summary">አስቂኝ ሥፍራዎችን ፍቀድ</string>
     <string name="always_use_accessory">%2$s ሲገናኝ ሁልጊዜ %1$sን ይክፈቱ</string>
@@ -618,6 +619,11 @@
     <string name="clock_title_analog">አናሎግ</string>
     <string name="clock_title_bubble">አረፋ</string>
     <string name="clock_title_default">ነባሪ</string>
+    <string name="columbus_bouncer_message">በፍጥነት መታ ማድረግን ለማጠናቀቅ ይክፈቱ</string>
+    <string name="columbus_target_request_dialog_allow">ፍቀድ</string>
+    <string name="columbus_target_request_dialog_deny">አትፍቀድ</string>
+    <string name="columbus_target_request_dialog_summary">የስልክዎን ጀርባ ሁለቴ መታ ሲያደርጉት %1$s ይከፈታል። ይህን ምርጫ በማንኛውም ጊዜ በ ቅንብሮች ውስጥ መለወጥ ይችላሉ።</string>
+    <string name="columbus_target_request_dialog_title">ፈጣን መታ ማድረግ %1$sን እንዲከፍት ይፈቀድለት?</string>
     <string name="compat_mode_off">ማያ ለመሙለት ሳብ</string>
     <string name="compat_mode_on">ማያ እንዲሞላ አጉላ</string>
     <string name="confirm_enable_oem_unlock_text">ማስጠንቀቂያ፦ ይህ ቅንብር በሚበራበት ጊዜ የመሣሪያ ጥበቃ ባህሪዎች በዚህ መሣሪያ ላይ አይሰሩም።</string>
@@ -740,6 +746,8 @@
     <string name="defender_notify_learn_more">የበለጠ መረዳት</string>
     <string name="defender_notify_resume_charge">ኃይል መሙላትን ከቆመበት ቀጥል</string>
     <string name="defender_notify_title">ኃይል መሙላት ለጊዜው ተገድቧል</string>
+    <string name="defender_post_notify_des">የባትሪ ዕድሜን ለማራዘም ኃይል መሙላት ከ%2$s እስከ %3$s ድረስ በ%1$s ተገድቧል</string>
+    <string name="defender_post_notify_title">በመደበኛ ኃይልን በመሙላት ላይ</string>
     <string name="delete_blob_confirmation_text">ይህን የተጋራ ውሂብ ለመሰረዝ እንደሚፈልጉ እርግጠኛ ነዎት?</string>
     <string name="delete_blob_text">የተጋራ ውሂብን ሰርዝ</string>
     <string name="demo_mode">የስርዓት ተጠቃሚ በይነገጽ ማሳያ ሁነታ</string>
@@ -885,6 +893,7 @@
     <string name="game_status">በመጫወት ላይ</string>
     <string name="global_action_lock_message">ለተጨማሪ አማራጮች የእርስዎን ስልክ ይክፈቱ</string>
     <string name="global_action_screenshot">ቅጽበታዊ ገጽ እይታ</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock ተሰናክሏል</string>
     <string name="global_actions_change_description">%1$s እና የቤት ውስጥ መቆጣጠሪያዎች ዘንድ ለመድረስ ከማያ ገጽዎ አናት ወደ ታች ያንሸራትቱ</string>
     <string name="go_to_web">ወደ አሳሽ ሂድ</string>
     <string name="google_services_wallpaper_permission">"የGoogle አካባቢ አገልግሎትን በመጠቀም  "<b>የGoogle ሕያው ልጣፎችን ለእርስዎ አካባቢ ምላሽ እንዲሰጡ ይፍቀዱ</b>።</string>
@@ -1232,7 +1241,7 @@
     <string name="media_projection_dialog_text">%s በእርስዎ ማያ ገጽ ላይ ያለን ወይም በእርስዎ መሣሪያ ላይ በመጫወት ላይ ያለን ሁሉንም መረጃ በቀረጻ ወይም casting ላይ እያለ መዳረሻ ይኖረዋል። ይህ እንደ የይለፍ ቃላት፣ የክፍያ ዝርዝሮች፣ ፎቶዎች፣ መልዕክቶች እና እርስዎ የሚጫውቱት ኦዲዮን የመሳሰለ መረጃን ያካትታል።</string>
     <string name="media_projection_dialog_title">ከ%s ጋር ቀረጻ ወይም casting ይጀምር?</string>
     <string name="media_projection_remember_text">ዳግመኛ አታሳይ</string>
-    <string name="media_seamless_remote_device">መሣሪያ</string>
+    <string name="media_seamless_other_device">ሌላ መሣሪያ</string>
     <string name="media_transfer_this_device_name">የስልክ ድምጽ ማጉያ</string>
     <string name="media_transfer_this_phone">ይህ ስልክ</string>
     <string name="media_transfer_wired_device_name">ባለገመድ የኦዲዮ መሣሪያ</string>
@@ -1249,9 +1258,13 @@
     <string name="mobile_data">የተንቀሳቃሽ ስልክ ውሂብ</string>
     <string name="mobile_data_always_on">የተንቀሳቃሽ ስልክ ውሂብ ሁልጊዜ ገቢር ነው</string>
     <string name="mobile_data_always_on_summary">ምንም እንኳን Wi‑Fi ንቁ ቢሆንም የሞባይል ውሂብን ንቁ እንደሆነ አቆይ (ለፈጣን የአውታረ መረብ ቅይይር)።</string>
+    <string name="mobile_data_connection_active">ተገናኝቷል</string>
     <string name="mobile_data_disable_message">በ%s በኩል የውሂብ ወይም የበይነመረቡ መዳረሻ አይኖረዎትም። በይነመረብ በWi-Fi በኩል ብቻ ነው የሚገኝ የሚሆነው።</string>
     <string name="mobile_data_disable_message_default_carrier">የእርስዎ አገልግሎት አቅራቢ</string>
     <string name="mobile_data_disable_title">የተንቀሳቃሽ ስልክ ውሂብ ይጥፋ?</string>
+    <string name="mobile_data_no_connection">ግንኙነት የለም</string>
+    <string name="mobile_data_off_summary">የተንቀሳቃሽ ስልክ ውሂብ በራስ-ሰር አይገናኝም</string>
+    <string name="mobile_data_settings_title">የተንቀሳቃሽ ስልክ ውሂብ</string>
     <string name="mobile_data_text_format">%1$s— %2$s</string>
     <string name="mock_location_app">የውሸት መገኛ አካባቢ መተግበሪያ ይምረጡ</string>
     <string name="mock_location_app_not_set">ምንም የውሸት መገኛ አካባቢ መተግበሪያ አልተዘጋጀም</string>
@@ -1391,6 +1404,7 @@
     <string name="no_content_in_select_mode">የሚመረጥ ጽሑፍ ወይም ምስል የለም</string>
     <string name="no_conversations_text">የቅርብ ጊዜ ውይይቶችዎ እዚህ ይታያሉ</string>
     <string name="no_shortcut">%1$s የውይይት ባህሪያትን አይደግፍም</string>
+    <string name="non_carrier_network_unavailable">ሌላ አውታረ መረብ የሉም</string>
     <string name="not_default_data_content_description">ውሂብን ለመጠቀም አልተቀናበረም</string>
     <string name="not_set">አልተዘጋጀም</string>
     <string name="notif_inline_reply_remove_attachment_description">አባሪን አስወግድ</string>
@@ -1571,6 +1585,7 @@
     <string name="power_remaining_only_more_than_subtext">ከ %1$s የበለጠ ይቀራል</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">ባትሪ እስከ %1$s ድረስ ሊያልቅ ይችላል</string>
+    <string name="pref_title_network_details">የአውታረ መረብ ዝርዝሮች</string>
     <string name="preference_copied">«%1$s» ወደ የቅንጥብ ሰሌዳ ተቀድቷል።</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">የቅድሚያ ውይይቶች</string>
@@ -1740,6 +1755,7 @@
     <string name="right_keycode">የቀኝ ቁልፍ ኮድ</string>
     <string name="right_nav_bar_button_type">ተጨማሪ የቀኝ አዝራር ዓይነት</string>
     <string name="ring_toggle_title">ጥሪዎች</string>
+    <string name="rotation_lock_camera_rotation_on">በርቷል - መልክ ላይ የተመሠረተ</string>
     <string name="running_foreground_services_msg">በባትሪ እና ውሂብ አጠቃቀም ላይ ዝርዝሮችን ለማግኘት መታ ያድርጉ</string>
     <string name="running_foreground_services_title">በጀርባ ውስጥ የሚያሄዱ መተግበሪያዎች</string>
     <string name="running_process_item_user_label">ተጠቃሚ፦ %1$s</string>
@@ -1814,6 +1830,7 @@
     <string name="screenshot_top_boundary_pct">የላይ ወሰን %1$d በመቶ</string>
     <string name="search_menu">የፍለጋ ቅንብሮች</string>
     <string name="search_menu_title">ፍለጋ</string>
+    <string name="see_all_networks">ሁሉንም ይመልከቱ</string>
     <string name="see_more_title">ተጨማሪ ይመልከቱ</string>
     <string name="select_application">መተግበሪያ ምረጥ</string>
     <string name="select_conversation_text">በመነሻ ማያ ገጽዎ ላይ ለማከል አንድ ውይይት መታ ያድርጉ</string>
@@ -1926,6 +1943,7 @@
     <string name="switch_bar_off">ጠፍቷል</string>
     <string name="switch_bar_on">በርቷል</string>
     <string name="system_ui_tuner">የስርዓት በይነገጽ መቃኛ</string>
+    <string name="tap_a_network_to_connect">ለመገናኘት አንድ አውታረ መረብ መታ ያድርጉ</string>
     <string name="tap_again">እንደገና መታ ያድርጉ</string>
     <string name="tap_to_sign_up">ለመመዝገብ መታ ያድርጉ</string>
     <string name="tether_settings_title_all">ተጓጓዥ መዳረሻ ነጥብ እና ማገናኛ</string>
@@ -1951,6 +1969,7 @@
     <string name="time_unit_just_now">ልክ አሁን</string>
     <string name="title_convert_fbe">ወደ በፋይል ላይ የተመሠረተ ምስጠራን በመለወጥ ላይ</string>
     <string name="title_usb_accessory">"የUSB  ተቀጥላ"</string>
+    <string name="to_switch_networks_disconnect_ethernet">አውታረ መረቦችን ለመቀየር፣ የኢተርኔት ግንኙነት ያቋርጡ</string>
     <string name="too_hot_label">Pixel በጣም ግሏል</string>
     <string name="touch_filtered_warning">አንድ መተግበሪያ የፍቃድ ጥያቄ እያገደ ስለሆነ ቅንብሮች ጥያቄዎን ማረጋገጥ አይችሉም።</string>
     <string name="track_frame_time">የመገለጫ HWUI ምስልን በመስራት ላይ</string>
@@ -2009,10 +2028,12 @@
     <string name="tuner_toast">እንኳን ደስ ያለዎት! የስርዓት በይነገጽ መቃኛ ወደ ቅንብሮች ታክሏል</string>
     <string name="tuner_warning">የስርዓት በይነገጽ መቃኛ የAndroid ተጠቃሚ በይነገጹን የሚነካኩበት እና የሚያበጁበት ተጨማሪ መንገዶች ይሰጠዎታል። እነዚህ የሙከራ ባህሪዎች ወደፊት በሚኖሩ ልቀቶች ላይ ሊለወጡ፣ ሊሰበሩ ወይም ሊጠፉ ይችላሉ። ከጥንቃቄ ጋር ወደፊት ይቀጥሉ።</string>
     <string name="tuner_warning_title">ለአንዳንዶች አስደሳች ቢሆንም ለሁሉም አይደለም</string>
+    <string name="turn_on_wifi">Wi‑Fi</string>
     <string name="tv_notification_panel_no_notifications">ምንም ማሳወቂያዎች የሉም</string>
     <string name="tv_notification_panel_title">ማሳወቂያዎች</string>
     <string name="two_weeks_timestamp">ከ2 ሳምንታት በፊት</string>
     <string name="unknown">ያልታወቀ</string>
+    <string name="unlock_to_view_networks">አውታረ መረቦችን ለመመልከት ይክፈቱ</string>
     <string name="upcoming_birthday_status">የልደት ቀን በቅርቡ</string>
     <string name="upcoming_birthday_status_content_description">በቅርቡ የ%1$s ልደት ቀን ነው</string>
     <string name="url_menu_copy">ቅዳ</string>
@@ -2151,9 +2172,11 @@
     <string name="wifi_disconnected">ተቋርጧል</string>
     <string name="wifi_display_certification">የገመድ አልባ ማሳያ እውቅና ማረጋገጫ</string>
     <string name="wifi_display_certification_summary">የገመድ አልባ ማሳያ እውቅና ማረጋገጫ አማራጮችን አሳይ</string>
+    <string name="wifi_empty_list_wifi_on">አውታረ መረቦችን በመፈለግ ላይ…</string>
     <string name="wifi_enhanced_mac_randomization">የWi-Fi ወጥ ያልሆነ ማክ የዘፈቀደ ማድረግ</string>
     <string name="wifi_enhanced_mac_randomization_summary">ይህ ሁነታ ስራ ሲጀምር ይህ መሣሪያ የዘፈቀደ የማክ አድራሻ ስራ ከነቃለት አውታረ መረብ ጋር በተገናኘ እያንዳንዱ ጊዜ የመሣሪያው የማክ አድራሻ ሊቀየር ይችላል።</string>
     <string name="wifi_fail_to_scan">ለአውታረመረቦች መቃኘት አይቻልም</string>
+    <string name="wifi_failed_connect_message">ከአውታረ መረቡ ጋር መገናኘት አልተሳካም</string>
     <string name="wifi_hotspot_switch_off_text">አጥፋ</string>
     <string name="wifi_hotspot_switch_on_text">አብራ</string>
     <string name="wifi_is_off">Wi-Fi ጠፍቷል</string>
@@ -2164,6 +2187,7 @@
     <string name="wifi_not_in_range">በክልል ውስጥ የለም</string>
     <string name="wifi_passpoint_expired">ጊዜው አልፏል</string>
     <string name="wifi_remembered">ተቀምጧል</string>
+    <string name="wifi_scan_notify_message">የመሣሪያ ተሞክሮን ለማሻሻል፣ መተግበሪያዎች እና አገልግሎቶች አሁንም በማንኛውም ጊዜ የWi-Fi አውታረ መረቦችን መቃኘት ይችላሉ፣ Wi-Fi ጠፍቶ ቢሆንም እንኳ። ይህንን በ Wi‑Fi ቅኝት ቅንብሮች ውስጥ መቀየር ይችላሉ። <annotation id="link">ቀይር</annotation></string>
     <string name="wifi_scan_throttling">Wi‑Fi scan throttling</string>
     <string name="wifi_scan_throttling_summary">የባትሪ መላሸቅን ይቀንሳል እንዲሁም የአውታረ መረብ አፈጻጸም ብቃትን ያሻሽላል</string>
     <string name="wifi_security_none">የለም</string>
@@ -2173,6 +2197,7 @@
     <string name="wifi_unmetered_label">ያልተለካ</string>
     <string name="wifi_verbose_logging">የWi‑Fi ተጨማሪ ቃላት ምዝግብ ማስታወሻ መያዝ</string>
     <string name="wifi_verbose_logging_summary">የWi‑Fi ምዝግብ ማስታወሻ አያያዝ ደረጃ ጨምር፣ በWi‑Fi መምረጫ ውስጥ በአንድ SSID RSSI አሳይ</string>
+    <string name="wifi_wont_autoconnect_for_now">Wifi ለአሁን በራስ-ሰር አይገናኝም</string>
     <string name="wifitrackerlib_auto_connect_disable">ራስ-ተገናኝ ጠፍቷል</string>
     <string name="wifitrackerlib_available_via_app">በ%1$s በኩል የሚገኝ</string>
     <string name="wifitrackerlib_connected_via_app">በ %1$s በኩል ተገናኝተዋል</string>

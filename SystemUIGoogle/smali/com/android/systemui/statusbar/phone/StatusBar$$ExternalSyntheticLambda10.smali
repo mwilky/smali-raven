@@ -6,16 +6,16 @@
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/systemui/plugins/ActivityStarter$Callback;
+.field public final synthetic f$0:Lcom/android/systemui/statusbar/phone/ShadeController;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/plugins/ActivityStarter$Callback;)V
+.method public synthetic constructor <init>(Lcom/android/systemui/statusbar/phone/ShadeController;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/StatusBar$$ExternalSyntheticLambda10;->f$0:Lcom/android/systemui/plugins/ActivityStarter$Callback;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/StatusBar$$ExternalSyntheticLambda10;->f$0:Lcom/android/systemui/statusbar/phone/ShadeController;
 
     return-void
 .end method
@@ -25,9 +25,9 @@
 .method public final run()V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBar$$ExternalSyntheticLambda10;->f$0:Lcom/android/systemui/plugins/ActivityStarter$Callback;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBar$$ExternalSyntheticLambda10;->f$0:Lcom/android/systemui/statusbar/phone/ShadeController;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->$r8$lambda$mEJTou1rAT1eo3Gm2xzWH6ckf9c(Lcom/android/systemui/plugins/ActivityStarter$Callback;)V
+    invoke-interface {p0}, Lcom/android/systemui/statusbar/phone/ShadeController;->animateCollapsePanels()V
 
     return-void
 .end method

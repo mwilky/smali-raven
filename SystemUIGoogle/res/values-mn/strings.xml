@@ -112,7 +112,7 @@
     <string name="accessibility_desc_off">Унтраах</string>
     <string name="accessibility_desc_on">Идэвхижсэн.</string>
     <string name="accessibility_desc_quick_settings">Шуурхай тохиргоо.</string>
-    <string name="accessibility_desc_quick_settings_edit">Түргэн тохиргоо засварлагч.</string>
+    <string name="accessibility_desc_quick_settings_edit">Шуурхай тохиргоо засварлагч.</string>
     <string name="accessibility_desc_recent_apps">Тойм</string>
     <string name="accessibility_desc_settings">Тохиргоо</string>
     <string name="accessibility_desc_work_lock">Ажлын түгжигдсэн дэлгэц</string>
@@ -222,12 +222,12 @@
     <string name="accessibility_quick_settings_bluetooth_on">Bluetooth идэвхтэй.</string>
     <string name="accessibility_quick_settings_choose_user_action">хэрэглэгчийг сонгох</string>
     <string name="accessibility_quick_settings_close">Самбарыг хаах.</string>
-    <string name="accessibility_quick_settings_collapse">Хурдан тохиргоог хаана уу.</string>
+    <string name="accessibility_quick_settings_collapse">Шуурхай тохиргоог хаана уу.</string>
     <string name="accessibility_quick_settings_color_inversion_changed_off">Өнгө хувиргалтыг унтраасан.</string>
     <string name="accessibility_quick_settings_color_inversion_changed_on">Өнгө хувиргалтыг асаасан.</string>
     <string name="accessibility_quick_settings_data_saver_changed_off">Дата хэмнэгчийг унтраасан.</string>
     <string name="accessibility_quick_settings_data_saver_changed_on">Дата хэмнэгчийг асаасан.</string>
-    <string name="accessibility_quick_settings_detail">Түргэн Тохиргоо, %s.</string>
+    <string name="accessibility_quick_settings_detail">Шуурхай тохиргоо, %s.</string>
     <string name="accessibility_quick_settings_dnd">Бүү саад бол.</string>
     <string name="accessibility_quick_settings_dnd_alarms_on">зөвхөн сэрүүлэг</string>
     <string name="accessibility_quick_settings_dnd_changed_off">Бүү саад бол горимыг унтраалаа.</string>
@@ -363,6 +363,7 @@
     <string name="alarms_and_reminders_label">Сэрүүлэг болон сануулагч</string>
     <string name="alarms_and_reminders_switch_title">Сэрүүлэг болон сануулагч тохируулахыг зөвшөөрөх</string>
     <string name="alarms_and_reminders_title">Сэрүүлэг, сануулагч</string>
+    <string name="all_network_unavailable">Боломжтой сүлжээ байхгүй байна</string>
     <string name="allow_mock_location">Хуурамч байршлыг зөвшөөрөх</string>
     <string name="allow_mock_location_summary">Хуурамч байршлыг зөвшөөрөх</string>
     <string name="always_use_accessory">%2$s-г холбогдсон үед %1$s-г тогтмол нээх</string>
@@ -618,6 +619,11 @@
     <string name="clock_title_analog">Aналог</string>
     <string name="clock_title_bubble">Бөмбөлөг</string>
     <string name="clock_title_default">Өгөгдмөл</string>
+    <string name="columbus_bouncer_message">Шуурхай товшилтыг дуусгахын тулд түгжээг тайлна уу</string>
+    <string name="columbus_target_request_dialog_allow">Зөвшөөрөх</string>
+    <string name="columbus_target_request_dialog_deny">Бүү зөвшөөр</string>
+    <string name="columbus_target_request_dialog_summary">Та утасныхаа ард талд хоёр товших үед %1$s нээгдэнэ. Та энэ сонголтыг хүссэн үедээ Тохиргоонд өөрчлөх боломжтой.</string>
+    <string name="columbus_target_request_dialog_title">Шуурхай товшилтод %1$s-г нээхийг зөвшөөрөх үү?</string>
     <string name="compat_mode_off">Дэлгэц дүүргэх бол татна уу</string>
     <string name="compat_mode_on">Дэлгэц дүүргэх бол өсгөнө үү</string>
     <string name="confirm_enable_oem_unlock_text">АНХААР: Энэ тохиргоо асаалттай байгаа үед тухайн төхөөрөмжийн хамгаалалтын функцүүд ажиллахгүй.</string>
@@ -739,7 +745,9 @@
     <string name="defender_notify_des">Таны утас батарейн барилтыг хадгалахад туслахын тулд цэнэглэхийг хязгаарлаж байна</string>
     <string name="defender_notify_learn_more">Нэмэлт мэдээлэл авах</string>
     <string name="defender_notify_resume_charge">Цэнэглэхийг үргэлжлүүлэх</string>
-    <string name="defender_notify_title">Цэнэглэхийг түр зуур хязгаарласан</string>
+    <string name="defender_notify_title">Цэнэглэхийг түр хязгаарласан</string>
+    <string name="defender_post_notify_des">Батарейн барилтыг хадгалахын тулд цэнэглэхийг %2$s-с %3$s хүртэл %1$s хязгаарласан</string>
+    <string name="defender_post_notify_title">Ердийн цэнэглэж байна</string>
     <string name="delete_blob_confirmation_text">Та хуваалцсан энэ өгөгдлийг устгахдаа итгэлтэй байна уу?</string>
     <string name="delete_blob_text">Хуваалцсан өгөгдлийг устгах уу?</string>
     <string name="demo_mode">Системийн UI демо горим</string>
@@ -885,6 +893,7 @@
     <string name="game_status">Тоглож байна</string>
     <string name="global_action_lock_message">Бусад сонголтыг харахын тулд утасныхаа түгжээг тайлна уу</string>
     <string name="global_action_screenshot">Дэлгэцийн зураг дарах</string>
+    <string name="global_action_smart_lock_disabled">Ухаалаг түгжээг идэвхгүй болгосон</string>
     <string name="global_actions_change_description">%1$s болон төхөөрөмжийн хяналтад хандахын тулд дэлгэцийнхээ дээд хэсгээс доош шударна уу</string>
     <string name="go_to_web">Хөтчид очих</string>
     <string name="google_services_wallpaper_permission">Google-н байршлын үйлчилгээнд хандаж, <b>Google-н хөдөлгөөнт дэлгэцийн зургийг таны байршилд хариу үзүүлэхийг зөвшөөрнө үү</b>.</string>
@@ -1066,7 +1075,7 @@
     <string name="keyguard_permanent_disabled_sim_message_short">Ашиглах боломжгүй SIM карт байна.</string>
     <string name="keyguard_plugged_in">%s • Цэнэглэж байна</string>
     <string name="keyguard_plugged_in_charging_fast">%s • Хурдан цэнэглэж байна</string>
-    <string name="keyguard_plugged_in_charging_limited">%s • Цэнэглэхийг түр зуур хязгаарласан</string>
+    <string name="keyguard_plugged_in_charging_limited">%s • Цэнэглэхийг түр хязгаарласан</string>
     <string name="keyguard_plugged_in_charging_slowly">%s • Удаан цэнэглэж байна</string>
     <string name="keyguard_plugged_in_wireless">%s • Утасгүй цэнэглэж байна</string>
     <string name="keyguard_retry">Дахин оролдохын тулд дээш шударна уу</string>
@@ -1232,7 +1241,7 @@
     <string name="media_projection_dialog_text">%s нь бичлэг хийх эсвэл дамжуулах үед таны дэлгэц дээр харагдах эсвэл таны төхөөрөмжөөс тоглуулах бүх мэдээлэлд хандах боломжтой байна. Үүнд нууц үг, төлбөрийн дэлгэрэнгүй, зураг болон таны тоглуулдаг аудио зэрэг мэдээлэл багтана.</string>
     <string name="media_projection_dialog_title">%s-тай бичлэг хийж эсвэл дамжуулж эхлэх үү?</string>
     <string name="media_projection_remember_text">Дахиж бүү харуул</string>
-    <string name="media_seamless_remote_device">Төхөөрөмж</string>
+    <string name="media_seamless_other_device">Бусад төхөөрөмж</string>
     <string name="media_transfer_this_device_name">Утасны чанга яригч</string>
     <string name="media_transfer_this_phone">Энэ утас</string>
     <string name="media_transfer_wired_device_name">Утастай аудио төхөөрөмж</string>
@@ -1249,9 +1258,13 @@
     <string name="mobile_data">Мобайл дата</string>
     <string name="mobile_data_always_on">Мобайл дата байнга идэвхтэй</string>
     <string name="mobile_data_always_on_summary">Wi‑Fi идэвхтэй байхад ч гэсэн гар утасны датаг идэвхтэй байлгадаг (сүлжээг түргэн солихын тулд).</string>
+    <string name="mobile_data_connection_active">Холбогдсон</string>
     <string name="mobile_data_disable_message">Та %s-р дата эсвэл интернэтэд хандах боломжгүй болно. Интернэтэд зөвхөн Wi-Fi-р холбогдох боломжтой болно.</string>
     <string name="mobile_data_disable_message_default_carrier">таны оператор компани</string>
     <string name="mobile_data_disable_title">Мобайл датаг унтраах уу?</string>
+    <string name="mobile_data_no_connection">Холболт алга</string>
+    <string name="mobile_data_off_summary">Мобайл дата автоматаар холбогдохгүй</string>
+    <string name="mobile_data_settings_title">Мобайл дата</string>
     <string name="mobile_data_text_format">%1$s — %2$s</string>
     <string name="mock_location_app">Хуурамч байршлын апп сонгох</string>
     <string name="mock_location_app_not_set">Хуурамч байршлын аппыг тохируулаагүй байна</string>
@@ -1391,6 +1404,7 @@
     <string name="no_content_in_select_mode">Сонгох текст эсвэл зураг байхгүй</string>
     <string name="no_conversations_text">Таны сүүлийн харилцан яриа энд харагдана</string>
     <string name="no_shortcut">%1$s нь харилцан ярианы онцлогуудыг дэмждэггүй</string>
+    <string name="non_carrier_network_unavailable">Өөр боломжтой сүлжээ байхгүй байна</string>
     <string name="not_default_data_content_description">Дата ашиглахаар тохируулаагүй</string>
     <string name="not_set">Тохируулаагүй</string>
     <string name="notif_inline_reply_remove_attachment_description">Хавсралтыг хасах</string>
@@ -1571,6 +1585,7 @@
     <string name="power_remaining_only_more_than_subtext">%1$s-с их үлдсэн</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">Батарейн цэнэг %1$s гээд дуусаж болзошгүй</string>
+    <string name="pref_title_network_details">Сүлжээний дэлгэрэнгүй мэдээлэл</string>
     <string name="preference_copied">\"%1$s\"-г түр санах ойд хуулсан.</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">Чухал харилцан яриа</string>
@@ -1595,11 +1610,11 @@
     <string name="qs_dnd_replace">Солих</string>
     <string name="qs_dnd_until">%s хүртэл</string>
     <string name="qs_edit">Засах</string>
-    <string name="qs_rearrange">Түргэн тохиргоог дахин засварлах</string>
+    <string name="qs_rearrange">Шуурхай тохиргоог дахин засварлах</string>
     <string name="qs_status_phone_muted">Утасны дууг хаасан</string>
     <string name="qs_status_phone_vibrate">Утас чичиргээн дээр байна</string>
     <string name="quick_controls_title">Төхөөрөмжийн хяналт</string>
-    <string name="quick_settings">Түргэвчилсэн Tохиргоо</string>
+    <string name="quick_settings">Шуурхай тохиргоо</string>
     <string name="quick_settings_bluetooth_detail_empty_text">Хослуулсан төхөөрөмж байхгүй</string>
     <string name="quick_settings_bluetooth_label">Bluetooth</string>
     <string name="quick_settings_bluetooth_multiple_devices_label">Bluetooth (%d төхөөрөмж)</string>
@@ -1740,6 +1755,7 @@
     <string name="right_keycode">Баруун түлхүүрийн код</string>
     <string name="right_nav_bar_button_type">Нэмэлт баруун товчлуураар шивэх</string>
     <string name="ring_toggle_title">Дуудлага</string>
+    <string name="rotation_lock_camera_rotation_on">Асаалттай - Царайнд суурилсан</string>
     <string name="running_foreground_services_msg">Батерей, дата ашиглалтын талаар дэлгэрэнгүйг харахын тулд товшино уу</string>
     <string name="running_foreground_services_title">Цаана ажиллаж буй апп</string>
     <string name="running_process_item_user_label">Хэрэглэгч: %1$s</string>
@@ -1814,6 +1830,7 @@
     <string name="screenshot_top_boundary_pct">Дээд талын хязгаар %1$d хувь</string>
     <string name="search_menu">Тохиргоог хайх</string>
     <string name="search_menu_title">Хайх</string>
+    <string name="see_all_networks">Бүгдийг харах</string>
     <string name="see_more_title">Дэлгэрэнгүй үзэх</string>
     <string name="select_application">Аппликейшн сонгох</string>
     <string name="select_conversation_text">Үндсэн нүүрэндээ нэмэх харилцан яриаг товшино уу</string>
@@ -1848,7 +1865,7 @@
     <string name="show_all_anrs_summary">Апп хариу өгөхгүй байна гэсэн харилцах цонхыг цаана байгаа аппад харуулах</string>
     <string name="show_battery_percentage">Залгаатай тэжээлийн хувийг харуулах</string>
     <string name="show_battery_percentage_summary">Тэжээлийн хувийг цэнэглээгүй байх үед статусын хэсэгт харуулна уу</string>
-    <string name="show_brightness">Түргэн тохиргоонд гэрэлтүүлэг харах</string>
+    <string name="show_brightness">Шуурхай тохиргоонд гэрэлтүүлэг харах</string>
     <string name="show_demo_mode">Демо горимыг харуулах</string>
     <string name="show_hw_layers_updates">Техник хангамжийн давхаргын шинэчлэлтүүдийг харуулах</string>
     <string name="show_hw_layers_updates_summary">Техник хангамжууд шинэчлэх үед давхаргыг анивчуулах</string>
@@ -1926,6 +1943,7 @@
     <string name="switch_bar_off">Идэвхгүй</string>
     <string name="switch_bar_on">Идэвхтэй</string>
     <string name="system_ui_tuner">Системийн UI Тохируулагч</string>
+    <string name="tap_a_network_to_connect">Холбогдохын тулд сүлжээг товшино уу</string>
     <string name="tap_again">Дaхин товшино уу</string>
     <string name="tap_to_sign_up">Бүртгүүлэхийн тулд товшино уу</string>
     <string name="tether_settings_title_all">Модем болгох &amp; зөөврийн сүлжээний цэг</string>
@@ -1951,6 +1969,7 @@
     <string name="time_unit_just_now">Дөнгөж сая</string>
     <string name="title_convert_fbe">Шифрлэлтэд суурилсан файлыг хөрвүүлж байна</string>
     <string name="title_usb_accessory">USB төхөөрөмж</string>
+    <string name="to_switch_networks_disconnect_ethernet">Сүлжээг сэлгэхийн тулд этернэтийг салгана уу</string>
     <string name="too_hot_label">Pixel хэт халуун байна</string>
     <string name="touch_filtered_warning">Апп нь зөвшөөрлийн хүсэлтийг танихгүй байгаа тул Тохиргооноос таны хариултыг баталгаажуулах боломжгүй байна.</string>
     <string name="track_frame_time">Профайл HWUI-н буулгалт</string>
@@ -2009,10 +2028,12 @@
     <string name="tuner_toast">Баяр хүргэе! Системийн UI Tохируулагчийг тохиргоонд нэмлээ</string>
     <string name="tuner_warning">Системийн UI Tохируулагч нь Android хэрэглэгчийн интерфэйсийг тааруулах, өөрчлөх нэмэлт аргыг зааж өгөх болно. Эдгээр туршилтын тохиргоо нь цаашид өөрчлөгдөх, эвдрэх, алга болох магадлалтай. Үйлдлийг болгоомжтой хийнэ үү.</string>
     <string name="tuner_warning_title">Зарим хүнд хөгжилтэй байж болох ч бүх хүнд тийм биш</string>
+    <string name="turn_on_wifi">Wi‑Fi</string>
     <string name="tv_notification_panel_no_notifications">Мэдэгдэл байхгүй байна</string>
     <string name="tv_notification_panel_title">Мэдэгдэл</string>
     <string name="two_weeks_timestamp">2 долоо хоногийн өмнө</string>
     <string name="unknown">Тодорхойгүй</string>
+    <string name="unlock_to_view_networks">Сүлжээг харахын тулд түгжээг тайлах</string>
     <string name="upcoming_birthday_status">Удахгүй болох төрсөн өдөр</string>
     <string name="upcoming_birthday_status_content_description">Удахгүй %1$s-н төрсөн өдөр болно</string>
     <string name="url_menu_copy">Хуулах</string>
@@ -2151,9 +2172,11 @@ Wi‑Fi хаяг (BSSID)
     <string name="wifi_disconnected">Салсан</string>
     <string name="wifi_display_certification">Утасгүй дэлгэцийн сертификат</string>
     <string name="wifi_display_certification_summary">Утасгүй дэлгэцийн сертификатын сонголтыг харуулах</string>
+    <string name="wifi_empty_list_wifi_on">Сүлжээ хайж байна…</string>
     <string name="wifi_enhanced_mac_randomization">Wi‑Fi-н байнгын бус MAC-г санамсаргүй байдлаар эмхлэх</string>
     <string name="wifi_enhanced_mac_randomization_summary">Энэ горимыг идэвхжүүлсэн үед энэ төхөөрөмжийг MAC-н санамсаргүй байдлаар эмхлэх явцыг идэвхжүүлсэн сүлжээнд холбогдох бүрд үүний MAC хаягийг өөрчилж болзошгүй.</string>
     <string name="wifi_fail_to_scan">Сүлжээнүүдийг скан хийх боломжгүй</string>
+    <string name="wifi_failed_connect_message">Сүлжээнд холбогдож чадсангүй</string>
     <string name="wifi_hotspot_switch_off_text">Унтраах</string>
     <string name="wifi_hotspot_switch_on_text">Асаах</string>
     <string name="wifi_is_off">Wi-Fi унтраалттай байна</string>
@@ -2164,6 +2187,7 @@ Wi‑Fi хаяг (BSSID)
     <string name="wifi_not_in_range">Хүрээнд байхгүй</string>
     <string name="wifi_passpoint_expired">Хугацаа дууссан</string>
     <string name="wifi_remembered">Хадгалагдсан</string>
+    <string name="wifi_scan_notify_message">Төхөөрөмжийн туршлагыг сайжруулахын тулд аппууд болон үйлчилгээнүүд нь Wi-Fi сүлжээг хүссэн үедээ буюу Wi-Fi-г унтраалттай байсан ч скан хийх боломжтой хэвээр байна. Та үүнийг Wi-Fi скан хийх тохиргоонд өөрчлөх боломжтой. <annotation id="link">Өөрчлөх</annotation></string>
     <string name="wifi_scan_throttling">Wi‑Fi скан бууруулалт</string>
     <string name="wifi_scan_throttling_summary">Батарей зарцуулалтыг бууруулж, сүлжээний гүйцэтгэлийг сайжруулдаг</string>
     <string name="wifi_security_none">Байхгүй</string>
@@ -2173,6 +2197,7 @@ Wi‑Fi хаяг (BSSID)
     <string name="wifi_unmetered_label">Хязгааргүй</string>
     <string name="wifi_verbose_logging">Wi‑Fi дэлгэрэнгүй лог-г идэвхжүүлэх</string>
     <string name="wifi_verbose_logging_summary">Wi‑Fi логийн түвшнийг нэмэгдүүлэх, Wi‑Fi Сонгогч дээрх SSID-д ногдох RSSI-г харуулах</string>
+    <string name="wifi_wont_autoconnect_for_now">Wi-Fi-г одоогоор автоматаар холбохгүй</string>
     <string name="wifitrackerlib_auto_connect_disable">Автомат холболт унтраалттай байна</string>
     <string name="wifitrackerlib_available_via_app">%1$s-р боломжтой</string>
     <string name="wifitrackerlib_connected_via_app">%1$s-р холбогдсон</string>

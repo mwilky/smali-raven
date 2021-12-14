@@ -43,6 +43,8 @@
 
 .field private final mUserManager:Landroid/os/UserManager;
 
+.field private final mUserTracker:Lcom/android/systemui/settings/UserTracker;
+
 .field private mWifiPickerTracker:Lcom/android/wifitrackerlib/WifiPickerTracker;
 
 .field private mWifiPickerTrackerFactory:Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl$WifiPickerTrackerFactory;
@@ -125,6 +127,8 @@
     iput-object v0, p0, Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;->mConnectCallback:Lcom/android/wifitrackerlib/WifiEntry$ConnectCallback;
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;->mUserManager:Landroid/os/UserManager;
+
+    iput-object p2, p0, Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;->mUserTracker:Lcom/android/systemui/settings/UserTracker;
 
     invoke-interface {p2}, Lcom/android/systemui/settings/UserTracker;->getUserId()I
 
@@ -335,6 +339,48 @@
     :cond_2
     :goto_0
     return-void
+.end method
+
+.method public canConfigMobileData()Z
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;->mUserManager:Landroid/os/UserManager;
+
+    iget v1, p0, Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;->mCurrentUser:I
+
+    invoke-static {v1}, Landroid/os/UserHandle;->of(I)Landroid/os/UserHandle;
+
+    move-result-object v1
+
+    const-string v2, "no_config_mobile_networks"
+
+    invoke-virtual {v0, v2, v1}, Landroid/os/UserManager;->hasUserRestriction(Ljava/lang/String;Landroid/os/UserHandle;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;->mUserTracker:Lcom/android/systemui/settings/UserTracker;
+
+    invoke-interface {p0}, Lcom/android/systemui/settings/UserTracker;->getUserInfo()Landroid/content/pm/UserInfo;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/content/pm/UserInfo;->isAdmin()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
 .end method
 
 .method public canConfigWifi()Z
@@ -668,6 +714,31 @@
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;->mLifecycle:Landroidx/lifecycle/LifecycleRegistry;
+
+    return-object p0
+.end method
+
+.method public getMergedCarrierEntry()Lcom/android/wifitrackerlib/MergedCarrierEntry;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;->mWifiPickerTracker:Lcom/android/wifitrackerlib/WifiPickerTracker;
+
+    if-nez v0, :cond_0
+
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;->fireAcccessPointsCallback(Ljava/util/List;)V
+
+    const/4 p0, 0x0
+
+    return-object p0
+
+    :cond_0
+    invoke-virtual {v0}, Lcom/android/wifitrackerlib/WifiPickerTracker;->getMergedCarrierEntry()Lcom/android/wifitrackerlib/MergedCarrierEntry;
+
+    move-result-object p0
 
     return-object p0
 .end method

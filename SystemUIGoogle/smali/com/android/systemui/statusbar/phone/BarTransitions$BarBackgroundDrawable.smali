@@ -80,7 +80,7 @@
 
     iput v0, p0, Lcom/android/systemui/statusbar/phone/BarTransitions$BarBackgroundDrawable;->mOpaque:I
 
-    const v0, 0x1060290
+    const v0, 0x1060292
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getColor(I)I
 

@@ -168,7 +168,7 @@
     return-void
 .end method
 
-.method public setLightRevealScrimAmount(F)V
+.method public setLightRevealScrimOpaque(Z)V
     .locals 0
 
     return-void

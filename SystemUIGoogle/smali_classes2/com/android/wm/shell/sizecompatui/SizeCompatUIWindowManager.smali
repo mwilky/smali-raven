@@ -14,6 +14,14 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$XXKgK5rSxrUVVWAmcCGh81zCLrc(Landroid/view/SurfaceControl;Landroid/view/SurfaceControl$Transaction;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/wm/shell/sizecompatui/SizeCompatUIWindowManager;->lambda$release$0(Landroid/view/SurfaceControl;Landroid/view/SurfaceControl$Transaction;)V
+
+    return-void
+.end method
+
 .method constructor <init>(Landroid/content/Context;Landroid/content/res/Configuration;Lcom/android/wm/shell/sizecompatui/SizeCompatUILayout;)V
     .locals 1
 
@@ -24,6 +32,14 @@
     iput-object p1, p0, Lcom/android/wm/shell/sizecompatui/SizeCompatUIWindowManager;->mContext:Landroid/content/Context;
 
     iput-object p3, p0, Lcom/android/wm/shell/sizecompatui/SizeCompatUIWindowManager;->mLayout:Lcom/android/wm/shell/sizecompatui/SizeCompatUILayout;
+
+    return-void
+.end method
+
+.method private static synthetic lambda$release$0(Landroid/view/SurfaceControl;Landroid/view/SurfaceControl$Transaction;)V
+    .locals 0
+
+    invoke-virtual {p1, p0}, Landroid/view/SurfaceControl$Transaction;->remove(Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
 
     return-void
 .end method
@@ -213,7 +229,7 @@
 .end method
 
 .method release()V
-    .locals 3
+    .locals 4
 
     iget-object v0, p0, Lcom/android/wm/shell/sizecompatui/SizeCompatUIWindowManager;->mViewHost:Landroid/view/SurfaceControlViewHost;
 
@@ -230,17 +246,15 @@
 
     if-eqz v0, :cond_1
 
-    new-instance v0, Landroid/view/SurfaceControl$Transaction;
+    iget-object v2, p0, Lcom/android/wm/shell/sizecompatui/SizeCompatUIWindowManager;->mLayout:Lcom/android/wm/shell/sizecompatui/SizeCompatUILayout;
 
-    invoke-direct {v0}, Landroid/view/SurfaceControl$Transaction;-><init>()V
+    iget-object v2, v2, Lcom/android/wm/shell/sizecompatui/SizeCompatUILayout;->mSyncQueue:Lcom/android/wm/shell/common/SyncTransactionQueue;
 
-    iget-object v2, p0, Lcom/android/wm/shell/sizecompatui/SizeCompatUIWindowManager;->mLeash:Landroid/view/SurfaceControl;
+    new-instance v3, Lcom/android/wm/shell/sizecompatui/SizeCompatUIWindowManager$$ExternalSyntheticLambda0;
 
-    invoke-virtual {v0, v2}, Landroid/view/SurfaceControl$Transaction;->remove(Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
+    invoke-direct {v3, v0}, Lcom/android/wm/shell/sizecompatui/SizeCompatUIWindowManager$$ExternalSyntheticLambda0;-><init>(Landroid/view/SurfaceControl;)V
 
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/view/SurfaceControl$Transaction;->apply()V
+    invoke-virtual {v2, v3}, Lcom/android/wm/shell/common/SyncTransactionQueue;->runInSync(Lcom/android/wm/shell/common/SyncTransactionQueue$TransactionRunnable;)V
 
     iput-object v1, p0, Lcom/android/wm/shell/sizecompatui/SizeCompatUIWindowManager;->mLeash:Landroid/view/SurfaceControl;
 

@@ -364,6 +364,7 @@
     <string name="alarms_and_reminders_label">[Åļåŕḿš åñð ŕéḿîñðéŕš one two three]</string>
     <string name="alarms_and_reminders_switch_title">[Åļļöŵ šéţţîñĝ åļåŕḿš åñð ŕéḿîñðéŕš one two three four]</string>
     <string name="alarms_and_reminders_title">"[Åļåŕḿš &amp;  ŕéḿîñðéŕš one two three]"</string>
+    <string name="all_network_unavailable">[Ñö ñéţŵöŕķš åVåîļåɓļé one two three]</string>
     <string name="allow_mock_location">[Åļļöŵ ḿöçķ ļöçåţîöñš one two three]</string>
     <string name="allow_mock_location_summary">[Åļļöŵ ḿöçķ ļöçåţîöñš one two three]</string>
     <string name="always_use_accessory">[Åļŵåýš öþéñ %1$s ŵĥéñ %2$s îš çöññéçţéð one two three four]</string>
@@ -621,6 +622,11 @@
     <string name="clock_title_analog">[Åñåļöĝ one two]</string>
     <string name="clock_title_bubble">[βûɓɓļé one two]</string>
     <string name="clock_title_default">[Ðéƒåûļţ one two]</string>
+    <string name="columbus_bouncer_message">[Ûñļöçķ ţö çöḿþļéţé qûîçķ Ţåþ one two three four]</string>
+    <string name="columbus_target_request_dialog_allow">[Åļļöŵ one]</string>
+    <string name="columbus_target_request_dialog_deny">[Ðöñ’ţ åļļöŵ one two]</string>
+    <string name="columbus_target_request_dialog_summary">[Ŵĥéñ ýöû ðöûɓļé-ţåþ ţĥé ɓåçķ öƒ ýöûŕ þĥöñé, %1$s ŵîļļ öþéñ. Ýöû çåñ çĥåñĝé ţĥîš þŕéƒéŕéñçé åñýţîḿé îñ Šéţţîñĝš. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen]</string>
+    <string name="columbus_target_request_dialog_title">[Åļļöŵ qûîçķ Ţåþ ţö öþéñ %1$s¿ one two three]</string>
     <string name="compat_mode_off">[Šţŕéţçĥ ţö ƒîļļ šçŕééñ one two three]</string>
     <string name="compat_mode_on">[Žööḿ ţö ƒîļļ šçŕééñ one two three]</string>
     <string name="confirm_enable_oem_unlock_text">[ŴÅŔÑÎÑĜ: ÐéVîçé þŕöţéçţîöñ ƒéåţûŕéš ŵîļļ ñöţ ŵöŕķ öñ ţĥîš ðéVîçé ŵĥîļé ţĥîš šéţţîñĝ îš ţûŕñéð öñ. one two three four five six seven eight nine ten eleven]</string>
@@ -744,6 +750,8 @@
     <string name="defender_notify_learn_more">[Ļéåŕñ ḿöŕé one two]</string>
     <string name="defender_notify_resume_charge">[Ŕéšûḿé çĥåŕĝîñĝ one two three]</string>
     <string name="defender_notify_title">[Çĥåŕĝîñĝ ţéḿþöŕåŕîļý ļîḿîţéð one two three four]</string>
+    <string name="defender_post_notify_des">[Çĥåŕĝîñĝ ŵåš ļîḿîţéð ţö %1$s ƒŕöḿ %2$s ţö %3$s ţö þŕéšéŕVé ɓåţţéŕý ĥéåļţĥ one two three four five six seven]</string>
+    <string name="defender_post_notify_title">[Çĥåŕĝîñĝ ñöŕḿåļļý one two three]</string>
     <string name="delete_blob_confirmation_text">[Åŕé ýöû šûŕé ýöû ŵåñţ ţö ðéļéţé ţĥîš šĥåŕéð ðåţå¿ one two three four five six]</string>
     <string name="delete_blob_text">[Ðéļéţé šĥåŕéð ðåţå one two three]</string>
     <string name="demo_mode">[Šýšţéḿ ÛÎ ðéḿö ḿöðé one two three]</string>
@@ -889,6 +897,7 @@
     <string name="game_status">[Þļåýîñĝ one two]</string>
     <string name="global_action_lock_message">[Ûñļöçķ ýöûŕ þĥöñé ƒöŕ ḿöŕé öþţîöñš one two three four]</string>
     <string name="global_action_screenshot">[Šçŕééñšĥöţ one two]</string>
+    <string name="global_action_smart_lock_disabled">[Šḿåŕţ Ļöçķ ðîšåɓļéð one two three]</string>
     <string name="global_actions_change_description">[Ţö åççéšš %1$s åñð ðéVîçé çöñţŕöļš, šŵîþé ðöŵñ ƒŕöḿ ţĥé ţöþ öƒ ýöûŕ šçŕééñ one two three four five six seven eight]</string>
     <string name="go_to_web">[Ĝö ţö ɓŕöŵšéŕ one two]</string>
     <string name="google_services_wallpaper_permission">[<b>Åļļöŵ Ĝööĝļé ĻîVé ŵåļļþåþéŕš ţö ŕéšþöñð ţö ýöûŕ ļöçåţîöñ</b> ɓý åççéššîñĝ Ĝööĝļé’š ļöçåţîöñ šéŕVîçé. one two three four five six seven eight nine ten eleven]</string>
@@ -1238,7 +1247,7 @@
     <string name="media_projection_dialog_text">[%s ŵîļļ ĥåVé åççéšš ţö åļļ öƒ ţĥé îñƒöŕḿåţîöñ ţĥåţ îš Vîšîɓļé öñ ýöûŕ šçŕééñ öŕ þļåýéð ƒŕöḿ ýöûŕ ðéVîçé ŵĥîļé ŕéçöŕðîñĝ öŕ çåšţîñĝ. Ţĥîš îñçļûðéš îñƒöŕḿåţîöñ šûçĥ åš þåššŵöŕðš, þåýḿéñţ ðéţåîļš, þĥöţöš, ḿéššåĝéš, åñð åûðîö ţĥåţ ýöû þļåý. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twenty one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen]</string>
     <string name="media_projection_dialog_title">[Šţåŕţ ŕéçöŕðîñĝ öŕ çåšţîñĝ ŵîţĥ %s¿ one two three four]</string>
     <string name="media_projection_remember_text">"[Ðöñ'ţ šĥöŵ åĝåîñ one two three]"</string>
-    <string name="media_seamless_remote_device">[ÐéVîçé one two]</string>
+    <string name="media_seamless_other_device">[Öţĥéŕ ðéVîçé one two]</string>
     <string name="media_transfer_this_device_name">[Þĥöñé šþéåķéŕ one two]</string>
     <string name="media_transfer_this_phone">[Ţĥîš þĥöñé one two]</string>
     <string name="media_transfer_wired_device_name">[Ŵîŕéð åûðîö ðéVîçé one two three]</string>
@@ -1256,9 +1265,13 @@
     <string name="mobile_data">[Ḿöɓîļé ðåţå one two]</string>
     <string name="mobile_data_always_on">[Ḿöɓîļé ðåţå åļŵåýš åçţîVé one two three]</string>
     <string name="mobile_data_always_on_summary">[Åļŵåýš ķééþ ḿöɓîļé ðåţå åçţîVé, éVéñ ŵĥéñ Ŵî‑Fî îš åçţîVé (ƒöŕ ƒåšţ ñéţŵöŕķ šŵîţçĥîñĝ). one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen]</string>
+    <string name="mobile_data_connection_active">[Çöññéçţéð one two]</string>
     <string name="mobile_data_disable_message">[Ýöû ŵöñ’ţ ĥåVé åççéšš ţö ðåţå öŕ ţĥé îñţéŕñéţ ţĥŕöûĝĥ %s. Îñţéŕñéţ ŵîļļ öñļý ɓé åVåîļåɓļé Vîå Ŵî-Fî. one two three four five six seven eight nine ten eleven]</string>
     <string name="mobile_data_disable_message_default_carrier">[ýöûŕ çåŕŕîéŕ one two]</string>
     <string name="mobile_data_disable_title">[Ţûŕñ öƒƒ ḿöɓîļé ðåţå¿ one two three]</string>
+    <string name="mobile_data_no_connection">[Ñö çöññéçţîöñ one two]</string>
+    <string name="mobile_data_off_summary">"[Ḿöɓîļé ðåţå ŵöñ'ţ åûţö‑çöññéçţ one two three four]"</string>
+    <string name="mobile_data_settings_title">[Ḿöɓîļé ðåţå one two]</string>
     <string name="mobile_data_text_format">[%1$s — %2$s one]</string>
     <string name="mock_location_app">[Šéļéçţ ḿöçķ ļöçåţîöñ åþþ one two three]</string>
     <string name="mock_location_app_not_set">[Ñö ḿöçķ ļöçåţîöñ åþþ šéţ one two three]</string>
@@ -1397,6 +1410,7 @@ Föŕ ḿöŕé îñƒöŕḿåţîöñ, çöñţåçţ ýöûŕ åðḿîñ.
     <string name="no_content_in_select_mode">[Ñö ţéхţ öŕ îḿåĝé ţö ɓé šéļéçţéð one two three four]</string>
     <string name="no_conversations_text">[Ýöûŕ ŕéçéñţ çöñVéŕšåţîöñš ŵîļļ šĥöŵ ûþ ĥéŕé one two three four five]</string>
     <string name="no_shortcut">[%1$s ðöéšñ’ţ šûþþöŕţ çöñVéŕšåţîöñ ƒéåţûŕéš one two three four five]</string>
+    <string name="non_carrier_network_unavailable">[Ñö öţĥéŕ ñéţŵöŕķš åVåîļåɓļé one two three four]</string>
     <string name="not_default_data_content_description">[Ñöţ šéţ ţö ûšé ðåţå one two three]</string>
     <string name="not_set">[Ñöţ šéţ one two]</string>
     <string name="notif_inline_reply_remove_attachment_description">[ŔéḿöVé åţţåçĥḿéñţ one two three]</string>
@@ -1580,6 +1594,7 @@ Föŕ ḿöŕé îñƒöŕḿåţîöñ, çöñţåçţ ýöûŕ åðḿîñ.
     <string name="power_remaining_only_more_than_subtext">[Ḿöŕé ţĥåñ %1$s ļéƒţ one two three]</string>
     <string name="power_remaining_settings_home_page">[%1$s - %2$s one]</string>
     <string name="power_suggestion_battery_run_out">[βåţţéŕý ḿåý ŕûñ öûţ ɓý %1$s one two three]</string>
+    <string name="pref_title_network_details">[Ñéţŵöŕķ ðéţåîļš one two three]</string>
     <string name="preference_copied">[\"%1$s\" çöþîéð ţö çļîþɓöåŕð. one two three]</string>
     <string name="preference_summary_default_combination">[%1$s / %2$s one]</string>
     <string name="priority_conversations">[Þŕîöŕîţý çöñVéŕšåţîöñš one two three]</string>
@@ -1750,6 +1765,7 @@ Föŕ ḿöŕé îñƒöŕḿåţîöñ, çöñţåçţ ýöûŕ åðḿîñ.
     <string name="right_keycode">[Ŕîĝĥţ ķéýçöðé one two]</string>
     <string name="right_nav_bar_button_type">[Éхţŕå ŕîĝĥţ ɓûţţöñ ţýþé one two three]</string>
     <string name="ring_toggle_title">[Çåļļš one]</string>
+    <string name="rotation_lock_camera_rotation_on">[Öñ - Fåçé-ɓåšéð one two three]</string>
     <string name="running_foreground_services_msg">[Ţåþ ƒöŕ ðéţåîļš öñ ɓåţţéŕý åñð ðåţå ûšåĝé one two three four five]</string>
     <string name="running_foreground_services_title">[Åþþš ŕûññîñĝ îñ ɓåçķĝŕöûñð one two three four]</string>
     <string name="running_process_item_user_label">[Ûšéŕ: %1$s one two]</string>
@@ -1824,6 +1840,7 @@ Föŕ ḿöŕé îñƒöŕḿåţîöñ, çöñţåçţ ýöûŕ åðḿîñ.
     <string name="screenshot_top_boundary_pct">[Ţöþ ɓöûñðåŕý %1$d þéŕçéñţ one two three]</string>
     <string name="search_menu">[Šéåŕçĥ šéţţîñĝš one two three]</string>
     <string name="search_menu_title">[Šéåŕçĥ one two]</string>
+    <string name="see_all_networks">[Šéé åļļ one two]</string>
     <string name="see_more_title">[Šéé ḿöŕé one two]</string>
     <string name="select_application">[Šéļéçţ åþþļîçåţîöñ one two three]</string>
     <string name="select_conversation_text">[Ţåþ å çöñVéŕšåţîöñ ţö åðð îţ ţö ýöûŕ Ĥöḿé šçŕééñ one two three four five six]</string>
@@ -1937,6 +1954,7 @@ Föŕ ḿöŕé îñƒöŕḿåţîöñ, çöñţåçţ ýöûŕ åðḿîñ.
     <string name="switch_bar_off">[Öƒƒ one]</string>
     <string name="switch_bar_on">[Öñ one]</string>
     <string name="system_ui_tuner">[Šýšţéḿ ÛÎ Ţûñéŕ one two three]</string>
+    <string name="tap_a_network_to_connect">[Ţåþ å ñéţŵöŕķ ţö çöññéçţ one two three]</string>
     <string name="tap_again">[Ţåþ åĝåîñ one two]</string>
     <string name="tap_to_sign_up">[Ţåþ ţö šîĝñ ûþ one two three]</string>
     <string name="tether_settings_title_all">"[Ţéţĥéŕîñĝ &amp;  þöŕţåɓļé ĥöţšþöţ one two three four]"</string>
@@ -1962,6 +1980,7 @@ Föŕ ḿöŕé îñƒöŕḿåţîöñ, çöñţåçţ ýöûŕ åðḿîñ.
     <string name="time_unit_just_now">[Ĵûšţ ñöŵ one two]</string>
     <string name="title_convert_fbe">[ÇöñVéŕţîñĝ ţö ƒîļé ɓåšéð éñçŕýþţîöñ one two three four]</string>
     <string name="title_usb_accessory">[ÛŠβ åççéššöŕý one two]</string>
+    <string name="to_switch_networks_disconnect_ethernet">[Ţö šŵîţçĥ ñéţŵöŕķš, ðîšçöññéçţ éţĥéŕñéţ one two three four five]</string>
     <string name="too_hot_label">[Þîхéļ ţöö ĥöţ one two]</string>
     <string name="touch_filtered_warning">[βéçåûšé åñ åþþ îš öɓšçûŕîñĝ å þéŕḿîššîöñ ŕéQûéšţ, Šéţţîñĝš çåñ’ţ Véŕîƒý ýöûŕ ŕéšþöñšé. one two three four five six seven eight nine ten]</string>
     <string name="track_frame_time">[Þŕöƒîļé ĤŴÛÎ ŕéñðéŕîñĝ one two three]</string>
@@ -2020,10 +2039,12 @@ Föŕ ḿöŕé îñƒöŕḿåţîöñ, çöñţåçţ ýöûŕ åðḿîñ.
     <string name="tuner_toast">[Çöñĝŕåţš¡ Šýšţéḿ ÛÎ Ţûñéŕ ĥåš ɓééñ åððéð ţö Šéţţîñĝš one two three four five six]</string>
     <string name="tuner_warning">[Šýšţéḿ ÛÎ Ţûñéŕ ĝîVéš ýöû éхţŕå ŵåýš ţö ţŵéåķ åñð çûšţöḿîžé ţĥé Åñðŕöîð ûšéŕ îñţéŕƒåçé. Ţĥéšé éхþéŕîḿéñţåļ ƒéåţûŕéš ḿåý çĥåñĝé, ɓŕéåķ, öŕ ðîšåþþéåŕ îñ ƒûţûŕé ŕéļéåšéš. Þŕöçééð ŵîţĥ çåûţîöñ. one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twenty one two three four five six seven eight nine ten eleven twelve thirteen]</string>
     <string name="tuner_warning_title">[Fûñ ƒöŕ šöḿé ɓûţ ñöţ ƒöŕ åļļ one two three four]</string>
+    <string name="turn_on_wifi">[Ŵî‑Fî one two]</string>
     <string name="tv_notification_panel_no_notifications">[Ñö Ñöţîƒîçåţîöñš one two three]</string>
     <string name="tv_notification_panel_title">[Ñöţîƒîçåţîöñš one two]</string>
     <string name="two_weeks_timestamp">[2 ŵééķš åĝö one two]</string>
     <string name="unknown">[Ûñķñöŵñ one two]</string>
+    <string name="unlock_to_view_networks">[Ûñļöçķ ţö Vîéŵ ñéţŵöŕķš one two three]</string>
     <string name="upcoming_birthday_status">[βîŕţĥðåý šööñ one two]</string>
     <string name="upcoming_birthday_status_content_description">"[Îţ'š %1$s’š ɓîŕţĥðåý šööñ one two three]"</string>
     <string name="url_menu_copy">[Çöþý one]</string>
@@ -2162,9 +2183,11 @@ Föŕ ḿöŕé îñƒöŕḿåţîöñ, çöñţåçţ ýöûŕ åðḿîñ.
     <string name="wifi_disconnected">[Ðîšçöññéçţéð one two]</string>
     <string name="wifi_display_certification">[Ŵîŕéļéšš ðîšþļåý çéŕţîƒîçåţîöñ one two three four]</string>
     <string name="wifi_display_certification_summary">[Šĥöŵ öþţîöñš ƒöŕ ŵîŕéļéšš ðîšþļåý çéŕţîƒîçåţîöñ one two three four five six]</string>
+    <string name="wifi_empty_list_wifi_on">[Šéåŕçĥîñĝ ƒöŕ ñéţŵöŕķš… one two three]</string>
     <string name="wifi_enhanced_mac_randomization">[Ŵî‑Fî ñöñ‑þéŕšîšţéñţ ḾÅÇ ŕåñðöḿîžåţîöñ one two three four five]</string>
     <string name="wifi_enhanced_mac_randomization_summary">[Ŵĥéñ ţĥîš ḿöðé îš éñåɓļéð, ţĥîš ðéVîçé’š ḾÅÇ åððŕéšš ḿåý çĥåñĝé éåçĥ ţîḿé îţ çöññéçţš ţö å ñéţŵöŕķ ţĥåţ ĥåš ḾÅÇ ŕåñðöḿîžåţîöñ éñåɓļéð. one two three four five six seven eight nine ten eleven twelve thirteen]</string>
     <string name="wifi_fail_to_scan">"[Çåñ'ţ šçåñ ƒöŕ ñéţŵöŕķš one two three]"</string>
+    <string name="wifi_failed_connect_message">[Fåîļéð ţö çöññéçţ ţö ñéţŵöŕķ one two three four]</string>
     <string name="wifi_hotspot_switch_off_text">[Öƒƒ one]</string>
     <string name="wifi_hotspot_switch_on_text">[Öñ one]</string>
     <string name="wifi_is_off">[Ŵî-Fî îš öƒƒ one two]</string>
@@ -2175,6 +2198,7 @@ Föŕ ḿöŕé îñƒöŕḿåţîöñ, çöñţåçţ ýöûŕ åðḿîñ.
     <string name="wifi_not_in_range">[Ñöţ îñ ŕåñĝé one two]</string>
     <string name="wifi_passpoint_expired">[Éхþîŕéð one two]</string>
     <string name="wifi_remembered">[ŠåVéð one]</string>
+    <string name="wifi_scan_notify_message">[Ţö îḿþŕöVé ðéVîçé éхþéŕîéñçé, åþþš åñð šéŕVîçéš çåñ šţîļļ šçåñ ƒöŕ Ŵî‑Fî ñéţŵöŕķš åţ åñý ţîḿé, éVéñ ŵĥéñ Ŵî‑Fî îš öƒƒ. Ýöû çåñ çĥåñĝé ţĥîš îñ Ŵî‑Fî šçåññîñĝ šéţţîñĝš. <annotation id="link">Çĥåñĝé</annotation> one two three four five six seven eight nine ten eleven twelve thirteen fourteen fiveteen sixteen seventeen nineteen twenty one two three four five six seven eight nine ten eleven twelve]</string>
     <string name="wifi_scan_throttling">[Ŵî‑Fî šçåñ ţĥŕöţţļîñĝ one two three]</string>
     <string name="wifi_scan_throttling_summary">"[Ŕéðûçéš ɓåţţéŕý ðŕåîñ &amp;  îḿþŕöVéš ñéţŵöŕķ þéŕƒöŕḿåñçé one two three four five six]"</string>
     <string name="wifi_security_none">[Ñöñé one]</string>
@@ -2184,6 +2208,7 @@ Föŕ ḿöŕé îñƒöŕḿåţîöñ, çöñţåçţ ýöûŕ åðḿîñ.
     <string name="wifi_unmetered_label">[Ûñḿéţéŕéð one two]</string>
     <string name="wifi_verbose_logging">[Éñåɓļé Ŵî‑Fî νéŕɓöšé Ļöĝĝîñĝ one two three four]</string>
     <string name="wifi_verbose_logging_summary">[Îñçŕéåšé Ŵî‑Fî ļöĝĝîñĝ ļéVéļ, šĥöŵ þéŕ ŠŠÎÐ ŔŠŠÎ îñ Ŵî‑Fî Þîçķéŕ one two three four five six seven eight]</string>
+    <string name="wifi_wont_autoconnect_for_now">[Ŵî‑Fî ŵöñ’ţ åûţö-çöññéçţ ƒöŕ ñöŵ one two three four five]</string>
     <string name="wifitrackerlib_auto_connect_disable">[Åûţö-çöññéçţ îš öƒƒ one two three]</string>
     <string name="wifitrackerlib_available_via_app">[ÅVåîļåɓļé Vîå %1$s one two three]</string>
     <string name="wifitrackerlib_connected_via_app">[Çöññéçţéð Vîå %1$s one two three]</string>

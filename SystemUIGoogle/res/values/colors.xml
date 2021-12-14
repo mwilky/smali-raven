@@ -99,6 +99,8 @@
     <color name="cardview_shadow_start_color">#37000000</color>
     <color name="chip_hint_background_color2">#fff1f3f4</color>
     <color name="chip_hint_foreground_color2">#ff3c4043</color>
+    <color name="connected_network_primary_color">#ff191c18</color>
+    <color name="connected_network_secondary_color">#ff41493d</color>
     <color name="control_default_background">@color/GM2_grey_900</color>
     <color name="control_default_foreground">@color/GM2_grey_500</color>
     <color name="control_enabled_cool_foreground">@color/GM2_blue_300</color>
@@ -278,7 +280,6 @@
     <color name="light_mode_icon_color_dual_tone_fill">#ffffffff</color>
     <color name="light_mode_icon_color_single_tone">#ffffffff</color>
     <color name="list_divider_color">#64000000</color>
-    <color name="logout_button_bg_color">#ccffffff</color>
     <color name="magnification_border_color">#ffff9900</color>
     <color name="magnification_drag_handle_color">#b3000000</color>
     <color name="magnification_switch_button_color">#7f000000</color>
@@ -498,6 +499,7 @@
     <color name="typeClockAccentColor">#fff5c983</color>
     <color name="udfps_enroll_icon">#ff000000</color>
     <color name="udfps_enroll_progress">#ff669df6</color>
+    <color name="udfps_enroll_progress_help">#ffee675c</color>
     <color name="udfps_moving_target_fill">#cc4285f4</color>
     <color name="usage_graph_dots">@*android:color/tertiary_device_default_settings</color>
     <color name="volume_dialog_background_color">@android:color/transparent</color>

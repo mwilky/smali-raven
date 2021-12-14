@@ -190,7 +190,7 @@
 .method public onComplete(Landroid/os/IBinder;)V
     .locals 1
 
-    const-string v0, "token"
+    const-string/jumbo v0, "token"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -206,7 +206,7 @@
 .method public onError(Landroid/os/IBinder;Ljava/lang/String;)V
     .locals 1
 
-    const-string v0, "token"
+    const-string/jumbo v0, "token"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -226,7 +226,7 @@
 .method public onNext(Landroid/os/IBinder;Landroid/service/controls/Control;)V
     .locals 1
 
-    const-string v0, "token"
+    const-string/jumbo v0, "token"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -246,7 +246,7 @@
 .method public onSubscribe(Landroid/os/IBinder;Landroid/service/controls/IControlsSubscription;)V
     .locals 1
 
-    const-string v0, "token"
+    const-string/jumbo v0, "token"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 

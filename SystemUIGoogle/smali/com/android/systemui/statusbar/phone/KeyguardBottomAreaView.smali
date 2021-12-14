@@ -957,7 +957,7 @@
 
     check-cast v0, Lcom/android/systemui/tuner/TunerService;
 
-    const-string v2, "sysui_keyguard_left_unlock"
+    const-string/jumbo v2, "sysui_keyguard_left_unlock"
 
     invoke-virtual {v0, v2, v1}, Lcom/android/systemui/tuner/TunerService;->getValue(Ljava/lang/String;I)I
 
@@ -2106,7 +2106,7 @@
 
     check-cast v0, Lcom/android/systemui/tuner/TunerService;
 
-    const-string v3, "sysui_keyguard_right_unlock"
+    const-string/jumbo v3, "sysui_keyguard_right_unlock"
 
     invoke-virtual {v0, v3, v2}, Lcom/android/systemui/tuner/TunerService;->getValue(Ljava/lang/String;I)I
 
@@ -2239,7 +2239,7 @@
 
     iget-object v5, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
 
-    const-string v6, "sysui_keyguard_right"
+    const-string/jumbo v6, "sysui_keyguard_right"
 
     invoke-direct {v4, v5, v6}, Lcom/android/systemui/tuner/LockscreenFragment$LockButtonFactory;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
@@ -2291,7 +2291,7 @@
 
     iget-object v2, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
 
-    const-string v3, "sysui_keyguard_left"
+    const-string/jumbo v3, "sysui_keyguard_left"
 
     invoke-direct {v1, v2, v3}, Lcom/android/systemui/tuner/LockscreenFragment$LockButtonFactory;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
@@ -2445,7 +2445,7 @@
 
     move-result-object v0
 
-    const v1, 0x1050291
+    const v1, 0x1050293
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

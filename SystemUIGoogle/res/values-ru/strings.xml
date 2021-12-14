@@ -363,6 +363,7 @@
     <string name="alarms_and_reminders_label">Будильники и напоминания</string>
     <string name="alarms_and_reminders_switch_title">Разрешить установку будильников и напоминаний</string>
     <string name="alarms_and_reminders_title">Будильники и напоминания</string>
+    <string name="all_network_unavailable">Нет доступных сетей</string>
     <string name="allow_mock_location">Фиктивные местоположения</string>
     <string name="allow_mock_location_summary">Разрешить использование фиктивных местоположений</string>
     <string name="always_use_accessory">Запускать приложение \"%1$s\" при подключ. устройства \"%2$s\"</string>
@@ -618,6 +619,11 @@
     <string name="clock_title_analog">Стрелки</string>
     <string name="clock_title_bubble">Пузырь</string>
     <string name="clock_title_default">По умолчанию</string>
+    <string name="columbus_bouncer_message">Чтобы завершить короткое касание, разблокируйте экран.</string>
+    <string name="columbus_target_request_dialog_allow">Разрешить</string>
+    <string name="columbus_target_request_dialog_deny">Не разрешать</string>
+    <string name="columbus_target_request_dialog_summary">Приложение \"%1$s\" откроется при двойном касании задней панели телефона. Вы в любой момент можете изменить эти параметры в настройках.</string>
+    <string name="columbus_target_request_dialog_title">Разрешить использовать короткое касание для запуска приложения \"%1$s\"?</string>
     <string name="compat_mode_off">Растянуть на весь экран</string>
     <string name="compat_mode_on">Подогнать по размерам экрана</string>
     <string name="confirm_enable_oem_unlock_text">ВНИМАНИЕ! Функции защиты не будут работать на устройстве, пока включен этот параметр.</string>
@@ -740,6 +746,8 @@
     <string name="defender_notify_learn_more">Подробнее</string>
     <string name="defender_notify_resume_charge">Продолжить зарядку</string>
     <string name="defender_notify_title">Зарядка временно ограничена</string>
+    <string name="defender_post_notify_des">Чтобы увеличить срок службы батареи, с %2$s до %3$s зарядка была ограничена до %1$s.</string>
+    <string name="defender_post_notify_title">Зарядка в обычном режиме</string>
     <string name="delete_blob_confirmation_text">Удалить общие данные?</string>
     <string name="delete_blob_text">Удалить общие данные</string>
     <string name="demo_mode">Интерфейс системы: деморежим</string>
@@ -885,6 +893,7 @@
     <string name="game_status">Играет</string>
     <string name="global_action_lock_message">Чтобы посмотреть дополнительные параметры, разблокируйте телефон.</string>
     <string name="global_action_screenshot">Скриншот</string>
+    <string name="global_action_smart_lock_disabled">Функция Smart Lock отключена.</string>
     <string name="global_actions_change_description">Для доступа к приложению %1$s и виджетам управления устройствами проведите вниз от верхнего края экрана.</string>
     <string name="go_to_web">Перейти в браузер</string>
     <string name="google_services_wallpaper_permission">Предоставьте Живым обоям доступ к геоданным, чтобы <b>заставка изменялась в зависимости от вашего местоположения</b>.</string>
@@ -1232,7 +1241,7 @@
     <string name="media_projection_dialog_text">Во время записи или трансляции у приложения \"%s\" будет доступ ко всей информации, которая видна на экране или воспроизводится с устройства, в том числе к паролям, сведениям о платежах, фотографиям, сообщениям и прослушиваемым аудиозаписям.</string>
     <string name="media_projection_dialog_title">Начать запись или трансляцию через приложение \"%s\"?</string>
     <string name="media_projection_remember_text">Больше не показывать</string>
-    <string name="media_seamless_remote_device">Устройство</string>
+    <string name="media_seamless_other_device">Другое устройство</string>
     <string name="media_transfer_this_device_name">Встроенный динамик</string>
     <string name="media_transfer_this_phone">Этот смартфон</string>
     <string name="media_transfer_wired_device_name">Проводное аудиоустройство</string>
@@ -1249,9 +1258,13 @@
     <string name="mobile_data">Моб. интернет</string>
     <string name="mobile_data_always_on">Не отключать мобильный Интернет</string>
     <string name="mobile_data_always_on_summary">Не отключать передачу данных по мобильной сети даже при активном Wi-Fi-подключении (для быстрого переключения между сетями)</string>
+    <string name="mobile_data_connection_active">Подключено</string>
     <string name="mobile_data_disable_message">Вы не сможете передавать данные или выходить в Интернет через оператора \"%s\". Интернет будет доступен только по сети Wi-Fi.</string>
     <string name="mobile_data_disable_message_default_carrier">ваш оператор</string>
     <string name="mobile_data_disable_title">Отключить мобильный Интернет?</string>
+    <string name="mobile_data_no_connection">Нет подключения к интернету</string>
+    <string name="mobile_data_off_summary">Без автоподключения к мобильному интернету</string>
+    <string name="mobile_data_settings_title">Мобильный интернет</string>
     <string name="mobile_data_text_format">%1$s – %2$s</string>
     <string name="mock_location_app">Выбрать приложение для фиктивных местоположений</string>
     <string name="mock_location_app_not_set">Нет приложения для фиктивных местоположений</string>
@@ -1391,6 +1404,7 @@
     <string name="no_content_in_select_mode">Нет текста или изображения для выбора</string>
     <string name="no_conversations_text">Здесь появятся ваши недавние разговоры.</string>
     <string name="no_shortcut">Приложение \"%1$s\" не поддерживает функции разговоров.</string>
+    <string name="non_carrier_network_unavailable">Нет других доступных сетей</string>
     <string name="not_default_data_content_description">Мобильный Интернет по умолчанию не используется.</string>
     <string name="not_set">Не указано</string>
     <string name="notif_inline_reply_remove_attachment_description">Удалить прикрепленный файл</string>
@@ -1571,8 +1585,9 @@
     <string name="power_remaining_only_more_than_subtext">Осталось более %1$s</string>
     <string name="power_remaining_settings_home_page">Уровень заряда – %1$s. %2$s.</string>
     <string name="power_suggestion_battery_run_out">Батарея может разрядиться к %1$s</string>
+    <string name="pref_title_network_details">Сведения о сети</string>
     <string name="preference_copied">Текст \"%1$s\" скопирован в буфер обмена</string>
-    <string name="preference_summary_default_combination">%1$s / %2$s</string>
+    <string name="preference_summary_default_combination">%1$s/%2$s</string>
     <string name="priority_conversations">Важные разговоры</string>
     <string name="privacy_type_camera">камера</string>
     <string name="privacy_type_location">местоположение</string>
@@ -1740,6 +1755,7 @@
     <string name="right_keycode">Код клавиши \"Вправо\"</string>
     <string name="right_nav_bar_button_type">Дополнительный тип кнопки \"Вправо\"</string>
     <string name="ring_toggle_title">Вызовы</string>
+    <string name="rotation_lock_camera_rotation_on">Включить (на основе распознавания лиц)</string>
     <string name="running_foreground_services_msg">Нажмите, чтобы проверить энергопотребление и трафик</string>
     <string name="running_foreground_services_title">Приложения, работающие в фоновом режиме</string>
     <string name="running_process_item_user_label">Пользователь: %1$s</string>
@@ -1814,6 +1830,7 @@
     <string name="screenshot_top_boundary_pct">Граница сверху: %1$d %%</string>
     <string name="search_menu">Поиск настроек</string>
     <string name="search_menu_title">Поиск</string>
+    <string name="see_all_networks">Показать все</string>
     <string name="see_more_title">Ещё</string>
     <string name="select_application">Выбор приложения</string>
     <string name="select_conversation_text">Нажмите на чат, чтобы добавить его на главный экран</string>
@@ -1926,6 +1943,7 @@
     <string name="switch_bar_off">Отключено</string>
     <string name="switch_bar_on">Включено</string>
     <string name="system_ui_tuner">System UI Tuner</string>
+    <string name="tap_a_network_to_connect">Выберите сеть, чтобы подключиться</string>
     <string name="tap_again">Нажмите ещё раз</string>
     <string name="tap_to_sign_up">Нажмите, чтобы зарегистрироваться</string>
     <string name="tether_settings_title_all">Режим модема</string>
@@ -1951,6 +1969,7 @@
     <string name="time_unit_just_now">Только что</string>
     <string name="title_convert_fbe">Переход к шифрованию отдельных файлов</string>
     <string name="title_usb_accessory">USB-устройство</string>
+    <string name="to_switch_networks_disconnect_ethernet">Чтобы переключиться между сетями, отключите кабель Ethernet.</string>
     <string name="too_hot_label">Перегрев Pixel</string>
     <string name="touch_filtered_warning">Невозможно принять ваше согласие, поскольку запрос скрыт другим приложением.</string>
     <string name="track_frame_time">Учет времени работы HWUI</string>
@@ -2009,10 +2028,12 @@
     <string name="tuner_toast">Функция System UI Tuner добавлена в меню настроек</string>
     <string name="tuner_warning">System UI Tuner позволяет настраивать интерфейс устройства Android по вашему вкусу. В будущем эта экспериментальная функция может измениться, перестать работать или исчезнуть.</string>
     <string name="tuner_warning_title">Внимание!</string>
+    <string name="turn_on_wifi">Wi-Fi</string>
     <string name="tv_notification_panel_no_notifications">Уведомлений нет.</string>
     <string name="tv_notification_panel_title">Уведомления</string>
     <string name="two_weeks_timestamp">2 недели назад</string>
     <string name="unknown">Неизвестно</string>
+    <string name="unlock_to_view_networks">Разблокируйте, чтобы посмотреть сети Wi-Fi.</string>
     <string name="upcoming_birthday_status">Скоро день рождения</string>
     <string name="upcoming_birthday_status_content_description">Скоро %1$s празднует день рождения</string>
     <string name="url_menu_copy">Скопировать</string>
@@ -2151,9 +2172,11 @@ MAC-адрес точки доступа (BSSID):
     <string name="wifi_disconnected">Не подключено</string>
     <string name="wifi_display_certification">Серт. беспроводн. мониторов</string>
     <string name="wifi_display_certification_summary">Показывать параметры сертификации беспроводных мониторов</string>
+    <string name="wifi_empty_list_wifi_on">Поиск сетей…</string>
     <string name="wifi_enhanced_mac_randomization">Случайные MAC-адреса в сети Wi-Fi</string>
     <string name="wifi_enhanced_mac_randomization_summary">Если этот режим активирован, MAC-адрес устройства может меняться при каждом подключении к сети, в которой возможно создание случайных MAC-адресов.</string>
     <string name="wifi_fail_to_scan">Не удалось начать поиск сетей.</string>
+    <string name="wifi_failed_connect_message">Не удалось подключиться к сети</string>
     <string name="wifi_hotspot_switch_off_text">Выкл.</string>
     <string name="wifi_hotspot_switch_on_text">Вкл.</string>
     <string name="wifi_is_off">Модуль Wi-Fi отключен</string>
@@ -2164,6 +2187,7 @@ MAC-адрес точки доступа (BSSID):
     <string name="wifi_not_in_range">Недоступна</string>
     <string name="wifi_passpoint_expired">Срок действия истек</string>
     <string name="wifi_remembered">Сохранено</string>
+    <string name="wifi_scan_notify_message">Чтобы улучшать работу устройства, приложения и сервисы могут искать беспроводные сети в любое время, даже если вы отключили Wi‑Fi. Чтобы запретить это, отключите поиск сетей Wi‑Fi. <annotation id="link">Открыть настройки</annotation></string>
     <string name="wifi_scan_throttling">Ограничивать поиск сетей Wi‑Fi</string>
     <string name="wifi_scan_throttling_summary">Уменьшает расход заряда батареи и улучшает работу сети</string>
     <string name="wifi_security_none">Нет</string>
@@ -2173,6 +2197,7 @@ MAC-адрес точки доступа (BSSID):
     <string name="wifi_unmetered_label">Сеть без тарификации трафика</string>
     <string name="wifi_verbose_logging">Подробный журнал Wi‑Fi</string>
     <string name="wifi_verbose_logging_summary">Вести подробный журнал, показывать RSSI для каждого SSID при выборе сети</string>
+    <string name="wifi_wont_autoconnect_for_now">Подключение по Wi-Fi не установится автоматически.</string>
     <string name="wifitrackerlib_auto_connect_disable">Автоподключение отключено</string>
     <string name="wifitrackerlib_available_via_app">Доступно через приложение \"%1$s\"</string>
     <string name="wifitrackerlib_connected_via_app">Подключено через приложение \"%1$s\"</string>

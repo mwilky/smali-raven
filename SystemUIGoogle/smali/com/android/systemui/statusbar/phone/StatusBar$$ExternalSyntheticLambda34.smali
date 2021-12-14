@@ -6,16 +6,16 @@
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/systemui/statusbar/NotificationShadeWindowController;
+.field public final synthetic f$0:Lcom/android/systemui/statusbar/phone/StatusBar;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/statusbar/NotificationShadeWindowController;)V
+.method public synthetic constructor <init>(Lcom/android/systemui/statusbar/phone/StatusBar;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/StatusBar$$ExternalSyntheticLambda34;->f$0:Lcom/android/systemui/statusbar/NotificationShadeWindowController;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/StatusBar$$ExternalSyntheticLambda34;->f$0:Lcom/android/systemui/statusbar/phone/StatusBar;
 
     return-void
 .end method
@@ -25,15 +25,11 @@
 .method public final accept(Ljava/lang/Object;)V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBar$$ExternalSyntheticLambda34;->f$0:Lcom/android/systemui/statusbar/NotificationShadeWindowController;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBar$$ExternalSyntheticLambda34;->f$0:Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    check-cast p1, Ljava/lang/Float;
+    check-cast p1, Ljava/lang/Boolean;
 
-    invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
-
-    move-result p1
-
-    invoke-interface {p0, p1}, Lcom/android/systemui/statusbar/NotificationShadeWindowController;->setLightRevealScrimAmount(F)V
+    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/phone/StatusBar;->$r8$lambda$VrBxFIUEc6zWmYLlCrsQXDtIDcI(Lcom/android/systemui/statusbar/phone/StatusBar;Ljava/lang/Boolean;)V
 
     return-void
 .end method

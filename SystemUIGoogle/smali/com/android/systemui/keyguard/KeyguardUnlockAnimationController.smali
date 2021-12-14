@@ -186,7 +186,7 @@
 
     move-result-object p1
 
-    const p2, 0x1050258
+    const p2, 0x1050259
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -814,7 +814,7 @@
 .method public final notifyStartKeyguardExitAnimation(Landroid/view/RemoteAnimationTarget;JZ)V
     .locals 2
 
-    const-string v0, "target"
+    const-string/jumbo v0, "target"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 

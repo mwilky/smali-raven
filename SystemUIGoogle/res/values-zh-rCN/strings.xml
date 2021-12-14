@@ -363,6 +363,7 @@
     <string name="alarms_and_reminders_label">闹钟和提醒</string>
     <string name="alarms_and_reminders_switch_title">允许设置闹钟和提醒</string>
     <string name="alarms_and_reminders_title">闹钟和提醒</string>
+    <string name="all_network_unavailable">没有可用网络</string>
     <string name="allow_mock_location">允许模拟位置</string>
     <string name="allow_mock_location_summary">允许模拟位置</string>
     <string name="always_use_accessory">连接%2$s后一律打开%1$s</string>
@@ -618,6 +619,11 @@
     <string name="clock_title_analog">指针</string>
     <string name="clock_title_bubble">泡泡</string>
     <string name="clock_title_default">默认</string>
+    <string name="columbus_bouncer_message">请解锁以完成快速轻触操作</string>
+    <string name="columbus_target_request_dialog_allow">允许</string>
+    <string name="columbus_target_request_dialog_deny">不允许</string>
+    <string name="columbus_target_request_dialog_summary">轻触手机背面两次，即可打开“%1$s”。您可以随时在“设置”中更改此偏好设置。</string>
+    <string name="columbus_target_request_dialog_title">允许使用“快速轻触”手势打开“%1$s”吗？</string>
     <string name="compat_mode_off">拉伸以填满屏幕</string>
     <string name="compat_mode_on">缩放以填满屏幕</string>
     <string name="confirm_enable_oem_unlock_text">警告：如果开启此设置，此设备上的设备保护功能将无法使用。</string>
@@ -643,7 +649,7 @@
     <string name="controls_error_removed_title">控件不可用</string>
     <string name="controls_error_retryable">出现错误，正在重试…</string>
     <string name="controls_error_timeout">无效，请检查应用</string>
-    <string name="controls_favorite_default_title">控件</string>
+    <string name="controls_favorite_default_title">控制</string>
     <string name="controls_favorite_load_error">无法加载控件。请查看%s应用，确保应用设置没有更改。</string>
     <string name="controls_favorite_load_none">找不到兼容的控件</string>
     <string name="controls_favorite_other_zone_header">其他</string>
@@ -740,6 +746,8 @@
     <string name="defender_notify_learn_more">了解详情</string>
     <string name="defender_notify_resume_charge">继续充电</string>
     <string name="defender_notify_title">充电暂时受限</string>
+    <string name="defender_post_notify_des">为了使电池保持良好状况，%2$s 到%3$s 期间的最大充电量已限制在 %1$s</string>
+    <string name="defender_post_notify_title">正常充电</string>
     <string name="delete_blob_confirmation_text">确定要删除这些共享数据吗？</string>
     <string name="delete_blob_text">删除共享数据</string>
     <string name="demo_mode">系统界面演示模式</string>
@@ -885,6 +893,7 @@
     <string name="game_status">正在玩游戏</string>
     <string name="global_action_lock_message">解锁手机即可查看更多选项</string>
     <string name="global_action_screenshot">屏幕截图</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock 已停用</string>
     <string name="global_actions_change_description">如需访问“%1$s”和设备控制器，请从屏幕顶部向下滑动</string>
     <string name="go_to_web">转到浏览器</string>
     <string name="google_services_wallpaper_permission"><b>允许 Google 动态壁纸访问 Google 位置信息服务，以便根据您所在的位置做出回应</b>。</string>
@@ -1232,7 +1241,7 @@
     <string name="media_projection_dialog_text">在录制或投射内容时，%s将可获取您屏幕上显示或设备中播放的所有信息，其中包括密码、付款明细、照片、消息以及您播放的音频等信息。</string>
     <string name="media_projection_dialog_title">要开始使用%s录制或投射内容吗？</string>
     <string name="media_projection_remember_text">不再显示</string>
-    <string name="media_seamless_remote_device">设备</string>
+    <string name="media_seamless_other_device">其他设备</string>
     <string name="media_transfer_this_device_name">手机扬声器</string>
     <string name="media_transfer_this_phone">这部手机</string>
     <string name="media_transfer_wired_device_name">有线音频设备</string>
@@ -1249,9 +1258,13 @@
     <string name="mobile_data">移动数据</string>
     <string name="mobile_data_always_on">始终开启移动数据网络</string>
     <string name="mobile_data_always_on_summary">始终开启移动数据网络，即使 WLAN 网络已开启（便于快速切换网络）。</string>
+    <string name="mobile_data_connection_active">已连接</string>
     <string name="mobile_data_disable_message">您将无法通过%s使用移动数据或互联网，只能通过 WLAN 连接到互联网。</string>
     <string name="mobile_data_disable_message_default_carrier">您的运营商</string>
     <string name="mobile_data_disable_title">要关闭移动数据网络吗？</string>
+    <string name="mobile_data_no_connection">无网络连接</string>
+    <string name="mobile_data_off_summary">系统将不会自动连接到移动数据网络</string>
+    <string name="mobile_data_settings_title">移动数据网络</string>
     <string name="mobile_data_text_format">%1$s - %2$s</string>
     <string name="mock_location_app">选择模拟位置信息应用</string>
     <string name="mock_location_app_not_set">尚未设置模拟位置信息应用</string>
@@ -1391,6 +1404,7 @@
     <string name="no_content_in_select_mode">没有可选择的文本或图片</string>
     <string name="no_conversations_text">您近期的对话将显示在此处</string>
     <string name="no_shortcut">%1$s不支持对话功能</string>
+    <string name="non_carrier_network_unavailable">没有其他可用网络</string>
     <string name="not_default_data_content_description">未设置为使用移动数据</string>
     <string name="not_set">未设置</string>
     <string name="notif_inline_reply_remove_attachment_description">移除附件</string>
@@ -1571,6 +1585,7 @@
     <string name="power_remaining_only_more_than_subtext">剩余电池续航时间超过 %1$s</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">电池电量可能在%1$s 前耗尽</string>
+    <string name="pref_title_network_details">网络详情</string>
     <string name="preference_copied">已将“%1$s”复制到剪贴板。</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">优先对话</string>
@@ -1740,6 +1755,7 @@
     <string name="right_keycode">向右键码</string>
     <string name="right_nav_bar_button_type">其他向右按钮类型</string>
     <string name="ring_toggle_title">通话</string>
+    <string name="rotation_lock_camera_rotation_on">已开启 - 基于人脸</string>
     <string name="running_foreground_services_msg">点按即可详细了解电量和流量消耗情况</string>
     <string name="running_foreground_services_title">在后台运行的应用</string>
     <string name="running_process_item_user_label">用户：%1$s</string>
@@ -1814,6 +1830,7 @@
     <string name="screenshot_top_boundary_pct">顶部边界百分之 %1$d</string>
     <string name="search_menu">搜索设置</string>
     <string name="search_menu_title">搜索</string>
+    <string name="see_all_networks">查看全部</string>
     <string name="see_more_title">查看更多</string>
     <string name="select_application">选择应用</string>
     <string name="select_conversation_text">点按对话即可将其添加到主屏幕</string>
@@ -1926,6 +1943,7 @@
     <string name="switch_bar_off">关闭</string>
     <string name="switch_bar_on">开启</string>
     <string name="system_ui_tuner">系统界面调节工具</string>
+    <string name="tap_a_network_to_connect">点按要连接的网络</string>
     <string name="tap_again">请再点按一次</string>
     <string name="tap_to_sign_up">点按即可注册</string>
     <string name="tether_settings_title_all">网络共享与便携式热点</string>
@@ -1951,6 +1969,7 @@
     <string name="time_unit_just_now">刚刚</string>
     <string name="title_convert_fbe">正在转换为文件加密</string>
     <string name="title_usb_accessory">USB配件</string>
+    <string name="to_switch_networks_disconnect_ethernet">如要切换网络，请断开以太网连接</string>
     <string name="too_hot_label">Pixel 过热</string>
     <string name="touch_filtered_warning">由于某个应用遮挡了权限请求界面，因此“设置”应用无法验证您的回应。</string>
     <string name="track_frame_time">HWUI 呈现模式分析</string>
@@ -2009,10 +2028,12 @@
     <string name="tuner_toast">恭喜！系统界面调节工具已添加到“设置”中</string>
     <string name="tuner_warning">系统界面调节工具可让您以更多方式调整及定制 Android 界面。在日后推出的版本中，这些实验性功能可能会变更、失效或消失。操作时请务必谨慎。</string>
     <string name="tuner_warning_title">并不适合所有用户</string>
+    <string name="turn_on_wifi">WLAN</string>
     <string name="tv_notification_panel_no_notifications">没有通知</string>
     <string name="tv_notification_panel_title">通知</string>
     <string name="two_weeks_timestamp">2 周前</string>
     <string name="unknown">未知</string>
+    <string name="unlock_to_view_networks">解锁即可查看网络</string>
     <string name="upcoming_birthday_status">生日快到了</string>
     <string name="upcoming_birthday_status_content_description">%1$s的生日快到了</string>
     <string name="url_menu_copy">复制</string>
@@ -2151,9 +2172,11 @@ WLAN 地址 (BSSID)
     <string name="wifi_disconnected">已断开连接</string>
     <string name="wifi_display_certification">无线显示认证</string>
     <string name="wifi_display_certification_summary">显示无线显示认证选项</string>
+    <string name="wifi_empty_list_wifi_on">正在搜索网络…</string>
     <string name="wifi_enhanced_mac_randomization">为 WLAN 热点随机生成非持久性 MAC 地址</string>
     <string name="wifi_enhanced_mac_randomization_summary">启用此模式后，每当此设备连接到已启用随机分配 MAC 地址功能的网络时，它的 MAC 地址就可能会发生更改。</string>
     <string name="wifi_fail_to_scan">无法扫描网络</string>
+    <string name="wifi_failed_connect_message">未能连接到网络</string>
     <string name="wifi_hotspot_switch_off_text">关闭</string>
     <string name="wifi_hotspot_switch_on_text">开启</string>
     <string name="wifi_is_off">WLAN 已关闭</string>
@@ -2164,6 +2187,7 @@ WLAN 地址 (BSSID)
     <string name="wifi_not_in_range">不在范围内</string>
     <string name="wifi_passpoint_expired">已失效</string>
     <string name="wifi_remembered">已保存</string>
+    <string name="wifi_scan_notify_message">为了提升设备的使用体验，即使 WLAN 已关闭，应用和服务仍可以随时扫描 WLAN 网络。您可以在 WLAN 扫描设置中更改此设置。<annotation id="link">更改</annotation></string>
     <string name="wifi_scan_throttling">WLAN 扫描调节</string>
     <string name="wifi_scan_throttling_summary">降低耗电量以及改善网络性能</string>
     <string name="wifi_security_none">无</string>
@@ -2173,6 +2197,7 @@ WLAN 地址 (BSSID)
     <string name="wifi_unmetered_label">不按流量计费</string>
     <string name="wifi_verbose_logging">启用 WLAN 详细日志记录功能</string>
     <string name="wifi_verbose_logging_summary">提升 WLAN 日志记录级别（在 WLAN 选择器中显示每个 SSID 的 RSSI）</string>
+    <string name="wifi_wont_autoconnect_for_now">WLAN 暂时无法自动连接</string>
     <string name="wifitrackerlib_auto_connect_disable">自动连接已关闭</string>
     <string name="wifitrackerlib_available_via_app">可通过%1$s使用</string>
     <string name="wifitrackerlib_connected_via_app">已通过%1$s连接</string>

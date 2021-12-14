@@ -6,16 +6,16 @@
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/systemui/util/sensors/ThresholdSensor;
+.field public final synthetic f$0:Lcom/android/systemui/util/sensors/ProximitySensor$1;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/util/sensors/ThresholdSensor;)V
+.method public synthetic constructor <init>(Lcom/android/systemui/util/sensors/ProximitySensor$1;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/util/sensors/ProximitySensor$1$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/util/sensors/ThresholdSensor;
+    iput-object p1, p0, Lcom/android/systemui/util/sensors/ProximitySensor$1$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/util/sensors/ProximitySensor$1;
 
     return-void
 .end method
@@ -25,9 +25,9 @@
 .method public final run()V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/util/sensors/ProximitySensor$1$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/util/sensors/ThresholdSensor;
+    iget-object p0, p0, Lcom/android/systemui/util/sensors/ProximitySensor$1$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/util/sensors/ProximitySensor$1;
 
-    invoke-interface {p0}, Lcom/android/systemui/util/sensors/ThresholdSensor;->resume()V
+    invoke-static {p0}, Lcom/android/systemui/util/sensors/ProximitySensor$1;->$r8$lambda$_2Fh_p5A1lCjb44ms4zT2Kz93XU(Lcom/android/systemui/util/sensors/ProximitySensor$1;)V
 
     return-void
 .end method

@@ -2518,7 +2518,7 @@
 
     aput-object p1, v1, v2
 
-    const-string v3, "touch: %s"
+    const-string/jumbo v3, "touch: %s"
 
     invoke-static {v3, v1}, Lcom/android/systemui/egg/MLand;->L(Ljava/lang/String;[Ljava/lang/Object;)V
 
@@ -2605,7 +2605,7 @@
 
     aput-object p1, v1, v2
 
-    const-string v3, "trackball: %s"
+    const-string/jumbo v3, "trackball: %s"
 
     invoke-static {v3, v1}, Lcom/android/systemui/egg/MLand;->L(Ljava/lang/String;[Ljava/lang/Object;)V
 

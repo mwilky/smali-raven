@@ -248,7 +248,15 @@
     return-object p0
 .end method
 
-.method static synthetic access$300(Lcom/android/systemui/SwipeHelper;Landroid/view/View;Z)V
+.method static synthetic access$300(Lcom/android/systemui/SwipeHelper;)Lcom/android/systemui/SwipeHelper$Callback;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/SwipeHelper;->mCallback:Lcom/android/systemui/SwipeHelper$Callback;
+
+    return-object p0
+.end method
+
+.method static synthetic access$400(Lcom/android/systemui/SwipeHelper;Landroid/view/View;Z)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/systemui/SwipeHelper;->updateSwipeProgressFromOffset(Landroid/view/View;Z)V
@@ -256,18 +264,10 @@
     return-void
 .end method
 
-.method static synthetic access$400(Lcom/android/systemui/SwipeHelper;)Landroid/util/ArrayMap;
+.method static synthetic access$500(Lcom/android/systemui/SwipeHelper;)Landroid/util/ArrayMap;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/SwipeHelper;->mDismissPendingMap:Landroid/util/ArrayMap;
-
-    return-object p0
-.end method
-
-.method static synthetic access$500(Lcom/android/systemui/SwipeHelper;)Lcom/android/systemui/SwipeHelper$Callback;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/SwipeHelper;->mCallback:Lcom/android/systemui/SwipeHelper$Callback;
 
     return-object p0
 .end method

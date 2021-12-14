@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->updateColors()V
+    value = Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->updatePill()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -36,9 +36,13 @@
 
     iget-object p0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$2;->this$0:Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;
 
-    const/4 p1, 0x0
+    invoke-static {p0}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->access$100(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;)Lcom/android/systemui/util/wakelock/WakeLock;
 
-    invoke-static {p0, p1}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->access$102(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
+    move-result-object p0
+
+    const-string p1, "AmbientIndication"
+
+    invoke-interface {p0, p1}, Lcom/android/systemui/util/wakelock/WakeLock;->release(Ljava/lang/String;)V
 
     return-void
 .end method

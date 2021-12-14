@@ -482,7 +482,7 @@
 
     move-result-object v7
 
-    const-string v8, "system_notification_accent_color"
+    const-string/jumbo v8, "system_notification_accent_color"
 
     const-string v9, "color"
 

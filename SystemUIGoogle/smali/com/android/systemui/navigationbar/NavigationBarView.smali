@@ -1020,6 +1020,8 @@
 
     iget-object p1, p0, Lcom/android/systemui/navigationbar/NavigationBarView;->mAutoHideController:Lcom/android/systemui/statusbar/phone/AutoHideController;
 
+    if-eqz p1, :cond_0
+
     invoke-virtual {p1}, Lcom/android/systemui/statusbar/phone/AutoHideController;->touchAutoHide()V
 
     :cond_0
@@ -2588,6 +2590,14 @@
 
     invoke-static {p1, v1, v0}, Lcom/android/systemui/navigationbar/NavigationBarView;->dumpButton(Ljava/io/PrintWriter;Ljava/lang/String;Lcom/android/systemui/navigationbar/buttons/ButtonDispatcher;)V
 
+    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/NavigationBarView;->getHomeHandle()Lcom/android/systemui/navigationbar/buttons/ButtonDispatcher;
+
+    move-result-object v0
+
+    const-string v1, "handle"
+
+    invoke-static {p1, v1, v0}, Lcom/android/systemui/navigationbar/NavigationBarView;->dumpButton(Ljava/io/PrintWriter;Ljava/lang/String;Lcom/android/systemui/navigationbar/buttons/ButtonDispatcher;)V
+
     invoke-virtual {p0}, Lcom/android/systemui/navigationbar/NavigationBarView;->getRecentsButton()Lcom/android/systemui/navigationbar/buttons/ButtonDispatcher;
 
     move-result-object v0
@@ -3609,6 +3619,26 @@
     :cond_1
     :goto_0
     return-void
+.end method
+
+.method protected onSetAlpha(I)Z
+    .locals 3
+
+    new-instance v0, Ljava/lang/Throwable;
+
+    invoke-direct {v0}, Ljava/lang/Throwable;-><init>()V
+
+    const-string v1, "NavBarView"
+
+    const-string v2, "onSetAlpha"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    invoke-super {p0, p1}, Landroid/widget/FrameLayout;->onSetAlpha(I)Z
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public onStatusBarPanelStateChanged()V

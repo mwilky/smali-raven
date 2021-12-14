@@ -76,7 +76,7 @@
     <string name="accessibility_bluetooth_tether">બ્લૂટૂથ ટિથરિંગ.</string>
     <string name="accessibility_brightness">પ્રદર્શન તેજ</string>
     <string name="accessibility_bubble_dismissed">બબલ છોડી દેવાયો.</string>
-    <string name="accessibility_camera_button">કૅમેરો</string>
+    <string name="accessibility_camera_button">કૅમેરા</string>
     <string name="accessibility_cast_name">%s થી કનેક્ટ કરેલ.</string>
     <string name="accessibility_casting_turned_off">સ્ક્રીન કાસ્ટિંગ બંધ કર્યું.</string>
     <string name="accessibility_cell_data">મોબાઇલ ડેટા</string>
@@ -363,6 +363,7 @@
     <string name="alarms_and_reminders_label">અલાર્મ અને રિમાઇન્ડર</string>
     <string name="alarms_and_reminders_switch_title">અલાર્મ અને રિમાન્ડરના સેટિંગની મંજૂરી આપો</string>
     <string name="alarms_and_reminders_title">અલાર્મ અને રિમાઇન્ડર</string>
+    <string name="all_network_unavailable">કોઈ નેટવર્ક ઉપલબ્ધ નથી</string>
     <string name="allow_mock_location">મોક સ્થાનોની મંજૂરી આપો</string>
     <string name="allow_mock_location_summary">મોક સ્થાનોની મંજૂરી આપો</string>
     <string name="always_use_accessory">જ્યારે %2$s કનેક્ટેડ હોય ત્યારે %1$sને હંમેશા ખોલો</string>
@@ -583,7 +584,7 @@ Codec પસંદગી ટ્રિગર કરો: પ્લેબૅક ક
     <string name="bubbles_user_education_got_it">સમજાઈ ગયું</string>
     <string name="bubbles_user_education_manage">આ ઍપમાંથી બબલને બંધ કરવા માટે મેનેજ કરો પર ટૅપ કરો</string>
     <string name="bubbles_user_education_manage_title">બબલને કોઈપણ સમયે નિયંત્રિત કરો</string>
-    <string name="bubbles_user_education_title">બબલનો ઉપયોગ કરીને ચેટ કરો</string>
+    <string name="bubbles_user_education_title">બબલનો ઉપયોગ કરીને ચૅટ કરો</string>
     <string name="bugreport_in_power">બગ રિપોર્ટ શોર્ટકટ</string>
     <string name="bugreport_in_power_summary">બગ રિપોર્ટ લેવા માટે પાવર મેનૂમાં એક બટન બતાવો</string>
     <string name="build_number_clip_data_label">બિલ્ડ નંબર</string>
@@ -594,7 +595,7 @@ Codec પસંદગી ટ્રિગર કરો: પ્લેબૅક ક
     <string name="cached_apps_freezer_enabled">ચાલુ છે</string>
     <string name="cached_apps_freezer_reboot_dialog_text">આ ફેરફારને લાગુ કરવા માટે તમારા ડિવાઇસને રીબૂટ કરવાની જરૂર છે. હમણાં જ રીબૂટ કરો કે રદ કરો.</string>
     <string name="camera_hint">કૅમેરા માટે આયકનમાંથી સ્વાઇપ કરો</string>
-    <string name="camera_label">કૅમેરો ખોલો</string>
+    <string name="camera_label">કૅમેરા ખોલો</string>
     <string name="camera_recording_announcement">કૅમેરાનું રેકોર્ડિંગ ચાલુ છે</string>
     <string name="camera_stopped_recording_announcement">કૅમેરાનું રેકોર્ડિંગ બંધ થઈ ગયું</string>
     <string name="cancel">રદ કરો</string>
@@ -618,6 +619,11 @@ Codec પસંદગી ટ્રિગર કરો: પ્લેબૅક ક
     <string name="clock_title_analog">એનાલોગ</string>
     <string name="clock_title_bubble">બબલ</string>
     <string name="clock_title_default">ડિફૉલ્ટ</string>
+    <string name="columbus_bouncer_message">ક્વિક ટૅપ પૂર્ણ કરવા માટે અનલૉક કરો</string>
+    <string name="columbus_target_request_dialog_allow">મંજૂરી આપો</string>
+    <string name="columbus_target_request_dialog_deny">મંજૂરી આપશો નહીં</string>
+    <string name="columbus_target_request_dialog_summary">જ્યારે તમે તમારા ફોનની પાછળની બાજુ પર બે વાર ટૅપ કરો, ત્યારે %1$s ખુલશે. તમે કોઈ પણ સમયે સેટિંગમાં આ પસંદગીને બદલી શકો છો.</string>
+    <string name="columbus_target_request_dialog_title">%1$s ખોલવા માટે ક્વિક ટૅપને મંજૂરી આપીએ?</string>
     <string name="compat_mode_off">સ્ક્રીન ભરવા માટે ખેંચો</string>
     <string name="compat_mode_on">સ્ક્રીન ભરવા માટે ઝૂમ કરો</string>
     <string name="confirm_enable_oem_unlock_text">ચેતવણી: જ્યારે આ સેટિંગ ચાલુ હોય ત્યારે આ ઉપકરણ પર ઉપકરણ સંરક્ષણ સુવિધાઓ કાર્ય કરશે નહીં.</string>
@@ -740,6 +746,8 @@ Codec પસંદગી ટ્રિગર કરો: પ્લેબૅક ક
     <string name="defender_notify_learn_more">વધુ જાણો</string>
     <string name="defender_notify_resume_charge">ચાર્જ કરવાનું ફરી શરૂ કરો</string>
     <string name="defender_notify_title">ચાર્જ કરવાનું થોડા સમય માટે મર્યાદિત કરવામાં આવ્યું છે</string>
+    <string name="defender_post_notify_des">બૅટરીની કાર્યક્ષમતાને બહેતર બનાવવા માટે %2$sથી %3$s સુધી, ચાર્જ કરવાનું %1$s સુધી મર્યાદિત કરવામાં આવ્યું હતું</string>
+    <string name="defender_post_notify_title">સામાન્ય રીતે ચાર્જ થઈ રહી છે</string>
     <string name="delete_blob_confirmation_text">શું તમે ખરેખર આ શેર કરેલા ડેટાને ડિલીટ કરવા માગો છો?</string>
     <string name="delete_blob_text">શેર કરેલા ડેટાને ડિલીટ કરો</string>
     <string name="demo_mode">સિસ્ટમ UI ડેમો મોડ</string>
@@ -885,6 +893,7 @@ Codec પસંદગી ટ્રિગર કરો: પ્લેબૅક ક
     <string name="game_status">રમી રહ્યાં છે</string>
     <string name="global_action_lock_message">વધુ વિકલ્પો માટે તમારા ફોનને અનલૉક કરો</string>
     <string name="global_action_screenshot">સ્ક્રીનશૉટ</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock બંધ કરેલું છે</string>
     <string name="global_actions_change_description">%1$s અને ડિવાઇસના નિયંત્રણોનો ઍક્સેસ મેળવવા માટે, તમારી સ્ક્રીનની ટોચ પરથી નીચેની તરફ સ્વાઇપ કરો</string>
     <string name="go_to_web">બ્રાઉઝર પર જાઓ</string>
     <string name="google_services_wallpaper_permission">Google ની સ્થાન સેવાઓને અ‍ૅક્સેસ કરીને <b>Google લાઇવ વૉલપેપર્સને તમારા સ્થાનનો જવાબ આપવાની મંજૂરી આપો</b>.</string>
@@ -1066,7 +1075,7 @@ Codec પસંદગી ટ્રિગર કરો: પ્લેબૅક ક
     <string name="keyguard_permanent_disabled_sim_message_short">બિનઉપયોગી સિમ કાર્ડ.</string>
     <string name="keyguard_plugged_in">%s • ચાર્જિંગ</string>
     <string name="keyguard_plugged_in_charging_fast">%s • ઝડપથી ચાર્જિંગ</string>
-    <string name="keyguard_plugged_in_charging_limited">%s • ચાર્જિંગ હંગામીરૂપે પ્રતિબંધિત કરવામાં આવ્યું છે</string>
+    <string name="keyguard_plugged_in_charging_limited">%s • ચાર્જ કરવાનું થોડા સમય માટે મર્યાદિત કરવામાં આવ્યું છે</string>
     <string name="keyguard_plugged_in_charging_slowly">%s • ધીમેથી ચાર્જિંગ</string>
     <string name="keyguard_plugged_in_wireless">%s • વાયરલેસથી ચાર્જિંગ</string>
     <string name="keyguard_retry">ફરી પ્રયાસ કરવા માટે ઉપરની તરફ સ્વાઇપ કરો</string>
@@ -1232,7 +1241,7 @@ Codec પસંદગી ટ્રિગર કરો: પ્લેબૅક ક
     <string name="media_projection_dialog_text">રેકોર્ડ અથવા કાસ્ટ કરતી વખતે, %sને તમારી સ્ક્રીન પર દેખાતી હોય અથવા તમારા ડિવાઇસ પર ચલાવવામાં આવતી હોય તેવી બધી માહિતીનો ઍક્સેસ હશે. આમાં પાસવર્ડ, ચુકવણીની વિગતો, ફોટા, સંદેશા અને તમે ચલાવો છો તે ઑડિયો જેવી માહિતીનો સમાવેશ થાય છે.</string>
     <string name="media_projection_dialog_title">%s વડે રેકોર્ડ અથવા કાસ્ટ કરવાનું શરૂ કરીએ?</string>
     <string name="media_projection_remember_text">ફરીથી બતાવશો નહીં</string>
-    <string name="media_seamless_remote_device">ડિવાઇસ</string>
+    <string name="media_seamless_other_device">અન્ય ડિવાઇસ</string>
     <string name="media_transfer_this_device_name">ફોન સ્પીકર</string>
     <string name="media_transfer_this_phone">આ ફોન</string>
     <string name="media_transfer_wired_device_name">વાયરવાળો ઑડિયો ડિવાઇસ</string>
@@ -1249,9 +1258,13 @@ Codec પસંદગી ટ્રિગર કરો: પ્લેબૅક ક
     <string name="mobile_data">મોબાઇલ ડેટા</string>
     <string name="mobile_data_always_on">મોબાઇલ ડેટા હંમેશાં સક્રિય</string>
     <string name="mobile_data_always_on_summary">"વાઇ-ફાઇ  સક્રિય હોય ત્યારે પણ, હંમેશા મોબાઇલ ડેટાને સક્રિય રાખો (ઝડપી નેટવર્ક સ્વિચિંગ માટે)."</string>
+    <string name="mobile_data_connection_active">કનેક્ટ કરેલું</string>
     <string name="mobile_data_disable_message">તમને %s મારફતે ડેટા અથવા ઇન્ટરનેટનો ઍક્સેસ મળશે નહીં. ઇન્ટરનેટ માત્ર વાઇ-ફાઇ દ્વારા ઉપલબ્ધ થશે.</string>
     <string name="mobile_data_disable_message_default_carrier">તમારા કૅરિઅર</string>
     <string name="mobile_data_disable_title">મોબાઇલ ડેટા બંધ કરીએ?</string>
+    <string name="mobile_data_no_connection">કોઈ કનેક્શન નથી</string>
+    <string name="mobile_data_off_summary">મોબાઇલ ડેટા ઑટોમૅટિક રીતે કનેક્ટ થશે નહીં</string>
+    <string name="mobile_data_settings_title">મોબાઇલ ડેટા</string>
     <string name="mobile_data_text_format">%1$s — %2$s</string>
     <string name="mock_location_app">મોક સ્થાન ઍપ પસંદ કરો</string>
     <string name="mock_location_app_not_set">કોઈ મોક સ્થાન ઍપ સેટ કરાયેલું નથી</string>
@@ -1391,6 +1404,7 @@ Codec પસંદગી ટ્રિગર કરો: પ્લેબૅક ક
     <string name="no_content_in_select_mode">પસંદ કરવા માટે કોઈ ટેક્સ્ટ કે છબી ઉપલબ્ધ નથી</string>
     <string name="no_conversations_text">તમારી તાજેતરની વાતચીતો અહીં બતાવવામાં આવશે</string>
     <string name="no_shortcut">%1$s વાતચીતની સુવિધાઓને સપોર્ટ આપતી નથી</string>
+    <string name="non_carrier_network_unavailable">બીજાં કોઈ નેટવર્ક ઉપલબ્ધ નથી</string>
     <string name="not_default_data_content_description">ડેટાનો ઉપયોગ કરવાનું સેટ કર્યું નથી</string>
     <string name="not_set">સેટ કર્યું નથી</string>
     <string name="notif_inline_reply_remove_attachment_description">જોડાણ કાઢી નાખો</string>
@@ -1571,6 +1585,7 @@ Codec પસંદગી ટ્રિગર કરો: પ્લેબૅક ક
     <string name="power_remaining_only_more_than_subtext">%1$s કરતાં વધુ બાકી છે</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">બૅટરી %1$s સુધીમાં પૂરી થઈ શકે છે</string>
+    <string name="pref_title_network_details">નેટવર્કની વિગતો</string>
     <string name="preference_copied">\"%1$s\"ને ક્લિપ બોર્ડ પર કૉપિ કર્યો.</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">પ્રાધાન્યતા ધરાવતી વાતચીતો</string>
@@ -1588,7 +1603,7 @@ Codec પસંદગી ટ્રિગર કરો: પ્લેબૅક ક
     <string name="profile_info_settings_title">પ્રોફાઇલ માહિતી</string>
     <string name="profile_owned_footer">પ્રોફાઇલ મૉનિટર કરી શકાય છે</string>
     <string name="qs_alarm_tile_no_alarm">કોઈ અલાર્મ સેટ નથી</string>
-    <string name="qs_dnd_keep">Keep</string>
+    <string name="qs_dnd_keep">રાખો</string>
     <string name="qs_dnd_prompt_app">ખલેલ પાડશો નહીં એક ઍપ્લિકેશન દ્વારા ચાલુ કરાયું હતું (%s).</string>
     <string name="qs_dnd_prompt_auto_rule">ખલેલ પાડશો નહીં એક સ્વચાલિત નિયમ દ્વારા ચાલુ કરાયું હતું (%s).</string>
     <string name="qs_dnd_prompt_auto_rule_app">ખલેલ પાડશો નહીં એક સ્વચાલિત નિયમ અથવા ઍપ્લિકેશન દ્વારા ચાલુ કરાયું હતું.</string>
@@ -1740,6 +1755,7 @@ Codec પસંદગી ટ્રિગર કરો: પ્લેબૅક ક
     <string name="right_keycode">જમણો કીકોડ</string>
     <string name="right_nav_bar_button_type">અતિરિક્ત જમણો બટન પ્રકાર</string>
     <string name="ring_toggle_title">કૉલ</string>
+    <string name="rotation_lock_camera_rotation_on">ચાલુ છે - ચહેરા આધારિત રોટેશન</string>
     <string name="running_foreground_services_msg">બૅટરી અને ડેટા વપરાશ વિશેની વિગતો માટે ટૅપ કરો</string>
     <string name="running_foreground_services_title">પૃષ્ઠભૂમિમાં ચાલી રહેલ ઍપ્લિકેશનો</string>
     <string name="running_process_item_user_label">વપરાશકર્તા: %1$s</string>
@@ -1814,6 +1830,7 @@ Codec પસંદગી ટ્રિગર કરો: પ્લેબૅક ક
     <string name="screenshot_top_boundary_pct">ઉપરની સીમા %1$d ટકા</string>
     <string name="search_menu">શોધ સેટિંગ</string>
     <string name="search_menu_title">શોધો</string>
+    <string name="see_all_networks">બધા જુઓ</string>
     <string name="see_more_title">વધુ જુઓ</string>
     <string name="select_application">ઍપ્લિકેશન પસંદ કરો</string>
     <string name="select_conversation_text">તમારી હોમ સ્ક્રીનમાં વાતચીત ઉમેરવા માટે તેના પર ટૅપ કરો</string>
@@ -1926,6 +1943,7 @@ Codec પસંદગી ટ્રિગર કરો: પ્લેબૅક ક
     <string name="switch_bar_off">બંધ</string>
     <string name="switch_bar_on">ચાલુ</string>
     <string name="system_ui_tuner">સિસ્ટમ UI ટ્યૂનર</string>
+    <string name="tap_a_network_to_connect">કનેક્ટ કરવા માટે નેટવર્ક પર ટૅપ કરો</string>
     <string name="tap_again">ફરીથી ટૅપ કરો</string>
     <string name="tap_to_sign_up">સાઇન અપ કરવા માટે ટૅપ કરો</string>
     <string name="tether_settings_title_all">ટિથરિંગ અને પોર્ટેબલ હૉટસ્પૉટ</string>
@@ -1951,6 +1969,7 @@ Codec પસંદગી ટ્રિગર કરો: પ્લેબૅક ક
     <string name="time_unit_just_now">હમણાં જ</string>
     <string name="title_convert_fbe">ફાઇલ આધારિત એન્ક્રિપ્શનમાં રૂપાંતરિત કરી રહ્યાં છીએ</string>
     <string name="title_usb_accessory">USB ઍક્સેસરી</string>
+    <string name="to_switch_networks_disconnect_ethernet">બીજા નેટવર્ક પર જવા માટે, ઇથરનેટ ડિસ્કનેક્ટ કરો</string>
     <string name="too_hot_label">Pixel ખૂબ ગરમ છે</string>
     <string name="touch_filtered_warning">કોઈ ઍપ પરવાનગી વિનંતીને અસ્પષ્ટ કરતી હોવાને કારણે, સેટિંગ તમારા પ્રતિસાદને ચકાસી શકતું નથી.</string>
     <string name="track_frame_time">HWUIની પ્રોફાઇલ રેંડરીંગ</string>
@@ -2009,10 +2028,12 @@ Codec પસંદગી ટ્રિગર કરો: પ્લેબૅક ક
     <string name="tuner_toast">અભિનંદન! સિસ્ટમ UI ટ્યૂનરને સેટિંગમાં ઉમેરવામાં આવ્યું છે</string>
     <string name="tuner_warning">સિસ્ટમ UI ટ્યૂનર તમને Android વપરાશકર્તા ઇન્ટરફેસને ટ્વીક અને કસ્ટમાઇઝ કરવાની વધારાની રીતો આપે છે. ભાવિ રીલિઝેસમાં આ પ્રાયોગિક સુવિધાઓ બદલાઈ, ભંગ અથવા અદૃશ્ય થઈ શકે છે. સાવધાની સાથે આગળ વધો.</string>
     <string name="tuner_warning_title">કેટલાક માટે મજા પરંતુ બધા માટે નહીં</string>
+    <string name="turn_on_wifi">વાઇ-ફાઇ</string>
     <string name="tv_notification_panel_no_notifications">કોઈ નોટિફિકેશન નથી</string>
     <string name="tv_notification_panel_title">નોટિફિકેશન</string>
     <string name="two_weeks_timestamp">2 અઠવાડિયા પહેલાં</string>
     <string name="unknown">અજાણ્યું</string>
+    <string name="unlock_to_view_networks">વાઇ-ફાઇ નેટવર્ક જોવા માટે અનલૉક કરો</string>
     <string name="upcoming_birthday_status">જલ્દી જ જન્મદિવસ છે</string>
     <string name="upcoming_birthday_status_content_description">ટૂંક સમયમાં %1$sનો જન્મદિવસ આવશે</string>
     <string name="url_menu_copy">કૉપિ કરો</string>
@@ -2151,9 +2172,11 @@ Codec પસંદગી ટ્રિગર કરો: પ્લેબૅક ક
     <string name="wifi_disconnected">ડિસ્કનેક્ટ કર્યું</string>
     <string name="wifi_display_certification">વાયરલેસ ડિસ્પ્લે પ્રમાણન</string>
     <string name="wifi_display_certification_summary">વાયરલેસ ડિસ્પ્લે પ્રમાણપત્ર માટેના વિકલ્પો બતાવો</string>
+    <string name="wifi_empty_list_wifi_on">નેટવર્ક શોધી રહ્યાં છીએ…</string>
     <string name="wifi_enhanced_mac_randomization">વાઇ-ફાઇ માટે સતત બદલાતું MAC રેન્ડમાઇઝેશન</string>
     <string name="wifi_enhanced_mac_randomization_summary">આ મોડ ચાલુ કરેલો હશે, ત્યારે MAC રેન્ડમાઇઝેશન ચાલુ કરેલું હોય તેવા નેટવર્ક સાથે આ ડિવાઇસ જોડાશે ત્યારે દર વખતે તેનું MAC ઍડ્રેસ બદલાય તેમ બની શકે છે.</string>
     <string name="wifi_fail_to_scan">નેટવર્ક્સ માટે સ્કૅન કરી શકતા નથી</string>
+    <string name="wifi_failed_connect_message">નેટવર્ક સાથે કનેક્ટ કરવામાં નિષ્ફળ થયાં</string>
     <string name="wifi_hotspot_switch_off_text">બંધ</string>
     <string name="wifi_hotspot_switch_on_text">ચાલુ</string>
     <string name="wifi_is_off">વાઇ-ફાઇ બંધ છે</string>
@@ -2164,6 +2187,7 @@ Codec પસંદગી ટ્રિગર કરો: પ્લેબૅક ક
     <string name="wifi_not_in_range">રેન્જમાં નથી</string>
     <string name="wifi_passpoint_expired">સમય સમાપ્ત થયો</string>
     <string name="wifi_remembered">સાચવેલા</string>
+    <string name="wifi_scan_notify_message">ડિવાઇસના અનુભવને બહેતર બનાવવા માટે, વાઇ-ફાઇ બંધ હોય ત્યારે પણ ઍપ અને સેવાઓ કોઈપણ સમયે વાઇ-ફાઇ નેટવર્ક સ્કૅન કરી શકે છે. તમે વાઇ-ફાઇ સ્કૅનિંગના સેટિંગમાં જઈને આને બદલી શકો છો. <annotation id="link">બદલો</annotation></string>
     <string name="wifi_scan_throttling">વાઇ-ફાઇ સ્કૅનની ક્ષમતા મર્યાદિત કરવી</string>
     <string name="wifi_scan_throttling_summary">બૅટરીનો ચાર્જ ઝડપથી ઓછો થવાનું ટાળે છે અને નેટવર્કના કાર્યપ્રદર્શનમાં સુધારો કરે છે</string>
     <string name="wifi_security_none">કોઈ નહીં</string>
@@ -2173,6 +2197,7 @@ Codec પસંદગી ટ્રિગર કરો: પ્લેબૅક ક
     <string name="wifi_unmetered_label">મીટર ન કરેલ</string>
     <string name="wifi_verbose_logging">વાઇ-ફાઇ વર્બોઝ લૉગિંગ ચાલુ કરો</string>
     <string name="wifi_verbose_logging_summary">વાઇ-ફાઇ લોગિંગ સ્તર વધારો, વાઇ-ફાઇ પીકરમાં SSID RSSI દીઠ બતાવો</string>
+    <string name="wifi_wont_autoconnect_for_now">હમણાં પૂરતું વાઇ-ફાઇ ઑટોમૅટિક રીતે કનેક્ટ થશે નહીં</string>
     <string name="wifitrackerlib_auto_connect_disable">ઑટો-કનેક્ટ બંધ છે</string>
     <string name="wifitrackerlib_available_via_app">%1$s મારફતે ઉપલબ્ધ</string>
     <string name="wifitrackerlib_connected_via_app">%1$s દ્વારા કનેક્ટ થયેલ</string>
@@ -2211,7 +2236,7 @@ Codec પસંદગી ટ્રિગર કરો: પ્લેબૅક ક
     <string name="wifitrackerlib_wifi_no_internet">કોઈ ઇન્ટરનેટ ઍક્સેસ નથી</string>
     <string name="wifitrackerlib_wifi_no_internet_no_reconnect">ઑટોમૅટિક રીતે કનેક્ટ થશે નહીં</string>
     <string name="wifitrackerlib_wifi_passpoint_expired">સમય સમાપ્ત થયો</string>
-    <string name="wifitrackerlib_wifi_poor_channel_conditions">હંગામી રૂપે નેટવર્કની નબળી પરિસ્થિતિ</string>
+    <string name="wifitrackerlib_wifi_poor_channel_conditions">હંગામી રીતે નેટવર્કની નબળી સ્થિતિ</string>
     <string name="wifitrackerlib_wifi_remembered">સાચવેલા</string>
     <string name="wifitrackerlib_wifi_security_none">કોઈ નહીં</string>
     <string name="wifitrackerlib_wifi_unmetered_label">મીટર ન કરેલું</string>

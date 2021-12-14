@@ -120,7 +120,7 @@
         <item>MAP 1.4</item>
     </string-array>
     <string-array name="bt_hci_snoop_log_entries">
-        <item>Deaktivované</item>
+        <item>Vypnuté</item>
         <item>Aktivované filtrované</item>
         <item>Aktivované</item>
     </string-array>

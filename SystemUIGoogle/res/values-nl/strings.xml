@@ -363,6 +363,7 @@ Als dit recht uitstaat, werken door deze app geplande bestaande wekkers en tijdg
     <string name="alarms_and_reminders_label">Wekkers en herinneringen</string>
     <string name="alarms_and_reminders_switch_title">Wekkers en herinneringen laten instellen</string>
     <string name="alarms_and_reminders_title">Wekkers en herinneringen</string>
+    <string name="all_network_unavailable">Geen netwerken beschikbaar</string>
     <string name="allow_mock_location">Neplocaties toestaan</string>
     <string name="allow_mock_location_summary">Neplocaties toestaan</string>
     <string name="always_use_accessory">%1$s altijd openen wanneer %2$s is verbonden</string>
@@ -618,6 +619,11 @@ Selectie"</string>
     <string name="clock_title_analog">Analoog</string>
     <string name="clock_title_bubble">Bel</string>
     <string name="clock_title_default">Standaard</string>
+    <string name="columbus_bouncer_message">Ontgrendel het apparaat om snel tikken af te ronden</string>
+    <string name="columbus_target_request_dialog_allow">Toestaan</string>
+    <string name="columbus_target_request_dialog_deny">Niet toestaan</string>
+    <string name="columbus_target_request_dialog_summary">Als je dubbeltikt op de achterkant van je telefoon, gaat %1$s open. Je kunt deze voorkeur op elk gewenst moment aanpassen via Instellingen.</string>
+    <string name="columbus_target_request_dialog_title">%1$s openen via Snel tikken?</string>
     <string name="compat_mode_off">Rek uit v. schermvulling</string>
     <string name="compat_mode_on">Zoom om scherm te vullen</string>
     <string name="confirm_enable_oem_unlock_text">WAARSCHUWING: De apparaatbeveiligingsfuncties werken niet op dit apparaat als deze instelling aanstaat.</string>
@@ -740,6 +746,8 @@ Als je hervat, kunnen er kosten voor datagebruik in rekening worden gebracht."</
     <string name="defender_notify_learn_more">Meer informatie</string>
     <string name="defender_notify_resume_charge">Opladen hervatten</string>
     <string name="defender_notify_title">Opladen tijdelijk beperkt</string>
+    <string name="defender_post_notify_des">Opladen is beperkt tot %1$s van %2$s tot %3$s omdat dit beter is voor de batterij</string>
+    <string name="defender_post_notify_title">Normaal opladen</string>
     <string name="delete_blob_confirmation_text">Weet je zeker dat je deze gedeelde gegevens wilt verwijderen?</string>
     <string name="delete_blob_text">Gedeelde gegevens verwijderen</string>
     <string name="demo_mode">Demomodus voor systeemgebruikersinterface</string>
@@ -885,6 +893,7 @@ De gezichtsinformatie die wordt gebruikt voor ontgrendelen via gezichtsherkennin
     <string name="game_status">Aan het spelen</string>
     <string name="global_action_lock_message">Ontgrendel je telefoon voor meer opties</string>
     <string name="global_action_screenshot">Screenshot</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock staat uit</string>
     <string name="global_actions_change_description">Voor toegang tot %1$s en apparaatbediening swipe je omlaag vanaf de bovenkant van het scherm</string>
     <string name="go_to_web">Ga naar browser</string>
     <string name="google_services_wallpaper_permission"><b>Toestaan dat interactieve achtergronden van Google reageren op je locatie</b> door middel van toegang tot de locatieservice van Google.</string>
@@ -1232,7 +1241,7 @@ Probeer het over %2$d seconden opnieuw."</string>
     <string name="media_projection_dialog_text">"%s krijgt toegang tot alle informatie die zichtbaar is op je scherm of die wordt afgespeeld vanaf je apparaat tijdens het opnemen of casten. Dit omvat informatie zoals wachtwoorden, betalingsgegevens, foto's, berichten en audio die je afspeelt."</string>
     <string name="media_projection_dialog_title">Beginnen met opnemen of casten met %s?</string>
     <string name="media_projection_remember_text">Niet opnieuw tonen</string>
-    <string name="media_seamless_remote_device">Apparaat</string>
+    <string name="media_seamless_other_device">Ander apparaat</string>
     <string name="media_transfer_this_device_name">Telefoonspeaker</string>
     <string name="media_transfer_this_phone">Deze telefoon</string>
     <string name="media_transfer_wired_device_name">Bedraad audioapparaat</string>
@@ -1249,9 +1258,13 @@ Probeer het over %2$d seconden opnieuw."</string>
     <string name="mobile_data">Mobiele data</string>
     <string name="mobile_data_always_on">Mobiele data altijd actief</string>
     <string name="mobile_data_always_on_summary">Houd mobiele data altijd actief, ook als wifi actief is (voor sneller schakelen tussen netwerken).</string>
+    <string name="mobile_data_connection_active">Verbonden</string>
     <string name="mobile_data_disable_message">Je hebt dan geen toegang meer tot data of internet via %s. Internet is alleen nog beschikbaar via wifi.</string>
     <string name="mobile_data_disable_message_default_carrier">je provider</string>
     <string name="mobile_data_disable_title">Mobiele data uitzetten?</string>
+    <string name="mobile_data_no_connection">Geen verbinding</string>
+    <string name="mobile_data_off_summary">Mobiele data maakt niet automatisch verbinding</string>
+    <string name="mobile_data_settings_title">Mobiele data</string>
     <string name="mobile_data_text_format">%1$s — %2$s</string>
     <string name="mock_location_app">App voor neplocatie selecteren</string>
     <string name="mock_location_app_not_set">Geen app voor neplocatie ingesteld</string>
@@ -1391,6 +1404,7 @@ Als je vragen hebt, kun je contact opnemen met %2$s."</string>
     <string name="no_content_in_select_mode">Geen tekst of afbeelding om te selecteren</string>
     <string name="no_conversations_text">Je ziet je recente gesprekken hier</string>
     <string name="no_shortcut">%1$s ondersteunt geen gespreksfuncties</string>
+    <string name="non_carrier_network_unavailable">Geen andere netwerken beschikbaar</string>
     <string name="not_default_data_content_description">Gebruik van gegevens is niet ingesteld</string>
     <string name="not_set">Niet ingesteld</string>
     <string name="notif_inline_reply_remove_attachment_description">Bijlage verwijderen</string>
@@ -1571,6 +1585,7 @@ Als je vragen hebt, kun je contact opnemen met %2$s."</string>
     <string name="power_remaining_only_more_than_subtext">Meer dan %1$s</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">Batterij is waarschijnlijk leeg om %1$s</string>
+    <string name="pref_title_network_details">Netwerkgegevens</string>
     <string name="preference_copied">"'%1$s' is gekopieerd naar het klembord."</string>
     <string name="preference_summary_default_combination">%1$s/%2$s</string>
     <string name="priority_conversations">Prioriteitsgesprekken</string>
@@ -1740,6 +1755,7 @@ Als je vragen hebt, kun je contact opnemen met %2$s."</string>
     <string name="right_keycode">Toetscode rechts</string>
     <string name="right_nav_bar_button_type">Extra knoptype rechts</string>
     <string name="ring_toggle_title">Gesprekken</string>
+    <string name="rotation_lock_camera_rotation_on">Aan: op basis van gezicht</string>
     <string name="running_foreground_services_msg">Tik voor batterij- en datagebruik</string>
     <string name="running_foreground_services_title">Apps uitgevoerd op achtergrond</string>
     <string name="running_process_item_user_label">Gebruiker: %1$s</string>
@@ -1814,6 +1830,7 @@ Als je vragen hebt, kun je contact opnemen met %2$s."</string>
     <string name="screenshot_top_boundary_pct">Bovengrens %1$d procent</string>
     <string name="search_menu">Zoeken in de instellingen</string>
     <string name="search_menu_title">Zoeken</string>
+    <string name="see_all_networks">Alles tonen</string>
     <string name="see_more_title">Meer tonen</string>
     <string name="select_application">App selecteren</string>
     <string name="select_conversation_text">Tik op een gesprek om het toe te voegen aan je startscherm</string>
@@ -1926,6 +1943,7 @@ worden gecontroleerd"</string>
     <string name="switch_bar_off">Uit</string>
     <string name="switch_bar_on">Aan</string>
     <string name="system_ui_tuner">Systeem-UI-tuner</string>
+    <string name="tap_a_network_to_connect">Tik op een netwerk om verbinding te maken</string>
     <string name="tap_again">Tik nog een keer</string>
     <string name="tap_to_sign_up">Tik om aan te melden</string>
     <string name="tether_settings_title_all">Tethering en draagbare hotspot</string>
@@ -1951,6 +1969,7 @@ Tik voor meer informatie"</string>
     <string name="time_unit_just_now">Zojuist</string>
     <string name="title_convert_fbe">Converteren naar versleuteling op basis van bestanden</string>
     <string name="title_usb_accessory">USB-accessoire</string>
+    <string name="to_switch_networks_disconnect_ethernet">Verbreek de ethernetverbinding om van netwerk te wisselen</string>
     <string name="too_hot_label">Pixel te heet</string>
     <string name="touch_filtered_warning">Aangezien een app een rechtenverzoek afdekt, kan Instellingen je reactie niet verifiëren.</string>
     <string name="track_frame_time">HWUI-weergave van profiel</string>
@@ -2009,10 +2028,12 @@ Tik voor meer informatie"</string>
     <string name="tuner_toast">Systeem-UI-tuner is toegevoegd aan Instellingen</string>
     <string name="tuner_warning">Met Systeem-UI-tuner beschikt u over extra manieren om de Android-gebruikersinterface aan te passen. Deze experimentele functies kunnen veranderen, vastlopen of verdwijnen in toekomstige releases. Ga voorzichtig verder.</string>
     <string name="tuner_warning_title">Leuk voor sommige gebruikers, maar niet voor iedereen</string>
+    <string name="turn_on_wifi">Wifi</string>
     <string name="tv_notification_panel_no_notifications">Geen meldingen</string>
     <string name="tv_notification_panel_title">Meldingen</string>
     <string name="two_weeks_timestamp">2 weken geleden</string>
     <string name="unknown">Onbekend</string>
+    <string name="unlock_to_view_networks">Ontgrendel het scherm om netwerken te bekijken</string>
     <string name="upcoming_birthday_status">Bijna jarig</string>
     <string name="upcoming_birthday_status_content_description">%1$s is binnenkort jarig</string>
     <string name="url_menu_copy">Kopiëren</string>
@@ -2151,9 +2172,11 @@ Wifi-adres (BSSID)
     <string name="wifi_disconnected">Verbinding verbroken</string>
     <string name="wifi_display_certification">Certificering van draadloze weergave</string>
     <string name="wifi_display_certification_summary">Toon opties voor certificering van draadloze weergave</string>
+    <string name="wifi_empty_list_wifi_on">Netwerken zoeken…</string>
     <string name="wifi_enhanced_mac_randomization">Niet-persistente MAC-herschikking in willekeurige volgorde voor wifi</string>
     <string name="wifi_enhanced_mac_randomization_summary">Als deze modus aanstaat, kan het MAC-adres van dit apparaat veranderen telkens als het apparaat verbinding maakt met een netwerk waarvoor MAC-herschikking aanstaat.</string>
     <string name="wifi_fail_to_scan">Kan niet zoeken naar netwerken</string>
+    <string name="wifi_failed_connect_message">Kan geen verbinding maken met het netwerk</string>
     <string name="wifi_hotspot_switch_off_text">Uit</string>
     <string name="wifi_hotspot_switch_on_text">Aan</string>
     <string name="wifi_is_off">Wifi staat uit</string>
@@ -2164,6 +2187,7 @@ Wifi-adres (BSSID)
     <string name="wifi_not_in_range">Niet binnen bereik</string>
     <string name="wifi_passpoint_expired">Verlopen</string>
     <string name="wifi_remembered">Opgeslagen</string>
+    <string name="wifi_scan_notify_message">Apps en services kunnen nog steeds op elk moment scannen op wifi-netwerken, zelfs als wifi uitstaat, om de apparaatfunctionaliteit te verbeteren. Je kunt dit aanpassen in de instellingen voor wifi-scannen. <annotation id="link">Wijzigen</annotation></string>
     <string name="wifi_scan_throttling">Wifi-scannen beperken</string>
     <string name="wifi_scan_throttling_summary">Verlaag het batterijverbruik en verbeter de netwerkprestaties</string>
     <string name="wifi_security_none">Geen</string>
@@ -2173,6 +2197,7 @@ Wifi-adres (BSSID)
     <string name="wifi_unmetered_label">Gratis</string>
     <string name="wifi_verbose_logging">Uitgebreide wifi-logregistr. aanzetten</string>
     <string name="wifi_verbose_logging_summary">Verhoog het logniveau voor wifi, toon per SSID RSSI in wifi-kiezer</string>
+    <string name="wifi_wont_autoconnect_for_now">Wifi maakt momenteel niet automatisch verbinding</string>
     <string name="wifitrackerlib_auto_connect_disable">Automatisch verbinding maken staat uit</string>
     <string name="wifitrackerlib_available_via_app">Beschikbaar via %1$s</string>
     <string name="wifitrackerlib_connected_via_app">Verbonden via %1$s</string>

@@ -56,6 +56,14 @@
 
 
 # virtual methods
+.method public getBackground()Landroid/graphics/drawable/Drawable;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardIndication;->mBackground:Landroid/graphics/drawable/Drawable;
+
+    return-object p0
+.end method
+
 .method public getClickListener()Landroid/view/View$OnClickListener;
     .locals 0
 

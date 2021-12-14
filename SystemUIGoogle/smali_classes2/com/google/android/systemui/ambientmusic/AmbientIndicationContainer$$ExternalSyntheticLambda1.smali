@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Landroid/view/View$OnLayoutChangeListener;
+.implements Landroid/view/View$OnClickListener;
 
 
 # instance fields
@@ -22,32 +22,12 @@
 
 
 # virtual methods
-.method public final onLayoutChange(Landroid/view/View;IIIIIIII)V
-    .locals 10
+.method public final onClick(Landroid/view/View;)V
+    .locals 0
 
-    move-object v0, p0
+    iget-object p0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$$ExternalSyntheticLambda1;->f$0:Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;
 
-    iget-object v0, v0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$$ExternalSyntheticLambda1;->f$0:Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;
-
-    move-object v1, p1
-
-    move v2, p2
-
-    move v3, p3
-
-    move v4, p4
-
-    move v5, p5
-
-    move/from16 v6, p6
-
-    move/from16 v7, p7
-
-    move/from16 v8, p8
-
-    move/from16 v9, p9
-
-    invoke-static/range {v0 .. v9}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->$r8$lambda$_ArXKS3h4iu-GlwiBOxbGBlL2MY(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;Landroid/view/View;IIIIIIII)V
+    invoke-static {p0, p1}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->$r8$lambda$-bcPq_N_Csx24DoJye7MuyjV3sU(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;Landroid/view/View;)V
 
     return-void
 .end method

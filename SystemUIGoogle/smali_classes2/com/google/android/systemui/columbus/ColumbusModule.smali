@@ -99,23 +99,19 @@
     return-object p0
 .end method
 
-.method public static final provideColumbusGates(Lcom/google/android/systemui/columbus/gates/FlagEnabled;Lcom/google/android/systemui/columbus/gates/ChargingState;Lcom/google/android/systemui/columbus/gates/UsbState;Lcom/google/android/systemui/columbus/gates/KeyguardProximity;Lcom/google/android/systemui/columbus/gates/SetupWizard;Lcom/google/android/systemui/columbus/gates/SystemKeyPress;Lcom/google/android/systemui/columbus/gates/TelephonyActivity;Lcom/google/android/systemui/columbus/gates/VrMode;Lcom/google/android/systemui/columbus/gates/CameraVisibility;Lcom/google/android/systemui/columbus/gates/PowerSaveState;Lcom/google/android/systemui/columbus/gates/PowerState;Lcom/google/android/systemui/columbus/gates/ScreenTouch;)Ljava/util/Set;
-    .locals 13
+.method public static final provideColumbusGates(Lcom/google/android/systemui/columbus/gates/FlagEnabled;Lcom/google/android/systemui/columbus/gates/KeyguardProximity;Lcom/google/android/systemui/columbus/gates/SetupWizard;Lcom/google/android/systemui/columbus/gates/TelephonyActivity;Lcom/google/android/systemui/columbus/gates/VrMode;Lcom/google/android/systemui/columbus/gates/CameraVisibility;Lcom/google/android/systemui/columbus/gates/PowerSaveState;Lcom/google/android/systemui/columbus/gates/PowerState;)Ljava/util/Set;
+    .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lcom/google/android/systemui/columbus/gates/FlagEnabled;",
-            "Lcom/google/android/systemui/columbus/gates/ChargingState;",
-            "Lcom/google/android/systemui/columbus/gates/UsbState;",
             "Lcom/google/android/systemui/columbus/gates/KeyguardProximity;",
             "Lcom/google/android/systemui/columbus/gates/SetupWizard;",
-            "Lcom/google/android/systemui/columbus/gates/SystemKeyPress;",
             "Lcom/google/android/systemui/columbus/gates/TelephonyActivity;",
             "Lcom/google/android/systemui/columbus/gates/VrMode;",
             "Lcom/google/android/systemui/columbus/gates/CameraVisibility;",
             "Lcom/google/android/systemui/columbus/gates/PowerSaveState;",
             "Lcom/google/android/systemui/columbus/gates/PowerState;",
-            "Lcom/google/android/systemui/columbus/gates/ScreenTouch;",
             ")",
             "Ljava/util/Set<",
             "Lcom/google/android/systemui/columbus/gates/Gate;",
@@ -131,29 +127,46 @@
 
     move-object v3, p2
 
-    move-object/from16 v4, p3
+    move-object v4, p3
 
-    move-object/from16 v5, p4
+    move-object v5, p4
 
-    move-object/from16 v6, p5
+    move-object v6, p5
 
-    move-object/from16 v7, p6
+    move-object v7, p6
 
     move-object/from16 v8, p7
 
-    move-object/from16 v9, p8
-
-    move-object/from16 v10, p9
-
-    move-object/from16 v11, p10
-
-    move-object/from16 v12, p11
-
-    invoke-virtual/range {v0 .. v12}, Lcom/google/android/systemui/columbus/ColumbusModule$Companion;->provideColumbusGates(Lcom/google/android/systemui/columbus/gates/FlagEnabled;Lcom/google/android/systemui/columbus/gates/ChargingState;Lcom/google/android/systemui/columbus/gates/UsbState;Lcom/google/android/systemui/columbus/gates/KeyguardProximity;Lcom/google/android/systemui/columbus/gates/SetupWizard;Lcom/google/android/systemui/columbus/gates/SystemKeyPress;Lcom/google/android/systemui/columbus/gates/TelephonyActivity;Lcom/google/android/systemui/columbus/gates/VrMode;Lcom/google/android/systemui/columbus/gates/CameraVisibility;Lcom/google/android/systemui/columbus/gates/PowerSaveState;Lcom/google/android/systemui/columbus/gates/PowerState;Lcom/google/android/systemui/columbus/gates/ScreenTouch;)Ljava/util/Set;
+    invoke-virtual/range {v0 .. v8}, Lcom/google/android/systemui/columbus/ColumbusModule$Companion;->provideColumbusGates(Lcom/google/android/systemui/columbus/gates/FlagEnabled;Lcom/google/android/systemui/columbus/gates/KeyguardProximity;Lcom/google/android/systemui/columbus/gates/SetupWizard;Lcom/google/android/systemui/columbus/gates/TelephonyActivity;Lcom/google/android/systemui/columbus/gates/VrMode;Lcom/google/android/systemui/columbus/gates/CameraVisibility;Lcom/google/android/systemui/columbus/gates/PowerSaveState;Lcom/google/android/systemui/columbus/gates/PowerState;)Ljava/util/Set;
 
     move-result-object v0
 
     return-object v0
+.end method
+
+.method public static final provideColumbusSoftGates(Lcom/google/android/systemui/columbus/gates/ChargingState;Lcom/google/android/systemui/columbus/gates/UsbState;Lcom/google/android/systemui/columbus/gates/SystemKeyPress;Lcom/google/android/systemui/columbus/gates/ScreenTouch;)Ljava/util/Set;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/google/android/systemui/columbus/gates/ChargingState;",
+            "Lcom/google/android/systemui/columbus/gates/UsbState;",
+            "Lcom/google/android/systemui/columbus/gates/SystemKeyPress;",
+            "Lcom/google/android/systemui/columbus/gates/ScreenTouch;",
+            ")",
+            "Ljava/util/Set<",
+            "Lcom/google/android/systemui/columbus/gates/Gate;",
+            ">;"
+        }
+    .end annotation
+
+    sget-object v0, Lcom/google/android/systemui/columbus/ColumbusModule;->Companion:Lcom/google/android/systemui/columbus/ColumbusModule$Companion;
+
+    invoke-virtual {v0, p0, p1, p2, p3}, Lcom/google/android/systemui/columbus/ColumbusModule$Companion;->provideColumbusSoftGates(Lcom/google/android/systemui/columbus/gates/ChargingState;Lcom/google/android/systemui/columbus/gates/UsbState;Lcom/google/android/systemui/columbus/gates/SystemKeyPress;Lcom/google/android/systemui/columbus/gates/ScreenTouch;)Ljava/util/Set;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method public static final provideFullscreenActions(Lcom/google/android/systemui/columbus/actions/DismissTimer;Lcom/google/android/systemui/columbus/actions/SnoozeAlarm;Lcom/google/android/systemui/columbus/actions/SilenceCall;Lcom/google/android/systemui/columbus/actions/SettingsAction;)Ljava/util/List;

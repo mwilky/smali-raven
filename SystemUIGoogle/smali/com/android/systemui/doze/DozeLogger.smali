@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nDozeLogger.kt\nKotlin\n*S Kotlin\n*F\n+ 1 DozeLogger.kt\ncom/android/systemui/doze/DozeLogger\n+ 2 LogBuffer.kt\ncom/android/systemui/log/LogBuffer\n*L\n1#1,260:1\n113#2,6:261\n113#2,6:267\n113#2,6:273\n113#2,6:279\n113#2,6:285\n113#2,6:291\n113#2,6:297\n113#2,6:303\n113#2,6:309\n113#2,6:315\n113#2,6:321\n113#2,6:327\n113#2,6:333\n113#2,6:339\n113#2,6:345\n113#2,6:351\n113#2,6:357\n113#2,6:363\n113#2,6:369\n113#2,6:375\n113#2,6:381\n113#2,6:387\n113#2,6:393\n113#2,6:399\n113#2,6:405\n113#2,6:411\n113#2,6:417\n*E\n*S KotlinDebug\n*F\n+ 1 DozeLogger.kt\ncom/android/systemui/doze/DozeLogger\n*L\n37#1,6:261\n45#1,6:267\n53#1,6:273\n57#1,6:279\n61#1,6:285\n69#1,6:291\n82#1,6:297\n94#1,6:303\n98#1,6:309\n106#1,6:315\n114#1,6:321\n122#1,6:327\n130#1,6:333\n140#1,6:339\n148#1,6:345\n156#1,6:351\n164#1,6:357\n172#1,6:363\n180#1,6:369\n189#1,6:375\n199#1,6:381\n209#1,6:387\n217#1,6:393\n225#1,6:399\n233#1,6:405\n241#1,6:411\n249#1,6:417\n*E\n"
+    value = "SMAP\nDozeLogger.kt\nKotlin\n*S Kotlin\n*F\n+ 1 DozeLogger.kt\ncom/android/systemui/doze/DozeLogger\n+ 2 LogBuffer.kt\ncom/android/systemui/log/LogBuffer\n*L\n1#1,269:1\n113#2,6:270\n113#2,6:276\n113#2,6:282\n113#2,6:288\n113#2,6:294\n113#2,6:300\n113#2,6:306\n113#2,6:312\n113#2,6:318\n113#2,6:324\n113#2,6:330\n113#2,6:336\n113#2,6:342\n113#2,6:348\n113#2,6:354\n113#2,6:360\n113#2,6:366\n113#2,6:372\n113#2,6:378\n113#2,6:384\n113#2,6:390\n113#2,6:396\n113#2,6:402\n113#2,6:408\n113#2,6:414\n113#2,6:420\n113#2,6:426\n113#2,6:432\n*E\n*S KotlinDebug\n*F\n+ 1 DozeLogger.kt\ncom/android/systemui/doze/DozeLogger\n*L\n37#1,6:270\n45#1,6:276\n53#1,6:282\n57#1,6:288\n61#1,6:294\n69#1,6:300\n82#1,6:306\n94#1,6:312\n98#1,6:318\n106#1,6:324\n114#1,6:330\n122#1,6:336\n130#1,6:342\n140#1,6:348\n148#1,6:354\n156#1,6:360\n164#1,6:366\n172#1,6:372\n180#1,6:378\n189#1,6:384\n199#1,6:390\n209#1,6:396\n218#1,6:402\n226#1,6:408\n234#1,6:414\n242#1,6:420\n250#1,6:426\n258#1,6:432\n*E\n"
 .end annotation
 
 
@@ -709,6 +709,41 @@
     move-result-object v0
 
     invoke-interface {v0, p1}, Lcom/android/systemui/log/LogMessage;->setBool1(Z)V
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/log/LogBuffer;->push(Lcom/android/systemui/log/LogMessage;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public final logSensorEventDropped(ILjava/lang/String;)V
+    .locals 3
+
+    const-string v0, "reason"
+
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeLogger;->buffer:Lcom/android/systemui/log/LogBuffer;
+
+    sget-object v0, Lcom/android/systemui/log/LogLevel;->INFO:Lcom/android/systemui/log/LogLevel;
+
+    sget-object v1, Lcom/android/systemui/doze/DozeLogger$logSensorEventDropped$2;->INSTANCE:Lcom/android/systemui/doze/DozeLogger$logSensorEventDropped$2;
+
+    invoke-virtual {p0}, Lcom/android/systemui/log/LogBuffer;->getFrozen()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const-string v2, "DozeLog"
+
+    invoke-virtual {p0, v2, v0, v1}, Lcom/android/systemui/log/LogBuffer;->obtain(Ljava/lang/String;Lcom/android/systemui/log/LogLevel;Lkotlin/jvm/functions/Function1;)Lcom/android/systemui/log/LogMessageImpl;
+
+    move-result-object v0
+
+    invoke-interface {v0, p1}, Lcom/android/systemui/log/LogMessage;->setInt1(I)V
+
+    invoke-interface {v0, p2}, Lcom/android/systemui/log/LogMessage;->setStr1(Ljava/lang/String;)V
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/log/LogBuffer;->push(Lcom/android/systemui/log/LogMessage;)V
 

@@ -363,6 +363,7 @@ Bu icazə deaktiv olsa, bu tətbiq tərəfindən planlaşdırılan mövcud siqna
     <string name="alarms_and_reminders_label">Siqnallar və xatırladıcılar</string>
     <string name="alarms_and_reminders_switch_title">Siqnallar və xatırlatmaları ayarlamağa icazə verin</string>
     <string name="alarms_and_reminders_title">Siqnallar və xatırlatmalar</string>
+    <string name="all_network_unavailable">Əlçatan şəbəkə yoxdur</string>
     <string name="allow_mock_location">Sınaq yerləşmələrə icazə verin</string>
     <string name="allow_mock_location_summary">Sınaq yerləşmələrə icazə verin</string>
     <string name="always_use_accessory">%2$s qoşulduqda həmişə %1$s tətbiqini açın</string>
@@ -618,6 +619,11 @@ Seçimini aktiv edin"</string>
     <string name="clock_title_analog">Analoq</string>
     <string name="clock_title_bubble">Qabarcıq</string>
     <string name="clock_title_default">Defolt</string>
+    <string name="columbus_bouncer_message">Sürətli Toxunuşu tamamlamaq mümkün deyil</string>
+    <string name="columbus_target_request_dialog_allow">İcazə verin</string>
+    <string name="columbus_target_request_dialog_deny">İcazə verməyin</string>
+    <string name="columbus_target_request_dialog_summary">Telefonun arxasına iki dəfə toxunduqda %1$s açılacaq. Bu tərcihi istənilən vaxt Ayarlarda dəyişə bilərsiniz.</string>
+    <string name="columbus_target_request_dialog_title">%1$s tətbiqini açmaq üçün Qısa Toxunuşa icazə verilsin?</string>
     <string name="compat_mode_off">Ekranı doldurmaq üçün uzat</string>
     <string name="compat_mode_on">Ekranı doldurmaq üçün yaxınlaşdır</string>
     <string name="confirm_enable_oem_unlock_text">DİQQƏT: Bu parametr aktiv olduqca cihaz qorunmayacaq.</string>
@@ -740,6 +746,8 @@ Davam etsəniz, data istifadəsi üçün ödəniş tutulacaq."</string>
     <string name="defender_notify_learn_more">Ətraflı məlumat</string>
     <string name="defender_notify_resume_charge">Şarja davam edin</string>
     <string name="defender_notify_title">Şarj müvəqqəti məhdudlaşdırılıb</string>
+    <string name="defender_post_notify_des">Batareyanı qorumaq üçün şarj %2$s-%3$s arasında %1$s ilə məhdudlaşdırılıb</string>
+    <string name="defender_post_notify_title">Normal şarj edilir</string>
     <string name="delete_blob_confirmation_text">Bu paylaşılan datanı silmək istədiyinizə əminsiniz?</string>
     <string name="delete_blob_text">Paylaşılan datanı silin</string>
     <string name="demo_mode">Sistem interfeysi: demorejim</string>
@@ -885,6 +893,7 @@ Davam etsəniz, data istifadəsi üçün ödəniş tutulacaq."</string>
     <string name="game_status">Oxudulur</string>
     <string name="global_action_lock_message">Daha çox seçim üçün telefonu kiliddən çıxarın</string>
     <string name="global_action_screenshot">Skrinşot</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock deaktivdir</string>
     <string name="global_actions_change_description">%1$s və cihaz idarəetmələrinə giriş üçün ekranınızın yuxarısından aşağı sürüşdürün</string>
     <string name="go_to_web">Brauzerə daxil edin</string>
     <string name="google_services_wallpaper_permission">Google məkan xidmətlərini qəbul edərək <b>Google Canlı Divar kağızlarının məkanınıza cavab verməsinə icazə verin</b>.</string>
@@ -1232,7 +1241,7 @@ prioritet"</string>
     <string name="media_projection_dialog_text">%s tətbiqinin yazma və ya yayım zamanı ekranda görünən və ya cihazdan oxudulan bütün məlumatlara girişi olacaq. Bura parollar, ödəniş detalları, fotolar, mesajlar və oxudulan audio kimi məlumatlar daxildir.</string>
     <string name="media_projection_dialog_title">%s ilə yazma və ya yayımlama başladılsın?</string>
     <string name="media_projection_remember_text">Göstərilməsin</string>
-    <string name="media_seamless_remote_device">Cihaz</string>
+    <string name="media_seamless_other_device">Digər cihaz</string>
     <string name="media_transfer_this_device_name">Telefon dinamiki</string>
     <string name="media_transfer_this_phone">Bu telefon</string>
     <string name="media_transfer_wired_device_name">Simli audio cihaz</string>
@@ -1249,9 +1258,13 @@ prioritet"</string>
     <string name="mobile_data">Mobil data</string>
     <string name="mobile_data_always_on">Mobil data həmişə aktiv</string>
     <string name="mobile_data_always_on_summary">Hətta Wi-Fi bağlantısı olanda da məlumatların mobil şəbəkə ilə ötürülməsi yolu açıq qalsın (şəbəkələr arasında cəld keçid üçün)</string>
+    <string name="mobile_data_connection_active">Qoşulub</string>
     <string name="mobile_data_disable_message">%s ilə data və ya internetə daxil ola bilməyəcəksiniz. İnternet yalnız Wi-Fi ilə əlçatan olacaq.</string>
     <string name="mobile_data_disable_message_default_carrier">operatorunuz</string>
     <string name="mobile_data_disable_title">Mobil data söndürülsün?</string>
+    <string name="mobile_data_no_connection">Bağlantı yoxdur</string>
+    <string name="mobile_data_off_summary">Mobil data avtomatik qoşulmayacaq</string>
+    <string name="mobile_data_settings_title">Mobil data</string>
     <string name="mobile_data_text_format">%1$s — %2$s</string>
     <string name="mock_location_app">Saxta məkan tətbiqini seçin</string>
     <string name="mock_location_app_not_set">Ayarlanmış saxta məkan tətbiqi yoxdur</string>
@@ -1391,6 +1404,7 @@ Suallarınız varsa, %2$s ilə əlaqə saxlayın."</string>
     <string name="no_content_in_select_mode">Seçiləcək mətn və ya şəkil yoxdur</string>
     <string name="no_conversations_text">Son söhbətləriniz burada görünəcək</string>
     <string name="no_shortcut">%1$s söhbət funksiyalarını dəstəkləmir</string>
+    <string name="non_carrier_network_unavailable">Heç bir başqa şəbəkə əlçatan deyil</string>
     <string name="not_default_data_content_description">Data istifadə etmək üçün ayarlanmayıb</string>
     <string name="not_set">Ayarlanmayıb</string>
     <string name="notif_inline_reply_remove_attachment_description">Qoşmanı silin</string>
@@ -1571,6 +1585,7 @@ Suallarınız varsa, %2$s ilə əlaqə saxlayın."</string>
     <string name="power_remaining_only_more_than_subtext">Minimum %1$s qalıb</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">Batareya %1$s radələrinə qədər boşala bilər</string>
+    <string name="pref_title_network_details">Şəbəkə məlumatları</string>
     <string name="preference_copied">\"%1$s\" buferə kopyalandı.</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">Önəmli söhbətlər</string>
@@ -1740,6 +1755,7 @@ Suallarınız varsa, %2$s ilə əlaqə saxlayın."</string>
     <string name="right_keycode">Sağ açar kodu</string>
     <string name="right_nav_bar_button_type">Əlavə sağ düymə növü</string>
     <string name="ring_toggle_title">Zənglər</string>
+    <string name="rotation_lock_camera_rotation_on">Aktiv - Üz əsaslı</string>
     <string name="running_foreground_services_msg">Batareya və data istifadəsi haqqında ətraflı məlumat üçün klikləyin</string>
     <string name="running_foreground_services_title">Arxa fonda işləyən tətbiqlər</string>
     <string name="running_process_item_user_label">İstifadəçi: %1$s</string>
@@ -1814,6 +1830,7 @@ Suallarınız varsa, %2$s ilə əlaqə saxlayın."</string>
     <string name="screenshot_top_boundary_pct">Yuxarı sərhəd %1$d faiz</string>
     <string name="search_menu">Seçimlər</string>
     <string name="search_menu_title">Axtarın</string>
+    <string name="see_all_networks">Hamısına baxın</string>
     <string name="see_more_title">Ətraflı məlumat</string>
     <string name="select_application">Tətbiq seçin</string>
     <string name="select_conversation_text">Əsas ekranınıza əlavə etmək üçün söhbətə toxunun</string>
@@ -1926,6 +1943,7 @@ ola bilər"</string>
     <string name="switch_bar_off">Deaktiv</string>
     <string name="switch_bar_on">Aktiv</string>
     <string name="system_ui_tuner">System UI Tuner</string>
+    <string name="tap_a_network_to_connect">Qoşulmaq üçün şəbəkəyə toxunun</string>
     <string name="tap_again">Yenidən toxunun</string>
     <string name="tap_to_sign_up">Qeydiyyatdan keçmək üçün klikləyin</string>
     <string name="tether_settings_title_all">Modem rejimi</string>
@@ -1951,6 +1969,7 @@ ola bilər"</string>
     <string name="time_unit_just_now">İndicə</string>
     <string name="title_convert_fbe">Fayl əsaslı şifrələnməyə çevrilir</string>
     <string name="title_usb_accessory">USB aksesuar</string>
+    <string name="to_switch_networks_disconnect_ethernet">Şəbəkəni dəyişmək üçün etherneti ayırın</string>
     <string name="too_hot_label">Piksel çox istidir</string>
     <string name="touch_filtered_warning">Tətbiq icazə sorğusunu gizlətdiyi üçün Ayarlar cavabınızı doğrulaya bilməz.</string>
     <string name="track_frame_time">HWUI iş vaxtı uçotu</string>
@@ -2009,10 +2028,12 @@ ola bilər"</string>
     <string name="tuner_toast">Təbriklər! System UI Tuner Ayarlara əlavə edildi</string>
     <string name="tuner_warning">System UI Tuner Android istifadəçi interfeysini dəyişdirmək və fərdiləşdirmək üçün Sizə ekstra yollar təklif edir.</string>
     <string name="tuner_warning_title">Hamı üçün deyil, bəziləri üçün əyləncəli</string>
+    <string name="turn_on_wifi">Wi-Fi</string>
     <string name="tv_notification_panel_no_notifications">Bildiriş yoxdur</string>
     <string name="tv_notification_panel_title">Bildirişlər</string>
     <string name="two_weeks_timestamp">2 həftə əvvəl</string>
     <string name="unknown">Naməlum</string>
+    <string name="unlock_to_view_networks">Şəbəkələrə baxmaq üçün kilidi açın</string>
     <string name="upcoming_birthday_status">Tezliklə doğum günü</string>
     <string name="upcoming_birthday_status_content_description">Tezliklə %1$s adlı şəxsin doğum günüdür</string>
     <string name="url_menu_copy">Kopyalayın</string>
@@ -2151,9 +2172,11 @@ Wi‑Fi Ünvanı (BSSID)
     <string name="wifi_disconnected">Bağlantı kəsildi</string>
     <string name="wifi_display_certification">Simsiz monitor sertifikatlaşması</string>
     <string name="wifi_display_certification_summary">Simsiz monitorların sertifikasiya parametrləri göstərilsin</string>
+    <string name="wifi_empty_list_wifi_on">Şəbəkə axtarılır…</string>
     <string name="wifi_enhanced_mac_randomization">Wi‑Fi müvəqqəti MAC randomizasiyası</string>
     <string name="wifi_enhanced_mac_randomization_summary">Bu rejimdə şəbəkəyə hər dəfə qoşulanda cihaza təsadüfi MAC ünvanı verilə bilər.</string>
     <string name="wifi_fail_to_scan">Şəbəkə axtarmaq olmur</string>
+    <string name="wifi_failed_connect_message">Şəbəkəyə qoşulmaq alınmadı</string>
     <string name="wifi_hotspot_switch_off_text">Deaktiv</string>
     <string name="wifi_hotspot_switch_on_text">Aktiv</string>
     <string name="wifi_is_off">Wi-Fi deaktivdir</string>
@@ -2164,6 +2187,7 @@ Wi‑Fi Ünvanı (BSSID)
     <string name="wifi_not_in_range">Diapazonda deyil</string>
     <string name="wifi_passpoint_expired">Vaxtı keçib</string>
     <string name="wifi_remembered">Yadda saxlanılan</string>
+    <string name="wifi_scan_notify_message">Cihaz təcrübəsini yaxşılaşdırmaq üçün Wi-Fi deaktiv olduqda belə, tətbiqlər və xidmətlər Wi-Fi şəbəkəsini axtara biləcək. Bunu Wi-Fi axtarışı ayarlarında dəyişə bilərsiniz. <annotation id="link">Dəyişin</annotation></string>
     <string name="wifi_scan_throttling">Wi‑Fi axtarışının məhdudlaşdırılması</string>
     <string name="wifi_scan_throttling_summary">Enerji sərfiyyatını azaldır və şəbəkənin işini yaxşılaşdırır</string>
     <string name="wifi_security_none">Heç biri</string>
@@ -2173,6 +2197,7 @@ Wi‑Fi Ünvanı (BSSID)
     <string name="wifi_unmetered_label">Limitsiz</string>
     <string name="wifi_verbose_logging">Wi‑Fi Çoxsözlü Girişə icazə verin</string>
     <string name="wifi_verbose_logging_summary">Wi‑Fi giriş səviyyəsini qaldırın, Wi‑Fi seçəndə hər SSID RSSI üzrə göstərin</string>
+    <string name="wifi_wont_autoconnect_for_now">Wi-Fi hələlik avtomatik qoşulmayacaq</string>
     <string name="wifitrackerlib_auto_connect_disable">Avtomatik qoşulma deaktivdir</string>
     <string name="wifitrackerlib_available_via_app">%1$s vasitəsilə əlçatandır</string>
     <string name="wifitrackerlib_connected_via_app">%1$s vasitəsilə qoşulub</string>

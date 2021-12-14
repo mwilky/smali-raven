@@ -10,6 +10,16 @@
     <style name="Screenshot" parent="@android:style/Theme.DeviceDefault.DayNight">
         <item name="android:textColorPrimary">?android:textColorPrimaryInverse</item>
     </style>
+    <style name="TextAppearance.InternetDialog.Active" parent="@style/TextAppearance.InternetDialog">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textColor">@color/connected_network_primary_color</item>
+        <item name="android:fontFamily">@*android:string/config_headlineFontFamily</item>
+        <item name="android:textDirection">locale</item>
+    </style>
+    <style name="TextAppearance.InternetDialog.Secondary.Active" parent="@style/TextAppearance.InternetDialog.Secondary">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">@color/connected_network_secondary_color</item>
+    </style>
     <style name="TextAppearance.QS.Status" parent="@style/TextAppearance.QS.TileLabel.Secondary">
         <item name="android:textColor">?android:textColorPrimary</item>
         <item name="android:fontFamily">@*android:string/config_bodyFontFamily</item>

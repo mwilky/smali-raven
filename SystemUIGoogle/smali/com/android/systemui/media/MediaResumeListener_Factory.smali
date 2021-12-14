@@ -68,6 +68,16 @@
     .end annotation
 .end field
 
+.field private final systemClockProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/util/time/SystemClock;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final tunerServiceProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -80,7 +90,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -102,6 +112,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/dump/DumpManager;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/util/time/SystemClock;",
             ">;)V"
         }
     .end annotation
@@ -120,11 +133,13 @@
 
     iput-object p6, p0, Lcom/android/systemui/media/MediaResumeListener_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
 
+    iput-object p7, p0, Lcom/android/systemui/media/MediaResumeListener_Factory;->systemClockProvider:Ljavax/inject/Provider;
+
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/media/MediaResumeListener_Factory;
-    .locals 8
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/media/MediaResumeListener_Factory;
+    .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -145,14 +160,17 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/dump/DumpManager;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/util/time/SystemClock;",
             ">;)",
             "Lcom/android/systemui/media/MediaResumeListener_Factory;"
         }
     .end annotation
 
-    new-instance v7, Lcom/android/systemui/media/MediaResumeListener_Factory;
+    new-instance v8, Lcom/android/systemui/media/MediaResumeListener_Factory;
 
-    move-object v0, v7
+    move-object v0, v8
 
     move-object v1, p0
 
@@ -166,17 +184,19 @@
 
     move-object v6, p5
 
-    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/media/MediaResumeListener_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object v7, p6
 
-    return-object v7
+    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/media/MediaResumeListener_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v8
 .end method
 
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Ljava/util/concurrent/Executor;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/media/ResumeMediaBrowserFactory;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/media/MediaResumeListener;
-    .locals 8
+.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Ljava/util/concurrent/Executor;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/media/ResumeMediaBrowserFactory;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/util/time/SystemClock;)Lcom/android/systemui/media/MediaResumeListener;
+    .locals 9
 
-    new-instance v7, Lcom/android/systemui/media/MediaResumeListener;
+    new-instance v8, Lcom/android/systemui/media/MediaResumeListener;
 
-    move-object v0, v7
+    move-object v0, v8
 
     move-object v1, p0
 
@@ -190,15 +210,17 @@
 
     move-object v6, p5
 
-    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/media/MediaResumeListener;-><init>(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Ljava/util/concurrent/Executor;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/media/ResumeMediaBrowserFactory;Lcom/android/systemui/dump/DumpManager;)V
+    move-object v7, p6
 
-    return-object v7
+    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/media/MediaResumeListener;-><init>(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Ljava/util/concurrent/Executor;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/media/ResumeMediaBrowserFactory;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/util/time/SystemClock;)V
+
+    return-object v8
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/systemui/media/MediaResumeListener;
-    .locals 7
+    .locals 8
 
     iget-object v0, p0, Lcom/android/systemui/media/MediaResumeListener_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -250,17 +272,27 @@
 
     check-cast v5, Lcom/android/systemui/media/ResumeMediaBrowserFactory;
 
-    iget-object p0, p0, Lcom/android/systemui/media/MediaResumeListener_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/media/MediaResumeListener_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v6, v0
+
+    check-cast v6, Lcom/android/systemui/dump/DumpManager;
+
+    iget-object p0, p0, Lcom/android/systemui/media/MediaResumeListener_Factory;->systemClockProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    move-object v6, p0
+    move-object v7, p0
 
-    check-cast v6, Lcom/android/systemui/dump/DumpManager;
+    check-cast v7, Lcom/android/systemui/util/time/SystemClock;
 
-    invoke-static/range {v1 .. v6}, Lcom/android/systemui/media/MediaResumeListener_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Ljava/util/concurrent/Executor;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/media/ResumeMediaBrowserFactory;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/media/MediaResumeListener;
+    invoke-static/range {v1 .. v7}, Lcom/android/systemui/media/MediaResumeListener_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Ljava/util/concurrent/Executor;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/media/ResumeMediaBrowserFactory;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/util/time/SystemClock;)Lcom/android/systemui/media/MediaResumeListener;
 
     move-result-object p0
 
