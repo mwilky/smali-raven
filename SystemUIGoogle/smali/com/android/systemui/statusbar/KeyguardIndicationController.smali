@@ -366,10 +366,10 @@
     return-object p0
 .end method
 
-.method static synthetic access$1900(Lcom/android/systemui/statusbar/KeyguardIndicationController;)V
+.method static synthetic access$1900(Lcom/android/systemui/statusbar/KeyguardIndicationController;Ljava/lang/String;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->showTryFingerprintMsg()V
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->showTryFingerprintMsg(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -1024,7 +1024,7 @@
     return-void
 .end method
 
-.method private showTryFingerprintMsg()V
+.method private showTryFingerprintMsg(Ljava/lang/String;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
@@ -1062,6 +1062,17 @@
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->showTransientIndication(I)V
 
     :goto_0
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mLockScreenIndicationView:Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;
+
+    invoke-virtual {p0, p1}, Landroid/widget/TextView;->announceForAccessibility(Ljava/lang/CharSequence;)V
+
+    :cond_2
     return-void
 .end method
 
@@ -1318,7 +1329,7 @@
 
     move-result-object v4
 
-    const v5, 0x10403c3
+    const v5, 0x10403c5
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1328,7 +1339,13 @@
 
     move-result-object v3
 
-    iget-object v4, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mInitialTextColorState:Landroid/content/res/ColorStateList;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
+
+    const v5, 0x11200ee
+
+    invoke-static {v4, v5}, Lcom/android/settingslib/Utils;->getColorAttr(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
+
+    move-result-object v4
 
     invoke-virtual {v3, v4}, Lcom/android/systemui/keyguard/KeyguardIndication$Builder;->setTextColor(Landroid/content/res/ColorStateList;)Lcom/android/systemui/keyguard/KeyguardIndication$Builder;
 
@@ -1405,11 +1422,15 @@
     move-result-object v0
 
     :cond_0
-    const/4 v1, 0x0
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    if-eqz v0, :cond_1
+    move-result v1
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mRotateTextViewController:Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;
+    const/4 v2, 0x0
+
+    if-nez v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mRotateTextViewController:Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;
 
     new-instance v3, Lcom/android/systemui/keyguard/KeyguardIndication$Builder;
 
@@ -1429,14 +1450,14 @@
 
     move-result-object p0
 
-    invoke-virtual {v2, v1, p0, v1}, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->updateIndication(ILcom/android/systemui/keyguard/KeyguardIndication;Z)V
+    invoke-virtual {v1, v2, p0, v2}, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->updateIndication(ILcom/android/systemui/keyguard/KeyguardIndication;Z)V
 
     goto :goto_0
 
     :cond_1
     iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mRotateTextViewController:Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;
 
-    invoke-virtual {p0, v1}, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->hideIndication(I)V
+    invoke-virtual {p0, v2}, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->hideIndication(I)V
 
     :goto_0
     return-void
@@ -1447,9 +1468,13 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mRestingIndication:Ljava/lang/String;
 
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
     const/4 v1, 0x7
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mRotateTextViewController:Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;
 
@@ -1650,7 +1675,7 @@
 
     move-result-object v2
 
-    const v3, 0x10404ad
+    const v3, 0x10404af
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1688,11 +1713,56 @@
 
 # virtual methods
 .method protected computePowerIndication()Ljava/lang/String;
-    .locals 8
+    .locals 9
 
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mPowerCharged:Z
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mBatteryOverheated:Z
+
+    const/high16 v1, 0x42c80000    # 100.0f
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x1
 
     if-eqz v0, :cond_0
+
+    sget v0, Lcom/android/systemui/R$string;->keyguard_plugged_in_charging_limited:I
+
+    invoke-static {}, Ljava/text/NumberFormat;->getPercentInstance()Ljava/text/NumberFormat;
+
+    move-result-object v4
+
+    iget v5, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mBatteryLevel:I
+
+    int-to-float v5, v5
+
+    div-float/2addr v5, v1
+
+    float-to-double v5, v5
+
+    invoke-virtual {v4, v5, v6}, Ljava/text/NumberFormat;->format(D)Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p0
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    aput-object v1, v3, v2
+
+    invoke-virtual {p0, v0, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_0
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mPowerCharged:Z
+
+    if-eqz v0, :cond_1
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
 
@@ -1708,133 +1778,106 @@
 
     return-object p0
 
-    :cond_0
-    invoke-static {}, Ljava/text/NumberFormat;->getPercentInstance()Ljava/text/NumberFormat;
-
-    move-result-object v0
-
-    iget v1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mBatteryLevel:I
-
-    int-to-float v1, v1
-
-    const/high16 v2, 0x42c80000    # 100.0f
-
-    div-float/2addr v1, v2
-
-    float-to-double v1, v1
-
-    invoke-virtual {v0, v1, v2}, Ljava/text/NumberFormat;->format(D)Ljava/lang/String;
-
-    move-result-object v0
-
-    iget-boolean v1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mBatteryOverheated:Z
-
-    const/4 v2, 0x0
-
-    const/4 v3, 0x1
-
-    if-eqz v1, :cond_1
-
-    sget v1, Lcom/android/systemui/R$string;->keyguard_plugged_in_charging_limited:I
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
-
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p0
-
-    new-array v3, v3, [Ljava/lang/Object;
-
-    aput-object v0, v3, v2
-
-    invoke-virtual {p0, v1, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-
     :cond_1
     iget-wide v4, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mChargingTimeRemaining:J
 
     const-wide/16 v6, 0x0
 
-    cmp-long v1, v4, v6
+    cmp-long v0, v4, v6
 
-    if-lez v1, :cond_2
+    if-lez v0, :cond_2
 
-    move v1, v3
+    move v0, v3
 
     goto :goto_0
 
     :cond_2
-    move v1, v2
+    move v0, v2
 
     :goto_0
-    iget-boolean v6, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mPowerPluggedInWired:Z
+    iget-boolean v4, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mPowerPluggedInWired:Z
 
-    const/4 v7, 0x2
+    const/4 v5, 0x2
 
-    if-eqz v6, :cond_8
+    if-eqz v4, :cond_8
 
-    iget v6, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mChargingSpeed:I
+    iget v4, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mChargingSpeed:I
 
-    if-eqz v6, :cond_6
+    if-eqz v4, :cond_6
 
-    if-eq v6, v7, :cond_4
+    if-eq v4, v5, :cond_4
 
-    if-eqz v1, :cond_3
+    if-eqz v0, :cond_3
 
-    sget v6, Lcom/android/systemui/R$string;->keyguard_indication_charging_time:I
+    sget v4, Lcom/android/systemui/R$string;->keyguard_indication_charging_time:I
 
     goto :goto_1
 
     :cond_3
-    sget v6, Lcom/android/systemui/R$string;->keyguard_plugged_in:I
+    sget v4, Lcom/android/systemui/R$string;->keyguard_plugged_in:I
 
     goto :goto_1
 
     :cond_4
-    if-eqz v1, :cond_5
+    if-eqz v0, :cond_5
 
-    sget v6, Lcom/android/systemui/R$string;->keyguard_indication_charging_time_fast:I
+    sget v4, Lcom/android/systemui/R$string;->keyguard_indication_charging_time_fast:I
 
     goto :goto_1
 
     :cond_5
-    sget v6, Lcom/android/systemui/R$string;->keyguard_plugged_in_charging_fast:I
+    sget v4, Lcom/android/systemui/R$string;->keyguard_plugged_in_charging_fast:I
 
     goto :goto_1
 
     :cond_6
-    if-eqz v1, :cond_7
+    if-eqz v0, :cond_7
 
-    sget v6, Lcom/android/systemui/R$string;->keyguard_indication_charging_time_slowly:I
+    sget v4, Lcom/android/systemui/R$string;->keyguard_indication_charging_time_slowly:I
 
     goto :goto_1
 
     :cond_7
-    sget v6, Lcom/android/systemui/R$string;->keyguard_plugged_in_charging_slowly:I
+    sget v4, Lcom/android/systemui/R$string;->keyguard_plugged_in_charging_slowly:I
 
     goto :goto_1
 
     :cond_8
-    if-eqz v1, :cond_9
+    if-eqz v0, :cond_9
 
-    sget v6, Lcom/android/systemui/R$string;->keyguard_indication_charging_time_wireless:I
+    sget v4, Lcom/android/systemui/R$string;->keyguard_indication_charging_time_wireless:I
 
     goto :goto_1
 
     :cond_9
-    sget v6, Lcom/android/systemui/R$string;->keyguard_plugged_in_wireless:I
+    sget v4, Lcom/android/systemui/R$string;->keyguard_plugged_in_wireless:I
 
     :goto_1
-    if-eqz v1, :cond_a
+    invoke-static {}, Ljava/text/NumberFormat;->getPercentInstance()Ljava/text/NumberFormat;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
+    move-result-object v6
 
-    invoke-static {v1, v4, v5}, Landroid/text/format/Formatter;->formatShortElapsedTimeRoundingUpToMinutes(Landroid/content/Context;J)Ljava/lang/String;
+    iget v7, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mBatteryLevel:I
+
+    int-to-float v7, v7
+
+    div-float/2addr v7, v1
+
+    float-to-double v7, v7
+
+    invoke-virtual {v6, v7, v8}, Ljava/text/NumberFormat;->format(D)Ljava/lang/String;
 
     move-result-object v1
+
+    if-eqz v0, :cond_a
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
+
+    iget-wide v6, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mChargingTimeRemaining:J
+
+    invoke-static {v0, v6, v7}, Landroid/text/format/Formatter;->formatShortElapsedTimeRoundingUpToMinutes(Landroid/content/Context;J)Ljava/lang/String;
+
+    move-result-object v0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
 
@@ -1842,13 +1885,13 @@
 
     move-result-object p0
 
-    new-array v4, v7, [Ljava/lang/Object;
+    new-array v5, v5, [Ljava/lang/Object;
 
-    aput-object v1, v4, v2
+    aput-object v0, v5, v2
 
-    aput-object v0, v4, v3
+    aput-object v1, v5, v3
 
-    invoke-virtual {p0, v6, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p0, v4, v5}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p0
 
@@ -1861,11 +1904,11 @@
 
     move-result-object p0
 
-    new-array v1, v3, [Ljava/lang/Object;
+    new-array v0, v3, [Ljava/lang/Object;
 
-    aput-object v0, v1, v2
+    aput-object v1, v0, v2
 
-    invoke-virtual {p0, v6, v1}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p0, v4, v0}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p0
 
@@ -2429,6 +2472,18 @@
 
     if-eqz v0, :cond_0
 
+    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getUserCanSkipBouncer(I)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
     return-void
 
     :cond_0
@@ -2476,14 +2531,6 @@
     goto :goto_0
 
     :cond_2
-    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isScreenOn()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mContext:Landroid/content/Context;
 
     sget v1, Lcom/android/systemui/R$string;->keyguard_unlock:I

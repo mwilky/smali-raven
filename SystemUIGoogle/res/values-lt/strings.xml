@@ -363,6 +363,7 @@ Jei šis leidimas išjungtas, šios programos suplanuoti esami signalai ir laiku
     <string name="alarms_and_reminders_label">Signalai ir priminimai</string>
     <string name="alarms_and_reminders_switch_title">Leisti nustatyti signalus ir priminimus</string>
     <string name="alarms_and_reminders_title">Signalai ir priminimai</string>
+    <string name="all_network_unavailable">Nėra pasiekiamų tinklų</string>
     <string name="allow_mock_location">Leisti imituoti vietas</string>
     <string name="allow_mock_location_summary">Leisti imituoti vietas</string>
     <string name="always_use_accessory">Visada atidaryti „%1$s“, kai prijungiamas (-a) %2$s</string>
@@ -618,6 +619,11 @@ Pasirinkimas"</string>
     <string name="clock_title_analog">Analoginis</string>
     <string name="clock_title_bubble">Debesėlis</string>
     <string name="clock_title_default">Numatytasis</string>
+    <string name="columbus_bouncer_message">Atrakinkite, norėdami užbaigti „Quick Tap“ veiksmą</string>
+    <string name="columbus_target_request_dialog_allow">Leisti</string>
+    <string name="columbus_target_request_dialog_deny">Neleisti</string>
+    <string name="columbus_target_request_dialog_summary">Kai dukart paliesite telefono nugarėlę, bus atidaryta „%1$s“. Galite bet kada pakeisti šią nuostatą skiltyje „Nustatymai“.</string>
+    <string name="columbus_target_request_dialog_title">Leisti naudoti „Quick Tap“, kad būtų galima atidaryti „%1$s“?</string>
     <string name="compat_mode_off">Ištempti, kad atit. ekr.</string>
     <string name="compat_mode_on">Keisti mast., kad atit. ekr.</string>
     <string name="confirm_enable_oem_unlock_text">ĮSPĖJIMAS: kol šis nustatymas bus įjungtas, šiame įrenginyje neveiks įrenginio apsaugos funkcijos.</string>
@@ -740,6 +746,8 @@ Jei tęsite, gali būti taikomi duomenų naudojimo mokesčiai."</string>
     <string name="defender_notify_learn_more">Sužinokite daugiau</string>
     <string name="defender_notify_resume_charge">Tęsti įkrovimą</string>
     <string name="defender_notify_title">Įkrovimas laikinai apribotas</string>
+    <string name="defender_post_notify_des">Įkrovimas buvo apribotas iki %1$s %2$s–%3$s, siekiant apsaugoti akumuliatorių</string>
+    <string name="defender_post_notify_title">Įprastas įkrovimas</string>
     <string name="delete_blob_confirmation_text">Ar tikrai norite ištrinti šiuos bendrinamus duomenis?</string>
     <string name="delete_blob_text">Ištrinti bendrinamus duomenis</string>
     <string name="demo_mode">Sistemos NS demonstracinis režimas</string>
@@ -885,6 +893,7 @@ Atrakinimo pagal veidą naudojami veido duomenys bus visam laikui saugiai ištri
     <string name="game_status">Leidžiama</string>
     <string name="global_action_lock_message">Atrakinkite telefoną, kad galėtumėte naudoti daugiau parinkčių</string>
     <string name="global_action_screenshot">Ekrano kopija</string>
+    <string name="global_action_smart_lock_disabled">„Smart Lock“ išjungta</string>
     <string name="global_actions_change_description">Kad pasiektumėte „%1$s“ ir pagrindinio įrenginio valdiklius, perbraukite žemyn iš ekrano viršaus</string>
     <string name="go_to_web">Eiti į naršyklę</string>
     <string name="google_services_wallpaper_permission"><b>Leisti „Google“ sąveikiesiems fonams reaguoti į jūsų vietą</b> prisijungiant prie „Google“ vietovės paslaugos.</string>
@@ -1232,7 +1241,7 @@ Bandykite dar kartą po %2$d sek."</string>
     <string name="media_projection_dialog_text">%s galės pasiekti visą informaciją, matomą ekrane ir leidžiamą iš įrenginio įrašant ar perduodant turinį. Tai apima įvairią informaciją, pvz., slaptažodžius, išsamią mokėjimo informaciją, nuotraukas, pranešimus ir leidžiamus garso įrašus.</string>
     <string name="media_projection_dialog_title">Pradėti įrašyti ar perduoti turinį naudojant „%s“?</string>
     <string name="media_projection_remember_text">Daugiau neberodyti</string>
-    <string name="media_seamless_remote_device">Įrenginys</string>
+    <string name="media_seamless_other_device">Kitas įrenginys</string>
     <string name="media_transfer_this_device_name">Telefono garsiakalbis</string>
     <string name="media_transfer_this_phone">Šis telefonas</string>
     <string name="media_transfer_wired_device_name">Laidinis garso įrenginys</string>
@@ -1249,9 +1258,13 @@ Bandykite dar kartą po %2$d sek."</string>
     <string name="mobile_data">Mobilieji duomenys</string>
     <string name="mobile_data_always_on">Mobiliojo ryšio duomenys visada suaktyvinti</string>
     <string name="mobile_data_always_on_summary">Visada suaktyvinti mobiliojo ryšio duomenis, net kai aktyvus „Wi‑Fi“ ryšys (kad būtų galima greitai perjungti tinklą).</string>
+    <string name="mobile_data_connection_active">Prisijungta</string>
     <string name="mobile_data_disable_message">Naudodamiesi „%s“ paslaugomis neturėsite galimybės pasiekti duomenų arba interneto. Internetą galėsite naudoti tik prisijungę prie „Wi-Fi“.</string>
     <string name="mobile_data_disable_message_default_carrier">savo operatoriaus</string>
     <string name="mobile_data_disable_title">Išjungti mobiliojo ryšio duomenis?</string>
+    <string name="mobile_data_no_connection">Nėra ryšio</string>
+    <string name="mobile_data_off_summary">Naud. mob. r. duomenis nebus autom. prisijungiama</string>
+    <string name="mobile_data_settings_title">Mobiliojo ryšio duomenys</string>
     <string name="mobile_data_text_format">%1$s–%2$s</string>
     <string name="mock_location_app">Pasirinkti imituotos vietovės programą</string>
     <string name="mock_location_app_not_set">Imituotos vietovės programa nenustatyta</string>
@@ -1391,6 +1404,7 @@ Jei kyla klausimų, susisiekite su „%2$s“."</string>
     <string name="no_content_in_select_mode">Nėra jokio teksto arba vaizdo, kurį būtų galima pasirinkti</string>
     <string name="no_conversations_text">Naujausi pokalbiai bus rodomi čia</string>
     <string name="no_shortcut">Programa „%1$s“ nepalaiko pokalbių funkcijų</string>
+    <string name="non_carrier_network_unavailable">Nėra kitų pasiekiamų tinklų</string>
     <string name="not_default_data_content_description">Nenustatyta naudoti duomenis</string>
     <string name="not_set">Nenustatyta</string>
     <string name="notif_inline_reply_remove_attachment_description">Pašalinti priedą</string>
@@ -1571,6 +1585,7 @@ Jei kyla klausimų, susisiekite su „%2$s“."</string>
     <string name="power_remaining_only_more_than_subtext">Liko daugiau nei %1$s</string>
     <string name="power_remaining_settings_home_page">%1$s – %2$s</string>
     <string name="power_suggestion_battery_run_out">Akumuliatoriaus energija gali išsekti %1$s</string>
+    <string name="pref_title_network_details">Išsami tinklo informacija</string>
     <string name="preference_copied">Suvestinė „%1$s“ nukopijuota į iškarpinę.</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">Svarbiausi pokalbiai</string>
@@ -1740,6 +1755,7 @@ Jei kyla klausimų, susisiekite su „%2$s“."</string>
     <string name="right_keycode">Klavišo kodas dešinėje</string>
     <string name="right_nav_bar_button_type">Papildomo mygtuko dešinėje tipas</string>
     <string name="ring_toggle_title">Skambučiai</string>
+    <string name="rotation_lock_camera_rotation_on">Įjungta – pagal veidą</string>
     <string name="running_foreground_services_msg">Palieskite ir sužinokite išsamios informacijos apie akumuliatoriaus bei duomenų naudojimą</string>
     <string name="running_foreground_services_title">Programos, veikiančios fone</string>
     <string name="running_process_item_user_label">Naudotojas: %1$s</string>
@@ -1814,6 +1830,7 @@ Jei kyla klausimų, susisiekite su „%2$s“."</string>
     <string name="screenshot_top_boundary_pct">Viršutinė riba – %1$d proc.</string>
     <string name="search_menu">Paieškos nustatymai</string>
     <string name="search_menu_title">Ieškoti</string>
+    <string name="see_all_networks">Žiūrėti viską</string>
     <string name="see_more_title">Žr. daugiau</string>
     <string name="select_application">Pasirinkti programą</string>
     <string name="select_conversation_text">Palieskite pokalbį, kad pridėtumėte jį prie pagrindinio ekrano</string>
@@ -1926,6 +1943,7 @@ būti stebimas"</string>
     <string name="switch_bar_off">Išjungta</string>
     <string name="switch_bar_on">Įjungta</string>
     <string name="system_ui_tuner">Sistemos naudotojo sąsajos derinimo priemonė</string>
+    <string name="tap_a_network_to_connect">Palieskite tinklą, kad prisijungtumėte</string>
     <string name="tap_again">Palieskite dar kartą</string>
     <string name="tap_to_sign_up">Palieskite, kad prisiregistruotumėte</string>
     <string name="tether_settings_title_all">Susiej. ir perk. vieš. int. pr. tašk.</string>
@@ -1951,6 +1969,7 @@ Palietę gausite daugiau informacijos"</string>
     <string name="time_unit_just_now">Ką tik</string>
     <string name="title_convert_fbe">Konvertuojama į failais pagrįstą šifruotę</string>
     <string name="title_usb_accessory">USB reikmuo</string>
+    <string name="to_switch_networks_disconnect_ethernet">Norėdami perjungti tinklus, atjunkite eternetą</string>
     <string name="too_hot_label">„Pixel“ per daug įkaito</string>
     <string name="touch_filtered_warning">Kadangi programa užstoja leidimo užklausą, nustatymuose negalima patvirtinti jūsų atsakymo.</string>
     <string name="track_frame_time">Profilio HWUI atvaizdav.</string>
@@ -2009,10 +2028,12 @@ Palietę gausite daugiau informacijos"</string>
     <string name="tuner_toast">Sveikiname! Sistemos naudotojo sąsajos derinimo priemonė pridėta prie nustatymų</string>
     <string name="tuner_warning">Sistemos naudotojo sąsajos derinimo priemonė suteikia papildomų galimybių pagerinti ir tinkinti „Android“ naudotojo sąsają. Šios eksperimentinės funkcijos gali pasikeisti, nutrūkti ar išnykti iš būsimų laidų. Tęskite atsargiai.</string>
     <string name="tuner_warning_title">Smagu, bet ne visada</string>
+    <string name="turn_on_wifi">Wi-Fi</string>
     <string name="tv_notification_panel_no_notifications">Nėra jokių pranešimų</string>
     <string name="tv_notification_panel_title">Pranešimai</string>
     <string name="two_weeks_timestamp">Prieš 2 sav.</string>
     <string name="unknown">Nežinomas</string>
+    <string name="unlock_to_view_networks">Atrakinkite, kad peržiūrėtumėte visus tinklus</string>
     <string name="upcoming_birthday_status">Netrukus gimtadienis</string>
     <string name="upcoming_birthday_status_content_description">Greitai bus %1$s gimtadienis</string>
     <string name="url_menu_copy">Kopijuoti</string>
@@ -2151,9 +2172,11 @@ Bet kuris naudotojas gali atnaujinti visų kitų naudotojų programas."</string>
     <string name="wifi_disconnected">Neprisijungta</string>
     <string name="wifi_display_certification">Belaidžio rodymo sertifikavimas</string>
     <string name="wifi_display_certification_summary">Rodyti belaidžio rodymo sertifikavimo parinktis</string>
+    <string name="wifi_empty_list_wifi_on">Ieškoma tinklų…</string>
     <string name="wifi_enhanced_mac_randomization">MAC atsitiktinis parinkimas esant nepastoviam „Wi‑Fi“</string>
     <string name="wifi_enhanced_mac_randomization_summary">Kai įgalintas šis režimas, šio įrenginio MAC adresas gali keistis kas kartą prisijungus prie tinklo, kuriame įgalintas atsitiktinis MAC parinkimas.</string>
     <string name="wifi_fail_to_scan">Nepavyksta nuskaityti tinklų</string>
+    <string name="wifi_failed_connect_message">Jungiantis prie tinklo įvyko klaida</string>
     <string name="wifi_hotspot_switch_off_text">Išjungta</string>
     <string name="wifi_hotspot_switch_on_text">Įjungta</string>
     <string name="wifi_is_off">„Wi-Fi“ išjungtas</string>
@@ -2164,6 +2187,7 @@ Bet kuris naudotojas gali atnaujinti visų kitų naudotojų programas."</string>
     <string name="wifi_not_in_range">Ne diapazone</string>
     <string name="wifi_passpoint_expired">Baigėsi galiojimo laikas</string>
     <string name="wifi_remembered">Išsaugotas</string>
+    <string name="wifi_scan_notify_message">Kad pagerintų įrenginio funkcijas, programos ir paslaugos vis tiek gali bet kada nuskaityti ieškodamos „Wi‑Fi“ tinklų, net jei „Wi‑Fi“ išjungtas. Tai galite pakeisti „Wi-Fi“ nuskaitymo nustatymuose. <annotation id="link">Pakeisti</annotation></string>
     <string name="wifi_scan_throttling">„Wi‑Fi“ nuskaitymo ribojimas</string>
     <string name="wifi_scan_throttling_summary">Sumažinamas akumuliatoriaus eikvojimas ir patobulinamas tinklo našumas</string>
     <string name="wifi_security_none">Nėra</string>
@@ -2173,6 +2197,7 @@ Bet kuris naudotojas gali atnaujinti visų kitų naudotojų programas."</string>
     <string name="wifi_unmetered_label">Neišmatuotas</string>
     <string name="wifi_verbose_logging">Įgal. „Wi‑Fi“ daugiaž. įraš. į žurnalą</string>
     <string name="wifi_verbose_logging_summary">Padidinti „Wi‑Fi“ įrašymo į žurnalą lygį, rodyti SSID RSSI „Wi-Fi“ rinkiklyje</string>
+    <string name="wifi_wont_autoconnect_for_now">„Wi-Fi“ šiuo metu nebus prijungtas automatiškai</string>
     <string name="wifitrackerlib_auto_connect_disable">Automatinio prisijungimo funkcija išjungta</string>
     <string name="wifitrackerlib_available_via_app">Pasiekiama naudojant „%1$s“</string>
     <string name="wifitrackerlib_connected_via_app">Prisijungta naudojant programą „%1$s“</string>

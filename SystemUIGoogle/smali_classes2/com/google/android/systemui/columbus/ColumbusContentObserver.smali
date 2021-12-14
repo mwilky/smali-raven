@@ -6,19 +6,12 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/android/systemui/columbus/ColumbusContentObserver$Factory;,
-        Lcom/google/android/systemui/columbus/ColumbusContentObserver$Companion;
+        Lcom/google/android/systemui/columbus/ColumbusContentObserver$Factory;
     }
 .end annotation
 
 
-# static fields
-.field private static final Companion:Lcom/google/android/systemui/columbus/ColumbusContentObserver$Companion;
-
-
 # instance fields
-.field private final activityManagerService:Landroid/app/IActivityManager;
-
 .field private final callback:Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -32,27 +25,17 @@
 
 .field private final contentResolver:Lcom/google/android/systemui/columbus/ContentResolverWrapper;
 
+.field private final executor:Ljava/util/concurrent/Executor;
+
 .field private final settingsUri:Landroid/net/Uri;
 
-.field private final userSwitchCallback:Lcom/google/android/systemui/columbus/ColumbusContentObserver$userSwitchCallback$1;
+.field private final userTracker:Lcom/android/systemui/settings/UserTracker;
+
+.field private final userTrackerCallback:Lcom/google/android/systemui/columbus/ColumbusContentObserver$userTrackerCallback$1;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 2
-
-    new-instance v0, Lcom/google/android/systemui/columbus/ColumbusContentObserver$Companion;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1}, Lcom/google/android/systemui/columbus/ColumbusContentObserver$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-
-    sput-object v0, Lcom/google/android/systemui/columbus/ColumbusContentObserver;->Companion:Lcom/google/android/systemui/columbus/ColumbusContentObserver$Companion;
-
-    return-void
-.end method
-
-.method private constructor <init>(Lcom/google/android/systemui/columbus/ContentResolverWrapper;Landroid/net/Uri;Lkotlin/jvm/functions/Function1;Landroid/app/IActivityManager;Landroid/os/Handler;)V
+.method private constructor <init>(Lcom/google/android/systemui/columbus/ContentResolverWrapper;Landroid/net/Uri;Lkotlin/jvm/functions/Function1;Lcom/android/systemui/settings/UserTracker;Ljava/util/concurrent/Executor;Landroid/os/Handler;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -64,13 +47,14 @@
             "Landroid/net/Uri;",
             "Lkotlin/Unit;",
             ">;",
-            "Landroid/app/IActivityManager;",
+            "Lcom/android/systemui/settings/UserTracker;",
+            "Ljava/util/concurrent/Executor;",
             "Landroid/os/Handler;",
             ")V"
         }
     .end annotation
 
-    invoke-direct {p0, p5}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
+    invoke-direct {p0, p6}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
     iput-object p1, p0, Lcom/google/android/systemui/columbus/ColumbusContentObserver;->contentResolver:Lcom/google/android/systemui/columbus/ContentResolverWrapper;
 
@@ -78,21 +62,23 @@
 
     iput-object p3, p0, Lcom/google/android/systemui/columbus/ColumbusContentObserver;->callback:Lkotlin/jvm/functions/Function1;
 
-    iput-object p4, p0, Lcom/google/android/systemui/columbus/ColumbusContentObserver;->activityManagerService:Landroid/app/IActivityManager;
+    iput-object p4, p0, Lcom/google/android/systemui/columbus/ColumbusContentObserver;->userTracker:Lcom/android/systemui/settings/UserTracker;
 
-    new-instance p1, Lcom/google/android/systemui/columbus/ColumbusContentObserver$userSwitchCallback$1;
+    iput-object p5, p0, Lcom/google/android/systemui/columbus/ColumbusContentObserver;->executor:Ljava/util/concurrent/Executor;
 
-    invoke-direct {p1, p0}, Lcom/google/android/systemui/columbus/ColumbusContentObserver$userSwitchCallback$1;-><init>(Lcom/google/android/systemui/columbus/ColumbusContentObserver;)V
+    new-instance p1, Lcom/google/android/systemui/columbus/ColumbusContentObserver$userTrackerCallback$1;
 
-    iput-object p1, p0, Lcom/google/android/systemui/columbus/ColumbusContentObserver;->userSwitchCallback:Lcom/google/android/systemui/columbus/ColumbusContentObserver$userSwitchCallback$1;
+    invoke-direct {p1, p0}, Lcom/google/android/systemui/columbus/ColumbusContentObserver$userTrackerCallback$1;-><init>(Lcom/google/android/systemui/columbus/ColumbusContentObserver;)V
+
+    iput-object p1, p0, Lcom/google/android/systemui/columbus/ColumbusContentObserver;->userTrackerCallback:Lcom/google/android/systemui/columbus/ColumbusContentObserver$userTrackerCallback$1;
 
     return-void
 .end method
 
-.method public synthetic constructor <init>(Lcom/google/android/systemui/columbus/ContentResolverWrapper;Landroid/net/Uri;Lkotlin/jvm/functions/Function1;Landroid/app/IActivityManager;Landroid/os/Handler;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+.method public synthetic constructor <init>(Lcom/google/android/systemui/columbus/ContentResolverWrapper;Landroid/net/Uri;Lkotlin/jvm/functions/Function1;Lcom/android/systemui/settings/UserTracker;Ljava/util/concurrent/Executor;Landroid/os/Handler;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
     .locals 0
 
-    invoke-direct/range {p0 .. p5}, Lcom/google/android/systemui/columbus/ColumbusContentObserver;-><init>(Lcom/google/android/systemui/columbus/ContentResolverWrapper;Landroid/net/Uri;Lkotlin/jvm/functions/Function1;Landroid/app/IActivityManager;Landroid/os/Handler;)V
+    invoke-direct/range {p0 .. p6}, Lcom/google/android/systemui/columbus/ColumbusContentObserver;-><init>(Lcom/google/android/systemui/columbus/ContentResolverWrapper;Landroid/net/Uri;Lkotlin/jvm/functions/Function1;Lcom/android/systemui/settings/UserTracker;Ljava/util/concurrent/Executor;Landroid/os/Handler;)V
 
     return-void
 .end method
@@ -132,11 +118,15 @@
 
     iget-object v1, p0, Lcom/google/android/systemui/columbus/ColumbusContentObserver;->settingsUri:Landroid/net/Uri;
 
-    const/4 v2, 0x0
+    iget-object v2, p0, Lcom/google/android/systemui/columbus/ColumbusContentObserver;->userTracker:Lcom/android/systemui/settings/UserTracker;
 
-    const/4 v3, -0x2
+    invoke-interface {v2}, Lcom/android/systemui/settings/UserTracker;->getUserId()I
 
-    invoke-virtual {v0, v1, v2, p0, v3}, Lcom/google/android/systemui/columbus/ContentResolverWrapper;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+    move-result v2
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v0, v1, v3, p0, v2}, Lcom/google/android/systemui/columbus/ContentResolverWrapper;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
     return-void
 .end method
@@ -144,62 +134,18 @@
 
 # virtual methods
 .method public final activate()V
-    .locals 2
+    .locals 3
 
-    const-string v0, "Columbus/ContentObserve"
+    iget-object v0, p0, Lcom/google/android/systemui/columbus/ColumbusContentObserver;->userTracker:Lcom/android/systemui/settings/UserTracker;
+
+    iget-object v1, p0, Lcom/google/android/systemui/columbus/ColumbusContentObserver;->userTrackerCallback:Lcom/google/android/systemui/columbus/ColumbusContentObserver$userTrackerCallback$1;
+
+    iget-object v2, p0, Lcom/google/android/systemui/columbus/ColumbusContentObserver;->executor:Ljava/util/concurrent/Executor;
+
+    invoke-interface {v0, v1, v2}, Lcom/android/systemui/settings/UserTracker;->addCallback(Lcom/android/systemui/settings/UserTracker$Callback;Ljava/util/concurrent/Executor;)V
 
     invoke-direct {p0}, Lcom/google/android/systemui/columbus/ColumbusContentObserver;->updateContentObserver()V
 
-    :try_start_0
-    iget-object v1, p0, Lcom/google/android/systemui/columbus/ColumbusContentObserver;->activityManagerService:Landroid/app/IActivityManager;
-
-    iget-object p0, p0, Lcom/google/android/systemui/columbus/ColumbusContentObserver;->userSwitchCallback:Lcom/google/android/systemui/columbus/ColumbusContentObserver$userSwitchCallback$1;
-
-    invoke-interface {v1, p0, v0}, Landroid/app/IActivityManager;->registerUserSwitchObserver(Landroid/app/IUserSwitchObserver;Ljava/lang/String;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception p0
-
-    const-string v1, "Failed to register user switch observer"
-
-    invoke-static {v0, v1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :goto_0
-    return-void
-.end method
-
-.method public final deactivate()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/google/android/systemui/columbus/ColumbusContentObserver;->contentResolver:Lcom/google/android/systemui/columbus/ContentResolverWrapper;
-
-    invoke-virtual {v0, p0}, Lcom/google/android/systemui/columbus/ContentResolverWrapper;->unregisterContentObserver(Landroid/database/ContentObserver;)V
-
-    :try_start_0
-    iget-object v0, p0, Lcom/google/android/systemui/columbus/ColumbusContentObserver;->activityManagerService:Landroid/app/IActivityManager;
-
-    iget-object p0, p0, Lcom/google/android/systemui/columbus/ColumbusContentObserver;->userSwitchCallback:Lcom/google/android/systemui/columbus/ColumbusContentObserver$userSwitchCallback$1;
-
-    invoke-interface {v0, p0}, Landroid/app/IActivityManager;->unregisterUserSwitchObserver(Landroid/app/IUserSwitchObserver;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception p0
-
-    const-string v0, "Columbus/ContentObserve"
-
-    const-string v1, "Failed to unregister user switch observer"
-
-    invoke-static {v0, v1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :goto_0
     return-void
 .end method
 

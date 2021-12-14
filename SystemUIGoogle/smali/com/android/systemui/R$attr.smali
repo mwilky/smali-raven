@@ -16,14 +16,14 @@
 
 .field public static final lightIconTheme:I = 0x7f0402d5
 
-.field public static final numPadKeyStyle:I = 0x7f040366
+.field public static final numPadKeyStyle:I = 0x7f040367
 
-.field public static final offStateColor:I = 0x7f04036b
+.field public static final offStateColor:I = 0x7f04036c
 
-.field public static final optedOut:I = 0x7f04037b
+.field public static final optedOut:I = 0x7f04037c
 
-.field public static final singleToneColor:I = 0x7f04043f
+.field public static final singleToneColor:I = 0x7f040441
 
-.field public static final wallpaperTextColor:I = 0x7f04051b
+.field public static final wallpaperTextColor:I = 0x7f04051d
 
-.field public static final wallpaperTextColorAccent:I = 0x7f04051c
+.field public static final wallpaperTextColorAccent:I = 0x7f04051e

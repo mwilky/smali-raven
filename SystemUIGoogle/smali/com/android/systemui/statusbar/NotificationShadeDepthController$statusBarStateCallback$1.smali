@@ -90,7 +90,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController$statusBarStateCallback$1;->this$0:Lcom/android/systemui/statusbar/NotificationShadeDepthController;
 
-    invoke-static {p1}, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->access$getShadeExpansion$p(Lcom/android/systemui/statusbar/NotificationShadeDepthController;)F
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->getShadeExpansion()F
 
     move-result v0
 

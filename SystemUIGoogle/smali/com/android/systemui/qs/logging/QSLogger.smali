@@ -155,7 +155,7 @@
 .method public final logTileAdded(Ljava/lang/String;)V
     .locals 3
 
-    const-string v0, "tileSpec"
+    const-string/jumbo v0, "tileSpec"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -190,7 +190,7 @@
 .method public final logTileChangeListening(Ljava/lang/String;Z)V
     .locals 3
 
-    const-string v0, "tileSpec"
+    const-string/jumbo v0, "tileSpec"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -227,7 +227,7 @@
 .method public final logTileClick(Ljava/lang/String;II)V
     .locals 4
 
-    const-string v0, "tileSpec"
+    const-string/jumbo v0, "tileSpec"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -276,7 +276,7 @@
 .method public final logTileDestroyed(Ljava/lang/String;Ljava/lang/String;)V
     .locals 3
 
-    const-string v0, "tileSpec"
+    const-string/jumbo v0, "tileSpec"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -317,7 +317,7 @@
 .method public final logTileLongClick(Ljava/lang/String;II)V
     .locals 4
 
-    const-string v0, "tileSpec"
+    const-string/jumbo v0, "tileSpec"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -366,7 +366,7 @@
 .method public final logTileSecondaryClick(Ljava/lang/String;II)V
     .locals 4
 
-    const-string v0, "tileSpec"
+    const-string/jumbo v0, "tileSpec"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -415,7 +415,7 @@
 .method public final logTileUpdated(Ljava/lang/String;Lcom/android/systemui/plugins/qs/QSTile$State;)V
     .locals 3
 
-    const-string v0, "tileSpec"
+    const-string/jumbo v0, "tileSpec"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 

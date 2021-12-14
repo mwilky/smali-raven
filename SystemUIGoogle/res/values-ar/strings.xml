@@ -363,6 +363,7 @@
     <string name="alarms_and_reminders_label">المنبّهات والتذكيرات</string>
     <string name="alarms_and_reminders_switch_title">السماح بضبط المنبّهات والتذكيرات</string>
     <string name="alarms_and_reminders_title">المنبّهات والتذكيرات</string>
+    <string name="all_network_unavailable">لا تتوفّر أي شبكات.</string>
     <string name="allow_mock_location">السماح بمواقع وهمية</string>
     <string name="allow_mock_location_summary">السماح بمواقع وهمية</string>
     <string name="always_use_accessory">فتح تطبيق %1$s دائمًا عند توصيل %2$s</string>
@@ -618,6 +619,11 @@
     <string name="clock_title_analog">ساعة تقليدية</string>
     <string name="clock_title_bubble">فقاعة</string>
     <string name="clock_title_default">تلقائي</string>
+    <string name="columbus_bouncer_message">يجب فتح قفل الجهاز لإكمال النقرة السريعة.</string>
+    <string name="columbus_target_request_dialog_allow">السماح</string>
+    <string name="columbus_target_request_dialog_deny">عدم السماح</string>
+    <string name="columbus_target_request_dialog_summary">عندما تنقر مرتين على ظهر هاتفك، سيتم فتح %1$s. يمكنك تغيير هذا الخيار المفضّل في أي وقت من خلال \"الإعدادات\".</string>
+    <string name="columbus_target_request_dialog_title">هل تريد السماح لإيماءة \"النقرة السريعة\" بفتح %1$s؟</string>
     <string name="compat_mode_off">توسيع بملء الشاشة</string>
     <string name="compat_mode_on">تكبير/تصغير لملء الشاشة</string>
     <string name="confirm_enable_oem_unlock_text">تحذير: لن تعمل ميزات الحماية على هذا الجهاز أثناء تفعيل هذا الإعداد.</string>
@@ -740,6 +746,8 @@
     <string name="defender_notify_learn_more">مزيد من المعلومات</string>
     <string name="defender_notify_resume_charge">استئناف الشحن</string>
     <string name="defender_notify_title">الشحن محدود مؤقتًا</string>
+    <string name="defender_post_notify_des">تم تحديد الشحن بنسبة %1$s من %2$s إلى %3$s للحفاظ على سلامة البطارية.</string>
+    <string name="defender_post_notify_title">الشحن بطريقة عادية</string>
     <string name="delete_blob_confirmation_text">هل فعلاً تريد حذف هذه البيانات المشتركة؟</string>
     <string name="delete_blob_text">حذف البيانات المشتركة</string>
     <string name="demo_mode">وضع تجريبي لواجهة مستخدم النظام</string>
@@ -885,6 +893,7 @@
     <string name="game_status">جارٍ اللعب</string>
     <string name="global_action_lock_message">يمكنك فتح قفل هاتفك للوصول إلى مزيد من الخيارات.</string>
     <string name="global_action_screenshot">لقطة شاشة</string>
+    <string name="global_action_smart_lock_disabled">‏تم إيقاف Smart Lock.</string>
     <string name="global_actions_change_description">للوصول إلى %1$s وعناصر التحكّم في الجهاز، مرِّر سريعًا من أعلى الشاشة لأسفلها.</string>
     <string name="go_to_web">الانتقال إلى المتصفح</string>
     <string name="google_services_wallpaper_permission">‏<b>يمكنك السماح لخلفيات Google المتحركة بالاستجابة لموقعك</b> من خلال الوصول إلى خدمة المواقع من Google.</string>
@@ -1232,7 +1241,7 @@
     <string name="media_projection_dialog_text">سيتمكن تطبيق %s من الوصول إلى كل المعلومات المرئية لك على الشاشة أو التي يتم تشغيلها على جهازك أثناء التسجيل أو الإرسال. ويشمل ذلك معلومات مثل كلمات المرور وتفاصيل الدفع والصور والرسائل والمقاطع الصوتية التي تشغِّلها.</string>
     <string name="media_projection_dialog_title">هل تريد بدء التسجيل أو الإرسال باستخدام %s؟</string>
     <string name="media_projection_remember_text">عدم الإظهار مرة أخرى</string>
-    <string name="media_seamless_remote_device">الجهاز</string>
+    <string name="media_seamless_other_device">جهاز آخر</string>
     <string name="media_transfer_this_device_name">مكبر صوت الهاتف</string>
     <string name="media_transfer_this_phone">هذا الهاتف</string>
     <string name="media_transfer_wired_device_name">جهاز سماعي سلكي</string>
@@ -1249,9 +1258,13 @@
     <string name="mobile_data">بيانات الجوّال</string>
     <string name="mobile_data_always_on">بيانات الجوّال نشطة دائمًا</string>
     <string name="mobile_data_always_on_summary">‏اجعل بيانات الجوّال نشطة دائمًا، حتى عندما يكون اتصال Wi‑Fi نشطًا (لتبديل الشبكة بسرعة).</string>
+    <string name="mobile_data_connection_active">متصلة بالإنترنت</string>
     <string name="mobile_data_disable_message">‏لن تتمكّن من استخدام البيانات أو الإنترنت من خلال %s. ولن يتوفر اتصال الإنترنت إلا عبر Wi-Fi.</string>
     <string name="mobile_data_disable_message_default_carrier">مشغّل شبكة الجوّال</string>
     <string name="mobile_data_disable_title">هل تريد إيقاف بيانات الجوّال؟</string>
+    <string name="mobile_data_no_connection">لا يتوفّر اتصال بالإنترنت</string>
+    <string name="mobile_data_off_summary">لن يتم تلقائيًا الاتصال ببيانات الجوّال.</string>
+    <string name="mobile_data_settings_title">بيانات الجوّال</string>
     <string name="mobile_data_text_format">%1$s — %2$s</string>
     <string name="mock_location_app">اختيار تطبيق الموقع الجغرافي الوهمي</string>
     <string name="mock_location_app_not_set">لم يتم ضبط تطبيق موقع جغرافي وهمي.</string>
@@ -1391,6 +1404,7 @@
     <string name="no_content_in_select_mode">ما مِن نص لتحديده أو صورة لاختيارها.</string>
     <string name="no_conversations_text">ستظهر هنا المحادثات الحديثة.</string>
     <string name="no_shortcut">لا يدعم تطبيق %1$s ميزات المحادثات.</string>
+    <string name="non_carrier_network_unavailable">لا تتوفّر شبكات أخرى.</string>
     <string name="not_default_data_content_description">لم يتم الضبط على استخدام البيانات</string>
     <string name="not_set">لم يتمّ تحديد قيمة.</string>
     <string name="notif_inline_reply_remove_attachment_description">إزالة المرفق</string>
@@ -1571,6 +1585,7 @@
     <string name="power_remaining_only_more_than_subtext">سيبقى شحن البطارية أكثر من %1$s.</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">قد ينفد شحن البطارية قبل %1$s.</string>
+    <string name="pref_title_network_details">تفاصيل الشبكة</string>
     <string name="preference_copied">تم نسخ \"%1$s\" إلى الحافظة.</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">المحادثات ذات الأولوية</string>
@@ -1740,6 +1755,7 @@
     <string name="right_keycode">رمز مفتاح اليمين</string>
     <string name="right_nav_bar_button_type">نوع زر اليمين الإضافي</string>
     <string name="ring_toggle_title">المكالمات</string>
+    <string name="rotation_lock_camera_rotation_on">تفعيل - استنادًا للوجه</string>
     <string name="running_foreground_services_msg">انقر للحصول على تفاصيل حول البطارية واستخدام البيانات</string>
     <string name="running_foreground_services_title">التطبيقات التي تعمل في الخلفية</string>
     <string name="running_process_item_user_label">المستخدم: %1$s</string>
@@ -1814,6 +1830,7 @@
     <string name="screenshot_top_boundary_pct">الحد العلوي %1$d في المئة</string>
     <string name="search_menu">البحث في الإعدادات</string>
     <string name="search_menu_title">البحث</string>
+    <string name="see_all_networks">عرض الكل</string>
     <string name="see_more_title">عرض المزيد</string>
     <string name="select_application">اختيار تطبيق</string>
     <string name="select_conversation_text">انقر على محادثة لإضافتها إلى \"الشاشة الرئيسية\".</string>
@@ -1926,6 +1943,7 @@
     <string name="switch_bar_off">متوقف</string>
     <string name="switch_bar_on">مفعّل</string>
     <string name="system_ui_tuner">أداة ضبط واجهة مستخدم النظام</string>
+    <string name="tap_a_network_to_connect">انقر على إحدى الشبكات للاتصال بالإنترنت</string>
     <string name="tap_again">انقر مرة أخرى</string>
     <string name="tap_to_sign_up">انقر للاشتراك.</string>
     <string name="tether_settings_title_all">الربط ونقطة الاتصال المحمولة</string>
@@ -1951,6 +1969,7 @@
     <string name="time_unit_just_now">للتو</string>
     <string name="title_convert_fbe">التحويل إلى ترميز على الملف</string>
     <string name="title_usb_accessory">‏ملحق USB</string>
+    <string name="to_switch_networks_disconnect_ethernet">للتبديل بين الشبكات، يجب فصل إيثرنت.</string>
     <string name="too_hot_label">‏درجة حرارة هاتف Pixel مرتفعة جدًا.</string>
     <string name="touch_filtered_warning">لا يمكن للإعدادات التحقق من ردك لأن هناك تطبيقًا يحجب طلب الإذن.</string>
     <string name="track_frame_time">‏عرض ملف التعريف HWUI</string>
@@ -2009,10 +2028,12 @@
     <string name="tuner_toast">تهانينا! تمت إضافة أداة ضبط واجهة مستخدم النظام إلى الإعدادات</string>
     <string name="tuner_warning">‏توفر لك أداة ضبط واجهة مستخدم النظام طرقًا إضافية لتعديل واجهة مستخدم Android وتخصيصها. ويمكن أن تطرأ تغييرات على هذه الميزات التجريبية أو يمكن أن تتعطل هذه الميزات أو تختفي في الإصدارات المستقبلية. عليك متابعة الاستخدام مع توخي الحذر.</string>
     <string name="tuner_warning_title">متعة للبعض وليس للجميع</string>
+    <string name="turn_on_wifi">Wi-Fi</string>
     <string name="tv_notification_panel_no_notifications">ما من إشعارات</string>
     <string name="tv_notification_panel_title">الإشعارات</string>
     <string name="two_weeks_timestamp">قبل أسبوعين</string>
     <string name="unknown">غير معروف</string>
+    <string name="unlock_to_view_networks">فتح القفل لعرض الشبكات</string>
     <string name="upcoming_birthday_status">تاريخ ميلاد قريب</string>
     <string name="upcoming_birthday_status_content_description">يَحين يوم ميلاد %1$s قريبًا.</string>
     <string name="url_menu_copy">نسخ</string>
@@ -2151,9 +2172,11 @@
     <string name="wifi_disconnected">غير متصلة</string>
     <string name="wifi_display_certification">شهادة عرض شاشة لاسلكي</string>
     <string name="wifi_display_certification_summary">عرض خيارات شهادة عرض شاشة لاسلكي</string>
+    <string name="wifi_empty_list_wifi_on">جارٍ البحث عن شبكات…</string>
     <string name="wifi_enhanced_mac_randomization">‏التوزيع العشوائي لعناوين MAC غير الثابتة لشبكة Wi‑Fi.</string>
     <string name="wifi_enhanced_mac_randomization_summary">‏عند تفعيل هذا الوضع، قد يتم تغيير عنوان MAC لهذا الجهاز في كل مرة تتصل فيها بشبكة تم تفعيل التوزيع العشوائي لعناوين MAC عليها.</string>
     <string name="wifi_fail_to_scan">لا يمكن فحص الشبكات</string>
+    <string name="wifi_failed_connect_message">تعذّر الاتصال بالشبكة.</string>
     <string name="wifi_hotspot_switch_off_text">إيقاف</string>
     <string name="wifi_hotspot_switch_on_text">مفعّلة</string>
     <string name="wifi_is_off">‏تم إيقاف شبكة Wi-Fi</string>
@@ -2164,6 +2187,7 @@
     <string name="wifi_not_in_range">ليست في النطاق</string>
     <string name="wifi_passpoint_expired">منتهية الصلاحية</string>
     <string name="wifi_remembered">تم الحفظ</string>
+    <string name="wifi_scan_notify_message">‏لتحسين تجربتك على الجهاز، يظل بإمكان التطبيقات والخدمات البحث عن شبكات Wi‑Fi في أي وقت، حتى عند إيقاف شبكة Wi‑Fi. وبإمكانك تغيير هذا الخيار في إعدادات البحث عن شبكات Wi-Fi. <annotation id="link">تغيير</annotation></string>
     <string name="wifi_scan_throttling">‏تقييد البحث عن شبكات Wi-Fi</string>
     <string name="wifi_scan_throttling_summary">لتقليل استهلاك البطارية وتحسين أداء الشبكة</string>
     <string name="wifi_security_none">بلا أمان</string>
@@ -2173,6 +2197,7 @@
     <string name="wifi_unmetered_label">بدون قياس</string>
     <string name="wifi_verbose_logging">‏تفعيل تسجيل Wi‑Fi Verbose</string>
     <string name="wifi_verbose_logging_summary">‏زيادة مستوى تسجيل Wi-Fi، وعرض لكل SSID RSSI في منتقي Wi-Fi</string>
+    <string name="wifi_wont_autoconnect_for_now">‏لن يتم الاتصال بشبكة Wi-Fi تلقائيًا في الوقت الحالي.</string>
     <string name="wifitrackerlib_auto_connect_disable">الاتصال التلقائي غير مُفعَّل.</string>
     <string name="wifitrackerlib_available_via_app">متاحة من خلال %1$s.</string>
     <string name="wifitrackerlib_connected_via_app">تم الاتصال من خلال %1$s.</string>

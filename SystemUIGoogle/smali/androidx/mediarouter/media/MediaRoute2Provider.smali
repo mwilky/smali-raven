@@ -1166,7 +1166,7 @@
 
     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v0, "transferTo: Specified route not found. routeId="
+    const-string/jumbo v0, "transferTo: Specified route not found. routeId="
 
     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

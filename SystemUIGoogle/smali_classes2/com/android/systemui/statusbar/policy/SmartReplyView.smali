@@ -1793,11 +1793,9 @@
 
     iput-boolean p2, p0, Lcom/android/systemui/statusbar/policy/SmartReplyView;->mCurrentColorized:Z
 
-    invoke-static {p1}, Lcom/android/internal/util/ContrastColorUtil;->isColorLight(I)Z
+    invoke-static {p1}, Landroid/app/Notification$Builder;->isColorDark(I)Z
 
     move-result v0
-
-    xor-int/lit8 v0, v0, 0x1
 
     if-eqz v0, :cond_1
 

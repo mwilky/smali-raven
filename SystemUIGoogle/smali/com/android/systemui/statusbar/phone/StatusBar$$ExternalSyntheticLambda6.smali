@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/android/systemui/statusbar/phone/DozeParameters$Callback;
+.implements Lcom/android/systemui/statusbar/phone/KeyguardDismissHandler;
 
 
 # instance fields
@@ -22,12 +22,12 @@
 
 
 # virtual methods
-.method public final onAlwaysOnChange()V
+.method public final executeWhenUnlocked(Lcom/android/systemui/plugins/ActivityStarter$OnDismissAction;ZZ)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBar$$ExternalSyntheticLambda6;->f$0:Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->$r8$lambda$C35yebLAnLcgFwZUxYD3p5OmI94(Lcom/android/systemui/statusbar/phone/StatusBar;)V
+    invoke-static {p0, p1, p2, p3}, Lcom/android/systemui/statusbar/phone/StatusBar;->$r8$lambda$wQ8HZk70ZnDYVkp7SDCJ2AYzMw8(Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/systemui/plugins/ActivityStarter$OnDismissAction;ZZ)V
 
     return-void
 .end method

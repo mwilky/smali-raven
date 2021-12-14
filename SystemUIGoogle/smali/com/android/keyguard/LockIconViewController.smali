@@ -38,6 +38,8 @@
 
 .field private final mAuthControllerCallback:Lcom/android/systemui/biometrics/AuthController$Callback;
 
+.field private final mAuthRippleController:Lcom/android/systemui/biometrics/AuthRippleController;
+
 .field private mBottomPadding:I
 
 .field private mCanDismissLockScreen:Z
@@ -178,7 +180,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/keyguard/LockIconView;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/keyguard/KeyguardViewController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/dump/DumpManager;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/util/concurrency/DelayableExecutor;Landroid/os/Vibrator;)V
+.method public constructor <init>(Lcom/android/keyguard/LockIconView;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/keyguard/KeyguardViewController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/dump/DumpManager;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/util/concurrency/DelayableExecutor;Landroid/os/Vibrator;Lcom/android/systemui/biometrics/AuthRippleController;)V
     .locals 2
 
     invoke-direct {p0, p1}, Lcom/android/systemui/util/ViewController;-><init>(Landroid/view/View;)V
@@ -254,6 +256,8 @@
     iput-object p11, p0, Lcom/android/keyguard/LockIconViewController;->mExecutor:Lcom/android/systemui/util/concurrency/DelayableExecutor;
 
     iput-object p12, p0, Lcom/android/keyguard/LockIconViewController;->mVibrator:Landroid/os/Vibrator;
+
+    iput-object p13, p0, Lcom/android/keyguard/LockIconViewController;->mAuthRippleController:Lcom/android/systemui/biometrics/AuthRippleController;
 
     invoke-virtual {p1}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
 
@@ -692,7 +696,23 @@
     return-object p0
 .end method
 
-.method static synthetic access$3100(Lcom/android/keyguard/LockIconViewController;)Ljava/lang/Runnable;
+.method static synthetic access$3100(Lcom/android/keyguard/LockIconViewController;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/keyguard/LockIconViewController;->mUdfpsSupported:Z
+
+    return p0
+.end method
+
+.method static synthetic access$3200(Lcom/android/keyguard/LockIconViewController;)Lcom/android/systemui/biometrics/AuthRippleController;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/keyguard/LockIconViewController;->mAuthRippleController:Lcom/android/systemui/biometrics/AuthRippleController;
+
+    return-object p0
+.end method
+
+.method static synthetic access$3300(Lcom/android/keyguard/LockIconViewController;)Ljava/lang/Runnable;
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/LockIconViewController;->mOnGestureDetectedRunnable:Ljava/lang/Runnable;
@@ -889,15 +909,13 @@
 .end method
 
 .method private updateColors()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
-    check-cast v0, Lcom/android/keyguard/LockIconView;
+    check-cast p0, Lcom/android/keyguard/LockIconView;
 
-    iget-boolean p0, p0, Lcom/android/keyguard/LockIconViewController;->mUdfpsSupported:Z
-
-    invoke-virtual {v0, p0}, Lcom/android/keyguard/LockIconView;->updateColorAndBackgroundVisibility(Z)V
+    invoke-virtual {p0}, Lcom/android/keyguard/LockIconView;->updateColorAndBackgroundVisibility()V
 
     return-void
 .end method
@@ -1022,6 +1040,12 @@
 
     :goto_0
     iput-boolean v2, p0, Lcom/android/keyguard/LockIconViewController;->mUdfpsSupported:Z
+
+    iget-object v3, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast v3, Lcom/android/keyguard/LockIconView;
+
+    invoke-virtual {v3, v2}, Lcom/android/keyguard/LockIconView;->setUseBackground(Z)V
 
     iget-object v2, p0, Lcom/android/keyguard/LockIconViewController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 

@@ -688,15 +688,11 @@
 .method public updateIndication(ILcom/android/systemui/keyguard/KeyguardIndication;Z)V
     .locals 5
 
-    const/16 v0, 0x9
-
-    if-eq p1, v0, :cond_c
-
     const/16 v0, 0xa
 
     if-ne p1, v0, :cond_0
 
-    goto/16 :goto_5
+    return-void
 
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->mIndicationMessages:Ljava/util/Map;

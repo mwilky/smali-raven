@@ -6,16 +6,16 @@
 
 
 # instance fields
-.field public final synthetic f$0:Ljava/util/List;
+.field public final synthetic f$0:Ljava/util/Collection;
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/util/List;)V
+.method public synthetic constructor <init>(Ljava/util/Collection;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/qs/QSTileHost$$ExternalSyntheticLambda8;->f$0:Ljava/util/List;
+    iput-object p1, p0, Lcom/android/systemui/qs/QSTileHost$$ExternalSyntheticLambda8;->f$0:Ljava/util/Collection;
 
     return-void
 .end method
@@ -25,11 +25,11 @@
 .method public final test(Ljava/lang/Object;)Z
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/qs/QSTileHost$$ExternalSyntheticLambda8;->f$0:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/systemui/qs/QSTileHost$$ExternalSyntheticLambda8;->f$0:Ljava/util/Collection;
 
-    check-cast p1, Ljava/util/Map$Entry;
+    check-cast p1, Ljava/util/List;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/qs/QSTileHost;->$r8$lambda$A7aqLgSxuC7E7UNkzwrFd8Fd5q4(Ljava/util/List;Ljava/util/Map$Entry;)Z
+    invoke-static {p0, p1}, Lcom/android/systemui/qs/QSTileHost;->$r8$lambda$wJogp9E4Wei4cAKx9yhxpzodcvk(Ljava/util/Collection;Ljava/util/List;)Z
 
     move-result p0
 

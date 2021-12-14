@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBar$$ExternalSyntheticLambda13;->f$0:Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->checkBarModes()V
+    invoke-static {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->$r8$lambda$034_CBc7cGFp-U8I8do4OfwYi_k(Lcom/android/systemui/statusbar/phone/StatusBar;)V
 
     return-void
 .end method

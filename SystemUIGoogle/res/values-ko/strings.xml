@@ -363,6 +363,7 @@
     <string name="alarms_and_reminders_label">알람 및 리마인더</string>
     <string name="alarms_and_reminders_switch_title">알람 및 리마인더 설정 허용</string>
     <string name="alarms_and_reminders_title">알람 및 리마인더</string>
+    <string name="all_network_unavailable">사용 가능한 네트워크가 없음</string>
     <string name="allow_mock_location">모의 위치 허용</string>
     <string name="allow_mock_location_summary">모의 위치 허용</string>
     <string name="always_use_accessory">%2$s이(가) 연결되면 항상 %1$s 열기</string>
@@ -481,7 +482,7 @@
     <string name="bluetooth_disable_absolute_volume">절대 볼륨 사용 안함</string>
     <string name="bluetooth_disable_absolute_volume_summary">참기 어려울 정도로 볼륨이 크거나 제어가 되지 않는 등 원격 기기에서 볼륨 문제가 발생할 경우 블루투스 절대 볼륨 기능을 사용 중지</string>
     <string name="bluetooth_disconnected">연결 끊김</string>
-    <string name="bluetooth_disconnecting">연결을 끊는 중…</string>
+    <string name="bluetooth_disconnecting">연결 해제 중…</string>
     <string name="bluetooth_enable_gabeldorsche">Gabeldorsche 사용 설정</string>
     <string name="bluetooth_enable_gabeldorsche_summary">블루투스 Gabeldorsche 기능 스택을 사용 설정합니다.</string>
     <string name="bluetooth_headset_profile_summary_connected">휴대전화 오디오에 연결됨</string>
@@ -618,6 +619,11 @@
     <string name="clock_title_analog">아날로그</string>
     <string name="clock_title_bubble">버블</string>
     <string name="clock_title_default">기본</string>
+    <string name="columbus_bouncer_message">더블 탭을 완료하려면 잠금 해제하세요.</string>
+    <string name="columbus_target_request_dialog_allow">허용</string>
+    <string name="columbus_target_request_dialog_deny">허용 안함</string>
+    <string name="columbus_target_request_dialog_summary">휴대전화 뒷면을 두 번 탭하면 %1$s 앱이 열립니다. 설정에서 언제든지 변경할 수 있습니다.</string>
+    <string name="columbus_target_request_dialog_title">더블 탭으로 %1$s 열기를 허용하시겠습니까?</string>
     <string name="compat_mode_off">전체화면 모드로 확대</string>
     <string name="compat_mode_on">전체화면 모드로 확대</string>
     <string name="confirm_enable_oem_unlock_text">경고: 이 설정을 사용하는 동안에는 이 기기에서 기기 보호 기능이 작동하지 않습니다.</string>
@@ -740,6 +746,8 @@
     <string name="defender_notify_learn_more">자세히 알아보기</string>
     <string name="defender_notify_resume_charge">요금 청구 재개</string>
     <string name="defender_notify_title">충전이 일시적으로 제한됨</string>
+    <string name="defender_post_notify_des">배터리 보호를 위해 %2$s부터 %3$s까지 충전이 %1$s로 제한되었습니다.</string>
+    <string name="defender_post_notify_title">정상 충전 중</string>
     <string name="delete_blob_confirmation_text">공유 데이터를 삭제하시겠습니까?</string>
     <string name="delete_blob_text">공유 데이터 삭제</string>
     <string name="demo_mode">시스템 UI 데모 모드</string>
@@ -885,6 +893,7 @@
     <string name="game_status">플레이 중</string>
     <string name="global_action_lock_message">더 많은 옵션을 확인하려면 휴대전화를 잠금 해제하세요.</string>
     <string name="global_action_screenshot">스크린샷</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock 사용 중지됨</string>
     <string name="global_actions_change_description">%1$s 및 기기 제어에 액세스하려면 화면 상단에서 아래로 스와이프합니다.</string>
     <string name="go_to_web">브라우저로 이동</string>
     <string name="google_services_wallpaper_permission"><b>Google 라이브 배경화면이 Google 위치 서비스에 액세스하여</b> 내 위치를 반영하도록 허용합니다.</string>
@@ -1232,7 +1241,7 @@
     <string name="media_projection_dialog_text">%s이 녹화 또는 전송 중에 화면에 표시되거나 기기에서 재생되는 모든 정보에 액세스할 수 있습니다. 여기에는 비밀번호, 결제 세부정보, 사진, 메시지, 재생하는 오디오 같은 정보가 포함됩니다.</string>
     <string name="media_projection_dialog_title">%s으로 녹화 또는 전송을 시작하시겠습니까?</string>
     <string name="media_projection_remember_text">다시 표시 안함</string>
-    <string name="media_seamless_remote_device">기기</string>
+    <string name="media_seamless_other_device">기타 기기</string>
     <string name="media_transfer_this_device_name">휴대전화 스피커</string>
     <string name="media_transfer_this_phone">이 휴대전화</string>
     <string name="media_transfer_wired_device_name">유선 오디오 기기</string>
@@ -1249,9 +1258,13 @@
     <string name="mobile_data">모바일 데이터</string>
     <string name="mobile_data_always_on">항상 모바일 데이터 활성화</string>
     <string name="mobile_data_always_on_summary">Wi‑Fi가 활성화되어 있을 때에도 빠른 네트워크 전환을 위하여 항상 모바일 데이터를 활성 상태로 유지</string>
+    <string name="mobile_data_connection_active">연결됨</string>
     <string name="mobile_data_disable_message">%s을(를) 통해 데이터 또는 인터넷에 액세스할 수 없게 됩니다. 인터넷은 Wi-Fi를 통해서만 사용할 수 있습니다.</string>
     <string name="mobile_data_disable_message_default_carrier">이동통신사</string>
     <string name="mobile_data_disable_title">모바일 데이터를 사용 중지하시겠습니까?</string>
+    <string name="mobile_data_no_connection">연결되지 않음</string>
+    <string name="mobile_data_off_summary">모바일 데이터가 자동으로 연결되지 않음</string>
+    <string name="mobile_data_settings_title">모바일 데이터</string>
     <string name="mobile_data_text_format">%1$s, %2$s</string>
     <string name="mock_location_app">모의 위치 앱 선택</string>
     <string name="mock_location_app_not_set">모의 위치 앱이 설정되어 있지 않음</string>
@@ -1391,6 +1404,7 @@ IT 관리자가 설정, 기업 액세스, 앱, 기기와 연결된 데이터, �
     <string name="no_content_in_select_mode">선택할 이미지 또는 텍스트 없음</string>
     <string name="no_conversations_text">최근 대화가 여기에 표시됩니다.</string>
     <string name="no_shortcut">%1$s 앱은 대화 기능을 지원하지 않습니다.</string>
+    <string name="non_carrier_network_unavailable">사용 가능한 다른 네트워크가 없음</string>
     <string name="not_default_data_content_description">데이터를 사용하도록 설정되지 않음</string>
     <string name="not_set">설정되지 않음</string>
     <string name="notif_inline_reply_remove_attachment_description">첨부파일 삭제</string>
@@ -1571,6 +1585,7 @@ IT 관리자가 설정, 기업 액세스, 앱, 기기와 연결된 데이터, �
     <string name="power_remaining_only_more_than_subtext">%1$s 이상 남음</string>
     <string name="power_remaining_settings_home_page">%1$s, %2$s</string>
     <string name="power_suggestion_battery_run_out">예상 배터리 종료 시간: %1$s</string>
+    <string name="pref_title_network_details">네트워크 세부정보</string>
     <string name="preference_copied">"'%1$s'이(가) 클립보드에 복사되었습니다."</string>
     <string name="preference_summary_default_combination">%1$s/%2$s</string>
     <string name="priority_conversations">우선순위 대화</string>
@@ -1740,6 +1755,7 @@ IT 관리자가 설정, 기업 액세스, 앱, 기기와 연결된 데이터, �
     <string name="right_keycode">오른쪽 키 코드</string>
     <string name="right_nav_bar_button_type">추가 오른쪽 버튼 유형</string>
     <string name="ring_toggle_title">통화</string>
+    <string name="rotation_lock_camera_rotation_on">켜짐 - 얼굴 기준</string>
     <string name="running_foreground_services_msg">탭하여 배터리 및 데이터 사용량 확인</string>
     <string name="running_foreground_services_title">백그라운드에서 실행 중인 앱</string>
     <string name="running_process_item_user_label">사용자: %1$s</string>
@@ -1814,6 +1830,7 @@ IT 관리자가 설정, 기업 액세스, 앱, 기기와 연결된 데이터, �
     <string name="screenshot_top_boundary_pct">상단 가장자리 %1$d%%</string>
     <string name="search_menu">설정 검색</string>
     <string name="search_menu_title">검색</string>
+    <string name="see_all_networks">모두 보기</string>
     <string name="see_more_title">더보기</string>
     <string name="select_application">애플리케이션 선택</string>
     <string name="select_conversation_text">대화를 탭하여 홈 화면에 추가하세요.</string>
@@ -1926,6 +1943,7 @@ IT 관리자가 설정, 기업 액세스, 앱, 기기와 연결된 데이터, �
     <string name="switch_bar_off">사용 안함</string>
     <string name="switch_bar_on">사용</string>
     <string name="system_ui_tuner">시스템 UI 튜너</string>
+    <string name="tap_a_network_to_connect">연결하려면 네트워크를 탭하세요</string>
     <string name="tap_again">다시 탭하세요.</string>
     <string name="tap_to_sign_up">탭하여 가입</string>
     <string name="tether_settings_title_all">테더링 및 휴대용 핫스팟</string>
@@ -1951,6 +1969,7 @@ IT 관리자가 설정, 기업 액세스, 앱, 기기와 연결된 데이터, �
     <string name="time_unit_just_now">조금 전</string>
     <string name="title_convert_fbe">파일 기반 암호화로 변환</string>
     <string name="title_usb_accessory">USB 액세서리</string>
+    <string name="to_switch_networks_disconnect_ethernet">네트워크를 전환하려면 이더넷을 연결 해제하세요.</string>
     <string name="too_hot_label">Pixel이 너무 뜨거움</string>
     <string name="touch_filtered_warning">앱이 권한 요청을 가리고 있기 때문에 설정에서 내 응답을 확인할 수 없습니다.</string>
     <string name="track_frame_time">프로필 HWUI 렌더링</string>
@@ -2009,10 +2028,12 @@ IT 관리자가 설정, 기업 액세스, 앱, 기기와 연결된 데이터, �
     <string name="tuner_toast">시스템 UI 튜너가 설정에 추가되었습니다</string>
     <string name="tuner_warning">시스템 UI 튜너를 사용하면 Android 사용자 인터페이스를 변경 및 맞춤설정할 수 있습니다. 이러한 실험실 기능은 향후 출시 버전에서는 변경되거나 다운되거나 사라질 수 있습니다. 신중하게 진행하시기 바랍니다.</string>
     <string name="tuner_warning_title">마음에 들지 않을 수도 있음</string>
+    <string name="turn_on_wifi">Wi-Fi</string>
     <string name="tv_notification_panel_no_notifications">알림 없음</string>
     <string name="tv_notification_panel_title">알림</string>
     <string name="two_weeks_timestamp">2주 전</string>
     <string name="unknown">알 수 없음</string>
+    <string name="unlock_to_view_networks">네트워크를 보려면 잠금 해제하세요</string>
     <string name="upcoming_birthday_status">다가오는 생일</string>
     <string name="upcoming_birthday_status_content_description">곧 %1$s님의 생일입니다.</string>
     <string name="url_menu_copy">복사</string>
@@ -2151,9 +2172,11 @@ Wi‑Fi 주소(BSSID)
     <string name="wifi_disconnected">연결 끊김</string>
     <string name="wifi_display_certification">무선 디스플레이 인증서</string>
     <string name="wifi_display_certification_summary">무선 디스플레이 인증서 옵션 표시</string>
+    <string name="wifi_empty_list_wifi_on">네트워크 검색 중…</string>
     <string name="wifi_enhanced_mac_randomization">Wi‑Fi 비지속적인 MAC 주소 무작위 순서 지정</string>
     <string name="wifi_enhanced_mac_randomization_summary">이 모드를 사용 설정하면 기기가 MAC 주소 무작위 지정이 설정된 네트워크에 연결될 때마다 기기의 MAC 주소가 변경될 수 있습니다.</string>
     <string name="wifi_fail_to_scan">네트워크를 검색할 수 없습니다.</string>
+    <string name="wifi_failed_connect_message">네트워크에 연결하지 못했습니다.</string>
     <string name="wifi_hotspot_switch_off_text">사용 안 함</string>
     <string name="wifi_hotspot_switch_on_text">사용</string>
     <string name="wifi_is_off">Wi-Fi가 사용 중지됨</string>
@@ -2164,6 +2187,7 @@ Wi‑Fi 주소(BSSID)
     <string name="wifi_not_in_range">범위 내에 없음</string>
     <string name="wifi_passpoint_expired">만료됨</string>
     <string name="wifi_remembered">저장됨</string>
+    <string name="wifi_scan_notify_message">기기 환경을 개선하기 위해 Wi‑Fi가 꺼져 있을 때도 앱과 서비스에서 Wi‑Fi 네트워크를 검색할 수 있습니다. 이 설정은 Wi‑Fi 검색 설정에서 변경할 수 있습니다. <annotation id="link">변경</annotation></string>
     <string name="wifi_scan_throttling">Wi‑Fi 검색 제한</string>
     <string name="wifi_scan_throttling_summary">배터리 소모를 줄이고 네트워크 성능 개선</string>
     <string name="wifi_security_none">없음</string>
@@ -2173,6 +2197,7 @@ Wi‑Fi 주소(BSSID)
     <string name="wifi_unmetered_label">무제한 네트워크</string>
     <string name="wifi_verbose_logging">Wi-Fi 상세 로깅 사용</string>
     <string name="wifi_verbose_logging_summary">Wi‑Fi 로깅 수준을 높이고, Wi‑Fi 선택도구에서 SSID RSSI당 값을 표시</string>
+    <string name="wifi_wont_autoconnect_for_now">지금은 Wi-Fi가 자동으로 연결되지 않습니다.</string>
     <string name="wifitrackerlib_auto_connect_disable">자동 연결 꺼짐</string>
     <string name="wifitrackerlib_available_via_app">%1$s 앱을 통해 사용 가능</string>
     <string name="wifitrackerlib_connected_via_app">%1$s 앱을 통해 연결됨</string>

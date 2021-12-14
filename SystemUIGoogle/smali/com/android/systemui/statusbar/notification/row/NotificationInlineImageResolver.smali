@@ -263,12 +263,12 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x10501e6
+    const p0, 0x10501e7
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x10501e5
+    const p0, 0x10501e6
 
     :goto_0
     invoke-virtual {v0, p0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
@@ -295,12 +295,12 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x10501e8
+    const p0, 0x10501e9
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x10501e7
+    const p0, 0x10501e8
 
     :goto_0
     invoke-virtual {v0, p0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I

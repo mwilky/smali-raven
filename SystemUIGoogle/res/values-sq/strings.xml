@@ -363,6 +363,7 @@ Nëse kjo leje është caktuar si joaktive, alarmet ekzistuese dhe ngjarjet në 
     <string name="alarms_and_reminders_label">Alarmet dhe alarmet rikujtuese</string>
     <string name="alarms_and_reminders_switch_title">Lejo caktimin e alarmeve dhe alarmeve rikujtuese</string>
     <string name="alarms_and_reminders_title">Alarmet dhe alarmet rikujtuese</string>
+    <string name="all_network_unavailable">Nuk ofrohet asnjë rrjet</string>
     <string name="allow_mock_location">Lejo vendndodhje të simuluara</string>
     <string name="allow_mock_location_summary">Lejo vendndodhje të simuluara</string>
     <string name="always_use_accessory">Hap gjithmonë %1$s kur lidhet %2$s</string>
@@ -618,6 +619,11 @@ Zgjedhja"</string>
     <string name="clock_title_analog">Analoge</string>
     <string name="clock_title_bubble">Flluskë</string>
     <string name="clock_title_default">E parazgjedhur</string>
+    <string name="columbus_bouncer_message">Shkyçe për të përfunduar \"Trokitjen e shpejtë\"</string>
+    <string name="columbus_target_request_dialog_allow">Lejo</string>
+    <string name="columbus_target_request_dialog_deny">Mos lejo</string>
+    <string name="columbus_target_request_dialog_summary">Nëse troket dy herë në pjesën e pasme të telefonit, do të hapet %1$s. Mund ta ndryshosh këtë preferencë në çdo kohë te \"Cilësimet\".</string>
+    <string name="columbus_target_request_dialog_title">Të lejohet që \"Trokitja e shpejtë\" të hapë %1$s?</string>
     <string name="compat_mode_off">Shtrije për të mbushur ekranin</string>
     <string name="compat_mode_on">Zmadho për të mbushur ekranin</string>
     <string name="confirm_enable_oem_unlock_text">PARALAJMËRIM! Veçoritë e mbrojtjes së pajisjes nuk do të punojnë në këtë pajisje gjatë kohës që ky cilësim është i aktivizuar.</string>
@@ -740,6 +746,8 @@ Nëse vazhdon, mund të zbatohen tarifa për përdorimin e të dhënave."</strin
     <string name="defender_notify_learn_more">Mëso më shumë</string>
     <string name="defender_notify_resume_charge">Vazhdo karikimin</string>
     <string name="defender_notify_title">Karikimi përkohësisht i kufizuar</string>
+    <string name="defender_post_notify_des">Karikimi u kufizua në %1$s nga %2$s deri në %3$s për të ruajtur gjendjen e baterisë</string>
+    <string name="defender_post_notify_title">Po karikohet normalisht</string>
     <string name="delete_blob_confirmation_text">Je i sigurt që dëshiron ta fshish këto të dhëna të ndara?</string>
     <string name="delete_blob_text">Fshi të dhënat e ndara</string>
     <string name="demo_mode">Modaliteti i demonstrimit i ndërfaqes së përdoruesit të sistemit</string>
@@ -885,6 +893,7 @@ Të dhënat e fytyrës që përdoren nga shkyçja me fytyrë do të fshihen për
     <string name="game_status">Po luhet</string>
     <string name="global_action_lock_message">Shkyçe telefonin për më shumë opsione</string>
     <string name="global_action_screenshot">Pamja e ekranit</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock është çaktivizuar</string>
     <string name="global_actions_change_description">Për të pasur qasje te kontrollet e %1$s dhe të pajisjes, rrëshqit shpejt poshtë nga kreu i ekranit</string>
     <string name="go_to_web">Shko te shfletuesi</string>
     <string name="google_services_wallpaper_permission"><b>Lejo që imazhet e sfondeve dinamike të Google të reagojnë ndaj vendndodhjes tënde</b> duke pasur qasje te shërbimi i vendndodhjes së Google.</string>
@@ -1232,7 +1241,7 @@ Provo sërish për %2$d sekonda."</string>
     <string name="media_projection_dialog_text">%s do të ketë qasje te të gjitha informacionet që janë të dukshme në ekran ose që luhen nga pajisja jote gjatë regjistrimit ose transmetimit. Kjo përfshin informacione, si p.sh.: fjalëkalimet, detajet e pagesave, fotografitë, mesazhet dhe audion që luan ti.</string>
     <string name="media_projection_dialog_title">Fillo regjistrimin ose transmetimin me %s?</string>
     <string name="media_projection_remember_text">Mos e shfaq sërish</string>
-    <string name="media_seamless_remote_device">Pajisja</string>
+    <string name="media_seamless_other_device">Pajisje tjetër</string>
     <string name="media_transfer_this_device_name">Altoparlanti i telefonit</string>
     <string name="media_transfer_this_phone">Ky telefon</string>
     <string name="media_transfer_wired_device_name">Pajisja audio me tel</string>
@@ -1249,9 +1258,13 @@ Provo sërish për %2$d sekonda."</string>
     <string name="mobile_data">Të dhënat celulare</string>
     <string name="mobile_data_always_on">Të dhënat celulare gjithmonë aktive</string>
     <string name="mobile_data_always_on_summary">Mbaji të dhënat celulare gjithmonë aktive edhe kur Wi‑Fi është aktiv (për ndërrim të shpejtë të rrjetit).</string>
+    <string name="mobile_data_connection_active">Lidhur</string>
     <string name="mobile_data_disable_message">Nuk do të kesh qasje te të dhënat ose interneti nëpërmjet %s. Interneti do të ofrohet vetëm nëpërmjet Wi-Fi.</string>
     <string name="mobile_data_disable_message_default_carrier">operatori yt celular</string>
     <string name="mobile_data_disable_title">Të çaktivizohen të dhënat celulare?</string>
+    <string name="mobile_data_no_connection">Nuk ka lidhje</string>
+    <string name="mobile_data_off_summary">Të dhënat celulare nuk do të lidhen automatikisht</string>
+    <string name="mobile_data_settings_title">Të dhënat celulare</string>
     <string name="mobile_data_text_format">%1$s - %2$s</string>
     <string name="mock_location_app">Zgjidh apl. që simulon vendndodhjen</string>
     <string name="mock_location_app_not_set">Nuk është vendosur asnjë aplikacion që simulon vendndodhjen</string>
@@ -1391,6 +1404,7 @@ Nëse ke pyetje, kontakto me %2$s."</string>
     <string name="no_content_in_select_mode">Nuk ka asnjë tekst ose imazh për të zgjedhur</string>
     <string name="no_conversations_text">Bisedat tua të fundit do të shfaqen këtu</string>
     <string name="no_shortcut">%1$s nuk mbështet veçoritë e bisedës</string>
+    <string name="non_carrier_network_unavailable">Nuk ofrohet asnjë rrjet tjetër</string>
     <string name="not_default_data_content_description">Nuk është caktuar të përdorë të dhënat</string>
     <string name="not_set">Nuk është caktuar</string>
     <string name="notif_inline_reply_remove_attachment_description">Hiq bashkëngjitjen</string>
@@ -1571,8 +1585,9 @@ Nëse ke pyetje, kontakto me %2$s."</string>
     <string name="power_remaining_only_more_than_subtext">Më shumë se %1$s e mbetur</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">Bateria mund të mbarojë deri në %1$s</string>
+    <string name="pref_title_network_details">Detajet e rrjetit</string>
     <string name="preference_copied">\"%1$s\" u kopjua në kujtesën e fragmenteve</string>
-    <string name="preference_summary_default_combination">%1$s / %2$s</string>
+    <string name="preference_summary_default_combination">%1$s/%2$s</string>
     <string name="priority_conversations">Bisedat me përparësi</string>
     <string name="privacy_type_camera">kamerën</string>
     <string name="privacy_type_location">vendndodhjen</string>
@@ -1740,6 +1755,7 @@ Nëse ke pyetje, kontakto me %2$s."</string>
     <string name="right_keycode">Kodi i tasteve djathtas</string>
     <string name="right_nav_bar_button_type">Lloji i butonit shtesë djathtas</string>
     <string name="ring_toggle_title">Telefonatat</string>
+    <string name="rotation_lock_camera_rotation_on">Aktiv - Në bazë të fytyrës</string>
     <string name="running_foreground_services_msg">Trokit për detaje mbi baterinë dhe përdorimin e të dhënave</string>
     <string name="running_foreground_services_title">Aplikacionet që ekzekutohen në sfond</string>
     <string name="running_process_item_user_label">Përdoruesi: %1$s</string>
@@ -1814,6 +1830,7 @@ Nëse ke pyetje, kontakto me %2$s."</string>
     <string name="screenshot_top_boundary_pct">Kufiri i sipërm %1$d për qind</string>
     <string name="search_menu">Kërko te cilësimet</string>
     <string name="search_menu_title">Kërko</string>
+    <string name="see_all_networks">Shiko të gjitha</string>
     <string name="see_more_title">Shiko më shumë</string>
     <string name="select_application">Zgjidh aplikacionin</string>
     <string name="select_conversation_text">Trokit te një bisedë dhe shtoje në ekranin bazë</string>
@@ -1926,6 +1943,7 @@ të monitorohet"</string>
     <string name="switch_bar_off">Joaktiv</string>
     <string name="switch_bar_on">Aktiv</string>
     <string name="system_ui_tuner">Sintonizuesi i Sistemit të Ndërfaqes së Përdoruesit</string>
+    <string name="tap_a_network_to_connect">"Trokit te një rrjet për t'u lidhur"</string>
     <string name="tap_again">Trokit sërish</string>
     <string name="tap_to_sign_up">"Trokit për t'u regjistruar"</string>
     <string name="tether_settings_title_all">Zonë qasjeje dhe ndarjeje interneti</string>
@@ -1951,6 +1969,7 @@ Trokit për më shumë informacione"</string>
     <string name="time_unit_just_now">Pikërisht tani</string>
     <string name="title_convert_fbe">Po konvertohet në enkriptimin e bazuar te skedari</string>
     <string name="title_usb_accessory">Qasja në USB</string>
+    <string name="to_switch_networks_disconnect_ethernet">Për të ndërruar rrjetet, shkëput Ethernet-in</string>
     <string name="too_hot_label">Pixel është tepër i nxehtë</string>
     <string name="touch_filtered_warning">Duke qenë se një aplikacion po bllokon një kërkesë për leje, \"Cilësimet\" nuk mund të verifikojnë përgjigjen tënde.</string>
     <string name="track_frame_time">Interpretimi i profilit me HWUI</string>
@@ -2009,10 +2028,12 @@ Trokit për më shumë informacione"</string>
     <string name="tuner_toast">Urime! Sintonizuesi i Sistemit të Ndërfaqes së Përdoruesit u shtua te Cilësimet</string>
     <string name="tuner_warning">Sintonizuesi i Sistemit të Ndërfaqes së Përdoruesit të jep mënyra shtesë për të tërhequr dhe personalizuar ndërfaqen Android të përdoruesit. Këto funksione eksperimentale mund të ndryshojnë, prishen ose zhduken në versionet e ardhshme. Vazhdo me kujdes.</string>
     <string name="tuner_warning_title">Argëtim për disa, por jo për të gjithë!</string>
+    <string name="turn_on_wifi">Wi-Fi</string>
     <string name="tv_notification_panel_no_notifications">Asnjë njoftim</string>
     <string name="tv_notification_panel_title">Njoftimet</string>
     <string name="two_weeks_timestamp">2 javë më parë</string>
     <string name="unknown">I panjohur</string>
+    <string name="unlock_to_view_networks">Shkyçe për të parë rrjetet</string>
     <string name="upcoming_birthday_status">Ditëlindje së shpejti</string>
     <string name="upcoming_birthday_status_content_description">%1$s ka ditëlindjen së shpejti</string>
     <string name="url_menu_copy">Kopjo</string>
@@ -2151,9 +2172,11 @@ Adresa Wi‑Fi (BSSID)
     <string name="wifi_disconnected">Shkëputur</string>
     <string name="wifi_display_certification">Certifikimi i ekranit pa tel</string>
     <string name="wifi_display_certification_summary">Shfaq opsionet për certifikimin e ekranit pa tel</string>
+    <string name="wifi_empty_list_wifi_on">Po kërkon për rrjete…</string>
     <string name="wifi_enhanced_mac_randomization">Renditje e rastësishme jo e përhershme e MAC për Wi‑Fi</string>
     <string name="wifi_enhanced_mac_randomization_summary">Kur ky modalitet është i aktivizuar, adresa MAC e kësaj pajisjeje mund të ndryshojë çdo herë që lidhet me një rrjet që ka të aktivizuar renditjen e rastësishme të adresave MAC.</string>
     <string name="wifi_fail_to_scan">Nuk mund të skanojë për rrjete</string>
+    <string name="wifi_failed_connect_message">Lidhja me rrjetin dështoi</string>
     <string name="wifi_hotspot_switch_off_text">Joaktive</string>
     <string name="wifi_hotspot_switch_on_text">Aktive</string>
     <string name="wifi_is_off">Wi-Fi është joaktiv</string>
@@ -2164,6 +2187,7 @@ Adresa Wi‑Fi (BSSID)
     <string name="wifi_not_in_range">Nuk është brenda rrezes</string>
     <string name="wifi_passpoint_expired">Skaduar</string>
     <string name="wifi_remembered">U ruajt</string>
+    <string name="wifi_scan_notify_message">Për të përmirësuar përvojën e pajisjes, aplikacionet dhe shërbimet mund të vazhdojnë të skanojnë për rrjete Wi-Fi në çdo kohë, edhe kur Wi-Fi është joaktiv. Mund ta ndryshosh këtë te cilësimet e skanimit të Wi-Fi. <annotation id="link">Ndrysho</annotation></string>
     <string name="wifi_scan_throttling">Përshpejtimi i skanimit të Wi‑Fi</string>
     <string name="wifi_scan_throttling_summary">Zvogëlon shkarkimin e baterisë dhe përmirëson cilësinë e funksionimit të rrjetit</string>
     <string name="wifi_security_none">Asnjë</string>
@@ -2173,6 +2197,7 @@ Adresa Wi‑Fi (BSSID)
     <string name="wifi_unmetered_label">Pa matje</string>
     <string name="wifi_verbose_logging">Aktivizo hyrjen Wi-Fi Verbose</string>
     <string name="wifi_verbose_logging_summary">Rrit nivelin regjistrues të Wi‑Fi duke shfaqur SSID RSSI-në te Zgjedhësi i Wi‑Fi</string>
+    <string name="wifi_wont_autoconnect_for_now">Wi-Fi nuk do të lidhet automatikisht për momentin</string>
     <string name="wifitrackerlib_auto_connect_disable">Lidhja automatike është joaktive</string>
     <string name="wifitrackerlib_available_via_app">Ofrohet përmes %1$s</string>
     <string name="wifitrackerlib_connected_via_app">Lidhur përmes %1$s</string>

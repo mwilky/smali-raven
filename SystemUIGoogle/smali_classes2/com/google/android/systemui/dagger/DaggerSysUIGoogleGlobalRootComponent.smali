@@ -710,7 +710,17 @@
     return-object p0
 .end method
 
-.method static synthetic access$12100(Lcom/google/android/systemui/dagger/DaggerSysUIGoogleGlobalRootComponent;)Ljavax/inject/Provider;
+.method static synthetic access$11300(Lcom/google/android/systemui/dagger/DaggerSysUIGoogleGlobalRootComponent;)Landroid/content/res/Resources;
+    .locals 0
+
+    invoke-direct {p0}, Lcom/google/android/systemui/dagger/DaggerSysUIGoogleGlobalRootComponent;->mainResources()Landroid/content/res/Resources;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method static synthetic access$12200(Lcom/google/android/systemui/dagger/DaggerSysUIGoogleGlobalRootComponent;)Ljavax/inject/Provider;
     .locals 0
 
     iget-object p0, p0, Lcom/google/android/systemui/dagger/DaggerSysUIGoogleGlobalRootComponent;->provideLatencyTrackerProvider:Ljavax/inject/Provider;
@@ -718,7 +728,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$12300(Lcom/google/android/systemui/dagger/DaggerSysUIGoogleGlobalRootComponent;)Ljavax/inject/Provider;
+.method static synthetic access$12400(Lcom/google/android/systemui/dagger/DaggerSysUIGoogleGlobalRootComponent;)Ljavax/inject/Provider;
     .locals 0
 
     iget-object p0, p0, Lcom/google/android/systemui/dagger/DaggerSysUIGoogleGlobalRootComponent;->provideInputMethodManagerProvider:Ljavax/inject/Provider;
@@ -782,16 +792,6 @@
     return-object p0
 .end method
 
-.method static synthetic access$20800(Lcom/google/android/systemui/dagger/DaggerSysUIGoogleGlobalRootComponent;)Landroid/content/res/Resources;
-    .locals 0
-
-    invoke-direct {p0}, Lcom/google/android/systemui/dagger/DaggerSysUIGoogleGlobalRootComponent;->mainResources()Landroid/content/res/Resources;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
 .method static synthetic access$2100(Lcom/google/android/systemui/dagger/DaggerSysUIGoogleGlobalRootComponent;)Ljavax/inject/Provider;
     .locals 0
 
@@ -800,7 +800,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$21000(Lcom/google/android/systemui/dagger/DaggerSysUIGoogleGlobalRootComponent;)Ljava/util/concurrent/Executor;
+.method static synthetic access$21100(Lcom/google/android/systemui/dagger/DaggerSysUIGoogleGlobalRootComponent;)Ljava/util/concurrent/Executor;
     .locals 0
 
     invoke-direct {p0}, Lcom/google/android/systemui/dagger/DaggerSysUIGoogleGlobalRootComponent;->mainExecutor()Ljava/util/concurrent/Executor;
@@ -810,18 +810,18 @@
     return-object p0
 .end method
 
-.method static synthetic access$21900(Lcom/google/android/systemui/dagger/DaggerSysUIGoogleGlobalRootComponent;)Ljavax/inject/Provider;
-    .locals 0
-
-    iget-object p0, p0, Lcom/google/android/systemui/dagger/DaggerSysUIGoogleGlobalRootComponent;->qSExpansionPathInterpolatorProvider:Ljavax/inject/Provider;
-
-    return-object p0
-.end method
-
 .method static synthetic access$2200(Lcom/google/android/systemui/dagger/DaggerSysUIGoogleGlobalRootComponent;)Ljavax/inject/Provider;
     .locals 0
 
     iget-object p0, p0, Lcom/google/android/systemui/dagger/DaggerSysUIGoogleGlobalRootComponent;->provideSensorPrivacyManagerProvider:Ljavax/inject/Provider;
+
+    return-object p0
+.end method
+
+.method static synthetic access$22000(Lcom/google/android/systemui/dagger/DaggerSysUIGoogleGlobalRootComponent;)Ljavax/inject/Provider;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/systemui/dagger/DaggerSysUIGoogleGlobalRootComponent;->qSExpansionPathInterpolatorProvider:Ljavax/inject/Provider;
 
     return-object p0
 .end method

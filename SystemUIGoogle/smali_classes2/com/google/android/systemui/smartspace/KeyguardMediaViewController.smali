@@ -323,7 +323,7 @@
 
     invoke-direct {v1, v3, v2, v0}, Landroid/app/smartspace/SmartspaceTarget$Builder;-><init>(Ljava/lang/String;Landroid/content/ComponentName;Landroid/os/UserHandle;)V
 
-    const/16 v0, 0xf
+    const/16 v0, 0x1f
 
     invoke-virtual {v1, v0}, Landroid/app/smartspace/SmartspaceTarget$Builder;->setFeatureType(I)Landroid/app/smartspace/SmartspaceTarget$Builder;
 

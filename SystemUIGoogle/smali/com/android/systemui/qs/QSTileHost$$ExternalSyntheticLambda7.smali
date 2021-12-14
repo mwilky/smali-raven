@@ -35,7 +35,7 @@
 
     check-cast p1, Ljava/util/List;
 
-    invoke-static {v0, p0, p1}, Lcom/android/systemui/qs/QSTileHost;->$r8$lambda$IdKWIVtnNRmXjYEyor95f0g6F6M(Ljava/lang/String;ILjava/util/List;)Z
+    invoke-static {v0, p0, p1}, Lcom/android/systemui/qs/QSTileHost;->$r8$lambda$vE90fS3HBb4rq1mGbPBM7yV7Mrc(Ljava/lang/String;ILjava/util/List;)Z
 
     move-result p0
 

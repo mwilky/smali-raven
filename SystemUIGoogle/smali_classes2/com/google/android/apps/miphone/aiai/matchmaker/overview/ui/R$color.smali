@@ -4,6 +4,6 @@
 
 
 # static fields
-.field public static final default_gleam_background_color:I = 0x7f0600a2
+.field public static final default_gleam_background_color:I = 0x7f0600a4
 
-.field public static final default_gleam_highlight_color:I = 0x7f0600a3
+.field public static final default_gleam_highlight_color:I = 0x7f0600a5

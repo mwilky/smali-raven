@@ -6,4 +6,4 @@
 # static fields
 .field public static final bg_smartspace_combination_sub_card:I = 0x7f0802d6
 
-.field public static final page_indicator_dot:I = 0x7f08064c
+.field public static final page_indicator_dot:I = 0x7f080658

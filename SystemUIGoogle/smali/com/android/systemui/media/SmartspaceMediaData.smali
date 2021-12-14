@@ -8,6 +8,8 @@
 
 .field private final cardAction:Landroid/app/smartspace/SmartspaceAction;
 
+.field private final dismissIntent:Landroid/content/Intent;
+
 .field private final isActive:Z
 
 .field private final isValid:Z
@@ -28,7 +30,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljava/lang/String;ZZLjava/lang/String;Landroid/app/smartspace/SmartspaceAction;Ljava/util/List;I)V
+.method public constructor <init>(Ljava/lang/String;ZZLjava/lang/String;Landroid/app/smartspace/SmartspaceAction;Ljava/util/List;Landroid/content/Intent;I)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -39,11 +41,13 @@
             "Landroid/app/smartspace/SmartspaceAction;",
             "Ljava/util/List<",
             "Landroid/app/smartspace/SmartspaceAction;",
-            ">;I)V"
+            ">;",
+            "Landroid/content/Intent;",
+            "I)V"
         }
     .end annotation
 
-    const-string v0, "targetId"
+    const-string/jumbo v0, "targetId"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -69,102 +73,143 @@
 
     iput-object p6, p0, Lcom/android/systemui/media/SmartspaceMediaData;->recommendations:Ljava/util/List;
 
-    iput p7, p0, Lcom/android/systemui/media/SmartspaceMediaData;->backgroundColor:I
+    iput-object p7, p0, Lcom/android/systemui/media/SmartspaceMediaData;->dismissIntent:Landroid/content/Intent;
+
+    iput p8, p0, Lcom/android/systemui/media/SmartspaceMediaData;->backgroundColor:I
 
     return-void
 .end method
 
-.method public static synthetic copy$default(Lcom/android/systemui/media/SmartspaceMediaData;Ljava/lang/String;ZZLjava/lang/String;Landroid/app/smartspace/SmartspaceAction;Ljava/util/List;IILjava/lang/Object;)Lcom/android/systemui/media/SmartspaceMediaData;
-    .locals 5
+.method public static synthetic copy$default(Lcom/android/systemui/media/SmartspaceMediaData;Ljava/lang/String;ZZLjava/lang/String;Landroid/app/smartspace/SmartspaceAction;Ljava/util/List;Landroid/content/Intent;IILjava/lang/Object;)Lcom/android/systemui/media/SmartspaceMediaData;
+    .locals 9
 
-    and-int/lit8 p9, p8, 0x1
+    move-object v0, p0
 
-    if-eqz p9, :cond_0
+    move/from16 v1, p9
 
-    iget-object p1, p0, Lcom/android/systemui/media/SmartspaceMediaData;->targetId:Ljava/lang/String;
+    and-int/lit8 v2, v1, 0x1
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, v0, Lcom/android/systemui/media/SmartspaceMediaData;->targetId:Ljava/lang/String;
+
+    goto :goto_0
 
     :cond_0
-    and-int/lit8 p9, p8, 0x2
+    move-object v2, p1
 
-    if-eqz p9, :cond_1
+    :goto_0
+    and-int/lit8 v3, v1, 0x2
 
-    iget-boolean p2, p0, Lcom/android/systemui/media/SmartspaceMediaData;->isActive:Z
+    if-eqz v3, :cond_1
+
+    iget-boolean v3, v0, Lcom/android/systemui/media/SmartspaceMediaData;->isActive:Z
+
+    goto :goto_1
 
     :cond_1
-    move p9, p2
+    move v3, p2
 
-    and-int/lit8 p2, p8, 0x4
+    :goto_1
+    and-int/lit8 v4, v1, 0x4
 
-    if-eqz p2, :cond_2
+    if-eqz v4, :cond_2
 
-    iget-boolean p3, p0, Lcom/android/systemui/media/SmartspaceMediaData;->isValid:Z
+    iget-boolean v4, v0, Lcom/android/systemui/media/SmartspaceMediaData;->isValid:Z
+
+    goto :goto_2
 
     :cond_2
-    move v0, p3
+    move v4, p3
 
-    and-int/lit8 p2, p8, 0x8
+    :goto_2
+    and-int/lit8 v5, v1, 0x8
 
-    if-eqz p2, :cond_3
+    if-eqz v5, :cond_3
 
-    iget-object p4, p0, Lcom/android/systemui/media/SmartspaceMediaData;->packageName:Ljava/lang/String;
+    iget-object v5, v0, Lcom/android/systemui/media/SmartspaceMediaData;->packageName:Ljava/lang/String;
+
+    goto :goto_3
 
     :cond_3
-    move-object v1, p4
+    move-object v5, p4
 
-    and-int/lit8 p2, p8, 0x10
+    :goto_3
+    and-int/lit8 v6, v1, 0x10
 
-    if-eqz p2, :cond_4
+    if-eqz v6, :cond_4
 
-    iget-object p5, p0, Lcom/android/systemui/media/SmartspaceMediaData;->cardAction:Landroid/app/smartspace/SmartspaceAction;
+    iget-object v6, v0, Lcom/android/systemui/media/SmartspaceMediaData;->cardAction:Landroid/app/smartspace/SmartspaceAction;
+
+    goto :goto_4
 
     :cond_4
-    move-object v2, p5
+    move-object v6, p5
 
-    and-int/lit8 p2, p8, 0x20
+    :goto_4
+    and-int/lit8 v7, v1, 0x20
 
-    if-eqz p2, :cond_5
+    if-eqz v7, :cond_5
 
-    iget-object p6, p0, Lcom/android/systemui/media/SmartspaceMediaData;->recommendations:Ljava/util/List;
+    iget-object v7, v0, Lcom/android/systemui/media/SmartspaceMediaData;->recommendations:Ljava/util/List;
+
+    goto :goto_5
 
     :cond_5
-    move-object v3, p6
+    move-object v7, p6
 
-    and-int/lit8 p2, p8, 0x40
+    :goto_5
+    and-int/lit8 v8, v1, 0x40
 
-    if-eqz p2, :cond_6
+    if-eqz v8, :cond_6
 
-    iget p7, p0, Lcom/android/systemui/media/SmartspaceMediaData;->backgroundColor:I
+    iget-object v8, v0, Lcom/android/systemui/media/SmartspaceMediaData;->dismissIntent:Landroid/content/Intent;
+
+    goto :goto_6
 
     :cond_6
-    move v4, p7
+    move-object/from16 v8, p7
 
-    move-object p2, p0
+    :goto_6
+    and-int/lit16 v1, v1, 0x80
 
-    move-object p3, p1
+    if-eqz v1, :cond_7
 
-    move p4, p9
+    iget v1, v0, Lcom/android/systemui/media/SmartspaceMediaData;->backgroundColor:I
 
-    move p5, v0
+    goto :goto_7
 
-    move-object p6, v1
+    :cond_7
+    move/from16 v1, p8
 
-    move-object p7, v2
+    :goto_7
+    move-object p1, v2
 
-    move-object p8, v3
+    move p2, v3
 
-    move p9, v4
+    move p3, v4
 
-    invoke-virtual/range {p2 .. p9}, Lcom/android/systemui/media/SmartspaceMediaData;->copy(Ljava/lang/String;ZZLjava/lang/String;Landroid/app/smartspace/SmartspaceAction;Ljava/util/List;I)Lcom/android/systemui/media/SmartspaceMediaData;
+    move-object p4, v5
 
-    move-result-object p0
+    move-object p5, v6
 
-    return-object p0
+    move-object p6, v7
+
+    move-object/from16 p7, v8
+
+    move/from16 p8, v1
+
+    invoke-virtual/range {p0 .. p8}, Lcom/android/systemui/media/SmartspaceMediaData;->copy(Ljava/lang/String;ZZLjava/lang/String;Landroid/app/smartspace/SmartspaceAction;Ljava/util/List;Landroid/content/Intent;I)Lcom/android/systemui/media/SmartspaceMediaData;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 
 # virtual methods
-.method public final copy(Ljava/lang/String;ZZLjava/lang/String;Landroid/app/smartspace/SmartspaceAction;Ljava/util/List;I)Lcom/android/systemui/media/SmartspaceMediaData;
-    .locals 8
+.method public final copy(Ljava/lang/String;ZZLjava/lang/String;Landroid/app/smartspace/SmartspaceAction;Ljava/util/List;Landroid/content/Intent;I)Lcom/android/systemui/media/SmartspaceMediaData;
+    .locals 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -174,44 +219,48 @@
             "Landroid/app/smartspace/SmartspaceAction;",
             "Ljava/util/List<",
             "Landroid/app/smartspace/SmartspaceAction;",
-            ">;I)",
+            ">;",
+            "Landroid/content/Intent;",
+            "I)",
             "Lcom/android/systemui/media/SmartspaceMediaData;"
         }
     .end annotation
 
-    const-string p0, "targetId"
+    const-string/jumbo v0, "targetId"
 
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    move-object v2, p1
 
-    const-string p0, "packageName"
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {p4, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string v0, "packageName"
 
-    const-string p0, "recommendations"
+    move-object v5, p4
 
-    invoke-static {p6, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    new-instance p0, Lcom/android/systemui/media/SmartspaceMediaData;
+    const-string v0, "recommendations"
 
-    move-object v0, p0
+    move-object/from16 v7, p6
 
-    move-object v1, p1
+    invoke-static {v7, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    move v2, p2
+    new-instance v0, Lcom/android/systemui/media/SmartspaceMediaData;
 
-    move v3, p3
+    move-object v1, v0
 
-    move-object v4, p4
+    move v3, p2
 
-    move-object v5, p5
+    move v4, p3
 
-    move-object v6, p6
+    move-object v6, p5
 
-    move v7, p7
+    move-object/from16 v8, p7
 
-    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/media/SmartspaceMediaData;-><init>(Ljava/lang/String;ZZLjava/lang/String;Landroid/app/smartspace/SmartspaceAction;Ljava/util/List;I)V
+    move/from16 v9, p8
 
-    return-object p0
+    invoke-direct/range {v1 .. v9}, Lcom/android/systemui/media/SmartspaceMediaData;-><init>(Ljava/lang/String;ZZLjava/lang/String;Landroid/app/smartspace/SmartspaceAction;Ljava/util/List;Landroid/content/Intent;I)V
+
+    return-object v0
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
@@ -305,15 +354,28 @@
     return v2
 
     :cond_7
-    iget p0, p0, Lcom/android/systemui/media/SmartspaceMediaData;->backgroundColor:I
+    iget-object v1, p0, Lcom/android/systemui/media/SmartspaceMediaData;->dismissIntent:Landroid/content/Intent;
 
-    iget p1, p1, Lcom/android/systemui/media/SmartspaceMediaData;->backgroundColor:I
+    iget-object v3, p1, Lcom/android/systemui/media/SmartspaceMediaData;->dismissIntent:Landroid/content/Intent;
 
-    if-eq p0, p1, :cond_8
+    invoke-static {v1, v3}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_8
 
     return v2
 
     :cond_8
+    iget p0, p0, Lcom/android/systemui/media/SmartspaceMediaData;->backgroundColor:I
+
+    iget p1, p1, Lcom/android/systemui/media/SmartspaceMediaData;->backgroundColor:I
+
+    if-eq p0, p1, :cond_9
+
+    return v2
+
+    :cond_9
     return v0
 .end method
 
@@ -329,6 +391,14 @@
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/media/SmartspaceMediaData;->cardAction:Landroid/app/smartspace/SmartspaceAction;
+
+    return-object p0
+.end method
+
+.method public final getDismissIntent()Landroid/content/Intent;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/media/SmartspaceMediaData;->dismissIntent:Landroid/content/Intent;
 
     return-object p0
 .end method
@@ -415,9 +485,11 @@
 
     iget-object v1, p0, Lcom/android/systemui/media/SmartspaceMediaData;->cardAction:Landroid/app/smartspace/SmartspaceAction;
 
+    const/4 v2, 0x0
+
     if-nez v1, :cond_2
 
-    const/4 v1, 0x0
+    move v1, v2
 
     goto :goto_1
 
@@ -438,6 +510,22 @@
     move-result v1
 
     add-int/2addr v0, v1
+
+    mul-int/lit8 v0, v0, 0x1f
+
+    iget-object v1, p0, Lcom/android/systemui/media/SmartspaceMediaData;->dismissIntent:Landroid/content/Intent;
+
+    if-nez v1, :cond_3
+
+    goto :goto_2
+
+    :cond_3
+    invoke-virtual {v1}, Landroid/content/Intent;->hashCode()I
+
+    move-result v2
+
+    :goto_2
+    add-int/2addr v0, v2
 
     mul-int/lit8 v0, v0, 0x1f
 
@@ -520,6 +608,14 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object v1, p0, Lcom/android/systemui/media/SmartspaceMediaData;->recommendations:Ljava/util/List;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v1, ", dismissIntent="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v1, p0, Lcom/android/systemui/media/SmartspaceMediaData;->dismissIntent:Landroid/content/Intent;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 

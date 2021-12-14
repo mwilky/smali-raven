@@ -2,38 +2,42 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/view/View$OnLongClickListener;
 
 
-# instance fields
-.field public final synthetic f$0:Lcom/android/systemui/media/MediaControlPanel;
-
-.field public final synthetic f$1:Landroid/media/session/MediaController;
+# static fields
+.field public static final synthetic INSTANCE:Lcom/android/systemui/media/MediaControlPanel$$ExternalSyntheticLambda12;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/media/MediaControlPanel;Landroid/media/session/MediaController;)V
+.method static synthetic constructor <clinit>()V
+    .locals 1
+
+    new-instance v0, Lcom/android/systemui/media/MediaControlPanel$$ExternalSyntheticLambda12;
+
+    invoke-direct {v0}, Lcom/android/systemui/media/MediaControlPanel$$ExternalSyntheticLambda12;-><init>()V
+
+    sput-object v0, Lcom/android/systemui/media/MediaControlPanel$$ExternalSyntheticLambda12;->INSTANCE:Lcom/android/systemui/media/MediaControlPanel$$ExternalSyntheticLambda12;
+
+    return-void
+.end method
+
+.method private synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/systemui/media/MediaControlPanel$$ExternalSyntheticLambda12;->f$0:Lcom/android/systemui/media/MediaControlPanel;
-
-    iput-object p2, p0, Lcom/android/systemui/media/MediaControlPanel$$ExternalSyntheticLambda12;->f$1:Landroid/media/session/MediaController;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 1
+.method public final onLongClick(Landroid/view/View;)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/systemui/media/MediaControlPanel$$ExternalSyntheticLambda12;->f$0:Lcom/android/systemui/media/MediaControlPanel;
+    invoke-static {p1}, Lcom/android/systemui/media/MediaControlPanel;->$r8$lambda$U_0NloneKS101zCTUMBFt3SAL1o(Landroid/view/View;)Z
 
-    iget-object p0, p0, Lcom/android/systemui/media/MediaControlPanel$$ExternalSyntheticLambda12;->f$1:Landroid/media/session/MediaController;
+    move-result p0
 
-    invoke-static {v0, p0}, Lcom/android/systemui/media/MediaControlPanel;->$r8$lambda$VW_BqApcWVtbVq-h6ONAO26doKg(Lcom/android/systemui/media/MediaControlPanel;Landroid/media/session/MediaController;)V
-
-    return-void
+    return p0
 .end method

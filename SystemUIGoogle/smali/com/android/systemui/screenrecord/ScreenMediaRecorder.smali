@@ -55,180 +55,34 @@
 .end method
 
 .method private getSupportedSize(III)[I
-    .locals 22
+    .locals 11
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
 
-    move/from16 v0, p1
+    const-string/jumbo p0, "video/avc"
 
-    move/from16 v1, p2
+    invoke-static {p0}, Landroid/media/MediaCodec;->createDecoderByType(Ljava/lang/String;)Landroid/media/MediaCodec;
 
-    move/from16 v2, p3
+    move-result-object v0
 
-    new-instance v3, Landroid/media/MediaCodecList;
+    invoke-virtual {v0}, Landroid/media/MediaCodec;->getCodecInfo()Landroid/media/MediaCodecInfo;
 
-    const/4 v4, 0x0
+    move-result-object v1
 
-    invoke-direct {v3, v4}, Landroid/media/MediaCodecList;-><init>(I)V
+    invoke-virtual {v1, p0}, Landroid/media/MediaCodecInfo;->getCapabilitiesForType(Ljava/lang/String;)Landroid/media/MediaCodecInfo$CodecCapabilities;
 
-    invoke-virtual {v3}, Landroid/media/MediaCodecList;->getCodecInfos()[Landroid/media/MediaCodecInfo;
+    move-result-object p0
 
-    move-result-object v3
+    invoke-virtual {p0}, Landroid/media/MediaCodecInfo$CodecCapabilities;->getVideoCapabilities()Landroid/media/MediaCodecInfo$VideoCapabilities;
 
-    array-length v5, v3
+    move-result-object p0
 
-    const-wide/16 v6, 0x0
+    invoke-virtual {v0}, Landroid/media/MediaCodec;->release()V
 
-    const/4 v8, 0x0
-
-    move v9, v4
-
-    :goto_0
-    const-string v12, "ScreenMediaRecorder"
-
-    if-ge v9, v5, :cond_8
-
-    aget-object v14, v3, v9
-
-    const-string/jumbo v15, "video/avc"
-
-    invoke-virtual {v14}, Landroid/media/MediaCodecInfo;->getSupportedTypes()[Ljava/lang/String;
-
-    move-result-object v10
-
-    array-length v13, v10
-
-    :goto_1
-    if-ge v4, v13, :cond_7
-
-    aget-object v11, v10, v4
-
-    invoke-virtual {v11, v15}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v11
-
-    if-nez v11, :cond_0
-
-    goto/16 :goto_5
-
-    :cond_0
-    invoke-virtual {v14, v15}, Landroid/media/MediaCodecInfo;->getCapabilitiesForType(Ljava/lang/String;)Landroid/media/MediaCodecInfo$CodecCapabilities;
-
-    move-result-object v11
-
-    if-eqz v11, :cond_5
-
-    invoke-virtual {v11}, Landroid/media/MediaCodecInfo$CodecCapabilities;->getVideoCapabilities()Landroid/media/MediaCodecInfo$VideoCapabilities;
-
-    move-result-object v16
-
-    if-eqz v16, :cond_5
-
-    invoke-virtual {v11}, Landroid/media/MediaCodecInfo$CodecCapabilities;->getVideoCapabilities()Landroid/media/MediaCodecInfo$VideoCapabilities;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Landroid/media/MediaCodecInfo$VideoCapabilities;->getSupportedWidths()Landroid/util/Range;
-
-    move-result-object v16
-
-    invoke-virtual/range {v16 .. v16}, Landroid/util/Range;->getUpper()Ljava/lang/Comparable;
-
-    move-result-object v16
-
-    check-cast v16, Ljava/lang/Integer;
-
-    move-object/from16 v17, v3
-
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/Integer;->intValue()I
-
-    move-result v3
-
-    invoke-virtual {v11}, Landroid/media/MediaCodecInfo$VideoCapabilities;->getSupportedHeights()Landroid/util/Range;
-
-    move-result-object v16
-
-    invoke-virtual/range {v16 .. v16}, Landroid/util/Range;->getUpper()Ljava/lang/Comparable;
-
-    move-result-object v16
-
-    check-cast v16, Ljava/lang/Integer;
-
-    move/from16 v18, v5
-
-    invoke-virtual/range {v16 .. v16}, Ljava/lang/Integer;->intValue()I
-
-    move-result v5
-
-    invoke-virtual {v11}, Landroid/media/MediaCodecInfo$VideoCapabilities;->getWidthAlignment()I
-
-    move-result v16
-
-    rem-int v16, v0, v16
-
-    if-eqz v16, :cond_1
-
-    invoke-virtual {v11}, Landroid/media/MediaCodecInfo$VideoCapabilities;->getWidthAlignment()I
-
-    move-result v16
-
-    rem-int v16, v0, v16
-
-    sub-int v16, v0, v16
-
-    move/from16 v21, v16
-
-    move-object/from16 v16, v8
-
-    move/from16 v8, v21
-
-    goto :goto_2
-
-    :cond_1
-    move-object/from16 v16, v8
-
-    move v8, v0
-
-    :goto_2
-    invoke-virtual {v11}, Landroid/media/MediaCodecInfo$VideoCapabilities;->getHeightAlignment()I
-
-    move-result v19
-
-    rem-int v19, v1, v19
-
-    if-eqz v19, :cond_2
-
-    invoke-virtual {v11}, Landroid/media/MediaCodecInfo$VideoCapabilities;->getHeightAlignment()I
-
-    move-result v19
-
-    rem-int v19, v1, v19
-
-    sub-int v19, v1, v19
-
-    move/from16 v21, v19
-
-    move-object/from16 v19, v10
-
-    move/from16 v10, v21
-
-    goto :goto_3
-
-    :cond_2
-    move-object/from16 v19, v10
-
-    move v10, v1
-
-    :goto_3
-    if-lt v3, v8, :cond_4
-
-    if-lt v5, v10, :cond_4
-
-    invoke-virtual {v11, v8, v10}, Landroid/media/MediaCodecInfo$VideoCapabilities;->isSizeSupported(II)Z
-
-    move-result v20
-
-    if-eqz v20, :cond_4
-
-    invoke-virtual {v11, v8, v10}, Landroid/media/MediaCodecInfo$VideoCapabilities;->getSupportedFrameRatesFor(II)Landroid/util/Range;
+    invoke-virtual {p0}, Landroid/media/MediaCodecInfo$VideoCapabilities;->getSupportedWidths()Landroid/util/Range;
 
     move-result-object v0
 
@@ -236,260 +90,254 @@
 
     move-result-object v0
 
-    check-cast v0, Ljava/lang/Double;
+    check-cast v0, Ljava/lang/Integer;
 
-    invoke-virtual {v0}, Ljava/lang/Double;->intValue()I
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
-    if-ge v0, v2, :cond_3
-
-    goto :goto_4
-
-    :cond_3
-    move v0, v2
-
-    :goto_4
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "Screen size supported at rate "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/media/MediaCodecInfo$VideoCapabilities;->getSupportedHeights()Landroid/util/Range;
 
     move-result-object v1
 
-    invoke-static {v12, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v1}, Landroid/util/Range;->getUpper()Ljava/lang/Comparable;
 
-    const/4 v1, 0x3
+    move-result-object v1
 
-    new-array v1, v1, [I
+    check-cast v1, Ljava/lang/Integer;
 
-    const/4 v2, 0x0
+    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
-    aput v8, v1, v2
+    move-result v1
 
-    const/4 v2, 0x1
+    invoke-virtual {p0}, Landroid/media/MediaCodecInfo$VideoCapabilities;->getWidthAlignment()I
 
-    aput v10, v1, v2
+    move-result v2
 
-    const/4 v2, 0x2
+    rem-int v2, p1, v2
 
-    aput v0, v1, v2
+    if-eqz v2, :cond_0
 
-    return-object v1
+    invoke-virtual {p0}, Landroid/media/MediaCodecInfo$VideoCapabilities;->getWidthAlignment()I
 
-    :cond_4
-    move-object v8, v11
+    move-result v2
 
-    int-to-double v10, v3
+    rem-int v2, p1, v2
 
-    move/from16 v20, v13
+    sub-int v2, p1, v2
 
-    move-object v3, v14
+    goto :goto_0
 
-    int-to-double v13, v0
+    :cond_0
+    move v2, p1
 
-    div-double/2addr v10, v13
+    :goto_0
+    invoke-virtual {p0}, Landroid/media/MediaCodecInfo$VideoCapabilities;->getHeightAlignment()I
 
-    int-to-double v13, v5
+    move-result v3
 
-    move-object v5, v3
+    rem-int v3, p2, v3
 
-    int-to-double v2, v1
+    if-eqz v3, :cond_1
 
-    div-double/2addr v13, v2
+    invoke-virtual {p0}, Landroid/media/MediaCodecInfo$VideoCapabilities;->getHeightAlignment()I
 
-    invoke-static {v10, v11, v13, v14}, Ljava/lang/Math;->min(DD)D
+    move-result v3
 
-    move-result-wide v2
+    rem-int v3, p2, v3
 
-    cmpl-double v10, v2, v6
+    sub-int v3, p2, v3
 
-    if-lez v10, :cond_6
+    goto :goto_1
 
-    const-wide/high16 v6, 0x3ff0000000000000L    # 1.0
+    :cond_1
+    move v3, p2
 
-    invoke-static {v6, v7, v2, v3}, Ljava/lang/Math;->min(DD)D
+    :goto_1
+    const/4 v4, 0x2
 
-    move-result-wide v6
+    const/4 v5, 0x1
 
-    goto :goto_6
+    const/4 v6, 0x0
 
-    :cond_5
-    :goto_5
-    move-object/from16 v17, v3
+    const/4 v7, 0x3
 
-    move/from16 v18, v5
+    const-string v8, "ScreenMediaRecorder"
 
-    move-object/from16 v16, v8
+    if-lt v0, v2, :cond_3
 
-    move-object/from16 v19, v10
+    if-lt v1, v3, :cond_3
 
-    move/from16 v20, v13
+    invoke-virtual {p0, v2, v3}, Landroid/media/MediaCodecInfo$VideoCapabilities;->isSizeSupported(II)Z
 
-    move-object v5, v14
+    move-result v9
 
-    :cond_6
-    move-object/from16 v8, v16
+    if-eqz v9, :cond_3
 
-    :goto_6
-    add-int/lit8 v4, v4, 0x1
+    invoke-virtual {p0, v2, v3}, Landroid/media/MediaCodecInfo$VideoCapabilities;->getSupportedFrameRatesFor(II)Landroid/util/Range;
 
-    move/from16 v2, p3
+    move-result-object p0
 
-    move-object v14, v5
+    invoke-virtual {p0}, Landroid/util/Range;->getUpper()Ljava/lang/Comparable;
 
-    move-object/from16 v3, v17
+    move-result-object p0
 
-    move/from16 v5, v18
+    check-cast p0, Ljava/lang/Double;
 
-    move-object/from16 v10, v19
+    invoke-virtual {p0}, Ljava/lang/Double;->intValue()I
 
-    move/from16 v13, v20
+    move-result p0
 
-    goto/16 :goto_1
+    if-ge p0, p3, :cond_2
 
-    :cond_7
-    move-object/from16 v17, v3
+    move p3, p0
 
-    move/from16 v18, v5
+    :cond_2
+    new-instance p0, Ljava/lang/StringBuilder;
 
-    move-object/from16 v16, v8
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    add-int/lit8 v9, v9, 0x1
+    const-string p1, "Screen size supported at rate "
 
-    move/from16 v2, p3
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/4 v4, 0x0
+    invoke-virtual {p0, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    goto/16 :goto_0
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    :cond_8
+    move-result-object p0
+
+    invoke-static {v8, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-array p0, v7, [I
+
+    aput v2, p0, v6
+
+    aput v3, p0, v5
+
+    aput p3, p0, v4
+
+    return-object p0
+
+    :cond_3
     int-to-double v2, v0
 
-    mul-double/2addr v2, v6
+    int-to-double v9, p1
 
-    double-to-int v0, v2
+    div-double/2addr v2, v9
 
-    int-to-double v1, v1
+    int-to-double v0, v1
 
-    mul-double/2addr v1, v6
+    int-to-double p1, p2
 
-    double-to-int v1, v1
+    div-double/2addr v0, p1
 
-    invoke-virtual {v8}, Landroid/media/MediaCodecInfo$VideoCapabilities;->getWidthAlignment()I
+    invoke-static {v2, v3, v0, v1}, Ljava/lang/Math;->min(DD)D
 
-    move-result v2
+    move-result-wide v0
 
-    rem-int v2, v0, v2
+    mul-double/2addr v9, v0
 
-    if-eqz v2, :cond_9
+    double-to-int v2, v9
 
-    invoke-virtual {v8}, Landroid/media/MediaCodecInfo$VideoCapabilities;->getWidthAlignment()I
+    mul-double/2addr p1, v0
 
-    move-result v2
+    double-to-int p1, p1
 
-    rem-int v2, v0, v2
+    invoke-virtual {p0}, Landroid/media/MediaCodecInfo$VideoCapabilities;->getWidthAlignment()I
 
-    sub-int/2addr v0, v2
+    move-result p2
 
-    :cond_9
-    invoke-virtual {v8}, Landroid/media/MediaCodecInfo$VideoCapabilities;->getHeightAlignment()I
+    rem-int p2, v2, p2
 
-    move-result v2
+    if-eqz p2, :cond_4
 
-    rem-int v2, v1, v2
+    invoke-virtual {p0}, Landroid/media/MediaCodecInfo$VideoCapabilities;->getWidthAlignment()I
 
-    if-eqz v2, :cond_a
+    move-result p2
 
-    invoke-virtual {v8}, Landroid/media/MediaCodecInfo$VideoCapabilities;->getHeightAlignment()I
+    rem-int p2, v2, p2
 
-    move-result v2
+    sub-int/2addr v2, p2
 
-    rem-int v2, v1, v2
+    :cond_4
+    invoke-virtual {p0}, Landroid/media/MediaCodecInfo$VideoCapabilities;->getHeightAlignment()I
 
-    sub-int/2addr v1, v2
+    move-result p2
 
-    :cond_a
-    invoke-virtual {v8, v0, v1}, Landroid/media/MediaCodecInfo$VideoCapabilities;->getSupportedFrameRatesFor(II)Landroid/util/Range;
+    rem-int p2, p1, p2
 
-    move-result-object v2
+    if-eqz p2, :cond_5
 
-    invoke-virtual {v2}, Landroid/util/Range;->getUpper()Ljava/lang/Comparable;
+    invoke-virtual {p0}, Landroid/media/MediaCodecInfo$VideoCapabilities;->getHeightAlignment()I
 
-    move-result-object v2
+    move-result p2
 
-    check-cast v2, Ljava/lang/Double;
+    rem-int p2, p1, p2
 
-    invoke-virtual {v2}, Ljava/lang/Double;->intValue()I
+    sub-int/2addr p1, p2
 
-    move-result v2
+    :cond_5
+    invoke-virtual {p0, v2, p1}, Landroid/media/MediaCodecInfo$VideoCapabilities;->getSupportedFrameRatesFor(II)Landroid/util/Range;
 
-    move/from16 v3, p3
+    move-result-object p0
 
-    if-ge v2, v3, :cond_b
+    invoke-virtual {p0}, Landroid/util/Range;->getUpper()Ljava/lang/Comparable;
 
-    goto :goto_7
+    move-result-object p0
 
-    :cond_b
-    move v2, v3
+    check-cast p0, Ljava/lang/Double;
 
-    :goto_7
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-virtual {p0}, Ljava/lang/Double;->intValue()I
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    move-result p0
 
-    const-string v4, "Resized by "
+    if-ge p0, p3, :cond_6
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move p3, p0
 
-    invoke-virtual {v3, v6, v7}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
+    :cond_6
+    new-instance p0, Ljava/lang/StringBuilder;
 
-    const-string v4, ": "
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p2, "Resized by "
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, ", "
+    invoke-virtual {p0, v0, v1}, Ljava/lang/StringBuilder;->append(D)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string p2, ": "
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string p2, ", "
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-static {v12, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/4 v3, 0x3
+    invoke-virtual {p0, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    new-array v3, v3, [I
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const/4 v4, 0x0
+    move-result-object p0
 
-    aput v0, v3, v4
+    invoke-static {v8, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v0, 0x1
+    new-array p0, v7, [I
 
-    aput v1, v3, v0
+    aput v2, p0, v6
 
-    const/4 v0, 0x2
+    aput p1, p0, v5
 
-    aput v2, v3, v0
+    aput p3, p0, v4
 
-    return-object v3
+    return-object p0
 .end method
 
 .method private prepare()V
@@ -552,7 +400,7 @@
 
     invoke-virtual {v1}, Ljava/io/File;->mkdirs()Z
 
-    const-string v2, "temp"
+    const-string/jumbo v2, "temp"
 
     const-string v3, ".mp4"
 
@@ -997,7 +845,7 @@
 
     invoke-static {v3, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v2, "temp"
+    const-string/jumbo v2, "temp"
 
     const-string v4, ".mp4"
 

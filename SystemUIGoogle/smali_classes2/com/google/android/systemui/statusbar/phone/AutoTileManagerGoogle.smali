@@ -57,29 +57,6 @@
 
     iput-object v0, v15, Lcom/google/android/systemui/statusbar/phone/AutoTileManagerGoogle;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
 
-    iget-object v0, v15, Lcom/android/systemui/statusbar/phone/AutoTileManager;->mAutoTracker:Lcom/android/systemui/qs/AutoAddTracker;
-
-    const-string v1, "ott"
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/AutoAddTracker;->isAdded(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    sget-boolean v0, Landroid/os/Build;->IS_DEBUGGABLE:Z
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, v15, Lcom/android/systemui/statusbar/phone/AutoTileManager;->mAutoTracker:Lcom/android/systemui/qs/AutoAddTracker;
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/AutoAddTracker;->setTileAdded(Ljava/lang/String;)V
-
-    iget-object v0, v15, Lcom/android/systemui/statusbar/phone/AutoTileManager;->mHost:Lcom/android/systemui/qs/QSTileHost;
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/QSTileHost;->addTile(Ljava/lang/String;)V
-
-    :cond_0
     return-void
 .end method
 
@@ -133,6 +110,37 @@
 
 
 # virtual methods
+.method public init()V
+    .locals 2
+
+    invoke-super {p0}, Lcom/android/systemui/statusbar/phone/AutoTileManager;->init()V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/AutoTileManager;->mAutoTracker:Lcom/android/systemui/qs/AutoAddTracker;
+
+    const-string v1, "ott"
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/AutoAddTracker;->isAdded(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    sget-boolean v0, Landroid/os/Build;->IS_DEBUGGABLE:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/AutoTileManager;->mAutoTracker:Lcom/android/systemui/qs/AutoAddTracker;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/AutoAddTracker;->setTileAdded(Ljava/lang/String;)V
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/AutoTileManager;->mHost:Lcom/android/systemui/qs/QSTileHost;
+
+    invoke-virtual {p0, v1}, Lcom/android/systemui/qs/QSTileHost;->addTile(Ljava/lang/String;)V
+
+    :cond_0
+    return-void
+.end method
+
 .method protected startControllersAndSettingsListeners()V
     .locals 2
 

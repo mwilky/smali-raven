@@ -608,7 +608,7 @@
 
     iget-object v0, p0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VectorDrawableCompatState;->mVPathRenderer:Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;
 
-    const-string v1, "tintMode"
+    const-string/jumbo v1, "tintMode"
 
     const/4 v2, 0x6
 
@@ -626,7 +626,7 @@
 
     iput-object v1, p0, Landroidx/vectordrawable/graphics/drawable/VectorDrawableCompat$VectorDrawableCompatState;->mTintMode:Landroid/graphics/PorterDuff$Mode;
 
-    const-string v1, "tint"
+    const-string/jumbo v1, "tint"
 
     const/4 v2, 0x1
 

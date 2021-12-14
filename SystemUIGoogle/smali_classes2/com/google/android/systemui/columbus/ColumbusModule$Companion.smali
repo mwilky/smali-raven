@@ -14,7 +14,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nColumbusModule.kt\nKotlin\n*S Kotlin\n*F\n+ 1 ColumbusModule.kt\ncom/google/android/systemui/columbus/ColumbusModule$Companion\n+ 2 ArraysJVM.kt\nkotlin/collections/ArraysKt__ArraysJVMKt\n*L\n1#1,234:1\n37#2,2:235\n*E\n*S KotlinDebug\n*F\n+ 1 ColumbusModule.kt\ncom/google/android/systemui/columbus/ColumbusModule$Companion\n*L\n138#1,2:235\n*E\n"
+    value = "SMAP\nColumbusModule.kt\nKotlin\n*S Kotlin\n*F\n+ 1 ColumbusModule.kt\ncom/google/android/systemui/columbus/ColumbusModule$Companion\n+ 2 ArraysJVM.kt\nkotlin/collections/ArraysKt__ArraysJVMKt\n*L\n1#1,244:1\n37#2,2:245\n*E\n*S KotlinDebug\n*F\n+ 1 ColumbusModule.kt\ncom/google/android/systemui/columbus/ColumbusModule$Companion\n*L\n148#1,2:245\n*E\n"
 .end annotation
 
 
@@ -200,23 +200,19 @@
     return-object p0
 .end method
 
-.method public final provideColumbusGates(Lcom/google/android/systemui/columbus/gates/FlagEnabled;Lcom/google/android/systemui/columbus/gates/ChargingState;Lcom/google/android/systemui/columbus/gates/UsbState;Lcom/google/android/systemui/columbus/gates/KeyguardProximity;Lcom/google/android/systemui/columbus/gates/SetupWizard;Lcom/google/android/systemui/columbus/gates/SystemKeyPress;Lcom/google/android/systemui/columbus/gates/TelephonyActivity;Lcom/google/android/systemui/columbus/gates/VrMode;Lcom/google/android/systemui/columbus/gates/CameraVisibility;Lcom/google/android/systemui/columbus/gates/PowerSaveState;Lcom/google/android/systemui/columbus/gates/PowerState;Lcom/google/android/systemui/columbus/gates/ScreenTouch;)Ljava/util/Set;
+.method public final provideColumbusGates(Lcom/google/android/systemui/columbus/gates/FlagEnabled;Lcom/google/android/systemui/columbus/gates/KeyguardProximity;Lcom/google/android/systemui/columbus/gates/SetupWizard;Lcom/google/android/systemui/columbus/gates/TelephonyActivity;Lcom/google/android/systemui/columbus/gates/VrMode;Lcom/google/android/systemui/columbus/gates/CameraVisibility;Lcom/google/android/systemui/columbus/gates/PowerSaveState;Lcom/google/android/systemui/columbus/gates/PowerState;)Ljava/util/Set;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Lcom/google/android/systemui/columbus/gates/FlagEnabled;",
-            "Lcom/google/android/systemui/columbus/gates/ChargingState;",
-            "Lcom/google/android/systemui/columbus/gates/UsbState;",
             "Lcom/google/android/systemui/columbus/gates/KeyguardProximity;",
             "Lcom/google/android/systemui/columbus/gates/SetupWizard;",
-            "Lcom/google/android/systemui/columbus/gates/SystemKeyPress;",
             "Lcom/google/android/systemui/columbus/gates/TelephonyActivity;",
             "Lcom/google/android/systemui/columbus/gates/VrMode;",
             "Lcom/google/android/systemui/columbus/gates/CameraVisibility;",
             "Lcom/google/android/systemui/columbus/gates/PowerSaveState;",
             "Lcom/google/android/systemui/columbus/gates/PowerState;",
-            "Lcom/google/android/systemui/columbus/gates/ScreenTouch;",
             ")",
             "Ljava/util/Set<",
             "Lcom/google/android/systemui/columbus/gates/Gate;",
@@ -228,51 +224,35 @@
 
     invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string p0, "chargingState"
+    const-string p0, "keyguardProximity"
 
     invoke-static {p2, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string p0, "usbState"
+    const-string p0, "setupWizard"
 
     invoke-static {p3, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string p0, "keyguardProximity"
+    const-string p0, "telephonyActivity"
 
     invoke-static {p4, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string p0, "setupWizard"
+    const-string p0, "vrMode"
 
     invoke-static {p5, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string p0, "systemKeyPress"
+    const-string p0, "cameraVisibility"
 
     invoke-static {p6, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string p0, "telephonyActivity"
+    const-string p0, "powerSaveState"
 
     invoke-static {p7, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string p0, "vrMode"
+    const-string p0, "powerState"
 
     invoke-static {p8, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string p0, "cameraVisibility"
-
-    invoke-static {p9, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p0, "powerSaveState"
-
-    invoke-static {p10, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p0, "powerState"
-
-    invoke-static {p11, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p0, "screenTouch"
-
-    invoke-static {p12, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const/16 p0, 0xc
+    const/16 p0, 0x8
 
     new-array p0, p0, [Lcom/google/android/systemui/columbus/gates/Gate;
 
@@ -308,21 +288,64 @@
 
     aput-object p8, p0, p1
 
-    const/16 p1, 0x8
+    invoke-static {p0}, Lkotlin/collections/SetsKt;->setOf([Ljava/lang/Object;)Ljava/util/Set;
 
-    aput-object p9, p0, p1
+    move-result-object p0
 
-    const/16 p1, 0x9
+    return-object p0
+.end method
 
-    aput-object p10, p0, p1
+.method public final provideColumbusSoftGates(Lcom/google/android/systemui/columbus/gates/ChargingState;Lcom/google/android/systemui/columbus/gates/UsbState;Lcom/google/android/systemui/columbus/gates/SystemKeyPress;Lcom/google/android/systemui/columbus/gates/ScreenTouch;)Ljava/util/Set;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/google/android/systemui/columbus/gates/ChargingState;",
+            "Lcom/google/android/systemui/columbus/gates/UsbState;",
+            "Lcom/google/android/systemui/columbus/gates/SystemKeyPress;",
+            "Lcom/google/android/systemui/columbus/gates/ScreenTouch;",
+            ")",
+            "Ljava/util/Set<",
+            "Lcom/google/android/systemui/columbus/gates/Gate;",
+            ">;"
+        }
+    .end annotation
 
-    const/16 p1, 0xa
+    const-string p0, "chargingState"
 
-    aput-object p11, p0, p1
+    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const/16 p1, 0xb
+    const-string p0, "usbState"
 
-    aput-object p12, p0, p1
+    invoke-static {p2, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string p0, "systemKeyPress"
+
+    invoke-static {p3, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string p0, "screenTouch"
+
+    invoke-static {p4, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const/4 p0, 0x4
+
+    new-array p0, p0, [Lcom/google/android/systemui/columbus/gates/Gate;
+
+    const/4 v0, 0x0
+
+    aput-object p1, p0, v0
+
+    const/4 p1, 0x1
+
+    aput-object p2, p0, p1
+
+    const/4 p1, 0x2
+
+    aput-object p3, p0, p1
+
+    const/4 p1, 0x3
+
+    aput-object p4, p0, p1
 
     invoke-static {p0}, Lkotlin/collections/SetsKt;->setOf([Ljava/lang/Object;)Ljava/util/Set;
 

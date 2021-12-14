@@ -363,6 +363,7 @@
     <string name="alarms_and_reminders_label">ម៉ោងរោទ៍ និងការរំលឹក</string>
     <string name="alarms_and_reminders_switch_title">អនុញ្ញាតឱ្យ​កំណត់​ម៉ោងរោទ៍ និង​ការរំលឹក</string>
     <string name="alarms_and_reminders_title">ម៉ោងរោទ៍ និង​ការរំលឹក</string>
+    <string name="all_network_unavailable">មិន​មាន​បណ្ដាញដែល​អាច​ប្រើ​បានទេ</string>
     <string name="allow_mock_location">ឲ្យ​ក្លែង​ទីតាំង</string>
     <string name="allow_mock_location_summary">អនុញ្ញាត​ទីតាំង​ក្លែងក្លាយ</string>
     <string name="always_use_accessory">បើក %1$s ជានិច្ចនៅពេលដែល %2$s ត្រូវបានភ្ជាប់</string>
@@ -618,6 +619,11 @@
     <string name="clock_title_analog">អាណាឡូក</string>
     <string name="clock_title_bubble">ពពុះ</string>
     <string name="clock_title_default">លំនាំដើម</string>
+    <string name="columbus_bouncer_message">ដោះសោ​ដើម្បីបញ្ចប់​ការប៉ះរហ័ស</string>
+    <string name="columbus_target_request_dialog_allow">អនុញ្ញាត</string>
+    <string name="columbus_target_request_dialog_deny">មិនអនុញ្ញាត</string>
+    <string name="columbus_target_request_dialog_summary">នៅពេលអ្នកចុច​ផ្នែកខាងក្រោយ​នៃទូរសព្ទរបស់អ្នក​ពីរដង %1$s នឹងបើក។ អ្នក​អាចផ្លាស់ប្ដូរ​ចំណូលចិត្តនេះ​បានគ្រប់ពេល​នៅក្នុងការកំណត់។</string>
+    <string name="columbus_target_request_dialog_title">អនុញ្ញាតឱ្យ \"ការប៉ះរហ័ស\" បើក %1$s ឬ?</string>
     <string name="compat_mode_off">ទាញ​ដើម្បី​ឲ្យ​ពេញ​អេក្រង់</string>
     <string name="compat_mode_on">ពង្រីក​​ដើម្បី​ឲ្យ​ពេញ​អេក្រង់</string>
     <string name="confirm_enable_oem_unlock_text">ព្រមាន៖ លក្ខណៈពិសេសការពារឧបករណ៍នឹងមិនដំណើរការនៅលើឧបករណ៍នេះទេ ខណៈពេលដែលការកំណត់នេះត្រូវបានបើក។</string>
@@ -740,6 +746,8 @@
     <string name="defender_notify_learn_more">ស្វែងយល់បន្ថែម</string>
     <string name="defender_notify_resume_charge">បន្តសាកថ្ម</string>
     <string name="defender_notify_title">បានដាក់កំហិតលើ​ការសាកថ្មជា​បណ្ដោះអាសន្ន</string>
+    <string name="defender_post_notify_des">ការសាកថ្ម​ត្រូវបាន​កំណត់ត្រឹម %1$s ពីម៉ោង %2$s ដល់ម៉ោង %3$s ដើម្បីរក្សា​គុណភាពថ្ម</string>
+    <string name="defender_post_notify_title">កំពុង​សាកថ្ម​ធម្មតា</string>
     <string name="delete_blob_confirmation_text">តើអ្នក​ប្រាកដថា​ចង់លុប​ទិន្នន័យ​ដែលបាន​ចែករំលែកនេះ​ដែរទេ?</string>
     <string name="delete_blob_text">លុបទិន្នន័យ​ដែលបាន​ចែករំលែក</string>
     <string name="demo_mode">មុខងារ​សាកល្បង​ UI ប្រព័ន្ធ</string>
@@ -885,6 +893,7 @@
     <string name="game_status">កំពុងលេង</string>
     <string name="global_action_lock_message">ដោះសោ​ទូរសព្ទរបស់អ្នក​សម្រាប់​ជម្រើសច្រើនទៀត</string>
     <string name="global_action_screenshot">រូបថតអេក្រង់</string>
+    <string name="global_action_smart_lock_disabled">បានបិទ Smart Lock</string>
     <string name="global_actions_change_description">ដើម្បីចូលប្រើ %1$s និងផ្ទាំងគ្រប់គ្រង​ឧបករណ៍ សូមអូស​ចុះក្រោម​ពីផ្នែកខាងលើនៃ​អេក្រង់​របស់អ្នក</string>
     <string name="go_to_web">ចូល​ទៅ​កម្មវិធី​រុករក​តាម​អ៊ីនធឺណិត</string>
     <string name="google_services_wallpaper_permission"><b>អនុញ្ញាតឲ្យផ្ទាំងរូបភាពមានចលនារបស់ Google ឆ្លើយតបទៅនឹងទីតាំងរបស់អ្នក</b> ដោយចូលដំណើរការសេវាកម្មទីតាំងរបស់ Google ។</string>
@@ -1066,7 +1075,7 @@
     <string name="keyguard_permanent_disabled_sim_message_short">ស៊ី​ម​កាត​មិន​អាច​ប្រើ​បាន​ទេ។</string>
     <string name="keyguard_plugged_in">%s • កំពុង​សាកថ្ម</string>
     <string name="keyguard_plugged_in_charging_fast">%s • កំពុង​សាកថ្មយ៉ាង​ឆាប់រហ័ស</string>
-    <string name="keyguard_plugged_in_charging_limited">%s • បានដាក់កម្រិត​ការសាកថ្ម​ជាបណ្ដោះអាសន្ន</string>
+    <string name="keyguard_plugged_in_charging_limited">%s • បានដាក់កំហិតលើ​ការសាកថ្មជា​បណ្ដោះអាសន្ន</string>
     <string name="keyguard_plugged_in_charging_slowly">%s • កំពុង​សាកថ្មយឺត</string>
     <string name="keyguard_plugged_in_wireless">%s • កំពុងសាកថ្ម​ឥតខ្សែ</string>
     <string name="keyguard_retry">អូសឡើងលើ ដើម្បី​ព្យាយាម​ម្ដងទៀត</string>
@@ -1232,7 +1241,7 @@
     <string name="media_projection_dialog_text">%s នឹងមានសិទ្ធិ​ចូលប្រើ​ព័ត៌មាន​ទាំងអស់​ដែលអាច​មើលឃើញ​នៅលើ​អេក្រង់​របស់អ្នក ឬដែលចាក់​ពីឧបករណ៍​របស់អ្នក នៅពេល​កំពុង​ថត ឬភ្ជាប់។ ព័ត៌មាន​នេះមាន​ដូចជា ពាក្យសម្ងាត់ ព័ត៌មាន​លម្អិត​អំពីការទូទាត់​ប្រាក់ រូបថត សារ និង​សំឡេង​ដែល​អ្នកចាក់​ជាដើម។</string>
     <string name="media_projection_dialog_title">ចាប់ផ្ដើម​ថត ឬភ្ជាប់​ដោយប្រើ %s ឬ?</string>
     <string name="media_projection_remember_text">កុំ​បង្ហាញ​ម្ដងទៀត</string>
-    <string name="media_seamless_remote_device">ឧបករណ៍</string>
+    <string name="media_seamless_other_device">ឧបករណ៍ផ្សេងទៀត</string>
     <string name="media_transfer_this_device_name">ឧបករណ៍​បំពង​សំឡេង​ទូរសព្ទ</string>
     <string name="media_transfer_this_phone">ទូរសព្ទនេះ</string>
     <string name="media_transfer_wired_device_name">ឧបករណ៍​សំឡេងប្រើខ្សែ</string>
@@ -1249,9 +1258,13 @@
     <string name="mobile_data">ទិន្នន័យ​ទូរសព្ទចល័ត</string>
     <string name="mobile_data_always_on">ទិន្នន័យទូរសព្ទចល័តដំណើរការជានិច្ច</string>
     <string name="mobile_data_always_on_summary">រក្សាទិន្នន័យទូរសព្ទចល័តឲ្យដំណើរការជានិច្ច ទោះបីជា Wi‑Fi ដំណើរការហើយក៏ដោយ (ដើម្បីប្តូរបណ្តាញឲ្យបានរហ័ស)។</string>
+    <string name="mobile_data_connection_active">បានភ្ជាប់</string>
     <string name="mobile_data_disable_message">អ្នកនឹង​មិន​មាន​សិទ្ធិ​ចូល​ប្រើទិន្នន័យ​ ឬអ៊ីនធឺណិត​តាមរយៈ %s បានឡើយ។ អ៊ីនធឺណិត​នឹងអាច​ប្រើបាន​តាមរយៈ Wi-Fi តែប៉ុណ្ណោះ។</string>
     <string name="mobile_data_disable_message_default_carrier">ក្រុមហ៊ុន​​សេវាទូរសព្ទរបស់អ្នក</string>
     <string name="mobile_data_disable_title">បិទទិន្នន័យទូរសព្ទចល័ត?</string>
+    <string name="mobile_data_no_connection">មិនមាន​ការតភ្ជាប់ទេ</string>
+    <string name="mobile_data_off_summary">ទិន្នន័យទូរសព្ទចល័ត​នឹងមិនភ្ជាប់ដោយស្វ័យប្រវត្តិទេ</string>
+    <string name="mobile_data_settings_title">ទិន្នន័យ​ទូរសព្ទចល័ត</string>
     <string name="mobile_data_text_format">%1$s — %2$s</string>
     <string name="mock_location_app">ជ្រើសរើសកម្មវិធីទីតាំងសាកល្បង</string>
     <string name="mock_location_app_not_set">គ្មានកម្មវិធីទីតាំងសាកល្បងត្រូវបានកំណត់ទេ</string>
@@ -1391,6 +1404,7 @@
     <string name="no_content_in_select_mode">គ្មានអត្ថបទ ឬរូបភាព​ដែលត្រូវជ្រើសរើសទេ</string>
     <string name="no_conversations_text">ការសន្ទនាថ្មីៗរបស់អ្នក​នឹងបង្ហាញ​នៅទីនេះ</string>
     <string name="no_shortcut">%1$s មិនអាចប្រើ​មុខងារ​សន្ទនា​បានទេ</string>
+    <string name="non_carrier_network_unavailable">មិន​មាន​បណ្ដាញផ្សេងទៀតដែល​អាច​ប្រើ​បានទេ</string>
     <string name="not_default_data_content_description">មិនបានកំណត់​ឱ្យប្រើ​ទិន្នន័យ​ទេ</string>
     <string name="not_set">មិនបានកំណត់</string>
     <string name="notif_inline_reply_remove_attachment_description">លុប​ឯកសារ​ភ្ជាប់ចេញ</string>
@@ -1571,6 +1585,7 @@
     <string name="power_remaining_only_more_than_subtext">នៅសល់​ច្រើនជាង %1$s</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">អាចនឹង​អស់ថ្ម​ត្រឹមម៉ោង %1$s</string>
+    <string name="pref_title_network_details">ព័ត៌មាន​លម្អិត​អំពីបណ្ដាញ</string>
     <string name="preference_copied">\"%1$s\" បានចម្លងទៅ​ឃ្លីបបត។</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">ការសន្ទនា​អាទិភាព</string>
@@ -1740,6 +1755,7 @@
     <string name="right_keycode">កូដ​គ្រាប់ចុច​ខាង​ស្តាំ</string>
     <string name="right_nav_bar_button_type">ប្រភេទ​ប៊ូតុង​ខាង​ស្តាំ​បន្ថែម</string>
     <string name="ring_toggle_title">ហៅទូរសព្ទ</string>
+    <string name="rotation_lock_camera_rotation_on">បើក - ផ្អែកលើមុខ</string>
     <string name="running_foreground_services_msg">ចុចដើម្បីមើលព័ត៌មានលម្អិតអំពីការប្រើប្រាស់ទិន្នន័យ និងថ្ម</string>
     <string name="running_foreground_services_title">កម្មវិធីដែលកំពុងដំណើរការនៅផ្ទៃខាងក្រោយ</string>
     <string name="running_process_item_user_label">អ្នកប្រើ៖ %1$s</string>
@@ -1814,6 +1830,7 @@
     <string name="screenshot_top_boundary_pct">បន្ទាត់បែងចែក​ខាងលើ %1$d ភាគរយ</string>
     <string name="search_menu">​ស្វែងរកការកំណត់</string>
     <string name="search_menu_title">ស្វែងរក</string>
+    <string name="see_all_networks">មើលទាំងអស់</string>
     <string name="see_more_title">មើលច្រើនទៀត</string>
     <string name="select_application">ជ្រើស​កម្មវិធី</string>
     <string name="select_conversation_text">ចុចការសន្ទនា ដើម្បីបញ្ចូលវាទៅក្នុងអេក្រង់ដើមរបស់អ្នក</string>
@@ -1926,6 +1943,7 @@
     <string name="switch_bar_off">បិទ</string>
     <string name="switch_bar_on">បើក</string>
     <string name="system_ui_tuner">កម្មវិធីសម្រួល UI ប្រព័ន្ធ</string>
+    <string name="tap_a_network_to_connect">ចុចលើបណ្ដាញណាមួយ ដើម្បីភ្ជាប់</string>
     <string name="tap_again">ចុច​ម្ដងទៀត</string>
     <string name="tap_to_sign_up">ចុច​ដើម្បី​ចុះឈ្មោះ</string>
     <string name="tether_settings_title_all">ការ​ភ្ជាប់ &amp; ហតស្ពត​ចល័ត</string>
@@ -1951,6 +1969,7 @@
     <string name="time_unit_just_now">អម្បាញ់មិញ</string>
     <string name="title_convert_fbe">កំពុងបម្លែងទៅការអ៊ីនគ្រីបដែលផ្អែកលើឯកសារ</string>
     <string name="title_usb_accessory">ឧបករណ៍​យូអេសប៊ី</string>
+    <string name="to_switch_networks_disconnect_ethernet">ដើម្បី​ប្ដូរ​បណ្ដាញ សូមផ្ដាច់​អ៊ីសឺរណិត</string>
     <string name="too_hot_label">Pixel ក្ដៅពេក</string>
     <string name="touch_filtered_warning">ការកំណត់​មិនអាច​ផ្ទៀងផ្ទាត់​ការឆ្លើយតប​របស់អ្នក​បាន​ទេ ដោយសារ​កម្មវិធី​កំពុង​បាំងសំណើ​សុំការ​អនុញ្ញាត។</string>
     <string name="track_frame_time">ការបំប្លែង​កម្រងព័ត៌មាន HWUI</string>
@@ -2009,10 +2028,12 @@
     <string name="tuner_toast">សូមអបអរសាទរ! កម្មវិធីសម្រួល UI ប្រព័ន្ធត្រូវបានបន្ថែមទៅការកំណត់ហើយ</string>
     <string name="tuner_warning">កម្មវិធីសម្រួល UI ប្រព័ន្ធផ្តល់ជូនអ្នកនូវមធ្យោបាយបន្ថែមទៀតដើម្បីកែសម្រួល និងប្តូរចំណុចប្រទាក់អ្នកប្រើ Android តាមបំណង។ លក្ខណៈពិសេសសាកល្បងនេះអាចនឹងផ្លាស់ប្តូរ បំបែក ឬបាត់បង់បន្ទាប់ពីការចេញផ្សាយនាពេលអនាគត។ សូមបន្តដោយប្រុងប្រយ័ត្ន។</string>
     <string name="tuner_warning_title">ល្អសម្រាប់អ្នកប្រើមួយចំនួន តែមិនសម្រាប់គ្រប់គ្នាទេ</string>
+    <string name="turn_on_wifi">Wi‑Fi</string>
     <string name="tv_notification_panel_no_notifications">គ្មាន​ការជូនដំណឹងទេ</string>
     <string name="tv_notification_panel_title">ការ​ជូនដំណឹង</string>
     <string name="two_weeks_timestamp">2 សប្ដាហ៍​មុន</string>
     <string name="unknown">មិន​ស្គាល់</string>
+    <string name="unlock_to_view_networks">ដោះសោ​ដើម្បីមើល​បណ្ដាញ</string>
     <string name="upcoming_birthday_status">ថ្ងៃកំណើតឆាប់ៗនេះ</string>
     <string name="upcoming_birthday_status_content_description">ថ្ងៃកំណើតរបស់ %1$s នឹងចូលមកដល់ឆាប់ៗនេះ</string>
     <string name="url_menu_copy">ចម្លង</string>
@@ -2151,9 +2172,11 @@
     <string name="wifi_disconnected">បាន​ផ្ដាច់</string>
     <string name="wifi_display_certification">សេចក្តីបញ្ជាក់ការបង្ហាញ​ឥត​ខ្សែ</string>
     <string name="wifi_display_certification_summary">បង្ហាញ​ជម្រើស​សម្រាប់​សេចក្តីបញ្ជាក់ការបង្ហាញ​ឥត​ខ្សែ</string>
+    <string name="wifi_empty_list_wifi_on">កំពុងស្វែងរកបណ្ដាញ…</string>
     <string name="wifi_enhanced_mac_randomization">ការតម្រៀប MAC ដែលមិនមានលក្ខណៈជាប់លាប់តាមលំដាប់​ចៃដន្យនៃ Wi‑Fi</string>
     <string name="wifi_enhanced_mac_randomization_summary">នៅពេលបើក​មុខងារនេះ អាសយដ្ឋាន MAC របស់ឧបករណ៍នេះ​អាចផ្លាស់ប្ដូរ​ រាល់ពេល​ដែលវា​ភ្ជាប់ជាមួយ​បណ្ដាញ​ដែលបានបើក​ការប្រើ MAC ចៃដន្យ។</string>
     <string name="wifi_fail_to_scan">មិន​អាច​វិភាគ​រក​បណ្ដាញ</string>
+    <string name="wifi_failed_connect_message">មិន​អាច​ភ្ជាប់​បណ្ដាញ​បានទេ</string>
     <string name="wifi_hotspot_switch_off_text">បិទ</string>
     <string name="wifi_hotspot_switch_on_text">បើក</string>
     <string name="wifi_is_off">Wi-Fi បាន​បិទ</string>
@@ -2164,6 +2187,7 @@
     <string name="wifi_not_in_range">នៅ​ក្រៅ​តំបន់</string>
     <string name="wifi_passpoint_expired">បានផុតកំណត់</string>
     <string name="wifi_remembered">បាន​រក្សាទុក</string>
+    <string name="wifi_scan_notify_message">ដើម្បីធ្វើឱ្យ​បទពិសោធន៍ប្រើប្រាស់​ឧបករណ៍ប្រសើរឡើង កម្មវិធី និងសេវាកម្ម​នៅតែអាចស្កេនរក​បណ្ដាញ Wi‑Fi បានគ្រប់ពេល ទោះបីជា​នៅពេលដែលបិទ Wi‑Fi ក៏ដោយ។ អ្នកអាចប្ដូរវាបាន​នៅក្នុង​ការកំណត់​ការស្កេន Wi‑Fi។ <annotation id="link">ប្ដូរ</annotation></string>
     <string name="wifi_scan_throttling">ការពន្យឺតការស្កេន Wi‑Fi</string>
     <string name="wifi_scan_throttling_summary">កាត់បន្ថយ​ការប្រើប្រាស់ថ្ម និងកែលម្អប្រតិបត្តិការ​បណ្ដាញ</string>
     <string name="wifi_security_none">គ្មាន</string>
@@ -2173,6 +2197,7 @@
     <string name="wifi_unmetered_label">មិនមានការកំណត់</string>
     <string name="wifi_verbose_logging">បើក​កំណត់ហេតុ​រៀបរាប់​ Wi-Fi</string>
     <string name="wifi_verbose_logging_summary">បង្កើនកម្រិតកំណត់ហេតុ Wi-Fi បង្ហាញក្នុង SSID RSSI ក្នុងកម្មវិធីជ្រើសរើស Wi-Fi</string>
+    <string name="wifi_wont_autoconnect_for_now">Wi-Fi នឹងមិន​ភ្ជាប់ដោយស្វ័យ​ប្រវត្តិក្នុងពេលនេះទេ</string>
     <string name="wifitrackerlib_auto_connect_disable">ការភ្ជាប់​ដោយស្វ័យប្រវត្តិ​ត្រូវបានបិទ</string>
     <string name="wifitrackerlib_available_via_app">អាចប្រើបាន​តាមរយៈ %1$s</string>
     <string name="wifitrackerlib_connected_via_app">បានភ្ជាប់​តាមរយៈ %1$s</string>

@@ -519,6 +519,39 @@
     return p0
 .end method
 
+.method protected isTransformedTouchPointInView(FFLandroid/view/View;Landroid/graphics/PointF;)Z
+    .locals 2
+
+    iget-boolean v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mClippingEnabled:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getTranslationY()F
+
+    move-result v0
+
+    add-float/2addr v0, p2
+
+    iget v1, p0, Lcom/android/systemui/qs/QSContainerImpl;->mFancyClippingTop:I
+
+    int-to-float v1, v1
+
+    cmpl-float v0, v0, v1
+
+    if-lez v0, :cond_0
+
+    const/4 p0, 0x0
+
+    return p0
+
+    :cond_0
+    invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/FrameLayout;->isTransformedTouchPointInView(FFLandroid/view/View;Landroid/graphics/PointF;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
 .method protected measureChildWithMargins(Landroid/view/View;IIII)V
     .locals 1
 
@@ -935,7 +968,7 @@
 
     move-result-object v2
 
-    const v3, 0x1050243
+    const v3, 0x1050244
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

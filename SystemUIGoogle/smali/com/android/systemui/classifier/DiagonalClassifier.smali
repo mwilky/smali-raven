@@ -15,7 +15,7 @@
 
     invoke-direct {p0, p1}, Lcom/android/systemui/classifier/FalsingClassifier;-><init>(Lcom/android/systemui/classifier/FalsingDataProvider;)V
 
-    const-string p1, "systemui"
+    const-string/jumbo p1, "systemui"
 
     const-string v0, "brightline_falsing_diagonal_horizontal_angle_range"
 

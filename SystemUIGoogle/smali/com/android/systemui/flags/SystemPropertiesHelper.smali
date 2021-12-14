@@ -1,4 +1,4 @@
-.class public final Lcom/android/systemui/flags/SystemPropertiesHelper;
+.class public Lcom/android/systemui/flags/SystemPropertiesHelper;
 .super Ljava/lang/Object;
 .source "SystemPropertiesHelper.kt"
 
@@ -26,4 +26,20 @@
     move-result p0
 
     return p0
+.end method
+
+.method public final set(Ljava/lang/String;I)V
+    .locals 0
+
+    const-string p0, "name"
+
+    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    invoke-static {p2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {p1, p0}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-void
 .end method

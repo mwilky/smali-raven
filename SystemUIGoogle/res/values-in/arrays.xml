@@ -386,7 +386,7 @@
     <string-array name="wifi_status">
         <item></item>
         <item>Memindai...</item>
-        <item>Menyambung…</item>
+        <item>Menghubungkan…</item>
         <item>Mengautentikasi…</item>
         <item>Mendapatkan alamat IP…</item>
         <item>Terhubung</item>
@@ -400,7 +400,7 @@
     <string-array name="wifi_status_with_ssid">
         <item></item>
         <item>Memindai...</item>
-        <item>Menyambung ke %1$s…</item>
+        <item>Menghubungkan ke %1$s…</item>
         <item>Mengautentikasi dengan %1$s…</item>
         <item>Mendapatkan alamat IP dari %1$s…</item>
         <item>Terhubung ke %1$s</item>

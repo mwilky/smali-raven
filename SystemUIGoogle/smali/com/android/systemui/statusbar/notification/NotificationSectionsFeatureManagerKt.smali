@@ -41,7 +41,7 @@
 
     const/4 v0, 0x1
 
-    const-string v1, "systemui"
+    const-string/jumbo v1, "systemui"
 
     const-string v2, "notifications_use_people_filtering"
 

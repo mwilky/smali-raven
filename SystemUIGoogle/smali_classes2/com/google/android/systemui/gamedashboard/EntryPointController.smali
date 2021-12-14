@@ -1027,7 +1027,7 @@
 
     iget-object p1, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController;->mHideAnimator:Landroid/animation/Animator;
 
-    invoke-virtual {p1}, Landroid/animation/Animator;->pause()V
+    invoke-virtual {p1}, Landroid/animation/Animator;->end()V
 
     :cond_4
     iget-object p0, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController;->mEntryPoint:Lcom/google/android/systemui/gamedashboard/FloatingEntryButton;

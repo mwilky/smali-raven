@@ -22,6 +22,14 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$_2Fh_p5A1lCjb44ms4zT2Kz93XU(Lcom/android/systemui/util/sensors/ProximitySensor$1;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/util/sensors/ProximitySensor$1;->lambda$onThresholdCrossed$0()V
+
+    return-void
+.end method
+
 .method constructor <init>(Lcom/android/systemui/util/sensors/ProximitySensor;)V
     .locals 0
 
@@ -32,10 +40,32 @@
     return-void
 .end method
 
+.method private synthetic lambda$onThresholdCrossed$0()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/util/sensors/ProximitySensor$1;->this$0:Lcom/android/systemui/util/sensors/ProximitySensor;
+
+    invoke-static {v0}, Lcom/android/systemui/util/sensors/ProximitySensor;->access$700(Lcom/android/systemui/util/sensors/ProximitySensor;)Lcom/android/systemui/util/sensors/ThresholdSensor;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Lcom/android/systemui/util/sensors/ThresholdSensor;->pause()V
+
+    iget-object p0, p0, Lcom/android/systemui/util/sensors/ProximitySensor$1;->this$0:Lcom/android/systemui/util/sensors/ProximitySensor;
+
+    invoke-static {p0}, Lcom/android/systemui/util/sensors/ProximitySensor;->access$800(Lcom/android/systemui/util/sensors/ProximitySensor;)Lcom/android/systemui/util/sensors/ThresholdSensor;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Lcom/android/systemui/util/sensors/ThresholdSensor;->resume()V
+
+    return-void
+.end method
+
 
 # virtual methods
 .method public onThresholdCrossed(Lcom/android/systemui/util/sensors/ThresholdSensor$ThresholdSensorEvent;)V
-    .locals 6
+    .locals 5
 
     iget-object v0, p0, Lcom/android/systemui/util/sensors/ProximitySensor$1;->this$0:Lcom/android/systemui/util/sensors/ProximitySensor;
 
@@ -43,7 +73,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4
 
     iget-object v0, p0, Lcom/android/systemui/util/sensors/ProximitySensor$1;->this$0:Lcom/android/systemui/util/sensors/ProximitySensor;
 
@@ -69,16 +99,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4
 
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/util/sensors/ProximitySensor$1;->this$0:Lcom/android/systemui/util/sensors/ProximitySensor;
 
-    invoke-static {v0}, Lcom/android/systemui/util/sensors/ProximitySensor;->access$200(Lcom/android/systemui/util/sensors/ProximitySensor;)Lcom/android/systemui/util/sensors/ThresholdSensor;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Lcom/android/systemui/util/sensors/ThresholdSensor;->pause()V
+    invoke-static {v0}, Lcom/android/systemui/util/sensors/ProximitySensor;->access$200(Lcom/android/systemui/util/sensors/ProximitySensor;)V
 
     iget-object v0, p0, Lcom/android/systemui/util/sensors/ProximitySensor$1;->this$0:Lcom/android/systemui/util/sensors/ProximitySensor;
 
@@ -109,21 +135,13 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/systemui/util/sensors/ProximitySensor$1;->this$0:Lcom/android/systemui/util/sensors/ProximitySensor;
+    new-instance v2, Lcom/android/systemui/util/sensors/ProximitySensor$1$$ExternalSyntheticLambda0;
 
-    invoke-static {v2}, Lcom/android/systemui/util/sensors/ProximitySensor;->access$200(Lcom/android/systemui/util/sensors/ProximitySensor;)Lcom/android/systemui/util/sensors/ThresholdSensor;
+    invoke-direct {v2, p0}, Lcom/android/systemui/util/sensors/ProximitySensor$1$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/util/sensors/ProximitySensor$1;)V
 
-    move-result-object v2
+    const-wide/16 v3, 0x1388
 
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/util/sensors/ProximitySensor$1$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/util/sensors/ProximitySensor$1$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/util/sensors/ThresholdSensor;)V
-
-    const-wide/16 v4, 0x1388
-
-    invoke-interface {v1, v3, v4, v5}, Lcom/android/systemui/util/concurrency/DelayableExecutor;->executeDelayed(Ljava/lang/Runnable;J)Ljava/lang/Runnable;
+    invoke-interface {v1, v2, v3, v4}, Lcom/android/systemui/util/concurrency/DelayableExecutor;->executeDelayed(Ljava/lang/Runnable;J)Ljava/lang/Runnable;
 
     move-result-object v1
 
@@ -133,15 +151,32 @@
 
     :cond_2
     :goto_0
+    iget-object p1, p0, Lcom/android/systemui/util/sensors/ProximitySensor$1;->this$0:Lcom/android/systemui/util/sensors/ProximitySensor;
+
+    invoke-static {p1}, Lcom/android/systemui/util/sensors/ProximitySensor;->access$300(Lcom/android/systemui/util/sensors/ProximitySensor;)Ljava/lang/Runnable;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_3
+
+    iget-object p1, p0, Lcom/android/systemui/util/sensors/ProximitySensor$1;->this$0:Lcom/android/systemui/util/sensors/ProximitySensor;
+
+    invoke-static {p1}, Lcom/android/systemui/util/sensors/ProximitySensor;->access$300(Lcom/android/systemui/util/sensors/ProximitySensor;)Ljava/lang/Runnable;
+
+    move-result-object p1
+
+    invoke-interface {p1}, Ljava/lang/Runnable;->run()V
+
     iget-object p0, p0, Lcom/android/systemui/util/sensors/ProximitySensor$1;->this$0:Lcom/android/systemui/util/sensors/ProximitySensor;
 
     const/4 p1, 0x0
 
     invoke-static {p0, p1}, Lcom/android/systemui/util/sensors/ProximitySensor;->access$302(Lcom/android/systemui/util/sensors/ProximitySensor;Ljava/lang/Runnable;)Ljava/lang/Runnable;
 
+    :cond_3
     return-void
 
-    :cond_3
+    :cond_4
     :goto_1
     iget-object v0, p0, Lcom/android/systemui/util/sensors/ProximitySensor$1;->this$0:Lcom/android/systemui/util/sensors/ProximitySensor;
 
@@ -173,10 +208,10 @@
 
     iget-boolean v0, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mPaused:Z
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_5
 
     invoke-static {p0, p1}, Lcom/android/systemui/util/sensors/ProximitySensor;->access$600(Lcom/android/systemui/util/sensors/ProximitySensor;Lcom/android/systemui/util/sensors/ThresholdSensor$ThresholdSensorEvent;)V
 
-    :cond_4
+    :cond_5
     return-void
 .end method

@@ -363,6 +363,7 @@ Ja šī atļauja nav piešķirta, esošie signāli un šīs lietotnes ieplānoti
     <string name="alarms_and_reminders_label">Signāli un atgādinājumi</string>
     <string name="alarms_and_reminders_switch_title">Atļaut iestatīt signālus un atgādinājumus</string>
     <string name="alarms_and_reminders_title">Signāli un atgādinājumi</string>
+    <string name="all_network_unavailable">Nav pieejams neviens tīkls</string>
     <string name="allow_mock_location">Atļaut neīstas vietas</string>
     <string name="allow_mock_location_summary">Atļaut neīstas vietas</string>
     <string name="always_use_accessory">Vienmēr atvērt lietotni %1$s, kad ir pievienots %2$s</string>
@@ -618,6 +619,11 @@ Atlase"</string>
     <string name="clock_title_analog">Analogais</string>
     <string name="clock_title_bubble">Burbuļi</string>
     <string name="clock_title_default">Noklusējums</string>
+    <string name="columbus_bouncer_message">Atbloķējiet, lai izpildītu žestu Ātrais pieskāriens</string>
+    <string name="columbus_target_request_dialog_allow">Atļaut</string>
+    <string name="columbus_target_request_dialog_deny">Neatļaut</string>
+    <string name="columbus_target_request_dialog_summary">Kad veiksiet dubultskārienu tālruņa aizmugurei, tiks atvērta lietotne %1$s. Iestatījumos varat jebkurā laikā mainīt šo preferenci.</string>
+    <string name="columbus_target_request_dialog_title">Vai atļaut atvērt lietotni %1$s, izmantojot ātro pieskārienu?</string>
     <string name="compat_mode_off">Stiepiet, lai aizp. ekr.</string>
     <string name="compat_mode_on">Tālumm., lai aizp. ekr.</string>
     <string name="confirm_enable_oem_unlock_text">BRĪDINĀJUMS. Kamēr šis iestatījums būs ieslēgts, ierīces aizsardzības funkcijas nedarbosies.</string>
@@ -740,6 +746,8 @@ Ja atsāksiet, var tikt piemērota maksa par datu lietojumu."</string>
     <string name="defender_notify_learn_more">Uzzināt vairāk</string>
     <string name="defender_notify_resume_charge">Atsākt uzlādi</string>
     <string name="defender_notify_title">Uzlāde īslaicīgi ierobežota</string>
+    <string name="defender_post_notify_des">Lai uzturētu akumulatoru darba kārtībā, uzlādes līmenis no plkst. %2$s līdz plkst. %3$s tika ierobežots līdz %1$s.</string>
+    <string name="defender_post_notify_title">Netraucēta uzlāde</string>
     <string name="delete_blob_confirmation_text">Vai tiešām vēlaties dzēst šos koplietotos datus?</string>
     <string name="delete_blob_text">Dzēst koplietotos datus</string>
     <string name="demo_mode">Sistēmas lietotāja saskarnes demonstrācijas režīms</string>
@@ -885,6 +893,7 @@ Sejas dati, ar kuriem tiek veikta autorizācija pēc sejas, tiks neatgriezeniski
     <string name="game_status">Tiek spēlēta spēle…</string>
     <string name="global_action_lock_message">Atbloķējiet tālruni, lai skatītu citas opcijas.</string>
     <string name="global_action_screenshot">Ekrānuzņēmums</string>
+    <string name="global_action_smart_lock_disabled">Sistēma Smart Lock ir atspējota</string>
     <string name="global_actions_change_description">Lai piekļūtu pakalpojumam %1$s un ierīču vadīklām, velciet lejup no ekrāna augšdaļas</string>
     <string name="go_to_web">Atvērt pārlūku</string>
     <string name="google_services_wallpaper_permission"><b>Atļaujiet Google reāllaika fona tapetēm reaģēt uz atrašanās vietu</b>, piekļūstot Google atrašanās vietas pakalpojumam.</string>
@@ -1232,7 +1241,7 @@ Mēģiniet vēlreiz pēc %2$d sekundes(-ēm)."</string>
     <string name="media_projection_dialog_text">%s iegūs piekļuvi visai informācijai, kas ierakstīšanas vai apraides laikā tiks rādīta jūsu ekrānā vai atskaņota jūsu ierīcē. Atļauja attiecas uz tādu informāciju kā paroles, maksājumu informācija, fotoattēli, ziņojumi un jūsu atskaņotais audio saturs.</string>
     <string name="media_projection_dialog_title">Vai vēlaties sākt ierakstīšanu vai apraidi, izmantojot lietotni %s?</string>
     <string name="media_projection_remember_text">Vairs nerādīt</string>
-    <string name="media_seamless_remote_device">Ierīce</string>
+    <string name="media_seamless_other_device">Cita ierīce</string>
     <string name="media_transfer_this_device_name">Tālruņa skaļrunis</string>
     <string name="media_transfer_this_phone">Šis tālrunis</string>
     <string name="media_transfer_wired_device_name">Vadu audioierīce</string>
@@ -1249,9 +1258,13 @@ Mēģiniet vēlreiz pēc %2$d sekundes(-ēm)."</string>
     <string name="mobile_data">Mobilie dati</string>
     <string name="mobile_data_always_on">Vienmēr aktīvs mobilo datu savienojums</string>
     <string name="mobile_data_always_on_summary">Mobilo datu savienojums būs vienmēr aktīvs, pat ja būs aktīvs Wi-Fi savienojums (ātrai ierīces pārslēgšanai uz citu tīklu).</string>
+    <string name="mobile_data_connection_active">Ir izveidots savienojums</string>
     <string name="mobile_data_disable_message">Izmantojot mobilo sakaru operatora %s pakalpojumus, nevarēsiet piekļūt datiem vai internetam. Internetam varēsiet piekļūt, tikai izmantojot Wi-Fi savienojumu.</string>
     <string name="mobile_data_disable_message_default_carrier">jūsu mobilo sakaru operators</string>
     <string name="mobile_data_disable_title">Vai izslēgt mobilos datus?</string>
+    <string name="mobile_data_no_connection">Nav savienojuma</string>
+    <string name="mobile_data_off_summary">Mobilo datu savienojums netiks veidots automātiski</string>
+    <string name="mobile_data_settings_title">Mobilie dati</string>
     <string name="mobile_data_text_format">%1$s — %2$s</string>
     <string name="mock_location_app">Atlasīt imitētas atrašanās vietas lietotni</string>
     <string name="mock_location_app_not_set">Nav iestatīta imitētas atrašanās vietas lietotne</string>
@@ -1391,6 +1404,7 @@ Ja jums ir jautājumi, sazinieties ar organizāciju %2$s."</string>
     <string name="no_content_in_select_mode">Nav teksta vai attēla, ko atlasīt</string>
     <string name="no_conversations_text">Jūsu pēdējās sarunas būs redzamas šeit</string>
     <string name="no_shortcut">Lietotnē %1$s netiek atbalstītas sarunu funkcijas.</string>
+    <string name="non_carrier_network_unavailable">Nav pieejams neviens cits tīkls</string>
     <string name="not_default_data_content_description">Nav iestatīts datu lietošanai</string>
     <string name="not_set">Nav iestatīts</string>
     <string name="notif_inline_reply_remove_attachment_description">Noņemt pielikumu</string>
@@ -1571,8 +1585,9 @@ Ja jums ir jautājumi, sazinieties ar organizāciju %2$s."</string>
     <string name="power_remaining_only_more_than_subtext">Atlicis: vairāk nekā %1$s</string>
     <string name="power_remaining_settings_home_page">%1$s — %2$s</string>
     <string name="power_suggestion_battery_run_out">Iespējams, akumulators izlādēsies līdz %1$s</string>
+    <string name="pref_title_network_details">Dati par tīklu</string>
     <string name="preference_copied">Preference “%1$s” ir kopēta starpliktuvē.</string>
-    <string name="preference_summary_default_combination">%1$s / %2$s</string>
+    <string name="preference_summary_default_combination">%1$s/%2$s</string>
     <string name="priority_conversations">Prioritārās sarunas</string>
     <string name="privacy_type_camera">kamera</string>
     <string name="privacy_type_location">atrašanās vieta</string>
@@ -1740,6 +1755,7 @@ Ja jums ir jautājumi, sazinieties ar organizāciju %2$s."</string>
     <string name="right_keycode">Taustiņu kods labajā pusē</string>
     <string name="right_nav_bar_button_type">Labās puses papildu pogas veids</string>
     <string name="ring_toggle_title">Zvani</string>
+    <string name="rotation_lock_camera_rotation_on">Ieslēgta — ar sejas noteikšanu</string>
     <string name="running_foreground_services_msg">Pieskarieties, lai skatītu detalizētu informāciju par akumulatora un datu lietojumu</string>
     <string name="running_foreground_services_title">Lietotnes, kas darbojas fonā</string>
     <string name="running_process_item_user_label">Lietotājs: %1$s</string>
@@ -1814,6 +1830,7 @@ Ja jums ir jautājumi, sazinieties ar organizāciju %2$s."</string>
     <string name="screenshot_top_boundary_pct">Augšmala: %1$d %%</string>
     <string name="search_menu">Meklēšanas iestatījumi</string>
     <string name="search_menu_title">Meklēt</string>
+    <string name="see_all_networks">Visu tīklu skatīšana</string>
     <string name="see_more_title">Skatīt vairāk</string>
     <string name="select_application">Lietotnes atlase</string>
     <string name="select_conversation_text">Pieskarieties kādai sarunai, lai pievienotu to savam sākuma ekrānam.</string>
@@ -1926,6 +1943,7 @@ tikt uzraudzīts"</string>
     <string name="switch_bar_off">Izslēgts</string>
     <string name="switch_bar_on">Ieslēgts</string>
     <string name="system_ui_tuner">Sistēmas saskarnes regulators</string>
+    <string name="tap_a_network_to_connect">Pieskarieties tīklam, lai izveidotu savienojumu</string>
     <string name="tap_again">Pieskarieties vēlreiz</string>
     <string name="tap_to_sign_up">Pieskarieties, lai reģistrētos</string>
     <string name="tether_settings_title_all">Piesaiste un pārn. tīklājs</string>
@@ -1951,6 +1969,7 @@ Pieskarieties, lai uzzinātu vairāk."</string>
     <string name="time_unit_just_now">Tikko</string>
     <string name="title_convert_fbe">Pārvēršana par failu līmeņa šifrējumu</string>
     <string name="title_usb_accessory">USB piederums</string>
+    <string name="to_switch_networks_disconnect_ethernet">Lai pārslēgtu tīklus, atvienojiet tīkla Ethernet vadu.</string>
     <string name="too_hot_label">Pixel tālrunis ir pārāk karsts</string>
     <string name="touch_filtered_warning">Lietotne Iestatījumi nevar verificēt jūsu atbildi, jo cita lietotne aizsedz atļaujas pieprasījumu.</string>
     <string name="track_frame_time">Profila HWUI atveide</string>
@@ -2009,10 +2028,12 @@ Pieskarieties, lai uzzinātu vairāk."</string>
     <string name="tuner_toast">Apsveicam! Sistēmas saskarnes regulators ir pievienots iestatījumiem.</string>
     <string name="tuner_warning">Sistēmas saskarnes regulators sniedz papildu veidus, kā mainīt un pielāgot Android lietotāja saskarni. Nākamajās versijās šīs eksperimentālās funkcijas var tikt mainītas, bojātas vai to darbība var tikt pārtraukta. Turpinot esiet uzmanīgs.</string>
     <string name="tuner_warning_title">Jautri dažiem, bet ne visiem</string>
+    <string name="turn_on_wifi">Wi-Fi</string>
     <string name="tv_notification_panel_no_notifications">Nav paziņojumu</string>
     <string name="tv_notification_panel_title">Paziņojumi</string>
     <string name="two_weeks_timestamp">Pirms 2 nedēļām</string>
     <string name="unknown">Nezināms</string>
+    <string name="unlock_to_view_networks">Lai skatītu tīklus, atbloķējiet</string>
     <string name="upcoming_birthday_status">Gaidāma dzimšanas diena</string>
     <string name="upcoming_birthday_status_content_description">Drīz būs lietotāja %1$s dzimšanas diena</string>
     <string name="url_menu_copy">Kopēt</string>
@@ -2151,9 +2172,11 @@ Wi‑Fi adrese (BSSID)
     <string name="wifi_disconnected">Savienojums pārtraukts</string>
     <string name="wifi_display_certification">Bezvadu attēlošanas sertifikācija</string>
     <string name="wifi_display_certification_summary">Rādīt bezvadu attēlošanas sertifikācijas iespējas</string>
+    <string name="wifi_empty_list_wifi_on">Notiek tīklu meklēšana…</string>
     <string name="wifi_enhanced_mac_randomization">Nepastāvīgu MAC adrešu nejauša izveide Wi-Fi savienojumiem</string>
     <string name="wifi_enhanced_mac_randomization_summary">Ja šis režīms ir iespējots, šīs ierīces MAC adrese var mainīties ikreiz, kad ierīcē tiek izveidots savienojums ar tīklu, kurā ir iespējota MAC adrešu nejauša izveide.</string>
     <string name="wifi_fail_to_scan">Nevar skenēt tīklus</string>
+    <string name="wifi_failed_connect_message">Neizdevās izveidot savienojumu ar tīklu</string>
     <string name="wifi_hotspot_switch_off_text">Izslēgts</string>
     <string name="wifi_hotspot_switch_on_text">Ieslēgts</string>
     <string name="wifi_is_off">Wi-Fi ir izslēgts</string>
@@ -2164,6 +2187,7 @@ Wi‑Fi adrese (BSSID)
     <string name="wifi_not_in_range">Nav diapazona ietvaros</string>
     <string name="wifi_passpoint_expired">Beidzies derīguma termiņš</string>
     <string name="wifi_remembered">Saglabāts</string>
+    <string name="wifi_scan_notify_message">Lai uzlabotu ierīces lietošanas iespējas, lietotnes un pakalpojumi joprojām varēs meklēt Wi‑Fi tīklus jebkurā laikā, pat ja Wi‑Fi būs izslēgts. Varat to mainīt Wi‑Fi meklēšanas iestatījumos. <annotation id="link">Mainīt</annotation></string>
     <string name="wifi_scan_throttling">Wi‑Fi meklēšanas ierobežošana</string>
     <string name="wifi_scan_throttling_summary">Samazina akumulatora izlādi un uzlabo tīkla veiktspēju</string>
     <string name="wifi_security_none">Nav</string>
@@ -2173,6 +2197,7 @@ Wi‑Fi adrese (BSSID)
     <string name="wifi_unmetered_label">Bezmaksas</string>
     <string name="wifi_verbose_logging">Iespējot Wi‑Fi detalizēto reģistrēšanu</string>
     <string name="wifi_verbose_logging_summary">Palieliniet Wi‑Fi reģistrēšanas līmeni; rādīt katram SSID RSSI Wi‑Fi atlasītājā.</string>
+    <string name="wifi_wont_autoconnect_for_now">Wi-Fi savienojums īslaicīgi netiks izveidots automātiski.</string>
     <string name="wifitrackerlib_auto_connect_disable">Savienojuma automātiskā izveide ir izslēgta.</string>
     <string name="wifitrackerlib_available_via_app">Pieejams, izmantojot %1$s</string>
     <string name="wifitrackerlib_connected_via_app">Izveidots savienojums, izmantojot %1$s</string>

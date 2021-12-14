@@ -1449,7 +1449,7 @@
     goto :goto_1
 
     :cond_1
-    const-string v3, "text"
+    const-string/jumbo v3, "text"
 
     const-string v4, "selection_option_key"
 
@@ -2819,7 +2819,7 @@
     goto :goto_6
 
     :sswitch_1
-    const-string v5, "time_picker"
+    const-string/jumbo v5, "time_picker"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -2835,7 +2835,7 @@
     goto :goto_6
 
     :sswitch_2
-    const-string v5, "toggle"
+    const-string/jumbo v5, "toggle"
 
     invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -3899,7 +3899,7 @@
     goto :goto_0
 
     :sswitch_1
-    const-string v3, "time_picker"
+    const-string/jumbo v3, "time_picker"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -3915,7 +3915,7 @@
     goto :goto_0
 
     :sswitch_2
-    const-string v3, "toggle"
+    const-string/jumbo v3, "toggle"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

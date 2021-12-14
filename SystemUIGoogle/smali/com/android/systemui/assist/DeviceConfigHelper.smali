@@ -25,7 +25,7 @@
 .method private static synthetic lambda$getLong$0(Ljava/lang/String;J)Ljava/lang/Long;
     .locals 1
 
-    const-string v0, "systemui"
+    const-string/jumbo v0, "systemui"
 
     invoke-static {v0, p0, p1, p2}, Landroid/provider/DeviceConfig;->getLong(Ljava/lang/String;Ljava/lang/String;J)J
 

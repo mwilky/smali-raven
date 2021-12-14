@@ -1,4 +1,4 @@
-.class public final Lcom/android/systemui/dump/DumpManager;
+.class public Lcom/android/systemui/dump/DumpManager;
 .super Ljava/lang/Object;
 .source "DumpManager.kt"
 
@@ -336,7 +336,7 @@
     monitor-enter p0
 
     :try_start_0
-    const-string v0, "target"
+    const-string/jumbo v0, "target"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 

@@ -223,7 +223,7 @@
 
     if-eqz v1, :cond_d
 
-    const-string v1, "tracing"
+    const-string/jumbo v1, "tracing"
 
     goto :goto_d
 

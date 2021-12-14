@@ -1872,7 +1872,7 @@
 .method public final setStatusText(Ljava/lang/CharSequence;Z)V
     .locals 1
 
-    const-string v0, "text"
+    const-string/jumbo v0, "text"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -1927,7 +1927,7 @@
 .method public final updateStatusRow$frameworks__base__packages__SystemUI__android_common__SystemUI_core(ZLjava/lang/CharSequence;Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;Landroid/service/controls/Control;)V
     .locals 1
 
-    const-string v0, "text"
+    const-string/jumbo v0, "text"
 
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 

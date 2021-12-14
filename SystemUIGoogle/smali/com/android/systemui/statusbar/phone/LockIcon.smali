@@ -352,7 +352,7 @@
 
     move-result-object p0
 
-    const-string v0, "theme_customization_overlay_packages"
+    const-string/jumbo v0, "theme_customization_overlay_packages"
 
     invoke-static {p0, v0}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 

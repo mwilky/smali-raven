@@ -29,7 +29,7 @@
 
     check-cast p1, Ljava/lang/Boolean;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/phone/StatusBar;->$r8$lambda$VrBxFIUEc6zWmYLlCrsQXDtIDcI(Lcom/android/systemui/statusbar/phone/StatusBar;Ljava/lang/Boolean;)V
+    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/phone/StatusBar;->$r8$lambda$ybtvHzsuaBBPz6pBoywDGZA42K8(Lcom/android/systemui/statusbar/phone/StatusBar;Ljava/lang/Boolean;)V
 
     return-void
 .end method

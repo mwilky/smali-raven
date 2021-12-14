@@ -3964,7 +3964,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/volume/VolumeDialogImpl;->mContext:Landroid/content/Context;
 
-    const v3, 0x104089c
+    const v3, 0x104089e
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -4014,7 +4014,7 @@
     :cond_2
     iget-object p1, p0, Lcom/android/systemui/volume/VolumeDialogImpl;->mContext:Landroid/content/Context;
 
-    const v3, 0x104089b
+    const v3, 0x104089d
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

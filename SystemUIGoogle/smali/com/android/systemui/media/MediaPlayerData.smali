@@ -11,7 +11,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nMediaCarouselController.kt\nKotlin\n*S Kotlin\n*F\n+ 1 MediaCarouselController.kt\ncom/android/systemui/media/MediaPlayerData\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n+ 3 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,892:1\n1#2:893\n1828#3,3:894\n1517#3:897\n1588#3,3:898\n1828#3,3:901\n1819#3,2:904\n*E\n*S KotlinDebug\n*F\n+ 1 MediaCarouselController.kt\ncom/android/systemui/media/MediaPlayerData\n*L\n834#1,3:894\n849#1:897\n849#1,3:898\n857#1,3:901\n867#1,2:904\n*E\n"
+    value = "SMAP\nMediaCarouselController.kt\nKotlin\n*S Kotlin\n*F\n+ 1 MediaCarouselController.kt\ncom/android/systemui/media/MediaPlayerData\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n+ 3 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,942:1\n1#2:943\n1828#3,3:944\n1517#3:947\n1588#3,3:948\n1828#3,3:951\n1819#3,2:954\n*E\n*S KotlinDebug\n*F\n+ 1 MediaCarouselController.kt\ncom/android/systemui/media/MediaPlayerData\n*L\n885#1,3:944\n900#1:947\n900#1,3:948\n908#1,3:951\n918#1,2:954\n*E\n"
 .end annotation
 
 
@@ -219,49 +219,111 @@
 .end method
 
 .method public final addMediaRecommendation(Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;Lcom/android/systemui/media/MediaControlPanel;ZLcom/android/systemui/util/time/SystemClock;)V
-    .locals 2
+    .locals 32
 
-    const-string v0, "key"
+    move-object/from16 v0, p1
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    move-object/from16 v1, p2
 
-    const-string v0, "data"
+    move-object/from16 v2, p3
 
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string v3, "key"
 
-    const-string v0, "player"
+    invoke-static {v0, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string v3, "data"
 
-    const-string v0, "clock"
+    invoke-static {v1, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {p5, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string v3, "player"
+
+    invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string v3, "clock"
+
+    move-object/from16 v4, p5
+
+    invoke-static {v4, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     sput-boolean p4, Lcom/android/systemui/media/MediaPlayerData;->shouldPrioritizeSs:Z
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/media/MediaPlayerData;->removeMediaPlayer(Ljava/lang/String;)Lcom/android/systemui/media/MediaControlPanel;
+    invoke-virtual/range {p0 .. p1}, Lcom/android/systemui/media/MediaPlayerData;->removeMediaPlayer(Ljava/lang/String;)Lcom/android/systemui/media/MediaControlPanel;
 
-    new-instance p0, Lcom/android/systemui/media/MediaPlayerData$MediaSortKey;
+    new-instance v3, Lcom/android/systemui/media/MediaPlayerData$MediaSortKey;
 
-    sget-object p4, Lcom/android/systemui/media/MediaPlayerData;->EMPTY:Lcom/android/systemui/media/MediaData;
+    sget-object v5, Lcom/android/systemui/media/MediaPlayerData;->EMPTY:Lcom/android/systemui/media/MediaData;
 
-    invoke-interface {p5}, Lcom/android/systemui/util/time/SystemClock;->currentTimeMillis()J
+    sget-object v26, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
-    move-result-wide v0
+    const/4 v6, 0x0
 
-    const/4 p5, 0x1
+    const/4 v7, 0x0
 
-    invoke-direct {p0, p5, p4, v0, v1}, Lcom/android/systemui/media/MediaPlayerData$MediaSortKey;-><init>(ZLcom/android/systemui/media/MediaData;J)V
+    const/4 v8, 0x0
 
-    sget-object p4, Lcom/android/systemui/media/MediaPlayerData;->mediaData:Ljava/util/Map;
+    const/4 v9, 0x0
 
-    invoke-interface {p4, p1, p0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const/4 v10, 0x0
 
-    sget-object p1, Lcom/android/systemui/media/MediaPlayerData;->mediaPlayers:Ljava/util/TreeMap;
+    const/4 v11, 0x0
 
-    invoke-virtual {p1, p0, p3}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const/4 v12, 0x0
 
-    sput-object p2, Lcom/android/systemui/media/MediaPlayerData;->smartspaceMediaData:Lcom/android/systemui/media/SmartspaceMediaData;
+    const/4 v13, 0x0
+
+    const/4 v14, 0x0
+
+    const/4 v15, 0x0
+
+    const/16 v16, 0x0
+
+    const/16 v17, 0x0
+
+    const/16 v18, 0x0
+
+    const/16 v19, 0x0
+
+    const/16 v20, 0x0
+
+    const/16 v21, 0x0
+
+    const/16 v22, 0x0
+
+    const/16 v23, 0x0
+
+    const/16 v24, 0x0
+
+    const/16 v25, 0x0
+
+    const/16 v27, 0x0
+
+    const-wide/16 v28, 0x0
+
+    const v30, 0x6fffff
+
+    const/16 v31, 0x0
+
+    invoke-static/range {v5 .. v31}, Lcom/android/systemui/media/MediaData;->copy$default(Lcom/android/systemui/media/MediaData;IZILjava/lang/String;Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Icon;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Landroid/media/session/MediaSession$Token;Landroid/app/PendingIntent;Lcom/android/systemui/media/MediaDeviceData;ZLjava/lang/Runnable;ZZLjava/lang/String;ZLjava/lang/Boolean;ZJILjava/lang/Object;)Lcom/android/systemui/media/MediaData;
+
+    move-result-object v5
+
+    invoke-interface/range {p5 .. p5}, Lcom/android/systemui/util/time/SystemClock;->currentTimeMillis()J
+
+    move-result-wide v6
+
+    const/4 v4, 0x1
+
+    invoke-direct {v3, v4, v5, v6, v7}, Lcom/android/systemui/media/MediaPlayerData$MediaSortKey;-><init>(ZLcom/android/systemui/media/MediaData;J)V
+
+    sget-object v4, Lcom/android/systemui/media/MediaPlayerData;->mediaData:Ljava/util/Map;
+
+    invoke-interface {v4, v0, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/android/systemui/media/MediaPlayerData;->mediaPlayers:Ljava/util/TreeMap;
+
+    invoke-virtual {v0, v3, v2}, Ljava/util/TreeMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sput-object v1, Lcom/android/systemui/media/MediaPlayerData;->smartspaceMediaData:Lcom/android/systemui/media/SmartspaceMediaData;
 
     return-void
 .end method

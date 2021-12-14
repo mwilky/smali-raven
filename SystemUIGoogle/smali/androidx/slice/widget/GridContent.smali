@@ -270,7 +270,7 @@
     :cond_0
     const-string v0, "shortcut"
 
-    const-string v3, "title"
+    const-string/jumbo v3, "title"
 
     filled-new-array {v0, v3}, [Ljava/lang/String;
 

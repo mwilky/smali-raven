@@ -363,6 +363,7 @@
     <string name="alarms_and_reminders_label">Оятқыш және еске салғыш</string>
     <string name="alarms_and_reminders_switch_title">Оятқыштар мен еске салғыштарды орнатуға рұқсат беру</string>
     <string name="alarms_and_reminders_title">Оятқыштар мен еске салғыштар</string>
+    <string name="all_network_unavailable">Қолжетімді желілер жоқ</string>
     <string name="allow_mock_location">Жасанды аймақтарға рұқсат беру</string>
     <string name="allow_mock_location_summary">Жасанды аймақтарды пайдалануға рұқсат беру</string>
     <string name="always_use_accessory">%2$s қосылған кезде, %1$s қолданбасын ашу</string>
@@ -618,6 +619,11 @@
     <string name="clock_title_analog">Аналогтық</string>
     <string name="clock_title_bubble">Көпіршік</string>
     <string name="clock_title_default">Әдепкі</string>
+    <string name="columbus_bouncer_message">Жылдам түрту қимылын орындау үшін құлыпты ашыңыз.</string>
+    <string name="columbus_target_request_dialog_allow">Рұқсат ету</string>
+    <string name="columbus_target_request_dialog_deny">Рұқсат бермеу</string>
+    <string name="columbus_target_request_dialog_summary">Телефонның артын екі рет түртсеңіз, %1$s ашылады. Бұл параметрді кез келген уақытта \"Параметрлер\" бөлімінен өзгерте аласыз.</string>
+    <string name="columbus_target_request_dialog_title">\"Жылдам түрту\" қимылына %1$s қолданбасын ашуға рұқсат берілсін бе?</string>
     <string name="compat_mode_off">Экранды толтыру үшін созу</string>
     <string name="compat_mode_on">Экранды толтыру үшін ұлғайту</string>
     <string name="confirm_enable_oem_unlock_text">ЕСКЕРТУ: осы параметр қосулы кезде, құрылғыны қорғау мүмкіндіктері жұмыс істемейді.</string>
@@ -740,6 +746,8 @@
     <string name="defender_notify_learn_more">Толығырақ</string>
     <string name="defender_notify_resume_charge">Зарядтауды жалғастыру</string>
     <string name="defender_notify_title">Зарядтау уақытша шектелген</string>
+    <string name="defender_post_notify_des">Батарея жұмысын ұзарту үшін %2$s және %3$s аралығында зарядтау көрсеткіші %1$s дейін шектелді.</string>
+    <string name="defender_post_notify_title">Қалыпты зарядтау</string>
     <string name="delete_blob_confirmation_text">Осы ортақ деректерді шынымен жойғыңыз келе ме?</string>
     <string name="delete_blob_text">Ортақ деректерді жою</string>
     <string name="demo_mode">Жүйе интерфейсінің демо режимі</string>
@@ -885,6 +893,7 @@
     <string name="game_status">Ойнатылуда</string>
     <string name="global_action_lock_message">Басқа опцияларды көру үшін телефон құлпын ашыңыз.</string>
     <string name="global_action_screenshot">Скриншот</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock өшірілді</string>
     <string name="global_actions_change_description">%1$s әмияны мен құрылғыны басқару элементтерін пайдалану үшін экранның жоғарғы жағынан төмен сырғытыңыз.</string>
     <string name="go_to_web">Браузерге өту</string>
     <string name="google_services_wallpaper_permission">Google орынды анықтау қызметіне кіріп, <b>Google анимациялық фонының орналасқан орныңызға байланысты өзгеріп тұруына рұқсат етіңіз</b>.</string>
@@ -1083,7 +1092,7 @@
     <string name="kg_face_not_recognized">Танылмады</string>
     <string name="kg_failed_attempts_almost_at_erase_profile">Телефон құлпын ашуға %1$d рет сәтсіз әрекет жасалды. %2$d әрекет қалды. Одан кейін жұмыс профилі өшіріліп, оның бүкіл деректері жойылады.</string>
     <string name="kg_failed_attempts_almost_at_erase_user">Телефон құлпын ашуға %1$d рет сәтсіз әрекет жасалды. %2$d әрекет қалды. Одан кейін пайдаланушы өшіріліп, оның бүкіл деректері жойылады.</string>
-    <string name="kg_failed_attempts_almost_at_login">"Құлыпты ашу өрнегі %1$d рет қате енгізілді. %2$d әрекет қалды. Одан кейін телефонды есептік жазба арқылы ашу сұралады. 
+    <string name="kg_failed_attempts_almost_at_login">"Құлыпты ашу өрнегі %1$d рет қате енгізілді. %2$d әрекет қалды. Одан кейін телефонды аккаунт арқылы ашу сұралады. 
 
  %3$d секундтан кейін әрекетті қайталаңыз."</string>
     <string name="kg_failed_attempts_almost_at_wipe">Телефон құлпын ашуға %1$d рет сәтсіз әрекет жасалды. %2$d әрекет қалды. Одан кейін осы телефон бастапқы күйіне қайтарылып, оның бүкіл деректері жойылады.</string>
@@ -1232,7 +1241,7 @@
     <string name="media_projection_dialog_text">%s жазу не трансляциялау кезінде экранда көрсетілетін немесе дыбысталатын барлық ақпаратты пайдалана алады. Бұған құпия сөздер, төлем туралы мәліметтер, суреттер, хабарлар және аудиоматериалдар кіреді.</string>
     <string name="media_projection_dialog_title">%s арқылы жазу немесе трансляциялау басталсын ба?</string>
     <string name="media_projection_remember_text">Қайта көрсетпеу</string>
-    <string name="media_seamless_remote_device">Құрылғы</string>
+    <string name="media_seamless_other_device">Басқа құрылғы</string>
     <string name="media_transfer_this_device_name">Телефон динамигі</string>
     <string name="media_transfer_this_phone">Осы телефон</string>
     <string name="media_transfer_wired_device_name">Сымды аудио құрылғысы</string>
@@ -1249,9 +1258,13 @@
     <string name="mobile_data">Мобильдік интернет</string>
     <string name="mobile_data_always_on">Мобильдік интернет әрқашан қосулы</string>
     <string name="mobile_data_always_on_summary">Wi‑Fi қосулы кезде де мобильдік интернетті өшірмеу (желіні жылдам ауыстыру үшін)</string>
+    <string name="mobile_data_connection_active">Жалғанды</string>
     <string name="mobile_data_disable_message">%s операторы арқылы деректерге немесе интернетке кіре алмайсыз. Интернетке тек Wi-Fi арқылы кіресіз.</string>
     <string name="mobile_data_disable_message_default_carrier">операторыңыз</string>
     <string name="mobile_data_disable_title">Мобильдік деректер өшірілсін бе?</string>
+    <string name="mobile_data_no_connection">Байланыс жоқ</string>
+    <string name="mobile_data_off_summary">Мобильдік интернет автоматты түрде қосылмайды.</string>
+    <string name="mobile_data_settings_title">Мобильдік интернет</string>
     <string name="mobile_data_text_format">%1$s – %2$s</string>
     <string name="mock_location_app">Жалған локация қолданбасын таңдау</string>
     <string name="mock_location_app_not_set">Ешқандай жалған локация қолданбасы орнатылмаған</string>
@@ -1391,6 +1404,7 @@
     <string name="no_content_in_select_mode">Таңдайтын мәтін не сурет жоқ.</string>
     <string name="no_conversations_text">Соңғы әңгімелеріңіз осы жерде көрсетіледі.</string>
     <string name="no_shortcut">%1$s әңгіме функцияларын қолдамайды.</string>
+    <string name="non_carrier_network_unavailable">Басқа қолжетімді желі жоқ</string>
     <string name="not_default_data_content_description">Деректерді пайдалануға реттелмеген.</string>
     <string name="not_set">Орнатылмаған</string>
     <string name="notif_inline_reply_remove_attachment_description">Тіркемені жою</string>
@@ -1571,8 +1585,9 @@
     <string name="power_remaining_only_more_than_subtext">Ең көбі %1$s қалды</string>
     <string name="power_remaining_settings_home_page">%1$s – %2$s</string>
     <string name="power_suggestion_battery_run_out">Батарея заряды сағат %1$s қарай бітуі мүмкін.</string>
+    <string name="pref_title_network_details">Желі деректері</string>
     <string name="preference_copied">\"%1$s\" қорытындысы буферге көшірілді</string>
-    <string name="preference_summary_default_combination">%1$s / %2$s</string>
+    <string name="preference_summary_default_combination">%1$s/%2$s</string>
     <string name="priority_conversations">Маңызды әңгімелер</string>
     <string name="privacy_type_camera">камера</string>
     <string name="privacy_type_location">геодерек</string>
@@ -1740,6 +1755,7 @@
     <string name="right_keycode">Оң жақ кілт коды</string>
     <string name="right_nav_bar_button_type">Қосымша оң жақ түйме түрі</string>
     <string name="ring_toggle_title">Қоңыраулар</string>
+    <string name="rotation_lock_camera_rotation_on">Қосулы – бет негізінде</string>
     <string name="running_foreground_services_msg">Батарея мен деректер трафигі туралы білу үшін түртіңіз</string>
     <string name="running_foreground_services_title">Фонда жұмыс істеп тұрған қолданбалар</string>
     <string name="running_process_item_user_label">Пайдаланушы: %1$s</string>
@@ -1814,6 +1830,7 @@
     <string name="screenshot_top_boundary_pct">Жоғарғы шектік сызық: %1$d пайыз</string>
     <string name="search_menu">Параметр іздеу</string>
     <string name="search_menu_title">Іздеу</string>
+    <string name="see_all_networks">Барлығын көру</string>
     <string name="see_more_title">Басқаларын көру</string>
     <string name="select_application">Қолданба таңдау</string>
     <string name="select_conversation_text">Негізгі экранға қосқыңыз келетін әңгімені түртіңіз.</string>
@@ -1926,6 +1943,7 @@
     <string name="switch_bar_off">Өшірулі</string>
     <string name="switch_bar_on">Қосулы</string>
     <string name="system_ui_tuner">Жүйелік пайдаланушылық интерфейс тюнері</string>
+    <string name="tap_a_network_to_connect">Желіге қосылу үшін оны түртіңіз.</string>
     <string name="tap_again">Қайта түртіңіз.</string>
     <string name="tap_to_sign_up">Тіркелу үшін түртіңіз.</string>
     <string name="tether_settings_title_all">Тетеринг және алынбалы хотспот</string>
@@ -1951,6 +1969,7 @@
     <string name="time_unit_just_now">Дәл қазір</string>
     <string name="title_convert_fbe">Файлға негізделген шифрлауға түрлендіру</string>
     <string name="title_usb_accessory">USB жабдығы</string>
+    <string name="to_switch_networks_disconnect_ethernet">Желілерді ауыстыру үшін ethernet кабелін ажыратыңыз.</string>
     <string name="too_hot_label">Pixel қызып кетті</string>
     <string name="touch_filtered_warning">Басқа қолданба рұқсат сұрауын жасырып тұрғандықтан, параметрлер жауабыңызды растай алмайды.</string>
     <string name="track_frame_time">Профиль бойынша HWUI рендерингі</string>
@@ -2009,10 +2028,12 @@
     <string name="tuner_toast">Құттықтаймыз! Жүйелік пайдаланушылық интерфейс тюнері \"Параметрлер\" тармағына қосылды</string>
     <string name="tuner_warning">Жүйелік пайдаланушылық интерфейс тюнері Android пайдаланушылық интерфейсін реттеудің қосымша жолдарын береді. Бұл эксперименттік мүмкіндіктер болашақ шығарылымдарда өзгеруі, бұзылуы немесе жоғалуы мүмкін. Сақтықпен жалғастырыңыз.</string>
     <string name="tuner_warning_title">Кейбіреулерге қызық, бірақ барлығына емес</string>
+    <string name="turn_on_wifi">Wi-Fi</string>
     <string name="tv_notification_panel_no_notifications">Хабарландырулар жоқ</string>
     <string name="tv_notification_panel_title">Хабарландырулар</string>
     <string name="two_weeks_timestamp">2 апта бұрын</string>
     <string name="unknown">Белгісіз</string>
+    <string name="unlock_to_view_networks">Желілерді көру үшін құлыпты ашыңыз.</string>
     <string name="upcoming_birthday_status">Жақында туған күн</string>
     <string name="upcoming_birthday_status_content_description">Жақында %1$s туған күнін атап өтеді!</string>
     <string name="url_menu_copy">Көшіру</string>
@@ -2045,7 +2066,7 @@ USB портын қайта пайдалануға болатын кезде х�
     <string name="use_mtp_button_title">Медиа ойнатқыш (MTP) ретінде қосыңыз</string>
     <string name="use_ptp_button_title">Камера ретінде (PTP) қосыңыз</string>
     <string name="use_system_language_to_select_input_method_subtypes">Жүйелік тілдерді пайдалану</string>
-    <string name="user_add_profile_item_summary">Өз есептік жазбаңыздан қолданбалар мен мазмұнға қол жетімділікті шектеуіңізге болады</string>
+    <string name="user_add_profile_item_summary">Өз аккаунтыңыздан қолданбалар мен мазмұнға қол жетімділікті шектеуіңізге болады</string>
     <string name="user_add_profile_item_title">Шектелген профайл</string>
     <string name="user_add_user">Пайдаланушы қосу</string>
     <string name="user_add_user_item_summary">Пайдаланушылардың өздерінің қолданбалары мен мазмұны болады</string>
@@ -2151,9 +2172,11 @@ Wi‑Fi мекенжайы (BSSID)
     <string name="wifi_disconnected">Ажыратылған</string>
     <string name="wifi_display_certification">Сымсыз дисплей сертификаты</string>
     <string name="wifi_display_certification_summary">Сымсыз дисплей сертификаты опцияларын көрсету</string>
+    <string name="wifi_empty_list_wifi_on">Маңайдағы желілер ізделуде…</string>
     <string name="wifi_enhanced_mac_randomization">Wi‑Fi желісінің тұрақсыз MAC рандомизациясы</string>
     <string name="wifi_enhanced_mac_randomization_summary">Бұл режим қосулы болса, құрылғының MAC мекенжайы MAC рандомизациясы қосулы желіге жалғанған сайын өзгеруі мүмкін.</string>
     <string name="wifi_fail_to_scan">Желілерді шолу мүмкін емес</string>
+    <string name="wifi_failed_connect_message">Желіге қосылмады.</string>
     <string name="wifi_hotspot_switch_off_text">Өшіру</string>
     <string name="wifi_hotspot_switch_on_text">Қосу</string>
     <string name="wifi_is_off">Wi-Fi өшірулі</string>
@@ -2164,15 +2187,17 @@ Wi‑Fi мекенжайы (BSSID)
     <string name="wifi_not_in_range">Аумақта жоқ</string>
     <string name="wifi_passpoint_expired">Мерзімі өтті</string>
     <string name="wifi_remembered">Сақталды</string>
+    <string name="wifi_scan_notify_message">Құрылғы жұмысын жақсарту үшін қолданбалар мен қызметтер Wi-Fi байланысы өшірулі кезде де Wi-Fi желілерін іздейді. Оны Wi-Fi іздеу параметрлерінен өзгерте аласыз. <annotation id="link">Өзгерту</annotation></string>
     <string name="wifi_scan_throttling">Wi‑Fi желілерін іздеуді шектеу</string>
     <string name="wifi_scan_throttling_summary">Батарея зарядының шығынын азайтады және желі жұмысын жақсартады.</string>
     <string name="wifi_security_none">Жоқ</string>
     <string name="wifi_status_mac_randomized">MAC еркін таңдауға қойылды</string>
     <string name="wifi_status_no_internet">Интернетпен байланыс жоқ</string>
-    <string name="wifi_status_sign_in_required">Есептік жазбаға кіру керек</string>
+    <string name="wifi_status_sign_in_required">Аккаунтқа кіру керек</string>
     <string name="wifi_unmetered_label">Трафик саналмайды</string>
     <string name="wifi_verbose_logging">Толық мәліметті Wi‑Fi журналы</string>
     <string name="wifi_verbose_logging_summary">Wi‑Fi тіркеу деңгейін арттыру, Wi‑Fi таңдағанда әр SSID RSSI бойынша көрсету</string>
+    <string name="wifi_wont_autoconnect_for_now">Әзірше Wi-Fi автоматты түрде қосылмайды.</string>
     <string name="wifitrackerlib_auto_connect_disable">Автоматты жалғау өшірулі</string>
     <string name="wifitrackerlib_available_via_app">%1$s арқылы қолжетімді</string>
     <string name="wifitrackerlib_connected_via_app">%1$s арқылы жалғанған</string>

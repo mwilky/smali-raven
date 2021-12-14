@@ -111,7 +111,7 @@
     <string name="accessibility_desc_notification_shade">सूचना शेड.</string>
     <string name="accessibility_desc_off">बंद.</string>
     <string name="accessibility_desc_on">सुरू.</string>
-    <string name="accessibility_desc_quick_settings">द्रुत सेटिंग्ज.</string>
+    <string name="accessibility_desc_quick_settings">क्विक सेटिंग्ज.</string>
     <string name="accessibility_desc_quick_settings_edit">द्रुत सेटिंग्ज संपादक.</string>
     <string name="accessibility_desc_recent_apps">अवलोकन.</string>
     <string name="accessibility_desc_settings">सेटिंग्ज</string>
@@ -136,7 +136,7 @@
     <string name="accessibility_floating_button_docking_tooltip">बटण तात्पुरते लपवण्यासाठी ते कोपर्‍यामध्ये हलवा</string>
     <string name="accessibility_floating_button_migration_tooltip">"अ‍ॅक्सेसिबिलिटी जेश्चर हे आता अ‍ॅक्सेसिबिलिटी बटण आहे 
 
-"<annotation id="link">सेटिंग्ज पाहा</annotation></string>
+"<annotation id="link">सेटिंग्ज पहा</annotation></string>
     <string name="accessibility_floating_button_switch_migration_tooltip">"तुम्ही अ‍ॅक्सेसिबिलिटी जेश्चरवरून बटणवर स्विच करू शकता 
 
 "<annotation id="link">सेटिंग्ज</annotation></string>
@@ -277,7 +277,7 @@
     <string name="accessibility_rotation_lock_on_portrait">पोर्ट्रेट अभिमुखतेमध्ये स्क्रीन लॉक केली आहे.</string>
     <string name="accessibility_rotation_lock_on_portrait_changed">स्क्रीन आता पोर्ट्रेट अभिमुखतेत लॉक केली आहे.</string>
     <string name="accessibility_scanning_face">चेहरा स्कॅन करत आहे</string>
-    <string name="accessibility_search_light">Search</string>
+    <string name="accessibility_search_light">शोधा</string>
     <string name="accessibility_send_smart_reply">पाठवा</string>
     <string name="accessibility_sensors_off_active">सेन्सर बंद आहेत</string>
     <string name="accessibility_settings_button">सिस्‍टम सेटिंग्‍ज.</string>
@@ -363,6 +363,7 @@
     <string name="alarms_and_reminders_label">अलार्म आणि रिमाइंडर</string>
     <string name="alarms_and_reminders_switch_title">अलार्म आणि रिमाइंडर सेट करण्याची अनुमती द्या</string>
     <string name="alarms_and_reminders_title">अलार्म आणि रिमाइंडर</string>
+    <string name="all_network_unavailable">कोणतेही नेटवर्क उपलब्‍ध नाही</string>
     <string name="allow_mock_location">बनावट स्थानांना अनुमती द्या</string>
     <string name="allow_mock_location_summary">बनावट स्थानांना अनुमती द्या</string>
     <string name="always_use_accessory">%2$s कनेक्ट केलेली असताना नेहमी %1$s उघडा</string>
@@ -386,7 +387,7 @@
     <string name="assistant_half_listening_label">ऐकणे सुरू ठेवत आहे, रद्द करण्यासाठी टॅप करा</string>
     <string name="assistant_keyboard_icon_label">कीबोर्ड</string>
     <string name="assistant_scrim_label">ऐकत आहे, रद्द करण्यासाठी टॅप करा</string>
-    <string name="assistant_zero_state_icon_label">असिस्टंटचे अवलोकन</string>
+    <string name="assistant_zero_state_icon_label">Assistant चे अवलोकन</string>
     <string name="audio_status">ऐकत आहे</string>
     <string name="auto_saver_enabled_text">बॅटरी %d%% पेक्षा खाली गेल्यास बॅटरी सेव्हर आपोआप सुरू होईल.</string>
     <string name="auto_saver_enabled_title">बॅटरी सेव्हर शेड्यूल सुरू केले आहे</string>
@@ -618,6 +619,11 @@
     <string name="clock_title_analog">अ‍ॅनालॉग</string>
     <string name="clock_title_bubble">बबल</string>
     <string name="clock_title_default">डीफॉल्ट</string>
+    <string name="columbus_bouncer_message">क्विक टॅप पूर्ण करण्यासाठी अनलॉक करा</string>
+    <string name="columbus_target_request_dialog_allow">अनुमती द्या</string>
+    <string name="columbus_target_request_dialog_deny">अनुमती देऊ नका</string>
+    <string name="columbus_target_request_dialog_summary">तुम्ही तुमच्या फोनच्या मागील बाजूवर दोनदा टॅप करता तेव्हा, %1$s उघडेल. तुम्ही सेटिंग्ज मध्ये हे प्राधान्य कधीही बदलू शकता.</string>
+    <string name="columbus_target_request_dialog_title">क्विक टॅप ला %1$s उघडण्याची अनुमती द्यायची का?</string>
     <string name="compat_mode_off">स्क्रीन भरण्यासाठी ताणा</string>
     <string name="compat_mode_on">स्क्रीन भरण्यासाठी झूम करा</string>
     <string name="confirm_enable_oem_unlock_text">चेतावणी: हे सेटिंग सुरू असताना या डिव्हाइस वर डिव्हाइस संरक्षण वैशिष्ट्ये काम करणार नाहीत.</string>
@@ -740,13 +746,15 @@
     <string name="defender_notify_learn_more">अधिक जाणून घ्या</string>
     <string name="defender_notify_resume_charge">चार्जिंग पुन्हा सुरू करा</string>
     <string name="defender_notify_title">चार्जिंग तात्पुरते मर्यादित आहे</string>
+    <string name="defender_post_notify_des">बॅटरीची क्षमता वाढवण्यासाठी चार्जिंग %1$s इतकी %2$s पासून %3$s पर्यंत मर्यादित केली आहे</string>
+    <string name="defender_post_notify_title">सामान्यपणे चार्जिंग होत आहे</string>
     <string name="delete_blob_confirmation_text">तुम्हाला नक्की हा शेअर केलेला डेटा हटवायचा आहे का?</string>
     <string name="delete_blob_text">शेअर केलेला डेटा हटवा</string>
     <string name="demo_mode">सिस्टम UI डेमो मोड</string>
     <string name="demote">ही सूचना संभाषण नाही म्हणून खूण करा</string>
     <string name="description_direction_left">%s साठी डावीकडे स्लाइड करा.</string>
     <string name="description_direction_up">%s साठी वर स्लाइड करा.</string>
-    <string name="description_target_search">Search</string>
+    <string name="description_target_search">शोध</string>
     <string name="dessert_case">मिष्ठान्न प्रकरण</string>
     <string name="dev_logpersist_clear_warning_message">सातत्याच्या लॉगरसह आम्ही परीक्षण करीत नसतो तेव्हा, आम्हाला आपल्या डिव्हाइसवर असणारा लॉगर डेटा मिटविणे आवश्यक असते.</string>
     <string name="dev_logpersist_clear_warning_title">लॉगरवर सतत असणारा स्टोरेज साफ करायचा?</string>
@@ -885,6 +893,7 @@
     <string name="game_status">प्ले करत आहे</string>
     <string name="global_action_lock_message">आणखी पर्यायांसाठी तुमचा फोन अनलॉक करा</string>
     <string name="global_action_screenshot">स्क्रीनशॉट</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock बंद केले</string>
     <string name="global_actions_change_description">%1$s आणि डिव्हाइस नियंत्रणे अ‍ॅक्सेस करण्यासाठी, तुमच्या स्क्रीनच्या वरच्या बाजूने खाली स्वाइप करा</string>
     <string name="go_to_web">ब्राउझरवर जा</string>
     <string name="google_services_wallpaper_permission">Google च्या स्थान इतिहासामध्ये प्रवेश करून <b>Google लाइव्‍ह वॉलपेपर ना आपल्या स्थानास प्रतिसाद देण्याची अनुमती द्या</b>.</string>
@@ -920,10 +929,10 @@
     <string name="hidden_notifications_setup">सेट अप</string>
     <string name="hidden_notifications_text">तुम्ही अनलॉक करण्‍यापूर्वी त्यांना पहा</string>
     <string name="hidden_notifications_title">सूचना अधिक जलद मिळवा</string>
-    <string name="high_temp_alarm_help_care_steps">काय काळजी घ्यावी ते पाहा</string>
+    <string name="high_temp_alarm_help_care_steps">काय काळजी घ्यावी ते पहा</string>
     <string name="high_temp_alarm_notify_message">हे डिव्हाइस चार्ज करताना समस्या आहे. पॉवर अडॅप्टर अनप्लग करा आणि शक्य तेवढी काळजी घ्या कदाचित केबल गरम असू शकते.</string>
     <string name="high_temp_alarm_title">चार्जर अनप्लग करा</string>
-    <string name="high_temp_dialog_help_text">काय काळजी घ्यावी ते पाहा</string>
+    <string name="high_temp_dialog_help_text">काय काळजी घ्यावी ते पहा</string>
     <string name="high_temp_dialog_message">"तुमचा फोन स्वयंचलितपणे थंड होईल. तुम्ही अद्यापही तुमचा फोन वापरू शकता परंतु तो कदाचित धीमेपणे कार्य करेल.
 
 तुमचा फोन एकदा थंड झाला की, तो सामान्यपणे कार्य करेल."</string>
@@ -1012,7 +1021,7 @@
     <string name="keyboard_shortcut_group_applications">ॲप्लिकेशन</string>
     <string name="keyboard_shortcut_group_applications_assist">सहाय्य</string>
     <string name="keyboard_shortcut_group_applications_browser">ब्राउझर</string>
-    <string name="keyboard_shortcut_group_applications_calendar">Calendar</string>
+    <string name="keyboard_shortcut_group_applications_calendar">कॅलेंडर</string>
     <string name="keyboard_shortcut_group_applications_contacts">संपर्क</string>
     <string name="keyboard_shortcut_group_applications_email">ईमेल</string>
     <string name="keyboard_shortcut_group_applications_music">संगीत</string>
@@ -1232,7 +1241,7 @@
     <string name="media_projection_dialog_text">तुमच्या स्क्रीनवर दृश्यमान असलेल्या किंवा रेकॉर्ड किंवा कास्ट करताना तुमच्या डिव्हाइसमधून प्ले केलेल्या सर्व माहितीचा अ‍ॅक्सेस %s ला असेल. यामध्ये पासवर्ड, पेमेंट तपशील, फोटो, मेसेज आणि तुम्ही प्ले केलेला ऑडिओ यासारख्या माहितीचा समावेश असतो.</string>
     <string name="media_projection_dialog_title">%s ने रेकॉर्ड करणे किंवा कास्ट करणे सुरू करायचे का?</string>
     <string name="media_projection_remember_text">पुन्हा दर्शवू नका</string>
-    <string name="media_seamless_remote_device">डिव्हाइस</string>
+    <string name="media_seamless_other_device">इतर डिव्हाइस</string>
     <string name="media_transfer_this_device_name">फोनचा स्पीकर</string>
     <string name="media_transfer_this_phone">हा फोन</string>
     <string name="media_transfer_wired_device_name">वायर असलेले ऑडिओ डिव्हाइस</string>
@@ -1249,14 +1258,18 @@
     <string name="mobile_data">मोबाइल डेटा</string>
     <string name="mobile_data_always_on">मोबाइल डेटा नेहमी सक्रिय</string>
     <string name="mobile_data_always_on_summary">वाय-फाय सुरू असतानाही मोबाइल डेटा नेहमी सुरू ठेवा (नेटवर्क जलदरीत्या स्विच करण्यासाठी).</string>
+    <string name="mobile_data_connection_active">कनेक्ट केले आहे</string>
     <string name="mobile_data_disable_message">तुम्हाला %s मधून डेटा किंवा इंटरनेटचा अ‍ॅक्सेस नसेल. इंटरनेट फक्त वाय-फाय मार्फत उपलब्ध असेल.</string>
     <string name="mobile_data_disable_message_default_carrier">तुमचा वाहक</string>
     <string name="mobile_data_disable_title">मोबाइल डेटा बंद करायचा?</string>
+    <string name="mobile_data_no_connection">कोणतेही कनेक्शन नाही</string>
+    <string name="mobile_data_off_summary">मोबाइल डेटा ऑटो-कनेक्ट होणार नाही</string>
+    <string name="mobile_data_settings_title">मोबाइल डेटा</string>
     <string name="mobile_data_text_format">%1$s — %2$s</string>
     <string name="mock_location_app">बनावट स्थान अ‍ॅप निवडा</string>
     <string name="mock_location_app_not_set">कोणतेही बनावट स्थान अ‍ॅप सेट केले नाही</string>
     <string name="mock_location_app_set">बनावट स्थान अ‍ॅप: %1$s</string>
-    <string name="monitoring_button_view_controls">नियंत्रणे पाहा</string>
+    <string name="monitoring_button_view_controls">नियंत्रणे पहा</string>
     <string name="monitoring_button_view_policies">धोरणे पहा</string>
     <string name="monitoring_description_app">तुम्ही %1$s शी कनेक्‍ट केले आहे, जे ईमेल, अ‍ॅप्स आणि वेबसाइटसह आपल्‍या नेटवर्क क्रियाकलापाचे परीक्षण करू शकते.</string>
     <string name="monitoring_description_app_personal">तुम्ही %1$s शी कनेक्‍ट केले आहे, जो ईमेल, अ‍ॅप्स आणि वेबसाइटसह आपल्‍या वैयक्तिक नेटवर्क क्रियाकलापाचे परीक्षण करू शकतो.</string>
@@ -1391,6 +1404,7 @@
     <string name="no_content_in_select_mode">निवडण्यासाठी कोणताही मजकूर किंवा इमेज नाही</string>
     <string name="no_conversations_text">तुमची अलीकडील संभाषणे येथे दिसतील</string>
     <string name="no_shortcut">%1$s हे संभाषण वैशिष्ट्यांना सपोर्ट करत नाही</string>
+    <string name="non_carrier_network_unavailable">इतर कोणतेही नेटवर्क उपलब्ध नाहीत</string>
     <string name="not_default_data_content_description">डेटा वापरण्यासाठी सेट केलेले नाही</string>
     <string name="not_set">सेट केलेले नाही</string>
     <string name="notif_inline_reply_remove_attachment_description">अटॅचमेंट काढा</string>
@@ -1488,7 +1502,7 @@
     <string name="other">अन्य</string>
     <string name="output_calls_title">फोन कॉल आउटपुट</string>
     <string name="output_none_found">कोणतीही डिव्हाइस सापडली नाहीत</string>
-    <string name="output_none_found_service_off">कोणतीही डिव्हाइस सापडली नाहीत. %1$s सुरू करून पाहा</string>
+    <string name="output_none_found_service_off">कोणतीही डिव्हाइस सापडली नाहीत. %1$s सुरू करून पहा</string>
     <string name="output_service_bt">ब्लूटूथ</string>
     <string name="output_service_bt_wifi">ब्लूटूथ आणि वाय-फाय</string>
     <string name="output_service_wifi">वाय-फाय</string>
@@ -1499,7 +1513,7 @@
     <string name="overview">अवलोकन</string>
     <string name="password_toggle_content_description">पासवर्ड दाखवा</string>
     <string name="paused_by_dnd">व्यत्यय आणू नका द्वारे थांबवले गेले</string>
-    <string name="people_tile_description">अलीकडील मेसेज, मिस्ड कॉल आणि स्टेटस अपडेट पाहा</string>
+    <string name="people_tile_description">अलीकडील मेसेज, मिस्ड कॉल आणि स्टेटस अपडेट पहा</string>
     <string name="people_tile_title">संभाषण</string>
     <string name="person_available">उपलब्ध आहे</string>
     <string name="phone_hint">फोनसाठी चिन्हावरून स्वाइप करा</string>
@@ -1571,10 +1585,11 @@
     <string name="power_remaining_only_more_than_subtext">%1$s पेक्षा जास्त शिल्लक आहे</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">%1$s वाजेपर्यंत बॅटरी संपू शकते</string>
+    <string name="pref_title_network_details">नेटवर्कचे तपशील</string>
     <string name="preference_copied">\"%1$s\" क्लिपबोर्डवर कॉपी केली.</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">प्राधान्य दिलेली संभाषणे</string>
-    <string name="privacy_type_camera">कॅमेरा</string>
+    <string name="privacy_type_camera">camera</string>
     <string name="privacy_type_location">स्थान</string>
     <string name="privacy_type_microphone">मायक्रोफोन</string>
     <string name="private_dns_broken">खाजगी DNS सर्व्हर ॲक्सेस करू शकत नाही</string>
@@ -1599,7 +1614,7 @@
     <string name="qs_status_phone_muted">फोन म्यूट केला</string>
     <string name="qs_status_phone_vibrate">फोन व्हायब्रेटवर आहे</string>
     <string name="quick_controls_title">डिव्हाइस नियंत्रणे</string>
-    <string name="quick_settings">द्रुत सेटिंग्ज</string>
+    <string name="quick_settings">क्विक सेटिंग्ज</string>
     <string name="quick_settings_bluetooth_detail_empty_text">कोणतेही जोडलेले डिव्हाइसेस उपलब्ध नाहीत</string>
     <string name="quick_settings_bluetooth_label">ब्लूटूथ</string>
     <string name="quick_settings_bluetooth_multiple_devices_label">ब्लूटूथ (%d डिव्हाइस)</string>
@@ -1740,6 +1755,7 @@
     <string name="right_keycode">उजवा कीकोड</string>
     <string name="right_nav_bar_button_type">अतिरिक्त उजव्या बटणाचा प्रकार</string>
     <string name="ring_toggle_title">कॉल</string>
+    <string name="rotation_lock_camera_rotation_on">सुरू - चेहऱ्यावर आधारित</string>
     <string name="running_foreground_services_msg">बॅटरी आणि डेटा वापराच्‍या तपशीलांसाठी टॅप करा</string>
     <string name="running_foreground_services_title">अ‍ॅप्स बॅकग्राउंडमध्‍ये सुरू आहेत</string>
     <string name="running_process_item_user_label">वापरकर्ता: %1$s</string>
@@ -1814,7 +1830,8 @@
     <string name="screenshot_top_boundary_pct">वरील सीमेपासून %1$d टक्के</string>
     <string name="search_menu">सेटिंग्ज शोधा</string>
     <string name="search_menu_title">Search</string>
-    <string name="see_more_title">आणखी पाहा</string>
+    <string name="see_all_networks">सर्व पहा</string>
+    <string name="see_more_title">आणखी पहा</string>
     <string name="select_application">ॲप्लिकेशन निवडा</string>
     <string name="select_conversation_text">तुमच्या होम स्क्रीन वर संभाषण जोडण्यासाठी त्यावर टॅप करा</string>
     <string name="select_conversation_title">संभाषण विजेट</string>
@@ -1926,6 +1943,7 @@
     <string name="switch_bar_off">बंद</string>
     <string name="switch_bar_on">सुरू</string>
     <string name="system_ui_tuner">सिस्टम UI ट्युनर</string>
+    <string name="tap_a_network_to_connect">कनेक्ट करण्यासाठी नेटवर्कवर टॅप करा</string>
     <string name="tap_again">पुन्हा टॅप करा</string>
     <string name="tap_to_sign_up">साइन अप करण्यासाठी टॅप करा</string>
     <string name="tether_settings_title_all">टेदरिंग आणि पोर्टेबल हॉटस्पॉट</string>
@@ -1936,7 +1954,7 @@
     <string name="tethering_hardware_offload">टेदरिंग हार्डवेअर अ‍ॅक्सिलरेशन</string>
     <string name="tethering_hardware_offload_summary">उपलब्ध असल्यास टेदरिंग हार्डवेअर ॲक्सिलरेशन वापरा</string>
     <string name="tethering_settings_not_available">या वापरकर्त्यासाठी टेदरिंग सेटिंग्ज उपलब्ध नाहीत</string>
-    <string name="thermal_shutdown_dialog_help_text">काय काळजी घ्यावी ते पाहा</string>
+    <string name="thermal_shutdown_dialog_help_text">काय काळजी घ्यावी ते पहा</string>
     <string name="thermal_shutdown_dialog_message">"तुमचा फोन खूप तापलाय, म्हणून तो थंड होण्यासाठी बंद झाला आहे. तुमचा फोन आता व्‍यवस्थित सुरू आहे.
 
 तुम्ही असे केल्यास तुमचा फोन खूप तापेल:
@@ -1951,6 +1969,7 @@
     <string name="time_unit_just_now">आत्ताच</string>
     <string name="title_convert_fbe">फाइल आधारित कूटबद्धीकरणावर रूपांतरित करणे</string>
     <string name="title_usb_accessory">USB उपसाधन</string>
+    <string name="to_switch_networks_disconnect_ethernet">नेटवर्क स्विच करण्यासाठी, इथरनेट केबल डिस्कनेक्ट करा</string>
     <string name="too_hot_label">Pixel खूप गरम आहे</string>
     <string name="touch_filtered_warning">अ‍ॅप परवानगी विनंती अस्पष्‍ट करत असल्‍याने, सेटिंग्ज तुमचा प्रतिसाद पडताळू शकत नाहीत.</string>
     <string name="track_frame_time">प्रोफाइल HWUI रेंडरिंग</string>
@@ -2007,12 +2026,14 @@
     <string name="tuner_right">उजवा</string>
     <string name="tuner_time">वेळ</string>
     <string name="tuner_toast">अभिनंदन! सिस्टम UI ट्युनर सेटिंग्जमध्‍ये जोडले गेले आहे</string>
-    <string name="tuner_warning">सिस्टम UI ट्युनर आपल्‍याला Android वापरकर्ता इंटरफेस ट्विक आणि कस्टमाइझ करण्‍याचे अनेक प्रकार देते. ही प्रयोगात्मक वैशिष्‍ट्ये बदलू शकतात, खंडित होऊ शकतात किंवा भविष्‍यातील रिलीज मध्‍ये कदाचित दिसणार नाहीत. सावधगिरी बाळगून पुढे सुरू ठेवा.</string>
+    <string name="tuner_warning">सिस्टम UI ट्युनर आपल्‍याला Android यूझर इंटरफेस ट्विक आणि कस्टमाइझ करण्‍याचे अनेक प्रकार देते. ही प्रयोगात्मक वैशिष्‍ट्ये बदलू शकतात, खंडित होऊ शकतात किंवा भविष्‍यातील रिलीज मध्‍ये कदाचित दिसणार नाहीत. सावधगिरी बाळगून पुढे सुरू ठेवा.</string>
     <string name="tuner_warning_title">सर्वांसाठी नाही तर काहींसाठी मजेदार असू शकते</string>
+    <string name="turn_on_wifi">वाय-फाय</string>
     <string name="tv_notification_panel_no_notifications">सूचना नाहीत</string>
     <string name="tv_notification_panel_title">सूचना</string>
     <string name="two_weeks_timestamp">२ आठवड्यांपूर्वी</string>
     <string name="unknown">अज्ञात</string>
+    <string name="unlock_to_view_networks">नेटवर्क पाहण्यासाठी स्क्रीन अनलॉक करा</string>
     <string name="upcoming_birthday_status">वाढदिवस लवकरच आहे</string>
     <string name="upcoming_birthday_status_content_description">%1$s यांचा वाढदिवस लवकरच येत आहे</string>
     <string name="url_menu_copy">कॉपी करा</string>
@@ -2077,7 +2098,7 @@
     <string name="user_remove_user_remove">काढा</string>
     <string name="user_remove_user_title">वापरकर्त्यास काढायचे?</string>
     <string name="user_set_lock_button">लॉक सेट करा</string>
-    <string name="user_setup_button_setup_later">आत्ता नाही</string>
+    <string name="user_setup_button_setup_later">आता नको</string>
     <string name="user_setup_button_setup_now">आता सेट करा</string>
     <string name="user_setup_dialog_message">तो वापरकर्ता डिव्हाइसजवळ आहे आणि त्याचे स्थान सेट करण्यासाठी उपलब्ध आहे याची खात्री करा</string>
     <string name="user_setup_dialog_title">आता वापरकर्ता सेट करायचा?</string>
@@ -2086,7 +2107,7 @@
     <string name="v7_preference_off">बंद</string>
     <string name="v7_preference_on">सुरू</string>
     <string name="verify_apps_over_usb_summary">हानिकारक वर्तनासाठी ADB/ADT द्वारे इंस्टॉल अ‍ॅप्स तपासा.</string>
-    <string name="verify_apps_over_usb_title">USB वर अ‍ॅप्स पडताळून पाहा</string>
+    <string name="verify_apps_over_usb_title">USB वर अ‍ॅप्स पडताळून पहा</string>
     <string name="video_status">पाहत आहे</string>
     <string name="voice_assist_label">व्हॉइस सहाय्य उघडा</string>
     <string name="voice_hint">व्हॉइस सहाय्यासाठी चिन्हावरून स्वाइप करा</string>
@@ -2151,9 +2172,11 @@
     <string name="wifi_disconnected">डिस्कनेक्ट केले</string>
     <string name="wifi_display_certification">वायरलेस डिस्प्ले प्रमाणीकरण</string>
     <string name="wifi_display_certification_summary">वायरलेस डिस्प्ले प्रमाणिकरणाचे पर्याय दाखवा</string>
+    <string name="wifi_empty_list_wifi_on">नेटवर्क शोधत आहे…</string>
     <string name="wifi_enhanced_mac_randomization">वाय-फायचे सातत्याने न होणारे MAC रँडमायझेशन</string>
     <string name="wifi_enhanced_mac_randomization_summary">हा मोड सुरू केला असल्यास, या डिव्हाइसचा MAC अ‍ॅड्रेस प्रत्येक वेळी MAC रँडमायझेशन सुरू असलेल्या नेटवर्कशी कनेक्ट झाल्यास, कदाचित बदलू शकतो.</string>
     <string name="wifi_fail_to_scan">नेटवर्कसाठी स्कॅन करू शकत नाही</string>
+    <string name="wifi_failed_connect_message">नेटवर्कशी कनेक्‍ट करता आले नाही</string>
     <string name="wifi_hotspot_switch_off_text">बंद करा</string>
     <string name="wifi_hotspot_switch_on_text">सुरू करा</string>
     <string name="wifi_is_off">वाय-फाय बंद आहे</string>
@@ -2164,6 +2187,7 @@
     <string name="wifi_not_in_range">परिक्षेत्रामध्ये नाही</string>
     <string name="wifi_passpoint_expired">मुदत संपली</string>
     <string name="wifi_remembered">सेव्ह केले</string>
+    <string name="wifi_scan_notify_message">डिव्हाइसच्या अनुभवामध्ये सुधारणा करण्यासाठी, वाय-फाय बंद असले तरीही ॲप्स आणि सेवा या कधीही वाय-फाय नेटवर्क स्कॅन करू शकतात. तुम्ही हे वाय-फाय स्कॅनिंग सेटिंग्जमध्ये बदलू शकता. <annotation id="link">बदला</annotation></string>
     <string name="wifi_scan_throttling">वाय-फाय स्कॅन थ्रॉटलिंग</string>
     <string name="wifi_scan_throttling_summary">बॅटरी जलदरीतीने संपण्यापासून रोखते आणि नेटवर्क परफॉर्मन्समध्ये सुधारणा करते</string>
     <string name="wifi_security_none">काहीही नाही</string>
@@ -2173,6 +2197,7 @@
     <string name="wifi_unmetered_label">मीटरने न मोजलेले</string>
     <string name="wifi_verbose_logging">वाय-फाय व्हर्बोझ लॉगिंग सुरू करा</string>
     <string name="wifi_verbose_logging_summary">वाय-फाय लॉगिंग स्‍तर वाढवा, वाय-फाय सिलेक्टरमध्‍ये प्रति SSID RSSI दर्शवा</string>
+    <string name="wifi_wont_autoconnect_for_now">सध्या वाय-फाय ऑटो-कनेक्ट होणार नाही</string>
     <string name="wifitrackerlib_auto_connect_disable">ऑटो-कनेक्ट बंद आहे</string>
     <string name="wifitrackerlib_available_via_app">%1$s द्वारे उपलब्ध</string>
     <string name="wifitrackerlib_connected_via_app">%1$s द्वारे कनेक्ट केले</string>

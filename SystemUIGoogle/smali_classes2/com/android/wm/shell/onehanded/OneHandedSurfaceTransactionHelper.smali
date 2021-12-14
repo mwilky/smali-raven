@@ -29,7 +29,7 @@
 
     move-result-object p1
 
-    const v0, 0x1050259
+    const v0, 0x105025a
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -37,7 +37,7 @@
 
     iput v0, p0, Lcom/android/wm/shell/onehanded/OneHandedSurfaceTransactionHelper;->mCornerRadiusAdjustment:F
 
-    const v1, 0x1050258
+    const v1, 0x1050259
 
     invoke-virtual {p1, v1}, Landroid/content/res/Resources;->getDimension(I)F
 

@@ -363,6 +363,7 @@
     <string name="alarms_and_reminders_label">鬧鐘和提醒</string>
     <string name="alarms_and_reminders_switch_title">允許設定鬧鐘和提醒</string>
     <string name="alarms_and_reminders_title">鬧鐘和提醒</string>
+    <string name="all_network_unavailable">沒有可用的網絡</string>
     <string name="allow_mock_location">允許模擬位置</string>
     <string name="allow_mock_location_summary">允許模擬位置</string>
     <string name="always_use_accessory">連接「%2$s」時一律開啟「%1$s」</string>
@@ -618,6 +619,11 @@
     <string name="clock_title_analog">指針</string>
     <string name="clock_title_bubble">泡泡</string>
     <string name="clock_title_default">預設</string>
+    <string name="columbus_bouncer_message">解鎖才能完成「快速輕觸」</string>
+    <string name="columbus_target_request_dialog_allow">允許</string>
+    <string name="columbus_target_request_dialog_deny">不允許</string>
+    <string name="columbus_target_request_dialog_summary">輕按手機背面兩下，「%1$s」就會開啟。你可以隨時在「設定」中更改此偏好設定。</string>
+    <string name="columbus_target_request_dialog_title">是否允許「快速輕觸」開啟「%1$s」？</string>
     <string name="compat_mode_off">放大為全螢幕</string>
     <string name="compat_mode_on">放大為全螢幕</string>
     <string name="confirm_enable_oem_unlock_text">警告：這項設定開啟時，這部裝置上的裝置保護功能將無法運作。</string>
@@ -740,6 +746,8 @@
     <string name="defender_notify_learn_more">瞭解詳情</string>
     <string name="defender_notify_resume_charge">恢復充電</string>
     <string name="defender_notify_title">充電暫時受限</string>
+    <string name="defender_post_notify_des">為延長電池壽命，系統由%2$s 至%3$s 已限制充電至 %1$s</string>
+    <string name="defender_post_notify_title">正常充電</string>
     <string name="delete_blob_confirmation_text">確定要刪除此共用資料嗎？</string>
     <string name="delete_blob_text">刪除共用資料</string>
     <string name="demo_mode">系統使用者介面示範模式</string>
@@ -885,6 +893,7 @@
     <string name="game_status">正在玩遊戲</string>
     <string name="global_action_lock_message">解鎖手機以存取更多選項</string>
     <string name="global_action_screenshot">螢幕截圖</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock 已停用</string>
     <string name="global_actions_change_description">如要存取 %1$s 和裝置控制，請從螢幕頂部向下滑動</string>
     <string name="go_to_web">前往瀏覽器</string>
     <string name="google_services_wallpaper_permission"><b>允許 Google 動態桌布存取 Google 位置服務，以回應您的所在位置</b>。</string>
@@ -1232,7 +1241,7 @@
     <string name="media_projection_dialog_text">在錄影或投放時，「%s」可以存取螢幕顯示或裝置播放的任何資料，當中包括密碼、付款詳情、相片、訊息和播放的語音等。</string>
     <string name="media_projection_dialog_title">要使用「%s」開始錄影或投放嗎？</string>
     <string name="media_projection_remember_text">不用再顯示</string>
-    <string name="media_seamless_remote_device">裝置</string>
+    <string name="media_seamless_other_device">其他裝置</string>
     <string name="media_transfer_this_device_name">手機喇叭</string>
     <string name="media_transfer_this_phone">這部手機</string>
     <string name="media_transfer_wired_device_name">有線音響裝置</string>
@@ -1249,9 +1258,13 @@
     <string name="mobile_data">流動數據</string>
     <string name="mobile_data_always_on">一律保持啟用流動數據</string>
     <string name="mobile_data_always_on_summary">即使 Wi‑Fi 已啟用，仍永遠啟用流動數據 (可快速切換網絡)。</string>
+    <string name="mobile_data_connection_active">已連線</string>
     <string name="mobile_data_disable_message">您無法透過「%s」使用流動數據或互聯網。如要使用互聯網，您必須連接 Wi-Fi。</string>
     <string name="mobile_data_disable_message_default_carrier">您的流動網絡供應商</string>
     <string name="mobile_data_disable_title">要關閉流動數據嗎？</string>
+    <string name="mobile_data_no_connection">沒有連線</string>
+    <string name="mobile_data_off_summary">不會自動連線至流動數據</string>
+    <string name="mobile_data_settings_title">流動數據</string>
     <string name="mobile_data_text_format">%1$s - %2$s</string>
     <string name="mock_location_app">選擇模擬位置應用程式</string>
     <string name="mock_location_app_not_set">尚未設定模擬位置應用程式</string>
@@ -1391,6 +1404,7 @@
     <string name="no_content_in_select_mode">沒有可選取的文字或圖片</string>
     <string name="no_conversations_text">您最近的對話會在這裡顯示</string>
     <string name="no_shortcut">「%1$s」不支援對話功能</string>
+    <string name="non_carrier_network_unavailable">沒有可用的其他網絡</string>
     <string name="not_default_data_content_description">未設定至可使用資料</string>
     <string name="not_set">未設定</string>
     <string name="notif_inline_reply_remove_attachment_description">移除附件</string>
@@ -1571,6 +1585,7 @@
     <string name="power_remaining_only_more_than_subtext">剩餘電量時間超過 %1$s</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">電池電量可能將於%1$s 耗盡</string>
+    <string name="pref_title_network_details">網絡詳細資料</string>
     <string name="preference_copied">「%1$s」已複製到剪貼簿。</string>
     <string name="preference_summary_default_combination">%1$s/%2$s</string>
     <string name="priority_conversations">優先對話</string>
@@ -1740,6 +1755,7 @@
     <string name="right_keycode">向右按鍵碼</string>
     <string name="right_nav_bar_button_type">其他向右按鈕類型</string>
     <string name="ring_toggle_title">通話</string>
+    <string name="rotation_lock_camera_rotation_on">已開啟 - 根據面孔偵測</string>
     <string name="running_foreground_services_msg">輕按即可查看電池和數據用量詳情</string>
     <string name="running_foreground_services_title">正在背景中執行的應用程式</string>
     <string name="running_process_item_user_label">使用者：%1$s</string>
@@ -1814,6 +1830,7 @@
     <string name="screenshot_top_boundary_pct">上方邊界 %1$d%%</string>
     <string name="search_menu">搜尋設定</string>
     <string name="search_menu_title">搜尋</string>
+    <string name="see_all_networks">顯示全部</string>
     <string name="see_more_title">查看更多</string>
     <string name="select_application">選取應用程式</string>
     <string name="select_conversation_text">輕按對話即可新增至主畫面</string>
@@ -1926,6 +1943,7 @@
     <string name="switch_bar_off">關閉</string>
     <string name="switch_bar_on">開啟</string>
     <string name="system_ui_tuner">系統使用者介面調諧器</string>
+    <string name="tap_a_network_to_connect">輕按網絡以連線</string>
     <string name="tap_again">再次輕按</string>
     <string name="tap_to_sign_up">輕按即可登入</string>
     <string name="tether_settings_title_all">網絡共享和可攜式熱點</string>
@@ -1951,6 +1969,7 @@
     <string name="time_unit_just_now">剛剛</string>
     <string name="title_convert_fbe">正在轉換為檔案式加密</string>
     <string name="title_usb_accessory">USB 配件</string>
+    <string name="to_switch_networks_disconnect_ethernet">如要切換網絡，請中斷以太網連線</string>
     <string name="too_hot_label">Pixel 過熱</string>
     <string name="touch_filtered_warning">由於某個應用程式已阻擋權限要求畫面，因此「設定」應用程式無法驗證您的回應。</string>
     <string name="track_frame_time">分析 HWUI 轉譯</string>
@@ -2009,10 +2028,12 @@
     <string name="tuner_toast">恭喜您！系統使用者介面調諧器已新增至「設定」中</string>
     <string name="tuner_warning">使用者介面調諧器讓您以更多方法修改和自訂 Android 使用者介面。但請小心，這些實驗功能可能會在日後發佈時更改、分拆或消失。</string>
     <string name="tuner_warning_title">這只是測試版本，並不包含完整功能</string>
+    <string name="turn_on_wifi">Wi-Fi</string>
     <string name="tv_notification_panel_no_notifications">沒有通知</string>
     <string name="tv_notification_panel_title">通知</string>
     <string name="two_weeks_timestamp">2 週前</string>
     <string name="unknown">未知</string>
+    <string name="unlock_to_view_networks">解鎖即可查看網絡</string>
     <string name="upcoming_birthday_status">即將生日</string>
     <string name="upcoming_birthday_status_content_description">%1$s的生日快到了</string>
     <string name="url_menu_copy">複製</string>
@@ -2151,9 +2172,11 @@ Wi‑Fi 地址 (BSSID)
     <string name="wifi_disconnected">已中斷連線</string>
     <string name="wifi_display_certification">無線螢幕分享認證</string>
     <string name="wifi_display_certification_summary">顯示無線螢幕分享認證的選項</string>
+    <string name="wifi_empty_list_wifi_on">正在搜尋網絡…</string>
     <string name="wifi_enhanced_mac_randomization">Wi‑Fi 非持續性隨機 MAC 位址</string>
     <string name="wifi_enhanced_mac_randomization_summary">啟用此模式後，每次連接至已啟用 MAC 隨機處理的網絡時，此裝置的 MAC 位址都可能會變更。</string>
     <string name="wifi_fail_to_scan">無法掃瞄網絡</string>
+    <string name="wifi_failed_connect_message">無法連接網絡</string>
     <string name="wifi_hotspot_switch_off_text">關閉</string>
     <string name="wifi_hotspot_switch_on_text">開啟</string>
     <string name="wifi_is_off">Wi-Fi 已關閉</string>
@@ -2164,6 +2187,7 @@ Wi‑Fi 地址 (BSSID)
     <string name="wifi_not_in_range">超出可用範圍</string>
     <string name="wifi_passpoint_expired">已過期</string>
     <string name="wifi_remembered">已儲存</string>
+    <string name="wifi_scan_notify_message">為改善裝置的使用體驗，應用程式和服務仍可隨時掃瞄 Wi-Fi 網絡 (即使 Wi-Fi 已關閉)。您可在 Wi-Fi 掃瞄設定中變更此設定。<annotation id="link">變更</annotation></string>
     <string name="wifi_scan_throttling">Wi‑Fi 掃瞄限流</string>
     <string name="wifi_scan_throttling_summary">減低耗電量並改善網絡表現</string>
     <string name="wifi_security_none">無</string>
@@ -2173,6 +2197,7 @@ Wi‑Fi 地址 (BSSID)
     <string name="wifi_unmetered_label">不限數據用量收費</string>
     <string name="wifi_verbose_logging">啟用 Wi‑Fi 詳細記錄</string>
     <string name="wifi_verbose_logging_summary">讓 Wi‑Fi 記錄功能升級，在 Wi‑Fi 選擇器中依每個 SSID RSSI 顯示 Wi‑Fi 詳細紀錄</string>
+    <string name="wifi_wont_autoconnect_for_now">目前系統不會自動連線至 Wi-Fi</string>
     <string name="wifitrackerlib_auto_connect_disable">自動連線功能已關閉</string>
     <string name="wifitrackerlib_available_via_app">可透過「%1$s」連線</string>
     <string name="wifitrackerlib_connected_via_app">已透過「%1$s」連線</string>

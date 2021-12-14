@@ -208,6 +208,18 @@
     return-void
 .end method
 
+.method public getClockBottom(I)I
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardStatusViewController;->mKeyguardClockSwitchController:Lcom/android/keyguard/KeyguardClockSwitchController;
+
+    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardClockSwitchController;->getClockBottom(I)I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public getClockTextSize()F
     .locals 0
 
@@ -248,6 +260,18 @@
     iget-object p0, p0, Lcom/android/keyguard/KeyguardStatusViewController;->mKeyguardClockSwitchController:Lcom/android/keyguard/KeyguardClockSwitchController;
 
     invoke-virtual {p0}, Lcom/android/keyguard/KeyguardClockSwitchController;->hasCustomClock()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public isClockTopAligned()Z
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardStatusViewController;->mKeyguardClockSwitchController:Lcom/android/keyguard/KeyguardClockSwitchController;
+
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardClockSwitchController;->isClockTopAligned()Z
 
     move-result p0
 

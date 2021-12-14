@@ -15,7 +15,7 @@
 
     if-eqz p0, :cond_0
 
-    const-string p0, "sysui_pm_lite"
+    const-string/jumbo p0, "sysui_pm_lite"
 
     invoke-interface {p1, p0, v0}, Lcom/android/systemui/util/settings/SettingsProxy;->getInt(Ljava/lang/String;I)I
 

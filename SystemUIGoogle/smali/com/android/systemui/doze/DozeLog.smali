@@ -212,7 +212,7 @@
     return-object p0
 
     :pswitch_2
-    const-string p0, "tap"
+    const-string/jumbo p0, "tap"
 
     return-object p0
 
@@ -260,8 +260,6 @@
     const-string p0, "intent"
 
     return-object p0
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -725,6 +723,16 @@
     iget-object p0, p0, Lcom/android/systemui/doze/DozeLog;->mLogger:Lcom/android/systemui/doze/DozeLogger;
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/doze/DozeLogger;->logSensorTriggered(I)V
+
+    return-void
+.end method
+
+.method public traceSensorEventDropped(ILjava/lang/String;)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeLog;->mLogger:Lcom/android/systemui/doze/DozeLogger;
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/doze/DozeLogger;->logSensorEventDropped(ILjava/lang/String;)V
 
     return-void
 .end method

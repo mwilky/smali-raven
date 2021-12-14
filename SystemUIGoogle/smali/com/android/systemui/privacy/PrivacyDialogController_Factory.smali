@@ -98,6 +98,16 @@
     .end annotation
 .end field
 
+.field private final uiEventLoggerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/internal/logging/UiEventLogger;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final uiExecutorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -120,7 +130,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -154,6 +164,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/appops/AppOpsController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/internal/logging/UiEventLogger;",
             ">;)V"
         }
     .end annotation
@@ -180,11 +193,13 @@
 
     iput-object p10, p0, Lcom/android/systemui/privacy/PrivacyDialogController_Factory;->appOpsControllerProvider:Ljavax/inject/Provider;
 
+    iput-object p11, p0, Lcom/android/systemui/privacy/PrivacyDialogController_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
+
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/privacy/PrivacyDialogController_Factory;
-    .locals 12
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/privacy/PrivacyDialogController_Factory;
+    .locals 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -217,14 +232,17 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/appops/AppOpsController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/internal/logging/UiEventLogger;",
             ">;)",
             "Lcom/android/systemui/privacy/PrivacyDialogController_Factory;"
         }
     .end annotation
 
-    new-instance v11, Lcom/android/systemui/privacy/PrivacyDialogController_Factory;
+    new-instance v12, Lcom/android/systemui/privacy/PrivacyDialogController_Factory;
 
-    move-object v0, v11
+    move-object v0, v12
 
     move-object v1, p0
 
@@ -232,7 +250,7 @@
 
     move-object v3, p2
 
-    move-object v4, p3
+    move-object/from16 v4, p3
 
     move-object/from16 v5, p4
 
@@ -246,17 +264,19 @@
 
     move-object/from16 v10, p9
 
-    invoke-direct/range {v0 .. v10}, Lcom/android/systemui/privacy/PrivacyDialogController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v11, p10
 
-    return-object v11
+    invoke-direct/range {v0 .. v11}, Lcom/android/systemui/privacy/PrivacyDialogController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v12
 .end method
 
-.method public static newInstance(Landroid/permission/PermissionManager;Landroid/content/pm/PackageManager;Lcom/android/systemui/privacy/PrivacyItemController;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/plugins/ActivityStarter;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/privacy/logging/PrivacyLogger;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/appops/AppOpsController;)Lcom/android/systemui/privacy/PrivacyDialogController;
-    .locals 12
+.method public static newInstance(Landroid/permission/PermissionManager;Landroid/content/pm/PackageManager;Lcom/android/systemui/privacy/PrivacyItemController;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/plugins/ActivityStarter;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/privacy/logging/PrivacyLogger;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/appops/AppOpsController;Lcom/android/internal/logging/UiEventLogger;)Lcom/android/systemui/privacy/PrivacyDialogController;
+    .locals 13
 
-    new-instance v11, Lcom/android/systemui/privacy/PrivacyDialogController;
+    new-instance v12, Lcom/android/systemui/privacy/PrivacyDialogController;
 
-    move-object v0, v11
+    move-object v0, v12
 
     move-object v1, p0
 
@@ -264,7 +284,7 @@
 
     move-object v3, p2
 
-    move-object v4, p3
+    move-object/from16 v4, p3
 
     move-object/from16 v5, p4
 
@@ -278,15 +298,17 @@
 
     move-object/from16 v10, p9
 
-    invoke-direct/range {v0 .. v10}, Lcom/android/systemui/privacy/PrivacyDialogController;-><init>(Landroid/permission/PermissionManager;Landroid/content/pm/PackageManager;Lcom/android/systemui/privacy/PrivacyItemController;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/plugins/ActivityStarter;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/privacy/logging/PrivacyLogger;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/appops/AppOpsController;)V
+    move-object/from16 v11, p10
 
-    return-object v11
+    invoke-direct/range {v0 .. v11}, Lcom/android/systemui/privacy/PrivacyDialogController;-><init>(Landroid/permission/PermissionManager;Landroid/content/pm/PackageManager;Lcom/android/systemui/privacy/PrivacyItemController;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/plugins/ActivityStarter;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/privacy/logging/PrivacyLogger;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/appops/AppOpsController;Lcom/android/internal/logging/UiEventLogger;)V
+
+    return-object v12
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/systemui/privacy/PrivacyDialogController;
-    .locals 11
+    .locals 12
 
     iget-object v0, p0, Lcom/android/systemui/privacy/PrivacyDialogController_Factory;->permissionManagerProvider:Ljavax/inject/Provider;
 
@@ -378,17 +400,27 @@
 
     check-cast v9, Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
-    iget-object p0, p0, Lcom/android/systemui/privacy/PrivacyDialogController_Factory;->appOpsControllerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/privacy/PrivacyDialogController_Factory;->appOpsControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v10, v0
+
+    check-cast v10, Lcom/android/systemui/appops/AppOpsController;
+
+    iget-object p0, p0, Lcom/android/systemui/privacy/PrivacyDialogController_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    move-object v10, p0
+    move-object v11, p0
 
-    check-cast v10, Lcom/android/systemui/appops/AppOpsController;
+    check-cast v11, Lcom/android/internal/logging/UiEventLogger;
 
-    invoke-static/range {v1 .. v10}, Lcom/android/systemui/privacy/PrivacyDialogController_Factory;->newInstance(Landroid/permission/PermissionManager;Landroid/content/pm/PackageManager;Lcom/android/systemui/privacy/PrivacyItemController;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/plugins/ActivityStarter;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/privacy/logging/PrivacyLogger;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/appops/AppOpsController;)Lcom/android/systemui/privacy/PrivacyDialogController;
+    invoke-static/range {v1 .. v11}, Lcom/android/systemui/privacy/PrivacyDialogController_Factory;->newInstance(Landroid/permission/PermissionManager;Landroid/content/pm/PackageManager;Lcom/android/systemui/privacy/PrivacyItemController;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/plugins/ActivityStarter;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/privacy/logging/PrivacyLogger;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/appops/AppOpsController;Lcom/android/internal/logging/UiEventLogger;)Lcom/android/systemui/privacy/PrivacyDialogController;
 
     move-result-object p0
 

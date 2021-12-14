@@ -70,7 +70,7 @@
     <string name="accessibility_battery_three_bars">Baterai tiga batang.</string>
     <string name="accessibility_battery_two_bars">Baterai dua batang.</string>
     <string name="accessibility_battery_unknown">Persentase baterai tidak diketahui.</string>
-    <string name="accessibility_bluetooth_connected">Bluetooth tersambung.</string>
+    <string name="accessibility_bluetooth_connected">Bluetooth terhubung.</string>
     <string name="accessibility_bluetooth_disconnected">Bluetooth terputus.</string>
     <string name="accessibility_bluetooth_name">Terhubung ke %s.</string>
     <string name="accessibility_bluetooth_tether">Tethering bluetooth.</string>
@@ -104,8 +104,8 @@
     <string name="accessibility_data_three_bars">Data tiga batang.</string>
     <string name="accessibility_data_two_bars">Data dua batang.</string>
     <string name="accessibility_desc_close">Tutup</string>
-    <string name="accessibility_desc_connected">Tersambung.</string>
-    <string name="accessibility_desc_connecting">Menyambung.</string>
+    <string name="accessibility_desc_connected">Terhubung.</string>
+    <string name="accessibility_desc_connecting">Menghubungkan.</string>
     <string name="accessibility_desc_lock_screen">Layar kunci.</string>
     <string name="accessibility_desc_notification_icon">Notifikasi %1$s: %2$s</string>
     <string name="accessibility_desc_notification_shade">Bayangan pemberitahuan.</string>
@@ -183,7 +183,7 @@
     <string name="accessibility_no_signal">Tidak ada sinyal.</string>
     <string name="accessibility_no_sim">Tidak ada SIM.</string>
     <string name="accessibility_no_sims">Tidak ada kartu SIM.</string>
-    <string name="accessibility_no_wifi">Wi-Fi tidak tersambung.</string>
+    <string name="accessibility_no_wifi">Wi-Fi tidak terhubung.</string>
     <string name="accessibility_no_wimax">Tidak ada WiMAX.</string>
     <string name="accessibility_not_connected">Tidak terhubung.</string>
     <string name="accessibility_notification_dismissed">Notifikasi disingkirkan.</string>
@@ -216,7 +216,7 @@
     <string name="accessibility_quick_settings_bluetooth">Bluetooth.</string>
     <string name="accessibility_quick_settings_bluetooth_changed_off">Bluetooth dinonaktifkan.</string>
     <string name="accessibility_quick_settings_bluetooth_changed_on">Bluetooth diaktifkan.</string>
-    <string name="accessibility_quick_settings_bluetooth_connected">Bluetooth tersambung.</string>
+    <string name="accessibility_quick_settings_bluetooth_connected">Bluetooth terhubung.</string>
     <string name="accessibility_quick_settings_bluetooth_connecting">Bluetooth menyambung.</string>
     <string name="accessibility_quick_settings_bluetooth_off">Bluetooth nonaktif.</string>
     <string name="accessibility_quick_settings_bluetooth_on">Bluetooth aktif.</string>
@@ -333,12 +333,12 @@
     <string name="adb_pairing_device_dialog_failed_title">Penyambungan perangkat gagal</string>
     <string name="adb_pairing_device_dialog_pairing_code_label">Kode penyambungan Wi-Fi</string>
     <string name="adb_pairing_device_dialog_title">Sambungkan dengan perangkat</string>
-    <string name="adb_qrcode_pairing_device_failed_msg">Gagal menyambungkan perangkat. Kode QR salah, atau perangkat tidak tersambung ke jaringan yang sama.</string>
+    <string name="adb_qrcode_pairing_device_failed_msg">Gagal menyambungkan perangkat. Kode QR salah, atau perangkat tidak terhubung ke jaringan yang sama.</string>
     <string name="adb_warning_message">Debugging USB dimaksudkan untuk tujuan pengembangan saja. Gunakan untuk menyalin data antara komputer dan perangkat Anda, memasang apl pada perangkat tanpa notifikasi, dan membaca data log.</string>
     <string name="adb_warning_title">Izinkan melakukan debug USB?</string>
-    <string name="adb_wireless_connection_failed_message">Pastikan %1$s tersambung ke jaringan yang tepat</string>
+    <string name="adb_wireless_connection_failed_message">Pastikan %1$s terhubung ke jaringan yang tepat</string>
     <string name="adb_wireless_connection_failed_title">Sambungan gagal</string>
-    <string name="adb_wireless_device_connected_summary">Saat ini tersambung</string>
+    <string name="adb_wireless_device_connected_summary">Saat ini terhubung</string>
     <string name="adb_wireless_device_details_title">Detail perangkat</string>
     <string name="adb_wireless_error">Error</string>
     <string name="adb_wireless_ip_addr_preference_title">Alamat IP &amp; Port</string>
@@ -363,6 +363,7 @@ Jika izin ini dinonaktifkan, alarm dan acara berbasis waktu yang dijadwalkan ole
     <string name="alarms_and_reminders_label">Alarm dan pengingat</string>
     <string name="alarms_and_reminders_switch_title">Izinkan menyetel alarm dan pengingat</string>
     <string name="alarms_and_reminders_title">Alarm &amp; pengingat</string>
+    <string name="all_network_unavailable">Jaringan tidak tersedia</string>
     <string name="allow_mock_location">Mengizinkan lokasi palsu</string>
     <string name="allow_mock_location_summary">Mengizinkan lokasi palsu</string>
     <string name="always_use_accessory">Selalu buka %1$s saat %2$s terhubung</string>
@@ -461,7 +462,7 @@ Coba lagi dalam %d detik."</string>
     <string name="blob_expires_text">Berlaku sampai %s</string>
     <string name="blob_id_text">ID data bersama: %d</string>
     <string name="block">Blokir semua notifikasi</string>
-    <string name="bluetooth_a2dp_profile_summary_connected">Tersambung ke media audio</string>
+    <string name="bluetooth_a2dp_profile_summary_connected">Terhubung ke media audio</string>
     <string name="bluetooth_a2dp_profile_summary_use_for">Gunakan untuk audio media</string>
     <string name="bluetooth_active_battery_level">Aktif, baterai %1$s</string>
     <string name="bluetooth_active_battery_level_untethered">Aktif, Kr: %1$s baterai, Kn: %2$s baterai</string>
@@ -477,14 +478,14 @@ Coba lagi dalam %d detik."</string>
     <string name="bluetooth_connected_no_headset_no_a2dp">Terhubung (tanpa ponsel atau media)%1$s</string>
     <string name="bluetooth_connected_no_headset_no_a2dp_battery_level">Terhubung (tanpa ponsel atau media), baterai %1$s%2$s</string>
     <string name="bluetooth_connected_no_map">Terhubung (tanpa akses pesan)%1$s</string>
-    <string name="bluetooth_connecting">Menyambung…</string>
+    <string name="bluetooth_connecting">Menghubungkan…</string>
     <string name="bluetooth_disable_absolute_volume">Nonaktifkan volume absolut</string>
     <string name="bluetooth_disable_absolute_volume_summary">Menonaktifkan fitur volume absolut Bluetooth jika ada masalah volume dengan perangkat jarak jauh, misalnya volume terlalu keras atau kurangnya kontrol.</string>
     <string name="bluetooth_disconnected">Sambungan terputus</string>
     <string name="bluetooth_disconnecting">Memutus sambungan...</string>
     <string name="bluetooth_enable_gabeldorsche">Aktifkan Gabeldorsche</string>
     <string name="bluetooth_enable_gabeldorsche_summary">Mengaktifkan stack fitur Gabeldorsche Bluetooth.</string>
-    <string name="bluetooth_headset_profile_summary_connected">Tersambung ke audio ponsel</string>
+    <string name="bluetooth_headset_profile_summary_connected">Terhubung ke audio ponsel</string>
     <string name="bluetooth_headset_profile_summary_use_for">Gunakan untuk audio ponsel</string>
     <string name="bluetooth_hearing_aid_profile_summary_connected">Terhubung ke Alat Bantu Dengar</string>
     <string name="bluetooth_hearing_aid_profile_summary_use_for">Gunakan untuk Alat Bantu Dengar</string>
@@ -494,10 +495,10 @@ Coba lagi dalam %d detik."</string>
     <string name="bluetooth_hearingaid_right_pairing_message">Menyambungkan alat bantu dengar sebelah kanan…</string>
     <string name="bluetooth_hid_profile_summary_connected">Terhubung ke perangkat masukan</string>
     <string name="bluetooth_hid_profile_summary_use_for">Gunakan untuk masukan</string>
-    <string name="bluetooth_map_profile_summary_connected">Tersambung ke peta</string>
+    <string name="bluetooth_map_profile_summary_connected">Terhubung ke peta</string>
     <string name="bluetooth_map_profile_summary_use_for">Gunakan untuk peta</string>
     <string name="bluetooth_opp_profile_summary_connected">Sambungkan ke server transfer file</string>
-    <string name="bluetooth_opp_profile_summary_not_connected">Tidak tersambung kepada server transfer file</string>
+    <string name="bluetooth_opp_profile_summary_not_connected">Tidak terhubung kepada server transfer file</string>
     <string name="bluetooth_opp_profile_summary_use_for">Gunakan untuk transfer file</string>
     <string name="bluetooth_pairing">Menyandingkan...</string>
     <string name="bluetooth_pairing_accept">Sambungkan</string>
@@ -507,7 +508,7 @@ Coba lagi dalam %d detik."</string>
     <string name="bluetooth_pairing_error_message">Tidak dapat menyambungkan ke %1$s.</string>
     <string name="bluetooth_pairing_pin_error_message">Tidak dapat menyambungkan ke %1$s karena PIN atau kode sandi salah.</string>
     <string name="bluetooth_pairing_rejected_error_message">Penyandingan ditolak oleh %1$s.</string>
-    <string name="bluetooth_pairing_will_share_phonebook">Penyandingan memberi akses ke kontak dan histori panggilan saat tersambung</string>
+    <string name="bluetooth_pairing_will_share_phonebook">Penyandingan memberi akses ke kontak dan histori panggilan saat terhubung</string>
     <string name="bluetooth_pan_nap_profile_summary_connected">Berbagi koneksi internet lokal dengan perangkat</string>
     <string name="bluetooth_pan_profile_summary_use_for">Digunakan untuk akses internet</string>
     <string name="bluetooth_pan_user_profile_summary_connected">Terhubung ke perangkat untuk akses internet</string>
@@ -558,7 +559,7 @@ Pilihan"</string>
     <string name="bluetooth_talkback_phone">Telepon</string>
     <string name="bluetooth_tethered">Bluetooth tertambat</string>
     <string name="bottomsheet_action_expand_halfway">Luaskan setengah</string>
-    <string name="branded_monitoring_description_app_personal">Anda tersambung ke %1$s, yang dapat memantau aktivitas jaringan pribadi, termasuk email, aplikasi, dan situs web..</string>
+    <string name="branded_monitoring_description_app_personal">Anda terhubung ke %1$s, yang dapat memantau aktivitas jaringan pribadi, termasuk email, aplikasi, dan situs web..</string>
     <string name="branded_vpn_footer">Jaringan mungkin dipantau</string>
     <string name="broadcast_tile">Ubin Siaran</string>
     <string name="bt_hci_snoop_log">Aktifkan log pengintaian HCI Bluetooth</string>
@@ -618,15 +619,20 @@ Pilihan"</string>
     <string name="clock_title_analog">Analog</string>
     <string name="clock_title_bubble">Balon</string>
     <string name="clock_title_default">Default</string>
+    <string name="columbus_bouncer_message">Buka kunci untuk menyelesaikan Ketuk Cepat</string>
+    <string name="columbus_target_request_dialog_allow">Izinkan</string>
+    <string name="columbus_target_request_dialog_deny">Jangan izinkan</string>
+    <string name="columbus_target_request_dialog_summary">Saat Anda mengetuk dua kali bagian belakang ponsel, %1$s akan terbuka. Anda dapat mengubah preferensi ini kapan pun di Setelan.</string>
+    <string name="columbus_target_request_dialog_title">Izinkan Ketuk Cepat untuk membuka %1$s?</string>
     <string name="compat_mode_off">Rentangkn utk mngisi layar</string>
     <string name="compat_mode_on">Perbesar utk mengisi layar</string>
     <string name="confirm_enable_oem_unlock_text">PERINGATAN: Fitur perlindungan perangkat tidak akan berfungsi di perangkat ini saat setelan diaktifkan.</string>
     <string name="confirm_enable_oem_unlock_title">Izinkan buka kunci OEM?</string>
     <string name="connected_to_metered_access_point">Terhubung ke jaringan berbayar</string>
-    <string name="connected_via_app">Tersambung melalui %1$s</string>
-    <string name="connected_via_carrier">Tersambung melalui %1$s</string>
-    <string name="connected_via_network_scorer">Tersambung otomatis melalui %1$s</string>
-    <string name="connected_via_network_scorer_default">Otomatis tersambung melalui penyedia rating jaringan</string>
+    <string name="connected_via_app">Terhubung melalui %1$s</string>
+    <string name="connected_via_carrier">Terhubung melalui %1$s</string>
+    <string name="connected_via_network_scorer">Terhubung otomatis melalui %1$s</string>
+    <string name="connected_via_network_scorer_default">Otomatis terhubung melalui penyedia rating jaringan</string>
     <string name="connected_via_passpoint">Terhubung melalui %1$s</string>
     <string name="content_description_menu_button">Menu</string>
     <string name="controls_added_tooltip">Buka Setelan Cepat untuk melihat kontrol baru</string>
@@ -739,7 +745,9 @@ Jika Anda melanjutkan, tarif penggunaan data mungkin berlaku."</string>
     <string name="defender_notify_des">Ponsel Anda membatasi pengisian daya untuk membantu menjaga kesehatan baterai</string>
     <string name="defender_notify_learn_more">Pelajari lebih lanjut</string>
     <string name="defender_notify_resume_charge">Lanjutkan pengisian daya</string>
-    <string name="defender_notify_title">Pengisian daya dibatasi untuk sementara</string>
+    <string name="defender_notify_title">Pengisian daya dibatasi sementara</string>
+    <string name="defender_post_notify_des">Pengisian daya dibatasi hingga %1$s mulai %2$s sampai %3$s untuk menjaga kesehatan baterai</string>
+    <string name="defender_post_notify_title">Mengisi daya secara normal</string>
     <string name="delete_blob_confirmation_text">Yakin ingin menghapus data bersama ini?</string>
     <string name="delete_blob_text">Hapus data bersama</string>
     <string name="demo_mode">Mode demo UI sistem</string>
@@ -787,7 +795,7 @@ Jika Anda melanjutkan, tarif penggunaan data mungkin berlaku."</string>
     <string name="empty_status">Ayo chat malam ini.</string>
     <string name="empty_user_name">Teman</string>
     <string name="enable_adb">Debugging USB</string>
-    <string name="enable_adb_summary">Mode debug ketika USB tersambung</string>
+    <string name="enable_adb_summary">Mode debug ketika USB terhubung</string>
     <string name="enable_adb_wireless">Proses debug nirkabel</string>
     <string name="enable_adb_wireless_summary">Mode debug saat Wi-Fi terhubung</string>
     <string name="enable_bluetooth_confirmation_ok">Aktifkan</string>
@@ -885,6 +893,7 @@ Data wajah yang digunakan oleh face unlock akan dihapus secara permanen dan aman
     <string name="game_status">Bermain</string>
     <string name="global_action_lock_message">Buka kunci ponsel untuk melihat opsi lainnya</string>
     <string name="global_action_screenshot">Screenshot</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock dinonaktifkan</string>
     <string name="global_actions_change_description">Untuk mengakses kontrol perangkat dan %1$s, geser ke bawah dari bagian atas layar</string>
     <string name="go_to_web">Buka browser</string>
     <string name="google_services_wallpaper_permission"><b>Izinkan Wallpaper animasi Google merespons lokasi Anda</b> dengan mengakses layanan lokasi Google.</string>
@@ -1066,7 +1075,7 @@ prioritas"</string>
     <string name="keyguard_permanent_disabled_sim_message_short">Kartu SIM tidak dapat digunakan.</string>
     <string name="keyguard_plugged_in">%s • Mengisi daya</string>
     <string name="keyguard_plugged_in_charging_fast">%s • Mengisi daya dengan cepat</string>
-    <string name="keyguard_plugged_in_charging_limited">%s • Pengisian daya dibatasi untuk sementara</string>
+    <string name="keyguard_plugged_in_charging_limited">%s • Pengisian daya dibatasi sementara</string>
     <string name="keyguard_plugged_in_charging_slowly">%s • Mengisi daya dengan lambat</string>
     <string name="keyguard_plugged_in_wireless">%s • Mengisi daya secara nirkabel</string>
     <string name="keyguard_retry">Geser ke atas untuk mencoba lagi</string>
@@ -1232,7 +1241,7 @@ Coba lagi dalam %2$d detik."</string>
     <string name="media_projection_dialog_text">%s akan memiliki akses ke semua informasi yang terlihat di layar atau diputar dari perangkat saat merekam atau melakukan transmisi. Ini mencakup informasi seperti sandi, detail pembayaran, foto, pesan, dan audio yang Anda putar.</string>
     <string name="media_projection_dialog_title">Mulai merekam atau melakukan transmisi dengan %s?</string>
     <string name="media_projection_remember_text">Jangan tampilkan lagi</string>
-    <string name="media_seamless_remote_device">Perangkat</string>
+    <string name="media_seamless_other_device">Perangkat lainnya</string>
     <string name="media_transfer_this_device_name">Speaker ponsel</string>
     <string name="media_transfer_this_phone">Ponsel ini</string>
     <string name="media_transfer_wired_device_name">Perangkat audio berkabel</string>
@@ -1249,34 +1258,38 @@ Coba lagi dalam %2$d detik."</string>
     <string name="mobile_data">Data seluler</string>
     <string name="mobile_data_always_on">Data seluler selalu aktif</string>
     <string name="mobile_data_always_on_summary">Selalu aktifkan kuota, meski Wi-Fi aktif (agar jaringan beralih dengan cepat).</string>
+    <string name="mobile_data_connection_active">Terhubung</string>
     <string name="mobile_data_disable_message">Anda tidak akan dapat mengakses data atau internet melalui %s. Internet hanya akan tersedia melalui Wi-Fi.</string>
     <string name="mobile_data_disable_message_default_carrier">Operator Seluler Anda</string>
     <string name="mobile_data_disable_title">Nonaktifkan data seluler?</string>
+    <string name="mobile_data_no_connection">Tidak ada koneksi</string>
+    <string name="mobile_data_off_summary">Data seluler tidak akan terhubung otomatis</string>
+    <string name="mobile_data_settings_title">Data seluler</string>
     <string name="mobile_data_text_format">%1$s — %2$s</string>
     <string name="mock_location_app">Pilih aplikasi lokasi palsu</string>
     <string name="mock_location_app_not_set">Tidak ada aplikasi lokasi palsu yang disetel</string>
     <string name="mock_location_app_set">Aplikasi lokasi palsu: %1$s</string>
     <string name="monitoring_button_view_controls">Lihat kontrol</string>
     <string name="monitoring_button_view_policies">Lihat Kebijakan</string>
-    <string name="monitoring_description_app">Anda tersambung ke %1$s, yang dapat memantau aktivitas jaringan, termasuk email, aplikasi, dan situs.</string>
-    <string name="monitoring_description_app_personal">Anda tersambung ke %1$s, yang dapat memantau aktivitas jaringan pribadi, termasuk email, aplikasi, dan situs web.</string>
-    <string name="monitoring_description_app_personal_work">"Profil kerja Anda dikelola oleh %1$s. Profil tersambung ke %2$s, yang dapat memantau aktivitas jaringan, termasuk email, aplikasi, dan situs.
+    <string name="monitoring_description_app">Anda terhubung ke %1$s, yang dapat memantau aktivitas jaringan, termasuk email, aplikasi, dan situs.</string>
+    <string name="monitoring_description_app_personal">Anda terhubung ke %1$s, yang dapat memantau aktivitas jaringan pribadi, termasuk email, aplikasi, dan situs web.</string>
+    <string name="monitoring_description_app_personal_work">"Profil kerja Anda dikelola oleh %1$s. Profil terhubung ke %2$s, yang dapat memantau aktivitas jaringan, termasuk email, aplikasi, dan situs.
 
-Anda juga tersambung ke %3$s, yang dapat memantau aktivitas jaringan pribadi."</string>
-    <string name="monitoring_description_app_work">"Profil kerja Anda dikelola oleh %1$s. Profil tersambung ke %2$s, yang dapat memantau aktivitas jaringan kerja, termasuk email, aplikasi, dan situs.
+Anda juga terhubung ke %3$s, yang dapat memantau aktivitas jaringan pribadi."</string>
+    <string name="monitoring_description_app_work">"Profil kerja Anda dikelola oleh %1$s. Profil terhubung ke %2$s, yang dapat memantau aktivitas jaringan kerja, termasuk email, aplikasi, dan situs.
 
 Hubungi admin untuk mendapatkan informasi lebih lanjut."</string>
     <string name="monitoring_description_ca_cert_settings">Buka kredensial terpercaya</string>
     <string name="monitoring_description_ca_cert_settings_separator">" "</string>
     <string name="monitoring_description_ca_certificate">Otoritas sertifikat diinstal di perangkat. Traffic jaringan aman Anda mungkin dipantau atau diubah.</string>
     <string name="monitoring_description_do_body">Admin dapat memantau dan mengelola setelan, akses perusahaan, aplikasi, data terkait perangkat, dan informasi lokasi perangkat.</string>
-    <string name="monitoring_description_do_body_vpn">Anda tersambung ke %1$s, yang dapat memantau aktivitas jaringan, termasuk email, aplikasi, dan situs web.</string>
+    <string name="monitoring_description_do_body_vpn">Anda terhubung ke %1$s, yang dapat memantau aktivitas jaringan, termasuk email, aplikasi, dan situs web.</string>
     <string name="monitoring_description_do_header_generic">Perangkat dikelola oleh %1$s.</string>
     <string name="monitoring_description_do_header_with_name">%1$s menggunakan %2$s untuk mengelola perangkat Anda.</string>
     <string name="monitoring_description_do_learn_more">Pelajari lebih lanjut</string>
     <string name="monitoring_description_do_learn_more_separator">" "</string>
     <string name="monitoring_description_managed_profile_ca_certificate">Organisasi Anda menginstal otoritas sertifikat di profil kerja. Traffic jaringan aman Anda mungkin dipantau atau diubah.</string>
-    <string name="monitoring_description_managed_profile_named_vpn">Profil kerja Anda tersambung ke %1$s, yang dapat memantau aktivitas jaringan, termasuk email, aplikasi, dan situs.</string>
+    <string name="monitoring_description_managed_profile_named_vpn">Profil kerja Anda terhubung ke %1$s, yang dapat memantau aktivitas jaringan, termasuk email, aplikasi, dan situs.</string>
     <string name="monitoring_description_managed_profile_network_logging">Admin telah mengaktifkan pencatatan log jaringan, yang memantau traffic di profil kerja, tetapi tidak di profil pribadi.</string>
     <string name="monitoring_description_management">"Perangkat ini milik organisasi Anda.
 
@@ -1290,13 +1303,13 @@ Untuk informasi selengkapnya, hubungi admin IT Anda."</string>
 Admin IT Anda dapat memantau dan mengelola setelan, akses perusahaan, aplikasi, data yang terkait dengan perangkat, dan informasi lokasi perangkat.
 
 Untuk informasi selengkapnya, hubungi admin IT Anda."</string>
-    <string name="monitoring_description_named_vpn">Anda tersambung ke %1$s, yang dapat memantau aktivitas jaringan, termasuk email, aplikasi, dan situs web.</string>
+    <string name="monitoring_description_named_vpn">Anda terhubung ke %1$s, yang dapat memantau aktivitas jaringan, termasuk email, aplikasi, dan situs web.</string>
     <string name="monitoring_description_network_logging">"Admin telah mengaktifkan pencatatan log jaringan, yang memantau traffic di perangkat.
 
 Untuk informasi selengkapnya, hubungi admin."</string>
     <string name="monitoring_description_parental_controls">Perangkat ini dikelola oleh orang tuamu. Orang tuamu bisa melihat dan mengelola berbagai informasi, seperti aplikasi yang kamu gunakan, lokasimu, dan lama pemakaian perangkat.</string>
-    <string name="monitoring_description_personal_profile_named_vpn">Profil pribadi Anda tersambung ke %1$s, yang dapat memantau aktivitas jaringan, termasuk email, aplikasi, dan situs.</string>
-    <string name="monitoring_description_two_named_vpns">Anda tersambung ke %1$s dan %2$s, yang dapat memantau aktivitas jaringan, termasuk email, aplikasi, dan situs web.</string>
+    <string name="monitoring_description_personal_profile_named_vpn">Profil pribadi Anda terhubung ke %1$s, yang dapat memantau aktivitas jaringan, termasuk email, aplikasi, dan situs.</string>
+    <string name="monitoring_description_two_named_vpns">Anda terhubung ke %1$s dan %2$s, yang dapat memantau aktivitas jaringan, termasuk email, aplikasi, dan situs web.</string>
     <string name="monitoring_description_vpn">"Anda memberikan izin kepada aplikasi untuk menyiapkan sambungan VPN.
 
 Aplikasi ini ini dapat memantau aktivitas perangkat dan jaringan, termasuk email, aplikasi, dan situs web."</string>
@@ -1306,7 +1319,7 @@ Admin dapat memantau aktivitas jaringan, termasuk email, aplikasi, dan situs web
 
 Untuk informasi selengkapnya, hubungi admin.
 
-Anda juga tersambung ke VPN, yang dapat memantau aktivitas jaringan."</string>
+Anda juga terhubung ke VPN, yang dapat memantau aktivitas jaringan."</string>
     <string name="monitoring_description_vpn_settings">Buka setelan VPN</string>
     <string name="monitoring_description_vpn_settings_separator">" "</string>
     <string name="monitoring_financed_description_named_management">"%1$s mungkin dapat mengakses data yang dikaitkan dengan perangkat ini, mengelola aplikasi, dan mengubah setelan perangkat ini.
@@ -1391,6 +1404,7 @@ Jika Anda memiliki pertanyaan, hubungi %2$s."</string>
     <string name="no_content_in_select_mode">Tidak ada teks atau gambar untuk dipilih</string>
     <string name="no_conversations_text">Percakapan terbaru Anda akan ditampilkan di sini</string>
     <string name="no_shortcut">%1$s tidak mendukung fitur percakapan</string>
+    <string name="non_carrier_network_unavailable">Jaringan lain tidak tersedia</string>
     <string name="not_default_data_content_description">Tidak disetel untuk menggunakan data</string>
     <string name="not_set">Belum disetel</string>
     <string name="notif_inline_reply_remove_attachment_description">Hapus lampiran</string>
@@ -1460,7 +1474,7 @@ Jika Anda memiliki pertanyaan, hubungi %2$s."</string>
     <string name="notification_summary_message_format">%1$s: %2$s</string>
     <string name="notification_tap_again">Ketuk lagi untuk membuka</string>
     <string name="notification_unblockable_desc">Notifikasi ini tidak dapat diubah.</string>
-    <string name="notification_vpn_connected">VPN tersambung</string>
+    <string name="notification_vpn_connected">VPN terhubung</string>
     <string name="notification_vpn_disconnected">VPN terputus</string>
     <string name="oem_unlock_enable">Buka kunci OEM</string>
     <string name="oem_unlock_enable_summary">Izinkan bootloader dibuka kuncinya</string>
@@ -1481,7 +1495,7 @@ Jika Anda memiliki pertanyaan, hubungi %2$s."</string>
     <string name="open_saver_setting_action">Setelan</string>
     <string name="orb_search_action">Tindakan Penelusuran</string>
     <string name="osu_completing_sign_up">Menyelesaikan pendaftaran…</string>
-    <string name="osu_connect_failed">Tidak dapat tersambung</string>
+    <string name="osu_connect_failed">Tidak dapat terhubung</string>
     <string name="osu_opening_provider">Membuka %1$s</string>
     <string name="osu_sign_up_complete">Pendaftaran selesai. Menyambungkan…</string>
     <string name="osu_sign_up_failed">Tidak dapat menyelesaikan pendaftaran. Ketuk untuk mencoba lagi.</string>
@@ -1571,6 +1585,7 @@ Jika Anda memiliki pertanyaan, hubungi %2$s."</string>
     <string name="power_remaining_only_more_than_subtext">Tersisa lebih dari %1$s</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">Baterai mungkin habis pada pukul %1$s</string>
+    <string name="pref_title_network_details">Detail jaringan</string>
     <string name="preference_copied">\"%1$s\" disalin ke papan klip.</string>
     <string name="preference_summary_default_combination">%1$s/%2$s</string>
     <string name="priority_conversations">Percakapan prioritas</string>
@@ -1631,9 +1646,9 @@ Jika Anda memiliki pertanyaan, hubungi %2$s."</string>
     <string name="quick_settings_cellular_detail_title">Data seluler</string>
     <string name="quick_settings_close_user_panel">Tutup</string>
     <string name="quick_settings_color_space_label">Mode koreksi warna</string>
-    <string name="quick_settings_connected">Tersambung</string>
+    <string name="quick_settings_connected">Terhubung</string>
     <string name="quick_settings_connected_battery_level">Terhubung, baterai %1$s</string>
-    <string name="quick_settings_connecting">Menyambung...</string>
+    <string name="quick_settings_connecting">Menghubungkan...</string>
     <string name="quick_settings_dark_mode_secondary_label_battery_saver">Penghemat Baterai</string>
     <string name="quick_settings_dark_mode_secondary_label_on_at">Aktif pada %s</string>
     <string name="quick_settings_dark_mode_secondary_label_on_at_sunset">Aktif saat malam</string>
@@ -1740,6 +1755,7 @@ Jika Anda memiliki pertanyaan, hubungi %2$s."</string>
     <string name="right_keycode">Kode tombol kanan</string>
     <string name="right_nav_bar_button_type">Jenis tombol ekstra kanan</string>
     <string name="ring_toggle_title">Telepon</string>
+    <string name="rotation_lock_camera_rotation_on">Aktif - Berbasis deteksi wajah</string>
     <string name="running_foreground_services_msg">Ketuk untuk melihat detail penggunaan baterai dan data</string>
     <string name="running_foreground_services_title">Aplikasi yang sedang berjalan di latar belakang</string>
     <string name="running_process_item_user_label">Pengguna: %1$s</string>
@@ -1814,6 +1830,7 @@ Jika Anda memiliki pertanyaan, hubungi %2$s."</string>
     <string name="screenshot_top_boundary_pct">Batas atas %1$d%%</string>
     <string name="search_menu">Telusuri setelan</string>
     <string name="search_menu_title">Telusuri</string>
+    <string name="see_all_networks">Lihat semua</string>
     <string name="see_more_title">Lihat lainnya</string>
     <string name="select_application">Pilih aplikasi</string>
     <string name="select_conversation_text">Ketuk percakapan untuk menambahkannya ke Layar utama</string>
@@ -1861,7 +1878,7 @@ Jika Anda memiliki pertanyaan, hubungi %2$s."</string>
     <string name="show_screen_updates_summary">Sorot seluruh permukaan jendela saat diperbarui</string>
     <string name="show_silently">Tampilkan notifikasi tanpa suara</string>
     <string name="show_touches">Tampilkan ketukan</string>
-    <string name="show_touches_summary">Tampilkan masukan untuk ketukan</string>
+    <string name="show_touches_summary">Tampilkan efek visual untuk ketukan</string>
     <string name="simulate_color_space">Simulasikan ruang warna</string>
     <string name="slice_permission_allow">Izinkan</string>
     <string name="slice_permission_checkbox">Izinkan %1$s menampilkan potongan dari aplikasi apa pun</string>
@@ -1926,6 +1943,7 @@ diawasi"</string>
     <string name="switch_bar_off">Nonaktif</string>
     <string name="switch_bar_on">Aktif</string>
     <string name="system_ui_tuner">Penyetel Antarmuka Pengguna Sistem</string>
+    <string name="tap_a_network_to_connect">Ketuk jaringan untuk menghubungkan</string>
     <string name="tap_again">Ketuk lagi</string>
     <string name="tap_to_sign_up">Ketuk untuk mendaftar</string>
     <string name="tether_settings_title_all">Tethering &amp; hotspot portabel</string>
@@ -1951,6 +1969,7 @@ Ketuk untuk info selengkapnya"</string>
     <string name="time_unit_just_now">Baru saja</string>
     <string name="title_convert_fbe">Mengonversi ke enkripsi berbasis file</string>
     <string name="title_usb_accessory">Aksesori USB</string>
+    <string name="to_switch_networks_disconnect_ethernet">Untuk beralih jaringan, lepaskan kabel ethernet</string>
     <string name="too_hot_label">Pixel terlalu panas</string>
     <string name="touch_filtered_warning">Karena sebuah aplikasi menghalangi permintaan izin, Setelan tidak dapat memverifikasi respons Anda.</string>
     <string name="track_frame_time">Rendering HWUI profil</string>
@@ -2009,10 +2028,12 @@ Ketuk untuk info selengkapnya"</string>
     <string name="tuner_toast">Selamat! Penyetel Antarmuka Pengguna Sistem telah ditambahkan ke Setelan</string>
     <string name="tuner_warning">Penyetel Antarmuka Pengguna Sistem memberikan cara tambahan untuk mengubah dan menyesuaikan antarmuka pengguna Android. Fitur eksperimental ini dapat berubah, rusak, atau menghilang dalam rilis di masa mendatang. Lanjutkan dengan hati-hati.</string>
     <string name="tuner_warning_title">Tidak semua orang menganggapnya baik</string>
+    <string name="turn_on_wifi">Wi-Fi</string>
     <string name="tv_notification_panel_no_notifications">Tidak Ada Notifikasi</string>
     <string name="tv_notification_panel_title">Notifikasi</string>
     <string name="two_weeks_timestamp">2 minggu lalu</string>
     <string name="unknown">Tidak diketahui</string>
+    <string name="unlock_to_view_networks">Buka kunci untuk melihat jaringan</string>
     <string name="upcoming_birthday_status">Segera ulang tahun</string>
     <string name="upcoming_birthday_status_content_description">Ulang tahun %1$s sebentar lagi</string>
     <string name="url_menu_copy">Salin</string>
@@ -2128,8 +2149,8 @@ Pengguna mana pun dapat mengupdate aplikasi untuk semua pengguna lain."</string>
     <string name="wallet_title">Wallet</string>
     <string name="weather_description">%1$s, %2$s</string>
     <string name="wifi_ap_unable_to_handle_new_sta">Titik akses penuh untuk sementara</string>
-    <string name="wifi_cant_connect">Tidak dapat tersambung</string>
-    <string name="wifi_cant_connect_to_ap">"Tidak dapat tersambung ke '%1$s'"</string>
+    <string name="wifi_cant_connect">Tidak dapat terhubung</string>
+    <string name="wifi_cant_connect_to_ap">"Tidak dapat terhubung ke '%1$s'"</string>
     <string name="wifi_check_password_try_again">Periksa sandi dan coba lagi</string>
     <string name="wifi_connected_low_quality">Kualitas rendah</string>
     <string name="wifi_connected_no_internet">Tidak ada internet</string>
@@ -2143,7 +2164,7 @@ Alamat Wi‑Fi (BSSID)
     <string name="wifi_debugging_secondary_user_message">Pengguna yang sedang login ke perangkat ini tidak dapat mengaktifkan proses debug nirkabel. Beralihlah ke pengguna utama untuk menggunakan fitur ini.</string>
     <string name="wifi_debugging_secondary_user_title">Proses debug nirkabel tidak diizinkan</string>
     <string name="wifi_debugging_title">Izinkan proses debug nirkabel di perangkat ini?</string>
-    <string name="wifi_disabled_by_recommendation_provider">Tidak tersambung karena jaringan berkualitas rendah</string>
+    <string name="wifi_disabled_by_recommendation_provider">Tidak terhubung karena jaringan berkualitas rendah</string>
     <string name="wifi_disabled_generic">Nonaktif</string>
     <string name="wifi_disabled_network_failure">Kegagalan Konfigurasi IP</string>
     <string name="wifi_disabled_password_failure">Masalah autentikasi</string>
@@ -2151,19 +2172,22 @@ Alamat Wi‑Fi (BSSID)
     <string name="wifi_disconnected">Terputus</string>
     <string name="wifi_display_certification">Sertifikasi layar nirkabel</string>
     <string name="wifi_display_certification_summary">Tampilkan opsi untuk sertifikasi layar nirkabel</string>
+    <string name="wifi_empty_list_wifi_on">Mencari jaringan …</string>
     <string name="wifi_enhanced_mac_randomization">Pengacakan MAC nonpersisten Wi‑Fi</string>
     <string name="wifi_enhanced_mac_randomization_summary">Saat mode ini diaktifkan, alamat MAC perangkat ini dapat berubah setiap kali terhubung ke jaringan yang mengaktifkan pengacakan MAC.</string>
     <string name="wifi_fail_to_scan">Tidak dapat memindai jaringan</string>
+    <string name="wifi_failed_connect_message">Gagal menghubungkan ke jaringan</string>
     <string name="wifi_hotspot_switch_off_text">Nonaktif</string>
     <string name="wifi_hotspot_switch_on_text">Aktif</string>
     <string name="wifi_is_off">Wi-Fi nonaktif</string>
     <string name="wifi_limited_connection">Koneksi terbatas</string>
     <string name="wifi_metered_label">Berbayar</string>
     <string name="wifi_no_internet">Tidak ada akses internet</string>
-    <string name="wifi_no_internet_no_reconnect">Tidak akan tersambung otomatis</string>
+    <string name="wifi_no_internet_no_reconnect">Tidak akan terhubung otomatis</string>
     <string name="wifi_not_in_range">Tidak dalam jangkauan</string>
     <string name="wifi_passpoint_expired">Sudah tidak berlaku</string>
     <string name="wifi_remembered">Disimpan</string>
+    <string name="wifi_scan_notify_message">Agar pengalaman perangkat menjadi lebih baik, aplikasi dan layanan tetap dapat memindai jaringan Wi-Fi kapan saja, bahkan saat Wi-Fi nonaktif. Anda dapat mengubahnya di setelan pemindaian Wi-Fi. <annotation id="link">Ubah</annotation></string>
     <string name="wifi_scan_throttling">Pembatasan pemindaian Wi‑Fi</string>
     <string name="wifi_scan_throttling_summary">Memperlambat kehabisan baterai &amp; meningkatkan performa jaringan</string>
     <string name="wifi_security_none">Tidak ada</string>
@@ -2173,6 +2197,7 @@ Alamat Wi‑Fi (BSSID)
     <string name="wifi_unmetered_label">Tidak berbayar</string>
     <string name="wifi_verbose_logging">Aktifkan Pencatatan Log Panjang Wi-Fi</string>
     <string name="wifi_verbose_logging_summary">Tingkatkan level pencatatan log Wi-Fi, tampilkan per SSID RSSI di Pemilih Wi‑Fi</string>
+    <string name="wifi_wont_autoconnect_for_now">Wi-Fi tidak akan otomatis terhubung untuk saat ini</string>
     <string name="wifitrackerlib_auto_connect_disable">Hubung-otomatis nonaktif</string>
     <string name="wifitrackerlib_available_via_app">Tersedia melalui %1$s</string>
     <string name="wifitrackerlib_connected_via_app">Terhubung melalui %1$s</string>

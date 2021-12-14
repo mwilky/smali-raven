@@ -4,15 +4,23 @@
 
 
 # instance fields
+.field private mAnimatedProgress:F
+
 .field private final mBackgroundPaint:Landroid/graphics/Paint;
 
 .field private final mBounds:Landroid/graphics/Rect;
 
+.field private mFillColorAnimator:Landroid/animation/ValueAnimator;
+
+.field private final mFillColorUpdateListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
+
 .field private final mHandler:Landroid/os/Handler;
+
+.field private final mHelpColor:I
 
 .field private final mInvalidateRunnable:Ljava/lang/Runnable;
 
-.field private mIsFilledOrFilling:Z
+.field private mIsShowingHelp:Z
 
 .field private final mMaxOverSweepAngle:F
 
@@ -29,6 +37,8 @@
 .field private mProgress:F
 
 .field private mProgressAnimator:Landroid/animation/ValueAnimator;
+
+.field private final mProgressColor:I
 
 .field private final mProgressPaint:Landroid/graphics/Paint;
 
@@ -50,10 +60,10 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$6h5C2RwG4QOaPZO7GZ7VKJ90f-g(Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;)V
+.method public static synthetic $r8$lambda$H_1nPNkd3w-7a6NmRfSOYfOJU8s(Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->lambda$new$2()V
+    invoke-direct {p0}, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->lambda$new$3()V
 
     return-void
 .end method
@@ -62,6 +72,14 @@
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->lambda$new$1(Landroid/animation/ValueAnimator;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$qEa_86inlYjou-uv22cmWiPQubc(Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;Landroid/animation/ValueAnimator;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->lambda$new$2(Landroid/animation/ValueAnimator;)V
 
     return-void
 .end method
@@ -83,13 +101,15 @@
 
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mIsFilledOrFilling:Z
+    iput v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mProgress:F
+
+    iput v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mAnimatedProgress:F
 
     const/4 v1, 0x0
 
-    iput v1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mProgress:F
+    iput-boolean v1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mIsShowingHelp:Z
 
-    iput v1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mOverSweepAngle:F
+    iput v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mOverSweepAngle:F
 
     iput-object p2, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mBounds:Landroid/graphics/Rect;
 
@@ -109,105 +129,115 @@
 
     iput p2, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mStrokeWidthPx:F
 
-    new-instance p3, Landroid/graphics/Paint;
+    sget p3, Lcom/android/systemui/R$color;->udfps_enroll_progress:I
 
-    invoke-direct {p3}, Landroid/graphics/Paint;-><init>()V
+    invoke-virtual {p1, p3}, Landroid/content/Context;->getColor(I)I
 
-    iput-object p3, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mBackgroundPaint:Landroid/graphics/Paint;
+    move-result p3
 
-    invoke-virtual {p3, p2}, Landroid/graphics/Paint;->setStrokeWidth(F)V
+    iput p3, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mProgressColor:I
 
-    sget p4, Lcom/android/systemui/R$color;->white_disabled:I
+    sget p4, Lcom/android/systemui/R$color;->udfps_enroll_progress_help:I
 
     invoke-virtual {p1, p4}, Landroid/content/Context;->getColor(I)I
 
     move-result p4
 
-    invoke-virtual {p3, p4}, Landroid/graphics/Paint;->setColor(I)V
+    iput p4, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mHelpColor:I
 
-    const/4 p4, 0x1
+    new-instance p4, Landroid/graphics/Paint;
 
-    invoke-virtual {p3, p4}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+    invoke-direct {p4}, Landroid/graphics/Paint;-><init>()V
 
-    sget-object p5, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
+    iput-object p4, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mBackgroundPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {p3, p5}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+    invoke-virtual {p4, p2}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
-    sget-object p5, Landroid/graphics/Paint$Cap;->ROUND:Landroid/graphics/Paint$Cap;
+    sget p5, Lcom/android/systemui/R$color;->white_disabled:I
 
-    invoke-virtual {p3, p5}, Landroid/graphics/Paint;->setStrokeCap(Landroid/graphics/Paint$Cap;)V
-
-    new-array p5, p4, [I
-
-    const p6, 0x1010429
-
-    aput p6, p5, v0
-
-    invoke-virtual {p1, p5}, Landroid/content/Context;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
-
-    move-result-object p5
-
-    invoke-virtual {p3}, Landroid/graphics/Paint;->getColor()I
-
-    move-result p6
-
-    invoke-virtual {p5, v0, p6}, Landroid/content/res/TypedArray;->getColor(II)I
-
-    move-result p6
-
-    invoke-virtual {p3, p6}, Landroid/graphics/Paint;->setColor(I)V
-
-    invoke-virtual {p5}, Landroid/content/res/TypedArray;->recycle()V
-
-    new-instance p5, Landroid/util/TypedValue;
-
-    invoke-direct {p5}, Landroid/util/TypedValue;-><init>()V
-
-    invoke-virtual {p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
-
-    move-result-object p6
-
-    const v0, 0x1010033
-
-    invoke-virtual {p6, v0, p5, p4}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
-
-    invoke-virtual {p5}, Landroid/util/TypedValue;->getFloat()F
+    invoke-virtual {p1, p5}, Landroid/content/Context;->getColor(I)I
 
     move-result p5
 
-    const/high16 p6, 0x437f0000    # 255.0f
+    invoke-virtual {p4, p5}, Landroid/graphics/Paint;->setColor(I)V
 
-    mul-float/2addr p5, p6
+    const/4 p5, 0x1
 
-    float-to-int p5, p5
+    invoke-virtual {p4, p5}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
-    invoke-virtual {p3, p5}, Landroid/graphics/Paint;->setAlpha(I)V
+    sget-object p6, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
 
-    new-instance p3, Landroid/graphics/Paint;
+    invoke-virtual {p4, p6}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    invoke-direct {p3}, Landroid/graphics/Paint;-><init>()V
+    sget-object p6, Landroid/graphics/Paint$Cap;->ROUND:Landroid/graphics/Paint$Cap;
 
-    iput-object p3, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mProgressPaint:Landroid/graphics/Paint;
+    invoke-virtual {p4, p6}, Landroid/graphics/Paint;->setStrokeCap(Landroid/graphics/Paint$Cap;)V
 
-    invoke-virtual {p3, p2}, Landroid/graphics/Paint;->setStrokeWidth(F)V
+    new-array p6, p5, [I
 
-    sget p2, Lcom/android/systemui/R$color;->udfps_enroll_progress:I
+    const v0, 0x1010429
 
-    invoke-virtual {p1, p2}, Landroid/content/Context;->getColor(I)I
+    aput v0, p6, v1
+
+    invoke-virtual {p1, p6}, Landroid/content/Context;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
+
+    move-result-object p6
+
+    invoke-virtual {p4}, Landroid/graphics/Paint;->getColor()I
+
+    move-result v0
+
+    invoke-virtual {p6, v1, v0}, Landroid/content/res/TypedArray;->getColor(II)I
+
+    move-result v0
+
+    invoke-virtual {p4, v0}, Landroid/graphics/Paint;->setColor(I)V
+
+    invoke-virtual {p6}, Landroid/content/res/TypedArray;->recycle()V
+
+    new-instance p6, Landroid/util/TypedValue;
+
+    invoke-direct {p6}, Landroid/util/TypedValue;-><init>()V
+
+    invoke-virtual {p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
+
+    move-result-object p1
+
+    const v0, 0x1010033
+
+    invoke-virtual {p1, v0, p6, p5}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
+
+    invoke-virtual {p6}, Landroid/util/TypedValue;->getFloat()F
 
     move-result p1
 
-    invoke-virtual {p3, p1}, Landroid/graphics/Paint;->setColor(I)V
+    const/high16 p6, 0x437f0000    # 255.0f
 
-    invoke-virtual {p3, p4}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+    mul-float/2addr p1, p6
 
-    sget-object p1, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
+    float-to-int p1, p1
 
-    invoke-virtual {p3, p1}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+    invoke-virtual {p4, p1}, Landroid/graphics/Paint;->setAlpha(I)V
 
-    sget-object p1, Landroid/graphics/Paint$Cap;->ROUND:Landroid/graphics/Paint$Cap;
+    new-instance p1, Landroid/graphics/Paint;
 
-    invoke-virtual {p3, p1}, Landroid/graphics/Paint;->setStrokeCap(Landroid/graphics/Paint$Cap;)V
+    invoke-direct {p1}, Landroid/graphics/Paint;-><init>()V
+
+    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mProgressPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {p1, p2}, Landroid/graphics/Paint;->setStrokeWidth(F)V
+
+    invoke-virtual {p1, p3}, Landroid/graphics/Paint;->setColor(I)V
+
+    invoke-virtual {p1, p5}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+
+    sget-object p2, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
+
+    invoke-virtual {p1, p2}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+
+    sget-object p2, Landroid/graphics/Paint$Cap;->ROUND:Landroid/graphics/Paint$Cap;
+
+    invoke-virtual {p1, p2}, Landroid/graphics/Paint;->setStrokeCap(Landroid/graphics/Paint$Cap;)V
 
     new-instance p1, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment$$ExternalSyntheticLambda0;
 
@@ -219,11 +249,17 @@
 
     invoke-direct {p1, p0}, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;)V
 
-    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mOverSweepUpdateListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
+    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mFillColorUpdateListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
     new-instance p1, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment$$ExternalSyntheticLambda2;
 
     invoke-direct {p1, p0}, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;)V
+
+    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mOverSweepUpdateListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
+
+    new-instance p1, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment$$ExternalSyntheticLambda3;
+
+    invoke-direct {p1, p0}, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;)V
 
     iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mOverSweepAnimationRunnable:Ljava/lang/Runnable;
 
@@ -243,7 +279,7 @@
 
     move-result p1
 
-    iput p1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mProgress:F
+    iput p1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mAnimatedProgress:F
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mInvalidateRunnable:Ljava/lang/Runnable;
 
@@ -253,6 +289,30 @@
 .end method
 
 .method private synthetic lambda$new$1(Landroid/animation/ValueAnimator;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mProgressPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/lang/Integer;
+
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
+
+    move-result p1
+
+    invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setColor(I)V
+
+    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mInvalidateRunnable:Ljava/lang/Runnable;
+
+    invoke-interface {p0}, Ljava/lang/Runnable;->run()V
+
+    return-void
+.end method
+
+.method private synthetic lambda$new$2(Landroid/animation/ValueAnimator;)V
     .locals 0
 
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
@@ -274,7 +334,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$new$2()V
+.method private synthetic lambda$new$3()V
     .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mOverSweepAnimator:Landroid/animation/ValueAnimator;
@@ -332,31 +392,7 @@
 .end method
 
 .method private updateProgress(FJ)V
-    .locals 4
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v1, "updateProgress: progress = "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    const-string v1, ", duration = "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p2, p3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "UdfpsProgressBarSegment"
-
-    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    .locals 3
 
     iget v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mProgress:F
 
@@ -364,55 +400,37 @@
 
     if-nez v0, :cond_0
 
-    const-string/jumbo p0, "updateProgress skipped: progress == mProgress"
-
-    invoke-static {v1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     return-void
 
     :cond_0
-    const/high16 v0, 0x3f800000    # 1.0f
-
-    cmpl-float v0, p1, v0
-
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
-
-    if-ltz v0, :cond_1
-
-    move v0, v1
-
-    goto :goto_0
-
-    :cond_1
-    move v0, v2
-
-    :goto_0
-    iput-boolean v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mIsFilledOrFilling:Z
+    iput p1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mProgress:F
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mProgressAnimator:Landroid/animation/ValueAnimator;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->isRunning()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mProgressAnimator:Landroid/animation/ValueAnimator;
 
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->cancel()V
 
-    :cond_2
+    :cond_1
     const/4 v0, 0x2
 
     new-array v0, v0, [F
 
-    iget v3, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mProgress:F
+    const/4 v1, 0x0
 
-    aput v3, v0, v2
+    iget v2, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mAnimatedProgress:F
+
+    aput v2, v0, v1
+
+    const/4 v1, 0x1
 
     aput p1, v0, v1
 
@@ -441,34 +459,6 @@
 # virtual methods
 .method public cancelCompletionAnimation()V
     .locals 6
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "cancelCompletionAnimation: mProgress = "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget v1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mProgress:F
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    const-string v1, ", mOverSweepAngle = "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget v1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mOverSweepAngle:F
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "UdfpsProgressBarSegment"
-
-    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mHandler:Landroid/os/Handler;
 
@@ -563,33 +553,13 @@
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 11
 
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "draw: mProgress = "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget v1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mProgress:F
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "UdfpsProgressBarSegment"
-
-    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     iget v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mStrokeWidthPx:F
 
     const/high16 v1, 0x40000000    # 2.0f
 
     div-float/2addr v0, v1
 
-    iget v1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mProgress:F
+    iget v1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mAnimatedProgress:F
 
     const/high16 v2, 0x3f800000    # 1.0f
 
@@ -628,7 +598,7 @@
     invoke-virtual/range {v2 .. v10}, Landroid/graphics/Canvas;->drawArc(FFFFFFZLandroid/graphics/Paint;)V
 
     :cond_0
-    iget v1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mProgress:F
+    iget v1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mAnimatedProgress:F
 
     const/4 v2, 0x0
 
@@ -676,16 +646,16 @@
     return-void
 .end method
 
-.method public isFilledOrFilling()Z
+.method public getProgress()F
     .locals 0
 
-    iget-boolean p0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mIsFilledOrFilling:Z
+    iget p0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mProgress:F
 
     return p0
 .end method
 
 .method public startCompletionAnimation()V
-    .locals 5
+    .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mHandler:Landroid/os/Handler;
 
@@ -695,47 +665,19 @@
 
     move-result v0
 
-    const-string v1, ", mOverSweepAngle = "
-
-    const-string v2, "UdfpsProgressBarSegment"
-
     if-nez v0, :cond_3
 
-    iget v3, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mOverSweepAngle:F
+    iget v1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mOverSweepAngle:F
 
-    iget v4, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mMaxOverSweepAngle:F
+    iget v2, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mMaxOverSweepAngle:F
 
-    cmpl-float v3, v3, v4
+    cmpl-float v1, v1, v2
 
-    if-ltz v3, :cond_0
+    if-ltz v1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "startCompletionAnimation: mProgress = "
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget v3, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mProgress:F
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget v1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mOverSweepAngle:F
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mOverSweepReverseAnimator:Landroid/animation/ValueAnimator;
 
     if-eqz v0, :cond_1
@@ -755,7 +697,7 @@
     iput v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mOverSweepAngle:F
 
     :cond_1
-    iget v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mProgress:F
+    iget v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mAnimatedProgress:F
 
     const/high16 v1, 0x3f800000    # 1.0f
 
@@ -766,6 +708,10 @@
     if-gez v0, :cond_2
 
     invoke-direct {p0, v1, v2, v3}, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->updateProgress(FJ)V
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->updateFillColor(Z)V
 
     :cond_2
     iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mHandler:Landroid/os/Handler;
@@ -778,27 +724,109 @@
 
     :cond_3
     :goto_0
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "startCompletionAnimation skipped: hasCallback = "
+    const-string v2, "startCompletionAnimation skipped: hasCallback = "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, ", mOverSweepAngle = "
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget p0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mOverSweepAngle:F
 
-    invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
-    invoke-static {v2, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v0, "UdfpsProgressBarSegment"
+
+    invoke-static {v0, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+.end method
+
+.method public updateFillColor(Z)V
+    .locals 3
+
+    iget-boolean v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mIsShowingHelp:Z
+
+    if-ne v0, p1, :cond_0
+
+    return-void
+
+    :cond_0
+    iput-boolean p1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mIsShowingHelp:Z
+
+    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mFillColorAnimator:Landroid/animation/ValueAnimator;
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->isRunning()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mFillColorAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->cancel()V
+
+    :cond_1
+    if-eqz p1, :cond_2
+
+    iget p1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mHelpColor:I
+
+    goto :goto_0
+
+    :cond_2
+    iget p1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mProgressColor:I
+
+    :goto_0
+    const/4 v0, 0x2
+
+    new-array v0, v0, [I
+
+    const/4 v1, 0x0
+
+    iget-object v2, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mProgressPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v2}, Landroid/graphics/Paint;->getColor()I
+
+    move-result v2
+
+    aput v2, v0, v1
+
+    const/4 v1, 0x1
+
+    aput p1, v0, v1
+
+    invoke-static {v0}, Landroid/animation/ValueAnimator;->ofArgb([I)Landroid/animation/ValueAnimator;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mFillColorAnimator:Landroid/animation/ValueAnimator;
+
+    const-wide/16 v0, 0xc8
+
+    invoke-virtual {p1, v0, v1}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+
+    iget-object p1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mFillColorAnimator:Landroid/animation/ValueAnimator;
+
+    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mFillColorUpdateListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
+
+    invoke-virtual {p1, v0}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+
+    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarSegment;->mFillColorAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {p0}, Landroid/animation/ValueAnimator;->start()V
 
     return-void
 .end method

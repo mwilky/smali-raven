@@ -363,6 +363,7 @@ Jika kebenaran ini dimatikan, penggera sedia ada dan acara berdasarkan masa yang
     <string name="alarms_and_reminders_label">Penggera dan peringatan</string>
     <string name="alarms_and_reminders_switch_title">Benarkan penetapan penggera dan peringatan</string>
     <string name="alarms_and_reminders_title">Penggera &amp; peringatan</string>
+    <string name="all_network_unavailable">Tiada rangkaian tersedia</string>
     <string name="allow_mock_location">Benarkan lokasi olokan</string>
     <string name="allow_mock_location_summary">Benarkan lokasi olokan</string>
     <string name="always_use_accessory">Sentiasa buka %1$s apabila %2$s disambungkan</string>
@@ -618,6 +619,11 @@ Pilihan"</string>
     <string name="clock_title_analog">Analog</string>
     <string name="clock_title_bubble">Gelembung</string>
     <string name="clock_title_default">Lalai</string>
+    <string name="columbus_bouncer_message">Buka kunci untuk melengkapkan Ketikan Segera</string>
+    <string name="columbus_target_request_dialog_allow">Benarkan</string>
+    <string name="columbus_target_request_dialog_deny">Jangan benarkan</string>
+    <string name="columbus_target_request_dialog_summary">Apabila anda mengetik dua kali pada bahagian belakang telefon anda, %1$s akan dibuka. Anda boleh menukar pilihan ini pada bila-bila masa dalam Tetapan.</string>
+    <string name="columbus_target_request_dialog_title">Benarkan Ketikan Segera untuk membuka %1$s?</string>
     <string name="compat_mode_off">Regang utk memenuhi skrin</string>
     <string name="compat_mode_on">Zum untuk memenuhi skrin</string>
     <string name="confirm_enable_oem_unlock_text">AMARAN: Ciri perlindungan peranti tidak akan berfungsi pada peranti ini semasa tetapan ini dihidupkan.</string>
@@ -739,7 +745,9 @@ Jika anda menyambung semula, caj mungkin digunakan untuk penggunaan data."</stri
     <string name="defender_notify_des">Telefon anda mengehadkan pengecasan untuk membantu anda mengekalkan kesihatan bateri</string>
     <string name="defender_notify_learn_more">Ketahui lebih lanjut</string>
     <string name="defender_notify_resume_charge">Sambung semula pengecasan</string>
-    <string name="defender_notify_title">Pengecasan terhad buat sementara waktu</string>
+    <string name="defender_notify_title">Pengecasan terhad sementara</string>
+    <string name="defender_post_notify_des">Pengecasan terhad pada %1$s dari %2$s hingga %3$s untuk mengekalkan kesihatan bateri</string>
+    <string name="defender_post_notify_title">Pengecasan secara normal</string>
     <string name="delete_blob_confirmation_text">Adakah anda pasti mahu memadamkan data dikongsi ini?</string>
     <string name="delete_blob_text">Padamkan data dikongsi</string>
     <string name="demo_mode">Mod tunjuk cara UI sistem</string>
@@ -885,6 +893,7 @@ Data wajah yang digunakan oleh buka kunci wajah akan dipadamkan secara kekal dan
     <string name="game_status">Memainkan</string>
     <string name="global_action_lock_message">Buka kunci telefon anda untuk mendapatkan lagi pilihan</string>
     <string name="global_action_screenshot">Tangkapan skrin</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock dilumpuhkan</string>
     <string name="global_actions_change_description">Untuk mengakses %1$s dan kawalan peranti, leret ke bawah dari bahagian atas skrin anda</string>
     <string name="go_to_web">Pergi ke penyemak imbas</string>
     <string name="google_services_wallpaper_permission"><b>Benarkan kertas dinding Langsung Google bertindak balas dengan lokasi anda</b> dengan mengakses perkhidmatan lokasi Google.</string>
@@ -1066,7 +1075,7 @@ sahaja"</string>
     <string name="keyguard_permanent_disabled_sim_message_short">Kad SIM tidak boleh digunakan.</string>
     <string name="keyguard_plugged_in">%s • Mengecas</string>
     <string name="keyguard_plugged_in_charging_fast">%s • Mengecas dengan cepat</string>
-    <string name="keyguard_plugged_in_charging_limited">%s • Pengecasan terhad buat sementara waktu</string>
+    <string name="keyguard_plugged_in_charging_limited">%s • Pengecasan terhad sementara</string>
     <string name="keyguard_plugged_in_charging_slowly">%s • Mengecas dengan perlahan</string>
     <string name="keyguard_plugged_in_wireless">%s • Mengecas secara wayarles</string>
     <string name="keyguard_retry">Leret ke atas untuk mencuba lagi</string>
@@ -1232,7 +1241,7 @@ Cuba lagi dalam %2$d saat."</string>
     <string name="media_projection_dialog_text">%s akan mempunyai akses kepada semua maklumat yang kelihatan pada skrin anda atau yang dimainkan daripada peranti anda semasa merakam atau membuat penghantaran. Ini termasuklah maklumat seperti kata laluan, butiran pembayaran, foto, mesej dan audio yang anda mainkan.</string>
     <string name="media_projection_dialog_title">Mulakan rakaman atau penghantaran dengan %s?</string>
     <string name="media_projection_remember_text">Jangan tunjukkan lagi</string>
-    <string name="media_seamless_remote_device">Peranti</string>
+    <string name="media_seamless_other_device">Peranti lain</string>
     <string name="media_transfer_this_device_name">Pembesar suara telefon</string>
     <string name="media_transfer_this_phone">Telefon ini</string>
     <string name="media_transfer_wired_device_name">Peranti audio berwayar</string>
@@ -1249,9 +1258,13 @@ Cuba lagi dalam %2$d saat."</string>
     <string name="mobile_data">Data mudah alih</string>
     <string name="mobile_data_always_on">Data mudah alih sentiasa aktif</string>
     <string name="mobile_data_always_on_summary">Pastikan data mudah alih sentiasa aktif, walaupun Wi-Fi aktif (untuk penukaran rangkaian yang pantas).</string>
+    <string name="mobile_data_connection_active">Disambungkan</string>
     <string name="mobile_data_disable_message">Anda tidak akan mempunyai akses kepada data atau Internet melalui %s. Internet hanya tersedia melaui Wi-Fi.</string>
     <string name="mobile_data_disable_message_default_carrier">pembawa anda</string>
     <string name="mobile_data_disable_title">Matikan data mudah alih?</string>
+    <string name="mobile_data_no_connection">Tiada sambungan</string>
+    <string name="mobile_data_off_summary">Data mudah alih tidak akan autosambung</string>
+    <string name="mobile_data_settings_title">Data mudah alih</string>
     <string name="mobile_data_text_format">%1$s — %2$s</string>
     <string name="mock_location_app">Pilih apl lokasi olokan</string>
     <string name="mock_location_app_not_set">Tiada apl lokasi olokan ditetapkan</string>
@@ -1391,6 +1404,7 @@ Jika anda mempunyai pertanyaan, hubungi %2$s."</string>
     <string name="no_content_in_select_mode">Tiada teks atau imej untuk dipilih</string>
     <string name="no_conversations_text">Perbualan terbaharu anda akan dipaparkan di sini</string>
     <string name="no_shortcut">%1$s tidak menyokong ciri perbualan</string>
+    <string name="non_carrier_network_unavailable">Tiada rangkaian lain yang tersedia</string>
     <string name="not_default_data_content_description">Tidak ditetapkan untuk menggunakan data</string>
     <string name="not_set">Tidak ditetapkan</string>
     <string name="notif_inline_reply_remove_attachment_description">Alih keluar lampiran</string>
@@ -1571,6 +1585,7 @@ Jika anda mempunyai pertanyaan, hubungi %2$s."</string>
     <string name="power_remaining_only_more_than_subtext">Lebih daripada %1$s lagi</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">Bateri mungkin habis menjelang %1$s</string>
+    <string name="pref_title_network_details">Butiran rangkaian</string>
     <string name="preference_copied">\"%1$s\" disalin ke papan keratan.</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">Perbualan keutamaan</string>
@@ -1740,6 +1755,7 @@ Jika anda mempunyai pertanyaan, hubungi %2$s."</string>
     <string name="right_keycode">Kod kunci kanan</string>
     <string name="right_nav_bar_button_type">Jenis butang kanan tambahan</string>
     <string name="ring_toggle_title">Panggilan</string>
+    <string name="rotation_lock_camera_rotation_on">Hidup - Berasaskan wajah</string>
     <string name="running_foreground_services_msg">Ketik untuk mendapatkan butiran tentang penggunaan kuasa bateri dan data</string>
     <string name="running_foreground_services_title">Apl yang berjalan di latar belakang</string>
     <string name="running_process_item_user_label">Pengguna: %1$s</string>
@@ -1814,6 +1830,7 @@ Jika anda mempunyai pertanyaan, hubungi %2$s."</string>
     <string name="screenshot_top_boundary_pct">Sempadan atas %1$d peratus</string>
     <string name="search_menu">Tetapan carian</string>
     <string name="search_menu_title">Cari</string>
+    <string name="see_all_networks">Lihat semua</string>
     <string name="see_more_title">Lihat lagi</string>
     <string name="select_application">Pilih aplikasi</string>
     <string name="select_conversation_text">Ketik perbualan untuk menambahkan perbualan itu pada skrin Utama anda</string>
@@ -1926,6 +1943,7 @@ boleh dipantau"</string>
     <string name="switch_bar_off">Mati</string>
     <string name="switch_bar_on">Hidup</string>
     <string name="system_ui_tuner">Penala UI Sistem</string>
+    <string name="tap_a_network_to_connect">Ketik rangkaian untuk membuat sambungan</string>
     <string name="tap_again">Ketik sekali lagi</string>
     <string name="tap_to_sign_up">Ketik untuk daftar</string>
     <string name="tether_settings_title_all">Liputan tambatan &amp; mudah alih</string>
@@ -1951,6 +1969,7 @@ Ketik untuk mendapatkan maklumat lanjut"</string>
     <string name="time_unit_just_now">Sebentar tadi</string>
     <string name="title_convert_fbe">Menukar kepada penyulitan berasaskan fail</string>
     <string name="title_usb_accessory">Aksesori USB</string>
+    <string name="to_switch_networks_disconnect_ethernet">Untuk menukar rangkaian, putuskan sambungan ethernet</string>
     <string name="too_hot_label">Pixel terlalu panas</string>
     <string name="touch_filtered_warning">Oleh sebab apl melindungi permintaan kebenaran, Tetapan tidak dapat mengesahkan jawapan anda.</string>
     <string name="track_frame_time">Pemaparan HWUI profil</string>
@@ -2009,10 +2028,12 @@ Ketik untuk mendapatkan maklumat lanjut"</string>
     <string name="tuner_toast">Tahniah! Penala UI Sistem telah ditambahkan pada Tetapan</string>
     <string name="tuner_warning">Penala UI Sistem memberi anda cara tambahan untuk mengolah dan menyesuaikan antara muka Android. Ciri eksperimen ini boleh berubah, rosak atau hilang dalam keluaran masa hadapan. Teruskan dengan berhati-hati.</string>
     <string name="tuner_warning_title">Menarik untuk sesetengah orang tetapi bukan untuk semua</string>
+    <string name="turn_on_wifi">Wi‑Fi</string>
     <string name="tv_notification_panel_no_notifications">Tiada Pemberitahuan</string>
     <string name="tv_notification_panel_title">Pemberitahuan</string>
     <string name="two_weeks_timestamp">2 minggu yang lalu</string>
     <string name="unknown">Tidak diketahui</string>
+    <string name="unlock_to_view_networks">Buka kunci untuk melihat rangkaian</string>
     <string name="upcoming_birthday_status">Hari lahir tak lama lagi</string>
     <string name="upcoming_birthday_status_content_description">Hari lahir %1$s tidak lama lagi</string>
     <string name="url_menu_copy">Salin</string>
@@ -2151,9 +2172,11 @@ Alamat Wi‑Fi (BSSID)
     <string name="wifi_disconnected">Diputuskan sambungan</string>
     <string name="wifi_display_certification">Pensijilan paparan wayarles</string>
     <string name="wifi_display_certification_summary">Tunjukkan pilihan untuk pensijilan paparan wayarles</string>
+    <string name="wifi_empty_list_wifi_on">Mencari rangkaian…</string>
     <string name="wifi_enhanced_mac_randomization">Perawakan MAC tidak berterusan Wi‑Fi</string>
     <string name="wifi_enhanced_mac_randomization_summary">Apabila mod ini didayakan, alamat MAC peranti ini mungkin berubah setiap kali peranti bersambung kepada rangkaian yang telah mendayakan perawakan MAC.</string>
     <string name="wifi_fail_to_scan">Tidak boleh mengimbas untuk rangkaian</string>
+    <string name="wifi_failed_connect_message">Gagal menyambung kepada rangkaian</string>
     <string name="wifi_hotspot_switch_off_text">Mati</string>
     <string name="wifi_hotspot_switch_on_text">Hidup</string>
     <string name="wifi_is_off">Wi-Fi dimatikan</string>
@@ -2164,6 +2187,7 @@ Alamat Wi‑Fi (BSSID)
     <string name="wifi_not_in_range">Tidak dalam liputan</string>
     <string name="wifi_passpoint_expired">Tamat tempoh</string>
     <string name="wifi_remembered">Disimpan</string>
+    <string name="wifi_scan_notify_message">Untuk meningkatkan pengalaman peranti, apl dan perkhidmatan masih dapat melakukan imbasan untuk mengesan rangkaian Wi-Fi pada bila-bila masa, meskipun apabila Wi-Fi dimatikan. Anda boleh menukar tetapan ini dalam tetapan pengimbasan Wi-Fi. <annotation id="link">Tukar</annotation></string>
     <string name="wifi_scan_throttling">Pendikitan pengimbasan Wi-Fi</string>
     <string name="wifi_scan_throttling_summary">Mengurangkan penyusutan bateri &amp; meningkatkan prestasi rangkaian</string>
     <string name="wifi_security_none">Tiada</string>
@@ -2173,6 +2197,7 @@ Alamat Wi‑Fi (BSSID)
     <string name="wifi_unmetered_label">Tidak bermeter</string>
     <string name="wifi_verbose_logging">Dayakan Pengelogan Berjela-jela Wi-Fi</string>
     <string name="wifi_verbose_logging_summary">Tingkatkan tahap pengelogan Wi-Fi, tunjuk setiap SSID RSSI dalam Pemilih Wi-Fi</string>
+    <string name="wifi_wont_autoconnect_for_now">Wi-Fi tidak akan disambungkan secara automatik buat masa ini</string>
     <string name="wifitrackerlib_auto_connect_disable">Autosambung dimatikan</string>
     <string name="wifitrackerlib_available_via_app">Tersedia melalui %1$s</string>
     <string name="wifitrackerlib_connected_via_app">Disambungkan melalui %1$s</string>

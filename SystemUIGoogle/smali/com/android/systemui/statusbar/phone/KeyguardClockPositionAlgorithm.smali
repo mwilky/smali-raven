@@ -20,6 +20,8 @@
 
 .field private mBypassEnabled:Z
 
+.field private mClockBottom:F
+
 .field private mContainerTopPadding:I
 
 .field private mCutoutTopInset:I
@@ -31,6 +33,8 @@
 .field private mHasVisibleNotifs:Z
 
 .field private mHeight:I
+
+.field private mIsClockTopAligned:Z
 
 .field private mIsSplitShade:Z
 
@@ -49,6 +53,8 @@
 .field private mQsExpansion:F
 
 .field private mStatusViewBottomMargin:I
+
+.field private mUdfpsTop:F
 
 .field private mUnlockedStackScrollerPadding:I
 
@@ -92,22 +98,20 @@
     return p0
 .end method
 
-.method private burnInPreventionOffsetY()F
-    .locals 2
+.method private burnInPreventionOffsetY(I)F
+    .locals 1
 
-    iget p0, p0, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->mBurnInPreventionOffsetYLargeClock:I
+    mul-int/lit8 p0, p1, 0x2
 
-    mul-int/lit8 v0, p0, 0x2
+    const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    invoke-static {p0, v0}, Lcom/android/systemui/doze/util/BurnInHelperKt;->getBurnInOffset(IZ)I
 
-    invoke-static {v0, v1}, Lcom/android/systemui/doze/util/BurnInHelperKt;->getBurnInOffset(IZ)I
+    move-result p0
 
-    move-result v0
+    sub-int/2addr p0, p1
 
-    sub-int/2addr v0, p0
-
-    int-to-float p0, v0
+    int-to-float p0, p0
 
     return p0
 .end method
@@ -169,7 +173,7 @@
 .end method
 
 .method private getClockY(FF)I
-    .locals 4
+    .locals 5
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->getExpandedPreferredClockY()I
 
@@ -213,11 +217,11 @@
 
     int-to-float v1, v2
 
-    int-to-float v0, v0
+    int-to-float v3, v0
 
-    sub-float v0, p1, v0
+    sub-float v3, p1, v3
 
-    sub-float/2addr v1, v0
+    sub-float/2addr v1, v3
 
     goto :goto_0
 
@@ -225,7 +229,86 @@
     const/4 v1, 0x0
 
     :goto_0
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->burnInPreventionOffsetY()F
+    iget v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->mUdfpsTop:F
+
+    const/high16 v4, -0x40800000    # -1.0f
+
+    cmpl-float v4, v3, v4
+
+    if-lez v4, :cond_1
+
+    const/4 v4, 0x1
+
+    goto :goto_1
+
+    :cond_1
+    const/4 v4, 0x0
+
+    :goto_1
+    if-eqz v4, :cond_5
+
+    iget-boolean v4, p0, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->mIsClockTopAligned:Z
+
+    if-nez v4, :cond_5
+
+    iget v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->mClockBottom:F
+
+    cmpg-float v4, v3, v1
+
+    if-gez v4, :cond_3
+
+    int-to-float v1, v2
+
+    sub-float v1, p1, v1
+
+    float-to-int v1, v1
+
+    div-int/lit8 v1, v1, 0x2
+
+    if-ge v0, v1, :cond_2
+
+    goto :goto_2
+
+    :cond_2
+    move v0, v1
+
+    :goto_2
+    neg-int v1, v0
+
+    int-to-float v1, v1
+
+    goto :goto_4
+
+    :cond_3
+    int-to-float v2, v2
+
+    sub-float v2, p1, v2
+
+    sub-float/2addr v3, v1
+
+    add-float v1, v3, v2
+
+    float-to-int v1, v1
+
+    div-int/lit8 v1, v1, 0x2
+
+    if-ge v0, v1, :cond_4
+
+    goto :goto_3
+
+    :cond_4
+    move v0, v1
+
+    :goto_3
+    sub-float/2addr v3, v2
+
+    const/high16 v1, 0x40000000    # 2.0f
+
+    div-float v1, v3, v1
+
+    :cond_5
+    :goto_4
+    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->burnInPreventionOffsetY(I)F
 
     move-result v0
 
@@ -381,8 +464,6 @@
 
     move-result v0
 
-    div-int/lit8 v0, v0, 0x2
-
     iput v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->mContainerTopPadding:I
 
     sget v0, Lcom/android/systemui/R$dimen;->burn_in_prevention_offset_x:I
@@ -508,7 +589,7 @@
     return-void
 .end method
 
-.method public setup(IIIFIIIIZZFFZIFIZ)V
+.method public setup(IIIFIIIIZZFFZIFIZFFZ)V
     .locals 3
 
     move-object v0, p0
@@ -588,6 +669,18 @@
     move/from16 v1, p17
 
     iput-boolean v1, v0, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->mIsSplitShade:Z
+
+    move/from16 v1, p18
+
+    iput v1, v0, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->mUdfpsTop:F
+
+    move/from16 v1, p19
+
+    iput v1, v0, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->mClockBottom:F
+
+    move/from16 v1, p20
+
+    iput-boolean v1, v0, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->mIsClockTopAligned:Z
 
     return-void
 .end method

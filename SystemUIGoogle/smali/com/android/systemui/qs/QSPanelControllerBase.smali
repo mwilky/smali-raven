@@ -61,7 +61,10 @@
 
 .field protected final mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
 
-.field private final mOnConfigurationChangedListener:Lcom/android/systemui/qs/QSPanel$OnConfigurationChangedListener;
+.field protected final mOnConfigurationChangedListener:Lcom/android/systemui/qs/QSPanel$OnConfigurationChangedListener;
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
 .field private final mQSHostCallback:Lcom/android/systemui/qs/QSHost$Callback;
 
@@ -764,6 +767,18 @@
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/QSPanelControllerBase;->setTiles()V
 
+    invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/content/res/Configuration;->orientation:I
+
+    iput v0, p0, Lcom/android/systemui/qs/QSPanelControllerBase;->mLastOrientation:I
+
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSPanelControllerBase;->switchTileLayout(Z)Z
@@ -1189,15 +1204,7 @@
 
     if-eqz v0, :cond_1
 
-    invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
-
-    move-result-object p0
-
-    iget p0, p0, Landroid/content/res/Configuration;->orientation:I
+    iget p0, p0, Lcom/android/systemui/qs/QSPanelControllerBase;->mLastOrientation:I
 
     const/4 v0, 0x2
 

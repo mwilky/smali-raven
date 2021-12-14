@@ -277,7 +277,7 @@
     <string name="accessibility_rotation_lock_on_portrait">ಪರದೆಯನ್ನು ಪೋರ್ಟ್ರೇಟ್ ಓರಿಯಂಟೇಶನ್‍ನಲ್ಲಿ ಲಾಕ್ ಮಾಡಲಾಗಿದೆ.</string>
     <string name="accessibility_rotation_lock_on_portrait_changed">ಪರದೆಯು ಇದೀಗ ಪೋರ್ಟ್ರೇಟ್ ಒರಿಯಂಟೇಶನ್‌ನಲ್ಲಿ ಲಾಕ್ ಆಗಿದೆ.</string>
     <string name="accessibility_scanning_face">ಮುಖವನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಲಾಗುತ್ತಿದೆ</string>
-    <string name="accessibility_search_light">Search</string>
+    <string name="accessibility_search_light">ಹುಡುಕಿ</string>
     <string name="accessibility_send_smart_reply">ಕಳುಹಿಸಿ</string>
     <string name="accessibility_sensors_off_active">ಸೆನ್ಸರ್‌ಗಳು ಆಫ್ ಆಗಿವೆ</string>
     <string name="accessibility_settings_button">ಸಿಸ್ಟಂ ಸೆಟ್ಟಿಂಗ್‌ಗಳು.</string>
@@ -363,6 +363,7 @@
     <string name="alarms_and_reminders_label">ಅಲಾರಾಮ್‌ಗಳು ಮತ್ತು ರಿಮೈಂಡರ್‌ಗಳು</string>
     <string name="alarms_and_reminders_switch_title">ಅಲಾರಂಗಳು ಮತ್ತು ರಿಮೈಂಡರ್‌ಗಳನ್ನು ಹೊಂದಿಸಲು ಅನುಮತಿಸಿ</string>
     <string name="alarms_and_reminders_title">ಅಲಾರಂಗಳು ಮತ್ತು ರಿಮೈಂಡರ್‌ಗಳು</string>
+    <string name="all_network_unavailable">ಯಾವುದೇ ನೆಟ್‌ವರ್ಕ್‌ಗಳು ಲಭ್ಯವಿಲ್ಲ</string>
     <string name="allow_mock_location">ಅಣಕು ಸ್ಥಾನಗಳನ್ನು ಅನುಮತಿಸಿ</string>
     <string name="allow_mock_location_summary">ಅಣಕು ಸ್ಥಾನಗಳನ್ನು ಅನುಮತಿಸಿ</string>
     <string name="always_use_accessory">%2$s ಸಂಪರ್ಕಗೊಂಡಾಗ ಯಾವಾಗಲೂ %1$s ಅನ್ನು ತೆರೆಯಿರಿ</string>
@@ -386,7 +387,7 @@
     <string name="assistant_half_listening_label">ಕೇಳುವುದನ್ನು ಮುಂದುವರಿಸಲಾಗುತ್ತಿದೆ, ರದ್ದುಗೊಳಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ</string>
     <string name="assistant_keyboard_icon_label">ಕೀಬೋರ್ಡ್</string>
     <string name="assistant_scrim_label">ಆಲಿಸಲಾಗುತ್ತಿದೆ, ರದ್ದುಮಾಡಲು ಟ್ಯಾಪ್ ಮಾಡಿ</string>
-    <string name="assistant_zero_state_icon_label">ಅಸಿಸ್ಟೆಂಟ್ ಸಮಗ್ರ ನೋಟ</string>
+    <string name="assistant_zero_state_icon_label">Assistant ಸಮಗ್ರ ನೋಟ</string>
     <string name="audio_status">ಆಲಿಸಲಾಗುತ್ತಿದೆ</string>
     <string name="auto_saver_enabled_text">ಬ್ಯಾಟರಿ %d%% ಗಿಂತ ಕಡಿಮೆ ಆದಾಗ ಬ್ಯಾಟರಿ ಸೇವರ್‌ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಆನ್‌ ಆಗುತ್ತದೆ.</string>
     <string name="auto_saver_enabled_title">ಬ್ಯಾಟರಿ ಸೇವರ್ ನಿಗದಿಯನ್ನು ಆನ್ ಮಾಡಲಾಗಿದೆ</string>
@@ -618,6 +619,11 @@
     <string name="clock_title_analog">ಅನಲಾಗ್</string>
     <string name="clock_title_bubble">ಬಬಲ್</string>
     <string name="clock_title_default">ಡೀಫಾಲ್ಟ್</string>
+    <string name="columbus_bouncer_message">ಕ್ವಿಕ್ ಟ್ಯಾಪ್ ಅನ್ನು ಪೂರ್ಣಗೊಳಿಸಲು ಅನ್‌ಲಾಕ್ ಮಾಡಿ</string>
+    <string name="columbus_target_request_dialog_allow">ಅನುಮತಿಸಿ</string>
+    <string name="columbus_target_request_dialog_deny">ಅನುಮತಿಸಬೇಡಿ</string>
+    <string name="columbus_target_request_dialog_summary">ನಿಮ್ಮ ಫೋನ್‌ನ ಹಿಂಭಾಗವನ್ನು ನೀವು ಡಬಲ್-ಟ್ಯಾಪ್ ಮಾಡಿದಾಗ, %1$s ತೆರೆದುಕೊಳ್ಳುತ್ತದೆ. ನೀವು ಈ ಆದ್ಯತೆಯನ್ನು ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಯಾವಾಗ ಬೇಕಾದರೂ ಬದಲಾಯಿಸಬಹುದು.</string>
+    <string name="columbus_target_request_dialog_title">ಕ್ವಿಕ್ ಟ್ಯಾಪ್‌ಗೆ %1$s ಅನ್ನು ತೆರೆಯಲು ಅನುಮತಿಸಬೇಕೇ?</string>
     <string name="compat_mode_off">ಪರದೆ ತುಂಬಿಸಲು ವಿಸ್ತಾರಗೊಳಿಸು</string>
     <string name="compat_mode_on">ಪರದೆ ತುಂಬಿಸಲು ಝೂಮ್ ಮಾಡು</string>
     <string name="confirm_enable_oem_unlock_text">ಎಚ್ಚರಿಕೆ: ಈ ಸೆಟ್ಟಿಂಗ್‌ ಆನ್‌ ಇರುವಾಗ ಈ ಸಾಧನದಲ್ಲಿ ಸಾಧನ ಸಂರಕ್ಷಣಾ ವೈಶಿಷ್ಟ್ಯಗಳು ಕಾರ್ಯ ನಿರ್ವಹಿಸುವುದಿಲ್ಲ.</string>
@@ -739,14 +745,16 @@
     <string name="defender_notify_des">ಬ್ಯಾಟರಿಯ ಆರೋಗ್ಯವನ್ನು ಸಂರಕ್ಷಿಸಲು ನೆರವಾಗಲು ನಿಮ್ಮ ಫೋನ್ ಚಾರ್ಜಿಂಗ್ ಅನ್ನು ಮಿತಿಗೊಳಿಸುತ್ತಿದೆ</string>
     <string name="defender_notify_learn_more">ಇನ್ನಷ್ಟು ತಿಳಿಯಿರಿ</string>
     <string name="defender_notify_resume_charge">ಚಾರ್ಜಿಂಗ್ ಪುನರಾರಂಭಿಸಿ</string>
-    <string name="defender_notify_title">ಚಾರ್ಜಿಂಗ್ ಅನ್ನು ತಾತ್ಕಾಲಿಕವಾಗಿ ಮಿತಿಗೊಳಿಸಲಾಗಿದೆ</string>
+    <string name="defender_notify_title">ಚಾರ್ಜಿಂಗ್ ಅನ್ನು ತಾತ್ಕಾಲಿಕವಾಗಿ ಸೀಮಿತಗೊಳಿಸಲಾಗಿದೆ</string>
+    <string name="defender_post_notify_des">ಬ್ಯಾಟರಿಯ ಆರೋಗ್ಯವನ್ನು ಸಂರಕ್ಷಿಸಲು ಚಾರ್ಜಿಂಗ್ ಸಮಯವನ್ನು %2$s ಇಂದ %3$s ವರೆಗೆ %1$s ಗೆ ಸೀಮಿತಗೊಳಿಸಲಾಗಿದೆ</string>
+    <string name="defender_post_notify_title">ಸಾಮಾನ್ಯವಾಗಿ ಚಾರ್ಜಿಂಗ್ ಆಗುತ್ತಿದೆ</string>
     <string name="delete_blob_confirmation_text">ಈ ಹಂಚಿಕೊಳ್ಳಲಾದ ಡೇಟಾವನ್ನು ಅಳಿಸಲು ನೀವು ಖಚಿತವಾಗಿ ಬಯಸುವಿರಾ?</string>
     <string name="delete_blob_text">ಹಂಚಿಕೊಳ್ಳಲಾದ ಡೇಟಾವನ್ನು ಅಳಿಸಿ</string>
     <string name="demo_mode">ಸಿಸ್ಟಂ UI ಡೆಮೋ ಮೋಡ್</string>
     <string name="demote">ಈ ಅಧಿಸೂಚನೆಯನ್ನು ಸಂಭಾಷಣೆಯಲ್ಲ ಎಂಬುದಾಗಿ ಗುರುತಿಸಿ</string>
     <string name="description_direction_left">%s ಗಾಗಿ ಎಡಕ್ಕೆ ಸ್ಲೈಡ್ ಮಾಡಿ.</string>
     <string name="description_direction_up">%s ಗಾಗಿ ಮೇಲಕ್ಕೆ ಸ್ಲೈಡ್ ಮಾಡಿ.</string>
-    <string name="description_target_search">Search</string>
+    <string name="description_target_search">ಹುಡುಕಿ</string>
     <string name="dessert_case">ಡೆಸರ್ಟ್ ಕೇಸ್</string>
     <string name="dev_logpersist_clear_warning_message">ನಾವು ನಿರಂತರವಾಗಿ ಲಾಗರ್ ಮೂಲಕ ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡದಿರುವಾಗ, ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ ಸಂಗ್ರಹವಾಗಿರುವಂತಹ ಲಾಗರ್ ಡೇಟಾವನ್ನು ಅಳಿಸುವುದು ನಮಗೆ ಅಗತ್ಯವಿರುತ್ತದೆ.</string>
     <string name="dev_logpersist_clear_warning_title">ಶಾಶ್ವತವಾಗಿರುವ ಸಂಗ್ರಹಣೆ ಲಾಗರ್ ಅನ್ನು ತೆರವುಗೊಳಿಸುವುದೇ?</string>
@@ -885,6 +893,7 @@
     <string name="game_status">ಪ್ಲೇ ಮಾಡಲಾಗುತ್ತಿದೆ</string>
     <string name="global_action_lock_message">ಹೆಚ್ಚಿನ ಆಯ್ಕೆಗಳಿಗಾಗಿ ನಿಮ್ಮ ಫೋನ್ ಅನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡಿ</string>
     <string name="global_action_screenshot">ಸ್ಕ್ರೀನ್‌ಶಾಟ್</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock ಅನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ</string>
     <string name="global_actions_change_description">%1$s ಮತ್ತು ಸಾಧನದ ನಿಯಂತ್ರಣಗಳನ್ನು ಪ್ರವೇಶಿಸಲು, ನಿಮ್ಮ ಸ್ಕ್ರೀನ್‌ನ ಮೇಲಿನಿಂದ ಕೆಳಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ</string>
     <string name="go_to_web">ಬ್ರೌಸರ್‌ಗೆ ಹೋಗಿ</string>
     <string name="google_services_wallpaper_permission">Google ನ ಸ್ಥಳ ಸೇವೆ ಪ್ರವೇಶಿಸುವಿಕೆಯ ಮೂಲಕ <b>ನಿಮ್ಮ ಸ್ಥಳಕ್ಕೆ ಪ್ರತಿಕ್ರಿಯಿಸಲು Google ಲೈವ್ ವಾಲ್‌ಪೇಪರ್‌ಗಳನ್ನು ಅನುಮತಿಸಿ</b>.</string>
@@ -1066,7 +1075,7 @@
     <string name="keyguard_permanent_disabled_sim_message_short">ನಿಷ್ಪ್ರಯೋಜಕ ಸಿಮ್‌ ಕಾರ್ಡ್.</string>
     <string name="keyguard_plugged_in">%s • ಚಾರ್ಜ್‌ ಮಾಡಲಾಗುತ್ತಿದೆ</string>
     <string name="keyguard_plugged_in_charging_fast">%s • ವೇಗವಾಗಿ ಚಾರ್ಜ್‌ಮಾಡಲಾಗುತ್ತಿದೆ</string>
-    <string name="keyguard_plugged_in_charging_limited">%s • ಚಾರ್ಜಿಂಗ್ ತಾತ್ಕಾಲಿಕವಾಗಿ ಸೀಮಿತವಾಗಿದೆ</string>
+    <string name="keyguard_plugged_in_charging_limited">%s • ಚಾರ್ಜಿಂಗ್ ಅನ್ನು ತಾತ್ಕಾಲಿಕವಾಗಿ ಸೀಮಿತಗೊಳಿಸಲಾಗಿದೆ</string>
     <string name="keyguard_plugged_in_charging_slowly">%s • ನಿಧಾನವಾಗಿ ಚಾರ್ಜ್ ಮಾಡಲಾಗುತ್ತಿದೆ</string>
     <string name="keyguard_plugged_in_wireless">%s • ವೈರ್‌ಲೆಸ್ ಆಗಿ ಚಾರ್ಜ್ ಆಗುತ್ತಿದೆ</string>
     <string name="keyguard_retry">ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಲು ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ</string>
@@ -1232,7 +1241,7 @@
     <string name="media_projection_dialog_text">ರೆಕಾರ್ಡ್ ಮಾಡುವಾಗ ಅಥವಾ ಬಿತ್ತರಿಸುವಾಗ ಸ್ಕ್ರೀನ್‌ ಮೇಲೆ ಕಾಣಿಸುವ ಸಕಲ ಮಾಹಿತಿಗೂ %s ಪ್ರವೇಶ ಹೊಂದಿರುತ್ತದೆ. ಇದು ಪಾಸ್‌ವರ್ಡ್‌ಗಳು, ಪಾವತಿ ವಿವರಗಳು, ಫೋಟೋಗಳು, ಸಂದೇಶಗಳು ಮತ್ತು ಆಡಿಯೊ ಪ್ಲೇಬ್ಯಾಕ್‌ನಂತಹ ಮಾಹಿತಿಯನ್ನು ಕೂಡ ಒಳಗೊಂಡಿರುತ್ತದೆ.</string>
     <string name="media_projection_dialog_title">%s ಮೂಲಕ ರೆಕಾರ್ಡಿಂಗ್, ಬಿತ್ತರಿಸುವುದನ್ನು ಪ್ರಾರಂಭಿಸುವುದೇ?</string>
     <string name="media_projection_remember_text">ಮತ್ತೊಮ್ಮೆ ತೋರಿಸದಿರು</string>
-    <string name="media_seamless_remote_device">ಸಾಧನ</string>
+    <string name="media_seamless_other_device">ಅನ್ಯ ಸಾಧನ</string>
     <string name="media_transfer_this_device_name">ಫೋನ್ ಸ್ಪೀಕರ್</string>
     <string name="media_transfer_this_phone">ಈ ಫೋನ್</string>
     <string name="media_transfer_wired_device_name">ವೈರ್ ಹೊಂದಿರುವ ಆಡಿಯೋ ಸಾಧನ</string>
@@ -1249,9 +1258,13 @@
     <string name="mobile_data">ಮೊಬೈಲ್ ಡೇಟಾ</string>
     <string name="mobile_data_always_on">ಮೊಬೈಲ್ ಡೇಟಾ ಯಾವಾಗಲೂ ಸಕ್ರಿಯ</string>
     <string name="mobile_data_always_on_summary">ವೈ-ಫೈ ಸಕ್ರಿಯವಾಗಿರುವಾಗಲೂ, ಯಾವಾಗಲೂ ಮೊಬೈಲ್‌ ಡೇಟಾ ಸಕ್ರಿಯವಾಗಿರಿಸಿ (ವೇಗವಾಗಿ ನೆಟ್‌ವರ್ಕ್‌ ಬದಲಾಯಿಸಲು).</string>
+    <string name="mobile_data_connection_active">ಕನೆಕ್ಟ್ ಆಗಿದೆ</string>
     <string name="mobile_data_disable_message">ನೀವು %s ಮೂಲಕ ಡೇಟಾ ಅಥವಾ ಇಂಟರ್ನೆಟ್‌ಗೆ ಪ್ರವೇಶವನ್ನು ಹೊಂದಿರುವುದಿಲ್ಲ. ಇಂಟರ್ನೆಟ್, ವೈ-ಫೈ ಮೂಲಕ ಮಾತ್ರ ಲಭ್ಯವಿರುತ್ತದೆ.</string>
     <string name="mobile_data_disable_message_default_carrier">ನಿಮ್ಮ ವಾಹಕ</string>
     <string name="mobile_data_disable_title">ಮೊಬೈಲ್ ಡೇಟಾ ಆಫ್ ಮಾಡಬೇಕೆ?</string>
+    <string name="mobile_data_no_connection">ಯಾವುದೇ ಕನೆಕ್ಷನ್ ಇಲ್ಲ</string>
+    <string name="mobile_data_off_summary">ಮೊಬೈಲ್ ಡೇಟಾ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಕನೆಕ್ಟ್ ಆಗುವುದಿಲ್ಲ</string>
+    <string name="mobile_data_settings_title">ಮೊಬೈಲ್ ಡೇಟಾ</string>
     <string name="mobile_data_text_format">%1$s — %2$s</string>
     <string name="mock_location_app">ಅಣಕು ಸ್ಥಳ ಅಪ್ಲಿಕೇಶನ್ ಆಯ್ಕೆಮಾಡಿ</string>
     <string name="mock_location_app_not_set">ಯಾವುದೇ ಅಣಕು ಸ್ಥಳ ಅಪ್ಲಿಕೇಶನ್ ಹೊಂದಿಕೆಯಾಗಿಲ್ಲ</string>
@@ -1391,6 +1404,7 @@
     <string name="no_content_in_select_mode">ಆಯ್ಕೆಮಾಡಲು ಯಾವುದೇ ಪಠ್ಯ ಅಥವಾ ಚಿತ್ರವಿಲ್ಲ</string>
     <string name="no_conversations_text">ನಿಮ್ಮ ಇತ್ತೀಚಿನ ಸಂಭಾಷಣೆಗಳನ್ನು ಇಲ್ಲಿ ತೋರಿಸಲಾಗುತ್ತದೆ</string>
     <string name="no_shortcut">ಸಂವಾದ ಫೀಚರ್‌ಗಳನ್ನು %1$s ಬೆಂಬಲಿಸುವುದಿಲ್ಲ</string>
+    <string name="non_carrier_network_unavailable">ಇತರ ಯಾವುದೇ ನೆಟ್‌ವರ್ಕ್‌ಗಳು ಲಭ್ಯವಿಲ್ಲ</string>
     <string name="not_default_data_content_description">ಡೇಟಾ ಬಳಸಲು ಹೊಂದಿಸಲಾಗಿಲ್ಲ</string>
     <string name="not_set">ಹೊಂದಿಸಿಲ್ಲ</string>
     <string name="notif_inline_reply_remove_attachment_description">ಲಗತ್ತು ತೆಗೆದುಹಾಕಿ</string>
@@ -1571,6 +1585,7 @@
     <string name="power_remaining_only_more_than_subtext">%1$s ಕ್ಕಿಂತ ಹೆಚ್ಚು ಸಮಯ ಉಳಿದಿದೆ</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">%1$s ಗಳಲ್ಲಿ ಬ್ಯಾಟರಿ ಮುಕ್ತಾಯವಾಗಬಹುದು</string>
+    <string name="pref_title_network_details">ನೆಟ್‌ವರ್ಕ್ ವಿವರಗಳು</string>
     <string name="preference_copied">\"%1$s\" ಅನ್ನು ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ನಕಲಿಸಲಾಗಿದೆ.</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">ಆದ್ಯತೆಯ ಸಂಭಾಷಣೆಗಳು</string>
@@ -1740,6 +1755,7 @@
     <string name="right_keycode">ಬಲ ಕೀಕೋಡ್</string>
     <string name="right_nav_bar_button_type">ಹೆಚ್ಚುವರಿ ಬಲ ಬಟನ್ ವಿಧ</string>
     <string name="ring_toggle_title">ಕರೆಗಳು</string>
+    <string name="rotation_lock_camera_rotation_on">ಆನ್ ಆಗಿದೆ - ಮುಖ-ಆಧಾರಿತ</string>
     <string name="running_foreground_services_msg">ಬ್ಯಾಟರಿ,ಡೇಟಾ ಬಳಕೆಯ ವಿವರಗಳಿಗಾಗಿ ಟ್ಯಾಪ್ ಮಾಡಿ</string>
     <string name="running_foreground_services_title">ಅಪ್ಲಿಕೇಶನ್‌ಗಳು ಹಿನ್ನೆಲೆಯಲ್ಲಿ ರನ್ ಆಗುತ್ತಿವೆ</string>
     <string name="running_process_item_user_label">ಬಳಕೆದಾರ: %1$s</string>
@@ -1814,6 +1830,7 @@
     <string name="screenshot_top_boundary_pct">ಮೇಲಿನ ಬೌಂಡರಿ ಶೇಕಡಾ %1$d</string>
     <string name="search_menu">ಸೆಟ್ಟಿಂಗ್‍ಗಳಲ್ಲಿ ಹುಡುಕಿ</string>
     <string name="search_menu_title">Search</string>
+    <string name="see_all_networks">ಎಲ್ಲವನ್ನೂ ನೋಡಿ</string>
     <string name="see_more_title">ಇನ್ನಷ್ಟು ನೋಡಿ</string>
     <string name="select_application">ಅಪ್ಲಿಕೇಶನ್ ಆಯ್ಕೆಮಾಡಿ</string>
     <string name="select_conversation_text">ಸಂಭಾಷಣೆಯನ್ನು ಹೋಮ್ ಸ್ಕ್ರೀನ್‌ಗೆ ಸೇರಿಸಲು ಅದನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ</string>
@@ -1926,6 +1943,7 @@
     <string name="switch_bar_off">ಆಫ್</string>
     <string name="switch_bar_on">ಆನ್</string>
     <string name="system_ui_tuner">ಸಿಸ್ಟಂ UI ಟ್ಯೂನರ್</string>
+    <string name="tap_a_network_to_connect">ಕನೆಕ್ಟ್ ಮಾಡಲು ಒಂದು ನೆಟ್‌ವರ್ಕ್ ಅನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ</string>
     <string name="tap_again">ಪುನಃ ಟ್ಯಾಪ್ ಮಾಡಿ</string>
     <string name="tap_to_sign_up">ಸೈನ್ ಅಪ್ ಮಾಡಲು ಟ್ಯಾಪ್‌ ಮಾಡಿ</string>
     <string name="tether_settings_title_all">ಟೆಥರಿಂಗ್ &amp; ಪೋರ್ಟಬಲ್ ಹಾಟ್‌ಸ್ಪಾಟ್</string>
@@ -1951,6 +1969,7 @@
     <string name="time_unit_just_now">ಇದೀಗ</string>
     <string name="title_convert_fbe">ಫೈಲ್ ಆಧಾರಿತ ಎನ್‌ಕ್ರಿಪ್ಶನ್‌ಗೆ ಪರಿವರ್ತಿಸಲಾಗುತ್ತಿದೆ</string>
     <string name="title_usb_accessory">USB ಪರಿಕರ</string>
+    <string name="to_switch_networks_disconnect_ethernet">ನೆಟ್‌ವರ್ಕ್‌ಗಳನ್ನು ಬದಲಿಸಲು, ಇಥರ್ನೆಟ್ ಅನ್ನು ಡಿಸ್‌ಕನೆಕ್ಟ್ ಮಾಡಿ</string>
     <string name="too_hot_label">Pixel ತುಂಬಾ ಬಿಸಿಯಾಗಿದೆ</string>
     <string name="touch_filtered_warning">ಅನುಮತಿ ವಿನಂತಿಯನ್ನು ಅಪ್ಲಿಕೇಶನ್ ಮರೆಮಾಚುತ್ತಿರುವ ಕಾರಣ, ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಗೆ ನಿಮ್ಮ ಪ್ರತಿಕ್ರಿಯೆಯನ್ನು ಪರಿಶೀಲಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ.</string>
     <string name="track_frame_time">ಪ್ರೊಫೈಲ್ HWUI ಸಲ್ಲಿಸಲಾಗುತ್ತಿದೆ</string>
@@ -2009,10 +2028,12 @@
     <string name="tuner_toast">ಅಭಿನಂದನೆಗಳು! ಸಿಸ್ಟಂ UI ಟ್ಯೂನರ್ ಅನ್ನು ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಗೆ ಸೇರಿಸಲಾಗಿದೆ</string>
     <string name="tuner_warning">ಸಿಸ್ಟಂ UI ಟ್ಯೂನರ್ ನಿಮಗೆ Android ಬಳಕೆದಾರ ಅಂತರಸಂಪರ್ಕವನ್ನು ಸರಿಪಡಿಸಲು ಮತ್ತು ಕಸ್ಟಮೈಸ್ ಮಾಡಲು ಹೆಚ್ಚುವರಿ ಮಾರ್ಗಗಳನ್ನು ನೀಡುತ್ತದೆ. ಈ ಪ್ರಾಯೋಗಿಕ ವೈಶಿಷ್ಟ್ಯಗಳು ಭವಿಷ್ಯದ ಬಿಡುಗಡೆಗಳಲ್ಲಿ ಬದಲಾಗಬಹುದು, ವಿರಾಮವಾಗಬಹುದು ಅಥವಾ ಕಾಣಿಸಿಕೊಳ್ಳದಿರಬಹುದು. ಎಚ್ಚರಿಕೆಯಿಂದ ಮುಂದುವರಿಯಿರಿ.</string>
     <string name="tuner_warning_title">ಕೆಲವರಿಗೆ ಮೋಜು ಆಗಿದೆ ಎಲ್ಲರಿಗೆ ಇಲ್ಲ</string>
+    <string name="turn_on_wifi">ವೈ‑ಫೈ</string>
     <string name="tv_notification_panel_no_notifications">ಯಾವುದೇ ಅಧಿಸೂಚನೆಗಳಿಲ್ಲ</string>
     <string name="tv_notification_panel_title">ಅಧಿಸೂಚನೆಗಳು</string>
     <string name="two_weeks_timestamp">2 ವಾರಗಳ ಹಿಂದೆ</string>
     <string name="unknown">ಅಪರಿಚಿತ</string>
+    <string name="unlock_to_view_networks">ನೆಟ್‌ವರ್ಕ್‌ಗಳನ್ನು ವೀಕ್ಷಿಸಲು ಅನ್‌ಲಾಕ್ ಮಾಡಿ</string>
     <string name="upcoming_birthday_status">ಶೀಘ್ರದಲ್ಲಿ ಜನ್ಮದಿನವಿದೆ</string>
     <string name="upcoming_birthday_status_content_description">%1$s ಅವರ ಜನ್ಮದಿನ ಶೀಘ್ರದಲ್ಲೇ ಬರಲಿದೆ</string>
     <string name="url_menu_copy">ನಕಲಿಸಿ</string>
@@ -2151,9 +2172,11 @@
     <string name="wifi_disconnected">ಸಂಪರ್ಕ ಕಡಿತಗೊಳಿಸಲಾಗಿದೆ</string>
     <string name="wifi_display_certification">ವೈರ್‌ಲೆಸ್ ಪ್ರದರ್ಶನ ಪ್ರಮಾಣೀಕರಣ</string>
     <string name="wifi_display_certification_summary">ವೈರ್‌ಲೆಸ್‌‌‌ ಪ್ರದರ್ಶನ ಪ್ರಮಾಣೀಕರಣಕ್ಕಾಗಿ ಆಯ್ಕೆಗಳನ್ನು ತೋರಿಸು</string>
+    <string name="wifi_empty_list_wifi_on">ನೆಟ್‌ವರ್ಕ್‌ಗಳನ್ನು ಹುಡುಕಲಾಗುತ್ತಿದೆ…</string>
     <string name="wifi_enhanced_mac_randomization">ವೈ-ಫೈ ನಿರಂತರವಲ್ಲದ MAC ಯಾದೃಚ್ಛಿಕರಣ</string>
     <string name="wifi_enhanced_mac_randomization_summary">ಈ ಮೋಡ್ ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿದಾಗ, ಪ್ರತಿ ಬಾರಿ MAC ಯಾದೃಚ್ಛಿಕರಣವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿದ ನೆಟ್‌ವರ್ಕ್‌ಗೆ ಕನೆಕ್ಟ್ ಮಾಡಿದಾಗ ಈ ಸಾಧನದ MAC ವಿಳಾಸವು ಬದಲಾಗಬಹುದು.</string>
     <string name="wifi_fail_to_scan">ನೆಟ್‌ವರ್ಕ್‌ಗಳಿಗಾಗಿ ಸ್ಕ್ಯಾನ್‌ ಮಾಡಲು ಸಾಧ್ಯವಿಲ್ಲ</string>
+    <string name="wifi_failed_connect_message">ನೆಟ್‌ವರ್ಕ್‌ಗೆ ಕನೆಕ್ಟ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ</string>
     <string name="wifi_hotspot_switch_off_text">ಆಫ್</string>
     <string name="wifi_hotspot_switch_on_text">ಆನ್ ಆಗಿದೆ</string>
     <string name="wifi_is_off">ವೈ-ಫೈ ಆಫ್ ಆಗಿದೆ</string>
@@ -2164,6 +2187,7 @@
     <string name="wifi_not_in_range">ವ್ಯಾಪ್ತಿಯಲ್ಲಿಲ್ಲ</string>
     <string name="wifi_passpoint_expired">ಅವಧಿ ಮುಕ್ತಾಯವಾಗಿದೆ</string>
     <string name="wifi_remembered">ಉಳಿಸಲಾಗಿದೆ</string>
+    <string name="wifi_scan_notify_message">ವೈ-ಫೈ ಆಫ್ ಇದ್ದಾಗಲೂ ಸಹ, ಸಾಧನದ ಅನುಭವವನ್ನು ಸುಧಾರಿಸಲು, ಆ್ಯಪ್‌ಗಳು ಮತ್ತು ಸೇವೆಗಳು ಯಾವಾಗ ಬೇಕಾದರೂ ಸಹ ವೈ-ಫೈ ನೆಟ್‌ವರ್ಕ್‌ಗಳಿಗಾಗಿ ಸ್ಕ್ಯಾನ್ ಮಾಡಬಹುದು. ನೀವು ಇದನ್ನು ವೈ-ಫೈ ಸ್ಕ್ಯಾನಿಂಗ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಬದಲಾಯಿಸಬಹುದು. <annotation id="link">ಬದಲಿಸಿ</annotation></string>
     <string name="wifi_scan_throttling">ವೈ-ಫೈ ಸ್ಕ್ಯಾನ್ ನಿರ್ಬಂಧಿಸಲಾಗುತ್ತಿದೆ</string>
     <string name="wifi_scan_throttling_summary">ಬ್ಯಾಟರಿ ಹೆಚ್ಚು ಬಾಳಿಕೆ ಬರುವಂತೆ ಮಾಡುತ್ತದೆ ಮತ್ತು ನೆಟ್‌ವರ್ಕ್‌ ಕಾರ್ಯಕ್ಷಮತೆಯನ್ನು ಸುಧಾರಿಸುತ್ತದೆ</string>
     <string name="wifi_security_none">ಯಾವುದೂ ಇಲ್ಲ</string>
@@ -2173,6 +2197,7 @@
     <string name="wifi_unmetered_label">ಮೀಟರ್ ಮಾಡಲಾಗಿಲ್ಲ</string>
     <string name="wifi_verbose_logging">Wi‑Fi ವೆರ್ಬೋಸ್ ಲಾಗಿಂಗ್ ಸಕ್ರಿಯಗೊಳಿಸಿ</string>
     <string name="wifi_verbose_logging_summary">Wi‑Fi ಲಾಗಿಂಗ್ ಮಟ್ಟನ್ನು ಹೆಚ್ಚಿಸಿ, Wi‑Fi ಆಯ್ಕೆಯಲ್ಲಿ ಪ್ರತಿಯೊಂದು SSID RSSI ತೋರಿಸಿ</string>
+    <string name="wifi_wont_autoconnect_for_now">ಸದ್ಯದ ಮಟ್ಟಿಗೆ ವೈ-ಫೈ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಕನೆಕ್ಟ್ ಆಗುವುದಿಲ್ಲ</string>
     <string name="wifitrackerlib_auto_connect_disable">ಸ್ವಯಂ ಕನೆಕ್ಟ್ ಆಫ್ ಆಗಿದೆ</string>
     <string name="wifitrackerlib_available_via_app">%1$s ಮೂಲಕ ಲಭ್ಯವಿದೆ</string>
     <string name="wifitrackerlib_connected_via_app">%1$s ಆ್ಯಪ್ ಮೂಲಕ ಕನೆಕ್ಟ್ ಮಾಡಲಾಗಿದೆ</string>

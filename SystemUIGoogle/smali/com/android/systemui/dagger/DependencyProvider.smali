@@ -29,34 +29,36 @@
     return-object p0
 .end method
 
-.method static provideThemeOverlayManager(Landroid/content/Context;Ljava/util/concurrent/Executor;Landroid/content/om/OverlayManager;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/theme/ThemeOverlayApplier;
-    .locals 7
+.method static provideThemeOverlayManager(Landroid/content/Context;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Landroid/content/om/OverlayManager;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/theme/ThemeOverlayApplier;
+    .locals 8
 
-    new-instance v6, Lcom/android/systemui/theme/ThemeOverlayApplier;
+    new-instance v7, Lcom/android/systemui/theme/ThemeOverlayApplier;
 
     sget v0, Lcom/android/systemui/R$string;->launcher_overlayable_package:I
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
     sget v0, Lcom/android/systemui/R$string;->themepicker_overlayable_package:I
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
-    move-object v0, v6
+    move-object v0, v7
 
-    move-object v1, p2
+    move-object v1, p3
 
     move-object v2, p1
 
-    move-object v5, p3
+    move-object v3, p2
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/theme/ThemeOverlayApplier;-><init>(Landroid/content/om/OverlayManager;Ljava/util/concurrent/Executor;Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/dump/DumpManager;)V
+    move-object v6, p4
 
-    return-object v6
+    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/theme/ThemeOverlayApplier;-><init>(Landroid/content/om/OverlayManager;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/dump/DumpManager;)V
+
+    return-object v7
 .end method
 
 

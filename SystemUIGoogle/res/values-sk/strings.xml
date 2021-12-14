@@ -363,6 +363,7 @@ Ak je toto povolenie vypnuté, súčasné budíky a udalosti s časovým obmed
     <string name="alarms_and_reminders_label">Budíky a pripomenutia</string>
     <string name="alarms_and_reminders_switch_title">Povoliť nastavovanie budíkov a pripomenutí</string>
     <string name="alarms_and_reminders_title">Budíky a pripomenutia</string>
+    <string name="all_network_unavailable">Nie sú k dispozícii žiadne siete</string>
     <string name="allow_mock_location">Povoliť simulované polohy</string>
     <string name="allow_mock_location_summary">Povoliť simulované polohy</string>
     <string name="always_use_accessory">Po pripojení zariadenia %2$s vždy otvoriť aplikáciu %1$s</string>
@@ -618,6 +619,11 @@ Výber"</string>
     <string name="clock_title_analog">Analógový</string>
     <string name="clock_title_bubble">Bublina</string>
     <string name="clock_title_default">Predvolený</string>
+    <string name="columbus_bouncer_message">Ak chcete dokončiť rýchle poklepanie, odomknite</string>
+    <string name="columbus_target_request_dialog_allow">Povoliť</string>
+    <string name="columbus_target_request_dialog_deny">Nepovoliť</string>
+    <string name="columbus_target_request_dialog_summary">Dvojitým klepnutím na zadnú časť telefónu otvoríte aplikáciu %1$s. Túto predvoľbu môžete kedykoľvek zmeniť v Nastaveniach.</string>
+    <string name="columbus_target_request_dialog_title">Chcete rýchlym poklepaním otvárať aplikáciu %1$s?</string>
     <string name="compat_mode_off">Na celú obrazovku</string>
     <string name="compat_mode_on">Priblížiť na celú obrazovku</string>
     <string name="confirm_enable_oem_unlock_text">UPOZORNENIE: Dokiaľ bude toto nastavenie zapnuté, funkcie ochrany zariadenia nebudú na tomto zariadení fungovať.</string>
@@ -740,6 +746,8 @@ Ak ho znovu zapnete, môžu vám byť účtované poplatky za spotrebu dát."</s
     <string name="defender_notify_learn_more">Ďalšie informácie</string>
     <string name="defender_notify_resume_charge">Pokračovať v nabíjaní</string>
     <string name="defender_notify_title">Nabíjanie je dočasne obmedzené</string>
+    <string name="defender_post_notify_des">Nabíjanie bolo od %2$s do %3$s obmedzené na %1$s, aby sa zachovala životnosť batérie</string>
+    <string name="defender_post_notify_title">Normálne nabíjanie</string>
     <string name="delete_blob_confirmation_text">Naozaj chcete odstrániť tieto zdieľané údaje?</string>
     <string name="delete_blob_text">Odstrániť zdieľané údaje</string>
     <string name="demo_mode">Ukážka používateľského rozhrania systému</string>
@@ -885,6 +893,7 @@ Ak ho znovu zapnete, môžu vám byť účtované poplatky za spotrebu dát."</s
     <string name="game_status">Hrám hru</string>
     <string name="global_action_lock_message">Ak chcete zobraziť ďalšie možnosti, odomknite telefón</string>
     <string name="global_action_screenshot">Snímka obrazovky</string>
+    <string name="global_action_smart_lock_disabled">Funkcia Smart Lock je deaktivovaná</string>
     <string name="global_actions_change_description">Ak chcete získať prístup k službe %1$s a ovládaniu zariadení, potiahnite z hornej časti obrazovky nadol</string>
     <string name="go_to_web">Otvoriť prehliadač</string>
     <string name="google_services_wallpaper_permission"><b>Umožnite dynamickým tapetám Google reagovať na vašu polohu</b> získaním prístupu k službám určovania polohy Google.</string>
@@ -1232,7 +1241,7 @@ Skúste to znova o %2$d s."</string>
     <string name="media_projection_dialog_text">Povolenie %s bude mať prístup k všetkým informáciám zobrazovaným na obrazovke alebo prehrávaným v zariadení počas nahrávania či prenosu. Patria medzi ne informácie, akými sú napríklad heslá, platobné podrobnosti, fotky, správy a prehrávaný zvuk.</string>
     <string name="media_projection_dialog_title">Chcete spustiť nahrávanie alebo prenos s aktivovaným povolením %s?</string>
     <string name="media_projection_remember_text">Nabudúce nezobrazovať</string>
-    <string name="media_seamless_remote_device">Zariadenie</string>
+    <string name="media_seamless_other_device">Iné zariadenie</string>
     <string name="media_transfer_this_device_name">Reproduktor telefónu</string>
     <string name="media_transfer_this_phone">Tento telefón</string>
     <string name="media_transfer_wired_device_name">Audio zariadenie s káblom</string>
@@ -1249,9 +1258,13 @@ Skúste to znova o %2$d s."</string>
     <string name="mobile_data">Mobilné dáta</string>
     <string name="mobile_data_always_on">Mobilné dáta ponechať vždy aktívne</string>
     <string name="mobile_data_always_on_summary">Vždy ponechávať mobilné dáta aktívne, dokonca aj pri aktívnej sieti Wi‑Fi (na rýchle prepínanie sietí)</string>
+    <string name="mobile_data_connection_active">Pripojené</string>
     <string name="mobile_data_disable_message">Nebudete mať prístup k dátam ani internetu prostredníctvom operátora %s. Internet bude k dispozícii iba cez Wi‑Fi.</string>
     <string name="mobile_data_disable_message_default_carrier">váš operátor</string>
     <string name="mobile_data_disable_title">Chcete vypnúť mobilné dáta?</string>
+    <string name="mobile_data_no_connection">Bez pripojenia</string>
+    <string name="mobile_data_off_summary">Automatické pripojenie cez mobilné dáta nefunguje</string>
+    <string name="mobile_data_settings_title">Mobilné dáta</string>
     <string name="mobile_data_text_format">%1$s – %2$s</string>
     <string name="mock_location_app">Vybrať aplikáciu na simuláciu polohy</string>
     <string name="mock_location_app_not_set">Žiadna aplikácia na simuláciu polohy</string>
@@ -1391,6 +1404,7 @@ V prípade otázok kontaktujte organizáciu %2$s."</string>
     <string name="no_content_in_select_mode">Na výber nie je k dispozícii žiadny test ani obrázok</string>
     <string name="no_conversations_text">Vaše nedávne konverzácie sa zobrazia tu</string>
     <string name="no_shortcut">%1$s nepodporuje funkcie konverzácie</string>
+    <string name="non_carrier_network_unavailable">Nie sú k dispozícii žiadne ďalšie siete</string>
     <string name="not_default_data_content_description">Nie je nastavené na používanie dát</string>
     <string name="not_set">Nenastavené</string>
     <string name="notif_inline_reply_remove_attachment_description">Odstrániť prílohu</string>
@@ -1571,8 +1585,9 @@ V prípade otázok kontaktujte organizáciu %2$s."</string>
     <string name="power_remaining_only_more_than_subtext">Zostáva viac ako %1$s</string>
     <string name="power_remaining_settings_home_page">%1$s – %2$s</string>
     <string name="power_suggestion_battery_run_out">Batéria sa môže do %1$s vybiť</string>
+    <string name="pref_title_network_details">Podrobnosti siete</string>
     <string name="preference_copied">Položka %1$s bola skopírovaná do schránky.</string>
-    <string name="preference_summary_default_combination">%1$s / %2$s</string>
+    <string name="preference_summary_default_combination">%1$s/%2$s</string>
     <string name="priority_conversations">Prioritné konverzácie</string>
     <string name="privacy_type_camera">fotoaparát</string>
     <string name="privacy_type_location">poloha</string>
@@ -1740,6 +1755,7 @@ V prípade otázok kontaktujte organizáciu %2$s."</string>
     <string name="right_keycode">Pravý kód klávesnice</string>
     <string name="right_nav_bar_button_type">Dodatočný typ pravého tlačidla</string>
     <string name="ring_toggle_title">Hovory</string>
+    <string name="rotation_lock_camera_rotation_on">Zapnuté – podľa tváre</string>
     <string name="running_foreground_services_msg">Klepnutím zobrazíte podrobnosti o batérii a spotrebe dát</string>
     <string name="running_foreground_services_title">Aplikácie sú spustené na pozadí</string>
     <string name="running_process_item_user_label">Používateľ: %1$s</string>
@@ -1814,6 +1830,7 @@ V prípade otázok kontaktujte organizáciu %2$s."</string>
     <string name="screenshot_top_boundary_pct">%1$d %% hornej hranice</string>
     <string name="search_menu">Hľadať v nastaveniach</string>
     <string name="search_menu_title">Hľadať</string>
+    <string name="see_all_networks">Zobraziť všetko</string>
     <string name="see_more_title">Zobraziť viac</string>
     <string name="select_application">Výber aplikácie</string>
     <string name="select_conversation_text">Klepnite na konverzáciu a pridajte ju tak na plochu</string>
@@ -1926,6 +1943,7 @@ monitorovaná"</string>
     <string name="switch_bar_off">Vypnuté</string>
     <string name="switch_bar_on">Zapnuté</string>
     <string name="system_ui_tuner">Tuner používateľského rozhrania systému</string>
+    <string name="tap_a_network_to_connect">Ak sa chcete pripojiť, klepnite na sieť</string>
     <string name="tap_again">Klepnite znova</string>
     <string name="tap_to_sign_up">Prihláste sa klepnutím</string>
     <string name="tether_settings_title_all">Zdieľané pripojenie a prenosný hotspot</string>
@@ -1951,6 +1969,7 @@ Viac sa dozviete po klepnutí."</string>
     <string name="time_unit_just_now">Teraz</string>
     <string name="title_convert_fbe">Konvertovanie na šifrovanie založené na súboroch</string>
     <string name="title_usb_accessory">Periférne zariadenie USB</string>
+    <string name="to_switch_networks_disconnect_ethernet">Ak chcete prepnúť siete, odpojte ethernet</string>
     <string name="too_hot_label">Pixel je príliš horúci</string>
     <string name="touch_filtered_warning">Nastavenia nemôžu overiť vašu odpoveď, pretože určitá aplikácia blokuje žiadosť o povolenie.</string>
     <string name="track_frame_time">Vykresľovanie HWUI profilu</string>
@@ -2009,10 +2028,12 @@ Viac sa dozviete po klepnutí."</string>
     <string name="tuner_toast">Výborne, tuner používateľského rozhrania systému bol pridaný do Nastavení</string>
     <string name="tuner_warning">Tuner používateľského rozhrania systému poskytujte ďalšie spôsoby ladenia a prispôsobenia používateľského rozhrania Android. Tieto experimentálne funkcie sa môžu v budúcich verziách zmeniť, ich poskytovanie môže byť prerušené alebo môžu byť odstránené. Pokračujte opatrne.</string>
     <string name="tuner_warning_title">Pri používaní tuneru postupujte opatrne</string>
+    <string name="turn_on_wifi">Wi‑Fi</string>
     <string name="tv_notification_panel_no_notifications">Žiadne upozornenia</string>
     <string name="tv_notification_panel_title">Upozornenia</string>
     <string name="two_weeks_timestamp">Pred 2 týždňami</string>
     <string name="unknown">Neznáme</string>
+    <string name="unlock_to_view_networks">Odomknutím si zobrazte siete</string>
     <string name="upcoming_birthday_status">Blížia sa narodeniny</string>
     <string name="upcoming_birthday_status_content_description">%1$s má čoskoro narodeniny</string>
     <string name="url_menu_copy">Kopírovať</string>
@@ -2151,9 +2172,11 @@ Adresa Wi‑Fi (BSSID)
     <string name="wifi_disconnected">Odpojené</string>
     <string name="wifi_display_certification">Certifikácia bezdrôtového zobrazenia</string>
     <string name="wifi_display_certification_summary">Zobraziť možnosti certifikácie bezdrôtového zobrazenia</string>
+    <string name="wifi_empty_list_wifi_on">Vyhľadávajú sa siete…</string>
     <string name="wifi_enhanced_mac_randomization">Randomizácia dočasnej adresy MAC siete Wi‑Fi</string>
     <string name="wifi_enhanced_mac_randomization_summary">Keď je tento režim aktivovaný, adresa MAC tohto zariadenia sa môže pri každom pripojení k sieti s aktivovanou randomizáciou adries MAC zmeniť.</string>
     <string name="wifi_fail_to_scan">Siete sa nedajú vyhľadávať</string>
+    <string name="wifi_failed_connect_message">Nepodarilo sa pripojiť k sieti</string>
     <string name="wifi_hotspot_switch_off_text">Vypnúť</string>
     <string name="wifi_hotspot_switch_on_text">Zapnúť</string>
     <string name="wifi_is_off">Pripojenie Wi‑Fi je vypnuté</string>
@@ -2164,6 +2187,7 @@ Adresa Wi‑Fi (BSSID)
     <string name="wifi_not_in_range">Mimo dosah</string>
     <string name="wifi_passpoint_expired">Vypršalo</string>
     <string name="wifi_remembered">Uložené</string>
+    <string name="wifi_scan_notify_message">Aplikácie a služby môžu kedykoľvek vyhľadávať siete Wi‑Fi (a to aj vtedy, keď je pripojenie Wi‑Fi vypnuté), čím zlepšujú prostredie v zariadení. Môžete to zmeniť v nastaveniach vyhľadávania sietí Wi‑Fi. <annotation id="link">Zmeniť</annotation></string>
     <string name="wifi_scan_throttling">Pribrzdiť vyhľadávanie sietí Wi‑Fi</string>
     <string name="wifi_scan_throttling_summary">Znižuje používanie batérie a zlepšuje výkon siete</string>
     <string name="wifi_security_none">Žiadne</string>
@@ -2173,6 +2197,7 @@ Adresa Wi‑Fi (BSSID)
     <string name="wifi_unmetered_label">Bez merania dát</string>
     <string name="wifi_verbose_logging">Podrobné denníky Wi‑Fi</string>
     <string name="wifi_verbose_logging_summary">Zvýšiť úroveň denníkov Wi‑Fi, zobrazovať podľa SSID RSSI pri výbere siete Wi‑Fi</string>
+    <string name="wifi_wont_autoconnect_for_now">Wi‑Fi sa teraz automaticky nepripojí</string>
     <string name="wifitrackerlib_auto_connect_disable">Automatické pripojenie je vypnuté</string>
     <string name="wifitrackerlib_available_via_app">K dispozícii prostredníctvom aplikácie %1$s</string>
     <string name="wifitrackerlib_connected_via_app">Pripojené prostredníctvom siete %1$s</string>

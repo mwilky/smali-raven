@@ -22,6 +22,14 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$vSiTEqSkvmIQbHn9-Gztk91xMM4(Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView$2;Ljava/util/List;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView$2;->lambda$onServicesUpdated$0(Ljava/util/List;)V
+
+    return-void
+.end method
+
 .method constructor <init>(Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;)V
     .locals 0
 
@@ -32,18 +40,8 @@
     return-void
 .end method
 
-
-# virtual methods
-.method public onServicesUpdated(Ljava/util/List;)V
+.method private synthetic lambda$onServicesUpdated$0(Ljava/util/List;)V
     .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/controls/ControlsServiceInfo;",
-            ">;)V"
-        }
-    .end annotation
 
     invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
 
@@ -72,5 +70,29 @@
     invoke-static {p0}, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->access$600(Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;)V
 
     :cond_0
+    return-void
+.end method
+
+
+# virtual methods
+.method public onServicesUpdated(Ljava/util/List;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Lcom/android/systemui/controls/ControlsServiceInfo;",
+            ">;)V"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView$2;->this$0:Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;
+
+    new-instance v1, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView$2$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView$2$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView$2;Ljava/util/List;)V
+
+    invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->post(Ljava/lang/Runnable;)Z
+
     return-void
 .end method

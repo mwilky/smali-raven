@@ -94,7 +94,15 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/systemui/ImageWallpaper;)I
+.method static synthetic access$000(Lcom/android/systemui/ImageWallpaper;)Landroid/os/HandlerThread;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/ImageWallpaper;->mWorker:Landroid/os/HandlerThread;
+
+    return-object p0
+.end method
+
+.method static synthetic access$100(Lcom/android/systemui/ImageWallpaper;)I
     .locals 0
 
     iget p0, p0, Lcom/android/systemui/ImageWallpaper;->mPages:I
@@ -102,7 +110,7 @@
     return p0
 .end method
 
-.method static synthetic access$002(Lcom/android/systemui/ImageWallpaper;I)I
+.method static synthetic access$102(Lcom/android/systemui/ImageWallpaper;I)I
     .locals 0
 
     iput p1, p0, Lcom/android/systemui/ImageWallpaper;->mPages:I
@@ -110,7 +118,7 @@
     return p1
 .end method
 
-.method static synthetic access$100(Lcom/android/systemui/ImageWallpaper;)Landroid/graphics/Bitmap;
+.method static synthetic access$200(Lcom/android/systemui/ImageWallpaper;)Landroid/graphics/Bitmap;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/ImageWallpaper;->mMiniBitmap:Landroid/graphics/Bitmap;
@@ -118,20 +126,12 @@
     return-object p0
 .end method
 
-.method static synthetic access$102(Lcom/android/systemui/ImageWallpaper;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
+.method static synthetic access$202(Lcom/android/systemui/ImageWallpaper;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/ImageWallpaper;->mMiniBitmap:Landroid/graphics/Bitmap;
 
     return-object p1
-.end method
-
-.method static synthetic access$200(Lcom/android/systemui/ImageWallpaper;)Landroid/os/HandlerThread;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/ImageWallpaper;->mWorker:Landroid/os/HandlerThread;
-
-    return-object p0
 .end method
 
 .method static synthetic access$300(Lcom/android/systemui/ImageWallpaper;)Ljava/util/ArrayList;

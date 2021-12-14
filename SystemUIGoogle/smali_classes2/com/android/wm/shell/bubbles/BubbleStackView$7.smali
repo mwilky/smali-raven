@@ -127,7 +127,7 @@
 
     invoke-static {p1, v0}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$2202(Lcom/android/wm/shell/bubbles/BubbleStackView;Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject;)Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject;
 
-    goto/16 :goto_1
+    goto :goto_1
 
     :cond_3
     iget-object p1, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$7;->this$0:Lcom/android/wm/shell/bubbles/BubbleStackView;
@@ -166,67 +166,50 @@
 
     move-result p1
 
-    if-nez p1, :cond_4
+    if-eqz p1, :cond_4
 
-    iget-object p1, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$7;->this$0:Lcom/android/wm/shell/bubbles/BubbleStackView;
-
-    invoke-static {p1}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$900(Lcom/android/wm/shell/bubbles/BubbleStackView;)Lcom/android/wm/shell/bubbles/animation/StackAnimationController;
-
-    move-result-object v0
-
-    iget-object v3, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$7;->this$0:Lcom/android/wm/shell/bubbles/BubbleStackView;
-
-    invoke-static {v3}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$2000(Lcom/android/wm/shell/bubbles/BubbleStackView;)Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject$MagneticTarget;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v3}, Lcom/android/wm/shell/bubbles/animation/StackAnimationController;->getMagnetizedStack(Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject$MagneticTarget;)Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject;
-
-    move-result-object v0
-
-    invoke-static {p1, v0}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$2202(Lcom/android/wm/shell/bubbles/BubbleStackView;Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject;)Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject;
-
-    iget-object p1, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$7;->this$0:Lcom/android/wm/shell/bubbles/BubbleStackView;
-
-    invoke-static {p1}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$2200(Lcom/android/wm/shell/bubbles/BubbleStackView;)Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject;
-
-    move-result-object p1
-
-    iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$7;->this$0:Lcom/android/wm/shell/bubbles/BubbleStackView;
-
-    invoke-static {v0}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$2500(Lcom/android/wm/shell/bubbles/BubbleStackView;)Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject$MagnetListener;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject;->setMagnetListener(Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject$MagnetListener;)V
-
-    goto :goto_0
-
-    :cond_4
     iget-object p1, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$7;->this$0:Lcom/android/wm/shell/bubbles/BubbleStackView;
 
     const/4 v0, 0x0
 
     invoke-static {p1, v0}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$2202(Lcom/android/wm/shell/bubbles/BubbleStackView;Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject;)Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject;
 
-    :goto_0
+    goto :goto_0
+
+    :cond_4
     iget-object p1, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$7;->this$0:Lcom/android/wm/shell/bubbles/BubbleStackView;
 
     invoke-static {p1}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$900(Lcom/android/wm/shell/bubbles/BubbleStackView;)Lcom/android/wm/shell/bubbles/animation/StackAnimationController;
 
     move-result-object v0
 
-    iget-object v3, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$7;->this$0:Lcom/android/wm/shell/bubbles/BubbleStackView;
-
-    invoke-static {v3}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$2000(Lcom/android/wm/shell/bubbles/BubbleStackView;)Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject$MagneticTarget;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v3}, Lcom/android/wm/shell/bubbles/animation/StackAnimationController;->getMagnetizedStack(Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject$MagneticTarget;)Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject;
+    invoke-virtual {v0}, Lcom/android/wm/shell/bubbles/animation/StackAnimationController;->getMagnetizedStack()Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject;
 
     move-result-object v0
 
     invoke-static {p1, v0}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$2202(Lcom/android/wm/shell/bubbles/BubbleStackView;Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject;)Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject;
+
+    iget-object p1, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$7;->this$0:Lcom/android/wm/shell/bubbles/BubbleStackView;
+
+    invoke-static {p1}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$2200(Lcom/android/wm/shell/bubbles/BubbleStackView;)Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject;->clearAllTargets()V
+
+    iget-object p1, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$7;->this$0:Lcom/android/wm/shell/bubbles/BubbleStackView;
+
+    invoke-static {p1}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$2200(Lcom/android/wm/shell/bubbles/BubbleStackView;)Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject;
+
+    move-result-object p1
+
+    iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$7;->this$0:Lcom/android/wm/shell/bubbles/BubbleStackView;
+
+    invoke-static {v0}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$2000(Lcom/android/wm/shell/bubbles/BubbleStackView;)Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject$MagneticTarget;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject;->addTarget(Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject$MagneticTarget;)V
 
     iget-object p1, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$7;->this$0:Lcom/android/wm/shell/bubbles/BubbleStackView;
 
@@ -242,6 +225,7 @@
 
     invoke-virtual {p1, v0}, Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject;->setMagnetListener(Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject$MagnetListener;)V
 
+    :goto_0
     iget-object p1, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$7;->this$0:Lcom/android/wm/shell/bubbles/BubbleStackView;
 
     invoke-static {p1, v1}, Lcom/android/wm/shell/bubbles/BubbleStackView;->access$1102(Lcom/android/wm/shell/bubbles/BubbleStackView;Z)Z

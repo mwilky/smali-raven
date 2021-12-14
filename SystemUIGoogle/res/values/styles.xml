@@ -18,6 +18,7 @@
         <item name="android:activityCloseExitAnimation">@anim/forced_resizable_exit</item>
         <item name="android:taskToFrontEnterAnimation">@anim/forced_resizable_enter</item>
     </style>
+    <style name="Animation.InternetDialog" parent="@android:style/Animation.InputMethod" />
     <style name="Animation.MaterialComponents.BottomSheetDialog" parent="@style/Animation.AppCompat.Dialog">
         <item name="android:windowEnterAnimation">@anim/mtrl_bottom_sheet_slide_in</item>
         <item name="android:windowExitAnimation">@anim/mtrl_bottom_sheet_slide_out</item>
@@ -1937,6 +1938,38 @@
         <item name="hybridNotificationTextStyle">@style/hybrid_notification_text</item>
         <item name="hybridNotificationTitleStyle">@style/hybrid_notification_title</item>
     </style>
+    <style name="InternetDialog">
+        <item name="android:layout_gravity">start|center</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/internet_dialog_network_layout_margin</item>
+    </style>
+    <style name="InternetDialog.Network" parent="@style/InternetDialog">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">88.0dip</item>
+        <item name="android:paddingStart">22.0dip</item>
+        <item name="android:paddingEnd">22.0dip</item>
+        <item name="android:layout_marginEnd">@dimen/internet_dialog_network_layout_margin</item>
+    </style>
+    <style name="InternetDialog.NetworkSummary" parent="@style/InternetDialog">
+        <item name="android:textAppearance">@style/TextAppearance.InternetDialog.Secondary</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:layout_marginEnd">34.0dip</item>
+    </style>
+    <style name="InternetDialog.NetworkSummary.Active" parent="@style/InternetDialog.NetworkSummary">
+        <item name="android:textAppearance">@style/TextAppearance.InternetDialog.Secondary.Active</item>
+    </style>
+    <style name="InternetDialog.NetworkTitle" parent="@style/InternetDialog">
+        <item name="android:textAppearance">@style/TextAppearance.InternetDialog</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:layout_marginEnd">7.0dip</item>
+    </style>
+    <style name="InternetDialog.NetworkTitle.Active" parent="@style/InternetDialog.NetworkTitle">
+        <item name="android:textAppearance">@style/TextAppearance.InternetDialog.Active</item>
+    </style>
     <style name="Keyguard.TextView" parent="@android:style/Widget.DeviceDefault.TextView">
         <item name="android:textSize">@dimen/kg_status_line_font_size</item>
     </style>
@@ -1981,6 +2014,9 @@
         <item name="android:windowActivityTransitions">true</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowLightNavigationBar">true</item>
+    </style>
+    <style name="MainSwitch.Settingslib" parent="@android:style/Theme.DeviceDefault">
+        <item name="android:switchMinWidth">@dimen/settingslib_min_switch_width</item>
     </style>
     <style name="MainSwitchText.Settingslib" parent="@android:style/TextAppearance.DeviceDefault.Widget.ActionBar.Title">
         <item name="android:textSize">20.0sp</item>
@@ -2592,6 +2628,17 @@
     <style name="ShapeAppearanceOverlay.TopRightDifferentCornerSize" parent="@style/ShapeAppearanceOverlay">
         <item name="cornerSizeTopRight">20.0px</item>
     </style>
+    <style name="SliceRow">
+        <item name="actionDividerHeight">32.0dip</item>
+        <item name="bottomDividerEndPadding">12.0dip</item>
+        <item name="bottomDividerStartPadding">12.0dip</item>
+        <item name="contentEndPadding">16.0dip</item>
+        <item name="contentStartPadding">14.0dip</item>
+        <item name="endItemEndPadding">16.0dip</item>
+        <item name="endItemStartPadding">16.0dip</item>
+        <item name="titleItemEndPadding">0.0dip</item>
+        <item name="titleItemStartPadding">2.0dip</item>
+    </style>
     <style name="Switch.SettingsLib" parent="@android:style/Widget.Material.CompoundButton.Switch">
         <item name="android:minHeight">@dimen/settingslib_preferred_minimum_touch_target</item>
         <item name="android:thumb">@drawable/settingslib_switch_thumb</item>
@@ -2852,6 +2899,18 @@
         <item name="android:textColor">?android:colorAccent</item>
     </style>
     <style name="TextAppearance.HeadsUpStatusBarText" parent="@*android:style/TextAppearance.DeviceDefault.Notification.Info" />
+    <style name="TextAppearance.InternetDialog" parent="@style/TextAppearance">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+        <item name="android:fontFamily">@*android:string/config_headlineFontFamily</item>
+        <item name="android:textDirection">locale</item>
+    </style>
+    <style name="TextAppearance.InternetDialog.Active" parent="@style/TextAppearance.InternetDialog" />
+    <style name="TextAppearance.InternetDialog.Secondary" parent="@style/TextAppearance.InternetDialog">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
+    </style>
+    <style name="TextAppearance.InternetDialog.Secondary.Active" parent="@style/TextAppearance.InternetDialog.Secondary" />
     <style name="TextAppearance.Keyguard" parent="@style/TextAppearance">
         <item name="android:textSize">@dimen/widget_title_font_size</item>
         <item name="android:ellipsize">end</item>
@@ -2868,6 +2927,9 @@
         <item name="android:maxLines">1</item>
         <item name="android:shadowColor">@color/keyguard_shadow_color</item>
         <item name="android:shadowRadius">?shadowRadius</item>
+    </style>
+    <style name="TextAppearance.Keyguard.BottomArea.Button" parent="@style/TextAppearance.Keyguard.BottomArea">
+        <item name="android:shadowRadius">0.0</item>
     </style>
     <style name="TextAppearance.Keyguard.Secondary" parent="@style/TextAppearance.Keyguard">
         <item name="android:textSize">@dimen/widget_label_font_size</item>
@@ -3957,6 +4019,9 @@
         <item name="android:backgroundDimEnabled">true</item>
         <item name="android:windowCloseOnTouchOutside">true</item>
     </style>
+    <style name="Theme.SystemUI.Dialog.Internet" parent="@style/Theme.SystemUI.Dialog">
+        <item name="android:windowBackground">@drawable/internet_dialog_background</item>
+    </style>
     <style name="Theme.SystemUI.Dialog.MediaOutput" parent="@style/Theme.SystemUI.Dialog">
         <item name="android:windowBackground">@drawable/media_output_dialog_background</item>
     </style>
@@ -4179,9 +4244,9 @@
         <item name="android:colorAccent">#ffff0000</item>
     </style>
     <style name="TrimmedHorizontalProgressBar" parent="@android:style/Widget.Material.ProgressBar.Horizontal">
-        <item name="android:maxHeight">3.0dip</item>
+        <item name="android:maxHeight">4.0dip</item>
         <item name="android:indeterminateDrawable">@drawable/progress_indeterminate_horizontal_material_trimmed</item>
-        <item name="android:minHeight">3.0dip</item>
+        <item name="android:minHeight">4.0dip</item>
     </style>
     <style name="TunerPreferenceTheme" parent="@style/PreferenceThemeOverlay.SettingsBase" />
     <style name="TunerSettings" parent="@android:style/Theme.DeviceDefault.Settings">
@@ -5665,6 +5730,11 @@
         <item name="titleColor">?android:textColorPrimary</item>
         <item name="titleSize">14.0sp</item>
     </style>
+    <style name="Widget.SliceView.Panel" parent="@style/Widget.SliceView">
+        <item name="android:background">?android:colorBackgroundFloating</item>
+        <item name="rowStyle">@style/SliceRow</item>
+        <item name="titleSize">16.0sp</item>
+    </style>
     <style name="Widget.Support.CoordinatorLayout" parent="@android:style/Widget">
         <item name="statusBarBackground">#ff000000</item>
     </style>
@@ -5700,7 +5770,9 @@
         <item name="android:textAppearance">@*android:style/TextAppearance.DeviceDefault.Notification.Title</item>
         <item name="android:paddingEnd">4.0dip</item>
     </style>
-    <style name="volume_dialog_theme" parent="@style/Theme.SystemUI" />
+    <style name="volume_dialog_theme" parent="@style/Theme.SystemUI">
+        <item name="android:windowIsFloating">true</item>
+    </style>
     <style name="widget_big">
         <item name="android:textSize">@dimen/widget_big_font_size</item>
         <item name="android:ellipsize">none</item>

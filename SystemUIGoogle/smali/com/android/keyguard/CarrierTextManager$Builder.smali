@@ -46,7 +46,7 @@
 
     iput-object p1, p0, Lcom/android/keyguard/CarrierTextManager$Builder;->mContext:Landroid/content/Context;
 
-    const p1, 0x1040468
+    const p1, 0x104046a
 
     invoke-virtual {p2, p1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

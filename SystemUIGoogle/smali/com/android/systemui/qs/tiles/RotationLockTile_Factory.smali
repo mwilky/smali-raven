@@ -38,6 +38,16 @@
     .end annotation
 .end field
 
+.field private final batteryControllerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/policy/BatteryController;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final falsingManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -78,6 +88,16 @@
     .end annotation
 .end field
 
+.field private final privacyManagerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Landroid/hardware/SensorPrivacyManager;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final qsLoggerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -98,6 +118,16 @@
     .end annotation
 .end field
 
+.field private final secureSettingsProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/util/settings/SecureSettings;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final statusBarStateControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -110,7 +140,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -141,6 +171,15 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/policy/RotationLockController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Landroid/hardware/SensorPrivacyManager;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/policy/BatteryController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/util/settings/SecureSettings;",
             ">;)V"
         }
     .end annotation
@@ -165,11 +204,17 @@
 
     iput-object p9, p0, Lcom/android/systemui/qs/tiles/RotationLockTile_Factory;->rotationLockControllerProvider:Ljavax/inject/Provider;
 
+    iput-object p10, p0, Lcom/android/systemui/qs/tiles/RotationLockTile_Factory;->privacyManagerProvider:Ljavax/inject/Provider;
+
+    iput-object p11, p0, Lcom/android/systemui/qs/tiles/RotationLockTile_Factory;->batteryControllerProvider:Ljavax/inject/Provider;
+
+    iput-object p12, p0, Lcom/android/systemui/qs/tiles/RotationLockTile_Factory;->secureSettingsProvider:Ljavax/inject/Provider;
+
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/qs/tiles/RotationLockTile_Factory;
-    .locals 11
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/qs/tiles/RotationLockTile_Factory;
+    .locals 14
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -199,24 +244,33 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/policy/RotationLockController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Landroid/hardware/SensorPrivacyManager;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/policy/BatteryController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/util/settings/SecureSettings;",
             ">;)",
             "Lcom/android/systemui/qs/tiles/RotationLockTile_Factory;"
         }
     .end annotation
 
-    new-instance v10, Lcom/android/systemui/qs/tiles/RotationLockTile_Factory;
+    new-instance v13, Lcom/android/systemui/qs/tiles/RotationLockTile_Factory;
 
-    move-object v0, v10
+    move-object v0, v13
 
     move-object v1, p0
 
     move-object v2, p1
 
-    move-object v3, p2
+    move-object/from16 v3, p2
 
-    move-object v4, p3
+    move-object/from16 v4, p3
 
-    move-object v5, p4
+    move-object/from16 v5, p4
 
     move-object/from16 v6, p5
 
@@ -226,27 +280,33 @@
 
     move-object/from16 v9, p8
 
-    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/qs/tiles/RotationLockTile_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v10, p9
 
-    return-object v10
+    move-object/from16 v11, p10
+
+    move-object/from16 v12, p11
+
+    invoke-direct/range {v0 .. v12}, Lcom/android/systemui/qs/tiles/RotationLockTile_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v13
 .end method
 
-.method public static newInstance(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/RotationLockController;)Lcom/android/systemui/qs/tiles/RotationLockTile;
-    .locals 11
+.method public static newInstance(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/RotationLockController;Landroid/hardware/SensorPrivacyManager;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/systemui/util/settings/SecureSettings;)Lcom/android/systemui/qs/tiles/RotationLockTile;
+    .locals 14
 
-    new-instance v10, Lcom/android/systemui/qs/tiles/RotationLockTile;
+    new-instance v13, Lcom/android/systemui/qs/tiles/RotationLockTile;
 
-    move-object v0, v10
+    move-object v0, v13
 
     move-object v1, p0
 
     move-object v2, p1
 
-    move-object v3, p2
+    move-object/from16 v3, p2
 
-    move-object v4, p3
+    move-object/from16 v4, p3
 
-    move-object v5, p4
+    move-object/from16 v5, p4
 
     move-object/from16 v6, p5
 
@@ -256,15 +316,21 @@
 
     move-object/from16 v9, p8
 
-    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/qs/tiles/RotationLockTile;-><init>(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/RotationLockController;)V
+    move-object/from16 v10, p9
 
-    return-object v10
+    move-object/from16 v11, p10
+
+    move-object/from16 v12, p11
+
+    invoke-direct/range {v0 .. v12}, Lcom/android/systemui/qs/tiles/RotationLockTile;-><init>(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/RotationLockController;Landroid/hardware/SensorPrivacyManager;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/systemui/util/settings/SecureSettings;)V
+
+    return-object v13
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/systemui/qs/tiles/RotationLockTile;
-    .locals 10
+    .locals 13
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/RotationLockTile_Factory;->hostProvider:Ljavax/inject/Provider;
 
@@ -346,17 +412,47 @@
 
     check-cast v8, Lcom/android/systemui/qs/logging/QSLogger;
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/RotationLockTile_Factory;->rotationLockControllerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/RotationLockTile_Factory;->rotationLockControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v9, v0
+
+    check-cast v9, Lcom/android/systemui/statusbar/policy/RotationLockController;
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/RotationLockTile_Factory;->privacyManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v10, v0
+
+    check-cast v10, Landroid/hardware/SensorPrivacyManager;
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/RotationLockTile_Factory;->batteryControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v11, v0
+
+    check-cast v11, Lcom/android/systemui/statusbar/policy/BatteryController;
+
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/RotationLockTile_Factory;->secureSettingsProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    move-object v9, p0
+    move-object v12, p0
 
-    check-cast v9, Lcom/android/systemui/statusbar/policy/RotationLockController;
+    check-cast v12, Lcom/android/systemui/util/settings/SecureSettings;
 
-    invoke-static/range {v1 .. v9}, Lcom/android/systemui/qs/tiles/RotationLockTile_Factory;->newInstance(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/RotationLockController;)Lcom/android/systemui/qs/tiles/RotationLockTile;
+    invoke-static/range {v1 .. v12}, Lcom/android/systemui/qs/tiles/RotationLockTile_Factory;->newInstance(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/RotationLockController;Landroid/hardware/SensorPrivacyManager;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/systemui/util/settings/SecureSettings;)Lcom/android/systemui/qs/tiles/RotationLockTile;
 
     move-result-object p0
 

@@ -41,7 +41,7 @@
 
     check-cast p1, Lcom/android/systemui/plugins/qs/QSTile;
 
-    invoke-static {v0, v1, p0, p1}, Lcom/android/systemui/qs/QSTileHost;->$r8$lambda$IwI3Xf3FCw_Hcy-P5bkaOimp_fU(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;Lcom/android/systemui/plugins/qs/QSTile;)V
+    invoke-static {v0, v1, p0, p1}, Lcom/android/systemui/qs/QSTileHost;->$r8$lambda$Ud5xqKI2koQ7Mgq5ilDcx1m5scM(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;Lcom/android/systemui/plugins/qs/QSTile;)V
 
     return-void
 .end method

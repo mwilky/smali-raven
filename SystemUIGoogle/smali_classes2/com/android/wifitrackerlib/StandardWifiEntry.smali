@@ -1890,6 +1890,84 @@
     throw p1
 .end method
 
+.method public declared-synchronized shouldEditBeforeConnect()Z
+    .locals 3
+
+    monitor-enter p0
+
+    :try_start_0
+    invoke-virtual {p0}, Lcom/android/wifitrackerlib/StandardWifiEntry;->getWifiConfiguration()Landroid/net/wifi/WifiConfiguration;
+
+    move-result-object v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    const/4 v1, 0x0
+
+    if-nez v0, :cond_0
+
+    monitor-exit p0
+
+    return v1
+
+    :cond_0
+    :try_start_1
+    invoke-virtual {v0}, Landroid/net/wifi/WifiConfiguration;->getNetworkSelectionStatus()Landroid/net/wifi/WifiConfiguration$NetworkSelectionStatus;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/net/wifi/WifiConfiguration$NetworkSelectionStatus;->getNetworkSelectionStatus()I
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    const/4 v2, 0x2
+
+    invoke-virtual {v0, v2}, Landroid/net/wifi/WifiConfiguration$NetworkSelectionStatus;->getDisableReasonCounter(I)I
+
+    move-result v2
+
+    if-gtz v2, :cond_1
+
+    const/16 v2, 0x8
+
+    invoke-virtual {v0, v2}, Landroid/net/wifi/WifiConfiguration$NetworkSelectionStatus;->getDisableReasonCounter(I)I
+
+    move-result v2
+
+    if-gtz v2, :cond_1
+
+    const/4 v2, 0x5
+
+    invoke-virtual {v0, v2}, Landroid/net/wifi/WifiConfiguration$NetworkSelectionStatus;->getDisableReasonCounter(I)I
+
+    move-result v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    if-lez v0, :cond_2
+
+    :cond_1
+    const/4 v0, 0x1
+
+    monitor-exit p0
+
+    return v0
+
+    :cond_2
+    monitor-exit p0
+
+    return v1
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
+.end method
+
 .method public signIn(Lcom/android/wifitrackerlib/WifiEntry$SignInCallback;)V
     .locals 1
 

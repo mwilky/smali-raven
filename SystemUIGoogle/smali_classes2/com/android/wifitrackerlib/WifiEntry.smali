@@ -1028,10 +1028,26 @@
     throw v0
 .end method
 
+.method public hasInternetAccess()Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/wifitrackerlib/WifiEntry;->mIsValidated:Z
+
+    return p0
+.end method
+
 .method public isAutoJoinEnabled()Z
     .locals 0
 
     const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method public isDefaultNetwork()Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/wifitrackerlib/WifiEntry;->mIsDefaultNetwork:Z
 
     return p0
 .end method
@@ -1153,6 +1169,14 @@
     monitor-exit p0
 
     throw p1
+.end method
+
+.method public shouldEditBeforeConnect()Z
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return p0
 .end method
 
 .method public shouldShowXLevelIcon()Z
@@ -1790,11 +1814,13 @@
     return-void
 
     :cond_0
+    :try_start_1
+    iput-object p1, v0, Lcom/android/wifitrackerlib/WifiEntry$ConnectedInfo;->networkCapabilities:Landroid/net/NetworkCapabilities;
+
     if-eqz p1, :cond_1
 
     const/16 v0, 0x10
 
-    :try_start_1
     invoke-virtual {p1, v0}, Landroid/net/NetworkCapabilities;->hasCapability(I)Z
 
     move-result p1

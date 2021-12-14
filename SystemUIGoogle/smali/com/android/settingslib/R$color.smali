@@ -10,12 +10,12 @@
 
 .field public static final batterymeter_plus_color:I = 0x7f060054
 
-.field public static final dark_mode_icon_color_single_tone:I = 0x7f06009c
+.field public static final dark_mode_icon_color_single_tone:I = 0x7f06009e
 
-.field public static final important_conversation:I = 0x7f060106
+.field public static final important_conversation:I = 0x7f060108
 
-.field public static final light_mode_icon_color_single_tone:I = 0x7f060150
+.field public static final light_mode_icon_color_single_tone:I = 0x7f060152
 
-.field public static final meter_background_color:I = 0x7f06017e
+.field public static final meter_background_color:I = 0x7f06017f
 
-.field public static final meter_consumed_color:I = 0x7f06017f
+.field public static final meter_consumed_color:I = 0x7f060180

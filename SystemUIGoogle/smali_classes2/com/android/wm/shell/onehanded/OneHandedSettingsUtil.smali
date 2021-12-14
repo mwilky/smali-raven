@@ -192,7 +192,7 @@
 .end method
 
 .method public getShortcutEnabled(Landroid/content/ContentResolver;I)Z
-    .locals 0
+    .locals 2
 
     const-string p0, "accessibility_button_targets"
 
@@ -202,22 +202,48 @@
 
     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_0
+    const/4 v1, 0x1
 
-    const/4 p0, 0x0
+    if-nez v0, :cond_0
 
-    goto :goto_0
+    sget-object v0, Lcom/android/wm/shell/onehanded/OneHandedSettingsUtil;->ONE_HANDED_MODE_TARGET_NAME:Ljava/lang/String;
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    return v1
 
     :cond_0
+    const-string p0, "accessibility_shortcut_target_service"
+
+    invoke-static {p1, p0, p2}, Landroid/provider/Settings$Secure;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result p1
+
+    if-nez p1, :cond_1
+
     sget-object p1, Lcom/android/wm/shell/onehanded/OneHandedSettingsUtil;->ONE_HANDED_MODE_TARGET_NAME:Ljava/lang/String;
 
     invoke-virtual {p0, p1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result p0
 
-    :goto_0
+    if-eqz p0, :cond_1
+
+    return v1
+
+    :cond_1
+    const/4 p0, 0x0
+
     return p0
 .end method
 

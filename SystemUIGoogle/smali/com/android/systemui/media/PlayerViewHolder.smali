@@ -68,8 +68,6 @@
 
 .field private final seamless:Landroid/view/ViewGroup;
 
-.field private final seamlessFallback:Landroid/widget/ImageView;
-
 .field private final seamlessIcon:Landroid/widget/ImageView;
 
 .field private final seamlessText:Landroid/widget/TextView;
@@ -97,7 +95,7 @@
 
     sput-object v0, Lcom/android/systemui/media/PlayerViewHolder;->Companion:Lcom/android/systemui/media/PlayerViewHolder$Companion;
 
-    const/16 v0, 0xf
+    const/16 v0, 0xe
 
     new-array v0, v0, [Ljava/lang/Integer;
 
@@ -161,7 +159,7 @@
 
     aput-object v2, v0, v8
 
-    sget v2, Lcom/android/systemui/R$id;->media_seamless_fallback:I
+    sget v2, Lcom/android/systemui/R$id;->notification_media_progress_time:I
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -171,7 +169,7 @@
 
     aput-object v2, v0, v8
 
-    sget v2, Lcom/android/systemui/R$id;->notification_media_progress_time:I
+    sget v2, Lcom/android/systemui/R$id;->media_progress_bar:I
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -181,7 +179,7 @@
 
     aput-object v2, v0, v8
 
-    sget v2, Lcom/android/systemui/R$id;->media_progress_bar:I
+    sget v2, Lcom/android/systemui/R$id;->action0:I
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -191,7 +189,7 @@
 
     aput-object v2, v0, v8
 
-    sget v2, Lcom/android/systemui/R$id;->action0:I
+    sget v2, Lcom/android/systemui/R$id;->action1:I
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -201,7 +199,7 @@
 
     aput-object v2, v0, v8
 
-    sget v2, Lcom/android/systemui/R$id;->action1:I
+    sget v2, Lcom/android/systemui/R$id;->action2:I
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -211,7 +209,7 @@
 
     aput-object v2, v0, v8
 
-    sget v2, Lcom/android/systemui/R$id;->action2:I
+    sget v2, Lcom/android/systemui/R$id;->action3:I
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -221,7 +219,7 @@
 
     aput-object v2, v0, v8
 
-    sget v2, Lcom/android/systemui/R$id;->action3:I
+    sget v2, Lcom/android/systemui/R$id;->action4:I
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -231,21 +229,11 @@
 
     aput-object v2, v0, v8
 
-    sget v2, Lcom/android/systemui/R$id;->action4:I
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    const/16 v8, 0xd
-
-    aput-object v2, v0, v8
-
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
-    const/16 v2, 0xe
+    const/16 v2, 0xd
 
     aput-object v1, v0, v2
 
@@ -378,16 +366,6 @@
     check-cast v1, Landroid/widget/TextView;
 
     iput-object v1, p0, Lcom/android/systemui/media/PlayerViewHolder;->seamlessText:Landroid/widget/TextView;
-
-    sget v1, Lcom/android/systemui/R$id;->media_seamless_fallback:I
-
-    invoke-virtual {p1, v1}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/ImageView;
-
-    iput-object v1, p0, Lcom/android/systemui/media/PlayerViewHolder;->seamlessFallback:Landroid/widget/ImageView;
 
     sget v1, Lcom/android/systemui/R$id;->media_progress_bar:I
 
@@ -862,14 +840,6 @@
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/media/PlayerViewHolder;->seamless:Landroid/view/ViewGroup;
-
-    return-object p0
-.end method
-
-.method public final getSeamlessFallback()Landroid/widget/ImageView;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/media/PlayerViewHolder;->seamlessFallback:Landroid/widget/ImageView;
 
     return-object p0
 .end method

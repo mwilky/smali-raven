@@ -226,6 +226,8 @@
     :cond_3
     if-eqz p2, :cond_5
 
+    if-le v1, v4, :cond_5
+
     const/4 p2, 0x0
 
     aput-object p2, v2, v0

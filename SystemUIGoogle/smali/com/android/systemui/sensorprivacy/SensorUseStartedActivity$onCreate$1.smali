@@ -67,7 +67,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity$onCreate$1;->this$0:Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;
 
-    invoke-virtual {p0}, Lcom/android/internal/app/AlertActivity;->dismiss()V
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     :cond_0
     return-void

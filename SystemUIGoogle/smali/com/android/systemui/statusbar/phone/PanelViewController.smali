@@ -626,6 +626,14 @@
     return p1
 .end method
 
+.method static synthetic access$2300(Lcom/android/systemui/statusbar/phone/PanelViewController;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mPanelClosedOnDown:Z
+
+    return p0
+.end method
+
 .method static synthetic access$2302(Lcom/android/systemui/statusbar/phone/PanelViewController;Z)Z
     .locals 0
 
@@ -3556,6 +3564,9 @@
 .end method
 
 .method public abstract setIsShadeOpening(Z)V
+.end method
+
+.method public abstract setMinFraction(F)V
 .end method
 
 .method protected setOverExpansion(F)V

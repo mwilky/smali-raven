@@ -20,8 +20,8 @@
 
 .field public static final circle_avatar_size:I = 0x7f07012a
 
-.field public static final signal_icon_size:I = 0x7f0706af
+.field public static final signal_icon_size:I = 0x7f0706c6
 
-.field public static final update_user_photo_popup_min_width:I = 0x7f070720
+.field public static final update_user_photo_popup_min_width:I = 0x7f070738
 
-.field public static final wifi_preference_badge_padding:I = 0x7f070777
+.field public static final wifi_preference_badge_padding:I = 0x7f07078f

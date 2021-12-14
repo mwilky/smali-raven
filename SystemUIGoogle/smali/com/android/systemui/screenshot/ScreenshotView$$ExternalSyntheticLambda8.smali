@@ -10,11 +10,9 @@
 
 .field public final synthetic f$1:F
 
-.field public final synthetic f$2:F
-
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/screenshot/ScreenshotView;FF)V
+.method public synthetic constructor <init>(Lcom/android/systemui/screenshot/ScreenshotView;F)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,23 +21,19 @@
 
     iput p2, p0, Lcom/android/systemui/screenshot/ScreenshotView$$ExternalSyntheticLambda8;->f$1:F
 
-    iput p3, p0, Lcom/android/systemui/screenshot/ScreenshotView$$ExternalSyntheticLambda8;->f$2:F
-
     return-void
 .end method
 
 
 # virtual methods
 .method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/ScreenshotView$$ExternalSyntheticLambda8;->f$0:Lcom/android/systemui/screenshot/ScreenshotView;
 
-    iget v1, p0, Lcom/android/systemui/screenshot/ScreenshotView$$ExternalSyntheticLambda8;->f$1:F
+    iget p0, p0, Lcom/android/systemui/screenshot/ScreenshotView$$ExternalSyntheticLambda8;->f$1:F
 
-    iget p0, p0, Lcom/android/systemui/screenshot/ScreenshotView$$ExternalSyntheticLambda8;->f$2:F
-
-    invoke-static {v0, v1, p0, p1}, Lcom/android/systemui/screenshot/ScreenshotView;->$r8$lambda$Ks1lmXwaNjzJ-Gz5u75XDYtEJZ8(Lcom/android/systemui/screenshot/ScreenshotView;FFLandroid/animation/ValueAnimator;)V
+    invoke-static {v0, p0, p1}, Lcom/android/systemui/screenshot/ScreenshotView;->$r8$lambda$bFGt7JfeKc1X1LtCDt-7B9LKx_M(Lcom/android/systemui/screenshot/ScreenshotView;FLandroid/animation/ValueAnimator;)V
 
     return-void
 .end method

@@ -264,46 +264,6 @@
     return-object p0
 .end method
 
-.method private setFlag(IZ)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "mask",
-            "value"
-        }
-    .end annotation
-
-    if-eqz p2, :cond_0
-
-    iget-object p0, p0, Landroidx/core/app/NotificationCompat$Builder;->mNotification:Landroid/app/Notification;
-
-    iget p2, p0, Landroid/app/Notification;->flags:I
-
-    or-int/2addr p1, p2
-
-    iput p1, p0, Landroid/app/Notification;->flags:I
-
-    goto :goto_0
-
-    :cond_0
-    iget-object p0, p0, Landroidx/core/app/NotificationCompat$Builder;->mNotification:Landroid/app/Notification;
-
-    iget p2, p0, Landroid/app/Notification;->flags:I
-
-    not-int p1, p1
-
-    and-int/2addr p1, p2
-
-    iput p1, p0, Landroid/app/Notification;->flags:I
-
-    :goto_0
-    return-void
-.end method
-
 
 # virtual methods
 .method public addAction(ILjava/lang/CharSequence;Landroid/app/PendingIntent;)Landroidx/core/app/NotificationCompat$Builder;
@@ -401,24 +361,6 @@
     move-result-object p1
 
     iput-object p1, p0, Landroidx/core/app/NotificationCompat$Builder;->mContentTitle:Ljava/lang/CharSequence;
-
-    return-object p0
-.end method
-
-.method public setOngoing(Z)Landroidx/core/app/NotificationCompat$Builder;
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "ongoing"
-        }
-    .end annotation
-
-    const/4 v0, 0x2
-
-    invoke-direct {p0, v0, p1}, Landroidx/core/app/NotificationCompat$Builder;->setFlag(IZ)V
 
     return-object p0
 .end method

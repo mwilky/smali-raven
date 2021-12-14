@@ -303,7 +303,7 @@
     return-void
 
     :cond_0
-    new-instance v0, Landroidx/appcompat/view/ContextThemeWrapper;
+    new-instance v0, Landroid/view/ContextThemeWrapper;
 
     iget-object v1, p0, Lcom/android/wm/shell/onehanded/OneHandedTutorialHandler;->mTutorialView:Landroid/view/View;
 
@@ -313,7 +313,7 @@
 
     const v2, 0x10302e3
 
-    invoke-direct {v0, v1, v2}, Landroidx/appcompat/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
+    invoke-direct {v0, v1, v2}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
     const/4 v1, 0x2
 

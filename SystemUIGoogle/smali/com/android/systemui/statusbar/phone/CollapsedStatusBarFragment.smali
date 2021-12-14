@@ -1427,7 +1427,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/phone/CollapsedStatusBarFragment;->mBlockedIcons:Ljava/util/List;
 
-    const p2, 0x1040832
+    const p2, 0x1040834
 
     invoke-virtual {p0, p2}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1437,7 +1437,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/phone/CollapsedStatusBarFragment;->mBlockedIcons:Ljava/util/List;
 
-    const p2, 0x1040813
+    const p2, 0x1040815
 
     invoke-virtual {p0, p2}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1447,7 +1447,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/phone/CollapsedStatusBarFragment;->mBlockedIcons:Ljava/util/List;
 
-    const p2, 0x1040816
+    const p2, 0x1040818
 
     invoke-virtual {p0, p2}, Landroid/app/Fragment;->getString(I)Ljava/lang/String;
 

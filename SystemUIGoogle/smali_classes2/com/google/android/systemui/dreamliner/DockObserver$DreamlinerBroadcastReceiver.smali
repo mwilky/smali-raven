@@ -170,78 +170,6 @@
     return-void
 .end method
 
-.method private getFeatures(Landroid/content/Intent;)V
-    .locals 6
-
-    const-string v0, "charger_id"
-
-    const-wide/16 v1, -0x1
-
-    invoke-virtual {p1, v0, v1, v2}, Landroid/content/Intent;->getLongExtra(Ljava/lang/String;J)J
-
-    move-result-wide v3
-
-    invoke-static {}, Lcom/google/android/systemui/dreamliner/DockObserver;->access$400()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "gF, id="
-
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, v3, v4}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v5, "DLObserver"
-
-    invoke-static {v5, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    const-string v0, "android.intent.extra.RESULT_RECEIVER"
-
-    invoke-virtual {p1, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object p1
-
-    check-cast p1, Landroid/os/ResultReceiver;
-
-    if-eqz p1, :cond_2
-
-    cmp-long v0, v3, v1
-
-    if-nez v0, :cond_1
-
-    const/4 p0, 0x1
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p1, p0, v0}, Landroid/os/ResultReceiver;->send(ILandroid/os/Bundle;)V
-
-    goto :goto_0
-
-    :cond_1
-    new-instance v0, Lcom/google/android/systemui/dreamliner/DockObserver$GetFeatures;
-
-    iget-object p0, p0, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver;->this$0:Lcom/google/android/systemui/dreamliner/DockObserver;
-
-    invoke-direct {v0, p0, p1, v3, v4}, Lcom/google/android/systemui/dreamliner/DockObserver$GetFeatures;-><init>(Lcom/google/android/systemui/dreamliner/DockObserver;Landroid/os/ResultReceiver;J)V
-
-    invoke-static {v0}, Lcom/google/android/systemui/dreamliner/DockObserver;->access$1200(Ljava/lang/Runnable;)V
-
-    :cond_2
-    :goto_0
-    return-void
-.end method
-
 .method private getIntentFilter()Landroid/content/IntentFilter;
     .locals 1
 
@@ -326,14 +254,6 @@
     invoke-virtual {p0, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
     const-string v0, "com.google.android.systemui.dreamliner.ACTION_GET_WPC_CHALLENGE_RESPONSE"
-
-    invoke-virtual {p0, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    const-string v0, "com.google.android.systemui.dreamliner.ACTION_GET_FEATURES"
-
-    invoke-virtual {p0, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    const-string v0, "com.google.android.systemui.dreamliner.ACTION_SET_FEATURES"
 
     invoke-virtual {p0, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
@@ -708,102 +628,6 @@
     return-void
 .end method
 
-.method private setFeatures(Landroid/content/Intent;)V
-    .locals 10
-
-    const-string v0, "charger_id"
-
-    const-wide/16 v1, -0x1
-
-    invoke-virtual {p1, v0, v1, v2}, Landroid/content/Intent;->getLongExtra(Ljava/lang/String;J)J
-
-    move-result-wide v6
-
-    const-string v0, "charger_feature"
-
-    invoke-virtual {p1, v0, v1, v2}, Landroid/content/Intent;->getLongExtra(Ljava/lang/String;J)J
-
-    move-result-wide v8
-
-    const-string v0, "android.intent.extra.RESULT_RECEIVER"
-
-    invoke-virtual {p1, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object p1
-
-    move-object v5, p1
-
-    check-cast v5, Landroid/os/ResultReceiver;
-
-    invoke-static {}, Lcom/google/android/systemui/dreamliner/DockObserver;->access$400()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_0
-
-    new-instance p1, Ljava/lang/StringBuilder;
-
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v0, "sF, id="
-
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    const-string v0, ", feature="
-
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1, v8, v9}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    const-string v0, "DLObserver"
-
-    invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    if-eqz v5, :cond_3
-
-    cmp-long p1, v6, v1
-
-    if-eqz p1, :cond_2
-
-    cmp-long p1, v8, v1
-
-    if-nez p1, :cond_1
-
-    goto :goto_0
-
-    :cond_1
-    new-instance p1, Lcom/google/android/systemui/dreamliner/DockObserver$SetFeatures;
-
-    iget-object v4, p0, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver;->this$0:Lcom/google/android/systemui/dreamliner/DockObserver;
-
-    move-object v3, p1
-
-    invoke-direct/range {v3 .. v9}, Lcom/google/android/systemui/dreamliner/DockObserver$SetFeatures;-><init>(Lcom/google/android/systemui/dreamliner/DockObserver;Landroid/os/ResultReceiver;JJ)V
-
-    invoke-static {p1}, Lcom/google/android/systemui/dreamliner/DockObserver;->access$1200(Ljava/lang/Runnable;)V
-
-    goto :goto_1
-
-    :cond_2
-    :goto_0
-    const/4 p0, 0x1
-
-    const/4 p1, 0x0
-
-    invoke-virtual {v5, p0, p1}, Landroid/os/ResultReceiver;->send(ILandroid/os/Bundle;)V
-
-    :cond_3
-    :goto_1
-    return-void
-.end method
-
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
@@ -877,7 +701,7 @@
     goto/16 :goto_0
 
     :cond_2
-    const/16 v1, 0x15
+    const/16 v1, 0x13
 
     goto/16 :goto_0
 
@@ -893,7 +717,7 @@
     goto/16 :goto_0
 
     :cond_3
-    const/16 v1, 0x14
+    const/16 v1, 0x12
 
     goto/16 :goto_0
 
@@ -909,7 +733,7 @@
     goto/16 :goto_0
 
     :cond_4
-    const/16 v1, 0x13
+    const/16 v1, 0x11
 
     goto/16 :goto_0
 
@@ -925,12 +749,12 @@
     goto/16 :goto_0
 
     :cond_5
-    const/16 v1, 0x12
+    const/16 v1, 0x10
 
     goto/16 :goto_0
 
     :sswitch_4
-    const-string v2, "com.google.android.systemui.dreamliner.ACTION_GET_FEATURES"
+    const-string v2, "com.google.android.systemui.dreamliner.assistant_poodle"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -941,12 +765,12 @@
     goto/16 :goto_0
 
     :cond_6
-    const/16 v1, 0x11
+    const/16 v1, 0xf
 
     goto/16 :goto_0
 
     :sswitch_5
-    const-string v2, "com.google.android.systemui.dreamliner.assistant_poodle"
+    const-string v2, "com.google.android.systemui.dreamliner.photo"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -957,12 +781,12 @@
     goto/16 :goto_0
 
     :cond_7
-    const/16 v1, 0x10
+    const/16 v1, 0xe
 
     goto/16 :goto_0
 
     :sswitch_6
-    const-string v2, "com.google.android.systemui.dreamliner.photo"
+    const-string v2, "com.google.android.systemui.dreamliner.pause"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -973,12 +797,12 @@
     goto/16 :goto_0
 
     :cond_8
-    const/16 v1, 0xf
+    const/16 v1, 0xd
 
     goto/16 :goto_0
 
     :sswitch_7
-    const-string v2, "com.google.android.systemui.dreamliner.pause"
+    const-string v2, "com.google.android.systemui.dreamliner.dream"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -989,12 +813,12 @@
     goto/16 :goto_0
 
     :cond_9
-    const/16 v1, 0xe
+    const/16 v1, 0xc
 
     goto/16 :goto_0
 
     :sswitch_8
-    const-string v2, "com.google.android.systemui.dreamliner.dream"
+    const-string v2, "com.google.android.systemui.dreamliner.undock"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1005,12 +829,12 @@
     goto/16 :goto_0
 
     :cond_a
-    const/16 v1, 0xd
+    const/16 v1, 0xb
 
     goto/16 :goto_0
 
     :sswitch_9
-    const-string v2, "com.google.android.systemui.dreamliner.undock"
+    const-string v2, "com.google.android.systemui.dreamliner.resume"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1021,12 +845,12 @@
     goto/16 :goto_0
 
     :cond_b
-    const/16 v1, 0xc
+    const/16 v1, 0xa
 
     goto/16 :goto_0
 
     :sswitch_a
-    const-string v2, "com.google.android.systemui.dreamliner.resume"
+    const-string v2, "com.google.android.systemui.dreamliner.paired"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1037,12 +861,12 @@
     goto/16 :goto_0
 
     :cond_c
-    const/16 v1, 0xb
+    const/16 v1, 0x9
 
     goto/16 :goto_0
 
     :sswitch_b
-    const-string v2, "com.google.android.systemui.dreamliner.paired"
+    const-string v2, "com.google.android.systemui.dreamliner.ACTION_GET_WPC_DIGESTS"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1053,12 +877,12 @@
     goto/16 :goto_0
 
     :cond_d
-    const/16 v1, 0xa
+    const/16 v1, 0x8
 
     goto/16 :goto_0
 
     :sswitch_c
-    const-string v2, "com.google.android.systemui.dreamliner.ACTION_GET_WPC_DIGESTS"
+    const-string v2, "com.google.android.systemui.dreamliner.ACTION_GET_FAN_SIMPLE_INFO"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1066,15 +890,15 @@
 
     if-nez v0, :cond_e
 
-    goto/16 :goto_0
+    goto :goto_0
 
     :cond_e
-    const/16 v1, 0x9
+    const/4 v1, 0x7
 
-    goto/16 :goto_0
+    goto :goto_0
 
     :sswitch_d
-    const-string v2, "com.google.android.systemui.dreamliner.ACTION_GET_FAN_SIMPLE_INFO"
+    const-string v2, "com.google.android.systemui.dreamliner.ACTION_CHALLENGE"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1082,15 +906,15 @@
 
     if-nez v0, :cond_f
 
-    goto/16 :goto_0
+    goto :goto_0
 
     :cond_f
-    const/16 v1, 0x8
+    const/4 v1, 0x6
 
-    goto/16 :goto_0
+    goto :goto_0
 
     :sswitch_e
-    const-string v2, "com.google.android.systemui.dreamliner.ACTION_CHALLENGE"
+    const-string v2, "com.google.android.systemui.dreamliner.ACTION_DOCK_UI_IDLE"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1101,12 +925,12 @@
     goto :goto_0
 
     :cond_10
-    const/4 v1, 0x7
+    const/4 v1, 0x5
 
     goto :goto_0
 
     :sswitch_f
-    const-string v2, "com.google.android.systemui.dreamliner.ACTION_DOCK_UI_IDLE"
+    const-string v2, "com.google.android.systemui.dreamliner.photo_error"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1117,12 +941,12 @@
     goto :goto_0
 
     :cond_11
-    const/4 v1, 0x6
+    const/4 v1, 0x4
 
     goto :goto_0
 
     :sswitch_10
-    const-string v2, "com.google.android.systemui.dreamliner.photo_error"
+    const-string v2, "com.google.android.systemui.dreamliner.ACTION_KEY_EXCHANGE"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1133,12 +957,12 @@
     goto :goto_0
 
     :cond_12
-    const/4 v1, 0x5
+    const/4 v1, 0x3
 
     goto :goto_0
 
     :sswitch_11
-    const-string v2, "com.google.android.systemui.dreamliner.ACTION_KEY_EXCHANGE"
+    const-string v2, "com.google.android.systemui.dreamliner.ACTION_GET_DOCK_INFO"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1149,12 +973,12 @@
     goto :goto_0
 
     :cond_13
-    const/4 v1, 0x4
+    move v1, v3
 
     goto :goto_0
 
     :sswitch_12
-    const-string v2, "com.google.android.systemui.dreamliner.ACTION_GET_DOCK_INFO"
+    const-string v2, "com.google.android.systemui.dreamliner.ACTION_SET_FAN"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1165,12 +989,12 @@
     goto :goto_0
 
     :cond_14
-    const/4 v1, 0x3
+    move v1, v4
 
     goto :goto_0
 
     :sswitch_13
-    const-string v2, "com.google.android.systemui.dreamliner.ACTION_SET_FAN"
+    const-string v2, "com.google.android.systemui.dreamliner.ACTION_GET_FAN_LEVEL"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1181,38 +1005,6 @@
     goto :goto_0
 
     :cond_15
-    move v1, v3
-
-    goto :goto_0
-
-    :sswitch_14
-    const-string v2, "com.google.android.systemui.dreamliner.ACTION_SET_FEATURES"
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_16
-
-    goto :goto_0
-
-    :cond_16
-    move v1, v4
-
-    goto :goto_0
-
-    :sswitch_15
-    const-string v2, "com.google.android.systemui.dreamliner.ACTION_GET_FAN_LEVEL"
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_17
-
-    goto :goto_0
-
-    :cond_17
     move v1, v5
 
     :goto_0
@@ -1245,18 +1037,13 @@
     goto/16 :goto_1
 
     :pswitch_4
-    invoke-direct {p0, p2}, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver;->getFeatures(Landroid/content/Intent;)V
-
-    goto/16 :goto_1
-
-    :pswitch_5
     iget-object p1, p0, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver;->this$0:Lcom/google/android/systemui/dreamliner/DockObserver;
 
     invoke-static {p1}, Lcom/google/android/systemui/dreamliner/DockObserver;->access$1900(Lcom/google/android/systemui/dreamliner/DockObserver;)Lcom/google/android/systemui/dreamliner/DockIndicationController;
 
     move-result-object p1
 
-    if-eqz p1, :cond_19
+    if-eqz p1, :cond_17
 
     iget-object p0, p0, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver;->this$0:Lcom/google/android/systemui/dreamliner/DockObserver;
 
@@ -1274,7 +1061,7 @@
 
     goto/16 :goto_1
 
-    :pswitch_6
+    :pswitch_5
     iget-object p1, p0, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver;->this$0:Lcom/google/android/systemui/dreamliner/DockObserver;
 
     invoke-static {p1, p2}, Lcom/google/android/systemui/dreamliner/DockObserver;->access$2000(Lcom/google/android/systemui/dreamliner/DockObserver;Landroid/content/Intent;)V
@@ -1285,7 +1072,7 @@
 
     goto/16 :goto_1
 
-    :pswitch_7
+    :pswitch_6
     iget-object p1, p0, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver;->this$0:Lcom/google/android/systemui/dreamliner/DockObserver;
 
     invoke-static {p1, v3}, Lcom/google/android/systemui/dreamliner/DockObserver;->access$1800(Lcom/google/android/systemui/dreamliner/DockObserver;I)V
@@ -1304,7 +1091,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_19
+    if-eqz p1, :cond_17
 
     iget-object p0, p0, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver;->this$0:Lcom/google/android/systemui/dreamliner/DockObserver;
 
@@ -1314,14 +1101,14 @@
 
     goto/16 :goto_1
 
-    :pswitch_8
+    :pswitch_7
     iget-object p0, p0, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver;->this$0:Lcom/google/android/systemui/dreamliner/DockObserver;
 
     invoke-static {p0, p1}, Lcom/google/android/systemui/dreamliner/DockObserver;->access$1600(Lcom/google/android/systemui/dreamliner/DockObserver;Landroid/content/Context;)V
 
     goto/16 :goto_1
 
-    :pswitch_9
+    :pswitch_8
     iget-object p1, p0, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver;->this$0:Lcom/google/android/systemui/dreamliner/DockObserver;
 
     invoke-static {p1, v5}, Lcom/google/android/systemui/dreamliner/DockObserver;->access$1800(Lcom/google/android/systemui/dreamliner/DockObserver;I)V
@@ -1340,7 +1127,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_19
+    if-eqz p1, :cond_17
 
     iget-object p0, p0, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver;->this$0:Lcom/google/android/systemui/dreamliner/DockObserver;
 
@@ -1350,7 +1137,7 @@
 
     goto/16 :goto_1
 
-    :pswitch_a
+    :pswitch_9
     iget-object p1, p0, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver;->this$0:Lcom/google/android/systemui/dreamliner/DockObserver;
 
     iget-object v0, p1, Lcom/google/android/systemui/dreamliner/DockObserver;->mDockGestureController:Lcom/google/android/systemui/dreamliner/DockGestureController;
@@ -1365,7 +1152,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_18
+    if-eqz p1, :cond_16
 
     iget-object p1, p0, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver;->this$0:Lcom/google/android/systemui/dreamliner/DockObserver;
 
@@ -1381,8 +1168,8 @@
 
     invoke-virtual {p1, p2}, Lcom/google/android/systemui/dreamliner/DockGestureController;->setTapAction(Landroid/app/PendingIntent;)V
 
-    :cond_18
-    :pswitch_b
+    :cond_16
+    :pswitch_a
     iget-object p1, p0, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver;->this$0:Lcom/google/android/systemui/dreamliner/DockObserver;
 
     invoke-static {p1, v4}, Lcom/google/android/systemui/dreamliner/DockObserver;->access$1800(Lcom/google/android/systemui/dreamliner/DockObserver;I)V
@@ -1401,7 +1188,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_19
+    if-eqz p1, :cond_17
 
     iget-object p0, p0, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver;->this$0:Lcom/google/android/systemui/dreamliner/DockObserver;
 
@@ -1411,24 +1198,24 @@
 
     goto :goto_1
 
-    :pswitch_c
+    :pswitch_b
     invoke-direct {p0, p2}, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver;->getWpcAuthDigests(Landroid/content/Intent;)V
 
     goto :goto_1
 
-    :pswitch_d
+    :pswitch_c
     invoke-direct {p0, p2}, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver;->getFanSimpleInformation(Landroid/content/Intent;)V
 
     goto :goto_1
 
-    :pswitch_e
+    :pswitch_d
     iget-object p0, p0, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver;->this$0:Lcom/google/android/systemui/dreamliner/DockObserver;
 
     invoke-static {p0, p2}, Lcom/google/android/systemui/dreamliner/DockObserver;->access$1500(Lcom/google/android/systemui/dreamliner/DockObserver;Landroid/content/Intent;)V
 
     goto :goto_1
 
-    :pswitch_f
+    :pswitch_e
     iget-object p0, p0, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver;->this$0:Lcom/google/android/systemui/dreamliner/DockObserver;
 
     invoke-static {p0, p1}, Lcom/google/android/systemui/dreamliner/DockObserver;->access$1300(Lcom/google/android/systemui/dreamliner/DockObserver;Landroid/content/Context;)V
@@ -1437,21 +1224,21 @@
 
     goto :goto_1
 
-    :pswitch_10
+    :pswitch_f
     iget-object p0, p0, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver;->this$0:Lcom/google/android/systemui/dreamliner/DockObserver;
 
     invoke-static {p0}, Lcom/google/android/systemui/dreamliner/DockObserver;->access$2200(Lcom/google/android/systemui/dreamliner/DockObserver;)V
 
     goto :goto_1
 
-    :pswitch_11
+    :pswitch_10
     iget-object p0, p0, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver;->this$0:Lcom/google/android/systemui/dreamliner/DockObserver;
 
     invoke-static {p0, p2}, Lcom/google/android/systemui/dreamliner/DockObserver;->access$1400(Lcom/google/android/systemui/dreamliner/DockObserver;Landroid/content/Intent;)V
 
     goto :goto_1
 
-    :pswitch_12
+    :pswitch_11
     const-string v0, "android.intent.extra.RESULT_RECEIVER"
 
     invoke-virtual {p2, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -1460,7 +1247,7 @@
 
     check-cast p2, Landroid/os/ResultReceiver;
 
-    if-eqz p2, :cond_19
+    if-eqz p2, :cond_17
 
     new-instance v0, Lcom/google/android/systemui/dreamliner/DockObserver$GetDockInfo;
 
@@ -1472,17 +1259,12 @@
 
     goto :goto_1
 
-    :pswitch_13
+    :pswitch_12
     invoke-direct {p0, p2}, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver;->setFan(Landroid/content/Intent;)V
 
     goto :goto_1
 
-    :pswitch_14
-    invoke-direct {p0, p2}, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver;->setFeatures(Landroid/content/Intent;)V
-
-    goto :goto_1
-
-    :pswitch_15
+    :pswitch_13
     iget-object p1, p0, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver;->this$0:Lcom/google/android/systemui/dreamliner/DockObserver;
 
     new-instance p2, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver$$ExternalSyntheticLambda0;
@@ -1491,30 +1273,30 @@
 
     invoke-static {p1, p2}, Lcom/google/android/systemui/dreamliner/DockObserver;->access$2300(Lcom/google/android/systemui/dreamliner/DockObserver;Ljava/lang/Runnable;)V
 
-    :cond_19
+    :cond_17
     :goto_1
     return-void
 
+    nop
+
     :sswitch_data_0
     .sparse-switch
-        -0x7f29e46b -> :sswitch_15
-        -0x6f14376c -> :sswitch_14
-        -0x61077fc4 -> :sswitch_13
-        -0x605a5449 -> :sswitch_12
-        -0x5f4582e3 -> :sswitch_11
-        -0x5e6c3fb4 -> :sswitch_10
-        -0x5e29e673 -> :sswitch_f
-        -0x56f61a77 -> :sswitch_e
-        -0x46a28174 -> :sswitch_d
-        -0x28e76e69 -> :sswitch_c
-        -0x20873038 -> :sswitch_b
-        -0x1ce08904 -> :sswitch_a
-        -0x174a14e5 -> :sswitch_9
-        0x279c4354 -> :sswitch_8
-        0x283de147 -> :sswitch_7
-        0x2840f983 -> :sswitch_6
-        0x2ac2dd1d -> :sswitch_5
-        0x34980820 -> :sswitch_4
+        -0x7f29e46b -> :sswitch_13
+        -0x61077fc4 -> :sswitch_12
+        -0x605a5449 -> :sswitch_11
+        -0x5f4582e3 -> :sswitch_10
+        -0x5e6c3fb4 -> :sswitch_f
+        -0x5e29e673 -> :sswitch_e
+        -0x56f61a77 -> :sswitch_d
+        -0x46a28174 -> :sswitch_c
+        -0x28e76e69 -> :sswitch_b
+        -0x20873038 -> :sswitch_a
+        -0x1ce08904 -> :sswitch_9
+        -0x174a14e5 -> :sswitch_8
+        0x279c4354 -> :sswitch_7
+        0x283de147 -> :sswitch_6
+        0x2840f983 -> :sswitch_5
+        0x2ac2dd1d -> :sswitch_4
         0x74803bff -> :sswitch_3
         0x7704ca7f -> :sswitch_2
         0x77c39a5d -> :sswitch_1
@@ -1523,8 +1305,6 @@
 
     :pswitch_data_0
     .packed-switch 0x0
-        :pswitch_15
-        :pswitch_14
         :pswitch_13
         :pswitch_12
         :pswitch_11
@@ -1533,9 +1313,9 @@
         :pswitch_e
         :pswitch_d
         :pswitch_c
-        :pswitch_a
         :pswitch_b
         :pswitch_9
+        :pswitch_a
         :pswitch_8
         :pswitch_7
         :pswitch_6

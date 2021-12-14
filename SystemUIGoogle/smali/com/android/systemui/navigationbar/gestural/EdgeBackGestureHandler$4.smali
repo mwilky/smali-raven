@@ -41,7 +41,7 @@
 
     move-result-object v0
 
-    const-string v1, "systemui"
+    const-string/jumbo v1, "systemui"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

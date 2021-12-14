@@ -121,6 +121,16 @@
     return-object p0
 .end method
 
+.method public setRequestId(J)Lcom/android/systemui/biometrics/AuthContainerView$Builder;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthContainerView$Builder;->mConfig:Lcom/android/systemui/biometrics/AuthContainerView$Config;
+
+    iput-wide p1, v0, Lcom/android/systemui/biometrics/AuthContainerView$Config;->mRequestId:J
+
+    return-object p0
+.end method
+
 .method public setRequireConfirmation(Z)Lcom/android/systemui/biometrics/AuthContainerView$Builder;
     .locals 1
 

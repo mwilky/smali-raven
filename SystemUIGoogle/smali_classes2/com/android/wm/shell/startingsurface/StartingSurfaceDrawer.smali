@@ -168,59 +168,16 @@
     return-void
 .end method
 
-.method private getDisplayContext(Landroid/content/Context;I)Landroid/content/Context;
+.method private getDisplay(I)Landroid/view/Display;
     .locals 0
 
-    if-nez p2, :cond_0
-
-    return-object p1
-
-    :cond_0
     iget-object p0, p0, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;->mDisplayManager:Landroid/hardware/display/DisplayManager;
 
-    invoke-virtual {p0, p2}, Landroid/hardware/display/DisplayManager;->getDisplay(I)Landroid/view/Display;
-
-    move-result-object p0
-
-    if-nez p0, :cond_1
-
-    const/4 p0, 0x0
-
-    return-object p0
-
-    :cond_1
-    invoke-virtual {p1, p0}, Landroid/content/Context;->createDisplayContext(Landroid/view/Display;)Landroid/content/Context;
+    invoke-virtual {p0, p1}, Landroid/hardware/display/DisplayManager;->getDisplay(I)Landroid/view/Display;
 
     move-result-object p0
 
     return-object p0
-.end method
-
-.method private getSplashScreenTheme(ILandroid/content/pm/ActivityInfo;)I
-    .locals 0
-
-    if-eqz p1, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {p2}, Landroid/content/pm/ActivityInfo;->getThemeResource()I
-
-    move-result p0
-
-    if-eqz p0, :cond_1
-
-    invoke-virtual {p2}, Landroid/content/pm/ActivityInfo;->getThemeResource()I
-
-    move-result p1
-
-    goto :goto_0
-
-    :cond_1
-    const p1, 0x10302e3
-
-    :goto_0
-    return p1
 .end method
 
 .method private synthetic lambda$addSplashScreenStartingWindow$1(Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer$SplashScreenViewSupplier;ILandroid/os/IBinder;Landroid/widget/FrameLayout;)V
@@ -521,92 +478,109 @@
     :goto_0
     move-object v8, v3
 
-    if-eqz v8, :cond_e
+    if-eqz v8, :cond_10
 
     iget-object v3, v8, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
     if-nez v3, :cond_1
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
     :cond_1
     iget v3, v2, Landroid/app/ActivityManager$RunningTaskInfo;->displayId:I
 
     iget v9, v2, Landroid/app/ActivityManager$RunningTaskInfo;->taskId:I
 
-    iget-object v4, v0, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;->mContext:Landroid/content/Context;
+    iget v4, v1, Landroid/window/StartingWindowInfo;->splashScreenThemeResId:I
 
-    iget v5, v1, Landroid/window/StartingWindowInfo;->splashScreenThemeResId:I
+    invoke-virtual {v0, v4, v8}, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;->getSplashScreenTheme(ILandroid/content/pm/ActivityInfo;)I
 
-    invoke-direct {v0, v5, v8}, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;->getSplashScreenTheme(ILandroid/content/pm/ActivityInfo;)I
+    move-result v4
 
-    move-result v5
+    sget-boolean v5, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;->DEBUG_SPLASH_SCREEN:Z
 
-    sget-boolean v6, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;->DEBUG_SPLASH_SCREEN:Z
+    if-eqz v5, :cond_2
 
-    if-eqz v6, :cond_2
+    sget-object v6, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;->TAG:Ljava/lang/String;
 
-    sget-object v10, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;->TAG:Ljava/lang/String;
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v11, "addSplashScreen "
 
-    const-string v12, "addSplashScreen "
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v11, v8, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
-    iget-object v12, v8, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v11, " theme="
 
-    const-string v12, " theme="
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static {v5}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v12, " task="
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget v12, v2, Landroid/app/ActivityManager$RunningTaskInfo;->taskId:I
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v12, " suggestType="
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v11, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v4}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
     move-result-object v11
 
-    invoke-static {v10, v11}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v11, " task="
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v11, v2, Landroid/app/ActivityManager$RunningTaskInfo;->taskId:I
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v11, " suggestType="
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v10, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v6, v10}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
-    invoke-direct {v0, v4, v3}, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;->getDisplayContext(Landroid/content/Context;I)Landroid/content/Context;
+    invoke-direct {v0, v3}, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;->getDisplay(I)Landroid/view/Display;
 
-    move-result-object v4
+    move-result-object v6
 
-    if-nez v4, :cond_3
+    if-nez v6, :cond_3
 
     return-void
 
     :cond_3
-    invoke-virtual {v4}, Landroid/content/Context;->getThemeResId()I
+    if-nez v3, :cond_4
+
+    iget-object v6, v0, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;->mContext:Landroid/content/Context;
+
+    goto :goto_1
+
+    :cond_4
+    iget-object v10, v0, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v10, v6}, Landroid/content/Context;->createDisplayContext(Landroid/view/Display;)Landroid/content/Context;
+
+    move-result-object v6
+
+    :goto_1
+    if-nez v6, :cond_5
+
+    return-void
+
+    :cond_5
+    invoke-virtual {v6}, Landroid/content/Context;->getThemeResId()I
 
     move-result v10
 
     const/4 v11, 0x4
 
-    if-eq v5, v10, :cond_4
+    if-eq v4, v10, :cond_6
 
     :try_start_0
     iget-object v10, v8, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
@@ -617,15 +591,15 @@
 
     move-result-object v12
 
-    invoke-virtual {v4, v10, v11, v12}, Landroid/content/Context;->createPackageContextAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)Landroid/content/Context;
+    invoke-virtual {v6, v10, v11, v12}, Landroid/content/Context;->createPackageContextAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)Landroid/content/Context;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-virtual {v4, v5}, Landroid/content/Context;->setTheme(I)V
+    invoke-virtual {v6, v4}, Landroid/content/Context;->setTheme(I)V
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_1
+    goto :goto_2
 
     :catch_0
     move-exception v0
@@ -660,13 +634,13 @@
 
     return-void
 
-    :cond_4
-    :goto_1
+    :cond_6
+    :goto_2
     invoke-virtual {v2}, Landroid/app/ActivityManager$RunningTaskInfo;->getConfiguration()Landroid/content/res/Configuration;
 
     move-result-object v2
 
-    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v10
 
@@ -680,9 +654,9 @@
 
     const/4 v12, 0x0
 
-    if-eqz v10, :cond_8
+    if-eqz v10, :cond_a
 
-    if-eqz v6, :cond_5
+    if-eqz v5, :cond_7
 
     sget-object v10, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;->TAG:Ljava/lang/String;
 
@@ -706,37 +680,37 @@
 
     invoke-static {v10, v13}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_5
-    invoke-virtual {v4, v2}, Landroid/content/Context;->createConfigurationContext(Landroid/content/res/Configuration;)Landroid/content/Context;
+    :cond_7
+    invoke-virtual {v6, v2}, Landroid/content/Context;->createConfigurationContext(Landroid/content/res/Configuration;)Landroid/content/Context;
 
     move-result-object v10
 
-    invoke-virtual {v10, v5}, Landroid/content/Context;->setTheme(I)V
+    invoke-virtual {v10, v4}, Landroid/content/Context;->setTheme(I)V
 
-    sget-object v5, Lcom/android/internal/R$styleable;->Window:[I
+    sget-object v4, Lcom/android/internal/R$styleable;->Window:[I
 
-    invoke-virtual {v10, v5}, Landroid/content/Context;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
+    invoke-virtual {v10, v4}, Landroid/content/Context;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
 
-    move-result-object v5
+    move-result-object v4
 
     const/4 v13, 0x1
 
-    invoke-virtual {v5, v13, v12}, Landroid/content/res/TypedArray;->getResourceId(II)I
+    invoke-virtual {v4, v13, v12}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v13
 
-    if-eqz v13, :cond_7
+    if-eqz v13, :cond_9
 
     :try_start_1
     invoke-virtual {v10, v13}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v14
 
-    if-eqz v14, :cond_7
+    if-eqz v14, :cond_9
 
-    if-eqz v6, :cond_6
+    if-eqz v5, :cond_8
 
-    sget-object v4, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;->TAG:Ljava/lang/String;
+    sget-object v5, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;->TAG:Ljava/lang/String;
 
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -758,14 +732,14 @@
 
     move-result-object v2
 
-    invoke-static {v4, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_1
     .catch Landroid/content/res/Resources$NotFoundException; {:try_start_1 .. :try_end_1} :catch_1
 
-    :cond_6
-    move-object v4, v10
+    :cond_8
+    move-object v6, v10
 
-    goto :goto_2
+    goto :goto_3
 
     :catch_1
     move-exception v0
@@ -790,12 +764,12 @@
 
     return-void
 
-    :cond_7
-    :goto_2
-    invoke-virtual {v5}, Landroid/content/res/TypedArray;->recycle()V
+    :cond_9
+    :goto_3
+    invoke-virtual {v4}, Landroid/content/res/TypedArray;->recycle()V
 
-    :cond_8
-    move-object v10, v4
+    :cond_a
+    move-object v10, v6
 
     new-instance v13, Landroid/view/WindowManager$LayoutParams;
 
@@ -825,14 +799,14 @@
 
     move-result v5
 
-    if-eqz v5, :cond_9
+    if-eqz v5, :cond_b
 
     const v2, 0x1110100
 
-    :cond_9
+    :cond_b
     const/high16 v5, -0x80000000
 
-    if-ne v7, v11, :cond_a
+    if-ne v7, v11, :cond_c
 
     const/16 v6, 0x21
 
@@ -840,12 +814,12 @@
 
     move-result v6
 
-    if-eqz v6, :cond_b
+    if-eqz v6, :cond_d
 
-    :cond_a
+    :cond_c
     or-int/2addr v2, v5
 
-    :cond_b
+    :cond_d
     const/16 v5, 0x32
 
     iget v6, v13, Landroid/view/WindowManager$LayoutParams;->layoutInDisplayCutoutMode:I
@@ -866,17 +840,17 @@
 
     invoke-virtual {v4}, Landroid/content/res/TypedArray;->recycle()V
 
-    if-nez v3, :cond_c
+    if-nez v3, :cond_e
 
     iget-boolean v1, v1, Landroid/window/StartingWindowInfo;->isKeyguardOccluded:Z
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_e
 
     const/high16 v1, 0x80000
 
     or-int/2addr v2, v1
 
-    :cond_c
+    :cond_e
     const v1, 0x20018
 
     or-int/2addr v1, v2
@@ -915,7 +889,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_d
+    if-nez v1, :cond_f
 
     iget v1, v13, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
@@ -923,7 +897,7 @@
 
     iput v1, v13, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
-    :cond_d
+    :cond_f
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -950,7 +924,13 @@
 
     new-instance v6, Landroid/widget/FrameLayout;
 
-    invoke-direct {v6, v10}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
+    iget-object v1, v0, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;->mSplashscreenContentDrawer:Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;
+
+    invoke-virtual {v1, v10}, Lcom/android/wm/shell/startingsurface/SplashscreenContentDrawer;->createViewContextWrapper(Landroid/content/Context;)Landroid/view/ContextThemeWrapper;
+
+    move-result-object v1
+
+    invoke-direct {v6, v1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
 
     invoke-virtual {v6, v12, v12, v12, v12}, Landroid/widget/FrameLayout;->setPadding(IIII)V
 
@@ -1015,7 +995,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_10
 
     iget-object v1, v0, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;->mChoreographer:Landroid/view/Choreographer;
 
@@ -1043,7 +1023,7 @@
     :try_end_2
     .catch Ljava/lang/RuntimeException; {:try_start_2 .. :try_end_2} :catch_2
 
-    goto :goto_3
+    goto :goto_4
 
     :catch_2
     move-exception v0
@@ -1066,8 +1046,8 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :cond_e
-    :goto_3
+    :cond_10
+    :goto_4
     return-void
 .end method
 
@@ -1353,7 +1333,7 @@
     move v2, v1
 
     :goto_0
-    invoke-direct {p0, v2, v0}, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;->getSplashScreenTheme(ILandroid/content/pm/ActivityInfo;)I
+    invoke-virtual {p0, v2, v0}, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;->getSplashScreenTheme(ILandroid/content/pm/ActivityInfo;)I
 
     move-result v0
 
@@ -1432,6 +1412,33 @@
     invoke-static {v0, p1, p0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     return v1
+.end method
+
+.method getSplashScreenTheme(ILandroid/content/pm/ActivityInfo;)I
+    .locals 0
+
+    if-eqz p1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p2}, Landroid/content/pm/ActivityInfo;->getThemeResource()I
+
+    move-result p0
+
+    if-eqz p0, :cond_1
+
+    invoke-virtual {p2}, Landroid/content/pm/ActivityInfo;->getThemeResource()I
+
+    move-result p1
+
+    goto :goto_0
+
+    :cond_1
+    const p1, 0x10302e3
+
+    :goto_0
+    return p1
 .end method
 
 .method getStartingWindowBackgroundColorForTask(I)I

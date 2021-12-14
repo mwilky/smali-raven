@@ -202,7 +202,7 @@
 
     new-instance p0, Landroid/content/Intent;
 
-    const-string v0, "android.settings.TETHER_SETTINGS"
+    const-string v0, "com.android.settings.WIFI_TETHER_SETTINGS"
 
     invoke-direct {p0, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 

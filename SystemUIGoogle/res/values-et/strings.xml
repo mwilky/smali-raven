@@ -363,6 +363,7 @@ Kui see luba on välja lülitatud, siis olemasolevad alarmid ja selle rakenduse 
     <string name="alarms_and_reminders_label">Alarmid ja meeldetuletused</string>
     <string name="alarms_and_reminders_switch_title">Luba alarmide ja meeldetuletuste määramine</string>
     <string name="alarms_and_reminders_title">Alarmid ja meeldetuletused</string>
+    <string name="all_network_unavailable">Ühtegi võrku pole saadaval</string>
     <string name="allow_mock_location">Luba võltsasukohti</string>
     <string name="allow_mock_location_summary">Luba võltsasukohti</string>
     <string name="always_use_accessory">Ava rakendus %1$s alati, kui seade %2$s on ühendatud</string>
@@ -618,6 +619,11 @@ Valik"</string>
     <string name="clock_title_analog">Analoog</string>
     <string name="clock_title_bubble">Mull</string>
     <string name="clock_title_default">Vaikenumbrilaud</string>
+    <string name="columbus_bouncer_message">Avage, et kiirpuudutus lõpetada</string>
+    <string name="columbus_target_request_dialog_allow">Luba</string>
+    <string name="columbus_target_request_dialog_deny">Ära luba</string>
+    <string name="columbus_target_request_dialog_summary">Kui topeltpuudutate telefoni tagakülge, avaneb rakendus %1$s. Saate seda eelistust menüüs Seaded alati muuta.</string>
+    <string name="columbus_target_request_dialog_title">Kas lubada kiirpuudutus rakenduse %1$s avamiseks?</string>
     <string name="compat_mode_off">Venita ekraani täitmiseks</string>
     <string name="compat_mode_on">Suumi ekraani täitmiseks</string>
     <string name="confirm_enable_oem_unlock_text">HOIATUS! Kui see seade on sisse lülitatud, ei toimi seadme turvafunktsioonid.</string>
@@ -740,6 +746,8 @@ Jätkamisel võib andmekasutus olla tasuline."</string>
     <string name="defender_notify_learn_more">Lisateave</string>
     <string name="defender_notify_resume_charge">Jätka laadimist</string>
     <string name="defender_notify_title">Laadimine on ajutiselt piiratud</string>
+    <string name="defender_post_notify_des">Laadimine piirati vahemikus %2$s kuni %3$s %1$s-ni, et säästa aku seisukorda</string>
+    <string name="defender_post_notify_title">Laaditakse tavapäraselt</string>
     <string name="delete_blob_confirmation_text">Kas soovite kindlasti need jagatud andmed kustutada?</string>
     <string name="delete_blob_text">Kustuta jagatud andmed</string>
     <string name="demo_mode">Süsteemi kasutajaliidese demorežiim</string>
@@ -885,6 +893,7 @@ Näoga avamise funktsiooni kasutatavad näoandmed kustutatakse jäädavalt ja tu
     <string name="game_status">Mängimas</string>
     <string name="global_action_lock_message">Lisavalikute nägemiseks avage oma telefon</string>
     <string name="global_action_screenshot">Ekraanipilt</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock on keelatud</string>
     <string name="global_actions_change_description">Teenusele %1$s ja seadmete juhtimisvidinatele juurdepääsemiseks pühkige ekraanikuva ülaosast alla</string>
     <string name="go_to_web">Ava brauser</string>
     <string name="google_services_wallpaper_permission"><b>"Lubage Google'i dünaamilistel taustapiltidel reageerida teie asukohale"</b>", pääsedes juurde Google'i asukohateenustele."</string>
@@ -1232,7 +1241,7 @@ Proovige %2$d sekundi pärast uuesti."</string>
     <string name="media_projection_dialog_text">Rakendus %s saab juurdepääsu kogu teabele, mis on teie ekraanikuval nähtav või mida seadmes salvestamise või ülekande ajal esitatakse. See hõlmab teavet, nagu paroolid, maksete üksikasjad, fotod, sõnumid ja esitatav heli.</string>
     <string name="media_projection_dialog_title">Kas alustada rakendusega %s salvestamist või ülekannet?</string>
     <string name="media_projection_remember_text">Ära kuva uuesti</string>
-    <string name="media_seamless_remote_device">Seade</string>
+    <string name="media_seamless_other_device">Muu seade</string>
     <string name="media_transfer_this_device_name">Telefoni kõlar</string>
     <string name="media_transfer_this_phone">See telefon</string>
     <string name="media_transfer_wired_device_name">Juhtmega heliseade</string>
@@ -1249,9 +1258,13 @@ Proovige %2$d sekundi pärast uuesti."</string>
     <string name="mobile_data">Mobiilne andmeside</string>
     <string name="mobile_data_always_on">Hoia mobiilne andmeside alati aktiivne</string>
     <string name="mobile_data_always_on_summary">Hoidke mobiilne andmeside alati aktiivsena, isegi kui WiFi on aktiivne (võrkude kiireks vahetamiseks).</string>
+    <string name="mobile_data_connection_active">Ühendatud</string>
     <string name="mobile_data_disable_message">Pärast seda pole teil operaatori %s kaudu juurdepääsu andmesidele ega internetile. Internet on saadaval ainult WiFi kaudu.</string>
     <string name="mobile_data_disable_message_default_carrier">teie operaator</string>
     <string name="mobile_data_disable_title">Kas lülitada mobiilne andmeside välja?</string>
+    <string name="mobile_data_no_connection">Ühendus puudub</string>
+    <string name="mobile_data_off_summary">Mobiilset andmesideühendust ei looda automaatselt</string>
+    <string name="mobile_data_settings_title">Mobiilne andmeside</string>
     <string name="mobile_data_text_format">%1$s – %2$s</string>
     <string name="mock_location_app">Valige asukohateavet imiteeriv rakendus</string>
     <string name="mock_location_app_not_set">Asukohateavet imiteeriv rakendus on määramata</string>
@@ -1391,6 +1404,7 @@ Kui teil on küsimusi, võtke ühendust organisatsiooniga %2$s."</string>
     <string name="no_content_in_select_mode">Valitavat teksti ega pilti pole</string>
     <string name="no_conversations_text">Teie hiljutised vestlused kuvatakse siin</string>
     <string name="no_shortcut">%1$s ei toeta vestlusfunktsioone</string>
+    <string name="non_carrier_network_unavailable">Ühtegi muud võrku pole saadaval</string>
     <string name="not_default_data_content_description">Ei ole andmeside kasutamiseks seadistatud</string>
     <string name="not_set">Määramata</string>
     <string name="notif_inline_reply_remove_attachment_description">Eemalda manus</string>
@@ -1571,6 +1585,7 @@ Kui teil on küsimusi, võtke ühendust organisatsiooniga %2$s."</string>
     <string name="power_remaining_only_more_than_subtext">Rohkem kui %1$s jäänud</string>
     <string name="power_remaining_settings_home_page">%1$s – %2$s</string>
     <string name="power_suggestion_battery_run_out">Aku võib tühjaks saada kell %1$s</string>
+    <string name="pref_title_network_details">Võrgu üksikasjad</string>
     <string name="preference_copied">„%1$s” on lõikelauale kopeeritud.</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">Prioriteetsed vestlused</string>
@@ -1740,6 +1755,7 @@ Kui teil on küsimusi, võtke ühendust organisatsiooniga %2$s."</string>
     <string name="right_keycode">Parem võtmekood</string>
     <string name="right_nav_bar_button_type">Täiendava parema nupu tüüp</string>
     <string name="ring_toggle_title">Kõned</string>
+    <string name="rotation_lock_camera_rotation_on">Sees – näopõhine</string>
     <string name="running_foreground_services_msg">Aku ja andmekasutuse üksikasjade nägemiseks puudutage</string>
     <string name="running_foreground_services_title">Rakendusi käitatakse taustal</string>
     <string name="running_process_item_user_label">Kasutaja: %1$s</string>
@@ -1814,6 +1830,7 @@ Kui teil on küsimusi, võtke ühendust organisatsiooniga %2$s."</string>
     <string name="screenshot_top_boundary_pct">Ülapiir: %1$d protsenti</string>
     <string name="search_menu">Otsige seadetest</string>
     <string name="search_menu_title">Otsing</string>
+    <string name="see_all_networks">Kuva kõik</string>
     <string name="see_more_title">Kuva rohkem</string>
     <string name="select_application">Rakenduse valimine</string>
     <string name="select_conversation_text">Puudutage vestlust, et lisada see oma avakuvale</string>
@@ -1926,6 +1943,7 @@ jälgida"</string>
     <string name="switch_bar_off">Väljas</string>
     <string name="switch_bar_on">Sees</string>
     <string name="system_ui_tuner">Süsteemi kasutajaliidese tuuner</string>
+    <string name="tap_a_network_to_connect">Puudutage ühendamiseks võrku</string>
     <string name="tap_again">Puudutage uuesti</string>
     <string name="tap_to_sign_up">Puudutage registreerumiseks</string>
     <string name="tether_settings_title_all">Jagamine / kantav kuumkoht</string>
@@ -1951,6 +1969,7 @@ Puudutage lisateabe saamiseks."</string>
     <string name="time_unit_just_now">Äsja</string>
     <string name="title_convert_fbe">Teisendamine failipõhiseks krüpteeringuks</string>
     <string name="title_usb_accessory">USB-lisaseade</string>
+    <string name="to_switch_networks_disconnect_ethernet">Võrkude vahetamiseks katkestage Etherneti-ühendus</string>
     <string name="too_hot_label">Pixel on liiga kuum</string>
     <string name="touch_filtered_warning">Seaded ei saa teie vastust kinnitada, sest rakendus varjab loataotlust.</string>
     <string name="track_frame_time">Profiili HWUI renderdamine</string>
@@ -2009,10 +2028,12 @@ Puudutage lisateabe saamiseks."</string>
     <string name="tuner_toast">Õnnitleme! Süsteemi kasutajaliidese tuuner lisati seadetesse</string>
     <string name="tuner_warning">Süsteemi kasutajaliidese tuuner pakub täiendavaid võimalusi Androidi kasutajaliidese muutmiseks ja kohandamiseks. Need katselised funktsioonid võivad muutuda, rikki minna või tulevastest versioonidest kaduda. Olge jätkamisel ettevaatlik.</string>
     <string name="tuner_warning_title">Kõik ei pruugi sellest rõõmu tunda</string>
+    <string name="turn_on_wifi">WiFi</string>
     <string name="tv_notification_panel_no_notifications">Märguandeid pole</string>
     <string name="tv_notification_panel_title">Märguanded</string>
     <string name="two_weeks_timestamp">2 nädalat tagasi</string>
     <string name="unknown">Tundmatu</string>
+    <string name="unlock_to_view_networks">Võrkude vaatamiseks avage</string>
     <string name="upcoming_birthday_status">Peagi on sünnipäev</string>
     <string name="upcoming_birthday_status_content_description">Varsti on kasutaja %1$s sünnipäev</string>
     <string name="url_menu_copy">Kopeeri</string>
@@ -2151,9 +2172,11 @@ WiFi-võrgu aadress (BSSID)
     <string name="wifi_disconnected">Pole ühendatud</string>
     <string name="wifi_display_certification">Juhtmeta ekraaniühenduse sertifitseerimine</string>
     <string name="wifi_display_certification_summary">Juhtmeta ekraaniühenduse sertifitseerimisvalikute kuvamine</string>
+    <string name="wifi_empty_list_wifi_on">Võrkude otsimine …</string>
     <string name="wifi_enhanced_mac_randomization">WiFi-võrgu mittepüsiva MAC-aadressi juhuslikustamine</string>
     <string name="wifi_enhanced_mac_randomization_summary">Kui see režiim on lubatud, võidakse selle seadme MAC-aadressi muuta iga kord, kui see ühendatakse võrguga, milles on juhuslikustatud MAC-aadressi määramine lubatud.</string>
     <string name="wifi_fail_to_scan">Võrke ei saa kontrollida</string>
+    <string name="wifi_failed_connect_message">Võrguühenduse loomine ebaõnnestus</string>
     <string name="wifi_hotspot_switch_off_text">Väljas</string>
     <string name="wifi_hotspot_switch_on_text">Sees</string>
     <string name="wifi_is_off">WiFi on välja lülitatud</string>
@@ -2164,6 +2187,7 @@ WiFi-võrgu aadress (BSSID)
     <string name="wifi_not_in_range">Pole vahemikus</string>
     <string name="wifi_passpoint_expired">Aegunud</string>
     <string name="wifi_remembered">Salvestatud</string>
+    <string name="wifi_scan_notify_message">Seadme kasutuskogemuse parandamiseks võivad rakendused ja teenused siiski alati otsida WiFi-võrke isegi siis, kui WiFi on väljas. Seda saab muuta WiFi-skannimise seadetes. <annotation id="link">Muuda</annotation></string>
     <string name="wifi_scan_throttling">WiFi-skannimise ahendamine</string>
     <string name="wifi_scan_throttling_summary">Aeglustab aku tühjenemist ja parandab võrgu toimivust</string>
     <string name="wifi_security_none">Puudub</string>
@@ -2173,6 +2197,7 @@ WiFi-võrgu aadress (BSSID)
     <string name="wifi_unmetered_label">Mittemahupõhine</string>
     <string name="wifi_verbose_logging">Luba WiFi sõnaline logimine</string>
     <string name="wifi_verbose_logging_summary">Suurenda WiFi logimistaset, kuva WiFi valijas SSID RSSI järgi</string>
+    <string name="wifi_wont_autoconnect_for_now">WiFi-ühendust ei looda praegu automaatselt</string>
     <string name="wifitrackerlib_auto_connect_disable">Automaatne ühendamine on väljas</string>
     <string name="wifitrackerlib_available_via_app">Saadaval rakenduse %1$s kaudu</string>
     <string name="wifitrackerlib_connected_via_app">Ühendatud rakenduse %1$s kaudu</string>

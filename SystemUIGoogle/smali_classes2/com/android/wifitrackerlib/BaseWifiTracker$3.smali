@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public onCapabilitiesChanged(Landroid/net/Network;Landroid/net/NetworkCapabilities;)V
-    .locals 3
+    .locals 6
 
     iget-object p1, p0, Lcom/android/wifitrackerlib/BaseWifiTracker$3;->this$0:Lcom/android/wifitrackerlib/BaseWifiTracker;
 
@@ -57,40 +57,96 @@
 
     iget-boolean v1, p1, Lcom/android/wifitrackerlib/BaseWifiTracker;->mIsWifiDefaultRoute:Z
 
-    iget-boolean v2, p1, Lcom/android/wifitrackerlib/BaseWifiTracker;->mIsCellDefaultRoute:Z
+    iget-boolean p1, p1, Lcom/android/wifitrackerlib/BaseWifiTracker;->mIsCellDefaultRoute:Z
+
+    invoke-virtual {p2}, Landroid/net/NetworkCapabilities;->getTransportInfo()Landroid/net/TransportInfo;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    if-eqz v2, :cond_1
+
+    instance-of v4, v2, Landroid/net/vcn/VcnTransportInfo;
+
+    if-eqz v4, :cond_1
+
+    check-cast v2, Landroid/net/vcn/VcnTransportInfo;
+
+    invoke-virtual {v2}, Landroid/net/vcn/VcnTransportInfo;->getWifiInfo()Landroid/net/wifi/WifiInfo;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_1
+
+    move v2, v0
+
+    goto :goto_0
+
+    :cond_1
+    move v2, v3
+
+    :goto_0
+    iget-object v4, p0, Lcom/android/wifitrackerlib/BaseWifiTracker$3;->this$0:Lcom/android/wifitrackerlib/BaseWifiTracker;
 
     invoke-virtual {p2, v0}, Landroid/net/NetworkCapabilities;->hasTransport(I)Z
 
-    move-result v0
+    move-result v5
 
-    iput-boolean v0, p1, Lcom/android/wifitrackerlib/BaseWifiTracker;->mIsWifiDefaultRoute:Z
+    if-nez v5, :cond_3
 
-    iget-object p1, p0, Lcom/android/wifitrackerlib/BaseWifiTracker$3;->this$0:Lcom/android/wifitrackerlib/BaseWifiTracker;
+    if-eqz v2, :cond_2
 
-    const/4 v0, 0x0
+    goto :goto_1
 
-    invoke-virtual {p2, v0}, Landroid/net/NetworkCapabilities;->hasTransport(I)Z
+    :cond_2
+    move v2, v3
+
+    goto :goto_2
+
+    :cond_3
+    :goto_1
+    move v2, v0
+
+    :goto_2
+    iput-boolean v2, v4, Lcom/android/wifitrackerlib/BaseWifiTracker;->mIsWifiDefaultRoute:Z
+
+    iget-object v2, p0, Lcom/android/wifitrackerlib/BaseWifiTracker$3;->this$0:Lcom/android/wifitrackerlib/BaseWifiTracker;
+
+    iget-boolean v4, v2, Lcom/android/wifitrackerlib/BaseWifiTracker;->mIsWifiDefaultRoute:Z
+
+    if-nez v4, :cond_4
+
+    invoke-virtual {p2, v3}, Landroid/net/NetworkCapabilities;->hasTransport(I)Z
 
     move-result p2
 
-    iput-boolean p2, p1, Lcom/android/wifitrackerlib/BaseWifiTracker;->mIsCellDefaultRoute:Z
+    if-eqz p2, :cond_4
 
-    iget-object p1, p0, Lcom/android/wifitrackerlib/BaseWifiTracker$3;->this$0:Lcom/android/wifitrackerlib/BaseWifiTracker;
+    goto :goto_3
 
-    iget-boolean p2, p1, Lcom/android/wifitrackerlib/BaseWifiTracker;->mIsWifiDefaultRoute:Z
+    :cond_4
+    move v0, v3
 
-    if-ne p2, v1, :cond_1
+    :goto_3
+    iput-boolean v0, v2, Lcom/android/wifitrackerlib/BaseWifiTracker;->mIsCellDefaultRoute:Z
 
-    iget-boolean p1, p1, Lcom/android/wifitrackerlib/BaseWifiTracker;->mIsCellDefaultRoute:Z
+    iget-object p2, p0, Lcom/android/wifitrackerlib/BaseWifiTracker$3;->this$0:Lcom/android/wifitrackerlib/BaseWifiTracker;
 
-    if-eq p1, v2, :cond_3
+    iget-boolean v0, p2, Lcom/android/wifitrackerlib/BaseWifiTracker;->mIsWifiDefaultRoute:Z
 
-    :cond_1
+    if-ne v0, v1, :cond_5
+
+    iget-boolean p2, p2, Lcom/android/wifitrackerlib/BaseWifiTracker;->mIsCellDefaultRoute:Z
+
+    if-eq p2, p1, :cond_7
+
+    :cond_5
     invoke-static {}, Lcom/android/wifitrackerlib/BaseWifiTracker;->isVerboseLoggingEnabled()Z
 
     move-result p1
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_6
 
     iget-object p1, p0, Lcom/android/wifitrackerlib/BaseWifiTracker$3;->this$0:Lcom/android/wifitrackerlib/BaseWifiTracker;
 
@@ -144,12 +200,12 @@
 
     invoke-static {p1, p2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_2
+    :cond_6
     iget-object p0, p0, Lcom/android/wifitrackerlib/BaseWifiTracker$3;->this$0:Lcom/android/wifitrackerlib/BaseWifiTracker;
 
     invoke-virtual {p0}, Lcom/android/wifitrackerlib/BaseWifiTracker;->handleDefaultRouteChanged()V
 
-    :cond_3
+    :cond_7
     return-void
 .end method
 

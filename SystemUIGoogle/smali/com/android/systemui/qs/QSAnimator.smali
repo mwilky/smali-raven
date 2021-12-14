@@ -788,7 +788,7 @@
 
     invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v10, "tileView is null "
+    const-string/jumbo v10, "tileView is null "
 
     invoke-virtual {v14, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1599,8 +1599,6 @@
 
     return-void
 
-    nop
-
     :array_0
     .array-data 4
         0x0
@@ -1831,7 +1829,7 @@
 .method public onTuningChanged(Ljava/lang/String;Ljava/lang/String;)V
     .locals 2
 
-    const-string v0, "sysui_qs_fancy_anim"
+    const-string/jumbo v0, "sysui_qs_fancy_anim"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1854,7 +1852,7 @@
     goto :goto_0
 
     :cond_0
-    const-string v0, "sysui_qs_move_whole_rows"
+    const-string/jumbo v0, "sysui_qs_move_whole_rows"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1880,9 +1878,9 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/QSAnimator;->mTunerService:Lcom/android/systemui/tuner/TunerService;
 
-    const-string v0, "sysui_qs_fancy_anim"
+    const-string/jumbo v0, "sysui_qs_fancy_anim"
 
-    const-string v1, "sysui_qs_move_whole_rows"
+    const-string/jumbo v1, "sysui_qs_move_whole_rows"
 
     filled-new-array {v0, v1}, [Ljava/lang/String;
 

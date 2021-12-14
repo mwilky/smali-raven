@@ -220,7 +220,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/doze/AlwaysOnDisplayPolicy$SettingsObserver;->this$0:Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;
 
-    const v1, 0x10e00b8
+    const v1, 0x10e00b9
 
     invoke-virtual {p1, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -230,7 +230,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/doze/AlwaysOnDisplayPolicy$SettingsObserver;->this$0:Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;
 
-    const v1, 0x10e00b7
+    const v1, 0x10e00b8
 
     invoke-virtual {p1, v1}, Landroid/content/res/Resources;->getInteger(I)I
 

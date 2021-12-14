@@ -143,32 +143,12 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$IdKWIVtnNRmXjYEyor95f0g6F6M(Ljava/lang/String;ILjava/util/List;)Z
+.method public static synthetic $r8$lambda$Ud5xqKI2koQ7Mgq5ilDcx1m5scM(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;Lcom/android/systemui/plugins/qs/QSTile;)V
     .locals 0
 
-    invoke-static {p0, p1, p2}, Lcom/android/systemui/qs/QSTileHost;->lambda$addTile$5(Ljava/lang/String;ILjava/util/List;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public static synthetic $r8$lambda$IwI3Xf3FCw_Hcy-P5bkaOimp_fU(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;Lcom/android/systemui/plugins/qs/QSTile;)V
-    .locals 0
-
-    invoke-static {p0, p1, p2, p3}, Lcom/android/systemui/qs/QSTileHost;->lambda$dump$7(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;Lcom/android/systemui/plugins/qs/QSTile;)V
+    invoke-static {p0, p1, p2, p3}, Lcom/android/systemui/qs/QSTileHost;->lambda$dump$8(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;Lcom/android/systemui/plugins/qs/QSTile;)V
 
     return-void
-.end method
-
-.method public static synthetic $r8$lambda$QNvBSVE14jRbY-pIKVwGxFtAKO8(Lcom/android/systemui/plugins/qs/QSTile;)Z
-    .locals 0
-
-    invoke-static {p0}, Lcom/android/systemui/qs/QSTileHost;->lambda$dump$6(Lcom/android/systemui/plugins/qs/QSTile;)Z
-
-    move-result p0
-
-    return p0
 .end method
 
 .method public static synthetic $r8$lambda$XnnK_0WQ5wdF75eDMbUERBqrjpk(Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/tuner/TunerService;Ljavax/inject/Provider;)V
@@ -177,6 +157,36 @@
     invoke-direct {p0, p1, p2}, Lcom/android/systemui/qs/QSTileHost;->lambda$new$0(Lcom/android/systemui/tuner/TunerService;Ljavax/inject/Provider;)V
 
     return-void
+.end method
+
+.method public static synthetic $r8$lambda$qe-bNPG2EZluu8nFyZxYBXwrHq4(Lcom/android/systemui/plugins/qs/QSTile;)Z
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/systemui/qs/QSTileHost;->lambda$dump$7(Lcom/android/systemui/plugins/qs/QSTile;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static synthetic $r8$lambda$vE90fS3HBb4rq1mGbPBM7yV7Mrc(Ljava/lang/String;ILjava/util/List;)Z
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Lcom/android/systemui/qs/QSTileHost;->lambda$addTile$6(Ljava/lang/String;ILjava/util/List;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static synthetic $r8$lambda$wJogp9E4Wei4cAKx9yhxpzodcvk(Ljava/util/Collection;Ljava/util/List;)Z
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/systemui/qs/QSTileHost;->lambda$removeTiles$5(Ljava/util/Collection;Ljava/util/List;)Z
+
+    move-result p0
+
+    return p0
 .end method
 
 .method static constructor <clinit>()V
@@ -366,7 +376,7 @@
 
     iget v1, p0, Lcom/android/systemui/qs/QSTileHost;->mCurrentUser:I
 
-    const-string v2, "sysui_qs_tiles"
+    const-string/jumbo v2, "sysui_qs_tiles"
 
     invoke-interface {v0, v2, v1}, Lcom/android/systemui/util/settings/SettingsProxy;->getStringForUser(Ljava/lang/String;I)Ljava/lang/String;
 
@@ -443,7 +453,7 @@
     return-object v0
 .end method
 
-.method private static synthetic lambda$addTile$5(Ljava/lang/String;ILjava/util/List;)Z
+.method private static synthetic lambda$addTile$6(Ljava/lang/String;ILjava/util/List;)Z
     .locals 2
 
     invoke-interface {p2, p0}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
@@ -484,7 +494,7 @@
     return p0
 .end method
 
-.method private static synthetic lambda$dump$6(Lcom/android/systemui/plugins/qs/QSTile;)Z
+.method private static synthetic lambda$dump$7(Lcom/android/systemui/plugins/qs/QSTile;)Z
     .locals 0
 
     instance-of p0, p0, Lcom/android/systemui/Dumpable;
@@ -492,7 +502,7 @@
     return p0
 .end method
 
-.method private static synthetic lambda$dump$7(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;Lcom/android/systemui/plugins/qs/QSTile;)V
+.method private static synthetic lambda$dump$8(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;Lcom/android/systemui/plugins/qs/QSTile;)V
     .locals 0
 
     check-cast p3, Lcom/android/systemui/Dumpable;
@@ -505,7 +515,7 @@
 .method private synthetic lambda$new$0(Lcom/android/systemui/tuner/TunerService;Ljavax/inject/Provider;)V
     .locals 1
 
-    const-string v0, "sysui_qs_tiles"
+    const-string/jumbo v0, "sysui_qs_tiles"
 
     filled-new-array {v0}, [Ljava/lang/String;
 
@@ -594,6 +604,16 @@
     .locals 0
 
     invoke-interface {p1, p0}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method private static synthetic lambda$removeTiles$5(Ljava/util/Collection;Ljava/util/List;)Z
+    .locals 0
+
+    invoke-interface {p1, p0}, Ljava/util/List;->removeAll(Ljava/util/Collection;)Z
 
     move-result p0
 
@@ -916,8 +936,23 @@
 .end method
 
 .method public addTile(Ljava/lang/String;I)V
-    .locals 1
+    .locals 2
 
+    const-string/jumbo v0, "work"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "QSTileHost"
+
+    const-string v1, "Adding work tile"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->wtfStack(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     new-instance v0, Lcom/android/systemui/qs/QSTileHost$$ExternalSyntheticLambda7;
 
     invoke-direct {v0, p1, p2}, Lcom/android/systemui/qs/QSTileHost$$ExternalSyntheticLambda7;-><init>(Ljava/lang/String;I)V
@@ -1203,7 +1238,7 @@
 
     move-result-object p0
 
-    sget-object v0, Lcom/android/systemui/qs/QSTileHost$$ExternalSyntheticLambda9;->INSTANCE:Lcom/android/systemui/qs/QSTileHost$$ExternalSyntheticLambda9;
+    sget-object v0, Lcom/android/systemui/qs/QSTileHost$$ExternalSyntheticLambda10;->INSTANCE:Lcom/android/systemui/qs/QSTileHost$$ExternalSyntheticLambda10;
 
     invoke-interface {p0, v0}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
@@ -1343,7 +1378,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/QSTileHost;->mTunerService:Lcom/android/systemui/tuner/TunerService;
 
-    const-string p2, "sysui_qs_tiles"
+    const-string/jumbo p2, "sysui_qs_tiles"
 
     invoke-virtual {p1, p2}, Lcom/android/systemui/tuner/TunerService;->getValue(Ljava/lang/String;)Ljava/lang/String;
 
@@ -1377,7 +1412,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/QSTileHost;->mTunerService:Lcom/android/systemui/tuner/TunerService;
 
-    const-string v0, "sysui_qs_tiles"
+    const-string/jumbo v0, "sysui_qs_tiles"
 
     invoke-virtual {p1, v0}, Lcom/android/systemui/tuner/TunerService;->getValue(Ljava/lang/String;)Ljava/lang/String;
 
@@ -1395,7 +1430,7 @@
 .method public onTuningChanged(Ljava/lang/String;Ljava/lang/String;)V
     .locals 9
 
-    const-string v0, "sysui_qs_tiles"
+    const-string/jumbo v0, "sysui_qs_tiles"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1497,9 +1532,9 @@
 
     move-result-object v1
 
-    new-instance v2, Lcom/android/systemui/qs/QSTileHost$$ExternalSyntheticLambda8;
+    new-instance v2, Lcom/android/systemui/qs/QSTileHost$$ExternalSyntheticLambda9;
 
-    invoke-direct {v2, p2}, Lcom/android/systemui/qs/QSTileHost$$ExternalSyntheticLambda8;-><init>(Ljava/util/List;)V
+    invoke-direct {v2, p2}, Lcom/android/systemui/qs/QSTileHost$$ExternalSyntheticLambda9;-><init>(Ljava/util/List;)V
 
     invoke-interface {v1, v2}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
@@ -1886,8 +1921,28 @@
     return-void
 .end method
 
+.method public removeTiles(Ljava/util/Collection;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Collection<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    new-instance v0, Lcom/android/systemui/qs/QSTileHost$$ExternalSyntheticLambda8;
+
+    invoke-direct {v0, p1}, Lcom/android/systemui/qs/QSTileHost$$ExternalSyntheticLambda8;-><init>(Ljava/util/Collection;)V
+
+    invoke-direct {p0, v0}, Lcom/android/systemui/qs/QSTileHost;->changeTileSpecs(Ljava/util/function/Predicate;)V
+
+    return-void
+.end method
+
 .method saveTilesToSettings(Ljava/util/List;)V
-    .locals 7
+    .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1897,25 +1952,40 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QSTileHost;->mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
+    const-string/jumbo v0, "work"
 
-    const-string v1, ","
+    invoke-interface {p1, v0}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
-    invoke-static {v1, p1}, Landroid/text/TextUtils;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
+    move-result v0
 
-    move-result-object v2
+    if-eqz v0, :cond_0
 
-    iget v5, p0, Lcom/android/systemui/qs/QSTileHost;->mCurrentUser:I
+    const-string v0, "QSTileHost"
 
-    const-string v1, "sysui_qs_tiles"
+    const-string v1, "Saving work tile"
 
-    const/4 v3, 0x0
+    invoke-static {v0, v1}, Landroid/util/Log;->wtfStack(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v4, 0x0
+    :cond_0
+    iget-object v2, p0, Lcom/android/systemui/qs/QSTileHost;->mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
 
-    const/4 v6, 0x1
+    const-string v0, ","
 
-    invoke-interface/range {v0 .. v6}, Lcom/android/systemui/util/settings/SettingsProxy;->putStringForUser(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZIZ)Z
+    invoke-static {v0, p1}, Landroid/text/TextUtils;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
+
+    move-result-object v4
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
+    iget v7, p0, Lcom/android/systemui/qs/QSTileHost;->mCurrentUser:I
+
+    const/4 v8, 0x1
+
+    const-string/jumbo v3, "sysui_qs_tiles"
+
+    invoke-interface/range {v2 .. v8}, Lcom/android/systemui/util/settings/SettingsProxy;->putStringForUser(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZIZ)Z
 
     return-void
 .end method

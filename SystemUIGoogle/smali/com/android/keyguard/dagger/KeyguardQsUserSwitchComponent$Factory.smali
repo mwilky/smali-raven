@@ -15,5 +15,5 @@
 
 
 # virtual methods
-.method public abstract build(Lcom/android/systemui/statusbar/phone/UserAvatarView;)Lcom/android/keyguard/dagger/KeyguardQsUserSwitchComponent;
+.method public abstract build(Landroid/widget/FrameLayout;)Lcom/android/keyguard/dagger/KeyguardQsUserSwitchComponent;
 .end method

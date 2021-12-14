@@ -29,6 +29,8 @@
 
 .field mPromptInfo:Landroid/hardware/biometrics/PromptInfo;
 
+.field mRequestId:J
+
 .field mRequireConfirmation:Z
 
 .field mSensorIds:[I

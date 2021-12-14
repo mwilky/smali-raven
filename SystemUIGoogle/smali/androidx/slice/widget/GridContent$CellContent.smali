@@ -134,7 +134,7 @@
 
     move-result-object v3
 
-    const-string v4, "time_picker"
+    const-string/jumbo v4, "time_picker"
 
     invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -173,7 +173,7 @@
 
     if-ge v3, v4, :cond_7
 
-    const-string v3, "text"
+    const-string/jumbo v3, "text"
 
     invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -194,7 +194,7 @@
 
     if-eqz v2, :cond_4
 
-    const-string v3, "title"
+    const-string/jumbo v3, "title"
 
     invoke-virtual {v2, v3}, Landroidx/slice/SliceItem;->hasHint(Ljava/lang/String;)Z
 
@@ -351,7 +351,7 @@
     :goto_1
     if-nez p1, :cond_3
 
-    const-string p1, "text"
+    const-string/jumbo p1, "text"
 
     invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -689,7 +689,7 @@
 
     move-result-object v8
 
-    const-string v9, "time_picker"
+    const-string/jumbo v9, "time_picker"
 
     invoke-virtual {v9, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

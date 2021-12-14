@@ -285,6 +285,8 @@
 
 .field private final mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
 
+.field private mMinFraction:F
+
 .field private mNavigationBarBottomHeight:I
 
 .field private mNotificationBoundsAnimationDelay:J
@@ -473,6 +475,8 @@
 .field private mTransitioningToFullShadeProgress:F
 
 .field private mTwoFingerQsExpandPossible:Z
+
+.field private mUdfpsMaxYBurnInOffset:F
 
 .field private final mUiExecutor:Ljava/util/concurrent/Executor;
 
@@ -5802,7 +5806,7 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/systemui/statusbar/phone/UserAvatarView;
+    check-cast v0, Landroid/widget/FrameLayout;
 
     move-object v4, v1
 
@@ -5847,7 +5851,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardStatusBar:Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;
 
-    invoke-direct {p0, v2, v1, v3, v0}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->updateViewControllers(Lcom/android/keyguard/KeyguardStatusView;Lcom/android/systemui/statusbar/phone/UserAvatarView;Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherView;)V
+    invoke-direct {p0, v2, v1, v3, v0}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->updateViewControllers(Lcom/android/keyguard/KeyguardStatusView;Landroid/widget/FrameLayout;Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherView;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mView:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
 
@@ -6802,7 +6806,7 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/systemui/statusbar/phone/UserAvatarView;
+    check-cast v0, Landroid/widget/FrameLayout;
 
     sget v2, Lcom/android/systemui/R$id;->keyguard_user_switcher_view:I
 
@@ -6830,7 +6834,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardStatusBar:Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;
 
-    invoke-direct {p0, v1, v0, v3, v2}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->updateViewControllers(Lcom/android/keyguard/KeyguardStatusView;Lcom/android/systemui/statusbar/phone/UserAvatarView;Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherView;)V
+    invoke-direct {p0, v1, v0, v3, v2}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->updateViewControllers(Lcom/android/keyguard/KeyguardStatusView;Landroid/widget/FrameLayout;Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherView;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mView:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
 
@@ -7206,7 +7210,7 @@
     :goto_1
     iget-boolean v1, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mShouldUseSplitNotificationShade:Z
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_6
 
     iget v1, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mTransitioningToFullShadeProgress:F
 
@@ -7225,17 +7229,17 @@
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->isOnKeyguard()Z
 
-    move-result v2
+    move-result v4
 
-    if-eqz v2, :cond_4
+    if-eqz v4, :cond_4
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/phone/KeyguardBypassController;->getBypassEnabled()Z
+    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/KeyguardBypassController;->getBypassEnabled()Z
 
-    move-result v2
+    move-result v4
 
-    if-eqz v2, :cond_3
+    if-eqz v4, :cond_3
 
     goto :goto_2
 
@@ -7262,6 +7266,43 @@
 
     float-to-int v0, v0
 
+    iget v1, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mMinFraction:F
+
+    cmpl-float v2, v1, v2
+
+    if-lez v2, :cond_5
+
+    const/high16 v2, 0x3f800000    # 1.0f
+
+    cmpg-float v1, v1, v2
+
+    if-gez v1, :cond_5
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PanelViewController;->getExpandedFraction()F
+
+    move-result v1
+
+    iget v4, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mMinFraction:F
+
+    sub-float/2addr v1, v4
+
+    sub-float/2addr v2, v4
+
+    div-float/2addr v1, v2
+
+    int-to-float v0, v0
+
+    div-float/2addr v1, v4
+
+    invoke-static {v1}, Landroid/util/MathUtils;->saturate(F)F
+
+    move-result v1
+
+    mul-float/2addr v0, v1
+
+    float-to-int v0, v0
+
+    :cond_5
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/PanelViewController;->getView()Landroid/view/ViewGroup;
 
     move-result-object v1
@@ -7284,7 +7325,7 @@
 
     goto :goto_3
 
-    :cond_5
+    :cond_6
     iget v1, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mSplitShadeNotificationsTopPadding:I
 
     invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
@@ -7903,7 +7944,7 @@
 .end method
 
 .method private updateClockAppearance()V
-    .locals 22
+    .locals 25
 
     move-object/from16 v0, p0
 
@@ -7935,9 +7976,9 @@
 
     move-result v2
 
-    const/16 v20, 0x1
+    const/16 v23, 0x1
 
-    const/16 v21, 0x0
+    const/4 v13, 0x0
 
     if-nez v2, :cond_1
 
@@ -7952,13 +7993,13 @@
     goto :goto_0
 
     :cond_0
-    move/from16 v12, v21
+    move v12, v13
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    move/from16 v12, v20
+    move/from16 v12, v23
 
     :goto_1
     iget-object v2, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardStatusViewController:Lcom/android/keyguard/KeyguardStatusViewController;
@@ -7978,7 +8019,7 @@
     goto :goto_2
 
     :cond_2
-    move/from16 v9, v21
+    move v9, v13
 
     :goto_2
     iget-object v2, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mUnlockedScreenOffAnimationController:Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
@@ -8011,16 +8052,65 @@
 
     if-eqz v2, :cond_4
 
-    move v13, v3
+    move/from16 v20, v3
 
     goto :goto_4
 
     :cond_4
     iget v2, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mInterpolatedDarkAmount:F
 
-    move v13, v2
+    move/from16 v20, v2
 
     :goto_4
+    const/high16 v2, -0x40800000    # -1.0f
+
+    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    invoke-virtual {v3}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isUdfpsEnrolled()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_5
+
+    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mAuthController:Lcom/android/systemui/biometrics/AuthController;
+
+    invoke-virtual {v3}, Lcom/android/systemui/biometrics/AuthController;->getUdfpsProps()Ljava/util/List;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/util/List;->size()I
+
+    move-result v3
+
+    if-lez v3, :cond_5
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mAuthController:Lcom/android/systemui/biometrics/AuthController;
+
+    invoke-virtual {v2}, Lcom/android/systemui/biometrics/AuthController;->getUdfpsProps()Ljava/util/List;
+
+    move-result-object v2
+
+    invoke-interface {v2, v13}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
+
+    iget v3, v2, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->sensorLocationY:I
+
+    iget v2, v2, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->sensorRadius:I
+
+    sub-int/2addr v3, v2
+
+    int-to-float v2, v3
+
+    iget v3, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mUdfpsMaxYBurnInOffset:F
+
+    sub-float/2addr v2, v3
+
+    :cond_5
+    move/from16 v24, v2
+
     iget-object v2, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mClockPositionAlgorithm:Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;
 
     iget v3, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mStatusBarHeaderHeightKeyguard:I
@@ -8061,38 +8151,54 @@
 
     move/from16 v19, v1
 
-    invoke-virtual/range {v2 .. v19}, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->setup(IIIFIIIIZZFFZIFIZ)V
+    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardStatusViewController:Lcom/android/keyguard/KeyguardStatusViewController;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mClockPositionAlgorithm:Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;
+    iget v13, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mStatusBarHeaderHeightKeyguard:I
 
-    iget-object v2, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mClockPositionResult:Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm$Result;
-
-    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->run(Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm$Result;)V
-
-    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mNotificationStackScrollLayoutController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
-
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->isAddOrRemoveAnimationPending()Z
+    invoke-virtual {v1, v13}, Lcom/android/keyguard/KeyguardStatusViewController;->getClockBottom(I)I
 
     move-result v1
 
-    if-nez v1, :cond_6
+    int-to-float v1, v1
 
-    iget-boolean v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mAnimateNextPositionUpdate:Z
+    move/from16 v21, v1
 
-    if-eqz v1, :cond_5
+    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardStatusViewController:Lcom/android/keyguard/KeyguardStatusViewController;
 
-    goto :goto_5
+    invoke-virtual {v1}, Lcom/android/keyguard/KeyguardStatusViewController;->isClockTopAligned()Z
 
-    :cond_5
-    move/from16 v1, v21
+    move-result v22
 
-    goto :goto_6
+    const/4 v1, 0x0
+
+    move/from16 v13, v20
+
+    move/from16 v20, v24
+
+    invoke-virtual/range {v2 .. v22}, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->setup(IIIFIIIIZZFFZIFIZFFZ)V
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mClockPositionAlgorithm:Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;
+
+    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mClockPositionResult:Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm$Result;
+
+    invoke-virtual {v2, v3}, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->run(Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm$Result;)V
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mNotificationStackScrollLayoutController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
+
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->isAddOrRemoveAnimationPending()Z
+
+    move-result v2
+
+    if-nez v2, :cond_6
+
+    iget-boolean v2, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mAnimateNextPositionUpdate:Z
+
+    if-eqz v2, :cond_7
 
     :cond_6
-    :goto_5
-    move/from16 v1, v20
+    move/from16 v1, v23
 
-    :goto_6
+    :cond_7
     iget-object v2, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardStatusViewController:Lcom/android/keyguard/KeyguardStatusViewController;
 
     iget-object v3, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mClockPositionResult:Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm$Result;
@@ -8107,7 +8213,7 @@
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardQsUserSwitchController:Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_8
 
     iget-object v3, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mClockPositionResult:Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm$Result;
 
@@ -8117,10 +8223,10 @@
 
     invoke-virtual {v2, v4, v3, v1}, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->updatePosition(IIZ)V
 
-    :cond_7
+    :cond_8
     iget-object v2, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardUserSwitcherController:Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_9
 
     iget-object v3, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mClockPositionResult:Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm$Result;
 
@@ -8130,7 +8236,7 @@
 
     invoke-virtual {v2, v4, v3, v1}, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->updatePosition(IIZ)V
 
-    :cond_8
+    :cond_9
     invoke-direct/range {p0 .. p0}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->updateNotificationTranslucency()V
 
     invoke-direct/range {p0 .. p0}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->updateClock()V
@@ -8977,7 +9083,7 @@
     return-void
 .end method
 
-.method private updateViewControllers(Lcom/android/keyguard/KeyguardStatusView;Lcom/android/systemui/statusbar/phone/UserAvatarView;Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherView;)V
+.method private updateViewControllers(Lcom/android/keyguard/KeyguardStatusView;Landroid/widget/FrameLayout;Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherView;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardStatusViewComponentFactory:Lcom/android/keyguard/dagger/KeyguardStatusViewComponent$Factory;
@@ -9029,7 +9135,7 @@
 
     iget-object p3, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardQsUserSwitchComponentFactory:Lcom/android/keyguard/dagger/KeyguardQsUserSwitchComponent$Factory;
 
-    invoke-interface {p3, p2}, Lcom/android/keyguard/dagger/KeyguardQsUserSwitchComponent$Factory;->build(Lcom/android/systemui/statusbar/phone/UserAvatarView;)Lcom/android/keyguard/dagger/KeyguardQsUserSwitchComponent;
+    invoke-interface {p3, p2}, Lcom/android/keyguard/dagger/KeyguardQsUserSwitchComponent$Factory;->build(Landroid/widget/FrameLayout;)Lcom/android/keyguard/dagger/KeyguardQsUserSwitchComponent;
 
     move-result-object p2
 
@@ -10743,7 +10849,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mResources:Landroid/content/res/Resources;
 
-    const v1, 0x1050275
+    const v1, 0x1050276
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -10904,6 +11010,18 @@
     move-result v0
 
     iput v0, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mLockscreenNotificationQSPadding:I
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mResources:Landroid/content/res/Resources;
+
+    sget v1, Lcom/android/systemui/R$dimen;->udfps_burn_in_offset_y:I
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    int-to-float v0, v0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mUdfpsMaxYBurnInOffset:F
 
     return-void
 .end method
@@ -11921,6 +12039,18 @@
     return-void
 .end method
 
+.method public setMinFraction(F)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mMinFraction:F
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mDepthController:Lcom/android/systemui/statusbar/NotificationShadeDepthController;
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->setPanelPullDownMinFraction(F)V
+
+    return-void
+.end method
+
 .method public setOverExpansion(F)V
     .locals 1
 
@@ -12022,7 +12152,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mBar:Lcom/android/systemui/statusbar/phone/PanelBar;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/PanelBar;->panelScrimMinFractionChanged(F)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/PanelBar;->onPanelMinFractionChanged(F)V
 
     return-void
 .end method
@@ -12903,7 +13033,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PanelViewController;->mResources:Landroid/content/res/Resources;
 
-    const v1, 0x1050243
+    const v1, 0x1050244
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

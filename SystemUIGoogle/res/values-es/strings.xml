@@ -198,14 +198,14 @@ Ver ajustes"<annotation id="link"></annotation></string>
     <string name="accessibility_phone_three_bars">Tres barras de cobertura</string>
     <string name="accessibility_phone_two_bars">Dos barras de cobertura</string>
     <string name="accessibility_qs_edit_position">Posición %1$d</string>
-    <string name="accessibility_qs_edit_remove_tile_action">quitar icono</string>
-    <string name="accessibility_qs_edit_tile_add_action">añadir icono al final</string>
+    <string name="accessibility_qs_edit_remove_tile_action">quitar recuadro</string>
+    <string name="accessibility_qs_edit_tile_add_action">añadir recuadro al final</string>
     <string name="accessibility_qs_edit_tile_add_to_position">Añadir a la posición %1$d</string>
-    <string name="accessibility_qs_edit_tile_added">Tarjeta añadida</string>
+    <string name="accessibility_qs_edit_tile_added">Recuadro añadido</string>
     <string name="accessibility_qs_edit_tile_move_to_position">Mover a %1$d</string>
-    <string name="accessibility_qs_edit_tile_removed">Tarjeta quitada</string>
-    <string name="accessibility_qs_edit_tile_start_add">Añadir icono</string>
-    <string name="accessibility_qs_edit_tile_start_move">Mover icono</string>
+    <string name="accessibility_qs_edit_tile_removed">Recuadro quitado</string>
+    <string name="accessibility_qs_edit_tile_start_add">Añadir recuadro</string>
+    <string name="accessibility_qs_edit_tile_start_move">Mover recuadro</string>
     <string name="accessibility_quick_settings_airplane_changed_off">Modo avión desactivado.</string>
     <string name="accessibility_quick_settings_airplane_changed_on">Modo avión activado.</string>
     <string name="accessibility_quick_settings_airplane_off">Modo avión desactivado.</string>
@@ -351,18 +351,19 @@ Ver ajustes"<annotation id="link"></annotation></string>
     <string name="adb_wireless_verifying_qrcode_text">Emparejando dispositivo…</string>
     <string name="adbwifi_warning_message">La depuración inalámbrica solo está pensada para llevar a cabo actividades de desarrollo. Puedes utilizarla para intercambiar datos entre el ordenador y el dispositivo, para instalar aplicaciones en el dispositivo sin recibir notificaciones y para leer datos de registro.</string>
     <string name="adbwifi_warning_title">¿Permitir la depuración inalámbrica?</string>
-    <string name="add_tile">Añadir icono</string>
+    <string name="add_tile">Añadir recuadro</string>
     <string name="add_user_failed">No se ha podido crear el usuario</string>
     <string name="adjust_button_width">Ajustar el ancho del botón</string>
     <string name="airplane_mode">Modo avión</string>
     <string name="alarm_template">a las %1$s</string>
-    <string name="alarm_template_far">el %1$s</string>
+    <string name="alarm_template_far">%1$s</string>
     <string name="alarms_and_reminders_footer_title">"Permite que esta aplicación programe alarmas y otras acciones que se llevan a cabo a una hora determinada. Esto hace que la aplicación siga activa en segundo plano, lo que puede usar más batería.
 
 Si este permiso está desactivado, no funcionarán las alarmas ni los eventos que se activan a una hora determinada que programe esta aplicación."</string>
     <string name="alarms_and_reminders_label">Alarmas y recordatorios</string>
     <string name="alarms_and_reminders_switch_title">Permitir la programación de alarmas y recordatorios</string>
     <string name="alarms_and_reminders_title">Alarmas y recordatorios</string>
+    <string name="all_network_unavailable">No hay redes disponibles</string>
     <string name="allow_mock_location">Ubicaciones simuladas</string>
     <string name="allow_mock_location_summary">Permitir ubicaciones simuladas</string>
     <string name="always_use_accessory">Abrir siempre %1$s al conectar %2$s</string>
@@ -560,7 +561,7 @@ Selección"</string>
     <string name="bottomsheet_action_expand_halfway">Desplegar hasta la mitad</string>
     <string name="branded_monitoring_description_app_personal">Estas conectado a %1$s, que puede controlar tu actividad de red personal, como correos electrónicos, aplicaciones y sitios web.</string>
     <string name="branded_vpn_footer">Puede que la red esté supervisada</string>
-    <string name="broadcast_tile">Icono de emisión</string>
+    <string name="broadcast_tile">Recuadro de emisión</string>
     <string name="bt_hci_snoop_log">Habilitar registro de Bluetooth HCI</string>
     <string name="bt_hci_snoop_log_summary">Capturar paquetes de Bluetooth (después de cambiar esta opción, desactiva y activa el Bluetooth)</string>
     <string name="bt_is_off">Bluetooth desactivado</string>
@@ -618,6 +619,11 @@ Selección"</string>
     <string name="clock_title_analog">Analógico</string>
     <string name="clock_title_bubble">Burbuja</string>
     <string name="clock_title_default">Predeterminado</string>
+    <string name="columbus_bouncer_message">Desbloquea para completar Toque rápido</string>
+    <string name="columbus_target_request_dialog_allow">Permitir</string>
+    <string name="columbus_target_request_dialog_deny">No permitir</string>
+    <string name="columbus_target_request_dialog_summary">Cuando des dos toques en la parte trasera del teléfono, se abrirá %1$s. Puedes cambiar esta preferencia en cualquier momento desde Ajustes.</string>
+    <string name="columbus_target_request_dialog_title">¿Permitir que Toque rápido abra %1$s?</string>
     <string name="compat_mode_off">Expandir para ajustar</string>
     <string name="compat_mode_on">Zoom para ajustar</string>
     <string name="confirm_enable_oem_unlock_text">ADVERTENCIA: Las funciones de protección no funcionarán en este dispositivo mientras esta opción esté activada.</string>
@@ -740,6 +746,8 @@ Si vuelves a activar el uso de datos, es posible que se apliquen cargos."</strin
     <string name="defender_notify_learn_more">Más información</string>
     <string name="defender_notify_resume_charge">Seguir cargando</string>
     <string name="defender_notify_title">Carga limitada temporalmente</string>
+    <string name="defender_post_notify_des">La carga está limitada al %1$s desde las %2$s a las %3$s para preservar el estado de la batería.</string>
+    <string name="defender_post_notify_title">Cargando de forma habitual</string>
     <string name="delete_blob_confirmation_text">¿Seguro que quieres eliminar estos datos compartidos?</string>
     <string name="delete_blob_text">Eliminar datos compartidos</string>
     <string name="demo_mode">Modo de demostración de UI del sistema</string>
@@ -779,9 +787,9 @@ Si vuelves a activar el uso de datos, es posible que se apliquen cargos."</strin
     <string name="dock_non_resizeble_failed_to_dock_text">La aplicación no admite la pantalla dividida.</string>
     <string name="dock_photo_preview_text">Iniciando marco de fotos...</string>
     <string name="dock_promo_text">Desliza a izquierda para marco de fotos</string>
-    <string name="drag_to_add_tiles">Pulsa y arrastra para añadir funciones</string>
-    <string name="drag_to_rearrange_tiles">Mantén pulsado un icono y arrástralo para reubicarlo</string>
-    <string name="drag_to_remove_disabled">Necesitas al menos %1$d iconos</string>
+    <string name="drag_to_add_tiles">Pulsa y arrastra para añadir recuadros</string>
+    <string name="drag_to_rearrange_tiles">Mantén pulsado un recuadro y arrástralo para reubicarlo</string>
+    <string name="drag_to_remove_disabled">Necesitas al menos %1$d recuadros</string>
     <string name="drag_to_remove_tiles">Arrastra aquí para quitar una función</string>
     <string name="empty_shade_text">No hay notificaciones</string>
     <string name="empty_status">¿Hablamos luego?</string>
@@ -793,7 +801,7 @@ Si vuelves a activar el uso de datos, es posible que se apliquen cargos."</strin
     <string name="enable_bluetooth_confirmation_ok">Activar</string>
     <string name="enable_bluetooth_message">Para poder conectar tu teclado a tu tablet, debes activar el Bluetooth.</string>
     <string name="enable_bluetooth_title">¿Activar Bluetooth?</string>
-    <string name="enable_demo_mode">Habilitar modo de demostración</string>
+    <string name="enable_demo_mode">Habilitar modo demo</string>
     <string name="enable_freeform_support">Habilitar ventanas de forma libre</string>
     <string name="enable_freeform_support_summary">Permite la compatibilidad con ventanas de forma libre experimentales</string>
     <string name="enable_gpu_debug_layers">Activar capas de depuración de GPU</string>
@@ -885,6 +893,7 @@ Los datos faciales que utiliza esta función se eliminarán para siempre y de fo
     <string name="game_status">Reproduciendo</string>
     <string name="global_action_lock_message">Desbloquea el teléfono para ver más opciones</string>
     <string name="global_action_screenshot">Captura de pantalla</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock inhabilitado</string>
     <string name="global_actions_change_description">Para acceder a %1$s y a los controles de dispositivos, desliza el dedo hacia abajo desde la parte superior de la pantalla</string>
     <string name="go_to_web">Ir al navegador</string>
     <string name="google_services_wallpaper_permission"><b>Permitir que los fondos de pantalla animados de Google respondan a tu ubicación</b> accediendo a los servicios de ubicación de Google.</string>
@@ -1232,7 +1241,7 @@ Vuelve a intentarlo dentro de %2$d segundos."</string>
     <string name="media_projection_dialog_text">%s tendrá acceso a toda la información que se muestre en la pantalla o se reproduzca en el dispositivo mientras grabas o envías contenido, incluyendo contraseñas, detalles de pagos, fotos, mensajes y audios que reproduzcas.</string>
     <string name="media_projection_dialog_title">¿Iniciar grabación o el envío de contenido en %s?</string>
     <string name="media_projection_remember_text">No volver a mostrar</string>
-    <string name="media_seamless_remote_device">Dispositivo</string>
+    <string name="media_seamless_other_device">Otro dispositivo</string>
     <string name="media_transfer_this_device_name">Altavoz del teléfono</string>
     <string name="media_transfer_this_phone">Este teléfono</string>
     <string name="media_transfer_wired_device_name">Dispositivo de audio con cable</string>
@@ -1249,9 +1258,13 @@ Vuelve a intentarlo dentro de %2$d segundos."</string>
     <string name="mobile_data">Datos móviles</string>
     <string name="mobile_data_always_on">Datos móviles siempre activos</string>
     <string name="mobile_data_always_on_summary">Mantiene los datos móviles siempre activos aunque la conexión Wi‑Fi esté habilitada (para cambiar de red rápidamente)</string>
+    <string name="mobile_data_connection_active">Conectado</string>
     <string name="mobile_data_disable_message">No tendrás acceso a datos móviles ni a Internet a través de %s. Solo podrás conectarte a Internet mediante Wi‑Fi.</string>
     <string name="mobile_data_disable_message_default_carrier">tu operador</string>
     <string name="mobile_data_disable_title">¿Desactivar datos móviles?</string>
+    <string name="mobile_data_no_connection">Sin conexión</string>
+    <string name="mobile_data_off_summary">Los datos móviles no se conectarán automáticamente</string>
+    <string name="mobile_data_settings_title">Datos móviles</string>
     <string name="mobile_data_text_format">%1$s ‑ %2$s</string>
     <string name="mock_location_app">Elegir aplicación para simular ubicación</string>
     <string name="mock_location_app_not_set">Aplicación para simular ubicación no establecida</string>
@@ -1391,6 +1404,7 @@ Si tienes alguna pregunta, ponte en contacto con %2$s."</string>
     <string name="no_content_in_select_mode">No hay texto ni imágenes seleccionables</string>
     <string name="no_conversations_text">Tus conversaciones recientes se mostrarán aquí</string>
     <string name="no_shortcut">%1$s no admite funciones de conversación</string>
+    <string name="non_carrier_network_unavailable">No hay otras redes disponibles</string>
     <string name="not_default_data_content_description">No está establecido para usar los datos</string>
     <string name="not_set">Sin definir</string>
     <string name="notif_inline_reply_remove_attachment_description">Quitar archivo adjunto</string>
@@ -1571,6 +1585,7 @@ Si tienes alguna pregunta, ponte en contacto con %2$s."</string>
     <string name="power_remaining_only_more_than_subtext">Tiempo restante: más de %1$s</string>
     <string name="power_remaining_settings_home_page">%1$s: %2$s</string>
     <string name="power_suggestion_battery_run_out">Puede que se agote la batería sobre las %1$s</string>
+    <string name="pref_title_network_details">Detalles de la red</string>
     <string name="preference_copied">\"%1$s\" se ha copiado en el portapapeles.</string>
     <string name="preference_summary_default_combination">%1$s/%2$s</string>
     <string name="priority_conversations">Conversaciones prioritarias</string>
@@ -1740,6 +1755,7 @@ Si tienes alguna pregunta, ponte en contacto con %2$s."</string>
     <string name="right_keycode">Código de teclado a la derecha</string>
     <string name="right_nav_bar_button_type">Tipo de botón a la derecha extra</string>
     <string name="ring_toggle_title">Llamadas</string>
+    <string name="rotation_lock_camera_rotation_on">Activado: basado en caras</string>
     <string name="running_foreground_services_msg">Toca para ver información detallada sobre el uso de datos y de la batería</string>
     <string name="running_foreground_services_title">Aplicaciones que se están ejecutando en segundo plano</string>
     <string name="running_process_item_user_label">Usuario: %1$s</string>
@@ -1814,6 +1830,7 @@ Si tienes alguna pregunta, ponte en contacto con %2$s."</string>
     <string name="screenshot_top_boundary_pct">%1$d por ciento del límite superior</string>
     <string name="search_menu">Buscar ajustes</string>
     <string name="search_menu_title">Buscar</string>
+    <string name="see_all_networks">Ver todo</string>
     <string name="see_more_title">Ver más</string>
     <string name="select_application">Selecciona una aplicación</string>
     <string name="select_conversation_text">Toca una conversación para añadirla a la pantalla de inicio</string>
@@ -1849,7 +1866,7 @@ Si tienes alguna pregunta, ponte en contacto con %2$s."</string>
     <string name="show_battery_percentage">Mostrar porcentaje de batería insertado</string>
     <string name="show_battery_percentage_summary">Muestra el porcentaje del nivel de batería en el icono de la barra de estado cuando no se esté cargando</string>
     <string name="show_brightness">Mostrar brillo en ajustes rápidos</string>
-    <string name="show_demo_mode">Mostrar modo de demostración</string>
+    <string name="show_demo_mode">Mostrar modo demo</string>
     <string name="show_hw_layers_updates">Ver actualizaciones de capas de hardware</string>
     <string name="show_hw_layers_updates_summary">Hacer parpadear las capas de hardware en verde cuando se actualizan</string>
     <string name="show_hw_screen_updates">Ver cambios de vista</string>
@@ -1926,6 +1943,7 @@ puede supervisar"</string>
     <string name="switch_bar_off">Desactivado</string>
     <string name="switch_bar_on">Activado</string>
     <string name="system_ui_tuner">Configurador de UI del sistema</string>
+    <string name="tap_a_network_to_connect">Toca una red para conectarte</string>
     <string name="tap_again">Toca de nuevo</string>
     <string name="tap_to_sign_up">Toca para registrarte</string>
     <string name="tether_settings_title_all">Compartir Internet</string>
@@ -1951,6 +1969,7 @@ Toca para ver más información"</string>
     <string name="time_unit_just_now">justo ahora</string>
     <string name="title_convert_fbe">Convirtiendo a un cifrado basado en archivos</string>
     <string name="title_usb_accessory">Accesorio USB</string>
+    <string name="to_switch_networks_disconnect_ethernet">Para cambiar de red, desconecta el cable Ethernet</string>
     <string name="too_hot_label">Píxel demasiado caliente</string>
     <string name="touch_filtered_warning">Una aplicación impide ver una solicitud de permiso, por lo que Ajustes no puede verificar tu respuesta.</string>
     <string name="track_frame_time">Trazar la renderización de HWUI</string>
@@ -2009,10 +2028,12 @@ Toca para ver más información"</string>
     <string name="tuner_toast">¡Enhorabuena! El configurador de UI del sistema se ha añadido a Ajustes</string>
     <string name="tuner_warning">El configurador de UI del sistema te ofrece otras formas de modificar y personalizar la interfaz de usuario de Android. Estas funciones experimentales pueden cambiar, fallar o desaparecer en futuras versiones. Te recomendamos que tengas cuidado.</string>
     <string name="tuner_warning_title">Diversión solo para algunos</string>
+    <string name="turn_on_wifi">Wi-Fi</string>
     <string name="tv_notification_panel_no_notifications">Sin notificaciones</string>
     <string name="tv_notification_panel_title">Notificaciones</string>
     <string name="two_weeks_timestamp">Hace 2 semanas</string>
     <string name="unknown">Desconocido</string>
+    <string name="unlock_to_view_networks">Desbloquea para ver redes</string>
     <string name="upcoming_birthday_status">Cumpleaños en breve</string>
     <string name="upcoming_birthday_status_content_description">Se acerca el cumpleaños de %1$s</string>
     <string name="url_menu_copy">Copiar</string>
@@ -2042,8 +2063,8 @@ Esta aplicación no tiene permisos para grabar, pero podría captar audio a trav
     <string name="usb_disable_contaminant_detection">Habilitar USB</string>
     <string name="usb_port_enabled">Puerto USB habilitado para detectar cargadores y accesorios</string>
     <string name="usb_preference_title">Opciones de transferencia de archivos por USB</string>
-    <string name="use_mtp_button_title">Activar como reproductor de medios (MTP)</string>
-    <string name="use_ptp_button_title">Activar como cámara (PTP)</string>
+    <string name="use_mtp_button_title">Montar como reproductor de medios (MTP)</string>
+    <string name="use_ptp_button_title">Montar como cámara (PTP)</string>
     <string name="use_system_language_to_select_input_method_subtypes">Usar idiomas del sistema</string>
     <string name="user_add_profile_item_summary">Desde tu cuenta, puedes restringir el acceso a las aplicaciones y al contenido</string>
     <string name="user_add_profile_item_title">Perfil restringido</string>
@@ -2151,9 +2172,11 @@ Dirección Wi‑Fi (BSSID)
     <string name="wifi_disconnected">Desconectado</string>
     <string name="wifi_display_certification">Certificación de pantalla inalámbrica</string>
     <string name="wifi_display_certification_summary">Muestra opciones para la certificación de la pantalla inalámbrica</string>
+    <string name="wifi_empty_list_wifi_on">Buscando redes…</string>
     <string name="wifi_enhanced_mac_randomization">Aleatorización de MAC no persistente para conexiones Wi-Fi</string>
     <string name="wifi_enhanced_mac_randomization_summary">Si este modo está habilitado, es posible que la dirección MAC del dispositivo cambie cada vez que se conecte a una red que tenga habilitada la aleatorización de MAC</string>
     <string name="wifi_fail_to_scan">No se puede buscar redes.</string>
+    <string name="wifi_failed_connect_message">No se ha podido conectar a la red</string>
     <string name="wifi_hotspot_switch_off_text">Desactivado</string>
     <string name="wifi_hotspot_switch_on_text">Activado</string>
     <string name="wifi_is_off">Wi-Fi desactivado</string>
@@ -2164,6 +2187,7 @@ Dirección Wi‑Fi (BSSID)
     <string name="wifi_not_in_range">Fuera de rango</string>
     <string name="wifi_passpoint_expired">Caducada</string>
     <string name="wifi_remembered">Guardado</string>
+    <string name="wifi_scan_notify_message">Para mejorar la experiencia con el dispositivo, las aplicaciones y los servicios podrán buscar redes Wi-Fi en cualquier momento, aunque la conexión Wi-Fi esté desactivada. Puedes cambiarlo en los ajustes de búsqueda de redes Wi-Fi. <annotation id="link">Cambiar</annotation></string>
     <string name="wifi_scan_throttling">Limitar búsqueda de redes Wi‑Fi</string>
     <string name="wifi_scan_throttling_summary">Reduce el consumo de batería y mejora el rendimiento de las redes</string>
     <string name="wifi_security_none">Ninguna</string>
@@ -2173,6 +2197,7 @@ Dirección Wi‑Fi (BSSID)
     <string name="wifi_unmetered_label">No medida</string>
     <string name="wifi_verbose_logging">Habilitar registro de Wi-Fi detallado</string>
     <string name="wifi_verbose_logging_summary">Aumenta el nivel de registro de la conexión Wi-Fi y se muestra por SSID RSSI en el selector Wi-Fi</string>
+    <string name="wifi_wont_autoconnect_for_now">Por ahora no se conectará automáticamente a redes Wi-Fi</string>
     <string name="wifitrackerlib_auto_connect_disable">Conexión automática desactivada</string>
     <string name="wifitrackerlib_available_via_app">Disponible con %1$s</string>
     <string name="wifitrackerlib_connected_via_app">Conectado mediante %1$s</string>

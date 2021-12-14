@@ -4,24 +4,79 @@
 
 
 # instance fields
+.field private final broadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
+
+.field private broadcastReceiver:Landroid/content/BroadcastReceiver;
+
 .field private parent:Landroid/view/ViewGroup;
 
 .field private final uiController:Lcom/android/systemui/controls/ui/ControlsUiController;
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/systemui/controls/ui/ControlsUiController;)V
+.method public constructor <init>(Lcom/android/systemui/controls/ui/ControlsUiController;Lcom/android/systemui/broadcast/BroadcastDispatcher;)V
     .locals 1
 
     const-string/jumbo v0, "uiController"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
+    const-string v0, "broadcastDispatcher"
+
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
     invoke-direct {p0}, Lcom/android/systemui/util/LifecycleActivity;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/controls/ui/ControlsActivity;->uiController:Lcom/android/systemui/controls/ui/ControlsUiController;
 
+    iput-object p2, p0, Lcom/android/systemui/controls/ui/ControlsActivity;->broadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
+
     return-void
+.end method
+
+.method private final initBroadcastReceiver()V
+    .locals 8
+
+    new-instance v0, Lcom/android/systemui/controls/ui/ControlsActivity$initBroadcastReceiver$1;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/controls/ui/ControlsActivity$initBroadcastReceiver$1;-><init>(Lcom/android/systemui/controls/ui/ControlsActivity;)V
+
+    iput-object v0, p0, Lcom/android/systemui/controls/ui/ControlsActivity;->broadcastReceiver:Landroid/content/BroadcastReceiver;
+
+    new-instance v3, Landroid/content/IntentFilter;
+
+    invoke-direct {v3}, Landroid/content/IntentFilter;-><init>()V
+
+    const-string v0, "android.intent.action.SCREEN_OFF"
+
+    invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    iget-object v1, p0, Lcom/android/systemui/controls/ui/ControlsActivity;->broadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
+
+    iget-object v2, p0, Lcom/android/systemui/controls/ui/ControlsActivity;->broadcastReceiver:Landroid/content/BroadcastReceiver;
+
+    if-eqz v2, :cond_0
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    const/16 v6, 0xc
+
+    const/4 v7, 0x0
+
+    invoke-static/range {v1 .. v7}, Lcom/android/systemui/broadcast/BroadcastDispatcher;->registerReceiver$default(Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/util/concurrent/Executor;Landroid/os/UserHandle;ILjava/lang/Object;)V
+
+    return-void
+
+    :cond_0
+    const-string p0, "broadcastReceiver"
+
+    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    const/4 p0, 0x0
+
+    throw p0
 .end method
 
 
@@ -85,15 +140,42 @@
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->requireViewById(I)Landroid/view/View;
 
-    move-result-object p0
+    move-result-object p1
 
-    check-cast p0, Landroid/view/ViewGroup;
+    check-cast p1, Landroid/view/ViewGroup;
 
-    sget-object p1, Lcom/android/systemui/controls/ui/ControlsActivity$onCreate$1$1;->INSTANCE:Lcom/android/systemui/controls/ui/ControlsActivity$onCreate$1$1;
+    sget-object v0, Lcom/android/systemui/controls/ui/ControlsActivity$onCreate$1$1;->INSTANCE:Lcom/android/systemui/controls/ui/ControlsActivity$onCreate$1$1;
 
-    invoke-virtual {p0, p1}, Landroid/view/ViewGroup;->setOnApplyWindowInsetsListener(Landroid/view/View$OnApplyWindowInsetsListener;)V
+    invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->setOnApplyWindowInsetsListener(Landroid/view/View$OnApplyWindowInsetsListener;)V
+
+    invoke-direct {p0}, Lcom/android/systemui/controls/ui/ControlsActivity;->initBroadcastReceiver()V
 
     return-void
+.end method
+
+.method protected onDestroy()V
+    .locals 1
+
+    invoke-super {p0}, Lcom/android/systemui/util/LifecycleActivity;->onDestroy()V
+
+    iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlsActivity;->broadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
+
+    iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlsActivity;->broadcastReceiver:Landroid/content/BroadcastReceiver;
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {v0, p0}, Lcom/android/systemui/broadcast/BroadcastDispatcher;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+
+    return-void
+
+    :cond_0
+    const-string p0, "broadcastReceiver"
+
+    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    const/4 p0, 0x0
+
+    throw p0
 .end method
 
 .method protected onPause()V

@@ -363,6 +363,7 @@ Si aquest permís està desactivat, les alarmes i els esdeveniments que ja hagi 
     <string name="alarms_and_reminders_label">Alarmes i recordatoris</string>
     <string name="alarms_and_reminders_switch_title">"Permet la configuració d'alarmes i recordatoris"</string>
     <string name="alarms_and_reminders_title">Alarmes i recordatoris</string>
+    <string name="all_network_unavailable">No hi ha cap xarxa disponible</string>
     <string name="allow_mock_location">Ubicacions simulades</string>
     <string name="allow_mock_location_summary">Permet les ubicacions simulades</string>
     <string name="always_use_accessory">Obre sempre %1$s quan es connecti %2$s</string>
@@ -618,6 +619,11 @@ Selecció"</string>
     <string name="clock_title_analog">Analògica</string>
     <string name="clock_title_bubble">Bombolla</string>
     <string name="clock_title_default">Predeterminada</string>
+    <string name="columbus_bouncer_message">Desbloqueja per completar Toc ràpid</string>
+    <string name="columbus_target_request_dialog_allow">Permet</string>
+    <string name="columbus_target_request_dialog_deny">No permetis</string>
+    <string name="columbus_target_request_dialog_summary">"Quan fas doble toc a la part posterior del telèfon, s'obre %1$s. Pots canviar aquesta preferència en qualsevol moment a Configuració."</string>
+    <string name="columbus_target_request_dialog_title">Vols permetre que Toc ràpid obri %1$s?</string>
     <string name="compat_mode_off">Estira per omplir pant.</string>
     <string name="compat_mode_on">Zoom per omplir pantalla</string>
     <string name="confirm_enable_oem_unlock_text">ADVERTIMENT: les funcions de protecció del dispositiu no funcionaran mentre aquesta opció estigui activada.</string>
@@ -740,6 +746,8 @@ Si reprens l'ús de les dades, es poden aplicar càrrecs."</string>
     <string name="defender_notify_learn_more">Més informació</string>
     <string name="defender_notify_resume_charge">Reprèn la càrrega</string>
     <string name="defender_notify_title">Càrrega limitada temporalment</string>
+    <string name="defender_post_notify_des">"Per mantenir el bon estat de la bateria, la càrrega s'ha limitat a %1$s durant aquest interval: %2$s-%3$s"</string>
+    <string name="defender_post_notify_title">Càrrega normal</string>
     <string name="delete_blob_confirmation_text">Confirmes que vols suprimir aquestes dades compartides?</string>
     <string name="delete_blob_text">Suprimeix dades compartides</string>
     <string name="demo_mode">Mode de demostració de la IU del sistema</string>
@@ -885,6 +893,7 @@ Les dades utilitzades pel desbloqueig facial se suprimiran permanentment i de ma
     <string name="game_status">Jugant</string>
     <string name="global_action_lock_message">Desbloqueja el teu telèfon per veure més opcions</string>
     <string name="global_action_screenshot">Captura de pantalla</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock desactivat</string>
     <string name="global_actions_change_description">Per accedir a %1$s i als controls de dispositius, llisca cap avall des de la part superior de la pantalla</string>
     <string name="go_to_web">Ves al navegador</string>
     <string name="google_services_wallpaper_permission"><b>Permet que els fons de pantalla animats de Google canviïn en funció de la teva ubicació</b>" accedint al servei d'ubicació de Google."</string>
@@ -1232,7 +1241,7 @@ Torna-ho a provar d'aquí a %2$d segons."</string>
     <string name="media_projection_dialog_text">%s tindrà accés a tota la informació que es veu en pantalla o que es reprodueix al dispositiu mentre graves o emets contingut, com ara contrasenyes, detalls dels pagaments, fotos, missatges i àudio.</string>
     <string name="media_projection_dialog_title">Vols començar a gravar o emetre contingut amb %s?</string>
     <string name="media_projection_remember_text">No ho tornis a mostrar</string>
-    <string name="media_seamless_remote_device">Dispositiu</string>
+    <string name="media_seamless_other_device">Un altre dispositiu</string>
     <string name="media_transfer_this_device_name">Altaveu del telèfon</string>
     <string name="media_transfer_this_phone">Aquest telèfon</string>
     <string name="media_transfer_wired_device_name">"Dispositiu d'àudio amb cable"</string>
@@ -1249,9 +1258,13 @@ Torna-ho a provar d'aquí a %2$d segons."</string>
     <string name="mobile_data">Dades mòbils</string>
     <string name="mobile_data_always_on">Dades mòbils sempre actives</string>
     <string name="mobile_data_always_on_summary">Mantén les dades mòbils sempre actives, fins i tot quan la Wi‑Fi està activada (per canviar de xarxa ràpidament)</string>
+    <string name="mobile_data_connection_active">Connectat</string>
     <string name="mobile_data_disable_message">No tindràs accés a dades ni a Internet mitjançant %s. Internet només estarà disponible per Wi-Fi.</string>
     <string name="mobile_data_disable_message_default_carrier">el teu operador de telefonia mòbil</string>
     <string name="mobile_data_disable_title">Vols desactivar les dades mòbils?</string>
+    <string name="mobile_data_no_connection">Sense connexió</string>
+    <string name="mobile_data_off_summary">Les dades mòbils no es connectaran automàticament</string>
+    <string name="mobile_data_settings_title">Dades mòbils</string>
     <string name="mobile_data_text_format">%1$s - %2$s</string>
     <string name="mock_location_app">"Selecciona una aplicació d'ubicació simulada"</string>
     <string name="mock_location_app_not_set">"No s'ha definit cap aplicació d'ubicació simulada"</string>
@@ -1391,6 +1404,7 @@ Si tens cap pregunta, contacta amb %2$s."</string>
     <string name="no_content_in_select_mode">No hi ha text ni imatges que es puguin seleccionar</string>
     <string name="no_conversations_text">Les converses recents es mostraran aquí</string>
     <string name="no_shortcut">%1$s no admet les funcions de converses</string>
+    <string name="non_carrier_network_unavailable">No hi ha cap altra xarxa disponible</string>
     <string name="not_default_data_content_description">"No s'ha definit per utilitzar dades"</string>
     <string name="not_set">No definit</string>
     <string name="notif_inline_reply_remove_attachment_description">Suprimeix el fitxer adjunt</string>
@@ -1477,7 +1491,7 @@ Si tens cap pregunta, contacta amb %2$s."</string>
     <string name="ongoing_privacy_dialog_phonecall">Trucada</string>
     <string name="ongoing_privacy_dialog_recent_op">Utilitzat recentment per %1$s</string>
     <string name="ongoing_privacy_dialog_separator">", "</string>
-    <string name="ongoing_privacy_dialog_using_op">En ús per %1$s</string>
+    <string name="ongoing_privacy_dialog_using_op">%1$s ho està utilitzant</string>
     <string name="open_saver_setting_action">Configuració</string>
     <string name="orb_search_action">Acció de cerca</string>
     <string name="osu_completing_sign_up">"S'està completant el registre…"</string>
@@ -1571,8 +1585,9 @@ Si tens cap pregunta, contacta amb %2$s."</string>
     <string name="power_remaining_only_more_than_subtext">Temps restant superior a %1$s</string>
     <string name="power_remaining_settings_home_page">%1$s: %2$s</string>
     <string name="power_suggestion_battery_run_out">"És possible que la bateria s'esgoti a les %1$s"</string>
+    <string name="pref_title_network_details">Detalls de la xarxa</string>
     <string name="preference_copied">"\"%1$s\" s'ha copiat al porta-retalls"</string>
-    <string name="preference_summary_default_combination">%1$s / %2$s</string>
+    <string name="preference_summary_default_combination">%1$s/%2$s</string>
     <string name="priority_conversations">Converses prioritàries</string>
     <string name="privacy_type_camera">càmera</string>
     <string name="privacy_type_location">ubicació</string>
@@ -1740,6 +1755,7 @@ Si tens cap pregunta, contacta amb %2$s."</string>
     <string name="right_keycode">Codi de tecla de la dreta</string>
     <string name="right_nav_bar_button_type">Tipus de botó addicional de la dreta</string>
     <string name="ring_toggle_title">Trucades</string>
+    <string name="rotation_lock_camera_rotation_on">Activat: basat en cares</string>
     <string name="running_foreground_services_msg">"Toca per obtenir informació sobre l'ús de dades i de bateria"</string>
     <string name="running_foreground_services_title">"Aplicacions que s'estan executant en segon pla"</string>
     <string name="running_process_item_user_label">Usuari: %1$s</string>
@@ -1814,6 +1830,7 @@ Si tens cap pregunta, contacta amb %2$s."</string>
     <string name="screenshot_top_boundary_pct">Marge superior %1$d per cent</string>
     <string name="search_menu">Cerca a la configuració</string>
     <string name="search_menu_title">Cerca</string>
+    <string name="see_all_networks">Mostra-ho tot</string>
     <string name="see_more_title">"Mostra'n més"</string>
     <string name="select_application">Selecciona una aplicació</string>
     <string name="select_conversation_text">"Toca una conversa per afegir-la a la teva pantalla d'inici"</string>
@@ -1926,6 +1943,7 @@ estigui controlada"</string>
     <string name="switch_bar_off">Desactivat</string>
     <string name="switch_bar_on">Activat</string>
     <string name="system_ui_tuner">"Personalitzador d'interfície d'usuari"</string>
+    <string name="tap_a_network_to_connect">Toca una xarxa per connectar-te</string>
     <string name="tap_again">Torna a tocar</string>
     <string name="tap_to_sign_up">Toca per registrar-te</string>
     <string name="tether_settings_title_all">"Compartició de xarxa i punt d'accés Wi-Fi"</string>
@@ -1951,6 +1969,7 @@ Toca per obtenir més informació"</string>
     <string name="time_unit_just_now">Ara mateix</string>
     <string name="title_convert_fbe">"S'està convertint en l'encriptació basada en fitxers"</string>
     <string name="title_usb_accessory">Accessori USB</string>
+    <string name="to_switch_networks_disconnect_ethernet">Per canviar de xarxa, desconnecta la connexió Ethernet</string>
     <string name="too_hot_label">El Pixel està massa calent</string>
     <string name="touch_filtered_warning">Com que hi ha una aplicació que oculta una sol·licitud de permís, no es pot verificar la teva resposta des de la configuració.</string>
     <string name="track_frame_time">Renderització perfil HWUI</string>
@@ -2009,10 +2028,12 @@ Toca per obtenir més informació"</string>
     <string name="tuner_toast">"Enhorabona! El Personalitzador d'interfície d'usuari s'ha afegit a Configuració."</string>
     <string name="tuner_warning">"El Personalitzador d'interfície d'usuari presenta opcions addicionals per canviar i personalitzar la interfície d'usuari d'Android. És possible que aquestes funcions experimentals canviïn, deixin de funcionar o desapareguin en versions futures. Continua amb precaució."</string>
     <string name="tuner_warning_title">Diversió per a uns quants, però no per a tothom</string>
+    <string name="turn_on_wifi">Wi‑Fi</string>
     <string name="tv_notification_panel_no_notifications">Cap notificació</string>
     <string name="tv_notification_panel_title">Notificacions</string>
     <string name="two_weeks_timestamp">Fa 2 setmanes</string>
     <string name="unknown">Desconegut</string>
+    <string name="unlock_to_view_networks">Desbloqueja per veure xarxes</string>
     <string name="upcoming_birthday_status">Aniversari aviat</string>
     <string name="upcoming_birthday_status_content_description">"Aviat serà l'aniversari de: %1$s"</string>
     <string name="url_menu_copy">Copia</string>
@@ -2151,9 +2172,11 @@ Adreça Wi‑Fi (BSSID)
     <string name="wifi_disconnected">Desconnectada</string>
     <string name="wifi_display_certification">Certificació de pantalla sense fil</string>
     <string name="wifi_display_certification_summary">Mostra les opcions per a la certificació de pantalla sense fil</string>
+    <string name="wifi_empty_list_wifi_on">"S'estan cercant xarxes…"</string>
     <string name="wifi_enhanced_mac_randomization">Aleatorització de MAC no persistent per a connexions Wi‑Fi</string>
     <string name="wifi_enhanced_mac_randomization_summary">"Quan aquest mode està activat, és possible que l’adreça MAC d’aquest dispositiu canviï cada vegada que es connecti a una xarxa amb l'aleatorització d'adreces MAC activada"</string>
     <string name="wifi_fail_to_scan">No es poden cercar xarxes</string>
+    <string name="wifi_failed_connect_message">"No s'ha pogut connectar a la xarxa"</string>
     <string name="wifi_hotspot_switch_off_text">Desactiva</string>
     <string name="wifi_hotspot_switch_on_text">Activa</string>
     <string name="wifi_is_off">La Wi-Fi està desactivada</string>
@@ -2164,6 +2187,7 @@ Adreça Wi‑Fi (BSSID)
     <string name="wifi_not_in_range">"Fora de l'abast"</string>
     <string name="wifi_passpoint_expired">Caducada</string>
     <string name="wifi_remembered">Desat</string>
+    <string name="wifi_scan_notify_message">"Per millorar l'experiència del dispositiu, les aplicacions i els serveis poden cercar xarxes Wi‑Fi en qualsevol moment, fins i tot quan la Wi‑Fi estigui desactivada. Pots canviar aquesta opció a la configuració de cerca de xarxes Wi‑Fi. "<annotation id="link">Canvia-la</annotation>.</string>
     <string name="wifi_scan_throttling">Limitació de la cerca de xarxes Wi‑Fi</string>
     <string name="wifi_scan_throttling_summary">Redueix el consum de bateria i millora el rendiment de la xarxa</string>
     <string name="wifi_security_none">Cap</string>
@@ -2173,6 +2197,7 @@ Adreça Wi‑Fi (BSSID)
     <string name="wifi_unmetered_label">"D'ús no mesurat"</string>
     <string name="wifi_verbose_logging">Activa el registre Wi‑Fi detallat</string>
     <string name="wifi_verbose_logging_summary">Augmenta el nivell de registre de la connexió Wi‑Fi i es mostra per SSID RSSI al selector de Wi‑Fi</string>
+    <string name="wifi_wont_autoconnect_for_now">Per ara la Wi‑Fi no es connectarà automàticament</string>
     <string name="wifitrackerlib_auto_connect_disable">Connexió automàtica desactivada</string>
     <string name="wifitrackerlib_available_via_app">Disponible a través de: %1$s</string>
     <string name="wifitrackerlib_connected_via_app">Connectada a través de: %1$s</string>

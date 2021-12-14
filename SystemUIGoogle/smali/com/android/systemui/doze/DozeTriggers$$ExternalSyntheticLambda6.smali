@@ -8,20 +8,20 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/systemui/doze/DozeTriggers;
 
-.field public final synthetic f$1:Ljava/lang/Runnable;
+.field public final synthetic f$1:Lcom/android/systemui/doze/DozeMachine$State;
 
 .field public final synthetic f$2:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/doze/DozeTriggers;Ljava/lang/Runnable;I)V
+.method public synthetic constructor <init>(Lcom/android/systemui/doze/DozeTriggers;Lcom/android/systemui/doze/DozeMachine$State;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda6;->f$0:Lcom/android/systemui/doze/DozeTriggers;
 
-    iput-object p2, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda6;->f$1:Ljava/lang/Runnable;
+    iput-object p2, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda6;->f$1:Lcom/android/systemui/doze/DozeMachine$State;
 
     iput p3, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda6;->f$2:I
 
@@ -35,13 +35,13 @@
 
     iget-object v0, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda6;->f$0:Lcom/android/systemui/doze/DozeTriggers;
 
-    iget-object v1, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda6;->f$1:Ljava/lang/Runnable;
+    iget-object v1, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda6;->f$1:Lcom/android/systemui/doze/DozeMachine$State;
 
     iget p0, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda6;->f$2:I
 
     check-cast p1, Ljava/lang/Boolean;
 
-    invoke-static {v0, v1, p0, p1}, Lcom/android/systemui/doze/DozeTriggers;->$r8$lambda$RNc1u-TsZUg37fmYd0Fst46ytKQ(Lcom/android/systemui/doze/DozeTriggers;Ljava/lang/Runnable;ILjava/lang/Boolean;)V
+    invoke-static {v0, v1, p0, p1}, Lcom/android/systemui/doze/DozeTriggers;->$r8$lambda$jz60iq9LsCQtyJihC9Q_K0Itjuo(Lcom/android/systemui/doze/DozeTriggers;Lcom/android/systemui/doze/DozeMachine$State;ILjava/lang/Boolean;)V
 
     return-void
 .end method

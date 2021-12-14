@@ -277,8 +277,8 @@
     </string-array>
     <string-array name="tile_states_flashlight">
         <item>No disponible</item>
-        <item>Desactivado</item>
-        <item>Activado</item>
+        <item>Desactivada</item>
+        <item>Activada</item>
     </string-array>
     <string-array name="tile_states_hotspot">
         <item>No disponible</item>

@@ -51,6 +51,8 @@
 
 .field private mHostCallback:Lcom/android/systemui/doze/DozeHost$Callback;
 
+.field private final mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+
 .field private mMachine:Lcom/android/systemui/doze/DozeMachine;
 
 .field private final mMainExecutor:Lcom/android/systemui/util/concurrency/DelayableExecutor;
@@ -77,6 +79,14 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$0a0HT3fS9nKIxetOKlscese90qY(Lcom/android/systemui/doze/DozeTriggers;IZZFFZZ[FLjava/lang/Boolean;)V
+    .locals 0
+
+    invoke-direct/range {p0 .. p9}, Lcom/android/systemui/doze/DozeTriggers;->lambda$onSensor$2(IZZFFZZ[FLjava/lang/Boolean;)V
+
+    return-void
+.end method
+
 .method public static synthetic $r8$lambda$7x5GD8oRADMJNF_wwAFPsufPGw4(Lcom/android/systemui/doze/DozeTriggers;FF[F)V
     .locals 0
 
@@ -117,14 +127,6 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$wx5-gWG8wArrvrEM976h5B6wqSc(Lcom/android/systemui/doze/DozeTriggers;ZZFFIZZ[FLjava/lang/Boolean;)V
-    .locals 0
-
-    invoke-direct/range {p0 .. p9}, Lcom/android/systemui/doze/DozeTriggers;->lambda$onSensor$2(ZZFFIZZ[FLjava/lang/Boolean;)V
-
-    return-void
-.end method
-
 .method static constructor <clinit>()V
     .locals 1
 
@@ -135,7 +137,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/doze/DozeHost;Landroid/hardware/display/AmbientDisplayConfiguration;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/util/sensors/AsyncSensorManager;Lcom/android/systemui/util/wakelock/WakeLock;Lcom/android/systemui/dock/DockManager;Lcom/android/systemui/util/sensors/ProximitySensor;Lcom/android/systemui/util/sensors/ProximitySensor$ProximityCheck;Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/internal/logging/UiEventLogger;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/doze/DozeHost;Landroid/hardware/display/AmbientDisplayConfiguration;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/util/sensors/AsyncSensorManager;Lcom/android/systemui/util/wakelock/WakeLock;Lcom/android/systemui/dock/DockManager;Lcom/android/systemui/util/sensors/ProximitySensor;Lcom/android/systemui/util/sensors/ProximitySensor$ProximityCheck;Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/policy/KeyguardStateController;)V
     .locals 15
 
     move-object v0, p0
@@ -253,6 +255,10 @@
     move-object/from16 v1, p15
 
     iput-object v1, v0, Lcom/android/systemui/doze/DozeTriggers;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+
+    move-object/from16 v1, p16
+
+    iput-object v1, v0, Lcom/android/systemui/doze/DozeTriggers;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
     return-void
 .end method
@@ -519,7 +525,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$onSensor$2(ZZFFIZZ[FLjava/lang/Boolean;)V
+.method private synthetic lambda$onSensor$2(IZZFFZZ[FLjava/lang/Boolean;)V
     .locals 0
 
     if-eqz p9, :cond_0
@@ -530,24 +536,45 @@
 
     if-eqz p9, :cond_0
 
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeTriggers;->mDozeLog:Lcom/android/systemui/doze/DozeLog;
+
+    const-string p2, "prox reporting near"
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/doze/DozeLog;->traceSensorEventDropped(ILjava/lang/String;)V
+
     return-void
 
     :cond_0
-    if-nez p1, :cond_6
+    if-nez p2, :cond_7
 
-    if-eqz p2, :cond_1
+    if-eqz p3, :cond_1
 
     goto :goto_0
 
     :cond_1
-    if-eqz p6, :cond_2
+    if-eqz p6, :cond_3
 
-    invoke-direct {p0, p5}, Lcom/android/systemui/doze/DozeTriggers;->gentleWakeUp(I)V
+    invoke-direct {p0}, Lcom/android/systemui/doze/DozeTriggers;->shouldDropPickupEvent()Z
+
+    move-result p2
+
+    if-eqz p2, :cond_2
+
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeTriggers;->mDozeLog:Lcom/android/systemui/doze/DozeLog;
+
+    const-string p2, "keyguard occluded"
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/doze/DozeLog;->traceSensorEventDropped(ILjava/lang/String;)V
+
+    return-void
+
+    :cond_2
+    invoke-direct {p0, p1}, Lcom/android/systemui/doze/DozeTriggers;->gentleWakeUp(I)V
 
     goto :goto_1
 
-    :cond_2
-    if-eqz p7, :cond_5
+    :cond_3
+    if-eqz p7, :cond_6
 
     iget-object p1, p0, Lcom/android/systemui/doze/DozeTriggers;->mMachine:Lcom/android/systemui/doze/DozeMachine;
 
@@ -557,20 +584,20 @@
 
     sget-object p2, Lcom/android/systemui/doze/DozeMachine$State;->DOZE_AOD:Lcom/android/systemui/doze/DozeMachine$State;
 
-    if-eq p1, p2, :cond_3
+    if-eq p1, p2, :cond_4
 
     sget-object p2, Lcom/android/systemui/doze/DozeMachine$State;->DOZE:Lcom/android/systemui/doze/DozeMachine$State;
 
-    if-ne p1, p2, :cond_4
+    if-ne p1, p2, :cond_5
 
-    :cond_3
+    :cond_4
     new-instance p1, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda1;
 
-    invoke-direct {p1, p0, p3, p4, p8}, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/doze/DozeTriggers;FF[F)V
+    invoke-direct {p1, p0, p4, p5, p8}, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/doze/DozeTriggers;FF[F)V
 
     iput-object p1, p0, Lcom/android/systemui/doze/DozeTriggers;->mAodInterruptRunnable:Ljava/lang/Runnable;
 
-    :cond_4
+    :cond_5
     const/16 p1, 0xa
 
     const/4 p2, 0x1
@@ -581,31 +608,31 @@
 
     goto :goto_1
 
-    :cond_5
+    :cond_6
     iget-object p0, p0, Lcom/android/systemui/doze/DozeTriggers;->mDozeHost:Lcom/android/systemui/doze/DozeHost;
 
-    invoke-interface {p0, p5}, Lcom/android/systemui/doze/DozeHost;->extendPulse(I)V
+    invoke-interface {p0, p1}, Lcom/android/systemui/doze/DozeHost;->extendPulse(I)V
 
     goto :goto_1
 
-    :cond_6
-    :goto_0
-    const/high16 p1, -0x40800000    # -1.0f
-
-    cmpl-float p2, p3, p1
-
-    if-eqz p2, :cond_7
-
-    cmpl-float p1, p4, p1
-
-    if-eqz p1, :cond_7
-
-    iget-object p1, p0, Lcom/android/systemui/doze/DozeTriggers;->mDozeHost:Lcom/android/systemui/doze/DozeHost;
-
-    invoke-interface {p1, p3, p4}, Lcom/android/systemui/doze/DozeHost;->onSlpiTap(FF)V
-
     :cond_7
-    invoke-direct {p0, p5}, Lcom/android/systemui/doze/DozeTriggers;->gentleWakeUp(I)V
+    :goto_0
+    const/high16 p2, -0x40800000    # -1.0f
+
+    cmpl-float p3, p4, p2
+
+    if-eqz p3, :cond_8
+
+    cmpl-float p2, p5, p2
+
+    if-eqz p2, :cond_8
+
+    iget-object p2, p0, Lcom/android/systemui/doze/DozeTriggers;->mDozeHost:Lcom/android/systemui/doze/DozeHost;
+
+    invoke-interface {p2, p4, p5}, Lcom/android/systemui/doze/DozeHost;->onSlpiTap(FF)V
+
+    :cond_8
+    invoke-direct {p0, p1}, Lcom/android/systemui/doze/DozeTriggers;->gentleWakeUp(I)V
 
     :goto_1
     return-void
@@ -973,9 +1000,9 @@
 
     if-eqz p1, :cond_0
 
-    new-instance p1, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda5;
+    new-instance p1, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda6;
 
-    invoke-direct {p1, p0, p2, p3}, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda5;-><init>(Lcom/android/systemui/doze/DozeTriggers;Lcom/android/systemui/doze/DozeMachine$State;I)V
+    invoke-direct {p1, p0, p2, p3}, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda6;-><init>(Lcom/android/systemui/doze/DozeTriggers;Lcom/android/systemui/doze/DozeMachine$State;I)V
 
     invoke-direct {p0, p1, v0, p3}, Lcom/android/systemui/doze/DozeTriggers;->proximityCheckThenCall(Ljava/util/function/Consumer;ZI)V
 
@@ -1065,7 +1092,7 @@
 
     const-wide/16 v6, 0x1f4
 
-    new-instance v8, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda4;
+    new-instance v8, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda5;
 
     move-object v0, v8
 
@@ -1075,7 +1102,7 @@
 
     move-object v5, p1
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda4;-><init>(Lcom/android/systemui/doze/DozeTriggers;JILjava/util/function/Consumer;)V
+    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda5;-><init>(Lcom/android/systemui/doze/DozeTriggers;JILjava/util/function/Consumer;)V
 
     invoke-virtual {p2, v6, v7, v8}, Lcom/android/systemui/util/sensors/ProximitySensor$ProximityCheck;->check(JLjava/util/function/Consumer;)V
 
@@ -1156,9 +1183,9 @@
 
     iput-boolean v0, p0, Lcom/android/systemui/doze/DozeTriggers;->mPulsePending:Z
 
-    new-instance v1, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda6;
+    new-instance v1, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda7;
 
-    invoke-direct {v1, p0, p3, p1}, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda6;-><init>(Lcom/android/systemui/doze/DozeTriggers;Ljava/lang/Runnable;I)V
+    invoke-direct {v1, p0, p3, p1}, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda7;-><init>(Lcom/android/systemui/doze/DozeTriggers;Ljava/lang/Runnable;I)V
 
     iget-object p3, p0, Lcom/android/systemui/doze/DozeTriggers;->mDozeParameters:Lcom/android/systemui/statusbar/phone/DozeParameters;
 
@@ -1232,6 +1259,18 @@
 
     :cond_0
     return-void
+.end method
+
+.method private shouldDropPickupEvent()Z
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeTriggers;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+
+    invoke-interface {p0}, Lcom/android/systemui/statusbar/policy/KeyguardStateController;->isOccluded()Z
+
+    move-result p0
+
+    return p0
 .end method
 
 
@@ -1407,24 +1446,24 @@
 
     if-ne v11, v0, :cond_0
 
-    move v2, v13
+    move v3, v13
 
     goto :goto_0
 
     :cond_0
-    move v2, v12
+    move v3, v12
 
     :goto_0
     const/16 v0, 0x9
 
     if-ne v11, v0, :cond_1
 
-    move v3, v13
+    move v4, v13
 
     goto :goto_1
 
     :cond_1
-    move v3, v12
+    move v4, v12
 
     :goto_1
     const/4 v0, 0x3
@@ -1463,16 +1502,16 @@
     move v1, v12
 
     :goto_4
-    const/16 v4, 0x8
+    const/16 v2, 0x8
 
-    if-ne v11, v4, :cond_5
+    if-ne v11, v2, :cond_5
 
-    move v4, v13
+    move v2, v13
 
     goto :goto_5
 
     :cond_5
-    move v4, v12
+    move v2, v12
 
     :goto_5
     const/16 v5, 0xa
@@ -1503,7 +1542,7 @@
 
     if-nez v1, :cond_8
 
-    if-eqz v4, :cond_9
+    if-eqz v2, :cond_9
 
     :cond_8
     if-eqz v9, :cond_9
@@ -1566,30 +1605,30 @@
     goto :goto_c
 
     :cond_d
-    if-nez v4, :cond_f
+    if-nez v2, :cond_f
 
     if-eqz v5, :cond_e
 
     goto :goto_b
 
     :cond_e
-    new-instance v15, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda7;
+    new-instance v15, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda4;
 
     move-object v0, v15
 
     move-object/from16 v1, p0
 
-    move/from16 v4, p2
+    move/from16 v2, p1
 
-    move/from16 v5, p3
+    move/from16 v5, p2
 
-    move/from16 v6, p1
+    move/from16 v6, p3
 
     move v7, v14
 
     move-object/from16 v9, p4
 
-    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda7;-><init>(Lcom/android/systemui/doze/DozeTriggers;ZZFFIZZ[F)V
+    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda4;-><init>(Lcom/android/systemui/doze/DozeTriggers;IZZFFZZ[F)V
 
     invoke-direct {v10, v15, v13, v11}, Lcom/android/systemui/doze/DozeTriggers;->proximityCheckThenCall(Ljava/util/function/Consumer;ZI)V
 
@@ -1604,6 +1643,12 @@
     :cond_10
     :goto_c
     if-eqz v14, :cond_12
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/systemui/doze/DozeTriggers;->shouldDropPickupEvent()Z
+
+    move-result v0
+
+    if-nez v0, :cond_12
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 

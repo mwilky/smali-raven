@@ -363,6 +363,7 @@ Hvis denne tillatelsen er av, fungerer ikke eksisterende alarmer og tidsbaserte 
     <string name="alarms_and_reminders_label">Alarmer og påminnelser</string>
     <string name="alarms_and_reminders_switch_title">Tillat innstilling av alarmer og påminnelser</string>
     <string name="alarms_and_reminders_title">Alarmer og påminnelser</string>
+    <string name="all_network_unavailable">Ingen nettverk er tilgjengelige</string>
     <string name="allow_mock_location">Tillat simulert posisjon</string>
     <string name="allow_mock_location_summary">Tillat bruk av simulerte GPS-koordinater</string>
     <string name="always_use_accessory">Åpne alltid %1$s når %2$s er koblet til</string>
@@ -618,6 +619,11 @@ Valg"</string>
     <string name="clock_title_analog">Analog</string>
     <string name="clock_title_bubble">Boble</string>
     <string name="clock_title_default">Standard</string>
+    <string name="columbus_bouncer_message">Lås opp for å fullføre hurtigtrykk</string>
+    <string name="columbus_target_request_dialog_allow">Tillat</string>
+    <string name="columbus_target_request_dialog_deny">Ikke tillat</string>
+    <string name="columbus_target_request_dialog_summary">Når du dobbelttrykker baksiden av telefonen, åpnes %1$s. Du kan når som helst endre denne innstillingen i Innstillinger.</string>
+    <string name="columbus_target_request_dialog_title">Vil du tillate at hurtigtrykk åpner %1$s?</string>
     <string name="compat_mode_off">Strekk for å fylle skjerm</string>
     <string name="compat_mode_on">Zoom for å fylle skjermen</string>
     <string name="confirm_enable_oem_unlock_text">ADVARSEL: Funksjoner for enhetsbeskyttelse fungerer ikke på denne enheten mens denne innstillingen er slått på.</string>
@@ -740,6 +746,8 @@ Hvis du fortsetter, kan avgifter for databruk påløpe."</string>
     <string name="defender_notify_learn_more">Finn ut mer</string>
     <string name="defender_notify_resume_charge">Gjenoppta ladingen</string>
     <string name="defender_notify_title">Lading er midlertidig begrenset</string>
+    <string name="defender_post_notify_des">Lading ble begrenset til %1$s fra %2$s til %3$s for å bevare batteritilstanden</string>
+    <string name="defender_post_notify_title">Lader normalt</string>
     <string name="delete_blob_confirmation_text">Er du sikker på at du vil slette disse delte dataene?</string>
     <string name="delete_blob_text">Slett delte data</string>
     <string name="demo_mode">Demomodus for systemgrensesnitt</string>
@@ -885,6 +893,7 @@ Ansiktsdataene som brukes av Ansiktslås, blir permanent slettet på en sikker m
     <string name="game_status">Spiller</string>
     <string name="global_action_lock_message">Lås opp telefonen din for å få flere alternativer</string>
     <string name="global_action_screenshot">Skjermdump</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock er slått av</string>
     <string name="global_actions_change_description">For å åpne %1$s og enhetsstyring, sveip ned fra toppen av skjermen</string>
     <string name="go_to_web">Gå til nettleser</string>
     <string name="google_services_wallpaper_permission"><b>La Googles animerte bakgrunner reagere på stedet ditt</b> ved å gå inn på Googles posisjonstjenester.</string>
@@ -1232,7 +1241,7 @@ Prøv på nytt om %2$d sekunder."</string>
     <string name="media_projection_dialog_text">%s får tilgang til all informasjon som er synlig på skjermen din, eller som spilles av fra enheten når du tar opp eller caster. Dette inkluderer informasjon som passord, betalingsopplysninger, bilder, meldinger og lyd du spiller av.</string>
     <string name="media_projection_dialog_title">Vil du starte opptak eller casting med %s?</string>
     <string name="media_projection_remember_text">Ikke vis igjen</string>
-    <string name="media_seamless_remote_device">Enhet</string>
+    <string name="media_seamless_other_device">Annen enhet</string>
     <string name="media_transfer_this_device_name">Telefonhøyttaler</string>
     <string name="media_transfer_this_phone">Denne telefonen</string>
     <string name="media_transfer_wired_device_name">Lydenhet med kabel</string>
@@ -1249,9 +1258,13 @@ Prøv på nytt om %2$d sekunder."</string>
     <string name="mobile_data">Mobildata</string>
     <string name="mobile_data_always_on">Mobildata er alltid aktiv</string>
     <string name="mobile_data_always_on_summary">Ha alltid mobildata slått på, selv når Wi-Fi er aktiv (for hurtig nettverksbytting).</string>
+    <string name="mobile_data_connection_active">Tilkoblet</string>
     <string name="mobile_data_disable_message">Du får ikke tilgang til data eller internett via %s. Internett er bare tilgjengelig via Wi-Fi.</string>
     <string name="mobile_data_disable_message_default_carrier">operatøren din</string>
     <string name="mobile_data_disable_title">Vil du slå av mobildata?</string>
+    <string name="mobile_data_no_connection">Ingen tilkobling</string>
+    <string name="mobile_data_off_summary">Mobildata kobler ikke til automatisk</string>
+    <string name="mobile_data_settings_title">Mobildata</string>
     <string name="mobile_data_text_format">%1$s – %2$s</string>
     <string name="mock_location_app">Velg app for fiktiv plassering</string>
     <string name="mock_location_app_not_set">Ingen app for fiktiv plassering er angitt</string>
@@ -1391,6 +1404,7 @@ Hvis du har spørsmål, kan du kontakte %2$s."</string>
     <string name="no_content_in_select_mode">Ingen tekst eller bilder som skal velges</string>
     <string name="no_conversations_text">De nylige samtalene dine vises her</string>
     <string name="no_shortcut">%1$s støtter ikke samtalefunksjoner</string>
+    <string name="non_carrier_network_unavailable">Ingen andre nettverk er tilgjengelige</string>
     <string name="not_default_data_content_description">Ikke konfigurert til å bruke data</string>
     <string name="not_set">Ikke angitt</string>
     <string name="notif_inline_reply_remove_attachment_description">Fjern vedlegg</string>
@@ -1571,8 +1585,9 @@ Hvis du har spørsmål, kan du kontakte %2$s."</string>
     <string name="power_remaining_only_more_than_subtext">Mer enn %1$s gjenstår</string>
     <string name="power_remaining_settings_home_page">%1$s – %2$s</string>
     <string name="power_suggestion_battery_run_out">Batteriet kan gå tomt %1$s</string>
+    <string name="pref_title_network_details">Nettverksdetaljer</string>
     <string name="preference_copied">«%1$s» er kopiert til utklippstavlen.</string>
-    <string name="preference_summary_default_combination">%1$s / %2$s</string>
+    <string name="preference_summary_default_combination">%1$s/%2$s</string>
     <string name="priority_conversations">Prioriterte samtaler</string>
     <string name="privacy_type_camera">kameraet</string>
     <string name="privacy_type_location">posisjon</string>
@@ -1740,6 +1755,7 @@ Hvis du har spørsmål, kan du kontakte %2$s."</string>
     <string name="right_keycode">Høyre-tastkode</string>
     <string name="right_nav_bar_button_type">Ekstra høyre-knapptype</string>
     <string name="ring_toggle_title">Anrop</string>
+    <string name="rotation_lock_camera_rotation_on">På – ansiktsbasert</string>
     <string name="running_foreground_services_msg">Trykk for detaljer om batteri- og databruk</string>
     <string name="running_foreground_services_title">Apper kjører i bakgrunnen</string>
     <string name="running_process_item_user_label">Bruker:%1$s</string>
@@ -1814,6 +1830,7 @@ Hvis du har spørsmål, kan du kontakte %2$s."</string>
     <string name="screenshot_top_boundary_pct">Øvre grense %1$d prosent</string>
     <string name="search_menu">Søk i innstillingene</string>
     <string name="search_menu_title">Søk</string>
+    <string name="see_all_networks">Se alle</string>
     <string name="see_more_title">Se mer</string>
     <string name="select_application">Velg app</string>
     <string name="select_conversation_text">Trykk på en samtale for å legge den til på startskjermen</string>
@@ -1926,6 +1943,7 @@ være overvåket"</string>
     <string name="switch_bar_off">Av</string>
     <string name="switch_bar_on">På</string>
     <string name="system_ui_tuner">System UI Tuner</string>
+    <string name="tap_a_network_to_connect">Trykk på et nettverk for å koble til</string>
     <string name="tap_again">Trykk igjen</string>
     <string name="tap_to_sign_up">Trykk for å registrere deg</string>
     <string name="tether_settings_title_all">Nettdeling og trådløs sone</string>
@@ -1951,6 +1969,7 @@ Trykk for å se mer informasjon"</string>
     <string name="time_unit_just_now">Nå nettopp</string>
     <string name="title_convert_fbe">Konvertér til filbasert kryptering</string>
     <string name="title_usb_accessory">USB-enhet</string>
+    <string name="to_switch_networks_disconnect_ethernet">For å bytte nettverk, koble fra Ethernet</string>
     <string name="too_hot_label">Pixel er for varm</string>
     <string name="touch_filtered_warning">Fordi en app skjuler tillatelsesforespørselen, kan ikke Innstillinger bekrefte svaret ditt.</string>
     <string name="track_frame_time">HWUI-gjengivelse av profil</string>
@@ -2009,10 +2028,12 @@ Trykk for å se mer informasjon"</string>
     <string name="tuner_toast">Gratulerer! System UI Tuner er lagt til i Innstillinger</string>
     <string name="tuner_warning">Med System UI Tuner har du flere måter å justere og tilpasse Android-brukergrensesnittet på. Disse eksperimentelle funksjonene kan endres, avbrytes eller fjernes i fremtidige utgivelser. Fortsett med forbehold.</string>
     <string name="tuner_warning_title">Gøy for noen – ikke for alle</string>
+    <string name="turn_on_wifi">Wi-Fi</string>
     <string name="tv_notification_panel_no_notifications">Ingen varsler</string>
     <string name="tv_notification_panel_title">Varsler</string>
     <string name="two_weeks_timestamp">For to uker siden</string>
     <string name="unknown">Ukjent</string>
+    <string name="unlock_to_view_networks">Lås opp for å se nettverk</string>
     <string name="upcoming_birthday_status">Bursdag snart</string>
     <string name="upcoming_birthday_status_content_description">%1$s har snart bursdag</string>
     <string name="url_menu_copy">Kopiér</string>
@@ -2096,8 +2117,8 @@ Alle brukere kan oppdatere apper for alle andre brukere."</string>
     <string name="volume_dialog_title">%s volumkontroller</string>
     <string name="volume_dnd_silent">Hurtigtast for volumknappene</string>
     <string name="volume_odi_captions_content_description">Overlegg med teksting</string>
-    <string name="volume_odi_captions_hint_disable">slå av</string>
-    <string name="volume_odi_captions_hint_enable">slå på</string>
+    <string name="volume_odi_captions_hint_disable">deaktiver</string>
+    <string name="volume_odi_captions_hint_enable">aktivér</string>
     <string name="volume_odi_captions_tip">Automatisk medieteksting</string>
     <string name="volume_ringer_change">Trykk for å endre ringemodus</string>
     <string name="volume_ringer_hint_mute">kutt lyden</string>
@@ -2151,9 +2172,11 @@ Wi‑Fi-adresse (BSSID)
     <string name="wifi_disconnected">Frakoblet</string>
     <string name="wifi_display_certification">Trådløs skjerm-sertifisering</string>
     <string name="wifi_display_certification_summary">Vis alternativer for sertifisering av trådløs skjerm</string>
+    <string name="wifi_empty_list_wifi_on">Søker etter nettverk …</string>
     <string name="wifi_enhanced_mac_randomization">Ikke-vedvarende tilfeldiggjøring av MAC-adresse for Wi‑Fi</string>
     <string name="wifi_enhanced_mac_randomization_summary">Når denne modusen er slått på, kan MAC-adressen til denne enheten endres hver gang den kobler seg til et nettverk som har tilfeldiggjøring av MAC-adresse slått på.</string>
     <string name="wifi_fail_to_scan">Kan ikke søke etter nettverk</string>
+    <string name="wifi_failed_connect_message">Kunne ikke koble til nettverket</string>
     <string name="wifi_hotspot_switch_off_text">Av</string>
     <string name="wifi_hotspot_switch_on_text">På</string>
     <string name="wifi_is_off">Wi-Fi er av</string>
@@ -2164,6 +2187,7 @@ Wi‑Fi-adresse (BSSID)
     <string name="wifi_not_in_range">Utenfor område</string>
     <string name="wifi_passpoint_expired">Utløpt</string>
     <string name="wifi_remembered">Lagret</string>
+    <string name="wifi_scan_notify_message">For å forbedre brukeropplevelsen på enheten kan apper og tjenester søke etter Wi-Fi-nettverk når som helst – også når Wi-Fi er slått av. Du kan endre dette i innstillingene for Wi-Fi-skanning. <annotation id="link">Bytt</annotation></string>
     <string name="wifi_scan_throttling">Begrensning av Wi‑Fi-skanning</string>
     <string name="wifi_scan_throttling_summary">Reduserer batteriforbruket og forbedrer nettverksytelsen</string>
     <string name="wifi_security_none">Ingen</string>
@@ -2173,6 +2197,7 @@ Wi‑Fi-adresse (BSSID)
     <string name="wifi_unmetered_label">Uten datamåling</string>
     <string name="wifi_verbose_logging">Slå på detaljert Wi-Fi-loggføring</string>
     <string name="wifi_verbose_logging_summary">Øk nivået av Wi-Fi-logging – vis per SSID RSSI i Wi-Fi-velgeren</string>
+    <string name="wifi_wont_autoconnect_for_now">Wi-Fi kobles ikke til automatisk inntil videre</string>
     <string name="wifitrackerlib_auto_connect_disable">Automatisk tilkobling er av</string>
     <string name="wifitrackerlib_available_via_app">Tilgjengelig via %1$s</string>
     <string name="wifitrackerlib_connected_via_app">Tilkoblet via %1$s</string>

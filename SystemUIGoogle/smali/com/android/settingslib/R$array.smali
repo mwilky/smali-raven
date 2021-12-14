@@ -12,6 +12,6 @@
 
 .field public static final batterymeter_plus_points:I = 0x7f03000e
 
-.field public static final select_logpersist_summaries:I = 0x7f030052
+.field public static final select_logpersist_summaries:I = 0x7f030054
 
-.field public static final select_logpersist_values:I = 0x7f030054
+.field public static final select_logpersist_values:I = 0x7f030056

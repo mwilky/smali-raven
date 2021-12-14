@@ -2283,7 +2283,7 @@
     throw p0
 .end method
 
-.method public showAuthenticationDialog(Landroid/hardware/biometrics/PromptInfo;Landroid/hardware/biometrics/IBiometricSysuiReceiver;[IZZILjava/lang/String;JI)V
+.method public showAuthenticationDialog(Landroid/hardware/biometrics/PromptInfo;Landroid/hardware/biometrics/IBiometricSysuiReceiver;[IZZIJLjava/lang/String;JI)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mLock:Ljava/lang/Object;
@@ -2315,15 +2315,21 @@
 
     iput p6, v1, Lcom/android/internal/os/SomeArgs;->argi1:I
 
-    iput-object p7, v1, Lcom/android/internal/os/SomeArgs;->arg6:Ljava/lang/Object;
+    iput-object p9, v1, Lcom/android/internal/os/SomeArgs;->arg6:Ljava/lang/Object;
 
-    invoke-static {p8, p9}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {p7, p8}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object p1
 
     iput-object p1, v1, Lcom/android/internal/os/SomeArgs;->arg7:Ljava/lang/Object;
 
-    iput p10, v1, Lcom/android/internal/os/SomeArgs;->argi2:I
+    invoke-static {p10, p11}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object p1
+
+    iput-object p1, v1, Lcom/android/internal/os/SomeArgs;->arg8:Ljava/lang/Object;
+
+    iput p12, v1, Lcom/android/internal/os/SomeArgs;->argi2:I
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/CommandQueue;->mHandler:Landroid/os/Handler;
 

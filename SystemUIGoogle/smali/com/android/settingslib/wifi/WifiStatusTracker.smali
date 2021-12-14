@@ -56,8 +56,6 @@
     .end annotation
 .end field
 
-.field private final mSupportMergedUi:Z
-
 .field private mWifiInfo:Landroid/net/wifi/WifiInfo;
 
 .field private final mWifiManager:Landroid/net/wifi/WifiManager;
@@ -188,8 +186,6 @@
     iput-object p4, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mConnectivityManager:Landroid/net/ConnectivityManager;
 
     iput-object p5, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mCallback:Ljava/lang/Runnable;
-
-    iput-boolean v2, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mSupportMergedUi:Z
 
     return-void
 .end method
@@ -610,7 +606,7 @@
 
     iput-object v0, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->ssid:Ljava/lang/String;
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_3
 
     invoke-virtual {p1}, Landroid/net/wifi/WifiInfo;->isPasspointAp()Z
 
@@ -650,10 +646,6 @@
     iput-object p1, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->ssid:Ljava/lang/String;
 
     :goto_2
-    iget-boolean p1, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mSupportMergedUi:Z
-
-    if-eqz p1, :cond_3
-
     iget-object p1, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mWifiInfo:Landroid/net/wifi/WifiInfo;
 
     invoke-virtual {p1}, Landroid/net/wifi/WifiInfo;->isCarrierMerged()Z
@@ -670,7 +662,6 @@
 
     iput p1, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->subId:I
 
-    :cond_3
     iget-object p1, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mWifiInfo:Landroid/net/wifi/WifiInfo;
 
     invoke-virtual {p1}, Landroid/net/wifi/WifiInfo;->getRssi()I
@@ -681,7 +672,7 @@
 
     invoke-direct {p0}, Lcom/android/settingslib/wifi/WifiStatusTracker;->maybeRequestNetworkScore()V
 
-    :cond_4
+    :cond_3
     return-void
 .end method
 
@@ -850,7 +841,7 @@
 
     iput-object v0, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->ssid:Ljava/lang/String;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_4
 
     iget-object v0, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mWifiManager:Landroid/net/wifi/WifiManager;
 
@@ -860,7 +851,7 @@
 
     iput-object v0, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mWifiInfo:Landroid/net/wifi/WifiInfo;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_4
 
     invoke-virtual {v0}, Landroid/net/wifi/WifiInfo;->isPasspointAp()Z
 
@@ -900,10 +891,6 @@
     iput-object v0, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->ssid:Ljava/lang/String;
 
     :goto_2
-    iget-boolean v0, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mSupportMergedUi:Z
-
-    if-eqz v0, :cond_4
-
     iget-object v0, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mWifiInfo:Landroid/net/wifi/WifiInfo;
 
     invoke-virtual {v0}, Landroid/net/wifi/WifiInfo;->isCarrierMerged()Z
@@ -920,7 +907,6 @@
 
     iput v0, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->subId:I
 
-    :cond_4
     iget-object v0, p0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mWifiInfo:Landroid/net/wifi/WifiInfo;
 
     invoke-virtual {v0}, Landroid/net/wifi/WifiInfo;->getRssi()I
@@ -931,7 +917,7 @@
 
     invoke-direct {p0}, Lcom/android/settingslib/wifi/WifiStatusTracker;->maybeRequestNetworkScore()V
 
-    :cond_5
+    :cond_4
     invoke-direct {p0}, Lcom/android/settingslib/wifi/WifiStatusTracker;->updateStatusLabel()V
 
     return-void

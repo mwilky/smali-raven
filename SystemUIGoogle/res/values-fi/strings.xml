@@ -98,7 +98,7 @@
     <string name="accessibility_control_zoom_out">Loitonna</string>
     <string name="accessibility_data_connection_wifi">Wi-Fi</string>
     <string name="accessibility_data_one_bar">Datasignaali - yksi palkki.</string>
-    <string name="accessibility_data_saver_off">Data Saver on pois käytöstä.</string>
+    <string name="accessibility_data_saver_off">Data Saver on pois päältä.</string>
     <string name="accessibility_data_saver_on">Data Saver on käytössä.</string>
     <string name="accessibility_data_signal_full">Vahva kuuluvuus.</string>
     <string name="accessibility_data_three_bars">Datasignaali - kolme palkkia</string>
@@ -363,6 +363,7 @@ Ilman tätä lupaa sovelluksen ajoittamat herätykset ja aikaan perustuvat tapah
     <string name="alarms_and_reminders_label">Herätykset ja muistutukset</string>
     <string name="alarms_and_reminders_switch_title">Salli herätysten ja muistutusten lisääminen</string>
     <string name="alarms_and_reminders_title">Herätykset ja muistutukset</string>
+    <string name="all_network_unavailable">Ei verkkoja käytettävissä</string>
     <string name="allow_mock_location">Salli sijaintien imitointi</string>
     <string name="allow_mock_location_summary">Salli sijaintien imitointi</string>
     <string name="always_use_accessory">Avaa %1$s aina, kun %2$s liitetään</string>
@@ -618,6 +619,11 @@ Valinta"</string>
     <string name="clock_title_analog">Analoginen</string>
     <string name="clock_title_bubble">Kupla</string>
     <string name="clock_title_default">Oletus</string>
+    <string name="columbus_bouncer_message">Avaa lukitus, jotta voit käyttää pikanäpäytystä</string>
+    <string name="columbus_target_request_dialog_allow">Salli</string>
+    <string name="columbus_target_request_dialog_deny">Älä salli</string>
+    <string name="columbus_target_request_dialog_summary">Kun kaksoisnapautat puhelimen takaosaa, %1$s avautuu. Voit vaihtaa valintasi milloin tahansa asetuksista.</string>
+    <string name="columbus_target_request_dialog_title">Voidaanko %1$s avata pikanäpäytyksellä?</string>
     <string name="compat_mode_off">Venytä koko näyttöön</string>
     <string name="compat_mode_on">Zoomaa koko näyttöön</string>
     <string name="confirm_enable_oem_unlock_text">VAROITUS: laitteen suojaustoiminnot eivät toimi tämän asetuksen ollessa käytössä.</string>
@@ -740,6 +746,8 @@ Jos jatkat käyttöä, datan käytöstä saatetaan periä maksuja."</string>
     <string name="defender_notify_learn_more">Lue lisää</string>
     <string name="defender_notify_resume_charge">Jatka lataamista</string>
     <string name="defender_notify_title">Lataamista rajoitettu väliaikaisesti</string>
+    <string name="defender_post_notify_des">Lataus on rajoitettu %1$s:iin klo %2$s–%3$s, jotta akku pysyy hyvässä kunnossa</string>
+    <string name="defender_post_notify_title">Normaali lataus</string>
     <string name="delete_blob_confirmation_text">Haluatko varmasti poistaa tämän jaetun datan?</string>
     <string name="delete_blob_text">Poista jaettu data</string>
     <string name="demo_mode">Käyttöliittymän esittelytila</string>
@@ -766,7 +774,7 @@ Jos jatkat käyttöä, datan käytöstä saatetaan periä maksuja."</string>
     <string name="disabled_by_admin">Järjestelmänvalvojan estämä</string>
     <string name="disabled_by_admin_summary_text">Järjestelmänvalvoja hallinnoi tätä asetusta.</string>
     <string name="disconnect_vpn">Katkaise VPN-yhteys</string>
-    <string name="dnd_is_off">Älä häiritse ‑tila on pois käytöstä</string>
+    <string name="dnd_is_off">Älä häiritse ‑tila on pois päältä</string>
     <string name="dnd_suppressing_shade_text">Älä häiritse ‑tila keskeytti ilmoitukset</string>
     <string name="do_disclosure_generic">Organisaatiosi omistaa tämän laitteen</string>
     <string name="do_disclosure_with_name">%s omistaa tämän laitteen</string>
@@ -885,6 +893,7 @@ Kasvojentunnistusavauksen käyttämä kasvodata poistetaan pysyvästi ja turvall
     <string name="game_status">Toistetaan</string>
     <string name="global_action_lock_message">Avaa puhelimen lukitus, niin näet enemmän vaihtoehtoja</string>
     <string name="global_action_screenshot">Kuvakaappaus</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock poistettu käytöstä</string>
     <string name="global_actions_change_description">Pyyhkäise alaspäin näytön yläreunasta, niin saat pääsyn näihin: %1$s ja laitteiden hallinta</string>
     <string name="go_to_web">Siirry selaimeen</string>
     <string name="google_services_wallpaper_permission"><b>Anna Googlen Live-taustakuvien käyttää sijaintiasi</b> Googlen sijaintipalvelun kautta.</string>
@@ -1232,7 +1241,7 @@ Yritä uudelleen %2$d sekunnin kuluttua."</string>
     <string name="media_projection_dialog_text">%s saa pääsyn kaikkiin näytölläsi näkyviin tietoihin ja tietoihin laitteesi toistamasta sisällöstä tallennuksen tai striimauksen aikana. Näitä tietoja ovat esimerkiksi salasanat, maksutiedot, kuvat, viestit ja toistettava audiosisältö.</string>
     <string name="media_projection_dialog_title">Haluatko, että %s aloittaa tallennuksen tai striimauksen?</string>
     <string name="media_projection_remember_text">Älä näytä uudelleen</string>
-    <string name="media_seamless_remote_device">Laite</string>
+    <string name="media_seamless_other_device">Muu laite</string>
     <string name="media_transfer_this_device_name">Puhelimen kaiutin</string>
     <string name="media_transfer_this_phone">Tämä puhelin</string>
     <string name="media_transfer_wired_device_name">Langallinen äänilaite</string>
@@ -1249,9 +1258,13 @@ Yritä uudelleen %2$d sekunnin kuluttua."</string>
     <string name="mobile_data">Mobiilitiedonsiirto</string>
     <string name="mobile_data_always_on">Mobiilidata aina käytössä</string>
     <string name="mobile_data_always_on_summary">Pidä mobiilidata aina käytössä, vaikka Wi-Fi olisi aktiivinen. Tämä mahdollistaa nopeamman vaihtelun verkkojen välillä</string>
+    <string name="mobile_data_connection_active">Yhdistetty</string>
     <string name="mobile_data_disable_message">%s ei enää tarjoa pääsyä dataan eikä internetyhteyttä, joka on saatavilla vain Wi-Fin kautta.</string>
     <string name="mobile_data_disable_message_default_carrier">operaattorisi</string>
     <string name="mobile_data_disable_title">Laitetaanko mobiilidata pois päältä?</string>
+    <string name="mobile_data_no_connection">Ei yhteyttä</string>
+    <string name="mobile_data_off_summary">Mobiilidata ei yhdisty automaattisesti</string>
+    <string name="mobile_data_settings_title">Mobiilidata</string>
     <string name="mobile_data_text_format">%1$s – %2$s</string>
     <string name="mock_location_app">Valitse valesijaintisovellus</string>
     <string name="mock_location_app_not_set">Valesijaintisovellusta ei ole valittu</string>
@@ -1391,6 +1404,7 @@ Jos sinulla on kysyttävää, ota yhteyttä laitteen tarjoajaan: %2$s."</string>
     <string name="no_content_in_select_mode">Ei valittavaa tekstiä tai kuvaa</string>
     <string name="no_conversations_text">Viimeaikaiset keskustelusi näkyvät täällä</string>
     <string name="no_shortcut">%1$s ei tue keskusteluominaisuuksia</string>
+    <string name="non_carrier_network_unavailable">Ei muita verkkoja käytettävissä</string>
     <string name="not_default_data_content_description">Ei käytä dataa</string>
     <string name="not_set">Ei asetettu</string>
     <string name="notif_inline_reply_remove_attachment_description">Poista liite</string>
@@ -1571,8 +1585,9 @@ Jos sinulla on kysyttävää, ota yhteyttä laitteen tarjoajaan: %2$s."</string>
     <string name="power_remaining_only_more_than_subtext">Yli %1$s jäljellä</string>
     <string name="power_remaining_settings_home_page">%1$s – %2$s</string>
     <string name="power_suggestion_battery_run_out">Akku voi loppua %1$s mennessä</string>
+    <string name="pref_title_network_details">Verkon tiedot</string>
     <string name="preference_copied">%1$s kopioitiin leikepöydälle.</string>
-    <string name="preference_summary_default_combination">%1$s / %2$s</string>
+    <string name="preference_summary_default_combination">%1$s/%2$s</string>
     <string name="priority_conversations">Tärkeät keskustelut</string>
     <string name="privacy_type_camera">kamera</string>
     <string name="privacy_type_location">sijainti</string>
@@ -1740,6 +1755,7 @@ Jos sinulla on kysyttävää, ota yhteyttä laitteen tarjoajaan: %2$s."</string>
     <string name="right_keycode">Oikea näppäinkoodi</string>
     <string name="right_nav_bar_button_type">Ylimääräinen oikea painiketyyppi</string>
     <string name="ring_toggle_title">Puhelut</string>
+    <string name="rotation_lock_camera_rotation_on">Päällä – kasvojen perusteella</string>
     <string name="running_foreground_services_msg">Katso lisätietoja akun ja datan käytöstä napauttamalla</string>
     <string name="running_foreground_services_title">Sovelluksia käynnissä taustalla</string>
     <string name="running_process_item_user_label">Käyttäjä: %1$s</string>
@@ -1814,6 +1830,7 @@ Jos sinulla on kysyttävää, ota yhteyttä laitteen tarjoajaan: %2$s."</string>
     <string name="screenshot_top_boundary_pct">Yläreuna %1$d prosenttia</string>
     <string name="search_menu">Hakuasetukset</string>
     <string name="search_menu_title">Haku</string>
+    <string name="see_all_networks">Näytä kaikki</string>
     <string name="see_more_title">Lisää</string>
     <string name="select_application">Valitse sovellus</string>
     <string name="select_conversation_text">Lisää keskustelu aloitusnäytölle napauttamalla sitä</string>
@@ -1926,6 +1943,7 @@ valvoa"</string>
     <string name="switch_bar_off">Pois päältä</string>
     <string name="switch_bar_on">Päällä</string>
     <string name="system_ui_tuner">System UI Tuner</string>
+    <string name="tap_a_network_to_connect">Muodosta yhteys napauttamalla verkkoa</string>
     <string name="tap_again">Napauta uudelleen</string>
     <string name="tap_to_sign_up">Rekisteröidy napauttamalla</string>
     <string name="tether_settings_title_all">Jaettu yhteys ja kannettava yhteyspiste</string>
@@ -1951,6 +1969,7 @@ Lue lisää napauttamalla"</string>
     <string name="time_unit_just_now">Äsken</string>
     <string name="title_convert_fbe">Muunnetaan tiedostopohjaiseksi salaukseksi</string>
     <string name="title_usb_accessory">USB-lisälaite</string>
+    <string name="to_switch_networks_disconnect_ethernet">Irrota Ethernet-johto, jos haluat vaihtaa verkkoa</string>
     <string name="too_hot_label">Pixel liian kuuma</string>
     <string name="touch_filtered_warning">Sovellus peittää käyttöoikeuspyynnön, joten Asetukset ei voi vahvistaa valintaasi.</string>
     <string name="track_frame_time">HWUI-profiilirenderöinti</string>
@@ -2009,10 +2028,12 @@ Lue lisää napauttamalla"</string>
     <string name="tuner_toast">Hienoa! System UI Tuner on nyt lisätty Asetuksiin.</string>
     <string name="tuner_warning">System UI Tuner antaa lisämahdollisuuksia Android-käyttöliittymän muokkaamiseen. Nämä kokeelliset ominaisuudet voivat muuttua, lakata toimimasta tai kadota milloin tahansa. Jatka omalla vastuullasi.</string>
     <string name="tuner_warning_title">Ei sovellu kaikkien käyttöön</string>
+    <string name="turn_on_wifi">Wi-Fi</string>
     <string name="tv_notification_panel_no_notifications">Ei ilmoituksia</string>
     <string name="tv_notification_panel_title">Ilmoitukset</string>
     <string name="two_weeks_timestamp">2 viikkoa sitten</string>
     <string name="unknown">Tuntematon</string>
+    <string name="unlock_to_view_networks">Avaa lukitus nähdäksesi verkot</string>
     <string name="upcoming_birthday_status">Syntymäpäivä pian</string>
     <string name="upcoming_birthday_status_content_description">%1$s viettää pian syntymäpäiväänsä</string>
     <string name="url_menu_copy">Kopioi</string>
@@ -2151,12 +2172,14 @@ Wi-Fin osoite (BSSID)
     <string name="wifi_disconnected">Yhteys katkaistu</string>
     <string name="wifi_display_certification">Langattoman näytön sertifiointi</string>
     <string name="wifi_display_certification_summary">Näytä langattoman näytön sertifiointiin liittyvät asetukset</string>
+    <string name="wifi_empty_list_wifi_on">Etsitään verkkoja…</string>
     <string name="wifi_enhanced_mac_randomization">MAC-satunnaistaminen, jos Wi-Fi ei ole kiinteä</string>
     <string name="wifi_enhanced_mac_randomization_summary">Kun tämä tila on päällä, laitteen MAC-osoite voi muuttua aina, kun laite yhdistää verkkoon, jossa MAC-satunnaistaminen on käytössä</string>
     <string name="wifi_fail_to_scan">Verkkoja ei voi etsiä.</string>
+    <string name="wifi_failed_connect_message">Yhteyden muodostaminen verkkoon epäonnistui</string>
     <string name="wifi_hotspot_switch_off_text">Ei käytössä</string>
     <string name="wifi_hotspot_switch_on_text">Päällä</string>
-    <string name="wifi_is_off">Wi-Fi on pois käytöstä</string>
+    <string name="wifi_is_off">Wi-Fi on pois päältä</string>
     <string name="wifi_limited_connection">Rajallinen yhteys</string>
     <string name="wifi_metered_label">Maksullinen</string>
     <string name="wifi_no_internet">Ei internetyhteyttä</string>
@@ -2164,6 +2187,7 @@ Wi-Fin osoite (BSSID)
     <string name="wifi_not_in_range">Ei kantoalueella</string>
     <string name="wifi_passpoint_expired">Vanhentunut</string>
     <string name="wifi_remembered">Tallennettu</string>
+    <string name="wifi_scan_notify_message">Laitteen käyttökokemuksen parantamiseksi sovellukset ja palvelut voivat hakea Wi-Fi-verkkoja myös silloin, kun Wi-Fi on pois päältä. Voit muuttaa asetusta Wi-Fi-haun asetuksissa. <annotation id="link">Muuta</annotation></string>
     <string name="wifi_scan_throttling">Wi‑Fi-haun rajoitus</string>
     <string name="wifi_scan_throttling_summary">Vähentää virrankulutusta ja parantaa verkon toimintaa</string>
     <string name="wifi_security_none">Ei mitään</string>
@@ -2173,6 +2197,7 @@ Wi-Fin osoite (BSSID)
     <string name="wifi_unmetered_label">Maksuton</string>
     <string name="wifi_verbose_logging">Käytä Wi-Fin laajennettua lokikirjausta</string>
     <string name="wifi_verbose_logging_summary">Lisää Wi‑Fin lokikirjaustasoa, näytä SSID RSSI -kohtaisesti Wi‑Fi-valitsimessa</string>
+    <string name="wifi_wont_autoconnect_for_now">Wi-Fi ei toistaiseksi yhdistä automaattisesti</string>
     <string name="wifitrackerlib_auto_connect_disable">Automaattinen yhdistäminen pois päältä</string>
     <string name="wifitrackerlib_available_via_app">Saatavilla tämän kautta: %1$s</string>
     <string name="wifitrackerlib_connected_via_app">Yhdistetty tämän kautta: %1$s</string>

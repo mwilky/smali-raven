@@ -29,7 +29,7 @@
 
     const v0, 0x108052a
 
-    const v1, 0x10403c7
+    const v1, 0x10403c9
 
     invoke-direct {p0, p1, v0, v1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$SinglePressAction;-><init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;II)V
 
@@ -51,7 +51,7 @@
 
     move-result-object p0
 
-    const v0, 0x10e0090
+    const v0, 0x10e0091
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getInteger(I)I
 

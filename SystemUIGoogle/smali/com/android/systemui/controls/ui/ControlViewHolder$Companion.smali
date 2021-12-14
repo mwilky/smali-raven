@@ -51,7 +51,7 @@
 
     const-class v0, Lcom/android/systemui/controls/ui/TouchBehavior;
 
-    const-string v1, "template"
+    const-string/jumbo v1, "template"
 
     invoke-static {p2, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 

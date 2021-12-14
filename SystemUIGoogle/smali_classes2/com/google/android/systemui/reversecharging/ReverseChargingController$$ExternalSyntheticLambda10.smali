@@ -33,7 +33,7 @@
 
     iget-object p0, p0, Lcom/google/android/systemui/reversecharging/ReverseChargingController$$ExternalSyntheticLambda10;->f$1:Landroid/os/Bundle;
 
-    invoke-static {v0, p0}, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->$r8$lambda$5p2kg9OXdhPuOCD_4P3A41osyxU(Lcom/google/android/systemui/reversecharging/ReverseChargingController;Landroid/os/Bundle;)V
+    invoke-static {v0, p0}, Lcom/google/android/systemui/reversecharging/ReverseChargingController;->$r8$lambda$IGuhNsZTAuHQTEJwH09K6N7H0rg(Lcom/google/android/systemui/reversecharging/ReverseChargingController;Landroid/os/Bundle;)V
 
     return-void
 .end method

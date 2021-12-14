@@ -93,7 +93,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mContext:Landroid/content/Context;
 
-    const p1, 0x104075a
+    const p1, 0x104075c
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -114,7 +114,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mContext:Landroid/content/Context;
 
-    const p1, 0x1040756
+    const p1, 0x1040758
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -141,12 +141,12 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x1040759
+    const p0, 0x104075b
 
     return p0
 
     :cond_0
-    const p0, 0x1040755
+    const p0, 0x1040757
 
     if-eqz p2, :cond_1
 
@@ -166,7 +166,7 @@
     return p0
 
     :cond_2
-    const p0, 0x10407ea
+    const p0, 0x10407ec
 
     return p0
 .end method

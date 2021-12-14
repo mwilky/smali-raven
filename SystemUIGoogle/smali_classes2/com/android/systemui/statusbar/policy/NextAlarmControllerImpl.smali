@@ -151,7 +151,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/policy/NextAlarmControllerImpl;->mNextAlarm:Landroid/app/AlarmManager$AlarmClockInfo;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
     new-instance p1, Ljava/util/Date;
 
@@ -175,6 +175,14 @@
 
     move-result-object p1
 
+    if-eqz p1, :cond_0
+
+    iget-object p1, p0, Lcom/android/systemui/statusbar/policy/NextAlarmControllerImpl;->mNextAlarm:Landroid/app/AlarmManager$AlarmClockInfo;
+
+    invoke-virtual {p1}, Landroid/app/AlarmManager$AlarmClockInfo;->getShowIntent()Landroid/app/PendingIntent;
+
+    move-result-object p1
+
     invoke-virtual {p1}, Landroid/app/PendingIntent;->getCreatorPackage()Ljava/lang/String;
 
     move-result-object p1
@@ -184,6 +192,13 @@
     goto :goto_0
 
     :cond_0
+    const-string p1, "showIntent=null"
+
+    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_1
     const-string p1, "null"
 
     invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
@@ -204,7 +219,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -224,7 +239,7 @@
 
     goto :goto_1
 
-    :cond_1
+    :cond_2
     return-void
 .end method
 

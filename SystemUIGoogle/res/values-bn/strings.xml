@@ -363,6 +363,7 @@
     <string name="alarms_and_reminders_label">অ্যালার্ম এবং রিমাইন্ডার</string>
     <string name="alarms_and_reminders_switch_title">অ্যালার্ম এবং রিমাইন্ডার সেট করার অনুমতি দিন</string>
     <string name="alarms_and_reminders_title">অ্যালার্ম এবং রিমাইন্ডার</string>
+    <string name="all_network_unavailable">কোনও নেটওয়ার্ক উপলভ্য নেই</string>
     <string name="allow_mock_location">নকল অবস্থানের অনুমতি দিন</string>
     <string name="allow_mock_location_summary">মক অবস্থানগুলি মঞ্জুর করুন</string>
     <string name="always_use_accessory">%2$s যখনই সংযুক্ত থাকবে তখনই %1$s চালু হবে</string>
@@ -386,7 +387,7 @@
     <string name="assistant_half_listening_label">এখনও আপনার কথা শুনছে, বাতিল করতে ট্যাপ করুন</string>
     <string name="assistant_keyboard_icon_label">কীবোর্ড</string>
     <string name="assistant_scrim_label">শুনছি, বাতিল করতে ট্যাপ করুন</string>
-    <string name="assistant_zero_state_icon_label">অ্যাসিস্ট্যান্ট ওভারভিউয়</string>
+    <string name="assistant_zero_state_icon_label">Assistant ওভারভিউ</string>
     <string name="audio_status">অডিও শুনছি</string>
     <string name="auto_saver_enabled_text">চার্জ %d%%-এর নিচে চলে গেলে ব্যাটারি সেভার নিজে থেকেই চালু হয়ে যাবে।</string>
     <string name="auto_saver_enabled_title">আগে সেট করা সময় অনুযায়ী ব্যাটারি সেভার চালু হয়েছে</string>
@@ -618,6 +619,11 @@
     <string name="clock_title_analog">অ্যানালগ</string>
     <string name="clock_title_bubble">বাবল</string>
     <string name="clock_title_default">ডিফল্ট</string>
+    <string name="columbus_bouncer_message">কুইক ট্যাপ সম্পূর্ণ করতে আনলক করুন</string>
+    <string name="columbus_target_request_dialog_allow">অনুমতি দিন</string>
+    <string name="columbus_target_request_dialog_deny">অনুমতি দেবেন না</string>
+    <string name="columbus_target_request_dialog_summary">আপনার ফোনের পিছনে ডবল-ট্যাপ করলে, %1$s খুলে যাবে। আপনি যেকোনও সময় সেটিংস থেকে এই পছন্দ পরিবর্তন করতে পারবেন।</string>
+    <string name="columbus_target_request_dialog_title">%1$s খোলার জন্য কুইক ট্যাপ করার অনুমতি দেবেন?</string>
     <string name="compat_mode_off">ফুল স্ক্রিন করুন</string>
     <string name="compat_mode_on">স্ক্রীণ পূরণ করতে জুম করুন</string>
     <string name="confirm_enable_oem_unlock_text">সতর্কতা: এই ডিভাইসে সেটিংটি চালু থাকা অবস্থায় ডিভাইস সুরক্ষা বৈশিষ্ট্যগুলি কাজ করবে না৷</string>
@@ -740,6 +746,8 @@
     <string name="defender_notify_learn_more">আরও জানুন</string>
     <string name="defender_notify_resume_charge">চার্জ করা আবার চালু করুন</string>
     <string name="defender_notify_title">চার্জ করা সাময়িকভাবে বন্ধ রাখা হয়েছে</string>
+    <string name="defender_post_notify_des">ব্যাটারির পারফর্ম্যান্স ভাল রাখতে%2$s থেকে%3$s পর্যন্ত ব্যাটারির চার্জ %1$s-এ সীমাবদ্ধ করা হয়েছে</string>
+    <string name="defender_post_notify_title">স্বাভাবিকভাবে চার্জ করা হচ্ছে</string>
     <string name="delete_blob_confirmation_text">আপনি কি সত্যিই এই শেয়ার্ড ডেটা মুছে দিতে চান?</string>
     <string name="delete_blob_text">শেয়ার্ড ডেটা মুছে দিন</string>
     <string name="demo_mode">সিস্টেম UI ডেমো মোড</string>
@@ -885,6 +893,7 @@
     <string name="game_status">চালানো হচ্ছে</string>
     <string name="global_action_lock_message">আরও বিকল্প দেখতে আপনার ফোন আনলক করুন</string>
     <string name="global_action_screenshot">স্ক্রিনশট নিন</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock বন্ধ করা হয়েছে</string>
     <string name="global_actions_change_description">%1$s ও ডিভাইস কন্ট্রোল অ্যাক্সেস করতে, স্ক্রিনের উপরের দিক থেকে নিচের দিকে সোয়াইপ করুন</string>
     <string name="go_to_web">ব্রাউজারে যান</string>
     <string name="google_services_wallpaper_permission">Google এর লোকেশন পরিষেবায় অ্যাক্সেস করে <b>আপনার লোকেশনে সাড়া দিতে Google লাইভ ওয়ালপেপারগুলিকে অনুমতি দিন</b>।</string>
@@ -1066,7 +1075,7 @@
     <string name="keyguard_permanent_disabled_sim_message_short">অব্যবহারযোগ্য সিম কার্ড।</string>
     <string name="keyguard_plugged_in">%s • চার্জ হচ্ছে</string>
     <string name="keyguard_plugged_in_charging_fast">%s • দ্রুত চার্জ হচ্ছে</string>
-    <string name="keyguard_plugged_in_charging_limited">%s • চার্জ সাময়িকভাবে বন্ধ করা আছে</string>
+    <string name="keyguard_plugged_in_charging_limited">%s • চার্জ করা সাময়িকভাবে বন্ধ রাখা হয়েছে</string>
     <string name="keyguard_plugged_in_charging_slowly">%s • ধীরে চার্জ হচ্ছে</string>
     <string name="keyguard_plugged_in_wireless">%s • ওয়্যারলেস পদ্ধতিতে চার্জ হচ্ছে</string>
     <string name="keyguard_retry">আবার চেষ্টা করতে উপরের দিকে সোয়াইপ করুন</string>
@@ -1232,7 +1241,7 @@
     <string name="media_projection_dialog_text">রেকর্ড করা বা কাস্টিং করার সময় স্ক্রিনে দেখানো বা ডিভাইসে দেখানো সমস্ত তথ্যের অ্যাক্সেস %s-এর থাকবে। এর মধ্যে আপনার পাসওয়ার্ড, পেমেন্টের বিবরণ, ফটো, মেসেজ এবং যে অডিও আপনি চালান সেগুলি সম্পর্কিত তথ্য রয়েছে।</string>
     <string name="media_projection_dialog_title">%s দিয়ে রেকর্ড করা বা কাস্টিং শুরু করবেন?</string>
     <string name="media_projection_remember_text">আর দেখাবেন না</string>
-    <string name="media_seamless_remote_device">ডিভাইস</string>
+    <string name="media_seamless_other_device">অন্য ডিভাইস</string>
     <string name="media_transfer_this_device_name">ফোনের স্পিকার</string>
     <string name="media_transfer_this_phone">এই ফোনটি</string>
     <string name="media_transfer_wired_device_name">ওয়্যার অডিও ডিভাইস</string>
@@ -1249,9 +1258,13 @@
     <string name="mobile_data">মোবাইল ডেটা</string>
     <string name="mobile_data_always_on">মোবাইল ডেটা সব সময় সক্রিয় থাক</string>
     <string name="mobile_data_always_on_summary">ওয়াই-ফাই সক্রিয় থাকার সময়েও (দ্রুত নেটওয়ার্কে পাল্টানোর জন্য) সর্বদা মোবাইল ডেটা সক্রিয় রাখুন।</string>
+    <string name="mobile_data_connection_active">কানেক্ট করা আছে</string>
     <string name="mobile_data_disable_message">"আপনি '%s'-এর মাধ্যমে ডেটা অথবা ইন্টারনেট অ্যাক্সেস করতে পারবেন না। শুধুমাত্র ওয়াই-ফাইয়ের মাধ্যমেই ইন্টারনেট অ্যাক্সেস করা যাবে।"</string>
     <string name="mobile_data_disable_message_default_carrier">আপনার পরিষেবা প্রদানকারী</string>
     <string name="mobile_data_disable_title">মোবাইল ডেটা বন্ধ করবেন?</string>
+    <string name="mobile_data_no_connection">কানেকশন নেই</string>
+    <string name="mobile_data_off_summary">মোবাইল ডেটা নিজে থেকে কানেক্ট হবে না</string>
+    <string name="mobile_data_settings_title">মোবাইল ডেটা</string>
     <string name="mobile_data_text_format">%1$s — %2$s</string>
     <string name="mock_location_app">অনুরূপ লোকেশন অ্যাপ্লিকেশান বেছে নিন</string>
     <string name="mock_location_app_not_set">কোনো অনুরূপ লোকেশন অ্যাপ্লিকেশান সেট করা নেই</string>
@@ -1391,6 +1404,7 @@
     <string name="no_content_in_select_mode">বেছে নেওয়া যাবে এমন কোনও ছবি বা টেক্সট নেই</string>
     <string name="no_conversations_text">আপনার সাম্প্রতিক কথোপকথন এখানে দেখা যাবে</string>
     <string name="no_shortcut">%1$s-এ কথোপকথন ফিচার কাজ করে না</string>
+    <string name="non_carrier_network_unavailable">অন্য কোনও নেটওয়ার্ক উপলভ্য নেই</string>
     <string name="not_default_data_content_description">ডেটা ব্যবহার করার জন্য সেট করা নেই</string>
     <string name="not_set">সেট করা হয়নি</string>
     <string name="notif_inline_reply_remove_attachment_description">অ্যাটাচমেন্ট সরান</string>
@@ -1571,6 +1585,7 @@
     <string name="power_remaining_only_more_than_subtext">%1$s-এরও বেশি সময় চলবে</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">ব্যাটারির চার্জ %1$s-এ শেষ হয়ে যেতে পারে</string>
+    <string name="pref_title_network_details">নেটওয়ার্কের বিবরণ</string>
     <string name="preference_copied">\"%1$s\" ক্লিপবোর্ডে লিঙ্কটি কপি করা হয়েছে।</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">গুরুত্বপূর্ণ কথোপকথন</string>
@@ -1740,6 +1755,7 @@
     <string name="right_keycode">ডানদিকের কিকোড</string>
     <string name="right_nav_bar_button_type">অতিরিক্ত ডানদিকের বোতামের ধরণ</string>
     <string name="ring_toggle_title">কল</string>
+    <string name="rotation_lock_camera_rotation_on">চালু আছে - মুখের হিসেবে</string>
     <string name="running_foreground_services_msg">ব্যাটারি এবং ডেটার ব্যবহারের বিশদ বিবরণের জন্য ট্যাপ করুন</string>
     <string name="running_foreground_services_title">পটভূমিতে অ্যাপ চালু আছে</string>
     <string name="running_process_item_user_label">ব্যবহারকারী: %1$s</string>
@@ -1814,6 +1830,7 @@
     <string name="screenshot_top_boundary_pct">উপরের প্রান্ত থেকে %1$d শতাংশ</string>
     <string name="search_menu">সেটিংসে সার্চ করুন</string>
     <string name="search_menu_title">সার্চ করুন</string>
+    <string name="see_all_networks">সবকটি দেখুন</string>
     <string name="see_more_title">আরও দেখুন</string>
     <string name="select_application">অ্যাপ্লিকেশান বেছে নিন</string>
     <string name="select_conversation_text">কোনও কথোপথন আপনার হোম স্ক্রিনে যোগ করার জন্য এতে ট্যাপ করুন</string>
@@ -1926,6 +1943,7 @@
     <string name="switch_bar_off">বন্ধ আছে</string>
     <string name="switch_bar_on">চালু আছে</string>
     <string name="system_ui_tuner">সিস্টেম UI টিউনার</string>
+    <string name="tap_a_network_to_connect">কানেক্ট করতে একটি নেটওয়ার্কে ট্যাপ করুন</string>
     <string name="tap_again">আবার ট্যাপ করুন</string>
     <string name="tap_to_sign_up">সাইন-আপ করতে ট্যাপ করুন</string>
     <string name="tether_settings_title_all">টিথারিং ও পোর্টেবল হটস্পট</string>
@@ -1951,6 +1969,7 @@
     <string name="time_unit_just_now">এখনই</string>
     <string name="title_convert_fbe">ফাইল ভিত্তিক এনক্রিপশানে রূপান্তর করা হচ্ছে</string>
     <string name="title_usb_accessory">USB যন্ত্রাংশ</string>
+    <string name="to_switch_networks_disconnect_ethernet">নেটওয়ার্ক বদলাতে ইথারনেট ডিসকানেক্ট করুন</string>
     <string name="too_hot_label">Pixel অতিরিক্ত গরম হয়ে গেছে</string>
     <string name="touch_filtered_warning">একটি অ্যাপ কোনও অনুমোদনের অনুরোধকে ঢেকে দিচ্ছে, তাই সেটিংস থেকে আপনার প্রতিক্রিয়া যাচাই করা যাচ্ছে না।</string>
     <string name="track_frame_time">প্রোফাইল HWUI রেন্ডারিং</string>
@@ -2009,10 +2028,12 @@
     <string name="tuner_toast">অভিনন্দন! সেটিংস -এ সিস্টেম UI টিউনার যোগ করা হয়েছে</string>
     <string name="tuner_warning">এই পরীক্ষামূলক বৈশিষ্ট্যগুলি ভবিষ্যতের সংস্করণগুলির মধ্যে পরিবর্তিত, বিভাজিত এবং অদৃশ্য হয়ে যেতে পারে৷ সাবধানতার সাথে এগিয়ে যান৷ সিস্টেম UI টিউনার আপনাকে Android ব্যবহারকারী ইন্টারফেসের সূক্ষ্ম সমন্বয় এবং কাস্টমাইজ করার অতিরিক্ত উপায়গুলি প্রদান করে৷</string>
     <string name="tuner_warning_title">কিছু ব্যক্তির জন্য মজাদার কিন্তু সকলের জন্য নয়</string>
+    <string name="turn_on_wifi">ওয়াই-ফাই</string>
     <string name="tv_notification_panel_no_notifications">কোনও বিজ্ঞপ্তি নেই</string>
     <string name="tv_notification_panel_title">বিজ্ঞপ্তি</string>
     <string name="two_weeks_timestamp">২ সপ্তাহ আগে</string>
     <string name="unknown">অজানা</string>
+    <string name="unlock_to_view_networks">নেটওয়ার্ক দেখার জন্য আনলক করুন</string>
     <string name="upcoming_birthday_status">জন্মদিন শীঘ্রই আসছে</string>
     <string name="upcoming_birthday_status_content_description">%1$s-এর জন্মদিন খুব শীঘ্র আসছে</string>
     <string name="url_menu_copy">কপি করুন</string>
@@ -2151,9 +2172,11 @@
     <string name="wifi_disconnected">কানেকশন নেই</string>
     <string name="wifi_display_certification">ওয়্যারলেস ডিসপ্লে সার্টিফিকেশন</string>
     <string name="wifi_display_certification_summary">ওয়্যারলেস প্রদর্শন সার্টিফিকেশন জন্য বিকল্পগুলি দেখান</string>
+    <string name="wifi_empty_list_wifi_on">নেটওয়ার্ক সার্চ করা হচ্ছে…</string>
     <string name="wifi_enhanced_mac_randomization">অল্প সময় ওয়াই-ফাই নেটওয়ার্কে যুক্ত হয় এমন MAC অ্যাড্রেস র‍্যান্ডমাইজেশনের সুবিধা</string>
     <string name="wifi_enhanced_mac_randomization_summary">এই মোডটি চালু থাকার সময়, MAC র‍্যান্ডমাইজেশন চালু হওয়া এমন কোনও নেটওয়ার্কে কানেক্ট করার সময় এই ডিভাইসের MAC অ্যাড্রেস পরিবর্তিত হতে পারে।</string>
     <string name="wifi_fail_to_scan">নেটওয়ার্কগুলির জন্য স্ক্যান করা যাবে না</string>
+    <string name="wifi_failed_connect_message">নেটওয়ার্কে কানেক্ট করা যায়নি</string>
     <string name="wifi_hotspot_switch_off_text">বন্ধ আছে</string>
     <string name="wifi_hotspot_switch_on_text">চালু আছে</string>
     <string name="wifi_is_off">ওয়াই ফাই বন্ধ আছে</string>
@@ -2164,6 +2187,7 @@
     <string name="wifi_not_in_range">পরিসরের মধ্যে নয়</string>
     <string name="wifi_passpoint_expired">মেয়াদ শেষ হয়ে গেছে</string>
     <string name="wifi_remembered">সংরক্ষিত</string>
+    <string name="wifi_scan_notify_message">ডিভাইস সংক্রান্ত অভিজ্ঞতা আরও ভাল করতে, অ্যাপ ও পরিষেবা যেকোনও সময় আপনার ওয়াই-ফাই নেটওয়ার্ক স্ক্যান করতে পারবে, এমনকি ডিভাইসের ওয়াই-ফাই বন্ধ করা থাকলেও। ওয়াই-ফাই স্ক্যানিং সেটিংস থেকে আপনি এটি পরিবর্তন করতে পারবেন। <annotation id="link">পরিবর্তন করুন</annotation></string>
     <string name="wifi_scan_throttling">ওয়াই-ফাই স্ক্যান থ্রোটলিং</string>
     <string name="wifi_scan_throttling_summary">ব্যাটারির খরচ কমায় এবং নেটওয়ার্কের পারফর্ম্যান্স উন্নত করে</string>
     <string name="wifi_security_none">কোনও কিছুই নয়</string>
@@ -2173,6 +2197,7 @@
     <string name="wifi_unmetered_label">পরিমাপ করা নয়</string>
     <string name="wifi_verbose_logging">ওয়াই-ফাই ভারবোস লগিং চালু করুন</string>
     <string name="wifi_verbose_logging_summary">ওয়াই-ফাই লগিং স্তর বাড়ান, ওয়াই-ফাই চয়নকারীতে SSID RSSI অনুযায়ী দেখান</string>
+    <string name="wifi_wont_autoconnect_for_now">এখন ওয়াই-ফাই নিজে থেকে কানেক্ট হবে না</string>
     <string name="wifitrackerlib_auto_connect_disable">অটোমেটিক কানেক্ট করার ফিচার বন্ধ আছে</string>
     <string name="wifitrackerlib_available_via_app">%1$s-এর মাধ্যমে উপলভ্য</string>
     <string name="wifitrackerlib_connected_via_app">%1$s-এর মাধ্যমে কানেক্ট করা আছে</string>

@@ -19,6 +19,16 @@
 
 .field private final columbusSettings:Lcom/google/android/systemui/columbus/ColumbusSettings;
 
+.field private final columbusStructuredDataManager:Ldagger/Lazy;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ldagger/Lazy<",
+            "Lcom/google/android/systemui/columbus/ColumbusStructuredDataManager;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final settingsAction:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -35,7 +45,7 @@
 
 
 # direct methods
-.method public constructor <init>(Lcom/google/android/systemui/columbus/ColumbusSettings;Ldagger/Lazy;Ldagger/Lazy;)V
+.method public constructor <init>(Lcom/google/android/systemui/columbus/ColumbusSettings;Ldagger/Lazy;Ldagger/Lazy;Ldagger/Lazy;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -46,6 +56,9 @@
             ">;",
             "Ldagger/Lazy<",
             "Lcom/google/android/systemui/columbus/actions/SettingsAction;",
+            ">;",
+            "Ldagger/Lazy<",
+            "Lcom/google/android/systemui/columbus/ColumbusStructuredDataManager;",
             ">;)V"
         }
     .end annotation
@@ -62,6 +75,10 @@
 
     invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
+    const-string v0, "columbusStructuredDataManager"
+
+    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/google/android/systemui/columbus/ColumbusServiceWrapper;->columbusSettings:Lcom/google/android/systemui/columbus/ColumbusSettings;
@@ -69,6 +86,8 @@
     iput-object p2, p0, Lcom/google/android/systemui/columbus/ColumbusServiceWrapper;->columbusService:Ldagger/Lazy;
 
     iput-object p3, p0, Lcom/google/android/systemui/columbus/ColumbusServiceWrapper;->settingsAction:Ldagger/Lazy;
+
+    iput-object p4, p0, Lcom/google/android/systemui/columbus/ColumbusServiceWrapper;->columbusStructuredDataManager:Ldagger/Lazy;
 
     new-instance p2, Lcom/google/android/systemui/columbus/ColumbusServiceWrapper$settingsChangeListener$1;
 
@@ -92,6 +111,8 @@
     invoke-interface {p3}, Ldagger/Lazy;->get()Ljava/lang/Object;
 
     :goto_0
+    invoke-interface {p4}, Ldagger/Lazy;->get()Ljava/lang/Object;
+
     return-void
 .end method
 

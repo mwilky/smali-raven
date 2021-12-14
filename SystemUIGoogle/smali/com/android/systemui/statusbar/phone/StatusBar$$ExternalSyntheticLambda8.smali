@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/android/systemui/statusbar/phone/PanelExpansionListener;
+.implements Lcom/android/wm/shell/bubbles/Bubbles$BubbleExpandListener;
 
 
 # instance fields
@@ -22,12 +22,12 @@
 
 
 # virtual methods
-.method public final onPanelExpansionChanged(FZ)V
+.method public final onBubbleExpandChanged(ZLjava/lang/String;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBar$$ExternalSyntheticLambda8;->f$0:Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    invoke-static {p0, p1, p2}, Lcom/android/systemui/statusbar/phone/StatusBar;->$r8$lambda$-hjtBMLApaMZis1WtJbIUE2pAWk(Lcom/android/systemui/statusbar/phone/StatusBar;FZ)V
+    invoke-static {p0, p1, p2}, Lcom/android/systemui/statusbar/phone/StatusBar;->$r8$lambda$qhgd00-G17BouIYgXKo_Ure1IcM(Lcom/android/systemui/statusbar/phone/StatusBar;ZLjava/lang/String;)V
 
     return-void
 .end method

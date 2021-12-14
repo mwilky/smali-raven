@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/wm/shell/bubbles/animation/StackAnimationController;->getMagnetizedStack(Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject$MagneticTarget;)Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject;
+    value = Lcom/android/wm/shell/bubbles/animation/StackAnimationController;->getMagnetizedStack()Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

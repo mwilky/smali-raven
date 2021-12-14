@@ -300,7 +300,7 @@
     const/16 v16, 0x0
 
     :goto_1
-    const-string v3, "text"
+    const-string/jumbo v3, "text"
 
     const/16 v17, 0x0
 
@@ -367,7 +367,7 @@
 
     check-cast v2, Landroidx/slice/SliceItem;
 
-    const-string v4, "title"
+    const-string/jumbo v4, "title"
 
     const-string v9, "large"
 
@@ -626,7 +626,7 @@
 
     move-result-object v0
 
-    const-string v1, "time_picker"
+    const-string/jumbo v1, "time_picker"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -874,9 +874,9 @@
 
     invoke-direct {v2, v0, v1}, Ljava/util/Date;-><init>(J)V
 
-    const-string v0, "text"
+    const-string/jumbo v0, "text"
 
-    const-string v1, "title"
+    const-string/jumbo v1, "title"
 
     invoke-static {p1, v0, v1, v5}, Landroidx/slice/core/SliceQuery;->find(Landroidx/slice/SliceItem;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroidx/slice/SliceItem;
 
@@ -1235,7 +1235,7 @@
 
     move-result-object v0
 
-    const-string v1, "text"
+    const-string/jumbo v1, "text"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1258,7 +1258,7 @@
     :cond_0
     const-string v1, "large"
 
-    const-string v4, "title"
+    const-string/jumbo v4, "title"
 
     filled-new-array {v1, v4}, [Ljava/lang/String;
 
@@ -1419,7 +1419,7 @@
 
     move-result-object v1
 
-    const-string v2, "text"
+    const-string/jumbo v2, "text"
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

@@ -165,10 +165,18 @@
     return-object p0
 .end method
 
-.method static synthetic access$200(Lcom/android/systemui/util/sensors/ProximitySensor;)Lcom/android/systemui/util/sensors/ThresholdSensor;
+.method static synthetic access$200(Lcom/android/systemui/util/sensors/ProximitySensor;)V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mSecondaryThresholdSensor:Lcom/android/systemui/util/sensors/ThresholdSensor;
+    invoke-direct {p0}, Lcom/android/systemui/util/sensors/ProximitySensor;->chooseSensor()V
+
+    return-void
+.end method
+
+.method static synthetic access$300(Lcom/android/systemui/util/sensors/ProximitySensor;)Ljava/lang/Runnable;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mCancelSecondaryRunnable:Ljava/lang/Runnable;
 
     return-object p0
 .end method
@@ -202,6 +210,76 @@
 
     invoke-direct {p0, p1}, Lcom/android/systemui/util/sensors/ProximitySensor;->onSensorEvent(Lcom/android/systemui/util/sensors/ThresholdSensor$ThresholdSensorEvent;)V
 
+    return-void
+.end method
+
+.method static synthetic access$700(Lcom/android/systemui/util/sensors/ProximitySensor;)Lcom/android/systemui/util/sensors/ThresholdSensor;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mPrimaryThresholdSensor:Lcom/android/systemui/util/sensors/ThresholdSensor;
+
+    return-object p0
+.end method
+
+.method static synthetic access$800(Lcom/android/systemui/util/sensors/ProximitySensor;)Lcom/android/systemui/util/sensors/ThresholdSensor;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mSecondaryThresholdSensor:Lcom/android/systemui/util/sensors/ThresholdSensor;
+
+    return-object p0
+.end method
+
+.method private chooseSensor()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mExecution:Lcom/android/systemui/util/concurrency/Execution;
+
+    invoke-interface {v0}, Lcom/android/systemui/util/concurrency/Execution;->assertIsMainThread()V
+
+    iget-boolean v0, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mRegistered:Z
+
+    if-eqz v0, :cond_2
+
+    iget-boolean v0, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mPaused:Z
+
+    if-nez v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mListeners:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    iget-boolean v0, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mSecondarySafe:Z
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mSecondaryThresholdSensor:Lcom/android/systemui/util/sensors/ThresholdSensor;
+
+    invoke-interface {v0}, Lcom/android/systemui/util/sensors/ThresholdSensor;->resume()V
+
+    iget-object p0, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mPrimaryThresholdSensor:Lcom/android/systemui/util/sensors/ThresholdSensor;
+
+    invoke-interface {p0}, Lcom/android/systemui/util/sensors/ThresholdSensor;->pause()V
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mPrimaryThresholdSensor:Lcom/android/systemui/util/sensors/ThresholdSensor;
+
+    invoke-interface {v0}, Lcom/android/systemui/util/sensors/ThresholdSensor;->resume()V
+
+    iget-object p0, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mSecondaryThresholdSensor:Lcom/android/systemui/util/sensors/ThresholdSensor;
+
+    invoke-interface {p0}, Lcom/android/systemui/util/sensors/ThresholdSensor;->pause()V
+
+    :cond_2
+    :goto_0
     return-void
 .end method
 
@@ -475,9 +553,7 @@
 
     if-nez v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mSecondaryThresholdSensor:Lcom/android/systemui/util/sensors/ThresholdSensor;
-
-    invoke-interface {v0}, Lcom/android/systemui/util/sensors/ThresholdSensor;->pause()V
+    invoke-direct {p0}, Lcom/android/systemui/util/sensors/ProximitySensor;->chooseSensor()V
 
     :cond_1
     iput-object p1, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mLastEvent:Lcom/android/systemui/util/sensors/ThresholdSensor$ThresholdSensorEvent;
@@ -663,11 +739,11 @@
 
     iget-boolean v0, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mRegistered:Z
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_2
 
     iget-boolean v0, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mPaused:Z
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_2
 
     iget-object v0, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mListeners:Ljava/util/List;
 
@@ -684,7 +760,15 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mPrimaryThresholdSensor:Lcom/android/systemui/util/sensors/ThresholdSensor;
+
+    invoke-interface {v0}, Lcom/android/systemui/util/sensors/ThresholdSensor;->pause()V
+
+    iget-object v0, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mSecondaryThresholdSensor:Lcom/android/systemui/util/sensors/ThresholdSensor;
+
+    invoke-interface {v0}, Lcom/android/systemui/util/sensors/ThresholdSensor;->pause()V
 
     iget-object v0, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mPrimaryThresholdSensor:Lcom/android/systemui/util/sensors/ThresholdSensor;
 
@@ -692,15 +776,6 @@
 
     invoke-interface {v0, v2}, Lcom/android/systemui/util/sensors/ThresholdSensor;->register(Lcom/android/systemui/util/sensors/ThresholdSensor$Listener;)V
 
-    iget-boolean v0, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mSecondarySafe:Z
-
-    if-nez v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mSecondaryThresholdSensor:Lcom/android/systemui/util/sensors/ThresholdSensor;
-
-    invoke-interface {v0}, Lcom/android/systemui/util/sensors/ThresholdSensor;->pause()V
-
-    :cond_1
     iget-object v0, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mSecondaryThresholdSensor:Lcom/android/systemui/util/sensors/ThresholdSensor;
 
     iget-object v2, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mSecondaryEventListener:Lcom/android/systemui/util/sensors/ThresholdSensor$Listener;
@@ -709,18 +784,16 @@
 
     iput-boolean v1, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mInitializedListeners:Z
 
-    :cond_2
+    :cond_1
     const-string v0, "Registering sensor listener"
 
     invoke-direct {p0, v0}, Lcom/android/systemui/util/sensors/ProximitySensor;->logDebug(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mPrimaryThresholdSensor:Lcom/android/systemui/util/sensors/ThresholdSensor;
-
-    invoke-interface {v0}, Lcom/android/systemui/util/sensors/ThresholdSensor;->resume()V
-
     iput-boolean v1, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mRegistered:Z
 
-    :cond_3
+    invoke-direct {p0}, Lcom/android/systemui/util/sensors/ProximitySensor;->chooseSensor()V
+
+    :cond_2
     :goto_0
     return-void
 .end method
@@ -760,24 +833,30 @@
 .end method
 
 .method public setSecondarySafe(Z)V
-    .locals 0
+    .locals 1
 
-    iput-boolean p1, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mSecondarySafe:Z
+    iget-object v0, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mSecondaryThresholdSensor:Lcom/android/systemui/util/sensors/ThresholdSensor;
 
-    if-nez p1, :cond_0
+    invoke-interface {v0}, Lcom/android/systemui/util/sensors/ThresholdSensor;->isLoaded()Z
 
-    iget-object p0, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mSecondaryThresholdSensor:Lcom/android/systemui/util/sensors/ThresholdSensor;
+    move-result v0
 
-    invoke-interface {p0}, Lcom/android/systemui/util/sensors/ThresholdSensor;->pause()V
+    if-eqz v0, :cond_0
+
+    if-eqz p1, :cond_0
+
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    iget-object p0, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mSecondaryThresholdSensor:Lcom/android/systemui/util/sensors/ThresholdSensor;
-
-    invoke-interface {p0}, Lcom/android/systemui/util/sensors/ThresholdSensor;->resume()V
+    const/4 p1, 0x0
 
     :goto_0
+    iput-boolean p1, p0, Lcom/android/systemui/util/sensors/ProximitySensor;->mSecondarySafe:Z
+
+    invoke-direct {p0}, Lcom/android/systemui/util/sensors/ProximitySensor;->chooseSensor()V
+
     return-void
 .end method
 

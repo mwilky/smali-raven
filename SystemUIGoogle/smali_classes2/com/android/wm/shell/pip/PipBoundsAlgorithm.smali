@@ -407,7 +407,7 @@
 
     iput v0, p0, Lcom/android/wm/shell/pip/PipBoundsAlgorithm;->mDefaultMinSize:I
 
-    const v0, 0x105021a
+    const v0, 0x105021b
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

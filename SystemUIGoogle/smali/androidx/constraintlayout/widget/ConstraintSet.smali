@@ -2335,7 +2335,7 @@
     return-object p0
 
     :pswitch_4
-    const-string p0, "top"
+    const-string/jumbo p0, "top"
 
     return-object p0
 
@@ -2348,6 +2348,8 @@
     const-string p0, "left"
 
     return-object p0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1

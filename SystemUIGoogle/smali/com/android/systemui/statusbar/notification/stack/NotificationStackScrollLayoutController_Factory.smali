@@ -48,6 +48,16 @@
     .end annotation
 .end field
 
+.field private final deviceProvisionedControllerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final dynamicPrivacyControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -380,7 +390,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -399,6 +409,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/tuner/TunerService;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;",
@@ -522,133 +535,137 @@
 
     move-object v1, p6
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->dynamicPrivacyControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->deviceProvisionedControllerProvider:Ljavax/inject/Provider;
 
     move-object v1, p7
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->dynamicPrivacyControllerProvider:Ljavax/inject/Provider;
 
     move-object v1, p8
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
 
     move-object v1, p9
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->keyguardMediaControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
 
     move-object v1, p10
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->keyguardBypassControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->keyguardMediaControllerProvider:Ljavax/inject/Provider;
 
     move-object v1, p11
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->zenModeControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->keyguardBypassControllerProvider:Ljavax/inject/Provider;
 
     move-object v1, p12
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->colorExtractorProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->zenModeControllerProvider:Ljavax/inject/Provider;
 
     move-object v1, p13
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->lockscreenUserManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->colorExtractorProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p14
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->metricsLoggerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->lockscreenUserManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p15
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->falsingCollectorProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->metricsLoggerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p16
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->falsingManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->falsingCollectorProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p17
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->resourcesProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->falsingManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p18
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->notificationSwipeHelperBuilderProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->resourcesProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p19
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->statusBarProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->notificationSwipeHelperBuilderProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p20
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->scrimControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->statusBarProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p21
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->legacyGroupManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->scrimControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p22
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->groupManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->legacyGroupManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p23
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->silentHeaderControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->groupManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p24
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->silentHeaderControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p25
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->notifPipelineProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p26
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->notifCollectionProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->notifPipelineProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p27
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->notificationEntryManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->notifCollectionProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p28
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->lockscreenShadeTransitionControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->notificationEntryManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p29
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->iStatusBarServiceProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->lockscreenShadeTransitionControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p30
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->iStatusBarServiceProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p31
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->fgFeatureControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p32
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->fgServicesSectionControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->fgFeatureControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p33
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->layoutInflaterProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->fgServicesSectionControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p34
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->remoteInputManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->layoutInflaterProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p35
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->visualStabilityManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->remoteInputManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p36
+
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->visualStabilityManagerProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p37
 
     iput-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->shadeControllerProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;
-    .locals 38
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;
+    .locals 39
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -666,6 +683,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/tuner/TunerService;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;",
@@ -836,17 +856,19 @@
 
     move-object/from16 v36, p35
 
-    new-instance v37, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;
+    move-object/from16 v37, p36
 
-    move-object/from16 v0, v37
+    new-instance v38, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;
 
-    invoke-direct/range {v0 .. v36}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v0, v38
 
-    return-object v37
+    invoke-direct/range {v0 .. v37}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v38
 .end method
 
-.method public static newInstance(ZLcom/android/systemui/statusbar/notification/row/NotificationGutsManager;Lcom/android/systemui/statusbar/phone/HeadsUpManagerPhone;Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/media/KeyguardMediaController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/policy/ZenModeController;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/plugins/FalsingManager;Landroid/content/res/Resources;Ljava/lang/Object;Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/systemui/statusbar/phone/ScrimController;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/notification/collection/render/GroupExpansionManager;Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/statusbar/notification/collection/NotifCollection;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/internal/statusbar/IStatusBarService;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/notification/ForegroundServiceDismissalFeatureController;Lcom/android/systemui/statusbar/notification/stack/ForegroundServiceSectionController;Landroid/view/LayoutInflater;Lcom/android/systemui/statusbar/NotificationRemoteInputManager;Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;Lcom/android/systemui/statusbar/phone/ShadeController;)Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
-    .locals 38
+.method public static newInstance(ZLcom/android/systemui/statusbar/notification/row/NotificationGutsManager;Lcom/android/systemui/statusbar/phone/HeadsUpManagerPhone;Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/media/KeyguardMediaController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/policy/ZenModeController;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/plugins/FalsingManager;Landroid/content/res/Resources;Ljava/lang/Object;Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/systemui/statusbar/phone/ScrimController;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/notification/collection/render/GroupExpansionManager;Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/statusbar/notification/collection/NotifCollection;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/internal/statusbar/IStatusBarService;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/notification/ForegroundServiceDismissalFeatureController;Lcom/android/systemui/statusbar/notification/stack/ForegroundServiceSectionController;Landroid/view/LayoutInflater;Lcom/android/systemui/statusbar/NotificationRemoteInputManager;Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;Lcom/android/systemui/statusbar/phone/ShadeController;)Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
+    .locals 39
 
     move/from16 v1, p0
 
@@ -882,7 +904,7 @@
 
     move-object/from16 v17, p16
 
-    move-object/from16 v19, p18
+    move-object/from16 v18, p17
 
     move-object/from16 v20, p19
 
@@ -918,23 +940,25 @@
 
     move-object/from16 v36, p35
 
-    new-instance v37, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
+    move-object/from16 v37, p36
 
-    move-object/from16 v0, v37
+    new-instance v38, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
 
-    move-object/from16 v18, p17
+    move-object/from16 v0, v38
 
-    check-cast v18, Lcom/android/systemui/statusbar/notification/stack/NotificationSwipeHelper$Builder;
+    move-object/from16 v19, p18
 
-    invoke-direct/range {v0 .. v36}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;-><init>(ZLcom/android/systemui/statusbar/notification/row/NotificationGutsManager;Lcom/android/systemui/statusbar/phone/HeadsUpManagerPhone;Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/media/KeyguardMediaController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/policy/ZenModeController;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/plugins/FalsingManager;Landroid/content/res/Resources;Lcom/android/systemui/statusbar/notification/stack/NotificationSwipeHelper$Builder;Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/systemui/statusbar/phone/ScrimController;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/notification/collection/render/GroupExpansionManager;Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/statusbar/notification/collection/NotifCollection;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/internal/statusbar/IStatusBarService;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/notification/ForegroundServiceDismissalFeatureController;Lcom/android/systemui/statusbar/notification/stack/ForegroundServiceSectionController;Landroid/view/LayoutInflater;Lcom/android/systemui/statusbar/NotificationRemoteInputManager;Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;Lcom/android/systemui/statusbar/phone/ShadeController;)V
+    check-cast v19, Lcom/android/systemui/statusbar/notification/stack/NotificationSwipeHelper$Builder;
 
-    return-object v37
+    invoke-direct/range {v0 .. v37}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;-><init>(ZLcom/android/systemui/statusbar/notification/row/NotificationGutsManager;Lcom/android/systemui/statusbar/phone/HeadsUpManagerPhone;Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/media/KeyguardMediaController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/policy/ZenModeController;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/plugins/FalsingManager;Landroid/content/res/Resources;Lcom/android/systemui/statusbar/notification/stack/NotificationSwipeHelper$Builder;Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/systemui/statusbar/phone/ScrimController;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/notification/collection/render/GroupExpansionManager;Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/statusbar/notification/collection/NotifCollection;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/internal/statusbar/IStatusBarService;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/notification/ForegroundServiceDismissalFeatureController;Lcom/android/systemui/statusbar/notification/stack/ForegroundServiceSectionController;Landroid/view/LayoutInflater;Lcom/android/systemui/statusbar/NotificationRemoteInputManager;Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;Lcom/android/systemui/statusbar/phone/ShadeController;)V
+
+    return-object v38
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
-    .locals 38
+    .locals 39
 
     move-object/from16 v0, p0
 
@@ -990,7 +1014,7 @@
 
     check-cast v6, Lcom/android/systemui/tuner/TunerService;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->dynamicPrivacyControllerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->deviceProvisionedControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -998,9 +1022,9 @@
 
     move-object v7, v1
 
-    check-cast v7, Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;
+    check-cast v7, Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->dynamicPrivacyControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1008,9 +1032,9 @@
 
     move-object v8, v1
 
-    check-cast v8, Lcom/android/systemui/statusbar/policy/ConfigurationController;
+    check-cast v8, Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1018,9 +1042,9 @@
 
     move-object v9, v1
 
-    check-cast v9, Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
+    check-cast v9, Lcom/android/systemui/statusbar/policy/ConfigurationController;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->keyguardMediaControllerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1028,9 +1052,9 @@
 
     move-object v10, v1
 
-    check-cast v10, Lcom/android/systemui/media/KeyguardMediaController;
+    check-cast v10, Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->keyguardBypassControllerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->keyguardMediaControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1038,9 +1062,9 @@
 
     move-object v11, v1
 
-    check-cast v11, Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
+    check-cast v11, Lcom/android/systemui/media/KeyguardMediaController;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->zenModeControllerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->keyguardBypassControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1048,9 +1072,9 @@
 
     move-object v12, v1
 
-    check-cast v12, Lcom/android/systemui/statusbar/policy/ZenModeController;
+    check-cast v12, Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->colorExtractorProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->zenModeControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1058,9 +1082,9 @@
 
     move-object v13, v1
 
-    check-cast v13, Lcom/android/systemui/colorextraction/SysuiColorExtractor;
+    check-cast v13, Lcom/android/systemui/statusbar/policy/ZenModeController;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->lockscreenUserManagerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->colorExtractorProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1068,9 +1092,9 @@
 
     move-object v14, v1
 
-    check-cast v14, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
+    check-cast v14, Lcom/android/systemui/colorextraction/SysuiColorExtractor;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->metricsLoggerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->lockscreenUserManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1078,9 +1102,9 @@
 
     move-object v15, v1
 
-    check-cast v15, Lcom/android/internal/logging/MetricsLogger;
+    check-cast v15, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->falsingCollectorProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->metricsLoggerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1088,9 +1112,9 @@
 
     move-object/from16 v16, v1
 
-    check-cast v16, Lcom/android/systemui/classifier/FalsingCollector;
+    check-cast v16, Lcom/android/internal/logging/MetricsLogger;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->falsingManagerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->falsingCollectorProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1098,9 +1122,9 @@
 
     move-object/from16 v17, v1
 
-    check-cast v17, Lcom/android/systemui/plugins/FalsingManager;
+    check-cast v17, Lcom/android/systemui/classifier/FalsingCollector;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->resourcesProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->falsingManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1108,13 +1132,23 @@
 
     move-object/from16 v18, v1
 
-    check-cast v18, Landroid/content/res/Resources;
+    check-cast v18, Lcom/android/systemui/plugins/FalsingManager;
+
+    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->resourcesProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object/from16 v19, v1
+
+    check-cast v19, Landroid/content/res/Resources;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->notificationSwipeHelperBuilderProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    move-result-object v19
+    move-result-object v20
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->statusBarProvider:Ljavax/inject/Provider;
 
@@ -1122,9 +1156,9 @@
 
     move-result-object v1
 
-    move-object/from16 v20, v1
+    move-object/from16 v21, v1
 
-    check-cast v20, Lcom/android/systemui/statusbar/phone/StatusBar;
+    check-cast v21, Lcom/android/systemui/statusbar/phone/StatusBar;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->scrimControllerProvider:Ljavax/inject/Provider;
 
@@ -1132,9 +1166,9 @@
 
     move-result-object v1
 
-    move-object/from16 v21, v1
+    move-object/from16 v22, v1
 
-    check-cast v21, Lcom/android/systemui/statusbar/phone/ScrimController;
+    check-cast v22, Lcom/android/systemui/statusbar/phone/ScrimController;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->legacyGroupManagerProvider:Ljavax/inject/Provider;
 
@@ -1142,9 +1176,9 @@
 
     move-result-object v1
 
-    move-object/from16 v22, v1
+    move-object/from16 v23, v1
 
-    check-cast v22, Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;
+    check-cast v23, Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->groupManagerProvider:Ljavax/inject/Provider;
 
@@ -1152,9 +1186,9 @@
 
     move-result-object v1
 
-    move-object/from16 v23, v1
+    move-object/from16 v24, v1
 
-    check-cast v23, Lcom/android/systemui/statusbar/notification/collection/render/GroupExpansionManager;
+    check-cast v24, Lcom/android/systemui/statusbar/notification/collection/render/GroupExpansionManager;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->silentHeaderControllerProvider:Ljavax/inject/Provider;
 
@@ -1162,9 +1196,9 @@
 
     move-result-object v1
 
-    move-object/from16 v24, v1
+    move-object/from16 v25, v1
 
-    check-cast v24, Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;
+    check-cast v25, Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
 
@@ -1172,9 +1206,9 @@
 
     move-result-object v1
 
-    move-object/from16 v25, v1
+    move-object/from16 v26, v1
 
-    check-cast v25, Lcom/android/systemui/statusbar/FeatureFlags;
+    check-cast v26, Lcom/android/systemui/statusbar/FeatureFlags;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->notifPipelineProvider:Ljavax/inject/Provider;
 
@@ -1182,9 +1216,9 @@
 
     move-result-object v1
 
-    move-object/from16 v26, v1
+    move-object/from16 v27, v1
 
-    check-cast v26, Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;
+    check-cast v27, Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->notifCollectionProvider:Ljavax/inject/Provider;
 
@@ -1192,9 +1226,9 @@
 
     move-result-object v1
 
-    move-object/from16 v27, v1
+    move-object/from16 v28, v1
 
-    check-cast v27, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;
+    check-cast v28, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->notificationEntryManagerProvider:Ljavax/inject/Provider;
 
@@ -1202,9 +1236,9 @@
 
     move-result-object v1
 
-    move-object/from16 v28, v1
+    move-object/from16 v29, v1
 
-    check-cast v28, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
+    check-cast v29, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->lockscreenShadeTransitionControllerProvider:Ljavax/inject/Provider;
 
@@ -1212,9 +1246,9 @@
 
     move-result-object v1
 
-    move-object/from16 v29, v1
+    move-object/from16 v30, v1
 
-    check-cast v29, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
+    check-cast v30, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->iStatusBarServiceProvider:Ljavax/inject/Provider;
 
@@ -1222,9 +1256,9 @@
 
     move-result-object v1
 
-    move-object/from16 v30, v1
+    move-object/from16 v31, v1
 
-    check-cast v30, Lcom/android/internal/statusbar/IStatusBarService;
+    check-cast v31, Lcom/android/internal/statusbar/IStatusBarService;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
 
@@ -1232,9 +1266,9 @@
 
     move-result-object v1
 
-    move-object/from16 v31, v1
+    move-object/from16 v32, v1
 
-    check-cast v31, Lcom/android/internal/logging/UiEventLogger;
+    check-cast v32, Lcom/android/internal/logging/UiEventLogger;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->fgFeatureControllerProvider:Ljavax/inject/Provider;
 
@@ -1242,9 +1276,9 @@
 
     move-result-object v1
 
-    move-object/from16 v32, v1
+    move-object/from16 v33, v1
 
-    check-cast v32, Lcom/android/systemui/statusbar/notification/ForegroundServiceDismissalFeatureController;
+    check-cast v33, Lcom/android/systemui/statusbar/notification/ForegroundServiceDismissalFeatureController;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->fgServicesSectionControllerProvider:Ljavax/inject/Provider;
 
@@ -1252,9 +1286,9 @@
 
     move-result-object v1
 
-    move-object/from16 v33, v1
+    move-object/from16 v34, v1
 
-    check-cast v33, Lcom/android/systemui/statusbar/notification/stack/ForegroundServiceSectionController;
+    check-cast v34, Lcom/android/systemui/statusbar/notification/stack/ForegroundServiceSectionController;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->layoutInflaterProvider:Ljavax/inject/Provider;
 
@@ -1262,9 +1296,9 @@
 
     move-result-object v1
 
-    move-object/from16 v34, v1
+    move-object/from16 v35, v1
 
-    check-cast v34, Landroid/view/LayoutInflater;
+    check-cast v35, Landroid/view/LayoutInflater;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->remoteInputManagerProvider:Ljavax/inject/Provider;
 
@@ -1272,9 +1306,9 @@
 
     move-result-object v1
 
-    move-object/from16 v35, v1
+    move-object/from16 v36, v1
 
-    check-cast v35, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
+    check-cast v36, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
 
     iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->visualStabilityManagerProvider:Ljavax/inject/Provider;
 
@@ -1282,9 +1316,9 @@
 
     move-result-object v1
 
-    move-object/from16 v36, v1
+    move-object/from16 v37, v1
 
-    check-cast v36, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
+    check-cast v37, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->shadeControllerProvider:Ljavax/inject/Provider;
 
@@ -1292,11 +1326,11 @@
 
     move-result-object v0
 
-    move-object/from16 v37, v0
+    move-object/from16 v38, v0
 
-    check-cast v37, Lcom/android/systemui/statusbar/phone/ShadeController;
+    check-cast v38, Lcom/android/systemui/statusbar/phone/ShadeController;
 
-    invoke-static/range {v2 .. v37}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->newInstance(ZLcom/android/systemui/statusbar/notification/row/NotificationGutsManager;Lcom/android/systemui/statusbar/phone/HeadsUpManagerPhone;Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/media/KeyguardMediaController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/policy/ZenModeController;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/plugins/FalsingManager;Landroid/content/res/Resources;Ljava/lang/Object;Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/systemui/statusbar/phone/ScrimController;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/notification/collection/render/GroupExpansionManager;Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/statusbar/notification/collection/NotifCollection;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/internal/statusbar/IStatusBarService;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/notification/ForegroundServiceDismissalFeatureController;Lcom/android/systemui/statusbar/notification/stack/ForegroundServiceSectionController;Landroid/view/LayoutInflater;Lcom/android/systemui/statusbar/NotificationRemoteInputManager;Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;Lcom/android/systemui/statusbar/phone/ShadeController;)Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
+    invoke-static/range {v2 .. v38}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController_Factory;->newInstance(ZLcom/android/systemui/statusbar/notification/row/NotificationGutsManager;Lcom/android/systemui/statusbar/phone/HeadsUpManagerPhone;Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/media/KeyguardMediaController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/policy/ZenModeController;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/plugins/FalsingManager;Landroid/content/res/Resources;Ljava/lang/Object;Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/systemui/statusbar/phone/ScrimController;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/notification/collection/render/GroupExpansionManager;Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/statusbar/notification/collection/NotifCollection;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/internal/statusbar/IStatusBarService;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/notification/ForegroundServiceDismissalFeatureController;Lcom/android/systemui/statusbar/notification/stack/ForegroundServiceSectionController;Landroid/view/LayoutInflater;Lcom/android/systemui/statusbar/NotificationRemoteInputManager;Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;Lcom/android/systemui/statusbar/phone/ShadeController;)Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
 
     move-result-object v0
 

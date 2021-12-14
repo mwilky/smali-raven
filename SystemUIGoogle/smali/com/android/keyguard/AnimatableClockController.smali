@@ -52,11 +52,11 @@
 
 .field private final mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
-.field private final mStatusBarStatePersistentListener:Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;
+.field private final mStatusBarStateListener:Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/keyguard/AnimatableClockView;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;)V
+.method public constructor <init>(Lcom/android/keyguard/AnimatableClockView;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Landroid/content/res/Resources;)V
     .locals 1
 
     invoke-direct {p0, p1}, Lcom/android/systemui/util/ViewController;-><init>(Landroid/view/View;)V
@@ -93,7 +93,7 @@
 
     invoke-direct {v0, p0}, Lcom/android/keyguard/AnimatableClockController$3;-><init>(Lcom/android/keyguard/AnimatableClockController;)V
 
-    iput-object v0, p0, Lcom/android/keyguard/AnimatableClockController;->mStatusBarStatePersistentListener:Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;
+    iput-object v0, p0, Lcom/android/keyguard/AnimatableClockController;->mStatusBarStateListener:Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;
 
     new-instance v0, Lcom/android/keyguard/AnimatableClockController$4;
 
@@ -102,18 +102,6 @@
     iput-object v0, p0, Lcom/android/keyguard/AnimatableClockController;->mKeyguardUpdateMonitorCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
     iput-object p2, p0, Lcom/android/keyguard/AnimatableClockController;->mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
-
-    invoke-interface {p2}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->isDozing()Z
-
-    move-result v0
-
-    iput-boolean v0, p0, Lcom/android/keyguard/AnimatableClockController;->mIsDozing:Z
-
-    invoke-interface {p2}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->getDozeAmount()F
-
-    move-result p2
-
-    iput p2, p0, Lcom/android/keyguard/AnimatableClockController;->mDozeAmount:F
 
     iput-object p3, p0, Lcom/android/keyguard/AnimatableClockController;->mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
@@ -131,33 +119,17 @@
 
     iput-object p1, p0, Lcom/android/keyguard/AnimatableClockController;->mBurmeseNumerals:Ljava/lang/String;
 
-    invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->getContext()Landroid/content/Context;
+    sget p1, Lcom/android/systemui/R$dimen;->keyguard_clock_line_spacing_scale_burmese:I
 
-    move-result-object p1
-
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p1
-
-    sget p2, Lcom/android/systemui/R$dimen;->keyguard_clock_line_spacing_scale_burmese:I
-
-    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getFloat(I)F
+    invoke-virtual {p7, p1}, Landroid/content/res/Resources;->getFloat(I)F
 
     move-result p1
 
     iput p1, p0, Lcom/android/keyguard/AnimatableClockController;->mBurmeseLineSpacing:F
 
-    invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->getContext()Landroid/content/Context;
+    sget p1, Lcom/android/systemui/R$dimen;->keyguard_clock_line_spacing_scale:I
 
-    move-result-object p1
-
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p1
-
-    sget p2, Lcom/android/systemui/R$dimen;->keyguard_clock_line_spacing_scale:I
-
-    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getFloat(I)F
+    invoke-virtual {p7, p1}, Landroid/content/res/Resources;->getFloat(I)F
 
     move-result p1
 
@@ -390,6 +362,14 @@
     return-void
 .end method
 
+.method public isDozing()Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/keyguard/AnimatableClockController;->mIsDozing:Z
+
+    return p0
+.end method
+
 .method protected onInit()V
     .locals 1
 
@@ -441,29 +421,55 @@
 
     iput v0, p0, Lcom/android/keyguard/AnimatableClockController;->mDozeAmount:F
 
+    iget-object v0, p0, Lcom/android/keyguard/AnimatableClockController;->mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+
+    invoke-interface {v0}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->isDozing()Z
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    if-nez v0, :cond_1
+
+    iget v0, p0, Lcom/android/keyguard/AnimatableClockController;->mDozeAmount:F
+
+    const/4 v2, 0x0
+
+    cmpl-float v0, v0, v2
+
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    move v0, v1
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    const/4 v0, 0x1
+
+    :goto_1
+    iput-boolean v0, p0, Lcom/android/keyguard/AnimatableClockController;->mIsDozing:Z
+
     iget-object v0, p0, Lcom/android/keyguard/AnimatableClockController;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
 
-    iget-object v1, p0, Lcom/android/keyguard/AnimatableClockController;->mBatteryCallback:Lcom/android/systemui/statusbar/policy/BatteryController$BatteryStateChangeCallback;
+    iget-object v2, p0, Lcom/android/keyguard/AnimatableClockController;->mBatteryCallback:Lcom/android/systemui/statusbar/policy/BatteryController$BatteryStateChangeCallback;
 
-    invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
+    invoke-interface {v0, v2}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
 
     iget-object v0, p0, Lcom/android/keyguard/AnimatableClockController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    iget-object v1, p0, Lcom/android/keyguard/AnimatableClockController;->mKeyguardUpdateMonitorCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
+    iget-object v2, p0, Lcom/android/keyguard/AnimatableClockController;->mKeyguardUpdateMonitorCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
-    invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->registerCallback(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
-
-    iget-object v0, p0, Lcom/android/keyguard/AnimatableClockController;->mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
-
-    iget-object v1, p0, Lcom/android/keyguard/AnimatableClockController;->mStatusBarStatePersistentListener:Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;
-
-    invoke-interface {v0, v1}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->removeCallback(Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;)V
+    invoke-virtual {v0, v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->registerCallback(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
 
     iget-object v0, p0, Lcom/android/keyguard/AnimatableClockController;->mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
-    iget-object v1, p0, Lcom/android/keyguard/AnimatableClockController;->mStatusBarStatePersistentListener:Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;
+    iget-object v2, p0, Lcom/android/keyguard/AnimatableClockController;->mStatusBarStateListener:Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;
 
-    invoke-interface {v0, v1}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->addCallback(Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;)V
+    invoke-interface {v0, v2}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->addCallback(Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;)V
 
     invoke-virtual {p0}, Lcom/android/keyguard/AnimatableClockController;->refreshTime()V
 
@@ -474,8 +480,6 @@
     check-cast v0, Lcom/android/keyguard/AnimatableClockView;
 
     iget-boolean p0, p0, Lcom/android/keyguard/AnimatableClockController;->mIsDozing:Z
-
-    const/4 v1, 0x0
 
     invoke-virtual {v0, p0, v1}, Lcom/android/keyguard/AnimatableClockView;->animateDoze(ZZ)V
 
@@ -503,23 +507,12 @@
 
     invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/policy/CallbackController;->removeCallback(Ljava/lang/Object;)V
 
-    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast v0, Lcom/android/keyguard/AnimatableClockView;
-
-    invoke-virtual {v0}, Landroid/widget/TextView;->isAttachedToWindow()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
     iget-object v0, p0, Lcom/android/keyguard/AnimatableClockController;->mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
-    iget-object p0, p0, Lcom/android/keyguard/AnimatableClockController;->mStatusBarStatePersistentListener:Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;
+    iget-object p0, p0, Lcom/android/keyguard/AnimatableClockController;->mStatusBarStateListener:Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;
 
     invoke-interface {v0, p0}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->removeCallback(Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;)V
 
-    :cond_0
     return-void
 .end method
 

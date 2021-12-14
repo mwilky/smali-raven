@@ -58,6 +58,16 @@
     .end annotation
 .end field
 
+.field private final deviceProvisionedControllerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final executionProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -161,7 +171,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -195,6 +205,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/util/concurrency/Execution;",
@@ -234,19 +247,21 @@
 
     iput-object p10, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
 
-    iput-object p11, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->executionProvider:Ljavax/inject/Provider;
+    iput-object p11, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->deviceProvisionedControllerProvider:Ljavax/inject/Provider;
 
-    iput-object p12, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->uiExecutorProvider:Ljavax/inject/Provider;
+    iput-object p12, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->executionProvider:Ljavax/inject/Provider;
 
-    iput-object p13, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->handlerProvider:Ljavax/inject/Provider;
+    iput-object p13, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->uiExecutorProvider:Ljavax/inject/Provider;
 
-    iput-object p14, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->optionalPluginProvider:Ljavax/inject/Provider;
+    iput-object p14, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->handlerProvider:Ljavax/inject/Provider;
+
+    iput-object p15, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->optionalPluginProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;
-    .locals 16
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;
+    .locals 17
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -279,6 +294,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/util/concurrency/Execution;",
@@ -297,9 +315,9 @@
         }
     .end annotation
 
-    new-instance v15, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;
+    new-instance v16, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;
 
-    move-object v0, v15
+    move-object/from16 v0, v16
 
     move-object/from16 v1, p0
 
@@ -329,13 +347,15 @@
 
     move-object/from16 v14, p13
 
-    invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v15, p14
 
-    return-object v15
+    invoke-direct/range {v0 .. v15}, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v16
 .end method
 
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/FeatureFlags;Landroid/app/smartspace/SmartspaceManager;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/settings/UserTracker;Landroid/content/ContentResolver;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/util/concurrency/Execution;Ljava/util/concurrent/Executor;Landroid/os/Handler;Ljava/util/Optional;)Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
-    .locals 16
+.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/FeatureFlags;Landroid/app/smartspace/SmartspaceManager;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/settings/UserTracker;Landroid/content/ContentResolver;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/util/concurrency/Execution;Ljava/util/concurrent/Executor;Landroid/os/Handler;Ljava/util/Optional;)Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
+    .locals 17
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -349,6 +369,7 @@
             "Landroid/content/ContentResolver;",
             "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
             "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
+            "Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;",
             "Lcom/android/systemui/util/concurrency/Execution;",
             "Ljava/util/concurrent/Executor;",
             "Landroid/os/Handler;",
@@ -359,9 +380,9 @@
         }
     .end annotation
 
-    new-instance v15, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
+    new-instance v16, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
 
-    move-object v0, v15
+    move-object/from16 v0, v16
 
     move-object/from16 v1, p0
 
@@ -391,161 +412,175 @@
 
     move-object/from16 v14, p13
 
-    invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/FeatureFlags;Landroid/app/smartspace/SmartspaceManager;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/settings/UserTracker;Landroid/content/ContentResolver;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/util/concurrency/Execution;Ljava/util/concurrent/Executor;Landroid/os/Handler;Ljava/util/Optional;)V
+    move-object/from16 v15, p14
 
-    return-object v15
+    invoke-direct/range {v0 .. v15}, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/FeatureFlags;Landroid/app/smartspace/SmartspaceManager;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/settings/UserTracker;Landroid/content/ContentResolver;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/util/concurrency/Execution;Ljava/util/concurrent/Executor;Landroid/os/Handler;Ljava/util/Optional;)V
+
+    return-object v16
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
-    .locals 15
+    .locals 17
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->contextProvider:Ljavax/inject/Provider;
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->contextProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v2, v1
+
+    check-cast v2, Landroid/content/Context;
+
+    iget-object v1, v0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v3, v1
+
+    check-cast v3, Lcom/android/systemui/statusbar/FeatureFlags;
+
+    iget-object v1, v0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->smartspaceManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v4, v1
+
+    check-cast v4, Landroid/app/smartspace/SmartspaceManager;
+
+    iget-object v1, v0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->activityStarterProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v5, v1
+
+    check-cast v5, Lcom/android/systemui/plugins/ActivityStarter;
+
+    iget-object v1, v0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->falsingManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v6, v1
+
+    check-cast v6, Lcom/android/systemui/plugins/FalsingManager;
+
+    iget-object v1, v0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->secureSettingsProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v7, v1
+
+    check-cast v7, Lcom/android/systemui/util/settings/SecureSettings;
+
+    iget-object v1, v0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->userTrackerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v8, v1
+
+    check-cast v8, Lcom/android/systemui/settings/UserTracker;
+
+    iget-object v1, v0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->contentResolverProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v9, v1
+
+    check-cast v9, Landroid/content/ContentResolver;
+
+    iget-object v1, v0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v10, v1
+
+    check-cast v10, Lcom/android/systemui/statusbar/policy/ConfigurationController;
+
+    iget-object v1, v0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v11, v1
+
+    check-cast v11, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+
+    iget-object v1, v0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->deviceProvisionedControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v12, v1
+
+    check-cast v12, Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
+
+    iget-object v1, v0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->executionProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v13, v1
+
+    check-cast v13, Lcom/android/systemui/util/concurrency/Execution;
+
+    iget-object v1, v0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->uiExecutorProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v14, v1
+
+    check-cast v14, Ljava/util/concurrent/Executor;
+
+    iget-object v1, v0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->handlerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v15, v1
+
+    check-cast v15, Landroid/os/Handler;
+
+    iget-object v0, v0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->optionalPluginProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    move-object v1, v0
+    move-object/from16 v16, v0
 
-    check-cast v1, Landroid/content/Context;
+    check-cast v16, Ljava/util/Optional;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    invoke-static/range {v2 .. v16}, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/FeatureFlags;Landroid/app/smartspace/SmartspaceManager;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/settings/UserTracker;Landroid/content/ContentResolver;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/util/concurrency/Execution;Ljava/util/concurrent/Executor;Landroid/os/Handler;Ljava/util/Optional;)Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
 
     move-result-object v0
 
-    move-object v2, v0
-
-    check-cast v2, Lcom/android/systemui/statusbar/FeatureFlags;
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->smartspaceManagerProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v3, v0
-
-    check-cast v3, Landroid/app/smartspace/SmartspaceManager;
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->activityStarterProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v4, v0
-
-    check-cast v4, Lcom/android/systemui/plugins/ActivityStarter;
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->falsingManagerProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v5, v0
-
-    check-cast v5, Lcom/android/systemui/plugins/FalsingManager;
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->secureSettingsProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v6, v0
-
-    check-cast v6, Lcom/android/systemui/util/settings/SecureSettings;
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->userTrackerProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v7, v0
-
-    check-cast v7, Lcom/android/systemui/settings/UserTracker;
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->contentResolverProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v8, v0
-
-    check-cast v8, Landroid/content/ContentResolver;
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v9, v0
-
-    check-cast v9, Lcom/android/systemui/statusbar/policy/ConfigurationController;
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v10, v0
-
-    check-cast v10, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->executionProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v11, v0
-
-    check-cast v11, Lcom/android/systemui/util/concurrency/Execution;
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->uiExecutorProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v12, v0
-
-    check-cast v12, Ljava/util/concurrent/Executor;
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->handlerProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v13, v0
-
-    check-cast v13, Landroid/os/Handler;
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->optionalPluginProvider:Ljavax/inject/Provider;
-
-    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object p0
-
-    move-object v14, p0
-
-    check-cast v14, Ljava/util/Optional;
-
-    invoke-static/range {v1 .. v14}, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/FeatureFlags;Landroid/app/smartspace/SmartspaceManager;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/settings/UserTracker;Landroid/content/ContentResolver;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/util/concurrency/Execution;Ljava/util/concurrent/Executor;Landroid/os/Handler;Ljava/util/Optional;)Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
-
-    move-result-object p0
-
-    return-object p0
+    return-object v0
 .end method
 
 .method public bridge synthetic get()Ljava/lang/Object;

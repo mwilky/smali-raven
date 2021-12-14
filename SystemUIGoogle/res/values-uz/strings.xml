@@ -363,6 +363,7 @@ Agar bu ruxsat oʻchirilsa, ushbu ilova tomonidan rejalashtirilgan mavjud signal
     <string name="alarms_and_reminders_label">Signal va eslatmalar</string>
     <string name="alarms_and_reminders_switch_title">Signal va eslatmalarni sozlashga ruxsat berish</string>
     <string name="alarms_and_reminders_title">Signal va eslatmalar</string>
+    <string name="all_network_unavailable">Hech qanday tarmoq mavjud emas</string>
     <string name="allow_mock_location">Qo‘lbola joylashuvlarga ruxsat berish</string>
     <string name="allow_mock_location_summary">Joylashuv emulyatsiyasiga ruxsat berish</string>
     <string name="always_use_accessory">%2$s ulanganda, doim %1$s ochilsin</string>
@@ -618,6 +619,11 @@ Tanlash"</string>
     <string name="clock_title_analog">Analog</string>
     <string name="clock_title_bubble">Pufaklar</string>
     <string name="clock_title_default">Odatiy</string>
+    <string name="columbus_bouncer_message">Qisqa teginish uchun qulfni oching</string>
+    <string name="columbus_target_request_dialog_allow">Ruxsat</string>
+    <string name="columbus_target_request_dialog_deny">Rad etish</string>
+    <string name="columbus_target_request_dialog_summary">Telefoningiz orqasiga ikki marta teginsangiz, %1$s ochiladi. Buni istalgan vaqtda Sozlamalar orqali oʻzgartirish mumkin.</string>
+    <string name="columbus_target_request_dialog_title">%1$s ilovasini qisqa teginish yordamida ochishga ruxsat berilsinmi?</string>
     <string name="compat_mode_off">Ekran hajmida cho‘zish</string>
     <string name="compat_mode_on">Ekranga moslashtirish</string>
     <string name="confirm_enable_oem_unlock_text">OGOHLANTIRISH: Ushbu funksiya yoqilsa, qurilmani himoyalash funksiyasi ishlamay qoladi.</string>
@@ -740,6 +746,8 @@ Davom ettiradigan bo‘lsangiz, trafik uchun to‘lov olinishi mumkin."</string>
     <string name="defender_notify_learn_more">Batafsil</string>
     <string name="defender_notify_resume_charge">Toʻliq quvvatlansin</string>
     <string name="defender_notify_title">Quvvatlash vaqtincha cheklangan</string>
+    <string name="defender_post_notify_des">Quvvatlash %2$s va %3$s orasida batareya yaroqliligini uzaytirish uchun %1$s ga cheklandi</string>
+    <string name="defender_post_notify_title">Odatiy quvvatlash</string>
     <string name="delete_blob_confirmation_text">Umumiy maʼlumotlarni oʻchirishni xohlaysizmi?</string>
     <string name="delete_blob_text">Umumiy maʼlumotlarni oʻchirish</string>
     <string name="demo_mode">Tizim interfeysi demo rejimi</string>
@@ -885,6 +893,7 @@ Yuz bilan ochish funksiyasi tomonidan yozib olingan axborot butunlay va xavfsiz 
     <string name="game_status">Oʻynamoqda</string>
     <string name="global_action_lock_message">Boshqa parametrlar uchun telefoningiz qulfini oching</string>
     <string name="global_action_screenshot">Skrinshot</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock faolsizlantirildi</string>
     <string name="global_actions_change_description">%1$s va qurilma boshqaruviga kirish uchun ekranning tepasidan pastga suring</string>
     <string name="go_to_web">Brauzerni ochish</string>
     <string name="google_services_wallpaper_permission"><b>Jonli fon rasmlari qayerda ekanligingizga qarab almashib turishi uchun</b> Google joylashuvni aniqlash xizmatini yoqing.</string>
@@ -1232,7 +1241,7 @@ muhimlar"</string>
     <string name="media_projection_dialog_text">%s ekranda chiqqan yoki yozib olish va translatsiya vaqtida ijro etilgan barcha axborotlarga ruxsat oladi. Bu axborotlar parollar, toʻlov tafsilotlari, rasmlar, xabarlar va ijro etilgan audiolardan iborat boʻlishi mumkin.</string>
     <string name="media_projection_dialog_title">%s orqali yozib olish yoki translatsiya boshlansinmi?</string>
     <string name="media_projection_remember_text">Boshqa ko‘rsatilmasin</string>
-    <string name="media_seamless_remote_device">Qurilma</string>
+    <string name="media_seamless_other_device">Boshqa qurilma</string>
     <string name="media_transfer_this_device_name">Telefon karnayi</string>
     <string name="media_transfer_this_phone">Shu telefon</string>
     <string name="media_transfer_wired_device_name">Simli audio qurilma</string>
@@ -1249,9 +1258,13 @@ muhimlar"</string>
     <string name="mobile_data">Mobil internet</string>
     <string name="mobile_data_always_on">Mobil internet doim yoniq tursin</string>
     <string name="mobile_data_always_on_summary">Mobil internet har doim yoniq tursin, hatto Wi-Fi yoniq bo‘lsa ham (bir tarmoqdan ikkinchisiga tezroq o‘tish uchun).</string>
+    <string name="mobile_data_connection_active">Ulandi</string>
     <string name="mobile_data_disable_message">%s orqali internetdan foydalana olmaysiz. Internet faqat Wi-Fi orqali ishlaydi.</string>
     <string name="mobile_data_disable_message_default_carrier">aloqa operatoringiz</string>
     <string name="mobile_data_disable_title">Mobil internet uzilsinmi?</string>
+    <string name="mobile_data_no_connection">Internetga ulanmagansiz</string>
+    <string name="mobile_data_off_summary">Mobil internetga avtomatik ulanmaydi</string>
+    <string name="mobile_data_settings_title">Mobil internet</string>
     <string name="mobile_data_text_format">%1$s – %2$s</string>
     <string name="mock_location_app">Soxta joylashuv ilovasini tanlash</string>
     <string name="mock_location_app_not_set">Soxta joylashuv ilovasi yo‘q</string>
@@ -1391,6 +1404,7 @@ Savollaringiz boʻlsa %2$s bilan bogʻlaning."</string>
     <string name="no_content_in_select_mode">Tanlash uchun matn yoki rasm mavjud emas</string>
     <string name="no_conversations_text">Oxirgi suhbatlaringiz shu yerda chiqadi</string>
     <string name="no_shortcut">%1$s ilovasida suhbat funksiyalari ishlamaydi</string>
+    <string name="non_carrier_network_unavailable">Boshqa tarmoqlar mavjud emas</string>
     <string name="not_default_data_content_description">Maʼlumotlardan foydalanish uchun sozlanmagan</string>
     <string name="not_set">Tayinlanmagan</string>
     <string name="notif_inline_reply_remove_attachment_description">Biriktirmani olib tashlash</string>
@@ -1571,6 +1585,7 @@ Savollaringiz boʻlsa %2$s bilan bogʻlaning."</string>
     <string name="power_remaining_only_more_than_subtext">%1$sdan koʻproq qoldi</string>
     <string name="power_remaining_settings_home_page">%1$s – %2$s</string>
     <string name="power_suggestion_battery_run_out">Batareya quvvati tugash vaqti: %1$s</string>
+    <string name="pref_title_network_details">Tarmoq tafsilotlari</string>
     <string name="preference_copied">“%1$s” vaqtinchalik xotiraga nusxalandi.</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">Muhim suhbatlar</string>
@@ -1740,6 +1755,7 @@ Savollaringiz boʻlsa %2$s bilan bogʻlaning."</string>
     <string name="right_keycode">O‘ngga tugmasi kodi</string>
     <string name="right_nav_bar_button_type">Qo‘shimcha O‘ngga tugmasi turi</string>
     <string name="ring_toggle_title">Chaqiruvlar</string>
+    <string name="rotation_lock_camera_rotation_on">Yoqish - Yuz asosida</string>
     <string name="running_foreground_services_msg">Batareya va trafik sarfi tafsilotlari uchun ustiga bosing</string>
     <string name="running_foreground_services_title">Fonda ishlayotgan ilovalar</string>
     <string name="running_process_item_user_label">Foydalanuvchi: %1$s</string>
@@ -1814,6 +1830,7 @@ Savollaringiz boʻlsa %2$s bilan bogʻlaning."</string>
     <string name="screenshot_top_boundary_pct">Yuqori chegara %1$d foiz</string>
     <string name="search_menu">Sozlamalar ichidan qidirish</string>
     <string name="search_menu_title">Qidiruv</string>
+    <string name="see_all_networks">Hammasi</string>
     <string name="see_more_title">Yana</string>
     <string name="select_application">Ilovani tanlang</string>
     <string name="select_conversation_text">Bosh ekranga chiqariladigan suhbat ustiga bosing</string>
@@ -1926,6 +1943,7 @@ ostida bo‘lishi mumkin"</string>
     <string name="switch_bar_off">Yoqilmagan</string>
     <string name="switch_bar_on">Yoniq</string>
     <string name="system_ui_tuner">SystemUI Tuner</string>
+    <string name="tap_a_network_to_connect">Ulanish uchun tarmoq ustiga bosing</string>
     <string name="tap_again">Yana bosing</string>
     <string name="tap_to_sign_up">Yozilish uchun bosing</string>
     <string name="tether_settings_title_all">Modem rejimi</string>
@@ -1951,6 +1969,7 @@ Batafsil axborot uchun bosing"</string>
     <string name="time_unit_just_now">Hozir</string>
     <string name="title_convert_fbe">Faylli shifrga o‘girilmoqda</string>
     <string name="title_usb_accessory">USB jihoz</string>
+    <string name="to_switch_networks_disconnect_ethernet">Boshqa tarmoqqa almashish uchun Ethernet tarmogʻini uzing</string>
     <string name="too_hot_label">Pixel juda qizib ketdi</string>
     <string name="touch_filtered_warning">Ilova ruxsatnoma so‘roviga xalaqit qilayotgani tufayli, “Sozlamalar” ilovasi javobingizni tekshira olmaydi.</string>
     <string name="track_frame_time">HWUI ishlash vaqtining hisobi</string>
@@ -2009,10 +2028,12 @@ Batafsil axborot uchun bosing"</string>
     <string name="tuner_toast">Tabriklaymiz! System UI Tuner Sozlamalarga qo‘shildi.</string>
     <string name="tuner_warning">System UI Tuner yordamida siz Android foydalanuvchi interfeysini tuzatish va o‘zingizga moslashtirishingiz mumkin. Ushbu tajribaviy funksiyalar o‘zgarishi, buzilishi yoki keyingi versiyalarda olib tashlanishi mumkin. Ehtiyot bo‘lib davom eting.</string>
     <string name="tuner_warning_title">Diqqat!</string>
+    <string name="turn_on_wifi">Wi‑Fi</string>
     <string name="tv_notification_panel_no_notifications">Bildirishnomalar yoʻq</string>
     <string name="tv_notification_panel_title">Bildirishnomalar</string>
     <string name="two_weeks_timestamp">2 hafta oldin</string>
     <string name="unknown">Noma’lum</string>
+    <string name="unlock_to_view_networks">Tarmoqlarni koʻrish uchun qulfdan chiqaring</string>
     <string name="upcoming_birthday_status">Yaqinda tavallud kun</string>
     <string name="upcoming_birthday_status_content_description">Tez orada %1$s tavallud ayyomini nishonlaydi</string>
     <string name="url_menu_copy">Nusxa olish</string>
@@ -2151,9 +2172,11 @@ Wi‑Fi Manzil (BSSID):
     <string name="wifi_disconnected">Ulanmagan</string>
     <string name="wifi_display_certification">Simsiz monitor sertifikatlari</string>
     <string name="wifi_display_certification_summary">Simsiz monitorlarni sertifikatlash parametrini ko‘rsatish</string>
+    <string name="wifi_empty_list_wifi_on">Tarmoqlar qidirilmoqda…</string>
     <string name="wifi_enhanced_mac_randomization">Wi‑Fi MAC manzilini muddatli tasodiflash</string>
     <string name="wifi_enhanced_mac_randomization_summary">Bu rejim yoqilganda qurilmaning MAC manzili tasodifiy MAC manzillar yaratish imkoniyati mavjud tarmoqqa har safar ulanganda almashishi mumkin.</string>
     <string name="wifi_fail_to_scan">Tarmoqlarni tekshirib chiqishni iloji bo‘lmadi</string>
+    <string name="wifi_failed_connect_message">Tarmoqqa ulanmadi</string>
     <string name="wifi_hotspot_switch_off_text">Oʻchiq</string>
     <string name="wifi_hotspot_switch_on_text">Yoniq</string>
     <string name="wifi_is_off">Wi-Fi o‘chiq</string>
@@ -2164,6 +2187,7 @@ Wi‑Fi Manzil (BSSID):
     <string name="wifi_not_in_range">Xizmat doirasidan tashqarida</string>
     <string name="wifi_passpoint_expired">Muddati tugagan</string>
     <string name="wifi_remembered">Saqlangan</string>
+    <string name="wifi_scan_notify_message">Qurilma ishlashini yaxshilash uchun ilova va xizmatlar hatto Wi-Fi yoqilmaganda ham istalgan vaqt Wi-Fi tarmoqlarni qidirishi mumkin. Buni taqiqlash uchun Wi-Fi tarmoqlarni qidirish funksiyasini faolsizlantiring. <annotation id="link">Sozlamalarni ochish</annotation></string>
     <string name="wifi_scan_throttling">Wi‑Fi tarmoqni taqsimlab skanlash</string>
     <string name="wifi_scan_throttling_summary">Batareya sarfini tejaydi va tarmoq samaradorligini oshiradi</string>
     <string name="wifi_security_none">Hech qanday</string>
@@ -2173,6 +2197,7 @@ Wi‑Fi Manzil (BSSID):
     <string name="wifi_unmetered_label">Trafik hisobi yuritilmaydigan tarmoq</string>
     <string name="wifi_verbose_logging">Batafsil Wi-Fi jurnali</string>
     <string name="wifi_verbose_logging_summary">Wi-Fi ulanishini tanlashda har bir SSID uchun jurnalda ko‘rsatilsin</string>
+    <string name="wifi_wont_autoconnect_for_now">Wi-Fi hozir avtomatik ulanmaydi</string>
     <string name="wifitrackerlib_auto_connect_disable">Avtomatik ulanish yoqilmagan</string>
     <string name="wifitrackerlib_available_via_app">%1$s ilovasi orqali mavjud</string>
     <string name="wifitrackerlib_connected_via_app">%1$s orqali ulandi</string>

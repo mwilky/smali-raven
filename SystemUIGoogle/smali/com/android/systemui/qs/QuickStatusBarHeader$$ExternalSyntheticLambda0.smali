@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/qs/QuickStatusBarHeader;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->$r8$lambda$jfxpiBbHcWts__YTTSLpACq44xM(Lcom/android/systemui/qs/QuickStatusBarHeader;)V
+    invoke-static {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->$r8$lambda$5iY7OvdvqQZzZKLQ956waMXDU1M(Lcom/android/systemui/qs/QuickStatusBarHeader;)V
 
     return-void
 .end method

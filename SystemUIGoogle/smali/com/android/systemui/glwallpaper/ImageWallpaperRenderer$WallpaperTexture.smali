@@ -21,6 +21,8 @@
 
 .field private final mRefCount:Ljava/util/concurrent/atomic/AtomicInteger;
 
+.field private mTextureUsed:Z
+
 .field private final mWallpaperManager:Landroid/app/WallpaperManager;
 
 .field private mWcgContent:Z
@@ -102,8 +104,23 @@
 .end method
 
 .method private getTextureDimensions()Landroid/graphics/Rect;
-    .locals 0
+    .locals 2
 
+    iget-boolean v0, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->mTextureUsed:Z
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->mDimensions:Landroid/graphics/Rect;
+
+    iget-object v1, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->mWallpaperManager:Landroid/app/WallpaperManager;
+
+    invoke-virtual {v1}, Landroid/app/WallpaperManager;->peekBitmapDimensions()Landroid/graphics/Rect;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
+
+    :cond_0
     iget-object p0, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->mDimensions:Landroid/graphics/Rect;
 
     return-object p0
@@ -160,7 +177,7 @@
 .end method
 
 .method public use(Ljava/util/function/Consumer;)V
-    .locals 5
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -211,19 +228,21 @@
 
     if-eqz v1, :cond_0
 
-    iget-object v3, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->mDimensions:Landroid/graphics/Rect;
+    iget-object v4, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->mDimensions:Landroid/graphics/Rect;
 
     invoke-virtual {v1}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v1
 
-    iget-object v4, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->mBitmap:Landroid/graphics/Bitmap;
+    iget-object v5, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->mBitmap:Landroid/graphics/Bitmap;
 
-    invoke-virtual {v4}, Landroid/graphics/Bitmap;->getHeight()I
+    invoke-virtual {v5}, Landroid/graphics/Bitmap;->getHeight()I
 
-    move-result v4
+    move-result v5
 
-    invoke-virtual {v3, v2, v2, v1, v4}, Landroid/graphics/Rect;->set(IIII)V
+    invoke-virtual {v4, v2, v2, v1, v5}, Landroid/graphics/Rect;->set(IIII)V
+
+    iput-boolean v3, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->mTextureUsed:Z
 
     goto :goto_0
 

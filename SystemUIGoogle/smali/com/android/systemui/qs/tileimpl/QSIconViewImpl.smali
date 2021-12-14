@@ -745,7 +745,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_8
+    if-nez v2, :cond_9
 
     :cond_1
     const/4 v2, 0x0
@@ -807,8 +807,23 @@
     move v5, v2
 
     :goto_3
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_7
 
+    invoke-virtual {v4}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_6
+
+    invoke-virtual {v4}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/graphics/drawable/Drawable$ConstantState;->newDrawable()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v4
+
+    :cond_6
     invoke-virtual {v4, v2}, Landroid/graphics/drawable/Drawable;->setAutoMirrored(Z)V
 
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getLayoutDirection()I
@@ -817,10 +832,10 @@
 
     invoke-virtual {v4, v6}, Landroid/graphics/drawable/Drawable;->setLayoutDirection(I)Z
 
-    :cond_6
+    :cond_7
     instance-of v6, p1, Lcom/android/systemui/qs/tileimpl/SlashImageView;
 
-    if-eqz v6, :cond_7
+    if-eqz v6, :cond_8
 
     move-object v6, p1
 
@@ -832,7 +847,7 @@
 
     goto :goto_4
 
-    :cond_7
+    :cond_8
     invoke-virtual {p1, v4}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     :goto_4
@@ -848,7 +863,7 @@
 
     instance-of p1, v4, Landroid/graphics/drawable/Animatable2;
 
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_9
 
     check-cast v4, Landroid/graphics/drawable/Animatable2;
 
@@ -856,7 +871,7 @@
 
     iget-boolean p1, p2, Lcom/android/systemui/plugins/qs/QSTile$State;->isTransient:Z
 
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_9
 
     new-instance p1, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl$1;
 
@@ -864,6 +879,6 @@
 
     invoke-interface {v4, p1}, Landroid/graphics/drawable/Animatable2;->registerAnimationCallback(Landroid/graphics/drawable/Animatable2$AnimationCallback;)V
 
-    :cond_8
+    :cond_9
     return-void
 .end method

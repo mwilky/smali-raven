@@ -37,7 +37,7 @@
 
     check-cast p1, Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;
 
-    invoke-static {p1}, Lcom/android/systemui/statusbar/phone/StatusBar;->$r8$lambda$D9bt2hDNEST0LZIqg4P-cf8v398(Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)V
+    invoke-static {p1}, Lcom/android/systemui/statusbar/phone/StatusBar;->$r8$lambda$esK6L1ayAhQNxlZhdHOD_KMMvp0(Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)V
 
     return-void
 .end method

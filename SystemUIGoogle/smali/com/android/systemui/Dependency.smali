@@ -540,6 +540,16 @@
     .end annotation
 .end field
 
+.field mInternetDialogFactory:Ldagger/Lazy;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ldagger/Lazy<",
+            "Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field mKeyguardDismissUtil:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1354,7 +1364,7 @@
 
     new-instance v0, Lcom/android/systemui/Dependency$DependencyKey;
 
-    const-string v1, "time_tick_handler"
+    const-string/jumbo v1, "time_tick_handler"
 
     invoke-direct {v0, v1}, Lcom/android/systemui/Dependency$DependencyKey;-><init>(Ljava/lang/String;)V
 
@@ -3400,6 +3410,20 @@
     const-class v1, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$Factory;
 
     iget-object v2, p0, Lcom/android/systemui/Dependency;->mEdgeBackGestureHandlerFactoryLazy:Ldagger/Lazy;
+
+    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
+
+    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
+
+    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
+
+    const-class v1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;
+
+    iget-object v2, p0, Lcom/android/systemui/Dependency;->mInternetDialogFactory:Ldagger/Lazy;
 
     invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 

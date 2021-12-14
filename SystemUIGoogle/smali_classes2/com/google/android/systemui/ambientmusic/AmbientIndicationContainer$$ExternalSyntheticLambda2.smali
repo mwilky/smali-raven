@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/android/systemui/AutoReinflateContainer$InflateListener;
+.implements Landroid/view/View$OnClickListener;
 
 
 # instance fields
@@ -22,12 +22,12 @@
 
 
 # virtual methods
-.method public final onInflated(Landroid/view/View;)V
+.method public final onClick(Landroid/view/View;)V
     .locals 0
 
     iget-object p0, p0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer$$ExternalSyntheticLambda2;->f$0:Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;
 
-    invoke-static {p0, p1}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->$r8$lambda$RS2LyJfsB7EBKgXGxegrO8uwkJA(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;Landroid/view/View;)V
+    invoke-static {p0, p1}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->$r8$lambda$9vdiZSQZXJA1QkqiZWlGskvZVsI(Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;Landroid/view/View;)V
 
     return-void
 .end method

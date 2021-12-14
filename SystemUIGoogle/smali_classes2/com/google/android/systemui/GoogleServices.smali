@@ -18,10 +18,6 @@
     .end annotation
 .end field
 
-.field private final mFeatureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
-
-.field private final mKeyguardIndicationController:Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;
-
 .field private final mServiceConfigurationGoogle:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -48,7 +44,7 @@
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Ldagger/Lazy;Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/internal/logging/UiEventLogger;Ldagger/Lazy;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;Landroid/app/AlarmManager;Lcom/google/android/systemui/autorotate/AutorotateDataService;)V
+.method public constructor <init>(Landroid/content/Context;Ldagger/Lazy;Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/internal/logging/UiEventLogger;Ldagger/Lazy;Landroid/app/AlarmManager;Lcom/google/android/systemui/autorotate/AutorotateDataService;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -62,8 +58,6 @@
             "Ldagger/Lazy<",
             "Lcom/google/android/systemui/columbus/ColumbusServiceWrapper;",
             ">;",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
-            "Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;",
             "Landroid/app/AlarmManager;",
             "Lcom/google/android/systemui/autorotate/AutorotateDataService;",
             ")V"
@@ -86,13 +80,9 @@
 
     iput-object p5, p0, Lcom/google/android/systemui/GoogleServices;->mColumbusServiceLazy:Ldagger/Lazy;
 
-    iput-object p6, p0, Lcom/google/android/systemui/GoogleServices;->mFeatureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
+    iput-object p6, p0, Lcom/google/android/systemui/GoogleServices;->mAlarmManager:Landroid/app/AlarmManager;
 
-    iput-object p7, p0, Lcom/google/android/systemui/GoogleServices;->mKeyguardIndicationController:Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;
-
-    iput-object p8, p0, Lcom/google/android/systemui/GoogleServices;->mAlarmManager:Landroid/app/AlarmManager;
-
-    iput-object p9, p0, Lcom/google/android/systemui/GoogleServices;->mAutorotateDataService:Lcom/google/android/systemui/autorotate/AutorotateDataService;
+    iput-object p7, p0, Lcom/google/android/systemui/GoogleServices;->mAutorotateDataService:Lcom/google/android/systemui/autorotate/AutorotateDataService;
 
     return-void
 .end method
@@ -156,7 +146,7 @@
 .end method
 
 .method public start()V
-    .locals 5
+    .locals 4
 
     iget-object v0, p0, Lcom/google/android/systemui/GoogleServices;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
@@ -174,19 +164,15 @@
 
     iget-object v1, p0, Lcom/google/android/systemui/GoogleServices;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    iget-object v2, p0, Lcom/google/android/systemui/GoogleServices;->mFeatureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
-
-    invoke-virtual {v0, v1, v2}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->initializeView(Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/systemui/statusbar/FeatureFlags;)V
+    invoke-virtual {v0, v1}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->initializeView(Lcom/android/systemui/statusbar/phone/StatusBar;)V
 
     new-instance v1, Lcom/google/android/systemui/ambientmusic/AmbientIndicationService;
 
     iget-object v2, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
 
-    iget-object v3, p0, Lcom/google/android/systemui/GoogleServices;->mKeyguardIndicationController:Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;
+    iget-object v3, p0, Lcom/google/android/systemui/GoogleServices;->mAlarmManager:Landroid/app/AlarmManager;
 
-    iget-object v4, p0, Lcom/google/android/systemui/GoogleServices;->mAlarmManager:Landroid/app/AlarmManager;
-
-    invoke-direct {v1, v2, v0, v3, v4}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationService;-><init>(Landroid/content/Context;Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;Lcom/google/android/systemui/statusbar/KeyguardIndicationControllerGoogle;Landroid/app/AlarmManager;)V
+    invoke-direct {v1, v2, v0, v3}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationService;-><init>(Landroid/content/Context;Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;Landroid/app/AlarmManager;)V
 
     invoke-direct {p0, v1}, Lcom/google/android/systemui/GoogleServices;->addService(Ljava/lang/Object;)V
 

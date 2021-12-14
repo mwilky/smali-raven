@@ -521,7 +521,7 @@
 
     iput-object v1, v0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mDeviceConfig:Lcom/android/systemui/util/DeviceConfigProxy;
 
-    const-string v5, "systemui"
+    const-string/jumbo v5, "systemui"
 
     const-string v6, "nav_bar_handle_show_over_lockscreen"
 

@@ -363,6 +363,7 @@ Si l'autorisation est désactivée, les alarmes existantes et les événements p
     <string name="alarms_and_reminders_label">Alarmes et rappels</string>
     <string name="alarms_and_reminders_switch_title">Autoriser à définir des alarmes et des rappels</string>
     <string name="alarms_and_reminders_title">Alarmes et rappels</string>
+    <string name="all_network_unavailable">Aucun réseau disponible</string>
     <string name="allow_mock_location">Autoriser les positions fictives</string>
     <string name="allow_mock_location_summary">Autoriser les positions fictives</string>
     <string name="always_use_accessory">Toujours ouvrir %1$s quand %2$s est connecté</string>
@@ -618,6 +619,11 @@ Bluetooth"</string>
     <string name="clock_title_analog">Analogique</string>
     <string name="clock_title_bubble">Bulle</string>
     <string name="clock_title_default">Par défaut</string>
+    <string name="columbus_bouncer_message">Déverrouillez pour utiliser Double appui</string>
+    <string name="columbus_target_request_dialog_allow">Autoriser</string>
+    <string name="columbus_target_request_dialog_deny">Ne pas autoriser</string>
+    <string name="columbus_target_request_dialog_summary">"Lorsque vous appuyez deux fois sur le dos de votre téléphone, %1$s s'ouvre. Vous pouvez modifier cette préférence à tout moment dans les paramètres."</string>
+    <string name="columbus_target_request_dialog_title">Autoriser le Double appui pour ouvrir %1$s ?</string>
     <string name="compat_mode_off">"Étirer pour remplir l'écran"</string>
     <string name="compat_mode_on">"Zoomer pour remplir l'écran"</string>
     <string name="confirm_enable_oem_unlock_text">"AVERTISSEMENT : Les fonctionnalités de protection de l'appareil sont désactivées tant que ce paramètre est activé."</string>
@@ -740,6 +746,8 @@ Si vous réactivez les données, des frais peuvent s'appliquer."</string>
     <string name="defender_notify_learn_more">En savoir plus</string>
     <string name="defender_notify_resume_charge">Reprendre la recharge</string>
     <string name="defender_notify_title">Recharge momentanément limitée</string>
+    <string name="defender_post_notify_des">La recharge a été limitée à %1$s de %2$s à %3$s pour préserver la batterie</string>
+    <string name="defender_post_notify_title">Recharge normale</string>
     <string name="delete_blob_confirmation_text">Voulez-vous vraiment supprimer ces données partagées ?</string>
     <string name="delete_blob_text">Supprimer les données partagées</string>
     <string name="demo_mode">"Mode de démonstration de l'interface du système"</string>
@@ -782,7 +790,7 @@ Si vous réactivez les données, des frais peuvent s'appliquer."</string>
     <string name="drag_to_add_tiles">Faites glisser les blocs pour les ajouter</string>
     <string name="drag_to_rearrange_tiles">Faites glisser les blocs pour les réorganiser</string>
     <string name="drag_to_remove_disabled">Au minimum %1$d tuiles sont nécessaires</string>
-    <string name="drag_to_remove_tiles">Faites glisser les icônes ici pour les supprimer.</string>
+    <string name="drag_to_remove_tiles">Faites glisser les blocs ici pour les supprimer</string>
     <string name="empty_shade_text">Aucune notification</string>
     <string name="empty_status">Bavardons ce soir !</string>
     <string name="empty_user_name">Amis</string>
@@ -885,6 +893,7 @@ Les données utilisées par le déverrouillage par reconnaissance faciale seront
     <string name="game_status">Joue</string>
     <string name="global_action_lock_message">"Déverrouillez votre téléphone pour obtenir plus d'options"</string>
     <string name="global_action_screenshot">"Capture d'écran"</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock désactivé</string>
     <string name="global_actions_change_description">"Pour accéder à %1$s et aux commandes de contrôle des appareils, balayez l'écran de haut en bas"</string>
     <string name="go_to_web">Accéder au navigateur</string>
     <string name="google_services_wallpaper_permission"><b>"Autorisez les fonds d'écran animés Google à changer en fonction de votre position"</b> en accédant au service de localisation de Google.</string>
@@ -1232,7 +1241,7 @@ Réessayez dans %2$d secondes."</string>
     <string name="media_projection_dialog_text">"%s aura accès à toutes les informations visibles sur votre écran ou lues depuis votre appareil pendant un enregistrement ou une diffusion de contenu. Il peut s'agir de mots de passe, données de paiement, photos, messages ou encore contenus audio lus."</string>
     <string name="media_projection_dialog_title">"Démarrer l'enregistrement ou la diffusion avec %s ?"</string>
     <string name="media_projection_remember_text">Ne plus afficher</string>
-    <string name="media_seamless_remote_device">Appareil</string>
+    <string name="media_seamless_other_device">Autre appareil</string>
     <string name="media_transfer_this_device_name">Haut-parleur du téléphone</string>
     <string name="media_transfer_this_phone">Ce téléphone</string>
     <string name="media_transfer_wired_device_name">Appareil audio filaire</string>
@@ -1249,9 +1258,13 @@ Réessayez dans %2$d secondes."</string>
     <string name="mobile_data">Données mobiles</string>
     <string name="mobile_data_always_on">Données mobiles toujours actives</string>
     <string name="mobile_data_always_on_summary">Les données mobiles sont toujours actives, même lorsque le Wi‑Fi est activé (pour changer rapidement de réseau)</string>
+    <string name="mobile_data_connection_active">Connecté</string>
     <string name="mobile_data_disable_message">"Vous n'aurez pas accès aux données mobiles ni à Internet via %s. Vous ne pourrez accéder à Internet que par Wi-Fi."</string>
     <string name="mobile_data_disable_message_default_carrier">votre opérateur</string>
     <string name="mobile_data_disable_title">Désactiver les données mobiles ?</string>
+    <string name="mobile_data_no_connection">Aucune connexion</string>
+    <string name="mobile_data_off_summary">Pas de connexion automatique des données mobiles</string>
+    <string name="mobile_data_settings_title">Données mobiles</string>
     <string name="mobile_data_text_format">%1$s – %2$s</string>
     <string name="mock_location_app">"Sélectionner l'application de position fictive"</string>
     <string name="mock_location_app_not_set">Aucune application de position fictive définie</string>
@@ -1391,6 +1404,7 @@ Si vous avez des questions, contactez %2$s."</string>
     <string name="no_content_in_select_mode">"Pas de texte ni d'image à sélectionner"</string>
     <string name="no_conversations_text">"Vos conversations récentes s'afficheront ici"</string>
     <string name="no_shortcut">"%1$s n'est pas compatible avec les fonctionnalités de conversation"</string>
+    <string name="non_carrier_network_unavailable">Aucun autre réseau disponible</string>
     <string name="not_default_data_content_description">Non configuré pour utiliser les données</string>
     <string name="not_set">Non définie</string>
     <string name="notif_inline_reply_remove_attachment_description">Supprimer la pièce jointe</string>
@@ -1571,6 +1585,7 @@ Si vous avez des questions, contactez %2$s."</string>
     <string name="power_remaining_only_more_than_subtext">Il reste plus de %1$s</string>
     <string name="power_remaining_settings_home_page">%1$s – %2$s</string>
     <string name="power_suggestion_battery_run_out">"La batterie risque d'être épuisée d'ici %1$s"</string>
+    <string name="pref_title_network_details">Détails du réseau</string>
     <string name="preference_copied">\"%1$s\" copié dans le presse-papier.</string>
     <string name="preference_summary_default_combination">%1$s/%2$s</string>
     <string name="priority_conversations">Conversations prioritaires</string>
@@ -1740,6 +1755,7 @@ Si vous avez des questions, contactez %2$s."</string>
     <string name="right_keycode">Code de touche droit</string>
     <string name="right_nav_bar_button_type">Type de bouton droit supplémentaire</string>
     <string name="ring_toggle_title">Appels</string>
+    <string name="rotation_lock_camera_rotation_on">Active - En fonction du visage</string>
     <string name="running_foreground_services_msg">"Appuyer pour obtenir des informations sur l'utilisation de la batterie et des données"</string>
     <string name="running_foreground_services_title">"Applications en cours d'exécution en arrière-plan"</string>
     <string name="running_process_item_user_label">Utilisateur : %1$s</string>
@@ -1814,6 +1830,7 @@ Si vous avez des questions, contactez %2$s."</string>
     <string name="screenshot_top_boundary_pct">Limite supérieure : %1$d pour cent</string>
     <string name="search_menu">Rechercher dans les paramètres</string>
     <string name="search_menu_title">Rechercher</string>
+    <string name="see_all_networks">Tout afficher</string>
     <string name="see_more_title">Voir plus</string>
     <string name="select_application">Sélectionner une appli</string>
     <string name="select_conversation_text">"Appuyez sur une conversation pour l'ajouter à votre écran d'accueil"</string>
@@ -1926,6 +1943,7 @@ Si vous avez des questions, contactez %2$s."</string>
     <string name="switch_bar_off">Désactivé</string>
     <string name="switch_bar_on">Activé</string>
     <string name="system_ui_tuner">System UI Tuner</string>
+    <string name="tap_a_network_to_connect">Appuyez sur un réseau pour vous connecter</string>
     <string name="tap_again">Appuyer à nouveau</string>
     <string name="tap_to_sign_up">Appuyez ici pour vous connecter</string>
     <string name="tether_settings_title_all">Partage de connexion</string>
@@ -1951,6 +1969,7 @@ Appuyer pour en savoir plus"</string>
     <string name="time_unit_just_now">"À l'instant"</string>
     <string name="title_convert_fbe">Conversion en chiffrement basé sur un fichier en cours</string>
     <string name="title_usb_accessory">Accessoire USB</string>
+    <string name="to_switch_networks_disconnect_ethernet">"Pour changer de réseau, déconnectez l'Ethernet"</string>
     <string name="too_hot_label">Pixel trop chaud</string>
     <string name="touch_filtered_warning">"L'application Paramètres ne peut pas valider votre réponse, car une application masque la demande d'autorisation."</string>
     <string name="track_frame_time">Rendu HWUI du profil</string>
@@ -2009,10 +2028,12 @@ Appuyer pour en savoir plus"</string>
     <string name="tuner_toast">Félicitations ! System UI Tuner a bien été ajouté aux paramètres.</string>
     <string name="tuner_warning">"System UI Tuner vous propose de nouvelles manières d'adapter et de personnaliser l'interface utilisateur Android. Ces fonctionnalités expérimentales peuvent être modifiées, cesser de fonctionner ou disparaître dans les versions futures. À utiliser avec prudence."</string>
     <string name="tuner_warning_title">Divertissant pour certains, mais pas pour tous</string>
+    <string name="turn_on_wifi">Wi-Fi</string>
     <string name="tv_notification_panel_no_notifications">Aucune notification</string>
     <string name="tv_notification_panel_title">Notifications</string>
     <string name="two_weeks_timestamp">Il y a 2 semaines</string>
     <string name="unknown">Inconnu</string>
+    <string name="unlock_to_view_networks">Déverrouiller pour afficher les réseaux</string>
     <string name="upcoming_birthday_status">Anniversaire à venir</string>
     <string name="upcoming_birthday_status_content_description">"C'est bientôt l'anniversaire de %1$s"</string>
     <string name="url_menu_copy">Copier</string>
@@ -2151,9 +2172,11 @@ Adresse Wi‑Fi (BSSID)
     <string name="wifi_disconnected">Déconnecté</string>
     <string name="wifi_display_certification">Certification affichage sans fil</string>
     <string name="wifi_display_certification_summary">"Afficher les options pour la certification de l'affichage sans fil"</string>
+    <string name="wifi_empty_list_wifi_on">Recherche de réseaux…</string>
     <string name="wifi_enhanced_mac_randomization">"Sélection aléatoire de l'adresse MAC non persistante en Wi-Fi"</string>
     <string name="wifi_enhanced_mac_randomization_summary">"Quand ce mode est activé, l'adresse MAC de cet appareil peut changer chaque fois qu'il se connecte à un réseau Wi-Fi où le changement aléatoire d'adresse MAC est activé"</string>
     <string name="wifi_fail_to_scan">Impossible de rechercher des réseaux.</string>
+    <string name="wifi_failed_connect_message">Échec de la connexion au réseau</string>
     <string name="wifi_hotspot_switch_off_text">Éteint</string>
     <string name="wifi_hotspot_switch_on_text">Allumé</string>
     <string name="wifi_is_off">Wi-Fi désactivé</string>
@@ -2164,15 +2187,17 @@ Adresse Wi‑Fi (BSSID)
     <string name="wifi_not_in_range">Hors de portée</string>
     <string name="wifi_passpoint_expired">Arrivé à expiration</string>
     <string name="wifi_remembered">Enregistré</string>
+    <string name="wifi_scan_notify_message">"Pour améliorer l'expérience sur l'appareil, les applis et les services peuvent continuer de rechercher les réseaux Wi-Fi, même si le Wi-Fi est désactivé. Vous pouvez modifier cela dans les paramètres de recherche Wi-Fi. "<annotation id="link">Modifier</annotation></string>
     <string name="wifi_scan_throttling">Limiter la recherche Wi‑Fi</string>
     <string name="wifi_scan_throttling_summary">Réduit la décharge de la batterie et améliore les performances du réseau</string>
     <string name="wifi_security_none">Aucune</string>
     <string name="wifi_status_mac_randomized">La sélection des adresses MAC est aléatoire</string>
     <string name="wifi_status_no_internet">Aucun accès à Internet</string>
     <string name="wifi_status_sign_in_required">Connexion requise</string>
-    <string name="wifi_unmetered_label">"Non facturé à l'usage"</string>
+    <string name="wifi_unmetered_label">Sans compteur</string>
     <string name="wifi_verbose_logging">"Autoriser l'enregistrement d'infos Wi-Fi détaillées"</string>
     <string name="wifi_verbose_logging_summary">"Détailler les infos Wi-Fi, afficher par RSSI de SSID dans l'outil de sélection Wi-Fi"</string>
+    <string name="wifi_wont_autoconnect_for_now">Connexion automatique au Wi-Fi désactivée pour le moment</string>
     <string name="wifitrackerlib_auto_connect_disable">Connexion automatique désactivée</string>
     <string name="wifitrackerlib_available_via_app">Disponible via %1$s</string>
     <string name="wifitrackerlib_connected_via_app">Connecté via %1$s</string>
@@ -2214,7 +2239,7 @@ Adresse Wi‑Fi (BSSID)
     <string name="wifitrackerlib_wifi_poor_channel_conditions">Mauvaises conditions réseau temporaires</string>
     <string name="wifitrackerlib_wifi_remembered">Enregistré</string>
     <string name="wifitrackerlib_wifi_security_none">Aucun</string>
-    <string name="wifitrackerlib_wifi_unmetered_label">"Non facturé à l'usage"</string>
+    <string name="wifitrackerlib_wifi_unmetered_label">Sans compteur</string>
     <string name="wifitrackerlib_wifi_wont_autoconnect_for_now">Connexion automatique au Wi-Fi désactivée pour le moment</string>
     <string name="window_animation_scale_title">"Échelle d'animation des fenêtres"</string>
     <string name="window_blurs">Autor. floutage fenêtre</string>

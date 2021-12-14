@@ -2,34 +2,38 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lkotlin/jvm/functions/Function0;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/android/systemui/media/MediaControlPanel;
 
+.field public final synthetic f$1:Landroid/media/session/MediaController;
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/media/MediaControlPanel;)V
+.method public synthetic constructor <init>(Lcom/android/systemui/media/MediaControlPanel;Landroid/media/session/MediaController;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/media/MediaControlPanel$$ExternalSyntheticLambda13;->f$0:Lcom/android/systemui/media/MediaControlPanel;
 
+    iput-object p2, p0, Lcom/android/systemui/media/MediaControlPanel$$ExternalSyntheticLambda13;->f$1:Landroid/media/session/MediaController;
+
     return-void
 .end method
 
 
 # virtual methods
-.method public final invoke()Ljava/lang/Object;
-    .locals 0
+.method public final run()V
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/systemui/media/MediaControlPanel$$ExternalSyntheticLambda13;->f$0:Lcom/android/systemui/media/MediaControlPanel;
+    iget-object v0, p0, Lcom/android/systemui/media/MediaControlPanel$$ExternalSyntheticLambda13;->f$0:Lcom/android/systemui/media/MediaControlPanel;
 
-    invoke-static {p0}, Lcom/android/systemui/media/MediaControlPanel;->$r8$lambda$cw1qAogAyvPWHbSf_42RA9ZTSoQ(Lcom/android/systemui/media/MediaControlPanel;)Lkotlin/Unit;
+    iget-object p0, p0, Lcom/android/systemui/media/MediaControlPanel$$ExternalSyntheticLambda13;->f$1:Landroid/media/session/MediaController;
 
-    move-result-object p0
+    invoke-static {v0, p0}, Lcom/android/systemui/media/MediaControlPanel;->$r8$lambda$VW_BqApcWVtbVq-h6ONAO26doKg(Lcom/android/systemui/media/MediaControlPanel;Landroid/media/session/MediaController;)V
 
-    return-object p0
+    return-void
 .end method

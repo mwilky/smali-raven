@@ -1942,32 +1942,18 @@
     return-void
 .end method
 
-.method public setLightRevealScrimAmount(F)V
+.method public setLightRevealScrimOpaque(Z)V
     .locals 2
 
-    const/4 v0, 0x0
-
-    cmpl-float p1, p1, v0
-
-    if-nez p1, :cond_0
-
-    const/4 p1, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p1, 0x0
-
-    :goto_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NotificationShadeWindowControllerImpl;->mCurrentState:Lcom/android/systemui/statusbar/phone/NotificationShadeWindowControllerImpl$State;
 
     iget-boolean v1, v0, Lcom/android/systemui/statusbar/phone/NotificationShadeWindowControllerImpl$State;->mLightRevealScrimOpaque:Z
 
-    if-ne v1, p1, :cond_1
+    if-ne v1, p1, :cond_0
 
     return-void
 
-    :cond_1
+    :cond_0
     iput-boolean p1, v0, Lcom/android/systemui/statusbar/phone/NotificationShadeWindowControllerImpl$State;->mLightRevealScrimOpaque:Z
 
     invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/phone/NotificationShadeWindowControllerImpl;->apply(Lcom/android/systemui/statusbar/phone/NotificationShadeWindowControllerImpl$State;)V

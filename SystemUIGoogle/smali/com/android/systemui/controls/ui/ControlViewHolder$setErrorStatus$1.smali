@@ -66,7 +66,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlViewHolder$setErrorStatus$1;->$text:Ljava/lang/String;
 
-    const-string v1, "text"
+    const-string/jumbo v1, "text"
 
     invoke-static {p0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 

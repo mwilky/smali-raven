@@ -186,6 +186,16 @@
     return-void
 .end method
 
+.method public onPanelMinFractionChanged(F)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/PanelBar;->mPanel:Lcom/android/systemui/statusbar/phone/PanelViewController;
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/PanelViewController;->setMinFraction(F)V
+
+    return-void
+.end method
+
 .method public onPanelPeeked()V
     .locals 0
 
@@ -571,9 +581,6 @@
     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw p0
-.end method
-
-.method public abstract panelScrimMinFractionChanged(F)V
 .end method
 
 .method public setBouncerShowing(Z)V

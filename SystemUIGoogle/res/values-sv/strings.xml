@@ -363,6 +363,7 @@ Om behörigheten är inaktiverad fungerar inte befintliga alarm och tidsbaserade
     <string name="alarms_and_reminders_label">Alarm och påminnelser</string>
     <string name="alarms_and_reminders_switch_title">Tillåt att alarm och påminnelser ställs in</string>
     <string name="alarms_and_reminders_title">Alarm och påminnelser</string>
+    <string name="all_network_unavailable">Det finns inga tillgängliga nätverk</string>
     <string name="allow_mock_location">Tillåt skenplatser</string>
     <string name="allow_mock_location_summary">Tillåt skenplatser</string>
     <string name="always_use_accessory">Öppna alltid %1$s när %2$s är ansluten</string>
@@ -618,6 +619,11 @@ Val"</string>
     <string name="clock_title_analog">Analog</string>
     <string name="clock_title_bubble">Bubbla</string>
     <string name="clock_title_default">Standard</string>
+    <string name="columbus_bouncer_message">Lås upp för att slutföra snabbtryck</string>
+    <string name="columbus_target_request_dialog_allow">Tillåt</string>
+    <string name="columbus_target_request_dialog_deny">Tillåt inte</string>
+    <string name="columbus_target_request_dialog_summary">När du trycker snabbt två gånger på telefonens baksida öppnas %1$s. Du kan ändra detta när som helst i inställningarna.</string>
+    <string name="columbus_target_request_dialog_title">Vill du tillåta att %1$s öppnas med snabbtryck?</string>
     <string name="compat_mode_off">Dra för att fylla skärmen</string>
     <string name="compat_mode_on">Zooma för att fylla skärm</string>
     <string name="confirm_enable_oem_unlock_text">Varning! Funktionerna för enhetsskydd fungerar inte på enheten när den här inställningen är aktiverad.</string>
@@ -740,6 +746,8 @@ Om du fortsätter kan avgifter för dataanvändning tillkomma."</string>
     <string name="defender_notify_learn_more">Läs mer</string>
     <string name="defender_notify_resume_charge">Återuppta laddning</string>
     <string name="defender_notify_title">Laddning har begränsats tillfälligt</string>
+    <string name="defender_post_notify_des">Laddning begränsades till %1$s mellan %2$s och %3$s för att bevara batteriets livslängd</string>
+    <string name="defender_post_notify_title">Laddas normalt</string>
     <string name="delete_blob_confirmation_text">Vill du radera denna delade data?</string>
     <string name="delete_blob_text">Radera delad data</string>
     <string name="demo_mode">Demoläge för systemgränssnitt</string>
@@ -885,6 +893,7 @@ Ansiktsdatan som används för ansiktslåset tas bort permanent på ett säkert 
     <string name="game_status">Spelar</string>
     <string name="global_action_lock_message">Lås upp telefonen för fler alternativ</string>
     <string name="global_action_screenshot">Skärmbild</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock har inaktiverats</string>
     <string name="global_actions_change_description">Du får åtkomst till %1$s och enhetsstyrning genom att svepa nedåt från skärmens överkant</string>
     <string name="go_to_web">Öppna webbläsaren</string>
     <string name="google_services_wallpaper_permission"><b>Låt Googles levande bakgrund ändras utifrån var du är</b> genom att ge funktionen tillgång till Googles platstjänst.</string>
@@ -1232,7 +1241,7 @@ Försök igen om %2$d sekunder."</string>
     <string name="media_projection_dialog_text">%s får åtkomst till all information som visas på skärmen eller spelas upp från enheten när du spelar in eller castar. Detta omfattar uppgifter som lösenord, betalningsinformation, foton, meddelanden och ljud som du spelar upp.</string>
     <string name="media_projection_dialog_title">Vill du börja spela in eller casta med %s?</string>
     <string name="media_projection_remember_text">Visa inte igen</string>
-    <string name="media_seamless_remote_device">Enhet</string>
+    <string name="media_seamless_other_device">Annan enhet</string>
     <string name="media_transfer_this_device_name">Telefonhögtalare</string>
     <string name="media_transfer_this_phone">Den här telefonen</string>
     <string name="media_transfer_wired_device_name">Ljudenhet med kabelanslutning</string>
@@ -1249,9 +1258,13 @@ Försök igen om %2$d sekunder."</string>
     <string name="mobile_data">Mobildata</string>
     <string name="mobile_data_always_on">Mobildata alltid aktiverad</string>
     <string name="mobile_data_always_on_summary">Håll alltid mobildata aktiverad, även när wifi är aktiverat (så att du snabbt kan byta mellan nätverk).</string>
+    <string name="mobile_data_connection_active">Ansluten</string>
     <string name="mobile_data_disable_message">Du kan inte skicka data eller använda internet via %s. Internetanslutning blir bara möjlig via wifi.</string>
     <string name="mobile_data_disable_message_default_carrier">din operatör</string>
     <string name="mobile_data_disable_title">Vill du inaktivera mobildata?</string>
+    <string name="mobile_data_no_connection">Ingen anslutning</string>
+    <string name="mobile_data_off_summary">Du ansluts inte till mobildata automatiskt</string>
+    <string name="mobile_data_settings_title">Mobildata</string>
     <string name="mobile_data_text_format">%1$s — %2$s</string>
     <string name="mock_location_app">Välj app för påhittad plats</string>
     <string name="mock_location_app_not_set">Ingen app för påhittad plats har angetts</string>
@@ -1391,6 +1404,7 @@ Kontakta %2$s om du har frågor."</string>
     <string name="no_content_in_select_mode">Ingen text eller bild som kan markeras</string>
     <string name="no_conversations_text">De senaste konversationerna visas här</string>
     <string name="no_shortcut">%1$s har inte stöd för konversationsfunktioner</string>
+    <string name="non_carrier_network_unavailable">Inga andra nätverk är tillgängliga</string>
     <string name="not_default_data_content_description">Inte inställd på mobildata</string>
     <string name="not_set">Inte angett</string>
     <string name="notif_inline_reply_remove_attachment_description">Ta bort bilagan</string>
@@ -1571,6 +1585,7 @@ Kontakta %2$s om du har frågor."</string>
     <string name="power_remaining_only_more_than_subtext">Mer än %1$s återstår</string>
     <string name="power_remaining_settings_home_page">%1$s – %2$s</string>
     <string name="power_suggestion_battery_run_out">Batteriet kan ta slut klockan %1$s</string>
+    <string name="pref_title_network_details">Nätverksinformation</string>
     <string name="preference_copied">%1$s har kopierats till Urklipp.</string>
     <string name="preference_summary_default_combination">%1$s/%2$s</string>
     <string name="priority_conversations">Prioriterade konversationer</string>
@@ -1740,6 +1755,7 @@ Kontakta %2$s om du har frågor."</string>
     <string name="right_keycode">Höger tangentkod</string>
     <string name="right_nav_bar_button_type">Knapptyp för extra höger</string>
     <string name="ring_toggle_title">Samtal</string>
+    <string name="rotation_lock_camera_rotation_on">På – ansiktsbaserad</string>
     <string name="running_foreground_services_msg">Tryck för information om batteri- och dataanvändning</string>
     <string name="running_foreground_services_title">Appar körs i bakgrunden</string>
     <string name="running_process_item_user_label">Användare: %1$s</string>
@@ -1814,6 +1830,7 @@ Kontakta %2$s om du har frågor."</string>
     <string name="screenshot_top_boundary_pct">Övre gräns: %1$d procent</string>
     <string name="search_menu">Sökinställningar</string>
     <string name="search_menu_title">Sök</string>
+    <string name="see_all_networks">Visa alla</string>
     <string name="see_more_title">Se mer</string>
     <string name="select_application">Välj app</string>
     <string name="select_conversation_text">Tryck på en konversation för att lägga till den på startskärmen</string>
@@ -1926,6 +1943,7 @@ vara övervakat"</string>
     <string name="switch_bar_off">Av</string>
     <string name="switch_bar_on">På</string>
     <string name="system_ui_tuner">Inställningar för systemgränssnitt</string>
+    <string name="tap_a_network_to_connect">Tryck på ett nätverk för att ansluta</string>
     <string name="tap_again">Tryck igen</string>
     <string name="tap_to_sign_up">Tryck för att logga in</string>
     <string name="tether_settings_title_all">Internetdelning och surfzon</string>
@@ -1951,6 +1969,7 @@ Tryck för mer information"</string>
     <string name="time_unit_just_now">Nyss</string>
     <string name="title_convert_fbe">Konverterar till filbaserad kryptering</string>
     <string name="title_usb_accessory">USB-tillbehör</string>
+    <string name="to_switch_networks_disconnect_ethernet">Koppla bort Ethernet för att växla nätverk</string>
     <string name="too_hot_label">Pixel är för varm</string>
     <string name="touch_filtered_warning">Svaret kan inte verifieras av Inställningar eftersom en app skymmer en begäran om behörighet.</string>
     <string name="track_frame_time">Profilens HWUI-rendering</string>
@@ -2009,10 +2028,12 @@ Tryck för mer information"</string>
     <string name="tuner_toast">Grattis! Inställningar för systemgränssnitt har lagts till i inställningarna.</string>
     <string name="tuner_warning">Du kan använda inställningarna för systemgränssnitt för att justera användargränssnittet i Android. Dessa experimentfunktioner kan när som helst ändras, sluta fungera eller försvinna. Använd med försiktighet.</string>
     <string name="tuner_warning_title">Kul för vissa, inte för alla</string>
+    <string name="turn_on_wifi">Wifi</string>
     <string name="tv_notification_panel_no_notifications">Inga aviseringar</string>
     <string name="tv_notification_panel_title">Aviseringar</string>
     <string name="two_weeks_timestamp">2 veckor sedan</string>
     <string name="unknown">Okänd</string>
+    <string name="unlock_to_view_networks">Lås upp för att visa nätverk</string>
     <string name="upcoming_birthday_status">Födelsedag inom kort</string>
     <string name="upcoming_birthday_status_content_description">%1$s fyller snart år</string>
     <string name="url_menu_copy">Kopiera</string>
@@ -2151,9 +2172,11 @@ Wi‑Fi-adress (BSSID)
     <string name="wifi_disconnected">Frånkopplad</string>
     <string name="wifi_display_certification">Certifiering för wifi-skärmdelning</string>
     <string name="wifi_display_certification_summary">Visa certifieringsalternativ för wifi-skärmdelning</string>
+    <string name="wifi_empty_list_wifi_on">Söker efter nätverk …</string>
     <string name="wifi_enhanced_mac_randomization">Slumpgenerering av icke-beständig MAC för wifi</string>
     <string name="wifi_enhanced_mac_randomization_summary">När det här läget är aktiverat kan enhetens MAC-adress ändras varje gång den ansluts till ett nätverk där slumpgenerering av MAC-adress har aktiverats.</string>
     <string name="wifi_fail_to_scan">Det går inte att söka efter nätverk</string>
+    <string name="wifi_failed_connect_message">Det gick inte att ansluta till nätverket</string>
     <string name="wifi_hotspot_switch_off_text">Av</string>
     <string name="wifi_hotspot_switch_on_text">På</string>
     <string name="wifi_is_off">wifi är inaktiverat</string>
@@ -2164,6 +2187,7 @@ Wi‑Fi-adress (BSSID)
     <string name="wifi_not_in_range">Utom räckhåll</string>
     <string name="wifi_passpoint_expired">Har upphört att gälla</string>
     <string name="wifi_remembered">Sparat</string>
+    <string name="wifi_scan_notify_message">I syfte att förbättra upplevelsen med enheten kan appar och tjänster fortfarande söka efter wifi-nätverk när som helst, även om wifi har inaktiverats. <annotation id="link">Ändra</annotation></string>
     <string name="wifi_scan_throttling">Begränsning av wifi-sökning</string>
     <string name="wifi_scan_throttling_summary">Sänker batteriförbrukningen och förbättrar nätverksprestandan</string>
     <string name="wifi_security_none">Ingen</string>
@@ -2173,6 +2197,7 @@ Wi‑Fi-adress (BSSID)
     <string name="wifi_unmetered_label">Utan datapriser</string>
     <string name="wifi_verbose_logging">Aktivera utförlig loggning för wifi</string>
     <string name="wifi_verbose_logging_summary">Öka loggningsnivån för wifi, visa per SSID RSSI i Wi‑Fi Picker</string>
+    <string name="wifi_wont_autoconnect_for_now">Du ansluts inte till wifi automatiskt för närvarande</string>
     <string name="wifitrackerlib_auto_connect_disable">Automatisk anslutning har inaktiverats</string>
     <string name="wifitrackerlib_available_via_app">Tillgängligt via %1$s</string>
     <string name="wifitrackerlib_connected_via_app">Ansluten via %1$s</string>

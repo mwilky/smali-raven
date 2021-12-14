@@ -1,4 +1,4 @@
-.class public final Lcom/android/systemui/backup/BackupHelper;
+.class public Lcom/android/systemui/backup/BackupHelper;
 .super Landroid/app/backup/BackupAgentHelper;
 .source "BackupHelper.kt"
 
@@ -94,7 +94,7 @@
 
     invoke-direct {v0, v1, p0, p2}, Lcom/android/systemui/backup/BackupHelper$NoOverwriteFileBackupHelper;-><init>(Ljava/lang/Object;Landroid/content/Context;Ljava/util/Map;)V
 
-    const-string p2, "systemui.files_no_overwrite"
+    const-string/jumbo p2, "systemui.files_no_overwrite"
 
     invoke-virtual {p0, p2, v0}, Landroid/app/backup/BackupAgentHelper;->addHelper(Ljava/lang/String;Landroid/app/backup/BackupHelper;)V
 
@@ -133,7 +133,7 @@
 
     invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/people/widget/PeopleBackupHelper;-><init>(Landroid/content/Context;Landroid/os/UserHandle;[Ljava/lang/String;)V
 
-    const-string p1, "systemui.people.shared_preferences"
+    const-string/jumbo p1, "systemui.people.shared_preferences"
 
     invoke-virtual {p0, p1, v0}, Landroid/app/backup/BackupAgentHelper;->addHelper(Ljava/lang/String;Landroid/app/backup/BackupHelper;)V
 

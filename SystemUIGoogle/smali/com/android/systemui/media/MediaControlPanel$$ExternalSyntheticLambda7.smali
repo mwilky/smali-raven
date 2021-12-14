@@ -33,7 +33,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/media/MediaControlPanel$$ExternalSyntheticLambda7;->f$1:Lcom/android/systemui/media/SmartspaceMediaData;
 
-    invoke-static {v0, p0, p1}, Lcom/android/systemui/media/MediaControlPanel;->$r8$lambda$F4zZsfl5eZ6GWP8WZ9tL_QaRDD0(Lcom/android/systemui/media/MediaControlPanel;Lcom/android/systemui/media/SmartspaceMediaData;Landroid/view/View;)V
+    invoke-static {v0, p0, p1}, Lcom/android/systemui/media/MediaControlPanel;->$r8$lambda$-WwHYg297rRKMPv3sjM4DBUgk-M(Lcom/android/systemui/media/MediaControlPanel;Lcom/android/systemui/media/SmartspaceMediaData;Landroid/view/View;)V
 
     return-void
 .end method

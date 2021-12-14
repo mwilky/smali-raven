@@ -591,7 +591,7 @@
 
     if-nez v0, :cond_2
 
-    const-string v0, "thermalservice"
+    const-string/jumbo v0, "thermalservice"
 
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
@@ -752,7 +752,7 @@
 
     if-nez v0, :cond_2
 
-    const-string v0, "thermalservice"
+    const-string/jumbo v0, "thermalservice"
 
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
@@ -2065,7 +2065,7 @@
 
     move-result-object v1
 
-    const v2, 0x10e007c
+    const v2, 0x10e007d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2094,7 +2094,7 @@
 
     move-result-object v1
 
-    const v2, 0x10e007b
+    const v2, 0x10e007c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 

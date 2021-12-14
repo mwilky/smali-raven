@@ -19,19 +19,19 @@
 
 .field public static final bubbles_light:I = 0x7f06007d
 
-.field public static final docked_divider_handle:I = 0x7f0600d6
+.field public static final docked_divider_handle:I = 0x7f0600d8
 
-.field public static final drop_outline_background:I = 0x7f0600d7
+.field public static final drop_outline_background:I = 0x7f0600d9
 
-.field public static final important_conversation:I = 0x7f060106
+.field public static final important_conversation:I = 0x7f060108
 
-.field public static final minimize_dock_shadow_end:I = 0x7f060180
+.field public static final minimize_dock_shadow_end:I = 0x7f060181
 
-.field public static final minimize_dock_shadow_start:I = 0x7f060181
+.field public static final minimize_dock_shadow_start:I = 0x7f060182
 
-.field public static final one_handed_tutorial_background_color:I = 0x7f0601e8
+.field public static final one_handed_tutorial_background_color:I = 0x7f0601e9
 
-.field public static final splash_window_background_default:I = 0x7f060273
+.field public static final splash_window_background_default:I = 0x7f060278
 
 
 # direct methods

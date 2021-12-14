@@ -363,6 +363,7 @@ Pokud je toto oprávnění vypnuté, stávající budíky a události závislé
     <string name="alarms_and_reminders_label">Budíky a připomenutí</string>
     <string name="alarms_and_reminders_switch_title">Povolit nastavování budíků a připomenutí</string>
     <string name="alarms_and_reminders_title">Budíky a připomenutí</string>
+    <string name="all_network_unavailable">Nejsou k dispozici žádné sítě</string>
     <string name="allow_mock_location">Povolit simulované polohy</string>
     <string name="allow_mock_location_summary">Povolit simulované polohy</string>
     <string name="always_use_accessory">Když bude připojeno zařízení %2$s, vždy otevřít %1$s</string>
@@ -618,6 +619,11 @@ Výběr"</string>
     <string name="clock_title_analog">Analogové</string>
     <string name="clock_title_bubble">Bublina</string>
     <string name="clock_title_default">Výchozí</string>
+    <string name="columbus_bouncer_message">Rychlé klepnutí dokončíte odemknutím</string>
+    <string name="columbus_target_request_dialog_allow">Povolit</string>
+    <string name="columbus_target_request_dialog_deny">Nepovolovat</string>
+    <string name="columbus_target_request_dialog_summary">Když dvakrát klepnete na zadní stranu telefonu, otevře se aplikace %1$s. Tuto volbu lze kdykoli změnit v Nastavení.</string>
+    <string name="columbus_target_request_dialog_title">Povolit otevírání aplikace %1$s rychlým klepnutím?</string>
     <string name="compat_mode_off">Na celou obrazovku</string>
     <string name="compat_mode_on">Přiblížit na celou obrazovku</string>
     <string name="confirm_enable_oem_unlock_text">UPOZORNĚNÍ: Pokud bude toto nastavení zapnuto, nebudou v tomto zařízení fungovat funkce ochrany zařízení.</string>
@@ -740,6 +746,8 @@ Pokud jej obnovíte, mohou vám být účtovány poplatky za využití dat."</st
     <string name="defender_notify_learn_more">Další informace</string>
     <string name="defender_notify_resume_charge">Obnovit nabíjení</string>
     <string name="defender_notify_title">Nabíjení je dočasně omezeno</string>
+    <string name="defender_post_notify_des">Nabíjení bylo od %2$s do %3$s omezeno na %1$s, aby byla zachována životnost baterie</string>
+    <string name="defender_post_notify_title">Normální nabíjení</string>
     <string name="delete_blob_confirmation_text">Opravdu tato sdílená data chcete vymazat?</string>
     <string name="delete_blob_text">Vymazat sdílená data</string>
     <string name="demo_mode">Ukázkový režim uživatelského rozhraní systému</string>
@@ -885,6 +893,7 @@ Pokud jej obnovíte, mohou vám být účtovány poplatky za využití dat."</st
     <string name="game_status">Hraji hru</string>
     <string name="global_action_lock_message">Chcete-li zobrazit další možnosti, odemkněte telefon</string>
     <string name="global_action_screenshot">Snímek obrazovky</string>
+    <string name="global_action_smart_lock_disabled">Funkce Smart Lock je deaktivována</string>
     <string name="global_actions_change_description">%1$s a ovládání zařízení otevřete přejetím prstem z horního okraje obrazovky</string>
     <string name="go_to_web">Přejít do prohlížeče</string>
     <string name="google_services_wallpaper_permission"><b>Povolte živým tapetám Google přístup ke službě určování polohy Google</b>, aby mohly reagovat na vaši polohu.</string>
@@ -1232,7 +1241,7 @@ Zkuste to znovu za %2$d s."</string>
     <string name="media_projection_dialog_text">Aplikace %s bude mít přístup ke všem informacím, které jsou viditelné na obrazovce nebo které jsou přehrávány ze za řízení při nahrávání nebo odesílání. Týká se to i hesel, údajů o platbě, fotek, zpráv a přehrávaných zvuků.</string>
     <string name="media_projection_dialog_title">Začít nahrávat nebo odesílat s aplikací %s?</string>
     <string name="media_projection_remember_text">Tuto zprávu příště nezobrazovat</string>
-    <string name="media_seamless_remote_device">Zařízení</string>
+    <string name="media_seamless_other_device">Další zařízení</string>
     <string name="media_transfer_this_device_name">Reproduktor telefonu</string>
     <string name="media_transfer_this_phone">Tento telefon</string>
     <string name="media_transfer_wired_device_name">Kabelové audiozařízení</string>
@@ -1249,9 +1258,13 @@ Zkuste to znovu za %2$d s."</string>
     <string name="mobile_data">Mobilní data</string>
     <string name="mobile_data_always_on">Mobilní data jsou vždy aktivní</string>
     <string name="mobile_data_always_on_summary">Mobilní data budou vždy ponechána aktivní, i když bude aktivní Wi-Fi (za účelem rychlého přepínání sítí).</string>
+    <string name="mobile_data_connection_active">Připojeno</string>
     <string name="mobile_data_disable_message">Prostřednictvím %s nebudete moci používat data ani internet. Internet bude dostupný pouze přes Wi-Fi.</string>
     <string name="mobile_data_disable_message_default_carrier">vašeho operátora</string>
     <string name="mobile_data_disable_title">Vypnout mobilní data?</string>
+    <string name="mobile_data_no_connection">Žádné připojení</string>
+    <string name="mobile_data_off_summary">Mobilní data se nebudou připojovat automaticky</string>
+    <string name="mobile_data_settings_title">Mobilní data</string>
     <string name="mobile_data_text_format">%1$s – %2$s</string>
     <string name="mock_location_app">Vybrat aplikaci k simulování polohy</string>
     <string name="mock_location_app_not_set">Aplikace k simulování polohy není nastavena</string>
@@ -1391,6 +1404,7 @@ Pokud máte nějaké otázky, obraťte se na organizaci %2$s."</string>
     <string name="no_content_in_select_mode">Žádný text ani obrázek k vybrání</string>
     <string name="no_conversations_text">Tady se zobrazí vaše nedávné konverzace</string>
     <string name="no_shortcut">Aplikace %1$s funkce konverzace nepodporuje</string>
+    <string name="non_carrier_network_unavailable">Žádné další sítě nejsou k dispozici</string>
     <string name="not_default_data_content_description">Nenastaveno k využití dat</string>
     <string name="not_set">Nenastaveno</string>
     <string name="notif_inline_reply_remove_attachment_description">Odebrat přílohu</string>
@@ -1555,7 +1569,7 @@ Pokud máte nějaké otázky, obraťte se na organizaci %2$s."</string>
 – Zabránit vyrušení na celou obrazovku 
 – Nikdy nezobrazovat náhled 
 – Nikdy nevydávat zvukový signál ani nevibrovat 
-– Skrýt z obrazovky uzamčení a stavového řádku 
+– Skrýt na obrazovce uzamčení a stavového řádku 
 – Zobrazovat na konci seznamu oznámení 
 
 "<b>;Úroveň 0</b>" 
@@ -1571,6 +1585,7 @@ Pokud máte nějaké otázky, obraťte se na organizaci %2$s."</string>
     <string name="power_remaining_only_more_than_subtext">Zbývá více než %1$s</string>
     <string name="power_remaining_settings_home_page">%1$s – %2$s</string>
     <string name="power_suggestion_battery_run_out">Baterie se může vybít kolem %1$s</string>
+    <string name="pref_title_network_details">Podrobnosti sítě</string>
     <string name="preference_copied">Položka %1$s byla zkopírována do schránky.</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">Prioritní konverzace</string>
@@ -1740,6 +1755,7 @@ Pokud máte nějaké otázky, obraťte se na organizaci %2$s."</string>
     <string name="right_keycode">Klávesa vpravo</string>
     <string name="right_nav_bar_button_type">Zvláštní typ tlačítka vpravo</string>
     <string name="ring_toggle_title">Volání</string>
+    <string name="rotation_lock_camera_rotation_on">Zapnuto – podle obličeje</string>
     <string name="running_foreground_services_msg">Klepnutím zobrazíte podrobnosti o využití baterie a dat</string>
     <string name="running_foreground_services_title">Aplikace běžící na pozadí</string>
     <string name="running_process_item_user_label">Uživatel: %1$s</string>
@@ -1814,6 +1830,7 @@ Pokud máte nějaké otázky, obraťte se na organizaci %2$s."</string>
     <string name="screenshot_top_boundary_pct">Horní okraj %1$d procent</string>
     <string name="search_menu">Prohledat nastavení</string>
     <string name="search_menu_title">Hledat</string>
+    <string name="see_all_networks">Zobrazit vše</string>
     <string name="see_more_title">Zobrazit další</string>
     <string name="select_application">Výběr aplikace</string>
     <string name="select_conversation_text">Klepnutím na konverzaci ji přidáte na plochu</string>
@@ -1926,6 +1943,7 @@ monitorována"</string>
     <string name="switch_bar_off">Vypnuto</string>
     <string name="switch_bar_on">Zapnuto</string>
     <string name="system_ui_tuner">Nástroj na ladění uživatelského rozhraní systému</string>
+    <string name="tap_a_network_to_connect">Klepněte na síť, ke které se chcete připojit</string>
     <string name="tap_again">Znovu klepněte</string>
     <string name="tap_to_sign_up">Klepnutím se zaregistrujete</string>
     <string name="tether_settings_title_all">Sdílené připojení a přenosný hotspot</string>
@@ -1951,6 +1969,7 @@ Klepnutím zobrazíte další informace"</string>
     <string name="time_unit_just_now">Právě teď</string>
     <string name="title_convert_fbe">Převod na šifrování založené na souborech</string>
     <string name="title_usb_accessory">Periferní zařízení USB</string>
+    <string name="to_switch_networks_disconnect_ethernet">Pokud chcete přepnout sítě, odpojte ethernet</string>
     <string name="too_hot_label">Telefon Pixel je příliš horký</string>
     <string name="touch_filtered_warning">Žádost o oprávnění je blokována jinou aplikací. Nastavení proto vaši odpověď nemůže ověřit.</string>
     <string name="track_frame_time">Profilovat vykreslování rozhraním HWUI</string>
@@ -2009,10 +2028,12 @@ Klepnutím zobrazíte další informace"</string>
     <string name="tuner_toast">Úspěch! Do Nastavení byl přidán nástroj na ladění uživatelského rozhraní systému.</string>
     <string name="tuner_warning">Nástroj na ladění uživatelského rozhraní systému vám nabízí další způsoby, jak si vyladit a přizpůsobit uživatelské rozhraní Android. Tyto experimentální funkce mohou v dalších verzích chybět, nefungovat nebo být změněny. Postupujte proto prosím opatrně.</string>
     <string name="tuner_warning_title">Zábava, která není pro každého</string>
+    <string name="turn_on_wifi">Wi-Fi</string>
     <string name="tv_notification_panel_no_notifications">Žádná oznámení</string>
     <string name="tv_notification_panel_title">Oznámení</string>
     <string name="two_weeks_timestamp">Před 2 týdny</string>
     <string name="unknown">Neznámé</string>
+    <string name="unlock_to_view_networks">Sítě uvidíte po odemknutí</string>
     <string name="upcoming_birthday_status">Brzy má narozeniny</string>
     <string name="upcoming_birthday_status_content_description">%1$s bude mít brzy narozeniny</string>
     <string name="url_menu_copy">Kopírovat</string>
@@ -2151,9 +2172,11 @@ Adresa Wi‑Fi (BSSID)
     <string name="wifi_disconnected">Odpojeno</string>
     <string name="wifi_display_certification">Certifikace bezdrátového displeje</string>
     <string name="wifi_display_certification_summary">Zobrazit možnosti certifikace bezdrátového displeje</string>
+    <string name="wifi_empty_list_wifi_on">Vyhledávání sítí…</string>
     <string name="wifi_enhanced_mac_randomization">Při připojování k sítím Wi‑Fi používat proměnlivé náhodné adresy MAC</string>
     <string name="wifi_enhanced_mac_randomization_summary">Když je tento režim aktivován, adresa MAC tohoto zařízení se může změnit pokaždé, když se zařízení připojí k síti s aktivovanou randomizací adres MAC.</string>
     <string name="wifi_fail_to_scan">Nelze hledat sítě</string>
+    <string name="wifi_failed_connect_message">Připojení k síti se nezdařilo</string>
     <string name="wifi_hotspot_switch_off_text">Vypnout</string>
     <string name="wifi_hotspot_switch_on_text">Zapnout</string>
     <string name="wifi_is_off">Wi-Fi je vypnuta</string>
@@ -2164,6 +2187,7 @@ Adresa Wi‑Fi (BSSID)
     <string name="wifi_not_in_range">Mimo dosah</string>
     <string name="wifi_passpoint_expired">Platnost vypršela</string>
     <string name="wifi_remembered">Uloženo</string>
+    <string name="wifi_scan_notify_message">Za účelem lepšího fungování zařízení mohou aplikace a služby vyhledávat sítě Wi-Fi, i když je připojení Wi-Fi vypnuté. Toto chování můžete změnit v nastavení vyhledávání Wi-Fi. <annotation id="link">Změnit</annotation></string>
     <string name="wifi_scan_throttling">Přibrždění vyhledávání Wi‑Fi</string>
     <string name="wifi_scan_throttling_summary">Snižuje vyčerpávání baterie a vylepšuje výkon sítě</string>
     <string name="wifi_security_none">Žádné</string>
@@ -2173,6 +2197,7 @@ Adresa Wi‑Fi (BSSID)
     <string name="wifi_unmetered_label">Neměřená</string>
     <string name="wifi_verbose_logging">Podrobné protokolování Wi‑Fi</string>
     <string name="wifi_verbose_logging_summary">Zvýšit úroveň protokolování Wi‑Fi zobrazenou v SSID a RSSI při výběru sítě Wi‑Fi</string>
+    <string name="wifi_wont_autoconnect_for_now">Wi-Fi se prozatím nebude připojovat automaticky</string>
     <string name="wifitrackerlib_auto_connect_disable">Automatické připojení je vypnuté</string>
     <string name="wifitrackerlib_available_via_app">Dostupné přes %1$s</string>
     <string name="wifitrackerlib_connected_via_app">Připojeno přes %1$s</string>

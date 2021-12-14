@@ -363,6 +363,7 @@ Dacă permisiunea este dezactivată, alarmele și evenimentele dependente de tim
     <string name="alarms_and_reminders_label">Alarme și mementouri</string>
     <string name="alarms_and_reminders_switch_title">Permiteți setarea pentru alarme și mementouri</string>
     <string name="alarms_and_reminders_title">Alarme și mementouri</string>
+    <string name="all_network_unavailable">Nicio rețea disponibilă</string>
     <string name="allow_mock_location">Permiteți locațiile fictive</string>
     <string name="allow_mock_location_summary">Permiteți locațiile fictive</string>
     <string name="always_use_accessory">Deschideți întotdeauna %1$s când este conectat %2$s</string>
@@ -618,6 +619,11 @@ Selecție"</string>
     <string name="clock_title_analog">Analogic</string>
     <string name="clock_title_bubble">Balon</string>
     <string name="clock_title_default">Prestabilit</string>
+    <string name="columbus_bouncer_message">Deblocați pentru a finaliza Atingerea rapidă</string>
+    <string name="columbus_target_request_dialog_allow">Permiteți</string>
+    <string name="columbus_target_request_dialog_deny">Nu permiteți</string>
+    <string name="columbus_target_request_dialog_summary">Când atingeți de două ori partea din spate a telefonului, se va deschide %1$s. Puteți modifica oricând această preferință în Setări.</string>
+    <string name="columbus_target_request_dialog_title">Permiteți ca Atingerea rapidă să deschidă %1$s?</string>
     <string name="compat_mode_off">Înt. pt. a umple ecranul</string>
     <string name="compat_mode_on">Zoom pt. a umple ecranul</string>
     <string name="confirm_enable_oem_unlock_text">AVERTISMENT: funcțiile de protecție a dispozitivului nu vor funcționa pe acest dispozitiv cât timp setarea este activată.</string>
@@ -740,6 +746,8 @@ Dacă reluați, este posibil să se aplice taxe pentru utilizarea datelor."</str
     <string name="defender_notify_learn_more">Aflați mai multe</string>
     <string name="defender_notify_resume_charge">Reluați taxarea</string>
     <string name="defender_notify_title">Încărcare limitată temporar</string>
+    <string name="defender_post_notify_des">Încărcarea a fost limitată la %1$s între %2$s și %3$s pentru a menține buna funcționare a bateriei</string>
+    <string name="defender_post_notify_title">Se încarcă normal</string>
     <string name="delete_blob_confirmation_text">Sigur ștergeți aceste date la care se permite accesul?</string>
     <string name="delete_blob_text">Ștergeți datele la care se permite accesul</string>
     <string name="demo_mode">Mod demonstrativ pentru IU sistem</string>
@@ -885,6 +893,7 @@ Datele faciale folosite de deblocarea facială vor fi șterse definitiv și în 
     <string name="game_status">Mă joc</string>
     <string name="global_action_lock_message">Deblocați telefonul pentru mai multe opțiuni</string>
     <string name="global_action_screenshot">Captură de ecran</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock dezactivat</string>
     <string name="global_actions_change_description">Ca să accesați %1$s și comenzile dispozitivului, glisați în jos din partea de sus a ecranului</string>
     <string name="go_to_web">Accesați browserul</string>
     <string name="google_services_wallpaper_permission"><b>Permiteți ca imaginile de fundal live Google să se adapteze la locația dvs.</b> accesând serviciul de localizare Google.</string>
@@ -1232,7 +1241,7 @@ cu prioritate"</string>
     <string name="media_projection_dialog_text">%s va avea acces la toate informațiile vizibile pe ecran sau redate pe dispozitiv în timp ce înregistrați sau proiectați. Între aceste informații se numără parole, detalii de plată, fotografii, mesaje și conținutul audio pe care îl redați.</string>
     <string name="media_projection_dialog_title">Începeți să înregistrați sau să proiectați cu %s?</string>
     <string name="media_projection_remember_text">Nu se mai afișează</string>
-    <string name="media_seamless_remote_device">Dispozitiv</string>
+    <string name="media_seamless_other_device">Alt dispozitiv</string>
     <string name="media_transfer_this_device_name">Difuzorul telefonului</string>
     <string name="media_transfer_this_phone">Acest telefon</string>
     <string name="media_transfer_wired_device_name">Dispozitiv audio cu fir</string>
@@ -1249,9 +1258,13 @@ cu prioritate"</string>
     <string name="mobile_data">Date mobile</string>
     <string name="mobile_data_always_on">Date mobile permanent active</string>
     <string name="mobile_data_always_on_summary">Păstrați întotdeauna conexiunea de date mobile activată, chiar și atunci când funcția Wi‑Fi este activată (pentru comutarea rapidă între rețele).</string>
+    <string name="mobile_data_connection_active">Conectat</string>
     <string name="mobile_data_disable_message">Nu veți avea acces la date sau la internet prin intermediul %s. Internetul va fi disponibil numai prin Wi-Fi.</string>
     <string name="mobile_data_disable_message_default_carrier">operatorul dvs.</string>
     <string name="mobile_data_disable_title">Dezactivați datele mobile?</string>
+    <string name="mobile_data_no_connection">Nicio conexiune</string>
+    <string name="mobile_data_off_summary">Nu se conectează automat la date mobile</string>
+    <string name="mobile_data_settings_title">Date mobile</string>
     <string name="mobile_data_text_format">%1$s – %2$s</string>
     <string name="mock_location_app">Selectați aplicația pentru locația de testare</string>
     <string name="mock_location_app_not_set">Nicio aplicație setată pentru locația de testare</string>
@@ -1391,6 +1404,7 @@ Dacă aveți întrebări, luați legătura cu %2$s."</string>
     <string name="no_content_in_select_mode">Niciun text sau imagine de selectat</string>
     <string name="no_conversations_text">Conversațiile dvs. recente se vor afișa aici</string>
     <string name="no_shortcut">%1$s nu acceptă funcții pentru conversații</string>
+    <string name="non_carrier_network_unavailable">Nu sunt disponibile alte rețele</string>
     <string name="not_default_data_content_description">Nu este setat pentru a folosi datele</string>
     <string name="not_set">Nesetată</string>
     <string name="notif_inline_reply_remove_attachment_description">Eliminați atașamentul</string>
@@ -1571,6 +1585,7 @@ Dacă aveți întrebări, luați legătura cu %2$s."</string>
     <string name="power_remaining_only_more_than_subtext">A mai rămas mai mult de %1$s</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">Bateria se poate descărca până la %1$s</string>
+    <string name="pref_title_network_details">Detalii despre rețea</string>
     <string name="preference_copied">„%1$s” a fost copiat în clipboard.</string>
     <string name="preference_summary_default_combination">%1$s/%2$s</string>
     <string name="priority_conversations">Conversații cu prioritate</string>
@@ -1740,6 +1755,7 @@ Dacă aveți întrebări, luați legătura cu %2$s."</string>
     <string name="right_keycode">Codul de taste din dreapta</string>
     <string name="right_nav_bar_button_type">Tip de buton din extrema dreaptă</string>
     <string name="ring_toggle_title">Apeluri</string>
+    <string name="rotation_lock_camera_rotation_on">Activată – În funcție de chip</string>
     <string name="running_foreground_services_msg">Atingeți pentru mai multe detalii privind bateria și utilizarea datelor</string>
     <string name="running_foreground_services_title">Aplicațiile rulează în fundal</string>
     <string name="running_process_item_user_label">Utilizator: %1$s</string>
@@ -1814,6 +1830,7 @@ Dacă aveți întrebări, luați legătura cu %2$s."</string>
     <string name="screenshot_top_boundary_pct">Marginea de sus la %1$d %%</string>
     <string name="search_menu">Căutați în setări</string>
     <string name="search_menu_title">Căutați</string>
+    <string name="see_all_networks">Afișează-le pe toate</string>
     <string name="see_more_title">Vedeți mai multe</string>
     <string name="select_application">Selectați o aplicație</string>
     <string name="select_conversation_text">Atingeți o conversație ca să o adăugați pe ecranul de pornire</string>
@@ -1926,6 +1943,7 @@ fi monitorizată"</string>
     <string name="switch_bar_off">Dezactivați</string>
     <string name="switch_bar_on">Activat</string>
     <string name="system_ui_tuner">System UI Tuner</string>
+    <string name="tap_a_network_to_connect">Atingeți o rețea pentru a vă conecta</string>
     <string name="tap_again">Atingeți din nou</string>
     <string name="tap_to_sign_up">Atingeți pentru a vă înscrie</string>
     <string name="tether_settings_title_all">Tethering și hotspot portabil</string>
@@ -1951,6 +1969,7 @@ Atingeți pentru mai multe informații"</string>
     <string name="time_unit_just_now">Chiar acum</string>
     <string name="title_convert_fbe">Se face conversia la criptarea bazată pe sistemul de fișiere</string>
     <string name="title_usb_accessory">Accesoriu USB</string>
+    <string name="to_switch_networks_disconnect_ethernet">Pentru a schimba rețeaua, deconectați ethernet</string>
     <string name="too_hot_label">Pixel este prea fierbinte</string>
     <string name="touch_filtered_warning">Deoarece o aplicație acoperă o solicitare de permisiune, Setările nu vă pot verifica răspunsul.</string>
     <string name="track_frame_time">Profil redare cu HWUI</string>
@@ -2009,10 +2028,12 @@ Atingeți pentru mai multe informații"</string>
     <string name="tuner_toast">Felicitări! System UI Tuner a fost adăugat în Setări</string>
     <string name="tuner_warning">System UI Tuner vă oferă modalități suplimentare de a ajusta și a personaliza interfața de utilizare Android. Aceste funcții experimentale pot să se schimbe, să se blocheze sau să dispară din versiunile viitoare. Continuați cu prudență.</string>
     <string name="tuner_warning_title">Distractiv pentru unii, dar nu pentru toată lumea</string>
+    <string name="turn_on_wifi">Wi-Fi</string>
     <string name="tv_notification_panel_no_notifications">Nicio notificare</string>
     <string name="tv_notification_panel_title">Notificări</string>
     <string name="two_weeks_timestamp">Acum 2 săptămâni</string>
     <string name="unknown">Necunoscut</string>
+    <string name="unlock_to_view_networks">Deblocați pentru a vedea rețelele</string>
     <string name="upcoming_birthday_status">Zi de naștere în curând</string>
     <string name="upcoming_birthday_status_content_description">În curând %1$s își va sărbători ziua de naștere</string>
     <string name="url_menu_copy">Copiați</string>
@@ -2151,9 +2172,11 @@ Adresa Wi‑Fi (BSSID)
     <string name="wifi_disconnected">Deconectat</string>
     <string name="wifi_display_certification">Certificare Ecran wireless</string>
     <string name="wifi_display_certification_summary">Afișați opțiunile pentru certificarea Ecran wireless</string>
+    <string name="wifi_empty_list_wifi_on">Se caută rețele…</string>
     <string name="wifi_enhanced_mac_randomization">Randomizarea adresei MAC nepersistente pentru Wi-Fi</string>
     <string name="wifi_enhanced_mac_randomization_summary">Când acest mod este activat, adresa MAC a dispozitivului se poate schimba de fiecare dată când se conectează la o rețea care are activată randomizarea MAC.</string>
     <string name="wifi_fail_to_scan">Nu se poate scana pentru rețele</string>
+    <string name="wifi_failed_connect_message">Nu s-a realizat conexiunea la rețea</string>
     <string name="wifi_hotspot_switch_off_text">Dezactivat</string>
     <string name="wifi_hotspot_switch_on_text">Activat</string>
     <string name="wifi_is_off">Conexiunea Wi-Fi este dezactivată</string>
@@ -2164,6 +2187,7 @@ Adresa Wi‑Fi (BSSID)
     <string name="wifi_not_in_range">În afara ariei de acoperire</string>
     <string name="wifi_passpoint_expired">Expirat</string>
     <string name="wifi_remembered">Salvată</string>
+    <string name="wifi_scan_notify_message">Pentru a îmbunătăți experiența cu dispozitivul, aplicațiile și serviciile pot să caute în continuare rețele Wi‑Fi chiar și atunci când conexiunea Wi-Fi este dezactivată. Puteți să schimbați acest aspect din setările pentru căutarea de rețele Wi-Fi. <annotation id="link">Schimbați</annotation></string>
     <string name="wifi_scan_throttling">Limitare căutare de rețele Wi-Fi</string>
     <string name="wifi_scan_throttling_summary">Reduce descărcarea bateriei și îmbunătățește performanța rețelei</string>
     <string name="wifi_security_none">Niciuna</string>
@@ -2173,6 +2197,7 @@ Adresa Wi‑Fi (BSSID)
     <string name="wifi_unmetered_label">Necontorizată</string>
     <string name="wifi_verbose_logging">Înregistrare prin Wi-Fi de volume mari de date</string>
     <string name="wifi_verbose_logging_summary">Măriți niv. de înr. prin Wi‑Fi, afișați în fcț. de SSID RSSI în Selectorul Wi‑Fi</string>
+    <string name="wifi_wont_autoconnect_for_now">Deocamdată, Wi-Fi nu se poate conecta automat</string>
     <string name="wifitrackerlib_auto_connect_disable">Conectarea automată este dezactivată</string>
     <string name="wifitrackerlib_available_via_app">Disponibilă prin %1$s</string>
     <string name="wifitrackerlib_connected_via_app">Conectată prin %1$s</string>

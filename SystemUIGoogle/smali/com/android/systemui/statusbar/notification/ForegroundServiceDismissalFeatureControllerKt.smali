@@ -33,7 +33,7 @@
 
     const/4 v0, 0x0
 
-    const-string v1, "systemui"
+    const-string/jumbo v1, "systemui"
 
     const-string v2, "notifications_allow_fgs_dismissal"
 

@@ -57,7 +57,7 @@
     <string name="accessibility_action_stop_one_handed">వన్-హ్యాండెడ్ మోడ్ నుండి నిష్క్రమింపజేస్తుంది</string>
     <string name="accessibility_airplane_mode">ఎయిర్‌ప్లేన్ మోడ్.</string>
     <string name="accessibility_ambient_display_charging">ఛార్జ్ అవుతోంది</string>
-    <string name="accessibility_assistant_poodle">వాయిస్ శోధన</string>
+    <string name="accessibility_assistant_poodle">వాయిస్ సెర్చ్</string>
     <string name="accessibility_authenticate_hint">ప్రామాణీకరించండి</string>
     <string name="accessibility_back">వెనుకకు</string>
     <string name="accessibility_banner_message_dismiss">విస్మరించు</string>
@@ -164,7 +164,7 @@
     <string name="accessibility_home">హోమ్</string>
     <string name="accessibility_ime_switch_button">ఇన్‌పుట్ పద్ధతిని మార్చు</string>
     <string name="accessibility_key">అనుకూల నావిగేషన్ బటన్</string>
-    <string name="accessibility_location_active">స్థాన అభ్యర్థనలు సక్రియంగా ఉన్నాయి</string>
+    <string name="accessibility_location_active">లొకేషన్ రిక్వెస్ట్‌లు యాక్టివ్‌గా ఉన్నాయి</string>
     <string name="accessibility_lock_icon">పరికరం లాక్ చేయబడింది</string>
     <string name="accessibility_long_click_tile">సెట్టింగ్‌లను తెరవండి</string>
     <string name="accessibility_manage_notification">నోటిఫికేషన్‌లను నిర్వహించండి</string>
@@ -233,7 +233,7 @@
     <string name="accessibility_quick_settings_dnd_changed_off">"'అంతరాయం కలిగించవద్దు' ఆఫ్ చేయబడింది."</string>
     <string name="accessibility_quick_settings_dnd_changed_on">అంతరాయం కలిగించవద్దు ఆన్ చేయబడింది.</string>
     <string name="accessibility_quick_settings_dnd_none_on">మొత్తం నిశ్శబ్దం</string>
-    <string name="accessibility_quick_settings_edit">సెట్టింగ్‌ల క్రమాన్ని సవరించండి.</string>
+    <string name="accessibility_quick_settings_edit">సెట్టింగ్‌ల క్రమాన్ని ఎడిట్ చేయండి.</string>
     <string name="accessibility_quick_settings_expand">శీఘ్ర సెట్టింగ్‌లను తెరవండి.</string>
     <string name="accessibility_quick_settings_flashlight_changed_off">ఫ్లాష్‌లైట్ ఆఫ్ చేయబడింది.</string>
     <string name="accessibility_quick_settings_flashlight_changed_on">ఫ్లాష్‌లైట్ ఆన్ చేయబడింది.</string>
@@ -243,10 +243,10 @@
     <string name="accessibility_quick_settings_hotspot_changed_off">మొబైల్ హాట్‌స్పాట్ ఆఫ్ చేయబడింది.</string>
     <string name="accessibility_quick_settings_hotspot_changed_on">మొబైల్ హాట్‌స్పాట్ ఆన్ చేయబడింది.</string>
     <string name="accessibility_quick_settings_less_time">తక్కువ సమయం.</string>
-    <string name="accessibility_quick_settings_location_changed_off">స్థాన నివేదన ఆఫ్ చేయబడింది.</string>
-    <string name="accessibility_quick_settings_location_changed_on">స్థాన నివేదన ఆన్ చేయబడింది.</string>
-    <string name="accessibility_quick_settings_location_off">స్థాన నివేదన ఆఫ్‌లో ఉంది.</string>
-    <string name="accessibility_quick_settings_location_on">స్థాన నివేదన ఆన్‌లో ఉంది.</string>
+    <string name="accessibility_quick_settings_location_changed_off">లొకేషన్ రిపోర్టింగ్ ఆఫ్ చేయబడింది.</string>
+    <string name="accessibility_quick_settings_location_changed_on">లొకేషన్ రిపోర్టింగ్ ఆన్ చేయబడింది.</string>
+    <string name="accessibility_quick_settings_location_off">లొకేషన్ రిపోర్టింగ్ ఆఫ్‌లో ఉంది.</string>
+    <string name="accessibility_quick_settings_location_on">లొకేషన్ రిపోర్టింగ్ ఆన్‌లో ఉంది.</string>
     <string name="accessibility_quick_settings_mobile">మొబైల్ %1$s. %2$s. %3$s.</string>
     <string name="accessibility_quick_settings_more_time">ఎక్కువ సమయం.</string>
     <string name="accessibility_quick_settings_not_available">%s కారణంగా అందుబాటులో లేదు</string>
@@ -363,8 +363,9 @@
     <string name="alarms_and_reminders_label">అలారాలు, రిమైండర్‌లు</string>
     <string name="alarms_and_reminders_switch_title">అలారాలు, రిమైండర్‌లను సెట్ చేయడానికి అనుమతించండి</string>
     <string name="alarms_and_reminders_title">అలారాలు &amp; రిమైండర్‌లు</string>
-    <string name="allow_mock_location">అనుకృత స్థానాలను అనుమతించు</string>
-    <string name="allow_mock_location_summary">అనుకృత స్థానాలను అనుమతించు</string>
+    <string name="all_network_unavailable">నెట్‌వర్క్‌లు అందుబాటులో లేవు</string>
+    <string name="allow_mock_location">డమ్మీ లొకేషన్లను అనుమతించండి</string>
+    <string name="allow_mock_location_summary">డమ్మీ లొకేషన్లను అనుమతించండి</string>
     <string name="always_use_accessory">%2$s కనెక్ట్ అయి ఉన్న ఎల్లప్పుడూ %1$sని తెరవండి</string>
     <string name="always_use_device">%2$s కనెక్ట్ అయి ఉన్న ఎల్లప్పుడూ %1$sని తెరవండి</string>
     <string name="animator_duration_scale_title">యానిమేటర్ వ్యవధి ప్రమాణం</string>
@@ -376,17 +377,17 @@
     <string name="app_label">సిస్టమ్ UI</string>
     <string name="app_name">కీగార్డ్</string>
     <string name="app_process_limit_title">బ్యాక్‌గ్రౌండ్ ప్రాసెస్ పరిమితి</string>
-    <string name="appops_camera">ఈ యాప్ ఈ కెమెరాను ఉపయోగిస్తోంది.</string>
-    <string name="appops_camera_mic">ఈ యాప్ మైక్రోఫోన్ మరియు కెమెరాను ఉపయోగిస్తుంది.</string>
-    <string name="appops_camera_mic_overlay">ఈ యాప్ మీ స్క్రీన్‌లోని ఇతర యాప్‌లపై ప్రదర్శించబడుతోంది మరియు మైక్రోఫోన్, కెమెరాను ఉపయోగిస్తుంది.</string>
-    <string name="appops_camera_overlay">ఈ యాప్ మీ స్క్రీన్‌లోని ఇతర యాప్‌లపై ప్రదర్శించబడుతోంది మరియు కెమెరాను ఉపయోగిస్తుంది.</string>
+    <string name="appops_camera">ఈ యాప్, కెమెరాను ఉపయోగిస్తోంది.</string>
+    <string name="appops_camera_mic">ఈ యాప్ మైక్రోఫోన్‌ను, కెమెరాను ఉపయోగిస్తోంది.</string>
+    <string name="appops_camera_mic_overlay">ఈ యాప్ మీ స్క్రీన్‌లోని ఇతర యాప్‌లపై ప్రదర్శించబడుతోంది, మైక్రోఫోన్, కెమెరాను ఉపయోగిస్తోంది.</string>
+    <string name="appops_camera_overlay">ఈ యాప్ మీ స్క్రీన్‌లోని ఇతర యాప్‌లపై ప్రదర్శించబడుతోంది, కెమెరాను ఉపయోగిస్తోంది.</string>
     <string name="appops_mic_overlay">ఈ యాప్ మీ స్క్రీన్‌లోని ఇతర యాప్‌లపై ప్రదర్శించబడుతోంది మరియు మైక్రోఫోన్‌ను ఉపయోగిస్తుంది.</string>
     <string name="appops_microphone">ఈ యాప్ మైక్రోఫోన్‌ను ఉపయోగిస్తుంది.</string>
     <string name="appops_overlay">ఈ యాప్ మీ స్క్రీన్‌లోని ఇతర యాప్‌లపై ప్రదర్శించబడుతోంది.</string>
     <string name="assistant_half_listening_label">వినడం కొనసాగించండి, రద్దు చేయడానికి నొక్కండి</string>
     <string name="assistant_keyboard_icon_label">కీబోర్డ్</string>
     <string name="assistant_scrim_label">వింటోంది, రద్దు చేయడానికి నొక్కండి</string>
-    <string name="assistant_zero_state_icon_label">అసిస్టెంట్ అవలోకనం</string>
+    <string name="assistant_zero_state_icon_label">Assistant ఓవర్‌వ్యూ</string>
     <string name="audio_status">వింటున్నారు</string>
     <string name="auto_saver_enabled_text">బ్యాటరీ %d%% కంటే తగ్గినప్పుడు బ్యాటరీ సేవర్ ఆటోమేటిక్‌గా ఆన్ అవుతుంది.</string>
     <string name="auto_saver_enabled_title">బ్యాటరీ సేవర్ షెడ్యూల్ ఆన్ చేయబడింది</string>
@@ -507,7 +508,7 @@
     <string name="bluetooth_pairing_error_message">%1$sతో జత చేయడం సాధ్యపడలేదు.</string>
     <string name="bluetooth_pairing_pin_error_message">పిన్ లేదా పాస్‌కీ చెల్లని కారణంగా %1$sతో పెయిర్ చేయడం సాధ్యపడలేదు.</string>
     <string name="bluetooth_pairing_rejected_error_message">%1$s జత చేయడాన్ని తిరస్కరించింది.</string>
-    <string name="bluetooth_pairing_will_share_phonebook">జత చేయడం వలన కనెక్ట్ చేయబడినప్పుడు మీ పరిచయాలకు మరియు కాల్ చరిత్రకు యాక్సెస్‌ను మంజూరు చేస్తుంది.</string>
+    <string name="bluetooth_pairing_will_share_phonebook">పెయిర్ చేయడం వలన కనెక్ట్ చేయబడినప్పుడు మీ కాంటాక్ట్‌లకు అలాగే కాల్ హిస్టరీకి యాక్సెస్‌ను మంజూరు చేస్తుంది.</string>
     <string name="bluetooth_pan_nap_profile_summary_connected">స్థానిక ఇంటర్నెట్ కనెక్షన్‌ను పరికరంతో షేర్ చేయడం</string>
     <string name="bluetooth_pan_profile_summary_use_for">ఇంటర్నెట్ యాక్సెస్ కోసం ఉపయోగించు</string>
     <string name="bluetooth_pan_user_profile_summary_connected">ఇంటర్నెట్ యాక్సెస్ కోసం పరికరానికి కనెక్ట్ చేయబడింది</string>
@@ -517,12 +518,12 @@
     <string name="bluetooth_profile_headset">ఫోన్ కాల్స్‌</string>
     <string name="bluetooth_profile_hearing_aid">వినికిడి మద్దతు ఉపకరణాలు</string>
     <string name="bluetooth_profile_hid">ఇన్‌పుట్ పరికరం</string>
-    <string name="bluetooth_profile_map">వచన మెసేజ్‌లు</string>
+    <string name="bluetooth_profile_map">టెక్స్ట్ మెసేజ్‌లు</string>
     <string name="bluetooth_profile_opp">ఫైల్ బదిలీ</string>
     <string name="bluetooth_profile_pan">ఇంటర్నెట్ యాక్సెస్</string>
-    <string name="bluetooth_profile_pan_nap">ఇంటర్నెట్ కనెక్షన్ భాగస్వామ్యం</string>
+    <string name="bluetooth_profile_pan_nap">ఇంటర్నెట్ కనెక్షన్ షేరింగ్</string>
     <string name="bluetooth_profile_pbap">కాంటాక్ట్ షేరింగ్</string>
-    <string name="bluetooth_profile_pbap_summary">పరిచయ భాగస్వామ్యం కోసం ఉపయోగించు</string>
+    <string name="bluetooth_profile_pbap_summary">కాంటాక్ట్ షేరింగ్ కోసం ఉపయోగించండి</string>
     <string name="bluetooth_profile_sap">SIM యాక్సెస్</string>
     <string name="bluetooth_sap_profile_summary_connected">SAPకి కనెక్ట్ చేయబడింది</string>
     <string name="bluetooth_sap_profile_summary_use_for">SIM యాక్సెస్ కోసం ఉపయోగించబడుతుంది</string>
@@ -558,7 +559,7 @@
     <string name="bluetooth_talkback_phone">ఫోన్</string>
     <string name="bluetooth_tethered">బ్లూటూత్ టీథర్ చేయబడింది</string>
     <string name="bottomsheet_action_expand_halfway">సగాన్ని విస్తరింపజేయండి</string>
-    <string name="branded_monitoring_description_app_personal">మీరు %1$sకి కనెక్ట్ చేయబడ్డారు, ఇది ఇమెయిల్‌లు, యాప్‌లు మరియు వెబ్‌సైట్‌లతో సహా మీ వ్యక్తిగత నెట్‌వర్క్ కార్యాచరణను పర్యవేక్షించగలదు.</string>
+    <string name="branded_monitoring_description_app_personal">మీరు %1$sకి కనెక్ట్ చేయబడ్డారు, ఇది ఈమెయిళ్లు, యాప్‌లు మరియు వెబ్‌సైట్‌లతో సహా మీ వ్యక్తిగత నెట్‌వర్క్ కార్యాచరణను పర్యవేక్షించగలదు.</string>
     <string name="branded_vpn_footer">నెట్‌వర్క్ పర్యవేక్షించబడవచ్చు</string>
     <string name="broadcast_tile">ప్రసార టైల్</string>
     <string name="bt_hci_snoop_log">బ్లూటూత్ HCI రహస్య లాగ్‌ను ఎనేబుల్ చేయి</string>
@@ -594,9 +595,9 @@
     <string name="cached_apps_freezer_enabled">ఎనేబుల్ చేయబడింది</string>
     <string name="cached_apps_freezer_reboot_dialog_text">ఈ మార్పును వర్తింపజేయాలంటే మీరు మీ పరికరాన్ని తప్పనిసరిగా రీబూట్ చేయాలి. ఇప్పుడే రీబూట్ చేయండి లేదా రద్దు చేయండి.</string>
     <string name="camera_hint">కెమెరా కోసం చిహ్నాన్ని స్వైప్ చేయండి</string>
-    <string name="camera_label">కెమెరాను తెరువు</string>
+    <string name="camera_label">కెమెరాను తెరవండి</string>
     <string name="camera_recording_announcement">కెమెరా రికార్డింగ్ చేస్తోంది</string>
-    <string name="camera_stopped_recording_announcement">కెమెరా రికార్డింగ్ చేయడం ఆపివేసింది</string>
+    <string name="camera_stopped_recording_announcement">రికార్డింగ్ చేయడాన్ని కెమెరా ఆపివేసింది</string>
     <string name="cancel">రద్దు చేయి</string>
     <string name="carrier_network_change_mode">క్యారియర్ నెట్‌వర్క్ మారుతోంది</string>
     <string name="category_personal">వ్యక్తిగతం</string>
@@ -618,6 +619,11 @@
     <string name="clock_title_analog">ఎనలాగ్</string>
     <string name="clock_title_bubble">బబుల్</string>
     <string name="clock_title_default">ఆటోమేటిక్</string>
+    <string name="columbus_bouncer_message">క్విక్ ట్యాప్‌ను పూర్తి చేయడానికి అన్‌లాక్ చేయండి</string>
+    <string name="columbus_target_request_dialog_allow">అనుమతించండి</string>
+    <string name="columbus_target_request_dialog_deny">అనుమతించవద్దు</string>
+    <string name="columbus_target_request_dialog_summary">మీరు మీ ఫోన్ వెనుక భాగంలో రెండుసార్లు నొక్కినప్పుడు, %1$s తెరుచుకుంటుంది. మీరు ఈ ఎంపికను సెట్టింగ్‌లలో ఎప్పుడైనా మార్చవచ్చు.</string>
+    <string name="columbus_target_request_dialog_title">%1$sను తెరవడానికి క్విక్ ట్యాప్‌ను అనుమతించాలా?</string>
     <string name="compat_mode_off">స్క్రీన్‌కు నింపేలా విస్తరించండి</string>
     <string name="compat_mode_on">స్క్రీన్‌కు నింపేలా జూమ్ చేయండి</string>
     <string name="confirm_enable_oem_unlock_text">హెచ్చరిక: ఈ సెట్టింగ్ ఆన్ చేయబడినప్పుడు పరికరం రక్షణ లక్షణాలు ఈ పరికరంలో పని చేయవు.</string>
@@ -740,6 +746,8 @@
     <string name="defender_notify_learn_more">మరింత తెలుసుకోండి</string>
     <string name="defender_notify_resume_charge">ఛార్జింగ్‌ను కొనసాగించండి</string>
     <string name="defender_notify_title">ఛార్జింగ్ తాత్కాలికంగా పరిమితం చేయబడింది</string>
+    <string name="defender_post_notify_des">బ్యాటరీ స్థితిని కాపాడడానికి ఛార్జింగ్, %2$s నుండి %3$s వరకు %1$sకు పరిమితం చేయబడింది</string>
+    <string name="defender_post_notify_title">సాధారణంగా ఛార్జ్ అవుతోంది</string>
     <string name="delete_blob_confirmation_text">మీరు ఖచ్చితంగా ఈ షేర్ చేసిన డేటాను తొలగించాలనుకుంటున్నారా?</string>
     <string name="delete_blob_text">షేర్ చేసిన డేటాను తొలగించు</string>
     <string name="demo_mode">సిస్టమ్ UI డెమో మోడ్</string>
@@ -885,12 +893,13 @@
     <string name="game_status">ఆడుతున్నారు</string>
     <string name="global_action_lock_message">మరిన్ని ఆప్షన్‌ల కోసం మీ ఫోన్‌ను అన్‌లాక్ చేయండి</string>
     <string name="global_action_screenshot">స్క్రీన్‌షాట్</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock డిజేబుల్ చేయబడింది</string>
     <string name="global_actions_change_description">%1$s, డివైజ్ కంట్రోల్స్‌ను యాక్సెస్ చేయడానికి, మీ స్క్రీన్ పై నుండి కిందకు స్వైప్ చేయండి</string>
     <string name="go_to_web">బ్రౌజర్‌కు వెళ్లండి</string>
-    <string name="google_services_wallpaper_permission">Google స్థాన సేవను యాక్సెస్ చేయడం ద్వారా <b>మీ స్థానానికి అనుగుణంగా మార్పు చెందేలా Google సచేతన చిత్రాలను అనుమతించండి</b>.</string>
-    <string name="google_services_wallpaper_permission_dialog_text">మీరు, సెట్టింగ్‌లు > యాప్‌లు > నిండుగా ఉన్న మెనూలో సిస్టమ్ యాప్‌లు > లైవ్ డేటా చిత్రాలు / లైవ్ భూమి చిత్రాలకు వెళ్లి, ఆపై అనుమతులను నొక్కడం ద్వారా లైవ్ చిత్రాల కోసం Google స్థాన సేవ యాక్సెస్‌ను ఆన్ లేదా ఆఫ్ చేయవచ్చు.</string>
+    <string name="google_services_wallpaper_permission">Google లొకేషన్ సర్వీస్‌ను యాక్సెస్ చేయడం ద్వారా <b>మీ లొకేషన్‌కు అనుగుణంగా మార్పు చెందేలా Google లైవ్ వాల్‌పేపర్లను అనుమతించండి</b>.</string>
+    <string name="google_services_wallpaper_permission_dialog_text">మీరు, సెట్టింగ్‌లు > యాప్‌లు > ఓవర్ ఫ్లో మెనూలో సిస్టమ్ యాప్‌లు > లైవ్ డేటా వాల్‌పేపర్ / లైవ్ ఎర్త్ వాల్‌పేపర్లకు వెళ్లి, అనుమతులను ట్యాప్ చేయడం ద్వారా లైవ్ వాల్‌పేపర్ల కోసం Google లొకేషన్ సర్వీస్ యాక్సెస్‌ను ఆన్ లేదా ఆఫ్ చేయవచ్చు.</string>
     <string name="got_it">అర్థమైంది</string>
-    <string name="gps_notification_found_text">స్థానం GPS ద్వారా సెట్ చేయబడింది</string>
+    <string name="gps_notification_found_text">లొకేషన్ GPS ద్వారా సెట్ చేయబడింది</string>
     <string name="gps_notification_searching_text">GPS కోసం శోధిస్తోంది</string>
     <string name="guest_exit_guest">గెస్ట్‌ను తీసివేయండి</string>
     <string name="guest_exit_guest_dialog_message">ఈ సెషన్‌లోని అన్ని యాప్‌లు మరియు డేటా తొలగించబడతాయి.</string>
@@ -1014,7 +1023,7 @@
     <string name="keyboard_shortcut_group_applications_browser">బ్రౌజర్</string>
     <string name="keyboard_shortcut_group_applications_calendar">Calendar</string>
     <string name="keyboard_shortcut_group_applications_contacts">కాంటాక్ట్‌లు</string>
-    <string name="keyboard_shortcut_group_applications_email">ఇమెయిల్</string>
+    <string name="keyboard_shortcut_group_applications_email">ఈమెయిల్‌</string>
     <string name="keyboard_shortcut_group_applications_music">మ్యూజిక్</string>
     <string name="keyboard_shortcut_group_applications_sms">SMS</string>
     <string name="keyboard_shortcut_group_applications_youtube">YouTube</string>
@@ -1045,7 +1054,7 @@
     <string name="keyguard_indication_trust_unlocked">Smart Lock దీన్ని అన్‌లాక్ చేసి ఉంచింది</string>
     <string name="keyguard_indication_trust_unlocked_plugged_in">"%1$s
 %2$s"</string>
-    <string name="keyguard_instructions_when_pattern_disabled">అన్‌లాక్ చేయడానికి మెనుని నొక్కండి.</string>
+    <string name="keyguard_instructions_when_pattern_disabled">అన్‌లాక్ చేయడానికి మెనూను నొక్కండి.</string>
     <string name="keyguard_low_battery">మీ ఛార్జర్‌ను కనెక్ట్ చేయండి.</string>
     <string name="keyguard_missing_sim_instructions">SIM కార్డ్‌ని చొప్పించండి.</string>
     <string name="keyguard_missing_sim_instructions_long">SIM కార్డ్ లేదు లేదా ఆమోదయోగ్యం కాదు. SIM కార్డ్‌ని చొప్పించండి.</string>
@@ -1137,7 +1146,7 @@
     <string name="kg_wrong_pin">పిన్ తప్పు</string>
     <string name="label_view">చూడండి</string>
     <string name="launch_defaults_none">ఆటోమేటిక్ ఆప్ష‌న్‌లు ఏవీ సెట్ చేయ‌‌లేదు</string>
-    <string name="launch_defaults_some">కొన్ని డిఫాల్ట్‌లు సెట్ చేయబడ్డాయి</string>
+    <string name="launch_defaults_some">కొన్ని ఆటోమేటిక్ సెట్టింగ్‌లు సెట్ చేయబడ్డాయి</string>
     <string name="lb_control_display_fast_forward_multiplier">%1$dX</string>
     <string name="lb_control_display_rewind_multiplier">%1$dX</string>
     <string name="lb_guidedaction_continue_title">కొనసాగించండి</string>
@@ -1229,10 +1238,10 @@
     <string name="media_projection_action_text">ఇప్పుడే ప్రారంభించు</string>
     <string name="media_projection_dialog_service_text">"రికార్డ్ చేస్తున్నప్పుడు లేదా ప్రసారం చేస్తున్నప్పుడు మీ స్క్రీన్‌పై ప్రదర్శించబడిన లేదా మీ పరికరం నుండి ప్లే చేయబడిన సమాచారం మొత్తాన్ని, ఈ ఫంక్షన్‌ను అందిస్తున్న సర్వీస్ యాక్సెస్ చేయగలదు. ఈ సమాచారంలో, పాస్‌వర్డ్‌లు, పేమెంట్ వివరాలు, ఫోటోలు,  మెసేజ్‌లు, మీరు ప్లే చేసే ఆడియో వంటివి ఉంటాయి."</string>
     <string name="media_projection_dialog_service_title">రికార్డ్ చేయడం లేదా ప్రసారం చేయడం ప్రారంభించాలా?</string>
-    <string name="media_projection_dialog_text">రికార్డ్ చేస్తున్నప్పుడు లేదా ప్రసారం చేస్తున్నప్పుడు, మీ స్క్రీన్‌పై ప్రదర్శించబడిన లేదా మీ పరికరం నుండి ప్లే చేయబడిన సమాచారం మొత్తాన్ని, %s యాక్సెస్ చేయగలుగుతుంది. ఈ సమాచారంలో, పాస్‌వర్డ్‌లు, చెల్లింపు వివరాలు, ఫోటోలు, మెసేజ్‌లు, మీరు ప్లే చేసే ఆడియో వంటివి ఉంటాయి.</string>
+    <string name="media_projection_dialog_text">రికార్డ్ చేస్తున్నప్పుడు లేదా ప్రసారం చేస్తున్నప్పుడు, మీ స్క్రీన్‌పై ప్రదర్శించబడిన లేదా మీ పరికరం నుండి ప్లే చేయబడిన సమాచారం మొత్తాన్ని, %s యాక్సెస్ చేయగలుగుతుంది. ఈ సమాచారంలో, పాస్‌వర్డ్‌లు, పేమెంట్ వివరాలు, ఫోటోలు, మెసేజ్‌లు, మీరు ప్లే చేసే ఆడియో వంటివి ఉంటాయి.</string>
     <string name="media_projection_dialog_title">%sతో రికార్డ్ చేయడం లేదా ప్రసారం చేయడం ప్రారంభించాలా?</string>
     <string name="media_projection_remember_text">మళ్లీ చూపవద్దు</string>
-    <string name="media_seamless_remote_device">పరికరం</string>
+    <string name="media_seamless_other_device">ఇతర పరికరం</string>
     <string name="media_transfer_this_device_name">ఫోన్ స్పీకర్</string>
     <string name="media_transfer_this_phone">ఈ ఫోన్</string>
     <string name="media_transfer_wired_device_name">వైర్ గల ఆడియో పరికరం</string>
@@ -1240,8 +1249,8 @@
     <string name="menu_ime">కీబోర్డ్ స్విచర్</string>
     <string name="messages_count_overflow_indicator">%d+</string>
     <string name="mic_active">మైక్రోఫోన్ యాక్టివ్‌గా ఉంది</string>
-    <string name="mic_and_camera_recording_announcement">కెమెరా, మైక్రోఫోన్ రికార్డింగ్ చేస్తున్నాయి</string>
-    <string name="mic_camera_stopped_recording_announcement">కెమెరా, మైక్రోఫోన్ రికార్డింగ్ చేయడం ఆపివేశాయి</string>
+    <string name="mic_and_camera_recording_announcement">కెమెరా, మైక్రోఫోన్‌లు రికార్డింగ్ చేస్తున్నాయి</string>
+    <string name="mic_camera_stopped_recording_announcement">కెమెరా, మైక్రోఫోన్‌లు రికార్డింగ్ చేయడం ఆపివేశాయి</string>
     <string name="mic_recording_announcement">మైక్రోఫోన్ రికార్డింగ్ చేస్తోంది</string>
     <string name="mic_stopped_recording_announcement">మైక్రోఫోన్ రికార్డింగ్ చేయడం ఆపివేసింది</string>
     <string name="missed_call">మిస్డ్ కాల్</string>
@@ -1249,34 +1258,38 @@
     <string name="mobile_data">మొబైల్ డేటా</string>
     <string name="mobile_data_always_on">మొబైల్ డేటాని ఎల్లప్పుడూ యాక్టివ్‌గా ఉంచు</string>
     <string name="mobile_data_always_on_summary">ఎల్లప్పుడూ మొబైల్ డేటాను యాక్టివ్‌గా ఉంచు, Wi‑Fi యాక్టివ్‌గా ఉన్నా కూడా (వేగవంతమైన నెట్‌వర్క్ మార్పు కోసం).</string>
+    <string name="mobile_data_connection_active">కనెక్ట్ చేయబడింది</string>
     <string name="mobile_data_disable_message">\"%s\" ద్వారా మీకు డేటా లేదా ఇంటర్నెట్‌కు యాక్సెస్ ఉండదు. Wi-Fi ద్వారా మాత్రమే ఇంటర్నెట్ అందుబాటులో ఉంటుంది.</string>
     <string name="mobile_data_disable_message_default_carrier">మీ క్యారియర్</string>
     <string name="mobile_data_disable_title">మొబైల్ డేటాను ఆఫ్ చేయాలా?</string>
+    <string name="mobile_data_no_connection">కనెక్షన్ లేదు</string>
+    <string name="mobile_data_off_summary">మొబైల్ డేటా ఆటోమెటిక్‌గా కనెక్ట్ అవ్వదు</string>
+    <string name="mobile_data_settings_title">మొబైల్ డేటా</string>
     <string name="mobile_data_text_format">%1$s — %2$s</string>
     <string name="mock_location_app">డమ్మీ లొకేష‌న్‌ యాప్‌ను ఎంచుకోండి</string>
-    <string name="mock_location_app_not_set">అనుకృత స్థాన యాప్ ఏదీ సెట్ చేయబడలేదు</string>
-    <string name="mock_location_app_set">కృత్రిమ స్థాన యాప్‌: %1$s</string>
+    <string name="mock_location_app_not_set">డమ్మీ లొకేషన్ యాప్ ఏదీ సెట్ చేయబడలేదు</string>
+    <string name="mock_location_app_set">డమ్మీ లొకేషన్ యాప్‌: %1$s</string>
     <string name="monitoring_button_view_controls">నియంత్రణలను చూడండి</string>
     <string name="monitoring_button_view_policies">విధానాలను చూడండి</string>
-    <string name="monitoring_description_app">మీరు ఇమెయిల్‌లు, యాప్‌లు మరియు వెబ్‌సైట్‌లతో సహా మీ నెట్‌వర్క్ కార్యాచరణను పర్యవేక్షించగల %1$sకి కనెక్ట్ చేయబడ్డారు.</string>
-    <string name="monitoring_description_app_personal">మీరు %1$sకి కనెక్ట్ చేయబడ్డారు, ఇది ఇమెయిల్‌లు, యాప్‌లు మరియు వెబ్‌‍సైట్‌లతో సహా మీ వ్యక్తిగత నెట్‌వర్క్ కార్యాచరణను పర్యవేక్షించగలదు.</string>
-    <string name="monitoring_description_app_personal_work">"మీ కార్యాలయ ప్రొఫైల్ %1$s నిర్వహణలో ఉంది. ఇమెయిల్‌లు, యాప్‌లు మరియు వెబ్‌సైట్‌లతో సహా మీ కార్యాలయ నెట్‌వర్క్ కార్యాచరణను పర్యవేక్షించగల %2$sకి ప్రొఫైల్ కనెక్ట్ చేయబడింది.
+    <string name="monitoring_description_app">మీరు ఈమెయిళ్లు, యాప్‌లు మరియు వెబ్‌సైట్‌లతో సహా మీ నెట్‌వర్క్ కార్యాచరణను పర్యవేక్షించగల %1$sకి కనెక్ట్ చేయబడ్డారు.</string>
+    <string name="monitoring_description_app_personal">మీరు %1$sకి కనెక్ట్ చేయబడ్డారు, ఇది ఈమెయిళ్లు, యాప్‌లు మరియు వెబ్‌‍సైట్‌లతో సహా మీ వ్యక్తిగత నెట్‌వర్క్ కార్యాచరణను పర్యవేక్షించగలదు.</string>
+    <string name="monitoring_description_app_personal_work">"మీ కార్యాలయ ప్రొఫైల్ %1$s నిర్వహణలో ఉంది. ఈమెయిళ్లు, యాప్‌లు మరియు వెబ్‌సైట్‌లతో సహా మీ కార్యాలయ నెట్‌వర్క్ కార్యాచరణను పర్యవేక్షించగల %2$sకి ప్రొఫైల్ కనెక్ట్ చేయబడింది.
 
 మీ వ్యక్తిగత నెట్‌వర్క్ కార్యాచరణను పర్యవేక్షించగల %3$sకి కూడా మీరు కనెక్ట్ చేయబడ్డారు."</string>
-    <string name="monitoring_description_app_work">"మీ కార్యాలయ ప్రొఫైల్ %1$s నిర్వహణలో ఉంది. ఇమెయిల్‌లు, యాప్‌లు మరియు వెబ్‌సైట్‌లతో సహా మీ కార్యాలయ నెట్‌వర్క్ కార్యాచరణను పర్యవేక్షించగల %2$sకి ప్రొఫైల్ కనెక్ట్ చేయబడింది.
+    <string name="monitoring_description_app_work">"మీ కార్యాలయ ప్రొఫైల్ %1$s నిర్వహణలో ఉంది. ఈమెయిళ్లు, యాప్‌లు మరియు వెబ్‌సైట్‌లతో సహా మీ కార్యాలయ నెట్‌వర్క్ కార్యాచరణను పర్యవేక్షించగల %2$sకి ప్రొఫైల్ కనెక్ట్ చేయబడింది.
 
 మరింత సమాచారం కోసం, మీ నిర్వాహకులను సంప్రదించండి."</string>
     <string name="monitoring_description_ca_cert_settings">విశ్వసనీయ ఆధారాలను తెరువు</string>
     <string name="monitoring_description_ca_cert_settings_separator">" "</string>
     <string name="monitoring_description_ca_certificate">ఈ పరికరంలో ప్రమాణపత్ర అధికారం ఇన్‌స్టాల్ చేయబడింది. మీ సురక్షిత నెట్‌వర్క్ ట్రాఫిక్ పర్యవేక్షించబడవచ్చు లేదా సవరించబడవచ్చు.</string>
-    <string name="monitoring_description_do_body">మీ పరికరంతో అనుబంధించబడిన సెట్టింగ్‌లు, కార్పొరేట్ యాక్సెస్, యాప్‌లు, డేటా మరియు మీ పరికరం యొక్క స్థాన సమాచారాన్ని మీ నిర్వాహకులు పర్యవేక్షించగలరు మరియు నిర్వహించగలరు.</string>
-    <string name="monitoring_description_do_body_vpn">మీరు %1$sకి కనెక్ట్ చేయబడ్డారు, ఇది ఇమెయిల్‌లు, యాప్‌లు మరియు వెబ్‌సైట్‌లతో సహా మీ వ్యక్తిగత నెట్‌వర్క్ కార్యాచరణను పర్యవేక్షించగలదు.</string>
+    <string name="monitoring_description_do_body">మీ పరికరంతో అనుబంధించబడిన సెట్టింగ్‌లు, కార్పొరేట్ యాక్సెస్, యాప్‌లు, డేటా మరియు మీ పరికరం యొక్క లొకేషన్ సమాచారాన్ని మీ అడ్మిన్ పర్యవేక్షించగలరు, మేనేజ్ చేయగలరు.</string>
+    <string name="monitoring_description_do_body_vpn">మీరు %1$sకి కనెక్ట్ చేయబడ్డారు, ఇది ఈమెయిళ్లు, యాప్‌లు మరియు వెబ్‌సైట్‌లతో సహా మీ వ్యక్తిగత నెట్‌వర్క్ కార్యాచరణను పర్యవేక్షించగలదు.</string>
     <string name="monitoring_description_do_header_generic">మీ పరికరం %1$s ద్వారా నిర్వహించబడుతోంది.</string>
     <string name="monitoring_description_do_header_with_name">%1$s మీ పరికరాన్ని నిర్వహించడానికి %2$sని ఉపయోగిస్తుంది.</string>
     <string name="monitoring_description_do_learn_more">మరింత తెలుసుకోండి</string>
     <string name="monitoring_description_do_learn_more_separator">" "</string>
     <string name="monitoring_description_managed_profile_ca_certificate">మీ కార్యాలయ ప్రొఫైల్‌లో మీ సంస్థ ఒక ప్రమాణపత్ర అధికారాన్ని ఇన్‌స్టాల్ చేసింది. మీ సురక్షిత నెట్‌వర్క్ ట్రాఫిక్ పర్యవేక్షించబడవచ్చు లేదా సవరించబడవచ్చు.</string>
-    <string name="monitoring_description_managed_profile_named_vpn">మీ కార్యాలయ ప్రొఫైల్ ఇమెయిల్‌లు, యాప్‌లు మరియు వెబ్‌సైట్‌లతో సహా మీ నెట్‌వర్క్ కార్యాచరణను పర్యవేక్షించగల %1$sకి కనెక్ట్ చేయబడింది.</string>
+    <string name="monitoring_description_managed_profile_named_vpn">మీ కార్యాలయ ప్రొఫైల్ ఈమెయిళ్లు, యాప్‌లు మరియు వెబ్‌సైట్‌లతో సహా మీ నెట్‌వర్క్ కార్యాచరణను పర్యవేక్షించగల %1$sకి కనెక్ట్ చేయబడింది.</string>
     <string name="monitoring_description_managed_profile_network_logging">మీ అడ్మిన్ నెట్‌వర్క్ లాగింగ్‌ను ఆన్ చేశారు, ఇది మీ వర్క్ ప్రొఫైల్‌లోని ట్రాఫిక్‌ను పర్యవేక్షిస్తుంది కానీ మీ వ్యక్తిగత ప్రొఫైల్‌లో కాదు.</string>
     <string name="monitoring_description_management">"ఈ పరికరం మీ సంస్థకు చెందినది.
 
@@ -1290,19 +1303,19 @@
 సెట్టింగ్‌లను, కార్పొరేట్ యాక్సెస్‌ను, యాప్‌లను, మీ పరికరానికి సంబంధించిన డేటాను, అలాగే మీ పరికరం యొక్క లొకేషన్ సమాచారాన్ని మీ IT అడ్మిన్ పర్యవేక్షించగలరు, మేనేజ్ చేయగలరు.
 
 మరింత సమాచారం కోసం, మీ IT అడ్మిన్‌ను సంప్రదించండి."</string>
-    <string name="monitoring_description_named_vpn">మీరు %1$sకి కనెక్ట్ చేయబడ్డారు, ఇది ఇమెయిల్‌లు, యాప్‌లు మరియు వెబ్‌సైట్‌లతో సహా మీ నెట్‌వర్క్ కార్యాచరణను పర్యవేక్షించగలదు.</string>
+    <string name="monitoring_description_named_vpn">మీరు %1$sకి కనెక్ట్ చేయబడ్డారు, ఇది ఈమెయిళ్లు, యాప్‌లు మరియు వెబ్‌సైట్‌లతో సహా మీ నెట్‌వర్క్ కార్యాచరణను పర్యవేక్షించగలదు.</string>
     <string name="monitoring_description_network_logging">"మీ నిర్వాహకులు మీ పరికరంలోని ట్రాఫిక్‌ని పర్యవేక్షించగల నెట్‌వర్క్ లాగింగ్‌ని ఆన్ చేశారు.
 
 మరింత సమాచారం కావాలంటే, మీ నిర్వాహకులను సంప్రదించండి."</string>
     <string name="monitoring_description_parental_controls">ఈ పరికరాన్ని మీ తల్లి/తండ్రి మేనేజ్ చేస్తున్నారు. మీ తల్లి/తండ్రి, మీరు ఉపయోగించే యాప్‌లు, మీ లొకేషన్, అలాగే మీ పరికర వినియోగ వ్యవధి వంటి సమాచారాన్ని చూడగలరు, మేనేజ్ చేయగలరు.</string>
-    <string name="monitoring_description_personal_profile_named_vpn">మీ వ్యక్తిగత ప్రొఫైల్ ఇమెయిల్‌లు, యాప్‌లు మరియు వెబ్‌సైట్‌లతో సహా మీ నెట్‌వర్క్ కార్యాచరణను పర్యవేక్షించగల %1$sకి కనెక్ట్ చేయబడింది.</string>
-    <string name="monitoring_description_two_named_vpns">మీరు ఇమెయిల్‌లు, యాప్‌లు మరియు వెబ్‌సైట్‌లతో సహా మీ నెట్‌వర్క్ కార్యాచరణను పర్యవేక్షించగల %1$s మరియు %2$sకి కనెక్ట్ చేయబడ్డారు.</string>
+    <string name="monitoring_description_personal_profile_named_vpn">మీ వ్యక్తిగత ప్రొఫైల్ ఈమెయిళ్లు, యాప్‌లు మరియు వెబ్‌సైట్‌లతో సహా మీ నెట్‌వర్క్ కార్యాచరణను పర్యవేక్షించగల %1$sకి కనెక్ట్ చేయబడింది.</string>
+    <string name="monitoring_description_two_named_vpns">మీరు ఈమెయిళ్లు, యాప్‌లు మరియు వెబ్‌సైట్‌లతో సహా మీ నెట్‌వర్క్ కార్యాచరణను పర్యవేక్షించగల %1$s మరియు %2$sకి కనెక్ట్ చేయబడ్డారు.</string>
     <string name="monitoring_description_vpn">"మీరు VPN కనెక్షన్ సెటప్ చేయడానికి ఒక యాప్‌నకు అనుమతి ఇచ్చారు.
 
-ఈ యాప్ ఇమెయిల్‌లు,యాప్‌లు మరియు వెబ్‌సైట్‌లతో సహా మీ డివైజ్ మరియు నెట్‌వర్క్ కార్యకలాపాన్ని పర్యవేక్షించగలదు."</string>
+ఈ యాప్ ఈమెయిళ్లు,యాప్‌లు మరియు వెబ్‌సైట్‌లతో సహా మీ డివైజ్ మరియు నెట్‌వర్క్ యాక్టివిటీని పర్యవేక్షించగలదు."</string>
     <string name="monitoring_description_vpn_profile_owned">"%1$s ద్వారా మీ కార్యాలయ ప్రొఫైల్ నిర్వహించబడుతోంది.
 
-ఇమెయిల్‌లు, యాప్‌లు మరియు వెబ్‌సైట్‌లతో సహా మీ నెట్‌వర్క్ కార్యాచరణను పర్యవేక్షించగల సామర్థ్యం మీ నిర్వాహకులకు ఉంది.
+ఈమెయిళ్లు, యాప్‌లు మరియు వెబ్‌సైట్‌లతో సహా మీ నెట్‌వర్క్ కార్యాచరణను పర్యవేక్షించగల సామర్థ్యం మీ నిర్వాహకులకు ఉంది.
 
 మరింత సమాచారం కావాలంటే, మీ నిర్వాహకులను సంప్రదించండి.
 
@@ -1379,7 +1392,7 @@
     <string name="mtrl_picker_toggle_to_year_selection">"'సంవత్సరాన్ని ఎంపిక చేసుకోవడం'కు మారడానికి నొక్కండి"</string>
     <string name="music_controls_no_title">శీర్షిక లేదు</string>
     <string name="nav_bar">నావిగేషన్ బార్</string>
-    <string name="nav_bar_default">(డిఫాల్ట్)</string>
+    <string name="nav_bar_default">(ఆటోమేటిక్)</string>
     <string name="nav_bar_layout">లేఅవుట్</string>
     <string name="new_notification_image_content_description">%1$s ఇమేజ్‌ను పంపారు</string>
     <string name="new_notification_text_content_description">%1$s మెసేజ్‌ను పంపారు: %2$s</string>
@@ -1391,6 +1404,7 @@
     <string name="no_content_in_select_mode">ఎంచుకోవలసిన టెక్స్ట్ లేదా ఇమేజ్ లేదు</string>
     <string name="no_conversations_text">మీ ఇటీవలి సంభాషణలు ఇక్కడ కనిపిస్తాయి</string>
     <string name="no_shortcut">%1$s సంభాషణ ఫీచర్‌లను సపోర్ట్ చేయదు</string>
+    <string name="non_carrier_network_unavailable">ఇతర నెట్‌వర్క్‌లేవీ అందుబాటులో లేవు</string>
     <string name="not_default_data_content_description">డేటాను ఉపయోగించే విధంగా సెట్ చేయలేదు</string>
     <string name="not_set">సెట్ చేయలేదు</string>
     <string name="notif_inline_reply_remove_attachment_description">అటాచ్‌మెంట్‌ను తీసివేయి</string>
@@ -1499,7 +1513,7 @@
     <string name="overview">ఓవర్‌వ్యూ</string>
     <string name="password_toggle_content_description">పాస్‌వర్డ్‌ను చూపు</string>
     <string name="paused_by_dnd">అంతరాయం కలిగించవద్దు ద్వారా పాజ్ చేయబడింది</string>
-    <string name="people_tile_description">ఇటీవలి మెసేజ్‌లు, మిస్డ్ కాల్స్‌, అలాగే స్టేటస్ అప్‌డేట్‌లను చూడండి</string>
+    <string name="people_tile_description">ఇటీవలి మెసేజ్‌లు, మిస్స్‌డ్‌ కాల్స్‌, అలాగే స్టేటస్ అప్‌డేట్‌లను చూడండి</string>
     <string name="people_tile_title">సంభాషణ</string>
     <string name="person_available">అందుబాటులో ఉంది</string>
     <string name="phone_hint">ఫోన్ కోసం చిహ్నాన్ని స్వైప్ చేయండి</string>
@@ -1534,7 +1548,7 @@
     <string name="power_notification_controls_description">"పవర్ నోటిఫికేషన్ నియంత్రణలతో, మీరు యాప్ నోటిఫికేషన్‌ల కోసం ప్రాముఖ్యత స్థాయిని 0 నుండి 5 వరకు సెట్ చేయవచ్చు. 
 
 "<b>స్థాయి 5</b>" 
-- నోటిఫికేషన్ జాబితా పైభాగంలో చూపబడతాయి 
+- నోటిఫికేషన్ లిస్ట్‌ పైభాగంలో చూపబడతాయి 
 - పూర్తి స్క్రీన్ అంతరాయం అనుమతించబడుతుంది 
 - ఎల్లప్పుడూ త్వరిత వీక్షణ అందించబడుతుంది 
 
@@ -1556,7 +1570,7 @@
 - ఎప్పుడూ త్వరిత వీక్షణ అందించబడదు 
 - ఎప్పుడూ శబ్దం లేదా వైబ్రేట్ చేయవు 
 - లాక్ స్క్రీన్ మరియు స్థితి పట్టీ నుండి దాచబడతాయి 
-- నోటిఫికేషన్ జాబితా దిగువ భాగంలో చూపబడతాయి 
+- నోటిఫికేషన్ లిస్ట్‌ దిగువ భాగంలో చూపబడతాయి 
 
 "<b>స్థాయి 0</b>" 
 - యాప్ నుండి అన్ని నోటిఫికేషన్‌లు బ్లాక్ చేయబడతాయి"</string>
@@ -1571,6 +1585,7 @@
     <string name="power_remaining_only_more_than_subtext">%1$s కంటే ఎక్కువ సమయం మిగిలి ఉంది</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">బ్యాటరీ %1$s సమయానికి ఖాళీ అవ్వచ్చు</string>
+    <string name="pref_title_network_details">నెట్‌వర్క్ వివరాలు</string>
     <string name="preference_copied">\"%1$s\" క్లిప్‌బోర్డ్‌కి కాపీ చేయబడింది.</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">ప్రాధాన్య సంభాషణలు</string>
@@ -1590,8 +1605,8 @@
     <string name="qs_alarm_tile_no_alarm">అలారం సెట్ చేయలేదు</string>
     <string name="qs_dnd_keep">Keep</string>
     <string name="qs_dnd_prompt_app">యాప్ (%s) ద్వారా అంతరాయం కలిగించవద్దు ఆన్ చేయబడింది.</string>
-    <string name="qs_dnd_prompt_auto_rule">స్వయంచాలక నియమం (%s) ద్వారా అంతరాయం కలిగించవద్దు ఆన్ చేయబడింది.</string>
-    <string name="qs_dnd_prompt_auto_rule_app">స్వయంచాలక నియమం లేదా యాప్ ద్వారా అంతరాయం కలిగించవద్దు ఆన్ చేయబడింది.</string>
+    <string name="qs_dnd_prompt_auto_rule">ఆటోమేటిక్‌ నియమం (%s) ద్వారా అంతరాయం కలిగించవద్దు ఆన్ చేయబడింది.</string>
+    <string name="qs_dnd_prompt_auto_rule_app">ఆటోమేటిక్‌ నియమం లేదా యాప్ ద్వారా అంతరాయం కలిగించవద్దు ఆన్ చేయబడింది.</string>
     <string name="qs_dnd_replace">భర్తీ చేయి</string>
     <string name="qs_dnd_until">%s వరకు</string>
     <string name="qs_edit">ఎడిట్ చేయండి</string>
@@ -1599,7 +1614,7 @@
     <string name="qs_status_phone_muted">ఫోన్ మ్యూట్ చేయబడింది</string>
     <string name="qs_status_phone_vibrate">ఫోన్ వైబ్రేట్‌ మోడ్‌లో ఉంది</string>
     <string name="quick_controls_title">డివైజ్ కంట్రోల్స్</string>
-    <string name="quick_settings">శీఘ్ర సెట్టింగ్‌లు</string>
+    <string name="quick_settings">క్విక్ సెట్టింగ్‌లు</string>
     <string name="quick_settings_bluetooth_detail_empty_text">జత చేసిన పరికరాలు ఏవీ అందుబాటులో లేవు</string>
     <string name="quick_settings_bluetooth_label">బ్లూటూత్</string>
     <string name="quick_settings_bluetooth_multiple_devices_label">బ్లూటూత్ (%d పరికరాలు)</string>
@@ -1740,6 +1755,7 @@
     <string name="right_keycode">కుడివైపు ఉన్న కీకోడ్</string>
     <string name="right_nav_bar_button_type">అత్యంత కుడివైపు ఉన్న బటన్ రకం</string>
     <string name="ring_toggle_title">కాల్స్‌</string>
+    <string name="rotation_lock_camera_rotation_on">"'ముఖం ఆధారం'ను - ఆన్ చేయండి"</string>
     <string name="running_foreground_services_msg">బ్యాటరీ మరియు డేటా వినియోగ వివరాల కోసం నొక్కండి</string>
     <string name="running_foreground_services_title">నేపథ్యంలో అమలు అవుతున్న ఆప్‌లు</string>
     <string name="running_process_item_user_label">యూజర్‌: %1$s</string>
@@ -1754,7 +1770,7 @@
     <string name="screen_pinning_description_recents_invisible">దీని వలన మీరు అన్‌పిన్ చేసే వరకు ఇది వీక్షణలో ఉంచబడుతుంది. అన్‌పిన్ చేయడానికి వెనుకకు మరియు హోమ్‌ని తాకి &amp; అలాగే పట్టుకోండి.</string>
     <string name="screen_pinning_description_recents_invisible_accessible">దీని వలన మీరు అన్‌పిన్ చేసే వరకు ఇది వీక్షణలో ఉంచబడుతుంది. అన్‌పిన్ చేయడానికి హోమ్‌ని తాకి &amp; అలాగే పట్టుకోండి.</string>
     <string name="screen_pinning_exit">యాప్ అన్‌పిన్ చేయబడింది</string>
-    <string name="screen_pinning_exposes_personal_data">వ్యక్తిగత డేటా (కాంటాక్ట్‌లు, ఇంకా ఇమెయిల్ కంటెంట్ లాంటివి) యాక్సెస్ చేయబడవచ్చు.</string>
+    <string name="screen_pinning_exposes_personal_data">వ్యక్తిగత డేటా (కాంటాక్ట్‌లు, ఇంకా ఈమెయిల్‌ కంటెంట్ లాంటివి) యాక్సెస్ చేయబడవచ్చు.</string>
     <string name="screen_pinning_negative">వద్దు, ధన్యవాదాలు</string>
     <string name="screen_pinning_positive">అర్థమైంది</string>
     <string name="screen_pinning_start">యాప్ పిన్ చేయబడింది</string>
@@ -1774,7 +1790,7 @@
     <string name="screenrecord_cancel_success">స్క్రీన్ రికార్డ్ రద్దు చేయబడింది</string>
     <string name="screenrecord_channel_description">స్క్రీన్ రికార్డ్ సెషన్ కోసం ఆన్‌గోయింగ్ నోటిఫికేషన్</string>
     <string name="screenrecord_delete_error">స్క్రీన్ రికార్డింగ్‌ని తొలగిస్తున్నప్పుడు ఎర్రర్ ఏర్పడింది</string>
-    <string name="screenrecord_description">రికార్డ్ చేస్తున్నప్పుడు, Android సిస్టమ్ మీ స్క్రీన్‌పై ప్రదర్శించబడిన లేదా మీ పరికరం నుండి ప్లే చేయబడిన ఏ సున్నితమైన సమాచారాన్నైనా క్యాప్చర్ చేయగలదు. ఈ సమాచారంలో, పాస్‌వర్డ్‌లు, పేమెంట్ వివరాలు, ఫోటోలు, మెసేజ్‌లు, ఆడియో ఉంటాయి.</string>
+    <string name="screenrecord_description">రికార్డ్ చేస్తున్నప్పుడు, Android సిస్టమ్ మీ స్క్రీన్‌పై ప్రదర్శించబడిన లేదా మీ పరికరం నుండి ప్లే చేయబడిన ఏ సున్నితమైన సమాచారాన్నయినా క్యాప్చర్ చేయగలదు. ఈ సమాచారంలో, పాస్‌వర్డ్‌లు, పేమెంట్ వివరాలు, ఫోటోలు, మెసేజ్‌లు, ఆడియో కూడా ఉంటాయి.</string>
     <string name="screenrecord_device_audio_and_mic_label">పరికరం ఆడియో, మైక్రోఫోన్</string>
     <string name="screenrecord_device_audio_description">మీ పరికరం నుండి వచ్చే సంగీతం, కాల్స్‌, రింగ్‌టోన్‌ల వంటి ధ్వనులు</string>
     <string name="screenrecord_device_audio_label">పరికరం ఆడియో</string>
@@ -1784,7 +1800,7 @@
     <string name="screenrecord_ongoing_screen_only">స్క్రీన్ రికార్డింగ్ చేయబడుతోంది</string>
     <string name="screenrecord_pause_label">పాజ్ చేయి</string>
     <string name="screenrecord_permission_error">అనుమతులను పొందడం విఫలమైంది</string>
-    <string name="screenrecord_resume_label">కొనసాగించు</string>
+    <string name="screenrecord_resume_label">కొనసాగించండి</string>
     <string name="screenrecord_save_text">చూడటానికి ట్యాప్ చేయండి</string>
     <string name="screenrecord_save_title">స్క్రీన్ రికార్డింగ్ సేవ్ చేయబడింది</string>
     <string name="screenrecord_share_label">షేర్ చేయి</string>
@@ -1812,8 +1828,9 @@
     <string name="screenshot_saving_title">స్క్రీన్‌షాట్‌ను సేవ్ చేస్తోంది…</string>
     <string name="screenshot_scroll_label">మరిన్ని క్యాప్చర్ చేయండి</string>
     <string name="screenshot_top_boundary_pct">ఎగువ సరిహద్దు %1$d శాతం</string>
-    <string name="search_menu">సెట్టింగ్‌లను వెతకండి</string>
+    <string name="search_menu">సెట్టింగ్‌లను సెర్చ్ చేయండి</string>
     <string name="search_menu_title">సెర్చ్</string>
+    <string name="see_all_networks">అన్నీ చూడండి</string>
     <string name="see_more_title">మరిన్ని చూడండి</string>
     <string name="select_application">యాప్‌ను ఎంచుకోండి</string>
     <string name="select_conversation_text">దీనిని మీ మొదటి స్క్రీన్‌కు జోడించడానికి సంభాషణను ట్యాప్ చేయండి</string>
@@ -1831,10 +1848,10 @@
     <string name="select_webview_provider_toast_text">ఈ ఎంపిక ఇప్పుడు లేదు. మళ్లీ ప్రయత్నించండి.</string>
     <string name="selectable_url_description">ఎంచుకోదగిన URL</string>
     <string name="sensor_privacy_mode">సెన్సార్‌లు ఆఫ్</string>
-    <string name="sensor_privacy_start_use_camera_dialog_content">మీ కెమెరాను ఉపయోగించడానికి అనుమతి పొందిన అన్ని యాప్‌లు, సర్వీస్‌లకు యాక్సెస్‌ను ఇది అన్‌బ్లాక్ చేస్తుంది.</string>
-    <string name="sensor_privacy_start_use_camera_dialog_title">పరికరం కెమెరాను అన్‌బ్లాక్ చేయమంటారా?</string>
-    <string name="sensor_privacy_start_use_mic_camera_dialog_content">మీ కెమెరాను లేదా మైక్రోఫోన్‌ను ఉపయోగించడానికి అనుమతి పొందిన అన్ని యాప్‌లు, సర్వీస్‌లకు యాక్సెస్‌ను ఇది అన్‌బ్లాక్ చేస్తుంది.</string>
-    <string name="sensor_privacy_start_use_mic_camera_dialog_title">పరికరం కెమెరా, మైక్రోఫోన్‌ను అన్‌బ్లాక్ చేయమంటారా?</string>
+    <string name="sensor_privacy_start_use_camera_dialog_content">ఇది, మీ కెమెరాను ఉపయోగించడానికి అనుమతి పొందిన అన్ని యాప్‌లకు, సర్వీస్‌లకు యాక్సెస్‌ను అన్‌బ్లాక్ చేస్తుంది.</string>
+    <string name="sensor_privacy_start_use_camera_dialog_title">పరికరంలోని కెమెరాను అన్‌బ్లాక్ చేయమంటారా?</string>
+    <string name="sensor_privacy_start_use_mic_camera_dialog_content">ఇది, మీ కెమెరాను లేదా మైక్రోఫోన్‌ను ఉపయోగించడానికి అనుమతి పొందిన అన్ని యాప్‌లకు, సర్వీస్‌లకు యాక్సెస్‌ను అన్‌బ్లాక్ చేస్తుంది.</string>
+    <string name="sensor_privacy_start_use_mic_camera_dialog_title">పరికరంలోని కెమెరా, మైక్రోఫోన్‌లను అన్‌బ్లాక్ చేయమంటారా?</string>
     <string name="sensor_privacy_start_use_mic_dialog_content">మీ మైక్రోఫోన్‌ను ఉపయోగించడానికి అనుమతి పొందిన అన్ని యాప్‌లు, సర్వీస్‌లకు యాక్సెస్‌ను ఇది అన్‌బ్లాక్ చేస్తుంది.</string>
     <string name="sensor_privacy_start_use_mic_dialog_title">పరికరం మైక్రోఫోన్‌ను అన్‌బ్లాక్ చేయమంటారా?</string>
     <string name="settingslib_learn_more_text">మరింత తెలుసుకోండి</string>
@@ -1926,6 +1943,7 @@
     <string name="switch_bar_off">ఆఫ్ చేయి</string>
     <string name="switch_bar_on">ఆన్</string>
     <string name="system_ui_tuner">సిస్టమ్ UI ట్యూనర్</string>
+    <string name="tap_a_network_to_connect">కనెక్ట్ చేయడానికి నెట్‌వర్క్‌ను ట్యాప్ చేయండి</string>
     <string name="tap_again">మళ్లీ ట్యాప్ చేయండి</string>
     <string name="tap_to_sign_up">సైన్ అప్ చేయడానికి నొక్కండి</string>
     <string name="tether_settings_title_all">టెథరింగ్ &amp; పోర్టబుల్ హాట్‌స్పాట్</string>
@@ -1951,8 +1969,9 @@
     <string name="time_unit_just_now">ఇప్పుడే</string>
     <string name="title_convert_fbe">ఫైల్ ఆధారిత గుప్తీకరణకు మార్చడం</string>
     <string name="title_usb_accessory">USB ఉపకరణం</string>
+    <string name="to_switch_networks_disconnect_ethernet">నెట్‌వర్క్‌లను మార్చడానికి, ఈథర్‌నెట్‌ను డిస్‌కనెక్ట్ చేయండి</string>
     <string name="too_hot_label">Pixel చాలా వేడిగా ఉంది</string>
-    <string name="touch_filtered_warning">అనుమతి అభ్యర్థనకు ఒక యాప్ అడ్డు తగులుతున్నందున సెట్టింగ్‌లు మీ ప్రతిస్పందనను ధృవీకరించలేకపోయాయి.</string>
+    <string name="touch_filtered_warning">అనుమతి రిక్వెస్ట్‌కు ఒక యాప్ అడ్డు తగులుతున్నందున సెట్టింగ్‌లు మీ ప్రతిస్పందనను ధృవీకరించలేకపోయాయి.</string>
     <string name="track_frame_time">ప్రొఫైల్ HWUI రెండరింగ్</string>
     <string name="transcode_default">యాప్‌లు ఆధునిక ఫార్మాట్‌లకు సపోర్ట్ చేస్తాయని అనుకోండి</string>
     <string name="transcode_disable_cache">ట్రాన్స్‌కోడింగ్ కాష్‌ను డిజేబుల్ చేయండి</string>
@@ -1974,13 +1993,13 @@
     <string name="tts_engine_settings_button">ఇంజిన్ సెట్టింగ్‌లను ప్రారంభించండి</string>
     <string name="tts_engine_settings_title">%s కోసం సెట్టింగ్‌లు</string>
     <string name="tts_general_section_title">సాధారణం</string>
-    <string name="tts_install_data_summary">ప్రసంగ సమన్వయం కోసం అవసరమైన వాయిస్ డేటాను ఇన్‌స్టాల్ చేయండి</string>
-    <string name="tts_install_data_title">వాయిస్ డేటాను ఇన్‌స్టాల్ చేయి</string>
+    <string name="tts_install_data_summary">స్పీచ్ సమన్వయం కోసం అవసరమైన వాయిస్ డేటాను ఇన్‌స్టాల్ చేయండి</string>
+    <string name="tts_install_data_title">వాయిస్ డేటాను ఇన్‌స్టాల్ చేయండి</string>
     <string name="tts_lang_not_selected">భాష ఎంచుకోబడలేదు</string>
     <string name="tts_lang_use_system">సిస్టమ్ భాషను ఉపయోగించు</string>
     <string name="tts_play_example_summary">ప్రసంగ సమన్వయం గురించి సంక్షిప్త ప్రదర్శనను ప్లే చేయి</string>
     <string name="tts_play_example_title">ఒక ఉదాహరణ వినండి</string>
-    <string name="tts_reset_speech_pitch_summary">వచనాన్ని చదివి వినిపించే స్వర స్థాయిని డిఫాల్ట్‌కి రీసెట్ చేస్తుంది.</string>
+    <string name="tts_reset_speech_pitch_summary">టెక్స్ట్‌ను చదివి వినిపించే స్వర స్థాయిని ఆటోమేటిక్‌కు రీసెట్ చేస్తుంది.</string>
     <string name="tts_reset_speech_pitch_title">ప్రసంగ స్వర స్థాయిని రీసెట్ చేయండి</string>
     <string name="tts_settings">వచనం నుండి ప్రసంగం సెట్టింగ్‌లు</string>
     <string name="tts_settings_title">టెక్స్ట్-టు-స్పీచ్ అవుట్‌పుట్</string>
@@ -1988,7 +2007,7 @@
     <string name="tts_status_not_supported">%1$sకు మద్దతు లేదు</string>
     <string name="tts_status_ok">%1$sకి పూర్తి మద్దతు ఉంది</string>
     <string name="tts_status_requires_network">%1$sకి నెట్‌వర్క్ కనెక్షన్ అవసరం</string>
-    <string name="tts_status_title">డిఫాల్ట్ భాష స్థితి</string>
+    <string name="tts_status_title">ఆటోమేటిక్ భాష స్టేటస్</string>
     <string name="tuner_app">%1$s అనురవర్తనం</string>
     <string name="tuner_circle">సర్కిల్</string>
     <string name="tuner_full_importance_settings">పవర్ నోటిఫికేషన్ నియంత్రణలు</string>
@@ -2009,10 +2028,12 @@
     <string name="tuner_toast">అభినందనలు! సెట్టింగ్‌లకు సిస్టమ్ UI ట్యూనర్ జోడించబడింది</string>
     <string name="tuner_warning">సిస్టమ్ UI ట్యూనర్ Android వినియోగదారు ఇంటర్‌ఫేస్‌ను మెరుగుపరచడానికి మరియు అనుకూలీకరించడానికి మీకు మరిన్ని మార్గాలను అందిస్తుంది. ఈ ప్రయోగాత్మక లక్షణాలు భవిష్యత్తు విడుదలల్లో మార్పుకు లోనవ్వచ్చు, తాత్కాలికంగా లేదా పూర్తిగా నిలిపివేయవచ్చు. జాగ్రత్తగా కొనసాగండి.</string>
     <string name="tuner_warning_title">కొందరికి సరదాగా ఉంటుంది కానీ అందరికీ అలాగే ఉండదు</string>
+    <string name="turn_on_wifi">Wi‑Fi</string>
     <string name="tv_notification_panel_no_notifications">నోటిఫికేషన్‌లు లేవు</string>
     <string name="tv_notification_panel_title">నోటిఫికేషన్‌లు</string>
     <string name="two_weeks_timestamp">2 వారాల క్రితం</string>
     <string name="unknown">తెలియదు</string>
+    <string name="unlock_to_view_networks">నెట్‌వర్క్‌లను చూడటానికి అన్‌లాక్ చేయండి</string>
     <string name="upcoming_birthday_status">పుట్టినరోజు వస్తోంది</string>
     <string name="upcoming_birthday_status_content_description">%1$s పుట్టినరోజు త్వరలో రాబోతోంది</string>
     <string name="url_menu_copy">కాపీ</string>
@@ -2043,7 +2064,7 @@ USB పోర్ట్‌ను ఉపయోగించడం సురక్�
     <string name="usb_port_enabled">ఛార్జర్‌లు, యాక్సెసరీలను గుర్తించే విధంగా USB పోర్ట్ ప్రారంభించబడింది</string>
     <string name="usb_preference_title">USB ఫైల్ బదిలీ ఎంపికలు</string>
     <string name="use_mtp_button_title">మీడియా ప్లేయర్‌గా (MTP) మౌంట్ చేయి</string>
-    <string name="use_ptp_button_title">కెమెరాగా (PTP) మౌంట్ చేయి</string>
+    <string name="use_ptp_button_title">ఒక కెమెరాగా (PTP) మౌంట్ చేయండి</string>
     <string name="use_system_language_to_select_input_method_subtypes">సిస్టమ్ భాషలను ఉపయోగించు</string>
     <string name="user_add_profile_item_summary">మీరు మీ ఖాతా నుండి యాప్‌లకు మరియు కంటెంట్‌కు యాక్సెస్‌ను పరిమితం చేయవచ్చు</string>
     <string name="user_add_profile_item_title">పరిమితం చేయబడిన ప్రొఫైల్</string>
@@ -2089,7 +2110,7 @@ USB పోర్ట్‌ను ఉపయోగించడం సురక్�
     <string name="verify_apps_over_usb_title">USB ద్వారా యాప్‌లను వెరిఫై చేయి</string>
     <string name="video_status">చూస్తున్నారు</string>
     <string name="voice_assist_label">వాయిస్ అసిస్టెంట్‌ను తెరువు</string>
-    <string name="voice_hint">వాయిస్ అసిస్టెంట్ చిహ్నం నుండి స్వైప్</string>
+    <string name="voice_hint">వాయిస్ అసిస్టెంట్ కోసం చిహ్నం నుండి స్వైప్ చేయండి</string>
     <string name="voice_reply_cta_text">“Ok Google, రిప్లయి ఇవ్వండి”</string>
     <string name="volume_and_do_not_disturb">అంతరాయం కలిగించవద్దు</string>
     <string name="volume_dialog_ringer_guidance_ring">కాల్స్‌ మరియు నోటిఫికేషన్‌లు రింగ్ అవుతాయి (%1$s)</string>
@@ -2143,7 +2164,7 @@ Wi‑Fi అడ్రస్ (BSSID)
     <string name="wifi_debugging_secondary_user_message">ఈ పరికరానికి ప్రస్తుతం సైన్ ఇన్ చేసిన యూజర్, వైర్‌లెస్ డీబగ్గింగ్ ఆన్ చేయలేరు. ఈ ఫీచర్ ఉపయోగించడానికి, ప్రాథమిక యూజర్ కి స్విచ్ అవ్వండి.</string>
     <string name="wifi_debugging_secondary_user_title">వైర్‌లెస్ డీబగ్గింగ్‌కి అనుమతి లేదు</string>
     <string name="wifi_debugging_title">ఈ నెట్‌వర్క్ ద్వారా వైర్‌లెస్ డీబగ్గింగ్‌ను అనుమతించాలా?</string>
-    <string name="wifi_disabled_by_recommendation_provider">తక్కువ నాణ్యతా నెట్‌వర్క్ కారణంగా కనెక్ట్ చేయబడలేదు</string>
+    <string name="wifi_disabled_by_recommendation_provider">తక్కువ క్వాలిటీ నెట్‌వర్క్ కారణంగా కనెక్ట్ చేయబడలేదు</string>
     <string name="wifi_disabled_generic">డిజేబుల్ చేయబడింది</string>
     <string name="wifi_disabled_network_failure">IP కాన్ఫిగరేషన్ వైఫల్యం</string>
     <string name="wifi_disabled_password_failure">ప్రామాణీకరణ సమస్య</string>
@@ -2151,9 +2172,11 @@ Wi‑Fi అడ్రస్ (BSSID)
     <string name="wifi_disconnected">డిస్‌కనెక్ట్ అయ్యింది</string>
     <string name="wifi_display_certification">వైర్‌లెస్ డిస్‌ప్లే సర్టిఫికేషన్‌</string>
     <string name="wifi_display_certification_summary">వైర్‌లెస్ డిస్‌ప్లే సర్టిఫికేషన్ ఆప్షన్‌లను చూపు</string>
+    <string name="wifi_empty_list_wifi_on">నెట్‌వర్క్‌ల కోసం సెర్చ్ చేస్తోంది…</string>
     <string name="wifi_enhanced_mac_randomization">Wi‑Fi నిరంతరం కాని MAC ర్యాండమైజేషన్</string>
     <string name="wifi_enhanced_mac_randomization_summary">ఈ మోడ్ ఎనేబుల్ అయ్యాక, MAC ర్యాండమైజేషన్‌ను ఎనేబుల్ చేసిన నెట్‌వర్క్‌తో కనెక్ట్ అయ్యే ప్రతిసారీ ఈ పరికరం MAC అడ్రస్ మారవచ్చు.</string>
     <string name="wifi_fail_to_scan">నెట్‌వర్క్‌ల కోసం స్కాన్ చేయడం సాధ్యపడదు</string>
+    <string name="wifi_failed_connect_message">నెట్‌వర్క్‌కు కనెక్ట్ చేయడం విఫలమైంది</string>
     <string name="wifi_hotspot_switch_off_text">ఆఫ్‌లో ఉంది</string>
     <string name="wifi_hotspot_switch_on_text">ఆన్‌లో ఉంది</string>
     <string name="wifi_is_off">Wi-Fi ఆఫ్‌లో ఉంది</string>
@@ -2164,6 +2187,7 @@ Wi‑Fi అడ్రస్ (BSSID)
     <string name="wifi_not_in_range">పరిధిలో లేదు</string>
     <string name="wifi_passpoint_expired">గడువు ముగిసింది</string>
     <string name="wifi_remembered">సేవ్ చేయబడింది</string>
+    <string name="wifi_scan_notify_message">పరికర అనుభవాన్ని మెరుగుపరచడానికి, Wi‑Fi ఆఫ్‌లో ఉన్నప్పుడు కూడా, ఏ సమయంలో అయినా ఇప్పటికీ Wi‑Fi నెట్‌వర్క్‌ల కోసం యాప్‌లు, సర్వీస్‌లు స్కాన్ చేయగలవు. మీరు దీనిని Wi‑Fi స్కానింగ్ సెట్టింగ్‌లలో మార్చవచ్చు. <annotation id="link">మార్చండి</annotation></string>
     <string name="wifi_scan_throttling">Wi‑Fi స్కాన్ కుదింపు</string>
     <string name="wifi_scan_throttling_summary">బ్యాటరీ శక్తి వినియోగాన్ని తగ్గించి &amp; నెట్‌వర్క్ పనితీరును మెరుగుపరుస్తుంది</string>
     <string name="wifi_security_none">ఏదీ లేదు</string>
@@ -2173,6 +2197,7 @@ Wi‑Fi అడ్రస్ (BSSID)
     <string name="wifi_unmetered_label">గణించబడటం లేదు</string>
     <string name="wifi_verbose_logging">Wi‑Fi విశదీకృత లాగింగ్‌ను ప్రారంభించండి</string>
     <string name="wifi_verbose_logging_summary">Wi‑Fi ఎంపికలో SSID RSSI ప్రకారం చూపబడే Wi‑Fi లాగింగ్ స్థాయిని పెంచండి</string>
+    <string name="wifi_wont_autoconnect_for_now">ప్రస్తుతానికి Wi-Fi ఆటోమేటిక్‌గా కనెక్ట్ అవ్వదు</string>
     <string name="wifitrackerlib_auto_connect_disable">ఆటో-కనెక్ట్ ఆఫ్‌లో ఉంది</string>
     <string name="wifitrackerlib_available_via_app">%1$s ద్వారా అందుబాటులో ఉంది</string>
     <string name="wifitrackerlib_connected_via_app">%1$s ద్వారా కనెక్ట్ చేయబడింది</string>

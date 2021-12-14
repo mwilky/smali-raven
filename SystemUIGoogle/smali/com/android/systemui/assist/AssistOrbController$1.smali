@@ -45,6 +45,18 @@
 
     iget-object v0, p0, Lcom/android/systemui/assist/AssistOrbController$1;->this$0:Lcom/android/systemui/assist/AssistOrbController;
 
+    invoke-static {v0}, Lcom/android/systemui/assist/AssistOrbController;->access$000(Lcom/android/systemui/assist/AssistOrbController;)Lcom/android/systemui/assist/AssistOrbContainer;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/widget/FrameLayout;->isAttachedToWindow()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/assist/AssistOrbController$1;->this$0:Lcom/android/systemui/assist/AssistOrbController;
+
     invoke-static {v0}, Lcom/android/systemui/assist/AssistOrbController;->access$100(Lcom/android/systemui/assist/AssistOrbController;)Landroid/view/WindowManager;
 
     move-result-object v0
@@ -57,6 +69,7 @@
 
     invoke-interface {v0, p0}, Landroid/view/WindowManager;->removeView(Landroid/view/View;)V
 
+    :cond_0
     return-void
 .end method
 

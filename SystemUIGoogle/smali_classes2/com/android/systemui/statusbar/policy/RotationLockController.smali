@@ -27,6 +27,9 @@
 .method public abstract getRotationLockOrientation()I
 .end method
 
+.method public abstract isCameraRotationEnabled()Z
+.end method
+
 .method public abstract isRotationLocked()Z
 .end method
 

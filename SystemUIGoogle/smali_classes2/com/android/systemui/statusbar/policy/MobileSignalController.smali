@@ -213,7 +213,7 @@
 
     iput-object v0, v6, Lcom/android/systemui/statusbar/policy/MobileSignalController;->mNetworkNameSeparator:Ljava/lang/String;
 
-    const v0, 0x1040489
+    const v0, 0x104048b
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/SignalController;->getTextIfExists(I)Ljava/lang/CharSequence;
 

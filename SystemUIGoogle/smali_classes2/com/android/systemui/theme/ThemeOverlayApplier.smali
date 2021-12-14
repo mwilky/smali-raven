@@ -51,6 +51,8 @@
 
 
 # instance fields
+.field private final mBgExecutor:Ljava/util/concurrent/Executor;
+
 .field private final mCategoryToTargetPackage:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -62,9 +64,9 @@
     .end annotation
 .end field
 
-.field private final mExecutor:Ljava/util/concurrent/Executor;
-
 .field private final mLauncherPackage:Ljava/lang/String;
+
+.field private final mMainExecutor:Ljava/util/concurrent/Executor;
 
 .field private final mOverlayManager:Landroid/content/om/OverlayManager;
 
@@ -226,14 +228,14 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/om/OverlayManager;Ljava/util/concurrent/Executor;Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/dump/DumpManager;)V
+.method public constructor <init>(Landroid/content/om/OverlayManager;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/dump/DumpManager;)V
     .locals 17
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, p3
+    move-object/from16 v1, p4
 
-    move-object/from16 v2, p4
+    move-object/from16 v2, p5
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
@@ -255,7 +257,11 @@
 
     move-object/from16 v5, p2
 
-    iput-object v5, v0, Lcom/android/systemui/theme/ThemeOverlayApplier;->mExecutor:Ljava/util/concurrent/Executor;
+    iput-object v5, v0, Lcom/android/systemui/theme/ThemeOverlayApplier;->mBgExecutor:Ljava/util/concurrent/Executor;
+
+    move-object/from16 v5, p3
+
+    iput-object v5, v0, Lcom/android/systemui/theme/ThemeOverlayApplier;->mMainExecutor:Ljava/util/concurrent/Executor;
 
     iput-object v1, v0, Lcom/android/systemui/theme/ThemeOverlayApplier;->mLauncherPackage:Ljava/lang/String;
 
@@ -355,7 +361,7 @@
 
     move-object/from16 v1, p0
 
-    move-object/from16 v2, p5
+    move-object/from16 v2, p6
 
     invoke-virtual {v2, v0, v1}, Lcom/android/systemui/dump/DumpManager;->registerDumpable(Ljava/lang/String;Lcom/android/systemui/Dumpable;)V
 
@@ -908,7 +914,7 @@
 
 
 # virtual methods
-.method applyCurrentUserOverlays(Ljava/util/Map;[Landroid/content/om/FabricatedOverlay;ILjava/util/Set;)V
+.method public applyCurrentUserOverlays(Ljava/util/Map;[Landroid/content/om/FabricatedOverlay;ILjava/util/Set;)V
     .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -925,7 +931,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/systemui/theme/ThemeOverlayApplier;->mExecutor:Ljava/util/concurrent/Executor;
+    iget-object v0, p0, Lcom/android/systemui/theme/ThemeOverlayApplier;->mBgExecutor:Ljava/util/concurrent/Executor;
 
     new-instance v7, Lcom/android/systemui/theme/ThemeOverlayApplier$$ExternalSyntheticLambda0;
 

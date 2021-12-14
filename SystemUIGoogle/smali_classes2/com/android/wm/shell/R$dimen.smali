@@ -65,53 +65,53 @@
 
 .field public static final bubbles_manage_education_top_inset:I = 0x7f070109
 
-.field public static final dismiss_circle_size:I = 0x7f0701cc
+.field public static final dismiss_circle_size:I = 0x7f0701de
 
-.field public static final dismiss_circle_small:I = 0x7f0701cd
+.field public static final dismiss_circle_small:I = 0x7f0701df
 
-.field public static final dismiss_target_x_size:I = 0x7f0701ce
+.field public static final dismiss_target_x_size:I = 0x7f0701e0
 
-.field public static final docked_divider_handle_height:I = 0x7f0701d7
+.field public static final docked_divider_handle_height:I = 0x7f0701e9
 
-.field public static final docked_divider_handle_width:I = 0x7f0701d8
+.field public static final docked_divider_handle_width:I = 0x7f0701ea
 
-.field public static final docked_stack_divider_lift_elevation:I = 0x7f0701d9
+.field public static final docked_stack_divider_lift_elevation:I = 0x7f0701eb
 
-.field public static final drop_layout_display_margin:I = 0x7f0701db
+.field public static final drop_layout_display_margin:I = 0x7f0701ee
 
-.field public static final floating_dismiss_bottom_margin:I = 0x7f0701fd
+.field public static final floating_dismiss_bottom_margin:I = 0x7f070210
 
-.field public static final floating_dismiss_gradient_height:I = 0x7f0701fe
+.field public static final floating_dismiss_gradient_height:I = 0x7f070211
 
-.field public static final pip_action_padding:I = 0x7f070596
+.field public static final pip_action_padding:I = 0x7f0705aa
 
-.field public static final pip_action_size:I = 0x7f070597
+.field public static final pip_action_size:I = 0x7f0705ab
 
-.field public static final pip_between_action_padding_land:I = 0x7f070598
+.field public static final pip_between_action_padding_land:I = 0x7f0705ac
 
-.field public static final pip_bottom_offset_buffer:I = 0x7f070599
+.field public static final pip_bottom_offset_buffer:I = 0x7f0705ad
 
-.field public static final pip_corner_radius:I = 0x7f07059a
+.field public static final pip_corner_radius:I = 0x7f0705ae
 
-.field public static final pip_expand_action_size:I = 0x7f07059d
+.field public static final pip_expand_action_size:I = 0x7f0705b1
 
-.field public static final pip_expand_container_edge_margin:I = 0x7f07059e
+.field public static final pip_expand_container_edge_margin:I = 0x7f0705b2
 
-.field public static final pip_expanded_shortest_edge_size:I = 0x7f07059f
+.field public static final pip_expanded_shortest_edge_size:I = 0x7f0705b3
 
-.field public static final pip_ime_offset:I = 0x7f0705a0
+.field public static final pip_ime_offset:I = 0x7f0705b4
 
-.field public static final pip_resize_edge_size:I = 0x7f0705a1
+.field public static final pip_resize_edge_size:I = 0x7f0705b5
 
-.field public static final pip_stash_offset:I = 0x7f0705a5
+.field public static final pip_stash_offset:I = 0x7f0705b9
 
-.field public static final size_compat_button_size:I = 0x7f0706b1
+.field public static final size_compat_button_size:I = 0x7f0706c9
 
-.field public static final starting_surface_brand_image_height:I = 0x7f0706c8
+.field public static final starting_surface_brand_image_height:I = 0x7f0706e0
 
-.field public static final starting_surface_brand_image_width:I = 0x7f0706c9
+.field public static final starting_surface_brand_image_width:I = 0x7f0706e1
 
-.field public static final starting_surface_exit_animation_window_shift_length:I = 0x7f0706cb
+.field public static final starting_surface_exit_animation_window_shift_length:I = 0x7f0706e3
 
 
 # direct methods

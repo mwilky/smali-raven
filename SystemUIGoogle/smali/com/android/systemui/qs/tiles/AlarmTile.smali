@@ -83,7 +83,7 @@
 
     new-instance p1, Landroid/content/Intent;
 
-    const-string p2, "android.intent.action.SET_ALARM"
+    const-string p2, "android.intent.action.SHOW_ALARMS"
 
     invoke-direct {p1, p2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 

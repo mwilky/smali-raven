@@ -363,6 +363,7 @@
     <string name="alarms_and_reminders_label">მაღვიძარები და შეხსენებები</string>
     <string name="alarms_and_reminders_switch_title">დაუშვით მაღვიძარების და შეხსენებების დაყენება</string>
     <string name="alarms_and_reminders_title">მაღვიძარები და შეხსენებები</string>
+    <string name="all_network_unavailable">ქსელები მიუწვდომელია</string>
     <string name="allow_mock_location">ფიქტიური მდებარეობების დაშვება</string>
     <string name="allow_mock_location_summary">ფიქტიური მდებარეობების დაშვება</string>
     <string name="always_use_accessory">ყოველთვის გაიხსნას %1$s, როცა %2$s დაკავშირებულია</string>
@@ -618,6 +619,11 @@
     <string name="clock_title_analog">ანალოგური</string>
     <string name="clock_title_bubble">ბუშტი</string>
     <string name="clock_title_default">ნაგულისხმევი</string>
+    <string name="columbus_bouncer_message">განბლოკეთ სწრაფი შეხების შესასრულებლად</string>
+    <string name="columbus_target_request_dialog_allow">დაშვება</string>
+    <string name="columbus_target_request_dialog_deny">არ დაიშვას</string>
+    <string name="columbus_target_request_dialog_summary">ტელეფონის უკანა მხარეზე ორმაგი შეხებისას %1$s გაიხსნება. თქვენ ნებისმიერ დროს შეგიძლიათ შეცვალოთ ეს არჩევანი პარამეტრებიდან.</string>
+    <string name="columbus_target_request_dialog_title">დართავთ ნებას სწრაფ შეხებას, გახსნას %1$s?</string>
     <string name="compat_mode_off">გაწიეთ ეკრანის შესავსებად.</string>
     <string name="compat_mode_on">მასშტაბი შეცვალეთ ეკრანის შესავსებად.</string>
     <string name="confirm_enable_oem_unlock_text">გაფრთხილება: სანამ ეს პარამეტრი ჩართულია, მოწყობილობის დაცვის ფუნქცია ამ მოწყობილობაზე, ვერ იმუშავებს.</string>
@@ -740,6 +746,8 @@
     <string name="defender_notify_learn_more">შეიტყვეთ მეტი</string>
     <string name="defender_notify_resume_charge">დატენვის გაგრძელება</string>
     <string name="defender_notify_title">დატენვა დროებით შეზღუდულია</string>
+    <string name="defender_post_notify_des">ბატარეის გამართულად მუშაობის შესანარჩუნებლად %2$s-დან %3$s-მდე დატენვა შეიზღუდა %1$s-მდე</string>
+    <string name="defender_post_notify_title">იტენება ჩვეულებრივ</string>
     <string name="delete_blob_confirmation_text">ნამდვილად გსურთ ამ გაზიარებული მონაცემების წაშლა?</string>
     <string name="delete_blob_text">გაზიარებული მონაცემების წაშლა</string>
     <string name="demo_mode">სისტემის UI-ს დემო-რეჟიმი</string>
@@ -885,6 +893,7 @@
     <string name="game_status">იკვრება</string>
     <string name="global_action_lock_message">მეტი ვარიანტის სანახავად განბლოკეთ თქვენი ტელეფონი</string>
     <string name="global_action_screenshot">ეკრანის ანაბეჭდი</string>
+    <string name="global_action_smart_lock_disabled">Smart Lock გათიშულია</string>
     <string name="global_actions_change_description">%1$s-სა და მოწყობილობების მართვის საშუალებებზე წვდომისთვის გადაფურცლეთ ქვემოთ ეკრანის ზედა კიდიდან</string>
     <string name="go_to_web">ბრაუზერზე გადასვლა</string>
     <string name="google_services_wallpaper_permission">Google-ის მდებარეობის სერვისზე წვდომის მეშვეობით, <b>Google-ის ცოცხალი ფონებისთვის თქვენს მდებარეობაზე რეაგირების დაშვება</b>.</string>
@@ -1232,7 +1241,7 @@
     <string name="media_projection_dialog_text">%s-ს ექნება წვდომა ყველა ინფორმაციაზე, რომელიც თქვენს ეკრანზე გამოჩნდება ან თქვენს მოწყობილობაზე დაიკვრება ჩაწერის ან ტრანსლირების განმავლობაში. აღნიშნული მოიცავს ისეთ ინფორმაციას, როგორიც არის პაროლები, გადახდის დეტალები, ფოტოები, შეტყობინებები და თქვენ მიერ დაკრული აუდიო.</string>
     <string name="media_projection_dialog_title">დაიწყოს ჩაწერა ან ტრანსლირება %s-ით?</string>
     <string name="media_projection_remember_text">აღარ მაჩვენო</string>
-    <string name="media_seamless_remote_device">მოწყობილობა</string>
+    <string name="media_seamless_other_device">სხვა მოწყობილობა</string>
     <string name="media_transfer_this_device_name">ტელეფონის დინამიკი</string>
     <string name="media_transfer_this_phone">ეს ტელეფონი</string>
     <string name="media_transfer_wired_device_name">სადენიანი აუდიო მოწყობილობა</string>
@@ -1249,9 +1258,13 @@
     <string name="mobile_data">მობილური ინტერნეტი</string>
     <string name="mobile_data_always_on">მობილური ინტერნეტის ყოველთვის გააქტიურება</string>
     <string name="mobile_data_always_on_summary">მობილური მოწყობილობის მონაცემები ყოველთვის აქტიური დარჩეს, მაშინაც კი, როდესაც Wi-Fi აქტიურია (ქსელის სწრაფი გადართვისთვის).</string>
+    <string name="mobile_data_connection_active">დაკავშირებული</string>
     <string name="mobile_data_disable_message">თქვენ არ გექნებათ მობილურ ინტერნეტზე ან ზოგადად ინტერნეტზე წვდომა %s-ის მეშვეობით. ინტერნეტი მხოლოდ Wi-Fi-კავშირის მეშვეობით იქნება ხელმისაწვდომი.</string>
     <string name="mobile_data_disable_message_default_carrier">თქვენი ოპერატორი</string>
     <string name="mobile_data_disable_title">გსურთ მობილური ინტერნეტის გამორთვა?</string>
+    <string name="mobile_data_no_connection">კავშირი არ არის</string>
+    <string name="mobile_data_off_summary">მობილურ ინტერნეტს ავტომატურად არ დაუკავშირდება</string>
+    <string name="mobile_data_settings_title">მობილური ინტერნეტი</string>
     <string name="mobile_data_text_format">%1$s — %2$s</string>
     <string name="mock_location_app">მდებარეობის იმიტირების აპის არჩევა</string>
     <string name="mock_location_app_not_set">მდებარეობის იმიტირების აპი დაყენებული არ არის</string>
@@ -1391,6 +1404,7 @@
     <string name="no_content_in_select_mode">ასარჩევი ტექსტი ან სურათი არ არის</string>
     <string name="no_conversations_text">თქვენი ბოლოდროინდელი საუბრები აქ გამოჩნდება</string>
     <string name="no_shortcut">%1$s-ს არ აქვს მიმოწერის ფუნქციების მხარდაჭერა</string>
+    <string name="non_carrier_network_unavailable">სხვა ქსელები მიუწვდომელია</string>
     <string name="not_default_data_content_description">არ არის დაყენებული მონაცემების გამოყენებისთვის</string>
     <string name="not_set">არ არის დაყენებული</string>
     <string name="notif_inline_reply_remove_attachment_description">დანართის ამოშლა</string>
@@ -1571,6 +1585,7 @@
     <string name="power_remaining_only_more_than_subtext">დარჩა %1$s-ზე მეტი</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">ბატარეა შესაძლოა ამოიწუროს %1$s-მდე</string>
+    <string name="pref_title_network_details">ქსელის დეტალები</string>
     <string name="preference_copied">„%1$s“ კოპირებულია გაცვლის ბუფერში.</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">პრიორიტეტული საუბრები</string>
@@ -1740,6 +1755,7 @@
     <string name="right_keycode">მარჯვენა კლავიშის კოდი</string>
     <string name="right_nav_bar_button_type">მარჯვენა დამატებითი ღილაკის ტიპი</string>
     <string name="ring_toggle_title">ზარები</string>
+    <string name="rotation_lock_camera_rotation_on">ჩართული — სახის მიხედვით</string>
     <string name="running_foreground_services_msg">შეეხეთ ბატარეისა და მონაცემების მოხმარების შესახებ დეტალური ინფორმაციისთვის</string>
     <string name="running_foreground_services_title">ფონურ რეჟიმში გაშვებული აპები</string>
     <string name="running_process_item_user_label">მომხმარებელი: %1$s</string>
@@ -1814,6 +1830,7 @@
     <string name="screenshot_top_boundary_pct">ზედა ზღვარი: %1$d პროცენტი</string>
     <string name="search_menu">ძიების პარამეტრები</string>
     <string name="search_menu_title">ძიება</string>
+    <string name="see_all_networks">ყველას ნახვა</string>
     <string name="see_more_title">მეტის ნახვა</string>
     <string name="select_application">აპლიკაციის შერჩევა</string>
     <string name="select_conversation_text">შეეხეთ საუბარს მის თქვენს მთავარ ეკრანზე დასამატებლად</string>
@@ -1926,6 +1943,7 @@
     <string name="switch_bar_off">გამორთვა</string>
     <string name="switch_bar_on">ჩართული</string>
     <string name="system_ui_tuner">სისტემის UI ტუნერი</string>
+    <string name="tap_a_network_to_connect">დასაკავშირებლად შეეხეთ ქსელს</string>
     <string name="tap_again">შეეხეთ ხელახლა</string>
     <string name="tap_to_sign_up">შეეხეთ რეგისტრაციისთვის</string>
     <string name="tether_settings_title_all">ტეტერინგი და პორტატული უსადენო ქსელი</string>
@@ -1951,6 +1969,7 @@
     <string name="time_unit_just_now">ახლახან</string>
     <string name="title_convert_fbe">ფაილების დონეზე დაშიფვრაზე გარდაქმნა…</string>
     <string name="title_usb_accessory">USB აქსესუარი</string>
+    <string name="to_switch_networks_disconnect_ethernet">ქსელების გადასართავად, გაწყვიტეთ Ethernet-თან კავშირი</string>
     <string name="too_hot_label">Pixel ზედმეტად ცხელია</string>
     <string name="touch_filtered_warning">ვინაიდან აპი ფარავს ნებართვის მოთხოვნას, პარამეტრების მიერ თქვენი პასუხი ვერ დასტურდება.</string>
     <string name="track_frame_time">პროფილის HWUI რენდერი</string>
@@ -2009,10 +2028,12 @@
     <string name="tuner_toast">გილოცავთ! სისტემის UI ტუნერი დაემატა პარამეტრებს</string>
     <string name="tuner_warning">სისტემის UI ტუნერი გაძლევთ დამატებით გზებს Android-ის სამომხმარებლო ინტერფეისის პარამეტრების დაყენებისთვის. ეს ექსპერიმენტული მახასიათებლები შეიძლება შეიცვალოს, შეწყდეს ან გაქრეს მომავალ ვერსიებში. სიფრთხილით გააგრძელეთ.</string>
     <string name="tuner_warning_title">ზოგისთვის გასართობია, მაგრამ არა ყველასთვის</string>
+    <string name="turn_on_wifi">Wi‑Fi</string>
     <string name="tv_notification_panel_no_notifications">შეტყობინებები არ არის</string>
     <string name="tv_notification_panel_title">შეტყობინებები</string>
     <string name="two_weeks_timestamp">2 კვირის წინ</string>
     <string name="unknown">უცნობი</string>
+    <string name="unlock_to_view_networks">განბლოკვა ქსელების სანახავად</string>
     <string name="upcoming_birthday_status">მალე დაბადების დღეა</string>
     <string name="upcoming_birthday_status_content_description">%1$s მალე იუბილარი იქნება</string>
     <string name="url_menu_copy">კოპირება</string>
@@ -2151,9 +2172,11 @@ Wi‑Fi მისამართი (BSSID)
     <string name="wifi_disconnected">კავშირი გაწყვეტილია</string>
     <string name="wifi_display_certification">უსადენო ეკრანის სერტიფიცირება</string>
     <string name="wifi_display_certification_summary">უსადენო ეკრანის სერტიფიცირების ვარიანტების ჩვენება</string>
+    <string name="wifi_empty_list_wifi_on">მიმდინარეობს ქსელების ძიება…</string>
     <string name="wifi_enhanced_mac_randomization">Wi‑Fi-ს MAC მისამართების არამუდმივი რანდომიზაცია</string>
     <string name="wifi_enhanced_mac_randomization_summary">როდესაც ეს რეჟიმი ჩართულია, მოწყობილობის MAC მისამართი შეიძლება შეიცვალოს ისეთ ქსელთან ყოველ დაკავშირებაზე, რომელსაც ჩართული აქვს MAC მისამართის შემთხვევითობა.</string>
     <string name="wifi_fail_to_scan">ქსელების სკანირება არა არის შესაძლებელი</string>
+    <string name="wifi_failed_connect_message">ქსელთან დაკავშირება ვერ ხერხდება</string>
     <string name="wifi_hotspot_switch_off_text">გამორთვა</string>
     <string name="wifi_hotspot_switch_on_text">ჩართვა</string>
     <string name="wifi_is_off">Wi-Fi გამორთულია</string>
@@ -2164,6 +2187,7 @@ Wi‑Fi მისამართი (BSSID)
     <string name="wifi_not_in_range">არ არის დიაპაზონში</string>
     <string name="wifi_passpoint_expired">ვადაგასულია</string>
     <string name="wifi_remembered">დამახსოვრებულია</string>
+    <string name="wifi_scan_notify_message">მოწყობილობისგან მიღებული გამოცდილების გასაუმჯობესებლად, აპებსა და სერვისებს მაინც შეუძლია სკანირება Wi‑Fi ქსელების აღმოსაჩენად, ნებისმიერ დროს, მაშინაც კი, როცა Wi‑Fi გამორთულია. ამის შეცვლა Wi-Fi სკანირების პარამეტრებში შეგიძლიათ. <annotation id="link">შეცვლა</annotation></string>
     <string name="wifi_scan_throttling">Wi‑Fi სკანირების რეგულირება</string>
     <string name="wifi_scan_throttling_summary">ამცირებს ბატარეის ხარჯვას და აუმჯობესებს ქსელის მუშაობას</string>
     <string name="wifi_security_none">არცერთი</string>
@@ -2173,6 +2197,7 @@ Wi‑Fi მისამართი (BSSID)
     <string name="wifi_unmetered_label">არალიმიტირებული</string>
     <string name="wifi_verbose_logging">Wi‑Fi-ს დაწვრილებითი აღრიცხვის ჩართვა</string>
     <string name="wifi_verbose_logging_summary">Wi‑Fi-ს აღრიცხვის დონის გაზრდა, Wi‑Fi ამომრჩეველში ყოველ SSID RSSI-ზე ჩვენება</string>
+    <string name="wifi_wont_autoconnect_for_now">Wi-Fi ინტერნეტს დროებით ავტომატურად არ დაუკავშირდება</string>
     <string name="wifitrackerlib_auto_connect_disable">ავტოდაკავშირება გამორთულია</string>
     <string name="wifitrackerlib_available_via_app">ხელმისაწვდომია %1$s-ით</string>
     <string name="wifitrackerlib_connected_via_app">დაკავშირებულია %1$s-ით</string>

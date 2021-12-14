@@ -16,7 +16,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nMediaDataManager.kt\nKotlin\n*S Kotlin\n*F\n+ 1 MediaDataManager.kt\ncom/android/systemui/media/MediaDataManager\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n+ 3 Maps.kt\nkotlin/collections/MapsKt__MapsKt\n+ 4 _Maps.kt\nkotlin/collections/MapsKt___MapsKt\n+ 5 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,916:1\n1#2:917\n509#3:918\n494#3,6:919\n509#3:946\n494#3,6:947\n181#4,2:925\n181#4,2:953\n1819#5,2:927\n1819#5,2:929\n1819#5,2:931\n1819#5,2:933\n768#5,11:935\n*E\n*S KotlinDebug\n*F\n+ 1 MediaDataManager.kt\ncom/android/systemui/media/MediaDataManager\n*L\n286#1:918\n286#1,6:919\n797#1:946\n797#1,6:947\n287#1,2:925\n798#1,2:953\n375#1,2:927\n385#1,2:929\n395#1,2:931\n409#1,2:933\n722#1,11:935\n*E\n"
+    value = "SMAP\nMediaDataManager.kt\nKotlin\n*S Kotlin\n*F\n+ 1 MediaDataManager.kt\ncom/android/systemui/media/MediaDataManager\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n+ 3 Maps.kt\nkotlin/collections/MapsKt__MapsKt\n+ 4 _Maps.kt\nkotlin/collections/MapsKt___MapsKt\n+ 5 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,931:1\n1#2:932\n509#3:933\n494#3,6:934\n509#3:961\n494#3,6:962\n181#4,2:940\n181#4,2:968\n1819#5,2:942\n1819#5,2:944\n1819#5,2:946\n1819#5,2:948\n768#5,11:950\n*E\n*S KotlinDebug\n*F\n+ 1 MediaDataManager.kt\ncom/android/systemui/media/MediaDataManager\n*L\n287#1:933\n287#1,6:934\n802#1:961\n802#1,6:962\n288#1,2:940\n803#1,2:968\n376#1,2:942\n386#1,2:944\n396#1,2:946\n410#1,2:948\n727#1,11:950\n*E\n"
 .end annotation
 
 
@@ -209,7 +209,7 @@
 
     invoke-static {v13, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v0, "systemClock"
+    const-string/jumbo v0, "systemClock"
 
     invoke-static {v14, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -2094,80 +2094,124 @@
 .end method
 
 .method private final toSmartspaceMediaData(Landroid/app/smartspace/SmartspaceTarget;Z)Lcom/android/systemui/media/SmartspaceMediaData;
-    .locals 15
+    .locals 12
 
-    invoke-direct/range {p0 .. p1}, Lcom/android/systemui/media/MediaDataManager;->packageName(Landroid/app/smartspace/SmartspaceTarget;)Ljava/lang/String;
-
-    move-result-object v4
-
-    const-string v0, "target.smartspaceTargetId"
-
-    if-nez v4, :cond_0
-
-    invoke-static {}, Lcom/android/systemui/media/MediaDataManagerKt;->getEMPTY_SMARTSPACE_MEDIA_DATA()Lcom/android/systemui/media/SmartspaceMediaData;
-
-    move-result-object v5
-
-    invoke-virtual/range {p1 .. p1}, Landroid/app/smartspace/SmartspaceTarget;->getSmartspaceTargetId()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v6, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const/4 v8, 0x0
-
-    const/4 v9, 0x0
-
-    const/4 v10, 0x0
-
-    const/4 v11, 0x0
-
-    const/4 v12, 0x0
-
-    const/16 v13, 0x7c
-
-    const/4 v14, 0x0
-
-    move/from16 v7, p2
-
-    invoke-static/range {v5 .. v14}, Lcom/android/systemui/media/SmartspaceMediaData;->copy$default(Lcom/android/systemui/media/SmartspaceMediaData;Ljava/lang/String;ZZLjava/lang/String;Landroid/app/smartspace/SmartspaceAction;Ljava/util/List;IILjava/lang/Object;)Lcom/android/systemui/media/SmartspaceMediaData;
+    invoke-virtual {p1}, Landroid/app/smartspace/SmartspaceTarget;->getBaseAction()Landroid/app/smartspace/SmartspaceAction;
 
     move-result-object v0
 
-    return-object v0
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p1}, Landroid/app/smartspace/SmartspaceTarget;->getBaseAction()Landroid/app/smartspace/SmartspaceAction;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/smartspace/SmartspaceAction;->getExtras()Landroid/os/Bundle;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p1}, Landroid/app/smartspace/SmartspaceTarget;->getBaseAction()Landroid/app/smartspace/SmartspaceAction;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/smartspace/SmartspaceAction;->getExtras()Landroid/os/Bundle;
+
+    move-result-object v0
+
+    const-string v1, "dismiss_intent"
+
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v0
+
+    const-string v1, "null cannot be cast to non-null type android.content.Intent"
+
+    invoke-static {v0, v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+
+    check-cast v0, Landroid/content/Intent;
+
+    goto :goto_0
 
     :cond_0
-    new-instance v8, Lcom/android/systemui/media/SmartspaceMediaData;
+    const/4 v0, 0x0
 
-    invoke-virtual/range {p1 .. p1}, Landroid/app/smartspace/SmartspaceTarget;->getSmartspaceTargetId()Ljava/lang/String;
+    :goto_0
+    move-object v8, v0
 
-    move-result-object v1
-
-    invoke-static {v1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const/4 v3, 0x1
-
-    invoke-virtual/range {p1 .. p1}, Landroid/app/smartspace/SmartspaceTarget;->getBaseAction()Landroid/app/smartspace/SmartspaceAction;
+    invoke-direct {p0, p1}, Lcom/android/systemui/media/MediaDataManager;->packageName(Landroid/app/smartspace/SmartspaceTarget;)Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-virtual/range {p1 .. p1}, Landroid/app/smartspace/SmartspaceTarget;->getIconGrid()Ljava/util/List;
+    const-string/jumbo p0, "target.smartspaceTargetId"
 
-    move-result-object v6
+    if-nez v5, :cond_1
 
-    const-string v0, "target.iconGrid"
+    invoke-static {}, Lcom/android/systemui/media/MediaDataManagerKt;->getEMPTY_SMARTSPACE_MEDIA_DATA()Lcom/android/systemui/media/SmartspaceMediaData;
 
-    invoke-static {v6, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    move-result-object v1
+
+    invoke-virtual {p1}, Landroid/app/smartspace/SmartspaceTarget;->getSmartspaceTargetId()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
 
     const/4 v7, 0x0
 
-    move-object v0, v8
+    const/4 v9, 0x0
 
-    move/from16 v2, p2
+    const/16 v10, 0xbc
 
-    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/media/SmartspaceMediaData;-><init>(Ljava/lang/String;ZZLjava/lang/String;Landroid/app/smartspace/SmartspaceAction;Ljava/util/List;I)V
+    const/4 v11, 0x0
 
-    return-object v8
+    move v3, p2
+
+    invoke-static/range {v1 .. v11}, Lcom/android/systemui/media/SmartspaceMediaData;->copy$default(Lcom/android/systemui/media/SmartspaceMediaData;Ljava/lang/String;ZZLjava/lang/String;Landroid/app/smartspace/SmartspaceAction;Ljava/util/List;Landroid/content/Intent;IILjava/lang/Object;)Lcom/android/systemui/media/SmartspaceMediaData;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_1
+    new-instance v0, Lcom/android/systemui/media/SmartspaceMediaData;
+
+    invoke-virtual {p1}, Landroid/app/smartspace/SmartspaceTarget;->getSmartspaceTargetId()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const/4 v4, 0x1
+
+    invoke-virtual {p1}, Landroid/app/smartspace/SmartspaceTarget;->getBaseAction()Landroid/app/smartspace/SmartspaceAction;
+
+    move-result-object v6
+
+    invoke-virtual {p1}, Landroid/app/smartspace/SmartspaceTarget;->getIconGrid()Ljava/util/List;
+
+    move-result-object v7
+
+    const-string/jumbo p0, "target.iconGrid"
+
+    invoke-static {v7, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const/4 v9, 0x0
+
+    move-object v1, v0
+
+    move v3, p2
+
+    invoke-direct/range {v1 .. v9}, Lcom/android/systemui/media/SmartspaceMediaData;-><init>(Ljava/lang/String;ZZLjava/lang/String;Landroid/app/smartspace/SmartspaceAction;Ljava/util/List;Landroid/content/Intent;I)V
+
+    return-object v0
 .end method
 
 
@@ -2205,7 +2249,7 @@
 
     invoke-static {v15, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v2, "token"
+    const-string/jumbo v2, "token"
 
     move-object/from16 v14, p4
 
@@ -2370,7 +2414,7 @@
 .end method
 
 .method public final dismissSmartspaceRecommendation(Ljava/lang/String;J)V
-    .locals 10
+    .locals 11
 
     const-string v0, "key"
 
@@ -2427,11 +2471,13 @@
 
     const/4 v7, 0x0
 
-    const/16 v8, 0x7e
+    const/4 v8, 0x0
 
-    const/4 v9, 0x0
+    const/16 v9, 0xfe
 
-    invoke-static/range {v0 .. v9}, Lcom/android/systemui/media/SmartspaceMediaData;->copy$default(Lcom/android/systemui/media/SmartspaceMediaData;Ljava/lang/String;ZZLjava/lang/String;Landroid/app/smartspace/SmartspaceAction;Ljava/util/List;IILjava/lang/Object;)Lcom/android/systemui/media/SmartspaceMediaData;
+    const/4 v10, 0x0
+
+    invoke-static/range {v0 .. v10}, Lcom/android/systemui/media/SmartspaceMediaData;->copy$default(Lcom/android/systemui/media/SmartspaceMediaData;Ljava/lang/String;ZZLjava/lang/String;Landroid/app/smartspace/SmartspaceAction;Ljava/util/List;Landroid/content/Intent;IILjava/lang/Object;)Lcom/android/systemui/media/SmartspaceMediaData;
 
     move-result-object p1
 
@@ -2925,7 +2971,7 @@
 .end method
 
 .method public onSmartspaceTargetsUpdated(Ljava/util/List;)V
-    .locals 13
+    .locals 14
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2936,7 +2982,7 @@
         }
     .end annotation
 
-    const-string v0, "targets"
+    const-string/jumbo v0, "targets"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -3098,11 +3144,13 @@
 
     const/4 v10, 0x0
 
-    const/16 v11, 0x7e
+    const/4 v11, 0x0
 
-    const/4 v12, 0x0
+    const/16 v12, 0xfe
 
-    invoke-static/range {v3 .. v12}, Lcom/android/systemui/media/SmartspaceMediaData;->copy$default(Lcom/android/systemui/media/SmartspaceMediaData;Ljava/lang/String;ZZLjava/lang/String;Landroid/app/smartspace/SmartspaceAction;Ljava/util/List;IILjava/lang/Object;)Lcom/android/systemui/media/SmartspaceMediaData;
+    const/4 v13, 0x0
+
+    invoke-static/range {v3 .. v13}, Lcom/android/systemui/media/SmartspaceMediaData;->copy$default(Lcom/android/systemui/media/SmartspaceMediaData;Ljava/lang/String;ZZLjava/lang/String;Landroid/app/smartspace/SmartspaceAction;Ljava/util/List;Landroid/content/Intent;IILjava/lang/Object;)Lcom/android/systemui/media/SmartspaceMediaData;
 
     move-result-object p1
 
@@ -3285,9 +3333,9 @@
 .end method
 
 .method public final setTimedOut$frameworks__base__packages__SystemUI__android_common__SystemUI_core(Ljava/lang/String;ZZ)V
-    .locals 3
+    .locals 4
 
-    const-string v0, "token"
+    const-string v0, "key"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -3310,13 +3358,34 @@
 
     xor-int/lit8 v2, p2, 0x1
 
-    if-ne v1, v2, :cond_1
+    const-string v3, "MediaDataManager"
 
-    if-nez p3, :cond_1
+    if-ne v1, v2, :cond_2
 
-    return-void
+    if-nez p3, :cond_2
+
+    invoke-virtual {v0}, Lcom/android/systemui/media/MediaData;->getResumption()Z
+
+    move-result p2
+
+    if-eqz p2, :cond_1
+
+    const-string/jumbo p2, "timing out resume player "
+
+    invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-static {v3, p2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-wide/16 p2, 0x0
+
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/systemui/media/MediaDataManager;->dismissMediaData(Ljava/lang/String;J)Z
 
     :cond_1
+    return-void
+
+    :cond_2
     xor-int/lit8 p3, p2, 0x1
 
     invoke-virtual {v0, p3}, Lcom/android/systemui/media/MediaData;->setActive(Z)V
@@ -3341,9 +3410,7 @@
 
     move-result-object p2
 
-    const-string p3, "MediaDataManager"
-
-    invoke-static {p3, p2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, p2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p0, p1, p1, v0}, Lcom/android/systemui/media/MediaDataManager;->onMediaDataLoaded(Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;)V
 

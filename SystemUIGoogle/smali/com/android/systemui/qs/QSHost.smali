@@ -42,6 +42,17 @@
 .method public abstract removeTile(Ljava/lang/String;)V
 .end method
 
+.method public abstract removeTiles(Ljava/util/Collection;)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Collection<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+.end method
+
 .method public abstract unmarkTileAsAutoAdded(Ljava/lang/String;)V
 .end method
 

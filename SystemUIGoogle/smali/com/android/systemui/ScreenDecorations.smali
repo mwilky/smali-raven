@@ -772,7 +772,7 @@
     return-void
 
     :cond_0
-    const-string v0, "sysui_rounded_size"
+    const-string/jumbo v0, "sysui_rounded_size"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -822,7 +822,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mTunerService:Lcom/android/systemui/tuner/TunerService;
 
-    const-string v1, "sysui_rounded_size"
+    const-string/jumbo v1, "sysui_rounded_size"
 
     filled-new-array {v1}, [Ljava/lang/String;
 
@@ -1916,7 +1916,7 @@
 
     move-result-object v0
 
-    const v1, 0x1050258
+    const v1, 0x1050259
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1928,7 +1928,7 @@
 
     move-result-object v1
 
-    const v2, 0x105025c
+    const v2, 0x105025d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1940,7 +1940,7 @@
 
     move-result-object v2
 
-    const v3, 0x105025a
+    const v3, 0x105025b
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2058,7 +2058,7 @@
     :goto_2
     const/4 v0, 0x0
 
-    const-string v1, "sysui_rounded_size"
+    const-string/jumbo v1, "sysui_rounded_size"
 
     invoke-virtual {p0, v1, v0}, Lcom/android/systemui/ScreenDecorations;->onTuningChanged(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -2307,7 +2307,7 @@
 
     move-result-object v0
 
-    const v1, 0x1050276
+    const v1, 0x1050277
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2321,7 +2321,7 @@
 
     move-result-object v0
 
-    const v1, 0x1050277
+    const v1, 0x1050278
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

@@ -2183,7 +2183,7 @@
 .end method
 
 .method public setBackgroundTintColor(IZ)V
-    .locals 9
+    .locals 8
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mColorized:Z
 
@@ -2222,15 +2222,11 @@
     move v1, v0
 
     :goto_0
-    const/4 v2, 0x1
-
     if-eqz p2, :cond_4
 
-    invoke-static {p1}, Lcom/android/internal/util/ContrastColorUtil;->isColorLight(I)Z
+    invoke-static {p1}, Landroid/app/Notification$Builder;->isColorDark(I)Z
 
     move-result p2
-
-    xor-int/2addr p2, v2
 
     const/4 v0, -0x1
 
@@ -2267,7 +2263,9 @@
 
     move-result v2
 
-    move v5, v0
+    move v6, v3
+
+    move v3, v0
 
     move v0, p1
 
@@ -2276,75 +2274,71 @@
     :cond_4
     iget-object p2, p0, Landroid/widget/LinearLayout;->mContext:Landroid/content/Context;
 
-    sget v3, Lcom/android/systemui/R$color;->remote_input_send:I
+    sget v2, Lcom/android/systemui/R$color;->remote_input_send:I
 
-    invoke-virtual {p2, v3}, Landroid/content/Context;->getColorStateList(I)Landroid/content/res/ColorStateList;
+    invoke-virtual {p2, v2}, Landroid/content/Context;->getColorStateList(I)Landroid/content/res/ColorStateList;
 
     move-result-object p2
 
-    iget-object v3, p0, Landroid/widget/LinearLayout;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Landroid/widget/LinearLayout;->mContext:Landroid/content/Context;
 
-    sget v4, Lcom/android/systemui/R$color;->remote_input_text:I
+    sget v3, Lcom/android/systemui/R$color;->remote_input_text:I
 
-    invoke-virtual {v3, v4}, Landroid/content/Context;->getColorStateList(I)Landroid/content/res/ColorStateList;
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getColorStateList(I)Landroid/content/res/ColorStateList;
 
     move-result-object v4
 
-    iget-object v3, p0, Landroid/widget/LinearLayout;->mContext:Landroid/content/Context;
+    iget-object v2, p0, Landroid/widget/LinearLayout;->mContext:Landroid/content/Context;
 
-    sget v5, Lcom/android/systemui/R$color;->remote_input_hint:I
+    sget v3, Lcom/android/systemui/R$color;->remote_input_hint:I
 
-    invoke-virtual {v3, v5}, Landroid/content/Context;->getColor(I)I
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getColor(I)I
 
-    move-result v3
+    move-result v2
 
     invoke-virtual {v4}, Landroid/content/res/ColorStateList;->getDefaultColor()I
 
-    move-result v5
+    move-result v3
 
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getContext()Landroid/content/Context;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {v6}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
+    invoke-virtual {v5}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
-    move-result-object v6
+    move-result-object v5
 
-    const/4 v7, 0x2
+    const/4 v6, 0x2
 
-    new-array v7, v7, [I
+    new-array v6, v6, [I
 
-    fill-array-data v7, :array_0
+    fill-array-data v6, :array_0
 
-    invoke-virtual {v6, v7}, Landroid/content/res/Resources$Theme;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
+    invoke-virtual {v5, v6}, Landroid/content/res/Resources$Theme;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
 
-    move-result-object v6
+    move-result-object v5
 
     :try_start_0
-    invoke-virtual {v6, v0, p1}, Landroid/content/res/TypedArray;->getColor(II)I
+    invoke-virtual {v5, v0, p1}, Landroid/content/res/TypedArray;->getColor(II)I
 
     move-result v0
 
+    const/4 v6, 0x1
+
     const v7, -0x777778
 
-    invoke-virtual {v6, v2, v7}, Landroid/content/res/TypedArray;->getColor(II)I
+    invoke-virtual {v5, v6, v7}, Landroid/content/res/TypedArray;->getColor(II)I
 
-    move-result v2
+    move-result v6
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-virtual {v6}, Landroid/content/res/TypedArray;->close()V
-
-    move v8, v3
-
-    move v3, v2
-
-    move v2, v8
+    invoke-virtual {v5}, Landroid/content/res/TypedArray;->close()V
 
     :goto_2
-    iget-object v6, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mEditText:Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;
+    iget-object v5, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mEditText:Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;
 
-    invoke-virtual {v6, v4}, Landroid/widget/EditText;->setTextColor(Landroid/content/res/ColorStateList;)V
+    invoke-virtual {v5, v4}, Landroid/widget/EditText;->setTextColor(Landroid/content/res/ColorStateList;)V
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mEditText:Lcom/android/systemui/statusbar/policy/RemoteInputView$RemoteEditText;
 
@@ -2360,9 +2354,9 @@
 
     move-result v4
 
-    sget-object v6, Landroid/graphics/PorterDuff$Mode;->SRC_IN:Landroid/graphics/PorterDuff$Mode;
+    sget-object v5, Landroid/graphics/PorterDuff$Mode;->SRC_IN:Landroid/graphics/PorterDuff$Mode;
 
-    invoke-virtual {v2, v4, v6}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
+    invoke-virtual {v2, v4, v5}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mContentBackground:Landroid/graphics/drawable/GradientDrawable;
 
@@ -2374,7 +2368,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mDelete:Landroid/widget/ImageView;
 
-    invoke-static {v5}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+    invoke-static {v3}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
 
     move-result-object v1
 
@@ -2382,7 +2376,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mDeleteBg:Landroid/widget/ImageView;
 
-    invoke-static {v3}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+    invoke-static {v6}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
 
     move-result-object v1
 
@@ -2411,10 +2405,10 @@
     :catchall_0
     move-exception p0
 
-    if-eqz v6, :cond_5
+    if-eqz v5, :cond_5
 
     :try_start_1
-    invoke-virtual {v6}, Landroid/content/res/TypedArray;->close()V
+    invoke-virtual {v5}, Landroid/content/res/TypedArray;->close()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
@@ -2428,6 +2422,8 @@
     :cond_5
     :goto_3
     throw p0
+
+    nop
 
     :array_0
     .array-data 4

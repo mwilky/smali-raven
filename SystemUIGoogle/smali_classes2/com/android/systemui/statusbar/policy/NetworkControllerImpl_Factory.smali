@@ -138,6 +138,26 @@
     .end annotation
 .end field
 
+.field private final handlerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Landroid/os/Handler;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final internetDialogFactoryProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final networkScoreManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -190,7 +210,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -245,6 +265,12 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/dump/DumpManager;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Landroid/os/Handler;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;",
             ">;)V"
         }
     .end annotation
@@ -321,11 +347,19 @@
 
     iput-object v1, v0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
 
+    move-object/from16 v1, p18
+
+    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl_Factory;->handlerProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p19
+
+    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl_Factory;->internetDialogFactoryProvider:Ljavax/inject/Provider;
+
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/policy/NetworkControllerImpl_Factory;
-    .locals 19
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/policy/NetworkControllerImpl_Factory;
+    .locals 21
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -379,6 +413,12 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/dump/DumpManager;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Landroid/os/Handler;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;",
             ">;)",
             "Lcom/android/systemui/statusbar/policy/NetworkControllerImpl_Factory;"
         }
@@ -418,17 +458,21 @@
 
     move-object/from16 v17, p16
 
-    new-instance v18, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl_Factory;
+    move-object/from16 v18, p17
 
-    move-object/from16 v0, v18
+    move-object/from16 v19, p18
 
-    invoke-direct/range {v0 .. v17}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    new-instance v20, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl_Factory;
 
-    return-object v18
+    move-object/from16 v0, v20
+
+    invoke-direct/range {v0 .. v19}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v20
 .end method
 
-.method public static newInstance(Landroid/content/Context;Landroid/os/Looper;Ljava/util/concurrent/Executor;Landroid/telephony/SubscriptionManager;Lcom/android/systemui/statusbar/policy/CallbackHandler;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/net/ConnectivityManager;Landroid/telephony/TelephonyManager;Lcom/android/systemui/telephony/TelephonyListenerManager;Landroid/net/wifi/WifiManager;Landroid/net/NetworkScoreManager;Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;Lcom/android/systemui/demomode/DemoModeController;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
-    .locals 19
+.method public static newInstance(Landroid/content/Context;Landroid/os/Looper;Ljava/util/concurrent/Executor;Landroid/telephony/SubscriptionManager;Lcom/android/systemui/statusbar/policy/CallbackHandler;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/net/ConnectivityManager;Landroid/telephony/TelephonyManager;Lcom/android/systemui/telephony/TelephonyListenerManager;Landroid/net/wifi/WifiManager;Landroid/net/NetworkScoreManager;Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;Lcom/android/systemui/demomode/DemoModeController;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/dump/DumpManager;Landroid/os/Handler;Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;)Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
+    .locals 21
 
     move-object/from16 v1, p0
 
@@ -464,19 +508,23 @@
 
     move-object/from16 v17, p16
 
-    new-instance v18, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
+    move-object/from16 v18, p17
 
-    move-object/from16 v0, v18
+    move-object/from16 v19, p18
 
-    invoke-direct/range {v0 .. v17}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;-><init>(Landroid/content/Context;Landroid/os/Looper;Ljava/util/concurrent/Executor;Landroid/telephony/SubscriptionManager;Lcom/android/systemui/statusbar/policy/CallbackHandler;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/net/ConnectivityManager;Landroid/telephony/TelephonyManager;Lcom/android/systemui/telephony/TelephonyListenerManager;Landroid/net/wifi/WifiManager;Landroid/net/NetworkScoreManager;Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;Lcom/android/systemui/demomode/DemoModeController;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/dump/DumpManager;)V
+    new-instance v20, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
-    return-object v18
+    move-object/from16 v0, v20
+
+    invoke-direct/range {v0 .. v19}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;-><init>(Landroid/content/Context;Landroid/os/Looper;Ljava/util/concurrent/Executor;Landroid/telephony/SubscriptionManager;Lcom/android/systemui/statusbar/policy/CallbackHandler;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/net/ConnectivityManager;Landroid/telephony/TelephonyManager;Lcom/android/systemui/telephony/TelephonyListenerManager;Landroid/net/wifi/WifiManager;Landroid/net/NetworkScoreManager;Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;Lcom/android/systemui/demomode/DemoModeController;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/dump/DumpManager;Landroid/os/Handler;Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;)V
+
+    return-object v20
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
-    .locals 19
+    .locals 21
 
     move-object/from16 v0, p0
 
@@ -640,17 +688,37 @@
 
     check-cast v17, Lcom/android/systemui/statusbar/FeatureFlags;
 
-    iget-object v0, v0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object/from16 v18, v1
+
+    check-cast v18, Lcom/android/systemui/dump/DumpManager;
+
+    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl_Factory;->handlerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object/from16 v19, v1
+
+    check-cast v19, Landroid/os/Handler;
+
+    iget-object v0, v0, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl_Factory;->internetDialogFactoryProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    move-object/from16 v18, v0
+    move-object/from16 v20, v0
 
-    check-cast v18, Lcom/android/systemui/dump/DumpManager;
+    check-cast v20, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;
 
-    invoke-static/range {v2 .. v18}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl_Factory;->newInstance(Landroid/content/Context;Landroid/os/Looper;Ljava/util/concurrent/Executor;Landroid/telephony/SubscriptionManager;Lcom/android/systemui/statusbar/policy/CallbackHandler;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/net/ConnectivityManager;Landroid/telephony/TelephonyManager;Lcom/android/systemui/telephony/TelephonyListenerManager;Landroid/net/wifi/WifiManager;Landroid/net/NetworkScoreManager;Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;Lcom/android/systemui/demomode/DemoModeController;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
+    invoke-static/range {v2 .. v20}, Lcom/android/systemui/statusbar/policy/NetworkControllerImpl_Factory;->newInstance(Landroid/content/Context;Landroid/os/Looper;Ljava/util/concurrent/Executor;Landroid/telephony/SubscriptionManager;Lcom/android/systemui/statusbar/policy/CallbackHandler;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/net/ConnectivityManager;Landroid/telephony/TelephonyManager;Lcom/android/systemui/telephony/TelephonyListenerManager;Landroid/net/wifi/WifiManager;Landroid/net/NetworkScoreManager;Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;Lcom/android/systemui/demomode/DemoModeController;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/dump/DumpManager;Landroid/os/Handler;Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;)Lcom/android/systemui/statusbar/policy/NetworkControllerImpl;
 
     move-result-object v0
 

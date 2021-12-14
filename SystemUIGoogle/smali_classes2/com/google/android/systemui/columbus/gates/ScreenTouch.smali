@@ -30,6 +30,8 @@
 
 .field private final powerState:Lcom/google/android/systemui/columbus/gates/PowerState;
 
+.field private final touchRegion:Landroid/graphics/RectF;
+
 
 # direct methods
 .method static constructor <clinit>()V
@@ -71,23 +73,57 @@
 
     iput-object p3, p0, Lcom/google/android/systemui/columbus/gates/ScreenTouch;->handler:Landroid/os/Handler;
 
-    new-instance p1, Lcom/google/android/systemui/columbus/gates/ScreenTouch$gateListener$1;
+    new-instance p2, Lcom/google/android/systemui/columbus/gates/ScreenTouch$gateListener$1;
 
-    invoke-direct {p1, p0}, Lcom/google/android/systemui/columbus/gates/ScreenTouch$gateListener$1;-><init>(Lcom/google/android/systemui/columbus/gates/ScreenTouch;)V
+    invoke-direct {p2, p0}, Lcom/google/android/systemui/columbus/gates/ScreenTouch$gateListener$1;-><init>(Lcom/google/android/systemui/columbus/gates/ScreenTouch;)V
 
-    iput-object p1, p0, Lcom/google/android/systemui/columbus/gates/ScreenTouch;->gateListener:Lcom/google/android/systemui/columbus/gates/ScreenTouch$gateListener$1;
+    iput-object p2, p0, Lcom/google/android/systemui/columbus/gates/ScreenTouch;->gateListener:Lcom/google/android/systemui/columbus/gates/ScreenTouch$gateListener$1;
 
-    new-instance p1, Lcom/google/android/systemui/columbus/gates/ScreenTouch$inputEventListener$1;
+    new-instance p2, Lcom/google/android/systemui/columbus/gates/ScreenTouch$inputEventListener$1;
 
-    invoke-direct {p1, p0}, Lcom/google/android/systemui/columbus/gates/ScreenTouch$inputEventListener$1;-><init>(Lcom/google/android/systemui/columbus/gates/ScreenTouch;)V
+    invoke-direct {p2, p0}, Lcom/google/android/systemui/columbus/gates/ScreenTouch$inputEventListener$1;-><init>(Lcom/google/android/systemui/columbus/gates/ScreenTouch;)V
 
-    iput-object p1, p0, Lcom/google/android/systemui/columbus/gates/ScreenTouch;->inputEventListener:Lcom/android/systemui/shared/system/InputChannelCompat$InputEventListener;
+    iput-object p2, p0, Lcom/google/android/systemui/columbus/gates/ScreenTouch;->inputEventListener:Lcom/android/systemui/shared/system/InputChannelCompat$InputEventListener;
 
-    new-instance p1, Lcom/google/android/systemui/columbus/gates/ScreenTouch$clearBlocking$1;
+    new-instance p2, Lcom/google/android/systemui/columbus/gates/ScreenTouch$clearBlocking$1;
 
-    invoke-direct {p1, p0}, Lcom/google/android/systemui/columbus/gates/ScreenTouch$clearBlocking$1;-><init>(Lcom/google/android/systemui/columbus/gates/ScreenTouch;)V
+    invoke-direct {p2, p0}, Lcom/google/android/systemui/columbus/gates/ScreenTouch$clearBlocking$1;-><init>(Lcom/google/android/systemui/columbus/gates/ScreenTouch;)V
 
-    iput-object p1, p0, Lcom/google/android/systemui/columbus/gates/ScreenTouch;->clearBlocking:Ljava/lang/Runnable;
+    iput-object p2, p0, Lcom/google/android/systemui/columbus/gates/ScreenTouch;->clearBlocking:Ljava/lang/Runnable;
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+
+    move-result-object p1
+
+    iget p2, p1, Landroid/util/DisplayMetrics;->density:F
+
+    const/16 p3, 0x20
+
+    int-to-float p3, p3
+
+    mul-float/2addr p2, p3
+
+    new-instance p3, Landroid/graphics/RectF;
+
+    iget v0, p1, Landroid/util/DisplayMetrics;->widthPixels:I
+
+    int-to-float v0, v0
+
+    sub-float/2addr v0, p2
+
+    iget p1, p1, Landroid/util/DisplayMetrics;->heightPixels:I
+
+    int-to-float p1, p1
+
+    sub-float/2addr p1, p2
+
+    invoke-direct {p3, p2, p2, v0, p1}, Landroid/graphics/RectF;-><init>(FFFF)V
+
+    iput-object p3, p0, Lcom/google/android/systemui/columbus/gates/ScreenTouch;->touchRegion:Landroid/graphics/RectF;
 
     return-void
 .end method
@@ -124,6 +160,42 @@
     return-void
 .end method
 
+.method private final isABlockingTouch(Landroid/view/MotionEvent;)Z
+    .locals 1
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object p0, p0, Lcom/google/android/systemui/columbus/gates/ScreenTouch;->touchRegion:Landroid/graphics/RectF;
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawX()F
+
+    move-result v0
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
+
+    move-result p1
+
+    invoke-virtual {p0, v0, p1}, Landroid/graphics/RectF;->contains(FF)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
+.end method
+
 .method private final onInputEvent(Landroid/view/InputEvent;)V
     .locals 2
 
@@ -144,13 +216,13 @@
     goto :goto_1
 
     :cond_1
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
+    invoke-direct {p0, p1}, Lcom/google/android/systemui/columbus/gates/ScreenTouch;->isABlockingTouch(Landroid/view/MotionEvent;)Z
 
     move-result v0
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_2
+    if-eqz v0, :cond_2
 
     iget-object p1, p0, Lcom/google/android/systemui/columbus/gates/ScreenTouch;->handler:Landroid/os/Handler;
 
@@ -279,6 +351,10 @@
     invoke-direct {p0}, Lcom/google/android/systemui/columbus/gates/ScreenTouch;->startListeningForTouch()V
 
     :cond_0
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/google/android/systemui/columbus/gates/Gate;->setBlocking(Z)V
+
     return-void
 .end method
 

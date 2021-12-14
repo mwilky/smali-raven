@@ -75,7 +75,7 @@
 
     sget v5, Lcom/android/systemui/R$id;->top_roundess_animator_start_tag:I
 
-    const-string v0, "topRoundness"
+    const-string/jumbo v0, "topRoundness"
 
     invoke-static/range {v0 .. v5}, Lcom/android/systemui/statusbar/notification/AnimatableProperty;->from(Ljava/lang/String;Ljava/util/function/BiConsumer;Ljava/util/function/Function;III)Lcom/android/systemui/statusbar/notification/AnimatableProperty;
 

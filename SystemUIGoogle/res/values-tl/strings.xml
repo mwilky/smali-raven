@@ -363,6 +363,7 @@ Kung naka-off ang pahintulot na ito, hindi gagana ang mga kasalukuyang alarm at 
     <string name="alarms_and_reminders_label">Mga alarm at paalala</string>
     <string name="alarms_and_reminders_switch_title">Payagan ang pagtakda ng mga alarm at paalala</string>
     <string name="alarms_and_reminders_title">Mga alarm at paalala</string>
+    <string name="all_network_unavailable">Walang available na network</string>
     <string name="allow_mock_location">Payagan ang mga kunwaring lokasyon</string>
     <string name="allow_mock_location_summary">Payagan ang mga kunwaring lokasyon</string>
     <string name="always_use_accessory">Palaging buksan ang %1$s kapag nakakonekta ang %2$s</string>
@@ -618,6 +619,11 @@ Bluetooth"</string>
     <string name="clock_title_analog">Analog</string>
     <string name="clock_title_bubble">Bubble</string>
     <string name="clock_title_default">Default</string>
+    <string name="columbus_bouncer_message">I-unlock para tapusin ang Quick Tap</string>
+    <string name="columbus_target_request_dialog_allow">Payagan</string>
+    <string name="columbus_target_request_dialog_deny">Huwag payagan</string>
+    <string name="columbus_target_request_dialog_summary">Kapag na-double tap mo ang likod ng iyong telepono, bubukas ang %1$s. Mababago mo ang kagustuhang ito anumang oras sa Mga Setting.</string>
+    <string name="columbus_target_request_dialog_title">Payagan ang Quick Tap na buksan ang %1$s?</string>
     <string name="compat_mode_off">I-stretch upang mapuno screen</string>
     <string name="compat_mode_on">I-zoom upang punan screen</string>
     <string name="confirm_enable_oem_unlock_text">BABALA: Hindi gagana ang mga feature sa pagprotekta sa device na ito habang naka-on ang setting na ito.</string>
@@ -740,6 +746,8 @@ Kung magpapatuloy ka, maaaring may mga singil sa paggamit ng data."</string>
     <string name="defender_notify_learn_more">Matuto pa</string>
     <string name="defender_notify_resume_charge">Ituloy ang pag-charge</string>
     <string name="defender_notify_title">Pansamantalang limitado ang pag-charge</string>
+    <string name="defender_post_notify_des">Nilimitahan sa %1$s ang pag-charge mula %2$s hanggang %3$s para mapanatili ang tagal ng baterya</string>
+    <string name="defender_post_notify_title">Nagcha-charge nang normal</string>
     <string name="delete_blob_confirmation_text">Sigurado ka bang gusto mong i-delete ang pinaghahatiang data na ito?</string>
     <string name="delete_blob_text">I-delete ang pinaghahatiang data</string>
     <string name="demo_mode">Demo mode ng System UI</string>
@@ -885,6 +893,7 @@ Permanente at secure na made-delete ang face data na ginagamit ng Pag-unlock Gam
     <string name="game_status">Nagpe-play</string>
     <string name="global_action_lock_message">I-unlock ang iyong telepono para sa higit pang opsyon</string>
     <string name="global_action_screenshot">Screenshot</string>
+    <string name="global_action_smart_lock_disabled">Naka-disable ang Smart Lock</string>
     <string name="global_actions_change_description">Para i-access ang %1$s at mga kontrol ng device, mag-swipe pababa mula sa itaas ng iyong screen</string>
     <string name="go_to_web">Pumunta sa browser</string>
     <string name="google_services_wallpaper_permission"><b>Payagan ang mga Live na wallpaper ng Google na tumugon sa iyong lokasyon</b> sa pamamagitan ng pag-a-access ng serbisyo ng lokasyon ng Google.</string>
@@ -1232,7 +1241,7 @@ Subukang muli sa loob ng %2$d (na) segundo."</string>
     <string name="media_projection_dialog_text">Magkakaroon ng access ang %s sa lahat ng impormasyong nakikita sa iyong screen o pine-play mula sa device mo habang nagre-record o nagka-cast. Kasama rito ang impormasyong tulad ng mga password, detalye ng pagbabayad, larawan, mensahe, at audio na pine-play mo.</string>
     <string name="media_projection_dialog_title">Simulang mag-record o mag-cast gamit ang %s?</string>
     <string name="media_projection_remember_text">Huwag ipakitang muli</string>
-    <string name="media_seamless_remote_device">Device</string>
+    <string name="media_seamless_other_device">Iba pang device</string>
     <string name="media_transfer_this_device_name">Speaker ng telepono</string>
     <string name="media_transfer_this_phone">Ang teleponong ito</string>
     <string name="media_transfer_wired_device_name">Wired na audio device</string>
@@ -1249,9 +1258,13 @@ Subukang muli sa loob ng %2$d (na) segundo."</string>
     <string name="mobile_data">Mobile data</string>
     <string name="mobile_data_always_on">Palaging aktibo ang mobile data</string>
     <string name="mobile_data_always_on_summary">Palaging panatilihing aktibo ang mobile data, kahit na aktibo ang Wi‑Fi (para sa mabilis na paglipat ng network).</string>
+    <string name="mobile_data_connection_active">Nakakonekta</string>
     <string name="mobile_data_disable_message">Hindi ka magkaka-access sa data o internet sa pamamagitan ng %s. Available lang ang internet sa pamamagitan ng Wi-Fi.</string>
     <string name="mobile_data_disable_message_default_carrier">ang iyong carrier</string>
     <string name="mobile_data_disable_title">I-off ang mobile data?</string>
+    <string name="mobile_data_no_connection">Walang koneksyon</string>
+    <string name="mobile_data_off_summary">Hindi awtomatikong kokonekta ang mobile data</string>
+    <string name="mobile_data_settings_title">Mobile data</string>
     <string name="mobile_data_text_format">%1$s — %2$s</string>
     <string name="mock_location_app">Pumili ng app para sa kunwaring lokasyon</string>
     <string name="mock_location_app_not_set">Walang nakatakdang app para sa kunwaring lokasyon</string>
@@ -1391,6 +1404,7 @@ Kung mayroon kang mga tanong, makipag-ugnayan sa %2$s."</string>
     <string name="no_content_in_select_mode">Walang text o larawang pipiliin</string>
     <string name="no_conversations_text">Lalabas dito ang mga kamakailan mong pag-uusap</string>
     <string name="no_shortcut">Hindi sinusuportahan ng %1$s ang mga feature ng pag-uusap</string>
+    <string name="non_carrier_network_unavailable">Walang available na iba pang network</string>
     <string name="not_default_data_content_description">Hindi nakatakdang gumamit ng data</string>
     <string name="not_set">Hindi nakatakda</string>
     <string name="notif_inline_reply_remove_attachment_description">Alisin ang attachment</string>
@@ -1571,6 +1585,7 @@ Kung mayroon kang mga tanong, makipag-ugnayan sa %2$s."</string>
     <string name="power_remaining_only_more_than_subtext">Mahigit %1$s pa ang natitira</string>
     <string name="power_remaining_settings_home_page">%1$s - %2$s</string>
     <string name="power_suggestion_battery_run_out">Baka maubos ang baterya sa loob ng %1$s</string>
+    <string name="pref_title_network_details">Mga detalye ng network</string>
     <string name="preference_copied">Nakopya sa clipboard ang \"%1$s.\"</string>
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="priority_conversations">Mga priyoridad na pag-uusap</string>
@@ -1740,6 +1755,7 @@ Kung mayroon kang mga tanong, makipag-ugnayan sa %2$s."</string>
     <string name="right_keycode">Kanang keycode</string>
     <string name="right_nav_bar_button_type">Uri ng extra na button ng kanan</string>
     <string name="ring_toggle_title">Mga Tawag</string>
+    <string name="rotation_lock_camera_rotation_on">Naka-on - Batay sa mukha</string>
     <string name="running_foreground_services_msg">I-tap para sa mga detalye tungkol sa paggamit ng baterya at data</string>
     <string name="running_foreground_services_title">Tumatakbo ang mga app sa background</string>
     <string name="running_process_item_user_label">User: %1$s</string>
@@ -1814,6 +1830,7 @@ Kung mayroon kang mga tanong, makipag-ugnayan sa %2$s."</string>
     <string name="screenshot_top_boundary_pct">%1$d (na) porsyento sa hangganan sa itaas</string>
     <string name="search_menu">Maghanap sa mga setting</string>
     <string name="search_menu_title">Maghanap</string>
+    <string name="see_all_networks">Tingnan lahat</string>
     <string name="see_more_title">Tumingin pa</string>
     <string name="select_application">Pumili ng application</string>
     <string name="select_conversation_text">Mag-tap sa isang pag-uusap para idagdag ito sa iyong Home screen</string>
@@ -1926,6 +1943,7 @@ sinusubaybayan ang network"</string>
     <string name="switch_bar_off">I-off</string>
     <string name="switch_bar_on">I-on</string>
     <string name="system_ui_tuner">Tuner ng System UI</string>
+    <string name="tap_a_network_to_connect">Mag-tap ng network para kumonekta</string>
     <string name="tap_again">I-tap ulit</string>
     <string name="tap_to_sign_up">I-tap para mag-sign up</string>
     <string name="tether_settings_title_all">Pag-tether at portable hotspot</string>
@@ -1951,6 +1969,7 @@ Mag-tap para sa higit pang impormasyon"</string>
     <string name="time_unit_just_now">Ngayon lang</string>
     <string name="title_convert_fbe">Kino-convert sa pag-encrypt na batay sa file</string>
     <string name="title_usb_accessory">USB accessory</string>
+    <string name="to_switch_networks_disconnect_ethernet">Para lumipat ng network, idiskonekta ang ethernet</string>
     <string name="too_hot_label">Masyadong mainit ang pixel</string>
     <string name="touch_filtered_warning">Hindi ma-verify ng Mga Setting ang iyong tugon dahil may app na tumatakip sa isang kahilingan sa pagpapahintulot.</string>
     <string name="track_frame_time">Rendering ng Profile HWUI</string>
@@ -2009,10 +2028,12 @@ Mag-tap para sa higit pang impormasyon"</string>
     <string name="tuner_toast">Binabati kita! Naidagdag na ang Tuner ng System UI sa Mga Setting</string>
     <string name="tuner_warning">Nagbibigay sa iyo ang Tuner ng System UI ng mga karagdagang paraan upang baguhin at i-customize ang user interface ng Android. Ang mga pang-eksperimentong feature na ito ay maaaring magbago, masira o mawala sa mga pagpapalabas sa hinaharap. Magpatuloy nang may pag-iingat.</string>
     <string name="tuner_warning_title">Masaya para sa ilan ngunit hindi para sa lahat</string>
+    <string name="turn_on_wifi">Wi‑Fi</string>
     <string name="tv_notification_panel_no_notifications">Walang Notification</string>
     <string name="tv_notification_panel_title">Mga Notification</string>
     <string name="two_weeks_timestamp">2 linggo na</string>
     <string name="unknown">Hindi Kilala</string>
+    <string name="unlock_to_view_networks">I-unlock para tingnan ang mga network</string>
     <string name="upcoming_birthday_status">Kaarawang paparating</string>
     <string name="upcoming_birthday_status_content_description">Malapit na ang kaarawan ni %1$s</string>
     <string name="url_menu_copy">Kopyahin</string>
@@ -2151,9 +2172,11 @@ Address ng Wi‑Fi (BSSID)
     <string name="wifi_disconnected">Nadiskonekta</string>
     <string name="wifi_display_certification">Certification ng wireless display</string>
     <string name="wifi_display_certification_summary">Ipakita ang mga opsyon para sa certification ng wireless display</string>
+    <string name="wifi_empty_list_wifi_on">Naghahanap ng mga network…</string>
     <string name="wifi_enhanced_mac_randomization">Pag-randomize sa MAC ng hindi persistent na Wi‑Fi</string>
     <string name="wifi_enhanced_mac_randomization_summary">Kapag naka-enable ang mode na ito, puwedeng magbago ang MAC address ng device na ito sa tuwing kokonekta ito sa isang network na may naka-enable na MAC randomization.</string>
     <string name="wifi_fail_to_scan">Hindi makapag-scan ng mga network</string>
+    <string name="wifi_failed_connect_message">Hind nakakonekta sa network</string>
     <string name="wifi_hotspot_switch_off_text">Naka-off</string>
     <string name="wifi_hotspot_switch_on_text">Naka-on</string>
     <string name="wifi_is_off">Naka-off ang Wi-Fi</string>
@@ -2164,6 +2187,7 @@ Address ng Wi‑Fi (BSSID)
     <string name="wifi_not_in_range">Wala sa sakop</string>
     <string name="wifi_passpoint_expired">Nag-expire na</string>
     <string name="wifi_remembered">Na-save</string>
+    <string name="wifi_scan_notify_message">Para pahusayin ang karanasan sa device, puwede pa ring mag-scan ng mga Wi-Fi network ang mga app at serbisyo anumang oras, kahit habang naka-off ang Wi‑Fi. Mababago mo ito sa mga setting ng pag-scan ng Wi-Fi. <annotation id="link">Baguhin</annotation></string>
     <string name="wifi_scan_throttling">Pag-throttle ng pag-scan ng Wi‑Fi</string>
     <string name="wifi_scan_throttling_summary">Binabawasan ang pagkaubos ng baterya at pinapahusay ang performance ng network</string>
     <string name="wifi_security_none">Wala</string>
@@ -2173,6 +2197,7 @@ Address ng Wi‑Fi (BSSID)
     <string name="wifi_unmetered_label">Hindi Nakametro</string>
     <string name="wifi_verbose_logging">I-enable ang Pagla-log sa Wi‑Fi Verbose</string>
     <string name="wifi_verbose_logging_summary">Pataasin ang antas ng Wi‑Fi logging, ipakita sa bawat SSID RSSI sa Wi‑Fi Picker</string>
+    <string name="wifi_wont_autoconnect_for_now">Hindi awtomatikong kokonekta ang Wi-Fi sa ngayon</string>
     <string name="wifitrackerlib_auto_connect_disable">Naka-off ang Auto-connect</string>
     <string name="wifitrackerlib_available_via_app">Available sa pamamagitan ng %1$s</string>
     <string name="wifitrackerlib_connected_via_app">Nakakonekta sa pamamagitan ng %1$s</string>
