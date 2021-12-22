@@ -8,6 +8,10 @@
 
 
 # instance fields
+.field public mSignalIconColor:I
+
+.field public mDarkIconColor:I
+
 .field private mDotView:Lcom/android/systemui/statusbar/StatusBarIconView;
 
 .field private mDualToneHandler:Lcom/android/systemui/DualToneHandler;
@@ -242,6 +246,12 @@
     invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/StatusBarMobileView;->initDotView()V
+    
+    const/4 v0, 0x0
+
+    int-to-float v0, v0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/StatusBarMobileView;->updateViews(F)V
 
     return-void
 .end method
@@ -917,14 +927,23 @@
 .end method
 
 .method public onDarkChanged(Landroid/graphics/Rect;FI)V
-    .locals 2
+    .locals 4
 
     invoke-static {p1, p0}, Lcom/android/systemui/plugins/DarkIconDispatcher;->isInArea(Landroid/graphics/Rect;Landroid/view/View;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
+    
+    float-to-int v2, p2
+    
+    iget p2, p0, Lcom/android/systemui/statusbar/StatusBarMobileView;->mDarkIconColor:I
+    
+    if-nez v2, :cond_dark
+    
+    iget p2, p0, Lcom/android/systemui/statusbar/StatusBarMobileView;->mSignalIconColor:I
 
+    :cond_dark
     goto :goto_0
 
     :cond_0
@@ -933,25 +952,13 @@
     :goto_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarMobileView;->mMobileDrawable:Lcom/android/settingslib/graph/SignalDrawable;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/StatusBarMobileView;->mDualToneHandler:Lcom/android/systemui/DualToneHandler;
-
-    invoke-virtual {v1, p2}, Lcom/android/systemui/DualToneHandler;->getSingleColor(F)I
-
-    move-result p2
-
     invoke-static {p2}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
 
     move-result-object p2
 
     invoke-virtual {v0, p2}, Lcom/android/settingslib/graph/SignalDrawable;->setTintList(Landroid/content/res/ColorStateList;)V
 
-    invoke-static {p1, p0, p3}, Lcom/android/systemui/plugins/DarkIconDispatcher;->getTint(Landroid/graphics/Rect;Landroid/view/View;I)I
-
-    move-result p1
-
-    invoke-static {p1}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
-
-    move-result-object p1
+    move-object p1, p2
 
     iget-object p2, p0, Lcom/android/systemui/statusbar/StatusBarMobileView;->mIn:Landroid/widget/ImageView;
 
@@ -1124,4 +1131,71 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public updateViews(F)V
+	.locals 1
+
+	invoke-virtual {p0}, Lcom/android/systemui/statusbar/StatusBarMobileView;->readRenovateMods()V
+
+	return-void
+.end method
+
+.method public readRenovateMods()V
+    .locals 1
+
+    sget v0, Lcom/android/mwilky/Renovate;->mSignalIconColor:I
+
+    iput v0, p0, Lcom/android/systemui/statusbar/StatusBarMobileView;->mSignalIconColor:I
+
+    sget v0, Lcom/android/mwilky/Renovate;->mDarkIconColor:I
+
+    iput v0, p0, Lcom/android/systemui/statusbar/StatusBarMobileView;->mDarkIconColor:I
+
+    return-void
+.end method
+
+.method public getIconColor(Ljava/lang/String;)I
+    .locals 2
+
+    .line 125
+    const-string v0, "statusbar"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_a
+
+    .line 126
+    sget v0, Lcom/android/mwilky/Renovate;->mSignalIconColor:I
+    
+    iput v0, p0, Lcom/android/systemui/statusbar/StatusBarMobileView;->mSignalIconColor:I
+
+    return v0
+
+    .line 127
+    :cond_a
+    const-string v0, "qs"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_14
+
+    .line 128
+    sget v0, Lcom/android/mwilky/Renovate;->mQsSignalIconColor:I
+    
+    iput v0, p0, Lcom/android/systemui/statusbar/StatusBarMobileView;->mSignalIconColor:I
+
+    return v0
+
+    .line 130
+    :cond_14
+    sget v0, Lcom/android/mwilky/Renovate;->mLsSignalIconColor:I
+    
+    iput v0, p0, Lcom/android/systemui/statusbar/StatusBarMobileView;->mSignalIconColor:I
+
+    return v0
 .end method

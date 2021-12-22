@@ -18,6 +18,8 @@
 
 
 # instance fields
+.field protected mTag:Ljava/lang/String;
+
 .field protected mBlockList:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -86,6 +88,16 @@
     move-result p1
 
     iput p1, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController$IconManager;->mIconSize:I
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/view/ViewGroup;Lcom/android/systemui/statusbar/FeatureFlags;Ljava/lang/String;)V
+    .locals 1
+    
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/phone/StatusBarIconController$IconManager;-><init>(Landroid/view/ViewGroup;Lcom/android/systemui/statusbar/FeatureFlags;)V
+
+    iput-object p3, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController$IconManager;->mTag:Ljava/lang/String;
 
     return-void
 .end method

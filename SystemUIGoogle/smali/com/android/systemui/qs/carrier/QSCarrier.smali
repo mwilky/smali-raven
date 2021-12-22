@@ -195,11 +195,15 @@
 .end method
 
 .method public setCarrierText(Ljava/lang/CharSequence;)V
-    .locals 0
+    .locals 2
 
-    iget-object p0, p0, Lcom/android/systemui/qs/carrier/QSCarrier;->mCarrierText:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/android/systemui/qs/carrier/QSCarrier;->mCarrierText:Landroid/widget/TextView;
 
-    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    
+    sget v1, Lcom/android/mwilky/Renovate;->mQsCarrierTextColor:I
+    
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
 
     return-void
 .end method

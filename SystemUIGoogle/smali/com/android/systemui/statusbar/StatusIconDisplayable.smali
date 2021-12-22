@@ -42,3 +42,14 @@
 
 .method public abstract setVisibleState(IZ)V
 .end method
+
+.method public updateViews(F)V
+    .registers 6
+    .param p1, "f"    # F
+
+    .line 161
+    return-void
+.end method
+
+.method public abstract getIconColor(Ljava/lang/String;)I
+.end method

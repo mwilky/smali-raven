@@ -11,6 +11,10 @@
 
 
 # instance fields
+.field private mDarkIconColor:I
+
+.field private mClockColor:I
+
 .field private final mAmPmStyle:I
 
 .field private mAttached:Z
@@ -925,6 +929,12 @@
     invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/Clock;->updateClockVisibility()V
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/Clock;->updateShowSeconds()V
+    
+    const/4 v0, 0x0
+
+    int-to-float v0, v0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/Clock;->updateViews(F)V
 
     return-void
 .end method
@@ -960,12 +970,17 @@
 .end method
 
 .method public onDarkChanged(Landroid/graphics/Rect;FI)V
-    .locals 0
+    .locals 1
 
-    invoke-static {p1, p0, p3}, Lcom/android/systemui/plugins/DarkIconDispatcher;->getTint(Landroid/graphics/Rect;Landroid/view/View;I)I
+    float-to-int v0, p2
 
-    move-result p1
+    iget p1, p0, Lcom/android/systemui/statusbar/policy/Clock;->mDarkIconColor:I
 
+    if-nez v0, :cond_mw
+
+    iget p1, p0, Lcom/android/systemui/statusbar/policy/Clock;->mClockColor:I
+
+    :cond_mw
     iput p1, p0, Lcom/android/systemui/statusbar/policy/Clock;->mNonAdaptedColor:I
 
     invoke-virtual {p0, p1}, Landroid/widget/TextView;->setTextColor(I)V
@@ -1334,6 +1349,32 @@
     move-result-object v0
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setContentDescription(Ljava/lang/CharSequence;)V
+
+    return-void
+.end method
+
+.method public updateViews(F)V
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/Clock;->readRenovateMods()V
+
+    iget v0, p0, Lcom/android/systemui/statusbar/policy/Clock;->mClockColor:I
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/Clock;->setTextColor(I)V
+
+    return-void
+.end method
+
+.method public readRenovateMods()V
+    .locals 1
+
+    sget v0, Lcom/android/mwilky/Renovate;->mClockColor:I
+
+    iput v0, p0, Lcom/android/systemui/statusbar/policy/Clock;->mClockColor:I
+
+    sget v0, Lcom/android/mwilky/Renovate;->mDarkIconColor:I
+
+    iput v0, p0, Lcom/android/systemui/statusbar/policy/Clock;->mDarkIconColor:I
 
     return-void
 .end method

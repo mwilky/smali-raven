@@ -8,6 +8,10 @@
 
 
 # instance fields
+.field public mWifiIconColor:I
+
+.field public mDarkIconColor:I
+
 .field private mAirplaneSpacer:Landroid/view/View;
 
 .field private mDotView:Lcom/android/systemui/statusbar/StatusBarIconView;
@@ -176,6 +180,12 @@
     iput-object v0, p0, Lcom/android/systemui/statusbar/StatusBarWifiView;->mInoutContainer:Landroid/view/View;
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/StatusBarWifiView;->initDotView()V
+    
+    const/4 v0, 0x0
+
+    int-to-float v0, v0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/StatusBarWifiView;->updateViews(F)V
 
     return-void
 .end method
@@ -710,16 +720,21 @@
 .end method
 
 .method public onDarkChanged(Landroid/graphics/Rect;FI)V
-    .locals 0
+    .locals 2
 
-    invoke-static {p1, p0, p3}, Lcom/android/systemui/plugins/DarkIconDispatcher;->getTint(Landroid/graphics/Rect;Landroid/view/View;I)I
+    float-to-int v0, p2
+    
+    iget p2, p0, Lcom/android/systemui/statusbar/StatusBarWifiView;->mDarkIconColor:I
+    
+    if-nez v0, :cond_dark
+    
+    iget p2, p0, Lcom/android/systemui/statusbar/StatusBarWifiView;->mWifiIconColor:I
 
-    move-result p1
-
-    invoke-static {p1}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+    :cond_dark
+    invoke-static {p2}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
 
     move-result-object p2
-
+    
     iget-object p3, p0, Lcom/android/systemui/statusbar/StatusBarWifiView;->mWifiIcon:Landroid/widget/ImageView;
 
     invoke-virtual {p3, p2}, Landroid/widget/ImageView;->setImageTintList(Landroid/content/res/ColorStateList;)V
@@ -733,7 +748,14 @@
     invoke-virtual {p3, p2}, Landroid/widget/ImageView;->setImageTintList(Landroid/content/res/ColorStateList;)V
 
     iget-object p2, p0, Lcom/android/systemui/statusbar/StatusBarWifiView;->mDotView:Lcom/android/systemui/statusbar/StatusBarIconView;
-
+    
+    iget p1, p0, Lcom/android/systemui/statusbar/StatusBarWifiView;->mDarkIconColor:I
+    
+    if-nez v0, :cond_dark2
+    
+    iget p1, p0, Lcom/android/systemui/statusbar/StatusBarWifiView;->mWifiIconColor:I
+    
+    :cond_dark2
     invoke-virtual {p2, p1}, Lcom/android/systemui/statusbar/StatusBarIconView;->setDecorColor(I)V
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/StatusBarWifiView;->mDotView:Lcom/android/systemui/statusbar/StatusBarIconView;
@@ -877,4 +899,71 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public updateViews(F)V
+	.locals 1
+
+	invoke-virtual {p0}, Lcom/android/systemui/statusbar/StatusBarWifiView;->readRenovateMods()V
+
+	return-void
+.end method
+
+.method public readRenovateMods()V
+    .locals 1
+
+    sget v0, Lcom/android/mwilky/Renovate;->mWifiIconColor:I
+
+    iput v0, p0, Lcom/android/systemui/statusbar/StatusBarWifiView;->mWifiIconColor:I
+
+    sget v0, Lcom/android/mwilky/Renovate;->mDarkIconColor:I
+
+    iput v0, p0, Lcom/android/systemui/statusbar/StatusBarWifiView;->mDarkIconColor:I
+
+    return-void
+.end method
+
+.method public getIconColor(Ljava/lang/String;)I
+    .locals 2
+
+    .line 125
+    const-string v0, "statusbar"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_a
+
+    .line 126
+    sget v0, Lcom/android/mwilky/Renovate;->mWifiIconColor:I
+    
+    iput v0, p0, Lcom/android/systemui/statusbar/StatusBarWifiView;->mWifiIconColor:I
+
+    return v0
+
+    .line 127
+    :cond_a
+    const-string v0, "qs"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_14
+
+    .line 128
+    sget v0, Lcom/android/mwilky/Renovate;->mQsWifiIconColor:I
+    
+    iput v0, p0, Lcom/android/systemui/statusbar/StatusBarWifiView;->mWifiIconColor:I
+
+    return v0
+
+    .line 130
+    :cond_14
+    sget v0, Lcom/android/mwilky/Renovate;->mLsWifiIconColor:I
+    
+    iput v0, p0, Lcom/android/systemui/statusbar/StatusBarWifiView;->mWifiIconColor:I
+
+    return v0
 .end method

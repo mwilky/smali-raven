@@ -4,6 +4,10 @@
 
 
 # instance fields
+.field private mDarkIconColor:I
+
+.field private mNotificationIconColor:I
+
 .field private final mIconDrawingRect:Landroid/graphics/Rect;
 
 .field private mIconPlaceholder:Landroid/view/View;
@@ -199,15 +203,22 @@
 .end method
 
 .method public onDarkChanged(Landroid/graphics/Rect;FI)V
-    .locals 0
+    .locals 3
+    
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->readRenovateMods()V
 
-    iget-object p2, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mTextView:Landroid/widget/TextView;
+    float-to-int v2, p2
 
-    invoke-static {p1, p0, p3}, Lcom/android/systemui/plugins/DarkIconDispatcher;->getTint(Landroid/graphics/Rect;Landroid/view/View;I)I
+    iget-object v0, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mTextView:Landroid/widget/TextView;
 
-    move-result p0
+    iget v1, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mDarkIconColor:I
 
-    invoke-virtual {p2, p0}, Landroid/widget/TextView;->setTextColor(I)V
+    if-nez v2, :cond_0
+
+    iget v1, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mNotificationIconColor:I
+
+    :cond_0
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
 
     return-void
 .end method
@@ -234,6 +245,8 @@
     check-cast v0, Landroid/widget/TextView;
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mTextView:Landroid/widget/TextView;
+    
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->readRenovateMods()V
 
     return-void
 .end method
@@ -428,6 +441,20 @@
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mOnDrawingRectChangedListener:Ljava/lang/Runnable;
+
+    return-void
+.end method
+
+.method public readRenovateMods()V
+    .locals 1
+
+    sget v0, Lcom/android/mwilky/Renovate;->mNotificationIconColor:I
+
+    iput v0, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mNotificationIconColor:I
+
+    sget v0, Lcom/android/mwilky/Renovate;->mDarkIconColor:I
+
+    iput v0, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mDarkIconColor:I
 
     return-void
 .end method

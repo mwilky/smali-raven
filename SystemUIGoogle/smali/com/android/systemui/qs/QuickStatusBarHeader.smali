@@ -32,7 +32,7 @@
 
 .field private mDatePrivacyView:Landroid/view/View;
 
-.field private mDateView:Landroid/view/View;
+.field private mDateView:Lcom/android/systemui/statusbar/policy/VariableDateView;
 
 .field private mExpanded:Z
 
@@ -452,7 +452,7 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDateView:Landroid/view/View;
+    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDateView:Lcom/android/systemui/statusbar/policy/VariableDateView;
 
     const/4 v3, 0x3
 
@@ -1207,8 +1207,10 @@
     invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
+    
+    check-cast v0, Lcom/android/systemui/statusbar/policy/VariableDateView;
 
-    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDateView:Landroid/view/View;
+    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDateView:Lcom/android/systemui/statusbar/policy/VariableDateView;
 
     sget v0, Lcom/android/systemui/R$id;->date_clock:I
 
@@ -1600,8 +1602,8 @@
     return-void
 .end method
 
-.method updateResources()V
-    .locals 3
+.method public updateResources()V
+    .locals 4
 
     iget-object v0, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
 
@@ -1711,29 +1713,21 @@
     :goto_0
     invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    iget-object v0, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
-
-    const v1, 0x1010036
-
-    invoke-static {v0, v1}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
-
-    move-result v0
-
-    iget v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mTextColorPrimary:I
-
-    if-eq v0, v1, :cond_2
-
-    iget-object v1, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
-
-    const v2, 0x1010038
-
-    invoke-static {v1, v2}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
-
-    move-result v1
-
-    iput v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mTextColorPrimary:I
-
     iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mClockView:Lcom/android/systemui/statusbar/policy/Clock;
+    
+    sget v0, Lcom/android/mwilky/Renovate;->mQsClockColor:I
+
+    invoke-virtual {v2, v0}, Landroid/widget/TextView;->setTextColor(I)V
+    
+    iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDateView:Lcom/android/systemui/statusbar/policy/VariableDateView;
+    
+    sget v0, Lcom/android/mwilky/Renovate;->mQsDateColor:I
+
+    invoke-virtual {v2, v0}, Landroid/widget/TextView;->setTextColor(I)V
+    
+    iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mClockDateView:Lcom/android/systemui/statusbar/policy/VariableDateView;
+    
+    sget v0, Lcom/android/mwilky/Renovate;->mQsDateColor:I
 
     invoke-virtual {v2, v0}, Landroid/widget/TextView;->setTextColor(I)V
 
@@ -1747,8 +1741,12 @@
     iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBatteryRemainingIcon:Lcom/android/systemui/BatteryMeterView;
 
     iget v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mTextColorPrimary:I
+    
+    sget v1, Lcom/android/mwilky/Renovate;->mQsBatteryIconColor:I
+    
+    sget v3, Lcom/android/mwilky/Renovate;->mQsBatteryPercentColor:I
 
-    invoke-virtual {v0, v2, v1, v2}, Lcom/android/systemui/BatteryMeterView;->updateColors(III)V
+    invoke-virtual {v0, v2, v2, v1, v3}, Lcom/android/systemui/BatteryMeterView;->updateColors(IIII)V
 
     :cond_2
     iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mHeaderQsPanel:Lcom/android/systemui/qs/QuickQSPanel;
@@ -1787,3 +1785,4 @@
 
     return-void
 .end method
+

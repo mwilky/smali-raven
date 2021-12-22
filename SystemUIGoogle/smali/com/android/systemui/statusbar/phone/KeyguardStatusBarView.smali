@@ -10,6 +10,10 @@
 
 
 # instance fields
+.field private mLsBatteryPercentColor:I
+
+.field private mLsBatteryIconColor:I
+
 .field private mAnimationScheduler:Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;
 
 .field private mBatteryCharging:Z
@@ -348,7 +352,7 @@
 .end method
 
 .method private updateIconsAndTextColors()V
-    .locals 6
+    .locals 7
 
     iget-object v0, p0, Landroid/widget/RelativeLayout;->mContext:Landroid/content/Context;
 
@@ -397,8 +401,10 @@
 
     :goto_1
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mCarrierLabel:Landroid/widget/TextView;
+    
+    sget v6, Lcom/android/mwilky/Renovate;->mLsCarrierTextColor:I
 
-    invoke-virtual {v2, v1}, Landroid/widget/TextView;->setTextColor(I)V
+    invoke-virtual {v2, v6}, Landroid/widget/TextView;->setTextColor(I)V
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mIconManager:Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;
 
@@ -407,12 +413,6 @@
     invoke-virtual {v2, v1}, Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;->setTint(I)V
 
     :cond_2
-    sget v2, Lcom/android/systemui/R$id;->battery:I
-
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mEmptyRect:Landroid/graphics/Rect;
-
-    invoke-direct {p0, v2, v3, v0, v1}, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->applyDarkness(ILandroid/graphics/Rect;FI)V
-
     sget v2, Lcom/android/systemui/R$id;->clock:I
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mEmptyRect:Landroid/graphics/Rect;
@@ -1124,7 +1124,7 @@
 .end method
 
 .method protected onAttachedToWindow()V
-    .locals 3
+    .locals 4
 
     invoke-super {p0}, Landroid/widget/RelativeLayout;->onAttachedToWindow()V
 
@@ -1161,8 +1161,10 @@
     check-cast v1, Landroid/view/ViewGroup;
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mFeatureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
+    
+    const-string v3, "keyguard"
 
-    invoke-direct {v0, v1, v2}, Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;-><init>(Landroid/view/ViewGroup;Lcom/android/systemui/statusbar/FeatureFlags;)V
+    invoke-direct {v0, v1, v2, v3}, Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;-><init>(Landroid/view/ViewGroup;Lcom/android/systemui/statusbar/FeatureFlags;Ljava/lang/String;)V
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mIconManager:Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;
 
@@ -1596,14 +1598,20 @@
 .end method
 
 .method public onThemeChanged()V
-    .locals 2
+    .locals 4
+    
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->readRenovateMods()V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mBatteryView:Lcom/android/systemui/BatteryMeterView;
 
-    iget-object v1, p0, Landroid/widget/RelativeLayout;->mContext:Landroid/content/Context;
+    const/4 v1, -0x1
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/BatteryMeterView;->setColorsFromContext(Landroid/content/Context;)V
+    iget v2, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mLsBatteryIconColor:I
+    
+    iget v3, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mLsBatteryPercentColor:I
 
+    invoke-virtual {v0, v1, v1, v2, v3}, Lcom/android/systemui/BatteryMeterView;->updateColors(IIII)V
+  
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->updateIconsAndTextColors()V
 
     const-class p0, Lcom/android/systemui/statusbar/policy/UserInfoController;
@@ -1724,5 +1732,19 @@
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->updateSystemIconsLayoutParams()V
 
     :goto_0
+    return-void
+.end method
+
+.method public readRenovateMods()V
+    .locals 1
+    
+    sget v0, Lcom/android/mwilky/Renovate;->mLsBatteryPercentColor:I
+    
+    iput v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mLsBatteryPercentColor:I
+    
+    sget v0, Lcom/android/mwilky/Renovate;->mLsBatteryIconColor:I
+    
+    iput v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mLsBatteryIconColor:I
+	
     return-void
 .end method
