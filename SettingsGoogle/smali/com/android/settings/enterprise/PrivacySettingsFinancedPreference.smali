@@ -1,0 +1,144 @@
+.class public Lcom/android/settings/enterprise/PrivacySettingsFinancedPreference;
+.super Ljava/lang/Object;
+.source "PrivacySettingsFinancedPreference.java"
+
+# interfaces
+.implements Lcom/android/settings/enterprise/PrivacySettingsPreference;
+
+
+# instance fields
+.field private final mContext:Landroid/content/Context;
+
+
+# direct methods
+.method public constructor <init>(Landroid/content/Context;)V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/settings/enterprise/PrivacySettingsFinancedPreference;->mContext:Landroid/content/Context;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public createPreferenceControllers(Z)Ljava/util/List;
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(Z)",
+            "Ljava/util/List<",
+            "Lcom/android/settingslib/core/AbstractPreferenceController;",
+            ">;"
+        }
+    .end annotation
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    new-instance v1, Lcom/android/settings/enterprise/NetworkLogsPreferenceController;
+
+    iget-object v2, p0, Lcom/android/settings/enterprise/PrivacySettingsFinancedPreference;->mContext:Landroid/content/Context;
+
+    invoke-direct {v1, v2}, Lcom/android/settings/enterprise/NetworkLogsPreferenceController;-><init>(Landroid/content/Context;)V
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    new-instance v1, Lcom/android/settings/enterprise/BugReportsPreferenceController;
+
+    iget-object v2, p0, Lcom/android/settings/enterprise/PrivacySettingsFinancedPreference;->mContext:Landroid/content/Context;
+
+    invoke-direct {v1, v2}, Lcom/android/settings/enterprise/BugReportsPreferenceController;-><init>(Landroid/content/Context;)V
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    new-instance v1, Lcom/android/settings/enterprise/SecurityLogsPreferenceController;
+
+    iget-object v2, p0, Lcom/android/settings/enterprise/PrivacySettingsFinancedPreference;->mContext:Landroid/content/Context;
+
+    invoke-direct {v1, v2}, Lcom/android/settings/enterprise/SecurityLogsPreferenceController;-><init>(Landroid/content/Context;)V
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+
+    new-instance v2, Lcom/android/settings/enterprise/EnterpriseInstalledPackagesPreferenceController;
+
+    iget-object v3, p0, Lcom/android/settings/enterprise/PrivacySettingsFinancedPreference;->mContext:Landroid/content/Context;
+
+    invoke-direct {v2, v3, p1}, Lcom/android/settings/enterprise/EnterpriseInstalledPackagesPreferenceController;-><init>(Landroid/content/Context;Z)V
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    invoke-interface {v0, v1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+
+    new-instance p1, Lcom/android/settings/widget/PreferenceCategoryController;
+
+    iget-object v2, p0, Lcom/android/settings/enterprise/PrivacySettingsFinancedPreference;->mContext:Landroid/content/Context;
+
+    const-string v3, "exposure_changes_category"
+
+    invoke-direct {p1, v2, v3}, Lcom/android/settings/widget/PreferenceCategoryController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
+
+    invoke-virtual {p1, v1}, Lcom/android/settings/widget/PreferenceCategoryController;->setChildren(Ljava/util/List;)Lcom/android/settings/widget/PreferenceCategoryController;
+
+    move-result-object p1
+
+    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    new-instance p1, Lcom/android/settings/enterprise/FailedPasswordWipeCurrentUserPreferenceController;
+
+    iget-object p0, p0, Lcom/android/settings/enterprise/PrivacySettingsFinancedPreference;->mContext:Landroid/content/Context;
+
+    invoke-direct {p1, p0}, Lcom/android/settings/enterprise/FailedPasswordWipeCurrentUserPreferenceController;-><init>(Landroid/content/Context;)V
+
+    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    return-object v0
+.end method
+
+.method public getPreferenceScreenResId()I
+    .locals 0
+
+    const p0, 0x7f150072
+
+    return p0
+.end method
+
+.method public getXmlResourcesToIndex()Ljava/util/List;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Landroid/provider/SearchIndexableResource;",
+            ">;"
+        }
+    .end annotation
+
+    new-instance v0, Landroid/provider/SearchIndexableResource;
+
+    iget-object v1, p0, Lcom/android/settings/enterprise/PrivacySettingsFinancedPreference;->mContext:Landroid/content/Context;
+
+    invoke-direct {v0, v1}, Landroid/provider/SearchIndexableResource;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {p0}, Lcom/android/settings/enterprise/PrivacySettingsFinancedPreference;->getPreferenceScreenResId()I
+
+    move-result p0
+
+    iput p0, v0, Landroid/provider/SearchIndexableResource;->xmlResId:I
+
+    invoke-static {v0}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object p0
+
+    return-object p0
+.end method

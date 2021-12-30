@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:clipChildren="true" android:clipToPadding="true" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content" android:scrollIndicators="bottom|top">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <include android:id="@id/wifi_dialog_frame" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/add_network_button_bar" app:layout_constraintTop_toTopOf="parent" layout="@layout/wifi_dialog" />
+            <include android:id="@id/add_network_button_bar" android:layout_width="fill_parent" android:layout_height="wrap_content" app:layout_constraintTop_toBottomOf="@id/wifi_dialog_frame" layout="@*android:layout/alert_dialog_button_bar_material" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
