@@ -255,6 +255,8 @@
     move-result-object p2
 
     invoke-virtual {p0, p2}, Landroid/view/ViewGroup;->setContentDescription(Ljava/lang/CharSequence;)V
+    
+    invoke-direct {p0}, Lcom/android/keyguard/NumPadKey;->updateText()V
 
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getBackground()Landroid/graphics/drawable/Drawable;
 
@@ -609,6 +611,101 @@
     const/4 v2, 0x0
 
     invoke-virtual {p0, v0, v1, v2}, Landroid/os/PowerManager;->userActivity(JZ)V
+
+    return-void
+.end method
+
+.method private updateText()V
+    .registers 5
+
+    .line 44
+    iget v0, p0, Lcom/android/keyguard/NumPadKey;->mDigit:I
+
+    if-ltz v0, :cond_2c
+
+    .line 45
+    iget-object v1, p0, Lcom/android/keyguard/NumPadKey;->mDigitText:Landroid/widget/TextView;
+
+    .line 46
+    .local v1, "textView":Landroid/widget/TextView;
+    if-eqz v1, :cond_2b
+
+    .line 47
+    invoke-static {v0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 48
+    sget-object v0, Lcom/android/keyguard/NumPadKey;->sKlondike:[Ljava/lang/String;
+
+    if-eqz v0, :cond_2a
+
+    array-length v2, v0
+
+    iget v3, p0, Lcom/android/keyguard/NumPadKey;->mDigit:I
+
+    if-le v2, v3, :cond_2a
+
+    .line 49
+    aget-object v0, v0, v3
+
+    .line 50
+    .local v0, "str":Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    if-lez v2, :cond_29
+
+    .line 51
+    iget-object v2, p0, Lcom/android/keyguard/NumPadKey;->mKlondikeText:Landroid/widget/TextView;
+
+    .line 52
+    .local v2, "textView2":Landroid/widget/TextView;
+    if-eqz v2, :cond_28
+
+    .line 53
+    invoke-virtual {v2, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    .line 54
+    return-void
+
+    .line 52
+    :cond_28
+    goto :goto_2d
+
+    .line 50
+    .end local v2    # "textView2":Landroid/widget/TextView;
+    :cond_29
+    goto :goto_2d
+
+    .line 48
+    .end local v0    # "str":Ljava/lang/String;
+    :cond_2a
+    goto :goto_2d
+
+    .line 46
+    :cond_2b
+    goto :goto_2d
+
+    .line 44
+    .end local v1    # "textView":Landroid/widget/TextView;
+    :cond_2c
+    nop
+
+    .line 60
+    :goto_2d
+    return-void
+.end method
+
+.method public setDigit(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/keyguard/NumPadKey;->mDigit:I
+
+    invoke-direct {p0}, Lcom/android/keyguard/NumPadKey;->updateText()V
 
     return-void
 .end method
