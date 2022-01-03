@@ -1335,6 +1335,8 @@
     invoke-virtual {p0, v0, v4, v5}, Lcom/android/settings/applications/appinfo/AppButtonsPreferenceController;->isSystemPackage(Landroid/content/res/Resources;Landroid/content/pm/PackageManager;Landroid/content/pm/PackageInfo;)Z
 
     move-result v0
+    
+    const/4 v0, 0x0
 
     if-eqz v0, :cond_0
 
