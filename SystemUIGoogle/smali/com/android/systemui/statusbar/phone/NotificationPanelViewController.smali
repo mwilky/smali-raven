@@ -5268,7 +5268,7 @@
     .registers 18
     .param p1, "motionEvent"    # Landroid/view/MotionEvent;
 
-    .line 32
+    .line 40
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
@@ -5277,21 +5277,21 @@
 
     move-result v2
 
-    .line 33
+    .line 41
     .local v2, "pointerCount":I
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v3
 
-    .line 34
+    .line 42
     .local v3, "actionMasked":I
     sget v4, Lcom/android/mwilky/Renovate;->mSmartPulldown:I
 
-    .line 35
+    .line 43
     .local v4, "SmartPulldown":I
     const/4 v5, 0x0
 
-    .line 36
+    .line 44
     .local v5, "z5":Z
     const/4 v6, 0x2
 
@@ -5299,117 +5299,85 @@
 
     if-nez v4, :cond_15
 
-    .line 37
-    const/4 v5, 0x0
-
-    goto :goto_30
-
-    .line 38
-    :cond_15
-    if-ne v4, v7, :cond_23
-
-    .line 39
-    iget-object v8, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
-
-    invoke-virtual {v8}, Lcom/android/systemui/statusbar/phone/StatusBar;->hasActiveHighImportanceNotifications()Z
-
-    move-result v8
-
-    if-nez v8, :cond_21
-    
-    iget-object v8, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
-
-    invoke-virtual {v8}, Lcom/android/systemui/statusbar/phone/StatusBar;->hasActiveDefaultImportanceNotifications()Z
-
-    move-result v8
-
-    if-nez v8, :cond_21
-    
-    iget-object v8, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
-
-    invoke-virtual {v8}, Lcom/android/systemui/statusbar/phone/StatusBar;->hasActiveNoneImportanceNotifications()Z
-
-    move-result v8
-
-    if-nez v8, :cond_21
-    
-    iget-object v8, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
-
-    invoke-virtual {v8}, Lcom/android/systemui/statusbar/phone/StatusBar;->hasActiveMinImportanceNotifications()Z
-
-    move-result v8
-
-    if-nez v8, :cond_21
-    
-    iget-object v8, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
-
-    invoke-virtual {v8}, Lcom/android/systemui/statusbar/phone/StatusBar;->hasActiveMaxImportanceNotifications()Z
-
-    move-result v8
-
-    if-nez v8, :cond_21
-    
-    iget-object v8, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
-
-    invoke-virtual {v8}, Lcom/android/systemui/statusbar/phone/StatusBar;->hasActiveUnspecifiedImportanceNotifications()Z
-
-    move-result v8
-
-    if-nez v8, :cond_21
-
-    .line 40
-    const/4 v5, 0x1
-
-    goto :goto_30
-
-    .line 42
-    :cond_21
-    const/4 v5, 0x0
-
-    goto :goto_30
-
-    .line 44
-    :cond_23
-    if-ne v4, v6, :cond_30
-
     .line 45
+    const/4 v5, 0x0
+
+    goto :goto_38
+
+    .line 46
+    :cond_15
+    if-ne v4, v7, :cond_2b
+
+    .line 47
+    iget-object v8, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+
+    invoke-virtual {v8}, Lcom/android/systemui/statusbar/phone/StatusBar;->hasActiveHighPriorityNotifications()Z
+
+    move-result v8
+
+    if-nez v8, :cond_29
+
     iget-object v8, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
     invoke-virtual {v8}, Lcom/android/systemui/statusbar/phone/StatusBar;->hasActiveNotifications()Z
 
     move-result v8
 
-    if-nez v8, :cond_2f
-
-    .line 46
-    const/4 v5, 0x1
-
-    goto :goto_30
+    if-eqz v8, :cond_29
 
     .line 48
-    :cond_2f
-    const/4 v5, 0x0
-
-    .line 51
-    :cond_30
-    :goto_30
-    const/4 v8, 0x5
-
-    if-ne v3, v8, :cond_37
-
-    if-ne v2, v6, :cond_37
-
-    move v8, v7
+    const/4 v5, 0x1
 
     goto :goto_38
 
-    :cond_37
-    const/4 v8, 0x0
+    .line 50
+    :cond_29
+    const/4 v5, 0x0
+
+    goto :goto_38
 
     .line 52
-    .local v8, "z":Z
+    :cond_2b
+    if-ne v4, v6, :cond_38
+
+    .line 53
+    iget-object v8, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+
+    invoke-virtual {v8}, Lcom/android/systemui/statusbar/phone/StatusBar;->hasActiveNotifications()Z
+
+    move-result v8
+
+    if-nez v8, :cond_37
+
+    .line 54
+    const/4 v5, 0x1
+
+    goto :goto_38
+
+    .line 56
+    :cond_37
+    const/4 v5, 0x0
+
+    .line 59
+    :cond_38
     :goto_38
-    if-nez v3, :cond_4c
+    const/4 v8, 0x5
+
+    if-ne v3, v8, :cond_3f
+
+    if-ne v2, v6, :cond_3f
+
+    move v8, v7
+
+    goto :goto_40
+
+    :cond_3f
+    const/4 v8, 0x0
+
+    .line 60
+    .local v8, "z":Z
+    :goto_40
+    if-nez v3, :cond_54
 
     const/16 v10, 0x20
 
@@ -5417,7 +5385,7 @@
 
     move-result v10
 
-    if-nez v10, :cond_4a
+    if-nez v10, :cond_52
 
     const/16 v10, 0x40
 
@@ -5425,26 +5393,26 @@
 
     move-result v10
 
-    if-eqz v10, :cond_4c
+    if-eqz v10, :cond_54
 
-    :cond_4a
+    :cond_52
     move v10, v7
 
-    goto :goto_4d
+    goto :goto_55
 
-    :cond_4c
+    :cond_54
     const/4 v10, 0x0
 
-    .line 53
+    .line 61
     .local v10, "z2":Z
-    :goto_4d
-    if-nez v3, :cond_5e
+    :goto_55
+    if-nez v3, :cond_66
 
     invoke-virtual {v1, v6}, Landroid/view/MotionEvent;->isButtonPressed(I)Z
 
     move-result v11
 
-    if-nez v11, :cond_5c
+    if-nez v11, :cond_64
 
     const/4 v11, 0x4
 
@@ -5452,19 +5420,19 @@
 
     move-result v11
 
-    if-eqz v11, :cond_5e
+    if-eqz v11, :cond_66
 
-    :cond_5c
+    :cond_64
     move v11, v7
 
-    goto :goto_5f
+    goto :goto_67
 
-    :cond_5e
+    :cond_66
     const/4 v11, 0x0
 
-    .line 54
+    .line 62
     .local v11, "z3":Z
-    :goto_5f
+    :goto_67
     iget-object v12, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mView:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
     
     invoke-virtual/range {v12 .. v12}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->getMeasuredWidth()I
@@ -5473,128 +5441,128 @@
 
     int-to-float v12, v12
 
-    .line 55
+    .line 63
     .local v12, "measuredWidth":F
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v13
 
-    .line 56
+    .line 64
     .local v13, "x":F
     const/high16 v14, 0x3e800000    # 0.25f
 
     mul-float/2addr v14, v12
 
-    .line 57
+    .line 65
     .local v14, "f":F
     sget v15, Lcom/android/mwilky/Renovate;->mQuickQsPulldown:I
 
-    .line 58
+    .line 66
     .local v15, "QuickPulldown":I
     iget v9, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mBarState:I
 
-    if-nez v9, :cond_73
+    if-nez v9, :cond_7b
 
     move v9, v7
 
-    goto :goto_74
+    goto :goto_7c
 
-    :cond_73
+    :cond_7b
     const/4 v9, 0x0
 
-    :goto_74
-    if-ne v15, v7, :cond_88
+    :goto_7c
+    if-ne v15, v7, :cond_90
+
+    iget-object v6, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mView:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
     
+    invoke-virtual/range {v6 .. v6}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->isLayoutRtl()Z
+
+    move-result v6
+
+    if-nez v6, :cond_8b
+
+    sub-float v6, v12, v14
+
+    cmpl-float v6, v6, v13
+
+    if-ltz v6, :cond_a7
+
+    goto :goto_a9
+
+    :cond_8b
+    cmpl-float v6, v13, v14
+
+    if-gez v6, :cond_a9
+
+    goto :goto_a7
+
+    :cond_90
+    if-ne v15, v6, :cond_a4
+
     iget-object v6, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mView:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
 
     invoke-virtual/range {v6 .. v6}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->isLayoutRtl()Z
 
     move-result v6
 
-    if-nez v6, :cond_83
+    if-nez v6, :cond_9d
 
+    cmpl-float v6, v13, v14
+
+    if-ltz v6, :cond_a7
+
+    goto :goto_a9
+
+    :cond_9d
     sub-float v6, v12, v14
 
     cmpl-float v6, v6, v13
 
-    if-ltz v6, :cond_9f
+    if-ltz v6, :cond_a7
 
-    goto :goto_a1
+    goto :goto_a9
 
-    :cond_83
-    cmpl-float v6, v13, v14
-
-    if-gez v6, :cond_a1
-
-    goto :goto_9f
-
-    :cond_88
-    if-ne v15, v6, :cond_9c
-
-    iget-object v6, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mView:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
-
-    invoke-virtual/range {v6 .. v6}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->isLayoutRtl()Z
-
-    move-result v6
-
-    if-nez v6, :cond_95
-
-    cmpl-float v6, v13, v14
-
-    if-ltz v6, :cond_9f
-
-    goto :goto_a1
-
-    :cond_95
-    sub-float v6, v12, v14
-
-    cmpl-float v6, v6, v13
-
-    if-ltz v6, :cond_9f
-
-    goto :goto_a1
-
-    :cond_9c
+    :cond_a4
     const/4 v6, 0x3
 
-    if-ne v15, v6, :cond_a1
+    if-ne v15, v6, :cond_a9
 
-    :cond_9f
-    :goto_9f
+    :cond_a7
+    :goto_a7
     move v6, v7
 
-    goto :goto_a2
+    goto :goto_aa
 
-    :cond_a1
-    :goto_a1
+    :cond_a9
+    :goto_a9
     const/4 v6, 0x0
 
-    :goto_a2
+    :goto_aa
     and-int/2addr v6, v9
 
-    .line 59
+    .line 67
     .local v6, "z4":Z
-    if-nez v8, :cond_b0
+    if-nez v8, :cond_b8
 
-    if-nez v6, :cond_b0
+    if-nez v6, :cond_b8
 
-    if-nez v10, :cond_b0
+    if-nez v10, :cond_b8
 
-    if-nez v11, :cond_b0
+    if-nez v11, :cond_b8
 
-    if-eqz v5, :cond_ae
+    if-eqz v5, :cond_b6
 
-    goto :goto_b0
+    goto :goto_b8
 
-    .line 62
-    :cond_ae
+    .line 70
+    :cond_b6
     const/4 v7, 0x0
 
     return v7
 
-    .line 60
-    :cond_b0
-    :goto_b0
+    .line 68
+    :cond_b8
+    :goto_b8
     return v7
 .end method
 
