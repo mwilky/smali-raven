@@ -11864,6 +11864,8 @@
     invoke-static {v0}, Lcom/android/mwilky/Renovate;->setHideLockscreenStatusbar(Landroid/content/Context;)V
     
     invoke-static {v0}, Lcom/android/mwilky/Renovate;->setHideLockscreenShortcuts(Landroid/content/Context;)V
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsVibration(Landroid/content/Context;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mScreenLifecycle:Lcom/android/systemui/keyguard/ScreenLifecycle;
 
@@ -13918,6 +13920,10 @@
     const-string v3, "tweaks_hide_lockscreen_shortcuts"
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    
+    const-string v3, "tweaks_qs_vibration"
+
+    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 138
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -14752,6 +14758,19 @@
     invoke-static {v0}, Lcom/android/mwilky/Renovate;->setHideLockscreenShortcuts(Landroid/content/Context;)V
 
     :cond_mwilky49
+    const-string v0, "tweaks_qs_vibration"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_mwilky50
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsVibration(Landroid/content/Context;)V
+
+    :cond_mwilky50
     return-void
 .end method
 

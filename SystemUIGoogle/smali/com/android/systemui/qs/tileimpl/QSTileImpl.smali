@@ -37,6 +37,8 @@
 
 
 # instance fields
+.field private final mVibratorHelper:Lcom/android/systemui/statusbar/VibratorHelper;
+
 .field protected final TAG:Ljava/lang/String;
 
 .field protected final mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
@@ -274,6 +276,16 @@
     invoke-direct {p1, p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/qs/tileimpl/QSTileImpl;)V
 
     invoke-virtual {p3, p1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    
+    const-class v0, Lcom/android/systemui/statusbar/VibratorHelper;
+
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/VibratorHelper;
+
+    iput-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mVibratorHelper:Lcom/android/systemui/statusbar/VibratorHelper;
 
     return-void
 .end method
@@ -937,17 +949,19 @@
 
     if-nez v0, :cond_0
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mHandler:Lcom/android/systemui/qs/tileimpl/QSTileImpl$H;
+    iget-object v1, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mHandler:Lcom/android/systemui/qs/tileimpl/QSTileImpl$H;
 
     const/4 v0, 0x2
 
-    invoke-virtual {p0, v0, p1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {v1, v0, p1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
-    move-result-object p0
+    move-result-object v1
 
-    invoke-virtual {p0}, Landroid/os/Message;->sendToTarget()V
+    invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
 
     :cond_0
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->handleVibrate()V
+
     return-void
 .end method
 
@@ -1471,13 +1485,15 @@
 
     invoke-virtual {v0, v1, v3, v4}, Lcom/android/systemui/qs/logging/QSLogger;->logTileLongClick(Ljava/lang/String;II)V
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mHandler:Lcom/android/systemui/qs/tileimpl/QSTileImpl$H;
+    iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mHandler:Lcom/android/systemui/qs/tileimpl/QSTileImpl$H;
 
-    invoke-virtual {p0, v2, p1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {v0, v2, p1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {p0}, Landroid/os/Message;->sendToTarget()V
+    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->handleVibrate()V
 
     return-void
 .end method
@@ -1810,5 +1826,22 @@
 
     invoke-virtual {p0}, Landroid/os/Message;->sendToTarget()V
 
+    return-void
+.end method
+
+.method public handleVibrate()V
+	.locals 2
+	
+	sget-boolean v0, Lcom/android/mwilky/Renovate;->mQsVibration:Z
+	
+	if-eqz v0, :cond_stock
+
+	iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mVibratorHelper:Lcom/android/systemui/statusbar/VibratorHelper;
+
+    const/4 v1, 0x2
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/VibratorHelper;->vibrate(I)V
+    
+    :cond_stock
     return-void
 .end method
