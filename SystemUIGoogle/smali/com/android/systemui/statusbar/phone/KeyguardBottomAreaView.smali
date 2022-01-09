@@ -1273,6 +1273,10 @@
     return-void
 
     :cond_0
+    sget-boolean v1, Lcom/android/mwilky/Renovate;->mHideLockscreenShortcuts:Z
+    
+    if-nez v1, :cond_1
+
     iget-boolean v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->mDozing:Z
 
     if-nez v1, :cond_1
@@ -1314,6 +1318,12 @@
     return-void
 
     :cond_0
+    const/4 v2, 0x0
+
+    sget-boolean v1, Lcom/android/mwilky/Renovate;->mHideLockscreenShortcuts:Z
+    
+    if-nez v1, :cond_2
+    
     invoke-virtual {v0}, Lcom/android/systemui/controls/dagger/ControlsComponent;->getControlsController()Ljava/util/Optional;
 
     move-result-object v0
@@ -1337,8 +1347,6 @@
     move-result v0
 
     iget-boolean v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->mDozing:Z
-
-    const/4 v2, 0x0
 
     if-nez v1, :cond_2
 
@@ -1408,7 +1416,20 @@
 
 .method private updateLeftAffordanceIcon()V
     .locals 4
-
+    
+    sget-boolean v1, Lcom/android/mwilky/Renovate;->mHideLockscreenShortcuts:Z
+    
+    if-eqz v1, :cond_stock
+    
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->mLeftAffordanceView:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
+    
+    const/16 v0, 0x8
+	
+    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->setVisibility(I)V
+    
+    return-void
+    
+    :cond_stock
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->mShowLeftAffordance:Z
 
     const/16 v1, 0x8
@@ -1585,7 +1606,20 @@
 
 .method private updateRightAffordanceIcon()V
     .locals 4
-
+    
+    sget-boolean v1, Lcom/android/mwilky/Renovate;->mHideLockscreenShortcuts:Z
+    
+    if-eqz v1, :cond_stock
+    
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->mRightAffordanceView:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
+    
+    const/16 v0, 0x8
+	
+    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->setVisibility(I)V
+    
+    return-void
+    
+    :cond_stock
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->mRightButton:Lcom/android/systemui/plugins/IntentButtonProvider$IntentButton;
 
     invoke-interface {v0}, Lcom/android/systemui/plugins/IntentButtonProvider$IntentButton;->getIcon()Lcom/android/systemui/plugins/IntentButtonProvider$IntentButton$IconState;
@@ -1653,6 +1687,10 @@
 
 .method private updateWalletVisibility()V
     .locals 3
+    
+    sget-boolean v1, Lcom/android/mwilky/Renovate;->mHideLockscreenShortcuts:Z
+    
+    if-nez v1, :cond_1
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->mDozing:Z
 
