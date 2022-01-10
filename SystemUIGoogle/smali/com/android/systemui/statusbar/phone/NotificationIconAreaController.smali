@@ -74,7 +74,7 @@
 
 .field protected mNotificationIconArea:Landroid/view/View;
 
-.field private mNotificationIcons:Lcom/android/systemui/statusbar/phone/NotificationIconContainer;
+.field public mNotificationIcons:Lcom/android/systemui/statusbar/phone/NotificationIconContainer;
 
 .field final mSettingsListener:Lcom/android/systemui/statusbar/NotificationListener$NotificationSettingsListener;
 
