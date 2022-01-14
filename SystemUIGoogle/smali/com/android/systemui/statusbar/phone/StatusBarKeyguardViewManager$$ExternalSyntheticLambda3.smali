@@ -33,7 +33,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$$ExternalSyntheticLambda3;->f$1:Landroid/hardware/biometrics/BiometricSourceType;
 
-    invoke-static {v0, p0}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->$r8$lambda$jv1Kdgzol9sHE7EeLXTjy7la5tk(Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;Landroid/hardware/biometrics/BiometricSourceType;)V
+    invoke-static {v0, p0}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->$r8$lambda$Ck6RpPvpyZoDBwqW39ub7mIjSZw(Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;Landroid/hardware/biometrics/BiometricSourceType;)V
 
     return-void
 .end method

@@ -40,6 +40,8 @@
     .end annotation
 .end field
 
+.field private final mVolumeAdjustmentForRemoteGroupSessions:Z
+
 
 # direct methods
 .method static constructor <clinit>()V
@@ -77,21 +79,33 @@
 
     invoke-static {p1}, Landroid/media/MediaRouter2Manager;->getInstance(Landroid/content/Context;)Landroid/media/MediaRouter2Manager;
 
-    move-result-object p1
+    move-result-object p3
 
-    iput-object p1, p0, Lcom/android/settingslib/media/InfoMediaManager;->mRouterManager:Landroid/media/MediaRouter2Manager;
+    iput-object p3, p0, Lcom/android/settingslib/media/InfoMediaManager;->mRouterManager:Landroid/media/MediaRouter2Manager;
 
     iput-object p4, p0, Lcom/android/settingslib/media/InfoMediaManager;->mBluetoothManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result p1
+    move-result p3
 
-    if-nez p1, :cond_0
+    if-nez p3, :cond_0
 
     iput-object p2, p0, Lcom/android/settingslib/media/InfoMediaManager;->mPackageName:Ljava/lang/String;
 
     :cond_0
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    const p2, 0x1110174
+
+    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result p1
+
+    iput-boolean p1, p0, Lcom/android/settingslib/media/InfoMediaManager;->mVolumeAdjustmentForRemoteGroupSessions:Z
+
     return-void
 .end method
 

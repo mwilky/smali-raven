@@ -2656,6 +2656,34 @@
     return-void
 .end method
 
+.method public forEachView(Ljava/util/function/Consumer;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/function/Consumer<",
+            "Landroid/view/View;",
+            ">;)V"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/systemui/navigationbar/NavigationBarView;->mVertical:Landroid/view/View;
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {p1, v0}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
+
+    :cond_0
+    iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBarView;->mHorizontal:Landroid/view/View;
+
+    if-eqz p0, :cond_1
+
+    invoke-interface {p1, p0}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
+
+    :cond_1
+    return-void
+.end method
+
 .method public getAccessibilityButton()Lcom/android/systemui/navigationbar/buttons/ButtonDispatcher;
     .locals 1
 
@@ -3619,26 +3647,6 @@
     :cond_1
     :goto_0
     return-void
-.end method
-
-.method protected onSetAlpha(I)Z
-    .locals 3
-
-    new-instance v0, Ljava/lang/Throwable;
-
-    invoke-direct {v0}, Ljava/lang/Throwable;-><init>()V
-
-    const-string v1, "NavBarView"
-
-    const-string v2, "onSetAlpha"
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    invoke-super {p0, p1}, Landroid/widget/FrameLayout;->onSetAlpha(I)Z
-
-    move-result p0
-
-    return p0
 .end method
 
 .method public onStatusBarPanelStateChanged()V

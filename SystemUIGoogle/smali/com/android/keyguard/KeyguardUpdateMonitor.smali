@@ -4799,55 +4799,96 @@
 .end method
 
 .method private maybeLogListenerModelData(Lcom/android/keyguard/KeyguardListenModel;)V
-    .locals 2
+    .locals 4
 
     sget-boolean v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->DEBUG_FACE:Z
 
-    const/4 v1, 0x1
+    const/4 v1, 0x0
+
+    const/4 v2, 0x1
 
     if-eqz v0, :cond_0
 
-    instance-of v0, p1, Lcom/android/keyguard/KeyguardFaceListenModel;
+    instance-of v3, p1, Lcom/android/keyguard/KeyguardFaceListenModel;
 
-    if-eqz v0, :cond_0
+    if-eqz v3, :cond_0
 
-    iget v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceRunningState:I
+    iget v3, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceRunningState:I
 
-    if-ne v0, v1, :cond_2
+    if-ne v3, v2, :cond_1
 
     :cond_0
-    sget-boolean v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->DEBUG_FINGERPRINT:Z
+    sget-boolean v3, Lcom/android/keyguard/KeyguardUpdateMonitor;->DEBUG_FINGERPRINT:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v3, :cond_2
 
-    instance-of v0, p1, Lcom/android/keyguard/KeyguardFingerprintListenModel;
+    instance-of v3, p1, Lcom/android/keyguard/KeyguardFingerprintListenModel;
 
-    if-eqz v0, :cond_1
+    if-eqz v3, :cond_2
 
-    iget v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintRunningState:I
+    iget v3, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintRunningState:I
 
-    if-eq v0, v1, :cond_1
+    if-eq v3, v2, :cond_2
+
+    :cond_1
+    move v3, v2
 
     goto :goto_0
 
-    :cond_1
-    const/4 v1, 0x0
-
     :cond_2
+    move v3, v1
+
     :goto_0
-    if-eqz v1, :cond_3
+    if-eqz v0, :cond_3
+
+    instance-of v0, p1, Lcom/android/keyguard/KeyguardFaceListenModel;
+
+    if-eqz v0, :cond_3
+
+    iget v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceRunningState:I
+
+    if-eq v0, v2, :cond_4
+
+    :cond_3
+    sget-boolean v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->DEBUG_FINGERPRINT:Z
+
+    if-eqz v0, :cond_5
+
+    instance-of v0, p1, Lcom/android/keyguard/KeyguardFingerprintListenModel;
+
+    if-eqz v0, :cond_5
+
+    iget v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintRunningState:I
+
+    if-ne v0, v2, :cond_5
+
+    :cond_4
+    move v1, v2
+
+    :cond_5
+    if-eqz v3, :cond_6
 
     invoke-virtual {p1}, Lcom/android/keyguard/KeyguardListenModel;->getListening()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-nez v0, :cond_7
 
+    :cond_6
+    if-eqz v1, :cond_8
+
+    invoke-virtual {p1}, Lcom/android/keyguard/KeyguardListenModel;->getListening()Z
+
+    move-result v0
+
+    if-nez v0, :cond_8
+
+    :cond_7
     iget-object p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mListenModels:Lcom/android/keyguard/KeyguardListenQueue;
 
     invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardListenQueue;->add(Lcom/android/keyguard/KeyguardListenModel;)V
 
-    :cond_3
+    :cond_8
     return-void
 .end method
 
@@ -10085,7 +10126,7 @@
 .end method
 
 .method protected shouldListenForFingerprint(Z)Z
-    .locals 27
+    .locals 26
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
@@ -10234,17 +10275,11 @@
 
     move-result v12
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->userNeedsStrongAuth()Z
-
-    move-result v25
-
     if-eqz p1, :cond_9
 
     if-nez v8, :cond_8
 
     if-nez v12, :cond_8
-
-    if-nez v25, :cond_8
 
     if-eqz v24, :cond_8
 
@@ -10272,12 +10307,12 @@
 
     if-eqz v9, :cond_a
 
-    move/from16 v26, v2
+    move/from16 v25, v2
 
     goto :goto_7
 
     :cond_a
-    move/from16 v26, v3
+    move/from16 v25, v3
 
     :goto_7
     sget-boolean v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->DEBUG_FINGERPRINT:Z
@@ -10335,11 +10370,11 @@
 
     move-object/from16 v0, v23
 
-    move/from16 v5, v26
+    move/from16 v5, v25
 
     move/from16 v23, p1
 
-    invoke-direct/range {v1 .. v25}, Lcom/android/keyguard/KeyguardFingerprintListenModel;-><init>(JIZZZZZZZZZZZZZZZZZZZZZ)V
+    invoke-direct/range {v1 .. v24}, Lcom/android/keyguard/KeyguardFingerprintListenModel;-><init>(JIZZZZZZZZZZZZZZZZZZZZ)V
 
     move-object v1, v0
 
@@ -10348,7 +10383,7 @@
     invoke-direct {v0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->maybeLogListenerModelData(Lcom/android/keyguard/KeyguardListenModel;)V
 
     :goto_8
-    return v26
+    return v25
 .end method
 
 .method updateTelephonyCapable(Z)V

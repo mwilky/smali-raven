@@ -822,7 +822,7 @@
 
     iget v0, p0, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->mMode:I
 
-    const/4 v1, 0x0
+    const/4 v1, 0x1
 
     const/4 v2, 0x3
 
@@ -835,13 +835,13 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->mShadeController:Lcom/android/systemui/statusbar/phone/ShadeController;
 
-    const/4 v2, 0x1
+    const v2, 0x3f8ccccd    # 1.1f
 
-    const v3, 0x3f8ccccd    # 1.1f
+    const/4 v3, 0x0
 
-    invoke-interface {v0, v1, v2, v1, v3}, Lcom/android/systemui/statusbar/phone/ShadeController;->animateCollapsePanels(IZZF)V
+    invoke-interface {v0, v3, v1, v3, v2}, Lcom/android/systemui/statusbar/phone/ShadeController;->animateCollapsePanels(IZZF)V
 
-    iput-boolean v1, p0, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->mPendingShowBouncer:Z
+    iput-boolean v3, p0, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->mPendingShowBouncer:Z
 
     return-void
 .end method

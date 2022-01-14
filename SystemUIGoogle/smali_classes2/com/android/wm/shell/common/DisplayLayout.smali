@@ -1400,6 +1400,54 @@
     return p0
 .end method
 
+.method public isSameGeometry(Lcom/android/wm/shell/common/DisplayLayout;)Z
+    .locals 2
+
+    iget v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mWidth:I
+
+    iget v1, p1, Lcom/android/wm/shell/common/DisplayLayout;->mWidth:I
+
+    if-ne v0, v1, :cond_0
+
+    iget v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mHeight:I
+
+    iget v1, p1, Lcom/android/wm/shell/common/DisplayLayout;->mHeight:I
+
+    if-ne v0, v1, :cond_0
+
+    iget v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mRotation:I
+
+    iget v1, p1, Lcom/android/wm/shell/common/DisplayLayout;->mRotation:I
+
+    if-ne v0, v1, :cond_0
+
+    iget v0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mDensityDpi:I
+
+    iget v1, p1, Lcom/android/wm/shell/common/DisplayLayout;->mDensityDpi:I
+
+    if-ne v0, v1, :cond_0
+
+    iget-object p0, p0, Lcom/android/wm/shell/common/DisplayLayout;->mCutout:Landroid/view/DisplayCutout;
+
+    iget-object p1, p1, Lcom/android/wm/shell/common/DisplayLayout;->mCutout:Landroid/view/DisplayCutout;
+
+    invoke-static {p0, p1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
+.end method
+
 .method public navBarFrameHeight()I
     .locals 0
 

@@ -152,18 +152,26 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$CQZAtfMzHk5eQeRY2HXm3BoDdno(Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;)V
+.method public static synthetic $r8$lambda$Ck6RpPvpyZoDBwqW39ub7mIjSZw(Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;Landroid/hardware/biometrics/BiometricSourceType;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->lambda$onKeyguardFadedAway$3()V
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->lambda$wakeAndUnlockDejank$6(Landroid/hardware/biometrics/BiometricSourceType;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$ErAtc4gYwMnDddtbTY2yd1FkYak(Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;)V
+.method public static synthetic $r8$lambda$NDTyclLxf9FhvM3xjT6lDH_iDQo(Landroid/view/View;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->lambda$hide$1()V
+    invoke-static {p0}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->lambda$onStartedGoingToSleep$2(Landroid/view/View;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$ScsmqB6z5xz1Dh_hPdE_Tr5V8WU(Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->lambda$onKeyguardFadedAway$5()V
 
     return-void
 .end method
@@ -176,18 +184,26 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$V3i2brv-k0vJeM3FaNrAChTez6g(Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;)V
+.method public static synthetic $r8$lambda$g_B3-SeqqSnSJViVpXhQPfPNt7o(Landroid/view/View;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->lambda$hide$2()V
+    invoke-static {p0}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->lambda$onStartedWakingUp$1(Landroid/view/View;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$jv1Kdgzol9sHE7EeLXTjy7la5tk(Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;Landroid/hardware/biometrics/BiometricSourceType;)V
+.method public static synthetic $r8$lambda$kSDIQl5e--oIIft4zkKC1p7C_vk(Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->lambda$wakeAndUnlockDejank$4(Landroid/hardware/biometrics/BiometricSourceType;)V
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->lambda$hide$4()V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$vCVgWX8oiFlqXy9Ph9xNb4_swnA(Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->lambda$hide$3()V
 
     return-void
 .end method
@@ -443,30 +459,6 @@
     return-void
 .end method
 
-.method private getCurrentNavBarView()Landroid/view/View;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->getNavigationBarView()Lcom/android/systemui/navigationbar/NavigationBarView;
-
-    move-result-object p0
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/NavigationBarView;->getCurrentView()Landroid/view/View;
-
-    move-result-object p0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return-object p0
-.end method
-
 .method private getNavBarShowDelay()J
     .locals 2
 
@@ -532,7 +524,7 @@
     return v0
 .end method
 
-.method private synthetic lambda$hide$1()V
+.method private synthetic lambda$hide$3()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
@@ -544,7 +536,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$hide$2()V
+.method private synthetic lambda$hide$4()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
@@ -554,7 +546,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$onKeyguardFadedAway$3()V
+.method private synthetic lambda$onKeyguardFadedAway$5()V
     .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->mNotificationShadeWindowController:Lcom/android/systemui/statusbar/NotificationShadeWindowController;
@@ -562,6 +554,54 @@
     const/4 v0, 0x0
 
     invoke-interface {p0, v0}, Lcom/android/systemui/statusbar/NotificationShadeWindowController;->setKeyguardFadingAway(Z)V
+
+    return-void
+.end method
+
+.method private static synthetic lambda$onStartedGoingToSleep$2(Landroid/view/View;)V
+    .locals 2
+
+    invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
+
+    move-result-object p0
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Landroid/view/ViewPropertyAnimator;->alpha(F)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object p0
+
+    const-wide/16 v0, 0x7d
+
+    invoke-virtual {p0, v0, v1}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/view/ViewPropertyAnimator;->start()V
+
+    return-void
+.end method
+
+.method private static synthetic lambda$onStartedWakingUp$1(Landroid/view/View;)V
+    .locals 2
+
+    invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
+
+    move-result-object p0
+
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    invoke-virtual {p0, v0}, Landroid/view/ViewPropertyAnimator;->alpha(F)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object p0
+
+    const-wide/16 v0, 0x7d
+
+    invoke-virtual {p0, v0, v1}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/view/ViewPropertyAnimator;->start()V
 
     return-void
 .end method
@@ -582,7 +622,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$wakeAndUnlockDejank$4(Landroid/hardware/biometrics/BiometricSourceType;)V
+.method private synthetic lambda$wakeAndUnlockDejank$6(Landroid/hardware/biometrics/BiometricSourceType;)V
     .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->mContext:Landroid/content/Context;
@@ -1560,9 +1600,9 @@
 
     iget-object v6, v0, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->mNotificationContainer:Landroid/view/View;
 
-    new-instance v7, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$$ExternalSyntheticLambda1;
+    new-instance v7, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$$ExternalSyntheticLambda2;
 
-    invoke-direct {v7, v0}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;)V
+    invoke-direct {v7, v0}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;)V
 
     invoke-static {v5, v6, v2, v3, v7}, Lcom/android/systemui/statusbar/notification/ViewGroupFadeHelper;->fadeOutAllChildrenExcept(Landroid/view/ViewGroup;Landroid/view/View;JLjava/lang/Runnable;)V
 
@@ -1601,9 +1641,9 @@
 
     iget-object v6, v0, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->mNotificationContainer:Landroid/view/View;
 
-    new-instance v7, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$$ExternalSyntheticLambda2;
+    new-instance v7, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$$ExternalSyntheticLambda1;
 
-    invoke-direct {v7, v0}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;)V
+    invoke-direct {v7, v0}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;)V
 
     invoke-static {v5, v6, v2, v3, v7}, Lcom/android/systemui/statusbar/notification/ViewGroupFadeHelper;->fadeOutAllChildrenExcept(Landroid/view/ViewGroup;Landroid/view/View;JLjava/lang/Runnable;)V
 
@@ -2339,29 +2379,17 @@
 
     invoke-interface {v0, v1}, Landroid/view/WindowInsetsController;->setAnimationsDisabled(Z)V
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->getCurrentNavBarView()Landroid/view/View;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->getNavigationBarView()Lcom/android/systemui/navigationbar/NavigationBarView;
 
     move-result-object p0
 
     if-eqz p0, :cond_0
 
-    invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
+    sget-object v0, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$$ExternalSyntheticLambda5;->INSTANCE:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$$ExternalSyntheticLambda5;
 
-    move-result-object p0
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Landroid/view/ViewPropertyAnimator;->alpha(F)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object p0
-
-    const-wide/16 v0, 0x7d
-
-    invoke-virtual {p0, v0, v1}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/view/ViewPropertyAnimator;->start()V
+    invoke-virtual {p0, v0}, Lcom/android/systemui/navigationbar/NavigationBarView;->forEachView(Ljava/util/function/Consumer;)V
 
     :cond_0
     return-void
@@ -2384,29 +2412,17 @@
 
     invoke-interface {v0, v1}, Landroid/view/WindowInsetsController;->setAnimationsDisabled(Z)V
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->getCurrentNavBarView()Landroid/view/View;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->getNavigationBarView()Lcom/android/systemui/navigationbar/NavigationBarView;
 
     move-result-object p0
 
     if-eqz p0, :cond_0
 
-    invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
+    sget-object v0, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$$ExternalSyntheticLambda6;->INSTANCE:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$$ExternalSyntheticLambda6;
 
-    move-result-object p0
-
-    const/high16 v0, 0x3f800000    # 1.0f
-
-    invoke-virtual {p0, v0}, Landroid/view/ViewPropertyAnimator;->alpha(F)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object p0
-
-    const-wide/16 v0, 0x7d
-
-    invoke-virtual {p0, v0, v1}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/view/ViewPropertyAnimator;->start()V
+    invoke-virtual {p0, v0}, Lcom/android/systemui/navigationbar/NavigationBarView;->forEachView(Ljava/util/function/Consumer;)V
 
     :cond_0
     return-void
