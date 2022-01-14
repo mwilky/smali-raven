@@ -1568,7 +1568,7 @@
 
     and-int/2addr v6, v7
 
-    if-eqz v6, :cond_a
+    if-eqz v6, :cond_b
 
     iget-object v6, p0, Lcom/android/server/wm/WallpaperController;->mService:Lcom/android/server/wm/WindowManagerService;
 
@@ -1578,7 +1578,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_a
+    if-eqz v6, :cond_b
 
     iget-object v6, p0, Lcom/android/server/wm/WallpaperController;->mService:Lcom/android/server/wm/WindowManagerService;
 
@@ -1588,19 +1588,30 @@
 
     move-result v6
 
-    if-eqz v6, :cond_a
+    if-nez v6, :cond_8
 
+    iget-object v6, p0, Lcom/android/server/wm/WallpaperController;->mService:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v6, v6, Lcom/android/server/wm/WindowManagerService;->mPolicy:Lcom/android/server/policy/WindowManagerPolicy;
+
+    invoke-interface {v6}, Lcom/android/server/policy/WindowManagerPolicy;->isKeyguardUnoccluding()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_b
+
+    :cond_8
     iget-object v6, p1, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
 
     invoke-direct {p0, v6}, Lcom/android/server/wm/WallpaperController;->isFullscreen(Landroid/view/WindowManager$LayoutParams;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_9
+    if-eqz v6, :cond_a
 
     iget-object v6, p1, Lcom/android/server/wm/WindowState;->mActivityRecord:Lcom/android/server/wm/ActivityRecord;
 
-    if-eqz v6, :cond_8
+    if-eqz v6, :cond_9
 
     iget-object v6, p1, Lcom/android/server/wm/WindowState;->mActivityRecord:Lcom/android/server/wm/ActivityRecord;
 
@@ -1608,46 +1619,46 @@
 
     move-result v6
 
-    if-nez v6, :cond_8
+    if-nez v6, :cond_9
 
     goto :goto_2
 
-    :cond_8
+    :cond_9
     move v6, v1
 
     goto :goto_3
 
-    :cond_9
+    :cond_a
     :goto_2
     move v6, v2
 
     :goto_3
     move v5, v6
 
-    :cond_a
-    if-nez v4, :cond_b
-
-    if-eqz v5, :cond_c
-
     :cond_b
+    if-nez v4, :cond_c
+
+    if-eqz v5, :cond_d
+
+    :cond_c
     iget-object v6, p0, Lcom/android/server/wm/WallpaperController;->mFindResults:Lcom/android/server/wm/WallpaperController$FindWallpaperTargetResult;
 
     invoke-virtual {v6, v2}, Lcom/android/server/wm/WallpaperController$FindWallpaperTargetResult;->setUseTopWallpaperAsTarget(Z)V
 
-    :cond_c
+    :cond_d
     iget-object v6, p0, Lcom/android/server/wm/WallpaperController;->mService:Lcom/android/server/wm/WindowManagerService;
 
     invoke-virtual {v6}, Lcom/android/server/wm/WindowManagerService;->getRecentsAnimationController()Lcom/android/server/wm/RecentsAnimationController;
 
     move-result-object v6
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_e
 
     invoke-virtual {v0}, Lcom/android/server/wm/WindowContainer;->getAnimation()Lcom/android/server/wm/AnimationAdapter;
 
     move-result-object v7
 
-    if-eqz v7, :cond_d
+    if-eqz v7, :cond_e
 
     invoke-virtual {v0}, Lcom/android/server/wm/WindowContainer;->getAnimation()Lcom/android/server/wm/AnimationAdapter;
 
@@ -1657,13 +1668,13 @@
 
     move-result v7
 
-    if-eqz v7, :cond_d
+    if-eqz v7, :cond_e
 
     move v7, v2
 
     goto :goto_4
 
-    :cond_d
+    :cond_e
     move v7, v1
 
     :goto_4
@@ -1671,39 +1682,39 @@
 
     move-result v8
 
-    if-nez v8, :cond_f
+    if-nez v8, :cond_10
 
-    if-eqz v7, :cond_e
+    if-eqz v7, :cond_f
 
     goto :goto_5
 
-    :cond_e
+    :cond_f
     move v8, v1
 
     goto :goto_6
 
-    :cond_f
+    :cond_10
     :goto_5
     move v8, v2
 
     :goto_6
-    if-eqz v6, :cond_10
+    if-eqz v6, :cond_11
 
     invoke-virtual {v6, p1}, Lcom/android/server/wm/RecentsAnimationController;->isWallpaperVisible(Lcom/android/server/wm/WindowState;)Z
 
     move-result v9
 
-    if-eqz v9, :cond_10
+    if-eqz v9, :cond_11
 
     move v9, v2
 
     goto :goto_7
 
-    :cond_10
+    :cond_11
     move v9, v1
 
     :goto_7
-    if-eqz v9, :cond_11
+    if-eqz v9, :cond_12
 
     iget-object v1, p0, Lcom/android/server/wm/WallpaperController;->mFindResults:Lcom/android/server/wm/WallpaperController$FindWallpaperTargetResult;
 
@@ -1711,40 +1722,40 @@
 
     return v2
 
-    :cond_11
-    if-eqz v8, :cond_14
+    :cond_12
+    if-eqz v8, :cond_15
 
     invoke-virtual {p1}, Lcom/android/server/wm/WindowState;->isOnScreen()Z
 
     move-result v10
 
-    if-eqz v10, :cond_14
+    if-eqz v10, :cond_15
 
     iget-object v10, p0, Lcom/android/server/wm/WallpaperController;->mWallpaperTarget:Lcom/android/server/wm/WindowState;
 
-    if-eq v10, p1, :cond_12
+    if-eq v10, p1, :cond_13
 
     invoke-virtual {p1}, Lcom/android/server/wm/WindowState;->isDrawFinishedLw()Z
 
     move-result v10
 
-    if-eqz v10, :cond_14
+    if-eqz v10, :cond_15
 
-    :cond_12
+    :cond_13
     iget-object v1, p0, Lcom/android/server/wm/WallpaperController;->mFindResults:Lcom/android/server/wm/WallpaperController$FindWallpaperTargetResult;
 
     invoke-virtual {v1, p1}, Lcom/android/server/wm/WallpaperController$FindWallpaperTargetResult;->setWallpaperTarget(Lcom/android/server/wm/WindowState;)V
 
     iget-object v1, p0, Lcom/android/server/wm/WallpaperController;->mWallpaperTarget:Lcom/android/server/wm/WindowState;
 
-    if-ne p1, v1, :cond_13
+    if-ne p1, v1, :cond_14
 
     invoke-virtual {p1, v3}, Lcom/android/server/wm/WindowState;->isAnimating(I)Z
 
-    :cond_13
+    :cond_14
     return v2
 
-    :cond_14
+    :cond_15
     return v1
 .end method
 

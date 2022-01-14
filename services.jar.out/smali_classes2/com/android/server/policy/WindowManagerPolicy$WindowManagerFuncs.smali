@@ -118,6 +118,9 @@
 .method public abstract getWindowManagerLock()Ljava/lang/Object;
 .end method
 
+.method public abstract isAppTransitionStateIdle()Z
+.end method
+
 .method public abstract lockDeviceNow()V
 .end method
 

@@ -642,6 +642,14 @@
 .method public abstract isKeyguardTrustedLw()Z
 .end method
 
+.method public isKeyguardUnoccluding()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method public abstract isScreenOn()Z
 .end method
 

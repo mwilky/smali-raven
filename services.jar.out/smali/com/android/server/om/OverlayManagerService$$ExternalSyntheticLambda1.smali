@@ -29,7 +29,7 @@
 
     check-cast p1, Lcom/android/server/om/PackageAndUser;
 
-    invoke-static {v0, p1}, Lcom/android/server/om/OverlayManagerService;->lambda$groupTargetsByUserId$1(Landroid/util/SparseArray;Lcom/android/server/om/PackageAndUser;)V
+    invoke-static {v0, p1}, Lcom/android/server/om/OverlayManagerService;->lambda$groupTargetsByUserId$2(Landroid/util/SparseArray;Lcom/android/server/om/PackageAndUser;)V
 
     return-void
 .end method

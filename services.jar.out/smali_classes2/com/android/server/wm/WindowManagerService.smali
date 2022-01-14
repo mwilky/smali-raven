@@ -17208,6 +17208,22 @@
     return-void
 .end method
 
+.method public isAppTransitionStateIdle()Z
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/server/wm/WindowManagerService;->getDefaultDisplayContentLocked()Lcom/android/server/wm/DisplayContent;
+
+    move-result-object v0
+
+    iget-object v0, v0, Lcom/android/server/wm/DisplayContent;->mAppTransition:Lcom/android/server/wm/AppTransition;
+
+    invoke-virtual {v0}, Lcom/android/server/wm/AppTransition;->isIdle()Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method isCurrentProfile(I)Z
     .locals 4
 

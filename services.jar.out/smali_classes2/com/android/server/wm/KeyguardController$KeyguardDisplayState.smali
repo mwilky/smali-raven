@@ -437,72 +437,54 @@
     :goto_6
     iput-boolean v7, p0, Lcom/android/server/wm/KeyguardController$KeyguardDisplayState;->mRequestDismissKeyguard:Z
 
-    const/4 v7, 0x0
+    iget-object v7, p0, Lcom/android/server/wm/KeyguardController$KeyguardDisplayState;->mTopTurnScreenOnActivity:Lcom/android/server/wm/ActivityRecord;
 
-    const/4 v9, 0x0
+    if-eq v7, v2, :cond_d
 
-    iget-object v10, p0, Lcom/android/server/wm/KeyguardController$KeyguardDisplayState;->mTopTurnScreenOnActivity:Lcom/android/server/wm/ActivityRecord;
+    if-eqz v7, :cond_d
 
-    if-eq v10, v2, :cond_d
+    iget-object v7, p0, Lcom/android/server/wm/KeyguardController$KeyguardDisplayState;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    if-eqz v10, :cond_d
+    iget-object v7, v7, Lcom/android/server/wm/ActivityTaskManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
 
-    iget-object v10, p0, Lcom/android/server/wm/KeyguardController$KeyguardDisplayState;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
+    iget-object v7, v7, Lcom/android/server/wm/WindowManagerService;->mPowerManager:Landroid/os/PowerManager;
 
-    iget-object v10, v10, Lcom/android/server/wm/ActivityTaskManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
+    invoke-virtual {v7}, Landroid/os/PowerManager;->isInteractive()Z
 
-    iget-object v10, v10, Lcom/android/server/wm/WindowManagerService;->mPowerManager:Landroid/os/PowerManager;
+    move-result v7
 
-    invoke-virtual {v10}, Landroid/os/PowerManager;->isInteractive()Z
+    if-nez v7, :cond_d
 
-    move-result v10
+    iget-boolean v7, p0, Lcom/android/server/wm/KeyguardController$KeyguardDisplayState;->mRequestDismissKeyguard:Z
 
-    if-nez v10, :cond_d
+    if-nez v7, :cond_c
 
-    iget-boolean v10, p0, Lcom/android/server/wm/KeyguardController$KeyguardDisplayState;->mRequestDismissKeyguard:Z
-
-    if-nez v10, :cond_c
-
-    if-nez v5, :cond_c
-
-    invoke-virtual {p1}, Lcom/android/server/wm/KeyguardController;->canDismissKeyguard()Z
-
-    move-result v10
-
-    if-eqz v10, :cond_d
+    if-eqz v5, :cond_d
 
     :cond_c
-    const/4 v9, 0x1
+    invoke-static {p1}, Lcom/android/server/wm/KeyguardController;->access$700(Lcom/android/server/wm/KeyguardController;)Lcom/android/server/wm/ActivityTaskSupervisor;
 
-    iget v10, p0, Lcom/android/server/wm/KeyguardController$KeyguardDisplayState;->mDisplayId:I
+    move-result-object v7
 
-    invoke-static {p1, v10}, Lcom/android/server/wm/KeyguardController;->access$700(Lcom/android/server/wm/KeyguardController;I)V
+    const-string v9, "handleTurnScreenOn"
 
-    iget-object v10, p0, Lcom/android/server/wm/KeyguardController$KeyguardDisplayState;->mTopTurnScreenOnActivity:Lcom/android/server/wm/ActivityRecord;
+    invoke-virtual {v7, v9}, Lcom/android/server/wm/ActivityTaskSupervisor;->wakeUp(Ljava/lang/String;)V
 
-    invoke-virtual {v10, v3}, Lcom/android/server/wm/ActivityRecord;->setCurrentLaunchCanTurnScreenOn(Z)V
+    iget-object v7, p0, Lcom/android/server/wm/KeyguardController$KeyguardDisplayState;->mTopTurnScreenOnActivity:Lcom/android/server/wm/ActivityRecord;
+
+    invoke-virtual {v7, v3}, Lcom/android/server/wm/ActivityRecord;->setCurrentLaunchCanTurnScreenOn(Z)V
 
     :cond_d
     iget-boolean v3, p0, Lcom/android/server/wm/KeyguardController$KeyguardDisplayState;->mOccluded:Z
 
     if-eq v0, v3, :cond_e
 
-    const/4 v7, 0x1
-
     iget v3, p0, Lcom/android/server/wm/KeyguardController$KeyguardDisplayState;->mDisplayId:I
 
-    iget-object v10, p0, Lcom/android/server/wm/KeyguardController$KeyguardDisplayState;->mTopOccludesActivity:Lcom/android/server/wm/ActivityRecord;
+    iget-object v7, p0, Lcom/android/server/wm/KeyguardController$KeyguardDisplayState;->mTopOccludesActivity:Lcom/android/server/wm/ActivityRecord;
 
-    invoke-static {p1, v3, v10}, Lcom/android/server/wm/KeyguardController;->access$800(Lcom/android/server/wm/KeyguardController;ILcom/android/server/wm/ActivityRecord;)V
+    invoke-static {p1, v3, v7}, Lcom/android/server/wm/KeyguardController;->access$800(Lcom/android/server/wm/KeyguardController;ILcom/android/server/wm/ActivityRecord;)V
 
     :cond_e
-    if-nez v7, :cond_f
-
-    if-eqz v9, :cond_10
-
-    :cond_f
-    invoke-static {p1, v6, v9}, Lcom/android/server/wm/KeyguardController;->access$900(Lcom/android/server/wm/KeyguardController;Lcom/android/server/wm/Task;Z)V
-
-    :cond_10
     return-void
 .end method
