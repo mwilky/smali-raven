@@ -65,6 +65,8 @@
 
 .field private mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
+.field private final mVolumeAdjustmentForRemoteGroupSessions:Z
+
 
 # direct methods
 .method public static synthetic $r8$lambda$BbeRQNa3Pc3kbkfCXSZBGEaXiaI(Lcom/android/settingslib/media/MediaDevice;I)V
@@ -165,6 +167,18 @@
     iput-object p3, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mMetricLogger:Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;
 
     iput-object p9, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    const p2, 0x1110174
+
+    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result p1
+
+    iput-boolean p1, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mVolumeAdjustmentForRemoteGroupSessions:Z
 
     return-void
 .end method
@@ -1137,10 +1151,26 @@
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/media/dialog/MediaOutputController;->isActiveRemoteDevice(Lcom/android/settingslib/media/MediaDevice;)Z
 
-    move-result p0
+    move-result p1
 
-    xor-int/lit8 p0, p0, 0x1
+    if-eqz p1, :cond_1
 
+    iget-boolean p0, p0, Lcom/android/systemui/media/dialog/MediaOutputController;->mVolumeAdjustmentForRemoteGroupSessions:Z
+
+    if-eqz p0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    const/4 p0, 0x1
+
+    :goto_1
     return p0
 .end method
 

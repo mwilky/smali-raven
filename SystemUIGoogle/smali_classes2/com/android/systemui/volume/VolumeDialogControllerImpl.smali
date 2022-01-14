@@ -72,6 +72,8 @@
 
 .field private final mRingerModeObservers:Lcom/android/systemui/volume/VolumeDialogControllerImpl$RingerModeObservers;
 
+.field private final mRouter2Manager:Landroid/media/MediaRouter2Manager;
+
 .field private mShowA11yStream:Z
 
 .field private mShowDndTile:Z
@@ -422,6 +424,12 @@
 
     iput-object v9, v0, Lcom/android/systemui/volume/VolumeDialogControllerImpl;->mWorker:Lcom/android/systemui/volume/VolumeDialogControllerImpl$W;
 
+    invoke-static {v6}, Landroid/media/MediaRouter2Manager;->getInstance(Landroid/content/Context;)Landroid/media/MediaRouter2Manager;
+
+    move-result-object v10
+
+    iput-object v10, v0, Lcom/android/systemui/volume/VolumeDialogControllerImpl;->mRouter2Manager:Landroid/media/MediaRouter2Manager;
+
     new-instance v10, Lcom/android/systemui/volume/VolumeDialogControllerImpl$MediaSessionsCallbacks;
 
     invoke-direct {v10, p0, v6}, Lcom/android/systemui/volume/VolumeDialogControllerImpl$MediaSessionsCallbacks;-><init>(Lcom/android/systemui/volume/VolumeDialogControllerImpl;Landroid/content/Context;)V
@@ -771,6 +779,14 @@
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/volume/VolumeDialogControllerImpl;->mMediaSessions:Lcom/android/settingslib/volume/MediaSessions;
+
+    return-object p0
+.end method
+
+.method static synthetic access$3800(Lcom/android/systemui/volume/VolumeDialogControllerImpl;)Landroid/media/MediaRouter2Manager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/volume/VolumeDialogControllerImpl;->mRouter2Manager:Landroid/media/MediaRouter2Manager;
 
     return-object p0
 .end method

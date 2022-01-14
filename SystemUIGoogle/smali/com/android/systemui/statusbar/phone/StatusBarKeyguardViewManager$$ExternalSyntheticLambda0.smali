@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->$r8$lambda$CQZAtfMzHk5eQeRY2HXm3BoDdno(Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;)V
+    invoke-static {p0}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->$r8$lambda$ScsmqB6z5xz1Dh_hPdE_Tr5V8WU(Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;)V
 
     return-void
 .end method

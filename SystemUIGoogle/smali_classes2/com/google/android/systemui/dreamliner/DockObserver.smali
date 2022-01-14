@@ -595,6 +595,33 @@
     return p0
 .end method
 
+.method private checkIsDockPresentIfNeeded(Landroid/content/Context;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/google/android/systemui/dreamliner/DockObserver;->mWirelessCharger:Lcom/google/android/systemui/dreamliner/WirelessCharger;
+
+    if-eqz v0, :cond_1
+
+    invoke-direct {p0, p1}, Lcom/google/android/systemui/dreamliner/DockObserver;->isWirelessCharging(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    new-instance v0, Lcom/google/android/systemui/dreamliner/DockObserver$IsDockPresent;
+
+    invoke-direct {v0, p0, p1}, Lcom/google/android/systemui/dreamliner/DockObserver$IsDockPresent;-><init>(Lcom/google/android/systemui/dreamliner/DockObserver;Landroid/content/Context;)V
+
+    invoke-static {v0}, Lcom/google/android/systemui/dreamliner/DockObserver;->runOnBackgroundThread(Ljava/lang/Runnable;)V
+
+    :cond_1
+    :goto_0
+    return-void
+.end method
+
 .method private configPhotoAction(Landroid/content/Intent;)V
     .locals 3
 
@@ -990,24 +1017,6 @@
     return-void
 .end method
 
-.method private final getBatteryStatus(Landroid/content/Context;)Landroid/content/Intent;
-    .locals 1
-
-    new-instance p0, Landroid/content/IntentFilter;
-
-    const-string v0, "android.intent.action.BATTERY_CHANGED"
-
-    invoke-direct {p0, v0}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p1, v0, p0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
 .method private getDockIntentFilter()Landroid/content/IntentFilter;
     .locals 1
 
@@ -1149,46 +1158,84 @@
     return-void
 .end method
 
-.method private isChargingOrFull(Landroid/content/Intent;)Z
-    .locals 1
-
-    const-string p0, "status"
-
-    const/4 v0, -0x1
-
-    invoke-virtual {p1, p0, v0}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result p0
-
-    const/4 p1, 0x2
-
-    if-eq p0, p1, :cond_1
-
-    const/4 p1, 0x5
-
-    if-ne p0, p1, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    const/4 p0, 0x1
-
-    :goto_1
-    return p0
-.end method
-
 .method public static isDockingUiShowing()Z
     .locals 1
 
     sget-boolean v0, Lcom/google/android/systemui/dreamliner/DockObserver;->sIsDockingUiShowing:Z
 
     return v0
+.end method
+
+.method private isWirelessCharging(Landroid/content/Context;)Z
+    .locals 3
+
+    new-instance p0, Landroid/content/IntentFilter;
+
+    const-string v0, "android.intent.action.BATTERY_CHANGED"
+
+    invoke-direct {p0, v0}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p1, v0, p0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+
+    move-result-object p0
+
+    const/4 p1, 0x0
+
+    const-string v0, "DLObserver"
+
+    if-nez p0, :cond_1
+
+    sget-boolean p0, Lcom/google/android/systemui/dreamliner/DockObserver;->DEBUG:Z
+
+    if-eqz p0, :cond_0
+
+    const-string p0, "null battery intent when checking plugged status"
+
+    invoke-static {v0, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    return p1
+
+    :cond_1
+    const/4 v1, -0x1
+
+    const-string v2, "plugged"
+
+    invoke-virtual {p0, v2, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result p0
+
+    sget-boolean v1, Lcom/google/android/systemui/dreamliner/DockObserver;->DEBUG:Z
+
+    if-eqz v1, :cond_2
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "plugged = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2
+    const/4 v0, 0x4
+
+    if-ne p0, v0, :cond_3
+
+    const/4 p1, 0x1
+
+    :cond_3
+    return p1
 .end method
 
 .method private synthetic lambda$addListener$0(Lcom/android/systemui/dock/DockManager$DockEventListener;)V
@@ -2564,18 +2611,7 @@
     goto :goto_1
 
     :pswitch_0
-    iget-object p2, p0, Lcom/google/android/systemui/dreamliner/DockObserver;->mWirelessCharger:Lcom/google/android/systemui/dreamliner/WirelessCharger;
-
-    if-nez p2, :cond_8
-
-    goto :goto_1
-
-    :cond_8
-    new-instance p2, Lcom/google/android/systemui/dreamliner/DockObserver$IsDockPresent;
-
-    invoke-direct {p2, p0, p1}, Lcom/google/android/systemui/dreamliner/DockObserver$IsDockPresent;-><init>(Lcom/google/android/systemui/dreamliner/DockObserver;Landroid/content/Context;)V
-
-    invoke-static {p2}, Lcom/google/android/systemui/dreamliner/DockObserver;->runOnBackgroundThread(Ljava/lang/Runnable;)V
+    invoke-direct {p0, p1}, Lcom/google/android/systemui/dreamliner/DockObserver;->checkIsDockPresentIfNeeded(Landroid/content/Context;)V
 
     goto :goto_1
 
@@ -2705,26 +2741,7 @@
 
     invoke-direct {p0, v0}, Lcom/google/android/systemui/dreamliner/DockObserver;->notifyForceEnabledAmbientDisplay(Z)V
 
-    invoke-direct {p0, p1}, Lcom/google/android/systemui/dreamliner/DockObserver;->getBatteryStatus(Landroid/content/Context;)Landroid/content/Intent;
+    invoke-direct {p0, p1}, Lcom/google/android/systemui/dreamliner/DockObserver;->checkIsDockPresentIfNeeded(Landroid/content/Context;)V
 
-    move-result-object v0
-
-    invoke-direct {p0, v0}, Lcom/google/android/systemui/dreamliner/DockObserver;->isChargingOrFull(Landroid/content/Intent;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/google/android/systemui/dreamliner/DockObserver;->mWirelessCharger:Lcom/google/android/systemui/dreamliner/WirelessCharger;
-
-    if-eqz v0, :cond_0
-
-    new-instance v0, Lcom/google/android/systemui/dreamliner/DockObserver$IsDockPresent;
-
-    invoke-direct {v0, p0, p1}, Lcom/google/android/systemui/dreamliner/DockObserver$IsDockPresent;-><init>(Lcom/google/android/systemui/dreamliner/DockObserver;Landroid/content/Context;)V
-
-    invoke-static {v0}, Lcom/google/android/systemui/dreamliner/DockObserver;->runOnBackgroundThread(Ljava/lang/Runnable;)V
-
-    :cond_0
     return-void
 .end method

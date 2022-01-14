@@ -50,11 +50,9 @@
 
 .field private final userId:I
 
-.field private final userNeedsStrongAuth:Z
-
 
 # direct methods
-.method public constructor <init>(JIZZZZZZZZZZZZZZZZZZZZZ)V
+.method public constructor <init>(JIZZZZZZZZZZZZZZZZZZZZ)V
     .locals 3
 
     move-object v0, p0
@@ -150,10 +148,6 @@
     move/from16 v1, p23
 
     iput-boolean v1, v0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->userDoesNotHaveTrust:Z
-
-    move/from16 v1, p24
-
-    iput-boolean v1, v0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->userNeedsStrongAuth:Z
 
     const/16 v1, 0x8
 
@@ -388,24 +382,15 @@
     return v2
 
     :cond_16
-    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->userDoesNotHaveTrust:Z
+    iget-boolean p0, p0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->userDoesNotHaveTrust:Z
 
-    iget-boolean v3, p1, Lcom/android/keyguard/KeyguardFingerprintListenModel;->userDoesNotHaveTrust:Z
+    iget-boolean p1, p1, Lcom/android/keyguard/KeyguardFingerprintListenModel;->userDoesNotHaveTrust:Z
 
-    if-eq v1, v3, :cond_17
+    if-eq p0, p1, :cond_17
 
     return v2
 
     :cond_17
-    iget-boolean p0, p0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->userNeedsStrongAuth:Z
-
-    iget-boolean p1, p1, Lcom/android/keyguard/KeyguardFingerprintListenModel;->userNeedsStrongAuth:Z
-
-    if-eq p0, p1, :cond_18
-
-    return v2
-
-    :cond_18
     return v0
 .end method
 
@@ -671,24 +656,13 @@
 
     mul-int/lit8 v0, v0, 0x1f
 
-    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->userDoesNotHaveTrust:Z
+    iget-boolean p0, p0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->userDoesNotHaveTrust:Z
 
-    if-eqz v1, :cond_13
-
-    move v1, v2
-
-    :cond_13
-    add-int/2addr v0, v1
-
-    mul-int/lit8 v0, v0, 0x1f
-
-    iget-boolean p0, p0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->userNeedsStrongAuth:Z
-
-    if-eqz p0, :cond_14
+    if-eqz p0, :cond_13
 
     goto :goto_0
 
-    :cond_14
+    :cond_13
     move v2, p0
 
     :goto_0
@@ -882,15 +856,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->userDoesNotHaveTrust:Z
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    const-string v1, ", userNeedsStrongAuth="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-boolean p0, p0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->userNeedsStrongAuth:Z
+    iget-boolean p0, p0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->userDoesNotHaveTrust:Z
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
