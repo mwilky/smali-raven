@@ -508,7 +508,7 @@
 
     if-eqz v5, :cond_1
 
-    invoke-virtual {v4}, Lcom/android/server/media/MediaSessionRecord;->isPlaybackTypeLocal()Z
+    invoke-virtual {v4}, Lcom/android/server/media/MediaSessionRecord;->canHandleVolumeKey()Z
 
     move-result v5
 

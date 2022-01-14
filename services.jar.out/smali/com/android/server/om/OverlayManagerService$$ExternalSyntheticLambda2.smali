@@ -45,7 +45,7 @@
 
     iget-object v3, p0, Lcom/android/server/om/OverlayManagerService$$ExternalSyntheticLambda2;->f$3:Landroid/util/ArraySet;
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/om/OverlayManagerService;->lambda$updateTargetPackagesLocked$0$OverlayManagerService(Ljava/util/List;ILandroid/util/ArraySet;)V
+    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/om/OverlayManagerService;->lambda$updateTargetPackagesLocked$1$OverlayManagerService(Ljava/util/List;ILandroid/util/ArraySet;)V
 
     return-void
 .end method

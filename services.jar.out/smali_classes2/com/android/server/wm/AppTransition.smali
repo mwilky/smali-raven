@@ -4135,6 +4135,24 @@
     return v0
 .end method
 
+.method isIdle()Z
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/wm/AppTransition;->mAppTransitionState:I
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
 .method isNextAppTransitionOpenCrossProfileApps()Z
     .locals 2
 

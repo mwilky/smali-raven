@@ -29,7 +29,7 @@
 
     check-cast p1, Ljava/lang/String;
 
-    invoke-static {v0, p1}, Lcom/android/server/om/OverlayManagerService;->lambda$broadcastActionOverlayChanged$2(ILjava/lang/String;)V
+    invoke-static {v0, p1}, Lcom/android/server/om/OverlayManagerService;->lambda$broadcastActionOverlayChanged$3(ILjava/lang/String;)V
 
     return-void
 .end method

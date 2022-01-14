@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 16
+    .locals 17
 
     move-object/from16 v1, p0
 
@@ -109,13 +109,13 @@
 
     invoke-direct {v9, v6, v4}, Lcom/android/server/om/IdmapManager;-><init>(Lcom/android/server/om/IdmapDaemon;Lcom/android/server/om/PackageManagerHelper;)V
 
-    new-instance v10, Lcom/android/server/om/OverlayManagerSettings;
+    new-instance v6, Lcom/android/server/om/OverlayManagerSettings;
 
-    invoke-direct {v10}, Lcom/android/server/om/OverlayManagerSettings;-><init>()V
+    invoke-direct {v6}, Lcom/android/server/om/OverlayManagerSettings;-><init>()V
 
-    iput-object v10, v1, Lcom/android/server/om/OverlayManagerService;->mSettings:Lcom/android/server/om/OverlayManagerSettings;
+    iput-object v6, v1, Lcom/android/server/om/OverlayManagerService;->mSettings:Lcom/android/server/om/OverlayManagerSettings;
 
-    new-instance v6, Lcom/android/server/om/OverlayManagerServiceImpl;
+    new-instance v13, Lcom/android/server/om/OverlayManagerServiceImpl;
 
     invoke-static {}, Lcom/android/internal/content/om/OverlayConfig;->getSystemInstance()Lcom/android/internal/content/om/OverlayConfig;
 
@@ -125,47 +125,49 @@
 
     move-result-object v12
 
-    move-object v7, v6
+    move-object v7, v13
 
     move-object v8, v4
 
+    move-object v10, v6
+
     invoke-direct/range {v7 .. v12}, Lcom/android/server/om/OverlayManagerServiceImpl;-><init>(Lcom/android/server/om/PackageManagerHelper;Lcom/android/server/om/IdmapManager;Lcom/android/server/om/OverlayManagerSettings;Lcom/android/internal/content/om/OverlayConfig;[Ljava/lang/String;)V
 
-    iput-object v6, v1, Lcom/android/server/om/OverlayManagerService;->mImpl:Lcom/android/server/om/OverlayManagerServiceImpl;
+    iput-object v13, v1, Lcom/android/server/om/OverlayManagerService;->mImpl:Lcom/android/server/om/OverlayManagerServiceImpl;
 
-    new-instance v6, Lcom/android/server/om/OverlayActorEnforcer;
+    new-instance v7, Lcom/android/server/om/OverlayActorEnforcer;
 
-    invoke-direct {v6, v4}, Lcom/android/server/om/OverlayActorEnforcer;-><init>(Lcom/android/server/om/PackageManagerHelper;)V
+    invoke-direct {v7, v4}, Lcom/android/server/om/OverlayActorEnforcer;-><init>(Lcom/android/server/om/PackageManagerHelper;)V
 
-    iput-object v6, v1, Lcom/android/server/om/OverlayManagerService;->mActorEnforcer:Lcom/android/server/om/OverlayActorEnforcer;
+    iput-object v7, v1, Lcom/android/server/om/OverlayManagerService;->mActorEnforcer:Lcom/android/server/om/OverlayActorEnforcer;
 
     new-instance v4, Landroid/os/HandlerThread;
 
-    const-string v6, "OverlayManager"
+    const-string v7, "OverlayManager"
 
-    invoke-direct {v4, v6}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v7}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v4}, Landroid/os/HandlerThread;->start()V
 
-    new-instance v6, Landroid/content/IntentFilter;
+    new-instance v7, Landroid/content/IntentFilter;
 
-    invoke-direct {v6}, Landroid/content/IntentFilter;-><init>()V
+    invoke-direct {v7}, Landroid/content/IntentFilter;-><init>()V
 
-    const-string v7, "android.intent.action.PACKAGE_ADDED"
+    const-string v8, "android.intent.action.PACKAGE_ADDED"
 
-    invoke-virtual {v6, v7}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v7, v8}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    const-string v7, "android.intent.action.PACKAGE_CHANGED"
+    const-string v8, "android.intent.action.PACKAGE_CHANGED"
 
-    invoke-virtual {v6, v7}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v7, v8}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    const-string v7, "android.intent.action.PACKAGE_REMOVED"
+    const-string v8, "android.intent.action.PACKAGE_REMOVED"
 
-    invoke-virtual {v6, v7}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v7, v8}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    const-string/jumbo v7, "package"
+    const-string/jumbo v8, "package"
 
-    invoke-virtual {v6, v7}, Landroid/content/IntentFilter;->addDataScheme(Ljava/lang/String;)V
+    invoke-virtual {v7, v8}, Landroid/content/IntentFilter;->addDataScheme(Ljava/lang/String;)V
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/om/OverlayManagerService;->getContext()Landroid/content/Context;
 
@@ -173,9 +175,9 @@
 
     new-instance v11, Lcom/android/server/om/OverlayManagerService$PackageReceiver;
 
-    const/4 v7, 0x0
+    const/4 v8, 0x0
 
-    invoke-direct {v11, v1, v7}, Lcom/android/server/om/OverlayManagerService$PackageReceiver;-><init>(Lcom/android/server/om/OverlayManagerService;Lcom/android/server/om/OverlayManagerService$1;)V
+    invoke-direct {v11, v1, v8}, Lcom/android/server/om/OverlayManagerService$PackageReceiver;-><init>(Lcom/android/server/om/OverlayManagerService;Lcom/android/server/om/OverlayManagerService$1;)V
 
     sget-object v12, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
@@ -185,51 +187,73 @@
 
     move-result-object v15
 
-    move-object v13, v6
+    move-object v13, v7
 
     invoke-virtual/range {v10 .. v15}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
-    new-instance v8, Landroid/content/IntentFilter;
+    new-instance v10, Landroid/content/IntentFilter;
 
-    invoke-direct {v8}, Landroid/content/IntentFilter;-><init>()V
+    invoke-direct {v10}, Landroid/content/IntentFilter;-><init>()V
 
-    const-string v10, "android.intent.action.USER_ADDED"
+    const-string v11, "android.intent.action.USER_ADDED"
 
-    invoke-virtual {v8, v10}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v10, v11}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    const-string v10, "android.intent.action.USER_REMOVED"
+    const-string v11, "android.intent.action.USER_REMOVED"
 
-    invoke-virtual {v8, v10}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v10, v11}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/om/OverlayManagerService;->getContext()Landroid/content/Context;
 
-    move-result-object v10
+    move-result-object v11
 
-    new-instance v11, Lcom/android/server/om/OverlayManagerService$UserReceiver;
+    new-instance v12, Lcom/android/server/om/OverlayManagerService$UserReceiver;
 
-    invoke-direct {v11, v1, v7}, Lcom/android/server/om/OverlayManagerService$UserReceiver;-><init>(Lcom/android/server/om/OverlayManagerService;Lcom/android/server/om/OverlayManagerService$1;)V
+    invoke-direct {v12, v1, v8}, Lcom/android/server/om/OverlayManagerService$UserReceiver;-><init>(Lcom/android/server/om/OverlayManagerService;Lcom/android/server/om/OverlayManagerService$1;)V
 
-    sget-object v12, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
-
-    const/4 v14, 0x0
+    sget-object v13, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
     const/4 v15, 0x0
 
-    move-object v13, v8
+    const/16 v16, 0x0
 
-    invoke-virtual/range {v10 .. v15}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
+    move-object v14, v10
+
+    invoke-virtual/range {v11 .. v16}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
     invoke-direct/range {p0 .. p0}, Lcom/android/server/om/OverlayManagerService;->restoreSettings()V
 
+    nop
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/om/OverlayManagerService;->getContext()Landroid/content/Context;
+
+    move-result-object v8
+
+    const v11, 0x104002a
+
+    invoke-virtual {v8, v11}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v8}, Landroid/text/TextUtils;->emptyIfNull(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    new-instance v11, Lcom/android/server/om/OverlayManagerService$$ExternalSyntheticLambda3;
+
+    invoke-direct {v11, v8}, Lcom/android/server/om/OverlayManagerService$$ExternalSyntheticLambda3;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v6, v11}, Lcom/android/server/om/OverlayManagerSettings;->removeIf(Ljava/util/function/Predicate;)Ljava/util/List;
+
     invoke-direct/range {p0 .. p0}, Lcom/android/server/om/OverlayManagerService;->initIfNeeded()V
 
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
-    invoke-direct {v1, v7}, Lcom/android/server/om/OverlayManagerService;->onSwitchUser(I)V
+    invoke-direct {v1, v6}, Lcom/android/server/om/OverlayManagerService;->onSwitchUser(I)V
 
-    const-string/jumbo v7, "overlay"
+    const-string/jumbo v6, "overlay"
 
-    invoke-virtual {v1, v7, v0}, Lcom/android/server/om/OverlayManagerService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
+    invoke-virtual {v1, v6, v0}, Lcom/android/server/om/OverlayManagerService;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
     const-class v0, Lcom/android/server/om/OverlayManagerService;
 
@@ -534,7 +558,7 @@
     throw v3
 .end method
 
-.method static synthetic lambda$broadcastActionOverlayChanged$2(ILjava/lang/String;)V
+.method static synthetic lambda$broadcastActionOverlayChanged$3(ILjava/lang/String;)V
     .locals 18
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -614,7 +638,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$groupTargetsByUserId$1(Landroid/util/SparseArray;Lcom/android/server/om/PackageAndUser;)V
+.method static synthetic lambda$groupTargetsByUserId$2(Landroid/util/SparseArray;Lcom/android/server/om/PackageAndUser;)V
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -648,6 +672,32 @@
     invoke-virtual {v0, v1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
     return-void
+.end method
+
+.method static synthetic lambda$new$0(Ljava/lang/String;Landroid/content/om/OverlayInfo;)Z
+    .locals 1
+
+    iget-boolean v0, p1, Landroid/content/om/OverlayInfo;->isFabricated:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p1, Landroid/content/om/OverlayInfo;->packageName:Ljava/lang/String;
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
 .end method
 
 .method private onSwitchUser(I)V
@@ -1404,7 +1454,7 @@
 
 
 # virtual methods
-.method public synthetic lambda$updateTargetPackagesLocked$0$OverlayManagerService(Ljava/util/List;ILandroid/util/ArraySet;)V
+.method public synthetic lambda$updateTargetPackagesLocked$1$OverlayManagerService(Ljava/util/List;ILandroid/util/ArraySet;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/om/OverlayManagerService;->updateActivityManager(Ljava/util/List;I)V

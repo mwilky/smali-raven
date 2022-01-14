@@ -10,6 +10,9 @@
 .method public abstract adjustVolume(Ljava/lang/String;Ljava/lang/String;IIZIIZ)V
 .end method
 
+.method public abstract canHandleVolumeKey()Z
+.end method
+
 .method public abstract checkPlaybackActiveState(Z)Z
 .end method
 

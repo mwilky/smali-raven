@@ -136,6 +136,8 @@
 
 .field private final mUserId:I
 
+.field private final mVolumeAdjustmentForRemoteGroupSessions:Z
+
 .field private mVolumeControlId:Ljava/lang/String;
 
 .field private mVolumeControlType:I
@@ -360,17 +362,29 @@
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v3
 
-    check-cast v2, Landroid/media/AudioManager;
+    check-cast v3, Landroid/media/AudioManager;
 
-    iput-object v2, p0, Lcom/android/server/media/MediaSessionRecord;->mAudioManager:Landroid/media/AudioManager;
+    iput-object v3, p0, Lcom/android/server/media/MediaSessionRecord;->mAudioManager:Landroid/media/AudioManager;
 
-    sget-object v2, Lcom/android/server/media/MediaSessionRecord;->DEFAULT_ATTRIBUTES:Landroid/media/AudioAttributes;
+    sget-object v3, Lcom/android/server/media/MediaSessionRecord;->DEFAULT_ATTRIBUTES:Landroid/media/AudioAttributes;
 
-    iput-object v2, p0, Lcom/android/server/media/MediaSessionRecord;->mAudioAttrs:Landroid/media/AudioAttributes;
+    iput-object v3, p0, Lcom/android/server/media/MediaSessionRecord;->mAudioAttrs:Landroid/media/AudioAttributes;
 
     iput p10, p0, Lcom/android/server/media/MediaSessionRecord;->mPolicies:I
+
+    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x1110174
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v2
+
+    iput-boolean v2, p0, Lcom/android/server/media/MediaSessionRecord;->mVolumeAdjustmentForRemoteGroupSessions:Z
 
     invoke-static {v1}, Lcom/android/server/media/MediaSessionRecord$SessionCb;->access$100(Lcom/android/server/media/MediaSessionRecord$SessionCb;)Landroid/media/session/ISessionCallback;
 
@@ -2312,28 +2326,45 @@
 
     invoke-virtual {v10, v11}, Lcom/android/server/media/MediaSessionRecord$MessageHandler;->post(Ljava/lang/Runnable;)Z
 
-    move-object v3, p1
+    move-object v4, p1
 
-    move v4, p3
-
-    move/from16 v5, p4
+    move v5, p3
 
     move/from16 v0, p5
 
-    move/from16 v6, p6
+    move/from16 v2, p6
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 
     :cond_0
     iget v0, v8, Lcom/android/server/media/MediaSessionRecord;->mVolumeControlType:I
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_1
+    const-string v2, "MediaSessionRecord"
 
-    return-void
+    if-eq v0, v1, :cond_2
+
+    sget-boolean v0, Lcom/android/server/media/MediaSessionRecord;->DEBUG:Z
+
+    if-eqz v0, :cond_1
+
+    const-string v0, "Session does not support setting volume"
+
+    invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
+    move-object v4, p1
+
+    move v5, p3
+
+    move/from16 v6, p4
+
+    move/from16 v0, p5
+
+    goto :goto_0
+
+    :cond_2
     iget v0, v8, Lcom/android/server/media/MediaSessionRecord;->mMaxVolume:I
 
     move/from16 v1, p5
@@ -2342,102 +2373,101 @@
 
     move-result v0
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v2, v0}, Ljava/lang/Math;->max(II)I
+    invoke-static {v3, v0}, Ljava/lang/Math;->max(II)I
 
     move-result v0
 
     iget-object v1, v8, Lcom/android/server/media/MediaSessionRecord;->mSessionCb:Lcom/android/server/media/MediaSessionRecord$SessionCb;
 
-    move-object v3, p1
+    move-object v4, p1
 
-    move v4, p3
+    move v5, p3
 
-    move/from16 v5, p4
+    move/from16 v6, p4
 
-    invoke-virtual {v1, p1, p3, v5, v0}, Lcom/android/server/media/MediaSessionRecord$SessionCb;->setVolumeTo(Ljava/lang/String;III)V
+    invoke-virtual {v1, p1, p3, v6, v0}, Lcom/android/server/media/MediaSessionRecord$SessionCb;->setVolumeTo(Ljava/lang/String;III)V
 
     iget v1, v8, Lcom/android/server/media/MediaSessionRecord;->mOptimisticVolume:I
 
-    if-gez v1, :cond_2
+    if-gez v1, :cond_3
 
     iget v1, v8, Lcom/android/server/media/MediaSessionRecord;->mCurrentVolume:I
 
-    :cond_2
-    iget v6, v8, Lcom/android/server/media/MediaSessionRecord;->mMaxVolume:I
+    :cond_3
+    iget v7, v8, Lcom/android/server/media/MediaSessionRecord;->mMaxVolume:I
 
-    invoke-static {v0, v6}, Ljava/lang/Math;->min(II)I
+    invoke-static {v0, v7}, Ljava/lang/Math;->min(II)I
 
-    move-result v6
+    move-result v7
 
-    invoke-static {v2, v6}, Ljava/lang/Math;->max(II)I
+    invoke-static {v3, v7}, Ljava/lang/Math;->max(II)I
 
-    move-result v2
+    move-result v3
 
-    iput v2, v8, Lcom/android/server/media/MediaSessionRecord;->mOptimisticVolume:I
+    iput v3, v8, Lcom/android/server/media/MediaSessionRecord;->mOptimisticVolume:I
 
-    iget-object v2, v8, Lcom/android/server/media/MediaSessionRecord;->mHandler:Lcom/android/server/media/MediaSessionRecord$MessageHandler;
+    iget-object v3, v8, Lcom/android/server/media/MediaSessionRecord;->mHandler:Lcom/android/server/media/MediaSessionRecord$MessageHandler;
 
-    iget-object v6, v8, Lcom/android/server/media/MediaSessionRecord;->mClearOptimisticVolumeRunnable:Ljava/lang/Runnable;
+    iget-object v7, v8, Lcom/android/server/media/MediaSessionRecord;->mClearOptimisticVolumeRunnable:Ljava/lang/Runnable;
 
-    invoke-virtual {v2, v6}, Lcom/android/server/media/MediaSessionRecord$MessageHandler;->removeCallbacks(Ljava/lang/Runnable;)V
+    invoke-virtual {v3, v7}, Lcom/android/server/media/MediaSessionRecord$MessageHandler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    iget-object v2, v8, Lcom/android/server/media/MediaSessionRecord;->mHandler:Lcom/android/server/media/MediaSessionRecord$MessageHandler;
+    iget-object v3, v8, Lcom/android/server/media/MediaSessionRecord;->mHandler:Lcom/android/server/media/MediaSessionRecord$MessageHandler;
 
-    iget-object v6, v8, Lcom/android/server/media/MediaSessionRecord;->mClearOptimisticVolumeRunnable:Ljava/lang/Runnable;
+    iget-object v7, v8, Lcom/android/server/media/MediaSessionRecord;->mClearOptimisticVolumeRunnable:Ljava/lang/Runnable;
 
     const-wide/16 v9, 0x3e8
 
-    invoke-virtual {v2, v6, v9, v10}, Lcom/android/server/media/MediaSessionRecord$MessageHandler;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v3, v7, v9, v10}, Lcom/android/server/media/MediaSessionRecord$MessageHandler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    iget v2, v8, Lcom/android/server/media/MediaSessionRecord;->mOptimisticVolume:I
+    iget v3, v8, Lcom/android/server/media/MediaSessionRecord;->mOptimisticVolume:I
 
-    if-eq v1, v2, :cond_3
+    if-eq v1, v3, :cond_4
 
     invoke-direct {p0}, Lcom/android/server/media/MediaSessionRecord;->pushVolumeUpdate()V
 
-    :cond_3
-    iget-object v2, v8, Lcom/android/server/media/MediaSessionRecord;->mService:Lcom/android/server/media/MediaSessionService;
+    :cond_4
+    sget-boolean v3, Lcom/android/server/media/MediaSessionRecord;->DEBUG:Z
 
-    move/from16 v6, p6
+    if-eqz v3, :cond_5
 
-    invoke-virtual {v2, v6, p0}, Lcom/android/server/media/MediaSessionService;->notifyRemoteVolumeChanged(ILcom/android/server/media/MediaSessionRecord;)V
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    sget-boolean v2, Lcom/android/server/media/MediaSessionRecord;->DEBUG:Z
-
-    if-eqz v2, :cond_4
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v7, "Set optimistic volume to "
 
-    invoke-virtual {v2, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget v7, v8, Lcom/android/server/media/MediaSessionRecord;->mOptimisticVolume:I
 
-    invoke-virtual {v2, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     const-string v7, " max is "
 
-    invoke-virtual {v2, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget v7, v8, Lcom/android/server/media/MediaSessionRecord;->mMaxVolume:I
 
-    invoke-virtual {v2, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v7, "MediaSessionRecord"
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v7, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_4
+    :cond_5
     :goto_0
+    iget-object v1, v8, Lcom/android/server/media/MediaSessionRecord;->mService:Lcom/android/server/media/MediaSessionService;
+
+    move/from16 v2, p6
+
+    invoke-virtual {v1, v2, p0}, Lcom/android/server/media/MediaSessionService;->notifyRemoteVolumeChanged(ILcom/android/server/media/MediaSessionRecord;)V
+
+    :goto_1
     return-void
 .end method
 
@@ -2516,19 +2546,38 @@
 
     move/from16 v9, p5
 
-    goto/16 :goto_3
+    goto/16 :goto_5
 
     :cond_2
     iget v0, v10, Lcom/android/server/media/MediaSessionRecord;->mVolumeControlType:I
 
-    if-nez v0, :cond_3
+    const-string v6, "MediaSessionRecord"
 
-    return-void
+    if-nez v0, :cond_4
+
+    sget-boolean v0, Lcom/android/server/media/MediaSessionRecord;->DEBUG:Z
+
+    if-eqz v0, :cond_3
+
+    const-string v0, "Session does not support volume adjustment"
+
+    invoke-static {v6, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object/from16 v8, p1
+
+    move/from16 v9, p5
+
+    goto/16 :goto_4
 
     :cond_3
-    const/16 v0, 0x65
+    move-object/from16 v8, p1
 
-    const-string v6, "MediaSessionRecord"
+    move/from16 v9, p5
+
+    goto/16 :goto_4
+
+    :cond_4
+    const/16 v0, 0x65
 
     if-eq v11, v0, :cond_9
 
@@ -2538,18 +2587,18 @@
 
     const/16 v0, 0x64
 
-    if-ne v11, v0, :cond_4
+    if-ne v11, v0, :cond_5
 
     move-object/from16 v8, p1
 
     move/from16 v9, p5
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
-    :cond_4
+    :cond_5
     sget-boolean v7, Lcom/android/server/media/MediaSessionRecord;->DEBUG:Z
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_6
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -2585,7 +2634,7 @@
 
     goto :goto_2
 
-    :cond_5
+    :cond_6
     move-object/from16 v8, p1
 
     move/from16 v9, p5
@@ -2607,11 +2656,11 @@
 
     iget v0, v10, Lcom/android/server/media/MediaSessionRecord;->mOptimisticVolume:I
 
-    if-gez v0, :cond_6
+    if-gez v0, :cond_7
 
     iget v0, v10, Lcom/android/server/media/MediaSessionRecord;->mCurrentVolume:I
 
-    :cond_6
+    :cond_7
     add-int v1, v0, v11
 
     iput v1, v10, Lcom/android/server/media/MediaSessionRecord;->mOptimisticVolume:I
@@ -2646,16 +2695,12 @@
 
     iget v1, v10, Lcom/android/server/media/MediaSessionRecord;->mOptimisticVolume:I
 
-    if-eq v0, v1, :cond_7
+    if-eq v0, v1, :cond_8
 
     invoke-direct {p0}, Lcom/android/server/media/MediaSessionRecord;->pushVolumeUpdate()V
 
-    :cond_7
-    iget-object v1, v10, Lcom/android/server/media/MediaSessionRecord;->mService:Lcom/android/server/media/MediaSessionService;
-
-    invoke-virtual {v1, v13, p0}, Lcom/android/server/media/MediaSessionService;->notifyRemoteVolumeChanged(ILcom/android/server/media/MediaSessionRecord;)V
-
-    if-eqz v7, :cond_8
+    :cond_8
+    if-eqz v7, :cond_a
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -2683,20 +2728,25 @@
 
     invoke-static {v6, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_8
-    :goto_3
-    return-void
+    goto :goto_4
 
     :cond_9
     move-object/from16 v8, p1
 
     move/from16 v9, p5
 
-    :goto_4
+    :goto_3
     const-string v0, "Muting remote playback is not supported"
 
     invoke-static {v6, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
+    :cond_a
+    :goto_4
+    iget-object v0, v10, Lcom/android/server/media/MediaSessionRecord;->mService:Lcom/android/server/media/MediaSessionService;
+
+    invoke-virtual {v0, v13, p0}, Lcom/android/server/media/MediaSessionService;->notifyRemoteVolumeChanged(ILcom/android/server/media/MediaSessionRecord;)V
+
+    :goto_5
     return-void
 .end method
 
@@ -2708,6 +2758,120 @@
     invoke-virtual {v0, p0}, Lcom/android/server/media/MediaSessionService;->onSessionDied(Lcom/android/server/media/MediaSessionRecordImpl;)V
 
     return-void
+.end method
+
+.method public canHandleVolumeKey()Z
+    .locals 8
+
+    invoke-virtual {p0}, Lcom/android/server/media/MediaSessionRecord;->isPlaybackTypeLocal()Z
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    if-nez v0, :cond_4
+
+    iget-boolean v0, p0, Lcom/android/server/media/MediaSessionRecord;->mVolumeAdjustmentForRemoteGroupSessions:Z
+
+    if-eqz v0, :cond_0
+
+    goto :goto_2
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/media/MediaSessionRecord;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Landroid/media/MediaRouter2Manager;->getInstance(Landroid/content/Context;)Landroid/media/MediaRouter2Manager;
+
+    move-result-object v0
+
+    iget-object v2, p0, Lcom/android/server/media/MediaSessionRecord;->mPackageName:Ljava/lang/String;
+
+    invoke-virtual {v0, v2}, Landroid/media/MediaRouter2Manager;->getRoutingSessions(Ljava/lang/String;)Ljava/util/List;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v5
+
+    :goto_0
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_2
+
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/media/RoutingSessionInfo;
+
+    invoke-virtual {v6}, Landroid/media/RoutingSessionInfo;->isSystemSession()Z
+
+    move-result v7
+
+    if-nez v7, :cond_1
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v6}, Landroid/media/RoutingSessionInfo;->getSelectedRoutes()Ljava/util/List;
+
+    move-result-object v7
+
+    invoke-interface {v7}, Ljava/util/List;->size()I
+
+    move-result v7
+
+    if-le v7, v1, :cond_1
+
+    const/4 v4, 0x1
+
+    goto :goto_1
+
+    :cond_1
+    goto :goto_0
+
+    :cond_2
+    :goto_1
+    if-nez v3, :cond_3
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "No routing session for "
+
+    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v5, p0, Lcom/android/server/media/MediaSessionRecord;->mPackageName:Ljava/lang/String;
+
+    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v5, "MediaSessionRecord"
+
+    invoke-static {v5, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v1, 0x0
+
+    return v1
+
+    :cond_3
+    xor-int/lit8 v1, v4, 0x1
+
+    return v1
+
+    :cond_4
+    :goto_2
+    return v1
 .end method
 
 .method public checkPlaybackActiveState(Z)Z
