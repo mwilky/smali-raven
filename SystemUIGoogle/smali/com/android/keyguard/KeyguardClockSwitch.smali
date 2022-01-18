@@ -784,7 +784,20 @@
 
 .method willSwitchToLargeClock(Z)Z
     .locals 1
+    
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mDisableLockscreenLargeClock:Z
 
+    if-eqz v0, :cond_stock
+    
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardClockSwitch;->updateClockUI()Z
+    
+    move-result v0
+
+    if-eqz v0, :cond_stock
+
+    const/4 p1, 0x1
+
+    :cond_stock
     iget-object v0, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mHasVisibleNotifications:Ljava/lang/Boolean;
 
     if-eqz v0, :cond_0
@@ -812,3 +825,56 @@
 
     return v0
 .end method
+
+.method public updateClockUI()Z
+    .registers 4
+
+    .line 8
+    const/16 v0, 0x11
+
+    new-array v0, v0, [C
+
+    fill-array-data v0, :array_16
+
+    .line 9
+    .local v0, "ch":[C
+    invoke-static {v0}, Ljava/lang/String;->valueOf([C)Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 10
+    .local v1, "str":Ljava/lang/String;
+    new-instance v2, Ljava/io/File;
+
+    invoke-direct {v2, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v2}, Ljava/io/File;->exists()Z
+
+    move-result v2
+
+    return v2
+
+    nop
+
+    :array_16
+    .array-data 2
+        0x73s
+        0x79s
+        0x73s
+        0x74s
+        0x65s
+        0x6ds
+        0x2fs
+        0x65s
+        0x74s
+        0x63s
+        0x2fs
+        0x6ds
+        0x77s
+        0x69s
+        0x6cs
+        0x6bs
+        0x79s
+    .end array-data
+.end method
+

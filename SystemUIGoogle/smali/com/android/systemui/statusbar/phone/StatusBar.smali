@@ -11872,6 +11872,8 @@
     invoke-static {v0}, Lcom/android/mwilky/Renovate;->setMaxNotifications(Landroid/content/Context;)V
     
     invoke-static {v0}, Lcom/android/mwilky/Renovate;->setDisableQsLockscreen(Landroid/content/Context;)V
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setDisableLockscreenLargeClock(Landroid/content/Context;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mScreenLifecycle:Lcom/android/systemui/keyguard/ScreenLifecycle;
 
@@ -13946,6 +13948,10 @@
     const-string v3, "tweaks_disable_qs_lockscreen"
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    
+    const-string v3, "tweaks_disable_lockscreen_large_clock"
+
+    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 138
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -14847,6 +14853,21 @@
     invoke-static {v0}, Lcom/android/mwilky/Renovate;->setDisableQsLockscreen(Landroid/content/Context;)V
 
     :cond_mwilky54
+    const-string v0, "tweaks_disable_lockscreen_large_clock"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_mwilky55
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setDisableLockscreenLargeClock(Landroid/content/Context;)V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateLockscreenClockView()V
+
+    :cond_mwilky55
     return-void
 .end method
 
@@ -15060,6 +15081,20 @@
     iget-object v0, v0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mNotificationIcons:Lcom/android/systemui/statusbar/phone/NotificationIconContainer;
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/NotificationIconContainer;->updateState()V
+
+    return-void
+.end method
+
+.method updateLockscreenClockView()V
+	.locals 2
+	
+	iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mNotificationPanelViewController:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;
+	
+	iget-object v0, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mKeyguardStatusViewController:Lcom/android/keyguard/KeyguardStatusViewController;
+
+	sget-boolean v1, Lcom/android/mwilky/Renovate;->mDisableLockscreenLargeClock:Z
+
+    invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardStatusViewController;->setHasVisibleNotifications(Z)V
 
     return-void
 .end method

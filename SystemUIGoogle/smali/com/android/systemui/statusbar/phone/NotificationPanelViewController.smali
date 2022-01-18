@@ -234,7 +234,7 @@
 
 .field private final mKeyguardStatusViewComponentFactory:Lcom/android/keyguard/dagger/KeyguardStatusViewComponent$Factory;
 
-.field private mKeyguardStatusViewController:Lcom/android/keyguard/KeyguardStatusViewController;
+.field public mKeyguardStatusViewController:Lcom/android/keyguard/KeyguardStatusViewController;
 
 .field final mKeyguardUpdateCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
