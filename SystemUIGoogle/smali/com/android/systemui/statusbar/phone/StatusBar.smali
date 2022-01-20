@@ -11874,6 +11874,8 @@
     invoke-static {v0}, Lcom/android/mwilky/Renovate;->setDisableQsLockscreen(Landroid/content/Context;)V
     
     invoke-static {v0}, Lcom/android/mwilky/Renovate;->setDisableLockscreenLargeClock(Landroid/content/Context;)V
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsBrightnessSliderPosition(Landroid/content/Context;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mScreenLifecycle:Lcom/android/systemui/keyguard/ScreenLifecycle;
 
@@ -13952,6 +13954,10 @@
     const-string v3, "tweaks_disable_lockscreen_large_clock"
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    
+    const-string v3, "tweaks_qs_brightness_slider_position"
+
+    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 138
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -14868,6 +14874,21 @@
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateLockscreenClockView()V
 
     :cond_mwilky55
+    const-string v0, "tweaks_qs_brightness_slider_position"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_mwilky56
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsBrightnessSliderPosition(Landroid/content/Context;)V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateBrightnessSliderPosition()V
+
+    :cond_mwilky56
     return-void
 .end method
 
@@ -15095,6 +15116,16 @@
 	sget-boolean v1, Lcom/android/mwilky/Renovate;->mDisableLockscreenLargeClock:Z
 
     invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardStatusViewController;->setHasVisibleNotifications(Z)V
+
+    return-void
+.end method
+
+.method updateBrightnessSliderPosition()V
+	.locals 1
+	
+	iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mQSPanelController:Lcom/android/systemui/qs/QSPanelController;
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/QSPanelController;->updateBrightnessSliderPosition()V
 
     return-void
 .end method
