@@ -11876,6 +11876,8 @@
     invoke-static {v0}, Lcom/android/mwilky/Renovate;->setDisableLockscreenLargeClock(Landroid/content/Context;)V
     
     invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsBrightnessSliderPosition(Landroid/content/Context;)V
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setHideQsBuildNumber(Landroid/content/Context;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mScreenLifecycle:Lcom/android/systemui/keyguard/ScreenLifecycle;
 

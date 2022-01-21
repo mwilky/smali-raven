@@ -78,6 +78,8 @@
     .locals 0
 
     invoke-direct {p0}, Lcom/android/systemui/qs/QSFooterView;->setBuildText()V
+    
+    invoke-direct {p0}, Lcom/android/systemui/qs/QSFooterView;->updateBuildVisibility()V
 
     return-void
 .end method
@@ -172,6 +174,16 @@
 
 .method private setBuildText()V
     .locals 6
+    
+    iget-object v0, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setHideQsBuildNumber(Landroid/content/Context;)V
+    
+    const/4 v1, 0x0
+    
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mHideQsBuildNumber:Z
+    
+    if-nez v0, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSFooterView;->mBuildText:Landroid/widget/TextView;
 
@@ -179,14 +191,12 @@
 
     return-void
 
-    :cond_0
+    :cond_0    
     iget-object v0, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/android/settingslib/development/DevelopmentSettingsEnabler;->isDevelopmentSettingsEnabled(Landroid/content/Context;)Z
 
     move-result v0
-
-    const/4 v1, 0x0
 
     if-eqz v0, :cond_1
 
@@ -566,6 +576,14 @@
     const/4 v2, 0x0
 
     const/4 v3, -0x1
+
+    invoke-virtual {v0, v1, v2, p0, v3}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+    
+    const-string v1, "tweaks_hide_qs_build_number"
+
+    invoke-static {v1}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
 
     invoke-virtual {v0, v1, v2, p0, v3}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
@@ -1002,6 +1020,30 @@
     invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/qs/QSFooterView$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/qs/QSFooterView;ZZ)V
 
     invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->post(Ljava/lang/Runnable;)Z
+
+    return-void
+.end method
+
+.method private updateBuildVisibility()V
+    .locals 4
+    
+    const/4 v2, 0x0
+    
+    const v3, 0x4
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QSFooterView;->mBuildText:Landroid/widget/TextView;
+
+    iget-boolean p0, p0, Lcom/android/systemui/qs/QSFooterView;->mShouldShowBuildText:Z
+
+    if-eqz p0, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    move v2, v3
+
+    :goto_1
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
     return-void
 .end method
