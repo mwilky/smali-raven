@@ -15056,51 +15056,33 @@
 .end method
 
 .method public skipWake()Z
-    .registers 4
+    .registers 2
 
-    .line 115
+    .line 145
     invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->isScreenOn()Z
 
     move-result v0
 
-    const/4 v1, 0x0
+    if-eqz v0, :cond_f
 
-    const-string v2, "mwilky"
-
-    if-nez v0, :cond_f
-
-    .line 116
-    const-string v0, "screenon false - return false"
-
-    invoke-static {v2, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 117
-    return v1
-
-    .line 119
-    :cond_f
     invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->isDozeMode()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_d
 
-    .line 120
-    const-string v0, "doze true - return false"
+    goto :goto_f
 
-    invoke-static {v2, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 121
-    return v1
-
-    .line 123
-    :cond_1b
-    const-string v0, "none - return true"
-
-    invoke-static {v2, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 124
+    .line 148
+    :cond_d
     const/4 v0, 0x1
+
+    return v0
+
+    .line 146
+    :cond_f
+    :goto_f
+    const/4 v0, 0x0
 
     return v0
 .end method
