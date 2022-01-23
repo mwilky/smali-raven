@@ -14870,12 +14870,6 @@
 .method public registerCameraManagerCallbacks()V
     .locals 2
 
-    const-string v0, "mwilky"
-
-    const-string v1, "registerCameraManagerCallbacks() called."
-
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
     iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mCameraManager:Landroid/hardware/camera2/CameraManager;
 
     iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mTorchCallback:Landroid/hardware/camera2/CameraManager$TorchCallback;
