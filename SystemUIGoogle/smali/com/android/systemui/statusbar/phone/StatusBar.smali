@@ -351,6 +351,8 @@
 
 .field private mQSPanelController:Lcom/android/systemui/qs/QSPanelController;
 
+.field private mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
+
 .field private final mQueueLock:Ljava/lang/Object;
 
 .field private final mRemoteInputManager:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
@@ -3377,7 +3379,7 @@
 .end method
 
 .method private synthetic lambda$makeStatusBarView$9(Ljava/lang/String;Landroid/app/Fragment;)V
-    .locals 0
+    .locals 1
 
     check-cast p2, Lcom/android/systemui/plugins/qs/QS;
 
@@ -3393,9 +3395,15 @@
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mQSPanelController:Lcom/android/systemui/qs/QSPanelController;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mBrightnessMirrorController:Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mBrightnessMirrorController:Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;
 
-    invoke-virtual {p1, p0}, Lcom/android/systemui/qs/QSPanelController;->setBrightnessMirror(Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;)V
+    invoke-virtual {p1, v0}, Lcom/android/systemui/qs/QSPanelController;->setBrightnessMirror(Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;)V
+    
+    iget-object p1, p2, Lcom/android/systemui/qs/QSFragment;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
+    
+    iput-object p1, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
+    
+    invoke-virtual {p1, v0}, Lcom/android/systemui/qs/QuickQSPanelController;->setBrightnessMirror(Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;)V
 
     :cond_0
     return-void
@@ -13960,6 +13968,10 @@
     const-string v3, "tweaks_qs_brightness_slider_position"
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    
+    const-string v3, "tweaks_qqs_brightness_slider"
+
+    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 138
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -14891,6 +14903,21 @@
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateBrightnessSliderPosition()V
 
     :cond_mwilky56
+    const-string v0, "tweaks_qqs_brightness_slider"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_mwilky57
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsBrightnessSliderPosition(Landroid/content/Context;)V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateBrightnessSliderPosition()V
+
+    :cond_mwilky57
     return-void
 .end method
 
@@ -15123,11 +15150,15 @@
 .end method
 
 .method updateBrightnessSliderPosition()V
-	.locals 1
-	
-	iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mQSPanelController:Lcom/android/systemui/qs/QSPanelController;
+	.locals 2
+    
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mQSPanelController:Lcom/android/systemui/qs/QSPanelController;
 
     invoke-virtual {v0}, Lcom/android/systemui/qs/QSPanelController;->updateBrightnessSliderPosition()V
+    
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/QuickQSPanelController;->updateBrightnessSliderPosition()V
 
     return-void
 .end method

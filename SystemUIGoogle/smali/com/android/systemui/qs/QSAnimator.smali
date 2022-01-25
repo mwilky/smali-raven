@@ -20,6 +20,8 @@
 
 
 # instance fields
+.field private mQQSBrightnessAnimator:Lcom/android/systemui/qs/TouchAnimator;
+
 .field private mAllPagesDelayedAnimator:Lcom/android/systemui/qs/TouchAnimator;
 
 .field private final mAllViews:Ljava/util/ArrayList;
@@ -1364,6 +1366,8 @@
     iget-object v3, v1, Lcom/android/systemui/qs/QSAnimator;->mAllViews:Ljava/util/ArrayList;
 
     invoke-virtual {v3, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    
+    const/4 v0, 0x0
 
     goto :goto_5
 
@@ -1373,6 +1377,8 @@
     iput-object v0, v1, Lcom/android/systemui/qs/QSAnimator;->mBrightnessAnimator:Lcom/android/systemui/qs/TouchAnimator;
 
     :goto_5
+    invoke-direct {v1}, Lcom/android/systemui/qs/QSAnimator;->setQQsBrightnessAnimator()V
+    
     invoke-virtual {v11, v1}, Lcom/android/systemui/qs/TouchAnimator$Builder;->setListener(Lcom/android/systemui/qs/TouchAnimator$Listener;)Lcom/android/systemui/qs/TouchAnimator$Builder;
 
     move-result-object v0
@@ -2032,13 +2038,20 @@
 
     invoke-virtual {v0, p1}, Lcom/android/systemui/qs/TouchAnimator;->setPosition(F)V
 
-    iget-object p0, p0, Lcom/android/systemui/qs/QSAnimator;->mBrightnessAnimator:Lcom/android/systemui/qs/TouchAnimator;
+    iget-object v0, p0, Lcom/android/systemui/qs/QSAnimator;->mBrightnessAnimator:Lcom/android/systemui/qs/TouchAnimator;
 
-    if-eqz p0, :cond_7
+    if-eqz v0, :cond_7
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/TouchAnimator;->setPosition(F)V
+    invoke-virtual {v0, p1}, Lcom/android/systemui/qs/TouchAnimator;->setPosition(F)V
 
     :cond_7
+    iget-object v0, p0, Lcom/android/systemui/qs/QSAnimator;->mQQSBrightnessAnimator:Lcom/android/systemui/qs/TouchAnimator;
+
+    if-eqz v0, :cond_mw
+
+    invoke-virtual {v0, p1}, Lcom/android/systemui/qs/TouchAnimator;->setPosition(F)V
+
+    :cond_mw
     return-void
 .end method
 
@@ -2105,4 +2118,100 @@
 
     :goto_0
     return-void
+.end method
+
+.method private setQQsBrightnessAnimator()V
+    .registers 8
+
+    .line 13
+    move-object v0, p0
+
+    .line 14
+    .local v0, "qSAnimator2":Lcom/android/systemui/qs/QSAnimator;
+    iget-object v1, v0, Lcom/android/systemui/qs/QSAnimator;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
+
+    invoke-virtual {v1}, Lcom/android/systemui/qs/QuickQSPanelController;->getBrightnessView()Landroid/view/View;
+
+    move-result-object v1
+
+    .line 16
+    .local v1, "brightnessView2":Landroid/view/View;
+    const/4 v2, 0x0
+
+    .line 17
+    .local v2, "touchAnimator":Lcom/android/systemui/qs/TouchAnimator;
+    if-eqz v1, :cond_3f
+
+    .line 18
+    new-instance v3, Lcom/android/systemui/qs/TouchAnimator$Builder;
+
+    invoke-direct {v3}, Lcom/android/systemui/qs/TouchAnimator$Builder;-><init>()V
+
+    const/4 v4, 0x2
+
+    new-array v5, v4, [F
+
+    fill-array-data v5, :array_42
+
+    const-string v6, "alpha"
+
+    invoke-virtual {v3, v1, v6, v5}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+
+    move-result-object v3
+
+    const/high16 v5, 0x3f000000    # 0.5f
+
+    invoke-virtual {v3, v5}, Lcom/android/systemui/qs/TouchAnimator$Builder;->setEndDelay(F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+
+    move-result-object v3
+
+    new-array v4, v4, [F
+
+    fill-array-data v4, :array_4a
+
+    const-string v5, "sliderScaleY"
+
+    invoke-virtual {v3, v1, v5, v4}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+
+    move-result-object v3
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v3, v4}, Lcom/android/systemui/qs/TouchAnimator$Builder;->setInterpolator(Landroid/view/animation/Interpolator;)Lcom/android/systemui/qs/TouchAnimator$Builder;
+
+    move-result-object v3
+
+    const v4, 0x3e99999a    # 0.3f
+
+    invoke-virtual {v3, v4}, Lcom/android/systemui/qs/TouchAnimator$Builder;->setStartDelay(F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/systemui/qs/TouchAnimator$Builder;->build()Lcom/android/systemui/qs/TouchAnimator;
+
+    move-result-object v3
+
+    iput-object v3, v0, Lcom/android/systemui/qs/QSAnimator;->mQQSBrightnessAnimator:Lcom/android/systemui/qs/TouchAnimator;
+
+    goto :goto_41
+
+    .line 20
+    :cond_3f
+    iput-object v2, v0, Lcom/android/systemui/qs/QSAnimator;->mQQSBrightnessAnimator:Lcom/android/systemui/qs/TouchAnimator;
+
+    .line 22
+    :goto_41
+    return-void
+
+    :array_42
+    .array-data 4
+        0x3f800000    # 1.0f
+        0x0
+    .end array-data
+
+    :array_4a
+    .array-data 4
+        0x3f800000    # 1.0f
+        0x3e99999a    # 0.3f
+    .end array-data
 .end method
