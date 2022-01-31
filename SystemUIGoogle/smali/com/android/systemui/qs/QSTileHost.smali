@@ -24,10 +24,14 @@
 
 
 # static fields
+.field private static mTiles:Ljava/lang/String;
+
 .field private static final DEBUG:Z
 
 
 # instance fields
+.field private mReloadTiles:Z
+
 .field private mAutoTiles:Lcom/android/systemui/statusbar/phone/AutoTileManager;
 
 .field private final mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
@@ -234,6 +238,10 @@
             ")V"
         }
     .end annotation
+    
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/systemui/qs/QSTileHost;->mReloadTiles:Z
 
     move-object v0, p0
 
@@ -1514,6 +1522,10 @@
     move-result v1
 
     if-eqz v1, :cond_3
+    
+    iget-boolean v1, p0, Lcom/android/systemui/qs/QSTileHost;->mReloadTiles:Z
+
+    if-nez v1, :cond_3
 
     iget v1, p0, Lcom/android/systemui/qs/QSTileHost;->mCurrentUser:I
 
@@ -2005,6 +2017,58 @@
 
 .method public warn(Ljava/lang/String;Ljava/lang/Throwable;)V
     .locals 0
+
+    return-void
+.end method
+
+.method public reloadTiles()V
+    .locals 3
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/systemui/qs/QSTileHost;->mReloadTiles:Z
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QSTileHost;->saveTiles()V
+
+    iget-object v1, p0, Lcom/android/systemui/qs/QSTileHost;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string v1, "sysui_qs_tiles"
+
+    const-string v2, ""
+
+    invoke-virtual {p0, v1, v2}, Lcom/android/systemui/qs/QSTileHost;->onTuningChanged(Ljava/lang/String;Ljava/lang/String;)V
+
+    sget-object v2, Lcom/android/systemui/qs/QSTileHost;->mTiles:Ljava/lang/String;
+
+    invoke-virtual {p0, v1, v2}, Lcom/android/systemui/qs/QSTileHost;->onTuningChanged(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/systemui/qs/QSTileHost;->mReloadTiles:Z
+
+    return-void
+.end method
+
+.method public saveTiles()V
+    .locals 3
+
+    iget-object v1, p0, Lcom/android/systemui/qs/QSTileHost;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    const-string v1, "sysui_qs_tiles"
+
+    invoke-static {v2, v1}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    sput-object v2, Lcom/android/systemui/qs/QSTileHost;->mTiles:Ljava/lang/String;
 
     return-void
 .end method

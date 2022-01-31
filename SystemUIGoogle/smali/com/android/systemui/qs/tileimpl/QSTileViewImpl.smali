@@ -928,26 +928,37 @@
 .end method
 
 .method private final setColor(I)V
-    .locals 1
+    .registers 4
+    .param p1, "i"    # I
 
+    .line 31
     iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->colorBackgroundDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_0
+    check-cast v0, Landroid/graphics/drawable/GradientDrawable;
 
-    invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setTint(I)V
+    .line 32
+    .local v0, "drawable":Landroid/graphics/drawable/GradientDrawable;
+    if-eqz v0, :cond_c
 
+    .line 33
+    invoke-virtual {v0, p1}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
+
+    .line 34
     iput p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->paintColor:I
 
+    .line 35
     return-void
 
-    :cond_0
-    const-string p0, "colorBackgroundDrawable"
+    .line 37
+    :cond_c
+    const-string v1, "colorBackgroundDrawable"
 
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
-    const/4 p0, 0x0
+    .line 38
+    const/4 v1, 0x0
 
-    throw p0
+    throw v1
 .end method
 
 .method private final setLabelColor(I)V
@@ -1694,6 +1705,8 @@
     invoke-direct {v1, p1, p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl$init$2;-><init>(Lcom/android/systemui/plugins/qs/QSTile;Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;)V
 
     invoke-direct {p0, v0, v1}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->init(Landroid/view/View$OnClickListener;Landroid/view/View$OnLongClickListener;)V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->setQsTileTweaks()V
 
     return-void
 .end method
@@ -2299,6 +2312,93 @@
     const-string p0, "label"
 
     invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    throw v1
+.end method
+
+.method public setQsTileTweaks()V
+    .registers 5
+
+    .line 43
+    iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->colorBackgroundDrawable:Landroid/graphics/drawable/Drawable;
+
+    check-cast v0, Landroid/graphics/drawable/GradientDrawable;
+
+    .line 44
+    .local v0, "drawable":Landroid/graphics/drawable/GradientDrawable;
+    if-eqz v0, :cond_3a
+
+    .line 45
+    sget-boolean v1, Lcom/android/mwilky/Renovate;->mQsTileOutline:Z
+
+    if-eqz v1, :cond_12
+
+    .line 46
+    sget v1, Lcom/android/mwilky/Renovate;->mQsTileOutlineWidth:I
+
+    sget v2, Lcom/android/mwilky/Renovate;->mQsTileOutlineColor:I
+
+    invoke-virtual {v0, v1, v2}, Landroid/graphics/drawable/GradientDrawable;->setStroke(II)V
+
+    goto :goto_16
+
+    .line 48
+    :cond_12
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1, v1}, Landroid/graphics/drawable/GradientDrawable;->setStroke(II)V
+
+    .line 50
+    :goto_16
+    sget v1, Lcom/android/mwilky/Renovate;->mQsTileCornerRadius:I
+
+    int-to-float v1, v1
+
+    invoke-virtual {v0, v1}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadius(F)V
+
+    .line 51
+    invoke-virtual {v0}, Landroid/graphics/drawable/GradientDrawable;->getCornerRadius()F
+
+    move-result v1
+
+    .line 52
+    .local v1, "radius":F
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "radius = "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    float-to-int v3, v1
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v3, "mwilky"
+
+    invoke-static {v3, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 53
+    return-void
+
+    .line 55
+    .end local v1    # "radius":F
+    :cond_3a
+    const-string v1, "colorBackgroundDrawable"
+
+    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    .line 56
+    const/4 v1, 0x0
 
     throw v1
 .end method
