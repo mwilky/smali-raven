@@ -928,37 +928,45 @@
 .end method
 
 .method private final setColor(I)V
-    .registers 4
+    .registers 3
     .param p1, "i"    # I
 
-    .line 31
+    .line 33
+    :try_start_0
     iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->colorBackgroundDrawable:Landroid/graphics/drawable/Drawable;
 
     check-cast v0, Landroid/graphics/drawable/GradientDrawable;
 
-    .line 32
+    .line 34
     .local v0, "drawable":Landroid/graphics/drawable/GradientDrawable;
     if-eqz v0, :cond_c
 
-    .line 33
+    .line 35
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
 
-    .line 34
+    .line 36
     iput p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->paintColor:I
-
-    .line 35
-    return-void
+    :try_end_b
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_b} :catch_e
 
     .line 37
-    :cond_c
-    const-string v1, "colorBackgroundDrawable"
+    return-void
 
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    .line 40
+    .end local v0    # "drawable":Landroid/graphics/drawable/GradientDrawable;
+    :cond_c
+    nop
+
+    .line 41
+    return-void
 
     .line 38
-    const/4 v1, 0x0
+    :catch_e
+    move-exception v0
 
-    throw v1
+    .line 39
+    .local v0, "e":Ljava/lang/Exception;
+    return-void
 .end method
 
 .method private final setLabelColor(I)V
@@ -2317,23 +2325,24 @@
 .end method
 
 .method public setQsTileTweaks()V
-    .registers 5
+    .registers 4
 
-    .line 43
+    .line 45
+    :try_start_0
     iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->colorBackgroundDrawable:Landroid/graphics/drawable/Drawable;
 
     check-cast v0, Landroid/graphics/drawable/GradientDrawable;
 
-    .line 44
+    .line 46
     .local v0, "drawable":Landroid/graphics/drawable/GradientDrawable;
-    if-eqz v0, :cond_3a
+    if-eqz v0, :cond_1d
 
-    .line 45
+    .line 47
     sget-boolean v1, Lcom/android/mwilky/Renovate;->mQsTileOutline:Z
 
     if-eqz v1, :cond_12
 
-    .line 46
+    .line 48
     sget v1, Lcom/android/mwilky/Renovate;->mQsTileOutlineWidth:I
 
     sget v2, Lcom/android/mwilky/Renovate;->mQsTileOutlineColor:I
@@ -2342,63 +2351,39 @@
 
     goto :goto_16
 
-    .line 48
+    .line 50
     :cond_12
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1, v1}, Landroid/graphics/drawable/GradientDrawable;->setStroke(II)V
 
-    .line 50
+    .line 52
     :goto_16
     sget v1, Lcom/android/mwilky/Renovate;->mQsTileCornerRadius:I
 
     int-to-float v1, v1
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadius(F)V
-
-    .line 51
-    invoke-virtual {v0}, Landroid/graphics/drawable/GradientDrawable;->getCornerRadius()F
-
-    move-result v1
-
-    .line 52
-    .local v1, "radius":F
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "radius = "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    float-to-int v3, v1
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string v3, "mwilky"
-
-    invoke-static {v3, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1c
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_1c} :catch_1f
 
     .line 53
     return-void
 
-    .line 55
-    .end local v1    # "radius":F
-    :cond_3a
-    const-string v1, "colorBackgroundDrawable"
-
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
     .line 56
-    const/4 v1, 0x0
+    .end local v0    # "drawable":Landroid/graphics/drawable/GradientDrawable;
+    :cond_1d
+    nop
 
-    throw v1
+    .line 57
+    return-void
+
+    .line 54
+    :catch_1f
+    move-exception v0
+
+    .line 55
+    .local v0, "e":Ljava/lang/Exception;
+    return-void
 .end method
+
