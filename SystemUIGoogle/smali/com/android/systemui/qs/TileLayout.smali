@@ -78,7 +78,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/TileLayout;->mRecords:Ljava/util/ArrayList;
 
-    const/4 v0, 0x3
+    sget v0, Lcom/android/mwilky/Renovate;->mQsRows:I
 
     iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mMaxAllowedRows:I
 
@@ -787,11 +787,7 @@
 
     move-result-object v0
 
-    sget v1, Lcom/android/systemui/R$integer;->quick_settings_num_columns:I
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v1
+    sget v1, Lcom/android/mwilky/Renovate;->mQsColumns:I
 
     const/4 v2, 0x1
 
@@ -853,19 +849,7 @@
 
     iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mCellMarginVertical:I
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    sget v1, Lcom/android/systemui/R$integer;->quick_settings_max_rows:I
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v0
-
-    invoke-static {v2, v0}, Ljava/lang/Math;->max(II)I
-
-    move-result v0
+    sget v0, Lcom/android/mwilky/Renovate;->mQsRows:I
 
     iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mMaxAllowedRows:I
 

@@ -91,15 +91,7 @@
 .method private synthetic lambda$new$0(Landroid/content/res/Configuration;)V
     .locals 1
 
-    invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p1
-
-    sget v0, Lcom/android/systemui/R$integer;->quick_qs_panel_max_columns:I
-
-    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result p1
+    sget p1, Lcom/android/mwilky/Renovate;->mQQsMaxTiles:I
 
     iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
@@ -422,6 +414,32 @@
     .locals 0
 
     invoke-direct {p0}, Lcom/android/systemui/qs/QuickQSPanelController;->updateBrightnessMirror()V
+
+    return-void
+.end method
+
+.method public updateResources()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast v0, Lcom/android/systemui/qs/QuickQSPanel;
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/QuickQSPanel;->updateResources()V
+    
+    invoke-virtual {v0}, Lcom/android/systemui/qs/QuickQSPanel;->updateQqsRows()V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickQSPanelController;->updateMaxTiles()V
+
+    return-void
+.end method
+
+.method public updateMaxTiles()V
+    .locals 2
+
+    sget v1, Lcom/android/mwilky/Renovate;->mQQsMaxTiles:I
+
+    invoke-direct {p0, v1}, Lcom/android/systemui/qs/QuickQSPanelController;->setMaxTiles(I)V
 
     return-void
 .end method

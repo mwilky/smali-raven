@@ -801,3 +801,17 @@
 
     return-void
 .end method
+
+.method public getTileLayout()Lcom/android/systemui/qs/QSPanel$QSTileLayout;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast p0, Lcom/android/systemui/qs/QSPanel;
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QSPanel;->getTileLayout()Lcom/android/systemui/qs/QSPanel$QSTileLayout;
+
+    move-result-object p0
+
+    return-object p0
+.end method

@@ -16,6 +16,8 @@
 
 .field private mMaxTiles:I
 
+.field public mQuickQSPanel$QQSSideLabelTileLayout:Lcom/android/systemui/qs/QuickQSPanel$QQSSideLabelTileLayout;
+
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -23,21 +25,7 @@
 
     invoke-direct {p0, p1, p2}, Lcom/android/systemui/qs/QSPanel;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p1
-
-    sget p2, Lcom/android/systemui/R$integer;->quick_qs_panel_max_columns:I
-
-    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result p1
-
-    const/4 p2, 0x6
-
-    invoke-static {p2, p1}, Ljava/lang/Math;->min(II)I
-
-    move-result p1
+    sget p1, Lcom/android/mwilky/Renovate;->mQQsMaxTiles:I
 
     iput p1, p0, Lcom/android/systemui/qs/QuickQSPanel;->mMaxTiles:I
 
@@ -116,13 +104,15 @@
 .end method
 
 .method public getOrCreateTileLayout()Lcom/android/systemui/qs/TileLayout;
-    .locals 1
+    .locals 2
 
     new-instance v0, Lcom/android/systemui/qs/QuickQSPanel$QQSSideLabelTileLayout;
 
-    iget-object p0, p0, Lcom/android/systemui/qs/QSPanel;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/android/systemui/qs/QSPanel;->mContext:Landroid/content/Context;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/qs/QuickQSPanel$QQSSideLabelTileLayout;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, v1}, Lcom/android/systemui/qs/QuickQSPanel$QQSSideLabelTileLayout;-><init>(Landroid/content/Context;)V
+    
+    iput-object v0, p0, Lcom/android/systemui/qs/QuickQSPanel;->mQuickQSPanel$QQSSideLabelTileLayout:Lcom/android/systemui/qs/QuickQSPanel$QQSSideLabelTileLayout;
 
     return-object v0
 .end method
@@ -248,12 +238,6 @@
 
 .method public setMaxTiles(I)V
     .locals 1
-
-    const/4 v0, 0x6
-
-    invoke-static {p1, v0}, Ljava/lang/Math;->min(II)I
-
-    move-result p1
 
     iput p1, p0, Lcom/android/systemui/qs/QuickQSPanel;->mMaxTiles:I
 
@@ -443,5 +427,15 @@
     invoke-virtual {p0}, Lcom/android/systemui/qs/QSPanel;->updateResources()V
 
     :cond_0
+    return-void
+.end method
+
+.method public updateQqsRows()V
+    .locals 2
+    
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickQSPanel;->mQuickQSPanel$QQSSideLabelTileLayout:Lcom/android/systemui/qs/QuickQSPanel$QQSSideLabelTileLayout;
+    
+    invoke-virtual {v0}, Lcom/android/systemui/qs/QuickQSPanel$QQSSideLabelTileLayout;->updateResources()Z
+    
     return-void
 .end method

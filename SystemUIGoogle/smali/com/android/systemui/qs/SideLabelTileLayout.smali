@@ -82,19 +82,7 @@
 
     move-result v0
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    sget v2, Lcom/android/systemui/R$integer;->quick_settings_max_rows:I
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v1
+    sget v1, Lcom/android/mwilky/Renovate;->mQsRows:I
 
     iput v1, p0, Lcom/android/systemui/qs/TileLayout;->mMaxAllowedRows:I
 

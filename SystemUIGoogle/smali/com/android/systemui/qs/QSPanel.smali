@@ -1007,7 +1007,7 @@
     return-object p0
 .end method
 
-.method getTileLayout()Lcom/android/systemui/qs/QSPanel$QSTileLayout;
+.method public getTileLayout()Lcom/android/systemui/qs/QSPanel$QSTileLayout;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/qs/QSPanel;->mTileLayout:Lcom/android/systemui/qs/QSPanel$QSTileLayout;

@@ -230,7 +230,7 @@
 
     move-result v0
 
-    const/4 v1, 0x2
+    sget v1, Lcom/android/mwilky/Renovate;->mQQsRows:I
 
     iput v1, p0, Lcom/android/systemui/qs/TileLayout;->mMaxAllowedRows:I
 
