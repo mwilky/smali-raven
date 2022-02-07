@@ -1532,7 +1532,7 @@
     <string name="clear_activities">محو الإعدادات المفضّلة التلقائية</string>
     <string name="clear_adb_keys">‏إلغاء عمليات تفويض تصحيح أخطاء USB</string>
     <string name="clear_cache_btn_text">محو ذاكرة التخزين المؤقت</string>
-    <string name="clear_data_dlg_text">سيتم حذف جميع بيانات هذا التطبيق نهائيًا. ويشمل ذلك جميع الملفات والإعدادات والحسابات وقواعد البيانات وما إلى ذلك.</string>
+    <string name="clear_data_dlg_text">سيتم حذف بيانات هذا التطبيق نهائيًا، بما في ذلك الملفات والإعدادات وقواعد البيانات وبيانات التطبيق الأخرى.</string>
     <string name="clear_data_dlg_title">هل تريد حذف بيانات التطبيق؟</string>
     <string name="clear_failed_dlg_text">تعذّر محو مساحة تخزين للتطبيق.</string>
     <string name="clear_instant_app_confirmation">هل تريد إزالة هذا التطبيق الفوري؟</string>

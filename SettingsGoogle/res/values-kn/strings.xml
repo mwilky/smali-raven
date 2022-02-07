@@ -1532,7 +1532,7 @@
     <string name="clear_activities">ಡೀಫಾಲ್ಟ್ ಆದ್ಯತೆಗಳನ್ನು ತೆರವುಗೊಳಿಸಿ</string>
     <string name="clear_adb_keys">USB ಡೀಬಗ್‌ ಮಾಡುವಿಕೆಯ ಅಧಿಕೃತಗೊಳಿಸುವಿಕೆಗಳನ್ನು ಹಿಂತೆಗೆದುಕೊಳ್ಳಿ</string>
     <string name="clear_cache_btn_text">ಕ್ಯಾಷ್ ಅಳಿಸಿ</string>
-    <string name="clear_data_dlg_text">ಈ ಆ್ಯಪ್‍‍ನ ಎಲ್ಲಾ ಡೇಟಾವನ್ನು ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಲಾಗುತ್ತದೆ. ಇದರಲ್ಲಿ ಎಲ್ಲಾ ಫೈಲ್‌ಗಳು, ಸೆಟ್ಟಿಂಗ್‌ಗಳು, ಖಾತೆಗಳು, ಡೇಟಾಬೇಸ್‌ಗಳು, ಇತ್ಯಾದಿಗಳು ಸೇರಿರುತ್ತವೆ.</string>
+    <string name="clear_data_dlg_text">ಈ ಆ್ಯಪ್‌ನ ಡೇಟಾವನ್ನು ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಲಾಗುವುದು. ಇದು ಫೈಲ್‌ಗಳು, ಸೆಟ್ಟಿಂಗ್‌ಗಳು, ಡೇಟಾಬೇಸ್‌ಗಳು ಮತ್ತು ಇತರ ಆ್ಯಪ್ ಡೇಟಾ ಒಳಗೊಂಡಿದೆ.</string>
     <string name="clear_data_dlg_title">ಆ್ಯಪ್ ಡೇಟಾ ಅಳಿಸಬೇಕೇ?</string>
     <string name="clear_failed_dlg_text">ಅಪ್ಲಿಕೇಶನ್‌ಗಾಗಿ ಸಂಗ್ರಹಣೆಯನ್ನು ತೆರವುಗೊಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.</string>
     <string name="clear_instant_app_confirmation">ಈ ತತ್‌ಕ್ಷಣ ಅಪ್ಲಿಕೇಶನ್ ತೆಗೆದುಹಾಕಲು ಬಯಸುವಿರಾ?</string>

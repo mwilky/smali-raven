@@ -1532,7 +1532,7 @@
     <string name="clear_activities">ነባሪ ምርጫዎችን አጽዳ</string>
     <string name="clear_adb_keys">የዩ ኤስ ቢ ስህተት ማረም ፈቀዳዎችን ይሻሩ</string>
     <string name="clear_cache_btn_text">መሸጎጫ አጽዳ</string>
-    <string name="clear_data_dlg_text">የዚህ መተግበሪያ ውሂቦች ሁሉ በቋሚነት ይሰረዛሉ።እነዚህም ፋይሎችን፣ ቅንብሮችን፣ መለያዎችን፣ የውሂብ ጎታዎች እና የመሳሰሉትን ያካትታሉ።</string>
+    <string name="clear_data_dlg_text">የዚህ መተግበሪያ ውሂብ እስከመጨረሻው ይሰረዛል። ይህ ፋይሎችን፣ ቅንብሮችን፣ የውሂብ ጎታን እና ሌላ የመተግበሪያ ውሂብን ያካትታል።</string>
     <string name="clear_data_dlg_title">መተግበሪያ ውሂብ ሰርዝ?</string>
     <string name="clear_failed_dlg_text">ለመተግበሪያው ማከማቻን ማጽዳት አልተቻለም</string>
     <string name="clear_instant_app_confirmation">ይህን ቅጽበታዊ መተግበሪያ ማስወገድ ይፈልጋሉ?</string>

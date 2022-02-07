@@ -1532,7 +1532,7 @@ Si vous installez un certificat CA, son propriétaire peut potentiellement acc�
     <string name="clear_activities">Effacer les préférences par défaut</string>
     <string name="clear_adb_keys">Annuler autorisations pour débog. USB</string>
     <string name="clear_cache_btn_text">Vider le cache</string>
-    <string name="clear_data_dlg_text">Toutes les données de cette application (fichiers, paramètres, comptes, bases de données, etc.) seront définitivement supprimées.</string>
+    <string name="clear_data_dlg_text">Les données de cette application (fichiers, paramètres, comptes, bases de données, etc.) seront définitivement supprimées.</string>
     <string name="clear_data_dlg_title">"Supprimer les données de l'application ?"</string>
     <string name="clear_failed_dlg_text">"Impossible d'effacer le stockage pour l'application."</string>
     <string name="clear_instant_app_confirmation">Voulez-vous supprimer cette appli instantanée ?</string>

@@ -1532,7 +1532,7 @@ Jos asennat CA-varmenteen, sen omistaja voi päästä sivustoilta ja sovelluksis
     <string name="clear_activities">Tyhjennä oletusasetukset</string>
     <string name="clear_adb_keys">Peru USB-vianetsinnän käyttöoikeudet</string>
     <string name="clear_cache_btn_text">Tyhjennä välimuisti</string>
-    <string name="clear_data_dlg_text">Kaikki tämän sovelluksen tiedot poistetaan pysyvästi. Tähän sisältyvät kaikki tiedostot, asetukset, tilit, tietokannat jne.</string>
+    <string name="clear_data_dlg_text">Sovelluksen data poistetaan pysyvästi. Tämä koskee tiedostoja, asetuksia, tietokantoja ja muuta sovellusdataa.</string>
     <string name="clear_data_dlg_title">Poistetaanko sovelluksen tiedot?</string>
     <string name="clear_failed_dlg_text">Sovelluksen tietojen tyhjentäminen tallennustilasta epäonnistui.</string>
     <string name="clear_instant_app_confirmation">Poistetaanko tämä pikasovellus?</string>

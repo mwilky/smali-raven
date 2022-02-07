@@ -1532,7 +1532,7 @@ CA സർട്ടിഫിക്കറ്റ് ഇൻസ്‌റ്റാൾ 
     <string name="clear_activities">ഡിഫോൾട്ട് മുൻഗണനകൾ മായ്ക്കുക</string>
     <string name="clear_adb_keys">USB ഡീബഗ്ഗിംഗ് അംഗീകാരം പിൻവലിക്കുക</string>
     <string name="clear_cache_btn_text">കാഷെ മായ്ക്കുക</string>
-    <string name="clear_data_dlg_text">ഈ ആപ്പിന്‍റെ എല്ലാ ഡാറ്റയും ശാശ്വതമായി ഇല്ലാതാക്കും. ഫയലുകൾ, ക്രമീകരണങ്ങൾ, അക്കൗണ്ടുകൾ, ഡാറ്റാബേസുകൾ തുടങ്ങിയവയെല്ലാം ഇതിൽ ഉൾപ്പെടും.</string>
+    <string name="clear_data_dlg_text">ഈ ആപ്പിന്റെ ഡാറ്റ ശാശ്വതമായി ഇല്ലാതാക്കും. ഇതിൽ ഫയലുകളും ക്രമീകരണവും ഡാറ്റാബേസുകളും മറ്റ് ആപ്പ് ഡാറ്റയും ഉൾപ്പെടുന്നു.</string>
     <string name="clear_data_dlg_title">ആപ്പ് ഡാറ്റ ഇല്ലാതാക്കണോ?</string>
     <string name="clear_failed_dlg_text">ആപ്പുകൾക്കായി സ്‌റ്റോറേജ് മായ്‌ക്കാനായില്ല.</string>
     <string name="clear_instant_app_confirmation">ഈ ഇൻസ്റ്റന്റ് ആപ്പ് നീക്കംചെയ്യാൻ ആഗ്രഹിക്കുന്നുണ്ടോ?</string>

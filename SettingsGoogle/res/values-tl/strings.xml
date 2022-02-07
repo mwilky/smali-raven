@@ -1532,7 +1532,7 @@ Kung mag-i-install ka ng CA certificate, magagawa ng may-ari ng certificate na i
     <string name="clear_activities">I-clear ang mga default na kagustuhan</string>
     <string name="clear_adb_keys">Bawiin ang mga pahintulot sa pag-debug ng USB</string>
     <string name="clear_cache_btn_text">I-clear ang cache</string>
-    <string name="clear_data_dlg_text">Permanenteng made-delete ang lahat ng data ng app na ito. Kabilang dito ang lahat ng file, setting, account, database, atbp.</string>
+    <string name="clear_data_dlg_text">Permanenteng made-delete ang data ng app na ito. Kasama rito ang mga file, setting, database, at iba pang data ng app.</string>
     <string name="clear_data_dlg_title">I-delete ang data ng app?</string>
     <string name="clear_failed_dlg_text">Hindi ma-clear ang storage para sa app.</string>
     <string name="clear_instant_app_confirmation">Gusto mo bang alisin ang instant na app na ito?</string>

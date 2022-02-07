@@ -1532,7 +1532,7 @@ Si instalas un certificado AC, su propietario podría acceder a datos que hayas 
     <string name="clear_activities">Borrar preferencias predeterminadas</string>
     <string name="clear_adb_keys">Revocar autorizaciones de depuración USB</string>
     <string name="clear_cache_btn_text">Borrar caché</string>
-    <string name="clear_data_dlg_text">Todos los datos de esta aplicación se eliminarán de forma permanente. Esto incluye todos los archivos, ajustes, cuentas, bases de datos, etc.</string>
+    <string name="clear_data_dlg_text">Los datos de esta aplicación se eliminarán de forma permanente, incluidos los archivos, ajustes, bases de datos y otros datos relacionados con ella.</string>
     <string name="clear_data_dlg_title">¿Eliminar datos de la aplicación?</string>
     <string name="clear_failed_dlg_text">No se ha podido borrar el almacenamiento de la aplicación.</string>
     <string name="clear_instant_app_confirmation">¿Quitar esta aplicación instantánea?</string>

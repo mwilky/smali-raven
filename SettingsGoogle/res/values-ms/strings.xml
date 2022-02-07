@@ -1532,7 +1532,7 @@ Jika anda memasang sijil CA, pemilik sijil dapat mengakses data anda, seperti ka
     <string name="clear_activities">Kosongkan pilihan lalai</string>
     <string name="clear_adb_keys">Batalkan kebenaran penyahpepijatan USB</string>
     <string name="clear_cache_btn_text">Kosongkan cache</string>
-    <string name="clear_data_dlg_text">Semua data aplikasi ini akan dipadamkan secara kekal. Ini termasuk semua fail, tetapan, akaun, pangkalan data, dll.</string>
+    <string name="clear_data_dlg_text">Data apl ini akan dipadamkan secara kekal. Kandungan ini termasuk fail, tetapan, pangkalan data dan data apl yang lain.</string>
     <string name="clear_data_dlg_title">Padamkan data aplikasi?</string>
     <string name="clear_failed_dlg_text">Tidak dapat mengosongkan storan untuk apl.</string>
     <string name="clear_instant_app_confirmation">Adakah anda mahu mengalih keluar apl segera ini?</string>

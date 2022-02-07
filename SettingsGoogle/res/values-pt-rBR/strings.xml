@@ -1532,7 +1532,7 @@ Se você instalar um certificado de CA, o proprietário dele poderá acessar seu
     <string name="clear_activities">Limpar preferências padrão</string>
     <string name="clear_adb_keys">Revogar autorizações de depuração USB</string>
     <string name="clear_cache_btn_text">Limpar cache</string>
-    <string name="clear_data_dlg_text">Todos os dados deste app serão excluídos permanentemente. Isso inclui todos os arquivos, configurações, contas, bancos de dados e outros.</string>
+    <string name="clear_data_dlg_text">Os dados do app serão excluídos permanentemente, incluindo arquivos, configurações, bancos de dados, entre outros.</string>
     <string name="clear_data_dlg_title">Excluir os dados do app?</string>
     <string name="clear_failed_dlg_text">Não foi possível limpar o armazenamento do app.</string>
     <string name="clear_instant_app_confirmation">Quer remover esse app instantâneo?</string>

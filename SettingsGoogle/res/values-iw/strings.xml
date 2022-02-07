@@ -1532,7 +1532,7 @@
     <string name="clear_activities">ניקוי העדפות שמוגדרות כברירת מחדל</string>
     <string name="clear_adb_keys">‏ביטול הרשאות לניפוי ב-USB</string>
     <string name="clear_cache_btn_text">ניקוי המטמון</string>
-    <string name="clear_data_dlg_text">כל נתוני האפליקציה יימחקו לתמיד. הנתונים האלה כוללים את כל הקבצים, ההגדרות, החשבונות, מסדי הנתונים וכדומה.</string>
+    <string name="clear_data_dlg_text">נתוני האפליקציה יימחקו באופן סופי. לרבות קבצים, הגדרות, מסדי נתונים ונתונים אחרים מהאפליקציה.</string>
     <string name="clear_data_dlg_title">למחוק את נתוני האפליקציה?</string>
     <string name="clear_failed_dlg_text">לא ניתן לפנות שטח אחסון לאפליקציה.</string>
     <string name="clear_instant_app_confirmation">האם ברצונך להסיר את אפליקציית האינסטנט הזאת?</string>

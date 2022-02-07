@@ -1532,7 +1532,7 @@ CA հավաստագիր տեղադրելու դեպքում հավաստագրի
     <string name="clear_activities">Մաքրել կանխադրված կարգավորումները</string>
     <string name="clear_adb_keys">Չեղարկել USB-ով վրիպազերծման թույլտվությունները</string>
     <string name="clear_cache_btn_text">Մաքրել քեշը</string>
-    <string name="clear_data_dlg_text">Այս հավելվածի բոլոր տվյալներն ընդմիշտ կջնջվեն: Այն կներառի բոլոր ֆայլերը, կարգավորումները, հաշիվները, տվյալների շտեմարանները և այլն:</string>
+    <string name="clear_data_dlg_text">Այս հավելվածի տվյալներն ընդմիշտ կջնջվեն։Դա վերաբերում է ֆայլերին, կարգավորումներին, տվյալների շտեմարաններին և հավելվածի այլ տվյալներին։</string>
     <string name="clear_data_dlg_title">Ջնջե՞լ հավելվածի տվյալները</string>
     <string name="clear_failed_dlg_text">Չհաջողվեց մաքրել հիշողությունը</string>
     <string name="clear_instant_app_confirmation">Հեռացնե՞լ այս ակնթարթային հավելվածը։</string>

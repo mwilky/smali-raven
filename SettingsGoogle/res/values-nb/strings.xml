@@ -1532,7 +1532,7 @@ Hvis du installerer et CA-sertifikat, kan sertifikateieren få tilgang til datae
     <string name="clear_activities">Fjern standardinnstillingene</string>
     <string name="clear_adb_keys">USB-feilsøking – opphev autorisasjon</string>
     <string name="clear_cache_btn_text">Tøm bufferen</string>
-    <string name="clear_data_dlg_text">Alle data i appen slettes permanent. Dette omfatter alle filer, innstillinger, kontoer, databaser osv.</string>
+    <string name="clear_data_dlg_text">Dataene i denne appen slettes permanent. Dette inkluderer filer, innstillinger, databaser og andre appdata.</string>
     <string name="clear_data_dlg_title">Vil du slette appdataene?</string>
     <string name="clear_failed_dlg_text">Kunne ikke frigi lagringsplass for appen.</string>
     <string name="clear_instant_app_confirmation">Vil du fjerne denne instant-appen?</string>

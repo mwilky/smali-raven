@@ -1532,7 +1532,7 @@ Nëse instalon një certifikatë CA, zotëruesi i certifikatës mund të qaset t
     <string name="clear_activities">Pastro preferencat e parazgjedhura</string>
     <string name="clear_adb_keys">Anulo autorizimet e korrigjimeve përmes USB-së</string>
     <string name="clear_cache_btn_text">Pastro memorien specifike</string>
-    <string name="clear_data_dlg_text">Të gjitha të dhënat e këtij aplikacioni do të fshihen përgjithmonë. Kjo përfshin të gjithë skedarët, cilësimet, llogaritë, bazat e të dhënave etj.</string>
+    <string name="clear_data_dlg_text">Të dhënat e këtij aplikacioni do të fshihen përgjithmonë. Këtu përfshihen skedarët, cilësimet, bazat e të dhënave dhe të dhëna të tjera të aplikacionit.</string>
     <string name="clear_data_dlg_title">Të fshihen të dhënat e aplikacionit?</string>
     <string name="clear_failed_dlg_text">Nuk mund të pastrohet hapësira për aplikacionin.</string>
     <string name="clear_instant_app_confirmation">Dëshiron që ta heqësh këtë aplikacion të çastit?</string>

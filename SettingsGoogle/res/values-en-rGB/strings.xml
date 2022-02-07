@@ -1532,7 +1532,7 @@ If you install a CA certificate, the certificate owner could access your data, s
     <string name="clear_activities">Clear default preferences</string>
     <string name="clear_adb_keys">Revoke USB debugging authorisations</string>
     <string name="clear_cache_btn_text">Clear cache</string>
-    <string name="clear_data_dlg_text">"All of this app's data will be deleted permanently. This includes all files, settings, accounts, databases, etc."</string>
+    <string name="clear_data_dlg_text">This app’s data will be permanently deleted. This includes files, settings, databases and other app data.</string>
     <string name="clear_data_dlg_title">Delete app data?</string>
     <string name="clear_failed_dlg_text">Couldn’t clear storage for app.</string>
     <string name="clear_instant_app_confirmation">Do you want to remove this instant app?</string>

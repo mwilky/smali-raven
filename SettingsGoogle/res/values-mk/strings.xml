@@ -1532,7 +1532,7 @@
     <string name="clear_activities">Избришете ги стандардните поставки</string>
     <string name="clear_adb_keys">Отповикај овластувања за отстранување грешки преку USB</string>
     <string name="clear_cache_btn_text">Избриши кеш</string>
-    <string name="clear_data_dlg_text">Сите податоци на оваа апликација ќе бидат трајно избришани. Ова ги опфаќа сите датотеки, поставки, сметки, бази на податоци итн.</string>
+    <string name="clear_data_dlg_text">Податоците од апликацијава трајно ќе се избришат. Ова вклучува датотеки, поставки, бази на податоци и други податоци од апликацијата.</string>
     <string name="clear_data_dlg_title">Да се избришат податоците на апликацијата?</string>
     <string name="clear_failed_dlg_text">Не може да се исчисти меморијата за апликацијата.</string>
     <string name="clear_instant_app_confirmation">Дали сакате да ја отстраните оваа инстант апликација?</string>

@@ -1532,7 +1532,7 @@ As jy 'n CA-sertifikaat installeer, kan die sertifikaateienaar dalk toegang kry 
     <string name="clear_activities">Vee verstekvoorkeure uit</string>
     <string name="clear_adb_keys">Herroep USB-onfoutingmagtigings</string>
     <string name="clear_cache_btn_text">Maak kas skoon</string>
-    <string name="clear_data_dlg_text">Alle data van hierdie program sal permanent uitgevee word. Dit sluit alle lêers, instellings, rekeninge, databasisse ens. in.</string>
+    <string name="clear_data_dlg_text">Hierdie program se data sal permanent uitgevee word. Dit sluit lêers, instellings, databasisse en ander programdata in.</string>
     <string name="clear_data_dlg_title">Vee programdata uit?</string>
     <string name="clear_failed_dlg_text">Kon nie berging vir program uitvee nie.</string>
     <string name="clear_instant_app_confirmation">Wil jy hierdie kitsprogram verwyder?</string>

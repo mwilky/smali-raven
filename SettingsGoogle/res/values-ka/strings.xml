@@ -1532,7 +1532,7 @@
     <string name="clear_activities">ნაგულისხმევი პარამეტრების გასუფთავება</string>
     <string name="clear_adb_keys">USB საშუალებით გამართვის შესაძლებლობის გამორთვა</string>
     <string name="clear_cache_btn_text">ქეშის წაშლა</string>
-    <string name="clear_data_dlg_text">აპის მონაცემები, მათ შორის ყველა ფაილი, პარამეტრი, ანგარიში, მონაცემთა ბაზა და ა.შ. სამუდამოდ წაიშლება.</string>
+    <string name="clear_data_dlg_text">ამ აპის მონაცემები სამუდამოდ წაიშლება. ეს ეხება ფაილებს, პარამეტრებს, მონაცემთა ბაზებსა და აპის სხვა მონაცემებს.</string>
     <string name="clear_data_dlg_title">წაიშალოს აპის მონაცემები?</string>
     <string name="clear_failed_dlg_text">აპის მეხსიერების გასუფთავება ვერ მოხერხდა.</string>
     <string name="clear_instant_app_confirmation">გსურთ ამ მყისიერი აპის ამოშლა?</string>

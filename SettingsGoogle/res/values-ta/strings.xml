@@ -1532,7 +1532,7 @@ CA சான்றிதழை நிறுவினால் நீங்கள
     <string name="clear_activities">இயல்பான விருப்பத்தேர்வுகளை நீக்கு</string>
     <string name="clear_adb_keys">USB பிழைத்திருத்த அங்கீகரிப்புகளை நிராகரி</string>
     <string name="clear_cache_btn_text">தற்காலிகச் சேமிப்பை அழி</string>
-    <string name="clear_data_dlg_text">ஆப்ஸின் எல்லா தகவலும் நிரந்தரமாக நீக்கப்படும். இதில் எல்லா ஃபைல்களும், அமைப்புகளும், கணக்குகளும், தரவுத்தளங்களும், மேலும் பலவும் அடங்கும்.</string>
+    <string name="clear_data_dlg_text">இந்த ஆப்ஸின் தரவு நிரந்தரமாக நீக்கப்படும். ஃபைல்கள், அமைப்புகள், தரவுத்தளங்கள், பிற ஆப்ஸ் தரவு ஆகியவை இதிலடங்கும்.</string>
     <string name="clear_data_dlg_title">ஆப்ஸ் டேட்டாவை நீக்கவா?</string>
     <string name="clear_failed_dlg_text">ஆப்ஸின் தரவை அழிக்க முடியவில்லை.</string>
     <string name="clear_instant_app_confirmation">இந்த இன்ஸ்டண்ட் ஆப்ஸை அகற்றவா?</string>

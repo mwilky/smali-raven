@@ -1532,7 +1532,7 @@
     <string name="clear_activities">پاک کردن اولویت‌های پیش‌فرض</string>
     <string name="clear_adb_keys">‏لغو مجوزهای اشکال‌زدایی USB</string>
     <string name="clear_cache_btn_text">پاک کردن حافظهٔ پنهان</string>
-    <string name="clear_data_dlg_text">همه داده‌های این برنامه به صورت دائمی حذف می‌شود. این شامل تمام فایل‌ها، تنظیمات، حساب‌ها، پایگاه‌های داده و دیگر موارد می‌شود.</string>
+    <string name="clear_data_dlg_text">داده‌های این برنامه به‌طور دائم حذف خواهد شد. این شامل فایل‌ها، تنظیمات، پایگاه‌های داده، و دیگر داده‌های برنامه می‌شود.</string>
     <string name="clear_data_dlg_title">داده‌های برنامه حذف شود؟</string>
     <string name="clear_failed_dlg_text">فضای ذخیره‌سازی برای برنامه پاک نشد.</string>
     <string name="clear_instant_app_confirmation">می‌خواهید این برنامه فوری را بردارید؟</string>

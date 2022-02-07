@@ -1532,7 +1532,7 @@
     <string name="clear_activities">ล้างค่ากำหนดเริ่มต้น</string>
     <string name="clear_adb_keys">เพิกถอนการให้สิทธิ์การแก้ไขข้อบกพร่อง USB</string>
     <string name="clear_cache_btn_text">ล้างแคช</string>
-    <string name="clear_data_dlg_text">ระบบจะลบข้อมูลทั้งหมดของแอปนี้โดยถาวร ซึ่งรวมถึงไฟล์ การตั้งค่า บัญชี ฐานข้อมูล ฯลฯ</string>
+    <string name="clear_data_dlg_text">ระบบจะลบข้อมูลของแอปนี้อย่างถาวร ซึ่งรวมถึงไฟล์ การตั้งค่า ฐานข้อมูล และข้อมูลแอปอื่นๆ</string>
     <string name="clear_data_dlg_title">ลบข้อมูลในแอปหรือไม่</string>
     <string name="clear_failed_dlg_text">ล้างที่จัดเก็บข้อมูลสำหรับแอปไม่ได้</string>
     <string name="clear_instant_app_confirmation">คุณต้องการนำ Instant App นี้ออกไหม</string>

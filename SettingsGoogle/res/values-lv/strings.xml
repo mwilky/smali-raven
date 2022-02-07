@@ -1532,7 +1532,7 @@ Ja instalējat CA sertifikātu, sertifikāta īpašnieks var piekļūt jūsu da
     <string name="clear_activities">Notīrīt noklusējuma preferences</string>
     <string name="clear_adb_keys">Atsaukt piekļuvi USB atkļūdošanai</string>
     <string name="clear_cache_btn_text">Notīrīt kešatmiņu</string>
-    <string name="clear_data_dlg_text">Tiks neatgriezeniski dzēsti visi šīs lietotnes dati, tostarp visi faili, iestatījumi, konti, datu bāzes un citi vienumi.</string>
+    <string name="clear_data_dlg_text">Tiks neatgriezeniski dzēsti šīs lietotnes dati, tostarp faili, iestatījumi, datu bāzes un citi lietotnes dati.</string>
     <string name="clear_data_dlg_title">Vai dzēst lietotnes datus?</string>
     <string name="clear_failed_dlg_text">Neizdevās notīrīt krātuvi lietotnei.</string>
     <string name="clear_instant_app_confirmation">Vai vēlaties noņemt šo tūlītējo lietotni?</string>

@@ -1532,7 +1532,7 @@
     <string name="clear_activities">Демейки жөндөөлөрдү өчүрүү</string>
     <string name="clear_adb_keys">USB аркылуу мүчүлүштүктөрдү аныктоо уруксатын артка кайтаруу</string>
     <string name="clear_cache_btn_text">Кешти тазалоо</string>
-    <string name="clear_data_dlg_text">Бул колдонмодогу файлдар, жөндөөлөр, аккаунттар жана маалымат базасы сыяктуу бардык нерселер биротоло өчүрүлөт.</string>
+    <string name="clear_data_dlg_text">Бул колдонмодогу маалымат биротоло жок кылынат. Ага файлдар, жөндөөлөр, дайындар базалары жана колдонмонун башка дайындары кирет.</string>
     <string name="clear_data_dlg_title">Колдонмодогу нерселерди өчүрөсүзбү?</string>
     <string name="clear_failed_dlg_text">Колдонмонун сактагычы тазаланган жок.</string>
     <string name="clear_instant_app_confirmation">Бул ыкчам ачылуучу колдонмо алынып салынсынбы?</string>

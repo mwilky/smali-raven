@@ -1532,7 +1532,7 @@
     <string name="clear_activities">Обриши подразумевана подешавања</string>
     <string name="clear_adb_keys">Опозивање одобрења за уклањање USB грешака</string>
     <string name="clear_cache_btn_text">Обриши кеш</string>
-    <string name="clear_data_dlg_text">Сви подаци ове апликације биће трајно избрисани. То обухвата све датотеке, подешавања, налоге, базе података итд.</string>
+    <string name="clear_data_dlg_text">Подаци ове апликације ће се трајно избрисати. То обухвата фајлове, подешавања, базе података и друге податке апликација.</string>
     <string name="clear_data_dlg_title">Желите ли да избришете податке о апликацији?</string>
     <string name="clear_failed_dlg_text">Брисање меморијског простора за апликацију није успело.</string>
     <string name="clear_instant_app_confirmation">Желите ли да уклоните ову инстант апликацију?</string>

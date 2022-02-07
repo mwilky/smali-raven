@@ -1532,7 +1532,7 @@
     <string name="clear_activities">डीफॉल्ट प्राधान्ये साफ करा</string>
     <string name="clear_adb_keys">USB डीबग करणारी प्रमाणीकरणे रीव्होक करा</string>
     <string name="clear_cache_btn_text">"कॅशे  साफ करा"</string>
-    <string name="clear_data_dlg_text">या अ‍ॅपचा सर्व डेटा कायमचा हटवला जाईल. यात सर्व फाइल, सेटिंग्ज, खाती, डेटाबेस इ. समाविष्ट असेल.</string>
+    <string name="clear_data_dlg_text">या ॲपचा डेटा कायमचा हटवला जाईल. यामध्ये फाइल, सेटिंग्ज, डेटाबेस आणि इतर अ‍ॅप डेटा यांचा समावेश आहे.</string>
     <string name="clear_data_dlg_title">अ‍ॅप डेटा हटवायचा?</string>
     <string name="clear_failed_dlg_text">ॲपसाठी स्‍टोरेज साफ करता आले नाही.</string>
     <string name="clear_instant_app_confirmation">तुम्हाला हे इन्स्टंट अ‍ॅप काढायचे आहे का?</string>

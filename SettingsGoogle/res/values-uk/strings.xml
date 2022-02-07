@@ -1532,7 +1532,7 @@
     <string name="clear_activities">Очистити стандартні налаштування</string>
     <string name="clear_adb_keys">Скасувати доступ до налагодження USB</string>
     <string name="clear_cache_btn_text">Очистити кеш</string>
-    <string name="clear_data_dlg_text">Усі дані цього додатка буде видалено назавжди: файли, налаштування, облікові записи, бази даних тощо.</string>
+    <string name="clear_data_dlg_text">Дані цього додатка буде назавжди видалено. До них належать файли, налаштування, бази даних тощо.</string>
     <string name="clear_data_dlg_title">Видалити дані додатка?</string>
     <string name="clear_failed_dlg_text">Не вдалося очистити пам’ять для додатка.</string>
     <string name="clear_instant_app_confirmation">Видалити цей додаток із миттєвим запуском?</string>

@@ -1532,7 +1532,7 @@
     <string name="clear_activities">清除默认偏好设置</string>
     <string name="clear_adb_keys">撤消 USB 调试授权</string>
     <string name="clear_cache_btn_text">清除缓存</string>
-    <string name="clear_data_dlg_text">系统会永久删除此应用的所有数据。删除的内容包括所有文件、设置、帐号、数据库等。</string>
+    <string name="clear_data_dlg_text">系统将永久删除此应用的数据，其中包括文件、设置、数据库和其他应用数据。</string>
     <string name="clear_data_dlg_title">要删除应用数据吗？</string>
     <string name="clear_failed_dlg_text">无法清除应用的存储空间。</string>
     <string name="clear_instant_app_confirmation">要移除这个免安装应用吗？</string>

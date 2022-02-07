@@ -1532,7 +1532,7 @@ Jei įdiegsite CA sertifikatą, jo savininkas galės pasiekti jūsų duomenis (n
     <string name="clear_activities">Išvalyti numatytąsias nuostatas</string>
     <string name="clear_adb_keys">Panaikinti USB derinimo prieigos teises</string>
     <string name="clear_cache_btn_text">Išvalyti talpyklą</string>
-    <string name="clear_data_dlg_text">Visi šios programos duomenys bus visam laikui ištrinti. Tai taikoma visiems failams, nustatymams, paskyroms, duomenims ir kt.</string>
+    <string name="clear_data_dlg_text">Šios programos duomenys bus visam laikui ištrinti. Įtraukiami failai, nustatymai, duomenų bazės ir kiti programos duomenys.</string>
     <string name="clear_data_dlg_title">Ištrinti programos duomenis?</string>
     <string name="clear_failed_dlg_text">Nepavyko išvalyti programos saugyklos.</string>
     <string name="clear_instant_app_confirmation">Ar norite pašalinti šią akimirksniu įkeliamą programėlę?</string>

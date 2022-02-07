@@ -1532,7 +1532,7 @@ Hvis du installerer et CA-certifikat, kan certifikatejeren få adgang til dine d
     <string name="clear_activities">Rydd standardpræferencer</string>
     <string name="clear_adb_keys">Tilbagekald tilladelser for USB-fejlretning</string>
     <string name="clear_cache_btn_text">Ryd cache</string>
-    <string name="clear_data_dlg_text">Alle data i denne app slettes permanent. Det omfatter alle filer, indstillinger, konti, databaser osv.</string>
+    <string name="clear_data_dlg_text">Denne apps data slettes permanent. Det omfatter filer, indstillinger, databaser og andre appdata.</string>
     <string name="clear_data_dlg_title">Vil du slette appdata?</string>
     <string name="clear_failed_dlg_text">Appens lagerplads kunne ikke ryddes.</string>
     <string name="clear_instant_app_confirmation">Vil du fjerne denne instant-app?</string>

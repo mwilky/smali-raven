@@ -1532,7 +1532,7 @@ Nếu bạn cài đặt một chứng chỉ CA, thì chủ sở hữu của ch�
     <string name="clear_activities">Xóa các tùy chọn mặc định</string>
     <string name="clear_adb_keys">Thu hồi các lượt ủy quyền gỡ lỗi qua USB</string>
     <string name="clear_cache_btn_text">Xóa bộ nhớ đệm</string>
-    <string name="clear_data_dlg_text">Tất cả dữ liệu của ứng dụng này sẽ bị xóa vĩnh viễn, bao gồm tất cả các tệp, các tùy chọn cài đặt, tài khoản, cơ sở dữ liệu, v.v.</string>
+    <string name="clear_data_dlg_text">Dữ liệu của ứng dụng này sẽ bị xóa vĩnh viễn. Dữ liệu này bao gồm các tệp, chế độ cài đặt, cơ sở dữ liệu và dữ liệu ứng dụng khác.</string>
     <string name="clear_data_dlg_title">Xóa dữ liệu ứng dụng?</string>
     <string name="clear_failed_dlg_text">Không thể xóa bộ nhớ của ứng dụng.</string>
     <string name="clear_instant_app_confirmation">Bạn có muốn xóa ứng dụng tức thì này không?</string>

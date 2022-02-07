@@ -1532,7 +1532,7 @@ CA sertifikatı quraşdırsanız, sertifikat sahibi daxil olduğunuz veb saytlar
     <string name="clear_activities">Defolt tərcihləri silin</string>
     <string name="clear_adb_keys">USB ilə sazlama icazəsi ləğv edilsin</string>
     <string name="clear_cache_btn_text">Keşi təmizləyin</string>
-    <string name="clear_data_dlg_text">Bu tətbiq datası həmişəlik silinəcək. Buraya bütün fayllar, ayarlar, hesablar, verilənlər bazası və sairləri aiddir.</string>
+    <string name="clear_data_dlg_text">Bu tətbiq datası həmişəlik silinəcək. Buraya fayllar, ayarlar, data bazaları və digər tətbiq datası daxildir.</string>
     <string name="clear_data_dlg_title">Tətbiq məlumatları silinsin?</string>
     <string name="clear_failed_dlg_text">Tətbiqin yaddaşını təmizləyin.</string>
     <string name="clear_instant_app_confirmation">Bu ani tətbiqi silmək istəyirsiniz?</string>

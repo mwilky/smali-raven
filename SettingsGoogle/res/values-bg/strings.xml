@@ -1532,7 +1532,7 @@
     <string name="clear_activities">Изчистване на предпочитанията по подразбиране</string>
     <string name="clear_adb_keys">Отмяна на упълномощ. за отстр. на грешки през USB</string>
     <string name="clear_cache_btn_text">Изчистване на кеша</string>
-    <string name="clear_data_dlg_text">Всички данни на това приложение ще бъдат изтрити за постоянно. Това включва всички файлове, настройки, профили и т.н.</string>
+    <string name="clear_data_dlg_text">Данните на приложението ще бъдат изтрити за постоянно. Това включва файловете, настройките, базите от данни и други данни от приложението.</string>
     <string name="clear_data_dlg_title">Да се изтрият ли данните от приложенията?</string>
     <string name="clear_failed_dlg_text">Изчистването на данните за приложението не бе успешно.</string>
     <string name="clear_instant_app_confirmation">Искате ли да премахнете това мигновено приложение?</string>

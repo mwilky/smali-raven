@@ -1532,7 +1532,7 @@ Codec પસંદગી ટ્રિગર કરો: પ્લેબૅક ક
     <string name="clear_activities">ડિફૉલ્ટ પસંદગીઓ સાફ કરો</string>
     <string name="clear_adb_keys">USB ડીબગિંગ પ્રમાણીકરણોને રદબાતલ કરો</string>
     <string name="clear_cache_btn_text">કૅશ મેમરી સાફ કરો</string>
-    <string name="clear_data_dlg_text">આ તમામ ઍપનો ડેટા કાયમી રીતે ડિલીટ કરવામાં આવશે. આમાં તમામ ફાઇલો, સેટિંગ, એકાઉન્ટ, ડેટાબેઝ વગેરે શામેલ છે.</string>
+    <string name="clear_data_dlg_text">આ ઍપના ડેટાને કાયમી રીતે કાઢી નાખવામાં આવશે. આમાં ફાઇલો, સેટિંગ, ડેટાબેઝ અને અન્ય ઍપ ડેટા પણ શામેલ હોય છે.</string>
     <string name="clear_data_dlg_title">ઍપનો ડેટા ડિલીટ કરીએ?</string>
     <string name="clear_failed_dlg_text">ઍપ માટે સ્ટોરેજ સાફ ન કરી શક્યાં.</string>
     <string name="clear_instant_app_confirmation">શું તમે આ ઝટપટ ઍપ્લિકેશન દૂર કરવા માંગો છો?</string>

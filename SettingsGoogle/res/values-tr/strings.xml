@@ -1532,7 +1532,7 @@ Bir CA sertifikası yüklerseniz sertifika sahibi; şifreler, veya kredi kartı 
     <string name="clear_activities">Varsayılan tercihleri temizle</string>
     <string name="clear_adb_keys">USB hata ayıklama yetkilerini kaldır</string>
     <string name="clear_cache_btn_text">Önbelleği temizle</string>
-    <string name="clear_data_dlg_text">Bu uygulamanın tüm verileri kalıcı olarak silinecek. Bu veriler arasında tüm dosyalar, ayarlar, hesaplar, veritabanları vb. yer alıyor.</string>
+    <string name="clear_data_dlg_text">Bu uygulamanın verileri kalıcı olarak silinecek. Buna dosyalar, ayarlar, veritabanları ve diğer uygulama verileri de dahildir.</string>
     <string name="clear_data_dlg_title">Uygulama verileri silinsin mi?</string>
     <string name="clear_failed_dlg_text">Uygulama depolama alanı temizlenemedi.</string>
     <string name="clear_instant_app_confirmation">Bu hazır uygulamayı kaldırmak istiyor musunuz?</string>

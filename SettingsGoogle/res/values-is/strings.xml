@@ -1532,7 +1532,7 @@ Ef þú setur upp CA-vottorð gæti eigandi vottorðsins fengið aðgang að gö
     <string name="clear_activities">Hreinsa sjálfgefnar kjörstillingar</string>
     <string name="clear_adb_keys">Afturkalla USB-villuleitarheimildir</string>
     <string name="clear_cache_btn_text">Hreinsa úr skyndiminni</string>
-    <string name="clear_data_dlg_text">Öllum gögnum þessa forrits verður eytt fyrir fullt og allt. Í þessu felast allar skrár, stillingar, reikningar, gagnagrunnar o.s.frv.</string>
+    <string name="clear_data_dlg_text">Gögnum þessa forrits verður eytt fyrir fullt og allt. Þetta á við um skrár, stillingar, gagnagrunna og önnur forritsgögn.</string>
     <string name="clear_data_dlg_title">Eyða forritsgögnum?</string>
     <string name="clear_failed_dlg_text">Ekki var hægt að hreinsa geymslu fyrir forrit.</string>
     <string name="clear_instant_app_confirmation">Fjarlægja þetta skyndiforrit?</string>

@@ -1532,7 +1532,7 @@ Gdy zainstalujesz certyfikat CA, jego właściciel będzie mógł uzyskać dost�
     <string name="clear_activities">Wyczyść ustawienia domyślne</string>
     <string name="clear_adb_keys">Odwołaj dostęp do debugowania USB</string>
     <string name="clear_cache_btn_text">Wyczyść pamięć podręczną</string>
-    <string name="clear_data_dlg_text">Wszystkie dane tej aplikacji zostaną trwale usunięte. Dotyczy to wszystkich plików, ustawień, kont, baz danych itd.</string>
+    <string name="clear_data_dlg_text">Dane tej aplikacji zostaną trwale usunięte. Dotyczy to plików, ustawień, baz danych i innych danych aplikacji.</string>
     <string name="clear_data_dlg_title">Usunąć dane aplikacji?</string>
     <string name="clear_failed_dlg_text">Nie można wyczyścić miejsca na aplikację.</string>
     <string name="clear_instant_app_confirmation">Czy chcesz usunąć tę aplikację błyskawiczną?</string>

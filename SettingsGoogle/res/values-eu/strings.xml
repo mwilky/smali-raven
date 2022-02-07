@@ -1532,7 +1532,7 @@ Burbuilak erabiltzeko aukera duten beste aplikazio eta elkarrizketei ere aplikat
     <string name="clear_activities">Garbitu hobespen lehenetsiak</string>
     <string name="clear_adb_keys">Baliogabetu USB bidezko arazketarako baimenak</string>
     <string name="clear_cache_btn_text">Garbitu cachea</string>
-    <string name="clear_data_dlg_text">Aplikazio honetako datu guztiak betiko ezabatuko dira; besteak beste, fitxategi, ezarpen, kontu, datu-base eta abar guztiak.</string>
+    <string name="clear_data_dlg_text">Aplikazio honen datuak betiko ezabatuko dira; besteak beste, fitxategiak, ezarpenak, datu-baseak eta aplikazioko beste batu batzuk.</string>
     <string name="clear_data_dlg_title">Aplikazioko datuak ezabatu nahi?</string>
     <string name="clear_failed_dlg_text">Ezin izan da garbitu memoria aplikazio honi dagokionez.</string>
     <string name="clear_instant_app_confirmation">Zuzeneko aplikazio hau kendu nahi duzu?</string>

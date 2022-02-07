@@ -1532,7 +1532,7 @@ Om du installerar ett CA-certifikat kan certifikatsägaren få åtkomst till din
     <string name="clear_activities">Rensa standardinställningar</string>
     <string name="clear_adb_keys">Återkalla åtkomst till USB-felsökning</string>
     <string name="clear_cache_btn_text">Rensa cacheminne</string>
-    <string name="clear_data_dlg_text">Appens samtliga data tas bort permanent. Det inkluderar alla filer, inställningar, konton, databaser och så vidare.</string>
+    <string name="clear_data_dlg_text">Appens data raderas permanent. Detta omfattar filer, inställningar, databaser och annan appdata.</string>
     <string name="clear_data_dlg_title">Vill du ta bort appdata?</string>
     <string name="clear_failed_dlg_text">Rensa inte appens lagringsutrymme.</string>
     <string name="clear_instant_app_confirmation">Vill du ta bort den här snabbappen?</string>
