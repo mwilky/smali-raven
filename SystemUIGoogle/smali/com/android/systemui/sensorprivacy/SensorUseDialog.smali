@@ -6,11 +6,13 @@
 # instance fields
 .field private final clickListener:Landroid/content/DialogInterface$OnClickListener;
 
+.field private final dismissListener:Landroid/content/DialogInterface$OnDismissListener;
+
 .field private final sensor:I
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;ILandroid/content/DialogInterface$OnClickListener;)V
+.method public constructor <init>(Landroid/content/Context;ILandroid/content/DialogInterface$OnClickListener;Landroid/content/DialogInterface$OnDismissListener;)V
     .locals 8
 
     const-string v0, "context"
@@ -21,11 +23,17 @@
 
     invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
+    const-string v0, "dismissListener"
+
+    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;-><init>(Landroid/content/Context;)V
 
     iput p2, p0, Lcom/android/systemui/sensorprivacy/SensorUseDialog;->sensor:I
 
     iput-object p3, p0, Lcom/android/systemui/sensorprivacy/SensorUseDialog;->clickListener:Landroid/content/DialogInterface$OnClickListener;
+
+    iput-object p4, p0, Lcom/android/systemui/sensorprivacy/SensorUseDialog;->dismissListener:Landroid/content/DialogInterface$OnDismissListener;
 
     invoke-virtual {p0}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
 
@@ -200,6 +208,8 @@
     move-result-object p1
 
     invoke-virtual {p0, p2, p1, p3}, Landroid/app/AlertDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
+
+    invoke-virtual {p0, p4}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
     invoke-virtual {p0, v5}, Landroid/app/AlertDialog;->setCancelable(Z)V
 

@@ -4,6 +4,7 @@
 
 # interfaces
 .implements Landroid/content/DialogInterface$OnClickListener;
+.implements Landroid/content/DialogInterface$OnDismissListener;
 
 
 # annotations
@@ -450,7 +451,7 @@
 
     iget v0, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->sensor:I
 
-    invoke-direct {p1, p0, v0, p0}, Lcom/android/systemui/sensorprivacy/SensorUseDialog;-><init>(Landroid/content/Context;ILandroid/content/DialogInterface$OnClickListener;)V
+    invoke-direct {p1, p0, v0, p0, p0}, Lcom/android/systemui/sensorprivacy/SensorUseDialog;-><init>(Landroid/content/Context;ILandroid/content/DialogInterface$OnClickListener;Landroid/content/DialogInterface$OnDismissListener;)V
 
     iput-object p1, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->mDialog:Landroid/app/AlertDialog;
 
@@ -494,6 +495,14 @@
     const/4 p0, 0x0
 
     throw p0
+.end method
+
+.method public onDismiss(Landroid/content/DialogInterface;)V
+    .locals 0
+
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+
+    return-void
 .end method
 
 .method protected onNewIntent(Landroid/content/Intent;)V

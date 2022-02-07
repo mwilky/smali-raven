@@ -22,7 +22,9 @@
 
 .field private detailTaskId:I
 
-.field private final intent:Landroid/content/Intent;
+.field private final fillInIntent:Landroid/content/Intent;
+
+.field private final pendingIntent:Landroid/app/PendingIntent;
 
 .field private final stateCallback:Lcom/android/wm/shell/TaskView$Listener;
 
@@ -44,14 +46,14 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Lcom/android/wm/shell/TaskView;Landroid/content/Intent;Lcom/android/systemui/controls/ui/ControlViewHolder;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/wm/shell/TaskView;Landroid/app/PendingIntent;Lcom/android/systemui/controls/ui/ControlViewHolder;)V
     .locals 2
 
     const-string/jumbo v0, "taskView"
 
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string v0, "intent"
+    const-string v0, "pendingIntent"
 
     invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -79,13 +81,35 @@
 
     iput-object p2, p0, Lcom/android/systemui/controls/ui/DetailDialog;->taskView:Lcom/android/wm/shell/TaskView;
 
-    iput-object p3, p0, Lcom/android/systemui/controls/ui/DetailDialog;->intent:Landroid/content/Intent;
+    iput-object p3, p0, Lcom/android/systemui/controls/ui/DetailDialog;->pendingIntent:Landroid/app/PendingIntent;
 
     iput-object p4, p0, Lcom/android/systemui/controls/ui/DetailDialog;->cvh:Lcom/android/systemui/controls/ui/ControlViewHolder;
 
     const/4 p3, -0x1
 
     iput p3, p0, Lcom/android/systemui/controls/ui/DetailDialog;->detailTaskId:I
+
+    new-instance p3, Landroid/content/Intent;
+
+    invoke-direct {p3}, Landroid/content/Intent;-><init>()V
+
+    const/4 v0, 0x1
+
+    const-string v1, "controls.DISPLAY_IN_PANEL"
+
+    invoke-virtual {p3, v1, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
+    const/high16 v0, 0x80000
+
+    invoke-virtual {p3, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    const/high16 v0, 0x8000000
+
+    invoke-virtual {p3, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+
+    iput-object p3, p0, Lcom/android/systemui/controls/ui/DetailDialog;->fillInIntent:Landroid/content/Intent;
 
     new-instance p3, Lcom/android/systemui/controls/ui/DetailDialog$stateCallback$1;
 
@@ -137,6 +161,10 @@
     move-result-object v0
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->setAlpha(F)V
 
     sget p1, Lcom/android/systemui/R$id;->control_detail_close:I
 
@@ -222,6 +250,14 @@
     return-void
 .end method
 
+.method public static final synthetic access$getFillInIntent$p(Lcom/android/systemui/controls/ui/DetailDialog;)Landroid/content/Intent;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/controls/ui/DetailDialog;->fillInIntent:Landroid/content/Intent;
+
+    return-object p0
+.end method
+
 
 # virtual methods
 .method public dismiss()V
@@ -253,10 +289,10 @@
     return-object p0
 .end method
 
-.method public final getIntent()Landroid/content/Intent;
+.method public final getPendingIntent()Landroid/app/PendingIntent;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/controls/ui/DetailDialog;->intent:Landroid/content/Intent;
+    iget-object p0, p0, Lcom/android/systemui/controls/ui/DetailDialog;->pendingIntent:Landroid/app/PendingIntent;
 
     return-object p0
 .end method
