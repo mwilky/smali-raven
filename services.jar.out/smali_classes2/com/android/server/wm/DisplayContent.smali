@@ -16820,19 +16820,30 @@
 .method updateImeInputAndControlTarget(Lcom/android/server/wm/WindowState;)V
     .locals 6
 
-    iget-object v0, p0, Lcom/android/server/wm/DisplayContent;->mImeInputTarget:Lcom/android/server/wm/WindowState;
+    const/4 v0, 0x0
 
-    if-eq v0, p1, :cond_2
+    if-eqz p1, :cond_0
 
-    sget-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_IME_enabled:Z
+    iget-object v1, p1, Lcom/android/server/wm/WindowState;->mActivityRecord:Lcom/android/server/wm/ActivityRecord;
 
-    const/4 v1, 0x0
+    if-eqz v1, :cond_0
 
-    if-eqz v0, :cond_0
+    iget-object v1, p1, Lcom/android/server/wm/WindowState;->mActivityRecord:Lcom/android/server/wm/ActivityRecord;
+
+    iput-boolean v0, v1, Lcom/android/server/wm/ActivityRecord;->mImeInsetsFrozenUntilStartInput:Z
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/server/wm/DisplayContent;->mImeInputTarget:Lcom/android/server/wm/WindowState;
+
+    if-eq v1, p1, :cond_2
+
+    sget-boolean v1, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_IME_enabled:Z
+
+    if-eqz v1, :cond_1
 
     invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
     sget-object v2, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_IME:Lcom/android/internal/protolog/ProtoLogGroup;
 
@@ -16844,20 +16855,9 @@
 
     new-array v5, v5, [Ljava/lang/Object;
 
-    aput-object v0, v5, v1
+    aput-object v1, v5, v0
 
-    invoke-static {v2, v3, v1, v4, v5}, Lcom/android/internal/protolog/ProtoLogImpl;->i(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
-
-    :cond_0
-    if-eqz p1, :cond_1
-
-    iget-object v0, p1, Lcom/android/server/wm/WindowState;->mActivityRecord:Lcom/android/server/wm/ActivityRecord;
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p1, Lcom/android/server/wm/WindowState;->mActivityRecord:Lcom/android/server/wm/ActivityRecord;
-
-    iput-boolean v1, v0, Lcom/android/server/wm/ActivityRecord;->mImeInsetsFrozenUntilStartInput:Z
+    invoke-static {v2, v3, v0, v4, v5}, Lcom/android/internal/protolog/ProtoLogImpl;->i(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
     :cond_1
     invoke-virtual {p0, p1}, Lcom/android/server/wm/DisplayContent;->setImeInputTarget(Lcom/android/server/wm/WindowState;)V

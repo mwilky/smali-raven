@@ -12823,6 +12823,16 @@
 
     invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string v2, "mImeInsetsFrozenUntilStartInput="
+
+    invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-boolean v2, p0, Lcom/android/server/wm/ActivityRecord;->mImeInsetsFrozenUntilStartInput:Z
+
+    invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->println(Z)V
+
     iget-object v2, p0, Lcom/android/server/wm/ActivityRecord;->requestedVrComponent:Landroid/content/ComponentName;
 
     if-eqz v2, :cond_18
