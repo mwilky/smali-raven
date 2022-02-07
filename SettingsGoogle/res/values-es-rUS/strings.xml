@@ -1532,7 +1532,7 @@ Si instalas un Certificado de CA, el propietario podrá acceder a tus datos, com
     <string name="clear_activities">Borrar las preferencias predeterminadas</string>
     <string name="clear_adb_keys">Revocar autorizaciones de depur. USB</string>
     <string name="clear_cache_btn_text">Borrar caché</string>
-    <string name="clear_data_dlg_text">Se eliminarán de forma permanente todos los datos de esta aplicación, incluidos archivos, ajustes, cuentas, bases de datos, etc.</string>
+    <string name="clear_data_dlg_text">Se borrarán de forma permanente los datos de esta app. Se incluyen archivos, parámetros de configuración, bases de datos y otros datos de app.</string>
     <string name="clear_data_dlg_title">¿Borrar los datos de la app?</string>
     <string name="clear_failed_dlg_text">No se pudo liberar espacio de almacenamiento de la app.</string>
     <string name="clear_instant_app_confirmation">¿Quieres quitar esta app instantánea?</string>

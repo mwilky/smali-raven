@@ -1532,7 +1532,7 @@ Si instal·les un certificat de CA, el propietari del certificat pot accedir a l
     <string name="clear_activities">Esborra les preferències predeterminades</string>
     <string name="clear_adb_keys">Revoca autoritzacions de depuració per USB</string>
     <string name="clear_cache_btn_text">Esborra la memòria cau</string>
-    <string name="clear_data_dlg_text">"Se suprimiran totes les dades d'aquesta aplicació permanentment. Això inclou tots els fitxers, les opcions de configuració, els comptes, les bases de dades, etc."</string>
+    <string name="clear_data_dlg_text">"Les dades d'aquesta aplicació se suprimiran permanentment. Això inclou fitxers, opcions de configuració, bases de dades i altres dades de l'aplicació."</string>
     <string name="clear_data_dlg_title">"Vols suprimir les dades de l'aplicació?"</string>
     <string name="clear_failed_dlg_text">"No s'ha pogut esborrar l'emmagatzematge de l'aplicació."</string>
     <string name="clear_instant_app_confirmation">Vols suprimir aquesta aplicació instantània?</string>

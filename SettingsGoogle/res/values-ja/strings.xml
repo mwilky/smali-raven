@@ -1532,7 +1532,7 @@ CA 証明書をインストールすると、あなたがアクセスしたウ�
     <string name="clear_activities">デフォルトの設定をクリア</string>
     <string name="clear_adb_keys">USB デバッグの許可の取り消し</string>
     <string name="clear_cache_btn_text">キャッシュを削除</string>
-    <string name="clear_data_dlg_text">このアプリのすべてのデータ（ファイル、設定、アカウント、データベースを含む）が完全に削除されます。</string>
+    <string name="clear_data_dlg_text">このアプリのデータが完全に削除されます。ファイル、設定、データベース、その他のアプリデータが対象になります。</string>
     <string name="clear_data_dlg_title">アプリのデータを削除しますか？</string>
     <string name="clear_failed_dlg_text">アプリのストレージを消去できませんでした。</string>
     <string name="clear_instant_app_confirmation">この Instant App を削除してもよろしいですか？</string>

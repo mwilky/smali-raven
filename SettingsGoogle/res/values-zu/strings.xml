@@ -1532,7 +1532,7 @@ Uma ufaka isitifiketi se-CA, umnikazi wesitifiketi angase afinyelele kudatha yak
     <string name="clear_activities">Sula okuncanyelwayo okuzenzakalelayo</string>
     <string name="clear_adb_keys">Buyisa ukugunyaza kokususa iphutha le-USB</string>
     <string name="clear_cache_btn_text">Sula inqolobane</string>
-    <string name="clear_data_dlg_text">Yonke le datha yohlelo lokusebenza izosuswa ngokuphelele. Lokhu kuhlanganisa wonke amafayela, izilungiselelo, ama-akhawunti, izizinda zemininingwane nokunye.</string>
+    <string name="clear_data_dlg_text">Idatha yale app izosuswa unomphela. Lokhu kuhlanganisa amafayela, amasethingi, isizindalwazi, nenye idatha ye-app.</string>
     <string name="clear_data_dlg_title">Ngabe ususa yonke imininingo yohlelo lokusebenza?</string>
     <string name="clear_failed_dlg_text">Ayikwazanga ukusula isitoreji sohlelo lokusebenza.</string>
     <string name="clear_instant_app_confirmation">Ingabe uyafuna ukususa lolu hlelo lokusebenza olusheshayo?</string>

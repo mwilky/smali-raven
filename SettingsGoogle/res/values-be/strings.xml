@@ -1532,7 +1532,7 @@
     <string name="clear_activities">Ачысціць стандартныя налады</string>
     <string name="clear_adb_keys">Скасаваць дазвол да адладкі па USB</string>
     <string name="clear_cache_btn_text">Ачысціць кэш</string>
-    <string name="clear_data_dlg_text">Усе даныя гэтай праграмы будуць назаўсёды выдалены. Гэта датычыцца ўсiх файлаў, налад, уліковых запісаў, баз даных і г. д.</string>
+    <string name="clear_data_dlg_text">Даныя гэтай праграмы (файлы, налады, базы даных і г. д.) будуць выдалены назаўсёды.</string>
     <string name="clear_data_dlg_title">Выдаліць даныя праграмы?</string>
     <string name="clear_failed_dlg_text">Немагчыма ачысціць сховішча для праграмы.</string>
     <string name="clear_instant_app_confirmation">Хочаце выдаліць гэту імгненную праграму?</string>

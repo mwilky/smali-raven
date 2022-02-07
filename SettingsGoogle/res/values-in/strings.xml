@@ -1532,7 +1532,7 @@ Jika Anda menginstal Sertifikat CA, pemilik sertifikat tersebut dapat mengakses 
     <string name="clear_activities">Hapus preferensi default</string>
     <string name="clear_adb_keys">Cabut otorisasi debug USB</string>
     <string name="clear_cache_btn_text">Hapus cache</string>
-    <string name="clear_data_dlg_text">Semua data aplikasi ini akan dihapus secara permanen, termasuk semua file, setelan, akun, database, dll.</string>
+    <string name="clear_data_dlg_text">Data aplikasi ini akan dihapus secara permanen. Data ini termasuk file, setelan, database, dan data aplikasi lainnya.</string>
     <string name="clear_data_dlg_title">Hapus data aplikasi?</string>
     <string name="clear_failed_dlg_text">Tidak dapat menghapus penyimpanan untuk aplikasi.</string>
     <string name="clear_instant_app_confirmation">Ingin menghapus aplikasi instan ini?</string>

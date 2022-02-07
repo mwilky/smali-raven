@@ -1532,7 +1532,7 @@
     <string name="clear_activities">សម្អាតចំណូលចិត្ត​លំនាំដើម</string>
     <string name="clear_adb_keys">ដក​សិទ្ធិ​កែ​កំហុសតាម USB</string>
     <string name="clear_cache_btn_text">សម្អាត​ឃ្លាំងបម្រុង</string>
-    <string name="clear_data_dlg_text">ទិន្នន័យ​របស់​កម្មវិធី​នេះ​ទាំងអស់​នឹង​ត្រូវ​បាន​លុប​ជា​អចិន្ត្រៃយ៍។ ទិន្នន័យទាំងនេះរួមមាន ឯកសារ​ទាំងអស់ ការ​កំណត់ គណនី មូលដ្ឋាន​ទិន្នន័យ ។ល។</string>
+    <string name="clear_data_dlg_text">ទិន្នន័យ​របស់កម្មវិធីនេះ​នឹងត្រូវបានលុប​ជាអចិន្ត្រៃយ៍។ ទិន្នន័យនេះ​រួមមាន​ឯកសារ ការកំណត់ មូលដ្ឋាន​ទិន្នន័យ និង​ទិន្នន័យកម្មវិធី​ផ្សេងទៀត។</string>
     <string name="clear_data_dlg_title">លុប​ទិន្នន័យ​កម្មវិធី?</string>
     <string name="clear_failed_dlg_text">មិនអាច​សម្អាត​ទំហំផ្ទុក​សម្រាប់​កម្មវិធី​បានទេ។</string>
     <string name="clear_instant_app_confirmation">តើ​អ្នកចង់​ដក​កម្មវិធី​ប្រើភ្លាមៗ​នេះចេញ​មែន​ទេ?</string>

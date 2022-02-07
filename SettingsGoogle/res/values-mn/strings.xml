@@ -1532,7 +1532,7 @@
     <string name="clear_activities">Өгөгдмөл сонголтыг арилгах</string>
     <string name="clear_adb_keys">USB дебагийн зөвшөөрлийг цуцлах</string>
     <string name="clear_cache_btn_text">Кешийг арилгах</string>
-    <string name="clear_data_dlg_text">Энэ апп-н бүх өгөгдөл бүрмөсөн устах болно. Үүнд бүх файл, тохиргоо, бүртгэл, өгөгдөл гэх мэт орно.</string>
+    <string name="clear_data_dlg_text">Энэ аппын өгөгдлийг бүрмөсөн устгана. Үүнд файл, тохиргоо, өгөгдлийн бааз болон бусад аппын өгөгдөл багтана.</string>
     <string name="clear_data_dlg_title">Апп өгөгдлийг устгах уу?</string>
     <string name="clear_failed_dlg_text">Аппын санг устгаж чадсангүй.</string>
     <string name="clear_instant_app_confirmation">Та энэ шуурхай аппыг устгах уу?</string>

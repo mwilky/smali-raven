@@ -1532,7 +1532,7 @@ Ak si nainštalujete certifikát CA, vlastník certifikátu by mohol získať pr
     <string name="clear_activities">Vymazať predvolené predvoľby</string>
     <string name="clear_adb_keys">Odvolať autorizácie na ladenie cez USB</string>
     <string name="clear_cache_btn_text">Vymazať vyrovnávaciu pamäť</string>
-    <string name="clear_data_dlg_text">Všetky dáta tejto aplikácie vrátane súborov, nastavení, účtov, databáz atď. budú navždy odstránené.</string>
+    <string name="clear_data_dlg_text">Dáta tejto aplikácie budú natrvalo odstránené. Zahrnujú súbory, nastavenia, databázy a ďalšie dáta aplikácie.</string>
     <string name="clear_data_dlg_title">Odstrániť dáta aplikácie?</string>
     <string name="clear_failed_dlg_text">Nepodarilo sa vymazať úložisko aplikácie</string>
     <string name="clear_instant_app_confirmation">Chcete túto okamžitú aplikáciu odstrániť?</string>

@@ -1532,7 +1532,7 @@ Ako instalirate CA certifikat, vlasnik certifikata može pristupiti vašim podac
     <string name="clear_activities">Obriši zadane postavke</string>
     <string name="clear_adb_keys">Ukinite odobrenja otklanjanja grešaka putem USB-a</string>
     <string name="clear_cache_btn_text">Obriši keš memoriju</string>
-    <string name="clear_data_dlg_text">Svi podaci ove aplikacije će biti trajno izbrisani. To uključuje sve fajlove, postavke, račune, baze podataka itd.</string>
+    <string name="clear_data_dlg_text">Ovi podaci aplikacije će se trajno izbrisati. To obuhvata fajlove, postavke, baze podataka i ostale podatke aplikacije.</string>
     <string name="clear_data_dlg_title">Izbrisati podatke aplikacija?</string>
     <string name="clear_failed_dlg_text">Pohrana za aplikaciju nije obrisana.</string>
     <string name="clear_instant_app_confirmation">Želite li ukloniti ovu instant aplikaciju?</string>

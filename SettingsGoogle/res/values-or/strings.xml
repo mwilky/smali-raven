@@ -1532,7 +1532,7 @@
     <string name="clear_activities">ଡିଫଲ୍ଟ ପସନ୍ଦଗୁଡ଼ିକୁ ଖାଲି କରନ୍ତୁ</string>
     <string name="clear_adb_keys">USB ଡିବଗିଂ ଅଧିକାରକୁ ବାତିଲ୍ କରନ୍ତୁ</string>
     <string name="clear_cache_btn_text">କ୍ୟାଶ୍ ଖାଲି କରନ୍ତୁ</string>
-    <string name="clear_data_dlg_text">ଏହି ଆପ୍‌ର ସମସ୍ତ ଡାଟା ସ୍ଥାୟୀ ଭାବେ ଡିଲିଟ୍‌ ହୋଇଯିବ। ଏଥିରେ ରହିଛି, ସମସ୍ତ ଫାଇଲ୍‌, ସେଟିଙ୍ଗ, ଆକାଉଣ୍ଟ, ଡାଟାବେସ୍‌ ଆଦି</string>
+    <string name="clear_data_dlg_text">ଏହି ଆପର ଡାଟା ସ୍ଥାୟୀ ଭାବେ ଡିଲିଟ ହୋଇଯିବ। ଏଥିରେ ଫାଇଲ, ସେଟିଂସ, ଡାଟାବେସ ଏବଂ ଅନ୍ୟ ଆପ ଡାଟା ଅନ୍ତର୍ଭୁକ୍ତ।</string>
     <string name="clear_data_dlg_title">ଆପ୍‌ର ଡାଟା ଡିଲିଟ୍‌ କରିବେ?</string>
     <string name="clear_failed_dlg_text">ଆପ୍ ପାଇଁ ଷ୍ଟୋରେଜ୍‌କୁ ଖାଲି କରିପାରିବ ନାହିଁ|</string>
     <string name="clear_instant_app_confirmation">ଆପଣ ଏହି ତାତ୍‌କ୍ଷଣିକ ଆପ୍‌କୁ କାଢ଼ିଦେବାକୁ ଚାହାଁନ୍ତି?</string>

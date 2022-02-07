@@ -1532,7 +1532,7 @@ Bunda boshqa ilovalar yoki suhbatlar ham bulutchalarga olinishiga taʼsir qilini
     <string name="clear_activities">Birlamchi parametrlarni tozalash</string>
     <string name="clear_adb_keys">USB orqali nosozliklarni tuzatishni taqiqlash</string>
     <string name="clear_cache_btn_text">Keshni tozalash</string>
-    <string name="clear_data_dlg_text">Ushbu ilovaning barcha ma’lumotlari, jumladan, fayllar, ma’lumotlar bazalari, sozlamalar, hisoblar va boshqa narsalar o‘chirib tashlanadi. Keyin ularni qayta tiklab bo‘lmaydi.</string>
+    <string name="clear_data_dlg_text">Bu ilova maʼlumotlari butunlay oʻchirib tashlanadi. Unga fayllar, sozlamalar, ma’lumotlar bazalari va boshqa ilovaga tegishli maʼlumotlar kiradi</string>
     <string name="clear_data_dlg_title">Bu ilova maʼlumotlari oʻchirilsinmi?</string>
     <string name="clear_failed_dlg_text">Xotira tozalanmadi.</string>
     <string name="clear_instant_app_confirmation">Ushbu darhol ochiladigan ilova olib tashlansinmi?</string>

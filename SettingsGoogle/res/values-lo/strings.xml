@@ -1532,7 +1532,7 @@
     <string name="clear_activities">ລຶບລ້າງການຕັ້ງຄ່າເລີ່ມຕົ້ນ</string>
     <string name="clear_adb_keys">ຖອດຖອນການອະນຸຍາດການດີບັກຜ່ານ USB</string>
     <string name="clear_cache_btn_text">ລຶບລ້າງແຄສ</string>
-    <string name="clear_data_dlg_text">ຂໍ້ມູນທັງໝົດຂອງແອັບນີ້ຈະຖືກລຶບອອກຖາວອນ ເຊິ່ງຮວມເຖິງໄຟລ໌, ການຕັ້ງຄ່າ, ບັນຊີ, ຖານຂໍ້ມູນ ແລະ ອື່ນໆທັງໝົດນຳ.</string>
+    <string name="clear_data_dlg_text">ຂໍ້ມູນຂອງແອັບນີ້ຈະຖືກລຶບອອກຖາວອນ. ນີ້ຮວມເຖິງໄຟລ໌, ການຕັ້ງຄ່າ, ຖານຂໍ້ມູນ ແລະ ຂໍ້ມູນແອັບອື່ນໆນຳ</string>
     <string name="clear_data_dlg_title">ລຶບຂໍ້ມູນແອັບບໍ່?</string>
     <string name="clear_failed_dlg_text">ບໍ່ສາມາດລຶບພື້ນທີ່ຈັດເກັບຂໍ້ມູນໃຫ້ແອັບໄດ້.</string>
     <string name="clear_instant_app_confirmation">ທ່ານຕ້ອງການລຶບອິນສະແຕນແອັບນີ້ອອກບໍ່?</string>

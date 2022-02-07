@@ -1531,7 +1531,7 @@ Wenn du ein CA-Zertifikat installierst, hat dessen Inhaber Zugriff auf deine Dat
     <string name="clear_activities">Standardeinstellungen löschen</string>
     <string name="clear_adb_keys">USB-Debugging-Autorisierungen aufheben</string>
     <string name="clear_cache_btn_text">Cache leeren</string>
-    <string name="clear_data_dlg_text">Alle Daten dieser App werden endgültig gelöscht. Dazu zählen alle Dateien, Einstellungen, Konten, Datenbanken usw.</string>
+    <string name="clear_data_dlg_text">Die Daten dieser App werden endgültig gelöscht. Dazu gehören Dateien, Einstellungen, Datenbanken und sonstige App-Daten.</string>
     <string name="clear_data_dlg_title">App-Daten löschen?</string>
     <string name="clear_failed_dlg_text">Speicherinhalt der App konnte nicht gelöscht werden.</string>
     <string name="clear_instant_app_confirmation">Möchtest du diese Instant-App entfernen?</string>

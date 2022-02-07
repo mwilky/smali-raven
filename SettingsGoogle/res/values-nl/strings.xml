@@ -1532,7 +1532,7 @@ Als je een CA-certificaat installeert, kan de eigenaar van het certificaat toega
     <string name="clear_activities">Standaardvoorkeuren wissen</string>
     <string name="clear_adb_keys">Autorisatie USB-foutopsporing intrekken</string>
     <string name="clear_cache_btn_text">Cache wissen</string>
-    <string name="clear_data_dlg_text">Alle gegevens van deze app worden permanent verwijderd. Dit omvat alle bestanden, instellingen, accounts, databases, enzovoort.</string>
+    <string name="clear_data_dlg_text">De gegevens van deze app worden definitief verwijderd. Dit omvat bestanden, instellingen, databases en andere app-gegevens.</string>
     <string name="clear_data_dlg_title">Gegevens van app verwijderen?</string>
     <string name="clear_failed_dlg_text">Kan opslag voor app niet wissen.</string>
     <string name="clear_instant_app_confirmation">Wil je deze instant-app verwijderen?</string>

@@ -1532,7 +1532,7 @@
     <string name="clear_activities">डिफल्ट प्राथमिकताहरू हटाउनुहोस्</string>
     <string name="clear_adb_keys">USB डिबग गर्ने अधिकार फिर्ता लिइयोस्</string>
     <string name="clear_cache_btn_text">केस मेटाउनुहोस्</string>
-    <string name="clear_data_dlg_text">यस एपका सम्पूर्ण डेटाहरू स्थायी रूपमा मेटाइने छ। यसमा सम्पूर्ण फाइल, सेटिङ, खाताहरू, डेटाबेस आदि पर्दछन्।</string>
+    <string name="clear_data_dlg_text">यो एपका डेटा सदाका लागि मेटाइने छ। यसमा फाइल, सेटिङ, डेटाबेस र एपका अन्य डेटा पर्छन्।</string>
     <string name="clear_data_dlg_title">एपको डेटा मेटाउन चाहनुहुन्छ?</string>
     <string name="clear_failed_dlg_text">एपका लागि भण्डारण खाली गर्न सकिएन।</string>
     <string name="clear_instant_app_confirmation">तपाईं यो तात्कालिक एपलाई हटाउन चाहनुहुन्छ?</string>

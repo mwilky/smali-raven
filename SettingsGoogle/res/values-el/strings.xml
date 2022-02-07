@@ -1532,7 +1532,7 @@
     <string name="clear_activities">Διαγραφή προεπιλεγμένων προτιμήσεων</string>
     <string name="clear_adb_keys">Ανάκληση εξ/σεων εντ/σμού σφ/των USB</string>
     <string name="clear_cache_btn_text">Διαγραφή προσωρινής μνήμης</string>
-    <string name="clear_data_dlg_text">Όλα τα δεδομένα της εφαρμογής θα διαγραφούν μόνιμα. Αυτό περιλαμβάνει όλα τα αρχεία, τις ρυθμίσεις, τους λογαριασμούς, τις βάσεις δεδομένων κ.λπ.</string>
+    <string name="clear_data_dlg_text">Τα δεδομένα αυτής της εφαρμογής θα διαγραφούν οριστικά. Σε αυτά περιλαμβάνονται αρχεία, ρυθμίσεις, βάσεις δεδομένων και άλλα δεδομένα εφαρμογών.</string>
     <string name="clear_data_dlg_title">Διαγραφή δεδομένων εφαρμογής;</string>
     <string name="clear_failed_dlg_text">Δεν ήταν δυνατή η διαγραφή αποθηκευτικού χώρου για την εφαρμογή.</string>
     <string name="clear_instant_app_confirmation">Θέλετε να καταργήσετε αυτήν την Instant Εφαρμογή;</string>

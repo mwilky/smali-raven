@@ -1532,7 +1532,7 @@
     <string name="clear_activities">ఆటోమేటిక్ సెట్టింగ్ ప్రాధాన్యతలను క్లియర్ చేయండి</string>
     <string name="clear_adb_keys">USB డీబగ్ ప్రామాణీకరణలను ఉపసంహరించు</string>
     <string name="clear_cache_btn_text">కాష్‌ను క్లియర్ చేయి</string>
-    <string name="clear_data_dlg_text">ఈ యాప్ డేటా మొత్తం శాశ్వతంగా తొలగించబడుతుంది. ఇందులో అన్ని ఫైళ్లు, సెట్టింగ్‌లు, ఖాతాలు, డేటాబేస్‌లు మొ. ఉన్నాయి.</string>
+    <string name="clear_data_dlg_text">ఈ యాప్ డేటా శాశ్వతంగా తొలగించబడుతుంది. ఇందులో ఫైల్స్, సెట్టింగ్‌లు, డేటాబేస్‌లు, ఇతర యాప్ డేటా ఉంటాయి.</string>
     <string name="clear_data_dlg_title">యాప్ డేటాను తొలగించాలా?</string>
     <string name="clear_failed_dlg_text">యాప్ నిల్వను తీసివేయడం సాధ్యపడలేదు.</string>
     <string name="clear_instant_app_confirmation">మీరు ఈ తక్షణ యాప్‌ను తీసివేయాలనుకుంటున్నారా?</string>

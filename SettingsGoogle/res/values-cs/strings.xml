@@ -1532,7 +1532,7 @@ Pokud nainstalujete certifikát CA, jeho vlastník může získat přístup k v
     <string name="clear_activities">Vymazat výchozí předvolby</string>
     <string name="clear_adb_keys">Zrušit autorizace k ladění přes USB</string>
     <string name="clear_cache_btn_text">Vymazat mezipaměť</string>
-    <string name="clear_data_dlg_text">Veškerá data (všechny soubory, nastavení, účty, databáze apod.) této aplikace budou trvale vymazána.</string>
+    <string name="clear_data_dlg_text">Data této aplikace budou trvale smazána. To zahrnuje soubory, nastavení, databáze a další data aplikace.</string>
     <string name="clear_data_dlg_title">Smazat data aplikace?</string>
     <string name="clear_failed_dlg_text">Data aplikace v úložišti se nepodařilo vymazat.</string>
     <string name="clear_instant_app_confirmation">Chcete tuto okamžitou aplikaci odstranit?</string>

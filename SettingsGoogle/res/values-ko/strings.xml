@@ -1532,7 +1532,7 @@ CA 인증서를 설치하면 인증서 소유자가 내가 이용하는 웹사�
     <string name="clear_activities">기본 환경설정 지우기</string>
     <string name="clear_adb_keys">USB 디버깅 권한 승인 취소</string>
     <string name="clear_cache_btn_text">캐시 지우기</string>
-    <string name="clear_data_dlg_text">앱의 전체 데이터가 영구적으로 삭제됩니다. 여기에는 모든 파일, 설정, 계정, 데이터베이스 등이 포함됩니다.</string>
+    <string name="clear_data_dlg_text">이 앱 데이터가 영구적으로 삭제됩니다. 삭제 대상에는 파일, 설정, 데이터베이스, 기타 앱 데이터가 포함됩니다.</string>
     <string name="clear_data_dlg_title">앱 데이터를 삭제하시겠습니까?</string>
     <string name="clear_failed_dlg_text">앱 저장용량을 비우지 못했습니다.</string>
     <string name="clear_instant_app_confirmation">이 인스턴트 앱을 삭제하시겠습니까?</string>

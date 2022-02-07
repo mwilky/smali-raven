@@ -1532,7 +1532,7 @@
     <string name="clear_activities">Әдепкі параметрлерді өшіру</string>
     <string name="clear_adb_keys">USB арқылы түзету рұқсаттарынан бас тарту</string>
     <string name="clear_cache_btn_text">Кэшті тазалау</string>
-    <string name="clear_data_dlg_text">Бұл қолданбаның барлық дерегі біржола жойылады. Бұған барлық файл, параметр, аккаунт, дерекқор және т.б. кіреді.</string>
+    <string name="clear_data_dlg_text">Бұл қолданбаның дерегі біржола жойылады. Оған файлдар, параметрлер, дерекқорлар және тағы басқа қолданба дерегі кіреді.</string>
     <string name="clear_data_dlg_title">Қолданба деректері жойылсын ба?</string>
     <string name="clear_failed_dlg_text">Қолданба үшін жад тазартылмады.</string>
     <string name="clear_instant_app_confirmation">Бұл лездік қолданбаны өшіргіңіз келе ме?</string>

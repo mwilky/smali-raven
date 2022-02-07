@@ -1532,7 +1532,7 @@ CA လက်မှတ်ကို ထည့်သွင်းပါက သင်
     <string name="clear_activities">မူရင်းသတ်မှတ်ချက်များကို ရှင်းရန်</string>
     <string name="clear_adb_keys">USB အမှားရှာပြင်ဆင်ခွင့်များ ပြန်ရုပ်သိမ်းခြင်း</string>
     <string name="clear_cache_btn_text">ကက်ရှ် ရှင်းလင်းရန်</string>
-    <string name="clear_data_dlg_text">ဤအက်ပ်၏ ဒေတာအားလုံးကို အပြီးဖျက်ပါမည်။ ဖိုင်၊ ဆက်တင်၊ အကောင့်၊ ဒေတာဘေ့စ်စသည်တို့ အားလုံးပါဝင်သည်။</string>
+    <string name="clear_data_dlg_text">ဤအက်ပ်၏ ဒေတာကို အပြီးဖျက်ပါမည်။ ၎င်းတွင် ဖိုင်၊ ဆက်တင်၊ ဒေတာဘေ့စ်နှင့် အခြားအက်ပ် ဒေတာများ ပါဝင်သည်။</string>
     <string name="clear_data_dlg_title">အက်ပ်ဒေတာ ဖျက်မလား။</string>
     <string name="clear_failed_dlg_text">အက်ပ်အတွက် သိုလှောင်ခန်းကို ရှင်းလင်း၍မရပါ။</string>
     <string name="clear_instant_app_confirmation">ဤချက်ချင်းသုံးအက်ပ်ကို ဖယ်ရှားလိုပါသလား။</string>

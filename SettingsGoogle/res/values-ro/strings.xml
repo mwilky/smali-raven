@@ -1532,7 +1532,7 @@ Dacă instalați un certificat CA, proprietarul certificatului vă poate accesa 
     <string name="clear_activities">Ștergeți preferințele prestabilite</string>
     <string name="clear_adb_keys">Revoc autorizații remediere a erorilor prin USB</string>
     <string name="clear_cache_btn_text">Goliți memoria cache</string>
-    <string name="clear_data_dlg_text">Toate datele acestei aplicații vor fi șterse definitiv. Aici sunt incluse toate fișierele, setările, conturile, bazele de date etc.</string>
+    <string name="clear_data_dlg_text">Datele acestei aplicații vor fi șterse definitiv. Aici sunt incluse fișierele, setările, bazele de date și alte date ale aplicației.</string>
     <string name="clear_data_dlg_title">Ștergeți datele aplicației?</string>
     <string name="clear_failed_dlg_text">Nu s-au putut șterge datele stocate pentru aplicație.</string>
     <string name="clear_instant_app_confirmation">Doriți să eliminați această aplicație instantanee?</string>

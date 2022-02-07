@@ -1532,7 +1532,7 @@ Kui installite CA-sertifikaadi, pääseb sertifikaadi omanik teie külastatud ve
     <string name="clear_activities">Tühista vaike-eelistused</string>
     <string name="clear_adb_keys">Tühista USB silumisvolitused</string>
     <string name="clear_cache_btn_text">Tühjenda vahemälu</string>
-    <string name="clear_data_dlg_text">Rakenduse kõik andmed kustutatakse lõplikult. See hõlmab kõiki faile, seadeid, kontosid, andmebaase jne.</string>
+    <string name="clear_data_dlg_text">Selle rakenduse andmed kustutatakse jäädavalt. See hõlmab faile, seadeid, andmebaase ja muid rakenduse andmeid.</string>
     <string name="clear_data_dlg_title">Kas kustutada rakenduse andmed?</string>
     <string name="clear_failed_dlg_text">Rakenduse salvestusruumi ei õnnestunud tühjendada.</string>
     <string name="clear_instant_app_confirmation">Kas soovite selle installimata avatava rakenduse eemaldada?</string>

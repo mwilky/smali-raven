@@ -1532,7 +1532,7 @@ To vpliva na druge aplikacije ali pogovore, v katerih je prikaz v oblačkih že 
     <string name="clear_activities">Počisti privzete nastavitve</string>
     <string name="clear_adb_keys">Preklic dovoljenj za odpravljanje napak prek povezave USB</string>
     <string name="clear_cache_btn_text">Počisti predpomnilnik</string>
-    <string name="clear_data_dlg_text">Vsi podatki te aplikacije bodo trajno izbrisani. To med drugim vključuje vse datoteke, nastavitve, račune in podatkovne zbirke.</string>
+    <string name="clear_data_dlg_text">Podatki te aplikacije bodo trajno izbrisani. To vključuje datoteke, nastavitve, zbirke podatkov in druge podatke aplikacije.</string>
     <string name="clear_data_dlg_title">Želite izbrisati podatke aplikacije?</string>
     <string name="clear_failed_dlg_text">Shrambe za aplikacijo ni bilo mogoče počistiti.</string>
     <string name="clear_instant_app_confirmation">Ali želite odstraniti to nenamestljivo aplikacijo?</string>

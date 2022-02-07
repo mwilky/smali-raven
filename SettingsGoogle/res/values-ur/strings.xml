@@ -1532,7 +1532,7 @@
     <string name="clear_activities">ڈیفالٹ ترجیحات صاف کریں</string>
     <string name="clear_adb_keys">‏USB ڈیبگ کرنے کی اجازت دہندگیوں کو منسوخ کریں</string>
     <string name="clear_cache_btn_text">کیش صاف کریں</string>
-    <string name="clear_data_dlg_text">اس ایپ کا سبھی ڈیٹا مستقل طور پر حذف ہو جائے گا۔ اس میں سبھی فائلیں، ترتیبات، اکاؤنٹس، ڈیٹا بیسز وغیرہ شامل ہیں۔</string>
+    <string name="clear_data_dlg_text">اس ایپ کا ڈیٹا مستقل طور پر حذف کر دیا جائے گا۔ اس میں فائلز، ترتیبات، ڈیٹا بیس اور دیگر ایپ کا ڈیٹا شامل ہے۔</string>
     <string name="clear_data_dlg_title">ایپ کا ڈیٹا حذف کریں؟</string>
     <string name="clear_failed_dlg_text">ایپ کیلئے اسٹوریج صاف نہيں کر سکا۔</string>
     <string name="clear_instant_app_confirmation">کیا آپ اس فوری ایپ کو ہٹانا چاہتے ہیں؟</string>

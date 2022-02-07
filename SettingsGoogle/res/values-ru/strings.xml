@@ -1532,7 +1532,7 @@
     <string name="clear_activities">Удалить настройки по умолчанию</string>
     <string name="clear_adb_keys">Отозвать доступ для USB-отладки</string>
     <string name="clear_cache_btn_text">Очистить кеш</string>
-    <string name="clear_data_dlg_text">Все данные этого приложения (включая файлы, базы данных, настройки, аккаунты и т. д.) будут удалены без возможности восстановления.</string>
+    <string name="clear_data_dlg_text">Данные этого приложения (включая файлы, базы данных, настройки и т. д.) будут удалены без возможности восстановления.</string>
     <string name="clear_data_dlg_title">Удалить данные приложения?</string>
     <string name="clear_failed_dlg_text">Не удалось очистить хранилище.</string>
     <string name="clear_instant_app_confirmation">Удалить приложение с мгновенным запуском?</string>

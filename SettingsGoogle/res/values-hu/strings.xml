@@ -1532,7 +1532,7 @@ Ez hatással lehet a többi olyan alkalmazásra vagy beszélgetésre is, amelyek
     <string name="clear_activities">Alapértelmezett beállítások törlése</string>
     <string name="clear_adb_keys">USB-s hibakeresésre vonatkozó engedélyek visszavonása</string>
     <string name="clear_cache_btn_text">A gyorsítótár törlése</string>
-    <string name="clear_data_dlg_text">Az alkalmazás minden adatát véglegesen törölni fogja. Ez magában foglalja az összes fájlt, beállítást, fiókot, adatbázist stb.</string>
+    <string name="clear_data_dlg_text">Az alkalmazás adatai véglegesen törlődnek. Így törlődni fognak a fájlok, a beállítások, az adatbázisok és az egyéb alkalmazásadatok is.</string>
     <string name="clear_data_dlg_title">Törli az alkalmazás adatait?</string>
     <string name="clear_failed_dlg_text">Nem sikerült tárhelyet felszabadítani az alkalmazásnak.</string>
     <string name="clear_instant_app_confirmation">Eltávolítja ezt az azonnali alkalmazást?</string>

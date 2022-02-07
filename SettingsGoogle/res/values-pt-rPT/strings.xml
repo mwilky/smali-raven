@@ -1532,7 +1532,7 @@ Se instalar um certificado da AC (autoridade de certificação), o proprietário
     <string name="clear_activities">Limpar preferências predefinidas</string>
     <string name="clear_adb_keys">Revogar autorizações de depur. USB</string>
     <string name="clear_cache_btn_text">Limpar cache</string>
-    <string name="clear_data_dlg_text">Todos os dados desta aplicação serão eliminados permanentemente. Isto inclui todos os ficheiros, definições, contas, bases de dados, etc.</string>
+    <string name="clear_data_dlg_text">Os dados desta app serão permanentemente eliminados. Estão incluídos ficheiros, definições, bases de dados e outros dados de apps.</string>
     <string name="clear_data_dlg_title">Eliminar dados da app?</string>
     <string name="clear_failed_dlg_text">Não foi possível limpar o armazenamento para a aplicação.</string>
     <string name="clear_instant_app_confirmation">Remover esta app instantânea?</string>

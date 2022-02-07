@@ -1532,7 +1532,7 @@
     <string name="clear_activities">ডিফ’ল্ট অগ্ৰাধিকাৰসমূহ মচক</string>
     <string name="clear_adb_keys">ইউএছবি ডিবাগিং অনুমতিসমূহ প্ৰত্যাহাৰ কৰক</string>
     <string name="clear_cache_btn_text">কেশ্ব মচক</string>
-    <string name="clear_data_dlg_text">"এই এপটোৰ সকলো ডেটা স্থায়ীভাৱে মচা হ'ব। সেই ডেটাসমূহৰ ভিতৰত ফাইল ছেটিং, একাউণ্ট, ডেটাবে'ছ আদি অন্তৰ্ভুক্ত।"</string>
+    <string name="clear_data_dlg_text">এই এপৰ ডেটাখিনি স্থায়ীভাৱে মচা হ’ব। ইয়াত ফাইল, ছেটিং, ডেটাবে’ছ আৰু অন্য এপৰ ডেটা অন্তৰ্ভুক্ত।</string>
     <string name="clear_data_dlg_title">এপ্ ডেটা মচিবনে?</string>
     <string name="clear_failed_dlg_text">"এপৰ সঞ্চয়াগাৰ মচিব পৰা নগ'ল৷"</string>
     <string name="clear_instant_app_confirmation">আপুনি এই তাৎক্ষণিক এপ্ আঁতৰাব বিছাৰেনে?</string>

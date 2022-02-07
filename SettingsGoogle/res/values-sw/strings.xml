@@ -1532,7 +1532,7 @@ Ukisakinisha cheti cha CA, mmiliki wa cheti anaweza kufikia data yako, kama vile
     <string name="clear_activities">Ondoa mapendeleo chaguomsingi</string>
     <string name="clear_adb_keys">Batilisha idhini za kurekebisha USB</string>
     <string name="clear_cache_btn_text">Futa data iliyoakibishwa</string>
-    <string name="clear_data_dlg_text">Data yote ya programu hii itafutwa kabisa. Hii inajumuisha faili, mipangilio, akaunti, hifadhidata zote na mengineyo.</string>
+    <string name="clear_data_dlg_text">Data iliyo kwenye programu hii itafutwa kabisa. Hii ni pamoja na faili, mipangilio, hifadhidata na data nyingine ya programu.</string>
     <string name="clear_data_dlg_title">Ungependa kufuta data ya programu?</string>
     <string name="clear_failed_dlg_text">Imeshindwa kufuta hifadhi ya programu.</string>
     <string name="clear_instant_app_confirmation">Ungependa kuondoa programu hii inayofunguka papo hapo?</string>
