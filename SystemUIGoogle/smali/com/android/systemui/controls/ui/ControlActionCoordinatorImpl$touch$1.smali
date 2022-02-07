@@ -98,15 +98,11 @@
 
     move-result-object p0
 
-    invoke-virtual {p0}, Landroid/app/PendingIntent;->getIntent()Landroid/content/Intent;
-
-    move-result-object p0
-
-    const-string v2, "control.getAppIntent().getIntent()"
+    const-string v2, "control.getAppIntent()"
 
     invoke-static {p0, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {v0, v1, p0}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->access$showDetail(Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;Lcom/android/systemui/controls/ui/ControlViewHolder;Landroid/content/Intent;)V
+    invoke-static {v0, v1, p0}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->access$showDetail(Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;Lcom/android/systemui/controls/ui/ControlViewHolder;Landroid/app/PendingIntent;)V
 
     goto :goto_0
 
