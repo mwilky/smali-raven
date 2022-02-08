@@ -1669,7 +1669,7 @@
     goto :goto_2
 
     :cond_3
-    const/4 v0, 0x4
+    sget v0, Lcom/android/mwilky/Renovate;->mQsColumns:I
 
     :goto_2
     invoke-interface {p3, v0}, Lcom/android/systemui/qs/QSPanel$QSTileLayout;->setMaxColumns(I)Z
