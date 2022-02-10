@@ -42,7 +42,7 @@
 
     invoke-virtual {p0, p1}, Landroid/view/ViewGroup;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    const/4 p1, 0x4
+    sget p1, Lcom/android/mwilky/Renovate;->mQsColumns:I
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/qs/TileLayout;->setMaxColumns(I)Z
 
