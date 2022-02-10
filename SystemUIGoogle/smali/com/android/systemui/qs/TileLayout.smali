@@ -141,13 +141,7 @@
 
     iget v0, p0, Lcom/android/systemui/qs/TileLayout;->mColumns:I
 
-    iget v1, p0, Lcom/android/systemui/qs/TileLayout;->mResourceColumns:I
-
-    iget v2, p0, Lcom/android/systemui/qs/TileLayout;->mMaxColumns:I
-
-    invoke-static {v1, v2}, Ljava/lang/Math;->min(II)I
-
-    move-result v1
+    sget v1, Lcom/android/mwilky/Renovate;->mQsColumns:I
 
     iput v1, p0, Lcom/android/systemui/qs/TileLayout;->mColumns:I
 
