@@ -35,9 +35,9 @@
 .method public final accept(Ljava/lang/Object;)V
     .locals 0
 
-    check-cast p1, Lcom/android/server/wm/WindowState;
+    check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    invoke-virtual {p1}, Lcom/android/server/wm/WindowState;->onExitAnimationDone()V
+    invoke-static {p1}, Lcom/android/server/wm/ActivityRecord;->lambda$removeStartingWindowAnimation$4(Lcom/android/server/wm/ActivityRecord;)V
 
     return-void
 .end method

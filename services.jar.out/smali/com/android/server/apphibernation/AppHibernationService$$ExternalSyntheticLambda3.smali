@@ -39,7 +39,7 @@
 
     iget v2, p0, Lcom/android/server/apphibernation/AppHibernationService$$ExternalSyntheticLambda3;->f$2:I
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/apphibernation/AppHibernationService;->lambda$onUserUnlocking$2$AppHibernationService(Lcom/android/server/apphibernation/HibernationStateDiskStore;I)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/apphibernation/AppHibernationService;->lambda$onUserUnlocking$5$AppHibernationService(Lcom/android/server/apphibernation/HibernationStateDiskStore;I)V
 
     return-void
 .end method

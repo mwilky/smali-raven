@@ -39,7 +39,7 @@
 
     aput-object v1, v3, v4
 
-    const v4, 0x1040878
+    const v4, 0x104087d
 
     invoke-virtual {p2, v4, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -91,7 +91,7 @@
 
     invoke-virtual {v6, v7}, Landroid/view/WindowManager$LayoutParams;->setTitle(Ljava/lang/CharSequence;)V
 
-    const v6, 0x10201df
+    const v6, 0x10201e2
 
     invoke-virtual {v4, v6}, Landroid/app/AlertDialog;->findViewById(I)Landroid/view/View;
 

@@ -260,8 +260,22 @@
     return-void
 .end method
 
-.method public startAnimation(Landroid/view/InsetsAnimationControlImpl;Landroid/view/WindowInsetsAnimationControlListener;ILandroid/view/WindowInsetsAnimation;Landroid/view/WindowInsetsAnimation$Bounds;)V
+.method public startAnimation(Landroid/view/InsetsAnimationControlRunner;Landroid/view/WindowInsetsAnimationControlListener;ILandroid/view/WindowInsetsAnimation;Landroid/view/WindowInsetsAnimation$Bounds;)V
     .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T::",
+            "Landroid/view/InsetsAnimationControlRunner;",
+            ":",
+            "Landroid/view/InternalInsetsAnimationController;",
+            ">(TT;",
+            "Landroid/view/WindowInsetsAnimationControlListener;",
+            "I",
+            "Landroid/view/WindowInsetsAnimation;",
+            "Landroid/view/WindowInsetsAnimation$Bounds;",
+            ")V"
+        }
+    .end annotation
 
     return-void
 .end method

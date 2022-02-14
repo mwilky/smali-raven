@@ -39,7 +39,7 @@
 
     iget-boolean v2, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda7;->f$2:Z
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/wm/Task;->lambda$setWindowingMode$16$Task(IZ)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/wm/Task;->lambda$setWindowingMode$13$Task(IZ)V
 
     return-void
 .end method

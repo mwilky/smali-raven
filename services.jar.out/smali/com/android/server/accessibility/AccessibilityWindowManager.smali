@@ -102,6 +102,8 @@
 
 .field private mTouchInteractionInProgress:Z
 
+.field private final mTraceManager:Lcom/android/server/accessibility/AccessibilityTraceManager;
+
 .field private final mWindowIdMap:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -135,7 +137,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Ljava/lang/Object;Landroid/os/Handler;Lcom/android/server/wm/WindowManagerInternal;Lcom/android/server/accessibility/AccessibilityWindowManager$AccessibilityEventSender;Lcom/android/server/accessibility/AccessibilitySecurityPolicy;Lcom/android/server/accessibility/AccessibilitySecurityPolicy$AccessibilityUserManager;)V
+.method public constructor <init>(Ljava/lang/Object;Landroid/os/Handler;Lcom/android/server/wm/WindowManagerInternal;Lcom/android/server/accessibility/AccessibilityWindowManager$AccessibilityEventSender;Lcom/android/server/accessibility/AccessibilitySecurityPolicy;Lcom/android/server/accessibility/AccessibilitySecurityPolicy$AccessibilityUserManager;Lcom/android/server/accessibility/AccessibilityTraceManager;)V
     .locals 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -208,114 +210,30 @@
 
     iput-object p6, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mAccessibilityUserManager:Lcom/android/server/accessibility/AccessibilitySecurityPolicy$AccessibilityUserManager;
 
+    iput-object p7, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mTraceManager:Lcom/android/server/accessibility/AccessibilityTraceManager;
+
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/server/accessibility/AccessibilityWindowManager;)Lcom/android/server/wm/WindowManagerInternal;
+.method static synthetic access$000(Lcom/android/server/accessibility/AccessibilityWindowManager;)Z
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mWindowManagerInternal:Lcom/android/server/wm/WindowManagerInternal;
+    invoke-direct {p0}, Lcom/android/server/accessibility/AccessibilityWindowManager;->traceWMEnabled()Z
 
-    return-object v0
+    move-result v0
+
+    return v0
 .end method
 
-.method static synthetic access$100(Lcom/android/server/accessibility/AccessibilityWindowManager;)Lcom/android/server/accessibility/AccessibilityWindowManager$AccessibilityEventSender;
-    .locals 1
+.method static synthetic access$100(Lcom/android/server/accessibility/AccessibilityWindowManager;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mAccessibilityEventSender:Lcom/android/server/accessibility/AccessibilityWindowManager$AccessibilityEventSender;
+    invoke-direct {p0, p1, p2}, Lcom/android/server/accessibility/AccessibilityWindowManager;->logTraceWM(Ljava/lang/String;Ljava/lang/String;)V
 
-    return-object v0
+    return-void
 .end method
 
 .method static synthetic access$1000(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mAccessibilityFocusedWindowId:I
-
-    return v0
-.end method
-
-.method static synthetic access$1100(Lcom/android/server/accessibility/AccessibilityWindowManager;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->clearAccessibilityFocusLocked(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$1200(Lcom/android/server/accessibility/AccessibilityWindowManager;II)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/server/accessibility/AccessibilityWindowManager;->removeAccessibilityInteractionConnectionLocked(II)V
-
-    return-void
-.end method
-
-.method static synthetic access$200(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mAccessibilityFocusedDisplayId:I
-
-    return v0
-.end method
-
-.method static synthetic access$202(Lcom/android/server/accessibility/AccessibilityWindowManager;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mAccessibilityFocusedDisplayId:I
-
-    return p1
-.end method
-
-.method static synthetic access$300(Lcom/android/server/accessibility/AccessibilityWindowManager;)Ljava/lang/Object;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mLock:Ljava/lang/Object;
-
-    return-object v0
-.end method
-
-.method static synthetic access$400(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mTopFocusedDisplayId:I
-
-    return v0
-.end method
-
-.method static synthetic access$402(Lcom/android/server/accessibility/AccessibilityWindowManager;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mTopFocusedDisplayId:I
-
-    return p1
-.end method
-
-.method static synthetic access$500(Lcom/android/server/accessibility/AccessibilityWindowManager;)Landroid/os/IBinder;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mTopFocusedWindowToken:Landroid/os/IBinder;
-
-    return-object v0
-.end method
-
-.method static synthetic access$502(Lcom/android/server/accessibility/AccessibilityWindowManager;Landroid/os/IBinder;)Landroid/os/IBinder;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mTopFocusedWindowToken:Landroid/os/IBinder;
-
-    return-object p1
-.end method
-
-.method static synthetic access$600(Lcom/android/server/accessibility/AccessibilityWindowManager;)Lcom/android/server/accessibility/AccessibilitySecurityPolicy$AccessibilityUserManager;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mAccessibilityUserManager:Lcom/android/server/accessibility/AccessibilitySecurityPolicy$AccessibilityUserManager;
-
-    return-object v0
-.end method
-
-.method static synthetic access$700(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
     .locals 1
 
     iget v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mActiveWindowId:I
@@ -323,7 +241,7 @@
     return v0
 .end method
 
-.method static synthetic access$702(Lcom/android/server/accessibility/AccessibilityWindowManager;I)I
+.method static synthetic access$1002(Lcom/android/server/accessibility/AccessibilityWindowManager;I)I
     .locals 0
 
     iput p1, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mActiveWindowId:I
@@ -331,7 +249,7 @@
     return p1
 .end method
 
-.method static synthetic access$800(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
+.method static synthetic access$1100(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
     .locals 1
 
     iget v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mTopFocusedWindowId:I
@@ -339,7 +257,7 @@
     return v0
 .end method
 
-.method static synthetic access$802(Lcom/android/server/accessibility/AccessibilityWindowManager;I)I
+.method static synthetic access$1102(Lcom/android/server/accessibility/AccessibilityWindowManager;I)I
     .locals 0
 
     iput p1, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mTopFocusedWindowId:I
@@ -347,12 +265,124 @@
     return p1
 .end method
 
-.method static synthetic access$900(Lcom/android/server/accessibility/AccessibilityWindowManager;)Z
+.method static synthetic access$1200(Lcom/android/server/accessibility/AccessibilityWindowManager;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mTouchInteractionInProgress:Z
 
     return v0
+.end method
+
+.method static synthetic access$1300(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mAccessibilityFocusedWindowId:I
+
+    return v0
+.end method
+
+.method static synthetic access$1400(Lcom/android/server/accessibility/AccessibilityWindowManager;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->clearAccessibilityFocusLocked(I)V
+
+    return-void
+.end method
+
+.method static synthetic access$1500(Lcom/android/server/accessibility/AccessibilityWindowManager;II)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/accessibility/AccessibilityWindowManager;->removeAccessibilityInteractionConnectionLocked(II)V
+
+    return-void
+.end method
+
+.method static synthetic access$200(Lcom/android/server/accessibility/AccessibilityWindowManager;)Lcom/android/server/wm/WindowManagerInternal;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mWindowManagerInternal:Lcom/android/server/wm/WindowManagerInternal;
+
+    return-object v0
+.end method
+
+.method static synthetic access$300(Lcom/android/server/accessibility/AccessibilityWindowManager;)Lcom/android/server/accessibility/AccessibilityWindowManager$AccessibilityEventSender;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mAccessibilityEventSender:Lcom/android/server/accessibility/AccessibilityWindowManager$AccessibilityEventSender;
+
+    return-object v0
+.end method
+
+.method static synthetic access$400(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mAccessibilityFocusedDisplayId:I
+
+    return v0
+.end method
+
+.method static synthetic access$402(Lcom/android/server/accessibility/AccessibilityWindowManager;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mAccessibilityFocusedDisplayId:I
+
+    return p1
+.end method
+
+.method static synthetic access$500(Lcom/android/server/accessibility/AccessibilityWindowManager;)Ljava/lang/Object;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mLock:Ljava/lang/Object;
+
+    return-object v0
+.end method
+
+.method static synthetic access$600(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mTopFocusedDisplayId:I
+
+    return v0
+.end method
+
+.method static synthetic access$602(Lcom/android/server/accessibility/AccessibilityWindowManager;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mTopFocusedDisplayId:I
+
+    return p1
+.end method
+
+.method static synthetic access$700(Lcom/android/server/accessibility/AccessibilityWindowManager;)Landroid/os/IBinder;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mTopFocusedWindowToken:Landroid/os/IBinder;
+
+    return-object v0
+.end method
+
+.method static synthetic access$702(Lcom/android/server/accessibility/AccessibilityWindowManager;Landroid/os/IBinder;)Landroid/os/IBinder;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mTopFocusedWindowToken:Landroid/os/IBinder;
+
+    return-object p1
+.end method
+
+.method static synthetic access$800(Lcom/android/server/accessibility/AccessibilityWindowManager;)Lcom/android/server/accessibility/AccessibilitySecurityPolicy$AccessibilityUserManager;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mAccessibilityUserManager:Lcom/android/server/accessibility/AccessibilitySecurityPolicy$AccessibilityUserManager;
+
+    return-object v0
+.end method
+
+.method static synthetic access$900(Lcom/android/server/accessibility/AccessibilityWindowManager;)Landroid/util/SparseArray;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mDisplayWindowsObservers:Landroid/util/SparseArray;
+
+    return-object v0
 .end method
 
 .method private clearAccessibilityFocusLocked(I)V
@@ -408,6 +438,17 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    invoke-direct {p0}, Lcom/android/server/accessibility/AccessibilityWindowManager;->traceIntConnEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const-string/jumbo v0, "notifyOutsideTouch"
+
+    invoke-direct {p0, v0}, Lcom/android/server/accessibility/AccessibilityWindowManager;->logTraceIntConn(Ljava/lang/String;)V
+
+    :cond_1
     :try_start_1
     invoke-virtual {v1}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
 
@@ -439,6 +480,19 @@
 .method private findFocusedWindowId(I)I
     .locals 3
 
+    invoke-direct {p0}, Lcom/android/server/accessibility/AccessibilityWindowManager;->traceWMEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "getFocusedWindowToken"
+
+    const-string v1, ""
+
+    invoke-direct {p0, v0, v1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->logTraceWM(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mWindowManagerInternal:Lcom/android/server/wm/WindowManagerInternal;
 
     invoke-virtual {v0}, Lcom/android/server/wm/WindowManagerInternal;->getFocusedWindowToken()Landroid/os/IBinder;
@@ -500,7 +554,7 @@
 
     iget-object v3, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mDisplayWindowsObservers:Landroid/util/SparseArray;
 
-    invoke-static {v2}, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->access$1300(Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;)I
+    invoke-static {v2}, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->access$1600(Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;)I
 
     move-result v4
 
@@ -637,8 +691,60 @@
     return v0
 .end method
 
+.method private logTraceIntConn(Ljava/lang/String;)V
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mTraceManager:Lcom/android/server/accessibility/AccessibilityTraceManager;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "AccessibilityWindowManager."
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-wide/16 v2, 0x10
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/accessibility/AccessibilityTraceManager;->logTrace(Ljava/lang/String;J)V
+
+    return-void
+.end method
+
+.method private logTraceWM(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mTraceManager:Lcom/android/server/accessibility/AccessibilityTraceManager;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "WindowManagerInternal."
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-wide/16 v2, 0x200
+
+    invoke-virtual {v0, v1, v2, v3, p2}, Lcom/android/server/accessibility/AccessibilityTraceManager;->logTrace(Ljava/lang/String;JLjava/lang/String;)V
+
+    return-void
+.end method
+
 .method private onAccessibilityInteractionConnectionRemovedLocked(ILandroid/os/IBinder;)V
-    .locals 2
+    .locals 3
 
     invoke-virtual {p0}, Lcom/android/server/accessibility/AccessibilityWindowManager;->isTrackingWindowsLocked()Z
 
@@ -657,13 +763,42 @@
     iput v1, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mActiveWindowId:I
 
     :cond_0
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_2
 
+    invoke-direct {p0}, Lcom/android/server/accessibility/AccessibilityWindowManager;->traceWMEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "token="
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v2, ";windowId=AccessibilityWindowInfo.UNDEFINED_WINDOW_ID"
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v2, "setAccessibilityIdToSurfaceMetadata"
+
+    invoke-direct {p0, v2, v0}, Lcom/android/server/accessibility/AccessibilityWindowManager;->logTraceWM(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_1
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mWindowManagerInternal:Lcom/android/server/wm/WindowManagerInternal;
 
     invoke-virtual {v0, p2, v1}, Lcom/android/server/wm/WindowManagerInternal;->setAccessibilityIdToSurfaceMetadata(Landroid/os/IBinder;I)V
 
-    :cond_1
+    :cond_2
     invoke-virtual {p0, p1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->unregisterIdLocked(I)V
 
     return-void
@@ -923,6 +1058,34 @@
     return-void
 .end method
 
+.method private traceIntConnEnabled()Z
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mTraceManager:Lcom/android/server/accessibility/AccessibilityTraceManager;
+
+    const-wide/16 v1, 0x10
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityTraceManager;->isA11yTracingEnabledForTypes(J)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method private traceWMEnabled()Z
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mTraceManager:Lcom/android/server/accessibility/AccessibilityTraceManager;
+
+    const-wide/16 v1, 0x200
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityTraceManager;->isA11yTracingEnabledForTypes(J)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 
 # virtual methods
 .method public addAccessibilityInteractionConnection(Landroid/view/IWindow;Landroid/os/IBinder;Landroid/view/accessibility/IAccessibilityInteractionConnection;Ljava/lang/String;I)I
@@ -943,6 +1106,31 @@
 
     move-result-object v13
 
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/accessibility/AccessibilityWindowManager;->traceWMEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "getDisplayIdForWindow"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "token="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v14, v0, v1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->logTraceWM(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
     iget-object v0, v14, Lcom/android/server/accessibility/AccessibilityWindowManager;->mWindowManagerInternal:Lcom/android/server/wm/WindowManagerInternal;
 
     invoke-virtual {v0, v13}, Lcom/android/server/wm/WindowManagerInternal;->getDisplayIdForWindow(Landroid/os/IBinder;)I
@@ -1006,7 +1194,7 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_3
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     :try_start_3
     new-instance v8, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;
@@ -1064,7 +1252,7 @@
 
     goto/16 :goto_3
 
-    :cond_0
+    :cond_1
     :try_start_4
     new-instance v1, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;
     :try_end_4
@@ -1118,11 +1306,11 @@
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_2
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     const/16 v16, 0x1
 
-    :cond_1
+    :cond_2
     move-object/from16 v1, p2
 
     :try_start_6
@@ -1132,13 +1320,69 @@
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
-    if-eqz v16, :cond_2
+    if-eqz v16, :cond_4
 
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/accessibility/AccessibilityWindowManager;->traceWMEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    const-string v0, "computeWindowsForAccessibility"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "displayId="
+
+    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-direct {v14, v0, v3}, Lcom/android/server/accessibility/AccessibilityWindowManager;->logTraceWM(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_3
     iget-object v0, v14, Lcom/android/server/accessibility/AccessibilityWindowManager;->mWindowManagerInternal:Lcom/android/server/wm/WindowManagerInternal;
 
     invoke-virtual {v0, v4}, Lcom/android/server/wm/WindowManagerInternal;->computeWindowsForAccessibility(I)V
 
-    :cond_2
+    :cond_4
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/accessibility/AccessibilityWindowManager;->traceWMEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    const-string/jumbo v0, "setAccessibilityIdToSurfaceMetadata"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v6, "token="
+
+    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v6, ";windowId="
+
+    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-direct {v14, v0, v3}, Lcom/android/server/accessibility/AccessibilityWindowManager;->logTraceWM(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_5
     iget-object v0, v14, Lcom/android/server/accessibility/AccessibilityWindowManager;->mWindowManagerInternal:Lcom/android/server/wm/WindowManagerInternal;
 
     invoke-virtual {v0, v5, v2}, Lcom/android/server/wm/WindowManagerInternal;->setAccessibilityIdToSurfaceMetadata(Landroid/os/IBinder;I)V
@@ -1526,12 +1770,37 @@
 .end method
 
 .method public getDisplayIdByUserIdAndWindowIdLocked(II)I
-    .locals 2
+    .locals 3
 
     invoke-virtual {p0, p1, p2}, Lcom/android/server/accessibility/AccessibilityWindowManager;->getWindowTokenForUserAndWindowIdLocked(II)Landroid/os/IBinder;
 
     move-result-object v0
 
+    invoke-direct {p0}, Lcom/android/server/accessibility/AccessibilityWindowManager;->traceWMEnabled()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "token="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "getDisplayIdForWindow"
+
+    invoke-direct {p0, v2, v1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->logTraceWM(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
     iget-object v1, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mWindowManagerInternal:Lcom/android/server/wm/WindowManagerInternal;
 
     invoke-virtual {v1, v0}, Lcom/android/server/wm/WindowManagerInternal;->getDisplayIdForWindow(Landroid/os/IBinder;)I
@@ -1577,7 +1846,7 @@
 
     if-eqz v3, :cond_0
 
-    invoke-static {v3}, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->access$1300(Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;)I
+    invoke-static {v3}, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->access$1600(Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;)I
 
     move-result v4
 
@@ -1763,8 +2032,33 @@
 .end method
 
 .method public getWindowOwnerUserId(Landroid/os/IBinder;)I
-    .locals 1
+    .locals 2
 
+    invoke-direct {p0}, Lcom/android/server/accessibility/AccessibilityWindowManager;->traceWMEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "token="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "getWindowOwnerUserId"
+
+    invoke-direct {p0, v1, v0}, Lcom/android/server/accessibility/AccessibilityWindowManager;->logTraceWM(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager;->mWindowManagerInternal:Lcom/android/server/wm/WindowManagerInternal;
 
     invoke-virtual {v0, p1}, Lcom/android/server/wm/WindowManagerInternal;->getWindowOwnerUserId(Landroid/os/IBinder;)I
@@ -1920,7 +2214,7 @@
 
     move-result v2
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_3
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -1928,8 +2222,19 @@
 
     check-cast v2, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2
 
+    invoke-direct {p0}, Lcom/android/server/accessibility/AccessibilityWindowManager;->traceIntConnEnabled()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    const-string/jumbo v3, "notifyOutsideTouch"
+
+    invoke-direct {p0, v3}, Lcom/android/server/accessibility/AccessibilityWindowManager;->logTraceIntConn(Ljava/lang/String;)V
+
+    :cond_1
     :try_start_1
     invoke-virtual {v2}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
 
@@ -1944,13 +2249,13 @@
     :catch_0
     move-exception v3
 
-    :cond_1
+    :cond_2
     :goto_2
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    :cond_2
+    :cond_3
     return-void
 
     :catchall_0

@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/server/wm/TaskOrganizerController$StartingWindowAnimationAdaptor;,
         Lcom/android/server/wm/TaskOrganizerController$PendingTaskEvent;,
         Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;,
         Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;,
@@ -15,13 +16,7 @@
 
 
 # static fields
-.field private static final REPORT_CONFIGS:I = 0x20000c00
-
-.field private static final REPORT_WINDOW_CONFIGS:I = 0x3
-
 .field private static final TAG:Ljava/lang/String; = "TaskOrganizerController"
-
-.field static final UNSUPPORTED_WINDOWING_MODES:[I
 
 
 # instance fields
@@ -95,28 +90,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    const/4 v0, 0x2
-
-    new-array v0, v0, [I
-
-    fill-array-data v0, :array_0
-
-    sput-object v0, Lcom/android/server/wm/TaskOrganizerController;->UNSUPPORTED_WINDOWING_MODES:[I
-
-    return-void
-
-    nop
-
-    :array_0
-    .array-data 4
-        0x0
-        0x5
-    .end array-data
-.end method
-
 .method constructor <init>(Lcom/android/server/wm/ActivityTaskManagerService;)V
     .locals 1
 
@@ -177,7 +150,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$400(Lcom/android/server/wm/TaskOrganizerController;)Ljava/util/function/Consumer;
+.method static synthetic access$200(Lcom/android/server/wm/TaskOrganizerController;)Ljava/util/function/Consumer;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/TaskOrganizerController;->mDeferTaskOrgCallbacksConsumer:Ljava/util/function/Consumer;
@@ -185,7 +158,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$500(Lcom/android/server/wm/TaskOrganizerController;)Lcom/android/server/wm/ActivityTaskManagerService;
+.method static synthetic access$300(Lcom/android/server/wm/TaskOrganizerController;)Lcom/android/server/wm/ActivityTaskManagerService;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/TaskOrganizerController;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
@@ -193,7 +166,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$600(Lcom/android/server/wm/TaskOrganizerController;)Ljava/util/HashSet;
+.method static synthetic access$400(Lcom/android/server/wm/TaskOrganizerController;)Ljava/util/HashSet;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/TaskOrganizerController;->mInterceptBackPressedOnRootTasks:Ljava/util/HashSet;
@@ -201,7 +174,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$700(Lcom/android/server/wm/TaskOrganizerController;)Ljava/util/LinkedList;
+.method static synthetic access$500(Lcom/android/server/wm/TaskOrganizerController;)Ljava/util/LinkedList;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/TaskOrganizerController;->mTaskOrganizers:Ljava/util/LinkedList;
@@ -209,7 +182,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$800(Lcom/android/server/wm/TaskOrganizerController;Landroid/window/ITaskOrganizer;Lcom/android/server/wm/Task;)V
+.method static synthetic access$600(Lcom/android/server/wm/TaskOrganizerController;Landroid/window/ITaskOrganizer;Lcom/android/server/wm/Task;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/wm/TaskOrganizerController;->onTaskVanishedInternal(Landroid/window/ITaskOrganizer;Lcom/android/server/wm/Task;)V
@@ -217,8 +190,30 @@
     return-void
 .end method
 
+.method static applyStartingWindowAnimation(Lcom/android/server/wm/WindowContainer;)Landroid/view/SurfaceControl;
+    .locals 4
+
+    new-instance v0, Lcom/android/server/wm/TaskOrganizerController$StartingWindowAnimationAdaptor;
+
+    invoke-direct {v0}, Lcom/android/server/wm/TaskOrganizerController$StartingWindowAnimationAdaptor;-><init>()V
+
+    invoke-virtual {p0}, Lcom/android/server/wm/WindowContainer;->getPendingTransaction()Landroid/view/SurfaceControl$Transaction;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    const/16 v3, 0x80
+
+    invoke-virtual {p0, v1, v0, v2, v3}, Lcom/android/server/wm/WindowContainer;->startAnimation(Landroid/view/SurfaceControl$Transaction;Lcom/android/server/wm/AnimationAdapter;ZI)V
+
+    iget-object v1, v0, Lcom/android/server/wm/TaskOrganizerController$StartingWindowAnimationAdaptor;->mAnimationLeash:Landroid/view/SurfaceControl;
+
+    return-object v1
+.end method
+
 .method private dispatchTaskInfoChanged(Lcom/android/server/wm/Task;Z)V
-    .locals 8
+    .locals 5
 
     iget-object v0, p0, Lcom/android/server/wm/TaskOrganizerController;->mLastSentTaskInfos:Ljava/util/WeakHashMap;
 
@@ -255,85 +250,39 @@
 
     move-result v1
 
-    const/4 v2, 0x1
+    if-eqz v1, :cond_2
 
-    xor-int/2addr v1, v2
+    iget-object v1, p0, Lcom/android/server/wm/TaskOrganizerController;->mTmpTaskInfo:Landroid/app/ActivityManager$RunningTaskInfo;
 
-    if-nez v1, :cond_4
+    iget-object v1, v1, Landroid/app/ActivityManager$RunningTaskInfo;->configuration:Landroid/content/res/Configuration;
 
-    iget-object v3, p0, Lcom/android/server/wm/TaskOrganizerController;->mTmpTaskInfo:Landroid/app/ActivityManager$RunningTaskInfo;
+    iget-object v2, v0, Landroid/app/ActivityManager$RunningTaskInfo;->configuration:Landroid/content/res/Configuration;
 
-    iget-object v3, v3, Landroid/app/ActivityManager$RunningTaskInfo;->configuration:Landroid/content/res/Configuration;
+    invoke-static {v1, v2}, Lcom/android/server/wm/WindowOrganizerController;->configurationsAreEqualForOrganizer(Landroid/content/res/Configuration;Landroid/content/res/Configuration;)Z
 
-    iget-object v4, v0, Landroid/app/ActivityManager$RunningTaskInfo;->configuration:Landroid/content/res/Configuration;
+    move-result v1
 
-    invoke-virtual {v3, v4}, Landroid/content/res/Configuration;->diff(Landroid/content/res/Configuration;)I
-
-    move-result v3
-
-    const/high16 v4, 0x20000000
-
-    and-int/2addr v4, v3
-
-    const/4 v5, 0x0
-
-    if-eqz v4, :cond_1
-
-    iget-object v4, p0, Lcom/android/server/wm/TaskOrganizerController;->mTmpTaskInfo:Landroid/app/ActivityManager$RunningTaskInfo;
-
-    iget-object v4, v4, Landroid/app/ActivityManager$RunningTaskInfo;->configuration:Landroid/content/res/Configuration;
-
-    iget-object v4, v4, Landroid/content/res/Configuration;->windowConfiguration:Landroid/app/WindowConfiguration;
-
-    iget-object v6, v0, Landroid/app/ActivityManager$RunningTaskInfo;->configuration:Landroid/content/res/Configuration;
-
-    iget-object v6, v6, Landroid/content/res/Configuration;->windowConfiguration:Landroid/app/WindowConfiguration;
-
-    invoke-virtual {v4, v6, v2}, Landroid/app/WindowConfiguration;->diff(Landroid/app/WindowConfiguration;Z)J
-
-    move-result-wide v6
-
-    long-to-int v4, v6
+    if-nez v1, :cond_1
 
     goto :goto_0
 
     :cond_1
-    move v4, v5
-
-    :goto_0
-    nop
-
-    and-int/lit8 v6, v4, 0x3
-
-    if-nez v6, :cond_2
-
-    const v6, -0x20000001
-
-    and-int/2addr v3, v6
-
-    :cond_2
-    const v6, 0x20000c00
-
-    and-int/2addr v6, v3
-
-    if-eqz v6, :cond_3
+    const/4 v1, 0x0
 
     goto :goto_1
 
-    :cond_3
-    move v2, v5
+    :cond_2
+    :goto_0
+    const/4 v1, 0x1
 
     :goto_1
-    move v1, v2
+    if-nez v1, :cond_3
 
-    :cond_4
-    if-nez v1, :cond_5
-
-    if-nez p2, :cond_5
+    if-nez p2, :cond_3
 
     return-void
 
-    :cond_5
+    :cond_3
     iget-object v2, p0, Lcom/android/server/wm/TaskOrganizerController;->mTmpTaskInfo:Landroid/app/ActivityManager$RunningTaskInfo;
 
     iget-object v3, p0, Lcom/android/server/wm/TaskOrganizerController;->mLastSentTaskInfos:Ljava/util/WeakHashMap;
@@ -350,7 +299,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_4
 
     iget-object v3, p0, Lcom/android/server/wm/TaskOrganizerController;->mTaskOrganizerStates:Ljava/util/HashMap;
 
@@ -366,15 +315,15 @@
 
     check-cast v3, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_4
 
-    invoke-static {v3}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->access$1100(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;)Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;
+    invoke-static {v3}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->access$900(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;)Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;
 
     move-result-object v4
 
     invoke-virtual {v4, p1, v2}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;->onTaskInfoChanged(Lcom/android/server/wm/Task;Landroid/app/ActivityManager$RunningTaskInfo;)V
 
-    :cond_6
+    :cond_4
     return-void
 .end method
 
@@ -425,7 +374,7 @@
     return-object v0
 .end method
 
-.method static synthetic lambda$getRootTasks$1([ILjava/util/ArrayList;Lcom/android/server/wm/Task;)V
+.method static synthetic lambda$getRootTasks$3([ILjava/util/ArrayList;Lcom/android/server/wm/Task;)V
     .locals 1
 
     if-eqz p0, :cond_0
@@ -455,21 +404,6 @@
 .method static synthetic lambda$registerTaskOrganizer$0(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;Ljava/util/ArrayList;Lcom/android/server/wm/Task;)V
     .locals 4
 
-    sget-object v0, Lcom/android/server/wm/TaskOrganizerController;->UNSUPPORTED_WINDOWING_MODES:[I
-
-    invoke-virtual {p2}, Lcom/android/server/wm/Task;->getWindowingMode()I
-
-    move-result v1
-
-    invoke-static {v0, v1}, Lcom/android/internal/util/ArrayUtils;->contains([II)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    return-void
-
-    :cond_0
     iget-boolean v0, p2, Lcom/android/server/wm/Task;->mCreatedByOrganizer:Z
 
     const/4 v1, 0x1
@@ -478,7 +412,7 @@
 
     invoke-virtual {p2, v1, v0}, Lcom/android/server/wm/Task;->updateTaskOrganizerState(ZZ)Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     const-string v1, "TaskOrganizerController.registerTaskOrganizer"
 
@@ -496,7 +430,7 @@
 
     invoke-virtual {p1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_1
+    :cond_0
     return-void
 .end method
 
@@ -562,91 +496,124 @@
 
 # virtual methods
 .method addStartingWindow(Lcom/android/server/wm/Task;Lcom/android/server/wm/ActivityRecord;ILandroid/window/TaskSnapshot;)Z
-    .locals 3
+    .locals 7
 
     invoke-virtual {p1}, Lcom/android/server/wm/Task;->getRootTask()Lcom/android/server/wm/Task;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    const/4 v1, 0x0
 
-    iget-object v1, v0, Lcom/android/server/wm/Task;->mTaskOrganizer:Landroid/window/ITaskOrganizer;
+    if-eqz v0, :cond_3
 
-    if-eqz v1, :cond_1
+    iget-object v2, p2, Lcom/android/server/wm/ActivityRecord;->mStartingData:Lcom/android/server/wm/StartingData;
 
-    iget-object v1, p2, Lcom/android/server/wm/ActivityRecord;->mStartingData:Lcom/android/server/wm/StartingData;
-
-    if-nez v1, :cond_0
+    if-nez v2, :cond_0
 
     goto :goto_0
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/wm/TaskOrganizerController;->mTaskOrganizerStates:Ljava/util/HashMap;
+    iget-object v2, p0, Lcom/android/server/wm/TaskOrganizerController;->mTaskOrganizers:Ljava/util/LinkedList;
 
-    iget-object v2, v0, Lcom/android/server/wm/Task;->mTaskOrganizer:Landroid/window/ITaskOrganizer;
-
-    invoke-interface {v2}, Landroid/window/ITaskOrganizer;->asBinder()Landroid/os/IBinder;
+    invoke-virtual {v2}, Ljava/util/LinkedList;->peekLast()Ljava/lang/Object;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    check-cast v2, Landroid/window/ITaskOrganizer;
 
-    move-result-object v1
+    if-nez v2, :cond_1
 
-    check-cast v1, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;
-
-    invoke-virtual {v1, p1, p2, p3, p4}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->addStartingWindow(Lcom/android/server/wm/Task;Lcom/android/server/wm/ActivityRecord;ILandroid/window/TaskSnapshot;)V
-
-    const/4 v2, 0x1
-
-    return v2
+    return v1
 
     :cond_1
-    :goto_0
-    const/4 v1, 0x0
+    invoke-virtual {p1, p2}, Lcom/android/server/wm/Task;->getStartingWindowInfo(Lcom/android/server/wm/ActivityRecord;)Landroid/window/StartingWindowInfo;
 
+    move-result-object v3
+
+    if-eqz p3, :cond_2
+
+    iput p3, v3, Landroid/window/StartingWindowInfo;->splashScreenThemeResId:I
+
+    :cond_2
+    iput-object p4, v3, Landroid/window/StartingWindowInfo;->taskSnapshot:Landroid/window/TaskSnapshot;
+
+    :try_start_0
+    iget-object v4, p2, Lcom/android/server/wm/ActivityRecord;->token:Landroid/os/IBinder;
+
+    invoke-interface {v2, v3, v4}, Landroid/window/ITaskOrganizer;->addStartingWindow(Landroid/window/StartingWindowInfo;Landroid/os/IBinder;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    nop
+
+    const/4 v1, 0x1
+
+    return v1
+
+    :catch_0
+    move-exception v4
+
+    const-string v5, "TaskOrganizerController"
+
+    const-string v6, "Exception sending onTaskStart callback"
+
+    invoke-static {v5, v6, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    return v1
+
+    :cond_3
+    :goto_0
     return v1
 .end method
 
 .method copySplashScreenView(Lcom/android/server/wm/Task;)Z
-    .locals 3
+    .locals 6
 
     invoke-virtual {p1}, Lcom/android/server/wm/Task;->getRootTask()Lcom/android/server/wm/Task;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    const/4 v1, 0x0
 
-    iget-object v1, v0, Lcom/android/server/wm/Task;->mTaskOrganizer:Landroid/window/ITaskOrganizer;
+    if-nez v0, :cond_0
 
-    if-nez v1, :cond_0
-
-    goto :goto_0
+    return v1
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/wm/TaskOrganizerController;->mTaskOrganizerStates:Ljava/util/HashMap;
+    iget-object v2, p0, Lcom/android/server/wm/TaskOrganizerController;->mTaskOrganizers:Ljava/util/LinkedList;
 
-    iget-object v2, v0, Lcom/android/server/wm/Task;->mTaskOrganizer:Landroid/window/ITaskOrganizer;
-
-    invoke-interface {v2}, Landroid/window/ITaskOrganizer;->asBinder()Landroid/os/IBinder;
+    invoke-virtual {v2}, Ljava/util/LinkedList;->peekLast()Ljava/lang/Object;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    check-cast v2, Landroid/window/ITaskOrganizer;
 
-    move-result-object v1
+    if-nez v2, :cond_1
 
-    check-cast v1, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;
-
-    invoke-virtual {v1, p1}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->copySplashScreenView(Lcom/android/server/wm/Task;)V
-
-    const/4 v2, 0x1
-
-    return v2
+    return v1
 
     :cond_1
-    :goto_0
-    const/4 v1, 0x0
+    :try_start_0
+    iget v3, p1, Lcom/android/server/wm/Task;->mTaskId:I
+
+    invoke-interface {v2, v3}, Landroid/window/ITaskOrganizer;->copySplashScreenView(I)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    nop
+
+    const/4 v1, 0x1
+
+    return v1
+
+    :catch_0
+    move-exception v3
+
+    const-string v4, "TaskOrganizerController"
+
+    const-string v5, "Exception sending copyStartingWindowView callback"
+
+    invoke-static {v4, v5, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     return v1
 .end method
@@ -998,7 +965,7 @@
     :cond_2
     const-string v5, "deleteRootTask"
 
-    invoke-virtual {v6, v5}, Lcom/android/server/wm/Task;->removeImmediately(Ljava/lang/String;)V
+    invoke-virtual {v6, v8, v5}, Lcom/android/server/wm/Task;->remove(ZLjava/lang/String;)V
 
     monitor-exit v4
     :try_end_3
@@ -1067,7 +1034,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4
 
     iget-object v0, p0, Lcom/android/server/wm/TaskOrganizerController;->mPendingTaskEvents:Ljava/util/ArrayList;
 
@@ -1089,7 +1056,7 @@
     move-result v1
 
     :goto_0
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_3
 
     iget-object v2, p0, Lcom/android/server/wm/TaskOrganizerController;->mPendingTaskEvents:Ljava/util/ArrayList;
 
@@ -1122,9 +1089,9 @@
 
     check-cast v4, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2
 
-    invoke-static {v4}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->access$1100(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;)Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;
+    invoke-static {v4}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->access$900(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;)Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;
 
     move-result-object v5
 
@@ -1158,11 +1125,16 @@
 
     if-eqz v4, :cond_1
 
-    invoke-static {v4}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->access$1100(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;)Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;
+    invoke-static {v4}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->access$900(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;)Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;
 
     move-result-object v5
 
     invoke-virtual {v5, v3}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;->onTaskVanished(Lcom/android/server/wm/Task;)V
+
+    :cond_1
+    iget-object v5, p0, Lcom/android/server/wm/TaskOrganizerController;->mLastSentTaskInfos:Ljava/util/WeakHashMap;
+
+    invoke-virtual {v5, v3}, Ljava/util/WeakHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_1
 
@@ -1181,36 +1153,38 @@
 
     check-cast v4, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2
 
     invoke-virtual {v3}, Lcom/android/server/wm/Task;->taskAppearedReady()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_2
 
-    invoke-static {v4}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->access$1100(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;)Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;
+    invoke-static {v4}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->access$900(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;)Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;
 
     move-result-object v5
 
     invoke-virtual {v5, v3}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;->onTaskAppeared(Lcom/android/server/wm/Task;)V
 
-    :cond_1
+    :cond_2
     :goto_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     iget-object v0, p0, Lcom/android/server/wm/TaskOrganizerController;->mPendingTaskEvents:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
     return-void
 
-    :cond_3
+    :cond_4
     :goto_2
     return-void
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -1259,7 +1233,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_1
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1267,7 +1241,7 @@
 
     check-cast v3, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;
 
-    invoke-static {v3}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->access$1200(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;)Ljava/util/ArrayList;
+    invoke-static {v3}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->access$1000(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;)Ljava/util/ArrayList;
 
     move-result-object v4
 
@@ -1289,7 +1263,7 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {v3}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->access$1100(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;)Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;
+    invoke-static {v3}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->access$900(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;)Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;
 
     move-result-object v6
 
@@ -1301,7 +1275,7 @@
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v3}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->access$1300(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;)I
+    invoke-static {v3}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->access$1100(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;)I
 
     move-result v6
 
@@ -1324,7 +1298,7 @@
 
     move-result v6
 
-    if-ge v5, v6, :cond_1
+    if-ge v5, v6, :cond_0
 
     invoke-virtual {v4, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -1336,17 +1310,6 @@
 
     move-result v7
 
-    sget-object v8, Lcom/android/server/wm/TaskOrganizerController;->UNSUPPORTED_WINDOWING_MODES:[I
-
-    invoke-static {v8, v7}, Lcom/android/internal/util/ArrayUtils;->contains([II)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_0
-
-    goto :goto_2
-
-    :cond_0
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
@@ -1375,15 +1338,14 @@
 
     invoke-virtual {p1, v8}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    :goto_2
     add-int/lit8 v5, v5, 0x1
 
     goto :goto_1
 
-    :cond_1
-    goto/16 :goto_0
+    :cond_0
+    goto :goto_0
 
-    :cond_2
+    :cond_1
     invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
 
     return-void
@@ -1857,9 +1819,9 @@
 
     invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
 
-    new-instance v5, Lcom/android/server/wm/TaskOrganizerController$$ExternalSyntheticLambda1;
+    new-instance v5, Lcom/android/server/wm/TaskOrganizerController$$ExternalSyntheticLambda3;
 
-    invoke-direct {v5, p2, v4}, Lcom/android/server/wm/TaskOrganizerController$$ExternalSyntheticLambda1;-><init>([ILjava/util/ArrayList;)V
+    invoke-direct {v5, p2, v4}, Lcom/android/server/wm/TaskOrganizerController$$ExternalSyntheticLambda3;-><init>([ILjava/util/ArrayList;)V
 
     invoke-virtual {v3, v5}, Lcom/android/server/wm/DisplayContent;->forAllRootTasks(Ljava/util/function/Consumer;)V
 
@@ -1921,14 +1883,8 @@
     throw v2
 .end method
 
-.method getTaskOrganizer(I)Landroid/window/ITaskOrganizer;
+.method getTaskOrganizer()Landroid/window/ITaskOrganizer;
     .locals 1
-
-    invoke-virtual {p0, p1}, Lcom/android/server/wm/TaskOrganizerController;->isSupportedWindowingMode(I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/server/wm/TaskOrganizerController;->mTaskOrganizers:Ljava/util/LinkedList;
 
@@ -1938,12 +1894,6 @@
 
     check-cast v0, Landroid/window/ITaskOrganizer;
 
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
     return-object v0
 .end method
 
@@ -2031,55 +1981,215 @@
     return v0
 .end method
 
-.method isSupportedWindowingMode(I)Z
-    .locals 1
+.method public synthetic lambda$registerTaskOrganizer$1$TaskOrganizerController(Landroid/window/ITaskOrganizer;ILjava/util/ArrayList;)V
+    .locals 10
 
-    sget-object v0, Lcom/android/server/wm/TaskOrganizerController;->UNSUPPORTED_WINDOWING_MODES:[I
+    sget-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_WINDOW_ORGANIZER_enabled:Z
 
-    invoke-static {v0, p1}, Lcom/android/internal/util/ArrayUtils;->contains([II)Z
+    if-eqz v0, :cond_0
+
+    invoke-interface {p1}, Landroid/window/ITaskOrganizer;->asBinder()Landroid/os/IBinder;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    int-to-long v1, p2
+
+    sget-object v3, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_WINDOW_ORGANIZER:Lcom/android/internal/protolog/ProtoLogGroup;
+
+    const v4, -0x6ad96a00
+
+    const/4 v5, 0x4
+
+    const/4 v6, 0x0
+
+    const/4 v7, 0x2
+
+    new-array v7, v7, [Ljava/lang/Object;
+
+    const/4 v8, 0x0
+
+    aput-object v0, v7, v8
+
+    const/4 v8, 0x1
+
+    invoke-static {v1, v2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v9
+
+    aput-object v9, v7, v8
+
+    invoke-static {v3, v4, v5, v6, v7}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/wm/TaskOrganizerController;->mTaskOrganizerStates:Ljava/util/HashMap;
+
+    invoke-interface {p1}, Landroid/window/ITaskOrganizer;->asBinder()Landroid/os/IBinder;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
     move-result v0
 
-    xor-int/lit8 v0, v0, 0x1
+    if-nez v0, :cond_1
 
-    return v0
+    iget-object v0, p0, Lcom/android/server/wm/TaskOrganizerController;->mTaskOrganizers:Ljava/util/LinkedList;
+
+    invoke-virtual {v0, p1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/server/wm/TaskOrganizerController;->mTaskOrganizerStates:Ljava/util/HashMap;
+
+    invoke-interface {p1}, Landroid/window/ITaskOrganizer;->asBinder()Landroid/os/IBinder;
+
+    move-result-object v1
+
+    new-instance v2, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;
+
+    invoke-direct {v2, p0, p1, p2}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;-><init>(Lcom/android/server/wm/TaskOrganizerController;Landroid/window/ITaskOrganizer;I)V
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/server/wm/TaskOrganizerController;->mTaskOrganizerStates:Ljava/util/HashMap;
+
+    invoke-interface {p1}, Landroid/window/ITaskOrganizer;->asBinder()Landroid/os/IBinder;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;
+
+    iget-object v1, p0, Lcom/android/server/wm/TaskOrganizerController;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    iget-object v1, v1, Lcom/android/server/wm/ActivityTaskManagerService;->mRootWindowContainer:Lcom/android/server/wm/RootWindowContainer;
+
+    new-instance v2, Lcom/android/server/wm/TaskOrganizerController$$ExternalSyntheticLambda2;
+
+    invoke-direct {v2, v0, p3}, Lcom/android/server/wm/TaskOrganizerController$$ExternalSyntheticLambda2;-><init>(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;Ljava/util/ArrayList;)V
+
+    invoke-virtual {v1, v2}, Lcom/android/server/wm/RootWindowContainer;->forAllTasks(Ljava/util/function/Consumer;)V
+
+    return-void
+.end method
+
+.method public synthetic lambda$unregisterTaskOrganizer$2$TaskOrganizerController(Landroid/window/ITaskOrganizer;I)V
+    .locals 11
+
+    iget-object v0, p0, Lcom/android/server/wm/TaskOrganizerController;->mTaskOrganizerStates:Ljava/util/HashMap;
+
+    invoke-interface {p1}, Landroid/window/ITaskOrganizer;->asBinder()Landroid/os/IBinder;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    sget-boolean v1, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_WINDOW_ORGANIZER_enabled:Z
+
+    if-eqz v1, :cond_1
+
+    invoke-interface {p1}, Landroid/window/ITaskOrganizer;->asBinder()Landroid/os/IBinder;
+
+    move-result-object v1
+
+    invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    int-to-long v2, p2
+
+    sget-object v4, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_WINDOW_ORGANIZER:Lcom/android/internal/protolog/ProtoLogGroup;
+
+    const v5, -0x38bd7039
+
+    const/4 v6, 0x4
+
+    const/4 v7, 0x0
+
+    const/4 v8, 0x2
+
+    new-array v8, v8, [Ljava/lang/Object;
+
+    const/4 v9, 0x0
+
+    aput-object v1, v8, v9
+
+    const/4 v9, 0x1
+
+    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v10
+
+    aput-object v10, v8, v9
+
+    invoke-static {v4, v5, v6, v7, v8}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+
+    :cond_1
+    invoke-virtual {v0}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->unlinkDeath()V
+
+    invoke-virtual {v0}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->dispose()V
+
+    return-void
 .end method
 
 .method public onAppSplashScreenViewRemoved(Lcom/android/server/wm/Task;)V
-    .locals 3
+    .locals 5
 
     invoke-virtual {p1}, Lcom/android/server/wm/Task;->getRootTask()Lcom/android/server/wm/Task;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-nez v0, :cond_0
 
-    iget-object v1, v0, Lcom/android/server/wm/Task;->mTaskOrganizer:Landroid/window/ITaskOrganizer;
-
-    if-nez v1, :cond_0
-
-    goto :goto_0
+    return-void
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/wm/TaskOrganizerController;->mTaskOrganizerStates:Ljava/util/HashMap;
+    iget-object v1, p0, Lcom/android/server/wm/TaskOrganizerController;->mTaskOrganizers:Ljava/util/LinkedList;
 
-    iget-object v2, v0, Lcom/android/server/wm/Task;->mTaskOrganizer:Landroid/window/ITaskOrganizer;
-
-    invoke-interface {v2}, Landroid/window/ITaskOrganizer;->asBinder()Landroid/os/IBinder;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1}, Ljava/util/LinkedList;->peekLast()Ljava/lang/Object;
 
     move-result-object v1
 
-    check-cast v1, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;
+    check-cast v1, Landroid/window/ITaskOrganizer;
 
-    invoke-virtual {v1, p1}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->onAppSplashScreenViewRemoved(Lcom/android/server/wm/Task;)V
+    if-nez v1, :cond_1
 
     return-void
 
     :cond_1
+    :try_start_0
+    iget v2, p1, Lcom/android/server/wm/Task;->mTaskId:I
+
+    invoke-interface {v1, v2}, Landroid/window/ITaskOrganizer;->onAppSplashScreenViewRemoved(I)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v2
+
+    const-string v3, "TaskOrganizerController"
+
+    const-string v4, "Exception sending onAppSplashScreenViewRemoved callback"
+
+    invoke-static {v3, v4, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
     :goto_0
     return-void
 .end method
@@ -2101,7 +2211,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-static {v0, p2}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->access$900(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;Lcom/android/server/wm/Task;)Z
+    invoke-static {v0, p2}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->access$700(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;Lcom/android/server/wm/Task;)Z
 
     move-result v1
 
@@ -2200,7 +2310,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, p2, v1}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->access$1000(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;Lcom/android/server/wm/Task;Z)Z
+    invoke-static {v0, p2, v1}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->access$800(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;Lcom/android/server/wm/Task;Z)Z
 
     move-result v1
 
@@ -2242,7 +2352,7 @@
 .end method
 
 .method public registerTaskOrganizer(Landroid/window/ITaskOrganizer;)Landroid/content/pm/ParceledListSlice;
-    .locals 14
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2267,139 +2377,84 @@
     move-result-wide v1
 
     :try_start_0
-    iget-object v3, p0, Lcom/android/server/wm/TaskOrganizerController;->mGlobalLock:Lcom/android/server/wm/WindowManagerGlobalLock;
+    new-instance v3, Ljava/util/ArrayList;
 
-    monitor-enter v3
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+
+    new-instance v4, Lcom/android/server/wm/TaskOrganizerController$$ExternalSyntheticLambda1;
+
+    invoke-direct {v4, p0, p1, v0, v3}, Lcom/android/server/wm/TaskOrganizerController$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/wm/TaskOrganizerController;Landroid/window/ITaskOrganizer;ILjava/util/ArrayList;)V
+
+    iget-object v5, p0, Lcom/android/server/wm/TaskOrganizerController;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    invoke-virtual {v5}, Lcom/android/server/wm/ActivityTaskManagerService;->getTransitionController()Lcom/android/server/wm/TransitionController;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/server/wm/TransitionController;->isShellTransitionsEnabled()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    iget-object v5, p0, Lcom/android/server/wm/TaskOrganizerController;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    invoke-virtual {v5}, Lcom/android/server/wm/ActivityTaskManagerService;->getTransitionController()Lcom/android/server/wm/TransitionController;
+
+    move-result-object v5
+
+    iget-object v5, v5, Lcom/android/server/wm/TransitionController;->mRunningLock:Lcom/android/server/wm/TransitionController$Lock;
+
+    const-wide/16 v6, 0x3e8
+
+    invoke-virtual {v5, v6, v7, v4}, Lcom/android/server/wm/TransitionController$Lock;->runWhenIdle(JLjava/lang/Runnable;)V
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v5, p0, Lcom/android/server/wm/TaskOrganizerController;->mGlobalLock:Lcom/android/server/wm/WindowManagerGlobalLock;
+
+    monitor-enter v5
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->boostPriorityForLockedSection()V
 
-    sget-boolean v4, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_WINDOW_ORGANIZER_enabled:Z
+    invoke-interface {v4}, Ljava/lang/Runnable;->run()V
 
-    if-eqz v4, :cond_0
-
-    invoke-interface {p1}, Landroid/window/ITaskOrganizer;->asBinder()Landroid/os/IBinder;
-
-    move-result-object v4
-
-    invoke-static {v4}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v4
-
-    int-to-long v5, v0
-
-    sget-object v7, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_WINDOW_ORGANIZER:Lcom/android/internal/protolog/ProtoLogGroup;
-
-    const v8, -0x6ad96a00
-
-    const/4 v9, 0x4
-
-    const/4 v10, 0x0
-
-    const/4 v11, 0x2
-
-    new-array v11, v11, [Ljava/lang/Object;
-
-    const/4 v12, 0x0
-
-    aput-object v4, v11, v12
-
-    const/4 v12, 0x1
-
-    invoke-static {v5, v6}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v13
-
-    aput-object v13, v11, v12
-
-    invoke-static {v7, v8, v9, v10, v11}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
-
-    :cond_0
-    iget-object v4, p0, Lcom/android/server/wm/TaskOrganizerController;->mTaskOrganizerStates:Ljava/util/HashMap;
-
-    invoke-interface {p1}, Landroid/window/ITaskOrganizer;->asBinder()Landroid/os/IBinder;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_1
-
-    iget-object v4, p0, Lcom/android/server/wm/TaskOrganizerController;->mTaskOrganizers:Ljava/util/LinkedList;
-
-    invoke-virtual {v4, p1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
-
-    iget-object v4, p0, Lcom/android/server/wm/TaskOrganizerController;->mTaskOrganizerStates:Ljava/util/HashMap;
-
-    invoke-interface {p1}, Landroid/window/ITaskOrganizer;->asBinder()Landroid/os/IBinder;
-
-    move-result-object v5
-
-    new-instance v6, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;
-
-    invoke-direct {v6, p0, p1, v0}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;-><init>(Lcom/android/server/wm/TaskOrganizerController;Landroid/window/ITaskOrganizer;I)V
-
-    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    :cond_1
-    new-instance v4, Ljava/util/ArrayList;
-
-    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
-
-    iget-object v5, p0, Lcom/android/server/wm/TaskOrganizerController;->mTaskOrganizerStates:Ljava/util/HashMap;
-
-    invoke-interface {p1}, Landroid/window/ITaskOrganizer;->asBinder()Landroid/os/IBinder;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;
-
-    iget-object v6, p0, Lcom/android/server/wm/TaskOrganizerController;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
-
-    iget-object v6, v6, Lcom/android/server/wm/ActivityTaskManagerService;->mRootWindowContainer:Lcom/android/server/wm/RootWindowContainer;
-
-    new-instance v7, Lcom/android/server/wm/TaskOrganizerController$$ExternalSyntheticLambda0;
-
-    invoke-direct {v7, v5, v4}, Lcom/android/server/wm/TaskOrganizerController$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;Ljava/util/ArrayList;)V
-
-    invoke-virtual {v6, v7}, Lcom/android/server/wm/RootWindowContainer;->forAllTasks(Ljava/util/function/Consumer;)V
-
-    new-instance v6, Landroid/content/pm/ParceledListSlice;
-
-    invoke-direct {v6, v4}, Landroid/content/pm/ParceledListSlice;-><init>(Ljava/util/List;)V
-
-    monitor-exit v3
+    monitor-exit v5
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
+    :try_start_2
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
+
+    :goto_0
+    new-instance v5, Landroid/content/pm/ParceledListSlice;
+
+    invoke-direct {v5, v3}, Landroid/content/pm/ParceledListSlice;-><init>(Ljava/util/List;)V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return-object v6
+    return-object v5
 
     :catchall_0
-    move-exception v4
-
-    :try_start_2
-    monitor-exit v3
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    move-exception v6
 
     :try_start_3
+    monitor-exit v5
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    :try_start_4
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
-    throw v4
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    throw v6
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     :catchall_1
     move-exception v3
@@ -2410,40 +2465,121 @@
 .end method
 
 .method removeStartingWindow(Lcom/android/server/wm/Task;Z)V
-    .locals 3
+    .locals 10
 
     invoke-virtual {p1}, Lcom/android/server/wm/Task;->getRootTask()Lcom/android/server/wm/Task;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-nez v0, :cond_0
 
-    iget-object v1, v0, Lcom/android/server/wm/Task;->mTaskOrganizer:Landroid/window/ITaskOrganizer;
-
-    if-nez v1, :cond_0
-
-    goto :goto_0
+    return-void
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/wm/TaskOrganizerController;->mTaskOrganizerStates:Ljava/util/HashMap;
+    iget-object v1, p0, Lcom/android/server/wm/TaskOrganizerController;->mTaskOrganizers:Ljava/util/LinkedList;
 
-    iget-object v2, v0, Lcom/android/server/wm/Task;->mTaskOrganizer:Landroid/window/ITaskOrganizer;
-
-    invoke-interface {v2}, Landroid/window/ITaskOrganizer;->asBinder()Landroid/os/IBinder;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1}, Ljava/util/LinkedList;->peekLast()Ljava/lang/Object;
 
     move-result-object v1
 
-    check-cast v1, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;
+    check-cast v1, Landroid/window/ITaskOrganizer;
 
-    invoke-virtual {v1, p1, p2}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->removeStartingWindow(Lcom/android/server/wm/Task;Z)V
+    if-nez v1, :cond_1
 
     return-void
 
     :cond_1
+    new-instance v2, Landroid/window/StartingWindowRemovalInfo;
+
+    invoke-direct {v2}, Landroid/window/StartingWindowRemovalInfo;-><init>()V
+
+    iget v3, p1, Lcom/android/server/wm/Task;->mTaskId:I
+
+    iput v3, v2, Landroid/window/StartingWindowRemovalInfo;->taskId:I
+
+    iput-boolean p2, v2, Landroid/window/StartingWindowRemovalInfo;->playRevealAnimation:Z
+
+    invoke-virtual {p1}, Lcom/android/server/wm/Task;->inMultiWindowMode()Z
+
+    move-result v3
+
+    xor-int/lit8 v3, v3, 0x1
+
+    invoke-virtual {p1}, Lcom/android/server/wm/Task;->topActivityContainsStartingWindow()Lcom/android/server/wm/ActivityRecord;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_2
+
+    iget-object v5, v4, Lcom/android/server/wm/ActivityRecord;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
+
+    invoke-virtual {v5, v4}, Lcom/android/server/wm/DisplayContent;->mayImeShowOnLaunchingActivity(Lcom/android/server/wm/ActivityRecord;)Z
+
+    move-result v5
+
+    iput-boolean v5, v2, Landroid/window/StartingWindowRemovalInfo;->deferRemoveForIme:Z
+
+    if-eqz p2, :cond_2
+
+    if-eqz v3, :cond_2
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v4, v5}, Lcom/android/server/wm/ActivityRecord;->findMainWindow(Z)Lcom/android/server/wm/WindowState;
+
+    move-result-object v5
+
+    if-eqz v5, :cond_2
+
+    invoke-virtual {v5}, Lcom/android/server/wm/WindowState;->getPendingTransaction()Landroid/view/SurfaceControl$Transaction;
+
+    move-result-object v6
+
+    invoke-static {v5}, Lcom/android/server/wm/TaskOrganizerController;->applyStartingWindowAnimation(Lcom/android/server/wm/WindowContainer;)Landroid/view/SurfaceControl;
+
+    move-result-object v7
+
+    iput-object v7, v2, Landroid/window/StartingWindowRemovalInfo;->windowAnimationLeash:Landroid/view/SurfaceControl;
+
+    invoke-virtual {v5}, Lcom/android/server/wm/WindowState;->getRelativeFrame()Landroid/graphics/Rect;
+
+    move-result-object v7
+
+    iput-object v7, v2, Landroid/window/StartingWindowRemovalInfo;->mainFrame:Landroid/graphics/Rect;
+
+    iget-object v7, v2, Landroid/window/StartingWindowRemovalInfo;->windowAnimationLeash:Landroid/view/SurfaceControl;
+
+    iget-object v8, v2, Landroid/window/StartingWindowRemovalInfo;->mainFrame:Landroid/graphics/Rect;
+
+    iget v8, v8, Landroid/graphics/Rect;->left:I
+
+    int-to-float v8, v8
+
+    iget-object v9, v2, Landroid/window/StartingWindowRemovalInfo;->mainFrame:Landroid/graphics/Rect;
+
+    iget v9, v9, Landroid/graphics/Rect;->top:I
+
+    int-to-float v9, v9
+
+    invoke-virtual {v6, v7, v8, v9}, Landroid/view/SurfaceControl$Transaction;->setPosition(Landroid/view/SurfaceControl;FF)Landroid/view/SurfaceControl$Transaction;
+
+    :cond_2
+    :try_start_0
+    invoke-interface {v1, v2}, Landroid/window/ITaskOrganizer;->removeStartingWindow(Landroid/window/StartingWindowRemovalInfo;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v5
+
+    const-string v6, "TaskOrganizerController"
+
+    const-string v7, "Exception sending onStartTaskFinished callback"
+
+    invoke-static {v6, v7, v5}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
     :goto_0
     return-void
 .end method
@@ -2468,7 +2604,7 @@
     if-eqz v0, :cond_0
 
     :try_start_0
-    invoke-static {v0}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->access$1100(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;)Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;
+    invoke-static {v0}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->access$900(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;)Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;
 
     move-result-object v1
 
@@ -2828,9 +2964,7 @@
 .end method
 
 .method public unregisterTaskOrganizer(Landroid/window/ITaskOrganizer;)V
-    .locals 16
-
-    move-object/from16 v1, p0
+    .locals 7
 
     const-string v0, "unregisterTaskOrganizer()"
 
@@ -2838,127 +2972,90 @@
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v2
+    move-result v0
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v3
+    move-result-wide v1
 
     :try_start_0
-    iget-object v5, v1, Lcom/android/server/wm/TaskOrganizerController;->mGlobalLock:Lcom/android/server/wm/WindowManagerGlobalLock;
+    new-instance v3, Lcom/android/server/wm/TaskOrganizerController$$ExternalSyntheticLambda0;
 
-    monitor-enter v5
+    invoke-direct {v3, p0, p1, v0}, Lcom/android/server/wm/TaskOrganizerController$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/wm/TaskOrganizerController;Landroid/window/ITaskOrganizer;I)V
+
+    iget-object v4, p0, Lcom/android/server/wm/TaskOrganizerController;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    invoke-virtual {v4}, Lcom/android/server/wm/ActivityTaskManagerService;->getTransitionController()Lcom/android/server/wm/TransitionController;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/server/wm/TransitionController;->isShellTransitionsEnabled()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    iget-object v4, p0, Lcom/android/server/wm/TaskOrganizerController;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    invoke-virtual {v4}, Lcom/android/server/wm/ActivityTaskManagerService;->getTransitionController()Lcom/android/server/wm/TransitionController;
+
+    move-result-object v4
+
+    iget-object v4, v4, Lcom/android/server/wm/TransitionController;->mRunningLock:Lcom/android/server/wm/TransitionController$Lock;
+
+    const-wide/16 v5, 0x3e8
+
+    invoke-virtual {v4, v5, v6, v3}, Lcom/android/server/wm/TransitionController$Lock;->runWhenIdle(JLjava/lang/Runnable;)V
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v4, p0, Lcom/android/server/wm/TaskOrganizerController;->mGlobalLock:Lcom/android/server/wm/WindowManagerGlobalLock;
+
+    monitor-enter v4
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->boostPriorityForLockedSection()V
 
-    iget-object v0, v1, Lcom/android/server/wm/TaskOrganizerController;->mTaskOrganizerStates:Ljava/util/HashMap;
+    invoke-interface {v3}, Ljava/lang/Runnable;->run()V
 
-    invoke-interface/range {p1 .. p1}, Landroid/window/ITaskOrganizer;->asBinder()Landroid/os/IBinder;
-
-    move-result-object v6
-
-    invoke-virtual {v0, v6}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;
-
-    if-nez v0, :cond_0
-
-    monitor-exit v5
+    monitor-exit v4
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
-
-    invoke-static {v3, v4}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return-void
-
-    :cond_0
     :try_start_2
-    sget-boolean v6, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_WINDOW_ORGANIZER_enabled:Z
-
-    if-eqz v6, :cond_1
-
-    invoke-interface/range {p1 .. p1}, Landroid/window/ITaskOrganizer;->asBinder()Landroid/os/IBinder;
-
-    move-result-object v6
-
-    invoke-static {v6}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v6
-
-    int-to-long v7, v2
-
-    sget-object v9, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_WINDOW_ORGANIZER:Lcom/android/internal/protolog/ProtoLogGroup;
-
-    const v10, -0x38bd7039
-
-    const/4 v11, 0x4
-
-    const/4 v12, 0x0
-
-    const/4 v13, 0x2
-
-    new-array v13, v13, [Ljava/lang/Object;
-
-    const/4 v14, 0x0
-
-    aput-object v6, v13, v14
-
-    const/4 v14, 0x1
-
-    invoke-static {v7, v8}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v15
-
-    aput-object v15, v13, v14
-
-    invoke-static {v9, v10, v11, v12, v13}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
-
-    :cond_1
-    invoke-virtual {v0}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->unlinkDeath()V
-
-    invoke-virtual {v0}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->dispose()V
-
-    monitor-exit v5
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    :try_start_3
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    invoke-static {v3, v4}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    :goto_0
+    invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     nop
 
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception v5
+
+    :try_start_3
+    monitor-exit v4
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     :try_start_4
-    monitor-exit v5
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
-
-    :try_start_5
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
-    throw v0
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+    throw v5
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     :catchall_1
-    move-exception v0
+    move-exception v3
 
-    invoke-static {v3, v4}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v0
+    throw v3
 .end method

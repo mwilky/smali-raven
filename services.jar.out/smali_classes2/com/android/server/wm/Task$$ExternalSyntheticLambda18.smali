@@ -2,46 +2,34 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/BiPredicate;
+.implements Ljava/util/function/Consumer;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/Task$$ExternalSyntheticLambda18;
+# instance fields
+.field public final synthetic f$0:Landroid/app/TaskInfo;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda18;
-
-    invoke-direct {v0}, Lcom/android/server/wm/Task$$ExternalSyntheticLambda18;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda18;->INSTANCE:Lcom/android/server/wm/Task$$ExternalSyntheticLambda18;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Landroid/app/TaskInfo;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda18;->f$0:Landroid/app/TaskInfo;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+.method public final accept(Ljava/lang/Object;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda18;->f$0:Landroid/app/TaskInfo;
 
     check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    check-cast p2, Landroid/content/ComponentName;
+    invoke-static {v0, p1}, Lcom/android/server/wm/Task;->lambda$fillTaskInfo$12(Landroid/app/TaskInfo;Lcom/android/server/wm/ActivityRecord;)V
 
-    invoke-static {p1, p2}, Lcom/android/server/wm/Task;->$r8$lambda$PRiyfFwy4dog-mhOrPI0NF2Vdhc(Lcom/android/server/wm/ActivityRecord;Landroid/content/ComponentName;)Z
-
-    move-result p1
-
-    return p1
+    return-void
 .end method

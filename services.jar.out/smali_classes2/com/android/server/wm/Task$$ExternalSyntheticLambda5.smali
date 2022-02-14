@@ -27,7 +27,7 @@
 
     iget-object v0, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda5;->f$0:Ljava/util/ArrayList;
 
-    invoke-static {v0, p1, p2}, Lcom/android/server/wm/Task;->lambda$applyAnimationUnchecked$14(Ljava/util/ArrayList;ILcom/android/server/wm/AnimationAdapter;)V
+    invoke-static {v0, p1, p2}, Lcom/android/server/wm/Task;->lambda$applyAnimationUnchecked$11(Ljava/util/ArrayList;ILcom/android/server/wm/AnimationAdapter;)V
 
     return-void
 .end method

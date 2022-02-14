@@ -146,6 +146,8 @@
     .end annotation
 .end field
 
+.field private mStopUserOnSwitch:I
+
 .field private mSwitchingFromSystemUserMessage:Ljava/lang/String;
 
 .field private mSwitchingToSystemUserMessage:Ljava/lang/String;
@@ -280,6 +282,10 @@
     invoke-direct {v3}, Landroid/util/SparseArray;-><init>()V
 
     iput-object v3, p0, Lcom/android/server/am/UserController;->mUserIdToUserJourneyMap:Landroid/util/SparseArray;
+
+    const/4 v3, -0x1
+
+    iput v3, p0, Lcom/android/server/am/UserController;->mStopUserOnSwitch:I
 
     iput-object p1, p0, Lcom/android/server/am/UserController;->mInjector:Lcom/android/server/am/UserController$Injector;
 
@@ -603,6 +609,45 @@
     :cond_1
     :goto_0
     return-void
+.end method
+
+.method private checkHasManageUsersPermission(Ljava/lang/String;)V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/am/UserController;->mInjector:Lcom/android/server/am/UserController$Injector;
+
+    const-string v1, "android.permission.MANAGE_USERS"
+
+    invoke-virtual {v0, v1}, Lcom/android/server/am/UserController$Injector;->checkCallingPermission(Ljava/lang/String;)I
+
+    move-result v0
+
+    const/4 v1, -0x1
+
+    if-eq v0, v1, :cond_0
+
+    return-void
+
+    :cond_0
+    new-instance v0, Ljava/lang/SecurityException;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "You need MANAGE_USERS permission to call "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method
 
 .method private clearSessionId(I)V
@@ -1715,7 +1760,7 @@
     return-void
 .end method
 
-.method private getSwitchingFromSystemUserMessage()Ljava/lang/String;
+.method private getSwitchingFromSystemUserMessageUnchecked()Ljava/lang/String;
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/am/UserController;->mLock:Ljava/lang/Object;
@@ -1739,7 +1784,7 @@
     throw v1
 .end method
 
-.method private getSwitchingToSystemUserMessage()Ljava/lang/String;
+.method private getSwitchingToSystemUserMessageUnchecked()Ljava/lang/String;
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/am/UserController;->mLock:Ljava/lang/Object;
@@ -2449,35 +2494,87 @@
     return-void
 .end method
 
-.method private shouldStopBackgroundUsersOnSwitch()Z
-    .locals 3
+.method private shouldStopUserOnSwitch()Z
+    .locals 7
 
-    const-string v0, "fw.stop_bg_users_on_switch"
+    iget-object v0, p0, Lcom/android/server/am/UserController;->mLock:Ljava/lang/Object;
 
-    const/4 v1, -0x1
+    monitor-enter v0
 
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+    :try_start_0
+    iget v1, p0, Lcom/android/server/am/UserController;->mStopUserOnSwitch:I
 
-    move-result v0
+    const/4 v2, 0x0
 
-    const/4 v2, 0x1
+    const/4 v3, -0x1
 
-    if-ne v0, v1, :cond_0
+    const/4 v4, 0x1
 
-    iget-boolean v2, p0, Lcom/android/server/am/UserController;->mDelayUserDataLocking:Z
+    if-eq v1, v3, :cond_1
+
+    if-ne v1, v4, :cond_0
+
+    move v1, v4
 
     goto :goto_0
 
     :cond_0
-    if-ne v0, v2, :cond_1
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v2, 0x0
+    move v1, v2
 
     :goto_0
+    const-string v3, "ActivityManager"
+
+    const-string/jumbo v5, "shouldStopUserOnSwitch(): returning overridden value (%b)"
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v6
+
+    aput-object v6, v4, v2
+
+    invoke-static {v3, v5, v4}, Lcom/android/server/utils/Slogf;->i(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    monitor-exit v0
+
+    return v1
+
+    :cond_1
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    const-string v0, "fw.stop_bg_users_on_switch"
+
+    invoke-static {v0, v3}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+
+    move-result v0
+
+    if-ne v0, v3, :cond_2
+
+    iget-boolean v2, p0, Lcom/android/server/am/UserController;->mDelayUserDataLocking:Z
+
+    goto :goto_1
+
+    :cond_2
+    if-ne v0, v4, :cond_3
+
+    move v2, v4
+
+    :cond_3
+    :goto_1
     return v2
+
+    :catchall_0
+    move-exception v1
+
+    :try_start_1
+    monitor-exit v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw v1
 .end method
 
 .method private showUserSwitchDialog(Landroid/util/Pair;)V
@@ -2502,11 +2599,11 @@
 
     check-cast v2, Landroid/content/pm/UserInfo;
 
-    invoke-direct {p0}, Lcom/android/server/am/UserController;->getSwitchingFromSystemUserMessage()Ljava/lang/String;
+    invoke-direct {p0}, Lcom/android/server/am/UserController;->getSwitchingFromSystemUserMessageUnchecked()Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-direct {p0}, Lcom/android/server/am/UserController;->getSwitchingToSystemUserMessage()Ljava/lang/String;
+    invoke-direct {p0}, Lcom/android/server/am/UserController;->getSwitchingToSystemUserMessageUnchecked()Ljava/lang/String;
 
     move-result-object v4
 
@@ -3671,85 +3768,6 @@
     throw v1
 .end method
 
-.method private stopBackgroundUsersOnSwitchIfEnforced(I)V
-    .locals 9
-
-    if-nez p1, :cond_0
-
-    return-void
-
-    :cond_0
-    const-string/jumbo v0, "no_run_in_background"
-
-    invoke-virtual {p0, v0, p1}, Lcom/android/server/am/UserController;->hasUserRestriction(Ljava/lang/String;I)Z
-
-    move-result v0
-
-    iget-object v1, p0, Lcom/android/server/am/UserController;->mLock:Ljava/lang/Object;
-
-    monitor-enter v1
-
-    if-nez v0, :cond_2
-
-    :try_start_0
-    invoke-direct {p0}, Lcom/android/server/am/UserController;->shouldStopBackgroundUsersOnSwitch()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v2, 0x0
-
-    goto :goto_1
-
-    :catchall_0
-    move-exception v2
-
-    goto :goto_2
-
-    :cond_2
-    :goto_0
-    const/4 v2, 0x1
-
-    :goto_1
-    if-nez v2, :cond_3
-
-    monitor-exit v1
-
-    return-void
-
-    :cond_3
-    const/4 v5, 0x0
-
-    const/4 v6, 0x1
-
-    const/4 v7, 0x0
-
-    const/4 v8, 0x0
-
-    move-object v3, p0
-
-    move v4, p1
-
-    invoke-direct/range {v3 .. v8}, Lcom/android/server/am/UserController;->stopUsersLU(IZZLandroid/app/IStopUserCallback;Lcom/android/server/am/UserState$KeyEvictedCallback;)I
-
-    nop
-
-    monitor-exit v1
-
-    return-void
-
-    :goto_2
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v2
-.end method
-
 .method private stopGuestOrEphemeralUserIfBackground(I)V
     .locals 9
 
@@ -4043,6 +4061,85 @@
 
     :cond_8
     return-void
+.end method
+
+.method private stopUserOnSwitchIfEnforced(I)V
+    .locals 9
+
+    if-nez p1, :cond_0
+
+    return-void
+
+    :cond_0
+    const-string/jumbo v0, "no_run_in_background"
+
+    invoke-virtual {p0, v0, p1}, Lcom/android/server/am/UserController;->hasUserRestriction(Ljava/lang/String;I)Z
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/server/am/UserController;->mLock:Ljava/lang/Object;
+
+    monitor-enter v1
+
+    if-nez v0, :cond_2
+
+    :try_start_0
+    invoke-direct {p0}, Lcom/android/server/am/UserController;->shouldStopUserOnSwitch()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v2, 0x0
+
+    goto :goto_1
+
+    :catchall_0
+    move-exception v2
+
+    goto :goto_2
+
+    :cond_2
+    :goto_0
+    const/4 v2, 0x1
+
+    :goto_1
+    if-nez v2, :cond_3
+
+    monitor-exit v1
+
+    return-void
+
+    :cond_3
+    const/4 v5, 0x0
+
+    const/4 v6, 0x1
+
+    const/4 v7, 0x0
+
+    const/4 v8, 0x0
+
+    move-object v3, p0
+
+    move v4, p1
+
+    invoke-direct/range {v3 .. v8}, Lcom/android/server/am/UserController;->stopUsersLU(IZZLandroid/app/IStopUserCallback;Lcom/android/server/am/UserState$KeyEvictedCallback;)I
+
+    nop
+
+    monitor-exit v1
+
+    return-void
+
+    :goto_2
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v2
 .end method
 
 .method private stopUsersLU(IZZLandroid/app/IStopUserCallback;Lcom/android/server/am/UserState$KeyEvictedCallback;)I
@@ -5012,7 +5109,7 @@
 
     invoke-direct {p0, p2}, Lcom/android/server/am/UserController;->stopGuestOrEphemeralUserIfBackground(I)V
 
-    invoke-direct {p0, p2}, Lcom/android/server/am/UserController;->stopBackgroundUsersOnSwitchIfEnforced(I)V
+    invoke-direct {p0, p2}, Lcom/android/server/am/UserController;->stopUserOnSwitchIfEnforced(I)V
 
     return-void
 .end method
@@ -5614,15 +5711,33 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "  shouldStopBackgroundUsersOnSwitch:"
+    const-string v2, "  shouldStopUserOnSwitch():"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {p0}, Lcom/android/server/am/UserController;->shouldStopBackgroundUsersOnSwitch()Z
+    invoke-direct {p0}, Lcom/android/server/am/UserController;->shouldStopUserOnSwitch()Z
 
     move-result v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "  mStopUserOnSwitch:"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v2, p0, Lcom/android/server/am/UserController;->mStopUserOnSwitch:I
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -5684,6 +5799,52 @@
 
     invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
+    iget-object v1, p0, Lcom/android/server/am/UserController;->mSwitchingFromSystemUserMessage:Ljava/lang/String;
+
+    if-eqz v1, :cond_6
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "  mSwitchingFromSystemUserMessage: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v2, p0, Lcom/android/server/am/UserController;->mSwitchingFromSystemUserMessage:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    :cond_6
+    iget-object v1, p0, Lcom/android/server/am/UserController;->mSwitchingToSystemUserMessage:Ljava/lang/String;
+
+    if-eqz v1, :cond_7
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "  mSwitchingToSystemUserMessage: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v2, p0, Lcom/android/server/am/UserController;->mSwitchingToSystemUserMessage:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    :cond_7
     monitor-exit v0
 
     return-void
@@ -7088,6 +7249,34 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
+.end method
+
+.method getSwitchingFromSystemUserMessage()Ljava/lang/String;
+    .locals 1
+
+    const-string v0, "getSwitchingFromSystemUserMessage()"
+
+    invoke-direct {p0, v0}, Lcom/android/server/am/UserController;->checkHasManageUsersPermission(Ljava/lang/String;)V
+
+    invoke-direct {p0}, Lcom/android/server/am/UserController;->getSwitchingFromSystemUserMessageUnchecked()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method getSwitchingToSystemUserMessage()Ljava/lang/String;
+    .locals 1
+
+    const-string v0, "getSwitchingToSystemUserMessage()"
+
+    invoke-direct {p0, v0}, Lcom/android/server/am/UserController;->checkHasManageUsersPermission(Ljava/lang/String;)V
+
+    invoke-direct {p0}, Lcom/android/server/am/UserController;->getSwitchingToSystemUserMessageUnchecked()Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method getUserIds()[I
@@ -9379,6 +9568,93 @@
     const/4 v1, 0x1
 
     iput-boolean v1, p0, Lcom/android/server/am/UserController;->mInitialized:Z
+
+    monitor-exit v0
+
+    return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v1
+.end method
+
+.method setStopUserOnSwitch(I)V
+    .locals 6
+
+    iget-object v0, p0, Lcom/android/server/am/UserController;->mInjector:Lcom/android/server/am/UserController$Injector;
+
+    const-string v1, "android.permission.MANAGE_USERS"
+
+    invoke-virtual {v0, v1}, Lcom/android/server/am/UserController$Injector;->checkCallingPermission(Ljava/lang/String;)I
+
+    move-result v0
+
+    const/4 v1, -0x1
+
+    if-ne v0, v1, :cond_1
+
+    iget-object v0, p0, Lcom/android/server/am/UserController;->mInjector:Lcom/android/server/am/UserController$Injector;
+
+    const-string v2, "android.permission.INTERACT_ACROSS_USERS"
+
+    invoke-virtual {v0, v2}, Lcom/android/server/am/UserController$Injector;->checkCallingPermission(Ljava/lang/String;)I
+
+    move-result v0
+
+    if-eq v0, v1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    new-instance v0, Ljava/lang/SecurityException;
+
+    const-string v1, "You either need MANAGE_USERS or INTERACT_ACROSS_USERS permission to call setStopUserOnSwitch()"
+
+    invoke-direct {v0, v1}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_1
+    :goto_0
+    iget-object v0, p0, Lcom/android/server/am/UserController;->mLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    const-string v1, "ActivityManager"
+
+    const-string/jumbo v2, "setStopUserOnSwitch(): %d -> %d"
+
+    const/4 v3, 0x2
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    const/4 v4, 0x0
+
+    iget v5, p0, Lcom/android/server/am/UserController;->mStopUserOnSwitch:I
+
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    aput-object v5, v3, v4
+
+    const/4 v4, 0x1
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    aput-object v5, v3, v4
+
+    invoke-static {v1, v2, v3}, Lcom/android/server/utils/Slogf;->i(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    iput p1, p0, Lcom/android/server/am/UserController;->mStopUserOnSwitch:I
 
     monitor-exit v0
 

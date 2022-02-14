@@ -172,25 +172,29 @@
     throw v1
 
     :sswitch_3
-    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
+    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mServices:Lcom/android/server/am/ActiveServices;
+    check-cast v0, Lcom/android/internal/os/SomeArgs;
 
-    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    iget-object v1, p0, Lcom/android/server/am/ActivityManagerService$MainHandler;->this$0:Lcom/android/server/am/ActivityManagerService;
 
-    check-cast v1, Lcom/android/server/am/ProcessRecord;
+    iget-object v1, v1, Lcom/android/server/am/ActivityManagerService;->mServices:Lcom/android/server/am/ActiveServices;
 
-    invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
+    iget-object v2, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
-    move-result-object v2
+    check-cast v2, Lcom/android/server/am/ProcessRecord;
 
-    const-string/jumbo v3, "servicerecord"
+    iget-object v3, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
-    invoke-virtual {v2, v3}, Landroid/os/Bundle;->getCharSequence(Ljava/lang/String;)Ljava/lang/CharSequence;
+    check-cast v3, Ljava/lang/String;
 
-    move-result-object v2
+    iget-object v4, v0, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/ActiveServices;->serviceForegroundCrash(Lcom/android/server/am/ProcessRecord;Ljava/lang/CharSequence;)V
+    check-cast v4, Landroid/content/ComponentName;
+
+    invoke-virtual {v1, v2, v3, v4}, Lcom/android/server/am/ActiveServices;->serviceForegroundCrash(Lcom/android/server/am/ProcessRecord;Ljava/lang/String;Landroid/content/ComponentName;)V
+
+    invoke-virtual {v0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
     goto/16 :goto_3
 

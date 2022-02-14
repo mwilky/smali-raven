@@ -27,7 +27,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda40;->f$0:Lcom/android/server/pm/PackageManagerService$MultiPackageVerificationParams;
 
-    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->lambda$verifyStage$44(Lcom/android/server/pm/PackageManagerService$MultiPackageVerificationParams;)V
+    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->lambda$verifyStage$43(Lcom/android/server/pm/PackageManagerService$MultiPackageVerificationParams;)V
 
     return-void
 .end method

@@ -59,7 +59,7 @@
 
     const/4 v2, 0x1
 
-    invoke-static {v1, v2}, Lcom/android/server/wallpaper/WallpaperManagerService;->access$2502(Lcom/android/server/wallpaper/WallpaperManagerService;Z)Z
+    invoke-static {v1, v2}, Lcom/android/server/wallpaper/WallpaperManagerService;->access$2302(Lcom/android/server/wallpaper/WallpaperManagerService;Z)Z
 
     monitor-exit v0
 

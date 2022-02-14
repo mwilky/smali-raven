@@ -178,43 +178,13 @@
 
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$LocalService;->this$0:Lcom/android/server/wm/WindowManagerService;
 
-    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mGlobalLock:Lcom/android/server/wm/WindowManagerGlobalLock;
+    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mAccessibilityController:Lcom/android/server/wm/AccessibilityController;
 
-    monitor-enter v0
+    const/4 v1, 0x1
 
-    :try_start_0
-    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->boostPriorityForLockedSection()V
+    invoke-virtual {v0, p1, v1}, Lcom/android/server/wm/AccessibilityController;->performComputeChangedWindowsNot(IZ)V
 
-    iget-object v1, p0, Lcom/android/server/wm/WindowManagerService$LocalService;->this$0:Lcom/android/server/wm/WindowManagerService;
-
-    iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mAccessibilityController:Lcom/android/server/wm/AccessibilityController;
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
-
-    if-eqz v1, :cond_0
-
-    const/4 v0, 0x1
-
-    invoke-virtual {v1, p1, v0}, Lcom/android/server/wm/AccessibilityController;->performComputeChangedWindowsNot(IZ)V
-
-    :cond_0
     return-void
-
-    :catchall_0
-    move-exception v1
-
-    :try_start_1
-    monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
-
-    throw v1
 .end method
 
 .method public getAccessibilityController()Lcom/android/server/wm/WindowManagerInternal$AccessibilityControllerInternal;
@@ -222,7 +192,7 @@
 
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$LocalService;->this$0:Lcom/android/server/wm/WindowManagerService;
 
-    invoke-static {v0}, Lcom/android/server/wm/AccessibilityController;->getAccessibilityControllerInternal(Lcom/android/server/wm/WindowManagerService;)Lcom/android/server/wm/WindowManagerInternal$AccessibilityControllerInternal;
+    invoke-static {v0}, Lcom/android/server/wm/AccessibilityController;->getAccessibilityControllerInternal(Lcom/android/server/wm/WindowManagerService;)Lcom/android/server/wm/AccessibilityController$AccessibilityControllerInternalImpl;
 
     move-result-object v0
 
@@ -270,6 +240,10 @@
     iget-object v4, p0, Lcom/android/server/wm/WindowManagerService$LocalService;->this$0:Lcom/android/server/wm/WindowManagerService;
 
     iget-object v4, v4, Lcom/android/server/wm/WindowManagerService;->mAccessibilityController:Lcom/android/server/wm/AccessibilityController;
+
+    invoke-virtual {v4}, Lcom/android/server/wm/AccessibilityController;->hasCallbacks()Z
+
+    move-result v4
 
     if-eqz v4, :cond_1
 
@@ -454,7 +428,7 @@
 .end method
 
 .method public getFocusedWindowToken()Landroid/os/IBinder;
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$LocalService;->this$0:Lcom/android/server/wm/WindowManagerService;
 
@@ -467,17 +441,11 @@
 
     iget-object v1, p0, Lcom/android/server/wm/WindowManagerService$LocalService;->this$0:Lcom/android/server/wm/WindowManagerService;
 
-    invoke-static {v1}, Lcom/android/server/wm/WindowManagerService;->access$2000(Lcom/android/server/wm/WindowManagerService;)Lcom/android/server/wm/WindowState;
+    iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mAccessibilityController:Lcom/android/server/wm/AccessibilityController;
+
+    invoke-virtual {v1}, Lcom/android/server/wm/AccessibilityController;->getFocusedWindowToken()Landroid/os/IBinder;
 
     move-result-object v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v2, v1, Lcom/android/server/wm/WindowState;->mClient:Landroid/view/IWindow;
-
-    invoke-interface {v2}, Landroid/view/IWindow;->asBinder()Landroid/os/IBinder;
-
-    move-result-object v2
 
     monitor-exit v0
     :try_end_0
@@ -485,197 +453,15 @@
 
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
-    return-object v2
+    return-object v1
 
-    :cond_0
-    const/4 v2, 0x0
+    :catchall_0
+    move-exception v1
 
     :try_start_1
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
-
-    return-object v2
-
-    :catchall_0
-    move-exception v1
-
-    :try_start_2
-    monitor-exit v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
-
-    throw v1
-.end method
-
-.method public getImeControlTargetNameForLogging(I)Ljava/lang/String;
-    .locals 5
-
-    iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$LocalService;->this$0:Lcom/android/server/wm/WindowManagerService;
-
-    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mGlobalLock:Lcom/android/server/wm/WindowManagerGlobalLock;
-
-    monitor-enter v0
-
-    :try_start_0
-    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->boostPriorityForLockedSection()V
-
-    iget-object v1, p0, Lcom/android/server/wm/WindowManagerService$LocalService;->this$0:Lcom/android/server/wm/WindowManagerService;
-
-    iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mRoot:Lcom/android/server/wm/RootWindowContainer;
-
-    invoke-virtual {v1, p1}, Lcom/android/server/wm/RootWindowContainer;->getDisplayContent(I)Lcom/android/server/wm/DisplayContent;
-
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    if-nez v1, :cond_0
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
-
-    return-object v2
-
-    :cond_0
-    const/4 v3, 0x2
-
-    :try_start_1
-    invoke-virtual {v1, v3}, Lcom/android/server/wm/DisplayContent;->getImeTarget(I)Lcom/android/server/wm/InsetsControlTarget;
-
-    move-result-object v3
-
-    if-nez v3, :cond_1
-
-    monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
-
-    return-object v2
-
-    :cond_1
-    :try_start_2
-    invoke-interface {v3}, Lcom/android/server/wm/InsetsControlTarget;->getWindow()Lcom/android/server/wm/WindowState;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_2
-
-    invoke-virtual {v2}, Lcom/android/server/wm/WindowState;->getName()Ljava/lang/String;
-
-    move-result-object v4
-
-    goto :goto_0
-
-    :cond_2
-    invoke-virtual {v3}, Ljava/lang/Object;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    :goto_0
-    monitor-exit v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
-
-    return-object v4
-
-    :catchall_0
-    move-exception v1
-
-    :try_start_3
-    monitor-exit v0
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
-
-    throw v1
-.end method
-
-.method public getImeTargetNameForLogging(I)Ljava/lang/String;
-    .locals 4
-
-    iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$LocalService;->this$0:Lcom/android/server/wm/WindowManagerService;
-
-    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mGlobalLock:Lcom/android/server/wm/WindowManagerGlobalLock;
-
-    monitor-enter v0
-
-    :try_start_0
-    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->boostPriorityForLockedSection()V
-
-    iget-object v1, p0, Lcom/android/server/wm/WindowManagerService$LocalService;->this$0:Lcom/android/server/wm/WindowManagerService;
-
-    iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mRoot:Lcom/android/server/wm/RootWindowContainer;
-
-    invoke-virtual {v1, p1}, Lcom/android/server/wm/RootWindowContainer;->getDisplayContent(I)Lcom/android/server/wm/DisplayContent;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_1
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v1, v2}, Lcom/android/server/wm/DisplayContent;->getImeTarget(I)Lcom/android/server/wm/InsetsControlTarget;
-
-    move-result-object v3
-
-    if-nez v3, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {v1, v2}, Lcom/android/server/wm/DisplayContent;->getImeTarget(I)Lcom/android/server/wm/InsetsControlTarget;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Lcom/android/server/wm/InsetsControlTarget;->getWindow()Lcom/android/server/wm/WindowState;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/server/wm/WindowState;->getName()Ljava/lang/String;
-
-    move-result-object v2
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
-
-    return-object v2
-
-    :cond_1
-    :goto_0
-    const/4 v2, 0x0
-
-    :try_start_1
-    monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
-
-    return-object v2
-
-    :catchall_0
-    move-exception v1
-
-    :try_start_2
-    monitor-exit v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
@@ -758,6 +544,10 @@
     iget-object v1, p0, Lcom/android/server/wm/WindowManagerService$LocalService;->this$0:Lcom/android/server/wm/WindowManagerService;
 
     iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mAccessibilityController:Lcom/android/server/wm/AccessibilityController;
+
+    invoke-virtual {v1}, Lcom/android/server/wm/AccessibilityController;->hasCallbacks()Z
+
+    move-result v1
 
     if-eqz v1, :cond_0
 
@@ -1269,7 +1059,7 @@
 .end method
 
 .method public isInputMethodClientFocus(III)Z
-    .locals 6
+    .locals 5
 
     const/4 v0, 0x0
 
@@ -1318,9 +1108,9 @@
 
     move-result v3
 
-    const/4 v4, 0x1
-
     if-eqz v3, :cond_2
+
+    const/4 v0, 0x1
 
     monitor-exit v1
     :try_end_0
@@ -1328,7 +1118,7 @@
 
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
-    return v4
+    return v0
 
     :cond_2
     :try_start_1
@@ -1336,17 +1126,21 @@
 
     if-eqz v3, :cond_3
 
-    iget-object v5, v3, Lcom/android/server/wm/WindowState;->mSession:Lcom/android/server/wm/Session;
+    iget-object v4, v3, Lcom/android/server/wm/WindowState;->mSession:Lcom/android/server/wm/Session;
 
-    iget v5, v5, Lcom/android/server/wm/Session;->mUid:I
+    iget v4, v4, Lcom/android/server/wm/Session;->mUid:I
 
-    if-ne v5, p1, :cond_3
+    if-ne v4, p1, :cond_3
 
-    iget-object v5, v3, Lcom/android/server/wm/WindowState;->mSession:Lcom/android/server/wm/Session;
+    iget-object v4, v3, Lcom/android/server/wm/WindowState;->mSession:Lcom/android/server/wm/Session;
 
-    iget v5, v5, Lcom/android/server/wm/Session;->mPid:I
+    iget v4, v4, Lcom/android/server/wm/Session;->mPid:I
 
-    if-ne v5, p2, :cond_3
+    if-ne v4, p2, :cond_3
+
+    invoke-virtual {v3}, Lcom/android/server/wm/WindowState;->canBeImeTarget()Z
+
+    move-result v0
 
     monitor-exit v1
     :try_end_1
@@ -1354,7 +1148,7 @@
 
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
-    return v4
+    return v0
 
     :cond_3
     :try_start_2
@@ -1631,6 +1425,168 @@
     return-void
 .end method
 
+.method public onToggleImeRequested(ZLandroid/os/IBinder;Landroid/os/IBinder;I)Lcom/android/server/wm/WindowManagerInternal$ImeTargetInfo;
+    .locals 10
+
+    iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$LocalService;->this$0:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mGlobalLock:Lcom/android/server/wm/WindowManagerGlobalLock;
+
+    monitor-enter v0
+
+    :try_start_0
+    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->boostPriorityForLockedSection()V
+
+    iget-object v1, p0, Lcom/android/server/wm/WindowManagerService$LocalService;->this$0:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mWindowMap:Ljava/util/HashMap;
+
+    invoke-virtual {v1, p2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/server/wm/WindowState;
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v1}, Lcom/android/server/wm/WindowState;->getName()Ljava/lang/String;
+
+    move-result-object v2
+
+    goto :goto_0
+
+    :cond_0
+    const-string v2, "null"
+
+    :goto_0
+    iget-object v3, p0, Lcom/android/server/wm/WindowManagerService$LocalService;->this$0:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v3, v3, Lcom/android/server/wm/WindowManagerService;->mWindowMap:Ljava/util/HashMap;
+
+    invoke-virtual {v3, p3}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/server/wm/WindowState;
+
+    if-eqz v3, :cond_1
+
+    invoke-virtual {v3}, Lcom/android/server/wm/WindowState;->getName()Ljava/lang/String;
+
+    move-result-object v4
+
+    goto :goto_1
+
+    :cond_1
+    const-string v4, "null"
+
+    :goto_1
+    iget-object v5, p0, Lcom/android/server/wm/WindowManagerService$LocalService;->this$0:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v5, v5, Lcom/android/server/wm/WindowManagerService;->mRoot:Lcom/android/server/wm/RootWindowContainer;
+
+    invoke-virtual {v5, p4}, Lcom/android/server/wm/RootWindowContainer;->getDisplayContent(I)Lcom/android/server/wm/DisplayContent;
+
+    move-result-object v5
+
+    if-eqz v5, :cond_6
+
+    const/4 v6, 0x2
+
+    invoke-virtual {v5, v6}, Lcom/android/server/wm/DisplayContent;->getImeTarget(I)Lcom/android/server/wm/InsetsControlTarget;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_3
+
+    invoke-static {v6}, Lcom/android/server/wm/InsetsControlTarget;->asWindowOrNull(Lcom/android/server/wm/InsetsControlTarget;)Lcom/android/server/wm/WindowState;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_2
+
+    invoke-virtual {v7}, Lcom/android/server/wm/WindowState;->getName()Ljava/lang/String;
+
+    move-result-object v8
+
+    goto :goto_2
+
+    :cond_2
+    invoke-virtual {v6}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    :goto_2
+    move-object v7, v8
+
+    goto :goto_3
+
+    :cond_3
+    const-string v7, "null"
+
+    :goto_3
+    const/4 v8, 0x0
+
+    invoke-virtual {v5, v8}, Lcom/android/server/wm/DisplayContent;->getImeTarget(I)Lcom/android/server/wm/InsetsControlTarget;
+
+    move-result-object v8
+
+    if-eqz v8, :cond_4
+
+    invoke-interface {v8}, Lcom/android/server/wm/InsetsControlTarget;->getWindow()Lcom/android/server/wm/WindowState;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Lcom/android/server/wm/WindowState;->getName()Ljava/lang/String;
+
+    move-result-object v9
+
+    goto :goto_4
+
+    :cond_4
+    const-string v9, "null"
+
+    :goto_4
+    if-eqz p1, :cond_5
+
+    invoke-virtual {v5}, Lcom/android/server/wm/DisplayContent;->onShowImeRequested()V
+
+    :cond_5
+    goto :goto_5
+
+    :cond_6
+    const-string v6, "no-display"
+
+    move-object v9, v6
+
+    move-object v7, v6
+
+    :goto_5
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
+
+    new-instance v0, Lcom/android/server/wm/WindowManagerInternal$ImeTargetInfo;
+
+    invoke-direct {v0, v2, v4, v7, v9}, Lcom/android/server/wm/WindowManagerInternal$ImeTargetInfo;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    return-object v0
+
+    :catchall_0
+    move-exception v1
+
+    :try_start_1
+    monitor-exit v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
+
+    throw v1
+.end method
+
 .method public registerAppTransitionListener(Lcom/android/server/wm/WindowManagerInternal$AppTransitionListener;)V
     .locals 2
 
@@ -1652,6 +1608,16 @@
     iget-object v1, v1, Lcom/android/server/wm/DisplayContent;->mAppTransition:Lcom/android/server/wm/AppTransition;
 
     invoke-virtual {v1, p1}, Lcom/android/server/wm/AppTransition;->registerListenerLocked(Lcom/android/server/wm/WindowManagerInternal$AppTransitionListener;)V
+
+    iget-object v1, p0, Lcom/android/server/wm/WindowManagerService$LocalService;->this$0:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    invoke-virtual {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->getTransitionController()Lcom/android/server/wm/TransitionController;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Lcom/android/server/wm/TransitionController;->registerLegacyListener(Lcom/android/server/wm/WindowManagerInternal$AppTransitionListener;)V
 
     monitor-exit v0
     :try_end_0
@@ -1875,7 +1841,7 @@
     :try_start_1
     iget-object v2, p0, Lcom/android/server/wm/WindowManagerService$LocalService;->this$0:Lcom/android/server/wm/WindowManagerService;
 
-    invoke-static {v2}, Lcom/android/server/wm/WindowManagerService;->access$2100(Lcom/android/server/wm/WindowManagerService;)Landroid/view/SurfaceControl$Transaction;
+    invoke-static {v2}, Lcom/android/server/wm/WindowManagerService;->access$2000(Lcom/android/server/wm/WindowManagerService;)Landroid/view/SurfaceControl$Transaction;
 
     move-result-object v2
 
@@ -1938,6 +1904,10 @@
 
     iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mAccessibilityController:Lcom/android/server/wm/AccessibilityController;
 
+    invoke-virtual {v1}, Lcom/android/server/wm/AccessibilityController;->hasCallbacks()Z
+
+    move-result v1
+
     if-eqz v1, :cond_0
 
     iget-object v1, p0, Lcom/android/server/wm/WindowManagerService$LocalService;->this$0:Lcom/android/server/wm/WindowManagerService;
@@ -1999,7 +1969,7 @@
 .end method
 
 .method public setMagnificationCallbacks(ILcom/android/server/wm/WindowManagerInternal$MagnificationCallbacks;)Z
-    .locals 4
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$LocalService;->this$0:Lcom/android/server/wm/WindowManagerService;
 
@@ -2014,44 +1984,10 @@
 
     iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mAccessibilityController:Lcom/android/server/wm/AccessibilityController;
 
-    if-nez v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/wm/WindowManagerService$LocalService;->this$0:Lcom/android/server/wm/WindowManagerService;
-
-    new-instance v2, Lcom/android/server/wm/AccessibilityController;
-
-    iget-object v3, p0, Lcom/android/server/wm/WindowManagerService$LocalService;->this$0:Lcom/android/server/wm/WindowManagerService;
-
-    invoke-direct {v2, v3}, Lcom/android/server/wm/AccessibilityController;-><init>(Lcom/android/server/wm/WindowManagerService;)V
-
-    iput-object v2, v1, Lcom/android/server/wm/WindowManagerService;->mAccessibilityController:Lcom/android/server/wm/AccessibilityController;
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/server/wm/WindowManagerService$LocalService;->this$0:Lcom/android/server/wm/WindowManagerService;
-
-    iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mAccessibilityController:Lcom/android/server/wm/AccessibilityController;
-
     invoke-virtual {v1, p1, p2}, Lcom/android/server/wm/AccessibilityController;->setMagnificationCallbacks(ILcom/android/server/wm/WindowManagerInternal$MagnificationCallbacks;)Z
 
     move-result v1
 
-    iget-object v2, p0, Lcom/android/server/wm/WindowManagerService$LocalService;->this$0:Lcom/android/server/wm/WindowManagerService;
-
-    iget-object v2, v2, Lcom/android/server/wm/WindowManagerService;->mAccessibilityController:Lcom/android/server/wm/AccessibilityController;
-
-    invoke-virtual {v2}, Lcom/android/server/wm/AccessibilityController;->hasCallbacks()Z
-
-    move-result v2
-
-    if-nez v2, :cond_1
-
-    iget-object v2, p0, Lcom/android/server/wm/WindowManagerService$LocalService;->this$0:Lcom/android/server/wm/WindowManagerService;
-
-    const/4 v3, 0x0
-
-    iput-object v3, v2, Lcom/android/server/wm/WindowManagerService;->mAccessibilityController:Lcom/android/server/wm/AccessibilityController;
-
-    :cond_1
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -2088,6 +2024,10 @@
     iget-object v1, p0, Lcom/android/server/wm/WindowManagerService$LocalService;->this$0:Lcom/android/server/wm/WindowManagerService;
 
     iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mAccessibilityController:Lcom/android/server/wm/AccessibilityController;
+
+    invoke-virtual {v1}, Lcom/android/server/wm/AccessibilityController;->hasCallbacks()Z
+
+    move-result v1
 
     if-eqz v1, :cond_0
 
@@ -2202,7 +2142,7 @@
 .end method
 
 .method public setWindowsForAccessibilityCallback(ILcom/android/server/wm/WindowManagerInternal$WindowsForAccessibilityCallback;)Z
-    .locals 4
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/wm/WindowManagerService$LocalService;->this$0:Lcom/android/server/wm/WindowManagerService;
 
@@ -2217,44 +2157,10 @@
 
     iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mAccessibilityController:Lcom/android/server/wm/AccessibilityController;
 
-    if-nez v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/server/wm/WindowManagerService$LocalService;->this$0:Lcom/android/server/wm/WindowManagerService;
-
-    new-instance v2, Lcom/android/server/wm/AccessibilityController;
-
-    iget-object v3, p0, Lcom/android/server/wm/WindowManagerService$LocalService;->this$0:Lcom/android/server/wm/WindowManagerService;
-
-    invoke-direct {v2, v3}, Lcom/android/server/wm/AccessibilityController;-><init>(Lcom/android/server/wm/WindowManagerService;)V
-
-    iput-object v2, v1, Lcom/android/server/wm/WindowManagerService;->mAccessibilityController:Lcom/android/server/wm/AccessibilityController;
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/server/wm/WindowManagerService$LocalService;->this$0:Lcom/android/server/wm/WindowManagerService;
-
-    iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mAccessibilityController:Lcom/android/server/wm/AccessibilityController;
-
     invoke-virtual {v1, p1, p2}, Lcom/android/server/wm/AccessibilityController;->setWindowsForAccessibilityCallback(ILcom/android/server/wm/WindowManagerInternal$WindowsForAccessibilityCallback;)Z
 
     move-result v1
 
-    iget-object v2, p0, Lcom/android/server/wm/WindowManagerService$LocalService;->this$0:Lcom/android/server/wm/WindowManagerService;
-
-    iget-object v2, v2, Lcom/android/server/wm/WindowManagerService;->mAccessibilityController:Lcom/android/server/wm/AccessibilityController;
-
-    invoke-virtual {v2}, Lcom/android/server/wm/AccessibilityController;->hasCallbacks()Z
-
-    move-result v2
-
-    if-nez v2, :cond_1
-
-    iget-object v2, p0, Lcom/android/server/wm/WindowManagerService$LocalService;->this$0:Lcom/android/server/wm/WindowManagerService;
-
-    const/4 v3, 0x0
-
-    iput-object v3, v2, Lcom/android/server/wm/WindowManagerService;->mAccessibilityController:Lcom/android/server/wm/AccessibilityController;
-
-    :cond_1
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0

@@ -2,6 +2,9 @@
 .super Ljava/lang/Object;
 .source "EmbeddedWindowController.java"
 
+# interfaces
+.implements Lcom/android/server/wm/InputTarget;
+
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
@@ -114,7 +117,90 @@
     return-object v0
 .end method
 
-.method getName()Ljava/lang/String;
+.method public getDisplayId()I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mDisplayId:I
+
+    return v0
+.end method
+
+.method public getIWindow()Landroid/view/IWindow;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mClient:Landroid/view/IWindow;
+
+    return-object v0
+.end method
+
+.method public getPid()I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mOwnerPid:I
+
+    return v0
+.end method
+
+.method public getWindowState()Lcom/android/server/wm/WindowState;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mHostWindowState:Lcom/android/server/wm/WindowState;
+
+    return-object v0
+.end method
+
+.method onRemoved()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mInputChannel:Landroid/view/InputChannel;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mWmService:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mInputManager:Lcom/android/server/input/InputManagerService;
+
+    iget-object v1, p0, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mInputChannel:Landroid/view/InputChannel;
+
+    invoke-virtual {v1}, Landroid/view/InputChannel;->getToken()Landroid/os/IBinder;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/android/server/input/InputManagerService;->removeInputChannel(Landroid/os/IBinder;)V
+
+    iget-object v0, p0, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mInputChannel:Landroid/view/InputChannel;
+
+    invoke-virtual {v0}, Landroid/view/InputChannel;->dispose()V
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mInputChannel:Landroid/view/InputChannel;
+
+    :cond_0
+    return-void
+.end method
+
+.method openInputChannel()Landroid/view/InputChannel;
+    .locals 2
+
+    invoke-virtual {p0}, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mWmService:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mInputManager:Lcom/android/server/input/InputManagerService;
+
+    invoke-virtual {v1, v0}, Lcom/android/server/input/InputManagerService;->createInputChannel(Ljava/lang/String;)Landroid/view/InputChannel;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mInputChannel:Landroid/view/InputChannel;
+
+    return-object v1
+.end method
+
+.method public toString()Ljava/lang/String;
     .locals 3
 
     iget-object v0, p0, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mHostWindowState:Lcom/android/server/wm/WindowState;
@@ -164,57 +250,6 @@
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
-
-    return-object v1
-.end method
-
-.method onRemoved()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mInputChannel:Landroid/view/InputChannel;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mWmService:Lcom/android/server/wm/WindowManagerService;
-
-    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mInputManager:Lcom/android/server/input/InputManagerService;
-
-    iget-object v1, p0, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mInputChannel:Landroid/view/InputChannel;
-
-    invoke-virtual {v1}, Landroid/view/InputChannel;->getToken()Landroid/os/IBinder;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/android/server/input/InputManagerService;->removeInputChannel(Landroid/os/IBinder;)V
-
-    iget-object v0, p0, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mInputChannel:Landroid/view/InputChannel;
-
-    invoke-virtual {v0}, Landroid/view/InputChannel;->dispose()V
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mInputChannel:Landroid/view/InputChannel;
-
-    :cond_0
-    return-void
-.end method
-
-.method openInputChannel()Landroid/view/InputChannel;
-    .locals 2
-
-    invoke-virtual {p0}, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->getName()Ljava/lang/String;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mWmService:Lcom/android/server/wm/WindowManagerService;
-
-    iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mInputManager:Lcom/android/server/input/InputManagerService;
-
-    invoke-virtual {v1, v0}, Lcom/android/server/input/InputManagerService;->createInputChannel(Ljava/lang/String;)Landroid/view/InputChannel;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mInputChannel:Landroid/view/InputChannel;
 
     return-object v1
 .end method

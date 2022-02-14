@@ -37,9 +37,9 @@
 
     check-cast p1, Lcom/android/server/wm/Task;
 
-    check-cast p2, Landroid/graphics/Rect;
+    check-cast p2, Lcom/android/server/wm/ActivityRecord;
 
-    invoke-static {p1, p2}, Lcom/android/server/wm/Task;->$r8$lambda$4uoiBIGNMTDRqeJdiWkAelWVBX8(Lcom/android/server/wm/Task;Landroid/graphics/Rect;)V
+    invoke-virtual {p1, p2}, Lcom/android/server/wm/TaskFragment;->cleanUpActivityReferences(Lcom/android/server/wm/ActivityRecord;)V
 
     return-void
 .end method

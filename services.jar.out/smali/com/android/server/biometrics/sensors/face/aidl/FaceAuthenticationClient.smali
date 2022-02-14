@@ -38,6 +38,8 @@
 
 .field private final mNotificationManager:Landroid/app/NotificationManager;
 
+.field private mSensorPrivacyManager:Landroid/hardware/SensorPrivacyManager;
+
 .field private final mUsageStats:Lcom/android/server/biometrics/sensors/face/UsageStats;
 
 
@@ -64,6 +66,8 @@
     .end annotation
 
     move-object/from16 v14, p0
+
+    move-object/from16 v15, p1
 
     move-object/from16 v0, p0
 
@@ -139,6 +143,16 @@
 
     iput-object v5, v1, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->mNotificationManager:Landroid/app/NotificationManager;
 
+    const-class v5, Landroid/hardware/SensorPrivacyManager;
+
+    invoke-virtual {v6, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/hardware/SensorPrivacyManager;
+
+    iput-object v5, v1, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->mSensorPrivacyManager:Landroid/hardware/SensorPrivacyManager;
+
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->getContext()Landroid/content/Context;
 
     move-result-object v5
@@ -147,7 +161,7 @@
 
     move-result-object v5
 
-    const v7, 0x1070046
+    const v7, 0x107004c
 
     invoke-virtual {v5, v7}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -155,7 +169,7 @@
 
     iput-object v7, v1, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->mBiometricPromptIgnoreList:[I
 
-    const v7, 0x1070049
+    const v7, 0x107004f
 
     invoke-virtual {v5, v7}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -163,7 +177,7 @@
 
     iput-object v7, v1, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->mBiometricPromptIgnoreListVendor:[I
 
-    const v7, 0x1070048
+    const v7, 0x107004e
 
     invoke-virtual {v5, v7}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -171,7 +185,7 @@
 
     iput-object v7, v1, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->mKeyguardIgnoreList:[I
 
-    const v7, 0x107004b
+    const v7, 0x1070051
 
     invoke-virtual {v5, v7}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -476,6 +490,8 @@
 .method public onLockoutPermanent()V
     .locals 6
 
+    invoke-super {p0}, Lcom/android/server/biometrics/sensors/AuthenticationClient;->onLockoutPermanent()V
+
     iget-object v0, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->mLockoutCache:Lcom/android/server/biometrics/sensors/LockoutCache;
 
     invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->getTargetUserId()I
@@ -536,6 +552,8 @@
 
 .method public onLockoutTimed(J)V
     .locals 6
+
+    invoke-super {p0, p1, p2}, Lcom/android/server/biometrics/sensors/AuthenticationClient;->onLockoutTimed(J)V
 
     iget-object v0, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->mLockoutCache:Lcom/android/server/biometrics/sensors/LockoutCache;
 
@@ -608,47 +626,73 @@
 .end method
 
 .method protected startHalOperation()V
-    .locals 3
+    .locals 5
+
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
 
     :try_start_0
-    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->getFreshDaemon()Ljava/lang/Object;
+    iget-object v2, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->mSensorPrivacyManager:Landroid/hardware/SensorPrivacyManager;
 
-    move-result-object v0
+    if-eqz v2, :cond_0
 
-    check-cast v0, Landroid/hardware/biometrics/face/ISession;
+    const/4 v3, 0x2
 
-    iget-wide v1, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->mOperationId:J
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->getTargetUserId()I
 
-    invoke-interface {v0, v1, v2}, Landroid/hardware/biometrics/face/ISession;->authenticate(J)Landroid/hardware/biometrics/common/ICancellationSignal;
+    move-result v4
 
-    move-result-object v0
+    invoke-virtual {v2, v3, v4}, Landroid/hardware/SensorPrivacyManager;->isSensorPrivacyEnabled(II)Z
 
-    iput-object v0, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->mCancellationSignal:Landroid/hardware/biometrics/common/ICancellationSignal;
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->onError(II)V
+
+    iget-object v2, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->mCallback:Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;
+
+    invoke-interface {v2, p0, v1}, Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;->onClientFinished(Lcom/android/server/biometrics/sensors/BaseClientMonitor;Z)V
 
     goto :goto_0
 
-    :catch_0
-    move-exception v0
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->getFreshDaemon()Ljava/lang/Object;
 
-    const-string v1, "FaceAuthenticationClient"
+    move-result-object v2
 
-    const-string v2, "Remote exception when requesting auth"
+    check-cast v2, Landroid/hardware/biometrics/face/ISession;
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    iget-wide v3, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->mOperationId:J
 
-    const/4 v1, 0x1
+    invoke-interface {v2, v3, v4}, Landroid/hardware/biometrics/face/ISession;->authenticate(J)Landroid/hardware/biometrics/common/ICancellationSignal;
 
-    const/4 v2, 0x0
+    move-result-object v2
 
-    invoke-virtual {p0, v1, v2}, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->onError(II)V
-
-    iget-object v1, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->mCallback:Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;
-
-    invoke-interface {v1, p0, v2}, Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;->onClientFinished(Lcom/android/server/biometrics/sensors/BaseClientMonitor;Z)V
+    iput-object v2, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->mCancellationSignal:Landroid/hardware/biometrics/common/ICancellationSignal;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_0
+    goto :goto_1
+
+    :catch_0
+    move-exception v2
+
+    const-string v3, "FaceAuthenticationClient"
+
+    const-string v4, "Remote exception when requesting auth"
+
+    invoke-static {v3, v4, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->onError(II)V
+
+    iget-object v0, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceAuthenticationClient;->mCallback:Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;
+
+    invoke-interface {v0, p0, v1}, Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;->onClientFinished(Lcom/android/server/biometrics/sensors/BaseClientMonitor;Z)V
+
+    :goto_1
     return-void
 .end method
 

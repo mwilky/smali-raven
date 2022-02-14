@@ -47,7 +47,7 @@
 
     check-cast p1, Lcom/android/server/wm/Task;
 
-    invoke-static {v0, v1, v2, v3, p1}, Lcom/android/server/wm/TaskDisplayArea;->lambda$ensureActivitiesVisible$10(Lcom/android/server/wm/ActivityRecord;IZZLcom/android/server/wm/Task;)V
+    invoke-static {v0, v1, v2, v3, p1}, Lcom/android/server/wm/TaskDisplayArea;->lambda$ensureActivitiesVisible$12(Lcom/android/server/wm/ActivityRecord;IZZLcom/android/server/wm/Task;)V
 
     return-void
 .end method

@@ -3569,7 +3569,7 @@
 
     move-result-object v2
 
-    const v3, 0x1070027
+    const v3, 0x1070028
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -3689,7 +3689,7 @@
 
     move-result-object v9
 
-    const v10, 0x1070026
+    const v10, 0x1070027
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -4481,12 +4481,30 @@
 
     move-result-object v0
 
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/companion/CompanionDeviceManagerService;->mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
+
+    invoke-virtual {v0}, Landroid/bluetooth/BluetoothAdapter;->getBluetoothLeScanner()Landroid/bluetooth/le/BluetoothLeScanner;
+
+    move-result-object v0
+
     iget-object v1, p0, Lcom/android/server/companion/CompanionDeviceManagerService;->mBleScanCallback:Landroid/bluetooth/le/ScanCallback;
 
     invoke-virtual {v0, v1}, Landroid/bluetooth/le/BluetoothLeScanner;->stopScan(Landroid/bluetooth/le/ScanCallback;)V
 
     invoke-virtual {p0}, Lcom/android/server/companion/CompanionDeviceManagerService;->startBleScan()V
 
+    goto :goto_0
+
+    :cond_0
+    const-string v0, "CompanionDeviceManagerService"
+
+    const-string v1, "BluetoothLeScanner is null (likely BLE isn\'t ON yet)."
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_0
     return-void
 .end method
 

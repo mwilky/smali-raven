@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/server/pm/PackageDexOptimizer$Injector;,
         Lcom/android/server/pm/PackageDexOptimizer$ForcedUpdatePackageDexOptimizer;
     }
 .end annotation
@@ -32,6 +33,8 @@
 
 .field private final mDexoptWakeLock:Landroid/os/PowerManager$WakeLock;
 
+.field private final mInjector:Lcom/android/server/pm/PackageDexOptimizer$Injector;
+
 .field private final mInstallLock:Ljava/lang/Object;
 
 .field private final mInstaller:Lcom/android/server/pm/Installer;
@@ -53,6 +56,28 @@
 .end method
 
 .method constructor <init>(Lcom/android/server/pm/Installer;Ljava/lang/Object;Landroid/content/Context;Ljava/lang/String;)V
+    .locals 6
+
+    new-instance v1, Lcom/android/server/pm/PackageDexOptimizer$1;
+
+    invoke-direct {v1}, Lcom/android/server/pm/PackageDexOptimizer$1;-><init>()V
+
+    move-object v0, p0
+
+    move-object v2, p1
+
+    move-object v3, p2
+
+    move-object v4, p3
+
+    move-object v5, p4
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/server/pm/PackageDexOptimizer;-><init>(Lcom/android/server/pm/PackageDexOptimizer$Injector;Lcom/android/server/pm/Installer;Ljava/lang/Object;Landroid/content/Context;Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method constructor <init>(Lcom/android/server/pm/PackageDexOptimizer$Injector;Lcom/android/server/pm/Installer;Ljava/lang/Object;Landroid/content/Context;Ljava/lang/String;)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -63,25 +88,23 @@
 
     iput-object v0, p0, Lcom/android/server/pm/PackageDexOptimizer;->mArtStatsLogger:Lcom/android/server/pm/dex/ArtStatsLogUtils$ArtStatsLogger;
 
-    iput-object p1, p0, Lcom/android/server/pm/PackageDexOptimizer;->mInstaller:Lcom/android/server/pm/Installer;
+    iput-object p2, p0, Lcom/android/server/pm/PackageDexOptimizer;->mInstaller:Lcom/android/server/pm/Installer;
 
-    iput-object p2, p0, Lcom/android/server/pm/PackageDexOptimizer;->mInstallLock:Ljava/lang/Object;
+    iput-object p3, p0, Lcom/android/server/pm/PackageDexOptimizer;->mInstallLock:Ljava/lang/Object;
 
-    const-string v0, "power"
-
-    invoke-virtual {p3, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-interface {p1, p4}, Lcom/android/server/pm/PackageDexOptimizer$Injector;->getPowerManager(Landroid/content/Context;)Landroid/os/PowerManager;
 
     move-result-object v0
 
-    check-cast v0, Landroid/os/PowerManager;
-
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1, p4}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
+    invoke-virtual {v0, v1, p5}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
 
     move-result-object v1
 
     iput-object v1, p0, Lcom/android/server/pm/PackageDexOptimizer;->mDexoptWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    iput-object p1, p0, Lcom/android/server/pm/PackageDexOptimizer;->mInjector:Lcom/android/server/pm/PackageDexOptimizer$Injector;
 
     return-void
 .end method
@@ -112,6 +135,10 @@
     iget-boolean v0, p1, Lcom/android/server/pm/PackageDexOptimizer;->mSystemReady:Z
 
     iput-boolean v0, p0, Lcom/android/server/pm/PackageDexOptimizer;->mSystemReady:Z
+
+    iget-object v0, p1, Lcom/android/server/pm/PackageDexOptimizer;->mInjector:Lcom/android/server/pm/PackageDexOptimizer$Injector;
+
+    iput-object v0, p0, Lcom/android/server/pm/PackageDexOptimizer;->mInjector:Lcom/android/server/pm/PackageDexOptimizer$Injector;
 
     return-void
 .end method
@@ -188,37 +215,6 @@
     invoke-static {v2, v3, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     return v1
-.end method
-
-.method static canOptimizePackage(Lcom/android/server/pm/parsing/pkg/AndroidPackage;)Z
-    .locals 2
-
-    invoke-interface {p0}, Lcom/android/server/pm/parsing/pkg/AndroidPackage;->getPackageName()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "android"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    invoke-interface {p0}, Lcom/android/server/pm/parsing/pkg/AndroidPackage;->isHasCode()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    return v0
 .end method
 
 .method private compilerFilterDependsOnProfiles(Ljava/lang/String;)Z
@@ -2557,6 +2553,64 @@
     return p1
 .end method
 
+.method canOptimizePackage(Lcom/android/server/pm/parsing/pkg/AndroidPackage;)Z
+    .locals 3
+
+    invoke-interface {p1}, Lcom/android/server/pm/parsing/pkg/AndroidPackage;->getPackageName()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "android"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    if-nez v0, :cond_0
+
+    invoke-interface {p1}, Lcom/android/server/pm/parsing/pkg/AndroidPackage;->isHasCode()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    return v1
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/pm/PackageDexOptimizer;->mInjector:Lcom/android/server/pm/PackageDexOptimizer$Injector;
+
+    invoke-interface {v0}, Lcom/android/server/pm/PackageDexOptimizer$Injector;->getAppHibernationManagerInternal()Lcom/android/server/apphibernation/AppHibernationManagerInternal;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {p1}, Lcom/android/server/pm/parsing/pkg/AndroidPackage;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Lcom/android/server/apphibernation/AppHibernationManagerInternal;->isHibernatingGlobally(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {v0}, Lcom/android/server/apphibernation/AppHibernationManagerInternal;->isOatArtifactDeletionEnabled()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    return v1
+
+    :cond_1
+    const/4 v1, 0x1
+
+    return v1
+.end method
+
 .method public dexOptSecondaryDexPath(Landroid/content/pm/ApplicationInfo;Ljava/lang/String;Lcom/android/server/pm/dex/PackageDexUsage$DexUseInfo;Lcom/android/server/pm/dex/DexoptOptions;)I
     .locals 4
 
@@ -3118,7 +3172,7 @@
 
     if-eq v0, v1, :cond_1
 
-    invoke-static {p1}, Lcom/android/server/pm/PackageDexOptimizer;->canOptimizePackage(Lcom/android/server/pm/parsing/pkg/AndroidPackage;)Z
+    invoke-virtual {p0, p1}, Lcom/android/server/pm/PackageDexOptimizer;->canOptimizePackage(Lcom/android/server/pm/parsing/pkg/AndroidPackage;)Z
 
     move-result v0
 

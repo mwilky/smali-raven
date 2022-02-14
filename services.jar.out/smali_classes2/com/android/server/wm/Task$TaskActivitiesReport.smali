@@ -69,9 +69,9 @@
 
     if-eqz v0, :cond_1
 
-    sget-object v1, Lcom/android/server/wm/Task$ActivityState;->INITIALIZING:Lcom/android/server/wm/Task$ActivityState;
+    sget-object v1, Lcom/android/server/wm/ActivityRecord$State;->INITIALIZING:Lcom/android/server/wm/ActivityRecord$State;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/wm/ActivityRecord;->isState(Lcom/android/server/wm/Task$ActivityState;)Z
+    invoke-virtual {v0, v1}, Lcom/android/server/wm/ActivityRecord;->isState(Lcom/android/server/wm/ActivityRecord$State;)Z
 
     move-result v0
 

@@ -21,7 +21,7 @@
 
 
 # instance fields
-.field private final mTimer:Ljava/util/Timer;
+.field private final mTimer:Lcom/android/server/soundtrigger_middleware/UptimeTimer;
 
 .field private final mUnderlying:Lcom/android/server/soundtrigger_middleware/ISoundTriggerHw2;
 
@@ -40,15 +40,23 @@
 
     iput-object v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerHw2Watchdog;->mUnderlying:Lcom/android/server/soundtrigger_middleware/ISoundTriggerHw2;
 
-    new-instance v0, Ljava/util/Timer;
+    new-instance v0, Lcom/android/server/soundtrigger_middleware/UptimeTimer;
 
     const-string v1, "SoundTriggerHw2Watchdog"
 
-    invoke-direct {v0, v1}, Ljava/util/Timer;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Lcom/android/server/soundtrigger_middleware/UptimeTimer;-><init>(Ljava/lang/String;)V
 
-    iput-object v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerHw2Watchdog;->mTimer:Ljava/util/Timer;
+    iput-object v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerHw2Watchdog;->mTimer:Lcom/android/server/soundtrigger_middleware/UptimeTimer;
 
     return-void
+.end method
+
+.method static synthetic access$000(Lcom/android/server/soundtrigger_middleware/SoundTriggerHw2Watchdog;)Lcom/android/server/soundtrigger_middleware/UptimeTimer;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerHw2Watchdog;->mTimer:Lcom/android/server/soundtrigger_middleware/UptimeTimer;
+
+    return-object v0
 .end method
 
 .method static synthetic access$100()V
@@ -57,14 +65,6 @@
     invoke-static {}, Lcom/android/server/soundtrigger_middleware/SoundTriggerHw2Watchdog;->rebootHal()V
 
     return-void
-.end method
-
-.method static synthetic access$200(Lcom/android/server/soundtrigger_middleware/SoundTriggerHw2Watchdog;)Ljava/util/Timer;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/soundtrigger_middleware/SoundTriggerHw2Watchdog;->mTimer:Ljava/util/Timer;
-
-    return-object v0
 .end method
 
 .method private static rebootHal()V

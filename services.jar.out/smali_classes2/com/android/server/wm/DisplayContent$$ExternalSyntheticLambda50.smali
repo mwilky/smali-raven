@@ -6,16 +6,16 @@
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/wm/DisplayContent;
+.field public final synthetic f$0:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wm/DisplayContent;)V
+.method public synthetic constructor <init>(I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda50;->f$0:Lcom/android/server/wm/DisplayContent;
+    iput p1, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda50;->f$0:I
 
     return-void
 .end method
@@ -25,11 +25,11 @@
 .method public final test(Ljava/lang/Object;)Z
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda50;->f$0:Lcom/android/server/wm/DisplayContent;
+    iget v0, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda50;->f$0:I
 
     check-cast p1, Lcom/android/server/wm/WindowState;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/DisplayContent;->lambda$new$6$DisplayContent(Lcom/android/server/wm/WindowState;)Z
+    invoke-static {v0, p1}, Lcom/android/server/wm/DisplayContent;->lambda$canAddToastWindowForUid$23(ILcom/android/server/wm/WindowState;)Z
 
     move-result p1
 

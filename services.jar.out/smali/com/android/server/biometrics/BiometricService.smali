@@ -595,7 +595,7 @@
 .end method
 
 .method private createPreAuthInfo(Ljava/lang/String;II)Lcom/android/server/biometrics/PreAuthInfo;
-    .locals 9
+    .locals 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -616,6 +616,10 @@
 
     iget-object v4, p0, Lcom/android/server/biometrics/BiometricService;->mSensors:Ljava/util/ArrayList;
 
+    invoke-virtual {p0}, Lcom/android/server/biometrics/BiometricService;->getContext()Landroid/content/Context;
+
+    move-result-object v9
+
     const/4 v8, 0x0
 
     move v5, p2
@@ -624,7 +628,7 @@
 
     move-object v7, p1
 
-    invoke-static/range {v1 .. v8}, Lcom/android/server/biometrics/PreAuthInfo;->create(Landroid/app/trust/ITrustManager;Landroid/app/admin/DevicePolicyManager;Lcom/android/server/biometrics/BiometricService$SettingObserver;Ljava/util/List;ILandroid/hardware/biometrics/PromptInfo;Ljava/lang/String;Z)Lcom/android/server/biometrics/PreAuthInfo;
+    invoke-static/range {v1 .. v9}, Lcom/android/server/biometrics/PreAuthInfo;->create(Landroid/app/trust/ITrustManager;Landroid/app/admin/DevicePolicyManager;Lcom/android/server/biometrics/BiometricService$SettingObserver;Ljava/util/List;ILandroid/hardware/biometrics/PromptInfo;Ljava/lang/String;ZLandroid/content/Context;)Lcom/android/server/biometrics/PreAuthInfo;
 
     move-result-object v1
 
@@ -1464,13 +1468,17 @@
 
     move-result v8
 
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/biometrics/BiometricService;->getContext()Landroid/content/Context;
+
+    move-result-object v9
+
     move/from16 v5, p1
 
     move-object/from16 v6, p2
 
     move-object/from16 v7, p3
 
-    invoke-static/range {v1 .. v8}, Lcom/android/server/biometrics/PreAuthInfo;->create(Landroid/app/trust/ITrustManager;Landroid/app/admin/DevicePolicyManager;Lcom/android/server/biometrics/BiometricService$SettingObserver;Ljava/util/List;ILandroid/hardware/biometrics/PromptInfo;Ljava/lang/String;Z)Lcom/android/server/biometrics/PreAuthInfo;
+    invoke-static/range {v1 .. v9}, Lcom/android/server/biometrics/PreAuthInfo;->create(Landroid/app/trust/ITrustManager;Landroid/app/admin/DevicePolicyManager;Lcom/android/server/biometrics/BiometricService$SettingObserver;Ljava/util/List;ILandroid/hardware/biometrics/PromptInfo;Ljava/lang/String;ZLandroid/content/Context;)Lcom/android/server/biometrics/PreAuthInfo;
 
     move-result-object v0
 
@@ -1514,6 +1522,16 @@
 
     invoke-virtual {v1, v10, v11}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
+    const-string v2, " promptInfo.isIgnoreEnrollmentState: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual/range {p2 .. p2}, Landroid/hardware/biometrics/PromptInfo;->isIgnoreEnrollmentState()Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -1528,44 +1546,102 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
-
-    iget-boolean v1, v0, Lcom/android/server/biometrics/PreAuthInfo;->credentialRequested:Z
-
     if-eqz v1, :cond_1
 
+    iget-object v1, v14, Landroid/util/Pair;->second:Ljava/lang/Object;
+
+    check-cast v1, Ljava/lang/Integer;
+
+    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+
+    move-result v1
+
+    const/16 v2, 0x12
+
+    if-ne v1, v2, :cond_0
+
+    move-object/from16 v15, p9
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v1, v14, Landroid/util/Pair;->first:Ljava/lang/Object;
+
+    check-cast v1, Ljava/lang/Integer;
+
+    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+
+    move-result v1
+
+    iget-object v2, v14, Landroid/util/Pair;->second:Ljava/lang/Object;
+
+    check-cast v2, Ljava/lang/Integer;
+
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+
+    move-result v2
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_2
+
+    const/4 v3, 0x0
+
+    move-object/from16 v15, p9
+
+    :try_start_1
+    invoke-interface {v15, v1, v2, v3}, Landroid/hardware/biometrics/IBiometricServiceReceiver;->onError(III)V
+
+    goto :goto_2
+
+    :cond_1
+    move-object/from16 v15, p9
+
+    :goto_0
+    iget-boolean v1, v0, Lcom/android/server/biometrics/PreAuthInfo;->credentialRequested:Z
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
+
+    if-eqz v1, :cond_3
+
+    :try_start_2
     iget-boolean v1, v0, Lcom/android/server/biometrics/PreAuthInfo;->credentialAvailable:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3
 
     iget-object v1, v0, Lcom/android/server/biometrics/PreAuthInfo;->eligibleSensors:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
 
     move-result v1
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_2
+    :try_end_2
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2
 
     const v1, 0x8000
 
-    move-object/from16 v15, p2
+    move-object/from16 v9, p2
 
-    :try_start_1
-    invoke-virtual {v15, v1}, Landroid/hardware/biometrics/PromptInfo;->setAuthenticators(I)V
+    :try_start_3
+    invoke-virtual {v9, v1}, Landroid/hardware/biometrics/PromptInfo;->setAuthenticators(I)V
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_0
-    move-object/from16 v15, p2
+    :cond_2
+    move-object/from16 v9, p2
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_1
-    move-object/from16 v15, p2
+    :catch_0
+    move-exception v0
 
-    :goto_0
+    move-object/from16 v9, p2
+
+    goto :goto_3
+
+    :cond_3
+    move-object/from16 v9, p2
+
+    :goto_1
     move-object/from16 v1, p0
 
     move-object/from16 v2, p6
@@ -1585,61 +1661,21 @@
     move-object v11, v0
 
     invoke-direct/range {v1 .. v11}, Lcom/android/server/biometrics/BiometricService;->authenticateInternal(Landroid/os/IBinder;JJILandroid/hardware/biometrics/IBiometricServiceReceiver;Ljava/lang/String;Landroid/hardware/biometrics/PromptInfo;Lcom/android/server/biometrics/PreAuthInfo;)V
+    :try_end_3
+    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_1
 
-    move-object/from16 v4, p9
-
-    goto :goto_1
-
-    :cond_2
-    move-object/from16 v15, p2
-
-    iget-object v1, v14, Landroid/util/Pair;->first:Ljava/lang/Object;
-
-    check-cast v1, Ljava/lang/Integer;
-
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
-
-    move-result v1
-
-    iget-object v2, v14, Landroid/util/Pair;->second:Ljava/lang/Object;
-
-    check-cast v2, Ljava/lang/Integer;
-
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
-
-    move-result v2
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
-
-    const/4 v3, 0x0
-
-    move-object/from16 v4, p9
-
-    :try_start_2
-    invoke-interface {v4, v1, v2, v3}, Landroid/hardware/biometrics/IBiometricServiceReceiver;->onError(III)V
-    :try_end_2
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
-
-    :goto_1
+    :goto_2
     goto :goto_4
-
-    :catch_0
-    move-exception v0
-
-    goto :goto_3
 
     :catch_1
     move-exception v0
 
-    goto :goto_2
+    goto :goto_3
 
     :catch_2
     move-exception v0
 
-    move-object/from16 v15, p2
-
-    :goto_2
-    move-object/from16 v4, p9
+    move-object/from16 v15, p9
 
     :goto_3
     const-string v1, "Remote exception"

@@ -33,9 +33,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {p1}, Lcom/android/server/audio/AudioService;->access$700(Lcom/android/server/audio/AudioService;)Landroid/content/Context;
-
-    move-result-object v0
+    iget-object v0, p1, Lcom/android/server/audio/AudioService;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getMainExecutor()Ljava/util/concurrent/Executor;
 
@@ -104,7 +102,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/server/audio/AudioService;->access$800(Lcom/android/server/audio/AudioService;Z)V
+    invoke-static {v0, v1}, Lcom/android/server/audio/AudioService;->access$700(Lcom/android/server/audio/AudioService;Z)V
 
     :cond_0
     return-void
@@ -115,9 +113,7 @@
 
     iget-object v0, p0, Lcom/android/server/audio/AudioService$RoleObserver;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v0}, Lcom/android/server/audio/AudioService;->access$700(Lcom/android/server/audio/AudioService;)Landroid/content/Context;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/server/audio/AudioService;->mContext:Landroid/content/Context;
 
     const-string/jumbo v1, "role"
 
@@ -141,7 +137,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/server/audio/AudioService;->access$800(Lcom/android/server/audio/AudioService;Z)V
+    invoke-static {v0, v1}, Lcom/android/server/audio/AudioService;->access$700(Lcom/android/server/audio/AudioService;Z)V
 
     :cond_0
     return-void

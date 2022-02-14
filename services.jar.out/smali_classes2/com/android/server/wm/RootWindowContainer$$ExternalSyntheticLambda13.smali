@@ -29,7 +29,7 @@
 
     check-cast p1, Lcom/android/server/wm/Task;
 
-    invoke-static {v0, p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$finishVoiceTask$32(Landroid/service/voice/IVoiceInteractionSession;Lcom/android/server/wm/Task;)V
+    invoke-static {v0, p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$finishVoiceTask$33(Landroid/service/voice/IVoiceInteractionSession;Lcom/android/server/wm/Task;)V
 
     return-void
 .end method

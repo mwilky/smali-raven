@@ -33,7 +33,7 @@
 
     iget-object v1, p0, Lcom/android/server/wm/LockTaskController$$ExternalSyntheticLambda2;->f$1:Lcom/android/server/wm/Task;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/wm/LockTaskController;->lambda$removeLockedTask$0$LockTaskController(Lcom/android/server/wm/Task;)V
+    invoke-virtual {v0, v1}, Lcom/android/server/wm/LockTaskController;->lambda$removeLockedTask$2$LockTaskController(Lcom/android/server/wm/Task;)V
 
     return-void
 .end method

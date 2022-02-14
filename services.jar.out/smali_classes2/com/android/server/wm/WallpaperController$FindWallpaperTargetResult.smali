@@ -15,6 +15,8 @@
 
 
 # instance fields
+.field isWallpaperTargetForLetterbox:Z
+
 .field resetTopWallpaper:Z
 
 .field topWallpaper:Lcom/android/server/wm/WindowState;
@@ -41,6 +43,8 @@
     iput-object v0, p0, Lcom/android/server/wm/WallpaperController$FindWallpaperTargetResult;->wallpaperTarget:Lcom/android/server/wm/WindowState;
 
     iput-boolean v1, p0, Lcom/android/server/wm/WallpaperController$FindWallpaperTargetResult;->resetTopWallpaper:Z
+
+    iput-boolean v1, p0, Lcom/android/server/wm/WallpaperController$FindWallpaperTargetResult;->isWallpaperTargetForLetterbox:Z
 
     return-void
 .end method
@@ -69,6 +73,16 @@
     iput-boolean v0, p0, Lcom/android/server/wm/WallpaperController$FindWallpaperTargetResult;->useTopWallpaperAsTarget:Z
 
     iput-boolean v0, p0, Lcom/android/server/wm/WallpaperController$FindWallpaperTargetResult;->resetTopWallpaper:Z
+
+    iput-boolean v0, p0, Lcom/android/server/wm/WallpaperController$FindWallpaperTargetResult;->isWallpaperTargetForLetterbox:Z
+
+    return-void
+.end method
+
+.method setIsWallpaperTargetForLetterbox(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/wm/WallpaperController$FindWallpaperTargetResult;->isWallpaperTargetForLetterbox:Z
 
     return-void
 .end method

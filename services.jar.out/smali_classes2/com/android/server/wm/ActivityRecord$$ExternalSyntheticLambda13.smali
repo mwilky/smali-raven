@@ -37,7 +37,7 @@
 
     check-cast p1, Lcom/android/server/wm/WindowState;
 
-    invoke-static {p1}, Lcom/android/server/wm/ActivityRecord;->lambda$postApplyAnimation$8(Lcom/android/server/wm/WindowState;)V
+    invoke-virtual {p1}, Lcom/android/server/wm/WindowState;->onExitAnimationDone()V
 
     return-void
 .end method

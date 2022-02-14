@@ -112,7 +112,13 @@
 
     move-result v3
 
-    invoke-static {v3, p2}, Lcom/android/server/broadcastradio/hal2/RadioModule;->tryLoadingModule(ILjava/lang/String;)Lcom/android/server/broadcastradio/hal2/RadioModule;
+    iget-object v4, p0, Lcom/android/server/broadcastradio/hal2/BroadcastRadioService$1;->this$0:Lcom/android/server/broadcastradio/hal2/BroadcastRadioService;
+
+    invoke-static {v4}, Lcom/android/server/broadcastradio/hal2/BroadcastRadioService;->access$000(Lcom/android/server/broadcastradio/hal2/BroadcastRadioService;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    invoke-static {v3, p2, v4}, Lcom/android/server/broadcastradio/hal2/RadioModule;->tryLoadingModule(ILjava/lang/String;Ljava/lang/Object;)Lcom/android/server/broadcastradio/hal2/RadioModule;
 
     move-result-object v3
 

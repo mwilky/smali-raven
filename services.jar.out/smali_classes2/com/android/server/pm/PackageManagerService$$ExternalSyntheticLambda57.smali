@@ -39,7 +39,7 @@
 
     iget-boolean v2, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda57;->f$2:Z
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/pm/PackageManagerService;->lambda$processInstallRequestsAsync$49$PackageManagerService(Ljava/util/List;Z)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/pm/PackageManagerService;->lambda$processInstallRequestsAsync$48$PackageManagerService(Ljava/util/List;Z)V
 
     return-void
 .end method

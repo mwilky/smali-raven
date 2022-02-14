@@ -262,7 +262,17 @@
     return-void
 .end method
 
-.method static synthetic access$100(Lcom/android/server/apphibernation/AppHibernationService;Ljava/io/PrintWriter;)V
+.method static synthetic access$100(Lcom/android/server/apphibernation/AppHibernationService;)Z
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/server/apphibernation/AppHibernationService;->isOatArtifactDeletionEnabled()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic access$200(Lcom/android/server/apphibernation/AppHibernationService;Ljava/io/PrintWriter;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/apphibernation/AppHibernationService;->dump(Ljava/io/PrintWriter;)V
@@ -270,7 +280,7 @@
     return-void
 .end method
 
-.method static synthetic access$200(Lcom/android/server/apphibernation/AppHibernationService;Ljava/lang/String;I)V
+.method static synthetic access$300(Lcom/android/server/apphibernation/AppHibernationService;Ljava/lang/String;I)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/apphibernation/AppHibernationService;->onPackageAdded(Ljava/lang/String;I)V
@@ -278,7 +288,7 @@
     return-void
 .end method
 
-.method static synthetic access$300(Lcom/android/server/apphibernation/AppHibernationService;Ljava/lang/String;I)V
+.method static synthetic access$400(Lcom/android/server/apphibernation/AppHibernationService;Ljava/lang/String;I)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/apphibernation/AppHibernationService;->onPackageRemoved(Ljava/lang/String;I)V
@@ -286,7 +296,7 @@
     return-void
 .end method
 
-.method static synthetic access$400(Lcom/android/server/apphibernation/AppHibernationService;Ljava/lang/String;)V
+.method static synthetic access$500(Lcom/android/server/apphibernation/AppHibernationService;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/apphibernation/AppHibernationService;->onPackageRemovedForAllUsers(Ljava/lang/String;)V
@@ -294,7 +304,7 @@
     return-void
 .end method
 
-.method static synthetic access$500(Lcom/android/server/apphibernation/AppHibernationService;)Landroid/os/UserManager;
+.method static synthetic access$600(Lcom/android/server/apphibernation/AppHibernationService;)Landroid/os/UserManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/apphibernation/AppHibernationService;->mUserManager:Landroid/os/UserManager;
@@ -302,7 +312,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$600(Lcom/android/server/apphibernation/AppHibernationService;)Ljava/lang/Object;
+.method static synthetic access$700(Lcom/android/server/apphibernation/AppHibernationService;)Ljava/lang/Object;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/apphibernation/AppHibernationService;->mLock:Ljava/lang/Object;
@@ -310,7 +320,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$700(Lcom/android/server/apphibernation/AppHibernationService;)Ljava/util/Map;
+.method static synthetic access$800(Lcom/android/server/apphibernation/AppHibernationService;)Ljava/util/Map;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/apphibernation/AppHibernationService;->mGlobalHibernationStates:Ljava/util/Map;
@@ -618,7 +628,7 @@
     throw v1
 .end method
 
-.method private hibernatePackageForUser(Ljava/lang/String;ILcom/android/server/apphibernation/UserLevelState;)V
+.method private hibernatePackageForUser(Ljava/lang/String;I)V
     .locals 7
 
     const-wide/32 v0, 0x80000
@@ -641,10 +651,6 @@
     const/4 v5, 0x0
 
     invoke-interface {v4, p1, p2, v5}, Landroid/content/pm/IPackageManager;->deleteApplicationCacheFilesAsUser(Ljava/lang/String;ILandroid/content/pm/IPackageDataObserver;)V
-
-    const/4 v4, 0x1
-
-    iput-boolean v4, p3, Lcom/android/server/apphibernation/UserLevelState;->hibernated:Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -685,40 +691,57 @@
 .end method
 
 .method private hibernatePackageGlobally(Ljava/lang/String;Lcom/android/server/apphibernation/GlobalLevelState;)V
-    .locals 6
+    .locals 9
 
-    const-wide/32 v0, 0x80000
+    const-string v0, "hibernatePackageGlobally"
 
-    const-string v2, "hibernatePackageGlobally"
+    const-wide/32 v1, 0x80000
 
-    invoke-static {v0, v1, v2}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
+    invoke-static {v1, v2, v0}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
 
-    iget-boolean v2, p0, Lcom/android/server/apphibernation/AppHibernationService;->mOatArtifactDeletionEnabled:Z
+    const-wide/16 v3, 0x0
 
-    if-eqz v2, :cond_0
+    iget-boolean v0, p0, Lcom/android/server/apphibernation/AppHibernationService;->mOatArtifactDeletionEnabled:Z
 
-    iget-object v2, p0, Lcom/android/server/apphibernation/AppHibernationService;->mPackageManagerInternal:Landroid/content/pm/PackageManagerInternal;
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v2, p1}, Landroid/content/pm/PackageManagerInternal;->deleteOatArtifactsOfPackage(Ljava/lang/String;)J
+    iget-object v0, p0, Lcom/android/server/apphibernation/AppHibernationService;->mPackageManagerInternal:Landroid/content/pm/PackageManagerInternal;
 
-    move-result-wide v2
+    invoke-virtual {v0, p1}, Landroid/content/pm/PackageManagerInternal;->deleteOatArtifactsOfPackage(Ljava/lang/String;)J
 
-    const-wide/16 v4, 0x0
+    move-result-wide v5
 
-    invoke-static {v2, v3, v4, v5}, Ljava/lang/Math;->max(JJ)J
+    const-wide/16 v7, 0x0
 
-    move-result-wide v2
+    invoke-static {v5, v6, v7, v8}, Ljava/lang/Math;->max(JJ)J
 
-    iput-wide v2, p2, Lcom/android/server/apphibernation/GlobalLevelState;->savedByte:J
+    move-result-wide v3
 
     :cond_0
-    const/4 v2, 0x1
+    iget-object v0, p0, Lcom/android/server/apphibernation/AppHibernationService;->mLock:Ljava/lang/Object;
 
-    iput-boolean v2, p2, Lcom/android/server/apphibernation/GlobalLevelState;->hibernated:Z
+    monitor-enter v0
 
-    invoke-static {v0, v1}, Landroid/os/Trace;->traceEnd(J)V
+    :try_start_0
+    iput-wide v3, p2, Lcom/android/server/apphibernation/GlobalLevelState;->savedByte:J
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {v1, v2}, Landroid/os/Trace;->traceEnd(J)V
 
     return-void
+
+    :catchall_0
+    move-exception v1
+
+    :try_start_1
+    monitor-exit v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw v1
 .end method
 
 .method private initializeGlobalHibernationStates(Ljava/util/List;)V
@@ -1120,7 +1143,15 @@
     return v0
 .end method
 
-.method static synthetic lambda$setHibernatingForUser$1(Lcom/android/server/apphibernation/UserLevelState;I)V
+.method private isOatArtifactDeletionEnabled()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/apphibernation/AppHibernationService;->mOatArtifactDeletionEnabled:Z
+
+    return v0
+.end method
+
+.method static synthetic lambda$setHibernatingForUser$3(Lcom/android/server/apphibernation/UserLevelState;I)V
     .locals 3
 
     iget-object v0, p0, Lcom/android/server/apphibernation/UserLevelState;->packageName:Ljava/lang/String;
@@ -1323,134 +1354,122 @@
     throw v1
 .end method
 
-.method private unhibernatePackageForUser(Ljava/lang/String;ILcom/android/server/apphibernation/UserLevelState;)V
-    .locals 35
+.method private unhibernatePackageForUser(Ljava/lang/String;I)V
+    .locals 34
 
     move-object/from16 v1, p0
 
     move-object/from16 v2, p1
 
-    move-object/from16 v3, p3
-
-    const-wide/32 v4, 0x80000
+    const-wide/32 v3, 0x80000
 
     const-string/jumbo v0, "unhibernatePackage"
 
-    invoke-static {v4, v5, v0}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, v3, Lcom/android/server/apphibernation/UserLevelState;->hibernated:Z
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v6
-
-    iput-wide v6, v3, Lcom/android/server/apphibernation/UserLevelState;->lastUnhibernatedMs:J
+    invoke-static {v3, v4, v0}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v6
+    move-result-wide v5
 
     :try_start_0
     new-instance v0, Landroid/content/Intent;
 
-    const-string v8, "android.intent.action.LOCKED_BOOT_COMPLETED"
+    const-string v7, "android.intent.action.LOCKED_BOOT_COMPLETED"
 
-    invoke-direct {v0, v8}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v7}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
-    move-result-object v12
+    move-result-object v11
 
     const-string v0, "android.permission.RECEIVE_BOOT_COMPLETED"
 
     filled-new-array {v0}, [Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v17
 
-    iget-object v9, v1, Lcom/android/server/apphibernation/AppHibernationService;->mIActivityManager:Landroid/app/IActivityManager;
+    iget-object v8, v1, Lcom/android/server/apphibernation/AppHibernationService;->mIActivityManager:Landroid/app/IActivityManager;
+
+    const/4 v9, 0x0
 
     const/4 v10, 0x0
 
-    const/4 v11, 0x0
+    const/4 v12, 0x0
 
     const/4 v13, 0x0
 
-    const/4 v14, 0x0
+    const/4 v14, -0x1
 
-    const/4 v15, -0x1
+    const/4 v15, 0x0
 
     const/16 v16, 0x0
 
-    const/16 v17, 0x0
+    const/16 v18, 0x0
 
-    const/16 v19, 0x0
-
-    const/16 v20, -0x1
-
-    const/16 v21, 0x0
-
-    const/16 v22, 0x0
-
-    const/16 v23, 0x0
-
-    move/from16 v24, p2
-
-    invoke-interface/range {v9 .. v24}, Landroid/app/IActivityManager;->broadcastIntentWithFeature(Landroid/app/IApplicationThread;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZI)I
-
-    new-instance v0, Landroid/content/Intent;
-
-    const-string v8, "android.intent.action.BOOT_COMPLETED"
-
-    invoke-direct {v0, v8}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v0, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
-
-    move-result-object v22
-
-    iget-object v0, v1, Lcom/android/server/apphibernation/AppHibernationService;->mIActivityManager:Landroid/app/IActivityManager;
+    const/16 v19, -0x1
 
     const/16 v20, 0x0
 
     const/16 v21, 0x0
 
+    const/16 v22, 0x0
+
+    move/from16 v23, p2
+
+    invoke-interface/range {v8 .. v23}, Landroid/app/IActivityManager;->broadcastIntentWithFeature(Landroid/app/IApplicationThread;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZI)I
+
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v7, "android.intent.action.BOOT_COMPLETED"
+
+    invoke-direct {v0, v7}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, v2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v21
+
+    iget-object v0, v1, Lcom/android/server/apphibernation/AppHibernationService;->mIActivityManager:Landroid/app/IActivityManager;
+
+    const/16 v19, 0x0
+
+    const/16 v20, 0x0
+
+    const/16 v22, 0x0
+
     const/16 v23, 0x0
 
-    const/16 v24, 0x0
+    const/16 v24, -0x1
 
-    const/16 v25, -0x1
+    const/16 v25, 0x0
 
     const/16 v26, 0x0
 
-    const/16 v27, 0x0
+    const/16 v28, 0x0
 
-    const/16 v29, 0x0
+    const/16 v29, -0x1
 
-    const/16 v30, -0x1
+    const/16 v30, 0x0
 
     const/16 v31, 0x0
 
     const/16 v32, 0x0
 
-    const/16 v33, 0x0
+    move-object/from16 v18, v0
 
-    move-object/from16 v19, v0
+    move-object/from16 v27, v17
 
-    move-object/from16 v28, v18
+    move/from16 v33, p2
 
-    move/from16 v34, p2
-
-    invoke-interface/range {v19 .. v34}, Landroid/app/IActivityManager;->broadcastIntentWithFeature(Landroid/app/IApplicationThread;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZI)I
+    invoke-interface/range {v18 .. v33}, Landroid/app/IActivityManager;->broadcastIntentWithFeature(Landroid/app/IApplicationThread;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;ILjava/lang/String;Landroid/os/Bundle;[Ljava/lang/String;[Ljava/lang/String;ILandroid/os/Bundle;ZZI)I
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     nop
 
-    invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v5, v6}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    invoke-static {v4, v5}, Landroid/os/Trace;->traceEnd(J)V
+    invoke-static {v3, v4}, Landroid/os/Trace;->traceEnd(J)V
 
     nop
 
@@ -1467,46 +1486,18 @@
     :try_start_1
     invoke-virtual {v0}, Landroid/os/RemoteException;->rethrowFromSystemServer()Ljava/lang/RuntimeException;
 
-    move-result-object v8
+    move-result-object v7
 
-    throw v8
+    throw v7
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :goto_0
-    invoke-static {v6, v7}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v5, v6}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    invoke-static {v4, v5}, Landroid/os/Trace;->traceEnd(J)V
+    invoke-static {v3, v4}, Landroid/os/Trace;->traceEnd(J)V
 
     throw v0
-.end method
-
-.method private unhibernatePackageGlobally(Ljava/lang/String;Lcom/android/server/apphibernation/GlobalLevelState;)V
-    .locals 4
-
-    const-wide/32 v0, 0x80000
-
-    const-string/jumbo v2, "unhibernatePackageGlobally"
-
-    invoke-static {v0, v1, v2}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
-
-    const/4 v2, 0x0
-
-    iput-boolean v2, p2, Lcom/android/server/apphibernation/GlobalLevelState;->hibernated:Z
-
-    const-wide/16 v2, 0x0
-
-    iput-wide v2, p2, Lcom/android/server/apphibernation/GlobalLevelState;->savedByte:J
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v2
-
-    iput-wide v2, p2, Lcom/android/server/apphibernation/GlobalLevelState;->lastUnhibernatedMs:J
-
-    invoke-static {v0, v1}, Landroid/os/Trace;->traceEnd(J)V
-
-    return-void
 .end method
 
 
@@ -1787,7 +1778,7 @@
     throw v1
 .end method
 
-.method public synthetic lambda$new$3$AppHibernationService(ILandroid/app/usage/UsageEvents$Event;)V
+.method public synthetic lambda$new$6$AppHibernationService(ILandroid/app/usage/UsageEvents$Event;)V
     .locals 3
 
     invoke-static {}, Lcom/android/server/apphibernation/AppHibernationService;->isAppHibernationEnabled()Z
@@ -1856,7 +1847,7 @@
     throw v2
 .end method
 
-.method public synthetic lambda$onUserUnlocking$2$AppHibernationService(Lcom/android/server/apphibernation/HibernationStateDiskStore;I)V
+.method public synthetic lambda$onUserUnlocking$5$AppHibernationService(Lcom/android/server/apphibernation/HibernationStateDiskStore;I)V
     .locals 7
 
     invoke-virtual {p1}, Lcom/android/server/apphibernation/HibernationStateDiskStore;->readHibernationStates()Ljava/util/List;
@@ -1945,6 +1936,30 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v2
+.end method
+
+.method public synthetic lambda$setHibernatingForUser$1$AppHibernationService(Ljava/lang/String;I)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/apphibernation/AppHibernationService;->hibernatePackageForUser(Ljava/lang/String;I)V
+
+    return-void
+.end method
+
+.method public synthetic lambda$setHibernatingForUser$2$AppHibernationService(Ljava/lang/String;I)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/apphibernation/AppHibernationService;->unhibernatePackageForUser(Ljava/lang/String;I)V
+
+    return-void
+.end method
+
+.method public synthetic lambda$setHibernatingGlobally$4$AppHibernationService(Ljava/lang/String;Lcom/android/server/apphibernation/GlobalLevelState;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/apphibernation/AppHibernationService;->hibernatePackageGlobally(Ljava/lang/String;Lcom/android/server/apphibernation/GlobalLevelState;)V
+
+    return-void
 .end method
 
 .method public onBootPhase(I)V
@@ -2100,7 +2115,7 @@
 .end method
 
 .method setHibernatingForUser(Ljava/lang/String;IZ)V
-    .locals 9
+    .locals 10
 
     const-string/jumbo v0, "setHibernatingForUser"
 
@@ -2125,140 +2140,160 @@
 
     invoke-direct {p0, p2, v0}, Lcom/android/server/apphibernation/AppHibernationService;->handleIncomingUser(ILjava/lang/String;)I
 
-    move-result p2
-
-    invoke-direct {p0, p2, v0}, Lcom/android/server/apphibernation/AppHibernationService;->checkUserStatesExist(ILjava/lang/String;)Z
-
     move-result v1
 
-    if-nez v1, :cond_1
+    invoke-direct {p0, v1, v0}, Lcom/android/server/apphibernation/AppHibernationService;->checkUserStatesExist(ILjava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
 
     return-void
 
     :cond_1
-    iget-object v1, p0, Lcom/android/server/apphibernation/AppHibernationService;->mLock:Ljava/lang/Object;
+    iget-object v2, p0, Lcom/android/server/apphibernation/AppHibernationService;->mLock:Ljava/lang/Object;
 
-    monitor-enter v1
+    monitor-enter v2
 
     :try_start_0
-    iget-object v2, p0, Lcom/android/server/apphibernation/AppHibernationService;->mUserStates:Landroid/util/SparseArray;
+    iget-object v3, p0, Lcom/android/server/apphibernation/AppHibernationService;->mUserStates:Landroid/util/SparseArray;
 
-    invoke-virtual {v2, p2}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/util/Map;
-
-    invoke-interface {v2, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3, v1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
-    check-cast v3, Lcom/android/server/apphibernation/UserLevelState;
+    check-cast v3, Ljava/util/Map;
 
-    if-nez v3, :cond_2
+    invoke-interface {v3, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string v4, "AppHibernationService"
+    move-result-object v4
 
-    const-string v5, "Package %s is not installed for user %s"
+    check-cast v4, Lcom/android/server/apphibernation/UserLevelState;
 
-    const/4 v6, 0x2
+    if-nez v4, :cond_2
 
-    new-array v6, v6, [Ljava/lang/Object;
+    const-string v5, "AppHibernationService"
 
-    const/4 v7, 0x0
+    const-string v6, "Package %s is not installed for user %s"
 
-    aput-object p1, v6, v7
+    const/4 v7, 0x2
 
-    const/4 v7, 0x1
+    new-array v7, v7, [Ljava/lang/Object;
 
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/4 v8, 0x0
 
-    move-result-object v8
+    aput-object p1, v7, v8
 
-    aput-object v8, v6, v7
+    const/4 v8, 0x1
 
-    invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v5
+    move-result-object v9
 
-    invoke-static {v4, v5}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    aput-object v9, v7, v8
 
-    monitor-exit v1
+    invoke-static {v6, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    monitor-exit v2
 
     return-void
 
     :cond_2
-    iget-boolean v4, v3, Lcom/android/server/apphibernation/UserLevelState;->hibernated:Z
+    iget-boolean v5, v4, Lcom/android/server/apphibernation/UserLevelState;->hibernated:Z
 
-    if-ne v4, p3, :cond_3
+    if-ne v5, p3, :cond_3
 
-    monitor-exit v1
+    monitor-exit v2
 
     return-void
 
     :cond_3
+    iput-boolean p3, v4, Lcom/android/server/apphibernation/UserLevelState;->hibernated:Z
+
     if-eqz p3, :cond_4
 
-    invoke-direct {p0, p1, p2, v3}, Lcom/android/server/apphibernation/AppHibernationService;->hibernatePackageForUser(Ljava/lang/String;ILcom/android/server/apphibernation/UserLevelState;)V
+    iget-object v5, p0, Lcom/android/server/apphibernation/AppHibernationService;->mBackgroundExecutor:Ljava/util/concurrent/Executor;
+
+    new-instance v6, Lcom/android/server/apphibernation/AppHibernationService$$ExternalSyntheticLambda4;
+
+    invoke-direct {v6, p0, p1, v1}, Lcom/android/server/apphibernation/AppHibernationService$$ExternalSyntheticLambda4;-><init>(Lcom/android/server/apphibernation/AppHibernationService;Ljava/lang/String;I)V
+
+    invoke-interface {v5, v6}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
     goto :goto_0
 
     :cond_4
-    invoke-direct {p0, p1, p2, v3}, Lcom/android/server/apphibernation/AppHibernationService;->unhibernatePackageForUser(Ljava/lang/String;ILcom/android/server/apphibernation/UserLevelState;)V
+    iget-object v5, p0, Lcom/android/server/apphibernation/AppHibernationService;->mBackgroundExecutor:Ljava/util/concurrent/Executor;
+
+    new-instance v6, Lcom/android/server/apphibernation/AppHibernationService$$ExternalSyntheticLambda5;
+
+    invoke-direct {v6, p0, p1, v1}, Lcom/android/server/apphibernation/AppHibernationService$$ExternalSyntheticLambda5;-><init>(Lcom/android/server/apphibernation/AppHibernationService;Ljava/lang/String;I)V
+
+    invoke-interface {v5, v6}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v5
+
+    iput-wide v5, v4, Lcom/android/server/apphibernation/UserLevelState;->lastUnhibernatedMs:J
 
     :goto_0
-    new-instance v4, Lcom/android/server/apphibernation/UserLevelState;
+    new-instance v5, Lcom/android/server/apphibernation/UserLevelState;
 
-    invoke-direct {v4, v3}, Lcom/android/server/apphibernation/UserLevelState;-><init>(Lcom/android/server/apphibernation/UserLevelState;)V
+    invoke-direct {v5, v4}, Lcom/android/server/apphibernation/UserLevelState;-><init>(Lcom/android/server/apphibernation/UserLevelState;)V
 
-    move v5, p2
+    move v6, v1
 
-    iget-object v6, p0, Lcom/android/server/apphibernation/AppHibernationService;->mBackgroundExecutor:Ljava/util/concurrent/Executor;
+    iget-object v7, p0, Lcom/android/server/apphibernation/AppHibernationService;->mBackgroundExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v7, Lcom/android/server/apphibernation/AppHibernationService$$ExternalSyntheticLambda4;
+    new-instance v8, Lcom/android/server/apphibernation/AppHibernationService$$ExternalSyntheticLambda7;
 
-    invoke-direct {v7, v4, v5}, Lcom/android/server/apphibernation/AppHibernationService$$ExternalSyntheticLambda4;-><init>(Lcom/android/server/apphibernation/UserLevelState;I)V
+    invoke-direct {v8, v5, v6}, Lcom/android/server/apphibernation/AppHibernationService$$ExternalSyntheticLambda7;-><init>(Lcom/android/server/apphibernation/UserLevelState;I)V
 
-    invoke-interface {v6, v7}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+    invoke-interface {v7, v8}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    new-instance v6, Ljava/util/ArrayList;
+    new-instance v7, Ljava/util/ArrayList;
 
-    iget-object v7, p0, Lcom/android/server/apphibernation/AppHibernationService;->mUserStates:Landroid/util/SparseArray;
+    iget-object v8, p0, Lcom/android/server/apphibernation/AppHibernationService;->mUserStates:Landroid/util/SparseArray;
 
-    invoke-virtual {v7, p2}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {v8, v1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v8
 
-    check-cast v7, Ljava/util/Map;
+    check-cast v8, Ljava/util/Map;
 
-    invoke-interface {v7}, Ljava/util/Map;->values()Ljava/util/Collection;
+    invoke-interface {v8}, Ljava/util/Map;->values()Ljava/util/Collection;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-direct {v6, v7}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+    invoke-direct {v7, v8}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    iget-object v7, p0, Lcom/android/server/apphibernation/AppHibernationService;->mUserDiskStores:Landroid/util/SparseArray;
+    iget-object v8, p0, Lcom/android/server/apphibernation/AppHibernationService;->mUserDiskStores:Landroid/util/SparseArray;
 
-    invoke-virtual {v7, p2}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {v8, v1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v8
 
-    check-cast v7, Lcom/android/server/apphibernation/HibernationStateDiskStore;
+    check-cast v8, Lcom/android/server/apphibernation/HibernationStateDiskStore;
 
-    invoke-virtual {v7, v6}, Lcom/android/server/apphibernation/HibernationStateDiskStore;->scheduleWriteHibernationStates(Ljava/util/List;)V
+    invoke-virtual {v8, v7}, Lcom/android/server/apphibernation/HibernationStateDiskStore;->scheduleWriteHibernationStates(Ljava/util/List;)V
 
-    monitor-exit v1
+    monitor-exit v2
 
     return-void
 
     :catchall_0
-    move-exception v2
+    move-exception v3
 
-    monitor-exit v1
+    monitor-exit v2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v2
+    throw v3
 .end method
 
 .method setHibernatingGlobally(Ljava/lang/String;Z)V
@@ -2327,14 +2362,30 @@
 
     if-eq v2, p2, :cond_3
 
+    iput-boolean p2, v1, Lcom/android/server/apphibernation/GlobalLevelState;->hibernated:Z
+
     if-eqz p2, :cond_2
 
-    invoke-direct {p0, p1, v1}, Lcom/android/server/apphibernation/AppHibernationService;->hibernatePackageGlobally(Ljava/lang/String;Lcom/android/server/apphibernation/GlobalLevelState;)V
+    iget-object v2, p0, Lcom/android/server/apphibernation/AppHibernationService;->mBackgroundExecutor:Ljava/util/concurrent/Executor;
+
+    new-instance v3, Lcom/android/server/apphibernation/AppHibernationService$$ExternalSyntheticLambda6;
+
+    invoke-direct {v3, p0, p1, v1}, Lcom/android/server/apphibernation/AppHibernationService$$ExternalSyntheticLambda6;-><init>(Lcom/android/server/apphibernation/AppHibernationService;Ljava/lang/String;Lcom/android/server/apphibernation/GlobalLevelState;)V
+
+    invoke-interface {v2, v3}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
     goto :goto_0
 
     :cond_2
-    invoke-direct {p0, p1, v1}, Lcom/android/server/apphibernation/AppHibernationService;->unhibernatePackageGlobally(Ljava/lang/String;Lcom/android/server/apphibernation/GlobalLevelState;)V
+    const-wide/16 v2, 0x0
+
+    iput-wide v2, v1, Lcom/android/server/apphibernation/GlobalLevelState;->savedByte:J
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v2
+
+    iput-wide v2, v1, Lcom/android/server/apphibernation/GlobalLevelState;->lastUnhibernatedMs:J
 
     :goto_0
     new-instance v2, Ljava/util/ArrayList;

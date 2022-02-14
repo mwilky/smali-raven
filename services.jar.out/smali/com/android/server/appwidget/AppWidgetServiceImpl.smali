@@ -3979,13 +3979,13 @@
     :goto_2
     nop
 
-    const v9, 0x102055a
+    const v9, 0x102055d
 
     invoke-virtual {v5, v9, v8}, Landroid/widget/RemoteViews;->setImageViewIcon(ILandroid/graphics/drawable/Icon;)V
 
     if-nez v0, :cond_7
 
-    const v9, 0x102055b
+    const v9, 0x102055e
 
     const/4 v10, 0x4
 

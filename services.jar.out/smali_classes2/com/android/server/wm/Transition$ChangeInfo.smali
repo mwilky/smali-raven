@@ -29,6 +29,8 @@
 
 .field mExistenceChanged:Z
 
+.field mKnownConfigChanges:I
+
 .field mParent:Lcom/android/server/wm/WindowContainer;
 
 .field mRotation:I
@@ -178,7 +180,7 @@
 .end method
 
 .method getChangeFlags(Lcom/android/server/wm/WindowContainer;)I
-    .locals 4
+    .locals 5
 
     const/4 v0, 0x0
 
@@ -238,15 +240,41 @@
     or-int/lit8 v0, v0, 0x10
 
     :cond_5
-    invoke-static {p1}, Lcom/android/server/wm/Transition;->access$000(Lcom/android/server/wm/WindowContainer;)Z
+    invoke-virtual {p1}, Lcom/android/server/wm/WindowContainer;->asDisplayContent()Lcom/android/server/wm/DisplayContent;
 
-    move-result v3
+    move-result-object v3
 
     if-eqz v3, :cond_6
 
-    or-int/lit8 v0, v0, 0x2
+    or-int/lit8 v0, v0, 0x20
+
+    invoke-virtual {v3}, Lcom/android/server/wm/DisplayContent;->hasAlertWindowSurfaces()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_6
+
+    or-int/lit16 v0, v0, 0x80
 
     :cond_6
+    invoke-static {p1}, Lcom/android/server/wm/Transition;->access$100(Lcom/android/server/wm/WindowContainer;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_7
+
+    or-int/lit8 v0, v0, 0x2
+
+    :cond_7
+    invoke-static {p1}, Lcom/android/server/wm/Transition;->access$200(Lcom/android/server/wm/WindowContainer;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_8
+
+    or-int/lit8 v0, v0, 0x40
+
+    :cond_8
     return v0
 .end method
 
@@ -315,6 +343,10 @@
 
     :cond_0
     if-ne v0, v1, :cond_2
+
+    iget v1, p0, Lcom/android/server/wm/Transition$ChangeInfo;->mKnownConfigChanges:I
+
+    if-nez v1, :cond_2
 
     iget v1, p0, Lcom/android/server/wm/Transition$ChangeInfo;->mWindowingMode:I
 

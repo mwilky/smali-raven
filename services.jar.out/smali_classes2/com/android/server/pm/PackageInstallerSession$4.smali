@@ -56,7 +56,7 @@
 
     iget-object v4, v0, Lcom/android/server/pm/PackageInstallerSession$4;->this$0:Lcom/android/server/pm/PackageInstallerSession;
 
-    invoke-static {v4, v2, v3}, Lcom/android/server/pm/PackageInstallerSession;->access$2500(Lcom/android/server/pm/PackageInstallerSession;ILjava/lang/String;)V
+    invoke-static {v4, v2, v3}, Lcom/android/server/pm/PackageInstallerSession;->access$2400(Lcom/android/server/pm/PackageInstallerSession;ILjava/lang/String;)V
 
     goto :goto_0
 
@@ -93,7 +93,7 @@
 
     iget-object v4, v0, Lcom/android/server/pm/PackageInstallerSession$4;->this$0:Lcom/android/server/pm/PackageInstallerSession;
 
-    invoke-static {v4}, Lcom/android/server/pm/PackageInstallerSession;->access$2200(Lcom/android/server/pm/PackageInstallerSession;)Landroid/content/Context;
+    invoke-static {v4}, Lcom/android/server/pm/PackageInstallerSession;->access$2100(Lcom/android/server/pm/PackageInstallerSession;)Landroid/content/Context;
 
     move-result-object v4
 
@@ -103,7 +103,7 @@
 
     iget-object v5, v0, Lcom/android/server/pm/PackageInstallerSession$4;->this$0:Lcom/android/server/pm/PackageInstallerSession;
 
-    invoke-static {v5}, Lcom/android/server/pm/PackageInstallerSession;->access$2300(Lcom/android/server/pm/PackageInstallerSession;)Z
+    invoke-static {v5}, Lcom/android/server/pm/PackageInstallerSession;->access$2200(Lcom/android/server/pm/PackageInstallerSession;)Z
 
     move-result v7
 
@@ -123,28 +123,28 @@
 
     move-object v12, v14
 
-    invoke-static/range {v4 .. v12}, Lcom/android/server/pm/PackageInstallerSession;->access$2400(Landroid/content/Context;Landroid/content/IntentSender;IZILjava/lang/String;ILjava/lang/String;Landroid/os/Bundle;)V
+    invoke-static/range {v4 .. v12}, Lcom/android/server/pm/PackageInstallerSession;->access$2300(Landroid/content/Context;Landroid/content/IntentSender;IZILjava/lang/String;ILjava/lang/String;Landroid/os/Bundle;)V
 
     goto :goto_0
 
     :pswitch_2
     iget-object v2, v0, Lcom/android/server/pm/PackageInstallerSession$4;->this$0:Lcom/android/server/pm/PackageInstallerSession;
 
-    invoke-static {v2}, Lcom/android/server/pm/PackageInstallerSession;->access$2100(Lcom/android/server/pm/PackageInstallerSession;)V
+    invoke-static {v2}, Lcom/android/server/pm/PackageInstallerSession;->access$2000(Lcom/android/server/pm/PackageInstallerSession;)V
 
     goto :goto_0
 
     :pswitch_3
     iget-object v2, v0, Lcom/android/server/pm/PackageInstallerSession$4;->this$0:Lcom/android/server/pm/PackageInstallerSession;
 
-    invoke-static {v2}, Lcom/android/server/pm/PackageInstallerSession;->access$2000(Lcom/android/server/pm/PackageInstallerSession;)V
+    invoke-static {v2}, Lcom/android/server/pm/PackageInstallerSession;->access$1900(Lcom/android/server/pm/PackageInstallerSession;)V
 
     goto :goto_0
 
     :pswitch_4
     iget-object v2, v0, Lcom/android/server/pm/PackageInstallerSession$4;->this$0:Lcom/android/server/pm/PackageInstallerSession;
 
-    invoke-static {v2}, Lcom/android/server/pm/PackageInstallerSession;->access$1900(Lcom/android/server/pm/PackageInstallerSession;)V
+    invoke-static {v2}, Lcom/android/server/pm/PackageInstallerSession;->access$1800(Lcom/android/server/pm/PackageInstallerSession;)V
 
     nop
 

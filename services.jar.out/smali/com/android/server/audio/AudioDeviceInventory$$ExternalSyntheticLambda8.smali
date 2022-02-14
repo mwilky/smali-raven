@@ -29,7 +29,7 @@
 
     check-cast p1, Ljava/lang/String;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/audio/AudioDeviceInventory;->lambda$disconnectA2dpSink$8$AudioDeviceInventory(Ljava/lang/String;)V
+    invoke-virtual {v0, p1}, Lcom/android/server/audio/AudioDeviceInventory;->lambda$disconnectA2dpSink$9$AudioDeviceInventory(Ljava/lang/String;)V
 
     return-void
 .end method

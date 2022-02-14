@@ -29,7 +29,7 @@
 
     check-cast p1, Lcom/android/server/wm/WindowState;
 
-    invoke-static {v0, p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$canShowStrictModeViolation$6(ILcom/android/server/wm/WindowState;)Z
+    invoke-static {v0, p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$getDisplayContextsWithNonToastVisibleWindows$10(ILcom/android/server/wm/WindowState;)Z
 
     move-result p1
 

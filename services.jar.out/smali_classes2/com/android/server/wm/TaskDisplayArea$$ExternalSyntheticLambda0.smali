@@ -27,7 +27,7 @@
 
     iget-object v0, p0, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/wm/TaskDisplayArea;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/TaskDisplayArea;->lambda$onParentChanged$5$TaskDisplayArea()V
+    invoke-virtual {v0}, Lcom/android/server/wm/TaskDisplayArea;->lambda$onParentChanged$6$TaskDisplayArea()V
 
     return-void
 .end method

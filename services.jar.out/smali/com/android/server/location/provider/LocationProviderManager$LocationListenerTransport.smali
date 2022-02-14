@@ -56,8 +56,8 @@
     return-void
 .end method
 
-.method public deliverOnLocationChanged(Landroid/location/LocationResult;Ljava/lang/Runnable;)V
-    .locals 3
+.method public deliverOnLocationChanged(Landroid/location/LocationResult;Landroid/os/IRemoteCallback;)V
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -70,11 +70,7 @@
 
     move-result-object v1
 
-    invoke-static {p2}, Lcom/android/server/location/provider/LocationProviderManager$SingleUseCallback;->wrap(Ljava/lang/Runnable;)Lcom/android/server/location/provider/LocationProviderManager$SingleUseCallback;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Landroid/location/ILocationListener;->onLocationChanged(Ljava/util/List;Landroid/os/IRemoteCallback;)V
+    invoke-interface {v0, v1, p2}, Landroid/location/ILocationListener;->onLocationChanged(Ljava/util/List;Landroid/os/IRemoteCallback;)V
 
     return-void
 .end method

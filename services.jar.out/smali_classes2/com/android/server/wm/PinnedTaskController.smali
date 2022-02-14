@@ -165,6 +165,36 @@
     return-void
 .end method
 
+.method static synthetic lambda$deferOrientationChangeForEnteringPipFromFullScreenIfNeeded$1(Lcom/android/server/wm/ActivityRecord;)Z
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/server/wm/ActivityRecord;->fillsParent()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/server/wm/ActivityRecord;->getTask()Lcom/android/server/wm/Task;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/server/wm/Task;->inMultiWindowMode()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
 .method private notifyActionsChanged(Ljava/util/List;)V
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
@@ -339,7 +369,7 @@
 
     move-result-object v0
 
-    const v1, 0x10500c3
+    const v1, 0x10500c4
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -347,7 +377,7 @@
 
     iput v1, p0, Lcom/android/server/wm/PinnedTaskController;->mMinAspectRatio:F
 
-    const v1, 0x10500c2
+    const v1, 0x10500c3
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -361,102 +391,88 @@
 
 # virtual methods
 .method deferOrientationChangeForEnteringPipFromFullScreenIfNeeded()V
-    .locals 8
+    .locals 7
 
     iget-object v0, p0, Lcom/android/server/wm/PinnedTaskController;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/DisplayContent;->getDefaultTaskDisplayArea()Lcom/android/server/wm/TaskDisplayArea;
+    sget-object v1, Lcom/android/server/wm/PinnedTaskController$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/server/wm/PinnedTaskController$$ExternalSyntheticLambda1;
+
+    invoke-virtual {v0, v1}, Lcom/android/server/wm/DisplayContent;->getActivity(Ljava/util/function/Predicate;)Lcom/android/server/wm/ActivityRecord;
 
     move-result-object v0
 
-    const/4 v1, 0x1
+    if-eqz v0, :cond_2
 
-    invoke-virtual {v0, v1}, Lcom/android/server/wm/TaskDisplayArea;->getTopRootTaskInWindowingMode(I)Lcom/android/server/wm/Task;
+    invoke-virtual {v0}, Lcom/android/server/wm/ActivityRecord;->hasFixedRotationTransform()Z
 
-    move-result-object v0
+    move-result v1
 
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Lcom/android/server/wm/Task;->topRunningActivity()Lcom/android/server/wm/ActivityRecord;
-
-    move-result-object v2
+    if-eqz v1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x0
+    iget-object v1, p0, Lcom/android/server/wm/PinnedTaskController;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
-    :goto_0
-    if-eqz v2, :cond_3
+    invoke-virtual {v1, v0}, Lcom/android/server/wm/DisplayContent;->rotationForActivityInDifferentOrientation(Lcom/android/server/wm/ActivityRecord;)I
 
-    invoke-virtual {v2}, Lcom/android/server/wm/ActivityRecord;->hasFixedRotationTransform()Z
+    move-result v1
 
-    move-result v3
+    const/4 v2, -0x1
 
-    if-eqz v3, :cond_1
+    if-ne v1, v2, :cond_1
 
-    goto :goto_1
+    return-void
 
     :cond_1
-    iget-object v3, p0, Lcom/android/server/wm/PinnedTaskController;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
+    iget-object v2, p0, Lcom/android/server/wm/PinnedTaskController;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
-    invoke-virtual {v3, v2}, Lcom/android/server/wm/DisplayContent;->rotationForActivityInDifferentOrientation(Lcom/android/server/wm/ActivityRecord;)I
+    invoke-virtual {v2, v0, v1}, Lcom/android/server/wm/DisplayContent;->setFixedRotationLaunchingApp(Lcom/android/server/wm/ActivityRecord;I)V
+
+    const/4 v2, 0x1
+
+    iput-boolean v2, p0, Lcom/android/server/wm/PinnedTaskController;->mDeferOrientationChanging:Z
+
+    iget-object v2, p0, Lcom/android/server/wm/PinnedTaskController;->mService:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v2, v2, Lcom/android/server/wm/WindowManagerService;->mH:Lcom/android/server/wm/WindowManagerService$H;
+
+    iget-object v3, p0, Lcom/android/server/wm/PinnedTaskController;->mDeferOrientationTimeoutRunnable:Ljava/lang/Runnable;
+
+    invoke-virtual {v2, v3}, Lcom/android/server/wm/WindowManagerService$H;->removeCallbacks(Ljava/lang/Runnable;)V
+
+    const/high16 v2, 0x3f800000    # 1.0f
+
+    iget-object v3, p0, Lcom/android/server/wm/PinnedTaskController;->mService:Lcom/android/server/wm/WindowManagerService;
+
+    invoke-virtual {v3}, Lcom/android/server/wm/WindowManagerService;->getCurrentAnimatorScale()F
 
     move-result v3
 
-    const/4 v4, -0x1
+    invoke-static {v2, v3}, Ljava/lang/Math;->max(FF)F
 
-    if-ne v3, v4, :cond_2
+    move-result v2
+
+    iget-object v3, p0, Lcom/android/server/wm/PinnedTaskController;->mService:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v3, v3, Lcom/android/server/wm/WindowManagerService;->mH:Lcom/android/server/wm/WindowManagerService$H;
+
+    iget-object v4, p0, Lcom/android/server/wm/PinnedTaskController;->mDeferOrientationTimeoutRunnable:Ljava/lang/Runnable;
+
+    const/high16 v5, 0x447a0000    # 1000.0f
+
+    mul-float/2addr v5, v2
+
+    float-to-int v5, v5
+
+    int-to-long v5, v5
+
+    invoke-virtual {v3, v4, v5, v6}, Lcom/android/server/wm/WindowManagerService$H;->postDelayed(Ljava/lang/Runnable;J)Z
 
     return-void
 
     :cond_2
-    iget-object v4, p0, Lcom/android/server/wm/PinnedTaskController;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
-
-    invoke-virtual {v4, v2, v3}, Lcom/android/server/wm/DisplayContent;->setFixedRotationLaunchingApp(Lcom/android/server/wm/ActivityRecord;I)V
-
-    iput-boolean v1, p0, Lcom/android/server/wm/PinnedTaskController;->mDeferOrientationChanging:Z
-
-    iget-object v1, p0, Lcom/android/server/wm/PinnedTaskController;->mService:Lcom/android/server/wm/WindowManagerService;
-
-    iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mH:Lcom/android/server/wm/WindowManagerService$H;
-
-    iget-object v4, p0, Lcom/android/server/wm/PinnedTaskController;->mDeferOrientationTimeoutRunnable:Ljava/lang/Runnable;
-
-    invoke-virtual {v1, v4}, Lcom/android/server/wm/WindowManagerService$H;->removeCallbacks(Ljava/lang/Runnable;)V
-
-    const/high16 v1, 0x3f800000    # 1.0f
-
-    iget-object v4, p0, Lcom/android/server/wm/PinnedTaskController;->mService:Lcom/android/server/wm/WindowManagerService;
-
-    invoke-virtual {v4}, Lcom/android/server/wm/WindowManagerService;->getCurrentAnimatorScale()F
-
-    move-result v4
-
-    invoke-static {v1, v4}, Ljava/lang/Math;->max(FF)F
-
-    move-result v1
-
-    iget-object v4, p0, Lcom/android/server/wm/PinnedTaskController;->mService:Lcom/android/server/wm/WindowManagerService;
-
-    iget-object v4, v4, Lcom/android/server/wm/WindowManagerService;->mH:Lcom/android/server/wm/WindowManagerService$H;
-
-    iget-object v5, p0, Lcom/android/server/wm/PinnedTaskController;->mDeferOrientationTimeoutRunnable:Ljava/lang/Runnable;
-
-    const/high16 v6, 0x447a0000    # 1000.0f
-
-    mul-float/2addr v6, v1
-
-    float-to-int v6, v6
-
-    int-to-long v6, v6
-
-    invoke-virtual {v4, v5, v6, v7}, Lcom/android/server/wm/WindowManagerService$H;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    return-void
-
-    :cond_3
-    :goto_1
+    :goto_0
     return-void
 .end method
 
@@ -928,7 +944,7 @@
     return-void
 .end method
 
-.method onCancelFixedRotationTransform(Lcom/android/server/wm/Task;)V
+.method onCancelFixedRotationTransform()V
     .locals 1
 
     const/4 v0, 0x0
@@ -943,23 +959,6 @@
 
     iput-object v0, p0, Lcom/android/server/wm/PinnedTaskController;->mPipTransaction:Landroid/window/PictureInPictureSurfaceTransaction;
 
-    invoke-virtual {p1}, Lcom/android/server/wm/Task;->isOrganized()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    invoke-virtual {p1}, Lcom/android/server/wm/Task;->getParent()Lcom/android/server/wm/WindowContainer;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/server/wm/WindowContainer;->getConfiguration()Landroid/content/res/Configuration;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Lcom/android/server/wm/Task;->onConfigurationChanged(Landroid/content/res/Configuration;)V
-
-    :cond_0
     return-void
 .end method
 
@@ -1140,8 +1139,19 @@
 
     iput-object v0, p0, Lcom/android/server/wm/PinnedTaskController;->mDestRotatedBounds:Landroid/graphics/Rect;
 
+    iget-object v0, p0, Lcom/android/server/wm/PinnedTaskController;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
+
+    iget-object v0, v0, Lcom/android/server/wm/DisplayContent;->mTransitionController:Lcom/android/server/wm/TransitionController;
+
+    invoke-virtual {v0}, Lcom/android/server/wm/TransitionController;->isShellTransitionsEnabled()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
     invoke-direct {p0}, Lcom/android/server/wm/PinnedTaskController;->continueOrientationChange()V
 
+    :cond_1
     return-void
 .end method
 
@@ -1166,7 +1176,7 @@
 .end method
 
 .method startSeamlessRotationIfNeeded(Landroid/view/SurfaceControl$Transaction;II)V
-    .locals 20
+    .locals 21
 
     move-object/from16 v0, p0
 
@@ -1176,278 +1186,313 @@
 
     iget-object v3, v0, Lcom/android/server/wm/PinnedTaskController;->mPipTransaction:Landroid/window/PictureInPictureSurfaceTransaction;
 
-    if-nez v2, :cond_0
+    if-eqz v3, :cond_1
 
-    if-nez v3, :cond_0
+    iget-object v4, v3, Landroid/window/PictureInPictureSurfaceTransaction;->mPosition:Landroid/graphics/PointF;
 
-    return-void
-
-    :cond_0
-    iget-object v4, v0, Lcom/android/server/wm/PinnedTaskController;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
-
-    invoke-virtual {v4}, Lcom/android/server/wm/DisplayContent;->getDefaultTaskDisplayArea()Lcom/android/server/wm/TaskDisplayArea;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Lcom/android/server/wm/TaskDisplayArea;->getRootPinnedTask()Lcom/android/server/wm/Task;
-
-    move-result-object v5
-
-    if-nez v5, :cond_1
-
-    return-void
-
-    :cond_1
-    const/4 v6, 0x0
-
-    iput-object v6, v0, Lcom/android/server/wm/PinnedTaskController;->mDestRotatedBounds:Landroid/graphics/Rect;
-
-    iput-object v6, v0, Lcom/android/server/wm/PinnedTaskController;->mPipTransaction:Landroid/window/PictureInPictureSurfaceTransaction;
-
-    invoke-virtual {v4}, Lcom/android/server/wm/TaskDisplayArea;->getBounds()Landroid/graphics/Rect;
-
-    move-result-object v7
-
-    const/16 v8, 0x9
-
-    const-string v9, "WindowManager"
-
-    if-eqz v3, :cond_4
-
-    iget v6, v3, Landroid/window/PictureInPictureSurfaceTransaction;->mPositionX:F
-
-    iget v10, v3, Landroid/window/PictureInPictureSurfaceTransaction;->mPositionY:F
-
-    invoke-virtual {v3}, Landroid/window/PictureInPictureSurfaceTransaction;->getMatrix()Landroid/graphics/Matrix;
-
-    move-result-object v11
-
-    iget v12, v3, Landroid/window/PictureInPictureSurfaceTransaction;->mRotation:F
-
-    const/high16 v13, 0x42b40000    # 90.0f
-
-    cmpl-float v12, v12, v13
-
-    const/high16 v14, -0x3d4c0000    # -90.0f
-
-    if-nez v12, :cond_2
-
-    iget v6, v3, Landroid/window/PictureInPictureSurfaceTransaction;->mPositionY:F
-
-    iget v12, v7, Landroid/graphics/Rect;->right:I
-
-    int-to-float v12, v12
-
-    iget v13, v3, Landroid/window/PictureInPictureSurfaceTransaction;->mPositionX:F
-
-    sub-float v10, v12, v13
-
-    invoke-virtual {v11, v14}, Landroid/graphics/Matrix;->postRotate(F)Z
+    if-nez v4, :cond_0
 
     goto :goto_0
 
-    :cond_2
-    iget v12, v3, Landroid/window/PictureInPictureSurfaceTransaction;->mRotation:F
-
-    cmpl-float v12, v12, v14
-
-    if-nez v12, :cond_3
-
-    iget v12, v7, Landroid/graphics/Rect;->bottom:I
-
-    int-to-float v12, v12
-
-    iget v14, v3, Landroid/window/PictureInPictureSurfaceTransaction;->mPositionY:F
-
-    sub-float v6, v12, v14
-
-    iget v10, v3, Landroid/window/PictureInPictureSurfaceTransaction;->mPositionX:F
-
-    invoke-virtual {v11, v13}, Landroid/graphics/Matrix;->postRotate(F)Z
-
-    :cond_3
-    :goto_0
-    invoke-virtual {v11, v6, v10}, Landroid/graphics/Matrix;->postTranslate(FF)Z
-
-    invoke-virtual {v5}, Lcom/android/server/wm/Task;->getSurfaceControl()Landroid/view/SurfaceControl;
-
-    move-result-object v12
-
-    new-array v8, v8, [F
-
-    invoke-virtual {v1, v12, v11, v8}, Landroid/view/SurfaceControl$Transaction;->setMatrix(Landroid/view/SurfaceControl;Landroid/graphics/Matrix;[F)Landroid/view/SurfaceControl$Transaction;
-
-    move-result-object v8
-
-    iget v13, v3, Landroid/window/PictureInPictureSurfaceTransaction;->mCornerRadius:F
-
-    invoke-virtual {v8, v12, v13}, Landroid/view/SurfaceControl$Transaction;->setCornerRadius(Landroid/view/SurfaceControl;F)Landroid/view/SurfaceControl$Transaction;
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v13, "Seamless rotation PiP tx="
-
-    invoke-virtual {v8, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v8, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string v13, " pos="
-
-    invoke-virtual {v8, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    const-string v13, ","
-
-    invoke-virtual {v8, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v8, v10}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v9, v8}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_4
-    invoke-virtual {v5}, Lcom/android/server/wm/Task;->getPictureInPictureParams()Landroid/app/PictureInPictureParams;
-
-    move-result-object v10
-
-    if-eqz v10, :cond_5
-
-    invoke-virtual {v10}, Landroid/app/PictureInPictureParams;->hasSourceBoundsHint()Z
-
-    move-result v11
-
-    if-eqz v11, :cond_5
-
-    invoke-virtual {v10}, Landroid/app/PictureInPictureParams;->getSourceRectHint()Landroid/graphics/Rect;
-
-    move-result-object v6
+    :cond_0
+    const/4 v4, 0x0
 
     goto :goto_1
 
-    :cond_5
-    nop
+    :cond_1
+    :goto_0
+    const/4 v4, 0x1
 
     :goto_1
-    nop
+    if-nez v2, :cond_2
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    if-eqz v4, :cond_2
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    return-void
 
-    const-string v12, "Seamless rotation PiP bounds="
+    :cond_2
+    iget-object v5, v0, Lcom/android/server/wm/PinnedTaskController;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5}, Lcom/android/server/wm/DisplayContent;->getDefaultTaskDisplayArea()Lcom/android/server/wm/TaskDisplayArea;
 
-    invoke-virtual {v11, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-result-object v5
 
-    const-string v12, " hintRect="
+    invoke-virtual {v5}, Lcom/android/server/wm/TaskDisplayArea;->getRootPinnedTask()Lcom/android/server/wm/Task;
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v6
 
-    invoke-virtual {v11, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    if-nez v6, :cond_3
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    return-void
 
-    move-result-object v11
+    :cond_3
+    const/4 v7, 0x0
 
-    invoke-static {v9, v11}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    iput-object v7, v0, Lcom/android/server/wm/PinnedTaskController;->mDestRotatedBounds:Landroid/graphics/Rect;
 
-    invoke-static/range {p2 .. p3}, Landroid/util/RotationUtils;->deltaRotation(II)I
+    iput-object v7, v0, Lcom/android/server/wm/PinnedTaskController;->mPipTransaction:Landroid/window/PictureInPictureSurfaceTransaction;
+
+    invoke-virtual {v5}, Lcom/android/server/wm/TaskDisplayArea;->getBounds()Landroid/graphics/Rect;
+
+    move-result-object v8
+
+    const/16 v9, 0x9
+
+    const-string v10, "WindowManager"
+
+    if-nez v4, :cond_7
+
+    iget-object v7, v3, Landroid/window/PictureInPictureSurfaceTransaction;->mPosition:Landroid/graphics/PointF;
+
+    iget v7, v7, Landroid/graphics/PointF;->x:F
+
+    iget-object v11, v3, Landroid/window/PictureInPictureSurfaceTransaction;->mPosition:Landroid/graphics/PointF;
+
+    iget v11, v11, Landroid/graphics/PointF;->y:F
+
+    invoke-virtual {v3}, Landroid/window/PictureInPictureSurfaceTransaction;->getMatrix()Landroid/graphics/Matrix;
+
+    move-result-object v12
+
+    iget v13, v3, Landroid/window/PictureInPictureSurfaceTransaction;->mRotation:F
+
+    const/high16 v14, 0x42b40000    # 90.0f
+
+    cmpl-float v13, v13, v14
+
+    const/high16 v15, -0x3d4c0000    # -90.0f
+
+    if-nez v13, :cond_4
+
+    iget-object v13, v3, Landroid/window/PictureInPictureSurfaceTransaction;->mPosition:Landroid/graphics/PointF;
+
+    iget v7, v13, Landroid/graphics/PointF;->y:F
+
+    iget v13, v8, Landroid/graphics/Rect;->right:I
+
+    int-to-float v13, v13
+
+    iget-object v14, v3, Landroid/window/PictureInPictureSurfaceTransaction;->mPosition:Landroid/graphics/PointF;
+
+    iget v14, v14, Landroid/graphics/PointF;->x:F
+
+    sub-float v11, v13, v14
+
+    invoke-virtual {v12, v15}, Landroid/graphics/Matrix;->postRotate(F)Z
+
+    goto :goto_2
+
+    :cond_4
+    iget v13, v3, Landroid/window/PictureInPictureSurfaceTransaction;->mRotation:F
+
+    cmpl-float v13, v13, v15
+
+    if-nez v13, :cond_5
+
+    iget v13, v8, Landroid/graphics/Rect;->bottom:I
+
+    int-to-float v13, v13
+
+    iget-object v15, v3, Landroid/window/PictureInPictureSurfaceTransaction;->mPosition:Landroid/graphics/PointF;
+
+    iget v15, v15, Landroid/graphics/PointF;->y:F
+
+    sub-float v7, v13, v15
+
+    iget-object v13, v3, Landroid/window/PictureInPictureSurfaceTransaction;->mPosition:Landroid/graphics/PointF;
+
+    iget v11, v13, Landroid/graphics/PointF;->x:F
+
+    invoke-virtual {v12, v14}, Landroid/graphics/Matrix;->postRotate(F)Z
+
+    :cond_5
+    :goto_2
+    invoke-virtual {v12, v7, v11}, Landroid/graphics/Matrix;->postTranslate(FF)Z
+
+    invoke-virtual {v6}, Lcom/android/server/wm/Task;->getSurfaceControl()Landroid/view/SurfaceControl;
+
+    move-result-object v13
+
+    new-array v9, v9, [F
+
+    invoke-virtual {v1, v13, v12, v9}, Landroid/view/SurfaceControl$Transaction;->setMatrix(Landroid/view/SurfaceControl;Landroid/graphics/Matrix;[F)Landroid/view/SurfaceControl$Transaction;
+
+    invoke-virtual {v3}, Landroid/window/PictureInPictureSurfaceTransaction;->hasCornerRadiusSet()Z
 
     move-result v9
 
-    if-eqz v6, :cond_7
+    if-eqz v9, :cond_6
 
-    const/4 v11, 0x3
+    iget v9, v3, Landroid/window/PictureInPictureSurfaceTransaction;->mCornerRadius:F
 
-    if-ne v9, v11, :cond_7
+    invoke-virtual {v1, v13, v9}, Landroid/view/SurfaceControl$Transaction;->setCornerRadius(Landroid/view/SurfaceControl;F)Landroid/view/SurfaceControl$Transaction;
 
-    invoke-virtual {v5}, Lcom/android/server/wm/Task;->getDisplayCutoutInsets()Landroid/graphics/Rect;
+    :cond_6
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v14, "Seamless rotation PiP tx="
+
+    invoke-virtual {v9, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v9, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v14, " pos="
+
+    invoke-virtual {v9, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v9, v7}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    const-string v14, ","
+
+    invoke-virtual {v9, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v9, v11}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v10, v9}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_7
+    invoke-virtual {v6}, Lcom/android/server/wm/Task;->getPictureInPictureParams()Landroid/app/PictureInPictureParams;
 
     move-result-object v11
 
-    if-eqz v11, :cond_6
+    if-eqz v11, :cond_8
 
-    move/from16 v11, p2
+    invoke-virtual {v11}, Landroid/app/PictureInPictureParams;->hasSourceBoundsHint()Z
 
-    move/from16 v12, p3
+    move-result v12
 
-    invoke-static {v12, v11}, Landroid/util/RotationUtils;->deltaRotation(II)I
+    if-eqz v12, :cond_8
 
-    move-result v13
+    invoke-virtual {v11}, Landroid/app/PictureInPictureParams;->getSourceRectHint()Landroid/graphics/Rect;
 
-    nop
-
-    invoke-virtual {v5}, Lcom/android/server/wm/Task;->getDisplayCutoutInsets()Landroid/graphics/Rect;
-
-    move-result-object v14
-
-    invoke-static {v14}, Landroid/graphics/Insets;->of(Landroid/graphics/Rect;)Landroid/graphics/Insets;
-
-    move-result-object v14
-
-    invoke-static {v14, v13}, Landroid/util/RotationUtils;->rotateInsets(Landroid/graphics/Insets;I)Landroid/graphics/Insets;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Landroid/graphics/Insets;->toRect()Landroid/graphics/Rect;
-
-    move-result-object v14
-
-    iget v15, v14, Landroid/graphics/Rect;->left:I
-
-    iget v8, v14, Landroid/graphics/Rect;->top:I
-
-    invoke-virtual {v6, v15, v8}, Landroid/graphics/Rect;->offset(II)V
-
-    goto :goto_2
-
-    :cond_6
-    move/from16 v11, p2
-
-    move/from16 v12, p3
-
-    goto :goto_2
-
-    :cond_7
-    move/from16 v11, p2
-
-    move/from16 v12, p3
-
-    :goto_2
-    if-eqz v6, :cond_8
-
-    invoke-virtual {v7, v6}, Landroid/graphics/Rect;->contains(Landroid/graphics/Rect;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_8
-
-    move-object v8, v6
+    move-result-object v7
 
     goto :goto_3
 
     :cond_8
-    move-object v8, v7
+    nop
 
     :goto_3
-    invoke-virtual {v8}, Landroid/graphics/Rect;->width()I
+    nop
 
-    move-result v13
+    new-instance v12, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8}, Landroid/graphics/Rect;->height()I
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v13, "Seamless rotation PiP bounds="
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v12, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v13, " hintRect="
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v12, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-static {v10, v12}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static/range {p2 .. p3}, Landroid/util/RotationUtils;->deltaRotation(II)I
+
+    move-result v10
+
+    if-eqz v7, :cond_a
+
+    const/4 v12, 0x3
+
+    if-ne v10, v12, :cond_a
+
+    invoke-virtual {v6}, Lcom/android/server/wm/Task;->getDisplayCutoutInsets()Landroid/graphics/Rect;
+
+    move-result-object v12
+
+    if-eqz v12, :cond_9
+
+    move/from16 v12, p2
+
+    move/from16 v13, p3
+
+    invoke-static {v13, v12}, Landroid/util/RotationUtils;->deltaRotation(II)I
 
     move-result v14
 
-    if-gt v13, v14, :cond_9
+    nop
+
+    invoke-virtual {v6}, Lcom/android/server/wm/Task;->getDisplayCutoutInsets()Landroid/graphics/Rect;
+
+    move-result-object v15
+
+    invoke-static {v15}, Landroid/graphics/Insets;->of(Landroid/graphics/Rect;)Landroid/graphics/Insets;
+
+    move-result-object v15
+
+    invoke-static {v15, v14}, Landroid/util/RotationUtils;->rotateInsets(Landroid/graphics/Insets;I)Landroid/graphics/Insets;
+
+    move-result-object v15
+
+    invoke-virtual {v15}, Landroid/graphics/Insets;->toRect()Landroid/graphics/Rect;
+
+    move-result-object v15
+
+    iget v9, v15, Landroid/graphics/Rect;->left:I
+
+    iget v0, v15, Landroid/graphics/Rect;->top:I
+
+    invoke-virtual {v7, v9, v0}, Landroid/graphics/Rect;->offset(II)V
+
+    goto :goto_4
+
+    :cond_9
+    move/from16 v12, p2
+
+    move/from16 v13, p3
+
+    goto :goto_4
+
+    :cond_a
+    move/from16 v12, p2
+
+    move/from16 v13, p3
+
+    :goto_4
+    if-eqz v7, :cond_b
+
+    invoke-virtual {v8, v7}, Landroid/graphics/Rect;->contains(Landroid/graphics/Rect;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_b
+
+    move-object v0, v7
+
+    goto :goto_5
+
+    :cond_b
+    move-object v0, v8
+
+    :goto_5
+    invoke-virtual {v0}, Landroid/graphics/Rect;->width()I
+
+    move-result v9
+
+    invoke-virtual {v0}, Landroid/graphics/Rect;->height()I
+
+    move-result v14
+
+    if-gt v9, v14, :cond_c
 
     invoke-virtual {v2}, Landroid/graphics/Rect;->width()I
 
@@ -1455,55 +1500,41 @@
 
     int-to-float v15, v15
 
-    int-to-float v0, v13
+    move-object/from16 v16, v3
 
-    div-float/2addr v15, v0
+    int-to-float v3, v9
 
-    goto :goto_4
+    div-float/2addr v15, v3
 
-    :cond_9
+    goto :goto_6
+
+    :cond_c
+    move-object/from16 v16, v3
+
     invoke-virtual {v2}, Landroid/graphics/Rect;->height()I
 
-    move-result v0
+    move-result v3
 
-    int-to-float v0, v0
+    int-to-float v3, v3
 
     int-to-float v15, v14
 
-    div-float v15, v0, v15
+    div-float v15, v3, v15
 
-    :goto_4
-    move v0, v15
+    :goto_6
+    move v3, v15
 
-    iget v15, v8, Landroid/graphics/Rect;->left:I
+    iget v15, v0, Landroid/graphics/Rect;->left:I
 
-    move-object/from16 v16, v3
+    move/from16 v17, v4
 
-    iget v3, v7, Landroid/graphics/Rect;->left:I
-
-    sub-int/2addr v15, v3
-
-    int-to-float v3, v15
-
-    mul-float/2addr v3, v0
-
-    const/high16 v15, 0x3f000000    # 0.5f
-
-    add-float/2addr v3, v15
-
-    float-to-int v3, v3
-
-    iget v15, v8, Landroid/graphics/Rect;->top:I
-
-    move-object/from16 v18, v4
-
-    iget v4, v7, Landroid/graphics/Rect;->top:I
+    iget v4, v8, Landroid/graphics/Rect;->left:I
 
     sub-int/2addr v15, v4
 
     int-to-float v4, v15
 
-    mul-float/2addr v4, v0
+    mul-float/2addr v4, v3
 
     const/high16 v15, 0x3f000000    # 0.5f
 
@@ -1511,39 +1542,57 @@
 
     float-to-int v4, v4
 
+    iget v15, v0, Landroid/graphics/Rect;->top:I
+
+    move-object/from16 v19, v0
+
+    iget v0, v8, Landroid/graphics/Rect;->top:I
+
+    sub-int/2addr v15, v0
+
+    int-to-float v0, v15
+
+    mul-float/2addr v0, v3
+
+    const/high16 v15, 0x3f000000    # 0.5f
+
+    add-float/2addr v0, v15
+
+    float-to-int v0, v0
+
     new-instance v15, Landroid/graphics/Matrix;
 
     invoke-direct {v15}, Landroid/graphics/Matrix;-><init>()V
 
-    invoke-virtual {v15, v0, v0}, Landroid/graphics/Matrix;->setScale(FF)V
+    invoke-virtual {v15, v3, v3}, Landroid/graphics/Matrix;->setScale(FF)V
 
-    move/from16 v17, v0
+    move/from16 v18, v3
 
-    iget v0, v2, Landroid/graphics/Rect;->left:I
-
-    sub-int/2addr v0, v3
-
-    int-to-float v0, v0
-
-    move/from16 v19, v3
-
-    iget v3, v2, Landroid/graphics/Rect;->top:I
+    iget v3, v2, Landroid/graphics/Rect;->left:I
 
     sub-int/2addr v3, v4
 
     int-to-float v3, v3
 
-    invoke-virtual {v15, v0, v3}, Landroid/graphics/Matrix;->postTranslate(FF)Z
+    move/from16 v20, v4
 
-    invoke-virtual {v5}, Lcom/android/server/wm/Task;->getSurfaceControl()Landroid/view/SurfaceControl;
+    iget v4, v2, Landroid/graphics/Rect;->top:I
 
-    move-result-object v0
+    sub-int/2addr v4, v0
 
-    const/16 v3, 0x9
+    int-to-float v4, v4
 
-    new-array v3, v3, [F
+    invoke-virtual {v15, v3, v4}, Landroid/graphics/Matrix;->postTranslate(FF)Z
 
-    invoke-virtual {v1, v0, v15, v3}, Landroid/view/SurfaceControl$Transaction;->setMatrix(Landroid/view/SurfaceControl;Landroid/graphics/Matrix;[F)Landroid/view/SurfaceControl$Transaction;
+    invoke-virtual {v6}, Lcom/android/server/wm/Task;->getSurfaceControl()Landroid/view/SurfaceControl;
+
+    move-result-object v3
+
+    const/16 v4, 0x9
+
+    new-array v4, v4, [F
+
+    invoke-virtual {v1, v3, v15, v4}, Landroid/view/SurfaceControl$Transaction;->setMatrix(Landroid/view/SurfaceControl;Landroid/graphics/Matrix;[F)Landroid/view/SurfaceControl$Transaction;
 
     return-void
 .end method

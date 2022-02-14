@@ -35,9 +35,9 @@
 .method public final get()Ljava/lang/Object;
     .locals 1
 
-    new-instance v0, Landroid/view/SurfaceControl$Transaction;
+    new-instance v0, Landroid/view/Surface;
 
-    invoke-direct {v0}, Landroid/view/SurfaceControl$Transaction;-><init>()V
+    invoke-direct {v0}, Landroid/view/Surface;-><init>()V
 
     return-object v0
 .end method

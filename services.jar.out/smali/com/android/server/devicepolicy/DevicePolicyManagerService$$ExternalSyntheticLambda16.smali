@@ -39,7 +39,7 @@
 
     iget-object v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda16;->f$2:Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$putPrivateDnsSettings$124$DevicePolicyManagerService(ILjava/lang/String;)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$putPrivateDnsSettings$127$DevicePolicyManagerService(ILjava/lang/String;)V
 
     return-void
 .end method

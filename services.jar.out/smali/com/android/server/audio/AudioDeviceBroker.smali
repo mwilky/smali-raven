@@ -3963,17 +3963,24 @@
 
     move-result v5
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_6
 
-    if-nez v0, :cond_5
+    if-eqz v0, :cond_4
 
+    invoke-virtual {p0}, Lcom/android/server/audio/AudioDeviceBroker;->isBluetoothScoActive()Z
+
+    move-result v6
+
+    if-nez v6, :cond_6
+
+    :cond_4
     iget-object v6, p0, Lcom/android/server/audio/AudioDeviceBroker;->mBtHelper:Lcom/android/server/audio/BtHelper;
 
     invoke-virtual {v6, p4, p5}, Lcom/android/server/audio/BtHelper;->startBluetoothSco(ILjava/lang/String;)Z
 
     move-result v6
 
-    if-nez v6, :cond_6
+    if-nez v6, :cond_7
 
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -3991,13 +3998,13 @@
 
     invoke-static {v2, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_5
 
     invoke-direct {p0, p1, p2, v1}, Lcom/android/server/audio/AudioDeviceBroker;->addCommunicationRouteClient(Landroid/os/IBinder;ILandroid/media/AudioDeviceAttributes;)Lcom/android/server/audio/AudioDeviceBroker$CommunicationRouteClient;
 
     goto :goto_1
 
-    :cond_4
+    :cond_5
     invoke-direct {p0, p1, v4}, Lcom/android/server/audio/AudioDeviceBroker;->removeCommunicationRouteClient(Landroid/os/IBinder;Z)Lcom/android/server/audio/AudioDeviceBroker$CommunicationRouteClient;
 
     :goto_1
@@ -4007,16 +4014,16 @@
 
     goto :goto_2
 
-    :cond_5
-    if-nez v5, :cond_6
+    :cond_6
+    if-nez v5, :cond_7
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_7
 
     iget-object v2, p0, Lcom/android/server/audio/AudioDeviceBroker;->mBtHelper:Lcom/android/server/audio/BtHelper;
 
     invoke-virtual {v2, p5}, Lcom/android/server/audio/BtHelper;->stopBluetoothSco(Ljava/lang/String;)Z
 
-    :cond_6
+    :cond_7
     :goto_2
     const/16 v2, 0x27
 

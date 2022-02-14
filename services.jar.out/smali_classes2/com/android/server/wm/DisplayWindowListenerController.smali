@@ -34,6 +34,16 @@
     return-void
 .end method
 
+.method static synthetic lambda$registerListener$0(Landroid/util/IntArray;Lcom/android/server/wm/DisplayContent;)V
+    .locals 1
+
+    iget v0, p1, Lcom/android/server/wm/DisplayContent;->mDisplayId:I
+
+    invoke-virtual {p0, v0}, Landroid/util/IntArray;->add(I)V
+
+    return-void
+.end method
+
 
 # virtual methods
 .method dispatchDisplayAdded(Lcom/android/server/wm/DisplayContent;)V
@@ -311,7 +321,7 @@
     return-void
 .end method
 
-.method registerListener(Landroid/view/IDisplayWindowListener;)V
+.method registerListener(Landroid/view/IDisplayWindowListener;)[I
     .locals 4
 
     iget-object v0, p0, Lcom/android/server/wm/DisplayWindowListenerController;->mService:Lcom/android/server/wm/WindowManagerService;
@@ -326,24 +336,10 @@
     iget-object v1, p0, Lcom/android/server/wm/DisplayWindowListenerController;->mDisplayListeners:Landroid/os/RemoteCallbackList;
 
     invoke-virtual {v1, p1}, Landroid/os/RemoteCallbackList;->register(Landroid/os/IInterface;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/4 v1, 0x0
+    new-instance v1, Landroid/util/IntArray;
 
-    :goto_0
-    :try_start_1
-    iget-object v2, p0, Lcom/android/server/wm/DisplayWindowListenerController;->mService:Lcom/android/server/wm/WindowManagerService;
-
-    iget-object v2, v2, Lcom/android/server/wm/WindowManagerService;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
-
-    iget-object v2, v2, Lcom/android/server/wm/ActivityTaskManagerService;->mRootWindowContainer:Lcom/android/server/wm/RootWindowContainer;
-
-    invoke-virtual {v2}, Lcom/android/server/wm/RootWindowContainer;->getChildCount()I
-
-    move-result v2
-
-    if-ge v1, v2, :cond_0
+    invoke-direct {v1}, Landroid/util/IntArray;-><init>()V
 
     iget-object v2, p0, Lcom/android/server/wm/DisplayWindowListenerController;->mService:Lcom/android/server/wm/WindowManagerService;
 
@@ -351,48 +347,31 @@
 
     iget-object v2, v2, Lcom/android/server/wm/ActivityTaskManagerService;->mRootWindowContainer:Lcom/android/server/wm/RootWindowContainer;
 
-    invoke-virtual {v2, v1}, Lcom/android/server/wm/RootWindowContainer;->getChildAt(I)Lcom/android/server/wm/WindowContainer;
+    new-instance v3, Lcom/android/server/wm/DisplayWindowListenerController$$ExternalSyntheticLambda0;
+
+    invoke-direct {v3, v1}, Lcom/android/server/wm/DisplayWindowListenerController$$ExternalSyntheticLambda0;-><init>(Landroid/util/IntArray;)V
+
+    invoke-virtual {v2, v3}, Lcom/android/server/wm/RootWindowContainer;->forAllDisplays(Ljava/util/function/Consumer;)V
+
+    invoke-virtual {v1}, Landroid/util/IntArray;->toArray()[I
 
     move-result-object v2
 
-    check-cast v2, Lcom/android/server/wm/DisplayContent;
-
-    iget v3, v2, Lcom/android/server/wm/DisplayContent;->mDisplayId:I
-
-    invoke-interface {p1, v3}, Landroid/view/IDisplayWindowListener;->onDisplayAdded(I)V
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    goto :goto_1
-
-    :catch_0
-    move-exception v1
-
-    :goto_1
-    nop
-
-    :try_start_2
     monitor-exit v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
-    return-void
+    return-object v2
 
     :catchall_0
     move-exception v1
 
-    :try_start_3
+    :try_start_1
     monitor-exit v0
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 

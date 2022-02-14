@@ -29,7 +29,7 @@
 
     check-cast p1, Lcom/android/server/wm/Task;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/DisplayContent;->lambda$removeExistingTokensIfPossible$31$DisplayContent(Lcom/android/server/wm/Task;)V
+    invoke-virtual {v0, p1}, Lcom/android/server/wm/DisplayContent;->lambda$removeExistingTokensIfPossible$32$DisplayContent(Lcom/android/server/wm/Task;)V
 
     return-void
 .end method

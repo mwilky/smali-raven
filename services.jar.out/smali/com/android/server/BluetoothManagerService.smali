@@ -86,12 +86,6 @@
 
 .field private static final RESTORE_SETTING_TO_ON:I = 0x1
 
-.field private static final SECURE_SETTINGS_BLUETOOTH_ADDRESS:Ljava/lang/String; = "bluetooth_address"
-
-.field private static final SECURE_SETTINGS_BLUETOOTH_ADDR_VALID:Ljava/lang/String; = "bluetooth_addr_valid"
-
-.field private static final SECURE_SETTINGS_BLUETOOTH_NAME:Ljava/lang/String; = "bluetooth_name"
-
 .field private static final SERVICE_IBLUETOOTH:I = 0x1
 
 .field private static final SERVICE_IBLUETOOTHGATT:I = 0x2
@@ -317,7 +311,7 @@
 
     move-result-object v2
 
-    const v4, 0x1110182
+    const v4, 0x1110189
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -383,7 +377,7 @@
 
     move-result-object v3
 
-    const v4, 0x11100f5
+    const v4, 0x11100f7
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -525,7 +519,7 @@
 
     move-result-object v5
 
-    const v7, 0x1110110
+    const v7, 0x1110114
 
     invoke-virtual {v5, v7}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -2991,23 +2985,23 @@
 
     move-result-object v1
 
-    const v2, 0x1110037
+    const v2, 0x1110038
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v1
 
+    const-string v2, "bluetooth_name"
+
     if-eqz v1, :cond_0
 
     iget-object v1, p0, Lcom/android/server/BluetoothManagerService;->mContentResolver:Landroid/content/ContentResolver;
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    iget v3, p0, Lcom/android/server/BluetoothManagerService;->mUserId:I
+    iget v4, p0, Lcom/android/server/BluetoothManagerService;->mUserId:I
 
-    const-string v4, "bluetooth_addr_valid"
-
-    invoke-static {v1, v4, v2, v3}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+    invoke-static {v1, v2, v3, v4}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
 
     move-result v1
 
@@ -3022,11 +3016,9 @@
     :cond_0
     iget-object v1, p0, Lcom/android/server/BluetoothManagerService;->mContentResolver:Landroid/content/ContentResolver;
 
-    iget v2, p0, Lcom/android/server/BluetoothManagerService;->mUserId:I
+    iget v3, p0, Lcom/android/server/BluetoothManagerService;->mUserId:I
 
-    const-string v3, "bluetooth_name"
-
-    invoke-static {v1, v3, v2}, Landroid/provider/Settings$Secure;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$Secure;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -4183,7 +4175,7 @@
 
     move-result-object v0
 
-    const v1, 0x1110141
+    const v1, 0x1110146
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 

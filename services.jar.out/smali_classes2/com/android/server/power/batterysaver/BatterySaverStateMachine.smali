@@ -117,7 +117,7 @@
 
     move-result-object v0
 
-    const v1, 0x1110033
+    const v1, 0x1110034
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -129,7 +129,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e0060
+    const v1, 0x10e0063
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1783,15 +1783,15 @@
 
     const-string v1, "dynamic_mode_notification"
 
-    const v2, 0x10402fc
+    const v2, 0x1040300
 
     invoke-direct {p0, v0, v1, v2}, Lcom/android/server/power/batterysaver/BatterySaverStateMachine;->ensureNotificationChannelExists(Landroid/app/NotificationManager;Ljava/lang/String;I)V
 
     nop
 
-    const v2, 0x10402fe
+    const v2, 0x1040302
 
-    const v3, 0x10402fd
+    const v3, 0x1040301
 
     const-string v4, "android.intent.action.POWER_USAGE_SUMMARY"
 

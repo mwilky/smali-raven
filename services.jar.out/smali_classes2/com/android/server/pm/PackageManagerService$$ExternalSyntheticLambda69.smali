@@ -35,7 +35,7 @@
 
     check-cast p1, Ljava/lang/Boolean;
 
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/pm/PackageManagerService;->lambda$updateDefaultHomeNotLocked$59$PackageManagerService(ILjava/lang/Boolean;)V
+    invoke-virtual {v0, v1, p1}, Lcom/android/server/pm/PackageManagerService;->lambda$updateDefaultHomeNotLocked$58$PackageManagerService(ILjava/lang/Boolean;)V
 
     return-void
 .end method

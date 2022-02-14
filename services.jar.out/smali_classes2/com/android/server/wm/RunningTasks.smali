@@ -56,6 +56,8 @@
     .end annotation
 .end field
 
+.field private mTopDisplayAdjacentTask:Lcom/android/server/wm/Task;
+
 .field private mTopDisplayFocusRootTask:Lcom/android/server/wm/Task;
 
 .field private mUserId:I
@@ -133,7 +135,7 @@
 .end method
 
 .method private processTask(Lcom/android/server/wm/Task;)V
-    .locals 2
+    .locals 5
 
     invoke-virtual {p1}, Lcom/android/server/wm/Task;->getTopNonFinishingActivity()Lcom/android/server/wm/ActivityRecord;
 
@@ -231,7 +233,31 @@
 
     invoke-virtual {p1}, Lcom/android/server/wm/Task;->touchActiveTime()V
 
+    goto :goto_0
+
     :cond_4
+    iget-object v1, p0, Lcom/android/server/wm/RunningTasks;->mTopDisplayAdjacentTask:Lcom/android/server/wm/Task;
+
+    if-ne v0, v1, :cond_5
+
+    invoke-virtual {v0}, Lcom/android/server/wm/Task;->getTopMostTask()Lcom/android/server/wm/Task;
+
+    move-result-object v1
+
+    if-ne v1, p1, :cond_5
+
+    invoke-virtual {p1}, Lcom/android/server/wm/Task;->touchActiveTime()V
+
+    iget-wide v1, p1, Lcom/android/server/wm/Task;->lastActiveTime:J
+
+    const-wide/16 v3, 0x1
+
+    sub-long/2addr v1, v3
+
+    iput-wide v1, p1, Lcom/android/server/wm/Task;->lastActiveTime:J
+
+    :cond_5
+    :goto_0
     iget-object v1, p0, Lcom/android/server/wm/RunningTasks;->mTmpSortedSet:Ljava/util/TreeSet;
 
     invoke-virtual {v1, p1}, Ljava/util/TreeSet;->add(Ljava/lang/Object;)Z
@@ -354,6 +380,34 @@
     :goto_3
     iput-boolean v3, p0, Lcom/android/server/wm/RunningTasks;->mKeepIntentExtra:Z
 
+    iget-object v0, p0, Lcom/android/server/wm/RunningTasks;->mTopDisplayFocusRootTask:Lcom/android/server/wm/Task;
+
+    invoke-virtual {v0}, Lcom/android/server/wm/Task;->getAdjacentTaskFragment()Lcom/android/server/wm/TaskFragment;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_5
+
+    iget-object v0, p0, Lcom/android/server/wm/RunningTasks;->mTopDisplayFocusRootTask:Lcom/android/server/wm/Task;
+
+    invoke-virtual {v0}, Lcom/android/server/wm/Task;->getAdjacentTaskFragment()Lcom/android/server/wm/TaskFragment;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/server/wm/TaskFragment;->asTask()Lcom/android/server/wm/Task;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/server/wm/RunningTasks;->mTopDisplayAdjacentTask:Lcom/android/server/wm/Task;
+
+    goto :goto_4
+
+    :cond_5
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/server/wm/RunningTasks;->mTopDisplayAdjacentTask:Lcom/android/server/wm/Task;
+
+    :goto_4
     sget-object v0, Lcom/android/server/wm/RunningTasks$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/server/wm/RunningTasks$$ExternalSyntheticLambda1;
 
     const-class v1, Lcom/android/server/wm/Task;
@@ -376,18 +430,18 @@
 
     move-result-object v1
 
-    :goto_4
+    :goto_5
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_7
 
-    if-nez p1, :cond_5
+    if-nez p1, :cond_6
 
-    goto :goto_5
+    goto :goto_6
 
-    :cond_5
+    :cond_6
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
@@ -404,9 +458,9 @@
 
     add-int/lit8 p1, p1, -0x1
 
-    goto :goto_4
+    goto :goto_5
 
-    :cond_6
-    :goto_5
+    :cond_7
+    :goto_6
     return-void
 .end method

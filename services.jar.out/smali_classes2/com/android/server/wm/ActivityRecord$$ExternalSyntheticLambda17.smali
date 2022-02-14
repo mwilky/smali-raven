@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/util/function/Function;
 
 
 # instance fields
@@ -22,16 +22,16 @@
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/ActivityRecord$$ExternalSyntheticLambda17;->f$0:Lcom/android/server/wm/ActivityRecord;
 
     check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/ActivityRecord;->lambda$showStartingWindow$11$ActivityRecord(Lcom/android/server/wm/ActivityRecord;)Z
+    invoke-virtual {v0, p1}, Lcom/android/server/wm/ActivityRecord;->lambda$transferStartingWindowFromHiddenAboveTokenIfNeeded$7$ActivityRecord(Lcom/android/server/wm/ActivityRecord;)Ljava/lang/Boolean;
 
-    move-result p1
+    move-result-object p1
 
-    return p1
+    return-object p1
 .end method

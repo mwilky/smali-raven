@@ -23,7 +23,7 @@
     .end annotation
 .end method
 
-.method public abstract deliverOnLocationChanged(Landroid/location/LocationResult;Ljava/lang/Runnable;)V
+.method public abstract deliverOnLocationChanged(Landroid/location/LocationResult;Landroid/os/IRemoteCallback;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;

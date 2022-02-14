@@ -124,7 +124,7 @@
 
     move-result-object v7
 
-    const v8, 0x1040811
+    const v8, 0x1040816
 
     if-eqz v7, :cond_0
 
@@ -200,7 +200,7 @@
     goto :goto_0
 
     :cond_1
-    const v4, 0x1040810
+    const v4, 0x1040815
 
     invoke-virtual {v13, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

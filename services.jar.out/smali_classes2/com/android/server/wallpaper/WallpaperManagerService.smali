@@ -47,6 +47,8 @@
 
 
 # instance fields
+.field private final mActivityManager:Landroid/app/ActivityManager;
+
 .field private final mAppOpsManager:Landroid/app/AppOpsManager;
 
 .field private mCacheDefaultImageWallpaperColors:Landroid/app/WallpaperColors;
@@ -95,52 +97,7 @@
 
 .field protected mLastWallpaper:Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;
 
-.field private mLocalColorAreaCallbacks:Landroid/util/ArrayMap;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroid/util/ArrayMap<",
-            "Landroid/graphics/RectF;",
-            "Landroid/os/RemoteCallbackList<",
-            "Landroid/app/ILocalWallpaperColorConsumer;",
-            ">;>;"
-        }
-    .end annotation
-.end field
-
-.field private mLocalColorCallbackAreas:Landroid/util/ArrayMap;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroid/util/ArrayMap<",
-            "Landroid/os/IBinder;",
-            "Landroid/util/ArraySet<",
-            "Landroid/graphics/RectF;",
-            ">;>;"
-        }
-    .end annotation
-.end field
-
-.field private mLocalColorCallbackDisplayId:Landroid/util/ArrayMap;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroid/util/ArrayMap<",
-            "Landroid/os/IBinder;",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private mLocalColorDisplayIdAreas:Landroid/util/ArrayMap;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroid/util/ArrayMap<",
-            "Ljava/lang/Integer;",
-            "Landroid/util/ArraySet<",
-            "Landroid/graphics/RectF;",
-            ">;>;"
-        }
-    .end annotation
-.end field
+.field private mLocalColorRepo:Lcom/android/server/wallpaper/LocalColorRepository;
 
 .field private final mLock:Ljava/lang/Object;
 
@@ -255,29 +212,11 @@
 
     iput v1, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mCurrentUserId:I
 
-    new-instance v1, Landroid/util/ArrayMap;
+    new-instance v1, Lcom/android/server/wallpaper/LocalColorRepository;
 
-    invoke-direct {v1}, Landroid/util/ArrayMap;-><init>()V
+    invoke-direct {v1}, Lcom/android/server/wallpaper/LocalColorRepository;-><init>()V
 
-    iput-object v1, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mLocalColorCallbackAreas:Landroid/util/ArrayMap;
-
-    new-instance v1, Landroid/util/ArrayMap;
-
-    invoke-direct {v1}, Landroid/util/ArrayMap;-><init>()V
-
-    iput-object v1, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mLocalColorAreaCallbacks:Landroid/util/ArrayMap;
-
-    new-instance v1, Landroid/util/ArrayMap;
-
-    invoke-direct {v1}, Landroid/util/ArrayMap;-><init>()V
-
-    iput-object v1, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mLocalColorDisplayIdAreas:Landroid/util/ArrayMap;
-
-    new-instance v1, Landroid/util/ArrayMap;
-
-    invoke-direct {v1}, Landroid/util/ArrayMap;-><init>()V
-
-    iput-object v1, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mLocalColorCallbackDisplayId:Landroid/util/ArrayMap;
+    iput-object v1, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mLocalColorRepo:Lcom/android/server/wallpaper/LocalColorRepository;
 
     iput-object p1, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mContext:Landroid/content/Context;
 
@@ -291,7 +230,7 @@
 
     move-result-object v1
 
-    const v2, 0x104040a
+    const v2, 0x104040f
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -348,6 +287,16 @@
     const/4 v2, 0x0
 
     invoke-virtual {v1, v0, v2}, Landroid/hardware/display/DisplayManager;->registerDisplayListener(Landroid/hardware/display/DisplayManager$DisplayListener;Landroid/os/Handler;)V
+
+    const-class v0, Landroid/app/ActivityManager;
+
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/ActivityManager;
+
+    iput-object v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mActivityManager:Landroid/app/ActivityManager;
 
     new-instance v0, Lcom/android/server/wallpaper/WallpaperManagerService$MyPackageMonitor;
 
@@ -464,10 +413,10 @@
     return-object v0
 .end method
 
-.method static synthetic access$2000(Lcom/android/server/wallpaper/WallpaperManagerService;)Landroid/util/ArrayMap;
+.method static synthetic access$2000(Lcom/android/server/wallpaper/WallpaperManagerService;)Lcom/android/server/wallpaper/LocalColorRepository;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mLocalColorDisplayIdAreas:Landroid/util/ArrayMap;
+    iget-object v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mLocalColorRepo:Lcom/android/server/wallpaper/LocalColorRepository;
 
     return-object v0
 .end method
@@ -488,23 +437,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$2300(Lcom/android/server/wallpaper/WallpaperManagerService;)Landroid/util/ArrayMap;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mLocalColorAreaCallbacks:Landroid/util/ArrayMap;
-
-    return-object v0
-.end method
-
-.method static synthetic access$2400(Lcom/android/server/wallpaper/WallpaperManagerService;)Landroid/util/ArrayMap;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mLocalColorCallbackDisplayId:Landroid/util/ArrayMap;
-
-    return-object v0
-.end method
-
-.method static synthetic access$2500(Lcom/android/server/wallpaper/WallpaperManagerService;)Z
+.method static synthetic access$2300(Lcom/android/server/wallpaper/WallpaperManagerService;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mShuttingDown:Z
@@ -512,7 +445,7 @@
     return v0
 .end method
 
-.method static synthetic access$2502(Lcom/android/server/wallpaper/WallpaperManagerService;Z)Z
+.method static synthetic access$2302(Lcom/android/server/wallpaper/WallpaperManagerService;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mShuttingDown:Z
@@ -520,7 +453,7 @@
     return p1
 .end method
 
-.method static synthetic access$2600(Lcom/android/server/wallpaper/WallpaperManagerService;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;)V
+.method static synthetic access$2400(Lcom/android/server/wallpaper/WallpaperManagerService;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/wallpaper/WallpaperManagerService;->clearWallpaperComponentLocked(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;)V
@@ -528,7 +461,7 @@
     return-void
 .end method
 
-.method static synthetic access$2900(Lcom/android/server/wallpaper/WallpaperManagerService;I)V
+.method static synthetic access$2700(Lcom/android/server/wallpaper/WallpaperManagerService;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/wallpaper/WallpaperManagerService;->onDisplayReadyInternal(I)V
@@ -595,9 +528,9 @@
 .method private attachServiceLocked(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;)V
     .locals 1
 
-    new-instance v0, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda4;
+    new-instance v0, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda5;
 
-    invoke-direct {v0, p1, p2}, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda4;-><init>(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;)V
+    invoke-direct {v0, p1, p2}, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda5;-><init>(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;)V
 
     invoke-virtual {p1, v0}, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;->forEachDisplayConnector(Ljava/util/function/Consumer;)V
 
@@ -766,7 +699,7 @@
 
     iget-object v0, p1, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->connection:Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;
 
-    sget-object v2, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda10;->INSTANCE:Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda10;
+    sget-object v2, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda11;->INSTANCE:Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda11;
 
     invoke-virtual {v0, v2}, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;->forEachDisplayConnector(Ljava/util/function/Consumer;)V
 
@@ -788,7 +721,7 @@
 
     iget-object v2, p1, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->connection:Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;
 
-    invoke-static {v2}, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;->access$2700(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;)Ljava/lang/Runnable;
+    invoke-static {v2}, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;->access$2500(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;)Ljava/lang/Runnable;
 
     move-result-object v2
 
@@ -802,7 +735,7 @@
 
     iget-object v2, p1, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->connection:Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;
 
-    invoke-static {v2}, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;->access$3100(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;)Ljava/lang/Runnable;
+    invoke-static {v2}, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;->access$2900(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;)Ljava/lang/Runnable;
 
     move-result-object v2
 
@@ -816,7 +749,7 @@
 
     iget-object v2, p1, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->connection:Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;
 
-    invoke-static {v2}, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;->access$3200(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;)Ljava/lang/Runnable;
+    invoke-static {v2}, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;->access$3000(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;)Ljava/lang/Runnable;
 
     move-result-object v2
 
@@ -867,6 +800,39 @@
 
     :goto_1
     return v0
+.end method
+
+.method private enforcePackageBelongsToUid(Ljava/lang/String;I)V
+    .locals 3
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/wallpaper/WallpaperManagerService;->packageBelongsToUid(Ljava/lang/String;I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    return-void
+
+    :cond_0
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Invalid package or package does not belong to uid:"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
 .end method
 
 .method private ensureSaneWallpaperData(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;)V
@@ -1732,7 +1698,7 @@
     return v0
 .end method
 
-.method static synthetic lambda$attachServiceLocked$9(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection$DisplayConnector;)V
+.method static synthetic lambda$attachServiceLocked$10(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection$DisplayConnector;)V
     .locals 0
 
     invoke-virtual {p2, p0, p1}, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection$DisplayConnector;->connectLocked(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;)V
@@ -1740,7 +1706,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$dump$10(Ljava/io/PrintWriter;Lcom/android/server/wallpaper/WallpaperManagerService$DisplayData;)V
+.method static synthetic lambda$dump$11(Ljava/io/PrintWriter;Lcom/android/server/wallpaper/WallpaperManagerService$DisplayData;)V
     .locals 1
 
     const-string v0, "  displayId="
@@ -1778,7 +1744,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$dump$11(Ljava/io/PrintWriter;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection$DisplayConnector;)V
+.method static synthetic lambda$dump$12(Ljava/io/PrintWriter;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection$DisplayConnector;)V
     .locals 1
 
     const-string v0, "     mDisplayId="
@@ -1808,7 +1774,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$dump$12(Ljava/io/PrintWriter;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection$DisplayConnector;)V
+.method static synthetic lambda$dump$13(Ljava/io/PrintWriter;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection$DisplayConnector;)V
     .locals 1
 
     const-string v0, "     mDisplayId="
@@ -1910,7 +1876,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$setWallpaperComponent$8(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection$DisplayConnector;)V
+.method static synthetic lambda$setWallpaperComponent$9(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection$DisplayConnector;)V
     .locals 7
 
     :try_start_0
@@ -2955,7 +2921,7 @@
 .method private notifyCallbacksLocked(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;)V
     .locals 5
 
-    invoke-static {p1}, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->access$3000(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;)Landroid/os/RemoteCallbackList;
+    invoke-static {p1}, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->access$2800(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;)Landroid/os/RemoteCallbackList;
 
     move-result-object v0
 
@@ -2969,7 +2935,7 @@
     if-ge v1, v0, :cond_0
 
     :try_start_0
-    invoke-static {p1}, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->access$3000(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;)Landroid/os/RemoteCallbackList;
+    invoke-static {p1}, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->access$2800(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;)Landroid/os/RemoteCallbackList;
 
     move-result-object v2
 
@@ -2994,7 +2960,7 @@
     goto :goto_0
 
     :cond_0
-    invoke-static {p1}, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->access$3000(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;)Landroid/os/RemoteCallbackList;
+    invoke-static {p1}, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->access$2800(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;)Landroid/os/RemoteCallbackList;
 
     move-result-object v1
 
@@ -3005,6 +2971,12 @@
     const-string v2, "android.intent.action.WALLPAPER_CHANGED"
 
     invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    iget-boolean v2, p1, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->fromForegroundApp:Z
+
+    const-string v3, "android.service.wallpaper.extra.FROM_FOREGROUND_APP"
+
+    invoke-virtual {v1, v3, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     iget-object v2, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mContext:Landroid/content/Context;
 
@@ -3388,6 +3360,43 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
+.end method
+
+.method private packageBelongsToUid(Ljava/lang/String;I)Z
+    .locals 3
+
+    invoke-static {p2}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1, v0}, Landroid/content/pm/PackageManager;->getPackageUidAsUser(Ljava/lang/String;I)I
+
+    move-result v2
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    nop
+
+    if-ne v2, p2, :cond_0
+
+    const/4 v1, 0x1
+
+    :cond_0
+    return v1
+
+    :catch_0
+    move-exception v2
+
+    return v1
 .end method
 
 .method private removeDisplayData(I)V
@@ -4018,7 +4027,7 @@
 
     iget-object v4, v3, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->connection:Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;
 
-    sget-object v5, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda11;->INSTANCE:Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda11;
+    sget-object v5, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda12;->INSTANCE:Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda12;
 
     invoke-virtual {v4, v5}, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;->forEachDisplayConnector(Ljava/util/function/Consumer;)V
 
@@ -4176,7 +4185,7 @@
 
     if-eqz v2, :cond_3
 
-    sget-object v2, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda12;->INSTANCE:Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda12;
+    sget-object v2, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda13;->INSTANCE:Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda13;
 
     invoke-virtual {v1, v2}, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;->forEachDisplayConnector(Ljava/util/function/Consumer;)V
 
@@ -4189,15 +4198,15 @@
     goto :goto_0
 
     :cond_2
-    new-instance v2, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda13;
+    new-instance v2, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda14;
 
-    invoke-direct {v2, v1}, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda13;-><init>(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;)V
+    invoke-direct {v2, v1}, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda14;-><init>(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;)V
 
     invoke-static {v1, v2}, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;->access$1100(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;Ljava/util/function/Predicate;)V
 
-    new-instance v2, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda5;
+    new-instance v2, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda6;
 
-    invoke-direct {v2, p0, v1}, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda5;-><init>(Lcom/android/server/wallpaper/WallpaperManagerService;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;)V
+    invoke-direct {v2, p0, v1}, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda6;-><init>(Lcom/android/server/wallpaper/WallpaperManagerService;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;)V
 
     invoke-virtual {v1, v2}, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;->forEachDisplayConnector(Ljava/util/function/Consumer;)V
 
@@ -4213,7 +4222,7 @@
 
 # virtual methods
 .method public addOnLocalColorsChangedListener(Landroid/app/ILocalWallpaperColorConsumer;Ljava/util/List;III)V
-    .locals 9
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -4230,11 +4239,11 @@
         }
     .end annotation
 
+    const/4 v0, 0x2
+
+    if-eq p3, v0, :cond_1
+
     const/4 v0, 0x1
-
-    const/4 v1, 0x2
-
-    if-eq p3, v1, :cond_1
 
     if-ne p3, v0, :cond_0
 
@@ -4253,219 +4262,39 @@
     :goto_0
     invoke-direct {p0, p3, p4, p5}, Lcom/android/server/wallpaper/WallpaperManagerService;->getEngine(III)Landroid/service/wallpaper/IWallpaperEngine;
 
-    move-result-object v1
+    move-result-object v0
 
-    if-nez v1, :cond_2
+    if-nez v0, :cond_2
 
     return-void
 
     :cond_2
-    new-instance v2, Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mLock:Ljava/lang/Object;
 
-    invoke-interface {p2}, Ljava/util/List;->size()I
-
-    move-result v3
-
-    invoke-direct {v2, v3}, Ljava/util/ArrayList;-><init>(I)V
-
-    iget-object v3, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mLock:Ljava/lang/Object;
-
-    monitor-enter v3
+    monitor-enter v1
 
     :try_start_0
-    iget-object v4, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mLocalColorCallbackAreas:Landroid/util/ArrayMap;
+    iget-object v2, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mLocalColorRepo:Lcom/android/server/wallpaper/LocalColorRepository;
 
-    invoke-virtual {v4, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p1, p2, p5}, Lcom/android/server/wallpaper/LocalColorRepository;->addAreas(Landroid/app/ILocalWallpaperColorConsumer;Ljava/util/List;I)V
 
-    move-result-object v4
-
-    check-cast v4, Landroid/util/ArraySet;
-
-    if-nez v4, :cond_3
-
-    new-instance v5, Landroid/util/ArraySet;
-
-    invoke-interface {p2}, Ljava/util/List;->size()I
-
-    move-result v6
-
-    invoke-direct {v5, v6}, Landroid/util/ArraySet;-><init>(I)V
-
-    move-object v4, v5
-
-    :cond_3
-    invoke-virtual {v4, p2}, Landroid/util/ArraySet;->addAll(Ljava/util/Collection;)Z
-
-    iget-object v5, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mLocalColorCallbackAreas:Landroid/util/ArrayMap;
-
-    invoke-interface {p1}, Landroid/app/ILocalWallpaperColorConsumer;->asBinder()Landroid/os/IBinder;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6, v4}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    nop
-
-    monitor-exit v3
+    monitor-exit v1
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/4 v3, 0x0
-
-    :goto_1
-    invoke-interface {p2}, Ljava/util/List;->size()I
-
-    move-result v4
-
-    if-ge v3, v4, :cond_7
-
-    sget-object v4, Lcom/android/server/wallpaper/WallpaperManagerService;->LOCAL_COLOR_BOUNDS:Landroid/graphics/RectF;
-
-    invoke-interface {p2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/graphics/RectF;
-
-    invoke-virtual {v4, v5}, Landroid/graphics/RectF;->contains(Landroid/graphics/RectF;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_4
-
-    goto :goto_2
-
-    :cond_4
-    iget-object v4, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mLock:Ljava/lang/Object;
-
-    monitor-enter v4
-
-    :try_start_1
-    iget-object v5, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mLocalColorAreaCallbacks:Landroid/util/ArrayMap;
-
-    invoke-interface {p2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/os/RemoteCallbackList;
-
-    if-nez v5, :cond_5
-
-    new-instance v6, Landroid/os/RemoteCallbackList;
-
-    invoke-direct {v6}, Landroid/os/RemoteCallbackList;-><init>()V
-
-    move-object v5, v6
-
-    iget-object v6, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mLocalColorAreaCallbacks:Landroid/util/ArrayMap;
-
-    invoke-interface {p2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Landroid/graphics/RectF;
-
-    invoke-virtual {v6, v7, v5}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    :cond_5
-    iget-object v6, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mLocalColorCallbackDisplayId:Landroid/util/ArrayMap;
-
-    invoke-interface {p1}, Landroid/app/ILocalWallpaperColorConsumer;->asBinder()Landroid/os/IBinder;
-
-    move-result-object v7
-
-    invoke-static {p5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v8
-
-    invoke-virtual {v6, v7, v8}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v6, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mLocalColorDisplayIdAreas:Landroid/util/ArrayMap;
-
-    invoke-static {p5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Landroid/util/ArraySet;
-
-    if-nez v6, :cond_6
-
-    new-instance v7, Landroid/util/ArraySet;
-
-    invoke-direct {v7, v0}, Landroid/util/ArraySet;-><init>(I)V
-
-    move-object v6, v7
-
-    iget-object v7, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mLocalColorDisplayIdAreas:Landroid/util/ArrayMap;
-
-    invoke-static {p5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8, v6}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    :cond_6
-    invoke-interface {p2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Landroid/graphics/RectF;
-
-    invoke-virtual {v6, v7}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
-
-    nop
-
-    monitor-exit v4
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    invoke-interface {p2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/graphics/RectF;
-
-    invoke-virtual {v2, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    invoke-virtual {v5, p1}, Landroid/os/RemoteCallbackList;->register(Landroid/os/IInterface;)Z
-
-    :goto_2
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_1
-
-    :catchall_0
-    move-exception v0
-
-    :try_start_2
-    monitor-exit v4
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    throw v0
-
-    :cond_7
-    invoke-interface {v1, v2}, Landroid/service/wallpaper/IWallpaperEngine;->addLocalColorsAreas(Ljava/util/List;)V
+    invoke-interface {v0, p2}, Landroid/service/wallpaper/IWallpaperEngine;->addLocalColorsAreas(Ljava/util/List;)V
 
     return-void
 
-    :catchall_1
-    move-exception v0
+    :catchall_0
+    move-exception v2
 
-    :try_start_3
-    monitor-exit v3
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_start_1
+    monitor-exit v1
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v0
+    throw v2
 .end method
 
 .method bindWallpaperComponentLocked(Landroid/content/ComponentName;ZZLcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;Landroid/os/IRemoteCallback;)Z
@@ -4856,7 +4685,7 @@
 
     const-string v12, "android.intent.extra.client_label"
 
-    const v13, 0x10408b5
+    const v13, 0x10408ba
 
     invoke-virtual {v9, v12, v13}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
@@ -5511,9 +5340,9 @@
 
     invoke-virtual {p2, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    new-instance v3, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda7;
+    new-instance v3, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda8;
 
-    invoke-direct {v3, p2}, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda7;-><init>(Ljava/io/PrintWriter;)V
+    invoke-direct {v3, p2}, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda8;-><init>(Ljava/io/PrintWriter;)V
 
     invoke-virtual {p0, v3}, Lcom/android/server/wallpaper/WallpaperManagerService;->forEachDisplayData(Ljava/util/function/Consumer;)V
 
@@ -5582,9 +5411,9 @@
     invoke-virtual {p2, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
     :cond_1
-    new-instance v4, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda8;
+    new-instance v4, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda9;
 
-    invoke-direct {v4, p2}, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda8;-><init>(Ljava/io/PrintWriter;)V
+    invoke-direct {v4, p2}, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda9;-><init>(Ljava/io/PrintWriter;)V
 
     invoke-virtual {v3, v4}, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;->forEachDisplayConnector(Ljava/util/function/Consumer;)V
 
@@ -5775,9 +5604,9 @@
     invoke-virtual {p2, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
     :cond_5
-    new-instance v2, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda9;
+    new-instance v2, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda10;
 
-    invoke-direct {v2, p2}, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda9;-><init>(Ljava/io/PrintWriter;)V
+    invoke-direct {v2, p2}, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda10;-><init>(Ljava/io/PrintWriter;)V
 
     invoke-virtual {v1, v2}, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;->forEachDisplayConnector(Ljava/util/function/Consumer;)V
 
@@ -7374,7 +7203,7 @@
     :goto_2
     if-eqz v2, :cond_6
 
-    invoke-static {v9}, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->access$3000(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;)Landroid/os/RemoteCallbackList;
+    invoke-static {v9}, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->access$2800(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;)Landroid/os/RemoteCallbackList;
 
     move-result-object v0
 
@@ -7858,29 +7687,31 @@
 .method public isWallpaperSupported(Ljava/lang/String;)Z
     .locals 3
 
-    iget-object v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mAppOpsManager:Landroid/app/AppOpsManager;
-
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v1
-
-    const/16 v2, 0x30
-
-    invoke-virtual {v0, v2, v1, p1}, Landroid/app/AppOpsManager;->checkOpNoThrow(IILjava/lang/String;)I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    invoke-direct {p0, p1, v0}, Lcom/android/server/wallpaper/WallpaperManagerService;->enforcePackageBelongsToUid(Ljava/lang/String;I)V
 
-    const/4 v0, 0x1
+    iget-object v1, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mAppOpsManager:Landroid/app/AppOpsManager;
+
+    const/16 v2, 0x30
+
+    invoke-virtual {v1, v2, v0, p1}, Landroid/app/AppOpsManager;->checkOpNoThrow(IILjava/lang/String;)I
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const/4 v1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    return v0
+    return v1
 .end method
 
 .method public synthetic lambda$notifyWallpaperColorsChanged$0$WallpaperManagerService(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;ILcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection$DisplayConnector;)V
@@ -7930,6 +7761,39 @@
 
     :cond_1
     return-void
+.end method
+
+.method public synthetic lambda$setWallpaper$8$WallpaperManagerService(Ljava/lang/String;)Ljava/lang/Boolean;
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mActivityManager:Landroid/app/ActivityManager;
+
+    invoke-virtual {v0, p1}, Landroid/app/ActivityManager;->getPackageImportance(Ljava/lang/String;)I
+
+    move-result v0
+
+    const/16 v1, 0x64
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public synthetic lambda$switchUser$5$WallpaperManagerService(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;)V
@@ -8009,9 +7873,9 @@
 
     iget-object v2, v1, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->connection:Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;
 
-    new-instance v3, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda2;
+    new-instance v3, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda3;
 
-    invoke-direct {v3, p1, p2, p3}, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda2;-><init>(IILandroid/os/Bundle;)V
+    invoke-direct {v3, p1, p2, p3}, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda3;-><init>(IILandroid/os/Bundle;)V
 
     invoke-virtual {v2, v3}, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;->forEachDisplayConnector(Ljava/util/function/Consumer;)V
 
@@ -8056,9 +7920,9 @@
 
     iget-object v2, v1, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->connection:Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;
 
-    new-instance v3, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda3;
+    new-instance v3, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda4;
 
-    invoke-direct {v3, p1, p2, p3}, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda3;-><init>(IILandroid/os/Bundle;)V
+    invoke-direct {v3, p1, p2, p3}, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda4;-><init>(IILandroid/os/Bundle;)V
 
     invoke-virtual {v2, v3}, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;->forEachDisplayConnector(Ljava/util/function/Consumer;)V
 
@@ -8086,9 +7950,9 @@
 
     iget-object v0, p1, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->connection:Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;
 
-    new-instance v1, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda6;
+    new-instance v1, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda7;
 
-    invoke-direct {v1, p0, p1, p2}, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda6;-><init>(Lcom/android/server/wallpaper/WallpaperManagerService;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;I)V
+    invoke-direct {v1, p0, p1, p2}, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda7;-><init>(Lcom/android/server/wallpaper/WallpaperManagerService;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;I)V
 
     invoke-virtual {v0, v1}, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;->forEachDisplayConnector(Ljava/util/function/Consumer;)V
 
@@ -8261,9 +8125,9 @@
 
     invoke-virtual {v2, p1, v3}, Landroid/util/SparseBooleanArray;->put(IZ)V
 
-    new-instance v2, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda0;
+    new-instance v2, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda1;
 
-    invoke-direct {v2, p0, p1}, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/wallpaper/WallpaperManagerService;I)V
+    invoke-direct {v2, p0, p1}, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/wallpaper/WallpaperManagerService;I)V
 
     invoke-static {}, Lcom/android/internal/os/BackgroundThread;->getHandler()Landroid/os/Handler;
 
@@ -8730,7 +8594,7 @@
 .end method
 
 .method public removeOnLocalColorsChangedListener(Landroid/app/ILocalWallpaperColorConsumer;Ljava/util/List;III)V
-    .locals 18
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -8747,28 +8611,22 @@
         }
     .end annotation
 
-    move-object/from16 v1, p0
-
-    move/from16 v2, p3
-
-    move/from16 v3, p4
-
     const/4 v0, 0x2
 
-    if-eq v2, v0, :cond_1
+    if-eq p3, v0, :cond_1
 
     const/4 v0, 0x1
 
-    if-ne v2, v0, :cond_0
+    if-ne p3, v0, :cond_0
 
     goto :goto_0
 
     :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v4, "which should be either FLAG_LOCK or FLAG_SYSTEM"
+    const-string v1, "which should be either FLAG_LOCK or FLAG_SYSTEM"
 
-    invoke-direct {v0, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
 
@@ -8776,293 +8634,103 @@
     :goto_0
     invoke-static {}, Landroid/os/Binder;->getCallingUserHandle()Landroid/os/UserHandle;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v4}, Landroid/os/UserHandle;->getIdentifier()I
+    invoke-virtual {v0}, Landroid/os/UserHandle;->getIdentifier()I
 
-    move-result v0
+    move-result v1
 
-    if-ne v0, v3, :cond_b
+    if-ne v1, p4, :cond_5
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v5
+    move-result-wide v1
 
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    move-object v7, v0
-
-    invoke-interface/range {p1 .. p1}, Landroid/app/ILocalWallpaperColorConsumer;->asBinder()Landroid/os/IBinder;
-
-    move-result-object v8
+    const/4 v3, 0x0
 
     :try_start_0
-    iget-object v9, v1, Lcom/android/server/wallpaper/WallpaperManagerService;->mLock:Ljava/lang/Object;
+    iget-object v4, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mLock:Ljava/lang/Object;
 
-    monitor-enter v9
+    monitor-enter v4
     :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
-    .catchall {:try_start_0 .. :try_end_0} :catchall_4
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    iget-object v0, v1, Lcom/android/server/wallpaper/WallpaperManagerService;->mLocalColorCallbackAreas:Landroid/util/ArrayMap;
+    iget-object v5, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mLocalColorRepo:Lcom/android/server/wallpaper/LocalColorRepository;
 
-    invoke-virtual {v0, v8}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v5, p1, p2, p5}, Lcom/android/server/wallpaper/LocalColorRepository;->removeAreas(Landroid/app/ILocalWallpaperColorConsumer;Ljava/util/List;I)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object v5
 
-    check-cast v0, Landroid/util/ArraySet;
+    move-object v3, v5
 
-    if-nez v0, :cond_2
-
-    monitor-exit v9
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
-
-    invoke-static {v5, v6}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return-void
-
-    :cond_2
-    move-object/from16 v10, p2
-
-    :try_start_2
-    invoke-virtual {v0, v10}, Landroid/util/ArraySet;->removeAll(Ljava/util/Collection;)Z
-
-    invoke-virtual {v0}, Landroid/util/ArraySet;->size()I
-
-    move-result v11
-
-    if-nez v11, :cond_8
-
-    iget-object v11, v1, Lcom/android/server/wallpaper/WallpaperManagerService;->mLocalColorCallbackDisplayId:Landroid/util/ArrayMap;
-
-    invoke-virtual {v11, v8}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    invoke-interface/range {p2 .. p2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v11
-
-    :goto_1
-    invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v12
-
-    if-eqz v12, :cond_7
-
-    invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v12
-
-    check-cast v12, Landroid/graphics/RectF;
-
-    iget-object v13, v1, Lcom/android/server/wallpaper/WallpaperManagerService;->mLocalColorAreaCallbacks:Landroid/util/ArrayMap;
-
-    invoke-virtual {v13, v12}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v13
-
-    check-cast v13, Landroid/os/RemoteCallbackList;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    if-nez v13, :cond_3
+    monitor-exit v4
 
     goto :goto_1
-
-    :cond_3
-    move-object/from16 v14, p1
-
-    :try_start_3
-    invoke-virtual {v13, v14}, Landroid/os/RemoteCallbackList;->unregister(Landroid/os/IInterface;)Z
-
-    invoke-virtual {v13}, Landroid/os/RemoteCallbackList;->getRegisteredCallbackCount()I
-
-    move-result v15
-
-    if-nez v15, :cond_6
-
-    iget-object v15, v1, Lcom/android/server/wallpaper/WallpaperManagerService;->mLocalColorAreaCallbacks:Landroid/util/ArrayMap;
-
-    invoke-virtual {v15, v12}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    invoke-virtual {v7, v12}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    iget-object v15, v1, Lcom/android/server/wallpaper/WallpaperManagerService;->mLocalColorDisplayIdAreas:Landroid/util/ArrayMap;
-
-    move-object/from16 v16, v0
-
-    invoke-static/range {p5 .. p5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    invoke-virtual {v15, v0}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/util/ArraySet;
-
-    if-eqz v0, :cond_5
-
-    invoke-virtual {v0, v12}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
-
-    invoke-virtual {v0}, Landroid/util/ArraySet;->size()I
-
-    move-result v15
-
-    if-nez v15, :cond_4
-
-    iget-object v15, v1, Lcom/android/server/wallpaper/WallpaperManagerService;->mLocalColorDisplayIdAreas:Landroid/util/ArrayMap;
-
-    move-object/from16 v17, v0
-
-    invoke-static/range {p5 .. p5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    invoke-virtual {v15, v0}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    goto :goto_2
-
-    :cond_4
-    move-object/from16 v17, v0
-
-    goto :goto_2
-
-    :cond_5
-    move-object/from16 v17, v0
-
-    goto :goto_2
-
-    :cond_6
-    move-object/from16 v16, v0
-
-    :goto_2
-    move-object/from16 v0, v16
-
-    goto :goto_1
-
-    :cond_7
-    move-object/from16 v14, p1
-
-    move-object/from16 v16, v0
-
-    goto :goto_3
-
-    :cond_8
-    move-object/from16 v14, p1
-
-    move-object/from16 v16, v0
-
-    :goto_3
-    monitor-exit v9
-
-    goto :goto_6
 
     :catchall_0
-    move-exception v0
+    move-exception v5
 
-    move-object/from16 v14, p1
+    monitor-exit v4
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_4
+    :try_start_2
+    throw v5
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     :catchall_1
-    move-exception v0
+    move-exception v4
 
-    move-object/from16 v14, p1
+    invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    move-object/from16 v10, p2
-
-    :goto_4
-    monitor-exit v9
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_3
-
-    :try_start_4
-    throw v0
-    :try_end_4
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
-    .catchall {:try_start_4 .. :try_end_4} :catchall_2
-
-    :catchall_2
-    move-exception v0
-
-    goto :goto_5
+    throw v4
 
     :catch_0
-    move-exception v0
+    move-exception v4
 
-    goto :goto_6
-
-    :catchall_3
-    move-exception v0
-
-    goto :goto_4
-
-    :catchall_4
-    move-exception v0
-
-    move-object/from16 v14, p1
-
-    move-object/from16 v10, p2
-
-    :goto_5
-    invoke-static {v5, v6}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    throw v0
-
-    :catch_1
-    move-exception v0
-
-    move-object/from16 v14, p1
-
-    move-object/from16 v10, p2
-
-    :goto_6
-    invoke-static {v5, v6}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    :goto_1
+    invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     nop
 
-    invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
+    invoke-direct {p0, p3, p4, p5}, Lcom/android/server/wallpaper/WallpaperManagerService;->getEngine(III)Landroid/service/wallpaper/IWallpaperEngine;
 
-    move-result v0
+    move-result-object v4
 
-    if-nez v0, :cond_9
+    if-eqz v4, :cond_4
 
+    if-nez v3, :cond_2
+
+    goto :goto_2
+
+    :cond_2
+    invoke-interface {v3}, Ljava/util/List;->size()I
+
+    move-result v5
+
+    if-lez v5, :cond_3
+
+    invoke-interface {v4, v3}, Landroid/service/wallpaper/IWallpaperEngine;->removeLocalColorsAreas(Ljava/util/List;)V
+
+    :cond_3
     return-void
 
-    :cond_9
-    move/from16 v9, p5
-
-    invoke-direct {v1, v2, v3, v9}, Lcom/android/server/wallpaper/WallpaperManagerService;->getEngine(III)Landroid/service/wallpaper/IWallpaperEngine;
-
-    move-result-object v0
-
-    if-nez v0, :cond_a
-
+    :cond_4
+    :goto_2
     return-void
 
-    :cond_a
-    invoke-interface {v0, v7}, Landroid/service/wallpaper/IWallpaperEngine;->removeLocalColorsAreas(Ljava/util/List;)V
+    :cond_5
+    new-instance v1, Ljava/lang/SecurityException;
 
-    return-void
+    const-string v2, "calling user id does not match"
 
-    :cond_b
-    move-object/from16 v14, p1
+    invoke-direct {v1, v2}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
 
-    move-object/from16 v10, p2
-
-    move/from16 v9, p5
-
-    new-instance v0, Ljava/lang/SecurityException;
-
-    const-string v5, "calling user id does not match"
-
-    invoke-direct {v0, v5}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
-
-    throw v0
+    throw v1
 .end method
 
 .method saveSettingsLocked(I)V
@@ -9746,60 +9414,76 @@
     move-object v0, p3
 
     :goto_0
-    iget-object v1, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mLock:Ljava/lang/Object;
+    new-instance p3, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda0;
 
-    monitor-enter v1
+    invoke-direct {p3, p0, p2}, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/wallpaper/WallpaperManagerService;Ljava/lang/String;)V
+
+    invoke-static {p3}, Landroid/os/Binder;->withCleanCallingIdentity(Lcom/android/internal/util/FunctionalUtils$ThrowingSupplier;)Ljava/lang/Object;
+
+    move-result-object p3
+
+    check-cast p3, Ljava/lang/Boolean;
+
+    invoke-virtual {p3}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v1
+
+    iget-object v2, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mLock:Ljava/lang/Object;
+
+    monitor-enter v2
 
     const/4 p3, 0x1
 
     if-ne p6, p3, :cond_2
 
     :try_start_0
-    iget-object v2, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mLockWallpaperMap:Landroid/util/SparseArray;
+    iget-object v3, p0, Lcom/android/server/wallpaper/WallpaperManagerService;->mLockWallpaperMap:Landroid/util/SparseArray;
 
-    invoke-virtual {v2, p8}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3, p8}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v3
 
-    if-nez v2, :cond_2
+    if-nez v3, :cond_2
 
-    const-string v2, "WallpaperManagerService"
+    const-string v3, "WallpaperManagerService"
 
-    const-string v3, "Migrating current wallpaper to be lock-only beforeupdating system wallpaper"
+    const-string v4, "Migrating current wallpaper to be lock-only beforeupdating system wallpaper"
 
-    invoke-static {v2, v3}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-direct {p0, p8}, Lcom/android/server/wallpaper/WallpaperManagerService;->migrateSystemToLockWallpaperLocked(I)V
 
     :cond_2
     invoke-virtual {p0, p8, p6}, Lcom/android/server/wallpaper/WallpaperManagerService;->getWallpaperSafeLocked(II)Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;
 
-    move-result-object v2
+    move-result-object v3
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v3
+    move-result-wide v4
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    invoke-virtual {p0, p1, v2, p5}, Lcom/android/server/wallpaper/WallpaperManagerService;->updateWallpaperBitmapLocked(Ljava/lang/String;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;Landroid/os/Bundle;)Landroid/os/ParcelFileDescriptor;
+    invoke-virtual {p0, p1, v3, p5}, Lcom/android/server/wallpaper/WallpaperManagerService;->updateWallpaperBitmapLocked(Ljava/lang/String;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;Landroid/os/Bundle;)Landroid/os/ParcelFileDescriptor;
 
-    move-result-object v5
+    move-result-object v6
 
-    if-eqz v5, :cond_3
+    if-eqz v6, :cond_3
 
-    iput-boolean p3, v2, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->imageWallpaperPending:Z
+    iput-boolean p3, v3, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->imageWallpaperPending:Z
 
-    iput p6, v2, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->whichPending:I
+    iput p6, v3, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->whichPending:I
 
-    iput-object p7, v2, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->setComplete:Landroid/app/IWallpaperManagerCallback;
+    iput-object p7, v3, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->setComplete:Landroid/app/IWallpaperManagerCallback;
 
-    iget-object p3, v2, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->cropHint:Landroid/graphics/Rect;
+    iput-boolean v1, v3, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->fromForegroundApp:Z
+
+    iget-object p3, v3, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->cropHint:Landroid/graphics/Rect;
 
     invoke-virtual {p3, v0}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    iput-boolean p4, v2, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->allowBackup:Z
+    iput-boolean p4, v3, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->allowBackup:Z
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -9807,16 +9491,16 @@
     nop
 
     :try_start_2
-    invoke-static {v3, v4}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    monitor-exit v1
+    monitor-exit v2
 
-    return-object v5
+    return-object v6
 
     :catchall_0
     move-exception p3
 
-    invoke-static {v3, v4}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v4, v5}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     nop
 
@@ -9825,7 +9509,7 @@
     :catchall_1
     move-exception p3
 
-    monitor-exit v1
+    monitor-exit v2
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
@@ -10282,9 +9966,9 @@
 
     move-result-object v1
 
-    new-instance v3, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda1;
+    new-instance v3, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda2;
 
-    invoke-direct {v3, p0, v2, v4}, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/wallpaper/WallpaperManagerService;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;)V
+    invoke-direct {v3, p0, v2, v4}, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda2;-><init>(Lcom/android/server/wallpaper/WallpaperManagerService;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;)V
 
     invoke-virtual {v1, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
     :try_end_3

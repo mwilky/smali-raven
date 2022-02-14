@@ -63,7 +63,7 @@
 
     iget-object v6, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda45;->f$6:Ljava/lang/String;
 
-    invoke-virtual/range {v0 .. v6}, Lcom/android/server/pm/PackageManagerService;->lambda$deleteApplicationCacheFilesAsUser$55$PackageManagerService(Lcom/android/server/pm/parsing/pkg/AndroidPackage;IIILandroid/content/pm/IPackageDataObserver;Ljava/lang/String;)V
+    invoke-virtual/range {v0 .. v6}, Lcom/android/server/pm/PackageManagerService;->lambda$deleteApplicationCacheFilesAsUser$54$PackageManagerService(Lcom/android/server/pm/parsing/pkg/AndroidPackage;IIILandroid/content/pm/IPackageDataObserver;Ljava/lang/String;)V
 
     return-void
 .end method

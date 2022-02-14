@@ -124,7 +124,9 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/server/accessibility/AccessibilityTraceManager;->isA11yTracingEnabled()Z
+    const-wide/32 v4, 0x8000
+
+    invoke-virtual {v0, v4, v5}, Lcom/android/server/accessibility/AccessibilityTraceManager;->isA11yTracingEnabledForTypes(J)Z
 
     move-result v0
 
@@ -136,52 +138,52 @@
 
     move-result-object v0
 
-    const-string v4, "AccessibilityManagerService.PM.onHandleForceStop"
+    const-string v6, "AccessibilityManagerService.PM.onHandleForceStop"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "intent="
+    const-string v8, "intent="
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v6, p1
+    move-object/from16 v8, p1
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v7, ";packages="
+    const-string v9, ";packages="
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v7, ";uid="
+    const-string v9, ";uid="
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move/from16 v7, p3
+    move/from16 v9, p3
 
-    invoke-virtual {v5, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v8, ";doit="
+    const-string v10, ";doit="
 
-    invoke-virtual {v5, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v0, v4, v5}, Lcom/android/server/accessibility/AccessibilityTraceManager;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v6, v4, v5, v7}, Lcom/android/server/accessibility/AccessibilityTraceManager;->logTrace(Ljava/lang/String;JLjava/lang/String;)V
 
     goto :goto_0
 
     :cond_0
-    move-object/from16 v6, p1
+    move-object/from16 v8, p1
 
-    move/from16 v7, p3
+    move/from16 v9, p3
 
     :goto_0
     iget-object v0, v1, Lcom/android/server/accessibility/AccessibilityManagerService$1;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
@@ -203,13 +205,13 @@
 
     move-result v5
 
-    const/4 v8, 0x0
+    const/4 v6, 0x0
 
     if-eq v0, v5, :cond_1
 
     monitor-exit v4
 
-    return v8
+    return v6
 
     :cond_1
     iget-object v5, v1, Lcom/android/server/accessibility/AccessibilityManagerService$1;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
@@ -218,20 +220,20 @@
 
     move-result-object v5
 
-    iget-object v9, v5, Lcom/android/server/accessibility/AccessibilityUserState;->mEnabledServices:Ljava/util/Set;
+    iget-object v7, v5, Lcom/android/server/accessibility/AccessibilityUserState;->mEnabledServices:Ljava/util/Set;
 
-    invoke-interface {v9}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    invoke-interface {v7}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v9
+    move-result-object v7
 
     :goto_1
-    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
     if-eqz v10, :cond_5
 
-    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v10
 
@@ -243,7 +245,7 @@
 
     array-length v12, v2
 
-    move v13, v8
+    move v13, v6
 
     :goto_2
     if-ge v13, v12, :cond_4
@@ -265,7 +267,7 @@
     return v4
 
     :cond_2
-    invoke-interface {v9}, Ljava/util/Iterator;->remove()V
+    invoke-interface {v7}, Ljava/util/Iterator;->remove()V
 
     invoke-virtual {v5}, Lcom/android/server/accessibility/AccessibilityUserState;->getBindingServicesLocked()Ljava/util/Set;
 
@@ -281,11 +283,11 @@
 
     iget-object v15, v1, Lcom/android/server/accessibility/AccessibilityManagerService$1;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
-    const-string v8, "enabled_accessibility_services"
+    const-string v6, "enabled_accessibility_services"
 
     iget-object v2, v5, Lcom/android/server/accessibility/AccessibilityUserState;->mEnabledServices:Ljava/util/Set;
 
-    invoke-virtual {v15, v8, v2, v0}, Lcom/android/server/accessibility/AccessibilityManagerService;->persistComponentNamesToSettingLocked(Ljava/lang/String;Ljava/util/Set;I)V
+    invoke-virtual {v15, v6, v2, v0}, Lcom/android/server/accessibility/AccessibilityManagerService;->persistComponentNamesToSettingLocked(Ljava/lang/String;Ljava/util/Set;I)V
 
     iget-object v2, v1, Lcom/android/server/accessibility/AccessibilityManagerService$1;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
@@ -296,14 +298,14 @@
 
     move-object/from16 v2, p2
 
-    const/4 v8, 0x0
+    const/4 v6, 0x0
 
     goto :goto_2
 
     :cond_4
     move-object/from16 v2, p2
 
-    const/4 v8, 0x0
+    const/4 v6, 0x0
 
     goto :goto_1
 
@@ -333,7 +335,9 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/server/accessibility/AccessibilityTraceManager;->isA11yTracingEnabled()Z
+    const-wide/32 v1, 0x8000
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityTraceManager;->isA11yTracingEnabledForTypes(J)Z
 
     move-result v0
 
@@ -345,29 +349,29 @@
 
     move-result-object v0
 
-    const-string v1, "AccessibilityManagerService.PM.onPackageRemoved"
+    const-string v3, "AccessibilityManagerService.PM.onPackageRemoved"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "packageName="
+    const-string/jumbo v5, "packageName="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, ";uid="
+    const-string v5, ";uid="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityTraceManager;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v3, v1, v2, v4}, Lcom/android/server/accessibility/AccessibilityTraceManager;->logTrace(Ljava/lang/String;JLjava/lang/String;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$1;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
@@ -500,7 +504,9 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/server/accessibility/AccessibilityTraceManager;->isA11yTracingEnabled()Z
+    const-wide/32 v1, 0x8000
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityTraceManager;->isA11yTracingEnabledForTypes(J)Z
 
     move-result v0
 
@@ -512,29 +518,29 @@
 
     move-result-object v0
 
-    const-string v1, "AccessibilityManagerService.PM.onPackageUpdateFinished"
+    const-string v3, "AccessibilityManagerService.PM.onPackageUpdateFinished"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "packageName="
+    const-string/jumbo v5, "packageName="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, ";uid="
+    const-string v5, ";uid="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityTraceManager;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0, v3, v1, v2, v4}, Lcom/android/server/accessibility/AccessibilityTraceManager;->logTrace(Ljava/lang/String;JLjava/lang/String;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$1;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
@@ -648,7 +654,7 @@
 .end method
 
 .method public onSomePackagesChanged()V
-    .locals 3
+    .locals 4
 
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$1;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
 
@@ -656,7 +662,9 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/server/accessibility/AccessibilityTraceManager;->isA11yTracingEnabled()Z
+    const-wide/32 v1, 0x8000
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityTraceManager;->isA11yTracingEnabledForTypes(J)Z
 
     move-result v0
 
@@ -668,9 +676,9 @@
 
     move-result-object v0
 
-    const-string v1, "AccessibilityManagerService.PM.onSomePackagesChanged"
+    const-string v3, "AccessibilityManagerService.PM.onSomePackagesChanged"
 
-    invoke-virtual {v0, v1}, Lcom/android/server/accessibility/AccessibilityTraceManager;->logTrace(Ljava/lang/String;)V
+    invoke-virtual {v0, v3, v1, v2}, Lcom/android/server/accessibility/AccessibilityTraceManager;->logTrace(Ljava/lang/String;J)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityManagerService$1;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;

@@ -33,6 +33,8 @@
 
 .field final cropHint:Landroid/graphics/Rect;
 
+.field public fromForegroundApp:Z
+
 .field imageWallpaperPending:Z
 
 .field lastDiedTime:J
@@ -101,7 +103,7 @@
     return-void
 .end method
 
-.method static synthetic access$3000(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;)Landroid/os/RemoteCallbackList;
+.method static synthetic access$2800(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;)Landroid/os/RemoteCallbackList;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;->callbacks:Landroid/os/RemoteCallbackList;

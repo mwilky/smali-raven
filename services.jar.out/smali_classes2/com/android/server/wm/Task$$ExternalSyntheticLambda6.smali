@@ -27,7 +27,7 @@
 
     iget-object v0, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda6;->f$0:Lcom/android/server/wm/Task;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/Task;->lambda$dismissPip$31$Task()V
+    invoke-virtual {v0}, Lcom/android/server/wm/Task;->lambda$dismissPip$23$Task()V
 
     return-void
 .end method

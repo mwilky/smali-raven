@@ -10,15 +10,15 @@
 
 .field public final synthetic f$1:Ljava/lang/String;
 
-.field public final synthetic f$2:Landroid/os/Bundle;
+.field public final synthetic f$2:I
 
-.field public final synthetic f$3:Lcom/android/server/devicepolicy/CallerIdentity;
+.field public final synthetic f$3:Z
 
-.field public final synthetic f$4:Landroid/content/ComponentName;
+.field public final synthetic f$4:Ljava/util/List;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Ljava/lang/String;Landroid/os/Bundle;Lcom/android/server/devicepolicy/CallerIdentity;Landroid/content/ComponentName;)V
+.method public synthetic constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Ljava/lang/String;IZLjava/util/List;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,11 +27,11 @@
 
     iput-object p2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda50;->f$1:Ljava/lang/String;
 
-    iput-object p3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda50;->f$2:Landroid/os/Bundle;
+    iput p3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda50;->f$2:I
 
-    iput-object p4, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda50;->f$3:Lcom/android/server/devicepolicy/CallerIdentity;
+    iput-boolean p4, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda50;->f$3:Z
 
-    iput-object p5, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda50;->f$4:Landroid/content/ComponentName;
+    iput-object p5, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda50;->f$4:Ljava/util/List;
 
     return-void
 .end method
@@ -45,13 +45,13 @@
 
     iget-object v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda50;->f$1:Ljava/lang/String;
 
-    iget-object v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda50;->f$2:Landroid/os/Bundle;
+    iget v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda50;->f$2:I
 
-    iget-object v3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda50;->f$3:Lcom/android/server/devicepolicy/CallerIdentity;
+    iget-boolean v3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda50;->f$3:Z
 
-    iget-object v4, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda50;->f$4:Landroid/content/ComponentName;
+    iget-object v4, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda50;->f$4:Ljava/util/List;
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$setApplicationRestrictions$73$DevicePolicyManagerService(Ljava/lang/String;Landroid/os/Bundle;Lcom/android/server/devicepolicy/CallerIdentity;Landroid/content/ComponentName;)V
+    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$setAlwaysOnVpnPackage$41$DevicePolicyManagerService(Ljava/lang/String;IZLjava/util/List;)V
 
     return-void
 .end method

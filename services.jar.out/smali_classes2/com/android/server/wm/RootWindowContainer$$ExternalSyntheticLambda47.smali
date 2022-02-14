@@ -2,44 +2,36 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/Function;
+.implements Ljava/util/function/Predicate;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda47;
+# instance fields
+.field public final synthetic f$0:I
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda47;
-
-    invoke-direct {v0}, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda47;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda47;->INSTANCE:Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda47;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput p1, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda47;->f$0:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+.method public final test(Ljava/lang/Object;)Z
+    .locals 1
 
-    check-cast p1, Lcom/android/server/wm/TaskDisplayArea;
+    iget v0, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda47;->f$0:I
 
-    invoke-virtual {p1}, Lcom/android/server/wm/TaskDisplayArea;->getFocusedActivity()Lcom/android/server/wm/ActivityRecord;
+    check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    move-result-object p1
+    invoke-static {v0, p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$lockAllProfileTasks$36(ILcom/android/server/wm/ActivityRecord;)Z
 
-    return-object p1
+    move-result p1
+
+    return p1
 .end method

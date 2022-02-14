@@ -41,7 +41,7 @@
 
     check-cast p1, Landroid/graphics/Rect;
 
-    invoke-static {v0, v1, v2, p1}, Lcom/android/server/wm/DisplayContent;->lambda$addToGlobalAndConsumeLimit$35([I[ILandroid/graphics/Region;Landroid/graphics/Rect;)V
+    invoke-static {v0, v1, v2, p1}, Lcom/android/server/wm/DisplayContent;->lambda$addToGlobalAndConsumeLimit$37([I[ILandroid/graphics/Region;Landroid/graphics/Rect;)V
 
     return-void
 .end method

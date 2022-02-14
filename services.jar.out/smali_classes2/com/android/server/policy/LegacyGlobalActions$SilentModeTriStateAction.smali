@@ -52,9 +52,9 @@
 
     :array_0
     .array-data 4
-        0x10203cf
-        0x10203d0
-        0x10203d1
+        0x10203d2
+        0x10203d3
+        0x10203d4
     .end array-data
 .end method
 

@@ -27,7 +27,7 @@
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda69;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$listAllOwners$1$DevicePolicyManagerService()Ljava/util/List;
+    invoke-virtual {v0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$isUnattendedManagedKiosk$131$DevicePolicyManagerService()Ljava/lang/Boolean;
 
     move-result-object v0
 

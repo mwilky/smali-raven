@@ -122,7 +122,7 @@
 
     const-string v3, "hdmi_cec_enabled"
 
-    const v4, 0x1110050
+    const v4, 0x1110051
 
     invoke-direct {v0, v3, v4}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
@@ -130,23 +130,23 @@
 
     const/4 v4, 0x1
 
-    const v5, 0x111004e
+    const v5, 0x111004f
 
-    const v6, 0x111004f
+    const v6, 0x1110050
 
     invoke-virtual {v3, v4, v5, v6}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
     const/4 v5, 0x0
 
-    const v6, 0x111004c
+    const v6, 0x111004d
 
-    const v7, 0x111004d
+    const v7, 0x111004e
 
     invoke-virtual {v3, v5, v6, v7}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
     const-string v6, "hdmi_cec_version"
 
-    const v7, 0x1110055
+    const v7, 0x1110056
 
     invoke-direct {v0, v6, v7}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
@@ -154,23 +154,23 @@
 
     const/4 v7, 0x5
 
-    const v8, 0x1110051
+    const v8, 0x1110052
 
-    const v9, 0x1110052
+    const v9, 0x1110053
 
     invoke-virtual {v6, v7, v8, v9}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
     const/4 v7, 0x6
 
-    const v8, 0x1110053
+    const v8, 0x1110054
 
-    const v9, 0x1110054
+    const v9, 0x1110055
 
     invoke-virtual {v6, v7, v8, v9}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
     const-string/jumbo v8, "power_control_mode"
 
-    const v9, 0x111005c
+    const v9, 0x111005d
 
     invoke-direct {v0, v8, v9}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
@@ -178,193 +178,193 @@
 
     const-string/jumbo v9, "to_tv"
 
-    const v10, 0x111005a
+    const v10, 0x111005b
 
-    const v11, 0x111005b
+    const v11, 0x111005c
 
     invoke-virtual {v8, v9, v10, v11}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(Ljava/lang/String;II)V
 
     const-string v9, "broadcast"
 
-    const v10, 0x1110056
+    const v10, 0x1110057
 
-    const v11, 0x1110057
+    const v11, 0x1110058
 
     invoke-virtual {v8, v9, v10, v11}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(Ljava/lang/String;II)V
 
     const-string/jumbo v9, "none"
 
-    const v10, 0x1110058
+    const v10, 0x1110059
 
-    const v11, 0x1110059
+    const v11, 0x111005a
 
     invoke-virtual {v8, v9, v10, v11}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(Ljava/lang/String;II)V
 
     const-string/jumbo v10, "power_state_change_on_active_source_lost"
 
-    const v11, 0x1110061
+    const v11, 0x1110062
 
     invoke-direct {v0, v10, v11}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
     move-result-object v10
 
-    const v11, 0x111005d
+    const v11, 0x111005e
 
-    const v12, 0x111005e
+    const v12, 0x111005f
 
     invoke-virtual {v10, v9, v11, v12}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(Ljava/lang/String;II)V
 
     const-string/jumbo v9, "standby_now"
 
-    const v11, 0x111005f
+    const v11, 0x1110060
 
-    const v12, 0x1110060
+    const v12, 0x1110061
 
     invoke-virtual {v10, v9, v11, v12}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(Ljava/lang/String;II)V
 
     const-string/jumbo v9, "system_audio_mode_muting"
 
-    const v11, 0x111008a
+    const v11, 0x111008b
 
     invoke-direct {v0, v9, v11}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
     move-result-object v9
 
-    const v11, 0x1110088
+    const v11, 0x1110089
 
-    const v12, 0x1110089
+    const v12, 0x111008a
 
     invoke-virtual {v9, v4, v11, v12}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    const v11, 0x1110086
+    const v11, 0x1110087
 
-    const v12, 0x1110087
+    const v12, 0x1110088
 
     invoke-virtual {v9, v5, v11, v12}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
     const-string/jumbo v11, "volume_control_enabled"
 
-    const v12, 0x1110099
+    const v12, 0x111009a
 
     invoke-direct {v0, v11, v12}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
     move-result-object v11
 
-    const v12, 0x1110097
+    const v12, 0x1110098
 
-    const v13, 0x1110098
+    const v13, 0x1110099
 
     invoke-virtual {v11, v4, v12, v13}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    const v12, 0x1110095
+    const v12, 0x1110096
 
-    const v13, 0x1110096
+    const v13, 0x1110097
 
     invoke-virtual {v11, v5, v12, v13}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
     const-string/jumbo v12, "tv_wake_on_one_touch_play"
 
-    const v13, 0x1110094
+    const v13, 0x1110095
 
     invoke-direct {v0, v12, v13}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
     move-result-object v12
 
-    const v13, 0x1110092
+    const v13, 0x1110093
 
-    const v14, 0x1110093
+    const v14, 0x1110094
 
     invoke-virtual {v12, v4, v13, v14}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    const v13, 0x1110090
+    const v13, 0x1110091
 
-    const v14, 0x1110091
+    const v14, 0x1110092
 
     invoke-virtual {v12, v5, v13, v14}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
     const-string/jumbo v13, "tv_send_standby_on_sleep"
 
-    const v14, 0x111008f
+    const v14, 0x1110090
 
     invoke-direct {v0, v13, v14}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
     move-result-object v13
 
-    const v14, 0x111008d
+    const v14, 0x111008e
 
-    const v15, 0x111008e
+    const v15, 0x111008f
 
     invoke-virtual {v13, v4, v14, v15}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    const v14, 0x111008b
+    const v14, 0x111008c
 
-    const v15, 0x111008c
+    const v15, 0x111008d
 
     invoke-virtual {v13, v5, v14, v15}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
     const-string/jumbo v14, "rc_profile_tv"
 
-    const v15, 0x1110085
+    const v15, 0x1110086
 
     invoke-direct {v0, v14, v15}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
     move-result-object v14
 
-    const v15, 0x111007d
+    const v15, 0x111007e
 
-    const v4, 0x111007e
+    const v4, 0x111007f
 
     invoke-virtual {v14, v5, v15, v4}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
     const/4 v4, 0x2
 
-    const v15, 0x111007f
+    const v15, 0x1110080
 
-    const v5, 0x1110080
+    const v5, 0x1110081
 
     invoke-virtual {v14, v4, v15, v5}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    const v4, 0x1110083
+    const v4, 0x1110084
 
-    const v5, 0x1110084
+    const v5, 0x1110085
 
     invoke-virtual {v14, v7, v4, v5}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
     const/16 v4, 0xa
 
-    const v5, 0x1110081
+    const v5, 0x1110082
 
-    const v7, 0x1110082
+    const v7, 0x1110083
 
     invoke-virtual {v14, v4, v5, v7}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
     const/16 v4, 0xe
 
-    const v5, 0x111007b
+    const v5, 0x111007c
 
-    const v7, 0x111007c
+    const v7, 0x111007d
 
     invoke-virtual {v14, v4, v5, v7}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
     const-string/jumbo v4, "rc_profile_source_handles_root_menu"
 
-    const v5, 0x1110070
+    const v5, 0x1110071
 
     invoke-direct {v0, v4, v5}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
     move-result-object v4
 
-    const v5, 0x111006c
+    const v5, 0x111006d
 
-    const v7, 0x111006d
+    const v7, 0x111006e
 
     const/4 v15, 0x1
 
     invoke-virtual {v4, v15, v5, v7}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    const v5, 0x111006e
+    const v5, 0x111006f
 
-    const v7, 0x111006f
+    const v7, 0x1110070
 
     const/4 v15, 0x0
 
@@ -372,23 +372,23 @@
 
     const-string/jumbo v5, "rc_profile_source_handles_setup_menu"
 
-    const v7, 0x1110075
+    const v7, 0x1110076
 
     invoke-direct {v0, v5, v7}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
     move-result-object v5
 
-    const v7, 0x1110071
+    const v7, 0x1110072
 
-    const v15, 0x1110072
+    const v15, 0x1110073
 
     const/4 v1, 0x1
 
     invoke-virtual {v5, v1, v7, v15}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    const v1, 0x1110073
+    const v1, 0x1110074
 
-    const v7, 0x1110074
+    const v7, 0x1110075
 
     const/4 v15, 0x0
 
@@ -396,23 +396,23 @@
 
     const-string/jumbo v1, "rc_profile_source_handles_contents_menu"
 
-    const v7, 0x1110066
+    const v7, 0x1110067
 
     invoke-direct {v0, v1, v7}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
     move-result-object v1
 
-    const v7, 0x1110062
+    const v7, 0x1110063
 
-    const v15, 0x1110063
+    const v15, 0x1110064
 
     const/4 v2, 0x1
 
     invoke-virtual {v1, v2, v7, v15}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    const v2, 0x1110064
+    const v2, 0x1110065
 
-    const v7, 0x1110065
+    const v7, 0x1110066
 
     const/4 v15, 0x0
 
@@ -420,15 +420,15 @@
 
     const-string/jumbo v2, "rc_profile_source_handles_top_menu"
 
-    const v7, 0x111007a
+    const v7, 0x111007b
 
     invoke-direct {v0, v2, v7}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
     move-result-object v2
 
-    const v7, 0x1110076
+    const v7, 0x1110077
 
-    const v15, 0x1110077
+    const v15, 0x1110078
 
     move-object/from16 v16, v1
 
@@ -436,9 +436,9 @@
 
     invoke-virtual {v2, v1, v7, v15}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    const v1, 0x1110078
+    const v1, 0x1110079
 
-    const v7, 0x1110079
+    const v7, 0x111007a
 
     const/4 v15, 0x0
 
@@ -446,23 +446,23 @@
 
     const-string/jumbo v1, "rc_profile_source_handles_media_context_sensitive_menu"
 
-    const v7, 0x111006b
+    const v7, 0x111006c
 
     invoke-direct {v0, v1, v7}, Lcom/android/server/hdmi/HdmiCecConfig;->registerSetting(Ljava/lang/String;I)Lcom/android/server/hdmi/HdmiCecConfig$Setting;
 
     move-result-object v1
 
-    const v7, 0x1110067
+    const v7, 0x1110068
 
-    const v15, 0x1110068
+    const v15, 0x1110069
 
     const/4 v0, 0x1
 
     invoke-virtual {v1, v0, v7, v15}, Lcom/android/server/hdmi/HdmiCecConfig$Setting;->registerValue(III)V
 
-    const v0, 0x1110069
+    const v0, 0x111006a
 
-    const v7, 0x111006a
+    const v7, 0x111006b
 
     const/4 v15, 0x0
 

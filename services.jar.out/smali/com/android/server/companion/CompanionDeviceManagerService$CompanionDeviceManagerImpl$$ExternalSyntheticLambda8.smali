@@ -29,7 +29,7 @@
 
     check-cast p1, Landroid/companion/Association;
 
-    invoke-static {v0, p1}, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl;->lambda$registerDevicePresenceListenerActive$5(Ljava/lang/String;Landroid/companion/Association;)Z
+    invoke-static {v0, p1}, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl;->lambda$isDeviceAssociatedForWifiConnection$5(Ljava/lang/String;Landroid/companion/Association;)Z
 
     move-result p1
 

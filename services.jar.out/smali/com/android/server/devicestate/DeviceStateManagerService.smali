@@ -7,7 +7,6 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/server/devicestate/DeviceStateManagerService$BinderService;,
-        Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;,
         Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;,
         Lcom/android/server/devicestate/DeviceStateManagerService$DeviceStateProviderListener;
     }
@@ -21,6 +20,18 @@
 
 
 # instance fields
+.field private mActiveOverride:Ljava/util/Optional;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Optional<",
+            "Lcom/android/server/devicestate/OverrideRequest;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public mActivityTaskManagerInternal:Lcom/android/server/wm/ActivityTaskManagerInternal;
+
 .field private mBaseState:Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -55,9 +66,13 @@
     .end annotation
 .end field
 
+.field private final mHandler:Landroid/os/Handler;
+
 .field private mIsPolicyWaitingForState:Z
 
 .field private final mLock:Ljava/lang/Object;
+
+.field private final mOverrideRequestController:Lcom/android/server/devicestate/OverrideRequestController;
 
 .field private mPendingState:Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
@@ -79,32 +94,36 @@
     .end annotation
 .end field
 
-.field private final mRequestRecords:Ljava/util/ArrayList;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/ArrayList<",
-            "Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final mRequestsPendingStatusChange:Landroid/util/ArraySet;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroid/util/ArraySet<",
-            "Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 
 # direct methods
+.method public static synthetic $r8$lambda$UaA7yMWStQbVPF5T0N18j3gX22Q(Lcom/android/server/devicestate/DeviceStateManagerService;Lcom/android/server/devicestate/OverrideRequest;I)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/devicestate/DeviceStateManagerService;->onOverrideRequestStatusChangedLocked(Lcom/android/server/devicestate/OverrideRequest;I)V
+
+    return-void
+.end method
+
 .method public static synthetic $r8$lambda$jiU5VXokYcJUH2EJ6jFQstyxfLE(Lcom/android/server/devicestate/DeviceStateManagerService;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/devicestate/DeviceStateManagerService;->commitPendingState()V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$s8kEW-K3GJMb1y3UvMw1-_u88Uk(Lcom/android/server/devicestate/DeviceStateManagerService;Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/devicestate/DeviceStateManagerService;->handleProcessDied(Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$wIWgFzEDmf-WTNtQtPpan3TstOU(Lcom/android/server/devicestate/DeviceStateManagerService;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/devicestate/DeviceStateManagerService;->notifyPolicyIfNeeded()V
 
     return-void
 .end method
@@ -122,7 +141,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;Lcom/android/server/devicestate/DeviceStatePolicy;)V
-    .locals 3
+    .locals 4
 
     invoke-direct {p0, p1}, Lcom/android/server/SystemService;-><init>(Landroid/content/Context;)V
 
@@ -166,48 +185,94 @@
 
     iput-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mBaseState:Ljava/util/Optional;
 
+    nop
+
+    invoke-static {}, Ljava/util/Optional;->empty()Ljava/util/Optional;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mActiveOverride:Ljava/util/Optional;
+
     new-instance v0, Landroid/util/SparseArray;
 
     invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
 
     iput-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mProcessRecords:Landroid/util/SparseArray;
 
-    new-instance v0, Ljava/util/ArrayList;
+    invoke-static {}, Lcom/android/server/DisplayThread;->get()Lcom/android/server/DisplayThread;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    move-result-object v0
 
-    iput-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mRequestRecords:Ljava/util/ArrayList;
+    new-instance v1, Landroid/os/Handler;
 
-    new-instance v0, Landroid/util/ArraySet;
+    invoke-virtual {v0}, Lcom/android/server/DisplayThread;->getLooper()Landroid/os/Looper;
 
-    invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
+    move-result-object v2
 
-    iput-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mRequestsPendingStatusChange:Landroid/util/ArraySet;
+    invoke-direct {v1, v2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+
+    iput-object v1, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mHandler:Landroid/os/Handler;
+
+    new-instance v1, Lcom/android/server/devicestate/OverrideRequestController;
+
+    new-instance v2, Lcom/android/server/devicestate/DeviceStateManagerService$$ExternalSyntheticLambda1;
+
+    invoke-direct {v2, p0}, Lcom/android/server/devicestate/DeviceStateManagerService$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/devicestate/DeviceStateManagerService;)V
+
+    invoke-direct {v1, v2}, Lcom/android/server/devicestate/OverrideRequestController;-><init>(Lcom/android/server/devicestate/OverrideRequestController$StatusChangeListener;)V
+
+    iput-object v1, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mOverrideRequestController:Lcom/android/server/devicestate/OverrideRequestController;
 
     iput-object p2, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mDeviceStatePolicy:Lcom/android/server/devicestate/DeviceStatePolicy;
 
     invoke-interface {p2}, Lcom/android/server/devicestate/DeviceStatePolicy;->getDeviceStateProvider()Lcom/android/server/devicestate/DeviceStateProvider;
 
-    move-result-object v0
+    move-result-object v1
 
-    new-instance v1, Lcom/android/server/devicestate/DeviceStateManagerService$DeviceStateProviderListener;
+    new-instance v2, Lcom/android/server/devicestate/DeviceStateManagerService$DeviceStateProviderListener;
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-direct {v1, p0, v2}, Lcom/android/server/devicestate/DeviceStateManagerService$DeviceStateProviderListener;-><init>(Lcom/android/server/devicestate/DeviceStateManagerService;Lcom/android/server/devicestate/DeviceStateManagerService$1;)V
+    invoke-direct {v2, p0, v3}, Lcom/android/server/devicestate/DeviceStateManagerService$DeviceStateProviderListener;-><init>(Lcom/android/server/devicestate/DeviceStateManagerService;Lcom/android/server/devicestate/DeviceStateManagerService$1;)V
 
-    invoke-interface {v0, v1}, Lcom/android/server/devicestate/DeviceStateProvider;->setListener(Lcom/android/server/devicestate/DeviceStateProvider$Listener;)V
+    invoke-interface {v1, v2}, Lcom/android/server/devicestate/DeviceStateProvider;->setListener(Lcom/android/server/devicestate/DeviceStateProvider$Listener;)V
 
-    new-instance v0, Lcom/android/server/devicestate/DeviceStateManagerService$BinderService;
+    new-instance v1, Lcom/android/server/devicestate/DeviceStateManagerService$BinderService;
 
-    invoke-direct {v0, p0, v2}, Lcom/android/server/devicestate/DeviceStateManagerService$BinderService;-><init>(Lcom/android/server/devicestate/DeviceStateManagerService;Lcom/android/server/devicestate/DeviceStateManagerService$1;)V
+    invoke-direct {v1, p0, v3}, Lcom/android/server/devicestate/DeviceStateManagerService$BinderService;-><init>(Lcom/android/server/devicestate/DeviceStateManagerService;Lcom/android/server/devicestate/DeviceStateManagerService$1;)V
 
-    iput-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mBinderService:Lcom/android/server/devicestate/DeviceStateManagerService$BinderService;
+    iput-object v1, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mBinderService:Lcom/android/server/devicestate/DeviceStateManagerService$BinderService;
+
+    const-class v1, Lcom/android/server/wm/ActivityTaskManagerInternal;
+
+    invoke-static {v1}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/server/wm/ActivityTaskManagerInternal;
+
+    iput-object v1, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mActivityTaskManagerInternal:Lcom/android/server/wm/ActivityTaskManagerInternal;
 
     return-void
 .end method
 
-.method static synthetic access$1000(Lcom/android/server/devicestate/DeviceStateManagerService;I)V
+.method static synthetic access$1000(Lcom/android/server/devicestate/DeviceStateManagerService;Ljava/io/PrintWriter;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/devicestate/DeviceStateManagerService;->dumpInternal(Ljava/io/PrintWriter;)V
+
+    return-void
+.end method
+
+.method static synthetic access$300(Lcom/android/server/devicestate/DeviceStateManagerService;[Lcom/android/server/devicestate/DeviceState;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/devicestate/DeviceStateManagerService;->updateSupportedStates([Lcom/android/server/devicestate/DeviceState;)V
+
+    return-void
+.end method
+
+.method static synthetic access$400(Lcom/android/server/devicestate/DeviceStateManagerService;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/devicestate/DeviceStateManagerService;->setBaseState(I)V
@@ -215,31 +280,7 @@
     return-void
 .end method
 
-.method static synthetic access$1100(Lcom/android/server/devicestate/DeviceStateManagerService;Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/devicestate/DeviceStateManagerService;->handleProcessDied(Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;)V
-
-    return-void
-.end method
-
-.method static synthetic access$1200(Lcom/android/server/devicestate/DeviceStateManagerService;)Ljava/util/ArrayList;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mRequestRecords:Ljava/util/ArrayList;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1300(Lcom/android/server/devicestate/DeviceStateManagerService;)Landroid/util/ArraySet;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mRequestsPendingStatusChange:Landroid/util/ArraySet;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1400(Lcom/android/server/devicestate/DeviceStateManagerService;)Ljava/lang/Object;
+.method static synthetic access$500(Lcom/android/server/devicestate/DeviceStateManagerService;)Ljava/lang/Object;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mLock:Ljava/lang/Object;
@@ -247,7 +288,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1500(Lcom/android/server/devicestate/DeviceStateManagerService;)Landroid/hardware/devicestate/DeviceStateInfo;
+.method static synthetic access$600(Lcom/android/server/devicestate/DeviceStateManagerService;)Landroid/hardware/devicestate/DeviceStateInfo;
     .locals 1
 
     invoke-direct {p0}, Lcom/android/server/devicestate/DeviceStateManagerService;->getDeviceStateInfoLocked()Landroid/hardware/devicestate/DeviceStateInfo;
@@ -257,7 +298,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1600(Lcom/android/server/devicestate/DeviceStateManagerService;ILandroid/hardware/devicestate/IDeviceStateManagerCallback;)V
+.method static synthetic access$700(Lcom/android/server/devicestate/DeviceStateManagerService;ILandroid/hardware/devicestate/IDeviceStateManagerCallback;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/devicestate/DeviceStateManagerService;->registerProcess(ILandroid/hardware/devicestate/IDeviceStateManagerCallback;)V
@@ -265,7 +306,7 @@
     return-void
 .end method
 
-.method static synthetic access$1700(Lcom/android/server/devicestate/DeviceStateManagerService;IIILandroid/os/IBinder;)V
+.method static synthetic access$800(Lcom/android/server/devicestate/DeviceStateManagerService;IIILandroid/os/IBinder;)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/devicestate/DeviceStateManagerService;->requestStateInternal(IIILandroid/os/IBinder;)V
@@ -273,26 +314,10 @@
     return-void
 .end method
 
-.method static synthetic access$1800(Lcom/android/server/devicestate/DeviceStateManagerService;ILandroid/os/IBinder;)V
+.method static synthetic access$900(Lcom/android/server/devicestate/DeviceStateManagerService;ILandroid/os/IBinder;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/devicestate/DeviceStateManagerService;->cancelRequestInternal(ILandroid/os/IBinder;)V
-
-    return-void
-.end method
-
-.method static synthetic access$1900(Lcom/android/server/devicestate/DeviceStateManagerService;Ljava/io/PrintWriter;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/devicestate/DeviceStateManagerService;->dumpInternal(Ljava/io/PrintWriter;)V
-
-    return-void
-.end method
-
-.method static synthetic access$900(Lcom/android/server/devicestate/DeviceStateManagerService;[Lcom/android/server/devicestate/DeviceState;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/devicestate/DeviceStateManagerService;->updateSupportedStates([Lcom/android/server/devicestate/DeviceState;)V
 
     return-void
 .end method
@@ -313,49 +338,17 @@
 
     check-cast v1, Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
-    invoke-static {v1}, Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;->access$400(Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;)Landroid/util/ArrayMap;
+    iget-object v2, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mOverrideRequestController:Lcom/android/server/devicestate/OverrideRequestController;
 
-    move-result-object v2
-
-    invoke-virtual {v2, p2}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;
-
-    if-eqz v2, :cond_0
-
-    const/4 v3, 0x3
-
-    invoke-virtual {v2, v3}, Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;->setStatusLocked(I)V
-
-    invoke-direct {p0}, Lcom/android/server/devicestate/DeviceStateManagerService;->updatePendingStateLocked()Z
-
-    nop
+    invoke-virtual {v2, p2}, Lcom/android/server/devicestate/OverrideRequestController;->cancelRequest(Landroid/os/IBinder;)V
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-direct {p0}, Lcom/android/server/devicestate/DeviceStateManagerService;->notifyRequestsOfStatusChangeIfNeeded()V
-
-    invoke-direct {p0}, Lcom/android/server/devicestate/DeviceStateManagerService;->notifyPolicyIfNeeded()V
 
     return-void
 
     :cond_0
-    :try_start_1
-    new-instance v3, Ljava/lang/IllegalStateException;
-
-    const-string v4, "No known request for the given token"
-
-    invoke-direct {v3, v4}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    :cond_1
     new-instance v2, Ljava/lang/IllegalStateException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -384,14 +377,14 @@
     move-exception v1
 
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method private commitPendingState()V
-    .locals 6
+    .locals 5
 
     iget-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mLock:Ljava/lang/Object;
 
@@ -406,68 +399,29 @@
 
     check-cast v1, Lcom/android/server/devicestate/DeviceState;
 
-    iget-object v2, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mRequestRecords:Ljava/util/ArrayList;
-
-    invoke-virtual {v2}, Ljava/util/ArrayList;->isEmpty()Z
-
-    move-result v2
-
-    const/4 v3, 0x1
-
-    if-nez v2, :cond_0
-
-    iget-object v2, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mRequestRecords:Ljava/util/ArrayList;
-
-    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
-
-    move-result v4
-
-    sub-int/2addr v4, v3
-
-    invoke-virtual {v2, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;
-
-    invoke-static {v2}, Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;->access$200(Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;)Lcom/android/server/devicestate/DeviceState;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Lcom/android/server/devicestate/DeviceState;->getIdentifier()I
-
-    move-result v4
-
-    invoke-virtual {v1}, Lcom/android/server/devicestate/DeviceState;->getIdentifier()I
-
-    move-result v5
-
-    if-ne v4, v5, :cond_0
-
-    invoke-virtual {v2, v3}, Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;->setStatusLocked(I)V
-
-    :cond_0
     const/16 v2, 0x15e
 
     invoke-virtual {v1}, Lcom/android/server/devicestate/DeviceState;->getIdentifier()I
 
+    move-result v3
+
+    iget-object v4, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mCommittedState:Ljava/util/Optional;
+
+    invoke-virtual {v4}, Ljava/util/Optional;->isPresent()Z
+
     move-result v4
 
-    iget-object v5, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mCommittedState:Ljava/util/Optional;
+    if-nez v4, :cond_0
 
-    invoke-virtual {v5}, Ljava/util/Optional;->isPresent()Z
-
-    move-result v5
-
-    if-nez v5, :cond_1
+    const/4 v4, 0x1
 
     goto :goto_0
 
-    :cond_1
-    const/4 v3, 0x0
+    :cond_0
+    const/4 v4, 0x0
 
     :goto_0
-    invoke-static {v2, v4, v3}, Lcom/android/internal/util/FrameworkStatsLog;->write(IIZ)V
+    invoke-static {v2, v3, v4}, Lcom/android/internal/util/FrameworkStatsLog;->write(IIZ)V
 
     invoke-static {v1}, Ljava/util/Optional;->of(Ljava/lang/Object;)Ljava/util/Optional;
 
@@ -483,33 +437,77 @@
 
     invoke-direct {p0}, Lcom/android/server/devicestate/DeviceStateManagerService;->updatePendingStateLocked()Z
 
+    invoke-direct {p0}, Lcom/android/server/devicestate/DeviceStateManagerService;->notifyDeviceStateInfoChangedAsync()V
+
+    iget-object v2, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mActiveOverride:Ljava/util/Optional;
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v2, v3}, Ljava/util/Optional;->orElse(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/server/devicestate/OverrideRequest;
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {v2}, Lcom/android/server/devicestate/OverrideRequest;->getRequestedState()I
+
+    move-result v3
+
+    invoke-virtual {v1}, Lcom/android/server/devicestate/DeviceState;->getIdentifier()I
+
+    move-result v4
+
+    if-ne v3, v4, :cond_1
+
+    iget-object v3, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mProcessRecords:Landroid/util/SparseArray;
+
+    invoke-virtual {v2}, Lcom/android/server/devicestate/OverrideRequest;->getPid()I
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;
+
+    if-eqz v3, :cond_1
+
+    invoke-virtual {v2}, Lcom/android/server/devicestate/OverrideRequest;->getToken()Landroid/os/IBinder;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;->notifyRequestActiveAsync(Landroid/os/IBinder;)V
+
+    :cond_1
+    iget-object v3, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mHandler:Landroid/os/Handler;
+
+    new-instance v4, Lcom/android/server/devicestate/DeviceStateManagerService$$ExternalSyntheticLambda3;
+
+    invoke-direct {v4, p0}, Lcom/android/server/devicestate/DeviceStateManagerService$$ExternalSyntheticLambda3;-><init>(Lcom/android/server/devicestate/DeviceStateManagerService;)V
+
+    invoke-virtual {v3, v4}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
     nop
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-direct {p0}, Lcom/android/server/devicestate/DeviceStateManagerService;->notifyDeviceStateInfoChanged()V
-
-    invoke-direct {p0}, Lcom/android/server/devicestate/DeviceStateManagerService;->notifyRequestsOfStatusChangeIfNeeded()V
-
-    invoke-direct {p0}, Lcom/android/server/devicestate/DeviceStateManagerService;->notifyPolicyIfNeeded()V
 
     return-void
 
     :catchall_0
     move-exception v1
 
-    :try_start_1
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method private dumpInternal(Ljava/io/PrintWriter;)V
-    .locals 7
+    .locals 6
 
     const-string v0, "DEVICE STATE MANAGER (dumpsys device_state)"
 
@@ -645,7 +643,7 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v3}, Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;->access$500(Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;)I
+    invoke-static {v3}, Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;->access$200(Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;)I
 
     move-result v5
 
@@ -662,112 +660,10 @@
     goto :goto_0
 
     :cond_0
-    iget-object v2, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mRequestRecords:Ljava/util/ArrayList;
+    iget-object v2, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mOverrideRequestController:Lcom/android/server/devicestate/OverrideRequestController;
 
-    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v2, p1}, Lcom/android/server/devicestate/OverrideRequestController;->dumpInternal(Ljava/io/PrintWriter;)V
 
-    move-result v2
-
-    invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "Override requests: size="
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    const/4 v3, 0x0
-
-    :goto_1
-    if-ge v3, v2, :cond_1
-
-    iget-object v4, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mRequestRecords:Ljava/util/ArrayList;
-
-    invoke-virtual {v4, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "  "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v6, ": mPid="
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static {v4}, Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;->access$700(Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;)Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;
-
-    move-result-object v6
-
-    invoke-static {v6}, Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;->access$500(Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;)I
-
-    move-result v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v6, ", mRequestedState="
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static {v4}, Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;->access$200(Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;)Lcom/android/server/devicestate/DeviceState;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string v6, ", mFlags="
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static {v4}, Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;->access$300(Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;)I
-
-    move-result v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v6, ", mStatus="
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static {v4}, Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;->access$800(Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;)I
-
-    move-result v6
-
-    invoke-virtual {v4, v6}, Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;->statusToString(I)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {p1, v5}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_1
-
-    :cond_1
     monitor-exit v0
 
     return-void
@@ -938,74 +834,39 @@
 .end method
 
 .method private handleProcessDied(Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;)V
-    .locals 6
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mLock:Ljava/lang/Object;
 
     monitor-enter v0
 
     :try_start_0
-    invoke-static {p1}, Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;->access$400(Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;)Landroid/util/ArrayMap;
+    iget-object v1, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mProcessRecords:Landroid/util/SparseArray;
 
-    move-result-object v1
+    invoke-static {p1}, Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;->access$200(Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;)I
 
-    invoke-virtual {v1}, Landroid/util/ArrayMap;->size()I
+    move-result v2
 
-    move-result v1
+    invoke-virtual {v1, v2}, Landroid/util/SparseArray;->remove(I)V
 
-    const/4 v2, 0x0
+    iget-object v1, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mOverrideRequestController:Lcom/android/server/devicestate/OverrideRequestController;
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    invoke-static {p1}, Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;->access$200(Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;)I
 
-    invoke-static {p1}, Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;->access$400(Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;)Landroid/util/ArrayMap;
+    move-result v2
 
-    move-result-object v3
-
-    invoke-virtual {v3, v2}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;
-
-    const/4 v4, 0x3
-
-    const/4 v5, 0x0
-
-    invoke-virtual {v3, v4, v5}, Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;->setStatusLocked(IZ)V
-
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v2, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mProcessRecords:Landroid/util/SparseArray;
-
-    invoke-static {p1}, Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;->access$500(Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;)I
-
-    move-result v3
-
-    invoke-virtual {v2, v3}, Landroid/util/SparseArray;->remove(I)V
-
-    invoke-direct {p0}, Lcom/android/server/devicestate/DeviceStateManagerService;->updatePendingStateLocked()Z
-
-    nop
+    invoke-virtual {v1, v2}, Lcom/android/server/devicestate/OverrideRequestController;->handleProcessDied(I)V
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-direct {p0}, Lcom/android/server/devicestate/DeviceStateManagerService;->notifyPolicyIfNeeded()V
 
     return-void
 
     :catchall_0
     move-exception v1
 
-    :try_start_1
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
@@ -1022,16 +883,8 @@
     return v0
 .end method
 
-.method private notifyDeviceStateInfoChanged()V
-    .locals 4
-
-    iget-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mLock:Ljava/lang/Object;
-
-    invoke-static {v0}, Ljava/lang/Thread;->holdsLock(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_3
+.method private notifyDeviceStateInfoChangedAsync()V
+    .locals 5
 
     iget-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mLock:Ljava/lang/Object;
 
@@ -1085,52 +938,40 @@
 
     move-result-object v2
 
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    const/4 v0, 0x0
+    const/4 v3, 0x0
 
     :goto_1
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
-    move-result v3
+    move-result v4
 
-    if-ge v0, v3, :cond_2
+    if-ge v3, v4, :cond_2
 
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v1, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v4
 
-    check-cast v3, Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;
+    check-cast v4, Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;
 
-    invoke-virtual {v3, v2}, Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;->notifyDeviceStateInfoAsync(Landroid/hardware/devicestate/DeviceStateInfo;)V
+    invoke-virtual {v4, v2}, Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;->notifyDeviceStateInfoAsync(Landroid/hardware/devicestate/DeviceStateInfo;)V
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 
     :cond_2
+    monitor-exit v0
+
     return-void
 
     :catchall_0
     move-exception v1
 
-    :try_start_1
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
-
-    :cond_3
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    const-string v1, "Attempting to notify callbacks with service lock held."
-
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
 .end method
 
 .method private notifyPolicyIfNeeded()V
@@ -1193,9 +1034,9 @@
 
     iget-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mDeviceStatePolicy:Lcom/android/server/devicestate/DeviceStatePolicy;
 
-    new-instance v2, Lcom/android/server/devicestate/DeviceStateManagerService$$ExternalSyntheticLambda0;
+    new-instance v2, Lcom/android/server/devicestate/DeviceStateManagerService$$ExternalSyntheticLambda2;
 
-    invoke-direct {v2, p0}, Lcom/android/server/devicestate/DeviceStateManagerService$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/devicestate/DeviceStateManagerService;)V
+    invoke-direct {v2, p0}, Lcom/android/server/devicestate/DeviceStateManagerService$$ExternalSyntheticLambda2;-><init>(Lcom/android/server/devicestate/DeviceStateManagerService;)V
 
     invoke-interface {v0, v1, v2}, Lcom/android/server/devicestate/DeviceStatePolicy;->configureDeviceForState(ILjava/lang/Runnable;)V
 
@@ -1212,91 +1053,157 @@
     throw v1
 .end method
 
-.method private notifyRequestsOfStatusChangeIfNeeded()V
-    .locals 3
+.method private onOverrideRequestStatusChangedLocked(Lcom/android/server/devicestate/OverrideRequest;I)V
+    .locals 5
 
-    iget-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mLock:Ljava/lang/Object;
+    const/4 v0, 0x2
 
-    invoke-static {v0}, Ljava/lang/Thread;->holdsLock(Ljava/lang/Object;)Z
+    const/4 v1, 0x1
 
-    move-result v0
+    if-ne p2, v1, :cond_0
 
-    if-nez v0, :cond_2
-
-    iget-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mLock:Ljava/lang/Object;
-
-    monitor-enter v0
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mRequestsPendingStatusChange:Landroid/util/ArraySet;
-
-    invoke-virtual {v1}, Landroid/util/ArraySet;->isEmpty()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    monitor-exit v0
-
-    return-void
-
-    :cond_0
-    new-instance v1, Landroid/util/ArraySet;
-
-    iget-object v2, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mRequestsPendingStatusChange:Landroid/util/ArraySet;
-
-    invoke-direct {v1, v2}, Landroid/util/ArraySet;-><init>(Landroid/util/ArraySet;)V
-
-    iget-object v2, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mRequestsPendingStatusChange:Landroid/util/ArraySet;
-
-    invoke-virtual {v2}, Landroid/util/ArraySet;->clear()V
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    const/4 v0, 0x0
-
-    :goto_0
-    invoke-virtual {v1}, Landroid/util/ArraySet;->size()I
-
-    move-result v2
-
-    if-ge v0, v2, :cond_1
-
-    invoke-virtual {v1, v0}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    invoke-static {p1}, Ljava/util/Optional;->of(Ljava/lang/Object;)Ljava/util/Optional;
 
     move-result-object v2
 
-    check-cast v2, Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;
+    iput-object v2, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mActiveOverride:Ljava/util/Optional;
 
-    invoke-virtual {v2}, Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;->notifyStatusIfNeeded()V
+    goto :goto_1
 
-    add-int/lit8 v0, v0, 0x1
+    :cond_0
+    if-eq p2, v0, :cond_2
+
+    const/4 v2, 0x3
+
+    if-ne p2, v2, :cond_1
 
     goto :goto_0
 
     :cond_1
-    return-void
+    new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    :catchall_0
-    move-exception v1
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    :try_start_1
-    monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    throw v1
+    const-string v2, "Unknown request status: "
 
-    :cond_2
-    new-instance v0, Ljava/lang/IllegalStateException;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "Attempting to notify requests with service lock held."
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
+
+    :cond_2
+    :goto_0
+    iget-object v2, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mActiveOverride:Ljava/util/Optional;
+
+    invoke-virtual {v2}, Ljava/util/Optional;->isPresent()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    iget-object v2, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mActiveOverride:Ljava/util/Optional;
+
+    invoke-virtual {v2}, Ljava/util/Optional;->get()Ljava/lang/Object;
+
+    move-result-object v2
+
+    if-ne v2, p1, :cond_3
+
+    invoke-static {}, Ljava/util/Optional;->empty()Ljava/util/Optional;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mActiveOverride:Ljava/util/Optional;
+
+    :cond_3
+    :goto_1
+    invoke-direct {p0}, Lcom/android/server/devicestate/DeviceStateManagerService;->updatePendingStateLocked()Z
+
+    move-result v2
+
+    iget-object v3, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mProcessRecords:Landroid/util/SparseArray;
+
+    invoke-virtual {p1}, Lcom/android/server/devicestate/OverrideRequest;->getPid()I
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;
+
+    if-nez v3, :cond_4
+
+    iget-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mHandler:Landroid/os/Handler;
+
+    new-instance v1, Lcom/android/server/devicestate/DeviceStateManagerService$$ExternalSyntheticLambda3;
+
+    invoke-direct {v1, p0}, Lcom/android/server/devicestate/DeviceStateManagerService$$ExternalSyntheticLambda3;-><init>(Lcom/android/server/devicestate/DeviceStateManagerService;)V
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    return-void
+
+    :cond_4
+    if-ne p2, v1, :cond_5
+
+    if-nez v2, :cond_7
+
+    iget-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mPendingState:Ljava/util/Optional;
+
+    invoke-virtual {v0}, Ljava/util/Optional;->isPresent()Z
+
+    move-result v0
+
+    if-nez v0, :cond_7
+
+    invoke-virtual {p1}, Lcom/android/server/devicestate/OverrideRequest;->getToken()Landroid/os/IBinder;
+
+    move-result-object v0
+
+    invoke-virtual {v3, v0}, Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;->notifyRequestActiveAsync(Landroid/os/IBinder;)V
+
+    goto :goto_2
+
+    :cond_5
+    if-ne p2, v0, :cond_6
+
+    invoke-virtual {p1}, Lcom/android/server/devicestate/OverrideRequest;->getToken()Landroid/os/IBinder;
+
+    move-result-object v0
+
+    invoke-virtual {v3, v0}, Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;->notifyRequestSuspendedAsync(Landroid/os/IBinder;)V
+
+    goto :goto_2
+
+    :cond_6
+    invoke-virtual {p1}, Lcom/android/server/devicestate/OverrideRequest;->getToken()Landroid/os/IBinder;
+
+    move-result-object v0
+
+    invoke-virtual {v3, v0}, Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;->notifyRequestCanceledAsync(Landroid/os/IBinder;)V
+
+    :cond_7
+    :goto_2
+    iget-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mHandler:Landroid/os/Handler;
+
+    new-instance v1, Lcom/android/server/devicestate/DeviceStateManagerService$$ExternalSyntheticLambda3;
+
+    invoke-direct {v1, p0}, Lcom/android/server/devicestate/DeviceStateManagerService$$ExternalSyntheticLambda3;-><init>(Lcom/android/server/devicestate/DeviceStateManagerService;)V
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    return-void
 .end method
 
 .method private registerProcess(ILandroid/hardware/devicestate/IDeviceStateManagerCallback;)V
@@ -1317,7 +1224,13 @@
 
     new-instance v1, Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;
 
-    invoke-direct {v1, p0, p2, p1}, Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;-><init>(Lcom/android/server/devicestate/DeviceStateManagerService;Landroid/hardware/devicestate/IDeviceStateManagerCallback;I)V
+    new-instance v2, Lcom/android/server/devicestate/DeviceStateManagerService$$ExternalSyntheticLambda0;
+
+    invoke-direct {v2, p0}, Lcom/android/server/devicestate/DeviceStateManagerService$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/devicestate/DeviceStateManagerService;)V
+
+    iget-object v3, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mHandler:Landroid/os/Handler;
+
+    invoke-direct {v1, p2, p1, v2, v3}, Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;-><init>(Landroid/hardware/devicestate/IDeviceStateManagerCallback;ILcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord$DeathListener;Landroid/os/Handler;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -1358,21 +1271,18 @@
     const/4 v2, 0x0
 
     :goto_0
-    monitor-exit v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
     if-eqz v2, :cond_1
 
     invoke-virtual {v1, v2}, Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;->notifyDeviceStateInfoAsync(Landroid/hardware/devicestate/DeviceStateInfo;)V
 
     :cond_1
+    monitor-exit v0
+
     return-void
 
     :catch_0
     move-exception v2
 
-    :try_start_3
     new-instance v3, Ljava/lang/RuntimeException;
 
     invoke-direct {v3, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
@@ -1392,263 +1302,143 @@
     move-exception v1
 
     monitor-exit v0
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     throw v1
 .end method
 
 .method private requestStateInternal(IIILandroid/os/IBinder;)V
-    .locals 15
+    .locals 6
 
-    move-object v7, p0
+    iget-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mLock:Ljava/lang/Object;
 
-    move/from16 v8, p3
-
-    move-object/from16 v9, p4
-
-    iget-object v10, v7, Lcom/android/server/devicestate/DeviceStateManagerService;->mLock:Ljava/lang/Object;
-
-    monitor-enter v10
+    monitor-enter v0
 
     :try_start_0
-    iget-object v0, v7, Lcom/android/server/devicestate/DeviceStateManagerService;->mProcessRecords:Landroid/util/SparseArray;
+    iget-object v1, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mProcessRecords:Landroid/util/SparseArray;
 
-    invoke-virtual {v0, v8}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;
-
-    if-eqz v0, :cond_5
-
-    invoke-static {v0}, Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;->access$400(Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;)Landroid/util/ArrayMap;
+    invoke-virtual {v1, p3}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
-    invoke-virtual {v1, v9}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    check-cast v1, Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;
 
-    move-result-object v1
+    if-eqz v1, :cond_2
 
-    if-nez v1, :cond_4
+    iget-object v2, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mOverrideRequestController:Lcom/android/server/devicestate/OverrideRequestController;
 
-    invoke-direct/range {p0 .. p1}, Lcom/android/server/devicestate/DeviceStateManagerService;->getStateLocked(I)Ljava/util/Optional;
-
-    move-result-object v1
-
-    move-object v11, v1
-
-    invoke-virtual {v11}, Ljava/util/Optional;->isPresent()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    iget-object v1, v7, Lcom/android/server/devicestate/DeviceStateManagerService;->mRequestRecords:Ljava/util/ArrayList;
-
-    invoke-virtual {v1}, Ljava/util/ArrayList;->isEmpty()Z
-
-    move-result v1
-
-    const/4 v12, 0x1
-
-    if-eqz v1, :cond_0
-
-    const/4 v1, 0x0
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v1, v7, Lcom/android/server/devicestate/DeviceStateManagerService;->mRequestRecords:Ljava/util/ArrayList;
-
-    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v2, p4}, Lcom/android/server/devicestate/OverrideRequestController;->hasRequest(Landroid/os/IBinder;)Z
 
     move-result v2
 
-    sub-int/2addr v2, v12
+    if-nez v2, :cond_1
 
-    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;
-
-    :goto_0
-    move-object v13, v1
-
-    if-eqz v13, :cond_1
-
-    const/4 v1, 0x2
-
-    invoke-virtual {v13, v1}, Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;->setStatusLocked(I)V
-
-    :cond_1
-    new-instance v14, Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;
-
-    invoke-virtual {v11}, Ljava/util/Optional;->get()Ljava/lang/Object;
-
-    move-result-object v1
-
-    move-object v5, v1
-
-    check-cast v5, Lcom/android/server/devicestate/DeviceState;
-
-    move-object v1, v14
-
-    move-object v2, p0
-
-    move-object v3, v0
-
-    move-object/from16 v4, p4
-
-    move/from16 v6, p2
-
-    invoke-direct/range {v1 .. v6}, Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;-><init>(Lcom/android/server/devicestate/DeviceStateManagerService;Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;Landroid/os/IBinder;Lcom/android/server/devicestate/DeviceState;I)V
-
-    move-object v1, v14
-
-    iget-object v2, v7, Lcom/android/server/devicestate/DeviceStateManagerService;->mRequestRecords:Ljava/util/ArrayList;
-
-    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    invoke-static {v0}, Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;->access$400(Lcom/android/server/devicestate/DeviceStateManagerService$ProcessRecord;)Landroid/util/ArrayMap;
+    invoke-direct {p0, p1}, Lcom/android/server/devicestate/DeviceStateManagerService;->getStateLocked(I)Ljava/util/Optional;
 
     move-result-object v2
 
-    invoke-static {v1}, Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;->access$600(Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;)Landroid/os/IBinder;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3, v1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    invoke-direct {p0}, Lcom/android/server/devicestate/DeviceStateManagerService;->updatePendingStateLocked()Z
-
-    move-result v2
-
-    if-nez v2, :cond_2
-
-    iget-object v3, v7, Lcom/android/server/devicestate/DeviceStateManagerService;->mPendingState:Ljava/util/Optional;
-
-    invoke-virtual {v3}, Ljava/util/Optional;->isPresent()Z
+    invoke-virtual {v2}, Ljava/util/Optional;->isPresent()Z
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-eqz v3, :cond_0
 
-    invoke-virtual {v1, v12, v12}, Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;->setStatusLocked(IZ)V
+    new-instance v3, Lcom/android/server/devicestate/OverrideRequest;
 
-    :cond_2
-    monitor-exit v10
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    invoke-direct {v3, p4, p3, p1, p2}, Lcom/android/server/devicestate/OverrideRequest;-><init>(Landroid/os/IBinder;III)V
 
-    invoke-direct {p0}, Lcom/android/server/devicestate/DeviceStateManagerService;->notifyRequestsOfStatusChangeIfNeeded()V
+    iget-object v4, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mOverrideRequestController:Lcom/android/server/devicestate/OverrideRequestController;
 
-    invoke-direct {p0}, Lcom/android/server/devicestate/DeviceStateManagerService;->notifyPolicyIfNeeded()V
+    invoke-virtual {v4, v3}, Lcom/android/server/devicestate/OverrideRequestController;->addRequest(Lcom/android/server/devicestate/OverrideRequest;)V
+
+    monitor-exit v0
 
     return-void
 
-    :cond_3
-    :try_start_1
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    :cond_0
+    new-instance v3, Ljava/lang/IllegalArgumentException;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Requested state: "
+    const-string v5, "Requested state: "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move/from16 v3, p1
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    :try_start_2
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v5, " is not supported."
 
-    const-string v4, " is not supported."
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v4
 
-    move-result-object v2
+    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    throw v3
 
-    throw v1
+    :cond_1
+    new-instance v2, Ljava/lang/IllegalStateException;
 
-    :cond_4
-    move/from16 v3, p1
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/IllegalStateException;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v4, "Request has already been made for the supplied token: "
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v2
 
-    :cond_5
-    move/from16 v3, p1
+    :cond_2
+    new-instance v2, Ljava/lang/IllegalStateException;
 
-    new-instance v1, Ljava/lang/IllegalStateException;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v4, "Process "
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     const-string v4, " has no registered callback."
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-direct {v1, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v2
 
     :catchall_0
-    move-exception v0
+    move-exception v1
 
-    move/from16 v3, p1
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :goto_1
-    monitor-exit v10
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
-
-    throw v0
-
-    :catchall_1
-    move-exception v0
-
-    goto :goto_1
+    throw v1
 .end method
 
 .method private setBaseState(I)V
-    .locals 7
+    .locals 5
 
     iget-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mLock:Ljava/lang/Object;
 
@@ -1663,7 +1453,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_3
 
     invoke-virtual {v1}, Ljava/util/Optional;->get()Ljava/lang/Object;
 
@@ -1704,66 +1494,51 @@
 
     iput-object v3, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mBaseState:Ljava/util/Optional;
 
-    iget-object v3, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mRequestRecords:Ljava/util/ArrayList;
-
-    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v2}, Lcom/android/server/devicestate/DeviceState;->getFlags()I
 
     move-result v3
 
-    const/4 v4, 0x0
+    and-int/lit8 v3, v3, 0x1
 
-    :goto_0
-    if-ge v4, v3, :cond_2
+    if-eqz v3, :cond_1
 
-    iget-object v5, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mRequestRecords:Ljava/util/ArrayList;
+    iget-object v3, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mOverrideRequestController:Lcom/android/server/devicestate/OverrideRequestController;
 
-    invoke-virtual {v5, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;
-
-    invoke-static {v5}, Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;->access$300(Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;)I
-
-    move-result v6
-
-    and-int/lit8 v6, v6, 0x1
-
-    if-lez v6, :cond_1
-
-    const/4 v6, 0x3
-
-    invoke-virtual {v5, v6}, Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;->setStatusLocked(I)V
+    invoke-virtual {v3}, Lcom/android/server/devicestate/OverrideRequestController;->cancelStickyRequests()V
 
     :cond_1
-    add-int/lit8 v4, v4, 0x1
+    iget-object v3, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mOverrideRequestController:Lcom/android/server/devicestate/OverrideRequestController;
 
-    goto :goto_0
+    invoke-virtual {v3}, Lcom/android/server/devicestate/OverrideRequestController;->handleBaseStateChanged()Z
 
-    :cond_2
     invoke-direct {p0}, Lcom/android/server/devicestate/DeviceStateManagerService;->updatePendingStateLocked()Z
 
-    move-result v4
+    iget-object v3, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mPendingState:Ljava/util/Optional;
 
-    move v1, v4
+    invoke-virtual {v3}, Ljava/util/Optional;->isPresent()Z
+
+    move-result v3
+
+    if-nez v3, :cond_2
+
+    invoke-direct {p0}, Lcom/android/server/devicestate/DeviceStateManagerService;->notifyDeviceStateInfoChangedAsync()V
+
+    :cond_2
+    iget-object v3, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mHandler:Landroid/os/Handler;
+
+    new-instance v4, Lcom/android/server/devicestate/DeviceStateManagerService$$ExternalSyntheticLambda3;
+
+    invoke-direct {v4, p0}, Lcom/android/server/devicestate/DeviceStateManagerService$$ExternalSyntheticLambda3;-><init>(Lcom/android/server/devicestate/DeviceStateManagerService;)V
+
+    invoke-virtual {v3, v4}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    nop
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    if-nez v1, :cond_3
-
-    invoke-direct {p0}, Lcom/android/server/devicestate/DeviceStateManagerService;->notifyDeviceStateInfoChanged()V
-
-    :cond_3
-    invoke-direct {p0}, Lcom/android/server/devicestate/DeviceStateManagerService;->notifyRequestsOfStatusChangeIfNeeded()V
-
-    invoke-direct {p0}, Lcom/android/server/devicestate/DeviceStateManagerService;->notifyPolicyIfNeeded()V
 
     return-void
 
-    :cond_4
-    :try_start_1
+    :cond_3
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "Base state is not supported"
@@ -1776,14 +1551,14 @@
     move-exception v1
 
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
 
 .method private updatePendingStateLocked()Z
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mPendingState:Ljava/util/Optional;
 
@@ -1798,33 +1573,35 @@
     return v1
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mRequestRecords:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mActiveOverride:Ljava/util/Optional;
 
-    invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
+    invoke-virtual {v0}, Ljava/util/Optional;->isPresent()Z
 
     move-result v0
 
-    const/4 v2, 0x1
+    if-eqz v0, :cond_1
 
-    if-nez v0, :cond_1
+    iget-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mActiveOverride:Ljava/util/Optional;
 
-    iget-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mRequestRecords:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-
-    move-result v3
-
-    sub-int/2addr v3, v2
-
-    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/util/Optional;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;
+    check-cast v0, Lcom/android/server/devicestate/OverrideRequest;
 
-    invoke-static {v0}, Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;->access$200(Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;)Lcom/android/server/devicestate/DeviceState;
+    invoke-virtual {v0}, Lcom/android/server/devicestate/OverrideRequest;->getRequestedState()I
+
+    move-result v0
+
+    invoke-direct {p0, v0}, Lcom/android/server/devicestate/DeviceStateManagerService;->getStateLocked(I)Ljava/util/Optional;
 
     move-result-object v0
+
+    invoke-virtual {v0}, Ljava/util/Optional;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/devicestate/DeviceState;
 
     goto :goto_0
 
@@ -1874,25 +1651,25 @@
     return v1
 
     :cond_3
-    iget-object v3, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mCommittedState:Ljava/util/Optional;
+    iget-object v2, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mCommittedState:Ljava/util/Optional;
 
-    invoke-virtual {v3}, Ljava/util/Optional;->isPresent()Z
+    invoke-virtual {v2}, Ljava/util/Optional;->isPresent()Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_4
+    if-eqz v2, :cond_4
 
-    iget-object v3, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mCommittedState:Ljava/util/Optional;
+    iget-object v2, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mCommittedState:Ljava/util/Optional;
 
-    invoke-virtual {v3}, Ljava/util/Optional;->get()Ljava/lang/Object;
+    invoke-virtual {v2}, Ljava/util/Optional;->get()Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v0, v3}, Lcom/android/server/devicestate/DeviceState;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v2}, Lcom/android/server/devicestate/DeviceState;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_4
+    if-eqz v2, :cond_4
 
     return v1
 
@@ -1903,9 +1680,11 @@
 
     iput-object v1, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mPendingState:Ljava/util/Optional;
 
-    iput-boolean v2, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mIsPolicyWaitingForState:Z
+    const/4 v1, 0x1
 
-    return v2
+    iput-boolean v1, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mIsPolicyWaitingForState:Z
+
+    return v1
 .end method
 
 .method private updateSupportedStates([Lcom/android/server/devicestate/DeviceState;)V
@@ -1920,126 +1699,101 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mDeviceStates:Landroid/util/SparseArray;
-
-    invoke-virtual {v2}, Landroid/util/SparseArray;->clear()V
-
     const/4 v2, 0x0
 
+    iget-object v3, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mDeviceStates:Landroid/util/SparseArray;
+
+    invoke-virtual {v3}, Landroid/util/SparseArray;->clear()V
+
+    const/4 v3, 0x0
+
     :goto_0
-    array-length v3, p1
+    array-length v4, p1
 
-    if-ge v2, v3, :cond_0
+    if-ge v3, v4, :cond_1
 
-    aget-object v3, p1, v2
+    aget-object v4, p1, v3
 
-    iget-object v4, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mDeviceStates:Landroid/util/SparseArray;
-
-    invoke-virtual {v3}, Lcom/android/server/devicestate/DeviceState;->getIdentifier()I
+    invoke-virtual {v4}, Lcom/android/server/devicestate/DeviceState;->getFlags()I
 
     move-result v5
 
-    invoke-virtual {v4, v5, v3}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    and-int/lit8 v5, v5, 0x1
 
-    add-int/lit8 v2, v2, 0x1
+    if-eqz v5, :cond_0
+
+    const/4 v2, 0x1
+
+    :cond_0
+    iget-object v5, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mDeviceStates:Landroid/util/SparseArray;
+
+    invoke-virtual {v4}, Lcom/android/server/devicestate/DeviceState;->getIdentifier()I
+
+    move-result v6
+
+    invoke-virtual {v5, v6, v4}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
+    iget-object v3, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mOverrideRequestController:Lcom/android/server/devicestate/OverrideRequestController;
+
+    invoke-virtual {v3, v2}, Lcom/android/server/devicestate/OverrideRequestController;->setStickyRequestsAllowed(Z)V
+
     invoke-direct {p0}, Lcom/android/server/devicestate/DeviceStateManagerService;->getSupportedStateIdentifiersLocked()[I
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-static {v1, v2}, Ljava/util/Arrays;->equals([I[I)Z
+    invoke-static {v1, v3}, Ljava/util/Arrays;->equals([I[I)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_1
+    if-eqz v4, :cond_2
 
     monitor-exit v0
 
     return-void
 
-    :cond_1
-    iget-object v3, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mRequestRecords:Ljava/util/ArrayList;
-
-    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
-
-    move-result v3
-
-    const/4 v4, 0x0
-
-    :goto_1
-    if-ge v4, v3, :cond_3
-
-    iget-object v5, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mRequestRecords:Ljava/util/ArrayList;
-
-    invoke-virtual {v5, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;
-
-    invoke-static {v5}, Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;->access$200(Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;)Lcom/android/server/devicestate/DeviceState;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Lcom/android/server/devicestate/DeviceState;->getIdentifier()I
-
-    move-result v6
-
-    invoke-direct {p0, v6}, Lcom/android/server/devicestate/DeviceStateManagerService;->isSupportedStateLocked(I)Z
-
-    move-result v6
-
-    if-nez v6, :cond_2
-
-    const/4 v6, 0x3
-
-    invoke-virtual {v5, v6}, Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;->setStatusLocked(I)V
-
     :cond_2
-    add-int/lit8 v4, v4, 0x1
+    iget-object v4, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mOverrideRequestController:Lcom/android/server/devicestate/OverrideRequestController;
 
-    goto :goto_1
+    invoke-virtual {v4, v3}, Lcom/android/server/devicestate/OverrideRequestController;->handleNewSupportedStates([I)Z
 
-    :cond_3
     invoke-direct {p0}, Lcom/android/server/devicestate/DeviceStateManagerService;->updatePendingStateLocked()Z
+
+    iget-object v4, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mPendingState:Ljava/util/Optional;
+
+    invoke-virtual {v4}, Ljava/util/Optional;->isPresent()Z
 
     move-result v4
 
-    iget-object v5, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mBaseState:Ljava/util/Optional;
+    if-nez v4, :cond_3
 
-    invoke-virtual {v5}, Ljava/util/Optional;->isPresent()Z
+    invoke-direct {p0}, Lcom/android/server/devicestate/DeviceStateManagerService;->notifyDeviceStateInfoChangedAsync()V
 
-    move-result v5
+    :cond_3
+    iget-object v4, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mHandler:Landroid/os/Handler;
 
-    move v1, v5
+    new-instance v5, Lcom/android/server/devicestate/DeviceStateManagerService$$ExternalSyntheticLambda3;
+
+    invoke-direct {v5, p0}, Lcom/android/server/devicestate/DeviceStateManagerService$$ExternalSyntheticLambda3;-><init>(Lcom/android/server/devicestate/DeviceStateManagerService;)V
+
+    invoke-virtual {v4, v5}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    nop
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    if-eqz v1, :cond_4
-
-    if-nez v4, :cond_4
-
-    invoke-direct {p0}, Lcom/android/server/devicestate/DeviceStateManagerService;->notifyDeviceStateInfoChanged()V
-
-    :cond_4
-    invoke-direct {p0}, Lcom/android/server/devicestate/DeviceStateManagerService;->notifyRequestsOfStatusChangeIfNeeded()V
-
-    invoke-direct {p0}, Lcom/android/server/devicestate/DeviceStateManagerService;->notifyPolicyIfNeeded()V
 
     return-void
 
     :catchall_0
     move-exception v1
 
-    :try_start_1
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method
@@ -2118,8 +1872,16 @@
     throw v1
 .end method
 
+.method getHandler()Landroid/os/Handler;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mHandler:Landroid/os/Handler;
+
+    return-object v0
+.end method
+
 .method getOverrideState()Ljava/util/Optional;
-    .locals 3
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -2134,15 +1896,27 @@
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mRequestRecords:Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mActiveOverride:Ljava/util/Optional;
 
-    invoke-virtual {v1}, Ljava/util/ArrayList;->isEmpty()Z
+    invoke-virtual {v1}, Ljava/util/Optional;->isPresent()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    invoke-static {}, Ljava/util/Optional;->empty()Ljava/util/Optional;
+    iget-object v1, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mActiveOverride:Ljava/util/Optional;
+
+    invoke-virtual {v1}, Ljava/util/Optional;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/server/devicestate/OverrideRequest;
+
+    invoke-virtual {v1}, Lcom/android/server/devicestate/OverrideRequest;->getRequestedState()I
+
+    move-result v1
+
+    invoke-direct {p0, v1}, Lcom/android/server/devicestate/DeviceStateManagerService;->getStateLocked(I)Ljava/util/Optional;
 
     move-result-object v1
 
@@ -2151,31 +1925,13 @@
     return-object v1
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/devicestate/DeviceStateManagerService;->mRequestRecords:Ljava/util/ArrayList;
-
-    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
-
-    move-result v2
-
-    add-int/lit8 v2, v2, -0x1
-
-    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-static {}, Ljava/util/Optional;->empty()Ljava/util/Optional;
 
     move-result-object v1
 
-    check-cast v1, Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;
-
-    invoke-static {v1}, Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;->access$200(Lcom/android/server/devicestate/DeviceStateManagerService$OverrideRequestRecord;)Lcom/android/server/devicestate/DeviceState;
-
-    move-result-object v2
-
-    invoke-static {v2}, Ljava/util/Optional;->of(Ljava/lang/Object;)Ljava/util/Optional;
-
-    move-result-object v2
-
     monitor-exit v0
 
-    return-object v2
+    return-object v1
 
     :catchall_0
     move-exception v1

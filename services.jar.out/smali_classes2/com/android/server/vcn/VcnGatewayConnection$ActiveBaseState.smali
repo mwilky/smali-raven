@@ -50,7 +50,7 @@
 
     iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$ActiveBaseState;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
-    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$2100(Lcom/android/server/vcn/VcnGatewayConnection;)I
+    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$2200(Lcom/android/server/vcn/VcnGatewayConnection;)I
 
     move-result v0
 

@@ -37,7 +37,7 @@
 
     check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    invoke-virtual {p1}, Lcom/android/server/wm/ActivityRecord;->canBeTopRunning()Z
+    invoke-static {p1}, Lcom/android/server/wm/Task;->lambda$topActivityContainsStartingWindow$1(Lcom/android/server/wm/ActivityRecord;)Z
 
     move-result p1
 

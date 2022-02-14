@@ -333,7 +333,7 @@
 .end method
 
 .method public synthetic lambda$onNotificationError$0$NotificationManagerService$1(IILjava/lang/String;Ljava/lang/String;ILjava/lang/String;)V
-    .locals 8
+    .locals 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -394,13 +394,15 @@
 
     const/4 v7, 0x1
 
+    const/4 v8, 0x4
+
     move v2, p1
 
     move v3, p2
 
     move-object v4, p3
 
-    invoke-interface/range {v1 .. v7}, Landroid/app/IActivityManager;->crashApplication(IILjava/lang/String;ILjava/lang/String;Z)V
+    invoke-interface/range {v1 .. v8}, Landroid/app/IActivityManager;->crashApplicationWithType(IILjava/lang/String;ILjava/lang/String;ZI)V
 
     return-void
 .end method

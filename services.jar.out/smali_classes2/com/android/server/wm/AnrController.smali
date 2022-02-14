@@ -626,7 +626,7 @@
 .end method
 
 .method notifyWindowResponsive(Landroid/os/IBinder;)V
-    .locals 5
+    .locals 4
 
     iget-object v0, p0, Lcom/android/server/wm/AnrController;->mService:Lcom/android/server/wm/WindowManagerService;
 
@@ -639,38 +639,17 @@
 
     iget-object v1, p0, Lcom/android/server/wm/AnrController;->mService:Lcom/android/server/wm/WindowManagerService;
 
-    iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mInputToWindowMap:Ljava/util/HashMap;
-
-    invoke-virtual {v1, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p1}, Lcom/android/server/wm/WindowManagerService;->getInputTargetFromToken(Landroid/os/IBinder;)Lcom/android/server/wm/InputTarget;
 
     move-result-object v1
 
-    check-cast v1, Lcom/android/server/wm/WindowState;
+    if-nez v1, :cond_0
 
-    if-eqz v1, :cond_0
+    const-string v2, "WindowManager"
 
-    iget-object v2, v1, Lcom/android/server/wm/WindowState;->mSession:Lcom/android/server/wm/Session;
+    const-string v3, "Unknown token, dropping notifyWindowConnectionResponsive request"
 
-    iget v2, v2, Lcom/android/server/wm/Session;->mPid:I
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v2, p0, Lcom/android/server/wm/AnrController;->mService:Lcom/android/server/wm/WindowManagerService;
-
-    iget-object v2, v2, Lcom/android/server/wm/WindowManagerService;->mEmbeddedWindowController:Lcom/android/server/wm/EmbeddedWindowController;
-
-    invoke-virtual {v2, p1}, Lcom/android/server/wm/EmbeddedWindowController;->get(Landroid/os/IBinder;)Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;
-
-    move-result-object v2
-
-    if-nez v2, :cond_1
-
-    const-string v3, "WindowManager"
-
-    const-string v4, "Unknown token, dropping notifyWindowConnectionResponsive request"
-
-    invoke-static {v3, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     monitor-exit v0
     :try_end_0
@@ -680,13 +659,14 @@
 
     return-void
 
-    :cond_1
+    :cond_0
     :try_start_1
-    iget v3, v2, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mOwnerPid:I
+    invoke-interface {v1}, Lcom/android/server/wm/InputTarget;->getPid()I
 
-    move v2, v3
+    move-result v2
 
-    :goto_0
+    move v1, v2
+
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -697,7 +677,7 @@
 
     iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mAmInternal:Landroid/app/ActivityManagerInternal;
 
-    invoke-virtual {v0, v2}, Landroid/app/ActivityManagerInternal;->inputDispatchingResumed(I)V
+    invoke-virtual {v0, v1}, Landroid/app/ActivityManagerInternal;->inputDispatchingResumed(I)V
 
     return-void
 
@@ -730,70 +710,17 @@
 
     iget-object v1, p0, Lcom/android/server/wm/AnrController;->mService:Lcom/android/server/wm/WindowManagerService;
 
-    iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mInputToWindowMap:Ljava/util/HashMap;
-
-    invoke-virtual {v1, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p1}, Lcom/android/server/wm/WindowManagerService;->getInputTargetFromToken(Landroid/os/IBinder;)Lcom/android/server/wm/InputTarget;
 
     move-result-object v1
 
-    check-cast v1, Lcom/android/server/wm/WindowState;
+    if-nez v1, :cond_0
 
-    if-eqz v1, :cond_0
+    const-string v2, "WindowManager"
 
-    iget-object v2, v1, Lcom/android/server/wm/WindowState;->mSession:Lcom/android/server/wm/Session;
+    const-string v3, "Unknown token, dropping notifyConnectionUnresponsive request"
 
-    iget v2, v2, Lcom/android/server/wm/Session;->mPid:I
-
-    iget-object v3, v1, Lcom/android/server/wm/WindowState;->mActivityRecord:Lcom/android/server/wm/ActivityRecord;
-
-    const-string v4, "WindowManager"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "ANR in "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v6, v1, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
-
-    invoke-virtual {v6}, Landroid/view/WindowManager$LayoutParams;->getTitle()Ljava/lang/CharSequence;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string v6, ". Reason:"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v2, p0, Lcom/android/server/wm/AnrController;->mService:Lcom/android/server/wm/WindowManagerService;
-
-    iget-object v2, v2, Lcom/android/server/wm/WindowManagerService;->mEmbeddedWindowController:Lcom/android/server/wm/EmbeddedWindowController;
-
-    invoke-virtual {v2, p1}, Lcom/android/server/wm/EmbeddedWindowController;->get(Landroid/os/IBinder;)Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;
-
-    move-result-object v2
-
-    if-nez v2, :cond_1
-
-    const-string v3, "WindowManager"
-
-    const-string v4, "Unknown token, dropping notifyConnectionUnresponsive request"
-
-    invoke-static {v3, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     monitor-exit v0
     :try_end_0
@@ -803,30 +730,57 @@
 
     return-void
 
-    :cond_1
+    :cond_0
     :try_start_1
-    iget v3, v2, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mOwnerPid:I
+    invoke-interface {v1}, Lcom/android/server/wm/InputTarget;->getWindowState()Lcom/android/server/wm/WindowState;
 
-    iget-object v4, v2, Lcom/android/server/wm/EmbeddedWindowController$EmbeddedWindow;->mHostWindowState:Lcom/android/server/wm/WindowState;
+    move-result-object v2
 
-    move-object v1, v4
+    invoke-interface {v1}, Lcom/android/server/wm/InputTarget;->getPid()I
 
+    move-result v3
+
+    iget-object v4, v2, Lcom/android/server/wm/WindowState;->mInputChannelToken:Landroid/os/IBinder;
+
+    if-ne v4, p1, :cond_1
+
+    iget-object v4, v2, Lcom/android/server/wm/WindowState;->mActivityRecord:Lcom/android/server/wm/ActivityRecord;
+
+    goto :goto_0
+
+    :cond_1
     const/4 v4, 0x0
 
-    move-object v2, v4
-
-    move v7, v3
-
-    move-object v3, v2
-
-    move v2, v7
-
     :goto_0
-    invoke-direct {p0, v1}, Lcom/android/server/wm/AnrController;->isWindowAboveSystem(Lcom/android/server/wm/WindowState;)Z
+    const-string v5, "WindowManager"
 
-    move-result v4
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {p0, v3, v1, p2}, Lcom/android/server/wm/AnrController;->dumpAnrStateLocked(Lcom/android/server/wm/ActivityRecord;Lcom/android/server/wm/WindowState;Ljava/lang/String;)V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "ANR in "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v7, ". Reason:"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v6, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {p0, v2}, Lcom/android/server/wm/AnrController;->isWindowAboveSystem(Lcom/android/server/wm/WindowState;)Z
+
+    move-result v5
+
+    invoke-direct {p0, v4, v2, p2}, Lcom/android/server/wm/AnrController;->dumpAnrStateLocked(Lcom/android/server/wm/ActivityRecord;Lcom/android/server/wm/WindowState;Ljava/lang/String;)V
 
     monitor-exit v0
     :try_end_1
@@ -834,9 +788,9 @@
 
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
-    if-eqz v3, :cond_2
+    if-eqz v4, :cond_2
 
-    invoke-virtual {v3, p2, v2}, Lcom/android/server/wm/ActivityRecord;->inputDispatchingTimedOut(Ljava/lang/String;I)Z
+    invoke-virtual {v4, p2, v3}, Lcom/android/server/wm/ActivityRecord;->inputDispatchingTimedOut(Ljava/lang/String;I)Z
 
     goto :goto_1
 
@@ -845,7 +799,7 @@
 
     iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mAmInternal:Landroid/app/ActivityManagerInternal;
 
-    invoke-virtual {v0, v2, v4, p2}, Landroid/app/ActivityManagerInternal;->inputDispatchingTimedOut(IZLjava/lang/String;)J
+    invoke-virtual {v0, v3, v5, p2}, Landroid/app/ActivityManagerInternal;->inputDispatchingTimedOut(IZLjava/lang/String;)J
 
     :goto_1
     return-void

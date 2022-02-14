@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public onSelectedUnderlyingNetworkChanged(Lcom/android/server/vcn/UnderlyingNetworkTracker$UnderlyingNetworkRecord;)V
-    .locals 4
+    .locals 5
 
     iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnUnderlyingNetworkTrackerCallback;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
@@ -63,17 +63,19 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    const/4 v2, 0x0
+
     if-nez p1, :cond_0
 
-    const/4 v2, 0x0
+    move-object v3, v2
 
     goto :goto_0
 
     :cond_0
-    iget-object v2, p1, Lcom/android/server/vcn/UnderlyingNetworkTracker$UnderlyingNetworkRecord;->network:Landroid/net/Network;
+    iget-object v3, p1, Lcom/android/server/vcn/UnderlyingNetworkTracker$UnderlyingNetworkRecord;->network:Landroid/net/Network;
 
     :goto_0
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -81,31 +83,68 @@
 
     invoke-static {v0, v1}, Lcom/android/server/vcn/VcnGatewayConnection;->access$500(Lcom/android/server/vcn/VcnGatewayConnection;Ljava/lang/String;)V
 
-    if-nez p1, :cond_1
-
-    iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnUnderlyingNetworkTrackerCallback;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
-
-    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$600(Lcom/android/server/vcn/VcnGatewayConnection;)V
-
-    goto :goto_1
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnUnderlyingNetworkTrackerCallback;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
-
-    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$700(Lcom/android/server/vcn/VcnGatewayConnection;)V
-
-    :goto_1
-    iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnUnderlyingNetworkTrackerCallback;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
+    const/high16 v0, -0x80000000
 
     const/4 v1, 0x1
 
-    const/high16 v2, -0x80000000
+    if-nez p1, :cond_2
+
+    iget-object v3, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnUnderlyingNetworkTrackerCallback;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
+
+    invoke-static {v3}, Lcom/android/server/vcn/VcnGatewayConnection;->access$600(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/VcnGatewayConnection$Dependencies;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnUnderlyingNetworkTrackerCallback;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
+
+    invoke-static {v4}, Lcom/android/server/vcn/VcnGatewayConnection;->access$400(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/VcnContext;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Lcom/android/server/vcn/VcnGatewayConnection$Dependencies;->isAirplaneModeOn(Lcom/android/server/vcn/VcnContext;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    iget-object v3, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnUnderlyingNetworkTrackerCallback;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
+
+    new-instance v4, Lcom/android/server/vcn/VcnGatewayConnection$EventUnderlyingNetworkChangedInfo;
+
+    invoke-direct {v4, v2}, Lcom/android/server/vcn/VcnGatewayConnection$EventUnderlyingNetworkChangedInfo;-><init>(Lcom/android/server/vcn/UnderlyingNetworkTracker$UnderlyingNetworkRecord;)V
+
+    invoke-static {v3, v1, v0, v4}, Lcom/android/server/vcn/VcnGatewayConnection;->access$700(Lcom/android/server/vcn/VcnGatewayConnection;IILcom/android/server/vcn/VcnGatewayConnection$EventInfo;)V
+
+    iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnUnderlyingNetworkTrackerCallback;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
+
+    const/4 v1, 0x0
+
+    const-string v2, "Underlying Network lost"
+
+    invoke-virtual {v0, v2, v1}, Lcom/android/server/vcn/VcnGatewayConnection;->sendDisconnectRequestedAndAcquireWakelock(Ljava/lang/String;Z)V
+
+    return-void
+
+    :cond_1
+    iget-object v2, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnUnderlyingNetworkTrackerCallback;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
+
+    invoke-static {v2}, Lcom/android/server/vcn/VcnGatewayConnection;->access$800(Lcom/android/server/vcn/VcnGatewayConnection;)V
+
+    goto :goto_1
+
+    :cond_2
+    iget-object v2, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnUnderlyingNetworkTrackerCallback;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
+
+    invoke-static {v2}, Lcom/android/server/vcn/VcnGatewayConnection;->access$900(Lcom/android/server/vcn/VcnGatewayConnection;)V
+
+    :goto_1
+    iget-object v2, p0, Lcom/android/server/vcn/VcnGatewayConnection$VcnUnderlyingNetworkTrackerCallback;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
     new-instance v3, Lcom/android/server/vcn/VcnGatewayConnection$EventUnderlyingNetworkChangedInfo;
 
     invoke-direct {v3, p1}, Lcom/android/server/vcn/VcnGatewayConnection$EventUnderlyingNetworkChangedInfo;-><init>(Lcom/android/server/vcn/UnderlyingNetworkTracker$UnderlyingNetworkRecord;)V
 
-    invoke-static {v0, v1, v2, v3}, Lcom/android/server/vcn/VcnGatewayConnection;->access$800(Lcom/android/server/vcn/VcnGatewayConnection;IILcom/android/server/vcn/VcnGatewayConnection$EventInfo;)V
+    invoke-static {v2, v1, v0, v3}, Lcom/android/server/vcn/VcnGatewayConnection;->access$700(Lcom/android/server/vcn/VcnGatewayConnection;IILcom/android/server/vcn/VcnGatewayConnection$EventInfo;)V
 
     return-void
 .end method

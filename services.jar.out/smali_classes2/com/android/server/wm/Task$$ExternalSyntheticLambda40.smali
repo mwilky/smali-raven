@@ -5,21 +5,27 @@
 .implements Ljava/util/function/Predicate;
 
 
-# instance fields
-.field public final synthetic f$0:Lcom/android/server/wm/Task;
-
-.field public final synthetic f$1:[Z
+# static fields
+.field public static final synthetic INSTANCE:Lcom/android/server/wm/Task$$ExternalSyntheticLambda40;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wm/Task;[Z)V
+.method static synthetic constructor <clinit>()V
+    .locals 1
+
+    new-instance v0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda40;
+
+    invoke-direct {v0}, Lcom/android/server/wm/Task$$ExternalSyntheticLambda40;-><init>()V
+
+    sput-object v0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda40;->INSTANCE:Lcom/android/server/wm/Task$$ExternalSyntheticLambda40;
+
+    return-void
+.end method
+
+.method private synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda40;->f$0:Lcom/android/server/wm/Task;
-
-    iput-object p2, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda40;->f$1:[Z
 
     return-void
 .end method
@@ -27,15 +33,11 @@
 
 # virtual methods
 .method public final test(Ljava/lang/Object;)Z
-    .locals 2
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda40;->f$0:Lcom/android/server/wm/Task;
+    check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    iget-object v1, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda40;->f$1:[Z
-
-    check-cast p1, Lcom/android/server/wm/Task;
-
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/wm/Task;->lambda$inFrontOfStandardRootTask$24$Task([ZLcom/android/server/wm/Task;)Z
+    invoke-static {p1}, Lcom/android/server/wm/Task;->lambda$startActivityLocked$17(Lcom/android/server/wm/ActivityRecord;)Z
 
     move-result p1
 

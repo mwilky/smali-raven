@@ -37,7 +37,7 @@
 
     check-cast p1, Lcom/android/server/wm/Task;
 
-    invoke-static {p1}, Lcom/android/server/wm/TaskDisplayArea;->lambda$getTopRootTask$1(Lcom/android/server/wm/Task;)Z
+    invoke-static {p1}, Lcom/android/server/wm/TaskDisplayArea;->lambda$getBottomMostVisibleRootTask$11(Lcom/android/server/wm/Task;)Z
 
     move-result p1
 

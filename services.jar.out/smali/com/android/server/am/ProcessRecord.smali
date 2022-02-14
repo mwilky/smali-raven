@@ -2443,17 +2443,7 @@
     throw v0
 .end method
 
-.method scheduleCrashLocked(Ljava/lang/String;)V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, p1, v0}, Lcom/android/server/am/ProcessRecord;->scheduleCrashLocked(Ljava/lang/String;I)V
-
-    return-void
-.end method
-
-.method scheduleCrashLocked(Ljava/lang/String;I)V
+.method scheduleCrashLocked(Ljava/lang/String;ILandroid/os/Bundle;)V
     .locals 6
 
     iget-boolean v0, p0, Lcom/android/server/am/ProcessRecord;->mKilledByAm:Z
@@ -2488,7 +2478,7 @@
     :try_start_0
     iget-object v2, p0, Lcom/android/server/am/ProcessRecord;->mThread:Landroid/app/IApplicationThread;
 
-    invoke-interface {v2, p1, p2}, Landroid/app/IApplicationThread;->scheduleCrash(Ljava/lang/String;I)V
+    invoke-interface {v2, p1, p2, p3}, Landroid/app/IApplicationThread;->scheduleCrash(Ljava/lang/String;ILandroid/os/Bundle;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0

@@ -116,7 +116,7 @@
 
     move-result-object v2
 
-    const v3, 0x10500d1
+    const v3, 0x10500d3
 
     invoke-virtual {v2, v3, v0, v1}, Landroid/content/res/Resources;->getValue(ILandroid/util/TypedValue;Z)V
 

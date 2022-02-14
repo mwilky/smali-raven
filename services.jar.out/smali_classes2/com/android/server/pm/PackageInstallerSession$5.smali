@@ -40,14 +40,14 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageInstallerSession$5;->this$0:Lcom/android/server/pm/PackageInstallerSession;
 
-    invoke-static {v0}, Lcom/android/server/pm/PackageInstallerSession;->access$2800(Lcom/android/server/pm/PackageInstallerSession;)V
+    invoke-static {v0}, Lcom/android/server/pm/PackageInstallerSession;->access$2700(Lcom/android/server/pm/PackageInstallerSession;)V
 
     goto :goto_0
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/pm/PackageInstallerSession$5;->this$0:Lcom/android/server/pm/PackageInstallerSession;
 
-    invoke-static {v0, p2, p3}, Lcom/android/server/pm/PackageInstallerSession;->access$2900(Lcom/android/server/pm/PackageInstallerSession;ILjava/lang/String;)V
+    invoke-static {v0, p2, p3}, Lcom/android/server/pm/PackageInstallerSession;->access$2800(Lcom/android/server/pm/PackageInstallerSession;ILjava/lang/String;)V
 
     :goto_0
     return-void

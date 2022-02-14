@@ -40,58 +40,73 @@
 
 # virtual methods
 .method public cancelRequest(Landroid/os/IBinder;)V
-    .locals 4
-
-    iget-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService$BinderService;->this$0:Lcom/android/server/devicestate/DeviceStateManagerService;
-
-    invoke-virtual {v0}, Lcom/android/server/devicestate/DeviceStateManagerService;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    const-string v1, "android.permission.CONTROL_DEVICE_STATE"
-
-    const-string v2, "Permission required to clear requested device state."
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    if-eqz p1, :cond_0
+    .locals 5
 
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
     move-result v0
 
+    iget-object v1, p0, Lcom/android/server/devicestate/DeviceStateManagerService$BinderService;->this$0:Lcom/android/server/devicestate/DeviceStateManagerService;
+
+    iget-object v1, v1, Lcom/android/server/devicestate/DeviceStateManagerService;->mActivityTaskManagerInternal:Lcom/android/server/wm/ActivityTaskManagerInternal;
+
+    invoke-virtual {v1}, Lcom/android/server/wm/ActivityTaskManagerInternal;->getTopApp()Lcom/android/server/wm/WindowProcessController;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/server/wm/WindowProcessController;->getPid()I
+
+    move-result v2
+
+    if-eq v2, v0, :cond_0
+
+    iget-object v2, p0, Lcom/android/server/devicestate/DeviceStateManagerService$BinderService;->this$0:Lcom/android/server/devicestate/DeviceStateManagerService;
+
+    invoke-virtual {v2}, Lcom/android/server/devicestate/DeviceStateManagerService;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    const-string v3, "android.permission.CONTROL_DEVICE_STATE"
+
+    const-string v4, "Permission required to cancel device state, or the call must come from the top focused app."
+
+    invoke-virtual {v2, v3, v4}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
+    if-eqz p1, :cond_1
+
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v1
+    move-result-wide v2
 
     :try_start_0
-    iget-object v3, p0, Lcom/android/server/devicestate/DeviceStateManagerService$BinderService;->this$0:Lcom/android/server/devicestate/DeviceStateManagerService;
+    iget-object v4, p0, Lcom/android/server/devicestate/DeviceStateManagerService$BinderService;->this$0:Lcom/android/server/devicestate/DeviceStateManagerService;
 
-    invoke-static {v3, v0, p1}, Lcom/android/server/devicestate/DeviceStateManagerService;->access$1800(Lcom/android/server/devicestate/DeviceStateManagerService;ILandroid/os/IBinder;)V
+    invoke-static {v4, v0, p1}, Lcom/android/server/devicestate/DeviceStateManagerService;->access$900(Lcom/android/server/devicestate/DeviceStateManagerService;ILandroid/os/IBinder;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     nop
 
     return-void
 
     :catchall_0
-    move-exception v3
+    move-exception v4
 
-    invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v3
+    throw v4
 
-    :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    :cond_1
+    new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Request token must not be null."
+    const-string v3, "Request token must not be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v2
 .end method
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
@@ -121,7 +136,7 @@
     :try_start_0
     iget-object v2, p0, Lcom/android/server/devicestate/DeviceStateManagerService$BinderService;->this$0:Lcom/android/server/devicestate/DeviceStateManagerService;
 
-    invoke-static {v2, p2}, Lcom/android/server/devicestate/DeviceStateManagerService;->access$1900(Lcom/android/server/devicestate/DeviceStateManagerService;Ljava/io/PrintWriter;)V
+    invoke-static {v2, p2}, Lcom/android/server/devicestate/DeviceStateManagerService;->access$1000(Lcom/android/server/devicestate/DeviceStateManagerService;Ljava/io/PrintWriter;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -144,7 +159,7 @@
 
     iget-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService$BinderService;->this$0:Lcom/android/server/devicestate/DeviceStateManagerService;
 
-    invoke-static {v0}, Lcom/android/server/devicestate/DeviceStateManagerService;->access$1400(Lcom/android/server/devicestate/DeviceStateManagerService;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/devicestate/DeviceStateManagerService;->access$500(Lcom/android/server/devicestate/DeviceStateManagerService;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -153,7 +168,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/devicestate/DeviceStateManagerService$BinderService;->this$0:Lcom/android/server/devicestate/DeviceStateManagerService;
 
-    invoke-static {v1}, Lcom/android/server/devicestate/DeviceStateManagerService;->access$1500(Lcom/android/server/devicestate/DeviceStateManagerService;)Landroid/hardware/devicestate/DeviceStateInfo;
+    invoke-static {v1}, Lcom/android/server/devicestate/DeviceStateManagerService;->access$600(Lcom/android/server/devicestate/DeviceStateManagerService;)Landroid/hardware/devicestate/DeviceStateInfo;
 
     move-result-object v1
 
@@ -215,7 +230,7 @@
     :try_start_0
     iget-object v3, p0, Lcom/android/server/devicestate/DeviceStateManagerService$BinderService;->this$0:Lcom/android/server/devicestate/DeviceStateManagerService;
 
-    invoke-static {v3, v0, p1}, Lcom/android/server/devicestate/DeviceStateManagerService;->access$1600(Lcom/android/server/devicestate/DeviceStateManagerService;ILandroid/hardware/devicestate/IDeviceStateManagerCallback;)V
+    invoke-static {v3, v0, p1}, Lcom/android/server/devicestate/DeviceStateManagerService;->access$700(Lcom/android/server/devicestate/DeviceStateManagerService;ILandroid/hardware/devicestate/IDeviceStateManagerCallback;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -243,56 +258,71 @@
 .end method
 
 .method public requestState(Landroid/os/IBinder;II)V
-    .locals 4
-
-    iget-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService$BinderService;->this$0:Lcom/android/server/devicestate/DeviceStateManagerService;
-
-    invoke-virtual {v0}, Lcom/android/server/devicestate/DeviceStateManagerService;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    const-string v1, "android.permission.CONTROL_DEVICE_STATE"
-
-    const-string v2, "Permission required to request device state."
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
-
-    if-eqz p1, :cond_0
+    .locals 5
 
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
     move-result v0
 
+    iget-object v1, p0, Lcom/android/server/devicestate/DeviceStateManagerService$BinderService;->this$0:Lcom/android/server/devicestate/DeviceStateManagerService;
+
+    iget-object v1, v1, Lcom/android/server/devicestate/DeviceStateManagerService;->mActivityTaskManagerInternal:Lcom/android/server/wm/ActivityTaskManagerInternal;
+
+    invoke-virtual {v1}, Lcom/android/server/wm/ActivityTaskManagerInternal;->getTopApp()Lcom/android/server/wm/WindowProcessController;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/server/wm/WindowProcessController;->getPid()I
+
+    move-result v2
+
+    if-eq v2, v0, :cond_0
+
+    iget-object v2, p0, Lcom/android/server/devicestate/DeviceStateManagerService$BinderService;->this$0:Lcom/android/server/devicestate/DeviceStateManagerService;
+
+    invoke-virtual {v2}, Lcom/android/server/devicestate/DeviceStateManagerService;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    const-string v3, "android.permission.CONTROL_DEVICE_STATE"
+
+    const-string v4, "Permission required to request device state, or the call must come from the top focused app."
+
+    invoke-virtual {v2, v3, v4}, Landroid/content/Context;->enforceCallingOrSelfPermission(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
+    if-eqz p1, :cond_1
+
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v1
+    move-result-wide v2
 
     :try_start_0
-    iget-object v3, p0, Lcom/android/server/devicestate/DeviceStateManagerService$BinderService;->this$0:Lcom/android/server/devicestate/DeviceStateManagerService;
+    iget-object v4, p0, Lcom/android/server/devicestate/DeviceStateManagerService$BinderService;->this$0:Lcom/android/server/devicestate/DeviceStateManagerService;
 
-    invoke-static {v3, p2, p3, v0, p1}, Lcom/android/server/devicestate/DeviceStateManagerService;->access$1700(Lcom/android/server/devicestate/DeviceStateManagerService;IIILandroid/os/IBinder;)V
+    invoke-static {v4, p2, p3, v0, p1}, Lcom/android/server/devicestate/DeviceStateManagerService;->access$800(Lcom/android/server/devicestate/DeviceStateManagerService;IIILandroid/os/IBinder;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     nop
 
     return-void
 
     :catchall_0
-    move-exception v3
+    move-exception v4
 
-    invoke-static {v1, v2}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v3
+    throw v4
 
-    :cond_0
-    new-instance v0, Ljava/lang/IllegalArgumentException;
+    :cond_1
+    new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "Request token must not be null."
+    const-string v3, "Request token must not be null."
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v0
+    throw v2
 .end method

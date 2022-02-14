@@ -233,7 +233,7 @@
 
     iget-object v2, p0, Lcom/android/server/accessibility/PolicyWarningUIController$NotificationController;->mContext:Landroid/content/Context;
 
-    const v3, 0x1040899
+    const v3, 0x104089e
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -253,7 +253,7 @@
 
     aput-object p3, v5, v6
 
-    const v7, 0x1040898
+    const v7, 0x104089d
 
     invoke-virtual {v2, v7, v5}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

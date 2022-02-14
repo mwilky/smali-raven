@@ -98,7 +98,7 @@
 
     const-string v8, "android.intent.action.OVERLAY_CHANGED"
 
-    invoke-static/range {v3 .. v8}, Lcom/android/server/pm/PackageManagerService;->access$4000(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;ZLjava/util/ArrayList;ILjava/lang/String;)V
+    invoke-static/range {v3 .. v8}, Lcom/android/server/pm/PackageManagerService;->access$3900(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;ZLjava/util/ArrayList;ILjava/lang/String;)V
 
     return-void
 .end method

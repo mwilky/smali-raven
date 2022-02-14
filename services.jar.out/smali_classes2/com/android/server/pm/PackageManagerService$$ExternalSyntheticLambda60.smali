@@ -51,7 +51,7 @@
 
     iget v4, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda60;->f$4:I
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/server/pm/PackageManagerService;->lambda$prepareAppDataAndMigrate$66$PackageManagerService(ZLcom/android/server/pm/parsing/pkg/AndroidPackage;II)V
+    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/server/pm/PackageManagerService;->lambda$prepareAppDataAndMigrate$65$PackageManagerService(ZLcom/android/server/pm/parsing/pkg/AndroidPackage;II)V
 
     return-void
 .end method

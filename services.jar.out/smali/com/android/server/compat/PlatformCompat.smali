@@ -110,13 +110,23 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Ljava/lang/Long;
+
+    invoke-virtual {v1}, Ljava/lang/Long;->longValue()J
+
+    move-result-wide v2
+
+    invoke-virtual {p0, v2, v3}, Lcom/android/server/compat/PlatformCompat;->isKnownChangeId(J)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
 
     iget-object v2, p0, Lcom/android/server/compat/PlatformCompat;->mCompatConfig:Lcom/android/server/compat/CompatConfig;
 
@@ -130,7 +140,7 @@
 
     if-eqz v2, :cond_0
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_0
     new-instance v0, Ljava/lang/SecurityException;
@@ -142,6 +152,10 @@
     throw v0
 
     :cond_1
+    :goto_1
+    goto :goto_0
+
+    :cond_2
     return-void
 .end method
 
@@ -938,7 +952,7 @@
 .end method
 
 .method public putOverridesOnReleaseBuilds(Lcom/android/internal/compat/CompatibilityOverrideConfig;Ljava/lang/String;)V
-    .locals 1
+    .locals 2
 
     invoke-direct {p0}, Lcom/android/server/compat/PlatformCompat;->checkCompatChangeOverrideOverridablePermission()V
 
@@ -952,7 +966,9 @@
 
     iget-object v0, p0, Lcom/android/server/compat/PlatformCompat;->mCompatConfig:Lcom/android/server/compat/CompatConfig;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/compat/CompatConfig;->addOverrides(Lcom/android/internal/compat/CompatibilityOverrideConfig;Ljava/lang/String;)V
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, p1, p2, v1}, Lcom/android/server/compat/CompatConfig;->addPackageOverrides(Lcom/android/internal/compat/CompatibilityOverrideConfig;Ljava/lang/String;Z)V
 
     return-void
 .end method
@@ -1158,6 +1174,8 @@
 
     move-result v2
 
+    const/4 v3, 0x0
+
     if-eqz v2, :cond_1
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -1168,27 +1186,25 @@
 
     invoke-virtual {v2}, Ljava/lang/Long;->longValue()J
 
-    move-result-wide v2
+    move-result-wide v4
 
-    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v4
+    move-result-object v2
 
-    new-instance v5, Landroid/app/compat/PackageOverride$Builder;
+    new-instance v6, Landroid/app/compat/PackageOverride$Builder;
 
-    invoke-direct {v5}, Landroid/app/compat/PackageOverride$Builder;-><init>()V
+    invoke-direct {v6}, Landroid/app/compat/PackageOverride$Builder;-><init>()V
 
-    const/4 v6, 0x0
+    invoke-virtual {v6, v3}, Landroid/app/compat/PackageOverride$Builder;->setEnabled(Z)Landroid/app/compat/PackageOverride$Builder;
 
-    invoke-virtual {v5, v6}, Landroid/app/compat/PackageOverride$Builder;->setEnabled(Z)Landroid/app/compat/PackageOverride$Builder;
+    move-result-object v3
 
-    move-result-object v5
+    invoke-virtual {v3}, Landroid/app/compat/PackageOverride$Builder;->build()Landroid/app/compat/PackageOverride;
 
-    invoke-virtual {v5}, Landroid/app/compat/PackageOverride$Builder;->build()Landroid/app/compat/PackageOverride;
+    move-result-object v3
 
-    move-result-object v5
-
-    invoke-interface {v0, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_1
 
@@ -1199,7 +1215,7 @@
 
     invoke-direct {v2, v0}, Lcom/android/internal/compat/CompatibilityOverrideConfig;-><init>(Ljava/util/Map;)V
 
-    invoke-virtual {v1, v2, p2}, Lcom/android/server/compat/CompatConfig;->addOverrides(Lcom/android/internal/compat/CompatibilityOverrideConfig;Ljava/lang/String;)V
+    invoke-virtual {v1, v2, p2, v3}, Lcom/android/server/compat/CompatConfig;->addPackageOverrides(Lcom/android/internal/compat/CompatibilityOverrideConfig;Ljava/lang/String;Z)V
 
     invoke-direct {p0, p2}, Lcom/android/server/compat/PlatformCompat;->killPackage(Ljava/lang/String;)V
 
@@ -1276,6 +1292,8 @@
 
     move-result v2
 
+    const/4 v3, 0x0
+
     if-eqz v2, :cond_1
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -1286,27 +1304,25 @@
 
     invoke-virtual {v2}, Ljava/lang/Long;->longValue()J
 
-    move-result-wide v2
+    move-result-wide v4
 
-    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v4
+    move-result-object v2
 
-    new-instance v5, Landroid/app/compat/PackageOverride$Builder;
+    new-instance v6, Landroid/app/compat/PackageOverride$Builder;
 
-    invoke-direct {v5}, Landroid/app/compat/PackageOverride$Builder;-><init>()V
+    invoke-direct {v6}, Landroid/app/compat/PackageOverride$Builder;-><init>()V
 
-    const/4 v6, 0x0
+    invoke-virtual {v6, v3}, Landroid/app/compat/PackageOverride$Builder;->setEnabled(Z)Landroid/app/compat/PackageOverride$Builder;
 
-    invoke-virtual {v5, v6}, Landroid/app/compat/PackageOverride$Builder;->setEnabled(Z)Landroid/app/compat/PackageOverride$Builder;
+    move-result-object v3
 
-    move-result-object v5
+    invoke-virtual {v3}, Landroid/app/compat/PackageOverride$Builder;->build()Landroid/app/compat/PackageOverride;
 
-    invoke-virtual {v5}, Landroid/app/compat/PackageOverride$Builder;->build()Landroid/app/compat/PackageOverride;
+    move-result-object v3
 
-    move-result-object v5
-
-    invoke-interface {v0, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v0, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_1
 
@@ -1317,7 +1333,7 @@
 
     invoke-direct {v2, v0}, Lcom/android/internal/compat/CompatibilityOverrideConfig;-><init>(Ljava/util/Map;)V
 
-    invoke-virtual {v1, v2, p2}, Lcom/android/server/compat/CompatConfig;->addOverrides(Lcom/android/internal/compat/CompatibilityOverrideConfig;Ljava/lang/String;)V
+    invoke-virtual {v1, v2, p2, v3}, Lcom/android/server/compat/CompatConfig;->addPackageOverrides(Lcom/android/internal/compat/CompatibilityOverrideConfig;Ljava/lang/String;Z)V
 
     return-void
 .end method

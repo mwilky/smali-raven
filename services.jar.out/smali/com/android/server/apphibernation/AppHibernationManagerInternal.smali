@@ -20,6 +20,9 @@
 .method public abstract isHibernatingGlobally(Ljava/lang/String;)Z
 .end method
 
+.method public abstract isOatArtifactDeletionEnabled()Z
+.end method
+
 .method public abstract setHibernatingForUser(Ljava/lang/String;IZ)V
 .end method
 

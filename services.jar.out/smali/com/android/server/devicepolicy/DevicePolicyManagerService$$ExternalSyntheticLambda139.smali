@@ -2,42 +2,44 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/util/function/Function;
 
 
-# instance fields
-.field public final synthetic f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
-
-.field public final synthetic f$1:I
+# static fields
+.field public static final synthetic INSTANCE:Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda139;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;I)V
+.method static synthetic constructor <clinit>()V
+    .locals 1
+
+    new-instance v0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda139;
+
+    invoke-direct {v0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda139;-><init>()V
+
+    sput-object v0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda139;->INSTANCE:Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda139;
+
+    return-void
+.end method
+
+.method private synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda139;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
-
-    iput p2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda139;->f$1:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
-    .locals 2
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda139;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
+    check-cast p1, Lcom/android/server/devicepolicy/ActiveAdmin;
 
-    iget v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda139;->f$1:I
+    invoke-static {p1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$getPasswordMinimumUpperCase$19(Lcom/android/server/devicepolicy/ActiveAdmin;)Ljava/lang/Integer;
 
-    check-cast p1, Landroid/content/pm/UserInfo;
+    move-result-object p1
 
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$isPasswordSufficientAfterProfileUnification$26$DevicePolicyManagerService(ILandroid/content/pm/UserInfo;)Z
-
-    move-result p1
-
-    return p1
+    return-object p1
 .end method

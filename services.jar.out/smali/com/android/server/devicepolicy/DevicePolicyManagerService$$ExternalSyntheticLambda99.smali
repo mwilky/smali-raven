@@ -33,7 +33,7 @@
 
     iget-object v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda99;->f$1:Lcom/android/server/devicepolicy/CallerIdentity;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$isEphemeralUser$78$DevicePolicyManagerService(Lcom/android/server/devicepolicy/CallerIdentity;)Ljava/lang/Boolean;
+    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$isBackupServiceEnabled$109$DevicePolicyManagerService(Lcom/android/server/devicepolicy/CallerIdentity;)Ljava/lang/Boolean;
 
     move-result-object v0
 

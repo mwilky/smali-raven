@@ -359,7 +359,7 @@
 .method static isCameraDoubleTapPowerEnabled(Landroid/content/res/Resources;)Z
     .locals 1
 
-    const v0, 0x1110043
+    const v0, 0x1110044
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -551,7 +551,7 @@
 .method private static isEmergencyGestureEnabled(Landroid/content/res/Resources;)Z
     .locals 1
 
-    const v0, 0x11100c4
+    const v0, 0x11100c5
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 

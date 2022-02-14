@@ -29,7 +29,7 @@
 
     check-cast p1, Lcom/android/server/wm/RootWindowContainer$SleepToken;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/DisplayContent;->lambda$remove$41$DisplayContent(Lcom/android/server/wm/RootWindowContainer$SleepToken;)V
+    invoke-virtual {v0, p1}, Lcom/android/server/wm/DisplayContent;->lambda$remove$43$DisplayContent(Lcom/android/server/wm/RootWindowContainer$SleepToken;)V
 
     return-void
 .end method

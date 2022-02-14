@@ -45,7 +45,7 @@
 
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$NotificationTrampolineCallback;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
-    invoke-static {v0}, Lcom/android/server/notification/NotificationManagerService;->access$11000(Lcom/android/server/notification/NotificationManagerService;)Lcom/android/server/notification/NotificationManagerService$RoleObserver;
+    invoke-static {v0}, Lcom/android/server/notification/NotificationManagerService;->access$10900(Lcom/android/server/notification/NotificationManagerService;)Lcom/android/server/notification/NotificationManagerService$RoleObserver;
 
     move-result-object v0
 
@@ -53,7 +53,7 @@
 
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$NotificationTrampolineCallback;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
-    invoke-static {v0}, Lcom/android/server/notification/NotificationManagerService;->access$11000(Lcom/android/server/notification/NotificationManagerService;)Lcom/android/server/notification/NotificationManagerService$RoleObserver;
+    invoke-static {v0}, Lcom/android/server/notification/NotificationManagerService;->access$10900(Lcom/android/server/notification/NotificationManagerService;)Lcom/android/server/notification/NotificationManagerService$RoleObserver;
 
     move-result-object v0
 
@@ -90,7 +90,7 @@
         }
     .end annotation
 
-    invoke-static {}, Lcom/android/server/notification/NotificationManagerService;->access$10900()Landroid/os/IBinder;
+    invoke-static {}, Lcom/android/server/notification/NotificationManagerService;->access$10800()Landroid/os/IBinder;
 
     move-result-object v0
 
@@ -159,7 +159,7 @@
 
     check-cast v2, Landroid/os/IBinder;
 
-    invoke-static {}, Lcom/android/server/notification/NotificationManagerService;->access$10900()Landroid/os/IBinder;
+    invoke-static {}, Lcom/android/server/notification/NotificationManagerService;->access$10800()Landroid/os/IBinder;
 
     move-result-object v3
 

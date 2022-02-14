@@ -2,42 +2,34 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:I
-
-.field public final synthetic f$1:I
+.field public final synthetic f$0:[Z
 
 
 # direct methods
-.method public synthetic constructor <init>(II)V
+.method public synthetic constructor <init>([Z)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput p1, p0, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda9;->f$0:I
-
-    iput p2, p0, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda9;->f$1:I
+    iput-object p1, p0, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda9;->f$0:[Z
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
-    .locals 2
+.method public final accept(Ljava/lang/Object;)V
+    .locals 1
 
-    iget v0, p0, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda9;->f$0:I
-
-    iget v1, p0, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda9;->f$1:I
+    iget-object v0, p0, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda9;->f$0:[Z
 
     check-cast p1, Lcom/android/server/wm/Task;
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/TaskDisplayArea;->lambda$getRootTask$0(IILcom/android/server/wm/Task;)Z
+    invoke-static {v0, p1}, Lcom/android/server/wm/TaskDisplayArea;->lambda$childrenNeedZBoost$5([ZLcom/android/server/wm/Task;)V
 
-    move-result p1
-
-    return p1
+    return-void
 .end method

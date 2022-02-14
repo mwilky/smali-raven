@@ -39,7 +39,7 @@
 
     iget v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda45;->f$2:I
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$isApplicationHidden$82$DevicePolicyManagerService(Ljava/lang/String;I)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$isApplicationHidden$85$DevicePolicyManagerService(Ljava/lang/String;I)V
 
     return-void
 .end method

@@ -27,7 +27,7 @@
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda67;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$isOverrideApnEnabled$123$DevicePolicyManagerService()Landroid/database/Cursor;
+    invoke-virtual {v0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$hasLockdownAdminConfiguredNetworks$92$DevicePolicyManagerService()Ljava/lang/Boolean;
 
     move-result-object v0
 

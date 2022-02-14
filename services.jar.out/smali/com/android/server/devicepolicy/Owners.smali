@@ -7,7 +7,6 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/server/devicepolicy/Owners$Injector;,
-        Lcom/android/server/devicepolicy/Owners$OwnerDto;,
         Lcom/android/server/devicepolicy/Owners$OwnerInfo;,
         Lcom/android/server/devicepolicy/Owners$ProfileOwnerReadWriter;,
         Lcom/android/server/devicepolicy/Owners$DeviceOwnerReadWriter;,
@@ -211,7 +210,7 @@
     return-void
 .end method
 
-.method static synthetic access$100(Lcom/android/server/devicepolicy/Owners;)Lcom/android/server/devicepolicy/Owners$OwnerInfo;
+.method static synthetic access$000(Lcom/android/server/devicepolicy/Owners;)Lcom/android/server/devicepolicy/Owners$OwnerInfo;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/Owners;->mDeviceOwner:Lcom/android/server/devicepolicy/Owners$OwnerInfo;
@@ -219,7 +218,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$102(Lcom/android/server/devicepolicy/Owners;Lcom/android/server/devicepolicy/Owners$OwnerInfo;)Lcom/android/server/devicepolicy/Owners$OwnerInfo;
+.method static synthetic access$002(Lcom/android/server/devicepolicy/Owners;Lcom/android/server/devicepolicy/Owners$OwnerInfo;)Lcom/android/server/devicepolicy/Owners$OwnerInfo;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/devicepolicy/Owners;->mDeviceOwner:Lcom/android/server/devicepolicy/Owners$OwnerInfo;
@@ -227,7 +226,7 @@
     return-object p1
 .end method
 
-.method static synthetic access$200(Lcom/android/server/devicepolicy/Owners;)Landroid/app/admin/SystemUpdatePolicy;
+.method static synthetic access$100(Lcom/android/server/devicepolicy/Owners;)Landroid/app/admin/SystemUpdatePolicy;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/Owners;->mSystemUpdatePolicy:Landroid/app/admin/SystemUpdatePolicy;
@@ -235,7 +234,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$202(Lcom/android/server/devicepolicy/Owners;Landroid/app/admin/SystemUpdatePolicy;)Landroid/app/admin/SystemUpdatePolicy;
+.method static synthetic access$102(Lcom/android/server/devicepolicy/Owners;Landroid/app/admin/SystemUpdatePolicy;)Landroid/app/admin/SystemUpdatePolicy;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/devicepolicy/Owners;->mSystemUpdatePolicy:Landroid/app/admin/SystemUpdatePolicy;
@@ -243,7 +242,7 @@
     return-object p1
 .end method
 
-.method static synthetic access$300(Lcom/android/server/devicepolicy/Owners;)Landroid/app/admin/SystemUpdateInfo;
+.method static synthetic access$200(Lcom/android/server/devicepolicy/Owners;)Landroid/app/admin/SystemUpdateInfo;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/Owners;->mSystemUpdateInfo:Landroid/app/admin/SystemUpdateInfo;
@@ -251,7 +250,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$302(Lcom/android/server/devicepolicy/Owners;Landroid/app/admin/SystemUpdateInfo;)Landroid/app/admin/SystemUpdateInfo;
+.method static synthetic access$202(Lcom/android/server/devicepolicy/Owners;Landroid/app/admin/SystemUpdateInfo;)Landroid/app/admin/SystemUpdateInfo;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/devicepolicy/Owners;->mSystemUpdateInfo:Landroid/app/admin/SystemUpdateInfo;
@@ -259,7 +258,7 @@
     return-object p1
 .end method
 
-.method static synthetic access$400(Lcom/android/server/devicepolicy/Owners;)I
+.method static synthetic access$300(Lcom/android/server/devicepolicy/Owners;)I
     .locals 1
 
     iget v0, p0, Lcom/android/server/devicepolicy/Owners;->mDeviceOwnerUserId:I
@@ -267,7 +266,7 @@
     return v0
 .end method
 
-.method static synthetic access$402(Lcom/android/server/devicepolicy/Owners;I)I
+.method static synthetic access$302(Lcom/android/server/devicepolicy/Owners;I)I
     .locals 0
 
     iput p1, p0, Lcom/android/server/devicepolicy/Owners;->mDeviceOwnerUserId:I
@@ -275,7 +274,7 @@
     return p1
 .end method
 
-.method static synthetic access$500(Lcom/android/server/devicepolicy/Owners;)Landroid/util/ArrayMap;
+.method static synthetic access$400(Lcom/android/server/devicepolicy/Owners;)Landroid/util/ArrayMap;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/Owners;->mDeviceOwnerTypes:Landroid/util/ArrayMap;
@@ -283,7 +282,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$600(Lcom/android/server/devicepolicy/Owners;)Landroid/util/ArrayMap;
+.method static synthetic access$500(Lcom/android/server/devicepolicy/Owners;)Landroid/util/ArrayMap;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/Owners;->mDeviceOwnerProtectedPackages:Landroid/util/ArrayMap;
@@ -291,7 +290,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$700(Lcom/android/server/devicepolicy/Owners;)Ljava/time/LocalDate;
+.method static synthetic access$600(Lcom/android/server/devicepolicy/Owners;)Ljava/time/LocalDate;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/Owners;->mSystemUpdateFreezeStart:Ljava/time/LocalDate;
@@ -299,7 +298,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$702(Lcom/android/server/devicepolicy/Owners;Ljava/time/LocalDate;)Ljava/time/LocalDate;
+.method static synthetic access$602(Lcom/android/server/devicepolicy/Owners;Ljava/time/LocalDate;)Ljava/time/LocalDate;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/devicepolicy/Owners;->mSystemUpdateFreezeStart:Ljava/time/LocalDate;
@@ -307,7 +306,7 @@
     return-object p1
 .end method
 
-.method static synthetic access$800(Lcom/android/server/devicepolicy/Owners;)Ljava/time/LocalDate;
+.method static synthetic access$700(Lcom/android/server/devicepolicy/Owners;)Ljava/time/LocalDate;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/Owners;->mSystemUpdateFreezeEnd:Ljava/time/LocalDate;
@@ -315,7 +314,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$802(Lcom/android/server/devicepolicy/Owners;Ljava/time/LocalDate;)Ljava/time/LocalDate;
+.method static synthetic access$702(Lcom/android/server/devicepolicy/Owners;Ljava/time/LocalDate;)Ljava/time/LocalDate;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/devicepolicy/Owners;->mSystemUpdateFreezeEnd:Ljava/time/LocalDate;
@@ -323,7 +322,7 @@
     return-object p1
 .end method
 
-.method static synthetic access$900(Lcom/android/server/devicepolicy/Owners;)Landroid/util/ArrayMap;
+.method static synthetic access$800(Lcom/android/server/devicepolicy/Owners;)Landroid/util/ArrayMap;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/Owners;->mProfileOwners:Landroid/util/ArrayMap;
@@ -2134,12 +2133,12 @@
 .end method
 
 .method listAllOwners()Ljava/util/List;
-    .locals 9
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
             "Ljava/util/List<",
-            "Lcom/android/server/devicepolicy/Owners$OwnerDto;",
+            "Lcom/android/server/devicepolicy/OwnerShellData;",
             ">;"
         }
     .end annotation
@@ -2155,63 +2154,57 @@
     :try_start_0
     iget-object v2, p0, Lcom/android/server/devicepolicy/Owners;->mDeviceOwner:Lcom/android/server/devicepolicy/Owners$OwnerInfo;
 
-    const/4 v3, 0x0
-
     if-eqz v2, :cond_0
 
-    new-instance v4, Lcom/android/server/devicepolicy/Owners$OwnerDto;
-
-    iget v5, p0, Lcom/android/server/devicepolicy/Owners;->mDeviceOwnerUserId:I
+    iget v3, p0, Lcom/android/server/devicepolicy/Owners;->mDeviceOwnerUserId:I
 
     iget-object v2, v2, Lcom/android/server/devicepolicy/Owners$OwnerInfo;->admin:Landroid/content/ComponentName;
 
-    const/4 v6, 0x1
+    invoke-static {v3, v2}, Lcom/android/server/devicepolicy/OwnerShellData;->forDeviceOwner(ILandroid/content/ComponentName;)Lcom/android/server/devicepolicy/OwnerShellData;
 
-    invoke-direct {v4, v5, v2, v6, v3}, Lcom/android/server/devicepolicy/Owners$OwnerDto;-><init>(ILandroid/content/ComponentName;ZLcom/android/server/devicepolicy/Owners$1;)V
+    move-result-object v2
 
-    invoke-interface {v0, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_0
     const/4 v2, 0x0
 
     :goto_0
+    iget-object v3, p0, Lcom/android/server/devicepolicy/Owners;->mProfileOwners:Landroid/util/ArrayMap;
+
+    invoke-virtual {v3}, Landroid/util/ArrayMap;->size()I
+
+    move-result v3
+
+    if-ge v2, v3, :cond_1
+
+    iget-object v3, p0, Lcom/android/server/devicepolicy/Owners;->mProfileOwners:Landroid/util/ArrayMap;
+
+    invoke-virtual {v3, v2}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/Integer;
+
+    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
+
+    move-result v3
+
     iget-object v4, p0, Lcom/android/server/devicepolicy/Owners;->mProfileOwners:Landroid/util/ArrayMap;
 
-    invoke-virtual {v4}, Landroid/util/ArrayMap;->size()I
-
-    move-result v4
-
-    if-ge v2, v4, :cond_1
-
-    iget-object v4, p0, Lcom/android/server/devicepolicy/Owners;->mProfileOwners:Landroid/util/ArrayMap;
-
-    invoke-virtual {v4, v2}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
+    invoke-virtual {v4, v2}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v4
 
-    check-cast v4, Ljava/lang/Integer;
+    check-cast v4, Lcom/android/server/devicepolicy/Owners$OwnerInfo;
 
-    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
+    iget-object v5, v4, Lcom/android/server/devicepolicy/Owners$OwnerInfo;->admin:Landroid/content/ComponentName;
 
-    move-result v4
-
-    iget-object v5, p0, Lcom/android/server/devicepolicy/Owners;->mProfileOwners:Landroid/util/ArrayMap;
-
-    invoke-virtual {v5, v2}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+    invoke-static {v3, v5}, Lcom/android/server/devicepolicy/OwnerShellData;->forUserProfileOwner(ILandroid/content/ComponentName;)Lcom/android/server/devicepolicy/OwnerShellData;
 
     move-result-object v5
 
-    check-cast v5, Lcom/android/server/devicepolicy/Owners$OwnerInfo;
-
-    new-instance v6, Lcom/android/server/devicepolicy/Owners$OwnerDto;
-
-    iget-object v7, v5, Lcom/android/server/devicepolicy/Owners$OwnerInfo;->admin:Landroid/content/ComponentName;
-
-    const/4 v8, 0x0
-
-    invoke-direct {v6, v4, v7, v8, v3}, Lcom/android/server/devicepolicy/Owners$OwnerDto;-><init>(ILandroid/content/ComponentName;ZLcom/android/server/devicepolicy/Owners$1;)V
-
-    invoke-interface {v0, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v0, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     nop
 

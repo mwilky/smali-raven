@@ -27,9 +27,9 @@
 
     iget v0, p0, Lcom/android/server/wm/RootWindowContainer$$ExternalSyntheticLambda48;->f$0:I
 
-    check-cast p1, Lcom/android/server/wm/ActivityRecord;
+    check-cast p1, Lcom/android/server/wm/WindowState;
 
-    invoke-static {v0, p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$lockAllProfileTasks$35(ILcom/android/server/wm/ActivityRecord;)Z
+    invoke-static {v0, p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$canShowStrictModeViolation$6(ILcom/android/server/wm/WindowState;)Z
 
     move-result p1
 

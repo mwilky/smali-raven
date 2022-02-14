@@ -61,9 +61,11 @@
 
 .field private mStrokeIdToPointerId:Landroid/util/SparseIntArray;
 
+.field private final mTrace:Lcom/android/server/accessibility/AccessibilityTraceManager;
+
 
 # direct methods
-.method public constructor <init>(Landroid/os/Handler;)V
+.method public constructor <init>(Landroid/os/Handler;Lcom/android/server/accessibility/AccessibilityTraceManager;)V
     .locals 2
 
     invoke-direct {p0}, Lcom/android/server/accessibility/BaseEventStreamTransformation;-><init>()V
@@ -94,10 +96,12 @@
 
     iput-object p1, p0, Lcom/android/server/accessibility/MotionEventInjector;->mHandler:Landroid/os/Handler;
 
+    iput-object p2, p0, Lcom/android/server/accessibility/MotionEventInjector;->mTrace:Lcom/android/server/accessibility/AccessibilityTraceManager;
+
     return-void
 .end method
 
-.method public constructor <init>(Landroid/os/Looper;)V
+.method public constructor <init>(Landroid/os/Looper;Lcom/android/server/accessibility/AccessibilityTraceManager;)V
     .locals 2
 
     invoke-direct {p0}, Lcom/android/server/accessibility/BaseEventStreamTransformation;-><init>()V
@@ -131,6 +135,8 @@
     invoke-direct {v0, p1, p0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;Landroid/os/Handler$Callback;)V
 
     iput-object v0, p0, Lcom/android/server/accessibility/MotionEventInjector;->mHandler:Landroid/os/Handler;
+
+    iput-object p2, p0, Lcom/android/server/accessibility/MotionEventInjector;->mTrace:Lcom/android/server/accessibility/AccessibilityTraceManager;
 
     return-void
 .end method
@@ -1861,15 +1867,58 @@
 .end method
 
 .method public onMotionEvent(Landroid/view/MotionEvent;Landroid/view/MotionEvent;I)V
-    .locals 3
+    .locals 5
 
+    iget-object v0, p0, Lcom/android/server/accessibility/MotionEventInjector;->mTrace:Lcom/android/server/accessibility/AccessibilityTraceManager;
+
+    const-wide/16 v1, 0x3000
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityTraceManager;->isA11yTracingEnabledForTypes(J)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/accessibility/MotionEventInjector;->mTrace:Lcom/android/server/accessibility/AccessibilityTraceManager;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "event="
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v4, ";rawEvent="
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v4, ";policyFlags="
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string v4, "MotionEventInjector.onMotionEvent"
+
+    invoke-virtual {v0, v4, v1, v2, v3}, Lcom/android/server/accessibility/AccessibilityTraceManager;->logTrace(Ljava/lang/String;JLjava/lang/String;)V
+
+    :cond_0
     const/16 v0, 0x2002
 
     invoke-virtual {p1, v0}, Landroid/view/MotionEvent;->isFromSource(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
@@ -1877,7 +1926,7 @@
 
     const/4 v1, 0x7
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1
 
     iget-object v0, p0, Lcom/android/server/accessibility/MotionEventInjector;->mOpenGesturesInProgress:Landroid/util/SparseArray;
 
@@ -1899,11 +1948,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     return-void
 
-    :cond_0
+    :cond_1
     invoke-direct {p0}, Lcom/android/server/accessibility/MotionEventInjector;->cancelAnyPendingInjectedEvents()V
 
     const/high16 v0, 0x20000

@@ -653,43 +653,6 @@
     return v0
 .end method
 
-.method private isWindowNotified(Lcom/android/server/wm/WindowState;)Z
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/wm/DragState;->mNotifiedWindows:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/server/wm/WindowState;
-
-    if-ne v1, p1, :cond_0
-
-    const/4 v0, 0x1
-
-    return v0
-
-    :cond_0
-    goto :goto_0
-
-    :cond_1
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
 .method static synthetic lambda$createCancelAnimationLocked$2(Landroid/animation/ValueAnimator;)V
     .locals 0
 
@@ -1174,7 +1137,13 @@
 
     if-eqz v0, :cond_2
 
-    if-eqz p1, :cond_1
+    if-nez p1, :cond_2
+
+    invoke-virtual {p0}, Lcom/android/server/wm/DragState;->isAccessibilityDragDrop()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
 
     goto :goto_0
 
@@ -1426,7 +1395,9 @@
 
     const/4 v6, 0x3
 
-    invoke-virtual {v5, v6, v0}, Lcom/android/server/wm/DragDropController;->sendTimeoutMessage(ILjava/lang/Object;)V
+    const-wide/16 v7, 0x1388
+
+    invoke-virtual {v5, v6, v0, v7, v8}, Lcom/android/server/wm/DragDropController;->sendTimeoutMessage(ILjava/lang/Object;J)V
 
     :goto_3
     iput-object v4, v1, Lcom/android/server/wm/DragState;->mSurfaceControl:Landroid/view/SurfaceControl;
@@ -1482,6 +1453,12 @@
 
     if-nez v0, :cond_1
 
+    invoke-virtual {p0}, Lcom/android/server/wm/DragState;->isAccessibilityDragDrop()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
     invoke-direct {p0}, Lcom/android/server/wm/DragState;->createReturnAnimationLocked()Landroid/animation/ValueAnimator;
 
     move-result-object v0
@@ -1532,6 +1509,26 @@
     return-object v0
 .end method
 
+.method isAccessibilityDragDrop()Z
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/wm/DragState;->mFlags:I
+
+    and-int/lit16 v0, v0, 0x400
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
 .method isClosing()Z
     .locals 1
 
@@ -1544,6 +1541,43 @@
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/wm/DragState;->mDragInProgress:Z
+
+    return v0
+.end method
+
+.method isWindowNotified(Lcom/android/server/wm/WindowState;)Z
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/wm/DragState;->mNotifiedWindows:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/server/wm/WindowState;
+
+    if-ne v1, p1, :cond_0
+
+    const/4 v0, 0x1
+
+    return v0
+
+    :cond_0
+    goto :goto_0
+
+    :cond_1
+    const/4 v0, 0x0
 
     return v0
 .end method
@@ -1617,43 +1651,43 @@
     return-void
 .end method
 
-.method reportDropWindowLock(Landroid/os/IBinder;FF)V
+.method reportDropWindowLock(Landroid/os/IBinder;FF)Z
     .locals 21
 
     move-object/from16 v8, p0
 
     iget-object v0, v8, Lcom/android/server/wm/DragState;->mAnimator:Landroid/animation/ValueAnimator;
 
+    const/4 v9, 0x0
+
     if-eqz v0, :cond_0
 
-    return-void
+    return v9
 
     :cond_0
     iget-object v0, v8, Lcom/android/server/wm/DragState;->mService:Lcom/android/server/wm/WindowManagerService;
 
     iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mInputToWindowMap:Ljava/util/HashMap;
 
-    move-object/from16 v9, p1
+    move-object/from16 v10, p1
 
-    invoke-virtual {v0, v9}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v10}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    move-object v10, v0
+    move-object v11, v0
 
-    check-cast v10, Lcom/android/server/wm/WindowState;
+    check-cast v11, Lcom/android/server/wm/WindowState;
 
-    invoke-direct {v8, v10}, Lcom/android/server/wm/DragState;->isWindowNotified(Lcom/android/server/wm/WindowState;)Z
+    invoke-virtual {v8, v11}, Lcom/android/server/wm/DragState;->isWindowNotified(Lcom/android/server/wm/WindowState;)Z
 
     move-result v0
-
-    const/4 v11, 0x0
 
     const-string v12, "WindowManager"
 
     if-nez v0, :cond_1
 
-    iput-boolean v11, v8, Lcom/android/server/wm/DragState;->mDragResult:Z
+    iput-boolean v9, v8, Lcom/android/server/wm/DragState;->mDragResult:Z
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/wm/DragState;->endDragLocked()V
 
@@ -1665,7 +1699,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1673,7 +1707,7 @@
 
     invoke-static {v12, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-void
+    return v9
 
     :cond_1
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1684,7 +1718,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1692,7 +1726,7 @@
 
     invoke-static {v12, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v10}, Lcom/android/server/wm/WindowState;->getOwningUid()I
+    invoke-virtual {v11}, Lcom/android/server/wm/WindowState;->getOwningUid()I
 
     move-result v0
 
@@ -1724,7 +1758,7 @@
 
     iget v1, v8, Lcom/android/server/wm/DragState;->mUid:I
 
-    invoke-virtual {v10}, Lcom/android/server/wm/WindowState;->getOwningPackage()Ljava/lang/String;
+    invoke-virtual {v11}, Lcom/android/server/wm/WindowState;->getOwningPackage()Ljava/lang/String;
 
     move-result-object v17
 
@@ -1769,7 +1803,7 @@
 
     move-result v14
 
-    iget-object v0, v10, Lcom/android/server/wm/WindowState;->mClient:Landroid/view/IWindow;
+    iget-object v0, v11, Lcom/android/server/wm/WindowState;->mClient:Landroid/view/IWindow;
 
     invoke-interface {v0}, Landroid/view/IWindow;->asBinder()Landroid/os/IBinder;
 
@@ -1779,7 +1813,7 @@
 
     iget-object v5, v8, Lcom/android/server/wm/DragState;->mData:Landroid/content/ClipData;
 
-    invoke-virtual {v8, v10}, Lcom/android/server/wm/DragState;->targetInterceptsGlobalDrag(Lcom/android/server/wm/WindowState;)Z
+    invoke-virtual {v8, v11}, Lcom/android/server/wm/DragState;->targetInterceptsGlobalDrag(Lcom/android/server/wm/WindowState;)Z
 
     move-result v6
 
@@ -1798,32 +1832,38 @@
     move-result-object v1
 
     :try_start_0
-    iget-object v0, v10, Lcom/android/server/wm/WindowState;->mClient:Landroid/view/IWindow;
+    iget-object v0, v11, Lcom/android/server/wm/WindowState;->mClient:Landroid/view/IWindow;
 
     invoke-interface {v0, v1}, Landroid/view/IWindow;->dispatchDragEvent(Landroid/view/DragEvent;)V
 
     iget-object v0, v8, Lcom/android/server/wm/DragState;->mDragDropController:Lcom/android/server/wm/DragDropController;
 
-    invoke-virtual {v0, v11, v15}, Lcom/android/server/wm/DragDropController;->sendTimeoutMessage(ILjava/lang/Object;)V
+    const-wide/16 v2, 0x1388
+
+    invoke-virtual {v0, v9, v15, v2, v3}, Lcom/android/server/wm/DragDropController;->sendTimeoutMessage(ILjava/lang/Object;J)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    iget-object v0, v10, Lcom/android/server/wm/WindowState;->mSession:Lcom/android/server/wm/Session;
+    iget-object v0, v11, Lcom/android/server/wm/WindowState;->mSession:Lcom/android/server/wm/Session;
 
     iget v0, v0, Lcom/android/server/wm/Session;->mPid:I
 
     if-eq v14, v0, :cond_4
 
-    :goto_1
     invoke-virtual {v1}, Landroid/view/DragEvent;->recycle()V
 
-    goto :goto_2
+    :cond_4
+    iput-object v15, v8, Lcom/android/server/wm/DragState;->mToken:Landroid/os/IBinder;
+
+    const/4 v0, 0x1
+
+    return v0
 
     :catchall_0
     move-exception v0
 
-    goto :goto_3
+    goto :goto_1
 
     :catch_0
     move-exception v0
@@ -1837,7 +1877,7 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1849,22 +1889,9 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    iget-object v0, v10, Lcom/android/server/wm/WindowState;->mSession:Lcom/android/server/wm/Session;
+    nop
 
-    iget v0, v0, Lcom/android/server/wm/Session;->mPid:I
-
-    if-eq v14, v0, :cond_4
-
-    goto :goto_1
-
-    :cond_4
-    :goto_2
-    iput-object v15, v8, Lcom/android/server/wm/DragState;->mToken:Landroid/os/IBinder;
-
-    return-void
-
-    :goto_3
-    iget-object v2, v10, Lcom/android/server/wm/WindowState;->mSession:Lcom/android/server/wm/Session;
+    iget-object v2, v11, Lcom/android/server/wm/WindowState;->mSession:Lcom/android/server/wm/Session;
 
     iget v2, v2, Lcom/android/server/wm/Session;->mPid:I
 
@@ -1873,6 +1900,18 @@
     invoke-virtual {v1}, Landroid/view/DragEvent;->recycle()V
 
     :cond_5
+    return v9
+
+    :goto_1
+    iget-object v2, v11, Lcom/android/server/wm/WindowState;->mSession:Lcom/android/server/wm/Session;
+
+    iget v2, v2, Lcom/android/server/wm/Session;->mPid:I
+
+    if-eq v14, v2, :cond_6
+
+    invoke-virtual {v1}, Landroid/view/DragEvent;->recycle()V
+
+    :cond_6
     throw v0
 .end method
 
@@ -1883,7 +1922,7 @@
 
     if-eqz v0, :cond_1
 
-    invoke-direct {p0, p1}, Lcom/android/server/wm/DragState;->isWindowNotified(Lcom/android/server/wm/WindowState;)Z
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/DragState;->isWindowNotified(Lcom/android/server/wm/WindowState;)Z
 
     move-result v0
 

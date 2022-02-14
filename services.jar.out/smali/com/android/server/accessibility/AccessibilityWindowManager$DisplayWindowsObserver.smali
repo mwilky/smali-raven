@@ -102,7 +102,7 @@
     return-void
 .end method
 
-.method static synthetic access$1300(Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;)I
+.method static synthetic access$1600(Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;)I
     .locals 1
 
     iget v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->mDisplayId:I
@@ -187,13 +187,13 @@
 
     iget-object v1, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$700(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
+    invoke-static {v1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$1000(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
 
     move-result v1
 
     iget-object v2, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v2}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$600(Lcom/android/server/accessibility/AccessibilityWindowManager;)Lcom/android/server/accessibility/AccessibilitySecurityPolicy$AccessibilityUserManager;
+    invoke-static {v2}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$800(Lcom/android/server/accessibility/AccessibilityWindowManager;)Lcom/android/server/accessibility/AccessibilitySecurityPolicy$AccessibilityUserManager;
 
     move-result-object v2
 
@@ -205,7 +205,7 @@
 
     iget-object v2, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v2, v1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$702(Lcom/android/server/accessibility/AccessibilityWindowManager;I)I
+    invoke-static {v2, v1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$1002(Lcom/android/server/accessibility/AccessibilityWindowManager;I)I
 
     const/4 v2, 0x0
 
@@ -346,6 +346,10 @@
     iget v2, p2, Landroid/view/WindowInfo;->displayId:I
 
     invoke-virtual {v1, v2}, Landroid/view/accessibility/AccessibilityWindowInfo;->setDisplayId(I)V
+
+    iget v2, p2, Landroid/view/WindowInfo;->taskId:I
+
+    invoke-virtual {v1, v2}, Landroid/view/accessibility/AccessibilityWindowInfo;->setTaskId(I)V
 
     iget-object v2, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
@@ -551,7 +555,7 @@
 
     iget-object v5, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v5}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$100(Lcom/android/server/accessibility/AccessibilityWindowManager;)Lcom/android/server/accessibility/AccessibilityWindowManager$AccessibilityEventSender;
+    invoke-static {v5}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$300(Lcom/android/server/accessibility/AccessibilityWindowManager;)Lcom/android/server/accessibility/AccessibilityWindowManager$AccessibilityEventSender;
 
     move-result-object v5
 
@@ -747,7 +751,7 @@
 
     iget-object v8, v0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v8}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$400(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
+    invoke-static {v8}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$600(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
 
     move-result v8
 
@@ -767,7 +771,7 @@
 
     iget-object v10, v0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v10}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$200(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
+    invoke-static {v10}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$400(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
 
     move-result v10
 
@@ -789,7 +793,7 @@
 
     iget-object v11, v0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v11}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$500(Lcom/android/server/accessibility/AccessibilityWindowManager;)Landroid/os/IBinder;
+    invoke-static {v11}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$700(Lcom/android/server/accessibility/AccessibilityWindowManager;)Landroid/os/IBinder;
 
     move-result-object v12
 
@@ -797,19 +801,19 @@
 
     move-result v12
 
-    invoke-static {v11, v12}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$802(Lcom/android/server/accessibility/AccessibilityWindowManager;I)I
+    invoke-static {v11, v12}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$1102(Lcom/android/server/accessibility/AccessibilityWindowManager;I)I
 
     goto :goto_3
 
     :cond_4
     iget-object v11, v0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v11, v10}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$802(Lcom/android/server/accessibility/AccessibilityWindowManager;I)I
+    invoke-static {v11, v10}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$1102(Lcom/android/server/accessibility/AccessibilityWindowManager;I)I
 
     :goto_3
     iget-object v11, v0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v11}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$900(Lcom/android/server/accessibility/AccessibilityWindowManager;)Z
+    invoke-static {v11}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$1200(Lcom/android/server/accessibility/AccessibilityWindowManager;)Z
 
     move-result v11
 
@@ -817,7 +821,7 @@
 
     iget-object v11, v0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v11, v10}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$702(Lcom/android/server/accessibility/AccessibilityWindowManager;I)I
+    invoke-static {v11, v10}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$1002(Lcom/android/server/accessibility/AccessibilityWindowManager;I)I
 
     :cond_5
     const/4 v11, 0x1
@@ -826,7 +830,7 @@
 
     iget-object v12, v0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v12}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$1000(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
+    invoke-static {v12}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$1300(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
 
     move-result v12
 
@@ -893,7 +897,7 @@
 
     iget-object v15, v0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v15}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$900(Lcom/android/server/accessibility/AccessibilityWindowManager;)Z
+    invoke-static {v15}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$1200(Lcom/android/server/accessibility/AccessibilityWindowManager;)Z
 
     move-result v15
 
@@ -901,7 +905,7 @@
 
     iget-object v15, v0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v15, v14}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$702(Lcom/android/server/accessibility/AccessibilityWindowManager;I)I
+    invoke-static {v15, v14}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$1002(Lcom/android/server/accessibility/AccessibilityWindowManager;I)I
 
     invoke-virtual {v13, v9}, Landroid/view/accessibility/AccessibilityWindowInfo;->setActive(Z)V
 
@@ -910,7 +914,7 @@
     :cond_9
     iget-object v15, v0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v15}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$700(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
+    invoke-static {v15}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$1000(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
 
     move-result v15
 
@@ -967,7 +971,7 @@
 
     iget-object v9, v0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v9}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$900(Lcom/android/server/accessibility/AccessibilityWindowManager;)Z
+    invoke-static {v9}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$1200(Lcom/android/server/accessibility/AccessibilityWindowManager;)Z
 
     move-result v9
 
@@ -977,11 +981,11 @@
 
     iget-object v9, v0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v9}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$800(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
+    invoke-static {v9}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$1100(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
 
     move-result v12
 
-    invoke-static {v9, v12}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$702(Lcom/android/server/accessibility/AccessibilityWindowManager;I)I
+    invoke-static {v9, v12}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$1002(Lcom/android/server/accessibility/AccessibilityWindowManager;I)I
 
     :cond_e
     const/4 v9, 0x0
@@ -1003,7 +1007,7 @@
 
     iget-object v14, v0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v14}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$700(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
+    invoke-static {v14}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$1000(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
 
     move-result v14
 
@@ -1040,7 +1044,7 @@
 
     iget-object v14, v0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v14}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$1000(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
+    invoke-static {v14}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$1300(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
 
     move-result v14
 
@@ -1094,11 +1098,11 @@
 
     iget-object v9, v0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v9}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$1000(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
+    invoke-static {v9}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$1300(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
 
     move-result v12
 
-    invoke-static {v9, v12}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$1100(Lcom/android/server/accessibility/AccessibilityWindowManager;I)V
+    invoke-static {v9, v12}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$1400(Lcom/android/server/accessibility/AccessibilityWindowManager;I)V
 
     :cond_15
     return-void
@@ -1301,6 +1305,15 @@
     return v1
 
     :cond_11
+    iget v2, p1, Landroid/view/WindowInfo;->taskId:I
+
+    iget v3, p2, Landroid/view/WindowInfo;->taskId:I
+
+    if-eq v2, v3, :cond_12
+
+    return v1
+
+    :cond_12
     return v0
 .end method
 
@@ -1411,7 +1424,7 @@
 
     iget-object v1, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$400(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
+    invoke-static {v1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$600(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
 
     move-result v1
 
@@ -1433,7 +1446,7 @@
 
     iget-object v1, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$700(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
+    invoke-static {v1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$1000(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
 
     move-result v1
 
@@ -1455,7 +1468,7 @@
 
     iget-object v1, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$800(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
+    invoke-static {v1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$1100(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
 
     move-result v1
 
@@ -1477,7 +1490,7 @@
 
     iget-object v1, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$1000(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
+    invoke-static {v1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$1300(Lcom/android/server/accessibility/AccessibilityWindowManager;)I
 
     move-result v1
 
@@ -1754,6 +1767,40 @@
     return v0
 .end method
 
+.method public onDisplayReparented(I)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
+
+    invoke-static {v0}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$500(Lcom/android/server/accessibility/AccessibilityWindowManager;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
+
+    invoke-static {v1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$900(Lcom/android/server/accessibility/AccessibilityWindowManager;)Landroid/util/SparseArray;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Landroid/util/SparseArray;->remove(I)V
+
+    monitor-exit v0
+
+    return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v1
+.end method
+
 .method public onWindowsForAccessibilityChanged(ZILandroid/os/IBinder;Ljava/util/List;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
@@ -1768,7 +1815,7 @@
 
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v0}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$300(Lcom/android/server/accessibility/AccessibilityWindowManager;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$500(Lcom/android/server/accessibility/AccessibilityWindowManager;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -1783,17 +1830,17 @@
 
     iget-object v1, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v1, p2}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$402(Lcom/android/server/accessibility/AccessibilityWindowManager;I)I
+    invoke-static {v1, p2}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$602(Lcom/android/server/accessibility/AccessibilityWindowManager;I)I
 
     iget-object v1, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v1, p3}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$502(Lcom/android/server/accessibility/AccessibilityWindowManager;Landroid/os/IBinder;)Landroid/os/IBinder;
+    invoke-static {v1, p3}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$702(Lcom/android/server/accessibility/AccessibilityWindowManager;Landroid/os/IBinder;)Landroid/os/IBinder;
 
     invoke-direct {p0, p4}, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->cacheWindows(Ljava/util/List;)V
 
     iget-object v1, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$600(Lcom/android/server/accessibility/AccessibilityWindowManager;)Lcom/android/server/accessibility/AccessibilitySecurityPolicy$AccessibilityUserManager;
+    invoke-static {v1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$800(Lcom/android/server/accessibility/AccessibilityWindowManager;)Lcom/android/server/accessibility/AccessibilitySecurityPolicy$AccessibilityUserManager;
 
     move-result-object v1
 
@@ -1805,7 +1852,7 @@
 
     iget-object v1, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$300(Lcom/android/server/accessibility/AccessibilityWindowManager;)Ljava/lang/Object;
+    invoke-static {v1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$500(Lcom/android/server/accessibility/AccessibilityWindowManager;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -1860,7 +1907,7 @@
 
     iget v4, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->mDisplayId:I
 
-    invoke-static {v3, v4}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$202(Lcom/android/server/accessibility/AccessibilityWindowManager;I)I
+    invoke-static {v3, v4}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$402(Lcom/android/server/accessibility/AccessibilityWindowManager;I)I
 
     const/4 v3, 0x1
 
@@ -1868,7 +1915,7 @@
 
     iget-object v3, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v3}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$100(Lcom/android/server/accessibility/AccessibilityWindowManager;)Lcom/android/server/accessibility/AccessibilityWindowManager$AccessibilityEventSender;
+    invoke-static {v3}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$300(Lcom/android/server/accessibility/AccessibilityWindowManager;)Lcom/android/server/accessibility/AccessibilityWindowManager$AccessibilityEventSender;
 
     move-result-object v3
 
@@ -1932,7 +1979,7 @@
 
     iget-object v3, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v3}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$100(Lcom/android/server/accessibility/AccessibilityWindowManager;)Lcom/android/server/accessibility/AccessibilityWindowManager$AccessibilityEventSender;
+    invoke-static {v3}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$300(Lcom/android/server/accessibility/AccessibilityWindowManager;)Lcom/android/server/accessibility/AccessibilityWindowManager$AccessibilityEventSender;
 
     move-result-object v3
 
@@ -1961,13 +2008,13 @@
 .end method
 
 .method startTrackingWindowsLocked()Z
-    .locals 3
+    .locals 4
 
     const/4 v0, 0x1
 
     iget-boolean v1, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->mTrackingWindows:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1
 
     const/4 v1, 0x1
 
@@ -1975,7 +2022,44 @@
 
     iget-object v1, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$000(Lcom/android/server/accessibility/AccessibilityWindowManager;)Lcom/android/server/wm/WindowManagerInternal;
+    invoke-static {v1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$000(Lcom/android/server/accessibility/AccessibilityWindowManager;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "displayId="
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v3, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->mDisplayId:I
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v3, ";callback="
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "setWindowsForAccessibilityCallback"
+
+    invoke-static {v1, v3, v2}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$100(Lcom/android/server/accessibility/AccessibilityWindowManager;Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
+
+    invoke-static {v1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$200(Lcom/android/server/accessibility/AccessibilityWindowManager;)Lcom/android/server/wm/WindowManagerInternal;
 
     move-result-object v1
 
@@ -1985,7 +2069,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     const/4 v1, 0x0
 
@@ -2011,7 +2095,7 @@
 
     invoke-static {v2, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_0
+    :cond_1
     return v0
 .end method
 
@@ -2020,11 +2104,46 @@
 
     iget-boolean v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->mTrackingWindows:Z
 
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
+
+    invoke-static {v0}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$000(Lcom/android/server/accessibility/AccessibilityWindowManager;)Z
+
+    move-result v0
+
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v0}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$000(Lcom/android/server/accessibility/AccessibilityWindowManager;)Lcom/android/server/wm/WindowManagerInternal;
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "displayId="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v2, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->mDisplayId:I
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v2, ";callback=null"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "setWindowsForAccessibilityCallback"
+
+    invoke-static {v0, v2, v1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$100(Lcom/android/server/accessibility/AccessibilityWindowManager;Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
+
+    invoke-static {v0}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$200(Lcom/android/server/accessibility/AccessibilityWindowManager;)Lcom/android/server/wm/WindowManagerInternal;
 
     move-result-object v0
 
@@ -2040,6 +2159,6 @@
 
     invoke-direct {p0}, Lcom/android/server/accessibility/AccessibilityWindowManager$DisplayWindowsObserver;->clearWindowsLocked()V
 
-    :cond_0
+    :cond_1
     return-void
 .end method

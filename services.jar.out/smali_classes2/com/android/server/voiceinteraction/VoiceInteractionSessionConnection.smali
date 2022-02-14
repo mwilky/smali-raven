@@ -19,6 +19,8 @@
 # static fields
 .field static final BOOST_TIMEOUT_MS:I = 0x12c
 
+.field static final DEBUG:Z = false
+
 .field static final MAX_POWER_BOOST_TIMEOUT:I = 0x2710
 
 .field static final POWER_BOOST_TIMEOUT_MS:I
@@ -57,6 +59,8 @@
 
 .field mInteractor:Lcom/android/internal/app/IVoiceInteractor;
 
+.field private mListeningVisibleActivity:Z
+
 .field final mLock:Ljava/lang/Object;
 
 .field private mPendingHandleAssistWithoutData:Ljava/util/List;
@@ -83,6 +87,8 @@
 
 .field private final mPowerManagerInternal:Landroid/os/PowerManagerInternal;
 
+.field private final mScheduledExecutorService:Ljava/util/concurrent/ScheduledExecutorService;
+
 .field mService:Landroid/service/voice/IVoiceInteractionSessionService;
 
 .field mSession:Landroid/service/voice/IVoiceInteractionSession;
@@ -106,6 +112,16 @@
 .field final mUgmInternal:Lcom/android/server/uri/UriGrantsManagerInternal;
 
 .field final mUser:I
+
+.field private final mVisibleActivityInfos:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List<",
+            "Landroid/service/voice/VisibleActivityInfo;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
@@ -161,6 +177,20 @@
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v1, v9, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mPendingHandleAssistWithoutData:Ljava/util/List;
+
+    nop
+
+    invoke-static {}, Ljava/util/concurrent/Executors;->newSingleThreadScheduledExecutor()Ljava/util/concurrent/ScheduledExecutorService;
+
+    move-result-object v1
+
+    iput-object v1, v9, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mScheduledExecutorService:Ljava/util/concurrent/ScheduledExecutorService;
+
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v1, v9, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mVisibleActivityInfos:Ljava/util/List;
 
     new-instance v1, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$1;
 
@@ -515,6 +545,93 @@
     return-void
 .end method
 
+.method private getVisibleActivityInfosLocked()Ljava/util/List;
+    .locals 8
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Landroid/service/voice/VisibleActivityInfo;",
+            ">;"
+        }
+    .end annotation
+
+    const-class v0, Lcom/android/server/wm/ActivityTaskManagerInternal;
+
+    invoke-static {v0}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/wm/ActivityTaskManagerInternal;
+
+    invoke-virtual {v0}, Lcom/android/server/wm/ActivityTaskManagerInternal;->getTopVisibleActivities()Ljava/util/List;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_2
+
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    goto :goto_1
+
+    :cond_0
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    new-instance v2, Ljava/util/ArrayList;
+
+    invoke-direct {v2, v1}, Ljava/util/ArrayList;-><init>(I)V
+
+    const/4 v3, 0x0
+
+    :goto_0
+    if-ge v3, v1, :cond_1
+
+    invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/android/server/wm/ActivityAssistInfo;
+
+    new-instance v5, Landroid/service/voice/VisibleActivityInfo;
+
+    invoke-virtual {v4}, Lcom/android/server/wm/ActivityAssistInfo;->getTaskId()I
+
+    move-result v6
+
+    invoke-virtual {v4}, Lcom/android/server/wm/ActivityAssistInfo;->getAssistToken()Landroid/os/IBinder;
+
+    move-result-object v7
+
+    invoke-direct {v5, v6, v7}, Landroid/service/voice/VisibleActivityInfo;-><init>(ILandroid/os/IBinder;)V
+
+    invoke-interface {v2, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    return-object v2
+
+    :cond_2
+    :goto_1
+    const-string v1, "VoiceInteractionServiceManager"
+
+    const-string v2, "no visible activity"
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v1, 0x0
+
+    return-object v1
+.end method
+
 .method private notifyPendingShowCallbacksFailedLocked()V
     .locals 2
 
@@ -605,6 +722,233 @@
     return-void
 .end method
 
+.method private updateVisibleActivitiesChangedLocked(Ljava/util/List;I)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Landroid/service/voice/VisibleActivityInfo;",
+            ">;I)V"
+        }
+    .end annotation
+
+    if-eqz p1, :cond_3
+
+    invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    goto :goto_2
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mSession:Landroid/service/voice/IVoiceInteractionSession;
+
+    if-nez v0, :cond_1
+
+    return-void
+
+    :cond_1
+    const/4 v0, 0x0
+
+    :goto_0
+    :try_start_0
+    invoke-interface {p1}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    if-ge v0, v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mSession:Landroid/service/voice/IVoiceInteractionSession;
+
+    invoke-interface {p1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/service/voice/VisibleActivityInfo;
+
+    invoke-interface {v1, v2, p2}, Landroid/service/voice/IVoiceInteractionSession;->updateVisibleActivityInfo(Landroid/service/voice/VisibleActivityInfo;I)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    goto :goto_1
+
+    :catch_0
+    move-exception v0
+
+    :goto_1
+    return-void
+
+    :cond_3
+    :goto_2
+    return-void
+.end method
+
+.method private updateVisibleActivitiesLocked()V
+    .locals 8
+
+    iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mSession:Landroid/service/voice/IVoiceInteractionSession;
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-boolean v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mShown:Z
+
+    if-eqz v0, :cond_9
+
+    iget-boolean v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mListeningVisibleActivity:Z
+
+    if-eqz v0, :cond_9
+
+    iget-boolean v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mCanceled:Z
+
+    if-eqz v0, :cond_1
+
+    goto/16 :goto_3
+
+    :cond_1
+    invoke-direct {p0}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->getVisibleActivityInfosLocked()Ljava/util/List;
+
+    move-result-object v0
+
+    const/4 v1, 0x2
+
+    if-eqz v0, :cond_8
+
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    goto :goto_2
+
+    :cond_2
+    iget-object v2, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mVisibleActivityInfos:Ljava/util/List;
+
+    invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
+
+    move-result v2
+
+    const/4 v3, 0x1
+
+    if-eqz v2, :cond_3
+
+    invoke-direct {p0, v0, v3}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->updateVisibleActivitiesChangedLocked(Ljava/util/List;I)V
+
+    iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mVisibleActivityInfos:Ljava/util/List;
+
+    invoke-interface {v1, v0}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+
+    return-void
+
+    :cond_3
+    new-instance v2, Ljava/util/ArrayList;
+
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+
+    new-instance v4, Ljava/util/ArrayList;
+
+    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
+
+    iget-object v5, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mVisibleActivityInfos:Ljava/util/List;
+
+    invoke-interface {v4, v5}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+
+    const/4 v5, 0x0
+
+    :goto_0
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v6
+
+    if-ge v5, v6, :cond_5
+
+    invoke-interface {v0, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/service/voice/VisibleActivityInfo;
+
+    invoke-interface {v4}, Ljava/util/List;->isEmpty()Z
+
+    move-result v7
+
+    if-nez v7, :cond_4
+
+    invoke-interface {v4, v6}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_4
+
+    invoke-interface {v4, v6}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
+
+    goto :goto_1
+
+    :cond_4
+    invoke-interface {v2, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    :goto_1
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_0
+
+    :cond_5
+    invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
+
+    move-result v5
+
+    if-nez v5, :cond_6
+
+    invoke-direct {p0, v2, v3}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->updateVisibleActivitiesChangedLocked(Ljava/util/List;I)V
+
+    :cond_6
+    invoke-interface {v4}, Ljava/util/List;->isEmpty()Z
+
+    move-result v3
+
+    if-nez v3, :cond_7
+
+    invoke-direct {p0, v4, v1}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->updateVisibleActivitiesChangedLocked(Ljava/util/List;I)V
+
+    :cond_7
+    iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mVisibleActivityInfos:Ljava/util/List;
+
+    invoke-interface {v1}, Ljava/util/List;->clear()V
+
+    iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mVisibleActivityInfos:Ljava/util/List;
+
+    invoke-interface {v1, v0}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+
+    return-void
+
+    :cond_8
+    :goto_2
+    iget-object v2, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mVisibleActivityInfos:Ljava/util/List;
+
+    invoke-direct {p0, v2, v1}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->updateVisibleActivitiesChangedLocked(Ljava/util/List;I)V
+
+    iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mVisibleActivityInfos:Ljava/util/List;
+
+    invoke-interface {v1}, Ljava/util/List;->clear()V
+
+    return-void
+
+    :cond_9
+    :goto_3
+    return-void
+.end method
+
 
 # virtual methods
 .method public canHandleReceivedAssistDataLocked()Z
@@ -628,33 +972,39 @@
 .method public cancelLocked(Z)V
     .locals 4
 
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mListeningVisibleActivity:Z
+
+    iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mVisibleActivityInfos:Ljava/util/List;
+
+    invoke-interface {v1}, Ljava/util/List;->clear()V
+
     invoke-virtual {p0}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->hideLocked()Z
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    iput-boolean v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mCanceled:Z
+    iput-boolean v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mCanceled:Z
 
-    iget-boolean v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mBound:Z
+    iget-boolean v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mBound:Z
 
-    const/4 v1, 0x0
+    if-eqz v1, :cond_2
 
-    if-eqz v0, :cond_2
-
-    iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mSession:Landroid/service/voice/IVoiceInteractionSession;
+    iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mSession:Landroid/service/voice/IVoiceInteractionSession;
 
     const-string v2, "VoiceInteractionServiceManager"
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
     :try_start_0
-    invoke-interface {v0}, Landroid/service/voice/IVoiceInteractionSession;->destroy()V
+    invoke-interface {v1}, Landroid/service/voice/IVoiceInteractionSession;->destroy()V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
     const-string v3, "Voice interation session already dead"
 
@@ -664,73 +1014,73 @@
     :goto_0
     if-eqz p1, :cond_1
 
-    iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mSession:Landroid/service/voice/IVoiceInteractionSession;
+    iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mSession:Landroid/service/voice/IVoiceInteractionSession;
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
     :try_start_1
     invoke-static {}, Landroid/app/ActivityTaskManager;->getService()Landroid/app/IActivityTaskManager;
 
-    move-result-object v0
+    move-result-object v1
 
     iget-object v3, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mSession:Landroid/service/voice/IVoiceInteractionSession;
 
-    invoke-interface {v0, v3}, Landroid/app/IActivityTaskManager;->finishVoiceTask(Landroid/service/voice/IVoiceInteractionSession;)V
+    invoke-interface {v1, v3}, Landroid/app/IActivityTaskManager;->finishVoiceTask(Landroid/service/voice/IVoiceInteractionSession;)V
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
 
     goto :goto_1
 
     :catch_1
-    move-exception v0
+    move-exception v1
 
     :cond_1
     :goto_1
-    iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v0, p0}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
+    invoke-virtual {v1, p0}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
 
     :try_start_2
-    iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mIWindowManager:Landroid/view/IWindowManager;
+    iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mIWindowManager:Landroid/view/IWindowManager;
 
     iget-object v3, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mToken:Landroid/os/IBinder;
 
-    invoke-interface {v0, v3, v1}, Landroid/view/IWindowManager;->removeWindowToken(Landroid/os/IBinder;I)V
+    invoke-interface {v1, v3, v0}, Landroid/view/IWindowManager;->removeWindowToken(Landroid/os/IBinder;I)V
     :try_end_2
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_2
 
     goto :goto_2
 
     :catch_2
-    move-exception v0
+    move-exception v1
 
     const-string v3, "Failed removing window token"
 
-    invoke-static {v2, v3, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v3, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_2
-    iput-boolean v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mBound:Z
+    iput-boolean v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mBound:Z
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    iput-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mService:Landroid/service/voice/IVoiceInteractionSessionService;
+    iput-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mService:Landroid/service/voice/IVoiceInteractionSessionService;
 
-    iput-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mSession:Landroid/service/voice/IVoiceInteractionSession;
+    iput-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mSession:Landroid/service/voice/IVoiceInteractionSession;
 
-    iput-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mInteractor:Lcom/android/internal/app/IVoiceInteractor;
+    iput-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mInteractor:Lcom/android/internal/app/IVoiceInteractor;
 
     :cond_2
-    iget-boolean v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mFullyBound:Z
+    iget-boolean v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mFullyBound:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v1, :cond_3
 
-    iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mContext:Landroid/content/Context;
 
     iget-object v2, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mFullConnection:Landroid/content/ServiceConnection;
 
-    invoke-virtual {v0, v2}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
+    invoke-virtual {v1, v2}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
 
-    iput-boolean v1, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mFullyBound:Z
+    iput-boolean v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mFullyBound:Z
 
     :cond_3
     return-void
@@ -1311,6 +1661,75 @@
 
     :cond_5
     return v1
+.end method
+
+.method public synthetic lambda$notifyActivityEventChangedLocked$1$VoiceInteractionSessionConnection()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    invoke-direct {p0}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->updateVisibleActivitiesLocked()V
+
+    monitor-exit v0
+
+    return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v1
+.end method
+
+.method public synthetic lambda$startListeningVisibleActivityChangedLocked$0$VoiceInteractionSessionConnection()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    invoke-direct {p0}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->updateVisibleActivitiesLocked()V
+
+    monitor-exit v0
+
+    return-void
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v1
+.end method
+
+.method notifyActivityEventChangedLocked()V
+    .locals 2
+
+    iget-boolean v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mListeningVisibleActivity:Z
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mScheduledExecutorService:Ljava/util/concurrent/ScheduledExecutorService;
+
+    new-instance v1, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p0}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;)V
+
+    invoke-interface {v0, v1}, Ljava/util/concurrent/ScheduledExecutorService;->execute(Ljava/lang/Runnable;)V
+
+    return-void
 .end method
 
 .method public onAssistDataReceivedLocked(Landroid/os/Bundle;II)V
@@ -1990,4 +2409,40 @@
     :cond_11
     :goto_b
     return v5
+.end method
+
+.method startListeningVisibleActivityChangedLocked()V
+    .locals 2
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mListeningVisibleActivity:Z
+
+    iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mVisibleActivityInfos:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->clear()V
+
+    iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mScheduledExecutorService:Ljava/util/concurrent/ScheduledExecutorService;
+
+    new-instance v1, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$$ExternalSyntheticLambda1;
+
+    invoke-direct {v1, p0}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;)V
+
+    invoke-interface {v0, v1}, Ljava/util/concurrent/ScheduledExecutorService;->execute(Ljava/lang/Runnable;)V
+
+    return-void
+.end method
+
+.method stopListeningVisibleActivityChangedLocked()V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mListeningVisibleActivity:Z
+
+    iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mVisibleActivityInfos:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->clear()V
+
+    return-void
 .end method

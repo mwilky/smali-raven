@@ -104,6 +104,81 @@
     return-void
 .end method
 
+.method static shouldAttachNavBarToApp(Lcom/android/server/wm/WindowManagerService;Lcom/android/server/wm/DisplayContent;I)Z
+    .locals 1
+
+    const/16 v0, 0x8
+
+    if-eq p2, v0, :cond_0
+
+    const/16 v0, 0xa
+
+    if-eq p2, v0, :cond_0
+
+    const/16 v0, 0xc
+
+    if-ne p2, v0, :cond_1
+
+    :cond_0
+    invoke-virtual {p1}, Lcom/android/server/wm/DisplayContent;->getDisplayPolicy()Lcom/android/server/wm/DisplayPolicy;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/server/wm/DisplayPolicy;->shouldAttachNavBarToAppDuringTransition()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/server/wm/WindowManagerService;->getRecentsAnimationController()Lcom/android/server/wm/RecentsAnimationController;
+
+    move-result-object v0
+
+    if-nez v0, :cond_1
+
+    invoke-virtual {p1}, Lcom/android/server/wm/DisplayContent;->getFadeRotationAnimationController()Lcom/android/server/wm/FadeRotationAnimationController;
+
+    move-result-object v0
+
+    if-nez v0, :cond_1
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
+.method static shouldStartNonAppWindowAnimationsForKeyguardExit(I)Z
+    .locals 1
+
+    const/16 v0, 0x14
+
+    if-eq p0, v0, :cond_1
+
+    const/16 v0, 0x15
+
+    if-ne p0, v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    const/4 v0, 0x1
+
+    :goto_1
+    return v0
+.end method
+
 .method private static startNavigationBarWindowAnimation(Lcom/android/server/wm/DisplayContent;JJLjava/util/ArrayList;Ljava/util/ArrayList;)V
     .locals 8
     .annotation system Ldalvik/annotation/Signature;
@@ -166,7 +241,7 @@
 .end method
 
 .method static startNonAppWindowAnimations(Lcom/android/server/wm/WindowManagerService;Lcom/android/server/wm/DisplayContent;IJJLjava/util/ArrayList;)[Landroid/view/RemoteAnimationTarget;
-    .locals 10
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -180,115 +255,64 @@
         }
     .end annotation
 
-    move v0, p2
+    new-instance v0, Ljava/util/ArrayList;
 
-    new-instance v1, Ljava/util/ArrayList;
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+    invoke-static {p2}, Lcom/android/server/wm/NonAppWindowAnimationAdapter;->shouldStartNonAppWindowAnimationsForKeyguardExit(I)Z
 
-    const/16 v2, 0x14
+    move-result v1
 
-    if-eq v0, v2, :cond_3
+    if-eqz v1, :cond_0
 
-    const/16 v2, 0x15
+    move-object v1, p0
 
-    if-ne v0, v2, :cond_0
+    move-wide v2, p3
 
-    goto :goto_1
+    move-wide v4, p5
 
-    :cond_0
-    const/16 v2, 0x8
+    move-object v6, v0
 
-    if-eq v0, v2, :cond_1
+    move-object v7, p7
 
-    const/16 v2, 0xa
-
-    if-eq v0, v2, :cond_1
-
-    const/16 v2, 0xc
-
-    if-ne v0, v2, :cond_4
-
-    :cond_1
-    nop
-
-    invoke-virtual {p1}, Lcom/android/server/wm/DisplayContent;->getDisplayPolicy()Lcom/android/server/wm/DisplayPolicy;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/server/wm/DisplayPolicy;->shouldAttachNavBarToAppDuringTransition()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    invoke-virtual {p0}, Lcom/android/server/wm/WindowManagerService;->getRecentsAnimationController()Lcom/android/server/wm/RecentsAnimationController;
-
-    move-result-object v2
-
-    if-nez v2, :cond_2
-
-    invoke-virtual {p1}, Lcom/android/server/wm/DisplayContent;->getFadeRotationAnimationController()Lcom/android/server/wm/FadeRotationAnimationController;
-
-    move-result-object v2
-
-    if-nez v2, :cond_2
-
-    const/4 v2, 0x1
+    invoke-static/range {v1 .. v7}, Lcom/android/server/wm/NonAppWindowAnimationAdapter;->startNonAppWindowAnimationsForKeyguardExit(Lcom/android/server/wm/WindowManagerService;JJLjava/util/ArrayList;Ljava/util/ArrayList;)V
 
     goto :goto_0
 
-    :cond_2
-    const/4 v2, 0x0
+    :cond_0
+    invoke-static {p0, p1, p2}, Lcom/android/server/wm/NonAppWindowAnimationAdapter;->shouldAttachNavBarToApp(Lcom/android/server/wm/WindowManagerService;Lcom/android/server/wm/DisplayContent;I)Z
 
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    move-object v1, p1
+
+    move-wide v2, p3
+
+    move-wide v4, p5
+
+    move-object v6, v0
+
+    move-object v7, p7
+
+    invoke-static/range {v1 .. v7}, Lcom/android/server/wm/NonAppWindowAnimationAdapter;->startNavigationBarWindowAnimation(Lcom/android/server/wm/DisplayContent;JJLjava/util/ArrayList;Ljava/util/ArrayList;)V
+
+    :cond_1
     :goto_0
-    move v9, v2
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
-    if-eqz v9, :cond_4
+    move-result v1
 
-    move-object v2, p1
+    new-array v1, v1, [Landroid/view/RemoteAnimationTarget;
 
-    move-wide v3, p3
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    move-wide v5, p5
+    move-result-object v1
 
-    move-object v7, v1
+    check-cast v1, [Landroid/view/RemoteAnimationTarget;
 
-    move-object/from16 v8, p7
-
-    invoke-static/range {v2 .. v8}, Lcom/android/server/wm/NonAppWindowAnimationAdapter;->startNavigationBarWindowAnimation(Lcom/android/server/wm/DisplayContent;JJLjava/util/ArrayList;Ljava/util/ArrayList;)V
-
-    goto :goto_2
-
-    :cond_3
-    :goto_1
-    move-object v2, p0
-
-    move-wide v3, p3
-
-    move-wide v5, p5
-
-    move-object v7, v1
-
-    move-object/from16 v8, p7
-
-    invoke-static/range {v2 .. v8}, Lcom/android/server/wm/NonAppWindowAnimationAdapter;->startNonAppWindowAnimationsForKeyguardExit(Lcom/android/server/wm/WindowManagerService;JJLjava/util/ArrayList;Ljava/util/ArrayList;)V
-
-    :cond_4
-    :goto_2
-    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
-
-    move-result v2
-
-    new-array v2, v2, [Landroid/view/RemoteAnimationTarget;
-
-    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, [Landroid/view/RemoteAnimationTarget;
-
-    return-object v2
+    return-object v1
 .end method
 
 .method private static startNonAppWindowAnimationsForKeyguardExit(Lcom/android/server/wm/WindowManagerService;JJLjava/util/ArrayList;Ljava/util/ArrayList;)V
@@ -341,7 +365,7 @@
 
 # virtual methods
 .method createRemoteAnimationTarget()Landroid/view/RemoteAnimationTarget;
-    .locals 19
+    .locals 20
 
     move-object/from16 v0, p0
 
@@ -387,7 +411,7 @@
 
     invoke-virtual {v2}, Lcom/android/server/wm/WindowContainer;->getWindowType()I
 
-    move-result v17
+    move-result v18
 
     const/4 v2, -0x1
 
@@ -405,13 +429,15 @@
 
     const/16 v16, 0x0
 
-    move-object/from16 v18, v15
+    move-object/from16 v19, v15
 
     move-object/from16 v15, v16
 
-    invoke-direct/range {v1 .. v17}, Landroid/view/RemoteAnimationTarget;-><init>(IILandroid/view/SurfaceControl;ZLandroid/graphics/Rect;Landroid/graphics/Rect;ILandroid/graphics/Point;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/app/WindowConfiguration;ZLandroid/view/SurfaceControl;Landroid/graphics/Rect;Landroid/app/ActivityManager$RunningTaskInfo;I)V
+    const/16 v17, 0x0
 
-    move-object/from16 v1, v18
+    invoke-direct/range {v1 .. v18}, Landroid/view/RemoteAnimationTarget;-><init>(IILandroid/view/SurfaceControl;ZLandroid/graphics/Rect;Landroid/graphics/Rect;ILandroid/graphics/Point;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/app/WindowConfiguration;ZLandroid/view/SurfaceControl;Landroid/graphics/Rect;Landroid/app/ActivityManager$RunningTaskInfo;ZI)V
+
+    move-object/from16 v1, v19
 
     iput-object v1, v0, Lcom/android/server/wm/NonAppWindowAnimationAdapter;->mTarget:Landroid/view/RemoteAnimationTarget;
 

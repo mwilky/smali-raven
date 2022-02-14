@@ -39,7 +39,7 @@
 
     iget-object v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda13;->f$2:Landroid/content/Intent;
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$startManagedQuickContact$84$DevicePolicyManagerService(ILandroid/content/Intent;)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$startManagedQuickContact$87$DevicePolicyManagerService(ILandroid/content/Intent;)V
 
     return-void
 .end method

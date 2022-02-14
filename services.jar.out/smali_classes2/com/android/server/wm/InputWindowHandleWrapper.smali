@@ -721,6 +721,31 @@
     return-void
 .end method
 
+.method setWindowToken(Landroid/view/IWindow;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
+
+    invoke-virtual {v0}, Landroid/view/InputWindowHandle;->getWindow()Landroid/view/IWindow;
+
+    move-result-object v0
+
+    if-ne v0, p1, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mHandle:Landroid/view/InputWindowHandle;
+
+    invoke-virtual {v0, p1}, Landroid/view/InputWindowHandle;->setWindowToken(Landroid/view/IWindow;)V
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/server/wm/InputWindowHandleWrapper;->mChanged:Z
+
+    return-void
+.end method
+
 .method public toString()Ljava/lang/String;
     .locals 2
 

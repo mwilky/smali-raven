@@ -62,6 +62,8 @@
 
 .field private mWidth:I
 
+.field private mWindowTokenClientToMirror:Landroid/os/IBinder;
+
 .field final synthetic this$0:Lcom/android/server/display/VirtualDisplayAdapter;
 
 
@@ -149,6 +151,12 @@
     move-result p1
 
     iput p1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mDisplayIdToMirror:I
+
+    invoke-virtual {p11}, Landroid/hardware/display/VirtualDisplayConfig;->getWindowTokenClientToMirror()Landroid/os/IBinder;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mWindowTokenClientToMirror:Landroid/os/IBinder;
 
     return-void
 .end method
@@ -329,6 +337,24 @@
     iget v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mDisplayIdToMirror:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "mWindowTokenClientToMirror="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mWindowTokenClientToMirror:Landroid/os/IBinder;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -690,10 +716,37 @@
     return v0
 .end method
 
+.method public getDisplaySurfaceDefaultSize()Landroid/graphics/Point;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mSurface:Landroid/view/Surface;
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    return-object v0
+
+    :cond_0
+    invoke-virtual {v0}, Landroid/view/Surface;->getDefaultSize()Landroid/graphics/Point;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method getSurfaceLocked()Landroid/view/Surface;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mSurface:Landroid/view/Surface;
+
+    return-object v0
+.end method
+
+.method public getWindowTokenClientToMirrorLocked()Landroid/os/IBinder;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mWindowTokenClientToMirror:Landroid/os/IBinder;
 
     return-object v0
 .end method
@@ -908,6 +961,29 @@
     iput v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mPendingChanges:I
 
     :cond_3
+    return-void
+.end method
+
+.method public setWindowTokenClientToMirrorLocked(Landroid/os/IBinder;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mWindowTokenClientToMirror:Landroid/os/IBinder;
+
+    if-eq v0, p1, :cond_0
+
+    iput-object p1, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->mWindowTokenClientToMirror:Landroid/os/IBinder;
+
+    iget-object v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->this$0:Lcom/android/server/display/VirtualDisplayAdapter;
+
+    const/4 v1, 0x2
+
+    invoke-virtual {v0, p0, v1}, Lcom/android/server/display/VirtualDisplayAdapter;->sendDisplayDeviceEventLocked(Lcom/android/server/display/DisplayDevice;I)V
+
+    iget-object v0, p0, Lcom/android/server/display/VirtualDisplayAdapter$VirtualDisplayDevice;->this$0:Lcom/android/server/display/VirtualDisplayAdapter;
+
+    invoke-virtual {v0}, Lcom/android/server/display/VirtualDisplayAdapter;->sendTraversalRequestLocked()V
+
+    :cond_0
     return-void
 .end method
 

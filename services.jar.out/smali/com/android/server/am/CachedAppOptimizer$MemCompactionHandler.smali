@@ -135,28 +135,43 @@
 
     invoke-virtual {v11, v8}, Lcom/android/server/am/ProcessCachedOptimizerRecord;->setHasPendingCompact(Z)V
 
-    const/4 v0, 0x1
+    iget-object v0, v1, Lcom/android/server/am/CachedAppOptimizer$MemCompactionHandler;->this$0:Lcom/android/server/am/CachedAppOptimizer;
 
-    const/4 v3, 0x2
+    invoke-static {v0}, Lcom/android/server/am/CachedAppOptimizer;->access$1300(Lcom/android/server/am/CachedAppOptimizer;)Lcom/android/server/am/ActivityManagerService;
 
-    if-eq v12, v0, :cond_0
+    move-result-object v0
 
-    if-ne v12, v3, :cond_1
+    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mInternal:Landroid/app/ActivityManagerInternal;
 
-    :cond_0
-    iget-object v4, v14, Lcom/android/server/am/ProcessRecord;->mState:Lcom/android/server/am/ProcessStateRecord;
+    iget v3, v14, Lcom/android/server/am/ProcessRecord;->uid:I
 
-    invoke-virtual {v4}, Lcom/android/server/am/ProcessStateRecord;->getSetAdj()I
+    invoke-virtual {v0, v3}, Landroid/app/ActivityManagerInternal;->isPendingTopUid(I)Z
 
-    move-result v4
+    move-result v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_d
 
-    const/16 v8, 0xc8
-
-    if-gt v4, v8, :cond_1
+    if-eqz v0, :cond_0
 
     :try_start_1
+    const-string v0, "ActivityManager"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "Skip compaction since UID is active for  "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v0, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
     monitor-exit v7
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -176,8 +191,40 @@
 
     goto/16 :goto_e
 
+    :cond_0
+    const/4 v0, 0x1
+
+    const/4 v3, 0x2
+
+    if-eq v12, v0, :cond_1
+
+    if-ne v12, v3, :cond_2
+
     :cond_1
     :try_start_2
+    iget-object v4, v14, Lcom/android/server/am/ProcessRecord;->mState:Lcom/android/server/am/ProcessStateRecord;
+
+    invoke-virtual {v4}, Lcom/android/server/am/ProcessStateRecord;->getSetAdj()I
+
+    move-result v4
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_d
+
+    const/16 v8, 0xc8
+
+    if-gt v4, v8, :cond_2
+
+    :try_start_3
+    monitor-exit v7
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterProcLockedSection()V
+
+    return-void
+
+    :cond_2
+    :try_start_4
     invoke-virtual {v11}, Lcom/android/server/am/ProcessCachedOptimizerRecord;->getLastCompactAction()I
 
     move-result v4
@@ -203,25 +250,25 @@
     check-cast v3, Lcom/android/server/am/CachedAppOptimizer$LastCompactionStats;
 
     monitor-exit v7
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_d
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_d
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterProcLockedSection()V
 
-    if-nez v10, :cond_2
+    if-nez v10, :cond_3
 
     return-void
 
-    :cond_2
+    :cond_3
     const-wide/16 v7, 0x0
 
     cmp-long v17, v38, v7
 
-    if-eqz v17, :cond_b
+    if-eqz v17, :cond_c
 
-    if-ne v12, v0, :cond_6
+    if-ne v12, v0, :cond_7
 
-    if-ne v4, v0, :cond_3
+    if-ne v4, v0, :cond_4
 
     sub-long v20, v5, v38
 
@@ -233,17 +280,17 @@
 
     cmp-long v7, v20, v8
 
-    if-ltz v7, :cond_4
+    if-ltz v7, :cond_5
 
     goto :goto_0
 
-    :cond_3
+    :cond_4
     move-object/from16 v22, v9
 
     :goto_0
     const/4 v7, 0x2
 
-    if-ne v4, v7, :cond_5
+    if-ne v4, v7, :cond_6
 
     sub-long v7, v5, v38
 
@@ -253,26 +300,26 @@
 
     cmp-long v0, v7, v0
 
-    if-gez v0, :cond_5
-
-    :cond_4
-    return-void
+    if-gez v0, :cond_6
 
     :cond_5
+    return-void
+
+    :cond_6
     move-object/from16 v9, p0
 
     goto :goto_2
 
-    :cond_6
+    :cond_7
     move-object/from16 v22, v9
 
     const/4 v0, 0x2
 
-    if-ne v12, v0, :cond_9
+    if-ne v12, v0, :cond_a
 
     const/4 v0, 0x1
 
-    if-ne v4, v0, :cond_7
+    if-ne v4, v0, :cond_8
 
     sub-long v0, v5, v38
 
@@ -284,17 +331,17 @@
 
     cmp-long v0, v0, v7
 
-    if-ltz v0, :cond_8
+    if-ltz v0, :cond_9
 
     goto :goto_1
 
-    :cond_7
+    :cond_8
     move-object/from16 v9, p0
 
     :goto_1
     const/4 v0, 0x2
 
-    if-ne v4, v0, :cond_c
+    if-ne v4, v0, :cond_d
 
     sub-long v0, v5, v38
 
@@ -304,17 +351,17 @@
 
     cmp-long v0, v0, v7
 
-    if-gez v0, :cond_c
-
-    :cond_8
-    return-void
+    if-gez v0, :cond_d
 
     :cond_9
+    return-void
+
+    :cond_a
     move-object/from16 v9, p0
 
     const/4 v0, 0x3
 
-    if-ne v12, v0, :cond_a
+    if-ne v12, v0, :cond_b
 
     sub-long v0, v5, v38
 
@@ -324,14 +371,14 @@
 
     cmp-long v0, v0, v7
 
-    if-gez v0, :cond_c
+    if-gez v0, :cond_d
 
     return-void
 
-    :cond_a
+    :cond_b
     const/4 v0, 0x4
 
-    if-ne v12, v0, :cond_c
+    if-ne v12, v0, :cond_d
 
     sub-long v0, v5, v38
 
@@ -341,16 +388,16 @@
 
     cmp-long v0, v0, v7
 
-    if-gez v0, :cond_c
+    if-gez v0, :cond_d
 
     return-void
 
-    :cond_b
+    :cond_c
     move-object/from16 v22, v9
 
     move-object v9, v1
 
-    :cond_c
+    :cond_d
     :goto_2
     packed-switch v12, :pswitch_data_1
 
@@ -397,11 +444,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_e
 
     return-void
 
-    :cond_d
+    :cond_e
     iget-object v0, v9, Lcom/android/server/am/CachedAppOptimizer$MemCompactionHandler;->this$0:Lcom/android/server/am/CachedAppOptimizer;
 
     iget-object v0, v0, Lcom/android/server/am/CachedAppOptimizer;->mProcStateThrottle:Ljava/util/Set;
@@ -414,11 +461,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_f
 
     return-void
 
-    :cond_e
+    :cond_f
     iget-object v0, v9, Lcom/android/server/am/CachedAppOptimizer$MemCompactionHandler;->this$0:Lcom/android/server/am/CachedAppOptimizer;
 
     invoke-static {v0}, Lcom/android/server/am/CachedAppOptimizer;->access$2000(Lcom/android/server/am/CachedAppOptimizer;)Lcom/android/server/am/CachedAppOptimizer$ProcessDependencies;
@@ -441,7 +488,7 @@
 
     cmp-long v7, v24, v18
 
-    if-nez v7, :cond_f
+    if-nez v7, :cond_10
 
     const/4 v7, 0x1
 
@@ -449,13 +496,13 @@
 
     cmp-long v7, v24, v18
 
-    if-nez v7, :cond_f
+    if-nez v7, :cond_10
 
     aget-wide v24, v1, v0
 
     cmp-long v0, v24, v18
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_10
 
     const/4 v0, 0x3
 
@@ -463,11 +510,11 @@
 
     cmp-long v0, v24, v18
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_10
 
     return-void
 
-    :cond_f
+    :cond_10
     invoke-static {}, Lcom/android/server/am/CachedAppOptimizer;->access$1900()[Ljava/lang/String;
 
     move-result-object v0
@@ -480,7 +527,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_12
 
     invoke-static {}, Lcom/android/server/am/CachedAppOptimizer;->access$1900()[Ljava/lang/String;
 
@@ -494,11 +541,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_11
 
     goto :goto_4
 
-    :cond_10
+    :cond_11
     move-object/from16 v42, v3
 
     move/from16 v21, v13
@@ -507,7 +554,7 @@
 
     goto :goto_5
 
-    :cond_11
+    :cond_12
     :goto_4
     iget-object v0, v9, Lcom/android/server/am/CachedAppOptimizer$MemCompactionHandler;->this$0:Lcom/android/server/am/CachedAppOptimizer;
 
@@ -521,7 +568,7 @@
 
     cmp-long v0, v13, v18
 
-    if-lez v0, :cond_12
+    if-lez v0, :cond_13
 
     iget-object v0, v9, Lcom/android/server/am/CachedAppOptimizer$MemCompactionHandler;->this$0:Lcom/android/server/am/CachedAppOptimizer;
 
@@ -529,12 +576,12 @@
 
     cmp-long v0, v40, v13
 
-    if-gez v0, :cond_12
+    if-gez v0, :cond_13
 
     return-void
 
-    :cond_12
-    if-eqz v3, :cond_13
+    :cond_13
+    if-eqz v3, :cond_14
 
     iget-object v0, v9, Lcom/android/server/am/CachedAppOptimizer$MemCompactionHandler;->this$0:Lcom/android/server/am/CachedAppOptimizer;
 
@@ -544,7 +591,7 @@
 
     cmp-long v0, v13, v18
 
-    if-lez v0, :cond_13
+    if-lez v0, :cond_14
 
     invoke-virtual {v3}, Lcom/android/server/am/CachedAppOptimizer$LastCompactionStats;->getRssAfterCompaction()[J
 
@@ -598,14 +645,14 @@
 
     cmp-long v2, v13, v2
 
-    if-gtz v2, :cond_14
+    if-gtz v2, :cond_15
 
     return-void
 
-    :cond_13
+    :cond_14
     move-object/from16 v42, v3
 
-    :cond_14
+    :cond_15
     :goto_5
     packed-switch v12, :pswitch_data_2
 
@@ -640,31 +687,31 @@
     nop
 
     :goto_6
-    :try_start_3
+    :try_start_5
     new-instance v0, Ljava/lang/StringBuilder;
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_9
-    .catchall {:try_start_3 .. :try_end_3} :catchall_c
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_9
+    .catchall {:try_start_5 .. :try_end_5} :catchall_c
 
-    :try_start_4
+    :try_start_6
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v2, "Compact "
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    :try_end_4
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_8
-    .catchall {:try_start_4 .. :try_end_4} :catchall_c
+    :try_end_6
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_8
+    .catchall {:try_start_6 .. :try_end_6} :catchall_c
 
     const/4 v2, 0x1
 
-    if-ne v12, v2, :cond_15
+    if-ne v12, v2, :cond_16
 
-    :try_start_5
+    :try_start_7
     const-string/jumbo v2, "some"
-    :try_end_5
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_0
-    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+    :try_end_7
+    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_0
+    .catchall {:try_start_7 .. :try_end_7} :catchall_1
 
     goto :goto_7
 
@@ -720,8 +767,8 @@
 
     goto/16 :goto_c
 
-    :cond_15
-    :try_start_6
+    :cond_16
+    :try_start_8
     const-string v2, "full"
 
     :goto_7
@@ -730,31 +777,31 @@
     const-string v2, ": "
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    :try_end_6
-    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_8
-    .catchall {:try_start_6 .. :try_end_6} :catchall_c
+    :try_end_8
+    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_c
 
     move-object/from16 v2, v22
 
-    :try_start_7
+    :try_start_9
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
-    :try_end_7
-    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_b
+    :try_end_9
+    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_7
+    .catchall {:try_start_9 .. :try_end_9} :catchall_b
 
     const-wide/16 v13, 0x40
 
-    :try_start_8
+    :try_start_a
     invoke-static {v13, v14, v0}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
-    :try_end_8
-    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_6
-    .catchall {:try_start_8 .. :try_end_8} :catchall_b
+    :try_end_a
+    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_a} :catch_6
+    .catchall {:try_start_a .. :try_end_a} :catchall_b
 
-    :try_start_9
+    :try_start_b
     invoke-static {}, Landroid/os/Debug;->getZramFreeKb()J
 
     move-result-wide v13
@@ -998,19 +1045,19 @@
     iget-object v7, v9, Lcom/android/server/am/CachedAppOptimizer$MemCompactionHandler;->this$0:Lcom/android/server/am/CachedAppOptimizer;
 
     iget v7, v7, Lcom/android/server/am/CachedAppOptimizer;->mCompactStatsdSampleRate:F
-    :try_end_9
-    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_9} :catch_7
-    .catchall {:try_start_9 .. :try_end_9} :catchall_b
+    :try_end_b
+    .catch Ljava/lang/Exception; {:try_start_b .. :try_end_b} :catch_7
+    .catchall {:try_start_b .. :try_end_b} :catchall_b
 
     cmpg-float v0, v0, v7
 
-    if-gez v0, :cond_16
+    if-gez v0, :cond_17
 
     const/16 v7, 0x73
 
     const/4 v0, 0x0
 
-    :try_start_a
+    :try_start_c
     aget-wide v17, v1, v0
 
     const/4 v0, 0x1
@@ -1044,9 +1091,9 @@
     invoke-static/range {v21 .. v21}, Landroid/app/ActivityManager;->processStateAmToProto(I)I
 
     move-result v37
-    :try_end_a
-    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_a} :catch_2
-    .catchall {:try_start_a .. :try_end_a} :catchall_3
+    :try_end_c
+    .catch Ljava/lang/Exception; {:try_start_c .. :try_end_c} :catch_2
+    .catchall {:try_start_c .. :try_end_c} :catchall_3
 
     move-object/from16 v51, v8
 
@@ -1104,11 +1151,11 @@
 
     move-wide/from16 v36, v47
 
-    :try_start_b
+    :try_start_d
     invoke-static/range {v7 .. v37}, Lcom/android/internal/util/FrameworkStatsLog;->write(IILjava/lang/String;IJJJJJJJJJIJIIJJ)V
-    :try_end_b
-    .catch Ljava/lang/Exception; {:try_start_b .. :try_end_b} :catch_1
-    .catchall {:try_start_b .. :try_end_b} :catchall_2
+    :try_end_d
+    .catch Ljava/lang/Exception; {:try_start_d .. :try_end_d} :catch_1
+    .catchall {:try_start_d .. :try_end_d} :catchall_2
 
     goto/16 :goto_8
 
@@ -1188,7 +1235,7 @@
 
     goto/16 :goto_c
 
-    :cond_16
+    :cond_17
     move-object/from16 v52, v2
 
     move-object/from16 v51, v8
@@ -1212,7 +1259,7 @@
     const/4 v0, 0x3
 
     :goto_8
-    :try_start_c
+    :try_start_e
     iget-object v7, v2, Lcom/android/server/am/CachedAppOptimizer$MemCompactionHandler;->this$0:Lcom/android/server/am/CachedAppOptimizer;
 
     invoke-static {v7}, Lcom/android/server/am/CachedAppOptimizer;->access$1700(Lcom/android/server/am/CachedAppOptimizer;)Lcom/android/server/am/ActivityManagerGlobalLock;
@@ -1220,34 +1267,34 @@
     move-result-object v7
 
     monitor-enter v7
-    :try_end_c
-    .catch Ljava/lang/Exception; {:try_start_c .. :try_end_c} :catch_5
-    .catchall {:try_start_c .. :try_end_c} :catchall_a
+    :try_end_e
+    .catch Ljava/lang/Exception; {:try_start_e .. :try_end_e} :catch_5
+    .catchall {:try_start_e .. :try_end_e} :catchall_a
 
-    :try_start_d
+    :try_start_f
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->boostPriorityForProcLockedSection()V
-    :try_end_d
-    .catchall {:try_start_d .. :try_end_d} :catchall_7
+    :try_end_f
+    .catchall {:try_start_f .. :try_end_f} :catchall_7
 
     move-object/from16 v8, v54
 
     move-wide/from16 v9, v58
 
-    :try_start_e
+    :try_start_10
     invoke-virtual {v8, v9, v10}, Lcom/android/server/am/ProcessCachedOptimizerRecord;->setLastCompactTime(J)V
-    :try_end_e
-    .catchall {:try_start_e .. :try_end_e} :catchall_6
+    :try_end_10
+    .catchall {:try_start_10 .. :try_end_10} :catchall_6
 
     move/from16 v11, v55
 
-    :try_start_f
+    :try_start_11
     invoke-virtual {v8, v11}, Lcom/android/server/am/ProcessCachedOptimizerRecord;->setLastCompactAction(I)V
 
     monitor-exit v7
-    :try_end_f
-    .catchall {:try_start_f .. :try_end_f} :catchall_5
+    :try_end_11
+    .catchall {:try_start_11 .. :try_end_11} :catchall_5
 
-    :try_start_10
+    :try_start_12
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterProcLockedSection()V
 
     invoke-static {}, Lcom/android/server/am/CachedAppOptimizer;->access$1900()[Ljava/lang/String;
@@ -1255,18 +1302,18 @@
     move-result-object v7
 
     aget-object v0, v7, v0
-    :try_end_10
-    .catch Ljava/lang/Exception; {:try_start_10 .. :try_end_10} :catch_3
-    .catchall {:try_start_10 .. :try_end_10} :catchall_4
+    :try_end_12
+    .catch Ljava/lang/Exception; {:try_start_12 .. :try_end_12} :catch_3
+    .catchall {:try_start_12 .. :try_end_12} :catchall_4
 
     move-object/from16 v12, v51
 
-    :try_start_11
+    :try_start_13
     invoke-virtual {v12, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_17
+    if-nez v0, :cond_18
 
     invoke-static {}, Lcom/android/server/am/CachedAppOptimizer;->access$1900()[Ljava/lang/String;
 
@@ -1280,9 +1327,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_19
 
-    :cond_17
+    :cond_18
     iget-object v0, v2, Lcom/android/server/am/CachedAppOptimizer$MemCompactionHandler;->this$0:Lcom/android/server/am/CachedAppOptimizer;
 
     iget-object v0, v0, Lcom/android/server/am/CachedAppOptimizer;->mLastCompactionStats:Ljava/util/LinkedHashMap;
@@ -1306,11 +1353,11 @@
     invoke-direct {v13, v3}, Lcom/android/server/am/CachedAppOptimizer$LastCompactionStats;-><init>([J)V
 
     invoke-virtual {v0, v7, v13}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_11
-    .catch Ljava/lang/Exception; {:try_start_11 .. :try_end_11} :catch_4
-    .catchall {:try_start_11 .. :try_end_11} :catchall_8
+    :try_end_13
+    .catch Ljava/lang/Exception; {:try_start_13 .. :try_end_13} :catch_4
+    .catchall {:try_start_13 .. :try_end_13} :catchall_8
 
-    :cond_18
+    :cond_19
     const-wide/16 v9, 0x40
 
     goto/16 :goto_d
@@ -1359,18 +1406,18 @@
     move-wide/from16 v9, v58
 
     :goto_9
-    :try_start_12
+    :try_start_14
     monitor-exit v7
-    :try_end_12
-    .catchall {:try_start_12 .. :try_end_12} :catchall_9
+    :try_end_14
+    .catchall {:try_start_14 .. :try_end_14} :catchall_9
 
-    :try_start_13
+    :try_start_15
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterProcLockedSection()V
 
     throw v0
-    :try_end_13
-    .catch Ljava/lang/Exception; {:try_start_13 .. :try_end_13} :catch_4
-    .catchall {:try_start_13 .. :try_end_13} :catchall_8
+    :try_end_15
+    .catch Ljava/lang/Exception; {:try_start_15 .. :try_end_15} :catch_4
+    .catchall {:try_start_15 .. :try_end_15} :catchall_8
 
     :catchall_8
     move-exception v0
@@ -1595,10 +1642,10 @@
     move/from16 v60, v15
 
     :goto_e
-    :try_start_14
+    :try_start_16
     monitor-exit v7
-    :try_end_14
-    .catchall {:try_start_14 .. :try_end_14} :catchall_e
+    :try_end_16
+    .catchall {:try_start_16 .. :try_end_16} :catchall_e
 
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterProcLockedSection()V
 
@@ -1611,8 +1658,6 @@
 
     :goto_f
     return-void
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x1

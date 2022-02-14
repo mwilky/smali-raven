@@ -15,6 +15,9 @@
 
 
 # virtual methods
+.method public abstract onDisplaySizeChanged()V
+.end method
+
 .method public abstract onImeWindowVisibilityChanged(Z)V
 .end method
 
@@ -22,9 +25,6 @@
 .end method
 
 .method public abstract onRectangleOnScreenRequested(IIII)V
-.end method
-
-.method public abstract onRotationChanged(I)V
 .end method
 
 .method public abstract onUserContextChanged()V

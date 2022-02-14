@@ -37,7 +37,7 @@
 
     check-cast p1, Lcom/android/server/wm/DisplayPolicy;
 
-    invoke-virtual {p1}, Lcom/android/server/wm/DisplayPolicy;->resetSystemUiVisibilityLw()V
+    invoke-virtual {p1}, Lcom/android/server/wm/DisplayPolicy;->resetSystemBarAttributes()V
 
     return-void
 .end method

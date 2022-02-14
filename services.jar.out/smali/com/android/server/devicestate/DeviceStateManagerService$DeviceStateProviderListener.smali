@@ -53,7 +53,7 @@
 
     iget-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService$DeviceStateProviderListener;->this$0:Lcom/android/server/devicestate/DeviceStateManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/devicestate/DeviceStateManagerService;->access$1000(Lcom/android/server/devicestate/DeviceStateManagerService;I)V
+    invoke-static {v0, p1}, Lcom/android/server/devicestate/DeviceStateManagerService;->access$400(Lcom/android/server/devicestate/DeviceStateManagerService;I)V
 
     return-void
 
@@ -88,7 +88,7 @@
 
     iget-object v0, p0, Lcom/android/server/devicestate/DeviceStateManagerService$DeviceStateProviderListener;->this$0:Lcom/android/server/devicestate/DeviceStateManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/devicestate/DeviceStateManagerService;->access$900(Lcom/android/server/devicestate/DeviceStateManagerService;[Lcom/android/server/devicestate/DeviceState;)V
+    invoke-static {v0, p1}, Lcom/android/server/devicestate/DeviceStateManagerService;->access$300(Lcom/android/server/devicestate/DeviceStateManagerService;[Lcom/android/server/devicestate/DeviceState;)V
 
     return-void
 

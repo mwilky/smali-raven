@@ -12,10 +12,6 @@
 
 
 # static fields
-.field private static final SCREEN_FREEZE_LAYER_BASE:I = 0x1eab90
-
-.field private static final SCREEN_FREEZE_LAYER_ENTER:I = 0x1eab90
-
 .field private static final TAG:Ljava/lang/String; = "WindowManager"
 
 

@@ -75,7 +75,7 @@
 
     iget v2, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationManager$WindowMagnifier;->mDisplayId:I
 
-    invoke-static {v0, v2, p1}, Lcom/android/server/accessibility/magnification/WindowMagnificationManager;->access$900(Lcom/android/server/accessibility/magnification/WindowMagnificationManager;ILandroid/view/accessibility/MagnificationAnimationCallback;)Z
+    invoke-static {v0, v2, p1}, Lcom/android/server/accessibility/magnification/WindowMagnificationManager;->access$1000(Lcom/android/server/accessibility/magnification/WindowMagnificationManager;ILandroid/view/accessibility/MagnificationAnimationCallback;)Z
 
     move-result v0
 
@@ -123,7 +123,7 @@
 
     move-object v8, p4
 
-    invoke-static/range {v3 .. v8}, Lcom/android/server/accessibility/magnification/WindowMagnificationManager;->access$800(Lcom/android/server/accessibility/magnification/WindowMagnificationManager;IFFFLandroid/view/accessibility/MagnificationAnimationCallback;)Z
+    invoke-static/range {v3 .. v8}, Lcom/android/server/accessibility/magnification/WindowMagnificationManager;->access$900(Lcom/android/server/accessibility/magnification/WindowMagnificationManager;IFFFLandroid/view/accessibility/MagnificationAnimationCallback;)Z
 
     move-result v2
 
@@ -208,7 +208,7 @@
 
     iget v1, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationManager$WindowMagnifier;->mDisplayId:I
 
-    invoke-static {v0, v1, p1, p2}, Lcom/android/server/accessibility/magnification/WindowMagnificationManager;->access$1100(Lcom/android/server/accessibility/magnification/WindowMagnificationManager;IFF)Z
+    invoke-static {v0, v1, p1, p2}, Lcom/android/server/accessibility/magnification/WindowMagnificationManager;->access$1200(Lcom/android/server/accessibility/magnification/WindowMagnificationManager;IFF)Z
 
     return-void
 .end method
@@ -318,7 +318,7 @@
 
     iget v2, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationManager$WindowMagnifier;->mDisplayId:I
 
-    invoke-static {v1, v2, p1}, Lcom/android/server/accessibility/magnification/WindowMagnificationManager;->access$1000(Lcom/android/server/accessibility/magnification/WindowMagnificationManager;IF)Z
+    invoke-static {v1, v2, p1}, Lcom/android/server/accessibility/magnification/WindowMagnificationManager;->access$1100(Lcom/android/server/accessibility/magnification/WindowMagnificationManager;IF)Z
 
     move-result v1
 

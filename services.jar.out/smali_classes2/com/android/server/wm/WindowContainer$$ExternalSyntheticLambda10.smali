@@ -37,7 +37,7 @@
 
     check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    invoke-static {p1}, Lcom/android/server/wm/WindowContainer;->lambda$getTopActivity$6(Lcom/android/server/wm/ActivityRecord;)Z
+    invoke-static {p1}, Lcom/android/server/wm/WindowContainer;->lambda$isAppTransitioning$0(Lcom/android/server/wm/ActivityRecord;)Z
 
     move-result p1
 

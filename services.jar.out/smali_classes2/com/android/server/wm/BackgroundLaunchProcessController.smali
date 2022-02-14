@@ -206,85 +206,92 @@
     throw v0
 .end method
 
-.method areBackgroundActivityStartsAllowed(IILjava/lang/String;ZZZZJJJ)Z
-    .locals 7
+.method areBackgroundActivityStartsAllowed(IILjava/lang/String;IZZZJJJ)Z
+    .locals 9
 
-    const/4 v0, 0x1
+    move v0, p4
 
-    if-eqz p4, :cond_2
+    const/4 v1, 0x2
+
+    const/4 v2, 0x1
+
+    if-ne v0, v1, :cond_2
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v1
+    move-result-wide v3
 
-    sub-long v3, v1, p10
+    sub-long v5, v3, p10
 
-    const-wide/16 v5, 0x2710
+    const-wide/16 v7, 0x2710
 
-    cmp-long v3, v3, v5
+    cmp-long v5, v5, v7
 
-    if-ltz v3, :cond_0
+    if-ltz v5, :cond_0
 
-    sub-long v3, v1, p12
+    sub-long v5, v3, p12
 
-    cmp-long v3, v3, v5
+    cmp-long v5, v5, v7
 
-    if-gez v3, :cond_2
+    if-gez v5, :cond_2
 
     :cond_0
-    cmp-long v3, p10, p8
+    cmp-long v5, p10, p8
 
-    if-gtz v3, :cond_1
+    if-gtz v5, :cond_1
 
-    cmp-long v3, p12, p8
+    cmp-long v5, p12, p8
 
-    if-lez v3, :cond_2
+    if-lez v5, :cond_2
 
     :cond_1
-    return v0
+    return v2
 
     :cond_2
     if-eqz p7, :cond_3
 
-    return v0
+    return v2
 
     :cond_3
-    if-eqz p4, :cond_4
+    if-eqz p6, :cond_5
 
-    if-eqz p6, :cond_4
+    if-eq v0, v1, :cond_4
 
-    return v0
+    if-ne v0, v2, :cond_5
 
     :cond_4
+    return v2
+
+    :cond_5
     invoke-direct {p0}, Lcom/android/server/wm/BackgroundLaunchProcessController;->isBoundByForegroundUid()Z
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_6
 
-    return v0
+    return v2
 
-    :cond_5
+    :cond_6
     move-object v1, p0
 
-    move v2, p2
+    move v3, p2
 
-    move-object v3, p3
+    move-object v4, p3
 
-    move v4, p5
+    move v5, p5
 
     invoke-direct {p0, p2, p3, p5}, Lcom/android/server/wm/BackgroundLaunchProcessController;->isBackgroundStartAllowedByToken(ILjava/lang/String;Z)Z
 
-    move-result v5
+    move-result v6
 
-    if-eqz v5, :cond_6
+    if-eqz v6, :cond_7
 
-    return v0
+    return v2
 
-    :cond_6
-    const/4 v0, 0x0
+    :cond_7
+    const/4 v2, 0x0
 
-    return v0
+    return v2
 .end method
 
 .method canCloseSystemDialogsByToken(I)Z

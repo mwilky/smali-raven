@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/server/am/BatteryExternalStatsWorker$2;->this$0:Lcom/android/server/am/BatteryExternalStatsWorker;
 
-    invoke-static {v0}, Lcom/android/server/am/BatteryExternalStatsWorker;->access$1100(Lcom/android/server/am/BatteryExternalStatsWorker;)Lcom/android/internal/os/BatteryStatsImpl;
+    invoke-static {v0}, Lcom/android/server/am/BatteryExternalStatsWorker;->access$1200(Lcom/android/server/am/BatteryExternalStatsWorker;)Lcom/android/internal/os/BatteryStatsImpl;
 
     move-result-object v0
 
@@ -48,7 +48,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/am/BatteryExternalStatsWorker$2;->this$0:Lcom/android/server/am/BatteryExternalStatsWorker;
 
-    invoke-static {v1}, Lcom/android/server/am/BatteryExternalStatsWorker;->access$1100(Lcom/android/server/am/BatteryExternalStatsWorker;)Lcom/android/internal/os/BatteryStatsImpl;
+    invoke-static {v1}, Lcom/android/server/am/BatteryExternalStatsWorker;->access$1200(Lcom/android/server/am/BatteryExternalStatsWorker;)Lcom/android/internal/os/BatteryStatsImpl;
 
     move-result-object v1
 

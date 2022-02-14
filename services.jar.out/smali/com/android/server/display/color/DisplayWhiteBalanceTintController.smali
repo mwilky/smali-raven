@@ -71,7 +71,7 @@
 .method private getDisplayColorSpaceFromResources(Landroid/content/res/Resources;)Landroid/graphics/ColorSpace$Rgb;
     .locals 5
 
-    const v0, 0x107003b
+    const v0, 0x1070040
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -1253,7 +1253,7 @@
     return-void
 
     :cond_2
-    const v2, 0x107003a
+    const v2, 0x107003f
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -1283,7 +1283,7 @@
     goto :goto_0
 
     :cond_3
-    const v4, 0x10e0051
+    const v4, 0x10e0054
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1300,7 +1300,7 @@
     return-void
 
     :cond_4
-    const v5, 0x10e0050
+    const v5, 0x10e0053
 
     invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1317,7 +1317,7 @@
     return-void
 
     :cond_5
-    const v6, 0x10e004e
+    const v6, 0x10e0051
 
     invoke-virtual {v0, v6}, Landroid/content/res/Resources;->getInteger(I)I
 

@@ -334,7 +334,7 @@
 
     move-result-object v0
 
-    const v1, 0x1110104
+    const v1, 0x1110107
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1335,7 +1335,7 @@
     return-object v0
 .end method
 
-.method getClientStateLocked(ZZ)I
+.method getClientStateLocked(ZI)I
     .locals 3
 
     const/4 v0, 0x0
@@ -1385,11 +1385,8 @@
     or-int/lit8 v0, v0, 0x4
 
     :cond_4
-    if-eqz p2, :cond_5
+    or-int/2addr v0, p2
 
-    or-int/lit8 v0, v0, 0x20
-
-    :cond_5
     return v0
 .end method
 

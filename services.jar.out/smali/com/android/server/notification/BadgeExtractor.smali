@@ -38,7 +38,7 @@
 
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_a
+    if-eqz p1, :cond_9
 
     invoke-virtual {p1}, Lcom/android/server/notification/NotificationRecord;->getNotification()Landroid/app/Notification;
 
@@ -181,41 +181,24 @@
 
     move-result v5
 
-    if-eqz v5, :cond_9
+    if-eqz v5, :cond_8
 
     invoke-virtual {p1}, Lcom/android/server/notification/NotificationRecord;->getNotification()Landroid/app/Notification;
 
     move-result-object v5
 
-    invoke-virtual {v5}, Landroid/app/Notification;->hasMediaSession()Z
+    invoke-virtual {v5}, Landroid/app/Notification;->isMediaNotification()Z
 
     move-result v6
 
-    if-eqz v6, :cond_9
+    if-eqz v6, :cond_8
 
-    const-class v6, Landroid/app/Notification$DecoratedMediaCustomViewStyle;
-
-    invoke-virtual {v5, v6}, Landroid/app/Notification;->isStyle(Ljava/lang/Class;)Z
-
-    move-result v6
-
-    if-nez v6, :cond_8
-
-    const-class v6, Landroid/app/Notification$MediaStyle;
-
-    invoke-virtual {v5, v6}, Landroid/app/Notification;->isStyle(Ljava/lang/Class;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_9
-
-    :cond_8
     invoke-virtual {p1, v3}, Lcom/android/server/notification/NotificationRecord;->setShowBadge(Z)V
 
-    :cond_9
+    :cond_8
     return-object v0
 
-    :cond_a
+    :cond_9
     :goto_3
     return-object v0
 .end method

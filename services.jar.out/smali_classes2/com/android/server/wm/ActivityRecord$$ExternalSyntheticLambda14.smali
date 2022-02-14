@@ -37,7 +37,7 @@
 
     check-cast p1, Lcom/android/server/wm/WindowState;
 
-    invoke-static {p1}, Lcom/android/server/wm/ActivityRecord;->lambda$setVisibility$7(Lcom/android/server/wm/WindowState;)V
+    invoke-static {p1}, Lcom/android/server/wm/ActivityRecord;->lambda$postApplyAnimation$11(Lcom/android/server/wm/WindowState;)V
 
     return-void
 .end method

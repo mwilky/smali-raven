@@ -21,7 +21,7 @@
 
     const-string v1, "com.android.location.service.GeocodeProvider"
 
-    const v2, 0x11100ce
+    const v2, 0x11100cf
 
     const v3, 0x1040245
 

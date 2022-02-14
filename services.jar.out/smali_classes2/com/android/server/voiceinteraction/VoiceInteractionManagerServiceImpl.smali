@@ -910,6 +910,31 @@
     return-void
 .end method
 
+.method public notifyActivityEventChangedLocked()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mActiveSession:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
+
+    if-eqz v0, :cond_1
+
+    iget-boolean v0, v0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mShown:Z
+
+    if-nez v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mActiveSession:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
+
+    invoke-virtual {v0}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->notifyActivityEventChangedLocked()V
+
+    return-void
+
+    :cond_1
+    :goto_0
+    return-void
+.end method
+
 .method notifySoundModelsChangedLocked()V
     .locals 3
 
@@ -1797,6 +1822,37 @@
     return-void
 .end method
 
+.method public startListeningVisibleActivityChangedLocked(Landroid/os/IBinder;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mActiveSession:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, v0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mToken:Landroid/os/IBinder;
+
+    if-eq p1, v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mActiveSession:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
+
+    invoke-virtual {v0}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->startListeningVisibleActivityChangedLocked()V
+
+    return-void
+
+    :cond_1
+    :goto_0
+    const-string v0, "VoiceInteractionServiceManager"
+
+    const-string v1, "startListeningVisibleActivityChangedLocked does not match active session"
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+.end method
+
 .method startLocked()V
     .locals 5
 
@@ -2049,6 +2105,37 @@
     iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mHotwordDetectionConnection:Lcom/android/server/voiceinteraction/HotwordDetectionConnection;
 
     invoke-virtual {v0}, Lcom/android/server/voiceinteraction/HotwordDetectionConnection;->stopListening()V
+
+    return-void
+.end method
+
+.method public stopListeningVisibleActivityChangedLocked(Landroid/os/IBinder;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mActiveSession:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, v0, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->mToken:Landroid/os/IBinder;
+
+    if-eq p1, v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/voiceinteraction/VoiceInteractionManagerServiceImpl;->mActiveSession:Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;
+
+    invoke-virtual {v0}, Lcom/android/server/voiceinteraction/VoiceInteractionSessionConnection;->stopListeningVisibleActivityChangedLocked()V
+
+    return-void
+
+    :cond_1
+    :goto_0
+    const-string v0, "VoiceInteractionServiceManager"
+
+    const-string v1, "stopListeningVisibleActivityChangedLocked does not match active session"
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method

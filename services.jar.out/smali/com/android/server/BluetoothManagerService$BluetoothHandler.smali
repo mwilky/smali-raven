@@ -525,7 +525,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_2c
 
     iget-object v0, v1, Lcom/android/server/BluetoothManagerService$BluetoothHandler;->this$0:Lcom/android/server/BluetoothManagerService;
 
@@ -533,7 +533,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_2c
 
     const-string v0, "Restarting Bluetooth due to init flag change"
 
@@ -587,7 +587,7 @@
     :cond_2
     iget v0, v2, Landroid/os/Message;->arg1:I
 
-    if-ne v0, v10, :cond_2b
+    if-ne v0, v10, :cond_2c
 
     iget-object v0, v1, Lcom/android/server/BluetoothManagerService$BluetoothHandler;->this$0:Lcom/android/server/BluetoothManagerService;
 
@@ -595,7 +595,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2b
+    if-nez v0, :cond_2c
 
     const-string v0, "Restore Bluetooth state to enabled"
 
@@ -694,7 +694,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_2c
 
     iget-object v0, v1, Lcom/android/server/BluetoothManagerService$BluetoothHandler;->this$0:Lcom/android/server/BluetoothManagerService;
 
@@ -702,7 +702,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2b
+    if-nez v0, :cond_2c
 
     iget-object v0, v1, Lcom/android/server/BluetoothManagerService$BluetoothHandler;->this$0:Lcom/android/server/BluetoothManagerService;
 
@@ -710,7 +710,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_2b
+    if-nez v0, :cond_2c
 
     const-string v0, "Enabled but not bound; retrying after unlock"
 
@@ -776,7 +776,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_2c
 
     :cond_6
     iget-object v0, v1, Lcom/android/server/BluetoothManagerService$BluetoothHandler;->this$0:Lcom/android/server/BluetoothManagerService;
@@ -1273,7 +1273,7 @@
     :cond_d
     if-eq v5, v13, :cond_e
 
-    if-ne v5, v6, :cond_2b
+    if-ne v5, v6, :cond_2c
 
     :cond_e
     iget-object v3, v1, Lcom/android/server/BluetoothManagerService$BluetoothHandler;->this$0:Lcom/android/server/BluetoothManagerService;
@@ -1282,7 +1282,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2b
+    if-eqz v3, :cond_2c
 
     const-string v3, "bluetooth is recovered from error"
 
@@ -1915,7 +1915,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2b
+    if-nez v0, :cond_2c
 
     iget-object v0, v1, Lcom/android/server/BluetoothManagerService$BluetoothHandler;->this$0:Lcom/android/server/BluetoothManagerService;
 
@@ -2423,7 +2423,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2a
+    if-nez v0, :cond_2b
 
     iget-object v0, v1, Lcom/android/server/BluetoothManagerService$BluetoothHandler;->this$0:Lcom/android/server/BluetoothManagerService;
 
@@ -2482,6 +2482,13 @@
 
     invoke-static {v0, v10}, Lcom/android/server/BluetoothManagerService;->access$2302(Lcom/android/server/BluetoothManagerService;Z)Z
 
+    if-nez v4, :cond_26
+
+    iget-object v0, v1, Lcom/android/server/BluetoothManagerService$BluetoothHandler;->this$0:Lcom/android/server/BluetoothManagerService;
+
+    invoke-static {v0, v10}, Lcom/android/server/BluetoothManagerService;->access$2400(Lcom/android/server/BluetoothManagerService;I)V
+
+    :cond_26
     :try_start_d
     iget-object v0, v1, Lcom/android/server/BluetoothManagerService$BluetoothHandler;->this$0:Lcom/android/server/BluetoothManagerService;
 
@@ -2501,7 +2508,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_27
+    if-eqz v0, :cond_28
 
     const/4 v0, 0x1
 
@@ -2523,7 +2530,7 @@
     goto :goto_9
 
     :pswitch_1
-    if-ne v4, v10, :cond_26
+    if-ne v4, v10, :cond_27
 
     const-string v6, "Already at BLE_ON State"
 
@@ -2531,7 +2538,7 @@
 
     goto :goto_9
 
-    :cond_26
+    :cond_27
     const-string v6, "BT Enable in BLE_ON State, going to ON"
 
     invoke-static {v7, v6}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
@@ -2554,10 +2561,6 @@
 
     invoke-interface {v6, v8}, Landroid/bluetooth/IBluetooth;->onLeServiceUp(Landroid/content/AttributionSource;)V
 
-    iget-object v6, v1, Lcom/android/server/BluetoothManagerService$BluetoothHandler;->this$0:Lcom/android/server/BluetoothManagerService;
-
-    invoke-static {v6, v10}, Lcom/android/server/BluetoothManagerService;->access$2400(Lcom/android/server/BluetoothManagerService;I)V
-
     goto :goto_9
 
     :pswitch_2
@@ -2571,7 +2574,7 @@
     nop
 
     :goto_9
-    if-eqz v0, :cond_27
+    if-eqz v0, :cond_28
 
     iget-object v6, v1, Lcom/android/server/BluetoothManagerService$BluetoothHandler;->this$0:Lcom/android/server/BluetoothManagerService;
 
@@ -2587,7 +2590,7 @@
 
     goto/16 :goto_e
 
-    :cond_27
+    :cond_28
     goto :goto_a
 
     :catchall_3
@@ -2624,11 +2627,11 @@
 
     iget-object v0, v1, Lcom/android/server/BluetoothManagerService$BluetoothHandler;->this$0:Lcom/android/server/BluetoothManagerService;
 
-    if-ne v3, v10, :cond_28
+    if-ne v3, v10, :cond_29
 
     goto :goto_b
 
-    :cond_28
+    :cond_29
     move v10, v11
 
     :goto_b
@@ -2640,7 +2643,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_29
+    if-nez v0, :cond_2a
 
     iget-object v0, v1, Lcom/android/server/BluetoothManagerService$BluetoothHandler;->this$0:Lcom/android/server/BluetoothManagerService;
 
@@ -2652,7 +2655,7 @@
 
     goto :goto_e
 
-    :cond_29
+    :cond_2a
     iput v11, v1, Lcom/android/server/BluetoothManagerService$BluetoothHandler;->mWaitForEnableRetry:I
 
     iget-object v0, v1, Lcom/android/server/BluetoothManagerService$BluetoothHandler;->this$0:Lcom/android/server/BluetoothManagerService;
@@ -2694,7 +2697,7 @@
 
     throw v0
 
-    :cond_2a
+    :cond_2b
     :goto_d
     iget-object v0, v1, Lcom/android/server/BluetoothManagerService$BluetoothHandler;->this$0:Lcom/android/server/BluetoothManagerService;
 
@@ -2718,7 +2721,7 @@
 
     nop
 
-    :cond_2b
+    :cond_2c
     :goto_e
     return-void
 

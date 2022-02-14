@@ -35,7 +35,7 @@
 
     packed-switch p1, :pswitch_data_0
 
-    const v0, 0x11100a0
+    const v0, 0x11100a1
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 

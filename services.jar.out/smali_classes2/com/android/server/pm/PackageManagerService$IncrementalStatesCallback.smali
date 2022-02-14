@@ -105,7 +105,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$IncrementalStatesCallback;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$7100(Lcom/android/server/pm/PackageManagerService;)Landroid/os/incremental/IncrementalManager;
+    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$7000(Lcom/android/server/pm/PackageManagerService;)Landroid/os/incremental/IncrementalManager;
 
     move-result-object v0
 

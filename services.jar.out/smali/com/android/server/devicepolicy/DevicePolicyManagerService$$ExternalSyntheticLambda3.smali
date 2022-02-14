@@ -27,7 +27,7 @@
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$setSystemUpdatePolicy$95$DevicePolicyManagerService()V
+    invoke-virtual {v0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$setSystemUpdatePolicy$98$DevicePolicyManagerService()V
 
     return-void
 .end method

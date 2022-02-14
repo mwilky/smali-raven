@@ -3,14 +3,28 @@
 .source "DeviceState.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/server/devicestate/DeviceState$DeviceStateFlags;
+    }
+.end annotation
+
+
+# static fields
+.field public static final FLAG_CANCEL_STICKY_REQUESTS:I = 0x1
+
+
 # instance fields
+.field private final mFlags:I
+
 .field private final mIdentifier:I
 
 .field private final mName:Ljava/lang/String;
 
 
 # direct methods
-.method public constructor <init>(ILjava/lang/String;)V
+.method public constructor <init>(ILjava/lang/String;I)V
     .locals 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,6 +40,8 @@
     iput p1, p0, Lcom/android/server/devicestate/DeviceState;->mIdentifier:I
 
     iput-object p2, p0, Lcom/android/server/devicestate/DeviceState;->mName:Ljava/lang/String;
+
+    iput p3, p0, Lcom/android/server/devicestate/DeviceState;->mFlags:I
 
     return-void
 .end method
@@ -79,6 +95,12 @@
 
     if-eqz v3, :cond_2
 
+    iget v3, p0, Lcom/android/server/devicestate/DeviceState;->mFlags:I
+
+    iget v4, v2, Lcom/android/server/devicestate/DeviceState;->mFlags:I
+
+    if-ne v3, v4, :cond_2
+
     goto :goto_0
 
     :cond_2
@@ -90,6 +112,14 @@
     :cond_3
     :goto_1
     return v1
+.end method
+
+.method public getFlags()I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/devicestate/DeviceState;->mFlags:I
+
+    return v0
 .end method
 
 .method public getIdentifier()I
@@ -111,7 +141,7 @@
 .method public hashCode()I
     .locals 3
 
-    const/4 v0, 0x2
+    const/4 v0, 0x3
 
     new-array v0, v0, [Ljava/lang/Object;
 
@@ -128,6 +158,16 @@
     iget-object v1, p0, Lcom/android/server/devicestate/DeviceState;->mName:Ljava/lang/String;
 
     const/4 v2, 0x1
+
+    aput-object v1, v0, v2
+
+    iget v1, p0, Lcom/android/server/devicestate/DeviceState;->mFlags:I
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const/4 v2, 0x2
 
     aput-object v1, v0, v2
 

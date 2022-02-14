@@ -88,6 +88,14 @@
 
     if-eqz v0, :cond_2
 
+    invoke-virtual {p1}, Lcom/android/server/wm/Task;->getWindowingMode()I
+
+    move-result v0
+
+    const/4 v2, 0x5
+
+    if-eq v0, v2, :cond_2
+
     return v1
 
     :cond_2

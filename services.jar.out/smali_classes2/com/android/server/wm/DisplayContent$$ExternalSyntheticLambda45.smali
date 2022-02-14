@@ -37,7 +37,7 @@
 
     check-cast p1, Lcom/android/server/wm/Task;
 
-    invoke-static {p1}, Lcom/android/server/wm/DisplayContent;->lambda$releaseSelfIfNeeded$42(Lcom/android/server/wm/Task;)Ljava/lang/Boolean;
+    invoke-static {p1}, Lcom/android/server/wm/DisplayContent;->lambda$releaseSelfIfNeeded$44(Lcom/android/server/wm/Task;)Ljava/lang/Boolean;
 
     move-result-object p1
 

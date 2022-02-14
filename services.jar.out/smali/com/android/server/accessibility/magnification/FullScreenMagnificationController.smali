@@ -188,7 +188,33 @@
     return-object v0
 .end method
 
-.method static synthetic access$300(Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;IZ)V
+.method static synthetic access$1000(Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;->onScreenTurnedOff()V
+
+    return-void
+.end method
+
+.method static synthetic access$300(Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;)Z
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;->traceEnabled()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic access$400(Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method static synthetic access$500(Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;IZ)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;->unregisterCallbackLocked(IZ)V
@@ -196,7 +222,7 @@
     return-void
 .end method
 
-.method static synthetic access$500(Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;)J
+.method static synthetic access$700(Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;)J
     .locals 2
 
     iget-wide v0, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;->mMainThreadId:J
@@ -204,7 +230,7 @@
     return-wide v0
 .end method
 
-.method static synthetic access$600(Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;)Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$MagnificationInfoChangedCallback;
+.method static synthetic access$800(Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;)Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$MagnificationInfoChangedCallback;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;->mMagnificationInfoChangedCallback:Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$MagnificationInfoChangedCallback;
@@ -212,7 +238,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$700(Z)Landroid/view/accessibility/MagnificationAnimationCallback;
+.method static synthetic access$900(Z)Landroid/view/accessibility/MagnificationAnimationCallback;
     .locals 1
 
     invoke-static {p0}, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;->transformToStubCallback(Z)Landroid/view/accessibility/MagnificationAnimationCallback;
@@ -222,16 +248,38 @@
     return-object v0
 .end method
 
-.method static synthetic access$800(Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;)V
+.method static synthetic lambda$static$0(Z)V
     .locals 0
-
-    invoke-direct {p0}, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;->onScreenTurnedOff()V
 
     return-void
 .end method
 
-.method static synthetic lambda$static$0(Z)V
-    .locals 0
+.method private logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;->mControllerCtx:Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ControllerContext;
+
+    invoke-virtual {v0}, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ControllerContext;->getTraceManager()Lcom/android/server/accessibility/AccessibilityTraceManager;
+
+    move-result-object v0
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "WindowManagerInternal."
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-wide/16 v2, 0x200
+
+    invoke-virtual {v0, v1, v2, v3, p2}, Lcom/android/server/accessibility/AccessibilityTraceManager;->logTrace(Ljava/lang/String;JLjava/lang/String;)V
 
     return-void
 .end method
@@ -306,6 +354,24 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
+.end method
+
+.method private traceEnabled()Z
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;->mControllerCtx:Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ControllerContext;
+
+    invoke-virtual {v0}, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ControllerContext;->getTraceManager()Lcom/android/server/accessibility/AccessibilityTraceManager;
+
+    move-result-object v0
+
+    const-wide/16 v1, 0x200
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityTraceManager;->isA11yTracingEnabledForTypes(J)Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method private static transformToStubCallback(Z)Landroid/view/accessibility/MagnificationAnimationCallback;

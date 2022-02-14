@@ -83,7 +83,7 @@
 
     check-cast v10, Ljava/lang/Throwable;
 
-    invoke-virtual/range {v0 .. v10}, Lcom/android/server/pm/PackageManagerService;->lambda$prepareAppDataLeaf$67$PackageManagerService(Ljava/lang/String;Lcom/android/server/pm/parsing/pkg/AndroidPackage;IILjava/lang/String;ILjava/lang/String;Lcom/android/server/pm/PackageSetting;Ljava/lang/Long;Ljava/lang/Throwable;)V
+    invoke-virtual/range {v0 .. v10}, Lcom/android/server/pm/PackageManagerService;->lambda$prepareAppDataLeaf$66$PackageManagerService(Ljava/lang/String;Lcom/android/server/pm/parsing/pkg/AndroidPackage;IILjava/lang/String;ILjava/lang/String;Lcom/android/server/pm/PackageSetting;Ljava/lang/Long;Ljava/lang/Throwable;)V
 
     return-void
 .end method

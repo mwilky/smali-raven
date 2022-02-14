@@ -37,7 +37,7 @@
 
     check-cast p1, Lcom/android/server/wm/WindowState;
 
-    invoke-static {p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$static$1(Lcom/android/server/wm/WindowState;)V
+    invoke-static {p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$updateAppOpsState$5(Lcom/android/server/wm/WindowState;)V
 
     return-void
 .end method

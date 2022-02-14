@@ -27,7 +27,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda8;->f$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/pm/PackageManagerService;->lambda$restoreDefaultApps$58$PackageManagerService(Landroid/util/TypedXmlPullParser;I)V
+    invoke-virtual {v0, p1, p2}, Lcom/android/server/pm/PackageManagerService;->lambda$restoreDefaultApps$57$PackageManagerService(Landroid/util/TypedXmlPullParser;I)V
 
     return-void
 .end method

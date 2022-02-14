@@ -27,7 +27,7 @@
 
     iget-object v0, p0, Lcom/android/server/wm/ActivityRecord$$ExternalSyntheticLambda6;->f$0:Lcom/android/server/wm/ActivityRecord;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/ActivityRecord;->lambda$restartProcessIfVisible$13$ActivityRecord()V
+    invoke-virtual {v0}, Lcom/android/server/wm/ActivityRecord;->lambda$restartProcessIfVisible$17$ActivityRecord()V
 
     return-void
 .end method

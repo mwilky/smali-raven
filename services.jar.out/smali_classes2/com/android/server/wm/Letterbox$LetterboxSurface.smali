@@ -86,7 +86,7 @@
 
     iget-object v0, p0, Lcom/android/server/wm/Letterbox$LetterboxSurface;->this$0:Lcom/android/server/wm/Letterbox;
 
-    invoke-static {v0}, Lcom/android/server/wm/Letterbox;->access$200(Lcom/android/server/wm/Letterbox;)Ljava/util/function/Supplier;
+    invoke-static {v0}, Lcom/android/server/wm/Letterbox;->access$500(Lcom/android/server/wm/Letterbox;)Ljava/util/function/Supplier;
 
     move-result-object v0
 
@@ -217,7 +217,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/server/wm/Letterbox$LetterboxSurface;->this$0:Lcom/android/server/wm/Letterbox;
 
-    invoke-static {v0}, Lcom/android/server/wm/Letterbox;->access$600(Lcom/android/server/wm/Letterbox;)Ljava/util/function/Supplier;
+    invoke-static {v0}, Lcom/android/server/wm/Letterbox;->access$900(Lcom/android/server/wm/Letterbox;)Ljava/util/function/Supplier;
 
     move-result-object v0
 
@@ -237,7 +237,7 @@
 
     iget-object v2, p0, Lcom/android/server/wm/Letterbox$LetterboxSurface;->this$0:Lcom/android/server/wm/Letterbox;
 
-    invoke-static {v2}, Lcom/android/server/wm/Letterbox;->access$700(Lcom/android/server/wm/Letterbox;)Ljava/util/function/Supplier;
+    invoke-static {v2}, Lcom/android/server/wm/Letterbox;->access$1000(Lcom/android/server/wm/Letterbox;)Ljava/util/function/Supplier;
 
     move-result-object v2
 
@@ -264,7 +264,7 @@
 
     iget-object v2, p0, Lcom/android/server/wm/Letterbox$LetterboxSurface;->this$0:Lcom/android/server/wm/Letterbox;
 
-    invoke-static {v2}, Lcom/android/server/wm/Letterbox;->access$700(Lcom/android/server/wm/Letterbox;)Ljava/util/function/Supplier;
+    invoke-static {v2}, Lcom/android/server/wm/Letterbox;->access$1000(Lcom/android/server/wm/Letterbox;)Ljava/util/function/Supplier;
 
     move-result-object v2
 
@@ -320,7 +320,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/server/wm/Letterbox$LetterboxSurface;->this$0:Lcom/android/server/wm/Letterbox;
 
-    invoke-static {v0}, Lcom/android/server/wm/Letterbox;->access$400(Lcom/android/server/wm/Letterbox;)Ljava/util/function/Supplier;
+    invoke-static {v0}, Lcom/android/server/wm/Letterbox;->access$700(Lcom/android/server/wm/Letterbox;)Ljava/util/function/Supplier;
 
     move-result-object v0
 
@@ -374,7 +374,7 @@
 
     iget-object v0, p0, Lcom/android/server/wm/Letterbox$LetterboxSurface;->this$0:Lcom/android/server/wm/Letterbox;
 
-    invoke-static {v0}, Lcom/android/server/wm/Letterbox;->access$500(Lcom/android/server/wm/Letterbox;)Ljava/util/function/Supplier;
+    invoke-static {v0}, Lcom/android/server/wm/Letterbox;->access$800(Lcom/android/server/wm/Letterbox;)Ljava/util/function/Supplier;
 
     move-result-object v0
 
@@ -423,7 +423,9 @@
 
     iget-object v1, p0, Lcom/android/server/wm/Letterbox$LetterboxSurface;->mInputInterceptor:Lcom/android/server/wm/Letterbox$InputInterceptor;
 
-    iget-object v1, v1, Lcom/android/server/wm/Letterbox$InputInterceptor;->mWindowHandle:Landroid/view/InputWindowHandle;
+    invoke-static {v1}, Lcom/android/server/wm/Letterbox$InputInterceptor;->access$200(Lcom/android/server/wm/Letterbox$InputInterceptor;)Landroid/view/InputWindowHandle;
+
+    move-result-object v1
 
     invoke-virtual {p1, v0, v1}, Landroid/view/SurfaceControl$Transaction;->setInputWindowInfo(Landroid/view/SurfaceControl;Landroid/view/InputWindowHandle;)Landroid/view/SurfaceControl$Transaction;
 
@@ -432,7 +434,7 @@
 .end method
 
 .method attachInput(Lcom/android/server/wm/WindowState;)V
-    .locals 3
+    .locals 4
 
     iget-object v0, p0, Lcom/android/server/wm/Letterbox$LetterboxSurface;->mInputInterceptor:Lcom/android/server/wm/Letterbox$InputInterceptor;
 
@@ -443,27 +445,29 @@
     :cond_0
     new-instance v0, Lcom/android/server/wm/Letterbox$InputInterceptor;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    iget-object v1, p0, Lcom/android/server/wm/Letterbox$LetterboxSurface;->this$0:Lcom/android/server/wm/Letterbox;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    const-string v2, "Letterbox_"
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v3, "Letterbox_"
 
-    iget-object v2, p0, Lcom/android/server/wm/Letterbox$LetterboxSurface;->mType:Ljava/lang/String;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v3, p0, Lcom/android/server/wm/Letterbox$LetterboxSurface;->mType:Ljava/lang/String;
 
-    const-string v2, "_"
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v3, "_"
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-direct {v0, v1, p1}, Lcom/android/server/wm/Letterbox$InputInterceptor;-><init>(Ljava/lang/String;Lcom/android/server/wm/WindowState;)V
+    move-result-object v2
+
+    invoke-direct {v0, v1, v2, p1}, Lcom/android/server/wm/Letterbox$InputInterceptor;-><init>(Lcom/android/server/wm/Letterbox;Ljava/lang/String;Lcom/android/server/wm/WindowState;)V
 
     iput-object v0, p0, Lcom/android/server/wm/Letterbox$LetterboxSurface;->mInputInterceptor:Lcom/android/server/wm/Letterbox$InputInterceptor;
 
@@ -503,6 +507,32 @@
 
     move-result v0
 
+    return v0
+.end method
+
+.method isRemoved()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/wm/Letterbox$LetterboxSurface;->mSurface:Landroid/view/SurfaceControl;
+
+    if-nez v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/server/wm/Letterbox$LetterboxSurface;->mInputInterceptor:Lcom/android/server/wm/Letterbox$InputInterceptor;
+
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    const/4 v0, 0x1
+
+    :goto_1
     return v0
 .end method
 
@@ -557,7 +587,7 @@
 
     iget-object v0, p0, Lcom/android/server/wm/Letterbox$LetterboxSurface;->this$0:Lcom/android/server/wm/Letterbox;
 
-    invoke-static {v0}, Lcom/android/server/wm/Letterbox;->access$500(Lcom/android/server/wm/Letterbox;)Ljava/util/function/Supplier;
+    invoke-static {v0}, Lcom/android/server/wm/Letterbox;->access$800(Lcom/android/server/wm/Letterbox;)Ljava/util/function/Supplier;
 
     move-result-object v0
 
@@ -577,7 +607,7 @@
 
     iget-object v0, p0, Lcom/android/server/wm/Letterbox$LetterboxSurface;->this$0:Lcom/android/server/wm/Letterbox;
 
-    invoke-static {v0}, Lcom/android/server/wm/Letterbox;->access$400(Lcom/android/server/wm/Letterbox;)Ljava/util/function/Supplier;
+    invoke-static {v0}, Lcom/android/server/wm/Letterbox;->access$700(Lcom/android/server/wm/Letterbox;)Ljava/util/function/Supplier;
 
     move-result-object v0
 
@@ -621,7 +651,7 @@
 
     iget-object v0, p0, Lcom/android/server/wm/Letterbox$LetterboxSurface;->this$0:Lcom/android/server/wm/Letterbox;
 
-    invoke-static {v0}, Lcom/android/server/wm/Letterbox;->access$300(Lcom/android/server/wm/Letterbox;)Ljava/util/function/Supplier;
+    invoke-static {v0}, Lcom/android/server/wm/Letterbox;->access$600(Lcom/android/server/wm/Letterbox;)Ljava/util/function/Supplier;
 
     move-result-object v0
 

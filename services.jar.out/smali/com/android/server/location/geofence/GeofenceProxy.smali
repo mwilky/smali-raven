@@ -55,7 +55,7 @@
 
     const-string v1, "com.android.location.service.GeofenceProvider"
 
-    const v2, 0x11100cf
+    const v2, 0x11100d0
 
     const v3, 0x1040246
 

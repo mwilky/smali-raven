@@ -18,13 +18,40 @@
 .method public abstract isAccessibilityTracingEnabled()Z
 .end method
 
-.method public abstract logTrace(Ljava/lang/String;Ljava/lang/String;[BI[Ljava/lang/StackTraceElement;)V
+.method public abstract logTrace(Ljava/lang/String;JLjava/lang/String;[BI[Ljava/lang/StackTraceElement;JIJLjava/util/Set;)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "J",
+            "Ljava/lang/String;",
+            "[BI[",
+            "Ljava/lang/StackTraceElement;",
+            "JIJ",
+            "Ljava/util/Set<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
 .end method
 
-.method public abstract logTrace(Ljava/lang/String;Ljava/lang/String;[BI[Ljava/lang/StackTraceElement;JIJ)V
+.method public abstract logTrace(Ljava/lang/String;JLjava/lang/String;[BI[Ljava/lang/StackTraceElement;Ljava/util/Set;)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "J",
+            "Ljava/lang/String;",
+            "[BI[",
+            "Ljava/lang/StackTraceElement;",
+            "Ljava/util/Set<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
 .end method
 
-.method public abstract startTrace()V
+.method public abstract startTrace(J)V
 .end method
 
 .method public abstract stopTrace()V

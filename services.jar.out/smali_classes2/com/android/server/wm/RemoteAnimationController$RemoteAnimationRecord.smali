@@ -17,6 +17,8 @@
 # instance fields
 .field mAdapter:Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationAdapterWrapper;
 
+.field private mMode:I
+
 .field final mStartBounds:Landroid/graphics/Rect;
 
 .field mTarget:Landroid/view/RemoteAnimationTarget;
@@ -30,43 +32,112 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/wm/RemoteAnimationController;Lcom/android/server/wm/WindowContainer;Landroid/graphics/Point;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;)V
-    .locals 15
+    .locals 13
 
     move-object v7, p0
 
-    move-object/from16 v8, p3
+    move-object/from16 v8, p6
 
-    move-object/from16 v9, p5
+    move-object v9, p1
 
-    move-object/from16 v10, p6
-
-    move-object/from16 v11, p1
-
-    iput-object v11, v7, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationRecord;->this$0:Lcom/android/server/wm/RemoteAnimationController;
+    iput-object v9, v7, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationRecord;->this$0:Lcom/android/server/wm/RemoteAnimationController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const/4 v12, 0x0
+    const/4 v10, 0x0
 
-    iput-object v12, v7, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationRecord;->mThumbnailAdapter:Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationAdapterWrapper;
+    iput-object v10, v7, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationRecord;->mThumbnailAdapter:Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationAdapterWrapper;
 
-    move-object/from16 v13, p2
+    const/4 v0, 0x2
 
-    iput-object v13, v7, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationRecord;->mWindowContainer:Lcom/android/server/wm/WindowContainer;
+    iput v0, v7, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationRecord;->mMode:I
 
-    if-eqz v10, :cond_0
+    move-object v11, p2
+
+    iput-object v11, v7, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationRecord;->mWindowContainer:Lcom/android/server/wm/WindowContainer;
+
+    if-eqz v8, :cond_0
 
     new-instance v6, Landroid/graphics/Rect;
 
-    invoke-direct {v6, v10}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
+    invoke-direct {v6, v8}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
 
     iput-object v6, v7, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationRecord;->mStartBounds:Landroid/graphics/Rect;
 
+    new-instance v10, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationAdapterWrapper;
+
+    move-object v0, v10
+
+    move-object v1, p1
+
+    move-object v2, p0
+
+    move-object/from16 v3, p3
+
+    move-object/from16 v4, p4
+
+    move-object/from16 v5, p5
+
+    invoke-direct/range {v0 .. v6}, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationAdapterWrapper;-><init>(Lcom/android/server/wm/RemoteAnimationController;Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationRecord;Landroid/graphics/Point;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;)V
+
+    iput-object v10, v7, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationRecord;->mAdapter:Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationAdapterWrapper;
+
+    invoke-static {p1}, Lcom/android/server/wm/RemoteAnimationController;->access$300(Lcom/android/server/wm/RemoteAnimationController;)Landroid/view/RemoteAnimationAdapter;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/RemoteAnimationAdapter;->getChangeNeedsSnapshot()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    new-instance v0, Landroid/graphics/Rect;
+
+    invoke-direct {v0, v8}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
+
+    move-object v10, v0
+
+    const/4 v0, 0x0
+
+    invoke-virtual {v10, v0, v0}, Landroid/graphics/Rect;->offsetTo(II)V
+
     new-instance v12, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationAdapterWrapper;
+
+    new-instance v3, Landroid/graphics/Point;
+
+    invoke-direct {v3, v0, v0}, Landroid/graphics/Point;-><init>(II)V
+
+    new-instance v6, Landroid/graphics/Rect;
+
+    invoke-direct {v6}, Landroid/graphics/Rect;-><init>()V
 
     move-object v0, v12
 
-    move-object/from16 v1, p1
+    move-object v1, p1
+
+    move-object v2, p0
+
+    move-object v4, v10
+
+    move-object/from16 v5, p6
+
+    invoke-direct/range {v0 .. v6}, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationAdapterWrapper;-><init>(Lcom/android/server/wm/RemoteAnimationController;Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationRecord;Landroid/graphics/Point;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;)V
+
+    iput-object v12, v7, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationRecord;->mThumbnailAdapter:Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationAdapterWrapper;
+
+    goto :goto_0
+
+    :cond_0
+    new-instance v12, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationAdapterWrapper;
+
+    new-instance v6, Landroid/graphics/Rect;
+
+    invoke-direct {v6}, Landroid/graphics/Rect;-><init>()V
+
+    move-object v0, v12
+
+    move-object v1, p1
 
     move-object v2, p0
 
@@ -80,90 +151,7 @@
 
     iput-object v12, v7, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationRecord;->mAdapter:Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationAdapterWrapper;
 
-    invoke-static/range {p1 .. p1}, Lcom/android/server/wm/RemoteAnimationController;->access$300(Lcom/android/server/wm/RemoteAnimationController;)Landroid/graphics/Rect;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v10}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
-
-    invoke-static/range {p1 .. p1}, Lcom/android/server/wm/RemoteAnimationController;->access$300(Lcom/android/server/wm/RemoteAnimationController;)Landroid/graphics/Rect;
-
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1, v1}, Landroid/graphics/Rect;->offsetTo(II)V
-
-    invoke-static/range {p1 .. p1}, Lcom/android/server/wm/RemoteAnimationController;->access$400(Lcom/android/server/wm/RemoteAnimationController;)Landroid/view/RemoteAnimationAdapter;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/view/RemoteAnimationAdapter;->getChangeNeedsSnapshot()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    new-instance v12, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationAdapterWrapper;
-
-    new-instance v3, Landroid/graphics/Point;
-
-    invoke-direct {v3, v1, v1}, Landroid/graphics/Point;-><init>(II)V
-
-    invoke-static/range {p1 .. p1}, Lcom/android/server/wm/RemoteAnimationController;->access$300(Lcom/android/server/wm/RemoteAnimationController;)Landroid/graphics/Rect;
-
-    move-result-object v5
-
-    new-instance v6, Landroid/graphics/Rect;
-
-    invoke-direct {v6}, Landroid/graphics/Rect;-><init>()V
-
-    move-object v0, v12
-
-    move-object/from16 v1, p1
-
-    move-object v2, p0
-
-    move-object/from16 v4, p4
-
-    invoke-direct/range {v0 .. v6}, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationAdapterWrapper;-><init>(Lcom/android/server/wm/RemoteAnimationController;Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationRecord;Landroid/graphics/Point;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;)V
-
-    iput-object v12, v7, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationRecord;->mThumbnailAdapter:Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationAdapterWrapper;
-
-    goto :goto_0
-
-    :cond_0
-    new-instance v14, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationAdapterWrapper;
-
-    new-instance v6, Landroid/graphics/Rect;
-
-    iget v0, v8, Landroid/graphics/Point;->x:I
-
-    iget v1, v8, Landroid/graphics/Point;->y:I
-
-    iget v2, v9, Landroid/graphics/Rect;->right:I
-
-    iget v3, v9, Landroid/graphics/Rect;->bottom:I
-
-    invoke-direct {v6, v0, v1, v2, v3}, Landroid/graphics/Rect;-><init>(IIII)V
-
-    move-object v0, v14
-
-    move-object/from16 v1, p1
-
-    move-object v2, p0
-
-    move-object/from16 v3, p3
-
-    move-object/from16 v4, p4
-
-    move-object/from16 v5, p5
-
-    invoke-direct/range {v0 .. v6}, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationAdapterWrapper;-><init>(Lcom/android/server/wm/RemoteAnimationController;Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationRecord;Landroid/graphics/Point;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;)V
-
-    iput-object v14, v7, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationRecord;->mAdapter:Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationAdapterWrapper;
-
-    iput-object v12, v7, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationRecord;->mStartBounds:Landroid/graphics/Rect;
+    iput-object v10, v7, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationRecord;->mStartBounds:Landroid/graphics/Rect;
 
     :cond_1
     :goto_0
@@ -212,49 +200,74 @@
 .end method
 
 .method getMode()I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationRecord;->mMode:I
+
+    return v0
+.end method
+
+.method hasAnimatingParent()Z
     .locals 4
 
-    iget-object v0, p0, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationRecord;->mWindowContainer:Lcom/android/server/wm/WindowContainer;
+    iget-object v0, p0, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationRecord;->this$0:Lcom/android/server/wm/RemoteAnimationController;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/WindowContainer;->getDisplayContent()Lcom/android/server/wm/DisplayContent;
+    invoke-static {v0}, Lcom/android/server/wm/RemoteAnimationController;->access$400(Lcom/android/server/wm/RemoteAnimationController;)Lcom/android/server/wm/DisplayContent;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationRecord;->mWindowContainer:Lcom/android/server/wm/WindowContainer;
+    iget-object v0, v0, Lcom/android/server/wm/DisplayContent;->mChangingContainers:Landroid/util/ArraySet;
 
-    invoke-virtual {v1}, Lcom/android/server/wm/WindowContainer;->getTopMostActivity()Lcom/android/server/wm/ActivityRecord;
+    invoke-virtual {v0}, Landroid/util/ArraySet;->size()I
 
-    move-result-object v1
+    move-result v0
 
-    iget-object v2, v0, Lcom/android/server/wm/DisplayContent;->mOpeningApps:Landroid/util/ArraySet;
+    const/4 v1, 0x1
 
-    invoke-virtual {v2, v1}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
+    sub-int/2addr v0, v1
+
+    :goto_0
+    if-ltz v0, :cond_1
+
+    iget-object v2, p0, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationRecord;->mWindowContainer:Lcom/android/server/wm/WindowContainer;
+
+    iget-object v3, p0, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationRecord;->this$0:Lcom/android/server/wm/RemoteAnimationController;
+
+    invoke-static {v3}, Lcom/android/server/wm/RemoteAnimationController;->access$400(Lcom/android/server/wm/RemoteAnimationController;)Lcom/android/server/wm/DisplayContent;
+
+    move-result-object v3
+
+    iget-object v3, v3, Lcom/android/server/wm/DisplayContent;->mChangingContainers:Landroid/util/ArraySet;
+
+    invoke-virtual {v3, v0}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/server/wm/WindowContainer;
+
+    invoke-virtual {v2, v3}, Lcom/android/server/wm/WindowContainer;->isDescendantOf(Lcom/android/server/wm/WindowContainer;)Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    const/4 v2, 0x0
-
-    return v2
+    return v1
 
     :cond_0
-    iget-object v2, v0, Lcom/android/server/wm/DisplayContent;->mChangingContainers:Landroid/util/ArraySet;
+    add-int/lit8 v0, v0, -0x1
 
-    iget-object v3, p0, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationRecord;->mWindowContainer:Lcom/android/server/wm/WindowContainer;
-
-    invoke-virtual {v2, v3}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    const/4 v2, 0x2
-
-    return v2
+    goto :goto_0
 
     :cond_1
-    const/4 v2, 0x1
+    const/4 v0, 0x0
 
-    return v2
+    return v0
+.end method
+
+.method setMode(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/server/wm/RemoteAnimationController$RemoteAnimationRecord;->mMode:I
+
+    return-void
 .end method

@@ -5,17 +5,27 @@
 .implements Ljava/util/function/Supplier;
 
 
-# instance fields
-.field public final synthetic f$0:Lcom/android/server/pm/PackageManagerService$Injector;
+# static fields
+.field public static final synthetic INSTANCE:Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda77;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/pm/PackageManagerService$Injector;)V
+.method static synthetic constructor <clinit>()V
+    .locals 1
+
+    new-instance v0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda77;
+
+    invoke-direct {v0}, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda77;-><init>()V
+
+    sput-object v0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda77;->INSTANCE:Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda77;
+
+    return-void
+.end method
+
+.method private synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda77;->f$0:Lcom/android/server/pm/PackageManagerService$Injector;
 
     return-void
 .end method
@@ -25,9 +35,7 @@
 .method public final get()Ljava/lang/Object;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda77;->f$0:Lcom/android/server/pm/PackageManagerService$Injector;
-
-    invoke-virtual {v0}, Lcom/android/server/pm/PackageManagerService$Injector;->getScanningPackageParser()Lcom/android/server/pm/parsing/PackageParser2;
+    invoke-static {}, Lcom/android/server/pm/PackageManagerService;->lambda$main$19()Lcom/android/server/pm/UserManagerInternal;
 
     move-result-object v0
 

@@ -774,25 +774,6 @@
     return v0
 .end method
 
-.method public hasLockscreenWallpaper()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;->mKeyguardService:Lcom/android/server/policy/keyguard/KeyguardServiceWrapper;
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Lcom/android/server/policy/keyguard/KeyguardServiceWrapper;->hasLockscreenWallpaper()Z
-
-    move-result v0
-
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    return v0
-.end method
-
 .method public isInputRestricted()Z
     .locals 2
 
@@ -812,6 +793,16 @@
     iget-object v0, p0, Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;->mKeyguardState:Lcom/android/server/policy/keyguard/KeyguardServiceDelegate$KeyguardState;
 
     iget-boolean v0, v0, Lcom/android/server/policy/keyguard/KeyguardServiceDelegate$KeyguardState;->inputRestricted:Z
+
+    return v0
+.end method
+
+.method public isOccluded()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;->mKeyguardState:Lcom/android/server/policy/keyguard/KeyguardServiceDelegate$KeyguardState;
+
+    iget-boolean v0, v0, Lcom/android/server/policy/keyguard/KeyguardServiceDelegate$KeyguardState;->occluded:Z
 
     return v0
 .end method
@@ -1182,18 +1173,14 @@
     return-void
 .end method
 
-.method public setOccluded(ZZ)V
+.method public setOccluded(ZZZ)V
     .locals 1
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    sget-boolean v0, Lcom/android/server/wm/WindowManagerService;->sEnableRemoteKeyguardOccludeAnimation:Z
-
-    if-nez v0, :cond_0
 
     iget-object v0, p0, Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;->mKeyguardService:Lcom/android/server/policy/keyguard/KeyguardServiceWrapper;
 
     if-eqz v0, :cond_0
+
+    if-eqz p3, :cond_0
 
     invoke-virtual {v0, p1, p2}, Lcom/android/server/policy/keyguard/KeyguardServiceWrapper;->setOccluded(ZZ)V
 
@@ -1220,10 +1207,6 @@
 
 .method public startKeyguardExitAnimation(JJ)V
     .locals 1
-
-    sget-boolean v0, Lcom/android/server/wm/WindowManagerService;->sEnableRemoteKeyguardGoingAwayAnimation:Z
-
-    if-nez v0, :cond_0
 
     iget-object v0, p0, Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;->mKeyguardService:Lcom/android/server/policy/keyguard/KeyguardServiceWrapper;
 

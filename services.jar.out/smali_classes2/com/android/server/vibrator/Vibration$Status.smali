@@ -29,6 +29,8 @@
 
 .field public static final enum FINISHED:Lcom/android/server/vibrator/Vibration$Status;
 
+.field public static final enum FINISHED_UNEXPECTED:Lcom/android/server/vibrator/Vibration$Status;
+
 .field public static final enum FORWARDED_TO_INPUT_DEVICES:Lcom/android/server/vibrator/Vibration$Status;
 
 .field public static final enum IGNORED:Lcom/android/server/vibrator/Vibration$Status;
@@ -38,6 +40,8 @@
 .field public static final enum IGNORED_BACKGROUND:Lcom/android/server/vibrator/Vibration$Status;
 
 .field public static final enum IGNORED_ERROR_APP_OPS:Lcom/android/server/vibrator/Vibration$Status;
+
+.field public static final enum IGNORED_ERROR_TOKEN:Lcom/android/server/vibrator/Vibration$Status;
 
 .field public static final enum IGNORED_FOR_ALARM:Lcom/android/server/vibrator/Vibration$Status;
 
@@ -60,7 +64,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 19
+    .locals 21
 
     new-instance v0, Lcom/android/server/vibrator/Vibration$Status;
 
@@ -84,127 +88,127 @@
 
     new-instance v3, Lcom/android/server/vibrator/Vibration$Status;
 
-    const-string v5, "FORWARDED_TO_INPUT_DEVICES"
+    const-string v5, "FINISHED_UNEXPECTED"
 
     const/4 v6, 0x2
 
     invoke-direct {v3, v5, v6}, Lcom/android/server/vibrator/Vibration$Status;-><init>(Ljava/lang/String;I)V
 
-    sput-object v3, Lcom/android/server/vibrator/Vibration$Status;->FORWARDED_TO_INPUT_DEVICES:Lcom/android/server/vibrator/Vibration$Status;
+    sput-object v3, Lcom/android/server/vibrator/Vibration$Status;->FINISHED_UNEXPECTED:Lcom/android/server/vibrator/Vibration$Status;
 
     new-instance v5, Lcom/android/server/vibrator/Vibration$Status;
 
-    const-string v7, "CANCELLED"
+    const-string v7, "FORWARDED_TO_INPUT_DEVICES"
 
     const/4 v8, 0x3
 
     invoke-direct {v5, v7, v8}, Lcom/android/server/vibrator/Vibration$Status;-><init>(Ljava/lang/String;I)V
 
-    sput-object v5, Lcom/android/server/vibrator/Vibration$Status;->CANCELLED:Lcom/android/server/vibrator/Vibration$Status;
+    sput-object v5, Lcom/android/server/vibrator/Vibration$Status;->FORWARDED_TO_INPUT_DEVICES:Lcom/android/server/vibrator/Vibration$Status;
 
     new-instance v7, Lcom/android/server/vibrator/Vibration$Status;
 
-    const-string v9, "IGNORED_ERROR_APP_OPS"
+    const-string v9, "CANCELLED"
 
     const/4 v10, 0x4
 
     invoke-direct {v7, v9, v10}, Lcom/android/server/vibrator/Vibration$Status;-><init>(Ljava/lang/String;I)V
 
-    sput-object v7, Lcom/android/server/vibrator/Vibration$Status;->IGNORED_ERROR_APP_OPS:Lcom/android/server/vibrator/Vibration$Status;
+    sput-object v7, Lcom/android/server/vibrator/Vibration$Status;->CANCELLED:Lcom/android/server/vibrator/Vibration$Status;
 
     new-instance v9, Lcom/android/server/vibrator/Vibration$Status;
 
-    const-string v11, "IGNORED"
+    const-string v11, "IGNORED_ERROR_APP_OPS"
 
     const/4 v12, 0x5
 
     invoke-direct {v9, v11, v12}, Lcom/android/server/vibrator/Vibration$Status;-><init>(Ljava/lang/String;I)V
 
-    sput-object v9, Lcom/android/server/vibrator/Vibration$Status;->IGNORED:Lcom/android/server/vibrator/Vibration$Status;
+    sput-object v9, Lcom/android/server/vibrator/Vibration$Status;->IGNORED_ERROR_APP_OPS:Lcom/android/server/vibrator/Vibration$Status;
 
     new-instance v11, Lcom/android/server/vibrator/Vibration$Status;
 
-    const-string v13, "IGNORED_APP_OPS"
+    const-string v13, "IGNORED_ERROR_TOKEN"
 
     const/4 v14, 0x6
 
     invoke-direct {v11, v13, v14}, Lcom/android/server/vibrator/Vibration$Status;-><init>(Ljava/lang/String;I)V
 
-    sput-object v11, Lcom/android/server/vibrator/Vibration$Status;->IGNORED_APP_OPS:Lcom/android/server/vibrator/Vibration$Status;
+    sput-object v11, Lcom/android/server/vibrator/Vibration$Status;->IGNORED_ERROR_TOKEN:Lcom/android/server/vibrator/Vibration$Status;
 
     new-instance v13, Lcom/android/server/vibrator/Vibration$Status;
 
-    const-string v15, "IGNORED_BACKGROUND"
+    const-string v15, "IGNORED"
 
     const/4 v14, 0x7
 
     invoke-direct {v13, v15, v14}, Lcom/android/server/vibrator/Vibration$Status;-><init>(Ljava/lang/String;I)V
 
-    sput-object v13, Lcom/android/server/vibrator/Vibration$Status;->IGNORED_BACKGROUND:Lcom/android/server/vibrator/Vibration$Status;
+    sput-object v13, Lcom/android/server/vibrator/Vibration$Status;->IGNORED:Lcom/android/server/vibrator/Vibration$Status;
 
     new-instance v15, Lcom/android/server/vibrator/Vibration$Status;
 
-    const-string v14, "IGNORED_RINGTONE"
+    const-string v14, "IGNORED_APP_OPS"
 
     const/16 v12, 0x8
 
     invoke-direct {v15, v14, v12}, Lcom/android/server/vibrator/Vibration$Status;-><init>(Ljava/lang/String;I)V
 
-    sput-object v15, Lcom/android/server/vibrator/Vibration$Status;->IGNORED_RINGTONE:Lcom/android/server/vibrator/Vibration$Status;
+    sput-object v15, Lcom/android/server/vibrator/Vibration$Status;->IGNORED_APP_OPS:Lcom/android/server/vibrator/Vibration$Status;
 
     new-instance v14, Lcom/android/server/vibrator/Vibration$Status;
 
-    const-string v12, "IGNORED_UNKNOWN_VIBRATION"
+    const-string v12, "IGNORED_BACKGROUND"
 
     const/16 v10, 0x9
 
     invoke-direct {v14, v12, v10}, Lcom/android/server/vibrator/Vibration$Status;-><init>(Ljava/lang/String;I)V
 
-    sput-object v14, Lcom/android/server/vibrator/Vibration$Status;->IGNORED_UNKNOWN_VIBRATION:Lcom/android/server/vibrator/Vibration$Status;
+    sput-object v14, Lcom/android/server/vibrator/Vibration$Status;->IGNORED_BACKGROUND:Lcom/android/server/vibrator/Vibration$Status;
 
     new-instance v12, Lcom/android/server/vibrator/Vibration$Status;
 
-    const-string v10, "IGNORED_UNSUPPORTED"
+    const-string v10, "IGNORED_RINGTONE"
 
     const/16 v8, 0xa
 
     invoke-direct {v12, v10, v8}, Lcom/android/server/vibrator/Vibration$Status;-><init>(Ljava/lang/String;I)V
 
-    sput-object v12, Lcom/android/server/vibrator/Vibration$Status;->IGNORED_UNSUPPORTED:Lcom/android/server/vibrator/Vibration$Status;
+    sput-object v12, Lcom/android/server/vibrator/Vibration$Status;->IGNORED_RINGTONE:Lcom/android/server/vibrator/Vibration$Status;
 
     new-instance v10, Lcom/android/server/vibrator/Vibration$Status;
 
-    const-string v8, "IGNORED_FOR_ALARM"
+    const-string v8, "IGNORED_UNKNOWN_VIBRATION"
 
     const/16 v6, 0xb
 
     invoke-direct {v10, v8, v6}, Lcom/android/server/vibrator/Vibration$Status;-><init>(Ljava/lang/String;I)V
 
-    sput-object v10, Lcom/android/server/vibrator/Vibration$Status;->IGNORED_FOR_ALARM:Lcom/android/server/vibrator/Vibration$Status;
+    sput-object v10, Lcom/android/server/vibrator/Vibration$Status;->IGNORED_UNKNOWN_VIBRATION:Lcom/android/server/vibrator/Vibration$Status;
 
     new-instance v8, Lcom/android/server/vibrator/Vibration$Status;
 
-    const-string v6, "IGNORED_FOR_EXTERNAL"
+    const-string v6, "IGNORED_UNSUPPORTED"
 
     const/16 v4, 0xc
 
     invoke-direct {v8, v6, v4}, Lcom/android/server/vibrator/Vibration$Status;-><init>(Ljava/lang/String;I)V
 
-    sput-object v8, Lcom/android/server/vibrator/Vibration$Status;->IGNORED_FOR_EXTERNAL:Lcom/android/server/vibrator/Vibration$Status;
+    sput-object v8, Lcom/android/server/vibrator/Vibration$Status;->IGNORED_UNSUPPORTED:Lcom/android/server/vibrator/Vibration$Status;
 
     new-instance v6, Lcom/android/server/vibrator/Vibration$Status;
 
-    const-string v4, "IGNORED_FOR_ONGOING"
+    const-string v4, "IGNORED_FOR_ALARM"
 
     const/16 v2, 0xd
 
     invoke-direct {v6, v4, v2}, Lcom/android/server/vibrator/Vibration$Status;-><init>(Ljava/lang/String;I)V
 
-    sput-object v6, Lcom/android/server/vibrator/Vibration$Status;->IGNORED_FOR_ONGOING:Lcom/android/server/vibrator/Vibration$Status;
+    sput-object v6, Lcom/android/server/vibrator/Vibration$Status;->IGNORED_FOR_ALARM:Lcom/android/server/vibrator/Vibration$Status;
 
     new-instance v4, Lcom/android/server/vibrator/Vibration$Status;
 
-    const-string v2, "IGNORED_FOR_POWER"
+    const-string v2, "IGNORED_FOR_EXTERNAL"
 
     move-object/from16 v17, v6
 
@@ -212,11 +216,11 @@
 
     invoke-direct {v4, v2, v6}, Lcom/android/server/vibrator/Vibration$Status;-><init>(Ljava/lang/String;I)V
 
-    sput-object v4, Lcom/android/server/vibrator/Vibration$Status;->IGNORED_FOR_POWER:Lcom/android/server/vibrator/Vibration$Status;
+    sput-object v4, Lcom/android/server/vibrator/Vibration$Status;->IGNORED_FOR_EXTERNAL:Lcom/android/server/vibrator/Vibration$Status;
 
     new-instance v2, Lcom/android/server/vibrator/Vibration$Status;
 
-    const-string v6, "IGNORED_FOR_SETTINGS"
+    const-string v6, "IGNORED_FOR_ONGOING"
 
     move-object/from16 v18, v4
 
@@ -224,75 +228,107 @@
 
     invoke-direct {v2, v6, v4}, Lcom/android/server/vibrator/Vibration$Status;-><init>(Ljava/lang/String;I)V
 
-    sput-object v2, Lcom/android/server/vibrator/Vibration$Status;->IGNORED_FOR_SETTINGS:Lcom/android/server/vibrator/Vibration$Status;
+    sput-object v2, Lcom/android/server/vibrator/Vibration$Status;->IGNORED_FOR_ONGOING:Lcom/android/server/vibrator/Vibration$Status;
 
-    const/16 v6, 0x10
+    new-instance v6, Lcom/android/server/vibrator/Vibration$Status;
 
-    new-array v6, v6, [Lcom/android/server/vibrator/Vibration$Status;
+    const-string v4, "IGNORED_FOR_POWER"
+
+    move-object/from16 v19, v2
+
+    const/16 v2, 0x10
+
+    invoke-direct {v6, v4, v2}, Lcom/android/server/vibrator/Vibration$Status;-><init>(Ljava/lang/String;I)V
+
+    sput-object v6, Lcom/android/server/vibrator/Vibration$Status;->IGNORED_FOR_POWER:Lcom/android/server/vibrator/Vibration$Status;
+
+    new-instance v4, Lcom/android/server/vibrator/Vibration$Status;
+
+    const-string v2, "IGNORED_FOR_SETTINGS"
+
+    move-object/from16 v20, v6
+
+    const/16 v6, 0x11
+
+    invoke-direct {v4, v2, v6}, Lcom/android/server/vibrator/Vibration$Status;-><init>(Ljava/lang/String;I)V
+
+    sput-object v4, Lcom/android/server/vibrator/Vibration$Status;->IGNORED_FOR_SETTINGS:Lcom/android/server/vibrator/Vibration$Status;
+
+    const/16 v2, 0x12
+
+    new-array v2, v2, [Lcom/android/server/vibrator/Vibration$Status;
 
     const/16 v16, 0x0
 
-    aput-object v0, v6, v16
+    aput-object v0, v2, v16
 
     const/4 v0, 0x1
 
-    aput-object v1, v6, v0
+    aput-object v1, v2, v0
 
     const/4 v0, 0x2
 
-    aput-object v3, v6, v0
+    aput-object v3, v2, v0
 
     const/4 v0, 0x3
 
-    aput-object v5, v6, v0
+    aput-object v5, v2, v0
 
     const/4 v0, 0x4
 
-    aput-object v7, v6, v0
+    aput-object v7, v2, v0
 
     const/4 v0, 0x5
 
-    aput-object v9, v6, v0
+    aput-object v9, v2, v0
 
     const/4 v0, 0x6
 
-    aput-object v11, v6, v0
+    aput-object v11, v2, v0
 
     const/4 v0, 0x7
 
-    aput-object v13, v6, v0
+    aput-object v13, v2, v0
 
     const/16 v0, 0x8
 
-    aput-object v15, v6, v0
+    aput-object v15, v2, v0
 
     const/16 v0, 0x9
 
-    aput-object v14, v6, v0
+    aput-object v14, v2, v0
 
     const/16 v0, 0xa
 
-    aput-object v12, v6, v0
+    aput-object v12, v2, v0
 
     const/16 v0, 0xb
 
-    aput-object v10, v6, v0
+    aput-object v10, v2, v0
 
     const/16 v0, 0xc
 
-    aput-object v8, v6, v0
+    aput-object v8, v2, v0
 
     const/16 v0, 0xd
 
-    aput-object v17, v6, v0
+    aput-object v17, v2, v0
 
     const/16 v0, 0xe
 
-    aput-object v18, v6, v0
+    aput-object v18, v2, v0
 
-    aput-object v2, v6, v4
+    const/16 v0, 0xf
 
-    sput-object v6, Lcom/android/server/vibrator/Vibration$Status;->$VALUES:[Lcom/android/server/vibrator/Vibration$Status;
+    aput-object v19, v2, v0
+
+    const/16 v0, 0x10
+
+    aput-object v20, v2, v0
+
+    aput-object v4, v2, v6
+
+    sput-object v2, Lcom/android/server/vibrator/Vibration$Status;->$VALUES:[Lcom/android/server/vibrator/Vibration$Status;
 
     return-void
 .end method

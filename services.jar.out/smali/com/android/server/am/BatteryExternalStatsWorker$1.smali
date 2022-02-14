@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 20
+    .locals 21
 
     move-object/from16 v1, p0
 
@@ -50,7 +50,7 @@
 
     move-result v0
 
-    move v10, v0
+    move v11, v0
 
     iget-object v0, v1, Lcom/android/server/am/BatteryExternalStatsWorker$1;->this$0:Lcom/android/server/am/BatteryExternalStatsWorker;
 
@@ -86,7 +86,7 @@
     sget-object v0, Llibcore/util/EmptyArray;->INT:[I
 
     :goto_0
-    move-object v11, v0
+    move-object v12, v0
 
     iget-object v0, v1, Lcom/android/server/am/BatteryExternalStatsWorker$1;->this$0:Lcom/android/server/am/BatteryExternalStatsWorker;
 
@@ -108,15 +108,21 @@
 
     iget-object v0, v1, Lcom/android/server/am/BatteryExternalStatsWorker$1;->this$0:Lcom/android/server/am/BatteryExternalStatsWorker;
 
-    invoke-static {v0}, Lcom/android/server/am/BatteryExternalStatsWorker;->access$600(Lcom/android/server/am/BatteryExternalStatsWorker;)Z
+    invoke-static {v0}, Lcom/android/server/am/BatteryExternalStatsWorker;->access$600(Lcom/android/server/am/BatteryExternalStatsWorker;)[I
 
-    move-result v9
+    move-result-object v9
 
     iget-object v0, v1, Lcom/android/server/am/BatteryExternalStatsWorker$1;->this$0:Lcom/android/server/am/BatteryExternalStatsWorker;
 
-    const/4 v12, 0x0
+    invoke-static {v0}, Lcom/android/server/am/BatteryExternalStatsWorker;->access$700(Lcom/android/server/am/BatteryExternalStatsWorker;)Z
 
-    invoke-static {v0, v12}, Lcom/android/server/am/BatteryExternalStatsWorker;->access$002(Lcom/android/server/am/BatteryExternalStatsWorker;I)I
+    move-result v10
+
+    iget-object v0, v1, Lcom/android/server/am/BatteryExternalStatsWorker$1;->this$0:Lcom/android/server/am/BatteryExternalStatsWorker;
+
+    const/4 v13, 0x0
+
+    invoke-static {v0, v13}, Lcom/android/server/am/BatteryExternalStatsWorker;->access$002(Lcom/android/server/am/BatteryExternalStatsWorker;I)I
 
     iget-object v0, v1, Lcom/android/server/am/BatteryExternalStatsWorker$1;->this$0:Lcom/android/server/am/BatteryExternalStatsWorker;
 
@@ -134,24 +140,24 @@
 
     iget-object v0, v1, Lcom/android/server/am/BatteryExternalStatsWorker$1;->this$0:Lcom/android/server/am/BatteryExternalStatsWorker;
 
-    invoke-static {v0, v3}, Lcom/android/server/am/BatteryExternalStatsWorker;->access$702(Lcom/android/server/am/BatteryExternalStatsWorker;Ljava/util/concurrent/Future;)Ljava/util/concurrent/Future;
+    invoke-static {v0, v3}, Lcom/android/server/am/BatteryExternalStatsWorker;->access$802(Lcom/android/server/am/BatteryExternalStatsWorker;Ljava/util/concurrent/Future;)Ljava/util/concurrent/Future;
 
     iget-object v0, v1, Lcom/android/server/am/BatteryExternalStatsWorker$1;->this$0:Lcom/android/server/am/BatteryExternalStatsWorker;
 
     const/4 v3, 0x1
 
-    invoke-static {v0, v3}, Lcom/android/server/am/BatteryExternalStatsWorker;->access$602(Lcom/android/server/am/BatteryExternalStatsWorker;Z)Z
+    invoke-static {v0, v3}, Lcom/android/server/am/BatteryExternalStatsWorker;->access$702(Lcom/android/server/am/BatteryExternalStatsWorker;Z)Z
 
-    const/16 v13, 0x3f
+    const/16 v14, 0x3f
 
-    if-ne v10, v13, :cond_1
+    if-ne v11, v14, :cond_1
 
     iget-object v0, v1, Lcom/android/server/am/BatteryExternalStatsWorker$1;->this$0:Lcom/android/server/am/BatteryExternalStatsWorker;
 
-    invoke-static {v0}, Lcom/android/server/am/BatteryExternalStatsWorker;->access$800(Lcom/android/server/am/BatteryExternalStatsWorker;)V
+    invoke-static {v0}, Lcom/android/server/am/BatteryExternalStatsWorker;->access$900(Lcom/android/server/am/BatteryExternalStatsWorker;)V
 
     :cond_1
-    and-int/lit8 v0, v10, 0x1
+    and-int/lit8 v0, v11, 0x1
 
     if-eqz v0, :cond_2
 
@@ -167,7 +173,7 @@
     :try_start_1
     iget-object v0, v1, Lcom/android/server/am/BatteryExternalStatsWorker$1;->this$0:Lcom/android/server/am/BatteryExternalStatsWorker;
 
-    invoke-static {v0}, Lcom/android/server/am/BatteryExternalStatsWorker;->access$900(Lcom/android/server/am/BatteryExternalStatsWorker;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/am/BatteryExternalStatsWorker;->access$1000(Lcom/android/server/am/BatteryExternalStatsWorker;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -178,9 +184,9 @@
     :try_start_2
     iget-object v3, v1, Lcom/android/server/am/BatteryExternalStatsWorker$1;->this$0:Lcom/android/server/am/BatteryExternalStatsWorker;
 
-    move v5, v10
+    move v5, v11
 
-    invoke-static/range {v3 .. v9}, Lcom/android/server/am/BatteryExternalStatsWorker;->access$1000(Lcom/android/server/am/BatteryExternalStatsWorker;Ljava/lang/String;IZZIZ)V
+    invoke-static/range {v3 .. v10}, Lcom/android/server/am/BatteryExternalStatsWorker;->access$1100(Lcom/android/server/am/BatteryExternalStatsWorker;Ljava/lang/String;IZZI[IZ)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
@@ -191,14 +197,14 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_2
 
-    and-int/lit8 v0, v10, 0x1
+    and-int/lit8 v0, v11, 0x1
 
     if-eqz v0, :cond_3
 
     :try_start_4
     iget-object v0, v1, Lcom/android/server/am/BatteryExternalStatsWorker$1;->this$0:Lcom/android/server/am/BatteryExternalStatsWorker;
 
-    invoke-static {v0}, Lcom/android/server/am/BatteryExternalStatsWorker;->access$1100(Lcom/android/server/am/BatteryExternalStatsWorker;)Lcom/android/internal/os/BatteryStatsImpl;
+    invoke-static {v0}, Lcom/android/server/am/BatteryExternalStatsWorker;->access$1200(Lcom/android/server/am/BatteryExternalStatsWorker;)Lcom/android/internal/os/BatteryStatsImpl;
 
     move-result-object v0
 
@@ -207,7 +213,7 @@
     :cond_3
     iget-object v0, v1, Lcom/android/server/am/BatteryExternalStatsWorker$1;->this$0:Lcom/android/server/am/BatteryExternalStatsWorker;
 
-    invoke-static {v0}, Lcom/android/server/am/BatteryExternalStatsWorker;->access$1100(Lcom/android/server/am/BatteryExternalStatsWorker;)Lcom/android/internal/os/BatteryStatsImpl;
+    invoke-static {v0}, Lcom/android/server/am/BatteryExternalStatsWorker;->access$1200(Lcom/android/server/am/BatteryExternalStatsWorker;)Lcom/android/internal/os/BatteryStatsImpl;
 
     move-result-object v2
 
@@ -216,49 +222,51 @@
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_0
 
     :try_start_5
-    array-length v0, v11
+    array-length v0, v12
 
-    move v3, v12
+    move v3, v13
 
     :goto_1
     if-ge v3, v0, :cond_4
 
-    aget v5, v11, v3
+    aget v5, v12, v3
 
-    const/16 v14, 0x2b
+    const/16 v15, 0x2b
 
-    const/4 v15, -0x1
+    const/4 v14, -0x1
 
-    invoke-static {v14, v15, v5, v12}, Lcom/android/internal/util/FrameworkStatsLog;->write(IIII)V
+    invoke-static {v15, v14, v5, v13}, Lcom/android/internal/util/FrameworkStatsLog;->write(IIII)V
 
     iget-object v14, v1, Lcom/android/server/am/BatteryExternalStatsWorker$1;->this$0:Lcom/android/server/am/BatteryExternalStatsWorker;
 
-    invoke-static {v14}, Lcom/android/server/am/BatteryExternalStatsWorker;->access$1100(Lcom/android/server/am/BatteryExternalStatsWorker;)Lcom/android/internal/os/BatteryStatsImpl;
+    invoke-static {v14}, Lcom/android/server/am/BatteryExternalStatsWorker;->access$1200(Lcom/android/server/am/BatteryExternalStatsWorker;)Lcom/android/internal/os/BatteryStatsImpl;
 
-    move-result-object v14
+    move-result-object v15
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    move-result-wide v16
+    move-result-wide v17
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v18
+    move-result-wide v19
 
-    move v15, v5
+    move/from16 v16, v5
 
-    invoke-virtual/range {v14 .. v19}, Lcom/android/internal/os/BatteryStatsImpl;->maybeRemoveIsolatedUidLocked(IJJ)Z
+    invoke-virtual/range {v15 .. v20}, Lcom/android/internal/os/BatteryStatsImpl;->maybeRemoveIsolatedUidLocked(IJJ)Z
 
     nop
 
     add-int/lit8 v3, v3, 0x1
+
+    const/16 v14, 0x3f
 
     goto :goto_1
 
     :cond_4
     iget-object v0, v1, Lcom/android/server/am/BatteryExternalStatsWorker$1;->this$0:Lcom/android/server/am/BatteryExternalStatsWorker;
 
-    invoke-static {v0}, Lcom/android/server/am/BatteryExternalStatsWorker;->access$1100(Lcom/android/server/am/BatteryExternalStatsWorker;)Lcom/android/internal/os/BatteryStatsImpl;
+    invoke-static {v0}, Lcom/android/server/am/BatteryExternalStatsWorker;->access$1200(Lcom/android/server/am/BatteryExternalStatsWorker;)Lcom/android/internal/os/BatteryStatsImpl;
 
     move-result-object v0
 
@@ -310,9 +318,11 @@
     invoke-static {v2, v3, v0}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_2
-    and-int/lit8 v0, v10, 0x3f
+    and-int/lit8 v0, v11, 0x3f
 
-    if-ne v0, v13, :cond_5
+    const/16 v2, 0x3f
+
+    if-ne v0, v2, :cond_5
 
     iget-object v2, v1, Lcom/android/server/am/BatteryExternalStatsWorker$1;->this$0:Lcom/android/server/am/BatteryExternalStatsWorker;
 
@@ -323,9 +333,9 @@
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    move-result-wide v12
+    move-result-wide v13
 
-    invoke-static {v0, v12, v13}, Lcom/android/server/am/BatteryExternalStatsWorker;->access$1202(Lcom/android/server/am/BatteryExternalStatsWorker;J)J
+    invoke-static {v0, v13, v14}, Lcom/android/server/am/BatteryExternalStatsWorker;->access$1302(Lcom/android/server/am/BatteryExternalStatsWorker;J)J
 
     monitor-exit v2
 

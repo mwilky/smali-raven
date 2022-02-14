@@ -2,32 +2,46 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lcom/android/internal/util/function/TriConsumer;
 
 
-# instance fields
-.field public final synthetic f$0:Lcom/android/internal/policy/GestureNavigationSettingsObserver;
+# static fields
+.field public static final synthetic INSTANCE:Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda9;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/internal/policy/GestureNavigationSettingsObserver;)V
+.method static synthetic constructor <clinit>()V
+    .locals 1
+
+    new-instance v0, Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda9;
+
+    invoke-direct {v0}, Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda9;-><init>()V
+
+    sput-object v0, Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda9;->INSTANCE:Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda9;
+
+    return-void
+.end method
+
+.method private synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda9;->f$0:Lcom/android/internal/policy/GestureNavigationSettingsObserver;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 1
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda9;->f$0:Lcom/android/internal/policy/GestureNavigationSettingsObserver;
+    check-cast p1, Lcom/android/server/wm/DisplayFrames;
 
-    invoke-virtual {v0}, Lcom/android/internal/policy/GestureNavigationSettingsObserver;->register()V
+    check-cast p2, Lcom/android/server/wm/WindowState;
+
+    check-cast p3, Landroid/graphics/Rect;
+
+    invoke-static {p1, p2, p3}, Lcom/android/server/wm/DisplayPolicy;->lambda$addWindowLw$4(Lcom/android/server/wm/DisplayFrames;Lcom/android/server/wm/WindowState;Landroid/graphics/Rect;)V
 
     return-void
 .end method

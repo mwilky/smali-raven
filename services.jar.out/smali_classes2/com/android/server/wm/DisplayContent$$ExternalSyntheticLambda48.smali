@@ -27,9 +27,9 @@
 
     iget v0, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda48;->f$0:I
 
-    check-cast p1, Lcom/android/server/wm/WindowState;
+    check-cast p1, Lcom/android/server/wm/Task;
 
-    invoke-static {v0, p1}, Lcom/android/server/wm/DisplayContent;->lambda$canAddToastWindowForUid$21(ILcom/android/server/wm/WindowState;)Z
+    invoke-static {v0, p1}, Lcom/android/server/wm/DisplayContent;->lambda$getRootTask$13(ILcom/android/server/wm/Task;)Z
 
     move-result p1
 

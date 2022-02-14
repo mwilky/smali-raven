@@ -33,7 +33,7 @@
 
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda46;->f$1:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/pm/PackageManagerService;->lambda$deletePackageIfUnusedLPr$71$PackageManagerService(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lcom/android/server/pm/PackageManagerService;->lambda$deletePackageIfUnusedLPr$70$PackageManagerService(Ljava/lang/String;)V
 
     return-void
 .end method

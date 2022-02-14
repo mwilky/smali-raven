@@ -35,7 +35,7 @@
 
     check-cast p1, Lcom/android/server/wm/WindowState;
 
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/wm/DisplayContent;->lambda$destroyLeakedSurfaces$23$DisplayContent(Landroid/view/SurfaceControl$Transaction;Lcom/android/server/wm/WindowState;)V
+    invoke-virtual {v0, v1, p1}, Lcom/android/server/wm/DisplayContent;->lambda$destroyLeakedSurfaces$24$DisplayContent(Landroid/view/SurfaceControl$Transaction;Lcom/android/server/wm/WindowState;)V
 
     return-void
 .end method

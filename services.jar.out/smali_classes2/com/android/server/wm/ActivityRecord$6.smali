@@ -15,14 +15,14 @@
 
 
 # static fields
-.field static final synthetic $SwitchMap$com$android$server$wm$Task$ActivityState:[I
+.field static final synthetic $SwitchMap$com$android$server$wm$ActivityRecord$State:[I
 
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 3
 
-    invoke-static {}, Lcom/android/server/wm/Task$ActivityState;->values()[Lcom/android/server/wm/Task$ActivityState;
+    invoke-static {}, Lcom/android/server/wm/ActivityRecord$State;->values()[Lcom/android/server/wm/ActivityRecord$State;
 
     move-result-object v0
 
@@ -30,12 +30,12 @@
 
     new-array v0, v0, [I
 
-    sput-object v0, Lcom/android/server/wm/ActivityRecord$6;->$SwitchMap$com$android$server$wm$Task$ActivityState:[I
+    sput-object v0, Lcom/android/server/wm/ActivityRecord$6;->$SwitchMap$com$android$server$wm$ActivityRecord$State:[I
 
     :try_start_0
-    sget-object v1, Lcom/android/server/wm/Task$ActivityState;->RESUMED:Lcom/android/server/wm/Task$ActivityState;
+    sget-object v1, Lcom/android/server/wm/ActivityRecord$State;->RESUMED:Lcom/android/server/wm/ActivityRecord$State;
 
-    invoke-virtual {v1}, Lcom/android/server/wm/Task$ActivityState;->ordinal()I
+    invoke-virtual {v1}, Lcom/android/server/wm/ActivityRecord$State;->ordinal()I
 
     move-result v1
 
@@ -52,11 +52,11 @@
 
     :goto_0
     :try_start_1
-    sget-object v0, Lcom/android/server/wm/ActivityRecord$6;->$SwitchMap$com$android$server$wm$Task$ActivityState:[I
+    sget-object v0, Lcom/android/server/wm/ActivityRecord$6;->$SwitchMap$com$android$server$wm$ActivityRecord$State:[I
 
-    sget-object v1, Lcom/android/server/wm/Task$ActivityState;->PAUSING:Lcom/android/server/wm/Task$ActivityState;
+    sget-object v1, Lcom/android/server/wm/ActivityRecord$State;->PAUSING:Lcom/android/server/wm/ActivityRecord$State;
 
-    invoke-virtual {v1}, Lcom/android/server/wm/Task$ActivityState;->ordinal()I
+    invoke-virtual {v1}, Lcom/android/server/wm/ActivityRecord$State;->ordinal()I
 
     move-result v1
 
@@ -73,11 +73,11 @@
 
     :goto_1
     :try_start_2
-    sget-object v0, Lcom/android/server/wm/ActivityRecord$6;->$SwitchMap$com$android$server$wm$Task$ActivityState:[I
+    sget-object v0, Lcom/android/server/wm/ActivityRecord$6;->$SwitchMap$com$android$server$wm$ActivityRecord$State:[I
 
-    sget-object v1, Lcom/android/server/wm/Task$ActivityState;->PAUSED:Lcom/android/server/wm/Task$ActivityState;
+    sget-object v1, Lcom/android/server/wm/ActivityRecord$State;->PAUSED:Lcom/android/server/wm/ActivityRecord$State;
 
-    invoke-virtual {v1}, Lcom/android/server/wm/Task$ActivityState;->ordinal()I
+    invoke-virtual {v1}, Lcom/android/server/wm/ActivityRecord$State;->ordinal()I
 
     move-result v1
 
@@ -94,11 +94,11 @@
 
     :goto_2
     :try_start_3
-    sget-object v0, Lcom/android/server/wm/ActivityRecord$6;->$SwitchMap$com$android$server$wm$Task$ActivityState:[I
+    sget-object v0, Lcom/android/server/wm/ActivityRecord$6;->$SwitchMap$com$android$server$wm$ActivityRecord$State:[I
 
-    sget-object v1, Lcom/android/server/wm/Task$ActivityState;->STOPPING:Lcom/android/server/wm/Task$ActivityState;
+    sget-object v1, Lcom/android/server/wm/ActivityRecord$State;->STOPPING:Lcom/android/server/wm/ActivityRecord$State;
 
-    invoke-virtual {v1}, Lcom/android/server/wm/Task$ActivityState;->ordinal()I
+    invoke-virtual {v1}, Lcom/android/server/wm/ActivityRecord$State;->ordinal()I
 
     move-result v1
 
@@ -115,11 +115,11 @@
 
     :goto_3
     :try_start_4
-    sget-object v0, Lcom/android/server/wm/ActivityRecord$6;->$SwitchMap$com$android$server$wm$Task$ActivityState:[I
+    sget-object v0, Lcom/android/server/wm/ActivityRecord$6;->$SwitchMap$com$android$server$wm$ActivityRecord$State:[I
 
-    sget-object v1, Lcom/android/server/wm/Task$ActivityState;->STARTED:Lcom/android/server/wm/Task$ActivityState;
+    sget-object v1, Lcom/android/server/wm/ActivityRecord$State;->STARTED:Lcom/android/server/wm/ActivityRecord$State;
 
-    invoke-virtual {v1}, Lcom/android/server/wm/Task$ActivityState;->ordinal()I
+    invoke-virtual {v1}, Lcom/android/server/wm/ActivityRecord$State;->ordinal()I
 
     move-result v1
 
@@ -136,11 +136,11 @@
 
     :goto_4
     :try_start_5
-    sget-object v0, Lcom/android/server/wm/ActivityRecord$6;->$SwitchMap$com$android$server$wm$Task$ActivityState:[I
+    sget-object v0, Lcom/android/server/wm/ActivityRecord$6;->$SwitchMap$com$android$server$wm$ActivityRecord$State:[I
 
-    sget-object v1, Lcom/android/server/wm/Task$ActivityState;->STOPPED:Lcom/android/server/wm/Task$ActivityState;
+    sget-object v1, Lcom/android/server/wm/ActivityRecord$State;->STOPPED:Lcom/android/server/wm/ActivityRecord$State;
 
-    invoke-virtual {v1}, Lcom/android/server/wm/Task$ActivityState;->ordinal()I
+    invoke-virtual {v1}, Lcom/android/server/wm/ActivityRecord$State;->ordinal()I
 
     move-result v1
 
@@ -157,11 +157,11 @@
 
     :goto_5
     :try_start_6
-    sget-object v0, Lcom/android/server/wm/ActivityRecord$6;->$SwitchMap$com$android$server$wm$Task$ActivityState:[I
+    sget-object v0, Lcom/android/server/wm/ActivityRecord$6;->$SwitchMap$com$android$server$wm$ActivityRecord$State:[I
 
-    sget-object v1, Lcom/android/server/wm/Task$ActivityState;->DESTROYED:Lcom/android/server/wm/Task$ActivityState;
+    sget-object v1, Lcom/android/server/wm/ActivityRecord$State;->DESTROYED:Lcom/android/server/wm/ActivityRecord$State;
 
-    invoke-virtual {v1}, Lcom/android/server/wm/Task$ActivityState;->ordinal()I
+    invoke-virtual {v1}, Lcom/android/server/wm/ActivityRecord$State;->ordinal()I
 
     move-result v1
 
@@ -178,11 +178,11 @@
 
     :goto_6
     :try_start_7
-    sget-object v0, Lcom/android/server/wm/ActivityRecord$6;->$SwitchMap$com$android$server$wm$Task$ActivityState:[I
+    sget-object v0, Lcom/android/server/wm/ActivityRecord$6;->$SwitchMap$com$android$server$wm$ActivityRecord$State:[I
 
-    sget-object v1, Lcom/android/server/wm/Task$ActivityState;->DESTROYING:Lcom/android/server/wm/Task$ActivityState;
+    sget-object v1, Lcom/android/server/wm/ActivityRecord$State;->DESTROYING:Lcom/android/server/wm/ActivityRecord$State;
 
-    invoke-virtual {v1}, Lcom/android/server/wm/Task$ActivityState;->ordinal()I
+    invoke-virtual {v1}, Lcom/android/server/wm/ActivityRecord$State;->ordinal()I
 
     move-result v1
 
@@ -199,11 +199,11 @@
 
     :goto_7
     :try_start_8
-    sget-object v0, Lcom/android/server/wm/ActivityRecord$6;->$SwitchMap$com$android$server$wm$Task$ActivityState:[I
+    sget-object v0, Lcom/android/server/wm/ActivityRecord$6;->$SwitchMap$com$android$server$wm$ActivityRecord$State:[I
 
-    sget-object v1, Lcom/android/server/wm/Task$ActivityState;->INITIALIZING:Lcom/android/server/wm/Task$ActivityState;
+    sget-object v1, Lcom/android/server/wm/ActivityRecord$State;->INITIALIZING:Lcom/android/server/wm/ActivityRecord$State;
 
-    invoke-virtual {v1}, Lcom/android/server/wm/Task$ActivityState;->ordinal()I
+    invoke-virtual {v1}, Lcom/android/server/wm/ActivityRecord$State;->ordinal()I
 
     move-result v1
 

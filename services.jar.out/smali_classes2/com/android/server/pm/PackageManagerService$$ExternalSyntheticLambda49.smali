@@ -45,7 +45,7 @@
 
     iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda49;->f$3:Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/pm/PackageManagerService;->lambda$notifyFirstLaunch$50$PackageManagerService(Ljava/lang/String;ILjava/lang/String;)V
+    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/pm/PackageManagerService;->lambda$notifyFirstLaunch$49$PackageManagerService(Ljava/lang/String;ILjava/lang/String;)V
 
     return-void
 .end method

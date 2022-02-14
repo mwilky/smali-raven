@@ -186,6 +186,22 @@
 
     iput-boolean v0, p0, Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration$2;->mUseWakeLock:Z
 
+    iget-object v0, p0, Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration$2;->this$1:Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration;
+
+    invoke-virtual {v0}, Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration;->getRequest()Landroid/location/LocationRequest;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/location/LocationRequest;->getIntervalMillis()J
+
+    move-result-wide v0
+
+    const-wide v2, 0x7fffffffffffffffL
+
+    cmp-long v0, v0, v2
+
+    if-eqz v0, :cond_1
+
     iget-object v0, p0, Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration$2;->val$locationResult:Landroid/location/LocationResult;
 
     invoke-virtual {v0}, Landroid/location/LocationResult;->size()I
@@ -222,27 +238,27 @@
 
     :cond_1
     :goto_1
-    iget-object v1, p0, Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration$2;->this$1:Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration;
+    iget-object v0, p0, Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration$2;->this$1:Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration;
 
-    iget-object v2, p0, Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration$2;->val$locationResult:Landroid/location/LocationResult;
+    iget-object v1, p0, Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration$2;->val$locationResult:Landroid/location/LocationResult;
 
-    invoke-virtual {v2}, Landroid/location/LocationResult;->getLastLocation()Landroid/location/Location;
+    invoke-virtual {v1}, Landroid/location/LocationResult;->getLastLocation()Landroid/location/Location;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v1, v2}, Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration;->setLastDeliveredLocation(Landroid/location/Location;)V
+    invoke-virtual {v0, v1}, Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration;->setLastDeliveredLocation(Landroid/location/Location;)V
 
-    iget-boolean v1, p0, Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration$2;->mUseWakeLock:Z
+    iget-boolean v0, p0, Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration$2;->mUseWakeLock:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v0, :cond_2
 
-    iget-object v1, p0, Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration$2;->this$1:Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration;
+    iget-object v0, p0, Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration$2;->this$1:Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration;
 
-    iget-object v1, v1, Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration;->mWakeLock:Landroid/os/PowerManager$WakeLock;
+    iget-object v0, v0, Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    const-wide/16 v2, 0x7530
+    const-wide/16 v1, 0x7530
 
-    invoke-virtual {v1, v2, v3}, Landroid/os/PowerManager$WakeLock;->acquire(J)V
+    invoke-virtual {v0, v1, v2}, Landroid/os/PowerManager$WakeLock;->acquire(J)V
 
     :cond_2
     return-void
@@ -292,21 +308,15 @@
 
     iget-object v1, p0, Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration$2;->this$1:Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration;
 
-    iget-object v1, v1, Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration;->mWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    invoke-static {v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v2, Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration$2$$ExternalSyntheticLambda0;
-
-    invoke-direct {v2, v1}, Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration$2$$ExternalSyntheticLambda0;-><init>(Landroid/os/PowerManager$WakeLock;)V
+    iget-object v1, v1, Lcom/android/server/location/provider/LocationProviderManager$LocationRegistration;->mWakeLockReleaser:Lcom/android/server/location/provider/LocationProviderManager$ExternalWakeLockReleaser;
 
     goto :goto_1
 
     :cond_1
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     :goto_1
-    invoke-interface {p1, v0, v2}, Lcom/android/server/location/provider/LocationProviderManager$LocationTransport;->deliverOnLocationChanged(Landroid/location/LocationResult;Ljava/lang/Runnable;)V
+    invoke-interface {p1, v0, v1}, Lcom/android/server/location/provider/LocationProviderManager$LocationTransport;->deliverOnLocationChanged(Landroid/location/LocationResult;Landroid/os/IRemoteCallback;)V
 
     sget-object v1, Lcom/android/server/location/eventlog/LocationEventLog;->EVENT_LOG:Lcom/android/server/location/eventlog/LocationEventLog;
 

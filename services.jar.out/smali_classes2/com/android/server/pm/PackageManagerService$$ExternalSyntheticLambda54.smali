@@ -57,7 +57,7 @@
 
     iget-object v5, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda54;->f$5:Landroid/os/UserHandle;
 
-    invoke-virtual/range {v0 .. v5}, Lcom/android/server/pm/PackageManagerService;->lambda$movePackage$68$PackageManagerService(Ljava/lang/String;Ljava/lang/String;IILandroid/os/UserHandle;)V
+    invoke-virtual/range {v0 .. v5}, Lcom/android/server/pm/PackageManagerService;->lambda$movePackage$67$PackageManagerService(Ljava/lang/String;Ljava/lang/String;IILandroid/os/UserHandle;)V
 
     return-void
 .end method

@@ -37,7 +37,7 @@
 
     check-cast p1, Lcom/android/server/wm/Task;
 
-    invoke-static {p1}, Lcom/android/server/wm/DisplayContent;->lambda$releaseSelfIfNeeded$43(Lcom/android/server/wm/Task;)V
+    invoke-static {p1}, Lcom/android/server/wm/DisplayContent;->lambda$releaseSelfIfNeeded$45(Lcom/android/server/wm/Task;)V
 
     return-void
 .end method

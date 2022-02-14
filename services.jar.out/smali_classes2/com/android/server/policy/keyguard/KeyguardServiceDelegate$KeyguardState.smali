@@ -29,7 +29,7 @@
 
 .field public interactiveState:I
 
-.field occluded:Z
+.field volatile occluded:Z
 
 .field public offReason:I
 

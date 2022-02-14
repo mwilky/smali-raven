@@ -57,7 +57,7 @@
 
     iget v7, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda58;->f$5:I
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/server/pm/PackageManagerService;->lambda$movePackageInternal$69$PackageManagerService(Ljava/util/concurrent/CountDownLatch;JLjava/io/File;JI)V
+    invoke-virtual/range {v0 .. v7}, Lcom/android/server/pm/PackageManagerService;->lambda$movePackageInternal$68$PackageManagerService(Ljava/util/concurrent/CountDownLatch;JLjava/io/File;JI)V
 
     return-void
 .end method

@@ -41,7 +41,7 @@
 
     check-cast p1, Lcom/android/server/wm/WindowState;
 
-    invoke-static {v0, v1, v2, p1}, Lcom/android/server/wm/DisplayContent;->lambda$dumpWindowAnimators$25(Ljava/io/PrintWriter;Ljava/lang/String;[ILcom/android/server/wm/WindowState;)V
+    invoke-static {v0, v1, v2, p1}, Lcom/android/server/wm/DisplayContent;->lambda$dumpWindowAnimators$26(Ljava/io/PrintWriter;Ljava/lang/String;[ILcom/android/server/wm/WindowState;)V
 
     return-void
 .end method

@@ -35,7 +35,7 @@
 
     check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$closeSystemDialogActivities$30$RootWindowContainer(Ljava/lang/String;Lcom/android/server/wm/ActivityRecord;)V
+    invoke-virtual {v0, v1, p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$closeSystemDialogActivities$31$RootWindowContainer(Ljava/lang/String;Lcom/android/server/wm/ActivityRecord;)V
 
     return-void
 .end method

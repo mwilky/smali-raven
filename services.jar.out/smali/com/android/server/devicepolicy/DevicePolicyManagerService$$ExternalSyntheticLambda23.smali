@@ -33,7 +33,7 @@
 
     iget-object v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda23;->f$1:Landroid/content/Intent;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$notifyPendingSystemUpdate$96$DevicePolicyManagerService(Landroid/content/Intent;)V
+    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$notifyPendingSystemUpdate$99$DevicePolicyManagerService(Landroid/content/Intent;)V
 
     return-void
 .end method

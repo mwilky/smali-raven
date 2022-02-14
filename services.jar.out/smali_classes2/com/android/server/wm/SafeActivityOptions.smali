@@ -44,6 +44,20 @@
     return-void
 .end method
 
+.method private constructor <init>(Landroid/app/ActivityOptions;II)V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput p2, p0, Lcom/android/server/wm/SafeActivityOptions;->mOriginalCallingPid:I
+
+    iput p3, p0, Lcom/android/server/wm/SafeActivityOptions;->mOriginalCallingUid:I
+
+    iput-object p1, p0, Lcom/android/server/wm/SafeActivityOptions;->mOriginalOptions:Landroid/app/ActivityOptions;
+
+    return-void
+.end method
+
 .method private abort()V
     .locals 1
 
@@ -676,6 +690,28 @@
     move-result-object v1
 
     invoke-direct {v0, v1}, Lcom/android/server/wm/SafeActivityOptions;-><init>(Landroid/app/ActivityOptions;)V
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return-object v0
+.end method
+
+.method static fromBundle(Landroid/os/Bundle;II)Lcom/android/server/wm/SafeActivityOptions;
+    .locals 2
+
+    if-eqz p0, :cond_0
+
+    new-instance v0, Lcom/android/server/wm/SafeActivityOptions;
+
+    invoke-static {p0}, Landroid/app/ActivityOptions;->fromBundle(Landroid/os/Bundle;)Landroid/app/ActivityOptions;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1, p1, p2}, Lcom/android/server/wm/SafeActivityOptions;-><init>(Landroid/app/ActivityOptions;II)V
 
     goto :goto_0
 

@@ -125,7 +125,7 @@
     :pswitch_0
     iget-object v1, p0, Lcom/android/server/camera/CameraServiceProxy$1;->this$0:Lcom/android/server/camera/CameraServiceProxy;
 
-    invoke-static {v1}, Lcom/android/server/camera/CameraServiceProxy;->access$900(Lcom/android/server/camera/CameraServiceProxy;)Ljava/lang/Object;
+    invoke-static {v1}, Lcom/android/server/camera/CameraServiceProxy;->access$200(Lcom/android/server/camera/CameraServiceProxy;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -134,7 +134,7 @@
     :try_start_0
     iget-object v2, p0, Lcom/android/server/camera/CameraServiceProxy$1;->this$0:Lcom/android/server/camera/CameraServiceProxy;
 
-    invoke-static {v2}, Lcom/android/server/camera/CameraServiceProxy;->access$1000(Lcom/android/server/camera/CameraServiceProxy;)Ljava/util/Set;
+    invoke-static {v2}, Lcom/android/server/camera/CameraServiceProxy;->access$300(Lcom/android/server/camera/CameraServiceProxy;)Ljava/util/Set;
 
     move-result-object v2
 
@@ -147,11 +147,11 @@
     :cond_2
     iget-object v2, p0, Lcom/android/server/camera/CameraServiceProxy$1;->this$0:Lcom/android/server/camera/CameraServiceProxy;
 
-    invoke-static {v2}, Lcom/android/server/camera/CameraServiceProxy;->access$1100(Lcom/android/server/camera/CameraServiceProxy;)I
+    invoke-static {v2}, Lcom/android/server/camera/CameraServiceProxy;->access$400(Lcom/android/server/camera/CameraServiceProxy;)I
 
     move-result v3
 
-    invoke-static {v2, v3}, Lcom/android/server/camera/CameraServiceProxy;->access$1200(Lcom/android/server/camera/CameraServiceProxy;I)V
+    invoke-static {v2, v3}, Lcom/android/server/camera/CameraServiceProxy;->access$500(Lcom/android/server/camera/CameraServiceProxy;I)V
 
     monitor-exit v1
 

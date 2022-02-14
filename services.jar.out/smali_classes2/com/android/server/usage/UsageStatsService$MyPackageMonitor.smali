@@ -42,24 +42,37 @@
 .method public onPackageRemoved(Ljava/lang/String;I)V
     .locals 4
 
-    iget-object v0, p0, Lcom/android/server/usage/UsageStatsService$MyPackageMonitor;->this$0:Lcom/android/server/usage/UsageStatsService;
-
-    iget-object v0, v0, Lcom/android/server/usage/UsageStatsService;->mHandler:Landroid/os/Handler;
-
     invoke-virtual {p0}, Lcom/android/server/usage/UsageStatsService$MyPackageMonitor;->getChangingUserId()I
 
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/server/usage/UsageStatsService$MyPackageMonitor;->this$0:Lcom/android/server/usage/UsageStatsService;
+
+    invoke-static {v0}, Landroid/os/UserHandle;->of(I)Landroid/os/UserHandle;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Lcom/android/server/usage/UsageStatsService;->access$2900(Lcom/android/server/usage/UsageStatsService;Landroid/os/UserHandle;)Z
+
     move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/server/usage/UsageStatsService$MyPackageMonitor;->this$0:Lcom/android/server/usage/UsageStatsService;
+
+    iget-object v1, v1, Lcom/android/server/usage/UsageStatsService;->mHandler:Landroid/os/Handler;
 
     const/4 v2, 0x6
 
     const/4 v3, 0x0
 
-    invoke-virtual {v0, v2, v1, v3, p1}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {v1, v2, v0, v3, p1}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
+    invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
 
+    :cond_0
     invoke-super {p0, p1, p2}, Lcom/android/internal/content/PackageMonitor;->onPackageRemoved(Ljava/lang/String;I)V
 
     return-void

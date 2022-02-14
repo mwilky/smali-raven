@@ -33,7 +33,7 @@
 
     iget v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda76;->f$1:I
 
-    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$isLockScreenSecureUnchecked$30$DevicePolicyManagerService(I)Ljava/lang/Boolean;
+    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$getUserInfo$29$DevicePolicyManagerService(I)Landroid/content/pm/UserInfo;
 
     move-result-object v0
 

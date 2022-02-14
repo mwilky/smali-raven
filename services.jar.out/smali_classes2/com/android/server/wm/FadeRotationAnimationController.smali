@@ -6,6 +6,8 @@
 # instance fields
 .field private final mFrozenTimeoutRunnable:Ljava/lang/Runnable;
 
+.field private mHideImmediately:Z
+
 .field private final mNavBarToken:Lcom/android/server/wm/WindowToken;
 
 .field private mOnShowRunnable:Ljava/lang/Runnable;
@@ -57,19 +59,24 @@
     :goto_0
     iput-object v2, p0, Lcom/android/server/wm/FadeRotationAnimationController;->mFrozenTimeoutRunnable:Ljava/lang/Runnable;
 
+    const/4 v4, 0x1
+
+    if-eqz v2, :cond_1
+
+    iput-boolean v4, p0, Lcom/android/server/wm/FadeRotationAnimationController;->mHideImmediately:Z
+
+    :cond_1
     invoke-virtual {p1}, Lcom/android/server/wm/DisplayContent;->getDisplayPolicy()Lcom/android/server/wm/DisplayPolicy;
 
     move-result-object v2
 
     invoke-virtual {v2}, Lcom/android/server/wm/DisplayPolicy;->getNavigationBar()Lcom/android/server/wm/WindowState;
 
-    move-result-object v4
+    move-result-object v5
 
-    const/4 v5, 0x1
+    if-eqz v5, :cond_4
 
-    if-eqz v4, :cond_3
-
-    iget-object v3, v4, Lcom/android/server/wm/WindowState;->mToken:Lcom/android/server/wm/WindowToken;
+    iget-object v3, v5, Lcom/android/server/wm/WindowState;->mToken:Lcom/android/server/wm/WindowToken;
 
     iput-object v3, p0, Lcom/android/server/wm/FadeRotationAnimationController;->mNavBarToken:Lcom/android/server/wm/WindowToken;
 
@@ -77,19 +84,19 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     invoke-virtual {v1}, Lcom/android/server/wm/RecentsAnimationController;->isNavigationBarAttachedToApp()Z
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_2
 
-    move v6, v5
+    move v6, v4
 
     goto :goto_1
 
-    :cond_1
+    :cond_2
     const/4 v6, 0x0
 
     :goto_1
@@ -97,16 +104,16 @@
 
     move-result v7
 
-    if-nez v7, :cond_2
+    if-nez v7, :cond_3
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_3
 
     invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_2
+    :cond_3
     goto :goto_2
 
-    :cond_3
+    :cond_4
     iput-object v3, p0, Lcom/android/server/wm/FadeRotationAnimationController;->mNavBarToken:Lcom/android/server/wm/WindowToken;
 
     :goto_2
@@ -116,9 +123,9 @@
 
     new-instance v1, Lcom/android/server/wm/FadeRotationAnimationController$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0, v4, v0}, Lcom/android/server/wm/FadeRotationAnimationController$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/wm/FadeRotationAnimationController;Lcom/android/server/wm/WindowState;Lcom/android/server/wm/WindowState;)V
+    invoke-direct {v1, p0, v5, v0}, Lcom/android/server/wm/FadeRotationAnimationController$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/wm/FadeRotationAnimationController;Lcom/android/server/wm/WindowState;Lcom/android/server/wm/WindowState;)V
 
-    invoke-virtual {p1, v1, v5}, Lcom/android/server/wm/DisplayContent;->forAllWindows(Ljava/util/function/Consumer;Z)V
+    invoke-virtual {p1, v1, v4}, Lcom/android/server/wm/DisplayContent;->forAllWindows(Ljava/util/function/Consumer;Z)V
 
     return-void
 .end method
@@ -153,7 +160,7 @@
 .method public getFadeOutAnimation()Landroid/view/animation/Animation;
     .locals 2
 
-    iget-object v0, p0, Lcom/android/server/wm/FadeRotationAnimationController;->mFrozenTimeoutRunnable:Ljava/lang/Runnable;
+    iget-boolean v0, p0, Lcom/android/server/wm/FadeRotationAnimationController;->mHideImmediately:Z
 
     if-eqz v0, :cond_0
 
@@ -221,6 +228,30 @@
     invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/wm/WindowManagerService$H;->postDelayed(Ljava/lang/Runnable;J)Z
 
     :cond_1
+    return-void
+.end method
+
+.method hideImmediately(Lcom/android/server/wm/WindowToken;)V
+    .locals 3
+
+    iget-boolean v0, p0, Lcom/android/server/wm/FadeRotationAnimationController;->mHideImmediately:Z
+
+    const/4 v1, 0x1
+
+    iput-boolean v1, p0, Lcom/android/server/wm/FadeRotationAnimationController;->mHideImmediately:Z
+
+    iget-object v1, p0, Lcom/android/server/wm/FadeRotationAnimationController;->mTargetWindowTokens:Ljava/util/ArrayList;
+
+    invoke-virtual {v1, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const/4 v1, 0x0
+
+    const/16 v2, 0x40
+
+    invoke-virtual {p0, v1, p1, v2}, Lcom/android/server/wm/FadeRotationAnimationController;->fadeWindowToken(ZLcom/android/server/wm/WindowToken;I)V
+
+    iput-boolean v0, p0, Lcom/android/server/wm/FadeRotationAnimationController;->mHideImmediately:Z
+
     return-void
 .end method
 

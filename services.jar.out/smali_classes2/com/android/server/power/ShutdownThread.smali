@@ -994,7 +994,7 @@
     :goto_0
     sput-boolean v1, Lcom/android/server/power/ShutdownThread;->mRebootHasProgressBar:Z
 
-    const v1, 0x104075c
+    const v1, 0x1040761
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1018,7 +1018,7 @@
 
     invoke-virtual {v0, v4}, Landroid/app/ProgressDialog;->setProgressStyle(I)V
 
-    const v1, 0x104075a
+    const v1, 0x104075f
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1040,7 +1040,7 @@
     :cond_2
     invoke-virtual {v0, v4}, Landroid/app/ProgressDialog;->setIndeterminate(Z)V
 
-    const v1, 0x104075b
+    const v1, 0x1040760
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1053,9 +1053,9 @@
     :cond_3
     sget-object v1, Lcom/android/server/power/ShutdownThread;->mReason:Ljava/lang/String;
 
-    const v5, 0x10407ec
+    const v5, 0x10407f1
 
-    const v6, 0x1040743
+    const v6, 0x1040748
 
     if-eqz v1, :cond_6
 
@@ -1099,7 +1099,7 @@
     goto :goto_1
 
     :cond_5
-    const v1, 0x1040758
+    const v1, 0x104075d
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1107,7 +1107,7 @@
 
     invoke-virtual {v0, v1}, Landroid/app/ProgressDialog;->setTitle(Ljava/lang/CharSequence;)V
 
-    const v1, 0x1040757
+    const v1, 0x104075c
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1266,7 +1266,7 @@
 
     move-result-object v1
 
-    const v2, 0x10e0079
+    const v2, 0x10e007d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1276,7 +1276,7 @@
 
     if-eqz v2, :cond_1
 
-    const v2, 0x1040755
+    const v2, 0x104075a
 
     goto :goto_0
 
@@ -1285,12 +1285,12 @@
 
     if-ne v1, v2, :cond_2
 
-    const v2, 0x10407eb
+    const v2, 0x10407f0
 
     goto :goto_0
 
     :cond_2
-    const v2, 0x10407ea
+    const v2, 0x10407ef
 
     :goto_0
     nop
@@ -1334,12 +1334,12 @@
 
     if-eqz v5, :cond_4
 
-    const v5, 0x1040756
+    const v5, 0x104075b
 
     goto :goto_1
 
     :cond_4
-    const v5, 0x1040743
+    const v5, 0x1040748
 
     :goto_1
     invoke-virtual {v4, v5}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;

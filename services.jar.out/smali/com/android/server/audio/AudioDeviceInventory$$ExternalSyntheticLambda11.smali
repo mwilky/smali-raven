@@ -2,36 +2,34 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/audio/AudioDeviceInventory;
+.field public final synthetic f$0:Ljava/io/PrintWriter;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/audio/AudioDeviceInventory;)V
+.method public synthetic constructor <init>(Ljava/io/PrintWriter;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/audio/AudioDeviceInventory$$ExternalSyntheticLambda11;->f$0:Lcom/android/server/audio/AudioDeviceInventory;
+    iput-object p1, p0, Lcom/android/server/audio/AudioDeviceInventory$$ExternalSyntheticLambda11;->f$0:Ljava/io/PrintWriter;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
+.method public final accept(Ljava/lang/Object;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/audio/AudioDeviceInventory$$ExternalSyntheticLambda11;->f$0:Lcom/android/server/audio/AudioDeviceInventory;
+    iget-object v0, p0, Lcom/android/server/audio/AudioDeviceInventory$$ExternalSyntheticLambda11;->f$0:Ljava/io/PrintWriter;
 
-    check-cast p1, Lcom/android/server/audio/AudioDeviceInventory$DeviceInfo;
+    check-cast p1, Ljava/lang/Integer;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/audio/AudioDeviceInventory;->lambda$isCurrentDeviceConnected$11$AudioDeviceInventory(Lcom/android/server/audio/AudioDeviceInventory$DeviceInfo;)Z
+    invoke-static {v0, p1}, Lcom/android/server/audio/AudioDeviceInventory;->lambda$dump$0(Ljava/io/PrintWriter;Ljava/lang/Integer;)V
 
-    move-result p1
-
-    return p1
+    return-void
 .end method

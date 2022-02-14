@@ -209,7 +209,7 @@
 
     move-result-object v1
 
-    const v2, 0x1110140
+    const v2, 0x1110145
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -217,7 +217,7 @@
 
     iput-boolean v1, p0, Lcom/android/server/wm/DisplayRotation;->mSupportAutoRotation:Z
 
-    const v1, 0x10e0074
+    const v1, 0x10e0078
 
     invoke-direct {p0, v1}, Lcom/android/server/wm/DisplayRotation;->readRotation(I)I
 
@@ -233,7 +233,7 @@
 
     iput v1, p0, Lcom/android/server/wm/DisplayRotation;->mCarDockRotation:I
 
-    const v1, 0x10e004b
+    const v1, 0x10e004d
 
     invoke-direct {p0, v1}, Lcom/android/server/wm/DisplayRotation;->readRotation(I)I
 
@@ -241,7 +241,7 @@
 
     iput v1, p0, Lcom/android/server/wm/DisplayRotation;->mDeskDockRotation:I
 
-    const v1, 0x10e00d8
+    const v1, 0x10e00dc
 
     invoke-direct {p0, v1}, Lcom/android/server/wm/DisplayRotation;->readRotation(I)I
 
@@ -427,7 +427,7 @@
 
     if-nez v1, :cond_0
 
-    goto/16 :goto_1
+    goto :goto_1
 
     :cond_0
     iget-object v1, p0, Lcom/android/server/wm/DisplayRotation;->mService:Lcom/android/server/wm/WindowManagerService;
@@ -442,27 +442,19 @@
 
     iput-boolean v1, p0, Lcom/android/server/wm/DisplayRotation;->mIsWaitingForRemoteRotation:Z
 
-    iget-object v1, p0, Lcom/android/server/wm/DisplayRotation;->mService:Lcom/android/server/wm/WindowManagerService;
+    iget-object v1, p0, Lcom/android/server/wm/DisplayRotation;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
-    iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
+    iget-object v1, v1, Lcom/android/server/wm/DisplayContent;->mTransitionController:Lcom/android/server/wm/TransitionController;
 
-    invoke-virtual {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->getTransitionController()Lcom/android/server/wm/TransitionController;
+    invoke-virtual {v1}, Lcom/android/server/wm/TransitionController;->isShellTransitionsEnabled()Z
 
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/server/wm/TransitionController;->getTransitionPlayer()Landroid/window/ITransitionPlayer;
-
-    move-result-object v1
+    move-result v1
 
     if-eqz v1, :cond_2
 
-    iget-object v1, p0, Lcom/android/server/wm/DisplayRotation;->mService:Lcom/android/server/wm/WindowManagerService;
+    iget-object v1, p0, Lcom/android/server/wm/DisplayRotation;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
-    iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
-
-    invoke-virtual {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->getTransitionController()Lcom/android/server/wm/TransitionController;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/server/wm/DisplayContent;->mTransitionController:Lcom/android/server/wm/TransitionController;
 
     invoke-virtual {v1}, Lcom/android/server/wm/TransitionController;->isCollecting()Z
 
@@ -470,13 +462,9 @@
 
     if-eqz v1, :cond_1
 
-    iget-object v1, p0, Lcom/android/server/wm/DisplayRotation;->mService:Lcom/android/server/wm/WindowManagerService;
+    iget-object v1, p0, Lcom/android/server/wm/DisplayRotation;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
-    iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
-
-    invoke-virtual {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->getTransitionController()Lcom/android/server/wm/TransitionController;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/server/wm/DisplayContent;->mTransitionController:Lcom/android/server/wm/TransitionController;
 
     iget-object v2, p0, Lcom/android/server/wm/DisplayRotation;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
@@ -878,7 +866,7 @@
     :sswitch_3
     if-ltz p1, :cond_2
 
-    iget v0, p0, Lcom/android/server/wm/DisplayRotation;->mUpsideDownRotation:I
+    const/4 v0, 0x2
 
     if-eq p1, v0, :cond_2
 
@@ -889,6 +877,8 @@
 
     :goto_2
     return v1
+
+    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -1704,7 +1694,7 @@
 
     move-result-object v0
 
-    const v1, 0x1110122
+    const v1, 0x1110126
 
     const/4 v2, 0x2
 
@@ -2667,13 +2657,9 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/wm/DisplayRotation;->mService:Lcom/android/server/wm/WindowManagerService;
+    iget-object v0, p0, Lcom/android/server/wm/DisplayRotation;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
-    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
-
-    invoke-virtual {v0}, Lcom/android/server/wm/ActivityTaskManagerService;->getTransitionController()Lcom/android/server/wm/TransitionController;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/server/wm/DisplayContent;->mTransitionController:Lcom/android/server/wm/TransitionController;
 
     invoke-virtual {v0, p1}, Lcom/android/server/wm/TransitionController;->collect(Lcom/android/server/wm/WindowContainer;)V
 
@@ -3890,126 +3876,120 @@
 .end method
 
 .method updateRotationUnchecked(Z)Z
-    .locals 30
+    .locals 29
 
     move-object/from16 v0, p0
 
     move/from16 v1, p1
 
-    iget-object v2, v0, Lcom/android/server/wm/DisplayRotation;->mService:Lcom/android/server/wm/WindowManagerService;
+    iget-object v2, v0, Lcom/android/server/wm/DisplayRotation;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
-    iget-object v2, v2, Lcom/android/server/wm/WindowManagerService;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
+    iget-object v2, v2, Lcom/android/server/wm/DisplayContent;->mTransitionController:Lcom/android/server/wm/TransitionController;
 
-    invoke-virtual {v2}, Lcom/android/server/wm/ActivityTaskManagerService;->getTransitionController()Lcom/android/server/wm/TransitionController;
+    invoke-virtual {v2}, Lcom/android/server/wm/TransitionController;->isShellTransitionsEnabled()Z
 
-    move-result-object v2
+    move-result v2
 
-    invoke-virtual {v2}, Lcom/android/server/wm/TransitionController;->getTransitionPlayer()Landroid/window/ITransitionPlayer;
+    iget-object v3, v0, Lcom/android/server/wm/DisplayRotation;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
-    move-result-object v2
+    invoke-virtual {v3}, Lcom/android/server/wm/DisplayContent;->getDisplayId()I
+
+    move-result v3
 
     const/4 v4, 0x0
 
-    if-eqz v2, :cond_0
+    const/4 v5, 0x0
 
-    const/4 v2, 0x1
+    if-nez v1, :cond_6
 
-    goto :goto_0
+    if-nez v2, :cond_6
 
-    :cond_0
-    move v2, v4
+    iget v6, v0, Lcom/android/server/wm/DisplayRotation;->mDeferredRotationPauseCount:I
 
-    :goto_0
-    iget-object v5, v0, Lcom/android/server/wm/DisplayRotation;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
+    if-lez v6, :cond_1
 
-    invoke-virtual {v5}, Lcom/android/server/wm/DisplayContent;->getDisplayId()I
+    sget-boolean v6, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_ORIENTATION_enabled:Z
 
-    move-result v5
+    if-eqz v6, :cond_0
 
-    const/4 v6, 0x0
-
-    if-nez v1, :cond_7
-
-    if-nez v2, :cond_7
-
-    iget v7, v0, Lcom/android/server/wm/DisplayRotation;->mDeferredRotationPauseCount:I
-
-    if-lez v7, :cond_2
-
-    sget-boolean v3, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_ORIENTATION_enabled:Z
-
-    if-eqz v3, :cond_1
-
-    sget-object v3, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_ORIENTATION:Lcom/android/internal/protolog/ProtoLogGroup;
+    sget-object v6, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_ORIENTATION:Lcom/android/internal/protolog/ProtoLogGroup;
 
     const v7, 0x593f0c8c
 
-    move-object v8, v6
+    move-object v8, v4
 
     check-cast v8, [Ljava/lang/Object;
 
-    invoke-static {v3, v7, v4, v6, v8}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v6, v7, v5, v4, v8}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+
+    :cond_0
+    return v5
 
     :cond_1
-    return v4
+    iget-object v6, v0, Lcom/android/server/wm/DisplayRotation;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
-    :cond_2
-    iget-object v7, v0, Lcom/android/server/wm/DisplayRotation;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
+    invoke-virtual {v6}, Lcom/android/server/wm/DisplayContent;->getRotationAnimation()Lcom/android/server/wm/ScreenRotationAnimation;
 
-    invoke-virtual {v7}, Lcom/android/server/wm/DisplayContent;->getRotationAnimation()Lcom/android/server/wm/ScreenRotationAnimation;
+    move-result-object v6
 
-    move-result-object v7
+    if-eqz v6, :cond_3
 
-    if-eqz v7, :cond_4
+    invoke-virtual {v6}, Lcom/android/server/wm/ScreenRotationAnimation;->isAnimating()Z
 
-    invoke-virtual {v7}, Lcom/android/server/wm/ScreenRotationAnimation;->isAnimating()Z
+    move-result v7
 
-    move-result v8
+    if-eqz v7, :cond_3
 
-    if-eqz v8, :cond_4
+    sget-boolean v7, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_ORIENTATION_enabled:Z
 
-    sget-boolean v3, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_ORIENTATION_enabled:Z
+    if-eqz v7, :cond_2
 
-    if-eqz v3, :cond_3
-
-    sget-object v3, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_ORIENTATION:Lcom/android/internal/protolog/ProtoLogGroup;
+    sget-object v7, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_ORIENTATION:Lcom/android/internal/protolog/ProtoLogGroup;
 
     const v8, 0x11755f60
 
-    move-object v9, v6
+    move-object v9, v4
 
     check-cast v9, [Ljava/lang/Object;
 
-    invoke-static {v3, v8, v4, v6, v9}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v7, v8, v5, v4, v9}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+
+    :cond_2
+    return v5
 
     :cond_3
-    return v4
+    iget-object v7, v0, Lcom/android/server/wm/DisplayRotation;->mService:Lcom/android/server/wm/WindowManagerService;
 
-    :cond_4
-    iget-object v8, v0, Lcom/android/server/wm/DisplayRotation;->mService:Lcom/android/server/wm/WindowManagerService;
+    iget-boolean v7, v7, Lcom/android/server/wm/WindowManagerService;->mDisplayFrozen:Z
 
-    iget-boolean v8, v8, Lcom/android/server/wm/WindowManagerService;->mDisplayFrozen:Z
+    if-eqz v7, :cond_5
 
-    if-eqz v8, :cond_6
+    sget-boolean v7, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_ORIENTATION_enabled:Z
 
-    sget-boolean v3, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_ORIENTATION_enabled:Z
+    if-eqz v7, :cond_4
 
-    if-eqz v3, :cond_5
-
-    sget-object v3, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_ORIENTATION:Lcom/android/internal/protolog/ProtoLogGroup;
+    sget-object v7, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_ORIENTATION:Lcom/android/internal/protolog/ProtoLogGroup;
 
     const v8, 0x7410831a
 
-    move-object v9, v6
+    move-object v9, v4
 
     check-cast v9, [Ljava/lang/Object;
 
-    invoke-static {v3, v8, v4, v6, v9}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v7, v8, v5, v4, v9}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+
+    :cond_4
+    return v5
 
     :cond_5
-    return v4
+    iget-object v7, v0, Lcom/android/server/wm/DisplayRotation;->mService:Lcom/android/server/wm/WindowManagerService;
 
-    :cond_6
+    invoke-virtual {v7}, Lcom/android/server/wm/WindowManagerService;->getRecentsAnimationController()Lcom/android/server/wm/RecentsAnimationController;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_6
+
     iget-object v8, v0, Lcom/android/server/wm/DisplayRotation;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
     iget-object v8, v8, Lcom/android/server/wm/DisplayContent;->mFixedRotationTransitionListener:Lcom/android/server/wm/DisplayContent$FixedRotationTransitionListener;
@@ -4018,176 +3998,168 @@
 
     move-result v8
 
-    if-eqz v8, :cond_7
+    if-eqz v8, :cond_6
 
     iget-object v8, v0, Lcom/android/server/wm/DisplayRotation;->mService:Lcom/android/server/wm/WindowManagerService;
 
     iget-object v8, v8, Lcom/android/server/wm/WindowManagerService;->mPolicy:Lcom/android/server/policy/WindowManagerPolicy;
 
-    invoke-interface {v8, v4}, Lcom/android/server/policy/WindowManagerPolicy;->okToAnimate(Z)Z
+    invoke-interface {v8, v5}, Lcom/android/server/policy/WindowManagerPolicy;->okToAnimate(Z)Z
 
     move-result v8
 
-    if-eqz v8, :cond_7
+    if-eqz v8, :cond_6
 
-    return v4
+    invoke-virtual {v7}, Lcom/android/server/wm/RecentsAnimationController;->setCheckRotationAfterCleanup()V
 
-    :cond_7
-    iget-object v7, v0, Lcom/android/server/wm/DisplayRotation;->mService:Lcom/android/server/wm/WindowManagerService;
+    return v5
 
-    iget-boolean v7, v7, Lcom/android/server/wm/WindowManagerService;->mDisplayEnabled:Z
+    :cond_6
+    iget-object v6, v0, Lcom/android/server/wm/DisplayRotation;->mService:Lcom/android/server/wm/WindowManagerService;
 
-    if-nez v7, :cond_9
+    iget-boolean v6, v6, Lcom/android/server/wm/WindowManagerService;->mDisplayEnabled:Z
 
-    sget-boolean v3, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_ORIENTATION_enabled:Z
+    if-nez v6, :cond_8
 
-    if-eqz v3, :cond_8
+    sget-boolean v6, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_ORIENTATION_enabled:Z
 
-    sget-object v3, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_ORIENTATION:Lcom/android/internal/protolog/ProtoLogGroup;
-
-    const v7, -0x429d369a
-
-    move-object v8, v6
-
-    check-cast v8, [Ljava/lang/Object;
-
-    invoke-static {v3, v7, v4, v6, v8}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
-
-    :cond_8
-    return v4
-
-    :cond_9
-    iget v7, v0, Lcom/android/server/wm/DisplayRotation;->mRotation:I
-
-    iget v8, v0, Lcom/android/server/wm/DisplayRotation;->mLastOrientation:I
-
-    invoke-virtual {v0, v8, v7}, Lcom/android/server/wm/DisplayRotation;->rotationForOrientation(II)I
-
-    move-result v9
-
-    sget-boolean v10, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_ORIENTATION_enabled:Z
-
-    if-eqz v10, :cond_a
-
-    invoke-static {v9}, Landroid/view/Surface;->rotationToString(I)Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-static {v10}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v10
-
-    int-to-long v11, v9
-
-    int-to-long v13, v5
-
-    invoke-static {v8}, Landroid/content/pm/ActivityInfo;->screenOrientationToString(I)Ljava/lang/String;
-
-    move-result-object v20
-
-    invoke-static/range {v20 .. v20}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v20
-
-    int-to-long v3, v8
-
-    invoke-static {v7}, Landroid/view/Surface;->rotationToString(I)Ljava/lang/String;
-
-    move-result-object v23
-
-    invoke-static/range {v23 .. v23}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v23
-
-    move/from16 v24, v2
-
-    int-to-long v1, v7
+    if-eqz v6, :cond_7
 
     sget-object v6, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_ORIENTATION:Lcom/android/internal/protolog/ProtoLogGroup;
 
-    const/4 v15, 0x7
+    const v7, -0x429d369a
 
-    new-array v15, v15, [Ljava/lang/Object;
+    move-object v8, v4
 
-    const/16 v21, 0x0
+    check-cast v8, [Ljava/lang/Object;
 
-    aput-object v10, v15, v21
+    invoke-static {v6, v7, v5, v4, v8}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
-    invoke-static {v11, v12}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    :cond_7
+    return v5
 
-    move-result-object v28
+    :cond_8
+    iget v6, v0, Lcom/android/server/wm/DisplayRotation;->mRotation:I
 
-    const/16 v22, 0x1
+    iget v7, v0, Lcom/android/server/wm/DisplayRotation;->mLastOrientation:I
 
-    aput-object v28, v15, v22
+    invoke-virtual {v0, v7, v6}, Lcom/android/server/wm/DisplayRotation;->rotationForOrientation(II)I
 
-    invoke-static {v13, v14}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    move-result v8
 
-    move-result-object v28
+    sget-boolean v9, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_ORIENTATION_enabled:Z
 
-    const/16 v25, 0x2
+    if-eqz v9, :cond_9
 
-    aput-object v28, v15, v25
+    invoke-static {v8}, Landroid/view/Surface;->rotationToString(I)Ljava/lang/String;
 
-    const/16 v19, 0x3
+    move-result-object v9
 
-    aput-object v20, v15, v19
+    invoke-static {v9}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v28
-
-    const/16 v18, 0x4
-
-    aput-object v28, v15, v18
-
-    const/16 v17, 0x5
-
-    aput-object v23, v15, v17
-
-    invoke-static {v1, v2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v28
-
-    const/16 v16, 0x6
-
-    aput-object v28, v15, v16
-
-    move-wide/from16 v28, v1
-
-    move-wide/from16 v26, v3
-
-    const v1, -0x4b4cac2a
-
-    const/16 v2, 0x1114
-
-    const/4 v3, 0x0
-
-    invoke-static {v6, v1, v2, v3, v15}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
-
-    goto :goto_1
-
-    :cond_a
-    move/from16 v24, v2
-
-    :goto_1
-    sget-boolean v1, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_ORIENTATION_enabled:Z
-
-    if-eqz v1, :cond_b
-
-    int-to-long v1, v5
-
-    invoke-static {v8}, Landroid/content/pm/ActivityInfo;->screenOrientationToString(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v3}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v3
+    move-result-object v9
 
     int-to-long v10, v8
 
-    invoke-static {v9}, Landroid/view/Surface;->rotationToString(I)Ljava/lang/String;
+    int-to-long v12, v3
+
+    invoke-static {v7}, Landroid/content/pm/ActivityInfo;->screenOrientationToString(I)Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-static/range {v19 .. v19}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v19
+
+    int-to-long v14, v7
+
+    invoke-static {v6}, Landroid/view/Surface;->rotationToString(I)Ljava/lang/String;
+
+    move-result-object v22
+
+    invoke-static/range {v22 .. v22}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v22
+
+    int-to-long v4, v6
+
+    sget-object v1, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_ORIENTATION:Lcom/android/internal/protolog/ProtoLogGroup;
+
+    move/from16 v25, v2
+
+    const/4 v2, 0x7
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    const/16 v24, 0x0
+
+    aput-object v9, v2, v24
+
+    invoke-static {v10, v11}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v27
+
+    const/16 v20, 0x1
+
+    aput-object v27, v2, v20
+
+    invoke-static {v12, v13}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v27
+
+    const/16 v18, 0x2
+
+    aput-object v27, v2, v18
+
+    const/16 v17, 0x3
+
+    aput-object v19, v2, v17
+
+    invoke-static {v14, v15}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v27
+
+    const/16 v16, 0x4
+
+    aput-object v27, v2, v16
+
+    const/16 v21, 0x5
+
+    aput-object v22, v2, v21
+
+    const/16 v27, 0x6
+
+    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v28
+
+    aput-object v28, v2, v27
+
+    move-wide/from16 v27, v4
+
+    move-object/from16 v26, v9
+
+    const v4, -0x4b4cac2a
+
+    const/16 v5, 0x1114
+
+    const/4 v9, 0x0
+
+    invoke-static {v1, v4, v5, v9, v2}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+
+    goto :goto_0
+
+    :cond_9
+    move/from16 v25, v2
+
+    :goto_0
+    sget-boolean v1, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_ORIENTATION_enabled:Z
+
+    if-eqz v1, :cond_a
+
+    int-to-long v1, v3
+
+    invoke-static {v7}, Landroid/content/pm/ActivityInfo;->screenOrientationToString(I)Ljava/lang/String;
 
     move-result-object v4
 
@@ -4195,9 +4167,19 @@
 
     move-result-object v4
 
-    int-to-long v12, v9
+    int-to-long v9, v7
 
-    sget-object v6, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_ORIENTATION:Lcom/android/internal/protolog/ProtoLogGroup;
+    invoke-static {v8}, Landroid/view/Surface;->rotationToString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v5}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v5
+
+    int-to-long v11, v8
+
+    sget-object v13, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_ORIENTATION:Lcom/android/internal/protolog/ProtoLogGroup;
 
     const/16 v15, 0x111
 
@@ -4207,276 +4189,223 @@
 
     invoke-static {v1, v2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v17
+    move-result-object v21
 
-    const/16 v21, 0x0
+    const/16 v22, 0x0
 
-    aput-object v17, v14, v21
+    aput-object v21, v14, v22
 
-    const/16 v17, 0x1
+    const/16 v20, 0x1
 
-    aput-object v3, v14, v17
+    aput-object v4, v14, v20
 
-    invoke-static {v10, v11}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {v9, v10}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v17
+    move-result-object v21
 
-    const/16 v23, 0x2
+    const/16 v18, 0x2
 
-    aput-object v17, v14, v23
+    aput-object v21, v14, v18
 
     const/16 v17, 0x3
 
-    aput-object v4, v14, v17
+    aput-object v5, v14, v17
 
-    invoke-static {v12, v13}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static {v11, v12}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v17
+    move-result-object v21
 
-    const/16 v18, 0x4
+    const/16 v16, 0x4
 
-    aput-object v17, v14, v18
+    aput-object v21, v14, v16
 
-    move-wide/from16 v26, v1
+    move-wide/from16 v21, v1
 
     const v1, -0x2da92224
 
     const/4 v2, 0x0
 
-    invoke-static {v6, v1, v15, v2, v14}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v13, v1, v15, v2, v14}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
-    :cond_b
-    if-ne v7, v9, :cond_c
+    :cond_a
+    if-ne v6, v8, :cond_b
 
     const/4 v1, 0x0
 
     return v1
 
-    :cond_c
+    :cond_b
     iget-object v1, v0, Lcom/android/server/wm/DisplayRotation;->mService:Lcom/android/server/wm/WindowManagerService;
 
     invoke-virtual {v1}, Lcom/android/server/wm/WindowManagerService;->getRecentsAnimationController()Lcom/android/server/wm/RecentsAnimationController;
 
     move-result-object v1
 
-    if-eqz v1, :cond_d
+    if-eqz v1, :cond_c
 
     invoke-virtual {v1}, Lcom/android/server/wm/RecentsAnimationController;->cancelAnimationForDisplayChange()V
 
-    :cond_d
-    if-eqz v24, :cond_e
+    :cond_c
+    sget-boolean v2, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_ORIENTATION_enabled:Z
 
-    iget-object v2, v0, Lcom/android/server/wm/DisplayRotation;->mService:Lcom/android/server/wm/WindowManagerService;
+    if-eqz v2, :cond_d
 
-    iget-object v2, v2, Lcom/android/server/wm/WindowManagerService;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
+    int-to-long v4, v3
 
-    invoke-virtual {v2}, Lcom/android/server/wm/ActivityTaskManagerService;->getTransitionController()Lcom/android/server/wm/TransitionController;
+    int-to-long v9, v8
 
-    move-result-object v2
+    int-to-long v11, v6
 
-    invoke-virtual {v2}, Lcom/android/server/wm/TransitionController;->isCollecting()Z
+    int-to-long v13, v7
 
-    move-result v2
+    sget-object v2, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_ORIENTATION:Lcom/android/internal/protolog/ProtoLogGroup;
 
-    if-nez v2, :cond_e
+    const/4 v15, 0x4
 
-    iget-object v2, v0, Lcom/android/server/wm/DisplayRotation;->mService:Lcom/android/server/wm/WindowManagerService;
+    new-array v15, v15, [Ljava/lang/Object;
 
-    iget-object v2, v2, Lcom/android/server/wm/WindowManagerService;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
+    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    invoke-virtual {v2}, Lcom/android/server/wm/ActivityTaskManagerService;->getTransitionController()Lcom/android/server/wm/TransitionController;
+    move-result-object v16
 
-    move-result-object v2
+    const/16 v22, 0x0
 
-    const/4 v3, 0x6
+    aput-object v16, v15, v22
 
-    invoke-virtual {v2, v3}, Lcom/android/server/wm/TransitionController;->createTransition(I)Lcom/android/server/wm/Transition;
+    invoke-static {v9, v10}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v2
+    move-result-object v16
 
-    goto :goto_2
+    const/16 v20, 0x1
 
-    :cond_e
-    const/4 v2, 0x0
+    aput-object v16, v15, v20
 
-    :goto_2
-    nop
+    invoke-static {v11, v12}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    iget-object v3, v0, Lcom/android/server/wm/DisplayRotation;->mService:Lcom/android/server/wm/WindowManagerService;
+    move-result-object v16
 
-    iget-object v3, v3, Lcom/android/server/wm/WindowManagerService;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
+    move-object/from16 v22, v1
 
-    invoke-virtual {v3}, Lcom/android/server/wm/ActivityTaskManagerService;->getTransitionController()Lcom/android/server/wm/TransitionController;
+    const/4 v1, 0x2
 
-    move-result-object v3
+    aput-object v16, v15, v1
 
-    iget-object v4, v0, Lcom/android/server/wm/DisplayRotation;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
+    invoke-static {v13, v14}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    invoke-virtual {v3, v4}, Lcom/android/server/wm/TransitionController;->collect(Lcom/android/server/wm/WindowContainer;)V
+    move-result-object v16
 
-    sget-boolean v3, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_ORIENTATION_enabled:Z
+    const/16 v17, 0x3
 
-    if-eqz v3, :cond_f
+    aput-object v16, v15, v17
 
-    int-to-long v3, v5
+    move/from16 v16, v3
 
-    int-to-long v10, v9
+    move-wide/from16 v23, v4
 
-    int-to-long v12, v7
-
-    int-to-long v14, v8
-
-    sget-object v6, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_ORIENTATION:Lcom/android/internal/protolog/ProtoLogGroup;
-
-    move-object/from16 v16, v1
-
-    const/4 v1, 0x4
-
-    new-array v1, v1, [Ljava/lang/Object;
-
-    invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v18
-
-    const/16 v21, 0x0
-
-    aput-object v18, v1, v21
-
-    invoke-static {v10, v11}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v18
-
-    const/16 v21, 0x1
-
-    aput-object v18, v1, v21
-
-    invoke-static {v12, v13}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v18
-
-    move-wide/from16 v26, v3
-
-    const/4 v3, 0x2
-
-    aput-object v18, v1, v3
-
-    invoke-static {v14, v15}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v4
-
-    const/16 v18, 0x3
-
-    aput-object v4, v1, v18
-
-    move/from16 v17, v5
+    const v1, -0x6720172c
 
     const/16 v3, 0x55
 
-    const v4, -0x6720172c
+    const/4 v4, 0x0
 
-    const/4 v5, 0x0
+    invoke-static {v2, v1, v3, v4, v15}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
-    invoke-static {v6, v4, v3, v5, v1}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+    goto :goto_1
 
-    goto :goto_3
+    :cond_d
+    move-object/from16 v22, v1
 
-    :cond_f
-    move-object/from16 v16, v1
+    move/from16 v16, v3
 
-    move/from16 v17, v5
-
-    :goto_3
-    invoke-static {v7, v9}, Landroid/util/RotationUtils;->deltaRotation(II)I
+    :goto_1
+    invoke-static {v6, v8}, Landroid/util/RotationUtils;->deltaRotation(II)I
 
     move-result v1
 
-    const/4 v3, 0x2
+    const/4 v2, 0x2
 
-    if-eq v1, v3, :cond_10
+    if-eq v1, v2, :cond_e
 
     iget-object v1, v0, Lcom/android/server/wm/DisplayRotation;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    iput-boolean v3, v1, Lcom/android/server/wm/DisplayContent;->mWaitingForConfig:Z
+    iput-boolean v2, v1, Lcom/android/server/wm/DisplayContent;->mWaitingForConfig:Z
 
-    :cond_10
-    iput v9, v0, Lcom/android/server/wm/DisplayRotation;->mRotation:I
+    :cond_e
+    iput v8, v0, Lcom/android/server/wm/DisplayRotation;->mRotation:I
 
     iget-object v1, v0, Lcom/android/server/wm/DisplayRotation;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
     invoke-virtual {v1}, Lcom/android/server/wm/DisplayContent;->setLayoutNeeded()V
 
-    if-eqz v24, :cond_12
+    if-eqz v25, :cond_10
 
-    if-eqz v2, :cond_11
+    iget-object v1, v0, Lcom/android/server/wm/DisplayRotation;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
+
+    invoke-virtual {v1}, Lcom/android/server/wm/DisplayContent;->inTransition()Z
+
+    move-result v1
+
+    iget-object v2, v0, Lcom/android/server/wm/DisplayRotation;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
+
+    const/high16 v3, 0x20000000
+
+    invoke-virtual {v2, v3}, Lcom/android/server/wm/DisplayContent;->requestChangeTransitionIfNeeded(I)V
+
+    if-eqz v1, :cond_f
+
+    iget v2, v0, Lcom/android/server/wm/DisplayRotation;->mRotation:I
+
+    invoke-direct {v0, v6, v2}, Lcom/android/server/wm/DisplayRotation;->startRemoteRotation(II)V
+
+    :cond_f
+    const/4 v2, 0x1
+
+    return v2
+
+    :cond_10
+    const/4 v2, 0x1
 
     iget-object v1, v0, Lcom/android/server/wm/DisplayRotation;->mService:Lcom/android/server/wm/WindowManagerService;
 
-    iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
-
-    invoke-virtual {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->getTransitionController()Lcom/android/server/wm/TransitionController;
-
-    move-result-object v1
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v1, v2, v3, v3}, Lcom/android/server/wm/TransitionController;->requestStartTransition(Lcom/android/server/wm/Transition;Lcom/android/server/wm/Task;Landroid/window/IRemoteTransition;)Lcom/android/server/wm/Transition;
-
-    goto :goto_4
-
-    :cond_11
-    iget v1, v0, Lcom/android/server/wm/DisplayRotation;->mRotation:I
-
-    invoke-direct {v0, v7, v1}, Lcom/android/server/wm/DisplayRotation;->startRemoteRotation(II)V
-
-    :goto_4
-    const/4 v1, 0x1
-
-    return v1
-
-    :cond_12
-    const/4 v1, 0x1
-
-    iget-object v3, v0, Lcom/android/server/wm/DisplayRotation;->mService:Lcom/android/server/wm/WindowManagerService;
-
-    iput v1, v3, Lcom/android/server/wm/WindowManagerService;->mWindowsFreezingScreen:I
+    iput v2, v1, Lcom/android/server/wm/WindowManagerService;->mWindowsFreezingScreen:I
 
     iget-object v1, v0, Lcom/android/server/wm/DisplayRotation;->mService:Lcom/android/server/wm/WindowManagerService;
 
     iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mH:Lcom/android/server/wm/WindowManagerService$H;
 
-    const/16 v3, 0xb
+    const/16 v2, 0xb
 
-    iget-object v4, v0, Lcom/android/server/wm/DisplayRotation;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
+    iget-object v3, v0, Lcom/android/server/wm/DisplayRotation;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
-    const-wide/16 v5, 0x7d0
+    const-wide/16 v4, 0x7d0
 
-    invoke-virtual {v1, v3, v4, v5, v6}, Lcom/android/server/wm/WindowManagerService$H;->sendNewMessageDelayed(ILjava/lang/Object;J)V
+    invoke-virtual {v1, v2, v3, v4, v5}, Lcom/android/server/wm/WindowManagerService$H;->sendNewMessageDelayed(ILjava/lang/Object;J)V
 
     move/from16 v1, p1
 
-    invoke-virtual {v0, v7, v9, v1}, Lcom/android/server/wm/DisplayRotation;->shouldRotateSeamlessly(IIZ)Z
+    invoke-virtual {v0, v6, v8, v1}, Lcom/android/server/wm/DisplayRotation;->shouldRotateSeamlessly(IIZ)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_13
+    if-eqz v2, :cond_11
 
     invoke-direct/range {p0 .. p0}, Lcom/android/server/wm/DisplayRotation;->prepareSeamlessRotation()V
 
-    goto :goto_5
+    goto :goto_2
 
-    :cond_13
+    :cond_11
     invoke-virtual/range {p0 .. p0}, Lcom/android/server/wm/DisplayRotation;->prepareNormalRotationAnimation()V
 
-    :goto_5
-    iget v3, v0, Lcom/android/server/wm/DisplayRotation;->mRotation:I
+    :goto_2
+    iget v2, v0, Lcom/android/server/wm/DisplayRotation;->mRotation:I
 
-    invoke-direct {v0, v7, v3}, Lcom/android/server/wm/DisplayRotation;->startRemoteRotation(II)V
+    invoke-direct {v0, v6, v2}, Lcom/android/server/wm/DisplayRotation;->startRemoteRotation(II)V
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    return v3
+    return v2
 .end method
 
 .method updateUserDependentConfiguration(Landroid/content/res/Resources;)V

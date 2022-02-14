@@ -60,7 +60,7 @@
 
     iput-object p1, p0, Lcom/android/server/accessibility/FingerprintGestureDispatcher;->mFingerprintService:Landroid/hardware/fingerprint/IFingerprintService;
 
-    const v0, 0x11100e7
+    const v0, 0x11100e9
 
     invoke-virtual {p2, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -94,7 +94,7 @@
 
     iput-object p1, p0, Lcom/android/server/accessibility/FingerprintGestureDispatcher;->mFingerprintService:Landroid/hardware/fingerprint/IFingerprintService;
 
-    const v0, 0x11100e7
+    const v0, 0x11100e9
 
     invoke-virtual {p2, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 

@@ -8,18 +8,14 @@
 # instance fields
 .field public final synthetic f$0:I
 
-.field public final synthetic f$1:I
-
 
 # direct methods
-.method public synthetic constructor <init>(II)V
+.method public synthetic constructor <init>(I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput p1, p0, Lcom/android/server/notification/NotificationManagerService$16$$ExternalSyntheticLambda0;->f$0:I
-
-    iput p2, p0, Lcom/android/server/notification/NotificationManagerService$16$$ExternalSyntheticLambda0;->f$1:I
 
     return-void
 .end method
@@ -27,13 +23,11 @@
 
 # virtual methods
 .method public final apply(I)Z
-    .locals 2
+    .locals 1
 
     iget v0, p0, Lcom/android/server/notification/NotificationManagerService$16$$ExternalSyntheticLambda0;->f$0:I
 
-    iget v1, p0, Lcom/android/server/notification/NotificationManagerService$16$$ExternalSyntheticLambda0;->f$1:I
-
-    invoke-static {v0, v1, p1}, Lcom/android/server/notification/NotificationManagerService$16;->lambda$run$0(III)Z
+    invoke-static {v0, p1}, Lcom/android/server/notification/NotificationManagerService$16;->lambda$run$0(II)Z
 
     move-result p1
 

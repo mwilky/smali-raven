@@ -37,7 +37,7 @@
 
     check-cast p1, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection$DisplayConnector;
 
-    invoke-static {p1}, Lcom/android/server/wallpaper/WallpaperManagerService;->lambda$updateFallbackConnection$1(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection$DisplayConnector;)V
+    invoke-static {p1}, Lcom/android/server/wallpaper/WallpaperManagerService;->lambda$setWallpaperComponent$9(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection$DisplayConnector;)V
 
     return-void
 .end method

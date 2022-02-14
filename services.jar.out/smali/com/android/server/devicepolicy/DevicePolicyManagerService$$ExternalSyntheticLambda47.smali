@@ -39,7 +39,7 @@
 
     iget v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda47;->f$2:I
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$setApplicationHidden$80$DevicePolicyManagerService(Ljava/lang/String;I)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$revokeVpnAuthorizationForPackage$42$DevicePolicyManagerService(Ljava/lang/String;I)V
 
     return-void
 .end method

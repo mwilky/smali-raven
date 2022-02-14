@@ -1738,6 +1738,27 @@
 
     iget-object v0, p0, Lcom/android/server/am/PhantomProcessList;->mService:Lcom/android/server/am/ActivityManagerService;
 
+    iget-boolean v0, v0, Lcom/android/server/am/ActivityManagerService;->mSystemReady:Z
+
+    if-eqz v0, :cond_4
+
+    iget-object v0, p0, Lcom/android/server/am/PhantomProcessList;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v1, "settings_enable_monitor_phantom_procs"
+
+    invoke-static {v0, v1}, Landroid/util/FeatureFlagUtils;->isEnabled(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    goto/16 :goto_3
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/am/PhantomProcessList;->mService:Lcom/android/server/am/ActivityManagerService;
+
     iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
 
     monitor-enter v0
@@ -1768,7 +1789,7 @@
 
     move-result v3
 
-    if-ge v2, v3, :cond_2
+    if-ge v2, v3, :cond_3
 
     iget-object v2, p0, Lcom/android/server/am/PhantomProcessList;->mPhantomProcesses:Landroid/util/SparseArray;
 
@@ -1781,7 +1802,7 @@
     sub-int/2addr v2, v3
 
     :goto_0
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_1
 
     iget-object v4, p0, Lcom/android/server/am/PhantomProcessList;->mTempPhantomProcesses:Ljava/util/ArrayList;
 
@@ -1799,7 +1820,7 @@
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     iget-object v2, p0, Lcom/android/server/am/PhantomProcessList;->mService:Lcom/android/server/am/ActivityManagerService;
 
     iget-object v2, v2, Lcom/android/server/am/ActivityManagerService;->mPidsSelfLocked:Lcom/android/server/am/ActivityManagerService$PidMap;
@@ -1837,7 +1858,7 @@
 
     iget v4, v4, Lcom/android/server/am/ActivityManagerConstants;->MAX_PHANTOM_PROCESSES:I
 
-    if-lt v2, v4, :cond_1
+    if-lt v2, v4, :cond_2
 
     iget-object v4, p0, Lcom/android/server/am/PhantomProcessList;->mTempPhantomProcesses:Ljava/util/ArrayList;
 
@@ -1855,7 +1876,7 @@
 
     goto :goto_1
 
-    :cond_1
+    :cond_2
     iget-object v2, p0, Lcom/android/server/am/PhantomProcessList;->mTempPhantomProcesses:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
@@ -1875,7 +1896,7 @@
     :try_start_5
     throw v3
 
-    :cond_2
+    :cond_3
     :goto_2
     monitor-exit v1
     :try_end_5
@@ -1911,6 +1932,10 @@
     invoke-static {}, Lcom/android/server/am/ActivityManagerService;->resetPriorityAfterProcLockedSection()V
 
     throw v1
+
+    :cond_4
+    :goto_3
+    return-void
 .end method
 
 .method updateProcessCpuStatesLocked(Lcom/android/internal/os/ProcessCpuTracker;)V

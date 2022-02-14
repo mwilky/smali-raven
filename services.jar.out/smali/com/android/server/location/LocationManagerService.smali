@@ -820,7 +820,7 @@
 
     move-result v1
 
-    const v3, 0x1070057
+    const v3, 0x107005e
 
     const-string v4, "gps"
 
@@ -1025,7 +1025,7 @@
 
     move-result v1
 
-    const v3, 0x1070057
+    const v3, 0x107005e
 
     const-string v4, "gps"
 
@@ -3373,7 +3373,7 @@
 
     move-result-object v0
 
-    const v1, 0x1070059
+    const v1, 0x1070060
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -3391,7 +3391,7 @@
 
     move-result-object v0
 
-    const v1, 0x1070058
+    const v1, 0x107005f
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -3626,7 +3626,7 @@
 
     const-string v3, "com.android.location.service.v3.NetworkLocationProvider"
 
-    const v4, 0x11100d6
+    const v4, 0x11100d7
 
     const v5, 0x104025c
 
@@ -3694,7 +3694,7 @@
 
     iget-object v2, v0, Lcom/android/server/location/LocationManagerService;->mContext:Landroid/content/Context;
 
-    const v6, 0x11100cd
+    const v6, 0x11100ce
 
     const v8, 0x1040244
 
@@ -3836,7 +3836,7 @@
 
     move-result-object v3
 
-    const v6, 0x1070081
+    const v6, 0x1070094
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 

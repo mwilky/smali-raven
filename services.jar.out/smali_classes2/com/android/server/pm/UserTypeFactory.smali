@@ -787,7 +787,7 @@
 
     move-result-object v0
 
-    const v1, 0x11100f0
+    const v1, 0x11100f2
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1095,9 +1095,9 @@
 
     :array_0
     .array-data 4
-        0x10404c1
-        0x10404c2
-        0x10404c3
+        0x10404c6
+        0x10404c7
+        0x10404c8
     .end array-data
 
     :array_1
@@ -1208,9 +1208,9 @@
 
     :array_0
     .array-data 4
-        0x10404c1
-        0x10404c2
-        0x10404c3
+        0x10404c6
+        0x10404c7
+        0x10404c8
     .end array-data
 
     :array_1

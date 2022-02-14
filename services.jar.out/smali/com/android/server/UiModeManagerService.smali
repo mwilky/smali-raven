@@ -1354,42 +1354,64 @@
 .end method
 
 .method private doesPackageHaveCallingUid(Ljava/lang/String;)Z
-    .locals 3
+    .locals 6
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/android/server/UiModeManagerService;->mInjector:Lcom/android/server/UiModeManagerService$Injector;
+
+    invoke-virtual {v0}, Lcom/android/server/UiModeManagerService$Injector;->getCallingUid()I
+
+    move-result v0
+
+    invoke-static {v0}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v1
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v2
+
+    const/4 v4, 0x0
 
     :try_start_0
     invoke-virtual {p0}, Lcom/android/server/UiModeManagerService;->getContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object v5
 
-    invoke-virtual {v1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v5}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v1
+    move-result-object v5
 
-    invoke-virtual {v1, p1, v0}, Landroid/content/pm/PackageManager;->getPackageUid(Ljava/lang/String;I)I
+    invoke-virtual {v5, p1, v1}, Landroid/content/pm/PackageManager;->getPackageUidAsUser(Ljava/lang/String;I)I
 
-    move-result v1
-
-    iget-object v2, p0, Lcom/android/server/UiModeManagerService;->mInjector:Lcom/android/server/UiModeManagerService$Injector;
-
-    invoke-virtual {v2}, Lcom/android/server/UiModeManagerService$Injector;->getCallingUid()I
-
-    move-result v2
+    move-result v5
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-ne v1, v2, :cond_0
+    if-ne v5, v0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 v4, 0x1
 
     :cond_0
-    return v0
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return v4
+
+    :catchall_0
+    move-exception v4
+
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v4
 
     :catch_0
-    move-exception v1
+    move-exception v5
 
-    return v0
+    nop
+
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return v4
 .end method
 
 .method private enableCarMode(ILjava/lang/String;)V
@@ -3222,7 +3244,7 @@
 
     move-result-object v2
 
-    const v4, 0x10e003d
+    const v4, 0x10e003e
 
     invoke-virtual {p2, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -4071,7 +4093,7 @@
 
     move-result-object v1
 
-    const v2, 0x10e003d
+    const v2, 0x10e003e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -4079,7 +4101,7 @@
 
     iput v2, p0, Lcom/android/server/UiModeManagerService;->mNightMode:I
 
-    const v2, 0x10e0048
+    const v2, 0x10e0049
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -4109,7 +4131,7 @@
     :goto_0
     iput-boolean v2, p0, Lcom/android/server/UiModeManagerService;->mCarModeKeepsScreenOn:Z
 
-    const v2, 0x10e004a
+    const v2, 0x10e004c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -4127,7 +4149,7 @@
     :goto_1
     iput-boolean v2, p0, Lcom/android/server/UiModeManagerService;->mDeskModeKeepsScreenOn:Z
 
-    const v2, 0x11100ca
+    const v2, 0x11100cb
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -4135,7 +4157,7 @@
 
     iput-boolean v2, p0, Lcom/android/server/UiModeManagerService;->mEnableCarDockLaunch:Z
 
-    const v2, 0x1110102
+    const v2, 0x1110105
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -4143,7 +4165,7 @@
 
     iput-boolean v2, p0, Lcom/android/server/UiModeManagerService;->mUiModeLocked:Z
 
-    const v2, 0x1110101
+    const v2, 0x1110104
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 

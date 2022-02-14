@@ -22,29 +22,19 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/server/powerstats/PowerStatsService;)V
-    .locals 2
+    .locals 1
 
     iput-object p1, p0, Lcom/android/server/powerstats/PowerStatsService$LocalService;->this$0:Lcom/android/server/powerstats/PowerStatsService;
 
     invoke-direct {p0}, Landroid/power/PowerStatsInternal;-><init>()V
 
-    new-instance p1, Landroid/os/HandlerThread;
-
-    invoke-static {}, Lcom/android/server/powerstats/PowerStatsService;->access$100()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {p1, v0}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {p1}, Landroid/os/HandlerThread;->start()V
-
     new-instance v0, Landroid/os/Handler;
 
-    invoke-virtual {p1}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
+    invoke-static {p1}, Lcom/android/server/powerstats/PowerStatsService;->access$500(Lcom/android/server/powerstats/PowerStatsService;)Landroid/os/Looper;
 
-    move-result-object v1
+    move-result-object p1
 
-    invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+    invoke-direct {v0, p1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
     iput-object v0, p0, Lcom/android/server/powerstats/PowerStatsService$LocalService;->mHandler:Landroid/os/Handler;
 
@@ -54,7 +44,7 @@
 .method static synthetic lambda$getEnergyConsumedAsync$0(Lcom/android/server/powerstats/PowerStatsService;Ljava/util/concurrent/CompletableFuture;[I)V
     .locals 0
 
-    invoke-static {p0, p1, p2}, Lcom/android/server/powerstats/PowerStatsService;->access$700(Lcom/android/server/powerstats/PowerStatsService;Ljava/util/concurrent/CompletableFuture;[I)V
+    invoke-static {p0, p1, p2}, Lcom/android/server/powerstats/PowerStatsService;->access$800(Lcom/android/server/powerstats/PowerStatsService;Ljava/util/concurrent/CompletableFuture;[I)V
 
     return-void
 .end method
@@ -62,7 +52,7 @@
 .method static synthetic lambda$getStateResidencyAsync$1(Lcom/android/server/powerstats/PowerStatsService;Ljava/util/concurrent/CompletableFuture;[I)V
     .locals 0
 
-    invoke-static {p0, p1, p2}, Lcom/android/server/powerstats/PowerStatsService;->access$600(Lcom/android/server/powerstats/PowerStatsService;Ljava/util/concurrent/CompletableFuture;[I)V
+    invoke-static {p0, p1, p2}, Lcom/android/server/powerstats/PowerStatsService;->access$700(Lcom/android/server/powerstats/PowerStatsService;Ljava/util/concurrent/CompletableFuture;[I)V
 
     return-void
 .end method
@@ -70,7 +60,7 @@
 .method static synthetic lambda$readEnergyMeterAsync$2(Lcom/android/server/powerstats/PowerStatsService;Ljava/util/concurrent/CompletableFuture;[I)V
     .locals 0
 
-    invoke-static {p0, p1, p2}, Lcom/android/server/powerstats/PowerStatsService;->access$500(Lcom/android/server/powerstats/PowerStatsService;Ljava/util/concurrent/CompletableFuture;[I)V
+    invoke-static {p0, p1, p2}, Lcom/android/server/powerstats/PowerStatsService;->access$600(Lcom/android/server/powerstats/PowerStatsService;Ljava/util/concurrent/CompletableFuture;[I)V
 
     return-void
 .end method

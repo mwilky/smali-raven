@@ -27,7 +27,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/pm/PackageManagerService;->lambda$systemReady$62$PackageManagerService(Landroid/provider/DeviceConfig$Properties;)V
+    invoke-virtual {v0, p1}, Lcom/android/server/pm/PackageManagerService;->lambda$systemReady$61$PackageManagerService(Landroid/provider/DeviceConfig$Properties;)V
 
     return-void
 .end method

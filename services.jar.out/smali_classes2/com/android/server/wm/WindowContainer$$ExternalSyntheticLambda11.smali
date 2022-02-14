@@ -35,9 +35,9 @@
 .method public final test(Ljava/lang/Object;)Z
     .locals 0
 
-    check-cast p1, Lcom/android/server/wm/ActivityRecord;
+    check-cast p1, Lcom/android/server/wm/Task;
 
-    invoke-static {p1}, Lcom/android/server/wm/WindowContainer;->lambda$getTopActivity$7(Lcom/android/server/wm/ActivityRecord;)Z
+    invoke-static {p1}, Lcom/android/server/wm/WindowContainer;->lambda$getBottomMostTask$11(Lcom/android/server/wm/Task;)Z
 
     move-result p1
 

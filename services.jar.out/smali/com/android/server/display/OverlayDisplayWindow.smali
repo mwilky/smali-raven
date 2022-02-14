@@ -340,7 +340,7 @@
 
     iget-object v1, p0, Lcom/android/server/display/OverlayDisplayWindow;->mWindowContent:Landroid/view/View;
 
-    const v2, 0x10203db
+    const v2, 0x10203de
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -392,7 +392,7 @@
 
     iget-object v1, p0, Lcom/android/server/display/OverlayDisplayWindow;->mWindowContent:Landroid/view/View;
 
-    const v3, 0x10203dc
+    const v3, 0x10203df
 
     invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -581,7 +581,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x10402f0
+    const v2, 0x10402f4
 
     invoke-virtual {v0, v2, v1}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -607,7 +607,7 @@
 
     move-result-object v1
 
-    const v2, 0x10402ef
+    const v2, 0x10402f3
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

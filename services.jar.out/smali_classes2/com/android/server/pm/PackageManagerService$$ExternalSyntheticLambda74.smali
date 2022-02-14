@@ -6,24 +6,16 @@
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/pm/PackageManagerService;
-
-.field public final synthetic f$1:I
-
-.field public final synthetic f$2:I
+.field public final synthetic f$0:Ljava/lang/String;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/pm/PackageManagerService;II)V
+.method public synthetic constructor <init>(Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda74;->f$0:Lcom/android/server/pm/PackageManagerService;
-
-    iput p2, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda74;->f$1:I
-
-    iput p3, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda74;->f$2:I
+    iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda74;->f$0:Ljava/lang/String;
 
     return-void
 .end method
@@ -31,17 +23,13 @@
 
 # virtual methods
 .method public final test(Ljava/lang/Object;)Z
-    .locals 3
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda74;->f$0:Lcom/android/server/pm/PackageManagerService;
-
-    iget v1, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda74;->f$1:I
-
-    iget v2, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda74;->f$2:I
+    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda74;->f$0:Ljava/lang/String;
 
     check-cast p1, Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v2, p1}, Lcom/android/server/pm/PackageManagerService;->lambda$queryProperty$40$PackageManagerService(IILjava/lang/String;)Z
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p1
 

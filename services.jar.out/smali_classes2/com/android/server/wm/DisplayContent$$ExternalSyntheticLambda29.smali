@@ -29,7 +29,7 @@
 
     check-cast p1, Lcom/android/server/wm/WindowState;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/DisplayContent;->lambda$onWindowFreezeTimeout$29$DisplayContent(Lcom/android/server/wm/WindowState;)V
+    invoke-virtual {v0, p1}, Lcom/android/server/wm/DisplayContent;->lambda$onWindowFreezeTimeout$30$DisplayContent(Lcom/android/server/wm/WindowState;)V
 
     return-void
 .end method

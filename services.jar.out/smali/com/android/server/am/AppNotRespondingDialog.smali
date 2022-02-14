@@ -341,7 +341,7 @@
     return-void
 
     :pswitch_data_0
-    .packed-switch 0x10201bd
+    .packed-switch 0x10201c0
         :pswitch_3
         :pswitch_0
         :pswitch_2
@@ -377,7 +377,7 @@
 
     invoke-virtual {v2, v3, v0, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    const v2, 0x10201bf
+    const v2, 0x10201c2
 
     invoke-virtual {p0, v2}, Lcom/android/server/am/AppNotRespondingDialog;->findViewById(I)Landroid/view/View;
 
@@ -419,7 +419,7 @@
     :goto_1
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setVisibility(I)V
 
-    const v4, 0x10201bd
+    const v4, 0x10201c0
 
     invoke-virtual {p0, v4}, Lcom/android/server/am/AppNotRespondingDialog;->findViewById(I)Landroid/view/View;
 
@@ -429,7 +429,7 @@
 
     invoke-virtual {v4, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v6, 0x10201c1
+    const v6, 0x10201c4
 
     invoke-virtual {p0, v6}, Lcom/android/server/am/AppNotRespondingDialog;->findViewById(I)Landroid/view/View;
 
@@ -439,7 +439,7 @@
 
     invoke-virtual {v6, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v7, 0x102026a
+    const v7, 0x102026d
 
     invoke-virtual {p0, v7}, Lcom/android/server/am/AppNotRespondingDialog;->findViewById(I)Landroid/view/View;
 

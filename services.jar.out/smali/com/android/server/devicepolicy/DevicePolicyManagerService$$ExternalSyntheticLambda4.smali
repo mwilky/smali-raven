@@ -33,7 +33,7 @@
 
     iget v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda4;->f$1:I
 
-    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$markProfileOwnerOnOrganizationOwnedDeviceUncheckedLocked$103$DevicePolicyManagerService(I)V
+    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$markProfileOwnerOnOrganizationOwnedDeviceUncheckedLocked$106$DevicePolicyManagerService(I)V
 
     return-void
 .end method

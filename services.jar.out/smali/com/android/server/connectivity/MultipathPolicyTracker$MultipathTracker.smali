@@ -114,7 +114,7 @@
 
     const/4 v13, 0x0
 
-    const/4 v14, -0x1
+    const/4 v14, 0x1
 
     const/4 v7, -0x1
 

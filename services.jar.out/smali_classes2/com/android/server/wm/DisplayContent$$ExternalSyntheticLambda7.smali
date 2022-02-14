@@ -33,7 +33,7 @@
 
     iget-boolean v1, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda7;->f$1:Z
 
-    invoke-static {v0, v1}, Lcom/android/server/wm/DisplayContent;->lambda$updateImeControlTarget$24(Landroid/os/IBinder;Z)V
+    invoke-static {v0, v1}, Lcom/android/server/wm/DisplayContent;->lambda$updateImeControlTarget$25(Landroid/os/IBinder;Z)V
 
     return-void
 .end method

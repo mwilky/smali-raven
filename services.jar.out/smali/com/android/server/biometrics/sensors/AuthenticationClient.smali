@@ -198,6 +198,24 @@
     return-void
 .end method
 
+.method private isSettings()Z
+    .locals 2
+
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/AuthenticationClient;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/AuthenticationClient;->getOwnerString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/server/biometrics/Utils;->isSettings(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method private sendCancelOnly(Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;)V
     .locals 5
 
@@ -287,6 +305,47 @@
     .locals 1
 
     const/4 v0, 0x3
+
+    return v0
+.end method
+
+.method protected getShowOverlayReason()I
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/AuthenticationClient;->isKeyguard()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x4
+
+    return v0
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/AuthenticationClient;->isBiometricPrompt()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const/4 v0, 0x3
+
+    return v0
+
+    :cond_1
+    invoke-direct {p0}, Lcom/android/server/biometrics/sensors/AuthenticationClient;->isSettings()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const/4 v0, 0x6
+
+    return v0
+
+    :cond_2
+    const/4 v0, 0x5
 
     return v0
 .end method
@@ -863,7 +922,7 @@
     invoke-static {v12, v11}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
 
     :cond_9
-    iput-boolean v4, v6, Lcom/android/server/biometrics/sensors/AuthenticationClient;->mAlreadyDone:Z
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/biometrics/sensors/AuthenticationClient;->markAlreadyDone()V
 
     iget-object v0, v6, Lcom/android/server/biometrics/sensors/AuthenticationClient;->mTaskStackListener:Landroid/app/TaskStackListener;
 
@@ -974,7 +1033,7 @@
 
     if-eqz v12, :cond_e
 
-    iput-boolean v4, v6, Lcom/android/server/biometrics/sensors/AuthenticationClient;->mAlreadyDone:Z
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/biometrics/sensors/AuthenticationClient;->markAlreadyDone()V
 
     :cond_e
     invoke-static {}, Lcom/android/server/biometrics/sensors/CoexCoordinator;->getInstance()Lcom/android/server/biometrics/sensors/CoexCoordinator;
@@ -1021,6 +1080,50 @@
     invoke-direct {v1, p0}, Lcom/android/server/biometrics/sensors/AuthenticationClient$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/biometrics/sensors/AuthenticationClient;)V
 
     invoke-virtual {v0, p0, p1, v1}, Lcom/android/server/biometrics/sensors/CoexCoordinator;->onAuthenticationError(Lcom/android/server/biometrics/sensors/AuthenticationClient;ILcom/android/server/biometrics/sensors/CoexCoordinator$ErrorCallback;)V
+
+    return-void
+.end method
+
+.method protected onLockoutPermanent()V
+    .locals 4
+
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/AuthenticationClient;->getListener()Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;
+
+    move-result-object v0
+
+    invoke-static {}, Lcom/android/server/biometrics/sensors/CoexCoordinator;->getInstance()Lcom/android/server/biometrics/sensors/CoexCoordinator;
+
+    move-result-object v1
+
+    new-instance v2, Lcom/android/server/biometrics/sensors/AuthenticationClient$4;
+
+    invoke-direct {v2, p0, v0}, Lcom/android/server/biometrics/sensors/AuthenticationClient$4;-><init>(Lcom/android/server/biometrics/sensors/AuthenticationClient;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;)V
+
+    const/16 v3, 0x9
+
+    invoke-virtual {v1, p0, v3, v2}, Lcom/android/server/biometrics/sensors/CoexCoordinator;->onAuthenticationError(Lcom/android/server/biometrics/sensors/AuthenticationClient;ILcom/android/server/biometrics/sensors/CoexCoordinator$ErrorCallback;)V
+
+    return-void
+.end method
+
+.method protected onLockoutTimed(J)V
+    .locals 4
+
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/AuthenticationClient;->getListener()Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;
+
+    move-result-object v0
+
+    invoke-static {}, Lcom/android/server/biometrics/sensors/CoexCoordinator;->getInstance()Lcom/android/server/biometrics/sensors/CoexCoordinator;
+
+    move-result-object v1
+
+    new-instance v2, Lcom/android/server/biometrics/sensors/AuthenticationClient$3;
+
+    invoke-direct {v2, p0, v0}, Lcom/android/server/biometrics/sensors/AuthenticationClient$3;-><init>(Lcom/android/server/biometrics/sensors/AuthenticationClient;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;)V
+
+    const/4 v3, 0x7
+
+    invoke-virtual {v1, p0, v3, v2}, Lcom/android/server/biometrics/sensors/CoexCoordinator;->onAuthenticationError(Lcom/android/server/biometrics/sensors/AuthenticationClient;ILcom/android/server/biometrics/sensors/CoexCoordinator$ErrorCallback;)V
 
     return-void
 .end method

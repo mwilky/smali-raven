@@ -281,7 +281,7 @@
     goto :goto_1
 
     :cond_2
-    instance-of v1, p1, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;
+    instance-of v1, p1, Lcom/android/server/biometrics/sensors/EnrollClient;
 
     if-eqz v1, :cond_3
 

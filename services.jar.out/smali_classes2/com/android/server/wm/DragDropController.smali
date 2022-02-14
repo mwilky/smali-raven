@@ -12,9 +12,11 @@
 
 
 # static fields
+.field private static final A11Y_DRAG_TIMEOUT_DEFAULT_MS:I = 0xea60
+
 .field private static final DRAG_SHADOW_ALPHA_TRANSPARENT:F = 0.7071f
 
-.field private static final DRAG_TIMEOUT_MS:J = 0x1388L
+.field static final DRAG_TIMEOUT_MS:J = 0x1388L
 
 .field static final MSG_ANIMATION_END:I = 0x2
 
@@ -315,6 +317,137 @@
     return v0
 .end method
 
+.method dropForAccessibility(Landroid/view/IWindow;FF)Z
+    .locals 5
+
+    iget-object v0, p0, Lcom/android/server/wm/DragDropController;->mService:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mGlobalLock:Lcom/android/server/wm/WindowManagerGlobalLock;
+
+    monitor-enter v0
+
+    :try_start_0
+    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->boostPriorityForLockedSection()V
+
+    invoke-virtual {p0}, Lcom/android/server/wm/DragDropController;->getAccessibilityManager()Landroid/view/accessibility/AccessibilityManager;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/view/accessibility/AccessibilityManager;->isEnabled()Z
+
+    move-result v1
+
+    invoke-virtual {p0}, Lcom/android/server/wm/DragDropController;->dragDropActiveLocked()Z
+
+    move-result v2
+
+    const/4 v3, 0x0
+
+    if-nez v2, :cond_0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
+
+    return v3
+
+    :cond_0
+    :try_start_1
+    iget-object v2, p0, Lcom/android/server/wm/DragDropController;->mDragState:Lcom/android/server/wm/DragState;
+
+    invoke-virtual {v2}, Lcom/android/server/wm/DragState;->isAccessibilityDragDrop()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    if-eqz v1, :cond_2
+
+    iget-object v2, p0, Lcom/android/server/wm/DragDropController;->mService:Lcom/android/server/wm/WindowManagerService;
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v2, v4, p1, v3}, Lcom/android/server/wm/WindowManagerService;->windowForClientLocked(Lcom/android/server/wm/Session;Landroid/view/IWindow;Z)Lcom/android/server/wm/WindowState;
+
+    move-result-object v2
+
+    iget-object v4, p0, Lcom/android/server/wm/DragDropController;->mDragState:Lcom/android/server/wm/DragState;
+
+    invoke-virtual {v4, v2}, Lcom/android/server/wm/DragState;->isWindowNotified(Lcom/android/server/wm/WindowState;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
+    monitor-exit v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
+
+    return v3
+
+    :cond_1
+    :try_start_2
+    iget-object v3, v2, Lcom/android/server/wm/WindowState;->mInputChannelToken:Landroid/os/IBinder;
+
+    iget-object v4, p0, Lcom/android/server/wm/DragDropController;->mDragState:Lcom/android/server/wm/DragState;
+
+    invoke-virtual {v4, v3, p2, p3}, Lcom/android/server/wm/DragState;->reportDropWindowLock(Landroid/os/IBinder;FF)Z
+
+    move-result v4
+
+    monitor-exit v0
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
+
+    return v4
+
+    :cond_2
+    :try_start_3
+    monitor-exit v0
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
+
+    return v3
+
+    :catchall_0
+    move-exception v1
+
+    :try_start_4
+    monitor-exit v0
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
+
+    throw v1
+.end method
+
+.method getAccessibilityManager()Landroid/view/accessibility/AccessibilityManager;
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/wm/DragDropController;->mService:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mContext:Landroid/content/Context;
+
+    const-string v1, "accessibility"
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/accessibility/AccessibilityManager;
+
+    return-object v0
+.end method
+
 .method handleMotionEvent(ZFF)V
     .locals 2
 
@@ -392,23 +525,25 @@
 .end method
 
 .method performDrag(IILandroid/view/IWindow;ILandroid/view/SurfaceControl;IFFFFLandroid/content/ClipData;)Landroid/os/IBinder;
-    .locals 19
+    .locals 20
 
     move-object/from16 v8, p0
 
     move-object/from16 v6, p3
 
-    move-object/from16 v5, p5
+    move/from16 v5, p4
 
-    move/from16 v3, p7
+    move-object/from16 v3, p5
 
-    move/from16 v2, p8
+    move/from16 v2, p7
 
-    move/from16 v1, p9
+    move/from16 v1, p8
 
-    move/from16 v4, p10
+    move/from16 v4, p9
 
-    move-object/from16 v7, p11
+    move/from16 v7, p10
+
+    move-object/from16 v15, p11
 
     const-string v0, "WindowManager"
 
@@ -426,7 +561,7 @@
 
     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     const-string v10, " flags="
 
@@ -442,7 +577,7 @@
 
     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -454,7 +589,7 @@
 
     invoke-direct {v0}, Landroid/os/Binder;-><init>()V
 
-    move-object v15, v0
+    move-object v14, v0
 
     iget-object v0, v8, Lcom/android/server/wm/DragDropController;->mCallback:Ljava/util/concurrent/atomic/AtomicReference;
 
@@ -468,15 +603,15 @@
 
     move-object/from16 v10, p3
 
-    move-object v11, v15
+    move-object v11, v14
 
     move/from16 v12, p6
 
     move/from16 v13, p7
 
-    move/from16 v14, p8
+    move-object/from16 v18, v14
 
-    move-object/from16 v18, v15
+    move/from16 v14, p8
 
     move/from16 v15, p9
 
@@ -495,12 +630,12 @@
 
     monitor-enter v10
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_f
+    .catchall {:try_start_0 .. :try_end_0} :catchall_16
 
     :try_start_1
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->boostPriorityForLockedSection()V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_c
+    .catchall {:try_start_1 .. :try_end_1} :catchall_13
 
     const/4 v0, 0x0
 
@@ -517,7 +652,7 @@
 
     nop
 
-    if-eqz v5, :cond_0
+    if-eqz v3, :cond_0
 
     :try_start_3
     invoke-virtual/range {p5 .. p5}, Landroid/view/SurfaceControl;->release()V
@@ -559,40 +694,48 @@
     :catchall_0
     move-exception v0
 
+    move v12, v1
+
+    move-object v1, v3
+
     move v15, v4
 
-    move-object v1, v5
-
-    move-object v13, v6
-
-    move/from16 v16, v9
+    move/from16 v17, v9
 
     move-object/from16 v5, v18
 
-    move v6, v3
+    move/from16 v9, p6
 
-    move-object v9, v7
+    move v4, v2
 
-    goto/16 :goto_4
+    move-object v2, v6
+
+    move v6, v7
+
+    goto/16 :goto_a
 
     :catchall_1
     move-exception v0
 
+    move v12, v1
+
+    move-object v1, v3
+
     move v15, v4
 
-    move-object v1, v5
-
-    move-object v13, v6
-
-    move/from16 v16, v9
+    move/from16 v17, v9
 
     move-object/from16 v5, v18
 
-    move v6, v3
+    move/from16 v9, p6
 
-    move-object v9, v7
+    move v4, v2
 
-    goto/16 :goto_3
+    move-object v2, v6
+
+    move v6, v7
+
+    goto/16 :goto_9
 
     :cond_2
     :try_start_4
@@ -600,7 +743,7 @@
 
     move-result v11
     :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_c
+    .catchall {:try_start_4 .. :try_end_4} :catchall_13
 
     if-eqz v11, :cond_5
 
@@ -615,7 +758,7 @@
 
     nop
 
-    if-eqz v5, :cond_3
+    if-eqz v3, :cond_3
 
     :try_start_6
     invoke-virtual/range {p5 .. p5}, Landroid/view/SurfaceControl;->release()V
@@ -663,73 +806,78 @@
     invoke-virtual {v11, v0, v6, v12}, Lcom/android/server/wm/WindowManagerService;->windowForClientLocked(Lcom/android/server/wm/Session;Landroid/view/IWindow;Z)Lcom/android/server/wm/WindowState;
 
     move-result-object v11
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_13
 
-    if-eqz v11, :cond_10
+    if-eqz v11, :cond_11
 
+    :try_start_8
     invoke-virtual {v11}, Lcom/android/server/wm/WindowState;->canReceiveTouchInput()Z
 
-    move-result v12
+    move-result v13
 
-    if-nez v12, :cond_6
+    if-nez v13, :cond_6
+
+    move v12, v1
 
     move v15, v4
 
-    move-object v13, v6
+    move v6, v7
 
-    move/from16 v16, v9
+    move/from16 v17, v9
 
     move-object/from16 v5, v18
 
-    move v6, v3
+    move/from16 v9, p6
 
-    move-object v9, v7
+    move v4, v2
 
-    goto/16 :goto_2
+    goto/16 :goto_6
 
     :cond_6
     invoke-virtual {v11}, Lcom/android/server/wm/WindowState;->getDisplayContent()Lcom/android/server/wm/DisplayContent;
 
-    move-result-object v12
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_c
+    move-result-object v13
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_f
 
-    if-nez v12, :cond_9
+    if-nez v13, :cond_9
 
-    :try_start_8
-    const-string v13, "WindowManager"
+    :try_start_9
+    const-string v12, "WindowManager"
 
     const-string v14, "display content is null"
 
-    invoke-static {v13, v14}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_1
+    invoke-static {v12, v14}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_9
+    .catchall {:try_start_9 .. :try_end_9} :catchall_1
 
     nop
 
-    if-eqz v5, :cond_7
+    if-eqz v3, :cond_7
 
-    :try_start_9
+    :try_start_a
     invoke-virtual/range {p5 .. p5}, Landroid/view/SurfaceControl;->release()V
 
     :cond_7
-    iget-object v13, v8, Lcom/android/server/wm/DragDropController;->mDragState:Lcom/android/server/wm/DragState;
+    iget-object v12, v8, Lcom/android/server/wm/DragDropController;->mDragState:Lcom/android/server/wm/DragState;
 
-    if-eqz v13, :cond_8
+    if-eqz v12, :cond_8
 
-    invoke-virtual {v13}, Lcom/android/server/wm/DragState;->isInProgress()Z
+    invoke-virtual {v12}, Lcom/android/server/wm/DragState;->isInProgress()Z
 
-    move-result v13
+    move-result v12
 
-    if-nez v13, :cond_8
+    if-nez v12, :cond_8
 
-    iget-object v13, v8, Lcom/android/server/wm/DragDropController;->mDragState:Lcom/android/server/wm/DragState;
+    iget-object v12, v8, Lcom/android/server/wm/DragDropController;->mDragState:Lcom/android/server/wm/DragState;
 
-    invoke-virtual {v13}, Lcom/android/server/wm/DragState;->closeLocked()V
+    invoke-virtual {v12}, Lcom/android/server/wm/DragState;->closeLocked()V
 
     :cond_8
     monitor-exit v10
-    :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_0
+    :try_end_a
+    .catchall {:try_start_a .. :try_end_a} :catchall_0
 
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
@@ -746,9 +894,7 @@
     return-object v0
 
     :cond_9
-    move/from16 v13, p4
-
-    and-int/lit16 v14, v13, 0x200
+    and-int/lit16 v14, v5, 0x200
 
     if-nez v14, :cond_a
 
@@ -760,67 +906,65 @@
     const/high16 v14, 0x3f800000    # 1.0f
 
     :goto_0
-    :try_start_a
+    :try_start_b
     invoke-interface/range {p3 .. p3}, Landroid/view/IWindow;->asBinder()Landroid/os/IBinder;
 
     move-result-object v15
-    :try_end_a
-    .catchall {:try_start_a .. :try_end_a} :catchall_c
+    :try_end_b
+    .catchall {:try_start_b .. :try_end_b} :catchall_f
 
-    move/from16 v16, v9
-
-    move-object v9, v7
+    move v12, v7
 
     move-object v7, v15
 
-    :try_start_b
+    :try_start_c
     new-instance v15, Landroid/os/Binder;
 
     invoke-direct {v15}, Landroid/os/Binder;-><init>()V
-    :try_end_b
-    .catchall {:try_start_b .. :try_end_b} :catchall_9
+    :try_end_c
+    .catchall {:try_start_c .. :try_end_c} :catchall_e
 
-    move v13, v4
+    move/from16 v17, v9
+
+    move v9, v4
 
     move-object v4, v15
 
-    :try_start_c
+    :try_start_d
     new-instance v15, Lcom/android/server/wm/DragState;
 
     iget-object v0, v8, Lcom/android/server/wm/DragDropController;->mService:Lcom/android/server/wm/WindowManagerService;
-    :try_end_c
-    .catchall {:try_start_c .. :try_end_c} :catchall_8
+    :try_end_d
+    .catchall {:try_start_d .. :try_end_d} :catchall_d
 
-    move v13, v1
+    move v12, v1
 
     move-object v1, v15
 
-    move v13, v2
+    move v9, v2
 
     move-object v2, v0
 
-    move v13, v3
-
     move-object/from16 v3, p0
+
+    move v9, v5
 
     move-object/from16 v5, p5
 
-    move-object v13, v6
-
     move/from16 v6, p4
 
-    :try_start_d
+    :try_start_e
     invoke-direct/range {v1 .. v7}, Lcom/android/server/wm/DragState;-><init>(Lcom/android/server/wm/WindowManagerService;Lcom/android/server/wm/DragDropController;Landroid/os/IBinder;Landroid/view/SurfaceControl;ILandroid/os/IBinder;)V
 
     iput-object v15, v8, Lcom/android/server/wm/DragDropController;->mDragState:Lcom/android/server/wm/DragState;
-    :try_end_d
-    .catchall {:try_start_d .. :try_end_d} :catchall_7
+    :try_end_e
+    .catchall {:try_start_e .. :try_end_e} :catchall_c
 
     const/4 v1, 0x0
 
     move/from16 v2, p1
 
-    :try_start_e
+    :try_start_f
     iput v2, v15, Lcom/android/server/wm/DragState;->mPid:I
 
     iget-object v0, v8, Lcom/android/server/wm/DragDropController;->mDragState:Lcom/android/server/wm/DragState;
@@ -834,57 +978,72 @@
     iput v14, v0, Lcom/android/server/wm/DragState;->mOriginalAlpha:F
 
     iget-object v0, v8, Lcom/android/server/wm/DragDropController;->mDragState:Lcom/android/server/wm/DragState;
-    :try_end_e
-    .catchall {:try_start_e .. :try_end_e} :catchall_6
+    :try_end_f
+    .catchall {:try_start_f .. :try_end_f} :catchall_b
 
     move-object/from16 v5, v18
 
-    :try_start_f
+    :try_start_10
     iput-object v5, v0, Lcom/android/server/wm/DragState;->mToken:Landroid/os/IBinder;
 
     iget-object v0, v8, Lcom/android/server/wm/DragDropController;->mDragState:Lcom/android/server/wm/DragState;
 
-    iput-object v12, v0, Lcom/android/server/wm/DragState;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
+    iput-object v13, v0, Lcom/android/server/wm/DragState;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
-    invoke-virtual {v12}, Lcom/android/server/wm/DisplayContent;->getDisplay()Landroid/view/Display;
+    iget-object v0, v8, Lcom/android/server/wm/DragDropController;->mDragState:Lcom/android/server/wm/DragState;
+
+    move-object/from16 v6, p11
+
+    iput-object v6, v0, Lcom/android/server/wm/DragState;->mData:Landroid/content/ClipData;
+
+    and-int/lit16 v0, v9, 0x400
+
+    if-nez v0, :cond_e
+
+    invoke-virtual {v13}, Lcom/android/server/wm/DisplayContent;->getDisplay()Landroid/view/Display;
 
     move-result-object v0
 
-    iget-object v6, v8, Lcom/android/server/wm/DragDropController;->mCallback:Ljava/util/concurrent/atomic/AtomicReference;
+    iget-object v15, v8, Lcom/android/server/wm/DragDropController;->mCallback:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-virtual {v6}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
+    invoke-virtual {v15}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object v15
 
-    check-cast v6, Lcom/android/server/wm/WindowManagerInternal$IDragDropCallback;
+    check-cast v15, Lcom/android/server/wm/WindowManagerInternal$IDragDropCallback;
 
-    iget-object v15, v8, Lcom/android/server/wm/DragDropController;->mDragState:Lcom/android/server/wm/DragState;
+    iget-object v2, v8, Lcom/android/server/wm/DragDropController;->mDragState:Lcom/android/server/wm/DragState;
 
-    iget-object v2, v8, Lcom/android/server/wm/DragDropController;->mService:Lcom/android/server/wm/WindowManagerService;
+    iget-object v3, v8, Lcom/android/server/wm/DragDropController;->mService:Lcom/android/server/wm/WindowManagerService;
 
-    iget-object v2, v2, Lcom/android/server/wm/WindowManagerService;->mInputManager:Lcom/android/server/input/InputManagerService;
+    iget-object v3, v3, Lcom/android/server/wm/WindowManagerService;->mInputManager:Lcom/android/server/input/InputManagerService;
 
-    iget-object v3, v11, Lcom/android/server/wm/WindowState;->mInputChannel:Landroid/view/InputChannel;
+    move-object/from16 v18, v4
 
-    invoke-interface {v6, v15, v0, v2, v3}, Lcom/android/server/wm/WindowManagerInternal$IDragDropCallback;->registerInputChannel(Lcom/android/server/wm/DragState;Landroid/view/Display;Lcom/android/server/input/InputManagerService;Landroid/view/InputChannel;)Z
+    iget-object v4, v11, Lcom/android/server/wm/WindowState;->mInputChannel:Landroid/view/InputChannel;
+
+    invoke-interface {v15, v2, v0, v3, v4}, Lcom/android/server/wm/WindowManagerInternal$IDragDropCallback;->registerInputChannel(Lcom/android/server/wm/DragState;Landroid/view/Display;Lcom/android/server/input/InputManagerService;Landroid/view/InputChannel;)Z
 
     move-result v2
+    :try_end_10
+    .catchall {:try_start_10 .. :try_end_10} :catchall_a
 
     if-nez v2, :cond_d
 
+    :try_start_11
     const-string v2, "WindowManager"
 
     const-string v3, "Unable to transfer touch focus"
 
     invoke-static {v2, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_f
-    .catchall {:try_start_f .. :try_end_f} :catchall_5
+    :try_end_11
+    .catchall {:try_start_11 .. :try_end_11} :catchall_3
 
     nop
 
     if-eqz v1, :cond_b
 
-    :try_start_10
+    :try_start_12
     invoke-virtual {v1}, Landroid/view/SurfaceControl;->release()V
 
     :cond_b
@@ -904,8 +1063,8 @@
 
     :cond_c
     monitor-exit v10
-    :try_end_10
-    .catchall {:try_start_10 .. :try_end_10} :catchall_2
+    :try_end_12
+    .catchall {:try_start_12 .. :try_end_12} :catchall_2
 
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
@@ -926,55 +1085,74 @@
     :catchall_2
     move-exception v0
 
-    move/from16 v6, p7
+    move-object/from16 v2, p3
 
-    move/from16 v15, p10
+    move/from16 v9, p6
 
-    goto/16 :goto_4
+    move/from16 v4, p7
+
+    move/from16 v15, p9
+
+    move/from16 v6, p10
+
+    goto/16 :goto_a
+
+    :catchall_3
+    move-exception v0
+
+    move-object/from16 v2, p3
+
+    move/from16 v9, p6
+
+    move/from16 v4, p7
+
+    move/from16 v15, p9
+
+    move/from16 v6, p10
+
+    goto/16 :goto_9
 
     :cond_d
-    :try_start_11
+    :try_start_13
     iget-object v2, v8, Lcom/android/server/wm/DragDropController;->mDragState:Lcom/android/server/wm/DragState;
 
     iget-object v2, v2, Lcom/android/server/wm/DragState;->mSurfaceControl:Landroid/view/SurfaceControl;
 
     iget-object v3, v8, Lcom/android/server/wm/DragDropController;->mDragState:Lcom/android/server/wm/DragState;
+    :try_end_13
+    .catchall {:try_start_13 .. :try_end_13} :catchall_a
 
-    iput-object v9, v3, Lcom/android/server/wm/DragState;->mData:Landroid/content/ClipData;
+    move/from16 v4, p7
 
-    iget-object v3, v8, Lcom/android/server/wm/DragDropController;->mDragState:Lcom/android/server/wm/DragState;
-    :try_end_11
-    .catchall {:try_start_11 .. :try_end_11} :catchall_5
-
-    move/from16 v6, p7
-
-    move/from16 v15, p8
-
-    :try_start_12
-    invoke-virtual {v3, v6, v15}, Lcom/android/server/wm/DragState;->broadcastDragStartedLocked(FF)V
+    :try_start_14
+    invoke-virtual {v3, v4, v12}, Lcom/android/server/wm/DragState;->broadcastDragStartedLocked(FF)V
 
     iget-object v3, v8, Lcom/android/server/wm/DragDropController;->mDragState:Lcom/android/server/wm/DragState;
+    :try_end_14
+    .catchall {:try_start_14 .. :try_end_14} :catchall_6
 
-    move-object/from16 v17, v4
+    move/from16 v9, p6
 
-    move/from16 v4, p6
-
-    invoke-virtual {v3, v4}, Lcom/android/server/wm/DragState;->overridePointerIconLocked(I)V
+    :try_start_15
+    invoke-virtual {v3, v9}, Lcom/android/server/wm/DragState;->overridePointerIconLocked(I)V
 
     iget-object v3, v8, Lcom/android/server/wm/DragDropController;->mDragState:Lcom/android/server/wm/DragState;
+    :try_end_15
+    .catchall {:try_start_15 .. :try_end_15} :catchall_5
 
     move/from16 v15, p9
 
+    :try_start_16
     iput v15, v3, Lcom/android/server/wm/DragState;->mThumbOffsetX:F
 
     iget-object v3, v8, Lcom/android/server/wm/DragDropController;->mDragState:Lcom/android/server/wm/DragState;
-    :try_end_12
-    .catchall {:try_start_12 .. :try_end_12} :catchall_4
+    :try_end_16
+    .catchall {:try_start_16 .. :try_end_16} :catchall_4
 
-    move/from16 v15, p10
+    move/from16 v6, p10
 
-    :try_start_13
-    iput v15, v3, Lcom/android/server/wm/DragState;->mThumbOffsetY:F
+    :try_start_17
+    iput v6, v3, Lcom/android/server/wm/DragState;->mThumbOffsetY:F
 
     iget-object v3, v8, Lcom/android/server/wm/DragDropController;->mDragState:Lcom/android/server/wm/DragState;
 
@@ -988,49 +1166,112 @@
 
     invoke-virtual {v3, v2, v0}, Landroid/view/SurfaceControl$Transaction;->setAlpha(Landroid/view/SurfaceControl;F)Landroid/view/SurfaceControl$Transaction;
 
-    sub-float v0, v6, p9
+    sub-float v0, v4, v15
 
-    sub-float v4, p8, v15
+    move-object/from16 v19, v7
 
-    invoke-virtual {v3, v2, v0, v4}, Landroid/view/SurfaceControl$Transaction;->setPosition(Landroid/view/SurfaceControl;FF)Landroid/view/SurfaceControl$Transaction;
+    sub-float v7, v12, v6
+
+    invoke-virtual {v3, v2, v0, v7}, Landroid/view/SurfaceControl$Transaction;->setPosition(Landroid/view/SurfaceControl;FF)Landroid/view/SurfaceControl$Transaction;
 
     invoke-virtual {v3, v2}, Landroid/view/SurfaceControl$Transaction;->show(Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
 
-    invoke-virtual {v12, v3, v2}, Lcom/android/server/wm/DisplayContent;->reparentToOverlay(Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl;)V
+    invoke-virtual {v13, v3, v2}, Lcom/android/server/wm/DisplayContent;->reparentToOverlay(Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl;)V
 
     invoke-virtual {v11}, Lcom/android/server/wm/WindowState;->scheduleAnimation()V
-    :try_end_13
-    .catchall {:try_start_13 .. :try_end_13} :catchall_3
 
-    if-eqz v1, :cond_e
+    goto :goto_1
 
-    :try_start_14
-    invoke-virtual {v1}, Landroid/view/SurfaceControl;->release()V
+    :catchall_4
+    move-exception v0
+
+    goto/16 :goto_3
+
+    :catchall_5
+    move-exception v0
+
+    goto :goto_2
+
+    :catchall_6
+    move-exception v0
+
+    move/from16 v9, p6
+
+    goto :goto_2
 
     :cond_e
+    move/from16 v9, p6
+
+    move/from16 v15, p9
+
+    move/from16 v6, p10
+
+    move-object/from16 v18, v4
+
+    move-object/from16 v19, v7
+
+    move/from16 v4, p7
+
     iget-object v0, v8, Lcom/android/server/wm/DragDropController;->mDragState:Lcom/android/server/wm/DragState;
 
-    if-eqz v0, :cond_f
+    invoke-virtual {v0, v4, v12}, Lcom/android/server/wm/DragState;->broadcastDragStartedLocked(FF)V
+
+    iget-object v0, v11, Lcom/android/server/wm/WindowState;->mClient:Landroid/view/IWindow;
+
+    invoke-interface {v0}, Landroid/view/IWindow;->asBinder()Landroid/os/IBinder;
+
+    move-result-object v0
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/wm/DragDropController;->getAccessibilityManager()Landroid/view/accessibility/AccessibilityManager;
+
+    move-result-object v2
+
+    const v3, 0xea60
+
+    const/4 v7, 0x4
+
+    invoke-virtual {v2, v3, v7}, Landroid/view/accessibility/AccessibilityManager;->getRecommendedTimeoutMillis(II)I
+
+    move-result v2
+
+    int-to-long v2, v2
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v8, v7, v0, v2, v3}, Lcom/android/server/wm/DragDropController;->sendTimeoutMessage(ILjava/lang/Object;J)V
+    :try_end_17
+    .catchall {:try_start_17 .. :try_end_17} :catchall_9
+
+    :goto_1
+    if-eqz v1, :cond_f
+
+    :try_start_18
+    invoke-virtual {v1}, Landroid/view/SurfaceControl;->release()V
+
+    :cond_f
+    iget-object v0, v8, Lcom/android/server/wm/DragDropController;->mDragState:Lcom/android/server/wm/DragState;
+
+    if-eqz v0, :cond_10
 
     invoke-virtual {v0}, Lcom/android/server/wm/DragState;->isInProgress()Z
 
     move-result v0
 
-    if-nez v0, :cond_f
+    if-nez v0, :cond_10
 
     iget-object v0, v8, Lcom/android/server/wm/DragDropController;->mDragState:Lcom/android/server/wm/DragState;
 
     invoke-virtual {v0}, Lcom/android/server/wm/DragState;->closeLocked()V
 
-    :cond_f
+    :cond_10
     monitor-exit v10
-    :try_end_14
-    .catchall {:try_start_14 .. :try_end_14} :catchall_d
+    :try_end_18
+    .catchall {:try_start_18 .. :try_end_18} :catchall_8
 
-    :try_start_15
+    :try_start_19
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
-    :try_end_15
-    .catchall {:try_start_15 .. :try_end_15} :catchall_e
+    :try_end_19
+    .catchall {:try_start_19 .. :try_end_19} :catchall_7
 
     nop
 
@@ -1046,95 +1287,156 @@
 
     return-object v5
 
-    :catchall_3
-    move-exception v0
-
-    goto/16 :goto_3
-
-    :catchall_4
-    move-exception v0
-
-    goto :goto_1
-
-    :catchall_5
-    move-exception v0
-
-    move/from16 v6, p7
-
-    :goto_1
-    move/from16 v15, p10
-
-    goto/16 :goto_3
-
-    :catchall_6
-    move-exception v0
-
-    move/from16 v6, p7
-
-    move/from16 v15, p10
-
-    move-object/from16 v5, v18
-
-    goto/16 :goto_3
-
     :catchall_7
     move-exception v0
 
-    move/from16 v6, p7
+    move-object/from16 v2, p3
 
-    move/from16 v15, p10
-
-    move-object/from16 v5, v18
-
-    move-object/from16 v1, p5
-
-    goto/16 :goto_3
+    goto/16 :goto_b
 
     :catchall_8
     move-exception v0
 
-    move v15, v13
+    move-object/from16 v2, p3
 
-    move-object/from16 v5, v18
-
-    move-object v13, v6
-
-    move v6, v3
-
-    move-object/from16 v1, p5
-
-    goto/16 :goto_3
+    goto/16 :goto_a
 
     :catchall_9
     move-exception v0
 
-    move v15, v4
+    goto :goto_4
 
-    move-object v13, v6
+    :catchall_a
+    move-exception v0
+
+    move/from16 v9, p6
+
+    move/from16 v4, p7
+
+    :goto_2
+    move/from16 v15, p9
+
+    :goto_3
+    move/from16 v6, p10
+
+    :goto_4
+    move-object/from16 v2, p3
+
+    goto/16 :goto_9
+
+    :catchall_b
+    move-exception v0
+
+    move/from16 v9, p6
+
+    move/from16 v4, p7
+
+    move/from16 v15, p9
+
+    move/from16 v6, p10
 
     move-object/from16 v5, v18
 
-    move v6, v3
+    move-object/from16 v2, p3
+
+    goto/16 :goto_9
+
+    :catchall_c
+    move-exception v0
+
+    move/from16 v9, p6
+
+    move/from16 v4, p7
+
+    move/from16 v15, p9
+
+    move/from16 v6, p10
+
+    move-object/from16 v5, v18
+
+    move-object/from16 v2, p3
 
     move-object/from16 v1, p5
 
-    goto :goto_3
+    goto/16 :goto_9
 
-    :cond_10
-    move v15, v4
+    :catchall_d
+    move-exception v0
 
-    move-object v13, v6
+    move v4, v2
 
-    move/from16 v16, v9
+    move v15, v9
+
+    move v6, v12
 
     move-object/from16 v5, v18
 
-    move v6, v3
+    move/from16 v9, p6
 
-    move-object v9, v7
+    move v12, v1
 
-    :goto_2
-    :try_start_16
+    move-object/from16 v2, p3
+
+    move-object/from16 v1, p5
+
+    goto/16 :goto_9
+
+    :catchall_e
+    move-exception v0
+
+    move v15, v4
+
+    move/from16 v17, v9
+
+    move v6, v12
+
+    move-object/from16 v5, v18
+
+    move/from16 v9, p6
+
+    move v12, v1
+
+    goto :goto_5
+
+    :catchall_f
+    move-exception v0
+
+    move v12, v1
+
+    move v15, v4
+
+    move v6, v7
+
+    move/from16 v17, v9
+
+    move-object/from16 v5, v18
+
+    move/from16 v9, p6
+
+    :goto_5
+    move v4, v2
+
+    move-object/from16 v2, p3
+
+    goto/16 :goto_8
+
+    :cond_11
+    move v12, v1
+
+    move v15, v4
+
+    move v6, v7
+
+    move/from16 v17, v9
+
+    move-object/from16 v5, v18
+
+    move/from16 v9, p6
+
+    move v4, v2
+
+    :goto_6
+    :try_start_1a
     const-string v0, "WindowManager"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1144,43 +1446,48 @@
     const-string v2, "Bad requesting window "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :try_end_1a
+    .catchall {:try_start_1a .. :try_end_1a} :catchall_12
 
-    invoke-virtual {v1, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-object/from16 v2, p3
+
+    :try_start_1b
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_16
-    .catchall {:try_start_16 .. :try_end_16} :catchall_b
+    :try_end_1b
+    .catchall {:try_start_1b .. :try_end_1b} :catchall_11
 
     nop
 
-    if-eqz p5, :cond_11
+    if-eqz p5, :cond_12
 
-    :try_start_17
+    :try_start_1c
     invoke-virtual/range {p5 .. p5}, Landroid/view/SurfaceControl;->release()V
 
-    :cond_11
+    :cond_12
     iget-object v0, v8, Lcom/android/server/wm/DragDropController;->mDragState:Lcom/android/server/wm/DragState;
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_13
 
     invoke-virtual {v0}, Lcom/android/server/wm/DragState;->isInProgress()Z
 
     move-result v0
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_13
 
     iget-object v0, v8, Lcom/android/server/wm/DragDropController;->mDragState:Lcom/android/server/wm/DragState;
 
     invoke-virtual {v0}, Lcom/android/server/wm/DragState;->closeLocked()V
 
-    :cond_12
+    :cond_13
     monitor-exit v10
-    :try_end_17
-    .catchall {:try_start_17 .. :try_end_17} :catchall_a
+    :try_end_1c
+    .catchall {:try_start_1c .. :try_end_1c} :catchall_10
 
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
@@ -1198,110 +1505,127 @@
 
     return-object v0
 
-    :catchall_a
+    :catchall_10
     move-exception v0
 
     move-object/from16 v1, p5
 
-    goto :goto_4
+    goto :goto_a
 
-    :catchall_b
+    :catchall_11
     move-exception v0
 
+    goto :goto_7
+
+    :catchall_12
+    move-exception v0
+
+    move-object/from16 v2, p3
+
+    :goto_7
     move-object/from16 v1, p5
 
-    goto :goto_3
+    goto :goto_9
 
-    :catchall_c
+    :catchall_13
     move-exception v0
+
+    move v12, v1
 
     move v15, v4
 
-    move-object v13, v6
-
-    move/from16 v16, v9
+    move/from16 v17, v9
 
     move-object/from16 v5, v18
 
-    move v6, v3
+    move/from16 v9, p6
 
-    move-object v9, v7
+    move v4, v2
 
+    move-object v2, v6
+
+    move v6, v7
+
+    :goto_8
     move-object/from16 v1, p5
 
-    :goto_3
-    if-eqz v1, :cond_13
+    :goto_9
+    if-eqz v1, :cond_14
 
-    :try_start_18
+    :try_start_1d
     invoke-virtual {v1}, Landroid/view/SurfaceControl;->release()V
 
-    :cond_13
-    iget-object v2, v8, Lcom/android/server/wm/DragDropController;->mDragState:Lcom/android/server/wm/DragState;
-
-    if-eqz v2, :cond_14
-
-    invoke-virtual {v2}, Lcom/android/server/wm/DragState;->isInProgress()Z
-
-    move-result v2
-
-    if-nez v2, :cond_14
-
-    iget-object v2, v8, Lcom/android/server/wm/DragDropController;->mDragState:Lcom/android/server/wm/DragState;
-
-    invoke-virtual {v2}, Lcom/android/server/wm/DragState;->closeLocked()V
-
     :cond_14
+    iget-object v3, v8, Lcom/android/server/wm/DragDropController;->mDragState:Lcom/android/server/wm/DragState;
+
+    if-eqz v3, :cond_15
+
+    invoke-virtual {v3}, Lcom/android/server/wm/DragState;->isInProgress()Z
+
+    move-result v3
+
+    if-nez v3, :cond_15
+
+    iget-object v3, v8, Lcom/android/server/wm/DragDropController;->mDragState:Lcom/android/server/wm/DragState;
+
+    invoke-virtual {v3}, Lcom/android/server/wm/DragState;->closeLocked()V
+
+    :cond_15
     nop
 
     throw v0
 
-    :catchall_d
+    :catchall_14
     move-exception v0
 
-    :goto_4
+    :goto_a
     monitor-exit v10
-    :try_end_18
-    .catchall {:try_start_18 .. :try_end_18} :catchall_d
+    :try_end_1d
+    .catchall {:try_start_1d .. :try_end_1d} :catchall_14
 
-    :try_start_19
+    :try_start_1e
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
     throw v0
-    :try_end_19
-    .catchall {:try_start_19 .. :try_end_19} :catchall_e
+    :try_end_1e
+    .catchall {:try_start_1e .. :try_end_1e} :catchall_15
 
-    :catchall_e
+    :catchall_15
     move-exception v0
 
-    goto :goto_5
+    goto :goto_b
 
-    :catchall_f
+    :catchall_16
     move-exception v0
+
+    move v12, v1
 
     move v15, v4
 
-    move-object v13, v6
-
-    move/from16 v16, v9
+    move/from16 v17, v9
 
     move-object/from16 v5, v18
 
-    move v6, v3
+    move/from16 v9, p6
 
-    move-object v9, v7
+    move v4, v2
+
+    move-object v2, v6
+
+    move v6, v7
 
     move-object/from16 v1, p5
 
-    :goto_5
-    iget-object v2, v8, Lcom/android/server/wm/DragDropController;->mCallback:Ljava/util/concurrent/atomic/AtomicReference;
+    :goto_b
+    iget-object v3, v8, Lcom/android/server/wm/DragDropController;->mCallback:Ljava/util/concurrent/atomic/AtomicReference;
 
-    invoke-virtual {v2}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
+    invoke-virtual {v3}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v3
 
-    check-cast v2, Lcom/android/server/wm/WindowManagerInternal$IDragDropCallback;
+    check-cast v3, Lcom/android/server/wm/WindowManagerInternal$IDragDropCallback;
 
-    invoke-interface {v2}, Lcom/android/server/wm/WindowManagerInternal$IDragDropCallback;->postPerformDrag()V
+    invoke-interface {v3}, Lcom/android/server/wm/WindowManagerInternal$IDragDropCallback;->postPerformDrag()V
 
     throw v0
 .end method
@@ -1586,7 +1910,7 @@
 
     iget-object v1, p0, Lcom/android/server/wm/DragDropController;->mDragState:Lcom/android/server/wm/DragState;
 
-    invoke-virtual {v1, p1, p2, p3}, Lcom/android/server/wm/DragState;->reportDropWindowLock(Landroid/os/IBinder;FF)V
+    invoke-virtual {v1, p1, p2, p3}, Lcom/android/server/wm/DragState;->reportDropWindowLock(Landroid/os/IBinder;FF)Z
 
     monitor-exit v0
     :try_end_0
@@ -1633,8 +1957,8 @@
     return-void
 .end method
 
-.method sendTimeoutMessage(ILjava/lang/Object;)V
-    .locals 4
+.method sendTimeoutMessage(ILjava/lang/Object;J)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/wm/DragDropController;->mHandler:Landroid/os/Handler;
 
@@ -1648,9 +1972,7 @@
 
     iget-object v1, p0, Lcom/android/server/wm/DragDropController;->mHandler:Landroid/os/Handler;
 
-    const-wide/16 v2, 0x1388
-
-    invoke-virtual {v1, v0, v2, v3}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
+    invoke-virtual {v1, v0, p3, p4}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     return-void
 .end method

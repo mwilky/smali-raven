@@ -19,7 +19,7 @@
 
 .field public cpuClusterChargeUC:[J
 
-.field public displayChargeUC:J
+.field public displayChargeUC:[J
 
 .field public gnssChargeUC:J
 
@@ -46,7 +46,7 @@
 
     iput-object v2, p0, Lcom/android/server/am/MeasuredEnergySnapshot$MeasuredEnergyDeltaData;->cpuClusterChargeUC:[J
 
-    iput-wide v0, p0, Lcom/android/server/am/MeasuredEnergySnapshot$MeasuredEnergyDeltaData;->displayChargeUC:J
+    iput-object v2, p0, Lcom/android/server/am/MeasuredEnergySnapshot$MeasuredEnergyDeltaData;->displayChargeUC:[J
 
     iput-wide v0, p0, Lcom/android/server/am/MeasuredEnergySnapshot$MeasuredEnergyDeltaData;->gnssChargeUC:J
 

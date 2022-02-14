@@ -39,7 +39,7 @@
 
     iget v2, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda48;->f$2:I
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/pm/PackageManagerService;->lambda$setPackageStoppedState$61$PackageManagerService(Ljava/lang/String;I)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/pm/PackageManagerService;->lambda$setPackageStoppedState$60$PackageManagerService(Ljava/lang/String;I)V
 
     return-void
 .end method

@@ -5068,7 +5068,7 @@
     throw v1
 .end method
 
-.method scheduleAppCrashLocked(IILjava/lang/String;ILjava/lang/String;ZI)V
+.method scheduleAppCrashLocked(IILjava/lang/String;ILjava/lang/String;ZILandroid/os/Bundle;)V
     .locals 6
 
     const/4 v0, 0x0
@@ -5193,7 +5193,7 @@
     return-void
 
     :cond_5
-    invoke-virtual {v0, p5, p7}, Lcom/android/server/am/ProcessRecord;->scheduleCrashLocked(Ljava/lang/String;I)V
+    invoke-virtual {v0, p5, p7, p8}, Lcom/android/server/am/ProcessRecord;->scheduleCrashLocked(Ljava/lang/String;ILandroid/os/Bundle;)V
 
     if-eqz p6, :cond_6
 

@@ -6,16 +6,16 @@
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/server/wm/DisplayPolicy;
+.field public final synthetic f$0:Lcom/android/internal/policy/GestureNavigationSettingsObserver;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wm/DisplayPolicy;)V
+.method public synthetic constructor <init>(Lcom/android/internal/policy/GestureNavigationSettingsObserver;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda11;->f$0:Lcom/android/server/wm/DisplayPolicy;
+    iput-object p1, p0, Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda11;->f$0:Lcom/android/internal/policy/GestureNavigationSettingsObserver;
 
     return-void
 .end method
@@ -25,9 +25,9 @@
 .method public final run()V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda11;->f$0:Lcom/android/server/wm/DisplayPolicy;
+    iget-object v0, p0, Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda11;->f$0:Lcom/android/internal/policy/GestureNavigationSettingsObserver;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/DisplayPolicy;->lambda$new$0$DisplayPolicy()V
+    invoke-virtual {v0}, Lcom/android/internal/policy/GestureNavigationSettingsObserver;->register()V
 
     return-void
 .end method

@@ -39,7 +39,7 @@
 
     iget-object v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda0;->f$2:Ljava/util/List;
 
-    invoke-static {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$setCrossProfilePackages$127(Landroid/content/pm/CrossProfileApps;Ljava/util/List;Ljava/util/List;)V
+    invoke-static {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$setCrossProfilePackages$130(Landroid/content/pm/CrossProfileApps;Ljava/util/List;Ljava/util/List;)V
 
     return-void
 .end method

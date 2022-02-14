@@ -435,7 +435,7 @@
 .end method
 
 .method private onHighPowerUsageChanged()V
-    .locals 5
+    .locals 3
 
     invoke-direct {p0}, Lcom/android/server/location/provider/LocationProviderManager$Registration;->isUsingHighPower()Z
 
@@ -469,17 +469,7 @@
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/android/server/location/provider/LocationProviderManager$Registration;->this$0:Lcom/android/server/location/provider/LocationProviderManager;
-
-    invoke-virtual {v3}, Lcom/android/server/location/provider/LocationProviderManager;->getName()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {p0}, Lcom/android/server/location/provider/LocationProviderManager$Registration;->getKey()Ljava/lang/Object;
-
-    move-result-object v4
-
-    invoke-virtual {v1, v2, v3, v4}, Lcom/android/server/location/injector/LocationAttributionHelper;->reportHighPowerLocationStart(Landroid/location/util/identity/CallerIdentity;Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {v1, v2}, Lcom/android/server/location/injector/LocationAttributionHelper;->reportHighPowerLocationStart(Landroid/location/util/identity/CallerIdentity;)V
 
     goto :goto_0
 
@@ -492,17 +482,7 @@
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/android/server/location/provider/LocationProviderManager$Registration;->this$0:Lcom/android/server/location/provider/LocationProviderManager;
-
-    invoke-virtual {v3}, Lcom/android/server/location/provider/LocationProviderManager;->getName()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {p0}, Lcom/android/server/location/provider/LocationProviderManager$Registration;->getKey()Ljava/lang/Object;
-
-    move-result-object v4
-
-    invoke-virtual {v1, v2, v3, v4}, Lcom/android/server/location/injector/LocationAttributionHelper;->reportHighPowerLocationStop(Landroid/location/util/identity/CallerIdentity;Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {v1, v2}, Lcom/android/server/location/injector/LocationAttributionHelper;->reportHighPowerLocationStop(Landroid/location/util/identity/CallerIdentity;)V
 
     :cond_1
     :goto_0
@@ -746,7 +726,7 @@
 .end method
 
 .method protected final onActive()V
-    .locals 4
+    .locals 3
 
     sget-boolean v0, Landroid/os/Build;->IS_DEBUGGABLE:Z
 
@@ -793,17 +773,7 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/server/location/provider/LocationProviderManager$Registration;->this$0:Lcom/android/server/location/provider/LocationProviderManager;
-
-    invoke-virtual {v2}, Lcom/android/server/location/provider/LocationProviderManager;->getName()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p0}, Lcom/android/server/location/provider/LocationProviderManager$Registration;->getKey()Ljava/lang/Object;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/location/injector/LocationAttributionHelper;->reportLocationStart(Landroid/location/util/identity/CallerIdentity;Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {v0, v1}, Lcom/android/server/location/injector/LocationAttributionHelper;->reportLocationStart(Landroid/location/util/identity/CallerIdentity;)V
 
     :cond_1
     invoke-direct {p0}, Lcom/android/server/location/provider/LocationProviderManager$Registration;->onHighPowerUsageChanged()V
@@ -983,7 +953,7 @@
 .end method
 
 .method protected final onInactive()V
-    .locals 4
+    .locals 3
 
     sget-boolean v0, Landroid/os/Build;->IS_DEBUGGABLE:Z
 
@@ -1020,17 +990,7 @@
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/server/location/provider/LocationProviderManager$Registration;->this$0:Lcom/android/server/location/provider/LocationProviderManager;
-
-    invoke-virtual {v2}, Lcom/android/server/location/provider/LocationProviderManager;->getName()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p0}, Lcom/android/server/location/provider/LocationProviderManager$Registration;->getKey()Ljava/lang/Object;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/location/injector/LocationAttributionHelper;->reportLocationStop(Landroid/location/util/identity/CallerIdentity;Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {v0, v1}, Lcom/android/server/location/injector/LocationAttributionHelper;->reportLocationStop(Landroid/location/util/identity/CallerIdentity;)V
 
     :cond_1
     invoke-virtual {p0}, Lcom/android/server/location/provider/LocationProviderManager$Registration;->onProviderListenerInactive()V
@@ -1078,6 +1038,8 @@
 .method final onLocationPermissionsChanged(Ljava/lang/String;)Z
     .locals 1
 
+    if-eqz p1, :cond_1
+
     invoke-virtual {p0}, Lcom/android/server/location/provider/LocationProviderManager$Registration;->getIdentity()Landroid/location/util/identity/CallerIdentity;
 
     move-result-object v0
@@ -1092,14 +1054,18 @@
 
     if-eqz v0, :cond_0
 
-    invoke-direct {p0}, Lcom/android/server/location/provider/LocationProviderManager$Registration;->onLocationPermissionsChanged()Z
-
-    move-result v0
-
-    return v0
+    goto :goto_0
 
     :cond_0
     const/4 v0, 0x0
+
+    return v0
+
+    :cond_1
+    :goto_0
+    invoke-direct {p0}, Lcom/android/server/location/provider/LocationProviderManager$Registration;->onLocationPermissionsChanged()Z
+
+    move-result v0
 
     return v0
 .end method

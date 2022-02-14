@@ -327,16 +327,38 @@
 
     iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mAnimator:Lcom/android/server/wm/WindowAnimator;
 
-    iget v5, v0, Lcom/android/server/wm/WindowAnimator;->mBulkUpdateParams:I
+    iget v7, v0, Lcom/android/server/wm/WindowAnimator;->mBulkUpdateParams:I
 
-    or-int/2addr v3, v5
+    or-int/2addr v3, v7
 
     iput v3, v0, Lcom/android/server/wm/WindowAnimator;->mBulkUpdateParams:I
 
     iget-object v0, v1, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController;->this$0:Lcom/android/server/wm/ScreenRotationAnimation;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/ScreenRotationAnimation;->kill()V
+    invoke-static {v0}, Lcom/android/server/wm/ScreenRotationAnimation;->access$200(Lcom/android/server/wm/ScreenRotationAnimation;)Lcom/android/server/wm/DisplayContent;
 
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/server/wm/DisplayContent;->getRotationAnimation()Lcom/android/server/wm/ScreenRotationAnimation;
+
+    move-result-object v0
+
+    iget-object v3, v1, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController;->this$0:Lcom/android/server/wm/ScreenRotationAnimation;
+
+    if-ne v0, v3, :cond_7
+
+    invoke-static {v3}, Lcom/android/server/wm/ScreenRotationAnimation;->access$200(Lcom/android/server/wm/ScreenRotationAnimation;)Lcom/android/server/wm/DisplayContent;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v5}, Lcom/android/server/wm/DisplayContent;->setRotationAnimation(Lcom/android/server/wm/ScreenRotationAnimation;)V
+
+    goto :goto_5
+
+    :cond_7
+    invoke-virtual {v3}, Lcom/android/server/wm/ScreenRotationAnimation;->kill()V
+
+    :goto_5
     iget-object v0, v1, Lcom/android/server/wm/ScreenRotationAnimation$SurfaceRotationAnimationController;->this$0:Lcom/android/server/wm/ScreenRotationAnimation;
 
     invoke-static {v0}, Lcom/android/server/wm/ScreenRotationAnimation;->access$000(Lcom/android/server/wm/ScreenRotationAnimation;)Lcom/android/server/wm/WindowManagerService;
@@ -358,7 +380,7 @@
 
     move/from16 v6, p1
 
-    :goto_5
+    :goto_6
     :try_start_3
     monitor-exit v2
     :try_end_3
@@ -371,7 +393,7 @@
     :catchall_1
     move-exception v0
 
-    goto :goto_5
+    goto :goto_6
 .end method
 
 .method private startAnimation(Lcom/android/server/wm/SurfaceAnimator$Animatable;Lcom/android/server/wm/LocalAnimationAdapter$AnimationSpec;Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;)Lcom/android/server/wm/SurfaceAnimator;
@@ -433,7 +455,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e00c1
+    const v1, 0x10e00c5
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 

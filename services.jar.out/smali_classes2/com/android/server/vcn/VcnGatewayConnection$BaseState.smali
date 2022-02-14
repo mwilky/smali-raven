@@ -56,7 +56,7 @@
 
     const-string v2, "Uncaught exception"
 
-    invoke-static {v1, v2, v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$900(Lcom/android/server/vcn/VcnGatewayConnection;Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-static {v1, v2, v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$1000(Lcom/android/server/vcn/VcnGatewayConnection;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     iget-object v1, p0, Lcom/android/server/vcn/VcnGatewayConnection$BaseState;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
@@ -114,7 +114,7 @@
 
     const-string v2, "Uncaught exception"
 
-    invoke-static {v1, v2, v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$900(Lcom/android/server/vcn/VcnGatewayConnection;Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-static {v1, v2, v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$1000(Lcom/android/server/vcn/VcnGatewayConnection;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     iget-object v1, p0, Lcom/android/server/vcn/VcnGatewayConnection$BaseState;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
@@ -184,7 +184,7 @@
 
     iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$BaseState;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
-    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$1200(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/util/OneWayBoolean;
+    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$1300(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/util/OneWayBoolean;
 
     move-result-object v0
 
@@ -195,7 +195,7 @@
 
     iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$BaseState;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
-    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$1300(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/VcnGatewayConnection$VcnIkeSession;
+    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$1400(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/VcnGatewayConnection$VcnIkeSession;
 
     move-result-object v0
 
@@ -227,7 +227,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/server/vcn/VcnGatewayConnection;->access$1402(Lcom/android/server/vcn/VcnGatewayConnection;Lcom/android/internal/util/WakeupMessage;)Lcom/android/internal/util/WakeupMessage;
+    invoke-static {v0, v1}, Lcom/android/server/vcn/VcnGatewayConnection;->access$1502(Lcom/android/server/vcn/VcnGatewayConnection;Lcom/android/internal/util/WakeupMessage;)Lcom/android/internal/util/WakeupMessage;
 
     iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$BaseState;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
@@ -241,11 +241,11 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/server/vcn/VcnGatewayConnection;->access$1502(Lcom/android/server/vcn/VcnGatewayConnection;Z)Z
+    invoke-static {v0, v1}, Lcom/android/server/vcn/VcnGatewayConnection;->access$1602(Lcom/android/server/vcn/VcnGatewayConnection;Z)Z
 
     iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$BaseState;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
-    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$1600(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/Vcn$VcnGatewayStatusCallback;
+    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$1700(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/Vcn$VcnGatewayStatusCallback;
 
     move-result-object v0
 
@@ -372,7 +372,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/android/server/vcn/VcnGatewayConnection;->access$1700(Lcom/android/server/vcn/VcnGatewayConnection;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/android/server/vcn/VcnGatewayConnection;->access$1800(Lcom/android/server/vcn/VcnGatewayConnection;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -433,7 +433,7 @@
 
     const-string v4, "Uncaught exception"
 
-    invoke-static {v3, v4, v1}, Lcom/android/server/vcn/VcnGatewayConnection;->access$900(Lcom/android/server/vcn/VcnGatewayConnection;Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-static {v3, v4, v1}, Lcom/android/server/vcn/VcnGatewayConnection;->access$1000(Lcom/android/server/vcn/VcnGatewayConnection;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     iget-object v3, p0, Lcom/android/server/vcn/VcnGatewayConnection$BaseState;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
@@ -460,7 +460,7 @@
     :goto_0
     iget-object v1, p0, Lcom/android/server/vcn/VcnGatewayConnection$BaseState;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
-    invoke-static {v1}, Lcom/android/server/vcn/VcnGatewayConnection;->access$1000(Lcom/android/server/vcn/VcnGatewayConnection;)V
+    invoke-static {v1}, Lcom/android/server/vcn/VcnGatewayConnection;->access$1100(Lcom/android/server/vcn/VcnGatewayConnection;)V
 
     return v2
 .end method
@@ -478,7 +478,7 @@
 
     iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$BaseState;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
-    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$1100(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;
+    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$1200(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;
 
     move-result-object v0
 
@@ -486,7 +486,7 @@
 
     iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection$BaseState;->this$0:Lcom/android/server/vcn/VcnGatewayConnection;
 
-    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$1100(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;
+    invoke-static {v0}, Lcom/android/server/vcn/VcnGatewayConnection;->access$1200(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;
 
     move-result-object v0
 
@@ -496,7 +496,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/server/vcn/VcnGatewayConnection;->access$1102(Lcom/android/server/vcn/VcnGatewayConnection;Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;)Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;
+    invoke-static {v0, v1}, Lcom/android/server/vcn/VcnGatewayConnection;->access$1202(Lcom/android/server/vcn/VcnGatewayConnection;Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;)Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;
 
     :cond_0
     return-void

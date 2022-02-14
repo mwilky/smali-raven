@@ -31,7 +31,7 @@
 
     check-cast p2, Ljava/util/List;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/audio/AudioDeviceInventory;->lambda$onRestoreDevices$4$AudioDeviceInventory(Ljava/lang/Integer;Ljava/util/List;)V
+    invoke-virtual {v0, p1, p2}, Lcom/android/server/audio/AudioDeviceInventory;->lambda$onRestoreDevices$5$AudioDeviceInventory(Ljava/lang/Integer;Ljava/util/List;)V
 
     return-void
 .end method

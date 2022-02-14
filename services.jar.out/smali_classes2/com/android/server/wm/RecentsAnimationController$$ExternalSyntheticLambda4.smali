@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/BiFunction;
+.implements Ljava/util/function/BiConsumer;
 
 
 # static fields
@@ -32,16 +32,14 @@
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
 
-    check-cast p1, Lcom/android/server/wm/ActivityRecord;
+    check-cast p1, Lcom/android/server/wm/Task;
 
-    check-cast p2, Lcom/android/server/wm/ActivityRecord;
+    check-cast p2, Ljava/util/ArrayList;
 
-    invoke-static {p1, p2}, Lcom/android/server/wm/RecentsAnimationController;->lambda$isAnimatingApp$6(Lcom/android/server/wm/ActivityRecord;Lcom/android/server/wm/ActivityRecord;)Ljava/lang/Boolean;
+    invoke-static {p1, p2}, Lcom/android/server/wm/RecentsAnimationController;->lambda$initialize$0(Lcom/android/server/wm/Task;Ljava/util/ArrayList;)V
 
-    move-result-object p1
-
-    return-object p1
+    return-void
 .end method

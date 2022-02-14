@@ -57,7 +57,7 @@
 
     iput-object v0, p0, Lcom/android/server/wm/HighRefreshRateDenylist;->mListener:Lcom/android/server/wm/HighRefreshRateDenylist$OnPropertiesChangedListener;
 
-    const v0, 0x1070052
+    const v0, 0x1070059
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 

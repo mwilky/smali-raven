@@ -16,10 +16,6 @@
 .end annotation
 
 
-# static fields
-.field static final KEY_ROOT_DISPLAY_AREA_ID:Ljava/lang/String; = "root_display_area_id"
-
-
 # instance fields
 .field private final mDisplayAreaGroupHierarchyBuilders:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;

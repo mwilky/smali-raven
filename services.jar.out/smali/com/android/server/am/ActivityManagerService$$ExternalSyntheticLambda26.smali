@@ -14,9 +14,11 @@
 
 .field public final synthetic f$3:Z
 
+.field public final synthetic f$4:Z
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/am/ActivityManagerService;JJZ)V
+.method public synthetic constructor <init>(Lcom/android/server/am/ActivityManagerService;JJZZ)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -29,13 +31,15 @@
 
     iput-boolean p6, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda26;->f$3:Z
 
+    iput-boolean p7, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda26;->f$4:Z
+
     return-void
 .end method
 
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 7
+    .locals 8
 
     iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda26;->f$0:Lcom/android/server/am/ActivityManagerService;
 
@@ -45,11 +49,13 @@
 
     iget-boolean v5, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda26;->f$3:Z
 
-    move-object v6, p1
+    iget-boolean v6, p0, Lcom/android/server/am/ActivityManagerService$$ExternalSyntheticLambda26;->f$4:Z
 
-    check-cast v6, Lcom/android/server/am/ProcessRecord;
+    move-object v7, p1
 
-    invoke-virtual/range {v0 .. v6}, Lcom/android/server/am/ActivityManagerService;->lambda$checkExcessivePowerUsage$20$ActivityManagerService(JJZLcom/android/server/am/ProcessRecord;)V
+    check-cast v7, Lcom/android/server/am/ProcessRecord;
+
+    invoke-virtual/range {v0 .. v7}, Lcom/android/server/am/ActivityManagerService;->lambda$checkExcessivePowerUsage$20$ActivityManagerService(JJZZLcom/android/server/am/ProcessRecord;)V
 
     return-void
 .end method

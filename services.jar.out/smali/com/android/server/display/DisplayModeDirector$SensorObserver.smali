@@ -152,7 +152,7 @@
 
 
 # virtual methods
-.method dumpLocked(Ljava/io/PrintWriter;)V
+.method dump(Ljava/io/PrintWriter;)V
     .locals 6
 
     const-string v0, "  SensorObserver"

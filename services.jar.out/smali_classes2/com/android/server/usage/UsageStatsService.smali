@@ -502,6 +502,16 @@
     return-void
 .end method
 
+.method static synthetic access$2900(Lcom/android/server/usage/UsageStatsService;Landroid/os/UserHandle;)Z
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/server/usage/UsageStatsService;->shouldDeleteObsoleteData(Landroid/os/UserHandle;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method static synthetic access$900(Lcom/android/server/usage/UsageStatsService;I)V
     .locals 0
 
@@ -1160,7 +1170,7 @@
     return-object v0
 .end method
 
-.method private initializeUserUsageStatsServiceLocked(IJLjava/util/HashMap;)V
+.method private initializeUserUsageStatsServiceLocked(IJLjava/util/HashMap;Z)V
     .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1168,7 +1178,7 @@
             "Ljava/util/HashMap<",
             "Ljava/lang/String;",
             "Ljava/lang/Long;",
-            ">;)V"
+            ">;Z)V"
         }
     .end annotation
 
@@ -1191,7 +1201,7 @@
     invoke-direct {v1, v2, p1, v0, p0}, Lcom/android/server/usage/UserUsageStatsService;-><init>(Landroid/content/Context;ILjava/io/File;Lcom/android/server/usage/UserUsageStatsService$StatsUpdatedListener;)V
 
     :try_start_0
-    invoke-virtual {v1, p2, p3, p4}, Lcom/android/server/usage/UserUsageStatsService;->init(JLjava/util/HashMap;)V
+    invoke-virtual {v1, p2, p3, p4, p5}, Lcom/android/server/usage/UserUsageStatsService;->init(JLjava/util/HashMap;Z)V
 
     iget-object v2, p0, Lcom/android/server/usage/UsageStatsService;->mUserState:Landroid/util/SparseArray;
 
@@ -1960,171 +1970,195 @@
 .end method
 
 .method private onUserUnlocked(I)V
-    .locals 10
+    .locals 13
 
     invoke-direct {p0, p1}, Lcom/android/server/usage/UsageStatsService;->getInstalledPackages(I)Ljava/util/HashMap;
 
-    move-result-object v0
+    move-result-object v6
 
     if-nez p1, :cond_0
 
     invoke-virtual {p0}, Lcom/android/server/usage/UsageStatsService;->getContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-static {v1}, Lcom/android/server/usage/UsageStatsIdleService;->scheduleUpdateMappingsJob(Landroid/content/Context;)V
+    invoke-static {v0}, Lcom/android/server/usage/UsageStatsIdleService;->scheduleUpdateMappingsJob(Landroid/content/Context;)V
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/usage/UsageStatsService;->mLock:Ljava/lang/Object;
+    invoke-static {p1}, Landroid/os/UserHandle;->of(I)Landroid/os/UserHandle;
 
-    monitor-enter v1
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Lcom/android/server/usage/UsageStatsService;->shouldDeleteObsoleteData(Landroid/os/UserHandle;)Z
+
+    move-result v7
+
+    iget-object v8, p0, Lcom/android/server/usage/UsageStatsService;->mLock:Ljava/lang/Object;
+
+    monitor-enter v8
 
     :try_start_0
-    iget-object v2, p0, Lcom/android/server/usage/UsageStatsService;->mUserUnlockedStates:Ljava/util/concurrent/CopyOnWriteArraySet;
+    iget-object v0, p0, Lcom/android/server/usage/UsageStatsService;->mUserUnlockedStates:Ljava/util/concurrent/CopyOnWriteArraySet;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Ljava/util/concurrent/CopyOnWriteArraySet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/CopyOnWriteArraySet;->add(Ljava/lang/Object;)Z
 
-    new-instance v2, Landroid/app/usage/UsageEvents$Event;
+    new-instance v0, Landroid/app/usage/UsageEvents$Event;
 
-    const/16 v3, 0x1c
+    const/16 v1, 0x1c
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    move-result-wide v4
+    move-result-wide v2
 
-    invoke-direct {v2, v3, v4, v5}, Landroid/app/usage/UsageEvents$Event;-><init>(IJ)V
+    invoke-direct {v0, v1, v2, v3}, Landroid/app/usage/UsageEvents$Event;-><init>(IJ)V
 
-    const-string v3, "android"
+    move-object v9, v0
 
-    iput-object v3, v2, Landroid/app/usage/UsageEvents$Event;->mPackage:Ljava/lang/String;
+    const-string v0, "android"
+
+    iput-object v0, v9, Landroid/app/usage/UsageEvents$Event;->mPackage:Ljava/lang/String;
 
     invoke-direct {p0, p1}, Lcom/android/server/usage/UsageStatsService;->migrateStatsToSystemCeIfNeededLocked(I)V
 
-    new-instance v3, Ljava/util/LinkedList;
+    new-instance v0, Ljava/util/LinkedList;
 
-    invoke-direct {v3}, Ljava/util/LinkedList;-><init>()V
+    invoke-direct {v0}, Ljava/util/LinkedList;-><init>()V
 
-    invoke-direct {p0, p1, v3}, Lcom/android/server/usage/UsageStatsService;->loadPendingEventsLocked(ILjava/util/LinkedList;)V
+    move-object v10, v0
 
-    iget-object v4, p0, Lcom/android/server/usage/UsageStatsService;->mReportedEvents:Landroid/util/SparseArray;
+    invoke-direct {p0, p1, v10}, Lcom/android/server/usage/UsageStatsService;->loadPendingEventsLocked(ILjava/util/LinkedList;)V
 
-    invoke-virtual {v4, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    iget-object v0, p0, Lcom/android/server/usage/UsageStatsService;->mReportedEvents:Landroid/util/SparseArray;
 
-    move-result-object v4
+    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    check-cast v4, Ljava/util/LinkedList;
+    move-result-object v0
 
-    if-eqz v4, :cond_1
+    check-cast v0, Ljava/util/LinkedList;
 
-    invoke-virtual {v3, v4}, Ljava/util/LinkedList;->addAll(Ljava/util/Collection;)Z
+    move-object v11, v0
+
+    if-eqz v11, :cond_1
+
+    invoke-virtual {v10, v11}, Ljava/util/LinkedList;->addAll(Ljava/util/Collection;)Z
 
     :cond_1
-    invoke-virtual {v3}, Ljava/util/LinkedList;->isEmpty()Z
+    invoke-virtual {v10}, Ljava/util/LinkedList;->isEmpty()Z
 
-    move-result v5
+    move-result v0
 
-    if-nez v5, :cond_2
+    if-nez v0, :cond_2
 
-    const/4 v5, 0x1
+    const/4 v0, 0x1
 
     goto :goto_0
 
     :cond_2
-    const/4 v5, 0x0
+    const/4 v0, 0x0
 
     :goto_0
+    move v12, v0
+
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v6
+    move-result-wide v2
 
-    invoke-direct {p0, p1, v6, v7, v0}, Lcom/android/server/usage/UsageStatsService;->initializeUserUsageStatsServiceLocked(IJLjava/util/HashMap;)V
+    move-object v0, p0
+
+    move v1, p1
+
+    move-object v4, v6
+
+    move v5, v7
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/server/usage/UsageStatsService;->initializeUserUsageStatsServiceLocked(IJLjava/util/HashMap;Z)V
 
     invoke-direct {p0, p1}, Lcom/android/server/usage/UsageStatsService;->getUserUsageStatsServiceLocked(I)Lcom/android/server/usage/UserUsageStatsService;
 
-    move-result-object v6
+    move-result-object v0
 
-    if-nez v6, :cond_3
+    if-nez v0, :cond_3
 
-    const-string v7, "UsageStatsService"
+    const-string v1, "UsageStatsService"
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v9, "Attempted to unlock stopped or removed user "
+    const-string v3, "Attempted to unlock stopped or removed user "
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v2
 
-    invoke-static {v7, v8}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    monitor-exit v1
+    monitor-exit v8
 
     return-void
 
     :cond_3
     :goto_1
-    invoke-virtual {v3}, Ljava/util/LinkedList;->peek()Ljava/lang/Object;
+    invoke-virtual {v10}, Ljava/util/LinkedList;->peek()Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v1
 
-    if-eqz v7, :cond_4
+    if-eqz v1, :cond_4
 
-    invoke-virtual {v3}, Ljava/util/LinkedList;->poll()Ljava/lang/Object;
+    invoke-virtual {v10}, Ljava/util/LinkedList;->poll()Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v1
 
-    check-cast v7, Landroid/app/usage/UsageEvents$Event;
+    check-cast v1, Landroid/app/usage/UsageEvents$Event;
 
-    invoke-virtual {p0, v7, p1}, Lcom/android/server/usage/UsageStatsService;->reportEvent(Landroid/app/usage/UsageEvents$Event;I)V
+    invoke-virtual {p0, v1, p1}, Lcom/android/server/usage/UsageStatsService;->reportEvent(Landroid/app/usage/UsageEvents$Event;I)V
 
     goto :goto_1
 
     :cond_4
-    invoke-virtual {p0, v2, p1}, Lcom/android/server/usage/UsageStatsService;->reportEvent(Landroid/app/usage/UsageEvents$Event;I)V
+    invoke-virtual {p0, v9, p1}, Lcom/android/server/usage/UsageStatsService;->reportEvent(Landroid/app/usage/UsageEvents$Event;I)V
 
-    iget-object v7, p0, Lcom/android/server/usage/UsageStatsService;->mReportedEvents:Landroid/util/SparseArray;
+    iget-object v1, p0, Lcom/android/server/usage/UsageStatsService;->mReportedEvents:Landroid/util/SparseArray;
 
-    invoke-virtual {v7, p1}, Landroid/util/SparseArray;->remove(I)V
+    invoke-virtual {v1, p1}, Landroid/util/SparseArray;->remove(I)V
 
-    new-instance v7, Ljava/io/File;
+    new-instance v1, Ljava/io/File;
 
     invoke-static {p1}, Landroid/os/Environment;->getDataSystemDeDirectory(I)Ljava/io/File;
 
-    move-result-object v8
+    move-result-object v2
 
-    const-string v9, "usagestats"
+    const-string v3, "usagestats"
 
-    invoke-direct {v7, v8, v9}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v1, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
-    invoke-static {v7}, Lcom/android/server/usage/UsageStatsService;->deleteRecursively(Ljava/io/File;)V
+    invoke-static {v1}, Lcom/android/server/usage/UsageStatsService;->deleteRecursively(Ljava/io/File;)V
 
-    if-eqz v5, :cond_5
+    if-eqz v12, :cond_5
 
-    invoke-virtual {v6}, Lcom/android/server/usage/UserUsageStatsService;->persistActiveStats()V
+    invoke-virtual {v0}, Lcom/android/server/usage/UserUsageStatsService;->persistActiveStats()V
 
     :cond_5
-    monitor-exit v1
+    monitor-exit v8
 
     return-void
 
     :catchall_0
-    move-exception v2
+    move-exception v0
 
-    monitor-exit v1
+    monitor-exit v8
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v2
+    throw v0
 .end method
 
 .method private parseUserIdFromArgs([Ljava/lang/String;ILcom/android/internal/util/IndentingPrintWriter;)I
@@ -2727,6 +2761,36 @@
     throw v1
 .end method
 
+.method private shouldDeleteObsoleteData(Landroid/os/UserHandle;)Z
+    .locals 2
+
+    invoke-direct {p0}, Lcom/android/server/usage/UsageStatsService;->getDpmInternal()Landroid/app/admin/DevicePolicyManagerInternal;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0, p1}, Landroid/app/admin/DevicePolicyManagerInternal;->getProfileOwnerOrDeviceOwnerSupervisionComponent(Landroid/os/UserHandle;)Landroid/content/ComponentName;
+
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    const/4 v1, 0x1
+
+    :goto_1
+    return v1
+.end method
+
 .method private shouldHideLocusIdEvents(II)Z
     .locals 3
 
@@ -2853,6 +2917,19 @@
 .method private updatePackageMappingsData()Z
     .locals 5
 
+    sget-object v0, Landroid/os/UserHandle;->SYSTEM:Landroid/os/UserHandle;
+
+    invoke-direct {p0, v0}, Lcom/android/server/usage/UsageStatsService;->shouldDeleteObsoleteData(Landroid/os/UserHandle;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    return v0
+
+    :cond_0
     const/4 v0, 0x0
 
     invoke-direct {p0, v0}, Lcom/android/server/usage/UsageStatsService;->getInstalledPackages(I)Ljava/util/HashMap;
@@ -2874,13 +2951,13 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1
 
     monitor-exit v2
 
     return v0
 
-    :cond_0
+    :cond_1
     iget-object v3, p0, Lcom/android/server/usage/UsageStatsService;->mUserState:Landroid/util/SparseArray;
 
     invoke-virtual {v3, v0}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
@@ -2889,13 +2966,13 @@
 
     check-cast v3, Lcom/android/server/usage/UserUsageStatsService;
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_2
 
     monitor-exit v2
 
     return v0
 
-    :cond_1
+    :cond_2
     invoke-virtual {v3, v1}, Lcom/android/server/usage/UserUsageStatsService;->updatePackageMappingsLocked(Ljava/util/HashMap;)Z
 
     move-result v0

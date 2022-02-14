@@ -23,6 +23,8 @@
 
 .field final mNonDecorInsets:[Landroid/graphics/Rect;
 
+.field final mOriginalRotation:I
+
 .field final mStableInsets:[Landroid/graphics/Rect;
 
 .field private final mWidth:I
@@ -47,6 +49,12 @@
     new-array v3, v2, [Landroid/graphics/Rect;
 
     iput-object v3, v0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mStableInsets:[Landroid/graphics/Rect;
+
+    invoke-virtual/range {p1 .. p1}, Lcom/android/server/wm/DisplayContent;->getRotation()I
+
+    move-result v3
+
+    iput v3, v0, Lcom/android/server/wm/ActivityRecord$CompatDisplayInsets;->mOriginalRotation:I
 
     invoke-virtual/range {p2 .. p2}, Lcom/android/server/wm/ActivityRecord;->getWindowConfiguration()Landroid/app/WindowConfiguration;
 
@@ -677,7 +685,7 @@
 
     aget-object v3, v3, p3
 
-    invoke-static {p1, p2, v3}, Lcom/android/server/wm/Task;->intersectWithInsetsIfFits(Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;)V
+    invoke-static {p1, p2, v3}, Lcom/android/server/wm/TaskFragment;->intersectWithInsetsIfFits(Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;)V
 
     goto :goto_5
 

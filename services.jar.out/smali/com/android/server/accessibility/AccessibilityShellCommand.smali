@@ -338,7 +338,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Lcom/android/server/accessibility/AccessibilityTraceManager;->onShellCommand(Ljava/lang/String;)I
+    invoke-virtual {v0, p1, p0}, Lcom/android/server/accessibility/AccessibilityTraceManager;->onShellCommand(Ljava/lang/String;Landroid/os/ShellCommand;)I
 
     move-result v0
 

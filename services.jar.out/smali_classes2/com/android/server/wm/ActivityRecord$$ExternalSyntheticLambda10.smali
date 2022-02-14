@@ -37,7 +37,7 @@
 
     check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    invoke-static {p1}, Lcom/android/server/wm/ActivityRecord;->lambda$applyOptionsAnimation$6(Lcom/android/server/wm/ActivityRecord;)V
+    invoke-static {p1}, Lcom/android/server/wm/ActivityRecord;->lambda$applyOptionsAnimation$9(Lcom/android/server/wm/ActivityRecord;)V
 
     return-void
 .end method

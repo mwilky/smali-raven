@@ -454,6 +454,46 @@
 
     iget-object v1, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->mSnapshot:Landroid/window/TaskSnapshot;
 
+    invoke-virtual {v1}, Landroid/window/TaskSnapshot;->getLetterboxInsets()Landroid/graphics/Rect;
+
+    move-result-object v1
+
+    iget v1, v1, Landroid/graphics/Rect;->left:I
+
+    iput v1, v0, Lcom/android/server/wm/nano/WindowManagerProtos$TaskSnapshotProto;->letterboxInsetLeft:I
+
+    iget-object v1, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->mSnapshot:Landroid/window/TaskSnapshot;
+
+    invoke-virtual {v1}, Landroid/window/TaskSnapshot;->getLetterboxInsets()Landroid/graphics/Rect;
+
+    move-result-object v1
+
+    iget v1, v1, Landroid/graphics/Rect;->top:I
+
+    iput v1, v0, Lcom/android/server/wm/nano/WindowManagerProtos$TaskSnapshotProto;->letterboxInsetTop:I
+
+    iget-object v1, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->mSnapshot:Landroid/window/TaskSnapshot;
+
+    invoke-virtual {v1}, Landroid/window/TaskSnapshot;->getLetterboxInsets()Landroid/graphics/Rect;
+
+    move-result-object v1
+
+    iget v1, v1, Landroid/graphics/Rect;->right:I
+
+    iput v1, v0, Lcom/android/server/wm/nano/WindowManagerProtos$TaskSnapshotProto;->letterboxInsetRight:I
+
+    iget-object v1, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->mSnapshot:Landroid/window/TaskSnapshot;
+
+    invoke-virtual {v1}, Landroid/window/TaskSnapshot;->getLetterboxInsets()Landroid/graphics/Rect;
+
+    move-result-object v1
+
+    iget v1, v1, Landroid/graphics/Rect;->bottom:I
+
+    iput v1, v0, Lcom/android/server/wm/nano/WindowManagerProtos$TaskSnapshotProto;->letterboxInsetBottom:I
+
+    iget-object v1, p0, Lcom/android/server/wm/TaskSnapshotPersister$StoreWriteQueueItem;->mSnapshot:Landroid/window/TaskSnapshot;
+
     invoke-virtual {v1}, Landroid/window/TaskSnapshot;->isRealSnapshot()Z
 
     move-result v1

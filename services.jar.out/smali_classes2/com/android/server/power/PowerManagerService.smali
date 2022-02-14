@@ -740,7 +740,7 @@
 
     move-result-object v8
 
-    const v9, 0x10500d0
+    const v9, 0x10500d2
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -750,7 +750,7 @@
 
     move-result-object v9
 
-    const v10, 0x10500cf
+    const v10, 0x10500d1
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -760,7 +760,7 @@
 
     move-result-object v10
 
-    const v11, 0x10500cb
+    const v11, 0x10500cd
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -770,7 +770,7 @@
 
     move-result-object v11
 
-    const v12, 0x10500ca
+    const v12, 0x10500cb
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -780,7 +780,7 @@
 
     move-result-object v12
 
-    const v13, 0x10500c9
+    const v13, 0x10500ca
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -819,7 +819,7 @@
 
     move-result-object v14
 
-    const v15, 0x10e00bf
+    const v15, 0x10e00c3
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -837,7 +837,7 @@
 
     move-result-object v14
 
-    const v15, 0x10e00be
+    const v15, 0x10e00c2
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -855,7 +855,7 @@
 
     move-result-object v14
 
-    const v15, 0x10e00bd
+    const v15, 0x10e00c1
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -878,7 +878,7 @@
 
     move-result-object v14
 
-    const v15, 0x10e00b9
+    const v15, 0x10e00bd
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -906,7 +906,7 @@
 
     move-result-object v14
 
-    const v15, 0x10e00b8
+    const v15, 0x10e00bc
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -928,7 +928,7 @@
 
     move-result-object v14
 
-    const v15, 0x10500ce
+    const v15, 0x10500d0
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -938,7 +938,7 @@
 
     move-result-object v15
 
-    const v5, 0x10500cd
+    const v5, 0x10500cf
 
     invoke-virtual {v15, v5}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -948,7 +948,7 @@
 
     move-result-object v15
 
-    const v0, 0x10500cc
+    const v0, 0x10500ce
 
     invoke-virtual {v15, v0}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -985,7 +985,7 @@
 
     move-result-object v0
 
-    const v13, 0x10e00bc
+    const v13, 0x10e00c0
 
     invoke-virtual {v0, v13}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1003,7 +1003,7 @@
 
     move-result-object v0
 
-    const v13, 0x10e00bb
+    const v13, 0x10e00bf
 
     invoke-virtual {v0, v13}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1021,7 +1021,7 @@
 
     move-result-object v0
 
-    const v13, 0x10e00ba
+    const v13, 0x10e00be
 
     invoke-virtual {v0, v13}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -10897,7 +10897,7 @@
 
     const/4 v5, 0x0
 
-    if-eqz v3, :cond_a
+    if-eqz v3, :cond_c
 
     and-int/lit16 v3, v1, 0x1000
 
@@ -10935,7 +10935,7 @@
     move v7, v5
 
     :goto_1
-    if-ge v7, v6, :cond_9
+    if-ge v7, v6, :cond_b
 
     aget v8, v3, v7
 
@@ -11094,11 +11094,11 @@
 
     move-result v14
 
-    if-eqz v12, :cond_8
+    if-eqz v12, :cond_9
 
-    if-eqz v13, :cond_8
+    if-eqz v13, :cond_9
 
-    if-eqz v14, :cond_8
+    if-eqz v14, :cond_9
 
     iget-object v15, v0, Lcom/android/server/power/PowerManagerService;->mDisplayGroupPowerStateMapper:Lcom/android/server/power/DisplayGroupPowerStateMapper;
 
@@ -11112,11 +11112,23 @@
 
     invoke-virtual {v15, v8, v5}, Lcom/android/server/power/DisplayGroupPowerStateMapper;->setPoweringOnLocked(IZ)V
 
-    const-wide/32 v4, 0x20000
+    iget-object v15, v0, Lcom/android/server/power/PowerManagerService;->mContext:Landroid/content/Context;
 
-    const-string v15, "Screen turning on"
+    invoke-static {v15}, Lcom/android/internal/util/LatencyTracker;->getInstance(Landroid/content/Context;)Lcom/android/internal/util/LatencyTracker;
 
-    invoke-static {v4, v5, v15, v8}, Landroid/os/Trace;->asyncTraceEnd(JLjava/lang/String;I)V
+    move-result-object v15
+
+    const/4 v4, 0x5
+
+    invoke-virtual {v15, v4}, Lcom/android/internal/util/LatencyTracker;->onActionEnd(I)V
+
+    move v15, v6
+
+    const-wide/32 v5, 0x20000
+
+    const-string v4, "Screen turning on"
+
+    invoke-static {v5, v6, v4, v8}, Landroid/os/Trace;->asyncTraceEnd(JLjava/lang/String;I)V
 
     iget-object v4, v0, Lcom/android/server/power/PowerManagerService;->mClock:Lcom/android/server/power/PowerManagerService$Clock;
 
@@ -11124,9 +11136,9 @@
 
     move-result-wide v4
 
-    iget-object v15, v0, Lcom/android/server/power/PowerManagerService;->mDisplayGroupPowerStateMapper:Lcom/android/server/power/DisplayGroupPowerStateMapper;
+    iget-object v6, v0, Lcom/android/server/power/PowerManagerService;->mDisplayGroupPowerStateMapper:Lcom/android/server/power/DisplayGroupPowerStateMapper;
 
-    invoke-virtual {v15, v8}, Lcom/android/server/power/DisplayGroupPowerStateMapper;->getLastPowerOnTimeLocked(I)J
+    invoke-virtual {v6, v8}, Lcom/android/server/power/DisplayGroupPowerStateMapper;->getLastPowerOnTimeLocked(I)J
 
     move-result-wide v16
 
@@ -11136,32 +11148,45 @@
 
     const/16 v5, 0xc8
 
-    if-lt v4, v5, :cond_8
+    if-lt v4, v5, :cond_a
 
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v15, "Screen on took "
+    const-string v6, "Screen on took "
 
-    invoke-virtual {v5, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v15, " ms"
+    const-string v6, " ms"
 
-    invoke-virtual {v5, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
 
-    const-string v15, "PowerManagerService"
+    const-string v6, "PowerManagerService"
 
-    invoke-static {v15, v5}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v5}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_5
 
     :cond_8
+    move v15, v6
+
+    goto :goto_5
+
+    :cond_9
+    move v15, v6
+
+    :cond_a
+    :goto_5
     add-int/lit8 v7, v7, 0x1
+
+    move v6, v15
 
     const/4 v4, 0x1
 
@@ -11169,35 +11194,35 @@
 
     goto/16 :goto_1
 
-    :cond_9
+    :cond_b
     const/4 v3, 0x0
 
     iput-boolean v3, v0, Lcom/android/server/power/PowerManagerService;->mRequestWaitForNegativeProximity:Z
 
-    goto :goto_5
+    goto :goto_6
 
-    :cond_a
+    :cond_c
     move v3, v5
 
-    :goto_5
+    :goto_6
     iget-object v4, v0, Lcom/android/server/power/PowerManagerService;->mDisplayGroupPowerStateMapper:Lcom/android/server/power/DisplayGroupPowerStateMapper;
 
     invoke-virtual {v4}, Lcom/android/server/power/DisplayGroupPowerStateMapper;->areAllDisplaysReadyLocked()Z
 
     move-result v4
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_d
 
-    if-nez v2, :cond_b
+    if-nez v2, :cond_d
 
     const/4 v4, 0x1
 
-    goto :goto_6
+    goto :goto_7
 
-    :cond_b
+    :cond_d
     move v4, v3
 
-    :goto_6
+    :goto_7
     return v4
 .end method
 
@@ -13702,6 +13727,20 @@
     const-string v1, "Screen turning on"
 
     invoke-static {v9, v10, v1, v12}, Landroid/os/Trace;->asyncTraceBegin(JLjava/lang/String;I)V
+
+    iget-object v1, v11, Lcom/android/server/power/PowerManagerService;->mContext:Landroid/content/Context;
+
+    invoke-static {v1}, Lcom/android/internal/util/LatencyTracker;->getInstance(Landroid/content/Context;)Lcom/android/internal/util/LatencyTracker;
+
+    move-result-object v1
+
+    const/4 v2, 0x5
+
+    invoke-static/range {p1 .. p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v2, v3}, Lcom/android/internal/util/LatencyTracker;->onActionStart(ILjava/lang/String;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
@@ -14571,7 +14610,7 @@
 
     move-result-object v0
 
-    const v1, 0x1110119
+    const v1, 0x111011d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -14579,7 +14618,7 @@
 
     iput-boolean v1, p0, Lcom/android/server/power/PowerManagerService;->mDecoupleHalAutoSuspendModeFromDisplayConfig:Z
 
-    const v1, 0x111011a
+    const v1, 0x111011e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -14587,7 +14626,7 @@
 
     iput-boolean v1, p0, Lcom/android/server/power/PowerManagerService;->mDecoupleHalInteractiveModeFromDisplayConfig:Z
 
-    const v1, 0x111015d
+    const v1, 0x1110164
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -14603,7 +14642,7 @@
 
     iput-boolean v1, p0, Lcom/android/server/power/PowerManagerService;->mWakeUpWhenPluggedOrUnpluggedInTheaterModeConfig:Z
 
-    const v1, 0x1110151
+    const v1, 0x1110156
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -14629,7 +14668,7 @@
 
     iput-wide v1, p0, Lcom/android/server/power/PowerManagerService;->mAttentiveWarningDurationConfig:J
 
-    const v1, 0x11100c1
+    const v1, 0x11100c2
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -14637,7 +14676,7 @@
 
     iput-boolean v1, p0, Lcom/android/server/power/PowerManagerService;->mDreamsSupportedConfig:Z
 
-    const v1, 0x11100bf
+    const v1, 0x11100c0
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -14645,7 +14684,7 @@
 
     iput-boolean v1, p0, Lcom/android/server/power/PowerManagerService;->mDreamsEnabledByDefaultConfig:Z
 
-    const v1, 0x11100be
+    const v1, 0x11100bf
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -14653,7 +14692,7 @@
 
     iput-boolean v1, p0, Lcom/android/server/power/PowerManagerService;->mDreamsActivatedOnSleepByDefaultConfig:Z
 
-    const v1, 0x11100bd
+    const v1, 0x11100be
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -14661,7 +14700,7 @@
 
     iput-boolean v1, p0, Lcom/android/server/power/PowerManagerService;->mDreamsActivatedOnDockByDefaultConfig:Z
 
-    const v1, 0x11100c0
+    const v1, 0x11100c1
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -14669,7 +14708,7 @@
 
     iput-boolean v1, p0, Lcom/android/server/power/PowerManagerService;->mDreamsEnabledOnBatteryConfig:Z
 
-    const v1, 0x10e005e
+    const v1, 0x10e0061
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -14677,7 +14716,7 @@
 
     iput v1, p0, Lcom/android/server/power/PowerManagerService;->mDreamsBatteryLevelMinimumWhenPoweredConfig:I
 
-    const v1, 0x10e005d
+    const v1, 0x10e0060
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -14685,7 +14724,7 @@
 
     iput v1, p0, Lcom/android/server/power/PowerManagerService;->mDreamsBatteryLevelMinimumWhenNotPoweredConfig:I
 
-    const v1, 0x10e005c
+    const v1, 0x10e005f
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -14693,7 +14732,7 @@
 
     iput v1, p0, Lcom/android/server/power/PowerManagerService;->mDreamsBatteryLevelDrainCutoffConfig:I
 
-    const v1, 0x11100b7
+    const v1, 0x11100b8
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -14701,7 +14740,7 @@
 
     iput-boolean v1, p0, Lcom/android/server/power/PowerManagerService;->mDozeAfterScreenOff:Z
 
-    const v1, 0x10e008c
+    const v1, 0x10e0090
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -14711,7 +14750,7 @@
 
     iput-wide v1, p0, Lcom/android/server/power/PowerManagerService;->mMinimumScreenOffTimeoutConfig:J
 
-    const v1, 0x10e0087
+    const v1, 0x10e008b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -14731,7 +14770,7 @@
 
     iput v1, p0, Lcom/android/server/power/PowerManagerService;->mMaximumScreenDimRatioConfig:F
 
-    const v1, 0x1110142
+    const v1, 0x1110147
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 

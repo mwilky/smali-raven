@@ -8,26 +8,22 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-.field public final synthetic f$1:Landroid/os/UserHandle;
+.field public final synthetic f$1:Landroid/content/ComponentName;
 
-.field public final synthetic f$2:Landroid/content/ComponentName;
-
-.field public final synthetic f$3:Lcom/android/server/devicepolicy/CallerIdentity;
+.field public final synthetic f$2:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Landroid/os/UserHandle;Landroid/content/ComponentName;Lcom/android/server/devicepolicy/CallerIdentity;)V
+.method public synthetic constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Landroid/content/ComponentName;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda88;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    iput-object p2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda88;->f$1:Landroid/os/UserHandle;
+    iput-object p2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda88;->f$1:Landroid/content/ComponentName;
 
-    iput-object p3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda88;->f$2:Landroid/content/ComponentName;
-
-    iput-object p4, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda88;->f$3:Lcom/android/server/devicepolicy/CallerIdentity;
+    iput p3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda88;->f$2:I
 
     return-void
 .end method
@@ -35,17 +31,15 @@
 
 # virtual methods
 .method public final getOrThrow()Ljava/lang/Object;
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda88;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    iget-object v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda88;->f$1:Landroid/os/UserHandle;
+    iget-object v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda88;->f$1:Landroid/content/ComponentName;
 
-    iget-object v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda88;->f$2:Landroid/content/ComponentName;
+    iget v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda88;->f$2:I
 
-    iget-object v3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda88;->f$3:Lcom/android/server/devicepolicy/CallerIdentity;
-
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$removeUser$76$DevicePolicyManagerService(Landroid/os/UserHandle;Landroid/content/ComponentName;Lcom/android/server/devicepolicy/CallerIdentity;)Ljava/lang/Boolean;
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$getBindDeviceAdminTargetUsers$110$DevicePolicyManagerService(Landroid/content/ComponentName;I)Ljava/util/ArrayList;
 
     move-result-object v0
 

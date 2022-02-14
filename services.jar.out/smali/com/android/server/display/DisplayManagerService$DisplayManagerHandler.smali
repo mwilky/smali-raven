@@ -77,6 +77,13 @@
 
     move-result-object v2
 
+    if-nez v2, :cond_0
+
+    monitor-exit v0
+
+    goto/16 :goto_1
+
+    :cond_0
     invoke-virtual {v2}, Lcom/android/server/display/LogicalDisplay;->getPendingFrameRateOverrideUids()Landroid/util/ArraySet;
 
     move-result-object v3
@@ -142,7 +149,7 @@
 
     xor-int/lit8 v1, v1, 0x1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     iget-object v2, p0, Lcom/android/server/display/DisplayManagerService$DisplayManagerHandler;->this$0:Lcom/android/server/display/DisplayManagerService;
 
@@ -167,7 +174,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -191,12 +198,12 @@
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     monitor-exit v0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerService$DisplayManagerHandler;->this$0:Lcom/android/server/display/DisplayManagerService;
 
@@ -262,11 +269,9 @@
 
     nop
 
-    :cond_1
+    :cond_2
     :goto_1
     return-void
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x1

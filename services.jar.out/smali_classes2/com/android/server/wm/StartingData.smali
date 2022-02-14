@@ -4,6 +4,8 @@
 
 
 # instance fields
+.field mAssociatedTask:Lcom/android/server/wm/Task;
+
 .field mIsTransitionForward:Z
 
 .field protected final mService:Lcom/android/server/wm/WindowManagerService;

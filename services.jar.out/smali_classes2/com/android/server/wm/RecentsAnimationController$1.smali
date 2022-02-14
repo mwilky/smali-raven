@@ -89,7 +89,7 @@
     return-void
 .end method
 
-.method public onAppTransitionStartingLocked(ZJJJ)I
+.method public onAppTransitionStartingLocked(ZZJJJ)I
     .locals 1
 
     invoke-direct {p0}, Lcom/android/server/wm/RecentsAnimationController$1;->continueDeferredCancel()V

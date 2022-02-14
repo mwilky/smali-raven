@@ -14,7 +14,9 @@
 
 .field private static final TAG:Ljava/lang/String; = "WindowTracing"
 
-.field private static final TRACE_FILENAME:Ljava/lang/String; = "/data/misc/wmtrace/wm_trace.pb"
+.field private static final TRACE_FILENAME:Ljava/lang/String; = "/data/misc/wmtrace/wm_trace.winscope"
+
+.field static final WINSCOPE_EXT:Ljava/lang/String; = ".winscope"
 
 
 # instance fields
@@ -115,7 +117,7 @@
 
     new-instance v0, Ljava/io/File;
 
-    const-string v1, "/data/misc/wmtrace/wm_trace.pb"
+    const-string v1, "/data/misc/wmtrace/wm_trace.winscope"
 
     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 

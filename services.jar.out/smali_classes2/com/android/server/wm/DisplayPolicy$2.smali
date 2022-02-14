@@ -123,7 +123,7 @@
 
     iget-object v1, p0, Lcom/android/server/wm/DisplayPolicy$2;->this$0:Lcom/android/server/wm/DisplayPolicy;
 
-    invoke-static {v1}, Lcom/android/server/wm/DisplayPolicy;->access$1400(Lcom/android/server/wm/DisplayPolicy;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/server/wm/DisplayPolicy;->access$1500(Lcom/android/server/wm/DisplayPolicy;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -148,7 +148,7 @@
 
     iget-object v0, p0, Lcom/android/server/wm/DisplayPolicy$2;->this$0:Lcom/android/server/wm/DisplayPolicy;
 
-    invoke-static {v0}, Lcom/android/server/wm/DisplayPolicy;->access$1300(Lcom/android/server/wm/DisplayPolicy;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/server/wm/DisplayPolicy;->access$1400(Lcom/android/server/wm/DisplayPolicy;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -164,7 +164,7 @@
 
     iget-object v0, p0, Lcom/android/server/wm/DisplayPolicy$2;->this$0:Lcom/android/server/wm/DisplayPolicy;
 
-    invoke-static {v0}, Lcom/android/server/wm/DisplayPolicy;->access$1300(Lcom/android/server/wm/DisplayPolicy;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/server/wm/DisplayPolicy;->access$1400(Lcom/android/server/wm/DisplayPolicy;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -180,7 +180,7 @@
 
     iget-object v0, p0, Lcom/android/server/wm/DisplayPolicy$2;->this$0:Lcom/android/server/wm/DisplayPolicy;
 
-    invoke-static {v0}, Lcom/android/server/wm/DisplayPolicy;->access$1300(Lcom/android/server/wm/DisplayPolicy;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/server/wm/DisplayPolicy;->access$1400(Lcom/android/server/wm/DisplayPolicy;)Landroid/os/Handler;
 
     move-result-object v0
 
@@ -191,28 +191,30 @@
     return-void
 .end method
 
-.method public onAppTransitionStartingLocked(ZJJJ)I
-    .locals 8
+.method public onAppTransitionStartingLocked(ZZJJJ)I
+    .locals 9
 
-    iget-object v0, p0, Lcom/android/server/wm/DisplayPolicy$2;->this$0:Lcom/android/server/wm/DisplayPolicy;
+    move-object v6, p0
 
-    invoke-static {v0}, Lcom/android/server/wm/DisplayPolicy;->access$1300(Lcom/android/server/wm/DisplayPolicy;)Landroid/os/Handler;
+    iget-object v0, v6, Lcom/android/server/wm/DisplayPolicy$2;->this$0:Lcom/android/server/wm/DisplayPolicy;
 
-    move-result-object v0
+    invoke-static {v0}, Lcom/android/server/wm/DisplayPolicy;->access$1400(Lcom/android/server/wm/DisplayPolicy;)Landroid/os/Handler;
 
-    new-instance v7, Lcom/android/server/wm/DisplayPolicy$2$$ExternalSyntheticLambda3;
+    move-result-object v7
 
-    move-object v1, v7
+    new-instance v8, Lcom/android/server/wm/DisplayPolicy$2$$ExternalSyntheticLambda3;
 
-    move-object v2, p0
+    move-object v0, v8
 
-    move-wide v3, p4
+    move-object v1, p0
 
-    move-wide v5, p6
+    move-wide v2, p5
 
-    invoke-direct/range {v1 .. v6}, Lcom/android/server/wm/DisplayPolicy$2$$ExternalSyntheticLambda3;-><init>(Lcom/android/server/wm/DisplayPolicy$2;JJ)V
+    move-wide/from16 v4, p7
 
-    invoke-virtual {v0, v7}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-direct/range {v0 .. v5}, Lcom/android/server/wm/DisplayPolicy$2$$ExternalSyntheticLambda3;-><init>(Lcom/android/server/wm/DisplayPolicy$2;JJ)V
+
+    invoke-virtual {v7, v8}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     const/4 v0, 0x0
 

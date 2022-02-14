@@ -16,10 +16,11 @@
 # instance fields
 .field private final mAndroidBuildClassifier:Lcom/android/internal/compat/AndroidBuildClassifier;
 
-.field private final mChanges:Landroid/util/LongSparseArray;
+.field private final mChanges:Ljava/util/concurrent/ConcurrentHashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Landroid/util/LongSparseArray<",
+            "Ljava/util/concurrent/ConcurrentHashMap<",
+            "Ljava/lang/Long;",
             "Lcom/android/server/compat/CompatChange;",
             ">;"
         }
@@ -32,8 +33,6 @@
 
 .field private mOverridesFile:Ljava/io/File;
 
-.field private final mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
 
 # direct methods
 .method constructor <init>(Lcom/android/internal/compat/AndroidBuildClassifier;Landroid/content/Context;)V
@@ -41,17 +40,11 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Ljava/util/concurrent/locks/ReentrantReadWriteLock;
+    new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;
 
-    invoke-direct {v0}, Ljava/util/concurrent/locks/ReentrantReadWriteLock;-><init>()V
+    invoke-direct {v0}, Ljava/util/concurrent/ConcurrentHashMap;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    new-instance v0, Landroid/util/LongSparseArray;
-
-    invoke-direct {v0}, Landroid/util/LongSparseArray;-><init>()V
-
-    iput-object v0, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
+    iput-object v0, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Ljava/util/concurrent/ConcurrentHashMap;
 
     new-instance v0, Lcom/android/server/compat/OverrideValidatorImpl;
 
@@ -67,9 +60,13 @@
 .end method
 
 .method private addOverrideUnsafe(JLjava/lang/String;Landroid/app/compat/PackageOverride;)Z
-    .locals 5
+    .locals 6
 
-    const/4 v0, 0x1
+    new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
+
+    const/4 v1, 0x1
+
+    invoke-direct {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
 
     iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mOverrideValidator:Lcom/android/server/compat/OverrideValidatorImpl;
 
@@ -83,66 +80,31 @@
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
+    iget-object v3, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Ljava/util/concurrent/ConcurrentHashMap;
 
-    invoke-interface {v3}, Ljava/util/concurrent/locks/ReadWriteLock;->writeLock()Ljava/util/concurrent/locks/Lock;
+    invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-interface {v3}, Ljava/util/concurrent/locks/Lock;->lock()V
+    new-instance v5, Lcom/android/server/compat/CompatConfig$$ExternalSyntheticLambda1;
 
-    :try_start_0
-    iget-object v3, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
+    invoke-direct {v5, v0, p1, p2}, Lcom/android/server/compat/CompatConfig$$ExternalSyntheticLambda1;-><init>(Ljava/util/concurrent/atomic/AtomicBoolean;J)V
 
-    invoke-virtual {v3, p1, p2}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
+    invoke-virtual {v3, v4, v5}, Ljava/util/concurrent/ConcurrentHashMap;->computeIfAbsent(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Lcom/android/server/compat/CompatChange;
 
-    if-nez v3, :cond_0
-
-    const/4 v0, 0x0
-
-    new-instance v4, Lcom/android/server/compat/CompatChange;
-
-    invoke-direct {v4, p1, p2}, Lcom/android/server/compat/CompatChange;-><init>(J)V
-
-    move-object v3, v4
-
-    invoke-virtual {p0, v3}, Lcom/android/server/compat/CompatConfig;->addChange(Lcom/android/server/compat/CompatChange;)V
-
-    :cond_0
     invoke-virtual {v3, p3, p4, v1, v2}, Lcom/android/server/compat/CompatChange;->addPackageOverride(Ljava/lang/String;Landroid/app/compat/PackageOverride;Lcom/android/internal/compat/OverrideAllowedState;Ljava/lang/Long;)V
 
     invoke-direct {p0}, Lcom/android/server/compat/CompatConfig;->invalidateCache()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    iget-object v3, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
+    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
 
-    invoke-interface {v3}, Ljava/util/concurrent/locks/ReadWriteLock;->writeLock()Ljava/util/concurrent/locks/Lock;
+    move-result v4
 
-    move-result-object v3
-
-    invoke-interface {v3}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
-    nop
-
-    return v0
-
-    :catchall_0
-    move-exception v3
-
-    iget-object v4, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v4}, Ljava/util/concurrent/locks/ReadWriteLock;->writeLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v4
-
-    invoke-interface {v4}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
-    throw v3
+    return v4
 .end method
 
 .method static create(Lcom/android/internal/compat/AndroidBuildClassifier;Landroid/content/Context;)Lcom/android/server/compat/CompatConfig;
@@ -244,29 +206,24 @@
 
     invoke-direct {v0}, Landroid/util/LongArray;-><init>()V
 
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
+    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Ljava/util/concurrent/ConcurrentHashMap;
 
-    invoke-interface {v1}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
+    invoke-virtual {v1}, Ljava/util/concurrent/ConcurrentHashMap;->values()Ljava/util/Collection;
 
     move-result-object v1
 
-    invoke-interface {v1}, Ljava/util/concurrent/locks/Lock;->lock()V
+    invoke-interface {v1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    const/4 v1, 0x0
+    move-result-object v1
 
     :goto_0
-    :try_start_0
-    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v2}, Landroid/util/LongSparseArray;->size()I
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-ge v1, v2, :cond_2
+    if-eqz v2, :cond_2
 
-    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v2, v1}, Landroid/util/LongSparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
@@ -278,7 +235,7 @@
 
     if-eq v3, p2, :cond_0
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_0
     iget-object v3, p0, Lcom/android/server/compat/CompatConfig;->mOverrideValidator:Lcom/android/server/compat/OverrideValidatorImpl;
@@ -300,44 +257,16 @@
     move-result-wide v4
 
     invoke-virtual {v0, v4, v5}, Landroid/util/LongArray;->add(J)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_1
-    :goto_1
-    add-int/lit8 v1, v1, 0x1
-
     goto :goto_0
 
     :cond_2
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v1}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
-    nop
-
     invoke-virtual {v0}, Landroid/util/LongArray;->toArray()[J
 
     move-result-object v1
 
     return-object v1
-
-    :catchall_0
-    move-exception v1
-
-    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
-    throw v1
 .end method
 
 .method private getVersionCodeOrNull(Ljava/lang/String;)Ljava/lang/Long;
@@ -402,6 +331,20 @@
     invoke-static {}, Landroid/app/compat/ChangeIdStateCache;->invalidate()V
 
     return-void
+.end method
+
+.method static synthetic lambda$addOverrideUnsafe$0(Ljava/util/concurrent/atomic/AtomicBoolean;JLjava/lang/Long;)Lcom/android/server/compat/CompatChange;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
+
+    new-instance v0, Lcom/android/server/compat/CompatChange;
+
+    invoke-direct {v0, p1, p2}, Lcom/android/server/compat/CompatChange;-><init>(J)V
+
+    return-object v0
 .end method
 
 .method private loadOverrides(Ljava/io/File;)V
@@ -500,9 +443,13 @@
 
     move-result-wide v5
 
-    iget-object v7, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
+    iget-object v7, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Ljava/util/concurrent/ConcurrentHashMap;
 
-    invoke-virtual {v7, v5, v6}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
+    invoke-static {v5, v6}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/util/concurrent/ConcurrentHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v7
 
@@ -607,7 +554,7 @@
 .end method
 
 .method private readConfig(Ljava/io/File;)V
-    .locals 7
+    .locals 8
 
     const-string v0, "CompatConfig"
 
@@ -623,6 +570,7 @@
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljavax/xml/datatype/DatatypeConfigurationException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_2
 
     :try_start_1
     invoke-static {v1}, Lcom/android/server/compat/config/XmlParser;->read(Ljava/io/InputStream;)Lcom/android/server/compat/config/Config;
@@ -670,13 +618,25 @@
 
     invoke-static {v0, v5}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v5, Lcom/android/server/compat/CompatChange;
+    iget-object v5, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Ljava/util/concurrent/ConcurrentHashMap;
 
-    invoke-direct {v5, v4}, Lcom/android/server/compat/CompatChange;-><init>(Lcom/android/server/compat/config/Change;)V
+    invoke-virtual {v4}, Lcom/android/server/compat/config/Change;->getId()J
 
-    invoke-virtual {p0, v5}, Lcom/android/server/compat/CompatConfig;->addChange(Lcom/android/server/compat/CompatChange;)V
+    move-result-wide v6
+
+    invoke-static {v6, v7}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v6
+
+    new-instance v7, Lcom/android/server/compat/CompatChange;
+
+    invoke-direct {v7, v4}, Lcom/android/server/compat/CompatChange;-><init>(Lcom/android/server/compat/config/Change;)V
+
+    invoke-virtual {v5, v6, v7}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    nop
 
     goto :goto_0
 
@@ -687,6 +647,7 @@
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
     .catch Ljavax/xml/datatype/DatatypeConfigurationException; {:try_start_2 .. :try_end_2} :catch_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_2
 
     goto :goto_2
 
@@ -712,37 +673,52 @@
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_0
     .catch Ljavax/xml/datatype/DatatypeConfigurationException; {:try_start_4 .. :try_end_4} :catch_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_4 .. :try_end_4} :catch_0
+    .catchall {:try_start_4 .. :try_end_4} :catchall_2
+
+    :catchall_2
+    move-exception v0
+
+    goto :goto_3
 
     :catch_0
     move-exception v1
 
+    :try_start_5
     const-string v2, "Encountered an error while reading/parsing compat config file"
 
     invoke-static {v0, v2, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_2
+
+    nop
 
     :goto_2
+    invoke-direct {p0}, Lcom/android/server/compat/CompatConfig;->invalidateCache()V
+
+    nop
+
     return-void
+
+    :goto_3
+    invoke-direct {p0}, Lcom/android/server/compat/CompatConfig;->invalidateCache()V
+
+    throw v0
 .end method
 
 .method private removeOverrideUnsafe(JLjava/lang/String;)Z
-    .locals 4
+    .locals 3
 
     invoke-direct {p0, p3}, Lcom/android/server/compat/CompatConfig;->getVersionCodeOrNull(Ljava/lang/String;)Ljava/lang/Long;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
+    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Ljava/util/concurrent/ConcurrentHashMap;
 
-    invoke-interface {v1}, Ljava/util/concurrent/locks/ReadWriteLock;->writeLock()Ljava/util/concurrent/locks/Lock;
+    invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-interface {v1}, Ljava/util/concurrent/locks/Lock;->lock()V
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v1, p1, p2}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
+    invoke-virtual {v1, v2}, Ljava/util/concurrent/ConcurrentHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -753,46 +729,13 @@
     invoke-direct {p0, v1, p3, v0}, Lcom/android/server/compat/CompatConfig;->removeOverrideUnsafe(Lcom/android/server/compat/CompatChange;Ljava/lang/String;Ljava/lang/Long;)Z
 
     move-result v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    iget-object v3, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v3}, Ljava/util/concurrent/locks/ReadWriteLock;->writeLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v3
-
-    invoke-interface {v3}, Ljava/util/concurrent/locks/Lock;->unlock()V
 
     return v2
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
+    const/4 v2, 0x0
 
-    invoke-interface {v1}, Ljava/util/concurrent/locks/ReadWriteLock;->writeLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
-    nop
-
-    const/4 v1, 0x0
-
-    return v1
-
-    :catchall_0
-    move-exception v1
-
-    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/ReadWriteLock;->writeLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
-    throw v1
+    return v2
 .end method
 
 .method private removeOverrideUnsafe(Lcom/android/server/compat/CompatChange;Ljava/lang/String;Ljava/lang/Long;)Z
@@ -808,24 +751,9 @@
 
     move-result-object v2
 
-    invoke-virtual {p1, p2}, Lcom/android/server/compat/CompatChange;->hasPackageOverride(Ljava/lang/String;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    invoke-virtual {v2, v0, v1, p2}, Lcom/android/internal/compat/OverrideAllowedState;->enforce(JLjava/lang/String;)V
-
     invoke-virtual {p1, p2, v2, p3}, Lcom/android/server/compat/CompatChange;->removePackageOverride(Ljava/lang/String;Lcom/android/internal/compat/OverrideAllowedState;Ljava/lang/Long;)Z
 
-    invoke-direct {p0}, Lcom/android/server/compat/CompatConfig;->invalidateCache()V
-
-    const/4 v3, 0x1
-
-    return v3
-
-    :cond_0
-    const/4 v3, 0x0
+    move-result v3
 
     return v3
 .end method
@@ -835,56 +763,27 @@
 .method addChange(Lcom/android/server/compat/CompatChange;)V
     .locals 3
 
-    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v0}, Ljava/util/concurrent/locks/ReadWriteLock;->writeLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->lock()V
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
+    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Ljava/util/concurrent/ConcurrentHashMap;
 
     invoke-virtual {p1}, Lcom/android/server/compat/CompatChange;->getId()J
 
     move-result-wide v1
 
-    invoke-virtual {v0, v1, v2, p1}, Landroid/util/LongSparseArray;->put(JLjava/lang/Object;)V
-
-    invoke-direct {p0}, Lcom/android/server/compat/CompatConfig;->invalidateCache()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v0}, Ljava/util/concurrent/locks/ReadWriteLock;->writeLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
-    nop
-
-    return-void
-
-    :catchall_0
-    move-exception v0
-
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v1}, Ljava/util/concurrent/locks/ReadWriteLock;->writeLock()Ljava/util/concurrent/locks/Lock;
+    invoke-static {v1, v2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v1
 
-    invoke-interface {v1}, Ljava/util/concurrent/locks/Lock;->unlock()V
+    invoke-virtual {v0, v1, p1}, Ljava/util/concurrent/ConcurrentHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    throw v0
+    return-void
 .end method
 
-.method addOverride(JLjava/lang/String;Z)Z
+.method declared-synchronized addOverride(JLjava/lang/String;Z)Z
     .locals 1
 
+    monitor-enter p0
+
+    :try_start_0
     new-instance v0, Landroid/app/compat/PackageOverride$Builder;
 
     invoke-direct {v0}, Landroid/app/compat/PackageOverride$Builder;-><init>()V
@@ -904,13 +803,27 @@
     invoke-virtual {p0}, Lcom/android/server/compat/CompatConfig;->saveOverrides()V
 
     invoke-direct {p0}, Lcom/android/server/compat/CompatConfig;->invalidateCache()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
 
     return v0
+
+    :catchall_0
+    move-exception p1
+
+    monitor-exit p0
+
+    throw p1
 .end method
 
-.method addOverrides(Lcom/android/internal/compat/CompatibilityOverrideConfig;Ljava/lang/String;)V
+.method declared-synchronized addPackageOverrides(Lcom/android/internal/compat/CompatibilityOverrideConfig;Ljava/lang/String;Z)V
     .locals 5
 
+    monitor-enter p0
+
+    :try_start_0
     iget-object v0, p1, Lcom/android/internal/compat/CompatibilityOverrideConfig;->overrides:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->keySet()Ljava/util/Set;
@@ -926,7 +839,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -934,6 +847,43 @@
 
     check-cast v1, Ljava/lang/Long;
 
+    if-eqz p3, :cond_0
+
+    invoke-virtual {v1}, Ljava/lang/Long;->longValue()J
+
+    move-result-wide v2
+
+    invoke-virtual {p0, v2, v3}, Lcom/android/server/compat/CompatConfig;->isKnownChangeId(J)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const-string v2, "CompatConfig"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "Trying to add overrides for unknown Change ID "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v4, ". Skipping Change ID."
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_0
     invoke-virtual {v1}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v2
@@ -948,66 +898,49 @@
 
     invoke-direct {p0, v2, v3, p2, v4}, Lcom/android/server/compat/CompatConfig;->addOverrideUnsafe(JLjava/lang/String;Landroid/app/compat/PackageOverride;)Z
 
+    nop
+
     goto :goto_0
 
-    :cond_0
+    :cond_1
     invoke-virtual {p0}, Lcom/android/server/compat/CompatConfig;->saveOverrides()V
 
     invoke-direct {p0}, Lcom/android/server/compat/CompatConfig;->invalidateCache()V
-
-    return-void
-.end method
-
-.method clearChanges()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v0}, Ljava/util/concurrent/locks/ReadWriteLock;->writeLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->lock()V
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v0}, Landroid/util/LongSparseArray;->clear()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v0}, Ljava/util/concurrent/locks/ReadWriteLock;->writeLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
-    nop
+    monitor-exit p0
 
     return-void
 
     :catchall_0
-    move-exception v0
+    move-exception p1
 
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
+    monitor-exit p0
 
-    invoke-interface {v1}, Ljava/util/concurrent/locks/ReadWriteLock;->writeLock()Ljava/util/concurrent/locks/Lock;
+    throw p1
+.end method
 
-    move-result-object v1
+.method clearChanges()V
+    .locals 1
 
-    invoke-interface {v1}, Ljava/util/concurrent/locks/Lock;->unlock()V
+    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Ljava/util/concurrent/ConcurrentHashMap;
 
-    throw v0
+    invoke-virtual {v0}, Ljava/util/concurrent/ConcurrentHashMap;->clear()V
+
+    return-void
 .end method
 
 .method defaultChangeIdValue(J)Z
     .locals 2
 
-    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
+    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Ljava/util/concurrent/ConcurrentHashMap;
 
-    invoke-virtual {v0, p1, p2}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
+    invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/ConcurrentHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -1028,66 +961,66 @@
 .end method
 
 .method disableTargetSdkChangesForPackage(Ljava/lang/String;I)I
-    .locals 7
+    .locals 8
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/compat/CompatConfig;->getAllowedChangesSinceTargetSdkForPackage(Ljava/lang/String;I)[J
 
     move-result-object v0
 
-    array-length v1, v0
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    array-length v2, v0
 
-    move v3, v2
+    const/4 v3, 0x0
+
+    move v4, v3
 
     :goto_0
-    if-ge v3, v1, :cond_0
+    if-ge v4, v2, :cond_0
 
-    aget-wide v4, v0, v3
+    aget-wide v5, v0, v4
 
-    new-instance v6, Landroid/app/compat/PackageOverride$Builder;
+    new-instance v7, Landroid/app/compat/PackageOverride$Builder;
 
-    invoke-direct {v6}, Landroid/app/compat/PackageOverride$Builder;-><init>()V
+    invoke-direct {v7}, Landroid/app/compat/PackageOverride$Builder;-><init>()V
 
-    invoke-virtual {v6, v2}, Landroid/app/compat/PackageOverride$Builder;->setEnabled(Z)Landroid/app/compat/PackageOverride$Builder;
+    invoke-virtual {v7, v3}, Landroid/app/compat/PackageOverride$Builder;->setEnabled(Z)Landroid/app/compat/PackageOverride$Builder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6}, Landroid/app/compat/PackageOverride$Builder;->build()Landroid/app/compat/PackageOverride;
+    invoke-virtual {v7}, Landroid/app/compat/PackageOverride$Builder;->build()Landroid/app/compat/PackageOverride;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-direct {p0, v4, v5, p1, v6}, Lcom/android/server/compat/CompatConfig;->addOverrideUnsafe(JLjava/lang/String;Landroid/app/compat/PackageOverride;)Z
+    invoke-direct {p0, v5, v6, p1, v7}, Lcom/android/server/compat/CompatConfig;->addOverrideUnsafe(JLjava/lang/String;Landroid/app/compat/PackageOverride;)Z
 
-    add-int/lit8 v3, v3, 0x1
+    move-result v7
+
+    or-int/2addr v1, v7
+
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
     :cond_0
+    if-eqz v1, :cond_1
+
     invoke-virtual {p0}, Lcom/android/server/compat/CompatConfig;->saveOverrides()V
 
     invoke-direct {p0}, Lcom/android/server/compat/CompatConfig;->invalidateCache()V
 
-    array-length v1, v0
+    :cond_1
+    array-length v2, v0
 
-    return v1
+    return v2
 .end method
 
 .method dumpChanges()[Lcom/android/internal/compat/CompatibilityChangeInfo;
-    .locals 4
+    .locals 6
 
-    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
+    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Ljava/util/concurrent/ConcurrentHashMap;
 
-    invoke-interface {v0}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->lock()V
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v0}, Landroid/util/LongSparseArray;->size()I
+    invoke-virtual {v0}, Ljava/util/concurrent/ConcurrentHashMap;->size()I
 
     move-result v0
 
@@ -1095,77 +1028,51 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
+    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Ljava/util/concurrent/ConcurrentHashMap;
 
-    invoke-virtual {v2}, Landroid/util/LongSparseArray;->size()I
-
-    move-result v2
-
-    if-ge v1, v2, :cond_0
-
-    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v2, v1}, Landroid/util/LongSparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v2}, Ljava/util/concurrent/ConcurrentHashMap;->values()Ljava/util/Collection;
 
     move-result-object v2
 
-    check-cast v2, Lcom/android/server/compat/CompatChange;
+    invoke-interface {v2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    new-instance v3, Lcom/android/internal/compat/CompatibilityChangeInfo;
+    move-result-object v2
 
-    invoke-direct {v3, v2}, Lcom/android/internal/compat/CompatibilityChangeInfo;-><init>(Lcom/android/internal/compat/CompatibilityChangeInfo;)V
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    aput-object v3, v0, v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    move-result v3
 
-    add-int/lit8 v1, v1, 0x1
+    if-eqz v3, :cond_0
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/server/compat/CompatChange;
+
+    add-int/lit8 v4, v1, 0x1
+
+    new-instance v5, Lcom/android/internal/compat/CompatibilityChangeInfo;
+
+    invoke-direct {v5, v3}, Lcom/android/internal/compat/CompatibilityChangeInfo;-><init>(Lcom/android/internal/compat/CompatibilityChangeInfo;)V
+
+    aput-object v5, v0, v1
+
+    move v1, v4
 
     goto :goto_0
 
     :cond_0
-    nop
-
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v1}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
     return-object v0
-
-    :catchall_0
-    move-exception v0
-
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v1}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
-    throw v0
 .end method
 
 .method dumpConfig(Ljava/io/PrintWriter;)V
     .locals 3
 
-    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
+    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Ljava/util/concurrent/ConcurrentHashMap;
 
-    invoke-interface {v0}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->lock()V
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v0}, Landroid/util/LongSparseArray;->size()I
+    invoke-virtual {v0}, Ljava/util/concurrent/ConcurrentHashMap;->size()I
 
     move-result v0
 
@@ -1174,35 +1081,28 @@
     const-string v0, "No compat overrides."
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v0}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
 
     return-void
 
     :cond_0
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Ljava/util/concurrent/ConcurrentHashMap;
+
+    invoke-virtual {v0}, Ljava/util/concurrent/ConcurrentHashMap;->values()Ljava/util/Collection;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
 
     :goto_0
-    :try_start_1
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v1}, Landroid/util/LongSparseArray;->size()I
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-eqz v1, :cond_1
 
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v1, v0}, Landroid/util/LongSparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
@@ -1213,84 +1113,66 @@
     move-result-object v2
 
     invoke-virtual {p1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_1
-    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v0}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
-    nop
-
     return-void
-
-    :catchall_0
-    move-exception v0
-
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v1}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
-    throw v0
 .end method
 
 .method enableTargetSdkChangesForPackage(Ljava/lang/String;I)I
-    .locals 7
+    .locals 8
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/compat/CompatConfig;->getAllowedChangesSinceTargetSdkForPackage(Ljava/lang/String;I)[J
 
     move-result-object v0
 
-    array-length v1, v0
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    array-length v2, v0
+
+    const/4 v3, 0x0
 
     :goto_0
-    if-ge v2, v1, :cond_0
+    if-ge v3, v2, :cond_0
 
-    aget-wide v3, v0, v2
+    aget-wide v4, v0, v3
 
-    new-instance v5, Landroid/app/compat/PackageOverride$Builder;
+    new-instance v6, Landroid/app/compat/PackageOverride$Builder;
 
-    invoke-direct {v5}, Landroid/app/compat/PackageOverride$Builder;-><init>()V
+    invoke-direct {v6}, Landroid/app/compat/PackageOverride$Builder;-><init>()V
 
-    const/4 v6, 0x1
+    const/4 v7, 0x1
 
-    invoke-virtual {v5, v6}, Landroid/app/compat/PackageOverride$Builder;->setEnabled(Z)Landroid/app/compat/PackageOverride$Builder;
+    invoke-virtual {v6, v7}, Landroid/app/compat/PackageOverride$Builder;->setEnabled(Z)Landroid/app/compat/PackageOverride$Builder;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v5}, Landroid/app/compat/PackageOverride$Builder;->build()Landroid/app/compat/PackageOverride;
+    invoke-virtual {v6}, Landroid/app/compat/PackageOverride$Builder;->build()Landroid/app/compat/PackageOverride;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-direct {p0, v3, v4, p1, v5}, Lcom/android/server/compat/CompatConfig;->addOverrideUnsafe(JLjava/lang/String;Landroid/app/compat/PackageOverride;)Z
+    invoke-direct {p0, v4, v5, p1, v6}, Lcom/android/server/compat/CompatConfig;->addOverrideUnsafe(JLjava/lang/String;Landroid/app/compat/PackageOverride;)Z
 
-    add-int/lit8 v2, v2, 0x1
+    move-result v6
+
+    or-int/2addr v1, v6
+
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     :cond_0
+    if-eqz v1, :cond_1
+
     invoke-virtual {p0}, Lcom/android/server/compat/CompatConfig;->saveOverrides()V
 
     invoke-direct {p0}, Lcom/android/server/compat/CompatConfig;->invalidateCache()V
 
-    array-length v1, v0
+    :cond_1
+    array-length v2, v0
 
-    return v1
+    return v2
 .end method
 
 .method forceNonDebuggableFinalForTest(Z)V
@@ -1314,29 +1196,24 @@
 
     invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
 
-    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
+    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Ljava/util/concurrent/ConcurrentHashMap;
 
-    invoke-interface {v2}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
+    invoke-virtual {v2}, Ljava/util/concurrent/ConcurrentHashMap;->values()Ljava/util/Collection;
 
     move-result-object v2
 
-    invoke-interface {v2}, Ljava/util/concurrent/locks/Lock;->lock()V
+    invoke-interface {v2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    const/4 v2, 0x0
+    move-result-object v2
 
     :goto_0
-    :try_start_0
-    iget-object v3, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v3}, Landroid/util/LongSparseArray;->size()I
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-ge v2, v3, :cond_1
+    if-eqz v3, :cond_1
 
-    iget-object v3, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v3, v2}, Landroid/util/LongSparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
 
@@ -1372,25 +1249,11 @@
     move-result-object v4
 
     invoke-interface {v1, v4}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :goto_1
-    add-int/lit8 v2, v2, 0x1
-
     goto :goto_0
 
     :cond_1
-    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
-    nop
-
     new-instance v2, Lcom/android/internal/compat/CompatibilityChangeConfig;
 
     new-instance v3, Landroid/compat/Compatibility$ChangeConfig;
@@ -1400,19 +1263,6 @@
     invoke-direct {v2, v3}, Lcom/android/internal/compat/CompatibilityChangeConfig;-><init>(Landroid/compat/Compatibility$ChangeConfig;)V
 
     return-object v2
-
-    :catchall_0
-    move-exception v2
-
-    iget-object v3, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v3}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v3
-
-    invoke-interface {v3}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
-    throw v2
 .end method
 
 .method getDisabledChanges(Landroid/content/pm/ApplicationInfo;)[J
@@ -1422,29 +1272,24 @@
 
     invoke-direct {v0}, Landroid/util/LongArray;-><init>()V
 
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
+    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Ljava/util/concurrent/ConcurrentHashMap;
 
-    invoke-interface {v1}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
+    invoke-virtual {v1}, Ljava/util/concurrent/ConcurrentHashMap;->values()Ljava/util/Collection;
 
     move-result-object v1
 
-    invoke-interface {v1}, Ljava/util/concurrent/locks/Lock;->lock()V
+    invoke-interface {v1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    const/4 v1, 0x0
+    move-result-object v1
 
     :goto_0
-    :try_start_0
-    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v2}, Landroid/util/LongSparseArray;->size()I
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-ge v1, v2, :cond_1
+    if-eqz v2, :cond_1
 
-    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v2, v1}, Landroid/util/LongSparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
@@ -1463,43 +1308,18 @@
     move-result-wide v3
 
     invoke-virtual {v0, v3, v4}, Landroid/util/LongArray;->add(J)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
-    add-int/lit8 v1, v1, 0x1
-
     goto :goto_0
 
     :cond_1
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v1}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
-    nop
-
     invoke-virtual {v0}, Landroid/util/LongArray;->toArray()[J
 
     move-result-object v1
 
+    invoke-static {v1}, Ljava/util/Arrays;->sort([J)V
+
     return-object v1
-
-    :catchall_0
-    move-exception v1
-
-    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
-    throw v1
 .end method
 
 .method getOverrideValidator()Lcom/android/internal/compat/IOverrideValidator;
@@ -1600,53 +1420,34 @@
 .method initOverrides(Ljava/io/File;Ljava/io/File;)V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
+    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Ljava/util/concurrent/ConcurrentHashMap;
 
-    invoke-interface {v0}, Ljava/util/concurrent/locks/ReadWriteLock;->writeLock()Ljava/util/concurrent/locks/Lock;
+    invoke-virtual {v0}, Ljava/util/concurrent/ConcurrentHashMap;->values()Ljava/util/Collection;
 
     move-result-object v0
 
-    invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->lock()V
+    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    const/4 v0, 0x0
+    move-result-object v0
 
     :goto_0
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v1}, Landroid/util/LongSparseArray;->size()I
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v1, v0}, Landroid/util/LongSparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Lcom/android/server/compat/CompatChange;
 
     invoke-virtual {v1}, Lcom/android/server/compat/CompatChange;->clearOverrides()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v0}, Ljava/util/concurrent/locks/ReadWriteLock;->writeLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
-    nop
-
     invoke-direct {p0, p2}, Lcom/android/server/compat/CompatConfig;->loadOverrides(Ljava/io/File;)V
 
     iput-object p1, p0, Lcom/android/server/compat/CompatConfig;->mOverridesFile:Ljava/io/File;
@@ -1663,106 +1464,49 @@
 
     :cond_1
     return-void
-
-    :catchall_0
-    move-exception v0
-
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v1}, Ljava/util/concurrent/locks/ReadWriteLock;->writeLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
-    throw v0
 .end method
 
 .method isChangeEnabled(JLandroid/content/pm/ApplicationInfo;)Z
-    .locals 3
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
+    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Ljava/util/concurrent/ConcurrentHashMap;
 
-    invoke-interface {v0}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
+    invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->lock()V
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v0, p1, p2}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/ConcurrentHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/server/compat/CompatChange;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     if-nez v0, :cond_0
 
     const/4 v1, 0x1
 
-    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
     return v1
 
     :cond_0
-    :try_start_1
     iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mAndroidBuildClassifier:Lcom/android/internal/compat/AndroidBuildClassifier;
 
     invoke-virtual {v0, p3, v1}, Lcom/android/server/compat/CompatChange;->isEnabled(Landroid/content/pm/ApplicationInfo;Lcom/android/internal/compat/AndroidBuildClassifier;)Z
 
     move-result v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/Lock;->unlock()V
 
     return v1
-
-    :catchall_0
-    move-exception v0
-
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v1}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
-    throw v0
 .end method
 
 .method isDisabled(J)Z
-    .locals 3
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
+    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Ljava/util/concurrent/ConcurrentHashMap;
 
-    invoke-interface {v0}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
+    invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->lock()V
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v0, p1, p2}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/ConcurrentHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -1773,8 +1517,6 @@
     invoke-virtual {v0}, Lcom/android/server/compat/CompatChange;->getDisabled()Z
 
     move-result v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     if-eqz v1, :cond_0
 
@@ -1786,101 +1528,35 @@
     const/4 v1, 0x0
 
     :goto_0
-    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
     return v1
-
-    :catchall_0
-    move-exception v0
-
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v1}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
-    throw v0
 .end method
 
 .method isKnownChangeId(J)Z
-    .locals 3
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
+    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Ljava/util/concurrent/ConcurrentHashMap;
 
-    invoke-interface {v0}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->lock()V
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v0, p1, p2}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/server/compat/CompatChange;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    if-eqz v0, :cond_0
-
-    const/4 v1, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v1, 0x0
-
-    :goto_0
-    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
-    return v1
-
-    :catchall_0
-    move-exception v0
-
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v1}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
+    invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v1
 
-    invoke-interface {v1}, Ljava/util/concurrent/locks/Lock;->unlock()V
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/ConcurrentHashMap;->containsKey(Ljava/lang/Object;)Z
 
-    throw v0
+    move-result v0
+
+    return v0
 .end method
 
 .method isLoggingOnly(J)Z
-    .locals 3
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
+    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Ljava/util/concurrent/ConcurrentHashMap;
 
-    invoke-interface {v0}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
+    invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->lock()V
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v0, p1, p2}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/ConcurrentHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -1891,8 +1567,6 @@
     invoke-virtual {v0}, Lcom/android/server/compat/CompatChange;->getLoggingOnly()Z
 
     move-result v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     if-eqz v1, :cond_0
 
@@ -1904,45 +1578,19 @@
     const/4 v1, 0x0
 
     :goto_0
-    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
     return v1
-
-    :catchall_0
-    move-exception v0
-
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v1}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
-    throw v0
 .end method
 
 .method isOverridable(J)Z
-    .locals 3
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
+    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Ljava/util/concurrent/ConcurrentHashMap;
 
-    invoke-interface {v0}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
+    invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->lock()V
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v0, p1, p2}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/ConcurrentHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -1953,8 +1601,6 @@
     invoke-virtual {v0}, Lcom/android/server/compat/CompatChange;->getOverridable()Z
 
     move-result v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     if-eqz v1, :cond_0
 
@@ -1966,56 +1612,46 @@
     const/4 v1, 0x0
 
     :goto_0
-    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
     return v1
+.end method
 
-    :catchall_0
-    move-exception v0
+.method public synthetic lambda$registerListener$1$CompatConfig(Ljava/util/concurrent/atomic/AtomicBoolean;JLjava/lang/Long;)Lcom/android/server/compat/CompatChange;
+    .locals 1
 
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
+    const/4 v0, 0x0
 
-    invoke-interface {v1}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
+    invoke-virtual {p1, v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    move-result-object v1
+    invoke-direct {p0}, Lcom/android/server/compat/CompatConfig;->invalidateCache()V
 
-    invoke-interface {v1}, Ljava/util/concurrent/locks/Lock;->unlock()V
+    new-instance v0, Lcom/android/server/compat/CompatChange;
 
-    throw v0
+    invoke-direct {v0, p2, p3}, Lcom/android/server/compat/CompatChange;-><init>(J)V
+
+    return-object v0
 .end method
 
 .method lookupChangeId(Ljava/lang/String;)J
     .locals 4
 
-    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
+    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Ljava/util/concurrent/ConcurrentHashMap;
 
-    invoke-interface {v0}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
+    invoke-virtual {v0}, Ljava/util/concurrent/ConcurrentHashMap;->values()Ljava/util/Collection;
 
     move-result-object v0
 
-    invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->lock()V
+    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    const/4 v0, 0x0
+    move-result-object v0
 
     :goto_0
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v1}, Landroid/util/LongSparseArray;->size()I
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-eqz v1, :cond_1
 
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v1, v0}, Landroid/util/LongSparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
@@ -2023,81 +1659,39 @@
 
     invoke-virtual {v1}, Lcom/android/server/compat/CompatChange;->getName()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-static {v1, p1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+    invoke-static {v2, p1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
+    invoke-virtual {v1}, Lcom/android/server/compat/CompatChange;->getId()J
 
-    invoke-virtual {v1, v0}, Landroid/util/LongSparseArray;->keyAt(I)J
+    move-result-wide v2
 
-    move-result-wide v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    iget-object v3, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v3}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v3
-
-    invoke-interface {v3}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
-    return-wide v1
+    return-wide v2
 
     :cond_0
-    add-int/lit8 v0, v0, 0x1
-
     goto :goto_0
 
     :cond_1
-    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v0}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
-    nop
-
     const-wide/16 v0, -0x1
 
     return-wide v0
-
-    :catchall_0
-    move-exception v0
-
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v1}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
-    throw v0
 .end method
 
 .method maxTargetSdkForChangeIdOptIn(J)I
     .locals 3
 
-    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
+    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Ljava/util/concurrent/ConcurrentHashMap;
 
-    invoke-interface {v0}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
+    invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->lock()V
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v0, p1, p2}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/ConcurrentHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -2116,46 +1710,13 @@
     invoke-virtual {v0}, Lcom/android/server/compat/CompatChange;->getEnableSinceTargetSdk()I
 
     move-result v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     add-int/lit8 v1, v1, -0x1
-
-    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/Lock;->unlock()V
 
     return v1
 
     :cond_0
-    nop
-
-    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
     return v1
-
-    :catchall_0
-    move-exception v0
-
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v1}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
-    throw v0
 .end method
 
 .method recheckOverrides(Ljava/lang/String;)V
@@ -2167,43 +1728,29 @@
 
     const/4 v1, 0x0
 
-    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
+    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Ljava/util/concurrent/ConcurrentHashMap;
 
-    invoke-interface {v2}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
+    invoke-virtual {v2}, Ljava/util/concurrent/ConcurrentHashMap;->values()Ljava/util/Collection;
 
     move-result-object v2
 
-    invoke-interface {v2}, Ljava/util/concurrent/locks/Lock;->lock()V
+    invoke-interface {v2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    const/4 v2, 0x0
+    move-result-object v2
 
     :goto_0
-    :try_start_0
-    iget-object v3, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v3}, Landroid/util/LongSparseArray;->size()I
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-ge v2, v3, :cond_1
+    if-eqz v3, :cond_0
 
-    iget-object v3, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v3, v2}, Landroid/util/LongSparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Lcom/android/server/compat/CompatChange;
 
-    invoke-virtual {v3, p1}, Lcom/android/server/compat/CompatChange;->hasPackageOverride(Ljava/lang/String;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_0
-
-    goto :goto_1
-
-    :cond_0
     iget-object v4, p0, Lcom/android/server/compat/CompatConfig;->mOverrideValidator:Lcom/android/server/compat/OverrideValidatorImpl;
 
     invoke-virtual {v3}, Lcom/android/server/compat/CompatChange;->getId()J
@@ -2217,46 +1764,18 @@
     invoke-virtual {v3, p1, v4, v0}, Lcom/android/server/compat/CompatChange;->recheckOverride(Ljava/lang/String;Lcom/android/internal/compat/OverrideAllowedState;Ljava/lang/Long;)Z
 
     move-result v5
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     or-int/2addr v1, v5
 
-    :goto_1
-    add-int/lit8 v2, v2, 0x1
-
     goto :goto_0
 
-    :cond_1
-    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
-    nop
-
-    if-eqz v1, :cond_2
+    :cond_0
+    if-eqz v1, :cond_1
 
     invoke-direct {p0}, Lcom/android/server/compat/CompatConfig;->invalidateCache()V
 
-    :cond_2
+    :cond_1
     return-void
-
-    :catchall_0
-    move-exception v2
-
-    iget-object v3, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v3}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v3
-
-    invoke-interface {v3}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
-    throw v2
 .end method
 
 .method registerContentObserver()V
@@ -2270,200 +1789,233 @@
 .end method
 
 .method registerListener(JLcom/android/server/compat/CompatChange$ChangeListener;)Z
-    .locals 3
+    .locals 4
 
-    const/4 v0, 0x1
+    new-instance v0, Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
+    const/4 v1, 0x1
 
-    invoke-interface {v1}, Ljava/util/concurrent/locks/ReadWriteLock;->writeLock()Ljava/util/concurrent/locks/Lock;
+    invoke-direct {v0, v1}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
 
-    move-result-object v1
+    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Ljava/util/concurrent/ConcurrentHashMap;
 
-    invoke-interface {v1}, Ljava/util/concurrent/locks/Lock;->lock()V
+    invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
+    move-result-object v2
 
-    invoke-virtual {v1, p1, p2}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
+    new-instance v3, Lcom/android/server/compat/CompatConfig$$ExternalSyntheticLambda0;
+
+    invoke-direct {v3, p0, v0, p1, p2}, Lcom/android/server/compat/CompatConfig$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/compat/CompatConfig;Ljava/util/concurrent/atomic/AtomicBoolean;J)V
+
+    invoke-virtual {v1, v2, v3}, Ljava/util/concurrent/ConcurrentHashMap;->computeIfAbsent(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Lcom/android/server/compat/CompatChange;
 
-    if-nez v1, :cond_0
-
-    const/4 v0, 0x0
-
-    new-instance v2, Lcom/android/server/compat/CompatChange;
-
-    invoke-direct {v2, p1, p2}, Lcom/android/server/compat/CompatChange;-><init>(J)V
-
-    move-object v1, v2
-
-    invoke-virtual {p0, v1}, Lcom/android/server/compat/CompatConfig;->addChange(Lcom/android/server/compat/CompatChange;)V
-
-    :cond_0
     invoke-virtual {v1, p3}, Lcom/android/server/compat/CompatChange;->registerListener(Lcom/android/server/compat/CompatChange$ChangeListener;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
+    invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
 
-    invoke-interface {v1}, Ljava/util/concurrent/locks/ReadWriteLock;->writeLock()Ljava/util/concurrent/locks/Lock;
+    move-result v2
 
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
-    nop
-
-    return v0
-
-    :catchall_0
-    move-exception v1
-
-    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/ReadWriteLock;->writeLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
-    throw v1
+    return v2
 .end method
 
-.method removeOverride(JLjava/lang/String;)Z
+.method declared-synchronized removeOverride(JLjava/lang/String;)Z
     .locals 1
 
+    monitor-enter p0
+
+    :try_start_0
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/compat/CompatConfig;->removeOverrideUnsafe(JLjava/lang/String;)Z
 
     move-result v0
 
+    if-eqz v0, :cond_0
+
     invoke-virtual {p0}, Lcom/android/server/compat/CompatConfig;->saveOverrides()V
 
     invoke-direct {p0}, Lcom/android/server/compat/CompatConfig;->invalidateCache()V
-
-    return v0
-.end method
-
-.method removePackageOverrides(Lcom/android/internal/compat/CompatibilityOverridesToRemoveConfig;Ljava/lang/String;)V
-    .locals 4
-
-    iget-object v0, p1, Lcom/android/internal/compat/CompatibilityOverridesToRemoveConfig;->changeIds:Ljava/util/Set;
-
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/Long;
-
-    invoke-virtual {v1}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide v2
-
-    invoke-direct {p0, v2, v3, p2}, Lcom/android/server/compat/CompatConfig;->removeOverrideUnsafe(JLjava/lang/String;)Z
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {p0}, Lcom/android/server/compat/CompatConfig;->saveOverrides()V
-
-    invoke-direct {p0}, Lcom/android/server/compat/CompatConfig;->invalidateCache()V
-
-    return-void
-.end method
-
-.method removePackageOverrides(Ljava/lang/String;)V
-    .locals 3
-
-    invoke-direct {p0, p1}, Lcom/android/server/compat/CompatConfig;->getVersionCodeOrNull(Ljava/lang/String;)Ljava/lang/Long;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v1}, Ljava/util/concurrent/locks/ReadWriteLock;->writeLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/concurrent/locks/Lock;->lock()V
-
-    const/4 v1, 0x0
-
-    :goto_0
-    :try_start_0
-    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v2}, Landroid/util/LongSparseArray;->size()I
-
-    move-result v2
-
-    if-ge v1, v2, :cond_0
-
-    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v2, v1}, Landroid/util/LongSparseArray;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/server/compat/CompatChange;
-
-    invoke-direct {p0, v2, p1, v0}, Lcom/android/server/compat/CompatConfig;->removeOverrideUnsafe(Lcom/android/server/compat/CompatChange;Ljava/lang/String;Ljava/lang/Long;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    nop
+    :cond_0
+    monitor-exit p0
 
-    add-int/lit8 v1, v1, 0x1
+    return v0
+
+    :catchall_0
+    move-exception p1
+
+    monitor-exit p0
+
+    throw p1
+.end method
+
+.method declared-synchronized removePackageOverrides(Lcom/android/internal/compat/CompatibilityOverridesToRemoveConfig;Ljava/lang/String;)V
+    .locals 6
+
+    monitor-enter p0
+
+    const/4 v0, 0x0
+
+    :try_start_0
+    iget-object v1, p1, Lcom/android/internal/compat/CompatibilityOverridesToRemoveConfig;->changeIds:Ljava/util/Set;
+
+    invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/Long;
+
+    invoke-virtual {v2}, Ljava/lang/Long;->longValue()J
+
+    move-result-wide v3
+
+    invoke-virtual {p0, v3, v4}, Lcom/android/server/compat/CompatConfig;->isKnownChangeId(J)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    const-string v3, "CompatConfig"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "Trying to remove overrides for unknown Change ID "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v5, ". Skipping Change ID."
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
     :cond_0
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
+    invoke-virtual {v2}, Ljava/lang/Long;->longValue()J
 
-    invoke-interface {v1}, Ljava/util/concurrent/locks/ReadWriteLock;->writeLock()Ljava/util/concurrent/locks/Lock;
+    move-result-wide v3
 
-    move-result-object v1
+    invoke-direct {p0, v3, v4, p2}, Lcom/android/server/compat/CompatConfig;->removeOverrideUnsafe(JLjava/lang/String;)Z
 
-    invoke-interface {v1}, Ljava/util/concurrent/locks/Lock;->unlock()V
+    move-result v3
 
-    nop
+    or-int/2addr v0, v3
+
+    goto :goto_0
+
+    :cond_1
+    if-eqz v0, :cond_2
 
     invoke-virtual {p0}, Lcom/android/server/compat/CompatConfig;->saveOverrides()V
 
     invoke-direct {p0}, Lcom/android/server/compat/CompatConfig;->invalidateCache()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_2
+    monitor-exit p0
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception p1
 
-    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
+    monitor-exit p0
 
-    invoke-interface {v2}, Ljava/util/concurrent/locks/ReadWriteLock;->writeLock()Ljava/util/concurrent/locks/Lock;
+    throw p1
+.end method
+
+.method declared-synchronized removePackageOverrides(Ljava/lang/String;)V
+    .locals 5
+
+    monitor-enter p0
+
+    :try_start_0
+    invoke-direct {p0, p1}, Lcom/android/server/compat/CompatConfig;->getVersionCodeOrNull(Ljava/lang/String;)Ljava/lang/Long;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Ljava/util/concurrent/ConcurrentHashMap;
+
+    invoke-virtual {v2}, Ljava/util/concurrent/ConcurrentHashMap;->values()Ljava/util/Collection;
 
     move-result-object v2
 
-    invoke-interface {v2}, Ljava/util/concurrent/locks/Lock;->unlock()V
+    invoke-interface {v2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    throw v1
+    move-result-object v2
+
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/server/compat/CompatChange;
+
+    invoke-direct {p0, v3, p1, v0}, Lcom/android/server/compat/CompatConfig;->removeOverrideUnsafe(Lcom/android/server/compat/CompatChange;Ljava/lang/String;Ljava/lang/Long;)Z
+
+    move-result v4
+
+    or-int/2addr v1, v4
+
+    goto :goto_0
+
+    :cond_0
+    if-eqz v1, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/server/compat/CompatConfig;->saveOverrides()V
+
+    invoke-direct {p0}, Lcom/android/server/compat/CompatConfig;->invalidateCache()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_1
+    monitor-exit p0
+
+    return-void
+
+    :catchall_0
+    move-exception p1
+
+    monitor-exit p0
+
+    throw p1
 .end method
 
 .method saveOverrides()V
-    .locals 6
+    .locals 7
 
     iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mOverridesFile:Ljava/io/File;
 
@@ -2479,35 +2031,28 @@
 
     invoke-direct {v1}, Lcom/android/server/compat/overrides/Overrides;-><init>()V
 
-    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/Lock;->lock()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_3
-
-    :try_start_1
     invoke-virtual {v1}, Lcom/android/server/compat/overrides/Overrides;->getChangeOverrides()Ljava/util/List;
 
     move-result-object v2
 
-    const/4 v3, 0x0
+    iget-object v3, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Ljava/util/concurrent/ConcurrentHashMap;
+
+    invoke-virtual {v3}, Ljava/util/concurrent/ConcurrentHashMap;->values()Ljava/util/Collection;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
 
     :goto_0
-    iget-object v4, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v4}, Landroid/util/LongSparseArray;->size()I
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-ge v3, v4, :cond_2
+    if-eqz v4, :cond_2
 
-    iget-object v4, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v4, v3}, Landroid/util/LongSparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v4
 
@@ -2520,98 +2065,83 @@
     if-eqz v5, :cond_1
 
     invoke-interface {v2, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_2
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_2
 
     :cond_1
-    add-int/lit8 v3, v3, 0x1
-
     goto :goto_0
 
     :cond_2
-    :try_start_2
-    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/Lock;->unlock()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_3
-
-    nop
-
-    :try_start_3
-    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mOverridesFile:Ljava/io/File;
-
-    invoke-virtual {v2}, Ljava/io/File;->createNewFile()Z
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1
-    .catchall {:try_start_3 .. :try_end_3} :catchall_3
-
-    nop
-
-    :try_start_4
-    new-instance v2, Ljava/io/PrintWriter;
-
+    :try_start_1
     iget-object v3, p0, Lcom/android/server/compat/CompatConfig;->mOverridesFile:Ljava/io/File;
 
-    invoke-direct {v2, v3}, Ljava/io/PrintWriter;-><init>(Ljava/io/File;)V
+    invoke-virtual {v3}, Ljava/io/File;->createNewFile()Z
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_2
+
+    nop
+
+    :try_start_2
+    new-instance v3, Ljava/io/PrintWriter;
+
+    iget-object v4, p0, Lcom/android/server/compat/CompatConfig;->mOverridesFile:Ljava/io/File;
+
+    invoke-direct {v3, v4}, Ljava/io/PrintWriter;-><init>(Ljava/io/File;)V
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+
+    :try_start_3
+    new-instance v4, Lcom/android/server/compat/overrides/XmlWriter;
+
+    invoke-direct {v4, v3}, Lcom/android/server/compat/overrides/XmlWriter;-><init>(Ljava/io/PrintWriter;)V
+
+    invoke-static {v4, v1}, Lcom/android/server/compat/overrides/XmlWriter;->write(Lcom/android/server/compat/overrides/XmlWriter;Lcom/android/server/compat/overrides/Overrides;)V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    :try_start_4
+    invoke-virtual {v3}, Ljava/io/PrintWriter;->close()V
     :try_end_4
     .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_0
-    .catchall {:try_start_4 .. :try_end_4} :catchall_3
-
-    :try_start_5
-    new-instance v3, Lcom/android/server/compat/overrides/XmlWriter;
-
-    invoke-direct {v3, v2}, Lcom/android/server/compat/overrides/XmlWriter;-><init>(Ljava/io/PrintWriter;)V
-
-    invoke-static {v3, v1}, Lcom/android/server/compat/overrides/XmlWriter;->write(Lcom/android/server/compat/overrides/XmlWriter;Lcom/android/server/compat/overrides/Overrides;)V
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
-
-    :try_start_6
-    invoke-virtual {v2}, Ljava/io/PrintWriter;->close()V
-    :try_end_6
-    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_0
-    .catchall {:try_start_6 .. :try_end_6} :catchall_3
+    .catchall {:try_start_4 .. :try_end_4} :catchall_2
 
     goto :goto_2
 
     :catchall_0
-    move-exception v3
+    move-exception v4
 
-    :try_start_7
-    invoke-virtual {v2}, Ljava/io/PrintWriter;->close()V
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_1
+    :try_start_5
+    invoke-virtual {v3}, Ljava/io/PrintWriter;->close()V
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
     goto :goto_1
 
     :catchall_1
-    move-exception v4
+    move-exception v5
 
-    :try_start_8
-    invoke-virtual {v3, v4}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+    :try_start_6
+    invoke-virtual {v4, v5}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
     :goto_1
-    throw v3
-    :try_end_8
-    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_0
-    .catchall {:try_start_8 .. :try_end_8} :catchall_3
+    throw v4
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_0
+    .catchall {:try_start_6 .. :try_end_6} :catchall_2
 
     :catch_0
-    move-exception v2
+    move-exception v3
 
-    :try_start_9
-    const-string v3, "CompatConfig"
+    :try_start_7
+    const-string v4, "CompatConfig"
 
-    invoke-virtual {v2}, Ljava/io/IOException;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/io/IOException;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-static {v3, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_2
     monitor-exit v0
@@ -2619,123 +2149,69 @@
     return-void
 
     :catch_1
-    move-exception v2
+    move-exception v3
 
-    const-string v3, "CompatConfig"
+    const-string v4, "CompatConfig"
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "Could not create override config file: "
+    const-string v6, "Could not create override config file: "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/io/IOException;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/io/IOException;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     monitor-exit v0
 
     return-void
 
     :catchall_2
-    move-exception v2
-
-    iget-object v3, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v3}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v3
-
-    invoke-interface {v3}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
-    nop
-
-    throw v2
-
-    :catchall_3
     move-exception v1
 
     monitor-exit v0
-    :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_3
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_2
 
     throw v1
 .end method
 
 .method willChangeBeEnabled(JLjava/lang/String;)Z
-    .locals 3
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
+    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Ljava/util/concurrent/ConcurrentHashMap;
 
-    invoke-interface {v0}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
+    invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-interface {v0}, Ljava/util/concurrent/locks/Lock;->lock()V
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/server/compat/CompatConfig;->mChanges:Landroid/util/LongSparseArray;
-
-    invoke-virtual {v0, p1, p2}, Landroid/util/LongSparseArray;->get(J)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/ConcurrentHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/server/compat/CompatChange;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     if-nez v0, :cond_0
 
     const/4 v1, 0x1
 
-    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
     return v1
 
     :cond_0
-    :try_start_1
     invoke-virtual {v0, p3}, Lcom/android/server/compat/CompatChange;->willBeEnabled(Ljava/lang/String;)Z
 
     move-result v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    iget-object v2, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/concurrent/locks/Lock;->unlock()V
 
     return v1
-
-    :catchall_0
-    move-exception v0
-
-    iget-object v1, p0, Lcom/android/server/compat/CompatConfig;->mReadWriteLock:Ljava/util/concurrent/locks/ReadWriteLock;
-
-    invoke-interface {v1}, Ljava/util/concurrent/locks/ReadWriteLock;->readLock()Ljava/util/concurrent/locks/Lock;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/concurrent/locks/Lock;->unlock()V
-
-    throw v0
 .end method

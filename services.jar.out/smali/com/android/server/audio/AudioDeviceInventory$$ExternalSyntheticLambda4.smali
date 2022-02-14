@@ -37,7 +37,7 @@
 
     check-cast p2, Lcom/android/server/audio/AudioDeviceInventory$DeviceInfo;
 
-    invoke-static {v0, v1, p1, p2}, Lcom/android/server/audio/AudioDeviceInventory;->lambda$dump$1(Ljava/io/PrintWriter;Ljava/lang/String;Ljava/lang/String;Lcom/android/server/audio/AudioDeviceInventory$DeviceInfo;)V
+    invoke-static {v0, v1, p1, p2}, Lcom/android/server/audio/AudioDeviceInventory;->lambda$dump$2(Ljava/io/PrintWriter;Ljava/lang/String;Ljava/lang/String;Lcom/android/server/audio/AudioDeviceInventory$DeviceInfo;)V
 
     return-void
 .end method

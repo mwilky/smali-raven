@@ -501,7 +501,7 @@
 
     move-result-wide v2
 
-    const-wide/16 v4, 0x3e8
+    const-wide/16 v4, 0x1388
 
     cmp-long v0, v2, v4
 

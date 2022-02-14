@@ -35,9 +35,9 @@
 .method public final test(Ljava/lang/Object;)Z
     .locals 0
 
-    check-cast p1, Lcom/android/server/wm/ActivityRecord;
+    check-cast p1, Lcom/android/server/wm/WindowState;
 
-    invoke-virtual {p1}, Lcom/android/server/wm/ActivityRecord;->hasWindowsAlive()Z
+    invoke-static {p1}, Lcom/android/server/wm/Task;->lambda$topActivityContainsStartingWindow$0(Lcom/android/server/wm/WindowState;)Z
 
     move-result p1
 

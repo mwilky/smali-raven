@@ -51,7 +51,7 @@
 
     iget-object v0, p1, Lcom/android/server/wm/WindowState;->mContext:Landroid/content/Context;
 
-    const v1, 0x10a00ca
+    const v1, 0x10a00ce
 
     invoke-static {v0, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 

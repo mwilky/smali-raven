@@ -59,7 +59,7 @@
     iput-object v0, p0, Lcom/android/server/location/HardwareActivityRecognitionProxy;->mInstance:Landroid/hardware/location/ActivityRecognitionHardware;
 
     :goto_0
-    const v0, 0x11100c5
+    const v0, 0x11100c6
 
     const v1, 0x10401ef
 

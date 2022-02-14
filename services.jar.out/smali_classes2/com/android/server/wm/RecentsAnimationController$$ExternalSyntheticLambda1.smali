@@ -27,7 +27,7 @@
 
     iget-object v0, p0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/wm/RecentsAnimationController;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/RecentsAnimationController;->onFailsafe()V
+    invoke-virtual {v0}, Lcom/android/server/wm/RecentsAnimationController;->lambda$setCheckRotationAfterCleanup$6$RecentsAnimationController()V
 
     return-void
 .end method

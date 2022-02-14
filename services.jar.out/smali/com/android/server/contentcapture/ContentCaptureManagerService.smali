@@ -2402,15 +2402,25 @@
 .end method
 
 .method protected newServiceLocked(IZ)Lcom/android/server/contentcapture/ContentCapturePerUserService;
-    .locals 2
+    .locals 7
 
-    new-instance v0, Lcom/android/server/contentcapture/ContentCapturePerUserService;
+    new-instance v6, Lcom/android/server/contentcapture/ContentCapturePerUserService;
 
-    iget-object v1, p0, Lcom/android/server/contentcapture/ContentCaptureManagerService;->mLock:Ljava/lang/Object;
+    iget-object v2, p0, Lcom/android/server/contentcapture/ContentCaptureManagerService;->mLock:Ljava/lang/Object;
 
-    invoke-direct {v0, p0, v1, p2, p1}, Lcom/android/server/contentcapture/ContentCapturePerUserService;-><init>(Lcom/android/server/contentcapture/ContentCaptureManagerService;Ljava/lang/Object;ZI)V
+    iget-object v5, p0, Lcom/android/server/contentcapture/ContentCaptureManagerService;->mHandler:Landroid/os/Handler;
 
-    return-object v0
+    move-object v0, v6
+
+    move-object v1, p0
+
+    move v3, p2
+
+    move v4, p1
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/server/contentcapture/ContentCapturePerUserService;-><init>(Lcom/android/server/contentcapture/ContentCaptureManagerService;Ljava/lang/Object;ZILandroid/os/Handler;)V
+
+    return-object v6
 .end method
 
 .method protected bridge synthetic newServiceLocked(IZ)Lcom/android/server/infra/AbstractPerUserSystemService;

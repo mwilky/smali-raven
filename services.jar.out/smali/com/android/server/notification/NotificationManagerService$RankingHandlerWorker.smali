@@ -53,7 +53,7 @@
     :pswitch_1
     iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$RankingHandlerWorker;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/notification/NotificationManagerService;->access$10500(Lcom/android/server/notification/NotificationManagerService;Landroid/os/Message;)V
+    invoke-static {v0, p1}, Lcom/android/server/notification/NotificationManagerService;->access$10400(Lcom/android/server/notification/NotificationManagerService;Landroid/os/Message;)V
 
     nop
 

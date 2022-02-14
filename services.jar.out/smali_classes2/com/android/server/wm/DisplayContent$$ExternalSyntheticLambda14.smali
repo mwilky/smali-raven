@@ -73,7 +73,7 @@
 
     check-cast v8, Lcom/android/server/wm/WindowState;
 
-    invoke-static/range {v0 .. v8}, Lcom/android/server/wm/DisplayContent;->lambda$calculateSystemGestureExclusion$34(Landroid/graphics/Region;Landroid/graphics/Region;Landroid/graphics/Region;[ILandroid/graphics/Region;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Region;Lcom/android/server/wm/WindowState;)V
+    invoke-static/range {v0 .. v8}, Lcom/android/server/wm/DisplayContent;->lambda$calculateSystemGestureExclusion$36(Landroid/graphics/Region;Landroid/graphics/Region;Landroid/graphics/Region;[ILandroid/graphics/Region;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Region;Lcom/android/server/wm/WindowState;)V
 
     return-void
 .end method

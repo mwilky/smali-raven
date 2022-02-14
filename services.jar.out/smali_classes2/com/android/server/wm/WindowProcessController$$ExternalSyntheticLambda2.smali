@@ -27,7 +27,7 @@
 
     iget-object v0, p0, Lcom/android/server/wm/WindowProcessController$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/wm/WindowProcessController;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/WindowProcessController;->lambda$onTopProcChanged$0$WindowProcessController()V
+    invoke-virtual {v0}, Lcom/android/server/wm/WindowProcessController;->lambda$onTopProcChanged$1$WindowProcessController()V
 
     return-void
 .end method

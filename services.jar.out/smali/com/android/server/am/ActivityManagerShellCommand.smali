@@ -22,6 +22,8 @@
 
 .field private static final SHELL_PACKAGE_NAME:Ljava/lang/String; = "com.android.shell"
 
+.field static final TAG:Ljava/lang/String; = "ActivityManager"
+
 .field private static final USER_OPERATION_TIMEOUT_MS:I = 0x1d4c0
 
 
@@ -1758,6 +1760,18 @@
     invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     const-string v0, "         Get the PIDs of isolated processes with packages in this <UID>"
+
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v0, "  set-stop-user-on-switch [true|false]"
+
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v0, "         Sets whether the current user (and its profiles) should be stopped when switching to a different user."
+
+    invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v0, "         Without arguments, it resets to the value defined by platform."
 
     invoke-virtual {p0, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
@@ -3987,6 +4001,110 @@
     .end packed-switch
 .end method
 
+.method private runSetStopUserOnSwitch(Ljava/io/PrintWriter;)I
+    .locals 8
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/am/ActivityManagerShellCommand;->mInternal:Lcom/android/server/am/ActivityManagerService;
+
+    const-string v1, "android.permission.INTERACT_ACROSS_USERS_FULL"
+
+    const-string/jumbo v2, "setStopUserOnSwitch()"
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/am/ActivityManagerService;->enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Lcom/android/server/am/ActivityManagerShellCommand;->getNextArg()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "ActivityManager"
+
+    const/4 v2, 0x0
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v3, "setStopUserOnSwitch(): resetting to default value"
+
+    invoke-static {v1, v3}, Lcom/android/server/utils/Slogf;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, p0, Lcom/android/server/am/ActivityManagerShellCommand;->mInternal:Lcom/android/server/am/ActivityManagerService;
+
+    const/4 v3, -0x1
+
+    invoke-virtual {v1, v3}, Lcom/android/server/am/ActivityManagerService;->setStopUserOnSwitch(I)V
+
+    const-string v1, "Reset to default value"
+
+    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    return v2
+
+    :cond_0
+    invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+
+    move-result v3
+
+    const/4 v4, 0x1
+
+    if-eqz v3, :cond_1
+
+    move v5, v4
+
+    goto :goto_0
+
+    :cond_1
+    move v5, v2
+
+    :goto_0
+    nop
+
+    const/4 v6, 0x2
+
+    new-array v6, v6, [Ljava/lang/Object;
+
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    aput-object v7, v6, v2
+
+    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v7
+
+    aput-object v7, v6, v4
+
+    const-string/jumbo v4, "runSetStopUserOnSwitch(): setting to %d (%b)"
+
+    invoke-static {v1, v4, v6}, Lcom/android/server/utils/Slogf;->i(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V
+
+    iget-object v1, p0, Lcom/android/server/am/ActivityManagerShellCommand;->mInternal:Lcom/android/server/am/ActivityManagerService;
+
+    invoke-virtual {v1, v5}, Lcom/android/server/am/ActivityManagerService;->setStopUserOnSwitch(I)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "Set to "
+
+    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    return v2
+.end method
+
 .method private runShowMemoryFactor(Ljava/io/PrintWriter;)I
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
@@ -5219,6 +5337,19 @@
     goto/16 :goto_1
 
     :sswitch_4
+    const-string/jumbo v2, "set-stop-user-on-switch"
+
+    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    const/16 v2, 0x46
+
+    goto/16 :goto_1
+
+    :sswitch_5
     const-string v2, "display"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5231,7 +5362,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_5
+    :sswitch_6
     const-string/jumbo v2, "wait-for-broadcast-idle"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5244,7 +5375,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_6
+    :sswitch_7
     const-string/jumbo v2, "stop-user"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5257,7 +5388,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_7
+    :sswitch_8
     const-string v2, "instrument"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5270,7 +5401,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_8
+    :sswitch_9
     const-string/jumbo v2, "monitor"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5283,7 +5414,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_9
+    :sswitch_a
     const-string v2, "get-started-user-state"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5296,7 +5427,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_a
+    :sswitch_b
     const-string/jumbo v2, "refresh-settings-cache"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5309,7 +5440,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_b
+    :sswitch_c
     const-string/jumbo v2, "update-appinfo"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5322,7 +5453,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_c
+    :sswitch_d
     const-string/jumbo v2, "restart"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5335,7 +5466,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_d
+    :sswitch_e
     const-string v2, "clear-debug-app"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5348,7 +5479,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_e
+    :sswitch_f
     const-string v2, "attach-agent"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5361,7 +5492,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_f
+    :sswitch_10
     const-string/jumbo v2, "start-fg-service"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5374,7 +5505,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_10
+    :sswitch_11
     const-string/jumbo v2, "set-agent-app"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5387,7 +5518,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_11
+    :sswitch_12
     const-string v2, "clear-watch-heap"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5400,7 +5531,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_12
+    :sswitch_13
     const-string/jumbo v2, "set-watch-heap"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5413,7 +5544,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_13
+    :sswitch_14
     const-string/jumbo v2, "to-intent-uri"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5426,7 +5557,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_14
+    :sswitch_15
     const-string/jumbo v2, "supports-multiwindow"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5439,7 +5570,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_15
+    :sswitch_16
     const-string/jumbo v2, "trace-ipc"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5452,7 +5583,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_16
+    :sswitch_17
     const-string/jumbo v2, "supports-split-screen-multi-window"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5465,7 +5596,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_17
+    :sswitch_18
     const-string v2, "bug-report"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5478,7 +5609,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_18
+    :sswitch_19
     const-string/jumbo v2, "untrack-associations"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5491,7 +5622,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_19
+    :sswitch_1a
     const-string/jumbo v2, "start-activity"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5504,7 +5635,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_1a
+    :sswitch_1b
     const-string/jumbo v2, "to-app-uri"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5517,7 +5648,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_1b
+    :sswitch_1c
     const-string/jumbo v2, "startservice"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5530,7 +5661,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_1c
+    :sswitch_1d
     const-string/jumbo v2, "memory-factor"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5543,7 +5674,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_1d
+    :sswitch_1e
     const-string/jumbo v2, "write"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5556,7 +5687,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_1e
+    :sswitch_1f
     const-string/jumbo v2, "start"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5569,7 +5700,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_1f
+    :sswitch_20
     const-string/jumbo v2, "stack"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5582,7 +5713,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_20
+    :sswitch_21
     const-string v2, "crash"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5595,7 +5726,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_21
+    :sswitch_22
     const-string v2, "force-stop"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5608,7 +5739,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_22
+    :sswitch_23
     const-string/jumbo v2, "task"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5621,7 +5752,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_23
+    :sswitch_24
     const-string/jumbo v2, "kill"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5634,7 +5765,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_24
+    :sswitch_25
     const-string v2, "hang"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5647,7 +5778,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_25
+    :sswitch_26
     const-string/jumbo v2, "make-uid-idle"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5660,7 +5791,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_26
+    :sswitch_27
     const-string/jumbo v2, "startforegroundservice"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5673,7 +5804,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_27
+    :sswitch_28
     const-string v2, "clear-exit-info"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5686,7 +5817,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_28
+    :sswitch_29
     const-string/jumbo v2, "watch-uids"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5699,7 +5830,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_29
+    :sswitch_2a
     const-string/jumbo v2, "set-inactive"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5712,7 +5843,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_2a
+    :sswitch_2b
     const-string/jumbo v2, "service-restart-backoff"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5725,7 +5856,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_2b
+    :sswitch_2c
     const-string/jumbo v2, "profile"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5738,7 +5869,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_2c
+    :sswitch_2d
     const-string/jumbo v2, "screen-compat"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5751,7 +5882,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_2d
+    :sswitch_2e
     const-string/jumbo v2, "track-associations"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5764,7 +5895,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_2e
+    :sswitch_2f
     const-string v2, "fgs-notification-rate-limit"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5777,7 +5908,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_2f
+    :sswitch_30
     const-string v2, "is-user-stopped"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5790,7 +5921,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_30
+    :sswitch_31
     const-string/jumbo v2, "kill-all"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5803,7 +5934,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_31
+    :sswitch_32
     const-string v2, "get-config"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5816,7 +5947,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_32
+    :sswitch_33
     const-string/jumbo v2, "set-standby-bucket"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5829,7 +5960,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_33
+    :sswitch_34
     const-string v2, "get-current-user"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5842,7 +5973,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_34
+    :sswitch_35
     const-string/jumbo v2, "to-uri"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5855,7 +5986,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_35
+    :sswitch_36
     const-string/jumbo v2, "start-foreground-service"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5868,7 +5999,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_36
+    :sswitch_37
     const-string/jumbo v2, "unlock-user"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5881,7 +6012,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_37
+    :sswitch_38
     const-string/jumbo v2, "startfgservice"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5894,7 +6025,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_38
+    :sswitch_39
     const-string/jumbo v2, "stopservice"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5907,7 +6038,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_39
+    :sswitch_3a
     const-string v2, "get-uid-state"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5920,7 +6051,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_3a
+    :sswitch_3b
     const-string/jumbo v2, "start-service"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5933,7 +6064,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_3b
+    :sswitch_3c
     const-string/jumbo v2, "send-trim-memory"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5946,7 +6077,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_3c
+    :sswitch_3d
     const-string/jumbo v2, "suppress-resize-config-changes"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5959,7 +6090,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_3d
+    :sswitch_3e
     const-string v2, "compat"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5972,7 +6103,7 @@
 
     goto :goto_1
 
-    :sswitch_3e
+    :sswitch_3f
     const-string v2, "broadcast"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5985,7 +6116,7 @@
 
     goto :goto_1
 
-    :sswitch_3f
+    :sswitch_40
     const-string/jumbo v2, "start-user"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -5998,7 +6129,7 @@
 
     goto :goto_1
 
-    :sswitch_40
+    :sswitch_41
     const-string v2, "get-standby-bucket"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -6011,7 +6142,7 @@
 
     goto :goto_1
 
-    :sswitch_41
+    :sswitch_42
     const-string/jumbo v2, "package-importance"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -6024,7 +6155,7 @@
 
     goto :goto_1
 
-    :sswitch_42
+    :sswitch_43
     const-string v2, "get-inactive"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -6037,7 +6168,7 @@
 
     goto :goto_1
 
-    :sswitch_43
+    :sswitch_44
     const-string v2, "get-isolated-pids"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -6050,7 +6181,7 @@
 
     goto :goto_1
 
-    :sswitch_44
+    :sswitch_45
     const-string/jumbo v2, "set-debug-app"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -6063,7 +6194,7 @@
 
     goto :goto_1
 
-    :sswitch_45
+    :sswitch_46
     const-string v2, "dumpheap"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -6089,412 +6220,419 @@
     goto/16 :goto_2
 
     :pswitch_0
-    invoke-direct {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runGetIsolatedProcesses(Ljava/io/PrintWriter;)I
+    invoke-direct {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runSetStopUserOnSwitch(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_1
-    invoke-direct {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runServiceRestartBackoff(Ljava/io/PrintWriter;)I
+    invoke-direct {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runGetIsolatedProcesses(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_2
-    invoke-direct {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runMemoryFactor(Ljava/io/PrintWriter;)I
+    invoke-direct {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runServiceRestartBackoff(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_3
-    invoke-virtual {p0}, Lcom/android/server/am/ActivityManagerShellCommand;->runRefreshSettingsCache()I
+    invoke-direct {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runMemoryFactor(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_4
-    invoke-direct {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runCompat(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0}, Lcom/android/server/am/ActivityManagerShellCommand;->runRefreshSettingsCache()I
 
     move-result v1
 
     return v1
 
     :pswitch_5
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runWaitForBroadcastIdle(Ljava/io/PrintWriter;)I
+    invoke-direct {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runCompat(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_6
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runNoHomeScreen(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runWaitForBroadcastIdle(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_7
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runUpdateApplicationInfo(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runNoHomeScreen(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_8
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runSupportsSplitScreenMultiwindow(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runUpdateApplicationInfo(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_9
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runSupportsMultiwindow(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runSupportsSplitScreenMultiwindow(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_a
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runAttachAgent(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runSupportsMultiwindow(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_b
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runWrite(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runAttachAgent(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_c
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runTask(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runWrite(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_d
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runStack(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runTask(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_e
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runDisplay(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runStack(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_f
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runSendTrimMemory(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runDisplay(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_10
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runGetStandbyBucket(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runSendTrimMemory(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_11
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runSetStandbyBucket(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runGetStandbyBucket(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_12
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runGetInactive(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runSetStandbyBucket(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_13
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runSetInactive(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runGetInactive(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_14
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runSuppressResizeConfigChanges(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runSetInactive(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_15
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runGetConfig(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runSuppressResizeConfigChanges(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_16
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->getUidState(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runGetConfig(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_17
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runUntrackAssociations(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->getUidState(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_18
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runTrackAssociations(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runUntrackAssociations(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_19
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runGetStartedUserState(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runTrackAssociations(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_1a
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runIsUserStopped(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runGetStartedUserState(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_1b
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runStopUser(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runIsUserStopped(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_1c
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runUnlockUser(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runStopUser(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_1d
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runStartUser(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runUnlockUser(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_1e
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runGetCurrentUser(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runStartUser(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_1f
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runSwitchUser(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runGetCurrentUser(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_20
-    invoke-virtual {p0, v0, v3}, Lcom/android/server/am/ActivityManagerShellCommand;->runToUri(Ljava/io/PrintWriter;I)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runSwitchUser(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_21
-    invoke-virtual {p0, v0, v4}, Lcom/android/server/am/ActivityManagerShellCommand;->runToUri(Ljava/io/PrintWriter;I)I
+    invoke-virtual {p0, v0, v3}, Lcom/android/server/am/ActivityManagerShellCommand;->runToUri(Ljava/io/PrintWriter;I)I
 
     move-result v1
 
     return v1
 
     :pswitch_22
-    invoke-virtual {p0, v0, v5}, Lcom/android/server/am/ActivityManagerShellCommand;->runToUri(Ljava/io/PrintWriter;I)I
+    invoke-virtual {p0, v0, v4}, Lcom/android/server/am/ActivityManagerShellCommand;->runToUri(Ljava/io/PrintWriter;I)I
 
     move-result v1
 
     return v1
 
     :pswitch_23
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runPackageImportance(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0, v5}, Lcom/android/server/am/ActivityManagerShellCommand;->runToUri(Ljava/io/PrintWriter;I)I
 
     move-result v1
 
     return v1
 
     :pswitch_24
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runScreenCompat(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runPackageImportance(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_25
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runIdleMaintenance(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runScreenCompat(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_26
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runRestart(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runIdleMaintenance(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_27
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runHang(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runRestart(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_28
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runWatchUids(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runHang(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_29
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runMonitor(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runWatchUids(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_2a
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runMakeIdle(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runMonitor(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_2b
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runKillAll(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runMakeIdle(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_2c
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runKill(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runKillAll(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_2d
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runCrash(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runKill(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_2e
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runFgsNotificationRateLimit(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runCrash(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_2f
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runForceStop(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runFgsNotificationRateLimit(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_30
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runBugReport(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runForceStop(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_31
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runClearExitInfo(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runBugReport(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_32
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runClearWatchHeap(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runClearExitInfo(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_33
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runSetWatchHeap(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runClearWatchHeap(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_34
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runClearDebugApp(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runSetWatchHeap(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_35
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runSetAgentApp(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runClearDebugApp(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_36
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runSetDebugApp(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runSetAgentApp(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_37
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runDumpHeap(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runSetDebugApp(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_38
-    invoke-direct {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runProfile(Ljava/io/PrintWriter;)I
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runDumpHeap(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_39
-    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runTraceIpc(Ljava/io/PrintWriter;)I
+    invoke-direct {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runProfile(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
     :pswitch_3a
+    invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runTraceIpc(Ljava/io/PrintWriter;)I
+
+    move-result v1
+
+    return v1
+
+    :pswitch_3b
     invoke-virtual {p0}, Lcom/android/server/am/ActivityManagerShellCommand;->getOutPrintWriter()Ljava/io/PrintWriter;
 
     move-result-object v2
@@ -6505,35 +6643,35 @@
 
     return v1
 
-    :pswitch_3b
+    :pswitch_3c
     invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runSendBroadcast(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
-    :pswitch_3c
+    :pswitch_3d
     invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runStopService(Ljava/io/PrintWriter;)I
 
     move-result v1
 
     return v1
 
-    :pswitch_3d
+    :pswitch_3e
     invoke-virtual {p0, v0, v4}, Lcom/android/server/am/ActivityManagerShellCommand;->runStartService(Ljava/io/PrintWriter;Z)I
 
     move-result v1
 
     return v1
 
-    :pswitch_3e
+    :pswitch_3f
     invoke-virtual {p0, v0, v5}, Lcom/android/server/am/ActivityManagerShellCommand;->runStartService(Ljava/io/PrintWriter;Z)I
 
     move-result v1
 
     return v1
 
-    :pswitch_3f
+    :pswitch_40
     invoke-virtual {p0, v0}, Lcom/android/server/am/ActivityManagerShellCommand;->runStartActivity(Ljava/io/PrintWriter;)I
 
     move-result v1
@@ -6568,72 +6706,73 @@
 
     :sswitch_data_0
     .sparse-switch
-        -0x7e761220 -> :sswitch_45
-        -0x7566d004 -> :sswitch_44
-        -0x6ee359bb -> :sswitch_43
-        -0x6684cefe -> :sswitch_42
-        -0x65f435a5 -> :sswitch_41
-        -0x6366a39f -> :sswitch_40
-        -0x608449aa -> :sswitch_3f
-        -0x607e173f -> :sswitch_3e
-        -0x50c0cc7e -> :sswitch_3d
-        -0x4ef4b7a7 -> :sswitch_3c
-        -0x4db101b9 -> :sswitch_3b
-        -0x436e13b6 -> :sswitch_3a
-        -0x3bc220e3 -> :sswitch_39
-        -0x3988e78d -> :sswitch_38
-        -0x376fe74e -> :sswitch_37
-        -0x3619e74c -> :sswitch_36
-        -0x3530e48a -> :sswitch_35
-        -0x33db6ce6 -> :sswitch_34
-        -0x30697b4a -> :sswitch_33
-        -0x2c900a2b -> :sswitch_32
-        -0x29b36e67 -> :sswitch_31
-        -0x2420b54e -> :sswitch_30
-        -0x20b34e72 -> :sswitch_2f
-        -0x1a75f64b -> :sswitch_2e
-        -0x171366ac -> :sswitch_2d
-        -0x152733fd -> :sswitch_2c
-        -0x12717657 -> :sswitch_2b
-        -0xd7815ae -> :sswitch_2a
-        -0xa310e8a -> :sswitch_29
-        -0x8b4339f -> :sswitch_28
-        -0x83a5383 -> :sswitch_27
-        -0x5ffb810 -> :sswitch_26
-        -0x1a6e7d0 -> :sswitch_25
-        0x30c072 -> :sswitch_24
-        0x323b5e -> :sswitch_23
-        0x363585 -> :sswitch_22
-        0x547b9a4 -> :sswitch_21
-        0x5a863a7 -> :sswitch_20
-        0x68ac288 -> :sswitch_1f
-        0x68ac462 -> :sswitch_1e
-        0x6c257df -> :sswitch_1d
-        0x80c339b -> :sswitch_1c
-        0xb07b013 -> :sswitch_1b
-        0xe24026e -> :sswitch_1a
-        0x20c2801a -> :sswitch_19
-        0x251993ad -> :sswitch_18
-        0x27c1d6ad -> :sswitch_17
-        0x2894b589 -> :sswitch_16
-        0x2b19d394 -> :sswitch_15
-        0x2d9208a0 -> :sswitch_14
-        0x302bd54d -> :sswitch_13
-        0x304b5275 -> :sswitch_12
-        0x30b487aa -> :sswitch_11
-        0x310633ae -> :sswitch_10
-        0x35abdbf4 -> :sswitch_f
-        0x3d13bd7d -> :sswitch_e
-        0x404a0027 -> :sswitch_d
-        0x416a9e0f -> :sswitch_c
-        0x434f294b -> :sswitch_b
-        0x465c428a -> :sswitch_a
-        0x48b444b2 -> :sswitch_9
-        0x49b0bd5a -> :sswitch_8
-        0x532d63e7 -> :sswitch_7
-        0x5e69b6b6 -> :sswitch_6
-        0x607e963c -> :sswitch_5
-        0x63a518c2 -> :sswitch_4
+        -0x7e761220 -> :sswitch_46
+        -0x7566d004 -> :sswitch_45
+        -0x6ee359bb -> :sswitch_44
+        -0x6684cefe -> :sswitch_43
+        -0x65f435a5 -> :sswitch_42
+        -0x6366a39f -> :sswitch_41
+        -0x608449aa -> :sswitch_40
+        -0x607e173f -> :sswitch_3f
+        -0x50c0cc7e -> :sswitch_3e
+        -0x4ef4b7a7 -> :sswitch_3d
+        -0x4db101b9 -> :sswitch_3c
+        -0x436e13b6 -> :sswitch_3b
+        -0x3bc220e3 -> :sswitch_3a
+        -0x3988e78d -> :sswitch_39
+        -0x376fe74e -> :sswitch_38
+        -0x3619e74c -> :sswitch_37
+        -0x3530e48a -> :sswitch_36
+        -0x33db6ce6 -> :sswitch_35
+        -0x30697b4a -> :sswitch_34
+        -0x2c900a2b -> :sswitch_33
+        -0x29b36e67 -> :sswitch_32
+        -0x2420b54e -> :sswitch_31
+        -0x20b34e72 -> :sswitch_30
+        -0x1a75f64b -> :sswitch_2f
+        -0x171366ac -> :sswitch_2e
+        -0x152733fd -> :sswitch_2d
+        -0x12717657 -> :sswitch_2c
+        -0xd7815ae -> :sswitch_2b
+        -0xa310e8a -> :sswitch_2a
+        -0x8b4339f -> :sswitch_29
+        -0x83a5383 -> :sswitch_28
+        -0x5ffb810 -> :sswitch_27
+        -0x1a6e7d0 -> :sswitch_26
+        0x30c072 -> :sswitch_25
+        0x323b5e -> :sswitch_24
+        0x363585 -> :sswitch_23
+        0x547b9a4 -> :sswitch_22
+        0x5a863a7 -> :sswitch_21
+        0x68ac288 -> :sswitch_20
+        0x68ac462 -> :sswitch_1f
+        0x6c257df -> :sswitch_1e
+        0x80c339b -> :sswitch_1d
+        0xb07b013 -> :sswitch_1c
+        0xe24026e -> :sswitch_1b
+        0x20c2801a -> :sswitch_1a
+        0x251993ad -> :sswitch_19
+        0x27c1d6ad -> :sswitch_18
+        0x2894b589 -> :sswitch_17
+        0x2b19d394 -> :sswitch_16
+        0x2d9208a0 -> :sswitch_15
+        0x302bd54d -> :sswitch_14
+        0x304b5275 -> :sswitch_13
+        0x30b487aa -> :sswitch_12
+        0x310633ae -> :sswitch_11
+        0x35abdbf4 -> :sswitch_10
+        0x3d13bd7d -> :sswitch_f
+        0x404a0027 -> :sswitch_e
+        0x416a9e0f -> :sswitch_d
+        0x434f294b -> :sswitch_c
+        0x465c428a -> :sswitch_b
+        0x48b444b2 -> :sswitch_a
+        0x49b0bd5a -> :sswitch_9
+        0x532d63e7 -> :sswitch_8
+        0x5e69b6b6 -> :sswitch_7
+        0x607e963c -> :sswitch_6
+        0x63a518c2 -> :sswitch_5
+        0x696c1ea0 -> :sswitch_4
         0x6e6f530e -> :sswitch_3
         0x6ef5269a -> :sswitch_2
         0x6f0f8fea -> :sswitch_1
@@ -6642,15 +6781,16 @@
 
     :pswitch_data_0
     .packed-switch 0x0
+        :pswitch_40
+        :pswitch_40
         :pswitch_3f
         :pswitch_3f
         :pswitch_3e
         :pswitch_3e
+        :pswitch_3e
+        :pswitch_3e
         :pswitch_3d
         :pswitch_3d
-        :pswitch_3d
-        :pswitch_3d
-        :pswitch_3c
         :pswitch_3c
         :pswitch_3b
         :pswitch_3a
@@ -7019,7 +7159,7 @@
 .end method
 
 .method runCrash(Ljava/io/PrintWriter;)I
-    .locals 12
+    .locals 13
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -7033,13 +7173,13 @@
 
     move-result-object v1
 
-    move-object v8, v1
+    move-object v9, v1
 
     if-eqz v1, :cond_1
 
     const-string v1, "--user"
 
-    invoke-virtual {v8, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v9, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
@@ -7068,7 +7208,7 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -7087,10 +7227,10 @@
 
     invoke-virtual {p0}, Lcom/android/server/am/ActivityManagerShellCommand;->getNextArgRequired()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v10
 
     :try_start_0
-    invoke-static {v9}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {v10}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v3
     :try_end_0
@@ -7098,20 +7238,20 @@
 
     move v1, v3
 
-    move v10, v1
+    move v11, v1
 
-    move-object v11, v2
+    move-object v12, v2
 
     goto :goto_1
 
     :catch_0
     move-exception v3
 
-    move-object v2, v9
+    move-object v2, v10
 
-    move v10, v1
+    move v11, v1
 
-    move-object v11, v2
+    move-object v12, v2
 
     :goto_1
     iget-object v1, p0, Lcom/android/server/am/ActivityManagerShellCommand;->mInterface:Landroid/app/IActivityManager;
@@ -7120,15 +7260,17 @@
 
     const/4 v7, 0x0
 
+    const/4 v8, 0x6
+
     const-string/jumbo v6, "shell-induced crash"
 
-    move v3, v10
+    move v3, v11
 
-    move-object v4, v11
+    move-object v4, v12
 
     move v5, v0
 
-    invoke-interface/range {v1 .. v7}, Landroid/app/IActivityManager;->crashApplication(IILjava/lang/String;ILjava/lang/String;Z)V
+    invoke-interface/range {v1 .. v8}, Landroid/app/IActivityManager;->crashApplicationWithType(IILjava/lang/String;ILjava/lang/String;ZI)V
 
     const/4 v1, 0x0
 
@@ -8958,7 +9100,7 @@
     return v1
 
     :cond_0
-    const v1, 0x1110110
+    const v1, 0x1110114
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 

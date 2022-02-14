@@ -50,105 +50,105 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Ljava/io/File;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;)V
-    .locals 17
+.method public constructor <init>(Landroid/content/Context;Landroid/os/Looper;Ljava/io/File;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;)V
+    .locals 18
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move-object/from16 v2, p4
+    move-object/from16 v2, p5
 
-    move-object/from16 v3, p6
+    move-object/from16 v3, p7
 
-    move-object/from16 v4, p8
+    move-object/from16 v4, p9
 
-    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
-
-    move-result-object v5
+    move-object/from16 v5, p2
 
     invoke-direct {v0, v5}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v5
+    move-result-wide v6
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
-    move-result-wide v7
+    move-result-wide v8
 
-    sub-long/2addr v5, v7
+    sub-long/2addr v6, v8
 
-    iput-wide v5, v0, Lcom/android/server/powerstats/PowerStatsLogger;->mStartWallTime:J
+    iput-wide v6, v0, Lcom/android/server/powerstats/PowerStatsLogger;->mStartWallTime:J
 
-    move-object/from16 v5, p9
+    move-object/from16 v6, p10
 
-    iput-object v5, v0, Lcom/android/server/powerstats/PowerStatsLogger;->mPowerStatsHALWrapper:Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;
+    iput-object v6, v0, Lcom/android/server/powerstats/PowerStatsLogger;->mPowerStatsHALWrapper:Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;
 
-    move-object/from16 v6, p2
+    move-object/from16 v7, p3
 
-    iput-object v6, v0, Lcom/android/server/powerstats/PowerStatsLogger;->mDataStoragePath:Ljava/io/File;
-
-    new-instance v7, Lcom/android/server/powerstats/PowerStatsDataStorage;
-
-    iget-object v8, v0, Lcom/android/server/powerstats/PowerStatsLogger;->mDataStoragePath:Ljava/io/File;
-
-    move-object/from16 v9, p3
-
-    invoke-direct {v7, v1, v8, v9}, Lcom/android/server/powerstats/PowerStatsDataStorage;-><init>(Landroid/content/Context;Ljava/io/File;Ljava/lang/String;)V
-
-    iput-object v7, v0, Lcom/android/server/powerstats/PowerStatsLogger;->mPowerStatsMeterStorage:Lcom/android/server/powerstats/PowerStatsDataStorage;
+    iput-object v7, v0, Lcom/android/server/powerstats/PowerStatsLogger;->mDataStoragePath:Ljava/io/File;
 
     new-instance v8, Lcom/android/server/powerstats/PowerStatsDataStorage;
 
-    iget-object v10, v0, Lcom/android/server/powerstats/PowerStatsLogger;->mDataStoragePath:Ljava/io/File;
+    iget-object v9, v0, Lcom/android/server/powerstats/PowerStatsLogger;->mDataStoragePath:Ljava/io/File;
 
-    move-object/from16 v11, p5
+    move-object/from16 v10, p4
 
-    invoke-direct {v8, v1, v10, v11}, Lcom/android/server/powerstats/PowerStatsDataStorage;-><init>(Landroid/content/Context;Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v8, v1, v9, v10}, Lcom/android/server/powerstats/PowerStatsDataStorage;-><init>(Landroid/content/Context;Ljava/io/File;Ljava/lang/String;)V
 
-    iput-object v8, v0, Lcom/android/server/powerstats/PowerStatsLogger;->mPowerStatsModelStorage:Lcom/android/server/powerstats/PowerStatsDataStorage;
+    iput-object v8, v0, Lcom/android/server/powerstats/PowerStatsLogger;->mPowerStatsMeterStorage:Lcom/android/server/powerstats/PowerStatsDataStorage;
 
-    new-instance v10, Lcom/android/server/powerstats/PowerStatsDataStorage;
+    new-instance v9, Lcom/android/server/powerstats/PowerStatsDataStorage;
 
-    iget-object v12, v0, Lcom/android/server/powerstats/PowerStatsLogger;->mDataStoragePath:Ljava/io/File;
+    iget-object v11, v0, Lcom/android/server/powerstats/PowerStatsLogger;->mDataStoragePath:Ljava/io/File;
 
-    move-object/from16 v13, p7
+    move-object/from16 v12, p6
 
-    invoke-direct {v10, v1, v12, v13}, Lcom/android/server/powerstats/PowerStatsDataStorage;-><init>(Landroid/content/Context;Ljava/io/File;Ljava/lang/String;)V
+    invoke-direct {v9, v1, v11, v12}, Lcom/android/server/powerstats/PowerStatsDataStorage;-><init>(Landroid/content/Context;Ljava/io/File;Ljava/lang/String;)V
 
-    iput-object v10, v0, Lcom/android/server/powerstats/PowerStatsLogger;->mPowerStatsResidencyStorage:Lcom/android/server/powerstats/PowerStatsDataStorage;
+    iput-object v9, v0, Lcom/android/server/powerstats/PowerStatsLogger;->mPowerStatsModelStorage:Lcom/android/server/powerstats/PowerStatsDataStorage;
 
-    invoke-interface/range {p9 .. p9}, Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;->getEnergyMeterInfo()[Landroid/hardware/power/stats/Channel;
+    new-instance v11, Lcom/android/server/powerstats/PowerStatsDataStorage;
 
-    move-result-object v12
+    iget-object v13, v0, Lcom/android/server/powerstats/PowerStatsLogger;->mDataStoragePath:Ljava/io/File;
 
-    invoke-static {v12}, Lcom/android/server/powerstats/ProtoStreamUtils$ChannelUtils;->getProtoBytes([Landroid/hardware/power/stats/Channel;)[B
+    move-object/from16 v14, p8
 
-    move-result-object v14
+    invoke-direct {v11, v1, v13, v14}, Lcom/android/server/powerstats/PowerStatsDataStorage;-><init>(Landroid/content/Context;Ljava/io/File;Ljava/lang/String;)V
 
-    invoke-direct {v0, v2, v14}, Lcom/android/server/powerstats/PowerStatsLogger;->dataChanged(Ljava/lang/String;[B)Z
+    iput-object v11, v0, Lcom/android/server/powerstats/PowerStatsLogger;->mPowerStatsResidencyStorage:Lcom/android/server/powerstats/PowerStatsDataStorage;
 
-    move-result v15
+    invoke-interface/range {p10 .. p10}, Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;->getEnergyMeterInfo()[Landroid/hardware/power/stats/Channel;
 
-    iput-boolean v15, v0, Lcom/android/server/powerstats/PowerStatsLogger;->mDeleteMeterDataOnBoot:Z
+    move-result-object v13
 
-    if-eqz v15, :cond_0
-
-    invoke-virtual {v7}, Lcom/android/server/powerstats/PowerStatsDataStorage;->deleteLogs()V
-
-    invoke-direct {v0, v2, v14}, Lcom/android/server/powerstats/PowerStatsLogger;->updateCacheFile(Ljava/lang/String;[B)V
-
-    :cond_0
-    invoke-interface/range {p9 .. p9}, Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;->getEnergyConsumerInfo()[Landroid/hardware/power/stats/EnergyConsumer;
-
-    move-result-object v7
-
-    invoke-static {v7}, Lcom/android/server/powerstats/ProtoStreamUtils$EnergyConsumerUtils;->getProtoBytes([Landroid/hardware/power/stats/EnergyConsumer;)[B
+    invoke-static {v13}, Lcom/android/server/powerstats/ProtoStreamUtils$ChannelUtils;->getProtoBytes([Landroid/hardware/power/stats/Channel;)[B
 
     move-result-object v15
 
-    invoke-direct {v0, v3, v15}, Lcom/android/server/powerstats/PowerStatsLogger;->dataChanged(Ljava/lang/String;[B)Z
+    invoke-direct {v0, v2, v15}, Lcom/android/server/powerstats/PowerStatsLogger;->dataChanged(Ljava/lang/String;[B)Z
+
+    move-result v1
+
+    iput-boolean v1, v0, Lcom/android/server/powerstats/PowerStatsLogger;->mDeleteMeterDataOnBoot:Z
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v8}, Lcom/android/server/powerstats/PowerStatsDataStorage;->deleteLogs()V
+
+    invoke-direct {v0, v2, v15}, Lcom/android/server/powerstats/PowerStatsLogger;->updateCacheFile(Ljava/lang/String;[B)V
+
+    :cond_0
+    invoke-interface/range {p10 .. p10}, Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;->getEnergyConsumerInfo()[Landroid/hardware/power/stats/EnergyConsumer;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/server/powerstats/ProtoStreamUtils$EnergyConsumerUtils;->getProtoBytes([Landroid/hardware/power/stats/EnergyConsumer;)[B
+
+    move-result-object v8
+
+    move-object/from16 v16, v1
+
+    invoke-direct {v0, v3, v8}, Lcom/android/server/powerstats/PowerStatsLogger;->dataChanged(Ljava/lang/String;[B)Z
 
     move-result v1
 
@@ -156,22 +156,22 @@
 
     if-eqz v1, :cond_1
 
-    invoke-virtual {v8}, Lcom/android/server/powerstats/PowerStatsDataStorage;->deleteLogs()V
+    invoke-virtual {v9}, Lcom/android/server/powerstats/PowerStatsDataStorage;->deleteLogs()V
 
-    invoke-direct {v0, v3, v15}, Lcom/android/server/powerstats/PowerStatsLogger;->updateCacheFile(Ljava/lang/String;[B)V
+    invoke-direct {v0, v3, v8}, Lcom/android/server/powerstats/PowerStatsLogger;->updateCacheFile(Ljava/lang/String;[B)V
 
     :cond_1
-    invoke-interface/range {p9 .. p9}, Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;->getPowerEntityInfo()[Landroid/hardware/power/stats/PowerEntity;
+    invoke-interface/range {p10 .. p10}, Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;->getPowerEntityInfo()[Landroid/hardware/power/stats/PowerEntity;
 
     move-result-object v1
 
     invoke-static {v1}, Lcom/android/server/powerstats/ProtoStreamUtils$PowerEntityUtils;->getProtoBytes([Landroid/hardware/power/stats/PowerEntity;)[B
 
-    move-result-object v8
+    move-result-object v9
 
-    move-object/from16 v16, v1
+    move-object/from16 v17, v1
 
-    invoke-direct {v0, v4, v8}, Lcom/android/server/powerstats/PowerStatsLogger;->dataChanged(Ljava/lang/String;[B)Z
+    invoke-direct {v0, v4, v9}, Lcom/android/server/powerstats/PowerStatsLogger;->dataChanged(Ljava/lang/String;[B)Z
 
     move-result v1
 
@@ -179,9 +179,9 @@
 
     if-eqz v1, :cond_2
 
-    invoke-virtual {v10}, Lcom/android/server/powerstats/PowerStatsDataStorage;->deleteLogs()V
+    invoke-virtual {v11}, Lcom/android/server/powerstats/PowerStatsDataStorage;->deleteLogs()V
 
-    invoke-direct {v0, v4, v8}, Lcom/android/server/powerstats/PowerStatsLogger;->updateCacheFile(Ljava/lang/String;[B)V
+    invoke-direct {v0, v4, v9}, Lcom/android/server/powerstats/PowerStatsLogger;->updateCacheFile(Ljava/lang/String;[B)V
 
     :cond_2
     return-void

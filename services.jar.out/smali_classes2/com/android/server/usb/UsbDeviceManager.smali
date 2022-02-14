@@ -34,11 +34,7 @@
 
 .field private static final DEBUG:Z = false
 
-.field private static final DEVICE_STATE_UPDATE_DELAY:I = 0xbb8
-
 .field private static final FUNCTIONS_PATH:Ljava/lang/String; = "/sys/class/android_usb/android0/functions"
-
-.field private static final HOST_STATE_UPDATE_DELAY:I = 0x3e8
 
 .field private static final MIDI_ALSA_PATH:Ljava/lang/String; = "/sys/class/android_usb/android0/f_midi/alsa"
 
@@ -99,6 +95,8 @@
 .field private static final TAG:Ljava/lang/String;
 
 .field static final UNLOCKED_CONFIG_PREF:Ljava/lang/String; = "usb-screen-unlocked-config-%d"
+
+.field private static final UPDATE_DELAY:I = 0x3e8
 
 .field private static final USB_PREFS_XML:Ljava/lang/String; = "UsbDeviceManagerPrefs.xml"
 

@@ -115,12 +115,18 @@
 
     iput-object v0, v8, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider;->mTaskStackListener:Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider$BiometricTaskStackListener;
 
-    array-length v14, v9
+    invoke-direct/range {p0 .. p1}, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider;->getWorkaroundSensorProps(Landroid/content/Context;)Ljava/util/List;
 
-    const/4 v7, 0x0
+    move-result-object v14
+
+    array-length v15, v9
+
+    const/16 v16, 0x0
+
+    move/from16 v7, v16
 
     :goto_0
-    if-ge v7, v14, :cond_2
+    if-ge v7, v15, :cond_3
 
     aget-object v6, v9, v7
 
@@ -146,32 +152,30 @@
 
     array-length v1, v0
 
-    const/4 v2, 0x0
+    move/from16 v2, v16
 
     :goto_1
     if-ge v2, v1, :cond_0
 
     aget-object v3, v0, v2
 
-    new-instance v15, Landroid/hardware/biometrics/ComponentInfoInternal;
+    move-object/from16 v23, v0
 
-    move-object/from16 v22, v0
+    new-instance v0, Landroid/hardware/biometrics/ComponentInfoInternal;
 
-    iget-object v0, v3, Landroid/hardware/biometrics/common/ComponentInfo;->componentId:Ljava/lang/String;
+    move/from16 v24, v1
 
-    move/from16 v23, v1
+    iget-object v1, v3, Landroid/hardware/biometrics/common/ComponentInfo;->componentId:Ljava/lang/String;
 
-    iget-object v1, v3, Landroid/hardware/biometrics/common/ComponentInfo;->hardwareVersion:Ljava/lang/String;
+    move/from16 v25, v7
 
-    move/from16 v26, v7
+    iget-object v7, v3, Landroid/hardware/biometrics/common/ComponentInfo;->hardwareVersion:Ljava/lang/String;
 
-    iget-object v7, v3, Landroid/hardware/biometrics/common/ComponentInfo;->firmwareVersion:Ljava/lang/String;
+    iget-object v9, v3, Landroid/hardware/biometrics/common/ComponentInfo;->firmwareVersion:Ljava/lang/String;
 
-    iget-object v9, v3, Landroid/hardware/biometrics/common/ComponentInfo;->serialNumber:Ljava/lang/String;
+    iget-object v10, v3, Landroid/hardware/biometrics/common/ComponentInfo;->serialNumber:Ljava/lang/String;
 
-    iget-object v10, v3, Landroid/hardware/biometrics/common/ComponentInfo;->softwareVersion:Ljava/lang/String;
-
-    move-object/from16 v16, v15
+    iget-object v11, v3, Landroid/hardware/biometrics/common/ComponentInfo;->softwareVersion:Ljava/lang/String;
 
     move-object/from16 v17, v0
 
@@ -183,31 +187,35 @@
 
     move-object/from16 v21, v10
 
-    invoke-direct/range {v16 .. v21}, Landroid/hardware/biometrics/ComponentInfoInternal;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    move-object/from16 v22, v11
 
-    invoke-interface {v4, v15}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-direct/range {v17 .. v22}, Landroid/hardware/biometrics/ComponentInfoInternal;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-interface {v4, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     add-int/lit8 v2, v2, 0x1
 
     move-object/from16 v10, p1
 
+    move-object/from16 v11, p2
+
     move-object/from16 v9, p3
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
-    move/from16 v1, v23
+    move/from16 v1, v24
 
-    move/from16 v7, v26
+    move/from16 v7, v25
 
     goto :goto_1
 
     :cond_0
-    move/from16 v26, v7
+    move/from16 v25, v7
 
     goto :goto_2
 
     :cond_1
-    move/from16 v26, v7
+    move/from16 v25, v7
 
     :goto_2
     new-instance v0, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
@@ -226,51 +234,71 @@
 
     iget-byte v7, v6, Landroid/hardware/biometrics/fingerprint/SensorProps;->sensorType:B
 
-    const/16 v22, 0x1
+    const/16 v23, 0x1
 
-    iget-object v9, v6, Landroid/hardware/biometrics/fingerprint/SensorProps;->sensorLocations:[Landroid/hardware/biometrics/fingerprint/SensorLocation;
+    invoke-interface {v14}, Ljava/util/List;->isEmpty()Z
 
-    const/4 v10, 0x0
+    move-result v9
 
-    aget-object v9, v9, v10
+    if-nez v9, :cond_2
 
-    iget v9, v9, Landroid/hardware/biometrics/fingerprint/SensorLocation;->sensorLocationX:I
+    move-object/from16 v26, v6
 
-    iget-object v15, v6, Landroid/hardware/biometrics/fingerprint/SensorProps;->sensorLocations:[Landroid/hardware/biometrics/fingerprint/SensorLocation;
+    move-object/from16 v24, v14
 
-    aget-object v15, v15, v10
+    goto :goto_3
 
-    iget v15, v15, Landroid/hardware/biometrics/fingerprint/SensorLocation;->sensorLocationY:I
+    :cond_2
+    new-instance v9, Landroid/hardware/biometrics/SensorLocationInternal;
+
+    iget-object v10, v6, Landroid/hardware/biometrics/fingerprint/SensorProps;->sensorLocations:[Landroid/hardware/biometrics/fingerprint/SensorLocation;
+
+    aget-object v10, v10, v16
+
+    iget v10, v10, Landroid/hardware/biometrics/fingerprint/SensorLocation;->sensorLocationX:I
 
     iget-object v11, v6, Landroid/hardware/biometrics/fingerprint/SensorProps;->sensorLocations:[Landroid/hardware/biometrics/fingerprint/SensorLocation;
 
-    aget-object v11, v11, v10
+    aget-object v11, v11, v16
 
-    iget v11, v11, Landroid/hardware/biometrics/fingerprint/SensorLocation;->sensorRadius:I
+    iget v11, v11, Landroid/hardware/biometrics/fingerprint/SensorLocation;->sensorLocationY:I
 
-    move-object/from16 v16, v0
+    iget-object v12, v6, Landroid/hardware/biometrics/fingerprint/SensorProps;->sensorLocations:[Landroid/hardware/biometrics/fingerprint/SensorLocation;
 
-    move/from16 v17, v1
+    aget-object v12, v12, v16
 
-    move/from16 v18, v2
+    iget v12, v12, Landroid/hardware/biometrics/fingerprint/SensorLocation;->sensorRadius:I
 
-    move/from16 v19, v3
+    move-object/from16 v26, v6
 
-    move-object/from16 v20, v4
+    const-string v6, ""
 
-    move/from16 v21, v7
+    invoke-direct {v9, v6, v10, v11, v12}, Landroid/hardware/biometrics/SensorLocationInternal;-><init>(Ljava/lang/String;III)V
 
-    move/from16 v23, v9
+    invoke-static {v9}, Ljava/util/List;->of(Ljava/lang/Object;)Ljava/util/List;
 
-    move/from16 v24, v15
+    move-result-object v6
 
-    move/from16 v25, v11
+    move-object/from16 v24, v6
 
-    invoke-direct/range {v16 .. v25}, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;-><init>(IIILjava/util/List;IZIII)V
+    :goto_3
+    move-object/from16 v17, v0
+
+    move/from16 v18, v1
+
+    move/from16 v19, v2
+
+    move/from16 v20, v3
+
+    move-object/from16 v21, v4
+
+    move/from16 v22, v7
+
+    invoke-direct/range {v17 .. v24}, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;-><init>(IIILjava/util/List;IZLjava/util/List;)V
 
     move-object v9, v0
 
-    new-instance v11, Lcom/android/server/biometrics/sensors/fingerprint/aidl/Sensor;
+    new-instance v10, Lcom/android/server/biometrics/sensors/fingerprint/aidl/Sensor;
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -294,27 +322,25 @@
 
     iget-object v3, v8, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider;->mContext:Landroid/content/Context;
 
-    iget-object v7, v8, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider;->mHandler:Landroid/os/Handler;
+    iget-object v6, v8, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider;->mHandler:Landroid/os/Handler;
 
-    move-object v0, v11
+    move-object v0, v10
 
     move-object/from16 v2, p0
 
-    move-object v15, v4
+    move-object v11, v4
 
-    move-object v4, v7
+    move-object v4, v6
 
-    move v7, v5
+    move v12, v5
 
     move-object v5, v9
 
-    move-object/from16 v16, v6
+    move-object/from16 v17, v26
 
     move-object/from16 v6, p5
 
-    move v10, v7
-
-    move/from16 v17, v26
+    move/from16 v18, v25
 
     move-object/from16 v7, p6
 
@@ -322,7 +348,7 @@
 
     iget-object v1, v8, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider;->mSensors:Landroid/util/SparseArray;
 
-    invoke-virtual {v1, v10, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v1, v12, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     invoke-direct/range {p0 .. p0}, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider;->getTag()Ljava/lang/String;
 
@@ -344,7 +370,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    add-int/lit8 v7, v17, 0x1
+    add-int/lit8 v7, v18, 0x1
 
     move-object/from16 v10, p1
 
@@ -352,9 +378,11 @@
 
     move-object/from16 v9, p3
 
+    move-object/from16 v12, p4
+
     goto/16 :goto_0
 
-    :cond_2
+    :cond_3
     return-void
 .end method
 
@@ -426,6 +454,136 @@
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
+
+    return-object v0
+.end method
+
+.method private getWorkaroundSensorProps(Landroid/content/Context;)Ljava/util/List;
+    .locals 5
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            ")",
+            "Ljava/util/List<",
+            "Landroid/hardware/biometrics/SensorLocationInternal;",
+            ">;"
+        }
+    .end annotation
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x107008d
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->obtainTypedArray(I)Landroid/content/res/TypedArray;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    :goto_0
+    invoke-virtual {v1}, Landroid/content/res/TypedArray;->length()I
+
+    move-result v3
+
+    if-ge v2, v3, :cond_1
+
+    const/4 v3, -0x1
+
+    invoke-virtual {v1, v2, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
+
+    move-result v3
+
+    if-lez v3, :cond_0
+
+    nop
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v3}, Landroid/content/res/Resources;->obtainTypedArray(I)Landroid/content/res/TypedArray;
+
+    move-result-object v4
+
+    invoke-direct {p0, v4}, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider;->parseSensorLocation(Landroid/content/res/TypedArray;)Landroid/hardware/biometrics/SensorLocationInternal;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_0
+
+    invoke-interface {v0, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    :cond_0
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {v1}, Landroid/content/res/TypedArray;->recycle()V
+
+    return-object v0
+.end method
+
+.method private parseSensorLocation(Landroid/content/res/TypedArray;)Landroid/hardware/biometrics/SensorLocationInternal;
+    .locals 7
+
+    const/4 v0, 0x0
+
+    if-nez p1, :cond_0
+
+    return-object v0
+
+    :cond_0
+    :try_start_0
+    new-instance v1, Landroid/hardware/biometrics/SensorLocationInternal;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {p1, v2}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    const/4 v4, 0x1
+
+    invoke-virtual {p1, v4, v2}, Landroid/content/res/TypedArray;->getInt(II)I
+
+    move-result v4
+
+    const/4 v5, 0x2
+
+    invoke-virtual {p1, v5, v2}, Landroid/content/res/TypedArray;->getInt(II)I
+
+    move-result v5
+
+    const/4 v6, 0x3
+
+    invoke-virtual {p1, v6, v2}, Landroid/content/res/TypedArray;->getInt(II)I
+
+    move-result v2
+
+    invoke-direct {v1, v3, v4, v5, v2}, Landroid/hardware/biometrics/SensorLocationInternal;-><init>(Ljava/lang/String;III)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-object v1
+
+    :catch_0
+    move-exception v1
+
+    invoke-direct {p0}, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider;->getTag()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "malformed sensor location"
+
+    invoke-static {v2, v3, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     return-object v0
 .end method
@@ -1471,7 +1629,7 @@
 .end method
 
 .method public synthetic lambda$scheduleAuthenticate$8$FingerprintProvider(ILandroid/os/IBinder;JLcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;IJZLjava/lang/String;IIZ)V
-    .locals 26
+    .locals 27
 
     move-object/from16 v0, p0
 
@@ -1497,17 +1655,17 @@
 
     move/from16 v17, p12
 
-    move/from16 v21, p13
+    move/from16 v22, p13
 
     invoke-static/range {p1 .. p1}, Lcom/android/server/biometrics/Utils;->isStrongBiometric(I)Z
 
-    move-result v23
+    move-result v24
 
-    move/from16 v16, v23
+    move/from16 v16, v24
 
-    new-instance v24, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintAuthenticationClient;
+    new-instance v25, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintAuthenticationClient;
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     iget-object v2, v0, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider;->mContext:Landroid/content/Context;
 
@@ -1523,7 +1681,7 @@
 
     move-result-object v3
 
-    move-object/from16 v25, v1
+    move-object/from16 v26, v1
 
     iget-object v1, v0, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider;->mTaskStackListener:Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider$BiometricTaskStackListener;
 
@@ -1545,6 +1703,10 @@
 
     move-object/from16 v20, v1
 
+    iget-object v1, v0, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider;->mSidefpsController:Landroid/hardware/fingerprint/ISidefpsController;
+
+    move-object/from16 v21, v1
+
     iget-object v1, v0, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider;->mSensors:Landroid/util/SparseArray;
 
     invoke-virtual {v1, v14}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
@@ -1555,17 +1717,17 @@
 
     invoke-virtual {v1}, Lcom/android/server/biometrics/sensors/fingerprint/aidl/Sensor;->getSensorProperties()Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
 
-    move-result-object v22
+    move-result-object v23
 
     const/4 v1, 0x0
 
     move v14, v1
 
+    move-object/from16 v1, v26
+
+    invoke-direct/range {v1 .. v23}, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintAuthenticationClient;-><init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;JLcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;IJZLjava/lang/String;IZIZILandroid/app/TaskStackListener;Lcom/android/server/biometrics/sensors/LockoutCache;Landroid/hardware/fingerprint/IUdfpsOverlayController;Landroid/hardware/fingerprint/ISidefpsController;ZLandroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;)V
+
     move-object/from16 v1, v25
-
-    invoke-direct/range {v1 .. v22}, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintAuthenticationClient;-><init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;JLcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;IJZLjava/lang/String;IZIZILandroid/app/TaskStackListener;Lcom/android/server/biometrics/sensors/LockoutCache;Landroid/hardware/fingerprint/IUdfpsOverlayController;ZLandroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;)V
-
-    move-object/from16 v1, v24
 
     iget-object v2, v0, Lcom/android/server/biometrics/sensors/fingerprint/aidl/FingerprintProvider;->mFingerprintStateCallback:Lcom/android/server/biometrics/sensors/fingerprint/FingerprintStateCallback;
 

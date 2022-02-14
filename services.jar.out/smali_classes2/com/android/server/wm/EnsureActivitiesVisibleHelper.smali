@@ -6,7 +6,7 @@
 # instance fields
 .field private mAboveTop:Z
 
-.field private mBehindFullscreenActivity:Z
+.field private mBehindFullyOccludedContainer:Z
 
 .field private mConfigChanges:I
 
@@ -18,18 +18,18 @@
 
 .field private mStarting:Lcom/android/server/wm/ActivityRecord;
 
-.field private final mTask:Lcom/android/server/wm/Task;
+.field private final mTaskFragment:Lcom/android/server/wm/TaskFragment;
 
 .field private mTop:Lcom/android/server/wm/ActivityRecord;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/Task;)V
+.method constructor <init>(Lcom/android/server/wm/TaskFragment;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mTask:Lcom/android/server/wm/Task;
+    iput-object p1, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mTaskFragment:Lcom/android/server/wm/TaskFragment;
 
     return-void
 .end method
@@ -67,9 +67,9 @@
     :cond_3
     if-eq p5, p1, :cond_4
 
-    iget-object v0, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mTask:Lcom/android/server/wm/Task;
+    iget-object v0, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mTaskFragment:Lcom/android/server/wm/TaskFragment;
 
-    iget-object v0, v0, Lcom/android/server/wm/Task;->mTaskSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
+    iget-object v0, v0, Lcom/android/server/wm/TaskFragment;->mTaskSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
 
     invoke-virtual {v0, p5, p4, v1}, Lcom/android/server/wm/ActivityTaskSupervisor;->startSpecificActivity(Lcom/android/server/wm/ActivityRecord;ZZ)V
 
@@ -107,7 +107,7 @@
     :cond_1
     iput-boolean v2, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mAboveTop:Z
 
-    iget-boolean v3, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mBehindFullscreenActivity:Z
+    iget-boolean v3, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mBehindFullyOccludedContainer:Z
 
     invoke-virtual {p1, v3}, Lcom/android/server/wm/ActivityRecord;->updateVisibilityIgnoringKeyguard(Z)V
 
@@ -125,56 +125,69 @@
 
     if-eqz v3, :cond_2
 
-    iput-boolean v1, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mBehindFullscreenActivity:Z
+    iput-boolean v1, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mBehindFullyOccludedContainer:Z
 
     goto :goto_1
 
     :cond_2
-    iput-boolean v2, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mBehindFullscreenActivity:Z
+    iput-boolean v2, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mBehindFullyOccludedContainer:Z
+
+    goto :goto_1
 
     :cond_3
-    :goto_1
-    if-eqz v9, :cond_c
+    sget-object v3, Lcom/android/server/wm/ActivityRecord$State;->INITIALIZING:Lcom/android/server/wm/ActivityRecord$State;
 
-    iget-boolean v3, p1, Lcom/android/server/wm/ActivityRecord;->finishing:Z
+    invoke-virtual {p1, v3}, Lcom/android/server/wm/ActivityRecord;->isState(Lcom/android/server/wm/ActivityRecord$State;)Z
+
+    move-result v3
 
     if-eqz v3, :cond_4
 
-    return-void
+    invoke-virtual {p1}, Lcom/android/server/wm/ActivityRecord;->cancelInitializing()V
 
     :cond_4
+    :goto_1
+    if-eqz v9, :cond_d
+
+    iget-boolean v3, p1, Lcom/android/server/wm/ActivityRecord;->finishing:Z
+
+    if-eqz v3, :cond_5
+
+    return-void
+
+    :cond_5
     iget-object v3, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mStarting:Lcom/android/server/wm/ActivityRecord;
 
-    if-eq p1, v3, :cond_5
+    if-eq p1, v3, :cond_6
 
     iget-boolean v3, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mNotifyClients:Z
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_6
 
     iget-boolean v3, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mPreserveWindows:Z
 
     invoke-virtual {p1, v2, v3, v1}, Lcom/android/server/wm/ActivityRecord;->ensureActivityConfiguration(IZZ)Z
 
-    :cond_5
+    :cond_6
     invoke-virtual {p1}, Lcom/android/server/wm/ActivityRecord;->attachedToProcess()Z
 
     move-result v3
 
-    if-nez v3, :cond_7
+    if-nez v3, :cond_8
 
     iget-object v4, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mStarting:Lcom/android/server/wm/ActivityRecord;
 
     iget v5, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mConfigChanges:I
 
-    if-eqz p3, :cond_6
+    if-eqz p3, :cond_7
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_7
 
     move v7, v1
 
     goto :goto_2
 
-    :cond_6
+    :cond_7
     move v7, v2
 
     :goto_2
@@ -188,8 +201,16 @@
 
     goto :goto_4
 
-    :cond_7
+    :cond_8
     iget-boolean v3, p1, Lcom/android/server/wm/ActivityRecord;->mVisibleRequested:Z
+
+    if-eqz v3, :cond_b
+
+    iget-boolean v3, p1, Lcom/android/server/wm/ActivityRecord;->mClientVisibilityDeferred:Z
+
+    if-eqz v3, :cond_a
+
+    iget-boolean v3, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mNotifyClients:Z
 
     if-eqz v3, :cond_a
 
@@ -197,19 +218,11 @@
 
     if-eqz v3, :cond_9
 
-    iget-boolean v3, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mNotifyClients:Z
-
-    if-eqz v3, :cond_9
-
-    iget-boolean v3, p1, Lcom/android/server/wm/ActivityRecord;->mClientVisibilityDeferred:Z
-
-    if-eqz v3, :cond_8
-
     const/4 v3, 0x0
 
     goto :goto_3
 
-    :cond_8
+    :cond_9
     move-object v3, p2
 
     :goto_3
@@ -217,12 +230,12 @@
 
     iput-boolean v2, p1, Lcom/android/server/wm/ActivityRecord;->mClientVisibilityDeferred:Z
 
-    :cond_9
+    :cond_a
     invoke-virtual {p1}, Lcom/android/server/wm/ActivityRecord;->handleAlreadyVisible()V
 
     iget-boolean v2, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mNotifyClients:Z
 
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_c
 
     iget-object v2, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mStarting:Lcom/android/server/wm/ActivityRecord;
 
@@ -230,14 +243,14 @@
 
     goto :goto_4
 
-    :cond_a
+    :cond_b
     iget-object v2, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mStarting:Lcom/android/server/wm/ActivityRecord;
 
     iget-boolean v3, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mNotifyClients:Z
 
     invoke-virtual {p1, v2, v3}, Lcom/android/server/wm/ActivityRecord;->makeVisibleIfNeeded(Lcom/android/server/wm/ActivityRecord;Z)V
 
-    :cond_b
+    :cond_c
     :goto_4
     iget v2, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mConfigChanges:I
 
@@ -249,46 +262,38 @@
 
     goto :goto_5
 
-    :cond_c
+    :cond_d
     invoke-virtual {p1}, Lcom/android/server/wm/ActivityRecord;->makeInvisible()V
 
     :goto_5
-    iget-boolean v2, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mBehindFullscreenActivity:Z
+    iget-boolean v2, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mBehindFullyOccludedContainer:Z
 
-    if-nez v2, :cond_d
+    if-nez v2, :cond_e
 
-    iget-object v2, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mTask:Lcom/android/server/wm/Task;
+    iget-object v2, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mTaskFragment:Lcom/android/server/wm/TaskFragment;
 
-    invoke-virtual {v2}, Lcom/android/server/wm/Task;->isActivityTypeHome()Z
+    invoke-virtual {v2}, Lcom/android/server/wm/TaskFragment;->isActivityTypeHome()Z
 
     move-result v2
 
-    if-eqz v2, :cond_d
+    if-eqz v2, :cond_e
 
     invoke-virtual {p1}, Lcom/android/server/wm/ActivityRecord;->isRootOfTask()Z
 
     move-result v2
 
-    if-eqz v2, :cond_d
+    if-eqz v2, :cond_e
 
-    iput-boolean v1, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mBehindFullscreenActivity:Z
+    iput-boolean v1, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mBehindFullyOccludedContainer:Z
 
-    :cond_d
+    :cond_e
     return-void
 .end method
 
 
 # virtual methods
-.method public synthetic lambda$process$0$EnsureActivitiesVisibleHelper(Lcom/android/server/wm/ActivityRecord;ZLcom/android/server/wm/ActivityRecord;)V
-    .locals 0
-
-    invoke-direct {p0, p3, p1, p2}, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->setActivityVisibilityState(Lcom/android/server/wm/ActivityRecord;Lcom/android/server/wm/ActivityRecord;Z)V
-
-    return-void
-.end method
-
 .method process(Lcom/android/server/wm/ActivityRecord;IZZ)V
-    .locals 3
+    .locals 10
 
     invoke-virtual {p0, p1, p2, p3, p4}, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->reset(Lcom/android/server/wm/ActivityRecord;IZZ)V
 
@@ -296,12 +301,30 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mTask:Lcom/android/server/wm/Task;
+    iget-object v0, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mTaskFragment:Lcom/android/server/wm/TaskFragment;
 
-    invoke-virtual {v1, v0}, Lcom/android/server/wm/Task;->checkTranslucentActivityWaiting(Lcom/android/server/wm/ActivityRecord;)V
+    invoke-virtual {v0}, Lcom/android/server/wm/TaskFragment;->asTask()Lcom/android/server/wm/Task;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mTaskFragment:Lcom/android/server/wm/TaskFragment;
+
+    invoke-virtual {v0}, Lcom/android/server/wm/TaskFragment;->asTask()Lcom/android/server/wm/Task;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mTop:Lcom/android/server/wm/ActivityRecord;
+
+    invoke-virtual {v0, v1}, Lcom/android/server/wm/Task;->checkTranslucentActivityWaiting(Lcom/android/server/wm/ActivityRecord;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mTop:Lcom/android/server/wm/ActivityRecord;
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x1
 
     if-eqz v0, :cond_2
 
@@ -309,9 +332,9 @@
 
     if-nez v0, :cond_2
 
-    iget-object v0, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mTask:Lcom/android/server/wm/Task;
+    iget-object v0, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mTaskFragment:Lcom/android/server/wm/TaskFragment;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/Task;->isTopActivityFocusable()Z
+    invoke-virtual {v0}, Lcom/android/server/wm/TaskFragment;->isTopActivityFocusable()Z
 
     move-result v0
 
@@ -319,7 +342,7 @@
 
     if-eqz p1, :cond_1
 
-    iget-object v0, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mTask:Lcom/android/server/wm/Task;
+    iget-object v0, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mTaskFragment:Lcom/android/server/wm/TaskFragment;
 
     invoke-virtual {p1, v0}, Lcom/android/server/wm/ActivityRecord;->isDescendantOf(Lcom/android/server/wm/WindowContainer;)Z
 
@@ -328,39 +351,177 @@
     if-nez v0, :cond_2
 
     :cond_1
-    const/4 v0, 0x1
+    move v0, v2
 
     goto :goto_0
 
     :cond_2
-    const/4 v0, 0x0
+    move v0, v1
 
     :goto_0
-    iget-object v1, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mTask:Lcom/android/server/wm/Task;
+    const/4 v3, 0x0
 
-    new-instance v2, Lcom/android/server/wm/EnsureActivitiesVisibleHelper$$ExternalSyntheticLambda0;
+    iget-object v4, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mTaskFragment:Lcom/android/server/wm/TaskFragment;
 
-    invoke-direct {v2, p0, p1, v0}, Lcom/android/server/wm/EnsureActivitiesVisibleHelper$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/wm/EnsureActivitiesVisibleHelper;Lcom/android/server/wm/ActivityRecord;Z)V
+    iget-object v4, v4, Lcom/android/server/wm/TaskFragment;->mChildren:Lcom/android/server/wm/WindowList;
 
-    invoke-virtual {v1, v2}, Lcom/android/server/wm/Task;->forAllActivities(Ljava/util/function/Consumer;)V
+    invoke-virtual {v4}, Lcom/android/server/wm/WindowList;->size()I
 
-    iget-object v1, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mTask:Lcom/android/server/wm/Task;
+    move-result v4
 
-    iget-object v1, v1, Lcom/android/server/wm/Task;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
+    sub-int/2addr v4, v2
 
-    invoke-virtual {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->getTransitionController()Lcom/android/server/wm/TransitionController;
+    :goto_1
+    if-ltz v4, :cond_a
 
-    move-result-object v1
+    iget-object v5, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mTaskFragment:Lcom/android/server/wm/TaskFragment;
 
-    invoke-virtual {v1}, Lcom/android/server/wm/TransitionController;->getTransitionPlayer()Landroid/window/ITransitionPlayer;
+    iget-object v5, v5, Lcom/android/server/wm/TaskFragment;->mChildren:Lcom/android/server/wm/WindowList;
 
-    move-result-object v1
+    invoke-virtual {v5, v4}, Lcom/android/server/wm/WindowList;->get(I)Ljava/lang/Object;
 
-    if-eqz v1, :cond_3
+    move-result-object v5
 
-    iget-object v1, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mTask:Lcom/android/server/wm/Task;
+    check-cast v5, Lcom/android/server/wm/WindowContainer;
 
-    invoke-virtual {v1}, Lcom/android/server/wm/Task;->getDisplayContent()Lcom/android/server/wm/DisplayContent;
+    invoke-virtual {v5}, Lcom/android/server/wm/WindowContainer;->asTaskFragment()Lcom/android/server/wm/TaskFragment;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_8
+
+    invoke-virtual {v6}, Lcom/android/server/wm/TaskFragment;->topRunningActivity()Lcom/android/server/wm/ActivityRecord;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_8
+
+    invoke-virtual {v6, p1, p2, p3, p4}, Lcom/android/server/wm/TaskFragment;->updateActivityVisibilities(Lcom/android/server/wm/ActivityRecord;IZZ)V
+
+    iget-boolean v7, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mBehindFullyOccludedContainer:Z
+
+    invoke-virtual {v6}, Lcom/android/server/wm/TaskFragment;->getBounds()Landroid/graphics/Rect;
+
+    move-result-object v8
+
+    iget-object v9, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mTaskFragment:Lcom/android/server/wm/TaskFragment;
+
+    invoke-virtual {v9}, Lcom/android/server/wm/TaskFragment;->getBounds()Landroid/graphics/Rect;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Landroid/graphics/Rect;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    or-int/2addr v7, v8
+
+    iput-boolean v7, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mBehindFullyOccludedContainer:Z
+
+    iget-boolean v7, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mAboveTop:Z
+
+    if-eqz v7, :cond_3
+
+    iget-object v7, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mTop:Lcom/android/server/wm/ActivityRecord;
+
+    invoke-virtual {v7}, Lcom/android/server/wm/ActivityRecord;->getTaskFragment()Lcom/android/server/wm/TaskFragment;
+
+    move-result-object v7
+
+    if-ne v7, v6, :cond_3
+
+    iput-boolean v1, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mAboveTop:Z
+
+    :cond_3
+    iget-boolean v7, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mBehindFullyOccludedContainer:Z
+
+    if-eqz v7, :cond_4
+
+    goto :goto_2
+
+    :cond_4
+    if-eqz v3, :cond_5
+
+    invoke-virtual {v3, v6}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_5
+
+    invoke-virtual {v6, p1}, Lcom/android/server/wm/TaskFragment;->isTranslucent(Lcom/android/server/wm/ActivityRecord;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_9
+
+    invoke-virtual {v6}, Lcom/android/server/wm/TaskFragment;->getAdjacentTaskFragment()Lcom/android/server/wm/TaskFragment;
+
+    move-result-object v7
+
+    invoke-virtual {v7, p1}, Lcom/android/server/wm/TaskFragment;->isTranslucent(Lcom/android/server/wm/ActivityRecord;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_9
+
+    iput-boolean v2, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mBehindFullyOccludedContainer:Z
+
+    goto :goto_2
+
+    :cond_5
+    invoke-virtual {v6}, Lcom/android/server/wm/TaskFragment;->getAdjacentTaskFragment()Lcom/android/server/wm/TaskFragment;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_7
+
+    if-nez v3, :cond_6
+
+    new-instance v8, Ljava/util/ArrayList;
+
+    invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
+
+    move-object v3, v8
+
+    :cond_6
+    invoke-virtual {v3, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_7
+    goto :goto_2
+
+    :cond_8
+    invoke-virtual {v5}, Lcom/android/server/wm/WindowContainer;->asActivityRecord()Lcom/android/server/wm/ActivityRecord;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_7
+
+    invoke-virtual {v5}, Lcom/android/server/wm/WindowContainer;->asActivityRecord()Lcom/android/server/wm/ActivityRecord;
+
+    move-result-object v7
+
+    invoke-direct {p0, v7, p1, v0}, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->setActivityVisibilityState(Lcom/android/server/wm/ActivityRecord;Lcom/android/server/wm/ActivityRecord;Z)V
+
+    :cond_9
+    :goto_2
+    add-int/lit8 v4, v4, -0x1
+
+    goto :goto_1
+
+    :cond_a
+    iget-object v1, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mTaskFragment:Lcom/android/server/wm/TaskFragment;
+
+    iget-object v1, v1, Lcom/android/server/wm/TaskFragment;->mTransitionController:Lcom/android/server/wm/TransitionController;
+
+    invoke-virtual {v1}, Lcom/android/server/wm/TransitionController;->isShellTransitionsEnabled()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_b
+
+    iget-object v1, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mTaskFragment:Lcom/android/server/wm/TaskFragment;
+
+    invoke-virtual {v1}, Lcom/android/server/wm/TaskFragment;->getDisplayContent()Lcom/android/server/wm/DisplayContent;
 
     move-result-object v1
 
@@ -368,7 +529,7 @@
 
     invoke-virtual {v1}, Lcom/android/server/wm/WallpaperController;->adjustWallpaperWindows()V
 
-    :cond_3
+    :cond_b
     return-void
 .end method
 
@@ -377,9 +538,9 @@
 
     iput-object p1, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mStarting:Lcom/android/server/wm/ActivityRecord;
 
-    iget-object v0, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mTask:Lcom/android/server/wm/Task;
+    iget-object v0, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mTaskFragment:Lcom/android/server/wm/TaskFragment;
 
-    invoke-virtual {v0}, Lcom/android/server/wm/Task;->topRunningActivity()Lcom/android/server/wm/ActivityRecord;
+    invoke-virtual {v0}, Lcom/android/server/wm/TaskFragment;->topRunningActivity()Lcom/android/server/wm/ActivityRecord;
 
     move-result-object v0
 
@@ -399,11 +560,11 @@
     :goto_0
     iput-boolean v0, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mAboveTop:Z
 
-    iget-object v0, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mTask:Lcom/android/server/wm/Task;
+    iget-object v0, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mTaskFragment:Lcom/android/server/wm/TaskFragment;
 
     iget-object v2, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mStarting:Lcom/android/server/wm/ActivityRecord;
 
-    invoke-virtual {v0, v2}, Lcom/android/server/wm/Task;->shouldBeVisible(Lcom/android/server/wm/ActivityRecord;)Z
+    invoke-virtual {v0, v2}, Lcom/android/server/wm/TaskFragment;->shouldBeVisible(Lcom/android/server/wm/ActivityRecord;)Z
 
     move-result v0
 
@@ -411,7 +572,7 @@
 
     xor-int/2addr v0, v1
 
-    iput-boolean v0, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mBehindFullscreenActivity:Z
+    iput-boolean v0, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mBehindFullyOccludedContainer:Z
 
     iput p2, p0, Lcom/android/server/wm/EnsureActivitiesVisibleHelper;->mConfigChanges:I
 

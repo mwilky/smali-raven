@@ -4,6 +4,8 @@
 
 
 # static fields
+.field public static final ACCESSIBILITY_FLOATING_MENU_STATS:I = 0x2790
+
 .field public static final ACCESSIBILITY_SHORTCUT_REPORTED:I = 0x10a
 
 .field public static final ACCESSIBILITY_SHORTCUT_REPORTED__SERVICE_STATUS__DISABLED:I = 0x2
@@ -18,11 +20,57 @@
 
 .field public static final ACCESSIBILITY_SHORTCUT_REPORTED__SHORTCUT_TYPE__A11Y_FLOATING_MENU:I = 0x5
 
+.field public static final ACCESSIBILITY_SHORTCUT_REPORTED__SHORTCUT_TYPE__A11Y_GESTURE:I = 0x6
+
 .field public static final ACCESSIBILITY_SHORTCUT_REPORTED__SHORTCUT_TYPE__TRIPLE_TAP:I = 0x3
 
 .field public static final ACCESSIBILITY_SHORTCUT_REPORTED__SHORTCUT_TYPE__UNKNOWN_TYPE:I = 0x0
 
 .field public static final ACCESSIBILITY_SHORTCUT_REPORTED__SHORTCUT_TYPE__VOLUME_KEY:I = 0x2
+
+.field public static final ACCESSIBILITY_SHORTCUT_STATS:I = 0x278f
+
+.field public static final ACCESSIBILITY_SHORTCUT_STATS__GESTURE_SHORTCUT_TYPE__A11Y_BUTTON:I = 0x1
+
+.field public static final ACCESSIBILITY_SHORTCUT_STATS__GESTURE_SHORTCUT_TYPE__A11Y_BUTTON_LONG_PRESS:I = 0x4
+
+.field public static final ACCESSIBILITY_SHORTCUT_STATS__GESTURE_SHORTCUT_TYPE__A11Y_FLOATING_MENU:I = 0x5
+
+.field public static final ACCESSIBILITY_SHORTCUT_STATS__GESTURE_SHORTCUT_TYPE__A11Y_GESTURE:I = 0x6
+
+.field public static final ACCESSIBILITY_SHORTCUT_STATS__GESTURE_SHORTCUT_TYPE__TRIPLE_TAP:I = 0x3
+
+.field public static final ACCESSIBILITY_SHORTCUT_STATS__GESTURE_SHORTCUT_TYPE__UNKNOWN_TYPE:I = 0x0
+
+.field public static final ACCESSIBILITY_SHORTCUT_STATS__GESTURE_SHORTCUT_TYPE__VOLUME_KEY:I = 0x2
+
+.field public static final ACCESSIBILITY_SHORTCUT_STATS__HARDWARE_SHORTCUT_TYPE__A11Y_BUTTON:I = 0x1
+
+.field public static final ACCESSIBILITY_SHORTCUT_STATS__HARDWARE_SHORTCUT_TYPE__A11Y_BUTTON_LONG_PRESS:I = 0x4
+
+.field public static final ACCESSIBILITY_SHORTCUT_STATS__HARDWARE_SHORTCUT_TYPE__A11Y_FLOATING_MENU:I = 0x5
+
+.field public static final ACCESSIBILITY_SHORTCUT_STATS__HARDWARE_SHORTCUT_TYPE__A11Y_GESTURE:I = 0x6
+
+.field public static final ACCESSIBILITY_SHORTCUT_STATS__HARDWARE_SHORTCUT_TYPE__TRIPLE_TAP:I = 0x3
+
+.field public static final ACCESSIBILITY_SHORTCUT_STATS__HARDWARE_SHORTCUT_TYPE__UNKNOWN_TYPE:I = 0x0
+
+.field public static final ACCESSIBILITY_SHORTCUT_STATS__HARDWARE_SHORTCUT_TYPE__VOLUME_KEY:I = 0x2
+
+.field public static final ACCESSIBILITY_SHORTCUT_STATS__SOFTWARE_SHORTCUT_TYPE__A11Y_BUTTON:I = 0x1
+
+.field public static final ACCESSIBILITY_SHORTCUT_STATS__SOFTWARE_SHORTCUT_TYPE__A11Y_BUTTON_LONG_PRESS:I = 0x4
+
+.field public static final ACCESSIBILITY_SHORTCUT_STATS__SOFTWARE_SHORTCUT_TYPE__A11Y_FLOATING_MENU:I = 0x5
+
+.field public static final ACCESSIBILITY_SHORTCUT_STATS__SOFTWARE_SHORTCUT_TYPE__A11Y_GESTURE:I = 0x6
+
+.field public static final ACCESSIBILITY_SHORTCUT_STATS__SOFTWARE_SHORTCUT_TYPE__TRIPLE_TAP:I = 0x3
+
+.field public static final ACCESSIBILITY_SHORTCUT_STATS__SOFTWARE_SHORTCUT_TYPE__UNKNOWN_TYPE:I = 0x0
+
+.field public static final ACCESSIBILITY_SHORTCUT_STATS__SOFTWARE_SHORTCUT_TYPE__VOLUME_KEY:I = 0x2
 
 .field public static final ACTIVITY_FOREGROUND_STATE_CHANGED:I = 0x2a
 
@@ -245,6 +293,20 @@
 .field public static final APP_COMPATIBILITY_CHANGE_REPORTED__STATE__LOGGED:I = 0x3
 
 .field public static final APP_COMPATIBILITY_CHANGE_REPORTED__STATE__UNKNOWN_STATE:I = 0x0
+
+.field public static final APP_COMPAT_STATE_CHANGED:I = 0x182
+
+.field public static final APP_COMPAT_STATE_CHANGED__STATE__LETTERBOXED_FOR_ASPECT_RATIO:I = 0x5
+
+.field public static final APP_COMPAT_STATE_CHANGED__STATE__LETTERBOXED_FOR_FIXED_ORIENTATION:I = 0x4
+
+.field public static final APP_COMPAT_STATE_CHANGED__STATE__LETTERBOXED_FOR_SIZE_COMPAT_MODE:I = 0x3
+
+.field public static final APP_COMPAT_STATE_CHANGED__STATE__NOT_LETTERBOXED:I = 0x2
+
+.field public static final APP_COMPAT_STATE_CHANGED__STATE__NOT_VISIBLE:I = 0x1
+
+.field public static final APP_COMPAT_STATE_CHANGED__STATE__UNKNOWN:I = 0x0
 
 .field public static final APP_CRASH_OCCURRED:I = 0x4e
 
@@ -1492,6 +1554,20 @@
 
 .field public static final CAMERA_ACTION_EVENT__FACING__UNKNOWN:I = 0x0
 
+.field public static final CAMERA_COMPAT_CONTROL_EVENT_REPORTED:I = 0x19b
+
+.field public static final CAMERA_COMPAT_CONTROL_EVENT_REPORTED__EVENT__APPEARED_APPLY_TREATMENT:I = 0x1
+
+.field public static final CAMERA_COMPAT_CONTROL_EVENT_REPORTED__EVENT__APPEARED_REVERT_TREATMENT:I = 0x2
+
+.field public static final CAMERA_COMPAT_CONTROL_EVENT_REPORTED__EVENT__CLICKED_APPLY_TREATMENT:I = 0x3
+
+.field public static final CAMERA_COMPAT_CONTROL_EVENT_REPORTED__EVENT__CLICKED_DISMISS:I = 0x5
+
+.field public static final CAMERA_COMPAT_CONTROL_EVENT_REPORTED__EVENT__CLICKED_REVERT_TREATMENT:I = 0x4
+
+.field public static final CAMERA_COMPAT_CONTROL_EVENT_REPORTED__EVENT__UNKNOWN:I = 0x0
+
 .field public static final CAMERA_STATE_CHANGED:I = 0x19
 
 .field public static final CAMERA_STATE_CHANGED__STATE__OFF:I = 0x0
@@ -1571,6 +1647,8 @@
 .field public static final CONTENT_CAPTURE_SERVICE_EVENTS__EVENT__ON_DATA_SHARE_REQUEST:I = 0x6
 
 .field public static final CONTENT_CAPTURE_SERVICE_EVENTS__EVENT__ON_DISCONNECTED:I = 0x2
+
+.field public static final CONTENT_CAPTURE_SERVICE_EVENTS__EVENT__ON_REMOTE_SERVICE_DIED:I = 0x10
 
 .field public static final CONTENT_CAPTURE_SERVICE_EVENTS__EVENT__ON_USER_DATA_REMOVED:I = 0x5
 
@@ -4090,6 +4168,78 @@
 
 .field public static final SIGNED_CONFIG_REPORTED__VERIFIED_WITH__PRODUCTION:I = 0x2
 
+.field public static final SIZE_COMPAT_RESTART_BUTTON_EVENT_REPORTED:I = 0x183
+
+.field public static final SIZE_COMPAT_RESTART_BUTTON_EVENT_REPORTED__EVENT__APPEARED:I = 0x1
+
+.field public static final SIZE_COMPAT_RESTART_BUTTON_EVENT_REPORTED__EVENT__CLICKED:I = 0x2
+
+.field public static final SIZE_COMPAT_RESTART_BUTTON_EVENT_REPORTED__EVENT__UNKNOWN:I = 0x0
+
+.field public static final SPLITSCREEN_UICHANGED__ACTION__APP_CHANGE:I = 0x3
+
+.field public static final SPLITSCREEN_UICHANGED__ACTION__ENTER:I = 0x1
+
+.field public static final SPLITSCREEN_UICHANGED__ACTION__EXIT:I = 0x2
+
+.field public static final SPLITSCREEN_UICHANGED__ACTION__RESIZE:I = 0x4
+
+.field public static final SPLITSCREEN_UICHANGED__ACTION__SWAP:I = 0x5
+
+.field public static final SPLITSCREEN_UICHANGED__ACTION__UNKNOWN_ACTION:I = 0x0
+
+.field public static final SPLITSCREEN_UICHANGED__ENTER_REASON__DRAG_BOTTOM:I = 0x5
+
+.field public static final SPLITSCREEN_UICHANGED__ENTER_REASON__DRAG_LEFT:I = 0x2
+
+.field public static final SPLITSCREEN_UICHANGED__ENTER_REASON__DRAG_RIGHT:I = 0x4
+
+.field public static final SPLITSCREEN_UICHANGED__ENTER_REASON__DRAG_TOP:I = 0x3
+
+.field public static final SPLITSCREEN_UICHANGED__ENTER_REASON__OVERVIEW:I = 0x1
+
+.field public static final SPLITSCREEN_UICHANGED__ENTER_REASON__UNKNOWN_ENTER:I = 0x0
+
+.field public static final SPLITSCREEN_UICHANGED__EXIT_REASON__APP_DOES_NOT_SUPPORT_MULTIWINDOW:I = 0x8
+
+.field public static final SPLITSCREEN_UICHANGED__EXIT_REASON__APP_FINISHED:I = 0x7
+
+.field public static final SPLITSCREEN_UICHANGED__EXIT_REASON__DEVICE_FOLDED:I = 0x5
+
+.field public static final SPLITSCREEN_UICHANGED__EXIT_REASON__DRAG_DIVIDER:I = 0x1
+
+.field public static final SPLITSCREEN_UICHANGED__EXIT_REASON__RETURN_HOME:I = 0x2
+
+.field public static final SPLITSCREEN_UICHANGED__EXIT_REASON__ROOT_TASK_VANISHED:I = 0x6
+
+.field public static final SPLITSCREEN_UICHANGED__EXIT_REASON__SCREEN_LOCKED:I = 0x3
+
+.field public static final SPLITSCREEN_UICHANGED__EXIT_REASON__SCREEN_LOCKED_SHOW_ON_TOP:I = 0x4
+
+.field public static final SPLITSCREEN_UICHANGED__EXIT_REASON__UNKNOWN_EXIT:I = 0x0
+
+.field public static final SPLITSCREEN_UICHANGED__MAIN_STAGE_POSITION__BOTTOM:I = 0x4
+
+.field public static final SPLITSCREEN_UICHANGED__MAIN_STAGE_POSITION__LEFT:I = 0x1
+
+.field public static final SPLITSCREEN_UICHANGED__MAIN_STAGE_POSITION__RIGHT:I = 0x2
+
+.field public static final SPLITSCREEN_UICHANGED__MAIN_STAGE_POSITION__TOP:I = 0x3
+
+.field public static final SPLITSCREEN_UICHANGED__MAIN_STAGE_POSITION__UNKNOWN_POSITION:I = 0x0
+
+.field public static final SPLITSCREEN_UICHANGED__SIDE_STAGE_POSITION__BOTTOM:I = 0x4
+
+.field public static final SPLITSCREEN_UICHANGED__SIDE_STAGE_POSITION__LEFT:I = 0x1
+
+.field public static final SPLITSCREEN_UICHANGED__SIDE_STAGE_POSITION__RIGHT:I = 0x2
+
+.field public static final SPLITSCREEN_UICHANGED__SIDE_STAGE_POSITION__TOP:I = 0x3
+
+.field public static final SPLITSCREEN_UICHANGED__SIDE_STAGE_POSITION__UNKNOWN_POSITION:I = 0x0
+
+.field public static final SPLITSCREEN_UI_CHANGED:I = 0x184
+
 .field public static final SUBSYSTEM_SLEEP_STATE:I = 0x2715
 
 .field public static final SYNC_STATE_CHANGED:I = 0x7
@@ -4358,6 +4508,8 @@
 
 .field public static final UIACTION_LATENCY_REPORTED__ACTION__ACTION_TURN_ON_SCREEN:I = 0x6
 
+.field public static final UIACTION_LATENCY_REPORTED__ACTION__ACTION_USER_SWITCH:I = 0xd
+
 .field public static final UIACTION_LATENCY_REPORTED__ACTION__UNKNOWN:I = 0x0
 
 .field public static final UID_PROCESS_STATE_CHANGED:I = 0x1b
@@ -4444,6 +4596,8 @@
 
 .field public static final UIINTERACTION_FRAME_INFO_REPORTED__INTERACTION_TYPE__NOTIFICATION_SHADE_SWIPE:I = 0x1
 
+.field public static final UIINTERACTION_FRAME_INFO_REPORTED__INTERACTION_TYPE__PIP_TRANSITION:I = 0x24
+
 .field public static final UIINTERACTION_FRAME_INFO_REPORTED__INTERACTION_TYPE__SETTINGS_PAGE_SCROLL:I = 0x1d
 
 .field public static final UIINTERACTION_FRAME_INFO_REPORTED__INTERACTION_TYPE__SHADE_APP_LAUNCH:I = 0x11
@@ -4476,9 +4630,17 @@
 
 .field public static final UIINTERACTION_FRAME_INFO_REPORTED__INTERACTION_TYPE__SHADE_SCROLL_FLING:I = 0x3
 
+.field public static final UIINTERACTION_FRAME_INFO_REPORTED__INTERACTION_TYPE__SPLASHSCREEN_AVD:I = 0x27
+
+.field public static final UIINTERACTION_FRAME_INFO_REPORTED__INTERACTION_TYPE__SPLASHSCREEN_EXIT_ANIM:I = 0x28
+
 .field public static final UIINTERACTION_FRAME_INFO_REPORTED__INTERACTION_TYPE__STATUS_BAR_APP_LAUNCH_FROM_CALL_CHIP:I = 0x23
 
 .field public static final UIINTERACTION_FRAME_INFO_REPORTED__INTERACTION_TYPE__UNKNOWN:I = 0x0
+
+.field public static final UIINTERACTION_FRAME_INFO_REPORTED__INTERACTION_TYPE__USER_SWITCH:I = 0x26
+
+.field public static final UIINTERACTION_FRAME_INFO_REPORTED__INTERACTION_TYPE__WALLPAPER_TRANSITION:I = 0x25
 
 .field public static final UI_ACTION_LATENCY_REPORTED:I = 0x132
 
@@ -5148,6 +5310,30 @@
     invoke-virtual {v0, p5, p6}, Landroid/util/StatsEvent$Builder;->writeLong(J)Landroid/util/StatsEvent$Builder;
 
     invoke-virtual {v0, p7, p8}, Landroid/util/StatsEvent$Builder;->writeLong(J)Landroid/util/StatsEvent$Builder;
+
+    invoke-virtual {v0}, Landroid/util/StatsEvent$Builder;->build()Landroid/util/StatsEvent;
+
+    move-result-object v1
+
+    return-object v1
+.end method
+
+.method public static buildStatsEvent(IIIZF)Landroid/util/StatsEvent;
+    .locals 2
+
+    invoke-static {}, Landroid/util/StatsEvent;->newBuilder()Landroid/util/StatsEvent$Builder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Landroid/util/StatsEvent$Builder;->setAtomId(I)Landroid/util/StatsEvent$Builder;
+
+    invoke-virtual {v0, p1}, Landroid/util/StatsEvent$Builder;->writeInt(I)Landroid/util/StatsEvent$Builder;
+
+    invoke-virtual {v0, p2}, Landroid/util/StatsEvent$Builder;->writeInt(I)Landroid/util/StatsEvent$Builder;
+
+    invoke-virtual {v0, p3}, Landroid/util/StatsEvent$Builder;->writeBoolean(Z)Landroid/util/StatsEvent$Builder;
+
+    invoke-virtual {v0, p4}, Landroid/util/StatsEvent$Builder;->writeFloat(F)Landroid/util/StatsEvent$Builder;
 
     invoke-virtual {v0}, Landroid/util/StatsEvent$Builder;->build()Landroid/util/StatsEvent;
 
@@ -7336,7 +7522,7 @@
 .end method
 
 .method public static write(III)V
-    .locals 4
+    .locals 7
 
     invoke-static {}, Landroid/util/StatsEvent;->newBuilder()Landroid/util/StatsEvent$Builder;
 
@@ -7366,21 +7552,49 @@
     invoke-virtual {v0, v2, v2}, Landroid/util/StatsEvent$Builder;->addBooleanAnnotation(BZ)Landroid/util/StatsEvent$Builder;
 
     :cond_1
-    invoke-virtual {v0, p2}, Landroid/util/StatsEvent$Builder;->writeInt(I)Landroid/util/StatsEvent$Builder;
+    const/16 v3, 0x182
 
-    if-ne v1, p0, :cond_2
+    if-ne v3, p0, :cond_2
 
-    const/4 v1, 0x4
-
-    invoke-virtual {v0, v1, v2}, Landroid/util/StatsEvent$Builder;->addBooleanAnnotation(BZ)Landroid/util/StatsEvent$Builder;
-
-    const/16 v1, 0x8
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2}, Landroid/util/StatsEvent$Builder;->addBooleanAnnotation(BZ)Landroid/util/StatsEvent$Builder;
+    invoke-virtual {v0, v2, v2}, Landroid/util/StatsEvent$Builder;->addBooleanAnnotation(BZ)Landroid/util/StatsEvent$Builder;
 
     :cond_2
+    const/16 v4, 0x183
+
+    if-ne v4, p0, :cond_3
+
+    invoke-virtual {v0, v2, v2}, Landroid/util/StatsEvent$Builder;->addBooleanAnnotation(BZ)Landroid/util/StatsEvent$Builder;
+
+    :cond_3
+    const/16 v4, 0x19b
+
+    if-ne v4, p0, :cond_4
+
+    invoke-virtual {v0, v2, v2}, Landroid/util/StatsEvent$Builder;->addBooleanAnnotation(BZ)Landroid/util/StatsEvent$Builder;
+
+    :cond_4
+    invoke-virtual {v0, p2}, Landroid/util/StatsEvent$Builder;->writeInt(I)Landroid/util/StatsEvent$Builder;
+
+    const/4 v4, 0x0
+
+    const/16 v5, 0x8
+
+    const/4 v6, 0x4
+
+    if-ne v1, p0, :cond_5
+
+    invoke-virtual {v0, v6, v2}, Landroid/util/StatsEvent$Builder;->addBooleanAnnotation(BZ)Landroid/util/StatsEvent$Builder;
+
+    invoke-virtual {v0, v5, v4}, Landroid/util/StatsEvent$Builder;->addBooleanAnnotation(BZ)Landroid/util/StatsEvent$Builder;
+
+    :cond_5
+    if-ne v3, p0, :cond_6
+
+    invoke-virtual {v0, v6, v2}, Landroid/util/StatsEvent$Builder;->addBooleanAnnotation(BZ)Landroid/util/StatsEvent$Builder;
+
+    invoke-virtual {v0, v5, v4}, Landroid/util/StatsEvent$Builder;->addBooleanAnnotation(BZ)Landroid/util/StatsEvent$Builder;
+
+    :cond_6
     invoke-virtual {v0}, Landroid/util/StatsEvent$Builder;->usePooledBuffer()Landroid/util/StatsEvent$Builder;
 
     invoke-virtual {v0}, Landroid/util/StatsEvent$Builder;->build()Landroid/util/StatsEvent;
@@ -7519,6 +7733,60 @@
     invoke-virtual {v0, p2}, Landroid/util/StatsEvent$Builder;->writeInt(I)Landroid/util/StatsEvent$Builder;
 
     invoke-virtual {v0, p3}, Landroid/util/StatsEvent$Builder;->writeInt(I)Landroid/util/StatsEvent$Builder;
+
+    invoke-virtual {v0}, Landroid/util/StatsEvent$Builder;->usePooledBuffer()Landroid/util/StatsEvent$Builder;
+
+    invoke-virtual {v0}, Landroid/util/StatsEvent$Builder;->build()Landroid/util/StatsEvent;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/util/StatsLog;->write(Landroid/util/StatsEvent;)V
+
+    return-void
+.end method
+
+.method public static write(IIIIFIIIIII)V
+    .locals 3
+
+    invoke-static {}, Landroid/util/StatsEvent;->newBuilder()Landroid/util/StatsEvent$Builder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0}, Landroid/util/StatsEvent$Builder;->setAtomId(I)Landroid/util/StatsEvent$Builder;
+
+    invoke-virtual {v0, p1}, Landroid/util/StatsEvent$Builder;->writeInt(I)Landroid/util/StatsEvent$Builder;
+
+    invoke-virtual {v0, p2}, Landroid/util/StatsEvent$Builder;->writeInt(I)Landroid/util/StatsEvent$Builder;
+
+    invoke-virtual {v0, p3}, Landroid/util/StatsEvent$Builder;->writeInt(I)Landroid/util/StatsEvent$Builder;
+
+    invoke-virtual {v0, p4}, Landroid/util/StatsEvent$Builder;->writeFloat(F)Landroid/util/StatsEvent$Builder;
+
+    invoke-virtual {v0, p5}, Landroid/util/StatsEvent$Builder;->writeInt(I)Landroid/util/StatsEvent$Builder;
+
+    invoke-virtual {v0, p6}, Landroid/util/StatsEvent$Builder;->writeInt(I)Landroid/util/StatsEvent$Builder;
+
+    const/16 v1, 0x184
+
+    const/4 v2, 0x1
+
+    if-ne v1, p0, :cond_0
+
+    invoke-virtual {v0, v2, v2}, Landroid/util/StatsEvent$Builder;->addBooleanAnnotation(BZ)Landroid/util/StatsEvent$Builder;
+
+    :cond_0
+    invoke-virtual {v0, p7}, Landroid/util/StatsEvent$Builder;->writeInt(I)Landroid/util/StatsEvent$Builder;
+
+    invoke-virtual {v0, p8}, Landroid/util/StatsEvent$Builder;->writeInt(I)Landroid/util/StatsEvent$Builder;
+
+    if-ne v1, p0, :cond_1
+
+    invoke-virtual {v0, v2, v2}, Landroid/util/StatsEvent$Builder;->addBooleanAnnotation(BZ)Landroid/util/StatsEvent$Builder;
+
+    :cond_1
+    invoke-virtual {v0, p9}, Landroid/util/StatsEvent$Builder;->writeInt(I)Landroid/util/StatsEvent$Builder;
+
+    invoke-virtual {v0, p10}, Landroid/util/StatsEvent$Builder;->writeInt(I)Landroid/util/StatsEvent$Builder;
 
     invoke-virtual {v0}, Landroid/util/StatsEvent$Builder;->usePooledBuffer()Landroid/util/StatsEvent$Builder;
 

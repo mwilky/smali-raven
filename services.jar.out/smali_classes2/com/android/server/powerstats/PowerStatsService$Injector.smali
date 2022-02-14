@@ -101,12 +101,12 @@
     return-object v0
 .end method
 
-.method createPowerStatsLogger(Landroid/content/Context;Ljava/io/File;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;)Lcom/android/server/powerstats/PowerStatsLogger;
-    .locals 11
+.method createPowerStatsLogger(Landroid/content/Context;Landroid/os/Looper;Ljava/io/File;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;)Lcom/android/server/powerstats/PowerStatsLogger;
+    .locals 12
 
-    new-instance v10, Lcom/android/server/powerstats/PowerStatsLogger;
+    new-instance v11, Lcom/android/server/powerstats/PowerStatsLogger;
 
-    move-object v0, v10
+    move-object v0, v11
 
     move-object v1, p1
 
@@ -114,7 +114,7 @@
 
     move-object v3, p3
 
-    move-object v4, p4
+    move-object/from16 v4, p4
 
     move-object/from16 v5, p5
 
@@ -126,9 +126,11 @@
 
     move-object/from16 v9, p9
 
-    invoke-direct/range {v0 .. v9}, Lcom/android/server/powerstats/PowerStatsLogger;-><init>(Landroid/content/Context;Ljava/io/File;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;)V
+    move-object/from16 v10, p10
 
-    return-object v10
+    invoke-direct/range {v0 .. v10}, Lcom/android/server/powerstats/PowerStatsLogger;-><init>(Landroid/content/Context;Landroid/os/Looper;Ljava/io/File;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/android/server/powerstats/PowerStatsHALWrapper$IPowerStatsHALWrapper;)V
+
+    return-object v11
 .end method
 
 .method createResidencyCacheFilename()Ljava/lang/String;

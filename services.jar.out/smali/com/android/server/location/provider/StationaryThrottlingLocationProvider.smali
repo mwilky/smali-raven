@@ -18,6 +18,8 @@
 # static fields
 .field private static final MAX_STATIONARY_LOCATION_AGE_MS:J = 0x7530L
 
+.field private static final MIN_INTERVAL_MS:J = 0x3e8L
+
 
 # instance fields
 .field mDeliverLastLocationCallback:Lcom/android/server/location/provider/StationaryThrottlingLocationProvider$DeliverLastLocationRunnable;
@@ -144,6 +146,12 @@
     iget-object v2, p0, Lcom/android/server/location/provider/StationaryThrottlingLocationProvider;->mIncomingRequest:Landroid/location/provider/ProviderRequest;
 
     invoke-virtual {v2}, Landroid/location/provider/ProviderRequest;->getIntervalMillis()J
+
+    move-result-wide v2
+
+    const-wide/16 v4, 0x3e8
+
+    invoke-static {v2, v3, v4, v5}, Ljava/lang/Math;->max(JJ)J
 
     move-result-wide v0
 

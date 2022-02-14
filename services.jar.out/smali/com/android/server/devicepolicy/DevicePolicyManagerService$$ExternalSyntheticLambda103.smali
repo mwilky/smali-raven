@@ -39,7 +39,7 @@
 
     iget-object v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda103;->f$2:Ljava/lang/String;
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$isKeyPairGrantedToWifiAuth$36$DevicePolicyManagerService(Lcom/android/server/devicepolicy/CallerIdentity;Ljava/lang/String;)Ljava/lang/Boolean;
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$hasKeyPair$35$DevicePolicyManagerService(Lcom/android/server/devicepolicy/CallerIdentity;Ljava/lang/String;)Ljava/lang/Boolean;
 
     move-result-object v0
 

@@ -245,7 +245,11 @@
 
     invoke-virtual {v9}, Lcom/android/server/wm/DisplayContent;->checkAppWindowsReadyToShow()V
 
-    if-eqz v0, :cond_3
+    invoke-virtual {v0}, Lcom/android/server/wm/AccessibilityController;->hasCallbacks()Z
+
+    move-result v10
+
+    if-eqz v10, :cond_3
 
     iget-object v10, v1, Lcom/android/server/wm/WindowAnimator;->mTransaction:Landroid/view/SurfaceControl$Transaction;
 

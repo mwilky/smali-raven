@@ -20,8 +20,6 @@
 
 .field private mCurrentUserId:I
 
-.field private volatile mHasLockscreenWallpaper:Z
-
 .field private volatile mInputRestricted:Z
 
 .field private volatile mIsShowing:Z
@@ -50,8 +48,6 @@
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mTrusted:Z
-
-    iput-boolean v0, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mHasLockscreenWallpaper:Z
 
     new-instance v0, Lcom/android/internal/widget/LockPatternUtils;
 
@@ -225,14 +221,6 @@
     return-void
 .end method
 
-.method public hasLockscreenWallpaper()Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mHasLockscreenWallpaper:Z
-
-    return v0
-.end method
-
 .method public isInputRestricted()Z
     .locals 1
 
@@ -285,14 +273,6 @@
     iget-boolean v0, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mTrusted:Z
 
     return v0
-.end method
-
-.method public onHasLockscreenWallpaperChanged(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->mHasLockscreenWallpaper:Z
-
-    return-void
 .end method
 
 .method public onInputRestrictedStateChanged(Z)V

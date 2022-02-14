@@ -39,7 +39,7 @@
 
     iget v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda114;->f$2:I
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$isPackageInstalledForUser$99$DevicePolicyManagerService(Ljava/lang/String;I)Ljava/lang/Boolean;
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$isCallingFromPackage$133$DevicePolicyManagerService(Ljava/lang/String;I)Ljava/lang/Boolean;
 
     move-result-object v0
 

@@ -186,11 +186,11 @@
 .end method
 
 .method private static getVendorSettingsFile()Landroid/util/AtomicFile;
-    .locals 3
+    .locals 4
 
     new-instance v0, Ljava/io/File;
 
-    invoke-static {}, Landroid/os/Environment;->getVendorDirectory()Ljava/io/File;
+    invoke-static {}, Landroid/os/Environment;->getProductDirectory()Ljava/io/File;
 
     move-result-object v1
 
@@ -198,6 +198,23 @@
 
     invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
+    invoke-virtual {v0}, Ljava/io/File;->exists()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    new-instance v1, Ljava/io/File;
+
+    invoke-static {}, Landroid/os/Environment;->getVendorDirectory()Ljava/io/File;
+
+    move-result-object v3
+
+    invoke-direct {v1, v3, v2}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    move-object v0, v1
+
+    :cond_0
     new-instance v1, Landroid/util/AtomicFile;
 
     const-string v2, "wm-displays"

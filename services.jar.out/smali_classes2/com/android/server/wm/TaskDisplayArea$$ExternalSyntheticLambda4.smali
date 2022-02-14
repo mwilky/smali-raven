@@ -33,9 +33,9 @@
 
     iget-object v1, p0, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda4;->f$1:[I
 
-    check-cast p1, Lcom/android/server/wm/Task;
+    check-cast p1, Lcom/android/server/wm/TaskFragment;
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/TaskDisplayArea;->lambda$pauseBackTasks$6(Lcom/android/server/wm/ActivityRecord;[ILcom/android/server/wm/Task;)V
+    invoke-static {v0, v1, p1}, Lcom/android/server/wm/TaskDisplayArea;->lambda$pauseBackTasks$7(Lcom/android/server/wm/ActivityRecord;[ILcom/android/server/wm/TaskFragment;)V
 
     return-void
 .end method

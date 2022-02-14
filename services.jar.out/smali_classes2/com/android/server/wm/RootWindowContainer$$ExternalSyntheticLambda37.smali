@@ -35,9 +35,9 @@
 .method public final accept(Ljava/lang/Object;)V
     .locals 0
 
-    check-cast p1, Lcom/android/server/wm/ActivityRecord;
+    check-cast p1, Lcom/android/server/wm/DisplayContent;
 
-    invoke-virtual {p1}, Lcom/android/server/wm/ActivityRecord;->cancelInitializing()V
+    invoke-static {p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$performSurfacePlacementNoTrace$8(Lcom/android/server/wm/DisplayContent;)V
 
     return-void
 .end method

@@ -18,13 +18,9 @@
 
 .field static final ROOT_TASK_CLIP_AFTER_ANIM:I = 0x0
 
-.field static final ROOT_TASK_CLIP_BEFORE_ANIM:I = 0x1
-
-.field static final ROOT_TASK_CLIP_NONE:I = 0x2
+.field static final ROOT_TASK_CLIP_NONE:I = 0x1
 
 .field static final TAG:Ljava/lang/String; = "WindowManager"
-
-.field static final WINDOW_FREEZE_LAYER:I = 0x1e8480
 
 
 # instance fields
@@ -552,6 +548,10 @@
     iget-object v1, p0, Lcom/android/server/wm/WindowStateAnimator;->mService:Lcom/android/server/wm/WindowManagerService;
 
     iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mAccessibilityController:Lcom/android/server/wm/AccessibilityController;
+
+    invoke-virtual {v1}, Lcom/android/server/wm/AccessibilityController;->hasCallbacks()Z
+
+    move-result v1
 
     if-eqz v1, :cond_3
 
@@ -1511,7 +1511,7 @@
     return-void
 .end method
 
-.method finishDrawingLocked(Landroid/view/SurfaceControl$Transaction;)Z
+.method finishDrawingLocked(Landroid/view/SurfaceControl$Transaction;Z)Z
     .locals 11
 
     iget-object v0, p0, Lcom/android/server/wm/WindowStateAnimator;->mWin:Lcom/android/server/wm/WindowState;
@@ -1646,19 +1646,27 @@
 
     if-eqz v1, :cond_5
 
+    if-nez p2, :cond_5
+
     iget-object v1, p0, Lcom/android/server/wm/WindowStateAnimator;->mPostDrawTransaction:Landroid/view/SurfaceControl$Transaction;
 
     invoke-virtual {v1, p1}, Landroid/view/SurfaceControl$Transaction;->merge(Landroid/view/SurfaceControl$Transaction;)Landroid/view/SurfaceControl$Transaction;
 
-    const/4 v5, 0x1
-
     goto :goto_1
 
     :cond_5
-    invoke-virtual {p1}, Landroid/view/SurfaceControl$Transaction;->apply()V
+    iget-object v1, p0, Lcom/android/server/wm/WindowStateAnimator;->mWin:Lcom/android/server/wm/WindowState;
+
+    invoke-virtual {v1}, Lcom/android/server/wm/WindowState;->getSyncTransaction()Landroid/view/SurfaceControl$Transaction;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Landroid/view/SurfaceControl$Transaction;->merge(Landroid/view/SurfaceControl$Transaction;)Landroid/view/SurfaceControl$Transaction;
+
+    :goto_1
+    const/4 v5, 0x1
 
     :cond_6
-    :goto_1
     return v5
 .end method
 

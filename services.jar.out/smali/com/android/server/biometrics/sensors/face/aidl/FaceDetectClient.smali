@@ -26,6 +26,8 @@
 
 .field private final mIsStrongBiometric:Z
 
+.field private mSensorPrivacyManager:Landroid/hardware/SensorPrivacyManager;
+
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;JLcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;ILjava/lang/String;IZI)V
@@ -83,6 +85,18 @@
     move/from16 v2, p10
 
     iput-boolean v2, v13, Lcom/android/server/biometrics/sensors/face/aidl/FaceDetectClient;->mIsStrongBiometric:Z
+
+    const-class v3, Landroid/hardware/SensorPrivacyManager;
+
+    move-object v4, p1
+
+    invoke-virtual {p1, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/hardware/SensorPrivacyManager;
+
+    iput-object v3, v13, Lcom/android/server/biometrics/sensors/face/aidl/FaceDetectClient;->mSensorPrivacyManager:Landroid/hardware/SensorPrivacyManager;
 
     return-void
 .end method
@@ -167,8 +181,37 @@
 .end method
 
 .method protected startHalOperation()V
-    .locals 3
+    .locals 4
 
+    iget-object v0, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceDetectClient;->mSensorPrivacyManager:Landroid/hardware/SensorPrivacyManager;
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_0
+
+    const/4 v2, 0x2
+
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/face/aidl/FaceDetectClient;->getTargetUserId()I
+
+    move-result v3
+
+    invoke-virtual {v0, v2, v3}, Landroid/hardware/SensorPrivacyManager;->isSensorPrivacyEnabled(II)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/biometrics/sensors/face/aidl/FaceDetectClient;->onError(II)V
+
+    iget-object v0, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceDetectClient;->mCallback:Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;
+
+    invoke-interface {v0, p0, v1}, Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;->onClientFinished(Lcom/android/server/biometrics/sensors/BaseClientMonitor;Z)V
+
+    return-void
+
+    :cond_0
     :try_start_0
     invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/face/aidl/FaceDetectClient;->getFreshDaemon()Ljava/lang/Object;
 
@@ -189,17 +232,15 @@
     :catch_0
     move-exception v0
 
-    const-string v1, "FaceDetectClient"
+    const-string v2, "FaceDetectClient"
 
-    const-string v2, "Remote exception when requesting face detect"
+    const-string v3, "Remote exception when requesting face detect"
 
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v3, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    iget-object v1, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceDetectClient;->mCallback:Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;
+    iget-object v2, p0, Lcom/android/server/biometrics/sensors/face/aidl/FaceDetectClient;->mCallback:Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;
 
-    const/4 v2, 0x0
-
-    invoke-interface {v1, p0, v2}, Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;->onClientFinished(Lcom/android/server/biometrics/sensors/BaseClientMonitor;Z)V
+    invoke-interface {v2, p0, v1}, Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;->onClientFinished(Lcom/android/server/biometrics/sensors/BaseClientMonitor;Z)V
 
     :goto_0
     return-void

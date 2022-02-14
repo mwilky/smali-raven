@@ -25,9 +25,11 @@
 
 .field protected static final TAKE_SCREENSHOT:Ljava/lang/String; = "takeScreenshot"
 
-.field private static final TRACE_A11Y_SERVICE_CLIENT:Ljava/lang/String; = "AbstractAccessibilityServiceConnection.IAccessibilityServiceClient"
+.field private static final TRACE_SVC_CLIENT:Ljava/lang/String; = "AbstractAccessibilityServiceConnection.IAccessibilityServiceClient"
 
-.field private static final TRACE_A11Y_SERVICE_CONNECTION:Ljava/lang/String; = "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection"
+.field private static final TRACE_SVC_CONN:Ljava/lang/String; = "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection"
+
+.field private static final TRACE_WM:Ljava/lang/String; = "WindowManagerInternal"
 
 .field private static final WAIT_WINDOWS_TIMEOUT_MILLIS:I = 0x1388
 
@@ -131,7 +133,7 @@
 
 .field protected final mSystemSupport:Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$SystemSupport;
 
-.field protected final mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+.field protected final mTrace:Landroid/accessibilityservice/AccessibilityTrace;
 
 .field mUsesAccessibilityCache:Z
 
@@ -139,7 +141,7 @@
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Landroid/content/ComponentName;Landroid/accessibilityservice/AccessibilityServiceInfo;ILandroid/os/Handler;Ljava/lang/Object;Lcom/android/server/accessibility/AccessibilitySecurityPolicy;Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$SystemSupport;Lcom/android/server/accessibility/AccessibilityTrace;Lcom/android/server/wm/WindowManagerInternal;Lcom/android/server/accessibility/SystemActionPerformer;Lcom/android/server/accessibility/AccessibilityWindowManager;)V
+.method public constructor <init>(Landroid/content/Context;Landroid/content/ComponentName;Landroid/accessibilityservice/AccessibilityServiceInfo;ILandroid/os/Handler;Ljava/lang/Object;Lcom/android/server/accessibility/AccessibilitySecurityPolicy;Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$SystemSupport;Landroid/accessibilityservice/AccessibilityTrace;Lcom/android/server/wm/WindowManagerInternal;Lcom/android/server/accessibility/SystemActionPerformer;Lcom/android/server/accessibility/AccessibilityWindowManager;)V
     .locals 2
 
     invoke-direct {p0}, Landroid/accessibilityservice/IAccessibilityServiceConnection$Stub;-><init>()V
@@ -184,7 +186,7 @@
 
     iput-object p8, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mSystemSupport:Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$SystemSupport;
 
-    iput-object p9, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    iput-object p9, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Landroid/accessibilityservice/AccessibilityTrace;
 
     iput-object p5, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mMainHandler:Landroid/os/Handler;
 
@@ -534,23 +536,19 @@
     if-eqz v0, :cond_2
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v1}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcClientTracingEnabled()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    iget-object v1, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    const-string v2, "AbstractAccessibilityServiceConnection.IAccessibilityServiceClient.onAccessibilityButtonAvailabilityChanged"
+    const-string/jumbo v1, "onAccessibilityButtonAvailabilityChanged"
 
     invoke-static {p1}, Ljava/lang/String;->valueOf(Z)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {v1, v2, v3}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v1, v2}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcClient(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_1
     invoke-interface {v0, p1}, Landroid/accessibilityservice/IAccessibilityServiceClient;->onAccessibilityButtonAvailabilityChanged(Z)V
@@ -597,23 +595,19 @@
     if-eqz v0, :cond_1
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v1}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcClientTracingEnabled()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    const-string v2, "AbstractAccessibilityServiceConnection.IAccessibilityServiceClient.onAccessibilityButtonClicked"
+    const-string/jumbo v1, "onAccessibilityButtonClicked"
 
     invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {v1, v2, v3}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v1, v2}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcClient(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     invoke-interface {v0, p1}, Landroid/accessibilityservice/IAccessibilityServiceClient;->onAccessibilityButtonClicked(I)V
@@ -722,35 +716,31 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcClientTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_4
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string/jumbo v0, "onAccessibilityEvent"
 
-    const-string v2, "AbstractAccessibilityServiceConnection.IAccessibilityServiceClient.onAccessibilityEvent"
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    const-string v3, ";"
 
-    const-string v4, ";"
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v3
-
-    invoke-interface {v0, v2, v3}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v2}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcClient(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_4
     invoke-interface {v1, p2, p3}, Landroid/accessibilityservice/IAccessibilityServiceClient;->onAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;Z)V
@@ -833,19 +823,17 @@
     if-eqz v0, :cond_1
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v1}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcClientTracingEnabled()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string v1, "clearAccessibilityCache"
 
-    const-string v2, "AbstractAccessibilityServiceConnection.IAccessibilityServiceClient.clearAccessibilityCache"
+    const-string v2, ""
 
-    invoke-interface {v1, v2}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;)V
+    invoke-virtual {p0, v1, v2}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcClient(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     invoke-interface {v0}, Landroid/accessibilityservice/IAccessibilityServiceClient;->clearAccessibilityCache()V
@@ -878,23 +866,19 @@
     if-eqz v0, :cond_1
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v1}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcClientTracingEnabled()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    const-string v2, "AbstractAccessibilityServiceConnection.IAccessibilityServiceClient.onGesture"
+    const-string/jumbo v1, "onGesture"
 
     invoke-virtual {p1}, Landroid/accessibilityservice/AccessibilityGestureEvent;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {v1, v2, v3}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v1, v2}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcClient(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     invoke-interface {v0, p1}, Landroid/accessibilityservice/IAccessibilityServiceClient;->onGesture(Landroid/accessibilityservice/AccessibilityGestureEvent;)V
@@ -949,45 +933,41 @@
     if-eqz v7, :cond_1
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v1}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcClientTracingEnabled()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string/jumbo v1, "onMagnificationChanged"
 
-    const-string v2, "AbstractAccessibilityServiceConnection.IAccessibilityServiceClient.onMagnificationChanged"
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p3}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p3}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p4}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p4}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p5}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p5}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-interface {v1, v2, v0}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcClient(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     move-object v1, v7
@@ -1046,23 +1026,19 @@
     if-eqz v0, :cond_1
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v1}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcClientTracingEnabled()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    const-string v2, "AbstractAccessibilityServiceConnection.IAccessibilityServiceClient.onSoftKeyboardShowModeChanged"
+    const-string/jumbo v1, "onSoftKeyboardShowModeChanged"
 
     invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {v1, v2, v3}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v1, v2}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcClient(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     invoke-interface {v0, p1}, Landroid/accessibilityservice/IAccessibilityServiceClient;->onSoftKeyboardShowModeChanged(I)V
@@ -1109,19 +1085,17 @@
     if-eqz v0, :cond_1
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v1}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcClientTracingEnabled()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string/jumbo v1, "onSystemActionsChanged"
 
-    const-string v2, "AbstractAccessibilityServiceConnection.IAccessibilityServiceClient.onSystemActionsChanged"
+    const-string v2, ""
 
-    invoke-interface {v1, v2}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;)V
+    invoke-virtual {p0, v1, v2}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcClient(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     invoke-interface {v0}, Landroid/accessibilityservice/IAccessibilityServiceClient;->onSystemActionsChanged()V
@@ -1225,7 +1199,7 @@
 
     iget-object v8, v7, Landroid/view/WindowInfo;->activityToken:Landroid/os/IBinder;
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_5
+    .catchall {:try_start_0 .. :try_end_0} :catchall_a
 
     move-object v4, v8
 
@@ -1244,7 +1218,7 @@
 
     move-result-object v4
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_4
+    .catchall {:try_start_1 .. :try_end_1} :catchall_9
 
     if-eqz v4, :cond_4
 
@@ -1284,7 +1258,7 @@
 
     move-object v4, v14
 
-    goto/16 :goto_7
+    goto/16 :goto_12
 
     :cond_4
     move-object/from16 v17, v0
@@ -1293,15 +1267,15 @@
     :try_start_3
     monitor-exit v5
     :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_4
+    .catchall {:try_start_3 .. :try_end_3} :catchall_9
 
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
-    move-result v18
+    move-result v12
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v19
+    move-result-wide v18
 
     :try_start_4
     iget-object v0, v1, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mPowerManager:Landroid/os/PowerManager;
@@ -1327,8 +1301,8 @@
 
     invoke-virtual {v0, v2, v3}, Lcom/android/server/accessibility/AccessibilityWindowManager;->notifyOutsideTouch(II)V
     :try_end_4
-    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_2
-    .catchall {:try_start_4 .. :try_end_4} :catchall_3
+    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_7
+    .catchall {:try_start_4 .. :try_end_4} :catchall_8
 
     :cond_6
     if-eqz v14, :cond_7
@@ -1347,33 +1321,233 @@
     .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_0
     .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
-    goto :goto_4
+    goto :goto_6
 
     :catchall_1
     move-exception v0
 
+    :goto_4
+    move/from16 v20, v12
+
     move-object/from16 v21, v14
 
-    goto :goto_5
+    goto/16 :goto_10
 
     :catch_0
     move-exception v0
+
+    :goto_5
+    move/from16 v20, v12
 
     move/from16 v22, v13
 
     move-object/from16 v21, v14
 
-    goto :goto_6
+    goto/16 :goto_11
 
     :cond_7
-    :goto_4
+    :goto_6
     :try_start_6
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->intConnTracingEnabled()Z
+
+    move-result v0
+    :try_end_6
+    .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_6} :catch_7
+    .catchall {:try_start_6 .. :try_end_6} :catchall_8
+
+    if-eqz v0, :cond_8
+
+    :try_start_7
+    const-string/jumbo v0, "performAccessibilityAction"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    :try_end_7
+    .catch Landroid/os/RemoteException; {:try_start_7 .. :try_end_7} :catch_5
+    .catchall {:try_start_7 .. :try_end_7} :catchall_6
+
+    move-wide/from16 v10, p3
+
+    :try_start_8
+    invoke-virtual {v4, v10, v11}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :try_end_8
+    .catch Landroid/os/RemoteException; {:try_start_8 .. :try_end_8} :catch_4
+    .catchall {:try_start_8 .. :try_end_8} :catchall_5
+
+    move-object/from16 v9, p6
+
+    :try_start_9
+    invoke-virtual {v4, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :try_end_9
+    .catch Landroid/os/RemoteException; {:try_start_9 .. :try_end_9} :catch_3
+    .catchall {:try_start_9 .. :try_end_9} :catchall_4
+
+    move/from16 v8, p7
+
+    :try_start_a
+    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :try_end_a
+    .catch Landroid/os/RemoteException; {:try_start_a .. :try_end_a} :catch_2
+    .catchall {:try_start_a .. :try_end_a} :catchall_3
+
+    move-object/from16 v7, p8
+
+    :try_start_b
+    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v5, v1, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mFetchFlags:I
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :try_end_b
+    .catch Landroid/os/RemoteException; {:try_start_b .. :try_end_b} :catch_1
+    .catchall {:try_start_b .. :try_end_b} :catchall_2
+
+    move-wide/from16 v5, p10
+
+    :try_start_c
+    invoke-virtual {v4, v5, v6}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v1, v0, v4}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceIntConn(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_c
+    .catch Landroid/os/RemoteException; {:try_start_c .. :try_end_c} :catch_0
+    .catchall {:try_start_c .. :try_end_c} :catchall_1
+
+    goto :goto_f
+
+    :catchall_2
+    move-exception v0
+
+    goto :goto_a
+
+    :catch_1
+    move-exception v0
+
+    goto :goto_e
+
+    :catchall_3
+    move-exception v0
+
+    goto :goto_9
+
+    :catch_2
+    move-exception v0
+
+    goto :goto_d
+
+    :catchall_4
+    move-exception v0
+
+    goto :goto_8
+
+    :catch_3
+    move-exception v0
+
+    goto :goto_c
+
+    :catchall_5
+    move-exception v0
+
+    goto :goto_7
+
+    :catch_4
+    move-exception v0
+
+    goto :goto_b
+
+    :catchall_6
+    move-exception v0
+
+    move-wide/from16 v10, p3
+
+    :goto_7
+    move-object/from16 v9, p6
+
+    :goto_8
+    move/from16 v8, p7
+
+    :goto_9
+    move-object/from16 v7, p8
+
+    :goto_a
+    move-wide/from16 v5, p10
+
+    goto/16 :goto_4
+
+    :catch_5
+    move-exception v0
+
+    move-wide/from16 v10, p3
+
+    :goto_b
+    move-object/from16 v9, p6
+
+    :goto_c
+    move/from16 v8, p7
+
+    :goto_d
+    move-object/from16 v7, p8
+
+    :goto_e
+    move-wide/from16 v5, p10
+
+    goto/16 :goto_5
+
+    :cond_8
+    move-wide/from16 v10, p3
+
+    move-object/from16 v9, p6
+
+    move/from16 v8, p7
+
+    move-object/from16 v7, p8
+
+    move-wide/from16 v5, p10
+
+    :goto_f
+    :try_start_d
     invoke-virtual/range {v17 .. v17}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
 
     move-result-object v4
-    :try_end_6
-    .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_6} :catch_2
-    .catchall {:try_start_6 .. :try_end_6} :catchall_3
+    :try_end_d
+    .catch Landroid/os/RemoteException; {:try_start_d .. :try_end_d} :catch_7
+    .catchall {:try_start_d .. :try_end_d} :catchall_8
 
     move-wide/from16 v5, p3
 
@@ -1387,7 +1561,7 @@
 
     move/from16 v11, p9
 
-    move/from16 v12, v18
+    move/from16 v20, v12
 
     move/from16 v22, v13
 
@@ -1395,69 +1569,73 @@
 
     move-wide/from16 v13, p10
 
-    :try_start_7
+    :try_start_e
     invoke-interface/range {v4 .. v14}, Landroid/view/accessibility/IAccessibilityInteractionConnection;->performAccessibilityAction(JILandroid/os/Bundle;ILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IIJ)V
-    :try_end_7
-    .catch Landroid/os/RemoteException; {:try_start_7 .. :try_end_7} :catch_1
-    .catchall {:try_start_7 .. :try_end_7} :catchall_2
+    :try_end_e
+    .catch Landroid/os/RemoteException; {:try_start_e .. :try_end_e} :catch_6
+    .catchall {:try_start_e .. :try_end_e} :catchall_7
 
-    invoke-static/range {v19 .. v20}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v18 .. v19}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     nop
 
     return v16
 
-    :catchall_2
+    :catchall_7
     move-exception v0
 
-    goto :goto_5
+    goto :goto_10
 
-    :catch_1
+    :catch_6
     move-exception v0
 
-    goto :goto_6
+    goto :goto_11
 
-    :catchall_3
+    :catchall_8
     move-exception v0
+
+    move/from16 v20, v12
 
     move-object/from16 v21, v14
 
-    :goto_5
-    invoke-static/range {v19 .. v20}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    :goto_10
+    invoke-static/range {v18 .. v19}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     throw v0
 
-    :catch_2
+    :catch_7
     move-exception v0
+
+    move/from16 v20, v12
 
     move/from16 v22, v13
 
     move-object/from16 v21, v14
 
-    :goto_6
+    :goto_11
     nop
 
-    invoke-static/range {v19 .. v20}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v18 .. v19}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     return v22
 
-    :catchall_4
+    :catchall_9
     move-exception v0
 
     move-object/from16 v21, v14
 
     move-object/from16 v4, v21
 
-    goto :goto_7
+    goto :goto_12
 
-    :catchall_5
+    :catchall_a
     move-exception v0
 
-    :goto_7
-    :try_start_8
+    :goto_12
+    :try_start_f
     monitor-exit v5
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_5
+    :try_end_f
+    .catchall {:try_start_f .. :try_end_f} :catchall_a
 
     throw v0
 .end method
@@ -1833,47 +2011,43 @@
 .end method
 
 .method public dispatchGesture(ILandroid/content/pm/ParceledListSlice;I)V
-    .locals 3
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v1, "sequence="
 
-    const-string/jumbo v2, "sequence="
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v1, ";gestureSteps="
 
-    const-string v2, ";gestureSteps="
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    const-string v1, ";displayId="
 
-    const-string v2, ";displayId="
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    const-string v1, "dispatchGesture"
 
-    const-string v2, "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection.dispatchGesture"
-
-    invoke-interface {v0, v2, v1}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     return-void
@@ -2053,7 +2227,7 @@
 .end method
 
 .method public findAccessibilityNodeInfoByAccessibilityId(IJILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IJLandroid/os/Bundle;)[Ljava/lang/String;
-    .locals 28
+    .locals 25
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2062,98 +2236,86 @@
 
     move-object/from16 v8, p0
 
-    move/from16 v9, p6
+    move-wide/from16 v14, p2
 
-    iget-object v0, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    move/from16 v13, p4
 
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    move/from16 v12, p6
+
+    move-wide/from16 v10, p7
+
+    move-object/from16 v9, p9
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string v0, "findAccessibilityNodeInfoByAccessibilityId"
 
-    const-string v1, "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection.findAccessibilityNodeInfoByAccessibilityId"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "accessibilityWindowId="
 
-    const-string v3, "accessibilityWindowId="
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move/from16 v6, p1
 
-    move/from16 v10, p1
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v2, ";accessibilityNodeId="
 
-    const-string v3, ";accessibilityNodeId="
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v14, v15}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-wide/from16 v14, p2
+    const-string v2, ";interactionId="
 
-    invoke-virtual {v2, v14, v15}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, ";interactionId="
+    invoke-virtual {v1, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, ";callback="
 
-    move/from16 v12, p4
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-object/from16 v7, p5
 
-    const-string v3, ";callback="
+    invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, ";flags="
 
-    move-object/from16 v11, p5
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v3, ";flags="
+    const-string v2, ";interrogatingTid="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v10, v11}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    const-string v3, ";interrogatingTid="
+    const-string v2, ";arguments="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-wide/from16 v6, p7
+    invoke-virtual {v1, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-string v3, ";arguments="
+    move-result-object v1
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-object/from16 v13, p9
-
-    invoke-virtual {v2, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v8, v0, v1}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
 
     :cond_0
-    move/from16 v10, p1
+    move/from16 v6, p1
 
-    move-wide/from16 v14, p2
-
-    move/from16 v12, p4
-
-    move-object/from16 v11, p5
-
-    move-wide/from16 v6, p7
-
-    move-object/from16 v13, p9
+    move-object/from16 v7, p5
 
     :goto_0
     invoke-static {}, Landroid/graphics/Region;->obtain()Landroid/graphics/Region;
@@ -2173,13 +2335,13 @@
 
     move-result v0
 
-    const/16 v23, 0x0
+    const/16 v21, 0x0
 
     if-nez v0, :cond_1
 
     monitor-exit v2
 
-    return-object v23
+    return-object v21
 
     :cond_1
     invoke-direct/range {p0 .. p1}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->resolveAccessibilityWindowIdLocked(I)I
@@ -2204,7 +2366,7 @@
 
     monitor-exit v2
 
-    return-object v23
+    return-object v21
 
     :cond_2
     iget-object v3, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mA11yWindowManager:Lcom/android/server/accessibility/AccessibilityWindowManager;
@@ -2219,13 +2381,13 @@
 
     move-result-object v3
 
-    move-object/from16 v24, v3
+    move-object/from16 v22, v3
 
-    if-nez v24, :cond_3
+    if-nez v22, :cond_3
 
     monitor-exit v2
 
-    return-object v23
+    return-object v21
 
     :cond_3
     iget-object v3, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mA11yWindowManager:Lcom/android/server/accessibility/AccessibilityWindowManager;
@@ -2238,16 +2400,16 @@
 
     invoke-virtual {v1}, Landroid/graphics/Region;->recycle()V
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+    .catchall {:try_start_0 .. :try_end_0} :catchall_3
 
     const/4 v1, 0x0
 
-    move-object/from16 v25, v1
+    move-object v4, v1
 
     goto :goto_1
 
     :cond_4
-    move-object/from16 v25, v1
+    move-object v4, v1
 
     :goto_1
     :try_start_1
@@ -2255,11 +2417,13 @@
 
     invoke-interface {v1, v5}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$SystemSupport;->getCompatibleMagnificationSpecLocked(I)Landroid/view/MagnificationSpec;
 
-    move-result-object v21
+    move-result-object v1
+
+    move-object v3, v1
 
     monitor-exit v2
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_2
 
     iget-object v0, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mSecurityPolicy:Lcom/android/server/accessibility/AccessibilitySecurityPolicy;
 
@@ -2269,24 +2433,32 @@
 
     if-nez v0, :cond_5
 
-    return-object v23
+    return-object v21
 
     :cond_5
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
-    move-result v26
+    move-result v2
 
     move-object/from16 v1, p0
 
+    move/from16 v23, v2
+
     move-object/from16 v2, p5
+
+    move-object v9, v3
 
     move v3, v5
 
+    move-object/from16 v16, v9
+
+    move-object v9, v4
+
     move/from16 v4, p4
 
-    move/from16 v27, v5
+    move/from16 v24, v5
 
-    move/from16 v5, v26
+    move/from16 v5, v23
 
     move-wide/from16 v6, p7
 
@@ -2298,75 +2470,155 @@
 
     move-result-wide v2
 
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->intConnTracingEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    const-string v0, "findAccessibilityNodeInfoByAccessibilityId"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, v14, v15}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v5, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mFetchFlags:I
+
+    or-int/2addr v5, v12
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move/from16 v5, v23
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v6, ";"
+
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v10, v11}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    const-string v6, ";"
+
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-object/from16 v6, v16
+
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v7, ";"
+
+    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-object v7, v6
+
+    move-object/from16 v6, p9
+
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v8, v0, v4}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceIntConn(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_2
+
+    :cond_6
+    move-object/from16 v6, p9
+
+    move-object/from16 v7, v16
+
+    move/from16 v5, v23
+
+    :goto_2
     :try_start_2
-    invoke-virtual/range {v24 .. v24}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
+    invoke-virtual/range {v22 .. v22}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
 
-    move-result-object v11
+    move-result-object v0
 
-    iget v0, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mFetchFlags:I
+    iget v4, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mFetchFlags:I
+    :try_end_2
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_1
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    or-int v17, v0, v9
+    or-int/2addr v4, v12
 
-    move-wide/from16 v12, p2
+    move-object v6, v9
 
-    move-object/from16 v14, v25
+    move-object v9, v0
 
-    move/from16 v15, p4
+    move-wide/from16 v10, p2
 
-    move-object/from16 v16, v1
+    move-object v12, v6
 
-    move/from16 v18, v26
+    move/from16 v13, p4
 
-    move-wide/from16 v19, p7
+    move-object v14, v1
 
-    move-object/from16 v22, p9
+    move v15, v4
 
-    invoke-interface/range {v11 .. v22}, Landroid/view/accessibility/IAccessibilityInteractionConnection;->findAccessibilityNodeInfoByAccessibilityId(JLandroid/graphics/Region;ILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IIJLandroid/view/MagnificationSpec;Landroid/os/Bundle;)V
+    move/from16 v16, v5
+
+    move-wide/from16 v17, p7
+
+    move-object/from16 v19, v7
+
+    move-object/from16 v20, p9
+
+    :try_start_3
+    invoke-interface/range {v9 .. v20}, Landroid/view/accessibility/IAccessibilityInteractionConnection;->findAccessibilityNodeInfoByAccessibilityId(JLandroid/graphics/Region;ILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IIJLandroid/view/MagnificationSpec;Landroid/os/Bundle;)V
 
     iget-object v0, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mSecurityPolicy:Lcom/android/server/accessibility/AccessibilitySecurityPolicy;
 
-    invoke-virtual/range {v24 .. v24}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getPackageName()Ljava/lang/String;
+    invoke-virtual/range {v22 .. v22}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getPackageName()Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-virtual/range {v24 .. v24}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getUid()I
+    invoke-virtual/range {v22 .. v22}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getUid()I
 
-    move-result v5
+    move-result v9
 
-    invoke-virtual {v0, v4, v5}, Lcom/android/server/accessibility/AccessibilitySecurityPolicy;->computeValidReportedPackages(Ljava/lang/String;I)[Ljava/lang/String;
+    invoke-virtual {v0, v4, v9}, Lcom/android/server/accessibility/AccessibilitySecurityPolicy;->computeValidReportedPackages(Ljava/lang/String;I)[Ljava/lang/String;
 
     move-result-object v0
-    :try_end_2
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_3
+    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_0
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    if-eqz v25, :cond_6
+    if-eqz v6, :cond_7
 
-    invoke-virtual/range {v24 .. v24}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
-
-    move-result-object v4
-
-    invoke-static {v4}, Landroid/os/Binder;->isProxy(Landroid/os/IInterface;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_6
-
-    invoke-virtual/range {v25 .. v25}, Landroid/graphics/Region;->recycle()V
-
-    :cond_6
-    return-object v0
-
-    :catchall_0
-    move-exception v0
-
-    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    if-eqz v25, :cond_7
-
-    invoke-virtual/range {v24 .. v24}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
+    invoke-virtual/range {v22 .. v22}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
 
     move-result-object v4
 
@@ -2376,19 +2628,57 @@
 
     if-eqz v4, :cond_7
 
-    invoke-virtual/range {v25 .. v25}, Landroid/graphics/Region;->recycle()V
+    invoke-virtual {v6}, Landroid/graphics/Region;->recycle()V
 
     :cond_7
-    throw v0
+    return-object v0
+
+    :catchall_0
+    move-exception v0
+
+    goto :goto_3
 
     :catch_0
     move-exception v0
 
+    goto :goto_4
+
+    :catchall_1
+    move-exception v0
+
+    move-object v6, v9
+
+    :goto_3
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    if-eqz v25, :cond_8
+    if-eqz v6, :cond_8
 
-    invoke-virtual/range {v24 .. v24}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
+    invoke-virtual/range {v22 .. v22}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
+
+    move-result-object v4
+
+    invoke-static {v4}, Landroid/os/Binder;->isProxy(Landroid/os/IInterface;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_8
+
+    invoke-virtual {v6}, Landroid/graphics/Region;->recycle()V
+
+    :cond_8
+    throw v0
+
+    :catch_1
+    move-exception v0
+
+    move-object v6, v9
+
+    :goto_4
+    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    if-eqz v6, :cond_9
+
+    invoke-virtual/range {v22 .. v22}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
 
     move-result-object v0
 
@@ -2396,34 +2686,36 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_9
 
-    invoke-virtual/range {v25 .. v25}, Landroid/graphics/Region;->recycle()V
+    invoke-virtual {v6}, Landroid/graphics/Region;->recycle()V
 
-    :cond_8
-    return-object v23
-
-    :catchall_1
-    move-exception v0
-
-    move-object/from16 v1, v25
-
-    goto :goto_2
+    :cond_9
+    return-object v21
 
     :catchall_2
     move-exception v0
 
-    :goto_2
-    :try_start_3
+    move-object v6, v4
+
+    move-object v1, v6
+
+    goto :goto_5
+
+    :catchall_3
+    move-exception v0
+
+    :goto_5
+    :try_start_4
     monitor-exit v2
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_2
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_3
 
     throw v0
 .end method
 
 .method public findAccessibilityNodeInfosByText(IJLjava/lang/String;ILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;J)[Ljava/lang/String;
-    .locals 26
+    .locals 25
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2432,90 +2724,78 @@
 
     move-object/from16 v8, p0
 
-    iget-object v0, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    move-wide/from16 v14, p2
 
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    move-object/from16 v13, p4
+
+    move/from16 v12, p5
+
+    move-wide/from16 v10, p7
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string v0, "findAccessibilityNodeInfosByText"
 
-    const-string v1, "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection.findAccessibilityNodeInfosByText"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "accessibilityWindowId="
 
-    const-string v3, "accessibilityWindowId="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move/from16 v9, p1
 
-    invoke-virtual {v2, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v3, ";accessibilityNodeId="
+    const-string v2, ";accessibilityNodeId="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-wide/from16 v14, p2
+    invoke-virtual {v1, v14, v15}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v14, v15}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    const-string v2, ";text="
 
-    const-string v3, ";text="
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v13, p4
+    const-string v2, ";interactionId="
 
-    invoke-virtual {v2, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, ";interactionId="
+    invoke-virtual {v1, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, ";callback="
 
-    move/from16 v11, p5
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-object/from16 v6, p6
 
-    const-string v3, ";callback="
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, ";interrogatingTid="
 
-    move-object/from16 v10, p6
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v10, v11}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    const-string v3, ";interrogatingTid="
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-wide/from16 v6, p7
-
-    invoke-virtual {v2, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v8, v0, v1}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
 
     :cond_0
     move/from16 v9, p1
 
-    move-wide/from16 v14, p2
-
-    move-object/from16 v13, p4
-
-    move/from16 v11, p5
-
-    move-object/from16 v10, p6
-
-    move-wide/from16 v6, p7
+    move-object/from16 v6, p6
 
     :goto_0
     invoke-static {}, Landroid/graphics/Region;->obtain()Landroid/graphics/Region;
@@ -2535,20 +2815,20 @@
 
     move-result v0
 
-    const/16 v22, 0x0
+    const/16 v21, 0x0
 
     if-nez v0, :cond_1
 
     monitor-exit v2
 
-    return-object v22
+    return-object v21
 
     :cond_1
     invoke-direct/range {p0 .. p1}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->resolveAccessibilityWindowIdLocked(I)I
 
     move-result v0
 
-    move v12, v0
+    move v7, v0
 
     iget-object v0, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mSecurityPolicy:Lcom/android/server/accessibility/AccessibilitySecurityPolicy;
 
@@ -2558,7 +2838,7 @@
 
     move-result v3
 
-    invoke-virtual {v0, v3, v8, v12}, Lcom/android/server/accessibility/AccessibilitySecurityPolicy;->canGetAccessibilityNodeInfoLocked(ILcom/android/server/accessibility/AbstractAccessibilityServiceConnection;I)Z
+    invoke-virtual {v0, v3, v8, v7}, Lcom/android/server/accessibility/AccessibilitySecurityPolicy;->canGetAccessibilityNodeInfoLocked(ILcom/android/server/accessibility/AbstractAccessibilityServiceConnection;I)Z
 
     move-result v0
 
@@ -2566,7 +2846,7 @@
 
     monitor-exit v2
 
-    return-object v22
+    return-object v21
 
     :cond_2
     iget-object v3, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mA11yWindowManager:Lcom/android/server/accessibility/AccessibilityWindowManager;
@@ -2577,22 +2857,22 @@
 
     move-result v4
 
-    invoke-virtual {v3, v4, v12}, Lcom/android/server/accessibility/AccessibilityWindowManager;->getConnectionLocked(II)Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;
+    invoke-virtual {v3, v4, v7}, Lcom/android/server/accessibility/AccessibilityWindowManager;->getConnectionLocked(II)Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;
 
     move-result-object v3
 
-    move-object/from16 v23, v3
+    move-object/from16 v22, v3
 
-    if-nez v23, :cond_3
+    if-nez v22, :cond_3
 
     monitor-exit v2
 
-    return-object v22
+    return-object v21
 
     :cond_3
     iget-object v3, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mA11yWindowManager:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-virtual {v3, v12, v1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->computePartialInteractiveRegionForWindowLocked(ILandroid/graphics/Region;)Z
+    invoke-virtual {v3, v7, v1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->computePartialInteractiveRegionForWindowLocked(ILandroid/graphics/Region;)Z
 
     move-result v3
 
@@ -2604,20 +2884,22 @@
 
     const/4 v1, 0x0
 
-    move-object/from16 v24, v1
+    move-object v5, v1
 
     goto :goto_1
 
     :cond_4
-    move-object/from16 v24, v1
+    move-object v5, v1
 
     :goto_1
     :try_start_1
     iget-object v1, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mSystemSupport:Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$SystemSupport;
 
-    invoke-interface {v1, v12}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$SystemSupport;->getCompatibleMagnificationSpecLocked(I)Landroid/view/MagnificationSpec;
+    invoke-interface {v1, v7}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$SystemSupport;->getCompatibleMagnificationSpecLocked(I)Landroid/view/MagnificationSpec;
 
-    move-result-object v21
+    move-result-object v1
+
+    move-object v4, v1
 
     monitor-exit v2
     :try_end_1
@@ -2631,22 +2913,32 @@
 
     if-nez v0, :cond_5
 
-    return-object v22
+    return-object v21
 
     :cond_5
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
-    move-result v25
+    move-result v3
 
     move-object/from16 v1, p0
 
     move-object/from16 v2, p6
 
-    move v3, v12
+    move/from16 v23, v3
+
+    move v3, v7
+
+    move-object v9, v4
 
     move/from16 v4, p5
 
-    move/from16 v5, v25
+    move-object/from16 v16, v9
+
+    move-object v9, v5
+
+    move/from16 v5, v23
+
+    move/from16 v24, v7
 
     move-wide/from16 v6, p7
 
@@ -2658,48 +2950,134 @@
 
     move-result-wide v2
 
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->intConnTracingEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    const-string v0, "findAccessibilityNodeInfosByText"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, v14, v15}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v5, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mFetchFlags:I
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move/from16 v5, v23
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v6, ";"
+
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v10, v11}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    const-string v6, ";"
+
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-object/from16 v6, v16
+
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v8, v0, v4}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceIntConn(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_2
+
+    :cond_6
+    move-object/from16 v6, v16
+
+    move/from16 v5, v23
+
+    :goto_2
     :try_start_2
-    invoke-virtual/range {v23 .. v23}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
+    invoke-virtual/range {v22 .. v22}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
 
-    move-result-object v10
+    move-result-object v0
 
-    iget v0, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mFetchFlags:I
+    iget v4, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mFetchFlags:I
     :try_end_2
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_1
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    move v4, v12
+    move-object v7, v9
 
-    move-wide/from16 v11, p2
+    move-object v9, v0
 
-    move-object/from16 v13, p4
+    move-wide/from16 v10, p2
 
-    move-object/from16 v14, v24
+    move-object/from16 v12, p4
 
-    move/from16 v15, p5
+    move-object v13, v7
 
-    move-object/from16 v16, v1
+    move/from16 v14, p5
 
-    move/from16 v17, v0
+    move-object v15, v1
 
-    move/from16 v18, v25
+    move/from16 v16, v4
 
-    move-wide/from16 v19, p7
+    move/from16 v17, v5
+
+    move-wide/from16 v18, p7
+
+    move-object/from16 v20, v6
 
     :try_start_3
-    invoke-interface/range {v10 .. v21}, Landroid/view/accessibility/IAccessibilityInteractionConnection;->findAccessibilityNodeInfosByText(JLjava/lang/String;Landroid/graphics/Region;ILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IIJLandroid/view/MagnificationSpec;)V
+    invoke-interface/range {v9 .. v20}, Landroid/view/accessibility/IAccessibilityInteractionConnection;->findAccessibilityNodeInfosByText(JLjava/lang/String;Landroid/graphics/Region;ILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IIJLandroid/view/MagnificationSpec;)V
 
     iget-object v0, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mSecurityPolicy:Lcom/android/server/accessibility/AccessibilitySecurityPolicy;
 
-    invoke-virtual/range {v23 .. v23}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getPackageName()Ljava/lang/String;
+    invoke-virtual/range {v22 .. v22}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getPackageName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual/range {v23 .. v23}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getUid()I
+    invoke-virtual/range {v22 .. v22}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getUid()I
 
-    move-result v6
+    move-result v9
 
-    invoke-virtual {v0, v5, v6}, Lcom/android/server/accessibility/AccessibilitySecurityPolicy;->computeValidReportedPackages(Ljava/lang/String;I)[Ljava/lang/String;
+    invoke-virtual {v0, v4, v9}, Lcom/android/server/accessibility/AccessibilitySecurityPolicy;->computeValidReportedPackages(Ljava/lang/String;I)[Ljava/lang/String;
 
     move-result-object v0
     :try_end_3
@@ -2708,69 +3086,69 @@
 
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    if-eqz v24, :cond_6
+    if-eqz v7, :cond_7
 
-    invoke-virtual/range {v23 .. v23}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
+    invoke-virtual/range {v22 .. v22}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-static {v5}, Landroid/os/Binder;->isProxy(Landroid/os/IInterface;)Z
+    invoke-static {v4}, Landroid/os/Binder;->isProxy(Landroid/os/IInterface;)Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_6
+    if-eqz v4, :cond_7
 
-    invoke-virtual/range {v24 .. v24}, Landroid/graphics/Region;->recycle()V
+    invoke-virtual {v7}, Landroid/graphics/Region;->recycle()V
 
-    :cond_6
+    :cond_7
     return-object v0
 
     :catchall_0
     move-exception v0
 
-    goto :goto_2
+    goto :goto_3
 
     :catch_0
     move-exception v0
 
-    goto :goto_3
+    goto :goto_4
 
     :catchall_1
     move-exception v0
 
-    move v4, v12
+    move-object v7, v9
 
-    :goto_2
+    :goto_3
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    if-eqz v24, :cond_7
+    if-eqz v7, :cond_8
 
-    invoke-virtual/range {v23 .. v23}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
+    invoke-virtual/range {v22 .. v22}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-static {v5}, Landroid/os/Binder;->isProxy(Landroid/os/IInterface;)Z
+    invoke-static {v4}, Landroid/os/Binder;->isProxy(Landroid/os/IInterface;)Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_7
+    if-eqz v4, :cond_8
 
-    invoke-virtual/range {v24 .. v24}, Landroid/graphics/Region;->recycle()V
+    invoke-virtual {v7}, Landroid/graphics/Region;->recycle()V
 
-    :cond_7
+    :cond_8
     throw v0
 
     :catch_1
     move-exception v0
 
-    move v4, v12
+    move-object v7, v9
 
-    :goto_3
+    :goto_4
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    if-eqz v24, :cond_8
+    if-eqz v7, :cond_9
 
-    invoke-virtual/range {v23 .. v23}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
+    invoke-virtual/range {v22 .. v22}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
 
     move-result-object v0
 
@@ -2778,24 +3156,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_9
 
-    invoke-virtual/range {v24 .. v24}, Landroid/graphics/Region;->recycle()V
+    invoke-virtual {v7}, Landroid/graphics/Region;->recycle()V
 
-    :cond_8
-    return-object v22
+    :cond_9
+    return-object v21
 
     :catchall_2
     move-exception v0
 
-    move-object/from16 v1, v24
+    move-object v7, v5
 
-    goto :goto_4
+    move-object v1, v7
+
+    goto :goto_5
 
     :catchall_3
     move-exception v0
 
-    :goto_4
+    :goto_5
     :try_start_4
     monitor-exit v2
     :try_end_4
@@ -2805,7 +3185,7 @@
 .end method
 
 .method public findAccessibilityNodeInfosByViewId(IJLjava/lang/String;ILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;J)[Ljava/lang/String;
-    .locals 26
+    .locals 25
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2814,90 +3194,78 @@
 
     move-object/from16 v8, p0
 
-    iget-object v0, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    move-wide/from16 v14, p2
 
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    move-object/from16 v13, p4
+
+    move/from16 v12, p5
+
+    move-wide/from16 v10, p7
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string v0, "findAccessibilityNodeInfosByViewId"
 
-    const-string v1, "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection.findAccessibilityNodeInfosByViewId"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "accessibilityWindowId="
 
-    const-string v3, "accessibilityWindowId="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move/from16 v9, p1
 
-    invoke-virtual {v2, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v3, ";accessibilityNodeId="
+    const-string v2, ";accessibilityNodeId="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-wide/from16 v14, p2
+    invoke-virtual {v1, v14, v15}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v14, v15}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    const-string v2, ";viewIdResName="
 
-    const-string v3, ";viewIdResName="
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v13, p4
+    const-string v2, ";interactionId="
 
-    invoke-virtual {v2, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, ";interactionId="
+    invoke-virtual {v1, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, ";callback="
 
-    move/from16 v11, p5
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-object/from16 v6, p6
 
-    const-string v3, ";callback="
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, ";interrogatingTid="
 
-    move-object/from16 v10, p6
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v10, v11}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    const-string v3, ";interrogatingTid="
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-wide/from16 v6, p7
-
-    invoke-virtual {v2, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v8, v0, v1}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
 
     :cond_0
     move/from16 v9, p1
 
-    move-wide/from16 v14, p2
-
-    move-object/from16 v13, p4
-
-    move/from16 v11, p5
-
-    move-object/from16 v10, p6
-
-    move-wide/from16 v6, p7
+    move-object/from16 v6, p6
 
     :goto_0
     invoke-static {}, Landroid/graphics/Region;->obtain()Landroid/graphics/Region;
@@ -2917,20 +3285,20 @@
 
     move-result v0
 
-    const/16 v22, 0x0
+    const/16 v21, 0x0
 
     if-nez v0, :cond_1
 
     monitor-exit v2
 
-    return-object v22
+    return-object v21
 
     :cond_1
     invoke-direct/range {p0 .. p1}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->resolveAccessibilityWindowIdLocked(I)I
 
     move-result v0
 
-    move v12, v0
+    move v7, v0
 
     iget-object v0, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mSecurityPolicy:Lcom/android/server/accessibility/AccessibilitySecurityPolicy;
 
@@ -2940,7 +3308,7 @@
 
     move-result v3
 
-    invoke-virtual {v0, v3, v8, v12}, Lcom/android/server/accessibility/AccessibilitySecurityPolicy;->canGetAccessibilityNodeInfoLocked(ILcom/android/server/accessibility/AbstractAccessibilityServiceConnection;I)Z
+    invoke-virtual {v0, v3, v8, v7}, Lcom/android/server/accessibility/AccessibilitySecurityPolicy;->canGetAccessibilityNodeInfoLocked(ILcom/android/server/accessibility/AbstractAccessibilityServiceConnection;I)Z
 
     move-result v0
 
@@ -2948,7 +3316,7 @@
 
     monitor-exit v2
 
-    return-object v22
+    return-object v21
 
     :cond_2
     iget-object v3, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mA11yWindowManager:Lcom/android/server/accessibility/AccessibilityWindowManager;
@@ -2959,22 +3327,22 @@
 
     move-result v4
 
-    invoke-virtual {v3, v4, v12}, Lcom/android/server/accessibility/AccessibilityWindowManager;->getConnectionLocked(II)Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;
+    invoke-virtual {v3, v4, v7}, Lcom/android/server/accessibility/AccessibilityWindowManager;->getConnectionLocked(II)Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;
 
     move-result-object v3
 
-    move-object/from16 v23, v3
+    move-object/from16 v22, v3
 
-    if-nez v23, :cond_3
+    if-nez v22, :cond_3
 
     monitor-exit v2
 
-    return-object v22
+    return-object v21
 
     :cond_3
     iget-object v3, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mA11yWindowManager:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-virtual {v3, v12, v1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->computePartialInteractiveRegionForWindowLocked(ILandroid/graphics/Region;)Z
+    invoke-virtual {v3, v7, v1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->computePartialInteractiveRegionForWindowLocked(ILandroid/graphics/Region;)Z
 
     move-result v3
 
@@ -2986,20 +3354,22 @@
 
     const/4 v1, 0x0
 
-    move-object/from16 v24, v1
+    move-object v5, v1
 
     goto :goto_1
 
     :cond_4
-    move-object/from16 v24, v1
+    move-object v5, v1
 
     :goto_1
     :try_start_1
     iget-object v1, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mSystemSupport:Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$SystemSupport;
 
-    invoke-interface {v1, v12}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$SystemSupport;->getCompatibleMagnificationSpecLocked(I)Landroid/view/MagnificationSpec;
+    invoke-interface {v1, v7}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$SystemSupport;->getCompatibleMagnificationSpecLocked(I)Landroid/view/MagnificationSpec;
 
-    move-result-object v21
+    move-result-object v1
+
+    move-object v4, v1
 
     monitor-exit v2
     :try_end_1
@@ -3013,22 +3383,32 @@
 
     if-nez v0, :cond_5
 
-    return-object v22
+    return-object v21
 
     :cond_5
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
-    move-result v25
+    move-result v3
 
     move-object/from16 v1, p0
 
     move-object/from16 v2, p6
 
-    move v3, v12
+    move/from16 v23, v3
+
+    move v3, v7
+
+    move-object v9, v4
 
     move/from16 v4, p5
 
-    move/from16 v5, v25
+    move-object/from16 v16, v9
+
+    move-object v9, v5
+
+    move/from16 v5, v23
+
+    move/from16 v24, v7
 
     move-wide/from16 v6, p7
 
@@ -3040,48 +3420,134 @@
 
     move-result-wide v2
 
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->intConnTracingEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    const-string v0, "findAccessibilityNodeInfosByViewId"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, v14, v15}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v5, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mFetchFlags:I
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move/from16 v5, v23
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v6, ";"
+
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v10, v11}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    const-string v6, ";"
+
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-object/from16 v6, v16
+
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v8, v0, v4}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceIntConn(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_2
+
+    :cond_6
+    move-object/from16 v6, v16
+
+    move/from16 v5, v23
+
+    :goto_2
     :try_start_2
-    invoke-virtual/range {v23 .. v23}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
+    invoke-virtual/range {v22 .. v22}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
 
-    move-result-object v10
+    move-result-object v0
 
-    iget v0, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mFetchFlags:I
+    iget v4, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mFetchFlags:I
     :try_end_2
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_1
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    move v4, v12
+    move-object v7, v9
 
-    move-wide/from16 v11, p2
+    move-object v9, v0
 
-    move-object/from16 v13, p4
+    move-wide/from16 v10, p2
 
-    move-object/from16 v14, v24
+    move-object/from16 v12, p4
 
-    move/from16 v15, p5
+    move-object v13, v7
 
-    move-object/from16 v16, v1
+    move/from16 v14, p5
 
-    move/from16 v17, v0
+    move-object v15, v1
 
-    move/from16 v18, v25
+    move/from16 v16, v4
 
-    move-wide/from16 v19, p7
+    move/from16 v17, v5
+
+    move-wide/from16 v18, p7
+
+    move-object/from16 v20, v6
 
     :try_start_3
-    invoke-interface/range {v10 .. v21}, Landroid/view/accessibility/IAccessibilityInteractionConnection;->findAccessibilityNodeInfosByViewId(JLjava/lang/String;Landroid/graphics/Region;ILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IIJLandroid/view/MagnificationSpec;)V
+    invoke-interface/range {v9 .. v20}, Landroid/view/accessibility/IAccessibilityInteractionConnection;->findAccessibilityNodeInfosByViewId(JLjava/lang/String;Landroid/graphics/Region;ILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IIJLandroid/view/MagnificationSpec;)V
 
     iget-object v0, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mSecurityPolicy:Lcom/android/server/accessibility/AccessibilitySecurityPolicy;
 
-    invoke-virtual/range {v23 .. v23}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getPackageName()Ljava/lang/String;
+    invoke-virtual/range {v22 .. v22}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getPackageName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual/range {v23 .. v23}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getUid()I
+    invoke-virtual/range {v22 .. v22}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getUid()I
 
-    move-result v6
+    move-result v9
 
-    invoke-virtual {v0, v5, v6}, Lcom/android/server/accessibility/AccessibilitySecurityPolicy;->computeValidReportedPackages(Ljava/lang/String;I)[Ljava/lang/String;
+    invoke-virtual {v0, v4, v9}, Lcom/android/server/accessibility/AccessibilitySecurityPolicy;->computeValidReportedPackages(Ljava/lang/String;I)[Ljava/lang/String;
 
     move-result-object v0
     :try_end_3
@@ -3090,69 +3556,69 @@
 
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    if-eqz v24, :cond_6
+    if-eqz v7, :cond_7
 
-    invoke-virtual/range {v23 .. v23}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
+    invoke-virtual/range {v22 .. v22}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-static {v5}, Landroid/os/Binder;->isProxy(Landroid/os/IInterface;)Z
+    invoke-static {v4}, Landroid/os/Binder;->isProxy(Landroid/os/IInterface;)Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_6
+    if-eqz v4, :cond_7
 
-    invoke-virtual/range {v24 .. v24}, Landroid/graphics/Region;->recycle()V
+    invoke-virtual {v7}, Landroid/graphics/Region;->recycle()V
 
-    :cond_6
+    :cond_7
     return-object v0
 
     :catchall_0
     move-exception v0
 
-    goto :goto_2
+    goto :goto_3
 
     :catch_0
     move-exception v0
 
-    goto :goto_3
+    goto :goto_4
 
     :catchall_1
     move-exception v0
 
-    move v4, v12
+    move-object v7, v9
 
-    :goto_2
+    :goto_3
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    if-eqz v24, :cond_7
+    if-eqz v7, :cond_8
 
-    invoke-virtual/range {v23 .. v23}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
+    invoke-virtual/range {v22 .. v22}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-static {v5}, Landroid/os/Binder;->isProxy(Landroid/os/IInterface;)Z
+    invoke-static {v4}, Landroid/os/Binder;->isProxy(Landroid/os/IInterface;)Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_7
+    if-eqz v4, :cond_8
 
-    invoke-virtual/range {v24 .. v24}, Landroid/graphics/Region;->recycle()V
+    invoke-virtual {v7}, Landroid/graphics/Region;->recycle()V
 
-    :cond_7
+    :cond_8
     throw v0
 
     :catch_1
     move-exception v0
 
-    move v4, v12
+    move-object v7, v9
 
-    :goto_3
+    :goto_4
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    if-eqz v24, :cond_8
+    if-eqz v7, :cond_9
 
-    invoke-virtual/range {v23 .. v23}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
+    invoke-virtual/range {v22 .. v22}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
 
     move-result-object v0
 
@@ -3160,24 +3626,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_9
 
-    invoke-virtual/range {v24 .. v24}, Landroid/graphics/Region;->recycle()V
+    invoke-virtual {v7}, Landroid/graphics/Region;->recycle()V
 
-    :cond_8
-    return-object v22
+    :cond_9
+    return-object v21
 
     :catchall_2
     move-exception v0
 
-    move-object/from16 v1, v24
+    move-object v7, v5
 
-    goto :goto_4
+    move-object v1, v7
+
+    goto :goto_5
 
     :catchall_3
     move-exception v0
 
-    :goto_4
+    :goto_5
     :try_start_4
     monitor-exit v2
     :try_end_4
@@ -3198,84 +3666,74 @@
 
     move/from16 v9, p1
 
-    move/from16 v15, p4
+    move-wide/from16 v14, p2
 
-    iget-object v0, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    move/from16 v13, p4
 
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    move/from16 v11, p5
+
+    move-wide/from16 v6, p7
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string v0, "findFocus"
 
-    const-string v1, "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection.findFocus"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "accessibilityWindowId="
 
-    const-string v3, "accessibilityWindowId="
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v2, ";accessibilityNodeId="
 
-    const-string v3, ";accessibilityNodeId="
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v14, v15}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-wide/from16 v13, p2
+    const-string v2, ";focusType="
 
-    invoke-virtual {v2, v13, v14}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, ";focusType="
+    invoke-virtual {v1, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, ";interactionId="
 
-    invoke-virtual {v2, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, ";interactionId="
+    invoke-virtual {v1, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, ";callback="
 
-    move/from16 v11, p5
-
-    invoke-virtual {v2, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v3, ";callback="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-object/from16 v10, p6
 
-    invoke-virtual {v2, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v3, ";interrogatingTid="
+    const-string v2, ";interrogatingTid="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-wide/from16 v6, p7
+    invoke-virtual {v1, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v8, v0, v1}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
 
     :cond_0
-    move-wide/from16 v13, p2
-
-    move/from16 v11, p5
-
     move-object/from16 v10, p6
-
-    move-wide/from16 v6, p7
 
     :goto_0
     invoke-static {}, Landroid/graphics/Region;->obtain()Landroid/graphics/Region;
@@ -3300,7 +3758,7 @@
     return-object v22
 
     :cond_1
-    invoke-direct {v8, v9, v15}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->resolveAccessibilityWindowIdForFindFocusLocked(II)I
+    invoke-direct {v8, v9, v13}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->resolveAccessibilityWindowIdForFindFocusLocked(II)I
 
     move-result v0
 
@@ -3360,12 +3818,12 @@
 
     const/4 v1, 0x0
 
-    move-object/from16 v24, v1
+    move-object v5, v1
 
     goto :goto_1
 
     :cond_4
-    move-object/from16 v24, v1
+    move-object v5, v1
 
     :goto_1
     :try_start_1
@@ -3373,7 +3831,9 @@
 
     invoke-interface {v1, v12}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$SystemSupport;->getCompatibleMagnificationSpecLocked(I)Landroid/view/MagnificationSpec;
 
-    move-result-object v21
+    move-result-object v1
+
+    move-object v4, v1
 
     monitor-exit v2
     :try_end_1
@@ -3392,17 +3852,29 @@
     :cond_5
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
-    move-result v25
+    move-result v3
 
     move-object/from16 v1, p0
 
     move-object/from16 v2, p6
 
+    move/from16 v24, v3
+
     move v3, v12
+
+    move-object v9, v4
 
     move/from16 v4, p5
 
-    move/from16 v5, v25
+    move/from16 v16, v12
+
+    move-object v12, v5
+
+    move/from16 v5, v24
+
+    move-object/from16 v25, v9
+
+    move-wide v9, v6
 
     move-wide/from16 v6, p7
 
@@ -3414,33 +3886,121 @@
 
     move-result-wide v2
 
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->intConnTracingEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    const-string v0, "findFocus"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, v14, v15}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v5, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mFetchFlags:I
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move/from16 v5, v24
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v6, ";"
+
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v9, v10}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    const-string v6, ";"
+
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-object/from16 v6, v25
+
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v8, v0, v4}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceIntConn(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_2
+
+    :cond_6
+    move/from16 v5, v24
+
+    move-object/from16 v6, v25
+
+    :goto_2
     :try_start_2
     invoke-virtual/range {v23 .. v23}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
 
-    move-result-object v10
+    move-result-object v0
 
-    iget v0, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mFetchFlags:I
+    iget v4, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mFetchFlags:I
     :try_end_2
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_1
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    move v4, v12
+    move-object v10, v0
+
+    move-object v9, v12
+
+    move/from16 v7, v16
 
     move-wide/from16 v11, p2
 
     move/from16 v13, p4
 
-    move-object/from16 v14, v24
+    move-object v14, v9
 
     move/from16 v15, p5
 
     move-object/from16 v16, v1
 
-    move/from16 v17, v0
+    move/from16 v17, v4
 
-    move/from16 v18, v25
+    move/from16 v18, v5
 
     move-wide/from16 v19, p7
+
+    move-object/from16 v21, v6
 
     :try_start_3
     invoke-interface/range {v10 .. v21}, Landroid/view/accessibility/IAccessibilityInteractionConnection;->findFocus(JILandroid/graphics/Region;ILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IIJLandroid/view/MagnificationSpec;)V
@@ -3449,13 +4009,13 @@
 
     invoke-virtual/range {v23 .. v23}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getPackageName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
     invoke-virtual/range {v23 .. v23}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getUid()I
 
-    move-result v6
+    move-result v10
 
-    invoke-virtual {v0, v5, v6}, Lcom/android/server/accessibility/AccessibilitySecurityPolicy;->computeValidReportedPackages(Ljava/lang/String;I)[Ljava/lang/String;
+    invoke-virtual {v0, v4, v10}, Lcom/android/server/accessibility/AccessibilitySecurityPolicy;->computeValidReportedPackages(Ljava/lang/String;I)[Ljava/lang/String;
 
     move-result-object v0
     :try_end_3
@@ -3464,67 +4024,71 @@
 
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    if-eqz v24, :cond_6
+    if-eqz v9, :cond_7
 
     invoke-virtual/range {v23 .. v23}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-static {v5}, Landroid/os/Binder;->isProxy(Landroid/os/IInterface;)Z
+    invoke-static {v4}, Landroid/os/Binder;->isProxy(Landroid/os/IInterface;)Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_6
+    if-eqz v4, :cond_7
 
-    invoke-virtual/range {v24 .. v24}, Landroid/graphics/Region;->recycle()V
+    invoke-virtual {v9}, Landroid/graphics/Region;->recycle()V
 
-    :cond_6
+    :cond_7
     return-object v0
 
     :catchall_0
     move-exception v0
 
-    goto :goto_2
+    goto :goto_3
 
     :catch_0
     move-exception v0
 
-    goto :goto_3
+    goto :goto_4
 
     :catchall_1
     move-exception v0
 
-    move v4, v12
+    move-object v9, v12
 
-    :goto_2
+    move/from16 v7, v16
+
+    :goto_3
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    if-eqz v24, :cond_7
+    if-eqz v9, :cond_8
 
     invoke-virtual/range {v23 .. v23}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-static {v5}, Landroid/os/Binder;->isProxy(Landroid/os/IInterface;)Z
+    invoke-static {v4}, Landroid/os/Binder;->isProxy(Landroid/os/IInterface;)Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_7
+    if-eqz v4, :cond_8
 
-    invoke-virtual/range {v24 .. v24}, Landroid/graphics/Region;->recycle()V
+    invoke-virtual {v9}, Landroid/graphics/Region;->recycle()V
 
-    :cond_7
+    :cond_8
     throw v0
 
     :catch_1
     move-exception v0
 
-    move v4, v12
+    move-object v9, v12
 
-    :goto_3
+    move/from16 v7, v16
+
+    :goto_4
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    if-eqz v24, :cond_8
+    if-eqz v9, :cond_9
 
     invoke-virtual/range {v23 .. v23}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
 
@@ -3534,24 +4098,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_9
 
-    invoke-virtual/range {v24 .. v24}, Landroid/graphics/Region;->recycle()V
+    invoke-virtual {v9}, Landroid/graphics/Region;->recycle()V
 
-    :cond_8
+    :cond_9
     return-object v22
 
     :catchall_2
     move-exception v0
 
-    move-object/from16 v1, v24
+    move-object v9, v5
 
-    goto :goto_4
+    move-object v1, v9
+
+    goto :goto_5
 
     :catchall_3
     move-exception v0
 
-    :goto_4
+    :goto_5
     :try_start_4
     monitor-exit v2
     :try_end_4
@@ -3561,7 +4127,7 @@
 .end method
 
 .method public focusSearch(IJIILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;J)[Ljava/lang/String;
-    .locals 26
+    .locals 25
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -3570,90 +4136,78 @@
 
     move-object/from16 v8, p0
 
-    iget-object v0, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    move-wide/from16 v14, p2
 
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    move/from16 v13, p4
+
+    move/from16 v12, p5
+
+    move-wide/from16 v10, p7
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string v0, "focusSearch"
 
-    const-string v1, "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection.focusSearch"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "accessibilityWindowId="
 
-    const-string v3, "accessibilityWindowId="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move/from16 v9, p1
 
-    invoke-virtual {v2, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v3, ";accessibilityNodeId="
+    const-string v2, ";accessibilityNodeId="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-wide/from16 v14, p2
+    invoke-virtual {v1, v14, v15}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v14, v15}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    const-string v2, ";direction="
 
-    const-string v3, ";direction="
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move/from16 v13, p4
+    const-string v2, ";interactionId="
 
-    invoke-virtual {v2, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, ";interactionId="
+    invoke-virtual {v1, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, ";callback="
 
-    move/from16 v11, p5
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move-object/from16 v6, p6
 
-    const-string v3, ";callback="
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, ";interrogatingTid="
 
-    move-object/from16 v10, p6
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v10, v11}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    const-string v3, ";interrogatingTid="
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
-    move-wide/from16 v6, p7
-
-    invoke-virtual {v2, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v8, v0, v1}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
 
     :cond_0
     move/from16 v9, p1
 
-    move-wide/from16 v14, p2
-
-    move/from16 v13, p4
-
-    move/from16 v11, p5
-
-    move-object/from16 v10, p6
-
-    move-wide/from16 v6, p7
+    move-object/from16 v6, p6
 
     :goto_0
     invoke-static {}, Landroid/graphics/Region;->obtain()Landroid/graphics/Region;
@@ -3669,20 +4223,20 @@
 
     move-result v0
 
-    const/16 v22, 0x0
+    const/16 v21, 0x0
 
     if-nez v0, :cond_1
 
     monitor-exit v2
 
-    return-object v22
+    return-object v21
 
     :cond_1
     invoke-direct/range {p0 .. p1}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->resolveAccessibilityWindowIdLocked(I)I
 
     move-result v0
 
-    move v12, v0
+    move v7, v0
 
     iget-object v0, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mSecurityPolicy:Lcom/android/server/accessibility/AccessibilitySecurityPolicy;
 
@@ -3692,7 +4246,7 @@
 
     move-result v3
 
-    invoke-virtual {v0, v3, v8, v12}, Lcom/android/server/accessibility/AccessibilitySecurityPolicy;->canGetAccessibilityNodeInfoLocked(ILcom/android/server/accessibility/AbstractAccessibilityServiceConnection;I)Z
+    invoke-virtual {v0, v3, v8, v7}, Lcom/android/server/accessibility/AccessibilitySecurityPolicy;->canGetAccessibilityNodeInfoLocked(ILcom/android/server/accessibility/AbstractAccessibilityServiceConnection;I)Z
 
     move-result v0
 
@@ -3700,7 +4254,7 @@
 
     monitor-exit v2
 
-    return-object v22
+    return-object v21
 
     :cond_2
     iget-object v3, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mA11yWindowManager:Lcom/android/server/accessibility/AccessibilityWindowManager;
@@ -3711,22 +4265,22 @@
 
     move-result v4
 
-    invoke-virtual {v3, v4, v12}, Lcom/android/server/accessibility/AccessibilityWindowManager;->getConnectionLocked(II)Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;
+    invoke-virtual {v3, v4, v7}, Lcom/android/server/accessibility/AccessibilityWindowManager;->getConnectionLocked(II)Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;
 
     move-result-object v3
 
-    move-object/from16 v23, v3
+    move-object/from16 v22, v3
 
-    if-nez v23, :cond_3
+    if-nez v22, :cond_3
 
     monitor-exit v2
 
-    return-object v22
+    return-object v21
 
     :cond_3
     iget-object v3, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mA11yWindowManager:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-virtual {v3, v12, v1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->computePartialInteractiveRegionForWindowLocked(ILandroid/graphics/Region;)Z
+    invoke-virtual {v3, v7, v1}, Lcom/android/server/accessibility/AccessibilityWindowManager;->computePartialInteractiveRegionForWindowLocked(ILandroid/graphics/Region;)Z
 
     move-result v3
 
@@ -3738,20 +4292,22 @@
 
     const/4 v1, 0x0
 
-    move-object/from16 v24, v1
+    move-object v5, v1
 
     goto :goto_1
 
     :cond_4
-    move-object/from16 v24, v1
+    move-object v5, v1
 
     :goto_1
     :try_start_1
     iget-object v1, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mSystemSupport:Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$SystemSupport;
 
-    invoke-interface {v1, v12}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$SystemSupport;->getCompatibleMagnificationSpecLocked(I)Landroid/view/MagnificationSpec;
+    invoke-interface {v1, v7}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$SystemSupport;->getCompatibleMagnificationSpecLocked(I)Landroid/view/MagnificationSpec;
 
-    move-result-object v21
+    move-result-object v1
+
+    move-object v4, v1
 
     monitor-exit v2
     :try_end_1
@@ -3765,22 +4321,32 @@
 
     if-nez v0, :cond_5
 
-    return-object v22
+    return-object v21
 
     :cond_5
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
-    move-result v25
+    move-result v3
 
     move-object/from16 v1, p0
 
     move-object/from16 v2, p6
 
-    move v3, v12
+    move/from16 v23, v3
+
+    move v3, v7
+
+    move-object v9, v4
 
     move/from16 v4, p5
 
-    move/from16 v5, v25
+    move-object/from16 v16, v9
+
+    move-object v9, v5
+
+    move/from16 v5, v23
+
+    move/from16 v24, v7
 
     move-wide/from16 v6, p7
 
@@ -3792,48 +4358,134 @@
 
     move-result-wide v2
 
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->intConnTracingEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    const-string v0, "focusSearch"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, v14, v15}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v5, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mFetchFlags:I
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v5, ";"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move/from16 v5, v23
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v6, ";"
+
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v10, v11}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    const-string v6, ";"
+
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-object/from16 v6, v16
+
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v8, v0, v4}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceIntConn(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_2
+
+    :cond_6
+    move-object/from16 v6, v16
+
+    move/from16 v5, v23
+
+    :goto_2
     :try_start_2
-    invoke-virtual/range {v23 .. v23}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
+    invoke-virtual/range {v22 .. v22}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
 
-    move-result-object v10
+    move-result-object v0
 
-    iget v0, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mFetchFlags:I
+    iget v4, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mFetchFlags:I
     :try_end_2
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_1
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    move v4, v12
+    move-object v7, v9
 
-    move-wide/from16 v11, p2
+    move-object v9, v0
 
-    move/from16 v13, p4
+    move-wide/from16 v10, p2
 
-    move-object/from16 v14, v24
+    move/from16 v12, p4
 
-    move/from16 v15, p5
+    move-object v13, v7
 
-    move-object/from16 v16, v1
+    move/from16 v14, p5
 
-    move/from16 v17, v0
+    move-object v15, v1
 
-    move/from16 v18, v25
+    move/from16 v16, v4
 
-    move-wide/from16 v19, p7
+    move/from16 v17, v5
+
+    move-wide/from16 v18, p7
+
+    move-object/from16 v20, v6
 
     :try_start_3
-    invoke-interface/range {v10 .. v21}, Landroid/view/accessibility/IAccessibilityInteractionConnection;->focusSearch(JILandroid/graphics/Region;ILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IIJLandroid/view/MagnificationSpec;)V
+    invoke-interface/range {v9 .. v20}, Landroid/view/accessibility/IAccessibilityInteractionConnection;->focusSearch(JILandroid/graphics/Region;ILandroid/view/accessibility/IAccessibilityInteractionConnectionCallback;IIJLandroid/view/MagnificationSpec;)V
 
     iget-object v0, v8, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mSecurityPolicy:Lcom/android/server/accessibility/AccessibilitySecurityPolicy;
 
-    invoke-virtual/range {v23 .. v23}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getPackageName()Ljava/lang/String;
+    invoke-virtual/range {v22 .. v22}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getPackageName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual/range {v23 .. v23}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getUid()I
+    invoke-virtual/range {v22 .. v22}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getUid()I
 
-    move-result v6
+    move-result v9
 
-    invoke-virtual {v0, v5, v6}, Lcom/android/server/accessibility/AccessibilitySecurityPolicy;->computeValidReportedPackages(Ljava/lang/String;I)[Ljava/lang/String;
+    invoke-virtual {v0, v4, v9}, Lcom/android/server/accessibility/AccessibilitySecurityPolicy;->computeValidReportedPackages(Ljava/lang/String;I)[Ljava/lang/String;
 
     move-result-object v0
     :try_end_3
@@ -3842,69 +4494,69 @@
 
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    if-eqz v24, :cond_6
+    if-eqz v7, :cond_7
 
-    invoke-virtual/range {v23 .. v23}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
+    invoke-virtual/range {v22 .. v22}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-static {v5}, Landroid/os/Binder;->isProxy(Landroid/os/IInterface;)Z
+    invoke-static {v4}, Landroid/os/Binder;->isProxy(Landroid/os/IInterface;)Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_6
+    if-eqz v4, :cond_7
 
-    invoke-virtual/range {v24 .. v24}, Landroid/graphics/Region;->recycle()V
+    invoke-virtual {v7}, Landroid/graphics/Region;->recycle()V
 
-    :cond_6
+    :cond_7
     return-object v0
 
     :catchall_0
     move-exception v0
 
-    goto :goto_2
+    goto :goto_3
 
     :catch_0
     move-exception v0
 
-    goto :goto_3
+    goto :goto_4
 
     :catchall_1
     move-exception v0
 
-    move v4, v12
+    move-object v7, v9
 
-    :goto_2
+    :goto_3
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    if-eqz v24, :cond_7
+    if-eqz v7, :cond_8
 
-    invoke-virtual/range {v23 .. v23}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
+    invoke-virtual/range {v22 .. v22}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-static {v5}, Landroid/os/Binder;->isProxy(Landroid/os/IInterface;)Z
+    invoke-static {v4}, Landroid/os/Binder;->isProxy(Landroid/os/IInterface;)Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_7
+    if-eqz v4, :cond_8
 
-    invoke-virtual/range {v24 .. v24}, Landroid/graphics/Region;->recycle()V
+    invoke-virtual {v7}, Landroid/graphics/Region;->recycle()V
 
-    :cond_7
+    :cond_8
     throw v0
 
     :catch_1
     move-exception v0
 
-    move v4, v12
+    move-object v7, v9
 
-    :goto_3
+    :goto_4
     invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    if-eqz v24, :cond_8
+    if-eqz v7, :cond_9
 
-    invoke-virtual/range {v23 .. v23}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
+    invoke-virtual/range {v22 .. v22}, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->getRemote()Landroid/view/accessibility/IAccessibilityInteractionConnection;
 
     move-result-object v0
 
@@ -3912,24 +4564,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_9
 
-    invoke-virtual/range {v24 .. v24}, Landroid/graphics/Region;->recycle()V
+    invoke-virtual {v7}, Landroid/graphics/Region;->recycle()V
 
-    :cond_8
-    return-object v22
+    :cond_9
+    return-object v21
 
     :catchall_2
     move-exception v0
 
-    move-object/from16 v1, v24
+    move-object v7, v5
 
-    goto :goto_4
+    move-object v1, v7
+
+    goto :goto_5
 
     :catchall_3
     move-exception v0
 
-    :goto_4
+    :goto_5
     :try_start_4
     monitor-exit v2
     :try_end_4
@@ -3961,33 +4615,29 @@
 .method public getMagnificationCenterX(I)F
     .locals 6
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string v0, "getMagnificationCenterX"
 
-    const-string v1, "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection.getMagnificationCenterX"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "displayId="
 
-    const-string v3, "displayId="
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mLock:Ljava/lang/Object;
@@ -4072,33 +4722,29 @@
 .method public getMagnificationCenterY(I)F
     .locals 6
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string v0, "getMagnificationCenterY"
 
-    const-string v1, "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection.getMagnificationCenterY"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "displayId="
 
-    const-string v3, "displayId="
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mLock:Ljava/lang/Object;
@@ -4183,33 +4829,29 @@
 .method public getMagnificationRegion(I)Landroid/graphics/Region;
     .locals 7
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string v0, "getMagnificationRegion"
 
-    const-string v1, "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection.getMagnificationRegion"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "displayId="
 
-    const-string v3, "displayId="
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mLock:Ljava/lang/Object;
@@ -4294,35 +4936,31 @@
 .end method
 
 .method public getMagnificationScale(I)F
-    .locals 4
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string v0, "getMagnificationScale"
 
-    const-string v1, "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection.getMagnificationScale"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "displayId="
 
-    const-string v3, "displayId="
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mLock:Ljava/lang/Object;
@@ -4387,35 +5025,31 @@
 .end method
 
 .method public getOverlayWindowToken(I)Landroid/os/IBinder;
-    .locals 4
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string v0, "getOverlayWindowToken"
 
-    const-string v1, "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection.getOverlayWindowToken"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "displayId="
 
-    const-string v3, "displayId="
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mLock:Ljava/lang/Object;
@@ -4470,19 +5104,17 @@
 .method public getServiceInfo()Landroid/accessibilityservice/AccessibilityServiceInfo;
     .locals 2
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string v0, "getServiceInfo"
 
-    const-string v1, "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection.getServiceInfo"
+    const-string v1, ""
 
-    invoke-interface {v0, v1}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mLock:Ljava/lang/Object;
@@ -4517,19 +5149,17 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string v0, "getSystemActions"
 
-    const-string v1, "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection.getSystemActions"
+    const-string v1, ""
 
-    invoke-interface {v0, v1}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mLock:Ljava/lang/Object;
@@ -4578,33 +5208,29 @@
 .method public getWindow(I)Landroid/view/accessibility/AccessibilityWindowInfo;
     .locals 6
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string v0, "getWindow"
 
-    const-string v1, "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection.getWindow"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v2, "windowId="
 
-    const-string/jumbo v3, "windowId="
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mLock:Ljava/lang/Object;
@@ -4710,35 +5336,31 @@
 .end method
 
 .method public getWindowIdForLeashToken(Landroid/os/IBinder;)I
-    .locals 4
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string v0, "getWindowIdForLeashToken"
 
-    const-string v1, "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection.getWindowIdForLeashToken"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v2, "token="
 
-    const-string/jumbo v3, "token="
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mLock:Ljava/lang/Object;
@@ -4769,19 +5391,17 @@
 .method public getWindows()Landroid/view/accessibility/AccessibilityWindowInfo$WindowListSparseArray;
     .locals 8
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string v0, "getWindows"
 
-    const-string v1, "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection.getWindows"
+    const-string v1, ""
 
-    invoke-interface {v0, v1}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mLock:Ljava/lang/Object;
@@ -4892,6 +5512,20 @@
 .method protected abstract hasRightsToCurrentUserLocked()Z
 .end method
 
+.method protected intConnTracingEnabled()Z
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Landroid/accessibilityservice/AccessibilityTrace;
+
+    const-wide/16 v1, 0x10
+
+    invoke-interface {v0, v1, v2}, Landroid/accessibilityservice/AccessibilityTrace;->isA11yTracingEnabledForTypes(J)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public isConnectedLocked()Z
     .locals 1
 
@@ -4913,19 +5547,17 @@
 .method public isFingerprintGestureDetectionAvailable()Z
     .locals 3
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string v0, "isFingerprintGestureDetectionAvailable"
 
-    const-string v1, "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection.isFingerprintGestureDetectionAvailable"
+    const-string v1, ""
 
-    invoke-interface {v0, v1}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mContext:Landroid/content/Context;
@@ -5050,67 +5682,186 @@
     return-void
 .end method
 
-.method public logTrace(JLjava/lang/String;Ljava/lang/String;IJILandroid/os/Bundle;)V
-    .locals 13
+.method public logTrace(JLjava/lang/String;JLjava/lang/String;IJILandroid/os/Bundle;)V
+    .locals 18
 
-    move-object v0, p0
+    move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    move-object/from16 v1, p11
 
-    invoke-interface {v1}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    iget-object v2, v0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Landroid/accessibilityservice/AccessibilityTrace;
 
-    move-result v1
+    move-wide/from16 v14, p4
 
-    if-eqz v1, :cond_0
+    invoke-interface {v2, v14, v15}, Landroid/accessibilityservice/AccessibilityTrace;->isA11yTracingEnabledForTypes(J)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
 
     nop
 
-    const-string v1, "call_stack"
+    const-string v2, "call_stack"
 
-    move-object/from16 v2, p9
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getSerializable(Ljava/lang/String;)Ljava/io/Serializable;
 
-    invoke-virtual {v2, v1}, Landroid/os/Bundle;->getSerializable(Ljava/lang/String;)Ljava/io/Serializable;
+    move-result-object v2
 
-    move-result-object v1
+    check-cast v2, Ljava/util/ArrayList;
 
-    check-cast v1, Ljava/util/ArrayList;
+    nop
 
-    iget-object v3, v0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string v3, "ignore_call_stack"
 
-    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v1, v3}, Landroid/os/Bundle;->getSerializable(Ljava/lang/String;)Ljava/io/Serializable;
+
+    move-result-object v3
+
+    move-object/from16 v16, v3
+
+    check-cast v16, Ljava/util/HashSet;
+
+    iget-object v3, v0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Landroid/accessibilityservice/AccessibilityTrace;
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v4
 
     new-array v4, v4, [Ljava/lang/StackTraceElement;
 
-    invoke-virtual {v1, v4}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-virtual {v2, v4}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object v4
 
-    move-object v12, v4
+    move-object/from16 v17, v4
 
-    check-cast v12, [Ljava/lang/StackTraceElement;
+    check-cast v17, [Ljava/lang/StackTraceElement;
 
-    move-wide v4, p1
+    move-wide/from16 v4, p1
 
     move-object/from16 v6, p3
 
-    move-object/from16 v7, p4
+    move-wide/from16 v7, p4
 
-    move/from16 v8, p5
+    move-object/from16 v9, p6
 
-    move-wide/from16 v9, p6
+    move/from16 v10, p7
 
-    move/from16 v11, p8
+    move-wide/from16 v11, p8
 
-    invoke-interface/range {v3 .. v12}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(JLjava/lang/String;Ljava/lang/String;IJI[Ljava/lang/StackTraceElement;)V
+    move/from16 v13, p10
 
-    goto :goto_0
+    move-object/from16 v14, v17
+
+    move-object/from16 v15, v16
+
+    invoke-interface/range {v3 .. v15}, Landroid/accessibilityservice/AccessibilityTrace;->logTrace(JLjava/lang/String;JLjava/lang/String;IJI[Ljava/lang/StackTraceElement;Ljava/util/Set;)V
 
     :cond_0
-    move-object/from16 v2, p9
+    return-void
+.end method
 
-    :goto_0
+.method protected logTraceIntConn(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Landroid/accessibilityservice/AccessibilityTrace;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "AbstractAccessibilityServiceConnection."
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-wide/16 v2, 0x10
+
+    invoke-interface {v0, v1, v2, v3, p2}, Landroid/accessibilityservice/AccessibilityTrace;->logTrace(Ljava/lang/String;JLjava/lang/String;)V
+
+    return-void
+.end method
+
+.method protected logTraceSvcClient(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Landroid/accessibilityservice/AccessibilityTrace;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "AbstractAccessibilityServiceConnection.IAccessibilityServiceClient."
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-wide/16 v2, 0x2
+
+    invoke-interface {v0, v1, v2, v3, p2}, Landroid/accessibilityservice/AccessibilityTrace;->logTrace(Ljava/lang/String;JLjava/lang/String;)V
+
+    return-void
+.end method
+
+.method protected logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Landroid/accessibilityservice/AccessibilityTrace;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection."
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-wide/16 v2, 0x1
+
+    invoke-interface {v0, v1, v2, v3, p2}, Landroid/accessibilityservice/AccessibilityTrace;->logTrace(Ljava/lang/String;JLjava/lang/String;)V
+
+    return-void
+.end method
+
+.method protected logTraceWM(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Landroid/accessibilityservice/AccessibilityTrace;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "WindowManagerInternal."
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-wide/16 v2, 0x200
+
+    invoke-interface {v0, v1, v2, v3, p2}, Landroid/accessibilityservice/AccessibilityTrace;->logTrace(Ljava/lang/String;JLjava/lang/String;)V
+
     return-void
 .end method
 
@@ -5395,6 +6146,37 @@
 
     invoke-direct {v2}, Landroid/os/Binder;-><init>()V
 
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->wmTracingEnabled()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const-string v3, "addWindowToken"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v5, ";TYPE_ACCESSIBILITY_OVERLAY;"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v5, ";null"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {p0, v3, v4}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceWM(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
     iget-object v3, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mWindowManagerService:Lcom/android/server/wm/WindowManagerInternal;
 
     const/16 v4, 0x7f0
@@ -5452,6 +6234,39 @@
 
     move-result-wide v0
 
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->wmTracingEnabled()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const-string v2, "addWindowToken"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v4, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mOverlayWindowTokens:Landroid/util/SparseArray;
+
+    invoke-virtual {v4, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v4, ";true;"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {p0, v2, v3}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceWM(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
     :try_start_0
     iget-object v2, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mWindowManagerService:Lcom/android/server/wm/WindowManagerInternal;
 
@@ -5510,7 +6325,7 @@
 .end method
 
 .method public onKeyEvent(Landroid/view/KeyEvent;I)Z
-    .locals 5
+    .locals 4
 
     iget-boolean v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mRequestFilterKeyEvents:Z
 
@@ -5550,35 +6365,31 @@
 
     :cond_2
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcClientTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_3
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string/jumbo v0, "onKeyEvent"
 
-    const-string v2, "AbstractAccessibilityServiceConnection.IAccessibilityServiceClient.onKeyEvent"
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    const-string v3, ", "
 
-    const-string v4, ", "
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v3
-
-    invoke-interface {v0, v2, v3}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v2}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcClient(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_3
     iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mServiceInterface:Landroid/accessibilityservice/IAccessibilityServiceClient;
@@ -5645,83 +6456,79 @@
 
     move-object/from16 v13, p0
 
-    iget-object v0, v13, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, v13, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string/jumbo v0, "performAccessibilityAction"
 
-    const-string v1, "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection.performAccessibilityAction"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "accessibilityWindowId="
 
-    const-string v3, "accessibilityWindowId="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move/from16 v14, p1
 
-    invoke-virtual {v2, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v3, ";accessibilityNodeId="
+    const-string v2, ";accessibilityNodeId="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-wide/from16 v11, p2
 
-    invoke-virtual {v2, v11, v12}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v11, v12}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    const-string v3, ";action="
+    const-string v2, ";action="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move/from16 v15, p4
 
-    invoke-virtual {v2, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v15}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v3, ";arguments="
+    const-string v2, ";arguments="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-object/from16 v10, p5
 
-    invoke-virtual {v2, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v3, ";interactionId="
+    const-string v2, ";interactionId="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move/from16 v9, p6
 
-    invoke-virtual {v2, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v3, ";callback="
+    const-string v2, ";callback="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-object/from16 v8, p7
 
-    invoke-virtual {v2, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v3, ";interrogatingTid="
+    const-string v2, ";interrogatingTid="
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-wide/from16 v6, p8
 
-    invoke-virtual {v2, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v13, v0, v1}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
 
@@ -5843,35 +6650,31 @@
 .end method
 
 .method public performGlobalAction(I)Z
-    .locals 4
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string/jumbo v0, "performGlobalAction"
 
-    const-string v1, "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection.performGlobalAction"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "action="
 
-    const-string v3, "action="
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mLock:Ljava/lang/Object;
@@ -5933,39 +6736,35 @@
 
     if-eqz v1, :cond_1
 
-    iget-object v1, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v1}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcClientTracingEnabled()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string v1, "init"
 
-    const-string v2, "AbstractAccessibilityServiceConnection.IAccessibilityServiceClient.init"
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v3, "null, "
 
-    const-string/jumbo v4, "null, "
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget v3, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mId:I
 
-    iget v4, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mId:I
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v3, ", null"
 
-    const-string v4, ", null"
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v2
 
-    move-result-object v3
-
-    invoke-interface {v1, v2, v3}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v1, v2}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcClient(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     iget-object v1, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mServiceInterface:Landroid/accessibilityservice/IAccessibilityServiceClient;
@@ -6019,39 +6818,35 @@
 .method public resetMagnification(IZ)Z
     .locals 5
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string/jumbo v0, "resetMagnification"
 
-    const-string v1, "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection.resetMagnification"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "displayId="
 
-    const-string v3, "displayId="
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v2, ";animate="
 
-    const-string v3, ";animate="
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mLock:Ljava/lang/Object;
@@ -6141,41 +6936,37 @@
 .end method
 
 .method public sendGesture(ILandroid/content/pm/ParceledListSlice;)V
-    .locals 3
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v1, "sequence="
 
-    const-string/jumbo v2, "sequence="
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v1, ";gestureSteps="
 
-    const-string v2, ";gestureSteps="
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    const-string/jumbo v1, "sendGesture"
 
-    const-string v2, "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection.sendGesture"
-
-    invoke-interface {v0, v2, v1}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     return-void
@@ -6430,82 +7221,74 @@
 .end method
 
 .method public setFocusAppearance(II)V
-    .locals 3
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v1, "strokeWidth="
 
-    const-string/jumbo v2, "strokeWidth="
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v1, ";color="
 
-    const-string v2, ";color="
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    const-string/jumbo v1, "setFocusAppearance"
 
-    const-string v2, "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection.setFocusAppearance"
-
-    invoke-interface {v0, v2, v1}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     return-void
 .end method
 
 .method public setGestureDetectionPassthroughRegion(ILandroid/graphics/Region;)V
-    .locals 3
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "displayId="
 
-    const-string v2, "displayId="
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v1, ";region="
 
-    const-string v2, ";region="
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    const-string/jumbo v1, "setGestureDetectionPassthroughRegion"
 
-    const-string v2, "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection.setGestureDetectionPassthroughRegion"
-
-    invoke-interface {v0, v2, v1}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mSystemSupport:Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$SystemSupport;
@@ -6516,41 +7299,37 @@
 .end method
 
 .method public setMagnificationCallbackEnabled(IZ)V
-    .locals 3
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "displayId="
 
-    const-string v2, "displayId="
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v1, ";enabled="
 
-    const-string v2, ";enabled="
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    const-string/jumbo v1, "setMagnificationCallbackEnabled"
 
-    const-string v2, "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection.setMagnificationCallbackEnabled"
-
-    invoke-interface {v0, v2, v1}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mInvocationHandler:Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$InvocationHandler;
@@ -6567,65 +7346,61 @@
 
     move/from16 v9, p1
 
-    iget-object v0, v1, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, v1, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string/jumbo v0, "setMagnificationScaleAndCenter"
 
-    const-string v2, "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection.setMagnificationScaleAndCenter"
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v3, "displayId="
 
-    const-string v4, "displayId="
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v3, ";scale="
 
-    const-string v4, ";scale="
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move/from16 v10, p2
 
-    invoke-virtual {v3, v10}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v10}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    const-string v4, ";centerX="
+    const-string v3, ";centerX="
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move/from16 v11, p3
 
-    invoke-virtual {v3, v11}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v11}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    const-string v4, ";centerY="
+    const-string v3, ";centerY="
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move/from16 v12, p4
 
-    invoke-virtual {v3, v12}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v12}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    const-string v4, ";animate="
+    const-string v3, ";animate="
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move/from16 v13, p5
 
-    invoke-virtual {v3, v13}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v13}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {v0, v2, v3}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v1, v0, v2}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
 
@@ -6741,41 +7516,37 @@
 .end method
 
 .method public setOnKeyEventResult(ZI)V
-    .locals 3
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "handled="
 
-    const-string v2, "handled="
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    const-string v1, ";sequence="
 
-    const-string v2, ";sequence="
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    const-string/jumbo v1, "setOnKeyEventResult"
 
-    const-string v2, "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection.setOnKeyEventResult"
-
-    invoke-interface {v0, v2, v1}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mSystemSupport:Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$SystemSupport;
@@ -6792,33 +7563,29 @@
 .method public setServiceInfo(Landroid/accessibilityservice/AccessibilityServiceInfo;)V
     .locals 6
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string/jumbo v0, "setServiceInfo"
 
-    const-string v1, "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection.setServiceInfo"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "info="
 
-    const-string v3, "info="
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
@@ -6887,35 +7654,31 @@
 .end method
 
 .method public setSoftKeyboardCallbackEnabled(Z)V
-    .locals 3
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "enabled="
 
-    const-string v2, "enabled="
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    const-string/jumbo v1, "setSoftKeyboardCallbackEnabled"
 
-    const-string v2, "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection.setSoftKeyboardCallbackEnabled"
-
-    invoke-interface {v0, v2, v1}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mInvocationHandler:Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$InvocationHandler;
@@ -6926,41 +7689,37 @@
 .end method
 
 .method public setTouchExplorationPassthroughRegion(ILandroid/graphics/Region;)V
-    .locals 3
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "displayId="
 
-    const-string v2, "displayId="
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v1, ";region="
 
-    const-string v2, ";region="
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    const-string/jumbo v1, "setTouchExplorationPassthroughRegion"
 
-    const-string v2, "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection.setTouchExplorationPassthroughRegion"
-
-    invoke-interface {v0, v2, v1}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mSystemSupport:Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$SystemSupport;
@@ -6998,42 +7757,66 @@
     return v0
 .end method
 
+.method protected svcClientTracingEnabled()Z
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Landroid/accessibilityservice/AccessibilityTrace;
+
+    const-wide/16 v1, 0x2
+
+    invoke-interface {v0, v1, v2}, Landroid/accessibilityservice/AccessibilityTrace;->isA11yTracingEnabledForTypes(J)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method protected svcConnTracingEnabled()Z
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Landroid/accessibilityservice/AccessibilityTrace;
+
+    const-wide/16 v1, 0x1
+
+    invoke-interface {v0, v1, v2}, Landroid/accessibilityservice/AccessibilityTrace;->isA11yTracingEnabledForTypes(J)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public takeScreenshot(ILandroid/os/RemoteCallback;)V
     .locals 9
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string/jumbo v0, "takeScreenshot"
 
-    const-string v1, "AbstractAccessibilityServiceConnection.IAccessibilityServiceConnection.takeScreenshot"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "displayId="
 
-    const-string v3, "displayId="
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v2, ";callback="
 
-    const-string v3, ";callback="
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
@@ -7211,4 +7994,18 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
     throw v3
+.end method
+
+.method protected wmTracingEnabled()Z
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;->mTrace:Landroid/accessibilityservice/AccessibilityTrace;
+
+    const-wide/16 v1, 0x200
+
+    invoke-interface {v0, v1, v2}, Landroid/accessibilityservice/AccessibilityTrace;->isA11yTracingEnabledForTypes(J)Z
+
+    move-result v0
+
+    return v0
 .end method

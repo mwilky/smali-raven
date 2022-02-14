@@ -33,7 +33,7 @@
 
     iget v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda79;->f$1:I
 
-    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$removeOverrideApnUnchecked$120$DevicePolicyManagerService(I)Ljava/lang/Integer;
+    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$isProfileOwner$57$DevicePolicyManagerService(I)Landroid/content/ComponentName;
 
     move-result-object v0
 

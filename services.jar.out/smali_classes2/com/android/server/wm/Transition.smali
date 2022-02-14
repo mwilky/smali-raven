@@ -9,6 +9,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/server/wm/Transition$ReadyTracker;,
         Lcom/android/server/wm/Transition$ChangeInfo;,
         Lcom/android/server/wm/Transition$TransitionState;
     }
@@ -39,11 +40,19 @@
     .end annotation
 .end field
 
+.field private mClientAnimationFinishCallback:Landroid/os/IRemoteCallback;
+
+.field private mClientAnimationStartCallback:Landroid/os/IRemoteCallback;
+
 .field private final mController:Lcom/android/server/wm/TransitionController;
 
 .field private mFinishTransaction:Landroid/view/SurfaceControl$Transaction;
 
 .field private mFlags:I
+
+.field private mNavBarAttachedToApp:Z
+
+.field private mOverrideOptions:Landroid/window/TransitionInfo$AnimationOptions;
 
 .field final mParticipants:Landroid/util/ArraySet;
     .annotation system Ldalvik/annotation/Signature;
@@ -55,9 +64,11 @@
     .end annotation
 .end field
 
-.field private mReadyCalled:Z
+.field private final mReadyTracker:Lcom/android/server/wm/Transition$ReadyTracker;
 
-.field private mRemoteTransition:Landroid/window/IRemoteTransition;
+.field private mRecentsDisplayId:I
+
+.field private mRemoteTransition:Landroid/window/RemoteTransition;
 
 .field private mStartTransaction:Landroid/view/SurfaceControl$Transaction;
 
@@ -77,18 +88,38 @@
     .end annotation
 .end field
 
+.field private mTransientLaunches:Landroid/util/ArraySet;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/ArraySet<",
+            "Lcom/android/server/wm/ActivityRecord;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field final mType:I
+
+.field private final mVisibleAtTransitionEndTokens:Landroid/util/ArraySet;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/ArraySet<",
+            "Lcom/android/server/wm/WindowToken;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
-.method constructor <init>(IILcom/android/server/wm/TransitionController;Lcom/android/server/wm/BLASTSyncEngine;)V
-    .locals 2
+.method constructor <init>(IIJLcom/android/server/wm/TransitionController;Lcom/android/server/wm/BLASTSyncEngine;)V
+    .locals 3
 
     invoke-direct {p0}, Landroid/os/Binder;-><init>()V
 
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/android/server/wm/Transition;->mRemoteTransition:Landroid/window/IRemoteTransition;
+    iput-object v0, p0, Lcom/android/server/wm/Transition;->mRemoteTransition:Landroid/window/RemoteTransition;
 
     iput-object v0, p0, Lcom/android/server/wm/Transition;->mStartTransaction:Landroid/view/SurfaceControl$Transaction;
 
@@ -108,21 +139,43 @@
 
     iput-object v0, p0, Lcom/android/server/wm/Transition;->mTargets:Landroid/util/ArraySet;
 
-    const/4 v0, 0x0
+    new-instance v1, Landroid/util/ArraySet;
 
-    iput v0, p0, Lcom/android/server/wm/Transition;->mState:I
+    invoke-direct {v1}, Landroid/util/ArraySet;-><init>()V
 
-    iput-boolean v0, p0, Lcom/android/server/wm/Transition;->mReadyCalled:Z
+    iput-object v1, p0, Lcom/android/server/wm/Transition;->mVisibleAtTransitionEndTokens:Landroid/util/ArraySet;
+
+    iput-object v0, p0, Lcom/android/server/wm/Transition;->mTransientLaunches:Landroid/util/ArraySet;
+
+    iput-object v0, p0, Lcom/android/server/wm/Transition;->mClientAnimationStartCallback:Landroid/os/IRemoteCallback;
+
+    iput-object v0, p0, Lcom/android/server/wm/Transition;->mClientAnimationFinishCallback:Landroid/os/IRemoteCallback;
+
+    const/4 v1, 0x0
+
+    iput v1, p0, Lcom/android/server/wm/Transition;->mState:I
+
+    new-instance v2, Lcom/android/server/wm/Transition$ReadyTracker;
+
+    invoke-direct {v2, v0}, Lcom/android/server/wm/Transition$ReadyTracker;-><init>(Lcom/android/server/wm/Transition$1;)V
+
+    iput-object v2, p0, Lcom/android/server/wm/Transition;->mReadyTracker:Lcom/android/server/wm/Transition$ReadyTracker;
+
+    iput-boolean v1, p0, Lcom/android/server/wm/Transition;->mNavBarAttachedToApp:Z
+
+    const/4 v0, -0x1
+
+    iput v0, p0, Lcom/android/server/wm/Transition;->mRecentsDisplayId:I
 
     iput p1, p0, Lcom/android/server/wm/Transition;->mType:I
 
     iput p2, p0, Lcom/android/server/wm/Transition;->mFlags:I
 
-    iput-object p3, p0, Lcom/android/server/wm/Transition;->mController:Lcom/android/server/wm/TransitionController;
+    iput-object p5, p0, Lcom/android/server/wm/Transition;->mController:Lcom/android/server/wm/TransitionController;
 
-    iput-object p4, p0, Lcom/android/server/wm/Transition;->mSyncEngine:Lcom/android/server/wm/BLASTSyncEngine;
+    iput-object p6, p0, Lcom/android/server/wm/Transition;->mSyncEngine:Lcom/android/server/wm/BLASTSyncEngine;
 
-    invoke-virtual {p4, p0}, Lcom/android/server/wm/BLASTSyncEngine;->startSyncSet(Lcom/android/server/wm/BLASTSyncEngine$TransactionReadyListener;)I
+    invoke-virtual {p6, p0, p3, p4}, Lcom/android/server/wm/BLASTSyncEngine;->startSyncSet(Lcom/android/server/wm/BLASTSyncEngine$TransactionReadyListener;J)I
 
     move-result v0
 
@@ -131,10 +184,30 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/server/wm/WindowContainer;)Z
+.method static synthetic access$100(Lcom/android/server/wm/WindowContainer;)Z
     .locals 1
 
     invoke-static {p0}, Lcom/android/server/wm/Transition;->isWallpaper(Lcom/android/server/wm/WindowContainer;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic access$200(Lcom/android/server/wm/WindowContainer;)Z
+    .locals 1
+
+    invoke-static {p0}, Lcom/android/server/wm/Transition;->occludesKeyguard(Lcom/android/server/wm/WindowContainer;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic access$300(Lcom/android/server/wm/WindowContainer;)Z
+    .locals 1
+
+    invoke-static {p0}, Lcom/android/server/wm/Transition;->isReadyGroup(Lcom/android/server/wm/WindowContainer;)Z
 
     move-result v0
 
@@ -185,6 +258,72 @@
     goto :goto_0
 
     :cond_1
+    return-void
+.end method
+
+.method private applyReady()V
+    .locals 11
+
+    iget v0, p0, Lcom/android/server/wm/Transition;->mState:I
+
+    const/4 v1, 0x1
+
+    if-ge v0, v1, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/wm/Transition;->mReadyTracker:Lcom/android/server/wm/Transition$ReadyTracker;
+
+    invoke-virtual {v0}, Lcom/android/server/wm/Transition$ReadyTracker;->allReady()Z
+
+    move-result v0
+
+    sget-boolean v2, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_WINDOW_TRANSITIONS_enabled:Z
+
+    if-eqz v2, :cond_1
+
+    move v2, v0
+
+    iget v3, p0, Lcom/android/server/wm/Transition;->mSyncId:I
+
+    int-to-long v3, v3
+
+    sget-object v5, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_WINDOW_TRANSITIONS:Lcom/android/internal/protolog/ProtoLogGroup;
+
+    const v6, -0x3425bbc3    # -2.8608634E7f
+
+    const/4 v7, 0x7
+
+    const/4 v8, 0x2
+
+    new-array v8, v8, [Ljava/lang/Object;
+
+    const/4 v9, 0x0
+
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v10
+
+    aput-object v10, v8, v9
+
+    invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v9
+
+    aput-object v9, v8, v1
+
+    const-string v1, "Set transition ready=%b %d"
+
+    invoke-static {v5, v6, v7, v1, v8}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+
+    :cond_1
+    iget-object v1, p0, Lcom/android/server/wm/Transition;->mSyncEngine:Lcom/android/server/wm/BLASTSyncEngine;
+
+    iget v2, p0, Lcom/android/server/wm/Transition;->mSyncId:I
+
+    invoke-virtual {v1, v2, v0}, Lcom/android/server/wm/BLASTSyncEngine;->setReady(IZ)V
+
     return-void
 .end method
 
@@ -381,7 +520,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_c
+    if-eqz v6, :cond_d
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -394,6 +533,26 @@
     move-result v7
 
     if-nez v7, :cond_2
+
+    sget-boolean v7, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_WINDOW_TRANSITIONS_enabled:Z
+
+    if-eqz v7, :cond_1
+
+    invoke-static {v6}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v7
+
+    sget-object v8, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_WINDOW_TRANSITIONS:Lcom/android/internal/protolog/ProtoLogGroup;
+
+    const v9, 0x591676b9
+
+    new-array v10, v1, [Ljava/lang/Object;
+
+    aput-object v7, v10, v2
+
+    const-string v11, "  Rejecting as detached: %s"
+
+    invoke-static {v8, v9, v2, v11, v10}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
     goto :goto_0
 
@@ -446,138 +605,162 @@
     invoke-virtual {v4, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :cond_4
+    invoke-static {v6}, Lcom/android/server/wm/Transition;->isWallpaper(Lcom/android/server/wm/WindowContainer;)Z
+
+    move-result v9
+
     invoke-virtual {v6}, Lcom/android/server/wm/WindowContainer;->getParent()Lcom/android/server/wm/WindowContainer;
 
-    move-result-object v9
+    move-result-object v10
 
     :goto_1
-    if-eqz v9, :cond_8
+    if-eqz v10, :cond_9
 
-    invoke-virtual {v9}, Lcom/android/server/wm/WindowContainer;->isAttached()Z
+    invoke-virtual {v10}, Lcom/android/server/wm/WindowContainer;->isAttached()Z
 
-    move-result v10
+    move-result v11
 
-    if-eqz v10, :cond_8
-
-    invoke-virtual {p1, v9}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v10
-
-    check-cast v10, Lcom/android/server/wm/Transition$ChangeInfo;
-
-    invoke-virtual {v10, v9}, Lcom/android/server/wm/Transition$ChangeInfo;->hasChanged(Lcom/android/server/wm/WindowContainer;)Z
-
-    move-result v10
-
-    if-nez v10, :cond_5
-
-    goto :goto_2
-
-    :cond_5
-    invoke-virtual {p0, v9}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
-
-    move-result v10
-
-    if-eqz v10, :cond_6
-
-    move-object v8, v9
-
-    goto :goto_2
-
-    :cond_6
-    invoke-static {v9}, Lcom/android/server/wm/Transition;->reportIfNotTop(Lcom/android/server/wm/WindowContainer;)Z
-
-    move-result v10
-
-    if-eqz v10, :cond_7
-
-    invoke-virtual {v4, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    :cond_7
-    invoke-virtual {v9}, Lcom/android/server/wm/WindowContainer;->getParent()Lcom/android/server/wm/WindowContainer;
-
-    move-result-object v9
-
-    goto :goto_1
-
-    :cond_8
-    :goto_2
-    if-eqz v8, :cond_b
-
-    const/4 v9, 0x0
-
-    :goto_3
-    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
-
-    move-result v10
-
-    if-ge v9, v10, :cond_a
-
-    invoke-virtual {v4, v9}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v10
-
-    check-cast v10, Lcom/android/server/wm/WindowContainer;
-
-    invoke-virtual {v3, v10}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
-
-    invoke-virtual {v4, v9}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v10
+    if-eqz v11, :cond_9
 
     invoke-virtual {p1, v10}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
+    move-result-object v11
+
+    if-eqz v11, :cond_9
+
+    invoke-virtual {p1, v10}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v11
+
+    check-cast v11, Lcom/android/server/wm/Transition$ChangeInfo;
+
+    invoke-virtual {v11, v10}, Lcom/android/server/wm/Transition$ChangeInfo;->hasChanged(Lcom/android/server/wm/WindowContainer;)Z
+
+    move-result v11
+
+    if-nez v11, :cond_5
+
+    goto :goto_3
+
+    :cond_5
+    invoke-virtual {p0, v10}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_6
+
+    move-object v8, v10
+
+    goto :goto_3
+
+    :cond_6
+    invoke-static {v10}, Lcom/android/server/wm/Transition;->isWallpaper(Lcom/android/server/wm/WindowContainer;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_7
+
+    const/4 v9, 0x1
+
+    goto :goto_2
+
+    :cond_7
+    invoke-static {v10}, Lcom/android/server/wm/Transition;->reportIfNotTop(Lcom/android/server/wm/WindowContainer;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_8
+
+    if-nez v9, :cond_8
+
+    invoke-virtual {v4, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_8
+    :goto_2
+    invoke-virtual {v10}, Lcom/android/server/wm/WindowContainer;->getParent()Lcom/android/server/wm/WindowContainer;
+
     move-result-object v10
 
-    check-cast v10, Lcom/android/server/wm/Transition$ChangeInfo;
+    goto :goto_1
 
+    :cond_9
+    :goto_3
+    if-eqz v8, :cond_c
+
+    const/4 v10, 0x0
+
+    :goto_4
     invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
 
     move-result v11
 
-    sub-int/2addr v11, v1
+    if-ge v10, v11, :cond_b
 
-    if-ge v9, v11, :cond_9
-
-    add-int/lit8 v11, v9, 0x1
-
-    invoke-virtual {v4, v11}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v4, v10}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v11
 
     check-cast v11, Lcom/android/server/wm/WindowContainer;
 
-    goto :goto_4
+    invoke-virtual {v3, v11}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
-    :cond_9
-    move-object v11, v8
+    invoke-virtual {v4, v10}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    :goto_4
-    iput-object v11, v10, Lcom/android/server/wm/Transition$ChangeInfo;->mParent:Lcom/android/server/wm/WindowContainer;
+    move-result-object v11
 
-    add-int/lit8 v9, v9, 0x1
+    invoke-virtual {p1, v11}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_3
+    move-result-object v11
+
+    check-cast v11, Lcom/android/server/wm/Transition$ChangeInfo;
+
+    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+
+    move-result v12
+
+    sub-int/2addr v12, v1
+
+    if-ge v10, v12, :cond_a
+
+    add-int/lit8 v12, v10, 0x1
+
+    invoke-virtual {v4, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v12
+
+    check-cast v12, Lcom/android/server/wm/WindowContainer;
+
+    goto :goto_5
 
     :cond_a
-    goto/16 :goto_0
+    move-object v12, v8
+
+    :goto_5
+    iput-object v12, v11, Lcom/android/server/wm/Transition$ChangeInfo;->mParent:Lcom/android/server/wm/WindowContainer;
+
+    add-int/lit8 v10, v10, 0x1
+
+    goto :goto_4
 
     :cond_b
+    goto/16 :goto_0
+
+    :cond_c
     invoke-virtual {v3, v6}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
     invoke-virtual {v0, v6}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
     goto/16 :goto_0
 
-    :cond_c
+    :cond_d
     invoke-virtual {v3}, Landroid/util/ArraySet;->size()I
 
     move-result v5
 
     sub-int/2addr v5, v1
 
-    :goto_5
-    if-ltz v5, :cond_e
+    :goto_6
+    if-ltz v5, :cond_f
 
     invoke-virtual {v3, v5}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
@@ -591,7 +774,7 @@
 
     iget-object v6, v6, Lcom/android/server/wm/Transition$ChangeInfo;->mParent:Lcom/android/server/wm/WindowContainer;
 
-    if-eqz v6, :cond_d
+    if-eqz v6, :cond_e
 
     invoke-virtual {v3, v5}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
@@ -619,15 +802,15 @@
 
     invoke-virtual {v6, v7}, Lcom/android/server/wm/Transition$ChangeInfo;->addChild(Lcom/android/server/wm/WindowContainer;)V
 
-    :cond_d
+    :cond_e
     add-int/lit8 v5, v5, -0x1
 
-    goto :goto_5
+    goto :goto_6
 
-    :cond_e
+    :cond_f
     sget-boolean v5, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_WINDOW_TRANSITIONS_enabled:Z
 
-    if-eqz v5, :cond_f
+    if-eqz v5, :cond_10
 
     invoke-static {v3}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
@@ -645,10 +828,10 @@
 
     invoke-static {v6, v7, v2, v9, v8}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
-    :cond_f
+    :cond_10
     sget-boolean v5, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_WINDOW_TRANSITIONS_enabled:Z
 
-    if-eqz v5, :cond_10
+    if-eqz v5, :cond_11
 
     invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
@@ -666,17 +849,17 @@
 
     invoke-static {v6, v7, v2, v8, v1}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
-    :cond_10
-    :goto_6
+    :cond_11
+    :goto_7
     invoke-static {v0, v3, p1}, Lcom/android/server/wm/Transition;->tryPromote(Landroid/util/ArraySet;Landroid/util/ArraySet;Landroid/util/ArrayMap;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_12
 
-    goto :goto_6
+    goto :goto_7
 
-    :cond_11
+    :cond_12
     return-object v3
 .end method
 
@@ -718,103 +901,102 @@
 
     move-result v6
 
-    add-int/lit8 v6, v6, -0x1
+    const/4 v7, 0x1
+
+    sub-int/2addr v6, v7
 
     :goto_0
     if-ltz v6, :cond_1
 
     invoke-virtual {v0, v6}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v7
-
-    check-cast v7, Lcom/android/server/wm/WindowContainer;
-
-    invoke-static {v7}, Lcom/android/server/wm/Transition;->isWallpaper(Lcom/android/server/wm/WindowContainer;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_0
-
-    move-object v7, v5
-
-    goto :goto_1
-
-    :cond_0
-    move-object v7, v4
-
-    :goto_1
-    invoke-virtual {v0, v6}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
-
     move-result-object v8
 
     check-cast v8, Lcom/android/server/wm/WindowContainer;
 
-    invoke-virtual {v7, v8}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
+    invoke-static {v8}, Lcom/android/server/wm/Transition;->isWallpaper(Lcom/android/server/wm/WindowContainer;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_0
+
+    move-object v8, v5
+
+    goto :goto_1
+
+    :cond_0
+    move-object v8, v4
+
+    :goto_1
+    invoke-virtual {v0, v6}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v9
+
+    check-cast v9, Lcom/android/server/wm/WindowContainer;
+
+    invoke-virtual {v8, v9}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
     add-int/lit8 v6, v6, -0x1
 
     goto :goto_0
 
     :cond_1
-    const/4 v6, 0x0
+    invoke-virtual {v4}, Landroid/util/ArraySet;->isEmpty()Z
 
-    invoke-virtual {v4}, Landroid/util/ArraySet;->size()I
+    move-result v6
 
-    move-result v7
+    const/4 v8, 0x0
 
-    add-int/lit8 v7, v7, -0x1
+    if-eqz v6, :cond_2
 
-    if-ltz v7, :cond_2
+    new-instance v6, Landroid/view/SurfaceControl;
 
-    invoke-virtual {v4, v7}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    invoke-direct {v6}, Landroid/view/SurfaceControl;-><init>()V
 
-    move-result-object v8
-
-    check-cast v8, Lcom/android/server/wm/WindowContainer;
-
-    move-object v6, v8
-
-    :cond_2
-    const/4 v7, 0x0
-
-    if-nez v6, :cond_3
-
-    new-instance v8, Landroid/view/SurfaceControl;
-
-    invoke-direct {v8}, Landroid/view/SurfaceControl;-><init>()V
-
-    invoke-virtual {v1, v8, v7, v7}, Landroid/window/TransitionInfo;->setRootLeash(Landroid/view/SurfaceControl;II)V
+    invoke-virtual {v1, v6, v8, v8}, Landroid/window/TransitionInfo;->setRootLeash(Landroid/view/SurfaceControl;II)V
 
     return-object v1
 
-    :cond_3
+    :cond_2
+    invoke-virtual {v4}, Landroid/util/ArraySet;->size()I
+
+    move-result v6
+
+    sub-int/2addr v6, v7
+
+    invoke-virtual {v4, v6}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/android/server/wm/WindowContainer;
+
     invoke-virtual {v6}, Lcom/android/server/wm/WindowContainer;->getParent()Lcom/android/server/wm/WindowContainer;
 
     move-result-object v6
 
     :goto_2
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_4
 
     invoke-virtual {v4}, Landroid/util/ArraySet;->size()I
 
-    move-result v8
+    move-result v9
 
-    add-int/lit8 v8, v8, -0x1
+    sub-int/2addr v9, v7
 
     :goto_3
-    if-ltz v8, :cond_5
+    if-ltz v9, :cond_4
 
-    invoke-virtual {v4, v8}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v4, v9}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v9
+    move-result-object v10
 
-    check-cast v9, Lcom/android/server/wm/WindowContainer;
+    check-cast v10, Lcom/android/server/wm/WindowContainer;
 
-    invoke-virtual {v9, v6}, Lcom/android/server/wm/WindowContainer;->isDescendantOf(Lcom/android/server/wm/WindowContainer;)Z
+    invoke-virtual {v10, v6}, Lcom/android/server/wm/WindowContainer;->isDescendantOf(Lcom/android/server/wm/WindowContainer;)Z
 
-    move-result v10
+    move-result v11
 
-    if-nez v10, :cond_4
+    if-nez v11, :cond_3
 
     invoke-virtual {v6}, Lcom/android/server/wm/WindowContainer;->getParent()Lcom/android/server/wm/WindowContainer;
 
@@ -822,164 +1004,166 @@
 
     goto :goto_2
 
-    :cond_4
-    add-int/lit8 v8, v8, -0x1
+    :cond_3
+    add-int/lit8 v9, v9, -0x1
 
     goto :goto_3
 
-    :cond_5
-    new-instance v8, Ljava/util/ArrayList;
+    :cond_4
+    new-instance v9, Ljava/util/ArrayList;
 
-    invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v9}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-static {v6, v0, v8}, Lcom/android/server/wm/Transition;->addMembersInOrder(Lcom/android/server/wm/WindowContainer;Landroid/util/ArraySet;Ljava/util/ArrayList;)V
+    invoke-static {v6, v0, v9}, Lcom/android/server/wm/Transition;->addMembersInOrder(Lcom/android/server/wm/WindowContainer;Landroid/util/ArraySet;Ljava/util/ArrayList;)V
 
-    invoke-virtual {v8, v7}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v9, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v10
 
-    check-cast v7, Lcom/android/server/wm/WindowContainer;
+    check-cast v10, Lcom/android/server/wm/WindowContainer;
 
     :goto_4
-    invoke-virtual {v7}, Lcom/android/server/wm/WindowContainer;->getParent()Lcom/android/server/wm/WindowContainer;
+    invoke-virtual {v10}, Lcom/android/server/wm/WindowContainer;->getParent()Lcom/android/server/wm/WindowContainer;
 
-    move-result-object v9
+    move-result-object v11
 
-    if-eq v9, v6, :cond_6
+    if-eq v11, v6, :cond_5
 
-    invoke-virtual {v7}, Lcom/android/server/wm/WindowContainer;->getParent()Lcom/android/server/wm/WindowContainer;
+    invoke-virtual {v10}, Lcom/android/server/wm/WindowContainer;->getParent()Lcom/android/server/wm/WindowContainer;
 
-    move-result-object v7
+    move-result-object v10
 
     goto :goto_4
 
-    :cond_6
-    invoke-virtual {v7}, Lcom/android/server/wm/WindowContainer;->makeAnimationLeash()Landroid/view/SurfaceControl$Builder;
-
-    move-result-object v9
-
-    new-instance v10, Ljava/lang/StringBuilder;
-
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v11, "Transition Root: "
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v7}, Lcom/android/server/wm/WindowContainer;->getName()Ljava/lang/String;
+    :cond_5
+    invoke-virtual {v10}, Lcom/android/server/wm/WindowContainer;->makeAnimationLeash()Landroid/view/SurfaceControl$Builder;
 
     move-result-object v11
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    new-instance v12, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v10
+    const-string v13, "Transition Root: "
 
-    invoke-virtual {v9, v10}, Landroid/view/SurfaceControl$Builder;->setName(Ljava/lang/String;)Landroid/view/SurfaceControl$Builder;
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v9
-
-    invoke-virtual {v9}, Landroid/view/SurfaceControl$Builder;->build()Landroid/view/SurfaceControl;
-
-    move-result-object v9
-
-    iget-object v10, v6, Lcom/android/server/wm/WindowContainer;->mWmService:Lcom/android/server/wm/WindowManagerService;
-
-    iget-object v10, v10, Lcom/android/server/wm/WindowManagerService;->mTransactionFactory:Ljava/util/function/Supplier;
-
-    invoke-interface {v10}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
-
-    move-result-object v10
-
-    check-cast v10, Landroid/view/SurfaceControl$Transaction;
-
-    invoke-virtual {v7}, Lcom/android/server/wm/WindowContainer;->getLastLayer()I
-
-    move-result v11
-
-    invoke-virtual {v10, v9, v11}, Landroid/view/SurfaceControl$Transaction;->setLayer(Landroid/view/SurfaceControl;I)Landroid/view/SurfaceControl$Transaction;
-
-    invoke-virtual {v10}, Landroid/view/SurfaceControl$Transaction;->apply()V
-
-    invoke-virtual {v10}, Landroid/view/SurfaceControl$Transaction;->close()V
-
-    invoke-virtual {v6}, Lcom/android/server/wm/WindowContainer;->getBounds()Landroid/graphics/Rect;
-
-    move-result-object v11
-
-    iget v11, v11, Landroid/graphics/Rect;->left:I
-
-    invoke-virtual {v6}, Lcom/android/server/wm/WindowContainer;->getBounds()Landroid/graphics/Rect;
-
-    move-result-object v12
-
-    iget v12, v12, Landroid/graphics/Rect;->top:I
-
-    invoke-virtual {v1, v9, v11, v12}, Landroid/window/TransitionInfo;->setRootLeash(Landroid/view/SurfaceControl;II)V
-
-    invoke-virtual {v5}, Landroid/util/ArraySet;->size()I
-
-    move-result v11
-
-    add-int/lit8 v11, v11, -0x1
-
-    :goto_5
-    if-ltz v11, :cond_8
-
-    invoke-virtual {v5, v11}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v12
-
-    check-cast v12, Lcom/android/server/wm/WindowContainer;
-
-    invoke-virtual {v12, v6}, Lcom/android/server/wm/WindowContainer;->isDescendantOf(Lcom/android/server/wm/WindowContainer;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_7
-
-    goto :goto_6
-
-    :cond_7
-    invoke-virtual {v8, v12}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    add-int/lit8 v11, v11, -0x1
-
-    goto :goto_5
-
-    :cond_8
-    :goto_6
-    invoke-virtual {v8}, Ljava/util/ArrayList;->size()I
-
-    move-result v11
-
-    const/4 v12, 0x0
-
-    :goto_7
-    if-ge v12, v11, :cond_c
-
-    invoke-virtual {v8, v12}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v10}, Lcom/android/server/wm/WindowContainer;->getName()Ljava/lang/String;
 
     move-result-object v13
 
-    check-cast v13, Lcom/android/server/wm/WindowContainer;
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v14, p3
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v14, v13}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v12
+
+    invoke-virtual {v11, v12}, Landroid/view/SurfaceControl$Builder;->setName(Ljava/lang/String;)Landroid/view/SurfaceControl$Builder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Landroid/view/SurfaceControl$Builder;->build()Landroid/view/SurfaceControl;
+
+    move-result-object v11
+
+    iget-object v12, v6, Lcom/android/server/wm/WindowContainer;->mWmService:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v12, v12, Lcom/android/server/wm/WindowManagerService;->mTransactionFactory:Ljava/util/function/Supplier;
+
+    invoke-interface {v12}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
+
+    move-result-object v12
+
+    check-cast v12, Landroid/view/SurfaceControl$Transaction;
+
+    invoke-virtual {v10}, Lcom/android/server/wm/WindowContainer;->getLastLayer()I
+
+    move-result v13
+
+    invoke-virtual {v12, v11, v13}, Landroid/view/SurfaceControl$Transaction;->setLayer(Landroid/view/SurfaceControl;I)Landroid/view/SurfaceControl$Transaction;
+
+    invoke-virtual {v12}, Landroid/view/SurfaceControl$Transaction;->apply()V
+
+    invoke-virtual {v12}, Landroid/view/SurfaceControl$Transaction;->close()V
+
+    invoke-virtual {v6}, Lcom/android/server/wm/WindowContainer;->getBounds()Landroid/graphics/Rect;
+
+    move-result-object v13
+
+    iget v13, v13, Landroid/graphics/Rect;->left:I
+
+    invoke-virtual {v6}, Lcom/android/server/wm/WindowContainer;->getBounds()Landroid/graphics/Rect;
+
+    move-result-object v14
+
+    iget v14, v14, Landroid/graphics/Rect;->top:I
+
+    invoke-virtual {v1, v11, v13, v14}, Landroid/window/TransitionInfo;->setRootLeash(Landroid/view/SurfaceControl;II)V
+
+    invoke-virtual {v5}, Landroid/util/ArraySet;->size()I
+
+    move-result v13
+
+    sub-int/2addr v13, v7
+
+    :goto_5
+    if-ltz v13, :cond_7
+
+    invoke-virtual {v5, v13}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v14
+
+    check-cast v14, Lcom/android/server/wm/WindowContainer;
+
+    invoke-virtual {v14, v6}, Lcom/android/server/wm/WindowContainer;->isDescendantOf(Lcom/android/server/wm/WindowContainer;)Z
+
+    move-result v15
+
+    if-eqz v15, :cond_6
+
+    goto :goto_6
+
+    :cond_6
+    invoke-virtual {v9, v14}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    add-int/lit8 v13, v13, -0x1
+
+    goto :goto_5
+
+    :cond_7
+    :goto_6
+    invoke-virtual {v9}, Ljava/util/ArrayList;->size()I
+
+    move-result v13
+
+    const/4 v14, 0x0
+
+    :goto_7
+    if-ge v14, v13, :cond_c
+
+    invoke-virtual {v9, v14}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v15
 
-    check-cast v15, Lcom/android/server/wm/Transition$ChangeInfo;
+    check-cast v15, Lcom/android/server/wm/WindowContainer;
+
+    move-object/from16 v7, p3
+
+    invoke-virtual {v7, v15}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v16
+
+    move-object/from16 v8, v16
+
+    check-cast v8, Lcom/android/server/wm/Transition$ChangeInfo;
 
     new-instance v0, Landroid/window/TransitionInfo$Change;
 
-    iget-object v2, v13, Lcom/android/server/wm/WindowContainer;->mRemoteToken:Lcom/android/server/wm/WindowContainer$RemoteToken;
+    iget-object v2, v15, Lcom/android/server/wm/WindowContainer;->mRemoteToken:Lcom/android/server/wm/WindowContainer$RemoteToken;
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_8
 
-    iget-object v2, v13, Lcom/android/server/wm/WindowContainer;->mRemoteToken:Lcom/android/server/wm/WindowContainer$RemoteToken;
+    iget-object v2, v15, Lcom/android/server/wm/WindowContainer;->mRemoteToken:Lcom/android/server/wm/WindowContainer$RemoteToken;
 
     invoke-virtual {v2}, Lcom/android/server/wm/WindowContainer$RemoteToken;->toWindowContainerToken()Landroid/window/WindowContainerToken;
 
@@ -987,21 +1171,21 @@
 
     goto :goto_8
 
-    :cond_9
+    :cond_8
     const/4 v2, 0x0
 
     :goto_8
-    invoke-static {v13}, Lcom/android/server/wm/Transition;->getLeashSurface(Lcom/android/server/wm/WindowContainer;)Landroid/view/SurfaceControl;
+    invoke-static {v15}, Lcom/android/server/wm/Transition;->getLeashSurface(Lcom/android/server/wm/WindowContainer;)Landroid/view/SurfaceControl;
 
     move-result-object v3
 
     invoke-direct {v0, v2, v3}, Landroid/window/TransitionInfo$Change;-><init>(Landroid/window/WindowContainerToken;Landroid/view/SurfaceControl;)V
 
-    iget-object v2, v15, Lcom/android/server/wm/Transition$ChangeInfo;->mParent:Lcom/android/server/wm/WindowContainer;
+    iget-object v2, v8, Lcom/android/server/wm/Transition$ChangeInfo;->mParent:Lcom/android/server/wm/WindowContainer;
 
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_9
 
-    iget-object v2, v15, Lcom/android/server/wm/Transition$ChangeInfo;->mParent:Lcom/android/server/wm/WindowContainer;
+    iget-object v2, v8, Lcom/android/server/wm/Transition$ChangeInfo;->mParent:Lcom/android/server/wm/WindowContainer;
 
     iget-object v2, v2, Lcom/android/server/wm/WindowContainer;->mRemoteToken:Lcom/android/server/wm/WindowContainer$RemoteToken;
 
@@ -1011,30 +1195,30 @@
 
     invoke-virtual {v0, v2}, Landroid/window/TransitionInfo$Change;->setParent(Landroid/window/WindowContainerToken;)V
 
-    :cond_a
-    invoke-virtual {v15, v13}, Lcom/android/server/wm/Transition$ChangeInfo;->getTransitMode(Lcom/android/server/wm/WindowContainer;)I
+    :cond_9
+    invoke-virtual {v8, v15}, Lcom/android/server/wm/Transition$ChangeInfo;->getTransitMode(Lcom/android/server/wm/WindowContainer;)I
 
     move-result v2
 
     invoke-virtual {v0, v2}, Landroid/window/TransitionInfo$Change;->setMode(I)V
 
-    iget-object v2, v15, Lcom/android/server/wm/Transition$ChangeInfo;->mAbsoluteBounds:Landroid/graphics/Rect;
+    iget-object v2, v8, Lcom/android/server/wm/Transition$ChangeInfo;->mAbsoluteBounds:Landroid/graphics/Rect;
 
     invoke-virtual {v0, v2}, Landroid/window/TransitionInfo$Change;->setStartAbsBounds(Landroid/graphics/Rect;)V
 
-    invoke-virtual {v13}, Lcom/android/server/wm/WindowContainer;->getBounds()Landroid/graphics/Rect;
+    invoke-virtual {v15}, Lcom/android/server/wm/WindowContainer;->getBounds()Landroid/graphics/Rect;
 
     move-result-object v2
 
     invoke-virtual {v0, v2}, Landroid/window/TransitionInfo$Change;->setEndAbsBounds(Landroid/graphics/Rect;)V
 
-    invoke-virtual {v13}, Lcom/android/server/wm/WindowContainer;->getBounds()Landroid/graphics/Rect;
+    invoke-virtual {v15}, Lcom/android/server/wm/WindowContainer;->getBounds()Landroid/graphics/Rect;
 
     move-result-object v2
 
     iget v2, v2, Landroid/graphics/Rect;->left:I
 
-    invoke-virtual {v13}, Lcom/android/server/wm/WindowContainer;->getParent()Lcom/android/server/wm/WindowContainer;
+    invoke-virtual {v15}, Lcom/android/server/wm/WindowContainer;->getParent()Lcom/android/server/wm/WindowContainer;
 
     move-result-object v3
 
@@ -1046,13 +1230,13 @@
 
     sub-int/2addr v2, v3
 
-    invoke-virtual {v13}, Lcom/android/server/wm/WindowContainer;->getBounds()Landroid/graphics/Rect;
+    invoke-virtual {v15}, Lcom/android/server/wm/WindowContainer;->getBounds()Landroid/graphics/Rect;
 
     move-result-object v3
 
     iget v3, v3, Landroid/graphics/Rect;->top:I
 
-    invoke-virtual {v13}, Lcom/android/server/wm/WindowContainer;->getParent()Lcom/android/server/wm/WindowContainer;
+    invoke-virtual {v15}, Lcom/android/server/wm/WindowContainer;->getParent()Lcom/android/server/wm/WindowContainer;
 
     move-result-object v16
 
@@ -1068,15 +1252,15 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/window/TransitionInfo$Change;->setEndRelOffset(II)V
 
-    invoke-virtual {v15, v13}, Lcom/android/server/wm/Transition$ChangeInfo;->getChangeFlags(Lcom/android/server/wm/WindowContainer;)I
+    invoke-virtual {v8, v15}, Lcom/android/server/wm/Transition$ChangeInfo;->getChangeFlags(Lcom/android/server/wm/WindowContainer;)I
 
     move-result v2
 
     invoke-virtual {v0, v2}, Landroid/window/TransitionInfo$Change;->setFlags(I)V
 
-    iget v2, v15, Lcom/android/server/wm/Transition$ChangeInfo;->mRotation:I
+    iget v2, v8, Lcom/android/server/wm/Transition$ChangeInfo;->mRotation:I
 
-    invoke-virtual {v13}, Lcom/android/server/wm/WindowContainer;->getWindowConfiguration()Landroid/app/WindowConfiguration;
+    invoke-virtual {v15}, Lcom/android/server/wm/WindowContainer;->getWindowConfiguration()Landroid/app/WindowConfiguration;
 
     move-result-object v3
 
@@ -1086,7 +1270,7 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/window/TransitionInfo$Change;->setRotation(II)V
 
-    invoke-virtual {v13}, Lcom/android/server/wm/WindowContainer;->asTask()Lcom/android/server/wm/Task;
+    invoke-virtual {v15}, Lcom/android/server/wm/WindowContainer;->asTask()Lcom/android/server/wm/Task;
 
     move-result-object v2
 
@@ -1100,10 +1284,47 @@
 
     invoke-virtual {v0, v3}, Landroid/window/TransitionInfo$Change;->setTaskInfo(Landroid/app/ActivityManager$RunningTaskInfo;)V
 
+    invoke-static {v2}, Lcom/android/server/wm/Transition;->getTaskRotationAnimation(Lcom/android/server/wm/Task;)I
+
+    move-result v4
+
+    invoke-virtual {v0, v4}, Landroid/window/TransitionInfo$Change;->setRotationAnimation(I)V
+
+    invoke-virtual {v2}, Lcom/android/server/wm/Task;->getTopMostActivity()Lcom/android/server/wm/ActivityRecord;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_a
+
+    invoke-virtual {v4}, Lcom/android/server/wm/ActivityRecord;->checkEnterPictureInPictureAppOpsState()Z
+
+    move-result v16
+
+    if-eqz v16, :cond_a
+
+    move-object/from16 v16, v2
+
+    const/4 v2, 0x1
+
+    goto :goto_9
+
+    :cond_a
+    move-object/from16 v16, v2
+
+    const/4 v2, 0x0
+
+    :goto_9
+    invoke-virtual {v0, v2}, Landroid/window/TransitionInfo$Change;->setAllowEnterPip(Z)V
+
+    goto :goto_a
+
     :cond_b
+    move-object/from16 v16, v2
+
+    :goto_a
     invoke-virtual {v1, v0}, Landroid/window/TransitionInfo;->addChange(Landroid/window/TransitionInfo$Change;)V
 
-    add-int/lit8 v12, v12, 0x1
+    add-int/lit8 v14, v14, 0x1
 
     move/from16 v2, p0
 
@@ -1112,6 +1333,10 @@
     move-object/from16 v0, p2
 
     move-object/from16 v4, v17
+
+    const/4 v7, 0x1
+
+    const/4 v8, 0x0
 
     goto/16 :goto_7
 
@@ -1583,8 +1808,485 @@
     return-object v0
 .end method
 
+.method private static getTaskRotationAnimation(Lcom/android/server/wm/Task;)I
+    .locals 5
+
+    invoke-virtual {p0}, Lcom/android/server/wm/Task;->getTopVisibleActivity()Lcom/android/server/wm/ActivityRecord;
+
+    move-result-object v0
+
+    const/4 v1, -0x1
+
+    if-nez v0, :cond_0
+
+    return v1
+
+    :cond_0
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v2}, Lcom/android/server/wm/ActivityRecord;->findMainWindow(Z)Lcom/android/server/wm/WindowState;
+
+    move-result-object v2
+
+    if-nez v2, :cond_1
+
+    return v1
+
+    :cond_1
+    invoke-virtual {v2}, Lcom/android/server/wm/WindowState;->getRotationAnimationHint()I
+
+    move-result v3
+
+    if-ltz v3, :cond_2
+
+    return v3
+
+    :cond_2
+    invoke-virtual {v2}, Lcom/android/server/wm/WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v4
+
+    iget v3, v4, Landroid/view/WindowManager$LayoutParams;->rotationAnimation:I
+
+    const/4 v4, 0x3
+
+    if-eq v3, v4, :cond_3
+
+    return v3
+
+    :cond_3
+    iget-object v4, p0, Lcom/android/server/wm/Task;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
+
+    invoke-virtual {v4}, Lcom/android/server/wm/DisplayContent;->getDisplayPolicy()Lcom/android/server/wm/DisplayPolicy;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/server/wm/DisplayPolicy;->getTopFullscreenOpaqueWindow()Lcom/android/server/wm/WindowState;
+
+    move-result-object v4
+
+    if-ne v2, v4, :cond_5
+
+    invoke-virtual {v0}, Lcom/android/server/wm/ActivityRecord;->matchParentBounds()Z
+
+    move-result v4
+
+    if-nez v4, :cond_4
+
+    goto :goto_0
+
+    :cond_4
+    invoke-virtual {v2}, Lcom/android/server/wm/WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object v1
+
+    iget v1, v1, Landroid/view/WindowManager$LayoutParams;->rotationAnimation:I
+
+    return v1
+
+    :cond_5
+    :goto_0
+    return v1
+.end method
+
+.method private handleLegacyRecentsStartBehavior(ILandroid/window/TransitionInfo;)V
+    .locals 12
+
+    iget v0, p0, Lcom/android/server/wm/Transition;->mFlags:I
+
+    and-int/lit16 v0, v0, 0x80
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/wm/Transition;->mController:Lcom/android/server/wm/TransitionController;
+
+    iget-object v0, v0, Lcom/android/server/wm/TransitionController;->mAtm:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    iget-object v0, v0, Lcom/android/server/wm/ActivityTaskManagerService;->mRootWindowContainer:Lcom/android/server/wm/RootWindowContainer;
+
+    invoke-virtual {v0, p1}, Lcom/android/server/wm/RootWindowContainer;->getDisplayContent(I)Lcom/android/server/wm/DisplayContent;
+
+    move-result-object v0
+
+    if-nez v0, :cond_1
+
+    return-void
+
+    :cond_1
+    iput p1, p0, Lcom/android/server/wm/Transition;->mRecentsDisplayId:I
+
+    nop
+
+    invoke-virtual {v0}, Lcom/android/server/wm/DisplayContent;->getInputMonitor()Lcom/android/server/wm/InputMonitor;
+
+    move-result-object v1
+
+    const-string v2, "recents_animation_input_consumer"
+
+    invoke-virtual {v1, v2}, Lcom/android/server/wm/InputMonitor;->getInputConsumer(Ljava/lang/String;)Lcom/android/server/wm/InputConsumerImpl;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x2
+
+    const/4 v4, 0x1
+
+    if-eqz v1, :cond_9
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
+    const/4 v7, 0x0
+
+    :goto_0
+    invoke-virtual {p2}, Landroid/window/TransitionInfo;->getChanges()Ljava/util/List;
+
+    move-result-object v8
+
+    invoke-interface {v8}, Ljava/util/List;->size()I
+
+    move-result v8
+
+    if-ge v7, v8, :cond_8
+
+    invoke-virtual {p2}, Landroid/window/TransitionInfo;->getChanges()Ljava/util/List;
+
+    move-result-object v8
+
+    invoke-interface {v8, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Landroid/window/TransitionInfo$Change;
+
+    invoke-virtual {v8}, Landroid/window/TransitionInfo$Change;->getTaskInfo()Landroid/app/ActivityManager$RunningTaskInfo;
+
+    move-result-object v9
+
+    if-nez v9, :cond_2
+
+    goto :goto_3
+
+    :cond_2
+    nop
+
+    invoke-virtual {p2}, Landroid/window/TransitionInfo;->getChanges()Ljava/util/List;
+
+    move-result-object v9
+
+    invoke-interface {v9, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v9
+
+    check-cast v9, Landroid/window/TransitionInfo$Change;
+
+    invoke-virtual {v9}, Landroid/window/TransitionInfo$Change;->getTaskInfo()Landroid/app/ActivityManager$RunningTaskInfo;
+
+    move-result-object v9
+
+    iget-object v9, v9, Landroid/app/ActivityManager$RunningTaskInfo;->token:Landroid/window/WindowContainerToken;
+
+    invoke-static {v9}, Lcom/android/server/wm/Task;->fromWindowContainerToken(Landroid/window/WindowContainerToken;)Lcom/android/server/wm/Task;
+
+    move-result-object v9
+
+    if-nez v9, :cond_3
+
+    goto :goto_3
+
+    :cond_3
+    invoke-virtual {v8}, Landroid/window/TransitionInfo$Change;->getTaskInfo()Landroid/app/ActivityManager$RunningTaskInfo;
+
+    move-result-object v10
+
+    iget v10, v10, Landroid/app/ActivityManager$RunningTaskInfo;->topActivityType:I
+
+    if-eq v10, v3, :cond_5
+
+    const/4 v11, 0x3
+
+    if-ne v10, v11, :cond_4
+
+    goto :goto_1
+
+    :cond_4
+    move v11, v2
+
+    goto :goto_2
+
+    :cond_5
+    :goto_1
+    move v11, v4
+
+    :goto_2
+    if-eqz v11, :cond_6
+
+    if-nez v5, :cond_6
+
+    invoke-virtual {v9}, Lcom/android/server/wm/Task;->getTopVisibleActivity()Lcom/android/server/wm/ActivityRecord;
+
+    move-result-object v5
+
+    goto :goto_3
+
+    :cond_6
+    if-nez v11, :cond_7
+
+    if-nez v6, :cond_7
+
+    invoke-virtual {v9}, Lcom/android/server/wm/Task;->getTopNonFinishingActivity()Lcom/android/server/wm/ActivityRecord;
+
+    move-result-object v6
+
+    :cond_7
+    :goto_3
+    add-int/lit8 v7, v7, 0x1
+
+    goto :goto_0
+
+    :cond_8
+    if-eqz v5, :cond_9
+
+    if-eqz v6, :cond_9
+
+    iget-object v7, v1, Lcom/android/server/wm/InputConsumerImpl;->mWindowHandle:Landroid/view/InputWindowHandle;
+
+    iget-object v7, v7, Landroid/view/InputWindowHandle;->touchableRegion:Landroid/graphics/Region;
+
+    invoke-virtual {v6}, Lcom/android/server/wm/ActivityRecord;->getBounds()Landroid/graphics/Rect;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Landroid/graphics/Region;->set(Landroid/graphics/Rect;)Z
+
+    invoke-virtual {v0}, Lcom/android/server/wm/DisplayContent;->getInputMonitor()Lcom/android/server/wm/InputMonitor;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v5, v6}, Lcom/android/server/wm/InputMonitor;->setActiveRecents(Lcom/android/server/wm/ActivityRecord;Lcom/android/server/wm/ActivityRecord;)V
+
+    :cond_9
+    invoke-virtual {v0}, Lcom/android/server/wm/DisplayContent;->getDisplayPolicy()Lcom/android/server/wm/DisplayPolicy;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/server/wm/DisplayPolicy;->shouldAttachNavBarToAppDuringTransition()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_14
+
+    invoke-virtual {v0}, Lcom/android/server/wm/DisplayContent;->getFadeRotationAnimationController()Lcom/android/server/wm/FadeRotationAnimationController;
+
+    move-result-object v5
+
+    if-eqz v5, :cond_a
+
+    goto/16 :goto_a
+
+    :cond_a
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
+    :goto_4
+    invoke-virtual {p2}, Landroid/window/TransitionInfo;->getChanges()Ljava/util/List;
+
+    move-result-object v7
+
+    invoke-interface {v7}, Ljava/util/List;->size()I
+
+    move-result v7
+
+    if-ge v6, v7, :cond_d
+
+    invoke-virtual {p2}, Landroid/window/TransitionInfo;->getChanges()Ljava/util/List;
+
+    move-result-object v7
+
+    invoke-interface {v7, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Landroid/window/TransitionInfo$Change;
+
+    invoke-virtual {v7}, Landroid/window/TransitionInfo$Change;->getTaskInfo()Landroid/app/ActivityManager$RunningTaskInfo;
+
+    move-result-object v8
+
+    if-eqz v8, :cond_c
+
+    invoke-virtual {v7}, Landroid/window/TransitionInfo$Change;->getTaskInfo()Landroid/app/ActivityManager$RunningTaskInfo;
+
+    move-result-object v8
+
+    iget v8, v8, Landroid/app/ActivityManager$RunningTaskInfo;->displayId:I
+
+    if-ne v8, p1, :cond_c
+
+    invoke-virtual {v7}, Landroid/window/TransitionInfo$Change;->getTaskInfo()Landroid/app/ActivityManager$RunningTaskInfo;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Landroid/app/ActivityManager$RunningTaskInfo;->getActivityType()I
+
+    move-result v8
+
+    if-ne v8, v4, :cond_c
+
+    invoke-virtual {v7}, Landroid/window/TransitionInfo$Change;->getMode()I
+
+    move-result v8
+
+    if-eq v8, v3, :cond_b
+
+    invoke-virtual {v7}, Landroid/window/TransitionInfo$Change;->getMode()I
+
+    move-result v8
+
+    const/4 v9, 0x4
+
+    if-eq v8, v9, :cond_b
+
+    goto :goto_5
+
+    :cond_b
+    invoke-virtual {v7}, Landroid/window/TransitionInfo$Change;->getContainer()Landroid/window/WindowContainerToken;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/window/WindowContainerToken;->asBinder()Landroid/os/IBinder;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/android/server/wm/WindowContainer;->fromBinder(Landroid/os/IBinder;)Lcom/android/server/wm/WindowContainer;
+
+    move-result-object v5
+
+    goto :goto_6
+
+    :cond_c
+    :goto_5
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_4
+
+    :cond_d
+    :goto_6
+    if-eqz v5, :cond_13
+
+    invoke-virtual {v5}, Lcom/android/server/wm/WindowContainer;->inMultiWindowMode()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_e
+
+    goto :goto_9
+
+    :cond_e
+    invoke-virtual {v0}, Lcom/android/server/wm/DisplayContent;->getDisplayPolicy()Lcom/android/server/wm/DisplayPolicy;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/server/wm/DisplayPolicy;->getNavigationBar()Lcom/android/server/wm/WindowState;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_12
+
+    iget-object v6, v3, Lcom/android/server/wm/WindowState;->mToken:Lcom/android/server/wm/WindowToken;
+
+    if-nez v6, :cond_f
+
+    goto :goto_8
+
+    :cond_f
+    iput-boolean v4, p0, Lcom/android/server/wm/Transition;->mNavBarAttachedToApp:Z
+
+    iget-object v6, v3, Lcom/android/server/wm/WindowState;->mToken:Lcom/android/server/wm/WindowToken;
+
+    invoke-virtual {v6}, Lcom/android/server/wm/WindowToken;->cancelAnimation()V
+
+    iget-object v6, v3, Lcom/android/server/wm/WindowState;->mToken:Lcom/android/server/wm/WindowToken;
+
+    invoke-virtual {v6}, Lcom/android/server/wm/WindowToken;->getPendingTransaction()Landroid/view/SurfaceControl$Transaction;
+
+    move-result-object v6
+
+    iget-object v7, v3, Lcom/android/server/wm/WindowState;->mToken:Lcom/android/server/wm/WindowToken;
+
+    invoke-virtual {v7}, Lcom/android/server/wm/WindowToken;->getSurfaceControl()Landroid/view/SurfaceControl;
+
+    move-result-object v7
+
+    invoke-virtual {v5}, Lcom/android/server/wm/WindowContainer;->getSurfaceControl()Landroid/view/SurfaceControl;
+
+    move-result-object v8
+
+    invoke-virtual {v6, v7, v8}, Landroid/view/SurfaceControl$Transaction;->reparent(Landroid/view/SurfaceControl;Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
+
+    invoke-virtual {v6, v7}, Landroid/view/SurfaceControl$Transaction;->show(Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
+
+    invoke-virtual {v0}, Lcom/android/server/wm/DisplayContent;->getImeContainer()Lcom/android/server/wm/DisplayArea$Tokens;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Lcom/android/server/wm/WindowContainer;->isVisible()Z
+
+    move-result v9
+
+    if-eqz v9, :cond_10
+
+    invoke-virtual {v8}, Lcom/android/server/wm/WindowContainer;->getSurfaceControl()Landroid/view/SurfaceControl;
+
+    move-result-object v9
+
+    invoke-virtual {v6, v7, v9, v4}, Landroid/view/SurfaceControl$Transaction;->setRelativeLayer(Landroid/view/SurfaceControl;Landroid/view/SurfaceControl;I)Landroid/view/SurfaceControl$Transaction;
+
+    goto :goto_7
+
+    :cond_10
+    const v4, 0x7fffffff
+
+    invoke-virtual {v6, v7, v4}, Landroid/view/SurfaceControl$Transaction;->setLayer(Landroid/view/SurfaceControl;I)Landroid/view/SurfaceControl$Transaction;
+
+    :goto_7
+    iget-object v4, p0, Lcom/android/server/wm/Transition;->mController:Lcom/android/server/wm/TransitionController;
+
+    iget-object v4, v4, Lcom/android/server/wm/TransitionController;->mStatusBar:Lcom/android/server/statusbar/StatusBarManagerInternal;
+
+    if-eqz v4, :cond_11
+
+    iget-object v4, p0, Lcom/android/server/wm/Transition;->mController:Lcom/android/server/wm/TransitionController;
+
+    iget-object v4, v4, Lcom/android/server/wm/TransitionController;->mStatusBar:Lcom/android/server/statusbar/StatusBarManagerInternal;
+
+    invoke-interface {v4, p1, v2}, Lcom/android/server/statusbar/StatusBarManagerInternal;->setNavigationBarLumaSamplingEnabled(IZ)V
+
+    :cond_11
+    return-void
+
+    :cond_12
+    :goto_8
+    return-void
+
+    :cond_13
+    :goto_9
+    return-void
+
+    :cond_14
+    :goto_a
+    return-void
+.end method
+
 .method private handleNonAppWindowsInTransition(III)V
-    .locals 6
+    .locals 7
 
     iget-object v0, p0, Lcom/android/server/wm/Transition;->mController:Lcom/android/server/wm/TransitionController;
 
@@ -1603,27 +2305,32 @@
     :cond_0
     const/4 v1, 0x7
 
-    if-ne p2, v1, :cond_6
+    const/4 v2, 0x1
 
+    if-eq p2, v1, :cond_1
+
+    and-int/lit16 v1, p3, 0x100
+
+    if-eqz v1, :cond_7
+
+    :cond_1
     sget-boolean v1, Lcom/android/server/wm/WindowManagerService;->sEnableRemoteKeyguardGoingAwayAnimation:Z
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_7
 
     and-int/lit8 v1, p3, 0x4
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    const/4 v3, 0x1
-
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
     and-int/lit8 v1, p3, 0x2
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3
 
     and-int/lit8 v1, p3, 0x8
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3
 
     iget-object v1, p0, Lcom/android/server/wm/Transition;->mController:Lcom/android/server/wm/TransitionController;
 
@@ -1635,21 +2342,21 @@
 
     and-int/lit8 v4, p3, 0x1
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2
 
-    move v4, v3
+    move v4, v2
 
     goto :goto_0
 
-    :cond_1
-    move v4, v2
+    :cond_2
+    move v4, v3
 
     :goto_0
     invoke-interface {v1, v4}, Lcom/android/server/policy/WindowManagerPolicy;->createKeyguardWallpaperExit(Z)Landroid/view/animation/Animation;
 
     move-result-object v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
     iget-object v4, p0, Lcom/android/server/wm/Transition;->mController:Lcom/android/server/wm/TransitionController;
 
@@ -1667,39 +2374,43 @@
 
     invoke-virtual {v4, v1}, Lcom/android/server/wm/WallpaperController;->startWallpaperAnimation(Landroid/view/animation/Animation;)V
 
-    :cond_2
+    :cond_3
     and-int/lit8 v1, p3, 0x4
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4
 
-    move v1, v3
+    move v1, v2
 
     goto :goto_1
 
-    :cond_3
-    move v1, v2
+    :cond_4
+    move v1, v3
 
     :goto_1
     and-int/lit8 v4, p3, 0x1
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_5
 
-    move v4, v3
+    move v4, v2
 
     goto :goto_2
 
-    :cond_4
-    move v4, v2
+    :cond_5
+    move v4, v3
 
     :goto_2
     and-int/lit8 v5, p3, 0x8
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_6
 
-    move v2, v3
+    move v3, v2
 
-    :cond_5
-    invoke-virtual {v0, v1, v4, v2}, Lcom/android/server/wm/DisplayContent;->startKeyguardExitOnNonAppWindows(ZZZ)V
+    :cond_6
+    invoke-virtual {v0, v1, v4, v3}, Lcom/android/server/wm/DisplayContent;->startKeyguardExitOnNonAppWindows(ZZZ)V
+
+    sget-boolean v1, Lcom/android/server/wm/WindowManagerService;->sEnableRemoteKeyguardGoingAwayAnimation:Z
+
+    if-nez v1, :cond_7
 
     iget-object v1, p0, Lcom/android/server/wm/Transition;->mController:Lcom/android/server/wm/TransitionController;
 
@@ -1711,16 +2422,16 @@
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v2
+    move-result-wide v3
 
-    const-wide/16 v4, 0x0
+    const-wide/16 v5, 0x0
 
-    invoke-interface {v1, v2, v3, v4, v5}, Lcom/android/server/policy/WindowManagerPolicy;->startKeyguardExitAnimation(JJ)V
+    invoke-interface {v1, v3, v4, v5, v6}, Lcom/android/server/policy/WindowManagerPolicy;->startKeyguardExitAnimation(JJ)V
 
-    :cond_6
+    :cond_7
     and-int/lit8 v1, p3, 0x40
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_8
 
     iget-object v1, p0, Lcom/android/server/wm/Transition;->mController:Lcom/android/server/wm/TransitionController;
 
@@ -1730,10 +2441,18 @@
 
     iget-object v1, v1, Lcom/android/server/wm/WindowManagerService;->mPolicy:Lcom/android/server/policy/WindowManagerPolicy;
 
-    invoke-interface {v1}, Lcom/android/server/policy/WindowManagerPolicy;->applyKeyguardOcclusionChange()I
+    invoke-interface {v1, v2}, Lcom/android/server/policy/WindowManagerPolicy;->applyKeyguardOcclusionChange(Z)I
 
-    :cond_7
+    :cond_8
     return-void
+.end method
+
+.method private static isReadyGroup(Lcom/android/server/wm/WindowContainer;)Z
+    .locals 1
+
+    instance-of v0, p0, Lcom/android/server/wm/DisplayContent;
+
+    return v0
 .end method
 
 .method private static isWallpaper(Lcom/android/server/wm/WindowContainer;)Z
@@ -1754,6 +2473,75 @@
 
     :goto_0
     return v0
+.end method
+
+.method static synthetic lambda$sendRemoteCallback$0(Landroid/os/IRemoteCallback;)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    :try_start_0
+    invoke-interface {p0, v0}, Landroid/os/IRemoteCallback;->sendResult(Landroid/os/Bundle;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    goto :goto_1
+
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
+
+    :goto_1
+    return-void
+.end method
+
+.method private static occludesKeyguard(Lcom/android/server/wm/WindowContainer;)Z
+    .locals 5
+
+    invoke-virtual {p0}, Lcom/android/server/wm/WindowContainer;->asActivityRecord()Lcom/android/server/wm/ActivityRecord;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/server/wm/ActivityRecord;->canShowWhenLocked()Z
+
+    move-result v1
+
+    return v1
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/server/wm/WindowContainer;->asTask()Lcom/android/server/wm/Task;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    if-eqz v1, :cond_2
+
+    sget-object v3, Lcom/android/server/wm/Transition$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/server/wm/Transition$$ExternalSyntheticLambda1;
+
+    invoke-virtual {v1, v3}, Lcom/android/server/wm/Task;->getActivity(Ljava/util/function/Predicate;)Lcom/android/server/wm/ActivityRecord;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_1
+
+    invoke-virtual {v3}, Lcom/android/server/wm/ActivityRecord;->canShowWhenLocked()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    const/4 v2, 0x1
+
+    :cond_1
+    return v2
+
+    :cond_2
+    return v2
 .end method
 
 .method private static reportIfNotTop(Lcom/android/server/wm/WindowContainer;)Z
@@ -1784,6 +2572,118 @@
 
     :goto_1
     return v0
+.end method
+
+.method private reportStartReasonsToLogger()V
+    .locals 5
+
+    new-instance v0, Landroid/util/ArrayMap;
+
+    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
+
+    iget-object v1, p0, Lcom/android/server/wm/Transition;->mParticipants:Landroid/util/ArraySet;
+
+    invoke-virtual {v1}, Landroid/util/ArraySet;->size()I
+
+    move-result v1
+
+    const/4 v2, 0x1
+
+    sub-int/2addr v1, v2
+
+    :goto_0
+    if-ltz v1, :cond_3
+
+    iget-object v3, p0, Lcom/android/server/wm/Transition;->mParticipants:Landroid/util/ArraySet;
+
+    invoke-virtual {v3, v1}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/server/wm/WindowContainer;
+
+    invoke-virtual {v3}, Lcom/android/server/wm/WindowContainer;->asActivityRecord()Lcom/android/server/wm/ActivityRecord;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_2
+
+    iget-boolean v4, v3, Lcom/android/server/wm/ActivityRecord;->mVisibleRequested:Z
+
+    if-nez v4, :cond_0
+
+    goto :goto_2
+
+    :cond_0
+    iget-object v4, v3, Lcom/android/server/wm/ActivityRecord;->mStartingData:Lcom/android/server/wm/StartingData;
+
+    instance-of v4, v4, Lcom/android/server/wm/SplashScreenStartingData;
+
+    if-eqz v4, :cond_1
+
+    iget-boolean v4, v3, Lcom/android/server/wm/ActivityRecord;->mLastAllReadyAtSync:Z
+
+    if-nez v4, :cond_1
+
+    move v4, v2
+
+    goto :goto_1
+
+    :cond_1
+    const/4 v4, 0x2
+
+    :goto_1
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-virtual {v0, v3, v4}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_2
+    :goto_2
+    add-int/lit8 v1, v1, -0x1
+
+    goto :goto_0
+
+    :cond_3
+    iget-object v1, p0, Lcom/android/server/wm/Transition;->mController:Lcom/android/server/wm/TransitionController;
+
+    iget-object v1, v1, Lcom/android/server/wm/TransitionController;->mAtm:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    iget-object v1, v1, Lcom/android/server/wm/ActivityTaskManagerService;->mTaskSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
+
+    invoke-virtual {v1}, Lcom/android/server/wm/ActivityTaskSupervisor;->getActivityMetricsLogger()Lcom/android/server/wm/ActivityMetricsLogger;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Lcom/android/server/wm/ActivityMetricsLogger;->notifyTransitionStarting(Landroid/util/ArrayMap;)V
+
+    return-void
+.end method
+
+.method private sendRemoteCallback(Landroid/os/IRemoteCallback;)V
+    .locals 2
+
+    if-nez p1, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/wm/Transition;->mController:Lcom/android/server/wm/TransitionController;
+
+    iget-object v0, v0, Lcom/android/server/wm/TransitionController;->mAtm:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    iget-object v0, v0, Lcom/android/server/wm/ActivityTaskManagerService;->mH:Lcom/android/server/wm/ActivityTaskManagerService$H;
+
+    sget-object v1, Lcom/android/server/wm/Transition$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/wm/Transition$$ExternalSyntheticLambda0;
+
+    invoke-static {v1, p1}, Lcom/android/internal/util/function/pooled/PooledLambda;->obtainMessage(Ljava/util/function/Consumer;Ljava/lang/Object;)Landroid/os/Message;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/android/server/wm/ActivityTaskManagerService$H;->sendMessage(Landroid/os/Message;)Z
+
+    return-void
 .end method
 
 .method private static tryPromote(Landroid/util/ArraySet;Landroid/util/ArraySet;Landroid/util/ArrayMap;)Z
@@ -2085,7 +2985,7 @@
 
 # virtual methods
 .method abort()V
-    .locals 2
+    .locals 9
 
     iget v0, p0, Lcom/android/server/wm/Transition;->mState:I
 
@@ -2096,7 +2996,40 @@
     return-void
 
     :cond_0
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2
+
+    sget-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_WINDOW_TRANSITIONS_enabled:Z
+
+    if-eqz v0, :cond_1
+
+    iget v0, p0, Lcom/android/server/wm/Transition;->mSyncId:I
+
+    int-to-long v2, v0
+
+    sget-object v0, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_WINDOW_TRANSITIONS:Lcom/android/internal/protolog/ProtoLogGroup;
+
+    const v4, -0x337704d6    # -7.1817552E7f
+
+    const/4 v5, 0x1
+
+    new-array v6, v5, [Ljava/lang/Object;
+
+    const/4 v7, 0x0
+
+    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v8
+
+    aput-object v8, v6, v7
+
+    const-string v7, "Aborting Transition: %d"
+
+    invoke-static {v0, v4, v5, v7, v6}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/server/wm/Transition;->mController:Lcom/android/server/wm/TransitionController;
+
+    invoke-virtual {v0}, Lcom/android/server/wm/TransitionController;->dispatchLegacyAppTransitionCancelled()V
 
     iput v1, p0, Lcom/android/server/wm/Transition;->mState:I
 
@@ -2108,7 +3041,7 @@
 
     return-void
 
-    :cond_1
+    :cond_2
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "Too late to abort."
@@ -2116,6 +3049,30 @@
     invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
+.end method
+
+.method addFlag(I)V
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/wm/Transition;->mFlags:I
+
+    or-int/2addr v0, p1
+
+    iput v0, p0, Lcom/android/server/wm/Transition;->mFlags:I
+
+    return-void
+.end method
+
+.method allReady()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/wm/Transition;->mReadyTracker:Lcom/android/server/wm/Transition$ReadyTracker;
+
+    invoke-virtual {v0}, Lcom/android/server/wm/Transition$ReadyTracker;->allReady()Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method cleanUpOnFailure()V
@@ -2144,13 +3101,15 @@
     invoke-virtual {v0}, Landroid/view/SurfaceControl$Transaction;->apply()V
 
     :cond_2
-    invoke-virtual {p0}, Lcom/android/server/wm/Transition;->finishTransition()V
+    iget-object v0, p0, Lcom/android/server/wm/Transition;->mController:Lcom/android/server/wm/TransitionController;
+
+    invoke-virtual {v0, p0}, Lcom/android/server/wm/TransitionController;->finishTransition(Landroid/os/IBinder;)V
 
     return-void
 .end method
 
 .method collect(Lcom/android/server/wm/WindowContainer;)V
-    .locals 8
+    .locals 11
 
     iget v0, p0, Lcom/android/server/wm/Transition;->mSyncId:I
 
@@ -2161,39 +3120,39 @@
     :cond_0
     sget-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_WINDOW_TRANSITIONS_enabled:Z
 
+    const/4 v1, 0x0
+
+    const/4 v2, 0x2
+
+    const/4 v3, 0x1
+
     if-eqz v0, :cond_1
 
     iget v0, p0, Lcom/android/server/wm/Transition;->mSyncId:I
 
-    int-to-long v0, v0
+    int-to-long v4, v0
 
     invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    sget-object v3, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_WINDOW_TRANSITIONS:Lcom/android/internal/protolog/ProtoLogGroup;
+    sget-object v6, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_WINDOW_TRANSITIONS:Lcom/android/internal/protolog/ProtoLogGroup;
 
-    const v4, -0x5d73beb3
+    const v7, -0x5d73beb3
 
-    const/4 v5, 0x2
+    new-array v8, v2, [Ljava/lang/Object;
 
-    new-array v5, v5, [Ljava/lang/Object;
+    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    const/4 v6, 0x0
+    move-result-object v9
 
-    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    aput-object v9, v8, v1
 
-    move-result-object v7
+    aput-object v0, v8, v3
 
-    aput-object v7, v5, v6
+    const-string v9, "Collecting in transition %d: %s"
 
-    const/4 v6, 0x1
-
-    aput-object v2, v5, v6
-
-    const-string v7, "Collecting in transition %d: %s"
-
-    invoke-static {v3, v4, v6, v7, v5}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v6, v7, v3, v9, v8}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
     :cond_1
     invoke-virtual {p1}, Lcom/android/server/wm/WindowContainer;->getParent()Lcom/android/server/wm/WindowContainer;
@@ -2201,42 +3160,83 @@
     move-result-object v0
 
     :goto_0
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
-    iget-object v1, p0, Lcom/android/server/wm/Transition;->mChanges:Landroid/util/ArrayMap;
+    iget-object v4, p0, Lcom/android/server/wm/Transition;->mChanges:Landroid/util/ArrayMap;
 
-    invoke-virtual {v1, v0}, Landroid/util/ArrayMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v0}, Landroid/util/ArrayMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v4
 
-    if-nez v1, :cond_2
+    if-nez v4, :cond_3
 
-    iget-object v1, p0, Lcom/android/server/wm/Transition;->mChanges:Landroid/util/ArrayMap;
+    iget-object v4, p0, Lcom/android/server/wm/Transition;->mChanges:Landroid/util/ArrayMap;
 
-    new-instance v2, Lcom/android/server/wm/Transition$ChangeInfo;
+    new-instance v5, Lcom/android/server/wm/Transition$ChangeInfo;
 
-    invoke-direct {v2, v0}, Lcom/android/server/wm/Transition$ChangeInfo;-><init>(Lcom/android/server/wm/WindowContainer;)V
+    invoke-direct {v5, v0}, Lcom/android/server/wm/Transition$ChangeInfo;-><init>(Lcom/android/server/wm/WindowContainer;)V
 
-    invoke-virtual {v1, v0, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v4, v0, v5}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    invoke-static {v0}, Lcom/android/server/wm/Transition;->isReadyGroup(Lcom/android/server/wm/WindowContainer;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    iget-object v4, p0, Lcom/android/server/wm/Transition;->mReadyTracker:Lcom/android/server/wm/Transition$ReadyTracker;
+
+    invoke-virtual {v4, v0}, Lcom/android/server/wm/Transition$ReadyTracker;->addGroup(Lcom/android/server/wm/WindowContainer;)V
+
+    sget-boolean v4, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_WINDOW_TRANSITIONS_enabled:Z
+
+    if-eqz v4, :cond_2
+
+    iget v4, p0, Lcom/android/server/wm/Transition;->mSyncId:I
+
+    int-to-long v4, v4
+
+    invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v6
+
+    sget-object v7, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_WINDOW_TRANSITIONS:Lcom/android/internal/protolog/ProtoLogGroup;
+
+    const v8, -0x55fc89b0
+
+    new-array v9, v2, [Ljava/lang/Object;
+
+    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v10
+
+    aput-object v10, v9, v1
+
+    aput-object v6, v9, v3
+
+    const-string v10, " Creating Ready-group for Transition %d with root=%s"
+
+    invoke-static {v7, v8, v3, v10, v9}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+
+    :cond_2
     invoke-virtual {v0}, Lcom/android/server/wm/WindowContainer;->getParent()Lcom/android/server/wm/WindowContainer;
 
     move-result-object v0
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     iget-object v0, p0, Lcom/android/server/wm/Transition;->mParticipants:Landroid/util/ArraySet;
 
     invoke-virtual {v0, p1}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     return-void
 
-    :cond_3
+    :cond_4
     iget-object v0, p0, Lcom/android/server/wm/Transition;->mSyncEngine:Lcom/android/server/wm/BLASTSyncEngine;
 
     iget v1, p0, Lcom/android/server/wm/Transition;->mSyncId:I
@@ -2251,7 +3251,7 @@
 
     check-cast v0, Lcom/android/server/wm/Transition$ChangeInfo;
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_5
 
     new-instance v1, Lcom/android/server/wm/Transition$ChangeInfo;
 
@@ -2263,14 +3263,14 @@
 
     invoke-virtual {v1, p1, v0}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_4
+    :cond_5
     iget-object v1, p0, Lcom/android/server/wm/Transition;->mParticipants:Landroid/util/ArraySet;
 
     invoke-virtual {v1, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
     iget-boolean v1, v0, Lcom/android/server/wm/Transition$ChangeInfo;->mShowWallpaper:Z
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_6
 
     nop
 
@@ -2284,11 +3284,11 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_6
 
     invoke-virtual {p0, v1}, Lcom/android/server/wm/Transition;->collect(Lcom/android/server/wm/WindowContainer;)V
 
-    :cond_5
+    :cond_6
     return-void
 .end method
 
@@ -2355,7 +3355,7 @@
 .end method
 
 .method finishTransition()V
-    .locals 9
+    .locals 13
 
     const/4 v0, 0x0
 
@@ -2363,123 +3363,295 @@
 
     iput-object v0, p0, Lcom/android/server/wm/Transition;->mStartTransaction:Landroid/view/SurfaceControl$Transaction;
 
-    iget v0, p0, Lcom/android/server/wm/Transition;->mState:I
+    iget v1, p0, Lcom/android/server/wm/Transition;->mState:I
 
-    const/4 v1, 0x2
+    const/4 v2, 0x2
 
-    if-lt v0, v1, :cond_5
+    if-lt v1, v2, :cond_c
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
+
+    const/4 v2, 0x0
 
     :goto_0
-    iget-object v1, p0, Lcom/android/server/wm/Transition;->mParticipants:Landroid/util/ArraySet;
+    iget-object v3, p0, Lcom/android/server/wm/Transition;->mParticipants:Landroid/util/ArraySet;
 
-    invoke-virtual {v1}, Landroid/util/ArraySet;->size()I
+    invoke-virtual {v3}, Landroid/util/ArraySet;->size()I
 
-    move-result v1
+    move-result v3
 
-    if-ge v0, v1, :cond_4
+    if-ge v2, v3, :cond_9
 
-    iget-object v1, p0, Lcom/android/server/wm/Transition;->mParticipants:Landroid/util/ArraySet;
+    iget-object v3, p0, Lcom/android/server/wm/Transition;->mParticipants:Landroid/util/ArraySet;
 
-    invoke-virtual {v1, v0}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v3, v2}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v3
 
-    check-cast v1, Lcom/android/server/wm/WindowContainer;
+    check-cast v3, Lcom/android/server/wm/WindowContainer;
 
-    invoke-virtual {v1}, Lcom/android/server/wm/WindowContainer;->asActivityRecord()Lcom/android/server/wm/ActivityRecord;
+    invoke-virtual {v3}, Lcom/android/server/wm/WindowContainer;->asActivityRecord()Lcom/android/server/wm/ActivityRecord;
 
-    move-result-object v1
+    move-result-object v3
 
-    const/4 v2, 0x1
+    const/4 v4, 0x1
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
-    if-eqz v1, :cond_1
+    if-eqz v3, :cond_6
 
-    invoke-virtual {v1}, Lcom/android/server/wm/ActivityRecord;->isVisibleRequested()Z
+    iget-object v6, p0, Lcom/android/server/wm/Transition;->mVisibleAtTransitionEndTokens:Landroid/util/ArraySet;
 
-    move-result v4
+    invoke-virtual {v6, v3}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
 
-    if-nez v4, :cond_1
+    move-result v6
 
-    sget-boolean v4, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_WINDOW_TRANSITIONS_enabled:Z
+    if-nez v6, :cond_4
 
-    if-eqz v4, :cond_0
+    invoke-virtual {v3}, Lcom/android/server/wm/ActivityRecord;->isVisibleRequested()Z
 
-    invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    move-result v7
 
-    move-result-object v4
+    if-nez v7, :cond_4
 
-    sget-object v5, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_WINDOW_TRANSITIONS:Lcom/android/internal/protolog/ProtoLogGroup;
+    const/4 v7, 0x1
 
-    const v6, -0x1fb6ed11
+    invoke-virtual {v3}, Lcom/android/server/wm/ActivityRecord;->getDeferHidingClient()Z
 
-    new-array v7, v2, [Ljava/lang/Object;
+    move-result v8
 
-    aput-object v4, v7, v3
+    if-eqz v8, :cond_1
 
-    const-string v8, "  Commit activity becoming invisible: %s"
+    invoke-virtual {v3}, Lcom/android/server/wm/ActivityRecord;->getTask()Lcom/android/server/wm/Task;
 
-    invoke-static {v5, v6, v3, v8, v7}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+    move-result-object v8
+
+    if-eqz v8, :cond_1
+
+    iget-object v8, v3, Lcom/android/server/wm/ActivityRecord;->pictureInPictureArgs:Landroid/app/PictureInPictureParams;
+
+    if-eqz v8, :cond_0
+
+    iget-object v8, v3, Lcom/android/server/wm/ActivityRecord;->pictureInPictureArgs:Landroid/app/PictureInPictureParams;
+
+    invoke-virtual {v8}, Landroid/app/PictureInPictureParams;->isAutoEnterEnabled()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_0
+
+    iget-object v8, p0, Lcom/android/server/wm/Transition;->mController:Lcom/android/server/wm/TransitionController;
+
+    iget-object v8, v8, Lcom/android/server/wm/TransitionController;->mAtm:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    iget-object v9, v3, Lcom/android/server/wm/ActivityRecord;->pictureInPictureArgs:Landroid/app/PictureInPictureParams;
+
+    invoke-virtual {v8, v3, v9}, Lcom/android/server/wm/ActivityTaskManagerService;->enterPictureInPictureMode(Lcom/android/server/wm/ActivityRecord;Landroid/app/PictureInPictureParams;)Z
+
+    const/4 v7, 0x0
+
+    goto :goto_1
 
     :cond_0
-    invoke-virtual {v1, v3, v3}, Lcom/android/server/wm/ActivityRecord;->commitVisibility(ZZ)V
+    iget-object v8, p0, Lcom/android/server/wm/Transition;->mController:Lcom/android/server/wm/TransitionController;
+
+    iget-object v8, v8, Lcom/android/server/wm/TransitionController;->mAtm:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    iget-object v8, v8, Lcom/android/server/wm/ActivityTaskManagerService;->mTaskSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
+
+    iput-boolean v4, v8, Lcom/android/server/wm/ActivityTaskSupervisor;->mUserLeaving:Z
+
+    invoke-virtual {v3}, Lcom/android/server/wm/ActivityRecord;->getTaskFragment()Lcom/android/server/wm/TaskFragment;
+
+    move-result-object v8
+
+    const-string v9, "finishTransition"
+
+    invoke-virtual {v8, v5, v0, v9}, Lcom/android/server/wm/TaskFragment;->startPausing(ZLcom/android/server/wm/ActivityRecord;Ljava/lang/String;)Z
+
+    iget-object v8, p0, Lcom/android/server/wm/Transition;->mController:Lcom/android/server/wm/TransitionController;
+
+    iget-object v8, v8, Lcom/android/server/wm/TransitionController;->mAtm:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    iget-object v8, v8, Lcom/android/server/wm/ActivityTaskManagerService;->mTaskSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
+
+    iput-boolean v5, v8, Lcom/android/server/wm/ActivityTaskSupervisor;->mUserLeaving:Z
 
     :cond_1
-    iget-object v4, p0, Lcom/android/server/wm/Transition;->mParticipants:Landroid/util/ArraySet;
+    :goto_1
+    if-eqz v7, :cond_4
 
-    invoke-virtual {v4, v0}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    sget-boolean v8, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_WINDOW_TRANSITIONS_enabled:Z
 
-    move-result-object v4
+    if-eqz v8, :cond_2
 
-    check-cast v4, Lcom/android/server/wm/WindowContainer;
+    invoke-static {v3}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-virtual {v4}, Lcom/android/server/wm/WindowContainer;->asWallpaperToken()Lcom/android/server/wm/WallpaperWindowToken;
+    move-result-object v8
 
-    move-result-object v4
+    sget-object v9, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_WINDOW_TRANSITIONS:Lcom/android/internal/protolog/ProtoLogGroup;
 
-    if-eqz v4, :cond_3
+    const v10, -0x1fb6ed11
 
-    invoke-virtual {v4}, Lcom/android/server/wm/WallpaperWindowToken;->isVisibleRequested()Z
+    new-array v11, v4, [Ljava/lang/Object;
 
-    move-result v5
+    aput-object v8, v11, v5
 
-    if-nez v5, :cond_3
+    const-string v12, "  Commit activity becoming invisible: %s"
 
-    sget-boolean v5, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_WINDOW_TRANSITIONS_enabled:Z
-
-    if-eqz v5, :cond_2
-
-    invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v5
-
-    sget-object v6, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_WINDOW_TRANSITIONS:Lcom/android/internal/protolog/ProtoLogGroup;
-
-    const v7, 0x2937b08e
-
-    new-array v2, v2, [Ljava/lang/Object;
-
-    aput-object v5, v2, v3
-
-    const-string v8, "  Commit wallpaper becoming invisible: %s"
-
-    invoke-static {v6, v7, v3, v8, v2}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v9, v10, v5, v12, v11}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
     :cond_2
-    invoke-virtual {v4, v3}, Lcom/android/server/wm/WallpaperWindowToken;->commitVisibility(Z)V
+    invoke-virtual {v3}, Lcom/android/server/wm/ActivityRecord;->getTask()Lcom/android/server/wm/Task;
+
+    move-result-object v8
+
+    if-eqz v8, :cond_3
+
+    invoke-virtual {v8}, Lcom/android/server/wm/Task;->isVisibleRequested()Z
+
+    move-result v9
+
+    if-nez v9, :cond_3
+
+    iget-object v9, p0, Lcom/android/server/wm/Transition;->mTransientLaunches:Landroid/util/ArraySet;
+
+    if-eqz v9, :cond_3
+
+    iget-object v9, p0, Lcom/android/server/wm/Transition;->mController:Lcom/android/server/wm/TransitionController;
+
+    iget-object v9, v9, Lcom/android/server/wm/TransitionController;->mTaskSnapshotController:Lcom/android/server/wm/TaskSnapshotController;
+
+    invoke-virtual {v9, v8, v5}, Lcom/android/server/wm/TaskSnapshotController;->recordTaskSnapshot(Lcom/android/server/wm/Task;Z)V
 
     :cond_3
-    add-int/lit8 v0, v0, 0x1
+    invoke-virtual {v3, v5, v5, v4}, Lcom/android/server/wm/ActivityRecord;->commitVisibility(ZZZ)V
 
-    goto :goto_0
+    const/4 v1, 0x1
 
     :cond_4
-    return-void
+    iget-object v7, p0, Lcom/android/server/wm/Transition;->mChanges:Landroid/util/ArrayMap;
+
+    invoke-virtual {v7, v3}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Lcom/android/server/wm/Transition$ChangeInfo;
+
+    iget-boolean v7, v7, Lcom/android/server/wm/Transition$ChangeInfo;->mVisible:Z
+
+    if-eq v7, v6, :cond_5
+
+    iput-boolean v6, v3, Lcom/android/server/wm/ActivityRecord;->mEnteringAnimation:Z
 
     :cond_5
+    iget-object v7, p0, Lcom/android/server/wm/Transition;->mController:Lcom/android/server/wm/TransitionController;
+
+    invoke-virtual {v7, v3}, Lcom/android/server/wm/TransitionController;->dispatchLegacyAppTransitionFinished(Lcom/android/server/wm/ActivityRecord;)V
+
+    :cond_6
+    iget-object v6, p0, Lcom/android/server/wm/Transition;->mParticipants:Landroid/util/ArraySet;
+
+    invoke-virtual {v6, v2}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/android/server/wm/WindowContainer;
+
+    invoke-virtual {v6}, Lcom/android/server/wm/WindowContainer;->asWallpaperToken()Lcom/android/server/wm/WallpaperWindowToken;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_8
+
+    iget-object v7, p0, Lcom/android/server/wm/Transition;->mVisibleAtTransitionEndTokens:Landroid/util/ArraySet;
+
+    invoke-virtual {v7, v6}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_8
+
+    invoke-virtual {v6}, Lcom/android/server/wm/WallpaperWindowToken;->isVisibleRequested()Z
+
+    move-result v8
+
+    if-nez v8, :cond_8
+
+    sget-boolean v8, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_WINDOW_TRANSITIONS_enabled:Z
+
+    if-eqz v8, :cond_7
+
+    invoke-static {v6}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v8
+
+    sget-object v9, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_WINDOW_TRANSITIONS:Lcom/android/internal/protolog/ProtoLogGroup;
+
+    const v10, 0x2937b08e
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    aput-object v8, v4, v5
+
+    const-string v11, "  Commit wallpaper becoming invisible: %s"
+
+    invoke-static {v9, v10, v5, v11, v4}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+
+    :cond_7
+    invoke-virtual {v6, v5}, Lcom/android/server/wm/WallpaperWindowToken;->commitVisibility(Z)V
+
+    :cond_8
+    add-int/lit8 v2, v2, 0x1
+
+    goto/16 :goto_0
+
+    :cond_9
+    if-eqz v1, :cond_a
+
+    iget-object v2, p0, Lcom/android/server/wm/Transition;->mController:Lcom/android/server/wm/TransitionController;
+
+    iget-object v2, v2, Lcom/android/server/wm/TransitionController;->mAtm:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    iget-object v2, v2, Lcom/android/server/wm/ActivityTaskManagerService;->mTaskSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
+
+    invoke-virtual {v2}, Lcom/android/server/wm/ActivityTaskSupervisor;->scheduleProcessStoppingAndFinishingActivitiesIfNeeded()V
+
+    :cond_a
+    iget-object v2, p0, Lcom/android/server/wm/Transition;->mClientAnimationFinishCallback:Landroid/os/IRemoteCallback;
+
+    invoke-direct {p0, v2}, Lcom/android/server/wm/Transition;->sendRemoteCallback(Landroid/os/IRemoteCallback;)V
+
+    invoke-virtual {p0}, Lcom/android/server/wm/Transition;->legacyRestoreNavigationBarFromApp()V
+
+    iget v2, p0, Lcom/android/server/wm/Transition;->mRecentsDisplayId:I
+
+    const/4 v3, -0x1
+
+    if-eq v2, v3, :cond_b
+
+    iget-object v2, p0, Lcom/android/server/wm/Transition;->mController:Lcom/android/server/wm/TransitionController;
+
+    iget-object v2, v2, Lcom/android/server/wm/TransitionController;->mAtm:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    iget-object v2, v2, Lcom/android/server/wm/ActivityTaskManagerService;->mRootWindowContainer:Lcom/android/server/wm/RootWindowContainer;
+
+    iget v3, p0, Lcom/android/server/wm/Transition;->mRecentsDisplayId:I
+
+    invoke-virtual {v2, v3}, Lcom/android/server/wm/RootWindowContainer;->getDisplayContent(I)Lcom/android/server/wm/DisplayContent;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/server/wm/DisplayContent;->getInputMonitor()Lcom/android/server/wm/InputMonitor;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0, v0}, Lcom/android/server/wm/InputMonitor;->setActiveRecents(Lcom/android/server/wm/ActivityRecord;Lcom/android/server/wm/ActivityRecord;)V
+
+    :cond_b
+    return-void
+
+    :cond_c
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2503,10 +3675,48 @@
     throw v0
 .end method
 
-.method getRemoteTransition()Landroid/window/IRemoteTransition;
+.method getFlags()I
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/wm/Transition;->mRemoteTransition:Landroid/window/IRemoteTransition;
+    iget v0, p0, Lcom/android/server/wm/Transition;->mFlags:I
+
+    return v0
+.end method
+
+.method getLegacyIsReady()Z
+    .locals 3
+
+    iget v0, p0, Lcom/android/server/wm/Transition;->mState:I
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_0
+
+    iget v0, p0, Lcom/android/server/wm/Transition;->mSyncId:I
+
+    if-ltz v0, :cond_0
+
+    iget-object v2, p0, Lcom/android/server/wm/Transition;->mSyncEngine:Lcom/android/server/wm/BLASTSyncEngine;
+
+    invoke-virtual {v2, v0}, Lcom/android/server/wm/BLASTSyncEngine;->isReady(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x0
+
+    :goto_0
+    return v1
+.end method
+
+.method getRemoteTransition()Landroid/window/RemoteTransition;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/wm/Transition;->mRemoteTransition:Landroid/window/RemoteTransition;
 
     return-object v0
 .end method
@@ -2519,8 +3729,205 @@
     return v0
 .end method
 
+.method isTransientLaunch(Lcom/android/server/wm/ActivityRecord;)Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/wm/Transition;->mTransientLaunches:Landroid/util/ArraySet;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0, p1}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
+.method legacyRestoreNavigationBarFromApp()V
+    .locals 10
+
+    iget-boolean v0, p0, Lcom/android/server/wm/Transition;->mNavBarAttachedToApp:Z
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/server/wm/Transition;->mNavBarAttachedToApp:Z
+
+    iget v1, p0, Lcom/android/server/wm/Transition;->mRecentsDisplayId:I
+
+    const/4 v2, -0x1
+
+    if-ne v1, v2, :cond_1
+
+    const-string v1, "Transition"
+
+    const-string v2, "Reparented navigation bar without a valid display"
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    iput v0, p0, Lcom/android/server/wm/Transition;->mRecentsDisplayId:I
+
+    :cond_1
+    iget-object v1, p0, Lcom/android/server/wm/Transition;->mController:Lcom/android/server/wm/TransitionController;
+
+    iget-object v1, v1, Lcom/android/server/wm/TransitionController;->mStatusBar:Lcom/android/server/statusbar/StatusBarManagerInternal;
+
+    const/4 v2, 0x1
+
+    if-eqz v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/server/wm/Transition;->mController:Lcom/android/server/wm/TransitionController;
+
+    iget-object v1, v1, Lcom/android/server/wm/TransitionController;->mStatusBar:Lcom/android/server/statusbar/StatusBarManagerInternal;
+
+    iget v3, p0, Lcom/android/server/wm/Transition;->mRecentsDisplayId:I
+
+    invoke-interface {v1, v3, v2}, Lcom/android/server/statusbar/StatusBarManagerInternal;->setNavigationBarLumaSamplingEnabled(IZ)V
+
+    :cond_2
+    iget-object v1, p0, Lcom/android/server/wm/Transition;->mController:Lcom/android/server/wm/TransitionController;
+
+    iget-object v1, v1, Lcom/android/server/wm/TransitionController;->mAtm:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    iget-object v1, v1, Lcom/android/server/wm/ActivityTaskManagerService;->mRootWindowContainer:Lcom/android/server/wm/RootWindowContainer;
+
+    iget v3, p0, Lcom/android/server/wm/Transition;->mRecentsDisplayId:I
+
+    invoke-virtual {v1, v3}, Lcom/android/server/wm/RootWindowContainer;->getDisplayContent(I)Lcom/android/server/wm/DisplayContent;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/server/wm/DisplayContent;->getDisplayPolicy()Lcom/android/server/wm/DisplayPolicy;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/server/wm/DisplayPolicy;->getNavigationBar()Lcom/android/server/wm/WindowState;
+
+    move-result-object v3
+
+    if-nez v3, :cond_3
+
+    return-void
+
+    :cond_3
+    invoke-virtual {v3, v0}, Lcom/android/server/wm/WindowState;->setSurfaceTranslationY(I)V
+
+    iget-object v0, v3, Lcom/android/server/wm/WindowState;->mToken:Lcom/android/server/wm/WindowToken;
+
+    if-nez v0, :cond_4
+
+    return-void
+
+    :cond_4
+    invoke-virtual {v1}, Lcom/android/server/wm/DisplayContent;->getPendingTransaction()Landroid/view/SurfaceControl$Transaction;
+
+    move-result-object v4
+
+    invoke-virtual {v0}, Lcom/android/server/wm/WindowToken;->getParent()Lcom/android/server/wm/WindowContainer;
+
+    move-result-object v5
+
+    invoke-virtual {v0}, Lcom/android/server/wm/WindowToken;->getSurfaceControl()Landroid/view/SurfaceControl;
+
+    move-result-object v6
+
+    invoke-virtual {v0}, Lcom/android/server/wm/WindowToken;->getLastLayer()I
+
+    move-result v7
+
+    invoke-virtual {v4, v6, v7}, Landroid/view/SurfaceControl$Transaction;->setLayer(Landroid/view/SurfaceControl;I)Landroid/view/SurfaceControl$Transaction;
+
+    const/4 v6, 0x0
+
+    const/4 v7, 0x0
+
+    :goto_0
+    iget-object v8, p0, Lcom/android/server/wm/Transition;->mTargets:Landroid/util/ArraySet;
+
+    invoke-virtual {v8}, Landroid/util/ArraySet;->size()I
+
+    move-result v8
+
+    if-ge v7, v8, :cond_7
+
+    iget-object v8, p0, Lcom/android/server/wm/Transition;->mTargets:Landroid/util/ArraySet;
+
+    invoke-virtual {v8, v7}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Lcom/android/server/wm/WindowContainer;
+
+    invoke-virtual {v8}, Lcom/android/server/wm/WindowContainer;->asTask()Lcom/android/server/wm/Task;
+
+    move-result-object v8
+
+    if-eqz v8, :cond_6
+
+    invoke-virtual {v8}, Lcom/android/server/wm/Task;->isHomeOrRecentsRootTask()Z
+
+    move-result v9
+
+    if-nez v9, :cond_5
+
+    goto :goto_1
+
+    :cond_5
+    invoke-virtual {v8}, Lcom/android/server/wm/Task;->isVisibleRequested()Z
+
+    move-result v6
+
+    goto :goto_2
+
+    :cond_6
+    :goto_1
+    add-int/lit8 v7, v7, 0x1
+
+    goto :goto_0
+
+    :cond_7
+    :goto_2
+    if-eqz v6, :cond_8
+
+    new-instance v7, Lcom/android/server/wm/NavBarFadeAnimationController;
+
+    invoke-direct {v7, v1}, Lcom/android/server/wm/NavBarFadeAnimationController;-><init>(Lcom/android/server/wm/DisplayContent;)V
+
+    invoke-virtual {v7, v2}, Lcom/android/server/wm/NavBarFadeAnimationController;->fadeWindowToken(Z)V
+
+    goto :goto_3
+
+    :cond_8
+    invoke-virtual {v0}, Lcom/android/server/wm/WindowToken;->getSurfaceControl()Landroid/view/SurfaceControl;
+
+    move-result-object v2
+
+    invoke-virtual {v5}, Lcom/android/server/wm/WindowContainer;->getSurfaceControl()Landroid/view/SurfaceControl;
+
+    move-result-object v7
+
+    invoke-virtual {v4, v2, v7}, Landroid/view/SurfaceControl$Transaction;->reparent(Landroid/view/SurfaceControl;Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
+
+    :goto_3
+    return-void
+.end method
+
 .method public onTransactionReady(ILandroid/view/SurfaceControl$Transaction;)V
-    .locals 9
+    .locals 10
 
     iget v0, p0, Lcom/android/server/wm/Transition;->mSyncId:I
 
@@ -2596,7 +4003,9 @@
 
     const/4 v2, 0x3
 
-    const/4 v3, -0x1
+    const/4 v3, 0x0
+
+    const/4 v4, -0x1
 
     if-ne v1, v2, :cond_3
 
@@ -2620,7 +4029,9 @@
 
     invoke-virtual {v1, p2}, Landroid/view/SurfaceControl$Transaction;->merge(Landroid/view/SurfaceControl$Transaction;)Landroid/view/SurfaceControl$Transaction;
 
-    iput v3, p0, Lcom/android/server/wm/Transition;->mSyncId:I
+    iput v4, p0, Lcom/android/server/wm/Transition;->mSyncId:I
+
+    iput-object v3, p0, Lcom/android/server/wm/Transition;->mOverrideOptions:Landroid/window/TransitionInfo$AnimationOptions;
 
     return-void
 
@@ -2668,19 +4079,31 @@
 
     iget v2, p0, Lcom/android/server/wm/Transition;->mType:I
 
-    iget v4, p0, Lcom/android/server/wm/Transition;->mFlags:I
+    iget v5, p0, Lcom/android/server/wm/Transition;->mFlags:I
 
-    iget-object v5, p0, Lcom/android/server/wm/Transition;->mChanges:Landroid/util/ArrayMap;
+    iget-object v6, p0, Lcom/android/server/wm/Transition;->mChanges:Landroid/util/ArrayMap;
 
-    invoke-static {v2, v4, v1, v5}, Lcom/android/server/wm/Transition;->calculateTransitionInfo(IILandroid/util/ArraySet;Landroid/util/ArrayMap;)Landroid/window/TransitionInfo;
+    invoke-static {v2, v5, v1, v6}, Lcom/android/server/wm/Transition;->calculateTransitionInfo(IILandroid/util/ArraySet;Landroid/util/ArrayMap;)Landroid/window/TransitionInfo;
 
     move-result-object v1
 
+    iget-object v2, p0, Lcom/android/server/wm/Transition;->mOverrideOptions:Landroid/window/TransitionInfo$AnimationOptions;
+
+    invoke-virtual {v1, v2}, Landroid/window/TransitionInfo;->setAnimationOptions(Landroid/window/TransitionInfo$AnimationOptions;)V
+
+    invoke-direct {p0, v0, v1}, Lcom/android/server/wm/Transition;->handleLegacyRecentsStartBehavior(ILandroid/window/TransitionInfo;)V
+
     iget v2, p0, Lcom/android/server/wm/Transition;->mType:I
 
-    iget v4, p0, Lcom/android/server/wm/Transition;->mFlags:I
+    iget v5, p0, Lcom/android/server/wm/Transition;->mFlags:I
 
-    invoke-direct {p0, v0, v2, v4}, Lcom/android/server/wm/Transition;->handleNonAppWindowsInTransition(III)V
+    invoke-direct {p0, v0, v2, v5}, Lcom/android/server/wm/Transition;->handleNonAppWindowsInTransition(III)V
+
+    invoke-direct {p0}, Lcom/android/server/wm/Transition;->reportStartReasonsToLogger()V
+
+    iget-object v2, p0, Lcom/android/server/wm/Transition;->mClientAnimationStartCallback:Landroid/os/IRemoteCallback;
+
+    invoke-direct {p0, v2}, Lcom/android/server/wm/Transition;->sendRemoteCallback(Landroid/os/IRemoteCallback;)V
 
     iget-object v2, p0, Lcom/android/server/wm/Transition;->mParticipants:Landroid/util/ArraySet;
 
@@ -2688,47 +4111,203 @@
 
     move-result v2
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    sub-int/2addr v2, v4
+    sub-int/2addr v2, v5
 
     :goto_1
-    if-ltz v2, :cond_7
+    if-ltz v2, :cond_8
 
-    iget-object v5, p0, Lcom/android/server/wm/Transition;->mParticipants:Landroid/util/ArraySet;
+    iget-object v6, p0, Lcom/android/server/wm/Transition;->mParticipants:Landroid/util/ArraySet;
 
-    invoke-virtual {v5, v2}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/android/server/wm/WindowContainer;
-
-    invoke-virtual {v5}, Lcom/android/server/wm/WindowContainer;->asActivityRecord()Lcom/android/server/wm/ActivityRecord;
-
-    move-result-object v5
-
-    if-eqz v5, :cond_6
-
-    iget-boolean v6, v5, Lcom/android/server/wm/ActivityRecord;->mVisibleRequested:Z
-
-    if-nez v6, :cond_5
-
-    goto :goto_2
-
-    :cond_5
-    invoke-virtual {v5}, Lcom/android/server/wm/ActivityRecord;->getSurfaceControl()Landroid/view/SurfaceControl;
+    invoke-virtual {v6, v2}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v6
 
-    invoke-virtual {p2, v6}, Landroid/view/SurfaceControl$Transaction;->show(Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
+    check-cast v6, Lcom/android/server/wm/WindowContainer;
+
+    invoke-virtual {v6}, Lcom/android/server/wm/WindowContainer;->asActivityRecord()Lcom/android/server/wm/ActivityRecord;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_7
+
+    iget-boolean v7, v6, Lcom/android/server/wm/ActivityRecord;->mVisibleRequested:Z
+
+    if-nez v7, :cond_5
+
+    goto :goto_3
+
+    :cond_5
+    invoke-virtual {v6}, Lcom/android/server/wm/ActivityRecord;->getSurfaceControl()Landroid/view/SurfaceControl;
+
+    move-result-object v7
+
+    invoke-virtual {p2, v7}, Landroid/view/SurfaceControl$Transaction;->show(Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
+
+    invoke-virtual {v6}, Lcom/android/server/wm/ActivityRecord;->getParent()Lcom/android/server/wm/WindowContainer;
+
+    move-result-object v7
+
+    :goto_2
+    if-eqz v7, :cond_7
+
+    iget-object v8, p0, Lcom/android/server/wm/Transition;->mTargets:Landroid/util/ArraySet;
+
+    invoke-virtual {v8, v7}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_7
+
+    invoke-virtual {v7}, Lcom/android/server/wm/WindowContainer;->getSurfaceControl()Landroid/view/SurfaceControl;
+
+    move-result-object v8
+
+    if-eqz v8, :cond_6
+
+    invoke-virtual {v7}, Lcom/android/server/wm/WindowContainer;->getSurfaceControl()Landroid/view/SurfaceControl;
+
+    move-result-object v8
+
+    invoke-virtual {p2, v8}, Landroid/view/SurfaceControl$Transaction;->show(Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
 
     :cond_6
-    :goto_2
+    invoke-virtual {v7}, Lcom/android/server/wm/WindowContainer;->getParent()Lcom/android/server/wm/WindowContainer;
+
+    move-result-object v7
+
+    goto :goto_2
+
+    :cond_7
+    :goto_3
     add-int/lit8 v2, v2, -0x1
 
     goto :goto_1
 
-    :cond_7
+    :cond_8
+    iget-object v2, p0, Lcom/android/server/wm/Transition;->mParticipants:Landroid/util/ArraySet;
+
+    invoke-virtual {v2}, Landroid/util/ArraySet;->size()I
+
+    move-result v2
+
+    sub-int/2addr v2, v5
+
+    :goto_4
+    if-ltz v2, :cond_b
+
+    iget-object v6, p0, Lcom/android/server/wm/Transition;->mParticipants:Landroid/util/ArraySet;
+
+    invoke-virtual {v6, v2}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/android/server/wm/WindowContainer;
+
+    invoke-virtual {v6}, Lcom/android/server/wm/WindowContainer;->asWindowToken()Lcom/android/server/wm/WindowToken;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_a
+
+    invoke-virtual {v6}, Lcom/android/server/wm/WindowContainer;->isVisibleRequested()Z
+
+    move-result v7
+
+    if-nez v7, :cond_9
+
+    goto :goto_5
+
+    :cond_9
+    iget-object v7, p0, Lcom/android/server/wm/Transition;->mVisibleAtTransitionEndTokens:Landroid/util/ArraySet;
+
+    invoke-virtual {v6}, Lcom/android/server/wm/WindowContainer;->asWindowToken()Lcom/android/server/wm/WindowToken;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
+
+    :cond_a
+    :goto_5
+    add-int/lit8 v2, v2, -0x1
+
+    goto :goto_4
+
+    :cond_b
+    iget-object v2, p0, Lcom/android/server/wm/Transition;->mTransientLaunches:Landroid/util/ArraySet;
+
+    const/4 v6, 0x0
+
+    if-nez v2, :cond_e
+
+    iget-object v2, p0, Lcom/android/server/wm/Transition;->mParticipants:Landroid/util/ArraySet;
+
+    invoke-virtual {v2}, Landroid/util/ArraySet;->size()I
+
+    move-result v2
+
+    sub-int/2addr v2, v5
+
+    :goto_6
+    if-ltz v2, :cond_e
+
+    iget-object v7, p0, Lcom/android/server/wm/Transition;->mParticipants:Landroid/util/ArraySet;
+
+    invoke-virtual {v7, v2}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Lcom/android/server/wm/WindowContainer;
+
+    invoke-virtual {v7}, Lcom/android/server/wm/WindowContainer;->asActivityRecord()Lcom/android/server/wm/ActivityRecord;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_d
+
+    invoke-virtual {v7}, Lcom/android/server/wm/ActivityRecord;->isVisibleRequested()Z
+
+    move-result v8
+
+    if-nez v8, :cond_d
+
+    invoke-virtual {v7}, Lcom/android/server/wm/ActivityRecord;->getTask()Lcom/android/server/wm/Task;
+
+    move-result-object v8
+
+    if-eqz v8, :cond_d
+
+    invoke-virtual {v7}, Lcom/android/server/wm/ActivityRecord;->getTask()Lcom/android/server/wm/Task;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Lcom/android/server/wm/Task;->isVisibleRequested()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_c
+
+    goto :goto_7
+
+    :cond_c
+    iget-object v8, p0, Lcom/android/server/wm/Transition;->mController:Lcom/android/server/wm/TransitionController;
+
+    iget-object v8, v8, Lcom/android/server/wm/TransitionController;->mTaskSnapshotController:Lcom/android/server/wm/TaskSnapshotController;
+
+    invoke-virtual {v7}, Lcom/android/server/wm/ActivityRecord;->getTask()Lcom/android/server/wm/Task;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9, v6}, Lcom/android/server/wm/TaskSnapshotController;->recordTaskSnapshot(Lcom/android/server/wm/Task;Z)V
+
+    :cond_d
+    :goto_7
+    add-int/lit8 v2, v2, -0x1
+
+    goto :goto_6
+
+    :cond_e
     iput-object p2, p0, Lcom/android/server/wm/Transition;->mStartTransaction:Landroid/view/SurfaceControl$Transaction;
 
     iget-object v2, p0, Lcom/android/server/wm/Transition;->mController:Lcom/android/server/wm/TransitionController;
@@ -2749,9 +4328,9 @@
 
     invoke-virtual {v1}, Landroid/window/TransitionInfo;->getRootLeash()Landroid/view/SurfaceControl;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-direct {p0, v2, v5}, Lcom/android/server/wm/Transition;->buildFinishTransaction(Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl;)V
+    invoke-direct {p0, v2, v7}, Lcom/android/server/wm/Transition;->buildFinishTransaction(Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl;)V
 
     iget-object v2, p0, Lcom/android/server/wm/Transition;->mController:Lcom/android/server/wm/TransitionController;
 
@@ -2759,75 +4338,69 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_10
+
+    iget-object v2, p0, Lcom/android/server/wm/Transition;->mController:Lcom/android/server/wm/TransitionController;
+
+    invoke-virtual {v2, v1}, Lcom/android/server/wm/TransitionController;->dispatchLegacyAppTransitionStarting(Landroid/window/TransitionInfo;)V
 
     :try_start_0
     sget-boolean v2, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_WINDOW_TRANSITIONS_enabled:Z
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_f
 
     invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2
 
-    sget-object v5, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_WINDOW_TRANSITIONS:Lcom/android/internal/protolog/ProtoLogGroup;
+    sget-object v7, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_WINDOW_TRANSITIONS:Lcom/android/internal/protolog/ProtoLogGroup;
 
-    const v6, 0x427958e9
+    const v8, 0x427958e9
 
-    const-string v7, "Calling onTransitionReady: %s"
+    const-string v9, "Calling onTransitionReady: %s"
 
-    new-array v4, v4, [Ljava/lang/Object;
+    new-array v5, v5, [Ljava/lang/Object;
 
-    const/4 v8, 0x0
+    aput-object v2, v5, v6
 
-    aput-object v2, v4, v8
+    invoke-static {v7, v8, v6, v9, v5}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
-    invoke-static {v5, v6, v8, v7, v4}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
-
-    :cond_8
+    :cond_f
     iget-object v2, p0, Lcom/android/server/wm/Transition;->mController:Lcom/android/server/wm/TransitionController;
 
     invoke-virtual {v2}, Lcom/android/server/wm/TransitionController;->getTransitionPlayer()Landroid/window/ITransitionPlayer;
 
     move-result-object v2
 
-    iget-object v4, p0, Lcom/android/server/wm/Transition;->mFinishTransaction:Landroid/view/SurfaceControl$Transaction;
+    iget-object v5, p0, Lcom/android/server/wm/Transition;->mFinishTransaction:Landroid/view/SurfaceControl$Transaction;
 
-    invoke-interface {v2, p0, v1, p2, v4}, Landroid/window/ITransitionPlayer;->onTransitionReady(Landroid/os/IBinder;Landroid/window/TransitionInfo;Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl$Transaction;)V
+    invoke-interface {v2, p0, v1, p2, v5}, Landroid/window/ITransitionPlayer;->onTransitionReady(Landroid/os/IBinder;Landroid/window/TransitionInfo;Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl$Transaction;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_3
+    goto :goto_8
 
     :catch_0
     move-exception v2
 
     invoke-virtual {p0}, Lcom/android/server/wm/Transition;->cleanUpOnFailure()V
 
-    :goto_3
-    goto :goto_4
+    :goto_8
+    goto :goto_9
 
-    :cond_9
+    :cond_10
     invoke-virtual {p0}, Lcom/android/server/wm/Transition;->cleanUpOnFailure()V
 
-    :goto_4
-    iput v3, p0, Lcom/android/server/wm/Transition;->mSyncId:I
+    :goto_9
+    iput v4, p0, Lcom/android/server/wm/Transition;->mSyncId:I
+
+    iput-object v3, p0, Lcom/android/server/wm/Transition;->mOverrideOptions:Landroid/window/TransitionInfo$AnimationOptions;
 
     return-void
 .end method
 
-.method setReady()V
+.method setAllReady()V
     .locals 1
-
-    const/4 v0, 0x1
-
-    invoke-virtual {p0, v0}, Lcom/android/server/wm/Transition;->setReady(Z)V
-
-    return-void
-.end method
-
-.method setReady(Z)V
-    .locals 10
 
     iget v0, p0, Lcom/android/server/wm/Transition;->mSyncId:I
 
@@ -2836,70 +4409,146 @@
     return-void
 
     :cond_0
-    iget v0, p0, Lcom/android/server/wm/Transition;->mState:I
+    iget-object v0, p0, Lcom/android/server/wm/Transition;->mReadyTracker:Lcom/android/server/wm/Transition$ReadyTracker;
 
-    const/4 v1, 0x1
+    invoke-virtual {v0}, Lcom/android/server/wm/Transition$ReadyTracker;->setAllReady()V
 
-    if-ge v0, v1, :cond_1
-
-    iput-boolean p1, p0, Lcom/android/server/wm/Transition;->mReadyCalled:Z
-
-    return-void
-
-    :cond_1
-    sget-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_WINDOW_TRANSITIONS_enabled:Z
-
-    if-eqz v0, :cond_2
-
-    move v0, p1
-
-    iget v2, p0, Lcom/android/server/wm/Transition;->mSyncId:I
-
-    int-to-long v2, v2
-
-    sget-object v4, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_WINDOW_TRANSITIONS:Lcom/android/internal/protolog/ProtoLogGroup;
-
-    const v5, -0x3425bbc3    # -2.8608634E7f
-
-    const/4 v6, 0x7
-
-    const/4 v7, 0x2
-
-    new-array v7, v7, [Ljava/lang/Object;
-
-    const/4 v8, 0x0
-
-    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v9
-
-    aput-object v9, v7, v8
-
-    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v8
-
-    aput-object v8, v7, v1
-
-    const-string v1, "Set transition ready=%b %d"
-
-    invoke-static {v4, v5, v6, v1, v7}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
-
-    :cond_2
-    iget-object v0, p0, Lcom/android/server/wm/Transition;->mSyncEngine:Lcom/android/server/wm/BLASTSyncEngine;
-
-    iget v1, p0, Lcom/android/server/wm/Transition;->mSyncId:I
-
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/wm/BLASTSyncEngine;->setReady(IZ)V
+    invoke-direct {p0}, Lcom/android/server/wm/Transition;->applyReady()V
 
     return-void
 .end method
 
-.method setRemoteTransition(Landroid/window/IRemoteTransition;)V
+.method setKnownConfigChanges(Lcom/android/server/wm/WindowContainer;I)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/android/server/wm/WindowContainer<",
+            "*>;I)V"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/wm/Transition;->mChanges:Landroid/util/ArrayMap;
+
+    invoke-virtual {v0, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/wm/Transition$ChangeInfo;
+
+    if-eqz v0, :cond_0
+
+    iput p2, v0, Lcom/android/server/wm/Transition$ChangeInfo;->mKnownConfigChanges:I
+
+    :cond_0
+    return-void
+.end method
+
+.method setOverrideAnimation(Landroid/window/TransitionInfo$AnimationOptions;Landroid/os/IRemoteCallback;Landroid/os/IRemoteCallback;)V
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/wm/Transition;->mSyncId:I
+
+    if-gez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iput-object p1, p0, Lcom/android/server/wm/Transition;->mOverrideOptions:Landroid/window/TransitionInfo$AnimationOptions;
+
+    iget-object v0, p0, Lcom/android/server/wm/Transition;->mClientAnimationStartCallback:Landroid/os/IRemoteCallback;
+
+    invoke-direct {p0, v0}, Lcom/android/server/wm/Transition;->sendRemoteCallback(Landroid/os/IRemoteCallback;)V
+
+    iput-object p2, p0, Lcom/android/server/wm/Transition;->mClientAnimationStartCallback:Landroid/os/IRemoteCallback;
+
+    iput-object p3, p0, Lcom/android/server/wm/Transition;->mClientAnimationFinishCallback:Landroid/os/IRemoteCallback;
+
+    return-void
+.end method
+
+.method setReady(Lcom/android/server/wm/WindowContainer;Z)V
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/wm/Transition;->mSyncId:I
+
+    if-gez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/wm/Transition;->mReadyTracker:Lcom/android/server/wm/Transition$ReadyTracker;
+
+    invoke-virtual {v0, p1, p2}, Lcom/android/server/wm/Transition$ReadyTracker;->setReadyFrom(Lcom/android/server/wm/WindowContainer;Z)V
+
+    invoke-direct {p0}, Lcom/android/server/wm/Transition;->applyReady()V
+
+    return-void
+.end method
+
+.method setRemoteTransition(Landroid/window/RemoteTransition;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/server/wm/Transition;->mRemoteTransition:Landroid/window/IRemoteTransition;
+    iput-object p1, p0, Lcom/android/server/wm/Transition;->mRemoteTransition:Landroid/window/RemoteTransition;
 
+    return-void
+.end method
+
+.method setTransientLaunch(Lcom/android/server/wm/ActivityRecord;)V
+    .locals 8
+
+    iget-object v0, p0, Lcom/android/server/wm/Transition;->mTransientLaunches:Landroid/util/ArraySet;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Landroid/util/ArraySet;
+
+    invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
+
+    iput-object v0, p0, Lcom/android/server/wm/Transition;->mTransientLaunches:Landroid/util/ArraySet;
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/wm/Transition;->mTransientLaunches:Landroid/util/ArraySet;
+
+    invoke-virtual {v0, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
+
+    sget-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_WINDOW_TRANSITIONS_enabled:Z
+
+    if-eqz v0, :cond_1
+
+    iget v0, p0, Lcom/android/server/wm/Transition;->mSyncId:I
+
+    int-to-long v0, v0
+
+    invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    sget-object v3, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_WINDOW_TRANSITIONS:Lcom/android/internal/protolog/ProtoLogGroup;
+
+    const v4, -0x2e76c55e
+
+    const/4 v5, 0x2
+
+    new-array v5, v5, [Ljava/lang/Object;
+
+    const/4 v6, 0x0
+
+    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v7
+
+    aput-object v7, v5, v6
+
+    const/4 v6, 0x1
+
+    aput-object v2, v5, v6
+
+    const-string v7, "Transition %d: Set %s as transient-launch"
+
+    invoke-static {v3, v4, v6, v7, v5}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+
+    :cond_1
     return-void
 .end method
 
@@ -2962,13 +4611,8 @@
     invoke-static {v0, v4, v1, v6, v5}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
     :cond_1
-    iget-boolean v0, p0, Lcom/android/server/wm/Transition;->mReadyCalled:Z
+    invoke-direct {p0}, Lcom/android/server/wm/Transition;->applyReady()V
 
-    if-eqz v0, :cond_2
-
-    invoke-virtual {p0}, Lcom/android/server/wm/Transition;->setReady()V
-
-    :cond_2
     return-void
 .end method
 

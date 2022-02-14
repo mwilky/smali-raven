@@ -39,7 +39,7 @@
 
     iget v2, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda47;->f$2:I
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/pm/PackageManagerService;->lambda$removeUnusedPackagesLPw$70$PackageManagerService(Ljava/lang/String;I)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/pm/PackageManagerService;->lambda$removeUnusedPackagesLPw$69$PackageManagerService(Ljava/lang/String;I)V
 
     return-void
 .end method
