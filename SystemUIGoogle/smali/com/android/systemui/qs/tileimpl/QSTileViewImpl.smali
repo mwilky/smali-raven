@@ -256,14 +256,8 @@
 
     move-result p1
 
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p3
-
-    sget v0, Lcom/android/systemui/R$dimen;->qs_tile_start_padding:I
-
-    invoke-virtual {p3, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->setPadding()I
+    
     move-result p3
 
     invoke-virtual {p0, p3, p1, p1, p1}, Landroid/widget/LinearLayout;->setPaddingRelative(IIII)V
@@ -749,10 +743,14 @@
 .end method
 
 .method private final loadSideViewDrawableIfNecessary(Lcom/android/systemui/plugins/qs/QSTile$State;)V
-    .locals 6
+    .registers 10
+    .param p1, "state"    # Lcom/android/systemui/plugins/qs/QSTile$State;
 
+    .line 75
     iget-object v0, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->sideViewCustomDrawable:Landroid/graphics/drawable/Drawable;
 
+    .line 76
+    .local v0, "drawable":Landroid/graphics/drawable/Drawable;
     const/4 v1, 0x0
 
     const-string v2, "chevronView"
@@ -763,128 +761,254 @@
 
     const/4 v5, 0x0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_38
 
-    iget-object p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->customDrawableView:Landroid/widget/ImageView;
+    .line 77
+    iget-object v6, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->customDrawableView:Landroid/widget/ImageView;
 
-    if-eqz p1, :cond_2
+    .line 78
+    .local v6, "imageView":Landroid/widget/ImageView;
+    if-eqz v6, :cond_34
 
-    invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    .line 79
+    invoke-virtual {v6, v0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    iget-object p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->customDrawableView:Landroid/widget/ImageView;
+    .line 80
+    iget-object v7, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->customDrawableView:Landroid/widget/ImageView;
 
-    if-eqz p1, :cond_1
+    .line 81
+    .local v7, "imageView2":Landroid/widget/ImageView;
+    if-eqz v7, :cond_30
 
-    invoke-virtual {p1, v1}, Landroid/widget/ImageView;->setVisibility(I)V
+    .line 82
+    sget v4, Lcom/android/mwilky/Renovate;->mQsStyle:I
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->chevronView:Landroid/widget/ImageView;
+    if-lez v4, :cond_1f
 
-    if-eqz p0, :cond_0
+    .line 83
+    invoke-virtual {v7, v3}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    invoke-virtual {p0, v3}, Landroid/widget/ImageView;->setVisibility(I)V
+    goto :goto_22
 
-    goto :goto_1
+    .line 85
+    :cond_1f
+    invoke-virtual {v7, v1}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    :cond_0
+    .line 87
+    :goto_22
+    iget-object v1, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->chevronView:Landroid/widget/ImageView;
+
+    .line 88
+    .local v1, "imageView3":Landroid/widget/ImageView;
+    if-eqz v1, :cond_2c
+
+    .line 89
+    invoke-virtual {v1, v3}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    .line 94
+    .end local v1    # "imageView3":Landroid/widget/ImageView;
+    nop
+
+    .line 98
+    .end local v7    # "imageView2":Landroid/widget/ImageView;
+    nop
+
+    .line 102
+    .end local v6    # "imageView":Landroid/widget/ImageView;
+    goto :goto_87
+
+    .line 91
+    .restart local v1    # "imageView3":Landroid/widget/ImageView;
+    .restart local v6    # "imageView":Landroid/widget/ImageView;
+    .restart local v7    # "imageView2":Landroid/widget/ImageView;
+    :cond_2c
     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
+    .line 92
     throw v5
 
-    :cond_1
+    .line 95
+    .end local v1    # "imageView3":Landroid/widget/ImageView;
+    :cond_30
     invoke-static {v4}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
+    .line 96
     throw v5
 
-    :cond_2
+    .line 99
+    .end local v7    # "imageView2":Landroid/widget/ImageView;
+    :cond_34
     invoke-static {v4}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
+    .line 100
     throw v5
 
-    :cond_3
-    instance-of v0, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
+    .line 102
+    .end local v6    # "imageView":Landroid/widget/ImageView;
+    :cond_38
+    instance-of v6, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
-    if-eqz v0, :cond_8
+    if-eqz v6, :cond_67
 
-    check-cast p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
+    move-object v6, p1
 
-    iget-boolean p1, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->forceExpandIcon:Z
+    check-cast v6, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
-    if-eqz p1, :cond_4
+    iget-boolean v6, v6, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->forceExpandIcon:Z
 
-    goto :goto_0
+    if-eqz v6, :cond_44
 
-    :cond_4
-    iget-object p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->customDrawableView:Landroid/widget/ImageView;
+    goto :goto_67
 
-    if-eqz p1, :cond_7
+    .line 129
+    :cond_44
+    iget-object v1, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->customDrawableView:Landroid/widget/ImageView;
 
-    invoke-virtual {p1, v5}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    .line 130
+    .local v1, "imageView7":Landroid/widget/ImageView;
+    if-eqz v1, :cond_63
 
-    iget-object p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->customDrawableView:Landroid/widget/ImageView;
+    .line 131
+    invoke-virtual {v1, v5}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    if-eqz p1, :cond_6
+    .line 132
+    iget-object v6, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->customDrawableView:Landroid/widget/ImageView;
 
-    invoke-virtual {p1, v3}, Landroid/widget/ImageView;->setVisibility(I)V
+    .line 133
+    .local v6, "imageView8":Landroid/widget/ImageView;
+    if-eqz v6, :cond_5f
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->chevronView:Landroid/widget/ImageView;
+    .line 134
+    invoke-virtual {v6, v3}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    if-eqz p0, :cond_5
+    .line 135
+    iget-object v4, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->chevronView:Landroid/widget/ImageView;
 
-    invoke-virtual {p0, v3}, Landroid/widget/ImageView;->setVisibility(I)V
+    .line 136
+    .local v4, "imageView9":Landroid/widget/ImageView;
+    if-eqz v4, :cond_5b
 
-    goto :goto_1
+    .line 137
+    invoke-virtual {v4, v3}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    :cond_5
+    .line 142
+    .end local v4    # "imageView9":Landroid/widget/ImageView;
+    nop
+
+    .line 146
+    .end local v6    # "imageView8":Landroid/widget/ImageView;
+    goto :goto_87
+
+    .line 139
+    .restart local v4    # "imageView9":Landroid/widget/ImageView;
+    .restart local v6    # "imageView8":Landroid/widget/ImageView;
+    :cond_5b
     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
+    .line 140
     throw v5
 
-    :cond_6
+    .line 143
+    .end local v4    # "imageView9":Landroid/widget/ImageView;
+    :cond_5f
     invoke-static {v4}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
+    .line 144
     throw v5
 
-    :cond_7
+    .line 147
+    .end local v6    # "imageView8":Landroid/widget/ImageView;
+    :cond_63
     invoke-static {v4}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
+    .line 148
     throw v5
 
-    :cond_8
-    :goto_0
-    iget-object p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->customDrawableView:Landroid/widget/ImageView;
+    .line 103
+    .end local v1    # "imageView7":Landroid/widget/ImageView;
+    :cond_67
+    :goto_67
+    iget-object v6, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->customDrawableView:Landroid/widget/ImageView;
 
-    if-eqz p1, :cond_b
+    .line 104
+    .local v6, "imageView4":Landroid/widget/ImageView;
+    if-eqz v6, :cond_90
 
-    invoke-virtual {p1, v5}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    .line 105
+    invoke-virtual {v6, v5}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    iget-object p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->customDrawableView:Landroid/widget/ImageView;
+    .line 106
+    iget-object v7, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->customDrawableView:Landroid/widget/ImageView;
 
-    if-eqz p1, :cond_a
+    .line 107
+    .local v7, "imageView5":Landroid/widget/ImageView;
+    if-eqz v7, :cond_8c
 
-    invoke-virtual {p1, v3}, Landroid/widget/ImageView;->setVisibility(I)V
+    .line 108
+    invoke-virtual {v7, v3}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->chevronView:Landroid/widget/ImageView;
+    .line 109
+    iget-object v4, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->chevronView:Landroid/widget/ImageView;
 
-    if-eqz p0, :cond_9
+    .line 110
+    .local v4, "imageView6":Landroid/widget/ImageView;
+    if-eqz v4, :cond_88
 
-    invoke-virtual {p0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
+    .line 111
+    sget v2, Lcom/android/mwilky/Renovate;->mQsStyle:I
 
-    :goto_1
+    if-lez v2, :cond_81
+
+    .line 112
+    invoke-virtual {v4, v3}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    goto :goto_84
+
+    .line 114
+    :cond_81
+    invoke-virtual {v4, v1}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    .line 120
+    .end local v4    # "imageView6":Landroid/widget/ImageView;
+    :goto_84
+    nop
+
+    .line 124
+    .end local v7    # "imageView5":Landroid/widget/ImageView;
+    nop
+
+    .line 128
+    .end local v6    # "imageView4":Landroid/widget/ImageView;
+    nop
+
+    .line 151
+    :goto_87
     return-void
 
-    :cond_9
+    .line 117
+    .restart local v4    # "imageView6":Landroid/widget/ImageView;
+    .restart local v6    # "imageView4":Landroid/widget/ImageView;
+    .restart local v7    # "imageView5":Landroid/widget/ImageView;
+    :cond_88
     invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
+    .line 118
     throw v5
 
-    :cond_a
+    .line 121
+    .end local v4    # "imageView6":Landroid/widget/ImageView;
+    :cond_8c
     invoke-static {v4}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
+    .line 122
     throw v5
 
-    :cond_b
+    .line 125
+    .end local v7    # "imageView5":Landroid/widget/ImageView;
+    :cond_90
     invoke-static {v4}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
 
+    .line 126
     throw v5
 .end method
 
@@ -2199,14 +2323,8 @@
 
     move-result v2
 
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v3
-
-    sget v4, Lcom/android/systemui/R$dimen;->qs_tile_start_padding:I
-
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->setPadding()I
+    
     move-result v3
 
     invoke-virtual {p0, v3, v2, v2, v2}, Landroid/widget/LinearLayout;->setPaddingRelative(IIII)V
@@ -2325,65 +2443,278 @@
 .end method
 
 .method public setQsTileTweaks()V
-    .registers 4
+    .registers 5
 
-    .line 45
+    .line 156
     :try_start_0
     iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->colorBackgroundDrawable:Landroid/graphics/drawable/Drawable;
 
     check-cast v0, Landroid/graphics/drawable/GradientDrawable;
 
-    .line 46
+    .line 157
     .local v0, "drawable":Landroid/graphics/drawable/GradientDrawable;
-    if-eqz v0, :cond_1d
+    if-eqz v0, :cond_29
 
-    .line 47
+    .line 158
     sget-boolean v1, Lcom/android/mwilky/Renovate;->mQsTileOutline:Z
 
-    if-eqz v1, :cond_12
+    const/4 v2, 0x0
 
-    .line 48
+    if-eqz v1, :cond_13
+
+    .line 159
     sget v1, Lcom/android/mwilky/Renovate;->mQsTileOutlineWidth:I
 
-    sget v2, Lcom/android/mwilky/Renovate;->mQsTileOutlineColor:I
+    sget v3, Lcom/android/mwilky/Renovate;->mQsTileOutlineColor:I
 
-    invoke-virtual {v0, v1, v2}, Landroid/graphics/drawable/GradientDrawable;->setStroke(II)V
+    invoke-virtual {v0, v1, v3}, Landroid/graphics/drawable/GradientDrawable;->setStroke(II)V
 
     goto :goto_16
 
-    .line 50
-    :cond_12
-    const/4 v1, 0x0
+    .line 161
+    :cond_13
+    invoke-virtual {v0, v2, v2}, Landroid/graphics/drawable/GradientDrawable;->setStroke(II)V
 
-    invoke-virtual {v0, v1, v1}, Landroid/graphics/drawable/GradientDrawable;->setStroke(II)V
-
-    .line 52
+    .line 163
     :goto_16
     sget v1, Lcom/android/mwilky/Renovate;->mQsTileCornerRadius:I
 
     int-to-float v1, v1
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/GradientDrawable;->setCornerRadius(F)V
-    :try_end_1c
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_1c} :catch_1f
 
-    .line 53
+    .line 164
+    sget v1, Lcom/android/mwilky/Renovate;->mQsStyle:I
+
+    const/4 v3, 0x1
+
+    if-ne v1, v3, :cond_25
+
+    .line 165
+    invoke-virtual {v0, v3}, Landroid/graphics/drawable/GradientDrawable;->setShape(I)V
+
+    goto :goto_28
+
+    .line 167
+    :cond_25
+    invoke-virtual {v0, v2}, Landroid/graphics/drawable/GradientDrawable;->setShape(I)V
+    :try_end_28
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_28} :catch_2b
+
+    .line 169
+    :goto_28
     return-void
 
-    .line 56
+    .line 172
     .end local v0    # "drawable":Landroid/graphics/drawable/GradientDrawable;
-    :cond_1d
+    :cond_29
     nop
 
-    .line 57
+    .line 173
     return-void
 
-    .line 54
-    :catch_1f
+    .line 170
+    :catch_2b
     move-exception v0
 
-    .line 55
+    .line 171
     .local v0, "e":Ljava/lang/Exception;
     return-void
 .end method
 
+.method public setPadding()I
+    .registers 5
+
+    .line 177
+    const-string v0, "qs_tile_start_padding"
+
+    const-string v1, "dimen"
+
+    :try_start_4
+    sget v2, Lcom/android/mwilky/Renovate;->mQsStyle:I
+
+    if-lez v2, :cond_7c
+
+    .line 178
+    sget v2, Lcom/android/mwilky/Renovate;->mQsColumns:I
+
+    const/4 v3, 0x5
+
+    if-ne v2, v3, :cond_20
+
+    .line 179
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const-string v3, "qs_tile_start_padding_5"
+
+    invoke-static {v3, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    return v0
+
+    .line 180
+    :cond_20
+    sget v2, Lcom/android/mwilky/Renovate;->mQsColumns:I
+
+    const/4 v3, 0x6
+
+    if-ne v2, v3, :cond_38
+
+    .line 181
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const-string v3, "qs_tile_start_padding_6"
+
+    invoke-static {v3, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    return v0
+
+    .line 182
+    :cond_38
+    sget v2, Lcom/android/mwilky/Renovate;->mQsColumns:I
+
+    const/4 v3, 0x7
+
+    if-ne v2, v3, :cond_50
+
+    .line 183
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const-string v3, "qs_tile_start_padding_7"
+
+    invoke-static {v3, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    return v0
+
+    .line 184
+    :cond_50
+    sget v2, Lcom/android/mwilky/Renovate;->mQsColumns:I
+
+    const/16 v3, 0x8
+
+    if-ne v2, v3, :cond_69
+
+    .line 185
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const-string v3, "qs_tile_start_padding_8"
+
+    invoke-static {v3, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    return v0
+
+    .line 187
+    :cond_69
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const-string v3, "qs_tile_start_padding_4"
+
+    invoke-static {v3, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    return v0
+
+    .line 190
+    :cond_7c
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+    :try_end_8c
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_8c} :catch_8d
+
+    return v0
+
+    .line 192
+    :catch_8d
+    move-exception v2
+
+    .line 193
+    .local v2, "e":Ljava/lang/Exception;
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v0
+
+    invoke-virtual {v3, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    return v0
+.end method

@@ -14000,6 +14000,10 @@
     const-string v3, "tweaks_qqs_rows"
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    
+    const-string v3, "tweaks_qs_style"
+
+    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 138
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
@@ -15057,6 +15061,23 @@
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->reloadTiles()V
 
     :cond_mwilky64
+    const-string v0, "tweaks_qs_style"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_mwilky65
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsTileLayout(Landroid/content/Context;)V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateQsTileLayout()V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->reloadTiles()V
+
+    :cond_mwilky65
     return-void
 .end method
 
