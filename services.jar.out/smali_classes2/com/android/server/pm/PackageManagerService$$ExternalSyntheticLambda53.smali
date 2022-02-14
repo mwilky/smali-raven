@@ -57,7 +57,7 @@
 
     iget-object v5, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda53;->f$5:Lcom/android/server/pm/PackageManagerService$PackageInstalledInfo;
 
-    invoke-virtual/range {v0 .. v5}, Lcom/android/server/pm/PackageManagerService;->lambda$installExistingPackageAsUser$46$PackageManagerService(Ljava/lang/String;Lcom/android/server/pm/PackageSetting;ILandroid/content/IntentSender;Lcom/android/server/pm/PackageManagerService$PackageInstalledInfo;)V
+    invoke-virtual/range {v0 .. v5}, Lcom/android/server/pm/PackageManagerService;->lambda$installExistingPackageAsUser$45$PackageManagerService(Ljava/lang/String;Lcom/android/server/pm/PackageSetting;ILandroid/content/IntentSender;Lcom/android/server/pm/PackageManagerService$PackageInstalledInfo;)V
 
     return-void
 .end method

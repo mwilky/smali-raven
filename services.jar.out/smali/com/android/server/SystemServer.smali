@@ -25,6 +25,8 @@
 
 .field private static final APPWIDGET_SERVICE_CLASS:Ljava/lang/String; = "com.android.server.appwidget.AppWidgetService"
 
+.field private static final APP_COMPAT_OVERRIDES_SERVICE_CLASS:Ljava/lang/String; = "com.android.server.compat.overrides.AppCompatOverridesService$Lifecycle"
+
 .field private static final APP_HIBERNATION_SERVICE_CLASS:Ljava/lang/String; = "com.android.server.apphibernation.AppHibernationService"
 
 .field private static final APP_PREDICTION_MANAGER_SERVICE_CLASS:Ljava/lang/String; = "com.android.server.appprediction.AppPredictionManagerService"
@@ -3233,7 +3235,7 @@
 
     move-object/from16 v3, v60
 
-    goto/16 :goto_4c
+    goto/16 :goto_4d
 
     :cond_2
     move-object/from16 v34, v8
@@ -3315,7 +3317,7 @@
 
     move-object/from16 v3, v60
 
-    goto/16 :goto_4c
+    goto/16 :goto_4d
 
     :cond_3
     :goto_2
@@ -3473,7 +3475,7 @@
 
     move-object/from16 v3, v60
 
-    goto/16 :goto_4c
+    goto/16 :goto_4d
 
     :cond_5
     :goto_4
@@ -3682,7 +3684,31 @@
 
     invoke-static {v0, v7, v8}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
+    goto :goto_6
+
     :cond_9
+    invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v7, 0x111002e
+
+    invoke-virtual {v0, v7}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_a
+
+    invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v7, "airplane_mode_on"
+
+    invoke-static {v0, v7, v1}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    :cond_a
+    :goto_6
     const/4 v7, 0x0
 
     const/4 v8, 0x0
@@ -3697,7 +3723,7 @@
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_b
+    if-eq v0, v1, :cond_c
 
     const-string v0, "StartInputMethodManagerLifecycle"
 
@@ -3705,7 +3731,7 @@
 
     sget-boolean v0, Lcom/android/server/inputmethod/InputMethodSystemProperty;->MULTI_CLIENT_IME_ENABLED:Z
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_b
 
     iget-object v0, v5, Lcom/android/server/SystemServer;->mSystemServiceManager:Lcom/android/server/SystemServiceManager;
 
@@ -3713,16 +3739,16 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/SystemServiceManager;->startService(Ljava/lang/Class;)Lcom/android/server/SystemService;
 
-    goto :goto_6
+    goto :goto_7
 
-    :cond_a
+    :cond_b
     iget-object v0, v5, Lcom/android/server/SystemServer;->mSystemServiceManager:Lcom/android/server/SystemServiceManager;
 
     const-class v1, Lcom/android/server/inputmethod/InputMethodManagerService$Lifecycle;
 
     invoke-virtual {v0, v1}, Lcom/android/server/SystemServiceManager;->startService(Ljava/lang/Class;)Lcom/android/server/SystemService;
 
-    :goto_6
+    :goto_7
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     const-string v0, "StartAccessibilityManagerService"
@@ -3738,7 +3764,7 @@
     :try_end_13
     .catchall {:try_start_13 .. :try_end_13} :catchall_3
 
-    goto :goto_7
+    goto :goto_8
 
     :catchall_3
     move-exception v0
@@ -3747,10 +3773,10 @@
 
     invoke-direct {v5, v1, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_7
+    :goto_8
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_b
+    :cond_c
     const-string v0, "MakeDisplayReady"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -3760,7 +3786,7 @@
     :try_end_14
     .catchall {:try_start_14 .. :try_end_14} :catchall_4
 
-    goto :goto_8
+    goto :goto_9
 
     :catchall_4
     move-exception v0
@@ -3773,14 +3799,14 @@
 
     invoke-direct {v5, v1, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_8
+    :goto_9
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     iget v0, v5, Lcom/android/server/SystemServer;->mFactoryTestMode:I
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_c
+    if-eq v0, v1, :cond_d
 
     const-string v0, "0"
 
@@ -3794,7 +3820,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_d
 
     const-string v0, "StartStorageManagerService"
 
@@ -3821,7 +3847,7 @@
 
     move-object v2, v0
 
-    goto :goto_9
+    goto :goto_a
 
     :catchall_5
     move-exception v0
@@ -3830,7 +3856,7 @@
 
     invoke-direct {v5, v1, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_9
+    :goto_a
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     const-string v0, "StartStorageStatsService"
@@ -3846,7 +3872,7 @@
     :try_end_16
     .catchall {:try_start_16 .. :try_end_16} :catchall_6
 
-    goto :goto_a
+    goto :goto_b
 
     :catchall_6
     move-exception v0
@@ -3855,17 +3881,17 @@
 
     invoke-direct {v5, v1, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_a
+    :goto_b
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     move-object/from16 v39, v2
 
-    goto :goto_b
+    goto :goto_c
 
-    :cond_c
+    :cond_d
     move-object/from16 v39, v2
 
-    :goto_b
+    :goto_c
     const-string v0, "StartUiModeManager"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -3880,7 +3906,7 @@
 
     iget-boolean v0, v5, Lcom/android/server/SystemServer;->mOnlyCore:Z
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_e
 
     const-string v0, "UpdatePackagesIfNeeded"
 
@@ -3901,7 +3927,7 @@
     :try_end_17
     .catchall {:try_start_17 .. :try_end_17} :catchall_7
 
-    goto :goto_c
+    goto :goto_d
 
     :catchall_7
     move-exception v0
@@ -3913,7 +3939,7 @@
     :try_end_18
     .catchall {:try_start_18 .. :try_end_18} :catchall_8
 
-    :goto_c
+    :goto_d
     invoke-static {}, Lcom/android/server/Watchdog;->getInstance()Lcom/android/server/Watchdog;
 
     move-result-object v0
@@ -3926,7 +3952,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    goto :goto_d
+    goto :goto_e
 
     :catchall_8
     move-exception v0
@@ -3941,8 +3967,8 @@
 
     throw v0
 
-    :cond_d
-    :goto_d
+    :cond_e
+    :goto_e
     const-string v0, "PerformFstrimIfNeeded"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -3954,7 +3980,7 @@
     :try_end_19
     .catchall {:try_start_19 .. :try_end_19} :catchall_9
 
-    goto :goto_e
+    goto :goto_f
 
     :catchall_9
     move-exception v0
@@ -3963,14 +3989,14 @@
 
     invoke-direct {v5, v1, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_e
+    :goto_f
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     iget v0, v5, Lcom/android/server/SystemServer;->mFactoryTestMode:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_e
+    if-ne v0, v1, :cond_f
 
     const/4 v0, 0x0
 
@@ -4008,9 +4034,9 @@
 
     move-object/from16 v33, v10
 
-    goto/16 :goto_41
+    goto/16 :goto_42
 
-    :cond_e
+    :cond_f
     const-string v0, "StartLockSettingsService"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -4036,7 +4062,7 @@
 
     move-object/from16 v19, v0
 
-    goto :goto_f
+    goto :goto_10
 
     :catchall_a
     move-exception v0
@@ -4045,7 +4071,7 @@
 
     invoke-direct {v5, v1, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_f
+    :goto_10
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     const-string/jumbo v0, "ro.frp.pst"
@@ -4066,7 +4092,7 @@
 
     move v2, v0
 
-    if-eqz v2, :cond_f
+    if-eqz v2, :cond_10
 
     const-string v0, "StartPersistentDataBlock"
 
@@ -4080,7 +4106,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_f
+    :cond_10
     const-string v0, "StartTestHarnessMode"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -4093,15 +4119,15 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    if-nez v2, :cond_10
+    if-nez v2, :cond_11
 
     invoke-static {}, Lcom/android/server/oemlock/OemLockService;->isHalPresent()Z
 
     move-result v0
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_12
 
-    :cond_10
+    :cond_11
     const-string v0, "StartOemLockService"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -4114,7 +4140,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_11
+    :cond_12
     const-string v0, "StartDeviceIdleController"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -4145,7 +4171,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    if-nez v30, :cond_12
+    if-nez v30, :cond_13
 
     const-string v0, "StartStatusBarManagerService"
 
@@ -4166,7 +4192,7 @@
 
     move-object/from16 v40, v1
 
-    goto :goto_10
+    goto :goto_11
 
     :catchall_b
     move-exception v0
@@ -4177,22 +4203,22 @@
 
     invoke-direct {v5, v1, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_10
+    :goto_11
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    goto :goto_11
+    goto :goto_12
 
-    :cond_12
+    :cond_13
     move-object/from16 v40, v1
 
-    :goto_11
+    :goto_12
     const v0, 0x104021b
 
     invoke-direct {v5, v3, v0}, Lcom/android/server/SystemServer;->deviceHasConfigString(Landroid/content/Context;I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_14
 
     const-string v0, "StartMusicRecognitionManagerService"
 
@@ -4206,16 +4232,16 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    goto :goto_12
+    goto :goto_13
 
-    :cond_13
+    :cond_14
     const-string v0, "SystemServer"
 
     const-string v1, "MusicRecognitionManagerService not defined by OEM or disabled by flag"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_12
+    :goto_13
     invoke-direct {v5, v3, v4}, Lcom/android/server/SystemServer;->startContentCaptureService(Landroid/content/Context;Lcom/android/server/utils/TimingsTraceAndSlog;)V
 
     invoke-direct {v5, v3, v4}, Lcom/android/server/SystemServer;->startAttentionService(Landroid/content/Context;Lcom/android/server/utils/TimingsTraceAndSlog;)V
@@ -4244,7 +4270,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_15
 
     const-string v0, "StartAppPredictionService"
 
@@ -4258,23 +4284,23 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    goto :goto_13
+    goto :goto_14
 
-    :cond_14
+    :cond_15
     const-string v0, "SystemServer"
 
     const-string v1, "AppPredictionService not defined by OEM"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_13
+    :goto_14
     const v0, 0x1040217
 
     invoke-direct {v5, v3, v0}, Lcom/android/server/SystemServer;->deviceHasConfigString(Landroid/content/Context;I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_16
 
     const-string v0, "StartContentSuggestionsService"
 
@@ -4288,16 +4314,16 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    goto :goto_14
+    goto :goto_15
 
-    :cond_15
+    :cond_16
     const-string v0, "SystemServer"
 
     const-string v1, "ContentSuggestionsService not defined by OEM"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_14
+    :goto_15
     const-string v0, "StartSearchUiService"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -4335,7 +4361,7 @@
     :try_end_1c
     .catchall {:try_start_1c .. :try_end_1c} :catchall_c
 
-    goto :goto_15
+    goto :goto_16
 
     :catchall_c
     move-exception v0
@@ -4344,7 +4370,7 @@
 
     invoke-direct {v5, v1, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_15
+    :goto_16
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     const-string v0, "InitNetworkStackClient"
@@ -4360,7 +4386,7 @@
     :try_end_1d
     .catchall {:try_start_1d .. :try_end_1d} :catchall_d
 
-    goto :goto_16
+    goto :goto_17
 
     :catchall_d
     move-exception v0
@@ -4369,7 +4395,7 @@
 
     invoke-direct {v5, v1, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_16
+    :goto_17
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     const-string v0, "StartNetworkManagementService"
@@ -4389,7 +4415,7 @@
     :try_end_1e
     .catchall {:try_start_1e .. :try_end_1e} :catchall_e
 
-    goto :goto_17
+    goto :goto_18
 
     :catchall_e
     move-exception v0
@@ -4398,7 +4424,7 @@
 
     invoke-direct {v5, v1, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_17
+    :goto_18
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     const-string v0, "StartIpSecService"
@@ -4418,7 +4444,7 @@
     :try_end_1f
     .catchall {:try_start_1f .. :try_end_1f} :catchall_f
 
-    goto :goto_18
+    goto :goto_19
 
     :catchall_f
     move-exception v0
@@ -4427,7 +4453,7 @@
 
     invoke-direct {v5, v1, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_18
+    :goto_19
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     const-string v0, "StartFontManagerService"
@@ -4456,7 +4482,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    if-nez v25, :cond_16
+    if-nez v25, :cond_17
 
     const-string v0, "StartTextClassificationManagerService"
 
@@ -4470,7 +4496,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_16
+    :cond_17
     const-string v0, "StartNetworkScoreService"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -4505,24 +4531,24 @@
 
     move-object/from16 v16, v1
 
-    goto :goto_1a
+    goto :goto_1b
 
     :catchall_10
     move-exception v0
 
     move-object/from16 v16, v1
 
-    goto :goto_19
+    goto :goto_1a
 
     :catchall_11
     move-exception v0
 
-    :goto_19
+    :goto_1a
     const-string/jumbo v1, "starting NetworkStats Service"
 
     invoke-direct {v5, v1, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_1a
+    :goto_1b
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     const-string v0, "StartNetworkPolicyManagerService"
@@ -4549,24 +4575,24 @@
 
     move-object/from16 v17, v1
 
-    goto :goto_1c
+    goto :goto_1d
 
     :catchall_12
     move-exception v0
 
     move-object/from16 v17, v1
 
-    goto :goto_1b
+    goto :goto_1c
 
     :catchall_13
     move-exception v0
 
-    :goto_1b
+    :goto_1c
     const-string/jumbo v1, "starting NetworkPolicy Service"
 
     invoke-direct {v5, v1, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_1c
+    :goto_1d
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     invoke-virtual {v3}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
@@ -4579,7 +4605,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_18
 
     const-string v0, "StartWifi"
 
@@ -4611,12 +4637,12 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    goto :goto_1d
+    goto :goto_1e
 
-    :cond_17
+    :cond_18
     move/from16 v41, v2
 
-    :goto_1d
+    :goto_1e
     invoke-virtual {v3}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v0
@@ -4627,7 +4653,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_19
 
     const-string v0, "StartRttService"
 
@@ -4643,7 +4669,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_18
+    :cond_19
     invoke-virtual {v3}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v0
@@ -4654,7 +4680,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_19
+    if-eqz v0, :cond_1a
 
     const-string v0, "StartWifiAware"
 
@@ -4670,7 +4696,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_19
+    :cond_1a
     invoke-virtual {v3}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v0
@@ -4681,7 +4707,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_1b
 
     const-string v0, "StartWifiP2P"
 
@@ -4697,7 +4723,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_1a
+    :cond_1b
     invoke-virtual {v3}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v0
@@ -4708,7 +4734,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_1c
 
     const-string v0, "StartLowpan"
 
@@ -4722,7 +4748,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_1b
+    :cond_1c
     iget-object v0, v5, Lcom/android/server/SystemServer;->mPackageManager:Landroid/content/pm/PackageManager;
 
     const-string v1, "android.hardware.ethernet"
@@ -4731,7 +4757,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1c
+    if-nez v0, :cond_1d
 
     iget-object v0, v5, Lcom/android/server/SystemServer;->mPackageManager:Landroid/content/pm/PackageManager;
 
@@ -4741,9 +4767,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1d
+    if-eqz v0, :cond_1e
 
-    :cond_1c
+    :cond_1d
     const-string v0, "StartEthernet"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -4756,7 +4782,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_1d
+    :cond_1e
     const-string v0, "StartPacProxyService"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -4779,24 +4805,24 @@
 
     move-object/from16 v24, v1
 
-    goto :goto_1f
+    goto :goto_20
 
     :catchall_14
     move-exception v0
 
     move-object/from16 v24, v1
 
-    goto :goto_1e
+    goto :goto_1f
 
     :catchall_15
     move-exception v0
 
-    :goto_1e
+    :goto_1f
     const-string/jumbo v1, "starting PacProxyService"
 
     invoke-direct {v5, v1, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_1f
+    :goto_20
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     const-string v0, "StartConnectivityService"
@@ -4832,7 +4858,7 @@
     :try_end_26
     .catchall {:try_start_26 .. :try_end_26} :catchall_16
 
-    goto :goto_20
+    goto :goto_21
 
     :catchall_16
     move-exception v0
@@ -4841,7 +4867,7 @@
 
     invoke-direct {v5, v1, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_20
+    :goto_21
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     const-string v0, "StartVcnManagementService"
@@ -4861,7 +4887,7 @@
     :try_end_27
     .catchall {:try_start_27 .. :try_end_27} :catchall_17
 
-    goto :goto_21
+    goto :goto_22
 
     :catchall_17
     move-exception v0
@@ -4870,7 +4896,7 @@
 
     invoke-direct {v5, v1, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_21
+    :goto_22
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     const-string v0, "StartNsdService"
@@ -4895,24 +4921,24 @@
 
     move-object/from16 v18, v1
 
-    goto :goto_23
+    goto :goto_24
 
     :catchall_18
     move-exception v0
 
     move-object/from16 v18, v1
 
-    goto :goto_22
+    goto :goto_23
 
     :catchall_19
     move-exception v0
 
-    :goto_22
+    :goto_23
     const-string/jumbo v1, "starting Service Discovery Service"
 
     invoke-direct {v5, v1, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_23
+    :goto_24
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     const-string v0, "StartSystemUpdateManagerService"
@@ -4930,7 +4956,7 @@
     :try_end_2a
     .catchall {:try_start_2a .. :try_end_2a} :catchall_1a
 
-    goto :goto_24
+    goto :goto_25
 
     :catchall_1a
     move-exception v0
@@ -4939,7 +4965,7 @@
 
     invoke-direct {v5, v1, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_24
+    :goto_25
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     const-string v0, "StartUpdateLockService"
@@ -4957,7 +4983,7 @@
     :try_end_2b
     .catchall {:try_start_2b .. :try_end_2b} :catchall_1b
 
-    goto :goto_25
+    goto :goto_26
 
     :catchall_1b
     move-exception v0
@@ -4966,7 +4992,7 @@
 
     invoke-direct {v5, v1, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_25
+    :goto_26
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     const-string v0, "StartNotificationManager"
@@ -5036,7 +5062,7 @@
     :try_end_2c
     .catchall {:try_start_2c .. :try_end_2c} :catchall_1c
 
-    goto :goto_26
+    goto :goto_27
 
     :catchall_1c
     move-exception v0
@@ -5045,7 +5071,7 @@
 
     invoke-direct {v5, v1, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_26
+    :goto_27
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     const-string v0, "StartTimeDetectorService"
@@ -5061,7 +5087,7 @@
     :try_end_2d
     .catchall {:try_start_2d .. :try_end_2d} :catchall_1d
 
-    goto :goto_27
+    goto :goto_28
 
     :catchall_1d
     move-exception v0
@@ -5070,7 +5096,7 @@
 
     invoke-direct {v5, v1, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_27
+    :goto_28
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     const-string v0, "StartTimeZoneDetectorService"
@@ -5086,7 +5112,7 @@
     :try_end_2e
     .catchall {:try_start_2e .. :try_end_2e} :catchall_1e
 
-    goto :goto_28
+    goto :goto_29
 
     :catchall_1e
     move-exception v0
@@ -5095,7 +5121,7 @@
 
     invoke-direct {v5, v1, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_28
+    :goto_29
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     const-string v0, "StartLocationTimeZoneManagerService"
@@ -5111,7 +5137,7 @@
     :try_end_2f
     .catchall {:try_start_2f .. :try_end_2f} :catchall_1f
 
-    goto :goto_29
+    goto :goto_2a
 
     :catchall_1f
     move-exception v0
@@ -5120,20 +5146,20 @@
 
     invoke-direct {v5, v1, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_29
+    :goto_2a
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x11100d1
+    const v1, 0x11100d2
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_1f
 
     const-string v0, "StartGnssTimeUpdateService"
 
@@ -5148,7 +5174,7 @@
     :try_end_30
     .catchall {:try_start_30 .. :try_end_30} :catchall_20
 
-    goto :goto_2a
+    goto :goto_2b
 
     :catchall_20
     move-exception v0
@@ -5157,11 +5183,11 @@
 
     invoke-direct {v5, v1, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_2a
+    :goto_2b
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_1e
-    if-nez v30, :cond_1f
+    :cond_1f
+    if-nez v30, :cond_20
 
     const-string v0, "StartSearchManagerService"
 
@@ -5176,7 +5202,7 @@
     :try_end_31
     .catchall {:try_start_31 .. :try_end_31} :catchall_21
 
-    goto :goto_2b
+    goto :goto_2c
 
     :catchall_21
     move-exception v0
@@ -5185,21 +5211,21 @@
 
     invoke-direct {v5, v1, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_2b
+    :goto_2c
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_1f
+    :cond_20
     invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x11100de
+    const v1, 0x11100df
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_20
+    if-eqz v0, :cond_21
 
     const-string v0, "StartWallpaperManagerService"
 
@@ -5213,21 +5239,21 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    goto :goto_2c
+    goto :goto_2d
 
-    :cond_20
+    :cond_21
     const-string v0, "SystemServer"
 
     const-string v1, "Wallpaper service disabled by config"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_2c
+    :goto_2d
     const-string v0, "StartAudioService"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
 
-    if-nez v31, :cond_21
+    if-nez v31, :cond_22
 
     iget-object v0, v5, Lcom/android/server/SystemServer;->mSystemServiceManager:Lcom/android/server/SystemServiceManager;
 
@@ -5237,9 +5263,9 @@
 
     move-object/from16 v42, v7
 
-    goto :goto_2e
+    goto :goto_2f
 
-    :cond_21
+    :cond_22
     invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -5276,19 +5302,19 @@
     :try_end_33
     .catchall {:try_start_33 .. :try_end_33} :catchall_22
 
-    goto :goto_2e
+    goto :goto_2f
 
     :catchall_22
     move-exception v0
 
-    goto :goto_2d
+    goto :goto_2e
 
     :catchall_23
     move-exception v0
 
     move-object/from16 v42, v7
 
-    :goto_2d
+    :goto_2e
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -5305,7 +5331,7 @@
 
     invoke-direct {v5, v2, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_2e
+    :goto_2f
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     const-string v0, "StartSoundTriggerMiddlewareService"
@@ -5328,7 +5354,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_23
 
     const-string v0, "StartBroadcastRadioService"
 
@@ -5342,7 +5368,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_22
+    :cond_23
     const-string v0, "StartDockObserver"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -5355,7 +5381,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    if-eqz v30, :cond_23
+    if-eqz v30, :cond_24
 
     const-string v0, "StartThermalObserver"
 
@@ -5369,7 +5395,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_23
+    :cond_24
     const-string v0, "StartWiredAccessoryManager"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -5383,7 +5409,7 @@
     :try_end_34
     .catchall {:try_start_34 .. :try_end_34} :catchall_24
 
-    goto :goto_2f
+    goto :goto_30
 
     :catchall_24
     move-exception v0
@@ -5392,7 +5418,7 @@
 
     invoke-direct {v5, v1, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_2f
+    :goto_30
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     iget-object v0, v5, Lcom/android/server/SystemServer;->mPackageManager:Landroid/content/pm/PackageManager;
@@ -5403,7 +5429,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_24
+    if-eqz v0, :cond_25
 
     const-string v0, "StartMidiManager"
 
@@ -5417,7 +5443,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_24
+    :cond_25
     const-string v0, "StartAdbService"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -5431,7 +5457,7 @@
     :try_end_35
     .catchall {:try_start_35 .. :try_end_35} :catchall_25
 
-    goto :goto_30
+    goto :goto_31
 
     :catchall_25
     move-exception v0
@@ -5442,7 +5468,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_30
+    :goto_31
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     iget-object v0, v5, Lcom/android/server/SystemServer;->mPackageManager:Landroid/content/pm/PackageManager;
@@ -5453,7 +5479,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_25
+    if-nez v0, :cond_26
 
     iget-object v0, v5, Lcom/android/server/SystemServer;->mPackageManager:Landroid/content/pm/PackageManager;
 
@@ -5463,11 +5489,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_25
+    if-nez v0, :cond_26
 
-    if-eqz v29, :cond_26
+    if-eqz v29, :cond_27
 
-    :cond_25
+    :cond_26
     const-string v0, "StartUsbService"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -5480,8 +5506,8 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_26
-    if-nez v30, :cond_27
+    :cond_27
+    if-nez v30, :cond_28
 
     const-string v0, "StartSerialService"
 
@@ -5503,19 +5529,19 @@
     :try_end_37
     .catchall {:try_start_37 .. :try_end_37} :catchall_26
 
-    goto :goto_32
+    goto :goto_33
 
     :catchall_26
     move-exception v0
 
     move-object/from16 v20, v1
 
-    goto :goto_31
+    goto :goto_32
 
     :catchall_27
     move-exception v0
 
-    :goto_31
+    :goto_32
     const-string v1, "SystemServer"
 
     const-string v2, "Failure starting SerialService"
@@ -5524,12 +5550,12 @@
 
     move-object/from16 v1, v20
 
-    :goto_32
+    :goto_33
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     move-object/from16 v20, v1
 
-    :cond_27
+    :cond_28
     const-string v0, "StartHardwarePropertiesManagerService"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -5552,26 +5578,26 @@
 
     move-object/from16 v23, v1
 
-    goto :goto_34
+    goto :goto_35
 
     :catchall_28
     move-exception v0
 
     move-object/from16 v23, v1
 
-    goto :goto_33
+    goto :goto_34
 
     :catchall_29
     move-exception v0
 
-    :goto_33
+    :goto_34
     const-string v1, "SystemServer"
 
     const-string v2, "Failure starting HardwarePropertiesManagerService"
 
     invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :goto_34
+    :goto_35
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     const-string v0, "StartTwilightService"
@@ -5642,7 +5668,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_28
+    if-eqz v0, :cond_29
 
     const-string v0, "StartBackupManager"
 
@@ -5656,7 +5682,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_28
+    :cond_29
     iget-object v0, v5, Lcom/android/server/SystemServer;->mPackageManager:Landroid/content/pm/PackageManager;
 
     const-string v1, "android.software.app_widgets"
@@ -5665,21 +5691,21 @@
 
     move-result v0
 
-    if-nez v0, :cond_29
+    if-nez v0, :cond_2a
 
     invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x11100c6
+    const v1, 0x11100c7
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2a
+    if-eqz v0, :cond_2b
 
-    :cond_29
+    :cond_2a
     const-string v0, "StartAppWidgetService"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -5692,7 +5718,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_2a
+    :cond_2b
     const-string v0, "StartVoiceRecognitionManager"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -5725,7 +5751,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2b
+    if-eqz v0, :cond_2c
 
     const-string v0, "StartGestureLauncher"
 
@@ -5739,7 +5765,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_2b
+    :cond_2c
     const-string v0, "StartSensorNotification"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -5760,7 +5786,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2c
+    if-eqz v0, :cond_2d
 
     const-string v0, "StartContextHubSystemService"
 
@@ -5774,7 +5800,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_2c
+    :cond_2d
     const-string v0, "StartDiskStatsService"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -5790,7 +5816,7 @@
     :try_end_3a
     .catchall {:try_start_3a .. :try_end_3a} :catchall_2a
 
-    goto :goto_35
+    goto :goto_36
 
     :catchall_2a
     move-exception v0
@@ -5799,7 +5825,7 @@
 
     invoke-direct {v5, v1, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_35
+    :goto_36
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     const-string v0, "RuntimeService"
@@ -5817,7 +5843,7 @@
     :try_end_3b
     .catchall {:try_start_3b .. :try_end_3b} :catchall_2b
 
-    goto :goto_36
+    goto :goto_37
 
     :catchall_2b
     move-exception v0
@@ -5826,36 +5852,36 @@
 
     invoke-direct {v5, v1, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_36
+    :goto_37
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     iget-boolean v0, v5, Lcom/android/server/SystemServer;->mOnlyCore:Z
 
-    if-nez v0, :cond_2d
+    if-nez v0, :cond_2e
 
     invoke-virtual {v3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x11100dd
+    const v1, 0x11100de
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2d
+    if-eqz v0, :cond_2e
 
     const/16 v35, 0x1
 
-    goto :goto_37
+    goto :goto_38
 
-    :cond_2d
+    :cond_2e
     const/16 v35, 0x0
 
-    :goto_37
+    :goto_38
     move/from16 v1, v35
 
-    if-eqz v1, :cond_2e
+    if-eqz v1, :cond_2f
 
     const-string v0, "StartTimeZoneRulesManagerService"
 
@@ -5869,10 +5895,10 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_2e
-    if-nez v30, :cond_2f
+    :cond_2f
+    if-nez v30, :cond_30
 
-    if-nez v26, :cond_2f
+    if-nez v26, :cond_30
 
     const-string v0, "StartNetworkTimeUpdateService"
 
@@ -5894,31 +5920,31 @@
     :try_end_3d
     .catchall {:try_start_3d .. :try_end_3d} :catchall_2c
 
-    goto :goto_39
+    goto :goto_3a
 
     :catchall_2c
     move-exception v0
 
     move-object/from16 v21, v2
 
-    goto :goto_38
+    goto :goto_39
 
     :catchall_2d
     move-exception v0
 
-    :goto_38
+    :goto_39
     const-string/jumbo v2, "starting NetworkTimeUpdate service"
 
     invoke-direct {v5, v2, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     move-object/from16 v2, v21
 
-    :goto_39
+    :goto_3a
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     move-object/from16 v21, v2
 
-    :cond_2f
+    :cond_30
     const-string v0, "CertBlacklister"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -5930,7 +5956,7 @@
     :try_end_3e
     .catchall {:try_start_3e .. :try_end_3e} :catchall_2e
 
-    goto :goto_3a
+    goto :goto_3b
 
     :catchall_2e
     move-exception v0
@@ -5939,7 +5965,7 @@
 
     invoke-direct {v5, v2, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_3a
+    :goto_3b
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     const-string v0, "StartEmergencyAffordanceService"
@@ -5994,7 +6020,7 @@
 
     sget-boolean v0, Lcom/android/server/coverage/CoverageService;->ENABLED:Z
 
-    if-eqz v0, :cond_30
+    if-eqz v0, :cond_31
 
     const-string v0, "AddCoverageService"
 
@@ -6010,7 +6036,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_30
+    :cond_31
     iget-object v0, v5, Lcom/android/server/SystemServer;->mPackageManager:Landroid/content/pm/PackageManager;
 
     const-string v2, "android.software.print"
@@ -6019,7 +6045,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_31
+    if-eqz v0, :cond_32
 
     const-string v0, "StartPrintManager"
 
@@ -6033,7 +6059,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_31
+    :cond_32
     iget-object v0, v5, Lcom/android/server/SystemServer;->mPackageManager:Landroid/content/pm/PackageManager;
 
     const-string v2, "android.software.companion_device_setup"
@@ -6042,7 +6068,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_32
+    if-eqz v0, :cond_33
 
     const-string v0, "StartCompanionDeviceManager"
 
@@ -6056,7 +6082,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_32
+    :cond_33
     const-string v0, "StartRestrictionManager"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -6089,7 +6115,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_33
+    if-eqz v0, :cond_34
 
     const-string v0, "StartHdmiControlService"
 
@@ -6103,7 +6129,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_33
+    :cond_34
     iget-object v0, v5, Lcom/android/server/SystemServer;->mPackageManager:Landroid/content/pm/PackageManager;
 
     const-string v2, "android.software.live_tv"
@@ -6112,7 +6138,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_34
+    if-nez v0, :cond_35
 
     iget-object v0, v5, Lcom/android/server/SystemServer;->mPackageManager:Landroid/content/pm/PackageManager;
 
@@ -6122,9 +6148,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_35
+    if-eqz v0, :cond_36
 
-    :cond_34
+    :cond_35
     const-string v0, "StartTvInputManager"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -6137,7 +6163,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_35
+    :cond_36
     iget-object v0, v5, Lcom/android/server/SystemServer;->mPackageManager:Landroid/content/pm/PackageManager;
 
     const-string v2, "android.hardware.tv.tuner"
@@ -6146,7 +6172,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_36
+    if-eqz v0, :cond_37
 
     const-string v0, "StartTunerResourceManager"
 
@@ -6160,7 +6186,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_36
+    :cond_37
     iget-object v0, v5, Lcom/android/server/SystemServer;->mPackageManager:Landroid/content/pm/PackageManager;
 
     const-string v2, "android.software.picture_in_picture"
@@ -6169,7 +6195,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_37
+    if-eqz v0, :cond_38
 
     const-string v0, "StartMediaResourceMonitor"
 
@@ -6183,7 +6209,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_37
+    :cond_38
     iget-object v0, v5, Lcom/android/server/SystemServer;->mPackageManager:Landroid/content/pm/PackageManager;
 
     const-string v2, "android.software.leanback"
@@ -6192,7 +6218,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_38
+    if-eqz v0, :cond_39
 
     const-string v0, "StartTvRemoteService"
 
@@ -6206,7 +6232,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_38
+    :cond_39
     const-string v0, "StartMediaRouterService"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -6229,24 +6255,24 @@
 
     move-object/from16 v33, v2
 
-    goto :goto_3c
+    goto :goto_3d
 
     :catchall_2f
     move-exception v0
 
     move-object/from16 v33, v2
 
-    goto :goto_3b
+    goto :goto_3c
 
     :catchall_30
     move-exception v0
 
-    :goto_3b
+    :goto_3c
     const-string/jumbo v2, "starting MediaRouterService"
 
     invoke-direct {v5, v2, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_3c
+    :goto_3d
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     iget-object v0, v5, Lcom/android/server/SystemServer;->mPackageManager:Landroid/content/pm/PackageManager;
@@ -6275,7 +6301,7 @@
 
     move-result v1
 
-    if-eqz v2, :cond_39
+    if-eqz v2, :cond_3a
 
     const-string v0, "StartFaceSensor"
 
@@ -6295,13 +6321,13 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    goto :goto_3d
+    goto :goto_3e
 
-    :cond_39
+    :cond_3a
     move/from16 v43, v2
 
-    :goto_3d
-    if-eqz v7, :cond_3a
+    :goto_3e
+    if-eqz v7, :cond_3b
 
     const-string v0, "StartIrisSensor"
 
@@ -6315,8 +6341,8 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_3a
-    if-eqz v1, :cond_3b
+    :cond_3b
+    if-eqz v1, :cond_3c
 
     const-string v0, "StartFingerprintSensor"
 
@@ -6334,7 +6360,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_3b
+    :cond_3c
     const-string v0, "StartBiometricService"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -6368,7 +6394,7 @@
     :try_end_41
     .catchall {:try_start_41 .. :try_end_41} :catchall_31
 
-    goto :goto_3e
+    goto :goto_3f
 
     :catchall_31
     move-exception v0
@@ -6381,10 +6407,10 @@
 
     invoke-direct {v5, v2, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_3e
+    :goto_3f
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    if-nez v30, :cond_3c
+    if-nez v30, :cond_3d
 
     const-string v0, "StartDynamicCodeLoggingService"
 
@@ -6395,7 +6421,7 @@
     :try_end_42
     .catchall {:try_start_42 .. :try_end_42} :catchall_32
 
-    goto :goto_3f
+    goto :goto_40
 
     :catchall_32
     move-exception v0
@@ -6408,11 +6434,11 @@
 
     invoke-direct {v5, v2, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_3f
+    :goto_40
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_3c
-    if-nez v30, :cond_3d
+    :cond_3d
+    if-nez v30, :cond_3e
 
     const-string v0, "StartPruneInstantAppsJobService"
 
@@ -6423,7 +6449,7 @@
     :try_end_43
     .catchall {:try_start_43 .. :try_end_43} :catchall_33
 
-    goto :goto_40
+    goto :goto_41
 
     :catchall_33
     move-exception v0
@@ -6436,10 +6462,10 @@
 
     invoke-direct {v5, v2, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_40
+    :goto_41
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_3d
+    :cond_3e
     const-string v0, "StartShortcutServiceLifecycle"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -6530,8 +6556,8 @@
 
     move-object/from16 v33, v10
 
-    :goto_41
-    if-nez v30, :cond_3e
+    :goto_42
+    if-nez v30, :cond_3f
 
     const-string v0, "StartMediaProjectionManager"
 
@@ -6545,8 +6571,8 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_3e
-    if-eqz v30, :cond_40
+    :cond_3f
+    if-eqz v30, :cond_41
 
     const-string v0, "StartWearPowerService"
 
@@ -6596,7 +6622,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    if-eqz v28, :cond_3f
+    if-eqz v28, :cond_40
 
     const-string v0, "StartWearLeftyService"
 
@@ -6610,7 +6636,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_3f
+    :cond_40
     const-string v0, "StartWearGlobalActionsService"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -6623,7 +6649,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_40
+    :cond_41
     iget-object v0, v5, Lcom/android/server/SystemServer;->mPackageManager:Landroid/content/pm/PackageManager;
 
     const-string v1, "android.software.slices_disabled"
@@ -6632,7 +6658,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_41
+    if-nez v0, :cond_42
 
     const-string v0, "StartSliceManagerService"
 
@@ -6646,7 +6672,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_41
+    :cond_42
     invoke-virtual {v3}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v0
@@ -6657,7 +6683,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_42
+    if-eqz v0, :cond_43
 
     const-string v0, "StartIoTSystemService"
 
@@ -6671,7 +6697,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_42
+    :cond_43
     const-string v0, "StartStatsCompanion"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -6724,13 +6750,13 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    if-eqz v9, :cond_43
+    if-eqz v9, :cond_44
 
     iget-object v0, v5, Lcom/android/server/SystemServer;->mActivityManagerService:Lcom/android/server/am/ActivityManagerService;
 
     invoke-virtual {v0}, Lcom/android/server/am/ActivityManagerService;->enterSafeMode()V
 
-    :cond_43
+    :cond_44
     const-string v0, "StartMmsService"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -6757,7 +6783,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_44
+    if-eqz v0, :cond_45
 
     const-string v0, "StartAutoFillService"
 
@@ -6771,14 +6797,14 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_44
+    :cond_45
     const v0, 0x104022a
 
     invoke-direct {v5, v3, v0}, Lcom/android/server/SystemServer;->deviceHasConfigString(Landroid/content/Context;I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_45
+    if-eqz v0, :cond_46
 
     const-string v0, "StartTranslationManagerService"
 
@@ -6792,16 +6818,16 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    goto :goto_42
+    goto :goto_43
 
-    :cond_45
+    :cond_46
     const-string v0, "SystemServer"
 
     const-string v1, "TranslationService not defined by OEM"
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_42
+    :goto_43
     const-string v0, "StartClipboardService"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -6842,14 +6868,14 @@
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
 
-    if-eqz v48, :cond_46
+    if-eqz v48, :cond_47
 
     :try_start_44
     invoke-interface/range {v48 .. v48}, Lcom/android/internal/widget/ILockSettings;->systemReady()V
     :try_end_44
     .catchall {:try_start_44 .. :try_end_44} :catchall_34
 
-    goto :goto_43
+    goto :goto_44
 
     :catchall_34
     move-exception v0
@@ -6862,8 +6888,8 @@
 
     invoke-direct {v5, v1, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :cond_46
-    :goto_43
+    :cond_47
+    :goto_44
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     const-string v0, "StartBootPhaseLockSettingsReady"
@@ -6899,7 +6925,7 @@
     :try_end_45
     .catchall {:try_start_45 .. :try_end_45} :catchall_35
 
-    goto :goto_44
+    goto :goto_45
 
     :catchall_35
     move-exception v0
@@ -6912,7 +6938,7 @@
 
     invoke-direct {v5, v1, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_44
+    :goto_45
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     const-class v1, Lcom/android/server/SystemService;
@@ -6924,7 +6950,7 @@
     :try_end_46
     .catchall {:try_start_46 .. :try_end_46} :catchall_3b
 
-    if-eqz v0, :cond_47
+    if-eqz v0, :cond_48
 
     :try_start_47
     iget-object v2, v5, Lcom/android/server/SystemServer;->mActivityManagerService:Lcom/android/server/am/ActivityManagerService;
@@ -6937,7 +6963,7 @@
     :try_end_47
     .catchall {:try_start_47 .. :try_end_47} :catchall_36
 
-    goto :goto_45
+    goto :goto_46
 
     :catchall_36
     move-exception v0
@@ -6954,22 +6980,22 @@
 
     move-object/from16 v3, v60
 
-    goto/16 :goto_4b
+    goto/16 :goto_4c
 
-    :cond_47
-    :goto_45
+    :cond_48
+    :goto_46
     :try_start_48
     monitor-exit v1
     :try_end_48
     .catchall {:try_start_48 .. :try_end_48} :catchall_3b
 
-    if-eqz v9, :cond_48
+    if-eqz v9, :cond_49
 
     iget-object v0, v5, Lcom/android/server/SystemServer;->mActivityManagerService:Lcom/android/server/am/ActivityManagerService;
 
     invoke-virtual {v0}, Lcom/android/server/am/ActivityManagerService;->showSafeModeOverlay()V
 
-    :cond_48
+    :cond_49
     const/4 v1, 0x0
 
     invoke-virtual {v6, v1}, Lcom/android/server/wm/WindowManagerService;->computeNewConfiguration(I)Landroid/content/res/Configuration;
@@ -7002,11 +7028,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_49
+    if-eqz v0, :cond_4a
 
     invoke-virtual/range {v20 .. v20}, Landroid/content/res/Resources$Theme;->rebase()V
 
-    :cond_49
+    :cond_4a
     const-string v0, "MakePowerManagerServiceReady"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -7024,7 +7050,7 @@
     :try_end_49
     .catchall {:try_start_49 .. :try_end_49} :catchall_37
 
-    goto :goto_46
+    goto :goto_47
 
     :catchall_37
     move-exception v0
@@ -7033,7 +7059,7 @@
 
     invoke-direct {v5, v7, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_46
+    :goto_47
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     const-string v0, "StartPermissionPolicyService"
@@ -7071,7 +7097,7 @@
     :try_end_4a
     .catchall {:try_start_4a .. :try_end_4a} :catchall_38
 
-    goto :goto_47
+    goto :goto_48
 
     :catchall_38
     move-exception v0
@@ -7080,7 +7106,7 @@
 
     invoke-direct {v5, v7, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_47
+    :goto_48
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     iget-object v0, v5, Lcom/android/server/SystemServer;->mSystemServiceManager:Lcom/android/server/SystemServiceManager;
@@ -7097,7 +7123,7 @@
 
     move-result-object v0
 
-    const v7, 0x107002f
+    const v7, 0x1070031
 
     invoke-virtual {v0, v7}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -7105,8 +7131,8 @@
 
     array-length v7, v15
 
-    :goto_48
-    if-ge v1, v7, :cond_4a
+    :goto_49
+    if-ge v1, v7, :cond_4b
 
     aget-object v8, v15, v1
 
@@ -7133,7 +7159,7 @@
     :try_end_4b
     .catchall {:try_start_4b .. :try_end_4b} :catchall_39
 
-    goto :goto_49
+    goto :goto_4a
 
     :catchall_39
     move-exception v0
@@ -7154,14 +7180,14 @@
 
     invoke-direct {v5, v10, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_49
+    :goto_4a
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_48
+    goto :goto_49
 
-    :cond_4a
+    :cond_4b
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     const-string v0, "GameManagerService"
@@ -7186,7 +7212,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4b
+    if-eqz v0, :cond_4c
 
     const-string v0, "UwbService"
 
@@ -7200,7 +7226,7 @@
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
-    :cond_4b
+    :cond_4c
     const-string v0, "StartBootPhaseDeviceSpecificServicesReady"
 
     invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
@@ -7232,6 +7258,18 @@
     iget-object v0, v5, Lcom/android/server/SystemServer;->mSystemServiceManager:Lcom/android/server/SystemServiceManager;
 
     const-string v1, "com.android.server.media.MediaCommunicationService"
+
+    invoke-virtual {v0, v1}, Lcom/android/server/SystemServiceManager;->startService(Ljava/lang/String;)Lcom/android/server/SystemService;
+
+    invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
+
+    const-string v0, "AppCompatOverridesService"
+
+    invoke-virtual {v4, v0}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceBegin(Ljava/lang/String;)V
+
+    iget-object v0, v5, Lcom/android/server/SystemServer;->mSystemServiceManager:Lcom/android/server/SystemServiceManager;
+
+    const-string v1, "com.android.server.compat.overrides.AppCompatOverridesService$Lifecycle"
 
     invoke-virtual {v0, v1}, Lcom/android/server/SystemServiceManager;->startService(Ljava/lang/String;)Lcom/android/server/SystemService;
 
@@ -7328,7 +7366,7 @@
 
     move-object/from16 v5, p0
 
-    goto :goto_4a
+    goto :goto_4b
 
     :catchall_3a
     move-exception v0
@@ -7343,7 +7381,7 @@
 
     invoke-direct {v5, v2, v0}, Lcom/android/server/SystemServer;->reportWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_4a
+    :goto_4b
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/utils/TimingsTraceAndSlog;->traceEnd()V
@@ -7365,7 +7403,7 @@
 
     move-object/from16 v3, v60
 
-    :goto_4b
+    :goto_4c
     :try_start_4d
     monitor-exit v1
     :try_end_4d
@@ -7376,7 +7414,7 @@
     :catchall_3c
     move-exception v0
 
-    goto :goto_4b
+    goto :goto_4c
 
     :catchall_3d
     move-exception v0
@@ -7401,7 +7439,7 @@
 
     move-object/from16 v19, v56
 
-    goto/16 :goto_4c
+    goto/16 :goto_4d
 
     :catchall_3e
     move-exception v0
@@ -7426,7 +7464,7 @@
 
     move-object/from16 v19, v56
 
-    goto/16 :goto_4c
+    goto/16 :goto_4d
 
     :catchall_3f
     move-exception v0
@@ -7447,7 +7485,7 @@
 
     move-object/from16 v6, v55
 
-    goto :goto_4c
+    goto :goto_4d
 
     :catchall_40
     move-exception v0
@@ -7470,7 +7508,7 @@
 
     move-object/from16 v6, v55
 
-    goto :goto_4c
+    goto :goto_4d
 
     :catchall_41
     move-exception v0
@@ -7489,7 +7527,7 @@
 
     move-object/from16 v7, v37
 
-    goto :goto_4c
+    goto :goto_4d
 
     :catchall_42
     move-exception v0
@@ -7506,7 +7544,7 @@
 
     move-object/from16 v7, v37
 
-    goto :goto_4c
+    goto :goto_4d
 
     :catchall_43
     move-exception v0
@@ -7521,7 +7559,7 @@
 
     move-object/from16 v7, v37
 
-    goto :goto_4c
+    goto :goto_4d
 
     :catchall_44
     move-exception v0
@@ -7532,7 +7570,7 @@
 
     move-object/from16 v3, v60
 
-    :goto_4c
+    :goto_4d
     const-string v9, "System"
 
     const-string v10, "******************************************"

@@ -40,18 +40,12 @@
 
 
 # direct methods
-.method public constructor <init>(I)V
+.method public constructor <init>(ILjava/lang/Object;)V
     .locals 5
 
     const-string v0, "BcRadio2Srv"
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    new-instance v1, Ljava/lang/Object;
-
-    invoke-direct {v1}, Ljava/lang/Object;-><init>()V
-
-    iput-object v1, p0, Lcom/android/server/broadcastradio/hal2/BroadcastRadioService;->mLock:Ljava/lang/Object;
 
     const/4 v1, 0x0
 
@@ -82,6 +76,8 @@
     iput-object v1, p0, Lcom/android/server/broadcastradio/hal2/BroadcastRadioService;->mDeathRecipient:Landroid/os/IHwBinder$DeathRecipient;
 
     iput p1, p0, Lcom/android/server/broadcastradio/hal2/BroadcastRadioService;->mNextModuleId:I
+
+    iput-object p2, p0, Lcom/android/server/broadcastradio/hal2/BroadcastRadioService;->mLock:Ljava/lang/Object;
 
     :try_start_0
     invoke-static {}, Landroid/hidl/manager/V1_0/IServiceManager;->getService()Landroid/hidl/manager/V1_0/IServiceManager;
@@ -189,7 +185,9 @@
 
     new-instance v0, Lcom/android/server/broadcastradio/hal2/AnnouncementAggregator;
 
-    invoke-direct {v0, p2}, Lcom/android/server/broadcastradio/hal2/AnnouncementAggregator;-><init>(Landroid/hardware/radio/IAnnouncementListener;)V
+    iget-object v1, p0, Lcom/android/server/broadcastradio/hal2/BroadcastRadioService;->mLock:Ljava/lang/Object;
+
+    invoke-direct {v0, p2, v1}, Lcom/android/server/broadcastradio/hal2/AnnouncementAggregator;-><init>(Landroid/hardware/radio/IAnnouncementListener;Ljava/lang/Object;)V
 
     const/4 v1, 0x0
 

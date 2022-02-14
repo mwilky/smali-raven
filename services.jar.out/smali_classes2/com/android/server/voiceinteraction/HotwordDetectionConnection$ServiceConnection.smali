@@ -103,9 +103,11 @@
 
     iget-object v1, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->mIntent:Landroid/content/Intent;
 
-    iget v2, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->mBindingFlags:I
+    const v2, 0x4000001
 
-    or-int/lit8 v2, v2, 0x1
+    iget v3, p0, Lcom/android/server/voiceinteraction/HotwordDetectionConnection$ServiceConnection;->mBindingFlags:I
+
+    or-int/2addr v2, v3
 
     new-instance v3, Ljava/lang/StringBuilder;
 

@@ -18,6 +18,14 @@
 .method public abstract commitPendingTransaction()V
 .end method
 
+.method public getAnimationLeash()Landroid/view/SurfaceControl;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
 .method public abstract getAnimationLeashParent()Landroid/view/SurfaceControl;
 .end method
 

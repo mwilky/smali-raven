@@ -89,7 +89,7 @@
 
     iget v4, p0, Lcom/android/server/pm/PackageManagerService$6;->val$userId:I
 
-    invoke-static {v2, v3, v4}, Lcom/android/server/pm/PackageManagerService;->access$7900(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;I)Z
+    invoke-static {v2, v3, v4}, Lcom/android/server/pm/PackageManagerService;->access$7800(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;I)Z
 
     move-result v2
 
@@ -175,7 +175,7 @@
 
     iget v3, p0, Lcom/android/server/pm/PackageManagerService$6;->val$userId:I
 
-    invoke-static {v1, v3}, Lcom/android/server/pm/PackageManagerService;->access$8000(Lcom/android/server/pm/PackageManagerService;I)V
+    invoke-static {v1, v3}, Lcom/android/server/pm/PackageManagerService;->access$7900(Lcom/android/server/pm/PackageManagerService;I)V
 
     :cond_2
     goto :goto_1

@@ -105,7 +105,7 @@
 
     move-object v7, p6
 
-    invoke-static/range {v1 .. v7}, Lcom/android/server/pm/PackageInstallerSession;->access$2600(Lcom/android/server/pm/PackageInstallerSession;Ljava/lang/String;JJLandroid/os/ParcelFileDescriptor;)Landroid/os/ParcelFileDescriptor;
+    invoke-static/range {v1 .. v7}, Lcom/android/server/pm/PackageInstallerSession;->access$2500(Lcom/android/server/pm/PackageInstallerSession;Ljava/lang/String;JJLandroid/os/ParcelFileDescriptor;)Landroid/os/ParcelFileDescriptor;
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 

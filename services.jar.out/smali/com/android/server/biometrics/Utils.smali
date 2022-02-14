@@ -27,50 +27,58 @@
     return v0
 
     :pswitch_1
-    const/16 v0, 0x9
+    const/16 v0, 0x12
 
     return v0
 
     :pswitch_2
-    const/4 v0, 0x7
+    const/16 v0, 0x9
 
     return v0
 
     :pswitch_3
-    const/16 v0, 0xe
+    const/4 v0, 0x7
 
     return v0
 
     :pswitch_4
-    const/16 v0, 0xb
+    const/16 v0, 0xe
 
     return v0
 
     :pswitch_5
-    const/16 v0, 0xf
+    const/16 v0, 0xb
 
     return v0
 
     :pswitch_6
-    const/16 v0, 0xc
+    const/16 v0, 0xf
 
     return v0
 
     :pswitch_7
+    const/16 v0, 0xc
+
+    return v0
+
+    :pswitch_8
     const/4 v0, 0x0
 
     return v0
 
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
+        :pswitch_8
+        :pswitch_7
+        :pswitch_0
         :pswitch_7
         :pswitch_6
         :pswitch_0
-        :pswitch_6
         :pswitch_5
         :pswitch_0
         :pswitch_4
-        :pswitch_0
         :pswitch_3
         :pswitch_2
         :pswitch_1
@@ -153,31 +161,36 @@
     goto :goto_0
 
     :sswitch_0
-    const/16 v0, 0xf
-
-    goto :goto_0
-
-    :sswitch_1
-    const/16 v0, 0xc
-
-    goto :goto_0
-
-    :sswitch_2
-    const/16 v0, 0xb
-
-    goto :goto_0
-
-    :sswitch_3
-    const/4 v0, 0x0
-
-    goto :goto_0
-
-    :sswitch_4
     const/4 v0, 0x1
 
     goto :goto_0
 
+    :sswitch_1
+    const/16 v0, 0xf
+
+    goto :goto_0
+
+    :sswitch_2
+    const/16 v0, 0xc
+
+    goto :goto_0
+
+    :sswitch_3
+    const/16 v0, 0xb
+
+    goto :goto_0
+
+    :sswitch_4
+    const/4 v0, 0x0
+
+    goto :goto_0
+
     :sswitch_5
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :sswitch_6
     const/4 v0, 0x0
 
     nop
@@ -189,14 +202,15 @@
 
     :sswitch_data_0
     .sparse-switch
-        0x0 -> :sswitch_5
-        0x1 -> :sswitch_4
-        0x7 -> :sswitch_3
-        0x9 -> :sswitch_3
-        0xb -> :sswitch_2
-        0xc -> :sswitch_1
-        0xe -> :sswitch_2
-        0xf -> :sswitch_0
+        0x0 -> :sswitch_6
+        0x1 -> :sswitch_5
+        0x7 -> :sswitch_4
+        0x9 -> :sswitch_4
+        0xb -> :sswitch_3
+        0xc -> :sswitch_2
+        0xe -> :sswitch_3
+        0xf -> :sswitch_1
+        0x12 -> :sswitch_0
     .end sparse-switch
 .end method
 
@@ -407,43 +421,6 @@
     invoke-static {v0}, Lcom/android/server/biometrics/Utils;->getPublicBiometricStrength(I)I
 
     move-result v0
-
-    return v0
-.end method
-
-.method public static getUdfpsAuthReason(Lcom/android/server/biometrics/sensors/AuthenticationClient;)I
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/server/biometrics/sensors/AuthenticationClient<",
-            "*>;)I"
-        }
-    .end annotation
-
-    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/AuthenticationClient;->isKeyguard()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x4
-
-    return v0
-
-    :cond_0
-    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/AuthenticationClient;->isBiometricPrompt()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    const/4 v0, 0x3
-
-    return v0
-
-    :cond_1
-    const/4 v0, 0x5
 
     return v0
 .end method

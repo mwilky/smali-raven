@@ -61,7 +61,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/fingerprint/FingerprintStateCallback;Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;Lcom/android/server/biometrics/sensors/fingerprint/hidl/Fingerprint21UdfpsMock$TestableBiometricScheduler;Landroid/os/Handler;Lcom/android/server/biometrics/sensors/LockoutResetDispatcher;Lcom/android/server/biometrics/sensors/fingerprint/hidl/Fingerprint21UdfpsMock$MockHalResultController;)V
-    .locals 19
+    .locals 16
 
     move-object/from16 v0, p0
 
@@ -89,7 +89,7 @@
 
     move-result-object v6
 
-    const v7, 0x10e0064
+    const v7, 0x10e0067
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -103,31 +103,19 @@
 
     iget-object v12, v1, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->componentInfo:Ljava/util/List;
 
-    iget v15, v1, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->sensorLocationX:I
+    invoke-virtual/range {p3 .. p3}, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->getAllLocations()Ljava/util/List;
 
-    iget v14, v1, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->sensorLocationY:I
+    move-result-object v15
 
-    iget v13, v1, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->sensorRadius:I
+    const/4 v13, 0x3
 
-    const/16 v16, 0x3
-
-    const/16 v17, 0x0
+    const/4 v14, 0x0
 
     move-object v8, v7
 
     move v11, v6
 
-    move/from16 v18, v13
-
-    move/from16 v13, v16
-
-    move/from16 v16, v14
-
-    move/from16 v14, v17
-
-    move/from16 v17, v18
-
-    invoke-direct/range {v8 .. v17}, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;-><init>(IIILjava/util/List;IZIII)V
+    invoke-direct/range {v8 .. v15}, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;-><init>(IIILjava/util/List;IZLjava/util/List;)V
 
     iput-object v7, v0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/Fingerprint21UdfpsMock;->mSensorProperties:Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
 

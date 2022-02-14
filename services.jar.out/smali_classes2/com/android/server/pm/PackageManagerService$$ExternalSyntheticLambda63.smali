@@ -45,7 +45,7 @@
 
     iget-object v3, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda63;->f$3:Landroid/os/storage/StorageManagerInternal;
 
-    invoke-static {v0, v1, v2, v3}, Lcom/android/server/pm/PackageManagerService;->lambda$prepareAppDataAfterInstallLIF$65(Lcom/android/server/pm/UserManagerInternal;Landroid/content/pm/UserInfo;Lcom/android/server/pm/parsing/pkg/AndroidPackage;Landroid/os/storage/StorageManagerInternal;)V
+    invoke-static {v0, v1, v2, v3}, Lcom/android/server/pm/PackageManagerService;->lambda$prepareAppDataAfterInstallLIF$64(Lcom/android/server/pm/UserManagerInternal;Landroid/content/pm/UserInfo;Lcom/android/server/pm/parsing/pkg/AndroidPackage;Landroid/os/storage/StorageManagerInternal;)V
 
     return-void
 .end method

@@ -61,7 +61,7 @@
 
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->this$0:Lcom/android/server/accessibility/AccessibilityWindowManager;
 
-    invoke-static {v0}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$300(Lcom/android/server/accessibility/AccessibilityWindowManager;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$500(Lcom/android/server/accessibility/AccessibilityWindowManager;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -74,7 +74,7 @@
 
     iget v3, p0, Lcom/android/server/accessibility/AccessibilityWindowManager$RemoteAccessibilityConnection;->mUserId:I
 
-    invoke-static {v1, v2, v3}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$1200(Lcom/android/server/accessibility/AccessibilityWindowManager;II)V
+    invoke-static {v1, v2, v3}, Lcom/android/server/accessibility/AccessibilityWindowManager;->access$1500(Lcom/android/server/accessibility/AccessibilityWindowManager;II)V
 
     monitor-exit v0
 

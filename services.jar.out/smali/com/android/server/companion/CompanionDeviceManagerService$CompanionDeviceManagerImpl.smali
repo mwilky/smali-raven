@@ -366,7 +366,20 @@
     return-object v0
 .end method
 
-.method static synthetic lambda$canPairWithoutPrompt$8(Landroid/companion/Association;)Z
+.method static synthetic lambda$associate$2(Landroid/companion/ICompanionDeviceDiscoveryService;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
+
+    invoke-interface {p0}, Landroid/companion/ICompanionDeviceDiscoveryService;->onAssociationCreated()V
+
+    return-void
+.end method
+
+.method static synthetic lambda$canPairWithoutPrompt$9(Landroid/companion/Association;)Z
     .locals 4
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -396,7 +409,7 @@
     return v0
 .end method
 
-.method static synthetic lambda$dump$9(Ljava/io/PrintWriter;Landroid/companion/Association;)V
+.method static synthetic lambda$dump$10(Ljava/io/PrintWriter;Landroid/companion/Association;)V
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -473,7 +486,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$getAssociations$3(Landroid/companion/Association;)Ljava/lang/String;
+.method static synthetic lambda$getAssociations$4(Landroid/companion/Association;)Ljava/lang/String;
     .locals 1
 
     invoke-virtual {p0}, Landroid/companion/Association;->getDeviceMacAddress()Ljava/lang/String;
@@ -483,7 +496,7 @@
     return-object v0
 .end method
 
-.method static synthetic lambda$isDeviceAssociatedForWifiConnection$4(Ljava/lang/String;Landroid/companion/Association;)Z
+.method static synthetic lambda$isDeviceAssociatedForWifiConnection$5(Ljava/lang/String;Landroid/companion/Association;)Z
     .locals 1
 
     invoke-virtual {p1}, Landroid/companion/Association;->getDeviceMacAddress()Ljava/lang/String;
@@ -497,7 +510,7 @@
     return v0
 .end method
 
-.method static synthetic lambda$registerDevicePresenceListenerActive$5(Ljava/lang/String;Landroid/companion/Association;)Z
+.method static synthetic lambda$registerDevicePresenceListenerActive$6(Ljava/lang/String;Landroid/companion/Association;)Z
     .locals 1
 
     invoke-virtual {p1}, Landroid/companion/Association;->getDeviceMacAddress()Ljava/lang/String;
@@ -511,7 +524,7 @@
     return v0
 .end method
 
-.method static synthetic lambda$registerDevicePresenceListenerActive$6(Ljava/lang/String;Ljava/lang/String;ZLandroid/companion/Association;)Landroid/companion/Association;
+.method static synthetic lambda$registerDevicePresenceListenerActive$7(Ljava/lang/String;Ljava/lang/String;ZLandroid/companion/Association;)Landroid/companion/Association;
     .locals 9
 
     invoke-virtual {p3}, Landroid/companion/Association;->getPackageName()Ljava/lang/String;
@@ -568,12 +581,12 @@
     return-object p3
 .end method
 
-.method static synthetic lambda$registerDevicePresenceListenerActive$7(Ljava/lang/String;Ljava/lang/String;ZLjava/util/Set;)Ljava/util/Set;
+.method static synthetic lambda$registerDevicePresenceListenerActive$8(Ljava/lang/String;Ljava/lang/String;ZLjava/util/Set;)Ljava/util/Set;
     .locals 1
 
-    new-instance v0, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda4;
+    new-instance v0, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda5;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda4;-><init>(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda5;-><init>(Ljava/lang/String;Ljava/lang/String;Z)V
 
     invoke-static {p3, v0}, Lcom/android/internal/util/CollectionUtils;->map(Ljava/util/Set;Ljava/util/function/Function;)Ljava/util/Set;
 
@@ -614,9 +627,9 @@
 
     move-result-object v1
 
-    new-instance v2, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda8;
+    new-instance v2, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda9;
 
-    invoke-direct {v2, p2}, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda8;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, p2}, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda9;-><init>(Ljava/lang/String;)V
 
     invoke-static {v1, v2}, Lcom/android/internal/util/CollectionUtils;->filter(Ljava/util/Set;Ljava/util/function/Predicate;)Ljava/util/Set;
 
@@ -630,9 +643,9 @@
 
     iget-object v2, p0, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl;->this$0:Lcom/android/server/companion/CompanionDeviceManagerService;
 
-    new-instance v3, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda5;
+    new-instance v3, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda6;
 
-    invoke-direct {v3, p1, p2, p3}, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda5;-><init>(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-direct {v3, p1, p2, p3}, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda6;-><init>(Ljava/lang/String;Ljava/lang/String;Z)V
 
     invoke-static {v2, v3, v0}, Lcom/android/server/companion/CompanionDeviceManagerService;->access$400(Lcom/android/server/companion/CompanionDeviceManagerService;Ljava/util/function/Function;I)V
 
@@ -813,7 +826,7 @@
 
     iget-object v8, p0, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl;->this$0:Lcom/android/server/companion/CompanionDeviceManagerService;
 
-    new-instance v9, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda3;
+    new-instance v9, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda4;
 
     move-object v2, v9
 
@@ -827,7 +840,7 @@
 
     move-object v7, p2
 
-    invoke-direct/range {v2 .. v7}, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda3;-><init>(Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl;Landroid/companion/AssociationRequest;ILjava/lang/String;Landroid/companion/IFindDeviceCallback;)V
+    invoke-direct/range {v2 .. v7}, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda4;-><init>(Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl;Landroid/companion/AssociationRequest;ILjava/lang/String;Landroid/companion/IFindDeviceCallback;)V
 
     invoke-static {}, Lcom/android/server/FgThread;->getExecutor()Ljava/util/concurrent/Executor;
 
@@ -837,9 +850,9 @@
 
     move-result-object v2
 
-    new-instance v3, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda1;
+    new-instance v3, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda2;
 
-    invoke-direct {v3, p0, v0, p2}, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl;ILandroid/companion/IFindDeviceCallback;)V
+    invoke-direct {v3, p0, v0, p2}, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda2;-><init>(Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl;ILandroid/companion/IFindDeviceCallback;)V
 
     invoke-static {v3}, Lcom/android/internal/util/FunctionalUtils;->uncheckExceptions(Lcom/android/internal/util/FunctionalUtils$ThrowingBiConsumer;)Ljava/util/function/BiConsumer;
 
@@ -863,7 +876,7 @@
 
     move-result-object v0
 
-    sget-object v1, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda9;->INSTANCE:Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda9;
+    sget-object v1, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda10;->INSTANCE:Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda10;
 
     invoke-static {v0, v1}, Lcom/android/internal/util/CollectionUtils;->any(Ljava/util/Set;Ljava/util/function/Predicate;)Z
 
@@ -1046,9 +1059,9 @@
 
     check-cast v3, Ljava/util/Set;
 
-    new-instance v4, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda2;
+    new-instance v4, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda3;
 
-    invoke-direct {v4, p2}, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda2;-><init>(Ljava/io/PrintWriter;)V
+    invoke-direct {v4, p2}, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda3;-><init>(Ljava/io/PrintWriter;)V
 
     invoke-static {v3, v4}, Lcom/android/internal/util/CollectionUtils;->forEach(Ljava/util/Set;Lcom/android/internal/util/FunctionalUtils$ThrowingConsumer;)V
 
@@ -1111,7 +1124,7 @@
 
     move-result-object v1
 
-    sget-object v2, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda6;->INSTANCE:Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda6;
+    sget-object v2, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda7;->INSTANCE:Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda7;
 
     invoke-static {v1, v2}, Lcom/android/internal/util/CollectionUtils;->map(Ljava/util/Set;Ljava/util/function/Function;)Ljava/util/Set;
 
@@ -1258,9 +1271,9 @@
 
     move-result-object v1
 
-    new-instance v2, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda7;
+    new-instance v2, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda8;
 
-    invoke-direct {v2, p2}, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda7;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, p2}, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda8;-><init>(Ljava/lang/String;)V
 
     invoke-static {v1, v2}, Lcom/android/internal/util/CollectionUtils;->any(Ljava/util/Set;Ljava/util/function/Predicate;)Z
 
@@ -1319,7 +1332,7 @@
     return-object v0
 .end method
 
-.method public synthetic lambda$associate$2$CompanionDeviceManagerService$CompanionDeviceManagerImpl(ILandroid/companion/IFindDeviceCallback;Landroid/companion/Association;Ljava/lang/Throwable;)V
+.method public synthetic lambda$associate$3$CompanionDeviceManagerService$CompanionDeviceManagerImpl(ILandroid/companion/IFindDeviceCallback;Landroid/companion/Association;Ljava/lang/Throwable;)V
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1332,6 +1345,22 @@
     iget-object v0, p0, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl;->this$0:Lcom/android/server/companion/CompanionDeviceManagerService;
 
     invoke-virtual {v0, p3, p1}, Lcom/android/server/companion/CompanionDeviceManagerService;->addAssociation(Landroid/companion/Association;I)V
+
+    iget-object v0, p0, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl;->this$0:Lcom/android/server/companion/CompanionDeviceManagerService;
+
+    invoke-static {v0}, Lcom/android/server/companion/CompanionDeviceManagerService;->access$2200(Lcom/android/server/companion/CompanionDeviceManagerService;)Lcom/android/internal/infra/PerUser;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Lcom/android/internal/infra/PerUser;->forUser(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/internal/infra/ServiceConnector;
+
+    sget-object v1, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda1;
+
+    invoke-interface {v0, v1}, Lcom/android/internal/infra/ServiceConnector;->post(Lcom/android/internal/infra/ServiceConnector$VoidJob;)Lcom/android/internal/infra/AndroidFuture;
 
     goto :goto_0
 
@@ -1522,7 +1551,13 @@
 
     const/4 v7, 0x0
 
-    invoke-static {v1, p1, v2}, Lcom/android/internal/notification/NotificationAccessConfirmationActivityContract;->launcherIntent(ILandroid/content/ComponentName;Ljava/lang/String;)Landroid/content/Intent;
+    iget-object v5, p0, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl;->this$0:Lcom/android/server/companion/CompanionDeviceManagerService;
+
+    invoke-virtual {v5}, Lcom/android/server/companion/CompanionDeviceManagerService;->getContext()Landroid/content/Context;
+
+    move-result-object v5
+
+    invoke-static {v5, v1, p1, v2}, Lcom/android/internal/notification/NotificationAccessConfirmationActivityContract;->launcherIntent(Landroid/content/Context;ILandroid/content/ComponentName;Ljava/lang/String;)Landroid/content/Intent;
 
     move-result-object v8
 

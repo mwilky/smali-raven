@@ -87,7 +87,7 @@
 
     iget-object v11, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda50;->f$10:Ljava/lang/String;
 
-    invoke-virtual/range {v0 .. v11}, Lcom/android/server/pm/PackageManagerService;->lambda$deletePackageVersionedInternal$54$PackageManagerService(Ljava/lang/String;IZZJII[ILandroid/content/pm/IPackageDeleteObserver2;Ljava/lang/String;)V
+    invoke-virtual/range {v0 .. v11}, Lcom/android/server/pm/PackageManagerService;->lambda$deletePackageVersionedInternal$53$PackageManagerService(Ljava/lang/String;IZZJII[ILandroid/content/pm/IPackageDeleteObserver2;Ljava/lang/String;)V
 
     return-void
 .end method

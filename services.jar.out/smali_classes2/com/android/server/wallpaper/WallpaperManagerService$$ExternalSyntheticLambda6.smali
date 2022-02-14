@@ -8,22 +8,18 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/wallpaper/WallpaperManagerService;
 
-.field public final synthetic f$1:Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;
-
-.field public final synthetic f$2:I
+.field public final synthetic f$1:Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wallpaper/WallpaperManagerService;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;I)V
+.method public synthetic constructor <init>(Lcom/android/server/wallpaper/WallpaperManagerService;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda6;->f$0:Lcom/android/server/wallpaper/WallpaperManagerService;
 
-    iput-object p2, p0, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda6;->f$1:Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;
-
-    iput p3, p0, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda6;->f$2:I
+    iput-object p2, p0, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda6;->f$1:Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;
 
     return-void
 .end method
@@ -31,17 +27,15 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda6;->f$0:Lcom/android/server/wallpaper/WallpaperManagerService;
 
-    iget-object v1, p0, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda6;->f$1:Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;
-
-    iget v2, p0, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda6;->f$2:I
+    iget-object v1, p0, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda6;->f$1:Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;
 
     check-cast p1, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection$DisplayConnector;
 
-    invoke-virtual {v0, v1, v2, p1}, Lcom/android/server/wallpaper/WallpaperManagerService;->lambda$notifyWallpaperColorsChanged$0$WallpaperManagerService(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;ILcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection$DisplayConnector;)V
+    invoke-virtual {v0, v1, p1}, Lcom/android/server/wallpaper/WallpaperManagerService;->lambda$updateFallbackConnection$3$WallpaperManagerService(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection$DisplayConnector;)V
 
     return-void
 .end method

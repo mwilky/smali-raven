@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/server/wm/ActivityMetricsLogger$PackageCompatStateInfo;,
         Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;,
         Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;,
         Lcom/android/server/wm/ActivityMetricsLogger$LaunchingState;
@@ -72,6 +73,16 @@
 
 .field private final mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
 
+.field private final mPackageUidToCompatStateInfo:Landroid/util/SparseArray;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/SparseArray<",
+            "Lcom/android/server/wm/ActivityMetricsLogger$PackageCompatStateInfo;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final mStringBuilder:Ljava/lang/StringBuilder;
 
 .field private final mSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
@@ -129,29 +140,35 @@
 
     iput v0, p0, Lcom/android/server/wm/ActivityMetricsLogger;->mWindowState:I
 
-    new-instance v0, Lcom/android/internal/logging/MetricsLogger;
+    new-instance v1, Lcom/android/internal/logging/MetricsLogger;
 
-    invoke-direct {v0}, Lcom/android/internal/logging/MetricsLogger;-><init>()V
+    invoke-direct {v1}, Lcom/android/internal/logging/MetricsLogger;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/wm/ActivityMetricsLogger;->mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
+    iput-object v1, p0, Lcom/android/server/wm/ActivityMetricsLogger;->mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
 
     invoke-static {}, Lcom/android/server/FgThread;->getHandler()Landroid/os/Handler;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lcom/android/server/wm/ActivityMetricsLogger;->mLoggerHandler:Landroid/os/Handler;
+    iput-object v1, p0, Lcom/android/server/wm/ActivityMetricsLogger;->mLoggerHandler:Landroid/os/Handler;
 
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/wm/ActivityMetricsLogger;->mTransitionInfoList:Ljava/util/ArrayList;
+    iput-object v1, p0, Lcom/android/server/wm/ActivityMetricsLogger;->mTransitionInfoList:Ljava/util/ArrayList;
 
-    new-instance v0, Landroid/util/ArrayMap;
+    new-instance v1, Landroid/util/ArrayMap;
 
-    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
+    invoke-direct {v1}, Landroid/util/ArrayMap;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/wm/ActivityMetricsLogger;->mLastTransitionInfo:Landroid/util/ArrayMap;
+    iput-object v1, p0, Lcom/android/server/wm/ActivityMetricsLogger;->mLastTransitionInfo:Landroid/util/ArrayMap;
+
+    new-instance v1, Landroid/util/SparseArray;
+
+    invoke-direct {v1, v0}, Landroid/util/SparseArray;-><init>(I)V
+
+    iput-object v1, p0, Lcom/android/server/wm/ActivityMetricsLogger;->mPackageUidToCompatStateInfo:Landroid/util/SparseArray;
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -233,10 +250,16 @@
     return-void
 
     :cond_0
-    :try_start_1
-    iget-object v2, v1, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;->mLastLaunchedActivity:Lcom/android/server/wm/ActivityRecord;
+    if-eqz p1, :cond_1
 
-    if-eq v2, p2, :cond_1
+    :try_start_1
+    sget-object v2, Lcom/android/server/wm/ActivityMetricsLogger$$ExternalSyntheticLambda5;->INSTANCE:Lcom/android/server/wm/ActivityMetricsLogger$$ExternalSyntheticLambda5;
+
+    invoke-virtual {p1, v2}, Lcom/android/server/wm/Task;->forAllActivities(Ljava/util/function/Function;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
 
     monitor-exit v0
     :try_end_1
@@ -247,16 +270,12 @@
     return-void
 
     :cond_1
-    if-eqz p1, :cond_2
-
     :try_start_2
-    sget-object v2, Lcom/android/server/wm/ActivityMetricsLogger$$ExternalSyntheticLambda5;->INSTANCE:Lcom/android/server/wm/ActivityMetricsLogger$$ExternalSyntheticLambda5;
+    invoke-direct {p0, v1}, Lcom/android/server/wm/ActivityMetricsLogger;->logAppTransitionCancel(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;)V
 
-    invoke-virtual {p1, v2}, Lcom/android/server/wm/Task;->forAllActivities(Ljava/util/function/Function;)Z
+    const-string v2, "checkActivityToBeDrawn (invisible or drawn already)"
 
-    move-result v2
-
-    if-eqz v2, :cond_2
+    invoke-direct {p0, v1, v2}, Lcom/android/server/wm/ActivityMetricsLogger;->abort(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;Ljava/lang/String;)V
 
     monitor-exit v0
     :try_end_2
@@ -266,29 +285,13 @@
 
     return-void
 
-    :cond_2
-    :try_start_3
-    invoke-direct {p0, v1}, Lcom/android/server/wm/ActivityMetricsLogger;->logAppTransitionCancel(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;)V
-
-    const-string v2, "checkActivityToBeDrawn (invisible or drawn already)"
-
-    invoke-direct {p0, v1, v2}, Lcom/android/server/wm/ActivityMetricsLogger;->abort(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;Ljava/lang/String;)V
-
-    monitor-exit v0
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
-
-    return-void
-
     :catchall_0
     move-exception v1
 
-    :try_start_4
+    :try_start_3
     monitor-exit v0
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
@@ -424,14 +427,102 @@
     invoke-direct {p0, p2, v1}, Lcom/android/server/wm/ActivityMetricsLogger;->logAppTransitionFinished(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;Z)V
 
     :goto_1
-    iget-object v1, p2, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;->mPendingDrawActivities:Ljava/util/ArrayList;
-
-    invoke-virtual {v1}, Ljava/util/ArrayList;->clear()V
-
     iget-object v1, p0, Lcom/android/server/wm/ActivityMetricsLogger;->mTransitionInfoList:Ljava/util/ArrayList;
 
     invoke-virtual {v1, p2}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
+    return-void
+.end method
+
+.method private findAppCompatStateToLog(Lcom/android/server/wm/ActivityMetricsLogger$PackageCompatStateInfo;I)V
+    .locals 9
+
+    iget-object v0, p1, Lcom/android/server/wm/ActivityMetricsLogger$PackageCompatStateInfo;->mVisibleActivities:Ljava/util/ArrayList;
+
+    iget v1, p1, Lcom/android/server/wm/ActivityMetricsLogger$PackageCompatStateInfo;->mLastLoggedState:I
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x1
+
+    const/4 v4, 0x0
+
+    :goto_0
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v5
+
+    const/4 v6, 0x1
+
+    if-ge v4, v5, :cond_4
+
+    invoke-virtual {v0, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/android/server/wm/ActivityRecord;
+
+    invoke-virtual {v5}, Lcom/android/server/wm/ActivityRecord;->getAppCompatState()I
+
+    move-result v7
+
+    if-ne v7, v1, :cond_0
+
+    iput-object v5, p1, Lcom/android/server/wm/ActivityMetricsLogger$PackageCompatStateInfo;->mLastLoggedActivity:Lcom/android/server/wm/ActivityRecord;
+
+    return-void
+
+    :cond_0
+    if-ne v7, v6, :cond_1
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "Visible activity with NOT_VISIBLE App Compat state for package UID: "
+
+    invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v6, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    const-string v8, "ActivityTaskManager"
+
+    invoke-static {v8, v6}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+
+    :cond_1
+    if-eq v3, v6, :cond_2
+
+    const/4 v6, 0x2
+
+    if-ne v3, v6, :cond_3
+
+    if-eq v7, v6, :cond_3
+
+    :cond_2
+    move-object v2, v5
+
+    move v3, v7
+
+    :cond_3
+    :goto_1
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_0
+
+    :cond_4
+    if-eqz v2, :cond_5
+
+    if-eq v3, v6, :cond_5
+
+    invoke-direct {p0, v2, v3, p2, p1}, Lcom/android/server/wm/ActivityMetricsLogger;->logAppCompatStateInternal(Lcom/android/server/wm/ActivityRecord;IILcom/android/server/wm/ActivityMetricsLogger$PackageCompatStateInfo;)V
+
+    :cond_5
     return-void
 .end method
 
@@ -779,6 +870,20 @@
     invoke-virtual {v2, v3, p2, p3}, Lcom/android/server/wm/LaunchObserverRegistryImpl;->onReportFullyDrawn([BJ)V
 
     invoke-static {v0, v1}, Landroid/os/Trace;->traceEnd(J)V
+
+    return-void
+.end method
+
+.method private logAppCompatStateInternal(Lcom/android/server/wm/ActivityRecord;IILcom/android/server/wm/ActivityMetricsLogger$PackageCompatStateInfo;)V
+    .locals 1
+
+    iput p2, p4, Lcom/android/server/wm/ActivityMetricsLogger$PackageCompatStateInfo;->mLastLoggedState:I
+
+    iput-object p1, p4, Lcom/android/server/wm/ActivityMetricsLogger$PackageCompatStateInfo;->mLastLoggedActivity:Lcom/android/server/wm/ActivityRecord;
+
+    const/16 v0, 0x182
+
+    invoke-static {v0, p3, p2}, Lcom/android/internal/util/FrameworkStatsLog;->write(III)V
 
     return-void
 .end method
@@ -1497,6 +1602,25 @@
     return-void
 .end method
 
+.method private scheduleCheckActivityToBeDrawnIfSleeping(Lcom/android/server/wm/ActivityRecord;)V
+    .locals 2
+
+    iget-object v0, p1, Lcom/android/server/wm/ActivityRecord;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
+
+    invoke-virtual {v0}, Lcom/android/server/wm/DisplayContent;->isSleeping()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-wide/16 v0, 0xbb8
+
+    invoke-direct {p0, p1, v0, v1}, Lcom/android/server/wm/ActivityMetricsLogger;->scheduleCheckActivityToBeDrawn(Lcom/android/server/wm/ActivityRecord;J)V
+
+    :cond_0
+    return-void
+.end method
+
 .method private startLaunchTrace(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;)V
     .locals 5
 
@@ -1915,6 +2039,135 @@
     return-void
 .end method
 
+.method logAppCompatState(Lcom/android/server/wm/ActivityRecord;)V
+    .locals 9
+
+    iget-object v0, p1, Lcom/android/server/wm/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
+
+    iget-object v0, v0, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget v0, v0, Landroid/content/pm/ApplicationInfo;->uid:I
+
+    invoke-virtual {p1}, Lcom/android/server/wm/ActivityRecord;->getAppCompatState()I
+
+    move-result v1
+
+    iget-object v2, p0, Lcom/android/server/wm/ActivityMetricsLogger;->mPackageUidToCompatStateInfo:Landroid/util/SparseArray;
+
+    invoke-virtual {v2, v0}, Landroid/util/SparseArray;->contains(I)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/server/wm/ActivityMetricsLogger;->mPackageUidToCompatStateInfo:Landroid/util/SparseArray;
+
+    new-instance v3, Lcom/android/server/wm/ActivityMetricsLogger$PackageCompatStateInfo;
+
+    const/4 v4, 0x0
+
+    invoke-direct {v3, v4}, Lcom/android/server/wm/ActivityMetricsLogger$PackageCompatStateInfo;-><init>(Lcom/android/server/wm/ActivityMetricsLogger$1;)V
+
+    invoke-virtual {v2, v0, v3}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    :cond_0
+    iget-object v2, p0, Lcom/android/server/wm/ActivityMetricsLogger;->mPackageUidToCompatStateInfo:Landroid/util/SparseArray;
+
+    invoke-virtual {v2, v0}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/server/wm/ActivityMetricsLogger$PackageCompatStateInfo;
+
+    iget v3, v2, Lcom/android/server/wm/ActivityMetricsLogger$PackageCompatStateInfo;->mLastLoggedState:I
+
+    iget-object v4, v2, Lcom/android/server/wm/ActivityMetricsLogger$PackageCompatStateInfo;->mLastLoggedActivity:Lcom/android/server/wm/ActivityRecord;
+
+    const/4 v5, 0x1
+
+    if-eq v1, v5, :cond_1
+
+    move v6, v5
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v6, 0x0
+
+    :goto_0
+    iget-object v7, v2, Lcom/android/server/wm/ActivityMetricsLogger$PackageCompatStateInfo;->mVisibleActivities:Ljava/util/ArrayList;
+
+    if-eqz v6, :cond_2
+
+    invoke-virtual {v7, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_2
+
+    invoke-virtual {v7, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_1
+
+    :cond_2
+    if-nez v6, :cond_3
+
+    invoke-virtual {v7, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+
+    invoke-virtual {v7}, Ljava/util/ArrayList;->isEmpty()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_3
+
+    iget-object v8, p0, Lcom/android/server/wm/ActivityMetricsLogger;->mPackageUidToCompatStateInfo:Landroid/util/SparseArray;
+
+    invoke-virtual {v8, v0}, Landroid/util/SparseArray;->remove(I)V
+
+    :cond_3
+    :goto_1
+    if-ne v1, v3, :cond_4
+
+    return-void
+
+    :cond_4
+    if-nez v6, :cond_7
+
+    invoke-virtual {v7}, Ljava/util/ArrayList;->isEmpty()Z
+
+    move-result v8
+
+    if-nez v8, :cond_7
+
+    if-eqz v4, :cond_5
+
+    if-ne p1, v4, :cond_6
+
+    :cond_5
+    invoke-direct {p0, v2, v0}, Lcom/android/server/wm/ActivityMetricsLogger;->findAppCompatStateToLog(Lcom/android/server/wm/ActivityMetricsLogger$PackageCompatStateInfo;I)V
+
+    :cond_6
+    return-void
+
+    :cond_7
+    if-eqz v4, :cond_8
+
+    if-eq p1, v4, :cond_8
+
+    if-eq v3, v5, :cond_8
+
+    const/4 v5, 0x2
+
+    if-eq v3, v5, :cond_8
+
+    return-void
+
+    :cond_8
+    invoke-direct {p0, p1, v1, v0, v2}, Lcom/android/server/wm/ActivityMetricsLogger;->logAppCompatStateInternal(Lcom/android/server/wm/ActivityRecord;IILcom/android/server/wm/ActivityMetricsLogger$PackageCompatStateInfo;)V
+
+    return-void
+.end method
+
 .method logAppTransitionReportedDrawn(Lcom/android/server/wm/ActivityRecord;Z)Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;
     .locals 30
 
@@ -1939,9 +2192,7 @@
     return-object v4
 
     :cond_0
-    invoke-virtual {v3}, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;->allDrawn()Z
-
-    move-result v5
+    iget-boolean v5, v3, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;->mIsDrawn:Z
 
     if-nez v5, :cond_1
 
@@ -2548,6 +2799,8 @@
     invoke-direct {p0, v11}, Lcom/android/server/wm/ActivityMetricsLogger;->startLaunchTrace(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;)V
 
     :cond_7
+    invoke-direct {p0, v8}, Lcom/android/server/wm/ActivityMetricsLogger;->scheduleCheckActivityToBeDrawnIfSleeping(Lcom/android/server/wm/ActivityRecord;)V
+
     return-void
 
     :cond_8
@@ -2600,19 +2853,8 @@
     invoke-direct {p0}, Lcom/android/server/wm/ActivityMetricsLogger;->launchObserverNotifyIntentFailed()V
 
     :goto_4
-    iget-object v2, v8, Lcom/android/server/wm/ActivityRecord;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
+    invoke-direct {p0, v8}, Lcom/android/server/wm/ActivityMetricsLogger;->scheduleCheckActivityToBeDrawnIfSleeping(Lcom/android/server/wm/ActivityRecord;)V
 
-    invoke-virtual {v2}, Lcom/android/server/wm/DisplayContent;->isSleeping()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_b
-
-    const-wide/16 v2, 0xbb8
-
-    invoke-direct {p0, v8, v2, v3}, Lcom/android/server/wm/ActivityMetricsLogger;->scheduleCheckActivityToBeDrawn(Lcom/android/server/wm/ActivityRecord;J)V
-
-    :cond_b
     iget-object v2, v0, Lcom/android/server/wm/ActivityMetricsLogger;->mTransitionInfoList:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
@@ -2632,14 +2874,17 @@
 
     check-cast v3, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;
 
-    invoke-virtual {v3}, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;->updatePendingDraw()V
+    iget-boolean v4, v3, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;->mIsDrawn:Z
 
-    invoke-virtual {v3}, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;->allDrawn()Z
+    if-nez v4, :cond_b
 
-    move-result v4
+    iget-object v4, v3, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;->mLastLaunchedActivity:Lcom/android/server/wm/ActivityRecord;
 
-    if-eqz v4, :cond_c
+    iget-boolean v4, v4, Lcom/android/server/wm/ActivityRecord;->mVisibleRequested:Z
 
+    if-nez v4, :cond_c
+
+    :cond_b
     const-string v4, "nothing will be drawn"
 
     invoke-direct {p0, v3, v4}, Lcom/android/server/wm/ActivityMetricsLogger;->abort(Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;Ljava/lang/String;)V
@@ -2771,12 +3016,44 @@
 .end method
 
 .method notifyActivityRemoved(Lcom/android/server/wm/ActivityRecord;)V
-    .locals 1
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/wm/ActivityMetricsLogger;->mLastTransitionInfo:Landroid/util/ArrayMap;
 
     invoke-virtual {v0, p1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
+    iget-object v0, p1, Lcom/android/server/wm/ActivityRecord;->info:Landroid/content/pm/ActivityInfo;
+
+    iget-object v0, v0, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget v0, v0, Landroid/content/pm/ApplicationInfo;->uid:I
+
+    iget-object v1, p0, Lcom/android/server/wm/ActivityMetricsLogger;->mPackageUidToCompatStateInfo:Landroid/util/SparseArray;
+
+    invoke-virtual {v1, v0}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/server/wm/ActivityMetricsLogger$PackageCompatStateInfo;
+
+    if-nez v1, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v2, v1, Lcom/android/server/wm/ActivityMetricsLogger$PackageCompatStateInfo;->mVisibleActivities:Ljava/util/ArrayList;
+
+    invoke-virtual {v2, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+
+    iget-object v2, v1, Lcom/android/server/wm/ActivityMetricsLogger$PackageCompatStateInfo;->mLastLoggedActivity:Lcom/android/server/wm/ActivityRecord;
+
+    if-ne v2, p1, :cond_1
+
+    const/4 v2, 0x0
+
+    iput-object v2, v1, Lcom/android/server/wm/ActivityMetricsLogger$PackageCompatStateInfo;->mLastLoggedActivity:Lcom/android/server/wm/ActivityRecord;
+
+    :cond_1
     return-void
 .end method
 
@@ -2977,17 +3254,13 @@
 
     iput-boolean v8, v13, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;->mLoggedTransitionStarting:Z
 
-    invoke-virtual {v13}, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;->updatePendingDraw()V
-
-    invoke-virtual {v13}, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;->allDrawn()Z
-
-    move-result v0
+    iget-boolean v0, v13, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;->mIsDrawn:Z
 
     if-eqz v0, :cond_2
 
     const/4 v1, 0x0
 
-    const-string v3, "notifyTransitionStarting - all windows drawn"
+    const-string v3, "notifyTransitionStarting drawn"
 
     move-object v0, p0
 
@@ -3019,9 +3292,9 @@
     return-void
 
     :cond_0
-    sget-object v1, Lcom/android/server/wm/Task$ActivityState;->RESUMED:Lcom/android/server/wm/Task$ActivityState;
+    sget-object v1, Lcom/android/server/wm/ActivityRecord$State;->RESUMED:Lcom/android/server/wm/ActivityRecord$State;
 
-    invoke-virtual {p1, v1}, Lcom/android/server/wm/ActivityRecord;->isState(Lcom/android/server/wm/Task$ActivityState;)Z
+    invoke-virtual {p1, v1}, Lcom/android/server/wm/ActivityRecord;->isState(Lcom/android/server/wm/ActivityRecord$State;)Z
 
     move-result v1
 
@@ -3047,12 +3320,6 @@
     if-eqz v1, :cond_3
 
     :cond_2
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;->removePendingDrawActivity(Lcom/android/server/wm/ActivityRecord;)V
-
-    iget-object v1, v0, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;->mLastLaunchedActivity:Lcom/android/server/wm/ActivityRecord;
-
-    if-ne v1, p1, :cond_3
-
     const-wide/16 v1, 0x0
 
     invoke-direct {p0, p1, v1, v2}, Lcom/android/server/wm/ActivityMetricsLogger;->scheduleCheckActivityToBeDrawn(Lcom/android/server/wm/ActivityRecord;J)V
@@ -3072,9 +3339,7 @@
 
     if-eqz v6, :cond_3
 
-    invoke-virtual {v6}, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;->allDrawn()Z
-
-    move-result v1
+    iget-boolean v1, v6, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;->mIsDrawn:Z
 
     if-eqz v1, :cond_0
 
@@ -3087,7 +3352,9 @@
 
     iput v1, v6, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;->mWindowsDrawnDelayMs:I
 
-    invoke-virtual {v6, p1}, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;->removePendingDrawActivity(Lcom/android/server/wm/ActivityRecord;)V
+    const/4 v1, 0x1
+
+    iput-boolean v1, v6, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;->mIsDrawn:Z
 
     new-instance v1, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfoSnapshot;
 
@@ -3099,15 +3366,9 @@
 
     if-eqz v0, :cond_1
 
-    invoke-virtual {v6}, Lcom/android/server/wm/ActivityMetricsLogger$TransitionInfo;->allDrawn()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
     const/4 v1, 0x0
 
-    const-string v3, "notifyWindowsDrawn - all windows drawn"
+    const-string v3, "notifyWindowsDrawn"
 
     move-object v0, p0
 

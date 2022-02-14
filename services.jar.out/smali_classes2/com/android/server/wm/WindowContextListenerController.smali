@@ -83,7 +83,7 @@
     return v1
 
     :cond_2
-    invoke-static {v0}, Lcom/android/server/wm/WindowContextListenerController$WindowContextListenerImpl;->access$400(Lcom/android/server/wm/WindowContextListenerController$WindowContextListenerImpl;)I
+    invoke-static {v0}, Lcom/android/server/wm/WindowContextListenerController$WindowContextListenerImpl;->access$600(Lcom/android/server/wm/WindowContextListenerController$WindowContextListenerImpl;)I
 
     move-result v2
 
@@ -108,7 +108,7 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v0}, Lcom/android/server/wm/WindowContextListenerController$WindowContextListenerImpl;->access$400(Lcom/android/server/wm/WindowContextListenerController$WindowContextListenerImpl;)I
+    invoke-static {v0}, Lcom/android/server/wm/WindowContextListenerController$WindowContextListenerImpl;->access$600(Lcom/android/server/wm/WindowContextListenerController$WindowContextListenerImpl;)I
 
     move-result v3
 
@@ -123,8 +123,70 @@
     throw v1
 .end method
 
+.method dispatchPendingConfigurationIfNeeded(I)V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/wm/WindowContextListenerController;->mListeners:Landroid/util/ArrayMap;
+
+    invoke-virtual {v0}, Landroid/util/ArrayMap;->size()I
+
+    move-result v0
+
+    add-int/lit8 v0, v0, -0x1
+
+    :goto_0
+    if-ltz v0, :cond_1
+
+    iget-object v1, p0, Lcom/android/server/wm/WindowContextListenerController;->mListeners:Landroid/util/ArrayMap;
+
+    invoke-virtual {v1, v0}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/server/wm/WindowContextListenerController$WindowContextListenerImpl;
+
+    invoke-virtual {v1}, Lcom/android/server/wm/WindowContextListenerController$WindowContextListenerImpl;->getWindowContainer()Lcom/android/server/wm/WindowContainer;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/server/wm/WindowContainer;->getDisplayContent()Lcom/android/server/wm/DisplayContent;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/server/wm/DisplayContent;->getDisplayId()I
+
+    move-result v2
+
+    if-ne v2, p1, :cond_0
+
+    invoke-static {v1}, Lcom/android/server/wm/WindowContextListenerController$WindowContextListenerImpl;->access$400(Lcom/android/server/wm/WindowContextListenerController$WindowContextListenerImpl;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-static {v1}, Lcom/android/server/wm/WindowContextListenerController$WindowContextListenerImpl;->access$500(Lcom/android/server/wm/WindowContextListenerController$WindowContextListenerImpl;)V
+
+    :cond_0
+    add-int/lit8 v0, v0, -0x1
+
+    goto :goto_0
+
+    :cond_1
+    return-void
+.end method
+
 .method getContainer(Landroid/os/IBinder;)Lcom/android/server/wm/WindowContainer;
     .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/os/IBinder;",
+            ")",
+            "Lcom/android/server/wm/WindowContainer<",
+            "*>;"
+        }
+    .end annotation
 
     iget-object v0, p0, Lcom/android/server/wm/WindowContextListenerController;->mListeners:Landroid/util/ArrayMap;
 
@@ -136,7 +198,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-static {v0}, Lcom/android/server/wm/WindowContextListenerController$WindowContextListenerImpl;->access$700(Lcom/android/server/wm/WindowContextListenerController$WindowContextListenerImpl;)Lcom/android/server/wm/WindowContainer;
+    invoke-static {v0}, Lcom/android/server/wm/WindowContextListenerController$WindowContextListenerImpl;->access$900(Lcom/android/server/wm/WindowContextListenerController$WindowContextListenerImpl;)Lcom/android/server/wm/WindowContainer;
 
     move-result-object v1
 
@@ -162,7 +224,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-static {v0}, Lcom/android/server/wm/WindowContextListenerController$WindowContextListenerImpl;->access$600(Lcom/android/server/wm/WindowContextListenerController$WindowContextListenerImpl;)Landroid/os/Bundle;
+    invoke-static {v0}, Lcom/android/server/wm/WindowContextListenerController$WindowContextListenerImpl;->access$800(Lcom/android/server/wm/WindowContextListenerController$WindowContextListenerImpl;)Landroid/os/Bundle;
 
     move-result-object v1
 
@@ -188,7 +250,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-static {v0}, Lcom/android/server/wm/WindowContextListenerController$WindowContextListenerImpl;->access$500(Lcom/android/server/wm/WindowContextListenerController$WindowContextListenerImpl;)I
+    invoke-static {v0}, Lcom/android/server/wm/WindowContextListenerController$WindowContextListenerImpl;->access$700(Lcom/android/server/wm/WindowContextListenerController$WindowContextListenerImpl;)I
 
     move-result v1
 
@@ -215,6 +277,16 @@
 
 .method registerWindowContainerListener(Landroid/os/IBinder;Lcom/android/server/wm/WindowContainer;IILandroid/os/Bundle;)V
     .locals 10
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/os/IBinder;",
+            "Lcom/android/server/wm/WindowContainer<",
+            "*>;II",
+            "Landroid/os/Bundle;",
+            ")V"
+        }
+    .end annotation
 
     iget-object v0, p0, Lcom/android/server/wm/WindowContextListenerController;->mListeners:Landroid/util/ArrayMap;
 

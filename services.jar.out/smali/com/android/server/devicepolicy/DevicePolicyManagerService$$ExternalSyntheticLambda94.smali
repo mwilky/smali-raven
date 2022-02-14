@@ -33,7 +33,7 @@
 
     iget-object v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda94;->f$1:Lcom/android/server/devicepolicy/CallerIdentity;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$getAlwaysOnVpnPackage$43$DevicePolicyManagerService(Lcom/android/server/devicepolicy/CallerIdentity;)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$canHandleCheckPolicyComplianceIntent$137$DevicePolicyManagerService(Lcom/android/server/devicepolicy/CallerIdentity;)Ljava/lang/Boolean;
 
     move-result-object v0
 

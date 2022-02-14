@@ -9,7 +9,8 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/server/contentcapture/ContentCapturePerUserService$ContentCaptureServiceRemoteCallback;
+        Lcom/android/server/contentcapture/ContentCapturePerUserService$ContentCaptureServiceRemoteCallback;,
+        Lcom/android/server/contentcapture/ContentCapturePerUserService$RebindServiceRunnable;
     }
 .end annotation
 
@@ -25,6 +26,10 @@
 
 
 # static fields
+.field private static final MAX_REBIND_COUNTS:I = 0x5
+
+.field private static final REBIND_DURATION_MS:J = 0x493e0L
+
 .field private static final TAG:Ljava/lang/String;
 
 
@@ -41,7 +46,15 @@
     .end annotation
 .end field
 
+.field private final mHandler:Landroid/os/Handler;
+
 .field private mInfo:Landroid/service/contentcapture/ContentCaptureServiceInfo;
+
+.field private mLastRebindTime:Ljava/time/Instant;
+
+.field private final mReBindServiceRunnable:Ljava/lang/Runnable;
+
+.field private mRebindCount:I
 
 .field mRemoteService:Lcom/android/server/contentcapture/RemoteContentCaptureService;
 
@@ -75,7 +88,7 @@
     return-void
 .end method
 
-.method constructor <init>(Lcom/android/server/contentcapture/ContentCaptureManagerService;Ljava/lang/Object;ZI)V
+.method constructor <init>(Lcom/android/server/contentcapture/ContentCaptureManagerService;Ljava/lang/Object;ZILandroid/os/Handler;)V
     .locals 2
 
     invoke-direct {p0, p1, p2, p4}, Lcom/android/server/infra/AbstractPerUserSystemService;-><init>(Lcom/android/server/infra/AbstractMasterSystemService;Ljava/lang/Object;I)V
@@ -100,25 +113,25 @@
 
     iput-object v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mConditionsByPkg:Landroid/util/ArrayMap;
 
+    new-instance v0, Lcom/android/server/contentcapture/ContentCapturePerUserService$RebindServiceRunnable;
+
+    invoke-direct {v0, p0, v1}, Lcom/android/server/contentcapture/ContentCapturePerUserService$RebindServiceRunnable;-><init>(Lcom/android/server/contentcapture/ContentCapturePerUserService;Lcom/android/server/contentcapture/ContentCapturePerUserService$1;)V
+
+    iput-object v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mReBindServiceRunnable:Ljava/lang/Runnable;
+
+    iput-object p5, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mHandler:Landroid/os/Handler;
+
     invoke-direct {p0, p3}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->updateRemoteServiceLocked(Z)V
 
     return-void
 .end method
 
-.method static synthetic access$100(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
+.method static synthetic access$1000(Lcom/android/server/contentcapture/ContentCapturePerUserService;)I
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mMaster:Lcom/android/server/infra/AbstractMasterSystemService;
+    iget v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mUserId:I
 
-    return-object v0
-.end method
-
-.method static synthetic access$1000(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mMaster:Lcom/android/server/infra/AbstractMasterSystemService;
-
-    return-object v0
+    return v0
 .end method
 
 .method static synthetic access$1100(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
@@ -129,12 +142,12 @@
     return-object v0
 .end method
 
-.method static synthetic access$1200(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Ljava/lang/Object;
+.method static synthetic access$1200(Lcom/android/server/contentcapture/ContentCapturePerUserService;)I
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mLock:Ljava/lang/Object;
+    iget v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mUserId:I
 
-    return-object v0
+    return v0
 .end method
 
 .method static synthetic access$1300(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
@@ -145,26 +158,26 @@
     return-object v0
 .end method
 
-.method static synthetic access$1400(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
+.method static synthetic access$1400(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Landroid/util/SparseArray;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mSessions:Landroid/util/SparseArray;
+
+    return-object v0
+.end method
+
+.method static synthetic access$1500(Lcom/android/server/contentcapture/ContentCapturePerUserService;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mUserId:I
+
+    return v0
+.end method
+
+.method static synthetic access$1600(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mMaster:Lcom/android/server/infra/AbstractMasterSystemService;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1500(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Ljava/lang/Object;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mLock:Ljava/lang/Object;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1600(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Landroid/util/ArrayMap;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mConditionsByPkg:Landroid/util/ArrayMap;
 
     return-object v0
 .end method
@@ -177,41 +190,15 @@
     return-object v0
 .end method
 
-.method static synthetic access$1800(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Landroid/content/Context;
+.method static synthetic access$1800(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Ljava/lang/Object;
     .locals 1
 
-    invoke-virtual {p0}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->getContext()Landroid/content/Context;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mLock:Ljava/lang/Object;
 
     return-object v0
 .end method
 
-.method static synthetic access$1900(Lcom/android/server/contentcapture/ContentCapturePerUserService;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mUserId:I
-
-    return v0
-.end method
-
-.method static synthetic access$200()Ljava/lang/String;
-    .locals 1
-
-    sget-object v0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->TAG:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$2000(Lcom/android/server/contentcapture/ContentCapturePerUserService;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mUserId:I
-
-    return v0
-.end method
-
-.method static synthetic access$2100(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
+.method static synthetic access$1900(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mMaster:Lcom/android/server/infra/AbstractMasterSystemService;
@@ -219,12 +206,36 @@
     return-object v0
 .end method
 
-.method static synthetic access$2200(Lcom/android/server/contentcapture/ContentCapturePerUserService;)I
+.method static synthetic access$200(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Ljava/lang/Object;
     .locals 1
 
-    iget v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mUserId:I
+    iget-object v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mLock:Ljava/lang/Object;
 
-    return v0
+    return-object v0
+.end method
+
+.method static synthetic access$2000(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mMaster:Lcom/android/server/infra/AbstractMasterSystemService;
+
+    return-object v0
+.end method
+
+.method static synthetic access$2100(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Ljava/lang/Object;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mLock:Ljava/lang/Object;
+
+    return-object v0
+.end method
+
+.method static synthetic access$2200(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Landroid/util/ArrayMap;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mConditionsByPkg:Landroid/util/ArrayMap;
+
+    return-object v0
 .end method
 
 .method static synthetic access$2300(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
@@ -235,7 +246,33 @@
     return-object v0
 .end method
 
-.method static synthetic access$2400(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
+.method static synthetic access$2400(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Landroid/content/Context;
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$2500(Lcom/android/server/contentcapture/ContentCapturePerUserService;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mUserId:I
+
+    return v0
+.end method
+
+.method static synthetic access$2600(Lcom/android/server/contentcapture/ContentCapturePerUserService;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mUserId:I
+
+    return v0
+.end method
+
+.method static synthetic access$2700(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mMaster:Lcom/android/server/infra/AbstractMasterSystemService;
@@ -243,7 +280,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$300(Lcom/android/server/contentcapture/ContentCapturePerUserService;)I
+.method static synthetic access$2800(Lcom/android/server/contentcapture/ContentCapturePerUserService;)I
     .locals 1
 
     iget v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mUserId:I
@@ -251,15 +288,7 @@
     return v0
 .end method
 
-.method static synthetic access$400(Lcom/android/server/contentcapture/ContentCapturePerUserService;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mUserId:I
-
-    return v0
-.end method
-
-.method static synthetic access$500(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
+.method static synthetic access$2900(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mMaster:Lcom/android/server/infra/AbstractMasterSystemService;
@@ -267,12 +296,48 @@
     return-object v0
 .end method
 
-.method static synthetic access$600(Lcom/android/server/contentcapture/ContentCapturePerUserService;)I
+.method static synthetic access$300(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Z
     .locals 1
 
-    iget v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mUserId:I
+    iget-boolean v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mZombie:Z
 
     return v0
+.end method
+
+.method static synthetic access$3000(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mMaster:Lcom/android/server/infra/AbstractMasterSystemService;
+
+    return-object v0
+.end method
+
+.method static synthetic access$402(Lcom/android/server/contentcapture/ContentCapturePerUserService;Ljava/time/Instant;)Ljava/time/Instant;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mLastRebindTime:Ljava/time/Instant;
+
+    return-object p1
+.end method
+
+.method static synthetic access$508(Lcom/android/server/contentcapture/ContentCapturePerUserService;)I
+    .locals 2
+
+    iget v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mRebindCount:I
+
+    add-int/lit8 v1, v0, 0x1
+
+    iput v1, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mRebindCount:I
+
+    return v0
+.end method
+
+.method static synthetic access$600(Lcom/android/server/contentcapture/ContentCapturePerUserService;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->updateRemoteServiceAndResurrectSessionsLocked()V
+
+    return-void
 .end method
 
 .method static synthetic access$700(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
@@ -283,10 +348,10 @@
     return-object v0
 .end method
 
-.method static synthetic access$800(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Landroid/util/SparseArray;
+.method static synthetic access$800()Ljava/lang/String;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mSessions:Landroid/util/SparseArray;
+    sget-object v0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->TAG:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -682,6 +747,22 @@
     return-void
 .end method
 
+.method private updateRemoteServiceAndResurrectSessionsLocked()V
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->isEnabledLocked()Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    invoke-direct {p0, v0}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->updateRemoteServiceLocked(Z)V
+
+    invoke-direct {p0}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->resurrectSessionsLocked()V
+
+    return-void
+.end method
+
 .method private updateRemoteServiceLocked(Z)V
     .locals 12
 
@@ -971,6 +1052,26 @@
     iget-boolean v1, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mZombie:Z
 
     invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Z)V
+
+    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string v1, "Rebind count: "
+
+    invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget v1, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mRebindCount:I
+
+    invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(I)V
+
+    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    const-string v1, "Last rebind: "
+
+    invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-object v1, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mLastRebindTime:Ljava/time/Instant;
+
+    invoke-virtual {p2, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
     iget-object v1, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mRemoteService:Lcom/android/server/contentcapture/RemoteContentCaptureService;
 
@@ -1432,15 +1533,11 @@
 .method onPackageUpdatedLocked()V
     .locals 1
 
-    invoke-virtual {p0}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->isEnabledLocked()Z
+    const/4 v0, 0x0
 
-    move-result v0
+    iput v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mRebindCount:I
 
-    xor-int/lit8 v0, v0, 0x1
-
-    invoke-direct {p0, v0}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->updateRemoteServiceLocked(Z)V
-
-    invoke-direct {p0}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->resurrectSessionsLocked()V
+    invoke-direct {p0}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->updateRemoteServiceAndResurrectSessionsLocked()V
 
     return-void
 .end method
@@ -1509,7 +1606,7 @@
 .end method
 
 .method public onServiceDied(Lcom/android/server/contentcapture/RemoteContentCaptureService;)V
-    .locals 3
+    .locals 6
 
     sget-object v0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->TAG:Ljava/lang/String;
 
@@ -1529,27 +1626,119 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mLock:Ljava/lang/Object;
+    iget-object v1, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mLock:Ljava/lang/Object;
 
-    monitor-enter v0
+    monitor-enter v1
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
     :try_start_0
-    iput-boolean v1, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mZombie:Z
+    iput-boolean v2, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mZombie:Z
 
-    monitor-exit v0
+    iget-object v2, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mLastRebindTime:Ljava/time/Instant;
+
+    if-eqz v2, :cond_1
+
+    invoke-static {}, Ljava/time/Instant;->now()Ljava/time/Instant;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mLastRebindTime:Ljava/time/Instant;
+
+    const-wide/32 v4, 0x2932e00
+
+    invoke-virtual {v3, v4, v5}, Ljava/time/Instant;->plusMillis(J)Ljava/time/Instant;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/time/Instant;->isAfter(Ljava/time/Instant;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mMaster:Lcom/android/server/infra/AbstractMasterSystemService;
+
+    check-cast v2, Lcom/android/server/contentcapture/ContentCaptureManagerService;
+
+    iget-boolean v2, v2, Lcom/android/server/contentcapture/ContentCaptureManagerService;->debug:Z
+
+    if-eqz v2, :cond_0
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "The current rebind count "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v3, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mRebindCount:I
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v3, " is reset."
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mRebindCount:I
+
+    :cond_1
+    iget v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mRebindCount:I
+
+    const/4 v2, 0x5
+
+    if-lt v0, v2, :cond_2
+
+    const/16 v0, 0x10
+
+    invoke-virtual {p0}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->getServiceComponentName()Landroid/content/ComponentName;
+
+    move-result-object v3
+
+    invoke-static {v0, v3}, Lcom/android/server/contentcapture/ContentCaptureMetricsLogger;->writeServiceEvent(ILandroid/content/ComponentName;)V
+
+    :cond_2
+    iget v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mRebindCount:I
+
+    if-ge v0, v2, :cond_3
+
+    iget-object v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mHandler:Landroid/os/Handler;
+
+    iget-object v2, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mReBindServiceRunnable:Ljava/lang/Runnable;
+
+    invoke-virtual {v0, v2}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+
+    iget-object v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mHandler:Landroid/os/Handler;
+
+    iget-object v2, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService;->mReBindServiceRunnable:Ljava/lang/Runnable;
+
+    const-wide/32 v3, 0x493e0
+
+    invoke-virtual {v0, v2, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    :cond_3
+    monitor-exit v1
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception v0
 
-    monitor-exit v0
+    monitor-exit v1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    throw v1
+    throw v0
 .end method
 
 .method public bridge synthetic onServiceDied(Ljava/lang/Object;)V

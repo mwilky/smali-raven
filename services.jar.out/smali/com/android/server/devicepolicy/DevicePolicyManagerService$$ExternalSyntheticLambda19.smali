@@ -33,7 +33,7 @@
 
     iget-object v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda19;->f$1:Landroid/content/ComponentName;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$reboot$101$DevicePolicyManagerService(Landroid/content/ComponentName;)V
+    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$reboot$104$DevicePolicyManagerService(Landroid/content/ComponentName;)V
 
     return-void
 .end method

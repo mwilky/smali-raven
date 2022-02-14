@@ -1,11 +1,11 @@
 .class Lcom/android/server/notification/NotificationManagerService$7;
-.super Landroid/content/BroadcastReceiver;
+.super Lcom/android/server/notification/ZenModeHelper$Callback;
 .source "NotificationManagerService.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/server/notification/NotificationManagerService;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/server/notification/NotificationManagerService;->init(Lcom/android/server/notification/NotificationManagerService$WorkerHandler;Lcom/android/server/notification/RankingHandler;Landroid/content/pm/IPackageManager;Landroid/content/pm/PackageManager;Lcom/android/server/lights/LightsManager;Lcom/android/server/notification/NotificationManagerService$NotificationListeners;Lcom/android/server/notification/NotificationManagerService$NotificationAssistants;Lcom/android/server/notification/ConditionProviders;Landroid/companion/ICompanionDeviceManager;Lcom/android/server/notification/SnoozeHelper;Lcom/android/server/notification/NotificationUsageStats;Landroid/util/AtomicFile;Landroid/app/ActivityManager;Lcom/android/server/notification/GroupHelper;Landroid/app/IActivityManager;Lcom/android/server/wm/ActivityTaskManagerInternal;Landroid/app/usage/UsageStatsManagerInternal;Landroid/app/admin/DevicePolicyManagerInternal;Landroid/app/IUriGrantsManager;Lcom/android/server/uri/UriGrantsManagerInternal;Landroid/app/AppOpsManager;Landroid/os/UserManager;Lcom/android/server/notification/NotificationHistoryManager;Landroid/app/StatsManager;Landroid/telephony/TelephonyManager;Landroid/app/ActivityManagerInternal;Lcom/android/server/utils/quota/MultiRateLimiter;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,223 +24,230 @@
 
     iput-object p1, p0, Lcom/android/server/notification/NotificationManagerService$7;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0}, Lcom/android/server/notification/ZenModeHelper$Callback;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 11
+.method public synthetic lambda$onAutomaticRuleStatusChanged$3$NotificationManagerService$7(Ljava/lang/String;Ljava/lang/String;II)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
 
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    new-instance v0, Landroid/content/Intent;
+
+    const-string v1, "android.app.action.AUTOMATIC_ZEN_RULE_STATUS_CHANGED"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string v1, "android.app.extra.AUTOMATIC_ZEN_RULE_ID"
+
+    invoke-virtual {v0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string v1, "android.app.extra.AUTOMATIC_ZEN_RULE_STATUS"
+
+    invoke-virtual {v0, v1, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
+    iget-object v1, p0, Lcom/android/server/notification/NotificationManagerService$7;->this$0:Lcom/android/server/notification/NotificationManagerService;
+
+    invoke-virtual {v1}, Lcom/android/server/notification/NotificationManagerService;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-static {p4}, Landroid/os/UserHandle;->of(I)Landroid/os/UserHandle;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v0, v2}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+
+    return-void
+.end method
+
+.method public synthetic lambda$onConsolidatedPolicyChanged$2$NotificationManagerService$7()V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$7;->this$0:Lcom/android/server/notification/NotificationManagerService;
+
+    iget-object v0, v0, Lcom/android/server/notification/NotificationManagerService;->mRankingHandler:Lcom/android/server/notification/RankingHandler;
+
+    invoke-interface {v0}, Lcom/android/server/notification/RankingHandler;->requestSort()V
+
+    return-void
+.end method
+
+.method public synthetic lambda$onPolicyChanged$1$NotificationManagerService$7()V
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$7;->this$0:Lcom/android/server/notification/NotificationManagerService;
+
+    const-string v1, "android.app.action.NOTIFICATION_POLICY_CHANGED"
+
+    invoke-static {v0, v1}, Lcom/android/server/notification/NotificationManagerService;->access$3200(Lcom/android/server/notification/NotificationManagerService;Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$7;->this$0:Lcom/android/server/notification/NotificationManagerService;
+
+    iget-object v0, v0, Lcom/android/server/notification/NotificationManagerService;->mRankingHandler:Lcom/android/server/notification/RankingHandler;
+
+    invoke-interface {v0}, Lcom/android/server/notification/RankingHandler;->requestSort()V
+
+    return-void
+.end method
+
+.method public synthetic lambda$onZenModeChanged$0$NotificationManagerService$7()V
+    .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$7;->this$0:Lcom/android/server/notification/NotificationManagerService;
+
+    const-string v1, "android.app.action.INTERRUPTION_FILTER_CHANGED"
+
+    invoke-static {v0, v1}, Lcom/android/server/notification/NotificationManagerService;->access$3200(Lcom/android/server/notification/NotificationManagerService;Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$7;->this$0:Lcom/android/server/notification/NotificationManagerService;
+
+    invoke-virtual {v0}, Lcom/android/server/notification/NotificationManagerService;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    const-string v1, "android.intent.extra.USER_ID"
+    new-instance v1, Landroid/content/Intent;
 
-    const/4 v2, -0x1
+    const-string v2, "android.app.action.INTERRUPTION_FILTER_CHANGED_INTERNAL"
 
-    invoke-virtual {p2, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    move-result v1
+    const/high16 v2, 0x4000000
 
-    const-string v2, "android.server.notification.action.ENABLE_NAS"
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result-object v1
 
-    move-result v2
+    sget-object v2, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
-    const/4 v3, 0x1
+    const-string v3, "android.permission.MANAGE_NOTIFICATIONS"
 
-    if-eqz v2, :cond_0
+    invoke-virtual {v0, v1, v2, v3}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;Ljava/lang/String;)V
 
-    iget-object v2, p0, Lcom/android/server/notification/NotificationManagerService$7;->this$0:Lcom/android/server/notification/NotificationManagerService;
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$7;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
-    invoke-static {v2}, Lcom/android/server/notification/NotificationManagerService;->access$800(Lcom/android/server/notification/NotificationManagerService;)Lcom/android/server/notification/NotificationManagerService$NotificationAssistants;
+    iget-object v0, v0, Lcom/android/server/notification/NotificationManagerService;->mNotificationLock:Ljava/lang/Object;
 
-    move-result-object v2
+    monitor-enter v0
 
-    invoke-virtual {v2}, Lcom/android/server/notification/NotificationManagerService$NotificationAssistants;->resetDefaultFromConfig()V
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/notification/NotificationManagerService$7;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
-    iget-object v2, p0, Lcom/android/server/notification/NotificationManagerService$7;->this$0:Lcom/android/server/notification/NotificationManagerService;
+    invoke-static {v1}, Lcom/android/server/notification/NotificationManagerService;->access$3300(Lcom/android/server/notification/NotificationManagerService;)V
 
-    invoke-static {v2}, Lcom/android/server/notification/NotificationManagerService;->access$800(Lcom/android/server/notification/NotificationManagerService;)Lcom/android/server/notification/NotificationManagerService$NotificationAssistants;
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result-object v4
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$7;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
-    invoke-virtual {v4}, Lcom/android/server/notification/NotificationManagerService$NotificationAssistants;->getDefaultComponents()Landroid/util/ArraySet;
+    iget-object v0, v0, Lcom/android/server/notification/NotificationManagerService;->mRankingHandler:Lcom/android/server/notification/RankingHandler;
 
-    move-result-object v4
+    invoke-interface {v0}, Lcom/android/server/notification/RankingHandler;->requestSort()V
 
-    invoke-static {v4}, Lcom/android/internal/util/CollectionUtils;->firstOrNull(Ljava/util/Collection;)Ljava/lang/Object;
+    return-void
 
-    move-result-object v4
+    :catchall_0
+    move-exception v1
 
-    check-cast v4, Landroid/content/ComponentName;
+    :try_start_1
+    monitor-exit v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    invoke-virtual {v2, v4, v1, v3, v3}, Lcom/android/server/notification/NotificationManagerService;->setNotificationAssistantAccessGrantedForUserInternal(Landroid/content/ComponentName;IZZ)V
+    throw v1
+.end method
 
-    iget-object v2, p0, Lcom/android/server/notification/NotificationManagerService$7;->this$0:Lcom/android/server/notification/NotificationManagerService;
+.method onAutomaticRuleStatusChanged(ILjava/lang/String;Ljava/lang/String;I)V
+    .locals 7
 
-    invoke-virtual {v2, v1}, Lcom/android/server/notification/NotificationManagerService;->setNASMigrationDone(I)V
+    new-instance v6, Lcom/android/server/notification/NotificationManagerService$7$$ExternalSyntheticLambda3;
 
-    iget-object v3, p0, Lcom/android/server/notification/NotificationManagerService$7;->this$0:Lcom/android/server/notification/NotificationManagerService;
+    move-object v0, v6
 
-    invoke-virtual {v3}, Lcom/android/server/notification/NotificationManagerService;->getContext()Landroid/content/Context;
+    move-object v1, p0
 
-    move-result-object v2
+    move-object v2, p2
 
-    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+    move-object v3, p3
 
-    move-result-object v4
+    move v4, p4
 
-    iget-object v2, p0, Lcom/android/server/notification/NotificationManagerService$7;->this$0:Lcom/android/server/notification/NotificationManagerService;
+    move v5, p1
 
-    invoke-virtual {v2}, Lcom/android/server/notification/NotificationManagerService;->getContext()Landroid/content/Context;
+    invoke-direct/range {v0 .. v5}, Lcom/android/server/notification/NotificationManagerService$7$$ExternalSyntheticLambda3;-><init>(Lcom/android/server/notification/NotificationManagerService$7;Ljava/lang/String;Ljava/lang/String;II)V
 
-    move-result-object v2
+    invoke-static {v6}, Landroid/os/Binder;->withCleanCallingIdentity(Lcom/android/internal/util/FunctionalUtils$ThrowingRunnable;)V
 
-    invoke-virtual {v2}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
+    return-void
+.end method
 
-    move-result-object v5
+.method public onConfigChanged()V
+    .locals 1
 
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+    iget-object v0, p0, Lcom/android/server/notification/NotificationManagerService$7;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
-    move-result v6
+    invoke-virtual {v0}, Lcom/android/server/notification/NotificationManagerService;->handleSavePolicyFile()V
 
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+    return-void
+.end method
 
-    move-result v7
+.method onConsolidatedPolicyChanged()V
+    .locals 1
 
-    const/16 v9, 0x40
+    new-instance v0, Lcom/android/server/notification/NotificationManagerService$7$$ExternalSyntheticLambda0;
 
-    const-string v8, "NotificationService"
+    invoke-direct {v0, p0}, Lcom/android/server/notification/NotificationManagerService$7$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/notification/NotificationManagerService$7;)V
 
-    move v10, v1
+    invoke-static {v0}, Landroid/os/Binder;->withCleanCallingIdentity(Lcom/android/internal/util/FunctionalUtils$ThrowingRunnable;)V
 
-    invoke-virtual/range {v3 .. v10}, Lcom/android/server/notification/NotificationManagerService;->cancelNotificationInternal(Ljava/lang/String;Ljava/lang/String;IILjava/lang/String;II)V
+    return-void
+.end method
 
-    goto/16 :goto_0
+.method onPolicyChanged()V
+    .locals 1
 
-    :cond_0
-    const-string v2, "android.server.notification.action.DISABLE_NAS"
+    new-instance v0, Lcom/android/server/notification/NotificationManagerService$7$$ExternalSyntheticLambda1;
 
-    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-direct {v0, p0}, Lcom/android/server/notification/NotificationManagerService$7$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/notification/NotificationManagerService$7;)V
 
-    move-result v2
+    invoke-static {v0}, Landroid/os/Binder;->withCleanCallingIdentity(Lcom/android/internal/util/FunctionalUtils$ThrowingRunnable;)V
 
-    if-eqz v2, :cond_1
+    return-void
+.end method
 
-    iget-object v2, p0, Lcom/android/server/notification/NotificationManagerService$7;->this$0:Lcom/android/server/notification/NotificationManagerService;
+.method onZenModeChanged()V
+    .locals 1
 
-    invoke-static {v2}, Lcom/android/server/notification/NotificationManagerService;->access$800(Lcom/android/server/notification/NotificationManagerService;)Lcom/android/server/notification/NotificationManagerService$NotificationAssistants;
+    new-instance v0, Lcom/android/server/notification/NotificationManagerService$7$$ExternalSyntheticLambda2;
 
-    move-result-object v2
+    invoke-direct {v0, p0}, Lcom/android/server/notification/NotificationManagerService$7$$ExternalSyntheticLambda2;-><init>(Lcom/android/server/notification/NotificationManagerService$7;)V
 
-    invoke-virtual {v2}, Lcom/android/server/notification/NotificationManagerService$NotificationAssistants;->clearDefaults()V
+    invoke-static {v0}, Landroid/os/Binder;->withCleanCallingIdentity(Lcom/android/internal/util/FunctionalUtils$ThrowingRunnable;)V
 
-    iget-object v2, p0, Lcom/android/server/notification/NotificationManagerService$7;->this$0:Lcom/android/server/notification/NotificationManagerService;
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v2, v4, v1, v3, v3}, Lcom/android/server/notification/NotificationManagerService;->setNotificationAssistantAccessGrantedForUserInternal(Landroid/content/ComponentName;IZZ)V
-
-    iget-object v2, p0, Lcom/android/server/notification/NotificationManagerService$7;->this$0:Lcom/android/server/notification/NotificationManagerService;
-
-    invoke-virtual {v2, v1}, Lcom/android/server/notification/NotificationManagerService;->setNASMigrationDone(I)V
-
-    iget-object v3, p0, Lcom/android/server/notification/NotificationManagerService$7;->this$0:Lcom/android/server/notification/NotificationManagerService;
-
-    invoke-virtual {v3}, Lcom/android/server/notification/NotificationManagerService;->getContext()Landroid/content/Context;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
-
-    move-result-object v4
-
-    iget-object v2, p0, Lcom/android/server/notification/NotificationManagerService$7;->this$0:Lcom/android/server/notification/NotificationManagerService;
-
-    invoke-virtual {v2}, Lcom/android/server/notification/NotificationManagerService;->getContext()Landroid/content/Context;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/content/Context;->getOpPackageName()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v6
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v7
-
-    const/16 v9, 0x40
-
-    const-string v8, "NotificationService"
-
-    move v10, v1
-
-    invoke-virtual/range {v3 .. v10}, Lcom/android/server/notification/NotificationManagerService;->cancelNotificationInternal(Ljava/lang/String;Ljava/lang/String;IILjava/lang/String;II)V
-
-    goto :goto_0
-
-    :cond_1
-    const-string v2, "android.server.notification.action.LEARNMORE_NAS"
-
-    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    new-instance v2, Landroid/content/Intent;
-
-    iget-object v3, p0, Lcom/android/server/notification/NotificationManagerService$7;->this$0:Lcom/android/server/notification/NotificationManagerService;
-
-    invoke-virtual {v3}, Lcom/android/server/notification/NotificationManagerService;->getContext()Landroid/content/Context;
-
-    move-result-object v3
-
-    const-class v4, Lcom/android/server/notification/NASLearnMoreActivity;
-
-    invoke-direct {v2, v3, v4}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
-
-    const/high16 v3, 0x10000000
-
-    invoke-virtual {v2, v3}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
-
-    iget-object v3, p0, Lcom/android/server/notification/NotificationManagerService$7;->this$0:Lcom/android/server/notification/NotificationManagerService;
-
-    invoke-virtual {v3}, Lcom/android/server/notification/NotificationManagerService;->getContext()Landroid/content/Context;
-
-    move-result-object v3
-
-    new-instance v4, Landroid/content/Intent;
-
-    const-string v5, "android.intent.action.CLOSE_SYSTEM_DIALOGS"
-
-    invoke-direct {v4, v5}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    invoke-static {v1}, Landroid/os/UserHandle;->of(I)Landroid/os/UserHandle;
-
-    move-result-object v5
-
-    invoke-virtual {v3, v4, v5}, Landroid/content/Context;->sendBroadcastAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
-
-    iget-object v3, p0, Lcom/android/server/notification/NotificationManagerService$7;->this$0:Lcom/android/server/notification/NotificationManagerService;
-
-    invoke-virtual {v3}, Lcom/android/server/notification/NotificationManagerService;->getContext()Landroid/content/Context;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v2}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
-
-    :cond_2
-    :goto_0
     return-void
 .end method

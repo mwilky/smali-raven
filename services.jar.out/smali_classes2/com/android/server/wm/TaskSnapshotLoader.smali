@@ -145,7 +145,7 @@
 .end method
 
 .method loadTask(IIZ)Landroid/window/TaskSnapshot;
-    .locals 36
+    .locals 37
 
     move-object/from16 v1, p0
 
@@ -161,21 +161,21 @@
 
     invoke-virtual {v0, v2, v3}, Lcom/android/server/wm/TaskSnapshotPersister;->getProtoFile(II)Ljava/io/File;
 
-    move-result-object v20
+    move-result-object v21
 
-    invoke-virtual/range {v20 .. v20}, Ljava/io/File;->exists()Z
+    invoke-virtual/range {v21 .. v21}, Ljava/io/File;->exists()Z
 
     move-result v0
 
-    const/16 v21, 0x0
+    const/16 v22, 0x0
 
     if-nez v0, :cond_0
 
-    return-object v21
+    return-object v22
 
     :cond_0
     :try_start_0
-    invoke-virtual/range {v20 .. v20}, Ljava/io/File;->toPath()Ljava/nio/file/Path;
+    invoke-virtual/range {v21 .. v21}, Ljava/io/File;->toPath()Ljava/nio/file/Path;
 
     move-result-object v0
 
@@ -195,13 +195,13 @@
 
     move-result-object v4
 
-    move-object/from16 v22, v4
+    move-object/from16 v23, v4
 
     iget v4, v13, Lcom/android/server/wm/nano/WindowManagerProtos$TaskSnapshotProto;->taskWidth:I
 
     iget v5, v13, Lcom/android/server/wm/nano/WindowManagerProtos$TaskSnapshotProto;->legacyScale:F
 
-    invoke-virtual/range {v22 .. v22}, Ljava/io/File;->exists()Z
+    invoke-virtual/range {v23 .. v23}, Ljava/io/File;->exists()Z
 
     move-result v6
 
@@ -227,16 +227,16 @@
     move v5, v4
 
     :goto_0
-    move/from16 v23, v5
+    move/from16 v24, v5
 
     if-nez v15, :cond_3
 
-    if-eqz v23, :cond_2
+    if-eqz v24, :cond_2
 
     goto :goto_1
 
     :cond_2
-    move-object/from16 v5, v22
+    move-object/from16 v5, v23
 
     goto :goto_2
 
@@ -249,15 +249,15 @@
     move-result-object v5
 
     :goto_2
-    move-object/from16 v24, v5
+    move-object/from16 v25, v5
 
-    invoke-virtual/range {v24 .. v24}, Ljava/io/File;->exists()Z
+    invoke-virtual/range {v25 .. v25}, Ljava/io/File;->exists()Z
 
     move-result v5
 
     if-nez v5, :cond_4
 
-    return-object v21
+    return-object v22
 
     :cond_4
     new-instance v5, Landroid/graphics/BitmapFactory$Options;
@@ -288,7 +288,7 @@
     :goto_3
     iput-object v5, v11, Landroid/graphics/BitmapFactory$Options;->inPreferredConfig:Landroid/graphics/Bitmap$Config;
 
-    invoke-virtual/range {v24 .. v24}, Ljava/io/File;->getPath()Ljava/lang/String;
+    invoke-virtual/range {v25 .. v25}, Ljava/io/File;->getPath()Ljava/lang/String;
 
     move-result-object v5
 
@@ -308,7 +308,7 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v24 .. v24}, Ljava/io/File;->getPath()Ljava/lang/String;
+    invoke-virtual/range {v25 .. v25}, Ljava/io/File;->getPath()Ljava/lang/String;
 
     move-result-object v5
 
@@ -320,7 +320,7 @@
 
     invoke-static {v14, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-object v21
+    return-object v22
 
     :cond_6
     sget-object v5, Landroid/graphics/Bitmap$Config;->HARDWARE:Landroid/graphics/Bitmap$Config;
@@ -329,11 +329,11 @@
 
     move-result-object v4
 
-    move-object/from16 v25, v4
+    move-object/from16 v26, v4
 
     invoke-virtual {v10}, Landroid/graphics/Bitmap;->recycle()V
 
-    if-nez v25, :cond_7
+    if-nez v26, :cond_7
 
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -343,7 +343,7 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v24 .. v24}, Ljava/io/File;->getPath()Ljava/lang/String;
+    invoke-virtual/range {v25 .. v25}, Ljava/io/File;->getPath()Ljava/lang/String;
 
     move-result-object v5
 
@@ -355,16 +355,16 @@
 
     invoke-static {v14, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-object v21
+    return-object v22
 
     :cond_7
-    invoke-virtual/range {v25 .. v25}, Landroid/graphics/Bitmap;->getHardwareBuffer()Landroid/hardware/HardwareBuffer;
+    invoke-virtual/range {v26 .. v26}, Landroid/graphics/Bitmap;->getHardwareBuffer()Landroid/hardware/HardwareBuffer;
 
     move-result-object v4
 
-    move-object/from16 v26, v4
+    move-object/from16 v27, v4
 
-    if-nez v26, :cond_8
+    if-nez v27, :cond_8
 
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -374,7 +374,7 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v24 .. v24}, Ljava/io/File;->getPath()Ljava/lang/String;
+    invoke-virtual/range {v25 .. v25}, Ljava/io/File;->getPath()Ljava/lang/String;
 
     move-result-object v5
 
@@ -386,7 +386,7 @@
 
     invoke-static {v14, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-object v21
+    return-object v22
 
     :cond_8
     iget-object v4, v13, Lcom/android/server/wm/nano/WindowManagerProtos$TaskSnapshotProto;->topActivityComponent:Ljava/lang/String;
@@ -397,7 +397,7 @@
 
     if-eqz v12, :cond_9
 
-    invoke-virtual/range {v25 .. v25}, Landroid/graphics/Bitmap;->getWidth()I
+    invoke-virtual/range {v26 .. v26}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v4
 
@@ -409,7 +409,7 @@
 
     float-to-int v4, v4
 
-    invoke-virtual/range {v25 .. v25}, Landroid/graphics/Bitmap;->getHeight()I
+    invoke-virtual/range {v26 .. v26}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v5
 
@@ -427,7 +427,7 @@
 
     move-object v4, v6
 
-    move-object/from16 v27, v4
+    move-object/from16 v28, v4
 
     goto :goto_4
 
@@ -440,14 +440,14 @@
 
     invoke-direct {v4, v5, v6}, Landroid/graphics/Point;-><init>(II)V
 
-    move-object/from16 v27, v4
+    move-object/from16 v28, v4
 
     :goto_4
-    new-instance v28, Landroid/window/TaskSnapshot;
+    new-instance v29, Landroid/window/TaskSnapshot;
 
     iget-wide v5, v13, Lcom/android/server/wm/nano/WindowManagerProtos$TaskSnapshotProto;->id:J
 
-    invoke-virtual/range {v25 .. v25}, Landroid/graphics/Bitmap;->getColorSpace()Landroid/graphics/ColorSpace;
+    invoke-virtual/range {v26 .. v26}, Landroid/graphics/Bitmap;->getColorSpace()Landroid/graphics/ColorSpace;
 
     move-result-object v9
 
@@ -455,7 +455,7 @@
 
     iget v4, v13, Lcom/android/server/wm/nano/WindowManagerProtos$TaskSnapshotProto;->rotation:I
 
-    move-object/from16 v29, v0
+    move-object/from16 v30, v0
 
     new-instance v0, Landroid/graphics/Rect;
 
@@ -473,9 +473,23 @@
 
     invoke-direct {v0, v1, v3, v4, v8}, Landroid/graphics/Rect;-><init>(IIII)V
 
-    iget-boolean v1, v13, Lcom/android/server/wm/nano/WindowManagerProtos$TaskSnapshotProto;->isRealSnapshot:Z
+    new-instance v1, Landroid/graphics/Rect;
 
-    iget v3, v13, Lcom/android/server/wm/nano/WindowManagerProtos$TaskSnapshotProto;->windowingMode:I
+    iget v3, v13, Lcom/android/server/wm/nano/WindowManagerProtos$TaskSnapshotProto;->letterboxInsetLeft:I
+
+    iget v4, v13, Lcom/android/server/wm/nano/WindowManagerProtos$TaskSnapshotProto;->letterboxInsetTop:I
+
+    iget v8, v13, Lcom/android/server/wm/nano/WindowManagerProtos$TaskSnapshotProto;->letterboxInsetRight:I
+
+    move-object/from16 v18, v10
+
+    iget v10, v13, Lcom/android/server/wm/nano/WindowManagerProtos$TaskSnapshotProto;->letterboxInsetBottom:I
+
+    invoke-direct {v1, v3, v4, v8, v10}, Landroid/graphics/Rect;-><init>(IIII)V
+
+    iget-boolean v3, v13, Lcom/android/server/wm/nano/WindowManagerProtos$TaskSnapshotProto;->isRealSnapshot:Z
+
+    iget v10, v13, Lcom/android/server/wm/nano/WindowManagerProtos$TaskSnapshotProto;->windowingMode:I
 
     iget v8, v13, Lcom/android/server/wm/nano/WindowManagerProtos$TaskSnapshotProto;->appearance:I
 
@@ -483,48 +497,52 @@
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
-    const/16 v19, 0x0
+    const/16 v20, 0x0
 
-    move/from16 v18, v4
+    move/from16 v19, v4
 
-    move-object/from16 v4, v28
+    move-object/from16 v4, v29
 
-    move/from16 v30, v8
+    move/from16 v31, v8
 
-    move-object/from16 v8, v26
+    move-object/from16 v8, v27
 
-    move-object/from16 v31, v10
+    move-object/from16 v32, v18
+
+    move/from16 v18, v10
 
     move/from16 v10, v17
 
-    move-object/from16 v32, v11
+    move-object/from16 v33, v11
 
     move/from16 v11, v16
 
-    move-object/from16 v33, v12
+    move-object/from16 v34, v12
 
-    move-object/from16 v12, v27
+    move-object/from16 v12, v28
 
-    move-object/from16 v34, v13
+    move-object/from16 v35, v13
 
     move-object v13, v0
 
-    move-object/from16 v35, v14
+    move-object/from16 v36, v14
 
-    move/from16 v14, p3
+    move-object v14, v1
 
-    move v15, v1
+    move/from16 v15, p3
 
     move/from16 v16, v3
 
-    move/from16 v17, v30
+    move/from16 v17, v18
+
+    move/from16 v18, v31
 
     :try_start_1
-    invoke-direct/range {v4 .. v19}, Landroid/window/TaskSnapshot;-><init>(JLandroid/content/ComponentName;Landroid/hardware/HardwareBuffer;Landroid/graphics/ColorSpace;IILandroid/graphics/Point;Landroid/graphics/Rect;ZZIIZZ)V
+    invoke-direct/range {v4 .. v20}, Landroid/window/TaskSnapshot;-><init>(JLandroid/content/ComponentName;Landroid/hardware/HardwareBuffer;Landroid/graphics/ColorSpace;IILandroid/graphics/Point;Landroid/graphics/Rect;Landroid/graphics/Rect;ZZIIZZ)V
     :try_end_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
 
-    return-object v28
+    return-object v29
 
     :catch_0
     move-exception v0
@@ -534,7 +552,7 @@
     :catch_1
     move-exception v0
 
-    move-object/from16 v35, v14
+    move-object/from16 v36, v14
 
     :goto_5
     new-instance v1, Ljava/lang/StringBuilder;
@@ -551,9 +569,9 @@
 
     move-result-object v1
 
-    move-object/from16 v3, v35
+    move-object/from16 v3, v36
 
     invoke-static {v3, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-object v21
+    return-object v22
 .end method

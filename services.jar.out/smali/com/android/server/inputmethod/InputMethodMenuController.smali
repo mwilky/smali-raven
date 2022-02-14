@@ -212,7 +212,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Landroid/app/ActivityThread;->createSystemUiContext(I)Landroid/app/ContextImpl;
+    invoke-virtual {v0, p1}, Landroid/app/ActivityThread;->getSystemUiContext(I)Landroid/app/ContextImpl;
 
     move-result-object v0
 
@@ -704,7 +704,7 @@
 
     iput-object v2, v1, Lcom/android/server/inputmethod/InputMethodMenuController;->mSwitchingDialogTitleView:Landroid/view/View;
 
-    const v10, 0x10202ee
+    const v10, 0x10202f1
 
     invoke-virtual {v2, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -732,7 +732,7 @@
 
     iget-object v2, v1, Lcom/android/server/inputmethod/InputMethodMenuController;->mSwitchingDialogTitleView:Landroid/view/View;
 
-    const v10, 0x10202ef
+    const v10, 0x10202f2
 
     invoke-virtual {v2, v10}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -905,7 +905,7 @@
 
     iget-object v0, p0, Lcom/android/server/inputmethod/InputMethodMenuController;->mSwitchingDialogTitleView:Landroid/view/View;
 
-    const v1, 0x10202ef
+    const v1, 0x10202f2
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

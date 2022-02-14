@@ -220,11 +220,15 @@
 
     sput-object v0, Lcom/android/server/Watchdog;->HAL_INTERFACES_OF_INTEREST:Ljava/util/List;
 
-    const-string v0, "android.hardware.light.ILights/"
+    const-string v0, "android.hardware.biometrics.face.IFace/"
 
-    const-string v1, "android.hardware.power.stats.IPowerStats/"
+    const-string v1, "android.hardware.biometrics.fingerprint.IFingerprint/"
 
-    filled-new-array {v0, v1}, [Ljava/lang/String;
+    const-string v2, "android.hardware.light.ILights/"
+
+    const-string v3, "android.hardware.power.stats.IPowerStats/"
+
+    filled-new-array {v0, v1, v2, v3}, [Ljava/lang/String;
 
     move-result-object v0
 

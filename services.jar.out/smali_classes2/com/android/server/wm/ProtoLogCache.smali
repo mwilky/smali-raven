@@ -30,6 +30,8 @@
 
 .field public static WM_DEBUG_KEEP_SCREEN_ON_enabled:Z
 
+.field public static WM_DEBUG_LAYER_MIRRORING_enabled:Z
+
 .field public static WM_DEBUG_LOCKTASK_enabled:Z
 
 .field public static WM_DEBUG_ORIENTATION_enabled:Z
@@ -51,6 +53,10 @@
 .field public static WM_DEBUG_SYNC_ENGINE_enabled:Z
 
 .field public static WM_DEBUG_TASKS_enabled:Z
+
+.field public static WM_DEBUG_WALLPAPER_enabled:Z
+
+.field public static WM_DEBUG_WINDOW_INSETS_enabled:Z
 
 .field public static WM_DEBUG_WINDOW_MOVEMENT_enabled:Z
 
@@ -128,6 +134,12 @@
     sput-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_SYNC_ENGINE_enabled:Z
 
     sput-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_WINDOW_TRANSITIONS_enabled:Z
+
+    sput-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_WINDOW_INSETS_enabled:Z
+
+    sput-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_LAYER_MIRRORING_enabled:Z
+
+    sput-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_WALLPAPER_enabled:Z
 
     sput-boolean v0, Lcom/android/server/wm/ProtoLogCache;->TEST_GROUP_enabled:Z
 
@@ -382,6 +394,30 @@
     move-result v0
 
     sput-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_WINDOW_TRANSITIONS_enabled:Z
+
+    sget-object v0, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_WINDOW_INSETS:Lcom/android/internal/protolog/ProtoLogGroup;
+
+    invoke-static {v0}, Lcom/android/internal/protolog/ProtoLogImpl;->isEnabled(Lcom/android/internal/protolog/common/IProtoLogGroup;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_WINDOW_INSETS_enabled:Z
+
+    sget-object v0, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_LAYER_MIRRORING:Lcom/android/internal/protolog/ProtoLogGroup;
+
+    invoke-static {v0}, Lcom/android/internal/protolog/ProtoLogImpl;->isEnabled(Lcom/android/internal/protolog/common/IProtoLogGroup;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_LAYER_MIRRORING_enabled:Z
+
+    sget-object v0, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_WALLPAPER:Lcom/android/internal/protolog/ProtoLogGroup;
+
+    invoke-static {v0}, Lcom/android/internal/protolog/ProtoLogImpl;->isEnabled(Lcom/android/internal/protolog/common/IProtoLogGroup;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_WALLPAPER_enabled:Z
 
     sget-object v0, Lcom/android/internal/protolog/ProtoLogGroup;->TEST_GROUP:Lcom/android/internal/protolog/ProtoLogGroup;
 

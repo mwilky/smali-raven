@@ -21,11 +21,7 @@
 
 
 # instance fields
-.field private mAppAnimationLayer:Landroid/view/SurfaceControl;
-
 .field private mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
-
-.field private mBoostedAppAnimationLayer:Landroid/view/SurfaceControl;
 
 .field private final mCanHostHomeTask:Z
 
@@ -37,13 +33,11 @@
 
 .field mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
-.field private mHomeAppAnimationLayer:Landroid/view/SurfaceControl;
-
 .field mLastFocusedRootTask:Lcom/android/server/wm/Task;
 
 .field private mLastLeafTaskToFrontId:I
 
-.field private mLaunchAdjacentFlagRootTask:Lcom/android/server/wm/Task;
+.field mLaunchAdjacentFlagRootTask:Lcom/android/server/wm/Task;
 
 .field private final mLaunchRootTasks:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -100,10 +94,6 @@
         }
     .end annotation
 .end field
-
-.field private mTmpLayerForAnimationLayer:I
-
-.field private mTmpLayerForSplitScreenDividerAnchor:I
 
 .field private final mTmpNeedsZBoostIndexes:Landroid/util/IntArray;
 
@@ -298,71 +288,15 @@
     return-void
 .end method
 
-.method private adjustNormalRootTaskLayer(Lcom/android/server/wm/WindowContainer;I)I
-    .locals 1
-
-    invoke-virtual {p1}, Lcom/android/server/wm/WindowContainer;->asTask()Lcom/android/server/wm/Task;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {p1}, Lcom/android/server/wm/WindowContainer;->inSplitScreenWindowingMode()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    add-int/lit8 v0, p2, 0x1
-
-    iput p2, p0, Lcom/android/server/wm/TaskDisplayArea;->mTmpLayerForSplitScreenDividerAnchor:I
-
-    move p2, v0
-
-    :cond_0
-    invoke-virtual {p1}, Lcom/android/server/wm/WindowContainer;->asTask()Lcom/android/server/wm/Task;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {p1}, Lcom/android/server/wm/WindowContainer;->asTask()Lcom/android/server/wm/Task;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/server/wm/Task;->isAnimatingByRecents()Z
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    :cond_1
-    invoke-virtual {p1}, Lcom/android/server/wm/WindowContainer;->isAppTransitioning()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    :cond_2
-    add-int/lit8 v0, p2, 0x1
-
-    iput p2, p0, Lcom/android/server/wm/TaskDisplayArea;->mTmpLayerForAnimationLayer:I
-
-    move p2, v0
-
-    :cond_3
-    return p2
-.end method
-
-.method private adjustRootTaskLayer(Landroid/view/SurfaceControl$Transaction;Ljava/util/ArrayList;IZ)I
-    .locals 6
+.method private adjustRootTaskLayer(Landroid/view/SurfaceControl$Transaction;Ljava/util/ArrayList;I)I
+    .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/view/SurfaceControl$Transaction;",
             "Ljava/util/ArrayList<",
             "Lcom/android/server/wm/WindowContainer;",
-            ">;IZ)I"
+            ">;I)I"
         }
     .end annotation
 
@@ -376,109 +310,149 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_3
-
-    invoke-virtual {p2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/server/wm/WindowContainer;
-
-    invoke-virtual {v2}, Lcom/android/server/wm/WindowContainer;->asTaskDisplayArea()Lcom/android/server/wm/TaskDisplayArea;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_0
-
-    invoke-direct {v3}, Lcom/android/server/wm/TaskDisplayArea;->childrenNeedZBoost()Z
-
-    move-result v4
-
-    goto :goto_1
-
-    :cond_0
-    invoke-virtual {v2}, Lcom/android/server/wm/WindowContainer;->needsZBoost()Z
-
-    move-result v4
-
-    :goto_1
-    nop
-
-    if-nez v4, :cond_2
-
-    add-int/lit8 v5, p3, 0x1
-
-    invoke-virtual {v2, p1, p3}, Lcom/android/server/wm/WindowContainer;->assignLayer(Landroid/view/SurfaceControl$Transaction;I)V
-
-    if-eqz p4, :cond_1
-
-    invoke-direct {p0, v2, v5}, Lcom/android/server/wm/TaskDisplayArea;->adjustNormalRootTaskLayer(Lcom/android/server/wm/WindowContainer;I)I
-
-    move-result p3
-
-    goto :goto_2
-
-    :cond_1
-    move p3, v5
-
-    goto :goto_2
-
-    :cond_2
-    iget-object v5, p0, Lcom/android/server/wm/TaskDisplayArea;->mTmpNeedsZBoostIndexes:Landroid/util/IntArray;
-
-    invoke-virtual {v5, v1}, Landroid/util/IntArray;->add(I)V
-
-    :goto_2
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_3
-    iget-object v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mTmpNeedsZBoostIndexes:Landroid/util/IntArray;
-
-    invoke-virtual {v1}, Landroid/util/IntArray;->size()I
-
-    move-result v1
-
     const/4 v2, 0x0
 
-    :goto_3
-    if-ge v2, v1, :cond_5
+    :goto_0
+    if-ge v2, v0, :cond_6
 
-    iget-object v3, p0, Lcom/android/server/wm/TaskDisplayArea;->mTmpNeedsZBoostIndexes:Landroid/util/IntArray;
-
-    invoke-virtual {v3, v2}, Landroid/util/IntArray;->get(I)I
-
-    move-result v3
-
-    invoke-virtual {p2, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {p2, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Lcom/android/server/wm/WindowContainer;
 
-    add-int/lit8 v4, p3, 0x1
+    invoke-virtual {v3}, Lcom/android/server/wm/WindowContainer;->asTaskDisplayArea()Lcom/android/server/wm/TaskDisplayArea;
 
-    invoke-virtual {v3, p1, p3}, Lcom/android/server/wm/WindowContainer;->assignLayer(Landroid/view/SurfaceControl$Transaction;I)V
+    move-result-object v4
 
-    if-eqz p4, :cond_4
+    if-eqz v4, :cond_0
 
-    invoke-direct {p0, v3, v4}, Lcom/android/server/wm/TaskDisplayArea;->adjustNormalRootTaskLayer(Lcom/android/server/wm/WindowContainer;I)I
+    invoke-direct {v4}, Lcom/android/server/wm/TaskDisplayArea;->childrenNeedZBoost()Z
 
-    move-result p3
+    move-result v5
+
+    goto :goto_1
+
+    :cond_0
+    invoke-virtual {v3}, Lcom/android/server/wm/WindowContainer;->needsZBoost()Z
+
+    move-result v5
+
+    :goto_1
+    nop
+
+    if-eqz v5, :cond_1
+
+    iget-object v6, p0, Lcom/android/server/wm/TaskDisplayArea;->mTmpNeedsZBoostIndexes:Landroid/util/IntArray;
+
+    invoke-virtual {v6, v2}, Landroid/util/IntArray;->add(I)V
+
+    goto :goto_5
+
+    :cond_1
+    invoke-virtual {v3}, Lcom/android/server/wm/WindowContainer;->asTask()Lcom/android/server/wm/Task;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_2
+
+    invoke-virtual {v3}, Lcom/android/server/wm/WindowContainer;->inMultiWindowMode()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_2
+
+    invoke-virtual {v6}, Lcom/android/server/wm/Task;->getRootTask()Lcom/android/server/wm/Task;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Lcom/android/server/wm/Task;->getAdjacentTaskFragment()Lcom/android/server/wm/TaskFragment;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_2
+
+    const/4 v7, 0x1
+
+    goto :goto_2
+
+    :cond_2
+    const/4 v7, 0x0
+
+    :goto_2
+    if-nez v7, :cond_4
+
+    invoke-virtual {v3}, Lcom/android/server/wm/WindowContainer;->inSplitScreenWindowingMode()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_3
+
+    goto :goto_3
+
+    :cond_3
+    if-eqz v1, :cond_5
+
+    const/16 v8, 0x7530
+
+    if-ge p3, v8, :cond_5
+
+    const/16 p3, 0x7531
 
     goto :goto_4
 
     :cond_4
-    move p3, v4
-
-    :goto_4
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_3
+    :goto_3
+    const/4 v1, 0x1
 
     :cond_5
+    :goto_4
+    add-int/lit8 v8, p3, 0x1
+
+    invoke-virtual {v3, p1, p3}, Lcom/android/server/wm/WindowContainer;->assignLayer(Landroid/view/SurfaceControl$Transaction;I)V
+
+    move p3, v8
+
+    :goto_5
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_6
+    iget-object v2, p0, Lcom/android/server/wm/TaskDisplayArea;->mTmpNeedsZBoostIndexes:Landroid/util/IntArray;
+
+    invoke-virtual {v2}, Landroid/util/IntArray;->size()I
+
+    move-result v2
+
+    const/4 v3, 0x0
+
+    :goto_6
+    if-ge v3, v2, :cond_7
+
+    iget-object v4, p0, Lcom/android/server/wm/TaskDisplayArea;->mTmpNeedsZBoostIndexes:Landroid/util/IntArray;
+
+    invoke-virtual {v4, v3}, Landroid/util/IntArray;->get(I)I
+
+    move-result v4
+
+    invoke-virtual {p2, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/android/server/wm/WindowContainer;
+
+    add-int/lit8 v5, p3, 0x1
+
+    invoke-virtual {v4, p1, p3}, Lcom/android/server/wm/WindowContainer;->assignLayer(Landroid/view/SurfaceControl$Transaction;I)V
+
+    add-int/lit8 v3, v3, 0x1
+
+    move p3, v5
+
+    goto :goto_6
+
+    :cond_7
     return p3
 .end method
 
@@ -489,9 +463,9 @@
 
     new-array v0, v0, [Z
 
-    new-instance v1, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda8;
+    new-instance v1, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda9;
 
-    invoke-direct {v1, v0}, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda8;-><init>([Z)V
+    invoke-direct {v1, v0}, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda9;-><init>([Z)V
 
     invoke-virtual {p0, v1}, Lcom/android/server/wm/TaskDisplayArea;->forAllRootTasks(Ljava/util/function/Consumer;)V
 
@@ -859,7 +833,7 @@
 .method private getBottomMostVisibleRootTask(Lcom/android/server/wm/Task;)Lcom/android/server/wm/Task;
     .locals 2
 
-    sget-object v0, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda10;->INSTANCE:Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda10;
+    sget-object v0, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda11;->INSTANCE:Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda11;
 
     const/4 v1, 0x0
 
@@ -1175,7 +1149,7 @@
     return v0
 .end method
 
-.method static synthetic lambda$childrenNeedZBoost$4([ZLcom/android/server/wm/Task;)V
+.method static synthetic lambda$childrenNeedZBoost$5([ZLcom/android/server/wm/Task;)V
     .locals 3
 
     const/4 v0, 0x0
@@ -1193,7 +1167,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$ensureActivitiesVisible$10(Lcom/android/server/wm/ActivityRecord;IZZLcom/android/server/wm/Task;)V
+.method static synthetic lambda$ensureActivitiesVisible$12(Lcom/android/server/wm/ActivityRecord;IZZLcom/android/server/wm/Task;)V
     .locals 0
 
     invoke-virtual {p4, p0, p1, p2, p3}, Lcom/android/server/wm/Task;->ensureActivitiesVisible(Lcom/android/server/wm/ActivityRecord;IZZ)V
@@ -1201,7 +1175,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$getBottomMostVisibleRootTask$9(Lcom/android/server/wm/Task;)Z
+.method static synthetic lambda$getBottomMostVisibleRootTask$11(Lcom/android/server/wm/Task;)Z
     .locals 5
 
     invoke-virtual {p0}, Lcom/android/server/wm/Task;->getWindowingMode()I
@@ -1246,6 +1220,22 @@
     return v1
 .end method
 
+.method static synthetic lambda$getOrientation$4(Lcom/android/server/wm/Task;)Z
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/server/wm/Task;->getWindowConfiguration()Landroid/app/WindowConfiguration;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/WindowConfiguration;->tasksAreFloating()Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    return v0
+.end method
+
 .method static synthetic lambda$getRootTask$0(IILcom/android/server/wm/Task;)Z
     .locals 1
 
@@ -1269,7 +1259,7 @@
     return v0
 .end method
 
-.method static synthetic lambda$getRootTaskCount$8([ILcom/android/server/wm/Task;)V
+.method static synthetic lambda$getRootTaskCount$10([ILcom/android/server/wm/Task;)V
     .locals 2
 
     const/4 v0, 0x0
@@ -1312,76 +1302,38 @@
     return-void
 .end method
 
-.method static synthetic lambda$pauseBackTasks$6(Lcom/android/server/wm/ActivityRecord;[ILcom/android/server/wm/Task;)V
-    .locals 9
+.method static synthetic lambda$pauseBackTasks$7(Lcom/android/server/wm/ActivityRecord;[ILcom/android/server/wm/TaskFragment;)V
+    .locals 3
 
-    invoke-virtual {p2}, Lcom/android/server/wm/Task;->getResumedActivity()Lcom/android/server/wm/ActivityRecord;
+    invoke-virtual {p2}, Lcom/android/server/wm/TaskFragment;->getResumedActivity()Lcom/android/server/wm/ActivityRecord;
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_0
 
-    invoke-virtual {p2, p0}, Lcom/android/server/wm/Task;->getVisibility(Lcom/android/server/wm/ActivityRecord;)I
+    invoke-virtual {p2, p0}, Lcom/android/server/wm/TaskFragment;->canBeResumed(Lcom/android/server/wm/ActivityRecord;)Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    invoke-virtual {p2}, Lcom/android/server/wm/Task;->isTopActivityFocusable()Z
+    const/4 v1, 0x0
 
-    move-result v1
+    const-string v2, "pauseBackTasks"
 
-    if-nez v1, :cond_2
+    invoke-virtual {p2, v1, p0, v2}, Lcom/android/server/wm/TaskFragment;->startPausing(ZLcom/android/server/wm/ActivityRecord;Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    aget v2, p1, v1
+
+    add-int/lit8 v2, v2, 0x1
+
+    aput v2, p1, v1
 
     :cond_0
-    sget-boolean v1, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_STATES_enabled:Z
-
-    const/4 v2, 0x1
-
-    const/4 v3, 0x0
-
-    if-eqz v1, :cond_1
-
-    invoke-static {p2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v4
-
-    sget-object v5, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_STATES:Lcom/android/internal/protolog/ProtoLogGroup;
-
-    const v6, 0x17511224
-
-    const/4 v7, 0x0
-
-    const/4 v8, 0x2
-
-    new-array v8, v8, [Ljava/lang/Object;
-
-    aput-object v1, v8, v3
-
-    aput-object v4, v8, v2
-
-    invoke-static {v5, v6, v3, v7, v8}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
-
-    :cond_1
-    const-string v1, "pauseBackTasks"
-
-    invoke-virtual {p2, v3, p0, v1}, Lcom/android/server/wm/Task;->startPausingLocked(ZLcom/android/server/wm/ActivityRecord;Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    aget v1, p1, v3
-
-    add-int/2addr v1, v2
-
-    aput v1, p1, v3
-
-    :cond_2
     return-void
 .end method
 
@@ -1642,7 +1594,7 @@
 
     invoke-virtual {v1}, Lcom/android/server/wm/ActivityTaskSupervisor;->updateTopResumedActivityIfNeeded()V
 
-    invoke-virtual {p2}, Lcom/android/server/wm/Task;->getResumedActivity()Lcom/android/server/wm/ActivityRecord;
+    invoke-virtual {p2}, Lcom/android/server/wm/Task;->getTopResumedActivity()Lcom/android/server/wm/ActivityRecord;
 
     move-result-object v1
 
@@ -2024,15 +1976,15 @@
 
     move-result-object v3
 
-    invoke-virtual {v3}, Lcom/android/server/wm/Task;->getResumedActivity()Lcom/android/server/wm/ActivityRecord;
+    invoke-virtual {v3}, Lcom/android/server/wm/Task;->getTopResumedActivity()Lcom/android/server/wm/ActivityRecord;
 
     move-result-object v3
 
     if-eqz v3, :cond_1
 
-    sget-object v5, Lcom/android/server/wm/Task$ActivityState;->RESUMED:Lcom/android/server/wm/Task$ActivityState;
+    sget-object v5, Lcom/android/server/wm/ActivityRecord$State;->RESUMED:Lcom/android/server/wm/ActivityRecord$State;
 
-    invoke-virtual {v3, v5}, Lcom/android/server/wm/ActivityRecord;->isState(Lcom/android/server/wm/Task$ActivityState;)Z
+    invoke-virtual {v3, v5}, Lcom/android/server/wm/ActivityRecord;->isState(Lcom/android/server/wm/ActivityRecord$State;)Z
 
     move-result v5
 
@@ -2234,55 +2186,31 @@
 
     iget-object v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mTmpHomeChildren:Ljava/util/ArrayList;
 
-    const/4 v2, 0x0
-
-    invoke-direct {p0, p1, v1, v0, v2}, Lcom/android/server/wm/TaskDisplayArea;->adjustRootTaskLayer(Landroid/view/SurfaceControl$Transaction;Ljava/util/ArrayList;IZ)I
+    invoke-direct {p0, p1, v1, v0}, Lcom/android/server/wm/TaskDisplayArea;->adjustRootTaskLayer(Landroid/view/SurfaceControl$Transaction;Ljava/util/ArrayList;I)I
 
     move-result v0
 
-    add-int/lit8 v1, v0, 0x1
+    iget-object v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mTmpNormalChildren:Ljava/util/ArrayList;
 
-    add-int/lit8 v3, v1, 0x1
+    invoke-direct {p0, p1, v1, v0}, Lcom/android/server/wm/TaskDisplayArea;->adjustRootTaskLayer(Landroid/view/SurfaceControl$Transaction;Ljava/util/ArrayList;I)I
 
-    iput v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mTmpLayerForSplitScreenDividerAnchor:I
+    move-result v0
 
-    add-int/lit8 v1, v3, 0x1
+    const/16 v1, 0x7531
 
-    iput v3, p0, Lcom/android/server/wm/TaskDisplayArea;->mTmpLayerForAnimationLayer:I
+    invoke-static {v0, v1}, Ljava/lang/Math;->max(II)I
 
-    iget-object v3, p0, Lcom/android/server/wm/TaskDisplayArea;->mTmpNormalChildren:Ljava/util/ArrayList;
+    move-result v0
 
-    const/4 v4, 0x1
+    iget-object v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mTmpAlwaysOnTopChildren:Ljava/util/ArrayList;
 
-    invoke-direct {p0, p1, v3, v1, v4}, Lcom/android/server/wm/TaskDisplayArea;->adjustRootTaskLayer(Landroid/view/SurfaceControl$Transaction;Ljava/util/ArrayList;IZ)I
+    invoke-direct {p0, p1, v1, v0}, Lcom/android/server/wm/TaskDisplayArea;->adjustRootTaskLayer(Landroid/view/SurfaceControl$Transaction;Ljava/util/ArrayList;I)I
 
-    move-result v1
+    iget-object v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mSplitScreenDividerAnchor:Landroid/view/SurfaceControl;
 
-    add-int/lit8 v3, v1, 0x1
+    const/16 v2, 0x7530
 
-    iget-object v4, p0, Lcom/android/server/wm/TaskDisplayArea;->mTmpAlwaysOnTopChildren:Ljava/util/ArrayList;
-
-    invoke-direct {p0, p1, v4, v3, v2}, Lcom/android/server/wm/TaskDisplayArea;->adjustRootTaskLayer(Landroid/view/SurfaceControl$Transaction;Ljava/util/ArrayList;IZ)I
-
-    iget-object v2, p0, Lcom/android/server/wm/TaskDisplayArea;->mHomeAppAnimationLayer:Landroid/view/SurfaceControl;
-
-    invoke-virtual {p1, v2, v0}, Landroid/view/SurfaceControl$Transaction;->setLayer(Landroid/view/SurfaceControl;I)Landroid/view/SurfaceControl$Transaction;
-
-    iget-object v2, p0, Lcom/android/server/wm/TaskDisplayArea;->mAppAnimationLayer:Landroid/view/SurfaceControl;
-
-    iget v4, p0, Lcom/android/server/wm/TaskDisplayArea;->mTmpLayerForAnimationLayer:I
-
-    invoke-virtual {p1, v2, v4}, Landroid/view/SurfaceControl$Transaction;->setLayer(Landroid/view/SurfaceControl;I)Landroid/view/SurfaceControl$Transaction;
-
-    iget-object v2, p0, Lcom/android/server/wm/TaskDisplayArea;->mSplitScreenDividerAnchor:Landroid/view/SurfaceControl;
-
-    iget v4, p0, Lcom/android/server/wm/TaskDisplayArea;->mTmpLayerForSplitScreenDividerAnchor:I
-
-    invoke-virtual {p1, v2, v4}, Landroid/view/SurfaceControl$Transaction;->setLayer(Landroid/view/SurfaceControl;I)Landroid/view/SurfaceControl$Transaction;
-
-    iget-object v2, p0, Lcom/android/server/wm/TaskDisplayArea;->mBoostedAppAnimationLayer:Landroid/view/SurfaceControl;
-
-    invoke-virtual {p1, v2, v1}, Landroid/view/SurfaceControl$Transaction;->setLayer(Landroid/view/SurfaceControl;I)Landroid/view/SurfaceControl$Transaction;
+    invoke-virtual {p1, v1, v2}, Landroid/view/SurfaceControl$Transaction;->setLayer(Landroid/view/SurfaceControl;I)Landroid/view/SurfaceControl$Transaction;
 
     return-void
 .end method
@@ -2908,32 +2836,6 @@
     return v0
 .end method
 
-.method getAppAnimationLayer(I)Landroid/view/SurfaceControl;
-    .locals 1
-
-    packed-switch p1, :pswitch_data_0
-
-    iget-object v0, p0, Lcom/android/server/wm/TaskDisplayArea;->mAppAnimationLayer:Landroid/view/SurfaceControl;
-
-    return-object v0
-
-    :pswitch_0
-    iget-object v0, p0, Lcom/android/server/wm/TaskDisplayArea;->mHomeAppAnimationLayer:Landroid/view/SurfaceControl;
-
-    return-object v0
-
-    :pswitch_1
-    iget-object v0, p0, Lcom/android/server/wm/TaskDisplayArea;->mBoostedAppAnimationLayer:Landroid/view/SurfaceControl;
-
-    return-object v0
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
-.end method
-
 .method getDisplayId()I
     .locals 1
 
@@ -2960,7 +2862,7 @@
     return-object v1
 
     :cond_0
-    invoke-virtual {v0}, Lcom/android/server/wm/Task;->getResumedActivity()Lcom/android/server/wm/ActivityRecord;
+    invoke-virtual {v0}, Lcom/android/server/wm/Task;->getTopResumedActivity()Lcom/android/server/wm/ActivityRecord;
 
     move-result-object v1
 
@@ -2971,7 +2873,7 @@
     if-nez v2, :cond_3
 
     :cond_1
-    invoke-virtual {v0}, Lcom/android/server/wm/Task;->getPausingActivity()Lcom/android/server/wm/ActivityRecord;
+    invoke-virtual {v0}, Lcom/android/server/wm/Task;->getTopPausingActivity()Lcom/android/server/wm/ActivityRecord;
 
     move-result-object v1
 
@@ -3186,7 +3088,7 @@
 .end method
 
 .method getLaunchRootTask(IILandroid/app/ActivityOptions;Lcom/android/server/wm/Task;I)Lcom/android/server/wm/Task;
-    .locals 4
+    .locals 5
 
     if-eqz p3, :cond_0
 
@@ -3231,13 +3133,21 @@
 
     iget-object v0, p0, Lcom/android/server/wm/TaskDisplayArea;->mLaunchAdjacentFlagRootTask:Lcom/android/server/wm/Task;
 
-    iget-object v0, v0, Lcom/android/server/wm/Task;->mAdjacentTask:Lcom/android/server/wm/Task;
+    invoke-virtual {v0}, Lcom/android/server/wm/Task;->getAdjacentTaskFragment()Lcom/android/server/wm/TaskFragment;
+
+    move-result-object v0
 
     if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/server/wm/TaskDisplayArea;->mLaunchAdjacentFlagRootTask:Lcom/android/server/wm/Task;
 
-    iget-object v0, v0, Lcom/android/server/wm/Task;->mAdjacentTask:Lcom/android/server/wm/Task;
+    invoke-virtual {v0}, Lcom/android/server/wm/Task;->getAdjacentTaskFragment()Lcom/android/server/wm/TaskFragment;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/server/wm/TaskFragment;->asTask()Lcom/android/server/wm/Task;
+
+    move-result-object v0
 
     return-object v0
 
@@ -3258,7 +3168,7 @@
     :goto_0
     const/4 v1, 0x0
 
-    if-ltz v0, :cond_6
+    if-ltz v0, :cond_7
 
     iget-object v2, p0, Lcom/android/server/wm/TaskDisplayArea;->mLaunchRootTasks:Ljava/util/ArrayList;
 
@@ -3272,7 +3182,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_6
 
     iget-object v2, p0, Lcom/android/server/wm/TaskDisplayArea;->mLaunchRootTasks:Ljava/util/ArrayList;
 
@@ -3286,33 +3196,59 @@
 
     if-eqz v2, :cond_3
 
-    iget-object v1, v2, Lcom/android/server/wm/Task;->mAdjacentTask:Lcom/android/server/wm/Task;
+    invoke-virtual {v2}, Lcom/android/server/wm/Task;->getAdjacentTaskFragment()Lcom/android/server/wm/TaskFragment;
+
+    move-result-object v3
 
     goto :goto_1
 
     :cond_3
-    nop
+    move-object v3, v1
 
     :goto_1
-    if-eqz v1, :cond_4
-
-    invoke-virtual {v1}, Lcom/android/server/wm/Task;->isFocusedRootTaskOnDisplay()Z
-
-    move-result v3
-
     if-eqz v3, :cond_4
+
+    invoke-virtual {v3}, Lcom/android/server/wm/TaskFragment;->asTask()Lcom/android/server/wm/Task;
+
+    move-result-object v1
+
+    :cond_4
+    if-eqz p4, :cond_5
+
+    invoke-virtual {p4}, Lcom/android/server/wm/Task;->getRootTask()Lcom/android/server/wm/Task;
+
+    move-result-object v4
+
+    if-ne v4, v1, :cond_5
 
     return-object v1
 
-    :cond_4
+    :cond_5
     return-object v2
 
-    :cond_5
+    :cond_6
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
-    :cond_6
+    :cond_7
+    if-eqz p4, :cond_8
+
+    invoke-virtual {p4}, Lcom/android/server/wm/Task;->getRootTask()Lcom/android/server/wm/Task;
+
+    move-result-object v0
+
+    iget-boolean v0, v0, Lcom/android/server/wm/Task;->mCreatedByOrganizer:Z
+
+    if-eqz v0, :cond_8
+
+    invoke-virtual {p4}, Lcom/android/server/wm/Task;->getRootTask()Lcom/android/server/wm/Task;
+
+    move-result-object v0
+
+    return-object v0
+
+    :cond_8
     return-object v1
 .end method
 
@@ -3519,7 +3455,7 @@
 .end method
 
 .method getOrCreateRootTask(IIZLcom/android/server/wm/Task;Lcom/android/server/wm/Task;Landroid/app/ActivityOptions;I)Lcom/android/server/wm/Task;
-    .locals 8
+    .locals 7
 
     if-eqz p1, :cond_0
 
@@ -3553,96 +3489,98 @@
     :cond_2
     if-eqz p4, :cond_a
 
-    move-object v0, p4
-
     if-eqz p3, :cond_3
 
-    const v1, 0x7fffffff
+    const v0, 0x7fffffff
 
     goto :goto_1
 
     :cond_3
-    const/high16 v1, -0x80000000
+    const/high16 v0, -0x80000000
 
     :goto_1
-    move-object v2, p0
+    move-object v1, p0
 
-    move v3, p1
+    move v2, p1
 
-    move v4, p2
+    move v3, p2
 
-    move-object v5, p6
+    move-object v4, p6
 
-    move-object v6, p5
+    move-object v5, p5
 
-    move v7, p7
+    move v6, p7
 
-    invoke-virtual/range {v2 .. v7}, Lcom/android/server/wm/TaskDisplayArea;->getLaunchRootTask(IILandroid/app/ActivityOptions;Lcom/android/server/wm/Task;I)Lcom/android/server/wm/Task;
+    invoke-virtual/range {v1 .. v6}, Lcom/android/server/wm/TaskDisplayArea;->getLaunchRootTask(IILandroid/app/ActivityOptions;Lcom/android/server/wm/Task;I)Lcom/android/server/wm/Task;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_5
+
+    invoke-virtual {p4}, Lcom/android/server/wm/Task;->getParent()Lcom/android/server/wm/WindowContainer;
 
     move-result-object v2
 
-    if-eqz v2, :cond_5
+    if-nez v2, :cond_4
 
-    invoke-virtual {v0}, Lcom/android/server/wm/Task;->getParent()Lcom/android/server/wm/WindowContainer;
-
-    move-result-object v3
-
-    if-nez v3, :cond_4
-
-    invoke-virtual {v2, v0, v1}, Lcom/android/server/wm/Task;->addChild(Lcom/android/server/wm/WindowContainer;I)V
+    invoke-virtual {v1, p4, v0}, Lcom/android/server/wm/Task;->addChild(Lcom/android/server/wm/WindowContainer;I)V
 
     goto :goto_2
 
     :cond_4
-    invoke-virtual {v0}, Lcom/android/server/wm/Task;->getParent()Lcom/android/server/wm/WindowContainer;
+    invoke-virtual {p4}, Lcom/android/server/wm/Task;->getParent()Lcom/android/server/wm/WindowContainer;
 
-    move-result-object v3
+    move-result-object v2
 
-    if-eq v3, v2, :cond_8
+    if-eq v2, v1, :cond_8
 
-    invoke-virtual {v0, v2, v1}, Lcom/android/server/wm/Task;->reparent(Lcom/android/server/wm/WindowContainer;I)V
+    invoke-virtual {p4, v1, v0}, Lcom/android/server/wm/Task;->reparent(Lcom/android/server/wm/WindowContainer;I)V
 
     goto :goto_2
 
     :cond_5
-    invoke-virtual {v0}, Lcom/android/server/wm/Task;->getDisplayArea()Lcom/android/server/wm/TaskDisplayArea;
+    invoke-virtual {p4}, Lcom/android/server/wm/Task;->getDisplayArea()Lcom/android/server/wm/TaskDisplayArea;
 
-    move-result-object v3
+    move-result-object v2
 
-    if-ne v3, p0, :cond_6
+    if-ne v2, p0, :cond_6
 
-    invoke-virtual {v0}, Lcom/android/server/wm/Task;->isRootTask()Z
+    invoke-virtual {p4}, Lcom/android/server/wm/Task;->isRootTask()Z
 
-    move-result v3
+    move-result v2
 
-    if-nez v3, :cond_8
+    if-nez v2, :cond_8
 
     :cond_6
-    invoke-virtual {v0}, Lcom/android/server/wm/Task;->getParent()Lcom/android/server/wm/WindowContainer;
+    invoke-virtual {p4}, Lcom/android/server/wm/Task;->getParent()Lcom/android/server/wm/WindowContainer;
 
-    move-result-object v3
+    move-result-object v2
 
-    if-nez v3, :cond_7
+    if-nez v2, :cond_7
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/server/wm/TaskDisplayArea;->addChild(Lcom/android/server/wm/WindowContainer;I)V
+    invoke-virtual {p0, p4, v0}, Lcom/android/server/wm/TaskDisplayArea;->addChild(Lcom/android/server/wm/WindowContainer;I)V
 
     goto :goto_2
 
     :cond_7
-    invoke-virtual {v0, p0, p3}, Lcom/android/server/wm/Task;->reparent(Lcom/android/server/wm/TaskDisplayArea;Z)V
+    invoke-virtual {p4, p0, p3}, Lcom/android/server/wm/Task;->reparent(Lcom/android/server/wm/TaskDisplayArea;Z)V
 
     :cond_8
     :goto_2
     invoke-virtual {p4}, Lcom/android/server/wm/Task;->getWindowingMode()I
 
-    move-result v3
+    move-result v2
 
-    if-eq v3, p1, :cond_9
+    if-eq v2, p1, :cond_9
 
     invoke-virtual {p4, p1}, Lcom/android/server/wm/Task;->setWindowingMode(I)V
 
     :cond_9
-    return-object v0
+    invoke-virtual {p4}, Lcom/android/server/wm/Task;->getRootTask()Lcom/android/server/wm/Task;
+
+    move-result-object v2
+
+    return-object v2
 
     :cond_a
     :goto_3
@@ -3797,9 +3735,9 @@
 
     const/4 v4, -0x1
 
-    const/4 v5, 0x0
+    const/4 v5, 0x1
 
-    const/4 v6, 0x1
+    const/4 v6, 0x0
 
     if-eqz v3, :cond_5
 
@@ -3829,9 +3767,12 @@
 
     if-eqz v3, :cond_2
 
-    move v5, v6
+    goto :goto_0
 
     :cond_2
+    move v5, v6
+
+    :goto_0
     move v3, v5
 
     invoke-virtual {v0}, Lcom/android/server/wm/Task;->isVisible()Z
@@ -3855,19 +3796,21 @@
     return v4
 
     :cond_5
-    invoke-virtual {p0, v6}, Lcom/android/server/wm/TaskDisplayArea;->getTopRootTaskInWindowingMode(I)Lcom/android/server/wm/Task;
+    sget-object v3, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda12;->INSTANCE:Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda12;
+
+    invoke-virtual {p0, v3}, Lcom/android/server/wm/TaskDisplayArea;->getRootTask(Ljava/util/function/Predicate;)Lcom/android/server/wm/Task;
 
     move-result-object v3
 
     if-eqz v3, :cond_6
 
-    invoke-virtual {v3}, Lcom/android/server/wm/Task;->isVisible()Z
-
-    move-result v7
+    iget-boolean v7, v3, Lcom/android/server/wm/Task;->mCreatedByOrganizer:Z
 
     if-eqz v7, :cond_6
 
-    iget-boolean v7, v3, Lcom/android/server/wm/Task;->mCreatedByOrganizer:Z
+    invoke-virtual {v3}, Lcom/android/server/wm/Task;->isVisible()Z
+
+    move-result v7
 
     if-eqz v7, :cond_6
 
@@ -3908,13 +3851,13 @@
 
     move-result-object v12
 
-    aput-object v12, v4, v5
+    aput-object v12, v4, v6
 
     invoke-static {v8, v9}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v5
+    move-result-object v6
 
-    aput-object v5, v4, v6
+    aput-object v6, v4, v5
 
     invoke-static {v10, v11, v7, v0, v4}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
@@ -3950,13 +3893,13 @@
 
     move-result-object v12
 
-    aput-object v12, v4, v5
+    aput-object v12, v4, v6
 
     invoke-static {v8, v9}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v5
+    move-result-object v6
 
-    aput-object v5, v4, v6
+    aput-object v6, v4, v5
 
     invoke-static {v10, v11, v7, v0, v4}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
@@ -4084,9 +4027,9 @@
     return-object v0
 
     :cond_3
-    new-instance v0, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda9;
+    new-instance v0, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda10;
 
-    invoke-direct {v0, p2, p1}, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda9;-><init>(II)V
+    invoke-direct {v0, p2, p1}, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda10;-><init>(II)V
 
     invoke-virtual {p0, v0}, Lcom/android/server/wm/TaskDisplayArea;->getRootTask(Ljava/util/function/Predicate;)Lcom/android/server/wm/Task;
 
@@ -4102,9 +4045,9 @@
 
     new-array v0, v0, [I
 
-    new-instance v1, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda7;
+    new-instance v1, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda8;
 
-    invoke-direct {v1, v0}, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda7;-><init>([I)V
+    invoke-direct {v1, v0}, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda8;-><init>([I)V
 
     invoke-virtual {p0, v1}, Lcom/android/server/wm/TaskDisplayArea;->forAllRootTasks(Ljava/util/function/Consumer;)V
 
@@ -4132,7 +4075,7 @@
 .method getTopRootTask()Lcom/android/server/wm/Task;
     .locals 1
 
-    sget-object v0, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda11;->INSTANCE:Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda11;
+    sget-object v0, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda13;->INSTANCE:Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda13;
 
     invoke-virtual {p0, v0}, Lcom/android/server/wm/TaskDisplayArea;->getRootTask(Ljava/util/function/Predicate;)Lcom/android/server/wm/Task;
 
@@ -4168,9 +4111,9 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    new-instance v1, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda6;
+    new-instance v1, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda7;
 
-    invoke-direct {v1, v0}, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda6;-><init>(Ljava/util/ArrayList;)V
+    invoke-direct {v1, v0}, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda7;-><init>(Ljava/util/ArrayList;)V
 
     invoke-virtual {p0, v1}, Lcom/android/server/wm/TaskDisplayArea;->forAllTasks(Ljava/util/function/Consumer;)V
 
@@ -4471,7 +4414,7 @@
     return-object p3
 .end method
 
-.method public synthetic lambda$moveSplitScreenTasksToFullScreen$7$TaskDisplayArea(Lcom/android/server/wm/Task;)V
+.method public synthetic lambda$moveSplitScreenTasksToFullScreen$9$TaskDisplayArea(Lcom/android/server/wm/Task;)V
     .locals 1
 
     iget-boolean v0, p1, Lcom/android/server/wm/Task;->mCreatedByOrganizer:Z
@@ -4498,8 +4441,8 @@
     return-void
 .end method
 
-.method public synthetic lambda$onParentChanged$5$TaskDisplayArea()V
-    .locals 4
+.method public synthetic lambda$onParentChanged$6$TaskDisplayArea()V
+    .locals 3
 
     const/4 v0, 0x0
 
@@ -4531,66 +4474,6 @@
 
     invoke-virtual {p0, v0}, Lcom/android/server/wm/TaskDisplayArea;->makeChildSurface(Lcom/android/server/wm/WindowContainer;)Landroid/view/SurfaceControl$Builder;
 
-    move-result-object v1
-
-    const-string v3, "animationLayer"
-
-    invoke-virtual {v1, v3}, Landroid/view/SurfaceControl$Builder;->setName(Ljava/lang/String;)Landroid/view/SurfaceControl$Builder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v2}, Landroid/view/SurfaceControl$Builder;->setCallsite(Ljava/lang/String;)Landroid/view/SurfaceControl$Builder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/view/SurfaceControl$Builder;->build()Landroid/view/SurfaceControl;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mAppAnimationLayer:Landroid/view/SurfaceControl;
-
-    invoke-virtual {p0, v0}, Lcom/android/server/wm/TaskDisplayArea;->makeChildSurface(Lcom/android/server/wm/WindowContainer;)Landroid/view/SurfaceControl$Builder;
-
-    move-result-object v1
-
-    const-string v3, "boostedAnimationLayer"
-
-    invoke-virtual {v1, v3}, Landroid/view/SurfaceControl$Builder;->setName(Ljava/lang/String;)Landroid/view/SurfaceControl$Builder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v2}, Landroid/view/SurfaceControl$Builder;->setCallsite(Ljava/lang/String;)Landroid/view/SurfaceControl$Builder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/view/SurfaceControl$Builder;->build()Landroid/view/SurfaceControl;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mBoostedAppAnimationLayer:Landroid/view/SurfaceControl;
-
-    invoke-virtual {p0, v0}, Lcom/android/server/wm/TaskDisplayArea;->makeChildSurface(Lcom/android/server/wm/WindowContainer;)Landroid/view/SurfaceControl$Builder;
-
-    move-result-object v1
-
-    const-string v3, "homeAnimationLayer"
-
-    invoke-virtual {v1, v3}, Landroid/view/SurfaceControl$Builder;->setName(Ljava/lang/String;)Landroid/view/SurfaceControl$Builder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v2}, Landroid/view/SurfaceControl$Builder;->setCallsite(Ljava/lang/String;)Landroid/view/SurfaceControl$Builder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/view/SurfaceControl$Builder;->build()Landroid/view/SurfaceControl;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mHomeAppAnimationLayer:Landroid/view/SurfaceControl;
-
-    invoke-virtual {p0, v0}, Lcom/android/server/wm/TaskDisplayArea;->makeChildSurface(Lcom/android/server/wm/WindowContainer;)Landroid/view/SurfaceControl$Builder;
-
     move-result-object v0
 
     const-string v1, "splitScreenDividerAnchor"
@@ -4613,27 +4496,62 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mAppAnimationLayer:Landroid/view/SurfaceControl;
-
-    invoke-virtual {v0, v1}, Landroid/view/SurfaceControl$Transaction;->show(Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mBoostedAppAnimationLayer:Landroid/view/SurfaceControl;
-
-    invoke-virtual {v0, v1}, Landroid/view/SurfaceControl$Transaction;->show(Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mHomeAppAnimationLayer:Landroid/view/SurfaceControl;
-
-    invoke-virtual {v0, v1}, Landroid/view/SurfaceControl$Transaction;->show(Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
-
-    move-result-object v0
-
     iget-object v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mSplitScreenDividerAnchor:Landroid/view/SurfaceControl;
 
     invoke-virtual {v0, v1}, Landroid/view/SurfaceControl$Transaction;->show(Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
+
+    return-void
+.end method
+
+.method public synthetic lambda$pauseBackTasks$8$TaskDisplayArea(Lcom/android/server/wm/ActivityRecord;[ILcom/android/server/wm/Task;)V
+    .locals 5
+
+    invoke-virtual {p3}, Lcom/android/server/wm/Task;->isLeafTaskFragment()Z
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    if-nez v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/server/wm/TaskDisplayArea;->topRunningActivity()Lcom/android/server/wm/ActivityRecord;
+
+    move-result-object v0
+
+    invoke-virtual {p3}, Lcom/android/server/wm/Task;->getResumedActivity()Lcom/android/server/wm/ActivityRecord;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/server/wm/ActivityRecord;->getTaskFragment()Lcom/android/server/wm/TaskFragment;
+
+    move-result-object v3
+
+    if-eq v3, p3, :cond_0
+
+    const/4 v3, 0x0
+
+    const-string v4, "pauseBackTasks"
+
+    invoke-virtual {p3, v3, p1, v4}, Lcom/android/server/wm/Task;->startPausing(ZLcom/android/server/wm/ActivityRecord;Ljava/lang/String;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    aget v4, p2, v3
+
+    add-int/2addr v4, v1
+
+    aput v4, p2, v3
+
+    :cond_0
+    new-instance v0, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda4;
+
+    invoke-direct {v0, p1, p2}, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda4;-><init>(Lcom/android/server/wm/ActivityRecord;[I)V
+
+    invoke-virtual {p3, v0, v1}, Lcom/android/server/wm/Task;->forAllLeafTaskFragments(Ljava/util/function/Consumer;Z)V
 
     return-void
 .end method
@@ -4643,33 +4561,13 @@
 
     invoke-super {p0, p1}, Lcom/android/server/wm/DisplayArea;->migrateToNewSurfaceControl(Landroid/view/SurfaceControl$Transaction;)V
 
-    iget-object v0, p0, Lcom/android/server/wm/TaskDisplayArea;->mAppAnimationLayer:Landroid/view/SurfaceControl;
+    iget-object v0, p0, Lcom/android/server/wm/TaskDisplayArea;->mColorBackgroundLayer:Landroid/view/SurfaceControl;
 
     if-nez v0, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/wm/TaskDisplayArea;->mColorBackgroundLayer:Landroid/view/SurfaceControl;
-
-    iget-object v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mSurfaceControl:Landroid/view/SurfaceControl;
-
-    invoke-virtual {p1, v0, v1}, Landroid/view/SurfaceControl$Transaction;->reparent(Landroid/view/SurfaceControl;Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
-
-    iget-object v0, p0, Lcom/android/server/wm/TaskDisplayArea;->mAppAnimationLayer:Landroid/view/SurfaceControl;
-
-    iget-object v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mSurfaceControl:Landroid/view/SurfaceControl;
-
-    invoke-virtual {p1, v0, v1}, Landroid/view/SurfaceControl$Transaction;->reparent(Landroid/view/SurfaceControl;Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
-
-    iget-object v0, p0, Lcom/android/server/wm/TaskDisplayArea;->mBoostedAppAnimationLayer:Landroid/view/SurfaceControl;
-
-    iget-object v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mSurfaceControl:Landroid/view/SurfaceControl;
-
-    invoke-virtual {p1, v0, v1}, Landroid/view/SurfaceControl$Transaction;->reparent(Landroid/view/SurfaceControl;Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
-
-    iget-object v0, p0, Lcom/android/server/wm/TaskDisplayArea;->mHomeAppAnimationLayer:Landroid/view/SurfaceControl;
-
     iget-object v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mSurfaceControl:Landroid/view/SurfaceControl;
 
     invoke-virtual {p1, v0, v1}, Landroid/view/SurfaceControl$Transaction;->reparent(Landroid/view/SurfaceControl;Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
@@ -5073,24 +4971,6 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mAppAnimationLayer:Landroid/view/SurfaceControl;
-
-    invoke-virtual {v0, v1}, Landroid/view/SurfaceControl$Transaction;->remove(Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mBoostedAppAnimationLayer:Landroid/view/SurfaceControl;
-
-    invoke-virtual {v0, v1}, Landroid/view/SurfaceControl$Transaction;->remove(Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mHomeAppAnimationLayer:Landroid/view/SurfaceControl;
-
-    invoke-virtual {v0, v1}, Landroid/view/SurfaceControl$Transaction;->remove(Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
-
-    move-result-object v0
-
     iget-object v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mSplitScreenDividerAnchor:Landroid/view/SurfaceControl;
 
     invoke-virtual {v0, v1}, Landroid/view/SurfaceControl$Transaction;->remove(Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
@@ -5102,12 +4982,6 @@
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/server/wm/TaskDisplayArea;->mColorBackgroundLayer:Landroid/view/SurfaceControl;
-
-    iput-object v0, p0, Lcom/android/server/wm/TaskDisplayArea;->mAppAnimationLayer:Landroid/view/SurfaceControl;
-
-    iput-object v0, p0, Lcom/android/server/wm/TaskDisplayArea;->mBoostedAppAnimationLayer:Landroid/view/SurfaceControl;
-
-    iput-object v0, p0, Lcom/android/server/wm/TaskDisplayArea;->mHomeAppAnimationLayer:Landroid/view/SurfaceControl;
 
     iput-object v0, p0, Lcom/android/server/wm/TaskDisplayArea;->mSplitScreenDividerAnchor:Landroid/view/SurfaceControl;
 
@@ -5345,9 +5219,9 @@
 
     aput v2, v1, v2
 
-    new-instance v3, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda4;
+    new-instance v3, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda6;
 
-    invoke-direct {v3, p1, v1}, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda4;-><init>(Lcom/android/server/wm/ActivityRecord;[I)V
+    invoke-direct {v3, p0, p1, v1}, Lcom/android/server/wm/TaskDisplayArea$$ExternalSyntheticLambda6;-><init>(Lcom/android/server/wm/TaskDisplayArea;Lcom/android/server/wm/ActivityRecord;[I)V
 
     invoke-virtual {p0, v3, v0}, Lcom/android/server/wm/TaskDisplayArea;->forAllLeafTasks(Ljava/util/function/Consumer;Z)V
 
@@ -5550,234 +5424,255 @@
 .end method
 
 .method remove()Lcom/android/server/wm/Task;
-    .locals 15
+    .locals 17
 
-    const/4 v0, 0x0
+    move-object/from16 v0, p0
 
-    iput-object v0, p0, Lcom/android/server/wm/TaskDisplayArea;->mPreferredTopFocusableRootTask:Lcom/android/server/wm/Task;
+    const/4 v1, 0x0
 
-    iget-object v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
+    iput-object v1, v0, Lcom/android/server/wm/TaskDisplayArea;->mPreferredTopFocusableRootTask:Lcom/android/server/wm/Task;
 
-    invoke-virtual {v1}, Lcom/android/server/wm/DisplayContent;->shouldDestroyContentOnRemove()Z
+    iget-object v2, v0, Lcom/android/server/wm/TaskDisplayArea;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
-    move-result v1
+    invoke-virtual {v2}, Lcom/android/server/wm/DisplayContent;->shouldDestroyContentOnRemove()Z
 
-    iget-object v2, p0, Lcom/android/server/wm/TaskDisplayArea;->mRootWindowContainer:Lcom/android/server/wm/RootWindowContainer;
+    move-result v2
 
-    invoke-virtual {v2}, Lcom/android/server/wm/RootWindowContainer;->getDefaultTaskDisplayArea()Lcom/android/server/wm/TaskDisplayArea;
+    iget-object v3, v0, Lcom/android/server/wm/TaskDisplayArea;->mRootWindowContainer:Lcom/android/server/wm/RootWindowContainer;
 
-    move-result-object v2
-
-    const/4 v3, 0x0
-
-    iget-object v4, p0, Lcom/android/server/wm/TaskDisplayArea;->mChildren:Lcom/android/server/wm/WindowList;
-
-    invoke-virtual {v4}, Lcom/android/server/wm/WindowList;->size()I
-
-    move-result v4
-
-    const/4 v5, 0x0
-
-    move-object v9, v3
-
-    move v10, v4
-
-    move v11, v5
-
-    :goto_0
-    const/4 v12, 0x1
-
-    if-ge v11, v10, :cond_5
-
-    iget-object v3, p0, Lcom/android/server/wm/TaskDisplayArea;->mChildren:Lcom/android/server/wm/WindowList;
-
-    invoke-virtual {v3, v11}, Lcom/android/server/wm/WindowList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3}, Lcom/android/server/wm/RootWindowContainer;->getDefaultTaskDisplayArea()Lcom/android/server/wm/TaskDisplayArea;
 
     move-result-object v3
 
-    move-object v13, v3
+    const/4 v4, 0x0
 
-    check-cast v13, Lcom/android/server/wm/WindowContainer;
+    iget-object v5, v0, Lcom/android/server/wm/TaskDisplayArea;->mChildren:Lcom/android/server/wm/WindowList;
 
-    invoke-virtual {v13}, Lcom/android/server/wm/WindowContainer;->asTaskDisplayArea()Lcom/android/server/wm/TaskDisplayArea;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_0
-
-    invoke-virtual {v13}, Lcom/android/server/wm/WindowContainer;->asTaskDisplayArea()Lcom/android/server/wm/TaskDisplayArea;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/server/wm/TaskDisplayArea;->remove()Lcom/android/server/wm/Task;
-
-    move-result-object v3
-
-    move-object v9, v3
-
-    goto :goto_5
-
-    :cond_0
-    iget-object v3, p0, Lcom/android/server/wm/TaskDisplayArea;->mChildren:Lcom/android/server/wm/WindowList;
-
-    invoke-virtual {v3, v11}, Lcom/android/server/wm/WindowList;->get(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/server/wm/WindowContainer;
-
-    invoke-virtual {v3}, Lcom/android/server/wm/WindowContainer;->asTask()Lcom/android/server/wm/Task;
-
-    move-result-object v14
-
-    if-nez v1, :cond_4
-
-    invoke-virtual {v14}, Lcom/android/server/wm/Task;->isActivityTypeStandardOrUndefined()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    iget-boolean v3, v14, Lcom/android/server/wm/Task;->mCreatedByOrganizer:Z
-
-    if-eqz v3, :cond_1
-
-    goto :goto_3
-
-    :cond_1
-    invoke-virtual {v14, v2}, Lcom/android/server/wm/Task;->supportsSplitScreenWindowingModeInDisplayArea(Lcom/android/server/wm/TaskDisplayArea;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_2
-
-    nop
-
-    invoke-virtual {v14}, Lcom/android/server/wm/Task;->getWindowingMode()I
-
-    move-result v4
-
-    invoke-virtual {v14}, Lcom/android/server/wm/Task;->getActivityType()I
+    invoke-virtual {v5}, Lcom/android/server/wm/WindowList;->size()I
 
     move-result v5
 
     const/4 v6, 0x0
 
+    move-object v10, v4
+
+    move v11, v5
+
+    move v12, v6
+
+    :goto_0
+    const/4 v13, 0x1
+
+    if-ge v12, v11, :cond_6
+
+    iget-object v4, v0, Lcom/android/server/wm/TaskDisplayArea;->mChildren:Lcom/android/server/wm/WindowList;
+
+    invoke-virtual {v4, v12}, Lcom/android/server/wm/WindowList;->get(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    move-object v14, v4
+
+    check-cast v14, Lcom/android/server/wm/WindowContainer;
+
+    invoke-virtual {v14}, Lcom/android/server/wm/WindowContainer;->asTaskDisplayArea()Lcom/android/server/wm/TaskDisplayArea;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_0
+
+    invoke-virtual {v14}, Lcom/android/server/wm/WindowContainer;->asTaskDisplayArea()Lcom/android/server/wm/TaskDisplayArea;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/server/wm/TaskDisplayArea;->remove()Lcom/android/server/wm/Task;
+
+    move-result-object v4
+
+    move-object v10, v4
+
+    goto/16 :goto_5
+
+    :cond_0
+    iget-object v4, v0, Lcom/android/server/wm/TaskDisplayArea;->mChildren:Lcom/android/server/wm/WindowList;
+
+    invoke-virtual {v4, v12}, Lcom/android/server/wm/WindowList;->get(I)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/android/server/wm/WindowContainer;
+
+    invoke-virtual {v4}, Lcom/android/server/wm/WindowContainer;->asTask()Lcom/android/server/wm/Task;
+
+    move-result-object v15
+
+    const/4 v9, 0x0
+
+    if-nez v2, :cond_5
+
+    invoke-virtual {v15}, Lcom/android/server/wm/Task;->isActivityTypeStandardOrUndefined()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    iget-boolean v4, v15, Lcom/android/server/wm/Task;->mCreatedByOrganizer:Z
+
+    if-eqz v4, :cond_1
+
+    move v1, v9
+
+    goto :goto_3
+
+    :cond_1
+    invoke-virtual {v15, v3}, Lcom/android/server/wm/Task;->supportsSplitScreenWindowingModeInDisplayArea(Lcom/android/server/wm/TaskDisplayArea;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    nop
+
+    invoke-virtual {v15}, Lcom/android/server/wm/Task;->getWindowingMode()I
+
+    move-result v5
+
+    invoke-virtual {v15}, Lcom/android/server/wm/Task;->getActivityType()I
+
+    move-result v6
+
     const/4 v7, 0x0
 
     const/4 v8, 0x0
 
-    move-object v3, v2
+    const/16 v16, 0x0
 
-    invoke-virtual/range {v3 .. v8}, Lcom/android/server/wm/TaskDisplayArea;->getLaunchRootTask(IILandroid/app/ActivityOptions;Lcom/android/server/wm/Task;I)Lcom/android/server/wm/Task;
+    move-object v4, v3
 
-    move-result-object v3
+    move v1, v9
+
+    move/from16 v9, v16
+
+    invoke-virtual/range {v4 .. v9}, Lcom/android/server/wm/TaskDisplayArea;->getLaunchRootTask(IILandroid/app/ActivityOptions;Lcom/android/server/wm/Task;I)Lcom/android/server/wm/Task;
+
+    move-result-object v4
 
     goto :goto_1
 
     :cond_2
-    move-object v3, v0
+    move v1, v9
+
+    const/4 v4, 0x0
 
     :goto_1
     nop
 
-    if-nez v3, :cond_3
+    if-nez v4, :cond_3
 
-    move-object v4, v2
+    move-object v5, v3
 
     goto :goto_2
 
     :cond_3
-    move-object v4, v3
+    move-object v5, v4
 
     :goto_2
-    const v5, 0x7fffffff
+    const v6, 0x7fffffff
 
-    invoke-virtual {v14, v4, v5}, Lcom/android/server/wm/Task;->reparent(Lcom/android/server/wm/WindowContainer;I)V
+    invoke-virtual {v15, v5, v6}, Lcom/android/server/wm/Task;->reparent(Lcom/android/server/wm/WindowContainer;I)V
 
-    const/4 v4, 0x0
+    invoke-virtual {v15, v1}, Lcom/android/server/wm/Task;->setWindowingMode(I)V
 
-    invoke-virtual {v14, v4}, Lcom/android/server/wm/Task;->setWindowingMode(I)V
-
-    move-object v9, v14
+    move-object v10, v15
 
     goto :goto_4
 
     :cond_4
-    :goto_3
-    invoke-virtual {v14}, Lcom/android/server/wm/Task;->finishAllActivitiesImmediately()V
+    move v1, v9
 
-    :goto_4
-    iget-object v3, p0, Lcom/android/server/wm/TaskDisplayArea;->mChildren:Lcom/android/server/wm/WindowList;
-
-    invoke-virtual {v3}, Lcom/android/server/wm/WindowList;->size()I
-
-    move-result v3
-
-    sub-int v3, v10, v3
-
-    sub-int/2addr v11, v3
-
-    iget-object v3, p0, Lcom/android/server/wm/TaskDisplayArea;->mChildren:Lcom/android/server/wm/WindowList;
-
-    invoke-virtual {v3}, Lcom/android/server/wm/WindowList;->size()I
-
-    move-result v3
-
-    move v10, v3
-
-    :goto_5
-    add-int/2addr v11, v12
-
-    goto :goto_0
+    goto :goto_3
 
     :cond_5
-    if-eqz v9, :cond_7
+    move v1, v9
 
-    invoke-virtual {v2}, Lcom/android/server/wm/TaskDisplayArea;->isSplitScreenModeActivated()Z
+    :goto_3
+    const-string v4, "removeTaskDisplayArea"
 
-    move-result v0
+    invoke-virtual {v15, v1, v4}, Lcom/android/server/wm/Task;->remove(ZLjava/lang/String;)V
 
-    if-eqz v0, :cond_6
+    :goto_4
+    iget-object v1, v0, Lcom/android/server/wm/TaskDisplayArea;->mChildren:Lcom/android/server/wm/WindowList;
 
-    invoke-virtual {v9, v2}, Lcom/android/server/wm/Task;->supportsSplitScreenWindowingModeInDisplayArea(Lcom/android/server/wm/TaskDisplayArea;)Z
+    invoke-virtual {v1}, Lcom/android/server/wm/WindowList;->size()I
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_6
+    sub-int v1, v11, v1
 
-    iget-object v0, p0, Lcom/android/server/wm/TaskDisplayArea;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
+    sub-int/2addr v12, v1
 
-    invoke-virtual {v0}, Lcom/android/server/wm/ActivityTaskManagerService;->getTaskChangeNotificationController()Lcom/android/server/wm/TaskChangeNotificationController;
+    iget-object v1, v0, Lcom/android/server/wm/TaskDisplayArea;->mChildren:Lcom/android/server/wm/WindowList;
 
-    move-result-object v0
+    invoke-virtual {v1}, Lcom/android/server/wm/WindowList;->size()I
 
-    invoke-virtual {v0}, Lcom/android/server/wm/TaskChangeNotificationController;->notifyActivityDismissingDockedRootTask()V
+    move-result v1
 
-    invoke-virtual {v2, v9}, Lcom/android/server/wm/TaskDisplayArea;->onSplitScreenModeDismissed(Lcom/android/server/wm/Task;)V
+    move v11, v1
+
+    :goto_5
+    add-int/2addr v12, v13
+
+    const/4 v1, 0x0
+
+    goto/16 :goto_0
+
+    :cond_6
+    if-eqz v10, :cond_8
+
+    invoke-virtual {v3}, Lcom/android/server/wm/TaskDisplayArea;->isSplitScreenModeActivated()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_7
+
+    invoke-virtual {v10, v3}, Lcom/android/server/wm/Task;->supportsSplitScreenWindowingModeInDisplayArea(Lcom/android/server/wm/TaskDisplayArea;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_7
+
+    iget-object v1, v0, Lcom/android/server/wm/TaskDisplayArea;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    invoke-virtual {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->getTaskChangeNotificationController()Lcom/android/server/wm/TaskChangeNotificationController;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/server/wm/TaskChangeNotificationController;->notifyActivityDismissingDockedRootTask()V
+
+    invoke-virtual {v3, v10}, Lcom/android/server/wm/TaskDisplayArea;->onSplitScreenModeDismissed(Lcom/android/server/wm/Task;)V
 
     goto :goto_6
 
-    :cond_6
-    invoke-virtual {v9}, Lcom/android/server/wm/Task;->isRootTask()Z
-
-    move-result v0
-
-    if-nez v0, :cond_7
-
-    invoke-virtual {v9}, Lcom/android/server/wm/Task;->getRootTask()Lcom/android/server/wm/Task;
-
-    move-result-object v0
-
-    const-string v3, "display-removed"
-
-    invoke-virtual {v0, v3}, Lcom/android/server/wm/Task;->moveToFront(Ljava/lang/String;)V
-
     :cond_7
-    :goto_6
-    iput-boolean v12, p0, Lcom/android/server/wm/TaskDisplayArea;->mRemoved:Z
+    invoke-virtual {v10}, Lcom/android/server/wm/Task;->isRootTask()Z
 
-    return-object v9
+    move-result v1
+
+    if-nez v1, :cond_8
+
+    invoke-virtual {v10}, Lcom/android/server/wm/Task;->getRootTask()Lcom/android/server/wm/Task;
+
+    move-result-object v1
+
+    const-string v4, "display-removed"
+
+    invoke-virtual {v1, v4}, Lcom/android/server/wm/Task;->moveToFront(Ljava/lang/String;)V
+
+    :cond_8
+    :goto_6
+    iput-boolean v13, v0, Lcom/android/server/wm/TaskDisplayArea;->mRemoved:Z
+
+    return-object v10
 .end method
 
 .method protected removeChild(Lcom/android/server/wm/WindowContainer;)V
@@ -6086,7 +5981,9 @@
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p1, Lcom/android/server/wm/Task;->mAdjacentTask:Lcom/android/server/wm/Task;
+    invoke-virtual {p1}, Lcom/android/server/wm/Task;->getAdjacentTaskFragment()Lcom/android/server/wm/TaskFragment;
+
+    move-result-object v0
 
     if-eqz v0, :cond_0
 
@@ -6218,40 +6115,51 @@
     throw v0
 .end method
 
-.method supportsActivityMinWidthHeightMultiWindow(II)Z
+.method supportsActivityMinWidthHeightMultiWindow(IILandroid/content/pm/ActivityInfo;)Z
     .locals 7
 
-    iget-object v0, p0, Lcom/android/server/wm/TaskDisplayArea;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
+    const/4 v0, 0x1
 
-    iget v0, v0, Lcom/android/server/wm/ActivityTaskManagerService;->mRespectsActivityMinWidthHeightMultiWindow:I
+    if-eqz p3, :cond_0
 
-    const/4 v1, 0x1
+    invoke-virtual {p3}, Landroid/content/pm/ActivityInfo;->shouldCheckMinWidthHeightForMultiWindow()Z
 
-    if-gtz p1, :cond_0
+    move-result v1
 
-    if-gtz p2, :cond_0
+    if-nez v1, :cond_0
 
-    return v1
+    return v0
 
     :cond_0
-    const/4 v2, -0x1
+    if-gtz p1, :cond_1
 
-    if-ne v0, v2, :cond_1
+    if-gtz p2, :cond_1
 
-    return v1
+    return v0
 
     :cond_1
-    if-nez v0, :cond_2
+    iget-object v1, p0, Lcom/android/server/wm/TaskDisplayArea;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    iget v1, v1, Lcom/android/server/wm/ActivityTaskManagerService;->mRespectsActivityMinWidthHeightMultiWindow:I
+
+    const/4 v2, -0x1
+
+    if-ne v1, v2, :cond_2
+
+    return v0
+
+    :cond_2
+    if-nez v1, :cond_3
 
     invoke-direct {p0}, Lcom/android/server/wm/TaskDisplayArea;->isLargeEnoughForMultiWindow()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3
 
-    return v1
+    return v0
 
-    :cond_2
+    :cond_3
     invoke-virtual {p0}, Lcom/android/server/wm/TaskDisplayArea;->getConfiguration()Landroid/content/res/Configuration;
 
     move-result-object v2
@@ -6262,7 +6170,7 @@
 
     const/4 v5, 0x0
 
-    if-ne v3, v4, :cond_4
+    if-ne v3, v4, :cond_5
 
     iget-object v4, p0, Lcom/android/server/wm/TaskDisplayArea;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
 
@@ -6286,17 +6194,17 @@
 
     float-to-int v4, v4
 
-    if-gt p1, v4, :cond_3
+    if-gt p1, v4, :cond_4
 
     goto :goto_0
 
-    :cond_3
-    move v1, v5
+    :cond_4
+    move v0, v5
 
     :goto_0
-    return v1
+    return v0
 
-    :cond_4
+    :cond_5
     iget-object v4, p0, Lcom/android/server/wm/TaskDisplayArea;->mAtmService:Lcom/android/server/wm/ActivityTaskManagerService;
 
     iget v4, v4, Lcom/android/server/wm/ActivityTaskManagerService;->mMinPercentageMultiWindowSupportHeight:F
@@ -6319,15 +6227,15 @@
 
     float-to-int v4, v4
 
-    if-gt p2, v4, :cond_5
+    if-gt p2, v4, :cond_6
 
     goto :goto_1
 
-    :cond_5
-    move v1, v5
+    :cond_6
+    move v0, v5
 
     :goto_1
-    return v1
+    return v0
 .end method
 
 .method supportsNonResizableMultiWindow()Z
@@ -6546,9 +6454,7 @@
 
     if-eqz v1, :cond_2
 
-    const/4 v1, 0x0
-
-    iput-object v1, v0, Lcom/android/server/wm/Task;->mLastPausedActivity:Lcom/android/server/wm/ActivityRecord;
+    invoke-virtual {v0}, Lcom/android/server/wm/Task;->clearLastPausedActivity()V
 
     :cond_2
     iput-object p1, p0, Lcom/android/server/wm/TaskDisplayArea;->mLastFocusedRootTask:Lcom/android/server/wm/Task;

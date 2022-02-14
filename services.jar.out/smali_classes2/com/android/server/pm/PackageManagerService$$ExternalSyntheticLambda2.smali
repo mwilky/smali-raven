@@ -33,7 +33,7 @@
 
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda2;->f$1:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/pm/PackageManagerService;->lambda$applyMimeGroupChanges$72$PackageManagerService(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lcom/android/server/pm/PackageManagerService;->lambda$applyMimeGroupChanges$71$PackageManagerService(Ljava/lang/String;)V
 
     return-void
 .end method

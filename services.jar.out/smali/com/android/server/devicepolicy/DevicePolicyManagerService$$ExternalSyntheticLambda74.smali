@@ -33,7 +33,7 @@
 
     iget v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda74;->f$1:I
 
-    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$getUserInfo$29$DevicePolicyManagerService(I)Landroid/content/pm/UserInfo;
+    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$getProfileParentId$69$DevicePolicyManagerService(I)Ljava/lang/Integer;
 
     move-result-object v0
 

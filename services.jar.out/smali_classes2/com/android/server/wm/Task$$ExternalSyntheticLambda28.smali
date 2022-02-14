@@ -5,17 +5,27 @@
 .implements Ljava/util/function/Consumer;
 
 
-# instance fields
-.field public final synthetic f$0:Ljava/util/ArrayList;
+# static fields
+.field public static final synthetic INSTANCE:Lcom/android/server/wm/Task$$ExternalSyntheticLambda28;
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/util/ArrayList;)V
+.method static synthetic constructor <clinit>()V
+    .locals 1
+
+    new-instance v0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda28;
+
+    invoke-direct {v0}, Lcom/android/server/wm/Task$$ExternalSyntheticLambda28;-><init>()V
+
+    sput-object v0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda28;->INSTANCE:Lcom/android/server/wm/Task$$ExternalSyntheticLambda28;
+
+    return-void
+.end method
+
+.method private synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda28;->f$0:Ljava/util/ArrayList;
 
     return-void
 .end method
@@ -23,13 +33,11 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda28;->f$0:Ljava/util/ArrayList;
+    .locals 0
 
     check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p1}, Lcom/android/server/wm/ActivityRecord;->removeLaunchTickRunnable()V
 
     return-void
 .end method

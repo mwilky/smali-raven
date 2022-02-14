@@ -68,6 +68,8 @@
 
 .field private mOnBatteryScreenOff:Z
 
+.field private mPerDisplayScreenStates:[I
+
 .field private mPowerStatsInternal:Landroid/power/PowerStatsInternal;
 
 .field private mScreenState:I
@@ -137,6 +139,8 @@
     iput-object v1, v0, Lcom/android/server/am/BatteryExternalStatsWorker;->mCurrentFuture:Ljava/util/concurrent/Future;
 
     iput-object v1, v0, Lcom/android/server/am/BatteryExternalStatsWorker;->mCurrentReason:Ljava/lang/String;
+
+    iput-object v1, v0, Lcom/android/server/am/BatteryExternalStatsWorker;->mPerDisplayScreenStates:[I
 
     const/4 v2, 0x1
 
@@ -231,12 +235,12 @@
     return-object v0
 .end method
 
-.method static synthetic access$1000(Lcom/android/server/am/BatteryExternalStatsWorker;Ljava/lang/String;IZZIZ)V
-    .locals 0
+.method static synthetic access$1000(Lcom/android/server/am/BatteryExternalStatsWorker;)Ljava/lang/Object;
+    .locals 1
 
-    invoke-direct/range {p0 .. p6}, Lcom/android/server/am/BatteryExternalStatsWorker;->updateExternalStatsLocked(Ljava/lang/String;IZZIZ)V
+    iget-object v0, p0, Lcom/android/server/am/BatteryExternalStatsWorker;->mWorkerLock:Ljava/lang/Object;
 
-    return-void
+    return-object v0
 .end method
 
 .method static synthetic access$102(Lcom/android/server/am/BatteryExternalStatsWorker;Ljava/lang/String;)Ljava/lang/String;
@@ -247,7 +251,15 @@
     return-object p1
 .end method
 
-.method static synthetic access$1100(Lcom/android/server/am/BatteryExternalStatsWorker;)Lcom/android/internal/os/BatteryStatsImpl;
+.method static synthetic access$1100(Lcom/android/server/am/BatteryExternalStatsWorker;Ljava/lang/String;IZZI[IZ)V
+    .locals 0
+
+    invoke-direct/range {p0 .. p7}, Lcom/android/server/am/BatteryExternalStatsWorker;->updateExternalStatsLocked(Ljava/lang/String;IZZI[IZ)V
+
+    return-void
+.end method
+
+.method static synthetic access$1200(Lcom/android/server/am/BatteryExternalStatsWorker;)Lcom/android/internal/os/BatteryStatsImpl;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/am/BatteryExternalStatsWorker;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
@@ -255,7 +267,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1202(Lcom/android/server/am/BatteryExternalStatsWorker;J)J
+.method static synthetic access$1302(Lcom/android/server/am/BatteryExternalStatsWorker;J)J
     .locals 0
 
     iput-wide p1, p0, Lcom/android/server/am/BatteryExternalStatsWorker;->mLastCollectionTimeStamp:J
@@ -295,7 +307,15 @@
     return v0
 .end method
 
-.method static synthetic access$600(Lcom/android/server/am/BatteryExternalStatsWorker;)Z
+.method static synthetic access$600(Lcom/android/server/am/BatteryExternalStatsWorker;)[I
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/am/BatteryExternalStatsWorker;->mPerDisplayScreenStates:[I
+
+    return-object v0
+.end method
+
+.method static synthetic access$700(Lcom/android/server/am/BatteryExternalStatsWorker;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/am/BatteryExternalStatsWorker;->mUseLatestStates:Z
@@ -303,7 +323,7 @@
     return v0
 .end method
 
-.method static synthetic access$602(Lcom/android/server/am/BatteryExternalStatsWorker;Z)Z
+.method static synthetic access$702(Lcom/android/server/am/BatteryExternalStatsWorker;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/am/BatteryExternalStatsWorker;->mUseLatestStates:Z
@@ -311,7 +331,7 @@
     return p1
 .end method
 
-.method static synthetic access$702(Lcom/android/server/am/BatteryExternalStatsWorker;Ljava/util/concurrent/Future;)Ljava/util/concurrent/Future;
+.method static synthetic access$802(Lcom/android/server/am/BatteryExternalStatsWorker;Ljava/util/concurrent/Future;)Ljava/util/concurrent/Future;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/am/BatteryExternalStatsWorker;->mCurrentFuture:Ljava/util/concurrent/Future;
@@ -319,20 +339,12 @@
     return-object p1
 .end method
 
-.method static synthetic access$800(Lcom/android/server/am/BatteryExternalStatsWorker;)V
+.method static synthetic access$900(Lcom/android/server/am/BatteryExternalStatsWorker;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/am/BatteryExternalStatsWorker;->cancelSyncDueToBatteryLevelChangeLocked()V
 
     return-void
-.end method
-
-.method static synthetic access$900(Lcom/android/server/am/BatteryExternalStatsWorker;)Ljava/lang/Object;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/am/BatteryExternalStatsWorker;->mWorkerLock:Ljava/lang/Object;
-
-    return-object v0
 .end method
 
 .method private addEnergyConsumerIdLocked(Landroid/util/IntArray;I)V
@@ -1147,6 +1159,7 @@
         :pswitch_1
         :pswitch_0
         :pswitch_1
+        :pswitch_1
     .end packed-switch
 .end method
 
@@ -1278,8 +1291,8 @@
     return-object v0
 .end method
 
-.method private updateExternalStatsLocked(Ljava/lang/String;IZZIZ)V
-    .locals 38
+.method private updateExternalStatsLocked(Ljava/lang/String;IZZI[IZ)V
+    .locals 39
 
     move-object/from16 v1, p0
 
@@ -1708,13 +1721,13 @@
 
     invoke-virtual/range {v16 .. v23}, Lcom/android/internal/os/BatteryStatsImpl;->addHistoryEventLocked(JJILjava/lang/String;I)V
     :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_c
+    .catchall {:try_start_6 .. :try_end_6} :catchall_e
 
     and-int/lit8 v0, v2, 0x1
 
     if-eqz v0, :cond_a
 
-    if-eqz p6, :cond_8
+    if-eqz p7, :cond_8
 
     :try_start_7
     iget-object v0, v1, Lcom/android/server/am/BatteryExternalStatsWorker;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
@@ -1749,17 +1762,17 @@
 
     move/from16 v31, v5
 
-    move-object/from16 v37, v6
+    move-wide/from16 v37, v9
 
-    move-wide v3, v9
+    move-object v3, v13
 
-    move-object v5, v13
+    move-object v5, v15
 
-    move-object/from16 v17, v14
+    move-object v4, v1
 
-    move-object v6, v15
+    move-object v1, v14
 
-    goto/16 :goto_14
+    goto/16 :goto_16
 
     :catchall_4
     move-exception v0
@@ -1772,17 +1785,17 @@
 
     move/from16 v31, v5
 
-    move-object/from16 v37, v6
+    move-wide/from16 v37, v9
 
-    move-wide v3, v9
+    move-object v3, v13
 
-    move-object v5, v13
+    move-object v5, v15
 
-    move-object/from16 v17, v14
+    move-object v4, v1
 
-    move-object v6, v15
+    move-object v1, v14
 
-    goto/16 :goto_14
+    goto/16 :goto_16
 
     :cond_8
     move/from16 v11, p3
@@ -1823,19 +1836,19 @@
 
     move-wide/from16 v35, v3
 
-    move-object/from16 v37, v6
-
-    move-wide v3, v9
+    move-wide/from16 v37, v9
 
     move/from16 v32, v12
 
-    move-object v5, v13
+    move-object v3, v13
 
-    move-object/from16 v17, v14
+    move-object v5, v15
 
-    move-object v6, v15
+    move-object v4, v1
 
-    goto/16 :goto_14
+    move-object v1, v14
+
+    goto/16 :goto_16
 
     :catchall_6
     move-exception v0
@@ -1844,19 +1857,19 @@
 
     move-wide/from16 v35, v3
 
-    move-object/from16 v37, v6
-
-    move-wide v3, v9
+    move-wide/from16 v37, v9
 
     move/from16 v32, v12
 
-    move-object v5, v13
+    move-object v3, v13
 
-    move-object/from16 v17, v14
+    move-object v5, v15
 
-    move-object v6, v15
+    move-object v4, v1
 
-    goto/16 :goto_14
+    move-object v1, v14
+
+    goto/16 :goto_16
 
     :cond_a
     move/from16 v31, v5
@@ -1888,17 +1901,17 @@
 
     move v11, v5
 
-    move-object/from16 v37, v6
+    move-wide/from16 v37, v9
 
-    move-wide v3, v9
+    move-object v3, v13
 
-    move-object v5, v13
+    move-object v5, v15
 
-    move-object/from16 v17, v14
+    move-object v4, v1
 
-    move-object v6, v15
+    move-object v1, v14
 
-    goto/16 :goto_14
+    goto/16 :goto_16
 
     :cond_b
     :goto_c
@@ -1915,72 +1928,104 @@
     :cond_c
     const-wide/16 v33, -0x1
 
-    if-eqz v13, :cond_e
+    if-eqz v13, :cond_f
 
     :try_start_c
-    iget-wide v11, v13, Lcom/android/server/am/MeasuredEnergySnapshot$MeasuredEnergyDeltaData;->displayChargeUC:J
+    iget-object v11, v13, Lcom/android/server/am/MeasuredEnergySnapshot$MeasuredEnergyDeltaData;->displayChargeUC:[J
+
+    if-eqz v11, :cond_d
+
+    array-length v12, v11
+
+    if-lez v12, :cond_d
+
+    iget-object v12, v1, Lcom/android/server/am/BatteryExternalStatsWorker;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
     :try_end_c
-    .catchall {:try_start_c .. :try_end_c} :catchall_8
+    .catchall {:try_start_c .. :try_end_c} :catchall_a
 
-    cmp-long v16, v11, v33
-
-    if-eqz v16, :cond_d
-
-    :try_start_d
-    iget-object v0, v1, Lcom/android/server/am/BatteryExternalStatsWorker;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
-
-    move-object/from16 v16, v0
-
-    move-wide/from16 v17, v11
-
-    move/from16 v19, p5
-
-    move-wide/from16 v20, v9
-
-    invoke-virtual/range {v16 .. v21}, Lcom/android/internal/os/BatteryStatsImpl;->updateDisplayMeasuredEnergyStatsLocked(JIJ)V
-    :try_end_d
-    .catchall {:try_start_d .. :try_end_d} :catchall_7
-
-    :cond_d
     move-wide/from16 v35, v3
 
-    :try_start_e
-    iget-wide v3, v13, Lcom/android/server/am/MeasuredEnergySnapshot$MeasuredEnergyDeltaData;->gnssChargeUC:J
+    move-object/from16 v3, p6
 
-    cmp-long v0, v3, v33
-
-    if-eqz v0, :cond_f
-
-    iget-object v0, v1, Lcom/android/server/am/BatteryExternalStatsWorker;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
-
-    invoke-virtual {v0, v3, v4, v9, v10}, Lcom/android/internal/os/BatteryStatsImpl;->updateGnssMeasuredEnergyStatsLocked(JJ)V
+    :try_start_d
+    invoke-virtual {v12, v11, v3, v9, v10}, Lcom/android/internal/os/BatteryStatsImpl;->updateDisplayMeasuredEnergyStatsLocked([J[IJ)V
+    :try_end_d
+    .catchall {:try_start_d .. :try_end_d} :catchall_8
 
     goto :goto_d
 
     :catchall_8
     move-exception v0
 
+    move-object v4, v1
+
+    goto :goto_10
+
+    :cond_d
     move-wide/from16 v35, v3
+
+    move-object/from16 v3, p6
+
+    :goto_d
+    :try_start_e
+    iget-wide v0, v13, Lcom/android/server/am/MeasuredEnergySnapshot$MeasuredEnergyDeltaData;->gnssChargeUC:J
+    :try_end_e
+    .catchall {:try_start_e .. :try_end_e} :catchall_9
+
+    cmp-long v4, v0, v33
+
+    if-eqz v4, :cond_e
+
+    move-object/from16 v4, p0
+
+    :try_start_f
+    iget-object v12, v4, Lcom/android/server/am/BatteryExternalStatsWorker;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
+
+    invoke-virtual {v12, v0, v1, v9, v10}, Lcom/android/internal/os/BatteryStatsImpl;->updateGnssMeasuredEnergyStatsLocked(JJ)V
+
+    goto :goto_e
+
+    :cond_e
+    move-object/from16 v4, p0
+
+    goto :goto_e
+
+    :catchall_9
+    move-exception v0
+
+    move-object/from16 v4, p0
+
+    goto :goto_10
+
+    :catchall_a
+    move-exception v0
+
+    move-wide/from16 v35, v3
+
+    move-object/from16 v3, p6
+
+    move-object v4, v1
 
     move v11, v5
 
-    move-object/from16 v37, v6
+    move-wide/from16 v37, v9
 
-    move-wide v3, v9
+    move-object v3, v13
 
-    move-object v5, v13
+    move-object v1, v14
 
-    move-object/from16 v17, v14
+    move-object v5, v15
 
-    move-object v6, v15
-
-    goto/16 :goto_14
-
-    :cond_e
-    move-wide/from16 v35, v3
+    goto/16 :goto_16
 
     :cond_f
-    :goto_d
+    move-wide/from16 v35, v3
+
+    move-object/from16 v3, p6
+
+    move-object v4, v1
+
+    :goto_e
     if-eqz v13, :cond_10
 
     iget-object v0, v13, Lcom/android/server/am/MeasuredEnergySnapshot$MeasuredEnergyDeltaData;->otherTotalChargeUC:[J
@@ -1989,119 +2034,116 @@
 
     const/4 v0, 0x0
 
-    :goto_e
-    iget-object v3, v13, Lcom/android/server/am/MeasuredEnergySnapshot$MeasuredEnergyDeltaData;->otherTotalChargeUC:[J
+    :goto_f
+    iget-object v1, v13, Lcom/android/server/am/MeasuredEnergySnapshot$MeasuredEnergyDeltaData;->otherTotalChargeUC:[J
 
-    array-length v3, v3
+    array-length v1, v1
 
-    if-ge v0, v3, :cond_10
+    if-ge v0, v1, :cond_10
 
-    iget-object v3, v13, Lcom/android/server/am/MeasuredEnergySnapshot$MeasuredEnergyDeltaData;->otherTotalChargeUC:[J
+    iget-object v1, v13, Lcom/android/server/am/MeasuredEnergySnapshot$MeasuredEnergyDeltaData;->otherTotalChargeUC:[J
 
-    aget-wide v3, v3, v0
+    aget-wide v11, v1, v0
 
-    iget-object v11, v13, Lcom/android/server/am/MeasuredEnergySnapshot$MeasuredEnergyDeltaData;->otherUidChargesUC:[Landroid/util/SparseLongArray;
+    iget-object v1, v13, Lcom/android/server/am/MeasuredEnergySnapshot$MeasuredEnergyDeltaData;->otherUidChargesUC:[Landroid/util/SparseLongArray;
 
-    aget-object v11, v11, v0
+    aget-object v1, v1, v0
 
-    iget-object v12, v1, Lcom/android/server/am/BatteryExternalStatsWorker;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
+    iget-object v3, v4, Lcom/android/server/am/BatteryExternalStatsWorker;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
-    invoke-virtual {v12, v0, v3, v4, v11}, Lcom/android/internal/os/BatteryStatsImpl;->updateCustomMeasuredEnergyStatsLocked(IJLandroid/util/SparseLongArray;)V
-    :try_end_e
-    .catchall {:try_start_e .. :try_end_e} :catchall_9
+    invoke-virtual {v3, v0, v11, v12, v1}, Lcom/android/internal/os/BatteryStatsImpl;->updateCustomMeasuredEnergyStatsLocked(IJLandroid/util/SparseLongArray;)V
+    :try_end_f
+    .catchall {:try_start_f .. :try_end_f} :catchall_b
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_e
+    move-object/from16 v3, p6
 
-    :catchall_9
+    goto :goto_f
+
+    :catchall_b
     move-exception v0
 
+    :goto_10
     move v11, v5
 
-    move-object/from16 v37, v6
+    move-wide/from16 v37, v9
 
-    move-wide v3, v9
+    move-object v3, v13
 
-    move-object v5, v13
+    move-object v1, v14
 
-    move-object/from16 v17, v14
+    move-object v5, v15
 
-    move-object v6, v15
-
-    goto/16 :goto_14
+    goto/16 :goto_16
 
     :cond_10
     if-eqz v15, :cond_13
 
-    :try_start_f
+    :try_start_10
     invoke-virtual {v15}, Landroid/bluetooth/BluetoothActivityEnergyInfo;->isValid()Z
 
     move-result v0
-    :try_end_f
-    .catchall {:try_start_f .. :try_end_f} :catchall_a
+    :try_end_10
+    .catchall {:try_start_10 .. :try_end_10} :catchall_c
 
     if-eqz v0, :cond_12
 
     if-eqz v13, :cond_11
 
-    :try_start_10
-    iget-wide v3, v13, Lcom/android/server/am/MeasuredEnergySnapshot$MeasuredEnergyDeltaData;->bluetoothChargeUC:J
-    :try_end_10
-    .catchall {:try_start_10 .. :try_end_10} :catchall_9
+    :try_start_11
+    iget-wide v0, v13, Lcom/android/server/am/MeasuredEnergySnapshot$MeasuredEnergyDeltaData;->bluetoothChargeUC:J
+    :try_end_11
+    .catchall {:try_start_11 .. :try_end_11} :catchall_b
 
-    move-wide v11, v3
+    move-wide v11, v0
 
-    goto :goto_f
+    goto :goto_11
 
     :cond_11
     move-wide/from16 v11, v33
 
-    :goto_f
+    :goto_11
     nop
 
-    :try_start_11
-    iget-object v0, v1, Lcom/android/server/am/BatteryExternalStatsWorker;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
-    :try_end_11
-    .catchall {:try_start_11 .. :try_end_11} :catchall_a
+    :try_start_12
+    iget-object v0, v4, Lcom/android/server/am/BatteryExternalStatsWorker;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
+    :try_end_12
+    .catchall {:try_start_12 .. :try_end_12} :catchall_c
 
-    move-wide v3, v9
+    move-wide/from16 v37, v9
 
     move-object v9, v0
 
     move-object v10, v15
 
+    move-object v3, v13
+
+    move-object v1, v14
+
+    move-wide/from16 v13, v37
+
     move/from16 p4, v5
 
-    move-object v5, v13
-
-    move-object/from16 v17, v14
-
-    move-wide v13, v3
-
-    move-object/from16 v37, v6
-
-    move-object v6, v15
+    move-object v5, v15
 
     move-wide/from16 v15, v25
 
-    :try_start_12
+    :try_start_13
     invoke-virtual/range {v9 .. v16}, Lcom/android/internal/os/BatteryStatsImpl;->updateBluetoothStateLocked(Landroid/bluetooth/BluetoothActivityEnergyInfo;JJJ)V
 
-    goto :goto_10
+    goto :goto_12
 
     :cond_12
     move/from16 p4, v5
 
-    move-object/from16 v37, v6
+    move-wide/from16 v37, v9
 
-    move-wide v3, v9
+    move-object v3, v13
 
-    move-object v5, v13
+    move-object v1, v14
 
-    move-object/from16 v17, v14
-
-    move-object v6, v15
+    move-object v5, v15
 
     const-string v0, "BatteryExternalStatsWorker"
 
@@ -2113,7 +2155,7 @@
 
     invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -2121,44 +2163,40 @@
 
     invoke-static {v0, v9}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_10
+    goto :goto_12
 
-    :catchall_a
+    :catchall_c
     move-exception v0
 
     move/from16 p4, v5
 
-    move-object/from16 v37, v6
+    move-wide/from16 v37, v9
 
-    move-wide v3, v9
+    move-object v3, v13
 
-    move-object v5, v13
+    move-object v1, v14
 
-    move-object/from16 v17, v14
-
-    move-object v6, v15
+    move-object v5, v15
 
     move/from16 v11, p4
 
-    goto/16 :goto_14
+    goto/16 :goto_16
 
     :cond_13
     move/from16 p4, v5
 
-    move-object/from16 v37, v6
+    move-wide/from16 v37, v9
 
-    move-wide v3, v9
+    move-object v3, v13
 
-    move-object v5, v13
+    move-object v1, v14
 
-    move-object/from16 v17, v14
+    move-object v5, v15
 
-    move-object v6, v15
-
-    :goto_10
-    monitor-exit v17
-    :try_end_12
-    .catchall {:try_start_12 .. :try_end_12} :catchall_b
+    :goto_12
+    monitor-exit v1
+    :try_end_13
+    .catchall {:try_start_13 .. :try_end_13} :catchall_d
 
     if-eqz v8, :cond_16
 
@@ -2168,76 +2206,76 @@
 
     if-eqz v0, :cond_15
 
-    if-eqz v5, :cond_14
+    if-eqz v3, :cond_14
 
-    iget-wide v9, v5, Lcom/android/server/am/MeasuredEnergySnapshot$MeasuredEnergyDeltaData;->wifiChargeUC:J
+    iget-wide v0, v3, Lcom/android/server/am/MeasuredEnergySnapshot$MeasuredEnergyDeltaData;->wifiChargeUC:J
 
-    move-wide/from16 v18, v9
+    move-wide/from16 v18, v0
 
-    goto :goto_11
+    goto :goto_13
 
     :cond_14
     move-wide/from16 v18, v33
 
-    :goto_11
-    iget-object v0, v1, Lcom/android/server/am/BatteryExternalStatsWorker;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
+    :goto_13
+    iget-object v0, v4, Lcom/android/server/am/BatteryExternalStatsWorker;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
-    invoke-direct {v1, v8}, Lcom/android/server/am/BatteryExternalStatsWorker;->extractDeltaLocked(Landroid/os/connectivity/WifiActivityEnergyInfo;)Landroid/os/connectivity/WifiActivityEnergyInfo;
+    invoke-direct {v4, v8}, Lcom/android/server/am/BatteryExternalStatsWorker;->extractDeltaLocked(Landroid/os/connectivity/WifiActivityEnergyInfo;)Landroid/os/connectivity/WifiActivityEnergyInfo;
 
     move-result-object v17
 
     move-object/from16 v16, v0
 
-    move-wide/from16 v20, v3
+    move-wide/from16 v20, v37
 
     move-wide/from16 v22, v25
 
     invoke-virtual/range {v16 .. v23}, Lcom/android/internal/os/BatteryStatsImpl;->updateWifiState(Landroid/os/connectivity/WifiActivityEnergyInfo;JJJ)V
 
-    goto :goto_12
+    goto :goto_14
 
     :cond_15
     const-string v0, "BatteryExternalStatsWorker"
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v10, "wifi info is invalid: "
+    const-string/jumbo v9, "wifi info is invalid: "
 
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v1
 
-    invoke-static {v0, v9}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_16
-    :goto_12
+    :goto_14
     if-eqz v24, :cond_18
 
-    if-eqz v5, :cond_17
+    if-eqz v3, :cond_17
 
-    iget-wide v9, v5, Lcom/android/server/am/MeasuredEnergySnapshot$MeasuredEnergyDeltaData;->mobileRadioChargeUC:J
+    iget-wide v0, v3, Lcom/android/server/am/MeasuredEnergySnapshot$MeasuredEnergyDeltaData;->mobileRadioChargeUC:J
 
-    move-wide/from16 v18, v9
+    move-wide/from16 v18, v0
 
-    goto :goto_13
+    goto :goto_15
 
     :cond_17
     move-wide/from16 v18, v33
 
-    :goto_13
-    iget-object v0, v1, Lcom/android/server/am/BatteryExternalStatsWorker;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
+    :goto_15
+    iget-object v0, v4, Lcom/android/server/am/BatteryExternalStatsWorker;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     move-object/from16 v16, v0
 
     move-object/from16 v17, v24
 
-    move-wide/from16 v20, v3
+    move-wide/from16 v20, v37
 
     move-wide/from16 v22, v25
 
@@ -2248,53 +2286,53 @@
 
     if-ne v2, v0, :cond_19
 
-    iget-object v0, v1, Lcom/android/server/am/BatteryExternalStatsWorker;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
+    iget-object v0, v4, Lcom/android/server/am/BatteryExternalStatsWorker;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
     invoke-virtual {v0}, Lcom/android/internal/os/BatteryStatsImpl;->informThatAllExternalStatsAreFlushed()V
 
     :cond_19
     return-void
 
-    :catchall_b
+    :catchall_d
     move-exception v0
 
     move/from16 v11, p4
 
-    goto :goto_14
+    goto :goto_16
 
-    :catchall_c
+    :catchall_e
     move-exception v0
 
     move-wide/from16 v35, v3
 
     move/from16 v31, v5
 
-    move-object/from16 v37, v6
+    move-wide/from16 v37, v9
 
-    move-wide v3, v9
+    move-object v3, v13
 
-    move-object v5, v13
+    move-object v5, v15
 
-    move-object/from16 v17, v14
+    move-object v4, v1
 
-    move-object v6, v15
+    move-object v1, v14
 
     move/from16 v11, p3
 
     move/from16 v32, p4
 
-    :goto_14
-    :try_start_13
-    monitor-exit v17
-    :try_end_13
-    .catchall {:try_start_13 .. :try_end_13} :catchall_d
+    :goto_16
+    :try_start_14
+    monitor-exit v1
+    :try_end_14
+    .catchall {:try_start_14 .. :try_end_14} :catchall_f
 
     throw v0
 
-    :catchall_d
+    :catchall_f
     move-exception v0
 
-    goto :goto_14
+    goto :goto_16
 .end method
 
 
@@ -2923,11 +2961,11 @@
     throw v0
 .end method
 
-.method public scheduleSyncDueToScreenStateChange(IZZI)Ljava/util/concurrent/Future;
+.method public scheduleSyncDueToScreenStateChange(IZZI[I)Ljava/util/concurrent/Future;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(IZZI)",
+            "(IZZI[I)",
             "Ljava/util/concurrent/Future<",
             "*>;"
         }
@@ -2957,6 +2995,8 @@
 
     :cond_1
     iput p4, p0, Lcom/android/server/am/BatteryExternalStatsWorker;->mScreenState:I
+
+    iput-object p5, p0, Lcom/android/server/am/BatteryExternalStatsWorker;->mPerDisplayScreenStates:[I
 
     const-string/jumbo v0, "screen-state"
 

@@ -112,3 +112,13 @@
 
     return-object v0
 .end method
+
+.method writeTagToProto(Landroid/util/proto/ProtoOutputStream;J)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/wm/RootWindowContainer$SleepToken;->mTag:Ljava/lang/String;
+
+    invoke-virtual {p1, p2, p3, v0}, Landroid/util/proto/ProtoOutputStream;->write(JLjava/lang/String;)V
+
+    return-void
+.end method

@@ -29,7 +29,7 @@
 
     check-cast p1, Lcom/android/server/audio/AudioDeviceInventory$DeviceInfo;
 
-    invoke-static {v0, p1}, Lcom/android/server/audio/AudioDeviceInventory;->lambda$disconnectA2dp$5(Landroid/util/ArraySet;Lcom/android/server/audio/AudioDeviceInventory$DeviceInfo;)V
+    invoke-static {v0, p1}, Lcom/android/server/audio/AudioDeviceInventory;->lambda$disconnectA2dp$6(Landroid/util/ArraySet;Lcom/android/server/audio/AudioDeviceInventory$DeviceInfo;)V
 
     return-void
 .end method

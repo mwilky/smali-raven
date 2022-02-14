@@ -229,7 +229,7 @@
 
     move-result-object v1
 
-    const v2, 0x10e00af
+    const v2, 0x10e00b3
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -5233,7 +5233,7 @@
 .end method
 
 .method public synthetic lambda$noteScreenBrightness$38$BatteryStatsService(IJJ)V
-    .locals 7
+    .locals 8
 
     iget-object v0, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
@@ -5242,13 +5242,15 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
-    move v2, p1
+    const/4 v2, 0x0
 
-    move-wide v3, p2
+    move v3, p1
 
-    move-wide v5, p4
+    move-wide v4, p2
 
-    invoke-virtual/range {v1 .. v6}, Lcom/android/internal/os/BatteryStatsImpl;->noteScreenBrightnessLocked(IJJ)V
+    move-wide v6, p4
+
+    invoke-virtual/range {v1 .. v7}, Lcom/android/internal/os/BatteryStatsImpl;->noteScreenBrightnessLocked(IIJJ)V
 
     monitor-exit v0
 
@@ -5265,7 +5267,7 @@
 .end method
 
 .method public synthetic lambda$noteScreenState$37$BatteryStatsService(IJJJ)V
-    .locals 11
+    .locals 12
 
     move-object v1, p0
 
@@ -5276,15 +5278,17 @@
     :try_start_0
     iget-object v3, v1, Lcom/android/server/am/BatteryStatsService;->mStats:Lcom/android/internal/os/BatteryStatsImpl;
 
-    move v4, p1
+    const/4 v4, 0x0
 
-    move-wide v5, p2
+    move v5, p1
 
-    move-wide v7, p4
+    move-wide v6, p2
 
-    move-wide/from16 v9, p6
+    move-wide/from16 v8, p4
 
-    invoke-virtual/range {v3 .. v10}, Lcom/android/internal/os/BatteryStatsImpl;->noteScreenStateLocked(IJJJ)V
+    move-wide/from16 v10, p6
+
+    invoke-virtual/range {v3 .. v11}, Lcom/android/internal/os/BatteryStatsImpl;->noteScreenStateLocked(IIJJJ)V
 
     monitor-exit v2
 

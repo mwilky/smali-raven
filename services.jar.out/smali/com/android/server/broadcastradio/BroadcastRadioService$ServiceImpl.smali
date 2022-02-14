@@ -106,7 +106,13 @@
 
     new-instance v1, Lcom/android/server/broadcastradio/hal2/AnnouncementAggregator;
 
-    invoke-direct {v1, p2}, Lcom/android/server/broadcastradio/hal2/AnnouncementAggregator;-><init>(Landroid/hardware/radio/IAnnouncementListener;)V
+    iget-object v2, p0, Lcom/android/server/broadcastradio/BroadcastRadioService$ServiceImpl;->this$0:Lcom/android/server/broadcastradio/BroadcastRadioService;
+
+    invoke-static {v2}, Lcom/android/server/broadcastradio/BroadcastRadioService;->access$300(Lcom/android/server/broadcastradio/BroadcastRadioService;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    invoke-direct {v1, p2, v2}, Lcom/android/server/broadcastradio/hal2/AnnouncementAggregator;-><init>(Landroid/hardware/radio/IAnnouncementListener;Ljava/lang/Object;)V
 
     monitor-exit v0
 

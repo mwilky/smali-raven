@@ -35,9 +35,9 @@
 .method public final test(Ljava/lang/Object;)Z
     .locals 0
 
-    check-cast p1, Lcom/android/server/wm/Task;
+    check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    invoke-static {p1}, Lcom/android/server/wm/RecentsAnimation;->lambda$getTopNonAlwaysOnTopRootTask$2(Lcom/android/server/wm/Task;)Z
+    invoke-virtual {p1}, Lcom/android/server/wm/ActivityRecord;->occludesParent()Z
 
     move-result p1
 

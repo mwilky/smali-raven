@@ -2,32 +2,34 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:Ljava/lang/Runnable;
+.field public final synthetic f$0:Lcom/android/server/wm/WindowContainer;
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/lang/Runnable;)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/WindowContainer;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda1;->f$0:Ljava/lang/Runnable;
+    iput-object p1, p0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/wm/WindowContainer;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onAnimationFinished(ILcom/android/server/wm/AnimationAdapter;)V
+.method public final accept(Ljava/lang/Object;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda1;->f$0:Ljava/lang/Runnable;
+    iget-object v0, p0, Lcom/android/server/wm/WindowContainer$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/wm/WindowContainer;
 
-    invoke-static {v0, p1, p2}, Lcom/android/server/wm/WindowContainer;->lambda$applyAnimationUnchecked$14(Ljava/lang/Runnable;ILcom/android/server/wm/AnimationAdapter;)V
+    check-cast p1, Lcom/android/server/wm/WindowState;
+
+    invoke-virtual {v0, p1}, Lcom/android/server/wm/WindowContainer;->lambda$waitForAllWindowsDrawn$13$WindowContainer(Lcom/android/server/wm/WindowState;)V
 
     return-void
 .end method

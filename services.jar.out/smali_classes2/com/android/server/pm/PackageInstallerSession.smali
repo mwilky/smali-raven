@@ -921,7 +921,7 @@
 
     invoke-direct {p0, v1}, Lcom/android/server/pm/PackageInstallerSession;->assertNotChildLocked(Ljava/lang/String;)V
 
-    invoke-direct {p0}, Lcom/android/server/pm/PackageInstallerSession;->assertCallerIsOwnerOrRoot()V
+    invoke-direct {p0}, Lcom/android/server/pm/PackageInstallerSession;->assertCallerIsOwnerOrRootOrSystem()V
 
     iget-boolean v1, p0, Lcom/android/server/pm/PackageInstallerSession;->mRelinquished:Z
 
@@ -983,15 +983,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1100(Lcom/android/server/pm/PackageInstallerSession;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/server/pm/PackageInstallerSession;->assertCallerIsOwnerOrRoot()V
-
-    return-void
-.end method
-
-.method static synthetic access$1200(Lcom/android/server/pm/PackageInstallerSession;)Z
+.method static synthetic access$1100(Lcom/android/server/pm/PackageInstallerSession;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/pm/PackageInstallerSession;->mCommitted:Z
@@ -999,7 +991,7 @@
     return v0
 .end method
 
-.method static synthetic access$1300(Lcom/android/server/pm/PackageInstallerSession;)V
+.method static synthetic access$1200(Lcom/android/server/pm/PackageInstallerSession;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/pm/PackageInstallerSession;->verify()V
@@ -1007,7 +999,7 @@
     return-void
 .end method
 
-.method static synthetic access$1400(Lcom/android/server/pm/PackageInstallerSession;Ljava/lang/String;)V
+.method static synthetic access$1300(Lcom/android/server/pm/PackageInstallerSession;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PackageInstallerSession;->assertNotLocked(Ljava/lang/String;)V
@@ -1015,7 +1007,7 @@
     return-void
 .end method
 
-.method static synthetic access$1500(Lcom/android/server/pm/PackageInstallerSession;)Lcom/android/server/pm/StagingManager;
+.method static synthetic access$1400(Lcom/android/server/pm/PackageInstallerSession;)Lcom/android/server/pm/StagingManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PackageInstallerSession;->mStagingManager:Lcom/android/server/pm/StagingManager;
@@ -1023,7 +1015,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1600(Lcom/android/server/pm/PackageInstallerSession;)V
+.method static synthetic access$1500(Lcom/android/server/pm/PackageInstallerSession;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/pm/PackageInstallerSession;->destroyInternal()V
@@ -1031,7 +1023,7 @@
     return-void
 .end method
 
-.method static synthetic access$1700(Lcom/android/server/pm/PackageInstallerSession;ILjava/lang/String;Landroid/os/Bundle;)V
+.method static synthetic access$1600(Lcom/android/server/pm/PackageInstallerSession;ILjava/lang/String;Landroid/os/Bundle;)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/pm/PackageInstallerSession;->dispatchSessionFinished(ILjava/lang/String;Landroid/os/Bundle;)V
@@ -1039,7 +1031,7 @@
     return-void
 .end method
 
-.method static synthetic access$1800(Lcom/android/server/pm/PackageInstallerSession;)V
+.method static synthetic access$1700(Lcom/android/server/pm/PackageInstallerSession;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/pm/PackageInstallerSession;->maybeCleanUpChildSessions()V
@@ -1047,10 +1039,18 @@
     return-void
 .end method
 
-.method static synthetic access$1900(Lcom/android/server/pm/PackageInstallerSession;)V
+.method static synthetic access$1800(Lcom/android/server/pm/PackageInstallerSession;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/pm/PackageInstallerSession;->handleSessionSealed()V
+
+    return-void
+.end method
+
+.method static synthetic access$1900(Lcom/android/server/pm/PackageInstallerSession;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/pm/PackageInstallerSession;->handleStreamValidateAndCommit()V
 
     return-void
 .end method
@@ -1066,7 +1066,7 @@
 .method static synthetic access$2000(Lcom/android/server/pm/PackageInstallerSession;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/server/pm/PackageInstallerSession;->handleStreamValidateAndCommit()V
+    invoke-direct {p0}, Lcom/android/server/pm/PackageInstallerSession;->handleInstall()V
 
     return-void
 .end method
@@ -1079,15 +1079,7 @@
     return p1
 .end method
 
-.method static synthetic access$2100(Lcom/android/server/pm/PackageInstallerSession;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/server/pm/PackageInstallerSession;->handleInstall()V
-
-    return-void
-.end method
-
-.method static synthetic access$2200(Lcom/android/server/pm/PackageInstallerSession;)Landroid/content/Context;
+.method static synthetic access$2100(Lcom/android/server/pm/PackageInstallerSession;)Landroid/content/Context;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PackageInstallerSession;->mContext:Landroid/content/Context;
@@ -1095,7 +1087,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$2300(Lcom/android/server/pm/PackageInstallerSession;)Z
+.method static synthetic access$2200(Lcom/android/server/pm/PackageInstallerSession;)Z
     .locals 1
 
     invoke-direct {p0}, Lcom/android/server/pm/PackageInstallerSession;->isInstallerDeviceOwnerOrAffiliatedProfileOwner()Z
@@ -1105,7 +1097,7 @@
     return v0
 .end method
 
-.method static synthetic access$2400(Landroid/content/Context;Landroid/content/IntentSender;IZILjava/lang/String;ILjava/lang/String;Landroid/os/Bundle;)V
+.method static synthetic access$2300(Landroid/content/Context;Landroid/content/IntentSender;IZILjava/lang/String;ILjava/lang/String;Landroid/os/Bundle;)V
     .locals 0
 
     invoke-static/range {p0 .. p8}, Lcom/android/server/pm/PackageInstallerSession;->sendOnPackageInstalled(Landroid/content/Context;Landroid/content/IntentSender;IZILjava/lang/String;ILjava/lang/String;Landroid/os/Bundle;)V
@@ -1113,7 +1105,7 @@
     return-void
 .end method
 
-.method static synthetic access$2500(Lcom/android/server/pm/PackageInstallerSession;ILjava/lang/String;)V
+.method static synthetic access$2400(Lcom/android/server/pm/PackageInstallerSession;ILjava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/pm/PackageInstallerSession;->onSessionValidationFailure(ILjava/lang/String;)V
@@ -1121,7 +1113,7 @@
     return-void
 .end method
 
-.method static synthetic access$2600(Lcom/android/server/pm/PackageInstallerSession;Ljava/lang/String;JJLandroid/os/ParcelFileDescriptor;)Landroid/os/ParcelFileDescriptor;
+.method static synthetic access$2500(Lcom/android/server/pm/PackageInstallerSession;Ljava/lang/String;JJLandroid/os/ParcelFileDescriptor;)Landroid/os/ParcelFileDescriptor;
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1136,7 +1128,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$2700(Lcom/android/server/pm/PackageInstallerSession;)Landroid/os/Handler;
+.method static synthetic access$2600(Lcom/android/server/pm/PackageInstallerSession;)Landroid/os/Handler;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PackageInstallerSession;->mHandler:Landroid/os/Handler;
@@ -1144,7 +1136,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$2800(Lcom/android/server/pm/PackageInstallerSession;)V
+.method static synthetic access$2700(Lcom/android/server/pm/PackageInstallerSession;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/pm/PackageInstallerSession;->onVerificationComplete()V
@@ -1152,10 +1144,18 @@
     return-void
 .end method
 
-.method static synthetic access$2900(Lcom/android/server/pm/PackageInstallerSession;ILjava/lang/String;)V
+.method static synthetic access$2800(Lcom/android/server/pm/PackageInstallerSession;ILjava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/pm/PackageInstallerSession;->onSessionVerificationFailure(ILjava/lang/String;)V
+
+    return-void
+.end method
+
+.method static synthetic access$2900(Lcom/android/server/pm/PackageInstallerSession;ILjava/lang/String;Landroid/os/Bundle;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/pm/PackageInstallerSession;->sendUpdateToRemoteStatusReceiver(ILjava/lang/String;Landroid/os/Bundle;)V
 
     return-void
 .end method
@@ -1168,15 +1168,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$3000(Lcom/android/server/pm/PackageInstallerSession;ILjava/lang/String;Landroid/os/Bundle;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/pm/PackageInstallerSession;->sendUpdateToRemoteStatusReceiver(ILjava/lang/String;Landroid/os/Bundle;)V
-
-    return-void
-.end method
-
-.method static synthetic access$3100(Lcom/android/server/pm/PackageInstallerSession;)Z
+.method static synthetic access$3000(Lcom/android/server/pm/PackageInstallerSession;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/pm/PackageInstallerSession;->mDataLoaderFinished:Z
@@ -1184,7 +1176,7 @@
     return v0
 .end method
 
-.method static synthetic access$3102(Lcom/android/server/pm/PackageInstallerSession;Z)Z
+.method static synthetic access$3002(Lcom/android/server/pm/PackageInstallerSession;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/pm/PackageInstallerSession;->mDataLoaderFinished:Z
@@ -1192,7 +1184,7 @@
     return p1
 .end method
 
-.method static synthetic access$3200(Lcom/android/server/pm/PackageInstallerSession;)V
+.method static synthetic access$3100(Lcom/android/server/pm/PackageInstallerSession;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/pm/PackageInstallerSession;->onSystemDataLoaderUnrecoverable()V
@@ -1200,7 +1192,7 @@
     return-void
 .end method
 
-.method static synthetic access$3300(Lcom/android/server/pm/PackageInstallerSession;I)Landroid/content/pm/IDataLoader;
+.method static synthetic access$3200(Lcom/android/server/pm/PackageInstallerSession;I)Landroid/content/pm/IDataLoader;
     .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -1215,7 +1207,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$3400(Lcom/android/server/pm/PackageInstallerSession;)Lcom/android/server/pm/PackageSessionProvider;
+.method static synthetic access$3300(Lcom/android/server/pm/PackageInstallerSession;)Lcom/android/server/pm/PackageSessionProvider;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PackageInstallerSession;->mSessionProvider:Lcom/android/server/pm/PackageSessionProvider;
@@ -1223,7 +1215,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$3500(Lcom/android/server/pm/PackageInstallerSession;)V
+.method static synthetic access$3400(Lcom/android/server/pm/PackageInstallerSession;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/pm/PackageInstallerSession;->dispatchSessionSealed()V
@@ -1231,7 +1223,7 @@
     return-void
 .end method
 
-.method static synthetic access$3600(Lcom/android/server/pm/PackageInstallerSession;ILjava/lang/String;)V
+.method static synthetic access$3500(Lcom/android/server/pm/PackageInstallerSession;ILjava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/pm/PackageInstallerSession;->dispatchSessionValidationFailure(ILjava/lang/String;)V
@@ -1239,7 +1231,7 @@
     return-void
 .end method
 
-.method static synthetic access$3700(Landroid/content/Context;Landroid/content/IntentSender;ILjava/lang/String;)V
+.method static synthetic access$3600(Landroid/content/Context;Landroid/content/IntentSender;ILjava/lang/String;)V
     .locals 0
 
     invoke-static {p0, p1, p2, p3}, Lcom/android/server/pm/PackageInstallerSession;->sendPendingStreaming(Landroid/content/Context;Landroid/content/IntentSender;ILjava/lang/String;)V
@@ -1247,7 +1239,7 @@
     return-void
 .end method
 
-.method static synthetic access$3800(Lcom/android/server/pm/PackageInstallerSession;)Ljava/lang/Object;
+.method static synthetic access$3700(Lcom/android/server/pm/PackageInstallerSession;)Ljava/lang/Object;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/pm/PackageInstallerSession;->mProgressLock:Ljava/lang/Object;
@@ -1255,12 +1247,20 @@
     return-object v0
 .end method
 
-.method static synthetic access$3902(Lcom/android/server/pm/PackageInstallerSession;F)F
+.method static synthetic access$3802(Lcom/android/server/pm/PackageInstallerSession;F)F
     .locals 0
 
     iput p1, p0, Lcom/android/server/pm/PackageInstallerSession;->mIncrementalProgress:F
 
     return p1
+.end method
+
+.method static synthetic access$3900(Lcom/android/server/pm/PackageInstallerSession;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/pm/PackageInstallerSession;->computeProgressLocked(Z)V
+
+    return-void
 .end method
 
 .method static synthetic access$400(Lcom/android/server/pm/PackageInstallerSession;)Ljava/util/List;
@@ -1271,14 +1271,6 @@
     move-result-object v0
 
     return-object v0
-.end method
-
-.method static synthetic access$4000(Lcom/android/server/pm/PackageInstallerSession;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/pm/PackageInstallerSession;->computeProgressLocked(Z)V
-
-    return-void
 .end method
 
 .method static synthetic access$500(Lcom/android/server/pm/PackageInstallerSession;Ljava/util/List;)V
@@ -10386,12 +10378,12 @@
 
     if-eqz v0, :cond_1
 
-    const v2, 0x10405d3
+    const v2, 0x10405d8
 
     goto :goto_1
 
     :cond_1
-    const v2, 0x10405d2
+    const v2, 0x10405d7
 
     :goto_1
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;

@@ -1414,41 +1414,19 @@
 .end method
 
 .method private static parcelFileDescriptorToHidlMemory(Landroid/os/ParcelFileDescriptor;I)Landroid/os/HidlMemory;
-    .locals 3
+    .locals 2
 
     if-lez p1, :cond_0
 
-    new-instance v0, Ljava/io/FileDescriptor;
+    invoke-virtual {p0}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
 
-    invoke-direct {v0}, Ljava/io/FileDescriptor;-><init>()V
-
-    :try_start_0
-    invoke-virtual {p0}, Landroid/os/ParcelFileDescriptor;->dup()Landroid/os/ParcelFileDescriptor;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/os/ParcelFileDescriptor;->detachFd()I
-
-    move-result v2
-
-    invoke-virtual {v0, v2}, Ljava/io/FileDescriptor;->setInt$(I)V
+    move-result-object v0
 
     invoke-static {v0, p1}, Landroid/os/HidlMemoryUtil;->fileDescriptorToHidlMemory(Ljava/io/FileDescriptor;I)Landroid/os/HidlMemory;
 
-    move-result-object v2
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    move-result-object v0
 
-    return-object v2
-
-    :catch_0
-    move-exception v1
-
-    new-instance v2, Ljava/lang/RuntimeException;
-
-    invoke-direct {v2, v1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
-
-    throw v2
+    return-object v0
 
     :cond_0
     const/4 v0, 0x0

@@ -138,7 +138,7 @@
 
     iget-object v7, v1, Lcom/android/server/pm/PackageManagerService$PackageHandler;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v7}, Lcom/android/server/pm/PackageManagerService;->access$4700(Lcom/android/server/pm/PackageManagerService;)I
+    invoke-static {v7}, Lcom/android/server/pm/PackageManagerService;->access$4600(Lcom/android/server/pm/PackageManagerService;)I
 
     move-result v7
 
@@ -146,7 +146,7 @@
 
     iget-object v7, v1, Lcom/android/server/pm/PackageManagerService$PackageHandler;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v7}, Lcom/android/server/pm/PackageManagerService;->access$4700(Lcom/android/server/pm/PackageManagerService;)I
+    invoke-static {v7}, Lcom/android/server/pm/PackageManagerService;->access$4600(Lcom/android/server/pm/PackageManagerService;)I
 
     move-result v7
 
@@ -315,7 +315,7 @@
 
     iget-object v3, v1, Lcom/android/server/pm/PackageManagerService$PackageHandler;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v3, v0}, Lcom/android/server/pm/PackageManagerService;->access$4200(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;)V
+    invoke-static {v3, v0}, Lcom/android/server/pm/PackageManagerService;->access$4100(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;)V
 
     :cond_5
     goto/16 :goto_d
@@ -682,7 +682,7 @@
 
     iget-object v11, v1, Lcom/android/server/pm/PackageManagerService$PackageHandler;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v11, v15}, Lcom/android/server/pm/PackageManagerService;->access$4500(Lcom/android/server/pm/PackageManagerService;Landroid/os/UserHandle;)I
+    invoke-static {v11, v15}, Lcom/android/server/pm/PackageManagerService;->access$4400(Lcom/android/server/pm/PackageManagerService;Landroid/os/UserHandle;)I
 
     move-result v11
 
@@ -732,7 +732,7 @@
 
     move-object/from16 v16, v17
 
-    invoke-static/range {v10 .. v16}, Lcom/android/server/pm/PackageManagerService;->access$4600(Lcom/android/server/pm/PackageManagerService;ILandroid/net/Uri;ILjava/lang/String;ILandroid/os/UserHandle;)V
+    invoke-static/range {v10 .. v16}, Lcom/android/server/pm/PackageManagerService;->access$4500(Lcom/android/server/pm/PackageManagerService;ILandroid/net/Uri;ILjava/lang/String;ILandroid/os/UserHandle;)V
 
     goto :goto_2
 
@@ -753,7 +753,7 @@
 
     move-object/from16 v16, v17
 
-    invoke-static/range {v10 .. v16}, Lcom/android/server/pm/PackageManagerService;->access$4600(Lcom/android/server/pm/PackageManagerService;ILandroid/net/Uri;ILjava/lang/String;ILandroid/os/UserHandle;)V
+    invoke-static/range {v10 .. v16}, Lcom/android/server/pm/PackageManagerService;->access$4500(Lcom/android/server/pm/PackageManagerService;ILandroid/net/Uri;ILjava/lang/String;ILandroid/os/UserHandle;)V
 
     invoke-virtual {v5, v6}, Lcom/android/server/pm/PackageManagerService$VerificationParams;->setReturnCode(I)V
 
@@ -875,7 +875,7 @@
 
     move-object v12, v7
 
-    invoke-static/range {v10 .. v16}, Lcom/android/server/pm/PackageManagerService;->access$4600(Lcom/android/server/pm/PackageManagerService;ILandroid/net/Uri;ILjava/lang/String;ILandroid/os/UserHandle;)V
+    invoke-static/range {v10 .. v16}, Lcom/android/server/pm/PackageManagerService;->access$4500(Lcom/android/server/pm/PackageManagerService;ILandroid/net/Uri;ILjava/lang/String;ILandroid/os/UserHandle;)V
 
     goto :goto_3
 
@@ -918,7 +918,7 @@
 
     iget-object v0, v1, Lcom/android/server/pm/PackageManagerService$PackageHandler;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$4400(Lcom/android/server/pm/PackageManagerService;)Landroid/util/ArraySet;
+    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$4300(Lcom/android/server/pm/PackageManagerService;)Landroid/util/ArraySet;
 
     move-result-object v0
 
@@ -954,7 +954,7 @@
     :cond_e
     iget-object v0, v1, Lcom/android/server/pm/PackageManagerService$PackageHandler;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$4400(Lcom/android/server/pm/PackageManagerService;)Landroid/util/ArraySet;
+    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$4300(Lcom/android/server/pm/PackageManagerService;)Landroid/util/ArraySet;
 
     move-result-object v0
 
@@ -996,11 +996,11 @@
 
     iget-object v0, v1, Lcom/android/server/pm/PackageManagerService$PackageHandler;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$4300(Lcom/android/server/pm/PackageManagerService;)V
+    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$4200(Lcom/android/server/pm/PackageManagerService;)V
 
     iget-object v0, v1, Lcom/android/server/pm/PackageManagerService$PackageHandler;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$4400(Lcom/android/server/pm/PackageManagerService;)Landroid/util/ArraySet;
+    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->access$4300(Lcom/android/server/pm/PackageManagerService;)Landroid/util/ArraySet;
 
     move-result-object v0
 
@@ -1143,7 +1143,7 @@
 
     move/from16 v18, v7
 
-    invoke-static/range {v11 .. v18}, Lcom/android/server/pm/PackageManagerService;->access$4100(Lcom/android/server/pm/PackageManagerService;Lcom/android/server/pm/PackageManagerService$PackageInstalledInfo;ZZZLjava/lang/String;Landroid/content/pm/IPackageInstallObserver2;I)V
+    invoke-static/range {v11 .. v18}, Lcom/android/server/pm/PackageManagerService;->access$4000(Lcom/android/server/pm/PackageManagerService;Lcom/android/server/pm/PackageManagerService$PackageInstalledInfo;ZZZLjava/lang/String;Landroid/content/pm/IPackageInstallObserver2;I)V
 
     iget-object v5, v3, Lcom/android/server/pm/PackageManagerService$InstallArgs;->traceMethod:Ljava/lang/String;
 
@@ -1356,7 +1356,7 @@
 
     const/4 v14, 0x0
 
-    invoke-static/range {v9 .. v14}, Lcom/android/server/pm/PackageManagerService;->access$4000(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;ZLjava/util/ArrayList;ILjava/lang/String;)V
+    invoke-static/range {v9 .. v14}, Lcom/android/server/pm/PackageManagerService;->access$3900(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;ZLjava/util/ArrayList;ILjava/lang/String;)V
 
     add-int/lit8 v3, v3, 0x1
 

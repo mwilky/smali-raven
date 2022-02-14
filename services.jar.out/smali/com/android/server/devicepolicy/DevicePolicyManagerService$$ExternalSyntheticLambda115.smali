@@ -10,11 +10,11 @@
 
 .field public final synthetic f$1:Ljava/lang/String;
 
-.field public final synthetic f$2:Lcom/android/server/devicepolicy/CallerIdentity;
+.field public final synthetic f$2:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Ljava/lang/String;Lcom/android/server/devicepolicy/CallerIdentity;)V
+.method public synthetic constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Ljava/lang/String;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,7 +23,7 @@
 
     iput-object p2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda115;->f$1:Ljava/lang/String;
 
-    iput-object p3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda115;->f$2:Lcom/android/server/devicepolicy/CallerIdentity;
+    iput p3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda115;->f$2:I
 
     return-void
 .end method
@@ -37,9 +37,9 @@
 
     iget-object v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda115;->f$1:Ljava/lang/String;
 
-    iget-object v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda115;->f$2:Lcom/android/server/devicepolicy/CallerIdentity;
+    iget v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda115;->f$2:I
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$getApplicationRestrictions$79$DevicePolicyManagerService(Ljava/lang/String;Lcom/android/server/devicepolicy/CallerIdentity;)Landroid/os/Bundle;
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$isPackageAllowedToAccessCalendarForUser$129$DevicePolicyManagerService(Ljava/lang/String;I)Ljava/lang/Integer;
 
     move-result-object v0
 

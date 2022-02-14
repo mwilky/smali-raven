@@ -705,7 +705,7 @@
 
     move-result-object v1
 
-    const v2, 0x10e003f
+    const v2, 0x10e0040
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -717,7 +717,7 @@
 
     move-result-object v2
 
-    const v3, 0x10e003e
+    const v3, 0x10e003f
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1890,7 +1890,7 @@
 
     move-result-object v0
 
-    const v1, 0x1040417
+    const v1, 0x104041c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5486,6 +5486,14 @@
     invoke-virtual {v0}, Landroid/service/notification/NotificationStats;->hasSeen()Z
 
     move-result v0
+
+    return v0
+.end method
+
+.method public isTextChanged()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/notification/NotificationRecord;->mTextChanged:Z
 
     return v0
 .end method

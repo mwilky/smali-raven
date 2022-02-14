@@ -2,44 +2,34 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/Function;
+.implements Ljava/util/function/Consumer;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda7;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/wm/RecentsAnimationController;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda7;
-
-    invoke-direct {v0}, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda7;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda7;->INSTANCE:Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda7;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/wm/RecentsAnimationController;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda7;->f$0:Lcom/android/server/wm/RecentsAnimationController;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+.method public final accept(Ljava/lang/Object;)V
+    .locals 1
 
-    check-cast p1, Lcom/android/server/wm/RecentsAnimationController$TaskAnimationAdapter;
+    iget-object v0, p0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda7;->f$0:Lcom/android/server/wm/RecentsAnimationController;
 
-    invoke-static {p1}, Lcom/android/server/wm/RecentsAnimationController;->lambda$startAnimation$3(Lcom/android/server/wm/RecentsAnimationController$TaskAnimationAdapter;)Ljava/lang/Integer;
+    check-cast p1, Lcom/android/server/wm/WallpaperAnimationAdapter;
 
-    move-result-object p1
+    invoke-virtual {v0, p1}, Lcom/android/server/wm/RecentsAnimationController;->lambda$createWallpaperAnimations$5$RecentsAnimationController(Lcom/android/server/wm/WallpaperAnimationAdapter;)V
 
-    return-object p1
+    return-void
 .end method

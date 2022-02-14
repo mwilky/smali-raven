@@ -1018,6 +1018,31 @@
     return v0
 .end method
 
+.method updateControlForTarget(Lcom/android/server/wm/InsetsControlTarget;Z)V
+    .locals 1
+
+    if-eqz p1, :cond_0
+
+    invoke-interface {p1}, Lcom/android/server/wm/InsetsControlTarget;->getWindow()Lcom/android/server/wm/WindowState;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {p1}, Lcom/android/server/wm/InsetsControlTarget;->getWindow()Lcom/android/server/wm/WindowState;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/server/wm/WindowState;->getImeControlTarget()Lcom/android/server/wm/InsetsControlTarget;
+
+    move-result-object p1
+
+    :cond_0
+    invoke-super {p0, p1, p2}, Lcom/android/server/wm/InsetsSourceProvider;->updateControlForTarget(Lcom/android/server/wm/InsetsControlTarget;Z)V
+
+    return-void
+.end method
+
 .method updateSourceFrame()V
     .locals 0
 

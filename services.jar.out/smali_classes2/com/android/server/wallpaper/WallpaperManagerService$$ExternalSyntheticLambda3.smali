@@ -41,7 +41,7 @@
 
     check-cast p1, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection$DisplayConnector;
 
-    invoke-static {v0, v1, v2, p1}, Lcom/android/server/wallpaper/WallpaperManagerService;->lambda$notifyWakingUp$6(IILandroid/os/Bundle;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection$DisplayConnector;)V
+    invoke-static {v0, v1, v2, p1}, Lcom/android/server/wallpaper/WallpaperManagerService;->lambda$notifyGoingToSleep$7(IILandroid/os/Bundle;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection$DisplayConnector;)V
 
     return-void
 .end method

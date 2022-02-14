@@ -40,13 +40,13 @@
 .method public static createBrightnessFilter(Ljava/lang/String;Landroid/content/res/Resources;)Lcom/android/server/display/utils/AmbientFilter;
     .locals 3
 
-    const v0, 0x10e004c
+    const v0, 0x10e004f
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v0
 
-    const v1, 0x10500ac
+    const v1, 0x10500ad
 
     invoke-static {p1, v1}, Lcom/android/server/display/utils/AmbientFilterFactory;->getFloat(Landroid/content/res/Resources;I)F
 
@@ -62,13 +62,13 @@
 .method public static createColorTemperatureFilter(Ljava/lang/String;Landroid/content/res/Resources;)Lcom/android/server/display/utils/AmbientFilter;
     .locals 3
 
-    const v0, 0x10e004f
+    const v0, 0x10e0052
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v0
 
-    const v1, 0x10500ad
+    const v1, 0x10500ae
 
     invoke-static {p1, v1}, Lcom/android/server/display/utils/AmbientFilterFactory;->getFloat(Landroid/content/res/Resources;I)F
 

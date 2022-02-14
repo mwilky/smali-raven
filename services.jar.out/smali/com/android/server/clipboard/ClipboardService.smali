@@ -2620,7 +2620,7 @@
 
     move-result-object v2
 
-    const v3, 0x10405da
+    const v3, 0x10405df
 
     const/4 v4, 0x1
 

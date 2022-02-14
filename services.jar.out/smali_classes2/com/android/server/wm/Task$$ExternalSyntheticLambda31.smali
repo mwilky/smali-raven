@@ -2,42 +2,36 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Ljava/util/function/Predicate;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/Task$$ExternalSyntheticLambda31;
+# instance fields
+.field public final synthetic f$0:Landroid/content/ComponentName;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda31;
-
-    invoke-direct {v0}, Lcom/android/server/wm/Task$$ExternalSyntheticLambda31;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda31;->INSTANCE:Lcom/android/server/wm/Task$$ExternalSyntheticLambda31;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Landroid/content/ComponentName;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda31;->f$0:Landroid/content/ComponentName;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 0
+.method public final test(Ljava/lang/Object;)Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda31;->f$0:Landroid/content/ComponentName;
 
     check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    invoke-virtual {p1}, Lcom/android/server/wm/ActivityRecord;->removeLaunchTickRunnable()V
+    invoke-static {v0, p1}, Lcom/android/server/wm/Task;->lambda$navigateUpTo$20(Landroid/content/ComponentName;Lcom/android/server/wm/ActivityRecord;)Z
 
-    return-void
+    move-result p1
+
+    return p1
 .end method

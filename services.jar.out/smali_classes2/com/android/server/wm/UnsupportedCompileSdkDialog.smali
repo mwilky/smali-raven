@@ -39,7 +39,7 @@
 
     aput-object v1, v3, v4
 
-    const v4, 0x1040876
+    const v4, 0x104087b
 
     invoke-virtual {p2, v4, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -75,7 +75,7 @@
 
     if-eqz v5, :cond_0
 
-    const v6, 0x1040875
+    const v6, 0x104087a
 
     new-instance v7, Lcom/android/server/wm/UnsupportedCompileSdkDialog$$ExternalSyntheticLambda0;
 
@@ -108,7 +108,7 @@
 
     invoke-virtual {v8, v9}, Landroid/view/WindowManager$LayoutParams;->setTitle(Ljava/lang/CharSequence;)V
 
-    const v8, 0x10201df
+    const v8, 0x10201e2
 
     invoke-virtual {v6, v8}, Landroid/app/AlertDialog;->findViewById(I)Landroid/view/View;
 

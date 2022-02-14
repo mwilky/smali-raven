@@ -33,13 +33,17 @@
 
 # virtual methods
 .method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .locals 0
 
-    new-instance v0, Landroid/view/SurfaceControl$Builder;
+    check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    check-cast p1, Landroid/view/SurfaceSession;
+    invoke-virtual {p1}, Lcom/android/server/wm/ActivityRecord;->hasStartingWindow()Z
 
-    invoke-direct {v0, p1}, Landroid/view/SurfaceControl$Builder;-><init>(Landroid/view/SurfaceSession;)V
+    move-result p1
 
-    return-object v0
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object p1
+
+    return-object p1
 .end method

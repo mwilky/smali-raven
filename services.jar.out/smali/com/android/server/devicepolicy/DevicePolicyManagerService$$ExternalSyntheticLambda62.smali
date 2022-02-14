@@ -27,7 +27,7 @@
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda62;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$canUsbDataSignalingBeDisabled$140$DevicePolicyManagerService()Ljava/lang/Boolean;
+    invoke-virtual {v0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$areAllUsersAffiliatedWithDeviceLocked$107$DevicePolicyManagerService()Ljava/lang/Boolean;
 
     move-result-object v0
 

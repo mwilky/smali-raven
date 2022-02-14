@@ -6,6 +6,8 @@
 # instance fields
 .field private conditions:Lcom/android/server/policy/devicestate/config/Conditions;
 
+.field private flags:Lcom/android/server/policy/devicestate/config/Flags;
+
 .field private identifier:Ljava/math/BigInteger;
 
 .field private name:Ljava/lang/String;
@@ -51,9 +53,9 @@
 
     const/4 v6, 0x3
 
-    if-eq v3, v5, :cond_4
+    if-eq v3, v5, :cond_5
 
-    if-eq v4, v6, :cond_4
+    if-eq v4, v6, :cond_5
 
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
 
@@ -110,13 +112,30 @@
     goto :goto_1
 
     :cond_2
-    const-string v5, "conditions"
+    const-string v5, "flags"
 
     invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
     if-eqz v5, :cond_3
+
+    invoke-static {p0}, Lcom/android/server/policy/devicestate/config/Flags;->read(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/policy/devicestate/config/Flags;
+
+    move-result-object v5
+
+    invoke-virtual {v0, v5}, Lcom/android/server/policy/devicestate/config/DeviceState;->setFlags(Lcom/android/server/policy/devicestate/config/Flags;)V
+
+    goto :goto_1
+
+    :cond_3
+    const-string v5, "conditions"
+
+    invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_4
 
     invoke-static {p0}, Lcom/android/server/policy/devicestate/config/Conditions;->read(Lorg/xmlpull/v1/XmlPullParser;)Lcom/android/server/policy/devicestate/config/Conditions;
 
@@ -126,18 +145,18 @@
 
     goto :goto_1
 
-    :cond_3
+    :cond_4
     invoke-static {p0}, Lcom/android/server/policy/devicestate/config/XmlParser;->skip(Lorg/xmlpull/v1/XmlPullParser;)V
 
     :goto_1
     goto :goto_0
 
-    :cond_4
-    if-ne v4, v6, :cond_5
+    :cond_5
+    if-ne v4, v6, :cond_6
 
     return-object v0
 
-    :cond_5
+    :cond_6
     new-instance v3, Ljavax/xml/datatype/DatatypeConfigurationException;
 
     const-string v5, "DeviceState is not closed"
@@ -153,6 +172,14 @@
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/policy/devicestate/config/DeviceState;->conditions:Lcom/android/server/policy/devicestate/config/Conditions;
+
+    return-object v0
+.end method
+
+.method public getFlags()Lcom/android/server/policy/devicestate/config/Flags;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/policy/devicestate/config/DeviceState;->flags:Lcom/android/server/policy/devicestate/config/Flags;
 
     return-object v0
 .end method
@@ -177,6 +204,23 @@
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/policy/devicestate/config/DeviceState;->conditions:Lcom/android/server/policy/devicestate/config/Conditions;
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method hasFlags()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/policy/devicestate/config/DeviceState;->flags:Lcom/android/server/policy/devicestate/config/Flags;
 
     if-nez v0, :cond_0
 
@@ -228,6 +272,14 @@
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/policy/devicestate/config/DeviceState;->conditions:Lcom/android/server/policy/devicestate/config/Conditions;
+
+    return-void
+.end method
+
+.method public setFlags(Lcom/android/server/policy/devicestate/config/Flags;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/server/policy/devicestate/config/DeviceState;->flags:Lcom/android/server/policy/devicestate/config/Flags;
 
     return-void
 .end method

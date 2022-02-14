@@ -83,7 +83,7 @@
 
     iget-object v0, p0, Lcom/android/server/audio/AudioService$ForceControlStreamClient;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v0}, Lcom/android/server/audio/AudioService;->access$1600(Lcom/android/server/audio/AudioService;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/audio/AudioService;->access$1500(Lcom/android/server/audio/AudioService;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -98,7 +98,7 @@
 
     iget-object v1, p0, Lcom/android/server/audio/AudioService$ForceControlStreamClient;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->access$1700(Lcom/android/server/audio/AudioService;)Lcom/android/server/audio/AudioService$ForceControlStreamClient;
+    invoke-static {v1}, Lcom/android/server/audio/AudioService;->access$1600(Lcom/android/server/audio/AudioService;)Lcom/android/server/audio/AudioService$ForceControlStreamClient;
 
     move-result-object v1
 
@@ -117,19 +117,19 @@
 
     const/4 v2, 0x0
 
-    invoke-static {v1, v2}, Lcom/android/server/audio/AudioService;->access$1702(Lcom/android/server/audio/AudioService;Lcom/android/server/audio/AudioService$ForceControlStreamClient;)Lcom/android/server/audio/AudioService$ForceControlStreamClient;
+    invoke-static {v1, v2}, Lcom/android/server/audio/AudioService;->access$1602(Lcom/android/server/audio/AudioService;Lcom/android/server/audio/AudioService$ForceControlStreamClient;)Lcom/android/server/audio/AudioService$ForceControlStreamClient;
 
     iget-object v1, p0, Lcom/android/server/audio/AudioService$ForceControlStreamClient;->this$0:Lcom/android/server/audio/AudioService;
 
     const/4 v2, -0x1
 
-    invoke-static {v1, v2}, Lcom/android/server/audio/AudioService;->access$1802(Lcom/android/server/audio/AudioService;I)I
+    invoke-static {v1, v2}, Lcom/android/server/audio/AudioService;->access$1702(Lcom/android/server/audio/AudioService;I)I
 
     iget-object v1, p0, Lcom/android/server/audio/AudioService$ForceControlStreamClient;->this$0:Lcom/android/server/audio/AudioService;
 
     const/4 v2, 0x0
 
-    invoke-static {v1, v2}, Lcom/android/server/audio/AudioService;->access$1902(Lcom/android/server/audio/AudioService;Z)Z
+    invoke-static {v1, v2}, Lcom/android/server/audio/AudioService;->access$1802(Lcom/android/server/audio/AudioService;Z)Z
 
     :goto_0
     monitor-exit v0

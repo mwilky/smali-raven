@@ -233,7 +233,7 @@
 
     move-result-object v0
 
-    const v1, 0x11100e5
+    const v1, 0x11100e6
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -247,7 +247,7 @@
 
     move-result-object v1
 
-    const v2, 0x10e0063
+    const v2, 0x10e0066
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -297,7 +297,7 @@
 
     move-result-object v0
 
-    const v1, 0x107008a
+    const v1, 0x107009d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -319,7 +319,7 @@
 
     move-result-object v3
 
-    const v4, 0x11100fa
+    const v4, 0x11100fc
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -352,7 +352,7 @@
 
     move-result-object v5
 
-    const v6, 0x10e0064
+    const v6, 0x10e0067
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -370,7 +370,7 @@
 
     if-ne v5, v6, :cond_2
 
-    new-instance v15, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
+    new-instance v13, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
 
     invoke-static/range {p2 .. p2}, Lcom/android/server/biometrics/Utils;->authenticatorStrengthToPropertyStrength(I)I
 
@@ -378,17 +378,27 @@
 
     const/4 v11, 0x0
 
-    const/4 v5, 0x0
+    new-instance v5, Landroid/hardware/biometrics/SensorLocationInternal;
 
-    aget v12, v0, v5
+    const/4 v6, 0x0
 
-    aget v13, v0, v2
+    aget v6, v0, v6
 
-    const/4 v2, 0x2
+    aget v2, v0, v2
 
-    aget v14, v0, v2
+    const/4 v8, 0x2
 
-    move-object v5, v15
+    aget v8, v0, v8
+
+    const-string v10, ""
+
+    invoke-direct {v5, v10, v6, v2, v8}, Landroid/hardware/biometrics/SensorLocationInternal;-><init>(Ljava/lang/String;III)V
+
+    invoke-static {v5}, Ljava/util/List;->of(Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v12
+
+    move-object v5, v13
 
     move/from16 v6, p1
 
@@ -396,9 +406,9 @@
 
     move v10, v4
 
-    invoke-direct/range {v5 .. v14}, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;-><init>(IIILjava/util/List;IZIII)V
+    invoke-direct/range {v5 .. v12}, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;-><init>(IIILjava/util/List;IZLjava/util/List;)V
 
-    return-object v15
+    return-object v13
 
     :cond_2
     new-instance v2, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;

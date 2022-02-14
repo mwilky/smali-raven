@@ -39,7 +39,7 @@
 
     iget-object v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda35;->f$2:Landroid/graphics/Bitmap;
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$setUserIcon$94$DevicePolicyManagerService(Lcom/android/server/devicepolicy/CallerIdentity;Landroid/graphics/Bitmap;)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$setUserIcon$97$DevicePolicyManagerService(Lcom/android/server/devicepolicy/CallerIdentity;Landroid/graphics/Bitmap;)V
 
     return-void
 .end method

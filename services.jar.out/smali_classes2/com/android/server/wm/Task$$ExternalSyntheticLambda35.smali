@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Ljava/util/function/Predicate;
 
 
 # static fields
@@ -32,12 +32,14 @@
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
+.method public final test(Ljava/lang/Object;)Z
     .locals 0
 
-    check-cast p1, Lcom/android/server/wm/WindowState;
+    check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    invoke-virtual {p1}, Lcom/android/server/wm/WindowState;->requestRedrawForSync()V
+    invoke-virtual {p1}, Lcom/android/server/wm/ActivityRecord;->canBeTopRunning()Z
 
-    return-void
+    move-result p1
+
+    return p1
 .end method

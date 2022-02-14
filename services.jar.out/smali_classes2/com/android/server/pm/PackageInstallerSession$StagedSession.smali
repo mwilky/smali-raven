@@ -244,7 +244,7 @@
 
     iget-object v1, p0, Lcom/android/server/pm/PackageInstallerSession$StagedSession;->this$0:Lcom/android/server/pm/PackageInstallerSession;
 
-    invoke-static {v1}, Lcom/android/server/pm/PackageInstallerSession;->access$1100(Lcom/android/server/pm/PackageInstallerSession;)V
+    invoke-static {v1}, Lcom/android/server/pm/PackageInstallerSession;->access$600(Lcom/android/server/pm/PackageInstallerSession;)V
 
     invoke-virtual {p0}, Lcom/android/server/pm/PackageInstallerSession$StagedSession;->isInTerminalState()Z
 
@@ -265,7 +265,7 @@
 
     iget-object v1, p0, Lcom/android/server/pm/PackageInstallerSession$StagedSession;->this$0:Lcom/android/server/pm/PackageInstallerSession;
 
-    invoke-static {v1}, Lcom/android/server/pm/PackageInstallerSession;->access$1200(Lcom/android/server/pm/PackageInstallerSession;)Z
+    invoke-static {v1}, Lcom/android/server/pm/PackageInstallerSession;->access$1100(Lcom/android/server/pm/PackageInstallerSession;)Z
 
     move-result v1
 
@@ -777,13 +777,13 @@
 
     const-string v1, "abandonStaged"
 
-    invoke-static {v0, v1}, Lcom/android/server/pm/PackageInstallerSession;->access$1400(Lcom/android/server/pm/PackageInstallerSession;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/android/server/pm/PackageInstallerSession;->access$1300(Lcom/android/server/pm/PackageInstallerSession;Ljava/lang/String;)V
 
     if-eqz p1, :cond_0
 
     iget-object v0, p0, Lcom/android/server/pm/PackageInstallerSession$StagedSession;->this$0:Lcom/android/server/pm/PackageInstallerSession;
 
-    invoke-static {v0}, Lcom/android/server/pm/PackageInstallerSession;->access$1500(Lcom/android/server/pm/PackageInstallerSession;)Lcom/android/server/pm/StagingManager;
+    invoke-static {v0}, Lcom/android/server/pm/PackageInstallerSession;->access$1400(Lcom/android/server/pm/PackageInstallerSession;)Lcom/android/server/pm/StagingManager;
 
     move-result-object v0
 
@@ -796,7 +796,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageInstallerSession$StagedSession;->this$0:Lcom/android/server/pm/PackageInstallerSession;
 
-    invoke-static {v0}, Lcom/android/server/pm/PackageInstallerSession;->access$1600(Lcom/android/server/pm/PackageInstallerSession;)V
+    invoke-static {v0}, Lcom/android/server/pm/PackageInstallerSession;->access$1500(Lcom/android/server/pm/PackageInstallerSession;)V
 
     iget-object v0, p0, Lcom/android/server/pm/PackageInstallerSession$StagedSession;->this$0:Lcom/android/server/pm/PackageInstallerSession;
 
@@ -806,11 +806,11 @@
 
     const-string v3, "Session was abandoned"
 
-    invoke-static {v0, v1, v3, v2}, Lcom/android/server/pm/PackageInstallerSession;->access$1700(Lcom/android/server/pm/PackageInstallerSession;ILjava/lang/String;Landroid/os/Bundle;)V
+    invoke-static {v0, v1, v3, v2}, Lcom/android/server/pm/PackageInstallerSession;->access$1600(Lcom/android/server/pm/PackageInstallerSession;ILjava/lang/String;Landroid/os/Bundle;)V
 
     iget-object v0, p0, Lcom/android/server/pm/PackageInstallerSession$StagedSession;->this$0:Lcom/android/server/pm/PackageInstallerSession;
 
-    invoke-static {v0}, Lcom/android/server/pm/PackageInstallerSession;->access$1800(Lcom/android/server/pm/PackageInstallerSession;)V
+    invoke-static {v0}, Lcom/android/server/pm/PackageInstallerSession;->access$1700(Lcom/android/server/pm/PackageInstallerSession;)V
 
     return-void
 .end method
@@ -1298,7 +1298,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageInstallerSession$StagedSession;->this$0:Lcom/android/server/pm/PackageInstallerSession;
 
-    invoke-static {v0}, Lcom/android/server/pm/PackageInstallerSession;->access$1300(Lcom/android/server/pm/PackageInstallerSession;)V
+    invoke-static {v0}, Lcom/android/server/pm/PackageInstallerSession;->access$1200(Lcom/android/server/pm/PackageInstallerSession;)V
 
     return-void
 .end method

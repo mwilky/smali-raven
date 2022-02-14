@@ -33,7 +33,7 @@
 
     iget-object v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda44;->f$1:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$setTimeZone$92$DevicePolicyManagerService(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$setTimeZone$95$DevicePolicyManagerService(Ljava/lang/String;)V
 
     return-void
 .end method

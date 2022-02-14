@@ -35,7 +35,7 @@
 
     check-cast p1, Lcom/android/server/wm/Task;
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/DisplayContent;->lambda$removeRootTasksInWindowingModes$36([ILjava/util/ArrayList;Lcom/android/server/wm/Task;)V
+    invoke-static {v0, v1, p1}, Lcom/android/server/wm/DisplayContent;->lambda$removeRootTasksInWindowingModes$38([ILjava/util/ArrayList;Lcom/android/server/wm/Task;)V
 
     return-void
 .end method

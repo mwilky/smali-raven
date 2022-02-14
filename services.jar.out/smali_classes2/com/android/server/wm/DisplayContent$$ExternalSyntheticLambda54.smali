@@ -35,9 +35,9 @@
 .method public final test(Ljava/lang/Object;)Z
     .locals 0
 
-    check-cast p1, Lcom/android/server/wm/WindowState;
+    check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    invoke-static {p1}, Lcom/android/server/wm/DisplayContent;->lambda$hasSecureWindowOnScreen$28(Lcom/android/server/wm/WindowState;)Z
+    invoke-static {p1}, Lcom/android/server/wm/DisplayContent;->lambda$assignRelativeLayerForIme$33(Lcom/android/server/wm/ActivityRecord;)Z
 
     move-result p1
 

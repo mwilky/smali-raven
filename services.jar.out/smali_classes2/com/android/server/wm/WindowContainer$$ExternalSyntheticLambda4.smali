@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Ljava/util/function/Predicate;
 
 
 # static fields
@@ -32,10 +32,14 @@
 
 
 # virtual methods
-.method public final run()V
+.method public final test(Ljava/lang/Object;)Z
     .locals 0
 
-    invoke-static {}, Lcom/android/server/wm/WindowContainer;->lambda$applyAnimationUnchecked$13()V
+    check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    return-void
+    invoke-static {p1}, Lcom/android/server/wm/WindowContainer;->lambda$getBottomMostActivity$3(Lcom/android/server/wm/ActivityRecord;)Z
+
+    move-result p1
+
+    return p1
 .end method

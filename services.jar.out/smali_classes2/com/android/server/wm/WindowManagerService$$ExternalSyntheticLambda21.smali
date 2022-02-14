@@ -2,36 +2,44 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/util/function/Function;
 
 
-# instance fields
-.field public final synthetic f$0:I
+# static fields
+.field public static final synthetic INSTANCE:Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda21;
 
 
 # direct methods
-.method public synthetic constructor <init>(I)V
+.method static synthetic constructor <clinit>()V
+    .locals 1
+
+    new-instance v0, Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda21;
+
+    invoke-direct {v0}, Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda21;-><init>()V
+
+    sput-object v0, Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda21;->INSTANCE:Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda21;
+
+    return-void
+.end method
+
+.method private synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput p1, p0, Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda21;->f$0:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
 
-    iget v0, p0, Lcom/android/server/wm/WindowManagerService$$ExternalSyntheticLambda21;->f$0:I
+    new-instance v0, Landroid/view/SurfaceControl$Builder;
 
-    check-cast p1, Lcom/android/server/wm/WindowState;
+    check-cast p1, Landroid/view/SurfaceSession;
 
-    invoke-static {v0, p1}, Lcom/android/server/wm/WindowManagerService;->lambda$findWindow$5(ILcom/android/server/wm/WindowState;)Z
+    invoke-direct {v0, p1}, Landroid/view/SurfaceControl$Builder;-><init>(Landroid/view/SurfaceSession;)V
 
-    move-result p1
-
-    return p1
+    return-object v0
 .end method

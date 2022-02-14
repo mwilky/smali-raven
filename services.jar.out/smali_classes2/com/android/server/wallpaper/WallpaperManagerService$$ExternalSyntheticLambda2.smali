@@ -2,46 +2,44 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
-.field public final synthetic f$0:I
+.field public final synthetic f$0:Lcom/android/server/wallpaper/WallpaperManagerService;
 
-.field public final synthetic f$1:I
+.field public final synthetic f$1:Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;
 
-.field public final synthetic f$2:Landroid/os/Bundle;
+.field public final synthetic f$2:Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;
 
 
 # direct methods
-.method public synthetic constructor <init>(IILandroid/os/Bundle;)V
+.method public synthetic constructor <init>(Lcom/android/server/wallpaper/WallpaperManagerService;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput p1, p0, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda2;->f$0:I
+    iput-object p1, p0, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/wallpaper/WallpaperManagerService;
 
-    iput p2, p0, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda2;->f$1:I
+    iput-object p2, p0, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda2;->f$1:Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;
 
-    iput-object p3, p0, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda2;->f$2:Landroid/os/Bundle;
+    iput-object p3, p0, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda2;->f$2:Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
+.method public final run()V
     .locals 3
 
-    iget v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda2;->f$0:I
+    iget-object v0, p0, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda2;->f$0:Lcom/android/server/wallpaper/WallpaperManagerService;
 
-    iget v1, p0, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda2;->f$1:I
+    iget-object v1, p0, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda2;->f$1:Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;
 
-    iget-object v2, p0, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda2;->f$2:Landroid/os/Bundle;
+    iget-object v2, p0, Lcom/android/server/wallpaper/WallpaperManagerService$$ExternalSyntheticLambda2;->f$2:Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;
 
-    check-cast p1, Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection$DisplayConnector;
-
-    invoke-static {v0, v1, v2, p1}, Lcom/android/server/wallpaper/WallpaperManagerService;->lambda$notifyGoingToSleep$7(IILandroid/os/Bundle;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperConnection$DisplayConnector;)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/wallpaper/WallpaperManagerService;->lambda$switchUser$5$WallpaperManagerService(Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;Lcom/android/server/wallpaper/WallpaperManagerService$WallpaperData;)V
 
     return-void
 .end method

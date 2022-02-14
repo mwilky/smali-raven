@@ -963,7 +963,7 @@
     return-void
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v1, 0x1
 
     invoke-static {v0}, Lcom/android/server/appprediction/AppPredictionPerUserService$AppPredictionSessionInfo;->access$000(Lcom/android/server/appprediction/AppPredictionPerUserService$AppPredictionSessionInfo;)Z
 

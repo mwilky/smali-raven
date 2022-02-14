@@ -492,7 +492,7 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x10201bc
+    .packed-switch 0x10201bf
         :pswitch_4
         :pswitch_3
         :pswitch_2
@@ -548,7 +548,7 @@
     move v2, v3
 
     :goto_0
-    const v5, 0x10201c0
+    const v5, 0x10201c3
 
     invoke-virtual {p0, v5}, Lcom/android/server/am/AppErrorDialog;->findViewById(I)Landroid/view/View;
 
@@ -574,7 +574,7 @@
     :goto_1
     invoke-virtual {v5, v6}, Landroid/widget/TextView;->setVisibility(I)V
 
-    const v6, 0x10201bf
+    const v6, 0x10201c2
 
     invoke-virtual {p0, v6}, Lcom/android/server/am/AppErrorDialog;->findViewById(I)Landroid/view/View;
 
@@ -596,7 +596,7 @@
     :goto_2
     invoke-virtual {v6, v8}, Landroid/widget/TextView;->setVisibility(I)V
 
-    const v8, 0x10201bd
+    const v8, 0x10201c0
 
     invoke-virtual {p0, v8}, Lcom/android/server/am/AppErrorDialog;->findViewById(I)Landroid/view/View;
 
@@ -606,7 +606,7 @@
 
     invoke-virtual {v8, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v9, 0x10201bc
+    const v9, 0x10201bf
 
     invoke-virtual {p0, v9}, Lcom/android/server/am/AppErrorDialog;->findViewById(I)Landroid/view/View;
 
@@ -650,7 +650,7 @@
     move v4, v3
 
     :goto_3
-    const v10, 0x10201be
+    const v10, 0x10201c1
 
     invoke-virtual {p0, v10}, Lcom/android/server/am/AppErrorDialog;->findViewById(I)Landroid/view/View;
 
@@ -667,7 +667,7 @@
     :cond_4
     invoke-virtual {v10, v7}, Landroid/widget/TextView;->setVisibility(I)V
 
-    const v7, 0x102026a
+    const v7, 0x102026d
 
     invoke-virtual {p0, v7}, Lcom/android/server/am/AppErrorDialog;->findViewById(I)Landroid/view/View;
 

@@ -6,9 +6,9 @@
 # instance fields
 .field private address:Ljava/math/BigInteger;
 
-.field private enabled:Ljava/lang/Boolean;
+.field private defaultDisplay:Ljava/lang/Boolean;
 
-.field private isDefault:Ljava/lang/Boolean;
+.field private enabled:Ljava/lang/Boolean;
 
 
 # direct methods
@@ -53,7 +53,7 @@
     invoke-virtual {v0, v3}, Lcom/android/server/display/config/layout/Display;->setEnabled(Z)V
 
     :cond_0
-    const-string v3, "isDefault"
+    const-string v3, "defaultDisplay"
 
     invoke-interface {p0, v2, v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -65,7 +65,7 @@
 
     move-result v2
 
-    invoke-virtual {v0, v2}, Lcom/android/server/display/config/layout/Display;->setIsDefault(Z)V
+    invoke-virtual {v0, v2}, Lcom/android/server/display/config/layout/Display;->setDefaultDisplay(Z)V
 
     :cond_1
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
@@ -153,48 +153,27 @@
     return-object v0
 .end method
 
-.method public getEnabled()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/display/config/layout/Display;->enabled:Ljava/lang/Boolean;
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_0
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public getIsDefault()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/display/config/layout/Display;->isDefault:Ljava/lang/Boolean;
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    return v0
-
-    :cond_0
-    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v0
-
-    return v0
-.end method
-
 .method hasAddress()Z
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/display/config/layout/Display;->address:Ljava/math/BigInteger;
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    return v0
+
+    :cond_0
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method hasDefaultDisplay()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/display/config/layout/Display;->defaultDisplay:Ljava/lang/Boolean;
 
     if-nez v0, :cond_0
 
@@ -225,10 +204,10 @@
     return v0
 .end method
 
-.method hasIsDefault()Z
+.method public isDefaultDisplay()Z
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/display/config/layout/Display;->isDefault:Ljava/lang/Boolean;
+    iget-object v0, p0, Lcom/android/server/display/config/layout/Display;->defaultDisplay:Ljava/lang/Boolean;
 
     if-nez v0, :cond_0
 
@@ -237,7 +216,28 @@
     return v0
 
     :cond_0
-    const/4 v0, 0x1
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public isEnabled()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/display/config/layout/Display;->enabled:Ljava/lang/Boolean;
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    return v0
+
+    :cond_0
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
 
     return v0
 .end method
@@ -250,6 +250,18 @@
     return-void
 .end method
 
+.method public setDefaultDisplay(Z)V
+    .locals 1
+
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/server/display/config/layout/Display;->defaultDisplay:Ljava/lang/Boolean;
+
+    return-void
+.end method
+
 .method public setEnabled(Z)V
     .locals 1
 
@@ -258,18 +270,6 @@
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/display/config/layout/Display;->enabled:Ljava/lang/Boolean;
-
-    return-void
-.end method
-
-.method public setIsDefault(Z)V
-    .locals 1
-
-    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/server/display/config/layout/Display;->isDefault:Ljava/lang/Boolean;
 
     return-void
 .end method

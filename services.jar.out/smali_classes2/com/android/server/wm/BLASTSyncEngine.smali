@@ -103,6 +103,22 @@
     return-void
 .end method
 
+.method isReady(I)Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/wm/BLASTSyncEngine;->mActiveSyncs:Landroid/util/SparseArray;
+
+    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/wm/BLASTSyncEngine$SyncGroup;
+
+    iget-boolean v0, v0, Lcom/android/server/wm/BLASTSyncEngine$SyncGroup;->mReady:Z
+
+    return v0
+.end method
+
 .method onSurfacePlacement()V
     .locals 2
 
@@ -135,6 +151,20 @@
     return-void
 .end method
 
+.method scheduleTimeout(Lcom/android/server/wm/BLASTSyncEngine$SyncGroup;J)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/wm/BLASTSyncEngine;->mWm:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mH:Lcom/android/server/wm/WindowManagerService$H;
+
+    iget-object v1, p1, Lcom/android/server/wm/BLASTSyncEngine$SyncGroup;->mOnTimeout:Ljava/lang/Runnable;
+
+    invoke-virtual {v0, v1, p2, p3}, Lcom/android/server/wm/WindowManagerService$H;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    return-void
+.end method
+
 .method setReady(I)V
     .locals 1
 
@@ -162,6 +192,18 @@
 .end method
 
 .method startSyncSet(Lcom/android/server/wm/BLASTSyncEngine$TransactionReadyListener;)I
+    .locals 2
+
+    const-wide/16 v0, 0x1388
+
+    invoke-virtual {p0, p1, v0, v1}, Lcom/android/server/wm/BLASTSyncEngine;->startSyncSet(Lcom/android/server/wm/BLASTSyncEngine$TransactionReadyListener;J)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method startSyncSet(Lcom/android/server/wm/BLASTSyncEngine$TransactionReadyListener;J)I
     .locals 11
 
     iget v0, p0, Lcom/android/server/wm/BLASTSyncEngine;->mNextSyncId:I
@@ -213,5 +255,7 @@
     invoke-static {v6, v7, v9, v2, v8}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
     :cond_0
+    invoke-virtual {p0, v1, p2, p3}, Lcom/android/server/wm/BLASTSyncEngine;->scheduleTimeout(Lcom/android/server/wm/BLASTSyncEngine$SyncGroup;J)V
+
     return v0
 .end method

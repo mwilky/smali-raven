@@ -2,44 +2,48 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Ljava/util/function/BiConsumer;
 
 
-# instance fields
-.field public final synthetic f$0:Lcom/android/server/wm/Task;
-
-.field public final synthetic f$1:Z
-
-.field public final synthetic f$2:Ljava/io/PrintWriter;
+# static fields
+.field public static final synthetic INSTANCE:Lcom/android/server/wm/Task$$ExternalSyntheticLambda9;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wm/Task;ZLjava/io/PrintWriter;)V
+.method static synthetic constructor <clinit>()V
+    .locals 1
+
+    new-instance v0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda9;
+
+    invoke-direct {v0}, Lcom/android/server/wm/Task$$ExternalSyntheticLambda9;-><init>()V
+
+    sput-object v0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda9;->INSTANCE:Lcom/android/server/wm/Task$$ExternalSyntheticLambda9;
+
+    return-void
+.end method
+
+.method private synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda9;->f$0:Lcom/android/server/wm/Task;
-
-    iput-boolean p2, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda9;->f$1:Z
-
-    iput-object p3, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda9;->f$2:Ljava/io/PrintWriter;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 3
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda9;->f$0:Lcom/android/server/wm/Task;
+    check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    iget-boolean v1, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda9;->f$1:Z
+    check-cast p2, Ljava/lang/Integer;
 
-    iget-object v2, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda9;->f$2:Ljava/io/PrintWriter;
+    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/wm/Task;->lambda$dump$27$Task(ZLjava/io/PrintWriter;)V
+    move-result p2
+
+    invoke-virtual {p1, p2}, Lcom/android/server/wm/ConfigurationContainer;->setWindowingMode(I)V
 
     return-void
 .end method

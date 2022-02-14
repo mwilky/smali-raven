@@ -39,9 +39,9 @@
 
     iget-boolean v2, p0, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda5;->f$2:Z
 
-    check-cast p1, Ljava/util/Set;
+    check-cast p1, Landroid/companion/Association;
 
-    invoke-static {v0, v1, v2, p1}, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl;->lambda$registerDevicePresenceListenerActive$7(Ljava/lang/String;Ljava/lang/String;ZLjava/util/Set;)Ljava/util/Set;
+    invoke-static {v0, v1, v2, p1}, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl;->lambda$registerDevicePresenceListenerActive$7(Ljava/lang/String;Ljava/lang/String;ZLandroid/companion/Association;)Landroid/companion/Association;
 
     move-result-object p1
 

@@ -27,9 +27,7 @@
 
 .field private static final TAG:Ljava/lang/String; = "AccessibilityTracing"
 
-.field private static final TRACE_DIRECTORY:Ljava/lang/String; = "/data/misc/a11ytrace/"
-
-.field private static final TRACE_FILENAME:Ljava/lang/String; = "/data/misc/a11ytrace/a11y_trace.pb"
+.field private static final TRACE_FILENAME:Ljava/lang/String; = "/data/misc/a11ytrace/a11y_trace.winscope"
 
 .field private static sInstance:Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;
 
@@ -64,7 +62,7 @@
 
     new-instance v0, Ljava/io/File;
 
-    const-string v1, "/data/misc/a11ytrace/a11y_trace.pb"
+    const-string v1, "/data/misc/a11ytrace/a11y_trace.winscope"
 
     invoke-direct {v0, v1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
@@ -99,17 +97,17 @@
     return-void
 .end method
 
-.method static synthetic access$2000(Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;[Ljava/lang/StackTraceElement;)Ljava/lang/String;
+.method static synthetic access$2100(Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;[Ljava/lang/StackTraceElement;Ljava/util/Set;)Ljava/lang/String;
     .locals 1
 
-    invoke-direct {p0, p1}, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->toStackTraceString([Ljava/lang/StackTraceElement;)Ljava/lang/String;
+    invoke-direct {p0, p1, p2}, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->toStackTraceString([Ljava/lang/StackTraceElement;Ljava/util/Set;)Ljava/lang/String;
 
     move-result-object v0
 
     return-object v0
 .end method
 
-.method static synthetic access$2100(Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;)Lcom/android/server/wm/WindowManagerService;
+.method static synthetic access$2200(Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;)Lcom/android/server/wm/WindowManagerService;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->mService:Lcom/android/server/wm/WindowManagerService;
@@ -117,7 +115,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$2200(Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;)Ljava/lang/Object;
+.method static synthetic access$2300(Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;)Ljava/lang/Object;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->mLock:Ljava/lang/Object;
@@ -125,7 +123,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$2300(Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;)Lcom/android/internal/util/TraceBuffer;
+.method static synthetic access$2400(Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;)Lcom/android/internal/util/TraceBuffer;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->mBuffer:Lcom/android/internal/util/TraceBuffer;
@@ -133,7 +131,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$2400(Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;)V
+.method static synthetic access$2500(Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->writeTraceToFileInternal()V
@@ -144,7 +142,7 @@
 .method static getInstance(Lcom/android/server/wm/WindowManagerService;)Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;
     .locals 2
 
-    invoke-static {}, Lcom/android/server/wm/AccessibilityController;->access$1900()Ljava/lang/Object;
+    invoke-static {}, Lcom/android/server/wm/AccessibilityController;->access$2000()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -178,52 +176,100 @@
     throw v1
 .end method
 
-.method private log(Ljava/lang/String;Ljava/lang/String;[BI[Ljava/lang/StackTraceElement;JLjava/lang/String;Ljava/lang/String;)V
-    .locals 3
+.method private log(Ljava/lang/String;JLjava/lang/String;[BI[Ljava/lang/StackTraceElement;JLjava/lang/String;Ljava/lang/String;Ljava/util/Set;)V
+    .locals 13
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "J",
+            "Ljava/lang/String;",
+            "[BI[",
+            "Ljava/lang/StackTraceElement;",
+            "J",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            "Ljava/util/Set<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
 
     invoke-static {}, Lcom/android/internal/os/SomeArgs;->obtain()Lcom/android/internal/os/SomeArgs;
 
     move-result-object v0
 
-    invoke-static {p6, p7}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    invoke-static/range {p8 .. p9}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v1
 
     iput-object v1, v0, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
-    iput-object p1, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
-
-    iput-object p8, v0, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
-
-    iput-object p9, v0, Lcom/android/internal/os/SomeArgs;->arg4:Ljava/lang/Object;
-
-    invoke-static {p4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static/range {p2 .. p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v1
 
-    iput-object v1, v0, Lcom/android/internal/os/SomeArgs;->arg5:Ljava/lang/Object;
+    iput-object v1, v0, Lcom/android/internal/os/SomeArgs;->arg2:Ljava/lang/Object;
 
-    iput-object p2, v0, Lcom/android/internal/os/SomeArgs;->arg6:Ljava/lang/Object;
+    move-object v1, p1
 
-    iput-object p5, v0, Lcom/android/internal/os/SomeArgs;->arg7:Ljava/lang/Object;
+    iput-object v1, v0, Lcom/android/internal/os/SomeArgs;->arg3:Ljava/lang/Object;
 
-    iput-object p3, v0, Lcom/android/internal/os/SomeArgs;->arg8:Ljava/lang/Object;
+    move-object/from16 v2, p10
 
-    iget-object v1, p0, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->mHandler:Lcom/android/server/wm/AccessibilityController$AccessibilityTracing$LogHandler;
+    iput-object v2, v0, Lcom/android/internal/os/SomeArgs;->arg4:Ljava/lang/Object;
 
-    const/4 v2, 0x1
+    move-object/from16 v3, p11
 
-    invoke-virtual {v1, v2, v0}, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing$LogHandler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+    iput-object v3, v0, Lcom/android/internal/os/SomeArgs;->arg5:Ljava/lang/Object;
 
-    move-result-object v1
+    move-object/from16 v4, p12
 
-    invoke-virtual {v1}, Landroid/os/Message;->sendToTarget()V
+    iput-object v4, v0, Lcom/android/internal/os/SomeArgs;->arg6:Ljava/lang/Object;
+
+    move-object/from16 v5, p4
+
+    iput-object v5, v0, Lcom/android/internal/os/SomeArgs;->arg7:Ljava/lang/Object;
+
+    move-object/from16 v6, p7
+
+    iput-object v6, v0, Lcom/android/internal/os/SomeArgs;->arg8:Ljava/lang/Object;
+
+    move-object/from16 v7, p5
+
+    iput-object v7, v0, Lcom/android/internal/os/SomeArgs;->arg9:Ljava/lang/Object;
+
+    move-object v8, p0
+
+    iget-object v9, v8, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->mHandler:Lcom/android/server/wm/AccessibilityController$AccessibilityTracing$LogHandler;
+
+    const/4 v10, 0x1
+
+    const/4 v11, 0x0
+
+    move/from16 v12, p6
+
+    invoke-virtual {v9, v10, v12, v11, v0}, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing$LogHandler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Landroid/os/Message;->sendToTarget()V
 
     return-void
 .end method
 
-.method private toStackTraceString([Ljava/lang/StackTraceElement;)Ljava/lang/String;
-    .locals 5
+.method private toStackTraceString([Ljava/lang/StackTraceElement;Ljava/util/Set;)Ljava/lang/String;
+    .locals 7
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "([",
+            "Ljava/lang/StackTraceElement;",
+            "Ljava/util/Set<",
+            "Ljava/lang/String;",
+            ">;)",
+            "Ljava/lang/String;"
+        }
+    .end annotation
 
     if-nez p1, :cond_0
 
@@ -236,64 +282,151 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const/4 v1, 0x1
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const/4 v2, -0x1
 
     :goto_0
     array-length v3, p1
 
-    if-ge v2, v3, :cond_3
+    if-ge v1, v3, :cond_3
 
-    aget-object v3, p1, v2
-
-    invoke-virtual {v3}, Ljava/lang/StackTraceElement;->toString()Ljava/lang/String;
+    invoke-interface {p2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v3
 
-    const-class v4, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;
+    :goto_1
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
-    invoke-virtual {v4}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v4
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    check-cast v4, Ljava/lang/String;
 
-    move-result v3
+    aget-object v5, p1, v1
 
-    if-eqz v3, :cond_1
+    invoke-virtual {v5}, Ljava/lang/StackTraceElement;->toString()Ljava/lang/String;
 
-    const/4 v1, 0x0
+    move-result-object v5
 
-    goto :goto_1
+    invoke-virtual {v5, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    move v2, v1
+
+    goto :goto_2
 
     :cond_1
-    if-nez v1, :cond_2
-
-    aget-object v3, p1, v2
-
-    invoke-virtual {v3}, Ljava/lang/StackTraceElement;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v3, "\n"
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    goto :goto_1
 
     :cond_2
-    :goto_1
-    add-int/lit8 v2, v2, 0x1
+    :goto_2
+    if-gez v2, :cond_3
+
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_3
+    move v3, v2
+
+    array-length v4, p1
+
+    if-ge v1, v4, :cond_7
+
+    add-int/lit8 v1, v1, 0x1
+
+    :goto_3
+    array-length v4, p1
+
+    if-ge v1, v4, :cond_7
+
+    invoke-interface {p2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :goto_4
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_5
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Ljava/lang/String;
+
+    aget-object v6, p1, v1
+
+    invoke-virtual {v6}, Ljava/lang/StackTraceElement;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_4
+
+    move v3, v1
+
+    goto :goto_5
+
+    :cond_4
+    goto :goto_4
+
+    :cond_5
+    :goto_5
+    if-eq v3, v1, :cond_6
+
+    goto :goto_6
+
+    :cond_6
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_3
+
+    :cond_7
+    :goto_6
+    add-int/lit8 v1, v3, 0x1
+
+    :goto_7
+    array-length v4, p1
+
+    if-ge v1, v4, :cond_8
+
+    aget-object v4, p1, v1
+
+    invoke-virtual {v4}, Ljava/lang/StackTraceElement;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v4, "\n"
+
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_7
+
+    :cond_8
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v4
 
-    return-object v2
+    return-object v4
 .end method
 
 .method private writeTraceToFileInternal()V
@@ -343,7 +476,7 @@
     return v0
 .end method
 
-.method logState(Ljava/lang/String;)V
+.method logState(Ljava/lang/String;J)V
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->mEnabled:Z
@@ -355,13 +488,13 @@
     :cond_0
     const-string v0, ""
 
-    invoke-virtual {p0, p1, v0}, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->logState(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, p1, p2, p3, v0}, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->logState(Ljava/lang/String;JLjava/lang/String;)V
 
     return-void
 .end method
 
-.method logState(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+.method logState(Ljava/lang/String;JLjava/lang/String;)V
+    .locals 7
 
     iget-boolean v0, p0, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->mEnabled:Z
 
@@ -374,15 +507,23 @@
 
     invoke-virtual {v0}, Ljava/lang/String;->getBytes()[B
 
-    move-result-object v0
+    move-result-object v6
 
-    invoke-virtual {p0, p1, p2, v0}, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->logState(Ljava/lang/String;Ljava/lang/String;[B)V
+    move-object v1, p0
+
+    move-object v2, p1
+
+    move-wide v3, p2
+
+    move-object v5, p4
+
+    invoke-virtual/range {v1 .. v6}, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->logState(Ljava/lang/String;JLjava/lang/String;[B)V
 
     return-void
 .end method
 
-.method logState(Ljava/lang/String;Ljava/lang/String;[B)V
-    .locals 1
+.method logState(Ljava/lang/String;JLjava/lang/String;[B)V
+    .locals 9
 
     iget-boolean v0, p0, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->mEnabled:Z
 
@@ -393,17 +534,55 @@
     :cond_0
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v0
+    move-result v7
 
-    invoke-virtual {p0, p1, p2, p3, v0}, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->logState(Ljava/lang/String;Ljava/lang/String;[BI)V
+    new-instance v8, Ljava/util/HashSet;
+
+    const-string v0, "logState"
+
+    filled-new-array {v0}, [Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-direct {v8, v0}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
+
+    move-object v1, p0
+
+    move-object v2, p1
+
+    move-wide v3, p2
+
+    move-object v5, p4
+
+    move-object v6, p5
+
+    invoke-virtual/range {v1 .. v8}, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->logState(Ljava/lang/String;JLjava/lang/String;[BILjava/util/Set;)V
 
     return-void
 .end method
 
-.method logState(Ljava/lang/String;Ljava/lang/String;[BI)V
-    .locals 7
+.method logState(Ljava/lang/String;JLjava/lang/String;[BILjava/util/Set;)V
+    .locals 12
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "J",
+            "Ljava/lang/String;",
+            "[BI",
+            "Ljava/util/Set<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
 
-    iget-boolean v0, p0, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->mEnabled:Z
+    move-object v9, p0
+
+    iget-boolean v0, v9, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->mEnabled:Z
 
     if-nez v0, :cond_0
 
@@ -416,31 +595,113 @@
 
     invoke-virtual {v0}, Ljava/lang/Thread;->getStackTrace()[Ljava/lang/StackTraceElement;
 
-    move-result-object v0
+    move-result-object v10
 
-    move-object v1, p0
+    const-string v0, "logState"
 
-    move-object v2, p1
+    move-object/from16 v11, p7
 
-    move-object v3, p2
+    invoke-interface {v11, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    move-object v4, p3
+    move-object v0, p0
 
-    move v5, p4
+    move-object v1, p1
 
-    move-object v6, v0
+    move-wide v2, p2
 
-    invoke-virtual/range {v1 .. v6}, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->logState(Ljava/lang/String;Ljava/lang/String;[BI[Ljava/lang/StackTraceElement;)V
+    move-object/from16 v4, p4
+
+    move-object/from16 v5, p5
+
+    move/from16 v6, p6
+
+    move-object v7, v10
+
+    move-object/from16 v8, p7
+
+    invoke-virtual/range {v0 .. v8}, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->logState(Ljava/lang/String;JLjava/lang/String;[BI[Ljava/lang/StackTraceElement;Ljava/util/Set;)V
 
     return-void
 .end method
 
-.method logState(Ljava/lang/String;Ljava/lang/String;[BI[Ljava/lang/StackTraceElement;)V
-    .locals 11
+.method logState(Ljava/lang/String;JLjava/lang/String;[BI[Ljava/lang/StackTraceElement;JIJLjava/util/Set;)V
+    .locals 14
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "J",
+            "Ljava/lang/String;",
+            "[BI[",
+            "Ljava/lang/StackTraceElement;",
+            "JIJ",
+            "Ljava/util/Set<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
 
-    move-object v10, p0
+    move-object v13, p0
 
-    iget-boolean v0, v10, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->mEnabled:Z
+    iget-boolean v0, v13, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->mEnabled:Z
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    nop
+
+    invoke-static/range {p10 .. p10}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static/range {p11 .. p12}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v11
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-wide/from16 v2, p2
+
+    move-object/from16 v4, p4
+
+    move-object/from16 v5, p5
+
+    move/from16 v6, p6
+
+    move-object/from16 v7, p7
+
+    move-wide/from16 v8, p8
+
+    move-object/from16 v12, p13
+
+    invoke-direct/range {v0 .. v12}, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->log(Ljava/lang/String;JLjava/lang/String;[BI[Ljava/lang/StackTraceElement;JLjava/lang/String;Ljava/lang/String;Ljava/util/Set;)V
+
+    return-void
+.end method
+
+.method logState(Ljava/lang/String;JLjava/lang/String;[BI[Ljava/lang/StackTraceElement;Ljava/util/Set;)V
+    .locals 14
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "J",
+            "Ljava/lang/String;",
+            "[BI[",
+            "Ljava/lang/StackTraceElement;",
+            "Ljava/util/Set<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    move-object v13, p0
+
+    iget-boolean v0, v13, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->mEnabled:Z
 
     if-nez v0, :cond_0
 
@@ -451,7 +712,7 @@
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtimeNanos()J
 
-    move-result-wide v6
+    move-result-wide v8
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -475,7 +736,7 @@
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v10
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -505,68 +766,31 @@
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v11
 
     move-object v0, p0
 
     move-object v1, p1
 
-    move-object v2, p2
+    move-wide/from16 v2, p2
 
-    move-object v3, p3
-
-    move v4, p4
+    move-object/from16 v4, p4
 
     move-object/from16 v5, p5
 
-    invoke-direct/range {v0 .. v9}, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->log(Ljava/lang/String;Ljava/lang/String;[BI[Ljava/lang/StackTraceElement;JLjava/lang/String;Ljava/lang/String;)V
+    move/from16 v6, p6
 
-    return-void
-.end method
+    move-object/from16 v7, p7
 
-.method logState(Ljava/lang/String;Ljava/lang/String;[BI[Ljava/lang/StackTraceElement;JIJ)V
-    .locals 11
+    move-object/from16 v12, p8
 
-    move-object v10, p0
-
-    iget-boolean v0, v10, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->mEnabled:Z
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    nop
-
-    invoke-static/range {p8 .. p8}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static/range {p9 .. p10}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
-
-    move-result-object v9
-
-    move-object v0, p0
-
-    move-object v1, p1
-
-    move-object v2, p2
-
-    move-object v3, p3
-
-    move v4, p4
-
-    move-object/from16 v5, p5
-
-    move-wide/from16 v6, p6
-
-    invoke-direct/range {v0 .. v9}, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->log(Ljava/lang/String;Ljava/lang/String;[BI[Ljava/lang/StackTraceElement;JLjava/lang/String;Ljava/lang/String;)V
+    invoke-direct/range {v0 .. v12}, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->log(Ljava/lang/String;JLjava/lang/String;[BI[Ljava/lang/StackTraceElement;JLjava/lang/String;Ljava/lang/String;Ljava/util/Set;)V
 
     return-void
 .end method
 
 .method startTrace()V
-    .locals 4
+    .locals 2
 
     sget-boolean v0, Landroid/os/Build;->IS_USER:Z
 
@@ -585,33 +809,9 @@
 
     monitor-enter v0
 
-    :try_start_0
-    const-string v1, "/data/misc/a11ytrace/"
-
-    const/4 v2, 0x0
-
-    new-array v3, v2, [Ljava/lang/String;
-
-    invoke-static {v1, v3}, Ljava/nio/file/Paths;->get(Ljava/lang/String;[Ljava/lang/String;)Ljava/nio/file/Path;
-
-    move-result-object v1
-
-    new-array v2, v2, [Ljava/nio/file/attribute/FileAttribute;
-
-    invoke-static {v1, v2}, Ljava/nio/file/Files;->createDirectories(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/file/Path;
-
-    iget-object v1, p0, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->mTraceFile:Ljava/io/File;
-
-    invoke-virtual {v1}, Ljava/io/File;->createNewFile()Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    nop
-
     const/4 v1, 0x1
 
-    :try_start_1
+    :try_start_0
     iput-boolean v1, p0, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->mEnabled:Z
 
     iget-object v1, p0, Lcom/android/server/wm/AccessibilityController$AccessibilityTracing;->mBuffer:Lcom/android/internal/util/TraceBuffer;
@@ -625,25 +825,9 @@
     :catchall_0
     move-exception v1
 
-    goto :goto_0
-
-    :catch_0
-    move-exception v1
-
-    const-string v2, "AccessibilityTracing"
-
-    const-string v3, "Error: Failed to create trace file."
-
-    invoke-static {v2, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
     monitor-exit v0
-
-    return-void
-
-    :goto_0
-    monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v1
 .end method

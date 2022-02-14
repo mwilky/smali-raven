@@ -42,8 +42,6 @@
 
 .field static final DEBUG_WALLPAPER:Z = false
 
-.field static final DEBUG_WALLPAPER_LIGHT:Z = false
-
 .field static final DEBUG_WINDOW_CROP:Z = false
 
 .field static final DEBUG_WINDOW_TRACE:Z = false

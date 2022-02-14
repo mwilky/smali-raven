@@ -45,7 +45,7 @@
 
     iget v3, p0, Lcom/android/server/wm/LockTaskController$$ExternalSyntheticLambda1;->f$3:I
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/wm/LockTaskController;->lambda$setLockTaskMode$1$LockTaskController(Landroid/content/Intent;Lcom/android/server/wm/Task;I)V
+    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/wm/LockTaskController;->lambda$setLockTaskMode$3$LockTaskController(Landroid/content/Intent;Lcom/android/server/wm/Task;I)V
 
     return-void
 .end method

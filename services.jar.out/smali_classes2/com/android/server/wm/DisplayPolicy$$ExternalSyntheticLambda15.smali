@@ -2,40 +2,38 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/wm/DisplayPolicy;
 
-.field public final synthetic f$1:Lcom/android/server/wm/DisplayFrames;
+.field public final synthetic f$1:Ljava/util/function/Consumer;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wm/DisplayPolicy;Lcom/android/server/wm/DisplayFrames;)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/DisplayPolicy;Ljava/util/function/Consumer;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda15;->f$0:Lcom/android/server/wm/DisplayPolicy;
 
-    iput-object p2, p0, Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda15;->f$1:Lcom/android/server/wm/DisplayFrames;
+    iput-object p2, p0, Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda15;->f$1:Ljava/util/function/Consumer;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
+.method public final run()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda15;->f$0:Lcom/android/server/wm/DisplayPolicy;
 
-    iget-object v1, p0, Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda15;->f$1:Lcom/android/server/wm/DisplayFrames;
+    iget-object v1, p0, Lcom/android/server/wm/DisplayPolicy$$ExternalSyntheticLambda15;->f$1:Ljava/util/function/Consumer;
 
-    check-cast p1, Landroid/graphics/Rect;
-
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/wm/DisplayPolicy;->lambda$simulateLayoutDisplay$11$DisplayPolicy(Lcom/android/server/wm/DisplayFrames;Landroid/graphics/Rect;)V
+    invoke-virtual {v0, v1}, Lcom/android/server/wm/DisplayPolicy;->lambda$callStatusBarSafely$20$DisplayPolicy(Ljava/util/function/Consumer;)V
 
     return-void
 .end method

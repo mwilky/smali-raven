@@ -749,54 +749,6 @@
     return v0
 .end method
 
-.method private toggleSplitScreen()Z
-    .locals 4
-
-    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
-
-    move-result-wide v0
-
-    :try_start_0
-    const-class v2, Lcom/android/server/statusbar/StatusBarManagerInternal;
-
-    invoke-static {v2}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/server/statusbar/StatusBarManagerInternal;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    if-nez v2, :cond_0
-
-    const/4 v3, 0x0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v3
-
-    :cond_0
-    :try_start_1
-    invoke-interface {v2}, Lcom/android/server/statusbar/StatusBarManagerInternal;->toggleSplitScreen()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    nop
-
-    const/4 v2, 0x1
-
-    return v2
-
-    :catchall_0
-    move-exception v2
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    throw v2
-.end method
-
 
 # virtual methods
 .method public getSystemActions()Ljava/util/List;
@@ -987,12 +939,13 @@
 
     packed-switch p1, :pswitch_data_0
 
+    :pswitch_0
     :try_start_6
     const-string v2, "SystemActionPerformer"
 
     goto :goto_0
 
-    :pswitch_0
+    :pswitch_1
     const/16 v2, 0x4f
 
     invoke-direct {p0, v2}, Lcom/android/server/accessibility/SystemActionPerformer;->sendDownAndUpKeyEvents(I)V
@@ -1005,7 +958,7 @@
 
     return v5
 
-    :pswitch_1
+    :pswitch_2
     :try_start_7
     invoke-direct {p0}, Lcom/android/server/accessibility/SystemActionPerformer;->takeScreenshot()Z
 
@@ -1017,7 +970,7 @@
 
     return v2
 
-    :pswitch_2
+    :pswitch_3
     :try_start_8
     invoke-direct {p0}, Lcom/android/server/accessibility/SystemActionPerformer;->lockScreen()Z
 
@@ -1029,21 +982,21 @@
 
     return v2
 
-    :pswitch_3
+    :pswitch_4
     :try_start_9
-    invoke-direct {p0}, Lcom/android/server/accessibility/SystemActionPerformer;->toggleSplitScreen()Z
-
-    move-result v2
+    invoke-direct {p0}, Lcom/android/server/accessibility/SystemActionPerformer;->showGlobalActions()V
     :try_end_9
     .catchall {:try_start_9 .. :try_end_9} :catchall_1
 
+    nop
+
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v2
+    return v5
 
-    :pswitch_4
+    :pswitch_5
     :try_start_a
-    invoke-direct {p0}, Lcom/android/server/accessibility/SystemActionPerformer;->showGlobalActions()V
+    invoke-direct {p0}, Lcom/android/server/accessibility/SystemActionPerformer;->expandQuickSettings()V
     :try_end_a
     .catchall {:try_start_a .. :try_end_a} :catchall_1
 
@@ -1053,9 +1006,9 @@
 
     return v5
 
-    :pswitch_5
+    :pswitch_6
     :try_start_b
-    invoke-direct {p0}, Lcom/android/server/accessibility/SystemActionPerformer;->expandQuickSettings()V
+    invoke-direct {p0}, Lcom/android/server/accessibility/SystemActionPerformer;->expandNotifications()V
     :try_end_b
     .catchall {:try_start_b .. :try_end_b} :catchall_1
 
@@ -1065,25 +1018,13 @@
 
     return v5
 
-    :pswitch_6
-    :try_start_c
-    invoke-direct {p0}, Lcom/android/server/accessibility/SystemActionPerformer;->expandNotifications()V
-    :try_end_c
-    .catchall {:try_start_c .. :try_end_c} :catchall_1
-
-    nop
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v5
-
     :pswitch_7
-    :try_start_d
+    :try_start_c
     invoke-direct {p0}, Lcom/android/server/accessibility/SystemActionPerformer;->openRecents()Z
 
     move-result v2
-    :try_end_d
-    .catchall {:try_start_d .. :try_end_d} :catchall_1
+    :try_end_c
+    .catchall {:try_start_c .. :try_end_c} :catchall_1
 
     invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
@@ -1091,6 +1032,20 @@
 
     :pswitch_8
     const/4 v2, 0x3
+
+    :try_start_d
+    invoke-direct {p0, v2}, Lcom/android/server/accessibility/SystemActionPerformer;->sendDownAndUpKeyEvents(I)V
+    :try_end_d
+    .catchall {:try_start_d .. :try_end_d} :catchall_1
+
+    nop
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return v5
+
+    :pswitch_9
+    const/4 v2, 0x4
 
     :try_start_e
     invoke-direct {p0, v2}, Lcom/android/server/accessibility/SystemActionPerformer;->sendDownAndUpKeyEvents(I)V
@@ -1103,22 +1058,8 @@
 
     return v5
 
-    :pswitch_9
-    const/4 v2, 0x4
-
-    :try_start_f
-    invoke-direct {p0, v2}, Lcom/android/server/accessibility/SystemActionPerformer;->sendDownAndUpKeyEvents(I)V
-    :try_end_f
-    .catchall {:try_start_f .. :try_end_f} :catchall_1
-
-    nop
-
-    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return v5
-
     :goto_0
-    :try_start_10
+    :try_start_f
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -1134,8 +1075,8 @@
     move-result-object v3
 
     invoke-static {v2, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_10
-    .catchall {:try_start_10 .. :try_end_10} :catchall_1
+    :try_end_f
+    .catchall {:try_start_f .. :try_end_f} :catchall_1
 
     nop
 
@@ -1146,15 +1087,15 @@
     :catchall_0
     move-exception v3
 
-    :try_start_11
+    :try_start_10
     monitor-exit v2
-    :try_end_11
-    .catchall {:try_start_11 .. :try_end_11} :catchall_0
+    :try_end_10
+    .catchall {:try_start_10 .. :try_end_10} :catchall_0
 
-    :try_start_12
+    :try_start_11
     throw v3
-    :try_end_12
-    .catchall {:try_start_12 .. :try_end_12} :catchall_1
+    :try_end_11
+    .catchall {:try_start_11 .. :try_end_11} :catchall_1
 
     :catchall_1
     move-exception v2
@@ -1171,10 +1112,10 @@
         :pswitch_6
         :pswitch_5
         :pswitch_4
+        :pswitch_0
         :pswitch_3
         :pswitch_2
         :pswitch_1
-        :pswitch_0
     .end packed-switch
 .end method
 

@@ -33,7 +33,7 @@
 
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda39;->f$1:Ljava/lang/String;
 
-    invoke-static {v0, v1}, Lcom/android/server/pm/PackageManagerService;->lambda$deletePackageVersionedInternal$53(Landroid/content/pm/IPackageDeleteObserver2;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/android/server/pm/PackageManagerService;->lambda$deletePackageVersionedInternal$52(Landroid/content/pm/IPackageDeleteObserver2;Ljava/lang/String;)V
 
     return-void
 .end method

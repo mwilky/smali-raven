@@ -14,6 +14,26 @@
 
 
 # instance fields
+.field private mActiveRecentsActivity:Ljava/lang/ref/WeakReference;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/lang/ref/WeakReference<",
+            "Lcom/android/server/wm/ActivityRecord;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private mActiveRecentsLayerRef:Ljava/lang/ref/WeakReference;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/lang/ref/WeakReference<",
+            "Lcom/android/server/wm/ActivityRecord;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private mDisableWallpaperTouchEvents:Z
 
 .field private final mDisplayContent:Lcom/android/server/wm/DisplayContent;
@@ -84,6 +104,10 @@
 
     iput-object v1, p0, Lcom/android/server/wm/InputMonitor;->mInputConsumers:Landroid/util/ArrayMap;
 
+    iput-object v0, p0, Lcom/android/server/wm/InputMonitor;->mActiveRecentsActivity:Ljava/lang/ref/WeakReference;
+
+    iput-object v0, p0, Lcom/android/server/wm/InputMonitor;->mActiveRecentsLayerRef:Ljava/lang/ref/WeakReference;
+
     new-instance v1, Lcom/android/server/wm/InputMonitor$UpdateInputWindows;
 
     invoke-direct {v1, p0, v0}, Lcom/android/server/wm/InputMonitor$UpdateInputWindows;-><init>(Lcom/android/server/wm/InputMonitor;Lcom/android/server/wm/InputMonitor$1;)V
@@ -147,7 +171,33 @@
     return p1
 .end method
 
-.method static synthetic access$1100(Lcom/android/server/wm/InputMonitor;)Lcom/android/server/wm/DisplayContent;
+.method static synthetic access$1100(Lcom/android/server/wm/InputMonitor;)Ljava/lang/ref/WeakReference;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/wm/InputMonitor;->mActiveRecentsActivity:Ljava/lang/ref/WeakReference;
+
+    return-object v0
+.end method
+
+.method static synthetic access$1200(Ljava/lang/ref/WeakReference;)Ljava/lang/Object;
+    .locals 1
+
+    invoke-static {p0}, Lcom/android/server/wm/InputMonitor;->getWeak(Ljava/lang/ref/WeakReference;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$1300(Lcom/android/server/wm/InputMonitor;)Ljava/lang/ref/WeakReference;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/wm/InputMonitor;->mActiveRecentsLayerRef:Ljava/lang/ref/WeakReference;
+
+    return-object v0
+.end method
+
+.method static synthetic access$1400(Lcom/android/server/wm/InputMonitor;)Lcom/android/server/wm/DisplayContent;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/InputMonitor;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
@@ -155,7 +205,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1200(Lcom/android/server/wm/InputMonitor;Lcom/android/server/wm/InputConsumerImpl;)V
+.method static synthetic access$1500(Lcom/android/server/wm/InputMonitor;Lcom/android/server/wm/InputConsumerImpl;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/wm/InputMonitor;->updateInputFocusRequest(Lcom/android/server/wm/InputConsumerImpl;)V
@@ -163,7 +213,7 @@
     return-void
 .end method
 
-.method static synthetic access$1300(Lcom/android/server/wm/InputMonitor;)Z
+.method static synthetic access$1600(Lcom/android/server/wm/InputMonitor;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/wm/InputMonitor;->mUpdateInputWindowsImmediately:Z
@@ -252,6 +302,33 @@
     const/4 v0, 0x0
 
     return v0
+.end method
+
+.method private static getWeak(Ljava/lang/ref/WeakReference;)Ljava/lang/Object;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Ljava/lang/ref/WeakReference<",
+            "TT;>;)TT;"
+        }
+    .end annotation
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return-object v0
 .end method
 
 .method static isTrustedOverlay(I)Z
@@ -544,9 +621,9 @@
 
     const/4 v2, 0x0
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_3
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3
 
     iget-object v3, p0, Lcom/android/server/wm/InputMonitor;->mService:Lcom/android/server/wm/WindowManagerService;
 
@@ -562,17 +639,27 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-nez v4, :cond_1
 
+    :cond_0
+    iget-object v4, p0, Lcom/android/server/wm/InputMonitor;->mActiveRecentsActivity:Ljava/lang/ref/WeakReference;
+
+    invoke-static {v4}, Lcom/android/server/wm/InputMonitor;->getWeak(Ljava/lang/ref/WeakReference;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_2
+
+    :cond_1
     move v4, v1
 
     goto :goto_0
 
-    :cond_0
+    :cond_2
     move v4, v2
 
     :goto_0
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_3
 
     iget-object v1, p1, Lcom/android/server/wm/InputConsumerImpl;->mWindowHandle:Landroid/view/InputWindowHandle;
 
@@ -584,33 +671,33 @@
 
     return-void
 
-    :cond_1
+    :cond_3
     const/4 v3, 0x0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_4
 
     iget-object v4, v0, Lcom/android/server/wm/WindowState;->mInputChannelToken:Landroid/os/IBinder;
 
     goto :goto_1
 
-    :cond_2
+    :cond_4
     move-object v4, v3
 
     :goto_1
-    if-nez v4, :cond_3
+    if-nez v4, :cond_5
 
     iput-object v3, p0, Lcom/android/server/wm/InputMonitor;->mInputFocus:Landroid/os/IBinder;
 
     return-void
 
-    :cond_3
+    :cond_5
     iget-object v5, v0, Lcom/android/server/wm/WindowState;->mWinAnimator:Lcom/android/server/wm/WindowStateAnimator;
 
     invoke-virtual {v5}, Lcom/android/server/wm/WindowStateAnimator;->hasSurface()Z
 
     move-result v5
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_7
 
     iget-object v5, v0, Lcom/android/server/wm/WindowState;->mInputWindowHandle:Lcom/android/server/wm/InputWindowHandleWrapper;
 
@@ -618,11 +705,11 @@
 
     move-result v5
 
-    if-nez v5, :cond_4
+    if-nez v5, :cond_6
 
     goto :goto_2
 
-    :cond_4
+    :cond_6
     invoke-virtual {v0}, Lcom/android/server/wm/WindowState;->getName()Ljava/lang/String;
 
     move-result-object v1
@@ -631,11 +718,11 @@
 
     return-void
 
-    :cond_5
+    :cond_7
     :goto_2
     sget-boolean v5, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_FOCUS_LIGHT_enabled:Z
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_8
 
     invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
@@ -651,7 +738,7 @@
 
     invoke-static {v6, v7, v2, v3, v1}, Lcom/android/internal/protolog/ProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
-    :cond_6
+    :cond_8
     iput-object v3, p0, Lcom/android/server/wm/InputMonitor;->mInputFocus:Landroid/os/IBinder;
 
     return-void
@@ -1091,7 +1178,7 @@
 .end method
 
 .method populateInputWindowHandle(Lcom/android/server/wm/InputWindowHandleWrapper;Lcom/android/server/wm/WindowState;)V
-    .locals 10
+    .locals 9
 
     iget-object v0, p2, Lcom/android/server/wm/WindowState;->mActivityRecord:Lcom/android/server/wm/ActivityRecord;
 
@@ -1165,6 +1252,10 @@
 
     invoke-virtual {p1, v0}, Lcom/android/server/wm/InputWindowHandleWrapper;->setVisible(Z)V
 
+    iget-object v0, p2, Lcom/android/server/wm/WindowState;->mClient:Landroid/view/IWindow;
+
+    invoke-virtual {p1, v0}, Lcom/android/server/wm/InputWindowHandleWrapper;->setWindowToken(Landroid/view/IWindow;)V
+
     invoke-virtual {p2}, Lcom/android/server/wm/WindowState;->canReceiveKeys()Z
 
     move-result v0
@@ -1220,133 +1311,149 @@
 
     if-nez v4, :cond_4
 
-    move v4, v3
+    move v2, v3
 
     goto :goto_3
 
     :cond_4
-    move v4, v2
+    nop
 
     :goto_3
-    invoke-virtual {p1, v4}, Lcom/android/server/wm/InputWindowHandleWrapper;->setHasWallpaper(Z)V
+    invoke-virtual {p1, v2}, Lcom/android/server/wm/InputWindowHandleWrapper;->setHasWallpaper(Z)V
 
-    invoke-virtual {p2}, Lcom/android/server/wm/WindowState;->getFrame()Landroid/graphics/Rect;
+    iget-object v4, p2, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
 
-    move-result-object v5
+    iget-object v4, v4, Landroid/view/WindowManager$LayoutParams;->surfaceInsets:Landroid/graphics/Rect;
 
-    iget v6, v5, Landroid/graphics/Rect;->left:I
+    iget v4, v4, Landroid/graphics/Rect;->left:I
 
-    iget v7, v5, Landroid/graphics/Rect;->top:I
+    invoke-virtual {p1, v4}, Lcom/android/server/wm/InputWindowHandleWrapper;->setSurfaceInset(I)V
 
-    iget v8, v5, Landroid/graphics/Rect;->right:I
+    iget v4, p2, Lcom/android/server/wm/WindowState;->mGlobalScale:F
 
-    iget v9, v5, Landroid/graphics/Rect;->bottom:I
+    const/high16 v5, 0x3f800000    # 1.0f
 
-    invoke-virtual {p1, v6, v7, v8, v9}, Lcom/android/server/wm/InputWindowHandleWrapper;->setFrame(IIII)V
+    cmpl-float v4, v4, v5
 
-    iget-object v6, p2, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
+    if-eqz v4, :cond_5
 
-    iget-object v6, v6, Landroid/view/WindowManager$LayoutParams;->surfaceInsets:Landroid/graphics/Rect;
+    iget v4, p2, Lcom/android/server/wm/WindowState;->mGlobalScale:F
 
-    iget v6, v6, Landroid/graphics/Rect;->left:I
-
-    invoke-virtual {p1, v6}, Lcom/android/server/wm/InputWindowHandleWrapper;->setSurfaceInset(I)V
-
-    iget v6, p2, Lcom/android/server/wm/WindowState;->mGlobalScale:F
-
-    const/high16 v7, 0x3f800000    # 1.0f
-
-    cmpl-float v6, v6, v7
-
-    if-eqz v6, :cond_5
-
-    iget v6, p2, Lcom/android/server/wm/WindowState;->mGlobalScale:F
-
-    div-float/2addr v7, v6
+    div-float/2addr v5, v4
 
     :cond_5
-    invoke-virtual {p1, v7}, Lcom/android/server/wm/InputWindowHandleWrapper;->setScaleFactor(F)V
+    invoke-virtual {p1, v5}, Lcom/android/server/wm/InputWindowHandleWrapper;->setScaleFactor(F)V
 
-    iget-object v6, p0, Lcom/android/server/wm/InputMonitor;->mTmpRegion:Landroid/graphics/Region;
+    iget-object v4, p2, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
 
-    iget-object v7, p2, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
+    iget v4, v4, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    iget v7, v7, Landroid/view/WindowManager$LayoutParams;->flags:I
+    iget-object v5, p2, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
 
-    invoke-virtual {p2, v6, v7}, Lcom/android/server/wm/WindowState;->getSurfaceTouchableRegion(Landroid/graphics/Region;I)I
+    invoke-virtual {v5}, Landroid/view/WindowManager$LayoutParams;->isModal()Z
 
-    move-result v6
+    move-result v5
 
-    iget-object v7, p0, Lcom/android/server/wm/InputMonitor;->mTmpRegion:Landroid/graphics/Region;
+    if-eqz v5, :cond_6
 
-    invoke-virtual {p1, v7}, Lcom/android/server/wm/InputWindowHandleWrapper;->setTouchableRegion(Landroid/graphics/Region;)V
+    or-int/lit8 v4, v4, 0x20
 
-    invoke-virtual {p1, v6}, Lcom/android/server/wm/InputWindowHandleWrapper;->setLayoutParamsFlags(I)V
+    :cond_6
+    invoke-virtual {p1, v4}, Lcom/android/server/wm/InputWindowHandleWrapper;->setLayoutParamsFlags(I)V
 
-    const/4 v7, 0x0
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
 
     invoke-virtual {p2}, Lcom/android/server/wm/WindowState;->getTask()Lcom/android/server/wm/Task;
 
-    move-result-object v8
+    move-result-object v7
 
-    if-eqz v8, :cond_7
+    if-eqz v7, :cond_9
 
-    invoke-virtual {v8}, Lcom/android/server/wm/Task;->isOrganized()Z
+    invoke-virtual {v7}, Lcom/android/server/wm/Task;->isOrganized()Z
 
-    move-result v9
+    move-result v8
 
-    if-eqz v9, :cond_6
+    if-eqz v8, :cond_8
 
-    invoke-virtual {v8}, Lcom/android/server/wm/Task;->getWindowingMode()I
+    invoke-virtual {v7}, Lcom/android/server/wm/Task;->getWindowingMode()I
 
-    move-result v9
+    move-result v8
 
-    if-eq v9, v3, :cond_6
+    if-eq v8, v3, :cond_8
 
-    invoke-virtual {p1, v1}, Lcom/android/server/wm/InputWindowHandleWrapper;->setTouchableRegionCrop(Landroid/view/SurfaceControl;)V
-
-    invoke-virtual {p1, v3}, Lcom/android/server/wm/InputWindowHandleWrapper;->setReplaceTouchableRegionWithCrop(Z)V
-
-    const/4 v7, 0x1
-
-    goto :goto_4
-
-    :cond_6
-    invoke-virtual {v8}, Lcom/android/server/wm/Task;->cropWindowsToRootTaskBounds()Z
+    invoke-virtual {v7}, Lcom/android/server/wm/Task;->inFreeformWindowingMode()Z
 
     move-result v3
+
+    if-nez v3, :cond_8
+
+    const/4 v5, 0x1
+
+    iget-object v3, p2, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
+
+    invoke-virtual {v3}, Landroid/view/WindowManager$LayoutParams;->isModal()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_9
+
+    invoke-virtual {p2}, Lcom/android/server/wm/WindowState;->getTaskFragment()Lcom/android/server/wm/TaskFragment;
+
+    move-result-object v3
 
     if-eqz v3, :cond_7
 
-    invoke-virtual {p2}, Lcom/android/server/wm/WindowState;->inFreeformWindowingMode()Z
+    invoke-virtual {v3}, Lcom/android/server/wm/TaskFragment;->getSurfaceControl()Landroid/view/SurfaceControl;
 
-    move-result v3
-
-    if-nez v3, :cond_7
-
-    invoke-virtual {v8}, Lcom/android/server/wm/Task;->getRootTask()Lcom/android/server/wm/Task;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/server/wm/Task;->getSurfaceControl()Landroid/view/SurfaceControl;
-
-    move-result-object v3
-
-    invoke-virtual {p1, v3}, Lcom/android/server/wm/InputWindowHandleWrapper;->setTouchableRegionCrop(Landroid/view/SurfaceControl;)V
-
-    invoke-virtual {p1, v2}, Lcom/android/server/wm/InputWindowHandleWrapper;->setReplaceTouchableRegionWithCrop(Z)V
-
-    const/4 v7, 0x1
+    move-result-object v1
 
     :cond_7
-    :goto_4
-    if-nez v7, :cond_8
+    move-object v6, v1
 
-    invoke-virtual {p1, v2}, Lcom/android/server/wm/InputWindowHandleWrapper;->setReplaceTouchableRegionWithCrop(Z)V
-
-    invoke-virtual {p1, v1}, Lcom/android/server/wm/InputWindowHandleWrapper;->setTouchableRegionCrop(Landroid/view/SurfaceControl;)V
+    goto :goto_4
 
     :cond_8
+    invoke-virtual {v7}, Lcom/android/server/wm/Task;->cropWindowsToRootTaskBounds()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_9
+
+    invoke-virtual {p2}, Lcom/android/server/wm/WindowState;->inFreeformWindowingMode()Z
+
+    move-result v1
+
+    if-nez v1, :cond_9
+
+    invoke-virtual {v7}, Lcom/android/server/wm/Task;->getRootTask()Lcom/android/server/wm/Task;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/server/wm/Task;->getSurfaceControl()Landroid/view/SurfaceControl;
+
+    move-result-object v6
+
+    :cond_9
+    :goto_4
+    invoke-virtual {p1, v5}, Lcom/android/server/wm/InputWindowHandleWrapper;->setReplaceTouchableRegionWithCrop(Z)V
+
+    invoke-virtual {p1, v6}, Lcom/android/server/wm/InputWindowHandleWrapper;->setTouchableRegionCrop(Landroid/view/SurfaceControl;)V
+
+    if-nez v5, :cond_a
+
+    iget-object v1, p0, Lcom/android/server/wm/InputMonitor;->mTmpRegion:Landroid/graphics/Region;
+
+    iget-object v3, p2, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
+
+    invoke-virtual {p2, v1, v3}, Lcom/android/server/wm/WindowState;->getSurfaceTouchableRegion(Landroid/graphics/Region;Landroid/view/WindowManager$LayoutParams;)V
+
+    iget-object v1, p0, Lcom/android/server/wm/InputMonitor;->mTmpRegion:Landroid/graphics/Region;
+
+    invoke-virtual {p1, v1}, Lcom/android/server/wm/InputWindowHandleWrapper;->setTouchableRegion(Landroid/graphics/Region;)V
+
+    :cond_a
     return-void
 .end method
 
@@ -1398,6 +1505,50 @@
     invoke-virtual {p0, v0}, Lcom/android/server/wm/InputMonitor;->updateInputWindowsLw(Z)V
 
     :cond_0
+    return-void
+.end method
+
+.method setActiveRecents(Lcom/android/server/wm/ActivityRecord;Lcom/android/server/wm/ActivityRecord;)V
+    .locals 3
+
+    if-nez p1, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_1
+
+    move-object v2, v1
+
+    goto :goto_1
+
+    :cond_1
+    new-instance v2, Ljava/lang/ref/WeakReference;
+
+    invoke-direct {v2, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+
+    :goto_1
+    iput-object v2, p0, Lcom/android/server/wm/InputMonitor;->mActiveRecentsActivity:Ljava/lang/ref/WeakReference;
+
+    if-eqz v0, :cond_2
+
+    goto :goto_2
+
+    :cond_2
+    new-instance v1, Ljava/lang/ref/WeakReference;
+
+    invoke-direct {v1, p2}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+
+    :goto_2
+    iput-object v1, p0, Lcom/android/server/wm/InputMonitor;->mActiveRecentsLayerRef:Ljava/lang/ref/WeakReference;
+
     return-void
 .end method
 

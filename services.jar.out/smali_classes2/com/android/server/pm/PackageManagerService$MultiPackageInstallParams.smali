@@ -306,7 +306,7 @@
 
     iget-object v7, p0, Lcom/android/server/pm/PackageManagerService$MultiPackageInstallParams;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v7, v0}, Lcom/android/server/pm/PackageManagerService;->access$5600(Lcom/android/server/pm/PackageManagerService;I)Lcom/android/server/pm/PackageManagerService$PackageInstalledInfo;
+    invoke-static {v7, v0}, Lcom/android/server/pm/PackageManagerService;->access$5500(Lcom/android/server/pm/PackageManagerService;I)Lcom/android/server/pm/PackageManagerService$PackageInstalledInfo;
 
     move-result-object v7
 
@@ -329,7 +329,7 @@
     const/4 v3, 0x0
 
     :goto_3
-    invoke-static {v2, v3, v1}, Lcom/android/server/pm/PackageManagerService;->access$5800(Lcom/android/server/pm/PackageManagerService;ZLjava/util/List;)V
+    invoke-static {v2, v3, v1}, Lcom/android/server/pm/PackageManagerService;->access$5700(Lcom/android/server/pm/PackageManagerService;ZLjava/util/List;)V
 
     return-void
 .end method

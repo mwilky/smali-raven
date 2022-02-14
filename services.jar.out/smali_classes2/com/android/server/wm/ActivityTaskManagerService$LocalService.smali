@@ -117,7 +117,7 @@
 
     iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    invoke-static {v0, p1, p2}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1000(Lcom/android/server/wm/ActivityTaskManagerService;II)Z
+    invoke-static {v0, p1, p2}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1200(Lcom/android/server/wm/ActivityTaskManagerService;II)Z
 
     move-result v0
 
@@ -199,7 +199,7 @@
 
     iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    invoke-static {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1400(Lcom/android/server/wm/ActivityTaskManagerService;)Z
+    invoke-static {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1600(Lcom/android/server/wm/ActivityTaskManagerService;)Z
 
     move-result v1
 
@@ -209,7 +209,7 @@
 
     iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    invoke-static {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1200(Lcom/android/server/wm/ActivityTaskManagerService;)Z
+    invoke-static {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1400(Lcom/android/server/wm/ActivityTaskManagerService;)Z
 
     move-result v1
 
@@ -306,7 +306,7 @@
 
     iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    invoke-static {v0, p1, p2, p3}, Lcom/android/server/wm/ActivityTaskManagerService;->access$900(Lcom/android/server/wm/ActivityTaskManagerService;IILjava/lang/String;)Z
+    invoke-static {v0, p1, p2, p3}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1100(Lcom/android/server/wm/ActivityTaskManagerService;IILjava/lang/String;)Z
 
     move-result v0
 
@@ -414,7 +414,7 @@
 
     iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    invoke-static {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1700(Lcom/android/server/wm/ActivityTaskManagerService;)Lcom/android/server/wm/RecentTasks;
+    invoke-static {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1900(Lcom/android/server/wm/ActivityTaskManagerService;)Lcom/android/server/wm/RecentTasks;
 
     move-result-object v1
 
@@ -800,15 +800,27 @@
 .method public createPackageConfigurationUpdater()Lcom/android/server/wm/ActivityTaskManagerInternal$PackageConfigurationUpdater;
     .locals 3
 
-    new-instance v0, Lcom/android/server/wm/ActivityTaskManagerService$PackageConfigurationUpdaterImpl;
-
-    iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
+    new-instance v0, Lcom/android/server/wm/PackageConfigurationUpdaterImpl;
 
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
-    move-result v2
+    move-result v1
 
-    invoke-direct {v0, v1, v2}, Lcom/android/server/wm/ActivityTaskManagerService$PackageConfigurationUpdaterImpl;-><init>(Lcom/android/server/wm/ActivityTaskManagerService;I)V
+    iget-object v2, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    invoke-direct {v0, v1, v2}, Lcom/android/server/wm/PackageConfigurationUpdaterImpl;-><init>(ILcom/android/server/wm/ActivityTaskManagerService;)V
+
+    return-object v0
+.end method
+
+.method public createPackageConfigurationUpdater(Ljava/lang/String;I)Lcom/android/server/wm/ActivityTaskManagerInternal$PackageConfigurationUpdater;
+    .locals 2
+
+    new-instance v0, Lcom/android/server/wm/PackageConfigurationUpdaterImpl;
+
+    iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    invoke-direct {v0, p1, p2, v1}, Lcom/android/server/wm/PackageConfigurationUpdaterImpl;-><init>(Ljava/lang/String;ILcom/android/server/wm/ActivityTaskManagerService;)V
 
     return-object v0
 .end method
@@ -1711,7 +1723,7 @@
 
     iget-object v6, v1, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    invoke-static {v6}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1200(Lcom/android/server/wm/ActivityTaskManagerService;)Z
+    invoke-static {v6}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1400(Lcom/android/server/wm/ActivityTaskManagerService;)Z
 
     move-result v6
 
@@ -2118,7 +2130,7 @@
 
     iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    invoke-static {v1, p1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1300(Lcom/android/server/wm/ActivityTaskManagerService;Z)V
+    invoke-static {v1, p1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1500(Lcom/android/server/wm/ActivityTaskManagerService;Z)V
 
     monitor-exit v0
     :try_end_0
@@ -2239,7 +2251,7 @@
 
     iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    invoke-static {v0}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1700(Lcom/android/server/wm/ActivityTaskManagerService;)Lcom/android/server/wm/RecentTasks;
+    invoke-static {v0}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1900(Lcom/android/server/wm/ActivityTaskManagerService;)Lcom/android/server/wm/RecentTasks;
 
     move-result-object v0
 
@@ -2297,6 +2309,20 @@
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
     throw v1
+.end method
+
+.method public getApplicationConfig(Ljava/lang/String;I)Lcom/android/server/wm/ActivityTaskManagerInternal$PackageConfig;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    iget-object v0, v0, Lcom/android/server/wm/ActivityTaskManagerService;->mPackageConfigPersister:Lcom/android/server/wm/PackageConfigPersister;
+
+    invoke-virtual {v0, p1, p2}, Lcom/android/server/wm/PackageConfigPersister;->findPackageConfiguration(Ljava/lang/String;I)Lcom/android/server/wm/ActivityTaskManagerInternal$PackageConfig;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public getHomeActivityForUser(I)Landroid/content/ComponentName;
@@ -2572,7 +2598,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, p1, p2, v1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1900(Lcom/android/server/wm/ActivityTaskManagerService;IZZ)Landroid/window/TaskSnapshot;
+    invoke-static {v0, p1, p2, v1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$2100(Lcom/android/server/wm/ActivityTaskManagerService;IZZ)Landroid/window/TaskSnapshot;
 
     move-result-object v0
 
@@ -2731,6 +2757,19 @@
 .method public getTopProcessState()I
     .locals 1
 
+    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    invoke-static {v0}, Lcom/android/server/wm/ActivityTaskManagerService;->access$500(Lcom/android/server/wm/ActivityTaskManagerService;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x2
+
+    return v0
+
+    :cond_0
     iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
     iget v0, v0, Lcom/android/server/wm/ActivityTaskManagerService;->mTopProcessState:I
@@ -3181,7 +3220,7 @@
 
     iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    invoke-static {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1100(Lcom/android/server/wm/ActivityTaskManagerService;)Z
+    invoke-static {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1300(Lcom/android/server/wm/ActivityTaskManagerService;)Z
 
     move-result v1
 
@@ -3394,7 +3433,7 @@
 
     iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    invoke-static {v0}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1200(Lcom/android/server/wm/ActivityTaskManagerService;)Z
+    invoke-static {v0}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1400(Lcom/android/server/wm/ActivityTaskManagerService;)Z
 
     move-result v0
 
@@ -3418,7 +3457,7 @@
 
     iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    invoke-static {v0}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1400(Lcom/android/server/wm/ActivityTaskManagerService;)Z
+    invoke-static {v0}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1600(Lcom/android/server/wm/ActivityTaskManagerService;)Z
 
     move-result v0
 
@@ -3460,7 +3499,7 @@
 
     iget-object v1, v1, Lcom/android/server/wm/ActivityTaskManagerService;->mUiContext:Landroid/content/Context;
 
-    const v2, 0x104084f
+    const v2, 0x1040854
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -3503,7 +3542,7 @@
 
     iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    invoke-static {v0}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1400(Lcom/android/server/wm/ActivityTaskManagerService;)Z
+    invoke-static {v0}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1600(Lcom/android/server/wm/ActivityTaskManagerService;)Z
 
     move-result v0
 
@@ -3545,7 +3584,7 @@
 
     iget-object v1, v1, Lcom/android/server/wm/ActivityTaskManagerService;->mUiContext:Landroid/content/Context;
 
-    const v2, 0x104084e
+    const v2, 0x1040853
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -3619,7 +3658,7 @@
 
     iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    invoke-static {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1700(Lcom/android/server/wm/ActivityTaskManagerService;)Lcom/android/server/wm/RecentTasks;
+    invoke-static {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1900(Lcom/android/server/wm/ActivityTaskManagerService;)Lcom/android/server/wm/RecentTasks;
 
     move-result-object v1
 
@@ -3703,7 +3742,7 @@
 
     iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    invoke-static {v1, p1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1102(Lcom/android/server/wm/ActivityTaskManagerService;Z)Z
+    invoke-static {v1, p1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1302(Lcom/android/server/wm/ActivityTaskManagerService;Z)Z
 
     monitor-exit v0
     :try_end_0
@@ -3994,6 +4033,34 @@
     throw v1
 .end method
 
+.method public notifyWakingUp()V
+    .locals 5
+
+    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    invoke-virtual {v0}, Lcom/android/server/wm/ActivityTaskManagerService;->getTransitionController()Lcom/android/server/wm/TransitionController;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    iget-object v1, v1, Lcom/android/server/wm/ActivityTaskManagerService;->mRootWindowContainer:Lcom/android/server/wm/RootWindowContainer;
+
+    invoke-virtual {v1}, Lcom/android/server/wm/RootWindowContainer;->getDefaultDisplay()Lcom/android/server/wm/DisplayContent;
+
+    move-result-object v1
+
+    const/16 v2, 0xb
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v0, v2, v3, v4, v1}, Lcom/android/server/wm/TransitionController;->requestTransitionIfNeeded(IILcom/android/server/wm/WindowContainer;Lcom/android/server/wm/WindowContainer;)Lcom/android/server/wm/Transition;
+
+    return-void
+.end method
+
 .method public onCleanUpApplicationRecord(Lcom/android/server/wm/WindowProcessController;)V
     .locals 3
 
@@ -4148,7 +4215,7 @@
 
     iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    invoke-static {v1, p1, p2, p3}, Lcom/android/server/wm/ActivityTaskManagerService;->access$500(Lcom/android/server/wm/ActivityTaskManagerService;Landroid/os/IBinder;Landroid/service/voice/IVoiceInteractionSession;Lcom/android/internal/app/IVoiceInteractor;)V
+    invoke-static {v1, p1, p2, p3}, Lcom/android/server/wm/ActivityTaskManagerService;->access$700(Lcom/android/server/wm/ActivityTaskManagerService;Landroid/os/IBinder;Landroid/service/voice/IVoiceInteractionSession;Lcom/android/internal/app/IVoiceInteractor;)V
 
     monitor-exit v0
     :try_end_0
@@ -4359,7 +4426,7 @@
 
     iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    invoke-static {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1700(Lcom/android/server/wm/ActivityTaskManagerService;)Lcom/android/server/wm/RecentTasks;
+    invoke-static {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1900(Lcom/android/server/wm/ActivityTaskManagerService;)Lcom/android/server/wm/RecentTasks;
 
     move-result-object v1
 
@@ -4552,7 +4619,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    invoke-static {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1600(Lcom/android/server/wm/ActivityTaskManagerService;)Landroid/util/SparseArray;
+    invoke-static {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1800(Lcom/android/server/wm/ActivityTaskManagerService;)Landroid/util/SparseArray;
 
     move-result-object v1
 
@@ -4608,7 +4675,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    invoke-static {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1600(Lcom/android/server/wm/ActivityTaskManagerService;)Landroid/util/SparseArray;
+    invoke-static {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1800(Lcom/android/server/wm/ActivityTaskManagerService;)Landroid/util/SparseArray;
 
     move-result-object v1
 
@@ -4711,6 +4778,123 @@
     throw v1
 .end method
 
+.method public registerActivityStartInterceptor(ILcom/android/server/wm/ActivityInterceptorCallback;)V
+    .locals 5
+
+    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    iget-object v0, v0, Lcom/android/server/wm/ActivityTaskManagerService;->mGlobalLock:Lcom/android/server/wm/WindowManagerGlobalLock;
+
+    monitor-enter v0
+
+    :try_start_0
+    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->boostPriorityForLockedSection()V
+
+    iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    invoke-static {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$2300(Lcom/android/server/wm/ActivityTaskManagerService;)Landroid/util/SparseArray;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Landroid/util/SparseArray;->contains(I)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    if-gtz p1, :cond_0
+
+    if-ltz p1, :cond_0
+
+    iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    invoke-static {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$2300(Lcom/android/server/wm/ActivityTaskManagerService;)Landroid/util/SparseArray;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1, p2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
+
+    return-void
+
+    :cond_0
+    :try_start_1
+    new-instance v1, Ljava/lang/IllegalArgumentException;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Provided id "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v3, " is not in range of valid ids ["
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v4, ","
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v3, "]"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    :cond_1
+    new-instance v1, Ljava/lang/IllegalArgumentException;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Duplicate id provided: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
+
+    throw v1
+.end method
+
 .method public registerScreenObserver(Lcom/android/server/wm/ActivityTaskManagerInternal$ScreenObserver;)V
     .locals 1
 
@@ -4737,7 +4921,7 @@
 
     iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    invoke-static {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1700(Lcom/android/server/wm/ActivityTaskManagerService;)Lcom/android/server/wm/RecentTasks;
+    invoke-static {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1900(Lcom/android/server/wm/ActivityTaskManagerService;)Lcom/android/server/wm/RecentTasks;
 
     move-result-object v1
 
@@ -5184,7 +5368,7 @@
 
     move-result-object v2
 
-    invoke-static {v1, v2}, Lcom/android/server/wm/ActivityTaskManagerService;->access$702(Lcom/android/server/wm/ActivityTaskManagerService;[I)[I
+    invoke-static {v1, v2}, Lcom/android/server/wm/ActivityTaskManagerService;->access$902(Lcom/android/server/wm/ActivityTaskManagerService;[I)[I
 
     monitor-exit v0
     :try_end_0
@@ -5311,7 +5495,7 @@
 
     iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    invoke-static {v0, p1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$602(Lcom/android/server/wm/ActivityTaskManagerService;Lcom/android/server/wm/BackgroundActivityStartCallback;)Lcom/android/server/wm/BackgroundActivityStartCallback;
+    invoke-static {v0, p1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$802(Lcom/android/server/wm/ActivityTaskManagerService;Lcom/android/server/wm/BackgroundActivityStartCallback;)Lcom/android/server/wm/BackgroundActivityStartCallback;
 
     return-void
 .end method
@@ -5338,7 +5522,7 @@
 
     iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    invoke-static {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$2000(Lcom/android/server/wm/ActivityTaskManagerService;)Ljava/util/Map;
+    invoke-static {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$2200(Lcom/android/server/wm/ActivityTaskManagerService;)Ljava/util/Map;
 
     move-result-object v1
 
@@ -5670,7 +5854,7 @@
 
     iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    invoke-static {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1400(Lcom/android/server/wm/ActivityTaskManagerService;)Z
+    invoke-static {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1600(Lcom/android/server/wm/ActivityTaskManagerService;)Z
 
     move-result v1
 
@@ -5678,7 +5862,7 @@
 
     iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    invoke-static {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1200(Lcom/android/server/wm/ActivityTaskManagerService;)Z
+    invoke-static {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1400(Lcom/android/server/wm/ActivityTaskManagerService;)Z
 
     move-result v1
 
@@ -5841,7 +6025,7 @@
 
     iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    invoke-static {v1, p1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1300(Lcom/android/server/wm/ActivityTaskManagerService;Z)V
+    invoke-static {v1, p1}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1500(Lcom/android/server/wm/ActivityTaskManagerService;Z)V
 
     iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
@@ -6124,7 +6308,7 @@
 
     move/from16 v13, p8
 
-    invoke-static/range {v1 .. v14}, Lcom/android/server/wm/ActivityTaskManagerService;->access$800(Lcom/android/server/wm/ActivityTaskManagerService;Landroid/app/IApplicationThread;Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/os/IBinder;Ljava/lang/String;IILandroid/app/ProfilerInfo;Landroid/os/Bundle;IZ)I
+    invoke-static/range {v1 .. v14}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1000(Lcom/android/server/wm/ActivityTaskManagerService;Landroid/app/IApplicationThread;Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/os/IBinder;Ljava/lang/String;IILandroid/app/ProfilerInfo;Landroid/os/Bundle;IZ)I
 
     move-result v1
 
@@ -6560,7 +6744,7 @@
 
     move-result-object v2
 
-    const v6, 0x1040376
+    const v6, 0x104037b
 
     invoke-virtual {v2, v6}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -6578,7 +6762,7 @@
 
     move-result-object v2
 
-    const v4, 0x1040375
+    const v4, 0x104037a
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -6704,7 +6888,7 @@
 
     move v8, v2
 
-    invoke-static/range {v3 .. v9}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1800(Lcom/android/server/wm/ActivityTaskManagerService;Landroid/content/res/Configuration;Lcom/android/server/wm/ActivityRecord;ZZIZ)Z
+    invoke-static/range {v3 .. v9}, Lcom/android/server/wm/ActivityTaskManagerService;->access$2000(Lcom/android/server/wm/ActivityTaskManagerService;Landroid/content/res/Configuration;Lcom/android/server/wm/ActivityRecord;ZZIZ)Z
 
     nop
 
@@ -6815,7 +6999,7 @@
     :cond_0
     iget-object v4, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    invoke-static {v4, p1, p3, p4}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1500(Lcom/android/server/wm/ActivityTaskManagerService;Landroid/util/proto/ProtoOutputStream;IZ)V
+    invoke-static {v4, p1, p3, p4}, Lcom/android/server/wm/ActivityTaskManagerService;->access$1700(Lcom/android/server/wm/ActivityTaskManagerService;Landroid/util/proto/ProtoOutputStream;IZ)V
 
     iget-object v4, p0, Lcom/android/server/wm/ActivityTaskManagerService$LocalService;->this$0:Lcom/android/server/wm/ActivityTaskManagerService;
 

@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
+.implements Ljava/util/function/Predicate;
 
 
 # static fields
@@ -32,10 +32,14 @@
 
 
 # virtual methods
-.method public final onAnimationFinished(ILcom/android/server/wm/AnimationAdapter;)V
+.method public final test(Ljava/lang/Object;)Z
     .locals 0
 
-    invoke-static {p1, p2}, Lcom/android/server/wm/WindowContainer;->lambda$applyAnimationUnchecked$15(ILcom/android/server/wm/AnimationAdapter;)V
+    check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    return-void
+    invoke-static {p1}, Lcom/android/server/wm/WindowContainer;->lambda$getActivityAbove$1(Lcom/android/server/wm/ActivityRecord;)Z
+
+    move-result p1
+
+    return p1
 .end method

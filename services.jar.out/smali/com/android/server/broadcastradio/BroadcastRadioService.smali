@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 3
+    .locals 4
 
     invoke-direct {p0, p1}, Lcom/android/server/SystemService;-><init>(Landroid/content/Context;)V
 
@@ -59,55 +59,55 @@
 
     iput-object v1, p0, Lcom/android/server/broadcastradio/BroadcastRadioService;->mV1Modules:Ljava/util/List;
 
-    new-instance v0, Lcom/android/server/broadcastradio/hal1/BroadcastRadioService;
+    new-instance v1, Lcom/android/server/broadcastradio/hal1/BroadcastRadioService;
 
-    invoke-direct {v0}, Lcom/android/server/broadcastradio/hal1/BroadcastRadioService;-><init>()V
+    invoke-direct {v1, v0}, Lcom/android/server/broadcastradio/hal1/BroadcastRadioService;-><init>(Ljava/lang/Object;)V
 
-    iput-object v0, p0, Lcom/android/server/broadcastradio/BroadcastRadioService;->mHal1:Lcom/android/server/broadcastradio/hal1/BroadcastRadioService;
+    iput-object v1, p0, Lcom/android/server/broadcastradio/BroadcastRadioService;->mHal1:Lcom/android/server/broadcastradio/hal1/BroadcastRadioService;
 
-    invoke-virtual {v0}, Lcom/android/server/broadcastradio/hal1/BroadcastRadioService;->loadModules()Ljava/util/List;
+    invoke-virtual {v1}, Lcom/android/server/broadcastradio/hal1/BroadcastRadioService;->loadModules()Ljava/util/List;
 
-    move-result-object v0
+    move-result-object v1
 
-    iput-object v0, p0, Lcom/android/server/broadcastradio/BroadcastRadioService;->mV1Modules:Ljava/util/List;
+    iput-object v1, p0, Lcom/android/server/broadcastradio/BroadcastRadioService;->mV1Modules:Ljava/util/List;
 
-    invoke-interface {v0}, Ljava/util/List;->stream()Ljava/util/stream/Stream;
+    invoke-interface {v1}, Ljava/util/List;->stream()Ljava/util/stream/Stream;
 
-    move-result-object v0
+    move-result-object v1
 
-    sget-object v1, Lcom/android/server/broadcastradio/BroadcastRadioService$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/broadcastradio/BroadcastRadioService$$ExternalSyntheticLambda0;
+    sget-object v2, Lcom/android/server/broadcastradio/BroadcastRadioService$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/broadcastradio/BroadcastRadioService$$ExternalSyntheticLambda0;
 
-    invoke-interface {v0, v1}, Ljava/util/stream/Stream;->mapToInt(Ljava/util/function/ToIntFunction;)Ljava/util/stream/IntStream;
+    invoke-interface {v1, v2}, Ljava/util/stream/Stream;->mapToInt(Ljava/util/function/ToIntFunction;)Ljava/util/stream/IntStream;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-interface {v0}, Ljava/util/stream/IntStream;->max()Ljava/util/OptionalInt;
+    invoke-interface {v1}, Ljava/util/stream/IntStream;->max()Ljava/util/OptionalInt;
 
-    move-result-object v0
+    move-result-object v1
 
-    new-instance v1, Lcom/android/server/broadcastradio/hal2/BroadcastRadioService;
+    new-instance v2, Lcom/android/server/broadcastradio/hal2/BroadcastRadioService;
 
-    invoke-virtual {v0}, Ljava/util/OptionalInt;->isPresent()Z
+    invoke-virtual {v1}, Ljava/util/OptionalInt;->isPresent()Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
-    invoke-virtual {v0}, Ljava/util/OptionalInt;->getAsInt()I
+    invoke-virtual {v1}, Ljava/util/OptionalInt;->getAsInt()I
 
-    move-result v2
+    move-result v3
 
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     :goto_0
-    invoke-direct {v1, v2}, Lcom/android/server/broadcastradio/hal2/BroadcastRadioService;-><init>(I)V
+    invoke-direct {v2, v3, v0}, Lcom/android/server/broadcastradio/hal2/BroadcastRadioService;-><init>(ILjava/lang/Object;)V
 
-    iput-object v1, p0, Lcom/android/server/broadcastradio/BroadcastRadioService;->mHal2:Lcom/android/server/broadcastradio/hal2/BroadcastRadioService;
+    iput-object v2, p0, Lcom/android/server/broadcastradio/BroadcastRadioService;->mHal2:Lcom/android/server/broadcastradio/hal2/BroadcastRadioService;
 
     return-void
 .end method

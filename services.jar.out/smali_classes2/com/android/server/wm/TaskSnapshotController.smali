@@ -155,7 +155,7 @@
 
     move-result-object v0
 
-    const v1, 0x10500b2
+    const v1, 0x10500b3
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -356,21 +356,29 @@
 
     invoke-direct {v2, v15}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
 
+    move-object/from16 v26, v2
+
     invoke-virtual {v1}, Lcom/android/server/wm/ActivityRecord;->getLetterboxInsets()Landroid/graphics/Rect;
 
     move-result-object v0
 
+    move-object/from16 v27, v0
+
     invoke-static {v2, v0}, Lcom/android/server/wm/utils/InsetUtils;->addInsets(Landroid/graphics/Rect;Landroid/graphics/Rect;)V
 
-    new-instance v0, Landroid/window/TaskSnapshot;
+    new-instance v34, Landroid/window/TaskSnapshot;
+
+    move-object/from16 v17, v34
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v18
 
-    move/from16 v33, v4
+    move-object/from16 v35, v0
 
-    iget-object v4, v1, Lcom/android/server/wm/ActivityRecord;->mActivityComponent:Landroid/content/ComponentName;
+    iget-object v0, v1, Lcom/android/server/wm/ActivityRecord;->mActivityComponent:Landroid/content/ComponentName;
+
+    move-object/from16 v20, v0
 
     invoke-virtual/range {v16 .. v16}, Landroid/graphics/Bitmap;->getHardwareBuffer()Landroid/hardware/HardwareBuffer;
 
@@ -380,57 +388,47 @@
 
     move-result-object v22
 
-    move-object/from16 v34, v1
-
     invoke-virtual {v3}, Lcom/android/server/wm/WindowState;->getConfiguration()Landroid/content/res/Configuration;
 
-    move-result-object v1
+    move-result-object v0
 
-    iget v1, v1, Landroid/content/res/Configuration;->orientation:I
+    iget v0, v0, Landroid/content/res/Configuration;->orientation:I
+
+    move/from16 v23, v0
 
     invoke-virtual {v3}, Lcom/android/server/wm/WindowState;->getWindowConfiguration()Landroid/app/WindowConfiguration;
 
-    move-result-object v17
+    move-result-object v0
 
-    invoke-virtual/range {v17 .. v17}, Landroid/app/WindowConfiguration;->getRotation()I
+    invoke-virtual {v0}, Landroid/app/WindowConfiguration;->getRotation()I
 
     move-result v24
 
-    move-object/from16 v35, v3
+    new-instance v0, Landroid/graphics/Point;
 
-    new-instance v3, Landroid/graphics/Point;
+    move-object/from16 v25, v0
 
-    invoke-direct {v3, v8, v9}, Landroid/graphics/Point;-><init>(II)V
-
-    const/16 v27, 0x0
+    invoke-direct {v0, v8, v9}, Landroid/graphics/Point;-><init>(II)V
 
     const/16 v28, 0x0
 
+    const/16 v29, 0x0
+
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/wm/Task;->getWindowingMode()I
-
-    move-result v29
-
-    invoke-direct/range {p0 .. p1}, Lcom/android/server/wm/TaskSnapshotController;->getAppearance(Lcom/android/server/wm/Task;)I
 
     move-result v30
 
-    const/16 v31, 0x0
+    invoke-direct/range {p0 .. p1}, Lcom/android/server/wm/TaskSnapshotController;->getAppearance(Lcom/android/server/wm/Task;)I
+
+    move-result v31
 
     const/16 v32, 0x0
 
-    move-object/from16 v17, v0
+    const/16 v33, 0x0
 
-    move-object/from16 v20, v4
+    invoke-direct/range {v17 .. v33}, Landroid/window/TaskSnapshot;-><init>(JLandroid/content/ComponentName;Landroid/hardware/HardwareBuffer;Landroid/graphics/ColorSpace;IILandroid/graphics/Point;Landroid/graphics/Rect;Landroid/graphics/Rect;ZZIIZZ)V
 
-    move/from16 v23, v1
-
-    move-object/from16 v25, v3
-
-    move-object/from16 v26, v2
-
-    invoke-direct/range {v17 .. v32}, Landroid/window/TaskSnapshot;-><init>(JLandroid/content/ComponentName;Landroid/hardware/HardwareBuffer;Landroid/graphics/ColorSpace;IILandroid/graphics/Point;Landroid/graphics/Rect;ZZIIZZ)V
-
-    return-object v0
+    return-object v34
 .end method
 
 .method private findAppTokenForSnapshot(Lcom/android/server/wm/Task;)Lcom/android/server/wm/ActivityRecord;
@@ -485,13 +483,19 @@
 .method static getSystemBarInsets(Landroid/graphics/Rect;Landroid/view/InsetsState;)Landroid/graphics/Rect;
     .locals 2
 
+    nop
+
     invoke-static {}, Landroid/view/WindowInsets$Type;->systemBars()I
 
     move-result v0
 
     const/4 v1, 0x0
 
-    invoke-virtual {p1, p0, v0, v1}, Landroid/view/InsetsState;->calculateInsets(Landroid/graphics/Rect;IZ)Landroid/graphics/Rect;
+    invoke-virtual {p1, p0, v0, v1}, Landroid/view/InsetsState;->calculateInsets(Landroid/graphics/Rect;IZ)Landroid/graphics/Insets;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/graphics/Insets;->toRect()Landroid/graphics/Rect;
 
     move-result-object v0
 
@@ -607,7 +611,7 @@
 .end method
 
 .method private snapshotTasks(Landroid/util/ArraySet;Z)V
-    .locals 9
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -621,182 +625,52 @@
 
     move-result v0
 
-    const/4 v1, 0x1
-
-    sub-int/2addr v0, v1
+    add-int/lit8 v0, v0, -0x1
 
     :goto_0
-    if-ltz v0, :cond_5
+    if-ltz v0, :cond_0
 
     invoke-virtual {p1, v0}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Lcom/android/server/wm/Task;
+    check-cast v1, Lcom/android/server/wm/Task;
 
-    if-eqz p2, :cond_0
+    invoke-virtual {p0, v1, p2}, Lcom/android/server/wm/TaskSnapshotController;->recordTaskSnapshot(Lcom/android/server/wm/Task;Z)V
 
-    invoke-virtual {v2}, Lcom/android/server/wm/Task;->isActivityTypeHome()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    move v3, v1
-
-    goto :goto_1
-
-    :cond_0
-    const/4 v3, 0x0
-
-    :goto_1
-    if-eqz v3, :cond_1
-
-    invoke-virtual {p0, v2}, Lcom/android/server/wm/TaskSnapshotController;->snapshotTask(Lcom/android/server/wm/Task;)Landroid/window/TaskSnapshot;
-
-    move-result-object v4
-
-    goto :goto_2
-
-    :cond_1
-    invoke-virtual {p0, v2}, Lcom/android/server/wm/TaskSnapshotController;->getSnapshotMode(Lcom/android/server/wm/Task;)I
-
-    move-result v4
-
-    packed-switch v4, :pswitch_data_0
-
-    const/4 v4, 0x0
-
-    goto :goto_2
-
-    :pswitch_0
-    goto :goto_4
-
-    :pswitch_1
-    invoke-direct {p0, v2}, Lcom/android/server/wm/TaskSnapshotController;->drawAppThemeSnapshot(Lcom/android/server/wm/Task;)Landroid/window/TaskSnapshot;
-
-    move-result-object v4
-
-    goto :goto_2
-
-    :pswitch_2
-    invoke-virtual {p0, v2}, Lcom/android/server/wm/TaskSnapshotController;->snapshotTask(Lcom/android/server/wm/Task;)Landroid/window/TaskSnapshot;
-
-    move-result-object v4
-
-    nop
-
-    :goto_2
-    if-eqz v4, :cond_4
-
-    invoke-virtual {v4}, Landroid/window/TaskSnapshot;->getHardwareBuffer()Landroid/hardware/HardwareBuffer;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Landroid/hardware/HardwareBuffer;->getWidth()I
-
-    move-result v6
-
-    if-eqz v6, :cond_3
-
-    invoke-virtual {v5}, Landroid/hardware/HardwareBuffer;->getHeight()I
-
-    move-result v6
-
-    if-nez v6, :cond_2
-
-    goto :goto_3
-
-    :cond_2
-    iget-object v6, p0, Lcom/android/server/wm/TaskSnapshotController;->mCache:Lcom/android/server/wm/TaskSnapshotCache;
-
-    invoke-virtual {v6, v2, v4}, Lcom/android/server/wm/TaskSnapshotCache;->putSnapshot(Lcom/android/server/wm/Task;Landroid/window/TaskSnapshot;)V
-
-    if-nez v3, :cond_4
-
-    iget-object v6, p0, Lcom/android/server/wm/TaskSnapshotController;->mPersister:Lcom/android/server/wm/TaskSnapshotPersister;
-
-    iget v7, v2, Lcom/android/server/wm/Task;->mTaskId:I
-
-    iget v8, v2, Lcom/android/server/wm/Task;->mUserId:I
-
-    invoke-virtual {v6, v7, v8, v4}, Lcom/android/server/wm/TaskSnapshotPersister;->persistSnapshot(IILandroid/window/TaskSnapshot;)V
-
-    invoke-virtual {v2, v4}, Lcom/android/server/wm/Task;->onSnapshotChanged(Landroid/window/TaskSnapshot;)V
-
-    goto :goto_4
-
-    :cond_3
-    :goto_3
-    invoke-virtual {v5}, Landroid/hardware/HardwareBuffer;->close()V
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "Invalid task snapshot dimensions "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5}, Landroid/hardware/HardwareBuffer;->getWidth()I
-
-    move-result v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v7, "x"
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5}, Landroid/hardware/HardwareBuffer;->getHeight()I
-
-    move-result v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    const-string v7, "WindowManager"
-
-    invoke-static {v7, v6}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_4
-    :goto_4
     add-int/lit8 v0, v0, -0x1
 
-    goto/16 :goto_0
+    goto :goto_0
 
-    :cond_5
+    :cond_0
     return-void
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
 .end method
 
 
 # virtual methods
-.method addSkipClosingAppSnapshotTasks(Landroid/util/ArraySet;)V
+.method addSkipClosingAppSnapshotTasks(Ljava/util/Set;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroid/util/ArraySet<",
+            "Ljava/util/Set<",
             "Lcom/android/server/wm/Task;",
             ">;)V"
         }
     .end annotation
 
+    invoke-virtual {p0}, Lcom/android/server/wm/TaskSnapshotController;->shouldDisableSnapshots()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    return-void
+
+    :cond_0
     iget-object v0, p0, Lcom/android/server/wm/TaskSnapshotController;->mSkipClosingAppSnapshotTasks:Landroid/util/ArraySet;
 
-    invoke-virtual {v0, p1}, Landroid/util/ArraySet;->addAll(Landroid/util/ArraySet;)V
+    invoke-virtual {v0, p1}, Landroid/util/ArraySet;->addAll(Ljava/util/Collection;)Z
 
     return-void
 .end method
@@ -1513,7 +1387,7 @@
 .end method
 
 .method prepareTaskSnapshot(Lcom/android/server/wm/Task;ILandroid/window/TaskSnapshot$Builder;)Z
-    .locals 9
+    .locals 10
 
     invoke-virtual {p0, p1}, Lcom/android/server/wm/TaskSnapshotController;->checkIfReadyToSnapshot(Lcom/android/server/wm/Task;)Landroid/util/Pair;
 
@@ -1552,88 +1426,90 @@
 
     invoke-static {v4, v5}, Lcom/android/server/wm/utils/InsetUtils;->addInsets(Landroid/graphics/Rect;Landroid/graphics/Rect;)V
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
 
-    invoke-virtual {p3, v5}, Landroid/window/TaskSnapshot$Builder;->setIsRealSnapshot(Z)Landroid/window/TaskSnapshot$Builder;
+    invoke-virtual {p3, v6}, Landroid/window/TaskSnapshot$Builder;->setIsRealSnapshot(Z)Landroid/window/TaskSnapshot$Builder;
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
-    move-result-wide v6
+    move-result-wide v7
 
-    invoke-virtual {p3, v6, v7}, Landroid/window/TaskSnapshot$Builder;->setId(J)Landroid/window/TaskSnapshot$Builder;
+    invoke-virtual {p3, v7, v8}, Landroid/window/TaskSnapshot$Builder;->setId(J)Landroid/window/TaskSnapshot$Builder;
 
     invoke-virtual {p3, v4}, Landroid/window/TaskSnapshot$Builder;->setContentInsets(Landroid/graphics/Rect;)Landroid/window/TaskSnapshot$Builder;
 
+    invoke-virtual {p3, v5}, Landroid/window/TaskSnapshot$Builder;->setLetterboxInsets(Landroid/graphics/Rect;)Landroid/window/TaskSnapshot$Builder;
+
     invoke-virtual {v3}, Lcom/android/server/wm/WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
 
-    move-result-object v6
+    move-result-object v7
 
-    iget v6, v6, Landroid/view/WindowManager$LayoutParams;->format:I
+    iget v7, v7, Landroid/view/WindowManager$LayoutParams;->format:I
 
-    const/4 v7, -0x1
+    const/4 v8, -0x1
 
-    if-eq v6, v7, :cond_1
+    if-eq v7, v8, :cond_1
 
-    move v6, v5
+    move v7, v6
 
     goto :goto_0
 
     :cond_1
-    move v6, v1
+    move v7, v1
 
     :goto_0
     invoke-virtual {v3}, Lcom/android/server/wm/WindowState;->hasWallpaper()Z
 
-    move-result v7
+    move-result v8
 
     if-nez p2, :cond_4
 
-    iget-object v8, p0, Lcom/android/server/wm/TaskSnapshotController;->mPersister:Lcom/android/server/wm/TaskSnapshotPersister;
+    iget-object v9, p0, Lcom/android/server/wm/TaskSnapshotController;->mPersister:Lcom/android/server/wm/TaskSnapshotPersister;
 
-    invoke-virtual {v8}, Lcom/android/server/wm/TaskSnapshotPersister;->use16BitFormat()Z
+    invoke-virtual {v9}, Lcom/android/server/wm/TaskSnapshotPersister;->use16BitFormat()Z
 
-    move-result v8
+    move-result v9
 
-    if-eqz v8, :cond_3
+    if-eqz v9, :cond_3
 
     invoke-virtual {v2}, Lcom/android/server/wm/ActivityRecord;->fillsParent()Z
 
-    move-result v8
+    move-result v9
 
-    if-eqz v8, :cond_3
+    if-eqz v9, :cond_3
 
-    if-eqz v6, :cond_2
+    if-eqz v7, :cond_2
 
-    if-nez v7, :cond_3
+    if-nez v8, :cond_3
 
     :cond_2
-    const/4 v8, 0x4
+    const/4 v9, 0x4
 
     goto :goto_1
 
     :cond_3
-    move v8, v5
+    move v9, v6
 
     :goto_1
-    move p2, v8
+    move p2, v9
 
     :cond_4
     invoke-static {p2}, Landroid/graphics/PixelFormat;->formatHasAlpha(I)Z
 
-    move-result v8
+    move-result v9
 
-    if-eqz v8, :cond_6
+    if-eqz v9, :cond_6
 
     invoke-virtual {v2}, Lcom/android/server/wm/ActivityRecord;->fillsParent()Z
 
-    move-result v8
+    move-result v9
 
-    if-eqz v8, :cond_5
+    if-eqz v9, :cond_5
 
-    if-eqz v6, :cond_6
+    if-eqz v7, :cond_6
 
     :cond_5
-    move v1, v5
+    move v1, v6
 
     goto :goto_2
 
@@ -1641,9 +1517,9 @@
     nop
 
     :goto_2
-    iget-object v8, v2, Lcom/android/server/wm/ActivityRecord;->mActivityComponent:Landroid/content/ComponentName;
+    iget-object v9, v2, Lcom/android/server/wm/ActivityRecord;->mActivityComponent:Landroid/content/ComponentName;
 
-    invoke-virtual {p3, v8}, Landroid/window/TaskSnapshot$Builder;->setTopActivityComponent(Landroid/content/ComponentName;)Landroid/window/TaskSnapshot$Builder;
+    invoke-virtual {p3, v9}, Landroid/window/TaskSnapshot$Builder;->setTopActivityComponent(Landroid/content/ComponentName;)Landroid/window/TaskSnapshot$Builder;
 
     invoke-virtual {p3, p2}, Landroid/window/TaskSnapshot$Builder;->setPixelFormat(I)Landroid/window/TaskSnapshot$Builder;
 
@@ -1651,43 +1527,188 @@
 
     invoke-virtual {v2}, Lcom/android/server/wm/ActivityRecord;->getTask()Lcom/android/server/wm/Task;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8}, Lcom/android/server/wm/Task;->getConfiguration()Landroid/content/res/Configuration;
+    invoke-virtual {v9}, Lcom/android/server/wm/Task;->getConfiguration()Landroid/content/res/Configuration;
 
-    move-result-object v8
+    move-result-object v9
 
-    iget v8, v8, Landroid/content/res/Configuration;->orientation:I
+    iget v9, v9, Landroid/content/res/Configuration;->orientation:I
 
-    invoke-virtual {p3, v8}, Landroid/window/TaskSnapshot$Builder;->setOrientation(I)Landroid/window/TaskSnapshot$Builder;
+    invoke-virtual {p3, v9}, Landroid/window/TaskSnapshot$Builder;->setOrientation(I)Landroid/window/TaskSnapshot$Builder;
 
     invoke-virtual {v2}, Lcom/android/server/wm/ActivityRecord;->getTask()Lcom/android/server/wm/Task;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8}, Lcom/android/server/wm/Task;->getDisplayContent()Lcom/android/server/wm/DisplayContent;
+    invoke-virtual {v9}, Lcom/android/server/wm/Task;->getDisplayContent()Lcom/android/server/wm/DisplayContent;
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-virtual {v8}, Lcom/android/server/wm/DisplayContent;->getRotation()I
+    invoke-virtual {v9}, Lcom/android/server/wm/DisplayContent;->getRotation()I
 
-    move-result v8
+    move-result v9
 
-    invoke-virtual {p3, v8}, Landroid/window/TaskSnapshot$Builder;->setRotation(I)Landroid/window/TaskSnapshot$Builder;
+    invoke-virtual {p3, v9}, Landroid/window/TaskSnapshot$Builder;->setRotation(I)Landroid/window/TaskSnapshot$Builder;
 
     invoke-virtual {p1}, Lcom/android/server/wm/Task;->getWindowingMode()I
 
-    move-result v8
+    move-result v9
 
-    invoke-virtual {p3, v8}, Landroid/window/TaskSnapshot$Builder;->setWindowingMode(I)Landroid/window/TaskSnapshot$Builder;
+    invoke-virtual {p3, v9}, Landroid/window/TaskSnapshot$Builder;->setWindowingMode(I)Landroid/window/TaskSnapshot$Builder;
 
     invoke-direct {p0, p1}, Lcom/android/server/wm/TaskSnapshotController;->getAppearance(Lcom/android/server/wm/Task;)I
 
-    move-result v8
+    move-result v9
 
-    invoke-virtual {p3, v8}, Landroid/window/TaskSnapshot$Builder;->setAppearance(I)Landroid/window/TaskSnapshot$Builder;
+    invoke-virtual {p3, v9}, Landroid/window/TaskSnapshot$Builder;->setAppearance(I)Landroid/window/TaskSnapshot$Builder;
 
-    return v5
+    return v6
+.end method
+
+.method recordTaskSnapshot(Lcom/android/server/wm/Task;Z)V
+    .locals 6
+
+    if-eqz p2, :cond_0
+
+    invoke-virtual {p1}, Lcom/android/server/wm/Task;->isActivityTypeHome()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/TaskSnapshotController;->snapshotTask(Lcom/android/server/wm/Task;)Landroid/window/TaskSnapshot;
+
+    move-result-object v1
+
+    goto :goto_1
+
+    :cond_1
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/TaskSnapshotController;->getSnapshotMode(Lcom/android/server/wm/Task;)I
+
+    move-result v1
+
+    packed-switch v1, :pswitch_data_0
+
+    const/4 v1, 0x0
+
+    goto :goto_1
+
+    :pswitch_0
+    return-void
+
+    :pswitch_1
+    invoke-direct {p0, p1}, Lcom/android/server/wm/TaskSnapshotController;->drawAppThemeSnapshot(Lcom/android/server/wm/Task;)Landroid/window/TaskSnapshot;
+
+    move-result-object v1
+
+    goto :goto_1
+
+    :pswitch_2
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/TaskSnapshotController;->snapshotTask(Lcom/android/server/wm/Task;)Landroid/window/TaskSnapshot;
+
+    move-result-object v1
+
+    nop
+
+    :goto_1
+    if-eqz v1, :cond_4
+
+    invoke-virtual {v1}, Landroid/window/TaskSnapshot;->getHardwareBuffer()Landroid/hardware/HardwareBuffer;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/hardware/HardwareBuffer;->getWidth()I
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    invoke-virtual {v2}, Landroid/hardware/HardwareBuffer;->getHeight()I
+
+    move-result v3
+
+    if-nez v3, :cond_2
+
+    goto :goto_2
+
+    :cond_2
+    iget-object v3, p0, Lcom/android/server/wm/TaskSnapshotController;->mCache:Lcom/android/server/wm/TaskSnapshotCache;
+
+    invoke-virtual {v3, p1, v1}, Lcom/android/server/wm/TaskSnapshotCache;->putSnapshot(Lcom/android/server/wm/Task;Landroid/window/TaskSnapshot;)V
+
+    if-nez v0, :cond_4
+
+    iget-object v3, p0, Lcom/android/server/wm/TaskSnapshotController;->mPersister:Lcom/android/server/wm/TaskSnapshotPersister;
+
+    iget v4, p1, Lcom/android/server/wm/Task;->mTaskId:I
+
+    iget v5, p1, Lcom/android/server/wm/Task;->mUserId:I
+
+    invoke-virtual {v3, v4, v5, v1}, Lcom/android/server/wm/TaskSnapshotPersister;->persistSnapshot(IILandroid/window/TaskSnapshot;)V
+
+    invoke-virtual {p1, v1}, Lcom/android/server/wm/Task;->onSnapshotChanged(Landroid/window/TaskSnapshot;)V
+
+    goto :goto_3
+
+    :cond_3
+    :goto_2
+    invoke-virtual {v2}, Landroid/hardware/HardwareBuffer;->close()V
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "Invalid task snapshot dimensions "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Landroid/hardware/HardwareBuffer;->getWidth()I
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v4, "x"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Landroid/hardware/HardwareBuffer;->getHeight()I
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string v4, "WindowManager"
+
+    invoke-static {v4, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_4
+    :goto_3
+    return-void
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method
 
 .method removeObsoleteTaskFiles(Landroid/util/ArraySet;[I)V

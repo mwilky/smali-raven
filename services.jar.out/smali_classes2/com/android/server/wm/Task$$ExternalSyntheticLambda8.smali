@@ -2,68 +2,44 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Ljava/util/function/BiConsumer;
 
 
-# instance fields
-.field public final synthetic f$0:Lcom/android/server/wm/Task;
-
-.field public final synthetic f$1:Ljava/util/concurrent/atomic/AtomicBoolean;
-
-.field public final synthetic f$2:Ljava/util/concurrent/atomic/AtomicBoolean;
-
-.field public final synthetic f$3:Z
-
-.field public final synthetic f$4:Ljava/io/PrintWriter;
-
-.field public final synthetic f$5:Ljava/lang/Runnable;
-
-.field public final synthetic f$6:Lcom/android/server/wm/Task;
+# static fields
+.field public static final synthetic INSTANCE:Lcom/android/server/wm/Task$$ExternalSyntheticLambda8;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/wm/Task;Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/util/concurrent/atomic/AtomicBoolean;ZLjava/io/PrintWriter;Ljava/lang/Runnable;Lcom/android/server/wm/Task;)V
+.method static synthetic constructor <clinit>()V
+    .locals 1
+
+    new-instance v0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda8;
+
+    invoke-direct {v0}, Lcom/android/server/wm/Task$$ExternalSyntheticLambda8;-><init>()V
+
+    sput-object v0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda8;->INSTANCE:Lcom/android/server/wm/Task$$ExternalSyntheticLambda8;
+
+    return-void
+.end method
+
+.method private synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda8;->f$0:Lcom/android/server/wm/Task;
-
-    iput-object p2, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda8;->f$1:Ljava/util/concurrent/atomic/AtomicBoolean;
-
-    iput-object p3, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda8;->f$2:Ljava/util/concurrent/atomic/AtomicBoolean;
-
-    iput-boolean p4, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda8;->f$3:Z
-
-    iput-object p5, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda8;->f$4:Ljava/io/PrintWriter;
-
-    iput-object p6, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda8;->f$5:Ljava/lang/Runnable;
-
-    iput-object p7, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda8;->f$6:Lcom/android/server/wm/Task;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 7
+.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda8;->f$0:Lcom/android/server/wm/Task;
+    check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    iget-object v1, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda8;->f$1:Ljava/util/concurrent/atomic/AtomicBoolean;
+    check-cast p2, Lcom/android/server/am/AppTimeTracker;
 
-    iget-object v2, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda8;->f$2:Ljava/util/concurrent/atomic/AtomicBoolean;
-
-    iget-boolean v3, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda8;->f$3:Z
-
-    iget-object v4, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda8;->f$4:Ljava/io/PrintWriter;
-
-    iget-object v5, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda8;->f$5:Ljava/lang/Runnable;
-
-    iget-object v6, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda8;->f$6:Lcom/android/server/wm/Task;
-
-    invoke-virtual/range {v0 .. v6}, Lcom/android/server/wm/Task;->lambda$dumpActivities$28$Task(Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/util/concurrent/atomic/AtomicBoolean;ZLjava/io/PrintWriter;Ljava/lang/Runnable;Lcom/android/server/wm/Task;)V
+    invoke-virtual {p1, p2}, Lcom/android/server/wm/ActivityRecord;->setAppTimeTracker(Lcom/android/server/am/AppTimeTracker;)V
 
     return-void
 .end method

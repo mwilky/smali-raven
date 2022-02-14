@@ -116,8 +116,6 @@
 
 .field private final mDataStore:Lcom/android/server/input/PersistentDataStore;
 
-.field private mDisplayContext:Landroid/content/Context;
-
 .field private final mDoubleTouchGestureEnableFile:Ljava/io/File;
 
 .field private final mHandler:Lcom/android/server/input/InputManagerService$InputManagerHandler;
@@ -176,6 +174,8 @@
 .field private mNextVibratorTokenValue:I
 
 .field private mNotificationManager:Landroid/app/NotificationManager;
+
+.field private mPointerIconDisplayContext:Landroid/content/Context;
 
 .field private final mPtr:J
 
@@ -531,7 +531,7 @@
 
     move-result-object v1
 
-    const v2, 0x1110163
+    const v2, 0x111016a
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1527,7 +1527,68 @@
 .method private getContextForDisplay(I)Landroid/content/Context;
     .locals 3
 
-    iget-object v0, p0, Lcom/android/server/input/InputManagerService;->mDisplayContext:Landroid/content/Context;
+    const/4 v0, 0x0
+
+    const/4 v1, -0x1
+
+    if-ne p1, v1, :cond_0
+
+    return-object v0
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/server/input/InputManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getDisplay()Landroid/view/Display;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/view/Display;->getDisplayId()I
+
+    move-result v1
+
+    if-ne v1, p1, :cond_1
+
+    iget-object v0, p0, Lcom/android/server/input/InputManagerService;->mContext:Landroid/content/Context;
+
+    return-object v0
+
+    :cond_1
+    iget-object v1, p0, Lcom/android/server/input/InputManagerService;->mContext:Landroid/content/Context;
+
+    const-class v2, Landroid/hardware/display/DisplayManager;
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/hardware/display/DisplayManager;
+
+    invoke-static {v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    check-cast v1, Landroid/hardware/display/DisplayManager;
+
+    invoke-virtual {v1, p1}, Landroid/hardware/display/DisplayManager;->getDisplay(I)Landroid/view/Display;
+
+    move-result-object v2
+
+    if-nez v2, :cond_2
+
+    return-object v0
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/server/input/InputManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0, v2}, Landroid/content/Context;->createDisplayContext(Landroid/view/Display;)Landroid/content/Context;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method private getContextForPointerIcon(I)Landroid/content/Context;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/input/InputManagerService;->mPointerIconDisplayContext:Landroid/content/Context;
 
     if-eqz v0, :cond_0
 
@@ -1541,53 +1602,31 @@
 
     if-ne v0, p1, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/input/InputManagerService;->mDisplayContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/server/input/InputManagerService;->mPointerIconDisplayContext:Landroid/content/Context;
 
     return-object v0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/input/InputManagerService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getDisplay()Landroid/view/Display;
+    invoke-direct {p0, p1}, Lcom/android/server/input/InputManagerService;->getContextForDisplay(I)Landroid/content/Context;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/view/Display;->getDisplayId()I
+    iput-object v0, p0, Lcom/android/server/input/InputManagerService;->mPointerIconDisplayContext:Landroid/content/Context;
 
-    move-result v0
+    if-nez v0, :cond_1
 
-    if-ne v0, p1, :cond_1
+    const/4 v0, 0x0
 
-    iget-object v0, p0, Lcom/android/server/input/InputManagerService;->mContext:Landroid/content/Context;
+    invoke-direct {p0, v0}, Lcom/android/server/input/InputManagerService;->getContextForDisplay(I)Landroid/content/Context;
 
-    iput-object v0, p0, Lcom/android/server/input/InputManagerService;->mDisplayContext:Landroid/content/Context;
+    move-result-object v0
 
-    return-object v0
+    iput-object v0, p0, Lcom/android/server/input/InputManagerService;->mPointerIconDisplayContext:Landroid/content/Context;
 
     :cond_1
-    iget-object v0, p0, Lcom/android/server/input/InputManagerService;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/server/input/InputManagerService;->mPointerIconDisplayContext:Landroid/content/Context;
 
-    const-class v1, Landroid/hardware/display/DisplayManager;
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/hardware/display/DisplayManager;
-
-    invoke-virtual {v0, p1}, Landroid/hardware/display/DisplayManager;->getDisplay(I)Landroid/view/Display;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/server/input/InputManagerService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2, v1}, Landroid/content/Context;->createDisplayContext(Landroid/view/Display;)Landroid/content/Context;
-
-    move-result-object v2
-
-    iput-object v2, p0, Lcom/android/server/input/InputManagerService;->mDisplayContext:Landroid/content/Context;
-
-    return-object v2
+    return-object v0
 .end method
 
 .method private getDefaultKeyboardLayout(Landroid/view/InputDevice;)Ljava/lang/String;
@@ -2230,7 +2269,7 @@
 .method private getPointerIcon(I)Landroid/view/PointerIcon;
     .locals 1
 
-    invoke-direct {p0, p1}, Lcom/android/server/input/InputManagerService;->getContextForDisplay(I)Landroid/content/Context;
+    invoke-direct {p0, p1}, Lcom/android/server/input/InputManagerService;->getContextForPointerIcon(I)Landroid/content/Context;
 
     move-result-object v0
 
@@ -2402,7 +2441,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e00df
+    const v1, 0x10e00e3
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2552,7 +2591,7 @@
 .end method
 
 .method private injectInputEventInternal(Landroid/view/InputEvent;I)Z
-    .locals 16
+    .locals 17
 
     move-object/from16 v1, p0
 
@@ -2560,13 +2599,13 @@
 
     move/from16 v11, p2
 
-    if-eqz v10, :cond_4
+    if-eqz v10, :cond_6
 
     const/4 v0, 0x1
 
-    if-eqz v11, :cond_1
-
     const/4 v2, 0x2
+
+    if-eqz v11, :cond_1
 
     if-eq v11, v2, :cond_1
 
@@ -2585,79 +2624,117 @@
 
     :cond_1
     :goto_0
-    sget-boolean v2, Lcom/android/server/input/InputManagerService;->ENABLE_PER_WINDOW_INPUT_ROTATION:Z
+    sget-boolean v3, Lcom/android/server/input/InputManagerService;->ENABLE_PER_WINDOW_INPUT_ROTATION:Z
 
-    if-eqz v2, :cond_3
+    const/4 v12, 0x0
 
-    instance-of v2, v10, Landroid/view/MotionEvent;
+    if-eqz v3, :cond_5
 
-    if-eqz v2, :cond_3
+    instance-of v3, v10, Landroid/view/MotionEvent;
 
+    if-eqz v3, :cond_5
+
+    invoke-virtual {v10, v2}, Landroid/view/InputEvent;->isFromSource(I)Z
+
+    move-result v3
+
+    if-nez v3, :cond_2
+
+    const v3, 0x20004
+
+    invoke-virtual {v10, v3}, Landroid/view/InputEvent;->isFromSource(I)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_5
+
+    :cond_2
     invoke-virtual/range {p1 .. p1}, Landroid/view/InputEvent;->getDisplayId()I
 
-    move-result v2
+    move-result v3
 
-    invoke-direct {v1, v2}, Lcom/android/server/input/InputManagerService;->getContextForDisplay(I)Landroid/content/Context;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/content/Context;->getDisplay()Landroid/view/Display;
+    invoke-direct {v1, v3}, Lcom/android/server/input/InputManagerService;->getContextForDisplay(I)Landroid/content/Context;
 
     move-result-object v3
 
-    invoke-virtual {v3}, Landroid/view/Display;->getRotation()I
+    if-nez v3, :cond_3
 
-    move-result v4
+    nop
 
-    if-eqz v4, :cond_3
+    invoke-direct {v1, v12}, Lcom/android/server/input/InputManagerService;->getContextForDisplay(I)Landroid/content/Context;
 
-    move-object v5, v10
+    move-result-object v4
 
-    check-cast v5, Landroid/view/MotionEvent;
+    invoke-static {v4}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-instance v6, Landroid/graphics/Point;
+    move-object v3, v4
 
-    invoke-direct {v6}, Landroid/graphics/Point;-><init>()V
-
-    invoke-virtual {v3, v6}, Landroid/view/Display;->getRealSize(Landroid/graphics/Point;)V
-
-    rem-int/lit8 v7, v4, 0x2
-
-    if-eqz v7, :cond_2
-
-    iget v7, v6, Landroid/graphics/Point;->x:I
-
-    iget v8, v6, Landroid/graphics/Point;->y:I
-
-    iput v8, v6, Landroid/graphics/Point;->x:I
-
-    iput v7, v6, Landroid/graphics/Point;->y:I
-
-    :cond_2
-    rsub-int/lit8 v7, v4, 0x4
-
-    iget v8, v6, Landroid/graphics/Point;->x:I
-
-    iget v9, v6, Landroid/graphics/Point;->y:I
-
-    invoke-static {v7, v8, v9}, Landroid/view/MotionEvent;->createRotateMatrix(III)Landroid/graphics/Matrix;
-
-    move-result-object v7
-
-    invoke-virtual {v5, v7}, Landroid/view/MotionEvent;->applyTransform(Landroid/graphics/Matrix;)V
+    check-cast v3, Landroid/content/Context;
 
     :cond_3
+    invoke-virtual {v3}, Landroid/content/Context;->getDisplay()Landroid/view/Display;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/view/Display;->getRotation()I
+
+    move-result v5
+
+    if-eqz v5, :cond_5
+
+    move-object v6, v10
+
+    check-cast v6, Landroid/view/MotionEvent;
+
+    new-instance v7, Landroid/graphics/Point;
+
+    invoke-direct {v7}, Landroid/graphics/Point;-><init>()V
+
+    invoke-virtual {v10, v2}, Landroid/view/InputEvent;->isFromSource(I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
+    invoke-virtual {v4, v7}, Landroid/view/Display;->getRealSize(Landroid/graphics/Point;)V
+
+    rem-int/lit8 v2, v5, 0x2
+
+    if-eqz v2, :cond_4
+
+    iget v2, v7, Landroid/graphics/Point;->x:I
+
+    iget v8, v7, Landroid/graphics/Point;->y:I
+
+    iput v8, v7, Landroid/graphics/Point;->x:I
+
+    iput v2, v7, Landroid/graphics/Point;->y:I
+
+    :cond_4
+    rsub-int/lit8 v2, v5, 0x4
+
+    iget v8, v7, Landroid/graphics/Point;->x:I
+
+    iget v9, v7, Landroid/graphics/Point;->y:I
+
+    invoke-static {v2, v8, v9}, Landroid/view/MotionEvent;->createRotateMatrix(III)Landroid/graphics/Matrix;
+
+    move-result-object v2
+
+    invoke-virtual {v6, v2}, Landroid/view/MotionEvent;->applyTransform(Landroid/graphics/Matrix;)V
+
+    :cond_5
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v12
-
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
     move-result v13
 
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v14
+
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v14
+    move-result-wide v15
 
     :try_start_0
     iget-wide v2, v1, Lcom/android/server/input/InputManagerService;->mPtr:J
@@ -2668,9 +2745,9 @@
 
     move-object/from16 v4, p1
 
-    move v5, v12
+    move v5, v13
 
-    move v6, v13
+    move v6, v14
 
     move/from16 v7, p2
 
@@ -2680,15 +2757,13 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v15 .. v16}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     nop
 
-    const/4 v3, 0x0
+    const-string v3, "Input event injection from pid "
 
-    const-string v4, "Input event injection from pid "
-
-    const-string v5, "InputManager"
+    const-string v4, "InputManager"
 
     packed-switch v2, :pswitch_data_0
 
@@ -2697,51 +2772,51 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v4, " failed."
+    const-string v3, " failed."
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {v5, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v3
+    return v12
 
     :pswitch_1
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v4, " timed out."
+    const-string v3, " timed out."
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {v5, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v3
+    return v12
 
     :pswitch_2
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     const-string v3, " permission denied."
 
@@ -2751,7 +2826,7 @@
 
     move-result-object v0
 
-    invoke-static {v5, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     new-instance v0, Ljava/lang/SecurityException;
 
@@ -2767,11 +2842,11 @@
     :catchall_0
     move-exception v0
 
-    invoke-static {v14, v15}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static/range {v15 .. v16}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     throw v0
 
-    :cond_4
+    :cond_6
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v2, "event must not be null"
@@ -4606,7 +4681,7 @@
 
     invoke-direct {v3, v4, v5}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    const v4, 0x10407be
+    const v4, 0x10407c3
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4616,7 +4691,7 @@
 
     move-result-object v3
 
-    const v4, 0x10407bd
+    const v4, 0x10407c2
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -7317,6 +7392,25 @@
 .method public onDisplayRemoved(I)V
     .locals 2
 
+    iget-object v0, p0, Lcom/android/server/input/InputManagerService;->mPointerIconDisplayContext:Landroid/content/Context;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Landroid/content/Context;->getDisplay()Landroid/view/Display;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/Display;->getDisplayId()I
+
+    move-result v0
+
+    if-ne v0, p1, :cond_0
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/server/input/InputManagerService;->mPointerIconDisplayContext:Landroid/content/Context;
+
+    :cond_0
     iget-wide v0, p0, Lcom/android/server/input/InputManagerService;->mPtr:J
 
     invoke-static {v0, v1, p1}, Lcom/android/server/input/InputManagerService;->nativeDisplayRemoved(JI)V
@@ -9285,6 +9379,10 @@
 
 .method public verifyInputEvent(Landroid/view/InputEvent;)Landroid/view/VerifiedInputEvent;
     .locals 2
+
+    const-string v0, "event must not be null"
+
+    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     iget-wide v0, p0, Lcom/android/server/input/InputManagerService;->mPtr:J
 

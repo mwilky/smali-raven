@@ -1341,7 +1341,7 @@
 .end method
 
 .method private grantDefaultPermissionsToDefaultSystemDialerApp(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/lang/String;I)V
-    .locals 5
+    .locals 6
 
     if-nez p2, :cond_0
 
@@ -1394,24 +1394,47 @@
 
     aput-object v4, v3, v2
 
-    sget-object v2, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
+    sget-object v4, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->SMS_PERMISSIONS:Ljava/util/Set;
 
-    aput-object v2, v3, v1
+    aput-object v4, v3, v1
 
-    const/4 v1, 0x2
+    const/4 v4, 0x2
 
-    sget-object v2, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->MICROPHONE_PERMISSIONS:Ljava/util/Set;
+    sget-object v5, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->MICROPHONE_PERMISSIONS:Ljava/util/Set;
 
-    aput-object v2, v3, v1
+    aput-object v5, v3, v4
 
-    const/4 v1, 0x3
+    const/4 v4, 0x3
 
-    sget-object v2, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->CAMERA_PERMISSIONS:Ljava/util/Set;
+    sget-object v5, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->CAMERA_PERMISSIONS:Ljava/util/Set;
 
-    aput-object v2, v3, v1
+    aput-object v5, v3, v4
 
     invoke-direct {p0, p1, p2, p3, v3}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->grantPermissionsToSystemPackage(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/lang/String;I[Ljava/util/Set;)V
 
+    iget-object v3, p0, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v3
+
+    const-string v4, "android.hardware.type.automotive"
+
+    invoke-virtual {v3, v4, v2}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;I)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    new-array v1, v1, [Ljava/util/Set;
+
+    sget-object v4, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->NEARBY_DEVICES_PERMISSIONS:Ljava/util/Set;
+
+    aput-object v4, v1, v2
+
+    invoke-direct {p0, p1, p2, p3, v1}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy;->grantPermissionsToSystemPackage(Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$PackageManagerWrapper;Ljava/lang/String;I[Ljava/util/Set;)V
+
+    :cond_2
     return-void
 .end method
 
@@ -2764,7 +2787,7 @@
 
     move-result-object v0
 
-    const v1, 0x111015b
+    const v1, 0x1110160
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -3462,7 +3485,13 @@
 
     move-result v3
 
-    if-nez v3, :cond_5
+    if-eqz v3, :cond_4
+
+    invoke-virtual {p1, v2}, Lcom/android/server/pm/permission/DefaultPermissionGrantPolicy$DelayingPackageManagerCache;->isSysComponentOrPersistentPlatformSignedPrivApp(Landroid/content/pm/PackageInfo;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_5
 
     goto :goto_1
 

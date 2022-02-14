@@ -248,6 +248,8 @@
 .method onLocationPermissionsChanged(Ljava/lang/String;)Z
     .locals 1
 
+    if-eqz p1, :cond_1
+
     invoke-virtual {p0}, Lcom/android/server/location/gnss/GnssListenerMultiplexer$GnssListenerRegistration;->getIdentity()Landroid/location/util/identity/CallerIdentity;
 
     move-result-object v0
@@ -262,14 +264,18 @@
 
     if-eqz v0, :cond_0
 
-    invoke-direct {p0}, Lcom/android/server/location/gnss/GnssListenerMultiplexer$GnssListenerRegistration;->onLocationPermissionsChanged()Z
-
-    move-result v0
-
-    return v0
+    goto :goto_0
 
     :cond_0
     const/4 v0, 0x0
+
+    return v0
+
+    :cond_1
+    :goto_0
+    invoke-direct {p0}, Lcom/android/server/location/gnss/GnssListenerMultiplexer$GnssListenerRegistration;->onLocationPermissionsChanged()Z
+
+    move-result v0
 
     return v0
 .end method

@@ -22,6 +22,8 @@
 
 .field private mFrameSizeChanged:Z
 
+.field mIsSimulatingDecorWindow:Z
+
 .field mLastForceReportingResized:Z
 
 .field final mLastFrame:Landroid/graphics/Rect;
@@ -104,6 +106,8 @@
     invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
 
     iput-object v1, p0, Lcom/android/server/wm/WindowFrames;->mCompatFrame:Landroid/graphics/Rect;
+
+    iput-boolean v0, p0, Lcom/android/server/wm/WindowFrames;->mIsSimulatingDecorWindow:Z
 
     iput-boolean v0, p0, Lcom/android/server/wm/WindowFrames;->mLastForceReportingResized:Z
 

@@ -735,6 +735,9 @@
     return-void
 .end method
 
+.method private static native cancelCompaction()V
+.end method
+
 .method static compactActionIntToString(I)Ljava/lang/String;
     .locals 2
 
@@ -2819,6 +2822,55 @@
     return-void
 .end method
 
+.method onOomAdjustChanged(IILcom/android/server/am/ProcessRecord;)V
+    .locals 3
+
+    sget v0, Lcom/android/server/am/CachedAppOptimizer$DefaultProcessDependencies;->mPidCompacting:I
+
+    iget v1, p3, Lcom/android/server/am/ProcessRecord;->mPid:I
+
+    const/16 v2, 0x384
+
+    if-ne v0, v1, :cond_0
+
+    if-ge p2, p1, :cond_0
+
+    if-ge p2, v2, :cond_0
+
+    invoke-static {}, Lcom/android/server/am/CachedAppOptimizer;->cancelCompaction()V
+
+    :cond_0
+    const/16 v0, 0xc8
+
+    if-gt p1, v0, :cond_2
+
+    const/16 v0, 0x2bc
+
+    if-eq p2, v0, :cond_1
+
+    const/16 v0, 0x258
+
+    if-ne p2, v0, :cond_2
+
+    :cond_1
+    invoke-virtual {p0, p3}, Lcom/android/server/am/CachedAppOptimizer;->compactAppSome(Lcom/android/server/am/ProcessRecord;)V
+
+    goto :goto_0
+
+    :cond_2
+    if-lt p2, v2, :cond_3
+
+    const/16 v0, 0x3e7
+
+    if-gt p2, v0, :cond_3
+
+    invoke-virtual {p0, p3}, Lcom/android/server/am/CachedAppOptimizer;->compactAppFull(Lcom/android/server/am/ProcessRecord;)V
+
+    :cond_3
+    :goto_0
+    return-void
+.end method
+
 .method shouldCompactBFGS(Lcom/android/server/am/ProcessRecord;J)Z
     .locals 4
 
@@ -3205,7 +3257,7 @@
 
     iget-boolean v0, p0, Lcom/android/server/am/CachedAppOptimizer;->mUseFreezer:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/android/server/am/CachedAppOptimizer;->mProcLock:Lcom/android/server/am/ActivityManagerGlobalLock;
 
@@ -3220,13 +3272,22 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-nez v1, :cond_0
 
+    iget-object v1, p1, Lcom/android/server/am/ProcessRecord;->mOptRecord:Lcom/android/server/am/ProcessCachedOptimizerRecord;
+
+    invoke-virtual {v1}, Lcom/android/server/am/ProcessCachedOptimizerRecord;->isPendingFreeze()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    :cond_0
     invoke-virtual {p0, p1}, Lcom/android/server/am/CachedAppOptimizer;->unfreezeAppLSP(Lcom/android/server/am/ProcessRecord;)V
 
     invoke-virtual {p0, p1}, Lcom/android/server/am/CachedAppOptimizer;->freezeAppAsyncLSP(Lcom/android/server/am/ProcessRecord;)V
 
-    :cond_0
+    :cond_1
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -3247,7 +3308,7 @@
 
     throw v1
 
-    :cond_1
+    :cond_2
     :goto_0
     return-void
 .end method

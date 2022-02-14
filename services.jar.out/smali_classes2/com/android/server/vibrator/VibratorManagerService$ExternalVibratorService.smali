@@ -245,223 +245,185 @@
     return v1
 
     :cond_1
-    iget-object v0, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
-
-    invoke-virtual {p1}, Landroid/os/ExternalVibration;->getUid()I
-
-    move-result v2
-
-    invoke-virtual {p1}, Landroid/os/ExternalVibration;->getPackage()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {p1}, Landroid/os/ExternalVibration;->getVibrationAttributes()Landroid/os/VibrationAttributes;
-
-    move-result-object v5
-
-    invoke-static {v0, v2, v3, v5}, Lcom/android/server/vibrator/VibratorManagerService;->access$1600(Lcom/android/server/vibrator/VibratorManagerService;ILjava/lang/String;Landroid/os/VibrationAttributes;)I
-
-    move-result v0
+    const/4 v0, 0x0
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_3
+    iget-object v3, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
 
-    new-instance v3, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;
-
-    iget-object v4, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
-
-    invoke-direct {v3, v4, p1, v2}, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;-><init>(Lcom/android/server/vibrator/VibratorManagerService;Landroid/os/ExternalVibration;Lcom/android/server/vibrator/VibratorManagerService$1;)V
-
-    move-object v2, v3
-
-    iput v1, v2, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;->scale:I
-
-    const/4 v1, 0x2
-
-    if-ne v0, v1, :cond_2
-
-    const-string v1, "VibratorManagerService"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "Would be an error: external vibrate from uid "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Landroid/os/ExternalVibration;->getUid()I
-
-    move-result v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v3}, Lcom/android/server/vibrator/VibratorManagerService;->access$100(Lcom/android/server/vibrator/VibratorManagerService;)Ljava/lang/Object;
 
     move-result-object v3
 
-    invoke-static {v1, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+    monitor-enter v3
+
+    :try_start_0
+    iget-object v5, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
+
+    invoke-virtual {p1}, Landroid/os/ExternalVibration;->getUid()I
+
+    move-result v6
+
+    invoke-virtual {p1}, Landroid/os/ExternalVibration;->getPackage()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {p1}, Landroid/os/ExternalVibration;->getVibrationAttributes()Landroid/os/VibrationAttributes;
+
+    move-result-object v8
+
+    invoke-static {v5, v6, v7, v8}, Lcom/android/server/vibrator/VibratorManagerService;->access$1600(Lcom/android/server/vibrator/VibratorManagerService;ILjava/lang/String;Landroid/os/VibrationAttributes;)Lcom/android/server/vibrator/Vibration$Status;
+
+    move-result-object v5
+
+    const/4 v6, 0x0
+
+    if-eqz v5, :cond_2
+
+    new-instance v4, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;
+
+    iget-object v7, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
+
+    invoke-direct {v4, v7, p1, v6}, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;-><init>(Lcom/android/server/vibrator/VibratorManagerService;Landroid/os/ExternalVibration;Lcom/android/server/vibrator/VibratorManagerService$1;)V
+
+    iput v1, v4, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;->scale:I
 
     iget-object v1, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
 
-    sget-object v3, Lcom/android/server/vibrator/Vibration$Status;->IGNORED_ERROR_APP_OPS:Lcom/android/server/vibrator/Vibration$Status;
+    invoke-static {v1, v4, v5}, Lcom/android/server/vibrator/VibratorManagerService;->access$1800(Lcom/android/server/vibrator/VibratorManagerService;Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;Lcom/android/server/vibrator/Vibration$Status;)V
 
-    invoke-static {v1, v2, v3}, Lcom/android/server/vibrator/VibratorManagerService;->access$1800(Lcom/android/server/vibrator/VibratorManagerService;Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;Lcom/android/server/vibrator/Vibration$Status;)V
+    iget v1, v4, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;->scale:I
 
-    goto :goto_0
+    monitor-exit v3
+
+    return v1
 
     :cond_2
     iget-object v1, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
 
-    sget-object v3, Lcom/android/server/vibrator/Vibration$Status;->IGNORED_APP_OPS:Lcom/android/server/vibrator/Vibration$Status;
+    invoke-static {v1}, Lcom/android/server/vibrator/VibratorManagerService;->access$1500(Lcom/android/server/vibrator/VibratorManagerService;)Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;
 
-    invoke-static {v1, v2, v3}, Lcom/android/server/vibrator/VibratorManagerService;->access$1800(Lcom/android/server/vibrator/VibratorManagerService;Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;Lcom/android/server/vibrator/Vibration$Status;)V
+    move-result-object v1
 
-    :goto_0
-    iget v1, v2, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;->scale:I
+    if-eqz v1, :cond_3
+
+    iget-object v1, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
+
+    invoke-static {v1}, Lcom/android/server/vibrator/VibratorManagerService;->access$1500(Lcom/android/server/vibrator/VibratorManagerService;)Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;
+
+    move-result-object v1
+
+    iget-object v1, v1, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;->externalVibration:Landroid/os/ExternalVibration;
+
+    invoke-virtual {v1, p1}, Landroid/os/ExternalVibration;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    iget-object v1, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
+
+    invoke-static {v1}, Lcom/android/server/vibrator/VibratorManagerService;->access$1500(Lcom/android/server/vibrator/VibratorManagerService;)Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;
+
+    move-result-object v1
+
+    iget v1, v1, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;->scale:I
+
+    monitor-exit v3
 
     return v1
 
     :cond_3
-    const/4 v1, 0x0
+    iget-object v1, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
 
-    const/4 v3, 0x0
+    invoke-static {v1}, Lcom/android/server/vibrator/VibratorManagerService;->access$1500(Lcom/android/server/vibrator/VibratorManagerService;)Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;
 
-    iget-object v5, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
+    move-result-object v1
 
-    invoke-static {v5}, Lcom/android/server/vibrator/VibratorManagerService;->access$100(Lcom/android/server/vibrator/VibratorManagerService;)Ljava/lang/Object;
+    if-nez v1, :cond_4
 
-    move-result-object v5
+    iget-object v1, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
 
-    monitor-enter v5
+    invoke-static {v1}, Lcom/android/server/vibrator/VibratorManagerService;->access$200(Lcom/android/server/vibrator/VibratorManagerService;)Lcom/android/server/vibrator/VibrationThread;
 
-    :try_start_0
-    iget-object v6, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
+    move-result-object v1
 
-    invoke-static {v6}, Lcom/android/server/vibrator/VibratorManagerService;->access$1500(Lcom/android/server/vibrator/VibratorManagerService;)Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;
+    if-eqz v1, :cond_5
 
-    move-result-object v6
+    iget-object v1, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
 
-    if-eqz v6, :cond_4
+    invoke-static {v1, v6}, Lcom/android/server/vibrator/VibratorManagerService;->access$402(Lcom/android/server/vibrator/VibratorManagerService;Lcom/android/server/vibrator/VibrationThread;)Lcom/android/server/vibrator/VibrationThread;
 
-    iget-object v6, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
+    iget-object v1, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
 
-    invoke-static {v6}, Lcom/android/server/vibrator/VibratorManagerService;->access$1500(Lcom/android/server/vibrator/VibratorManagerService;)Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;
+    invoke-static {v1}, Lcom/android/server/vibrator/VibratorManagerService;->access$200(Lcom/android/server/vibrator/VibratorManagerService;)Lcom/android/server/vibrator/VibrationThread;
 
-    move-result-object v6
+    move-result-object v1
 
-    iget-object v6, v6, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;->externalVibration:Landroid/os/ExternalVibration;
+    invoke-virtual {v1}, Lcom/android/server/vibrator/VibrationThread;->cancelImmediately()V
 
-    invoke-virtual {v6, p1}, Landroid/os/ExternalVibration;->equals(Ljava/lang/Object;)Z
+    iget-object v1, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
 
-    move-result v6
+    invoke-static {v1}, Lcom/android/server/vibrator/VibratorManagerService;->access$200(Lcom/android/server/vibrator/VibratorManagerService;)Lcom/android/server/vibrator/VibrationThread;
 
-    if-eqz v6, :cond_4
+    move-result-object v1
 
-    iget-object v2, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
+    move-object v2, v1
 
-    invoke-static {v2}, Lcom/android/server/vibrator/VibratorManagerService;->access$1500(Lcom/android/server/vibrator/VibratorManagerService;)Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;
-
-    move-result-object v2
-
-    iget v2, v2, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;->scale:I
-
-    monitor-exit v5
-
-    return v2
+    goto :goto_0
 
     :cond_4
-    iget-object v6, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
+    iget-object v1, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
 
-    invoke-static {v6}, Lcom/android/server/vibrator/VibratorManagerService;->access$1500(Lcom/android/server/vibrator/VibratorManagerService;)Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;
+    invoke-static {v1}, Lcom/android/server/vibrator/VibratorManagerService;->access$1500(Lcom/android/server/vibrator/VibratorManagerService;)Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;
 
-    move-result-object v6
+    move-result-object v1
 
-    if-nez v6, :cond_5
+    iget-object v1, v1, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;->externalVibration:Landroid/os/ExternalVibration;
 
-    iget-object v6, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
+    invoke-virtual {v1}, Landroid/os/ExternalVibration;->mute()Z
 
-    invoke-static {v6}, Lcom/android/server/vibrator/VibratorManagerService;->access$200(Lcom/android/server/vibrator/VibratorManagerService;)Lcom/android/server/vibrator/VibrationThread;
+    iget-object v1, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
 
-    move-result-object v6
-
-    if-eqz v6, :cond_6
-
-    iget-object v6, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
-
-    invoke-static {v6, v2}, Lcom/android/server/vibrator/VibratorManagerService;->access$402(Lcom/android/server/vibrator/VibratorManagerService;Lcom/android/server/vibrator/VibrationThread;)Lcom/android/server/vibrator/VibrationThread;
-
-    iget-object v6, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
-
-    invoke-static {v6}, Lcom/android/server/vibrator/VibratorManagerService;->access$200(Lcom/android/server/vibrator/VibratorManagerService;)Lcom/android/server/vibrator/VibrationThread;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Lcom/android/server/vibrator/VibrationThread;->cancelImmediately()V
-
-    iget-object v6, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
-
-    invoke-static {v6}, Lcom/android/server/vibrator/VibratorManagerService;->access$200(Lcom/android/server/vibrator/VibratorManagerService;)Lcom/android/server/vibrator/VibrationThread;
-
-    move-result-object v6
-
-    move-object v3, v6
-
-    goto :goto_1
-
-    :cond_5
-    iget-object v6, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
-
-    invoke-static {v6}, Lcom/android/server/vibrator/VibratorManagerService;->access$1500(Lcom/android/server/vibrator/VibratorManagerService;)Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;
-
-    move-result-object v6
-
-    iget-object v6, v6, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;->externalVibration:Landroid/os/ExternalVibration;
-
-    invoke-virtual {v6}, Landroid/os/ExternalVibration;->mute()Z
-
-    iget-object v6, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
-
-    invoke-static {v6}, Lcom/android/server/vibrator/VibratorManagerService;->access$1500(Lcom/android/server/vibrator/VibratorManagerService;)Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;
+    invoke-static {v1}, Lcom/android/server/vibrator/VibratorManagerService;->access$1500(Lcom/android/server/vibrator/VibratorManagerService;)Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;
 
     move-result-object v7
 
     sget-object v8, Lcom/android/server/vibrator/Vibration$Status;->CANCELLED:Lcom/android/server/vibrator/Vibration$Status;
 
-    invoke-static {v6, v7, v8}, Lcom/android/server/vibrator/VibratorManagerService;->access$1800(Lcom/android/server/vibrator/VibratorManagerService;Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;Lcom/android/server/vibrator/Vibration$Status;)V
+    invoke-static {v1, v7, v8}, Lcom/android/server/vibrator/VibratorManagerService;->access$1800(Lcom/android/server/vibrator/VibratorManagerService;Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;Lcom/android/server/vibrator/Vibration$Status;)V
 
-    iget-object v6, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
+    iget-object v1, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
 
-    invoke-static {v6}, Lcom/android/server/vibrator/VibratorManagerService;->access$1500(Lcom/android/server/vibrator/VibratorManagerService;)Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;
+    invoke-static {v1}, Lcom/android/server/vibrator/VibratorManagerService;->access$1500(Lcom/android/server/vibrator/VibratorManagerService;)Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;
 
-    move-result-object v6
+    move-result-object v1
 
-    move-object v1, v6
+    move-object v0, v1
 
-    :cond_6
-    :goto_1
-    iget-object v6, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
+    :cond_5
+    :goto_0
+    iget-object v1, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
 
     new-instance v7, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;
 
-    invoke-direct {v7, v6, p1, v2}, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;-><init>(Lcom/android/server/vibrator/VibratorManagerService;Landroid/os/ExternalVibration;Lcom/android/server/vibrator/VibratorManagerService$1;)V
+    invoke-direct {v7, v1, p1, v6}, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;-><init>(Lcom/android/server/vibrator/VibratorManagerService;Landroid/os/ExternalVibration;Lcom/android/server/vibrator/VibratorManagerService$1;)V
 
-    invoke-static {v6, v7}, Lcom/android/server/vibrator/VibratorManagerService;->access$1502(Lcom/android/server/vibrator/VibratorManagerService;Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;)Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;
+    invoke-static {v1, v7}, Lcom/android/server/vibrator/VibratorManagerService;->access$1502(Lcom/android/server/vibrator/VibratorManagerService;Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;)Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;
 
-    new-instance v6, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService$ExternalVibrationDeathRecipient;
+    new-instance v1, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService$ExternalVibrationDeathRecipient;
 
-    invoke-direct {v6, p0, v2}, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService$ExternalVibrationDeathRecipient;-><init>(Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;Lcom/android/server/vibrator/VibratorManagerService$1;)V
+    invoke-direct {v1, p0, v6}, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService$ExternalVibrationDeathRecipient;-><init>(Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;Lcom/android/server/vibrator/VibratorManagerService$1;)V
 
-    iput-object v6, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->mCurrentExternalDeathRecipient:Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService$ExternalVibrationDeathRecipient;
+    iput-object v1, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->mCurrentExternalDeathRecipient:Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService$ExternalVibrationDeathRecipient;
 
-    invoke-virtual {p1, v6}, Landroid/os/ExternalVibration;->linkToDeath(Landroid/os/IBinder$DeathRecipient;)V
+    invoke-virtual {p1, v1}, Landroid/os/ExternalVibration;->linkToDeath(Landroid/os/IBinder$DeathRecipient;)V
 
-    iget-object v2, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
+    iget-object v1, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
 
-    invoke-static {v2}, Lcom/android/server/vibrator/VibratorManagerService;->access$1500(Lcom/android/server/vibrator/VibratorManagerService;)Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;
+    invoke-static {v1}, Lcom/android/server/vibrator/VibratorManagerService;->access$1500(Lcom/android/server/vibrator/VibratorManagerService;)Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;
 
-    move-result-object v2
+    move-result-object v1
 
     iget-object v6, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
 
@@ -481,56 +443,56 @@
 
     move-result v6
 
-    iput v6, v2, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;->scale:I
+    iput v6, v1, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;->scale:I
 
-    iget-object v2, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
+    iget-object v1, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
 
-    invoke-static {v2}, Lcom/android/server/vibrator/VibratorManagerService;->access$1500(Lcom/android/server/vibrator/VibratorManagerService;)Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;
+    invoke-static {v1}, Lcom/android/server/vibrator/VibratorManagerService;->access$1500(Lcom/android/server/vibrator/VibratorManagerService;)Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;
 
-    move-result-object v2
+    move-result-object v1
 
-    iget v2, v2, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;->scale:I
+    iget v1, v1, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibrationHolder;->scale:I
 
-    monitor-exit v5
+    monitor-exit v3
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eqz v3, :cond_7
+    if-eqz v2, :cond_6
 
     :try_start_1
-    invoke-virtual {v3}, Lcom/android/server/vibrator/VibrationThread;->join()V
+    invoke-virtual {v2}, Lcom/android/server/vibrator/VibrationThread;->join()V
     :try_end_1
     .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
 
-    goto :goto_2
+    goto :goto_1
 
     :catch_0
-    move-exception v5
+    move-exception v3
 
-    const-string v6, "Interrupted while waiting for vibration to finish before starting external control"
+    const-string v5, "Interrupted while waiting for vibration to finish before starting external control"
 
-    invoke-static {v6, v5}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v5, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :cond_6
+    :goto_1
+    if-nez v0, :cond_7
+
+    iget-object v3, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
+
+    invoke-static {v3, v4}, Lcom/android/server/vibrator/VibratorManagerService;->access$2100(Lcom/android/server/vibrator/VibratorManagerService;Z)V
 
     :cond_7
-    :goto_2
-    if-nez v1, :cond_8
-
-    iget-object v5, p0, Lcom/android/server/vibrator/VibratorManagerService$ExternalVibratorService;->this$0:Lcom/android/server/vibrator/VibratorManagerService;
-
-    invoke-static {v5, v4}, Lcom/android/server/vibrator/VibratorManagerService;->access$2100(Lcom/android/server/vibrator/VibratorManagerService;Z)V
-
-    :cond_8
-    return v2
+    return v1
 
     :catchall_0
-    move-exception v2
+    move-exception v1
 
     :try_start_2
-    monitor-exit v5
+    monitor-exit v3
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    throw v2
+    throw v1
 .end method
 
 .method public onExternalVibrationStop(Landroid/os/ExternalVibration;)V

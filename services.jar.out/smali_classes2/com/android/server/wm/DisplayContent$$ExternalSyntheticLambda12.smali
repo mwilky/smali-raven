@@ -39,7 +39,7 @@
 
     check-cast p2, Lcom/android/server/wm/Task;
 
-    invoke-static {p1, p2}, Lcom/android/server/wm/DisplayContent;->lambda$remove$40(Lcom/android/server/wm/TaskDisplayArea;Lcom/android/server/wm/Task;)Lcom/android/server/wm/Task;
+    invoke-static {p1, p2}, Lcom/android/server/wm/DisplayContent;->lambda$remove$42(Lcom/android/server/wm/TaskDisplayArea;Lcom/android/server/wm/Task;)Lcom/android/server/wm/Task;
 
     move-result-object p1
 

@@ -33,7 +33,7 @@
 
     iget-boolean v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda57;->f$1:Z
 
-    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$setNetworkLoggingActiveInternal$111$DevicePolicyManagerService(Z)V
+    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$setConfiguredNetworksLockdownState$91$DevicePolicyManagerService(Z)V
 
     return-void
 .end method

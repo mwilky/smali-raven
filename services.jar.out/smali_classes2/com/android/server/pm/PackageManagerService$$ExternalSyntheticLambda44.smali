@@ -33,7 +33,7 @@
 
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda44;->f$1:Landroid/os/storage/VolumeInfo;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/pm/PackageManagerService;->lambda$unloadPrivatePackages$64$PackageManagerService(Landroid/os/storage/VolumeInfo;)V
+    invoke-virtual {v0, v1}, Lcom/android/server/pm/PackageManagerService;->lambda$unloadPrivatePackages$63$PackageManagerService(Landroid/os/storage/VolumeInfo;)V
 
     return-void
 .end method

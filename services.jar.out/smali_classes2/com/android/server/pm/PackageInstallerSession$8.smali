@@ -48,7 +48,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageInstallerSession$8;->this$0:Lcom/android/server/pm/PackageInstallerSession;
 
-    invoke-static {v0}, Lcom/android/server/pm/PackageInstallerSession;->access$3100(Lcom/android/server/pm/PackageInstallerSession;)Z
+    invoke-static {v0}, Lcom/android/server/pm/PackageInstallerSession;->access$3000(Lcom/android/server/pm/PackageInstallerSession;)Z
 
     move-result v0
 
@@ -74,7 +74,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/server/pm/PackageInstallerSession;->access$3102(Lcom/android/server/pm/PackageInstallerSession;Z)Z
+    invoke-static {v0, v1}, Lcom/android/server/pm/PackageInstallerSession;->access$3002(Lcom/android/server/pm/PackageInstallerSession;Z)Z
 
     iget-object v0, p0, Lcom/android/server/pm/PackageInstallerSession$8;->this$0:Lcom/android/server/pm/PackageInstallerSession;
 
@@ -82,7 +82,7 @@
 
     const-string v2, "Image is missing pages required for installation."
 
-    invoke-static {v0, v1, v2}, Lcom/android/server/pm/PackageInstallerSession;->access$3600(Lcom/android/server/pm/PackageInstallerSession;ILjava/lang/String;)V
+    invoke-static {v0, v1, v2}, Lcom/android/server/pm/PackageInstallerSession;->access$3500(Lcom/android/server/pm/PackageInstallerSession;ILjava/lang/String;)V
 
     goto :goto_0
 

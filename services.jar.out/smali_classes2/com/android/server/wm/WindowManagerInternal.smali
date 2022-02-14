@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/server/wm/WindowManagerInternal$ImeTargetInfo;,
         Lcom/android/server/wm/WindowManagerInternal$IDragDropCallback;,
         Lcom/android/server/wm/WindowManagerInternal$OnHardKeyboardStatusChangeListener;,
         Lcom/android/server/wm/WindowManagerInternal$KeyguardExitAnimationStartListener;,
@@ -56,12 +57,6 @@
 .end method
 
 .method public abstract getFocusedWindowToken()Landroid/os/IBinder;
-.end method
-
-.method public abstract getImeControlTargetNameForLogging(I)Ljava/lang/String;
-.end method
-
-.method public abstract getImeTargetNameForLogging(I)Ljava/lang/String;
 .end method
 
 .method public abstract getInputMethodWindowVisibleHeight(I)I
@@ -116,6 +111,9 @@
 .end method
 
 .method public abstract moveWindowTokenToDisplay(Landroid/os/IBinder;I)V
+.end method
+
+.method public abstract onToggleImeRequested(ZLandroid/os/IBinder;Landroid/os/IBinder;I)Lcom/android/server/wm/WindowManagerInternal$ImeTargetInfo;
 .end method
 
 .method public abstract registerAppTransitionListener(Lcom/android/server/wm/WindowManagerInternal$AppTransitionListener;)V

@@ -29,7 +29,7 @@
 
     check-cast p1, Lcom/android/server/wm/TaskDisplayArea;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/DisplayContent;->lambda$assignRootTaskOrdering$32$DisplayContent(Lcom/android/server/wm/TaskDisplayArea;)V
+    invoke-virtual {v0, p1}, Lcom/android/server/wm/DisplayContent;->lambda$assignRootTaskOrdering$34$DisplayContent(Lcom/android/server/wm/TaskDisplayArea;)V
 
     return-void
 .end method

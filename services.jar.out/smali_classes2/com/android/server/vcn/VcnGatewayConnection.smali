@@ -486,7 +486,15 @@
     return-void
 .end method
 
-.method static synthetic access$1000(Lcom/android/server/vcn/VcnGatewayConnection;)V
+.method static synthetic access$1000(Lcom/android/server/vcn/VcnGatewayConnection;Ljava/lang/String;Ljava/lang/Throwable;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/vcn/VcnGatewayConnection;->logWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    return-void
+.end method
+
+.method static synthetic access$1100(Lcom/android/server/vcn/VcnGatewayConnection;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/vcn/VcnGatewayConnection;->maybeReleaseWakeLock()V
@@ -494,7 +502,7 @@
     return-void
 .end method
 
-.method static synthetic access$1100(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;
+.method static synthetic access$1200(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection;->mNetworkAgent:Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;
@@ -502,7 +510,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1102(Lcom/android/server/vcn/VcnGatewayConnection;Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;)Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;
+.method static synthetic access$1202(Lcom/android/server/vcn/VcnGatewayConnection;Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;)Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/vcn/VcnGatewayConnection;->mNetworkAgent:Lcom/android/server/vcn/VcnGatewayConnection$VcnNetworkAgent;
@@ -510,7 +518,7 @@
     return-object p1
 .end method
 
-.method static synthetic access$1200(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/util/OneWayBoolean;
+.method static synthetic access$1300(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/util/OneWayBoolean;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection;->mIsQuitting:Lcom/android/server/vcn/util/OneWayBoolean;
@@ -518,7 +526,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1300(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/VcnGatewayConnection$VcnIkeSession;
+.method static synthetic access$1400(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/VcnGatewayConnection$VcnIkeSession;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection;->mIkeSession:Lcom/android/server/vcn/VcnGatewayConnection$VcnIkeSession;
@@ -526,7 +534,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1302(Lcom/android/server/vcn/VcnGatewayConnection;Lcom/android/server/vcn/VcnGatewayConnection$VcnIkeSession;)Lcom/android/server/vcn/VcnGatewayConnection$VcnIkeSession;
+.method static synthetic access$1402(Lcom/android/server/vcn/VcnGatewayConnection;Lcom/android/server/vcn/VcnGatewayConnection$VcnIkeSession;)Lcom/android/server/vcn/VcnGatewayConnection$VcnIkeSession;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/vcn/VcnGatewayConnection;->mIkeSession:Lcom/android/server/vcn/VcnGatewayConnection$VcnIkeSession;
@@ -534,7 +542,7 @@
     return-object p1
 .end method
 
-.method static synthetic access$1402(Lcom/android/server/vcn/VcnGatewayConnection;Lcom/android/internal/util/WakeupMessage;)Lcom/android/internal/util/WakeupMessage;
+.method static synthetic access$1502(Lcom/android/server/vcn/VcnGatewayConnection;Lcom/android/internal/util/WakeupMessage;)Lcom/android/internal/util/WakeupMessage;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/vcn/VcnGatewayConnection;->mSafeModeTimeoutAlarm:Lcom/android/internal/util/WakeupMessage;
@@ -542,7 +550,7 @@
     return-object p1
 .end method
 
-.method static synthetic access$1502(Lcom/android/server/vcn/VcnGatewayConnection;Z)Z
+.method static synthetic access$1602(Lcom/android/server/vcn/VcnGatewayConnection;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/vcn/VcnGatewayConnection;->mIsInSafeMode:Z
@@ -550,7 +558,7 @@
     return p1
 .end method
 
-.method static synthetic access$1600(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/Vcn$VcnGatewayStatusCallback;
+.method static synthetic access$1700(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/Vcn$VcnGatewayStatusCallback;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection;->mGatewayStatusCallback:Lcom/android/server/vcn/Vcn$VcnGatewayStatusCallback;
@@ -558,7 +566,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1700(Lcom/android/server/vcn/VcnGatewayConnection;Ljava/lang/String;)V
+.method static synthetic access$1800(Lcom/android/server/vcn/VcnGatewayConnection;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/vcn/VcnGatewayConnection;->logWtf(Ljava/lang/String;)V
@@ -566,7 +574,7 @@
     return-void
 .end method
 
-.method static synthetic access$1900(Lcom/android/server/vcn/VcnGatewayConnection;)V
+.method static synthetic access$2000(Lcom/android/server/vcn/VcnGatewayConnection;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/vcn/VcnGatewayConnection;->cancelSafeModeAlarm()V
@@ -574,7 +582,7 @@
     return-void
 .end method
 
-.method static synthetic access$2000(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/UnderlyingNetworkTracker$UnderlyingNetworkRecord;
+.method static synthetic access$2100(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/UnderlyingNetworkTracker$UnderlyingNetworkRecord;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection;->mUnderlying:Lcom/android/server/vcn/UnderlyingNetworkTracker$UnderlyingNetworkRecord;
@@ -582,7 +590,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$2002(Lcom/android/server/vcn/VcnGatewayConnection;Lcom/android/server/vcn/UnderlyingNetworkTracker$UnderlyingNetworkRecord;)Lcom/android/server/vcn/UnderlyingNetworkTracker$UnderlyingNetworkRecord;
+.method static synthetic access$2102(Lcom/android/server/vcn/VcnGatewayConnection;Lcom/android/server/vcn/UnderlyingNetworkTracker$UnderlyingNetworkRecord;)Lcom/android/server/vcn/UnderlyingNetworkTracker$UnderlyingNetworkRecord;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/vcn/VcnGatewayConnection;->mUnderlying:Lcom/android/server/vcn/UnderlyingNetworkTracker$UnderlyingNetworkRecord;
@@ -590,7 +598,7 @@
     return-object p1
 .end method
 
-.method static synthetic access$2100(Lcom/android/server/vcn/VcnGatewayConnection;)I
+.method static synthetic access$2200(Lcom/android/server/vcn/VcnGatewayConnection;)I
     .locals 1
 
     iget v0, p0, Lcom/android/server/vcn/VcnGatewayConnection;->mCurrentToken:I
@@ -598,7 +606,7 @@
     return v0
 .end method
 
-.method static synthetic access$2300(Lcom/android/server/vcn/VcnGatewayConnection;II)V
+.method static synthetic access$2400(Lcom/android/server/vcn/VcnGatewayConnection;II)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/vcn/VcnGatewayConnection;->sendMessageAndAcquireWakeLock(II)V
@@ -606,7 +614,7 @@
     return-void
 .end method
 
-.method static synthetic access$2400(Lcom/android/server/vcn/VcnGatewayConnection;)V
+.method static synthetic access$2500(Lcom/android/server/vcn/VcnGatewayConnection;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/vcn/VcnGatewayConnection;->setTeardownTimeoutAlarm()V
@@ -614,7 +622,7 @@
     return-void
 .end method
 
-.method static synthetic access$2500(Lcom/android/server/vcn/VcnGatewayConnection;)V
+.method static synthetic access$2600(Lcom/android/server/vcn/VcnGatewayConnection;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/vcn/VcnGatewayConnection;->cancelTeardownTimeoutAlarm()V
@@ -622,7 +630,7 @@
     return-void
 .end method
 
-.method static synthetic access$2600(Lcom/android/server/vcn/VcnGatewayConnection;)Landroid/net/vcn/VcnGatewayConnectionConfig;
+.method static synthetic access$2700(Lcom/android/server/vcn/VcnGatewayConnection;)Landroid/net/vcn/VcnGatewayConnectionConfig;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection;->mConnectionConfig:Landroid/net/vcn/VcnGatewayConnectionConfig;
@@ -630,7 +638,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$2700(Lcom/android/server/vcn/VcnGatewayConnection;)Z
+.method static synthetic access$2800(Lcom/android/server/vcn/VcnGatewayConnection;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/vcn/VcnGatewayConnection;->mIsMobileDataEnabled:Z
@@ -638,7 +646,7 @@
     return v0
 .end method
 
-.method static synthetic access$2800(Landroid/net/vcn/VcnGatewayConnectionConfig;Landroid/net/IpSecManager$IpSecTunnelInterface;Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;Lcom/android/server/vcn/UnderlyingNetworkTracker$UnderlyingNetworkRecord;)Landroid/net/LinkProperties;
+.method static synthetic access$2900(Landroid/net/vcn/VcnGatewayConnectionConfig;Landroid/net/IpSecManager$IpSecTunnelInterface;Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;Lcom/android/server/vcn/UnderlyingNetworkTracker$UnderlyingNetworkRecord;)Landroid/net/LinkProperties;
     .locals 1
 
     invoke-static {p0, p1, p2, p3}, Lcom/android/server/vcn/VcnGatewayConnection;->buildConnectedLinkProperties(Landroid/net/vcn/VcnGatewayConnectionConfig;Landroid/net/IpSecManager$IpSecTunnelInterface;Lcom/android/server/vcn/VcnGatewayConnection$VcnChildSessionConfiguration;Lcom/android/server/vcn/UnderlyingNetworkTracker$UnderlyingNetworkRecord;)Landroid/net/LinkProperties;
@@ -648,18 +656,10 @@
     return-object v0
 .end method
 
-.method static synthetic access$2900()Ljava/lang/String;
+.method static synthetic access$3000()Ljava/lang/String;
     .locals 1
 
     sget-object v0, Lcom/android/server/vcn/VcnGatewayConnection;->TAG:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$3000(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/VcnGatewayConnection$Dependencies;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection;->mDeps:Lcom/android/server/vcn/VcnGatewayConnection$Dependencies;
 
     return-object v0
 .end method
@@ -812,23 +812,15 @@
     return-void
 .end method
 
-.method static synthetic access$600(Lcom/android/server/vcn/VcnGatewayConnection;)V
-    .locals 0
+.method static synthetic access$600(Lcom/android/server/vcn/VcnGatewayConnection;)Lcom/android/server/vcn/VcnGatewayConnection$Dependencies;
+    .locals 1
 
-    invoke-direct {p0}, Lcom/android/server/vcn/VcnGatewayConnection;->setDisconnectRequestAlarm()V
+    iget-object v0, p0, Lcom/android/server/vcn/VcnGatewayConnection;->mDeps:Lcom/android/server/vcn/VcnGatewayConnection$Dependencies;
 
-    return-void
+    return-object v0
 .end method
 
-.method static synthetic access$700(Lcom/android/server/vcn/VcnGatewayConnection;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/server/vcn/VcnGatewayConnection;->cancelDisconnectRequestAlarm()V
-
-    return-void
-.end method
-
-.method static synthetic access$800(Lcom/android/server/vcn/VcnGatewayConnection;IILcom/android/server/vcn/VcnGatewayConnection$EventInfo;)V
+.method static synthetic access$700(Lcom/android/server/vcn/VcnGatewayConnection;IILcom/android/server/vcn/VcnGatewayConnection$EventInfo;)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/vcn/VcnGatewayConnection;->sendMessageAndAcquireWakeLock(IILcom/android/server/vcn/VcnGatewayConnection$EventInfo;)V
@@ -836,10 +828,18 @@
     return-void
 .end method
 
-.method static synthetic access$900(Lcom/android/server/vcn/VcnGatewayConnection;Ljava/lang/String;Ljava/lang/Throwable;)V
+.method static synthetic access$800(Lcom/android/server/vcn/VcnGatewayConnection;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/server/vcn/VcnGatewayConnection;->logWtf(Ljava/lang/String;Ljava/lang/Throwable;)V
+    invoke-direct {p0}, Lcom/android/server/vcn/VcnGatewayConnection;->setDisconnectRequestAlarm()V
+
+    return-void
+.end method
+
+.method static synthetic access$900(Lcom/android/server/vcn/VcnGatewayConnection;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/vcn/VcnGatewayConnection;->cancelDisconnectRequestAlarm()V
 
     return-void
 .end method

@@ -35,9 +35,9 @@
 .method public final accept(Ljava/lang/Object;)V
     .locals 0
 
-    check-cast p1, Lcom/android/server/wm/DisplayContent;
+    check-cast p1, Lcom/android/server/wm/TaskFragment;
 
-    invoke-static {p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$performSurfacePlacementNoTrace$8(Lcom/android/server/wm/DisplayContent;)V
+    invoke-static {p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$applySleepTokens$20(Lcom/android/server/wm/TaskFragment;)V
 
     return-void
 .end method

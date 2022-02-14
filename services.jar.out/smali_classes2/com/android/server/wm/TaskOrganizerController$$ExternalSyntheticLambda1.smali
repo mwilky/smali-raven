@@ -2,40 +2,50 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
-.field public final synthetic f$0:[I
+.field public final synthetic f$0:Lcom/android/server/wm/TaskOrganizerController;
 
-.field public final synthetic f$1:Ljava/util/ArrayList;
+.field public final synthetic f$1:Landroid/window/ITaskOrganizer;
+
+.field public final synthetic f$2:I
+
+.field public final synthetic f$3:Ljava/util/ArrayList;
 
 
 # direct methods
-.method public synthetic constructor <init>([ILjava/util/ArrayList;)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/TaskOrganizerController;Landroid/window/ITaskOrganizer;ILjava/util/ArrayList;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/wm/TaskOrganizerController$$ExternalSyntheticLambda1;->f$0:[I
+    iput-object p1, p0, Lcom/android/server/wm/TaskOrganizerController$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/wm/TaskOrganizerController;
 
-    iput-object p2, p0, Lcom/android/server/wm/TaskOrganizerController$$ExternalSyntheticLambda1;->f$1:Ljava/util/ArrayList;
+    iput-object p2, p0, Lcom/android/server/wm/TaskOrganizerController$$ExternalSyntheticLambda1;->f$1:Landroid/window/ITaskOrganizer;
+
+    iput p3, p0, Lcom/android/server/wm/TaskOrganizerController$$ExternalSyntheticLambda1;->f$2:I
+
+    iput-object p4, p0, Lcom/android/server/wm/TaskOrganizerController$$ExternalSyntheticLambda1;->f$3:Ljava/util/ArrayList;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 2
+.method public final run()V
+    .locals 4
 
-    iget-object v0, p0, Lcom/android/server/wm/TaskOrganizerController$$ExternalSyntheticLambda1;->f$0:[I
+    iget-object v0, p0, Lcom/android/server/wm/TaskOrganizerController$$ExternalSyntheticLambda1;->f$0:Lcom/android/server/wm/TaskOrganizerController;
 
-    iget-object v1, p0, Lcom/android/server/wm/TaskOrganizerController$$ExternalSyntheticLambda1;->f$1:Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/android/server/wm/TaskOrganizerController$$ExternalSyntheticLambda1;->f$1:Landroid/window/ITaskOrganizer;
 
-    check-cast p1, Lcom/android/server/wm/Task;
+    iget v2, p0, Lcom/android/server/wm/TaskOrganizerController$$ExternalSyntheticLambda1;->f$2:I
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/TaskOrganizerController;->lambda$getRootTasks$1([ILjava/util/ArrayList;Lcom/android/server/wm/Task;)V
+    iget-object v3, p0, Lcom/android/server/wm/TaskOrganizerController$$ExternalSyntheticLambda1;->f$3:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/wm/TaskOrganizerController;->lambda$registerTaskOrganizer$1$TaskOrganizerController(Landroid/window/ITaskOrganizer;ILjava/util/ArrayList;)V
 
     return-void
 .end method

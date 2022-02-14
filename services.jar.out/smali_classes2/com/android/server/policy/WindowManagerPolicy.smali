@@ -88,7 +88,7 @@
 .method public abstract adjustConfigurationLw(Landroid/content/res/Configuration;II)V
 .end method
 
-.method public abstract applyKeyguardOcclusionChange()I
+.method public abstract applyKeyguardOcclusionChange(Z)I
 .end method
 
 .method public canBeHiddenByKeyguardLw(Lcom/android/server/policy/WindowManagerPolicy$WindowState;)Z
@@ -728,9 +728,6 @@
     .locals 0
 
     return-void
-.end method
-
-.method public abstract setKeyguardCandidateLw(Lcom/android/server/policy/WindowManagerPolicy$WindowState;)V
 .end method
 
 .method public abstract setNavBarVirtualKeyHapticFeedbackEnabledLw(Z)V

@@ -346,7 +346,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/android/server/accessibility/AccessibilityInputFilter;->onDisplayChanged()V
+    invoke-virtual {v2, v0}, Lcom/android/server/accessibility/AccessibilityInputFilter;->onDisplayAdded(Landroid/view/Display;)V
 
     :cond_1
     iget-object v2, p0, Lcom/android/server/accessibility/AccessibilityManagerService$AccessibilityDisplayListener;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;
@@ -446,7 +446,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/server/accessibility/AccessibilityInputFilter;->onDisplayChanged()V
+    invoke-virtual {v1, p1}, Lcom/android/server/accessibility/AccessibilityInputFilter;->onDisplayRemoved(I)V
 
     :cond_1
     iget-object v1, p0, Lcom/android/server/accessibility/AccessibilityManagerService$AccessibilityDisplayListener;->this$0:Lcom/android/server/accessibility/AccessibilityManagerService;

@@ -33,7 +33,7 @@
 
     iget-boolean v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda55;->f$1:Z
 
-    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$setAutoTimeZoneEnabled$55$DevicePolicyManagerService(Z)V
+    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$setAutoTimeEnabled$54$DevicePolicyManagerService(Z)V
 
     return-void
 .end method

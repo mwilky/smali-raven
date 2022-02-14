@@ -931,75 +931,225 @@
 
 # virtual methods
 .method intercept(Landroid/content/Intent;Landroid/content/pm/ResolveInfo;Landroid/content/pm/ActivityInfo;Ljava/lang/String;Lcom/android/server/wm/Task;IILandroid/app/ActivityOptions;)Z
-    .locals 2
+    .locals 25
 
-    iget-object v0, p0, Lcom/android/server/wm/ActivityStartInterceptor;->mServiceContext:Landroid/content/Context;
+    move-object/from16 v0, p0
 
-    invoke-static {v0}, Landroid/os/UserManager;->get(Landroid/content/Context;)Landroid/os/UserManager;
+    iget-object v1, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mServiceContext:Landroid/content/Context;
 
-    move-result-object v0
+    invoke-static {v1}, Landroid/os/UserManager;->get(Landroid/content/Context;)Landroid/os/UserManager;
 
-    iput-object v0, p0, Lcom/android/server/wm/ActivityStartInterceptor;->mUserManager:Landroid/os/UserManager;
+    move-result-object v1
 
-    iput-object p1, p0, Lcom/android/server/wm/ActivityStartInterceptor;->mIntent:Landroid/content/Intent;
+    iput-object v1, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mUserManager:Landroid/os/UserManager;
 
-    iput p6, p0, Lcom/android/server/wm/ActivityStartInterceptor;->mCallingPid:I
+    move-object/from16 v1, p1
 
-    iput p7, p0, Lcom/android/server/wm/ActivityStartInterceptor;->mCallingUid:I
+    iput-object v1, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mIntent:Landroid/content/Intent;
 
-    iput-object p2, p0, Lcom/android/server/wm/ActivityStartInterceptor;->mRInfo:Landroid/content/pm/ResolveInfo;
+    move/from16 v2, p6
 
-    iput-object p3, p0, Lcom/android/server/wm/ActivityStartInterceptor;->mAInfo:Landroid/content/pm/ActivityInfo;
+    iput v2, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mCallingPid:I
 
-    iput-object p4, p0, Lcom/android/server/wm/ActivityStartInterceptor;->mResolvedType:Ljava/lang/String;
+    move/from16 v3, p7
 
-    iput-object p5, p0, Lcom/android/server/wm/ActivityStartInterceptor;->mInTask:Lcom/android/server/wm/Task;
+    iput v3, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mCallingUid:I
 
-    iput-object p8, p0, Lcom/android/server/wm/ActivityStartInterceptor;->mActivityOptions:Landroid/app/ActivityOptions;
+    move-object/from16 v4, p2
 
-    invoke-direct {p0}, Lcom/android/server/wm/ActivityStartInterceptor;->interceptQuietProfileIfNeeded()Z
+    iput-object v4, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mRInfo:Landroid/content/pm/ResolveInfo;
 
-    move-result v0
+    move-object/from16 v5, p3
 
-    const/4 v1, 0x1
+    iput-object v5, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mAInfo:Landroid/content/pm/ActivityInfo;
 
-    if-eqz v0, :cond_0
+    move-object/from16 v6, p4
 
-    return v1
+    iput-object v6, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mResolvedType:Ljava/lang/String;
+
+    move-object/from16 v7, p5
+
+    iput-object v7, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mInTask:Lcom/android/server/wm/Task;
+
+    move-object/from16 v8, p8
+
+    iput-object v8, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mActivityOptions:Landroid/app/ActivityOptions;
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/wm/ActivityStartInterceptor;->interceptQuietProfileIfNeeded()Z
+
+    move-result v9
+
+    const/4 v10, 0x1
+
+    if-eqz v9, :cond_0
+
+    return v10
 
     :cond_0
-    invoke-direct {p0}, Lcom/android/server/wm/ActivityStartInterceptor;->interceptSuspendedPackageIfNeeded()Z
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/wm/ActivityStartInterceptor;->interceptSuspendedPackageIfNeeded()Z
 
-    move-result v0
+    move-result v9
 
-    if-eqz v0, :cond_1
+    if-eqz v9, :cond_1
 
-    return v1
+    return v10
 
     :cond_1
-    invoke-direct {p0}, Lcom/android/server/wm/ActivityStartInterceptor;->interceptLockTaskModeViolationPackageIfNeeded()Z
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/wm/ActivityStartInterceptor;->interceptLockTaskModeViolationPackageIfNeeded()Z
 
-    move-result v0
+    move-result v9
 
-    if-eqz v0, :cond_2
+    if-eqz v9, :cond_2
 
-    return v1
+    return v10
 
     :cond_2
-    invoke-direct {p0}, Lcom/android/server/wm/ActivityStartInterceptor;->interceptHarmfulAppIfNeeded()Z
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/wm/ActivityStartInterceptor;->interceptHarmfulAppIfNeeded()Z
 
-    move-result v0
+    move-result v9
 
-    if-eqz v0, :cond_3
+    if-eqz v9, :cond_3
 
-    return v1
+    return v10
 
     :cond_3
-    invoke-direct {p0}, Lcom/android/server/wm/ActivityStartInterceptor;->interceptLockedManagedProfileIfNeeded()Z
+    invoke-direct/range {p0 .. p0}, Lcom/android/server/wm/ActivityStartInterceptor;->interceptLockedManagedProfileIfNeeded()Z
 
-    move-result v0
+    move-result v9
 
-    return v0
+    if-eqz v9, :cond_4
+
+    return v10
+
+    :cond_4
+    iget-object v9, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    invoke-virtual {v9}, Lcom/android/server/wm/ActivityTaskManagerService;->getActivityInterceptorCallbacks()Landroid/util/SparseArray;
+
+    move-result-object v9
+
+    new-instance v24, Lcom/android/server/wm/ActivityInterceptorCallback$ActivityInterceptorInfo;
+
+    iget v12, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mRealCallingUid:I
+
+    iget v13, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mRealCallingPid:I
+
+    iget v14, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mUserId:I
+
+    iget-object v15, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mCallingPackage:Ljava/lang/String;
+
+    iget-object v11, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mCallingFeatureId:Ljava/lang/String;
+
+    iget-object v10, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mIntent:Landroid/content/Intent;
+
+    iget-object v1, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mRInfo:Landroid/content/pm/ResolveInfo;
+
+    iget-object v2, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mAInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v3, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mResolvedType:Ljava/lang/String;
+
+    iget v4, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mCallingPid:I
+
+    iget v5, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mCallingUid:I
+
+    iget-object v6, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mActivityOptions:Landroid/app/ActivityOptions;
+
+    move-object/from16 v16, v11
+
+    move-object/from16 v11, v24
+
+    move-object/from16 v17, v10
+
+    move-object/from16 v18, v1
+
+    move-object/from16 v19, v2
+
+    move-object/from16 v20, v3
+
+    move/from16 v21, v4
+
+    move/from16 v22, v5
+
+    move-object/from16 v23, v6
+
+    invoke-direct/range {v11 .. v23}, Lcom/android/server/wm/ActivityInterceptorCallback$ActivityInterceptorInfo;-><init>(IIILjava/lang/String;Ljava/lang/String;Landroid/content/Intent;Landroid/content/pm/ResolveInfo;Landroid/content/pm/ActivityInfo;Ljava/lang/String;IILandroid/app/ActivityOptions;)V
+
+    move-object/from16 v1, v24
+
+    const/4 v2, 0x0
+
+    :goto_0
+    invoke-virtual {v9}, Landroid/util/SparseArray;->size()I
+
+    move-result v3
+
+    if-ge v2, v3, :cond_6
+
+    invoke-virtual {v9, v2}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/server/wm/ActivityInterceptorCallback;
+
+    invoke-virtual {v3, v1}, Lcom/android/server/wm/ActivityInterceptorCallback;->intercept(Lcom/android/server/wm/ActivityInterceptorCallback$ActivityInterceptorInfo;)Landroid/content/Intent;
+
+    move-result-object v4
+
+    if-nez v4, :cond_5
+
+    nop
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_5
+    iput-object v4, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mIntent:Landroid/content/Intent;
+
+    iget v5, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mRealCallingPid:I
+
+    iput v5, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mCallingPid:I
+
+    iget v15, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mRealCallingUid:I
+
+    iput v15, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mCallingUid:I
+
+    iget-object v10, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
+
+    const/4 v12, 0x0
+
+    iget v13, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mUserId:I
+
+    const/4 v14, 0x0
+
+    move-object v11, v4
+
+    invoke-virtual/range {v10 .. v15}, Lcom/android/server/wm/ActivityTaskSupervisor;->resolveIntent(Landroid/content/Intent;Ljava/lang/String;III)Landroid/content/pm/ResolveInfo;
+
+    move-result-object v5
+
+    iput-object v5, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mRInfo:Landroid/content/pm/ResolveInfo;
+
+    iget-object v6, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
+
+    iget-object v10, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mIntent:Landroid/content/Intent;
+
+    iget v11, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mStartFlags:I
+
+    invoke-virtual {v6, v10, v5, v11, v12}, Lcom/android/server/wm/ActivityTaskSupervisor;->resolveActivity(Landroid/content/Intent;Landroid/content/pm/ResolveInfo;ILandroid/app/ProfilerInfo;)Landroid/content/pm/ActivityInfo;
+
+    move-result-object v5
+
+    iput-object v5, v0, Lcom/android/server/wm/ActivityStartInterceptor;->mAInfo:Landroid/content/pm/ActivityInfo;
+
+    const/4 v5, 0x1
+
+    return v5
+
+    :cond_6
+    const/4 v2, 0x0
+
+    return v2
 .end method
 
 .method setStates(IIIILjava/lang/String;Ljava/lang/String;)V

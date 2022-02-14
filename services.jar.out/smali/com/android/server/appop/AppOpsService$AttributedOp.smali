@@ -1492,34 +1492,34 @@
     iget-object v0, v12, Lcom/android/server/appop/AppOpsService$AttributedOp;->mPausedInProgressEvents:Landroid/util/ArrayMap;
 
     :goto_0
-    move-object v14, v0
+    invoke-virtual {v0}, Landroid/util/ArrayMap;->size()I
 
-    invoke-virtual {v14}, Landroid/util/ArrayMap;->size()I
+    move-result v14
 
-    move-result v15
+    new-instance v1, Ljava/util/ArrayList;
 
-    new-instance v0, Ljava/util/ArrayList;
+    invoke-virtual {v0}, Landroid/util/ArrayMap;->keySet()Ljava/util/Set;
 
-    invoke-virtual {v14}, Landroid/util/ArrayMap;->keySet()Ljava/util/Set;
+    move-result-object v2
 
-    move-result-object v1
+    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+    move-object v15, v1
+
+    const/4 v1, 0x0
 
     move-object v11, v0
 
-    const/4 v0, 0x0
-
-    move v10, v0
+    move v10, v1
 
     :goto_1
-    if-ge v10, v15, :cond_5
+    if-ge v10, v14, :cond_6
 
-    invoke-interface {v11, v10}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v15, v10}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
-    invoke-virtual {v14, v0}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v11, v0}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -1527,7 +1527,7 @@
 
     check-cast v9, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;
 
-    if-eqz v9, :cond_4
+    if-eqz v9, :cond_5
 
     invoke-virtual {v9}, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->getUidState()I
 
@@ -1535,7 +1535,7 @@
 
     move/from16 v8, p1
 
-    if-eq v0, v8, :cond_4
+    if-eq v0, v8, :cond_5
 
     :try_start_0
     iget v0, v9, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->numUnfinishedStarts:I
@@ -1593,7 +1593,7 @@
 
     move-result v19
     :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
     move-object/from16 v1, p0
 
@@ -1609,41 +1609,34 @@
 
     move/from16 v10, v18
 
-    move-object v12, v11
+    move-object/from16 v18, v11
 
     move/from16 v11, v19
 
     :try_start_2
     invoke-direct/range {v1 .. v11}, Lcom/android/server/appop/AppOpsService$AttributedOp;->startedOrPaused(Landroid/os/IBinder;ILjava/lang/String;Ljava/lang/String;IIZZII)V
     :try_end_2
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
+    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_1
 
     goto :goto_2
 
     :catch_0
     move-exception v0
 
-    move/from16 v1, v20
-
-    goto :goto_3
-
-    :catch_1
-    move-exception v0
-
     move-object/from16 v17, v9
 
-    move-object v12, v11
+    move-object/from16 v18, v11
 
     move v1, v10
 
-    goto :goto_3
+    goto/16 :goto_4
 
     :cond_2
     move-object/from16 v17, v9
 
     move/from16 v20, v10
 
-    move-object v12, v11
+    move-object/from16 v18, v11
 
     :try_start_3
     invoke-virtual/range {v17 .. v17}, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->getClientId()Landroid/os/IBinder;
@@ -1681,20 +1674,47 @@
     .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_3
 
     :goto_2
-    move/from16 v1, v20
+    if-eqz v13, :cond_3
 
     :try_start_4
-    invoke-interface {v12, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    iget-object v1, v12, Lcom/android/server/appop/AppOpsService$AttributedOp;->mInProgressEvents:Landroid/util/ArrayMap;
+    :try_end_4
+    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_1
+
+    goto :goto_3
+
+    :catch_1
+    move-exception v0
+
+    move-object/from16 v11, v18
+
+    move/from16 v1, v20
+
+    goto :goto_4
+
+    :cond_3
+    :try_start_5
+    iget-object v1, v12, Lcom/android/server/appop/AppOpsService$AttributedOp;->mPausedInProgressEvents:Landroid/util/ArrayMap;
+    :try_end_5
+    .catch Landroid/os/RemoteException; {:try_start_5 .. :try_end_5} :catch_3
+
+    :goto_3
+    move-object v11, v1
+
+    move/from16 v1, v20
+
+    :try_start_6
+    invoke-interface {v15, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
-    invoke-virtual {v14, v2}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v11, v2}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_4
 
     iget v3, v2, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->numUnfinishedStarts:I
 
@@ -1703,23 +1723,25 @@
     add-int/2addr v3, v4
 
     iput v3, v2, Lcom/android/server/appop/AppOpsService$InProgressStartOpEvent;->numUnfinishedStarts:I
-    :try_end_4
-    .catch Landroid/os/RemoteException; {:try_start_4 .. :try_end_4} :catch_2
+    :try_end_6
+    .catch Landroid/os/RemoteException; {:try_start_6 .. :try_end_6} :catch_2
 
-    :cond_3
-    goto :goto_3
+    :cond_4
+    goto :goto_4
 
     :catch_2
     move-exception v0
 
-    goto :goto_3
+    goto :goto_4
 
     :catch_3
     move-exception v0
 
     move/from16 v1, v20
 
-    goto :goto_3
+    move-object/from16 v11, v18
+
+    goto :goto_4
 
     :catch_4
     move-exception v0
@@ -1728,27 +1750,25 @@
 
     move v1, v10
 
-    move-object v12, v11
+    move-object/from16 v18, v11
 
-    goto :goto_3
+    goto :goto_4
 
-    :cond_4
+    :cond_5
     move-object/from16 v17, v9
 
     move v1, v10
 
-    move-object v12, v11
+    move-object/from16 v18, v11
 
-    :goto_3
+    move-object/from16 v11, v18
+
+    :goto_4
     add-int/lit8 v10, v1, 0x1
-
-    move-object v11, v12
-
-    move-object/from16 v12, p0
 
     goto/16 :goto_1
 
-    :cond_5
+    :cond_6
     return-void
 .end method
 

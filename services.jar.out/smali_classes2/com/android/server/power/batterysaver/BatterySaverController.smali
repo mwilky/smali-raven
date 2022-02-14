@@ -247,7 +247,7 @@
 
     iget-object v0, p0, Lcom/android/server/power/batterysaver/BatterySaverController;->mContext:Landroid/content/Context;
 
-    const v1, 0x1040269
+    const v1, 0x104026a
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

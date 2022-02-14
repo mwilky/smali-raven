@@ -23,6 +23,8 @@
 
 .field private final mHandler:Landroid/os/Handler;
 
+.field private final mTrace:Lcom/android/server/accessibility/AccessibilityTraceManager;
+
 .field private final mWindowManager:Lcom/android/server/wm/WindowManagerInternal;
 
 
@@ -35,6 +37,12 @@
     iput-object p1, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ControllerContext;->mContext:Landroid/content/Context;
 
     iput-object p2, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ControllerContext;->mAms:Lcom/android/server/accessibility/AccessibilityManagerService;
+
+    invoke-virtual {p2}, Lcom/android/server/accessibility/AccessibilityManagerService;->getTraceManager()Lcom/android/server/accessibility/AccessibilityTraceManager;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ControllerContext;->mTrace:Lcom/android/server/accessibility/AccessibilityTraceManager;
 
     iput-object p3, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ControllerContext;->mWindowManager:Lcom/android/server/wm/WindowManagerInternal;
 
@@ -105,6 +113,14 @@
     move-result v0
 
     return v0
+.end method
+
+.method public getTraceManager()Lcom/android/server/accessibility/AccessibilityTraceManager;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ControllerContext;->mTrace:Lcom/android/server/accessibility/AccessibilityTraceManager;
+
+    return-object v0
 .end method
 
 .method public getWindowManager()Lcom/android/server/wm/WindowManagerInternal;

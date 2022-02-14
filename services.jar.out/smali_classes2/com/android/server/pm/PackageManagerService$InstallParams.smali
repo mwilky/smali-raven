@@ -146,7 +146,7 @@
 
     iget v1, p4, Landroid/content/pm/PackageInstaller$SessionParams;->installReason:I
 
-    invoke-static {p1, v0, p8, v1}, Lcom/android/server/pm/PackageManagerService;->access$5900(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;II)I
+    invoke-static {p1, v0, p8, v1}, Lcom/android/server/pm/PackageManagerService;->access$5800(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;II)I
 
     move-result v0
 
@@ -342,7 +342,7 @@
     :goto_0
     move v5, v0
 
-    invoke-static {}, Lcom/android/server/pm/PackageManagerService;->access$2700()Z
+    invoke-static {}, Lcom/android/server/pm/PackageManagerService;->access$2600()Z
 
     move-result v0
 
@@ -604,7 +604,7 @@
 
     iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$InstallParams;->this$0:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v0, p0}, Lcom/android/server/pm/PackageManagerService;->access$6100(Lcom/android/server/pm/PackageManagerService;Lcom/android/server/pm/PackageManagerService$InstallParams;)Lcom/android/server/pm/PackageManagerService$InstallArgs;
+    invoke-static {v0, p0}, Lcom/android/server/pm/PackageManagerService;->access$6000(Lcom/android/server/pm/PackageManagerService;Lcom/android/server/pm/PackageManagerService$InstallParams;)Lcom/android/server/pm/PackageManagerService$InstallArgs;
 
     move-result-object v0
 
@@ -659,7 +659,7 @@
 
     iget v3, p0, Lcom/android/server/pm/PackageManagerService$InstallParams;->mRet:I
 
-    invoke-static {v1, v3}, Lcom/android/server/pm/PackageManagerService;->access$5600(Lcom/android/server/pm/PackageManagerService;I)Lcom/android/server/pm/PackageManagerService$PackageInstalledInfo;
+    invoke-static {v1, v3}, Lcom/android/server/pm/PackageManagerService;->access$5500(Lcom/android/server/pm/PackageManagerService;I)Lcom/android/server/pm/PackageManagerService$PackageInstalledInfo;
 
     move-result-object v1
 
@@ -685,7 +685,7 @@
 
     move-result-object v4
 
-    invoke-static {v3, v2, v4}, Lcom/android/server/pm/PackageManagerService;->access$5800(Lcom/android/server/pm/PackageManagerService;ZLjava/util/List;)V
+    invoke-static {v3, v2, v4}, Lcom/android/server/pm/PackageManagerService;->access$5700(Lcom/android/server/pm/PackageManagerService;ZLjava/util/List;)V
 
     :goto_1
     return-void
@@ -759,7 +759,7 @@
 
     iget-wide v5, p0, Lcom/android/server/pm/PackageManagerService$InstallParams;->requiredInstalledVersionCode:J
 
-    invoke-static {v4, v0, v5, v6, v2}, Lcom/android/server/pm/PackageManagerService;->access$6000(Lcom/android/server/pm/PackageManagerService;Landroid/content/pm/PackageInfoLite;JI)I
+    invoke-static {v4, v0, v5, v6, v2}, Lcom/android/server/pm/PackageManagerService;->access$5900(Lcom/android/server/pm/PackageManagerService;Landroid/content/pm/PackageInfoLite;JI)I
 
     move-result v2
 

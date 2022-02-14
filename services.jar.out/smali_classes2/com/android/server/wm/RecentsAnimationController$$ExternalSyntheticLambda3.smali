@@ -2,44 +2,38 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/BiConsumer;
+.implements Ljava/lang/Runnable;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda3;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/wm/RecentsAnimationController;
+
+.field public final synthetic f$1:I
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda3;
-
-    invoke-direct {v0}, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda3;-><init>()V
-
-    sput-object v0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda3;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/wm/RecentsAnimationController;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/wm/RecentsAnimationController;
+
+    iput p2, p0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda3;->f$1:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+.method public final run()V
+    .locals 2
 
-    check-cast p1, Lcom/android/server/wm/Task;
+    iget-object v0, p0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda3;->f$0:Lcom/android/server/wm/RecentsAnimationController;
 
-    check-cast p2, Ljava/util/ArrayList;
+    iget v1, p0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda3;->f$1:I
 
-    invoke-static {p1, p2}, Lcom/android/server/wm/RecentsAnimationController;->lambda$initialize$0(Lcom/android/server/wm/Task;Ljava/util/ArrayList;)V
+    invoke-virtual {v0, v1}, Lcom/android/server/wm/RecentsAnimationController;->lambda$logRecentsAnimationStartTime$4$RecentsAnimationController(I)V
 
     return-void
 .end method

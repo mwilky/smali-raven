@@ -33,7 +33,7 @@
 
     iget v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda73;->f$1:I
 
-    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$getUserDataUnchecked$2$DevicePolicyManagerService(I)Lcom/android/server/devicepolicy/DevicePolicyData;
+    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$getProfileOwnerOfOrganizationOwnedDeviceLocked$66$DevicePolicyManagerService(I)Lcom/android/server/devicepolicy/ActiveAdmin;
 
     move-result-object v0
 

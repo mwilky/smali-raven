@@ -8,18 +8,18 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-.field public final synthetic f$1:Landroid/telephony/TelephonyManager;
+.field public final synthetic f$1:Landroid/content/ContentValues;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Landroid/telephony/TelephonyManager;)V
+.method public synthetic constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Landroid/content/ContentValues;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda89;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    iput-object p2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda89;->f$1:Landroid/telephony/TelephonyManager;
+    iput-object p2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda89;->f$1:Landroid/content/ContentValues;
 
     return-void
 .end method
@@ -31,9 +31,9 @@
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda89;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    iget-object v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda89;->f$1:Landroid/telephony/TelephonyManager;
+    iget-object v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda89;->f$1:Landroid/content/ContentValues;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$getOverrideApnsUnchecked$121$DevicePolicyManagerService(Landroid/telephony/TelephonyManager;)Ljava/util/List;
+    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$setOverrideApnsEnabledUnchecked$125$DevicePolicyManagerService(Landroid/content/ContentValues;)Ljava/lang/Integer;
 
     move-result-object v0
 

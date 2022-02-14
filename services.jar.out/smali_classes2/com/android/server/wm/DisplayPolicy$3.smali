@@ -48,7 +48,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/wm/DisplayPolicy$3;->this$0:Lcom/android/server/wm/DisplayPolicy;
 
-    invoke-static {v1}, Lcom/android/server/wm/DisplayPolicy;->access$1200(Lcom/android/server/wm/DisplayPolicy;)Lcom/android/server/wm/WindowManagerService;
+    invoke-static {v1}, Lcom/android/server/wm/DisplayPolicy;->access$1300(Lcom/android/server/wm/DisplayPolicy;)Lcom/android/server/wm/WindowManagerService;
 
     move-result-object v1
 
@@ -71,11 +71,11 @@
 
     move-result-wide v2
 
-    invoke-static {v1, v2, v3}, Lcom/android/server/wm/DisplayPolicy;->access$1502(Lcom/android/server/wm/DisplayPolicy;J)J
+    invoke-static {v1, v2, v3}, Lcom/android/server/wm/DisplayPolicy;->access$1602(Lcom/android/server/wm/DisplayPolicy;J)J
 
     iget-object v1, p0, Lcom/android/server/wm/DisplayPolicy$3;->this$0:Lcom/android/server/wm/DisplayPolicy;
 
-    invoke-virtual {v1}, Lcom/android/server/wm/DisplayPolicy;->updateSystemUiVisibilityLw()Z
+    invoke-virtual {v1}, Lcom/android/server/wm/DisplayPolicy;->updateSystemBarAttributes()V
 
     monitor-exit v0
 

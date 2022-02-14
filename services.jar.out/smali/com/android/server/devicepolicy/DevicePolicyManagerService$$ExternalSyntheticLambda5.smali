@@ -33,7 +33,7 @@
 
     iget v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda5;->f$1:I
 
-    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$resetDefaultCrossProfileIntentFilters$137$DevicePolicyManagerService(I)V
+    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$resetDefaultCrossProfileIntentFilters$140$DevicePolicyManagerService(I)V
 
     return-void
 .end method

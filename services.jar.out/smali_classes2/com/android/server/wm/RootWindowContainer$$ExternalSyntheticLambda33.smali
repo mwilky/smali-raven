@@ -41,7 +41,7 @@
 
     check-cast p1, Lcom/android/server/wm/Task;
 
-    invoke-static {v0, v1, v2, p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$putTasksToSleep$28(Z[ZZLcom/android/server/wm/Task;)V
+    invoke-static {v0, v1, v2, p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$putTasksToSleep$29(Z[ZZLcom/android/server/wm/Task;)V
 
     return-void
 .end method

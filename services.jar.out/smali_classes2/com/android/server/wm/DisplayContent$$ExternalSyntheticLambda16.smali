@@ -47,7 +47,7 @@
 
     check-cast p1, Lcom/android/server/wm/WindowState;
 
-    invoke-static {v0, v1, v2, v3, p1}, Lcom/android/server/wm/DisplayContent;->lambda$startKeyguardExitOnNonAppWindows$26(Lcom/android/server/policy/WindowManagerPolicy;ZZZLcom/android/server/wm/WindowState;)V
+    invoke-static {v0, v1, v2, v3, p1}, Lcom/android/server/wm/DisplayContent;->lambda$startKeyguardExitOnNonAppWindows$27(Lcom/android/server/policy/WindowManagerPolicy;ZZZLcom/android/server/wm/WindowState;)V
 
     return-void
 .end method

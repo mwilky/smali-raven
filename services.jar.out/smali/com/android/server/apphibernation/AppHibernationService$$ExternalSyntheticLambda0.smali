@@ -27,7 +27,7 @@
 
     iget-object v0, p0, Lcom/android/server/apphibernation/AppHibernationService$$ExternalSyntheticLambda0;->f$0:Lcom/android/server/apphibernation/AppHibernationService;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/apphibernation/AppHibernationService;->lambda$new$3$AppHibernationService(ILandroid/app/usage/UsageEvents$Event;)V
+    invoke-virtual {v0, p1, p2}, Lcom/android/server/apphibernation/AppHibernationService;->lambda$new$6$AppHibernationService(ILandroid/app/usage/UsageEvents$Event;)V
 
     return-void
 .end method

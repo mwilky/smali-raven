@@ -159,7 +159,7 @@
 
     new-instance v3, Lcom/android/server/statusbar/StatusBarManagerService$UiState;
 
-    invoke-direct {v3, p0, v2}, Lcom/android/server/statusbar/StatusBarManagerService$UiState;-><init>(Lcom/android/server/statusbar/StatusBarManagerService;Lcom/android/server/statusbar/StatusBarManagerService$1;)V
+    invoke-direct {v3, v2}, Lcom/android/server/statusbar/StatusBarManagerService$UiState;-><init>(Lcom/android/server/statusbar/StatusBarManagerService$1;)V
 
     move-object v2, v3
 
@@ -642,7 +642,7 @@
 
     const/4 v2, 0x0
 
-    invoke-direct {v1, p0, v2}, Lcom/android/server/statusbar/StatusBarManagerService$UiState;-><init>(Lcom/android/server/statusbar/StatusBarManagerService;Lcom/android/server/statusbar/StatusBarManagerService$1;)V
+    invoke-direct {v1, v2}, Lcom/android/server/statusbar/StatusBarManagerService$UiState;-><init>(Lcom/android/server/statusbar/StatusBarManagerService$1;)V
 
     move-object v0, v1
 
@@ -1174,7 +1174,7 @@
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v3}, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->access$3200(Lcom/android/server/statusbar/StatusBarManagerService$UiState;)I
+    invoke-static {v3}, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->access$3300(Lcom/android/server/statusbar/StatusBarManagerService$UiState;)I
 
     move-result v5
 
@@ -1563,7 +1563,7 @@
 
     move-result-object v0
 
-    const v1, 0x107007d
+    const v1, 0x1070090
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -2885,7 +2885,7 @@
 .end method
 
 .method public registerStatusBar(Lcom/android/internal/statusbar/IStatusBar;)Lcom/android/internal/statusbar/RegisterStatusBarResult;
-    .locals 20
+    .locals 21
 
     move-object/from16 v1, p0
 
@@ -2989,7 +2989,7 @@
     goto :goto_0
 
     :cond_0
-    new-instance v18, Lcom/android/internal/statusbar/RegisterStatusBarResult;
+    new-instance v19, Lcom/android/internal/statusbar/RegisterStatusBarResult;
 
     iget v4, v1, Lcom/android/server/statusbar/StatusBarManagerService;->mCurrentUserId:I
 
@@ -3039,25 +3039,31 @@
 
     move-result v16
 
-    invoke-static {v0}, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->access$3100(Lcom/android/server/statusbar/StatusBarManagerService$UiState;)Z
+    invoke-static {v0}, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->access$3100(Lcom/android/server/statusbar/StatusBarManagerService$UiState;)Landroid/view/InsetsVisibilities;
 
-    move-result v17
+    move-result-object v17
 
-    move-object/from16 v4, v18
+    invoke-static {v0}, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->access$3200(Lcom/android/server/statusbar/StatusBarManagerService$UiState;)Ljava/lang/String;
 
-    move-object/from16 v19, v15
+    move-result-object v18
+
+    move-object/from16 v4, v19
+
+    move-object/from16 v20, v15
 
     move/from16 v15, v16
 
-    move/from16 v16, v17
+    move-object/from16 v16, v17
 
-    move-object/from16 v17, v19
+    move-object/from16 v17, v18
 
-    invoke-direct/range {v4 .. v17}, Lcom/android/internal/statusbar/RegisterStatusBarResult;-><init>(Landroid/util/ArrayMap;II[Lcom/android/internal/view/AppearanceRegion;IIZILandroid/os/IBinder;ZIZ[I)V
+    move-object/from16 v18, v20
+
+    invoke-direct/range {v4 .. v18}, Lcom/android/internal/statusbar/RegisterStatusBarResult;-><init>(Landroid/util/ArrayMap;II[Lcom/android/internal/view/AppearanceRegion;IIZILandroid/os/IBinder;ZILandroid/view/InsetsVisibilities;Ljava/lang/String;[I)V
 
     monitor-exit v3
 
-    return-object v18
+    return-object v19
 
     :catchall_0
     move-exception v0

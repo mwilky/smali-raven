@@ -41,6 +41,8 @@
 
 .field protected final mScreenStateReceiver:Landroid/content/BroadcastReceiver;
 
+.field private final mTrace:Lcom/android/server/accessibility/AccessibilityTraceManager;
+
 .field private mUserId:I
 
 .field private mWindowMagnifiers:Landroid/util/SparseArray;
@@ -55,7 +57,7 @@
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;ILcom/android/server/accessibility/magnification/WindowMagnificationManager$Callback;)V
+.method public constructor <init>(Landroid/content/Context;ILcom/android/server/accessibility/magnification/WindowMagnificationManager$Callback;Lcom/android/server/accessibility/AccessibilityTraceManager;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -88,10 +90,22 @@
 
     iput-object p3, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationManager;->mCallback:Lcom/android/server/accessibility/magnification/WindowMagnificationManager$Callback;
 
+    iput-object p4, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationManager;->mTrace:Lcom/android/server/accessibility/AccessibilityTraceManager;
+
     return-void
 .end method
 
-.method static synthetic access$1000(Lcom/android/server/accessibility/magnification/WindowMagnificationManager;IF)Z
+.method static synthetic access$1000(Lcom/android/server/accessibility/magnification/WindowMagnificationManager;ILandroid/view/accessibility/MagnificationAnimationCallback;)Z
+    .locals 1
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/accessibility/magnification/WindowMagnificationManager;->disableWindowMagnificationInternal(ILandroid/view/accessibility/MagnificationAnimationCallback;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic access$1100(Lcom/android/server/accessibility/magnification/WindowMagnificationManager;IF)Z
     .locals 1
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/accessibility/magnification/WindowMagnificationManager;->setScaleInternal(IF)Z
@@ -101,7 +115,7 @@
     return v0
 .end method
 
-.method static synthetic access$1100(Lcom/android/server/accessibility/magnification/WindowMagnificationManager;IFF)Z
+.method static synthetic access$1200(Lcom/android/server/accessibility/magnification/WindowMagnificationManager;IFF)Z
     .locals 1
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/accessibility/magnification/WindowMagnificationManager;->moveWindowMagnifierInternal(IFF)Z
@@ -111,7 +125,15 @@
     return v0
 .end method
 
-.method static synthetic access$200(Lcom/android/server/accessibility/magnification/WindowMagnificationManager;)Ljava/lang/Object;
+.method static synthetic access$200(Lcom/android/server/accessibility/magnification/WindowMagnificationManager;)Lcom/android/server/accessibility/AccessibilityTraceManager;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationManager;->mTrace:Lcom/android/server/accessibility/AccessibilityTraceManager;
+
+    return-object v0
+.end method
+
+.method static synthetic access$300(Lcom/android/server/accessibility/magnification/WindowMagnificationManager;)Ljava/lang/Object;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationManager;->mLock:Ljava/lang/Object;
@@ -119,7 +141,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$300(Lcom/android/server/accessibility/magnification/WindowMagnificationManager;)Landroid/util/SparseArray;
+.method static synthetic access$400(Lcom/android/server/accessibility/magnification/WindowMagnificationManager;)Landroid/util/SparseArray;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationManager;->mWindowMagnifiers:Landroid/util/SparseArray;
@@ -127,7 +149,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$400(Lcom/android/server/accessibility/magnification/WindowMagnificationManager;I)Lcom/android/server/accessibility/magnification/WindowMagnificationManager$WindowMagnifier;
+.method static synthetic access$500(Lcom/android/server/accessibility/magnification/WindowMagnificationManager;I)Lcom/android/server/accessibility/magnification/WindowMagnificationManager$WindowMagnifier;
     .locals 1
 
     invoke-direct {p0, p1}, Lcom/android/server/accessibility/magnification/WindowMagnificationManager;->createWindowMagnifier(I)Lcom/android/server/accessibility/magnification/WindowMagnificationManager$WindowMagnifier;
@@ -137,7 +159,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$500(Lcom/android/server/accessibility/magnification/WindowMagnificationManager;)Lcom/android/server/accessibility/magnification/WindowMagnificationManager$Callback;
+.method static synthetic access$600(Lcom/android/server/accessibility/magnification/WindowMagnificationManager;)Lcom/android/server/accessibility/magnification/WindowMagnificationManager$Callback;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationManager;->mCallback:Lcom/android/server/accessibility/magnification/WindowMagnificationManager$Callback;
@@ -145,7 +167,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$602(Lcom/android/server/accessibility/magnification/WindowMagnificationManager;Lcom/android/server/accessibility/magnification/WindowMagnificationManager$ConnectionCallback;)Lcom/android/server/accessibility/magnification/WindowMagnificationManager$ConnectionCallback;
+.method static synthetic access$702(Lcom/android/server/accessibility/magnification/WindowMagnificationManager;Lcom/android/server/accessibility/magnification/WindowMagnificationManager$ConnectionCallback;)Lcom/android/server/accessibility/magnification/WindowMagnificationManager$ConnectionCallback;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationManager;->mConnectionCallback:Lcom/android/server/accessibility/magnification/WindowMagnificationManager$ConnectionCallback;
@@ -153,7 +175,7 @@
     return-object p1
 .end method
 
-.method static synthetic access$700(Lcom/android/server/accessibility/magnification/WindowMagnificationManager;)V
+.method static synthetic access$800(Lcom/android/server/accessibility/magnification/WindowMagnificationManager;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/accessibility/magnification/WindowMagnificationManager;->resetWindowMagnifiers()V
@@ -161,20 +183,10 @@
     return-void
 .end method
 
-.method static synthetic access$800(Lcom/android/server/accessibility/magnification/WindowMagnificationManager;IFFFLandroid/view/accessibility/MagnificationAnimationCallback;)Z
+.method static synthetic access$900(Lcom/android/server/accessibility/magnification/WindowMagnificationManager;IFFFLandroid/view/accessibility/MagnificationAnimationCallback;)Z
     .locals 1
 
     invoke-direct/range {p0 .. p5}, Lcom/android/server/accessibility/magnification/WindowMagnificationManager;->enableWindowMagnificationInternal(IFFFLandroid/view/accessibility/MagnificationAnimationCallback;)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic access$900(Lcom/android/server/accessibility/magnification/WindowMagnificationManager;ILandroid/view/accessibility/MagnificationAnimationCallback;)Z
-    .locals 1
-
-    invoke-direct {p0, p1, p2}, Lcom/android/server/accessibility/magnification/WindowMagnificationManager;->disableWindowMagnificationInternal(ILandroid/view/accessibility/MagnificationAnimationCallback;)Z
 
     move-result v0
 
@@ -957,7 +969,7 @@
 .end method
 
 .method public requestConnection(Z)Z
-    .locals 5
+    .locals 7
 
     iget-object v0, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationManager;->mLock:Ljava/lang/Object;
 
@@ -1023,6 +1035,37 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
+    iget-object v0, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationManager;->mTrace:Lcom/android/server/accessibility/AccessibilityTraceManager;
+
+    const-wide/16 v2, 0x80
+
+    invoke-virtual {v0, v2, v3}, Lcom/android/server/accessibility/AccessibilityTraceManager;->isA11yTracingEnabledForTypes(J)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    iget-object v0, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationManager;->mTrace:Lcom/android/server/accessibility/AccessibilityTraceManager;
+
+    const-string v4, "WindowMagnificationMgr.requestWindowMagnificationConnection"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "connect="
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v0, v4, v2, v3, v5}, Lcom/android/server/accessibility/AccessibilityTraceManager;->logTrace(Ljava/lang/String;JLjava/lang/String;)V
+
+    :cond_4
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
     move-result-wide v2
@@ -1102,7 +1145,9 @@
 
     new-instance v1, Lcom/android/server/accessibility/magnification/WindowMagnificationConnectionWrapper;
 
-    invoke-direct {v1, p1}, Lcom/android/server/accessibility/magnification/WindowMagnificationConnectionWrapper;-><init>(Landroid/view/accessibility/IWindowMagnificationConnection;)V
+    iget-object v3, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationManager;->mTrace:Lcom/android/server/accessibility/AccessibilityTraceManager;
+
+    invoke-direct {v1, p1, v3}, Lcom/android/server/accessibility/magnification/WindowMagnificationConnectionWrapper;-><init>(Landroid/view/accessibility/IWindowMagnificationConnection;Lcom/android/server/accessibility/AccessibilityTraceManager;)V
 
     iput-object v1, p0, Lcom/android/server/accessibility/magnification/WindowMagnificationManager;->mConnectionWrapper:Lcom/android/server/accessibility/magnification/WindowMagnificationConnectionWrapper;
 

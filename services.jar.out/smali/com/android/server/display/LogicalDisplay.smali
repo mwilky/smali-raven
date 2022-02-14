@@ -400,11 +400,33 @@
     :goto_0
     invoke-virtual {v2, v1, v3}, Lcom/android/server/display/DisplayDevice;->setLayerStackLocked(Landroid/view/SurfaceControl$Transaction;I)V
 
+    nop
+
+    invoke-virtual/range {p2 .. p2}, Lcom/android/server/display/DisplayDevice;->getDisplayDeviceInfoLocked()Lcom/android/server/display/DisplayDeviceInfo;
+
+    move-result-object v3
+
+    iget v3, v3, Lcom/android/server/display/DisplayDeviceInfo;->touch:I
+
+    const/4 v4, 0x1
+
+    const/4 v5, 0x0
+
+    if-eqz v3, :cond_1
+
+    move v3, v4
+
+    goto :goto_1
+
+    :cond_1
+    move v3, v5
+
+    :goto_1
+    invoke-virtual {v2, v1, v3}, Lcom/android/server/display/DisplayDevice;->setDisplayFlagsLocked(Landroid/view/SurfaceControl$Transaction;I)V
+
     iget-object v3, v0, Lcom/android/server/display/LogicalDisplay;->mPrimaryDisplayDevice:Lcom/android/server/display/DisplayDevice;
 
-    const/4 v4, 0x0
-
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_2
 
     iget-object v3, v0, Lcom/android/server/display/LogicalDisplay;->mDesiredDisplayModeSpecs:Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;
 
@@ -414,18 +436,18 @@
 
     invoke-virtual {v2, v3}, Lcom/android/server/display/DisplayDevice;->setRequestedColorModeLocked(I)V
 
-    goto :goto_1
+    goto :goto_2
 
-    :cond_1
+    :cond_2
     new-instance v3, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;
 
     invoke-direct {v3}, Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;-><init>()V
 
     invoke-virtual {v2, v3}, Lcom/android/server/display/DisplayDevice;->setDesiredDisplayModeSpecsLocked(Lcom/android/server/display/DisplayModeDirector$DesiredDisplayModeSpecs;)V
 
-    invoke-virtual {v2, v4}, Lcom/android/server/display/DisplayDevice;->setRequestedColorModeLocked(I)V
+    invoke-virtual {v2, v5}, Lcom/android/server/display/DisplayDevice;->setRequestedColorModeLocked(I)V
 
-    :goto_1
+    :goto_2
     iget-boolean v3, v0, Lcom/android/server/display/LogicalDisplay;->mRequestedMinimalPostProcessing:Z
 
     invoke-virtual {v2, v3}, Lcom/android/server/display/DisplayDevice;->setAutoLowLatencyModeLocked(Z)V
@@ -440,72 +462,70 @@
 
     invoke-virtual/range {p2 .. p2}, Lcom/android/server/display/DisplayDevice;->getDisplayDeviceInfoLocked()Lcom/android/server/display/DisplayDeviceInfo;
 
-    move-result-object v5
+    move-result-object v6
 
-    iget-object v6, v0, Lcom/android/server/display/LogicalDisplay;->mTempLayerStackRect:Landroid/graphics/Rect;
+    iget-object v7, v0, Lcom/android/server/display/LogicalDisplay;->mTempLayerStackRect:Landroid/graphics/Rect;
 
-    iget v7, v3, Landroid/view/DisplayInfo;->logicalWidth:I
+    iget v8, v3, Landroid/view/DisplayInfo;->logicalWidth:I
 
-    iget v8, v3, Landroid/view/DisplayInfo;->logicalHeight:I
+    iget v9, v3, Landroid/view/DisplayInfo;->logicalHeight:I
 
-    invoke-virtual {v6, v4, v4, v7, v8}, Landroid/graphics/Rect;->set(IIII)V
+    invoke-virtual {v7, v5, v5, v8, v9}, Landroid/graphics/Rect;->set(IIII)V
 
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
-    iget v7, v5, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
+    iget v8, v6, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
 
-    const/4 v8, 0x2
+    const/4 v9, 0x2
 
-    and-int/2addr v7, v8
+    and-int/2addr v8, v9
 
-    if-eqz v7, :cond_2
+    if-eqz v8, :cond_3
 
-    iget v6, v3, Landroid/view/DisplayInfo;->rotation:I
-
-    :cond_2
-    iget v7, v5, Lcom/android/server/display/DisplayDeviceInfo;->rotation:I
-
-    add-int/2addr v7, v6
-
-    rem-int/lit8 v7, v7, 0x4
-
-    const/4 v6, 0x1
-
-    if-eq v7, v6, :cond_3
-
-    const/4 v9, 0x3
-
-    if-ne v7, v9, :cond_4
+    iget v7, v3, Landroid/view/DisplayInfo;->rotation:I
 
     :cond_3
-    move v4, v6
+    iget v8, v6, Lcom/android/server/display/DisplayDeviceInfo;->rotation:I
+
+    add-int/2addr v8, v7
+
+    rem-int/lit8 v8, v8, 0x4
+
+    if-eq v8, v4, :cond_4
+
+    const/4 v7, 0x3
+
+    if-ne v8, v7, :cond_5
 
     :cond_4
-    if-eqz v4, :cond_5
-
-    iget v9, v5, Lcom/android/server/display/DisplayDeviceInfo;->height:I
-
-    goto :goto_2
+    move v5, v4
 
     :cond_5
-    iget v9, v5, Lcom/android/server/display/DisplayDeviceInfo;->width:I
+    if-eqz v5, :cond_6
 
-    :goto_2
-    if-eqz v4, :cond_6
-
-    iget v10, v5, Lcom/android/server/display/DisplayDeviceInfo;->width:I
+    iget v7, v6, Lcom/android/server/display/DisplayDeviceInfo;->height:I
 
     goto :goto_3
 
     :cond_6
-    iget v10, v5, Lcom/android/server/display/DisplayDeviceInfo;->height:I
+    iget v7, v6, Lcom/android/server/display/DisplayDeviceInfo;->width:I
 
     :goto_3
-    invoke-static {v5}, Lcom/android/server/display/LogicalDisplay;->getMaskingInsets(Lcom/android/server/display/DisplayDeviceInfo;)Landroid/graphics/Rect;
+    if-eqz v5, :cond_7
+
+    iget v10, v6, Lcom/android/server/display/DisplayDeviceInfo;->width:I
+
+    goto :goto_4
+
+    :cond_7
+    iget v10, v6, Lcom/android/server/display/DisplayDeviceInfo;->height:I
+
+    :goto_4
+    invoke-static {v6}, Lcom/android/server/display/LogicalDisplay;->getMaskingInsets(Lcom/android/server/display/DisplayDeviceInfo;)Landroid/graphics/Rect;
 
     move-result-object v11
 
-    invoke-static {v11, v7}, Lcom/android/server/wm/utils/InsetUtils;->rotateInsets(Landroid/graphics/Rect;I)V
+    invoke-static {v11, v8}, Lcom/android/server/wm/utils/InsetUtils;->rotateInsets(Landroid/graphics/Rect;I)V
 
     iget v12, v11, Landroid/graphics/Rect;->left:I
 
@@ -513,7 +533,7 @@
 
     add-int/2addr v12, v13
 
-    sub-int/2addr v9, v12
+    sub-int/2addr v7, v12
 
     iget v12, v11, Landroid/graphics/Rect;->top:I
 
@@ -529,38 +549,38 @@
 
     and-int/2addr v12, v13
 
-    if-nez v12, :cond_9
+    if-nez v12, :cond_a
 
     iget-boolean v12, v0, Lcom/android/server/display/LogicalDisplay;->mDisplayScalingDisabled:Z
 
-    if-eqz v12, :cond_7
+    if-eqz v12, :cond_8
 
-    goto :goto_4
+    goto :goto_5
 
-    :cond_7
+    :cond_8
     iget v12, v3, Landroid/view/DisplayInfo;->logicalHeight:I
 
-    mul-int/2addr v12, v9
+    mul-int/2addr v12, v7
 
     iget v13, v3, Landroid/view/DisplayInfo;->logicalWidth:I
 
     mul-int/2addr v13, v10
 
-    if-ge v12, v13, :cond_8
+    if-ge v12, v13, :cond_9
 
-    move v12, v9
+    move v12, v7
 
     iget v13, v3, Landroid/view/DisplayInfo;->logicalHeight:I
 
-    mul-int/2addr v13, v9
+    mul-int/2addr v13, v7
 
     iget v14, v3, Landroid/view/DisplayInfo;->logicalWidth:I
 
     div-int/2addr v13, v14
 
-    goto :goto_5
+    goto :goto_6
 
-    :cond_8
+    :cond_9
     iget v12, v3, Landroid/view/DisplayInfo;->logicalWidth:I
 
     mul-int/2addr v12, v10
@@ -571,118 +591,118 @@
 
     move v13, v10
 
-    goto :goto_5
+    goto :goto_6
 
-    :cond_9
-    :goto_4
+    :cond_a
+    :goto_5
     iget v12, v3, Landroid/view/DisplayInfo;->logicalWidth:I
 
     iget v13, v3, Landroid/view/DisplayInfo;->logicalHeight:I
 
-    :goto_5
+    :goto_6
     sub-int v14, v10, v13
 
-    div-int/2addr v14, v8
+    div-int/2addr v14, v9
 
-    sub-int v15, v9, v12
+    sub-int v15, v7, v12
 
-    div-int/2addr v15, v8
+    div-int/2addr v15, v9
 
-    iget-object v8, v0, Lcom/android/server/display/LogicalDisplay;->mTempDisplayRect:Landroid/graphics/Rect;
+    iget-object v9, v0, Lcom/android/server/display/LogicalDisplay;->mTempDisplayRect:Landroid/graphics/Rect;
 
-    add-int v6, v15, v12
+    add-int v4, v15, v12
 
     move-object/from16 v16, v3
 
     add-int v3, v14, v13
 
-    invoke-virtual {v8, v15, v14, v6, v3}, Landroid/graphics/Rect;->set(IIII)V
+    invoke-virtual {v9, v15, v14, v4, v3}, Landroid/graphics/Rect;->set(IIII)V
 
     iget-object v3, v0, Lcom/android/server/display/LogicalDisplay;->mTempDisplayRect:Landroid/graphics/Rect;
 
-    iget v6, v11, Landroid/graphics/Rect;->left:I
+    iget v4, v11, Landroid/graphics/Rect;->left:I
 
-    iget v8, v11, Landroid/graphics/Rect;->top:I
+    iget v9, v11, Landroid/graphics/Rect;->top:I
 
-    invoke-virtual {v3, v6, v8}, Landroid/graphics/Rect;->offset(II)V
+    invoke-virtual {v3, v4, v9}, Landroid/graphics/Rect;->offset(II)V
 
-    if-nez v7, :cond_a
-
-    iget-object v3, v0, Lcom/android/server/display/LogicalDisplay;->mTempDisplayRect:Landroid/graphics/Rect;
-
-    iget v6, v0, Lcom/android/server/display/LogicalDisplay;->mDisplayOffsetX:I
-
-    iget v8, v0, Lcom/android/server/display/LogicalDisplay;->mDisplayOffsetY:I
-
-    invoke-virtual {v3, v6, v8}, Landroid/graphics/Rect;->offset(II)V
-
-    goto :goto_6
-
-    :cond_a
-    const/4 v3, 0x1
-
-    if-ne v7, v3, :cond_b
+    if-nez v8, :cond_b
 
     iget-object v3, v0, Lcom/android/server/display/LogicalDisplay;->mTempDisplayRect:Landroid/graphics/Rect;
 
-    iget v6, v0, Lcom/android/server/display/LogicalDisplay;->mDisplayOffsetY:I
+    iget v4, v0, Lcom/android/server/display/LogicalDisplay;->mDisplayOffsetX:I
 
-    iget v8, v0, Lcom/android/server/display/LogicalDisplay;->mDisplayOffsetX:I
+    iget v9, v0, Lcom/android/server/display/LogicalDisplay;->mDisplayOffsetY:I
 
-    neg-int v8, v8
+    invoke-virtual {v3, v4, v9}, Landroid/graphics/Rect;->offset(II)V
 
-    invoke-virtual {v3, v6, v8}, Landroid/graphics/Rect;->offset(II)V
-
-    goto :goto_6
+    goto :goto_7
 
     :cond_b
-    const/4 v3, 0x2
+    const/4 v3, 0x1
 
-    if-ne v7, v3, :cond_c
+    if-ne v8, v3, :cond_c
 
     iget-object v3, v0, Lcom/android/server/display/LogicalDisplay;->mTempDisplayRect:Landroid/graphics/Rect;
 
-    iget v6, v0, Lcom/android/server/display/LogicalDisplay;->mDisplayOffsetX:I
+    iget v4, v0, Lcom/android/server/display/LogicalDisplay;->mDisplayOffsetY:I
 
-    neg-int v6, v6
+    iget v9, v0, Lcom/android/server/display/LogicalDisplay;->mDisplayOffsetX:I
 
-    iget v8, v0, Lcom/android/server/display/LogicalDisplay;->mDisplayOffsetY:I
+    neg-int v9, v9
 
-    neg-int v8, v8
+    invoke-virtual {v3, v4, v9}, Landroid/graphics/Rect;->offset(II)V
 
-    invoke-virtual {v3, v6, v8}, Landroid/graphics/Rect;->offset(II)V
-
-    goto :goto_6
+    goto :goto_7
 
     :cond_c
+    const/4 v3, 0x2
+
+    if-ne v8, v3, :cond_d
+
     iget-object v3, v0, Lcom/android/server/display/LogicalDisplay;->mTempDisplayRect:Landroid/graphics/Rect;
 
-    iget v6, v0, Lcom/android/server/display/LogicalDisplay;->mDisplayOffsetY:I
+    iget v4, v0, Lcom/android/server/display/LogicalDisplay;->mDisplayOffsetX:I
 
-    neg-int v6, v6
+    neg-int v4, v4
 
-    iget v8, v0, Lcom/android/server/display/LogicalDisplay;->mDisplayOffsetX:I
+    iget v9, v0, Lcom/android/server/display/LogicalDisplay;->mDisplayOffsetY:I
 
-    invoke-virtual {v3, v6, v8}, Landroid/graphics/Rect;->offset(II)V
+    neg-int v9, v9
 
-    :goto_6
+    invoke-virtual {v3, v4, v9}, Landroid/graphics/Rect;->offset(II)V
+
+    goto :goto_7
+
+    :cond_d
+    iget-object v3, v0, Lcom/android/server/display/LogicalDisplay;->mTempDisplayRect:Landroid/graphics/Rect;
+
+    iget v4, v0, Lcom/android/server/display/LogicalDisplay;->mDisplayOffsetY:I
+
+    neg-int v4, v4
+
+    iget v9, v0, Lcom/android/server/display/LogicalDisplay;->mDisplayOffsetX:I
+
+    invoke-virtual {v3, v4, v9}, Landroid/graphics/Rect;->offset(II)V
+
+    :goto_7
     iget-object v3, v0, Lcom/android/server/display/LogicalDisplay;->mDisplayPosition:Landroid/graphics/Point;
 
-    iget-object v6, v0, Lcom/android/server/display/LogicalDisplay;->mTempDisplayRect:Landroid/graphics/Rect;
+    iget-object v4, v0, Lcom/android/server/display/LogicalDisplay;->mTempDisplayRect:Landroid/graphics/Rect;
 
-    iget v6, v6, Landroid/graphics/Rect;->left:I
+    iget v4, v4, Landroid/graphics/Rect;->left:I
 
-    iget-object v8, v0, Lcom/android/server/display/LogicalDisplay;->mTempDisplayRect:Landroid/graphics/Rect;
+    iget-object v9, v0, Lcom/android/server/display/LogicalDisplay;->mTempDisplayRect:Landroid/graphics/Rect;
 
-    iget v8, v8, Landroid/graphics/Rect;->top:I
+    iget v9, v9, Landroid/graphics/Rect;->top:I
 
-    invoke-virtual {v3, v6, v8}, Landroid/graphics/Point;->set(II)V
+    invoke-virtual {v3, v4, v9}, Landroid/graphics/Point;->set(II)V
 
     iget-object v3, v0, Lcom/android/server/display/LogicalDisplay;->mTempLayerStackRect:Landroid/graphics/Rect;
 
-    iget-object v6, v0, Lcom/android/server/display/LogicalDisplay;->mTempDisplayRect:Landroid/graphics/Rect;
+    iget-object v4, v0, Lcom/android/server/display/LogicalDisplay;->mTempDisplayRect:Landroid/graphics/Rect;
 
-    invoke-virtual {v2, v1, v7, v3, v6}, Lcom/android/server/display/DisplayDevice;->setProjectionLocked(Landroid/view/SurfaceControl$Transaction;ILandroid/graphics/Rect;Landroid/graphics/Rect;)V
+    invoke-virtual {v2, v1, v8, v3, v4}, Lcom/android/server/display/DisplayDevice;->setProjectionLocked(Landroid/view/SurfaceControl$Transaction;ILandroid/graphics/Rect;Landroid/graphics/Rect;)V
 
     return-void
 .end method

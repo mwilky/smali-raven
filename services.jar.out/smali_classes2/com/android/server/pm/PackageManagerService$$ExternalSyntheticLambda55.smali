@@ -33,7 +33,7 @@
 
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda55;->f$1:Ljava/util/List;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/pm/PackageManagerService;->lambda$processInstallRequestsAsync$48$PackageManagerService(Ljava/util/List;)V
+    invoke-virtual {v0, v1}, Lcom/android/server/pm/PackageManagerService;->lambda$processInstallRequestsAsync$47$PackageManagerService(Ljava/util/List;)V
 
     return-void
 .end method

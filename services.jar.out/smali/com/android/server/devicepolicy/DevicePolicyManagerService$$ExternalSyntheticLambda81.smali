@@ -33,7 +33,7 @@
 
     iget v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda81;->f$1:I
 
-    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$setPersonalAppsSuspended$131$DevicePolicyManagerService(I)Ljava/lang/Boolean;
+    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$removeOverrideApnUnchecked$123$DevicePolicyManagerService(I)Ljava/lang/Integer;
 
     move-result-object v0
 

@@ -3228,6 +3228,36 @@
     return-void
 .end method
 
+.method public sendIntentSender(Landroid/content/IIntentSender;Landroid/os/IBinder;ILandroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;Ljava/lang/String;Landroid/os/Bundle;)I
+    .locals 10
+
+    move-object v0, p0
+
+    iget-object v1, v0, Lcom/android/server/am/ActivityManagerService$LocalService;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    move-object v2, p1
+
+    move-object v3, p2
+
+    move v4, p3
+
+    move-object v5, p4
+
+    move-object v6, p5
+
+    move-object/from16 v7, p6
+
+    move-object/from16 v8, p7
+
+    move-object/from16 v9, p8
+
+    invoke-virtual/range {v1 .. v9}, Lcom/android/server/am/ActivityManagerService;->sendIntentSender(Landroid/content/IIntentSender;Landroid/os/IBinder;ILandroid/content/Intent;Ljava/lang/String;Landroid/content/IIntentReceiver;Ljava/lang/String;Landroid/os/Bundle;)I
+
+    move-result v1
+
+    return v1
+.end method
+
 .method public setBooted(Z)V
     .locals 1
 
@@ -3748,6 +3778,16 @@
     throw v1
 .end method
 
+.method public setStopUserOnSwitch(I)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$LocalService;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    invoke-virtual {v0, p1}, Lcom/android/server/am/ActivityManagerService;->setStopUserOnSwitch(I)V
+
+    return-void
+.end method
+
 .method public setSwitchingFromSystemUserMessage(Ljava/lang/String;)V
     .locals 1
 
@@ -3768,6 +3808,16 @@
     iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mUserController:Lcom/android/server/am/UserController;
 
     invoke-virtual {v0, p1}, Lcom/android/server/am/UserController;->setSwitchingToSystemUserMessage(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method public setVoiceInteractionManagerProvider(Landroid/app/ActivityManagerInternal$VoiceInteractionManagerProvider;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/am/ActivityManagerService$LocalService;->this$0:Lcom/android/server/am/ActivityManagerService;
+
+    invoke-static {v0, p1}, Lcom/android/server/am/ActivityManagerService;->access$1900(Lcom/android/server/am/ActivityManagerService;Landroid/app/ActivityManagerInternal$VoiceInteractionManagerProvider;)V
 
     return-void
 .end method

@@ -33,7 +33,7 @@
 
     iget-wide v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda18;->f$1:J
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$setTime$91$DevicePolicyManagerService(J)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$setTime$94$DevicePolicyManagerService(J)V
 
     return-void
 .end method

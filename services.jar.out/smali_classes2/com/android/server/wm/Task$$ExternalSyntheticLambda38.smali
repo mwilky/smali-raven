@@ -5,17 +5,27 @@
 .implements Ljava/util/function/Predicate;
 
 
-# instance fields
-.field public final synthetic f$0:Landroid/content/ComponentName;
+# static fields
+.field public static final synthetic INSTANCE:Lcom/android/server/wm/Task$$ExternalSyntheticLambda38;
 
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/content/ComponentName;)V
+.method static synthetic constructor <clinit>()V
+    .locals 1
+
+    new-instance v0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda38;
+
+    invoke-direct {v0}, Lcom/android/server/wm/Task$$ExternalSyntheticLambda38;-><init>()V
+
+    sput-object v0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda38;->INSTANCE:Lcom/android/server/wm/Task$$ExternalSyntheticLambda38;
+
+    return-void
+.end method
+
+.method private synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda38;->f$0:Landroid/content/ComponentName;
 
     return-void
 .end method
@@ -23,13 +33,11 @@
 
 # virtual methods
 .method public final test(Ljava/lang/Object;)Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/Task$$ExternalSyntheticLambda38;->f$0:Landroid/content/ComponentName;
+    .locals 0
 
     check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    invoke-static {v0, p1}, Lcom/android/server/wm/Task;->lambda$navigateUpTo$25(Landroid/content/ComponentName;Lcom/android/server/wm/ActivityRecord;)Z
+    invoke-static {p1}, Lcom/android/server/wm/Task;->lambda$getTopVisibleActivity$8(Lcom/android/server/wm/ActivityRecord;)Z
 
     move-result p1
 

@@ -40,6 +40,8 @@
 
 .field private static final TAG:Ljava/lang/String; = "MediaMetricsManagerService"
 
+.field private static final mMetricsId:Ljava/lang/String; = "metrics.manager"
+
 
 # instance fields
 .field private mAllowlist:Ljava/util/List;

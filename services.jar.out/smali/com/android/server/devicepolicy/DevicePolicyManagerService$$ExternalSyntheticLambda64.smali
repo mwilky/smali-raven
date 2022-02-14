@@ -27,7 +27,7 @@
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda64;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$getNetworkLoggingAffectedUser$112$DevicePolicyManagerService()Ljava/lang/Integer;
+    invoke-virtual {v0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$forceNetworkLogs$116$DevicePolicyManagerService()Ljava/lang/Long;
 
     move-result-object v0
 

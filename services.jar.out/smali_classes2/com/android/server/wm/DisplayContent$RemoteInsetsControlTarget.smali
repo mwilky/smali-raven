@@ -20,7 +20,7 @@
 # instance fields
 .field private final mRemoteInsetsController:Landroid/view/IDisplayWindowInsetsController;
 
-.field private final mRequestedInsetsState:Landroid/view/InsetsState;
+.field private final mRequestedVisibilities:Landroid/view/InsetsVisibilities;
 
 .field final synthetic this$0:Lcom/android/server/wm/DisplayContent;
 
@@ -33,11 +33,11 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Landroid/view/InsetsState;
+    new-instance v0, Landroid/view/InsetsVisibilities;
 
-    invoke-direct {v0}, Landroid/view/InsetsState;-><init>()V
+    invoke-direct {v0}, Landroid/view/InsetsVisibilities;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;->mRequestedInsetsState:Landroid/view/InsetsState;
+    iput-object v0, p0, Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;->mRequestedVisibilities:Landroid/view/InsetsVisibilities;
 
     iput-object p2, p0, Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;->mRemoteInsetsController:Landroid/view/IDisplayWindowInsetsController;
 
@@ -78,9 +78,9 @@
     return v0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;->mRequestedInsetsState:Landroid/view/InsetsState;
+    iget-object v0, p0, Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;->mRequestedVisibilities:Landroid/view/InsetsVisibilities;
 
-    invoke-virtual {v0, p1}, Landroid/view/InsetsState;->getSourceOrDefaultVisibility(I)Z
+    invoke-virtual {v0, p1}, Landroid/view/InsetsVisibilities;->getVisibility(I)Z
 
     move-result v0
 
@@ -186,6 +186,16 @@
     return-void
 .end method
 
+.method setRequestedVisibilities(Landroid/view/InsetsVisibilities;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;->mRequestedVisibilities:Landroid/view/InsetsVisibilities;
+
+    invoke-virtual {v0, p1}, Landroid/view/InsetsVisibilities;->set(Landroid/view/InsetsVisibilities;)V
+
+    return-void
+.end method
+
 .method public showInsets(IZ)V
     .locals 3
 
@@ -233,37 +243,5 @@
     invoke-static {v1, v2, v0}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
-    return-void
-.end method
-
-.method updateRequestedVisibility(Landroid/view/InsetsState;)V
-    .locals 3
-
-    const/4 v0, 0x0
-
-    :goto_0
-    const/16 v1, 0x16
-
-    if-ge v0, v1, :cond_1
-
-    invoke-virtual {p1, v0}, Landroid/view/InsetsState;->peekSource(I)Landroid/view/InsetsSource;
-
-    move-result-object v1
-
-    if-nez v1, :cond_0
-
-    goto :goto_1
-
-    :cond_0
-    iget-object v2, p0, Lcom/android/server/wm/DisplayContent$RemoteInsetsControlTarget;->mRequestedInsetsState:Landroid/view/InsetsState;
-
-    invoke-virtual {v2, v1}, Landroid/view/InsetsState;->addSource(Landroid/view/InsetsSource;)V
-
-    :goto_1
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_1
     return-void
 .end method

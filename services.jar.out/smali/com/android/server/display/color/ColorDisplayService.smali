@@ -988,7 +988,7 @@
 
     move-result-object v2
 
-    const v3, 0x107005d
+    const v3, 0x1070065
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -1268,7 +1268,7 @@
 
     move-result-object v1
 
-    const v2, 0x10e003a
+    const v2, 0x10e003b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1375,7 +1375,7 @@
 
     move-result-object v1
 
-    const v2, 0x10e003b
+    const v2, 0x10e003c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1428,7 +1428,7 @@
 
     move-result-object v1
 
-    const v2, 0x10e003c
+    const v2, 0x10e003d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1546,7 +1546,7 @@
 
     move-result-object v1
 
-    const v2, 0x1110126
+    const v2, 0x111012b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1557,7 +1557,7 @@
     or-int/lit8 v0, v0, 0x2
 
     :cond_1
-    const v2, 0x1110127
+    const v2, 0x111012c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1754,7 +1754,7 @@
 
     move-result-object v2
 
-    const v3, 0x11100b4
+    const v3, 0x11100b5
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -2278,7 +2278,7 @@
 
     move-result-object v1
 
-    const v2, 0x10e00b0
+    const v2, 0x10e00b4
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -3005,7 +3005,7 @@
 
     iput-object v0, p0, Lcom/android/server/display/color/ColorDisplayService;->mColorModeCompositionColorSpaces:Landroid/util/SparseIntArray;
 
-    const v0, 0x1070034
+    const v0, 0x1070036
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -3016,7 +3016,7 @@
     return-void
 
     :cond_0
-    const v1, 0x1070035
+    const v1, 0x1070037
 
     invoke-virtual {p1, v1}, Landroid/content/res/Resources;->getIntArray(I)[I
 

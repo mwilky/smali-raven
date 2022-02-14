@@ -25,10 +25,6 @@
 .end annotation
 
 
-# static fields
-.field private static final GNSS_MEASUREMENTS_BUCKET:Ljava/lang/String; = "gnss_measurement"
-
-
 # instance fields
 .field final synthetic this$0:Lcom/android/server/location/gnss/GnssMeasurementsProvider;
 
@@ -62,7 +58,7 @@
 
 # virtual methods
 .method protected onActive()V
-    .locals 4
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/location/gnss/GnssMeasurementsProvider$GnssMeasurementListenerRegistration;->this$0:Lcom/android/server/location/gnss/GnssMeasurementsProvider;
 
@@ -74,13 +70,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p0}, Lcom/android/server/location/gnss/GnssMeasurementsProvider$GnssMeasurementListenerRegistration;->getKey()Ljava/lang/Object;
-
-    move-result-object v2
-
-    const-string v3, "gnss_measurement"
-
-    invoke-virtual {v0, v1, v3, v2}, Lcom/android/server/location/injector/LocationAttributionHelper;->reportHighPowerLocationStart(Landroid/location/util/identity/CallerIdentity;Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {v0, v1}, Lcom/android/server/location/injector/LocationAttributionHelper;->reportHighPowerLocationStart(Landroid/location/util/identity/CallerIdentity;)V
 
     return-void
 .end method
@@ -96,7 +86,7 @@
 .end method
 
 .method protected onInactive()V
-    .locals 4
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/location/gnss/GnssMeasurementsProvider$GnssMeasurementListenerRegistration;->this$0:Lcom/android/server/location/gnss/GnssMeasurementsProvider;
 
@@ -108,13 +98,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p0}, Lcom/android/server/location/gnss/GnssMeasurementsProvider$GnssMeasurementListenerRegistration;->getKey()Ljava/lang/Object;
-
-    move-result-object v2
-
-    const-string v3, "gnss_measurement"
-
-    invoke-virtual {v0, v1, v3, v2}, Lcom/android/server/location/injector/LocationAttributionHelper;->reportHighPowerLocationStop(Landroid/location/util/identity/CallerIdentity;Ljava/lang/String;Ljava/lang/Object;)V
+    invoke-virtual {v0, v1}, Lcom/android/server/location/injector/LocationAttributionHelper;->reportHighPowerLocationStop(Landroid/location/util/identity/CallerIdentity;)V
 
     return-void
 .end method

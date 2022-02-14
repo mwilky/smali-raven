@@ -560,7 +560,7 @@
 
     move-result-object v1
 
-    const v2, 0x1070056
+    const v2, 0x107005d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -1457,11 +1457,11 @@
 .end method
 
 .method public getDisplayDeviceInfoLocked()Lcom/android/server/display/DisplayDeviceInfo;
-    .locals 6
+    .locals 7
 
     iget-object v0, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_8
 
     new-instance v0, Lcom/android/server/display/DisplayDeviceInfo;
 
@@ -1684,7 +1684,7 @@
 
     const/4 v3, 0x1
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_3
 
     iget-object v2, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
@@ -1694,7 +1694,7 @@
 
     iput v4, v2, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
 
-    const v2, 0x1110105
+    const v2, 0x1110108
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1704,7 +1704,7 @@
 
     sget-boolean v2, Landroid/os/Build;->IS_EMULATOR:Z
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_5
 
     const/4 v2, 0x0
 
@@ -1714,7 +1714,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_5
 
     :cond_2
     iget-object v2, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
@@ -1725,62 +1725,16 @@
 
     iput v4, v2, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
 
-    :cond_3
-    const v2, 0x1110106
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_4
-
-    iget-object v2, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
-    iget v4, v2, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
-
-    or-int/lit16 v4, v4, 0x800
-
-    iput v4, v2, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
-
-    :cond_4
-    iget-object v2, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
-    iget v4, v2, Lcom/android/server/display/DisplayDeviceInfo;->width:I
-
-    iget-object v5, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
-    iget v5, v5, Lcom/android/server/display/DisplayDeviceInfo;->height:I
-
-    invoke-static {v1, v4, v5}, Landroid/view/DisplayCutout;->fromResourcesRectApproximation(Landroid/content/res/Resources;II)Landroid/view/DisplayCutout;
-
-    move-result-object v4
-
-    iput-object v4, v2, Lcom/android/server/display/DisplayDeviceInfo;->displayCutout:Landroid/view/DisplayCutout;
-
-    iget-object v2, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
-    iget v4, v2, Lcom/android/server/display/DisplayDeviceInfo;->width:I
-
-    iget-object v5, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
-
-    iget v5, v5, Lcom/android/server/display/DisplayDeviceInfo;->height:I
-
-    invoke-static {v1, v4, v5}, Landroid/view/RoundedCorners;->fromResources(Landroid/content/res/Resources;II)Landroid/view/RoundedCorners;
-
-    move-result-object v4
-
-    iput-object v4, v2, Lcom/android/server/display/DisplayDeviceInfo;->roundedCorners:Landroid/view/RoundedCorners;
-
     goto :goto_1
 
-    :cond_5
-    const v2, 0x1110100
+    :cond_3
+    const v2, 0x1110103
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v2
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_4
 
     iget-object v2, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
@@ -1790,12 +1744,12 @@
 
     iput v4, v2, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
 
-    :cond_6
+    :cond_4
     invoke-direct {p0, v0}, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;->isDisplayPrivate(Landroid/view/DisplayAddress$Physical;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_5
 
     iget-object v2, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
@@ -1805,15 +1759,70 @@
 
     iput v4, v2, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
 
-    :cond_7
+    :cond_5
     :goto_1
+    iget-object v2, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget-object v2, v2, Lcom/android/server/display/DisplayDeviceInfo;->uniqueId:Ljava/lang/String;
+
+    invoke-static {v1, v2}, Landroid/view/DisplayCutout;->getMaskBuiltInDisplayCutout(Landroid/content/res/Resources;Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_6
+
+    iget-object v2, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v4, v2, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
+
+    or-int/lit16 v4, v4, 0x800
+
+    iput v4, v2, Lcom/android/server/display/DisplayDeviceInfo;->flags:I
+
+    :cond_6
+    iget-object v2, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget-object v4, v2, Lcom/android/server/display/DisplayDeviceInfo;->uniqueId:Ljava/lang/String;
+
+    iget-object v5, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v5, v5, Lcom/android/server/display/DisplayDeviceInfo;->width:I
+
+    iget-object v6, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v6, v6, Lcom/android/server/display/DisplayDeviceInfo;->height:I
+
+    invoke-static {v1, v4, v5, v6}, Landroid/view/DisplayCutout;->fromResourcesRectApproximation(Landroid/content/res/Resources;Ljava/lang/String;II)Landroid/view/DisplayCutout;
+
+    move-result-object v4
+
+    iput-object v4, v2, Lcom/android/server/display/DisplayDeviceInfo;->displayCutout:Landroid/view/DisplayCutout;
+
+    iget-object v2, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget-object v4, v2, Lcom/android/server/display/DisplayDeviceInfo;->uniqueId:Ljava/lang/String;
+
+    iget-object v5, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v5, v5, Lcom/android/server/display/DisplayDeviceInfo;->width:I
+
+    iget-object v6, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
+
+    iget v6, v6, Lcom/android/server/display/DisplayDeviceInfo;->height:I
+
+    invoke-static {v1, v4, v5, v6}, Landroid/view/RoundedCorners;->fromResources(Landroid/content/res/Resources;Ljava/lang/String;II)Landroid/view/RoundedCorners;
+
+    move-result-object v4
+
+    iput-object v4, v2, Lcom/android/server/display/DisplayDeviceInfo;->roundedCorners:Landroid/view/RoundedCorners;
+
     iget-object v2, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;->mStaticDisplayInfo:Landroid/view/SurfaceControl$StaticDisplayInfo;
 
     iget-boolean v2, v2, Landroid/view/SurfaceControl$StaticDisplayInfo;->isInternal:Z
 
     const/4 v4, 0x2
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_7
 
     iget-object v2, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
@@ -1833,7 +1842,7 @@
 
     iget-object v2, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
-    const v3, 0x10402ec
+    const v3, 0x10402f0
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1843,7 +1852,7 @@
 
     goto :goto_2
 
-    :cond_8
+    :cond_7
     iget-object v2, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
     iput v4, v2, Lcom/android/server/display/DisplayDeviceInfo;->type:I
@@ -1872,7 +1881,7 @@
 
     move-result-object v3
 
-    const v4, 0x10402ed
+    const v4, 0x10402f1
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1919,7 +1928,7 @@
 
     iput v3, v2, Lcom/android/server/display/DisplayDeviceInfo;->brightnessDefault:F
 
-    :cond_9
+    :cond_8
     iget-object v0, p0, Lcom/android/server/display/LocalDisplayAdapter$LocalDisplayDevice;->mInfo:Lcom/android/server/display/DisplayDeviceInfo;
 
     return-object v0

@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/notification/NotificationManagerService;->cancelAllNotificationsInt(IILjava/lang/String;Ljava/lang/String;IIZIILcom/android/server/notification/ManagedServices$ManagedServiceInfo;)V
+    value = Lcom/android/server/notification/NotificationManagerService;->cancelAllLocked(IIIILcom/android/server/notification/ManagedServices$ManagedServiceInfo;Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,17 +24,9 @@
 
 .field final synthetic val$callingUid:I
 
-.field final synthetic val$channelId:Ljava/lang/String;
-
-.field final synthetic val$doit:Z
+.field final synthetic val$includeCurrentProfiles:Z
 
 .field final synthetic val$listener:Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;
-
-.field final synthetic val$mustHaveFlags:I
-
-.field final synthetic val$mustNotHaveFlags:I
-
-.field final synthetic val$pkg:Ljava/lang/String;
 
 .field final synthetic val$reason:I
 
@@ -42,7 +34,7 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/notification/NotificationManagerService;Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;IILjava/lang/String;IIIIZLjava/lang/String;)V
+.method constructor <init>(Lcom/android/server/notification/NotificationManagerService;Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;IIIIZ)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/notification/NotificationManagerService$16;->this$0:Lcom/android/server/notification/NotificationManagerService;
@@ -53,63 +45,72 @@
 
     iput p4, p0, Lcom/android/server/notification/NotificationManagerService$16;->val$callingPid:I
 
-    iput-object p5, p0, Lcom/android/server/notification/NotificationManagerService$16;->val$pkg:Ljava/lang/String;
+    iput p5, p0, Lcom/android/server/notification/NotificationManagerService$16;->val$userId:I
 
-    iput p6, p0, Lcom/android/server/notification/NotificationManagerService$16;->val$userId:I
+    iput p6, p0, Lcom/android/server/notification/NotificationManagerService$16;->val$reason:I
 
-    iput p7, p0, Lcom/android/server/notification/NotificationManagerService$16;->val$mustHaveFlags:I
-
-    iput p8, p0, Lcom/android/server/notification/NotificationManagerService$16;->val$mustNotHaveFlags:I
-
-    iput p9, p0, Lcom/android/server/notification/NotificationManagerService$16;->val$reason:I
-
-    iput-boolean p10, p0, Lcom/android/server/notification/NotificationManagerService$16;->val$doit:Z
-
-    iput-object p11, p0, Lcom/android/server/notification/NotificationManagerService$16;->val$channelId:Ljava/lang/String;
+    iput-boolean p7, p0, Lcom/android/server/notification/NotificationManagerService$16;->val$includeCurrentProfiles:Z
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
-.method static synthetic lambda$run$0(III)Z
+.method static synthetic lambda$run$0(II)Z
     .locals 2
 
-    and-int v0, p2, p0
+    const/16 v0, 0x22
+
+    const/16 v1, 0xb
+
+    if-eq v1, p0, :cond_0
+
+    const/4 v1, 0x3
+
+    if-ne v1, p0, :cond_1
+
+    :cond_0
+    or-int/lit16 v0, v0, 0x1000
+
+    :cond_1
+    and-int v1, p1, v0
+
+    if-eqz v1, :cond_2
 
     const/4 v1, 0x0
 
-    if-eq v0, p0, :cond_0
-
     return v1
 
-    :cond_0
-    and-int v0, p2, p1
-
-    if-eqz v0, :cond_1
+    :cond_2
+    const/4 v1, 0x1
 
     return v1
-
-    :cond_1
-    const/4 v0, 0x1
-
-    return v0
 .end method
 
 
 # virtual methods
 .method public run()V
-    .locals 38
+    .locals 39
 
     move-object/from16 v1, p0
 
+    iget-object v0, v1, Lcom/android/server/notification/NotificationManagerService$16;->this$0:Lcom/android/server/notification/NotificationManagerService;
+
+    iget-object v2, v0, Lcom/android/server/notification/NotificationManagerService;->mNotificationLock:Ljava/lang/Object;
+
+    monitor-enter v2
+
+    :try_start_0
     iget-object v0, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$listener:Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;
 
     if-nez v0, :cond_0
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    :goto_0
+    move-object v10, v0
+
+    goto :goto_1
 
     :cond_0
     iget-object v0, v0, Lcom/android/server/notification/ManagedServices$ManagedServiceInfo;->component:Landroid/content/ComponentName;
@@ -118,82 +119,66 @@
 
     move-result-object v0
 
-    :goto_0
-    move-object v9, v0
+    goto :goto_0
 
-    iget v2, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$callingUid:I
+    :goto_1
+    iget v3, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$callingUid:I
 
-    iget v3, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$callingPid:I
+    iget v4, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$callingPid:I
 
-    iget-object v4, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$pkg:Ljava/lang/String;
+    const/4 v5, 0x0
 
-    iget v5, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$userId:I
+    iget v6, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$userId:I
 
-    iget v6, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$mustHaveFlags:I
+    const/4 v7, 0x0
 
-    iget v7, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$mustNotHaveFlags:I
+    const/4 v8, 0x0
 
-    iget v8, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$reason:I
+    iget v9, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$reason:I
 
-    invoke-static/range {v2 .. v9}, Lcom/android/server/EventLogTags;->writeNotificationCancelAll(IILjava/lang/String;IIIILjava/lang/String;)V
+    invoke-static/range {v3 .. v10}, Lcom/android/server/EventLogTags;->writeNotificationCancelAll(IILjava/lang/String;IIIILjava/lang/String;)V
 
-    iget-boolean v0, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$doit:Z
+    iget v0, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$reason:I
 
-    if-nez v0, :cond_1
+    new-instance v3, Lcom/android/server/notification/NotificationManagerService$16$$ExternalSyntheticLambda0;
 
-    return-void
+    invoke-direct {v3, v0}, Lcom/android/server/notification/NotificationManagerService$16$$ExternalSyntheticLambda0;-><init>(I)V
 
-    :cond_1
-    iget-object v0, v1, Lcom/android/server/notification/NotificationManagerService$16;->this$0:Lcom/android/server/notification/NotificationManagerService;
+    move-object/from16 v18, v3
 
-    iget-object v2, v0, Lcom/android/server/notification/NotificationManagerService;->mNotificationLock:Ljava/lang/Object;
+    iget-object v11, v1, Lcom/android/server/notification/NotificationManagerService$16;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
-    monitor-enter v2
+    iget-object v12, v11, Lcom/android/server/notification/NotificationManagerService;->mNotificationList:Ljava/util/ArrayList;
 
-    :try_start_0
-    iget v0, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$mustHaveFlags:I
+    iget v13, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$callingUid:I
 
-    iget v3, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$mustNotHaveFlags:I
+    iget v14, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$callingPid:I
 
-    new-instance v4, Lcom/android/server/notification/NotificationManagerService$16$$ExternalSyntheticLambda0;
+    const/4 v15, 0x0
 
-    invoke-direct {v4, v0, v3}, Lcom/android/server/notification/NotificationManagerService$16$$ExternalSyntheticLambda0;-><init>(II)V
+    const/16 v16, 0x0
 
-    move-object/from16 v17, v4
+    const/16 v17, 0x0
 
-    iget-object v10, v1, Lcom/android/server/notification/NotificationManagerService$16;->this$0:Lcom/android/server/notification/NotificationManagerService;
-
-    iget-object v11, v10, Lcom/android/server/notification/NotificationManagerService;->mNotificationList:Ljava/util/ArrayList;
-
-    iget v12, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$callingUid:I
-
-    iget v13, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$callingPid:I
-
-    iget-object v14, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$pkg:Ljava/lang/String;
-
-    const/4 v15, 0x1
-
-    iget-object v0, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$channelId:Ljava/lang/String;
-
-    const/16 v18, 0x0
+    iget-boolean v0, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$includeCurrentProfiles:Z
 
     iget v3, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$userId:I
 
-    const/16 v20, 0x0
+    const/16 v21, 0x1
 
     iget v4, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$reason:I
 
-    const/16 v23, 0x1
+    const/16 v24, 0x1
 
-    move-object/from16 v16, v0
+    move/from16 v19, v0
 
-    move/from16 v19, v3
+    move/from16 v20, v3
 
-    move/from16 v21, v4
+    move/from16 v22, v4
 
-    move-object/from16 v22, v9
+    move-object/from16 v23, v10
 
-    invoke-static/range {v10 .. v23}, Lcom/android/server/notification/NotificationManagerService;->access$10600(Lcom/android/server/notification/NotificationManagerService;Ljava/util/ArrayList;IILjava/lang/String;ZLjava/lang/String;Lcom/android/server/notification/NotificationManagerService$FlagChecker;ZIZILjava/lang/String;Z)V
+    invoke-static/range {v11 .. v24}, Lcom/android/server/notification/NotificationManagerService;->access$10500(Lcom/android/server/notification/NotificationManagerService;Ljava/util/ArrayList;IILjava/lang/String;ZLjava/lang/String;Lcom/android/server/notification/NotificationManagerService$FlagChecker;ZIZILjava/lang/String;Z)V
 
     iget-object v0, v1, Lcom/android/server/notification/NotificationManagerService$16;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
@@ -203,43 +188,41 @@
 
     iget v5, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$callingPid:I
 
-    iget-object v6, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$pkg:Ljava/lang/String;
+    const/16 v29, 0x0
 
-    const/16 v29, 0x1
+    const/16 v30, 0x0
 
-    iget-object v7, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$channelId:Ljava/lang/String;
+    const/16 v31, 0x0
 
-    const/16 v32, 0x0
+    iget-boolean v6, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$includeCurrentProfiles:Z
 
-    iget v8, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$userId:I
+    iget v7, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$userId:I
 
-    const/16 v34, 0x0
+    const/16 v35, 0x1
 
-    iget v10, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$reason:I
+    iget v8, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$reason:I
 
-    const/16 v37, 0x0
+    const/16 v38, 0x0
 
-    move-object/from16 v24, v0
+    move-object/from16 v25, v0
 
-    move-object/from16 v25, v3
+    move-object/from16 v26, v3
 
-    move/from16 v26, v4
+    move/from16 v27, v4
 
-    move/from16 v27, v5
+    move/from16 v28, v5
 
-    move-object/from16 v28, v6
+    move-object/from16 v32, v18
 
-    move-object/from16 v30, v7
+    move/from16 v33, v6
 
-    move-object/from16 v31, v17
+    move/from16 v34, v7
 
-    move/from16 v33, v8
+    move/from16 v36, v8
 
-    move/from16 v35, v10
+    move-object/from16 v37, v10
 
-    move-object/from16 v36, v9
-
-    invoke-static/range {v24 .. v37}, Lcom/android/server/notification/NotificationManagerService;->access$10600(Lcom/android/server/notification/NotificationManagerService;Ljava/util/ArrayList;IILjava/lang/String;ZLjava/lang/String;Lcom/android/server/notification/NotificationManagerService$FlagChecker;ZIZILjava/lang/String;Z)V
+    invoke-static/range {v25 .. v38}, Lcom/android/server/notification/NotificationManagerService;->access$10500(Lcom/android/server/notification/NotificationManagerService;Ljava/util/ArrayList;IILjava/lang/String;ZLjava/lang/String;Lcom/android/server/notification/NotificationManagerService$FlagChecker;ZIZILjava/lang/String;Z)V
 
     iget-object v0, v1, Lcom/android/server/notification/NotificationManagerService$16;->this$0:Lcom/android/server/notification/NotificationManagerService;
 
@@ -247,11 +230,9 @@
 
     iget v3, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$userId:I
 
-    iget-object v4, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$pkg:Ljava/lang/String;
+    iget-boolean v4, v1, Lcom/android/server/notification/NotificationManagerService$16;->val$includeCurrentProfiles:Z
 
-    invoke-virtual {v0, v3, v4}, Lcom/android/server/notification/SnoozeHelper;->cancel(ILjava/lang/String;)Z
-
-    nop
+    invoke-virtual {v0, v3, v4}, Lcom/android/server/notification/SnoozeHelper;->cancel(IZ)V
 
     monitor-exit v2
 

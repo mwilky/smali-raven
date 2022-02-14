@@ -47,7 +47,7 @@
 
     iget-object v0, p0, Lcom/android/server/audio/AudioService$MyHdmiControlStatusChangeListenerCallback;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v0}, Lcom/android/server/audio/AudioService;->access$8900(Lcom/android/server/audio/AudioService;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/audio/AudioService;->access$9000(Lcom/android/server/audio/AudioService;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -56,7 +56,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/audio/AudioService$MyHdmiControlStatusChangeListenerCallback;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v1}, Lcom/android/server/audio/AudioService;->access$9000(Lcom/android/server/audio/AudioService;)Landroid/hardware/hdmi/HdmiControlManager;
+    invoke-static {v1}, Lcom/android/server/audio/AudioService;->access$9100(Lcom/android/server/audio/AudioService;)Landroid/hardware/hdmi/HdmiControlManager;
 
     move-result-object v1
 
@@ -86,7 +86,7 @@
     move v1, p2
 
     :cond_2
-    invoke-static {v3, v1}, Lcom/android/server/audio/AudioService;->access$9100(Lcom/android/server/audio/AudioService;Z)V
+    invoke-static {v3, v1}, Lcom/android/server/audio/AudioService;->access$9200(Lcom/android/server/audio/AudioService;Z)V
 
     monitor-exit v0
 

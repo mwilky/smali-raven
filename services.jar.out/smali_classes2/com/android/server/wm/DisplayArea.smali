@@ -676,6 +676,16 @@
     return v2
 .end method
 
+.method public bridge synthetic getAnimationLeash()Landroid/view/SurfaceControl;
+    .locals 1
+
+    invoke-super {p0}, Lcom/android/server/wm/WindowContainer;->getAnimationLeash()Landroid/view/SurfaceControl;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public bridge synthetic getAnimationLeashParent()Landroid/view/SurfaceControl;
     .locals 1
 
@@ -715,13 +725,33 @@
 
     invoke-direct {v0, v1, v2, v3}, Landroid/window/DisplayAreaInfo;-><init>(Landroid/window/WindowContainerToken;II)V
 
-    iget-object v1, v0, Landroid/window/DisplayAreaInfo;->configuration:Landroid/content/res/Configuration;
+    invoke-virtual {p0}, Lcom/android/server/wm/DisplayArea;->getRootDisplayArea()Lcom/android/server/wm/RootDisplayArea;
 
-    invoke-virtual {p0}, Lcom/android/server/wm/DisplayArea;->getConfiguration()Landroid/content/res/Configuration;
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/server/wm/DisplayArea;->getDisplayContent()Lcom/android/server/wm/DisplayContent;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Configuration;->setTo(Landroid/content/res/Configuration;)V
+    iget v2, v2, Lcom/android/server/wm/DisplayContent;->mFeatureId:I
+
+    goto :goto_0
+
+    :cond_0
+    iget v2, v1, Lcom/android/server/wm/RootDisplayArea;->mFeatureId:I
+
+    :goto_0
+    iput v2, v0, Landroid/window/DisplayAreaInfo;->rootDisplayAreaId:I
+
+    iget-object v2, v0, Landroid/window/DisplayAreaInfo;->configuration:Landroid/content/res/Configuration;
+
+    invoke-virtual {p0}, Lcom/android/server/wm/DisplayArea;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Configuration;->setTo(Landroid/content/res/Configuration;)V
 
     return-object v0
 .end method
@@ -1203,6 +1233,14 @@
     .locals 0
 
     invoke-super {p0, p1}, Lcom/android/server/wm/WindowContainer;->onRequestedOverrideConfigurationChanged(Landroid/content/res/Configuration;)V
+
+    return-void
+.end method
+
+.method public bridge synthetic onUnfrozen()V
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/server/wm/WindowContainer;->onUnfrozen()V
 
     return-void
 .end method

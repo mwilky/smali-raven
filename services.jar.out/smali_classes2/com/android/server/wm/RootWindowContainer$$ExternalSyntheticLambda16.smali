@@ -29,7 +29,7 @@
 
     check-cast p1, Lcom/android/server/wm/Task;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$rankTaskLayers$27$RootWindowContainer(Lcom/android/server/wm/Task;)V
+    invoke-virtual {v0, p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$rankTaskLayers$28$RootWindowContainer(Lcom/android/server/wm/Task;)V
 
     return-void
 .end method

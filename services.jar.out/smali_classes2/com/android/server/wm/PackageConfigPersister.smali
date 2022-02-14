@@ -14,6 +14,8 @@
 
 
 # static fields
+.field private static final ATTR_LOCALES:Ljava/lang/String; = "locale_list"
+
 .field private static final ATTR_NIGHT_MODE:Ljava/lang/String; = "night_mode"
 
 .field private static final ATTR_PACKAGE_NAME:Ljava/lang/String; = "package_name"
@@ -30,6 +32,8 @@
 
 
 # instance fields
+.field private final mAtm:Lcom/android/server/wm/ActivityTaskManagerService;
+
 .field private final mLock:Ljava/lang/Object;
 
 .field private final mModified:Landroid/util/SparseArray;
@@ -74,7 +78,7 @@
     return-void
 .end method
 
-.method constructor <init>(Lcom/android/server/wm/PersisterQueue;)V
+.method constructor <init>(Lcom/android/server/wm/PersisterQueue;Lcom/android/server/wm/ActivityTaskManagerService;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -98,6 +102,8 @@
     iput-object v0, p0, Lcom/android/server/wm/PackageConfigPersister;->mModified:Landroid/util/SparseArray;
 
     iput-object p1, p0, Lcom/android/server/wm/PackageConfigPersister;->mPersisterQueue:Lcom/android/server/wm/PersisterQueue;
+
+    iput-object p2, p0, Lcom/android/server/wm/PackageConfigPersister;->mAtm:Lcom/android/server/wm/ActivityTaskManagerService;
 
     return-void
 .end method
@@ -368,8 +374,147 @@
     return-void
 .end method
 
+.method private updateLocales(Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;)Z
+    .locals 2
+
+    iget-object v0, p1, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mLocales:Landroid/os/LocaleList;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p1, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mLocales:Landroid/os/LocaleList;
+
+    iget-object v1, p2, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mLocales:Landroid/os/LocaleList;
+
+    invoke-virtual {v0, v1}, Landroid/os/LocaleList;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v0, p1, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mLocales:Landroid/os/LocaleList;
+
+    iput-object v0, p2, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mLocales:Landroid/os/LocaleList;
+
+    const/4 v0, 0x1
+
+    return v0
+
+    :cond_1
+    :goto_0
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method private updateNightMode(Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;)Z
+    .locals 2
+
+    iget-object v0, p1, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mNightMode:Ljava/lang/Integer;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p1, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mNightMode:Ljava/lang/Integer;
+
+    iget-object v1, p2, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mNightMode:Ljava/lang/Integer;
+
+    invoke-virtual {v0, v1}, Ljava/lang/Integer;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v0, p1, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mNightMode:Ljava/lang/Integer;
+
+    iput-object v0, p2, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mNightMode:Ljava/lang/Integer;
+
+    const/4 v0, 0x1
+
+    return v0
+
+    :cond_1
+    :goto_0
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 
 # virtual methods
+.method findPackageConfiguration(Ljava/lang/String;I)Lcom/android/server/wm/ActivityTaskManagerInternal$PackageConfig;
+    .locals 5
+
+    iget-object v0, p0, Lcom/android/server/wm/PackageConfigPersister;->mLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/wm/PackageConfigPersister;->mModified:Landroid/util/SparseArray;
+
+    invoke-direct {p0, v1, p1, p2}, Lcom/android/server/wm/PackageConfigPersister;->findRecord(Landroid/util/SparseArray;Ljava/lang/String;I)Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;
+
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
+    sget-object v2, Lcom/android/server/wm/PackageConfigPersister;->TAG:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "App-specific configuration not found for packageName: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v4, " and userId: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v2, 0x0
+
+    monitor-exit v0
+
+    return-object v2
+
+    :cond_0
+    new-instance v2, Lcom/android/server/wm/ActivityTaskManagerInternal$PackageConfig;
+
+    iget-object v3, v1, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mNightMode:Ljava/lang/Integer;
+
+    iget-object v4, v1, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mLocales:Landroid/os/LocaleList;
+
+    invoke-direct {v2, v3, v4}, Lcom/android/server/wm/ActivityTaskManagerInternal$PackageConfig;-><init>(Ljava/lang/Integer;Landroid/os/LocaleList;)V
+
+    monitor-exit v0
+
+    return-object v2
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v1
+.end method
+
 .method public synthetic lambda$removeUser$0$PackageConfigPersister(Ljava/lang/String;Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;)V
     .locals 2
 
@@ -383,7 +528,7 @@
 .end method
 
 .method loadUserPackages(I)V
-    .locals 17
+    .locals 19
 
     move-object/from16 v1, p0
 
@@ -456,7 +601,7 @@
 
     if-nez v0, :cond_1
 
-    move/from16 v12, p1
+    move/from16 v13, p1
 
     goto/16 :goto_d
 
@@ -482,115 +627,155 @@
 
     const/4 v9, 0x0
 
+    const/4 v10, 0x0
+
     :goto_1
     invoke-interface {v0}, Landroid/util/TypedXmlPullParser;->next()I
 
-    move-result v10
+    move-result v11
 
-    move v11, v10
+    move v12, v11
 
-    const/4 v12, 0x1
+    const/4 v13, 0x1
 
-    if-eq v10, v12, :cond_4
+    if-eq v11, v13, :cond_4
 
-    const/4 v10, 0x3
+    const/4 v11, 0x3
 
-    if-eq v11, v10, :cond_4
+    if-eq v12, v11, :cond_4
 
     invoke-interface {v0}, Landroid/util/TypedXmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v11
 
-    const/4 v13, 0x2
+    const/4 v14, 0x2
 
-    if-ne v11, v13, :cond_3
+    if-ne v12, v14, :cond_3
 
-    const-string v13, "config"
+    const-string v15, "config"
 
-    invoke-virtual {v13, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v15, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v13
+    move-result v15
 
-    if-eqz v13, :cond_3
+    if-eqz v15, :cond_3
 
     invoke-interface {v0}, Landroid/util/TypedXmlPullParser;->getAttributeCount()I
 
-    move-result v13
+    move-result v15
 
-    sub-int/2addr v13, v12
+    sub-int/2addr v15, v13
 
     :goto_2
-    if-ltz v13, :cond_3
+    if-ltz v15, :cond_3
 
-    invoke-interface {v0, v13}, Landroid/util/TypedXmlPullParser;->getAttributeName(I)Ljava/lang/String;
+    invoke-interface {v0, v15}, Landroid/util/TypedXmlPullParser;->getAttributeName(I)Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v16
 
-    invoke-interface {v0, v13}, Landroid/util/TypedXmlPullParser;->getAttributeValue(I)Ljava/lang/String;
+    move-object/from16 v17, v16
 
-    move-result-object v15
+    invoke-interface {v0, v15}, Landroid/util/TypedXmlPullParser;->getAttributeValue(I)Ljava/lang/String;
 
-    invoke-virtual {v14}, Ljava/lang/String;->hashCode()I
+    move-result-object v16
 
-    move-result v16
+    invoke-virtual/range {v17 .. v17}, Ljava/lang/String;->hashCode()I
 
-    sparse-switch v16, :sswitch_data_0
+    move-result v18
 
-    :cond_2
+    sparse-switch v18, :sswitch_data_0
+
+    move-object/from16 v14, v17
+
     goto :goto_3
 
     :sswitch_0
-    const-string v12, "night_mode"
+    const-string v13, "locale_list"
 
-    invoke-virtual {v14, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-object/from16 v14, v17
 
-    move-result v12
+    invoke-virtual {v14, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-eqz v12, :cond_2
+    move-result v13
 
-    const/4 v12, 0x1
+    if-eqz v13, :cond_2
+
+    const/4 v13, 0x2
 
     goto :goto_4
 
     :sswitch_1
-    const-string v12, "package_name"
+    move-object/from16 v14, v17
 
-    invoke-virtual {v14, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string v13, "night_mode"
 
-    move-result v12
+    invoke-virtual {v14, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-eqz v12, :cond_2
+    move-result v13
 
-    const/4 v12, 0x0
+    if-eqz v13, :cond_2
+
+    const/4 v13, 0x1
 
     goto :goto_4
 
+    :sswitch_2
+    move-object/from16 v14, v17
+
+    const-string v13, "package_name"
+
+    invoke-virtual {v14, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v13
+
+    if-eqz v13, :cond_2
+
+    const/4 v13, 0x0
+
+    goto :goto_4
+
+    :cond_2
     :goto_3
-    const/4 v12, -0x1
+    const/4 v13, -0x1
 
     :goto_4
-    packed-switch v12, :pswitch_data_0
+    packed-switch v13, :pswitch_data_0
 
     goto :goto_5
 
     :pswitch_0
-    invoke-static {v15}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v16 .. v16}, Landroid/os/LocaleList;->forLanguageTags(Ljava/lang/String;)Landroid/os/LocaleList;
 
-    move-result v12
+    move-result-object v13
 
-    move v9, v12
+    move-object v10, v13
 
     goto :goto_5
 
     :pswitch_1
-    move-object v8, v15
+    invoke-static/range {v16 .. v16}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v13
+
+    invoke-static {v13}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v13
+
+    move-object v9, v13
+
+    goto :goto_5
+
+    :pswitch_2
+    move-object/from16 v8, v16
 
     nop
 
     :goto_5
-    add-int/lit8 v13, v13, -0x1
+    add-int/lit8 v15, v15, -0x1
 
-    const/4 v12, 0x1
+    const/4 v13, 0x1
+
+    const/4 v14, 0x2
 
     goto :goto_2
 
@@ -602,18 +787,20 @@
     :cond_4
     if-eqz v8, :cond_5
 
-    iget-object v10, v1, Lcom/android/server/wm/PackageConfigPersister;->mModified:Landroid/util/SparseArray;
+    iget-object v11, v1, Lcom/android/server/wm/PackageConfigPersister;->mModified:Landroid/util/SparseArray;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    move/from16 v12, p1
+    move/from16 v13, p1
 
     :try_start_3
-    invoke-direct {v1, v10, v8, v12}, Lcom/android/server/wm/PackageConfigPersister;->findRecordOrCreate(Landroid/util/SparseArray;Ljava/lang/String;I)Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;
+    invoke-direct {v1, v11, v8, v13}, Lcom/android/server/wm/PackageConfigPersister;->findRecordOrCreate(Landroid/util/SparseArray;Ljava/lang/String;I)Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;
 
-    move-result-object v10
+    move-result-object v11
 
-    iput v9, v10, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mNightMode:I
+    iput-object v9, v11, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mNightMode:Ljava/lang/Integer;
+
+    iput-object v10, v11, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mLocales:Landroid/os/LocaleList;
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
@@ -625,7 +812,7 @@
     goto :goto_7
 
     :cond_5
-    move/from16 v12, p1
+    move/from16 v13, p1
 
     :goto_6
     :try_start_4
@@ -641,7 +828,7 @@
     :catchall_1
     move-exception v0
 
-    move/from16 v12, p1
+    move/from16 v13, p1
 
     :goto_7
     move-object v8, v0
@@ -687,7 +874,7 @@
     :catch_3
     move-exception v0
 
-    move/from16 v12, p1
+    move/from16 v13, p1
 
     :goto_9
     :try_start_7
@@ -698,7 +885,7 @@
     :catch_4
     move-exception v0
 
-    move/from16 v12, p1
+    move/from16 v13, p1
 
     :goto_a
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
@@ -708,7 +895,7 @@
     :catch_5
     move-exception v0
 
-    move/from16 v12, p1
+    move/from16 v13, p1
 
     :goto_b
     invoke-virtual {v0}, Ljava/io/FileNotFoundException;->printStackTrace()V
@@ -722,7 +909,7 @@
     goto/16 :goto_0
 
     :cond_6
-    move/from16 v12, p1
+    move/from16 v13, p1
 
     monitor-exit v2
 
@@ -731,7 +918,7 @@
     :catchall_3
     move-exception v0
 
-    move/from16 v12, p1
+    move/from16 v13, p1
 
     :goto_e
     monitor-exit v2
@@ -745,14 +932,18 @@
 
     goto :goto_e
 
+    nop
+
     :sswitch_data_0
     .sparse-switch
-        -0x6fe3451c -> :sswitch_1
-        -0x23dea296 -> :sswitch_0
+        -0x6fe3451c -> :sswitch_2
+        -0x23dea296 -> :sswitch_1
+        0x72044363 -> :sswitch_0
     .end sparse-switch
 
     :pswitch_data_0
     .packed-switch 0x0
+        :pswitch_2
         :pswitch_1
         :pswitch_0
     .end packed-switch
@@ -775,7 +966,7 @@
     add-int/lit8 v1, v1, -0x1
 
     :goto_0
-    if-lez v1, :cond_0
+    if-ltz v1, :cond_0
 
     iget-object v2, p0, Lcom/android/server/wm/PackageConfigPersister;->mModified:Landroid/util/SparseArray;
 
@@ -879,7 +1070,7 @@
 .end method
 
 .method updateConfigIfNeeded(Lcom/android/server/wm/ConfigurationContainer;ILjava/lang/String;)V
-    .locals 3
+    .locals 5
 
     iget-object v0, p0, Lcom/android/server/wm/PackageConfigPersister;->mLock:Ljava/lang/Object;
 
@@ -894,9 +1085,25 @@
 
     if-eqz v1, :cond_0
 
-    iget v2, v1, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mNightMode:I
+    iget-object v2, v1, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mNightMode:Ljava/lang/Integer;
 
-    invoke-virtual {p1, v2}, Lcom/android/server/wm/ConfigurationContainer;->setOverrideNightMode(I)Z
+    iget-object v3, v1, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mLocales:Landroid/os/LocaleList;
+
+    iget-object v4, p0, Lcom/android/server/wm/PackageConfigPersister;->mAtm:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    invoke-virtual {v4}, Lcom/android/server/wm/ActivityTaskManagerService;->getGlobalConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/content/res/Configuration;->getLocales()Landroid/os/LocaleList;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Lcom/android/server/wm/LocaleOverlayHelper;->combineLocalesIfOverlayExists(Landroid/os/LocaleList;Landroid/os/LocaleList;)Landroid/os/LocaleList;
+
+    move-result-object v3
+
+    invoke-virtual {p1, v2, v3}, Lcom/android/server/wm/ConfigurationContainer;->applyAppSpecificConfig(Ljava/lang/Integer;Landroid/os/LocaleList;)Z
 
     :cond_0
     monitor-exit v0
@@ -913,7 +1120,7 @@
     throw v1
 .end method
 
-.method updateFromImpl(Ljava/lang/String;ILcom/android/server/wm/ActivityTaskManagerService$PackageConfigurationUpdaterImpl;)V
+.method updateFromImpl(Ljava/lang/String;ILcom/android/server/wm/PackageConfigurationUpdaterImpl;)V
     .locals 7
 
     iget-object v0, p0, Lcom/android/server/wm/PackageConfigPersister;->mLock:Ljava/lang/Object;
@@ -927,27 +1134,58 @@
 
     move-result-object v1
 
-    invoke-virtual {p3}, Lcom/android/server/wm/ActivityTaskManagerService$PackageConfigurationUpdaterImpl;->getNightMode()I
+    invoke-virtual {p3}, Lcom/android/server/wm/PackageConfigurationUpdaterImpl;->getNightMode()Ljava/lang/Integer;
 
-    move-result v2
+    move-result-object v2
 
-    iput v2, v1, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mNightMode:I
+    if-eqz v2, :cond_0
+
+    invoke-virtual {p3}, Lcom/android/server/wm/PackageConfigurationUpdaterImpl;->getNightMode()Ljava/lang/Integer;
+
+    move-result-object v2
+
+    iput-object v2, v1, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mNightMode:Ljava/lang/Integer;
+
+    :cond_0
+    invoke-virtual {p3}, Lcom/android/server/wm/PackageConfigurationUpdaterImpl;->getLocales()Landroid/os/LocaleList;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {p3}, Lcom/android/server/wm/PackageConfigurationUpdaterImpl;->getLocales()Landroid/os/LocaleList;
+
+    move-result-object v2
+
+    iput-object v2, v1, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mLocales:Landroid/os/LocaleList;
+
+    :cond_1
+    iget-object v2, v1, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mNightMode:Ljava/lang/Integer;
+
+    if-eqz v2, :cond_2
 
     invoke-virtual {v1}, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->isResetNightMode()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_3
 
-    iget-object v2, v1, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mName:Ljava/lang/String;
+    :cond_2
+    iget-object v2, v1, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mLocales:Landroid/os/LocaleList;
 
-    iget v3, v1, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mUserId:I
+    if-eqz v2, :cond_6
 
-    invoke-direct {p0, v2, v3}, Lcom/android/server/wm/PackageConfigPersister;->removePackage(Ljava/lang/String;I)V
+    iget-object v2, v1, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mLocales:Landroid/os/LocaleList;
+
+    invoke-virtual {v2}, Landroid/os/LocaleList;->isEmpty()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
 
     goto :goto_1
 
-    :cond_0
+    :cond_3
     iget-object v2, p0, Lcom/android/server/wm/PackageConfigPersister;->mPendingWrite:Landroid/util/SparseArray;
 
     iget-object v3, v1, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mName:Ljava/lang/String;
@@ -958,7 +1196,7 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_4
 
     iget-object v3, p0, Lcom/android/server/wm/PackageConfigPersister;->mPendingWrite:Landroid/util/SparseArray;
 
@@ -972,25 +1210,27 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_4
     move-object v3, v2
 
     :goto_0
-    iget v4, v3, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mNightMode:I
+    invoke-direct {p0, v1, v3}, Lcom/android/server/wm/PackageConfigPersister;->updateNightMode(Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;)Z
 
-    iget v5, v1, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mNightMode:I
+    move-result v4
 
-    if-ne v4, v5, :cond_2
+    if-nez v4, :cond_5
+
+    invoke-direct {p0, v1, v3}, Lcom/android/server/wm/PackageConfigPersister;->updateLocales(Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_5
 
     monitor-exit v0
 
     return-void
 
-    :cond_2
-    iget v4, v1, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mNightMode:I
-
-    iput v4, v3, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mNightMode:I
-
+    :cond_5
     iget-object v4, p0, Lcom/android/server/wm/PackageConfigPersister;->mPersisterQueue:Lcom/android/server/wm/PersisterQueue;
 
     new-instance v5, Lcom/android/server/wm/PackageConfigPersister$WriteProcessItem;
@@ -1001,7 +1241,13 @@
 
     invoke-virtual {v4, v5, v6}, Lcom/android/server/wm/PersisterQueue;->addItem(Lcom/android/server/wm/PersisterQueue$WriteQueueItem;Z)V
 
+    goto :goto_2
+
+    :cond_6
     :goto_1
+    invoke-direct {p0, p1, p2}, Lcom/android/server/wm/PackageConfigPersister;->removePackage(Ljava/lang/String;I)V
+
+    :goto_2
     monitor-exit v0
 
     return-void

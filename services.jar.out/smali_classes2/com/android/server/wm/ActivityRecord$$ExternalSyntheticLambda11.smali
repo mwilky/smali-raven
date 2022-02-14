@@ -37,7 +37,7 @@
 
     check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    invoke-static {p1}, Lcom/android/server/wm/ActivityRecord;->lambda$finishIfPossible$4(Lcom/android/server/wm/ActivityRecord;)V
+    invoke-static {p1}, Lcom/android/server/wm/ActivityRecord;->lambda$finishIfPossible$6(Lcom/android/server/wm/ActivityRecord;)V
 
     return-void
 .end method

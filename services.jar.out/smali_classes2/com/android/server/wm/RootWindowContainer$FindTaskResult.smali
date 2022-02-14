@@ -61,578 +61,146 @@
 
 # virtual methods
 .method public apply(Lcom/android/server/wm/Task;)Ljava/lang/Boolean;
-    .locals 20
+    .locals 7
 
-    move-object/from16 v0, p0
+    iget v0, p0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->mActivityType:I
 
-    move-object/from16 v1, p1
+    invoke-virtual {p1}, Lcom/android/server/wm/Task;->getActivityType()I
 
-    iget v2, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->mActivityType:I
+    move-result v1
 
-    invoke-virtual/range {p1 .. p1}, Lcom/android/server/wm/Task;->getActivityType()I
+    invoke-static {v0, v1}, Lcom/android/server/wm/ConfigurationContainer;->isCompatibleActivityType(II)Z
 
-    move-result v3
+    move-result v0
 
-    invoke-static {v2, v3}, Lcom/android/server/wm/ConfigurationContainer;->isCompatibleActivityType(II)Z
+    const/4 v1, 0x0
 
-    move-result v2
+    const/4 v2, 0x1
 
-    const/4 v3, 0x1
+    const/4 v3, 0x0
 
     invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v4
 
-    const/4 v5, 0x0
+    if-nez v0, :cond_1
 
-    const/4 v6, 0x0
+    sget-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_TASKS_enabled:Z
 
-    invoke-static {v6}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    if-eqz v0, :cond_0
 
-    move-result-object v7
+    invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    if-nez v2, :cond_1
-
-    sget-boolean v2, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_TASKS_enabled:Z
-
-    if-eqz v2, :cond_0
-
-    invoke-static/range {p1 .. p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v2
-
-    sget-object v4, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_TASKS:Lcom/android/internal/protolog/ProtoLogGroup;
-
-    const v8, -0x163d3536
-
-    new-array v3, v3, [Ljava/lang/Object;
-
-    aput-object v2, v3, v6
-
-    invoke-static {v4, v8, v6, v5, v3}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
-
-    :cond_0
-    return-object v7
-
-    :cond_1
-    iget-object v2, v1, Lcom/android/server/wm/Task;->voiceSession:Landroid/service/voice/IVoiceInteractionSession;
-
-    if-eqz v2, :cond_3
-
-    sget-boolean v2, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_TASKS_enabled:Z
-
-    if-eqz v2, :cond_2
-
-    invoke-static/range {p1 .. p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v2
-
-    sget-object v4, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_TASKS:Lcom/android/internal/protolog/ProtoLogGroup;
-
-    const v8, 0x318592b
-
-    new-array v3, v3, [Ljava/lang/Object;
-
-    aput-object v2, v3, v6
-
-    invoke-static {v4, v8, v6, v5, v3}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
-
-    :cond_2
-    return-object v7
-
-    :cond_3
-    iget v2, v1, Lcom/android/server/wm/Task;->mUserId:I
-
-    iget v8, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->userId:I
-
-    if-eq v2, v8, :cond_5
-
-    sget-boolean v2, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_TASKS_enabled:Z
-
-    if-eqz v2, :cond_4
-
-    invoke-static/range {p1 .. p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v2
-
-    sget-object v4, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_TASKS:Lcom/android/internal/protolog/ProtoLogGroup;
-
-    const v8, -0x17cd80ad
-
-    new-array v3, v3, [Ljava/lang/Object;
-
-    aput-object v2, v3, v6
-
-    invoke-static {v4, v8, v6, v5, v3}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
-
-    :cond_4
-    return-object v7
-
-    :cond_5
-    invoke-virtual {v1, v6}, Lcom/android/server/wm/Task;->getTopNonFinishingActivity(Z)Lcom/android/server/wm/ActivityRecord;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_16
-
-    iget-boolean v9, v2, Lcom/android/server/wm/ActivityRecord;->finishing:Z
-
-    if-nez v9, :cond_16
-
-    iget v9, v2, Lcom/android/server/wm/ActivityRecord;->mUserId:I
-
-    iget v10, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->userId:I
-
-    if-ne v9, v10, :cond_16
-
-    iget v9, v2, Lcom/android/server/wm/ActivityRecord;->launchMode:I
-
-    const/4 v10, 0x3
-
-    if-ne v9, v10, :cond_6
-
-    goto/16 :goto_4
-
-    :cond_6
-    invoke-virtual {v2}, Lcom/android/server/wm/ActivityRecord;->getActivityType()I
-
-    move-result v9
-
-    iget v11, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->mActivityType:I
-
-    invoke-static {v9, v11}, Lcom/android/server/wm/ConfigurationContainer;->isCompatibleActivityType(II)Z
-
-    move-result v9
-
-    if-nez v9, :cond_8
-
-    sget-boolean v4, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_TASKS_enabled:Z
-
-    if-eqz v4, :cond_7
-
-    invoke-static/range {p1 .. p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v4
-
-    sget-object v8, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_TASKS:Lcom/android/internal/protolog/ProtoLogGroup;
-
-    const v9, -0x3cecb894
-
-    new-array v3, v3, [Ljava/lang/Object;
-
-    aput-object v4, v3, v6
-
-    invoke-static {v8, v9, v6, v5, v3}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
-
-    :cond_7
-    return-object v7
-
-    :cond_8
-    iget-object v9, v1, Lcom/android/server/wm/Task;->intent:Landroid/content/Intent;
-
-    iget-object v11, v1, Lcom/android/server/wm/Task;->affinityIntent:Landroid/content/Intent;
-
-    if-eqz v9, :cond_9
-
-    invoke-virtual {v9}, Landroid/content/Intent;->isDocument()Z
-
-    move-result v12
-
-    if-eqz v12, :cond_9
-
-    const/4 v12, 0x1
-
-    invoke-virtual {v9}, Landroid/content/Intent;->getData()Landroid/net/Uri;
-
-    move-result-object v13
-
-    goto :goto_0
-
-    :cond_9
-    if-eqz v11, :cond_a
-
-    invoke-virtual {v11}, Landroid/content/Intent;->isDocument()Z
-
-    move-result v12
-
-    if-eqz v12, :cond_a
-
-    const/4 v12, 0x1
-
-    invoke-virtual {v11}, Landroid/content/Intent;->getData()Landroid/net/Uri;
-
-    move-result-object v13
-
-    goto :goto_0
-
-    :cond_a
-    const/4 v12, 0x0
-
-    const/4 v13, 0x0
-
-    :goto_0
-    sget-boolean v14, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_TASKS_enabled:Z
-
-    if-eqz v14, :cond_c
-
-    invoke-virtual {v2}, Lcom/android/server/wm/ActivityRecord;->getTask()Lcom/android/server/wm/Task;
-
-    move-result-object v14
-
-    iget-object v14, v14, Lcom/android/server/wm/Task;->rootAffinity:Ljava/lang/String;
-
-    invoke-static {v14}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v14
-
-    iget-object v15, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->mIntent:Landroid/content/Intent;
-
-    invoke-virtual {v15}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
-
-    move-result-object v15
-
-    invoke-virtual {v15}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
-
-    move-result-object v15
-
-    invoke-static {v15}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v15
-
-    iget-object v5, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->mInfo:Landroid/content/pm/ActivityInfo;
-
-    iget-object v5, v5, Landroid/content/pm/ActivityInfo;->taskAffinity:Ljava/lang/String;
-
-    invoke-static {v5}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v5
-
-    iget-object v10, v1, Lcom/android/server/wm/Task;->realActivity:Landroid/content/ComponentName;
-
-    if-eqz v10, :cond_b
-
-    iget-object v10, v1, Lcom/android/server/wm/Task;->realActivity:Landroid/content/ComponentName;
-
-    invoke-virtual {v10}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
-
-    move-result-object v10
-
-    goto :goto_1
-
-    :cond_b
-    const-string v10, ""
-
-    :goto_1
-    invoke-static {v10}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v10
-
-    sget-object v8, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_TASKS:Lcom/android/internal/protolog/ProtoLogGroup;
-
-    const/4 v3, 0x4
-
-    new-array v3, v3, [Ljava/lang/Object;
-
-    aput-object v14, v3, v6
-
-    const/16 v18, 0x1
-
-    aput-object v15, v3, v18
-
-    const/16 v17, 0x2
-
-    aput-object v5, v3, v17
-
-    const/16 v16, 0x3
-
-    aput-object v10, v3, v16
-
-    move-object/from16 v16, v5
-
-    move-object/from16 v19, v9
-
-    const v5, 0x4712c918
-
-    const/4 v9, 0x0
-
-    invoke-static {v8, v5, v6, v9, v3}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
-
-    goto :goto_2
-
-    :cond_c
-    move-object/from16 v19, v9
-
-    :goto_2
-    iget-object v3, v1, Lcom/android/server/wm/Task;->realActivity:Landroid/content/ComponentName;
-
-    const v5, 0x5cd91d99
-
-    const v8, 0x741b271a
-
-    if-eqz v3, :cond_f
-
-    iget-object v3, v1, Lcom/android/server/wm/Task;->realActivity:Landroid/content/ComponentName;
-
-    iget-object v9, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->cls:Landroid/content/ComponentName;
-
-    invoke-virtual {v3, v9}, Landroid/content/ComponentName;->compareTo(Landroid/content/ComponentName;)I
-
-    move-result v3
-
-    if-nez v3, :cond_f
-
-    iget-object v3, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->documentData:Landroid/net/Uri;
-
-    invoke-static {v3, v13}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_f
-
-    sget-boolean v3, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_TASKS_enabled:Z
-
-    if-eqz v3, :cond_d
-
-    sget-object v3, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_TASKS:Lcom/android/internal/protolog/ProtoLogGroup;
-
-    const/4 v7, 0x0
-
-    move-object v9, v7
-
-    check-cast v9, [Ljava/lang/Object;
-
-    invoke-static {v3, v8, v6, v7, v9}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
-
-    :cond_d
-    sget-boolean v3, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_TASKS_enabled:Z
-
-    if-eqz v3, :cond_e
-
-    iget-object v3, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->mIntent:Landroid/content/Intent;
-
-    invoke-static {v3}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v3
-
-    iget-object v7, v2, Lcom/android/server/wm/ActivityRecord;->intent:Landroid/content/Intent;
-
-    invoke-static {v7}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v7
-
-    sget-object v8, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_TASKS:Lcom/android/internal/protolog/ProtoLogGroup;
-
-    const/4 v9, 0x2
-
-    new-array v9, v9, [Ljava/lang/Object;
-
-    aput-object v3, v9, v6
-
-    const/4 v10, 0x1
-
-    aput-object v7, v9, v10
-
-    const/4 v10, 0x0
-
-    invoke-static {v8, v5, v6, v10, v9}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
-
-    :cond_e
-    iput-object v2, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->mIdealRecord:Lcom/android/server/wm/ActivityRecord;
-
-    return-object v4
-
-    :cond_f
-    if-eqz v11, :cond_12
-
-    invoke-virtual {v11}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_12
-
-    invoke-virtual {v11}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
-
-    move-result-object v3
-
-    iget-object v9, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->cls:Landroid/content/ComponentName;
-
-    invoke-virtual {v3, v9}, Landroid/content/ComponentName;->compareTo(Landroid/content/ComponentName;)I
-
-    move-result v3
-
-    if-nez v3, :cond_12
-
-    iget-object v3, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->documentData:Landroid/net/Uri;
-
-    invoke-static {v3, v13}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_12
-
-    sget-boolean v3, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_TASKS_enabled:Z
-
-    if-eqz v3, :cond_10
-
-    sget-object v3, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_TASKS:Lcom/android/internal/protolog/ProtoLogGroup;
-
-    const/4 v7, 0x0
-
-    move-object v9, v7
-
-    check-cast v9, [Ljava/lang/Object;
-
-    invoke-static {v3, v8, v6, v7, v9}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
-
-    :cond_10
-    sget-boolean v3, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_TASKS_enabled:Z
-
-    if-eqz v3, :cond_11
-
-    iget-object v3, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->mIntent:Landroid/content/Intent;
-
-    invoke-static {v3}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v3
-
-    iget-object v7, v2, Lcom/android/server/wm/ActivityRecord;->intent:Landroid/content/Intent;
-
-    invoke-static {v7}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v7
-
-    sget-object v8, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_TASKS:Lcom/android/internal/protolog/ProtoLogGroup;
-
-    const/4 v9, 0x2
-
-    new-array v9, v9, [Ljava/lang/Object;
-
-    aput-object v3, v9, v6
-
-    const/4 v10, 0x1
-
-    aput-object v7, v9, v10
-
-    const/4 v10, 0x0
-
-    invoke-static {v8, v5, v6, v10, v9}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
-
-    :cond_11
-    iput-object v2, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->mIdealRecord:Lcom/android/server/wm/ActivityRecord;
-
-    return-object v4
-
-    :cond_12
-    iget-boolean v3, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->isDocument:Z
-
-    if-nez v3, :cond_14
-
-    if-nez v12, :cond_14
-
-    iget-object v3, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->mIdealRecord:Lcom/android/server/wm/ActivityRecord;
-
-    if-nez v3, :cond_14
-
-    iget-object v3, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->mCandidateRecord:Lcom/android/server/wm/ActivityRecord;
-
-    if-nez v3, :cond_14
-
-    iget-object v3, v1, Lcom/android/server/wm/Task;->rootAffinity:Ljava/lang/String;
-
-    if-eqz v3, :cond_14
-
-    iget-object v3, v1, Lcom/android/server/wm/Task;->rootAffinity:Ljava/lang/String;
-
-    iget-object v4, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->mTaskAffinity:Ljava/lang/String;
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_15
-
-    sget-boolean v3, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_TASKS_enabled:Z
-
-    if-eqz v3, :cond_13
-
-    sget-object v3, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_TASKS:Lcom/android/internal/protolog/ProtoLogGroup;
-
-    const v4, 0x7989881f
-
-    const/4 v5, 0x0
-
-    move-object v8, v5
-
-    check-cast v8, [Ljava/lang/Object;
-
-    invoke-static {v3, v4, v6, v5, v8}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
-
-    :cond_13
-    iput-object v2, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->mCandidateRecord:Lcom/android/server/wm/ActivityRecord;
-
-    goto :goto_3
-
-    :cond_14
-    sget-boolean v3, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_TASKS_enabled:Z
-
-    if-eqz v3, :cond_15
-
-    invoke-static/range {p1 .. p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v3
-
-    sget-object v4, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_TASKS:Lcom/android/internal/protolog/ProtoLogGroup;
-
-    const v5, -0x2e31a2c5
-
-    const/4 v8, 0x1
-
-    new-array v8, v8, [Ljava/lang/Object;
-
-    aput-object v3, v8, v6
-
-    const/4 v9, 0x0
-
-    invoke-static {v4, v5, v6, v9, v8}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
-
-    :cond_15
-    :goto_3
-    return-object v7
-
-    :cond_16
-    :goto_4
-    sget-boolean v3, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_TASKS_enabled:Z
-
-    if-eqz v3, :cond_17
-
-    invoke-static/range {p1 .. p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v4
+    move-result-object v0
 
     sget-object v5, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_TASKS:Lcom/android/internal/protolog/ProtoLogGroup;
 
-    const v8, -0x5def8135
+    const v6, -0x163d3536
 
-    const/4 v9, 0x2
+    new-array v2, v2, [Ljava/lang/Object;
 
-    new-array v9, v9, [Ljava/lang/Object;
+    aput-object v0, v2, v3
 
-    aput-object v3, v9, v6
+    invoke-static {v5, v6, v3, v1, v2}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
-    const/4 v10, 0x1
+    :cond_0
+    return-object v4
 
-    aput-object v4, v9, v10
+    :cond_1
+    iget-object v0, p1, Lcom/android/server/wm/Task;->voiceSession:Landroid/service/voice/IVoiceInteractionSession;
 
-    const/4 v10, 0x0
+    if-eqz v0, :cond_3
 
-    invoke-static {v5, v8, v6, v10, v9}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+    sget-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_TASKS_enabled:Z
 
-    :cond_17
-    return-object v7
+    if-eqz v0, :cond_2
+
+    invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    sget-object v5, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_TASKS:Lcom/android/internal/protolog/ProtoLogGroup;
+
+    const v6, 0x318592b
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    aput-object v0, v2, v3
+
+    invoke-static {v5, v6, v3, v1, v2}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+
+    :cond_2
+    return-object v4
+
+    :cond_3
+    iget v0, p1, Lcom/android/server/wm/Task;->mUserId:I
+
+    iget v5, p0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->userId:I
+
+    if-eq v0, v5, :cond_5
+
+    sget-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_TASKS_enabled:Z
+
+    if-eqz v0, :cond_4
+
+    invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    sget-object v5, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_TASKS:Lcom/android/internal/protolog/ProtoLogGroup;
+
+    const v6, -0x17cd80ad
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    aput-object v0, v2, v3
+
+    invoke-static {v5, v6, v3, v1, v2}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+
+    :cond_4
+    return-object v4
+
+    :cond_5
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->matchingCandidate(Lcom/android/server/wm/TaskFragment;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    return-object v0
+
+    :cond_6
+    invoke-virtual {p1}, Lcom/android/server/wm/Task;->isLeafTaskFragment()Z
+
+    move-result v0
+
+    if-nez v0, :cond_7
+
+    new-instance v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0, p0}, Lcom/android/server/wm/RootWindowContainer$FindTaskResult$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/wm/RootWindowContainer$FindTaskResult;)V
+
+    invoke-virtual {p1, v0}, Lcom/android/server/wm/Task;->forAllLeafTaskFragments(Ljava/util/function/Function;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_7
+
+    goto :goto_0
+
+    :cond_7
+    move v2, v3
+
+    :goto_0
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public bridge synthetic apply(Ljava/lang/Object;)Ljava/lang/Object;
@@ -665,6 +233,491 @@
     iput-object v0, p0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->mCandidateRecord:Lcom/android/server/wm/ActivityRecord;
 
     return-void
+.end method
+
+.method matchingCandidate(Lcom/android/server/wm/TaskFragment;)Z
+    .locals 17
+
+    move-object/from16 v0, p0
+
+    invoke-virtual/range {p1 .. p1}, Lcom/android/server/wm/TaskFragment;->asTask()Lcom/android/server/wm/Task;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    if-nez v1, :cond_0
+
+    return v2
+
+    :cond_0
+    invoke-virtual {v1, v2, v2}, Lcom/android/server/wm/Task;->getTopNonFinishingActivity(ZZ)Lcom/android/server/wm/ActivityRecord;
+
+    move-result-object v3
+
+    const/4 v4, 0x2
+
+    const/4 v5, 0x1
+
+    const/4 v6, 0x0
+
+    if-eqz v3, :cond_11
+
+    iget-boolean v7, v3, Lcom/android/server/wm/ActivityRecord;->finishing:Z
+
+    if-nez v7, :cond_11
+
+    iget v7, v3, Lcom/android/server/wm/ActivityRecord;->mUserId:I
+
+    iget v8, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->userId:I
+
+    if-ne v7, v8, :cond_11
+
+    iget v7, v3, Lcom/android/server/wm/ActivityRecord;->launchMode:I
+
+    const/4 v8, 0x3
+
+    if-ne v7, v8, :cond_1
+
+    goto/16 :goto_5
+
+    :cond_1
+    invoke-virtual {v3}, Lcom/android/server/wm/ActivityRecord;->getActivityType()I
+
+    move-result v7
+
+    iget v9, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->mActivityType:I
+
+    invoke-static {v7, v9}, Lcom/android/server/wm/ConfigurationContainer;->isCompatibleActivityType(II)Z
+
+    move-result v7
+
+    if-nez v7, :cond_3
+
+    sget-boolean v4, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_TASKS_enabled:Z
+
+    if-eqz v4, :cond_2
+
+    invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v4
+
+    sget-object v7, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_TASKS:Lcom/android/internal/protolog/ProtoLogGroup;
+
+    const v8, -0x3cecb894
+
+    new-array v5, v5, [Ljava/lang/Object;
+
+    aput-object v4, v5, v2
+
+    invoke-static {v7, v8, v2, v6, v5}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+
+    :cond_2
+    return v2
+
+    :cond_3
+    iget-object v7, v1, Lcom/android/server/wm/Task;->intent:Landroid/content/Intent;
+
+    iget-object v9, v1, Lcom/android/server/wm/Task;->affinityIntent:Landroid/content/Intent;
+
+    if-eqz v7, :cond_4
+
+    invoke-virtual {v7}, Landroid/content/Intent;->isDocument()Z
+
+    move-result v10
+
+    if-eqz v10, :cond_4
+
+    const/4 v10, 0x1
+
+    invoke-virtual {v7}, Landroid/content/Intent;->getData()Landroid/net/Uri;
+
+    move-result-object v11
+
+    goto :goto_0
+
+    :cond_4
+    if-eqz v9, :cond_5
+
+    invoke-virtual {v9}, Landroid/content/Intent;->isDocument()Z
+
+    move-result v10
+
+    if-eqz v10, :cond_5
+
+    const/4 v10, 0x1
+
+    invoke-virtual {v9}, Landroid/content/Intent;->getData()Landroid/net/Uri;
+
+    move-result-object v11
+
+    goto :goto_0
+
+    :cond_5
+    const/4 v10, 0x0
+
+    const/4 v11, 0x0
+
+    :goto_0
+    sget-boolean v12, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_TASKS_enabled:Z
+
+    if-eqz v12, :cond_7
+
+    invoke-virtual {v3}, Lcom/android/server/wm/ActivityRecord;->getTask()Lcom/android/server/wm/Task;
+
+    move-result-object v12
+
+    iget-object v12, v12, Lcom/android/server/wm/Task;->rootAffinity:Ljava/lang/String;
+
+    invoke-static {v12}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v12
+
+    iget-object v13, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->mIntent:Landroid/content/Intent;
+
+    invoke-virtual {v13}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-static {v13}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v13
+
+    iget-object v14, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->mInfo:Landroid/content/pm/ActivityInfo;
+
+    iget-object v14, v14, Landroid/content/pm/ActivityInfo;->taskAffinity:Ljava/lang/String;
+
+    invoke-static {v14}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v14
+
+    iget-object v15, v1, Lcom/android/server/wm/Task;->realActivity:Landroid/content/ComponentName;
+
+    if-eqz v15, :cond_6
+
+    iget-object v15, v1, Lcom/android/server/wm/Task;->realActivity:Landroid/content/ComponentName;
+
+    invoke-virtual {v15}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
+
+    move-result-object v15
+
+    goto :goto_1
+
+    :cond_6
+    const-string v15, ""
+
+    :goto_1
+    invoke-static {v15}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v15
+
+    sget-object v6, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_TASKS:Lcom/android/internal/protolog/ProtoLogGroup;
+
+    const/4 v8, 0x4
+
+    new-array v8, v8, [Ljava/lang/Object;
+
+    aput-object v12, v8, v2
+
+    aput-object v13, v8, v5
+
+    aput-object v14, v8, v4
+
+    const/16 v16, 0x3
+
+    aput-object v15, v8, v16
+
+    const/4 v4, 0x0
+
+    const v5, 0x4712c918
+
+    invoke-static {v6, v5, v2, v4, v8}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+
+    :cond_7
+    iget-object v4, v1, Lcom/android/server/wm/Task;->realActivity:Landroid/content/ComponentName;
+
+    const v5, 0x5cd91d99
+
+    const v6, 0x741b271a
+
+    if-eqz v4, :cond_a
+
+    iget-object v4, v1, Lcom/android/server/wm/Task;->realActivity:Landroid/content/ComponentName;
+
+    iget-object v8, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->cls:Landroid/content/ComponentName;
+
+    invoke-virtual {v4, v8}, Landroid/content/ComponentName;->compareTo(Landroid/content/ComponentName;)I
+
+    move-result v4
+
+    if-nez v4, :cond_a
+
+    iget-object v4, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->documentData:Landroid/net/Uri;
+
+    invoke-static {v4, v11}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_a
+
+    sget-boolean v4, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_TASKS_enabled:Z
+
+    if-eqz v4, :cond_8
+
+    sget-object v4, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_TASKS:Lcom/android/internal/protolog/ProtoLogGroup;
+
+    const/4 v8, 0x0
+
+    move-object v12, v8
+
+    check-cast v12, [Ljava/lang/Object;
+
+    invoke-static {v4, v6, v2, v8, v12}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+
+    :cond_8
+    sget-boolean v4, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_TASKS_enabled:Z
+
+    if-eqz v4, :cond_9
+
+    iget-object v4, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->mIntent:Landroid/content/Intent;
+
+    invoke-static {v4}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v4
+
+    iget-object v6, v3, Lcom/android/server/wm/ActivityRecord;->intent:Landroid/content/Intent;
+
+    invoke-static {v6}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v6
+
+    sget-object v8, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_TASKS:Lcom/android/internal/protolog/ProtoLogGroup;
+
+    const/4 v12, 0x2
+
+    new-array v12, v12, [Ljava/lang/Object;
+
+    aput-object v4, v12, v2
+
+    const/4 v13, 0x1
+
+    aput-object v6, v12, v13
+
+    const/4 v14, 0x0
+
+    invoke-static {v8, v5, v2, v14, v12}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+
+    goto :goto_2
+
+    :cond_9
+    const/4 v13, 0x1
+
+    :goto_2
+    iput-object v3, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->mIdealRecord:Lcom/android/server/wm/ActivityRecord;
+
+    return v13
+
+    :cond_a
+    if-eqz v9, :cond_d
+
+    invoke-virtual {v9}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_d
+
+    invoke-virtual {v9}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v4
+
+    iget-object v8, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->cls:Landroid/content/ComponentName;
+
+    invoke-virtual {v4, v8}, Landroid/content/ComponentName;->compareTo(Landroid/content/ComponentName;)I
+
+    move-result v4
+
+    if-nez v4, :cond_d
+
+    iget-object v4, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->documentData:Landroid/net/Uri;
+
+    invoke-static {v4, v11}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_d
+
+    sget-boolean v4, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_TASKS_enabled:Z
+
+    if-eqz v4, :cond_b
+
+    sget-object v4, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_TASKS:Lcom/android/internal/protolog/ProtoLogGroup;
+
+    const/4 v8, 0x0
+
+    move-object v12, v8
+
+    check-cast v12, [Ljava/lang/Object;
+
+    invoke-static {v4, v6, v2, v8, v12}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+
+    :cond_b
+    sget-boolean v4, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_TASKS_enabled:Z
+
+    if-eqz v4, :cond_c
+
+    iget-object v4, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->mIntent:Landroid/content/Intent;
+
+    invoke-static {v4}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v4
+
+    iget-object v6, v3, Lcom/android/server/wm/ActivityRecord;->intent:Landroid/content/Intent;
+
+    invoke-static {v6}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v6
+
+    sget-object v8, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_TASKS:Lcom/android/internal/protolog/ProtoLogGroup;
+
+    const/4 v12, 0x2
+
+    new-array v12, v12, [Ljava/lang/Object;
+
+    aput-object v4, v12, v2
+
+    const/4 v13, 0x1
+
+    aput-object v6, v12, v13
+
+    const/4 v14, 0x0
+
+    invoke-static {v8, v5, v2, v14, v12}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+
+    goto :goto_3
+
+    :cond_c
+    const/4 v13, 0x1
+
+    :goto_3
+    iput-object v3, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->mIdealRecord:Lcom/android/server/wm/ActivityRecord;
+
+    return v13
+
+    :cond_d
+    iget-boolean v4, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->isDocument:Z
+
+    if-nez v4, :cond_f
+
+    if-nez v10, :cond_f
+
+    iget-object v4, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->mIdealRecord:Lcom/android/server/wm/ActivityRecord;
+
+    if-nez v4, :cond_f
+
+    iget-object v4, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->mCandidateRecord:Lcom/android/server/wm/ActivityRecord;
+
+    if-nez v4, :cond_f
+
+    iget-object v4, v1, Lcom/android/server/wm/Task;->rootAffinity:Ljava/lang/String;
+
+    if-eqz v4, :cond_f
+
+    iget-object v4, v1, Lcom/android/server/wm/Task;->rootAffinity:Ljava/lang/String;
+
+    iget-object v5, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->mTaskAffinity:Ljava/lang/String;
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_10
+
+    sget-boolean v4, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_TASKS_enabled:Z
+
+    if-eqz v4, :cond_e
+
+    sget-object v4, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_TASKS:Lcom/android/internal/protolog/ProtoLogGroup;
+
+    const v5, 0x7989881f
+
+    const/4 v6, 0x0
+
+    move-object v8, v6
+
+    check-cast v8, [Ljava/lang/Object;
+
+    invoke-static {v4, v5, v2, v6, v8}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+
+    :cond_e
+    iput-object v3, v0, Lcom/android/server/wm/RootWindowContainer$FindTaskResult;->mCandidateRecord:Lcom/android/server/wm/ActivityRecord;
+
+    goto :goto_4
+
+    :cond_f
+    sget-boolean v4, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_TASKS_enabled:Z
+
+    if-eqz v4, :cond_10
+
+    invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v4
+
+    sget-object v5, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_TASKS:Lcom/android/internal/protolog/ProtoLogGroup;
+
+    const v6, -0x2e31a2c5
+
+    const/4 v8, 0x1
+
+    new-array v8, v8, [Ljava/lang/Object;
+
+    aput-object v4, v8, v2
+
+    const/4 v12, 0x0
+
+    invoke-static {v5, v6, v2, v12, v8}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+
+    :cond_10
+    :goto_4
+    return v2
+
+    :cond_11
+    :goto_5
+    sget-boolean v4, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_TASKS_enabled:Z
+
+    if-eqz v4, :cond_12
+
+    invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v5
+
+    sget-object v6, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_TASKS:Lcom/android/internal/protolog/ProtoLogGroup;
+
+    const v7, -0x5def8135
+
+    const/4 v8, 0x2
+
+    new-array v8, v8, [Ljava/lang/Object;
+
+    aput-object v4, v8, v2
+
+    const/4 v9, 0x1
+
+    aput-object v5, v8, v9
+
+    const/4 v9, 0x0
+
+    invoke-static {v6, v7, v2, v9, v8}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+
+    :cond_12
+    return v2
 .end method
 
 .method process(Lcom/android/server/wm/WindowContainer;)V

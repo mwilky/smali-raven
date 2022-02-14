@@ -27,7 +27,7 @@
 
     iget v0, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda36;->f$0:I
 
-    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->lambda$postPreferredActivityChangedBroadcast$56(I)V
+    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->lambda$postPreferredActivityChangedBroadcast$55(I)V
 
     return-void
 .end method

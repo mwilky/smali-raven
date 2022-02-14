@@ -37,7 +37,7 @@
 
     check-cast p1, Lcom/android/server/wm/WindowState;
 
-    invoke-static {p1}, Lcom/android/server/wm/ActivityRecord;->lambda$hasNonDefaultColorWindow$5(Lcom/android/server/wm/WindowState;)Z
+    invoke-static {p1}, Lcom/android/server/wm/ActivityRecord;->lambda$hasNonDefaultColorWindow$8(Lcom/android/server/wm/WindowState;)Z
 
     move-result p1
 

@@ -18,5 +18,8 @@
 .method public abstract commit()V
 .end method
 
+.method public abstract setLocales(Landroid/os/LocaleList;)Lcom/android/server/wm/ActivityTaskManagerInternal$PackageConfigurationUpdater;
+.end method
+
 .method public abstract setNightMode(I)Lcom/android/server/wm/ActivityTaskManagerInternal$PackageConfigurationUpdater;
 .end method

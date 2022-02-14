@@ -39,7 +39,7 @@
 
     iget v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda11;->f$2:I
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$updateNetworkPreferenceForUser$138$DevicePolicyManagerService(II)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$updateNetworkPreferenceForUser$141$DevicePolicyManagerService(II)V
 
     return-void
 .end method

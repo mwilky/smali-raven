@@ -29,7 +29,7 @@
 
     check-cast p1, Lcom/android/server/wm/Task;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/TaskDisplayArea;->lambda$moveSplitScreenTasksToFullScreen$7$TaskDisplayArea(Lcom/android/server/wm/Task;)V
+    invoke-virtual {v0, p1}, Lcom/android/server/wm/TaskDisplayArea;->lambda$moveSplitScreenTasksToFullScreen$9$TaskDisplayArea(Lcom/android/server/wm/Task;)V
 
     return-void
 .end method

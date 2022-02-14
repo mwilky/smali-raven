@@ -10,15 +10,9 @@
 
 .field public final synthetic f$1:Z
 
-.field public final synthetic f$2:I
-
-.field public final synthetic f$3:Landroid/content/Context;
-
-.field public final synthetic f$4:J
-
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;ZILandroid/content/Context;J)V
+.method public synthetic constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Z)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,31 +21,19 @@
 
     iput-boolean p2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda58;->f$1:Z
 
-    iput p3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda58;->f$2:I
-
-    iput-object p4, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda58;->f$3:Landroid/content/Context;
-
-    iput-wide p5, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda58;->f$4:J
-
     return-void
 .end method
 
 
 # virtual methods
 .method public final runOrThrow()V
-    .locals 6
+    .locals 2
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda58;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
     iget-boolean v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda58;->f$1:Z
 
-    iget v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda58;->f$2:I
-
-    iget-object v3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda58;->f$3:Landroid/content/Context;
-
-    iget-wide v4, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda58;->f$4:J
-
-    invoke-virtual/range {v0 .. v5}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$setExpirationAlarmCheckLocked$3$DevicePolicyManagerService(ZILandroid/content/Context;J)V
+    invoke-virtual {v0, v1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$setNetworkLoggingActiveInternal$114$DevicePolicyManagerService(Z)V
 
     return-void
 .end method

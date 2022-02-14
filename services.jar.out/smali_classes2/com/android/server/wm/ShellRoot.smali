@@ -556,6 +556,10 @@
 
     iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mAccessibilityController:Lcom/android/server/wm/AccessibilityController;
 
+    invoke-virtual {v0}, Lcom/android/server/wm/AccessibilityController;->hasCallbacks()Z
+
+    move-result v0
+
     if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/android/server/wm/ShellRoot;->mDisplayContent:Lcom/android/server/wm/DisplayContent;

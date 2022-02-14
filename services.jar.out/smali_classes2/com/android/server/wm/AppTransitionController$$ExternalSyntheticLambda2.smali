@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/util/function/Function;
 
 
 # static fields
@@ -32,14 +32,14 @@
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
-    check-cast p1, Lcom/android/server/wm/ActivityRecord;
+    check-cast p1, Lcom/android/server/wm/TaskFragment;
 
-    invoke-static {p1}, Lcom/android/server/wm/AppTransitionController;->lambda$findAnimLayoutParamsToken$2(Lcom/android/server/wm/ActivityRecord;)Z
+    invoke-static {p1}, Lcom/android/server/wm/AppTransitionController;->lambda$transitionGoodToGoForTaskFragments$4(Lcom/android/server/wm/TaskFragment;)Ljava/lang/Boolean;
 
-    move-result p1
+    move-result-object p1
 
-    return p1
+    return-object p1
 .end method

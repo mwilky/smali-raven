@@ -91,7 +91,7 @@
 
     iget-object v4, p0, Lcom/android/server/apphibernation/AppHibernationService$StatsPullAtomCallbackImpl;->this$0:Lcom/android/server/apphibernation/AppHibernationService;
 
-    invoke-static {v4}, Lcom/android/server/apphibernation/AppHibernationService;->access$600(Lcom/android/server/apphibernation/AppHibernationService;)Ljava/lang/Object;
+    invoke-static {v4}, Lcom/android/server/apphibernation/AppHibernationService;->access$700(Lcom/android/server/apphibernation/AppHibernationService;)Ljava/lang/Object;
 
     move-result-object v4
 
@@ -100,7 +100,7 @@
     :try_start_0
     iget-object v5, p0, Lcom/android/server/apphibernation/AppHibernationService$StatsPullAtomCallbackImpl;->this$0:Lcom/android/server/apphibernation/AppHibernationService;
 
-    invoke-static {v5}, Lcom/android/server/apphibernation/AppHibernationService;->access$700(Lcom/android/server/apphibernation/AppHibernationService;)Ljava/util/Map;
+    invoke-static {v5}, Lcom/android/server/apphibernation/AppHibernationService;->access$800(Lcom/android/server/apphibernation/AppHibernationService;)Ljava/util/Map;
 
     move-result-object v5
 
@@ -168,7 +168,7 @@
     :pswitch_2
     iget-object v0, p0, Lcom/android/server/apphibernation/AppHibernationService$StatsPullAtomCallbackImpl;->this$0:Lcom/android/server/apphibernation/AppHibernationService;
 
-    invoke-static {v0}, Lcom/android/server/apphibernation/AppHibernationService;->access$500(Lcom/android/server/apphibernation/AppHibernationService;)Landroid/os/UserManager;
+    invoke-static {v0}, Lcom/android/server/apphibernation/AppHibernationService;->access$600(Lcom/android/server/apphibernation/AppHibernationService;)Landroid/os/UserManager;
 
     move-result-object v0
 
@@ -195,7 +195,7 @@
 
     iget-object v5, p0, Lcom/android/server/apphibernation/AppHibernationService$StatsPullAtomCallbackImpl;->this$0:Lcom/android/server/apphibernation/AppHibernationService;
 
-    invoke-static {v5}, Lcom/android/server/apphibernation/AppHibernationService;->access$500(Lcom/android/server/apphibernation/AppHibernationService;)Landroid/os/UserManager;
+    invoke-static {v5}, Lcom/android/server/apphibernation/AppHibernationService;->access$600(Lcom/android/server/apphibernation/AppHibernationService;)Landroid/os/UserManager;
 
     move-result-object v5
 

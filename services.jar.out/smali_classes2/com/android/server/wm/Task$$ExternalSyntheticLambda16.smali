@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/BiFunction;
+.implements Ljava/util/function/BiPredicate;
 
 
 # static fields
@@ -32,20 +32,16 @@
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+.method public final test(Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 0
 
     check-cast p1, Lcom/android/server/wm/ActivityRecord;
 
-    check-cast p2, Landroid/os/IBinder;
+    check-cast p2, Landroid/content/ComponentName;
 
-    invoke-static {p1, p2}, Lcom/android/server/wm/Task;->$r8$lambda$41C-LKlpe6PrnN0veKem-6gKpNY(Lcom/android/server/wm/ActivityRecord;Landroid/os/IBinder;)Z
+    invoke-static {p1, p2}, Lcom/android/server/wm/Task;->$r8$lambda$PRiyfFwy4dog-mhOrPI0NF2Vdhc(Lcom/android/server/wm/ActivityRecord;Landroid/content/ComponentName;)Z
 
     move-result p1
 
-    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object p1
-
-    return-object p1
+    return p1
 .end method

@@ -131,177 +131,7 @@
     return-void
 .end method
 
-.method static synthetic access$1000(Lcom/android/server/wm/Task$Builder;I)Lcom/android/server/wm/Task$Builder;
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setUserId(I)Lcom/android/server/wm/Task$Builder;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$1100(Lcom/android/server/wm/Task$Builder;Ljava/lang/String;)Lcom/android/server/wm/Task$Builder;
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setLastDescription(Ljava/lang/String;)Lcom/android/server/wm/Task$Builder;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$1200(Lcom/android/server/wm/Task$Builder;J)Lcom/android/server/wm/Task$Builder;
-    .locals 1
-
-    invoke-direct {p0, p1, p2}, Lcom/android/server/wm/Task$Builder;->setLastTimeMoved(J)Lcom/android/server/wm/Task$Builder;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$1300(Lcom/android/server/wm/Task$Builder;Z)Lcom/android/server/wm/Task$Builder;
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setNeverRelinquishIdentity(Z)Lcom/android/server/wm/Task$Builder;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$1400(Lcom/android/server/wm/Task$Builder;Landroid/app/ActivityManager$TaskDescription;)Lcom/android/server/wm/Task$Builder;
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setLastTaskDescription(Landroid/app/ActivityManager$TaskDescription;)Lcom/android/server/wm/Task$Builder;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$1500(Lcom/android/server/wm/Task$Builder;Landroid/app/ActivityManager$RecentTaskInfo$PersistedTaskSnapshotData;)Lcom/android/server/wm/Task$Builder;
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setLastSnapshotData(Landroid/app/ActivityManager$RecentTaskInfo$PersistedTaskSnapshotData;)Lcom/android/server/wm/Task$Builder;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$1600(Lcom/android/server/wm/Task$Builder;I)Lcom/android/server/wm/Task$Builder;
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setTaskAffiliation(I)Lcom/android/server/wm/Task$Builder;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$1700(Lcom/android/server/wm/Task$Builder;I)Lcom/android/server/wm/Task$Builder;
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setPrevAffiliateTaskId(I)Lcom/android/server/wm/Task$Builder;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$1800(Lcom/android/server/wm/Task$Builder;I)Lcom/android/server/wm/Task$Builder;
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setNextAffiliateTaskId(I)Lcom/android/server/wm/Task$Builder;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$1900(Lcom/android/server/wm/Task$Builder;I)Lcom/android/server/wm/Task$Builder;
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setCallingUid(I)Lcom/android/server/wm/Task$Builder;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$2000(Lcom/android/server/wm/Task$Builder;Ljava/lang/String;)Lcom/android/server/wm/Task$Builder;
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setCallingPackage(Ljava/lang/String;)Lcom/android/server/wm/Task$Builder;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$2100(Lcom/android/server/wm/Task$Builder;Ljava/lang/String;)Lcom/android/server/wm/Task$Builder;
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setCallingFeatureId(Ljava/lang/String;)Lcom/android/server/wm/Task$Builder;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$2200(Lcom/android/server/wm/Task$Builder;I)Lcom/android/server/wm/Task$Builder;
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setResizeMode(I)Lcom/android/server/wm/Task$Builder;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$2300(Lcom/android/server/wm/Task$Builder;Z)Lcom/android/server/wm/Task$Builder;
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setSupportsPictureInPicture(Z)Lcom/android/server/wm/Task$Builder;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$2400(Lcom/android/server/wm/Task$Builder;Z)Lcom/android/server/wm/Task$Builder;
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setRealActivitySuspended(Z)Lcom/android/server/wm/Task$Builder;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$2500(Lcom/android/server/wm/Task$Builder;Z)Lcom/android/server/wm/Task$Builder;
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setUserSetupComplete(Z)Lcom/android/server/wm/Task$Builder;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$2600(Lcom/android/server/wm/Task$Builder;Lcom/android/internal/app/IVoiceInteractor;)Lcom/android/server/wm/Task$Builder;
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setVoiceInteractor(Lcom/android/internal/app/IVoiceInteractor;)Lcom/android/server/wm/Task$Builder;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$300(Lcom/android/server/wm/Task$Builder;Landroid/content/Intent;)Lcom/android/server/wm/Task$Builder;
+.method static synthetic access$100(Lcom/android/server/wm/Task$Builder;Landroid/content/Intent;)Lcom/android/server/wm/Task$Builder;
     .locals 1
 
     invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setAffinityIntent(Landroid/content/Intent;)Lcom/android/server/wm/Task$Builder;
@@ -311,7 +141,107 @@
     return-object v0
 .end method
 
-.method static synthetic access$400(Lcom/android/server/wm/Task$Builder;Ljava/lang/String;)Lcom/android/server/wm/Task$Builder;
+.method static synthetic access$1000(Lcom/android/server/wm/Task$Builder;J)Lcom/android/server/wm/Task$Builder;
+    .locals 1
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/wm/Task$Builder;->setLastTimeMoved(J)Lcom/android/server/wm/Task$Builder;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$1100(Lcom/android/server/wm/Task$Builder;Z)Lcom/android/server/wm/Task$Builder;
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setNeverRelinquishIdentity(Z)Lcom/android/server/wm/Task$Builder;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$1200(Lcom/android/server/wm/Task$Builder;Landroid/app/ActivityManager$TaskDescription;)Lcom/android/server/wm/Task$Builder;
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setLastTaskDescription(Landroid/app/ActivityManager$TaskDescription;)Lcom/android/server/wm/Task$Builder;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$1300(Lcom/android/server/wm/Task$Builder;Landroid/app/ActivityManager$RecentTaskInfo$PersistedTaskSnapshotData;)Lcom/android/server/wm/Task$Builder;
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setLastSnapshotData(Landroid/app/ActivityManager$RecentTaskInfo$PersistedTaskSnapshotData;)Lcom/android/server/wm/Task$Builder;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$1400(Lcom/android/server/wm/Task$Builder;I)Lcom/android/server/wm/Task$Builder;
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setTaskAffiliation(I)Lcom/android/server/wm/Task$Builder;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$1500(Lcom/android/server/wm/Task$Builder;I)Lcom/android/server/wm/Task$Builder;
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setPrevAffiliateTaskId(I)Lcom/android/server/wm/Task$Builder;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$1600(Lcom/android/server/wm/Task$Builder;I)Lcom/android/server/wm/Task$Builder;
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setNextAffiliateTaskId(I)Lcom/android/server/wm/Task$Builder;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$1700(Lcom/android/server/wm/Task$Builder;I)Lcom/android/server/wm/Task$Builder;
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setCallingUid(I)Lcom/android/server/wm/Task$Builder;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$1800(Lcom/android/server/wm/Task$Builder;Ljava/lang/String;)Lcom/android/server/wm/Task$Builder;
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setCallingPackage(Ljava/lang/String;)Lcom/android/server/wm/Task$Builder;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$1900(Lcom/android/server/wm/Task$Builder;Ljava/lang/String;)Lcom/android/server/wm/Task$Builder;
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setCallingFeatureId(Ljava/lang/String;)Lcom/android/server/wm/Task$Builder;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$200(Lcom/android/server/wm/Task$Builder;Ljava/lang/String;)Lcom/android/server/wm/Task$Builder;
     .locals 1
 
     invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setAffinity(Ljava/lang/String;)Lcom/android/server/wm/Task$Builder;
@@ -321,7 +251,57 @@
     return-object v0
 .end method
 
-.method static synthetic access$500(Lcom/android/server/wm/Task$Builder;Ljava/lang/String;)Lcom/android/server/wm/Task$Builder;
+.method static synthetic access$2000(Lcom/android/server/wm/Task$Builder;I)Lcom/android/server/wm/Task$Builder;
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setResizeMode(I)Lcom/android/server/wm/Task$Builder;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$2100(Lcom/android/server/wm/Task$Builder;Z)Lcom/android/server/wm/Task$Builder;
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setSupportsPictureInPicture(Z)Lcom/android/server/wm/Task$Builder;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$2200(Lcom/android/server/wm/Task$Builder;Z)Lcom/android/server/wm/Task$Builder;
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setRealActivitySuspended(Z)Lcom/android/server/wm/Task$Builder;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$2300(Lcom/android/server/wm/Task$Builder;Z)Lcom/android/server/wm/Task$Builder;
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setUserSetupComplete(Z)Lcom/android/server/wm/Task$Builder;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$2400(Lcom/android/server/wm/Task$Builder;Lcom/android/internal/app/IVoiceInteractor;)Lcom/android/server/wm/Task$Builder;
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setVoiceInteractor(Lcom/android/internal/app/IVoiceInteractor;)Lcom/android/server/wm/Task$Builder;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$300(Lcom/android/server/wm/Task$Builder;Ljava/lang/String;)Lcom/android/server/wm/Task$Builder;
     .locals 1
 
     invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setRootAffinity(Ljava/lang/String;)Lcom/android/server/wm/Task$Builder;
@@ -331,7 +311,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$600(Lcom/android/server/wm/Task$Builder;Landroid/content/ComponentName;)Lcom/android/server/wm/Task$Builder;
+.method static synthetic access$400(Lcom/android/server/wm/Task$Builder;Landroid/content/ComponentName;)Lcom/android/server/wm/Task$Builder;
     .locals 1
 
     invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setOrigActivity(Landroid/content/ComponentName;)Lcom/android/server/wm/Task$Builder;
@@ -341,7 +321,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$700(Lcom/android/server/wm/Task$Builder;Z)Lcom/android/server/wm/Task$Builder;
+.method static synthetic access$500(Lcom/android/server/wm/Task$Builder;Z)Lcom/android/server/wm/Task$Builder;
     .locals 1
 
     invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setRootWasReset(Z)Lcom/android/server/wm/Task$Builder;
@@ -351,7 +331,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$800(Lcom/android/server/wm/Task$Builder;Z)Lcom/android/server/wm/Task$Builder;
+.method static synthetic access$600(Lcom/android/server/wm/Task$Builder;Z)Lcom/android/server/wm/Task$Builder;
     .locals 1
 
     invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setAutoRemoveRecents(Z)Lcom/android/server/wm/Task$Builder;
@@ -361,10 +341,30 @@
     return-object v0
 .end method
 
-.method static synthetic access$900(Lcom/android/server/wm/Task$Builder;Z)Lcom/android/server/wm/Task$Builder;
+.method static synthetic access$700(Lcom/android/server/wm/Task$Builder;Z)Lcom/android/server/wm/Task$Builder;
     .locals 1
 
     invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setAskedCompatMode(Z)Lcom/android/server/wm/Task$Builder;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$800(Lcom/android/server/wm/Task$Builder;I)Lcom/android/server/wm/Task$Builder;
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setUserId(I)Lcom/android/server/wm/Task$Builder;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$900(Lcom/android/server/wm/Task$Builder;Ljava/lang/String;)Lcom/android/server/wm/Task$Builder;
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/server/wm/Task$Builder;->setLastDescription(Ljava/lang/String;)Lcom/android/server/wm/Task$Builder;
 
     move-result-object v0
 
@@ -886,7 +886,7 @@
 
     iget-boolean v2, p0, Lcom/android/server/wm/Task$Builder;->mHasBeenVisible:Z
 
-    invoke-static {v1, v2}, Lcom/android/server/wm/Task;->access$2702(Lcom/android/server/wm/Task;Z)Z
+    invoke-static {v1, v2}, Lcom/android/server/wm/Task;->access$2502(Lcom/android/server/wm/Task;Z)Z
 
     iget v2, p0, Lcom/android/server/wm/Task$Builder;->mActivityType:I
 
@@ -935,7 +935,7 @@
     const/4 v3, 0x0
 
     :goto_1
-    invoke-static {v2, v1, v4, v3}, Lcom/android/server/wm/Task;->access$2800(Lcom/android/server/wm/Task;Lcom/android/server/wm/WindowContainer;IZ)V
+    invoke-static {v2, v1, v4, v3}, Lcom/android/server/wm/Task;->access$2600(Lcom/android/server/wm/Task;Lcom/android/server/wm/WindowContainer;IZ)V
 
     goto :goto_3
 

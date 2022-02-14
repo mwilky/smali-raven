@@ -8,6 +8,8 @@
 
 .field private mCurrentDisplayRect:Landroid/graphics/Rect;
 
+.field private mCurrentFlags:I
+
 .field private mCurrentLayerStack:I
 
 .field private mCurrentLayerStackRect:Landroid/graphics/Rect;
@@ -29,13 +31,17 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/server/display/DisplayAdapter;Landroid/os/IBinder;Ljava/lang/String;Landroid/content/Context;)V
-    .locals 1
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/server/display/DisplayDevice;->mCurrentLayerStack:I
+
+    const/4 v1, 0x0
+
+    iput v1, p0, Lcom/android/server/display/DisplayDevice;->mCurrentFlags:I
 
     iput v0, p0, Lcom/android/server/display/DisplayDevice;->mCurrentOrientation:I
 
@@ -159,6 +165,24 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
+    const-string/jumbo v1, "mCurrentFlags="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v1, p0, Lcom/android/server/display/DisplayDevice;->mCurrentFlags:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
     const-string/jumbo v1, "mCurrentOrientation="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -268,6 +292,14 @@
     return v0
 .end method
 
+.method public getDisplaySurfaceDefaultSize()Landroid/graphics/Point;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
 .method public final getDisplayTokenLocked()Landroid/os/IBinder;
     .locals 1
 
@@ -292,6 +324,14 @@
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/display/DisplayDevice;->mUniqueId:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public getWindowTokenClientToMirrorLocked()Landroid/os/IBinder;
+    .locals 1
+
+    const/4 v0, 0x0
 
     return-object v0
 .end method
@@ -456,6 +496,23 @@
     return-void
 .end method
 
+.method public final setDisplayFlagsLocked(Landroid/view/SurfaceControl$Transaction;I)V
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/display/DisplayDevice;->mCurrentFlags:I
+
+    if-eq v0, p2, :cond_0
+
+    iput p2, p0, Lcom/android/server/display/DisplayDevice;->mCurrentFlags:I
+
+    iget-object v0, p0, Lcom/android/server/display/DisplayDevice;->mDisplayToken:Landroid/os/IBinder;
+
+    invoke-virtual {p1, v0, p2}, Landroid/view/SurfaceControl$Transaction;->setDisplayFlags(Landroid/os/IBinder;I)Landroid/view/SurfaceControl$Transaction;
+
+    :cond_0
+    return-void
+.end method
+
 .method public setGameContentTypeLocked(Z)V
     .locals 0
 
@@ -567,5 +624,11 @@
     invoke-virtual {p1, v0, p2}, Landroid/view/SurfaceControl$Transaction;->setDisplaySurface(Landroid/os/IBinder;Landroid/view/Surface;)Landroid/view/SurfaceControl$Transaction;
 
     :cond_0
+    return-void
+.end method
+
+.method public setWindowTokenClientToMirrorLocked(Landroid/os/IBinder;)V
+    .locals 0
+
     return-void
 .end method

@@ -3642,7 +3642,7 @@
 
     move-result-object v6
 
-    const v7, 0x1070029
+    const v7, 0x107002a
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -5153,7 +5153,7 @@
     if-eqz v1, :cond_2
 
     :cond_0
-    const v1, 0x10405d0
+    const v1, 0x10405d5
 
     iget-object v2, p0, Lcom/android/server/pm/UserManagerService;->mOwnerNameTypedValue:Landroid/util/TypedValue;
 
@@ -11897,7 +11897,7 @@
 
     move-result-object v2
 
-    const v4, 0x11100f0
+    const v4, 0x11100f2
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -19100,7 +19100,7 @@
 
     move-result-object v7
 
-    const v8, 0x10405d0
+    const v8, 0x10405d5
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

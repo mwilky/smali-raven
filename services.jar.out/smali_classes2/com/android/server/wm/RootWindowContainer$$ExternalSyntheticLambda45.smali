@@ -29,7 +29,7 @@
 
     check-cast p1, Lcom/android/server/wm/Task;
 
-    invoke-static {v0, p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$allPausedActivitiesComplete$34([ZLcom/android/server/wm/Task;)Ljava/lang/Boolean;
+    invoke-static {v0, p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$allResumedActivitiesVisible$34([ZLcom/android/server/wm/Task;)Ljava/lang/Boolean;
 
     move-result-object p1
 

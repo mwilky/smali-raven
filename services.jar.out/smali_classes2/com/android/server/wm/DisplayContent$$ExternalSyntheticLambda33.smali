@@ -29,7 +29,7 @@
 
     check-cast p1, Lcom/android/server/wm/Task;
 
-    invoke-static {v0, p1}, Lcom/android/server/wm/DisplayContent;->lambda$setExitingTokensHasVisible$30(ZLcom/android/server/wm/Task;)V
+    invoke-static {v0, p1}, Lcom/android/server/wm/DisplayContent;->lambda$setExitingTokensHasVisible$31(ZLcom/android/server/wm/Task;)V
 
     return-void
 .end method

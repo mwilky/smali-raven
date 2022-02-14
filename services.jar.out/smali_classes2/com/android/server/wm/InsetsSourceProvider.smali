@@ -22,6 +22,8 @@
 
 .field private final mControllable:Z
 
+.field private mCropToProvidingInsets:Z
+
 .field protected final mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
 .field private final mFakeControl:Landroid/view/InsetsSourceControl;
@@ -85,7 +87,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/InsetsSource;Lcom/android/server/wm/InsetsStateController;Lcom/android/server/wm/DisplayContent;)V
-    .locals 5
+    .locals 6
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -113,15 +115,19 @@
 
     iput-object v0, p0, Lcom/android/server/wm/InsetsSourceProvider;->mSetLeashPositionConsumer:Ljava/util/function/Consumer;
 
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/server/wm/InsetsSourceProvider;->mCropToProvidingInsets:Z
+
     invoke-virtual {p1}, Landroid/view/InsetsSource;->getType()I
 
-    move-result v0
+    move-result v1
 
-    invoke-static {v0}, Landroid/view/InsetsState;->getDefaultVisibility(I)Z
+    invoke-static {v1}, Landroid/view/InsetsState;->getDefaultVisibility(I)Z
 
-    move-result v0
+    move-result v1
 
-    iput-boolean v0, p0, Lcom/android/server/wm/InsetsSourceProvider;->mClientVisible:Z
+    iput-boolean v1, p0, Lcom/android/server/wm/InsetsSourceProvider;->mClientVisible:Z
 
     iput-object p1, p0, Lcom/android/server/wm/InsetsSourceProvider;->mSource:Landroid/view/InsetsSource;
 
@@ -129,31 +135,29 @@
 
     iput-object p2, p0, Lcom/android/server/wm/InsetsSourceProvider;->mStateController:Lcom/android/server/wm/InsetsStateController;
 
-    new-instance v0, Landroid/view/InsetsSourceControl;
+    new-instance v1, Landroid/view/InsetsSourceControl;
+
+    invoke-virtual {p1}, Landroid/view/InsetsSource;->getType()I
+
+    move-result v2
+
+    new-instance v3, Landroid/graphics/Point;
+
+    invoke-direct {v3}, Landroid/graphics/Point;-><init>()V
+
+    sget-object v4, Landroid/graphics/Insets;->NONE:Landroid/graphics/Insets;
+
+    const/4 v5, 0x0
+
+    invoke-direct {v1, v2, v5, v3, v4}, Landroid/view/InsetsSourceControl;-><init>(ILandroid/view/SurfaceControl;Landroid/graphics/Point;Landroid/graphics/Insets;)V
+
+    iput-object v1, p0, Lcom/android/server/wm/InsetsSourceProvider;->mFakeControl:Landroid/view/InsetsSourceControl;
 
     invoke-virtual {p1}, Landroid/view/InsetsSource;->getType()I
 
     move-result v1
 
-    new-instance v2, Landroid/graphics/Point;
-
-    invoke-direct {v2}, Landroid/graphics/Point;-><init>()V
-
-    sget-object v3, Landroid/graphics/Insets;->NONE:Landroid/graphics/Insets;
-
-    const/4 v4, 0x0
-
-    invoke-direct {v0, v1, v4, v2, v3}, Landroid/view/InsetsSourceControl;-><init>(ILandroid/view/SurfaceControl;Landroid/graphics/Point;Landroid/graphics/Insets;)V
-
-    iput-object v0, p0, Lcom/android/server/wm/InsetsSourceProvider;->mFakeControl:Landroid/view/InsetsSourceControl;
-
-    invoke-virtual {p1}, Landroid/view/InsetsSource;->getType()I
-
-    move-result v0
-
-    sparse-switch v0, :sswitch_data_0
-
-    const/4 v0, 0x0
+    sparse-switch v1, :sswitch_data_0
 
     iput-boolean v0, p0, Lcom/android/server/wm/InsetsSourceProvider;->mControllable:Z
 
@@ -195,7 +199,25 @@
     return-object p1
 .end method
 
-.method static synthetic access$200(Lcom/android/server/wm/InsetsSourceProvider;)Lcom/android/server/wm/InsetsSourceProvider$ControlAdapter;
+.method static synthetic access$200(Lcom/android/server/wm/InsetsSourceProvider;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/wm/InsetsSourceProvider;->mCropToProvidingInsets:Z
+
+    return v0
+.end method
+
+.method static synthetic access$300(Lcom/android/server/wm/InsetsSourceProvider;)Landroid/graphics/Rect;
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/server/wm/InsetsSourceProvider;->getProvidingInsetsBoundsCropRect()Landroid/graphics/Rect;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$400(Lcom/android/server/wm/InsetsSourceProvider;)Lcom/android/server/wm/InsetsSourceProvider$ControlAdapter;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/InsetsSourceProvider;->mAdapter:Lcom/android/server/wm/InsetsSourceProvider$ControlAdapter;
@@ -203,7 +225,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$202(Lcom/android/server/wm/InsetsSourceProvider;Lcom/android/server/wm/InsetsSourceProvider$ControlAdapter;)Lcom/android/server/wm/InsetsSourceProvider$ControlAdapter;
+.method static synthetic access$402(Lcom/android/server/wm/InsetsSourceProvider;Lcom/android/server/wm/InsetsSourceProvider$ControlAdapter;)Lcom/android/server/wm/InsetsSourceProvider$ControlAdapter;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/InsetsSourceProvider;->mAdapter:Lcom/android/server/wm/InsetsSourceProvider$ControlAdapter;
@@ -211,7 +233,7 @@
     return-object p1
 .end method
 
-.method static synthetic access$300(Lcom/android/server/wm/InsetsSourceProvider;)Lcom/android/server/wm/InsetsStateController;
+.method static synthetic access$500(Lcom/android/server/wm/InsetsSourceProvider;)Lcom/android/server/wm/InsetsStateController;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/InsetsSourceProvider;->mStateController:Lcom/android/server/wm/InsetsStateController;
@@ -219,12 +241,60 @@
     return-object v0
 .end method
 
-.method static synthetic access$402(Lcom/android/server/wm/InsetsSourceProvider;Landroid/view/InsetsSourceControl;)Landroid/view/InsetsSourceControl;
+.method static synthetic access$602(Lcom/android/server/wm/InsetsSourceProvider;Landroid/view/InsetsSourceControl;)Landroid/view/InsetsSourceControl;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/InsetsSourceProvider;->mControl:Landroid/view/InsetsSourceControl;
 
     return-object p1
+.end method
+
+.method private getProvidingInsetsBoundsCropRect()Landroid/graphics/Rect;
+    .locals 8
+
+    iget-object v0, p0, Lcom/android/server/wm/InsetsSourceProvider;->mWin:Lcom/android/server/wm/WindowState;
+
+    invoke-virtual {v0}, Lcom/android/server/wm/WindowState;->getFrame()Landroid/graphics/Rect;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Lcom/android/server/wm/InsetsSourceProvider;->getSource()Landroid/view/InsetsSource;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/view/InsetsSource;->getFrame()Landroid/graphics/Rect;
+
+    move-result-object v1
+
+    new-instance v2, Landroid/graphics/Rect;
+
+    iget v3, v1, Landroid/graphics/Rect;->left:I
+
+    iget v4, v0, Landroid/graphics/Rect;->left:I
+
+    sub-int/2addr v3, v4
+
+    iget v4, v1, Landroid/graphics/Rect;->top:I
+
+    iget v5, v0, Landroid/graphics/Rect;->top:I
+
+    sub-int/2addr v4, v5
+
+    iget v5, v1, Landroid/graphics/Rect;->right:I
+
+    iget v6, v0, Landroid/graphics/Rect;->left:I
+
+    sub-int/2addr v5, v6
+
+    iget v6, v1, Landroid/graphics/Rect;->bottom:I
+
+    iget v7, v0, Landroid/graphics/Rect;->top:I
+
+    sub-int/2addr v6, v7
+
+    invoke-direct {v2, v3, v4, v5, v6}, Landroid/graphics/Rect;-><init>(IIII)V
+
+    return-object v2
 .end method
 
 .method private getWindowFrameSurfacePosition()Landroid/graphics/Point;
@@ -1023,7 +1093,7 @@
 
     iget-object v4, p0, Lcom/android/server/wm/InsetsSourceProvider;->mWin:Lcom/android/server/wm/WindowState;
 
-    invoke-virtual {v4}, Lcom/android/server/wm/WindowState;->getPendingTransaction()Landroid/view/SurfaceControl$Transaction;
+    invoke-virtual {v4}, Lcom/android/server/wm/WindowState;->getSyncTransaction()Landroid/view/SurfaceControl$Transaction;
 
     move-result-object v4
 
@@ -1131,6 +1201,39 @@
     return v0
 .end method
 
+.method removeCropToProvidingInsetsBounds(Landroid/view/SurfaceControl$Transaction;)V
+    .locals 2
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/server/wm/InsetsSourceProvider;->mCropToProvidingInsets:Z
+
+    iget-object v0, p0, Lcom/android/server/wm/InsetsSourceProvider;->mWin:Lcom/android/server/wm/WindowState;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, v0, Lcom/android/server/wm/WindowState;->mSurfaceAnimator:Lcom/android/server/wm/SurfaceAnimator;
+
+    invoke-virtual {v0}, Lcom/android/server/wm/SurfaceAnimator;->hasLeash()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/wm/InsetsSourceProvider;->mWin:Lcom/android/server/wm/WindowState;
+
+    iget-object v0, v0, Lcom/android/server/wm/WindowState;->mSurfaceAnimator:Lcom/android/server/wm/SurfaceAnimator;
+
+    iget-object v0, v0, Lcom/android/server/wm/SurfaceAnimator;->mLeash:Landroid/view/SurfaceControl;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p1, v0, v1}, Landroid/view/SurfaceControl$Transaction;->setWindowCrop(Landroid/view/SurfaceControl;Landroid/graphics/Rect;)Landroid/view/SurfaceControl$Transaction;
+
+    :cond_0
+    return-void
+.end method
+
 .method setClientVisible(Z)V
     .locals 3
 
@@ -1142,6 +1245,18 @@
 
     :cond_0
     iput-boolean p1, p0, Lcom/android/server/wm/InsetsSourceProvider;->mClientVisible:Z
+
+    iget-object v0, p0, Lcom/android/server/wm/InsetsSourceProvider;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
+
+    iget-boolean v0, v0, Lcom/android/server/wm/DisplayContent;->mLayoutAndAssignWindowLayersScheduled:Z
+
+    if-nez v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/server/wm/InsetsSourceProvider;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
+
+    const/4 v1, 0x1
+
+    iput-boolean v1, v0, Lcom/android/server/wm/DisplayContent;->mLayoutAndAssignWindowLayersScheduled:Z
 
     iget-object v0, p0, Lcom/android/server/wm/InsetsSourceProvider;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
@@ -1159,8 +1274,44 @@
 
     invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
 
+    :cond_1
     invoke-virtual {p0}, Lcom/android/server/wm/InsetsSourceProvider;->updateVisibility()V
 
+    return-void
+.end method
+
+.method setCropToProvidingInsetsBounds(Landroid/view/SurfaceControl$Transaction;)V
+    .locals 2
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/server/wm/InsetsSourceProvider;->mCropToProvidingInsets:Z
+
+    iget-object v0, p0, Lcom/android/server/wm/InsetsSourceProvider;->mWin:Lcom/android/server/wm/WindowState;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, v0, Lcom/android/server/wm/WindowState;->mSurfaceAnimator:Lcom/android/server/wm/SurfaceAnimator;
+
+    invoke-virtual {v0}, Lcom/android/server/wm/SurfaceAnimator;->hasLeash()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/wm/InsetsSourceProvider;->mWin:Lcom/android/server/wm/WindowState;
+
+    iget-object v0, v0, Lcom/android/server/wm/WindowState;->mSurfaceAnimator:Lcom/android/server/wm/SurfaceAnimator;
+
+    iget-object v0, v0, Lcom/android/server/wm/SurfaceAnimator;->mLeash:Landroid/view/SurfaceControl;
+
+    invoke-direct {p0}, Lcom/android/server/wm/InsetsSourceProvider;->getProvidingInsetsBoundsCropRect()Landroid/graphics/Rect;
+
+    move-result-object v1
+
+    invoke-virtual {p1, v0, v1}, Landroid/view/SurfaceControl$Transaction;->setWindowCrop(Landroid/view/SurfaceControl;Landroid/graphics/Rect;)Landroid/view/SurfaceControl$Transaction;
+
+    :cond_0
     return-void
 .end method
 
@@ -1175,7 +1326,7 @@
 .end method
 
 .method setWindow(Lcom/android/server/wm/WindowState;Lcom/android/internal/util/function/TriConsumer;Lcom/android/internal/util/function/TriConsumer;)V
-    .locals 7
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1197,11 +1348,13 @@
 
     const/4 v1, 0x0
 
+    const/4 v2, 0x0
+
     if-eqz v0, :cond_1
 
-    iget-boolean v2, p0, Lcom/android/server/wm/InsetsSourceProvider;->mControllable:Z
+    iget-boolean v3, p0, Lcom/android/server/wm/InsetsSourceProvider;->mControllable:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
     invoke-virtual {v0, v1}, Lcom/android/server/wm/WindowState;->setControllableInsetProvider(Lcom/android/server/wm/InsetsSourceProvider;)V
 
@@ -1214,20 +1367,20 @@
 
     iget-object v0, v0, Lcom/android/server/wm/WindowState;->mProvidedInsetsSources:Landroid/util/SparseArray;
 
-    iget-object v2, p0, Lcom/android/server/wm/InsetsSourceProvider;->mSource:Landroid/view/InsetsSource;
+    iget-object v3, p0, Lcom/android/server/wm/InsetsSourceProvider;->mSource:Landroid/view/InsetsSource;
 
-    invoke-virtual {v2}, Landroid/view/InsetsSource;->getType()I
+    invoke-virtual {v3}, Landroid/view/InsetsSource;->getType()I
 
-    move-result v2
+    move-result v3
 
-    invoke-virtual {v0, v2}, Landroid/util/SparseArray;->remove(I)V
+    invoke-virtual {v0, v3}, Landroid/util/SparseArray;->remove(I)V
+
+    iput-boolean v2, p0, Lcom/android/server/wm/InsetsSourceProvider;->mSeamlessRotating:Z
 
     :cond_1
-    sget-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_IME_enabled:Z
+    sget-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_WINDOW_INSETS_enabled:Z
 
-    const/4 v2, 0x1
-
-    const/4 v3, 0x0
+    const/4 v3, 0x1
 
     if-eqz v0, :cond_2
 
@@ -1235,15 +1388,33 @@
 
     move-result-object v0
 
-    sget-object v4, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_IME:Lcom/android/internal/protolog/ProtoLogGroup;
+    iget-object v4, p0, Lcom/android/server/wm/InsetsSourceProvider;->mSource:Landroid/view/InsetsSource;
 
-    const v5, -0x17994c99
+    invoke-virtual {v4}, Landroid/view/InsetsSource;->getType()I
 
-    new-array v6, v2, [Ljava/lang/Object;
+    move-result v4
 
-    aput-object v0, v6, v3
+    invoke-static {v4}, Landroid/view/InsetsState;->typeToString(I)Ljava/lang/String;
 
-    invoke-static {v4, v5, v3, v1, v6}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+    move-result-object v4
+
+    invoke-static {v4}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v4
+
+    sget-object v5, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_WINDOW_INSETS:Lcom/android/internal/protolog/ProtoLogGroup;
+
+    const v6, -0x586b6ed2
+
+    const/4 v7, 0x2
+
+    new-array v7, v7, [Ljava/lang/Object;
+
+    aput-object v0, v7, v2
+
+    aput-object v4, v7, v3
+
+    invoke-static {v5, v6, v2, v1, v7}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
     :cond_2
     iput-object p1, p0, Lcom/android/server/wm/InsetsSourceProvider;->mWin:Lcom/android/server/wm/WindowState;
@@ -1254,7 +1425,7 @@
 
     if-nez p1, :cond_3
 
-    invoke-virtual {p0, v3}, Lcom/android/server/wm/InsetsSourceProvider;->setServerVisible(Z)V
+    invoke-virtual {p0, v2}, Lcom/android/server/wm/InsetsSourceProvider;->setServerVisible(Z)V
 
     iget-object v0, p0, Lcom/android/server/wm/InsetsSourceProvider;->mSource:Landroid/view/InsetsSource;
 
@@ -1273,15 +1444,15 @@
     :cond_3
     iget-object v0, p1, Lcom/android/server/wm/WindowState;->mProvidedInsetsSources:Landroid/util/SparseArray;
 
-    iget-object v3, p0, Lcom/android/server/wm/InsetsSourceProvider;->mSource:Landroid/view/InsetsSource;
+    iget-object v2, p0, Lcom/android/server/wm/InsetsSourceProvider;->mSource:Landroid/view/InsetsSource;
 
-    invoke-virtual {v3}, Landroid/view/InsetsSource;->getType()I
+    invoke-virtual {v2}, Landroid/view/InsetsSource;->getType()I
 
-    move-result v3
+    move-result v2
 
     iget-object v4, p0, Lcom/android/server/wm/InsetsSourceProvider;->mSource:Landroid/view/InsetsSource;
 
-    invoke-virtual {v0, v3, v4}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    invoke-virtual {v0, v2, v4}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     iget-boolean v0, p0, Lcom/android/server/wm/InsetsSourceProvider;->mControllable:Z
 
@@ -1295,7 +1466,7 @@
 
     if-eqz v0, :cond_4
 
-    invoke-virtual {p0, v0, v2}, Lcom/android/server/wm/InsetsSourceProvider;->updateControlForTarget(Lcom/android/server/wm/InsetsControlTarget;Z)V
+    invoke-virtual {p0, v0, v3}, Lcom/android/server/wm/InsetsSourceProvider;->updateControlForTarget(Lcom/android/server/wm/InsetsControlTarget;Z)V
 
     iput-object v1, p0, Lcom/android/server/wm/InsetsSourceProvider;->mPendingControlTarget:Lcom/android/server/wm/InsetsControlTarget;
 
@@ -1385,57 +1556,40 @@
     return-void
 
     :cond_0
-    if-eqz p1, :cond_1
-
-    invoke-interface {p1}, Lcom/android/server/wm/InsetsControlTarget;->getWindow()Lcom/android/server/wm/WindowState;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_1
-
-    invoke-interface {p1}, Lcom/android/server/wm/InsetsControlTarget;->getWindow()Lcom/android/server/wm/WindowState;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/server/wm/WindowState;->getImeControlTarget()Lcom/android/server/wm/InsetsControlTarget;
-
-    move-result-object p1
-
-    :cond_1
     iget-object v0, p0, Lcom/android/server/wm/InsetsSourceProvider;->mWin:Lcom/android/server/wm/WindowState;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     invoke-virtual {v0}, Lcom/android/server/wm/WindowState;->getSurfaceControl()Landroid/view/SurfaceControl;
 
     move-result-object v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1
 
     invoke-virtual {p0, v1, v1, v1}, Lcom/android/server/wm/InsetsSourceProvider;->setWindow(Lcom/android/server/wm/WindowState;Lcom/android/internal/util/function/TriConsumer;Lcom/android/internal/util/function/TriConsumer;)V
 
-    :cond_2
+    :cond_1
     iget-object v0, p0, Lcom/android/server/wm/InsetsSourceProvider;->mWin:Lcom/android/server/wm/WindowState;
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_2
 
     iput-object p1, p0, Lcom/android/server/wm/InsetsSourceProvider;->mPendingControlTarget:Lcom/android/server/wm/InsetsControlTarget;
 
     return-void
 
-    :cond_3
+    :cond_2
     iget-object v2, p0, Lcom/android/server/wm/InsetsSourceProvider;->mControlTarget:Lcom/android/server/wm/InsetsControlTarget;
 
-    if-ne p1, v2, :cond_4
+    if-ne p1, v2, :cond_3
 
-    if-nez p2, :cond_4
+    if-nez p2, :cond_3
 
     return-void
 
-    :cond_4
-    if-nez p1, :cond_5
+    :cond_3
+    if-nez p1, :cond_4
 
     invoke-virtual {v0}, Lcom/android/server/wm/WindowState;->cancelAnimation()V
 
@@ -1453,7 +1607,7 @@
 
     return-void
 
-    :cond_5
+    :cond_4
     invoke-direct {p0}, Lcom/android/server/wm/InsetsSourceProvider;->getWindowFrameSurfacePosition()Landroid/graphics/Point;
 
     move-result-object v0
@@ -1474,7 +1628,7 @@
 
     const/16 v3, 0x13
 
-    if-ne v2, v3, :cond_6
+    if-ne v2, v3, :cond_5
 
     iget-object v2, p0, Lcom/android/server/wm/InsetsSourceProvider;->mSource:Landroid/view/InsetsSource;
 
@@ -1488,10 +1642,10 @@
 
     invoke-virtual {p0, v2}, Lcom/android/server/wm/InsetsSourceProvider;->setClientVisible(Z)V
 
-    :cond_6
+    :cond_5
     iget-object v2, p0, Lcom/android/server/wm/InsetsSourceProvider;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
-    invoke-virtual {v2}, Lcom/android/server/wm/DisplayContent;->getPendingTransaction()Landroid/view/SurfaceControl$Transaction;
+    invoke-virtual {v2}, Lcom/android/server/wm/DisplayContent;->getSyncTransaction()Landroid/view/SurfaceControl$Transaction;
 
     move-result-object v2
 
@@ -1547,9 +1701,9 @@
 
     iput-object v5, p0, Lcom/android/server/wm/InsetsSourceProvider;->mControl:Landroid/view/InsetsSourceControl;
 
-    sget-boolean v5, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_IME_enabled:Z
+    sget-boolean v5, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_WINDOW_INSETS_enabled:Z
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_6
 
     iget-object v5, p0, Lcom/android/server/wm/InsetsSourceProvider;->mControl:Landroid/view/InsetsSourceControl;
 
@@ -1563,9 +1717,9 @@
 
     move-result-object v7
 
-    sget-object v8, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_IME:Lcom/android/internal/protolog/ProtoLogGroup;
+    sget-object v8, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_WINDOW_INSETS:Lcom/android/internal/protolog/ProtoLogGroup;
 
-    const v9, 0x1c66bec
+    const v9, 0x18d9c4b0
 
     const/4 v10, 0x2
 
@@ -1577,7 +1731,7 @@
 
     invoke-static {v8, v9, v3, v1, v10}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
-    :cond_7
+    :cond_6
     return-void
 .end method
 
@@ -1761,7 +1915,7 @@
 .end method
 
 .method protected updateVisibility()V
-    .locals 8
+    .locals 9
 
     iget-object v0, p0, Lcom/android/server/wm/InsetsSourceProvider;->mSource:Landroid/view/InsetsSource;
 
@@ -1794,37 +1948,55 @@
     :goto_0
     invoke-virtual {v0, v1}, Landroid/view/InsetsSource;->setVisible(Z)V
 
-    sget-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_IME_enabled:Z
+    sget-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_WINDOW_INSETS_enabled:Z
 
     if-eqz v0, :cond_2
 
-    iget-boolean v0, p0, Lcom/android/server/wm/InsetsSourceProvider;->mServerVisible:Z
+    iget-object v0, p0, Lcom/android/server/wm/InsetsSourceProvider;->mSource:Landroid/view/InsetsSource;
 
-    invoke-static {v0}, Ljava/lang/String;->valueOf(Z)Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/view/InsetsSource;->getType()I
+
+    move-result v0
+
+    invoke-static {v0}, Landroid/view/InsetsState;->typeToString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    iget-boolean v1, p0, Lcom/android/server/wm/InsetsSourceProvider;->mClientVisible:Z
+    invoke-static {v0}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/android/server/wm/InsetsSourceProvider;->mServerVisible:Z
 
     invoke-static {v1}, Ljava/lang/String;->valueOf(Z)Ljava/lang/String;
 
     move-result-object v1
 
-    sget-object v4, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_IME:Lcom/android/internal/protolog/ProtoLogGroup;
+    iget-boolean v4, p0, Lcom/android/server/wm/InsetsSourceProvider;->mClientVisible:Z
 
-    const v5, -0x6b945f6
+    invoke-static {v4}, Ljava/lang/String;->valueOf(Z)Ljava/lang/String;
 
-    const/4 v6, 0x0
+    move-result-object v4
 
-    const/4 v7, 0x2
+    sget-object v5, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_WINDOW_INSETS:Lcom/android/internal/protolog/ProtoLogGroup;
 
-    new-array v7, v7, [Ljava/lang/Object;
+    const v6, 0x7b6cc667
 
-    aput-object v0, v7, v3
+    const/4 v7, 0x0
 
-    aput-object v1, v7, v2
+    const/4 v8, 0x3
 
-    invoke-static {v4, v5, v3, v6, v7}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+    new-array v8, v8, [Ljava/lang/Object;
+
+    aput-object v0, v8, v3
+
+    aput-object v1, v8, v2
+
+    const/4 v2, 0x2
+
+    aput-object v4, v8, v2
+
+    invoke-static {v5, v6, v3, v7, v8}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
     :cond_2
     return-void

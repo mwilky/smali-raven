@@ -5,27 +5,17 @@
 .implements Ljava/util/function/Predicate;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda140;
+# instance fields
+.field public final synthetic f$0:Landroid/content/pm/CrossProfileApps;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda140;
-
-    invoke-direct {v0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda140;-><init>()V
-
-    sput-object v0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda140;->INSTANCE:Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda140;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Landroid/content/pm/CrossProfileApps;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda140;->f$0:Landroid/content/pm/CrossProfileApps;
 
     return-void
 .end method
@@ -33,11 +23,13 @@
 
 # virtual methods
 .method public final test(Ljava/lang/Object;)Z
-    .locals 0
+    .locals 1
 
-    check-cast p1, Landroid/content/pm/UserInfo;
+    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda140;->f$0:Landroid/content/pm/CrossProfileApps;
 
-    invoke-static {p1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$getActiveAdminsForAffectedUserLocked$13(Landroid/content/pm/UserInfo;)Z
+    check-cast p1, Ljava/lang/String;
+
+    invoke-virtual {v0, p1}, Landroid/content/pm/CrossProfileApps;->canConfigureInteractAcrossProfiles(Ljava/lang/String;)Z
 
     move-result p1
 

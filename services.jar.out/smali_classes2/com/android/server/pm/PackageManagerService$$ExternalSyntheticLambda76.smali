@@ -6,16 +6,16 @@
 
 
 # instance fields
-.field public final synthetic f$0:Landroid/content/Context;
+.field public final synthetic f$0:Lcom/android/server/pm/PackageManagerService$Injector;
 
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/content/Context;)V
+.method public synthetic constructor <init>(Lcom/android/server/pm/PackageManagerService$Injector;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda76;->f$0:Landroid/content/Context;
+    iput-object p1, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda76;->f$0:Lcom/android/server/pm/PackageManagerService$Injector;
 
     return-void
 .end method
@@ -25,9 +25,9 @@
 .method public final get()Ljava/lang/Object;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda76;->f$0:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda76;->f$0:Lcom/android/server/pm/PackageManagerService$Injector;
 
-    invoke-static {v0}, Lcom/android/server/pm/PackageManagerService;->lambda$main$18(Landroid/content/Context;)Landroid/app/role/RoleManager;
+    invoke-virtual {v0}, Lcom/android/server/pm/PackageManagerService$Injector;->getScanningPackageParser()Lcom/android/server/pm/parsing/PackageParser2;
 
     move-result-object v0
 

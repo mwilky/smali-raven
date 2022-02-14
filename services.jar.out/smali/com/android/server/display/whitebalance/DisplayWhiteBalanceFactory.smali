@@ -53,49 +53,49 @@
 
     move-result-object v18
 
-    const v1, 0x1070040
+    const v1, 0x1070045
 
     invoke-static {v0, v1}, Lcom/android/server/display/whitebalance/DisplayWhiteBalanceFactory;->getFloatArray(Landroid/content/res/Resources;I)[F
 
     move-result-object v19
 
-    const v1, 0x107003f
+    const v1, 0x1070044
 
     invoke-static {v0, v1}, Lcom/android/server/display/whitebalance/DisplayWhiteBalanceFactory;->getFloatArray(Landroid/content/res/Resources;I)[F
 
     move-result-object v20
 
-    const v1, 0x10500af
+    const v1, 0x10500b0
 
     invoke-static {v0, v1}, Lcom/android/server/display/whitebalance/DisplayWhiteBalanceFactory;->getFloat(Landroid/content/res/Resources;I)F
 
     move-result v21
 
-    const v1, 0x107003d
+    const v1, 0x1070042
 
     invoke-static {v0, v1}, Lcom/android/server/display/whitebalance/DisplayWhiteBalanceFactory;->getFloatArray(Landroid/content/res/Resources;I)[F
 
     move-result-object v22
 
-    const v1, 0x107003c
+    const v1, 0x1070041
 
     invoke-static {v0, v1}, Lcom/android/server/display/whitebalance/DisplayWhiteBalanceFactory;->getFloatArray(Landroid/content/res/Resources;I)[F
 
     move-result-object v23
 
-    const v1, 0x10500ae
+    const v1, 0x10500af
 
     invoke-static {v0, v1}, Lcom/android/server/display/whitebalance/DisplayWhiteBalanceFactory;->getFloat(Landroid/content/res/Resources;I)F
 
     move-result v24
 
-    const v1, 0x1070036
+    const v1, 0x107003b
 
     invoke-static {v0, v1}, Lcom/android/server/display/whitebalance/DisplayWhiteBalanceFactory;->getFloatArray(Landroid/content/res/Resources;I)[F
 
     move-result-object v25
 
-    const v1, 0x1070039
+    const v1, 0x107003e
 
     invoke-static {v0, v1}, Lcom/android/server/display/whitebalance/DisplayWhiteBalanceFactory;->getFloatArray(Landroid/content/res/Resources;I)[F
 
@@ -145,7 +145,7 @@
 .method public static createBrightnessSensor(Landroid/os/Handler;Landroid/hardware/SensorManager;Landroid/content/res/Resources;)Lcom/android/server/display/whitebalance/AmbientSensor$AmbientBrightnessSensor;
     .locals 2
 
-    const v0, 0x10e004d
+    const v0, 0x10e0050
 
     invoke-virtual {p2, v0}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -167,7 +167,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e0052
+    const v1, 0x10e0055
 
     invoke-virtual {p2, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -183,31 +183,31 @@
 .method private static createThrottler(Landroid/content/res/Resources;)Lcom/android/server/display/whitebalance/DisplayWhiteBalanceThrottler;
     .locals 12
 
-    const v0, 0x10e0053
+    const v0, 0x10e0056
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v0
 
-    const v1, 0x10e0054
+    const v1, 0x10e0057
 
     invoke-virtual {p0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v7
 
-    const v1, 0x1070037
+    const v1, 0x107003c
 
     invoke-static {p0, v1}, Lcom/android/server/display/whitebalance/DisplayWhiteBalanceFactory;->getFloatArray(Landroid/content/res/Resources;I)[F
 
     move-result-object v8
 
-    const v1, 0x107003e
+    const v1, 0x1070043
 
     invoke-static {p0, v1}, Lcom/android/server/display/whitebalance/DisplayWhiteBalanceFactory;->getFloatArray(Landroid/content/res/Resources;I)[F
 
     move-result-object v9
 
-    const v1, 0x1070038
+    const v1, 0x107003d
 
     invoke-static {p0, v1}, Lcom/android/server/display/whitebalance/DisplayWhiteBalanceFactory;->getFloatArray(Landroid/content/res/Resources;I)[F
 

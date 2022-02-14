@@ -53,7 +53,7 @@
 .method private live()Lcom/android/server/pm/PackageManagerService$ThreadComputer;
     .locals 2
 
-    invoke-static {}, Lcom/android/server/pm/PackageManagerService;->access$3600()Ljava/lang/ThreadLocal;
+    invoke-static {}, Lcom/android/server/pm/PackageManagerService;->access$3500()Ljava/lang/ThreadLocal;
 
     move-result-object v0
 
@@ -78,7 +78,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$ComputerTracker;->mService:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$3700(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$Computer;
+    invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$3600(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$Computer;
 
     move-result-object v1
 
@@ -91,7 +91,7 @@
 .method private snapshot()Lcom/android/server/pm/PackageManagerService$ThreadComputer;
     .locals 2
 
-    invoke-static {}, Lcom/android/server/pm/PackageManagerService;->access$3600()Ljava/lang/ThreadLocal;
+    invoke-static {}, Lcom/android/server/pm/PackageManagerService;->access$3500()Ljava/lang/ThreadLocal;
 
     move-result-object v0
 
@@ -116,7 +116,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/server/pm/PackageManagerService$ComputerTracker;->mService:Lcom/android/server/pm/PackageManagerService;
 
-    invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$3800(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$Computer;
+    invoke-static {v1}, Lcom/android/server/pm/PackageManagerService;->access$3700(Lcom/android/server/pm/PackageManagerService;)Lcom/android/server/pm/PackageManagerService$Computer;
 
     move-result-object v1
 

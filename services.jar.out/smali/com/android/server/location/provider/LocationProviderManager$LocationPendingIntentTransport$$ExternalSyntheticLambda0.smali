@@ -37,7 +37,7 @@
 
     move-object v5, p5
 
-    invoke-static/range {v0 .. v5}, Lcom/android/server/location/provider/LocationProviderManager$LocationPendingIntentTransport;->lambda$deliverOnLocationChanged$0(Lcom/android/server/location/provider/LocationProviderManager$GatedCallback;Landroid/app/PendingIntent;Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;)V
+    invoke-static/range {v0 .. v5}, Lcom/android/server/location/provider/LocationProviderManager$LocationPendingIntentTransport;->lambda$deliverOnLocationChanged$1(Lcom/android/server/location/provider/LocationProviderManager$GatedCallback;Landroid/app/PendingIntent;Landroid/content/Intent;ILjava/lang/String;Landroid/os/Bundle;)V
 
     return-void
 .end method

@@ -5469,7 +5469,11 @@
 
     const-string v0, "can\'t deliver broadcast"
 
-    invoke-virtual {p1, v0}, Lcom/android/server/am/ProcessRecord;->scheduleCrashLocked(Ljava/lang/String;)V
+    const/4 v5, 0x2
+
+    const/4 v6, 0x0
+
+    invoke-virtual {p1, v0, v5, v6}, Lcom/android/server/am/ProcessRecord;->scheduleCrashLocked(Ljava/lang/String;ILandroid/os/Bundle;)V
 
     monitor-exit v4
     :try_end_1

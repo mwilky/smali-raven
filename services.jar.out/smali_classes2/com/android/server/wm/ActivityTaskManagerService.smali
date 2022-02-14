@@ -6,7 +6,6 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/server/wm/ActivityTaskManagerService$PackageConfigurationUpdaterImpl;,
         Lcom/android/server/wm/ActivityTaskManagerService$LocalService;,
         Lcom/android/server/wm/ActivityTaskManagerService$UiHandler;,
         Lcom/android/server/wm/ActivityTaskManagerService$H;,
@@ -17,6 +16,7 @@
         Lcom/android/server/wm/ActivityTaskManagerService$SettingObserver;,
         Lcom/android/server/wm/ActivityTaskManagerService$LayoutReason;,
         Lcom/android/server/wm/ActivityTaskManagerService$PowerModeReason;,
+        Lcom/android/server/wm/ActivityTaskManagerService$AppSwitchState;,
         Lcom/android/server/wm/ActivityTaskManagerService$UpdateConfigurationResult;
     }
 .end annotation
@@ -26,6 +26,12 @@
 .field static final ACTIVITY_BG_START_GRACE_PERIOD_MS:J = 0x2710L
 
 .field static final ANIMATE:Z = true
+
+.field static final APP_SWITCH_ALLOW:I = 0x2
+
+.field static final APP_SWITCH_DISALLOW:I = 0x0
+
+.field static final APP_SWITCH_FG_ONLY:I = 0x1
 
 .field private static final DOZE_ANIMATING_STATE_RETAIN_TIME_MS:J = 0x7d0L
 
@@ -65,11 +71,17 @@
 
 .field static final POWER_MODE_REASON_START_ACTIVITY:I = 0x1
 
+.field static final POWER_MODE_REASON_UNKNOWN_VISIBILITY:I = 0x4
+
+.field private static final POWER_MODE_UNKNOWN_VISIBILITY_TIMEOUT_MS:J = 0x3e8L
+
 .field public static final RELAUNCH_REASON_FREE_RESIZE:I = 0x2
 
 .field public static final RELAUNCH_REASON_NONE:I = 0x0
 
 .field public static final RELAUNCH_REASON_WINDOWING_MODE_RESIZE:I = 0x1
+
+.field private static final RESUME_FG_APP_SWITCH_MS:J = 0x1f4L
 
 .field private static final START_AS_CALLER_TOKEN_EXPIRED_TIMEOUT:J = 0x1b7f10L
 
@@ -94,6 +106,16 @@
 .field mActiveVoiceInteractionServiceComponent:Landroid/content/ComponentName;
 
 .field mActivityClientController:Lcom/android/server/wm/ActivityClientController;
+
+.field private mActivityInterceptorCallbacks:Landroid/util/SparseArray;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/SparseArray<",
+            "Lcom/android/server/wm/ActivityInterceptorCallback;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field private mActivityStartController:Lcom/android/server/wm/ActivityStartController;
 
@@ -123,7 +145,7 @@
 
 .field private mAppOpsManager:Landroid/app/AppOpsManager;
 
-.field private volatile mAppSwitchesAllowed:Z
+.field private volatile mAppSwitchesState:I
 
 .field mAppWarnings:Lcom/android/server/wm/AppWarnings;
 
@@ -273,6 +295,8 @@
 
 .field mRespectsActivityMinWidthHeightMultiWindow:I
 
+.field private volatile mRetainPowerModeAndTopProcessState:Z
+
 .field mRootWindowContainer:Lcom/android/server/wm/RootWindowContainer;
 
 .field mRunningVoice:Landroid/service/voice/IVoiceInteractionSession;
@@ -331,6 +355,8 @@
 .field final mSystemThread:Landroid/app/ActivityThread;
 
 .field private mTaskChangeNotificationController:Lcom/android/server/wm/TaskChangeNotificationController;
+
+.field mTaskFragmentOrganizerController:Lcom/android/server/wm/TaskFragmentOrganizerController;
 
 .field mTaskOrganizerController:Lcom/android/server/wm/TaskOrganizerController;
 
@@ -503,6 +529,12 @@
 
     iput-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mCompanionAppUidsMap:Ljava/util/Map;
 
+    new-instance v1, Landroid/util/SparseArray;
+
+    invoke-direct {v1}, Landroid/util/SparseArray;-><init>()V
+
+    iput-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mActivityInterceptorCallbacks:Landroid/util/SparseArray;
+
     new-instance v1, Lcom/android/server/wm/ActivityTaskManagerService$UpdateConfigurationResult;
 
     invoke-direct {v1}, Lcom/android/server/wm/ActivityTaskManagerService$UpdateConfigurationResult;-><init>()V
@@ -527,9 +559,9 @@
 
     iput-object v2, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mStringBuilder:Ljava/lang/StringBuilder;
 
-    const/4 v2, 0x1
+    const/4 v2, 0x2
 
-    iput-boolean v2, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mAppSwitchesAllowed:Z
+    iput v2, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mAppSwitchesState:I
 
     new-instance v3, Ljava/util/ArrayList;
 
@@ -577,9 +609,9 @@
 
     iput-boolean v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mDreaming:Z
 
-    const/4 v3, 0x2
+    iput v2, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mTopProcessState:I
 
-    iput v3, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mTopProcessState:I
+    const/4 v2, 0x1
 
     iput-boolean v2, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mShowDialogs:Z
 
@@ -653,6 +685,12 @@
 
     iput-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mTaskOrganizerController:Lcom/android/server/wm/TaskOrganizerController;
 
+    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mWindowOrganizerController:Lcom/android/server/wm/WindowOrganizerController;
+
+    iget-object v0, v0, Lcom/android/server/wm/WindowOrganizerController;->mTaskFragmentOrganizerController:Lcom/android/server/wm/TaskFragmentOrganizerController;
+
+    iput-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mTaskFragmentOrganizerController:Lcom/android/server/wm/TaskFragmentOrganizerController;
+
     return-void
 .end method
 
@@ -672,7 +710,27 @@
     return-void
 .end method
 
-.method static synthetic access$1000(Lcom/android/server/wm/ActivityTaskManagerService;II)Z
+.method static synthetic access$1000(Lcom/android/server/wm/ActivityTaskManagerService;Landroid/app/IApplicationThread;Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/os/IBinder;Ljava/lang/String;IILandroid/app/ProfilerInfo;Landroid/os/Bundle;IZ)I
+    .locals 1
+
+    invoke-direct/range {p0 .. p13}, Lcom/android/server/wm/ActivityTaskManagerService;->startActivityAsUser(Landroid/app/IApplicationThread;Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/os/IBinder;Ljava/lang/String;IILandroid/app/ProfilerInfo;Landroid/os/Bundle;IZ)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic access$1100(Lcom/android/server/wm/ActivityTaskManagerService;IILjava/lang/String;)Z
+    .locals 1
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/wm/ActivityTaskManagerService;->checkCanCloseSystemDialogs(IILjava/lang/String;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic access$1200(Lcom/android/server/wm/ActivityTaskManagerService;II)Z
     .locals 1
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/wm/ActivityTaskManagerService;->canCloseSystemDialogs(II)Z
@@ -682,7 +740,7 @@
     return v0
 .end method
 
-.method static synthetic access$1100(Lcom/android/server/wm/ActivityTaskManagerService;)Z
+.method static synthetic access$1300(Lcom/android/server/wm/ActivityTaskManagerService;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mDreaming:Z
@@ -690,7 +748,7 @@
     return v0
 .end method
 
-.method static synthetic access$1102(Lcom/android/server/wm/ActivityTaskManagerService;Z)Z
+.method static synthetic access$1302(Lcom/android/server/wm/ActivityTaskManagerService;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mDreaming:Z
@@ -698,7 +756,7 @@
     return p1
 .end method
 
-.method static synthetic access$1200(Lcom/android/server/wm/ActivityTaskManagerService;)Z
+.method static synthetic access$1400(Lcom/android/server/wm/ActivityTaskManagerService;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mSleeping:Z
@@ -706,7 +764,7 @@
     return v0
 .end method
 
-.method static synthetic access$1300(Lcom/android/server/wm/ActivityTaskManagerService;Z)V
+.method static synthetic access$1500(Lcom/android/server/wm/ActivityTaskManagerService;Z)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/wm/ActivityTaskManagerService;->updateEventDispatchingLocked(Z)V
@@ -714,7 +772,7 @@
     return-void
 .end method
 
-.method static synthetic access$1400(Lcom/android/server/wm/ActivityTaskManagerService;)Z
+.method static synthetic access$1600(Lcom/android/server/wm/ActivityTaskManagerService;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mShowDialogs:Z
@@ -722,7 +780,7 @@
     return v0
 .end method
 
-.method static synthetic access$1500(Lcom/android/server/wm/ActivityTaskManagerService;Landroid/util/proto/ProtoOutputStream;IZ)V
+.method static synthetic access$1700(Lcom/android/server/wm/ActivityTaskManagerService;Landroid/util/proto/ProtoOutputStream;IZ)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/wm/ActivityTaskManagerService;->writeSleepStateToProto(Landroid/util/proto/ProtoOutputStream;IZ)V
@@ -730,7 +788,7 @@
     return-void
 .end method
 
-.method static synthetic access$1600(Lcom/android/server/wm/ActivityTaskManagerService;)Landroid/util/SparseArray;
+.method static synthetic access$1800(Lcom/android/server/wm/ActivityTaskManagerService;)Landroid/util/SparseArray;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mPendingTempAllowlist:Landroid/util/SparseArray;
@@ -738,30 +796,10 @@
     return-object v0
 .end method
 
-.method static synthetic access$1700(Lcom/android/server/wm/ActivityTaskManagerService;)Lcom/android/server/wm/RecentTasks;
+.method static synthetic access$1900(Lcom/android/server/wm/ActivityTaskManagerService;)Lcom/android/server/wm/RecentTasks;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mRecentTasks:Lcom/android/server/wm/RecentTasks;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1800(Lcom/android/server/wm/ActivityTaskManagerService;Landroid/content/res/Configuration;Lcom/android/server/wm/ActivityRecord;ZZIZ)Z
-    .locals 1
-
-    invoke-direct/range {p0 .. p6}, Lcom/android/server/wm/ActivityTaskManagerService;->updateConfigurationLocked(Landroid/content/res/Configuration;Lcom/android/server/wm/ActivityRecord;ZZIZ)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic access$1900(Lcom/android/server/wm/ActivityTaskManagerService;IZZ)Landroid/window/TaskSnapshot;
-    .locals 1
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/wm/ActivityTaskManagerService;->getTaskSnapshot(IZZ)Landroid/window/TaskSnapshot;
-
-    move-result-object v0
 
     return-object v0
 .end method
@@ -774,10 +812,38 @@
     return-void
 .end method
 
-.method static synthetic access$2000(Lcom/android/server/wm/ActivityTaskManagerService;)Ljava/util/Map;
+.method static synthetic access$2000(Lcom/android/server/wm/ActivityTaskManagerService;Landroid/content/res/Configuration;Lcom/android/server/wm/ActivityRecord;ZZIZ)Z
+    .locals 1
+
+    invoke-direct/range {p0 .. p6}, Lcom/android/server/wm/ActivityTaskManagerService;->updateConfigurationLocked(Landroid/content/res/Configuration;Lcom/android/server/wm/ActivityRecord;ZZIZ)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic access$2100(Lcom/android/server/wm/ActivityTaskManagerService;IZZ)Landroid/window/TaskSnapshot;
+    .locals 1
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/wm/ActivityTaskManagerService;->getTaskSnapshot(IZZ)Landroid/window/TaskSnapshot;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$2200(Lcom/android/server/wm/ActivityTaskManagerService;)Ljava/util/Map;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mCompanionAppUidsMap:Ljava/util/Map;
+
+    return-object v0
+.end method
+
+.method static synthetic access$2300(Lcom/android/server/wm/ActivityTaskManagerService;)Landroid/util/SparseArray;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mActivityInterceptorCallbacks:Landroid/util/SparseArray;
 
     return-object v0
 .end method
@@ -798,7 +864,39 @@
     return-void
 .end method
 
-.method static synthetic access$500(Lcom/android/server/wm/ActivityTaskManagerService;Landroid/os/IBinder;Landroid/service/voice/IVoiceInteractionSession;Lcom/android/internal/app/IVoiceInteractor;)V
+.method static synthetic access$500(Lcom/android/server/wm/ActivityTaskManagerService;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mRetainPowerModeAndTopProcessState:Z
+
+    return v0
+.end method
+
+.method static synthetic access$502(Lcom/android/server/wm/ActivityTaskManagerService;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mRetainPowerModeAndTopProcessState:Z
+
+    return p1
+.end method
+
+.method static synthetic access$600(Lcom/android/server/wm/ActivityTaskManagerService;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mAppSwitchesState:I
+
+    return v0
+.end method
+
+.method static synthetic access$602(Lcom/android/server/wm/ActivityTaskManagerService;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mAppSwitchesState:I
+
+    return p1
+.end method
+
+.method static synthetic access$700(Lcom/android/server/wm/ActivityTaskManagerService;Landroid/os/IBinder;Landroid/service/voice/IVoiceInteractionSession;Lcom/android/internal/app/IVoiceInteractor;)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/wm/ActivityTaskManagerService;->onLocalVoiceInteractionStartedLocked(Landroid/os/IBinder;Landroid/service/voice/IVoiceInteractionSession;Lcom/android/internal/app/IVoiceInteractor;)V
@@ -806,7 +904,7 @@
     return-void
 .end method
 
-.method static synthetic access$602(Lcom/android/server/wm/ActivityTaskManagerService;Lcom/android/server/wm/BackgroundActivityStartCallback;)Lcom/android/server/wm/BackgroundActivityStartCallback;
+.method static synthetic access$802(Lcom/android/server/wm/ActivityTaskManagerService;Lcom/android/server/wm/BackgroundActivityStartCallback;)Lcom/android/server/wm/BackgroundActivityStartCallback;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mBackgroundActivityStartCallback:Lcom/android/server/wm/BackgroundActivityStartCallback;
@@ -814,32 +912,12 @@
     return-object p1
 .end method
 
-.method static synthetic access$702(Lcom/android/server/wm/ActivityTaskManagerService;[I)[I
+.method static synthetic access$902(Lcom/android/server/wm/ActivityTaskManagerService;[I)[I
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mAccessibilityServiceUids:[I
 
     return-object p1
-.end method
-
-.method static synthetic access$800(Lcom/android/server/wm/ActivityTaskManagerService;Landroid/app/IApplicationThread;Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/os/IBinder;Ljava/lang/String;IILandroid/app/ProfilerInfo;Landroid/os/Bundle;IZ)I
-    .locals 1
-
-    invoke-direct/range {p0 .. p13}, Lcom/android/server/wm/ActivityTaskManagerService;->startActivityAsUser(Landroid/app/IApplicationThread;Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;Ljava/lang/String;Landroid/os/IBinder;Ljava/lang/String;IILandroid/app/ProfilerInfo;Landroid/os/Bundle;IZ)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic access$900(Lcom/android/server/wm/ActivityTaskManagerService;IILjava/lang/String;)Z
-    .locals 1
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/wm/ActivityTaskManagerService;->checkCanCloseSystemDialogs(IILjava/lang/String;)Z
-
-    move-result v0
-
-    return v0
 .end method
 
 .method private buildAssistBundleLocked(Lcom/android/server/wm/ActivityTaskManagerService$PendingAssistExtras;Landroid/os/Bundle;)V
@@ -2581,7 +2659,7 @@
 
     iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mContext:Landroid/content/Context;
 
-    const v2, 0x10403e6
+    const v2, 0x10403eb
 
     const/4 v4, 0x1
 
@@ -2651,7 +2729,7 @@
 
     iget-object v2, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mContext:Landroid/content/Context;
 
-    const v3, 0x10403e7
+    const v3, 0x10403ec
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -4496,6 +4574,75 @@
     return-void
 .end method
 
+.method public detachNavigationBarFromApp(Landroid/os/IBinder;)V
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mAmInternal:Landroid/app/ActivityManagerInternal;
+
+    const-string v1, "android.permission.CONTROL_REMOTE_APP_TRANSITION_ANIMATIONS"
+
+    const-string v2, "detachNavigationBarFromApp"
+
+    invoke-virtual {v0, v1, v2}, Landroid/app/ActivityManagerInternal;->enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v0
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mGlobalLock:Lcom/android/server/wm/WindowManagerGlobalLock;
+
+    monitor-enter v2
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+
+    :try_start_1
+    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->boostPriorityForLockedSection()V
+
+    invoke-virtual {p0}, Lcom/android/server/wm/ActivityTaskManagerService;->getTransitionController()Lcom/android/server/wm/TransitionController;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Lcom/android/server/wm/TransitionController;->legacyDetachNavigationBarFromApp(Landroid/os/IBinder;)V
+
+    monitor-exit v2
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :try_start_2
+    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    nop
+
+    return-void
+
+    :catchall_0
+    move-exception v3
+
+    :try_start_3
+    monitor-exit v2
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    :try_start_4
+    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
+
+    throw v3
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+
+    :catchall_1
+    move-exception v2
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v2
+.end method
+
 .method dumpActivitiesLocked(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;IZZLjava/lang/String;)V
     .locals 9
 
@@ -5120,38 +5267,91 @@
 .end method
 
 .method endLaunchPowerMode(I)V
-    .locals 3
+    .locals 4
 
-    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mPowerManagerInternal:Landroid/os/PowerManagerInternal;
+    iget v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mLaunchPowerModeReasons:I
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    not-int v1, p1
+
+    and-int/2addr v0, v1
+
+    iput v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mLaunchPowerModeReasons:I
+
+    and-int/lit8 v0, v0, 0x4
+
+    const/4 v1, 0x0
 
     if-eqz v0, :cond_2
 
-    iget v1, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mLaunchPowerModeReasons:I
+    const/4 v0, 0x1
 
-    if-nez v1, :cond_0
+    iget-object v2, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mRootWindowContainer:Lcom/android/server/wm/RootWindowContainer;
+
+    invoke-virtual {v2}, Lcom/android/server/wm/RootWindowContainer;->getChildCount()I
+
+    move-result v2
+
+    add-int/lit8 v2, v2, -0x1
+
+    :goto_0
+    if-ltz v2, :cond_1
+
+    iget-object v3, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mRootWindowContainer:Lcom/android/server/wm/RootWindowContainer;
+
+    invoke-virtual {v3, v2}, Lcom/android/server/wm/RootWindowContainer;->getChildAt(I)Lcom/android/server/wm/WindowContainer;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/server/wm/DisplayContent;
+
+    iget-object v3, v3, Lcom/android/server/wm/DisplayContent;->mUnknownAppVisibilityController:Lcom/android/server/wm/UnknownAppVisibilityController;
+
+    invoke-virtual {v3}, Lcom/android/server/wm/UnknownAppVisibilityController;->allResolved()Z
+
+    move-result v3
+
+    and-int/2addr v0, v3
+
+    add-int/lit8 v2, v2, -0x1
 
     goto :goto_0
 
-    :cond_0
-    not-int v2, p1
-
-    and-int/2addr v1, v2
-
-    iput v1, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mLaunchPowerModeReasons:I
-
-    if-nez v1, :cond_1
-
-    const/4 v1, 0x5
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2}, Landroid/os/PowerManagerInternal;->setPowerMode(IZ)V
-
     :cond_1
-    return-void
+    if-eqz v0, :cond_2
+
+    iget v2, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mLaunchPowerModeReasons:I
+
+    and-int/lit8 v2, v2, -0x5
+
+    iput v2, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mLaunchPowerModeReasons:I
+
+    iput-boolean v1, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mRetainPowerModeAndTopProcessState:Z
+
+    iget-object v2, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mH:Lcom/android/server/wm/ActivityTaskManagerService$H;
+
+    const/4 v3, 0x3
+
+    invoke-virtual {v2, v3}, Lcom/android/server/wm/ActivityTaskManagerService$H;->removeMessages(I)V
 
     :cond_2
-    :goto_0
+    iget v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mLaunchPowerModeReasons:I
+
+    if-nez v0, :cond_3
+
+    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mPowerManagerInternal:Landroid/os/PowerManagerInternal;
+
+    if-eqz v0, :cond_3
+
+    const/4 v2, 0x5
+
+    invoke-virtual {v0, v2, v1}, Landroid/os/PowerManagerInternal;->setPowerMode(IZ)V
+
+    :cond_3
     return-void
 .end method
 
@@ -5363,6 +5563,22 @@
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mActivityClientController:Lcom/android/server/wm/ActivityClientController;
+
+    return-object v0
+.end method
+
+.method getActivityInterceptorCallbacks()Landroid/util/SparseArray;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Landroid/util/SparseArray<",
+            "Lcom/android/server/wm/ActivityInterceptorCallback;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mActivityInterceptorCallbacks:Landroid/util/SparseArray;
 
     return-object v0
 .end method
@@ -5917,10 +6133,10 @@
     return-object v0
 .end method
 
-.method getBalAppSwitchesAllowed()Z
+.method getBalAppSwitchesState()I
     .locals 1
 
-    iget-boolean v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mAppSwitchesAllowed:Z
+    iget v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mAppSwitchesState:I
 
     return v0
 .end method
@@ -7236,7 +7452,7 @@
 
     move-result-object v1
 
-    const v2, 0x1110168
+    const v2, 0x111016f
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -7261,7 +7477,7 @@
 
     move-result-object v2
 
-    const v3, 0x1040277
+    const v3, 0x104027a
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -7899,10 +8115,6 @@
 .method public getWindowOrganizerController()Landroid/window/IWindowOrganizerController;
     .locals 1
 
-    const-string v0, "getWindowOrganizerController()"
-
-    invoke-static {v0}, Lcom/android/server/wm/ActivityTaskManagerService;->enforceTaskPermission(Ljava/lang/String;)V
-
     iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mWindowOrganizerController:Lcom/android/server/wm/WindowOrganizerController;
 
     return-object v0
@@ -8167,7 +8379,7 @@
 
     iget-object v2, v2, Lcom/android/server/wm/ActivityTaskSupervisor;->mPersisterQueue:Lcom/android/server/wm/PersisterQueue;
 
-    invoke-direct {v1, v2}, Lcom/android/server/wm/PackageConfigPersister;-><init>(Lcom/android/server/wm/PersisterQueue;)V
+    invoke-direct {v1, v2, p0}, Lcom/android/server/wm/PackageConfigPersister;-><init>(Lcom/android/server/wm/PersisterQueue;Lcom/android/server/wm/ActivityTaskManagerService;)V
 
     iput-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mPackageConfigPersister:Lcom/android/server/wm/PackageConfigPersister;
 
@@ -11823,9 +12035,15 @@
     :try_start_0
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->boostPriorityForLockedSection()V
 
-    const/4 v1, 0x1
+    const/4 v1, 0x2
 
-    iput-boolean v1, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mAppSwitchesAllowed:Z
+    iput v1, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mAppSwitchesState:I
+
+    iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mH:Lcom/android/server/wm/ActivityTaskManagerService$H;
+
+    const/4 v2, 0x4
+
+    invoke-virtual {v1, v2}, Lcom/android/server/wm/ActivityTaskManagerService$H;->removeMessages(I)V
 
     monitor-exit v0
     :try_end_0
@@ -12003,7 +12221,7 @@
 
     move-result-object v0
 
-    const v13, 0x10e00d1
+    const v13, 0x10e00d5
 
     invoke-virtual {v0, v13}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -12015,7 +12233,7 @@
 
     move-result-object v0
 
-    const v14, 0x10e00b4
+    const v14, 0x10e00b8
 
     invoke-virtual {v0, v14}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -12027,7 +12245,7 @@
 
     move-result-object v0
 
-    const v15, 0x10500ba
+    const v15, 0x10500bb
 
     invoke-virtual {v0, v15}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -12039,7 +12257,7 @@
 
     move-result-object v0
 
-    const v4, 0x10500bb
+    const v4, 0x10500bc
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -12051,7 +12269,7 @@
 
     move-result-object v0
 
-    const v3, 0x10e006f
+    const v3, 0x10e0072
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -12573,128 +12791,174 @@
 .end method
 
 .method public setFocusedTask(I)V
-    .locals 9
+    .locals 4
 
     const-string v0, "setFocusedTask()"
 
     invoke-static {v0}, Lcom/android/server/wm/ActivityTaskManagerService;->enforceTaskPermission(Ljava/lang/String;)V
 
-    sget-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_FOCUS_enabled:Z
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_0
-
-    int-to-long v2, p1
-
-    sget-object v0, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_FOCUS:Lcom/android/internal/protolog/ProtoLogGroup;
-
-    const v4, -0x78ff1fad
-
-    const/4 v5, 0x0
-
-    const/4 v6, 0x1
-
-    new-array v7, v6, [Ljava/lang/Object;
-
-    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v8
-
-    aput-object v8, v7, v1
-
-    invoke-static {v0, v4, v6, v5, v7}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
-
-    :cond_0
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
-    move-result-wide v2
+    move-result-wide v0
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mGlobalLock:Lcom/android/server/wm/WindowManagerGlobalLock;
+    iget-object v2, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mGlobalLock:Lcom/android/server/wm/WindowManagerGlobalLock;
 
-    monitor-enter v0
+    monitor-enter v2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->boostPriorityForLockedSection()V
 
-    iget-object v4, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mRootWindowContainer:Lcom/android/server/wm/RootWindowContainer;
+    const/4 v3, 0x0
 
-    invoke-virtual {v4, p1, v1}, Lcom/android/server/wm/RootWindowContainer;->anyTaskForId(II)Lcom/android/server/wm/Task;
+    invoke-virtual {p0, p1, v3}, Lcom/android/server/wm/ActivityTaskManagerService;->setFocusedTask(ILcom/android/server/wm/ActivityRecord;)V
 
-    move-result-object v1
-
-    if-nez v1, :cond_1
-
-    monitor-exit v0
+    monitor-exit v2
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
-
-    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
-
-    return-void
-
-    :cond_1
     :try_start_2
-    invoke-virtual {v1}, Lcom/android/server/wm/Task;->topRunningActivityLocked()Lcom/android/server/wm/ActivityRecord;
-
-    move-result-object v4
-
-    if-eqz v4, :cond_2
-
-    const-string v5, "setFocusedTask"
-
-    invoke-virtual {v4, v5}, Lcom/android/server/wm/ActivityRecord;->moveFocusableActivityToTop(Ljava/lang/String;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_2
-
-    iget-object v5, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mRootWindowContainer:Lcom/android/server/wm/RootWindowContainer;
-
-    invoke-virtual {v5}, Lcom/android/server/wm/RootWindowContainer;->resumeFocusedTasksTopActivities()Z
-
-    :cond_2
-    monitor-exit v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    :try_start_3
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
     nop
 
     return-void
 
     :catchall_0
-    move-exception v1
+    move-exception v3
+
+    :try_start_3
+    monitor-exit v2
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     :try_start_4
-    monitor-exit v0
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
-
-    :try_start_5
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
 
-    throw v1
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+    throw v3
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
     :catchall_1
-    move-exception v0
+    move-exception v2
 
-    invoke-static {v2, v3}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    throw v0
+    throw v2
+.end method
+
+.method setFocusedTask(ILcom/android/server/wm/ActivityRecord;)V
+    .locals 10
+
+    sget-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_FOCUS_enabled:Z
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    if-eqz v0, :cond_0
+
+    int-to-long v3, p1
+
+    invoke-static {p2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    sget-object v5, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_FOCUS:Lcom/android/internal/protolog/ProtoLogGroup;
+
+    const v6, -0x34a1065
+
+    const/4 v7, 0x0
+
+    const/4 v8, 0x2
+
+    new-array v8, v8, [Ljava/lang/Object;
+
+    invoke-static {v3, v4}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v9
+
+    aput-object v9, v8, v2
+
+    aput-object v0, v8, v1
+
+    invoke-static {v5, v6, v1, v7, v8}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mRootWindowContainer:Lcom/android/server/wm/RootWindowContainer;
+
+    invoke-virtual {v0, p1, v2}, Lcom/android/server/wm/RootWindowContainer;->anyTaskForId(II)Lcom/android/server/wm/Task;
+
+    move-result-object v0
+
+    if-nez v0, :cond_1
+
+    return-void
+
+    :cond_1
+    invoke-virtual {v0}, Lcom/android/server/wm/Task;->topRunningActivityLocked()Lcom/android/server/wm/ActivityRecord;
+
+    move-result-object v3
+
+    if-nez v3, :cond_2
+
+    return-void
+
+    :cond_2
+    const-string v4, "setFocusedTask"
+
+    invoke-virtual {v3, v4}, Lcom/android/server/wm/ActivityRecord;->moveFocusableActivityToTop(Ljava/lang/String;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mRootWindowContainer:Lcom/android/server/wm/RootWindowContainer;
+
+    invoke-virtual {v1}, Lcom/android/server/wm/RootWindowContainer;->resumeFocusedTasksTopActivities()Z
+
+    goto :goto_0
+
+    :cond_3
+    if-eqz p2, :cond_4
+
+    invoke-virtual {p2}, Lcom/android/server/wm/ActivityRecord;->isFocusable()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    invoke-virtual {p2}, Lcom/android/server/wm/ActivityRecord;->getTaskFragment()Lcom/android/server/wm/TaskFragment;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_4
+
+    invoke-virtual {v4}, Lcom/android/server/wm/TaskFragment;->isEmbedded()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_4
+
+    invoke-virtual {p2}, Lcom/android/server/wm/ActivityRecord;->getDisplayContent()Lcom/android/server/wm/DisplayContent;
+
+    move-result-object v5
+
+    invoke-virtual {v5, p2}, Lcom/android/server/wm/DisplayContent;->setFocusedApp(Lcom/android/server/wm/ActivityRecord;)Z
+
+    iget-object v6, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
+
+    invoke-virtual {v6, v2, v1}, Lcom/android/server/wm/WindowManagerService;->updateFocusedWindowLocked(IZ)Z
+
+    :cond_4
+    :goto_0
+    return-void
 .end method
 
 .method public setFrontActivityScreenCompatMode(I)V
@@ -13372,6 +13636,140 @@
     return-void
 .end method
 
+.method public setRunningRemoteTransitionDelegate(Landroid/app/IApplicationThread;)V
+    .locals 8
+
+    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mAmInternal:Landroid/app/ActivityManagerInternal;
+
+    const-string v1, "android.permission.CONTROL_REMOTE_APP_TRANSITION_ANIMATIONS"
+
+    const-string v2, "setRunningRemoteTransition"
+
+    invoke-virtual {v0, v1, v2}, Landroid/app/ActivityManagerInternal;->enforceCallingPermission(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+
+    move-result v0
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v1
+
+    iget-object v2, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mGlobalLock:Lcom/android/server/wm/WindowManagerGlobalLock;
+
+    monitor-enter v2
+
+    :try_start_0
+    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->boostPriorityForLockedSection()V
+
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/wm/ActivityTaskManagerService;->getProcessController(II)Lcom/android/server/wm/WindowProcessController;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_1
+
+    invoke-virtual {v3}, Lcom/android/server/wm/WindowProcessController;->isRunningRemoteTransition()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    invoke-virtual {p0, p1}, Lcom/android/server/wm/ActivityTaskManagerService;->getProcessController(Landroid/app/IApplicationThread;)Lcom/android/server/wm/WindowProcessController;
+
+    move-result-object v4
+
+    if-nez v4, :cond_0
+
+    const-string v5, "ActivityTaskManager"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "Unable to find process for application "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    monitor-exit v2
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
+
+    return-void
+
+    :cond_0
+    const/4 v5, 0x1
+
+    :try_start_1
+    invoke-virtual {v4, v5}, Lcom/android/server/wm/WindowProcessController;->setRunningRemoteAnimation(Z)V
+
+    invoke-virtual {v3, v4}, Lcom/android/server/wm/WindowProcessController;->addRemoteAnimationDelegate(Lcom/android/server/wm/WindowProcessController;)V
+
+    monitor-exit v2
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
+
+    return-void
+
+    :cond_1
+    :try_start_2
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "Can\'t call setRunningRemoteTransition from a process (pid="
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v5, " uid="
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v5, ") which isn\'t itself running a remote transition."
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    const-string v5, "ActivityTaskManager"
+
+    invoke-static {v5, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v5, Ljava/lang/SecurityException;
+
+    invoke-direct {v5, v4}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+
+    throw v5
+
+    :catchall_0
+    move-exception v3
+
+    monitor-exit v2
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
+
+    throw v3
+.end method
+
 .method public setSplitScreenResizing(Z)V
     .locals 4
 
@@ -13665,6 +14063,10 @@
     iget-object v1, p1, Lcom/android/server/wm/WindowManagerService;->mRoot:Lcom/android/server/wm/RootWindowContainer;
 
     iput-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mRootWindowContainer:Lcom/android/server/wm/RootWindowContainer;
+
+    iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mWindowOrganizerController:Lcom/android/server/wm/WindowOrganizerController;
+
+    invoke-virtual {v1, p1}, Lcom/android/server/wm/WindowOrganizerController;->setWindowManager(Lcom/android/server/wm/WindowManagerService;)V
 
     iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mTempConfig:Landroid/content/res/Configuration;
 
@@ -14054,9 +14456,7 @@
     move-object/from16 v0, p5
 
     :cond_2
-    iget-object v6, v1, Lcom/android/server/wm/ActivityTaskManagerService;->mRootWindowContainer:Lcom/android/server/wm/RootWindowContainer;
-
-    invoke-virtual {v6, v0}, Lcom/android/server/wm/RootWindowContainer;->isInAnyTask(Landroid/os/IBinder;)Lcom/android/server/wm/ActivityRecord;
+    invoke-static {v0}, Lcom/android/server/wm/ActivityRecord;->isInAnyTask(Landroid/os/IBinder;)Lcom/android/server/wm/ActivityRecord;
 
     move-result-object v6
 
@@ -14517,7 +14917,7 @@
 .end method
 
 .method public final startActivityFromRecents(ILandroid/os/Bundle;)I
-    .locals 7
+    .locals 6
 
     iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mAmInternal:Landroid/app/ActivityManagerInternal;
 
@@ -14544,47 +14944,19 @@
     move-result-wide v3
 
     :try_start_0
-    iget-object v5, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mGlobalLock:Lcom/android/server/wm/WindowManagerGlobalLock;
+    iget-object v5, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mTaskSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
 
-    monitor-enter v5
+    invoke-virtual {v5, v0, v1, p1, v2}, Lcom/android/server/wm/ActivityTaskSupervisor;->startActivityFromRecents(IIILcom/android/server/wm/SafeActivityOptions;)I
+
+    move-result v5
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
-
-    :try_start_1
-    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->boostPriorityForLockedSection()V
-
-    iget-object v6, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mTaskSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
-
-    invoke-virtual {v6, v0, v1, p1, v2}, Lcom/android/server/wm/ActivityTaskSupervisor;->startActivityFromRecents(IIILcom/android/server/wm/SafeActivityOptions;)I
-
-    move-result v6
-
-    monitor-exit v5
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     invoke-static {v3, v4}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
-    return v6
+    return v5
 
     :catchall_0
-    move-exception v6
-
-    :try_start_2
-    monitor-exit v5
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    :try_start_3
-    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
-
-    throw v6
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
-
-    :catchall_1
     move-exception v5
 
     invoke-static {v3, v4}, Landroid/os/Binder;->restoreCallingIdentity(J)V
@@ -14645,13 +15017,13 @@
 
     if-eqz v0, :cond_2
 
-    invoke-virtual {v0}, Lcom/android/server/wm/Task;->getResumedActivity()Lcom/android/server/wm/ActivityRecord;
+    invoke-virtual {v0}, Lcom/android/server/wm/Task;->getTopResumedActivity()Lcom/android/server/wm/ActivityRecord;
 
     move-result-object v4
 
     if-eqz v4, :cond_2
 
-    invoke-virtual {v0}, Lcom/android/server/wm/Task;->getResumedActivity()Lcom/android/server/wm/ActivityRecord;
+    invoke-virtual {v0}, Lcom/android/server/wm/Task;->getTopResumedActivity()Lcom/android/server/wm/ActivityRecord;
 
     move-result-object v4
 
@@ -14667,9 +15039,9 @@
 
     if-ne v4, v5, :cond_2
 
-    const/4 v4, 0x1
+    const/4 v4, 0x2
 
-    iput-boolean v4, v1, Lcom/android/server/wm/ActivityTaskManagerService;->mAppSwitchesAllowed:Z
+    iput v4, v1, Lcom/android/server/wm/ActivityTaskManagerService;->mAppSwitchesState:I
 
     :cond_2
     monitor-exit v3
@@ -15125,27 +15497,55 @@
 .end method
 
 .method startLaunchPowerMode(I)V
-    .locals 3
+    .locals 5
 
     iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mPowerManagerInternal:Landroid/os/PowerManagerInternal;
 
-    if-nez v0, :cond_0
+    const/4 v1, 0x1
 
-    return-void
+    if-eqz v0, :cond_0
+
+    const/4 v2, 0x5
+
+    invoke-virtual {v0, v2, v1}, Landroid/os/PowerManagerInternal;->setPowerMode(IZ)V
 
     :cond_0
-    const/4 v1, 0x5
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v0, v1, v2}, Landroid/os/PowerManagerInternal;->setPowerMode(IZ)V
-
     iget v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mLaunchPowerModeReasons:I
 
     or-int/2addr v0, p1
 
     iput v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mLaunchPowerModeReasons:I
 
+    and-int/lit8 v0, p1, 0x4
+
+    if-eqz v0, :cond_2
+
+    iget-boolean v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mRetainPowerModeAndTopProcessState:Z
+
+    const/4 v2, 0x3
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mH:Lcom/android/server/wm/ActivityTaskManagerService$H;
+
+    invoke-virtual {v0, v2}, Lcom/android/server/wm/ActivityTaskManagerService$H;->removeMessages(I)V
+
+    :cond_1
+    iput-boolean v1, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mRetainPowerModeAndTopProcessState:Z
+
+    iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mH:Lcom/android/server/wm/ActivityTaskManagerService$H;
+
+    const-wide/16 v3, 0x3e8
+
+    invoke-virtual {v0, v2, v3, v4}, Lcom/android/server/wm/ActivityTaskManagerService$H;->sendEmptyMessageDelayed(IJ)Z
+
+    const-string v0, "ActivityTaskManager"
+
+    const-string v1, "Temporarily retain top process state for launching app"
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2
     return-void
 .end method
 
@@ -16209,7 +16609,7 @@
 .end method
 
 .method public stopAppSwitches()V
-    .locals 3
+    .locals 5
 
     iget-object v0, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mAmInternal:Landroid/app/ActivityManagerInternal;
 
@@ -16228,13 +16628,25 @@
 
     const/4 v1, 0x0
 
-    iput-boolean v1, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mAppSwitchesAllowed:Z
+    iput v1, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mAppSwitchesState:I
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v1
 
     iput-wide v1, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mLastStopAppSwitchesTime:J
+
+    iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mH:Lcom/android/server/wm/ActivityTaskManagerService$H;
+
+    const/4 v2, 0x4
+
+    invoke-virtual {v1, v2}, Lcom/android/server/wm/ActivityTaskManagerService$H;->removeMessages(I)V
+
+    iget-object v1, p0, Lcom/android/server/wm/ActivityTaskManagerService;->mH:Lcom/android/server/wm/ActivityTaskManagerService$H;
+
+    const-wide/16 v3, 0x1f4
+
+    invoke-virtual {v1, v2, v3, v4}, Lcom/android/server/wm/ActivityTaskManagerService$H;->sendEmptyMessageDelayed(IJ)Z
 
     monitor-exit v0
     :try_end_0
@@ -17610,7 +18022,7 @@
 .end method
 
 .method public updatePersistentConfiguration(Landroid/content/res/Configuration;I)V
-    .locals 10
+    .locals 11
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
@@ -17626,21 +18038,25 @@
     :try_start_1
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->boostPriorityForLockedSection()V
 
-    const/4 v5, 0x0
+    iget-object v3, p1, Landroid/content/res/Configuration;->windowConfiguration:Landroid/app/WindowConfiguration;
+
+    invoke-virtual {v3}, Landroid/app/WindowConfiguration;->setToDefaults()V
 
     const/4 v6, 0x0
 
-    const/4 v7, 0x1
+    const/4 v7, 0x0
 
-    const/4 v9, 0x0
+    const/4 v8, 0x1
 
-    move-object v3, p0
+    const/4 v10, 0x0
 
-    move-object v4, p1
+    move-object v4, p0
 
-    move v8, p2
+    move-object v5, p1
 
-    invoke-direct/range {v3 .. v9}, Lcom/android/server/wm/ActivityTaskManagerService;->updateConfigurationLocked(Landroid/content/res/Configuration;Lcom/android/server/wm/ActivityRecord;ZZIZ)Z
+    move v9, p2
+
+    invoke-direct/range {v4 .. v10}, Lcom/android/server/wm/ActivityTaskManagerService;->updateConfigurationLocked(Landroid/content/res/Configuration;Lcom/android/server/wm/ActivityRecord;ZZIZ)Z
 
     monitor-exit v2
     :try_end_1

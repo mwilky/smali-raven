@@ -45,7 +45,7 @@
 
     iget-boolean v3, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda62;->f$3:Z
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/pm/PackageManagerService;->lambda$sendPackageAddedForNewUsers$45$PackageManagerService([ILjava/lang/String;Z)V
+    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/pm/PackageManagerService;->lambda$sendPackageAddedForNewUsers$44$PackageManagerService([ILjava/lang/String;Z)V
 
     return-void
 .end method

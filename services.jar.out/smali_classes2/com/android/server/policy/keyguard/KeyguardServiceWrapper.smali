@@ -134,18 +134,6 @@
     return-void
 .end method
 
-.method public hasLockscreenWallpaper()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/policy/keyguard/KeyguardServiceWrapper;->mKeyguardStateMonitor:Lcom/android/server/policy/keyguard/KeyguardStateMonitor;
-
-    invoke-virtual {v0}, Lcom/android/server/policy/keyguard/KeyguardStateMonitor;->hasLockscreenWallpaper()Z
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public isInputRestricted()Z
     .locals 1
 

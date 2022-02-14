@@ -54,6 +54,8 @@
 
 .field private final mCallbacks:Lcom/android/server/vibrator/VibrationThread$VibrationCallbacks;
 
+.field private mCalledVibrationCompleteCallback:Z
+
 .field private final mDeviceEffectAdapter:Lcom/android/server/vibrator/DeviceVibrationEffectAdapter;
 
 .field private volatile mForceStop:Z
@@ -122,25 +124,23 @@
 
     iput-object v0, p0, Lcom/android/server/vibrator/VibrationThread;->mLock:Ljava/lang/Object;
 
-    new-instance v0, Landroid/os/WorkSource;
+    new-instance v0, Landroid/util/SparseArray;
 
-    invoke-direct {v0}, Landroid/os/WorkSource;-><init>()V
+    invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
 
-    iput-object v0, p0, Lcom/android/server/vibrator/VibrationThread;->mWorkSource:Landroid/os/WorkSource;
+    iput-object v0, p0, Lcom/android/server/vibrator/VibrationThread;->mVibrators:Landroid/util/SparseArray;
 
-    new-instance v1, Landroid/util/SparseArray;
+    new-instance v0, Lcom/android/server/vibrator/VibrationThread$StepQueue;
 
-    invoke-direct {v1}, Landroid/util/SparseArray;-><init>()V
+    const/4 v1, 0x0
 
-    iput-object v1, p0, Lcom/android/server/vibrator/VibrationThread;->mVibrators:Landroid/util/SparseArray;
+    invoke-direct {v0, p0, v1}, Lcom/android/server/vibrator/VibrationThread$StepQueue;-><init>(Lcom/android/server/vibrator/VibrationThread;Lcom/android/server/vibrator/VibrationThread$1;)V
 
-    new-instance v1, Lcom/android/server/vibrator/VibrationThread$StepQueue;
+    iput-object v0, p0, Lcom/android/server/vibrator/VibrationThread;->mStepQueue:Lcom/android/server/vibrator/VibrationThread$StepQueue;
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    invoke-direct {v1, p0, v2}, Lcom/android/server/vibrator/VibrationThread$StepQueue;-><init>(Lcom/android/server/vibrator/VibrationThread;Lcom/android/server/vibrator/VibrationThread$1;)V
-
-    iput-object v1, p0, Lcom/android/server/vibrator/VibrationThread;->mStepQueue:Lcom/android/server/vibrator/VibrationThread$StepQueue;
+    iput-boolean v0, p0, Lcom/android/server/vibrator/VibrationThread;->mCalledVibrationCompleteCallback:Z
 
     iput-object p1, p0, Lcom/android/server/vibrator/VibrationThread;->mVibration:Lcom/android/server/vibrator/Vibration;
 
@@ -150,13 +150,15 @@
 
     iput-object p7, p0, Lcom/android/server/vibrator/VibrationThread;->mCallbacks:Lcom/android/server/vibrator/VibrationThread$VibrationCallbacks;
 
-    iput-object p5, p0, Lcom/android/server/vibrator/VibrationThread;->mWakeLock:Landroid/os/PowerManager$WakeLock;
+    new-instance v0, Landroid/os/WorkSource;
 
     iget v1, p1, Lcom/android/server/vibrator/Vibration;->uid:I
 
-    invoke-virtual {v0, v1}, Landroid/os/WorkSource;->set(I)V
+    invoke-direct {v0, v1}, Landroid/os/WorkSource;-><init>(I)V
 
-    invoke-virtual {p5, v0}, Landroid/os/PowerManager$WakeLock;->setWorkSource(Landroid/os/WorkSource;)V
+    iput-object v0, p0, Lcom/android/server/vibrator/VibrationThread;->mWorkSource:Landroid/os/WorkSource;
+
+    iput-object p5, p0, Lcom/android/server/vibrator/VibrationThread;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     iput-object p6, p0, Lcom/android/server/vibrator/VibrationThread;->mBatteryStatsService:Lcom/android/internal/app/IBatteryStats;
 
@@ -285,6 +287,29 @@
 
     invoke-direct {p0}, Lcom/android/server/vibrator/VibrationThread;->noteVibratorOff()V
 
+    return-void
+.end method
+
+.method private clientVibrationCompleteIfNotAlready(Lcom/android/server/vibrator/Vibration$Status;)V
+    .locals 3
+
+    iget-boolean v0, p0, Lcom/android/server/vibrator/VibrationThread;->mCalledVibrationCompleteCallback:Z
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/server/vibrator/VibrationThread;->mCalledVibrationCompleteCallback:Z
+
+    iget-object v0, p0, Lcom/android/server/vibrator/VibrationThread;->mCallbacks:Lcom/android/server/vibrator/VibrationThread$VibrationCallbacks;
+
+    iget-object v1, p0, Lcom/android/server/vibrator/VibrationThread;->mVibration:Lcom/android/server/vibrator/Vibration;
+
+    iget-wide v1, v1, Lcom/android/server/vibrator/Vibration;->id:J
+
+    invoke-interface {v0, v1, v2, p1}, Lcom/android/server/vibrator/VibrationThread$VibrationCallbacks;->onVibrationCompleted(JLcom/android/server/vibrator/Vibration$Status;)V
+
+    :cond_0
     return-void
 .end method
 
@@ -533,7 +558,7 @@
 .end method
 
 .method private playVibration()V
-    .locals 11
+    .locals 10
 
     const-string v0, "playVibration"
 
@@ -568,42 +593,40 @@
 
     invoke-virtual {v4, v5}, Lcom/android/server/vibrator/VibrationThread$StepQueue;->offer(Lcom/android/server/vibrator/VibrationThread$Step;)V
 
-    const/4 v4, 0x0
-
     :goto_0
-    iget-object v5, p0, Lcom/android/server/vibrator/VibrationThread;->mStepQueue:Lcom/android/server/vibrator/VibrationThread$StepQueue;
+    iget-object v4, p0, Lcom/android/server/vibrator/VibrationThread;->mStepQueue:Lcom/android/server/vibrator/VibrationThread$StepQueue;
 
-    invoke-virtual {v5}, Lcom/android/server/vibrator/VibrationThread$StepQueue;->isEmpty()Z
+    invoke-virtual {v4}, Lcom/android/server/vibrator/VibrationThread$StepQueue;->isEmpty()Z
 
-    move-result v5
+    move-result v4
 
-    if-nez v5, :cond_5
+    if-nez v4, :cond_5
 
-    iget-object v5, p0, Lcom/android/server/vibrator/VibrationThread;->mLock:Ljava/lang/Object;
+    iget-object v4, p0, Lcom/android/server/vibrator/VibrationThread;->mLock:Ljava/lang/Object;
 
-    monitor-enter v5
+    monitor-enter v4
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
     :try_start_1
-    iget-object v6, p0, Lcom/android/server/vibrator/VibrationThread;->mStepQueue:Lcom/android/server/vibrator/VibrationThread$StepQueue;
+    iget-object v5, p0, Lcom/android/server/vibrator/VibrationThread;->mStepQueue:Lcom/android/server/vibrator/VibrationThread$StepQueue;
 
-    invoke-virtual {v6}, Lcom/android/server/vibrator/VibrationThread$StepQueue;->calculateWaitTime()J
+    invoke-virtual {v5}, Lcom/android/server/vibrator/VibrationThread$StepQueue;->calculateWaitTime()J
 
-    move-result-wide v6
+    move-result-wide v5
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    const-wide/16 v8, 0x0
+    const-wide/16 v7, 0x0
 
-    cmp-long v10, v6, v8
+    cmp-long v9, v5, v7
 
-    if-lez v10, :cond_0
+    if-lez v9, :cond_0
 
     :try_start_2
-    iget-object v10, p0, Lcom/android/server/vibrator/VibrationThread;->mLock:Ljava/lang/Object;
+    iget-object v9, p0, Lcom/android/server/vibrator/VibrationThread;->mLock:Ljava/lang/Object;
 
-    invoke-virtual {v10, v6, v7}, Ljava/lang/Object;->wait(J)V
+    invoke-virtual {v9, v5, v6}, Ljava/lang/Object;->wait(J)V
     :try_end_2
     .catch Ljava/lang/InterruptedException; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
@@ -611,75 +634,73 @@
     goto :goto_1
 
     :catch_0
-    move-exception v10
+    move-exception v9
 
     :cond_0
     :goto_1
     :try_start_3
-    monitor-exit v5
+    monitor-exit v4
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    cmp-long v5, v6, v8
+    cmp-long v4, v5, v7
 
-    if-gtz v5, :cond_1
+    if-gtz v4, :cond_1
 
     :try_start_4
-    iget-object v5, p0, Lcom/android/server/vibrator/VibrationThread;->mStepQueue:Lcom/android/server/vibrator/VibrationThread$StepQueue;
+    iget-object v4, p0, Lcom/android/server/vibrator/VibrationThread;->mStepQueue:Lcom/android/server/vibrator/VibrationThread$StepQueue;
 
-    invoke-virtual {v5}, Lcom/android/server/vibrator/VibrationThread$StepQueue;->consumeNext()V
+    invoke-virtual {v4}, Lcom/android/server/vibrator/VibrationThread$StepQueue;->consumeNext()V
 
     :cond_1
-    iget-boolean v5, p0, Lcom/android/server/vibrator/VibrationThread;->mStop:Z
+    iget-boolean v4, p0, Lcom/android/server/vibrator/VibrationThread;->mStop:Z
 
-    if-eqz v5, :cond_2
+    if-eqz v4, :cond_2
 
-    sget-object v5, Lcom/android/server/vibrator/Vibration$Status;->CANCELLED:Lcom/android/server/vibrator/Vibration$Status;
+    sget-object v4, Lcom/android/server/vibrator/Vibration$Status;->CANCELLED:Lcom/android/server/vibrator/Vibration$Status;
 
     goto :goto_2
 
     :cond_2
-    iget-object v5, p0, Lcom/android/server/vibrator/VibrationThread;->mStepQueue:Lcom/android/server/vibrator/VibrationThread$StepQueue;
+    iget-object v4, p0, Lcom/android/server/vibrator/VibrationThread;->mStepQueue:Lcom/android/server/vibrator/VibrationThread$StepQueue;
 
-    invoke-virtual {v5, v3}, Lcom/android/server/vibrator/VibrationThread$StepQueue;->calculateVibrationStatus(I)Lcom/android/server/vibrator/Vibration$Status;
+    invoke-virtual {v4, v3}, Lcom/android/server/vibrator/VibrationThread$StepQueue;->calculateVibrationStatus(I)Lcom/android/server/vibrator/Vibration$Status;
 
-    move-result-object v5
+    move-result-object v4
 
     :goto_2
     nop
 
-    if-nez v4, :cond_3
+    sget-object v7, Lcom/android/server/vibrator/Vibration$Status;->RUNNING:Lcom/android/server/vibrator/Vibration$Status;
 
-    sget-object v8, Lcom/android/server/vibrator/Vibration$Status;->RUNNING:Lcom/android/server/vibrator/Vibration$Status;
+    if-eq v4, v7, :cond_3
 
-    if-eq v5, v8, :cond_3
+    iget-boolean v7, p0, Lcom/android/server/vibrator/VibrationThread;->mCalledVibrationCompleteCallback:Z
 
-    move-object v4, v5
+    if-nez v7, :cond_3
 
-    iget-object v8, p0, Lcom/android/server/vibrator/VibrationThread;->mCallbacks:Lcom/android/server/vibrator/VibrationThread$VibrationCallbacks;
+    invoke-direct {p0, v4}, Lcom/android/server/vibrator/VibrationThread;->clientVibrationCompleteIfNotAlready(Lcom/android/server/vibrator/Vibration$Status;)V
 
-    iget-object v9, p0, Lcom/android/server/vibrator/VibrationThread;->mVibration:Lcom/android/server/vibrator/Vibration;
+    sget-object v7, Lcom/android/server/vibrator/Vibration$Status;->CANCELLED:Lcom/android/server/vibrator/Vibration$Status;
 
-    iget-wide v9, v9, Lcom/android/server/vibrator/Vibration;->id:J
+    if-ne v4, v7, :cond_3
 
-    invoke-interface {v8, v9, v10, v4}, Lcom/android/server/vibrator/VibrationThread$VibrationCallbacks;->onVibrationCompleted(JLcom/android/server/vibrator/Vibration$Status;)V
+    iget-object v7, p0, Lcom/android/server/vibrator/VibrationThread;->mStepQueue:Lcom/android/server/vibrator/VibrationThread$StepQueue;
 
-    sget-object v8, Lcom/android/server/vibrator/Vibration$Status;->CANCELLED:Lcom/android/server/vibrator/Vibration$Status;
-
-    if-ne v4, v8, :cond_3
-
-    iget-object v8, p0, Lcom/android/server/vibrator/VibrationThread;->mStepQueue:Lcom/android/server/vibrator/VibrationThread$StepQueue;
-
-    invoke-virtual {v8}, Lcom/android/server/vibrator/VibrationThread$StepQueue;->cancel()V
+    invoke-virtual {v7}, Lcom/android/server/vibrator/VibrationThread$StepQueue;->cancel()V
 
     :cond_3
-    iget-boolean v8, p0, Lcom/android/server/vibrator/VibrationThread;->mForceStop:Z
+    iget-boolean v7, p0, Lcom/android/server/vibrator/VibrationThread;->mForceStop:Z
 
-    if-eqz v8, :cond_4
+    if-eqz v7, :cond_4
 
-    iget-object v8, p0, Lcom/android/server/vibrator/VibrationThread;->mStepQueue:Lcom/android/server/vibrator/VibrationThread$StepQueue;
+    iget-object v7, p0, Lcom/android/server/vibrator/VibrationThread;->mStepQueue:Lcom/android/server/vibrator/VibrationThread$StepQueue;
 
-    invoke-virtual {v8}, Lcom/android/server/vibrator/VibrationThread$StepQueue;->cancelImmediately()V
+    invoke-virtual {v7}, Lcom/android/server/vibrator/VibrationThread$StepQueue;->cancelImmediately()V
+
+    sget-object v7, Lcom/android/server/vibrator/Vibration$Status;->CANCELLED:Lcom/android/server/vibrator/Vibration$Status;
+
+    invoke-direct {p0, v7}, Lcom/android/server/vibrator/VibrationThread;->clientVibrationCompleteIfNotAlready(Lcom/android/server/vibrator/Vibration$Status;)V
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_1
 
@@ -689,70 +710,20 @@
     goto :goto_0
 
     :catchall_0
-    move-exception v6
+    move-exception v5
 
     :try_start_5
-    monitor-exit v5
+    monitor-exit v4
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
     :try_start_6
-    throw v6
-
-    :cond_5
-    :goto_3
-    if-nez v4, :cond_7
-
-    iget-object v5, p0, Lcom/android/server/vibrator/VibrationThread;->mStepQueue:Lcom/android/server/vibrator/VibrationThread$StepQueue;
-
-    invoke-virtual {v5, v3}, Lcom/android/server/vibrator/VibrationThread$StepQueue;->calculateVibrationStatus(I)Lcom/android/server/vibrator/Vibration$Status;
-
-    move-result-object v5
-
-    move-object v4, v5
-
-    sget-object v5, Lcom/android/server/vibrator/Vibration$Status;->RUNNING:Lcom/android/server/vibrator/Vibration$Status;
-
-    if-ne v4, v5, :cond_6
-
-    const-string v5, "VibrationThread"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "Something went wrong, step queue completed but vibration status is still RUNNING for vibration "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v7, p0, Lcom/android/server/vibrator/VibrationThread;->mVibration:Lcom/android/server/vibrator/Vibration;
-
-    iget-wide v7, v7, Lcom/android/server/vibrator/Vibration;->id:J
-
-    invoke-virtual {v6, v7, v8}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    sget-object v5, Lcom/android/server/vibrator/Vibration$Status;->FINISHED:Lcom/android/server/vibrator/Vibration$Status;
-
-    move-object v4, v5
-
-    :cond_6
-    iget-object v5, p0, Lcom/android/server/vibrator/VibrationThread;->mCallbacks:Lcom/android/server/vibrator/VibrationThread$VibrationCallbacks;
-
-    iget-object v6, p0, Lcom/android/server/vibrator/VibrationThread;->mVibration:Lcom/android/server/vibrator/Vibration;
-
-    iget-wide v6, v6, Lcom/android/server/vibrator/Vibration;->id:J
-
-    invoke-interface {v5, v6, v7, v4}, Lcom/android/server/vibrator/VibrationThread$VibrationCallbacks;->onVibrationCompleted(JLcom/android/server/vibrator/Vibration$Status;)V
+    throw v5
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_1
 
-    :cond_7
+    :cond_5
+    :goto_3
     invoke-static {v1, v2}, Landroid/os/Trace;->traceEnd(J)V
 
     nop
@@ -765,6 +736,124 @@
     invoke-static {v1, v2}, Landroid/os/Trace;->traceEnd(J)V
 
     throw v0
+.end method
+
+.method private runWithWakeLock()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/vibrator/VibrationThread;->mWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    iget-object v1, p0, Lcom/android/server/vibrator/VibrationThread;->mWorkSource:Landroid/os/WorkSource;
+
+    invoke-virtual {v0, v1}, Landroid/os/PowerManager$WakeLock;->setWorkSource(Landroid/os/WorkSource;)V
+
+    iget-object v0, p0, Lcom/android/server/vibrator/VibrationThread;->mWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->acquire()V
+
+    :try_start_0
+    invoke-direct {p0}, Lcom/android/server/vibrator/VibrationThread;->runWithWakeLockAndDeathLink()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    iget-object v0, p0, Lcom/android/server/vibrator/VibrationThread;->mWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
+
+    nop
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    iget-object v1, p0, Lcom/android/server/vibrator/VibrationThread;->mWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    invoke-virtual {v1}, Landroid/os/PowerManager$WakeLock;->release()V
+
+    throw v0
+.end method
+
+.method private runWithWakeLockAndDeathLink()V
+    .locals 5
+
+    const-string v0, "Failed to unlink token"
+
+    const-string v1, "VibrationThread"
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/vibrator/VibrationThread;->mVibration:Lcom/android/server/vibrator/Vibration;
+
+    iget-object v2, v2, Lcom/android/server/vibrator/Vibration;->token:Landroid/os/IBinder;
+
+    const/4 v3, 0x0
+
+    invoke-interface {v2, p0, v3}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_2
+
+    nop
+
+    :try_start_1
+    invoke-direct {p0}, Lcom/android/server/vibrator/VibrationThread;->playVibration()V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :try_start_2
+    iget-object v2, p0, Lcom/android/server/vibrator/VibrationThread;->mVibration:Lcom/android/server/vibrator/Vibration;
+
+    iget-object v2, v2, Lcom/android/server/vibrator/Vibration;->token:Landroid/os/IBinder;
+
+    invoke-interface {v2, p0, v3}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
+    :try_end_2
+    .catch Ljava/util/NoSuchElementException; {:try_start_2 .. :try_end_2} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v2
+
+    invoke-static {v1, v0, v2}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    nop
+
+    :goto_0
+    return-void
+
+    :catchall_0
+    move-exception v2
+
+    :try_start_3
+    iget-object v4, p0, Lcom/android/server/vibrator/VibrationThread;->mVibration:Lcom/android/server/vibrator/Vibration;
+
+    iget-object v4, v4, Lcom/android/server/vibrator/Vibration;->token:Landroid/os/IBinder;
+
+    invoke-interface {v4, p0, v3}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
+    :try_end_3
+    .catch Ljava/util/NoSuchElementException; {:try_start_3 .. :try_end_3} :catch_1
+
+    goto :goto_1
+
+    :catch_1
+    move-exception v3
+
+    invoke-static {v1, v0, v3}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :goto_1
+    throw v2
+
+    :catch_2
+    move-exception v0
+
+    const-string v2, "Error linking vibration to token death"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    sget-object v1, Lcom/android/server/vibrator/Vibration$Status;->IGNORED_ERROR_TOKEN:Lcom/android/server/vibrator/Vibration$Status;
+
+    invoke-direct {p0, v1}, Lcom/android/server/vibrator/VibrationThread;->clientVibrationCompleteIfNotAlready(Lcom/android/server/vibrator/Vibration$Status;)V
+
+    return-void
 .end method
 
 .method private static toSequential(Landroid/os/CombinedVibration;)Landroid/os/CombinedVibration$Sequential;
@@ -909,82 +998,56 @@
 .end method
 
 .method public run()V
-    .locals 4
+    .locals 2
 
     const/4 v0, -0x8
 
+    :try_start_0
     invoke-static {v0}, Landroid/os/Process;->setThreadPriority(I)V
 
-    iget-object v0, p0, Lcom/android/server/vibrator/VibrationThread;->mWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->acquire()V
-
-    const/4 v0, 0x0
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/vibrator/VibrationThread;->mVibration:Lcom/android/server/vibrator/Vibration;
-
-    iget-object v1, v1, Lcom/android/server/vibrator/Vibration;->token:Landroid/os/IBinder;
-
-    invoke-interface {v1, p0, v0}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
-
-    invoke-direct {p0}, Lcom/android/server/vibrator/VibrationThread;->playVibration()V
-
-    iget-object v1, p0, Lcom/android/server/vibrator/VibrationThread;->mCallbacks:Lcom/android/server/vibrator/VibrationThread$VibrationCallbacks;
-
-    invoke-interface {v1}, Lcom/android/server/vibrator/VibrationThread$VibrationCallbacks;->onVibratorsReleased()V
+    invoke-direct {p0}, Lcom/android/server/vibrator/VibrationThread;->runWithWakeLock()V
     :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_0
-
-    :catchall_0
-    move-exception v1
-
-    goto :goto_1
-
-    :catch_0
-    move-exception v1
-
     :try_start_1
-    const-string v2, "VibrationThread"
+    sget-object v0, Lcom/android/server/vibrator/Vibration$Status;->FINISHED_UNEXPECTED:Lcom/android/server/vibrator/Vibration$Status;
 
-    const-string v3, "Error linking vibration to token death"
-
-    invoke-static {v2, v3, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-direct {p0, v0}, Lcom/android/server/vibrator/VibrationThread;->clientVibrationCompleteIfNotAlready(Lcom/android/server/vibrator/Vibration$Status;)V
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     nop
 
-    :goto_0
-    iget-object v1, p0, Lcom/android/server/vibrator/VibrationThread;->mVibration:Lcom/android/server/vibrator/Vibration;
+    iget-object v0, p0, Lcom/android/server/vibrator/VibrationThread;->mCallbacks:Lcom/android/server/vibrator/VibrationThread$VibrationCallbacks;
 
-    iget-object v1, v1, Lcom/android/server/vibrator/Vibration;->token:Landroid/os/IBinder;
-
-    invoke-interface {v1, p0, v0}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
-
-    iget-object v0, p0, Lcom/android/server/vibrator/VibrationThread;->mWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
+    invoke-interface {v0}, Lcom/android/server/vibrator/VibrationThread$VibrationCallbacks;->onVibratorsReleased()V
 
     nop
 
     return-void
 
-    :goto_1
-    iget-object v2, p0, Lcom/android/server/vibrator/VibrationThread;->mVibration:Lcom/android/server/vibrator/Vibration;
+    :catchall_0
+    move-exception v0
 
-    iget-object v2, v2, Lcom/android/server/vibrator/Vibration;->token:Landroid/os/IBinder;
+    :try_start_2
+    sget-object v1, Lcom/android/server/vibrator/Vibration$Status;->FINISHED_UNEXPECTED:Lcom/android/server/vibrator/Vibration$Status;
 
-    invoke-interface {v2, p0, v0}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
+    invoke-direct {p0, v1}, Lcom/android/server/vibrator/VibrationThread;->clientVibrationCompleteIfNotAlready(Lcom/android/server/vibrator/Vibration$Status;)V
 
-    iget-object v0, p0, Lcom/android/server/vibrator/VibrationThread;->mWakeLock:Landroid/os/PowerManager$WakeLock;
+    nop
 
-    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
+    throw v0
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    throw v1
+    :catchall_1
+    move-exception v0
+
+    iget-object v1, p0, Lcom/android/server/vibrator/VibrationThread;->mCallbacks:Lcom/android/server/vibrator/VibrationThread$VibrationCallbacks;
+
+    invoke-interface {v1}, Lcom/android/server/vibrator/VibrationThread$VibrationCallbacks;->onVibratorsReleased()V
+
+    throw v0
 .end method
 
 .method public syncedVibrationComplete()V

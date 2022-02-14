@@ -41,6 +41,8 @@
 
 .field private volatile mCanceled:Z
 
+.field private mCheckRotationAfterCleanup:Ljava/lang/Runnable;
+
 .field private final mController:Landroid/view/IRecentsAnimationController;
 
 .field private mDisplayContent:Lcom/android/server/wm/DisplayContent;
@@ -76,6 +78,16 @@
 .field private final mPendingNewTaskTargets:Landroid/util/IntArray;
 
 .field private mPendingStart:Z
+
+.field private final mPendingTaskAppears:Ljava/util/ArrayList;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/ArrayList<",
+            "Landroid/view/RemoteAnimationTarget;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field private final mPendingWallpaperAnimations:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -148,9 +160,9 @@
 
     iput-boolean v1, p0, Lcom/android/server/wm/RecentsAnimationController;->mWillFinishToHome:Z
 
-    new-instance v0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda2;
 
-    invoke-direct {v0, p0}, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/wm/RecentsAnimationController;)V
+    invoke-direct {v0, p0}, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda2;-><init>(Lcom/android/server/wm/RecentsAnimationController;)V
 
     iput-object v0, p0, Lcom/android/server/wm/RecentsAnimationController;->mFailsafeRunnable:Ljava/lang/Runnable;
 
@@ -173,6 +185,12 @@
     const/4 v0, 0x2
 
     iput v0, p0, Lcom/android/server/wm/RecentsAnimationController;->mPendingCancelWithScreenshotReorderMode:I
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/android/server/wm/RecentsAnimationController;->mPendingTaskAppears:Ljava/util/ArrayList;
 
     new-instance v0, Lcom/android/server/wm/RecentsAnimationController$1;
 
@@ -243,7 +261,23 @@
     return v0
 .end method
 
-.method static synthetic access$1000(Lcom/android/server/wm/RecentsAnimationController;I)Z
+.method static synthetic access$1000(Lcom/android/server/wm/RecentsAnimationController;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/wm/RecentsAnimationController;->mTargetActivityType:I
+
+    return v0
+.end method
+
+.method static synthetic access$1102(Lcom/android/server/wm/RecentsAnimationController;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/wm/RecentsAnimationController;->mInputConsumerEnabled:Z
+
+    return p1
+.end method
+
+.method static synthetic access$1200(Lcom/android/server/wm/RecentsAnimationController;I)Z
     .locals 1
 
     invoke-direct {p0, p1}, Lcom/android/server/wm/RecentsAnimationController;->removeTaskInternal(I)Z
@@ -253,31 +287,7 @@
     return v0
 .end method
 
-.method static synthetic access$1100(Lcom/android/server/wm/RecentsAnimationController;)Lcom/android/server/wm/RecentsAnimationController$RecentsAnimationCallbacks;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/RecentsAnimationController;->mCallbacks:Lcom/android/server/wm/RecentsAnimationController$RecentsAnimationCallbacks;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1200(Lcom/android/server/wm/RecentsAnimationController;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/wm/RecentsAnimationController;->mTargetActivityType:I
-
-    return v0
-.end method
-
-.method static synthetic access$1302(Lcom/android/server/wm/RecentsAnimationController;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/server/wm/RecentsAnimationController;->mInputConsumerEnabled:Z
-
-    return p1
-.end method
-
-.method static synthetic access$1400(Lcom/android/server/wm/RecentsAnimationController;)Lcom/android/server/wm/ActivityRecord;
+.method static synthetic access$1300(Lcom/android/server/wm/RecentsAnimationController;)Lcom/android/server/wm/ActivityRecord;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/RecentsAnimationController;->mTargetActivityRecord:Lcom/android/server/wm/ActivityRecord;
@@ -285,7 +295,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1500(Lcom/android/server/wm/RecentsAnimationController;)Landroid/graphics/Rect;
+.method static synthetic access$1400(Lcom/android/server/wm/RecentsAnimationController;)Landroid/graphics/Rect;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/RecentsAnimationController;->mTmpRect:Landroid/graphics/Rect;
@@ -333,10 +343,10 @@
     return-object v0
 .end method
 
-.method static synthetic access$900(Lcom/android/server/wm/RecentsAnimationController;)Landroid/util/IntArray;
+.method static synthetic access$900(Lcom/android/server/wm/RecentsAnimationController;)Lcom/android/server/wm/RecentsAnimationController$RecentsAnimationCallbacks;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/server/wm/RecentsAnimationController;->mPendingNewTaskTargets:Landroid/util/IntArray;
+    iget-object v0, p0, Lcom/android/server/wm/RecentsAnimationController;->mCallbacks:Lcom/android/server/wm/RecentsAnimationController$RecentsAnimationCallbacks;
 
     return-object v0
 .end method
@@ -564,7 +574,7 @@
 .end method
 
 .method private cancelAnimation(IZLjava/lang/String;)V
-    .locals 8
+    .locals 7
 
     sget-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_RECENTS_ANIMATIONS_enabled:Z
 
@@ -621,78 +631,106 @@
 
     if-eqz p2, :cond_3
 
-    iget-object v1, p0, Lcom/android/server/wm/RecentsAnimationController;->mPendingAnimations:Ljava/util/ArrayList;
+    iget-object v4, p0, Lcom/android/server/wm/RecentsAnimationController;->mPendingAnimations:Ljava/util/ArrayList;
 
-    invoke-virtual {v1}, Ljava/util/ArrayList;->isEmpty()Z
+    invoke-virtual {v4}, Ljava/util/ArrayList;->isEmpty()Z
 
-    move-result v1
+    move-result v4
 
-    if-nez v1, :cond_3
+    if-nez v4, :cond_3
 
-    iget-object v1, p0, Lcom/android/server/wm/RecentsAnimationController;->mPendingAnimations:Ljava/util/ArrayList;
-
-    invoke-virtual {v1, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/server/wm/RecentsAnimationController$TaskAnimationAdapter;
-
-    invoke-static {v1}, Lcom/android/server/wm/RecentsAnimationController$TaskAnimationAdapter;->access$600(Lcom/android/server/wm/RecentsAnimationController$TaskAnimationAdapter;)Lcom/android/server/wm/Task;
-
-    move-result-object v2
-
-    invoke-virtual {p0, v2}, Lcom/android/server/wm/RecentsAnimationController;->screenshotRecentTask(Lcom/android/server/wm/Task;)Landroid/window/TaskSnapshot;
+    invoke-direct {p0}, Lcom/android/server/wm/RecentsAnimationController;->screenshotRecentTasks()Landroid/util/ArrayMap;
 
     move-result-object v4
 
     iput p1, p0, Lcom/android/server/wm/RecentsAnimationController;->mPendingCancelWithScreenshotReorderMode:I
+
+    invoke-virtual {v4}, Landroid/util/ArrayMap;->isEmpty()Z
+
+    move-result v5
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :try_start_1
-    iget-object v5, p0, Lcom/android/server/wm/RecentsAnimationController;->mRunner:Landroid/view/IRecentsAnimationRunner;
+    if-nez v5, :cond_3
 
-    invoke-interface {v5, v4}, Landroid/view/IRecentsAnimationRunner;->onAnimationCanceled(Landroid/window/TaskSnapshot;)V
+    :try_start_1
+    invoke-virtual {v4}, Landroid/util/ArrayMap;->size()I
+
+    move-result v2
+
+    new-array v2, v2, [I
+
+    invoke-virtual {v4}, Landroid/util/ArrayMap;->size()I
+
+    move-result v3
+
+    new-array v3, v3, [Landroid/window/TaskSnapshot;
+
+    invoke-virtual {v4}, Landroid/util/ArrayMap;->size()I
+
+    move-result v5
+
+    sub-int/2addr v5, v1
+
+    :goto_0
+    if-ltz v5, :cond_2
+
+    invoke-virtual {v4, v5}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/server/wm/Task;
+
+    iget v1, v1, Lcom/android/server/wm/Task;->mTaskId:I
+
+    aput v1, v2, v5
+
+    invoke-virtual {v4, v5}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/window/TaskSnapshot;
+
+    aput-object v1, v3, v5
+
+    add-int/lit8 v5, v5, -0x1
+
+    goto :goto_0
+
+    :cond_2
+    iget-object v1, p0, Lcom/android/server/wm/RecentsAnimationController;->mRunner:Landroid/view/IRecentsAnimationRunner;
+
+    invoke-interface {v1, v2, v3}, Landroid/view/IRecentsAnimationRunner;->onAnimationCanceled([I[Landroid/window/TaskSnapshot;)V
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_0
-
-    :catch_0
-    move-exception v5
-
-    :try_start_2
-    sget-object v6, Lcom/android/server/wm/RecentsAnimationController;->TAG:Ljava/lang/String;
-
-    const-string v7, "Failed to cancel recents animation"
-
-    invoke-static {v6, v7, v5}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :goto_0
-    if-eqz v4, :cond_2
-
-    invoke-virtual {v1, v4}, Lcom/android/server/wm/RecentsAnimationController$TaskAnimationAdapter;->setSnapshotOverlay(Landroid/window/TaskSnapshot;)V
-
-    invoke-virtual {p0}, Lcom/android/server/wm/RecentsAnimationController;->scheduleFailsafe()V
-
     goto :goto_1
 
-    :cond_2
-    iget-object v5, p0, Lcom/android/server/wm/RecentsAnimationController;->mCallbacks:Lcom/android/server/wm/RecentsAnimationController$RecentsAnimationCallbacks;
+    :catch_0
+    move-exception v1
 
-    invoke-interface {v5, p1, v3}, Lcom/android/server/wm/RecentsAnimationController$RecentsAnimationCallbacks;->onAnimationFinished(IZ)V
+    :try_start_2
+    sget-object v2, Lcom/android/server/wm/RecentsAnimationController;->TAG:Ljava/lang/String;
+
+    const-string v3, "Failed to cancel recents animation"
+
+    invoke-static {v2, v3, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :goto_1
+    invoke-virtual {p0}, Lcom/android/server/wm/RecentsAnimationController;->scheduleFailsafe()V
+
+    monitor-exit v0
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    :goto_1
-    goto :goto_3
+    return-void
 
     :cond_3
     :try_start_3
     iget-object v1, p0, Lcom/android/server/wm/RecentsAnimationController;->mRunner:Landroid/view/IRecentsAnimationRunner;
 
-    invoke-interface {v1, v2}, Landroid/view/IRecentsAnimationRunner;->onAnimationCanceled(Landroid/window/TaskSnapshot;)V
+    invoke-interface {v1, v2, v2}, Landroid/view/IRecentsAnimationRunner;->onAnimationCanceled([I[Landroid/window/TaskSnapshot;)V
     :try_end_3
     .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_1
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
@@ -714,7 +752,6 @@
 
     invoke-interface {v1, p1, v3}, Lcom/android/server/wm/RecentsAnimationController$RecentsAnimationCallbacks;->onAnimationFinished(IZ)V
 
-    :goto_3
     monitor-exit v0
 
     return-void
@@ -755,7 +792,11 @@
 
     check-cast v2, Lcom/android/server/wm/RecentsAnimationController$TaskAnimationAdapter;
 
-    invoke-virtual {v2}, Lcom/android/server/wm/RecentsAnimationController$TaskAnimationAdapter;->createRemoteAnimationTarget()Landroid/view/RemoteAnimationTarget;
+    nop
+
+    const/4 v3, -0x1
+
+    invoke-virtual {v2, v3}, Lcom/android/server/wm/RecentsAnimationController$TaskAnimationAdapter;->createRemoteAnimationTarget(I)Landroid/view/RemoteAnimationTarget;
 
     move-result-object v3
 
@@ -790,7 +831,7 @@
 .end method
 
 .method private createTaskRemoteAnimation(Lcom/android/server/wm/Task;Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;)Landroid/view/RemoteAnimationTarget;
-    .locals 4
+    .locals 5
 
     iget-object v0, p0, Lcom/android/server/wm/RecentsAnimationController;->mService:Lcom/android/server/wm/WindowManagerService;
 
@@ -804,31 +845,35 @@
 
     move-result-object v0
 
-    iget v1, p1, Lcom/android/server/wm/Task;->mTaskId:I
-
-    invoke-virtual {v0, v1}, Landroid/util/SparseBooleanArray;->get(I)Z
-
-    move-result v1
-
-    const/4 v2, 0x1
-
-    xor-int/2addr v1, v2
-
-    invoke-virtual {p0, p1, v1, v2, p2}, Lcom/android/server/wm/RecentsAnimationController;->addAnimation(Lcom/android/server/wm/Task;ZZLcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;)Lcom/android/server/wm/RecentsAnimationController$TaskAnimationAdapter;
+    invoke-virtual {p1}, Lcom/android/server/wm/Task;->getTopLeafTask()Lcom/android/server/wm/Task;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/server/wm/RecentsAnimationController;->mPendingNewTaskTargets:Landroid/util/IntArray;
+    iget v2, v1, Lcom/android/server/wm/Task;->mTaskId:I
 
-    iget v3, p1, Lcom/android/server/wm/Task;->mTaskId:I
+    nop
 
-    invoke-virtual {v2, v3}, Landroid/util/IntArray;->add(I)V
+    invoke-virtual {v0, v2}, Landroid/util/SparseBooleanArray;->get(I)Z
 
-    invoke-virtual {v1}, Lcom/android/server/wm/RecentsAnimationController$TaskAnimationAdapter;->createRemoteAnimationTarget()Landroid/view/RemoteAnimationTarget;
+    move-result v3
 
-    move-result-object v2
+    const/4 v4, 0x1
 
-    return-object v2
+    xor-int/2addr v3, v4
+
+    invoke-virtual {p0, p1, v3, v4, p2}, Lcom/android/server/wm/RecentsAnimationController;->addAnimation(Lcom/android/server/wm/Task;ZZLcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;)Lcom/android/server/wm/RecentsAnimationController$TaskAnimationAdapter;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/android/server/wm/RecentsAnimationController;->mPendingNewTaskTargets:Landroid/util/IntArray;
+
+    invoke-virtual {v4, v2}, Landroid/util/IntArray;->add(I)V
+
+    invoke-virtual {v3, v2}, Lcom/android/server/wm/RecentsAnimationController$TaskAnimationAdapter;->createRemoteAnimationTarget(I)Landroid/view/RemoteAnimationTarget;
+
+    move-result-object v4
+
+    return-object v4
 .end method
 
 .method private createWallpaperAnimations()[Landroid/view/RemoteAnimationTarget;
@@ -853,19 +898,19 @@
     invoke-static {v0, v1, v2, v3, v4}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
     :cond_0
-    iget-object v5, p0, Lcom/android/server/wm/RecentsAnimationController;->mService:Lcom/android/server/wm/WindowManagerService;
+    iget-object v5, p0, Lcom/android/server/wm/RecentsAnimationController;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
     const-wide/16 v6, 0x0
 
     const-wide/16 v8, 0x0
 
-    new-instance v10, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda6;
+    new-instance v10, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda7;
 
-    invoke-direct {v10, p0}, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda6;-><init>(Lcom/android/server/wm/RecentsAnimationController;)V
+    invoke-direct {v10, p0}, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda7;-><init>(Lcom/android/server/wm/RecentsAnimationController;)V
 
     iget-object v11, p0, Lcom/android/server/wm/RecentsAnimationController;->mPendingWallpaperAnimations:Ljava/util/ArrayList;
 
-    invoke-static/range {v5 .. v11}, Lcom/android/server/wm/WallpaperAnimationAdapter;->startWallpaperAnimations(Lcom/android/server/wm/WindowManagerService;JJLjava/util/function/Consumer;Ljava/util/ArrayList;)[Landroid/view/RemoteAnimationTarget;
+    invoke-static/range {v5 .. v11}, Lcom/android/server/wm/WallpaperAnimationAdapter;->startWallpaperAnimations(Lcom/android/server/wm/DisplayContent;JJLjava/util/function/Consumer;Ljava/util/ArrayList;)[Landroid/view/RemoteAnimationTarget;
 
     move-result-object v0
 
@@ -900,7 +945,7 @@
 
     move-result-object v2
 
-    sget-object v3, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda4;->INSTANCE:Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda4;
+    sget-object v3, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda5;->INSTANCE:Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda5;
 
     const-class v4, Lcom/android/server/wm/ActivityRecord;
 
@@ -978,9 +1023,9 @@
 .method static synthetic lambda$initialize$2(Lcom/android/server/wm/Task;ILcom/android/server/wm/AnimationAdapter;)V
     .locals 2
 
-    new-instance v0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda5;
+    new-instance v0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda6;
 
-    invoke-direct {v0, p1, p2}, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda5;-><init>(ILcom/android/server/wm/AnimationAdapter;)V
+    invoke-direct {v0, p1, p2}, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda6;-><init>(ILcom/android/server/wm/AnimationAdapter;)V
 
     const/4 v1, 0x1
 
@@ -989,7 +1034,7 @@
     return-void
 .end method
 
-.method static synthetic lambda$isAnimatingApp$6(Lcom/android/server/wm/ActivityRecord;Lcom/android/server/wm/ActivityRecord;)Ljava/lang/Boolean;
+.method static synthetic lambda$isAnimatingApp$7(Lcom/android/server/wm/ActivityRecord;Lcom/android/server/wm/ActivityRecord;)Ljava/lang/Boolean;
     .locals 1
 
     if-ne p0, p1, :cond_0
@@ -1126,6 +1171,82 @@
     :cond_2
     :goto_1
     return v0
+.end method
+
+.method private screenshotRecentTasks()Landroid/util/ArrayMap;
+    .locals 8
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Landroid/util/ArrayMap<",
+            "Lcom/android/server/wm/Task;",
+            "Landroid/window/TaskSnapshot;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/server/wm/RecentsAnimationController;->mService:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mTaskSnapshotController:Lcom/android/server/wm/TaskSnapshotController;
+
+    new-instance v1, Landroid/util/ArrayMap;
+
+    invoke-direct {v1}, Landroid/util/ArrayMap;-><init>()V
+
+    iget-object v2, p0, Lcom/android/server/wm/RecentsAnimationController;->mPendingAnimations:Ljava/util/ArrayList;
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    add-int/lit8 v2, v2, -0x1
+
+    :goto_0
+    if-ltz v2, :cond_1
+
+    iget-object v3, p0, Lcom/android/server/wm/RecentsAnimationController;->mPendingAnimations:Ljava/util/ArrayList;
+
+    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/server/wm/RecentsAnimationController$TaskAnimationAdapter;
+
+    invoke-static {v3}, Lcom/android/server/wm/RecentsAnimationController$TaskAnimationAdapter;->access$600(Lcom/android/server/wm/RecentsAnimationController$TaskAnimationAdapter;)Lcom/android/server/wm/Task;
+
+    move-result-object v4
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v0, v4, v5}, Lcom/android/server/wm/TaskSnapshotController;->recordTaskSnapshot(Lcom/android/server/wm/Task;Z)V
+
+    iget v6, v4, Lcom/android/server/wm/Task;->mTaskId:I
+
+    iget v7, v4, Lcom/android/server/wm/Task;->mUserId:I
+
+    invoke-virtual {v0, v6, v7, v5, v5}, Lcom/android/server/wm/TaskSnapshotController;->getSnapshot(IIZZ)Landroid/window/TaskSnapshot;
+
+    move-result-object v5
+
+    if-eqz v5, :cond_0
+
+    invoke-virtual {v1, v4, v5}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    invoke-virtual {v3, v5}, Lcom/android/server/wm/RecentsAnimationController$TaskAnimationAdapter;->setSnapshotOverlay(Landroid/window/TaskSnapshot;)V
+
+    :cond_0
+    add-int/lit8 v2, v2, -0x1
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {v1}, Landroid/util/ArrayMap;->keySet()Ljava/util/Set;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Lcom/android/server/wm/TaskSnapshotController;->addSkipClosingAppSnapshotTasks(Ljava/util/Set;)V
+
+    return-object v1
 .end method
 
 .method private skipAnimation(Lcom/android/server/wm/Task;)Z
@@ -1352,23 +1473,9 @@
     invoke-static {v5, v6, v1, v2, v0}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
     :cond_4
-    :try_start_0
-    iget-object v0, p0, Lcom/android/server/wm/RecentsAnimationController;->mRunner:Landroid/view/IRecentsAnimationRunner;
+    iget-object v0, p0, Lcom/android/server/wm/RecentsAnimationController;->mPendingTaskAppears:Ljava/util/ArrayList;
 
-    invoke-interface {v0, v3}, Landroid/view/IRecentsAnimationRunner;->onTaskAppeared(Landroid/view/RemoteAnimationTarget;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_3
-
-    :catch_0
-    move-exception v0
-
-    sget-object v1, Lcom/android/server/wm/RecentsAnimationController;->TAG:Ljava/lang/String;
-
-    const-string v2, "Failed to report task appeared"
-
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_3
 
@@ -1710,6 +1817,14 @@
     goto :goto_0
 
     :cond_4
+    iget-object v0, p0, Lcom/android/server/wm/RecentsAnimationController;->mPendingNewTaskTargets:Landroid/util/IntArray;
+
+    invoke-virtual {v0}, Landroid/util/IntArray;->clear()V
+
+    iget-object v0, p0, Lcom/android/server/wm/RecentsAnimationController;->mPendingTaskAppears:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
+
     iget-object v0, p0, Lcom/android/server/wm/RecentsAnimationController;->mPendingWallpaperAnimations:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -1799,39 +1914,54 @@
 
     invoke-virtual {v0, v4}, Lcom/android/server/wm/InputMonitor;->updateInputWindowsLw(Z)V
 
-    iget-object v1, p0, Lcom/android/server/wm/RecentsAnimationController;->mTargetActivityRecord:Lcom/android/server/wm/ActivityRecord;
+    iget-object v2, p0, Lcom/android/server/wm/RecentsAnimationController;->mTargetActivityRecord:Lcom/android/server/wm/ActivityRecord;
 
-    if-eqz v1, :cond_a
+    if-eqz v2, :cond_a
 
     if-eq p1, v4, :cond_9
 
     if-nez p1, :cond_a
 
     :cond_9
-    iget-object v1, p0, Lcom/android/server/wm/RecentsAnimationController;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
+    iget-object v2, p0, Lcom/android/server/wm/RecentsAnimationController;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
-    iget-object v1, v1, Lcom/android/server/wm/DisplayContent;->mAppTransition:Lcom/android/server/wm/AppTransition;
+    iget-object v2, v2, Lcom/android/server/wm/DisplayContent;->mAppTransition:Lcom/android/server/wm/AppTransition;
 
-    iget-object v2, p0, Lcom/android/server/wm/RecentsAnimationController;->mTargetActivityRecord:Lcom/android/server/wm/ActivityRecord;
+    iget-object v4, p0, Lcom/android/server/wm/RecentsAnimationController;->mTargetActivityRecord:Lcom/android/server/wm/ActivityRecord;
 
-    iget-object v2, v2, Lcom/android/server/wm/ActivityRecord;->token:Landroid/os/IBinder;
+    iget-object v4, v4, Lcom/android/server/wm/ActivityRecord;->token:Landroid/os/IBinder;
 
-    invoke-virtual {v1, v2}, Lcom/android/server/wm/AppTransition;->notifyAppTransitionFinishedLocked(Landroid/os/IBinder;)V
+    invoke-virtual {v2, v4}, Lcom/android/server/wm/AppTransition;->notifyAppTransitionFinishedLocked(Landroid/os/IBinder;)V
 
     :cond_a
-    iget-object v1, p0, Lcom/android/server/wm/RecentsAnimationController;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
+    iget-object v2, p0, Lcom/android/server/wm/RecentsAnimationController;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
 
-    iget-object v1, v1, Lcom/android/server/wm/DisplayContent;->mFixedRotationTransitionListener:Lcom/android/server/wm/DisplayContent$FixedRotationTransitionListener;
+    iget-object v2, v2, Lcom/android/server/wm/DisplayContent;->mFixedRotationTransitionListener:Lcom/android/server/wm/DisplayContent$FixedRotationTransitionListener;
 
-    invoke-virtual {v1}, Lcom/android/server/wm/DisplayContent$FixedRotationTransitionListener;->onFinishRecentsAnimation()V
+    invoke-virtual {v2}, Lcom/android/server/wm/DisplayContent$FixedRotationTransitionListener;->onFinishRecentsAnimation()V
 
-    iget-object v1, p0, Lcom/android/server/wm/RecentsAnimationController;->mStatusBar:Lcom/android/server/statusbar/StatusBarManagerInternal;
+    iget-object v2, p0, Lcom/android/server/wm/RecentsAnimationController;->mStatusBar:Lcom/android/server/statusbar/StatusBarManagerInternal;
 
-    if-eqz v1, :cond_b
+    if-eqz v2, :cond_b
 
-    invoke-interface {v1, v3}, Lcom/android/server/statusbar/StatusBarManagerInternal;->onRecentsAnimationStateChanged(Z)V
+    invoke-interface {v2, v3}, Lcom/android/server/statusbar/StatusBarManagerInternal;->onRecentsAnimationStateChanged(Z)V
 
     :cond_b
+    iget-object v2, p0, Lcom/android/server/wm/RecentsAnimationController;->mCheckRotationAfterCleanup:Ljava/lang/Runnable;
+
+    if-eqz v2, :cond_c
+
+    iget-object v2, p0, Lcom/android/server/wm/RecentsAnimationController;->mService:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v2, v2, Lcom/android/server/wm/WindowManagerService;->mH:Lcom/android/server/wm/WindowManagerService$H;
+
+    iget-object v3, p0, Lcom/android/server/wm/RecentsAnimationController;->mCheckRotationAfterCleanup:Ljava/lang/Runnable;
+
+    invoke-virtual {v2, v3}, Lcom/android/server/wm/WindowManagerService$H;->post(Ljava/lang/Runnable;)Z
+
+    iput-object v1, p0, Lcom/android/server/wm/RecentsAnimationController;->mCheckRotationAfterCleanup:Ljava/lang/Runnable;
+
+    :cond_c
     return-void
 .end method
 
@@ -2133,6 +2263,25 @@
     return-object v0
 .end method
 
+.method getTargetAppDisplayArea()Lcom/android/server/wm/DisplayArea;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/wm/RecentsAnimationController;->mTargetActivityRecord:Lcom/android/server/wm/ActivityRecord;
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x0
+
+    return-object v0
+
+    :cond_0
+    invoke-virtual {v0}, Lcom/android/server/wm/ActivityRecord;->getDisplayArea()Lcom/android/server/wm/TaskDisplayArea;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method getTargetAppMainWindow()Lcom/android/server/wm/WindowState;
     .locals 1
 
@@ -2191,7 +2340,7 @@
 
     if-eqz v1, :cond_0
 
-    sget-object v4, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda3;
+    sget-object v4, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda4;->INSTANCE:Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda4;
 
     const-class v5, Lcom/android/server/wm/Task;
 
@@ -2600,6 +2749,58 @@
     return-void
 .end method
 
+.method public synthetic lambda$setCheckRotationAfterCleanup$6$RecentsAnimationController()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/wm/RecentsAnimationController;->mService:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mGlobalLock:Lcom/android/server/wm/WindowManagerGlobalLock;
+
+    monitor-enter v0
+
+    :try_start_0
+    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->boostPriorityForLockedSection()V
+
+    iget-object v1, p0, Lcom/android/server/wm/RecentsAnimationController;->mDisplayContent:Lcom/android/server/wm/DisplayContent;
+
+    invoke-virtual {v1}, Lcom/android/server/wm/DisplayContent;->getDisplayRotation()Lcom/android/server/wm/DisplayRotation;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/server/wm/DisplayRotation;->updateRotationAndSendNewConfigIfChanged()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/server/wm/RecentsAnimationController;->mTargetActivityRecord:Lcom/android/server/wm/ActivityRecord;
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v1}, Lcom/android/server/wm/ActivityRecord;->finishFixedRotationTransform()V
+
+    :cond_0
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
+
+    return-void
+
+    :catchall_0
+    move-exception v1
+
+    :try_start_1
+    monitor-exit v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
+
+    throw v1
+.end method
+
 .method linkFixedRotationTransformIfNeeded(Lcom/android/server/wm/WindowToken;)V
     .locals 1
 
@@ -2622,9 +2823,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda2;
+    new-instance v1, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda3;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda2;-><init>(Lcom/android/server/wm/RecentsAnimationController;I)V
+    invoke-direct {v1, p0, p1}, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda3;-><init>(Lcom/android/server/wm/RecentsAnimationController;I)V
 
     const-wide/16 v2, 0x12c
 
@@ -2847,38 +3048,64 @@
     return-void
 .end method
 
-.method screenshotRecentTask(Lcom/android/server/wm/Task;)Landroid/window/TaskSnapshot;
-    .locals 5
+.method sendTasksAppeared()V
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/server/wm/RecentsAnimationController;->mService:Lcom/android/server/wm/WindowManagerService;
+    iget-object v0, p0, Lcom/android/server/wm/RecentsAnimationController;->mPendingTaskAppears:Ljava/util/ArrayList;
 
-    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mTaskSnapshotController:Lcom/android/server/wm/TaskSnapshotController;
+    invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
 
-    const/4 v1, 0x1
+    move-result v0
 
-    new-array v1, v1, [Lcom/android/server/wm/Task;
+    if-nez v0, :cond_1
 
-    const/4 v2, 0x0
+    iget-object v0, p0, Lcom/android/server/wm/RecentsAnimationController;->mRunner:Landroid/view/IRecentsAnimationRunner;
 
-    aput-object p1, v1, v2
+    if-nez v0, :cond_0
 
-    invoke-static {v1}, Lcom/google/android/collect/Sets;->newArraySet([Ljava/lang/Object;)Landroid/util/ArraySet;
+    goto :goto_1
 
-    move-result-object v1
+    :cond_0
+    :try_start_0
+    iget-object v0, p0, Lcom/android/server/wm/RecentsAnimationController;->mPendingTaskAppears:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/wm/TaskSnapshotController;->snapshotTasks(Landroid/util/ArraySet;)V
+    const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/android/server/wm/TaskSnapshotController;->addSkipClosingAppSnapshotTasks(Landroid/util/ArraySet;)V
+    new-array v1, v1, [Landroid/view/RemoteAnimationTarget;
 
-    iget v3, p1, Lcom/android/server/wm/Task;->mTaskId:I
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    iget v4, p1, Lcom/android/server/wm/Task;->mUserId:I
+    move-result-object v0
 
-    invoke-virtual {v0, v3, v4, v2, v2}, Lcom/android/server/wm/TaskSnapshotController;->getSnapshot(IIZZ)Landroid/window/TaskSnapshot;
+    check-cast v0, [Landroid/view/RemoteAnimationTarget;
 
-    move-result-object v2
+    iget-object v1, p0, Lcom/android/server/wm/RecentsAnimationController;->mRunner:Landroid/view/IRecentsAnimationRunner;
 
-    return-object v2
+    invoke-interface {v1, v0}, Landroid/view/IRecentsAnimationRunner;->onTasksAppeared([Landroid/view/RemoteAnimationTarget;)V
+
+    iget-object v1, p0, Lcom/android/server/wm/RecentsAnimationController;->mPendingTaskAppears:Ljava/util/ArrayList;
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->clear()V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    sget-object v1, Lcom/android/server/wm/RecentsAnimationController;->TAG:Ljava/lang/String;
+
+    const-string v2, "Failed to report task appeared"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :goto_0
+    return-void
+
+    :cond_1
+    :goto_1
+    return-void
 .end method
 
 .method setCancelOnNextTransitionStart()V
@@ -2887,6 +3114,25 @@
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/server/wm/RecentsAnimationController;->mCancelOnNextTransitionStart:Z
+
+    return-void
+.end method
+
+.method setCheckRotationAfterCleanup()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/wm/RecentsAnimationController;->mCheckRotationAfterCleanup:Ljava/lang/Runnable;
+
+    if-eqz v0, :cond_0
+
+    return-void
+
+    :cond_0
+    new-instance v0, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda1;
+
+    invoke-direct {v0, p0}, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/wm/RecentsAnimationController;)V
+
+    iput-object v0, p0, Lcom/android/server/wm/RecentsAnimationController;->mCheckRotationAfterCleanup:Ljava/lang/Runnable;
 
     return-void
 .end method
@@ -3128,7 +3374,11 @@
 
     move-result v7
 
-    invoke-virtual {v5, v6, v7, v4}, Landroid/view/InsetsState;->calculateInsets(Landroid/graphics/Rect;IZ)Landroid/graphics/Rect;
+    invoke-virtual {v5, v6, v7, v4}, Landroid/view/InsetsState;->calculateInsets(Landroid/graphics/Rect;IZ)Landroid/graphics/Insets;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/graphics/Insets;->toRect()Landroid/graphics/Rect;
 
     move-result-object v5
 
@@ -3170,7 +3420,7 @@
 
     move-result-object v5
 
-    sget-object v6, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda7;->INSTANCE:Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda7;
+    sget-object v6, Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda8;->INSTANCE:Lcom/android/server/wm/RecentsAnimationController$$ExternalSyntheticLambda8;
 
     invoke-interface {v5, v6}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
 

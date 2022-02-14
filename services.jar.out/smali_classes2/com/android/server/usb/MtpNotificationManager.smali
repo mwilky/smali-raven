@@ -232,13 +232,13 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x1040887
+    const v2, 0x104088c
 
     invoke-virtual {v0, v2, v1}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
-    const v2, 0x1040886
+    const v2, 0x104088b
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

@@ -65,6 +65,12 @@
     if-nez v0, :cond_1
 
     :cond_0
+    iget-object v0, p0, Lcom/android/server/wm/DisplayContent;->mWmService:Lcom/android/server/wm/WindowManagerService;
+
+    iget-boolean v0, v0, Lcom/android/server/wm/WindowManagerService;->mDisplayFrozen:Z
+
+    if-nez v0, :cond_1
+
     const/4 v0, 0x1
 
     goto :goto_0

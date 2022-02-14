@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService$FingerprintServiceWrapper;->authenticateWithPrompt(JLandroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;ILandroid/hardware/fingerprint/IFingerprintServiceReceiver;)J
+    value = Lcom/android/server/biometrics/sensors/fingerprint/FingerprintService$FingerprintServiceWrapper;->authenticateWithPrompt(JLandroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;ILandroid/hardware/fingerprint/IFingerprintServiceReceiver;Z)J
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

@@ -97,7 +97,7 @@
 
     iget-object v2, p0, Lcom/android/server/apphibernation/AppHibernationService$1;->this$0:Lcom/android/server/apphibernation/AppHibernationService;
 
-    invoke-static {v2, v3, v0}, Lcom/android/server/apphibernation/AppHibernationService;->access$200(Lcom/android/server/apphibernation/AppHibernationService;Ljava/lang/String;I)V
+    invoke-static {v2, v3, v0}, Lcom/android/server/apphibernation/AppHibernationService;->access$300(Lcom/android/server/apphibernation/AppHibernationService;Ljava/lang/String;I)V
 
     goto :goto_0
 
@@ -110,7 +110,7 @@
 
     iget-object v2, p0, Lcom/android/server/apphibernation/AppHibernationService$1;->this$0:Lcom/android/server/apphibernation/AppHibernationService;
 
-    invoke-static {v2, v3, v0}, Lcom/android/server/apphibernation/AppHibernationService;->access$300(Lcom/android/server/apphibernation/AppHibernationService;Ljava/lang/String;I)V
+    invoke-static {v2, v3, v0}, Lcom/android/server/apphibernation/AppHibernationService;->access$400(Lcom/android/server/apphibernation/AppHibernationService;Ljava/lang/String;I)V
 
     const-string v2, "android.intent.extra.REMOVED_FOR_ALL_USERS"
 
@@ -122,7 +122,7 @@
 
     iget-object v2, p0, Lcom/android/server/apphibernation/AppHibernationService$1;->this$0:Lcom/android/server/apphibernation/AppHibernationService;
 
-    invoke-static {v2, v3}, Lcom/android/server/apphibernation/AppHibernationService;->access$400(Lcom/android/server/apphibernation/AppHibernationService;Ljava/lang/String;)V
+    invoke-static {v2, v3}, Lcom/android/server/apphibernation/AppHibernationService;->access$500(Lcom/android/server/apphibernation/AppHibernationService;Ljava/lang/String;)V
 
     :cond_4
     :goto_0

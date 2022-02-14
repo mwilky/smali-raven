@@ -2,36 +2,44 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/util/function/Function;
 
 
-# instance fields
-.field public final synthetic f$0:Ljava/lang/String;
+# static fields
+.field public static final synthetic INSTANCE:Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda7;
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/lang/String;)V
+.method static synthetic constructor <clinit>()V
+    .locals 1
+
+    new-instance v0, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda7;
+
+    invoke-direct {v0}, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda7;-><init>()V
+
+    sput-object v0, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda7;->INSTANCE:Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda7;
+
+    return-void
+.end method
+
+.method private synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda7;->f$0:Ljava/lang/String;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl$$ExternalSyntheticLambda7;->f$0:Ljava/lang/String;
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
 
     check-cast p1, Landroid/companion/Association;
 
-    invoke-static {v0, p1}, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl;->lambda$isDeviceAssociatedForWifiConnection$4(Ljava/lang/String;Landroid/companion/Association;)Z
+    invoke-static {p1}, Lcom/android/server/companion/CompanionDeviceManagerService$CompanionDeviceManagerImpl;->lambda$getAssociations$4(Landroid/companion/Association;)Ljava/lang/String;
 
-    move-result p1
+    move-result-object p1
 
-    return p1
+    return-object p1
 .end method

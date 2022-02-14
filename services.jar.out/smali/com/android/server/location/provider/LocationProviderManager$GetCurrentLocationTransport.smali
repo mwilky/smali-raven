@@ -46,7 +46,7 @@
     return-void
 .end method
 
-.method public deliverOnLocationChanged(Landroid/location/LocationResult;Ljava/lang/Runnable;)V
+.method public deliverOnLocationChanged(Landroid/location/LocationResult;Landroid/os/IRemoteCallback;)V
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {

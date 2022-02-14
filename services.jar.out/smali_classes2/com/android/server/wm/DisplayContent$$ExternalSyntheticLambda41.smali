@@ -37,7 +37,7 @@
 
     check-cast p1, Lcom/android/server/wm/WindowState;
 
-    invoke-static {p1}, Lcom/android/server/wm/DisplayContent;->lambda$notifyLocationInParentDisplayChanged$33(Lcom/android/server/wm/WindowState;)V
+    invoke-static {p1}, Lcom/android/server/wm/DisplayContent;->lambda$notifyLocationInParentDisplayChanged$35(Lcom/android/server/wm/WindowState;)V
 
     return-void
 .end method

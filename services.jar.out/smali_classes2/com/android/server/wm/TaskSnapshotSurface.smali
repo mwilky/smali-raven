@@ -349,9 +349,13 @@
 
     move-object v12, v0
 
-    new-instance v6, Landroid/view/InsetsState;
+    new-instance v8, Landroid/view/InsetsState;
 
-    invoke-direct {v6}, Landroid/view/InsetsState;-><init>()V
+    invoke-direct {v8}, Landroid/view/InsetsState;-><init>()V
+
+    new-instance v6, Landroid/view/InsetsVisibilities;
+
+    invoke-direct {v6}, Landroid/view/InsetsVisibilities;-><init>()V
 
     const/4 v0, 0x0
 
@@ -402,153 +406,153 @@
 
     move-result-object v7
 
-    move-object v8, v7
+    iget-object v0, v7, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
 
-    iget-object v7, v8, Lcom/android/server/wm/WindowState;->mAttrs:Landroid/view/WindowManager$LayoutParams;
+    iget-object v1, v0, Landroid/view/WindowManager$LayoutParams;->insetsFlags:Landroid/view/InsetsFlags;
 
-    iget-object v0, v7, Landroid/view/WindowManager$LayoutParams;->insetsFlags:Landroid/view/InsetsFlags;
+    iget v1, v1, Landroid/view/InsetsFlags;->appearance:I
 
-    iget v0, v0, Landroid/view/InsetsFlags;->appearance:I
+    move-object/from16 v18, v5
 
-    move/from16 v40, v0
+    iget v5, v0, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    iget v0, v7, Landroid/view/WindowManager$LayoutParams;->flags:I
+    move/from16 v40, v5
 
-    move/from16 v41, v0
+    iget v5, v0, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
-    iget v0, v7, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
-
-    move/from16 v42, v0
+    move/from16 v41, v5
 
     invoke-virtual {v3}, Lcom/android/server/wm/WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
 
-    move-result-object v0
+    move-result-object v5
 
-    iget-object v0, v0, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
+    iget-object v5, v5, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
 
-    iput-object v0, v15, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
-
-    invoke-virtual {v3}, Lcom/android/server/wm/WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
-
-    move-result-object v0
-
-    iget v0, v0, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
-
-    iput v0, v15, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
+    iput-object v5, v15, Landroid/view/WindowManager$LayoutParams;->packageName:Ljava/lang/String;
 
     invoke-virtual {v3}, Lcom/android/server/wm/WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
 
-    move-result-object v0
+    move-result-object v5
 
-    iget v0, v0, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
+    iget v5, v5, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
-    iput v0, v15, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
+    iput v5, v15, Landroid/view/WindowManager$LayoutParams;->windowAnimations:I
 
-    const/4 v0, 0x3
+    invoke-virtual {v3}, Lcom/android/server/wm/WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
 
-    iput v0, v15, Landroid/view/WindowManager$LayoutParams;->type:I
+    move-result-object v5
+
+    iget v5, v5, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
+
+    iput v5, v15, Landroid/view/WindowManager$LayoutParams;->dimAmount:F
+
+    const/4 v5, 0x3
+
+    iput v5, v15, Landroid/view/WindowManager$LayoutParams;->type:I
 
     invoke-virtual/range {p2 .. p2}, Landroid/window/TaskSnapshot;->getHardwareBuffer()Landroid/hardware/HardwareBuffer;
 
-    move-result-object v0
+    move-result-object v5
 
-    invoke-virtual {v0}, Landroid/hardware/HardwareBuffer;->getFormat()I
+    invoke-virtual {v5}, Landroid/hardware/HardwareBuffer;->getFormat()I
 
-    move-result v0
+    move-result v5
 
-    iput v0, v15, Landroid/view/WindowManager$LayoutParams;->format:I
+    iput v5, v15, Landroid/view/WindowManager$LayoutParams;->format:I
 
-    const v0, -0x3186e039
+    const v5, -0x3186e039
 
-    and-int v0, v41, v0
+    and-int v5, v40, v5
 
-    or-int/lit8 v0, v0, 0x8
+    or-int/lit8 v5, v5, 0x8
 
-    or-int/lit8 v0, v0, 0x10
+    or-int/lit8 v5, v5, 0x10
 
-    iput v0, v15, Landroid/view/WindowManager$LayoutParams;->flags:I
+    iput v5, v15, Landroid/view/WindowManager$LayoutParams;->flags:I
 
-    const/high16 v0, 0x20000
+    const/high16 v5, 0x20000
 
-    and-int v0, v42, v0
+    and-int v5, v41, v5
 
-    const/high16 v17, 0x20000000
+    const/high16 v19, 0x20000000
 
-    or-int v0, v0, v17
+    or-int v5, v5, v19
 
-    const/high16 v17, 0x2000000
+    const/high16 v19, 0x2000000
 
-    or-int v0, v0, v17
+    or-int v5, v5, v19
 
-    iput v0, v15, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+    iput v5, v15, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
-    move-object/from16 v13, p1
+    move-object/from16 v5, p1
 
-    iget-object v0, v13, Lcom/android/server/wm/ActivityRecord;->token:Landroid/os/IBinder;
+    move-object/from16 v19, v3
 
-    iput-object v0, v15, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
+    iget-object v3, v5, Lcom/android/server/wm/ActivityRecord;->token:Landroid/os/IBinder;
 
-    iput v1, v15, Landroid/view/WindowManager$LayoutParams;->width:I
+    iput-object v3, v15, Landroid/view/WindowManager$LayoutParams;->token:Landroid/os/IBinder;
 
-    iput v1, v15, Landroid/view/WindowManager$LayoutParams;->height:I
+    const/4 v3, -0x1
 
-    iget-object v0, v15, Landroid/view/WindowManager$LayoutParams;->insetsFlags:Landroid/view/InsetsFlags;
+    iput v3, v15, Landroid/view/WindowManager$LayoutParams;->width:I
 
-    move/from16 v1, v40
+    iput v3, v15, Landroid/view/WindowManager$LayoutParams;->height:I
 
-    iput v1, v0, Landroid/view/InsetsFlags;->appearance:I
+    iget-object v3, v15, Landroid/view/WindowManager$LayoutParams;->insetsFlags:Landroid/view/InsetsFlags;
 
-    iget-object v0, v15, Landroid/view/WindowManager$LayoutParams;->insetsFlags:Landroid/view/InsetsFlags;
+    iput v1, v3, Landroid/view/InsetsFlags;->appearance:I
+
+    iget-object v3, v15, Landroid/view/WindowManager$LayoutParams;->insetsFlags:Landroid/view/InsetsFlags;
 
     move/from16 v17, v1
 
-    iget-object v1, v7, Landroid/view/WindowManager$LayoutParams;->insetsFlags:Landroid/view/InsetsFlags;
+    iget-object v1, v0, Landroid/view/WindowManager$LayoutParams;->insetsFlags:Landroid/view/InsetsFlags;
 
     iget v1, v1, Landroid/view/InsetsFlags;->behavior:I
 
-    iput v1, v0, Landroid/view/InsetsFlags;->behavior:I
+    iput v1, v3, Landroid/view/InsetsFlags;->behavior:I
 
-    iget v0, v7, Landroid/view/WindowManager$LayoutParams;->layoutInDisplayCutoutMode:I
+    iget v1, v0, Landroid/view/WindowManager$LayoutParams;->layoutInDisplayCutoutMode:I
 
-    iput v0, v15, Landroid/view/WindowManager$LayoutParams;->layoutInDisplayCutoutMode:I
+    iput v1, v15, Landroid/view/WindowManager$LayoutParams;->layoutInDisplayCutoutMode:I
 
-    invoke-virtual {v7}, Landroid/view/WindowManager$LayoutParams;->getFitInsetsTypes()I
+    invoke-virtual {v0}, Landroid/view/WindowManager$LayoutParams;->getFitInsetsTypes()I
 
-    move-result v0
+    move-result v1
 
-    invoke-virtual {v15, v0}, Landroid/view/WindowManager$LayoutParams;->setFitInsetsTypes(I)V
+    invoke-virtual {v15, v1}, Landroid/view/WindowManager$LayoutParams;->setFitInsetsTypes(I)V
 
-    invoke-virtual {v7}, Landroid/view/WindowManager$LayoutParams;->getFitInsetsSides()I
+    invoke-virtual {v0}, Landroid/view/WindowManager$LayoutParams;->getFitInsetsSides()I
 
-    move-result v0
+    move-result v1
 
-    invoke-virtual {v15, v0}, Landroid/view/WindowManager$LayoutParams;->setFitInsetsSides(I)V
+    invoke-virtual {v15, v1}, Landroid/view/WindowManager$LayoutParams;->setFitInsetsSides(I)V
 
-    invoke-virtual {v7}, Landroid/view/WindowManager$LayoutParams;->isFitInsetsIgnoringVisibility()Z
+    invoke-virtual {v0}, Landroid/view/WindowManager$LayoutParams;->isFitInsetsIgnoringVisibility()Z
 
-    move-result v0
+    move-result v1
 
-    invoke-virtual {v15, v0}, Landroid/view/WindowManager$LayoutParams;->setFitInsetsIgnoringVisibility(Z)V
+    invoke-virtual {v15, v1}, Landroid/view/WindowManager$LayoutParams;->setFitInsetsIgnoringVisibility(Z)V
 
-    const-string v0, "SnapshotStartingWindow for taskId=%s"
+    const-string v1, "SnapshotStartingWindow for taskId=%s"
 
-    const/4 v1, 0x1
+    const/4 v3, 0x1
 
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array v3, v3, [Ljava/lang/Object;
 
-    move-object/from16 v18, v3
+    move-object/from16 v21, v0
 
-    iget v3, v4, Lcom/android/server/wm/Task;->mTaskId:I
+    iget v0, v4, Lcom/android/server/wm/Task;->mTaskId:I
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v0
 
     const/16 v16, 0x0
 
-    aput-object v3, v1, v16
+    aput-object v0, v3, v16
 
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -578,9 +582,9 @@
 
     move-object v7, v12
 
-    move-object v8, v14
+    move-object v9, v14
 
-    move-object v9, v15
+    move-object/from16 v25, v15
 
     goto/16 :goto_3
 
@@ -595,7 +599,7 @@
 
     invoke-virtual {v4, v3}, Lcom/android/server/wm/Task;->getBounds(Landroid/graphics/Rect;)V
 
-    invoke-virtual {v8}, Lcom/android/server/wm/WindowState;->getConfiguration()Landroid/content/res/Configuration;
+    invoke-virtual {v7}, Lcom/android/server/wm/WindowState;->getConfiguration()Landroid/content/res/Configuration;
 
     move-result-object v1
 
@@ -607,11 +611,11 @@
 
     move-result v38
 
-    invoke-virtual {v8}, Lcom/android/server/wm/WindowState;->getInsetsStateWithVisibilityOverride()Landroid/view/InsetsState;
+    invoke-virtual {v7}, Lcom/android/server/wm/WindowState;->getInsetsStateWithVisibilityOverride()Landroid/view/InsetsState;
 
     move-result-object v1
 
-    move-object v7, v1
+    move-object v4, v1
 
     monitor-exit v2
     :try_end_2
@@ -625,11 +629,11 @@
 
     invoke-virtual {v0}, Lcom/android/server/wm/DisplayContent;->getDisplayId()I
 
-    move-result v40
+    move-result v42
 
-    const/16 v4, 0x8
+    const/16 v0, 0x8
 
-    const/4 v0, 0x0
+    const/16 v16, 0x0
 
     move/from16 v43, v17
 
@@ -641,20 +645,20 @@
 
     move-object v3, v15
 
-    move/from16 v5, v40
+    move-object/from16 v45, v4
 
-    move-object/from16 v45, v7
+    move v4, v0
 
-    move-object v7, v0
+    move/from16 v5, v42
 
-    move-object/from16 v46, v8
+    move-object/from16 v46, v7
 
-    move-object v8, v6
+    move-object/from16 v7, v16
 
     move-object v9, v11
 
     :try_start_3
-    invoke-interface/range {v1 .. v9}, Landroid/view/IWindowSession;->addToDisplay(Landroid/view/IWindow;Landroid/view/WindowManager$LayoutParams;IILandroid/view/InsetsState;Landroid/view/InputChannel;Landroid/view/InsetsState;[Landroid/view/InsetsSourceControl;)I
+    invoke-interface/range {v1 .. v9}, Landroid/view/IWindowSession;->addToDisplay(Landroid/view/IWindow;Landroid/view/WindowManager$LayoutParams;IILandroid/view/InsetsVisibilities;Landroid/view/InputChannel;Landroid/view/InsetsState;[Landroid/view/InsetsSourceControl;)I
 
     move-result v0
 
@@ -701,7 +705,7 @@
 
     move-object/from16 v26, p0
 
-    move/from16 v27, v40
+    move/from16 v27, v42
 
     move-object/from16 v28, v14
 
@@ -711,9 +715,9 @@
 
     move/from16 v33, v43
 
-    move/from16 v34, v41
+    move/from16 v34, v40
 
-    move/from16 v35, v42
+    move/from16 v35, v41
 
     move-object/from16 v36, v44
 
@@ -754,11 +758,11 @@
 
     move v13, v0
 
-    move-object v8, v14
+    move-object v9, v14
 
     move v14, v2
 
-    move-object v9, v15
+    move-object/from16 v25, v15
 
     move v15, v3
 
@@ -766,7 +770,7 @@
 
     move-object/from16 v21, v29
 
-    move-object/from16 v22, v6
+    move-object/from16 v22, v8
 
     move-object/from16 v23, v5
 
@@ -791,9 +795,9 @@
 
     move-object v7, v12
 
-    move-object v8, v14
+    move-object v9, v14
 
-    move-object v9, v15
+    move-object/from16 v25, v15
 
     :goto_2
     iget-object v0, v7, Landroid/window/ClientWindowFrames;->frame:Landroid/graphics/Rect;
@@ -821,9 +825,9 @@
 
     move-object v7, v12
 
-    move-object v8, v14
+    move-object v9, v14
 
-    move-object v9, v15
+    move-object/from16 v25, v15
 
     :goto_3
     :try_start_6

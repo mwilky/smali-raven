@@ -39,7 +39,7 @@
 
     iget-boolean v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda29;->f$2:Z
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$setLocationEnabled$90$DevicePolicyManagerService(Landroid/os/UserHandle;Z)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$setLocationEnabled$93$DevicePolicyManagerService(Landroid/os/UserHandle;Z)V
 
     return-void
 .end method

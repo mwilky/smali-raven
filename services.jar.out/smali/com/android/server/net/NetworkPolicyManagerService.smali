@@ -2649,7 +2649,7 @@
     return-void
 
     :sswitch_0
-    const v10, 0x10402b5
+    const v10, 0x10402b9
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -2657,7 +2657,7 @@
 
     if-eqz v5, :cond_0
 
-    const v14, 0x10402b3
+    const v14, 0x10402b7
 
     new-array v8, v8, [Ljava/lang/Object;
 
@@ -2680,7 +2680,7 @@
     goto :goto_0
 
     :cond_0
-    const v8, 0x10402b4
+    const v8, 0x10402b8
 
     invoke-virtual {v9, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2764,7 +2764,7 @@
     return-void
 
     :sswitch_2
-    const v14, 0x10402ba
+    const v14, 0x10402be
 
     invoke-virtual {v9, v14}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -2773,7 +2773,7 @@
     goto :goto_1
 
     :sswitch_3
-    const v14, 0x10402b1
+    const v14, 0x10402b5
 
     invoke-virtual {v9, v14}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -2796,7 +2796,7 @@
 
     aput-object v8, v15, v13
 
-    const v8, 0x10402b0
+    const v8, 0x10402b4
 
     invoke-virtual {v9, v8, v15}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2878,7 +2878,7 @@
     return-void
 
     :sswitch_5
-    const v2, 0x10402bb
+    const v2, 0x10402bf
 
     invoke-virtual {v9, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -2889,7 +2889,7 @@
     goto :goto_3
 
     :sswitch_6
-    const v2, 0x10402b2
+    const v2, 0x10402b6
 
     invoke-virtual {v9, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -2898,7 +2898,7 @@
     move-object v10, v2
 
     :goto_3
-    const v2, 0x10402af
+    const v2, 0x10402b3
 
     invoke-virtual {v9, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -2960,13 +2960,13 @@
     goto :goto_5
 
     :sswitch_7
-    const v2, 0x10402b9
+    const v2, 0x10402bd
 
     invoke-virtual {v9, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    const v8, 0x10402b8
+    const v8, 0x10402bc
 
     const/4 v11, 0x1
 
@@ -3883,7 +3883,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e0097
+    const v1, 0x10e009b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -8568,7 +8568,7 @@
     :cond_2
     iget v2, v0, Lcom/android/server/net/NetworkPolicyManagerService$UidBlockedState;->allowedReasons:I
 
-    and-int/lit8 v2, v2, 0x10
+    and-int/lit8 v2, v2, -0x11
 
     iput v2, v0, Lcom/android/server/net/NetworkPolicyManagerService$UidBlockedState;->allowedReasons:I
 
@@ -10361,6 +10361,12 @@
 
     :goto_8
     or-int v14, v14, v16
+
+    iget v15, v11, Lcom/android/server/net/NetworkPolicyManagerService$UidBlockedState;->allowedReasons:I
+
+    and-int/lit8 v15, v15, 0x10
+
+    or-int/2addr v14, v15
 
     sget-boolean v15, Lcom/android/server/net/NetworkPolicyManagerService;->LOGV:Z
 

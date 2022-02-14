@@ -8,6 +8,7 @@
     value = {
         Lcom/android/server/vcn/Vcn$VcnContentResolver;,
         Lcom/android/server/vcn/Vcn$Dependencies;,
+        Lcom/android/server/vcn/Vcn$VcnUserMobileDataStateListener;,
         Lcom/android/server/vcn/Vcn$VcnMobileDataContentObserver;,
         Lcom/android/server/vcn/Vcn$VcnGatewayStatusCallbackImpl;,
         Lcom/android/server/vcn/Vcn$VcnGatewayStatusCallback;,
@@ -64,6 +65,17 @@
 .field private mLastSnapshot:Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;
 
 .field private final mMobileDataSettingsObserver:Landroid/database/ContentObserver;
+
+.field private final mMobileDataStateListeners:Ljava/util/Map;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Map<",
+            "Ljava/lang/Integer;",
+            "Lcom/android/server/vcn/Vcn$VcnUserMobileDataStateListener;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field private final mRequestListener:Lcom/android/server/vcn/Vcn$VcnNetworkRequestListener;
 
@@ -169,6 +181,12 @@
 
     invoke-direct {p0, v0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
+    new-instance v0, Landroid/util/ArrayMap;
+
+    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
+
+    iput-object v0, p0, Lcom/android/server/vcn/Vcn;->mMobileDataStateListeners:Ljava/util/Map;
+
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
@@ -271,6 +289,8 @@
 
     iput-boolean v0, p0, Lcom/android/server/vcn/Vcn;->mIsMobileDataEnabled:Z
 
+    invoke-direct {p0}, Lcom/android/server/vcn/Vcn;->updateMobileDataStateListeners()V
+
     invoke-virtual {p1}, Lcom/android/server/vcn/VcnContext;->getVcnNetworkProvider()Lcom/android/server/vcn/VcnNetworkProvider;
 
     move-result-object v0
@@ -368,72 +388,58 @@
 .end method
 
 .method private getMobileDataStatus()Z
-    .locals 4
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/server/vcn/Vcn;->mVcnContext:Lcom/android/server/vcn/VcnContext;
+    iget-object v0, p0, Lcom/android/server/vcn/Vcn;->mLastSnapshot:Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;
 
-    invoke-virtual {v0}, Lcom/android/server/vcn/VcnContext;->getContext()Landroid/content/Context;
+    iget-object v1, p0, Lcom/android/server/vcn/Vcn;->mSubscriptionGroup:Landroid/os/ParcelUuid;
 
-    move-result-object v0
-
-    const-class v1, Landroid/telephony/TelephonyManager;
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;->getAllSubIdsInGroup(Landroid/os/ParcelUuid;)Ljava/util/Set;
 
     move-result-object v0
 
-    check-cast v0, Landroid/telephony/TelephonyManager;
+    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    iget-object v1, p0, Lcom/android/server/vcn/Vcn;->mLastSnapshot:Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;
-
-    iget-object v2, p0, Lcom/android/server/vcn/Vcn;->mSubscriptionGroup:Landroid/os/ParcelUuid;
-
-    invoke-virtual {v1, v2}, Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;->getAllSubIdsInGroup(Landroid/os/ParcelUuid;)Ljava/util/Set;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
+    move-result-object v0
 
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_1
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/Integer;
+
+    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+
+    move-result v1
+
+    invoke-direct {p0, v1}, Lcom/android/server/vcn/Vcn;->getTelephonyManagerForSubid(I)Landroid/telephony/TelephonyManager;
 
     move-result-object v2
 
-    check-cast v2, Ljava/lang/Integer;
-
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v2}, Landroid/telephony/TelephonyManager;->isDataEnabled()Z
 
     move-result v2
 
-    invoke-virtual {v0, v2}, Landroid/telephony/TelephonyManager;->createForSubscriptionId(I)Landroid/telephony/TelephonyManager;
+    if-eqz v2, :cond_0
 
-    move-result-object v3
+    const/4 v0, 0x1
 
-    invoke-virtual {v3}, Landroid/telephony/TelephonyManager;->isDataEnabled()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const/4 v1, 0x1
-
-    return v1
+    return v0
 
     :cond_0
     goto :goto_0
 
     :cond_1
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    return v1
+    return v0
 .end method
 
 .method static getNetworkScore()Landroid/net/NetworkScore;
@@ -456,6 +462,40 @@
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/net/NetworkScore$Builder;->build()Landroid/net/NetworkScore;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method private getTelephonyManager()Landroid/telephony/TelephonyManager;
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/vcn/Vcn;->mVcnContext:Lcom/android/server/vcn/VcnContext;
+
+    invoke-virtual {v0}, Lcom/android/server/vcn/VcnContext;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    const-class v1, Landroid/telephony/TelephonyManager;
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/telephony/TelephonyManager;
+
+    return-object v0
+.end method
+
+.method private getTelephonyManagerForSubid(I)Landroid/telephony/TelephonyManager;
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/server/vcn/Vcn;->getTelephonyManager()Landroid/telephony/TelephonyManager;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Landroid/telephony/TelephonyManager;->createForSubscriptionId(I)Landroid/telephony/TelephonyManager;
 
     move-result-object v0
 
@@ -1080,13 +1120,15 @@
     goto :goto_0
 
     :cond_0
+    invoke-direct {p0}, Lcom/android/server/vcn/Vcn;->updateMobileDataStateListeners()V
+
     invoke-direct {p0}, Lcom/android/server/vcn/Vcn;->handleMobileDataToggled()V
 
     return-void
 .end method
 
 .method private handleTeardown()V
-    .locals 2
+    .locals 3
 
     const-string v0, "Tearing down"
 
@@ -1130,6 +1172,42 @@
     goto :goto_0
 
     :cond_0
+    iget-object v0, p0, Lcom/android/server/vcn/Vcn;->mMobileDataStateListeners:Ljava/util/Map;
+
+    invoke-interface {v0}, Ljava/util/Map;->values()Ljava/util/Collection;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :goto_1
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/server/vcn/Vcn$VcnUserMobileDataStateListener;
+
+    invoke-direct {p0}, Lcom/android/server/vcn/Vcn;->getTelephonyManager()Landroid/telephony/TelephonyManager;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Landroid/telephony/TelephonyManager;->unregisterTelephonyCallback(Landroid/telephony/TelephonyCallback;)V
+
+    goto :goto_1
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/server/vcn/Vcn;->mMobileDataStateListeners:Ljava/util/Map;
+
+    invoke-interface {v0}, Ljava/util/Map;->clear()V
+
     const/4 v0, 0x1
 
     iput v0, p0, Lcom/android/server/vcn/Vcn;->mCurrentStatus:I
@@ -1554,6 +1632,130 @@
 
     invoke-virtual {v0, v1}, Landroid/util/LocalLog;->log(Ljava/lang/String;)V
 
+    return-void
+.end method
+
+.method private updateMobileDataStateListeners()V
+    .locals 7
+
+    iget-object v0, p0, Lcom/android/server/vcn/Vcn;->mLastSnapshot:Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;
+
+    iget-object v1, p0, Lcom/android/server/vcn/Vcn;->mSubscriptionGroup:Landroid/os/ParcelUuid;
+
+    invoke-virtual {v0, v1}, Lcom/android/server/vcn/TelephonySubscriptionTracker$TelephonySubscriptionSnapshot;->getAllSubIdsInGroup(Landroid/os/ParcelUuid;)Ljava/util/Set;
+
+    move-result-object v0
+
+    new-instance v1, Landroid/os/HandlerExecutor;
+
+    invoke-direct {v1, p0}, Landroid/os/HandlerExecutor;-><init>(Landroid/os/Handler;)V
+
+    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/Integer;
+
+    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
+
+    move-result v3
+
+    iget-object v4, p0, Lcom/android/server/vcn/Vcn;->mMobileDataStateListeners:Ljava/util/Map;
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    invoke-interface {v4, v5}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    new-instance v4, Lcom/android/server/vcn/Vcn$VcnUserMobileDataStateListener;
+
+    invoke-direct {v4, p0}, Lcom/android/server/vcn/Vcn$VcnUserMobileDataStateListener;-><init>(Lcom/android/server/vcn/Vcn;)V
+
+    invoke-direct {p0, v3}, Lcom/android/server/vcn/Vcn;->getTelephonyManagerForSubid(I)Landroid/telephony/TelephonyManager;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v1, v4}, Landroid/telephony/TelephonyManager;->registerTelephonyCallback(Ljava/util/concurrent/Executor;Landroid/telephony/TelephonyCallback;)V
+
+    iget-object v5, p0, Lcom/android/server/vcn/Vcn;->mMobileDataStateListeners:Ljava/util/Map;
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-interface {v5, v6, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_0
+    goto :goto_0
+
+    :cond_1
+    iget-object v2, p0, Lcom/android/server/vcn/Vcn;->mMobileDataStateListeners:Ljava/util/Map;
+
+    invoke-interface {v2}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :goto_1
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/util/Map$Entry;
+
+    invoke-interface {v3}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v4
+
+    invoke-interface {v0, v4}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_2
+
+    invoke-direct {p0}, Lcom/android/server/vcn/Vcn;->getTelephonyManager()Landroid/telephony/TelephonyManager;
+
+    move-result-object v4
+
+    invoke-interface {v3}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/telephony/TelephonyCallback;
+
+    invoke-virtual {v4, v5}, Landroid/telephony/TelephonyManager;->unregisterTelephonyCallback(Landroid/telephony/TelephonyCallback;)V
+
+    invoke-interface {v2}, Ljava/util/Iterator;->remove()V
+
+    :cond_2
+    goto :goto_1
+
+    :cond_3
     return-void
 .end method
 

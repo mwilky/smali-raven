@@ -15,9 +15,11 @@
 
 
 # instance fields
+.field mLocales:Landroid/os/LocaleList;
+
 .field final mName:Ljava/lang/String;
 
-.field mNightMode:I
+.field mNightMode:Ljava/lang/Integer;
 
 .field final mUserId:I
 
@@ -38,28 +40,24 @@
 
 # virtual methods
 .method isResetNightMode()Z
-    .locals 2
+    .locals 1
 
-    iget v0, p0, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mNightMode:I
+    iget-object v0, p0, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mNightMode:Ljava/lang/Integer;
 
-    if-eqz v0, :cond_1
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    const/4 v1, 0x3
+    move-result v0
 
-    if-ne v0, v1, :cond_0
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x1
 
     goto :goto_0
 
     :cond_0
     const/4 v0, 0x0
 
-    goto :goto_1
-
-    :cond_1
     :goto_0
-    const/4 v0, 0x1
-
-    :goto_1
     return v0
 .end method
 
@@ -90,9 +88,17 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v1, p0, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mNightMode:I
+    iget-object v1, p0, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mNightMode:Ljava/lang/Integer;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v1, " locales "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v1, p0, Lcom/android/server/wm/PackageConfigPersister$PackageConfigRecord;->mLocales:Landroid/os/LocaleList;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

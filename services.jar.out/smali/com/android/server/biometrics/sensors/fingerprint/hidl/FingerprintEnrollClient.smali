@@ -26,9 +26,7 @@
 
 .field private mIsPointerDown:Z
 
-.field private final mSidefpsController:Landroid/hardware/fingerprint/ISidefpsController;
-
-.field private final mUdfpsOverlayController:Landroid/hardware/fingerprint/IUdfpsOverlayController;
+.field private final mSensorOverlays:Lcom/android/server/biometrics/sensors/SensorOverlays;
 
 
 # direct methods
@@ -86,23 +84,25 @@
 
     invoke-direct/range {v0 .. v12}, Lcom/android/server/biometrics/sensors/EnrollClient;-><init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;I[BLjava/lang/String;Lcom/android/server/biometrics/sensors/BiometricUtils;IIIZ)V
 
-    move-object/from16 v0, p11
+    new-instance v0, Lcom/android/server/biometrics/sensors/SensorOverlays;
 
-    iput-object v0, v13, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->mUdfpsOverlayController:Landroid/hardware/fingerprint/IUdfpsOverlayController;
+    move-object/from16 v1, p11
 
-    move-object/from16 v1, p12
+    move-object/from16 v2, p12
 
-    iput-object v1, v13, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->mSidefpsController:Landroid/hardware/fingerprint/ISidefpsController;
+    invoke-direct {v0, v1, v2}, Lcom/android/server/biometrics/sensors/SensorOverlays;-><init>(Landroid/hardware/fingerprint/IUdfpsOverlayController;Landroid/hardware/fingerprint/ISidefpsController;)V
+
+    iput-object v0, v13, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->mSensorOverlays:Lcom/android/server/biometrics/sensors/SensorOverlays;
 
     iput v14, v13, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->mEnrollReason:I
 
-    const/4 v2, 0x1
+    const/4 v0, 0x1
 
-    if-ne v14, v2, :cond_0
+    if-ne v14, v0, :cond_0
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {p0, v2}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->setShouldLog(Z)V
+    invoke-virtual {p0, v0}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->setShouldLog(Z)V
 
     :cond_0
     return-void
@@ -121,7 +121,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e0064
+    const v1, 0x10e0067
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -187,10 +187,13 @@
     return v0
 .end method
 
-.method public onAcquired(II)V
-    .locals 2
-
-    invoke-super {p0, p1, p2}, Lcom/android/server/biometrics/sensors/EnrollClient;->onAcquired(II)V
+.method public synthetic lambda$onAcquired$1$FingerprintEnrollClient(IILandroid/hardware/fingerprint/IUdfpsOverlayController;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
 
     invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->getContext()Landroid/content/Context;
 
@@ -206,11 +209,42 @@
 
     move-result v0
 
-    iget-object v1, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->mUdfpsOverlayController:Landroid/hardware/fingerprint/IUdfpsOverlayController;
-
-    invoke-static {v0, v1}, Lcom/android/server/biometrics/sensors/fingerprint/UdfpsHelper;->onEnrollmentHelp(ILandroid/hardware/fingerprint/IUdfpsOverlayController;)V
+    invoke-interface {p3, v0}, Landroid/hardware/fingerprint/IUdfpsOverlayController;->onEnrollmentHelp(I)V
 
     :cond_0
+    return-void
+.end method
+
+.method public synthetic lambda$onEnrollResult$0$FingerprintEnrollClient(ILandroid/hardware/fingerprint/IUdfpsOverlayController;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->getSensorId()I
+
+    move-result v0
+
+    invoke-interface {p2, v0, p1}, Landroid/hardware/fingerprint/IUdfpsOverlayController;->onEnrollmentProgress(II)V
+
+    return-void
+.end method
+
+.method public onAcquired(II)V
+    .locals 2
+
+    invoke-super {p0, p1, p2}, Lcom/android/server/biometrics/sensors/EnrollClient;->onAcquired(II)V
+
+    iget-object v0, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->mSensorOverlays:Lcom/android/server/biometrics/sensors/SensorOverlays;
+
+    new-instance v1, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient$$ExternalSyntheticLambda1;
+
+    invoke-direct {v1, p0, p1, p2}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient$$ExternalSyntheticLambda1;-><init>(Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;II)V
+
+    invoke-virtual {v0, v1}, Lcom/android/server/biometrics/sensors/SensorOverlays;->ifUdfps(Lcom/android/server/biometrics/sensors/SensorOverlays$OverlayControllerConsumer;)V
+
     return-void
 .end method
 
@@ -219,27 +253,23 @@
 
     invoke-super {p0, p1, p2}, Lcom/android/server/biometrics/sensors/EnrollClient;->onEnrollResult(Landroid/hardware/biometrics/BiometricAuthenticator$Identifier;I)V
 
-    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->getSensorId()I
+    iget-object v0, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->mSensorOverlays:Lcom/android/server/biometrics/sensors/SensorOverlays;
 
-    move-result v0
+    new-instance v1, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient$$ExternalSyntheticLambda0;
 
-    iget-object v1, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->mUdfpsOverlayController:Landroid/hardware/fingerprint/IUdfpsOverlayController;
+    invoke-direct {v1, p0, p2}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient$$ExternalSyntheticLambda0;-><init>(Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;I)V
 
-    invoke-static {v0, p2, v1}, Lcom/android/server/biometrics/sensors/fingerprint/UdfpsHelper;->onEnrollmentProgress(IILandroid/hardware/fingerprint/IUdfpsOverlayController;)V
+    invoke-virtual {v0, v1}, Lcom/android/server/biometrics/sensors/SensorOverlays;->ifUdfps(Lcom/android/server/biometrics/sensors/SensorOverlays$OverlayControllerConsumer;)V
 
     if-nez p2, :cond_0
 
+    iget-object v0, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->mSensorOverlays:Lcom/android/server/biometrics/sensors/SensorOverlays;
+
     invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->getSensorId()I
 
-    move-result v0
+    move-result v1
 
-    iget-object v1, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->mUdfpsOverlayController:Landroid/hardware/fingerprint/IUdfpsOverlayController;
-
-    invoke-static {v0, v1}, Lcom/android/server/biometrics/sensors/fingerprint/UdfpsHelper;->hideUdfpsOverlay(ILandroid/hardware/fingerprint/IUdfpsOverlayController;)V
-
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->mSidefpsController:Landroid/hardware/fingerprint/ISidefpsController;
-
-    invoke-static {v0}, Lcom/android/server/biometrics/sensors/fingerprint/SidefpsHelper;->hideOverlay(Landroid/hardware/fingerprint/ISidefpsController;)V
+    invoke-virtual {v0, v1}, Lcom/android/server/biometrics/sensors/SensorOverlays;->hide(I)V
 
     :cond_0
     return-void
@@ -250,17 +280,13 @@
 
     invoke-super {p0, p1, p2}, Lcom/android/server/biometrics/sensors/EnrollClient;->onError(II)V
 
+    iget-object v0, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->mSensorOverlays:Lcom/android/server/biometrics/sensors/SensorOverlays;
+
     invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->getSensorId()I
 
-    move-result v0
+    move-result v1
 
-    iget-object v1, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->mUdfpsOverlayController:Landroid/hardware/fingerprint/IUdfpsOverlayController;
-
-    invoke-static {v0, v1}, Lcom/android/server/biometrics/sensors/fingerprint/UdfpsHelper;->hideUdfpsOverlay(ILandroid/hardware/fingerprint/IUdfpsOverlayController;)V
-
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->mSidefpsController:Landroid/hardware/fingerprint/ISidefpsController;
-
-    invoke-static {v0}, Lcom/android/server/biometrics/sensors/fingerprint/SidefpsHelper;->hideOverlay(Landroid/hardware/fingerprint/ISidefpsController;)V
+    invoke-virtual {v0, v1}, Lcom/android/server/biometrics/sensors/SensorOverlays;->hide(I)V
 
     return-void
 .end method
@@ -310,23 +336,19 @@
 .method protected startHalOperation()V
     .locals 4
 
+    iget-object v0, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->mSensorOverlays:Lcom/android/server/biometrics/sensors/SensorOverlays;
+
     invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->getSensorId()I
-
-    move-result v0
-
-    iget v1, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->mEnrollReason:I
-
-    invoke-static {v1}, Lcom/android/server/biometrics/sensors/fingerprint/UdfpsHelper;->getReasonFromEnrollReason(I)I
 
     move-result v1
 
-    iget-object v2, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->mUdfpsOverlayController:Landroid/hardware/fingerprint/IUdfpsOverlayController;
+    iget v2, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->mEnrollReason:I
 
-    invoke-static {v0, v1, v2, p0}, Lcom/android/server/biometrics/sensors/fingerprint/UdfpsHelper;->showUdfpsOverlay(IILandroid/hardware/fingerprint/IUdfpsOverlayController;Lcom/android/server/biometrics/sensors/AcquisitionClient;)V
+    invoke-virtual {p0, v2}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->getOverlayReasonFromEnrollReason(I)I
 
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->mSidefpsController:Landroid/hardware/fingerprint/ISidefpsController;
+    move-result v2
 
-    invoke-static {v0}, Lcom/android/server/biometrics/sensors/fingerprint/SidefpsHelper;->showOverlay(Landroid/hardware/fingerprint/ISidefpsController;)V
+    invoke-virtual {v0, v1, v2, p0}, Lcom/android/server/biometrics/sensors/SensorOverlays;->show(IILcom/android/server/biometrics/sensors/AcquisitionClient;)V
 
     invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->getContext()Landroid/content/Context;
 
@@ -370,17 +392,13 @@
 
     invoke-virtual {p0, v1, v2}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->onError(II)V
 
+    iget-object v1, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->mSensorOverlays:Lcom/android/server/biometrics/sensors/SensorOverlays;
+
     invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->getSensorId()I
 
-    move-result v1
+    move-result v3
 
-    iget-object v3, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->mUdfpsOverlayController:Landroid/hardware/fingerprint/IUdfpsOverlayController;
-
-    invoke-static {v1, v3}, Lcom/android/server/biometrics/sensors/fingerprint/UdfpsHelper;->hideUdfpsOverlay(ILandroid/hardware/fingerprint/IUdfpsOverlayController;)V
-
-    iget-object v1, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->mSidefpsController:Landroid/hardware/fingerprint/ISidefpsController;
-
-    invoke-static {v1}, Lcom/android/server/biometrics/sensors/fingerprint/SidefpsHelper;->hideOverlay(Landroid/hardware/fingerprint/ISidefpsController;)V
+    invoke-virtual {v1, v3}, Lcom/android/server/biometrics/sensors/SensorOverlays;->hide(I)V
 
     iget-object v1, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->mCallback:Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;
 
@@ -393,17 +411,13 @@
 .method protected stopHalOperation()V
     .locals 3
 
+    iget-object v0, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->mSensorOverlays:Lcom/android/server/biometrics/sensors/SensorOverlays;
+
     invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->getSensorId()I
 
-    move-result v0
+    move-result v1
 
-    iget-object v1, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->mUdfpsOverlayController:Landroid/hardware/fingerprint/IUdfpsOverlayController;
-
-    invoke-static {v0, v1}, Lcom/android/server/biometrics/sensors/fingerprint/UdfpsHelper;->hideUdfpsOverlay(ILandroid/hardware/fingerprint/IUdfpsOverlayController;)V
-
-    iget-object v0, p0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->mSidefpsController:Landroid/hardware/fingerprint/ISidefpsController;
-
-    invoke-static {v0}, Lcom/android/server/biometrics/sensors/fingerprint/SidefpsHelper;->hideOverlay(Landroid/hardware/fingerprint/ISidefpsController;)V
+    invoke-virtual {v0, v1}, Lcom/android/server/biometrics/sensors/SensorOverlays;->hide(I)V
 
     :try_start_0
     invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintEnrollClient;->getFreshDaemon()Ljava/lang/Object;

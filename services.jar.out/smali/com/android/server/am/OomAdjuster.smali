@@ -432,13 +432,13 @@
 
     const/4 v14, 0x1
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_3
 
     iget-object v0, v1, Lcom/android/server/am/OomAdjuster;->mService:Lcom/android/server/am/ActivityManagerService;
 
     iget-boolean v0, v0, Lcom/android/server/am/ActivityManagerService;->mBooted:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_3
 
     invoke-virtual {v13}, Lcom/android/server/am/ProcessStateRecord;->getCurAdj()I
 
@@ -448,63 +448,23 @@
 
     move-result v5
 
-    if-eq v0, v5, :cond_3
+    if-eq v0, v5, :cond_1
+
+    iget-object v0, v1, Lcom/android/server/am/OomAdjuster;->mCachedAppOptimizer:Lcom/android/server/am/CachedAppOptimizer;
 
     invoke-virtual {v13}, Lcom/android/server/am/ProcessStateRecord;->getSetAdj()I
 
-    move-result v0
-
-    const/16 v5, 0xc8
-
-    if-gt v0, v5, :cond_2
+    move-result v5
 
     invoke-virtual {v13}, Lcom/android/server/am/ProcessStateRecord;->getCurAdj()I
 
-    move-result v0
+    move-result v6
 
-    const/16 v5, 0x2bc
+    invoke-virtual {v0, v5, v6, v2}, Lcom/android/server/am/CachedAppOptimizer;->onOomAdjustChanged(IILcom/android/server/am/ProcessRecord;)V
 
-    if-eq v0, v5, :cond_1
-
-    invoke-virtual {v13}, Lcom/android/server/am/ProcessStateRecord;->getCurAdj()I
-
-    move-result v0
-
-    const/16 v5, 0x258
-
-    if-ne v0, v5, :cond_2
+    goto :goto_0
 
     :cond_1
-    iget-object v0, v1, Lcom/android/server/am/OomAdjuster;->mCachedAppOptimizer:Lcom/android/server/am/CachedAppOptimizer;
-
-    invoke-virtual {v0, v2}, Lcom/android/server/am/CachedAppOptimizer;->compactAppSome(Lcom/android/server/am/ProcessRecord;)V
-
-    goto :goto_0
-
-    :cond_2
-    invoke-virtual {v13}, Lcom/android/server/am/ProcessStateRecord;->getCurAdj()I
-
-    move-result v0
-
-    const/16 v5, 0x384
-
-    if-lt v0, v5, :cond_5
-
-    invoke-virtual {v13}, Lcom/android/server/am/ProcessStateRecord;->getCurAdj()I
-
-    move-result v0
-
-    const/16 v5, 0x3e7
-
-    if-gt v0, v5, :cond_5
-
-    iget-object v0, v1, Lcom/android/server/am/OomAdjuster;->mCachedAppOptimizer:Lcom/android/server/am/CachedAppOptimizer;
-
-    invoke-virtual {v0, v2}, Lcom/android/server/am/CachedAppOptimizer;->compactAppFull(Lcom/android/server/am/ProcessRecord;)V
-
-    goto :goto_0
-
-    :cond_3
     iget-object v0, v1, Lcom/android/server/am/OomAdjuster;->mService:Lcom/android/server/am/ActivityManagerService;
 
     iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mWakefulness:Ljava/util/concurrent/atomic/AtomicInteger;
@@ -513,13 +473,13 @@
 
     move-result v0
 
-    if-eq v0, v14, :cond_4
+    if-eq v0, v14, :cond_2
 
     invoke-virtual {v13}, Lcom/android/server/am/ProcessStateRecord;->getSetAdj()I
 
     move-result v0
 
-    if-gez v0, :cond_4
+    if-gez v0, :cond_2
 
     iget-object v0, v1, Lcom/android/server/am/OomAdjuster;->mCachedAppOptimizer:Lcom/android/server/am/CachedAppOptimizer;
 
@@ -527,7 +487,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_2
 
     iget-object v0, v1, Lcom/android/server/am/OomAdjuster;->mCachedAppOptimizer:Lcom/android/server/am/CachedAppOptimizer;
 
@@ -535,7 +495,7 @@
 
     goto :goto_0
 
-    :cond_4
+    :cond_2
     iget-object v0, v1, Lcom/android/server/am/OomAdjuster;->mService:Lcom/android/server/am/ActivityManagerService;
 
     iget-object v0, v0, Lcom/android/server/am/ActivityManagerService;->mWakefulness:Ljava/util/concurrent/atomic/AtomicInteger;
@@ -544,7 +504,7 @@
 
     move-result v0
 
-    if-eq v0, v14, :cond_5
+    if-eq v0, v14, :cond_3
 
     invoke-virtual {v13}, Lcom/android/server/am/ProcessStateRecord;->getCurProcState()I
 
@@ -552,7 +512,7 @@
 
     const/4 v5, 0x5
 
-    if-ne v0, v5, :cond_5
+    if-ne v0, v5, :cond_3
 
     iget-object v0, v1, Lcom/android/server/am/OomAdjuster;->mCachedAppOptimizer:Lcom/android/server/am/CachedAppOptimizer;
 
@@ -560,13 +520,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_3
 
     iget-object v0, v1, Lcom/android/server/am/OomAdjuster;->mCachedAppOptimizer:Lcom/android/server/am/CachedAppOptimizer;
 
     invoke-virtual {v0, v2}, Lcom/android/server/am/CachedAppOptimizer;->compactAppBfgs(Lcom/android/server/am/ProcessRecord;)V
 
-    :cond_5
+    :cond_3
     :goto_0
     invoke-virtual {v13}, Lcom/android/server/am/ProcessStateRecord;->getCurAdj()I
 
@@ -576,7 +536,7 @@
 
     move-result v5
 
-    if-eq v0, v5, :cond_7
+    if-eq v0, v5, :cond_5
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/am/ProcessRecord;->getPid()I
 
@@ -598,7 +558,7 @@
 
     iget v5, v5, Landroid/content/pm/ApplicationInfo;->uid:I
 
-    if-ne v0, v5, :cond_6
+    if-ne v0, v5, :cond_4
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -650,7 +610,7 @@
 
     invoke-direct {v1, v5, v0}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_6
+    :cond_4
     invoke-virtual {v13}, Lcom/android/server/am/ProcessStateRecord;->getCurAdj()I
 
     move-result v0
@@ -661,7 +621,7 @@
 
     invoke-virtual {v13, v0}, Lcom/android/server/am/ProcessStateRecord;->setVerifiedAdj(I)V
 
-    :cond_7
+    :cond_5
     invoke-virtual {v13}, Lcom/android/server/am/ProcessStateRecord;->getCurrentSchedulingGroup()I
 
     move-result v15
@@ -674,7 +634,7 @@
 
     const/4 v6, 0x0
 
-    if-eq v0, v15, :cond_13
+    if-eq v0, v15, :cond_11
 
     invoke-virtual {v13}, Lcom/android/server/am/ProcessStateRecord;->getSetSchedGroup()I
 
@@ -688,7 +648,7 @@
 
     iget v7, v2, Lcom/android/server/am/ProcessRecord;->uid:I
 
-    if-ne v0, v7, :cond_8
+    if-ne v0, v7, :cond_6
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -726,12 +686,12 @@
 
     invoke-direct {v1, v7, v0}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_8
+    :cond_6
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/am/ProcessRecord;->getWaitingToKill()Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_7
 
     iget-object v0, v2, Lcom/android/server/am/ProcessRecord;->mReceivers:Lcom/android/server/am/ProcessReceiverRecord;
 
@@ -739,13 +699,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_7
 
     invoke-virtual {v13}, Lcom/android/server/am/ProcessStateRecord;->getSetSchedGroup()I
 
     move-result v0
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_7
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/am/ProcessRecord;->getWaitingToKill()Ljava/lang/String;
 
@@ -759,7 +719,7 @@
 
     goto/16 :goto_7
 
-    :cond_9
+    :cond_7
     packed-switch v15, :pswitch_data_0
 
     :pswitch_0
@@ -814,9 +774,9 @@
 
     const/4 v0, 0x3
 
-    if-ne v15, v0, :cond_e
+    if-ne v15, v0, :cond_c
 
-    if-eq v5, v0, :cond_d
+    if-eq v5, v0, :cond_b
 
     :try_start_1
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/am/ProcessRecord;->getWindowProcessController()Lcom/android/server/wm/WindowProcessController;
@@ -829,7 +789,7 @@
 
     iget-boolean v0, v0, Lcom/android/server/am/ActivityManagerService;->mUseFifoUiScheduling:Z
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_9
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/am/ProcessRecord;->getPid()I
 
@@ -849,7 +809,7 @@
 
     invoke-static {v0, v14}, Lcom/android/server/am/ActivityManagerService;->scheduleAsFifoPriority(IZ)Z
 
-    if-eqz v8, :cond_a
+    if-eqz v8, :cond_8
 
     invoke-static {v8, v14}, Lcom/android/server/am/ActivityManagerService;->scheduleAsFifoPriority(IZ)Z
 
@@ -857,12 +817,12 @@
 
     goto/16 :goto_5
 
-    :cond_a
+    :cond_8
     move/from16 v18, v3
 
     goto/16 :goto_5
 
-    :cond_b
+    :cond_9
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/am/ProcessRecord;->getPid()I
 
     move-result v0
@@ -873,7 +833,7 @@
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
-    if-eqz v8, :cond_c
+    if-eqz v8, :cond_a
 
     :try_start_2
     invoke-static {v8, v14}, Landroid/os/Process;->setThreadPriority(II)V
@@ -891,7 +851,7 @@
 
     goto :goto_2
 
-    :cond_c
+    :cond_a
     move/from16 v18, v3
 
     goto/16 :goto_5
@@ -903,15 +863,15 @@
 
     goto/16 :goto_7
 
-    :cond_d
+    :cond_b
     move/from16 v18, v3
 
     goto/16 :goto_5
 
-    :cond_e
-    if-ne v5, v0, :cond_11
+    :cond_c
+    if-ne v5, v0, :cond_f
 
-    if-eq v15, v0, :cond_11
+    if-eq v15, v0, :cond_f
 
     :try_start_3
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/am/ProcessRecord;->getWindowProcessController()Lcom/android/server/wm/WindowProcessController;
@@ -926,7 +886,7 @@
     :try_end_3
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_8
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_e
 
     :try_start_4
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/am/ProcessRecord;->getPid()I
@@ -950,7 +910,7 @@
 
     invoke-static {v0, v14}, Landroid/os/Process;->setThreadPriority(II)V
 
-    if-eqz v8, :cond_f
+    if-eqz v8, :cond_d
 
     invoke-static {v8, v6, v6}, Landroid/os/Process;->setThreadScheduler(III)V
     :try_end_5
@@ -958,7 +918,7 @@
     .catch Ljava/lang/SecurityException; {:try_start_5 .. :try_end_5} :catch_3
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_1
 
-    :cond_f
+    :cond_d
     move/from16 v18, v3
 
     goto :goto_4
@@ -1041,7 +1001,7 @@
 
     goto :goto_4
 
-    :cond_10
+    :cond_e
     move/from16 v18, v3
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/am/ProcessRecord;->getPid()I
@@ -1056,7 +1016,7 @@
     invoke-static {v0, v6}, Landroid/os/Process;->setThreadPriority(II)V
 
     :goto_4
-    if-eqz v8, :cond_12
+    if-eqz v8, :cond_10
 
     const/4 v0, -0x4
 
@@ -1078,10 +1038,10 @@
 
     goto :goto_7
 
-    :cond_11
+    :cond_f
     move/from16 v18, v3
 
-    :cond_12
+    :cond_10
     :goto_5
     goto :goto_7
 
@@ -1093,7 +1053,7 @@
     :goto_6
     goto :goto_7
 
-    :cond_13
+    :cond_11
     move/from16 v18, v3
 
     :goto_7
@@ -1105,7 +1065,7 @@
 
     move-result v3
 
-    if-eq v0, v3, :cond_14
+    if-eq v0, v3, :cond_12
 
     invoke-virtual {v13}, Lcom/android/server/am/ProcessStateRecord;->hasForegroundActivities()Z
 
@@ -1119,7 +1079,7 @@
 
     goto :goto_8
 
-    :cond_14
+    :cond_12
     move v14, v4
 
     :goto_8
@@ -1133,7 +1093,7 @@
 
     move-result v3
 
-    if-eq v0, v3, :cond_15
+    if-eq v0, v3, :cond_13
 
     invoke-virtual {v13}, Lcom/android/server/am/ProcessStateRecord;->getCurProcState()I
 
@@ -1145,7 +1105,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_13
 
     :try_start_a
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/am/ProcessRecord;->getThread()Landroid/app/IApplicationThread;
@@ -1165,7 +1125,7 @@
     :catch_9
     move-exception v0
 
-    :cond_15
+    :cond_13
     :goto_9
     const/4 v0, 0x0
 
@@ -1175,7 +1135,7 @@
 
     const/16 v4, 0x14
 
-    if-eq v3, v4, :cond_17
+    if-eq v3, v4, :cond_15
 
     invoke-virtual {v13}, Lcom/android/server/am/ProcessStateRecord;->getCurProcState()I
 
@@ -1189,16 +1149,16 @@
 
     move-result v3
 
-    if-eqz v3, :cond_16
+    if-eqz v3, :cond_14
 
     goto :goto_a
 
-    :cond_16
+    :cond_14
     move/from16 v17, v0
 
     goto :goto_b
 
-    :cond_17
+    :cond_15
     :goto_a
     invoke-virtual {v13, v9, v10}, Lcom/android/server/am/ProcessStateRecord;->setLastStateTime(J)V
 
@@ -1261,7 +1221,7 @@
 
     move-result v3
 
-    if-eq v0, v3, :cond_1e
+    if-eq v0, v3, :cond_1c
 
     iget-object v0, v1, Lcom/android/server/am/OomAdjuster;->mService:Lcom/android/server/am/ActivityManagerService;
 
@@ -1269,7 +1229,7 @@
 
     iget v3, v2, Lcom/android/server/am/ProcessRecord;->uid:I
 
-    if-ne v0, v3, :cond_18
+    if-ne v0, v3, :cond_16
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -1325,18 +1285,18 @@
 
     invoke-direct {v1, v3, v0}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_18
+    :cond_16
     invoke-virtual {v13}, Lcom/android/server/am/ProcessStateRecord;->getSetProcState()I
 
     move-result v0
 
-    if-ge v0, v15, :cond_19
+    if-ge v0, v15, :cond_17
 
     const/4 v6, 0x1
 
     goto :goto_c
 
-    :cond_19
+    :cond_17
     const/4 v6, 0x0
 
     :goto_c
@@ -1346,21 +1306,21 @@
 
     move-result v0
 
-    if-ge v0, v15, :cond_1a
+    if-ge v0, v15, :cond_18
 
     const/4 v6, 0x1
 
     goto :goto_d
 
-    :cond_1a
+    :cond_18
     const/4 v6, 0x0
 
     :goto_d
     move v4, v6
 
-    if-eqz v3, :cond_1b
+    if-eqz v3, :cond_19
 
-    if-nez v4, :cond_1b
+    if-nez v4, :cond_19
 
     invoke-virtual {v13, v9, v10}, Lcom/android/server/am/ProcessStateRecord;->setWhenUnimportant(J)V
 
@@ -1372,7 +1332,7 @@
 
     invoke-virtual {v0, v5, v6}, Ljava/util/concurrent/atomic/AtomicLong;->set(J)V
 
-    :cond_1b
+    :cond_19
     invoke-direct {v1, v2, v11, v12}, Lcom/android/server/am/OomAdjuster;->maybeUpdateUsageStatsLSP(Lcom/android/server/am/ProcessRecord;J)V
 
     invoke-direct {v1, v13, v9, v10}, Lcom/android/server/am/OomAdjuster;->maybeUpdateLastTopTime(Lcom/android/server/am/ProcessStateRecord;J)V
@@ -1389,14 +1349,14 @@
 
     const/16 v5, 0xe
 
-    if-lt v0, v5, :cond_1c
+    if-lt v0, v5, :cond_1a
 
     const/4 v5, 0x0
 
     invoke-virtual {v13, v5}, Lcom/android/server/am/ProcessStateRecord;->setNotCachedSinceIdle(Z)V
 
-    :cond_1c
-    if-nez p2, :cond_1d
+    :cond_1a
+    if-nez p2, :cond_1b
 
     iget-object v0, v1, Lcom/android/server/am/OomAdjuster;->mService:Lcom/android/server/am/ActivityManagerService;
 
@@ -1430,7 +1390,7 @@
 
     throw v0
 
-    :cond_1d
+    :cond_1b
     const/4 v5, 0x1
 
     invoke-virtual {v13, v5}, Lcom/android/server/am/ProcessStateRecord;->setProcStateChanged(Z)V
@@ -1438,20 +1398,20 @@
     :goto_e
     goto :goto_11
 
-    :cond_1e
+    :cond_1c
     invoke-virtual {v13}, Lcom/android/server/am/ProcessStateRecord;->hasReportedInteraction()Z
 
     move-result v0
 
     const/4 v3, 0x2
 
-    if-eqz v0, :cond_21
+    if-eqz v0, :cond_1f
 
     invoke-virtual {v13, v3}, Lcom/android/server/am/ProcessStateRecord;->getCachedCompatChange(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1f
+    if-eqz v0, :cond_1d
 
     iget-object v3, v1, Lcom/android/server/am/OomAdjuster;->mConstants:Lcom/android/server/am/ActivityManagerConstants;
 
@@ -1459,7 +1419,7 @@
 
     goto :goto_f
 
-    :cond_1f
+    :cond_1d
     iget-object v3, v1, Lcom/android/server/am/OomAdjuster;->mConstants:Lcom/android/server/am/ActivityManagerConstants;
 
     iget-wide v3, v3, Lcom/android/server/am/ActivityManagerConstants;->USAGE_STATS_INTERACTION_INTERVAL_PRE_S:J
@@ -1475,19 +1435,19 @@
 
     cmp-long v5, v5, v3
 
-    if-lez v5, :cond_20
+    if-lez v5, :cond_1e
 
     invoke-direct {v1, v2, v11, v12}, Lcom/android/server/am/OomAdjuster;->maybeUpdateUsageStatsLSP(Lcom/android/server/am/ProcessRecord;J)V
 
-    :cond_20
+    :cond_1e
     goto :goto_11
 
-    :cond_21
+    :cond_1f
     invoke-virtual {v13, v3}, Lcom/android/server/am/ProcessStateRecord;->getCachedCompatChange(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_20
 
     iget-object v3, v1, Lcom/android/server/am/OomAdjuster;->mConstants:Lcom/android/server/am/ActivityManagerConstants;
 
@@ -1495,7 +1455,7 @@
 
     goto :goto_10
 
-    :cond_22
+    :cond_20
     iget-object v3, v1, Lcom/android/server/am/OomAdjuster;->mConstants:Lcom/android/server/am/ActivityManagerConstants;
 
     iget-wide v3, v3, Lcom/android/server/am/ActivityManagerConstants;->SERVICE_USAGE_INTERACTION_TIME_PRE_S:J
@@ -1511,11 +1471,11 @@
 
     cmp-long v5, v5, v3
 
-    if-lez v5, :cond_23
+    if-lez v5, :cond_21
 
     invoke-direct {v1, v2, v11, v12}, Lcom/android/server/am/OomAdjuster;->maybeUpdateUsageStatsLSP(Lcom/android/server/am/ProcessRecord;J)V
 
-    :cond_23
+    :cond_21
     :goto_11
     invoke-virtual {v13}, Lcom/android/server/am/ProcessStateRecord;->getCurCapability()I
 
@@ -1525,7 +1485,7 @@
 
     move-result v3
 
-    if-eq v0, v3, :cond_24
+    if-eq v0, v3, :cond_22
 
     or-int/lit8 v14, v14, 0x4
 
@@ -1535,8 +1495,8 @@
 
     invoke-virtual {v13, v0}, Lcom/android/server/am/ProcessStateRecord;->setSetCapability(I)V
 
-    :cond_24
-    if-eqz v14, :cond_25
+    :cond_22
+    if-eqz v14, :cond_23
 
     iget-object v0, v1, Lcom/android/server/am/OomAdjuster;->mProcessList:Lcom/android/server/am/ProcessList;
 
@@ -1570,7 +1530,7 @@
 
     iput v3, v0, Lcom/android/server/am/ActivityManagerService$ProcessChangeItem;->capability:I
 
-    :cond_25
+    :cond_23
     return v18
 
     :catchall_1
@@ -2584,39 +2544,55 @@
 
     move-result v6
 
-    const/16 v29, 0x0
+    if-eqz p7, :cond_e
 
-    const/16 v16, 0x0
+    iget-object v14, v10, Lcom/android/server/am/ProcessRecord;->mState:Lcom/android/server/am/ProcessStateRecord;
 
-    const/16 v17, 0x0
+    invoke-virtual {v14}, Lcom/android/server/am/ProcessStateRecord;->getCurCapability()I
 
-    const/4 v14, 0x2
+    move-result v14
 
-    if-ne v6, v14, :cond_f
+    goto :goto_5
 
-    if-ne v10, v11, :cond_f
+    :cond_e
+    move v14, v5
+
+    :goto_5
+    move/from16 v29, v14
 
     const/4 v14, 0x0
 
-    const/16 v19, 0x3
+    const/16 v17, 0x0
 
-    const-string/jumbo v5, "top-activity"
+    const/4 v5, 0x2
 
-    invoke-virtual {v8, v5}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
+    if-ne v6, v5, :cond_10
 
-    const/16 v16, 0x1
+    if-ne v10, v11, :cond_10
+
+    const/4 v5, 0x0
+
+    const/16 v18, 0x3
+
+    move/from16 v31, v0
+
+    const-string/jumbo v0, "top-activity"
+
+    invoke-virtual {v8, v0}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
+
+    const/4 v14, 0x1
 
     const/16 v17, 0x1
 
-    move v5, v6
+    move v0, v6
 
-    move/from16 v31, v0
+    move/from16 v19, v0
 
     const/4 v0, 0x2
 
     invoke-virtual {v8, v0}, Lcom/android/server/am/ProcessStateRecord;->bumpAllowStartFgsState(I)V
 
-    if-ne v3, v4, :cond_e
+    if-ne v3, v4, :cond_f
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -2636,14 +2612,14 @@
 
     invoke-direct {v9, v7, v0}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_5
-
-    :cond_e
-    move/from16 v32, v1
-
-    goto :goto_5
+    goto :goto_6
 
     :cond_f
+    move/from16 v32, v1
+
+    goto :goto_6
+
+    :cond_10
     move/from16 v31, v0
 
     move/from16 v32, v1
@@ -2652,95 +2628,108 @@
 
     move-result v0
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_12
 
-    const/16 v14, 0x64
+    const/16 v5, 0x64
 
-    const/16 v19, 0x3
+    const/16 v18, 0x3
 
     const-string/jumbo v0, "running-remote-anim"
 
     invoke-virtual {v8, v0}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
 
-    move v5, v6
+    move v0, v6
 
-    if-ne v3, v4, :cond_10
+    if-ne v3, v4, :cond_11
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "Making running remote anim: "
+    move/from16 v19, v0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, "Making running remote anim: "
 
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     invoke-direct {v9, v7, v0}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_10
-    :goto_5
-    move v0, v14
+    goto :goto_6
 
-    move/from16 v1, v16
+    :cond_11
+    move/from16 v19, v0
+
+    :goto_6
+    move v1, v14
 
     move/from16 v33, v17
 
-    move/from16 v34, v19
+    move/from16 v34, v18
 
-    goto/16 :goto_8
+    move/from16 v0, v19
 
-    :cond_11
+    goto/16 :goto_9
+
+    :cond_12
     invoke-virtual/range {p1 .. p1}, Lcom/android/server/am/ProcessRecord;->getActiveInstrumentation()Lcom/android/server/am/ActiveInstrumentation;
 
     move-result-object v0
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_14
 
-    const/4 v14, 0x0
+    const/4 v5, 0x0
 
-    const/16 v19, 0x2
+    const/16 v18, 0x2
 
     const-string v0, "instrumentation"
 
     invoke-virtual {v8, v0}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
 
-    const/4 v5, 0x4
+    const/4 v0, 0x4
 
-    if-ne v3, v4, :cond_10
+    if-ne v3, v4, :cond_13
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "Making instrumentation: "
+    move/from16 v19, v0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, "Making instrumentation: "
 
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     invoke-direct {v9, v7, v0}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_5
+    goto :goto_6
 
-    :cond_12
+    :cond_13
+    move/from16 v19, v0
+
+    goto :goto_6
+
+    :cond_14
     iget-object v0, v9, Lcom/android/server/am/OomAdjuster;->mTmpBroadcastQueue:Landroid/util/ArraySet;
 
     invoke-virtual {v8, v0}, Lcom/android/server/am/ProcessStateRecord;->getCachedIsReceivingBroadcast(Landroid/util/ArraySet;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_17
 
-    const/4 v14, 0x0
+    const/4 v5, 0x0
 
     iget-object v0, v9, Lcom/android/server/am/OomAdjuster;->mTmpBroadcastQueue:Landroid/util/ArraySet;
 
@@ -2749,57 +2738,6 @@
     iget-object v1, v1, Lcom/android/server/am/ActivityManagerService;->mFgBroadcastQueue:Lcom/android/server/am/BroadcastQueue;
 
     invoke-virtual {v0, v1}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_13
-
-    const/4 v0, 0x2
-
-    goto :goto_6
-
-    :cond_13
-    const/4 v0, 0x0
-
-    :goto_6
-    move/from16 v19, v0
-
-    const-string v0, "broadcast"
-
-    invoke-virtual {v8, v0}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
-
-    const/16 v5, 0xb
-
-    if-ne v3, v4, :cond_10
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "Making broadcast: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {v9, v7, v0}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_5
-
-    :cond_14
-    invoke-virtual {v15}, Lcom/android/server/am/ProcessServiceRecord;->numberOfExecutingServices()I
-
-    move-result v0
-
-    if-lez v0, :cond_16
-
-    const/4 v14, 0x0
-
-    invoke-virtual {v15}, Lcom/android/server/am/ProcessServiceRecord;->shouldExecServicesFg()Z
 
     move-result v0
 
@@ -2813,121 +2751,200 @@
     const/4 v0, 0x0
 
     :goto_7
+    move/from16 v18, v0
+
+    const-string v0, "broadcast"
+
+    invoke-virtual {v8, v0}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
+
+    const/16 v0, 0xb
+
+    if-ne v3, v4, :cond_16
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
     move/from16 v19, v0
+
+    const-string v0, "Making broadcast: "
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {v9, v7, v0}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_6
+
+    :cond_16
+    move/from16 v19, v0
+
+    goto :goto_6
+
+    :cond_17
+    invoke-virtual {v15}, Lcom/android/server/am/ProcessServiceRecord;->numberOfExecutingServices()I
+
+    move-result v0
+
+    if-lez v0, :cond_1a
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v15}, Lcom/android/server/am/ProcessServiceRecord;->shouldExecServicesFg()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_18
+
+    const/4 v0, 0x2
+
+    goto :goto_8
+
+    :cond_18
+    const/4 v0, 0x0
+
+    :goto_8
+    move/from16 v18, v0
 
     const-string v0, "exec-service"
 
     invoke-virtual {v8, v0}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
 
-    const/16 v5, 0xa
+    const/16 v0, 0xa
 
-    if-ne v3, v4, :cond_10
+    if-ne v3, v4, :cond_19
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "Making exec-service: "
+    move/from16 v19, v0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, "Making exec-service: "
 
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     invoke-direct {v9, v7, v0}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto/16 :goto_5
+    goto/16 :goto_6
 
-    :cond_16
-    if-ne v10, v11, :cond_17
+    :cond_19
+    move/from16 v19, v0
 
-    const/4 v14, 0x0
+    goto/16 :goto_6
 
-    const/16 v19, 0x0
+    :cond_1a
+    if-ne v10, v11, :cond_1c
+
+    const/4 v5, 0x0
+
+    const/16 v18, 0x0
 
     const-string/jumbo v0, "top-sleeping"
 
     invoke-virtual {v8, v0}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
 
-    const/16 v16, 0x1
+    const/4 v14, 0x1
 
-    move v5, v6
+    move v0, v6
 
-    if-ne v3, v4, :cond_10
+    if-ne v3, v4, :cond_1b
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "Making top (sleeping): "
+    move/from16 v19, v0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, "Making top (sleeping): "
 
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     invoke-direct {v9, v7, v0}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto/16 :goto_5
+    goto/16 :goto_6
 
-    :cond_17
-    const/16 v19, 0x0
+    :cond_1b
+    move/from16 v19, v0
 
-    move/from16 v14, p2
+    goto/16 :goto_6
 
-    const/16 v5, 0x13
+    :cond_1c
+    const/16 v18, 0x0
+
+    move/from16 v5, p2
+
+    const/16 v0, 0x13
 
     invoke-virtual {v8}, Lcom/android/server/am/ProcessStateRecord;->containsCycle()Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_18
+    if-nez v1, :cond_1d
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    invoke-virtual {v8, v0}, Lcom/android/server/am/ProcessStateRecord;->setCached(Z)V
+    invoke-virtual {v8, v1}, Lcom/android/server/am/ProcessStateRecord;->setCached(Z)V
 
-    invoke-virtual {v8, v0}, Lcom/android/server/am/ProcessStateRecord;->setEmpty(Z)V
+    invoke-virtual {v8, v1}, Lcom/android/server/am/ProcessStateRecord;->setEmpty(Z)V
 
-    const-string v0, "cch-empty"
+    const-string v1, "cch-empty"
 
-    invoke-virtual {v8, v0}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
+    invoke-virtual {v8, v1}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
 
-    :cond_18
-    if-ne v3, v4, :cond_10
+    :cond_1d
+    if-ne v3, v4, :cond_1e
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "Making empty: "
+    move/from16 v19, v0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, "Making empty: "
 
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
     invoke-direct {v9, v7, v0}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto/16 :goto_5
+    goto/16 :goto_6
 
-    :goto_8
-    if-nez v1, :cond_19
+    :cond_1e
+    move/from16 v19, v0
+
+    goto/16 :goto_6
+
+    :goto_9
+    if-nez v1, :cond_1f
 
     invoke-virtual {v8}, Lcom/android/server/am/ProcessStateRecord;->getCachedHasActivities()Z
 
     move-result v14
 
-    if-eqz v14, :cond_19
+    if-eqz v14, :cond_1f
 
     iget-object v14, v9, Lcom/android/server/am/OomAdjuster;->mTmpComputeOomAdjWindowCallback:Lcom/android/server/am/OomAdjuster$ComputeOomAdjWindowCallback;
 
@@ -2941,13 +2958,13 @@
 
     move-object/from16 v15, v16
 
-    move/from16 v16, v0
+    move/from16 v16, v5
 
     move/from16 v17, v1
 
     move/from16 v18, v33
 
-    move/from16 v19, v5
+    move/from16 v19, v0
 
     move/from16 v20, v34
 
@@ -2961,7 +2978,7 @@
 
     invoke-virtual {v8}, Lcom/android/server/am/ProcessStateRecord;->getCachedAdj()I
 
-    move-result v0
+    move-result v5
 
     invoke-virtual {v8}, Lcom/android/server/am/ProcessStateRecord;->getCachedForegroundActivities()Z
 
@@ -2973,7 +2990,7 @@
 
     invoke-virtual {v8}, Lcom/android/server/am/ProcessStateRecord;->getCachedProcState()I
 
-    move-result v5
+    move-result v0
 
     invoke-virtual {v8}, Lcom/android/server/am/ProcessStateRecord;->getCachedSchedGroup()I
 
@@ -2983,9 +3000,9 @@
 
     move/from16 v15, v33
 
-    goto :goto_9
+    goto :goto_a
 
-    :cond_19
+    :cond_1f
     move-object/from16 v36, v15
 
     const/16 v35, 0x5
@@ -2994,32 +3011,231 @@
 
     move/from16 v15, v33
 
-    :goto_9
+    :goto_a
     const/16 v1, 0x12
 
-    if-le v5, v1, :cond_1b
+    if-le v0, v1, :cond_21
 
     invoke-virtual {v8}, Lcom/android/server/am/ProcessStateRecord;->getCachedHasRecentTasks()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1b
+    if-eqz v1, :cond_21
 
-    const/16 v5, 0x12
+    const/16 v0, 0x12
 
     const-string v1, "cch-rec"
 
     invoke-virtual {v8, v1}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
 
-    if-ne v3, v4, :cond_1a
+    if-ne v3, v4, :cond_20
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    move/from16 v16, v2
+    move/from16 v16, v0
 
-    const-string v2, "Raise procstate to cached recent: "
+    const-string v0, "Raise procstate to cached recent: "
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {v9, v7, v0}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_b
+
+    :cond_20
+    move/from16 v16, v0
+
+    :goto_b
+    move/from16 v0, v16
+
+    :cond_21
+    const-string v1, ": "
+
+    const-string v11, "Raise to "
+
+    move/from16 v16, v14
+
+    const/16 v14, 0xc8
+
+    if-gt v5, v14, :cond_22
+
+    const/4 v14, 0x4
+
+    if-le v0, v14, :cond_26
+
+    :cond_22
+    invoke-virtual/range {v36 .. v36}, Lcom/android/server/am/ProcessServiceRecord;->hasForegroundServices()Z
+
+    move-result v14
+
+    if-eqz v14, :cond_24
+
+    const/16 v5, 0xc8
+
+    const/4 v0, 0x4
+
+    const/4 v14, 0x4
+
+    invoke-virtual {v8, v14}, Lcom/android/server/am/ProcessStateRecord;->bumpAllowStartFgsState(I)V
+
+    const-string v14, "fg-service"
+
+    invoke-virtual {v8, v14}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
+
+    const/4 v14, 0x0
+
+    invoke-virtual {v8, v14}, Lcom/android/server/am/ProcessStateRecord;->setCached(Z)V
+
+    const/16 v34, 0x2
+
+    if-ne v3, v4, :cond_23
+
+    new-instance v14, Ljava/lang/StringBuilder;
+
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v14, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move/from16 v19, v0
+
+    invoke-virtual {v8}, Lcom/android/server/am/ProcessStateRecord;->getAdjType()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v14, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v14, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v14, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v0, " "
+
+    invoke-virtual {v14, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {v9, v7, v0}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_c
+
+    :cond_23
+    move/from16 v19, v0
+
+    :goto_c
+    move/from16 v0, v19
+
+    goto :goto_d
+
+    :cond_24
+    invoke-virtual {v8}, Lcom/android/server/am/ProcessStateRecord;->hasOverlayUi()Z
+
+    move-result v14
+
+    if-eqz v14, :cond_26
+
+    const/16 v5, 0xc8
+
+    const/4 v0, 0x6
+
+    const/4 v14, 0x0
+
+    invoke-virtual {v8, v14}, Lcom/android/server/am/ProcessStateRecord;->setCached(Z)V
+
+    const-string v14, "has-overlay-ui"
+
+    invoke-virtual {v8, v14}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
+
+    const/16 v34, 0x2
+
+    if-ne v3, v4, :cond_25
+
+    new-instance v14, Ljava/lang/StringBuilder;
+
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+
+    move/from16 v19, v0
+
+    const-string v0, "Raise to overlay ui: "
+
+    invoke-virtual {v14, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v14, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {v9, v7, v0}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_c
+
+    :cond_25
+    move/from16 v19, v0
+
+    goto :goto_c
+
+    :cond_26
+    :goto_d
+    invoke-virtual/range {v36 .. v36}, Lcom/android/server/am/ProcessServiceRecord;->hasForegroundServices()Z
+
+    move-result v14
+
+    if-eqz v14, :cond_28
+
+    const/16 v14, 0x32
+
+    if-le v5, v14, :cond_28
+
+    invoke-virtual {v8}, Lcom/android/server/am/ProcessStateRecord;->getLastTopTime()J
+
+    move-result-wide v19
+
+    iget-object v14, v9, Lcom/android/server/am/OomAdjuster;->mConstants:Lcom/android/server/am/ActivityManagerConstants;
+
+    move-object/from16 v22, v1
+
+    move/from16 v21, v2
+
+    iget-wide v1, v14, Lcom/android/server/am/ActivityManagerConstants;->TOP_TO_FGS_GRACE_DURATION:J
+
+    add-long v19, v19, v1
+
+    cmp-long v1, v19, v12
+
+    if-gtz v1, :cond_27
+
+    invoke-virtual {v8}, Lcom/android/server/am/ProcessStateRecord;->getSetProcState()I
+
+    move-result v1
+
+    const/4 v2, 0x2
+
+    if-gt v1, v2, :cond_29
+
+    :cond_27
+    const/16 v5, 0x32
+
+    const-string v1, "fg-service-act"
+
+    invoke-virtual {v8, v1}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
+
+    if-ne v3, v4, :cond_29
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Raise to recent fg: "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3031,235 +3247,33 @@
 
     invoke-direct {v9, v7, v1}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_a
+    goto :goto_e
 
-    :cond_1a
-    move/from16 v16, v2
+    :cond_28
+    move-object/from16 v22, v1
 
-    goto :goto_a
+    move/from16 v21, v2
 
-    :cond_1b
-    move/from16 v16, v2
-
-    :goto_a
-    const-string v2, ": "
-
-    const-string v1, "Raise to "
-
-    const/16 v11, 0xc8
-
-    if-gt v0, v11, :cond_1c
-
-    const/4 v11, 0x4
-
-    if-le v5, v11, :cond_20
-
-    :cond_1c
-    invoke-virtual/range {v36 .. v36}, Lcom/android/server/am/ProcessServiceRecord;->hasForegroundServices()Z
-
-    move-result v11
-
-    if-eqz v11, :cond_1e
-
-    const/16 v0, 0xc8
-
-    const/4 v5, 0x4
-
-    const/4 v11, 0x4
-
-    invoke-virtual {v8, v11}, Lcom/android/server/am/ProcessStateRecord;->bumpAllowStartFgsState(I)V
-
-    const-string v11, "fg-service"
-
-    invoke-virtual {v8, v11}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
-
-    const/4 v11, 0x0
-
-    invoke-virtual {v8, v11}, Lcom/android/server/am/ProcessStateRecord;->setCached(Z)V
-
-    const/16 v34, 0x2
-
-    if-ne v3, v4, :cond_1d
-
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v11, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move/from16 v19, v0
-
-    invoke-virtual {v8}, Lcom/android/server/am/ProcessStateRecord;->getAdjType()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v11, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v11, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v11, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string v0, " "
-
-    invoke-virtual {v11, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {v9, v7, v0}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_b
-
-    :cond_1d
-    move/from16 v19, v0
-
-    :goto_b
-    move/from16 v0, v19
-
-    goto :goto_c
-
-    :cond_1e
-    invoke-virtual {v8}, Lcom/android/server/am/ProcessStateRecord;->hasOverlayUi()Z
-
-    move-result v11
-
-    if-eqz v11, :cond_20
-
-    const/16 v0, 0xc8
-
-    const/4 v5, 0x6
-
-    const/4 v11, 0x0
-
-    invoke-virtual {v8, v11}, Lcom/android/server/am/ProcessStateRecord;->setCached(Z)V
-
-    const-string v11, "has-overlay-ui"
-
-    invoke-virtual {v8, v11}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
-
-    const/16 v34, 0x2
-
-    if-ne v3, v4, :cond_1f
-
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    move/from16 v19, v0
-
-    const-string v0, "Raise to overlay ui: "
-
-    invoke-virtual {v11, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v11, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {v9, v7, v0}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_b
-
-    :cond_1f
-    move/from16 v19, v0
-
-    goto :goto_b
-
-    :cond_20
-    :goto_c
-    invoke-virtual/range {v36 .. v36}, Lcom/android/server/am/ProcessServiceRecord;->hasForegroundServices()Z
-
-    move-result v11
-
-    if-eqz v11, :cond_22
-
-    const/16 v11, 0x32
-
-    if-le v0, v11, :cond_22
-
-    invoke-virtual {v8}, Lcom/android/server/am/ProcessStateRecord;->getLastTopTime()J
-
-    move-result-wide v19
-
-    iget-object v11, v9, Lcom/android/server/am/OomAdjuster;->mConstants:Lcom/android/server/am/ActivityManagerConstants;
-
-    move/from16 v22, v0
-
-    move-object/from16 v21, v1
-
-    iget-wide v0, v11, Lcom/android/server/am/ActivityManagerConstants;->TOP_TO_FGS_GRACE_DURATION:J
-
-    add-long v19, v19, v0
-
-    cmp-long v0, v19, v12
-
-    if-gtz v0, :cond_21
-
-    invoke-virtual {v8}, Lcom/android/server/am/ProcessStateRecord;->getSetProcState()I
-
-    move-result v0
-
-    const/4 v1, 0x2
-
-    if-gt v0, v1, :cond_23
-
-    :cond_21
-    const/16 v0, 0x32
-
-    const-string v1, "fg-service-act"
-
-    invoke-virtual {v8, v1}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
-
-    if-ne v3, v4, :cond_24
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v11, "Raise to recent fg: "
-
-    invoke-virtual {v1, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v9, v7, v1}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_d
-
-    :cond_22
-    move/from16 v22, v0
-
-    move-object/from16 v21, v1
-
-    :cond_23
-    move/from16 v0, v22
-
-    :cond_24
-    :goto_d
-    const/16 v11, 0x8
+    :cond_29
+    :goto_e
+    const/16 v14, 0x8
 
     const/16 v1, 0xc8
 
-    if-gt v0, v1, :cond_25
+    if-gt v5, v1, :cond_2a
 
-    if-le v5, v11, :cond_26
+    if-le v0, v14, :cond_2b
 
-    :cond_25
+    :cond_2a
     invoke-virtual {v8}, Lcom/android/server/am/ProcessStateRecord;->getForcingToImportant()Ljava/lang/Object;
 
     move-result-object v1
 
-    if-eqz v1, :cond_26
+    if-eqz v1, :cond_2b
 
-    const/16 v0, 0xc8
+    const/16 v5, 0xc8
 
-    const/16 v5, 0x8
+    const/16 v0, 0x8
 
     const/4 v1, 0x0
 
@@ -3277,15 +3291,15 @@
 
     const/16 v34, 0x2
 
-    if-ne v3, v4, :cond_26
+    if-ne v3, v4, :cond_2b
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v11, "Raise to force imp: "
+    const-string v2, "Raise to force imp: "
 
-    invoke-virtual {v1, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -3295,143 +3309,28 @@
 
     invoke-direct {v9, v7, v1}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_26
+    :cond_2b
     invoke-virtual {v8}, Lcom/android/server/am/ProcessStateRecord;->getCachedIsHeavyWeight()Z
 
     move-result v1
 
-    if-eqz v1, :cond_29
+    if-eqz v1, :cond_2d
 
     const/16 v1, 0x190
 
-    const-string v11, "heavy"
-
-    if-le v0, v1, :cond_28
-
-    const/16 v0, 0x190
-
-    const/16 v34, 0x0
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v8, v1}, Lcom/android/server/am/ProcessStateRecord;->setCached(Z)V
-
-    invoke-virtual {v8, v11}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
-
-    if-ne v3, v4, :cond_27
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    move/from16 v20, v0
-
-    const-string v0, "Raise adj to heavy: "
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {v9, v7, v0}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_e
-
-    :cond_27
-    move/from16 v20, v0
-
-    :goto_e
-    move/from16 v0, v20
-
-    :cond_28
-    const/16 v1, 0xd
-
-    if-le v5, v1, :cond_29
-
-    const/16 v5, 0xd
-
-    invoke-virtual {v8, v11}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
-
-    if-ne v3, v4, :cond_29
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v11, "Raise procstate to heavy: "
-
-    invoke-virtual {v1, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v9, v7, v1}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
-
-    :cond_29
-    invoke-virtual {v8}, Lcom/android/server/am/ProcessStateRecord;->getCachedIsHomeProcess()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2c
-
-    const/16 v1, 0x258
-
-    const-string v11, "home"
-
-    if-le v0, v1, :cond_2b
-
-    const/16 v0, 0x258
-
-    const/16 v34, 0x0
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v8, v1}, Lcom/android/server/am/ProcessStateRecord;->setCached(Z)V
-
-    invoke-virtual {v8, v11}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
-
-    if-ne v3, v4, :cond_2a
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    move/from16 v20, v0
-
-    const-string v0, "Raise adj to home: "
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {v9, v7, v0}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_f
-
-    :cond_2a
-    move/from16 v20, v0
-
-    :goto_f
-    move/from16 v0, v20
-
-    :cond_2b
-    const/16 v1, 0xe
+    const-string v2, "heavy"
 
     if-le v5, v1, :cond_2c
 
-    const/16 v5, 0xe
+    const/16 v5, 0x190
 
-    invoke-virtual {v8, v11}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
+    const/16 v34, 0x0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v8, v1}, Lcom/android/server/am/ProcessStateRecord;->setCached(Z)V
+
+    invoke-virtual {v8, v2}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
 
     if-ne v3, v4, :cond_2c
 
@@ -3439,9 +3338,9 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v11, "Raise procstate to home: "
+    const-string v14, "Raise adj to heavy: "
 
-    invoke-virtual {v1, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -3452,23 +3351,118 @@
     invoke-direct {v9, v7, v1}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_2c
-    invoke-virtual {v8}, Lcom/android/server/am/ProcessStateRecord;->getCachedIsPreviousProcess()Z
+    const/16 v1, 0xd
+
+    if-le v0, v1, :cond_2d
+
+    const/16 v0, 0xd
+
+    invoke-virtual {v8, v2}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
+
+    if-ne v3, v4, :cond_2d
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Raise procstate to heavy: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v9, v7, v1}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_2d
+    invoke-virtual {v8}, Lcom/android/server/am/ProcessStateRecord;->getCachedIsHomeProcess()Z
 
     move-result v1
 
     if-eqz v1, :cond_2f
+
+    const/16 v1, 0x258
+
+    const-string v2, "home"
+
+    if-le v5, v1, :cond_2e
+
+    const/16 v5, 0x258
+
+    const/16 v34, 0x0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v8, v1}, Lcom/android/server/am/ProcessStateRecord;->setCached(Z)V
+
+    invoke-virtual {v8, v2}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
+
+    if-ne v3, v4, :cond_2e
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v14, "Raise adj to home: "
+
+    invoke-virtual {v1, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v9, v7, v1}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_2e
+    const/16 v1, 0xe
+
+    if-le v0, v1, :cond_2f
+
+    const/16 v0, 0xe
+
+    invoke-virtual {v8, v2}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
+
+    if-ne v3, v4, :cond_2f
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Raise procstate to home: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v9, v7, v1}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_2f
+    invoke-virtual {v8}, Lcom/android/server/am/ProcessStateRecord;->getCachedIsPreviousProcess()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_32
 
     invoke-virtual {v8}, Lcom/android/server/am/ProcessStateRecord;->getCachedHasActivities()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2f
+    if-eqz v1, :cond_32
 
     const/16 v1, 0x2bc
 
-    if-le v0, v1, :cond_2d
+    if-le v5, v1, :cond_30
 
-    const/16 v0, 0x2bc
+    const/16 v5, 0x2bc
 
     const/16 v34, 0x0
 
@@ -3480,15 +3474,15 @@
 
     invoke-virtual {v8, v1}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
 
-    if-ne v3, v4, :cond_2d
+    if-ne v3, v4, :cond_30
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v11, "Raise adj to prev: "
+    const-string v2, "Raise adj to prev: "
 
-    invoke-virtual {v1, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -3498,26 +3492,26 @@
 
     invoke-direct {v9, v7, v1}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_2d
-    const/16 v11, 0xf
+    :cond_30
+    const/16 v14, 0xf
 
-    if-le v5, v11, :cond_2e
+    if-le v0, v14, :cond_31
 
-    const/16 v5, 0xf
+    const/16 v0, 0xf
 
     const-string/jumbo v1, "previous"
 
     invoke-virtual {v8, v1}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
 
-    if-ne v3, v4, :cond_2f
+    if-ne v3, v4, :cond_33
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v11, "Raise procstate to prev: "
+    const-string v2, "Raise procstate to prev: "
 
-    invoke-virtual {v1, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -3527,113 +3521,155 @@
 
     invoke-direct {v9, v7, v1}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
 
+    goto :goto_f
+
+    :cond_31
+    move/from16 v1, v34
+
     goto :goto_10
 
-    :cond_2e
+    :cond_32
+    const/16 v14, 0xf
+
+    :cond_33
+    :goto_f
     move/from16 v1, v34
 
-    goto :goto_11
-
-    :cond_2f
     :goto_10
-    move/from16 v1, v34
-
-    :goto_11
-    if-eqz p7, :cond_30
+    if-eqz p7, :cond_34
 
     invoke-virtual {v8}, Lcom/android/server/am/ProcessStateRecord;->getCurRawProcState()I
 
-    move-result v11
+    move-result v2
 
-    invoke-static {v5, v11}, Ljava/lang/Math;->min(II)I
-
-    move-result v5
-
-    invoke-virtual {v8}, Lcom/android/server/am/ProcessStateRecord;->getCurRawAdj()I
-
-    move-result v11
-
-    invoke-static {v0, v11}, Ljava/lang/Math;->min(II)I
+    invoke-static {v0, v2}, Ljava/lang/Math;->min(II)I
 
     move-result v0
 
+    invoke-virtual {v8}, Lcom/android/server/am/ProcessStateRecord;->getCurRawAdj()I
+
+    move-result v2
+
+    invoke-static {v5, v2}, Ljava/lang/Math;->min(II)I
+
+    move-result v5
+
     invoke-virtual {v8}, Lcom/android/server/am/ProcessStateRecord;->getCurrentSchedulingGroup()I
 
-    move-result v11
+    move-result v2
 
-    invoke-static {v1, v11}, Ljava/lang/Math;->max(II)I
+    invoke-static {v1, v2}, Ljava/lang/Math;->max(II)I
 
     move-result v1
 
-    :cond_30
-    invoke-virtual {v8, v0}, Lcom/android/server/am/ProcessStateRecord;->setCurRawAdj(I)V
+    :cond_34
+    invoke-virtual {v8, v5}, Lcom/android/server/am/ProcessStateRecord;->setCurRawAdj(I)V
 
-    invoke-virtual {v8, v5}, Lcom/android/server/am/ProcessStateRecord;->setCurRawProcState(I)V
+    invoke-virtual {v8, v0}, Lcom/android/server/am/ProcessStateRecord;->setCurRawProcState(I)V
 
-    const/4 v11, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {v8, v11}, Lcom/android/server/am/ProcessStateRecord;->setHasStartedServices(Z)V
+    invoke-virtual {v8, v2}, Lcom/android/server/am/ProcessStateRecord;->setHasStartedServices(Z)V
 
-    iget v11, v9, Lcom/android/server/am/OomAdjuster;->mAdjSeq:I
+    iget v2, v9, Lcom/android/server/am/OomAdjuster;->mAdjSeq:I
 
-    invoke-virtual {v8, v11}, Lcom/android/server/am/ProcessStateRecord;->setAdjSeq(I)V
+    invoke-virtual {v8, v2}, Lcom/android/server/am/ProcessStateRecord;->setAdjSeq(I)V
 
-    iget-object v11, v9, Lcom/android/server/am/OomAdjuster;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object v2, v9, Lcom/android/server/am/OomAdjuster;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v11, v11, Lcom/android/server/am/ActivityManagerService;->mBackupTargets:Landroid/util/SparseArray;
+    iget-object v2, v2, Lcom/android/server/am/ActivityManagerService;->mBackupTargets:Landroid/util/SparseArray;
 
-    move/from16 v20, v1
+    iget v14, v10, Lcom/android/server/am/ProcessRecord;->userId:I
 
-    iget v1, v10, Lcom/android/server/am/ProcessRecord;->userId:I
+    invoke-virtual {v2, v14}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    invoke-virtual {v11, v1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object v14, v2
 
-    move-object v11, v1
+    check-cast v14, Lcom/android/server/am/BackupRecord;
 
-    check-cast v11, Lcom/android/server/am/BackupRecord;
+    if-eqz v14, :cond_39
 
-    if-eqz v11, :cond_36
+    iget-object v2, v14, Lcom/android/server/am/BackupRecord;->app:Lcom/android/server/am/ProcessRecord;
 
-    iget-object v1, v11, Lcom/android/server/am/BackupRecord;->app:Lcom/android/server/am/ProcessRecord;
+    if-ne v10, v2, :cond_39
 
-    if-ne v10, v1, :cond_36
+    const/16 v2, 0x12c
 
-    const/16 v1, 0x12c
+    if-le v5, v2, :cond_37
 
-    if-le v0, v1, :cond_33
+    const/16 v5, 0x12c
 
-    const/16 v0, 0x12c
+    const/16 v2, 0x8
 
-    const/16 v1, 0x8
+    if-le v0, v2, :cond_35
 
-    if-le v5, v1, :cond_31
+    const/16 v0, 0x8
 
-    const/16 v1, 0x8
+    :cond_35
+    const-string v2, "backup"
 
-    move v5, v1
+    invoke-virtual {v8, v2}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
 
-    :cond_31
-    const-string v1, "backup"
+    if-ne v3, v4, :cond_36
 
-    invoke-virtual {v8, v1}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    if-ne v3, v4, :cond_32
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    move/from16 v22, v0
+    move/from16 v20, v0
 
     const-string v0, "Raise adj to backup: "
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {v9, v7, v0}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_11
+
+    :cond_36
+    move/from16 v20, v0
+
+    :goto_11
+    const/4 v0, 0x0
+
+    invoke-virtual {v8, v0}, Lcom/android/server/am/ProcessStateRecord;->setCached(Z)V
+
+    move/from16 v0, v20
+
+    :cond_37
+    const/16 v2, 0x9
+
+    if-le v0, v2, :cond_39
+
+    const/16 v0, 0x9
+
+    const-string v2, "backup"
+
+    invoke-virtual {v8, v2}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
+
+    if-ne v3, v4, :cond_38
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    move/from16 v20, v0
+
+    const-string v0, "Raise procstate to backup: "
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
@@ -3641,65 +3677,16 @@
 
     goto :goto_12
 
-    :cond_32
-    move/from16 v22, v0
+    :cond_38
+    move/from16 v20, v0
 
     :goto_12
-    const/4 v0, 0x0
+    move/from16 v0, v20
 
-    invoke-virtual {v8, v0}, Lcom/android/server/am/ProcessStateRecord;->setCached(Z)V
+    :cond_39
+    const/4 v2, 0x0
 
-    move/from16 v0, v22
-
-    :cond_33
-    const/16 v1, 0x9
-
-    if-le v5, v1, :cond_35
-
-    const/16 v5, 0x9
-
-    const-string v1, "backup"
-
-    invoke-virtual {v8, v1}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
-
-    if-ne v3, v4, :cond_34
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    move/from16 v22, v0
-
-    const-string v0, "Raise procstate to backup: "
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {v9, v7, v0}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_13
-
-    :cond_34
-    move/from16 v22, v0
-
-    :goto_13
-    move/from16 v0, v22
-
-    goto :goto_14
-
-    :cond_35
-    move/from16 v22, v0
-
-    :cond_36
-    :goto_14
-    const/4 v1, 0x0
-
-    const/16 v22, 0x0
+    const/16 v20, 0x0
 
     invoke-virtual/range {v36 .. v36}, Lcom/android/server/am/ProcessServiceRecord;->numberOfRunningServices()I
 
@@ -3709,75 +3696,65 @@
 
     add-int/lit8 v23, v23, -0x1
 
-    move/from16 v59, v20
+    move/from16 v60, v20
 
-    move/from16 v20, v1
+    move/from16 v20, v2
 
-    move/from16 v1, v59
+    move/from16 v2, v23
 
-    move/from16 v60, v23
+    move/from16 v23, v60
 
-    move-object/from16 v23, v11
+    :goto_13
+    move-object/from16 v33, v14
 
-    move/from16 v11, v60
+    if-ltz v2, :cond_88
 
-    :goto_15
-    move/from16 v33, v14
+    if-gtz v5, :cond_3b
 
-    if-ltz v11, :cond_86
-
-    if-gtz v0, :cond_38
-
-    if-eqz v1, :cond_38
+    if-eqz v1, :cond_3b
 
     const/4 v14, 0x2
 
-    if-le v5, v14, :cond_37
+    if-le v0, v14, :cond_3a
 
-    goto :goto_16
+    goto :goto_14
 
-    :cond_37
+    :cond_3a
     move/from16 v38, v1
-
-    move-object v13, v2
 
     move/from16 v27, v6
 
-    move/from16 v49, v16
+    move-object v6, v7
 
-    move-object/from16 v12, v21
+    move/from16 v50, v21
 
-    move/from16 v11, v26
+    move/from16 v47, v31
 
-    move/from16 v46, v31
-
-    move/from16 v47, v32
-
-    move/from16 v6, v35
+    move/from16 v48, v32
 
     move-object/from16 v14, v36
 
+    const/16 v40, 0x0
+
     move/from16 v36, v15
 
-    move-object v15, v7
+    move v15, v3
 
-    const/4 v7, 0x0
+    move v3, v4
 
-    move-object/from16 v59, v8
+    move-object v4, v8
 
-    move v8, v3
-
-    move-object/from16 v3, v59
+    move-object/from16 v8, v22
 
     goto/16 :goto_38
 
-    :cond_38
-    :goto_16
+    :cond_3b
+    :goto_14
     move-object/from16 v14, v36
 
     move/from16 v36, v15
 
-    invoke-virtual {v14, v11}, Lcom/android/server/am/ProcessServiceRecord;->getRunningServiceAt(I)Lcom/android/server/am/ServiceRecord;
+    invoke-virtual {v14, v2}, Lcom/android/server/am/ProcessServiceRecord;->getRunningServiceAt(I)Lcom/android/server/am/ServiceRecord;
 
     move-result-object v15
 
@@ -3785,7 +3762,7 @@
 
     iget-boolean v1, v15, Lcom/android/server/am/ServiceRecord;->startRequested:Z
 
-    if-eqz v1, :cond_42
+    if-eqz v1, :cond_45
 
     const/4 v1, 0x1
 
@@ -3793,252 +3770,266 @@
 
     const/16 v1, 0xa
 
-    if-le v5, v1, :cond_3a
+    if-le v0, v1, :cond_3d
 
-    const/16 v5, 0xa
+    const/16 v0, 0xa
 
     const-string/jumbo v1, "started-services"
 
     invoke-virtual {v8, v1}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
 
-    if-ne v3, v4, :cond_39
+    if-ne v3, v4, :cond_3c
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object/from16 v39, v2
+    move/from16 v39, v0
 
-    const-string v2, "Raise procstate to started service: "
+    const-string v0, "Raise procstate to started service: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-direct {v9, v7, v1}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v9, v7, v0}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_17
+    goto :goto_15
 
-    :cond_39
-    move-object/from16 v39, v2
+    :cond_3c
+    move/from16 v39, v0
 
-    goto :goto_17
+    :goto_15
+    move/from16 v0, v39
 
-    :cond_3a
-    move-object/from16 v39, v2
-
-    :goto_17
+    :cond_3d
     iget-boolean v1, v15, Lcom/android/server/am/ServiceRecord;->mKeepWarming:Z
 
-    if-nez v1, :cond_3c
+    if-nez v1, :cond_3f
 
     invoke-virtual {v8}, Lcom/android/server/am/ProcessStateRecord;->hasShownUi()Z
 
     move-result v1
 
-    if-eqz v1, :cond_3c
+    if-eqz v1, :cond_3f
 
     invoke-virtual {v8}, Lcom/android/server/am/ProcessStateRecord;->getCachedIsHomeProcess()Z
 
     move-result v1
 
-    if-nez v1, :cond_3c
+    if-nez v1, :cond_3f
 
     const/16 v1, 0x1f4
 
-    if-le v0, v1, :cond_3b
+    if-le v5, v1, :cond_3e
 
     const-string v1, "cch-started-ui-services"
 
     invoke-virtual {v8, v1}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
 
-    :cond_3b
-    move/from16 v41, v6
+    :cond_3e
+    move/from16 v40, v2
 
-    const/4 v6, 0x0
+    move-object/from16 v41, v14
 
-    goto :goto_1a
+    move-object/from16 v42, v15
 
-    :cond_3c
-    iget-boolean v1, v15, Lcom/android/server/am/ServiceRecord;->mKeepWarming:Z
-
-    if-nez v1, :cond_3e
-
-    iget-wide v1, v15, Lcom/android/server/am/ServiceRecord;->lastActivity:J
-
-    move/from16 v40, v5
-
-    iget-object v5, v9, Lcom/android/server/am/OomAdjuster;->mConstants:Lcom/android/server/am/ActivityManagerConstants;
-
-    move/from16 v41, v6
-
-    iget-wide v5, v5, Lcom/android/server/am/ActivityManagerConstants;->MAX_SERVICE_INACTIVITY:J
-
-    add-long/2addr v1, v5
-
-    cmp-long v1, v12, v1
-
-    if-gez v1, :cond_3d
+    const/4 v14, 0x0
 
     goto :goto_18
 
-    :cond_3d
-    const/4 v6, 0x0
-
-    goto :goto_19
-
-    :cond_3e
-    move/from16 v40, v5
-
-    move/from16 v41, v6
-
-    :goto_18
-    const/16 v1, 0x1f4
-
-    if-le v0, v1, :cond_40
-
-    const/16 v0, 0x1f4
-
-    const-string/jumbo v1, "started-services"
-
-    invoke-virtual {v8, v1}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
-
-    if-ne v3, v4, :cond_3f
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "Raise adj to started service: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v9, v7, v1}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
-
     :cond_3f
-    const/4 v6, 0x0
+    iget-boolean v1, v15, Lcom/android/server/am/ServiceRecord;->mKeepWarming:Z
 
-    invoke-virtual {v8, v6}, Lcom/android/server/am/ProcessStateRecord;->setCached(Z)V
+    if-nez v1, :cond_41
 
-    goto :goto_19
+    move/from16 v39, v0
+
+    iget-wide v0, v15, Lcom/android/server/am/ServiceRecord;->lastActivity:J
+
+    move/from16 v40, v2
+
+    iget-object v2, v9, Lcom/android/server/am/OomAdjuster;->mConstants:Lcom/android/server/am/ActivityManagerConstants;
+
+    move-object/from16 v41, v14
+
+    move-object/from16 v42, v15
+
+    iget-wide v14, v2, Lcom/android/server/am/ActivityManagerConstants;->MAX_SERVICE_INACTIVITY:J
+
+    add-long/2addr v0, v14
+
+    cmp-long v0, v12, v0
+
+    if-gez v0, :cond_40
+
+    goto :goto_16
 
     :cond_40
-    const/4 v6, 0x0
+    const/4 v14, 0x0
 
-    :goto_19
-    const/16 v1, 0x1f4
-
-    if-le v0, v1, :cond_41
-
-    const-string v1, "cch-started-services"
-
-    invoke-virtual {v8, v1}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
+    goto :goto_17
 
     :cond_41
-    move/from16 v5, v40
+    move/from16 v39, v0
 
-    goto :goto_1a
+    move/from16 v40, v2
+
+    move-object/from16 v41, v14
+
+    move-object/from16 v42, v15
+
+    :goto_16
+    const/16 v0, 0x1f4
+
+    if-le v5, v0, :cond_43
+
+    const/16 v5, 0x1f4
+
+    const-string/jumbo v0, "started-services"
+
+    invoke-virtual {v8, v0}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
+
+    if-ne v3, v4, :cond_42
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "Raise adj to started service: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {v9, v7, v0}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_42
-    move-object/from16 v39, v2
+    const/4 v14, 0x0
 
-    move/from16 v41, v6
+    invoke-virtual {v8, v14}, Lcom/android/server/am/ProcessStateRecord;->setCached(Z)V
 
-    const/4 v6, 0x0
+    goto :goto_17
 
-    :goto_1a
+    :cond_43
+    const/4 v14, 0x0
+
+    :goto_17
+    const/16 v0, 0x1f4
+
+    if-le v5, v0, :cond_44
+
+    const-string v0, "cch-started-services"
+
+    invoke-virtual {v8, v0}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
+
+    :cond_44
+    move/from16 v0, v39
+
+    goto :goto_18
+
+    :cond_45
+    move/from16 v40, v2
+
+    move-object/from16 v41, v14
+
+    move-object/from16 v42, v15
+
+    const/4 v14, 0x0
+
+    :goto_18
+    move-object/from16 v15, v42
+
     iget-boolean v1, v15, Lcom/android/server/am/ServiceRecord;->isForeground:Z
 
-    if-eqz v1, :cond_47
+    if-eqz v1, :cond_4a
 
     iget v1, v15, Lcom/android/server/am/ServiceRecord;->foregroundServiceType:I
 
     iget-boolean v2, v15, Lcom/android/server/am/ServiceRecord;->mAllowWhileInUsePermissionInFgs:Z
 
-    if-eqz v2, :cond_47
+    if-eqz v2, :cond_4a
 
     nop
 
     and-int/lit8 v2, v1, 0x8
 
-    if-eqz v2, :cond_43
+    if-eqz v2, :cond_46
 
     const/4 v2, 0x1
 
-    goto :goto_1b
+    goto :goto_19
 
-    :cond_43
-    move v2, v6
+    :cond_46
+    move v2, v14
 
-    :goto_1b
+    :goto_19
     or-int v2, v20, v2
 
-    const/4 v6, 0x1
+    const/4 v14, 0x1
 
-    invoke-virtual {v8, v6}, Lcom/android/server/am/ProcessStateRecord;->getCachedCompatChange(I)Z
+    invoke-virtual {v8, v14}, Lcom/android/server/am/ProcessStateRecord;->getCachedCompatChange(I)Z
 
     move-result v20
 
-    if-eqz v20, :cond_46
+    if-eqz v20, :cond_49
 
     nop
 
-    and-int/lit8 v6, v1, 0x40
+    and-int/lit8 v14, v1, 0x40
 
-    if-eqz v6, :cond_44
+    if-eqz v14, :cond_47
 
-    const/4 v6, 0x2
+    const/4 v14, 0x2
 
-    goto :goto_1c
+    goto :goto_1a
 
-    :cond_44
-    const/4 v6, 0x0
+    :cond_47
+    const/4 v14, 0x0
 
-    :goto_1c
-    or-int/2addr v2, v6
+    :goto_1a
+    or-int/2addr v2, v14
 
     nop
 
-    and-int/lit16 v6, v1, 0x80
+    and-int/lit16 v14, v1, 0x80
 
-    if-eqz v6, :cond_45
+    if-eqz v14, :cond_48
 
-    const/4 v6, 0x4
+    const/4 v14, 0x4
 
-    goto :goto_1d
+    goto :goto_1b
 
-    :cond_45
-    const/4 v6, 0x0
+    :cond_48
+    const/4 v14, 0x0
 
-    :goto_1d
-    or-int/2addr v2, v6
+    :goto_1b
+    or-int/2addr v2, v14
 
     move/from16 v20, v2
 
-    goto :goto_1e
+    goto :goto_1c
 
-    :cond_46
+    :cond_49
     or-int/lit8 v2, v2, 0x6
 
     move/from16 v20, v2
 
-    :cond_47
-    :goto_1e
+    :cond_4a
+    :goto_1c
     invoke-virtual {v15}, Lcom/android/server/am/ServiceRecord;->getConnections()Landroid/util/ArrayMap;
 
-    move-result-object v6
+    move-result-object v14
 
-    invoke-virtual {v6}, Landroid/util/ArrayMap;->size()I
+    invoke-virtual {v14}, Landroid/util/ArrayMap;->size()I
 
     move-result v1
 
@@ -4052,129 +4043,127 @@
 
     move/from16 v1, v38
 
-    :goto_1f
-    if-ltz v5, :cond_85
+    :goto_1d
+    if-ltz v5, :cond_87
 
-    if-gtz v0, :cond_49
+    if-gtz v2, :cond_4c
 
-    if-eqz v1, :cond_49
+    if-eqz v1, :cond_4c
 
-    move/from16 v37, v0
+    move/from16 v37, v1
 
-    const/4 v0, 0x2
+    const/4 v1, 0x2
 
-    if-le v2, v0, :cond_48
+    if-le v0, v1, :cond_4b
 
-    goto :goto_20
+    goto :goto_1e
 
-    :cond_48
-    move-object v5, v7
+    :cond_4b
+    move v5, v3
 
-    move/from16 v49, v16
+    move v3, v4
 
-    move-object/from16 v12, v21
+    move/from16 v27, v6
 
-    move/from16 v46, v31
+    move-object v6, v7
 
-    move/from16 v47, v32
+    move-object v4, v8
 
-    move-object/from16 v13, v39
+    move/from16 v50, v21
 
-    move/from16 v27, v41
+    move-object/from16 v8, v22
 
-    move/from16 v39, v11
+    move/from16 v47, v31
 
-    move-object/from16 v59, v8
+    move/from16 v48, v32
 
-    move v8, v3
+    move/from16 v31, v40
 
-    move-object/from16 v3, v59
+    move-object/from16 v14, v41
+
+    const/16 v40, 0x0
 
     goto/16 :goto_37
 
-    :cond_49
-    move/from16 v37, v0
+    :cond_4c
+    move/from16 v37, v1
 
-    :goto_20
-    invoke-virtual {v6, v5}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+    :goto_1e
+    invoke-virtual {v14, v5}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    check-cast v0, Ljava/util/ArrayList;
+    check-cast v1, Ljava/util/ArrayList;
 
     const/16 v38, 0x0
 
-    move-object/from16 v40, v8
+    move-object/from16 v39, v8
 
     move/from16 v8, v38
 
-    move/from16 v59, v22
+    move/from16 v60, v2
 
-    move/from16 v22, v1
+    move v2, v0
 
-    move v1, v2
+    move/from16 v0, v60
 
-    move/from16 v2, v37
-
-    move/from16 v37, v29
-
-    move/from16 v29, v59
-
-    :goto_21
+    :goto_1f
     move/from16 v42, v3
 
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v3
 
-    if-ge v8, v3, :cond_84
+    if-ge v8, v3, :cond_86
 
-    if-gtz v2, :cond_4b
+    if-gtz v0, :cond_4e
 
-    if-eqz v22, :cond_4b
+    if-eqz v37, :cond_4e
 
     const/4 v3, 0x2
 
-    if-le v1, v3, :cond_4a
+    if-le v2, v3, :cond_4d
 
-    goto :goto_22
+    goto :goto_20
 
-    :cond_4a
+    :cond_4d
+    move v3, v4
+
     move/from16 v30, v5
 
-    move-object/from16 v28, v6
+    move/from16 v27, v6
 
-    move-object v5, v7
+    move-object v6, v7
 
-    move/from16 v49, v16
+    move/from16 v50, v21
 
-    move-object/from16 v12, v21
+    move-object/from16 v8, v22
 
-    move/from16 v46, v31
+    move/from16 v47, v31
 
-    move/from16 v47, v32
+    move/from16 v48, v32
 
-    move-object/from16 v13, v39
+    move-object/from16 v4, v39
 
-    move-object/from16 v3, v40
+    move/from16 v31, v40
 
-    move/from16 v27, v41
+    move/from16 v5, v42
 
-    move/from16 v8, v42
+    const/16 v40, 0x0
 
-    move/from16 v21, v1
+    move/from16 v21, v2
 
-    move/from16 v32, v2
+    move-object/from16 v32, v14
 
-    move/from16 v39, v11
+    move v2, v0
 
     goto/16 :goto_36
 
-    :cond_4b
+    :cond_4e
     const/4 v3, 0x2
 
-    :goto_22
-    invoke-virtual {v0, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    :goto_20
+    invoke-virtual {v1, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v28
 
@@ -4188,43 +4177,39 @@
 
     iget-object v3, v3, Lcom/android/server/am/AppBindRecord;->client:Lcom/android/server/am/ProcessRecord;
 
-    if-ne v3, v10, :cond_4c
+    if-ne v3, v10, :cond_4f
 
-    move/from16 v53, v4
+    move v3, v4
 
     move/from16 v30, v5
 
-    move-object/from16 v28, v6
+    move/from16 v27, v6
 
-    move-object/from16 v54, v7
+    move-object v6, v7
 
-    move/from16 v49, v16
+    move/from16 v50, v21
 
-    move-object/from16 v48, v21
+    move-object/from16 v8, v22
 
-    move/from16 v46, v31
+    move/from16 v47, v31
 
-    move/from16 v47, v32
+    move/from16 v48, v32
 
-    move-object/from16 v50, v39
+    move-object/from16 v4, v39
 
-    move-object/from16 v16, v40
+    move/from16 v31, v40
 
-    move/from16 v27, v41
+    move/from16 v5, v42
 
-    move/from16 v51, v42
+    const/16 v40, 0x0
 
-    move-object/from16 v31, v0
+    move-object/from16 v22, v1
 
-    move/from16 v21, v1
+    move-object/from16 v32, v14
 
-    move/from16 v32, v2
+    goto/16 :goto_35
 
-    move/from16 v39, v11
-
-    goto/16 :goto_25
-
-    :cond_4c
+    :cond_4f
     const/16 v43, 0x0
 
     iget-object v3, v8, Lcom/android/server/am/ConnectionRecord;->binding:Lcom/android/server/am/AppBindRecord;
@@ -4235,29 +4220,29 @@
 
     iget-object v8, v3, Lcom/android/server/am/ProcessRecord;->mState:Lcom/android/server/am/ProcessStateRecord;
 
-    if-eqz p8, :cond_4d
+    if-eqz p8, :cond_50
 
     const/16 v45, 0x1
 
-    move/from16 v46, v31
+    move/from16 v46, v0
 
-    move-object/from16 v31, v0
+    move/from16 v47, v31
 
     move-object/from16 v0, p0
 
-    move-object/from16 v48, v21
+    move-object/from16 v49, v22
 
-    move/from16 v47, v32
+    move/from16 v48, v32
 
-    move/from16 v21, v1
+    move-object/from16 v22, v1
 
     move-object v1, v3
 
-    move/from16 v32, v2
+    move/from16 v50, v21
 
-    move/from16 v49, v16
+    move/from16 v31, v40
 
-    move-object/from16 v50, v39
+    move/from16 v21, v2
 
     move/from16 v2, p2
 
@@ -4265,7 +4250,7 @@
 
     move/from16 v51, v42
 
-    const/16 v16, 0x2
+    const/16 v28, 0x2
 
     move-object/from16 v3, p3
 
@@ -4275,23 +4260,21 @@
 
     move/from16 v30, v5
 
-    move-object/from16 v28, v6
-
-    move/from16 v27, v41
+    move/from16 v27, v6
 
     move-wide/from16 v5, p5
 
     move-object/from16 v54, v7
 
-    move/from16 v39, v11
+    move-object/from16 v32, v14
 
-    move/from16 v11, v16
+    move/from16 v14, v28
 
     move/from16 v7, p7
 
-    move-object/from16 v25, v8
+    move-object/from16 v26, v8
 
-    move-object/from16 v16, v40
+    move-object/from16 v25, v39
 
     move-object/from16 v55, v44
 
@@ -4299,56 +4282,54 @@
 
     invoke-direct/range {v0 .. v8}, Lcom/android/server/am/OomAdjuster;->computeOomAdjLSP(Lcom/android/server/am/ProcessRecord;ILcom/android/server/am/ProcessRecord;ZJZZ)Z
 
-    move-object/from16 v6, v25
+    move-object/from16 v6, v26
 
-    goto :goto_23
+    goto :goto_21
 
-    :cond_4d
+    :cond_50
+    move/from16 v46, v0
+
     move-object/from16 v52, v3
 
     move/from16 v53, v4
 
     move/from16 v30, v5
 
-    move-object/from16 v28, v6
+    move/from16 v27, v6
 
     move-object/from16 v54, v7
 
-    move-object/from16 v25, v8
+    move-object/from16 v26, v8
 
-    move/from16 v49, v16
+    move/from16 v50, v21
 
-    move-object/from16 v48, v21
+    move-object/from16 v49, v22
 
-    move/from16 v46, v31
+    move/from16 v47, v31
 
-    move/from16 v47, v32
+    move/from16 v48, v32
 
-    move-object/from16 v50, v39
+    move-object/from16 v25, v39
 
-    move-object/from16 v16, v40
-
-    move/from16 v27, v41
+    move/from16 v31, v40
 
     move/from16 v51, v42
 
     move-object/from16 v55, v44
 
-    move-object/from16 v31, v0
+    move-object/from16 v22, v1
 
-    move/from16 v21, v1
+    move/from16 v21, v2
 
-    move/from16 v32, v2
+    move-object/from16 v32, v14
 
-    move/from16 v39, v11
+    const/4 v14, 0x2
 
-    const/4 v11, 0x2
-
-    invoke-virtual/range {v25 .. v25}, Lcom/android/server/am/ProcessStateRecord;->getCurAdj()I
+    invoke-virtual/range {v26 .. v26}, Lcom/android/server/am/ProcessStateRecord;->getCurAdj()I
 
     move-result v0
 
-    move-object/from16 v6, v25
+    move-object/from16 v6, v26
 
     invoke-virtual {v6, v0}, Lcom/android/server/am/ProcessStateRecord;->setCurRawAdj(I)V
 
@@ -4358,7 +4339,7 @@
 
     invoke-virtual {v6, v0}, Lcom/android/server/am/ProcessStateRecord;->setCurRawProcState(I)V
 
-    :goto_23
+    :goto_21
     invoke-virtual {v6}, Lcom/android/server/am/ProcessStateRecord;->getCurRawAdj()I
 
     move-result v7
@@ -4367,17 +4348,17 @@
 
     move-result v8
 
-    if-ge v8, v11, :cond_4e
+    if-ge v8, v14, :cond_51
 
     const/4 v0, 0x1
 
-    goto :goto_24
+    goto :goto_22
 
-    :cond_4e
+    :cond_51
     const/4 v0, 0x0
 
-    :goto_24
-    move/from16 v25, v0
+    :goto_22
+    move/from16 v26, v0
 
     move-object/from16 v5, v52
 
@@ -4387,7 +4368,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4f
+    if-eqz v0, :cond_52
 
     iget-object v0, v10, Lcom/android/server/am/ProcessRecord;->mOptRecord:Lcom/android/server/am/ProcessCachedOptimizerRecord;
 
@@ -4395,7 +4376,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/am/ProcessCachedOptimizerRecord;->setShouldNotFreeze(Z)V
 
-    :cond_4f
+    :cond_52
     move-object/from16 v4, v55
 
     iget v0, v4, Lcom/android/server/am/ConnectionRecord;->flags:I
@@ -4404,69 +4385,23 @@
 
     const/16 v3, 0x384
 
-    if-nez v0, :cond_7b
+    if-nez v0, :cond_7d
 
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, p1
-
-    move-object v2, v6
-
-    move v11, v3
-
-    move/from16 v3, v21
-
-    move-object v11, v4
-
-    move/from16 v4, v32
-
-    move-object/from16 v40, v5
-
-    move/from16 v5, p7
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/server/am/OomAdjuster;->shouldSkipDueToCycle(Lcom/android/server/am/ProcessRecord;Lcom/android/server/am/ProcessStateRecord;IIZ)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_50
-
-    nop
-
-    :goto_25
-    move-object/from16 v3, v16
-
-    move/from16 v1, v21
-
-    move/from16 v2, v32
-
-    move-object/from16 v12, v48
-
-    move-object/from16 v13, v50
-
-    move/from16 v8, v51
-
-    move/from16 v4, v53
-
-    move-object/from16 v5, v54
-
-    goto/16 :goto_35
-
-    :cond_50
     const/16 v0, 0x1000
 
-    invoke-virtual {v11, v0}, Lcom/android/server/am/ConnectionRecord;->hasFlag(I)Z
+    invoke-virtual {v4, v0}, Lcom/android/server/am/ConnectionRecord;->hasFlag(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_51
+    if-eqz v0, :cond_53
 
     invoke-virtual {v6}, Lcom/android/server/am/ProcessStateRecord;->getCurCapability()I
 
     move-result v0
 
-    or-int v37, v37, v0
+    or-int v29, v29, v0
 
-    :cond_51
+    :cond_53
     invoke-virtual {v6}, Lcom/android/server/am/ProcessStateRecord;->getCurCapability()I
 
     move-result v0
@@ -4475,1392 +4410,49 @@
 
     and-int/2addr v0, v1
 
-    if-eqz v0, :cond_53
+    if-eqz v0, :cond_55
 
-    const/4 v4, 0x5
+    const/4 v2, 0x5
 
-    if-gt v8, v4, :cond_52
+    if-gt v8, v2, :cond_54
 
-    iget v0, v11, Lcom/android/server/am/ConnectionRecord;->flags:I
+    iget v0, v4, Lcom/android/server/am/ConnectionRecord;->flags:I
 
     const/high16 v1, 0x20000
 
     and-int/2addr v0, v1
 
-    if-eqz v0, :cond_54
+    if-eqz v0, :cond_56
 
-    or-int/lit8 v37, v37, 0x8
+    or-int/lit8 v29, v29, 0x8
 
-    goto :goto_26
-
-    :cond_52
-    or-int/lit8 v37, v37, 0x8
-
-    goto :goto_26
-
-    :cond_53
-    const/4 v4, 0x5
+    goto :goto_23
 
     :cond_54
-    :goto_26
-    const/16 v0, 0x10
+    or-int/lit8 v29, v29, 0x8
 
-    if-lt v8, v0, :cond_55
-
-    const/16 v8, 0x13
+    goto :goto_23
 
     :cond_55
-    const/4 v1, 0x0
-
-    iget v2, v11, Lcom/android/server/am/ConnectionRecord;->flags:I
-
-    and-int/2addr v2, v0
-
-    if-eqz v2, :cond_5a
-
-    const/16 v0, 0x384
-
-    if-ge v7, v0, :cond_56
-
-    iget-object v0, v10, Lcom/android/server/am/ProcessRecord;->mOptRecord:Lcom/android/server/am/ProcessCachedOptimizerRecord;
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v0, v2}, Lcom/android/server/am/ProcessCachedOptimizerRecord;->setShouldNotFreeze(Z)V
+    const/4 v2, 0x5
 
     :cond_56
-    invoke-virtual/range {v16 .. v16}, Lcom/android/server/am/ProcessStateRecord;->hasShownUi()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_58
-
-    invoke-virtual/range {v16 .. v16}, Lcom/android/server/am/ProcessStateRecord;->getCachedIsHomeProcess()Z
-
-    move-result v0
-
-    if-nez v0, :cond_58
-
-    move/from16 v0, v32
-
-    if-le v0, v7, :cond_57
-
-    const-string v1, "cch-bound-ui-services"
-
-    :cond_57
-    move-object/from16 v3, v16
-
-    const/4 v5, 0x0
-
-    invoke-virtual {v3, v5}, Lcom/android/server/am/ProcessStateRecord;->setCached(Z)V
-
-    move v7, v0
-
-    move/from16 v8, v21
-
-    goto :goto_28
-
-    :cond_58
-    move-object/from16 v3, v16
-
-    move/from16 v0, v32
-
-    const/4 v5, 0x0
-
-    iget-wide v4, v15, Lcom/android/server/am/ServiceRecord;->lastActivity:J
-
-    iget-object v2, v9, Lcom/android/server/am/OomAdjuster;->mConstants:Lcom/android/server/am/ActivityManagerConstants;
-
-    move-object/from16 v16, v1
-
-    iget-wide v1, v2, Lcom/android/server/am/ActivityManagerConstants;->MAX_SERVICE_INACTIVITY:J
-
-    add-long/2addr v4, v1
-
-    cmp-long v1, v12, v4
-
-    if-ltz v1, :cond_5b
-
-    if-le v0, v7, :cond_59
-
-    const-string v1, "cch-bound-services"
-
-    goto :goto_27
-
-    :cond_59
-    move-object/from16 v1, v16
-
-    :goto_27
-    move v7, v0
-
-    goto :goto_28
-
-    :cond_5a
-    move-object/from16 v3, v16
-
-    move/from16 v0, v32
-
-    move-object/from16 v16, v1
-
-    :cond_5b
-    move-object/from16 v1, v16
-
-    :goto_28
-    if-le v0, v7, :cond_68
-
-    invoke-virtual {v3}, Lcom/android/server/am/ProcessStateRecord;->hasShownUi()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_5d
-
-    invoke-virtual {v3}, Lcom/android/server/am/ProcessStateRecord;->getCachedIsHomeProcess()Z
-
-    move-result v2
-
-    if-nez v2, :cond_5d
-
-    const/16 v2, 0xc8
-
-    if-le v7, v2, :cond_5d
-
-    const/16 v2, 0x384
-
-    if-lt v0, v2, :cond_5c
-
-    const-string v1, "cch-bound-ui-services"
-
-    move v2, v0
-
-    move-object/from16 v16, v1
-
-    move/from16 v1, v21
-
-    move/from16 v0, v22
-
-    goto/16 :goto_2b
-
-    :cond_5c
-    move-object/from16 v16, v1
-
-    goto/16 :goto_2a
-
-    :cond_5d
-    iget v2, v11, Lcom/android/server/am/ConnectionRecord;->flags:I
-
-    and-int/lit8 v2, v2, 0x48
-
-    if-eqz v2, :cond_5f
-
-    const/16 v2, -0x2bc
-
-    if-lt v7, v2, :cond_5e
-
-    move v2, v7
-
-    move-object/from16 v16, v1
-
-    move/from16 v1, v21
-
-    goto/16 :goto_29
-
-    :cond_5e
-    const/16 v2, -0x2bc
-
-    const/4 v4, 0x2
-
-    const/4 v5, 0x0
-
-    move-object/from16 v16, v1
-
-    iget v1, v9, Lcom/android/server/am/OomAdjuster;->mAdjSeq:I
-
-    invoke-virtual {v11, v5, v1, v12, v13}, Lcom/android/server/am/ConnectionRecord;->trackProcState(IIJ)V
-
-    const/4 v1, 0x1
-
-    move/from16 v43, v1
-
-    move/from16 v22, v4
-
-    move v1, v5
-
-    goto :goto_29
-
-    :cond_5f
-    move-object/from16 v16, v1
-
-    iget v1, v11, Lcom/android/server/am/ConnectionRecord;->flags:I
-
-    and-int/lit16 v1, v1, 0x100
-
-    if-eqz v1, :cond_60
-
-    const/16 v1, 0xc8
-
-    if-gt v7, v1, :cond_60
-
-    const/16 v1, 0xfa
-
-    if-lt v0, v1, :cond_60
-
-    const/16 v2, 0xfa
-
-    move/from16 v1, v21
-
-    goto :goto_29
-
-    :cond_60
-    iget v1, v11, Lcom/android/server/am/ConnectionRecord;->flags:I
-
-    const/high16 v2, 0x10000
-
-    and-int/2addr v1, v2
-
-    if-eqz v1, :cond_61
-
-    const/16 v1, 0xc8
-
-    if-ge v7, v1, :cond_61
-
-    const/16 v1, 0xe1
-
-    if-lt v0, v1, :cond_61
-
-    const/16 v2, 0xe1
-
-    move/from16 v1, v21
-
-    goto :goto_29
-
-    :cond_61
-    iget v1, v11, Lcom/android/server/am/ConnectionRecord;->flags:I
-
-    const/high16 v2, 0x40000000    # 2.0f
-
-    and-int/2addr v1, v2
-
-    if-eqz v1, :cond_62
-
-    const/16 v1, 0xc8
-
-    if-ge v7, v1, :cond_63
-
-    if-lt v0, v1, :cond_63
-
-    const/16 v2, 0xc8
-
-    move/from16 v1, v21
-
-    goto :goto_29
-
-    :cond_62
-    const/16 v1, 0xc8
-
-    :cond_63
-    if-lt v7, v1, :cond_64
-
-    move v2, v7
-
-    move/from16 v1, v21
-
-    goto :goto_29
-
-    :cond_64
-    const/16 v1, 0x64
-
-    if-le v0, v1, :cond_65
-
-    const/16 v1, 0x64
-
-    invoke-static {v7, v1}, Ljava/lang/Math;->max(II)I
-
-    move-result v2
-
-    move/from16 v1, v21
-
-    goto :goto_29
-
-    :cond_65
-    move v2, v0
-
-    move/from16 v1, v21
-
-    :goto_29
-    invoke-virtual {v6}, Lcom/android/server/am/ProcessStateRecord;->isCached()Z
-
-    move-result v4
-
-    if-nez v4, :cond_66
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v3, v4}, Lcom/android/server/am/ProcessStateRecord;->setCached(Z)V
-
-    :cond_66
-    if-le v0, v2, :cond_67
-
-    move v0, v2
-
-    invoke-virtual {v3, v0}, Lcom/android/server/am/ProcessStateRecord;->setCurRawAdj(I)V
-
-    const-string/jumbo v4, "service"
-
-    move-object/from16 v16, v4
-
-    move/from16 v0, v22
-
-    goto :goto_2b
-
-    :cond_67
-    move v2, v0
-
-    move/from16 v0, v22
-
-    goto :goto_2b
-
-    :cond_68
-    move-object/from16 v16, v1
-
-    :goto_2a
-    move v2, v0
-
-    move/from16 v1, v21
-
-    move/from16 v0, v22
-
-    :goto_2b
-    iget v4, v11, Lcom/android/server/am/ConnectionRecord;->flags:I
-
-    const v5, 0x800004
-
-    and-int/2addr v4, v5
-
-    if-nez v4, :cond_71
-
-    invoke-virtual {v6}, Lcom/android/server/am/ProcessStateRecord;->getCurrentSchedulingGroup()I
-
-    move-result v4
-
-    if-le v4, v0, :cond_6a
-
-    iget v5, v11, Lcom/android/server/am/ConnectionRecord;->flags:I
-
-    and-int/lit8 v5, v5, 0x40
-
-    if-eqz v5, :cond_69
-
-    move v0, v4
-
-    goto :goto_2c
-
-    :cond_69
-    const/4 v0, 0x2
-
-    :cond_6a
-    :goto_2c
-    const/4 v5, 0x2
-
-    if-ge v8, v5, :cond_6d
-
-    const/high16 v5, 0x4000000
-
-    invoke-virtual {v11, v5}, Lcom/android/server/am/ConnectionRecord;->hasFlag(I)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_6b
-
-    const/4 v8, 0x5
-
-    const/4 v5, 0x5
-
-    invoke-virtual {v3, v5}, Lcom/android/server/am/ProcessStateRecord;->bumpAllowStartFgsState(I)V
-
-    move/from16 v21, v0
-
-    const/4 v5, 0x3
-
-    goto :goto_2d
-
-    :cond_6b
-    const/4 v5, 0x5
-
-    iget-object v5, v9, Lcom/android/server/am/OomAdjuster;->mService:Lcom/android/server/am/ActivityManagerService;
-
-    iget-object v5, v5, Lcom/android/server/am/ActivityManagerService;->mWakefulness:Ljava/util/concurrent/atomic/AtomicInteger;
-
-    invoke-virtual {v5}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
-
-    move-result v5
-
-    move/from16 v21, v0
-
-    const/4 v0, 0x1
-
-    if-ne v5, v0, :cond_6c
-
-    iget v0, v11, Lcom/android/server/am/ConnectionRecord;->flags:I
-
-    const/high16 v5, 0x2000000
-
-    and-int/2addr v0, v5
-
-    if-eqz v0, :cond_6c
-
-    const/4 v8, 0x5
-
-    const/4 v5, 0x3
-
-    goto :goto_2d
-
-    :cond_6c
-    const/4 v8, 0x6
-
-    const/4 v5, 0x3
-
-    goto :goto_2d
-
-    :cond_6d
-    move/from16 v21, v0
-
-    const/4 v0, 0x2
-
-    if-ne v8, v0, :cond_6f
-
-    const/4 v8, 0x3
-
-    const/4 v5, 0x3
-
-    invoke-virtual {v3, v5}, Lcom/android/server/am/ProcessStateRecord;->bumpAllowStartFgsState(I)V
-
-    const/4 v0, 0x0
-
-    invoke-virtual {v6, v0}, Lcom/android/server/am/ProcessStateRecord;->getCachedCompatChange(I)Z
-
-    move-result v22
-
-    if-eqz v22, :cond_6e
-
-    const/16 v0, 0x1000
-
-    invoke-virtual {v11, v0}, Lcom/android/server/am/ConnectionRecord;->hasFlag(I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_70
-
-    invoke-virtual {v6}, Lcom/android/server/am/ProcessStateRecord;->getCurCapability()I
-
-    move-result v0
-
-    or-int v37, v37, v0
-
-    goto :goto_2d
-
-    :cond_6e
-    invoke-virtual {v6}, Lcom/android/server/am/ProcessStateRecord;->getCurCapability()I
-
-    move-result v0
-
-    or-int v37, v37, v0
-
-    goto :goto_2d
-
-    :cond_6f
-    const/4 v5, 0x3
-
-    :cond_70
-    :goto_2d
-    move/from16 v0, v21
-
-    goto :goto_2e
-
-    :cond_71
-    const/4 v5, 0x3
-
-    iget v4, v11, Lcom/android/server/am/ConnectionRecord;->flags:I
-
-    const/high16 v21, 0x800000
-
-    and-int v4, v4, v21
-
-    if-nez v4, :cond_72
-
-    const/16 v4, 0x8
-
-    if-ge v8, v4, :cond_73
-
-    const/16 v8, 0x8
-
-    goto :goto_2e
-
-    :cond_72
-    const/16 v4, 0x8
-
-    const/4 v4, 0x7
-
-    if-ge v8, v4, :cond_73
-
-    const/4 v4, 0x7
-
-    move v8, v4
-
-    :cond_73
-    :goto_2e
-    if-ge v0, v5, :cond_74
-
-    iget v4, v11, Lcom/android/server/am/ConnectionRecord;->flags:I
-
-    const/high16 v21, 0x80000
-
-    and-int v4, v4, v21
-
-    if-eqz v4, :cond_74
-
-    if-eqz v25, :cond_74
-
-    const/4 v0, 0x3
-
-    const/4 v4, 0x1
-
-    move/from16 v22, v0
-
-    move/from16 v29, v4
-
-    goto :goto_2f
-
-    :cond_74
-    move/from16 v22, v0
-
-    :goto_2f
-    if-nez v43, :cond_75
-
-    iget v0, v9, Lcom/android/server/am/OomAdjuster;->mAdjSeq:I
-
-    invoke-virtual {v11, v8, v0, v12, v13}, Lcom/android/server/am/ConnectionRecord;->trackProcState(IIJ)V
-
-    :cond_75
-    if-le v1, v8, :cond_77
-
-    move v0, v8
-
-    invoke-virtual {v3, v0}, Lcom/android/server/am/ProcessStateRecord;->setCurRawProcState(I)V
-
-    if-nez v16, :cond_76
-
-    const-string/jumbo v16, "service"
-
-    move v1, v0
-
-    move-object/from16 v0, v16
-
-    goto :goto_30
-
-    :cond_76
-    move v1, v0
-
-    move-object/from16 v0, v16
-
-    goto :goto_30
-
-    :cond_77
-    move-object/from16 v0, v16
-
-    :goto_30
-    const/4 v4, 0x7
-
-    if-ge v1, v4, :cond_78
-
-    iget v4, v11, Lcom/android/server/am/ConnectionRecord;->flags:I
-
-    const/high16 v16, 0x20000000
-
-    and-int v4, v4, v16
-
-    if-eqz v4, :cond_78
-
-    const/4 v4, 0x1
-
-    invoke-virtual {v10, v4}, Lcom/android/server/am/ProcessRecord;->setPendingUiClean(Z)V
-
-    :cond_78
-    if-eqz v0, :cond_7a
-
-    invoke-virtual {v3, v0}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
-
-    const/4 v4, 0x2
-
-    invoke-virtual {v3, v4}, Lcom/android/server/am/ProcessStateRecord;->setAdjTypeCode(I)V
-
-    iget-object v4, v11, Lcom/android/server/am/ConnectionRecord;->binding:Lcom/android/server/am/AppBindRecord;
-
-    iget-object v4, v4, Lcom/android/server/am/AppBindRecord;->client:Lcom/android/server/am/ProcessRecord;
-
-    invoke-virtual {v3, v4}, Lcom/android/server/am/ProcessStateRecord;->setAdjSource(Ljava/lang/Object;)V
-
-    invoke-virtual {v3, v8}, Lcom/android/server/am/ProcessStateRecord;->setAdjSourceProcState(I)V
-
-    iget-object v4, v15, Lcom/android/server/am/ServiceRecord;->instanceName:Landroid/content/ComponentName;
-
-    invoke-virtual {v3, v4}, Lcom/android/server/am/ProcessStateRecord;->setAdjTarget(Ljava/lang/Object;)V
-
-    move/from16 v16, v8
-
-    move/from16 v8, v51
-
-    move/from16 v4, v53
-
-    if-ne v8, v4, :cond_79
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v12, v48
-
-    invoke-virtual {v5, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-object/from16 v13, v50
-
-    invoke-virtual {v5, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-object/from16 v21, v0
-
-    const-string v0, ", due to "
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v0, v11, Lcom/android/server/am/ConnectionRecord;->binding:Lcom/android/server/am/AppBindRecord;
-
-    iget-object v0, v0, Lcom/android/server/am/AppBindRecord;->client:Lcom/android/server/am/ProcessRecord;
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string v0, " adj="
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v0, " procState="
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static {v1}, Lcom/android/server/am/ProcessList;->makeProcStateString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    move-object/from16 v5, v54
-
-    invoke-direct {v9, v5, v0}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_31
-
-    :cond_79
-    move-object/from16 v21, v0
-
-    move-object/from16 v12, v48
-
-    move-object/from16 v13, v50
-
-    move-object/from16 v5, v54
-
-    goto :goto_31
-
-    :cond_7a
-    move-object/from16 v21, v0
-
-    move/from16 v16, v8
-
-    move-object/from16 v12, v48
-
-    move-object/from16 v13, v50
-
-    move/from16 v8, v51
-
-    move/from16 v4, v53
-
-    move-object/from16 v5, v54
-
-    :goto_31
-    const/4 v0, 0x1
-
-    goto :goto_33
-
-    :cond_7b
-    move-object v11, v4
-
-    move-object/from16 v40, v5
-
-    move v1, v8
-
-    move-object/from16 v3, v16
-
-    move/from16 v0, v32
-
-    move-object/from16 v12, v48
-
-    move-object/from16 v13, v50
-
-    move/from16 v8, v51
-
-    move/from16 v4, v53
-
-    move-object/from16 v5, v54
-
-    const/16 v2, 0x384
-
-    if-ge v7, v2, :cond_7c
-
-    iget-object v2, v10, Lcom/android/server/am/ProcessRecord;->mOptRecord:Lcom/android/server/am/ProcessCachedOptimizerRecord;
-
-    move/from16 v32, v0
-
-    const/4 v0, 0x1
-
-    invoke-virtual {v2, v0}, Lcom/android/server/am/ProcessCachedOptimizerRecord;->setShouldNotFreeze(Z)V
-
-    goto :goto_32
-
-    :cond_7c
-    move/from16 v32, v0
-
-    const/4 v0, 0x1
-
-    :goto_32
-    move/from16 v16, v1
-
-    move/from16 v1, v21
-
-    move/from16 v2, v32
-
-    :goto_33
-    iget v0, v11, Lcom/android/server/am/ConnectionRecord;->flags:I
-
-    const/high16 v21, 0x8000000
-
-    and-int v0, v0, v21
-
-    if-eqz v0, :cond_7d
-
-    const/4 v0, 0x1
-
-    invoke-virtual {v14, v0}, Lcom/android/server/am/ProcessServiceRecord;->setTreatLikeActivity(Z)V
-
-    :cond_7d
-    iget-object v0, v11, Lcom/android/server/am/ConnectionRecord;->activity:Lcom/android/server/wm/ActivityServiceConnectionsHolder;
-
-    move-object/from16 v35, v6
-
-    iget v6, v11, Lcom/android/server/am/ConnectionRecord;->flags:I
-
-    and-int/lit16 v6, v6, 0x80
-
-    if-eqz v6, :cond_83
-
-    if-eqz v0, :cond_82
-
-    if-lez v2, :cond_82
-
-    invoke-virtual {v0}, Lcom/android/server/wm/ActivityServiceConnectionsHolder;->isActivityVisible()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_81
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v3, v2}, Lcom/android/server/am/ProcessStateRecord;->setCurRawAdj(I)V
-
-    iget v6, v11, Lcom/android/server/am/ConnectionRecord;->flags:I
-
-    const/16 v17, 0x4
-
-    and-int/lit8 v6, v6, 0x4
-
-    if-nez v6, :cond_7f
-
-    iget v6, v11, Lcom/android/server/am/ConnectionRecord;->flags:I
-
-    and-int/lit8 v6, v6, 0x40
-
-    if-eqz v6, :cond_7e
-
-    const/16 v22, 0x4
-
-    goto :goto_34
-
-    :cond_7e
-    const/16 v22, 0x2
-
-    :cond_7f
-    :goto_34
-    const/4 v6, 0x0
-
-    invoke-virtual {v3, v6}, Lcom/android/server/am/ProcessStateRecord;->setCached(Z)V
-
-    const-string/jumbo v6, "service"
-
-    invoke-virtual {v3, v6}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
-
-    const/4 v6, 0x2
-
-    invoke-virtual {v3, v6}, Lcom/android/server/am/ProcessStateRecord;->setAdjTypeCode(I)V
-
-    invoke-virtual {v3, v0}, Lcom/android/server/am/ProcessStateRecord;->setAdjSource(Ljava/lang/Object;)V
-
-    invoke-virtual {v3, v1}, Lcom/android/server/am/ProcessStateRecord;->setAdjSourceProcState(I)V
-
-    iget-object v6, v15, Lcom/android/server/am/ServiceRecord;->instanceName:Landroid/content/ComponentName;
-
-    invoke-virtual {v3, v6}, Lcom/android/server/am/ProcessStateRecord;->setAdjTarget(Ljava/lang/Object;)V
-
-    if-ne v8, v4, :cond_80
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    move-object/from16 v21, v0
-
-    const-string v0, "Raise to service w/activity: "
-
-    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v6, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {v9, v5, v0}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_35
-
-    :cond_80
-    move-object/from16 v21, v0
-
-    goto :goto_35
-
-    :cond_81
-    move-object/from16 v21, v0
-
-    goto :goto_35
-
-    :cond_82
-    move-object/from16 v21, v0
-
-    goto :goto_35
-
-    :cond_83
-    move-object/from16 v21, v0
-
-    :goto_35
-    add-int/lit8 v0, v38, 0x1
-
-    move-object/from16 v40, v3
-
-    move-object v7, v5
-
-    move v3, v8
-
-    move-object/from16 v21, v12
-
-    move/from16 v41, v27
-
-    move-object/from16 v6, v28
-
-    move/from16 v5, v30
-
-    move/from16 v11, v39
-
-    move/from16 v32, v47
-
-    move/from16 v16, v49
-
-    const/16 v24, 0x1
-
-    const/16 v26, 0x3
-
-    const/16 v35, 0x5
-
-    move v8, v0
-
-    move-object/from16 v39, v13
-
-    move-object/from16 v0, v31
-
-    move/from16 v31, v46
-
-    move-wide/from16 v12, p5
-
-    goto/16 :goto_21
-
-    :cond_84
-    move/from16 v30, v5
-
-    move-object/from16 v28, v6
-
-    move-object v5, v7
-
-    move/from16 v38, v8
-
-    move/from16 v49, v16
-
-    move-object/from16 v12, v21
-
-    move/from16 v46, v31
-
-    move/from16 v47, v32
-
-    move-object/from16 v13, v39
-
-    move-object/from16 v3, v40
-
-    move/from16 v27, v41
-
-    move/from16 v8, v42
-
-    move-object/from16 v31, v0
-
-    move/from16 v21, v1
-
-    move/from16 v32, v2
-
-    move/from16 v39, v11
-
-    :goto_36
-    add-int/lit8 v0, v30, -0x1
-
-    move-object v7, v5
-
-    move/from16 v2, v21
-
-    move/from16 v1, v22
-
-    move/from16 v41, v27
-
-    move-object/from16 v6, v28
-
-    move/from16 v22, v29
-
-    move/from16 v29, v37
-
-    move/from16 v11, v39
-
-    move/from16 v31, v46
-
-    move/from16 v16, v49
-
-    const/16 v24, 0x1
-
-    const/16 v26, 0x3
-
-    const/16 v35, 0x5
-
-    move v5, v0
-
-    move-object/from16 v21, v12
-
-    move-object/from16 v39, v13
-
-    move/from16 v0, v32
-
-    move/from16 v32, v47
-
-    move-wide/from16 v12, p5
-
-    move/from16 v59, v8
-
-    move-object v8, v3
-
-    move/from16 v3, v59
-
-    goto/16 :goto_1f
-
-    :cond_85
-    move/from16 v37, v0
-
-    move/from16 v30, v5
-
-    move-object/from16 v28, v6
-
-    move-object v5, v7
-
-    move/from16 v49, v16
-
-    move-object/from16 v12, v21
-
-    move/from16 v46, v31
-
-    move/from16 v47, v32
-
-    move-object/from16 v13, v39
-
-    move/from16 v27, v41
-
-    move/from16 v39, v11
-
-    move-object/from16 v59, v8
-
-    move v8, v3
-
-    move-object/from16 v3, v59
-
-    :goto_37
-    add-int/lit8 v11, v39, -0x1
-
-    move-object v7, v5
-
-    move-object/from16 v21, v12
-
-    move/from16 v6, v27
-
-    move/from16 v15, v36
-
-    move/from16 v0, v37
-
-    move/from16 v31, v46
-
-    move/from16 v32, v47
-
-    move/from16 v16, v49
-
-    const/16 v26, 0x3
-
-    const/16 v35, 0x5
-
-    move v5, v2
-
-    move-object v2, v13
-
-    move-object/from16 v36, v14
-
-    move/from16 v14, v33
-
-    move-wide/from16 v12, p5
-
-    move/from16 v59, v8
-
-    move-object v8, v3
-
-    move/from16 v3, v59
-
-    goto/16 :goto_15
-
-    :cond_86
-    move/from16 v38, v1
-
-    move-object v13, v2
-
-    move/from16 v27, v6
-
-    move/from16 v39, v11
-
-    move/from16 v49, v16
-
-    move-object/from16 v12, v21
-
-    move/from16 v11, v26
-
-    move/from16 v46, v31
-
-    move/from16 v47, v32
-
-    move/from16 v6, v35
-
-    move-object/from16 v14, v36
-
-    move/from16 v36, v15
-
-    move-object v15, v7
-
-    const/4 v7, 0x0
-
-    move-object/from16 v59, v8
-
-    move v8, v3
-
-    move-object/from16 v3, v59
-
-    :goto_38
-    iget-object v2, v10, Lcom/android/server/am/ProcessRecord;->mProviders:Lcom/android/server/am/ProcessProviderRecord;
-
-    invoke-virtual {v2}, Lcom/android/server/am/ProcessProviderRecord;->numberOfProviders()I
-
-    move-result v1
-
-    const/16 v16, 0x1
-
-    add-int/lit8 v1, v1, -0x1
-
-    move v6, v5
-
-    move v5, v1
-
-    move/from16 v1, v38
-
-    :goto_39
-    if-ltz v5, :cond_a1
-
-    if-gtz v0, :cond_88
-
-    if-eqz v1, :cond_88
-
-    const/4 v7, 0x2
-
-    if-le v6, v7, :cond_87
-
-    goto :goto_3a
-
-    :cond_87
-    move v7, v1
-
-    move-object/from16 v16, v2
-
-    move v5, v4
-
-    move-object/from16 v30, v14
-
-    move-object v1, v15
-
-    const/4 v12, 0x0
-
-    move-object v4, v3
-
-    move v15, v8
-
-    move-wide/from16 v2, p5
-
-    goto/16 :goto_48
-
-    :cond_88
-    :goto_3a
-    invoke-virtual {v2, v5}, Lcom/android/server/am/ProcessProviderRecord;->getProviderAt(I)Lcom/android/server/am/ContentProviderRecord;
-
-    move-result-object v7
-
-    iget-object v11, v7, Lcom/android/server/am/ContentProviderRecord;->connections:Ljava/util/ArrayList;
-
-    invoke-virtual {v11}, Ljava/util/ArrayList;->size()I
-
-    move-result v11
-
-    const/16 v16, 0x1
-
-    add-int/lit8 v11, v11, -0x1
-
-    move/from16 v59, v11
-
-    move v11, v0
-
-    move/from16 v0, v59
-
-    move/from16 v60, v6
-
-    move v6, v1
-
-    move/from16 v1, v60
-
-    :goto_3b
-    if-ltz v0, :cond_9b
-
-    if-gtz v11, :cond_8a
-
-    if-eqz v6, :cond_8a
-
-    move-object/from16 v16, v2
-
-    const/4 v2, 0x2
-
-    if-le v1, v2, :cond_89
-
-    goto :goto_3c
-
-    :cond_89
-    move/from16 v28, v5
-
-    move-object/from16 v50, v13
-
-    move-object/from16 v30, v14
-
-    move v5, v4
-
-    move-object v14, v7
-
-    move-object v4, v3
-
-    move v7, v6
-
-    move-wide/from16 v2, p5
-
-    move v6, v1
-
-    move-object v1, v15
-
-    move v15, v8
-
-    move-object v8, v12
-
-    goto/16 :goto_45
-
-    :cond_8a
-    move-object/from16 v16, v2
-
-    :goto_3c
-    iget-object v2, v7, Lcom/android/server/am/ContentProviderRecord;->connections:Ljava/util/ArrayList;
-
-    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/server/am/ContentProviderConnection;
-
-    move/from16 v51, v8
-
-    iget-object v8, v2, Lcom/android/server/am/ContentProviderConnection;->client:Lcom/android/server/am/ProcessRecord;
-
-    move-object/from16 v48, v12
-
-    iget-object v12, v8, Lcom/android/server/am/ProcessRecord;->mState:Lcom/android/server/am/ProcessStateRecord;
-
-    if-ne v8, v10, :cond_8b
-
-    move/from16 v21, v0
-
-    move/from16 v25, v1
-
-    move-object/from16 v40, v3
-
-    move/from16 v57, v4
-
-    move/from16 v28, v5
-
-    move/from16 v58, v6
-
-    move-object/from16 v50, v13
-
-    move-object/from16 v30, v14
-
-    move-object/from16 v54, v15
-
-    move/from16 v15, v51
-
-    move-object v14, v7
-
-    goto/16 :goto_3e
-
-    :cond_8b
-    if-eqz p8, :cond_8c
-
-    const/16 v19, 0x1
-
-    move/from16 v21, v0
-
-    move-object/from16 v0, p0
-
-    move/from16 v25, v1
-
-    move-object v1, v8
-
-    move-object/from16 v56, v2
-
-    move/from16 v2, p2
-
-    move-object/from16 v40, v3
-
-    move-object/from16 v3, p3
-
-    move/from16 v57, v4
-
-    move/from16 v4, p4
-
-    move/from16 v28, v5
-
-    move/from16 v58, v6
-
-    move-wide/from16 v5, p5
-
-    move-object/from16 v30, v14
-
-    move-object v14, v7
-
-    move/from16 v7, p7
-
-    move-object/from16 v50, v13
-
-    move-object/from16 v54, v15
-
-    move/from16 v15, v51
-
-    move-object v13, v8
-
-    move/from16 v8, v19
-
-    invoke-direct/range {v0 .. v8}, Lcom/android/server/am/OomAdjuster;->computeOomAdjLSP(Lcom/android/server/am/ProcessRecord;ILcom/android/server/am/ProcessRecord;ZJZZ)Z
-
-    goto :goto_3d
-
-    :cond_8c
-    move/from16 v21, v0
-
-    move/from16 v25, v1
-
-    move-object/from16 v56, v2
-
-    move-object/from16 v40, v3
-
-    move/from16 v57, v4
-
-    move/from16 v28, v5
-
-    move/from16 v58, v6
-
-    move-object/from16 v50, v13
-
-    move-object/from16 v30, v14
-
-    move-object/from16 v54, v15
-
-    move/from16 v15, v51
-
-    move-object v14, v7
-
-    move-object v13, v8
-
-    invoke-virtual {v12}, Lcom/android/server/am/ProcessStateRecord;->getCurAdj()I
-
-    move-result v0
-
-    invoke-virtual {v12, v0}, Lcom/android/server/am/ProcessStateRecord;->setCurRawAdj(I)V
-
-    invoke-virtual {v12}, Lcom/android/server/am/ProcessStateRecord;->getCurProcState()I
-
-    move-result v0
-
-    invoke-virtual {v12, v0}, Lcom/android/server/am/ProcessStateRecord;->setCurRawProcState(I)V
-
-    :goto_3d
+    :goto_23
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    move-object v2, v12
+    move-object v2, v6
 
-    move/from16 v3, v25
+    move v14, v3
 
-    move v4, v11
+    move/from16 v3, v21
+
+    move-object v14, v4
+
+    move/from16 v4, v46
+
+    move-object/from16 v39, v5
 
     move/from16 v5, p7
 
@@ -5868,854 +4460,2286 @@
 
     move-result v0
 
-    if-eqz v0, :cond_8d
+    if-eqz v0, :cond_57
 
-    nop
+    move/from16 v2, v21
 
-    :goto_3e
-    move-wide/from16 v2, p5
+    move-object/from16 v4, v25
 
-    move-object/from16 v4, v40
+    move/from16 v0, v46
 
-    move-object/from16 v8, v48
+    move-object/from16 v8, v49
 
-    move-object/from16 v1, v54
+    move/from16 v5, v51
 
-    move/from16 v5, v57
+    move/from16 v3, v53
 
-    move/from16 v6, v58
+    move-object/from16 v6, v54
 
-    goto/16 :goto_44
+    const/16 v40, 0x0
 
-    :cond_8d
-    invoke-virtual {v12}, Lcom/android/server/am/ProcessStateRecord;->getCurRawAdj()I
+    goto/16 :goto_35
 
-    move-result v5
+    :cond_57
+    const/16 v0, 0x10
 
-    invoke-virtual {v12}, Lcom/android/server/am/ProcessStateRecord;->getCurRawProcState()I
+    if-lt v8, v0, :cond_58
+
+    const/16 v8, 0x13
+
+    :cond_58
+    const/4 v1, 0x0
+
+    iget v2, v14, Lcom/android/server/am/ConnectionRecord;->flags:I
+
+    and-int/2addr v2, v0
+
+    if-eqz v2, :cond_5d
+
+    const/16 v0, 0x384
+
+    if-ge v7, v0, :cond_59
+
+    iget-object v0, v10, Lcom/android/server/am/ProcessRecord;->mOptRecord:Lcom/android/server/am/ProcessCachedOptimizerRecord;
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v0, v2}, Lcom/android/server/am/ProcessCachedOptimizerRecord;->setShouldNotFreeze(Z)V
+
+    :cond_59
+    invoke-virtual/range {v25 .. v25}, Lcom/android/server/am/ProcessStateRecord;->hasShownUi()Z
 
     move-result v0
 
-    const/16 v2, 0x10
+    if-eqz v0, :cond_5b
 
-    if-lt v0, v2, :cond_8e
+    invoke-virtual/range {v25 .. v25}, Lcom/android/server/am/ProcessStateRecord;->getCachedIsHomeProcess()Z
 
-    const/16 v0, 0x13
+    move-result v0
 
-    :cond_8e
-    iget-object v1, v13, Lcom/android/server/am/ProcessRecord;->mOptRecord:Lcom/android/server/am/ProcessCachedOptimizerRecord;
+    if-nez v0, :cond_5b
 
-    invoke-virtual {v1}, Lcom/android/server/am/ProcessCachedOptimizerRecord;->shouldNotFreeze()Z
+    move/from16 v2, v46
 
-    move-result v1
+    if-le v2, v7, :cond_5a
 
-    if-eqz v1, :cond_8f
+    const-string v1, "cch-bound-ui-services"
 
-    iget-object v1, v10, Lcom/android/server/am/ProcessRecord;->mOptRecord:Lcom/android/server/am/ProcessCachedOptimizerRecord;
+    :cond_5a
+    move-object/from16 v4, v25
 
-    const/4 v3, 0x1
+    const/4 v3, 0x0
 
-    invoke-virtual {v1, v3}, Lcom/android/server/am/ProcessCachedOptimizerRecord;->setShouldNotFreeze(Z)V
+    invoke-virtual {v4, v3}, Lcom/android/server/am/ProcessStateRecord;->setCached(Z)V
 
-    :cond_8f
-    const/4 v1, 0x0
+    move v7, v2
 
-    if-le v11, v5, :cond_93
+    move/from16 v8, v21
 
-    invoke-virtual/range {v40 .. v40}, Lcom/android/server/am/ProcessStateRecord;->hasShownUi()Z
+    goto :goto_25
 
-    move-result v3
+    :cond_5b
+    move-object/from16 v4, v25
 
-    if-eqz v3, :cond_90
+    move/from16 v2, v46
 
-    invoke-virtual/range {v40 .. v40}, Lcom/android/server/am/ProcessStateRecord;->getCachedIsHomeProcess()Z
+    const/4 v3, 0x0
 
-    move-result v3
+    move-object/from16 v25, v4
 
-    if-nez v3, :cond_90
+    iget-wide v3, v15, Lcom/android/server/am/ServiceRecord;->lastActivity:J
 
-    const/16 v3, 0xc8
+    iget-object v0, v9, Lcom/android/server/am/OomAdjuster;->mConstants:Lcom/android/server/am/ActivityManagerConstants;
 
-    if-le v5, v3, :cond_91
+    move-object v5, v1
 
-    const-string v1, "cch-ui-provider"
+    iget-wide v0, v0, Lcom/android/server/am/ActivityManagerConstants;->MAX_SERVICE_INACTIVITY:J
 
-    move-object/from16 v4, v40
+    add-long/2addr v3, v0
 
-    goto :goto_40
+    cmp-long v0, v12, v3
 
-    :cond_90
-    const/16 v3, 0xc8
+    if-ltz v0, :cond_5e
 
-    :cond_91
-    if-lez v5, :cond_92
+    if-le v2, v7, :cond_5c
 
-    move v4, v5
+    const-string v1, "cch-bound-services"
 
-    goto :goto_3f
+    goto :goto_24
 
-    :cond_92
+    :cond_5c
+    move-object v1, v5
+
+    :goto_24
+    move v7, v2
+
+    goto :goto_25
+
+    :cond_5d
+    move-object v5, v1
+
+    move/from16 v2, v46
+
+    :cond_5e
+    move-object v1, v5
+
+    :goto_25
+    if-le v2, v7, :cond_6b
+
+    invoke-virtual/range {v25 .. v25}, Lcom/android/server/am/ProcessStateRecord;->hasShownUi()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_60
+
+    invoke-virtual/range {v25 .. v25}, Lcom/android/server/am/ProcessStateRecord;->getCachedIsHomeProcess()Z
+
+    move-result v0
+
+    if-nez v0, :cond_60
+
+    const/16 v0, 0xc8
+
+    if-le v7, v0, :cond_60
+
+    const/16 v0, 0x384
+
+    if-lt v2, v0, :cond_5f
+
+    const-string v1, "cch-bound-ui-services"
+
+    move v0, v2
+
+    move/from16 v2, v21
+
+    move-object/from16 v4, v25
+
+    move/from16 v3, v37
+
+    goto/16 :goto_29
+
+    :cond_5f
+    move-object/from16 v4, v25
+
+    goto/16 :goto_28
+
+    :cond_60
+    iget v0, v14, Lcom/android/server/am/ConnectionRecord;->flags:I
+
+    and-int/lit8 v0, v0, 0x48
+
+    if-eqz v0, :cond_62
+
+    const/16 v0, -0x2bc
+
+    if-lt v7, v0, :cond_61
+
+    move v0, v7
+
+    goto :goto_26
+
+    :cond_61
+    const/16 v0, -0x2bc
+
+    const/4 v3, 0x2
+
     const/4 v4, 0x0
 
-    :goto_3f
-    move v11, v4
+    iget v5, v9, Lcom/android/server/am/OomAdjuster;->mAdjSeq:I
 
-    move-object/from16 v4, v40
-
-    invoke-virtual {v4, v11}, Lcom/android/server/am/ProcessStateRecord;->setCurRawAdj(I)V
-
-    const-string/jumbo v1, "provider"
-
-    :goto_40
-    invoke-virtual {v4}, Lcom/android/server/am/ProcessStateRecord;->isCached()Z
-
-    move-result v6
-
-    invoke-virtual {v12}, Lcom/android/server/am/ProcessStateRecord;->isCached()Z
-
-    move-result v7
-
-    and-int/2addr v6, v7
-
-    invoke-virtual {v4, v6}, Lcom/android/server/am/ProcessStateRecord;->setCached(Z)V
-
-    goto :goto_41
-
-    :cond_93
-    move-object/from16 v4, v40
-
-    const/16 v3, 0xc8
-
-    :goto_41
-    const/4 v7, 0x4
-
-    if-gt v0, v7, :cond_96
-
-    if-nez v1, :cond_94
-
-    const-string/jumbo v1, "provider"
-
-    :cond_94
-    const/4 v8, 0x2
-
-    if-ne v0, v8, :cond_95
-
-    const/4 v0, 0x3
-
-    goto :goto_42
-
-    :cond_95
-    const/4 v0, 0x5
-
-    goto :goto_42
-
-    :cond_96
-    const/4 v8, 0x2
-
-    :goto_42
-    iget v6, v9, Lcom/android/server/am/OomAdjuster;->mAdjSeq:I
-
-    move-wide/from16 v2, p5
-
-    move-object/from16 v8, v48
-
-    move-object/from16 v7, v56
-
-    invoke-virtual {v7, v0, v6, v2, v3}, Lcom/android/server/am/ContentProviderConnection;->trackProcState(IIJ)V
-
-    move/from16 v6, v25
-
-    if-le v6, v0, :cond_97
-
-    move v6, v0
-
-    invoke-virtual {v4, v6}, Lcom/android/server/am/ProcessStateRecord;->setCurRawProcState(I)V
-
-    :cond_97
-    move/from16 v19, v5
-
-    invoke-virtual {v12}, Lcom/android/server/am/ProcessStateRecord;->getCurrentSchedulingGroup()I
-
-    move-result v5
-
-    move-object/from16 v56, v7
-
-    move/from16 v7, v58
-
-    if-le v5, v7, :cond_98
-
-    const/4 v5, 0x2
-
-    move v7, v5
-
-    :cond_98
-    if-eqz v1, :cond_9a
-
-    invoke-virtual {v4, v1}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
+    invoke-virtual {v14, v4, v5, v12, v13}, Lcom/android/server/am/ConnectionRecord;->trackProcState(IIJ)V
 
     const/4 v5, 0x1
 
-    invoke-virtual {v4, v5}, Lcom/android/server/am/ProcessStateRecord;->setAdjTypeCode(I)V
+    move/from16 v37, v3
 
-    invoke-virtual {v4, v13}, Lcom/android/server/am/ProcessStateRecord;->setAdjSource(Ljava/lang/Object;)V
+    move/from16 v21, v4
 
-    invoke-virtual {v4, v0}, Lcom/android/server/am/ProcessStateRecord;->setAdjSourceProcState(I)V
+    move/from16 v43, v5
 
-    iget-object v5, v14, Lcom/android/server/am/ContentProviderRecord;->name:Landroid/content/ComponentName;
+    goto :goto_26
 
-    invoke-virtual {v4, v5}, Lcom/android/server/am/ProcessStateRecord;->setAdjTarget(Ljava/lang/Object;)V
+    :cond_62
+    iget v0, v14, Lcom/android/server/am/ConnectionRecord;->flags:I
 
-    move/from16 v5, v57
+    and-int/lit16 v0, v0, 0x100
 
-    if-ne v15, v5, :cond_99
+    if-eqz v0, :cond_63
 
-    move/from16 v25, v0
+    const/16 v0, 0xc8
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    if-gt v7, v0, :cond_63
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    const/16 v0, 0xfa
 
-    invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-lt v2, v0, :cond_63
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/16 v0, 0xfa
 
-    move-object/from16 v31, v1
+    goto :goto_26
 
-    move-object/from16 v1, v50
+    :cond_63
+    iget v0, v14, Lcom/android/server/am/ConnectionRecord;->flags:I
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/high16 v3, 0x10000
 
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    and-int/2addr v0, v3
 
-    const-string v1, ", due to "
+    if-eqz v0, :cond_64
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/16 v0, 0xc8
 
-    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    if-ge v7, v0, :cond_64
 
-    const-string v1, " adj="
+    const/16 v0, 0xe1
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-lt v2, v0, :cond_64
 
-    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const/16 v0, 0xe1
 
-    const-string v1, " procState="
+    goto :goto_26
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :cond_64
+    iget v0, v14, Lcom/android/server/am/ConnectionRecord;->flags:I
 
-    invoke-static {v6}, Lcom/android/server/am/ProcessList;->makeProcStateString(I)Ljava/lang/String;
+    const/high16 v3, 0x40000000    # 2.0f
 
-    move-result-object v1
+    and-int/2addr v0, v3
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-eqz v0, :cond_65
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const/16 v0, 0xc8
 
-    move-result-object v0
+    if-ge v7, v0, :cond_66
 
-    move-object/from16 v1, v54
+    if-lt v2, v0, :cond_66
 
-    invoke-direct {v9, v1, v0}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
+    const/16 v3, 0xc8
 
-    goto :goto_43
+    move v0, v3
 
-    :cond_99
-    move/from16 v25, v0
+    goto :goto_26
 
-    move-object/from16 v31, v1
+    :cond_65
+    const/16 v0, 0xc8
 
-    move-object/from16 v1, v54
+    :cond_66
+    if-lt v7, v0, :cond_67
 
-    goto :goto_43
+    move v0, v7
 
-    :cond_9a
-    move/from16 v25, v0
+    goto :goto_26
 
-    move-object/from16 v31, v1
+    :cond_67
+    const/16 v0, 0x64
 
-    move-object/from16 v1, v54
+    if-le v2, v0, :cond_68
 
-    move/from16 v5, v57
+    const/16 v0, 0x64
 
-    :goto_43
-    move/from16 v25, v6
-
-    move v6, v7
-
-    :goto_44
-    add-int/lit8 v0, v21, -0x1
-
-    move-object v3, v4
-
-    move v4, v5
-
-    move-object v12, v8
-
-    move-object v7, v14
-
-    move v8, v15
-
-    move-object/from16 v2, v16
-
-    move/from16 v5, v28
-
-    move-object/from16 v14, v30
-
-    move-object/from16 v13, v50
-
-    move-object v15, v1
-
-    move/from16 v1, v25
-
-    goto/16 :goto_3b
-
-    :cond_9b
-    move/from16 v21, v0
-
-    move-object/from16 v16, v2
-
-    move/from16 v28, v5
-
-    move-object/from16 v50, v13
-
-    move-object/from16 v30, v14
-
-    move v5, v4
-
-    move-object v14, v7
-
-    move-object v4, v3
-
-    move v7, v6
-
-    move-wide/from16 v2, p5
-
-    move v6, v1
-
-    move-object v1, v15
-
-    move v15, v8
-
-    move-object v8, v12
-
-    :goto_45
-    invoke-virtual {v14}, Lcom/android/server/am/ContentProviderRecord;->hasExternalProcessHandles()Z
+    invoke-static {v7, v0}, Ljava/lang/Math;->max(II)I
 
     move-result v0
 
-    if-eqz v0, :cond_a0
+    goto :goto_26
 
-    if-lez v11, :cond_9d
+    :cond_68
+    move v0, v2
 
-    const/4 v11, 0x0
+    :goto_26
+    invoke-virtual {v6}, Lcom/android/server/am/ProcessStateRecord;->isCached()Z
 
-    invoke-virtual {v4, v11}, Lcom/android/server/am/ProcessStateRecord;->setCurRawAdj(I)V
+    move-result v3
 
-    const/4 v0, 0x2
+    if-nez v3, :cond_69
 
-    const/4 v12, 0x0
+    move-object/from16 v4, v25
 
-    invoke-virtual {v4, v12}, Lcom/android/server/am/ProcessStateRecord;->setCached(Z)V
+    const/4 v3, 0x0
 
-    const-string v7, "ext-provider"
+    invoke-virtual {v4, v3}, Lcom/android/server/am/ProcessStateRecord;->setCached(Z)V
 
-    invoke-virtual {v4, v7}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
+    goto :goto_27
 
-    iget-object v7, v14, Lcom/android/server/am/ContentProviderRecord;->name:Landroid/content/ComponentName;
+    :cond_69
+    move-object/from16 v4, v25
 
-    invoke-virtual {v4, v7}, Lcom/android/server/am/ProcessStateRecord;->setAdjTarget(Ljava/lang/Object;)V
+    :goto_27
+    if-le v2, v0, :cond_6a
 
-    if-ne v15, v5, :cond_9c
+    move v2, v0
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v2}, Lcom/android/server/am/ProcessStateRecord;->setCurRawAdj(I)V
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v1, "service"
 
-    const-string v13, "Raise adj to external provider: "
+    move/from16 v2, v21
 
-    invoke-virtual {v7, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move/from16 v3, v37
 
-    invoke-virtual {v7, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    goto :goto_29
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    :cond_6a
+    move v0, v2
 
-    move-result-object v7
+    move/from16 v2, v21
 
-    invoke-direct {v9, v1, v7}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
+    move/from16 v3, v37
 
-    :cond_9c
-    move v7, v0
+    goto :goto_29
 
-    goto :goto_46
+    :cond_6b
+    move-object/from16 v4, v25
 
-    :cond_9d
-    const/4 v12, 0x0
+    :goto_28
+    move v0, v2
 
-    :goto_46
-    const/4 v0, 0x6
+    move/from16 v2, v21
 
-    if-le v6, v0, :cond_9f
+    move/from16 v3, v37
 
-    const/4 v0, 0x6
+    :goto_29
+    iget v5, v14, Lcom/android/server/am/ConnectionRecord;->flags:I
 
-    invoke-virtual {v4, v0}, Lcom/android/server/am/ProcessStateRecord;->setCurRawProcState(I)V
+    const v21, 0x800004
 
-    if-ne v15, v5, :cond_9e
+    and-int v5, v5, v21
+
+    if-nez v5, :cond_74
+
+    invoke-virtual {v6}, Lcom/android/server/am/ProcessStateRecord;->getCurrentSchedulingGroup()I
+
+    move-result v5
+
+    if-le v5, v3, :cond_6d
+
+    move/from16 v21, v3
+
+    iget v3, v14, Lcom/android/server/am/ConnectionRecord;->flags:I
+
+    and-int/lit8 v3, v3, 0x40
+
+    if-eqz v3, :cond_6c
+
+    move v3, v5
+
+    goto :goto_2a
+
+    :cond_6c
+    const/4 v3, 0x2
+
+    goto :goto_2a
+
+    :cond_6d
+    move/from16 v21, v3
+
+    :goto_2a
+    move/from16 v21, v3
+
+    const/4 v3, 0x2
+
+    if-ge v8, v3, :cond_70
+
+    const/high16 v3, 0x4000000
+
+    invoke-virtual {v14, v3}, Lcom/android/server/am/ConnectionRecord;->hasFlag(I)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_6e
+
+    const/4 v8, 0x5
+
+    const/4 v3, 0x5
+
+    invoke-virtual {v4, v3}, Lcom/android/server/am/ProcessStateRecord;->bumpAllowStartFgsState(I)V
+
+    const/4 v3, 0x3
+
+    goto :goto_2b
+
+    :cond_6e
+    const/4 v3, 0x5
+
+    iget-object v3, v9, Lcom/android/server/am/OomAdjuster;->mService:Lcom/android/server/am/ActivityManagerService;
+
+    iget-object v3, v3, Lcom/android/server/am/ActivityManagerService;->mWakefulness:Ljava/util/concurrent/atomic/AtomicInteger;
+
+    invoke-virtual {v3}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
+
+    move-result v3
+
+    move/from16 v25, v5
+
+    const/4 v5, 0x1
+
+    if-ne v3, v5, :cond_6f
+
+    iget v3, v14, Lcom/android/server/am/ConnectionRecord;->flags:I
+
+    const/high16 v5, 0x2000000
+
+    and-int/2addr v3, v5
+
+    if-eqz v3, :cond_6f
+
+    const/4 v8, 0x5
+
+    const/4 v3, 0x3
+
+    goto :goto_2b
+
+    :cond_6f
+    const/4 v8, 0x6
+
+    const/4 v3, 0x3
+
+    goto :goto_2b
+
+    :cond_70
+    move/from16 v25, v5
+
+    const/4 v3, 0x2
+
+    if-ne v8, v3, :cond_72
+
+    const/4 v8, 0x3
+
+    const/4 v3, 0x3
+
+    invoke-virtual {v4, v3}, Lcom/android/server/am/ProcessStateRecord;->bumpAllowStartFgsState(I)V
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v6, v5}, Lcom/android/server/am/ProcessStateRecord;->getCachedCompatChange(I)Z
+
+    move-result v35
+
+    if-eqz v35, :cond_71
+
+    const/16 v5, 0x1000
+
+    invoke-virtual {v14, v5}, Lcom/android/server/am/ConnectionRecord;->hasFlag(I)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_73
+
+    invoke-virtual {v6}, Lcom/android/server/am/ProcessStateRecord;->getCurCapability()I
+
+    move-result v5
+
+    or-int v29, v29, v5
+
+    goto :goto_2b
+
+    :cond_71
+    invoke-virtual {v6}, Lcom/android/server/am/ProcessStateRecord;->getCurCapability()I
+
+    move-result v5
+
+    or-int v29, v29, v5
+
+    goto :goto_2b
+
+    :cond_72
+    const/4 v3, 0x3
+
+    :cond_73
+    :goto_2b
+    move/from16 v5, v21
+
+    goto :goto_2c
+
+    :cond_74
+    move/from16 v21, v3
+
+    const/4 v3, 0x3
+
+    iget v5, v14, Lcom/android/server/am/ConnectionRecord;->flags:I
+
+    const/high16 v25, 0x800000
+
+    and-int v5, v5, v25
+
+    if-nez v5, :cond_75
+
+    const/16 v5, 0x8
+
+    if-ge v8, v5, :cond_76
+
+    const/16 v8, 0x8
+
+    move/from16 v5, v21
+
+    goto :goto_2c
+
+    :cond_75
+    const/16 v5, 0x8
+
+    const/4 v5, 0x7
+
+    if-ge v8, v5, :cond_76
+
+    const/4 v5, 0x7
+
+    move v8, v5
+
+    move/from16 v5, v21
+
+    goto :goto_2c
+
+    :cond_76
+    move/from16 v5, v21
+
+    :goto_2c
+    if-ge v5, v3, :cond_77
+
+    iget v3, v14, Lcom/android/server/am/ConnectionRecord;->flags:I
+
+    const/high16 v21, 0x80000
+
+    and-int v3, v3, v21
+
+    if-eqz v3, :cond_77
+
+    if-eqz v26, :cond_77
+
+    const/4 v3, 0x3
+
+    const/4 v5, 0x1
+
+    move/from16 v37, v3
+
+    move/from16 v23, v5
+
+    goto :goto_2d
+
+    :cond_77
+    move/from16 v37, v5
+
+    :goto_2d
+    if-nez v43, :cond_78
+
+    iget v3, v9, Lcom/android/server/am/OomAdjuster;->mAdjSeq:I
+
+    invoke-virtual {v14, v8, v3, v12, v13}, Lcom/android/server/am/ConnectionRecord;->trackProcState(IIJ)V
+
+    :cond_78
+    if-le v2, v8, :cond_79
+
+    move v2, v8
+
+    invoke-virtual {v4, v2}, Lcom/android/server/am/ProcessStateRecord;->setCurRawProcState(I)V
+
+    if-nez v1, :cond_79
+
+    const-string/jumbo v1, "service"
+
+    :cond_79
+    const/4 v3, 0x7
+
+    if-ge v2, v3, :cond_7a
+
+    iget v3, v14, Lcom/android/server/am/ConnectionRecord;->flags:I
+
+    const/high16 v5, 0x20000000
+
+    and-int/2addr v3, v5
+
+    if-eqz v3, :cond_7a
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v10, v3}, Lcom/android/server/am/ProcessRecord;->setPendingUiClean(Z)V
+
+    :cond_7a
+    if-eqz v1, :cond_7c
+
+    invoke-virtual {v4, v1}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
+
+    const/4 v3, 0x2
+
+    invoke-virtual {v4, v3}, Lcom/android/server/am/ProcessStateRecord;->setAdjTypeCode(I)V
+
+    iget-object v3, v14, Lcom/android/server/am/ConnectionRecord;->binding:Lcom/android/server/am/AppBindRecord;
+
+    iget-object v3, v3, Lcom/android/server/am/AppBindRecord;->client:Lcom/android/server/am/ProcessRecord;
+
+    invoke-virtual {v4, v3}, Lcom/android/server/am/ProcessStateRecord;->setAdjSource(Ljava/lang/Object;)V
+
+    invoke-virtual {v4, v8}, Lcom/android/server/am/ProcessStateRecord;->setAdjSourceProcState(I)V
+
+    iget-object v3, v15, Lcom/android/server/am/ServiceRecord;->instanceName:Landroid/content/ComponentName;
+
+    invoke-virtual {v4, v3}, Lcom/android/server/am/ProcessStateRecord;->setAdjTarget(Ljava/lang/Object;)V
+
+    move/from16 v5, v51
+
+    move/from16 v3, v53
+
+    if-ne v5, v3, :cond_7b
+
+    move-object/from16 v25, v6
 
     new-instance v6, Ljava/lang/StringBuilder;
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v13, "Raise procstate to external provider: "
+    invoke-virtual {v6, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move/from16 v21, v8
+
+    move-object/from16 v8, v49
+
+    invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v6, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
+    move-object/from16 v35, v1
+
+    const-string v1, ", due to "
+
+    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v1, v14, Lcom/android/server/am/ConnectionRecord;->binding:Lcom/android/server/am/AppBindRecord;
+
+    iget-object v1, v1, Lcom/android/server/am/AppBindRecord;->client:Lcom/android/server/am/ProcessRecord;
+
+    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v1, " adj="
+
+    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, " procState="
+
+    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {v2}, Lcom/android/server/am/ProcessList;->makeProcStateString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v1
 
-    invoke-direct {v9, v1, v6}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
+    move-object/from16 v6, v54
 
-    :cond_9e
-    move v6, v0
+    invoke-direct {v9, v6, v1}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
 
-    move v0, v11
+    goto :goto_2e
 
-    goto :goto_47
+    :cond_7b
+    move-object/from16 v35, v1
 
-    :cond_9f
-    move v0, v11
+    move-object/from16 v25, v6
 
-    goto :goto_47
+    move/from16 v21, v8
 
-    :cond_a0
-    const/4 v12, 0x0
+    move-object/from16 v8, v49
 
-    move v0, v11
+    move-object/from16 v6, v54
 
-    :goto_47
-    add-int/lit8 v11, v28, -0x1
+    goto :goto_2e
 
-    move-object v3, v4
+    :cond_7c
+    move-object/from16 v35, v1
 
-    move v4, v5
+    move-object/from16 v25, v6
 
-    move v5, v11
+    move/from16 v21, v8
 
-    move-object/from16 v2, v16
+    move-object/from16 v8, v49
 
-    move-object/from16 v14, v30
+    move/from16 v5, v51
 
-    move-object/from16 v13, v50
+    move/from16 v3, v53
 
-    const/4 v11, 0x3
+    move-object/from16 v6, v54
 
-    move/from16 v59, v15
+    :goto_2e
+    move v1, v2
+
+    move/from16 v35, v21
+
+    move v2, v0
+
+    const/4 v0, 0x1
+
+    goto :goto_30
+
+    :cond_7d
+    move-object v14, v4
+
+    move-object/from16 v39, v5
+
+    move v0, v8
+
+    move-object/from16 v4, v25
+
+    move/from16 v2, v46
+
+    move-object/from16 v8, v49
+
+    move/from16 v5, v51
+
+    move/from16 v3, v53
+
+    move-object/from16 v25, v6
+
+    move-object/from16 v6, v54
+
+    const/16 v1, 0x384
+
+    if-ge v7, v1, :cond_7e
+
+    iget-object v1, v10, Lcom/android/server/am/ProcessRecord;->mOptRecord:Lcom/android/server/am/ProcessCachedOptimizerRecord;
+
+    move/from16 v35, v0
+
+    const/4 v0, 0x1
+
+    invoke-virtual {v1, v0}, Lcom/android/server/am/ProcessCachedOptimizerRecord;->setShouldNotFreeze(Z)V
+
+    goto :goto_2f
+
+    :cond_7e
+    move/from16 v35, v0
+
+    const/4 v0, 0x1
+
+    :goto_2f
+    move/from16 v1, v21
+
+    :goto_30
+    iget v0, v14, Lcom/android/server/am/ConnectionRecord;->flags:I
+
+    const/high16 v21, 0x8000000
+
+    and-int v0, v0, v21
+
+    if-eqz v0, :cond_7f
+
+    move/from16 v21, v7
+
+    move-object/from16 v0, v41
+
+    const/4 v7, 0x1
+
+    invoke-virtual {v0, v7}, Lcom/android/server/am/ProcessServiceRecord;->setTreatLikeActivity(Z)V
+
+    goto :goto_31
+
+    :cond_7f
+    move/from16 v21, v7
+
+    move-object/from16 v0, v41
+
+    :goto_31
+    iget-object v7, v14, Lcom/android/server/am/ConnectionRecord;->activity:Lcom/android/server/wm/ActivityServiceConnectionsHolder;
+
+    move-object/from16 v41, v0
+
+    iget v0, v14, Lcom/android/server/am/ConnectionRecord;->flags:I
+
+    and-int/lit16 v0, v0, 0x80
+
+    if-eqz v0, :cond_85
+
+    if-eqz v7, :cond_84
+
+    if-lez v2, :cond_84
+
+    invoke-virtual {v7}, Lcom/android/server/wm/ActivityServiceConnectionsHolder;->isActivityVisible()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_83
+
+    const/4 v0, 0x0
+
+    invoke-virtual {v4, v0}, Lcom/android/server/am/ProcessStateRecord;->setCurRawAdj(I)V
+
+    iget v2, v14, Lcom/android/server/am/ConnectionRecord;->flags:I
+
+    const/16 v17, 0x4
+
+    and-int/lit8 v2, v2, 0x4
+
+    if-nez v2, :cond_81
+
+    iget v2, v14, Lcom/android/server/am/ConnectionRecord;->flags:I
+
+    and-int/lit8 v2, v2, 0x40
+
+    if-eqz v2, :cond_80
+
+    const/16 v37, 0x4
+
+    goto :goto_32
+
+    :cond_80
+    const/16 v37, 0x2
+
+    :cond_81
+    :goto_32
+    const/4 v2, 0x0
+
+    invoke-virtual {v4, v2}, Lcom/android/server/am/ProcessStateRecord;->setCached(Z)V
+
+    const-string/jumbo v2, "service"
+
+    invoke-virtual {v4, v2}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
+
+    const/4 v2, 0x2
+
+    invoke-virtual {v4, v2}, Lcom/android/server/am/ProcessStateRecord;->setAdjTypeCode(I)V
+
+    invoke-virtual {v4, v7}, Lcom/android/server/am/ProcessStateRecord;->setAdjSource(Ljava/lang/Object;)V
+
+    invoke-virtual {v4, v1}, Lcom/android/server/am/ProcessStateRecord;->setAdjSourceProcState(I)V
+
+    iget-object v2, v15, Lcom/android/server/am/ServiceRecord;->instanceName:Landroid/content/ComponentName;
+
+    invoke-virtual {v4, v2}, Lcom/android/server/am/ProcessStateRecord;->setAdjTarget(Ljava/lang/Object;)V
+
+    if-ne v5, v3, :cond_82
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    move/from16 v40, v0
+
+    const-string v0, "Raise to service w/activity: "
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {v9, v6, v0}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_33
+
+    :cond_82
+    move/from16 v40, v0
+
+    :goto_33
+    move v2, v1
+
+    move/from16 v0, v40
+
+    const/16 v40, 0x0
+
+    goto :goto_35
+
+    :cond_83
+    const/16 v40, 0x0
+
+    goto :goto_34
+
+    :cond_84
+    const/16 v40, 0x0
+
+    goto :goto_34
+
+    :cond_85
+    const/16 v40, 0x0
+
+    :goto_34
+    move v0, v2
+
+    move v2, v1
+
+    :goto_35
+    add-int/lit8 v1, v38, 0x1
+
+    move-object/from16 v39, v4
+
+    move-object v7, v6
+
+    move/from16 v6, v27
+
+    move/from16 v40, v31
+
+    move-object/from16 v14, v32
+
+    move/from16 v31, v47
+
+    move/from16 v32, v48
+
+    move/from16 v21, v50
+
+    const/16 v24, 0x1
+
+    const/16 v26, 0x3
+
+    const/16 v35, 0x5
+
+    move v4, v3
+
+    move v3, v5
+
+    move/from16 v5, v30
+
+    move-object/from16 v60, v8
+
+    move v8, v1
+
+    move-object/from16 v1, v22
+
+    move-object/from16 v22, v60
+
+    goto/16 :goto_1f
+
+    :cond_86
+    move v3, v4
+
+    move/from16 v30, v5
+
+    move/from16 v27, v6
+
+    move-object v6, v7
+
+    move/from16 v38, v8
+
+    move/from16 v50, v21
+
+    move-object/from16 v8, v22
+
+    move/from16 v47, v31
+
+    move/from16 v48, v32
+
+    move-object/from16 v4, v39
+
+    move/from16 v31, v40
+
+    move/from16 v5, v42
+
+    const/16 v40, 0x0
+
+    move-object/from16 v22, v1
+
+    move/from16 v21, v2
+
+    move-object/from16 v32, v14
+
+    move v2, v0
+
+    :goto_36
+    add-int/lit8 v0, v30, -0x1
+
+    move-object v7, v6
+
+    move-object/from16 v22, v8
+
+    move/from16 v6, v27
+
+    move/from16 v40, v31
+
+    move-object/from16 v14, v32
+
+    move/from16 v1, v37
+
+    move/from16 v31, v47
+
+    move/from16 v32, v48
+
+    const/16 v24, 0x1
+
+    const/16 v26, 0x3
+
+    const/16 v35, 0x5
+
+    move-object v8, v4
+
+    move v4, v3
+
+    move v3, v5
+
+    move v5, v0
+
+    move/from16 v0, v21
+
+    move/from16 v21, v50
+
+    goto/16 :goto_1d
+
+    :cond_87
+    move/from16 v37, v1
+
+    move/from16 v30, v5
+
+    move/from16 v27, v6
+
+    move-object v6, v7
+
+    move/from16 v50, v21
+
+    move/from16 v47, v31
+
+    move/from16 v48, v32
+
+    move/from16 v31, v40
+
+    const/16 v40, 0x0
+
+    move v5, v3
+
+    move v3, v4
+
+    move-object v4, v8
+
+    move-object/from16 v32, v14
+
+    move-object/from16 v8, v22
+
+    move-object/from16 v14, v41
+
+    :goto_37
+    add-int/lit8 v1, v31, -0x1
+
+    move-object v7, v6
+
+    move-object/from16 v22, v8
+
+    move/from16 v6, v27
+
+    move/from16 v15, v36
+
+    move/from16 v31, v47
+
+    move/from16 v32, v48
+
+    move/from16 v21, v50
+
+    const/16 v26, 0x3
+
+    const/16 v35, 0x5
+
+    move-object v8, v4
+
+    move-object/from16 v36, v14
+
+    move-object/from16 v14, v33
+
+    move v4, v3
+
+    move v3, v5
+
+    move v5, v2
+
+    move v2, v1
+
+    move/from16 v1, v37
+
+    goto/16 :goto_13
+
+    :cond_88
+    move/from16 v38, v1
+
+    move/from16 v27, v6
+
+    move-object v6, v7
+
+    move/from16 v50, v21
+
+    move/from16 v47, v31
+
+    move/from16 v48, v32
+
+    move-object/from16 v14, v36
+
+    const/16 v40, 0x0
+
+    move/from16 v31, v2
+
+    move/from16 v36, v15
+
+    move v15, v3
+
+    move v3, v4
+
+    move-object v4, v8
+
+    move-object/from16 v8, v22
+
+    :goto_38
+    iget-object v7, v10, Lcom/android/server/am/ProcessRecord;->mProviders:Lcom/android/server/am/ProcessProviderRecord;
+
+    invoke-virtual {v7}, Lcom/android/server/am/ProcessProviderRecord;->numberOfProviders()I
+
+    move-result v1
+
+    const/4 v2, 0x1
+
+    sub-int/2addr v1, v2
+
+    move v2, v5
+
+    move v5, v1
+
+    move/from16 v1, v38
+
+    :goto_39
+    if-ltz v5, :cond_a3
+
+    if-gtz v2, :cond_8a
+
+    if-eqz v1, :cond_8a
+
+    move/from16 v19, v1
+
+    const/4 v1, 0x2
+
+    if-le v0, v1, :cond_89
+
+    goto :goto_3a
+
+    :cond_89
+    move v8, v3
+
+    move-object v1, v6
+
+    move-object/from16 v32, v7
+
+    move-object/from16 v41, v14
+
+    move v5, v15
+
+    move/from16 v11, v40
+
+    const/16 v30, 0x3
+
+    move-object v6, v4
+
+    goto/16 :goto_48
+
+    :cond_8a
+    move/from16 v19, v1
+
+    :goto_3a
+    invoke-virtual {v7, v5}, Lcom/android/server/am/ProcessProviderRecord;->getProviderAt(I)Lcom/android/server/am/ContentProviderRecord;
+
+    move-result-object v1
+
+    move/from16 v53, v3
+
+    iget-object v3, v1, Lcom/android/server/am/ContentProviderRecord;->connections:Ljava/util/ArrayList;
+
+    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
+
+    move-result v3
+
+    const/16 v21, 0x1
+
+    add-int/lit8 v3, v3, -0x1
+
+    move-object/from16 v49, v8
+
+    move v8, v3
+
+    move v3, v0
+
+    move v0, v2
+
+    move/from16 v2, v19
+
+    :goto_3b
+    if-ltz v8, :cond_9d
+
+    if-gtz v0, :cond_8c
+
+    if-eqz v2, :cond_8c
+
+    move/from16 v19, v0
+
+    const/4 v0, 0x2
+
+    if-le v3, v0, :cond_8b
+
+    goto :goto_3c
+
+    :cond_8b
+    move/from16 v25, v2
+
+    move/from16 v31, v5
+
+    move-object v2, v6
+
+    move-object/from16 v32, v7
+
+    move-object/from16 v26, v11
+
+    move-object/from16 v41, v14
+
+    move v5, v15
+
+    move-object/from16 v7, v49
+
+    move/from16 v8, v53
+
+    const/16 v30, 0x3
+
+    move-object v6, v4
+
+    move-object v4, v1
+
+    move v1, v3
+
+    move/from16 v3, v19
+
+    goto/16 :goto_45
+
+    :cond_8c
+    move/from16 v19, v0
+
+    :goto_3c
+    iget-object v0, v1, Lcom/android/server/am/ContentProviderRecord;->connections:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/am/ContentProviderConnection;
+
+    move/from16 v21, v8
+
+    iget-object v8, v0, Lcom/android/server/am/ContentProviderConnection;->client:Lcom/android/server/am/ProcessRecord;
+
+    move-object/from16 v41, v14
+
+    iget-object v14, v8, Lcom/android/server/am/ProcessRecord;->mState:Lcom/android/server/am/ProcessStateRecord;
+
+    if-ne v8, v10, :cond_8d
+
+    move-object/from16 v35, v1
+
+    move/from16 v56, v2
+
+    move-object/from16 v39, v4
+
+    move/from16 v31, v5
+
+    move-object/from16 v58, v6
+
+    move-object/from16 v32, v7
+
+    move-object/from16 v26, v11
+
+    move/from16 v51, v15
+
+    move/from16 v25, v19
+
+    move-object/from16 v59, v49
+
+    move/from16 v57, v53
+
+    const/16 v30, 0x3
+
+    move/from16 v19, v3
+
+    goto/16 :goto_3e
+
+    :cond_8d
+    if-eqz p8, :cond_8e
+
+    const/16 v22, 0x1
+
+    move-object/from16 v26, v11
+
+    move/from16 v25, v19
+
+    move-object v11, v0
+
+    move-object/from16 v0, p0
+
+    move/from16 v51, v15
 
     move-object v15, v1
 
-    move v1, v7
+    move-object v1, v8
 
-    move v7, v12
+    move/from16 v56, v2
 
-    move-object v12, v8
+    move/from16 v2, p2
 
-    move/from16 v8, v59
+    move/from16 v19, v3
 
-    goto/16 :goto_39
+    move/from16 v57, v53
 
-    :cond_a1
-    move-object/from16 v16, v2
+    const/16 v30, 0x3
 
-    move/from16 v28, v5
+    move-object/from16 v3, p3
 
-    move v12, v7
+    move-object/from16 v39, v4
 
-    move-object/from16 v30, v14
+    move/from16 v4, p4
 
-    move v7, v1
+    move/from16 v31, v5
 
-    move v5, v4
+    move-object/from16 v58, v6
 
-    move-object v1, v15
+    move-wide/from16 v5, p5
 
-    move-object v4, v3
+    move-object/from16 v32, v7
 
-    move v15, v8
+    move/from16 v7, p7
 
-    move-wide/from16 v2, p5
+    move-object/from16 v35, v15
 
-    :goto_48
-    invoke-virtual/range {v16 .. v16}, Lcom/android/server/am/ProcessProviderRecord;->getLastProviderTime()J
+    move-object/from16 v59, v49
 
-    move-result-wide v13
+    move-object v15, v8
 
-    const-wide/16 v17, 0x0
+    move/from16 v8, v22
 
-    cmp-long v8, v13, v17
+    invoke-direct/range {v0 .. v8}, Lcom/android/server/am/OomAdjuster;->computeOomAdjLSP(Lcom/android/server/am/ProcessRecord;ILcom/android/server/am/ProcessRecord;ZJZZ)Z
 
-    if-lez v8, :cond_a6
+    goto :goto_3d
 
-    invoke-virtual/range {v16 .. v16}, Lcom/android/server/am/ProcessProviderRecord;->getLastProviderTime()J
+    :cond_8e
+    move-object/from16 v35, v1
 
-    move-result-wide v13
+    move/from16 v56, v2
 
-    iget-object v8, v9, Lcom/android/server/am/OomAdjuster;->mConstants:Lcom/android/server/am/ActivityManagerConstants;
+    move-object/from16 v39, v4
 
-    move v11, v7
+    move/from16 v31, v5
 
-    iget-wide v7, v8, Lcom/android/server/am/ActivityManagerConstants;->CONTENT_PROVIDER_RETAIN_TIME:J
+    move-object/from16 v58, v6
 
-    add-long/2addr v13, v7
+    move-object/from16 v32, v7
 
-    cmp-long v7, v13, v2
+    move-object/from16 v26, v11
 
-    if-lez v7, :cond_a7
+    move/from16 v51, v15
 
-    const/16 v7, 0x2bc
+    move/from16 v25, v19
 
-    if-le v0, v7, :cond_a2
+    move-object/from16 v59, v49
 
-    const/16 v0, 0x2bc
+    move/from16 v57, v53
 
-    const/4 v7, 0x0
+    const/16 v30, 0x3
 
-    invoke-virtual {v4, v12}, Lcom/android/server/am/ProcessStateRecord;->setCached(Z)V
+    move-object v11, v0
 
-    const-string/jumbo v8, "recent-provider"
+    move/from16 v19, v3
 
-    invoke-virtual {v4, v8}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
+    move-object v15, v8
 
-    if-ne v15, v5, :cond_a3
+    invoke-virtual {v14}, Lcom/android/server/am/ProcessStateRecord;->getCurAdj()I
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    move-result v0
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v14, v0}, Lcom/android/server/am/ProcessStateRecord;->setCurRawAdj(I)V
 
-    const-string v11, "Raise adj to recent provider: "
+    invoke-virtual {v14}, Lcom/android/server/am/ProcessStateRecord;->getCurProcState()I
 
-    invoke-virtual {v8, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v0
 
-    invoke-virtual {v8, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v14, v0}, Lcom/android/server/am/ProcessStateRecord;->setCurRawProcState(I)V
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    :goto_3d
+    move-object/from16 v0, p0
 
-    move-result-object v8
+    move-object/from16 v1, p1
 
-    invoke-direct {v9, v1, v8}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
+    move-object v2, v14
 
-    goto :goto_49
+    move/from16 v3, v19
 
-    :cond_a2
-    move v7, v11
+    move/from16 v4, v25
 
-    :cond_a3
-    :goto_49
-    const/16 v8, 0xf
+    move/from16 v5, p7
 
-    if-le v6, v8, :cond_a5
+    invoke-direct/range {v0 .. v5}, Lcom/android/server/am/OomAdjuster;->shouldSkipDueToCycle(Lcom/android/server/am/ProcessRecord;Lcom/android/server/am/ProcessStateRecord;IIZ)Z
 
-    const/16 v6, 0xf
+    move-result v0
 
-    const-string/jumbo v8, "recent-provider"
+    if-eqz v0, :cond_8f
 
-    invoke-virtual {v4, v8}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
+    nop
 
-    if-ne v15, v5, :cond_a4
+    :goto_3e
+    move/from16 v3, v19
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    move/from16 v0, v25
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    move-object/from16 v4, v35
 
-    const-string v11, "Raise procstate to recent provider: "
+    move-object/from16 v6, v39
 
-    invoke-virtual {v8, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move/from16 v5, v51
 
-    invoke-virtual {v8, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move/from16 v25, v56
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move/from16 v8, v57
 
-    move-result-object v8
+    move-object/from16 v2, v58
 
-    invoke-direct {v9, v1, v8}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
+    move-object/from16 v7, v59
 
-    :cond_a4
-    move v1, v7
+    goto/16 :goto_44
 
-    goto :goto_4a
+    :cond_8f
+    invoke-virtual {v14}, Lcom/android/server/am/ProcessStateRecord;->getCurRawAdj()I
 
-    :cond_a5
-    move v1, v7
+    move-result v5
 
-    goto :goto_4a
+    invoke-virtual {v14}, Lcom/android/server/am/ProcessStateRecord;->getCurRawProcState()I
 
-    :cond_a6
-    move v11, v7
+    move-result v0
 
-    :cond_a7
-    move v1, v11
+    const/16 v1, 0x10
 
-    :goto_4a
-    const/16 v7, 0x13
+    if-lt v0, v1, :cond_90
 
-    if-lt v6, v7, :cond_a9
+    const/16 v0, 0x13
 
-    invoke-virtual/range {v30 .. v30}, Lcom/android/server/am/ProcessServiceRecord;->hasClientActivities()Z
+    :cond_90
+    iget-object v2, v15, Lcom/android/server/am/ProcessRecord;->mOptRecord:Lcom/android/server/am/ProcessCachedOptimizerRecord;
+
+    invoke-virtual {v2}, Lcom/android/server/am/ProcessCachedOptimizerRecord;->shouldNotFreeze()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_91
+
+    iget-object v2, v10, Lcom/android/server/am/ProcessRecord;->mOptRecord:Lcom/android/server/am/ProcessCachedOptimizerRecord;
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v2, v3}, Lcom/android/server/am/ProcessCachedOptimizerRecord;->setShouldNotFreeze(Z)V
+
+    :cond_91
+    const/4 v2, 0x0
+
+    move/from16 v3, v25
+
+    if-le v3, v5, :cond_95
+
+    invoke-virtual/range {v39 .. v39}, Lcom/android/server/am/ProcessStateRecord;->hasShownUi()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_92
+
+    invoke-virtual/range {v39 .. v39}, Lcom/android/server/am/ProcessStateRecord;->getCachedIsHomeProcess()Z
+
+    move-result v4
+
+    if-nez v4, :cond_92
+
+    const/16 v4, 0xc8
+
+    if-le v5, v4, :cond_93
+
+    const-string v2, "cch-ui-provider"
+
+    move-object/from16 v6, v39
+
+    goto :goto_40
+
+    :cond_92
+    const/16 v4, 0xc8
+
+    :cond_93
+    if-lez v5, :cond_94
+
+    move v6, v5
+
+    goto :goto_3f
+
+    :cond_94
+    const/4 v6, 0x0
+
+    :goto_3f
+    move v3, v6
+
+    move-object/from16 v6, v39
+
+    invoke-virtual {v6, v3}, Lcom/android/server/am/ProcessStateRecord;->setCurRawAdj(I)V
+
+    const-string/jumbo v2, "provider"
+
+    :goto_40
+    invoke-virtual {v6}, Lcom/android/server/am/ProcessStateRecord;->isCached()Z
 
     move-result v7
 
-    if-eqz v7, :cond_a8
+    invoke-virtual {v14}, Lcom/android/server/am/ProcessStateRecord;->isCached()Z
 
-    const/16 v6, 0x11
+    move-result v8
 
-    const-string v7, "cch-client-act"
+    and-int/2addr v7, v8
 
-    invoke-virtual {v4, v7}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
+    invoke-virtual {v6, v7}, Lcom/android/server/am/ProcessStateRecord;->setCached(Z)V
+
+    goto :goto_41
+
+    :cond_95
+    move-object/from16 v6, v39
+
+    const/16 v4, 0xc8
+
+    :goto_41
+    const/4 v7, 0x4
+
+    if-gt v0, v7, :cond_98
+
+    if-nez v2, :cond_96
+
+    const-string/jumbo v2, "provider"
+
+    :cond_96
+    const/4 v8, 0x2
+
+    if-ne v0, v8, :cond_97
+
+    const/4 v0, 0x3
+
+    goto :goto_42
+
+    :cond_97
+    const/4 v0, 0x5
+
+    goto :goto_42
+
+    :cond_98
+    const/4 v8, 0x2
+
+    :goto_42
+    iget v1, v9, Lcom/android/server/am/OomAdjuster;->mAdjSeq:I
+
+    invoke-virtual {v11, v0, v1, v12, v13}, Lcom/android/server/am/ContentProviderConnection;->trackProcState(IIJ)V
+
+    move/from16 v1, v19
+
+    if-le v1, v0, :cond_99
+
+    move v1, v0
+
+    invoke-virtual {v6, v1}, Lcom/android/server/am/ProcessStateRecord;->setCurRawProcState(I)V
+
+    :cond_99
+    invoke-virtual {v14}, Lcom/android/server/am/ProcessStateRecord;->getCurrentSchedulingGroup()I
+
+    move-result v4
+
+    move/from16 v7, v56
+
+    if-le v4, v7, :cond_9a
+
+    const/4 v4, 0x2
+
+    move v7, v4
+
+    :cond_9a
+    if-eqz v2, :cond_9c
+
+    invoke-virtual {v6, v2}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
+
+    const/4 v4, 0x1
+
+    invoke-virtual {v6, v4}, Lcom/android/server/am/ProcessStateRecord;->setAdjTypeCode(I)V
+
+    invoke-virtual {v6, v15}, Lcom/android/server/am/ProcessStateRecord;->setAdjSource(Ljava/lang/Object;)V
+
+    invoke-virtual {v6, v0}, Lcom/android/server/am/ProcessStateRecord;->setAdjSourceProcState(I)V
+
+    move-object/from16 v4, v35
+
+    iget-object v8, v4, Lcom/android/server/am/ContentProviderRecord;->name:Landroid/content/ComponentName;
+
+    invoke-virtual {v6, v8}, Lcom/android/server/am/ProcessStateRecord;->setAdjTarget(Ljava/lang/Object;)V
+
+    move/from16 v19, v5
+
+    move/from16 v5, v51
+
+    move/from16 v8, v57
+
+    if-ne v5, v8, :cond_9b
+
+    move/from16 v22, v0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    move/from16 v25, v7
+
+    move-object/from16 v7, v26
+
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-object/from16 v7, v59
+
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-object/from16 v35, v2
+
+    const-string v2, ", due to "
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v2, " adj="
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v2, " procState="
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {v1}, Lcom/android/server/am/ProcessList;->makeProcStateString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    move-object/from16 v2, v58
+
+    invoke-direct {v9, v2, v0}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_43
+
+    :cond_9b
+    move/from16 v22, v0
+
+    move-object/from16 v35, v2
+
+    move/from16 v25, v7
+
+    move-object/from16 v2, v58
+
+    move-object/from16 v7, v59
+
+    goto :goto_43
+
+    :cond_9c
+    move/from16 v22, v0
+
+    move/from16 v19, v5
+
+    move/from16 v25, v7
+
+    move-object/from16 v4, v35
+
+    move/from16 v5, v51
+
+    move/from16 v8, v57
+
+    move-object/from16 v7, v59
+
+    move-object/from16 v35, v2
+
+    move-object/from16 v2, v58
+
+    :goto_43
+    move v0, v3
+
+    move v3, v1
+
+    :goto_44
+    add-int/lit8 v1, v21, -0x1
+
+    move v15, v5
+
+    move-object/from16 v49, v7
+
+    move/from16 v53, v8
+
+    move-object/from16 v11, v26
+
+    move/from16 v5, v31
+
+    move-object/from16 v7, v32
+
+    move-object/from16 v14, v41
+
+    const/16 v40, 0x0
+
+    move v8, v1
+
+    move-object v1, v4
+
+    move-object v4, v6
+
+    move-object v6, v2
+
+    move/from16 v2, v25
+
+    goto/16 :goto_3b
+
+    :cond_9d
+    move/from16 v25, v2
+
+    move/from16 v31, v5
+
+    move-object v2, v6
+
+    move-object/from16 v32, v7
+
+    move/from16 v21, v8
+
+    move-object/from16 v26, v11
+
+    move-object/from16 v41, v14
+
+    move v5, v15
+
+    move-object/from16 v7, v49
+
+    move/from16 v8, v53
+
+    const/16 v30, 0x3
+
+    move-object v6, v4
+
+    move-object v4, v1
+
+    move v1, v3
+
+    move v3, v0
+
+    :goto_45
+    invoke-virtual {v4}, Lcom/android/server/am/ContentProviderRecord;->hasExternalProcessHandles()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_a2
+
+    if-lez v3, :cond_9f
+
+    const/4 v0, 0x0
+
+    invoke-virtual {v6, v0}, Lcom/android/server/am/ProcessStateRecord;->setCurRawAdj(I)V
+
+    const/4 v3, 0x2
+
+    const/4 v11, 0x0
+
+    invoke-virtual {v6, v11}, Lcom/android/server/am/ProcessStateRecord;->setCached(Z)V
+
+    const-string v14, "ext-provider"
+
+    invoke-virtual {v6, v14}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
+
+    iget-object v14, v4, Lcom/android/server/am/ContentProviderRecord;->name:Landroid/content/ComponentName;
+
+    invoke-virtual {v6, v14}, Lcom/android/server/am/ProcessStateRecord;->setAdjTarget(Ljava/lang/Object;)V
+
+    if-ne v5, v8, :cond_9e
+
+    new-instance v14, Ljava/lang/StringBuilder;
+
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v15, "Raise adj to external provider: "
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v14, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-direct {v9, v2, v14}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_9e
+    move/from16 v25, v3
+
+    goto :goto_46
+
+    :cond_9f
+    const/4 v11, 0x0
+
+    move v0, v3
+
+    :goto_46
+    const/4 v3, 0x6
+
+    if-le v1, v3, :cond_a1
+
+    const/4 v1, 0x6
+
+    invoke-virtual {v6, v1}, Lcom/android/server/am/ProcessStateRecord;->setCurRawProcState(I)V
+
+    if-ne v5, v8, :cond_a0
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v14, "Raise procstate to external provider: "
+
+    invoke-virtual {v3, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-direct {v9, v2, v3}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_a0
+    move v3, v0
+
+    move v0, v1
+
+    move/from16 v1, v25
+
+    goto :goto_47
+
+    :cond_a1
+    move v3, v0
+
+    move v0, v1
+
+    move/from16 v1, v25
+
+    goto :goto_47
+
+    :cond_a2
+    const/4 v11, 0x0
+
+    move v0, v1
+
+    move/from16 v1, v25
+
+    :goto_47
+    add-int/lit8 v4, v31, -0x1
+
+    move v15, v5
+
+    move/from16 v40, v11
+
+    move-object/from16 v11, v26
+
+    move-object/from16 v14, v41
+
+    move v5, v4
+
+    move-object v4, v6
+
+    move-object v6, v2
+
+    move v2, v3
+
+    move v3, v8
+
+    move-object v8, v7
+
+    move-object/from16 v7, v32
+
+    goto/16 :goto_39
+
+    :cond_a3
+    move/from16 v19, v1
+
+    move v8, v3
+
+    move/from16 v31, v5
+
+    move-object v1, v6
+
+    move-object/from16 v32, v7
+
+    move-object/from16 v41, v14
+
+    move v5, v15
+
+    move/from16 v11, v40
+
+    const/16 v30, 0x3
+
+    move-object v6, v4
+
+    :goto_48
+    invoke-virtual/range {v32 .. v32}, Lcom/android/server/am/ProcessProviderRecord;->getLastProviderTime()J
+
+    move-result-wide v3
+
+    const-wide/16 v14, 0x0
+
+    cmp-long v3, v3, v14
+
+    if-lez v3, :cond_a7
+
+    invoke-virtual/range {v32 .. v32}, Lcom/android/server/am/ProcessProviderRecord;->getLastProviderTime()J
+
+    move-result-wide v3
+
+    iget-object v7, v9, Lcom/android/server/am/OomAdjuster;->mConstants:Lcom/android/server/am/ActivityManagerConstants;
+
+    iget-wide v14, v7, Lcom/android/server/am/ActivityManagerConstants;->CONTENT_PROVIDER_RETAIN_TIME:J
+
+    add-long/2addr v3, v14
+
+    cmp-long v3, v3, v12
+
+    if-lez v3, :cond_a7
+
+    const/16 v3, 0x2bc
+
+    if-le v2, v3, :cond_a5
+
+    const/16 v2, 0x2bc
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v6, v11}, Lcom/android/server/am/ProcessStateRecord;->setCached(Z)V
+
+    const-string/jumbo v4, "recent-provider"
+
+    invoke-virtual {v6, v4}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
+
+    if-ne v5, v8, :cond_a4
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "Raise adj to recent provider: "
+
+    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v9, v1, v4}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_a4
+    move/from16 v19, v3
+
+    :cond_a5
+    const/16 v3, 0xf
+
+    if-le v0, v3, :cond_a6
+
+    const/16 v0, 0xf
+
+    const-string/jumbo v3, "recent-provider"
+
+    invoke-virtual {v6, v3}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
+
+    if-ne v5, v8, :cond_a7
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "Raise procstate to recent provider: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-direct {v9, v1, v3}, Lcom/android/server/am/OomAdjuster;->reportOomAdjMessageLocked(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_49
+
+    :cond_a6
+    move/from16 v1, v19
+
+    goto :goto_4a
+
+    :cond_a7
+    :goto_49
+    move/from16 v1, v19
+
+    :goto_4a
+    const/16 v3, 0x13
+
+    if-lt v0, v3, :cond_a9
+
+    invoke-virtual/range {v41 .. v41}, Lcom/android/server/am/ProcessServiceRecord;->hasClientActivities()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_a8
+
+    const/16 v0, 0x11
+
+    const-string v3, "cch-client-act"
+
+    invoke-virtual {v6, v3}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
 
     goto :goto_4b
 
     :cond_a8
-    invoke-virtual/range {v30 .. v30}, Lcom/android/server/am/ProcessServiceRecord;->isTreatedLikeActivity()Z
+    invoke-virtual/range {v41 .. v41}, Lcom/android/server/am/ProcessServiceRecord;->isTreatedLikeActivity()Z
 
-    move-result v7
+    move-result v3
 
-    if-eqz v7, :cond_a9
+    if-eqz v3, :cond_a9
 
-    const/16 v6, 0x10
+    const/16 v0, 0x10
 
-    const-string v7, "cch-as-act"
+    const-string v3, "cch-as-act"
 
-    invoke-virtual {v4, v7}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
+    invoke-virtual {v6, v3}, Lcom/android/server/am/ProcessStateRecord;->setAdjType(Ljava/lang/String;)V
 
     :cond_a9
     :goto_4b
-    const/16 v7, 0x1f4
+    const/16 v3, 0x1f4
 
-    if-ne v0, v7, :cond_af
+    if-ne v2, v3, :cond_af
 
     if-eqz p4, :cond_ae
 
     if-nez p7, :cond_ae
 
-    iget v7, v9, Lcom/android/server/am/OomAdjuster;->mNewNumAServiceProcs:I
+    iget v3, v9, Lcom/android/server/am/OomAdjuster;->mNewNumAServiceProcs:I
 
-    iget v8, v9, Lcom/android/server/am/OomAdjuster;->mNumServiceProcs:I
+    iget v4, v9, Lcom/android/server/am/OomAdjuster;->mNumServiceProcs:I
 
-    const/4 v11, 0x3
+    div-int/lit8 v4, v4, 0x3
 
-    div-int/2addr v8, v11
-
-    if-le v7, v8, :cond_aa
+    if-le v3, v4, :cond_aa
 
     const/4 v7, 0x1
 
     goto :goto_4c
 
     :cond_aa
-    move v7, v12
+    move v7, v11
 
     :goto_4c
-    invoke-virtual {v4, v7}, Lcom/android/server/am/ProcessStateRecord;->setServiceB(Z)V
+    invoke-virtual {v6, v7}, Lcom/android/server/am/ProcessStateRecord;->setServiceB(Z)V
 
-    iget v7, v9, Lcom/android/server/am/OomAdjuster;->mNewNumServiceProcs:I
+    iget v3, v9, Lcom/android/server/am/OomAdjuster;->mNewNumServiceProcs:I
 
-    const/4 v8, 0x1
+    const/4 v4, 0x1
 
-    add-int/2addr v7, v8
+    add-int/2addr v3, v4
 
-    iput v7, v9, Lcom/android/server/am/OomAdjuster;->mNewNumServiceProcs:I
+    iput v3, v9, Lcom/android/server/am/OomAdjuster;->mNewNumServiceProcs:I
 
-    invoke-virtual {v4}, Lcom/android/server/am/ProcessStateRecord;->isServiceB()Z
+    invoke-virtual {v6}, Lcom/android/server/am/ProcessStateRecord;->isServiceB()Z
 
-    move-result v7
+    move-result v3
 
-    if-nez v7, :cond_ad
+    if-nez v3, :cond_ad
 
-    iget-object v7, v9, Lcom/android/server/am/OomAdjuster;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object v3, v9, Lcom/android/server/am/OomAdjuster;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v7, v7, Lcom/android/server/am/ActivityManagerService;->mAppProfiler:Lcom/android/server/am/AppProfiler;
+    iget-object v3, v3, Lcom/android/server/am/ActivityManagerService;->mAppProfiler:Lcom/android/server/am/AppProfiler;
 
-    invoke-virtual {v7}, Lcom/android/server/am/AppProfiler;->isLastMemoryLevelNormal()Z
+    invoke-virtual {v3}, Lcom/android/server/am/AppProfiler;->isLastMemoryLevelNormal()Z
 
-    move-result v7
+    move-result v3
 
-    if-nez v7, :cond_ac
+    if-nez v3, :cond_ac
 
-    iget-object v7, v10, Lcom/android/server/am/ProcessRecord;->mProfile:Lcom/android/server/am/ProcessProfileRecord;
+    iget-object v3, v10, Lcom/android/server/am/ProcessRecord;->mProfile:Lcom/android/server/am/ProcessProfileRecord;
 
-    invoke-virtual {v7}, Lcom/android/server/am/ProcessProfileRecord;->getLastPss()J
+    invoke-virtual {v3}, Lcom/android/server/am/ProcessProfileRecord;->getLastPss()J
 
-    move-result-wide v7
+    move-result-wide v3
 
-    iget-object v11, v9, Lcom/android/server/am/OomAdjuster;->mProcessList:Lcom/android/server/am/ProcessList;
+    iget-object v7, v9, Lcom/android/server/am/OomAdjuster;->mProcessList:Lcom/android/server/am/ProcessList;
 
-    invoke-virtual {v11}, Lcom/android/server/am/ProcessList;->getCachedRestoreThresholdKb()J
+    invoke-virtual {v7}, Lcom/android/server/am/ProcessList;->getCachedRestoreThresholdKb()J
 
-    move-result-wide v13
+    move-result-wide v14
 
-    cmp-long v7, v7, v13
+    cmp-long v3, v3, v14
 
-    if-ltz v7, :cond_ab
+    if-ltz v3, :cond_ab
 
-    const/4 v7, 0x1
+    const/4 v3, 0x1
 
-    invoke-virtual {v4, v7}, Lcom/android/server/am/ProcessStateRecord;->setServiceHighRam(Z)V
+    invoke-virtual {v6, v3}, Lcom/android/server/am/ProcessStateRecord;->setServiceHighRam(Z)V
 
-    invoke-virtual {v4, v7}, Lcom/android/server/am/ProcessStateRecord;->setServiceB(Z)V
+    invoke-virtual {v6, v3}, Lcom/android/server/am/ProcessStateRecord;->setServiceB(Z)V
 
     goto :goto_4e
 
     :cond_ab
-    const/4 v7, 0x1
+    const/4 v3, 0x1
 
     goto :goto_4d
 
     :cond_ac
-    const/4 v7, 0x1
+    const/4 v3, 0x1
 
     :goto_4d
-    iget v8, v9, Lcom/android/server/am/OomAdjuster;->mNewNumAServiceProcs:I
+    iget v4, v9, Lcom/android/server/am/OomAdjuster;->mNewNumAServiceProcs:I
 
-    add-int/2addr v8, v7
+    add-int/2addr v4, v3
 
-    iput v8, v9, Lcom/android/server/am/OomAdjuster;->mNewNumAServiceProcs:I
+    iput v4, v9, Lcom/android/server/am/OomAdjuster;->mNewNumAServiceProcs:I
 
     goto :goto_4e
 
     :cond_ad
-    invoke-virtual {v4, v12}, Lcom/android/server/am/ProcessStateRecord;->setServiceHighRam(Z)V
+    invoke-virtual {v6, v11}, Lcom/android/server/am/ProcessStateRecord;->setServiceHighRam(Z)V
 
     :cond_ae
     :goto_4e
-    invoke-virtual {v4}, Lcom/android/server/am/ProcessStateRecord;->isServiceB()Z
+    invoke-virtual {v6}, Lcom/android/server/am/ProcessStateRecord;->isServiceB()Z
 
-    move-result v7
+    move-result v3
 
-    if-eqz v7, :cond_af
+    if-eqz v3, :cond_af
 
-    const/16 v0, 0x320
+    const/16 v2, 0x320
 
     :cond_af
-    invoke-virtual {v4, v0}, Lcom/android/server/am/ProcessStateRecord;->setCurRawAdj(I)V
+    invoke-virtual {v6, v2}, Lcom/android/server/am/ProcessStateRecord;->setCurRawAdj(I)V
 
-    invoke-virtual {v4}, Lcom/android/server/am/ProcessStateRecord;->getMaxAdj()I
+    invoke-virtual {v6}, Lcom/android/server/am/ProcessStateRecord;->getMaxAdj()I
 
-    move-result v7
+    move-result v3
 
-    if-le v0, v7, :cond_b0
+    if-le v2, v3, :cond_b0
 
-    invoke-virtual {v4}, Lcom/android/server/am/ProcessStateRecord;->getMaxAdj()I
+    invoke-virtual {v6}, Lcom/android/server/am/ProcessStateRecord;->getMaxAdj()I
 
-    move-result v0
+    move-result v2
 
-    const/16 v7, 0xfa
+    const/16 v3, 0xfa
 
-    if-gt v0, v7, :cond_b0
+    if-gt v2, v3, :cond_b0
 
     const/4 v1, 0x2
 
     :cond_b0
-    const/4 v7, 0x5
+    const/4 v3, 0x5
 
-    if-lt v6, v7, :cond_b1
+    if-lt v0, v3, :cond_b1
 
-    iget-object v7, v9, Lcom/android/server/am/OomAdjuster;->mService:Lcom/android/server/am/ActivityManagerService;
+    iget-object v3, v9, Lcom/android/server/am/OomAdjuster;->mService:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v7, v7, Lcom/android/server/am/ActivityManagerService;->mWakefulness:Ljava/util/concurrent/atomic/AtomicInteger;
+    iget-object v3, v3, Lcom/android/server/am/ActivityManagerService;->mWakefulness:Ljava/util/concurrent/atomic/AtomicInteger;
 
-    invoke-virtual {v7}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
+    invoke-virtual {v3}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
 
-    move-result v7
+    move-result v3
 
-    const/4 v8, 0x1
+    const/4 v4, 0x1
 
-    if-eq v7, v8, :cond_b2
+    if-eq v3, v4, :cond_b2
 
-    if-nez v22, :cond_b2
+    if-nez v23, :cond_b2
 
-    if-le v1, v8, :cond_b2
+    if-le v1, v4, :cond_b2
 
     const/4 v1, 0x1
 
     goto :goto_4f
 
     :cond_b1
-    const/4 v8, 0x1
+    const/4 v4, 0x1
 
     :cond_b2
     :goto_4f
-    invoke-virtual/range {v30 .. v30}, Lcom/android/server/am/ProcessServiceRecord;->hasForegroundServices()Z
+    invoke-virtual/range {v41 .. v41}, Lcom/android/server/am/ProcessServiceRecord;->hasForegroundServices()Z
 
-    move-result v7
+    move-result v3
 
-    if-eqz v7, :cond_b3
+    if-eqz v3, :cond_b3
 
     or-int v29, v29, v20
 
     :cond_b3
-    move-object/from16 v7, v30
+    move-object/from16 v3, v41
 
-    invoke-direct {v9, v7, v6}, Lcom/android/server/am/OomAdjuster;->getDefaultCapability(Lcom/android/server/am/ProcessServiceRecord;I)I
+    invoke-direct {v9, v3, v0}, Lcom/android/server/am/OomAdjuster;->getDefaultCapability(Lcom/android/server/am/ProcessServiceRecord;I)I
 
-    move-result v11
+    move-result v7
 
-    or-int v11, v29, v11
+    or-int v7, v29, v7
 
-    invoke-virtual {v7, v0}, Lcom/android/server/am/ProcessServiceRecord;->modifyRawOomAdj(I)I
+    invoke-virtual {v3, v2}, Lcom/android/server/am/ProcessServiceRecord;->modifyRawOomAdj(I)I
 
-    move-result v13
+    move-result v14
 
-    invoke-virtual {v4, v13}, Lcom/android/server/am/ProcessStateRecord;->setCurAdj(I)V
+    invoke-virtual {v6, v14}, Lcom/android/server/am/ProcessStateRecord;->setCurAdj(I)V
 
-    invoke-virtual {v4, v11}, Lcom/android/server/am/ProcessStateRecord;->setCurCapability(I)V
+    invoke-virtual {v6, v7}, Lcom/android/server/am/ProcessStateRecord;->setCurCapability(I)V
 
-    invoke-virtual {v4, v1}, Lcom/android/server/am/ProcessStateRecord;->setCurrentSchedulingGroup(I)V
+    invoke-virtual {v6, v1}, Lcom/android/server/am/ProcessStateRecord;->setCurrentSchedulingGroup(I)V
 
-    invoke-virtual {v4, v6}, Lcom/android/server/am/ProcessStateRecord;->setCurProcState(I)V
+    invoke-virtual {v6, v0}, Lcom/android/server/am/ProcessStateRecord;->setCurProcState(I)V
 
-    invoke-virtual {v4, v6}, Lcom/android/server/am/ProcessStateRecord;->setCurRawProcState(I)V
+    invoke-virtual {v6, v0}, Lcom/android/server/am/ProcessStateRecord;->setCurRawProcState(I)V
 
-    move/from16 v13, v36
+    move/from16 v14, v36
 
-    invoke-virtual {v4, v13}, Lcom/android/server/am/ProcessStateRecord;->updateLastInvisibleTime(Z)V
+    invoke-virtual {v6, v14}, Lcom/android/server/am/ProcessStateRecord;->updateLastInvisibleTime(Z)V
 
-    move/from16 v14, v33
+    move/from16 v15, v16
 
-    invoke-virtual {v4, v14}, Lcom/android/server/am/ProcessStateRecord;->setHasForegroundActivities(Z)V
+    invoke-virtual {v6, v15}, Lcom/android/server/am/ProcessStateRecord;->setHasForegroundActivities(Z)V
 
-    iget v8, v9, Lcom/android/server/am/OomAdjuster;->mAdjSeq:I
+    iget v4, v9, Lcom/android/server/am/OomAdjuster;->mAdjSeq:I
 
-    invoke-virtual {v4, v8}, Lcom/android/server/am/ProcessStateRecord;->setCompletedAdjSeq(I)V
+    invoke-virtual {v6, v4}, Lcom/android/server/am/ProcessStateRecord;->setCompletedAdjSeq(I)V
 
-    invoke-virtual {v4}, Lcom/android/server/am/ProcessStateRecord;->getCurAdj()I
+    invoke-virtual {v6}, Lcom/android/server/am/ProcessStateRecord;->getCurAdj()I
 
-    move-result v8
+    move-result v4
 
-    move/from16 v12, v49
+    move/from16 v11, v50
 
-    if-lt v8, v12, :cond_b6
+    if-lt v4, v11, :cond_b6
 
-    invoke-virtual {v4}, Lcom/android/server/am/ProcessStateRecord;->getCurProcState()I
+    invoke-virtual {v6}, Lcom/android/server/am/ProcessStateRecord;->getCurProcState()I
 
-    move-result v8
+    move-result v4
 
-    move/from16 v17, v0
+    move/from16 v16, v0
+
+    move/from16 v0, v48
+
+    if-lt v4, v0, :cond_b5
+
+    invoke-virtual {v6}, Lcom/android/server/am/ProcessStateRecord;->getCurCapability()I
+
+    move-result v4
+
+    move/from16 v48, v0
 
     move/from16 v0, v47
 
-    if-lt v8, v0, :cond_b5
-
-    invoke-virtual {v4}, Lcom/android/server/am/ProcessStateRecord;->getCurCapability()I
-
-    move-result v8
-
-    move/from16 v47, v0
-
-    move/from16 v0, v46
-
-    if-eq v8, v0, :cond_b4
+    if-eq v4, v0, :cond_b4
 
     goto :goto_50
 
@@ -6725,16 +6749,16 @@
     goto :goto_51
 
     :cond_b5
-    move/from16 v47, v0
+    move/from16 v48, v0
 
-    move/from16 v0, v46
+    move/from16 v0, v47
 
     goto :goto_50
 
     :cond_b6
-    move/from16 v17, v0
+    move/from16 v16, v0
 
-    move/from16 v0, v46
+    move/from16 v0, v47
 
     :goto_50
     const/16 v24, 0x1

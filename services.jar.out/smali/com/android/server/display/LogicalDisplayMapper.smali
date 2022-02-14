@@ -40,7 +40,7 @@
 
 .field private static final TAG:Ljava/lang/String; = "LogicalDisplayMapper"
 
-.field private static final TIMEOUT_STATE_TRANSITION_MILLIS:I = 0x1f4
+.field private static final TIMEOUT_STATE_TRANSITION_MILLIS:I = 0x12c
 
 .field private static final UPDATE_STATE_NEW:I = 0x0
 
@@ -53,6 +53,8 @@
 .field private mCurrentLayout:Lcom/android/server/display/layout/Layout;
 
 .field private mDeviceState:I
+
+.field private final mDeviceStateOnWhichToWakeUp:I
 
 .field private final mDeviceStateToLayoutMap:Lcom/android/server/display/DeviceStateToLayoutMap;
 
@@ -89,6 +91,8 @@
 .field private mNextNonDefaultGroupId:I
 
 .field private mPendingDeviceState:I
+
+.field private final mPowerManager:Landroid/os/PowerManager;
 
 .field private final mSingleDisplayDemoMode:Z
 
@@ -175,6 +179,16 @@
 
     iput-object p4, p0, Lcom/android/server/display/LogicalDisplayMapper;->mSyncRoot:Lcom/android/server/display/DisplayManagerService$SyncRoot;
 
+    const-class v0, Landroid/os/PowerManager;
+
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/os/PowerManager;
+
+    iput-object v0, p0, Lcom/android/server/display/LogicalDisplayMapper;->mPowerManager:Landroid/os/PowerManager;
+
     new-instance v0, Lcom/android/server/display/LogicalDisplayMapper$LogicalDisplayMapperHandler;
 
     invoke-virtual {p5}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
@@ -203,13 +217,25 @@
 
     move-result-object v0
 
-    const v1, 0x1110149
+    const v1, 0x111014e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v0
 
     iput-boolean v0, p0, Lcom/android/server/display/LogicalDisplayMapper;->mSupportsConcurrentInternalDisplays:Z
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x10e004e
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/server/display/LogicalDisplayMapper;->mDeviceStateOnWhichToWakeUp:I
 
     invoke-virtual {p2, p0}, Lcom/android/server/display/DisplayDeviceRepository;->addListener(Lcom/android/server/display/DisplayDeviceRepository$Listener;)V
 
@@ -850,6 +876,8 @@
 
     if-nez v10, :cond_0
 
+    move-object/from16 v17, v2
+
     goto/16 :goto_9
 
     :cond_0
@@ -900,26 +928,30 @@
     const/16 v16, 0x1
 
     :goto_3
+    move/from16 v17, v16
+
     if-eqz v12, :cond_6
 
     invoke-virtual {v12}, Lcom/android/server/display/layout/Layout$Display;->isEnabled()Z
 
-    move-result v17
+    move-result v16
 
-    if-eqz v17, :cond_5
+    if-eqz v16, :cond_5
 
     goto :goto_4
 
     :cond_5
-    const/16 v17, 0x0
+    const/16 v16, 0x0
 
     goto :goto_5
 
     :cond_6
     :goto_4
-    const/16 v17, 0x1
+    const/16 v16, 0x1
 
     :goto_5
+    move/from16 v18, v16
+
     if-eqz v13, :cond_7
 
     if-eqz v12, :cond_7
@@ -948,32 +980,38 @@
 
     move-result v15
 
-    if-eqz v15, :cond_a
+    if-eqz v15, :cond_9
 
-    if-eqz v16, :cond_8
+    move/from16 v15, v17
 
-    if-eqz v17, :cond_a
+    move-object/from16 v17, v2
 
-    :cond_8
-    if-eqz v16, :cond_9
+    move/from16 v2, v18
 
-    if-eqz v14, :cond_9
+    if-ne v15, v2, :cond_a
+
+    if-eqz v14, :cond_8
 
     goto :goto_7
 
-    :cond_9
-    const/16 v18, 0x0
+    :cond_8
+    const/16 v16, 0x0
 
     goto :goto_8
 
+    :cond_9
+    move/from16 v15, v17
+
+    move-object/from16 v17, v2
+
+    move/from16 v2, v18
+
     :cond_a
     :goto_7
-    const/16 v18, 0x1
+    const/16 v16, 0x1
 
     :goto_8
-    move/from16 v15, v18
-
-    if-eqz v15, :cond_b
+    if-eqz v16, :cond_b
 
     invoke-direct {v0, v8, v1}, Lcom/android/server/display/LogicalDisplayMapper;->setDisplayPhase(Lcom/android/server/display/LogicalDisplay;I)V
 
@@ -992,6 +1030,8 @@
     move-object/from16 v0, p0
 
     move/from16 v1, p3
+
+    move-object/from16 v2, v17
 
     goto/16 :goto_0
 
@@ -1641,6 +1681,24 @@
 
     invoke-virtual {v0, v1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "mDeviceStateOnWhichToWakeUp="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v2, p0, Lcom/android/server/display/LogicalDisplayMapper;->mDeviceStateOnWhichToWakeUp:I
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+
     iget-object v1, p0, Lcom/android/server/display/LogicalDisplayMapper;->mLogicalDisplays:Landroid/util/SparseArray;
 
     invoke-virtual {v1}, Landroid/util/SparseArray;->size()I
@@ -1915,44 +1973,49 @@
 .end method
 
 .method public getDisplayLocked(Lcom/android/server/display/DisplayDevice;)Lcom/android/server/display/LogicalDisplay;
-    .locals 4
+    .locals 5
 
-    iget-object v0, p0, Lcom/android/server/display/LogicalDisplayMapper;->mLogicalDisplays:Landroid/util/SparseArray;
+    const/4 v0, 0x0
 
-    invoke-virtual {v0}, Landroid/util/SparseArray;->size()I
+    if-nez p1, :cond_0
 
-    move-result v0
+    return-object v0
 
-    const/4 v1, 0x0
+    :cond_0
+    iget-object v1, p0, Lcom/android/server/display/LogicalDisplayMapper;->mLogicalDisplays:Landroid/util/SparseArray;
+
+    invoke-virtual {v1}, Landroid/util/SparseArray;->size()I
+
+    move-result v1
+
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v1, v0, :cond_1
+    if-ge v2, v1, :cond_2
 
-    iget-object v2, p0, Lcom/android/server/display/LogicalDisplayMapper;->mLogicalDisplays:Landroid/util/SparseArray;
+    iget-object v3, p0, Lcom/android/server/display/LogicalDisplayMapper;->mLogicalDisplays:Landroid/util/SparseArray;
 
-    invoke-virtual {v2, v1}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/server/display/LogicalDisplay;
-
-    invoke-virtual {v2}, Lcom/android/server/display/LogicalDisplay;->getPrimaryDisplayDeviceLocked()Lcom/android/server/display/DisplayDevice;
+    invoke-virtual {v3, v2}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v3
 
-    if-ne v3, p1, :cond_0
+    check-cast v3, Lcom/android/server/display/LogicalDisplay;
 
-    return-object v2
+    invoke-virtual {v3}, Lcom/android/server/display/LogicalDisplay;->getPrimaryDisplayDeviceLocked()Lcom/android/server/display/DisplayDevice;
 
-    :cond_0
-    add-int/lit8 v1, v1, 0x1
+    move-result-object v4
+
+    if-ne v4, p1, :cond_1
+
+    return-object v3
+
+    :cond_1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    :cond_1
-    const/4 v1, 0x0
-
-    return-object v1
+    :cond_2
+    return-object v0
 .end method
 
 .method public onDisplayDeviceEventLocked(Lcom/android/server/display/DisplayDevice;I)V
@@ -2005,59 +2068,107 @@
 .end method
 
 .method setDeviceStateLocked(I)V
-    .locals 4
+    .locals 8
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    iget-object v0, p0, Lcom/android/server/display/LogicalDisplayMapper;->mPowerManager:Landroid/os/PowerManager;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v0}, Landroid/os/PowerManager;->isInteractive()Z
 
-    const-string v1, "Requesting Transition to state: "
+    move-result v0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string v2, "Requesting Transition to state: "
 
-    move-result-object v0
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "LogicalDisplayMapper"
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v2, ", from state="
 
-    iget v0, p0, Lcom/android/server/display/LogicalDisplayMapper;->mDeviceState:I
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/4 v1, -0x1
+    iget v2, p0, Lcom/android/server/display/LogicalDisplayMapper;->mDeviceState:I
 
-    if-eq v0, v1, :cond_0
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const/4 v1, 0x0
+    const-string v2, ", interactive="
 
-    invoke-direct {p0, v0, p1, v1}, Lcom/android/server/display/LogicalDisplayMapper;->resetLayoutLocked(III)V
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "LogicalDisplayMapper"
+
+    invoke-static {v2, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget v1, p0, Lcom/android/server/display/LogicalDisplayMapper;->mDeviceState:I
+
+    const/4 v2, 0x0
+
+    const/4 v3, -0x1
+
+    if-eq v1, v3, :cond_0
+
+    invoke-direct {p0, v1, p1, v2}, Lcom/android/server/display/LogicalDisplayMapper;->resetLayoutLocked(III)V
 
     :cond_0
     iput p1, p0, Lcom/android/server/display/LogicalDisplayMapper;->mPendingDeviceState:I
 
+    iget v1, p0, Lcom/android/server/display/LogicalDisplayMapper;->mDeviceStateOnWhichToWakeUp:I
+
+    const/4 v3, 0x1
+
+    if-ne p1, v1, :cond_1
+
+    if-nez v0, :cond_1
+
+    move v2, v3
+
+    :cond_1
+    move v1, v2
+
     invoke-direct {p0}, Lcom/android/server/display/LogicalDisplayMapper;->areAllTransitioningDisplaysOffLocked()Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_1
+    if-eqz v2, :cond_2
+
+    if-nez v1, :cond_2
 
     invoke-direct {p0}, Lcom/android/server/display/LogicalDisplayMapper;->transitionToPendingStateLocked()V
 
     return-void
 
-    :cond_1
+    :cond_2
     invoke-direct {p0}, Lcom/android/server/display/LogicalDisplayMapper;->updateLogicalDisplaysLocked()V
 
-    iget-object v0, p0, Lcom/android/server/display/LogicalDisplayMapper;->mHandler:Lcom/android/server/display/LogicalDisplayMapper$LogicalDisplayMapperHandler;
+    if-eqz v1, :cond_3
 
-    const/4 v1, 0x1
+    iget-object v2, p0, Lcom/android/server/display/LogicalDisplayMapper;->mPowerManager:Landroid/os/PowerManager;
 
-    const-wide/16 v2, 0x1f4
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/display/LogicalDisplayMapper$LogicalDisplayMapperHandler;->sendEmptyMessageDelayed(IJ)Z
+    move-result-wide v4
+
+    const/16 v6, 0xc
+
+    const-string/jumbo v7, "server.display:unfold"
+
+    invoke-virtual {v2, v4, v5, v6, v7}, Landroid/os/PowerManager;->wakeUp(JILjava/lang/String;)V
+
+    :cond_3
+    iget-object v2, p0, Lcom/android/server/display/LogicalDisplayMapper;->mHandler:Lcom/android/server/display/LogicalDisplayMapper$LogicalDisplayMapperHandler;
+
+    const-wide/16 v4, 0x12c
+
+    invoke-virtual {v2, v3, v4, v5}, Lcom/android/server/display/LogicalDisplayMapper$LogicalDisplayMapperHandler;->sendEmptyMessageDelayed(IJ)Z
 
     return-void
 .end method

@@ -208,7 +208,7 @@
 .method protected getNameTemplateResource()I
     .locals 1
 
-    const v0, 0x1040369
+    const v0, 0x104036d
 
     return v0
 .end method

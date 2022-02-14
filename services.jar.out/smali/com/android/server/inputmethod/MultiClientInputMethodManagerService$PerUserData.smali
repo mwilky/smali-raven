@@ -248,7 +248,7 @@
 
     const-string v1, "android.intent.extra.client_label"
 
-    const v2, 0x1040419
+    const v2, 0x104041e
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
@@ -262,7 +262,7 @@
 
     const/4 v2, 0x0
 
-    const/high16 v3, 0x2000000
+    const/high16 v3, 0x4000000
 
     invoke-static {p1, v2, v1, v3}, Landroid/app/PendingIntent;->getActivity(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 

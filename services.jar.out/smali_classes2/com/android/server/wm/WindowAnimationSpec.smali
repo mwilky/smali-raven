@@ -106,7 +106,7 @@
 
     const/4 v3, 0x0
 
-    const/4 v5, 0x2
+    const/4 v5, 0x1
 
     const/4 v6, 0x0
 
@@ -334,7 +334,7 @@
 
     iget v2, p0, Lcom/android/server/wm/WindowAnimationSpec;->mRootTaskClipMode:I
 
-    const/4 v3, 0x2
+    const/4 v3, 0x1
 
     if-ne v2, v3, :cond_0
 

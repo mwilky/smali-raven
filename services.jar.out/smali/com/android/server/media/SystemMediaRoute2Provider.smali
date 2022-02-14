@@ -250,7 +250,7 @@
 .method private updateDeviceRoute(Landroid/media/AudioRoutesInfo;)V
     .locals 7
 
-    const v0, 0x10402d5
+    const v0, 0x10402d9
 
     const/4 v1, 0x2
 
@@ -274,7 +274,7 @@
 
     const/4 v1, 0x4
 
-    const v0, 0x10402d8
+    const v0, 0x10402dc
 
     goto :goto_0
 
@@ -287,7 +287,7 @@
 
     const/4 v1, 0x3
 
-    const v0, 0x10402d8
+    const v0, 0x10402dc
 
     goto :goto_0
 
@@ -300,7 +300,7 @@
 
     const/16 v1, 0xd
 
-    const v0, 0x10402d6
+    const v0, 0x10402da
 
     goto :goto_0
 
@@ -313,7 +313,7 @@
 
     const/16 v1, 0x9
 
-    const v0, 0x10402d7
+    const v0, 0x10402db
 
     goto :goto_0
 
@@ -326,7 +326,7 @@
 
     const/16 v1, 0xb
 
-    const v0, 0x10402d9
+    const v0, 0x10402dd
 
     :cond_4
     :goto_0

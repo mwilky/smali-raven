@@ -306,7 +306,7 @@
 
     iget-object v0, p0, Lcom/android/server/wm/RecentsAnimation;->mDefaultTaskDisplayArea:Lcom/android/server/wm/TaskDisplayArea;
 
-    sget-object v1, Lcom/android/server/wm/RecentsAnimation$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/server/wm/RecentsAnimation$$ExternalSyntheticLambda3;
+    sget-object v1, Lcom/android/server/wm/RecentsAnimation$$ExternalSyntheticLambda4;->INSTANCE:Lcom/android/server/wm/RecentsAnimation$$ExternalSyntheticLambda4;
 
     invoke-virtual {v0, v1}, Lcom/android/server/wm/TaskDisplayArea;->getRootTask(Ljava/util/function/Predicate;)Lcom/android/server/wm/Task;
 
@@ -393,7 +393,7 @@
     const/4 v0, 0x0
 
     :try_start_0
-    invoke-interface {p0, v0}, Landroid/view/IRecentsAnimationRunner;->onAnimationCanceled(Landroid/window/TaskSnapshot;)V
+    invoke-interface {p0, v0, v0}, Landroid/view/IRecentsAnimationRunner;->onAnimationCanceled([I[Landroid/window/TaskSnapshot;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1095,13 +1095,13 @@
 
     move-result v6
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_5
 
     invoke-virtual {v4, v3, v3, v2}, Lcom/android/server/wm/ActivityRecord;->ensureActivityConfiguration(IZZ)Z
 
     sget-boolean v6, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_RECENTS_ANIMATIONS_enabled:Z
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_5
 
     invoke-virtual {v4}, Lcom/android/server/wm/ActivityRecord;->getConfiguration()Landroid/content/res/Configuration;
 
@@ -1128,6 +1128,19 @@
     return-void
 
     :cond_3
+    iget-object v6, p0, Lcom/android/server/wm/RecentsAnimation;->mDefaultTaskDisplayArea:Lcom/android/server/wm/TaskDisplayArea;
+
+    sget-object v7, Lcom/android/server/wm/RecentsAnimation$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/server/wm/RecentsAnimation$$ExternalSyntheticLambda3;
+
+    invoke-virtual {v6, v7, v3}, Lcom/android/server/wm/TaskDisplayArea;->getActivity(Ljava/util/function/Predicate;Z)Lcom/android/server/wm/ActivityRecord;
+
+    move-result-object v6
+
+    if-nez v6, :cond_4
+
+    return-void
+
+    :cond_4
     invoke-direct {p0, v5}, Lcom/android/server/wm/RecentsAnimation;->startRecentsActivityInBackground(Ljava/lang/String;)V
 
     iget-object v6, p0, Lcom/android/server/wm/RecentsAnimation;->mDefaultTaskDisplayArea:Lcom/android/server/wm/TaskDisplayArea;
@@ -1142,7 +1155,7 @@
 
     move-result-object v4
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_5
 
     sget-object v1, Lcom/android/server/wm/RecentsAnimation;->TAG:Ljava/lang/String;
 
@@ -1166,17 +1179,17 @@
 
     return-void
 
-    :cond_4
+    :cond_5
     :goto_1
     invoke-virtual {v4}, Lcom/android/server/wm/ActivityRecord;->attachedToProcess()Z
 
     move-result v6
 
-    if-nez v6, :cond_6
+    if-nez v6, :cond_7
 
     sget-boolean v6, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_RECENTS_ANIMATIONS_enabled:Z
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_6
 
     sget-object v6, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_RECENTS_ANIMATIONS:Lcom/android/internal/protolog/ProtoLogGroup;
 
@@ -1188,7 +1201,7 @@
 
     invoke-static {v6, v7, v3, v1, v8}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
-    :cond_5
+    :cond_6
     iget-object v1, p0, Lcom/android/server/wm/RecentsAnimation;->mTaskSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
 
     invoke-virtual {v1, v4, v3, v3}, Lcom/android/server/wm/ActivityTaskSupervisor;->startSpecificActivity(Lcom/android/server/wm/ActivityRecord;ZZ)V
@@ -1197,7 +1210,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_7
 
     invoke-virtual {v4}, Lcom/android/server/wm/ActivityRecord;->getDisplayContent()Lcom/android/server/wm/DisplayContent;
 
@@ -1207,20 +1220,20 @@
 
     invoke-virtual {v1, v4}, Lcom/android/server/wm/UnknownAppVisibilityController;->appRemovedOrHidden(Lcom/android/server/wm/ActivityRecord;)V
 
-    :cond_6
-    sget-object v1, Lcom/android/server/wm/Task$ActivityState;->STOPPING:Lcom/android/server/wm/Task$ActivityState;
+    :cond_7
+    sget-object v1, Lcom/android/server/wm/ActivityRecord$State;->STOPPING:Lcom/android/server/wm/ActivityRecord$State;
 
-    sget-object v3, Lcom/android/server/wm/Task$ActivityState;->STOPPED:Lcom/android/server/wm/Task$ActivityState;
+    sget-object v3, Lcom/android/server/wm/ActivityRecord$State;->STOPPED:Lcom/android/server/wm/ActivityRecord$State;
 
-    invoke-virtual {v4, v1, v3}, Lcom/android/server/wm/ActivityRecord;->isState(Lcom/android/server/wm/Task$ActivityState;Lcom/android/server/wm/Task$ActivityState;)Z
+    invoke-virtual {v4, v1, v3}, Lcom/android/server/wm/ActivityRecord;->isState(Lcom/android/server/wm/ActivityRecord$State;Lcom/android/server/wm/ActivityRecord$State;)Z
 
     move-result v1
 
-    if-nez v1, :cond_7
+    if-nez v1, :cond_8
 
     invoke-virtual {v4, v2, v2, v5}, Lcom/android/server/wm/ActivityRecord;->addToStopping(ZZLjava/lang/String;)V
 
-    :cond_7
+    :cond_8
     return-void
 .end method
 
@@ -1264,61 +1277,82 @@
 
     invoke-static {v14, v15, v0}, Landroid/os/Trace;->traceBegin(JLjava/lang/String;)V
 
+    iget-object v0, v8, Lcom/android/server/wm/RecentsAnimation;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
+
+    invoke-virtual {v0}, Lcom/android/server/wm/WindowManagerService;->getRecentsAnimationController()Lcom/android/server/wm/RecentsAnimationController;
+
+    move-result-object v0
+
+    const/4 v1, 0x2
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, v8, Lcom/android/server/wm/RecentsAnimation;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
+
+    invoke-virtual {v0}, Lcom/android/server/wm/WindowManagerService;->getRecentsAnimationController()Lcom/android/server/wm/RecentsAnimationController;
+
+    move-result-object v0
+
+    const-string v2, "startRecentsActivity"
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/wm/RecentsAnimationController;->forceCancelAnimation(ILjava/lang/String;)V
+
+    :cond_1
     iget-object v0, v8, Lcom/android/server/wm/RecentsAnimation;->mDefaultTaskDisplayArea:Lcom/android/server/wm/TaskDisplayArea;
 
-    iget v1, v8, Lcom/android/server/wm/RecentsAnimation;->mTargetActivityType:I
+    iget v2, v8, Lcom/android/server/wm/RecentsAnimation;->mTargetActivityType:I
 
-    invoke-virtual {v0, v13, v1}, Lcom/android/server/wm/TaskDisplayArea;->getRootTask(II)Lcom/android/server/wm/Task;
-
-    move-result-object v1
-
-    invoke-direct {v8, v1}, Lcom/android/server/wm/RecentsAnimation;->getTargetActivity(Lcom/android/server/wm/Task;)Lcom/android/server/wm/ActivityRecord;
+    invoke-virtual {v0, v13, v2}, Lcom/android/server/wm/TaskDisplayArea;->getRootTask(II)Lcom/android/server/wm/Task;
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    invoke-direct {v8, v2}, Lcom/android/server/wm/RecentsAnimation;->getTargetActivity(Lcom/android/server/wm/Task;)Lcom/android/server/wm/ActivityRecord;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_2
 
     move v0, v12
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     move v0, v13
 
     :goto_0
     move/from16 v16, v0
 
-    if-eqz v16, :cond_3
+    if-eqz v16, :cond_4
 
-    invoke-static {v1}, Lcom/android/server/wm/TaskDisplayArea;->getRootTaskAbove(Lcom/android/server/wm/Task;)Lcom/android/server/wm/Task;
+    invoke-static {v2}, Lcom/android/server/wm/TaskDisplayArea;->getRootTaskAbove(Lcom/android/server/wm/Task;)Lcom/android/server/wm/Task;
 
     move-result-object v0
 
     iput-object v0, v8, Lcom/android/server/wm/RecentsAnimation;->mRestoreTargetBehindRootTask:Lcom/android/server/wm/Task;
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4
 
-    invoke-virtual {v1}, Lcom/android/server/wm/Task;->getTopMostTask()Lcom/android/server/wm/Task;
+    invoke-virtual {v2}, Lcom/android/server/wm/Task;->getTopMostTask()Lcom/android/server/wm/Task;
 
     move-result-object v0
 
-    invoke-virtual {v2}, Lcom/android/server/wm/ActivityRecord;->getTask()Lcom/android/server/wm/Task;
+    invoke-virtual {v3}, Lcom/android/server/wm/ActivityRecord;->getTask()Lcom/android/server/wm/Task;
 
-    move-result-object v3
+    move-result-object v4
 
-    if-ne v0, v3, :cond_3
+    if-ne v0, v4, :cond_4
 
     invoke-static/range {p1 .. p1}, Lcom/android/server/wm/RecentsAnimation;->notifyAnimationCancelBeforeStart(Landroid/view/IRecentsAnimationRunner;)V
 
     sget-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_RECENTS_ANIMATIONS_enabled:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
-    invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
-    sget-object v3, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_RECENTS_ANIMATIONS:Lcom/android/internal/protolog/ProtoLogGroup;
+    sget-object v1, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_RECENTS_ANIMATIONS:Lcom/android/internal/protolog/ProtoLogGroup;
 
     const v4, -0x817147
 
@@ -1326,69 +1360,67 @@
 
     aput-object v0, v5, v13
 
-    invoke-static {v3, v4, v13, v11, v5}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
-
-    :cond_2
-    return-void
+    invoke-static {v1, v4, v13, v11, v5}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
     :cond_3
-    if-eqz v2, :cond_4
-
-    iget-boolean v0, v2, Lcom/android/server/wm/ActivityRecord;->mVisibleRequested:Z
-
-    if-nez v0, :cond_5
+    return-void
 
     :cond_4
+    if-eqz v3, :cond_5
+
+    iget-boolean v0, v3, Lcom/android/server/wm/ActivityRecord;->mVisibleRequested:Z
+
+    if-nez v0, :cond_6
+
+    :cond_5
     iget-object v0, v8, Lcom/android/server/wm/RecentsAnimation;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
 
     iget-object v0, v0, Lcom/android/server/wm/ActivityTaskManagerService;->mRootWindowContainer:Lcom/android/server/wm/RootWindowContainer;
 
-    invoke-virtual {v0, v12, v2}, Lcom/android/server/wm/RootWindowContainer;->startPowerModeLaunchIfNeeded(ZLcom/android/server/wm/ActivityRecord;)V
+    invoke-virtual {v0, v12, v3}, Lcom/android/server/wm/RootWindowContainer;->startPowerModeLaunchIfNeeded(ZLcom/android/server/wm/ActivityRecord;)V
 
-    :cond_5
+    :cond_6
     iget-object v0, v8, Lcom/android/server/wm/RecentsAnimation;->mTaskSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
 
     invoke-virtual {v0}, Lcom/android/server/wm/ActivityTaskSupervisor;->getActivityMetricsLogger()Lcom/android/server/wm/ActivityMetricsLogger;
 
     move-result-object v0
 
-    iget-object v3, v8, Lcom/android/server/wm/RecentsAnimation;->mTargetIntent:Landroid/content/Intent;
+    iget-object v4, v8, Lcom/android/server/wm/RecentsAnimation;->mTargetIntent:Landroid/content/Intent;
 
-    invoke-virtual {v0, v3}, Lcom/android/server/wm/ActivityMetricsLogger;->notifyActivityLaunching(Landroid/content/Intent;)Lcom/android/server/wm/ActivityMetricsLogger$LaunchingState;
+    invoke-virtual {v0, v4}, Lcom/android/server/wm/ActivityMetricsLogger;->notifyActivityLaunching(Landroid/content/Intent;)Lcom/android/server/wm/ActivityMetricsLogger$LaunchingState;
 
     move-result-object v23
 
     iget-object v0, v8, Lcom/android/server/wm/RecentsAnimation;->mCaller:Lcom/android/server/wm/WindowProcessController;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_7
 
     invoke-virtual {v0, v12}, Lcom/android/server/wm/WindowProcessController;->setRunningRecentsAnimation(Z)V
 
-    :cond_6
+    :cond_7
     iget-object v0, v8, Lcom/android/server/wm/RecentsAnimation;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
 
     invoke-virtual {v0}, Lcom/android/server/wm/ActivityTaskManagerService;->deferWindowLayout()V
 
     const v0, 0x47063048
 
-    const/4 v3, 0x2
-
-    if-eqz v16, :cond_9
+    if-eqz v16, :cond_a
 
     :try_start_0
     iget-object v4, v8, Lcom/android/server/wm/RecentsAnimation;->mDefaultTaskDisplayArea:Lcom/android/server/wm/TaskDisplayArea;
 
-    invoke-virtual {v4, v1}, Lcom/android/server/wm/TaskDisplayArea;->moveRootTaskBehindBottomMostVisibleRootTask(Lcom/android/server/wm/Task;)V
+    invoke-virtual {v4, v2}, Lcom/android/server/wm/TaskDisplayArea;->moveRootTaskBehindBottomMostVisibleRootTask(Lcom/android/server/wm/Task;)V
 
     sget-boolean v4, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_RECENTS_ANIMATIONS_enabled:Z
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_8
 
-    invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-static {v1}, Lcom/android/server/wm/TaskDisplayArea;->getRootTaskAbove(Lcom/android/server/wm/Task;)Lcom/android/server/wm/Task;
+    invoke-static {v2}, Lcom/android/server/wm/TaskDisplayArea;->getRootTaskAbove(Lcom/android/server/wm/Task;)Lcom/android/server/wm/Task;
 
     move-result-object v5
 
@@ -1398,35 +1430,35 @@
 
     sget-object v6, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_RECENTS_ANIMATIONS:Lcom/android/internal/protolog/ProtoLogGroup;
 
-    new-array v7, v3, [Ljava/lang/Object;
+    new-array v1, v1, [Ljava/lang/Object;
 
-    aput-object v4, v7, v13
+    aput-object v4, v1, v13
 
-    aput-object v5, v7, v12
+    aput-object v5, v1, v12
 
-    invoke-static {v6, v0, v13, v11, v7}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v6, v0, v13, v11, v1}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
-    :cond_7
-    invoke-virtual {v2}, Lcom/android/server/wm/ActivityRecord;->getTask()Lcom/android/server/wm/Task;
+    :cond_8
+    invoke-virtual {v3}, Lcom/android/server/wm/ActivityRecord;->getTask()Lcom/android/server/wm/Task;
 
     move-result-object v0
 
-    invoke-virtual {v1}, Lcom/android/server/wm/Task;->getTopMostTask()Lcom/android/server/wm/Task;
+    invoke-virtual {v2}, Lcom/android/server/wm/Task;->getTopMostTask()Lcom/android/server/wm/Task;
 
-    move-result-object v4
+    move-result-object v1
 
-    if-eq v4, v0, :cond_8
+    if-eq v1, v0, :cond_9
 
-    invoke-virtual {v1, v0}, Lcom/android/server/wm/Task;->positionChildAtTop(Lcom/android/server/wm/Task;)V
+    invoke-virtual {v2, v0}, Lcom/android/server/wm/Task;->positionChildAtTop(Lcom/android/server/wm/Task;)V
 
-    :cond_8
-    move-object/from16 v24, v1
+    :cond_9
+    move-object/from16 v24, v2
 
-    move-object v7, v2
+    move-object v7, v3
 
     goto :goto_1
 
-    :cond_9
+    :cond_a
     const-string v4, "startRecentsActivity_noTargetActivity"
 
     invoke-direct {v8, v4}, Lcom/android/server/wm/RecentsAnimation;->startRecentsActivityInBackground(Ljava/lang/String;)V
@@ -1439,27 +1471,27 @@
 
     move-result-object v4
 
-    move-object v1, v4
+    move-object v2, v4
 
-    invoke-direct {v8, v1}, Lcom/android/server/wm/RecentsAnimation;->getTargetActivity(Lcom/android/server/wm/Task;)Lcom/android/server/wm/ActivityRecord;
+    invoke-direct {v8, v2}, Lcom/android/server/wm/RecentsAnimation;->getTargetActivity(Lcom/android/server/wm/Task;)Lcom/android/server/wm/ActivityRecord;
 
     move-result-object v4
 
-    move-object v2, v4
+    move-object v3, v4
 
     iget-object v4, v8, Lcom/android/server/wm/RecentsAnimation;->mDefaultTaskDisplayArea:Lcom/android/server/wm/TaskDisplayArea;
 
-    invoke-virtual {v4, v1}, Lcom/android/server/wm/TaskDisplayArea;->moveRootTaskBehindBottomMostVisibleRootTask(Lcom/android/server/wm/Task;)V
+    invoke-virtual {v4, v2}, Lcom/android/server/wm/TaskDisplayArea;->moveRootTaskBehindBottomMostVisibleRootTask(Lcom/android/server/wm/Task;)V
 
     sget-boolean v4, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_RECENTS_ANIMATIONS_enabled:Z
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_b
 
-    invoke-static {v1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v2}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-static {v1}, Lcom/android/server/wm/TaskDisplayArea;->getRootTaskAbove(Lcom/android/server/wm/Task;)Lcom/android/server/wm/Task;
+    invoke-static {v2}, Lcom/android/server/wm/TaskDisplayArea;->getRootTaskAbove(Lcom/android/server/wm/Task;)Lcom/android/server/wm/Task;
 
     move-result-object v5
 
@@ -1469,15 +1501,15 @@
 
     sget-object v6, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_RECENTS_ANIMATIONS:Lcom/android/internal/protolog/ProtoLogGroup;
 
-    new-array v7, v3, [Ljava/lang/Object;
+    new-array v1, v1, [Ljava/lang/Object;
 
-    aput-object v4, v7, v13
+    aput-object v4, v1, v13
 
-    aput-object v5, v7, v12
+    aput-object v5, v1, v12
 
-    invoke-static {v6, v0, v13, v11, v7}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v6, v0, v13, v11, v1}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
-    :cond_a
+    :cond_b
     iget-object v0, v8, Lcom/android/server/wm/RecentsAnimation;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
 
     invoke-virtual {v0}, Lcom/android/server/wm/WindowManagerService;->prepareAppTransitionNone()V
@@ -1488,7 +1520,7 @@
 
     sget-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_RECENTS_ANIMATIONS_enabled:Z
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_c
 
     iget-object v0, v8, Lcom/android/server/wm/RecentsAnimation;->mTargetIntent:Landroid/content/Intent;
 
@@ -1496,23 +1528,23 @@
 
     move-result-object v0
 
-    sget-object v4, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_RECENTS_ANIMATIONS:Lcom/android/internal/protolog/ProtoLogGroup;
+    sget-object v1, Lcom/android/internal/protolog/ProtoLogGroup;->WM_DEBUG_RECENTS_ANIMATIONS:Lcom/android/internal/protolog/ProtoLogGroup;
 
-    const v5, 0x26838cff
+    const v4, 0x26838cff
 
-    new-array v6, v12, [Ljava/lang/Object;
+    new-array v5, v12, [Ljava/lang/Object;
 
-    aput-object v0, v6, v13
+    aput-object v0, v5, v13
 
-    invoke-static {v4, v5, v13, v11, v6}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v1, v4, v13, v11, v5}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
     :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_3
-    .catchall {:try_start_0 .. :try_end_0} :catchall_3
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_2
+    .catchall {:try_start_0 .. :try_end_0} :catchall_2
 
-    :cond_b
-    move-object/from16 v24, v1
+    :cond_c
+    move-object/from16 v24, v2
 
-    move-object v7, v2
+    move-object v7, v3
 
     :goto_1
     :try_start_1
@@ -1526,54 +1558,6 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->replaceExtras(Landroid/content/Intent;)Landroid/content/Intent;
 
-    iget-object v0, v8, Lcom/android/server/wm/RecentsAnimation;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
-
-    invoke-virtual {v0}, Lcom/android/server/wm/WindowManagerService;->getRecentsAnimationController()Lcom/android/server/wm/RecentsAnimationController;
-
-    move-result-object v0
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_2
-    .catchall {:try_start_1 .. :try_end_1} :catchall_2
-
-    if-eqz v0, :cond_c
-
-    :try_start_2
-    iget-object v0, v8, Lcom/android/server/wm/RecentsAnimation;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
-
-    invoke-virtual {v0}, Lcom/android/server/wm/WindowManagerService;->getRecentsAnimationController()Lcom/android/server/wm/RecentsAnimationController;
-
-    move-result-object v0
-
-    const-string v1, "startRecentsActivity"
-
-    invoke-virtual {v0, v3, v1}, Lcom/android/server/wm/RecentsAnimationController;->forceCancelAnimation(ILjava/lang/String;)V
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    goto :goto_2
-
-    :catchall_0
-    move-exception v0
-
-    move-object v2, v7
-
-    move-object/from16 v1, v24
-
-    goto/16 :goto_5
-
-    :catch_0
-    move-exception v0
-
-    move-object v2, v7
-
-    move-object/from16 v1, v24
-
-    goto/16 :goto_4
-
-    :cond_c
-    :goto_2
-    :try_start_3
     iget-object v1, v8, Lcom/android/server/wm/RecentsAnimation;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
 
     iget v2, v8, Lcom/android/server/wm/RecentsAnimation;->mTargetActivityType:I
@@ -1591,9 +1575,9 @@
     invoke-virtual {v0}, Lcom/android/server/wm/RecentTasks;->getRecentTaskIds()Landroid/util/SparseBooleanArray;
 
     move-result-object v6
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_2
-    .catchall {:try_start_3 .. :try_end_3} :catchall_2
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     move-object/from16 v3, p1
 
@@ -1601,7 +1585,7 @@
 
     move-object/from16 v25, v7
 
-    :try_start_4
+    :try_start_2
     invoke-virtual/range {v1 .. v7}, Lcom/android/server/wm/WindowManagerService;->initializeRecentsAnimation(ILandroid/view/IRecentsAnimationRunner;Lcom/android/server/wm/RecentsAnimationController$RecentsAnimationCallbacks;ILandroid/util/SparseBooleanArray;Lcom/android/server/wm/ActivityRecord;)V
 
     iget-object v0, v8, Lcom/android/server/wm/RecentsAnimation;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
@@ -1641,12 +1625,12 @@
 
     move/from16 v20, v12
 
-    goto :goto_3
+    goto :goto_2
 
     :cond_e
     move/from16 v20, v13
 
-    :goto_3
+    :goto_2
     move-object/from16 v18, v23
 
     move-object/from16 v21, v25
@@ -1658,9 +1642,9 @@
     iget-object v1, v8, Lcom/android/server/wm/RecentsAnimation;->mDefaultTaskDisplayArea:Lcom/android/server/wm/TaskDisplayArea;
 
     invoke-virtual {v1, v8}, Lcom/android/server/wm/TaskDisplayArea;->registerRootTaskOrderChangedListener(Lcom/android/server/wm/TaskDisplayArea$OnRootTaskOrderChangedListener;)V
-    :try_end_4
-    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_1
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    :try_end_2
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     iget-object v0, v8, Lcom/android/server/wm/RecentsAnimation;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
 
@@ -1672,72 +1656,72 @@
 
     return-void
 
+    :catchall_0
+    move-exception v0
+
+    move-object/from16 v2, v24
+
+    move-object/from16 v3, v25
+
+    goto :goto_4
+
+    :catch_0
+    move-exception v0
+
+    move-object/from16 v2, v24
+
+    move-object/from16 v3, v25
+
+    goto :goto_3
+
     :catchall_1
     move-exception v0
 
-    move-object/from16 v1, v24
+    move-object/from16 v25, v7
 
-    move-object/from16 v2, v25
+    move-object/from16 v2, v24
 
-    goto :goto_5
+    move-object/from16 v3, v25
+
+    goto :goto_4
 
     :catch_1
     move-exception v0
 
-    move-object/from16 v1, v24
+    move-object/from16 v25, v7
 
-    move-object/from16 v2, v25
+    move-object/from16 v2, v24
 
-    goto :goto_4
+    move-object/from16 v3, v25
+
+    goto :goto_3
 
     :catchall_2
     move-exception v0
 
-    move-object/from16 v25, v7
-
-    move-object/from16 v1, v24
-
-    move-object/from16 v2, v25
-
-    goto :goto_5
+    goto :goto_4
 
     :catch_2
     move-exception v0
 
-    move-object/from16 v25, v7
-
-    move-object/from16 v1, v24
-
-    move-object/from16 v2, v25
-
-    goto :goto_4
-
-    :catchall_3
-    move-exception v0
-
-    goto :goto_5
-
-    :catch_3
-    move-exception v0
-
-    :goto_4
-    :try_start_5
-    sget-object v3, Lcom/android/server/wm/RecentsAnimation;->TAG:Ljava/lang/String;
+    :goto_3
+    :try_start_3
+    sget-object v1, Lcom/android/server/wm/RecentsAnimation;->TAG:Ljava/lang/String;
 
     const-string v4, "Failed to start recents activity"
 
-    invoke-static {v3, v4, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v1, v4, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     nop
 
     throw v0
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_3
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_2
 
-    :goto_5
-    iget-object v3, v8, Lcom/android/server/wm/RecentsAnimation;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
+    :goto_4
+    iget-object v1, v8, Lcom/android/server/wm/RecentsAnimation;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
 
-    invoke-virtual {v3}, Lcom/android/server/wm/ActivityTaskManagerService;->continueWindowLayout()V
+    invoke-virtual {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->continueWindowLayout()V
 
     invoke-static {v14, v15}, Landroid/os/Trace;->traceEnd(J)V
 

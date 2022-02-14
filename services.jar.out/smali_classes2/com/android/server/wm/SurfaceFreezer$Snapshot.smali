@@ -17,40 +17,20 @@
 # instance fields
 .field private mAnimation:Lcom/android/server/wm/AnimationAdapter;
 
-.field private mFinishedCallback:Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
-
 .field private mSurfaceControl:Landroid/view/SurfaceControl;
 
 .field final synthetic this$0:Lcom/android/server/wm/SurfaceFreezer;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/server/wm/SurfaceFreezer;Ljava/util/function/Supplier;Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl$ScreenshotHardwareBuffer;Landroid/view/SurfaceControl;)V
+.method constructor <init>(Lcom/android/server/wm/SurfaceFreezer;Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl$ScreenshotHardwareBuffer;Landroid/view/SurfaceControl;)V
     .locals 7
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/function/Supplier<",
-            "Landroid/view/Surface;",
-            ">;",
-            "Landroid/view/SurfaceControl$Transaction;",
-            "Landroid/view/SurfaceControl$ScreenshotHardwareBuffer;",
-            "Landroid/view/SurfaceControl;",
-            ")V"
-        }
-    .end annotation
 
     iput-object p1, p0, Lcom/android/server/wm/SurfaceFreezer$Snapshot;->this$0:Lcom/android/server/wm/SurfaceFreezer;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    nop
-
-    invoke-virtual {p4}, Landroid/view/SurfaceControl$ScreenshotHardwareBuffer;->getHardwareBuffer()Landroid/hardware/HardwareBuffer;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/graphics/GraphicBuffer;->createFromHardwareBuffer(Landroid/hardware/HardwareBuffer;)Landroid/graphics/GraphicBuffer;
+    invoke-virtual {p1, p3}, Lcom/android/server/wm/SurfaceFreezer;->createFromHardwareBufferInner(Landroid/view/SurfaceControl$ScreenshotHardwareBuffer;)Landroid/graphics/GraphicBuffer;
 
     move-result-object v0
 
@@ -94,11 +74,11 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, p5}, Landroid/view/SurfaceControl$Builder;->setParent(Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Builder;
+    invoke-virtual {v1, p4}, Landroid/view/SurfaceControl$Builder;->setParent(Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Builder;
 
     move-result-object v1
 
-    invoke-virtual {p4}, Landroid/view/SurfaceControl$ScreenshotHardwareBuffer;->containsSecureLayers()Z
+    invoke-virtual {p3}, Landroid/view/SurfaceControl$ScreenshotHardwareBuffer;->containsSecureLayers()Z
 
     move-result v2
 
@@ -151,25 +131,31 @@
     :cond_0
     iget-object v1, p0, Lcom/android/server/wm/SurfaceFreezer$Snapshot;->mSurfaceControl:Landroid/view/SurfaceControl;
 
-    invoke-virtual {p3, v1, v0}, Landroid/view/SurfaceControl$Transaction;->setBuffer(Landroid/view/SurfaceControl;Landroid/graphics/GraphicBuffer;)Landroid/view/SurfaceControl$Transaction;
+    invoke-virtual {p2, v1, v0}, Landroid/view/SurfaceControl$Transaction;->setBuffer(Landroid/view/SurfaceControl;Landroid/graphics/GraphicBuffer;)Landroid/view/SurfaceControl$Transaction;
 
     iget-object v1, p0, Lcom/android/server/wm/SurfaceFreezer$Snapshot;->mSurfaceControl:Landroid/view/SurfaceControl;
 
-    invoke-virtual {p4}, Landroid/view/SurfaceControl$ScreenshotHardwareBuffer;->getColorSpace()Landroid/graphics/ColorSpace;
+    invoke-virtual {p3}, Landroid/view/SurfaceControl$ScreenshotHardwareBuffer;->getColorSpace()Landroid/graphics/ColorSpace;
 
     move-result-object v2
 
-    invoke-virtual {p3, v1, v2}, Landroid/view/SurfaceControl$Transaction;->setColorSpace(Landroid/view/SurfaceControl;Landroid/graphics/ColorSpace;)Landroid/view/SurfaceControl$Transaction;
+    invoke-virtual {p2, v1, v2}, Landroid/view/SurfaceControl$Transaction;->setColorSpace(Landroid/view/SurfaceControl;Landroid/graphics/ColorSpace;)Landroid/view/SurfaceControl$Transaction;
 
     iget-object v1, p0, Lcom/android/server/wm/SurfaceFreezer$Snapshot;->mSurfaceControl:Landroid/view/SurfaceControl;
 
-    invoke-virtual {p3, v1}, Landroid/view/SurfaceControl$Transaction;->show(Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
+    invoke-virtual {p2, v1}, Landroid/view/SurfaceControl$Transaction;->show(Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
 
     iget-object v1, p0, Lcom/android/server/wm/SurfaceFreezer$Snapshot;->mSurfaceControl:Landroid/view/SurfaceControl;
 
     const v2, 0x7fffffff
 
-    invoke-virtual {p3, v1, v2}, Landroid/view/SurfaceControl$Transaction;->setLayer(Landroid/view/SurfaceControl;I)Landroid/view/SurfaceControl$Transaction;
+    invoke-virtual {p2, v1, v2}, Landroid/view/SurfaceControl$Transaction;->setLayer(Landroid/view/SurfaceControl;I)Landroid/view/SurfaceControl$Transaction;
+
+    return-void
+.end method
+
+.method static synthetic lambda$startAnimation$0(ILcom/android/server/wm/AnimationAdapter;)V
+    .locals 0
 
     return-void
 .end method
@@ -177,31 +163,19 @@
 
 # virtual methods
 .method cancelAnimation(Landroid/view/SurfaceControl$Transaction;Z)V
-    .locals 4
+    .locals 3
 
     iget-object v0, p0, Lcom/android/server/wm/SurfaceFreezer$Snapshot;->mSurfaceControl:Landroid/view/SurfaceControl;
 
     iget-object v1, p0, Lcom/android/server/wm/SurfaceFreezer$Snapshot;->mAnimation:Lcom/android/server/wm/AnimationAdapter;
 
-    iget-object v2, p0, Lcom/android/server/wm/SurfaceFreezer$Snapshot;->mFinishedCallback:Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
+    const/4 v2, 0x0
 
-    const/4 v3, 0x0
-
-    iput-object v3, p0, Lcom/android/server/wm/SurfaceFreezer$Snapshot;->mAnimation:Lcom/android/server/wm/AnimationAdapter;
-
-    iput-object v3, p0, Lcom/android/server/wm/SurfaceFreezer$Snapshot;->mFinishedCallback:Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
+    iput-object v2, p0, Lcom/android/server/wm/SurfaceFreezer$Snapshot;->mAnimation:Lcom/android/server/wm/AnimationAdapter;
 
     if-eqz v1, :cond_0
 
     invoke-interface {v1, v0}, Lcom/android/server/wm/AnimationAdapter;->onAnimationCancelled(Landroid/view/SurfaceControl;)V
-
-    if-nez p2, :cond_0
-
-    if-eqz v2, :cond_0
-
-    const/4 v3, 0x1
-
-    invoke-interface {v2, v3, v1}, Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;->onAnimationFinished(ILcom/android/server/wm/AnimationAdapter;)V
 
     :cond_0
     if-nez p2, :cond_1
@@ -231,16 +205,14 @@
     return-void
 .end method
 
-.method startAnimation(Landroid/view/SurfaceControl$Transaction;Lcom/android/server/wm/AnimationAdapter;ILcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;)V
-    .locals 1
+.method startAnimation(Landroid/view/SurfaceControl$Transaction;Lcom/android/server/wm/AnimationAdapter;I)V
+    .locals 2
 
     const/4 v0, 0x1
 
     invoke-virtual {p0, p1, v0}, Lcom/android/server/wm/SurfaceFreezer$Snapshot;->cancelAnimation(Landroid/view/SurfaceControl$Transaction;Z)V
 
     iput-object p2, p0, Lcom/android/server/wm/SurfaceFreezer$Snapshot;->mAnimation:Lcom/android/server/wm/AnimationAdapter;
-
-    iput-object p4, p0, Lcom/android/server/wm/SurfaceFreezer$Snapshot;->mFinishedCallback:Lcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;
 
     iget-object v0, p0, Lcom/android/server/wm/SurfaceFreezer$Snapshot;->mSurfaceControl:Landroid/view/SurfaceControl;
 
@@ -253,7 +225,9 @@
     return-void
 
     :cond_0
-    invoke-interface {p2, v0, p1, p3, p4}, Lcom/android/server/wm/AnimationAdapter;->startAnimation(Landroid/view/SurfaceControl;Landroid/view/SurfaceControl$Transaction;ILcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;)V
+    sget-object v1, Lcom/android/server/wm/SurfaceFreezer$Snapshot$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/server/wm/SurfaceFreezer$Snapshot$$ExternalSyntheticLambda0;
+
+    invoke-interface {p2, v0, p1, p3, v1}, Lcom/android/server/wm/AnimationAdapter;->startAnimation(Landroid/view/SurfaceControl;Landroid/view/SurfaceControl$Transaction;ILcom/android/server/wm/SurfaceAnimator$OnAnimationFinishedCallback;)V
 
     return-void
 .end method

@@ -48,20 +48,20 @@
 
     iput-object v0, p0, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->mOrganizedTasks:Ljava/util/ArrayList;
 
-    invoke-static {p1}, Lcom/android/server/wm/TaskOrganizerController;->access$400(Lcom/android/server/wm/TaskOrganizerController;)Ljava/util/function/Consumer;
+    invoke-static {p1}, Lcom/android/server/wm/TaskOrganizerController;->access$200(Lcom/android/server/wm/TaskOrganizerController;)Ljava/util/function/Consumer;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    invoke-static {p1}, Lcom/android/server/wm/TaskOrganizerController;->access$400(Lcom/android/server/wm/TaskOrganizerController;)Ljava/util/function/Consumer;
+    invoke-static {p1}, Lcom/android/server/wm/TaskOrganizerController;->access$200(Lcom/android/server/wm/TaskOrganizerController;)Ljava/util/function/Consumer;
 
     move-result-object v0
 
     goto :goto_0
 
     :cond_0
-    invoke-static {p1}, Lcom/android/server/wm/TaskOrganizerController;->access$500(Lcom/android/server/wm/TaskOrganizerController;)Lcom/android/server/wm/ActivityTaskManagerService;
+    invoke-static {p1}, Lcom/android/server/wm/TaskOrganizerController;->access$300(Lcom/android/server/wm/TaskOrganizerController;)Lcom/android/server/wm/ActivityTaskManagerService;
 
     move-result-object v0
 
@@ -120,7 +120,33 @@
     return-void
 .end method
 
-.method static synthetic access$1000(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;Lcom/android/server/wm/Task;Z)Z
+.method static synthetic access$1000(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;)Ljava/util/ArrayList;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->mOrganizedTasks:Ljava/util/ArrayList;
+
+    return-object v0
+.end method
+
+.method static synthetic access$1100(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->mUid:I
+
+    return v0
+.end method
+
+.method static synthetic access$700(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;Lcom/android/server/wm/Task;)Z
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->addTask(Lcom/android/server/wm/Task;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic access$800(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;Lcom/android/server/wm/Task;Z)Z
     .locals 1
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->removeTask(Lcom/android/server/wm/Task;Z)Z
@@ -130,38 +156,12 @@
     return v0
 .end method
 
-.method static synthetic access$1100(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;)Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;
+.method static synthetic access$900(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;)Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->mOrganizer:Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;
 
     return-object v0
-.end method
-
-.method static synthetic access$1200(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;)Ljava/util/ArrayList;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->mOrganizedTasks:Ljava/util/ArrayList;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1300(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->mUid:I
-
-    return v0
-.end method
-
-.method static synthetic access$900(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;Lcom/android/server/wm/Task;)Z
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->addTask(Lcom/android/server/wm/Task;)Z
-
-    move-result v0
-
-    return v0
 .end method
 
 .method private addTask(Lcom/android/server/wm/Task;)Z
@@ -214,7 +214,7 @@
 
     iget-object v0, p0, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->this$0:Lcom/android/server/wm/TaskOrganizerController;
 
-    invoke-static {v0}, Lcom/android/server/wm/TaskOrganizerController;->access$600(Lcom/android/server/wm/TaskOrganizerController;)Ljava/util/HashSet;
+    invoke-static {v0}, Lcom/android/server/wm/TaskOrganizerController;->access$400(Lcom/android/server/wm/TaskOrganizerController;)Ljava/util/HashSet;
 
     move-result-object v0
 
@@ -252,7 +252,7 @@
 
     iget-object v1, p0, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->this$0:Lcom/android/server/wm/TaskOrganizerController;
 
-    invoke-static {v1}, Lcom/android/server/wm/TaskOrganizerController;->access$500(Lcom/android/server/wm/TaskOrganizerController;)Lcom/android/server/wm/ActivityTaskManagerService;
+    invoke-static {v1}, Lcom/android/server/wm/TaskOrganizerController;->access$300(Lcom/android/server/wm/TaskOrganizerController;)Lcom/android/server/wm/ActivityTaskManagerService;
 
     move-result-object v1
 
@@ -266,16 +266,6 @@
 
 
 # virtual methods
-.method addStartingWindow(Lcom/android/server/wm/Task;Lcom/android/server/wm/ActivityRecord;ILandroid/window/TaskSnapshot;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->mOrganizer:Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;
-
-    invoke-virtual {v0, p1, p2, p3, p4}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;->addStartingWindow(Lcom/android/server/wm/Task;Lcom/android/server/wm/ActivityRecord;ILandroid/window/TaskSnapshot;)V
-
-    return-void
-.end method
-
 .method addTaskWithoutCallback(Lcom/android/server/wm/Task;Ljava/lang/String;)Landroid/view/SurfaceControl;
     .locals 1
 
@@ -305,22 +295,12 @@
     return-object v0
 .end method
 
-.method copySplashScreenView(Lcom/android/server/wm/Task;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->mOrganizer:Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;
-
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;->copySplashScreenView(Lcom/android/server/wm/Task;)V
-
-    return-void
-.end method
-
 .method dispose()V
     .locals 3
 
     iget-object v0, p0, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->this$0:Lcom/android/server/wm/TaskOrganizerController;
 
-    invoke-static {v0}, Lcom/android/server/wm/TaskOrganizerController;->access$700(Lcom/android/server/wm/TaskOrganizerController;)Ljava/util/LinkedList;
+    invoke-static {v0}, Lcom/android/server/wm/TaskOrganizerController;->access$500(Lcom/android/server/wm/TaskOrganizerController;)Ljava/util/LinkedList;
 
     move-result-object v0
 
@@ -337,7 +317,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2
 
     iget-object v0, p0, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->mOrganizedTasks:Ljava/util/ArrayList;
 
@@ -375,12 +355,49 @@
 
     iget-object v2, v2, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;->mTaskOrganizer:Landroid/window/ITaskOrganizer;
 
-    invoke-static {v1, v2, v0}, Lcom/android/server/wm/TaskOrganizerController;->access$800(Lcom/android/server/wm/TaskOrganizerController;Landroid/window/ITaskOrganizer;Lcom/android/server/wm/Task;)V
+    invoke-static {v1, v2, v0}, Lcom/android/server/wm/TaskOrganizerController;->access$600(Lcom/android/server/wm/TaskOrganizerController;Landroid/window/ITaskOrganizer;Lcom/android/server/wm/Task;)V
 
     :cond_0
-    goto :goto_0
+    iget-object v1, p0, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->this$0:Lcom/android/server/wm/TaskOrganizerController;
+
+    invoke-static {v1}, Lcom/android/server/wm/TaskOrganizerController;->access$300(Lcom/android/server/wm/TaskOrganizerController;)Lcom/android/server/wm/ActivityTaskManagerService;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/server/wm/ActivityTaskManagerService;->getTransitionController()Lcom/android/server/wm/TransitionController;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/server/wm/TransitionController;->isShellTransitionsEnabled()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, v0, Lcom/android/server/wm/Task;->mTaskOrganizer:Landroid/window/ITaskOrganizer;
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {v0}, Lcom/android/server/wm/Task;->getSurfaceControl()Landroid/view/SurfaceControl;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {v0}, Lcom/android/server/wm/Task;->getSyncTransaction()Landroid/view/SurfaceControl$Transaction;
+
+    move-result-object v1
+
+    invoke-virtual {v0}, Lcom/android/server/wm/Task;->getSurfaceControl()Landroid/view/SurfaceControl;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/view/SurfaceControl$Transaction;->show(Landroid/view/SurfaceControl;)Landroid/view/SurfaceControl$Transaction;
 
     :cond_1
+    goto :goto_0
+
+    :cond_2
     iget-object v0, p0, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->this$0:Lcom/android/server/wm/TaskOrganizerController;
 
     invoke-static {v0}, Lcom/android/server/wm/TaskOrganizerController;->access$100(Lcom/android/server/wm/TaskOrganizerController;)Ljava/util/HashMap;
@@ -394,26 +411,6 @@
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    return-void
-.end method
-
-.method public onAppSplashScreenViewRemoved(Lcom/android/server/wm/Task;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->mOrganizer:Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;
-
-    invoke-virtual {v0, p1}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;->onAppSplashScreenViewRemoved(Lcom/android/server/wm/Task;)V
-
-    return-void
-.end method
-
-.method removeStartingWindow(Lcom/android/server/wm/Task;Z)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerState;->mOrganizer:Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;
-
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;->removeStartingWindow(Lcom/android/server/wm/Task;Z)V
 
     return-void
 .end method

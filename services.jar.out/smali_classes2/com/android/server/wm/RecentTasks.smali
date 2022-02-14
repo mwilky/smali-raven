@@ -313,7 +313,7 @@
 
     iput-object v1, p0, Lcom/android/server/wm/RecentTasks;->mTaskNotificationController:Lcom/android/server/wm/TaskChangeNotificationController;
 
-    const v1, 0x11100f4
+    const v1, 0x11100f6
 
     invoke-virtual {v7, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -477,249 +477,242 @@
 .end method
 
 .method private findRemoveIndexForAddTask(Lcom/android/server/wm/Task;)I
-    .locals 18
+    .locals 17
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    iget-boolean v2, v0, Lcom/android/server/wm/RecentTasks;->mFreezeTaskListReordering:Z
-
-    const/4 v3, -0x1
-
-    if-eqz v2, :cond_0
-
-    return v3
-
-    :cond_0
     iget-object v2, v0, Lcom/android/server/wm/RecentTasks;->mTasks:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
-    iget-object v4, v1, Lcom/android/server/wm/Task;->intent:Landroid/content/Intent;
+    iget-object v3, v1, Lcom/android/server/wm/Task;->intent:Landroid/content/Intent;
 
-    const/4 v6, 0x1
+    const/4 v5, 0x1
 
-    if-eqz v4, :cond_1
+    if-eqz v3, :cond_0
 
-    invoke-virtual {v4}, Landroid/content/Intent;->isDocument()Z
+    invoke-virtual {v3}, Landroid/content/Intent;->isDocument()Z
 
-    move-result v7
+    move-result v6
 
-    if-eqz v7, :cond_1
+    if-eqz v6, :cond_0
 
-    move v7, v6
+    move v6, v5
 
     goto :goto_0
 
-    :cond_1
-    const/4 v7, 0x0
+    :cond_0
+    const/4 v6, 0x0
 
     :goto_0
-    iget v8, v1, Lcom/android/server/wm/Task;->maxRecents:I
+    iget v7, v1, Lcom/android/server/wm/Task;->maxRecents:I
 
-    sub-int/2addr v8, v6
+    sub-int/2addr v7, v5
 
-    const/4 v9, 0x0
+    const/4 v8, 0x0
 
     :goto_1
-    if-ge v9, v2, :cond_10
+    if-ge v8, v2, :cond_f
 
-    iget-object v10, v0, Lcom/android/server/wm/RecentTasks;->mTasks:Ljava/util/ArrayList;
+    iget-object v9, v0, Lcom/android/server/wm/RecentTasks;->mTasks:Ljava/util/ArrayList;
 
-    invoke-virtual {v10, v9}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v9, v8}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v10
+    move-result-object v9
 
-    check-cast v10, Lcom/android/server/wm/Task;
+    check-cast v9, Lcom/android/server/wm/Task;
 
-    if-eq v1, v10, :cond_f
+    if-eq v1, v9, :cond_e
 
-    invoke-direct {v0, v1, v10}, Lcom/android/server/wm/RecentTasks;->hasCompatibleActivityTypeAndWindowingMode(Lcom/android/server/wm/Task;Lcom/android/server/wm/Task;)Z
+    invoke-direct {v0, v1, v9}, Lcom/android/server/wm/RecentTasks;->hasCompatibleActivityTypeAndWindowingMode(Lcom/android/server/wm/Task;Lcom/android/server/wm/Task;)Z
 
-    move-result v11
+    move-result v10
 
-    if-eqz v11, :cond_e
+    if-eqz v10, :cond_d
 
-    iget v11, v1, Lcom/android/server/wm/Task;->mUserId:I
+    iget v10, v1, Lcom/android/server/wm/Task;->mUserId:I
 
-    iget v12, v10, Lcom/android/server/wm/Task;->mUserId:I
+    iget v11, v9, Lcom/android/server/wm/Task;->mUserId:I
 
-    if-eq v11, v12, :cond_2
+    if-eq v10, v11, :cond_1
 
     goto/16 :goto_7
 
+    :cond_1
+    iget-object v10, v9, Lcom/android/server/wm/Task;->intent:Landroid/content/Intent;
+
+    iget-object v11, v1, Lcom/android/server/wm/Task;->affinity:Ljava/lang/String;
+
+    if-eqz v11, :cond_2
+
+    iget-object v11, v1, Lcom/android/server/wm/Task;->affinity:Ljava/lang/String;
+
+    iget-object v12, v9, Lcom/android/server/wm/Task;->affinity:Ljava/lang/String;
+
+    invoke-virtual {v11, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_2
+
+    move v11, v5
+
+    goto :goto_2
+
     :cond_2
-    iget-object v11, v10, Lcom/android/server/wm/Task;->intent:Landroid/content/Intent;
+    const/4 v11, 0x0
 
-    iget-object v12, v1, Lcom/android/server/wm/Task;->affinity:Ljava/lang/String;
+    :goto_2
+    if-eqz v3, :cond_3
 
-    if-eqz v12, :cond_3
-
-    iget-object v12, v1, Lcom/android/server/wm/Task;->affinity:Ljava/lang/String;
-
-    iget-object v13, v10, Lcom/android/server/wm/Task;->affinity:Ljava/lang/String;
-
-    invoke-virtual {v12, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v3, v10}, Landroid/content/Intent;->filterEquals(Landroid/content/Intent;)Z
 
     move-result v12
 
     if-eqz v12, :cond_3
 
-    move v12, v6
+    move v12, v5
 
-    goto :goto_2
+    goto :goto_3
 
     :cond_3
     const/4 v12, 0x0
 
-    :goto_2
-    if-eqz v4, :cond_4
-
-    invoke-virtual {v4, v11}, Landroid/content/Intent;->filterEquals(Landroid/content/Intent;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_4
-
-    move v13, v6
-
-    goto :goto_3
-
-    :cond_4
+    :goto_3
     const/4 v13, 0x0
 
-    :goto_3
-    const/4 v14, 0x0
+    invoke-virtual {v3}, Landroid/content/Intent;->getFlags()I
 
-    invoke-virtual {v4}, Landroid/content/Intent;->getFlags()I
+    move-result v14
+
+    const/high16 v15, 0x10080000
+
+    and-int/2addr v15, v14
+
+    if-eqz v15, :cond_4
+
+    const/high16 v15, 0x8000000
+
+    and-int/2addr v15, v14
+
+    if-eqz v15, :cond_4
+
+    const/4 v13, 0x1
+
+    :cond_4
+    if-eqz v10, :cond_5
+
+    invoke-virtual {v10}, Landroid/content/Intent;->isDocument()Z
 
     move-result v15
 
-    const/high16 v16, 0x10080000
+    if-eqz v15, :cond_5
 
-    and-int v16, v15, v16
-
-    if-eqz v16, :cond_5
-
-    const/high16 v16, 0x8000000
-
-    and-int v16, v15, v16
-
-    if-eqz v16, :cond_5
-
-    const/4 v14, 0x1
-
-    :cond_5
-    if-eqz v11, :cond_6
-
-    invoke-virtual {v11}, Landroid/content/Intent;->isDocument()Z
-
-    move-result v16
-
-    if-eqz v16, :cond_6
-
-    move/from16 v16, v6
+    move v15, v5
 
     goto :goto_4
+
+    :cond_5
+    const/4 v15, 0x0
+
+    :goto_4
+    if-eqz v6, :cond_6
+
+    if-eqz v15, :cond_6
+
+    move/from16 v16, v5
+
+    goto :goto_5
 
     :cond_6
     const/16 v16, 0x0
 
-    :goto_4
-    if-eqz v7, :cond_7
-
-    if-eqz v16, :cond_7
-
-    move/from16 v17, v6
-
-    goto :goto_5
-
-    :cond_7
-    const/16 v17, 0x0
-
     :goto_5
-    if-nez v12, :cond_8
+    if-nez v11, :cond_7
 
-    if-nez v13, :cond_8
+    if-nez v12, :cond_7
 
-    if-nez v17, :cond_8
+    if-nez v16, :cond_7
 
     goto :goto_7
 
-    :cond_8
-    if-eqz v17, :cond_c
+    :cond_7
+    if-eqz v16, :cond_b
 
-    iget-object v5, v1, Lcom/android/server/wm/Task;->realActivity:Landroid/content/ComponentName;
+    iget-object v4, v1, Lcom/android/server/wm/Task;->realActivity:Landroid/content/ComponentName;
 
-    if-eqz v5, :cond_9
+    if-eqz v4, :cond_8
 
-    iget-object v5, v10, Lcom/android/server/wm/Task;->realActivity:Landroid/content/ComponentName;
+    iget-object v4, v9, Lcom/android/server/wm/Task;->realActivity:Landroid/content/ComponentName;
 
-    if-eqz v5, :cond_9
+    if-eqz v4, :cond_8
 
-    iget-object v5, v1, Lcom/android/server/wm/Task;->realActivity:Landroid/content/ComponentName;
+    iget-object v4, v1, Lcom/android/server/wm/Task;->realActivity:Landroid/content/ComponentName;
 
-    iget-object v6, v10, Lcom/android/server/wm/Task;->realActivity:Landroid/content/ComponentName;
+    iget-object v5, v9, Lcom/android/server/wm/Task;->realActivity:Landroid/content/ComponentName;
 
-    invoke-virtual {v5, v6}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v5}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_9
+    if-eqz v4, :cond_8
 
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
     goto :goto_6
 
-    :cond_9
-    const/4 v5, 0x0
+    :cond_8
+    const/4 v4, 0x0
 
     :goto_6
-    if-nez v5, :cond_a
+    if-nez v4, :cond_9
+
+    goto :goto_7
+
+    :cond_9
+    if-lez v7, :cond_a
+
+    add-int/lit8 v7, v7, -0x1
+
+    if-eqz v12, :cond_d
+
+    if-eqz v13, :cond_a
 
     goto :goto_7
 
     :cond_a
-    if-lez v8, :cond_b
-
-    add-int/lit8 v8, v8, -0x1
-
-    if-eqz v13, :cond_e
-
-    if-eqz v14, :cond_b
-
-    goto :goto_7
-
-    :cond_b
     goto :goto_8
 
-    :cond_c
-    if-nez v7, :cond_e
+    :cond_b
+    if-nez v6, :cond_d
 
-    if-eqz v16, :cond_d
+    if-eqz v15, :cond_c
 
     goto :goto_7
 
+    :cond_c
+    if-eqz v13, :cond_e
+
     :cond_d
-    if-eqz v14, :cond_f
-
-    :cond_e
     :goto_7
-    add-int/lit8 v9, v9, 0x1
+    add-int/lit8 v8, v8, 0x1
 
-    const/4 v6, 0x1
+    const/4 v5, 0x1
 
     goto/16 :goto_1
 
-    :cond_f
+    :cond_e
     :goto_8
-    return v9
+    return v8
 
-    :cond_10
-    return v3
+    :cond_f
+    const/4 v4, -0x1
+
+    return v4
 .end method
 
 .method private getRecentTasksImpl(IIZII)Ljava/util/ArrayList;
@@ -2019,7 +2012,7 @@
     return v4
 .end method
 
-.method private removeForAddTask(Lcom/android/server/wm/Task;)V
+.method private removeForAddTask(Lcom/android/server/wm/Task;)I
     .locals 5
 
     iget-object v0, p0, Lcom/android/server/wm/RecentTasks;->mHiddenTasks:Ljava/util/ArrayList;
@@ -2034,7 +2027,7 @@
 
     if-ne v0, v1, :cond_0
 
-    return-void
+    return v0
 
     :cond_0
     iget-object v1, p0, Lcom/android/server/wm/RecentTasks;->mTasks:Ljava/util/ArrayList;
@@ -2089,7 +2082,7 @@
     :cond_2
     invoke-virtual {p0, v1, v2}, Lcom/android/server/wm/RecentTasks;->notifyTaskPersisterLocked(Lcom/android/server/wm/Task;Z)V
 
-    return-void
+    return v0
 .end method
 
 .method private removeTasksForUserLocked(I)V
@@ -2626,38 +2619,38 @@
 
 # virtual methods
 .method add(Lcom/android/server/wm/Task;)V
-    .locals 9
+    .locals 10
 
     iget v0, p1, Lcom/android/server/wm/Task;->mAffiliatedTaskId:I
 
     iget v1, p1, Lcom/android/server/wm/Task;->mTaskId:I
 
-    const/4 v2, 0x1
+    const/4 v2, -0x1
 
-    const/4 v3, 0x0
+    const/4 v3, 0x1
+
+    const/4 v4, 0x0
 
     if-ne v0, v1, :cond_1
 
     iget v0, p1, Lcom/android/server/wm/Task;->mNextAffiliateTaskId:I
 
-    const/4 v1, -0x1
-
-    if-ne v0, v1, :cond_1
+    if-ne v0, v2, :cond_1
 
     iget v0, p1, Lcom/android/server/wm/Task;->mPrevAffiliateTaskId:I
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v2, :cond_0
 
     goto :goto_0
 
     :cond_0
-    move v0, v3
+    move v0, v4
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    move v0, v2
+    move v0, v3
 
     :goto_1
     iget-object v1, p0, Lcom/android/server/wm/RecentTasks;->mTasks:Ljava/util/ArrayList;
@@ -2666,9 +2659,9 @@
 
     move-result v1
 
-    iget-object v4, p1, Lcom/android/server/wm/Task;->voiceSession:Landroid/service/voice/IVoiceInteractionSession;
+    iget-object v5, p1, Lcom/android/server/wm/Task;->voiceSession:Landroid/service/voice/IVoiceInteractionSession;
 
-    if-eqz v4, :cond_2
+    if-eqz v5, :cond_2
 
     return-void
 
@@ -2677,13 +2670,13 @@
 
     if-lez v1, :cond_3
 
-    iget-object v4, p0, Lcom/android/server/wm/RecentTasks;->mTasks:Ljava/util/ArrayList;
+    iget-object v5, p0, Lcom/android/server/wm/RecentTasks;->mTasks:Ljava/util/ArrayList;
 
-    invoke-virtual {v4, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v5, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v5
 
-    if-ne v4, p1, :cond_3
+    if-ne v5, p1, :cond_3
 
     return-void
 
@@ -2692,40 +2685,40 @@
 
     if-lez v1, :cond_4
 
-    iget-boolean v4, p1, Lcom/android/server/wm/Task;->inRecents:Z
+    iget-boolean v5, p1, Lcom/android/server/wm/Task;->inRecents:Z
 
-    if-eqz v4, :cond_4
+    if-eqz v5, :cond_4
 
-    iget v4, p1, Lcom/android/server/wm/Task;->mAffiliatedTaskId:I
+    iget v5, p1, Lcom/android/server/wm/Task;->mAffiliatedTaskId:I
 
-    iget-object v5, p0, Lcom/android/server/wm/RecentTasks;->mTasks:Ljava/util/ArrayList;
+    iget-object v6, p0, Lcom/android/server/wm/RecentTasks;->mTasks:Ljava/util/ArrayList;
 
-    invoke-virtual {v5, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v6, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v6
 
-    check-cast v5, Lcom/android/server/wm/Task;
+    check-cast v6, Lcom/android/server/wm/Task;
 
-    iget v5, v5, Lcom/android/server/wm/Task;->mAffiliatedTaskId:I
+    iget v6, v6, Lcom/android/server/wm/Task;->mAffiliatedTaskId:I
 
-    if-ne v4, v5, :cond_4
+    if-ne v5, v6, :cond_4
 
     return-void
 
     :cond_4
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
-    iget-boolean v5, p1, Lcom/android/server/wm/Task;->inRecents:Z
+    iget-boolean v6, p1, Lcom/android/server/wm/Task;->inRecents:Z
 
-    if-eqz v5, :cond_7
+    if-eqz v6, :cond_7
 
-    iget-object v5, p0, Lcom/android/server/wm/RecentTasks;->mTasks:Ljava/util/ArrayList;
+    iget-object v6, p0, Lcom/android/server/wm/RecentTasks;->mTasks:Ljava/util/ArrayList;
 
-    invoke-virtual {v5, p1}, Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I
+    invoke-virtual {v6, p1}, Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I
 
-    move-result v5
+    move-result v6
 
-    if-ltz v5, :cond_6
+    if-ltz v6, :cond_6
 
     if-nez v0, :cond_7
 
@@ -2735,131 +2728,152 @@
 
     iget-object v2, p0, Lcom/android/server/wm/RecentTasks;->mTasks:Ljava/util/ArrayList;
 
-    invoke-virtual {v2, v5}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
+    invoke-virtual {v2, v6}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
     iget-object v2, p0, Lcom/android/server/wm/RecentTasks;->mTasks:Ljava/util/ArrayList;
 
-    invoke-virtual {v2, v3, p1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+    invoke-virtual {v2, v4, p1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
 
     :cond_5
-    invoke-virtual {p0, p1, v3}, Lcom/android/server/wm/RecentTasks;->notifyTaskPersisterLocked(Lcom/android/server/wm/Task;Z)V
+    invoke-virtual {p0, p1, v4}, Lcom/android/server/wm/RecentTasks;->notifyTaskPersisterLocked(Lcom/android/server/wm/Task;Z)V
 
     return-void
 
     :cond_6
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v7, "Task with inRecent not in recents: "
+    const-string v8, "Task with inRecent not in recents: "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v7
 
-    const-string v7, "ActivityTaskManager"
+    const-string v8, "ActivityTaskManager"
 
-    invoke-static {v7, v6}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v7}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
     :cond_7
-    invoke-direct {p0, p1}, Lcom/android/server/wm/RecentTasks;->removeForAddTask(Lcom/android/server/wm/Task;)V
-
-    iput-boolean v2, p1, Lcom/android/server/wm/Task;->inRecents:Z
-
-    if-eqz v0, :cond_e
-
-    if-eqz v4, :cond_8
-
-    goto :goto_4
-
-    :cond_8
-    if-eqz v0, :cond_f
-
-    iget-object v5, p1, Lcom/android/server/wm/Task;->mNextAffiliate:Lcom/android/server/wm/Task;
-
-    if-nez v5, :cond_9
-
-    iget-object v5, p1, Lcom/android/server/wm/Task;->mPrevAffiliate:Lcom/android/server/wm/Task;
-
-    :cond_9
-    if-eqz v5, :cond_d
-
-    iget-object v6, p0, Lcom/android/server/wm/RecentTasks;->mTasks:Ljava/util/ArrayList;
-
-    invoke-virtual {v6, v5}, Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I
+    invoke-direct {p0, p1}, Lcom/android/server/wm/RecentTasks;->removeForAddTask(Lcom/android/server/wm/Task;)I
 
     move-result v6
 
-    if-ltz v6, :cond_c
+    iput-boolean v3, p1, Lcom/android/server/wm/Task;->inRecents:Z
 
-    iget-object v7, p1, Lcom/android/server/wm/Task;->mNextAffiliate:Lcom/android/server/wm/Task;
+    if-eqz v0, :cond_f
 
-    if-ne v5, v7, :cond_a
+    if-eqz v5, :cond_8
 
-    add-int/lit8 v7, v6, 0x1
+    goto :goto_5
+
+    :cond_8
+    if-eqz v0, :cond_e
+
+    iget-object v2, p1, Lcom/android/server/wm/Task;->mNextAffiliate:Lcom/android/server/wm/Task;
+
+    if-nez v2, :cond_9
+
+    iget-object v2, p1, Lcom/android/server/wm/Task;->mPrevAffiliate:Lcom/android/server/wm/Task;
+
+    :cond_9
+    if-eqz v2, :cond_d
+
+    iget-object v7, p0, Lcom/android/server/wm/RecentTasks;->mTasks:Ljava/util/ArrayList;
+
+    invoke-virtual {v7, v2}, Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I
+
+    move-result v7
+
+    if-ltz v7, :cond_c
+
+    iget-object v8, p1, Lcom/android/server/wm/Task;->mNextAffiliate:Lcom/android/server/wm/Task;
+
+    if-ne v2, v8, :cond_a
+
+    add-int/lit8 v8, v7, 0x1
 
     goto :goto_2
 
     :cond_a
-    move v7, v6
+    move v8, v7
 
     :goto_2
-    iget-object v8, p0, Lcom/android/server/wm/RecentTasks;->mTasks:Ljava/util/ArrayList;
+    iget-object v9, p0, Lcom/android/server/wm/RecentTasks;->mTasks:Ljava/util/ArrayList;
 
-    invoke-virtual {v8, v7, p1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+    invoke-virtual {v9, v8, p1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
 
     invoke-direct {p0, p1}, Lcom/android/server/wm/RecentTasks;->notifyTaskAdded(Lcom/android/server/wm/Task;)V
 
-    invoke-direct {p0, p1, v7}, Lcom/android/server/wm/RecentTasks;->moveAffiliatedTasksToFront(Lcom/android/server/wm/Task;I)Z
+    invoke-direct {p0, p1, v8}, Lcom/android/server/wm/RecentTasks;->moveAffiliatedTasksToFront(Lcom/android/server/wm/Task;I)Z
 
-    move-result v8
+    move-result v9
 
-    if-eqz v8, :cond_b
+    if-eqz v9, :cond_b
 
     return-void
 
     :cond_b
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
     goto :goto_3
 
     :cond_c
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
     :goto_3
-    goto :goto_5
+    goto :goto_7
 
     :cond_d
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    goto :goto_5
+    goto :goto_7
 
     :cond_e
     :goto_4
-    iget-object v5, p0, Lcom/android/server/wm/RecentTasks;->mTasks:Ljava/util/ArrayList;
-
-    invoke-virtual {v5, v3, p1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
-
-    invoke-direct {p0, p1}, Lcom/android/server/wm/RecentTasks;->notifyTaskAdded(Lcom/android/server/wm/Task;)V
+    goto :goto_7
 
     :cond_f
     :goto_5
-    if-eqz v4, :cond_10
+    iget-boolean v7, p0, Lcom/android/server/wm/RecentTasks;->mFreezeTaskListReordering:Z
 
-    iget v5, p1, Lcom/android/server/wm/Task;->mUserId:I
+    if-eqz v7, :cond_10
 
-    invoke-virtual {p0, v5}, Lcom/android/server/wm/RecentTasks;->cleanupLocked(I)V
+    if-eq v6, v2, :cond_10
+
+    move v2, v6
+
+    goto :goto_6
 
     :cond_10
-    iput-boolean v2, p0, Lcom/android/server/wm/RecentTasks;->mCheckTrimmableTasksOnIdle:Z
+    move v2, v4
 
-    invoke-virtual {p0, p1, v3}, Lcom/android/server/wm/RecentTasks;->notifyTaskPersisterLocked(Lcom/android/server/wm/Task;Z)V
+    :goto_6
+    iget-object v7, p0, Lcom/android/server/wm/RecentTasks;->mTasks:Ljava/util/ArrayList;
+
+    invoke-virtual {v7, v2, p1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+
+    invoke-direct {p0, p1}, Lcom/android/server/wm/RecentTasks;->notifyTaskAdded(Lcom/android/server/wm/Task;)V
+
+    goto :goto_4
+
+    :goto_7
+    if-eqz v5, :cond_11
+
+    iget v2, p1, Lcom/android/server/wm/Task;->mUserId:I
+
+    invoke-virtual {p0, v2}, Lcom/android/server/wm/RecentTasks;->cleanupLocked(I)V
+
+    :cond_11
+    iput-boolean v3, p0, Lcom/android/server/wm/RecentTasks;->mCheckTrimmableTasksOnIdle:Z
+
+    invoke-virtual {p0, p1, v4}, Lcom/android/server/wm/RecentTasks;->notifyTaskPersisterLocked(Lcom/android/server/wm/Task;Z)V
 
     return-void
 .end method
@@ -4748,9 +4762,20 @@
     return v1
 
     :cond_2
+    invoke-virtual {p1}, Lcom/android/server/wm/Task;->isEmbedded()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    return v1
+
+    :cond_3
     const/4 v0, 0x1
 
     return v0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x2
@@ -4779,7 +4804,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x10e008b
+    const v0, 0x10e008f
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -4787,7 +4812,7 @@
 
     iput v0, p0, Lcom/android/server/wm/RecentTasks;->mMinNumVisibleTasks:I
 
-    const v0, 0x10e0082
+    const v0, 0x10e0086
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -4808,7 +4833,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x10e008a
+    const v0, 0x10e008e
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -4816,7 +4841,7 @@
 
     iput v0, p0, Lcom/android/server/wm/RecentTasks;->mMinNumVisibleTasks:I
 
-    const v0, 0x10e0081
+    const v0, 0x10e0085
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -4827,7 +4852,7 @@
     goto :goto_0
 
     :cond_1
-    const v0, 0x10e0089
+    const v0, 0x10e008d
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -4835,7 +4860,7 @@
 
     iput v0, p0, Lcom/android/server/wm/RecentTasks;->mMinNumVisibleTasks:I
 
-    const v0, 0x10e0080
+    const v0, 0x10e0084
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -4874,7 +4899,7 @@
 .method loadRecentsComponent(Landroid/content/res/Resources;)V
     .locals 6
 
-    const v0, 0x1040271
+    const v0, 0x1040272
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

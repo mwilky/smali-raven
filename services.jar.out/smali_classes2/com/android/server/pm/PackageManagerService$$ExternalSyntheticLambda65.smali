@@ -39,7 +39,7 @@
 
     check-cast p2, Landroid/content/pm/ProviderInfo;
 
-    invoke-static {p1, p2}, Lcom/android/server/pm/PackageManagerService;->lambda$static$42(Landroid/content/pm/ProviderInfo;Landroid/content/pm/ProviderInfo;)I
+    invoke-static {p1, p2}, Lcom/android/server/pm/PackageManagerService;->lambda$static$41(Landroid/content/pm/ProviderInfo;Landroid/content/pm/ProviderInfo;)I
 
     move-result p1
 

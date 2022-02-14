@@ -24,7 +24,7 @@
 
 
 # instance fields
-.field mAlreadyDone:Z
+.field private mAlreadyDone:Z
 
 .field protected mCallback:Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;
 
@@ -63,27 +63,31 @@
 
     invoke-direct {p0, p1, p8, p9, p10}, Lcom/android/server/biometrics/sensors/LoggableMonitor;-><init>(Landroid/content/Context;III)V
 
-    new-instance v0, Lcom/android/server/biometrics/sensors/BaseClientMonitor$1;
+    const/4 v0, 0x0
 
-    invoke-direct {v0, p0}, Lcom/android/server/biometrics/sensors/BaseClientMonitor$1;-><init>(Lcom/android/server/biometrics/sensors/BaseClientMonitor;)V
+    iput-boolean v0, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mAlreadyDone:Z
 
-    iput-object v0, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mCallback:Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;
+    new-instance v1, Lcom/android/server/biometrics/sensors/BaseClientMonitor$1;
 
-    sget v0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->sCount:I
+    invoke-direct {v1, p0}, Lcom/android/server/biometrics/sensors/BaseClientMonitor$1;-><init>(Lcom/android/server/biometrics/sensors/BaseClientMonitor;)V
 
-    add-int/lit8 v1, v0, 0x1
+    iput-object v1, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mCallback:Lcom/android/server/biometrics/sensors/BaseClientMonitor$Callback;
 
-    sput v1, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->sCount:I
+    sget v1, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->sCount:I
 
-    iput v0, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mSequentialId:I
+    add-int/lit8 v2, v1, 0x1
+
+    sput v2, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->sCount:I
+
+    iput v1, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mSequentialId:I
 
     iput-object p1, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mContext:Landroid/content/Context;
 
     iput-object p2, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mToken:Landroid/os/IBinder;
 
-    const-wide/16 v0, -0x1
+    const-wide/16 v1, -0x1
 
-    iput-wide v0, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mRequestId:J
+    iput-wide v1, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mRequestId:J
 
     iput-object p3, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mListener:Lcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;
 
@@ -96,8 +100,6 @@
     iput p7, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mSensorId:I
 
     if-eqz p2, :cond_0
-
-    const/4 v0, 0x0
 
     :try_start_0
     invoke-interface {p2, p0, v0}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
@@ -144,29 +146,11 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "Binder died, owner: "
+    const-string v1, "Binder died, operation: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->getOwnerString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v1, ", operation: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -176,9 +160,7 @@
 
     invoke-static {v1, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {p0}, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->isAlreadyDone()Z
-
-    move-result v0
+    iget-boolean v0, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mAlreadyDone:Z
 
     if-eqz v0, :cond_0
 
@@ -216,8 +198,12 @@
     return-void
 .end method
 
-.method public destroy()V
+.method destroy()V
     .locals 4
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mAlreadyDone:Z
 
     iget-object v0, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mToken:Landroid/os/IBinder;
 
@@ -385,6 +371,34 @@
     return v0
 .end method
 
+.method markAlreadyDone()V
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "marking operation as done: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "Biometrics/ClientMonitor"
+
+    invoke-static {v1, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/server/biometrics/sensors/BaseClientMonitor;->mAlreadyDone:Z
+
+    return-void
+.end method
+
 .method protected final setRequestId(J)V
     .locals 2
 
@@ -445,7 +459,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object v1
 

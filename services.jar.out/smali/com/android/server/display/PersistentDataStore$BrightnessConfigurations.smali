@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private mConfigurations:Landroid/util/SparseArray;
+.field private final mConfigurations:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/SparseArray<",
@@ -25,7 +25,7 @@
     .end annotation
 .end field
 
-.field private mPackageNames:Landroid/util/SparseArray;
+.field private final mPackageNames:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/SparseArray<",
@@ -35,7 +35,7 @@
     .end annotation
 .end field
 
-.field private mTimeStamps:Landroid/util/SparseLongArray;
+.field private final mTimeStamps:Landroid/util/SparseLongArray;
 
 
 # direct methods
@@ -73,6 +73,14 @@
     move-result v0
 
     return v0
+.end method
+
+.method static synthetic access$400(Lcom/android/server/display/PersistentDataStore$BrightnessConfigurations;)Landroid/util/SparseArray;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/display/PersistentDataStore$BrightnessConfigurations;->mConfigurations:Landroid/util/SparseArray;
+
+    return-object v0
 .end method
 
 .method private setBrightnessConfigurationForUser(Landroid/hardware/display/BrightnessConfiguration;ILjava/lang/String;)Z

@@ -8,11 +8,11 @@
 
 
 # instance fields
-.field private mCallingUid:I
+.field private final mCallingUid:I
 
-.field private mService:Lcom/android/server/wm/ActivityTaskManagerService;
+.field private final mService:Lcom/android/server/wm/ActivityTaskManagerService;
 
-.field private mTaskId:I
+.field private final mTaskId:I
 
 
 # direct methods
@@ -408,24 +408,22 @@
 
     :cond_1
     :try_start_3
-    iget-object v4, v1, Lcom/android/server/wm/AppTaskImpl;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
-
-    iget-object v4, v4, Lcom/android/server/wm/ActivityTaskManagerService;->mTaskSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
-
-    iget v5, v1, Lcom/android/server/wm/AppTaskImpl;->mTaskId:I
-
-    const/4 v6, 0x0
-
-    invoke-virtual {v4, v13, v14, v5, v6}, Lcom/android/server/wm/ActivityTaskSupervisor;->startActivityFromRecents(IIILcom/android/server/wm/SafeActivityOptions;)I
-
-    nop
-
     monitor-exit v18
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
     :try_start_4
     invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
+
+    iget-object v0, v1, Lcom/android/server/wm/AppTaskImpl;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    iget-object v0, v0, Lcom/android/server/wm/ActivityTaskManagerService;->mTaskSupervisor:Lcom/android/server/wm/ActivityTaskSupervisor;
+
+    iget v3, v1, Lcom/android/server/wm/AppTaskImpl;->mTaskId:I
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v0, v13, v14, v3, v4}, Lcom/android/server/wm/ActivityTaskSupervisor;->startActivityFromRecents(IIILcom/android/server/wm/SafeActivityOptions;)I
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_2
 

@@ -496,13 +496,13 @@
     return-void
 
     :cond_0
-    invoke-static {}, Lcom/android/server/pm/PackageManagerService;->access$2900()[I
+    invoke-static {}, Lcom/android/server/pm/PackageManagerService;->access$2800()[I
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/server/pm/PackageManagerService$PackageRemovedInfo;->broadcastUsers:[I
 
-    invoke-static {}, Lcom/android/server/pm/PackageManagerService;->access$2900()[I
+    invoke-static {}, Lcom/android/server/pm/PackageManagerService;->access$2800()[I
 
     move-result-object v0
 

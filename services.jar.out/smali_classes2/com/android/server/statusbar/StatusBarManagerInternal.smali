@@ -52,7 +52,7 @@
 .method public abstract onRecentsAnimationStateChanged(Z)V
 .end method
 
-.method public abstract onSystemBarAttributesChanged(II[Lcom/android/internal/view/AppearanceRegion;ZIZ)V
+.method public abstract onSystemBarAttributesChanged(II[Lcom/android/internal/view/AppearanceRegion;ZILandroid/view/InsetsVisibilities;Ljava/lang/String;)V
 .end method
 
 .method public abstract preloadRecentApps()V
@@ -103,7 +103,7 @@
 .method public abstract showToast(ILjava/lang/String;Landroid/os/IBinder;Ljava/lang/CharSequence;Landroid/os/IBinder;ILandroid/app/ITransientNotificationCallback;)V
 .end method
 
-.method public abstract showTransient(I[I)V
+.method public abstract showTransient(I[IZ)V
 .end method
 
 .method public abstract startAssist(Landroid/os/Bundle;)V

@@ -29,7 +29,7 @@
 
     check-cast p1, Lcom/android/server/display/LogicalDisplay;
 
-    invoke-static {v0, p1}, Lcom/android/server/display/DisplayManagerService;->$r8$lambda$blkD86Pa3eTp0bxU70Yrbd3ywUQ(Lcom/android/server/display/DisplayManagerService;Lcom/android/server/display/LogicalDisplay;)V
+    invoke-virtual {v0, p1}, Lcom/android/server/display/DisplayManagerService;->lambda$resetBrightnessConfigurations$5$DisplayManagerService(Lcom/android/server/display/LogicalDisplay;)V
 
     return-void
 .end method

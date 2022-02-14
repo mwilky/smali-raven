@@ -35,7 +35,7 @@
 
     check-cast p1, Lcom/android/server/wm/WindowState;
 
-    invoke-static {v0, v1, p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$hasVisibleWindowAboveButDoesNotOwnNotificationShade$31(I[ZLcom/android/server/wm/WindowState;)Z
+    invoke-static {v0, v1, p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$hasVisibleWindowAboveButDoesNotOwnNotificationShade$32(I[ZLcom/android/server/wm/WindowState;)Z
 
     move-result p1
 

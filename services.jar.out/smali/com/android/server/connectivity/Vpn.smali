@@ -3339,7 +3339,7 @@
 
     iget-object v11, p0, Lcom/android/server/connectivity/Vpn;->mContext:Landroid/content/Context;
 
-    const v12, 0x10408ad
+    const v12, 0x10408b2
 
     invoke-virtual {v11, v12}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3351,7 +3351,7 @@
 
     iget-object v11, p0, Lcom/android/server/connectivity/Vpn;->mContext:Landroid/content/Context;
 
-    const v12, 0x10408aa
+    const v12, 0x10408af
 
     invoke-virtual {v11, v12}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3482,30 +3482,44 @@
 .end method
 
 .method private verifyCallingUidAndPackage(Ljava/lang/String;)V
-    .locals 2
-
-    iget v0, p0, Lcom/android/server/connectivity/Vpn;->mUserId:I
-
-    invoke-direct {p0, p1, v0}, Lcom/android/server/connectivity/Vpn;->getAppUid(Ljava/lang/String;I)I
-
-    move-result v0
+    .locals 4
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
+    move-result v0
+
+    iget v1, p0, Lcom/android/server/connectivity/Vpn;->mUserId:I
+
+    invoke-direct {p0, p1, v1}, Lcom/android/server/connectivity/Vpn;->getAppUid(Ljava/lang/String;I)I
+
     move-result v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v1, v0, :cond_0
 
     return-void
 
     :cond_0
-    new-instance v0, Ljava/lang/SecurityException;
+    new-instance v1, Ljava/lang/SecurityException;
 
-    const-string v1, "Mismatched package and UID"
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0, v1}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    throw v0
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v3, " does not belong to uid "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {v1, v2}, Ljava/lang/SecurityException;-><init>(Ljava/lang/String;)V
+
+    throw v1
 .end method
 
 
@@ -5722,16 +5736,36 @@
 
     monitor-enter p0
 
+    :try_start_0
+    iget-object v0, p0, Lcom/android/server/connectivity/Vpn;->mContext:Landroid/content/Context;
+
+    const-string v1, "android.permission.CONTROL_VPN"
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    if-eqz p1, :cond_0
+
+    invoke-direct {p0, p1}, Lcom/android/server/connectivity/Vpn;->verifyCallingUidAndPackage(Ljava/lang/String;)V
+
+    :cond_0
+    if-eqz p2, :cond_1
+
+    invoke-direct {p0, p2}, Lcom/android/server/connectivity/Vpn;->verifyCallingUidAndPackage(Ljava/lang/String;)V
+
+    :cond_1
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_5
 
-    :try_start_0
     iget-boolean v2, p0, Lcom/android/server/connectivity/Vpn;->mAlwaysOn:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2
 
     invoke-direct {p0, p1}, Lcom/android/server/connectivity/Vpn;->isCurrentPreparedPackage(Ljava/lang/String;)Z
 
@@ -5739,19 +5773,19 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_2
 
     monitor-exit p0
 
     return v1
 
-    :cond_0
+    :cond_2
     :try_start_1
     invoke-direct {p0, p1}, Lcom/android/server/connectivity/Vpn;->isCurrentPreparedPackage(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_4
 
     const-string v2, "[Legacy VPN]"
 
@@ -5759,7 +5793,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_3
 
     iget-object v2, p0, Lcom/android/server/connectivity/Vpn;->mContext:Landroid/content/Context;
 
@@ -5767,7 +5801,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3
 
     invoke-direct {p0, p1}, Lcom/android/server/connectivity/Vpn;->prepareInternal(Ljava/lang/String;)V
     :try_end_1
@@ -5777,12 +5811,12 @@
 
     return v0
 
-    :cond_1
+    :cond_3
     monitor-exit p0
 
     return v1
 
-    :cond_2
+    :cond_4
     :try_start_2
     const-string v2, "[Legacy VPN]"
 
@@ -5790,7 +5824,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_5
 
     iget-object v2, p0, Lcom/android/server/connectivity/Vpn;->mContext:Landroid/content/Context;
 
@@ -5798,7 +5832,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_5
 
     const-string v0, "[Legacy VPN]"
 
@@ -5810,13 +5844,8 @@
 
     return v1
 
-    :catchall_0
-    move-exception p1
-
-    goto :goto_0
-
-    :cond_3
-    if-eqz p2, :cond_6
+    :cond_5
+    if-eqz p2, :cond_8
 
     :try_start_3
     const-string v2, "[Legacy VPN]"
@@ -5825,22 +5854,22 @@
 
     move-result v2
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_6
 
     invoke-direct {p0, p2}, Lcom/android/server/connectivity/Vpn;->isCurrentPreparedPackage(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_6
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_4
+    :cond_6
     invoke-direct {p0}, Lcom/android/server/connectivity/Vpn;->enforceControlPermission()V
 
     iget-boolean v2, p0, Lcom/android/server/connectivity/Vpn;->mAlwaysOn:Z
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_7
 
     invoke-direct {p0, p2}, Lcom/android/server/connectivity/Vpn;->isCurrentPreparedPackage(Ljava/lang/String;)Z
 
@@ -5848,13 +5877,13 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_7
 
     monitor-exit p0
 
     return v1
 
-    :cond_5
+    :cond_7
     :try_start_4
     invoke-direct {p0, p2}, Lcom/android/server/connectivity/Vpn;->prepareInternal(Ljava/lang/String;)V
     :try_end_4
@@ -5864,16 +5893,18 @@
 
     return v0
 
+    :cond_8
     :goto_0
     monitor-exit p0
 
-    throw p1
+    return v0
 
-    :cond_6
-    :goto_1
+    :catchall_0
+    move-exception p1
+
     monitor-exit p0
 
-    return v0
+    throw p1
 .end method
 
 .method public declared-synchronized provisionVpnProfile(Ljava/lang/String;Lcom/android/internal/net/VpnProfile;)Z

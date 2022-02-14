@@ -112,6 +112,34 @@
 
 
 # virtual methods
+.method protected getOverlayReasonFromEnrollReason(I)I
+    .locals 1
+
+    packed-switch p1, :pswitch_data_0
+
+    const/4 v0, 0x0
+
+    return v0
+
+    :pswitch_0
+    const/4 v0, 0x2
+
+    return v0
+
+    :pswitch_1
+    const/4 v0, 0x1
+
+    return v0
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
+.end method
+
 .method public getProtoEnum()I
     .locals 1
 

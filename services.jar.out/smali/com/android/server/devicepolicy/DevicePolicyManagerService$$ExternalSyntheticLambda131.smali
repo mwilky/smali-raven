@@ -35,9 +35,9 @@
 .method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
-    check-cast p1, Lcom/android/server/devicepolicy/ActiveAdmin;
+    check-cast p1, Landroid/view/accessibility/AccessibilityManager;
 
-    invoke-static {p1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$getPasswordMinimumLetters$21(Lcom/android/server/devicepolicy/ActiveAdmin;)Ljava/lang/Integer;
+    invoke-static {p1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$setPermittedAccessibilityServices$75(Landroid/view/accessibility/AccessibilityManager;)Ljava/util/List;
 
     move-result-object p1
 

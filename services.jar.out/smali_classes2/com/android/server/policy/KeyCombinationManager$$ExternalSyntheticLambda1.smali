@@ -29,7 +29,7 @@
 
     check-cast p1, Lcom/android/server/policy/KeyCombinationManager$TwoKeysCombinationRule;
 
-    invoke-virtual {v0, p1}, Lcom/android/server/policy/KeyCombinationManager;->lambda$interceptKey$2$KeyCombinationManager(Lcom/android/server/policy/KeyCombinationManager$TwoKeysCombinationRule;)Z
+    invoke-virtual {v0, p1}, Lcom/android/server/policy/KeyCombinationManager;->lambda$interceptKeyLocked$2$KeyCombinationManager(Lcom/android/server/policy/KeyCombinationManager$TwoKeysCombinationRule;)Z
 
     move-result p1
 

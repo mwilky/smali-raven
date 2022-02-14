@@ -33,7 +33,7 @@
 
     iget-object v1, p0, Lcom/android/server/display/DisplayManagerService$$ExternalSyntheticLambda0;->f$1:Lcom/android/server/display/LogicalDisplay;
 
-    invoke-virtual {v0, v1}, Lcom/android/server/display/DisplayManagerService;->lambda$addDisplayPowerControllerLocked$4$DisplayManagerService(Lcom/android/server/display/LogicalDisplay;)V
+    invoke-virtual {v0, v1}, Lcom/android/server/display/DisplayManagerService;->lambda$addDisplayPowerControllerLocked$7$DisplayManagerService(Lcom/android/server/display/LogicalDisplay;)V
 
     return-void
 .end method

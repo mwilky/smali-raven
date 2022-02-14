@@ -25,6 +25,8 @@
 
 .field private static final DATA_CONFIG_FILE_PATH:Ljava/lang/String; = "system/devicestate/"
 
+.field private static final DEBUG:Z = false
+
 .field static final DEFAULT_DEVICE_STATE:Lcom/android/server/devicestate/DeviceState;
 
 .field private static final FALSE_BOOLEAN_SUPPLIER:Ljava/util/function/BooleanSupplier;
@@ -89,7 +91,7 @@
 
     const-string v2, "DEFAULT"
 
-    invoke-direct {v0, v1, v2}, Lcom/android/server/devicestate/DeviceState;-><init>(ILjava/lang/String;)V
+    invoke-direct {v0, v1, v2, v1}, Lcom/android/server/devicestate/DeviceState;-><init>(ILjava/lang/String;I)V
 
     sput-object v0, Lcom/android/server/policy/DeviceStateProviderImpl;->DEFAULT_DEVICE_STATE:Lcom/android/server/devicestate/DeviceState;
 
@@ -244,7 +246,7 @@
 .end method
 
 .method static createFromConfig(Landroid/content/Context;Lcom/android/server/policy/DeviceStateProviderImpl$ReadableConfig;)Lcom/android/server/policy/DeviceStateProviderImpl;
-    .locals 8
+    .locals 14
 
     new-instance v0, Ljava/util/ArrayList;
 
@@ -254,13 +256,13 @@
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_3
 
     invoke-static {p1}, Lcom/android/server/policy/DeviceStateProviderImpl;->parseConfig(Lcom/android/server/policy/DeviceStateProviderImpl$ReadableConfig;)Lcom/android/server/policy/devicestate/config/DeviceStateConfig;
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3
 
     invoke-virtual {v2}, Lcom/android/server/policy/devicestate/config/DeviceStateConfig;->getDeviceState()Ljava/util/List;
 
@@ -275,7 +277,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_3
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -307,26 +309,109 @@
     move-result-object v6
 
     :goto_1
-    new-instance v7, Lcom/android/server/devicestate/DeviceState;
+    const/4 v7, 0x0
 
-    invoke-direct {v7, v5, v6}, Lcom/android/server/devicestate/DeviceState;-><init>(ILjava/lang/String;)V
+    invoke-virtual {v4}, Lcom/android/server/policy/devicestate/config/DeviceState;->getFlags()Lcom/android/server/policy/devicestate/config/Flags;
 
-    invoke-interface {v0, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    move-result-object v8
+
+    if-eqz v8, :cond_2
+
+    invoke-virtual {v8}, Lcom/android/server/policy/devicestate/config/Flags;->getFlag()Ljava/util/List;
+
+    move-result-object v9
+
+    const/4 v10, 0x0
+
+    :goto_2
+    invoke-interface {v9}, Ljava/util/List;->size()I
+
+    move-result v11
+
+    if-ge v10, v11, :cond_2
+
+    invoke-interface {v9, v10}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v11
+
+    check-cast v11, Ljava/lang/String;
+
+    const/4 v12, -0x1
+
+    invoke-virtual {v11}, Ljava/lang/String;->hashCode()I
+
+    move-result v13
+
+    packed-switch v13, :pswitch_data_0
+
+    :cond_1
+    goto :goto_3
+
+    :pswitch_0
+    const-string v13, "FLAG_CANCEL_STICKY_REQUESTS"
+
+    invoke-virtual {v11, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v13
+
+    if-eqz v13, :cond_1
+
+    const/4 v12, 0x0
+
+    :goto_3
+    packed-switch v12, :pswitch_data_1
+
+    new-instance v12, Ljava/lang/StringBuilder;
+
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v13, "Parsed unknown flag with name: "
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v12, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v12
+
+    const-string v13, "DeviceStateProviderImpl"
+
+    invoke-static {v13, v12}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_4
+
+    :pswitch_1
+    or-int/lit8 v7, v7, 0x1
+
+    nop
+
+    :goto_4
+    add-int/lit8 v10, v10, 0x1
+
+    goto :goto_2
+
+    :cond_2
+    new-instance v9, Lcom/android/server/devicestate/DeviceState;
+
+    invoke-direct {v9, v5, v6, v7}, Lcom/android/server/devicestate/DeviceState;-><init>(ILjava/lang/String;I)V
+
+    invoke-interface {v0, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     invoke-virtual {v4}, Lcom/android/server/policy/devicestate/config/DeviceState;->getConditions()Lcom/android/server/policy/devicestate/config/Conditions;
 
-    move-result-object v7
+    move-result-object v9
 
-    invoke-interface {v1, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    :cond_1
+    :cond_3
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_4
 
     sget-object v2, Lcom/android/server/policy/DeviceStateProviderImpl;->DEFAULT_DEVICE_STATE:Lcom/android/server/devicestate/DeviceState;
 
@@ -336,12 +421,22 @@
 
     invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :cond_2
+    :cond_4
     new-instance v2, Lcom/android/server/policy/DeviceStateProviderImpl;
 
     invoke-direct {v2, p0, v0, v1}, Lcom/android/server/policy/DeviceStateProviderImpl;-><init>(Landroid/content/Context;Ljava/util/List;Ljava/util/List;)V
 
     return-object v2
+
+    :pswitch_data_0
+    .packed-switch -0x69b07c38
+        :pswitch_0
+    .end packed-switch
+
+    :pswitch_data_1
+    .packed-switch 0x0
+        :pswitch_1
+    .end packed-switch
 .end method
 
 .method private findSensor(Ljava/lang/String;Ljava/lang/String;)Landroid/hardware/Sensor;

@@ -50,7 +50,7 @@
 
     iget-object v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService$ContentCaptureServiceRemoteCallback;->this$0:Lcom/android/server/contentcapture/ContentCapturePerUserService;
 
-    invoke-static {v0}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$2100(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
+    invoke-static {v0}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$2700(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
 
     move-result-object v0
 
@@ -60,7 +60,7 @@
 
     iget-object v1, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService$ContentCaptureServiceRemoteCallback;->this$0:Lcom/android/server/contentcapture/ContentCapturePerUserService;
 
-    invoke-static {v1}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$2000(Lcom/android/server/contentcapture/ContentCapturePerUserService;)I
+    invoke-static {v1}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$2600(Lcom/android/server/contentcapture/ContentCapturePerUserService;)I
 
     move-result v1
 
@@ -100,7 +100,7 @@
 
     iget-object v4, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService$ContentCaptureServiceRemoteCallback;->this$0:Lcom/android/server/contentcapture/ContentCapturePerUserService;
 
-    invoke-static {v4}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$2300(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
+    invoke-static {v4}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$2900(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
 
     move-result-object v4
 
@@ -110,7 +110,7 @@
 
     iget-object v5, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService$ContentCaptureServiceRemoteCallback;->this$0:Lcom/android/server/contentcapture/ContentCapturePerUserService;
 
-    invoke-static {v5}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$2200(Lcom/android/server/contentcapture/ContentCapturePerUserService;)I
+    invoke-static {v5}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$2800(Lcom/android/server/contentcapture/ContentCapturePerUserService;)I
 
     move-result v5
 
@@ -120,7 +120,7 @@
 
     iget-object v5, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService$ContentCaptureServiceRemoteCallback;->this$0:Lcom/android/server/contentcapture/ContentCapturePerUserService;
 
-    invoke-static {v5}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$2400(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
+    invoke-static {v5}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$3000(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
 
     move-result-object v5
 
@@ -143,7 +143,7 @@
 
     iget-object v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService$ContentCaptureServiceRemoteCallback;->this$0:Lcom/android/server/contentcapture/ContentCapturePerUserService;
 
-    invoke-static {v0}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$1700(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
+    invoke-static {v0}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$2300(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
 
     move-result-object v0
 
@@ -153,7 +153,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$200()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$800()Ljava/lang/String;
 
     move-result-object v0
 
@@ -169,7 +169,7 @@
     :try_start_0
     iget-object v2, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService$ContentCaptureServiceRemoteCallback;->this$0:Lcom/android/server/contentcapture/ContentCapturePerUserService;
 
-    invoke-static {v2}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$1800(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$2400(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Landroid/content/Context;
 
     move-result-object v2
 
@@ -183,7 +183,7 @@
 
     iget-object v5, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService$ContentCaptureServiceRemoteCallback;->this$0:Lcom/android/server/contentcapture/ContentCapturePerUserService;
 
-    invoke-static {v5}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$1900(Lcom/android/server/contentcapture/ContentCapturePerUserService;)I
+    invoke-static {v5}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$2500(Lcom/android/server/contentcapture/ContentCapturePerUserService;)I
 
     move-result v5
 
@@ -229,7 +229,7 @@
 
     iget-object v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService$ContentCaptureServiceRemoteCallback;->this$0:Lcom/android/server/contentcapture/ContentCapturePerUserService;
 
-    invoke-static {v0}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$1400(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
+    invoke-static {v0}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$2000(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
 
     move-result-object v0
 
@@ -239,7 +239,7 @@
 
     if-eqz v0, :cond_1
 
-    invoke-static {}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$200()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$800()Ljava/lang/String;
 
     move-result-object v0
 
@@ -294,7 +294,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService$ContentCaptureServiceRemoteCallback;->this$0:Lcom/android/server/contentcapture/ContentCapturePerUserService;
 
-    invoke-static {v0}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$1500(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Ljava/lang/Object;
+    invoke-static {v0}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$2100(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -305,7 +305,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService$ContentCaptureServiceRemoteCallback;->this$0:Lcom/android/server/contentcapture/ContentCapturePerUserService;
 
-    invoke-static {v1}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$1600(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Landroid/util/ArrayMap;
+    invoke-static {v1}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$2200(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Landroid/util/ArrayMap;
 
     move-result-object v1
 
@@ -316,7 +316,7 @@
     :cond_2
     iget-object v1, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService$ContentCaptureServiceRemoteCallback;->this$0:Lcom/android/server/contentcapture/ContentCapturePerUserService;
 
-    invoke-static {v1}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$1600(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Landroid/util/ArrayMap;
+    invoke-static {v1}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$2200(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Landroid/util/ArrayMap;
 
     move-result-object v1
 
@@ -357,7 +357,7 @@
 
     iget-object v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService$ContentCaptureServiceRemoteCallback;->this$0:Lcom/android/server/contentcapture/ContentCapturePerUserService;
 
-    invoke-static {v0}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$100(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
+    invoke-static {v0}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$700(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
 
     move-result-object v0
 
@@ -367,7 +367,7 @@
 
     if-eqz v0, :cond_2
 
-    invoke-static {}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$200()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$800()Ljava/lang/String;
 
     move-result-object v0
 
@@ -445,7 +445,7 @@
 
     iget-object v2, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService$ContentCaptureServiceRemoteCallback;->this$0:Lcom/android/server/contentcapture/ContentCapturePerUserService;
 
-    invoke-static {v2}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$300(Lcom/android/server/contentcapture/ContentCapturePerUserService;)I
+    invoke-static {v2}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$900(Lcom/android/server/contentcapture/ContentCapturePerUserService;)I
 
     move-result v2
 
@@ -460,7 +460,7 @@
     :cond_2
     iget-object v0, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService$ContentCaptureServiceRemoteCallback;->this$0:Lcom/android/server/contentcapture/ContentCapturePerUserService;
 
-    invoke-static {v0}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$500(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
+    invoke-static {v0}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$1100(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
 
     move-result-object v0
 
@@ -470,7 +470,7 @@
 
     iget-object v1, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService$ContentCaptureServiceRemoteCallback;->this$0:Lcom/android/server/contentcapture/ContentCapturePerUserService;
 
-    invoke-static {v1}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$400(Lcom/android/server/contentcapture/ContentCapturePerUserService;)I
+    invoke-static {v1}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$1000(Lcom/android/server/contentcapture/ContentCapturePerUserService;)I
 
     move-result v1
 
@@ -480,7 +480,7 @@
 
     iget-object v1, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService$ContentCaptureServiceRemoteCallback;->this$0:Lcom/android/server/contentcapture/ContentCapturePerUserService;
 
-    invoke-static {v1}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$700(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
+    invoke-static {v1}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$1300(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
 
     move-result-object v1
 
@@ -490,7 +490,7 @@
 
     iget-object v2, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService$ContentCaptureServiceRemoteCallback;->this$0:Lcom/android/server/contentcapture/ContentCapturePerUserService;
 
-    invoke-static {v2}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$600(Lcom/android/server/contentcapture/ContentCapturePerUserService;)I
+    invoke-static {v2}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$1200(Lcom/android/server/contentcapture/ContentCapturePerUserService;)I
 
     move-result v2
 
@@ -508,7 +508,7 @@
 
     iget-object v1, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService$ContentCaptureServiceRemoteCallback;->this$0:Lcom/android/server/contentcapture/ContentCapturePerUserService;
 
-    invoke-static {v1}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$800(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Landroid/util/SparseArray;
+    invoke-static {v1}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$1400(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Landroid/util/SparseArray;
 
     move-result-object v1
 
@@ -532,7 +532,7 @@
 
     iget-object v4, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService$ContentCaptureServiceRemoteCallback;->this$0:Lcom/android/server/contentcapture/ContentCapturePerUserService;
 
-    invoke-static {v4}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$800(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Landroid/util/SparseArray;
+    invoke-static {v4}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$1400(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Landroid/util/SparseArray;
 
     move-result-object v4
 
@@ -544,7 +544,7 @@
 
     iget-object v5, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService$ContentCaptureServiceRemoteCallback;->this$0:Lcom/android/server/contentcapture/ContentCapturePerUserService;
 
-    invoke-static {v5}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$1000(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
+    invoke-static {v5}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$1600(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
 
     move-result-object v5
 
@@ -554,7 +554,7 @@
 
     iget-object v6, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService$ContentCaptureServiceRemoteCallback;->this$0:Lcom/android/server/contentcapture/ContentCapturePerUserService;
 
-    invoke-static {v6}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$900(Lcom/android/server/contentcapture/ContentCapturePerUserService;)I
+    invoke-static {v6}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$1500(Lcom/android/server/contentcapture/ContentCapturePerUserService;)I
 
     move-result v6
 
@@ -568,7 +568,7 @@
 
     iget-object v6, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService$ContentCaptureServiceRemoteCallback;->this$0:Lcom/android/server/contentcapture/ContentCapturePerUserService;
 
-    invoke-static {v6}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$800(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Landroid/util/SparseArray;
+    invoke-static {v6}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$1400(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Landroid/util/SparseArray;
 
     move-result-object v6
 
@@ -578,7 +578,7 @@
 
     iget-object v7, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService$ContentCaptureServiceRemoteCallback;->this$0:Lcom/android/server/contentcapture/ContentCapturePerUserService;
 
-    invoke-static {v7}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$1100(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
+    invoke-static {v7}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$1700(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
 
     move-result-object v7
 
@@ -588,7 +588,7 @@
 
     if-eqz v7, :cond_4
 
-    invoke-static {}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$200()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$800()Ljava/lang/String;
 
     move-result-object v7
 
@@ -642,7 +642,7 @@
     :cond_7
     iget-object v4, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService$ContentCaptureServiceRemoteCallback;->this$0:Lcom/android/server/contentcapture/ContentCapturePerUserService;
 
-    invoke-static {v4}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$1200(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Ljava/lang/Object;
+    invoke-static {v4}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$1800(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Ljava/lang/Object;
 
     move-result-object v4
 
@@ -660,7 +660,7 @@
 
     iget-object v7, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService$ContentCaptureServiceRemoteCallback;->this$0:Lcom/android/server/contentcapture/ContentCapturePerUserService;
 
-    invoke-static {v7}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$1300(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
+    invoke-static {v7}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$1900(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Lcom/android/server/infra/AbstractMasterSystemService;
 
     move-result-object v7
 
@@ -670,7 +670,7 @@
 
     if-eqz v7, :cond_8
 
-    invoke-static {}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$200()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$800()Ljava/lang/String;
 
     move-result-object v7
 
@@ -693,7 +693,7 @@
     :cond_8
     iget-object v7, p0, Lcom/android/server/contentcapture/ContentCapturePerUserService$ContentCaptureServiceRemoteCallback;->this$0:Lcom/android/server/contentcapture/ContentCapturePerUserService;
 
-    invoke-static {v7}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$800(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Landroid/util/SparseArray;
+    invoke-static {v7}, Lcom/android/server/contentcapture/ContentCapturePerUserService;->access$1400(Lcom/android/server/contentcapture/ContentCapturePerUserService;)Landroid/util/SparseArray;
 
     move-result-object v7
 

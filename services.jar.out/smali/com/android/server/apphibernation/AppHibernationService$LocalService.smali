@@ -55,6 +55,18 @@
     return v0
 .end method
 
+.method public isOatArtifactDeletionEnabled()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/apphibernation/AppHibernationService$LocalService;->mService:Lcom/android/server/apphibernation/AppHibernationService;
+
+    invoke-static {v0}, Lcom/android/server/apphibernation/AppHibernationService;->access$100(Lcom/android/server/apphibernation/AppHibernationService;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public setHibernatingForUser(Ljava/lang/String;IZ)V
     .locals 1
 

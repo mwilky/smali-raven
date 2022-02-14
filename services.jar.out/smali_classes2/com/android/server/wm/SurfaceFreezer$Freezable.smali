@@ -20,3 +20,6 @@
 # virtual methods
 .method public abstract getFreezeSnapshotTarget()Landroid/view/SurfaceControl;
 .end method
+
+.method public abstract onUnfrozen()V
+.end method

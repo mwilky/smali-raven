@@ -566,28 +566,34 @@
     return-void
 .end method
 
-.method public onSystemBarAttributesChanged(II[Lcom/android/internal/view/AppearanceRegion;ZIZ)V
-    .locals 8
+.method public onSystemBarAttributesChanged(II[Lcom/android/internal/view/AppearanceRegion;ZILandroid/view/InsetsVisibilities;Ljava/lang/String;)V
+    .locals 11
 
-    iget-object v0, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
+    move-object v1, p0
+
+    iget-object v0, v1, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
+
+    move v10, p1
 
     invoke-static {v0, p1}, Lcom/android/server/statusbar/StatusBarManagerService;->access$1000(Lcom/android/server/statusbar/StatusBarManagerService;I)Lcom/android/server/statusbar/StatusBarManagerService$UiState;
 
-    move-result-object v1
+    move-result-object v2
 
-    move v2, p2
+    move v3, p2
 
-    move-object v3, p3
+    move-object v4, p3
 
-    move v4, p4
+    move v5, p4
 
-    move v5, p5
+    move/from16 v6, p5
 
-    move v6, p6
+    move-object/from16 v7, p6
 
-    invoke-static/range {v1 .. v6}, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->access$1100(Lcom/android/server/statusbar/StatusBarManagerService$UiState;I[Lcom/android/internal/view/AppearanceRegion;ZIZ)V
+    move-object/from16 v8, p7
 
-    iget-object v0, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
+    invoke-static/range {v2 .. v8}, Lcom/android/server/statusbar/StatusBarManagerService$UiState;->access$1100(Lcom/android/server/statusbar/StatusBarManagerService$UiState;I[Lcom/android/internal/view/AppearanceRegion;ZILandroid/view/InsetsVisibilities;Ljava/lang/String;)V
+
+    iget-object v0, v1, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
 
     invoke-static {v0}, Lcom/android/server/statusbar/StatusBarManagerService;->access$100(Lcom/android/server/statusbar/StatusBarManagerService;)Lcom/android/internal/statusbar/IStatusBar;
 
@@ -596,25 +602,27 @@
     if-eqz v0, :cond_0
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
+    iget-object v0, v1, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
 
     invoke-static {v0}, Lcom/android/server/statusbar/StatusBarManagerService;->access$100(Lcom/android/server/statusbar/StatusBarManagerService;)Lcom/android/internal/statusbar/IStatusBar;
 
-    move-result-object v1
+    move-result-object v2
 
-    move v2, p1
+    move v3, p1
 
-    move v3, p2
+    move v4, p2
 
-    move-object v4, p3
+    move-object v5, p3
 
-    move v5, p4
+    move v6, p4
 
-    move v6, p5
+    move/from16 v7, p5
 
-    move v7, p6
+    move-object/from16 v8, p6
 
-    invoke-interface/range {v1 .. v7}, Lcom/android/internal/statusbar/IStatusBar;->onSystemBarAttributesChanged(II[Lcom/android/internal/view/AppearanceRegion;ZIZ)V
+    move-object/from16 v9, p7
+
+    invoke-interface/range {v2 .. v9}, Lcom/android/internal/statusbar/IStatusBar;->onSystemBarAttributesChanged(II[Lcom/android/internal/view/AppearanceRegion;ZILandroid/view/InsetsVisibilities;Ljava/lang/String;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1050,7 +1058,7 @@
 
     move-result-object v0
 
-    const v1, 0x111012f
+    const v1, 0x1110134
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1141,7 +1149,7 @@
     return-void
 .end method
 
-.method public showTransient(I[I)V
+.method public showTransient(I[IZ)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/statusbar/StatusBarManagerService$1;->this$0:Lcom/android/server/statusbar/StatusBarManagerService;
@@ -1167,7 +1175,7 @@
 
     move-result-object v0
 
-    invoke-interface {v0, p1, p2}, Lcom/android/internal/statusbar/IStatusBar;->showTransient(I[I)V
+    invoke-interface {v0, p1, p2, p3}, Lcom/android/internal/statusbar/IStatusBar;->showTransient(I[IZ)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 

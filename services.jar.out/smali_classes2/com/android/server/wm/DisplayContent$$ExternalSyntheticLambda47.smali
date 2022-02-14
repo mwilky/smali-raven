@@ -2,36 +2,32 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/util/function/LongConsumer;
 
 
 # instance fields
-.field public final synthetic f$0:I
+.field public final synthetic f$0:Lcom/android/server/wm/DisplayContent;
 
 
 # direct methods
-.method public synthetic constructor <init>(I)V
+.method public synthetic constructor <init>(Lcom/android/server/wm/DisplayContent;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput p1, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda47;->f$0:I
+    iput-object p1, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda47;->f$0:Lcom/android/server/wm/DisplayContent;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
+.method public final accept(J)V
     .locals 1
 
-    iget v0, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda47;->f$0:I
+    iget-object v0, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda47;->f$0:Lcom/android/server/wm/DisplayContent;
 
-    check-cast p1, Lcom/android/server/wm/Task;
+    invoke-virtual {v0, p1, p2}, Lcom/android/server/wm/DisplayContent;->lambda$requestChangeTransitionIfNeeded$19$DisplayContent(J)V
 
-    invoke-static {v0, p1}, Lcom/android/server/wm/DisplayContent;->lambda$getRootTask$13(ILcom/android/server/wm/Task;)Z
-
-    move-result p1
-
-    return p1
+    return-void
 .end method

@@ -38,7 +38,7 @@
 .end method
 
 .method private getSessionIdInternal(I)Ljava/lang/String;
-    .locals 2
+    .locals 5
 
     const/16 v0, 0xc
 
@@ -57,6 +57,28 @@
     invoke-static {v0, v1}, Landroid/util/Base64;->encodeToString([BI)Ljava/lang/String;
 
     move-result-object v1
+
+    new-instance v2, Landroid/media/MediaMetrics$Item;
+
+    const-string/jumbo v3, "metrics.manager"
+
+    invoke-direct {v2, v3}, Landroid/media/MediaMetrics$Item;-><init>(Ljava/lang/String;)V
+
+    sget-object v3, Landroid/media/MediaMetrics$Property;->EVENT:Landroid/media/MediaMetrics$Key;
+
+    const-string v4, "create"
+
+    invoke-virtual {v2, v3, v4}, Landroid/media/MediaMetrics$Item;->set(Landroid/media/MediaMetrics$Key;Ljava/lang/Object;)Landroid/media/MediaMetrics$Item;
+
+    move-result-object v2
+
+    sget-object v3, Landroid/media/MediaMetrics$Property;->LOG_SESSION_ID:Landroid/media/MediaMetrics$Key;
+
+    invoke-virtual {v2, v3, v1}, Landroid/media/MediaMetrics$Item;->set(Landroid/media/MediaMetrics$Key;Ljava/lang/Object;)Landroid/media/MediaMetrics$Item;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/media/MediaMetrics$Item;->record()Z
 
     return-object v1
 .end method

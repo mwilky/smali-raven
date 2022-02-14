@@ -87,7 +87,7 @@
 
     iget-object v10, p0, Lcom/android/server/pm/PackageManagerService$$ExternalSyntheticLambda61;->f$10:[I
 
-    invoke-virtual/range {v0 .. v10}, Lcom/android/server/pm/PackageManagerService;->lambda$sendPackageBroadcast$41$PackageManagerService([ILjava/lang/String;Ljava/lang/String;Landroid/os/Bundle;ILjava/lang/String;Landroid/content/IIntentReceiver;Landroid/util/SparseArray;Landroid/os/Bundle;[I)V
+    invoke-virtual/range {v0 .. v10}, Lcom/android/server/pm/PackageManagerService;->lambda$sendPackageBroadcast$40$PackageManagerService([ILjava/lang/String;Ljava/lang/String;Landroid/os/Bundle;ILjava/lang/String;Landroid/content/IIntentReceiver;Landroid/util/SparseArray;Landroid/os/Bundle;[I)V
 
     return-void
 .end method

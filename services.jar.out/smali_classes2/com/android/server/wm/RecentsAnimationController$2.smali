@@ -208,9 +208,9 @@
 
     sget-boolean v0, Lcom/android/server/wm/ProtoLogCache;->WM_DEBUG_RECENTS_ANIMATIONS_enabled:Z
 
-    const/4 v1, 0x2
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    const/4 v2, 0x2
 
     if-eqz v0, :cond_0
 
@@ -230,7 +230,7 @@
 
     const/4 v7, 0x0
 
-    new-array v8, v1, [Ljava/lang/Object;
+    new-array v8, v2, [Ljava/lang/Object;
 
     const/4 v9, 0x0
 
@@ -244,7 +244,7 @@
 
     move-result-object v9
 
-    aput-object v9, v8, v2
+    aput-object v9, v8, v1
 
     invoke-static {v4, v5, v6, v7, v8}, Lcom/android/internal/protolog/ProtoLogImpl;->d(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
@@ -256,75 +256,21 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/server/wm/RecentsAnimationController$2;->this$0:Lcom/android/server/wm/RecentsAnimationController;
 
-    invoke-static {v0}, Lcom/android/server/wm/RecentsAnimationController;->access$400(Lcom/android/server/wm/RecentsAnimationController;)Lcom/android/server/wm/WindowManagerService;
+    invoke-static {v0}, Lcom/android/server/wm/RecentsAnimationController;->access$900(Lcom/android/server/wm/RecentsAnimationController;)Lcom/android/server/wm/RecentsAnimationController$RecentsAnimationCallbacks;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/server/wm/WindowManagerService;->getWindowManagerLock()Ljava/lang/Object;
-
-    move-result-object v0
-
-    monitor-enter v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
-
-    :try_start_1
-    iget-object v5, p0, Lcom/android/server/wm/RecentsAnimationController$2;->this$0:Lcom/android/server/wm/RecentsAnimationController;
-
-    invoke-static {v5}, Lcom/android/server/wm/RecentsAnimationController;->access$900(Lcom/android/server/wm/RecentsAnimationController;)Landroid/util/IntArray;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Landroid/util/IntArray;->size()I
-
-    move-result v5
-
-    sub-int/2addr v5, v2
-
-    :goto_0
-    if-ltz v5, :cond_1
-
-    iget-object v6, p0, Lcom/android/server/wm/RecentsAnimationController$2;->this$0:Lcom/android/server/wm/RecentsAnimationController;
-
-    invoke-static {v6}, Lcom/android/server/wm/RecentsAnimationController;->access$900(Lcom/android/server/wm/RecentsAnimationController;)Landroid/util/IntArray;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v5}, Landroid/util/IntArray;->get(I)I
-
-    move-result v7
-
-    invoke-static {v6, v7}, Lcom/android/server/wm/RecentsAnimationController;->access$1000(Lcom/android/server/wm/RecentsAnimationController;I)Z
-
-    add-int/lit8 v5, v5, -0x1
+    if-eqz p1, :cond_1
 
     goto :goto_0
 
     :cond_1
-    monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    :try_start_2
-    iget-object v0, p0, Lcom/android/server/wm/RecentsAnimationController$2;->this$0:Lcom/android/server/wm/RecentsAnimationController;
-
-    invoke-static {v0}, Lcom/android/server/wm/RecentsAnimationController;->access$1100(Lcom/android/server/wm/RecentsAnimationController;)Lcom/android/server/wm/RecentsAnimationController$RecentsAnimationCallbacks;
-
-    move-result-object v0
-
-    if-eqz p1, :cond_2
-
     move v1, v2
 
-    goto :goto_1
-
-    :cond_2
-    nop
-
-    :goto_1
+    :goto_0
     invoke-interface {v0, v1, p2}, Lcom/android/server/wm/RecentsAnimationController$RecentsAnimationCallbacks;->onAnimationFinished(IZ)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     invoke-static {v3, v4}, Landroid/os/Binder;->restoreCallingIdentity(J)V
 
@@ -333,19 +279,6 @@
     return-void
 
     :catchall_0
-    move-exception v1
-
-    :try_start_3
-    monitor-exit v0
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    :try_start_4
-    throw v1
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
-
-    :catchall_1
     move-exception v0
 
     invoke-static {v3, v4}, Landroid/os/Binder;->restoreCallingIdentity(J)V
@@ -384,7 +317,7 @@
     :try_start_1
     iget-object v3, p0, Lcom/android/server/wm/RecentsAnimationController$2;->this$0:Lcom/android/server/wm/RecentsAnimationController;
 
-    invoke-static {v3, p1}, Lcom/android/server/wm/RecentsAnimationController;->access$1000(Lcom/android/server/wm/RecentsAnimationController;I)Z
+    invoke-static {v3, p1}, Lcom/android/server/wm/RecentsAnimationController;->access$1200(Lcom/android/server/wm/RecentsAnimationController;I)Z
 
     move-result v3
 
@@ -554,7 +487,7 @@
 
     invoke-virtual {v2, v1}, Lcom/android/server/wm/TaskSnapshotController;->snapshotTasks(Landroid/util/ArraySet;)V
 
-    invoke-virtual {v2, v1}, Lcom/android/server/wm/TaskSnapshotController;->addSkipClosingAppSnapshotTasks(Landroid/util/ArraySet;)V
+    invoke-virtual {v2, v1}, Lcom/android/server/wm/TaskSnapshotController;->addSkipClosingAppSnapshotTasks(Ljava/util/Set;)V
 
     iget v9, v8, Lcom/android/server/wm/Task;->mUserId:I
 
@@ -673,7 +606,7 @@
 
     iget-object v7, p0, Lcom/android/server/wm/RecentsAnimationController$2;->this$0:Lcom/android/server/wm/RecentsAnimationController;
 
-    invoke-static {v7}, Lcom/android/server/wm/RecentsAnimationController;->access$1200(Lcom/android/server/wm/RecentsAnimationController;)I
+    invoke-static {v7}, Lcom/android/server/wm/RecentsAnimationController;->access$1000(Lcom/android/server/wm/RecentsAnimationController;)I
 
     move-result v7
 
@@ -1030,7 +963,7 @@
     :try_start_2
     iget-object v4, p0, Lcom/android/server/wm/RecentsAnimationController$2;->this$0:Lcom/android/server/wm/RecentsAnimationController;
 
-    invoke-static {v4, p1}, Lcom/android/server/wm/RecentsAnimationController;->access$1302(Lcom/android/server/wm/RecentsAnimationController;Z)Z
+    invoke-static {v4, p1}, Lcom/android/server/wm/RecentsAnimationController;->access$1102(Lcom/android/server/wm/RecentsAnimationController;Z)Z
 
     iget-object v4, p0, Lcom/android/server/wm/RecentsAnimationController$2;->this$0:Lcom/android/server/wm/RecentsAnimationController;
 

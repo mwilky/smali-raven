@@ -250,11 +250,11 @@
 
     move-result-object v10
 
-    invoke-virtual {v9}, Lcom/android/server/display/config/layout/Display;->getIsDefault()Z
+    invoke-virtual {v9}, Lcom/android/server/display/config/layout/Display;->isDefaultDisplay()Z
 
     move-result v11
 
-    invoke-virtual {v9}, Lcom/android/server/display/config/layout/Display;->getEnabled()Z
+    invoke-virtual {v9}, Lcom/android/server/display/config/layout/Display;->isEnabled()Z
 
     move-result v12
 

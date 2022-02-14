@@ -35,7 +35,7 @@
 
     check-cast p1, Lcom/android/server/wm/Task;
 
-    invoke-virtual {v0, v1, p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$getAllRootTaskInfos$23$RootWindowContainer(Ljava/util/ArrayList;Lcom/android/server/wm/Task;)V
+    invoke-virtual {v0, v1, p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$getAllRootTaskInfos$24$RootWindowContainer(Ljava/util/ArrayList;Lcom/android/server/wm/Task;)V
 
     return-void
 .end method

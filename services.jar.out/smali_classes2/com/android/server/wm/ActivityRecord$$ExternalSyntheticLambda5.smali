@@ -39,7 +39,7 @@
 
     iget-object v2, p0, Lcom/android/server/wm/ActivityRecord$$ExternalSyntheticLambda5;->f$2:Lcom/android/server/wm/StartingData;
 
-    invoke-static {v0, v1, v2}, Lcom/android/server/wm/ActivityRecord;->lambda$removeStartingWindowAnimation$3(Lcom/android/server/policy/WindowManagerPolicy$StartingSurface;ZLcom/android/server/wm/StartingData;)V
+    invoke-static {v0, v1, v2}, Lcom/android/server/wm/ActivityRecord;->lambda$removeStartingWindowAnimation$5(Lcom/android/server/policy/WindowManagerPolicy$StartingSurface;ZLcom/android/server/wm/StartingData;)V
 
     return-void
 .end method

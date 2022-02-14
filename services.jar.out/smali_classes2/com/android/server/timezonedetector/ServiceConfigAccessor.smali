@@ -133,7 +133,7 @@
 
     move-result-object v1
 
-    const v2, 0x11100d0
+    const v2, 0x11100d1
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -260,7 +260,7 @@
 .method private getPrimaryLocationTimeZoneProviderModeFromConfig()Ljava/lang/String;
     .locals 2
 
-    const v0, 0x11100d9
+    const v0, 0x11100da
 
     invoke-direct {p0, v0}, Lcom/android/server/timezonedetector/ServiceConfigAccessor;->getConfigBoolean(I)Z
 
@@ -282,7 +282,7 @@
 .method private getSecondaryLocationTimeZoneProviderModeFromConfig()Ljava/lang/String;
     .locals 2
 
-    const v0, 0x11100db
+    const v0, 0x11100dc
 
     invoke-direct {p0, v0}, Lcom/android/server/timezonedetector/ServiceConfigAccessor;->getConfigBoolean(I)Z
 
@@ -436,7 +436,7 @@
 
     move-result-object v0
 
-    const v1, 0x104026a
+    const v1, 0x104026b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -478,7 +478,7 @@
 
     move-result-object v0
 
-    const v1, 0x1040278
+    const v1, 0x104027b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

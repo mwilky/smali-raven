@@ -37,9 +37,9 @@
 
     check-cast p1, Lcom/android/server/wm/Task;
 
-    check-cast p2, Landroid/os/IBinder;
+    check-cast p2, [I
 
-    invoke-static {p1, p2}, Lcom/android/server/wm/Task;->$r8$lambda$7nTho283cVKQ1bb86OUzh4bK9Cc(Lcom/android/server/wm/Task;Landroid/os/IBinder;)V
+    invoke-static {p1, p2}, Lcom/android/server/wm/Task;->lambda$getDescendantTaskCount$4(Lcom/android/server/wm/Task;[I)V
 
     return-void
 .end method

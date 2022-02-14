@@ -27,7 +27,7 @@
 
     iget-object v0, p0, Lcom/android/server/display/DisplayManagerShellCommand;->mService:Lcom/android/server/display/DisplayManagerService;
 
-    invoke-virtual {v0}, Lcom/android/server/display/DisplayManagerService;->resetBrightnessConfiguration()V
+    invoke-virtual {v0}, Lcom/android/server/display/DisplayManagerService;->resetBrightnessConfigurations()V
 
     const/4 v0, 0x0
 

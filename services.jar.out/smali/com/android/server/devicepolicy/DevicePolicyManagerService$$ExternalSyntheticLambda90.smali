@@ -8,26 +8,26 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-.field public final synthetic f$1:Landroid/telephony/TelephonyManager;
+.field public final synthetic f$1:Landroid/os/UserHandle;
 
-.field public final synthetic f$2:I
+.field public final synthetic f$2:Landroid/content/ComponentName;
 
-.field public final synthetic f$3:Landroid/telephony/data/ApnSetting;
+.field public final synthetic f$3:Lcom/android/server/devicepolicy/CallerIdentity;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Landroid/telephony/TelephonyManager;ILandroid/telephony/data/ApnSetting;)V
+.method public synthetic constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;Landroid/os/UserHandle;Landroid/content/ComponentName;Lcom/android/server/devicepolicy/CallerIdentity;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda90;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    iput-object p2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda90;->f$1:Landroid/telephony/TelephonyManager;
+    iput-object p2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda90;->f$1:Landroid/os/UserHandle;
 
-    iput p3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda90;->f$2:I
+    iput-object p3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda90;->f$2:Landroid/content/ComponentName;
 
-    iput-object p4, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda90;->f$3:Landroid/telephony/data/ApnSetting;
+    iput-object p4, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda90;->f$3:Lcom/android/server/devicepolicy/CallerIdentity;
 
     return-void
 .end method
@@ -39,13 +39,13 @@
 
     iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda90;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
 
-    iget-object v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda90;->f$1:Landroid/telephony/TelephonyManager;
+    iget-object v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda90;->f$1:Landroid/os/UserHandle;
 
-    iget v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda90;->f$2:I
+    iget-object v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda90;->f$2:Landroid/content/ComponentName;
 
-    iget-object v3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda90;->f$3:Landroid/telephony/data/ApnSetting;
+    iget-object v3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda90;->f$3:Lcom/android/server/devicepolicy/CallerIdentity;
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$updateOverrideApn$119$DevicePolicyManagerService(Landroid/telephony/TelephonyManager;ILandroid/telephony/data/ApnSetting;)Ljava/lang/Boolean;
+    invoke-virtual {v0, v1, v2, v3}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$removeUser$78$DevicePolicyManagerService(Landroid/os/UserHandle;Landroid/content/ComponentName;Lcom/android/server/devicepolicy/CallerIdentity;)Ljava/lang/Boolean;
 
     move-result-object v0
 

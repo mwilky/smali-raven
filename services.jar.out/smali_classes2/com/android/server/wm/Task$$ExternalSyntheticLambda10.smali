@@ -35,11 +35,11 @@
 .method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
 
-    check-cast p1, Lcom/android/server/wm/ActivityRecord;
+    check-cast p1, Lcom/android/server/wm/Task;
 
-    check-cast p2, Lcom/android/server/am/AppTimeTracker;
+    check-cast p2, Landroid/graphics/Rect;
 
-    invoke-virtual {p1, p2}, Lcom/android/server/wm/ActivityRecord;->setAppTimeTracker(Lcom/android/server/am/AppTimeTracker;)V
+    invoke-static {p1, p2}, Lcom/android/server/wm/Task;->$r8$lambda$4uoiBIGNMTDRqeJdiWkAelWVBX8(Lcom/android/server/wm/Task;Landroid/graphics/Rect;)V
 
     return-void
 .end method

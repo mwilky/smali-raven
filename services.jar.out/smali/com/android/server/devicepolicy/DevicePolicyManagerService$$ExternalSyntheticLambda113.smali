@@ -39,7 +39,7 @@
 
     iget v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda113;->f$2:I
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$isPackageAllowedToAccessCalendarForUser$126$DevicePolicyManagerService(Ljava/lang/String;I)Ljava/lang/Integer;
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$isApplicationHidden$86$DevicePolicyManagerService(Ljava/lang/String;I)Ljava/lang/Boolean;
 
     move-result-object v0
 

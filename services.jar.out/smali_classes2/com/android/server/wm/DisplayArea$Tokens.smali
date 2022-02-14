@@ -111,6 +111,16 @@
     return p1
 .end method
 
+.method public bridge synthetic getAnimationLeash()Landroid/view/SurfaceControl;
+    .locals 1
+
+    invoke-super {p0}, Lcom/android/server/wm/DisplayArea;->getAnimationLeash()Landroid/view/SurfaceControl;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public bridge synthetic getAnimationLeashParent()Landroid/view/SurfaceControl;
     .locals 1
 
@@ -470,6 +480,14 @@
     .locals 0
 
     invoke-super {p0, p1}, Lcom/android/server/wm/DisplayArea;->onRequestedOverrideConfigurationChanged(Landroid/content/res/Configuration;)V
+
+    return-void
+.end method
+
+.method public bridge synthetic onUnfrozen()V
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/server/wm/DisplayArea;->onUnfrozen()V
 
     return-void
 .end method

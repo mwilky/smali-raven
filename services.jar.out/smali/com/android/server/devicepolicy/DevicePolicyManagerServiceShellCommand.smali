@@ -30,6 +30,8 @@
 
 .field private static final CMD_SET_SAFE_OPERATION:Ljava/lang/String; = "set-operation-safe"
 
+.field private static final DO_ONLY_OPTION:Ljava/lang/String; = "--device-owner-only"
+
 .field private static final NAME_OPTION:Ljava/lang/String; = "--name"
 
 .field private static final USER_OPTION:Ljava/lang/String; = "--user"
@@ -41,6 +43,8 @@
 .field private mName:Ljava/lang/String;
 
 .field private final mService:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
+
+.field private mSetDoOnly:Z
 
 .field private mUserId:I
 
@@ -107,7 +111,7 @@
 
     move-object v1, v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     const-string v0, "--user"
 
@@ -141,7 +145,22 @@
     goto :goto_0
 
     :cond_1
-    if-eqz p1, :cond_2
+    const-string v0, "--device-owner-only"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerServiceShellCommand;->mSetDoOnly:Z
+
+    goto :goto_0
+
+    :cond_2
+    if-eqz p1, :cond_3
 
     const-string v0, "--name"
 
@@ -149,7 +168,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     invoke-virtual {p0}, Lcom/android/server/devicepolicy/DevicePolicyManagerServiceShellCommand;->getNextArgRequired()Ljava/lang/String;
 
@@ -159,7 +178,7 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -180,7 +199,7 @@
 
     throw v0
 
-    :cond_3
+    :cond_4
     invoke-virtual {p0}, Lcom/android/server/devicepolicy/DevicePolicyManagerServiceShellCommand;->getNextArgRequired()Ljava/lang/String;
 
     move-result-object v0
@@ -545,19 +564,19 @@
     const/4 v3, 0x0
 
     :goto_0
-    if-ge v3, v1, :cond_4
+    if-ge v3, v1, :cond_5
 
     invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v4
 
-    check-cast v4, Lcom/android/server/devicepolicy/Owners$OwnerDto;
+    check-cast v4, Lcom/android/server/devicepolicy/OwnerShellData;
 
     const/4 v5, 0x2
 
     new-array v5, v5, [Ljava/lang/Object;
 
-    iget v6, v4, Lcom/android/server/devicepolicy/Owners$OwnerDto;->userId:I
+    iget v6, v4, Lcom/android/server/devicepolicy/OwnerShellData;->userId:I
 
     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -565,7 +584,7 @@
 
     aput-object v6, v5, v2
 
-    iget-object v6, v4, Lcom/android/server/devicepolicy/Owners$OwnerDto;->admin:Landroid/content/ComponentName;
+    iget-object v6, v4, Lcom/android/server/devicepolicy/OwnerShellData;->admin:Landroid/content/ComponentName;
 
     invoke-virtual {v6}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
 
@@ -579,7 +598,7 @@
 
     invoke-virtual {p1, v6, v5}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
 
-    iget-boolean v5, v4, Lcom/android/server/devicepolicy/Owners$OwnerDto;->isDeviceOwner:Z
+    iget-boolean v5, v4, Lcom/android/server/devicepolicy/OwnerShellData;->isDeviceOwner:Z
 
     if-eqz v5, :cond_1
 
@@ -588,7 +607,7 @@
     invoke-virtual {p1, v5}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     :cond_1
-    iget-boolean v5, v4, Lcom/android/server/devicepolicy/Owners$OwnerDto;->isProfileOwner:Z
+    iget-boolean v5, v4, Lcom/android/server/devicepolicy/OwnerShellData;->isProfileOwner:Z
 
     if-eqz v5, :cond_2
 
@@ -597,22 +616,41 @@
     invoke-virtual {p1, v5}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     :cond_2
-    iget-boolean v5, v4, Lcom/android/server/devicepolicy/Owners$OwnerDto;->isAffiliated:Z
+    iget-boolean v5, v4, Lcom/android/server/devicepolicy/OwnerShellData;->isManagedProfileOwner:Z
 
     if-eqz v5, :cond_3
+
+    new-array v5, v7, [Ljava/lang/Object;
+
+    iget v6, v4, Lcom/android/server/devicepolicy/OwnerShellData;->parentUserId:I
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    aput-object v6, v5, v2
+
+    const-string v6, ",ManagedProfileOwner(parentUserId=%d)"
+
+    invoke-virtual {p1, v6, v5}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
+
+    :cond_3
+    iget-boolean v5, v4, Lcom/android/server/devicepolicy/OwnerShellData;->isAffiliated:Z
+
+    if-eqz v5, :cond_4
 
     const-string v5, ",Affiliated"
 
     invoke-virtual {p1, v5}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    :cond_3
+    :cond_4
     invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
 
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    :cond_4
+    :cond_5
     return v2
 .end method
 
@@ -764,7 +802,7 @@
 .end method
 
 .method private runSetDeviceOwner(Ljava/io/PrintWriter;)I
-    .locals 6
+    .locals 7
 
     const/4 v0, 0x1
 
@@ -789,13 +827,25 @@
 
     iget v5, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerServiceShellCommand;->mUserId:I
 
-    invoke-virtual {v2, v3, v4, v5}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->setDeviceOwner(Landroid/content/ComponentName;Ljava/lang/String;I)Z
+    iget-boolean v6, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerServiceShellCommand;->mSetDoOnly:Z
+
+    if-nez v6, :cond_0
+
+    move v6, v0
+
+    goto :goto_0
+
+    :cond_0
+    move v6, v1
+
+    :goto_0
+    invoke-virtual {v2, v3, v4, v5, v6}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->setDeviceOwner(Landroid/content/ComponentName;Ljava/lang/String;IZ)Z
 
     move-result v2
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     nop
 
@@ -837,7 +887,7 @@
 
     return v1
 
-    :cond_0
+    :cond_1
     :try_start_1
     new-instance v0, Ljava/lang/RuntimeException;
 
@@ -1186,61 +1236,67 @@
 
     invoke-virtual {p1, v7, v4}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
 
-    const/4 v4, 0x3
-
-    new-array v7, v4, [Ljava/lang/Object;
-
-    const-string/jumbo v8, "set-device-owner"
-
-    aput-object v8, v7, v0
-
-    aput-object v5, v7, v1
-
-    const-string v8, "--name"
-
-    aput-object v8, v7, v2
-
-    const-string v9, "  %s [ %s <USER_ID> | current *EXPERIMENTAL* ] [ %s <NAME> ] <COMPONENT>\n"
-
-    invoke-virtual {p1, v9, v7}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
-
-    new-array v7, v0, [Ljava/lang/Object;
-
-    const-string v9, "    Sets the given component as active admin, and its package as device owner.\n\n"
-
-    invoke-virtual {p1, v9, v7}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
-
-    new-array v7, v4, [Ljava/lang/Object;
-
-    const-string/jumbo v9, "set-profile-owner"
-
-    aput-object v9, v7, v0
-
-    aput-object v5, v7, v1
-
-    aput-object v8, v7, v2
-
-    const-string v9, "  %s [ %s <USER_ID> | current ] [ %s <NAME> ] <COMPONENT>\n"
-
-    invoke-virtual {p1, v9, v7}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
-
-    new-array v7, v0, [Ljava/lang/Object;
-
-    const-string v10, "    Sets the given component as active admin and profile owner for an existing user.\n\n"
-
-    invoke-virtual {p1, v10, v7}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
+    const/4 v4, 0x4
 
     new-array v4, v4, [Ljava/lang/Object;
 
-    const-string/jumbo v7, "remove-active-admin"
+    const-string/jumbo v7, "set-device-owner"
 
     aput-object v7, v4, v0
 
     aput-object v5, v4, v1
 
-    aput-object v8, v4, v2
+    const-string v7, "--name"
 
-    invoke-virtual {p1, v9, v4}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
+    aput-object v7, v4, v2
+
+    const-string v8, "--device-owner-only"
+
+    const/4 v9, 0x3
+
+    aput-object v8, v4, v9
+
+    const-string v8, "  %s [ %s <USER_ID> | current *EXPERIMENTAL* ] [ %s <NAME> ] [ %s ]<COMPONENT>\n"
+
+    invoke-virtual {p1, v8, v4}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
+
+    new-array v4, v0, [Ljava/lang/Object;
+
+    const-string v8, "    Sets the given component as active admin, and its package as device owner.\n\n"
+
+    invoke-virtual {p1, v8, v4}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
+
+    new-array v4, v9, [Ljava/lang/Object;
+
+    const-string/jumbo v8, "set-profile-owner"
+
+    aput-object v8, v4, v0
+
+    aput-object v5, v4, v1
+
+    aput-object v7, v4, v2
+
+    const-string v8, "  %s [ %s <USER_ID> | current ] [ %s <NAME> ] <COMPONENT>\n"
+
+    invoke-virtual {p1, v8, v4}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
+
+    new-array v4, v0, [Ljava/lang/Object;
+
+    const-string v10, "    Sets the given component as active admin and profile owner for an existing user.\n\n"
+
+    invoke-virtual {p1, v10, v4}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
+
+    new-array v4, v9, [Ljava/lang/Object;
+
+    const-string/jumbo v9, "remove-active-admin"
+
+    aput-object v9, v4, v0
+
+    aput-object v5, v4, v1
+
+    aput-object v7, v4, v2
+
+    invoke-virtual {p1, v8, v4}, Ljava/io/PrintWriter;->printf(Ljava/lang/String;[Ljava/lang/Object;)Ljava/io/PrintWriter;
 
     new-array v4, v0, [Ljava/lang/Object;
 

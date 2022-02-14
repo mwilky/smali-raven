@@ -39,7 +39,7 @@
 
     iget v2, p0, Lcom/android/server/wm/DisplayContent$$ExternalSyntheticLambda9;->f$2:I
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/wm/DisplayContent;->lambda$applyRotationAndFinishFixedRotation$39$DisplayContent(II)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/wm/DisplayContent;->lambda$applyRotationAndFinishFixedRotation$41$DisplayContent(II)V
 
     return-void
 .end method

@@ -5,27 +5,21 @@
 .implements Ljava/util/function/Predicate;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda142;
+# instance fields
+.field public final synthetic f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
+
+.field public final synthetic f$1:I
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda142;
-
-    invoke-direct {v0}, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda142;-><init>()V
-
-    sput-object v0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda142;->INSTANCE:Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda142;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda142;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
+
+    iput p2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda142;->f$1:I
 
     return-void
 .end method
@@ -33,11 +27,15 @@
 
 # virtual methods
 .method public final test(Ljava/lang/Object;)Z
-    .locals 0
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda142;->f$0:Lcom/android/server/devicepolicy/DevicePolicyManagerService;
+
+    iget v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda142;->f$1:I
 
     check-cast p1, Landroid/content/pm/UserInfo;
 
-    invoke-static {p1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$getPasswordMinimumMetricsUnchecked$25(Landroid/content/pm/UserInfo;)Z
+    invoke-virtual {v0, v1, p1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$isPasswordSufficientAfterProfileUnification$26$DevicePolicyManagerService(ILandroid/content/pm/UserInfo;)Z
 
     move-result p1
 

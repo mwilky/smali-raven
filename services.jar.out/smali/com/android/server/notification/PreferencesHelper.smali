@@ -314,7 +314,7 @@
 
     move-result v0
 
-    const v3, 0x10402db
+    const v3, 0x10402df
 
     if-eqz v0, :cond_1
 
@@ -2656,7 +2656,11 @@
 .end method
 
 .method public createNotificationChannelGroup(Ljava/lang/String;ILandroid/app/NotificationChannelGroup;Z)V
-    .locals 11
+    .locals 12
+
+    move-object v1, p0
+
+    move-object v8, p3
 
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -2676,9 +2680,9 @@
 
     move-result v0
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    xor-int/2addr v0, v1
+    xor-int/2addr v0, v2
 
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
@@ -2686,40 +2690,49 @@
 
     invoke-static {v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lcom/android/server/notification/PreferencesHelper;->mPackagePreferences:Landroid/util/ArrayMap;
+    iget-object v9, v1, Lcom/android/server/notification/PreferencesHelper;->mPackagePreferences:Landroid/util/ArrayMap;
 
-    monitor-enter v0
+    monitor-enter v9
 
     :try_start_0
     invoke-direct {p0, p1, p2}, Lcom/android/server/notification/PreferencesHelper;->getOrCreatePackagePreferencesLocked(Ljava/lang/String;I)Lcom/android/server/notification/PreferencesHelper$PackagePreferences;
 
-    move-result-object v2
+    move-result-object v0
 
-    if-eqz v2, :cond_5
+    if-eqz v0, :cond_6
 
-    iget-object v3, v2, Lcom/android/server/notification/PreferencesHelper$PackagePreferences;->groups:Ljava/util/Map;
+    const/4 v3, 0x0
+
+    if-eqz p4, :cond_0
+
+    invoke-virtual {p3, v3}, Landroid/app/NotificationChannelGroup;->setBlocked(Z)V
+
+    :cond_0
+    iget-object v4, v0, Lcom/android/server/notification/PreferencesHelper$PackagePreferences;->groups:Ljava/util/Map;
 
     invoke-virtual {p3}, Landroid/app/NotificationChannelGroup;->getId()Ljava/lang/String;
 
+    move-result-object v5
+
+    invoke-interface {v4, v5}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
     move-result-object v4
 
-    invoke-interface {v3, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    check-cast v4, Landroid/app/NotificationChannelGroup;
 
-    move-result-object v3
+    move-object v10, v4
 
-    check-cast v3, Landroid/app/NotificationChannelGroup;
+    if-eqz v10, :cond_2
 
-    if-eqz v3, :cond_1
-
-    invoke-virtual {v3}, Landroid/app/NotificationChannelGroup;->getChannels()Ljava/util/List;
+    invoke-virtual {v10}, Landroid/app/NotificationChannelGroup;->getChannels()Ljava/util/List;
 
     move-result-object v4
 
     invoke-virtual {p3, v4}, Landroid/app/NotificationChannelGroup;->setChannels(Ljava/util/List;)V
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_1
 
-    invoke-virtual {v3}, Landroid/app/NotificationChannelGroup;->isBlocked()Z
+    invoke-virtual {v10}, Landroid/app/NotificationChannelGroup;->isBlocked()Z
 
     move-result v4
 
@@ -2731,7 +2744,7 @@
 
     invoke-virtual {p3, v4}, Landroid/app/NotificationChannelGroup;->unlockFields(I)V
 
-    invoke-virtual {v3}, Landroid/app/NotificationChannelGroup;->getUserLockedFields()I
+    invoke-virtual {v10}, Landroid/app/NotificationChannelGroup;->getUserLockedFields()I
 
     move-result v4
 
@@ -2739,109 +2752,129 @@
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     invoke-virtual {p3}, Landroid/app/NotificationChannelGroup;->isBlocked()Z
 
     move-result v4
 
-    invoke-virtual {v3}, Landroid/app/NotificationChannelGroup;->isBlocked()Z
+    invoke-virtual {v10}, Landroid/app/NotificationChannelGroup;->isBlocked()Z
 
     move-result v5
 
-    if-eq v4, v5, :cond_1
+    if-eq v4, v5, :cond_2
 
-    invoke-virtual {p3, v1}, Landroid/app/NotificationChannelGroup;->lockFields(I)V
+    invoke-virtual {p3, v2}, Landroid/app/NotificationChannelGroup;->lockFields(I)V
 
     invoke-direct {p0}, Lcom/android/server/notification/PreferencesHelper;->updateChannelsBypassingDnd()V
 
-    :cond_1
+    :cond_2
     :goto_0
-    invoke-virtual {p3, v3}, Landroid/app/NotificationChannelGroup;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p3, v10}, Landroid/app/NotificationChannelGroup;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_5
 
     invoke-virtual {p3}, Landroid/app/NotificationChannelGroup;->getId()Ljava/lang/String;
 
     move-result-object v4
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    move-object v11, p1
+
+    :try_start_1
     invoke-direct {p0, v4, p1}, Lcom/android/server/notification/PreferencesHelper;->getChannelGroupLog(Ljava/lang/String;Ljava/lang/String;)Landroid/metrics/LogMaker;
 
     move-result-object v4
 
     invoke-static {v4}, Lcom/android/internal/logging/MetricsLogger;->action(Landroid/metrics/LogMaker;)V
 
-    iget-object v5, p0, Lcom/android/server/notification/PreferencesHelper;->mNotificationChannelLogger:Lcom/android/server/notification/NotificationChannelLogger;
+    iget-object v4, v1, Lcom/android/server/notification/PreferencesHelper;->mNotificationChannelLogger:Lcom/android/server/notification/NotificationChannelLogger;
 
-    const/4 v4, 0x0
+    if-nez v10, :cond_3
 
-    if-nez v3, :cond_2
-
-    move v9, v1
+    move v6, v2
 
     goto :goto_1
 
-    :cond_2
-    move v9, v4
+    :cond_3
+    move v6, v3
 
     :goto_1
-    if-eqz v3, :cond_3
+    if-eqz v10, :cond_4
 
-    invoke-virtual {v3}, Landroid/app/NotificationChannelGroup;->isBlocked()Z
+    invoke-virtual {v10}, Landroid/app/NotificationChannelGroup;->isBlocked()Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_3
+    if-eqz v5, :cond_4
 
-    move v10, v1
+    move v7, v2
 
     goto :goto_2
 
-    :cond_3
-    move v10, v4
+    :cond_4
+    move v7, v3
 
     :goto_2
-    move-object v6, p3
+    move-object v2, v4
 
-    move v7, p2
+    move-object v3, p3
 
-    move-object v8, p1
+    move v4, p2
 
-    invoke-interface/range {v5 .. v10}, Lcom/android/server/notification/NotificationChannelLogger;->logNotificationChannelGroup(Landroid/app/NotificationChannelGroup;ILjava/lang/String;ZZ)V
+    move-object v5, p1
 
-    :cond_4
-    iget-object v1, v2, Lcom/android/server/notification/PreferencesHelper$PackagePreferences;->groups:Ljava/util/Map;
+    invoke-interface/range {v2 .. v7}, Lcom/android/server/notification/NotificationChannelLogger;->logNotificationChannelGroup(Landroid/app/NotificationChannelGroup;ILjava/lang/String;ZZ)V
+
+    goto :goto_3
+
+    :cond_5
+    move-object v11, p1
+
+    :goto_3
+    iget-object v2, v0, Lcom/android/server/notification/PreferencesHelper$PackagePreferences;->groups:Ljava/util/Map;
 
     invoke-virtual {p3}, Landroid/app/NotificationChannelGroup;->getId()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-interface {v1, v4, p3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v2, v3, p3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     nop
 
-    monitor-exit v0
+    monitor-exit v9
 
     return-void
 
-    :cond_5
-    new-instance v1, Ljava/lang/IllegalArgumentException;
+    :cond_6
+    move-object v11, p1
+
+    new-instance v2, Ljava/lang/IllegalArgumentException;
 
     const-string v3, "Invalid package"
 
-    invoke-direct {v1, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v1
+    throw v2
 
     :catchall_0
-    move-exception v1
+    move-exception v0
 
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    move-object v11, p1
 
-    throw v1
+    :goto_4
+    monitor-exit v9
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    throw v0
+
+    :catchall_1
+    move-exception v0
+
+    goto :goto_4
 .end method
 
 .method public deleteConversations(Ljava/lang/String;ILjava/util/Set;)Ljava/util/List;
@@ -6329,7 +6362,7 @@
 
     move-result-object v5
 
-    const v6, 0x10402db
+    const v6, 0x10402df
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

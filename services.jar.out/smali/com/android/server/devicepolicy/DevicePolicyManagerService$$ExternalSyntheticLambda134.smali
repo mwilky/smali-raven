@@ -37,7 +37,7 @@
 
     check-cast p1, Lcom/android/server/devicepolicy/ActiveAdmin;
 
-    invoke-static {p1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$getPasswordMinimumNumeric$22(Lcom/android/server/devicepolicy/ActiveAdmin;)Ljava/lang/Integer;
+    invoke-static {p1}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$getPasswordMinimumLetters$21(Lcom/android/server/devicepolicy/ActiveAdmin;)Ljava/lang/Integer;
 
     move-result-object p1
 

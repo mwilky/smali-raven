@@ -29,7 +29,7 @@
 
     check-cast p1, Lcom/android/server/wm/TaskDisplayArea;
 
-    invoke-static {v0, p1}, Lcom/android/server/wm/DisplayContent;->lambda$topRunningActivity$38(ZLcom/android/server/wm/TaskDisplayArea;)Lcom/android/server/wm/ActivityRecord;
+    invoke-static {v0, p1}, Lcom/android/server/wm/DisplayContent;->lambda$topRunningActivity$40(ZLcom/android/server/wm/TaskDisplayArea;)Lcom/android/server/wm/ActivityRecord;
 
     move-result-object p1
 

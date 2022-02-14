@@ -44,6 +44,8 @@
 
 .field private final mNumCpuClusterOrdinals:I
 
+.field private final mNumDisplayOrdinals:I
+
 .field private final mNumOtherOrdinals:I
 
 .field private final mVoltageSnapshots:Landroid/util/SparseIntArray;
@@ -92,6 +94,14 @@
     move-result v0
 
     iput v0, p0, Lcom/android/server/am/MeasuredEnergySnapshot;->mNumCpuClusterOrdinals:I
+
+    const/4 v0, 0x3
+
+    invoke-static {v0, p1}, Lcom/android/server/am/MeasuredEnergySnapshot;->calculateNumOrdinals(ILandroid/util/SparseArray;)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/server/am/MeasuredEnergySnapshot;->mNumDisplayOrdinals:I
 
     const/4 v0, 0x0
 
@@ -732,7 +742,7 @@
 
     const/4 v3, 0x0
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_b
 
     array-length v4, v1
 
@@ -779,7 +789,7 @@
     const/4 v7, 0x0
 
     :goto_0
-    if-ge v7, v6, :cond_9
+    if-ge v7, v6, :cond_a
 
     aget-object v8, v1, v7
 
@@ -894,7 +904,7 @@
 
     cmp-long v19, v8, v19
 
-    if-ltz v19, :cond_8
+    if-ltz v19, :cond_9
 
     if-gtz v3, :cond_5
 
@@ -965,7 +975,22 @@
     goto/16 :goto_2
 
     :pswitch_3
-    iput-wide v2, v5, Lcom/android/server/am/MeasuredEnergySnapshot$MeasuredEnergyDeltaData;->displayChargeUC:J
+    move/from16 v20, v1
+
+    iget-object v1, v5, Lcom/android/server/am/MeasuredEnergySnapshot$MeasuredEnergyDeltaData;->displayChargeUC:[J
+
+    if-nez v1, :cond_6
+
+    iget v1, v0, Lcom/android/server/am/MeasuredEnergySnapshot;->mNumDisplayOrdinals:I
+
+    new-array v1, v1, [J
+
+    iput-object v1, v5, Lcom/android/server/am/MeasuredEnergySnapshot$MeasuredEnergyDeltaData;->displayChargeUC:[J
+
+    :cond_6
+    iget-object v1, v5, Lcom/android/server/am/MeasuredEnergySnapshot$MeasuredEnergyDeltaData;->displayChargeUC:[J
+
+    aput-wide v2, v1, v15
 
     move/from16 v1, p2
 
@@ -976,7 +1001,7 @@
 
     iget-object v1, v5, Lcom/android/server/am/MeasuredEnergySnapshot$MeasuredEnergyDeltaData;->cpuClusterChargeUC:[J
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_7
 
     iget v1, v0, Lcom/android/server/am/MeasuredEnergySnapshot;->mNumCpuClusterOrdinals:I
 
@@ -984,7 +1009,7 @@
 
     iput-object v1, v5, Lcom/android/server/am/MeasuredEnergySnapshot$MeasuredEnergyDeltaData;->cpuClusterChargeUC:[J
 
-    :cond_6
+    :cond_7
     iget-object v1, v5, Lcom/android/server/am/MeasuredEnergySnapshot$MeasuredEnergyDeltaData;->cpuClusterChargeUC:[J
 
     aput-wide v2, v1, v15
@@ -1007,7 +1032,7 @@
 
     iget-object v1, v5, Lcom/android/server/am/MeasuredEnergySnapshot$MeasuredEnergyDeltaData;->otherTotalChargeUC:[J
 
-    if-nez v1, :cond_7
+    if-nez v1, :cond_8
 
     iget v1, v0, Lcom/android/server/am/MeasuredEnergySnapshot;->mNumOtherOrdinals:I
 
@@ -1021,7 +1046,7 @@
 
     iput-object v1, v5, Lcom/android/server/am/MeasuredEnergySnapshot$MeasuredEnergyDeltaData;->otherUidChargesUC:[Landroid/util/SparseLongArray;
 
-    :cond_7
+    :cond_8
     iget-object v1, v5, Lcom/android/server/am/MeasuredEnergySnapshot$MeasuredEnergyDeltaData;->otherTotalChargeUC:[J
 
     aput-wide v2, v1, v15
@@ -1034,7 +1059,7 @@
 
     goto :goto_2
 
-    :cond_8
+    :cond_9
     move/from16 v20, v1
 
     move/from16 v19, v3
@@ -1107,12 +1132,12 @@
 
     goto/16 :goto_0
 
-    :cond_9
+    :cond_a
     move v1, v2
 
     return-object v5
 
-    :cond_a
+    :cond_b
     move v1, v2
 
     :goto_3

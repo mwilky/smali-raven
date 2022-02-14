@@ -41,7 +41,7 @@
 
     check-cast p1, Lcom/android/server/wm/Task;
 
-    invoke-virtual {v0, v1, v2, p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$applySleepTokens$20$RootWindowContainer(ZLcom/android/server/wm/DisplayContent;Lcom/android/server/wm/Task;)V
+    invoke-virtual {v0, v1, v2, p1}, Lcom/android/server/wm/RootWindowContainer;->lambda$applySleepTokens$21$RootWindowContainer(ZLcom/android/server/wm/DisplayContent;Lcom/android/server/wm/Task;)V
 
     return-void
 .end method

@@ -364,15 +364,11 @@
 
 .field private mKeyguardBound:Z
 
-.field private mKeyguardCandidate:Lcom/android/server/policy/WindowManagerPolicy$WindowState;
-
 .field private mKeyguardDelegate:Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;
 
 .field final mKeyguardDrawnCallback:Lcom/android/server/policy/keyguard/KeyguardServiceDelegate$DrawnListener;
 
 .field private mKeyguardDrawnOnce:Z
-
-.field volatile mKeyguardOccluded:Z
 
 .field private mKeyguardOccludedChanged:Z
 
@@ -577,7 +573,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 5
+    .locals 4
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -603,59 +599,55 @@
 
     iput-boolean v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mEnableShiftMenuBugReports:Z
 
-    const/4 v1, 0x0
+    const/4 v1, 0x1
 
-    iput-object v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mKeyguardCandidate:Lcom/android/server/policy/WindowManagerPolicy$WindowState;
+    iput-boolean v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mEnableCarDockHomeCapture:Z
 
-    const/4 v2, 0x1
+    new-instance v2, Lcom/android/server/policy/PhoneWindowManager$1;
 
-    iput-boolean v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mEnableCarDockHomeCapture:Z
+    invoke-direct {v2, p0}, Lcom/android/server/policy/PhoneWindowManager$1;-><init>(Lcom/android/server/policy/PhoneWindowManager;)V
 
-    new-instance v3, Lcom/android/server/policy/PhoneWindowManager$1;
+    iput-object v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mKeyguardDrawnCallback:Lcom/android/server/policy/keyguard/KeyguardServiceDelegate$DrawnListener;
 
-    invoke-direct {v3, p0}, Lcom/android/server/policy/PhoneWindowManager$1;-><init>(Lcom/android/server/policy/PhoneWindowManager;)V
+    iput-boolean v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mNavBarVirtualKeyHapticFeedbackEnabled:Z
 
-    iput-object v3, p0, Lcom/android/server/policy/PhoneWindowManager;->mKeyguardDrawnCallback:Lcom/android/server/policy/keyguard/KeyguardServiceDelegate$DrawnListener;
+    const/4 v1, -0x1
 
-    iput-boolean v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mNavBarVirtualKeyHapticFeedbackEnabled:Z
+    iput v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mPendingWakeKey:I
 
-    const/4 v2, -0x1
-
-    iput v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mPendingWakeKey:I
-
-    iput v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mCameraLensCoverState:I
+    iput v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mCameraLensCoverState:I
 
     iput-boolean v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mHasSoftInput:Z
 
-    new-instance v3, Ljava/util/HashSet;
+    new-instance v2, Ljava/util/HashSet;
 
-    invoke-direct {v3}, Ljava/util/HashSet;-><init>()V
+    invoke-direct {v2}, Ljava/util/HashSet;-><init>()V
 
-    iput-object v3, p0, Lcom/android/server/policy/PhoneWindowManager;->mAllowLockscreenWhenOnDisplays:Ljava/util/HashSet;
+    iput-object v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mAllowLockscreenWhenOnDisplays:Ljava/util/HashSet;
 
     iput v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mRingerToggleChord:I
 
-    new-instance v3, Landroid/util/SparseArray;
+    new-instance v2, Landroid/util/SparseArray;
 
-    invoke-direct {v3}, Landroid/util/SparseArray;-><init>()V
+    invoke-direct {v2}, Landroid/util/SparseArray;-><init>()V
 
-    iput-object v3, p0, Lcom/android/server/policy/PhoneWindowManager;->mFallbackActions:Landroid/util/SparseArray;
+    iput-object v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mFallbackActions:Landroid/util/SparseArray;
 
-    new-instance v3, Lcom/android/internal/policy/LogDecelerateInterpolator;
+    new-instance v2, Lcom/android/internal/policy/LogDecelerateInterpolator;
 
-    const/16 v4, 0x64
+    const/16 v3, 0x64
 
-    invoke-direct {v3, v4, v0}, Lcom/android/internal/policy/LogDecelerateInterpolator;-><init>(II)V
+    invoke-direct {v2, v3, v0}, Lcom/android/internal/policy/LogDecelerateInterpolator;-><init>(II)V
 
-    iput-object v3, p0, Lcom/android/server/policy/PhoneWindowManager;->mLogDecelerateInterpolator:Lcom/android/internal/policy/LogDecelerateInterpolator;
+    iput-object v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mLogDecelerateInterpolator:Lcom/android/internal/policy/LogDecelerateInterpolator;
 
     iput-boolean v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mPerDisplayFocusEnabled:Z
 
-    iput v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mTopFocusedDisplayId:I
+    iput v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mTopFocusedDisplayId:I
 
-    const/16 v2, 0x320
+    const/16 v1, 0x320
 
-    iput v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mPowerButtonSuppressionDelayMillis:I
+    iput v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mPowerButtonSuppressionDelayMillis:I
 
     iput-boolean v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mLockNowPending:Z
 
@@ -678,6 +670,8 @@
     iput-object v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mEndCallLongPress:Ljava/lang/Runnable;
 
     new-instance v0, Lcom/android/server/policy/PhoneWindowManager$ScreenshotRunnable;
+
+    const/4 v1, 0x0
 
     invoke-direct {v0, p0, v1}, Lcom/android/server/policy/PhoneWindowManager$ScreenshotRunnable;-><init>(Lcom/android/server/policy/PhoneWindowManager;Lcom/android/server/policy/PhoneWindowManager$1;)V
 
@@ -884,10 +878,10 @@
     return-void
 .end method
 
-.method static synthetic access$3100(Lcom/android/server/policy/PhoneWindowManager;ZJ)I
+.method static synthetic access$3100(Lcom/android/server/policy/PhoneWindowManager;ZZJ)I
     .locals 1
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/server/policy/PhoneWindowManager;->handleStartTransitionForKeyguardLw(ZJ)I
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/policy/PhoneWindowManager;->handleStartTransitionForKeyguardLw(ZZJ)I
 
     move-result v0
 
@@ -2758,10 +2752,10 @@
     return-void
 .end method
 
-.method private handleStartTransitionForKeyguardLw(ZJ)I
+.method private handleStartTransitionForKeyguardLw(ZZJ)I
     .locals 3
 
-    invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->applyKeyguardOcclusionChange()I
+    invoke-virtual {p0, p2}, Lcom/android/server/policy/PhoneWindowManager;->applyKeyguardOcclusionChange(Z)I
 
     move-result v0
 
@@ -2770,17 +2764,13 @@
     return v0
 
     :cond_0
-    sget-boolean v1, Lcom/android/server/wm/WindowManagerService;->sEnableRemoteKeyguardGoingAwayAnimation:Z
-
-    if-nez v1, :cond_1
-
     if-eqz p1, :cond_1
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v1
 
-    invoke-virtual {p0, v1, v2, p2, p3}, Lcom/android/server/policy/PhoneWindowManager;->startKeyguardExitAnimation(JJ)V
+    invoke-virtual {p0, v1, v2, p3, p4}, Lcom/android/server/policy/PhoneWindowManager;->startKeyguardExitAnimation(JJ)V
 
     :cond_1
     const/4 v1, 0x0
@@ -2912,7 +2902,7 @@
 
     move-result-object v0
 
-    const v1, 0x11100da
+    const v1, 0x11100db
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -4782,7 +4772,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e0078
+    const v1, 0x10e007c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -4802,7 +4792,7 @@
     iput v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mLongPressOnHomeBehavior:I
 
     :cond_1
-    const v1, 0x10e0057
+    const v1, 0x10e005a
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -4975,11 +4965,24 @@
     return-void
 .end method
 
-.method private setKeyguardOccludedLw(ZZ)Z
-    .locals 7
+.method private setKeyguardOccludedLw(ZZZ)Z
+    .locals 5
 
-    iget-boolean v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mKeyguardOccluded:Z
+    const/4 v0, 0x0
 
+    iput-boolean v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mKeyguardOccludedChanged:Z
+
+    invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->isKeyguardOccluded()Z
+
+    move-result v1
+
+    if-ne v1, p1, :cond_0
+
+    if-nez p2, :cond_0
+
+    return v0
+
+    :cond_0
     iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mKeyguardDelegate:Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;
 
     invoke-virtual {v1}, Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;->isShowing()Z
@@ -4988,110 +4991,33 @@
 
     const/4 v2, 0x1
 
-    const/4 v3, 0x0
+    if-eqz v1, :cond_1
 
-    if-ne v0, p1, :cond_1
+    if-nez p1, :cond_1
 
-    if-eqz p2, :cond_0
+    move v3, v2
 
     goto :goto_0
 
-    :cond_0
-    move v4, v3
-
-    goto :goto_1
-
     :cond_1
+    move v3, v0
+
     :goto_0
-    move v4, v2
+    sget-boolean v4, Lcom/android/server/wm/WindowManagerService;->sEnableRemoteKeyguardOccludeAnimation:Z
 
-    :goto_1
-    if-nez p1, :cond_3
+    if-eqz v4, :cond_2
 
-    if-eqz v4, :cond_3
-
-    if-eqz v1, :cond_3
-
-    iput-boolean v3, p0, Lcom/android/server/policy/PhoneWindowManager;->mKeyguardOccluded:Z
-
-    iget-object v5, p0, Lcom/android/server/policy/PhoneWindowManager;->mKeyguardDelegate:Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;
-
-    invoke-virtual {v5, v3, v2}, Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;->setOccluded(ZZ)V
-
-    iget-object v3, p0, Lcom/android/server/policy/PhoneWindowManager;->mKeyguardCandidate:Lcom/android/server/policy/WindowManagerPolicy$WindowState;
-
-    if-eqz v3, :cond_2
-
-    iget-object v3, p0, Lcom/android/server/policy/PhoneWindowManager;->mKeyguardDelegate:Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;
-
-    invoke-virtual {v3}, Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;->hasLockscreenWallpaper()Z
-
-    move-result v3
-
-    if-nez v3, :cond_2
-
-    iget-object v3, p0, Lcom/android/server/policy/PhoneWindowManager;->mKeyguardCandidate:Lcom/android/server/policy/WindowManagerPolicy$WindowState;
-
-    invoke-interface {v3}, Lcom/android/server/policy/WindowManagerPolicy$WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
-
-    move-result-object v3
-
-    iget v5, v3, Landroid/view/WindowManager$LayoutParams;->flags:I
-
-    const/high16 v6, 0x100000
-
-    or-int/2addr v5, v6
-
-    iput v5, v3, Landroid/view/WindowManager$LayoutParams;->flags:I
+    if-nez p3, :cond_3
 
     :cond_2
-    return v2
+    move v0, v2
 
     :cond_3
-    if-eqz p1, :cond_5
-
-    if-eqz v4, :cond_5
-
-    if-eqz v1, :cond_5
-
-    iput-boolean v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mKeyguardOccluded:Z
-
-    iget-object v5, p0, Lcom/android/server/policy/PhoneWindowManager;->mKeyguardDelegate:Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;
-
-    invoke-virtual {v5, v2, v3}, Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;->setOccluded(ZZ)V
-
-    iget-object v3, p0, Lcom/android/server/policy/PhoneWindowManager;->mKeyguardCandidate:Lcom/android/server/policy/WindowManagerPolicy$WindowState;
-
-    if-eqz v3, :cond_4
-
-    invoke-interface {v3}, Lcom/android/server/policy/WindowManagerPolicy$WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
-
-    move-result-object v3
-
-    iget v5, v3, Landroid/view/WindowManager$LayoutParams;->flags:I
-
-    const v6, -0x100001
-
-    and-int/2addr v5, v6
-
-    iput v5, v3, Landroid/view/WindowManager$LayoutParams;->flags:I
-
-    :cond_4
-    return v2
-
-    :cond_5
-    if-eqz v4, :cond_6
-
-    iput-boolean p1, p0, Lcom/android/server/policy/PhoneWindowManager;->mKeyguardOccluded:Z
-
     iget-object v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mKeyguardDelegate:Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;
 
-    invoke-virtual {v2, p1, v3}, Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;->setOccluded(ZZ)V
+    invoke-virtual {v2, p1, v3, v0}, Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;->setOccluded(ZZZ)V
 
-    return v3
-
-    :cond_6
-    return v3
+    return v1
 .end method
 
 .method private static shortPressOnPowerBehaviorToString(I)Ljava/lang/String;
@@ -6364,7 +6290,9 @@
     if-nez v7, :cond_8
 
     :try_start_6
-    iget-boolean v0, v1, Lcom/android/server/policy/PhoneWindowManager;->mKeyguardOccluded:Z
+    invoke-virtual/range {p0 .. p0}, Lcom/android/server/policy/PhoneWindowManager;->isKeyguardOccluded()Z
+
+    move-result v0
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
@@ -6823,7 +6751,7 @@
     return-void
 .end method
 
-.method public applyKeyguardOcclusionChange()I
+.method public applyKeyguardOcclusionChange(Z)I
     .locals 2
 
     iget-boolean v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mKeyguardOccludedChanged:Z
@@ -6832,11 +6760,9 @@
 
     if-eqz v0, :cond_0
 
-    iput-boolean v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mKeyguardOccludedChanged:Z
-
     iget-boolean v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mPendingKeyguardOccluded:Z
 
-    invoke-direct {p0, v0, v1}, Lcom/android/server/policy/PhoneWindowManager;->setKeyguardOccludedLw(ZZ)Z
+    invoke-direct {p0, v0, v1, p1}, Lcom/android/server/policy/PhoneWindowManager;->setKeyguardOccludedLw(ZZZ)Z
 
     move-result v0
 
@@ -8069,7 +7995,9 @@
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
-    iget-boolean v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mKeyguardOccluded:Z
+    invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->isKeyguardOccluded()Z
+
+    move-result v0
 
     invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Z)V
 
@@ -8256,7 +8184,9 @@
 
     invoke-virtual {p1, v3, v4, v2}, Landroid/util/proto/ProtoOutputStream;->write(JZ)V
 
-    iget-boolean v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mKeyguardOccluded:Z
+    invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->isKeyguardOccluded()Z
+
+    move-result v2
 
     const-wide v3, 0x1080000000cL
 
@@ -9013,7 +8943,7 @@
 
     nop
 
-    const v1, 0x1110178
+    const v1, 0x111017f
 
     invoke-virtual {v11, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -9023,7 +8953,7 @@
 
     nop
 
-    const v1, 0x1110176
+    const v1, 0x111017d
 
     invoke-virtual {v11, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -9033,7 +8963,7 @@
 
     nop
 
-    const v1, 0x1110177
+    const v1, 0x111017e
 
     invoke-virtual {v11, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -9045,7 +8975,7 @@
 
     move-result-object v1
 
-    const v2, 0x11100c9
+    const v2, 0x11100ca
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -9207,7 +9137,7 @@
 
     move-result-object v1
 
-    const v3, 0x10e0048
+    const v3, 0x10e0049
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -9237,7 +9167,7 @@
 
     move-result-object v1
 
-    const v5, 0x11100ca
+    const v5, 0x11100cb
 
     invoke-virtual {v1, v5}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -9337,7 +9267,7 @@
 
     move-result-object v1
 
-    const v3, 0x10e0072
+    const v3, 0x10e0076
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -9351,7 +9281,7 @@
 
     move-result-object v1
 
-    const v3, 0x10e0073
+    const v3, 0x10e0077
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -9479,7 +9409,7 @@
 
     move-result-object v1
 
-    const v3, 0x11100ee
+    const v3, 0x11100f0
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -9493,7 +9423,7 @@
 
     move-result-object v1
 
-    const v3, 0x1110143
+    const v3, 0x1110148
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -9507,7 +9437,7 @@
 
     move-result-object v1
 
-    const v3, 0x10e0077
+    const v3, 0x10e007b
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -9521,7 +9451,7 @@
 
     move-result-object v1
 
-    const v3, 0x10e00c8
+    const v3, 0x10e00cc
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -9535,7 +9465,7 @@
 
     move-result-object v1
 
-    const v3, 0x10e0079
+    const v3, 0x10e007d
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -9549,7 +9479,7 @@
 
     move-result-object v1
 
-    const v3, 0x10e007a
+    const v3, 0x10e007e
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -9565,7 +9495,7 @@
 
     move-result-object v1
 
-    const v3, 0x10e00db
+    const v3, 0x10e00df
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -9579,7 +9509,7 @@
 
     move-result-object v1
 
-    const v3, 0x10e0056
+    const v3, 0x10e0059
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -9593,7 +9523,7 @@
 
     move-result-object v1
 
-    const v3, 0x10e00d6
+    const v3, 0x10e00da
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -9607,7 +9537,7 @@
 
     move-result-object v1
 
-    const v3, 0x10e00c9
+    const v3, 0x10e00cd
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -9635,7 +9565,7 @@
 
     move-result-object v1
 
-    const v3, 0x11100d2
+    const v3, 0x11100d3
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -9667,7 +9597,7 @@
 
     move-result-object v1
 
-    const v2, 0x11100f2
+    const v2, 0x11100f4
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -9695,7 +9625,7 @@
 
     move-result-object v1
 
-    const v2, 0x10e00e2
+    const v2, 0x10e00e6
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -9816,7 +9746,7 @@
 
     move-result-object v4
 
-    const v5, 0x107005b
+    const v5, 0x1070062
 
     invoke-static {v4, v5}, Lcom/android/server/policy/PhoneWindowManager;->getLongIntArray(Landroid/content/res/Resources;I)[J
 
@@ -9830,7 +9760,7 @@
 
     move-result-object v4
 
-    const v5, 0x107001e
+    const v5, 0x107001f
 
     invoke-static {v4, v5}, Lcom/android/server/policy/PhoneWindowManager;->getLongIntArray(Landroid/content/res/Resources;I)[J
 
@@ -9844,7 +9774,7 @@
 
     move-result-object v4
 
-    const v5, 0x1070073
+    const v5, 0x1070084
 
     invoke-static {v4, v5}, Lcom/android/server/policy/PhoneWindowManager;->getLongIntArray(Landroid/content/res/Resources;I)[J
 
@@ -12552,7 +12482,9 @@
     return v0
 
     :cond_0
-    iget-boolean v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mKeyguardOccluded:Z
+    invoke-virtual {v0}, Lcom/android/server/policy/keyguard/KeyguardServiceDelegate;->isOccluded()Z
+
+    move-result v0
 
     return v0
 .end method
@@ -12613,7 +12545,9 @@
 
     if-eqz v0, :cond_1
 
-    iget-boolean v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mKeyguardOccluded:Z
+    invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->isKeyguardOccluded()Z
+
+    move-result v0
 
     if-nez v0, :cond_1
 
@@ -12857,7 +12791,9 @@
     return-void
 
     :cond_0
-    iget-boolean v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mKeyguardOccluded:Z
+    invoke-virtual {p0}, Lcom/android/server/policy/PhoneWindowManager;->isKeyguardOccluded()Z
+
+    move-result v0
 
     if-nez v0, :cond_1
 
@@ -13248,6 +13184,10 @@
 
     if-eqz v0, :cond_0
 
+    sget-boolean v0, Lcom/android/server/wm/WindowManagerService;->sEnableShellTransitions:Z
+
+    if-nez v0, :cond_0
+
     iput-boolean p1, p0, Lcom/android/server/policy/PhoneWindowManager;->mPendingKeyguardOccluded:Z
 
     const/4 v0, 0x1
@@ -13259,7 +13199,7 @@
     :cond_0
     const/4 v0, 0x0
 
-    invoke-direct {p0, p1, v0}, Lcom/android/server/policy/PhoneWindowManager;->setKeyguardOccludedLw(ZZ)Z
+    invoke-direct {p0, p1, v0, v0}, Lcom/android/server/policy/PhoneWindowManager;->setKeyguardOccludedLw(ZZZ)Z
 
     :goto_0
     return-void
@@ -13778,20 +13718,6 @@
     return-void
 .end method
 
-.method public setKeyguardCandidateLw(Lcom/android/server/policy/WindowManagerPolicy$WindowState;)V
-    .locals 2
-
-    iput-object p1, p0, Lcom/android/server/policy/PhoneWindowManager;->mKeyguardCandidate:Lcom/android/server/policy/WindowManagerPolicy$WindowState;
-
-    iget-boolean v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mKeyguardOccluded:Z
-
-    const/4 v1, 0x1
-
-    invoke-direct {p0, v0, v1}, Lcom/android/server/policy/PhoneWindowManager;->setKeyguardOccludedLw(ZZ)Z
-
-    return-void
-.end method
-
 .method public setNavBarVirtualKeyHapticFeedbackEnabledLw(Z)V
     .locals 0
 
@@ -14098,6 +14024,10 @@
     const/4 v0, 0x1
 
     invoke-static {v0}, Lcom/android/server/policy/EventLogTags;->writeScreenToggled(I)V
+
+    iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mActivityTaskManagerInternal:Lcom/android/server/wm/ActivityTaskManagerInternal;
+
+    invoke-virtual {v1}, Lcom/android/server/wm/ActivityTaskManagerInternal;->notifyWakingUp()V
 
     iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mDefaultDisplayPolicy:Lcom/android/server/wm/DisplayPolicy;
 
@@ -14489,7 +14419,7 @@
 
     move-result-object v3
 
-    const v7, 0x1110175
+    const v7, 0x111017c
 
     invoke-virtual {v3, v7}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -14567,7 +14497,7 @@
 
     move-result-object v8
 
-    const v9, 0x10e0079
+    const v9, 0x10e007d
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -14593,7 +14523,7 @@
 
     move-result-object v9
 
-    const v10, 0x10e007a
+    const v10, 0x10e007e
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -14615,7 +14545,7 @@
 
     move-result-object v8
 
-    const v9, 0x10e00db
+    const v9, 0x10e00df
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -14635,7 +14565,7 @@
 
     move-result-object v8
 
-    const v9, 0x10e006e
+    const v9, 0x10e0071
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getInteger(I)I
 

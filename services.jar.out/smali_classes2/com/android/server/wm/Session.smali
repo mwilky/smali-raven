@@ -47,7 +47,7 @@
 
 .field private final mDummyControls:[Landroid/view/InsetsSourceControl;
 
-.field private final mDummyRequestedVisibility:Landroid/view/InsetsState;
+.field private final mDummyRequestedVisibilities:Landroid/view/InsetsVisibilities;
 
 .field private mLastReportedAnimatorScale:F
 
@@ -94,11 +94,11 @@
 
     iput-boolean v0, p0, Lcom/android/server/wm/Session;->mClientDead:Z
 
-    new-instance v1, Landroid/view/InsetsState;
+    new-instance v1, Landroid/view/InsetsVisibilities;
 
-    invoke-direct {v1}, Landroid/view/InsetsState;-><init>()V
+    invoke-direct {v1}, Landroid/view/InsetsVisibilities;-><init>()V
 
-    iput-object v1, p0, Lcom/android/server/wm/Session;->mDummyRequestedVisibility:Landroid/view/InsetsState;
+    iput-object v1, p0, Lcom/android/server/wm/Session;->mDummyRequestedVisibilities:Landroid/view/InsetsVisibilities;
 
     new-array v1, v0, [Landroid/view/InsetsSourceControl;
 
@@ -593,7 +593,7 @@
 
 
 # virtual methods
-.method public addToDisplay(Landroid/view/IWindow;Landroid/view/WindowManager$LayoutParams;IILandroid/view/InsetsState;Landroid/view/InputChannel;Landroid/view/InsetsState;[Landroid/view/InsetsSourceControl;)I
+.method public addToDisplay(Landroid/view/IWindow;Landroid/view/WindowManager$LayoutParams;IILandroid/view/InsetsVisibilities;Landroid/view/InputChannel;Landroid/view/InsetsState;[Landroid/view/InsetsSourceControl;)I
     .locals 12
 
     move-object v11, p0
@@ -624,14 +624,14 @@
 
     move-object/from16 v10, p8
 
-    invoke-virtual/range {v0 .. v10}, Lcom/android/server/wm/WindowManagerService;->addWindow(Lcom/android/server/wm/Session;Landroid/view/IWindow;Landroid/view/WindowManager$LayoutParams;IIILandroid/view/InsetsState;Landroid/view/InputChannel;Landroid/view/InsetsState;[Landroid/view/InsetsSourceControl;)I
+    invoke-virtual/range {v0 .. v10}, Lcom/android/server/wm/WindowManagerService;->addWindow(Lcom/android/server/wm/Session;Landroid/view/IWindow;Landroid/view/WindowManager$LayoutParams;IIILandroid/view/InsetsVisibilities;Landroid/view/InputChannel;Landroid/view/InsetsState;[Landroid/view/InsetsSourceControl;)I
 
     move-result v0
 
     return v0
 .end method
 
-.method public addToDisplayAsUser(Landroid/view/IWindow;Landroid/view/WindowManager$LayoutParams;IIILandroid/view/InsetsState;Landroid/view/InputChannel;Landroid/view/InsetsState;[Landroid/view/InsetsSourceControl;)I
+.method public addToDisplayAsUser(Landroid/view/IWindow;Landroid/view/WindowManager$LayoutParams;IIILandroid/view/InsetsVisibilities;Landroid/view/InputChannel;Landroid/view/InsetsState;[Landroid/view/InsetsSourceControl;)I
     .locals 12
 
     move-object v11, p0
@@ -658,7 +658,7 @@
 
     move-object/from16 v10, p9
 
-    invoke-virtual/range {v0 .. v10}, Lcom/android/server/wm/WindowManagerService;->addWindow(Lcom/android/server/wm/Session;Landroid/view/IWindow;Landroid/view/WindowManager$LayoutParams;IIILandroid/view/InsetsState;Landroid/view/InputChannel;Landroid/view/InsetsState;[Landroid/view/InsetsSourceControl;)I
+    invoke-virtual/range {v0 .. v10}, Lcom/android/server/wm/WindowManagerService;->addWindow(Lcom/android/server/wm/Session;Landroid/view/IWindow;Landroid/view/WindowManager$LayoutParams;IIILandroid/view/InsetsVisibilities;Landroid/view/InputChannel;Landroid/view/InsetsState;[Landroid/view/InsetsSourceControl;)I
 
     move-result v0
 
@@ -678,7 +678,7 @@
 
     move-result v6
 
-    iget-object v7, v11, Lcom/android/server/wm/Session;->mDummyRequestedVisibility:Landroid/view/InsetsState;
+    iget-object v7, v11, Lcom/android/server/wm/Session;->mDummyRequestedVisibilities:Landroid/view/InsetsVisibilities;
 
     iget-object v10, v11, Lcom/android/server/wm/Session;->mDummyControls:[Landroid/view/InsetsSourceControl;
 
@@ -696,7 +696,7 @@
 
     move-object/from16 v9, p5
 
-    invoke-virtual/range {v0 .. v10}, Lcom/android/server/wm/WindowManagerService;->addWindow(Lcom/android/server/wm/Session;Landroid/view/IWindow;Landroid/view/WindowManager$LayoutParams;IIILandroid/view/InsetsState;Landroid/view/InputChannel;Landroid/view/InsetsState;[Landroid/view/InsetsSourceControl;)I
+    invoke-virtual/range {v0 .. v10}, Lcom/android/server/wm/WindowManagerService;->addWindow(Lcom/android/server/wm/Session;Landroid/view/IWindow;Landroid/view/WindowManager$LayoutParams;IIILandroid/view/InsetsVisibilities;Landroid/view/InputChannel;Landroid/view/InsetsState;[Landroid/view/InsetsSourceControl;)I
 
     move-result v0
 
@@ -798,6 +798,38 @@
     invoke-virtual {v0, p1}, Lcom/android/server/wm/DragDropController;->dragRecipientExited(Landroid/view/IWindow;)V
 
     return-void
+.end method
+
+.method public dropForAccessibility(Landroid/view/IWindow;II)Z
+    .locals 5
+
+    invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
+
+    move-result-wide v0
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/server/wm/Session;->mDragDropController:Lcom/android/server/wm/DragDropController;
+
+    int-to-float v3, p2
+
+    int-to-float v4, p3
+
+    invoke-virtual {v2, p1, v3, v4}, Lcom/android/server/wm/DragDropController;->dropForAccessibility(Landroid/view/IWindow;FF)Z
+
+    move-result v2
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    return v2
+
+    :catchall_0
+    move-exception v2
+
+    invoke-static {v0, v1}, Landroid/os/Binder;->restoreCallingIdentity(J)V
+
+    throw v2
 .end method
 
 .method dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
@@ -1168,62 +1200,6 @@
     const/4 v0, 0x0
 
     return v0
-.end method
-
-.method public insetsModified(Landroid/view/IWindow;Landroid/view/InsetsState;)V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/server/wm/Session;->mService:Lcom/android/server/wm/WindowManagerService;
-
-    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mGlobalLock:Lcom/android/server/wm/WindowManagerGlobalLock;
-
-    monitor-enter v0
-
-    :try_start_0
-    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->boostPriorityForLockedSection()V
-
-    iget-object v1, p0, Lcom/android/server/wm/Session;->mService:Lcom/android/server/wm/WindowManagerService;
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v1, p0, p1, v2}, Lcom/android/server/wm/WindowManagerService;->windowForClientLocked(Lcom/android/server/wm/Session;Landroid/view/IWindow;Z)Lcom/android/server/wm/WindowState;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_0
-
-    invoke-virtual {v1, p2}, Lcom/android/server/wm/WindowState;->updateRequestedVisibility(Landroid/view/InsetsState;)V
-
-    invoke-virtual {v1}, Lcom/android/server/wm/WindowState;->getDisplayContent()Lcom/android/server/wm/DisplayContent;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/server/wm/DisplayContent;->getInsetsPolicy()Lcom/android/server/wm/InsetsPolicy;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v1}, Lcom/android/server/wm/InsetsPolicy;->onInsetsModified(Lcom/android/server/wm/InsetsControlTarget;)V
-
-    :cond_0
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
-
-    return-void
-
-    :catchall_0
-    move-exception v1
-
-    :try_start_1
-    monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
-
-    throw v1
 .end method
 
 .method public onRectangleOnScreenRequested(Landroid/os/IBinder;Landroid/graphics/Rect;)V
@@ -2307,6 +2283,62 @@
     throw v2
 .end method
 
+.method public updateRequestedVisibilities(Landroid/view/IWindow;Landroid/view/InsetsVisibilities;)V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/server/wm/Session;->mService:Lcom/android/server/wm/WindowManagerService;
+
+    iget-object v0, v0, Lcom/android/server/wm/WindowManagerService;->mGlobalLock:Lcom/android/server/wm/WindowManagerGlobalLock;
+
+    monitor-enter v0
+
+    :try_start_0
+    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->boostPriorityForLockedSection()V
+
+    iget-object v1, p0, Lcom/android/server/wm/Session;->mService:Lcom/android/server/wm/WindowManagerService;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, p0, p1, v2}, Lcom/android/server/wm/WindowManagerService;->windowForClientLocked(Lcom/android/server/wm/Session;Landroid/view/IWindow;Z)Lcom/android/server/wm/WindowState;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v1, p2}, Lcom/android/server/wm/WindowState;->setRequestedVisibilities(Landroid/view/InsetsVisibilities;)V
+
+    invoke-virtual {v1}, Lcom/android/server/wm/WindowState;->getDisplayContent()Lcom/android/server/wm/DisplayContent;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/server/wm/DisplayContent;->getInsetsPolicy()Lcom/android/server/wm/InsetsPolicy;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Lcom/android/server/wm/InsetsPolicy;->onInsetsModified(Lcom/android/server/wm/InsetsControlTarget;)V
+
+    :cond_0
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
+
+    return-void
+
+    :catchall_0
+    move-exception v1
+
+    :try_start_1
+    monitor-exit v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    invoke-static {}, Lcom/android/server/wm/WindowManagerService;->resetPriorityAfterLockedSection()V
+
+    throw v1
+.end method
+
 .method public updateTapExcludeRegion(Landroid/view/IWindow;Landroid/graphics/Region;)V
     .locals 3
 
@@ -2647,13 +2679,15 @@
 
     nop
 
+    invoke-static/range {p2 .. p2}, Landroid/os/UserHandle;->getUserId(I)I
+
+    move-result v4
+
     invoke-virtual/range {v18 .. v18}, Landroid/os/UserHandle;->getIdentifier()I
 
     move-result v21
 
     move-object/from16 v3, v20
-
-    move/from16 v4, p2
 
     move-object/from16 v5, p4
 

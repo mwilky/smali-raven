@@ -43,7 +43,7 @@
     return-void
 .end method
 
-.method public onAppTransitionStartingLocked(ZJJJ)I
+.method public onAppTransitionStartingLocked(ZZJJJ)I
     .locals 1
 
     const/4 v0, 0x0

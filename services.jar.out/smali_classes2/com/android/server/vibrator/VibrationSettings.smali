@@ -110,7 +110,7 @@
 
     move-result-object v0
 
-    const v1, 0x10e00dd
+    const v1, 0x10e00e1
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -120,7 +120,7 @@
 
     move-result-object v1
 
-    const v2, 0x10e00de
+    const v2, 0x10e00e2
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -172,7 +172,7 @@
 
     iput p4, p0, Lcom/android/server/vibrator/VibrationSettings;->mRampStepDuration:I
 
-    const v0, 0x107008c
+    const v0, 0x107009f
 
     invoke-direct {p0, v0}, Lcom/android/server/vibrator/VibrationSettings;->createEffectFromResource(I)Landroid/os/VibrationEffect;
 
@@ -186,13 +186,13 @@
 
     move-result-object v1
 
-    const v2, 0x107005b
+    const v2, 0x1070062
 
     invoke-direct {p0, v2}, Lcom/android/server/vibrator/VibrationSettings;->createEffectFromResource(I)Landroid/os/VibrationEffect;
 
     move-result-object v2
 
-    const v3, 0x1070025
+    const v3, 0x1070026
 
     invoke-direct {p0, v3}, Lcom/android/server/vibrator/VibrationSettings;->createEffectFromResource(I)Landroid/os/VibrationEffect;
 

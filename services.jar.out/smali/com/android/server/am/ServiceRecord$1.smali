@@ -499,17 +499,19 @@
 
     iget-object v2, v2, Lcom/android/server/am/ServiceRecord;->ams:Lcom/android/server/am/ActivityManagerService;
 
-    iget-object v2, v2, Lcom/android/server/am/ActivityManagerService;->mServices:Lcom/android/server/am/ActiveServices;
+    iget-object v4, v2, Lcom/android/server/am/ActivityManagerService;->mServices:Lcom/android/server/am/ActiveServices;
 
-    iget-object v4, v1, Lcom/android/server/am/ServiceRecord$1;->val$record:Lcom/android/server/am/ServiceRecord;
+    iget-object v5, v1, Lcom/android/server/am/ServiceRecord$1;->val$record:Lcom/android/server/am/ServiceRecord;
 
-    iget v5, v1, Lcom/android/server/am/ServiceRecord$1;->val$appUid:I
+    iget v6, v1, Lcom/android/server/am/ServiceRecord$1;->val$appUid:I
 
-    iget v6, v1, Lcom/android/server/am/ServiceRecord$1;->val$appPid:I
+    iget v7, v1, Lcom/android/server/am/ServiceRecord$1;->val$appPid:I
 
-    iget-object v7, v1, Lcom/android/server/am/ServiceRecord$1;->val$localPackageName:Ljava/lang/String;
+    iget-object v8, v1, Lcom/android/server/am/ServiceRecord$1;->val$localPackageName:Ljava/lang/String;
 
-    invoke-virtual {v2, v4, v5, v6, v7}, Lcom/android/server/am/ActiveServices;->killMisbehavingService(Lcom/android/server/am/ServiceRecord;IILjava/lang/String;)V
+    const/4 v9, 0x3
+
+    invoke-virtual/range {v4 .. v9}, Lcom/android/server/am/ActiveServices;->killMisbehavingService(Lcom/android/server/am/ServiceRecord;IILjava/lang/String;I)V
 
     move-object v13, v3
 

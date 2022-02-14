@@ -1404,10 +1404,6 @@
 
     invoke-virtual {v1, p1}, Lcom/android/server/display/DisplayModeDirector$UdfpsObserver;->dumpLocked(Ljava/io/PrintWriter;)V
 
-    iget-object v1, p0, Lcom/android/server/display/DisplayModeDirector;->mSensorObserver:Lcom/android/server/display/DisplayModeDirector$SensorObserver;
-
-    invoke-virtual {v1, p1}, Lcom/android/server/display/DisplayModeDirector$SensorObserver;->dumpLocked(Ljava/io/PrintWriter;)V
-
     iget-object v1, p0, Lcom/android/server/display/DisplayModeDirector;->mHbmObserver:Lcom/android/server/display/DisplayModeDirector$HbmObserver;
 
     invoke-virtual {v1, p1}, Lcom/android/server/display/DisplayModeDirector$HbmObserver;->dumpLocked(Ljava/io/PrintWriter;)V
@@ -1417,15 +1413,22 @@
     invoke-virtual {v1, p1}, Lcom/android/server/display/DisplayModeDirector$SkinThermalStatusObserver;->dumpLocked(Ljava/io/PrintWriter;)V
 
     monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    iget-object v0, p0, Lcom/android/server/display/DisplayModeDirector;->mSensorObserver:Lcom/android/server/display/DisplayModeDirector$SensorObserver;
+
+    invoke-virtual {v0, p1}, Lcom/android/server/display/DisplayModeDirector$SensorObserver;->dump(Ljava/io/PrintWriter;)V
 
     return-void
 
     :catchall_0
     move-exception v1
 
+    :try_start_1
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw v1
 .end method

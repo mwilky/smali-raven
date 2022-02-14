@@ -10,11 +10,11 @@
 
 .field public final synthetic f$1:I
 
-.field public final synthetic f$2:Z
+.field public final synthetic f$2:Landroid/content/ComponentName;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;IZ)V
+.method public synthetic constructor <init>(Lcom/android/server/devicepolicy/DevicePolicyManagerService;ILandroid/content/ComponentName;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,7 +23,7 @@
 
     iput p2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda84;->f$1:I
 
-    iput-boolean p3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda84;->f$2:Z
+    iput-object p3, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda84;->f$2:Landroid/content/ComponentName;
 
     return-void
 .end method
@@ -37,9 +37,9 @@
 
     iget v1, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda84;->f$1:I
 
-    iget-boolean v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda84;->f$2:Z
+    iget-object v2, p0, Lcom/android/server/devicepolicy/DevicePolicyManagerService$$ExternalSyntheticLambda84;->f$2:Landroid/content/ComponentName;
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$getCredentialOwner$70$DevicePolicyManagerService(IZ)Ljava/lang/Integer;
+    invoke-virtual {v0, v1, v2}, Lcom/android/server/devicepolicy/DevicePolicyManagerService;->lambda$hasIncompatibleAccountsOrNonAdbNoLock$111$DevicePolicyManagerService(ILandroid/content/ComponentName;)Ljava/lang/Boolean;
 
     move-result-object v0
 

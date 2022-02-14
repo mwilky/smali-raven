@@ -65,7 +65,7 @@
 
     iget-object v1, p0, Lcom/android/server/display/DisplayManagerService$DesiredDisplayModeSpecsObserver;->this$0:Lcom/android/server/display/DisplayManagerService;
 
-    invoke-static {v1}, Lcom/android/server/display/DisplayManagerService;->access$7300(Lcom/android/server/display/DisplayManagerService;)Lcom/android/server/display/DisplayModeDirector;
+    invoke-static {v1}, Lcom/android/server/display/DisplayManagerService;->access$7500(Lcom/android/server/display/DisplayManagerService;)Lcom/android/server/display/DisplayModeDirector;
 
     move-result-object v1
 

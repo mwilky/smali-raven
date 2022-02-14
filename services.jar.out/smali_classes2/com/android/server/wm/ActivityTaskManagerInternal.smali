@@ -7,6 +7,7 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/server/wm/ActivityTaskManagerInternal$PackageConfigurationUpdater;,
+        Lcom/android/server/wm/ActivityTaskManagerInternal$PackageConfig;,
         Lcom/android/server/wm/ActivityTaskManagerInternal$ActivityTokens;,
         Lcom/android/server/wm/ActivityTaskManagerInternal$SleepTokenAcquirer;,
         Lcom/android/server/wm/ActivityTaskManagerInternal$ScreenObserver;
@@ -114,6 +115,9 @@
 .method public abstract createPackageConfigurationUpdater()Lcom/android/server/wm/ActivityTaskManagerInternal$PackageConfigurationUpdater;
 .end method
 
+.method public abstract createPackageConfigurationUpdater(Ljava/lang/String;I)Lcom/android/server/wm/ActivityTaskManagerInternal$PackageConfigurationUpdater;
+.end method
+
 .method public abstract createSleepTokenAcquirer(Ljava/lang/String;)Lcom/android/server/wm/ActivityTaskManagerInternal$SleepTokenAcquirer;
 .end method
 
@@ -142,6 +146,9 @@
 .end method
 
 .method public abstract getActivityName(Landroid/os/IBinder;)Landroid/content/ComponentName;
+.end method
+
+.method public abstract getApplicationConfig(Ljava/lang/String;I)Lcom/android/server/wm/ActivityTaskManagerInternal$PackageConfig;
 .end method
 
 .method public abstract getHomeActivityForUser(I)Landroid/content/ComponentName;
@@ -242,6 +249,9 @@
 .method public abstract notifyLockedProfile(II)V
 .end method
 
+.method public abstract notifyWakingUp()V
+.end method
+
 .method public abstract onCleanUpApplicationRecord(Lcom/android/server/wm/WindowProcessController;)V
 .end method
 
@@ -300,6 +310,9 @@
 .end method
 
 .method public abstract preBindApplication(Lcom/android/server/wm/WindowProcessController;)V
+.end method
+
+.method public abstract registerActivityStartInterceptor(ILcom/android/server/wm/ActivityInterceptorCallback;)V
 .end method
 
 .method public abstract registerScreenObserver(Lcom/android/server/wm/ActivityTaskManagerInternal$ScreenObserver;)V

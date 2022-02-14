@@ -6,10 +6,6 @@
 # static fields
 .field private static final LOG_TAG:Ljava/lang/String; = "AccessibilityServiceConnection"
 
-.field private static final TRACE_A11Y_SERVICE_CLIENT:Ljava/lang/String; = "AccessibilityServiceConnection.IAccessibilityServiceClient"
-
-.field private static final TRACE_A11Y_SERVICE_CONNECTION:Ljava/lang/String; = "AccessibilityServiceConnection.IAccessibilityServiceConnection"
-
 
 # instance fields
 .field final mActivityTaskManagerService:Lcom/android/server/wm/ActivityTaskManagerInternal;
@@ -38,7 +34,7 @@
     return-void
 .end method
 
-.method constructor <init>(Lcom/android/server/accessibility/AccessibilityUserState;Landroid/content/Context;Landroid/content/ComponentName;Landroid/accessibilityservice/AccessibilityServiceInfo;ILandroid/os/Handler;Ljava/lang/Object;Lcom/android/server/accessibility/AccessibilitySecurityPolicy;Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$SystemSupport;Lcom/android/server/accessibility/AccessibilityTrace;Lcom/android/server/wm/WindowManagerInternal;Lcom/android/server/accessibility/SystemActionPerformer;Lcom/android/server/accessibility/AccessibilityWindowManager;Lcom/android/server/wm/ActivityTaskManagerInternal;)V
+.method constructor <init>(Lcom/android/server/accessibility/AccessibilityUserState;Landroid/content/Context;Landroid/content/ComponentName;Landroid/accessibilityservice/AccessibilityServiceInfo;ILandroid/os/Handler;Ljava/lang/Object;Lcom/android/server/accessibility/AccessibilitySecurityPolicy;Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$SystemSupport;Landroid/accessibilityservice/AccessibilityTrace;Lcom/android/server/wm/WindowManagerInternal;Lcom/android/server/accessibility/SystemActionPerformer;Lcom/android/server/accessibility/AccessibilityWindowManager;Lcom/android/server/wm/ActivityTaskManagerInternal;)V
     .locals 15
 
     move-object v14, p0
@@ -69,7 +65,7 @@
 
     move-object/from16 v13, p13
 
-    invoke-direct/range {v1 .. v13}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;-><init>(Landroid/content/Context;Landroid/content/ComponentName;Landroid/accessibilityservice/AccessibilityServiceInfo;ILandroid/os/Handler;Ljava/lang/Object;Lcom/android/server/accessibility/AccessibilitySecurityPolicy;Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$SystemSupport;Lcom/android/server/accessibility/AccessibilityTrace;Lcom/android/server/wm/WindowManagerInternal;Lcom/android/server/accessibility/SystemActionPerformer;Lcom/android/server/accessibility/AccessibilityWindowManager;)V
+    invoke-direct/range {v1 .. v13}, Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection;-><init>(Landroid/content/Context;Landroid/content/ComponentName;Landroid/accessibilityservice/AccessibilityServiceInfo;ILandroid/os/Handler;Ljava/lang/Object;Lcom/android/server/accessibility/AccessibilitySecurityPolicy;Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$SystemSupport;Landroid/accessibilityservice/AccessibilityTrace;Lcom/android/server/wm/WindowManagerInternal;Lcom/android/server/accessibility/SystemActionPerformer;Lcom/android/server/accessibility/AccessibilityWindowManager;)V
 
     new-instance v0, Ljava/lang/ref/WeakReference;
 
@@ -252,49 +248,45 @@
 
     :cond_4
     :try_start_1
-    iget-object v1, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v1}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AccessibilityServiceConnection;->svcClientTracingEnabled()Z
 
     move-result v1
 
     if-eqz v1, :cond_5
 
-    iget-object v1, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string v1, "init"
 
-    const-string v2, "AccessibilityServiceConnection.IAccessibilityServiceClient.init"
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    const-string v3, ","
 
-    const-string v4, ", "
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget v3, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mId:I
 
-    iget v4, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mId:I
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v3, ","
 
-    const-string v4, ", "
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v3, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mOverlayWindowTokens:Landroid/util/SparseArray;
 
-    iget-object v4, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mOverlayWindowTokens:Landroid/util/SparseArray;
-
-    invoke-virtual {v4, v6}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3, v6}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
-    invoke-interface {v1, v2, v3}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {p0, v1, v2}, Lcom/android/server/accessibility/AccessibilityServiceConnection;->logTraceSvcClient(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_5
     iget v1, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mId:I
@@ -554,19 +546,17 @@
 .method public disableSelf()V
     .locals 8
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string v0, "disableSelf"
 
-    const-string v1, "AccessibilityServiceConnection.IAccessibilityServiceConnection.disableSelf"
+    const-string v1, ""
 
-    invoke-interface {v0, v1}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/accessibility/AccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mLock:Ljava/lang/Object;
@@ -674,7 +664,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
     iget-object v1, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mSystemSupport:Lcom/android/server/accessibility/AbstractAccessibilityServiceConnection$SystemSupport;
 
@@ -682,7 +672,20 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AccessibilityServiceConnection;->wmTracingEnabled()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const-string/jumbo v2, "isTouchOrFaketouchDevice"
+
+    const-string v3, ""
+
+    invoke-virtual {p0, v2, v3}, Lcom/android/server/accessibility/AccessibilityServiceConnection;->logTraceWM(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
+    if-eqz v1, :cond_1
 
     iget-object v2, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mWindowManagerService:Lcom/android/server/wm/WindowManagerInternal;
 
@@ -690,7 +693,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     nop
 
@@ -706,37 +709,33 @@
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     :try_start_1
-    iget-object v2, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v2}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AccessibilityServiceConnection;->svcClientTracingEnabled()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2
 
-    iget-object v2, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string/jumbo v2, "onPerformGestureResult"
 
-    const-string v3, "AccessibilityServiceConnection.IAccessibilityServiceClient.onPerformGestureResult"
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v4, ", false"
 
-    const-string v5, ", false"
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v4
+    invoke-virtual {p0, v2, v3}, Lcom/android/server/accessibility/AccessibilityServiceConnection;->logTraceSvcClient(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-interface {v2, v3, v4}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
-
-    :cond_1
+    :cond_2
     iget-object v2, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mServiceInterface:Landroid/accessibilityservice/IAccessibilityServiceClient;
 
     const/4 v3, 0x0
@@ -772,7 +771,7 @@
 
     invoke-static {v3, v4, v2}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :cond_2
+    :cond_3
     :goto_0
     monitor-exit v0
 
@@ -799,19 +798,17 @@
 .method public getSoftKeyboardShowMode()I
     .locals 2
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string v0, "getSoftKeyboardShowMode"
 
-    const-string v1, "AccessibilityServiceConnection.IAccessibilityServiceConnection.getSoftKeyboardShowMode"
+    const-string v1, ""
 
-    invoke-interface {v0, v1}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/accessibility/AccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mUserStateWeakReference:Ljava/lang/ref/WeakReference;
@@ -919,19 +916,17 @@
 .method public isAccessibilityButtonAvailable()Z
     .locals 4
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string v0, "isAccessibilityButtonAvailable"
 
-    const-string v1, "AccessibilityServiceConnection.IAccessibilityServiceConnection.isAccessibilityButtonAvailable"
+    const-string v1, ""
 
-    invoke-interface {v0, v1}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/accessibility/AccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mLock:Ljava/lang/Object;
@@ -1044,7 +1039,7 @@
 .end method
 
 .method public onFingerprintGesture(I)V
-    .locals 4
+    .locals 3
 
     invoke-virtual {p0}, Lcom/android/server/accessibility/AccessibilityServiceConnection;->isCapturingFingerprintGestures()Z
 
@@ -1069,23 +1064,19 @@
     if-eqz v1, :cond_2
 
     :try_start_1
-    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AccessibilityServiceConnection;->svcClientTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    const-string v2, "AccessibilityServiceConnection.IAccessibilityServiceClient.onFingerprintGesture"
+    const-string/jumbo v0, "onFingerprintGesture"
 
     invoke-static {p1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {v0, v2, v3}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v2}, Lcom/android/server/accessibility/AccessibilityServiceConnection;->logTraceSvcClient(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_1
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mServiceInterface:Landroid/accessibilityservice/IAccessibilityServiceClient;
@@ -1115,7 +1106,7 @@
 .end method
 
 .method public onFingerprintGestureDetectionActiveChanged(Z)V
-    .locals 4
+    .locals 3
 
     invoke-virtual {p0}, Lcom/android/server/accessibility/AccessibilityServiceConnection;->isCapturingFingerprintGestures()Z
 
@@ -1140,23 +1131,19 @@
     if-eqz v1, :cond_2
 
     :try_start_1
-    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AccessibilityServiceConnection;->svcClientTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    const-string v2, "AccessibilityServiceConnection.IAccessibilityServiceClient.onFingerprintCapturingGesturesChanged"
+    const-string/jumbo v0, "onFingerprintCapturingGesturesChanged"
 
     invoke-static {p1}, Ljava/lang/String;->valueOf(Z)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {v0, v2, v3}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v2}, Lcom/android/server/accessibility/AccessibilityServiceConnection;->logTraceSvcClient(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_1
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mServiceInterface:Landroid/accessibilityservice/IAccessibilityServiceClient;
@@ -1411,35 +1398,31 @@
 .end method
 
 .method public setSoftKeyboardShowMode(I)Z
-    .locals 4
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string/jumbo v0, "setSoftKeyboardShowMode"
 
-    const-string v1, "AccessibilityServiceConnection.IAccessibilityServiceConnection.setSoftKeyboardShowMode"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v2, "showMode="
 
-    const-string/jumbo v3, "showMode="
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/accessibility/AccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mLock:Ljava/lang/Object;
@@ -1498,33 +1481,29 @@
 .method public switchToInputMethod(Ljava/lang/String;)Z
     .locals 4
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
-
-    invoke-interface {v0}, Lcom/android/server/accessibility/AccessibilityTrace;->isA11yTracingEnabled()Z
+    invoke-virtual {p0}, Lcom/android/server/accessibility/AccessibilityServiceConnection;->svcConnTracingEnabled()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mTrace:Lcom/android/server/accessibility/AccessibilityTrace;
+    const-string/jumbo v0, "switchToInputMethod"
 
-    const-string v1, "AccessibilityServiceConnection.IAccessibilityServiceConnection.switchToInputMethod"
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "imeId="
 
-    const-string v3, "imeId="
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v2
-
-    invoke-interface {v0, v1, v2}, Lcom/android/server/accessibility/AccessibilityTrace;->logTrace(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/server/accessibility/AccessibilityServiceConnection;->logTraceSvcConn(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/server/accessibility/AccessibilityServiceConnection;->mLock:Ljava/lang/Object;

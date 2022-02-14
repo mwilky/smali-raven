@@ -36,7 +36,7 @@
 
     iget-object v0, p0, Lcom/android/server/apphibernation/AppHibernationService$AppHibernationServiceStub;->mService:Lcom/android/server/apphibernation/AppHibernationService;
 
-    invoke-static {v0, p2}, Lcom/android/server/apphibernation/AppHibernationService;->access$100(Lcom/android/server/apphibernation/AppHibernationService;Ljava/io/PrintWriter;)V
+    invoke-static {v0, p2}, Lcom/android/server/apphibernation/AppHibernationService;->access$200(Lcom/android/server/apphibernation/AppHibernationService;Ljava/io/PrintWriter;)V
 
     return-void
 .end method

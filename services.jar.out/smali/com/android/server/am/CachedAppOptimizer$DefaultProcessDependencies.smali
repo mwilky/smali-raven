@@ -17,7 +17,21 @@
 .end annotation
 
 
+# static fields
+.field public static mPidCompacting:I
+
+
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    const/4 v0, -0x1
+
+    sput v0, Lcom/android/server/am/CachedAppOptimizer$DefaultProcessDependencies;->mPidCompacting:I
+
+    return-void
+.end method
+
 .method private constructor <init>()V
     .locals 0
 
@@ -53,6 +67,8 @@
             Ljava/io/IOException;
         }
     .end annotation
+
+    sput p2, Lcom/android/server/am/CachedAppOptimizer$DefaultProcessDependencies;->mPidCompacting:I
 
     invoke-static {}, Lcom/android/server/am/CachedAppOptimizer;->access$1900()[Ljava/lang/String;
 
@@ -110,5 +126,9 @@
 
     :cond_2
     :goto_0
+    const/4 v0, -0x1
+
+    sput v0, Lcom/android/server/am/CachedAppOptimizer$DefaultProcessDependencies;->mPidCompacting:I
+
     return-void
 .end method

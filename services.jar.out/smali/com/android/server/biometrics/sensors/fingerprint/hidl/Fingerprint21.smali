@@ -1503,7 +1503,7 @@
 .end method
 
 .method public synthetic lambda$scheduleAuthenticate$9$Fingerprint21(ILandroid/os/IBinder;JLcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;JZLjava/lang/String;IIZ)V
-    .locals 25
+    .locals 26
 
     move-object/from16 v0, p0
 
@@ -1525,7 +1525,7 @@
 
     move/from16 v17, p11
 
-    move/from16 v21, p12
+    move/from16 v22, p12
 
     invoke-direct/range {p0 .. p1}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/Fingerprint21;->scheduleUpdateActiveUserWithoutHandler(I)V
 
@@ -1535,13 +1535,13 @@
 
     invoke-static {v1}, Lcom/android/server/biometrics/Utils;->isStrongBiometric(I)Z
 
-    move-result v23
+    move-result v24
 
-    move/from16 v16, v23
+    move/from16 v16, v24
 
-    new-instance v24, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintAuthenticationClient;
+    new-instance v25, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintAuthenticationClient;
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     iget-object v2, v0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/Fingerprint21;->mContext:Landroid/content/Context;
 
@@ -1563,13 +1563,17 @@
 
     move-object/from16 v20, v14
 
+    iget-object v14, v0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/Fingerprint21;->mSidefpsController:Landroid/hardware/fingerprint/ISidefpsController;
+
+    move-object/from16 v21, v14
+
     iget-object v14, v0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/Fingerprint21;->mSensorProperties:Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
 
-    move-object/from16 v22, v14
+    move-object/from16 v23, v14
 
     const/4 v14, 0x0
 
-    invoke-direct/range {v1 .. v22}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintAuthenticationClient;-><init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;JLcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;IJZLjava/lang/String;IZIZILandroid/app/TaskStackListener;Lcom/android/server/biometrics/sensors/fingerprint/hidl/LockoutFrameworkImpl;Landroid/hardware/fingerprint/IUdfpsOverlayController;ZLandroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;)V
+    invoke-direct/range {v1 .. v23}, Lcom/android/server/biometrics/sensors/fingerprint/hidl/FingerprintAuthenticationClient;-><init>(Landroid/content/Context;Lcom/android/server/biometrics/sensors/HalClientMonitor$LazyDaemon;Landroid/os/IBinder;JLcom/android/server/biometrics/sensors/ClientMonitorCallbackConverter;IJZLjava/lang/String;IZIZILandroid/app/TaskStackListener;Lcom/android/server/biometrics/sensors/fingerprint/hidl/LockoutFrameworkImpl;Landroid/hardware/fingerprint/IUdfpsOverlayController;Landroid/hardware/fingerprint/ISidefpsController;ZLandroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;)V
 
     iget-object v2, v0, Lcom/android/server/biometrics/sensors/fingerprint/hidl/Fingerprint21;->mScheduler:Lcom/android/server/biometrics/sensors/BiometricScheduler;
 

@@ -46,7 +46,7 @@
 
     iget-object v0, p0, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController$ScreenStateObserver;->mController:Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;
 
-    invoke-static {v0}, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;->access$800(Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;)V
+    invoke-static {v0}, Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;->access$1000(Lcom/android/server/accessibility/magnification/FullScreenMagnificationController;)V
 
     return-void
 .end method

@@ -655,6 +655,52 @@
     .end packed-switch
 .end method
 
+.method static synthetic lambda$activityBlockedFromFinish$0(Lcom/android/server/wm/ActivityRecord;Lcom/android/server/wm/ActivityRecord;)Z
+    .locals 1
+
+    iget-boolean v0, p1, Lcom/android/server/wm/ActivityRecord;->finishing:Z
+
+    if-nez v0, :cond_0
+
+    if-eq p1, p0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
+.method static synthetic lambda$activityBlockedFromFinish$1(Lcom/android/server/wm/ActivityRecord;Lcom/android/server/wm/TaskFragment;Lcom/android/server/wm/ActivityRecord;)Z
+    .locals 1
+
+    iget-boolean v0, p2, Lcom/android/server/wm/ActivityRecord;->finishing:Z
+
+    if-nez v0, :cond_0
+
+    if-eq p2, p0, :cond_0
+
+    invoke-virtual {p2}, Lcom/android/server/wm/ActivityRecord;->getTaskFragment()Lcom/android/server/wm/TaskFragment;
+
+    move-result-object v0
+
+    if-eq v0, p1, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+.end method
+
 .method private lockKeyguardIfNeeded(I)V
     .locals 2
 
@@ -1435,52 +1481,132 @@
 
 # virtual methods
 .method activityBlockedFromFinish(Lcom/android/server/wm/ActivityRecord;)Z
-    .locals 3
+    .locals 9
 
     invoke-virtual {p1}, Lcom/android/server/wm/ActivityRecord;->getTask()Lcom/android/server/wm/Task;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/server/wm/Task;->getRootActivity()Lcom/android/server/wm/ActivityRecord;
-
-    move-result-object v1
-
-    if-ne p1, v1, :cond_0
-
-    invoke-virtual {v0}, Lcom/android/server/wm/Task;->getTopNonFinishingActivity()Lcom/android/server/wm/ActivityRecord;
-
-    move-result-object v1
-
-    if-ne p1, v1, :cond_0
-
     iget v1, v0, Lcom/android/server/wm/Task;->mLockTaskAuth:I
 
-    const/4 v2, 0x4
+    const/4 v2, 0x0
 
-    if-eq v1, v2, :cond_0
+    const/4 v3, 0x4
+
+    if-eq v1, v3, :cond_8
 
     invoke-direct {p0, v0}, Lcom/android/server/wm/LockTaskController;->isRootTask(Lcom/android/server/wm/Task;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-nez v1, :cond_0
 
-    const-string v1, "ActivityTaskManager"
+    goto :goto_3
 
-    const-string v2, "Not finishing task in lock task mode"
+    :cond_0
+    invoke-virtual {v0}, Lcom/android/server/wm/Task;->getTopNonFinishingActivity()Lcom/android/server/wm/ActivityRecord;
 
-    invoke-static {v1, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v1
+
+    invoke-virtual {v0}, Lcom/android/server/wm/Task;->getRootActivity()Lcom/android/server/wm/ActivityRecord;
+
+    move-result-object v3
+
+    const/4 v4, 0x1
+
+    if-ne p1, v3, :cond_1
+
+    if-eq p1, v1, :cond_6
+
+    :cond_1
+    invoke-virtual {p1}, Lcom/android/server/wm/ActivityRecord;->getTaskFragment()Lcom/android/server/wm/TaskFragment;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/server/wm/TaskFragment;->getAdjacentTaskFragment()Lcom/android/server/wm/TaskFragment;
+
+    move-result-object v6
+
+    invoke-virtual {v5}, Lcom/android/server/wm/TaskFragment;->asTask()Lcom/android/server/wm/Task;
+
+    move-result-object v7
+
+    if-nez v7, :cond_7
+
+    invoke-virtual {v5}, Lcom/android/server/wm/TaskFragment;->isDelayLastActivityRemoval()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_7
+
+    if-nez v6, :cond_2
+
+    goto :goto_2
+
+    :cond_2
+    new-instance v7, Lcom/android/server/wm/LockTaskController$$ExternalSyntheticLambda4;
+
+    invoke-direct {v7, p1}, Lcom/android/server/wm/LockTaskController$$ExternalSyntheticLambda4;-><init>(Lcom/android/server/wm/ActivityRecord;)V
+
+    invoke-virtual {v5, v7}, Lcom/android/server/wm/TaskFragment;->getActivity(Ljava/util/function/Predicate;)Lcom/android/server/wm/ActivityRecord;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_3
+
+    move v7, v4
+
+    goto :goto_0
+
+    :cond_3
+    move v7, v2
+
+    :goto_0
+    if-eqz v7, :cond_4
+
+    return v2
+
+    :cond_4
+    new-instance v8, Lcom/android/server/wm/LockTaskController$$ExternalSyntheticLambda5;
+
+    invoke-direct {v8, p1, v6}, Lcom/android/server/wm/LockTaskController$$ExternalSyntheticLambda5;-><init>(Lcom/android/server/wm/ActivityRecord;Lcom/android/server/wm/TaskFragment;)V
+
+    invoke-virtual {v0, v8}, Lcom/android/server/wm/Task;->getActivity(Ljava/util/function/Predicate;)Lcom/android/server/wm/ActivityRecord;
+
+    move-result-object v8
+
+    if-eqz v8, :cond_5
+
+    move v8, v4
+
+    goto :goto_1
+
+    :cond_5
+    move v8, v2
+
+    :goto_1
+    if-eqz v8, :cond_6
+
+    return v2
+
+    :cond_6
+    const-string v2, "ActivityTaskManager"
+
+    const-string v5, "Not finishing task in lock task mode"
+
+    invoke-static {v2, v5}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p0}, Lcom/android/server/wm/LockTaskController;->showLockTaskToast()V
 
-    const/4 v1, 0x1
+    return v4
 
-    return v1
+    :cond_7
+    :goto_2
+    return v2
 
-    :cond_0
-    const/4 v1, 0x0
-
-    return v1
+    :cond_8
+    :goto_3
+    return v2
 .end method
 
 .method canMoveTaskToBack(Lcom/android/server/wm/Task;)Z
@@ -2344,7 +2470,7 @@
     return v0
 .end method
 
-.method public synthetic lambda$removeLockedTask$0$LockTaskController(Lcom/android/server/wm/Task;)V
+.method public synthetic lambda$removeLockedTask$2$LockTaskController(Lcom/android/server/wm/Task;)V
     .locals 1
 
     iget v0, p1, Lcom/android/server/wm/Task;->mUserId:I
@@ -2354,7 +2480,7 @@
     return-void
 .end method
 
-.method public synthetic lambda$setLockTaskMode$1$LockTaskController(Landroid/content/Intent;Lcom/android/server/wm/Task;I)V
+.method public synthetic lambda$setLockTaskMode$3$LockTaskController(Landroid/content/Intent;Lcom/android/server/wm/Task;I)V
     .locals 2
 
     nop
@@ -2374,7 +2500,7 @@
     return-void
 .end method
 
-.method public synthetic lambda$updateLockTaskFeatures$2$LockTaskController(I)V
+.method public synthetic lambda$updateLockTaskFeatures$4$LockTaskController(I)V
     .locals 2
 
     iget v0, p0, Lcom/android/server/wm/LockTaskController;->mLockTaskModeState:I

@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/util/function/Function;
 
 
 # static fields
@@ -32,14 +32,18 @@
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
-    check-cast p1, Lcom/android/server/wm/WindowState;
+    check-cast p1, Lcom/android/server/wm/TaskFragment;
 
-    invoke-static {p1}, Lcom/android/server/wm/ActivityRecord;->lambda$onAnimationFinished$12(Lcom/android/server/wm/WindowState;)Z
+    invoke-virtual {p1}, Lcom/android/server/wm/TaskFragment;->isEmbedded()Z
 
     move-result p1
 
-    return p1
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object p1
+
+    return-object p1
 .end method

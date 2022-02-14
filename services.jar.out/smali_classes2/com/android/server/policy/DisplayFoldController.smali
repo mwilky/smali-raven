@@ -3,13 +3,7 @@
 .source "DisplayFoldController.java"
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "DisplayFoldController"
-
-
 # instance fields
-.field private final mCameraServiceProxy:Lcom/android/server/camera/CameraServiceProxy;
-
 .field private final mDisplayId:I
 
 .field private final mDisplayManagerInternal:Landroid/hardware/display/DisplayManagerInternal;
@@ -42,7 +36,7 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Lcom/android/server/wm/WindowManagerInternal;Landroid/hardware/display/DisplayManagerInternal;Lcom/android/server/camera/CameraServiceProxy;ILandroid/graphics/Rect;Landroid/os/Handler;)V
+.method constructor <init>(Landroid/content/Context;Lcom/android/server/wm/WindowManagerInternal;Landroid/hardware/display/DisplayManagerInternal;ILandroid/graphics/Rect;Landroid/os/Handler;)V
     .locals 4
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -75,17 +69,15 @@
 
     iput-object p3, p0, Lcom/android/server/policy/DisplayFoldController;->mDisplayManagerInternal:Landroid/hardware/display/DisplayManagerInternal;
 
-    iput-object p4, p0, Lcom/android/server/policy/DisplayFoldController;->mCameraServiceProxy:Lcom/android/server/camera/CameraServiceProxy;
-
-    iput p5, p0, Lcom/android/server/policy/DisplayFoldController;->mDisplayId:I
+    iput p4, p0, Lcom/android/server/policy/DisplayFoldController;->mDisplayId:I
 
     new-instance v0, Landroid/graphics/Rect;
 
-    invoke-direct {v0, p6}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
+    invoke-direct {v0, p5}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
 
     iput-object v0, p0, Lcom/android/server/policy/DisplayFoldController;->mFoldedArea:Landroid/graphics/Rect;
 
-    iput-object p7, p0, Lcom/android/server/policy/DisplayFoldController;->mHandler:Landroid/os/Handler;
+    iput-object p6, p0, Lcom/android/server/policy/DisplayFoldController;->mHandler:Landroid/os/Handler;
 
     const-class v0, Landroid/hardware/devicestate/DeviceStateManager;
 
@@ -97,7 +89,7 @@
 
     new-instance v1, Landroid/os/HandlerExecutor;
 
-    invoke-direct {v1, p7}, Landroid/os/HandlerExecutor;-><init>(Landroid/os/Handler;)V
+    invoke-direct {v1, p6}, Landroid/os/HandlerExecutor;-><init>(Landroid/os/Handler;)V
 
     new-instance v2, Landroid/hardware/devicestate/DeviceStateManager$FoldStateListener;
 
@@ -113,7 +105,7 @@
 .end method
 
 .method static create(Landroid/content/Context;I)Lcom/android/server/policy/DisplayFoldController;
-    .locals 14
+    .locals 12
 
     const-class v0, Lcom/android/server/wm/WindowManagerInternal;
 
@@ -129,19 +121,9 @@
 
     move-result-object v1
 
-    move-object v9, v1
+    move-object v8, v1
 
-    check-cast v9, Landroid/hardware/display/DisplayManagerInternal;
-
-    const-class v1, Lcom/android/server/camera/CameraServiceProxy;
-
-    invoke-static {v1}, Lcom/android/server/LocalServices;->getService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    move-object v10, v1
-
-    check-cast v10, Lcom/android/server/camera/CameraServiceProxy;
+    check-cast v8, Landroid/hardware/display/DisplayManagerInternal;
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -151,11 +133,11 @@
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v9
 
-    if-eqz v11, :cond_1
+    if-eqz v9, :cond_1
 
-    invoke-virtual {v11}, Ljava/lang/String;->isEmpty()Z
+    invoke-virtual {v9}, Ljava/lang/String;->isEmpty()Z
 
     move-result v1
 
@@ -164,11 +146,11 @@
     goto :goto_0
 
     :cond_0
-    invoke-static {v11}, Landroid/graphics/Rect;->unflattenFromString(Ljava/lang/String;)Landroid/graphics/Rect;
+    invoke-static {v9}, Landroid/graphics/Rect;->unflattenFromString(Ljava/lang/String;)Landroid/graphics/Rect;
 
     move-result-object v1
 
-    move-object v12, v1
+    move-object v10, v1
 
     goto :goto_1
 
@@ -178,32 +160,30 @@
 
     invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
 
-    move-object v12, v1
+    move-object v10, v1
 
     :goto_1
-    new-instance v13, Lcom/android/server/policy/DisplayFoldController;
+    new-instance v11, Lcom/android/server/policy/DisplayFoldController;
 
     invoke-static {}, Lcom/android/server/DisplayThread;->getHandler()Landroid/os/Handler;
 
-    move-result-object v8
+    move-result-object v7
 
-    move-object v1, v13
+    move-object v1, v11
 
     move-object v2, p0
 
     move-object v3, v0
 
-    move-object v4, v9
+    move-object v4, v8
 
-    move-object v5, v10
+    move v5, p1
 
-    move v6, p1
+    move-object v6, v10
 
-    move-object v7, v12
+    invoke-direct/range {v1 .. v7}, Lcom/android/server/policy/DisplayFoldController;-><init>(Landroid/content/Context;Lcom/android/server/wm/WindowManagerInternal;Landroid/hardware/display/DisplayManagerInternal;ILandroid/graphics/Rect;Landroid/os/Handler;)V
 
-    invoke-direct/range {v1 .. v8}, Lcom/android/server/policy/DisplayFoldController;-><init>(Landroid/content/Context;Lcom/android/server/wm/WindowManagerInternal;Landroid/hardware/display/DisplayManagerInternal;Lcom/android/server/camera/CameraServiceProxy;ILandroid/graphics/Rect;Landroid/os/Handler;)V
-
-    return-object v13
+    return-object v11
 .end method
 
 .method private setDeviceFolded(Z)V
@@ -352,31 +332,6 @@
 
     :cond_4
     :goto_1
-    iget-object v1, p0, Lcom/android/server/policy/DisplayFoldController;->mCameraServiceProxy:Lcom/android/server/camera/CameraServiceProxy;
-
-    if-eqz v1, :cond_6
-
-    const/4 v2, 0x4
-
-    if-eqz p1, :cond_5
-
-    invoke-virtual {v1, v2}, Lcom/android/server/camera/CameraServiceProxy;->setDeviceStateFlags(I)V
-
-    goto :goto_2
-
-    :cond_5
-    invoke-virtual {v1, v2}, Lcom/android/server/camera/CameraServiceProxy;->clearDeviceStateFlags(I)V
-
-    goto :goto_2
-
-    :cond_6
-    const-string v1, "DisplayFoldController"
-
-    const-string v2, "Camera service unavailable to toggle folded state."
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_2
     iget-object v1, p0, Lcom/android/server/policy/DisplayFoldController;->mDurationLogger:Lcom/android/server/policy/DisplayFoldDurationLogger;
 
     invoke-virtual {v1, p1}, Lcom/android/server/policy/DisplayFoldDurationLogger;->setDeviceFolded(Z)V
@@ -401,8 +356,8 @@
 
     const/4 v2, 0x0
 
-    :goto_3
-    if-ge v2, v1, :cond_7
+    :goto_2
+    if-ge v2, v1, :cond_5
 
     :try_start_0
     iget-object v3, p0, Lcom/android/server/policy/DisplayFoldController;->mListeners:Landroid/os/RemoteCallbackList;
@@ -419,17 +374,17 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_4
+    goto :goto_3
 
     :catch_0
     move-exception v3
 
-    :goto_4
+    :goto_3
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_3
+    goto :goto_2
 
-    :cond_7
+    :cond_5
     iget-object v2, p0, Lcom/android/server/policy/DisplayFoldController;->mListeners:Landroid/os/RemoteCallbackList;
 
     invoke-virtual {v2}, Landroid/os/RemoteCallbackList;->finishBroadcast()V

@@ -13,12 +13,6 @@
     name = "TaskOrganizerCallbacks"
 .end annotation
 
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks$StartingWindowAnimationAdaptor;
-    }
-.end annotation
-
 
 # instance fields
 .field final mDeferTaskOrgCallbacksConsumer:Ljava/util/function/Consumer;
@@ -62,71 +56,6 @@
 
 
 # virtual methods
-.method addStartingWindow(Lcom/android/server/wm/Task;Lcom/android/server/wm/ActivityRecord;ILandroid/window/TaskSnapshot;)V
-    .locals 4
-
-    invoke-virtual {p1, p2}, Lcom/android/server/wm/Task;->getStartingWindowInfo(Lcom/android/server/wm/ActivityRecord;)Landroid/window/StartingWindowInfo;
-
-    move-result-object v0
-
-    if-eqz p3, :cond_0
-
-    iput p3, v0, Landroid/window/StartingWindowInfo;->splashScreenThemeResId:I
-
-    :cond_0
-    iput-object p4, v0, Landroid/window/StartingWindowInfo;->mTaskSnapshot:Landroid/window/TaskSnapshot;
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;->mTaskOrganizer:Landroid/window/ITaskOrganizer;
-
-    iget-object v2, p2, Lcom/android/server/wm/ActivityRecord;->token:Landroid/os/IBinder;
-
-    invoke-interface {v1, v0, v2}, Landroid/window/ITaskOrganizer;->addStartingWindow(Landroid/window/StartingWindowInfo;Landroid/os/IBinder;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v1
-
-    const-string v2, "TaskOrganizerController"
-
-    const-string v3, "Exception sending onTaskStart callback"
-
-    invoke-static {v2, v3, v1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :goto_0
-    return-void
-.end method
-
-.method copySplashScreenView(Lcom/android/server/wm/Task;)V
-    .locals 3
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;->mTaskOrganizer:Landroid/window/ITaskOrganizer;
-
-    iget v1, p1, Lcom/android/server/wm/Task;->mTaskId:I
-
-    invoke-interface {v0, v1}, Landroid/window/ITaskOrganizer;->copySplashScreenView(I)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v0
-
-    const-string v1, "TaskOrganizerController"
-
-    const-string v2, "Exception sending copyStartingWindowView callback"
-
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :goto_0
-    return-void
-.end method
-
 .method getBinder()Landroid/os/IBinder;
     .locals 1
 
@@ -137,33 +66,6 @@
     move-result-object v0
 
     return-object v0
-.end method
-
-.method onAppSplashScreenViewRemoved(Lcom/android/server/wm/Task;)V
-    .locals 3
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;->mTaskOrganizer:Landroid/window/ITaskOrganizer;
-
-    iget v1, p1, Lcom/android/server/wm/Task;->mTaskId:I
-
-    invoke-interface {v0, v1}, Landroid/window/ITaskOrganizer;->onAppSplashScreenViewRemoved(I)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v0
-
-    const-string v1, "TaskOrganizerController"
-
-    const-string v2, "Exception sending onAppSplashScreenViewRemoved callback"
-
-    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :goto_0
-    return-void
 .end method
 
 .method onBackPressedOnTaskRoot(Lcom/android/server/wm/Task;)V
@@ -444,94 +346,4 @@
     invoke-direct {v0, v1, p2}, Landroid/view/SurfaceControl;-><init>(Landroid/view/SurfaceControl;Ljava/lang/String;)V
 
     return-object v0
-.end method
-
-.method removeStartingWindow(Lcom/android/server/wm/Task;Z)V
-    .locals 9
-
-    const/4 v0, 0x0
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p1}, Lcom/android/server/wm/Task;->inMultiWindowMode()Z
-
-    move-result v2
-
-    xor-int/lit8 v2, v2, 0x1
-
-    if-eqz p2, :cond_0
-
-    if-eqz v2, :cond_0
-
-    invoke-virtual {p1}, Lcom/android/server/wm/Task;->topActivityContainsStartingWindow()Lcom/android/server/wm/ActivityRecord;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_0
-
-    nop
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v3, v4}, Lcom/android/server/wm/ActivityRecord;->findMainWindow(Z)Lcom/android/server/wm/WindowState;
-
-    move-result-object v5
-
-    if-eqz v5, :cond_0
-
-    new-instance v6, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks$StartingWindowAnimationAdaptor;
-
-    const/4 v7, 0x0
-
-    invoke-direct {v6, p0, v7}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks$StartingWindowAnimationAdaptor;-><init>(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;Lcom/android/server/wm/TaskOrganizerController$1;)V
-
-    invoke-virtual {v5}, Lcom/android/server/wm/WindowState;->getPendingTransaction()Landroid/view/SurfaceControl$Transaction;
-
-    move-result-object v7
-
-    const/16 v8, 0x80
-
-    invoke-virtual {v5, v7, v6, v4, v8}, Lcom/android/server/wm/WindowState;->startAnimation(Landroid/view/SurfaceControl$Transaction;Lcom/android/server/wm/AnimationAdapter;ZI)V
-
-    invoke-static {v6}, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks$StartingWindowAnimationAdaptor;->access$300(Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks$StartingWindowAnimationAdaptor;)Landroid/view/SurfaceControl;
-
-    move-result-object v0
-
-    invoke-virtual {v5}, Lcom/android/server/wm/WindowState;->getRelativeFrame()Landroid/graphics/Rect;
-
-    move-result-object v1
-
-    iget v4, v1, Landroid/graphics/Rect;->left:I
-
-    int-to-float v4, v4
-
-    iget v8, v1, Landroid/graphics/Rect;->top:I
-
-    int-to-float v8, v8
-
-    invoke-virtual {v7, v0, v4, v8}, Landroid/view/SurfaceControl$Transaction;->setPosition(Landroid/view/SurfaceControl;FF)Landroid/view/SurfaceControl$Transaction;
-
-    :cond_0
-    :try_start_0
-    iget-object v3, p0, Lcom/android/server/wm/TaskOrganizerController$TaskOrganizerCallbacks;->mTaskOrganizer:Landroid/window/ITaskOrganizer;
-
-    iget v4, p1, Lcom/android/server/wm/Task;->mTaskId:I
-
-    invoke-interface {v3, v4, v0, v1, p2}, Landroid/window/ITaskOrganizer;->removeStartingWindow(ILandroid/view/SurfaceControl;Landroid/graphics/Rect;Z)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v3
-
-    const-string v4, "TaskOrganizerController"
-
-    const-string v5, "Exception sending onStartTaskFinished callback"
-
-    invoke-static {v4, v5, v3}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :goto_0
-    return-void
 .end method

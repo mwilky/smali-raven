@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 3
+    .locals 4
 
     iget v0, p1, Landroid/os/Message;->what:I
 
@@ -99,7 +99,9 @@
 
     iget-object v2, p0, Lcom/android/server/wm/DisplayPolicy$PolicyHandler;->this$0:Lcom/android/server/wm/DisplayPolicy;
 
-    invoke-static {v2, v1}, Lcom/android/server/wm/DisplayPolicy;->access$100(Lcom/android/server/wm/DisplayPolicy;Lcom/android/server/wm/WindowState;)V
+    const/4 v3, 0x1
+
+    invoke-static {v2, v1, v3}, Lcom/android/server/wm/DisplayPolicy;->access$100(Lcom/android/server/wm/DisplayPolicy;Lcom/android/server/wm/WindowState;Z)V
 
     :cond_1
     monitor-exit v0
@@ -117,8 +119,6 @@
 
     :goto_1
     return-void
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x2

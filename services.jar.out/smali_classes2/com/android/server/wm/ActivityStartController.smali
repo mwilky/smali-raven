@@ -1684,6 +1684,78 @@
     return v4
 .end method
 
+.method startActivityInTaskFragment(Lcom/android/server/wm/TaskFragment;Landroid/content/Intent;Landroid/os/Bundle;Landroid/os/IBinder;II)I
+    .locals 3
+
+    if-eqz p4, :cond_0
+
+    invoke-static {p4}, Lcom/android/server/wm/ActivityRecord;->forTokenLocked(Landroid/os/IBinder;)Lcom/android/server/wm/ActivityRecord;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    const-string v1, "startActivityInTaskFragment"
+
+    invoke-virtual {p0, p2, v1}, Lcom/android/server/wm/ActivityStartController;->obtainStarter(Landroid/content/Intent;Ljava/lang/String;)Lcom/android/server/wm/ActivityStarter;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p3}, Lcom/android/server/wm/ActivityStarter;->setActivityOptions(Landroid/os/Bundle;)Lcom/android/server/wm/ActivityStarter;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Lcom/android/server/wm/ActivityStarter;->setInTaskFragment(Lcom/android/server/wm/TaskFragment;)Lcom/android/server/wm/ActivityStarter;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p4}, Lcom/android/server/wm/ActivityStarter;->setResultTo(Landroid/os/IBinder;)Lcom/android/server/wm/ActivityStarter;
+
+    move-result-object v1
+
+    const/4 v2, -0x1
+
+    invoke-virtual {v1, v2}, Lcom/android/server/wm/ActivityStarter;->setRequestCode(I)Lcom/android/server/wm/ActivityStarter;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p5}, Lcom/android/server/wm/ActivityStarter;->setCallingUid(I)Lcom/android/server/wm/ActivityStarter;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p6}, Lcom/android/server/wm/ActivityStarter;->setCallingPid(I)Lcom/android/server/wm/ActivityStarter;
+
+    move-result-object v1
+
+    if-eqz v0, :cond_1
+
+    iget v2, v0, Lcom/android/server/wm/ActivityRecord;->mUserId:I
+
+    goto :goto_1
+
+    :cond_1
+    iget-object v2, p0, Lcom/android/server/wm/ActivityStartController;->mService:Lcom/android/server/wm/ActivityTaskManagerService;
+
+    invoke-virtual {v2}, Lcom/android/server/wm/ActivityTaskManagerService;->getCurrentUserId()I
+
+    move-result v2
+
+    :goto_1
+    invoke-virtual {v1, v2}, Lcom/android/server/wm/ActivityStarter;->setUserId(I)Lcom/android/server/wm/ActivityStarter;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/server/wm/ActivityStarter;->execute()I
+
+    move-result v1
+
+    return v1
+.end method
+
 .method startHomeActivity(Landroid/content/Intent;Landroid/content/pm/ActivityInfo;Ljava/lang/String;Lcom/android/server/wm/TaskDisplayArea;)V
     .locals 6
 

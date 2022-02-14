@@ -110,7 +110,7 @@
 
     iget v4, v2, Lcom/android/server/pm/PackageSetting;->appId:I
 
-    invoke-static {p1, v3, v4, p3, p4}, Lcom/android/server/pm/PackageManagerService;->access$8100(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;IILjava/lang/String;)V
+    invoke-static {p1, v3, v4, p3, p4}, Lcom/android/server/pm/PackageManagerService;->access$8000(Lcom/android/server/pm/PackageManagerService;Ljava/lang/String;IILjava/lang/String;)V
 
     :cond_0
     monitor-exit v1
