@@ -169,6 +169,9 @@
 
     .line 332
     .local v1, "ContentResolver":Landroid/content/ContentResolver;
+    if-eqz p1, :cond_bc
+
+    .line 333
     const-string v2, "statusbar"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -183,150 +186,76 @@
 
     const-string v6, "bluetooth"
 
-    if-eqz v2, :cond_3f
+    if-eqz v2, :cond_49
 
-    .line 333
+    .line 334
+    if-eqz p0, :cond_25
+
     invoke-virtual {p0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_21
+    if-eqz v2, :cond_25
 
-    .line 334
+    .line 335
     sget v2, Lcom/android/mwilky/Renovate;->mBluetoothIconColor:I
 
     return v2
 
-    .line 335
-    :cond_21
+    .line 336
+    :cond_25
+    if-eqz p0, :cond_30
+
     invoke-virtual {p0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_2a
+    if-eqz v2, :cond_30
 
-    .line 336
+    .line 337
     sget v2, Lcom/android/mwilky/Renovate;->mLocationIconColor:I
 
     return v2
 
-    .line 337
-    :cond_2a
+    .line 338
+    :cond_30
+    if-eqz p0, :cond_3b
+
     invoke-virtual {p0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_33
+    if-eqz v2, :cond_3b
 
-    .line 338
+    .line 339
     sget v2, Lcom/android/mwilky/Renovate;->mVolumeIconColor:I
 
     return v2
 
-    .line 339
-    :cond_33
+    .line 340
+    :cond_3b
+    if-eqz p0, :cond_46
+
     invoke-virtual {p0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_3c
+    if-eqz v2, :cond_46
 
-    .line 340
+    .line 341
     sget v2, Lcom/android/mwilky/Renovate;->mVolumeIconColor:I
 
     return v2
 
-    .line 342
-    :cond_3c
+    .line 343
+    :cond_46
     sget v2, Lcom/android/mwilky/Renovate;->mStatusbarMiscColor:I
 
     return v2
 
-    .line 344
-    :cond_3f
-    const-string v2, "qs"
-
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_79
-
     .line 345
-    invoke-virtual {p0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_50
-
-    .line 346
-    sget v2, Lcom/android/mwilky/Renovate;->mQsBluetoothIconColor:I
-
-    return v2
-
-    .line 347
-    :cond_50
-    invoke-virtual {p0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_59
-
-    .line 348
-    sget v2, Lcom/android/mwilky/Renovate;->mQsLocationIconColor:I
-
-    return v2
-
-    .line 349
-    :cond_59
-    const-string v2, "alarm_clock"
-
-    invoke-virtual {p0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_64
-
-    .line 350
-    sget v2, Lcom/android/mwilky/Renovate;->mQsAlarmIconColor:I
-
-    return v2
-
-    .line 351
-    :cond_64
-    invoke-virtual {p0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_6d
-
-    .line 352
-    sget v2, Lcom/android/mwilky/Renovate;->mQsVolumeIconColor:I
-
-    return v2
-
-    .line 353
-    :cond_6d
-    invoke-virtual {p0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_76
-
-    .line 354
-    sget v2, Lcom/android/mwilky/Renovate;->mQsVolumeIconColor:I
-
-    return v2
-
-    .line 356
-    :cond_76
-    sget v2, Lcom/android/mwilky/Renovate;->mQsMiscColor:I
-
-    return v2
-
-    .line 358
-    :cond_79
-    const-string v2, "lockscreen"
+    :cond_49
+    const-string v2, "qs"
 
     invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -334,52 +263,156 @@
 
     if-eqz v2, :cond_8d
 
-    .line 359
+    .line 346
+    if-eqz p0, :cond_5c
+
+    invoke-virtual {p0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_5c
+
+    .line 347
+    sget v2, Lcom/android/mwilky/Renovate;->mQsBluetoothIconColor:I
+
+    return v2
+
+    .line 348
+    :cond_5c
+    if-eqz p0, :cond_67
+
     invoke-virtual {p0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_67
+
+    .line 349
+    sget v2, Lcom/android/mwilky/Renovate;->mQsLocationIconColor:I
+
+    return v2
+
+    .line 350
+    :cond_67
+    if-eqz p0, :cond_74
+
+    const-string v2, "alarm_clock"
+
+    invoke-virtual {p0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_74
+
+    .line 351
+    sget v2, Lcom/android/mwilky/Renovate;->mQsAlarmIconColor:I
+
+    return v2
+
+    .line 352
+    :cond_74
+    if-eqz p0, :cond_7f
+
+    invoke-virtual {p0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_7f
+
+    .line 353
+    sget v2, Lcom/android/mwilky/Renovate;->mQsVolumeIconColor:I
+
+    return v2
+
+    .line 354
+    :cond_7f
+    if-eqz p0, :cond_8a
+
+    invoke-virtual {p0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
     if-eqz v2, :cond_8a
 
+    .line 355
+    sget v2, Lcom/android/mwilky/Renovate;->mQsVolumeIconColor:I
+
+    return v2
+
+    .line 357
+    :cond_8a
+    sget v2, Lcom/android/mwilky/Renovate;->mQsMiscColor:I
+
+    return v2
+
+    .line 359
+    :cond_8d
+    const-string v2, "lockscreen"
+
+    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_a3
+
     .line 360
+    if-eqz p0, :cond_a0
+
+    invoke-virtual {p0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_a0
+
+    .line 361
     sget v2, Lcom/android/mwilky/Renovate;->mLsLocationIconColor:I
 
     return v2
 
-    .line 362
-    :cond_8a
+    .line 363
+    :cond_a0
     sget v2, Lcom/android/mwilky/Renovate;->mLsMiscColor:I
 
     return v2
 
-    .line 367
-    :cond_8d
+    .line 368
+    :cond_a3
+    if-eqz p0, :cond_ae
+
     invoke-virtual {p0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_96
+    if-eqz v2, :cond_ae
 
-    .line 368
+    .line 369
     sget v2, Lcom/android/mwilky/Renovate;->mLsVolumeIconColor:I
 
     return v2
 
-    .line 369
-    :cond_96
+    .line 370
+    :cond_ae
+    if-eqz p0, :cond_b9
+
     invoke-virtual {p0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_9f
+    if-eqz v2, :cond_b9
 
-    .line 370
+    .line 371
     sget v2, Lcom/android/mwilky/Renovate;->mLsBluetoothIconColor:I
 
     return v2
 
-    .line 372
-    :cond_9f
+    .line 373
+    :cond_b9
+    sget v2, Lcom/android/mwilky/Renovate;->mStatusbarMiscColor:I
+
+    return v2
+
+    .line 377
+    :cond_bc
     sget v2, Lcom/android/mwilky/Renovate;->mStatusbarMiscColor:I
 
     return v2
@@ -389,7 +422,7 @@
     .registers 3
     .param p0, "text"    # Ljava/lang/String;
 
-    .line 511
+    .line 514
     if-eqz p0, :cond_1b
 
     invoke-virtual {p0}, Ljava/lang/String;->trim()Ljava/lang/String;
@@ -490,12 +523,12 @@
     .registers 5
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 428
+    .line 431
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 429
+    .line 432
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     const-string v1, "tweaks_disable_lockscreen_large_clock"
 
@@ -514,7 +547,7 @@
     :cond_f
     sput-boolean v2, Lcom/android/mwilky/Renovate;->mDisableLockscreenLargeClock:Z
 
-    .line 430
+    .line 433
     return-void
 .end method
 
@@ -522,12 +555,12 @@
     .registers 5
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 422
+    .line 425
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 423
+    .line 426
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     const-string v1, "tweaks_disable_qs_lockscreen"
 
@@ -546,7 +579,7 @@
     :cond_f
     sput-boolean v2, Lcom/android/mwilky/Renovate;->mDisableQsLockscreen:Z
 
-    .line 425
+    .line 428
     return-void
 .end method
 
@@ -554,12 +587,12 @@
     .registers 5
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 410
+    .line 413
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 411
+    .line 414
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     const-string v1, "tweaks_double_tap_sleep"
 
@@ -578,7 +611,7 @@
     :cond_f
     sput-boolean v2, Lcom/android/mwilky/Renovate;->mDoubleTapStatusbarSleep:Z
 
-    .line 413
+    .line 416
     return-void
 .end method
 
@@ -586,12 +619,12 @@
     .registers 5
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 405
+    .line 408
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 406
+    .line 409
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     const-string v1, "tweaks_expanded_notifications"
 
@@ -610,7 +643,7 @@
     :cond_f
     sput-boolean v2, Lcom/android/mwilky/Renovate;->mExpandedNotifications:Z
 
-    .line 407
+    .line 410
     return-void
 .end method
 
@@ -618,12 +651,12 @@
     .registers 5
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 394
+    .line 397
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 395
+    .line 398
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     const-string v1, "tweaks_hide_lockscreen_shortcuts"
 
@@ -642,7 +675,7 @@
     :cond_f
     sput-boolean v2, Lcom/android/mwilky/Renovate;->mHideLockscreenShortcuts:Z
 
-    .line 396
+    .line 399
     return-void
 .end method
 
@@ -650,12 +683,12 @@
     .registers 5
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 389
+    .line 392
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 390
+    .line 393
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     const-string v1, "tweaks_hide_lockscreen_statusbar"
 
@@ -674,7 +707,7 @@
     :cond_f
     sput-boolean v2, Lcom/android/mwilky/Renovate;->mHideLockscreenStatusbar:Z
 
-    .line 391
+    .line 394
     return-void
 .end method
 
@@ -682,12 +715,12 @@
     .registers 5
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 440
+    .line 443
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 441
+    .line 444
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     const-string v1, "tweaks_hide_qs_build_number"
 
@@ -706,7 +739,7 @@
     :cond_f
     sput-boolean v2, Lcom/android/mwilky/Renovate;->mHideQsBuildNumber:Z
 
-    .line 442
+    .line 445
     return-void
 .end method
 
@@ -714,12 +747,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 416
+    .line 419
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 417
+    .line 420
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     const-string v1, "tweaks_max_notifications"
 
@@ -731,7 +764,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mMaxNotifications:I
 
-    .line 419
+    .line 422
     return-void
 .end method
 
@@ -739,12 +772,12 @@
     .registers 5
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 433
+    .line 436
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 435
+    .line 438
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     const-string v1, "tweaks_qs_brightness_slider_position"
 
@@ -756,7 +789,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsBrightnessSliderPosition:I
 
-    .line 436
+    .line 439
     const-string v1, "tweaks_qqs_brightness_slider"
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -772,7 +805,7 @@
     :cond_17
     sput-boolean v2, Lcom/android/mwilky/Renovate;->mQQsBrightnesSlider:Z
 
-    .line 437
+    .line 440
     return-void
 .end method
 
@@ -780,12 +813,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 459
+    .line 462
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 460
+    .line 463
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     const-string v1, "!"
 
@@ -797,7 +830,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsBrightnessSliderCornerRadius:I
 
-    .line 461
+    .line 464
     const-string v1, "tweaks_qs_brightness_slider_height"
 
     const/4 v2, 0x0
@@ -808,7 +841,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsBrightnessSliderHeight:I
 
-    .line 462
+    .line 465
     return-void
 .end method
 
@@ -816,12 +849,12 @@
     .registers 8
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 465
+    .line 468
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 466
+    .line 469
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     const-string v1, "tweaks_qs_columns"
 
@@ -833,7 +866,7 @@
 
     sput v3, Lcom/android/mwilky/Renovate;->mQsColumns:I
 
-    .line 467
+    .line 470
     const-string v3, "tweaks_qqs_rows"
 
     invoke-static {v0, v3, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -842,7 +875,7 @@
 
     sput v3, Lcom/android/mwilky/Renovate;->mQQsRows:I
 
-    .line 468
+    .line 471
     const-string v3, "tweaks_qs_rows"
 
     const/4 v4, 0x4
@@ -853,7 +886,7 @@
 
     sput v5, Lcom/android/mwilky/Renovate;->mQsRows:I
 
-    .line 469
+    .line 472
     sget v5, Lcom/android/mwilky/Renovate;->mQQsRows:I
 
     sget v6, Lcom/android/mwilky/Renovate;->mQsColumns:I
@@ -862,7 +895,7 @@
 
     sput v5, Lcom/android/mwilky/Renovate;->mQQsMaxTiles:I
 
-    .line 471
+    .line 474
     const-string v5, "tweaks_qs_style"
 
     const/4 v6, 0x0
@@ -873,12 +906,12 @@
 
     sput v5, Lcom/android/mwilky/Renovate;->mQsStyle:I
 
-    .line 475
+    .line 478
     invoke-static {v0, v1}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
-    .line 477
+    .line 480
     .local v5, "QSColumns":Ljava/lang/String;
     invoke-static {v5}, Lcom/android/mwilky/Renovate;->isEmptyString(Ljava/lang/String;)Z
 
@@ -886,21 +919,21 @@
 
     if-eqz v6, :cond_43
 
-    .line 478
+    .line 481
     sget v6, Lcom/android/mwilky/Renovate;->mQsStyle:I
 
     if-nez v6, :cond_40
 
-    .line 479
+    .line 482
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     goto :goto_43
 
-    .line 481
+    .line 484
     :cond_40
     invoke-static {v0, v1, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 487
+    .line 490
     :cond_43
     :goto_43
     sget v2, Lcom/android/mwilky/Renovate;->mQsRows:I
@@ -909,38 +942,38 @@
 
     if-ge v2, v6, :cond_4c
 
-    .line 488
+    .line 491
     invoke-static {v0, v3, v6}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 491
+    .line 494
     :cond_4c
     sget v2, Lcom/android/mwilky/Renovate;->mQsStyle:I
 
     if-nez v2, :cond_57
 
-    .line 492
+    .line 495
     sget v2, Lcom/android/mwilky/Renovate;->mQsColumns:I
 
     if-le v2, v4, :cond_57
 
-    .line 493
+    .line 496
     invoke-static {v0, v1, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 498
+    .line 501
     :cond_57
     sget v2, Lcom/android/mwilky/Renovate;->mQsStyle:I
 
     if-lez v2, :cond_6b
 
-    .line 499
+    .line 502
     sget v2, Lcom/android/mwilky/Renovate;->mQsColumns:I
 
     if-ge v2, v4, :cond_62
 
-    .line 500
+    .line 503
     invoke-static {v0, v1, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 503
+    .line 506
     :cond_62
     sget v2, Lcom/android/mwilky/Renovate;->mQsColumns:I
 
@@ -948,10 +981,10 @@
 
     if-le v2, v3, :cond_6b
 
-    .line 504
+    .line 507
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 508
+    .line 511
     :cond_6b
     return-void
 .end method
@@ -960,15 +993,15 @@
     .registers 5
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 445
+    .line 448
     invoke-static {p0}, Lcom/android/mwilky/Renovate;->setRiceType(Landroid/content/Context;)V
 
-    .line 446
+    .line 449
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 447
+    .line 450
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     const-string v1, "tweaks_qs_tile_outline"
 
@@ -992,7 +1025,7 @@
     :goto_14
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mQsTileOutline:Z
 
-    .line 448
+    .line 451
     const-string v1, "tweaks_qs_tile_outline_width"
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -1001,7 +1034,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsTileOutlineWidth:I
 
-    .line 449
+    .line 452
     const-string v1, "tweaks_qs_tile_outline_accent"
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -1015,14 +1048,14 @@
     :cond_27
     sput-boolean v2, Lcom/android/mwilky/Renovate;->mQsTileOutlineUseAccent:Z
 
-    .line 450
+    .line 453
     if-eqz v2, :cond_36
 
     sget v1, Lcom/android/mwilky/Renovate;->mRiceType:I
 
     if-ne v1, v3, :cond_36
 
-    .line 451
+    .line 454
     invoke-static {p0}, Lcom/android/settingslib/Utils;->getColorAccentDefaultColor(Landroid/content/Context;)I
 
     move-result v1
@@ -1031,7 +1064,7 @@
 
     goto :goto_3f
 
-    .line 453
+    .line 456
     :cond_36
     const/4 v1, -0x1
 
@@ -1043,7 +1076,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsTileOutlineColor:I
 
-    .line 455
+    .line 458
     :goto_3f
     const/16 v1, 0x53
 
@@ -1055,7 +1088,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsTileCornerRadius:I
 
-    .line 456
+    .line 459
     return-void
 .end method
 
@@ -1063,12 +1096,12 @@
     .registers 5
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 399
+    .line 402
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 400
+    .line 403
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     const-string v1, "tweaks_qs_vibration"
 
@@ -1087,7 +1120,7 @@
     :cond_f
     sput-boolean v2, Lcom/android/mwilky/Renovate;->mQsVibration:Z
 
-    .line 402
+    .line 405
     return-void
 .end method
 
@@ -1120,12 +1153,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 378
+    .line 381
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 379
+    .line 382
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     const-string v1, "rice_type"
 
@@ -1137,7 +1170,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mRiceType:I
 
-    .line 381
+    .line 384
     return-void
 .end method
 
@@ -1145,12 +1178,12 @@
     .registers 5
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 384
+    .line 387
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 385
+    .line 388
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     const-string v1, "tweaks_scramble_pin"
 
@@ -1169,7 +1202,7 @@
     :cond_f
     sput-boolean v2, Lcom/android/mwilky/Renovate;->mScrambleKeypad:Z
 
-    .line 386
+    .line 389
     return-void
 .end method
 
