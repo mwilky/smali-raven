@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lkotlin/jvm/functions/Function5;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
@@ -22,24 +22,12 @@
 
 
 # virtual methods
-.method public final invoke(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+.method public final run()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipDismissTargetHandler$$ExternalSyntheticLambda1;->f$0:Lcom/android/wm/shell/pip/phone/PipDismissTargetHandler;
 
-    check-cast p1, Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject$MagneticTarget;
+    invoke-static {p0}, Lcom/android/wm/shell/pip/phone/PipDismissTargetHandler;->$r8$lambda$FMWF5IgLL4rcARLogCWgA298Trg(Lcom/android/wm/shell/pip/phone/PipDismissTargetHandler;)V
 
-    check-cast p2, Ljava/lang/Float;
-
-    check-cast p3, Ljava/lang/Float;
-
-    check-cast p4, Ljava/lang/Boolean;
-
-    check-cast p5, Lkotlin/jvm/functions/Function0;
-
-    invoke-static/range {p0 .. p5}, Lcom/android/wm/shell/pip/phone/PipDismissTargetHandler;->$r8$lambda$TtSsSHkSSUawvUr-hHxdUkwbeaA(Lcom/android/wm/shell/pip/phone/PipDismissTargetHandler;Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject$MagneticTarget;Ljava/lang/Float;Ljava/lang/Float;Ljava/lang/Boolean;Lkotlin/jvm/functions/Function0;)Lkotlin/Unit;
-
-    move-result-object p0
-
-    return-object p0
+    return-void
 .end method

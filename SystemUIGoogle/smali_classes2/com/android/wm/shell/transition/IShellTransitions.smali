@@ -15,7 +15,7 @@
 
 
 # virtual methods
-.method public abstract registerRemote(Landroid/window/TransitionFilter;Landroid/window/IRemoteTransition;)V
+.method public abstract registerRemote(Landroid/window/TransitionFilter;Landroid/window/RemoteTransition;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -23,7 +23,7 @@
     .end annotation
 .end method
 
-.method public abstract unregisterRemote(Landroid/window/IRemoteTransition;)V
+.method public abstract unregisterRemote(Landroid/window/RemoteTransition;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -109,11 +109,15 @@
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
-    iget v0, p0, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->sensorLocationY:I
+    invoke-virtual {p0}, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->getLocation()Landroid/hardware/biometrics/SensorLocationInternal;
+
+    move-result-object p0
+
+    iget v0, p0, Landroid/hardware/biometrics/SensorLocationInternal;->sensorLocationY:I
 
     sub-int v0, p1, v0
 
-    iget p0, p0, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->sensorRadius:I
+    iget p0, p0, Landroid/hardware/biometrics/SensorLocationInternal;->sensorRadius:I
 
     sub-int/2addr v0, p0
 
@@ -175,11 +179,15 @@
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
-    iget v0, p0, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->sensorLocationY:I
+    invoke-virtual {p0}, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->getLocation()Landroid/hardware/biometrics/SensorLocationInternal;
+
+    move-result-object p0
+
+    iget v0, p0, Landroid/hardware/biometrics/SensorLocationInternal;->sensorLocationY:I
 
     sub-int v0, p1, v0
 
-    iget p0, p0, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->sensorRadius:I
+    iget p0, p0, Landroid/hardware/biometrics/SensorLocationInternal;->sensorRadius:I
 
     sub-int/2addr v0, p0
 
@@ -460,7 +468,11 @@
 
     iget-object v1, p0, Lcom/android/systemui/biometrics/UdfpsDialogMeasureAdapter;->mSensorProps:Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
 
-    iget v1, v1, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->sensorRadius:I
+    invoke-virtual {v1}, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->getLocation()Landroid/hardware/biometrics/SensorLocationInternal;
+
+    move-result-object v1
+
+    iget v1, v1, Landroid/hardware/biometrics/SensorLocationInternal;->sensorRadius:I
 
     mul-int/lit8 v1, v1, 0x2
 
@@ -702,7 +714,11 @@
 
     iget-object v2, p0, Lcom/android/systemui/biometrics/UdfpsDialogMeasureAdapter;->mSensorProps:Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
 
-    iget v2, v2, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->sensorRadius:I
+    invoke-virtual {v2}, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->getLocation()Landroid/hardware/biometrics/SensorLocationInternal;
+
+    move-result-object v2
+
+    iget v2, v2, Landroid/hardware/biometrics/SensorLocationInternal;->sensorRadius:I
 
     mul-int/lit8 v2, v2, 0x2
 

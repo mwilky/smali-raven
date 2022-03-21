@@ -16,12 +16,28 @@
     .end annotation
 .end field
 
-.field private final mManager:Lcom/android/systemui/shared/plugins/PluginManager;
+.field private final mManagerLazy:Ldagger/Lazy;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ldagger/Lazy<",
+            "Lcom/android/systemui/shared/plugins/PluginManager;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/systemui/shared/plugins/PluginManager;)V
+.method public constructor <init>(Ldagger/Lazy;)V
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ldagger/Lazy<",
+            "Lcom/android/systemui/shared/plugins/PluginManager;",
+            ">;)V"
+        }
+    .end annotation
 
     invoke-direct {p0}, Lcom/android/systemui/plugins/PluginDependency$DependencyProvider;-><init>()V
 
@@ -31,7 +47,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/plugins/PluginDependencyProvider;->mDependencies:Landroid/util/ArrayMap;
 
-    iput-object p1, p0, Lcom/android/systemui/plugins/PluginDependencyProvider;->mManager:Lcom/android/systemui/shared/plugins/PluginManager;
+    iput-object p1, p0, Lcom/android/systemui/plugins/PluginDependencyProvider;->mManagerLazy:Ldagger/Lazy;
 
     sput-object p0, Lcom/android/systemui/plugins/PluginDependency;->sProvider:Lcom/android/systemui/plugins/PluginDependency$DependencyProvider;
 
@@ -109,7 +125,13 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/systemui/plugins/PluginDependencyProvider;->mManager:Lcom/android/systemui/shared/plugins/PluginManager;
+    iget-object v0, p0, Lcom/android/systemui/plugins/PluginDependencyProvider;->mManagerLazy:Ldagger/Lazy;
+
+    invoke-interface {v0}, Ldagger/Lazy;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/shared/plugins/PluginManager;
 
     invoke-interface {v0, p1, p2}, Lcom/android/systemui/shared/plugins/PluginManager;->dependsOn(Lcom/android/systemui/plugins/Plugin;Ljava/lang/Class;)Z
 

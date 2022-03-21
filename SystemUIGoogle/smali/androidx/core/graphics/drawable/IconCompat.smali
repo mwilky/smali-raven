@@ -139,7 +139,7 @@
         }
     .end annotation
 
-    const-string/jumbo v0, "type"
+    const-string v0, "type"
 
     invoke-virtual {p0, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
@@ -173,7 +173,7 @@
 
     iput-object v2, v1, Landroidx/core/graphics/drawable/IconCompat;->mString1:Ljava/lang/String;
 
-    const-string/jumbo v2, "tint_list"
+    const-string v2, "tint_list"
 
     invoke-virtual {p0, v2}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
@@ -190,7 +190,7 @@
     iput-object v2, v1, Landroidx/core/graphics/drawable/IconCompat;->mTintList:Landroid/content/res/ColorStateList;
 
     :cond_0
-    const-string/jumbo v2, "tint_mode"
+    const-string v2, "tint_mode"
 
     invoke-virtual {p0, v2}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
@@ -263,6 +263,8 @@
 
     :goto_0
     return-object v1
+
+    nop
 
     :pswitch_data_0
     .packed-switch -0x1
@@ -2503,7 +2505,7 @@
     :goto_0
     iget v1, p0, Landroidx/core/graphics/drawable/IconCompat;->mType:I
 
-    const-string/jumbo v2, "type"
+    const-string v2, "type"
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
@@ -2529,7 +2531,7 @@
 
     if-eqz v1, :cond_0
 
-    const-string/jumbo v2, "tint_list"
+    const-string v2, "tint_list"
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
@@ -2544,14 +2546,12 @@
 
     move-result-object p0
 
-    const-string/jumbo v1, "tint_mode"
+    const-string v1, "tint_mode"
 
     invoke-virtual {v0, v1, p0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_1
     return-object v0
-
-    nop
 
     :pswitch_data_0
     .packed-switch -0x1

@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/apppairs/AppPair$$ExternalSyntheticLambda1;->f$0:Lcom/android/wm/shell/apppairs/AppPair;
 
-    invoke-static {p0, p1}, Lcom/android/wm/shell/apppairs/AppPair;->$r8$lambda$ELk7-bYqgW3X8O9-b1lw-d4HJmo(Lcom/android/wm/shell/apppairs/AppPair;Landroid/view/SurfaceControl$Transaction;)V
+    invoke-static {p0, p1}, Lcom/android/wm/shell/apppairs/AppPair;->$r8$lambda$6VRAIkR0ehdyeE7vr9I7kDfOO6k(Lcom/android/wm/shell/apppairs/AppPair;Landroid/view/SurfaceControl$Transaction;)V
 
     return-void
 .end method

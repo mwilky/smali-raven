@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/recents/OverviewProxyService$1;
 
-    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService$1;->$r8$lambda$GBmwncgLIP4Zee5Oh-ocYLPtcUw(Lcom/android/systemui/recents/OverviewProxyService$1;)V
+    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService$1;->$r8$lambda$42gDl7SQJ0x6lC_qRR0IuFSJ43g(Lcom/android/systemui/recents/OverviewProxyService$1;)V
 
     return-void
 .end method

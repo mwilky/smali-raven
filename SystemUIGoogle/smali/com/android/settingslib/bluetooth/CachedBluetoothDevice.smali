@@ -101,6 +101,8 @@
 
 .field private mSubDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
+.field private mUnpairing:Z
+
 
 # direct methods
 .method public static synthetic $r8$lambda$-0-xnN0IkijBrHYwoB9nz3zjHpk(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;)V
@@ -161,6 +163,8 @@
     iput-boolean v0, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mIsHeadsetProfileConnectedFail:Z
 
     iput-boolean v0, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mIsHearingAidProfileConnectedFail:Z
+
+    iput-boolean v0, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mUnpairing:Z
 
     new-instance v0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice$1;
 
@@ -1457,6 +1461,14 @@
     return-object p0
 .end method
 
+.method getUnpairing()Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mUnpairing:Z
+
+    return p0
+.end method
+
 .method public hashCode()I
     .locals 0
 
@@ -2540,6 +2552,10 @@
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mDevice:Landroid/bluetooth/BluetoothDevice;
 
     if-eqz v0, :cond_1
+
+    const/4 v1, 0x1
+
+    iput-boolean v1, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mUnpairing:Z
 
     invoke-virtual {v0}, Landroid/bluetooth/BluetoothDevice;->removeBond()Z
 

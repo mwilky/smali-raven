@@ -279,6 +279,26 @@
     return v0
 .end method
 
+.method public isPluggedInWireless()Z
+    .locals 1
+
+    iget p0, p0, Lcom/android/settingslib/fuelgauge/BatteryStatus;->plugged:I
+
+    const/4 v0, 0x4
+
+    if-ne p0, v0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
+.end method
+
 .method public toString()Ljava/lang/String;
     .locals 2
 

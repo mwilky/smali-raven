@@ -77,7 +77,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$5;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
-    invoke-static {p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$2300(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Z
+    invoke-static {p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$2400(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Z
 
     move-result p1
 
@@ -85,13 +85,13 @@
 
     iget-object p1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$5;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
-    invoke-static {p1, v1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$2302(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;Z)Z
+    invoke-static {p1, v1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$2402(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;Z)Z
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$5;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
     const/4 p1, 0x1
 
-    invoke-static {p0, p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$2400(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;Z)V
+    invoke-static {p0, p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$2500(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;Z)V
 
     goto :goto_1
 

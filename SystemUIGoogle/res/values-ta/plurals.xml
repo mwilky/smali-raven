@@ -32,18 +32,6 @@
         <item quantity="other">சிம்மின் PUK குறியீடு தவறானது, மேலும் %d முறை முயலலாம். தொடர்ந்து தவறான குறியீடு உள்ளிடப்பட்டால், அதன் பிறகு சிம்மை நிரந்தரமாகப் பயன்படுத்த முடியாமல் போகும்.</item>
         <item quantity="one">சிம்மின் PUK குறியீடு தவறானது, மேலும் %d முறை முயலலாம். தொடர்ந்து தவறான குறியீடு உள்ளிடப்பட்டால், அதன் பிறகு சிம்மை நிரந்தரமாகப் பயன்படுத்த முடியாமல் போகும்.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">%d மணிநேரமாகச் சாதனம் திறக்கப்படவில்லை. கடவுச்சொல்லை உறுதிப்படுத்தவும்.</item>
-        <item quantity="one">%d மணிநேரமாகச் சாதனம் திறக்கப்படவில்லை. கடவுச்சொல்லை உறுதிப்படுத்தவும்.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">%d மணிநேரமாகச் சாதனம் திறக்கப்படவில்லை. வடிவத்தை உறுதிப்படுத்தவும்.</item>
-        <item quantity="one">%d மணிநேரமாகச் சாதனம் திறக்கப்படவில்லை. வடிவத்தை உறுதிப்படுத்தவும்.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">%d மணிநேரமாகச் சாதனம் திறக்கப்படவில்லை. பின்னை உறுதிப்படுத்தவும்.</item>
-        <item quantity="one">%d மணிநேரமாகச் சாதனம் திறக்கப்படவில்லை. பின்னை உறுதிப்படுத்தவும்.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">%d வினாடிகளுக்குப் பிறகு முயலவும்.</item>
         <item quantity="one">1 வினாடிக்குப் பிறகு முயலவும்.</item>

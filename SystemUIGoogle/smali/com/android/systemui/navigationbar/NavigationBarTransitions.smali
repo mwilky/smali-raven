@@ -370,11 +370,11 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/navigationbar/NavigationBarTransitions;->mView:Lcom/android/systemui/navigationbar/NavigationBarView;
 
-    invoke-virtual {v0}, Lcom/android/systemui/navigationbar/NavigationBarView;->getRotationButtonController()Lcom/android/systemui/navigationbar/RotationButtonController;
+    invoke-virtual {v0}, Lcom/android/systemui/navigationbar/NavigationBarView;->getRotationButtonController()Lcom/android/systemui/shared/rotation/RotationButtonController;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Lcom/android/systemui/navigationbar/RotationButtonController;->setDarkIntensity(F)V
+    invoke-virtual {v0, p1}, Lcom/android/systemui/shared/rotation/RotationButtonController;->setDarkIntensity(F)V
 
     iget-object v0, p0, Lcom/android/systemui/navigationbar/NavigationBarTransitions;->mDarkIntensityListeners:Ljava/util/List;
 

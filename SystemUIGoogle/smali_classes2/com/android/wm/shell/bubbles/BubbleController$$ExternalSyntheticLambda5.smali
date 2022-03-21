@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/android/wm/shell/bubbles/Bubbles$SuppressionChangedListener;
+.implements Lcom/android/wm/shell/bubbles/Bubbles$PendingIntentCanceledListener;
 
 
 # instance fields
@@ -22,12 +22,12 @@
 
 
 # virtual methods
-.method public final onBubbleNotificationSuppressionChange(Lcom/android/wm/shell/bubbles/Bubble;)V
+.method public final onPendingIntentCanceled(Lcom/android/wm/shell/bubbles/Bubble;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleController$$ExternalSyntheticLambda5;->f$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
-    invoke-virtual {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController;->onBubbleNotificationSuppressionChanged(Lcom/android/wm/shell/bubbles/Bubble;)V
+    invoke-static {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController;->$r8$lambda$Hi9BK0rOQd9HuAwiFUyBpCEzouY(Lcom/android/wm/shell/bubbles/BubbleController;Lcom/android/wm/shell/bubbles/Bubble;)V
 
     return-void
 .end method

@@ -6,14 +6,14 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$CtaState;,
+        Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$CtaVisibleState;,
         Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$SendType;,
         Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$Companion;
     }
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nNotificationVoiceReplyLogger.kt\nKotlin\n*S Kotlin\n*F\n+ 1 NotificationVoiceReplyLogger.kt\ncom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger\n+ 2 LogBuffer.kt\ncom/android/systemui/log/LogBuffer\n*L\n1#1,338:1\n59#1:459\n59#1:466\n59#1:479\n113#2,6:339\n113#2,6:345\n113#2,6:351\n113#2,6:357\n113#2,6:363\n113#2,6:369\n113#2,6:375\n113#2,6:381\n113#2,6:387\n113#2,6:393\n113#2,6:399\n113#2,6:405\n113#2,6:411\n113#2,6:417\n113#2,6:423\n113#2,6:429\n113#2,6:435\n113#2,6:441\n113#2,6:447\n113#2,6:453\n113#2,6:460\n113#2,6:467\n113#2,6:473\n113#2,6:480\n113#2,6:486\n*E\n*S KotlinDebug\n*F\n+ 1 NotificationVoiceReplyLogger.kt\ncom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger\n*L\n237#1:459\n242#1:466\n261#1:479\n30#1,6:339\n39#1,6:345\n50#1,6:351\n53#1,6:357\n59#1,6:363\n61#1,6:369\n67#1,6:375\n76#1,6:381\n82#1,6:387\n88#1,6:393\n97#1,6:399\n103#1,6:405\n110#1,6:411\n124#1,6:417\n141#1,6:423\n148#1,6:429\n158#1,6:435\n161#1,6:441\n169#1,6:447\n222#1,6:453\n237#1,6:460\n242#1,6:467\n247#1,6:473\n261#1,6:480\n264#1,6:486\n*E\n"
+    value = "SMAP\nNotificationVoiceReplyLogger.kt\nKotlin\n*S Kotlin\n*F\n+ 1 NotificationVoiceReplyLogger.kt\ncom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger\n+ 2 LogBuffer.kt\ncom/android/systemui/log/LogBuffer\n*L\n1#1,361:1\n67#1:488\n67#1:495\n67#1:508\n67#1:521\n120#2,6:362\n120#2,6:368\n120#2,6:374\n120#2,6:380\n120#2,6:386\n120#2,6:392\n120#2,6:398\n120#2,6:404\n120#2,6:410\n120#2,6:416\n120#2,6:422\n120#2,6:428\n120#2,6:434\n120#2,6:440\n120#2,6:446\n120#2,6:452\n120#2,6:458\n120#2,6:464\n120#2,6:470\n120#2,6:476\n120#2,6:482\n120#2,6:489\n120#2,6:496\n120#2,6:502\n120#2,6:509\n120#2,6:515\n120#2,6:522\n120#2,6:528\n*E\n*S KotlinDebug\n*F\n+ 1 NotificationVoiceReplyLogger.kt\ncom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger\n*L\n249#1:488\n254#1:495\n273#1:508\n285#1:521\n30#1,6:362\n39#1,6:368\n48#1,6:374\n58#1,6:380\n61#1,6:386\n67#1,6:392\n73#1,6:398\n79#1,6:404\n88#1,6:410\n94#1,6:416\n100#1,6:422\n109#1,6:428\n115#1,6:434\n122#1,6:440\n136#1,6:446\n153#1,6:452\n160#1,6:458\n170#1,6:464\n173#1,6:470\n181#1,6:476\n234#1,6:482\n249#1,6:489\n254#1,6:496\n259#1,6:502\n273#1,6:509\n276#1,6:515\n285#1,6:522\n287#1,6:528\n*E\n"
 .end annotation
 
 
@@ -97,7 +97,7 @@
     return-void
 .end method
 
-.method private final logStateHasCandidate(Ljava/lang/String;Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$CtaState;)V
+.method private final logStateHasCandidate(Ljava/lang/String;Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$CtaVisibleState;Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;)V
     .locals 3
 
     iget-object p0, p0, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;->logBuffer:Lcom/android/systemui/log/LogBuffer;
@@ -125,6 +125,12 @@
     move-result-object p1
 
     invoke-interface {v0, p1}, Lcom/android/systemui/log/LogMessage;->setStr2(Ljava/lang/String;)V
+
+    invoke-virtual {p3}, Ljava/lang/Enum;->name()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-interface {v0, p1}, Lcom/android/systemui/log/LogMessage;->setStr3(Ljava/lang/String;)V
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/log/LogBuffer;->push(Lcom/android/systemui/log/LogMessage;)V
 
@@ -281,47 +287,6 @@
     return-void
 .end method
 
-.method public final logCandidateUserChange(IZ)V
-    .locals 3
-
-    iget-object p0, p0, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;->logBuffer:Lcom/android/systemui/log/LogBuffer;
-
-    sget-object v0, Lcom/android/systemui/log/LogLevel;->DEBUG:Lcom/android/systemui/log/LogLevel;
-
-    sget-object v1, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$logCandidateUserChange$2;->INSTANCE:Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$logCandidateUserChange$2;
-
-    invoke-virtual {p0}, Lcom/android/systemui/log/LogBuffer;->getFrozen()Z
-
-    move-result v2
-
-    if-nez v2, :cond_1
-
-    const-string v2, "NotifVoiceReply"
-
-    invoke-virtual {p0, v2, v0, v1}, Lcom/android/systemui/log/LogBuffer;->obtain(Ljava/lang/String;Lcom/android/systemui/log/LogLevel;Lkotlin/jvm/functions/Function1;)Lcom/android/systemui/log/LogMessageImpl;
-
-    move-result-object v0
-
-    invoke-interface {v0, p1}, Lcom/android/systemui/log/LogMessage;->setInt1(I)V
-
-    if-eqz p2, :cond_0
-
-    const-string p1, "Enabling"
-
-    goto :goto_0
-
-    :cond_0
-    const-string p1, "Disabling"
-
-    :goto_0
-    invoke-interface {v0, p1}, Lcom/android/systemui/log/LogMessage;->setStr1(Ljava/lang/String;)V
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/log/LogBuffer;->push(Lcom/android/systemui/log/LogMessage;)V
-
-    :cond_1
-    return-void
-.end method
-
 .method public final logFocus(Ljava/lang/String;Z)V
     .locals 3
 
@@ -364,6 +329,47 @@
     invoke-interface {v0, p1}, Lcom/android/systemui/log/LogMessage;->setStr1(Ljava/lang/String;)V
 
     invoke-interface {v0, p2}, Lcom/android/systemui/log/LogMessage;->setBool1(Z)V
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/log/LogBuffer;->push(Lcom/android/systemui/log/LogMessage;)V
+
+    :cond_1
+    return-void
+.end method
+
+.method public final logHotwordAvailabilityChanged(IZ)V
+    .locals 3
+
+    iget-object p0, p0, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;->logBuffer:Lcom/android/systemui/log/LogBuffer;
+
+    sget-object v0, Lcom/android/systemui/log/LogLevel;->DEBUG:Lcom/android/systemui/log/LogLevel;
+
+    sget-object v1, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$logHotwordAvailabilityChanged$2;->INSTANCE:Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$logHotwordAvailabilityChanged$2;
+
+    invoke-virtual {p0}, Lcom/android/systemui/log/LogBuffer;->getFrozen()Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    const-string v2, "NotifVoiceReply"
+
+    invoke-virtual {p0, v2, v0, v1}, Lcom/android/systemui/log/LogBuffer;->obtain(Ljava/lang/String;Lcom/android/systemui/log/LogLevel;Lkotlin/jvm/functions/Function1;)Lcom/android/systemui/log/LogMessageImpl;
+
+    move-result-object v0
+
+    invoke-interface {v0, p1}, Lcom/android/systemui/log/LogMessage;->setInt1(I)V
+
+    if-eqz p2, :cond_0
+
+    const-string p1, "Enabling"
+
+    goto :goto_0
+
+    :cond_0
+    const-string p1, "Disabling"
+
+    :goto_0
+    invoke-interface {v0, p1}, Lcom/android/systemui/log/LogMessage;->setStr1(Ljava/lang/String;)V
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/log/LogBuffer;->push(Lcom/android/systemui/log/LogMessage;)V
 
@@ -464,19 +470,25 @@
 
     invoke-interface {v0, v1}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
 
-    sget-object v0, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$CtaState;->DISABLED:Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$CtaState;
+    sget-object v0, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$CtaVisibleState;->DISABLED:Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$CtaVisibleState;
 
-    invoke-direct {p0, p1, v0}, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;->logStateHasCandidate(Ljava/lang/String;Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$CtaState;)V
+    sget-object v1, Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;->NONE:Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;
+
+    invoke-direct {p0, p1, v0, v1}, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;->logStateHasCandidate(Ljava/lang/String;Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$CtaVisibleState;Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;)V
 
     return-void
 .end method
 
-.method public final logNoCtaNoHun(Ljava/lang/String;)V
+.method public final logNoCtaNoHun(Ljava/lang/String;Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;)V
     .locals 2
 
     const-string v0, "key"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string v0, "ctaState"
+
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;->eventLogger:Lcom/android/internal/logging/UiEventLogger;
 
@@ -484,19 +496,23 @@
 
     invoke-interface {v0, v1}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
 
-    sget-object v0, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$CtaState;->NO_HUN_VIEW:Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$CtaState;
+    sget-object v0, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$CtaVisibleState;->NO_HUN_VIEW:Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$CtaVisibleState;
 
-    invoke-direct {p0, p1, v0}, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;->logStateHasCandidate(Ljava/lang/String;Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$CtaState;)V
+    invoke-direct {p0, p1, v0, p2}, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;->logStateHasCandidate(Ljava/lang/String;Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$CtaVisibleState;Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;)V
 
     return-void
 .end method
 
-.method public final logNoCtaNotDozing(Ljava/lang/String;)V
+.method public final logNoCtaNotDozing(Ljava/lang/String;Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;)V
     .locals 2
 
     const-string v0, "key"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string v0, "ctaState"
+
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;->eventLogger:Lcom/android/internal/logging/UiEventLogger;
 
@@ -504,10 +520,51 @@
 
     invoke-interface {v0, v1}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
 
-    sget-object v0, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$CtaState;->NOT_DOZING:Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$CtaState;
+    sget-object v0, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$CtaVisibleState;->NOT_DOZING:Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$CtaVisibleState;
 
-    invoke-direct {p0, p1, v0}, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;->logStateHasCandidate(Ljava/lang/String;Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$CtaState;)V
+    invoke-direct {p0, p1, v0, p2}, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;->logStateHasCandidate(Ljava/lang/String;Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$CtaVisibleState;Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;)V
 
+    return-void
+.end method
+
+.method public final logQuickPhraseAvailabilityChanged(IZ)V
+    .locals 3
+
+    iget-object p0, p0, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;->logBuffer:Lcom/android/systemui/log/LogBuffer;
+
+    sget-object v0, Lcom/android/systemui/log/LogLevel;->DEBUG:Lcom/android/systemui/log/LogLevel;
+
+    sget-object v1, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$logQuickPhraseAvailabilityChanged$2;->INSTANCE:Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$logQuickPhraseAvailabilityChanged$2;
+
+    invoke-virtual {p0}, Lcom/android/systemui/log/LogBuffer;->getFrozen()Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    const-string v2, "NotifVoiceReply"
+
+    invoke-virtual {p0, v2, v0, v1}, Lcom/android/systemui/log/LogBuffer;->obtain(Ljava/lang/String;Lcom/android/systemui/log/LogLevel;Lkotlin/jvm/functions/Function1;)Lcom/android/systemui/log/LogMessageImpl;
+
+    move-result-object v0
+
+    invoke-interface {v0, p1}, Lcom/android/systemui/log/LogMessage;->setInt1(I)V
+
+    if-eqz p2, :cond_0
+
+    const-string p1, "Enabling"
+
+    goto :goto_0
+
+    :cond_0
+    const-string p1, "Disabling"
+
+    :goto_0
+    invoke-interface {v0, p1}, Lcom/android/systemui/log/LogMessage;->setStr1(Ljava/lang/String;)V
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/log/LogBuffer;->push(Lcom/android/systemui/log/LogMessage;)V
+
+    :cond_1
     return-void
 .end method
 
@@ -657,6 +714,39 @@
     return-void
 .end method
 
+.method public final logRemovalDropped(Ljava/lang/String;)V
+    .locals 3
+
+    const-string v0, "notifKey"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    iget-object p0, p0, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;->logBuffer:Lcom/android/systemui/log/LogBuffer;
+
+    sget-object v0, Lcom/android/systemui/log/LogLevel;->WARNING:Lcom/android/systemui/log/LogLevel;
+
+    sget-object v1, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$logRemovalDropped$2;->INSTANCE:Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$logRemovalDropped$2;
+
+    invoke-virtual {p0}, Lcom/android/systemui/log/LogBuffer;->getFrozen()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const-string v2, "NotifVoiceReply"
+
+    invoke-virtual {p0, v2, v0, v1}, Lcom/android/systemui/log/LogBuffer;->obtain(Ljava/lang/String;Lcom/android/systemui/log/LogLevel;Lkotlin/jvm/functions/Function1;)Lcom/android/systemui/log/LogMessageImpl;
+
+    move-result-object v0
+
+    invoke-interface {v0, p1}, Lcom/android/systemui/log/LogMessage;->setStr1(Ljava/lang/String;)V
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/log/LogBuffer;->push(Lcom/android/systemui/log/LogMessage;)V
+
+    :cond_0
+    return-void
+.end method
+
 .method public final logSessionAlreadyInProgress(I)V
     .locals 3
 
@@ -756,12 +846,16 @@
     return-void
 .end method
 
-.method public final logShowCta(Ljava/lang/String;)V
+.method public final logShowCta(Ljava/lang/String;Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;)V
     .locals 2
 
     const-string v0, "key"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string v0, "ctaState"
+
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;->eventLogger:Lcom/android/internal/logging/UiEventLogger;
 
@@ -769,9 +863,9 @@
 
     invoke-interface {v0, v1}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
 
-    sget-object v0, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$CtaState;->SHOWING:Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$CtaState;
+    sget-object v0, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$CtaVisibleState;->SHOWING:Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$CtaVisibleState;
 
-    invoke-direct {p0, p1, v0}, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;->logStateHasCandidate(Ljava/lang/String;Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$CtaState;)V
+    invoke-direct {p0, p1, v0, p2}, Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger;->logStateHasCandidate(Ljava/lang/String;Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyLogger$CtaVisibleState;Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;)V
 
     return-void
 .end method

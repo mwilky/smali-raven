@@ -47,7 +47,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/qs/QSPanelController$2;->this$0:Lcom/android/systemui/qs/QSPanelController;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/QSPanelController;->access$400(Lcom/android/systemui/qs/QSPanelController;)Lcom/android/systemui/plugins/FalsingManager;
+    invoke-static {p0}, Lcom/android/systemui/qs/QSPanelController;->access$500(Lcom/android/systemui/qs/QSPanelController;)Lcom/android/systemui/plugins/FalsingManager;
 
     move-result-object p0
 

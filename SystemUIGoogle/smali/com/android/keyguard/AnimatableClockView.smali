@@ -228,12 +228,16 @@
 
     if-eqz p1, :cond_0
 
-    iget p1, p0, Lcom/android/keyguard/AnimatableClockView;->mDozingWeight:I
+    invoke-virtual {p0}, Lcom/android/keyguard/AnimatableClockView;->getDozingWeight()I
+
+    move-result p1
 
     goto :goto_0
 
     :cond_0
-    iget p1, p0, Lcom/android/keyguard/AnimatableClockView;->mLockScreenWeight:I
+    invoke-virtual {p0}, Lcom/android/keyguard/AnimatableClockView;->getLockScreenWeight()I
+
+    move-result p1
 
     :goto_0
     move v1, p1
@@ -363,7 +367,9 @@
     return-void
 
     :cond_0
-    iget v1, p0, Lcom/android/keyguard/AnimatableClockView;->mDozingWeight:I
+    invoke-virtual {p0}, Lcom/android/keyguard/AnimatableClockView;->getDozingWeight()I
+
+    move-result v1
 
     const/high16 v2, -0x40800000    # -1.0f
 
@@ -385,7 +391,9 @@
 
     invoke-direct/range {v0 .. v9}, Lcom/android/keyguard/AnimatableClockView;->setTextStyle(IFLjava/lang/Integer;ZJJLjava/lang/Runnable;)V
 
-    iget v1, p0, Lcom/android/keyguard/AnimatableClockView;->mLockScreenWeight:I
+    invoke-virtual {p0}, Lcom/android/keyguard/AnimatableClockView;->getLockScreenWeight()I
+
+    move-result v1
 
     iget v0, p0, Lcom/android/keyguard/AnimatableClockView;->mLockScreenColor:I
 
@@ -430,12 +438,16 @@
 
     if-eqz p1, :cond_1
 
-    iget p1, p0, Lcom/android/keyguard/AnimatableClockView;->mLockScreenWeight:I
+    invoke-virtual {p0}, Lcom/android/keyguard/AnimatableClockView;->getLockScreenWeight()I
+
+    move-result p1
 
     goto :goto_0
 
     :cond_1
-    iget p1, p0, Lcom/android/keyguard/AnimatableClockView;->mDozingWeight:I
+    invoke-virtual {p0}, Lcom/android/keyguard/AnimatableClockView;->getDozingWeight()I
+
+    move-result p1
 
     :goto_0
     move v2, p1
@@ -466,12 +478,16 @@
 
     if-eqz p1, :cond_0
 
-    iget v0, p0, Lcom/android/keyguard/AnimatableClockView;->mDozingWeight:I
+    invoke-virtual {p0}, Lcom/android/keyguard/AnimatableClockView;->getDozingWeight()I
+
+    move-result v0
 
     goto :goto_0
 
     :cond_0
-    iget v0, p0, Lcom/android/keyguard/AnimatableClockView;->mLockScreenWeight:I
+    invoke-virtual {p0}, Lcom/android/keyguard/AnimatableClockView;->getLockScreenWeight()I
+
+    move-result v0
 
     :goto_0
     move v2, v0
@@ -505,6 +521,48 @@
     invoke-direct/range {v1 .. v10}, Lcom/android/keyguard/AnimatableClockView;->setTextStyle(IFLjava/lang/Integer;ZJJLjava/lang/Runnable;)V
 
     return-void
+.end method
+
+.method getDozingWeight()I
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/keyguard/AnimatableClockView;->useBoldedVersion()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget p0, p0, Lcom/android/keyguard/AnimatableClockView;->mDozingWeight:I
+
+    add-int/lit8 p0, p0, 0x64
+
+    return p0
+
+    :cond_0
+    iget p0, p0, Lcom/android/keyguard/AnimatableClockView;->mDozingWeight:I
+
+    return p0
+.end method
+
+.method getLockScreenWeight()I
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/keyguard/AnimatableClockView;->useBoldedVersion()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget p0, p0, Lcom/android/keyguard/AnimatableClockView;->mLockScreenWeight:I
+
+    add-int/lit8 p0, p0, 0x64
+
+    return p0
+
+    :cond_0
+    iget p0, p0, Lcom/android/keyguard/AnimatableClockView;->mLockScreenWeight:I
+
+    return p0
 .end method
 
 .method public onAttachedToWindow()V
@@ -720,4 +778,32 @@
     invoke-virtual {p0, v0, p1}, Landroid/widget/TextView;->setLineSpacing(FF)V
 
     return-void
+.end method
+
+.method useBoldedVersion()Z
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/widget/TextView;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object p0
+
+    iget p0, p0, Landroid/content/res/Configuration;->fontWeightAdjustment:I
+
+    const/16 v0, 0x64
+
+    if-le p0, v0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
 .end method

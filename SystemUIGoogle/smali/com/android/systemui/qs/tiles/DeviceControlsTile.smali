@@ -118,14 +118,6 @@
     return-object p0
 .end method
 
-.method public static final synthetic access$getKeyguardStateController$p(Lcom/android/systemui/qs/tiles/DeviceControlsTile;)Lcom/android/systemui/statusbar/policy/KeyguardStateController;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile;->keyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
-
-    return-object p0
-.end method
-
 .method public static final synthetic access$getListingCallback$p(Lcom/android/systemui/qs/tiles/DeviceControlsTile;)Lcom/android/systemui/qs/tiles/DeviceControlsTile$listingCallback$1;
     .locals 0
 
@@ -138,22 +130,6 @@
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
-
-    return-object p0
-.end method
-
-.method public static final synthetic access$getMContext$p(Lcom/android/systemui/qs/tiles/DeviceControlsTile;)Landroid/content/Context;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
-
-    return-object p0
-.end method
-
-.method public static final synthetic access$getMHost$p(Lcom/android/systemui/qs/tiles/DeviceControlsTile;)Lcom/android/systemui/qs/QSHost;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mHost:Lcom/android/systemui/qs/QSHost;
 
     return-object p0
 .end method

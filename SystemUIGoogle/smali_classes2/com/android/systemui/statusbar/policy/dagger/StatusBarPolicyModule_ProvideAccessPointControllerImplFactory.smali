@@ -11,7 +11,7 @@
     value = {
         "Ljava/lang/Object;",
         "Ldagger/internal/Factory<",
-        "Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;",
+        "Lcom/android/systemui/statusbar/connectivity/AccessPointControllerImpl;",
         ">;"
     }
 .end annotation
@@ -52,7 +52,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl$WifiPickerTrackerFactory;",
+            "Lcom/android/systemui/statusbar/connectivity/AccessPointControllerImpl$WifiPickerTrackerFactory;",
             ">;"
         }
     .end annotation
@@ -75,7 +75,7 @@
             "Ljava/util/concurrent/Executor;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl$WifiPickerTrackerFactory;",
+            "Lcom/android/systemui/statusbar/connectivity/AccessPointControllerImpl$WifiPickerTrackerFactory;",
             ">;)V"
         }
     .end annotation
@@ -108,7 +108,7 @@
             "Ljava/util/concurrent/Executor;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl$WifiPickerTrackerFactory;",
+            "Lcom/android/systemui/statusbar/connectivity/AccessPointControllerImpl$WifiPickerTrackerFactory;",
             ">;)",
             "Lcom/android/systemui/statusbar/policy/dagger/StatusBarPolicyModule_ProvideAccessPointControllerImplFactory;"
         }
@@ -121,10 +121,10 @@
     return-object v0
 .end method
 
-.method public static provideAccessPointControllerImpl(Landroid/os/UserManager;Lcom/android/systemui/settings/UserTracker;Ljava/util/concurrent/Executor;Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl$WifiPickerTrackerFactory;)Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;
+.method public static provideAccessPointControllerImpl(Landroid/os/UserManager;Lcom/android/systemui/settings/UserTracker;Ljava/util/concurrent/Executor;Lcom/android/systemui/statusbar/connectivity/AccessPointControllerImpl$WifiPickerTrackerFactory;)Lcom/android/systemui/statusbar/connectivity/AccessPointControllerImpl;
     .locals 0
 
-    invoke-static {p0, p1, p2, p3}, Lcom/android/systemui/statusbar/policy/dagger/StatusBarPolicyModule;->provideAccessPointControllerImpl(Landroid/os/UserManager;Lcom/android/systemui/settings/UserTracker;Ljava/util/concurrent/Executor;Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl$WifiPickerTrackerFactory;)Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;
+    invoke-static {p0, p1, p2, p3}, Lcom/android/systemui/statusbar/policy/dagger/StatusBarPolicyModule;->provideAccessPointControllerImpl(Landroid/os/UserManager;Lcom/android/systemui/settings/UserTracker;Ljava/util/concurrent/Executor;Lcom/android/systemui/statusbar/connectivity/AccessPointControllerImpl$WifiPickerTrackerFactory;)Lcom/android/systemui/statusbar/connectivity/AccessPointControllerImpl;
 
     move-result-object p0
 
@@ -132,14 +132,14 @@
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;
+    check-cast p0, Lcom/android/systemui/statusbar/connectivity/AccessPointControllerImpl;
 
     return-object p0
 .end method
 
 
 # virtual methods
-.method public get()Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;
+.method public get()Lcom/android/systemui/statusbar/connectivity/AccessPointControllerImpl;
     .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/dagger/StatusBarPolicyModule_ProvideAccessPointControllerImplFactory;->userManagerProvider:Ljavax/inject/Provider;
@@ -172,9 +172,9 @@
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl$WifiPickerTrackerFactory;
+    check-cast p0, Lcom/android/systemui/statusbar/connectivity/AccessPointControllerImpl$WifiPickerTrackerFactory;
 
-    invoke-static {v0, v1, v2, p0}, Lcom/android/systemui/statusbar/policy/dagger/StatusBarPolicyModule_ProvideAccessPointControllerImplFactory;->provideAccessPointControllerImpl(Landroid/os/UserManager;Lcom/android/systemui/settings/UserTracker;Ljava/util/concurrent/Executor;Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl$WifiPickerTrackerFactory;)Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;
+    invoke-static {v0, v1, v2, p0}, Lcom/android/systemui/statusbar/policy/dagger/StatusBarPolicyModule_ProvideAccessPointControllerImplFactory;->provideAccessPointControllerImpl(Landroid/os/UserManager;Lcom/android/systemui/settings/UserTracker;Ljava/util/concurrent/Executor;Lcom/android/systemui/statusbar/connectivity/AccessPointControllerImpl$WifiPickerTrackerFactory;)Lcom/android/systemui/statusbar/connectivity/AccessPointControllerImpl;
 
     move-result-object p0
 
@@ -184,7 +184,7 @@
 .method public bridge synthetic get()Ljava/lang/Object;
     .locals 0
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/dagger/StatusBarPolicyModule_ProvideAccessPointControllerImplFactory;->get()Lcom/android/systemui/statusbar/policy/AccessPointControllerImpl;
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/dagger/StatusBarPolicyModule_ProvideAccessPointControllerImplFactory;->get()Lcom/android/systemui/statusbar/connectivity/AccessPointControllerImpl;
 
     move-result-object p0
 

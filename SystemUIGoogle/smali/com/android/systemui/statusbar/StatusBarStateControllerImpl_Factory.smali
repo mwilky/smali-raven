@@ -18,6 +18,16 @@
 
 
 # instance fields
+.field private final dumpManagerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final uiEventLoggerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -30,13 +40,16 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljavax/inject/Provider<",
             "Lcom/android/internal/logging/UiEventLogger;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
             ">;)V"
         }
     .end annotation
@@ -45,16 +58,21 @@
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
 
+    iput-object p2, p0, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
+
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/StatusBarStateControllerImpl_Factory;
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/StatusBarStateControllerImpl_Factory;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljavax/inject/Provider<",
             "Lcom/android/internal/logging/UiEventLogger;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
             ">;)",
             "Lcom/android/systemui/statusbar/StatusBarStateControllerImpl_Factory;"
         }
@@ -62,17 +80,17 @@
 
     new-instance v0, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl_Factory;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl_Factory;-><init>(Ljavax/inject/Provider;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;)V
 
     return-object v0
 .end method
 
-.method public static newInstance(Lcom/android/internal/logging/UiEventLogger;)Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;
+.method public static newInstance(Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;
     .locals 1
 
     new-instance v0, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;-><init>(Lcom/android/internal/logging/UiEventLogger;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;-><init>(Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/dump/DumpManager;)V
 
     return-object v0
 .end method
@@ -80,17 +98,25 @@
 
 # virtual methods
 .method public get()Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;
-    .locals 0
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/internal/logging/UiEventLogger;
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/internal/logging/UiEventLogger;
+    check-cast p0, Lcom/android/systemui/dump/DumpManager;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl_Factory;->newInstance(Lcom/android/internal/logging/UiEventLogger;)Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;
+    invoke-static {v0, p0}, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl_Factory;->newInstance(Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;
 
     move-result-object p0
 

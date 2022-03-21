@@ -2,34 +2,42 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/IntSupplier;
+.implements Ljava/util/function/Consumer;
 
 
-# instance fields
-.field public final synthetic f$0:Lcom/android/wm/shell/bubbles/BubbleStackView;
+# static fields
+.field public static final synthetic INSTANCE:Lcom/android/wm/shell/bubbles/BubbleStackView$$ExternalSyntheticLambda46;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/wm/shell/bubbles/BubbleStackView;)V
+.method static synthetic constructor <clinit>()V
+    .locals 1
+
+    new-instance v0, Lcom/android/wm/shell/bubbles/BubbleStackView$$ExternalSyntheticLambda46;
+
+    invoke-direct {v0}, Lcom/android/wm/shell/bubbles/BubbleStackView$$ExternalSyntheticLambda46;-><init>()V
+
+    sput-object v0, Lcom/android/wm/shell/bubbles/BubbleStackView$$ExternalSyntheticLambda46;->INSTANCE:Lcom/android/wm/shell/bubbles/BubbleStackView$$ExternalSyntheticLambda46;
+
+    return-void
+.end method
+
+.method private synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$$ExternalSyntheticLambda46;->f$0:Lcom/android/wm/shell/bubbles/BubbleStackView;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final getAsInt()I
+.method public final accept(Ljava/lang/Object;)V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$$ExternalSyntheticLambda46;->f$0:Lcom/android/wm/shell/bubbles/BubbleStackView;
+    check-cast p1, Lcom/android/wm/shell/bubbles/Bubble;
 
-    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/BubbleStackView;->getBubbleCount()I
+    invoke-static {p1}, Lcom/android/wm/shell/bubbles/BubbleStackView;->$r8$lambda$iWPi8G5mb9T83KUkahWQtO-oDg0(Lcom/android/wm/shell/bubbles/Bubble;)V
 
-    move-result p0
-
-    return p0
+    return-void
 .end method

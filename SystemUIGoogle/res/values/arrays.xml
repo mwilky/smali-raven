@@ -34,7 +34,6 @@
         <item>3</item>
         <item>4</item>
     </string-array>
-    <array name="audio_recording_disclosure_exempt_apps" />
     <array name="background_style1">
         <item>@drawable/rounded_ripple</item>
     </array>
@@ -347,9 +346,25 @@
         <item>wind_down_first_time_setup:custom(com.google.android.apps.wellbeing/.screen.ui.GrayscaleTileService)</item>
         <item>focus_mode_first_time_setup:custom(com.google.android.apps.wellbeing/.focusmode.quicksettings.FocusModeTileService)</item>
     </string-array>
+    <array name="config_roundedCornerBottomDrawableArray">
+        <item>@drawable/rounded_corner_bottom</item>
+        <item>@drawable/rounded_corner_bottom_secondary</item>
+    </array>
+    <array name="config_roundedCornerDrawableArray">
+        <item>@drawable/rounded</item>
+        <item>@drawable/rounded_secondary</item>
+    </array>
+    <array name="config_roundedCornerMultipleRadiusArray">
+        <item>@bool/config_roundedCornerMultipleRadius</item>
+        <item>@bool/config_roundedCornerMultipleRadiusSecondary</item>
+    </array>
+    <array name="config_roundedCornerTopDrawableArray">
+        <item>@drawable/rounded_corner_top</item>
+        <item>@drawable/rounded_corner_top_secondary</item>
+    </array>
     <array name="config_statusBarIconsToExclude">
-        <item>@*android:string/status_bar_rotate</item>
-        <item>@*android:string/status_bar_headset</item>
+        <item>@android:string/status_bar_rotate</item>
+        <item>@android:string/status_bar_headset</item>
     </array>
     <string-array name="config_systemUIServiceComponents">
         <item>com.android.systemui.util.NotificationChannels</item>
@@ -389,26 +404,17 @@
         <item>show</item>
         <item>show_deuteranomaly</item>
     </string-array>
+    <array name="doze_brightness_sensor_name_posture_mapping" />
+    <integer-array name="doze_single_tap_uses_prox_posture_mapping">
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+        <item>1</item>
+    </integer-array>
     <integer-array name="elmyra_blocking_system_keys">
         <item>24</item>
         <item>25</item>
         <item>26</item>
-    </integer-array>
-    <integer-array name="elmyra_lower_threshold">
-        <item>-400</item>
-        <item>-1000</item>
-    </integer-array>
-    <integer-array name="elmyra_slope_sensitivity">
-        <item>40</item>
-        <item>70</item>
-    </integer-array>
-    <integer-array name="elmyra_time_window">
-        <item>1000</item>
-        <item>5000</item>
-    </integer-array>
-    <integer-array name="elmyra_upper_threshold">
-        <item>1000</item>
-        <item>20000</item>
     </integer-array>
     <string-array name="enable_opengl_traces_entries">
         <item>None</item>
@@ -501,10 +507,8 @@
         <item>1920x1080/320|3840x2160/640,secure</item>
         <item>1280x720/213;1920x1080/320</item>
     </string-array>
-    <string-array name="recents_onboarding_blacklisted_packages">
-        <item>com.google.android.setupwizard</item>
-        <item>com.google.android.apps.googleassistant</item>
-    </string-array>
+    <array name="proximity_sensor_posture_mapping" />
+    <array name="proximity_sensor_secondary_posture_mapping" />
     <string-array name="select_logd_size_lowram_titles">
         <item>Off</item>
         <item>64K</item>

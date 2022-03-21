@@ -43,3 +43,13 @@
 
     return-void
 .end method
+
+.method public onEnrollmentsChanged()V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeScreenState$1;->this$0:Lcom/android/systemui/doze/DozeScreenState;
+
+    invoke-static {p0}, Lcom/android/systemui/doze/DozeScreenState;->access$000(Lcom/android/systemui/doze/DozeScreenState;)V
+
+    return-void
+.end method

@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onThresholdCrossed(Lcom/android/systemui/util/sensors/ThresholdSensor$ThresholdSensorEvent;)V
+.method public onThresholdCrossed(Lcom/android/systemui/util/sensors/ThresholdSensorEvent;)V
     .locals 1
 
     const-string v0, "event"

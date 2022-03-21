@@ -32,18 +32,6 @@
         <item quantity="other">ખોટો સિમ PUK કોડ, સિમ કાયમી રૂપે અનુપયોગી બની જાય તે પહેલા તમારી પાસે %d પ્રયાસ બાકી છે.</item>
         <item quantity="one">ખોટો સિમ PUK કોડ, સિમ કાયમી રૂપે અનુપયોગી બની જાય તે પહેલા તમારી પાસે %d પ્રયાસ બાકી છે.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">ઉપકરણને %d કલાક માટે અનલૉક કરવામાં આવ્યું નથી. પાસવર્ડની પુષ્ટિ કરો.</item>
-        <item quantity="one">ઉપકરણને %d કલાક માટે અનલૉક કરવામાં આવ્યું નથી. પાસવર્ડની પુષ્ટિ કરો.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">ઉપકરણને %d કલાક માટે અનલૉક કરવામાં આવ્યું નથી. પેટર્નની પુષ્ટિ કરો.</item>
-        <item quantity="one">ઉપકરણને %d કલાક માટે અનલૉક કરવામાં આવ્યું નથી. પેટર્નની પુષ્ટિ કરો.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">ઉપકરણને %d કલાક માટે અનલૉક કરવામાં આવ્યું નથી. પિનની પુષ્ટિ કરો.</item>
-        <item quantity="one">ઉપકરણને %d કલાક માટે અનલૉક કરવામાં આવ્યું નથી. પિનની પુષ્ટિ કરો.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">%d સેકન્ડમાં ફરી પ્રયાસ કરો.</item>
         <item quantity="one">%d સેકન્ડમાં ફરી પ્રયાસ કરો.</item>

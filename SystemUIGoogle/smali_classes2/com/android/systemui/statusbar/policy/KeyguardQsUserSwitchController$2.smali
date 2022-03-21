@@ -41,7 +41,7 @@
 
     const/4 v0, 0x1
 
-    invoke-static {p0, v0}, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->access$200(Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;Z)V
+    invoke-static {p0, v0}, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->access$300(Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;Z)V
 
     return-void
 .end method

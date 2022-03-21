@@ -66,6 +66,16 @@
     .end annotation
 .end field
 
+.field private final mRecentTasks:Ljava/util/Optional;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/recents/RecentTasksController;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final mShellTaskOrganizer:Lcom/android/wm/shell/ShellTaskOrganizer;
 
 .field private final mSplitScreenOptional:Ljava/util/Optional;
@@ -80,10 +90,18 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$6k4m1oi8DeXqelUWKnN75HsO7hI(ILcom/android/wm/shell/splitscreen/SplitScreenController;)V
+.method public static synthetic $r8$lambda$0WBK15HakPT6-vXTr1aXDkH32rc(Ljava/io/PrintWriter;Lcom/android/wm/shell/recents/RecentTasksController;)V
     .locals 0
 
-    invoke-static {p0, p1}, Lcom/android/wm/shell/ShellCommandHandlerImpl;->lambda$runRemoveFromSideStage$9(ILcom/android/wm/shell/splitscreen/SplitScreenController;)V
+    invoke-static {p0, p1}, Lcom/android/wm/shell/ShellCommandHandlerImpl;->lambda$dump$6(Ljava/io/PrintWriter;Lcom/android/wm/shell/recents/RecentTasksController;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$21AN_gMgf_RcBWRazQ61ike0-4o(Ljava/lang/Boolean;Lcom/android/wm/shell/splitscreen/SplitScreenController;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/wm/shell/ShellCommandHandlerImpl;->lambda$runSetSideStageVisibility$12(Ljava/lang/Boolean;Lcom/android/wm/shell/splitscreen/SplitScreenController;)V
 
     return-void
 .end method
@@ -96,18 +114,26 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$9_0BaZ6xNMUBYDDQSVB1-d7pJTA(ILcom/android/wm/shell/apppairs/AppPairsController;)V
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/android/wm/shell/ShellCommandHandlerImpl;->lambda$runUnpair$7(ILcom/android/wm/shell/apppairs/AppPairsController;)V
-
-    return-void
-.end method
-
 .method public static synthetic $r8$lambda$BUWnPT3d0cAWLgS7qzH2wWN_lEc(Ljava/io/PrintWriter;Lcom/android/wm/shell/splitscreen/SplitScreenController;)V
     .locals 0
 
     invoke-static {p0, p1}, Lcom/android/wm/shell/ShellCommandHandlerImpl;->lambda$dump$5(Ljava/io/PrintWriter;Lcom/android/wm/shell/splitscreen/SplitScreenController;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$BVKOyUytbLcPLonmw1bcsRdh_MU(ILcom/android/wm/shell/apppairs/AppPairsController;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/wm/shell/ShellCommandHandlerImpl;->lambda$runUnpair$8(ILcom/android/wm/shell/apppairs/AppPairsController;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$IoL28QuzNTsw_lefPnjZMPVImn4(ILcom/android/wm/shell/splitscreen/SplitScreenController;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/wm/shell/ShellCommandHandlerImpl;->lambda$runRemoveFromSideStage$10(ILcom/android/wm/shell/splitscreen/SplitScreenController;)V
 
     return-void
 .end method
@@ -128,14 +154,6 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$QfetZnhu_ZNyfH0uwxTYkFg6qoU(ILcom/android/wm/shell/splitscreen/SplitScreenController;)V
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/android/wm/shell/ShellCommandHandlerImpl;->lambda$runSetSideStagePosition$10(ILcom/android/wm/shell/splitscreen/SplitScreenController;)V
-
-    return-void
-.end method
-
 .method public static synthetic $r8$lambda$Tlw68K2LdlBhM67V_VbJSwhTVzM(Ljava/io/PrintWriter;Lcom/android/wm/shell/apppairs/AppPairsController;)V
     .locals 0
 
@@ -144,26 +162,18 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$asyjlubhUgqoEVJuUcDqkysKc3M(IILcom/android/wm/shell/apppairs/AppPairsController;)V
+.method public static synthetic $r8$lambda$nFlY0KLJ3OBmCK8uDgB5oxKyLms(ILcom/android/wm/shell/splitscreen/SplitScreenController;)V
     .locals 0
 
-    invoke-static {p0, p1, p2}, Lcom/android/wm/shell/ShellCommandHandlerImpl;->lambda$runPair$6(IILcom/android/wm/shell/apppairs/AppPairsController;)V
+    invoke-static {p0, p1}, Lcom/android/wm/shell/ShellCommandHandlerImpl;->lambda$runSetSideStagePosition$11(ILcom/android/wm/shell/splitscreen/SplitScreenController;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$j5ofQqT1Ibi-qSMR-xHS8G-_dzc(Ljava/lang/Boolean;Lcom/android/wm/shell/splitscreen/SplitScreenController;)V
+.method public static synthetic $r8$lambda$qpfKMCh0g_Rju-etjOBXmuiU4yA(IILcom/android/wm/shell/apppairs/AppPairsController;)V
     .locals 0
 
-    invoke-static {p0, p1}, Lcom/android/wm/shell/ShellCommandHandlerImpl;->lambda$runSetSideStageVisibility$11(Ljava/lang/Boolean;Lcom/android/wm/shell/splitscreen/SplitScreenController;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$u92s9QTU-lvutaNhlAKoqG-85ZM(IILcom/android/wm/shell/splitscreen/SplitScreenController;)V
-    .locals 0
-
-    invoke-static {p0, p1, p2}, Lcom/android/wm/shell/ShellCommandHandlerImpl;->lambda$runMoveToSideStage$8(IILcom/android/wm/shell/splitscreen/SplitScreenController;)V
+    invoke-static {p0, p1, p2}, Lcom/android/wm/shell/ShellCommandHandlerImpl;->lambda$runPair$7(IILcom/android/wm/shell/apppairs/AppPairsController;)V
 
     return-void
 .end method
@@ -176,13 +186,21 @@
     return-void
 .end method
 
+.method public static synthetic $r8$lambda$xHf_I3pwsdx2aTx2gf1wQMxfakg(IILcom/android/wm/shell/splitscreen/SplitScreenController;)V
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Lcom/android/wm/shell/ShellCommandHandlerImpl;->lambda$runMoveToSideStage$9(IILcom/android/wm/shell/splitscreen/SplitScreenController;)V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 0
 
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/wm/shell/ShellTaskOrganizer;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Lcom/android/wm/shell/common/ShellExecutor;)V
+.method public constructor <init>(Lcom/android/wm/shell/ShellTaskOrganizer;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Lcom/android/wm/shell/common/ShellExecutor;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -206,6 +224,9 @@
             "Ljava/util/Optional<",
             "Lcom/android/wm/shell/apppairs/AppPairsController;",
             ">;",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/recents/RecentTasksController;",
+            ">;",
             "Lcom/android/wm/shell/common/ShellExecutor;",
             ")V"
         }
@@ -223,6 +244,8 @@
 
     iput-object p1, p0, Lcom/android/wm/shell/ShellCommandHandlerImpl;->mShellTaskOrganizer:Lcom/android/wm/shell/ShellTaskOrganizer;
 
+    iput-object p8, p0, Lcom/android/wm/shell/ShellCommandHandlerImpl;->mRecentTasks:Ljava/util/Optional;
+
     iput-object p2, p0, Lcom/android/wm/shell/ShellCommandHandlerImpl;->mLegacySplitScreenOptional:Ljava/util/Optional;
 
     iput-object p3, p0, Lcom/android/wm/shell/ShellCommandHandlerImpl;->mSplitScreenOptional:Ljava/util/Optional;
@@ -235,7 +258,7 @@
 
     iput-object p7, p0, Lcom/android/wm/shell/ShellCommandHandlerImpl;->mAppPairsOptional:Ljava/util/Optional;
 
-    iput-object p8, p0, Lcom/android/wm/shell/ShellCommandHandlerImpl;->mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
+    iput-object p9, p0, Lcom/android/wm/shell/ShellCommandHandlerImpl;->mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
 
     return-void
 .end method
@@ -327,7 +350,19 @@
 
     invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
 
-    iget-object p0, p0, Lcom/android/wm/shell/ShellCommandHandlerImpl;->mSplitScreenOptional:Ljava/util/Optional;
+    iget-object v0, p0, Lcom/android/wm/shell/ShellCommandHandlerImpl;->mSplitScreenOptional:Ljava/util/Optional;
+
+    new-instance v1, Lcom/android/wm/shell/ShellCommandHandlerImpl$$ExternalSyntheticLambda11;
+
+    invoke-direct {v1, p1}, Lcom/android/wm/shell/ShellCommandHandlerImpl$$ExternalSyntheticLambda11;-><init>(Ljava/io/PrintWriter;)V
+
+    invoke-virtual {v0, v1}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
+
+    invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
+
+    invoke-virtual {p1}, Ljava/io/PrintWriter;->println()V
+
+    iget-object p0, p0, Lcom/android/wm/shell/ShellCommandHandlerImpl;->mRecentTasks:Ljava/util/Optional;
 
     new-instance v0, Lcom/android/wm/shell/ShellCommandHandlerImpl$$ExternalSyntheticLambda10;
 
@@ -608,7 +643,17 @@
     return-void
 .end method
 
-.method private static synthetic lambda$runMoveToSideStage$8(IILcom/android/wm/shell/splitscreen/SplitScreenController;)V
+.method private static synthetic lambda$dump$6(Ljava/io/PrintWriter;Lcom/android/wm/shell/recents/RecentTasksController;)V
+    .locals 1
+
+    const-string v0, ""
+
+    invoke-virtual {p1, p0, v0}, Lcom/android/wm/shell/recents/RecentTasksController;->dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method private static synthetic lambda$runMoveToSideStage$9(IILcom/android/wm/shell/splitscreen/SplitScreenController;)V
     .locals 0
 
     invoke-virtual {p2, p0, p1}, Lcom/android/wm/shell/splitscreen/SplitScreenController;->moveToSideStage(II)Z
@@ -616,7 +661,7 @@
     return-void
 .end method
 
-.method private static synthetic lambda$runPair$6(IILcom/android/wm/shell/apppairs/AppPairsController;)V
+.method private static synthetic lambda$runPair$7(IILcom/android/wm/shell/apppairs/AppPairsController;)V
     .locals 0
 
     invoke-virtual {p2, p0, p1}, Lcom/android/wm/shell/apppairs/AppPairsController;->pair(II)Z
@@ -624,7 +669,7 @@
     return-void
 .end method
 
-.method private static synthetic lambda$runRemoveFromSideStage$9(ILcom/android/wm/shell/splitscreen/SplitScreenController;)V
+.method private static synthetic lambda$runRemoveFromSideStage$10(ILcom/android/wm/shell/splitscreen/SplitScreenController;)V
     .locals 0
 
     invoke-virtual {p1, p0}, Lcom/android/wm/shell/splitscreen/SplitScreenController;->removeFromSideStage(I)Z
@@ -632,7 +677,7 @@
     return-void
 .end method
 
-.method private static synthetic lambda$runSetSideStagePosition$10(ILcom/android/wm/shell/splitscreen/SplitScreenController;)V
+.method private static synthetic lambda$runSetSideStagePosition$11(ILcom/android/wm/shell/splitscreen/SplitScreenController;)V
     .locals 0
 
     invoke-virtual {p1, p0}, Lcom/android/wm/shell/splitscreen/SplitScreenController;->setSideStagePosition(I)V
@@ -640,7 +685,7 @@
     return-void
 .end method
 
-.method private static synthetic lambda$runSetSideStageVisibility$11(Ljava/lang/Boolean;Lcom/android/wm/shell/splitscreen/SplitScreenController;)V
+.method private static synthetic lambda$runSetSideStageVisibility$12(Ljava/lang/Boolean;Lcom/android/wm/shell/splitscreen/SplitScreenController;)V
     .locals 0
 
     invoke-virtual {p0}, Ljava/lang/Boolean;->booleanValue()Z
@@ -652,7 +697,7 @@
     return-void
 .end method
 
-.method private static synthetic lambda$runUnpair$7(ILcom/android/wm/shell/apppairs/AppPairsController;)V
+.method private static synthetic lambda$runUnpair$8(ILcom/android/wm/shell/apppairs/AppPairsController;)V
     .locals 0
 
     invoke-virtual {p1, p0}, Lcom/android/wm/shell/apppairs/AppPairsController;->unpair(I)V
@@ -708,6 +753,14 @@
     invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     const-string p0, "    Remove a task with given id in split-screen mode."
+
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string p0, "  setSideStageOutline <true/false>"
+
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string p0, "    Enable/Disable outline on the side-stage."
 
     invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
@@ -945,7 +998,7 @@
 
     if-ge v0, v1, :cond_0
 
-    const-string p0, "Error: side stage position should be provided as arguments"
+    const-string p0, "Error: side stage visibility should be provided as arguments"
 
     invoke-virtual {p2, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
@@ -964,9 +1017,9 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/ShellCommandHandlerImpl;->mSplitScreenOptional:Ljava/util/Optional;
 
-    new-instance p1, Lcom/android/wm/shell/ShellCommandHandlerImpl$$ExternalSyntheticLambda11;
+    new-instance p1, Lcom/android/wm/shell/ShellCommandHandlerImpl$$ExternalSyntheticLambda12;
 
-    invoke-direct {p1, p2}, Lcom/android/wm/shell/ShellCommandHandlerImpl$$ExternalSyntheticLambda11;-><init>(Ljava/lang/Boolean;)V
+    invoke-direct {p1, p2}, Lcom/android/wm/shell/ShellCommandHandlerImpl$$ExternalSyntheticLambda12;-><init>(Ljava/lang/Boolean;)V
 
     invoke-virtual {p0, p1}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
 

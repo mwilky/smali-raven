@@ -123,10 +123,10 @@
     return-object p0
 .end method
 
-.method public provideDataSaverController(Lcom/android/systemui/statusbar/policy/NetworkController;)Lcom/android/systemui/statusbar/policy/DataSaverController;
+.method public provideDataSaverController(Lcom/android/systemui/statusbar/connectivity/NetworkController;)Lcom/android/systemui/statusbar/policy/DataSaverController;
     .locals 0
 
-    invoke-interface {p1}, Lcom/android/systemui/statusbar/policy/NetworkController;->getDataSaverController()Lcom/android/systemui/statusbar/policy/DataSaverController;
+    invoke-interface {p1}, Lcom/android/systemui/statusbar/connectivity/NetworkController;->getDataSaverController()Lcom/android/systemui/statusbar/policy/DataSaverController;
 
     move-result-object p0
 
@@ -169,10 +169,10 @@
     return-object p0
 .end method
 
-.method public provideLeakDetector()Lcom/android/systemui/util/leak/LeakDetector;
+.method public provideLeakDetector(Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/util/leak/LeakDetector;
     .locals 0
 
-    invoke-static {}, Lcom/android/systemui/util/leak/LeakDetector;->create()Lcom/android/systemui/util/leak/LeakDetector;
+    invoke-static {p1}, Lcom/android/systemui/util/leak/LeakDetector;->create(Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/util/leak/LeakDetector;
 
     move-result-object p0
 
@@ -199,136 +199,12 @@
     return-object p0
 .end method
 
-.method public provideNavigationBarController(Landroid/content/Context;Landroid/view/WindowManager;Ldagger/Lazy;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/statusbar/policy/AccessibilityManagerWrapper;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/recents/OverviewProxyService;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/accessibility/AccessibilityButtonModeObserver;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/model/SysUiState;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/CommandQueue;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ldagger/Lazy;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/statusbar/NotificationRemoteInputManager;Lcom/android/systemui/statusbar/NotificationShadeDepthController;Lcom/android/systemui/accessibility/SystemActions;Landroid/os/Handler;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/navigationbar/NavigationBarOverlayController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/settings/UserTracker;)Lcom/android/systemui/navigationbar/NavigationBarController;
-    .locals 29
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            "Landroid/view/WindowManager;",
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/assist/AssistManager;",
-            ">;",
-            "Landroid/view/accessibility/AccessibilityManager;",
-            "Lcom/android/systemui/statusbar/policy/AccessibilityManagerWrapper;",
-            "Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;",
-            "Lcom/android/internal/logging/MetricsLogger;",
-            "Lcom/android/systemui/recents/OverviewProxyService;",
-            "Lcom/android/systemui/navigationbar/NavigationModeController;",
-            "Lcom/android/systemui/accessibility/AccessibilityButtonModeObserver;",
-            "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
-            "Lcom/android/systemui/model/SysUiState;",
-            "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
-            "Lcom/android/systemui/statusbar/CommandQueue;",
-            "Ljava/util/Optional<",
-            "Lcom/android/wm/shell/pip/Pip;",
-            ">;",
-            "Ljava/util/Optional<",
-            "Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;",
-            ">;",
-            "Ljava/util/Optional<",
-            "Lcom/android/systemui/recents/Recents;",
-            ">;",
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;",
-            "Lcom/android/systemui/statusbar/phone/ShadeController;",
-            "Lcom/android/systemui/statusbar/NotificationRemoteInputManager;",
-            "Lcom/android/systemui/statusbar/NotificationShadeDepthController;",
-            "Lcom/android/systemui/accessibility/SystemActions;",
-            "Landroid/os/Handler;",
-            "Lcom/android/internal/logging/UiEventLogger;",
-            "Lcom/android/systemui/navigationbar/NavigationBarOverlayController;",
-            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
-            "Lcom/android/systemui/settings/UserTracker;",
-            ")",
-            "Lcom/android/systemui/navigationbar/NavigationBarController;"
-        }
-    .end annotation
-
-    move-object/from16 v1, p1
-
-    move-object/from16 v2, p2
-
-    move-object/from16 v3, p3
-
-    move-object/from16 v4, p4
-
-    move-object/from16 v5, p5
-
-    move-object/from16 v6, p6
-
-    move-object/from16 v7, p7
-
-    move-object/from16 v8, p8
-
-    move-object/from16 v9, p9
-
-    move-object/from16 v10, p10
-
-    move-object/from16 v11, p11
-
-    move-object/from16 v12, p12
-
-    move-object/from16 v13, p13
-
-    move-object/from16 v14, p14
-
-    move-object/from16 v15, p15
-
-    move-object/from16 v16, p16
-
-    move-object/from16 v17, p17
-
-    move-object/from16 v18, p18
-
-    move-object/from16 v19, p19
-
-    move-object/from16 v20, p20
-
-    move-object/from16 v21, p21
-
-    move-object/from16 v22, p22
-
-    move-object/from16 v23, p23
-
-    move-object/from16 v24, p24
-
-    move-object/from16 v25, p25
-
-    move-object/from16 v26, p26
-
-    move-object/from16 v27, p27
-
-    new-instance v28, Lcom/android/systemui/navigationbar/NavigationBarController;
-
-    move-object/from16 v0, v28
-
-    invoke-direct/range {v0 .. v27}, Lcom/android/systemui/navigationbar/NavigationBarController;-><init>(Landroid/content/Context;Landroid/view/WindowManager;Ldagger/Lazy;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/statusbar/policy/AccessibilityManagerWrapper;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/recents/OverviewProxyService;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/accessibility/AccessibilityButtonModeObserver;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/model/SysUiState;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/CommandQueue;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ldagger/Lazy;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/statusbar/NotificationRemoteInputManager;Lcom/android/systemui/statusbar/NotificationShadeDepthController;Lcom/android/systemui/accessibility/SystemActions;Landroid/os/Handler;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/navigationbar/NavigationBarOverlayController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/settings/UserTracker;)V
-
-    return-object v28
-.end method
-
 .method public provideNotificationMessagingUtil(Landroid/content/Context;)Lcom/android/internal/util/NotificationMessagingUtil;
     .locals 0
 
     new-instance p0, Lcom/android/internal/util/NotificationMessagingUtil;
 
     invoke-direct {p0, p1}, Lcom/android/internal/util/NotificationMessagingUtil;-><init>(Landroid/content/Context;)V
-
-    return-object p0
-.end method
-
-.method public providePluginManager(Landroid/content/Context;)Lcom/android/systemui/shared/plugins/PluginManager;
-    .locals 1
-
-    new-instance p0, Lcom/android/systemui/shared/plugins/PluginManagerImpl;
-
-    new-instance v0, Lcom/android/systemui/plugins/PluginInitializerImpl;
-
-    invoke-direct {v0}, Lcom/android/systemui/plugins/PluginInitializerImpl;-><init>()V
-
-    invoke-direct {p0, p1, v0}, Lcom/android/systemui/shared/plugins/PluginManagerImpl;-><init>(Landroid/content/Context;Lcom/android/systemui/shared/plugins/PluginInitializer;)V
 
     return-object p0
 .end method

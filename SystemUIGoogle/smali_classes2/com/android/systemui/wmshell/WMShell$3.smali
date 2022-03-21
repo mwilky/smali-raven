@@ -58,7 +58,7 @@
     return-void
 .end method
 
-.method public onOverlayChanged()V
+.method public onThemeChanged()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/wmshell/WMShell$3;->val$pip:Lcom/android/wm/shell/pip/Pip;

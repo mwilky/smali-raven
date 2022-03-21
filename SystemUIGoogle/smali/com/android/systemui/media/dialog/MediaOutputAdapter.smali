@@ -20,6 +20,8 @@
 
 .field private mIncludeDynamicGroup:Z
 
+.field private final mMediaOutputDialog:Lcom/android/systemui/media/dialog/MediaOutputDialog;
+
 
 # direct methods
 .method static constructor <clinit>()V
@@ -38,10 +40,12 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/systemui/media/dialog/MediaOutputController;)V
+.method public constructor <init>(Lcom/android/systemui/media/dialog/MediaOutputController;Lcom/android/systemui/media/dialog/MediaOutputDialog;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter;-><init>(Lcom/android/systemui/media/dialog/MediaOutputController;)V
+
+    iput-object p2, p0, Lcom/android/systemui/media/dialog/MediaOutputAdapter;->mMediaOutputDialog:Lcom/android/systemui/media/dialog/MediaOutputDialog;
 
     return-void
 .end method
@@ -68,6 +72,14 @@
     iput-object p1, p0, Lcom/android/systemui/media/dialog/MediaOutputAdapter;->mConnectedItem:Landroid/view/ViewGroup;
 
     return-object p1
+.end method
+
+.method static synthetic access$200(Lcom/android/systemui/media/dialog/MediaOutputAdapter;)Lcom/android/systemui/media/dialog/MediaOutputDialog;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/media/dialog/MediaOutputAdapter;->mMediaOutputDialog:Lcom/android/systemui/media/dialog/MediaOutputDialog;
+
+    return-object p0
 .end method
 
 
@@ -141,81 +153,6 @@
     add-int/2addr p0, v1
 
     return p0
-.end method
-
-.method getItemTitle(Lcom/android/settingslib/media/MediaDevice;)Ljava/lang/CharSequence;
-    .locals 5
-
-    invoke-virtual {p1}, Lcom/android/settingslib/media/MediaDevice;->getDeviceType()I
-
-    move-result v0
-
-    const/4 v1, 0x4
-
-    if-ne v0, v1, :cond_0
-
-    invoke-virtual {p1}, Lcom/android/settingslib/media/MediaDevice;->isConnected()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    invoke-virtual {p1}, Lcom/android/settingslib/media/MediaDevice;->getName()Ljava/lang/String;
-
-    move-result-object p1
-
-    new-instance v0, Landroid/text/SpannableString;
-
-    iget-object v1, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter;->mContext:Landroid/content/Context;
-
-    sget v2, Lcom/android/systemui/R$string;->media_output_dialog_disconnected:I
-
-    const/4 v3, 0x1
-
-    new-array v3, v3, [Ljava/lang/Object;
-
-    const/4 v4, 0x0
-
-    aput-object p1, v3, v4
-
-    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
-
-    new-instance v1, Landroid/text/style/ForegroundColorSpan;
-
-    iget-object p0, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter;->mContext:Landroid/content/Context;
-
-    const v2, 0x1010038
-
-    invoke-static {p0, v2}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
-
-    move-result p0
-
-    invoke-direct {v1, p0}, Landroid/text/style/ForegroundColorSpan;-><init>(I)V
-
-    invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
-
-    move-result p0
-
-    invoke-virtual {v0}, Landroid/text/SpannableString;->length()I
-
-    move-result p1
-
-    const/16 v2, 0x21
-
-    invoke-virtual {v0, v1, p0, p1, v2}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
-
-    return-object v0
-
-    :cond_0
-    invoke-super {p0, p1}, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter;->getItemTitle(Lcom/android/settingslib/media/MediaDevice;)Ljava/lang/CharSequence;
-
-    move-result-object p0
-
-    return-object p0
 .end method
 
 .method public bridge synthetic onBindViewHolder(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V

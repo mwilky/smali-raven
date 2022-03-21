@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;-><init>(Lcom/android/systemui/statusbar/commandline/CommandRegistry;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/FeatureFlags;Landroid/content/Context;Landroid/view/WindowManager;Lcom/android/systemui/util/time/SystemClock;Lcom/android/internal/logging/UiEventLogger;)V
+    value = Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;-><init>(Lcom/android/systemui/statusbar/commandline/CommandRegistry;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/flags/FeatureFlags;Landroid/content/Context;Landroid/view/WindowManager;Lcom/android/systemui/util/time/SystemClock;Lcom/android/internal/logging/UiEventLogger;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -72,16 +72,6 @@
     move-result p1
 
     invoke-static {p0, p1}, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;->access$setNormalizedPortPosY$p(Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;F)V
-
-    return-void
-.end method
-
-.method public onOverlayChanged()V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$configurationChangedListener$1;->this$0:Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;
-
-    invoke-static {p0}, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;->access$updateRippleColor(Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;)V
 
     return-void
 .end method

@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public build()Lcom/android/systemui/dagger/GlobalRootComponent;
-    .locals 3
+    .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$Builder;->context:Landroid/content/Context;
 
@@ -55,11 +55,15 @@
 
     invoke-direct {v1}, Lcom/android/systemui/dagger/GlobalModule;-><init>()V
 
+    new-instance v2, Lcom/android/systemui/unfold/UnfoldTransitionModule;
+
+    invoke-direct {v2}, Lcom/android/systemui/unfold/UnfoldTransitionModule;-><init>()V
+
     iget-object p0, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$Builder;->context:Landroid/content/Context;
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-direct {v0, v1, p0, v2}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;-><init>(Lcom/android/systemui/dagger/GlobalModule;Landroid/content/Context;Lcom/android/systemui/dagger/DaggerGlobalRootComponent$1;)V
+    invoke-direct {v0, v1, v2, p0, v3}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;-><init>(Lcom/android/systemui/dagger/GlobalModule;Lcom/android/systemui/unfold/UnfoldTransitionModule;Landroid/content/Context;Lcom/android/systemui/dagger/DaggerGlobalRootComponent$1;)V
 
     return-object v0
 .end method

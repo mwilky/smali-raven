@@ -38,6 +38,8 @@
 
 .field private final mFriendlyName:Ljava/lang/String;
 
+.field private final mInjector:Lcom/android/wifitrackerlib/WifiTrackerInjector;
+
 .field private mIsRoaming:Z
 
 .field private final mKey:Ljava/lang/String;
@@ -66,7 +68,7 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Landroid/os/Handler;Landroid/net/wifi/WifiConfiguration;Landroid/net/wifi/WifiManager;Landroid/net/wifi/WifiNetworkScoreCache;Z)V
+.method constructor <init>(Lcom/android/wifitrackerlib/WifiTrackerInjector;Landroid/content/Context;Landroid/os/Handler;Landroid/net/wifi/WifiConfiguration;Landroid/net/wifi/WifiManager;Landroid/net/wifi/WifiNetworkScoreCache;Z)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -74,61 +76,63 @@
         }
     .end annotation
 
-    invoke-direct {p0, p2, p4, p5, p6}, Lcom/android/wifitrackerlib/WifiEntry;-><init>(Landroid/os/Handler;Landroid/net/wifi/WifiManager;Landroid/net/wifi/WifiNetworkScoreCache;Z)V
+    invoke-direct {p0, p3, p5, p6, p7}, Lcom/android/wifitrackerlib/WifiEntry;-><init>(Landroid/os/Handler;Landroid/net/wifi/WifiManager;Landroid/net/wifi/WifiNetworkScoreCache;Z)V
 
-    new-instance p2, Ljava/util/ArrayList;
+    new-instance p3, Ljava/util/ArrayList;
 
-    invoke-direct {p2}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {p3}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object p2, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mCurrentHomeScanResults:Ljava/util/List;
+    iput-object p3, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mCurrentHomeScanResults:Ljava/util/List;
 
-    new-instance p2, Ljava/util/ArrayList;
+    new-instance p3, Ljava/util/ArrayList;
 
-    invoke-direct {p2}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {p3}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object p2, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mCurrentRoamingScanResults:Ljava/util/List;
+    iput-object p3, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mCurrentRoamingScanResults:Ljava/util/List;
 
-    const/16 p2, 0xb
+    const/16 p3, 0xb
 
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object p2
+    move-result-object p3
 
-    const/16 p4, 0xc
+    const/16 p5, 0xc
 
-    invoke-static {p4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object p4
+    move-result-object p5
 
-    invoke-static {p2, p4}, Ljava/util/List;->of(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;
+    invoke-static {p3, p5}, Ljava/util/List;->of(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object p2
+    move-result-object p3
 
-    iput-object p2, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mTargetSecurityTypes:Ljava/util/List;
+    iput-object p3, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mTargetSecurityTypes:Ljava/util/List;
 
-    const/4 p2, 0x0
+    const/4 p3, 0x0
 
-    iput-boolean p2, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mIsRoaming:Z
+    iput-boolean p3, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mIsRoaming:Z
 
-    iput-boolean p2, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mShouldAutoOpenCaptivePortal:Z
+    iput-boolean p3, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mShouldAutoOpenCaptivePortal:Z
 
-    iput p2, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mMeteredOverride:I
+    iput p3, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mMeteredOverride:I
 
-    const-string p2, "Cannot construct with null WifiConfiguration!"
+    const-string p3, "Cannot construct with null WifiConfiguration!"
 
-    invoke-static {p3, p2}, Landroidx/core/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p4, p3}, Landroidx/core/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {p3}, Landroid/net/wifi/WifiConfiguration;->isPasspoint()Z
+    invoke-virtual {p4}, Landroid/net/wifi/WifiConfiguration;->isPasspoint()Z
 
-    move-result p2
+    move-result p3
 
-    if-eqz p2, :cond_0
+    if-eqz p3, :cond_0
 
-    iput-object p1, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mContext:Landroid/content/Context;
+    iput-object p1, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mInjector:Lcom/android/wifitrackerlib/WifiTrackerInjector;
 
-    iput-object p3, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
+    iput-object p2, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mContext:Landroid/content/Context;
 
-    invoke-virtual {p3}, Landroid/net/wifi/WifiConfiguration;->getKey()Ljava/lang/String;
+    iput-object p4, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
+
+    invoke-virtual {p4}, Landroid/net/wifi/WifiConfiguration;->getKey()Ljava/lang/String;
 
     move-result-object p1
 
@@ -138,7 +142,7 @@
 
     iput-object p1, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mKey:Ljava/lang/String;
 
-    iget-object p1, p3, Landroid/net/wifi/WifiConfiguration;->FQDN:Ljava/lang/String;
+    iget-object p1, p4, Landroid/net/wifi/WifiConfiguration;->FQDN:Ljava/lang/String;
 
     iput-object p1, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mFqdn:Ljava/lang/String;
 
@@ -164,7 +168,7 @@
     throw p0
 .end method
 
-.method constructor <init>(Landroid/content/Context;Landroid/os/Handler;Landroid/net/wifi/hotspot2/PasspointConfiguration;Landroid/net/wifi/WifiManager;Landroid/net/wifi/WifiNetworkScoreCache;Z)V
+.method constructor <init>(Lcom/android/wifitrackerlib/WifiTrackerInjector;Landroid/content/Context;Landroid/os/Handler;Landroid/net/wifi/hotspot2/PasspointConfiguration;Landroid/net/wifi/WifiManager;Landroid/net/wifi/WifiNetworkScoreCache;Z)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -172,55 +176,57 @@
         }
     .end annotation
 
-    invoke-direct {p0, p2, p4, p5, p6}, Lcom/android/wifitrackerlib/WifiEntry;-><init>(Landroid/os/Handler;Landroid/net/wifi/WifiManager;Landroid/net/wifi/WifiNetworkScoreCache;Z)V
+    invoke-direct {p0, p3, p5, p6, p7}, Lcom/android/wifitrackerlib/WifiEntry;-><init>(Landroid/os/Handler;Landroid/net/wifi/WifiManager;Landroid/net/wifi/WifiNetworkScoreCache;Z)V
 
-    new-instance p2, Ljava/util/ArrayList;
+    new-instance p3, Ljava/util/ArrayList;
 
-    invoke-direct {p2}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {p3}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object p2, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mCurrentHomeScanResults:Ljava/util/List;
+    iput-object p3, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mCurrentHomeScanResults:Ljava/util/List;
 
-    new-instance p2, Ljava/util/ArrayList;
+    new-instance p3, Ljava/util/ArrayList;
 
-    invoke-direct {p2}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {p3}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object p2, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mCurrentRoamingScanResults:Ljava/util/List;
+    iput-object p3, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mCurrentRoamingScanResults:Ljava/util/List;
 
-    const/16 p2, 0xb
+    const/16 p3, 0xb
 
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object p2
+    move-result-object p3
 
-    const/16 p4, 0xc
+    const/16 p5, 0xc
 
-    invoke-static {p4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object p4
+    move-result-object p5
 
-    invoke-static {p2, p4}, Ljava/util/List;->of(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;
+    invoke-static {p3, p5}, Ljava/util/List;->of(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/List;
 
-    move-result-object p2
+    move-result-object p3
 
-    iput-object p2, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mTargetSecurityTypes:Ljava/util/List;
+    iput-object p3, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mTargetSecurityTypes:Ljava/util/List;
 
-    const/4 p2, 0x0
+    const/4 p3, 0x0
 
-    iput-boolean p2, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mIsRoaming:Z
+    iput-boolean p3, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mIsRoaming:Z
 
-    iput-boolean p2, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mShouldAutoOpenCaptivePortal:Z
+    iput-boolean p3, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mShouldAutoOpenCaptivePortal:Z
 
-    iput p2, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mMeteredOverride:I
+    iput p3, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mMeteredOverride:I
 
-    const-string p2, "Cannot construct with null PasspointConfiguration!"
+    const-string p3, "Cannot construct with null PasspointConfiguration!"
 
-    invoke-static {p3, p2}, Landroidx/core/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p4, p3}, Landroidx/core/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iput-object p1, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mContext:Landroid/content/Context;
+    iput-object p1, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mInjector:Lcom/android/wifitrackerlib/WifiTrackerInjector;
 
-    iput-object p3, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mPasspointConfig:Landroid/net/wifi/hotspot2/PasspointConfiguration;
+    iput-object p2, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mContext:Landroid/content/Context;
 
-    invoke-virtual {p3}, Landroid/net/wifi/hotspot2/PasspointConfiguration;->getUniqueId()Ljava/lang/String;
+    iput-object p4, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mPasspointConfig:Landroid/net/wifi/hotspot2/PasspointConfiguration;
+
+    invoke-virtual {p4}, Landroid/net/wifi/hotspot2/PasspointConfiguration;->getUniqueId()Ljava/lang/String;
 
     move-result-object p1
 
@@ -230,7 +236,7 @@
 
     iput-object p1, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mKey:Ljava/lang/String;
 
-    invoke-virtual {p3}, Landroid/net/wifi/hotspot2/PasspointConfiguration;->getHomeSp()Landroid/net/wifi/hotspot2/pps/HomeSp;
+    invoke-virtual {p4}, Landroid/net/wifi/hotspot2/PasspointConfiguration;->getHomeSp()Landroid/net/wifi/hotspot2/pps/HomeSp;
 
     move-result-object p1
 
@@ -244,7 +250,7 @@
 
     invoke-static {p1, p2}, Landroidx/core/util/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {p3}, Landroid/net/wifi/hotspot2/PasspointConfiguration;->getHomeSp()Landroid/net/wifi/hotspot2/pps/HomeSp;
+    invoke-virtual {p4}, Landroid/net/wifi/hotspot2/PasspointConfiguration;->getHomeSp()Landroid/net/wifi/hotspot2/pps/HomeSp;
 
     move-result-object p1
 
@@ -254,7 +260,7 @@
 
     iput-object p1, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mFriendlyName:Ljava/lang/String;
 
-    invoke-virtual {p3}, Landroid/net/wifi/hotspot2/PasspointConfiguration;->getSubscriptionExpirationTimeMillis()J
+    invoke-virtual {p4}, Landroid/net/wifi/hotspot2/PasspointConfiguration;->getSubscriptionExpirationTimeMillis()J
 
     move-result-wide p1
 
@@ -858,13 +864,15 @@
     goto :goto_0
 
     :cond_4
-    iget-object v1, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mContext:Landroid/content/Context;
+    iget-object v1, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mInjector:Lcom/android/wifitrackerlib/WifiTrackerInjector;
 
-    iget-object v2, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
+    iget-object v2, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mContext:Landroid/content/Context;
 
-    iget-boolean v3, p0, Lcom/android/wifitrackerlib/WifiEntry;->mForSavedNetworksPage:Z
+    iget-object v3, p0, Lcom/android/wifitrackerlib/PasspointWifiEntry;->mWifiConfig:Landroid/net/wifi/WifiConfiguration;
 
-    invoke-static {v1, v2, v3, p1}, Lcom/android/wifitrackerlib/Utils;->getDisconnectedDescription(Landroid/content/Context;Landroid/net/wifi/WifiConfiguration;ZZ)Ljava/lang/String;
+    iget-boolean v4, p0, Lcom/android/wifitrackerlib/WifiEntry;->mForSavedNetworksPage:Z
+
+    invoke-static {v1, v2, v3, v4, p1}, Lcom/android/wifitrackerlib/Utils;->getDisconnectedDescription(Lcom/android/wifitrackerlib/WifiTrackerInjector;Landroid/content/Context;Landroid/net/wifi/WifiConfiguration;ZZ)Ljava/lang/String;
 
     move-result-object v1
 

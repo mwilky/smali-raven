@@ -51,6 +51,12 @@
     return-void
 .end method
 
+.method public onFocusTaskChanged(Landroid/app/ActivityManager$RunningTaskInfo;)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public resizePipMenu(Landroid/view/SurfaceControl;Landroid/view/SurfaceControl$Transaction;Landroid/graphics/Rect;)V
     .locals 0
 

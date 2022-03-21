@@ -4,4 +4,4 @@
 
 
 # static fields
-.field public static final abc_slice_gradient:I = 0x7f0802a6
+.field public static final abc_slice_gradient:I = 0x7f080334

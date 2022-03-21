@@ -49,6 +49,16 @@
 
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->println(Z)V
 
+    const-string p2, "  isSwipeToNotificationEnabled="
+
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    invoke-virtual {p0, p3, p4}, Lcom/android/wm/shell/onehanded/OneHandedSettingsUtil;->getSettingsSwipeToNotificationEnabled(Landroid/content/ContentResolver;I)Z
+
+    move-result p2
+
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->println(Z)V
+
     const-string p2, "  oneHandedTimeOut="
 
     invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V

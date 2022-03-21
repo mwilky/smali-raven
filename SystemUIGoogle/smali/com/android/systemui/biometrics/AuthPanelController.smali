@@ -26,18 +26,10 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$-wxzvhc8z4Fl36Nsev68BKERyn8(Lcom/android/systemui/biometrics/AuthPanelController;Landroid/animation/ValueAnimator;)V
+.method public static synthetic $r8$lambda$IdZLzrepYfUqxEEq4TkSMVyXaVE(Lcom/android/systemui/biometrics/AuthPanelController;Landroid/animation/ValueAnimator;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/biometrics/AuthPanelController;->lambda$updateForContentDimensions$5(Landroid/animation/ValueAnimator;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$4GM6_LOMWqnttXsv0uk1l32J-EI(Lcom/android/systemui/biometrics/AuthPanelController;Landroid/animation/ValueAnimator;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/biometrics/AuthPanelController;->lambda$updateForContentDimensions$4(Landroid/animation/ValueAnimator;)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/biometrics/AuthPanelController;->lambda$updateForContentDimensions$0(Landroid/animation/ValueAnimator;)V
 
     return-void
 .end method
@@ -54,6 +46,14 @@
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/biometrics/AuthPanelController;->lambda$updateForContentDimensions$3(Landroid/animation/ValueAnimator;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$gwVceKNQ2nk712ldx2z8yz5JG98(Lcom/android/systemui/biometrics/AuthPanelController;Landroid/animation/ValueAnimator;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/biometrics/AuthPanelController;->lambda$updateForContentDimensions$1(Landroid/animation/ValueAnimator;)V
 
     return-void
 .end method
@@ -247,7 +247,7 @@
     return p0
 .end method
 
-.method private synthetic lambda$updateForContentDimensions$2(Landroid/animation/ValueAnimator;)V
+.method private synthetic lambda$updateForContentDimensions$0(Landroid/animation/ValueAnimator;)V
     .locals 0
 
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
@@ -265,7 +265,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$updateForContentDimensions$3(Landroid/animation/ValueAnimator;)V
+.method private synthetic lambda$updateForContentDimensions$1(Landroid/animation/ValueAnimator;)V
     .locals 0
 
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
@@ -283,7 +283,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$updateForContentDimensions$4(Landroid/animation/ValueAnimator;)V
+.method private synthetic lambda$updateForContentDimensions$2(Landroid/animation/ValueAnimator;)V
     .locals 0
 
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
@@ -305,7 +305,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$updateForContentDimensions$5(Landroid/animation/ValueAnimator;)V
+.method private synthetic lambda$updateForContentDimensions$3(Landroid/animation/ValueAnimator;)V
     .locals 0
 
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
@@ -489,9 +489,9 @@
 
     move-result-object v0
 
-    new-instance v4, Lcom/android/systemui/biometrics/AuthPanelController$$ExternalSyntheticLambda2;
+    new-instance v4, Lcom/android/systemui/biometrics/AuthPanelController$$ExternalSyntheticLambda0;
 
-    invoke-direct {v4, p0}, Lcom/android/systemui/biometrics/AuthPanelController$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/biometrics/AuthPanelController;)V
+    invoke-direct {v4, p0}, Lcom/android/systemui/biometrics/AuthPanelController$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/biometrics/AuthPanelController;)V
 
     invoke-virtual {v0, v4}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
@@ -543,9 +543,9 @@
 
     move-result-object p1
 
-    new-instance v4, Lcom/android/systemui/biometrics/AuthPanelController$$ExternalSyntheticLambda0;
+    new-instance v4, Lcom/android/systemui/biometrics/AuthPanelController$$ExternalSyntheticLambda2;
 
-    invoke-direct {v4, p0}, Lcom/android/systemui/biometrics/AuthPanelController$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/biometrics/AuthPanelController;)V
+    invoke-direct {v4, p0}, Lcom/android/systemui/biometrics/AuthPanelController$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/biometrics/AuthPanelController;)V
 
     invoke-virtual {p1, v4}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 

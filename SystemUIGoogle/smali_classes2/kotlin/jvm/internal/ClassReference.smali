@@ -753,6 +753,14 @@
     return-void
 .end method
 
+.method public static final synthetic access$getSimpleNames$cp()Ljava/util/Map;
+    .locals 1
+
+    sget-object v0, Lkotlin/jvm/internal/ClassReference;->simpleNames:Ljava/util/Map;
+
+    return-object v0
+.end method
+
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
@@ -800,6 +808,22 @@
     .end annotation
 
     iget-object p0, p0, Lkotlin/jvm/internal/ClassReference;->jClass:Ljava/lang/Class;
+
+    return-object p0
+.end method
+
+.method public getSimpleName()Ljava/lang/String;
+    .locals 1
+
+    sget-object v0, Lkotlin/jvm/internal/ClassReference;->Companion:Lkotlin/jvm/internal/ClassReference$Companion;
+
+    invoke-virtual {p0}, Lkotlin/jvm/internal/ClassReference;->getJClass()Ljava/lang/Class;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Lkotlin/jvm/internal/ClassReference$Companion;->getClassSimpleName(Ljava/lang/Class;)Ljava/lang/String;
+
+    move-result-object p0
 
     return-object p0
 .end method

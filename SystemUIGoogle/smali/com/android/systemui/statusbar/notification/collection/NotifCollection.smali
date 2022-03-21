@@ -41,7 +41,7 @@
     .end annotation
 .end field
 
-.field private final mFeatureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
+.field private final mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
 
 .field private mInitializedTimestamp:J
 
@@ -56,6 +56,8 @@
 .end field
 
 .field private final mLogger:Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionLogger;
+
+.field private final mMainHandler:Landroid/os/Handler;
 
 .field private final mNotifCollectionListeners:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -94,10 +96,26 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$0AbOY-SqhQhpfsHA93QWTVLaanQ(Lcom/android/systemui/statusbar/notification/collection/NotifCollection;Landroid/service/notification/StatusBarNotification;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;->lambda$getInternalNotifUpdater$0(Landroid/service/notification/StatusBarNotification;Ljava/lang/String;Ljava/lang/String;)V
+
+    return-void
+.end method
+
 .method public static synthetic $r8$lambda$Fn1mjyWSB9lXBkhCorT8hZOGt1o(Lcom/android/systemui/statusbar/notification/collection/NotifCollection;Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifLifetimeExtender;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;->onEndLifetimeExtension(Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifLifetimeExtender;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$JbEB6Ms055NMVN-VAaCr_esZCG4(Lcom/android/systemui/statusbar/notification/collection/NotifCollection;Ljava/lang/String;Landroid/service/notification/StatusBarNotification;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;->lambda$getInternalNotifUpdater$1(Ljava/lang/String;Landroid/service/notification/StatusBarNotification;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -126,7 +144,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/internal/statusbar/IStatusBarService;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionLogger;Lcom/android/systemui/dump/LogBufferEulogizer;Lcom/android/systemui/dump/DumpManager;)V
+.method public constructor <init>(Lcom/android/internal/statusbar/IStatusBarService;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionLogger;Landroid/os/Handler;Lcom/android/systemui/dump/LogBufferEulogizer;Lcom/android/systemui/dump/DumpManager;)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -191,15 +209,17 @@
 
     iput-object p2, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;->mClock:Lcom/android/systemui/util/time/SystemClock;
 
-    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;->mFeatureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
+    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;->mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
 
     iput-object p4, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;->mLogger:Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionLogger;
 
-    iput-object p5, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;->mEulogizer:Lcom/android/systemui/dump/LogBufferEulogizer;
+    iput-object p5, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;->mMainHandler:Landroid/os/Handler;
+
+    iput-object p6, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;->mEulogizer:Lcom/android/systemui/dump/LogBufferEulogizer;
 
     const-string p1, "NotifCollection"
 
-    invoke-virtual {p6, p1, p0}, Lcom/android/systemui/dump/DumpManager;->registerDumpable(Ljava/lang/String;Lcom/android/systemui/Dumpable;)V
+    invoke-virtual {p7, p1, p0}, Lcom/android/systemui/dump/DumpManager;->registerDumpable(Ljava/lang/String;Lcom/android/systemui/Dumpable;)V
 
     return-void
 .end method
@@ -293,9 +313,9 @@
 
     invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->setRanking(Landroid/service/notification/NotificationListenerService$Ranking;)V
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;->mFeatureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;->mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
 
-    invoke-virtual {v3}, Lcom/android/systemui/statusbar/FeatureFlags;->isNewNotifPipelineRenderingEnabled()Z
+    invoke-virtual {v3}, Lcom/android/systemui/flags/FeatureFlags;->isNewNotifPipelineRenderingEnabled()Z
 
     move-result v3
 
@@ -609,6 +629,10 @@
 .method private dispatchEventsAndRebuildList()V
     .locals 2
 
+    const-string v0, "NotifCollection.dispatchEventsAndRebuildList"
+
+    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
+
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;->mAmDispatchingToOtherCode:Z
@@ -650,6 +674,8 @@
     invoke-interface {v0, p0}, Lcom/android/systemui/statusbar/notification/collection/notifcollection/CollectionReadyForBuildListener;->onBuildList(Ljava/util/Collection;)V
 
     :cond_1
+    invoke-static {}, Landroid/os/Trace;->endSection()V
+
     return-void
 .end method
 
@@ -743,6 +769,28 @@
 
     :goto_0
     return p0
+.end method
+
+.method private synthetic lambda$getInternalNotifUpdater$0(Landroid/service/notification/StatusBarNotification;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;->updateNotificationInternally(Landroid/service/notification/StatusBarNotification;Ljava/lang/String;Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$getInternalNotifUpdater$1(Ljava/lang/String;Landroid/service/notification/StatusBarNotification;Ljava/lang/String;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;->mMainHandler:Landroid/os/Handler;
+
+    new-instance v1, Lcom/android/systemui/statusbar/notification/collection/NotifCollection$$ExternalSyntheticLambda3;
+
+    invoke-direct {v1, p0, p2, p1, p3}, Lcom/android/systemui/statusbar/notification/collection/NotifCollection$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/statusbar/notification/collection/NotifCollection;Landroid/service/notification/StatusBarNotification;Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    return-void
 .end method
 
 .method private locallyDismissNotifications(Ljava/util/List;)V
@@ -1345,7 +1393,9 @@
 
     new-instance p1, Lcom/android/systemui/statusbar/notification/collection/notifcollection/EntryUpdatedEvent;
 
-    invoke-direct {p1, v0}, Lcom/android/systemui/statusbar/notification/collection/notifcollection/EntryUpdatedEvent;-><init>(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+    const/4 p2, 0x1
+
+    invoke-direct {p1, v0, p2}, Lcom/android/systemui/statusbar/notification/collection/notifcollection/EntryUpdatedEvent;-><init>(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Z)V
 
     invoke-interface {p0, p1}, Ljava/util/Queue;->add(Ljava/lang/Object;)Z
 
@@ -1767,6 +1817,79 @@
     return-void
 .end method
 
+.method private updateNotificationInternally(Landroid/service/notification/StatusBarNotification;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 3
+
+    invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;->checkForReentrantCall()V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;->mNotificationSet:Ljava/util/Map;
+
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+
+    if-nez v0, :cond_0
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;->mLogger:Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionLogger;
+
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionLogger;->logNotifInternalUpdateFailed(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    return-void
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;->mLogger:Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionLogger;
+
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2, p2, p3}, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionLogger;->logNotifInternalUpdate(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->setSbn(Landroid/service/notification/StatusBarNotification;)V
+
+    iget-object p2, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;->mEventQueue:Ljava/util/Queue;
+
+    new-instance p3, Lcom/android/systemui/statusbar/notification/collection/notifcollection/BindEntryEvent;
+
+    invoke-direct {p3, v0, p1}, Lcom/android/systemui/statusbar/notification/collection/notifcollection/BindEntryEvent;-><init>(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/service/notification/StatusBarNotification;)V
+
+    invoke-interface {p2, p3}, Ljava/util/Queue;->add(Ljava/lang/Object;)Z
+
+    iget-object p2, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;->mLogger:Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionLogger;
+
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p2, p1}, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionLogger;->logNotifUpdated(Ljava/lang/String;)V
+
+    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;->mEventQueue:Ljava/util/Queue;
+
+    new-instance p2, Lcom/android/systemui/statusbar/notification/collection/notifcollection/EntryUpdatedEvent;
+
+    const/4 p3, 0x0
+
+    invoke-direct {p2, v0, p3}, Lcom/android/systemui/statusbar/notification/collection/notifcollection/EntryUpdatedEvent;-><init>(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Z)V
+
+    invoke-interface {p1, p2}, Ljava/util/Queue;->add(Ljava/lang/Object;)Z
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;->dispatchEventsAndRebuildList()V
+
+    return-void
+.end method
+
 .method private static userIdMatches(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;I)Z
     .locals 2
 
@@ -1850,9 +1973,9 @@
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    new-instance v0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection$$ExternalSyntheticLambda1;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/notification/collection/NotifCollection$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/statusbar/notification/collection/NotifCollection;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/notification/collection/NotifCollection$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/statusbar/notification/collection/NotifCollection;)V
 
     invoke-interface {p1, v0}, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifDismissInterceptor;->setCallback(Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifDismissInterceptor$OnEndDismissInterception;)V
 
@@ -1903,9 +2026,9 @@
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    new-instance v0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection$$ExternalSyntheticLambda2;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/notification/collection/NotifCollection$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/statusbar/notification/collection/NotifCollection;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/notification/collection/NotifCollection$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/statusbar/notification/collection/NotifCollection;)V
 
     invoke-interface {p1, v0}, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifLifetimeExtender;->setCallback(Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifLifetimeExtender$OnEndLifetimeExtensionCallback;)V
 
@@ -2343,6 +2466,16 @@
     check-cast p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
     return-object p0
+.end method
+
+.method public getInternalNotifUpdater(Ljava/lang/String;)Lcom/android/systemui/statusbar/notification/collection/notifcollection/InternalNotifUpdater;
+    .locals 1
+
+    new-instance v0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0, p0, p1}, Lcom/android/systemui/statusbar/notification/collection/NotifCollection$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/statusbar/notification/collection/NotifCollection;Ljava/lang/String;)V
+
+    return-object v0
 .end method
 
 .method setBuildListener(Lcom/android/systemui/statusbar/notification/collection/notifcollection/CollectionReadyForBuildListener;)V

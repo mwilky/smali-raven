@@ -37,6 +37,18 @@
 
 .field private mHideAnimator:Landroid/animation/Animator;
 
+.field private mInSplitScreen:Z
+
+.field private final mInSplitScreenCallback:Ljava/util/function/Consumer;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/function/Consumer<",
+            "Ljava/lang/Boolean;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private mIsImmersive:Z
 
 .field private mListenersRegistered:Z
@@ -75,10 +87,18 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$7p3Q-0CD199K_DFpydbawO34zwY(IILcom/android/wm/shell/tasksurfacehelper/TaskSurfaceHelper;)V
+.method public static synthetic $r8$lambda$BdEEgrXXfDpkVp0shRol2N_Dfh4(Lcom/google/android/systemui/gamedashboard/EntryPointController;Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)V
     .locals 0
 
-    invoke-static {p0, p1, p2}, Lcom/google/android/systemui/gamedashboard/EntryPointController;->lambda$onRunningTaskChange$0(IILcom/android/wm/shell/tasksurfacehelper/TaskSurfaceHelper;)V
+    invoke-direct {p0, p1}, Lcom/google/android/systemui/gamedashboard/EntryPointController;->lambda$new$1(Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$Qjr9td7j4-O6B5W5ese-i-hsGh8(Lcom/google/android/systemui/gamedashboard/EntryPointController;Ljava/lang/Boolean;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/google/android/systemui/gamedashboard/EntryPointController;->lambda$new$0(Ljava/lang/Boolean;)V
 
     return-void
 .end method
@@ -91,7 +111,15 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/CommandQueue;Lcom/google/android/systemui/gamedashboard/GameModeDndController;Landroid/os/Handler;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/recents/OverviewProxyService;Landroid/content/pm/PackageManager;Lcom/google/android/systemui/gamedashboard/ShortcutBarController;Lcom/google/android/systemui/gamedashboard/ToastController;Lcom/google/android/systemui/gamedashboard/GameDashboardUiEventLogger;Ljava/util/Optional;)V
+.method public static synthetic $r8$lambda$c1pD_Zvq6L-o-JTKevSmBLtB43U(IILcom/android/wm/shell/tasksurfacehelper/TaskSurfaceHelper;)V
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Lcom/google/android/systemui/gamedashboard/EntryPointController;->lambda$onRunningTaskChange$2(IILcom/android/wm/shell/tasksurfacehelper/TaskSurfaceHelper;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/view/accessibility/AccessibilityManager;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/CommandQueue;Lcom/google/android/systemui/gamedashboard/GameModeDndController;Landroid/os/Handler;Lcom/android/systemui/navigationbar/NavigationModeController;Ljava/util/Optional;Lcom/android/systemui/recents/OverviewProxyService;Landroid/content/pm/PackageManager;Lcom/google/android/systemui/gamedashboard/ShortcutBarController;Lcom/google/android/systemui/gamedashboard/ToastController;Lcom/google/android/systemui/gamedashboard/GameDashboardUiEventLogger;Ljava/util/Optional;)V
     .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -103,6 +131,9 @@
             "Lcom/google/android/systemui/gamedashboard/GameModeDndController;",
             "Landroid/os/Handler;",
             "Lcom/android/systemui/navigationbar/NavigationModeController;",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;",
+            ">;",
             "Lcom/android/systemui/recents/OverviewProxyService;",
             "Landroid/content/pm/PackageManager;",
             "Lcom/google/android/systemui/gamedashboard/ShortcutBarController;",
@@ -116,9 +147,9 @@
 
     move-object v0, p0
 
-    move-object/from16 v1, p10
+    move-object/from16 v1, p11
 
-    move-object/from16 v2, p12
+    move-object/from16 v2, p13
 
     invoke-direct {p0, p1}, Lcom/android/systemui/navigationbar/NavigationBarOverlayController;-><init>(Landroid/content/Context;)V
 
@@ -131,6 +162,12 @@
     invoke-direct {v4, p0}, Lcom/google/android/systemui/gamedashboard/EntryPointController$1;-><init>(Lcom/google/android/systemui/gamedashboard/EntryPointController;)V
 
     iput-object v4, v0, Lcom/google/android/systemui/gamedashboard/EntryPointController;->mOverviewProxyListener:Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;
+
+    new-instance v5, Lcom/google/android/systemui/gamedashboard/EntryPointController$$ExternalSyntheticLambda3;
+
+    invoke-direct {v5, p0}, Lcom/google/android/systemui/gamedashboard/EntryPointController$$ExternalSyntheticLambda3;-><init>(Lcom/google/android/systemui/gamedashboard/EntryPointController;)V
+
+    iput-object v5, v0, Lcom/google/android/systemui/gamedashboard/EntryPointController;->mInSplitScreenCallback:Ljava/util/function/Consumer;
 
     move-object v5, p2
 
@@ -162,7 +199,7 @@
 
     const-string v5, "com.google.android.feature.GAME_OVERLAY"
 
-    move-object/from16 v6, p9
+    move-object/from16 v6, p10
 
     invoke-virtual {v6, v5}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
 
@@ -238,19 +275,27 @@
 
     invoke-virtual {v1, p0}, Lcom/google/android/systemui/gamedashboard/ShortcutBarController;->setEntryPointController(Lcom/google/android/systemui/gamedashboard/EntryPointController;)V
 
-    move-object v5, p8
+    move-object/from16 v5, p9
 
-    invoke-virtual {p8, v4}, Lcom/android/systemui/recents/OverviewProxyService;->addCallback(Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;)V
+    invoke-virtual {v5, v4}, Lcom/android/systemui/recents/OverviewProxyService;->addCallback(Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;)V
 
     iput-object v2, v0, Lcom/google/android/systemui/gamedashboard/EntryPointController;->mUiEventLogger:Lcom/google/android/systemui/gamedashboard/GameDashboardUiEventLogger;
 
     invoke-virtual {v2, p0}, Lcom/google/android/systemui/gamedashboard/GameDashboardUiEventLogger;->setEntryPointController(Lcom/google/android/systemui/gamedashboard/EntryPointController;)V
 
-    move-object/from16 v2, p13
+    move-object/from16 v2, p14
 
     iput-object v2, v0, Lcom/google/android/systemui/gamedashboard/EntryPointController;->mTaskSurfaceHelper:Ljava/util/Optional;
 
-    move-object/from16 v2, p11
+    new-instance v2, Lcom/google/android/systemui/gamedashboard/EntryPointController$$ExternalSyntheticLambda2;
+
+    invoke-direct {v2, p0}, Lcom/google/android/systemui/gamedashboard/EntryPointController$$ExternalSyntheticLambda2;-><init>(Lcom/google/android/systemui/gamedashboard/EntryPointController;)V
+
+    move-object v4, p8
+
+    invoke-virtual {p8, v2}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
+
+    move-object/from16 v2, p12
 
     iput-object v2, v0, Lcom/google/android/systemui/gamedashboard/EntryPointController;->mToast:Lcom/google/android/systemui/gamedashboard/ToastController;
 
@@ -355,7 +400,15 @@
     return p0
 .end method
 
-.method static synthetic access$1200(Lcom/google/android/systemui/gamedashboard/EntryPointController;)Lcom/google/android/systemui/gamedashboard/FloatingEntryButton;
+.method static synthetic access$1200(Lcom/google/android/systemui/gamedashboard/EntryPointController;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController;->mInSplitScreen:Z
+
+    return p0
+.end method
+
+.method static synthetic access$1300(Lcom/google/android/systemui/gamedashboard/EntryPointController;)Lcom/google/android/systemui/gamedashboard/FloatingEntryButton;
     .locals 0
 
     iget-object p0, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController;->mEntryPoint:Lcom/google/android/systemui/gamedashboard/FloatingEntryButton;
@@ -464,7 +517,29 @@
     return-void
 .end method
 
-.method private static synthetic lambda$onRunningTaskChange$0(IILcom/android/wm/shell/tasksurfacehelper/TaskSurfaceHelper;)V
+.method private synthetic lambda$new$0(Ljava/lang/Boolean;)V
+    .locals 0
+
+    invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result p1
+
+    iput-boolean p1, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController;->mInSplitScreen:Z
+
+    return-void
+.end method
+
+.method private synthetic lambda$new$1(Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController;->mInSplitScreenCallback:Ljava/util/function/Consumer;
+
+    invoke-interface {p1, p0}, Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;->registerInSplitScreenListener(Ljava/util/function/Consumer;)V
+
+    return-void
+.end method
+
+.method private static synthetic lambda$onRunningTaskChange$2(IILcom/android/wm/shell/tasksurfacehelper/TaskSurfaceHelper;)V
     .locals 0
 
     invoke-interface {p2, p0, p1}, Lcom/android/wm/shell/tasksurfacehelper/TaskSurfaceHelper;->setGameModeForTask(II)V
@@ -557,27 +632,6 @@
     return-void
 
     :cond_1
-    const-class v1, Lcom/android/systemui/screenrecord/ScreenRecordDialog;
-
-    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object v1
-
-    iget-object v2, v0, Landroid/app/ActivityManager$RunningTaskInfo;->baseActivity:Landroid/content/ComponentName;
-
-    invoke-virtual {v2}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    return-void
-
-    :cond_2
     iget-object v1, v0, Landroid/app/ActivityManager$RunningTaskInfo;->baseActivity:Landroid/content/ComponentName;
 
     invoke-virtual {v1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
@@ -596,7 +650,7 @@
 
     const/4 v4, 0x1
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_2
 
     const-string v2, "com.google.android.play.games"
 
@@ -604,7 +658,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_2
 
     iget-object v1, v0, Landroid/app/ActivityManager$RunningTaskInfo;->topActivity:Landroid/content/ComponentName;
 
@@ -616,19 +670,23 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_2
+
+    iget-boolean v1, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController;->mInSplitScreen:Z
+
+    if-nez v1, :cond_2
 
     move v1, v4
 
     goto :goto_0
 
-    :cond_3
+    :cond_2
     move v1, v3
 
     :goto_0
     iput-boolean v1, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController;->mShouldShow:Z
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_3
 
     iget-object v1, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController;->mEntryPoint:Lcom/google/android/systemui/gamedashboard/FloatingEntryButton;
 
@@ -636,19 +694,19 @@
 
     move-result v1
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_4
 
-    :cond_4
+    :cond_3
     iget-boolean v1, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController;->mAlwaysOn:Z
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_5
 
-    :cond_5
+    :cond_4
     iget-object v1, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController;->mEntryPoint:Lcom/google/android/systemui/gamedashboard/FloatingEntryButton;
 
     invoke-virtual {v1}, Lcom/google/android/systemui/gamedashboard/FloatingEntryButton;->hide()Z
 
-    :cond_6
+    :cond_5
     iget-object v1, v0, Landroid/app/ActivityManager$RunningTaskInfo;->topActivity:Landroid/content/ComponentName;
 
     invoke-virtual {v1}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
@@ -667,35 +725,35 @@
 
     iget-boolean v2, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController;->mShouldShow:Z
 
-    if-nez v2, :cond_8
+    if-nez v2, :cond_7
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_6
 
     goto :goto_1
 
-    :cond_7
+    :cond_6
     move v2, v3
 
     goto :goto_2
 
-    :cond_8
+    :cond_7
     :goto_1
     move v2, v4
 
     :goto_2
     iget-object v5, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController;->mGameModeDndController:Lcom/google/android/systemui/gamedashboard/GameModeDndController;
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_8
 
     iget-boolean v2, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController;->mHasGameOverlay:Z
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_8
 
     move v2, v4
 
     goto :goto_3
 
-    :cond_9
+    :cond_8
     move v2, v3
 
     :goto_3
@@ -703,7 +761,7 @@
 
     iget-boolean v2, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController;->mShouldShow:Z
 
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_b
 
     iget v1, v0, Landroid/app/ActivityManager$RunningTaskInfo;->taskId:I
 
@@ -737,16 +795,20 @@
 
     iget-boolean v2, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController;->mIsImmersive:Z
 
-    if-nez v2, :cond_a
+    if-nez v2, :cond_9
 
     iget-boolean v2, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController;->mAlwaysOn:Z
 
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_a
 
-    :cond_a
+    :cond_9
+    iget-boolean v2, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController;->mInSplitScreen:Z
+
+    if-nez v2, :cond_a
+
     move v3, v4
 
-    :cond_b
+    :cond_a
     invoke-virtual {v1, v3}, Lcom/google/android/systemui/gamedashboard/ShortcutBarController;->updateVisibility(Z)V
 
     iget-object v1, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController;->mShortcutBarController:Lcom/google/android/systemui/gamedashboard/ShortcutBarController;
@@ -755,7 +817,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_d
 
     iget-object v1, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController;->mShortcutBarController:Lcom/google/android/systemui/gamedashboard/ShortcutBarController;
 
@@ -765,21 +827,25 @@
 
     goto :goto_4
 
-    :cond_c
-    if-eqz v1, :cond_d
+    :cond_b
+    if-eqz v1, :cond_c
 
     iget-object v1, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController;->mShortcutBarController:Lcom/google/android/systemui/gamedashboard/ShortcutBarController;
 
-    invoke-virtual {v1, v4}, Lcom/google/android/systemui/gamedashboard/ShortcutBarController;->updateVisibility(Z)V
+    iget-boolean v2, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController;->mInSplitScreen:Z
+
+    xor-int/2addr v2, v4
+
+    invoke-virtual {v1, v2}, Lcom/google/android/systemui/gamedashboard/ShortcutBarController;->updateVisibility(Z)V
 
     goto :goto_4
 
-    :cond_d
+    :cond_c
     iget-object v1, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController;->mShortcutBarController:Lcom/google/android/systemui/gamedashboard/ShortcutBarController;
 
     invoke-virtual {v1}, Lcom/google/android/systemui/gamedashboard/ShortcutBarController;->hide()V
 
-    :cond_e
+    :cond_d
     :goto_4
     iput-object v0, p0, Lcom/google/android/systemui/gamedashboard/EntryPointController;->mGameTaskInfo:Landroid/app/ActivityManager$RunningTaskInfo;
 
@@ -972,7 +1038,13 @@
     return-void
 
     :cond_2
-    const/high16 v1, 0x43480000    # 200.0f
+    invoke-virtual {v0}, Landroid/view/View;->getHeight()I
+
+    move-result v1
+
+    neg-int v1, v1
+
+    int-to-float v1, v1
 
     if-eqz p1, :cond_3
 

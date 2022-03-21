@@ -54,6 +54,10 @@
 
     invoke-static {p1, v0}, Lcom/android/systemui/biometrics/AuthRippleView;->access$setUnlockedRippleInProgress$p(Lcom/android/systemui/biometrics/AuthRippleView;Z)V
 
+    iget-object p1, p0, Lcom/android/systemui/biometrics/AuthRippleView$startUnlockedRipple$animatorSet$1$1;->this$0:Lcom/android/systemui/biometrics/AuthRippleView;
+
+    invoke-static {p1, v0}, Lcom/android/systemui/biometrics/AuthRippleView;->access$setDrawRipple$p(Lcom/android/systemui/biometrics/AuthRippleView;Z)V
+
     iget-object p0, p0, Lcom/android/systemui/biometrics/AuthRippleView$startUnlockedRipple$animatorSet$1$1;->this$0:Lcom/android/systemui/biometrics/AuthRippleView;
 
     const/16 p1, 0x8
@@ -79,6 +83,10 @@
     move-result-object p1
 
     invoke-virtual {p1, v0}, Lcom/android/systemui/statusbar/charging/RippleShader;->setShouldFadeOutRipple(Z)V
+
+    iget-object p1, p0, Lcom/android/systemui/biometrics/AuthRippleView$startUnlockedRipple$animatorSet$1$1;->this$0:Lcom/android/systemui/biometrics/AuthRippleView;
+
+    invoke-static {p1, v0}, Lcom/android/systemui/biometrics/AuthRippleView;->access$setDrawRipple$p(Lcom/android/systemui/biometrics/AuthRippleView;Z)V
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/AuthRippleView$startUnlockedRipple$animatorSet$1$1;->this$0:Lcom/android/systemui/biometrics/AuthRippleView;
 

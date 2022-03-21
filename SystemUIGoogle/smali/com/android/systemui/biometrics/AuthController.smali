@@ -44,6 +44,8 @@
 
 .field private mCurrentDialogArgs:Lcom/android/internal/os/SomeArgs;
 
+.field private final mExecution:Lcom/android/systemui/util/concurrency/Execution;
+
 .field private final mFaceAuthSensorLocation:Landroid/graphics/PointF;
 
 .field private final mFaceManager:Landroid/hardware/face/FaceManager;
@@ -60,7 +62,7 @@
 
 .field private final mFingerprintAuthenticatorsRegisteredCallback:Landroid/hardware/fingerprint/IFingerprintAuthenticatorsRegisteredCallback;
 
-.field private final mFingerprintLocation:Landroid/graphics/PointF;
+.field private mFingerprintLocation:Landroid/graphics/PointF;
 
 .field private final mFingerprintManager:Landroid/hardware/fingerprint/FingerprintManager;
 
@@ -78,7 +80,7 @@
 
 .field private final mHandler:Landroid/os/Handler;
 
-.field final mOrientationListener:Lcom/android/systemui/biometrics/BiometricOrientationEventListener;
+.field final mOrientationListener:Lcom/android/systemui/biometrics/BiometricDisplayListener;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 .end field
@@ -87,6 +89,8 @@
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 .end field
+
+.field private mSensorPrivacyManager:Landroid/hardware/SensorPrivacyManager;
 
 .field private mSidefpsController:Lcom/android/systemui/biometrics/SidefpsController;
 
@@ -145,6 +149,14 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$KCCqu7mug3eoI7zRt1qNjYhCY-Y(Lcom/android/systemui/biometrics/AuthController;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/biometrics/AuthController;->lambda$onBiometricError$1(I)V
+
+    return-void
+.end method
+
 .method public static synthetic $r8$lambda$uLGZf-GX0HBBLoGLSvBVj74dsYw(Lcom/android/systemui/biometrics/AuthController;)Lkotlin/Unit;
     .locals 0
 
@@ -155,12 +167,13 @@
     return-object p0
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/statusbar/CommandQueue;Landroid/app/ActivityTaskManager;Landroid/view/WindowManager;Landroid/hardware/fingerprint/FingerprintManager;Landroid/hardware/face/FaceManager;Ljavax/inject/Provider;Ljavax/inject/Provider;Landroid/hardware/display/DisplayManager;Landroid/os/Handler;)V
-    .locals 2
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/util/concurrency/Execution;Lcom/android/systemui/statusbar/CommandQueue;Landroid/app/ActivityTaskManager;Landroid/view/WindowManager;Landroid/hardware/fingerprint/FingerprintManager;Landroid/hardware/face/FaceManager;Ljavax/inject/Provider;Ljavax/inject/Provider;Landroid/hardware/display/DisplayManager;Landroid/os/Handler;)V
+    .locals 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/content/Context;",
+            "Lcom/android/systemui/util/concurrency/Execution;",
             "Lcom/android/systemui/statusbar/CommandQueue;",
             "Landroid/app/ActivityTaskManager;",
             "Landroid/view/WindowManager;",
@@ -178,173 +191,179 @@
         }
     .end annotation
 
+    move-object v0, p0
+
+    move-object v7, p1
+
+    move-object/from16 v8, p7
+
     invoke-direct {p0, p1}, Lcom/android/systemui/SystemUI;-><init>(Landroid/content/Context;)V
 
-    new-instance v0, Landroid/os/Handler;
+    new-instance v1, Ljava/util/HashSet;
 
-    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+    invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
 
-    move-result-object v1
+    iput-object v1, v0, Lcom/android/systemui/biometrics/AuthController;->mCallbacks:Ljava/util/Set;
 
-    invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+    new-instance v1, Lcom/android/systemui/biometrics/AuthController$1;
 
-    iput-object v0, p0, Lcom/android/systemui/biometrics/AuthController;->mHandler:Landroid/os/Handler;
+    invoke-direct {v1, p0}, Lcom/android/systemui/biometrics/AuthController$1;-><init>(Lcom/android/systemui/biometrics/AuthController;)V
 
-    new-instance v0, Ljava/util/HashSet;
+    iput-object v1, v0, Lcom/android/systemui/biometrics/AuthController;->mFingerprintAuthenticatorsRegisteredCallback:Landroid/hardware/fingerprint/IFingerprintAuthenticatorsRegisteredCallback;
 
-    invoke-direct {v0}, Ljava/util/HashSet;-><init>()V
+    new-instance v1, Lcom/android/systemui/biometrics/AuthController$2;
 
-    iput-object v0, p0, Lcom/android/systemui/biometrics/AuthController;->mCallbacks:Ljava/util/Set;
+    invoke-direct {v1, p0}, Lcom/android/systemui/biometrics/AuthController$2;-><init>(Lcom/android/systemui/biometrics/AuthController;)V
 
-    new-instance v0, Lcom/android/systemui/biometrics/AuthController$1;
+    iput-object v1, v0, Lcom/android/systemui/biometrics/AuthController;->mFingerprintStateListener:Landroid/hardware/fingerprint/FingerprintStateListener;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/biometrics/AuthController$1;-><init>(Lcom/android/systemui/biometrics/AuthController;)V
+    new-instance v9, Lcom/android/systemui/biometrics/AuthController$3;
 
-    iput-object v0, p0, Lcom/android/systemui/biometrics/AuthController;->mFingerprintStateListener:Landroid/hardware/fingerprint/FingerprintStateListener;
+    invoke-direct {v9, p0}, Lcom/android/systemui/biometrics/AuthController$3;-><init>(Lcom/android/systemui/biometrics/AuthController;)V
 
-    new-instance v0, Lcom/android/systemui/biometrics/AuthController$2;
+    iput-object v9, v0, Lcom/android/systemui/biometrics/AuthController;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/biometrics/AuthController$2;-><init>(Lcom/android/systemui/biometrics/AuthController;)V
+    move-object v1, p2
 
-    iput-object v0, p0, Lcom/android/systemui/biometrics/AuthController;->mFingerprintAuthenticatorsRegisteredCallback:Landroid/hardware/fingerprint/IFingerprintAuthenticatorsRegisteredCallback;
+    iput-object v1, v0, Lcom/android/systemui/biometrics/AuthController;->mExecution:Lcom/android/systemui/util/concurrency/Execution;
 
-    new-instance v0, Lcom/android/systemui/biometrics/AuthController$3;
+    move-object/from16 v4, p11
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/biometrics/AuthController$3;-><init>(Lcom/android/systemui/biometrics/AuthController;)V
+    iput-object v4, v0, Lcom/android/systemui/biometrics/AuthController;->mHandler:Landroid/os/Handler;
 
-    iput-object v0, p0, Lcom/android/systemui/biometrics/AuthController;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
+    move-object v1, p3
 
-    iput-object p2, p0, Lcom/android/systemui/biometrics/AuthController;->mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
+    iput-object v1, v0, Lcom/android/systemui/biometrics/AuthController;->mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
 
-    iput-object p3, p0, Lcom/android/systemui/biometrics/AuthController;->mActivityTaskManager:Landroid/app/ActivityTaskManager;
+    move-object v1, p4
 
-    iput-object p5, p0, Lcom/android/systemui/biometrics/AuthController;->mFingerprintManager:Landroid/hardware/fingerprint/FingerprintManager;
+    iput-object v1, v0, Lcom/android/systemui/biometrics/AuthController;->mActivityTaskManager:Landroid/app/ActivityTaskManager;
 
-    iput-object p6, p0, Lcom/android/systemui/biometrics/AuthController;->mFaceManager:Landroid/hardware/face/FaceManager;
+    move-object/from16 v1, p6
 
-    iput-object p7, p0, Lcom/android/systemui/biometrics/AuthController;->mUdfpsControllerFactory:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/biometrics/AuthController;->mFingerprintManager:Landroid/hardware/fingerprint/FingerprintManager;
 
-    iput-object p8, p0, Lcom/android/systemui/biometrics/AuthController;->mSidefpsControllerFactory:Ljavax/inject/Provider;
+    iput-object v8, v0, Lcom/android/systemui/biometrics/AuthController;->mFaceManager:Landroid/hardware/face/FaceManager;
 
-    iput-object p4, p0, Lcom/android/systemui/biometrics/AuthController;->mWindowManager:Landroid/view/WindowManager;
+    move-object/from16 v1, p8
 
-    new-instance p2, Landroid/util/SparseBooleanArray;
+    iput-object v1, v0, Lcom/android/systemui/biometrics/AuthController;->mUdfpsControllerFactory:Ljavax/inject/Provider;
 
-    invoke-direct {p2}, Landroid/util/SparseBooleanArray;-><init>()V
+    move-object/from16 v1, p9
 
-    iput-object p2, p0, Lcom/android/systemui/biometrics/AuthController;->mUdfpsEnrolledForUser:Landroid/util/SparseBooleanArray;
+    iput-object v1, v0, Lcom/android/systemui/biometrics/AuthController;->mSidefpsControllerFactory:Ljavax/inject/Provider;
 
-    new-instance p2, Lcom/android/systemui/biometrics/BiometricOrientationEventListener;
+    move-object/from16 v1, p5
 
-    new-instance p3, Lcom/android/systemui/biometrics/AuthController$$ExternalSyntheticLambda0;
+    iput-object v1, v0, Lcom/android/systemui/biometrics/AuthController;->mWindowManager:Landroid/view/WindowManager;
 
-    invoke-direct {p3, p0}, Lcom/android/systemui/biometrics/AuthController$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/biometrics/AuthController;)V
+    new-instance v1, Landroid/util/SparseBooleanArray;
 
-    invoke-direct {p2, p1, p3, p9, p10}, Lcom/android/systemui/biometrics/BiometricOrientationEventListener;-><init>(Landroid/content/Context;Lkotlin/jvm/functions/Function0;Landroid/hardware/display/DisplayManager;Landroid/os/Handler;)V
+    invoke-direct {v1}, Landroid/util/SparseBooleanArray;-><init>()V
 
-    iput-object p2, p0, Lcom/android/systemui/biometrics/AuthController;->mOrientationListener:Lcom/android/systemui/biometrics/BiometricOrientationEventListener;
+    iput-object v1, v0, Lcom/android/systemui/biometrics/AuthController;->mUdfpsEnrolledForUser:Landroid/util/SparseBooleanArray;
 
-    const/4 p2, 0x0
+    new-instance v10, Lcom/android/systemui/biometrics/BiometricDisplayListener;
 
-    if-eqz p6, :cond_0
+    sget-object v5, Lcom/android/systemui/biometrics/BiometricDisplayListener$SensorType$Generic;->INSTANCE:Lcom/android/systemui/biometrics/BiometricDisplayListener$SensorType$Generic;
 
-    invoke-virtual {p6}, Landroid/hardware/face/FaceManager;->getSensorPropertiesInternal()Ljava/util/List;
+    new-instance v6, Lcom/android/systemui/biometrics/AuthController$$ExternalSyntheticLambda1;
 
-    move-result-object p3
+    invoke-direct {v6, p0}, Lcom/android/systemui/biometrics/AuthController$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/biometrics/AuthController;)V
+
+    move-object v1, v10
+
+    move-object v2, p1
+
+    move-object/from16 v3, p10
+
+    invoke-direct/range {v1 .. v6}, Lcom/android/systemui/biometrics/BiometricDisplayListener;-><init>(Landroid/content/Context;Landroid/hardware/display/DisplayManager;Landroid/os/Handler;Lcom/android/systemui/biometrics/BiometricDisplayListener$SensorType;Lkotlin/jvm/functions/Function0;)V
+
+    iput-object v10, v0, Lcom/android/systemui/biometrics/AuthController;->mOrientationListener:Lcom/android/systemui/biometrics/BiometricDisplayListener;
+
+    const/4 v1, 0x0
+
+    if-eqz v8, :cond_0
+
+    invoke-virtual/range {p7 .. p7}, Landroid/hardware/face/FaceManager;->getSensorPropertiesInternal()Ljava/util/List;
+
+    move-result-object v2
 
     goto :goto_0
 
     :cond_0
-    move-object p3, p2
+    move-object v2, v1
 
     :goto_0
-    iput-object p3, p0, Lcom/android/systemui/biometrics/AuthController;->mFaceProps:Ljava/util/List;
+    iput-object v2, v0, Lcom/android/systemui/biometrics/AuthController;->mFaceProps:Ljava/util/List;
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object p3
+    move-result-object v2
 
-    sget p4, Lcom/android/systemui/R$array;->config_face_auth_props:I
+    sget v3, Lcom/android/systemui/R$array;->config_face_auth_props:I
 
-    invoke-virtual {p3, p4}, Landroid/content/res/Resources;->getIntArray(I)[I
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getIntArray(I)[I
 
-    move-result-object p3
+    move-result-object v2
 
-    const/4 p4, 0x2
+    if-eqz v2, :cond_2
 
-    if-eqz p3, :cond_2
+    array-length v3, v2
 
-    array-length p5, p3
+    const/4 v4, 0x2
 
-    if-ge p5, p4, :cond_1
+    if-ge v3, v4, :cond_1
 
     goto :goto_1
 
     :cond_1
-    new-instance p2, Landroid/graphics/PointF;
+    new-instance v1, Landroid/graphics/PointF;
 
-    const/4 p5, 0x0
+    const/4 v3, 0x0
 
-    aget p5, p3, p5
+    aget v3, v2, v3
 
-    int-to-float p5, p5
+    int-to-float v3, v3
 
-    const/4 p6, 0x1
+    const/4 v4, 0x1
 
-    aget p3, p3, p6
+    aget v2, v2, v4
 
-    int-to-float p3, p3
+    int-to-float v2, v2
 
-    invoke-direct {p2, p5, p3}, Landroid/graphics/PointF;-><init>(FF)V
+    invoke-direct {v1, v3, v2}, Landroid/graphics/PointF;-><init>(FF)V
 
-    iput-object p2, p0, Lcom/android/systemui/biometrics/AuthController;->mFaceAuthSensorLocation:Landroid/graphics/PointF;
+    iput-object v1, v0, Lcom/android/systemui/biometrics/AuthController;->mFaceAuthSensorLocation:Landroid/graphics/PointF;
 
     goto :goto_2
 
     :cond_2
     :goto_1
-    iput-object p2, p0, Lcom/android/systemui/biometrics/AuthController;->mFaceAuthSensorLocation:Landroid/graphics/PointF;
+    iput-object v1, v0, Lcom/android/systemui/biometrics/AuthController;->mFaceAuthSensorLocation:Landroid/graphics/PointF;
 
     :goto_2
-    new-instance p2, Landroid/graphics/PointF;
+    invoke-direct {p0}, Lcom/android/systemui/biometrics/AuthController;->updateFingerprintLocation()V
 
-    iget-object p3, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
+    new-instance v1, Landroid/content/IntentFilter;
 
-    invoke-static {p3}, Lcom/android/systemui/assist/ui/DisplayUtils;->getWidth(Landroid/content/Context;)I
+    invoke-direct {v1}, Landroid/content/IntentFilter;-><init>()V
 
-    move-result p3
+    const-string v2, "android.intent.action.CLOSE_SYSTEM_DIALOGS"
 
-    div-int/2addr p3, p4
+    invoke-virtual {v1, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    int-to-float p3, p3
+    invoke-virtual {p1, v9, v1}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    iget-object p4, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
+    const-class v1, Landroid/hardware/SensorPrivacyManager;
 
-    invoke-virtual {p4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object p4
+    move-result-object v1
 
-    sget p5, Lcom/android/systemui/R$dimen;->physical_fingerprint_sensor_center_screen_location_y:I
+    check-cast v1, Landroid/hardware/SensorPrivacyManager;
 
-    invoke-virtual {p4, p5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result p4
-
-    int-to-float p4, p4
-
-    invoke-direct {p2, p3, p4}, Landroid/graphics/PointF;-><init>(FF)V
-
-    iput-object p2, p0, Lcom/android/systemui/biometrics/AuthController;->mFingerprintLocation:Landroid/graphics/PointF;
-
-    new-instance p0, Landroid/content/IntentFilter;
-
-    invoke-direct {p0}, Landroid/content/IntentFilter;-><init>()V
-
-    const-string p2, "android.intent.action.CLOSE_SYSTEM_DIALOGS"
-
-    invoke-virtual {p0, p2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    invoke-virtual {p1, v0, p0}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    iput-object v1, v0, Lcom/android/systemui/biometrics/AuthController;->mSensorPrivacyManager:Landroid/hardware/SensorPrivacyManager;
 
     return-void
 .end method
@@ -365,100 +384,20 @@
     return-void
 .end method
 
-.method static synthetic access$1000(Lcom/android/systemui/biometrics/AuthController;)Ljava/util/Set;
+.method static synthetic access$200(Lcom/android/systemui/biometrics/AuthController;Ljava/util/List;)V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthController;->mCallbacks:Ljava/util/Set;
+    invoke-direct {p0, p1}, Lcom/android/systemui/biometrics/AuthController;->handleAllAuthenticatorsRegistered(Ljava/util/List;)V
 
-    return-object p0
+    return-void
 .end method
 
-.method static synthetic access$200(Lcom/android/systemui/biometrics/AuthController;)Ljava/util/List;
+.method static synthetic access$300(Lcom/android/systemui/biometrics/AuthController;IIZ)V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthController;->mUdfpsProps:Ljava/util/List;
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/biometrics/AuthController;->handleEnrollmentsChanged(IIZ)V
 
-    return-object p0
-.end method
-
-.method static synthetic access$202(Lcom/android/systemui/biometrics/AuthController;Ljava/util/List;)Ljava/util/List;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/biometrics/AuthController;->mUdfpsProps:Ljava/util/List;
-
-    return-object p1
-.end method
-
-.method static synthetic access$300(Lcom/android/systemui/biometrics/AuthController;)Landroid/util/SparseBooleanArray;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthController;->mUdfpsEnrolledForUser:Landroid/util/SparseBooleanArray;
-
-    return-object p0
-.end method
-
-.method static synthetic access$400(Lcom/android/systemui/biometrics/AuthController;)Ljava/util/List;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthController;->mFpProps:Ljava/util/List;
-
-    return-object p0
-.end method
-
-.method static synthetic access$402(Lcom/android/systemui/biometrics/AuthController;Ljava/util/List;)Ljava/util/List;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/biometrics/AuthController;->mFpProps:Ljava/util/List;
-
-    return-object p1
-.end method
-
-.method static synthetic access$502(Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/biometrics/UdfpsController;)Lcom/android/systemui/biometrics/UdfpsController;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/biometrics/AuthController;->mUdfpsController:Lcom/android/systemui/biometrics/UdfpsController;
-
-    return-object p1
-.end method
-
-.method static synthetic access$600(Lcom/android/systemui/biometrics/AuthController;)Ljavax/inject/Provider;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthController;->mUdfpsControllerFactory:Ljavax/inject/Provider;
-
-    return-object p0
-.end method
-
-.method static synthetic access$700(Lcom/android/systemui/biometrics/AuthController;)Ljava/util/List;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthController;->mSidefpsProps:Ljava/util/List;
-
-    return-object p0
-.end method
-
-.method static synthetic access$702(Lcom/android/systemui/biometrics/AuthController;Ljava/util/List;)Ljava/util/List;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/biometrics/AuthController;->mSidefpsProps:Ljava/util/List;
-
-    return-object p1
-.end method
-
-.method static synthetic access$802(Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/biometrics/SidefpsController;)Lcom/android/systemui/biometrics/SidefpsController;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/biometrics/AuthController;->mSidefpsController:Lcom/android/systemui/biometrics/SidefpsController;
-
-    return-object p1
-.end method
-
-.method static synthetic access$900(Lcom/android/systemui/biometrics/AuthController;)Ljavax/inject/Provider;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthController;->mSidefpsControllerFactory:Ljavax/inject/Provider;
-
-    return-object p0
+    return-void
 .end method
 
 .method private getErrorString(III)Ljava/lang/String;
@@ -495,10 +434,299 @@
     return-object p0
 .end method
 
+.method private handleAllAuthenticatorsRegistered(Ljava/util/List;)V
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;",
+            ">;)V"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthController;->mExecution:Lcom/android/systemui/util/concurrency/Execution;
+
+    invoke-interface {v0}, Lcom/android/systemui/util/concurrency/Execution;->assertIsMainThread()V
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "handleAllAuthenticatorsRegistered | sensors: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-interface {p1}, Ljava/util/List;->toArray()[Ljava/lang/Object;
+
+    move-result-object v1
+
+    invoke-static {v1}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "AuthController"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iput-object p1, p0, Lcom/android/systemui/biometrics/AuthController;->mFpProps:Ljava/util/List;
+
+    new-instance p1, Ljava/util/ArrayList;
+
+    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthController;->mFpProps:Ljava/util/List;
+
+    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :cond_0
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
+
+    invoke-virtual {v2}, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->isAnyUdfpsType()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    invoke-interface {p1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    :cond_1
+    invoke-virtual {v2}, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->isAnySidefpsType()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
+
+    :cond_2
+    invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
+
+    move-result v1
+
+    const/4 v2, 0x0
+
+    if-nez v1, :cond_3
+
+    goto :goto_1
+
+    :cond_3
+    move-object p1, v2
+
+    :goto_1
+    iput-object p1, p0, Lcom/android/systemui/biometrics/AuthController;->mUdfpsProps:Ljava/util/List;
+
+    if-eqz p1, :cond_4
+
+    iget-object p1, p0, Lcom/android/systemui/biometrics/AuthController;->mUdfpsControllerFactory:Ljavax/inject/Provider;
+
+    invoke-interface {p1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/android/systemui/biometrics/UdfpsController;
+
+    iput-object p1, p0, Lcom/android/systemui/biometrics/AuthController;->mUdfpsController:Lcom/android/systemui/biometrics/UdfpsController;
+
+    :cond_4
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+
+    move-result p1
+
+    if-nez p1, :cond_5
+
+    goto :goto_2
+
+    :cond_5
+    move-object v0, v2
+
+    :goto_2
+    iput-object v0, p0, Lcom/android/systemui/biometrics/AuthController;->mSidefpsProps:Ljava/util/List;
+
+    if-eqz v0, :cond_6
+
+    iget-object p1, p0, Lcom/android/systemui/biometrics/AuthController;->mSidefpsControllerFactory:Ljavax/inject/Provider;
+
+    invoke-interface {p1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/android/systemui/biometrics/SidefpsController;
+
+    iput-object p1, p0, Lcom/android/systemui/biometrics/AuthController;->mSidefpsController:Lcom/android/systemui/biometrics/SidefpsController;
+
+    :cond_6
+    iget-object p1, p0, Lcom/android/systemui/biometrics/AuthController;->mCallbacks:Ljava/util/Set;
+
+    invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object p1
+
+    :goto_3
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_7
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/biometrics/AuthController$Callback;
+
+    invoke-interface {v0}, Lcom/android/systemui/biometrics/AuthController$Callback;->onAllAuthenticatorsRegistered()V
+
+    goto :goto_3
+
+    :cond_7
+    iget-object p1, p0, Lcom/android/systemui/biometrics/AuthController;->mFingerprintManager:Landroid/hardware/fingerprint/FingerprintManager;
+
+    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthController;->mFingerprintStateListener:Landroid/hardware/fingerprint/FingerprintStateListener;
+
+    invoke-virtual {p1, p0}, Landroid/hardware/fingerprint/FingerprintManager;->registerFingerprintStateListener(Landroid/hardware/fingerprint/FingerprintStateListener;)V
+
+    return-void
+.end method
+
+.method private handleEnrollmentsChanged(IIZ)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthController;->mExecution:Lcom/android/systemui/util/concurrency/Execution;
+
+    invoke-interface {v0}, Lcom/android/systemui/util/concurrency/Execution;->assertIsMainThread()V
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "handleEnrollmentsChanged, userId: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, ", sensorId: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, ", hasEnrollments: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "AuthController"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthController;->mUdfpsProps:Ljava/util/List;
+
+    if-nez v0, :cond_0
+
+    const-string p1, "handleEnrollmentsChanged, mUdfpsProps is null"
+
+    invoke-static {v1, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+
+    :cond_0
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :cond_1
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
+
+    iget v1, v1, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->sensorId:I
+
+    if-ne v1, p2, :cond_1
+
+    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthController;->mUdfpsEnrolledForUser:Landroid/util/SparseBooleanArray;
+
+    invoke-virtual {v1, p1, p3}, Landroid/util/SparseBooleanArray;->put(IZ)V
+
+    goto :goto_0
+
+    :cond_2
+    :goto_1
+    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthController;->mCallbacks:Ljava/util/Set;
+
+    invoke-interface {p0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :goto_2
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_3
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/android/systemui/biometrics/AuthController$Callback;
+
+    invoke-interface {p1}, Lcom/android/systemui/biometrics/AuthController$Callback;->onEnrollmentsChanged()V
+
+    goto :goto_2
+
+    :cond_3
+    return-void
+.end method
+
 .method private handleTaskStackChanged()V
     .locals 5
 
     const-string v0, "AuthController"
+
+    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthController;->mExecution:Lcom/android/systemui/util/concurrency/Execution;
+
+    invoke-interface {v1}, Lcom/android/systemui/util/concurrency/Execution;->assertIsMainThread()V
 
     iget-object v1, p0, Lcom/android/systemui/biometrics/AuthController;->mCurrentDialog:Lcom/android/systemui/biometrics/AuthDialog;
 
@@ -591,9 +819,9 @@
 
     iput-object v1, p0, Lcom/android/systemui/biometrics/AuthController;->mCurrentDialog:Lcom/android/systemui/biometrics/AuthDialog;
 
-    iget-object v2, p0, Lcom/android/systemui/biometrics/AuthController;->mOrientationListener:Lcom/android/systemui/biometrics/BiometricOrientationEventListener;
+    iget-object v2, p0, Lcom/android/systemui/biometrics/AuthController;->mOrientationListener:Lcom/android/systemui/biometrics/BiometricDisplayListener;
 
-    invoke-virtual {v2}, Lcom/android/systemui/biometrics/BiometricOrientationEventListener;->disable()V
+    invoke-virtual {v2}, Lcom/android/systemui/biometrics/BiometricDisplayListener;->disable()V
 
     iget-object v2, p0, Lcom/android/systemui/biometrics/AuthController;->mReceiver:Landroid/hardware/biometrics/IBiometricSysuiReceiver;
 
@@ -629,6 +857,24 @@
     sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object p0
+.end method
+
+.method private synthetic lambda$onBiometricError$1(I)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthController;->mCurrentDialog:Lcom/android/systemui/biometrics/AuthDialog;
+
+    iget-object p0, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
+
+    const v1, 0x1040373
+
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-interface {v0, p1, p0}, Lcom/android/systemui/biometrics/AuthDialog;->onAuthenticationFailed(ILjava/lang/String;)V
+
+    return-void
 .end method
 
 .method private onDialogDismissed(I)V
@@ -667,15 +913,17 @@
 
     iput-object p1, p0, Lcom/android/systemui/biometrics/AuthController;->mCurrentDialog:Lcom/android/systemui/biometrics/AuthDialog;
 
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthController;->mOrientationListener:Lcom/android/systemui/biometrics/BiometricOrientationEventListener;
+    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthController;->mOrientationListener:Lcom/android/systemui/biometrics/BiometricDisplayListener;
 
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/BiometricOrientationEventListener;->disable()V
+    invoke-virtual {p0}, Lcom/android/systemui/biometrics/BiometricDisplayListener;->disable()V
 
     return-void
 .end method
 
 .method private onOrientationChanged()V
     .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/biometrics/AuthController;->updateFingerprintLocation()V
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/AuthController;->mCurrentDialog:Lcom/android/systemui/biometrics/AuthDialog;
 
@@ -874,9 +1122,61 @@
 
     invoke-interface {v0, v1, v15}, Lcom/android/systemui/biometrics/AuthDialog;->show(Landroid/view/WindowManager;Landroid/os/Bundle;)V
 
-    iget-object v0, v13, Lcom/android/systemui/biometrics/AuthController;->mOrientationListener:Lcom/android/systemui/biometrics/BiometricOrientationEventListener;
+    iget-object v0, v13, Lcom/android/systemui/biometrics/AuthController;->mOrientationListener:Lcom/android/systemui/biometrics/BiometricDisplayListener;
 
-    invoke-virtual {v0}, Lcom/android/systemui/biometrics/BiometricOrientationEventListener;->enable()V
+    invoke-virtual {v0}, Lcom/android/systemui/biometrics/BiometricDisplayListener;->enable()V
+
+    return-void
+.end method
+
+.method private updateFingerprintLocation()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/systemui/assist/ui/DisplayUtils;->getWidth(Landroid/content/Context;)I
+
+    move-result v0
+
+    div-int/lit8 v0, v0, 0x2
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    sget v2, Lcom/android/systemui/R$dimen;->physical_fingerprint_sensor_center_screen_location_x:I
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+    :try_end_0
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :catch_0
+    iget-object v1, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    sget v2, Lcom/android/systemui/R$dimen;->physical_fingerprint_sensor_center_screen_location_y:I
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    new-instance v2, Landroid/graphics/PointF;
+
+    int-to-float v0, v0
+
+    int-to-float v1, v1
+
+    invoke-direct {v2, v0, v1}, Landroid/graphics/PointF;-><init>(FF)V
+
+    iput-object v2, p0, Lcom/android/systemui/biometrics/AuthController;->mFingerprintLocation:Landroid/graphics/PointF;
 
     return-void
 .end method
@@ -1119,9 +1419,9 @@
 
     iput-object v0, p0, Lcom/android/systemui/biometrics/AuthController;->mCurrentDialog:Lcom/android/systemui/biometrics/AuthDialog;
 
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthController;->mOrientationListener:Lcom/android/systemui/biometrics/BiometricOrientationEventListener;
+    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthController;->mOrientationListener:Lcom/android/systemui/biometrics/BiometricDisplayListener;
 
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/BiometricOrientationEventListener;->disable()V
+    invoke-virtual {p0}, Lcom/android/systemui/biometrics/BiometricDisplayListener;->disable()V
 
     return-void
 .end method
@@ -1208,7 +1508,7 @@
 .end method
 
 .method public onBiometricError(III)V
-    .locals 6
+    .locals 8
 
     const/4 v0, 0x3
 
@@ -1268,27 +1568,51 @@
     move v1, v4
 
     :goto_1
-    const/16 v5, 0x64
+    if-ne p2, v4, :cond_2
 
-    if-eq p2, v5, :cond_2
+    iget-object v6, p0, Lcom/android/systemui/biometrics/AuthController;->mSensorPrivacyManager:Landroid/hardware/SensorPrivacyManager;
 
-    if-ne p2, v0, :cond_3
+    iget-object v7, p0, Lcom/android/systemui/biometrics/AuthController;->mCurrentDialogArgs:Lcom/android/internal/os/SomeArgs;
+
+    iget v7, v7, Lcom/android/internal/os/SomeArgs;->argi1:I
+
+    invoke-virtual {v6, v5, v7}, Landroid/hardware/SensorPrivacyManager;->isSensorPrivacyEnabled(II)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_2
+
+    move v5, v4
+
+    goto :goto_2
 
     :cond_2
-    move v3, v4
+    move v5, v3
+
+    :goto_2
+    const/16 v6, 0x64
+
+    if-eq p2, v6, :cond_3
+
+    if-eq p2, v0, :cond_3
+
+    if-eqz v5, :cond_4
 
     :cond_3
+    move v3, v4
+
+    :cond_4
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthController;->mCurrentDialog:Lcom/android/systemui/biometrics/AuthDialog;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_9
 
     invoke-interface {v0}, Lcom/android/systemui/biometrics/AuthDialog;->isAllowDeviceCredentials()Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_5
 
     const-string p1, "onBiometricError, lockout"
 
@@ -1298,12 +1622,12 @@
 
     invoke-interface {p1}, Lcom/android/systemui/biometrics/AuthDialog;->animateToCredentialUI()V
 
-    goto :goto_3
+    goto :goto_4
 
-    :cond_4
-    if-eqz v3, :cond_6
+    :cond_5
+    if-eqz v3, :cond_8
 
-    if-ne p2, v5, :cond_5
+    if-ne p2, v6, :cond_6
 
     iget-object p2, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
 
@@ -1313,14 +1637,14 @@
 
     move-result-object p2
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_5
+    :cond_6
     invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/biometrics/AuthController;->getErrorString(III)Ljava/lang/String;
 
     move-result-object p2
 
-    :goto_2
+    :goto_3
     new-instance p3, Ljava/lang/StringBuilder;
 
     invoke-direct {p3}, Ljava/lang/StringBuilder;-><init>()V
@@ -1337,13 +1661,28 @@
 
     invoke-static {v2, p3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    if-eqz v5, :cond_7
+
+    iget-object p2, p0, Lcom/android/systemui/biometrics/AuthController;->mHandler:Landroid/os/Handler;
+
+    new-instance p3, Lcom/android/systemui/biometrics/AuthController$$ExternalSyntheticLambda0;
+
+    invoke-direct {p3, p0, p1}, Lcom/android/systemui/biometrics/AuthController$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/biometrics/AuthController;I)V
+
+    const-wide/16 v0, 0x1f4
+
+    invoke-virtual {p2, p3, v0, v1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    goto :goto_4
+
+    :cond_7
     iget-object p3, p0, Lcom/android/systemui/biometrics/AuthController;->mCurrentDialog:Lcom/android/systemui/biometrics/AuthDialog;
 
     invoke-interface {p3, p1, p2}, Lcom/android/systemui/biometrics/AuthDialog;->onAuthenticationFailed(ILjava/lang/String;)V
 
-    goto :goto_3
+    goto :goto_4
 
-    :cond_6
+    :cond_8
     invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/biometrics/AuthController;->getErrorString(III)Ljava/lang/String;
 
     move-result-object p2
@@ -1368,14 +1707,14 @@
 
     invoke-interface {p3, p1, p2}, Lcom/android/systemui/biometrics/AuthDialog;->onError(ILjava/lang/String;)V
 
-    goto :goto_3
+    goto :goto_4
 
-    :cond_7
+    :cond_9
     const-string p1, "onBiometricError callback but dialog is gone"
 
     invoke-static {v2, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_3
+    :goto_4
     invoke-virtual {p0}, Lcom/android/systemui/biometrics/AuthController;->onCancelUdfps()V
 
     return-void
@@ -1439,6 +1778,8 @@
 
     invoke-super {p0, p1}, Lcom/android/systemui/SystemUI;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
+    invoke-direct {p0}, Lcom/android/systemui/biometrics/AuthController;->updateFingerprintLocation()V
+
     iget-object p1, p0, Lcom/android/systemui/biometrics/AuthController;->mCurrentDialog:Lcom/android/systemui/biometrics/AuthDialog;
 
     if-eqz p1, :cond_1
@@ -1461,9 +1802,9 @@
 
     iput-object v0, p0, Lcom/android/systemui/biometrics/AuthController;->mCurrentDialog:Lcom/android/systemui/biometrics/AuthDialog;
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthController;->mOrientationListener:Lcom/android/systemui/biometrics/BiometricOrientationEventListener;
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthController;->mOrientationListener:Lcom/android/systemui/biometrics/BiometricDisplayListener;
 
-    invoke-virtual {v0}, Lcom/android/systemui/biometrics/BiometricOrientationEventListener;->disable()V
+    invoke-virtual {v0}, Lcom/android/systemui/biometrics/BiometricDisplayListener;->disable()V
 
     const-string v0, "container_state"
 
@@ -1996,12 +2337,6 @@
     iget-object v1, p0, Lcom/android/systemui/biometrics/AuthController;->mFingerprintAuthenticatorsRegisteredCallback:Landroid/hardware/fingerprint/IFingerprintAuthenticatorsRegisteredCallback;
 
     invoke-virtual {v0, v1}, Landroid/hardware/fingerprint/FingerprintManager;->addAuthenticatorsRegisteredCallback(Landroid/hardware/fingerprint/IFingerprintAuthenticatorsRegisteredCallback;)V
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthController;->mFingerprintManager:Landroid/hardware/fingerprint/FingerprintManager;
-
-    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthController;->mFingerprintStateListener:Landroid/hardware/fingerprint/FingerprintStateListener;
-
-    invoke-virtual {v0, v1}, Landroid/hardware/fingerprint/FingerprintManager;->registerFingerprintStateListener(Landroid/hardware/fingerprint/FingerprintStateListener;)V
 
     :cond_0
     new-instance v0, Lcom/android/systemui/biometrics/AuthController$BiometricTaskStackListener;

@@ -207,12 +207,12 @@
     return-object p0
 
     :pswitch_1
-    const-string/jumbo p0, "udfps"
+    const-string p0, "udfps"
 
     return-object p0
 
     :pswitch_2
-    const-string/jumbo p0, "tap"
+    const-string p0, "tap"
 
     return-object p0
 
@@ -492,6 +492,16 @@
     return-void
 .end method
 
+.method public traceDozingChanged(Z)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeLog;->mLogger:Lcom/android/systemui/doze/DozeLogger;
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/doze/DozeLogger;->logDozingChanged(Z)V
+
+    return-void
+.end method
+
 .method public traceDozingSuppressed(Z)V
     .locals 0
 
@@ -595,6 +605,16 @@
 
     :goto_0
     invoke-virtual {p0}, Lcom/android/systemui/doze/DozeLog$SummaryStats;->append()V
+
+    return-void
+.end method
+
+.method public tracePostureChanged(ILjava/lang/String;)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeLog;->mLogger:Lcom/android/systemui/doze/DozeLogger;
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/doze/DozeLogger;->logPostureChanged(ILjava/lang/String;)V
 
     return-void
 .end method

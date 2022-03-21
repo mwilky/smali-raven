@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/biometrics/AuthRippleView;->startDwellRipple(FFFZ)V
+    value = Lcom/android/systemui/biometrics/AuthRippleView;->startDwellRipple(Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -43,7 +43,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/biometrics/AuthRippleView$startDwellRipple$dwellPulseOutRippleAnimator$1$1;->this$0:Lcom/android/systemui/biometrics/AuthRippleView;
 
-    invoke-static {v2}, Lcom/android/systemui/biometrics/AuthRippleView;->access$getRippleShader$p(Lcom/android/systemui/biometrics/AuthRippleView;)Lcom/android/systemui/statusbar/charging/RippleShader;
+    invoke-static {v2}, Lcom/android/systemui/biometrics/AuthRippleView;->access$getDwellShader$p(Lcom/android/systemui/biometrics/AuthRippleView;)Lcom/android/systemui/statusbar/charging/DwellRippleShader;
 
     move-result-object v2
 
@@ -61,17 +61,17 @@
 
     move-result p1
 
-    invoke-virtual {v2, p1}, Lcom/android/systemui/statusbar/charging/RippleShader;->setProgress(F)V
+    invoke-virtual {v2, p1}, Lcom/android/systemui/statusbar/charging/DwellRippleShader;->setProgress(F)V
 
     iget-object p1, p0, Lcom/android/systemui/biometrics/AuthRippleView$startDwellRipple$dwellPulseOutRippleAnimator$1$1;->this$0:Lcom/android/systemui/biometrics/AuthRippleView;
 
-    invoke-static {p1}, Lcom/android/systemui/biometrics/AuthRippleView;->access$getRippleShader$p(Lcom/android/systemui/biometrics/AuthRippleView;)Lcom/android/systemui/statusbar/charging/RippleShader;
+    invoke-static {p1}, Lcom/android/systemui/biometrics/AuthRippleView;->access$getDwellShader$p(Lcom/android/systemui/biometrics/AuthRippleView;)Lcom/android/systemui/statusbar/charging/DwellRippleShader;
 
     move-result-object p1
 
     long-to-float v0, v0
 
-    invoke-virtual {p1, v0}, Lcom/android/systemui/statusbar/charging/RippleShader;->setTime(F)V
+    invoke-virtual {p1, v0}, Lcom/android/systemui/statusbar/charging/DwellRippleShader;->setTime(F)V
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/AuthRippleView$startDwellRipple$dwellPulseOutRippleAnimator$1$1;->this$0:Lcom/android/systemui/biometrics/AuthRippleView;
 

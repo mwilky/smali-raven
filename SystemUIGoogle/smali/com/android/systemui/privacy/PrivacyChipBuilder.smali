@@ -396,7 +396,7 @@
 
     move-result-object p0
 
-    const-string/jumbo v0, "types.map { it.getName(context) }.joinWithAnd().toString()"
+    const-string v0, "types.map { it.getName(context) }.joinWithAnd().toString()"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -419,7 +419,7 @@
 
     move-result-object p0
 
-    const-string/jumbo v0, "types[0].getName(context)"
+    const-string v0, "types[0].getName(context)"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 

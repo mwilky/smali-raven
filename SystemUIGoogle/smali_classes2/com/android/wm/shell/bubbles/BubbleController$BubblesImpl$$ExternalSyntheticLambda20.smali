@@ -2,38 +2,40 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:Ljava/util/function/Consumer;
+.field public final synthetic f$0:Ljava/util/concurrent/Executor;
 
-.field public final synthetic f$1:Ljava/lang/String;
+.field public final synthetic f$1:Ljava/util/function/Consumer;
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/util/function/Consumer;Ljava/lang/String;)V
+.method public synthetic constructor <init>(Ljava/util/concurrent/Executor;Ljava/util/function/Consumer;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda20;->f$0:Ljava/util/function/Consumer;
+    iput-object p1, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda20;->f$0:Ljava/util/concurrent/Executor;
 
-    iput-object p2, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda20;->f$1:Ljava/lang/String;
+    iput-object p2, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda20;->f$1:Ljava/util/function/Consumer;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
+.method public final accept(Ljava/lang/Object;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda20;->f$0:Ljava/util/function/Consumer;
+    iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda20;->f$0:Ljava/util/concurrent/Executor;
 
-    iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda20;->f$1:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda20;->f$1:Ljava/util/function/Consumer;
 
-    invoke-static {v0, p0}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->$r8$lambda$3PCwJ7hJvqPstGoc4Q1vH0D7598(Ljava/util/function/Consumer;Ljava/lang/String;)V
+    check-cast p1, Ljava/lang/String;
+
+    invoke-static {v0, p0, p1}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->$r8$lambda$xiIoBUQLhc2bNbJDOE5fPb9VpXk(Ljava/util/concurrent/Executor;Ljava/util/function/Consumer;Ljava/lang/String;)V
 
     return-void
 .end method

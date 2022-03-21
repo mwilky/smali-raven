@@ -44,11 +44,19 @@
 
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImeListener;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
-    invoke-static {v0}, Lcom/android/wm/shell/bubbles/BubbleController;->access$500(Lcom/android/wm/shell/bubbles/BubbleController;)Lcom/android/wm/shell/bubbles/BubbleStackView;
+    invoke-static {v0}, Lcom/android/wm/shell/bubbles/BubbleController;->access$600(Lcom/android/wm/shell/bubbles/BubbleController;)Lcom/android/wm/shell/bubbles/BubblePositioner;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    invoke-virtual {v0, p1, p2}, Lcom/android/wm/shell/bubbles/BubblePositioner;->setImeVisible(ZI)V
+
+    iget-object p2, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImeListener;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
+
+    invoke-static {p2}, Lcom/android/wm/shell/bubbles/BubbleController;->access$500(Lcom/android/wm/shell/bubbles/BubbleController;)Lcom/android/wm/shell/bubbles/BubbleStackView;
+
+    move-result-object p2
+
+    if-eqz p2, :cond_0
 
     iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImeListener;->this$0:Lcom/android/wm/shell/bubbles/BubbleController;
 
@@ -56,7 +64,7 @@
 
     move-result-object p0
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/wm/shell/bubbles/BubbleStackView;->onImeVisibilityChanged(ZI)V
+    invoke-virtual {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleStackView;->animateForIme(Z)V
 
     :cond_0
     return-void

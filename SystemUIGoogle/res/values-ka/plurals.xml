@@ -32,18 +32,6 @@
         <item quantity="other">SIM ბარათის PUK-კოდი არასწორია. თქვენ დაგრჩათ %d მცდელობა, რომელთა შემდეგაც თქვენი SIM სამუდამოდ გამოუსადეგარი გახდება.</item>
         <item quantity="one">SIM ბარათის PUK-კოდი არასწორია. თქვენ დაგრჩათ %d მცდელობა, რომლის შემდეგაც თქვენი SIM სამუდამოდ გამოუსადეგარი გახდება.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">მოწყობილობა არ განბლოკილა %d საათის განმავლობაში. დაადასტურეთ პაროლი.</item>
-        <item quantity="one">მოწყობილობა არ განბლოკილა %d საათის განმავლობაში. დაადასტურეთ პაროლი.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">მოწყობილობა არ განბლოკილა %d საათის განმავლობაში. დაადასტურეთ ნიმუში.</item>
-        <item quantity="one">მოწყობილობა არ განბლოკილა %d საათის განმავლობაში. დაადასტურეთ ნიმუში.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">მოწყობილობა არ განბლოკილა %d საათის განმავლობაში. დაადასტურეთ PIN-კოდი.</item>
-        <item quantity="one">მოწყობილობა არ განბლოკილა %d საათის განმავლობაში. დაადასტურეთ PIN-კოდი.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">ცადეთ ხელახლა %d წამში.</item>
         <item quantity="one">ცადეთ ხელახლა 1 წამში.</item>

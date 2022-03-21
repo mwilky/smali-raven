@@ -637,9 +637,9 @@
 
     move-result-object v0
 
-    const/high16 v1, 0x43c80000    # 400.0f
+    const/16 v1, 0x190
 
-    const/high16 v2, 0x43160000    # 150.0f
+    const/16 v2, 0x96
 
     iget-object v3, p0, Lcom/google/android/systemui/assist/uihints/edgelights/mode/FullListening;->mRollingConfidence:Lcom/google/android/systemui/assist/uihints/RollingAverage;
 
@@ -649,7 +649,7 @@
 
     double-to-float v3, v3
 
-    invoke-static {v1, v2, v3}, Landroid/util/MathUtils;->lerp(FFF)F
+    invoke-static {v1, v2, v3}, Landroid/util/MathUtils;->lerp(IIF)F
 
     move-result v1
 

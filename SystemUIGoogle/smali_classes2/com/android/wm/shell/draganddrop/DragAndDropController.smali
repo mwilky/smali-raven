@@ -10,6 +10,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/wm/shell/draganddrop/DragAndDropController$DragAndDropImpl;,
         Lcom/android/wm/shell/draganddrop/DragAndDropController$PerDisplay;
     }
 .end annotation
@@ -33,6 +34,14 @@
         }
     .end annotation
 .end field
+
+.field private final mIconProvider:Lcom/android/launcher3/icons/IconProvider;
+
+.field private mImpl:Lcom/android/wm/shell/draganddrop/DragAndDropController$DragAndDropImpl;
+
+.field private final mLogger:Lcom/android/wm/shell/draganddrop/DragAndDropEventLogger;
+
+.field private mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
 
 .field private mSplitScreen:Lcom/android/wm/shell/splitscreen/SplitScreenController;
 
@@ -70,7 +79,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Lcom/android/wm/shell/common/DisplayController;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/wm/shell/common/DisplayController;Lcom/android/internal/logging/UiEventLogger;Lcom/android/launcher3/icons/IconProvider;Lcom/android/wm/shell/common/ShellExecutor;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -90,6 +99,48 @@
     iput-object p1, p0, Lcom/android/wm/shell/draganddrop/DragAndDropController;->mContext:Landroid/content/Context;
 
     iput-object p2, p0, Lcom/android/wm/shell/draganddrop/DragAndDropController;->mDisplayController:Lcom/android/wm/shell/common/DisplayController;
+
+    new-instance p1, Lcom/android/wm/shell/draganddrop/DragAndDropEventLogger;
+
+    invoke-direct {p1, p3}, Lcom/android/wm/shell/draganddrop/DragAndDropEventLogger;-><init>(Lcom/android/internal/logging/UiEventLogger;)V
+
+    iput-object p1, p0, Lcom/android/wm/shell/draganddrop/DragAndDropController;->mLogger:Lcom/android/wm/shell/draganddrop/DragAndDropEventLogger;
+
+    iput-object p4, p0, Lcom/android/wm/shell/draganddrop/DragAndDropController;->mIconProvider:Lcom/android/launcher3/icons/IconProvider;
+
+    iput-object p5, p0, Lcom/android/wm/shell/draganddrop/DragAndDropController;->mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
+
+    new-instance p1, Lcom/android/wm/shell/draganddrop/DragAndDropController$DragAndDropImpl;
+
+    const/4 p2, 0x0
+
+    invoke-direct {p1, p0, p2}, Lcom/android/wm/shell/draganddrop/DragAndDropController$DragAndDropImpl;-><init>(Lcom/android/wm/shell/draganddrop/DragAndDropController;Lcom/android/wm/shell/draganddrop/DragAndDropController$1;)V
+
+    iput-object p1, p0, Lcom/android/wm/shell/draganddrop/DragAndDropController;->mImpl:Lcom/android/wm/shell/draganddrop/DragAndDropController$DragAndDropImpl;
+
+    return-void
+.end method
+
+.method static synthetic access$100(Lcom/android/wm/shell/draganddrop/DragAndDropController;)Lcom/android/wm/shell/common/ShellExecutor;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/wm/shell/draganddrop/DragAndDropController;->mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
+
+    return-object p0
+.end method
+
+.method static synthetic access$200(Lcom/android/wm/shell/draganddrop/DragAndDropController;Landroid/content/res/Configuration;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/draganddrop/DragAndDropController;->onConfigChanged(Landroid/content/res/Configuration;)V
+
+    return-void
+.end method
+
+.method static synthetic access$300(Lcom/android/wm/shell/draganddrop/DragAndDropController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/wm/shell/draganddrop/DragAndDropController;->onThemeChange()V
 
     return-void
 .end method
@@ -215,6 +266,74 @@
     return-void
 .end method
 
+.method private onConfigChanged(Landroid/content/res/Configuration;)V
+    .locals 2
+
+    const/4 v0, 0x0
+
+    :goto_0
+    iget-object v1, p0, Lcom/android/wm/shell/draganddrop/DragAndDropController;->mDisplayDropTargets:Landroid/util/SparseArray;
+
+    invoke-virtual {v1}, Landroid/util/SparseArray;->size()I
+
+    move-result v1
+
+    if-ge v0, v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/wm/shell/draganddrop/DragAndDropController;->mDisplayDropTargets:Landroid/util/SparseArray;
+
+    invoke-virtual {v1, v0}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/wm/shell/draganddrop/DragAndDropController$PerDisplay;
+
+    iget-object v1, v1, Lcom/android/wm/shell/draganddrop/DragAndDropController$PerDisplay;->dragLayout:Lcom/android/wm/shell/draganddrop/DragLayout;
+
+    invoke-virtual {v1, p1}, Lcom/android/wm/shell/draganddrop/DragLayout;->onConfigChanged(Landroid/content/res/Configuration;)V
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    return-void
+.end method
+
+.method private onThemeChange()V
+    .locals 2
+
+    const/4 v0, 0x0
+
+    :goto_0
+    iget-object v1, p0, Lcom/android/wm/shell/draganddrop/DragAndDropController;->mDisplayDropTargets:Landroid/util/SparseArray;
+
+    invoke-virtual {v1}, Landroid/util/SparseArray;->size()I
+
+    move-result v1
+
+    if-ge v0, v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/wm/shell/draganddrop/DragAndDropController;->mDisplayDropTargets:Landroid/util/SparseArray;
+
+    invoke-virtual {v1, v0}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/wm/shell/draganddrop/DragAndDropController$PerDisplay;
+
+    iget-object v1, v1, Lcom/android/wm/shell/draganddrop/DragAndDropController$PerDisplay;->dragLayout:Lcom/android/wm/shell/draganddrop/DragLayout;
+
+    invoke-virtual {v1}, Lcom/android/wm/shell/draganddrop/DragLayout;->onThemeChange()V
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    return-void
+.end method
+
 .method private setDropTargetWindowVisibility(Lcom/android/wm/shell/draganddrop/DragAndDropController$PerDisplay;I)V
     .locals 9
 
@@ -275,6 +394,14 @@
 
 
 # virtual methods
+.method public asDragAndDrop()Lcom/android/wm/shell/draganddrop/DragAndDrop;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/wm/shell/draganddrop/DragAndDropController;->mImpl:Lcom/android/wm/shell/draganddrop/DragAndDropController$DragAndDropImpl;
+
+    return-object p0
+.end method
+
 .method public initialize(Ljava/util/Optional;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -333,6 +460,11 @@
     invoke-static {v0, v5, v6, v2, v7}, Lcom/android/wm/shell/protolog/ShellProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
     :cond_0
+    if-eqz p1, :cond_1
+
+    return-void
+
+    :cond_1
     iget-object v0, p0, Lcom/android/wm/shell/draganddrop/DragAndDropController;->mDisplayController:Lcom/android/wm/shell/common/DisplayController;
 
     invoke-virtual {v0, p1}, Lcom/android/wm/shell/common/DisplayController;->getDisplayContext(I)Landroid/content/Context;
@@ -413,7 +545,9 @@
 
     iget-object v1, p0, Lcom/android/wm/shell/draganddrop/DragAndDropController;->mSplitScreen:Lcom/android/wm/shell/splitscreen/SplitScreenController;
 
-    invoke-direct {v9, v6, v1}, Lcom/android/wm/shell/draganddrop/DragLayout;-><init>(Landroid/content/Context;Lcom/android/wm/shell/splitscreen/SplitScreenController;)V
+    iget-object v2, p0, Lcom/android/wm/shell/draganddrop/DragAndDropController;->mIconProvider:Lcom/android/launcher3/icons/IconProvider;
+
+    invoke-direct {v9, v6, v1, v2}, Lcom/android/wm/shell/draganddrop/DragLayout;-><init>(Landroid/content/Context;Lcom/android/wm/shell/splitscreen/SplitScreenController;Lcom/android/launcher3/icons/IconProvider;)V
 
     new-instance v1, Landroid/widget/FrameLayout$LayoutParams;
 
@@ -814,21 +948,21 @@
 
     packed-switch v5, :pswitch_data_0
 
-    goto :goto_2
+    goto :goto_3
 
     :pswitch_0
     iget-object v0, v3, Lcom/android/wm/shell/draganddrop/DragAndDropController$PerDisplay;->dragLayout:Lcom/android/wm/shell/draganddrop/DragLayout;
 
     invoke-virtual {v0, v1, v4}, Lcom/android/wm/shell/draganddrop/DragLayout;->hide(Landroid/view/DragEvent;Ljava/lang/Runnable;)V
 
-    goto :goto_2
+    goto :goto_3
 
     :pswitch_1
     iget-object v0, v3, Lcom/android/wm/shell/draganddrop/DragAndDropController$PerDisplay;->dragLayout:Lcom/android/wm/shell/draganddrop/DragLayout;
 
     invoke-virtual {v0}, Lcom/android/wm/shell/draganddrop/DragLayout;->show()V
 
-    goto :goto_2
+    goto :goto_3
 
     :pswitch_2
     iget-object v2, v3, Lcom/android/wm/shell/draganddrop/DragAndDropController$PerDisplay;->dragLayout:Lcom/android/wm/shell/draganddrop/DragLayout;
@@ -837,8 +971,15 @@
 
     move-result v2
 
-    if-nez v2, :cond_7
+    if-eqz v2, :cond_6
 
+    iget-object v1, v0, Lcom/android/wm/shell/draganddrop/DragAndDropController;->mLogger:Lcom/android/wm/shell/draganddrop/DragAndDropEventLogger;
+
+    invoke-virtual {v1}, Lcom/android/wm/shell/draganddrop/DragAndDropEventLogger;->logDrop()V
+
+    goto :goto_2
+
+    :cond_6
     iget v2, v3, Lcom/android/wm/shell/draganddrop/DragAndDropController$PerDisplay;->activeDragCount:I
 
     sub-int/2addr v2, v6
@@ -853,7 +994,12 @@
 
     invoke-virtual {v2, v1, v4}, Lcom/android/wm/shell/draganddrop/DragLayout;->hide(Landroid/view/DragEvent;Ljava/lang/Runnable;)V
 
-    goto :goto_2
+    :goto_2
+    iget-object v0, v0, Lcom/android/wm/shell/draganddrop/DragAndDropController;->mLogger:Lcom/android/wm/shell/draganddrop/DragAndDropEventLogger;
+
+    invoke-virtual {v0}, Lcom/android/wm/shell/draganddrop/DragAndDropEventLogger;->logEnd()V
+
+    goto :goto_3
 
     :pswitch_3
     invoke-direct {v0, v1, v3}, Lcom/android/wm/shell/draganddrop/DragAndDropController;->handleDrop(Landroid/view/DragEvent;Lcom/android/wm/shell/draganddrop/DragAndDropController$PerDisplay;)Z
@@ -867,12 +1013,12 @@
 
     invoke-virtual {v0, v1}, Lcom/android/wm/shell/draganddrop/DragLayout;->update(Landroid/view/DragEvent;)V
 
-    goto :goto_2
+    goto :goto_3
 
     :pswitch_5
     iget v4, v3, Lcom/android/wm/shell/draganddrop/DragAndDropController$PerDisplay;->activeDragCount:I
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_7
 
     sget-object v0, Lcom/android/wm/shell/draganddrop/DragAndDropController;->TAG:Ljava/lang/String;
 
@@ -882,16 +1028,24 @@
 
     return v7
 
-    :cond_6
-    add-int/2addr v4, v6
+    :cond_7
+    iget-object v4, v0, Lcom/android/wm/shell/draganddrop/DragAndDropController;->mLogger:Lcom/android/wm/shell/draganddrop/DragAndDropEventLogger;
 
-    iput v4, v3, Lcom/android/wm/shell/draganddrop/DragAndDropController$PerDisplay;->activeDragCount:I
+    invoke-virtual {v4, v1}, Lcom/android/wm/shell/draganddrop/DragAndDropEventLogger;->logStart(Landroid/view/DragEvent;)Lcom/android/internal/logging/InstanceId;
 
-    iget-object v4, v3, Lcom/android/wm/shell/draganddrop/DragAndDropController$PerDisplay;->dragLayout:Lcom/android/wm/shell/draganddrop/DragLayout;
+    move-result-object v4
 
-    iget-object v5, v0, Lcom/android/wm/shell/draganddrop/DragAndDropController;->mDisplayController:Lcom/android/wm/shell/common/DisplayController;
+    iget v5, v3, Lcom/android/wm/shell/draganddrop/DragAndDropController$PerDisplay;->activeDragCount:I
 
-    invoke-virtual {v5, v2}, Lcom/android/wm/shell/common/DisplayController;->getDisplayLayout(I)Lcom/android/wm/shell/common/DisplayLayout;
+    add-int/2addr v5, v6
+
+    iput v5, v3, Lcom/android/wm/shell/draganddrop/DragAndDropController$PerDisplay;->activeDragCount:I
+
+    iget-object v5, v3, Lcom/android/wm/shell/draganddrop/DragAndDropController$PerDisplay;->dragLayout:Lcom/android/wm/shell/draganddrop/DragLayout;
+
+    iget-object v8, v0, Lcom/android/wm/shell/draganddrop/DragAndDropController;->mDisplayController:Lcom/android/wm/shell/common/DisplayController;
+
+    invoke-virtual {v8, v2}, Lcom/android/wm/shell/common/DisplayController;->getDisplayLayout(I)Lcom/android/wm/shell/common/DisplayLayout;
 
     move-result-object v2
 
@@ -899,15 +1053,12 @@
 
     move-result-object v1
 
-    invoke-virtual {v4, v2, v1}, Lcom/android/wm/shell/draganddrop/DragLayout;->prepare(Lcom/android/wm/shell/common/DisplayLayout;Landroid/content/ClipData;)V
+    invoke-virtual {v5, v2, v1, v4}, Lcom/android/wm/shell/draganddrop/DragLayout;->prepare(Lcom/android/wm/shell/common/DisplayLayout;Landroid/content/ClipData;Lcom/android/internal/logging/InstanceId;)V
 
     invoke-direct {v0, v3, v7}, Lcom/android/wm/shell/draganddrop/DragAndDropController;->setDropTargetWindowVisibility(Lcom/android/wm/shell/draganddrop/DragAndDropController$PerDisplay;I)V
 
-    :cond_7
-    :goto_2
+    :goto_3
     return v6
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x1

@@ -33,7 +33,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipController$PipImpl$$ExternalSyntheticLambda8;->f$1:Ljava/util/function/Consumer;
 
-    invoke-static {v0, p0}, Lcom/android/wm/shell/pip/phone/PipController$PipImpl;->$r8$lambda$HrGKbYL0fDHOzv9jmqZ6mmxkPu8(Lcom/android/wm/shell/pip/phone/PipController$PipImpl;Ljava/util/function/Consumer;)V
+    invoke-static {v0, p0}, Lcom/android/wm/shell/pip/phone/PipController$PipImpl;->$r8$lambda$3f1njRJ31GU--dV86xWr8QUofaw(Lcom/android/wm/shell/pip/phone/PipController$PipImpl;Ljava/util/function/Consumer;)V
 
     return-void
 .end method

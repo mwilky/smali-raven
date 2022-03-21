@@ -7,7 +7,13 @@
 
 
 # instance fields
+.field private mAod:Z
+
 .field private mBgView:Landroid/widget/ImageView;
+
+.field private mDozeAmount:F
+
+.field private mIconType:I
 
 .field private mLockIcon:Landroid/widget/ImageView;
 
@@ -40,6 +46,8 @@
 
     iput-boolean p1, p0, Lcom/android/keyguard/LockIconView;->mUseBackground:Z
 
+    iput p2, p0, Lcom/android/keyguard/LockIconView;->mDozeAmount:F
+
     new-instance p1, Landroid/graphics/RectF;
 
     invoke-direct {p1}, Landroid/graphics/RectF;-><init>()V
@@ -49,16 +57,139 @@
     return-void
 .end method
 
+.method private static getLockIconState(IZ)[I
+    .locals 4
+
+    const/4 v0, 0x0
+
+    const/4 v1, -0x1
+
+    if-ne p0, v1, :cond_0
+
+    new-array p0, v0, [I
+
+    return-object p0
+
+    :cond_0
+    const/4 v1, 0x2
+
+    new-array v2, v1, [I
+
+    const/4 v3, 0x1
+
+    if-eqz p0, :cond_3
+
+    if-eq p0, v3, :cond_2
+
+    if-eq p0, v1, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    const p0, 0x10100a6
+
+    aput p0, v2, v0
+
+    goto :goto_0
+
+    :cond_2
+    const p0, 0x10100a5
+
+    aput p0, v2, v0
+
+    goto :goto_0
+
+    :cond_3
+    const p0, 0x10100a4
+
+    aput p0, v2, v0
+
+    :goto_0
+    if-eqz p1, :cond_4
+
+    const p0, 0x10100a3
+
+    aput p0, v2, v3
+
+    goto :goto_1
+
+    :cond_4
+    const p0, -0x10100a3
+
+    aput p0, v2, v3
+
+    :goto_1
+    return-object v2
+.end method
+
+.method private typeToString(I)Ljava/lang/String;
+    .locals 0
+
+    const/4 p0, -0x1
+
+    if-eq p1, p0, :cond_3
+
+    if-eqz p1, :cond_2
+
+    const/4 p0, 0x1
+
+    if-eq p1, p0, :cond_1
+
+    const/4 p0, 0x2
+
+    if-eq p1, p0, :cond_0
+
+    const-string p0, "invalid"
+
+    return-object p0
+
+    :cond_0
+    const-string p0, "unlock"
+
+    return-object p0
+
+    :cond_1
+    const-string p0, "fingerprint"
+
+    return-object p0
+
+    :cond_2
+    const-string p0, "lock"
+
+    return-object p0
+
+    :cond_3
+    const-string p0, "none"
+
+    return-object p0
+.end method
+
 
 # virtual methods
+.method public clearIcon()V
+    .locals 2
+
+    const/4 v0, -0x1
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p0, v0, v1}, Lcom/android/keyguard/LockIconView;->updateIcon(IZ)V
+
+    return-void
+.end method
+
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 2
+
+    const-string p1, "Lock Icon View Parameters:"
+
+    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     new-instance p1, Ljava/lang/StringBuilder;
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string p3, "Center in px (x, y)= ("
+    const-string p3, "    Center in px (x, y)= ("
 
     invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -92,7 +223,7 @@
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "Radius in pixels: "
+    const-string v1, "    Radius in pixels: "
 
     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -110,7 +241,51 @@
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v1, "topLeft= ("
+    const-string v1, "    mIconType="
+
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v1, p0, Lcom/android/keyguard/LockIconView;->mIconType:I
+
+    invoke-direct {p0, v1}, Lcom/android/keyguard/LockIconView;->typeToString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    new-instance p1, Ljava/lang/StringBuilder;
+
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "    mAod="
+
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-boolean v1, p0, Lcom/android/keyguard/LockIconView;->mAod:Z
+
+    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string p1, "Lock Icon View actual measurements:"
+
+    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    new-instance p1, Ljava/lang/StringBuilder;
+
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "    topLeft= ("
 
     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -124,11 +299,41 @@
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getY()F
 
-    move-result p0
+    move-result p3
 
-    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    new-instance p1, Ljava/lang/StringBuilder;
+
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string p3, "    width="
+
+    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getWidth()I
+
+    move-result p3
+
+    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string p3, " height="
+
+    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getHeight()I
+
+    move-result p0
+
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -263,6 +468,16 @@
     return-void
 .end method
 
+.method setDozeAmount(F)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/keyguard/LockIconView;->mDozeAmount:F
+
+    invoke-virtual {p0}, Lcom/android/keyguard/LockIconView;->updateColorAndBackgroundVisibility()V
+
+    return-void
+.end method
+
 .method setImageDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 1
 
@@ -313,6 +528,8 @@
 
     iget-boolean v0, p0, Lcom/android/keyguard/LockIconView;->mUseBackground:Z
 
+    const/4 v1, -0x1
+
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/keyguard/LockIconView;->mLockIcon:Landroid/widget/ImageView;
@@ -327,9 +544,15 @@
 
     move-result-object v0
 
-    const v1, 0x1010036
+    const v2, 0x1010036
 
-    invoke-static {v0, v1}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
+    invoke-static {v0, v2}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
+
+    move-result v0
+
+    iget v2, p0, Lcom/android/keyguard/LockIconView;->mDozeAmount:F
+
+    invoke-static {v0, v1, v2}, Lcom/android/internal/graphics/ColorUtils;->blendARGB(IIF)I
 
     move-result v0
 
@@ -351,6 +574,16 @@
 
     iget-object v0, p0, Lcom/android/keyguard/LockIconView;->mBgView:Landroid/widget/ImageView;
 
+    const/high16 v1, 0x3f800000    # 1.0f
+
+    iget v2, p0, Lcom/android/keyguard/LockIconView;->mDozeAmount:F
+
+    sub-float/2addr v1, v2
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setAlpha(F)V
+
+    iget-object v0, p0, Lcom/android/keyguard/LockIconView;->mBgView:Landroid/widget/ImageView;
+
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
@@ -362,9 +595,15 @@
 
     move-result-object v0
 
-    sget v1, Lcom/android/systemui/R$attr;->wallpaperTextColorAccent:I
+    sget v2, Lcom/android/systemui/R$attr;->wallpaperTextColorAccent:I
 
-    invoke-static {v0, v1}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
+    invoke-static {v0, v2}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
+
+    move-result v0
+
+    iget v2, p0, Lcom/android/keyguard/LockIconView;->mDozeAmount:F
+
+    invoke-static {v0, v1, v2}, Lcom/android/internal/graphics/ColorUtils;->blendARGB(IIF)I
 
     move-result v0
 
@@ -386,6 +625,26 @@
     move-result-object p0
 
     invoke-virtual {v0, p0}, Landroid/widget/ImageView;->setImageTintList(Landroid/content/res/ColorStateList;)V
+
+    return-void
+.end method
+
+.method public updateIcon(IZ)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/keyguard/LockIconView;->mIconType:I
+
+    iput-boolean p2, p0, Lcom/android/keyguard/LockIconView;->mAod:Z
+
+    iget-object p0, p0, Lcom/android/keyguard/LockIconView;->mLockIcon:Landroid/widget/ImageView;
+
+    invoke-static {p1, p2}, Lcom/android/keyguard/LockIconView;->getLockIconState(IZ)[I
+
+    move-result-object p1
+
+    const/4 p2, 0x1
+
+    invoke-virtual {p0, p1, p2}, Landroid/widget/ImageView;->setImageState([IZ)V
 
     return-void
 .end method

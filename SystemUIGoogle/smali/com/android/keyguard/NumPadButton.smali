@@ -154,7 +154,7 @@
 .end method
 
 .method public reloadColors()V
-    .locals 2
+    .locals 3
 
     iget-object v0, p0, Lcom/android/keyguard/NumPadButton;->mAnimator:Lcom/android/keyguard/NumPadAnimator;
 
@@ -167,15 +167,29 @@
     invoke-virtual {v0, v1}, Lcom/android/keyguard/NumPadAnimator;->reloadColors(Landroid/content/Context;)V
 
     :cond_0
+    const/4 v0, 0x1
+
+    new-array v0, v0, [I
+
+    const v1, 0x1010039
+
+    const/4 v2, 0x0
+
+    aput v1, v0, v2
+
     invoke-virtual {p0}, Landroid/widget/ImageButton;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Landroid/content/Context;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    const v1, 0x1010031
+    invoke-virtual {v0, v2, v2}, Landroid/content/res/TypedArray;->getColor(II)I
 
-    invoke-static {v0, v1}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
+    move-result v1
 
-    move-result v0
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     invoke-virtual {p0}, Landroid/widget/ImageButton;->getDrawable()Landroid/graphics/drawable/Drawable;
 
@@ -183,7 +197,7 @@
 
     check-cast p0, Landroid/graphics/drawable/VectorDrawable;
 
-    invoke-static {v0}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+    invoke-static {v1}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
 
     move-result-object v0
 

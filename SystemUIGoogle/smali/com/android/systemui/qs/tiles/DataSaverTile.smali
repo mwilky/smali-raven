@@ -20,6 +20,8 @@
 # instance fields
 .field private final mDataSaverController:Lcom/android/systemui/statusbar/policy/DataSaverController;
 
+.field private final mDialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
+
 
 # direct methods
 .method public static synthetic $r8$lambda$OKU6RPuD9FufTCENoGUyTp1_vTg(Lcom/android/systemui/qs/tiles/DataSaverTile;Landroid/content/DialogInterface;I)V
@@ -30,12 +32,22 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/DataSaverController;)V
+.method public static synthetic $r8$lambda$sM2_jsFl18I2p9IXiyUQrFO-7ds(Lcom/android/systemui/qs/tiles/DataSaverTile;Landroid/view/View;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tiles/DataSaverTile;->lambda$handleClick$1(Landroid/view/View;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/DataSaverController;Lcom/android/systemui/animation/DialogLaunchAnimator;)V
     .locals 0
 
     invoke-direct/range {p0 .. p8}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;-><init>(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;)V
 
     iput-object p9, p0, Lcom/android/systemui/qs/tiles/DataSaverTile;->mDataSaverController:Lcom/android/systemui/statusbar/policy/DataSaverController;
+
+    iput-object p10, p0, Lcom/android/systemui/qs/tiles/DataSaverTile;->mDialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->getLifecycle()Landroidx/lifecycle/Lifecycle;
 
@@ -59,6 +71,56 @@
 
     invoke-static {p0, p1, p2}, Lcom/android/systemui/Prefs;->putBoolean(Landroid/content/Context;Ljava/lang/String;Z)V
 
+    return-void
+.end method
+
+.method private synthetic lambda$handleClick$1(Landroid/view/View;)V
+    .locals 3
+
+    new-instance v0, Lcom/android/systemui/statusbar/phone/SystemUIDialog;
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
+
+    invoke-direct {v0, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;-><init>(Landroid/content/Context;)V
+
+    const v1, 0x10402b2
+
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->setTitle(I)V
+
+    const v1, 0x10402b0
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setMessage(I)V
+
+    new-instance v1, Lcom/android/systemui/qs/tiles/DataSaverTile$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/qs/tiles/DataSaverTile$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/qs/tiles/DataSaverTile;)V
+
+    const v2, 0x10402b1
+
+    invoke-virtual {v0, v2, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)V
+
+    const/high16 v1, 0x1040000
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setNeutralButton(ILandroid/content/DialogInterface$OnClickListener;)V
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setShowForAllUsers(Z)V
+
+    if-eqz p1, :cond_0
+
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/DataSaverTile;->mDialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
+
+    invoke-virtual {p0, v0, p1}, Lcom/android/systemui/animation/DialogLaunchAnimator;->showFromView(Landroid/app/Dialog;Landroid/view/View;)V
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
+
+    :goto_0
     return-void
 .end method
 
@@ -174,64 +236,38 @@
 .end method
 
 .method protected handleClick(Landroid/view/View;)V
-    .locals 2
+    .locals 3
 
-    iget-object p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
+    iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
 
-    check-cast p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
+    check-cast v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
-    iget-boolean p1, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
+    iget-boolean v0, v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
 
-    if-nez p1, :cond_1
+    if-nez v0, :cond_1
 
-    iget-object p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    const-string v1, "QsDataSaverDialogShown"
+    const-string v2, "QsDataSaverDialogShown"
 
-    invoke-static {p1, v1, v0}, Lcom/android/systemui/Prefs;->getBoolean(Landroid/content/Context;Ljava/lang/String;Z)Z
+    invoke-static {v0, v2, v1}, Lcom/android/systemui/Prefs;->getBoolean(Landroid/content/Context;Ljava/lang/String;Z)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    new-instance p1, Lcom/android/systemui/statusbar/phone/SystemUIDialog;
+    iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mUiHandler:Landroid/os/Handler;
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
+    new-instance v1, Lcom/android/systemui/qs/tiles/DataSaverTile$$ExternalSyntheticLambda1;
 
-    invoke-direct {p1, v0}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/qs/tiles/DataSaverTile$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/qs/tiles/DataSaverTile;Landroid/view/View;)V
 
-    const v0, 0x10402ae
-
-    invoke-virtual {p1, v0}, Landroid/app/AlertDialog;->setTitle(I)V
-
-    const v0, 0x10402ac
-
-    invoke-virtual {p1, v0}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setMessage(I)V
-
-    const v0, 0x10402ad
-
-    new-instance v1, Lcom/android/systemui/qs/tiles/DataSaverTile$$ExternalSyntheticLambda0;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/qs/tiles/DataSaverTile$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/qs/tiles/DataSaverTile;)V
-
-    invoke-virtual {p1, v0, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)V
-
-    const/high16 p0, 0x1040000
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p1, p0, v0}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)V
-
-    const/4 p0, 0x1
-
-    invoke-virtual {p1, p0}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setShowForAllUsers(Z)V
-
-    invoke-virtual {p1}, Landroid/app/AlertDialog;->show()V
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 

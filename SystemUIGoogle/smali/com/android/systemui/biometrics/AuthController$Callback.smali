@@ -17,3 +17,6 @@
 # virtual methods
 .method public abstract onAllAuthenticatorsRegistered()V
 .end method
+
+.method public abstract onEnrollmentsChanged()V
+.end method

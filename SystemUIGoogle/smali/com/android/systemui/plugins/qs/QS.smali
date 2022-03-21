@@ -13,7 +13,7 @@
 
 .annotation runtime Lcom/android/systemui/plugins/annotations/ProvidesInterface;
     action = "com.android.systemui.action.PLUGIN_QS"
-    version = 0xb
+    version = 0xc
 .end annotation
 
 .annotation system Ldalvik/annotation/MemberClasses;
@@ -29,11 +29,14 @@
 
 .field public static final TAG:Ljava/lang/String; = "QS"
 
-.field public static final VERSION:I = 0xb
+.field public static final VERSION:I = 0xc
 
 
 # virtual methods
 .method public abstract animateHeaderSlidingOut()V
+.end method
+
+.method public abstract closeCustomizer()V
 .end method
 
 .method public abstract closeDetail()V
@@ -89,7 +92,7 @@
     .end annotation
 .end method
 
-.method public abstract setContainer(Landroid/view/ViewGroup;)V
+.method public abstract setContainerController(Lcom/android/systemui/plugins/qs/QSContainerController;)V
 .end method
 
 .method public abstract setExpandClickListener(Landroid/view/View$OnClickListener;)V
@@ -116,6 +119,9 @@
 .method public abstract setHeightOverride(I)V
 .end method
 
+.method public abstract setInSplitShade(Z)V
+.end method
+
 .method public abstract setListening(Z)V
 .end method
 
@@ -125,7 +131,7 @@
 .method public abstract setPanelView(Lcom/android/systemui/plugins/qs/QS$HeightListener;)V
 .end method
 
-.method public abstract setQsExpansion(FF)V
+.method public abstract setQsExpansion(FFFF)V
 .end method
 
 .method public setScrollListener(Lcom/android/systemui/plugins/qs/QS$ScrollListener;)V
@@ -134,11 +140,8 @@
     return-void
 .end method
 
-.method public setTransitionToFullShadeAmount(FZ)V
+.method public setTransitionToFullShadeAmount(FF)V
     .locals 0
 
     return-void
-.end method
-
-.method public abstract setTranslateWhileExpanding(Z)V
 .end method

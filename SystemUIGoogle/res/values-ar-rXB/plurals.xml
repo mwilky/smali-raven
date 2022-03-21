@@ -32,18 +32,6 @@
         <item quantity="other">‏‮Incorrect‬‏ ‏‮SIM‬‏ ‏‮PUK‬‏ ‏‮code,‬‏ ‏‮you‬‏ ‏‮have‬‏ %d ‏‮remaining‬‏ ‏‮attempts‬‏ ‏‮before‬‏ ‏‮SIM‬‏ ‏‮becomes‬‏ ‏‮permanently‬‏ ‏‮unusable.‬‏</item>
         <item quantity="one">‏‮Incorrect‬‏ ‏‮SIM‬‏ ‏‮PUK‬‏ ‏‮code,‬‏ ‏‮you‬‏ ‏‮have‬‏ %d ‏‮remaining‬‏ ‏‮attempt‬‏ ‏‮before‬‏ ‏‮SIM‬‏ ‏‮becomes‬‏ ‏‮permanently‬‏ ‏‮unusable.‬‏</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">"‏‮Device‬‏ ‏‮hasn't‬‏ ‏‮been‬‏ ‏‮unlocked‬‏ ‏‮for‬‏ %d ‏‮hours.‬‏ ‏‮Confirm‬‏ ‏‮password.‬‏"</item>
-        <item quantity="one">"‏‮Device‬‏ ‏‮hasn't‬‏ ‏‮been‬‏ ‏‮unlocked‬‏ ‏‮for‬‏ %d ‏‮hour.‬‏ ‏‮Confirm‬‏ ‏‮password.‬‏"</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">"‏‮Device‬‏ ‏‮hasn't‬‏ ‏‮been‬‏ ‏‮unlocked‬‏ ‏‮for‬‏ %d ‏‮hours.‬‏ ‏‮Confirm‬‏ ‏‮pattern.‬‏"</item>
-        <item quantity="one">"‏‮Device‬‏ ‏‮hasn't‬‏ ‏‮been‬‏ ‏‮unlocked‬‏ ‏‮for‬‏ %d ‏‮hour.‬‏ ‏‮Confirm‬‏ ‏‮pattern.‬‏"</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">"‏‮Device‬‏ ‏‮hasn't‬‏ ‏‮been‬‏ ‏‮unlocked‬‏ ‏‮for‬‏ %d ‏‮hours.‬‏ ‏‮Confirm‬‏ ‏‮PIN.‬‏"</item>
-        <item quantity="one">"‏‮Device‬‏ ‏‮hasn't‬‏ ‏‮been‬‏ ‏‮unlocked‬‏ ‏‮for‬‏ %d ‏‮hour.‬‏ ‏‮Confirm‬‏ ‏‮PIN.‬‏"</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">‏‮Try‬‏ ‏‮again‬‏ ‏‮in‬‏ %d ‏‮seconds.‬‏</item>
         <item quantity="one">‏‮Try‬‏ ‏‮again‬‏ ‏‮in‬‏ ‏‮1‬‏ ‏‮second.‬‏</item>

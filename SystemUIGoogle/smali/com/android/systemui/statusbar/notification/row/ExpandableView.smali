@@ -71,6 +71,14 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$8lP5DDf0j4bA8CP9zwcMiMXJ3f0(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Ljava/io/FileDescriptor;[Ljava/lang/String;Landroid/util/IndentingPrintWriter;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->lambda$dump$0(Ljava/io/FileDescriptor;[Ljava/lang/String;Landroid/util/IndentingPrintWriter;)V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 1
 
@@ -139,6 +147,30 @@
     return-void
 .end method
 
+.method private synthetic lambda$dump$0(Ljava/io/FileDescriptor;[Ljava/lang/String;Landroid/util/IndentingPrintWriter;)V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getViewState()Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;
+
+    move-result-object p0
+
+    if-nez p0, :cond_0
+
+    const-string p0, "no viewState!!!"
+
+    invoke-virtual {p3, p0}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p0, p1, p3, p2}, Lcom/android/systemui/statusbar/notification/stack/ViewState;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+
+    invoke-virtual {p3}, Landroid/util/IndentingPrintWriter;->println()V
+
+    :goto_0
+    return-void
+.end method
+
 
 # virtual methods
 .method protected applyContentTransformation(FF)V
@@ -181,7 +213,23 @@
 .end method
 
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .locals 0
+    .locals 1
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    new-instance v0, Lcom/android/systemui/statusbar/notification/row/ExpandableView$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0, p0, p1, p3}, Lcom/android/systemui/statusbar/notification/row/ExpandableView$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Ljava/io/FileDescriptor;[Ljava/lang/String;)V
+
+    invoke-static {p2, v0}, Lcom/android/systemui/util/DumpUtilsKt;->withIndenting(Ljava/io/PrintWriter;Ljava/util/function/Consumer;)V
 
     return-void
 .end method

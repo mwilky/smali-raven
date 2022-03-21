@@ -12,9 +12,11 @@
 
 .field public final synthetic f$2:Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;
 
+.field public final synthetic f$3:Z
+
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/content/Intent;ZLcom/android/systemui/animation/ActivityLaunchAnimator$Controller;)V
+.method public synthetic constructor <init>(Landroid/content/Intent;ZLcom/android/systemui/animation/ActivityLaunchAnimator$Controller;Z)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,23 +27,27 @@
 
     iput-object p3, p0, Lcom/android/systemui/ActivityStarterDelegate$$ExternalSyntheticLambda9;->f$2:Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;
 
+    iput-boolean p4, p0, Lcom/android/systemui/ActivityStarterDelegate$$ExternalSyntheticLambda9;->f$3:Z
+
     return-void
 .end method
 
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 2
+    .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/ActivityStarterDelegate$$ExternalSyntheticLambda9;->f$0:Landroid/content/Intent;
 
     iget-boolean v1, p0, Lcom/android/systemui/ActivityStarterDelegate$$ExternalSyntheticLambda9;->f$1:Z
 
-    iget-object p0, p0, Lcom/android/systemui/ActivityStarterDelegate$$ExternalSyntheticLambda9;->f$2:Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;
+    iget-object v2, p0, Lcom/android/systemui/ActivityStarterDelegate$$ExternalSyntheticLambda9;->f$2:Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;
 
-    check-cast p1, Ldagger/Lazy;
+    iget-boolean p0, p0, Lcom/android/systemui/ActivityStarterDelegate$$ExternalSyntheticLambda9;->f$3:Z
 
-    invoke-static {v0, v1, p0, p1}, Lcom/android/systemui/ActivityStarterDelegate;->$r8$lambda$q4VFIkntgcmOWigjQFhmWk_nsdA(Landroid/content/Intent;ZLcom/android/systemui/animation/ActivityLaunchAnimator$Controller;Ldagger/Lazy;)V
+    check-cast p1, Lcom/android/systemui/statusbar/phone/StatusBar;
+
+    invoke-static {v0, v1, v2, p0, p1}, Lcom/android/systemui/ActivityStarterDelegate;->$r8$lambda$z70HCiNBeDxXm-58lnNDMz1fVzE(Landroid/content/Intent;ZLcom/android/systemui/animation/ActivityLaunchAnimator$Controller;ZLcom/android/systemui/statusbar/phone/StatusBar;)V
 
     return-void
 .end method

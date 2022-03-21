@@ -24,12 +24,12 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/wm/shell/bubbles/BubbleExpandedView;Lcom/android/wm/shell/bubbles/ManageEducationView;)V
+.method constructor <init>(Lcom/android/wm/shell/bubbles/ManageEducationView;Lcom/android/wm/shell/bubbles/BubbleExpandedView;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1$1;->$expandedView:Lcom/android/wm/shell/bubbles/BubbleExpandedView;
+    iput-object p1, p0, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1$1;->this$0:Lcom/android/wm/shell/bubbles/ManageEducationView;
 
-    iput-object p2, p0, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1$1;->this$0:Lcom/android/wm/shell/bubbles/ManageEducationView;
+    iput-object p2, p0, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1$1;->$expandedView:Lcom/android/wm/shell/bubbles/BubbleExpandedView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -39,23 +39,21 @@
 
 # virtual methods
 .method public final onClick(Landroid/view/View;)V
-    .locals 1
+    .locals 0
 
-    iget-object p1, p0, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1$1;->$expandedView:Lcom/android/wm/shell/bubbles/BubbleExpandedView;
+    iget-object p1, p0, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1$1;->this$0:Lcom/android/wm/shell/bubbles/ManageEducationView;
 
-    sget v0, Lcom/android/wm/shell/R$id;->settings_button:I
+    invoke-virtual {p1}, Lcom/android/wm/shell/bubbles/ManageEducationView;->hide()V
 
-    invoke-virtual {p1, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
+    iget-object p0, p0, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1$1;->$expandedView:Lcom/android/wm/shell/bubbles/BubbleExpandedView;
 
-    move-result-object p1
+    sget p1, Lcom/android/wm/shell/R$id;->manage_button:I
 
-    invoke-virtual {p1}, Landroid/view/View;->performClick()Z
+    invoke-virtual {p0, p1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
-    iget-object p0, p0, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1$1;->this$0:Lcom/android/wm/shell/bubbles/ManageEducationView;
+    move-result-object p0
 
-    const/4 p1, 0x1
-
-    invoke-virtual {p0, p1}, Lcom/android/wm/shell/bubbles/ManageEducationView;->hide(Z)V
+    invoke-virtual {p0}, Landroid/view/View;->performClick()Z
 
     return-void
 .end method

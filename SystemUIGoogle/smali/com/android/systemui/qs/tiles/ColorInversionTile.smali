@@ -100,27 +100,13 @@
 .end method
 
 .method public getLongClickIntent()Landroid/content/Intent;
-    .locals 3
+    .locals 1
 
     new-instance p0, Landroid/content/Intent;
 
-    const-string v0, "android.settings.ACCESSIBILITY_SETTINGS"
+    const-string v0, "android.settings.COLOR_INVERSION_SETTINGS"
 
     invoke-direct {p0, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    new-instance v0, Landroid/os/Bundle;
-
-    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
-
-    const-string v1, ":settings:fragment_args_key"
-
-    const-string/jumbo v2, "toggle_inversion_preference"
-
-    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-string v1, ":settings:show_fragment_args"
-
-    invoke-virtual {p0, v1, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/Intent;
 
     return-object p0
 .end method

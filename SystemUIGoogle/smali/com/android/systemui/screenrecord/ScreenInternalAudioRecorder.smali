@@ -111,88 +111,54 @@
     return-void
 .end method
 
-.method private addAndConvertBuffers([SI[SI)[B
-    .locals 5
+.method private addAndConvertBuffers([S[S[BI)V
+    .locals 3
 
-    invoke-static {p2, p4}, Ljava/lang/Math;->max(II)I
-
-    move-result p0
-
-    const/4 v0, 0x0
-
-    if-gez p0, :cond_0
-
-    new-array p0, v0, [B
-
-    return-object p0
-
-    :cond_0
-    mul-int/lit8 v1, p0, 0x2
-
-    new-array v1, v1, [B
+    const/4 p0, 0x0
 
     :goto_0
-    if-ge v0, p0, :cond_5
+    if-ge p0, p4, :cond_0
 
-    if-le v0, p2, :cond_1
+    aget-short v0, p1, p0
 
-    aget-short v2, p3, v0
+    aget-short v1, p2, p0
 
-    goto :goto_1
+    add-int/2addr v0, v1
 
-    :cond_1
-    if-le v0, p4, :cond_2
+    const/16 v1, -0x8000
 
-    aget-short v2, p1, v0
+    const/16 v2, 0x7fff
 
-    goto :goto_1
+    invoke-static {v0, v1, v2}, Landroid/util/MathUtils;->constrain(III)I
 
-    :cond_2
-    aget-short v2, p1, v0
+    move-result v0
 
-    aget-short v3, p3, v0
+    int-to-short v0, v0
 
-    add-int/2addr v2, v3
+    mul-int/lit8 v1, p0, 0x2
 
-    :goto_1
-    const/16 v3, 0x7fff
-
-    if-le v2, v3, :cond_3
-
-    move v2, v3
-
-    :cond_3
-    const/16 v3, -0x8000
-
-    if-ge v2, v3, :cond_4
-
-    move v2, v3
-
-    :cond_4
-    mul-int/lit8 v3, v0, 0x2
-
-    and-int/lit16 v4, v2, 0xff
-
-    int-to-byte v4, v4
-
-    aput-byte v4, v1, v3
-
-    add-int/lit8 v3, v3, 0x1
-
-    shr-int/lit8 v2, v2, 0x8
-
-    and-int/lit16 v2, v2, 0xff
+    and-int/lit16 v2, v0, 0xff
 
     int-to-byte v2, v2
 
-    aput-byte v2, v1, v3
+    aput-byte v2, p3, v1
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/lit8 v1, v1, 0x1
+
+    shr-int/lit8 v0, v0, 0x8
+
+    and-int/lit16 v0, v0, 0xff
+
+    int-to-byte v0, v0
+
+    aput-byte v0, p3, v1
+
+    add-int/lit8 p0, p0, 0x1
 
     goto :goto_0
 
-    :cond_5
-    return-object v1
+    :cond_0
+    return-void
 .end method
 
 .method private encode([BI)V
@@ -321,93 +287,123 @@
 .end method
 
 .method private synthetic lambda$setupSimple$0(I)V
-    .locals 6
+    .locals 11
 
-    iget-boolean v0, p0, Lcom/android/systemui/screenrecord/ScreenInternalAudioRecorder;->mMic:Z
+    new-array v0, p1, [B
 
-    const/4 v1, 0x0
+    iget-boolean v1, p0, Lcom/android/systemui/screenrecord/ScreenInternalAudioRecorder;->mMic:Z
 
-    if-eqz v0, :cond_0
+    const/4 v2, 0x0
 
-    div-int/lit8 p1, p1, 0x2
+    if-eqz v1, :cond_0
 
-    new-array v0, p1, [S
+    div-int/lit8 v1, p1, 0x2
 
-    new-array p1, p1, [S
+    new-array v2, v1, [S
+
+    new-array v1, v1, [S
 
     goto :goto_0
 
     :cond_0
-    new-array p1, p1, [B
-
-    move-object v0, v1
-
-    move-object v1, p1
-
-    move-object p1, v0
+    move-object v1, v2
 
     :goto_0
-    iget-boolean v2, p0, Lcom/android/systemui/screenrecord/ScreenInternalAudioRecorder;->mMic:Z
-
     const/4 v3, 0x0
-
-    if-eqz v2, :cond_1
-
-    iget-object v1, p0, Lcom/android/systemui/screenrecord/ScreenInternalAudioRecorder;->mAudioRecord:Landroid/media/AudioRecord;
-
-    array-length v2, v0
-
-    invoke-virtual {v1, v0, v3, v2}, Landroid/media/AudioRecord;->read([SII)I
-
-    move-result v1
-
-    iget-object v2, p0, Lcom/android/systemui/screenrecord/ScreenInternalAudioRecorder;->mAudioRecordMic:Landroid/media/AudioRecord;
-
-    array-length v4, p1
-
-    invoke-virtual {v2, p1, v3, v4}, Landroid/media/AudioRecord;->read([SII)I
-
-    move-result v3
-
-    const v2, 0x3fb33333    # 1.4f
-
-    invoke-direct {p0, p1, v3, v2}, Lcom/android/systemui/screenrecord/ScreenInternalAudioRecorder;->scaleValues([SIF)[S
-
-    move-result-object p1
-
-    invoke-static {v1, v3}, Ljava/lang/Math;->min(II)I
-
-    move-result v2
-
-    mul-int/lit8 v2, v2, 0x2
-
-    invoke-direct {p0, v0, v1, p1, v3}, Lcom/android/systemui/screenrecord/ScreenInternalAudioRecorder;->addAndConvertBuffers([SI[SI)[B
-
-    move-result-object v4
-
-    move v5, v3
-
-    move v3, v1
-
-    move-object v1, v4
-
-    move v4, v5
-
-    goto :goto_1
-
-    :cond_1
-    iget-object v2, p0, Lcom/android/systemui/screenrecord/ScreenInternalAudioRecorder;->mAudioRecord:Landroid/media/AudioRecord;
-
-    array-length v4, v1
-
-    invoke-virtual {v2, v1, v3, v4}, Landroid/media/AudioRecord;->read([BII)I
-
-    move-result v2
 
     move v4, v3
 
+    move v5, v4
+
+    move v6, v5
+
+    move v7, v6
+
     :goto_1
-    if-gez v2, :cond_2
+    iget-boolean v8, p0, Lcom/android/systemui/screenrecord/ScreenInternalAudioRecorder;->mMic:Z
+
+    if-eqz v8, :cond_4
+
+    iget-object v6, p0, Lcom/android/systemui/screenrecord/ScreenInternalAudioRecorder;->mAudioRecord:Landroid/media/AudioRecord;
+
+    array-length v7, v2
+
+    sub-int/2addr v7, v4
+
+    invoke-virtual {v6, v2, v4, v7}, Landroid/media/AudioRecord;->read([SII)I
+
+    move-result v6
+
+    iget-object v7, p0, Lcom/android/systemui/screenrecord/ScreenInternalAudioRecorder;->mAudioRecordMic:Landroid/media/AudioRecord;
+
+    array-length v8, v1
+
+    sub-int/2addr v8, v5
+
+    invoke-virtual {v7, v1, v5, v8}, Landroid/media/AudioRecord;->read([SII)I
+
+    move-result v7
+
+    if-gez v6, :cond_1
+
+    if-gez v7, :cond_1
+
+    goto :goto_3
+
+    :cond_1
+    if-gez v6, :cond_2
+
+    invoke-static {v2, v3}, Ljava/util/Arrays;->fill([SS)V
+
+    move v4, v5
+
+    move v6, v7
+
+    :cond_2
+    if-gez v7, :cond_3
+
+    invoke-static {v1, v3}, Ljava/util/Arrays;->fill([SS)V
+
+    move v5, v4
+
+    move v7, v6
+
+    :cond_3
+    add-int/2addr v6, v4
+
+    add-int/2addr v7, v5
+
+    invoke-static {v6, v7}, Ljava/lang/Math;->min(II)I
+
+    move-result v8
+
+    mul-int/lit8 v9, v8, 0x2
+
+    const v10, 0x3fb33333    # 1.4f
+
+    invoke-direct {p0, v1, v8, v10}, Lcom/android/systemui/screenrecord/ScreenInternalAudioRecorder;->scaleValues([SIF)V
+
+    invoke-direct {p0, v2, v1, v0, v8}, Lcom/android/systemui/screenrecord/ScreenInternalAudioRecorder;->addAndConvertBuffers([S[S[BI)V
+
+    invoke-direct {p0, v2, v8, v4}, Lcom/android/systemui/screenrecord/ScreenInternalAudioRecorder;->shiftToStart([SII)V
+
+    invoke-direct {p0, v1, v8, v5}, Lcom/android/systemui/screenrecord/ScreenInternalAudioRecorder;->shiftToStart([SII)V
+
+    sub-int v4, v6, v8
+
+    sub-int v5, v7, v8
+
+    goto :goto_2
+
+    :cond_4
+    iget-object v8, p0, Lcom/android/systemui/screenrecord/ScreenInternalAudioRecorder;->mAudioRecord:Landroid/media/AudioRecord;
+
+    invoke-virtual {v8, v0, v3, p1}, Landroid/media/AudioRecord;->read([BII)I
+
+    move-result v9
+
+    :goto_2
+    if-gez v9, :cond_5
 
     sget-object p1, Lcom/android/systemui/screenrecord/ScreenInternalAudioRecorder;->TAG:Ljava/lang/String;
 
@@ -419,19 +415,19 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     const-string v1, ", shorts internal: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     const-string v1, ", shorts mic: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -439,25 +435,24 @@
 
     invoke-static {p1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
+    :goto_3
     invoke-direct {p0}, Lcom/android/systemui/screenrecord/ScreenInternalAudioRecorder;->endStream()V
 
     return-void
 
-    :cond_2
-    invoke-direct {p0, v1, v2}, Lcom/android/systemui/screenrecord/ScreenInternalAudioRecorder;->encode([BI)V
+    :cond_5
+    invoke-direct {p0, v0, v9}, Lcom/android/systemui/screenrecord/ScreenInternalAudioRecorder;->encode([BI)V
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
-.method private scaleValues([SIF)[S
+.method private scaleValues([SIF)V
     .locals 3
 
     const/4 p0, 0x0
 
     :goto_0
-    if-ge p0, p2, :cond_2
-
-    aget-short v0, p1, p0
+    if-ge p0, p2, :cond_0
 
     aget-short v0, p1, p0
 
@@ -471,19 +466,10 @@
 
     const/16 v2, 0x7fff
 
-    if-le v0, v2, :cond_0
+    invoke-static {v0, v1, v2}, Landroid/util/MathUtils;->constrain(III)I
 
-    move v0, v2
+    move-result v0
 
-    goto :goto_1
-
-    :cond_0
-    if-ge v0, v1, :cond_1
-
-    move v0, v1
-
-    :cond_1
-    :goto_1
     int-to-short v0, v0
 
     aput-short v0, p1, p0
@@ -492,8 +478,8 @@
 
     goto :goto_0
 
-    :cond_2
-    return-object p1
+    :cond_0
+    return-void
 .end method
 
 .method private setupSimple()V
@@ -693,6 +679,30 @@
 
     iput-object v1, p0, Lcom/android/systemui/screenrecord/ScreenInternalAudioRecorder;->mThread:Ljava/lang/Thread;
 
+    return-void
+.end method
+
+.method private shiftToStart([SII)V
+    .locals 1
+
+    const/4 p0, 0x0
+
+    :goto_0
+    sub-int v0, p3, p2
+
+    if-ge p0, v0, :cond_0
+
+    add-int v0, p2, p0
+
+    aget-short v0, p1, v0
+
+    aput-short v0, p1, p0
+
+    add-int/lit8 p0, p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
     return-void
 .end method
 

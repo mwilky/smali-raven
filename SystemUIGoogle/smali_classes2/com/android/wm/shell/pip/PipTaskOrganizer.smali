@@ -5,14 +5,7 @@
 # interfaces
 .implements Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;
 .implements Lcom/android/wm/shell/common/DisplayController$OnDisplaysChangedListener;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
-    }
-.end annotation
+.implements Lcom/android/wm/shell/ShellTaskOrganizer$FocusListener;
 
 
 # static fields
@@ -36,11 +29,19 @@
 
 .field private mHasFadeOut:Z
 
-.field private mInSwipePipToHomeTransition:Z
-
 .field private mLastOneShotAlphaAnimationTime:J
 
 .field private mLeash:Landroid/view/SurfaceControl;
+
+.field private final mLegacySplitScreenOptional:Ljava/util/Optional;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreenController;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field protected final mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
 
@@ -66,19 +67,19 @@
 
 .field private final mPipTransitionController:Lcom/android/wm/shell/pip/PipTransitionController;
 
+.field private mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
+
 .field private final mPipUiEventLoggerLogger:Lcom/android/wm/shell/pip/PipUiEventLogger;
 
 .field private final mSplitScreenOptional:Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Optional<",
-            "Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreenController;",
+            "Lcom/android/wm/shell/splitscreen/SplitScreenController;",
             ">;"
         }
     .end annotation
 .end field
-
-.field private mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
 
 .field private mSurfaceControlTransactionFactory:Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper$SurfaceControlTransactionFactory;
 
@@ -176,13 +177,14 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Lcom/android/wm/shell/common/SyncTransactionQueue;Lcom/android/wm/shell/pip/PipBoundsState;Lcom/android/wm/shell/pip/PipBoundsAlgorithm;Lcom/android/wm/shell/pip/PipMenuController;Lcom/android/wm/shell/pip/PipAnimationController;Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;Lcom/android/wm/shell/pip/PipTransitionController;Ljava/util/Optional;Lcom/android/wm/shell/common/DisplayController;Lcom/android/wm/shell/pip/PipUiEventLogger;Lcom/android/wm/shell/ShellTaskOrganizer;Lcom/android/wm/shell/common/ShellExecutor;)V
-    .locals 1
+.method public constructor <init>(Landroid/content/Context;Lcom/android/wm/shell/common/SyncTransactionQueue;Lcom/android/wm/shell/pip/PipTransitionState;Lcom/android/wm/shell/pip/PipBoundsState;Lcom/android/wm/shell/pip/PipBoundsAlgorithm;Lcom/android/wm/shell/pip/PipMenuController;Lcom/android/wm/shell/pip/PipAnimationController;Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;Lcom/android/wm/shell/pip/PipTransitionController;Ljava/util/Optional;Ljava/util/Optional;Lcom/android/wm/shell/common/DisplayController;Lcom/android/wm/shell/pip/PipUiEventLogger;Lcom/android/wm/shell/ShellTaskOrganizer;Lcom/android/wm/shell/common/ShellExecutor;)V
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/content/Context;",
             "Lcom/android/wm/shell/common/SyncTransactionQueue;",
+            "Lcom/android/wm/shell/pip/PipTransitionState;",
             "Lcom/android/wm/shell/pip/PipBoundsState;",
             "Lcom/android/wm/shell/pip/PipBoundsAlgorithm;",
             "Lcom/android/wm/shell/pip/PipMenuController;",
@@ -192,6 +194,9 @@
             "Ljava/util/Optional<",
             "Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreenController;",
             ">;",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/splitscreen/SplitScreenController;",
+            ">;",
             "Lcom/android/wm/shell/common/DisplayController;",
             "Lcom/android/wm/shell/pip/PipUiEventLogger;",
             "Lcom/android/wm/shell/ShellTaskOrganizer;",
@@ -200,99 +205,135 @@
         }
     .end annotation
 
+    move-object v0, p0
+
+    move-object/from16 v1, p9
+
+    move-object/from16 v2, p14
+
+    move-object/from16 v3, p15
+
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Lcom/android/wm/shell/pip/PipTaskOrganizer$1;
+    new-instance v4, Lcom/android/wm/shell/pip/PipTaskOrganizer$1;
 
-    invoke-direct {v0, p0}, Lcom/android/wm/shell/pip/PipTaskOrganizer$1;-><init>(Lcom/android/wm/shell/pip/PipTaskOrganizer;)V
+    invoke-direct {v4, p0}, Lcom/android/wm/shell/pip/PipTaskOrganizer$1;-><init>(Lcom/android/wm/shell/pip/PipTaskOrganizer;)V
 
-    iput-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipAnimationCallback:Lcom/android/wm/shell/pip/PipAnimationController$PipAnimationCallback;
+    iput-object v4, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipAnimationCallback:Lcom/android/wm/shell/pip/PipAnimationController$PipAnimationCallback;
 
-    new-instance v0, Lcom/android/wm/shell/pip/PipTaskOrganizer$2;
+    new-instance v4, Lcom/android/wm/shell/pip/PipTaskOrganizer$2;
 
-    invoke-direct {v0, p0}, Lcom/android/wm/shell/pip/PipTaskOrganizer$2;-><init>(Lcom/android/wm/shell/pip/PipTaskOrganizer;)V
+    invoke-direct {v4, p0}, Lcom/android/wm/shell/pip/PipTaskOrganizer$2;-><init>(Lcom/android/wm/shell/pip/PipTaskOrganizer;)V
 
-    iput-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransactionHandler:Lcom/android/wm/shell/pip/PipAnimationController$PipTransactionHandler;
+    iput-object v4, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransactionHandler:Lcom/android/wm/shell/pip/PipAnimationController$PipTransactionHandler;
 
-    sget-object v0, Lcom/android/wm/shell/pip/PipTaskOrganizer$State;->UNDEFINED:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    const/4 v4, 0x0
 
-    iput-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iput v4, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mOneShotAnimationType:I
 
-    const/4 v0, 0x0
+    move-object v4, p1
 
-    iput v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mOneShotAnimationType:I
+    iput-object v4, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mContext:Landroid/content/Context;
 
-    iput-object p1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mContext:Landroid/content/Context;
+    move-object v5, p2
 
-    iput-object p2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSyncTransactionQueue:Lcom/android/wm/shell/common/SyncTransactionQueue;
+    iput-object v5, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSyncTransactionQueue:Lcom/android/wm/shell/common/SyncTransactionQueue;
 
-    iput-object p3, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipBoundsState:Lcom/android/wm/shell/pip/PipBoundsState;
+    move-object v5, p3
 
-    iput-object p4, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipBoundsAlgorithm:Lcom/android/wm/shell/pip/PipBoundsAlgorithm;
+    iput-object v5, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    iput-object p5, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipMenuController:Lcom/android/wm/shell/pip/PipMenuController;
+    move-object v5, p4
 
-    iput-object p8, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionController:Lcom/android/wm/shell/pip/PipTransitionController;
+    iput-object v5, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipBoundsState:Lcom/android/wm/shell/pip/PipBoundsState;
 
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    move-object v5, p5
 
-    move-result-object p2
+    iput-object v5, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipBoundsAlgorithm:Lcom/android/wm/shell/pip/PipBoundsAlgorithm;
 
-    sget p3, Lcom/android/wm/shell/R$integer;->config_pipEnterAnimationDuration:I
+    move-object v5, p6
 
-    invoke-virtual {p2, p3}, Landroid/content/res/Resources;->getInteger(I)I
+    iput-object v5, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipMenuController:Lcom/android/wm/shell/pip/PipMenuController;
 
-    move-result p2
-
-    iput p2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mEnterAnimationDuration:I
+    iput-object v1, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionController:Lcom/android/wm/shell/pip/PipTransitionController;
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object p2
+    move-result-object v5
 
-    sget p3, Lcom/android/wm/shell/R$integer;->config_pipExitAnimationDuration:I
+    sget v6, Lcom/android/wm/shell/R$integer;->config_pipEnterAnimationDuration:I
 
-    invoke-virtual {p2, p3}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getInteger(I)I
 
-    move-result p2
+    move-result v5
 
-    iput p2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mExitAnimationDuration:I
+    iput v5, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mEnterAnimationDuration:I
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object p1
+    move-result-object v5
 
-    sget p2, Lcom/android/wm/shell/R$integer;->config_pipCrossfadeAnimationDuration:I
+    sget v6, Lcom/android/wm/shell/R$integer;->config_pipExitAnimationDuration:I
 
-    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getInteger(I)I
 
-    move-result p1
+    move-result v5
 
-    iput p1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mCrossFadeAnimationDuration:I
+    iput v5, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mExitAnimationDuration:I
 
-    iput-object p7, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSurfaceTransactionHelper:Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    iput-object p6, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipAnimationController:Lcom/android/wm/shell/pip/PipAnimationController;
+    move-result-object v4
 
-    iput-object p11, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipUiEventLoggerLogger:Lcom/android/wm/shell/pip/PipUiEventLogger;
+    sget v5, Lcom/android/wm/shell/R$integer;->config_pipCrossfadeAnimationDuration:I
 
-    sget-object p1, Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator$$ExternalSyntheticLambda0;
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
-    iput-object p1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSurfaceControlTransactionFactory:Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper$SurfaceControlTransactionFactory;
+    move-result v4
 
-    iput-object p9, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSplitScreenOptional:Ljava/util/Optional;
+    iput v4, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mCrossFadeAnimationDuration:I
 
-    iput-object p12, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mTaskOrganizer:Lcom/android/wm/shell/ShellTaskOrganizer;
+    move-object v4, p8
 
-    iput-object p13, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
+    iput-object v4, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSurfaceTransactionHelper:Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;
 
-    new-instance p1, Lcom/android/wm/shell/pip/PipTaskOrganizer$$ExternalSyntheticLambda5;
+    move-object v4, p7
 
-    invoke-direct {p1, p0}, Lcom/android/wm/shell/pip/PipTaskOrganizer$$ExternalSyntheticLambda5;-><init>(Lcom/android/wm/shell/pip/PipTaskOrganizer;)V
+    iput-object v4, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipAnimationController:Lcom/android/wm/shell/pip/PipAnimationController;
 
-    invoke-interface {p13, p1}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
+    move-object/from16 v4, p13
 
-    invoke-virtual {p10, p0}, Lcom/android/wm/shell/common/DisplayController;->addDisplayWindowListener(Lcom/android/wm/shell/common/DisplayController$OnDisplaysChangedListener;)V
+    iput-object v4, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipUiEventLoggerLogger:Lcom/android/wm/shell/pip/PipUiEventLogger;
+
+    sget-object v4, Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator$$ExternalSyntheticLambda0;
+
+    iput-object v4, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSurfaceControlTransactionFactory:Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper$SurfaceControlTransactionFactory;
+
+    move-object/from16 v4, p10
+
+    iput-object v4, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mLegacySplitScreenOptional:Ljava/util/Optional;
+
+    move-object/from16 v4, p11
+
+    iput-object v4, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSplitScreenOptional:Ljava/util/Optional;
+
+    iput-object v2, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mTaskOrganizer:Lcom/android/wm/shell/ShellTaskOrganizer;
+
+    iput-object v3, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
+
+    new-instance v4, Lcom/android/wm/shell/pip/PipTaskOrganizer$$ExternalSyntheticLambda5;
+
+    invoke-direct {v4, p0}, Lcom/android/wm/shell/pip/PipTaskOrganizer$$ExternalSyntheticLambda5;-><init>(Lcom/android/wm/shell/pip/PipTaskOrganizer;)V
+
+    invoke-interface {v3, v4}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
+
+    invoke-virtual {v2, p0}, Lcom/android/wm/shell/ShellTaskOrganizer;->addFocusListener(Lcom/android/wm/shell/ShellTaskOrganizer$FocusListener;)V
+
+    invoke-virtual {v1, p0}, Lcom/android/wm/shell/pip/PipTransitionController;->setPipOrganizer(Lcom/android/wm/shell/pip/PipTaskOrganizer;)V
+
+    move-object/from16 v1, p12
+
+    invoke-virtual {v1, p0}, Lcom/android/wm/shell/common/DisplayController;->addDisplayWindowListener(Lcom/android/wm/shell/common/DisplayController$OnDisplaysChangedListener;)V
 
     return-void
 .end method
@@ -321,7 +362,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$1300(Lcom/android/wm/shell/pip/PipTaskOrganizer;Landroid/view/SurfaceControl;Ljava/lang/Runnable;)V
+.method static synthetic access$1100(Lcom/android/wm/shell/pip/PipTaskOrganizer;Landroid/view/SurfaceControl;Ljava/lang/Runnable;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->removeContentOverlay(Landroid/view/SurfaceControl;Ljava/lang/Runnable;)V
@@ -369,10 +410,10 @@
     return-object p1
 .end method
 
-.method static synthetic access$700(Lcom/android/wm/shell/pip/PipTaskOrganizer;)Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+.method static synthetic access$700(Lcom/android/wm/shell/pip/PipTaskOrganizer;)Lcom/android/wm/shell/pip/PipTransitionState;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object p0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
     return-object p0
 .end method
@@ -394,7 +435,7 @@
 .end method
 
 .method private animateResizePip(Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;IIF)Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator;
-    .locals 14
+    .locals 15
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -413,7 +454,7 @@
 
     iget-object v1, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mToken:Landroid/window/WindowContainerToken;
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_8
 
     iget-object v1, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mLeash:Landroid/view/SurfaceControl;
 
@@ -424,24 +465,26 @@
     :cond_0
     iget-boolean v1, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mWaitForFixedRotation:Z
 
+    const/4 v2, 0x0
+
     if-eqz v1, :cond_1
 
     iget v1, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mCurrentRotation:I
 
-    iget v2, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mNextRotation:I
+    iget v3, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mNextRotation:I
 
-    invoke-static {v1, v2}, Landroid/util/RotationUtils;->deltaRotation(II)I
+    invoke-static {v1, v3}, Landroid/util/RotationUtils;->deltaRotation(II)I
 
     move-result v1
+
+    move v12, v1
 
     goto :goto_0
 
     :cond_1
-    const/4 v1, 0x0
+    move v12, v2
 
     :goto_0
-    move v12, v1
-
     move-object/from16 v6, p2
 
     move-object/from16 v1, p3
@@ -470,16 +513,41 @@
     goto :goto_1
 
     :cond_3
-    move-object v4, p1
+    move-object/from16 v4, p1
 
     :goto_1
+    iget-object v1, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipAnimationController:Lcom/android/wm/shell/pip/PipAnimationController;
+
+    invoke-virtual {v1}, Lcom/android/wm/shell/pip/PipAnimationController;->getCurrentAnimator()Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_4
+
+    iget-object v1, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipAnimationController:Lcom/android/wm/shell/pip/PipAnimationController;
+
+    invoke-virtual {v1}, Lcom/android/wm/shell/pip/PipAnimationController;->getCurrentAnimator()Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/animation/ValueAnimator;->isRunning()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    const/4 v2, 0x1
+
+    :cond_4
+    move v14, v2
+
     iget-object v1, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipAnimationController:Lcom/android/wm/shell/pip/PipAnimationController;
 
     iget-object v2, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mTaskInfo:Landroid/app/ActivityManager$RunningTaskInfo;
 
     iget-object v3, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mLeash:Landroid/view/SurfaceControl;
 
-    move-object v5, p1
+    move-object/from16 v5, p1
 
     move-object/from16 v6, p2
 
@@ -499,12 +567,6 @@
 
     move-result-object v2
 
-    iget-object v3, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipAnimationCallback:Lcom/android/wm/shell/pip/PipAnimationController$PipAnimationCallback;
-
-    invoke-virtual {v2, v3}, Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator;->setPipAnimationCallback(Lcom/android/wm/shell/pip/PipAnimationController$PipAnimationCallback;)Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator;
-
-    move-result-object v2
-
     iget-object v3, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransactionHandler:Lcom/android/wm/shell/pip/PipAnimationController$PipTransactionHandler;
 
     invoke-virtual {v2, v3}, Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator;->setPipTransactionHandler(Lcom/android/wm/shell/pip/PipAnimationController$PipTransactionHandler;)Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator;
@@ -517,20 +579,27 @@
 
     invoke-virtual {v2, v3, v4}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
+    if-nez v14, :cond_5
+
+    iget-object v2, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipAnimationCallback:Lcom/android/wm/shell/pip/PipAnimationController$PipAnimationCallback;
+
+    invoke-virtual {v1, v2}, Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator;->setPipAnimationCallback(Lcom/android/wm/shell/pip/PipAnimationController$PipAnimationCallback;)Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator;
+
+    :cond_5
     invoke-static/range {p4 .. p4}, Lcom/android/wm/shell/pip/PipAnimationController;->isInPipDirection(I)Z
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_7
 
-    if-nez v13, :cond_4
+    if-nez v13, :cond_6
 
     iget-object v2, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1, v2}, Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator;->setUseContentOverlay(Landroid/content/Context;)Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator;
 
-    :cond_4
-    if-eqz v12, :cond_5
+    :cond_6
+    if-eqz v12, :cond_7
 
     iget-object v0, v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipBoundsAlgorithm:Lcom/android/wm/shell/pip/PipBoundsAlgorithm;
 
@@ -540,12 +609,12 @@
 
     invoke-virtual {v1, v0}, Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator;->setDestinationBounds(Landroid/graphics/Rect;)V
 
-    :cond_5
+    :cond_7
     invoke-virtual {v1}, Landroid/animation/ValueAnimator;->start()V
 
     return-object v1
 
-    :cond_6
+    :cond_8
     :goto_2
     sget-object v0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->TAG:Ljava/lang/String;
 
@@ -666,7 +735,7 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/window/WindowContainerTransaction;->setActivityWindowingMode(Landroid/window/WindowContainerToken;I)Landroid/window/WindowContainerTransaction;
 
-    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSplitScreenOptional:Ljava/util/Optional;
+    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mLegacySplitScreenOptional:Ljava/util/Optional;
 
     new-instance v1, Lcom/android/wm/shell/pip/PipTaskOrganizer$$ExternalSyntheticLambda9;
 
@@ -807,9 +876,9 @@
 
     iget-object v1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mLeash:Landroid/view/SurfaceControl;
 
-    iget-object p0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object p0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    invoke-static {p0}, Lcom/android/wm/shell/pip/PipTaskOrganizer$State;->access$1100(Lcom/android/wm/shell/pip/PipTaskOrganizer$State;)Z
+    invoke-virtual {p0}, Lcom/android/wm/shell/pip/PipTransitionState;->isInPip()Z
 
     move-result p0
 
@@ -960,7 +1029,7 @@
 .end method
 
 .method private finishResize(Landroid/view/SurfaceControl$Transaction;Landroid/graphics/Rect;II)V
-    .locals 4
+    .locals 5
 
     new-instance v0, Landroid/graphics/Rect;
 
@@ -972,13 +1041,17 @@
 
     invoke-direct {v0, v1}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
 
-    iget-object v1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipBoundsState:Lcom/android/wm/shell/pip/PipBoundsState;
+    invoke-direct {p0}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->isPipTopLeft()Z
 
-    invoke-virtual {v1, p2}, Lcom/android/wm/shell/pip/PipBoundsState;->setBounds(Landroid/graphics/Rect;)V
+    move-result v1
 
-    const/4 v1, 0x5
+    iget-object v2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipBoundsState:Lcom/android/wm/shell/pip/PipBoundsState;
 
-    if-ne p3, v1, :cond_0
+    invoke-virtual {v2, p2}, Lcom/android/wm/shell/pip/PipBoundsState;->setBounds(Landroid/graphics/Rect;)V
+
+    const/4 v2, 0x5
+
+    if-ne p3, v2, :cond_0
 
     invoke-direct {p0}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->removePipImmediately()V
 
@@ -987,13 +1060,13 @@
     :cond_0
     invoke-static {p3}, Lcom/android/wm/shell/pip/PipAnimationController;->isInPipDirection(I)Z
 
-    move-result v1
+    move-result v2
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    if-eqz v1, :cond_1
+    if-eqz v2, :cond_1
 
-    if-ne p4, v2, :cond_1
+    if-ne p4, v3, :cond_1
 
     invoke-virtual {p0, p2}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->finishResizeForMenu(Landroid/graphics/Rect;)V
 
@@ -1008,7 +1081,7 @@
 
     const/4 p1, 0x7
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     if-eq p3, p1, :cond_3
 
@@ -1023,13 +1096,13 @@
     goto :goto_0
 
     :cond_2
-    move p1, v1
+    move p1, v2
 
     goto :goto_1
 
     :cond_3
     :goto_0
-    move p1, v2
+    move p1, v3
 
     :goto_1
     if-eqz p1, :cond_4
@@ -1047,40 +1120,40 @@
     goto :goto_2
 
     :cond_4
-    move v2, v1
+    move v3, v2
 
     :goto_2
-    if-eqz v2, :cond_6
+    if-eqz v3, :cond_6
 
-    invoke-virtual {v0, v1, v1}, Landroid/graphics/Rect;->offsetTo(II)V
+    invoke-virtual {v0, v2, v2}, Landroid/graphics/Rect;->offsetTo(II)V
 
     new-instance p1, Landroid/graphics/Rect;
 
     invoke-virtual {p2}, Landroid/graphics/Rect;->width()I
 
-    move-result v2
+    move-result v3
 
     invoke-virtual {p2}, Landroid/graphics/Rect;->height()I
 
-    move-result v3
+    move-result v4
 
-    invoke-direct {p1, v1, v1, v2, v3}, Landroid/graphics/Rect;-><init>(IIII)V
+    invoke-direct {p1, v2, v2, v3, v4}, Landroid/graphics/Rect;-><init>(IIII)V
 
-    iget-object v1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSurfaceControlTransactionFactory:Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper$SurfaceControlTransactionFactory;
+    iget-object v2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSurfaceControlTransactionFactory:Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper$SurfaceControlTransactionFactory;
 
-    invoke-interface {v1}, Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper$SurfaceControlTransactionFactory;->getTransaction()Landroid/view/SurfaceControl$Transaction;
+    invoke-interface {v2}, Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper$SurfaceControlTransactionFactory;->getTransaction()Landroid/view/SurfaceControl$Transaction;
 
-    move-result-object v1
+    move-result-object v2
 
-    iget-object v2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mLeash:Landroid/view/SurfaceControl;
+    iget-object v3, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mLeash:Landroid/view/SurfaceControl;
 
-    const v3, 0x7ffffffd
+    const v4, 0x7ffffffd
 
-    invoke-static {v1, v2, v0, v3}, Lcom/android/wm/shell/common/ScreenshotUtils;->takeScreenshot(Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl;Landroid/graphics/Rect;I)Landroid/view/SurfaceControl;
+    invoke-static {v2, v3, v0, v4}, Lcom/android/wm/shell/common/ScreenshotUtils;->takeScreenshot(Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl;Landroid/graphics/Rect;I)Landroid/view/SurfaceControl;
 
-    move-result-object v1
+    move-result-object v2
 
-    if-eqz v1, :cond_5
+    if-eqz v2, :cond_5
 
     iget-object p3, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSyncTransactionQueue:Lcom/android/wm/shell/common/SyncTransactionQueue;
 
@@ -1090,24 +1163,71 @@
 
     new-instance p4, Lcom/android/wm/shell/pip/PipTaskOrganizer$$ExternalSyntheticLambda2;
 
-    invoke-direct {p4, p0, v1, v0, p1}, Lcom/android/wm/shell/pip/PipTaskOrganizer$$ExternalSyntheticLambda2;-><init>(Lcom/android/wm/shell/pip/PipTaskOrganizer;Landroid/view/SurfaceControl;Landroid/graphics/Rect;Landroid/graphics/Rect;)V
+    invoke-direct {p4, p0, v2, v0, p1}, Lcom/android/wm/shell/pip/PipTaskOrganizer$$ExternalSyntheticLambda2;-><init>(Lcom/android/wm/shell/pip/PipTaskOrganizer;Landroid/view/SurfaceControl;Landroid/graphics/Rect;Landroid/graphics/Rect;)V
 
     invoke-virtual {p3, p4}, Lcom/android/wm/shell/common/SyncTransactionQueue;->runInSync(Lcom/android/wm/shell/common/SyncTransactionQueue$TransactionRunnable;)V
 
     goto :goto_3
 
     :cond_5
-    invoke-virtual {p0, p4, p3}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->applyFinishBoundsResize(Landroid/window/WindowContainerTransaction;I)V
+    invoke-virtual {p0, p4, p3, v1}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->applyFinishBoundsResize(Landroid/window/WindowContainerTransaction;IZ)V
 
     goto :goto_3
 
     :cond_6
-    invoke-virtual {p0, p4, p3}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->applyFinishBoundsResize(Landroid/window/WindowContainerTransaction;I)V
+    invoke-virtual {p0, p4, p3, v1}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->applyFinishBoundsResize(Landroid/window/WindowContainerTransaction;IZ)V
 
     :goto_3
     invoke-virtual {p0, p2}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->finishResizeForMenu(Landroid/graphics/Rect;)V
 
     return-void
+.end method
+
+.method private isPipTopLeft()Z
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSplitScreenOptional:Ljava/util/Optional;
+
+    invoke-virtual {v0}, Ljava/util/Optional;->isPresent()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const/4 p0, 0x0
+
+    return p0
+
+    :cond_0
+    new-instance v0, Landroid/graphics/Rect;
+
+    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+
+    new-instance v1, Landroid/graphics/Rect;
+
+    invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
+
+    iget-object v2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSplitScreenOptional:Ljava/util/Optional;
+
+    invoke-virtual {v2}, Ljava/util/Optional;->get()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/wm/shell/splitscreen/SplitScreenController;
+
+    invoke-virtual {v2, v0, v1}, Lcom/android/wm/shell/splitscreen/SplitScreenController;->getStageBounds(Landroid/graphics/Rect;Landroid/graphics/Rect;)V
+
+    iget-object p0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipBoundsState:Lcom/android/wm/shell/pip/PipBoundsState;
+
+    invoke-virtual {p0}, Lcom/android/wm/shell/pip/PipBoundsState;->getBounds()Landroid/graphics/Rect;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Landroid/graphics/Rect;->contains(Landroid/graphics/Rect;)Z
+
+    move-result p0
+
+    return p0
 .end method
 
 .method private static synthetic lambda$applyEnterPipSyncTransaction$5(Ljava/lang/Runnable;Landroid/view/SurfaceControl$Transaction;)V
@@ -1182,9 +1302,11 @@
 
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->start()V
 
-    sget-object p1, Lcom/android/wm/shell/pip/PipTaskOrganizer$State;->ENTERING_PIP:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object p0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    iput-object p1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    const/4 p1, 0x3
+
+    invoke-virtual {p0, p1}, Lcom/android/wm/shell/pip/PipTransitionState;->setTransitionState(I)V
 
     return-void
 .end method
@@ -1231,13 +1353,15 @@
 .end method
 
 .method private synthetic lambda$fadeOutAndRemoveOverlay$8(Landroid/view/SurfaceControl;Landroid/animation/ValueAnimator;)V
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    sget-object v1, Lcom/android/wm/shell/pip/PipTaskOrganizer$State;->UNDEFINED:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    invoke-virtual {v0}, Lcom/android/wm/shell/pip/PipTransitionState;->getTransitionState()I
 
-    if-ne v0, v1, :cond_0
+    move-result v0
+
+    if-nez v0, :cond_0
 
     sget-object p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->TAG:Ljava/lang/String;
 
@@ -1387,57 +1511,68 @@
 .end method
 
 .method private onEndOfSwipePipToHomeTransition()V
-    .locals 6
+    .locals 7
 
+    sget-boolean v0, Lcom/android/wm/shell/transition/Transitions;->ENABLE_SHELL_TRANSITIONS:Z
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_0
+
+    iput-object v1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSwipePipToHomeOverlay:Landroid/view/SurfaceControl;
+
+    return-void
+
+    :cond_0
     iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipBoundsState:Lcom/android/wm/shell/pip/PipBoundsState;
 
     invoke-virtual {v0}, Lcom/android/wm/shell/pip/PipBoundsState;->getBounds()Landroid/graphics/Rect;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSwipePipToHomeOverlay:Landroid/view/SurfaceControl;
+    iget-object v2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSwipePipToHomeOverlay:Landroid/view/SurfaceControl;
 
-    iget-object v2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSurfaceControlTransactionFactory:Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper$SurfaceControlTransactionFactory;
+    iget-object v3, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSurfaceControlTransactionFactory:Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper$SurfaceControlTransactionFactory;
 
-    invoke-interface {v2}, Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper$SurfaceControlTransactionFactory;->getTransaction()Landroid/view/SurfaceControl$Transaction;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSurfaceTransactionHelper:Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;
-
-    iget-object v4, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mLeash:Landroid/view/SurfaceControl;
-
-    invoke-virtual {v3, v2, v4, v0}, Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;->resetScale(Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl;Landroid/graphics/Rect;)Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;
+    invoke-interface {v3}, Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper$SurfaceControlTransactionFactory;->getTransaction()Landroid/view/SurfaceControl$Transaction;
 
     move-result-object v3
 
-    iget-object v4, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mLeash:Landroid/view/SurfaceControl;
+    iget-object v4, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSurfaceTransactionHelper:Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;
 
-    invoke-virtual {v3, v2, v4, v0}, Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;->crop(Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl;Landroid/graphics/Rect;)Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;
+    iget-object v5, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mLeash:Landroid/view/SurfaceControl;
 
-    move-result-object v3
+    invoke-virtual {v4, v3, v5, v0}, Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;->resetScale(Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl;Landroid/graphics/Rect;)Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;
 
-    iget-object v4, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mLeash:Landroid/view/SurfaceControl;
+    move-result-object v4
+
+    iget-object v5, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mLeash:Landroid/view/SurfaceControl;
+
+    invoke-virtual {v4, v3, v5, v0}, Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;->crop(Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl;Landroid/graphics/Rect;)Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;
+
+    move-result-object v4
+
+    iget-object v5, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mLeash:Landroid/view/SurfaceControl;
 
     invoke-virtual {p0}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->isInPip()Z
 
-    move-result v5
+    move-result v6
 
-    invoke-virtual {v3, v2, v4, v5}, Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;->round(Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl;Z)Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;
+    invoke-virtual {v4, v3, v5, v6}, Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;->round(Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl;Z)Lcom/android/wm/shell/pip/PipSurfaceTransactionHelper;
 
-    new-instance v3, Lcom/android/wm/shell/pip/PipTaskOrganizer$$ExternalSyntheticLambda8;
+    new-instance v4, Lcom/android/wm/shell/pip/PipTaskOrganizer$$ExternalSyntheticLambda8;
 
-    invoke-direct {v3, p0, v0, v1}, Lcom/android/wm/shell/pip/PipTaskOrganizer$$ExternalSyntheticLambda8;-><init>(Lcom/android/wm/shell/pip/PipTaskOrganizer;Landroid/graphics/Rect;Landroid/view/SurfaceControl;)V
+    invoke-direct {v4, p0, v0, v2}, Lcom/android/wm/shell/pip/PipTaskOrganizer$$ExternalSyntheticLambda8;-><init>(Lcom/android/wm/shell/pip/PipTaskOrganizer;Landroid/graphics/Rect;Landroid/view/SurfaceControl;)V
 
-    invoke-direct {p0, v0, v3, v2}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->applyEnterPipSyncTransaction(Landroid/graphics/Rect;Ljava/lang/Runnable;Landroid/view/SurfaceControl$Transaction;)V
+    invoke-direct {p0, v0, v4, v3}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->applyEnterPipSyncTransaction(Landroid/graphics/Rect;Ljava/lang/Runnable;Landroid/view/SurfaceControl$Transaction;)V
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    iput-boolean v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mInSwipePipToHomeTransition:Z
+    const/4 v2, 0x0
 
-    const/4 v0, 0x0
+    invoke-virtual {v0, v2}, Lcom/android/wm/shell/pip/PipTransitionState;->setInSwipePipToHomeTransition(Z)V
 
-    iput-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSwipePipToHomeOverlay:Landroid/view/SurfaceControl;
+    iput-object v1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSwipePipToHomeOverlay:Landroid/view/SurfaceControl;
 
     return-void
 .end method
@@ -1514,9 +1649,11 @@
 
     invoke-direct/range {v1 .. v7}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->animateResizePip(Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;IIF)Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator;
 
-    sget-object v0, Lcom/android/wm/shell/pip/PipTaskOrganizer$State;->ENTERING_PIP:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object p0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    iput-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    const/4 v0, 0x3
+
+    invoke-virtual {p0, v0}, Lcom/android/wm/shell/pip/PipTransitionState;->setTransitionState(I)V
 
     return-void
 .end method
@@ -1573,13 +1710,15 @@
 .end method
 
 .method private removeContentOverlay(Landroid/view/SurfaceControl;Ljava/lang/Runnable;)V
-    .locals 2
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    sget-object v1, Lcom/android/wm/shell/pip/PipTaskOrganizer$State;->UNDEFINED:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    invoke-virtual {v0}, Lcom/android/wm/shell/pip/PipTransitionState;->getTransitionState()I
 
-    if-ne v0, v1, :cond_0
+    move-result v0
+
+    if-nez v0, :cond_0
 
     return-void
 
@@ -1603,18 +1742,47 @@
 .end method
 
 .method private removePipImmediately()V
-    .locals 3
+    .locals 4
 
+    sget-boolean v0, Lcom/android/wm/shell/transition/Transitions;->ENABLE_SHELL_TRANSITIONS:Z
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x0
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Landroid/window/WindowContainerTransaction;
+
+    invoke-direct {v0}, Landroid/window/WindowContainerTransaction;-><init>()V
+
+    iget-object v3, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mToken:Landroid/window/WindowContainerToken;
+
+    invoke-virtual {v0, v3, v2}, Landroid/window/WindowContainerTransaction;->setBounds(Landroid/window/WindowContainerToken;Landroid/graphics/Rect;)Landroid/window/WindowContainerTransaction;
+
+    iget-object v3, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mToken:Landroid/window/WindowContainerToken;
+
+    invoke-virtual {v0, v3, v1}, Landroid/window/WindowContainerTransaction;->setWindowingMode(Landroid/window/WindowContainerToken;I)Landroid/window/WindowContainerTransaction;
+
+    iget-object v3, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mToken:Landroid/window/WindowContainerToken;
+
+    invoke-virtual {v0, v3, v1}, Landroid/window/WindowContainerTransaction;->reorder(Landroid/window/WindowContainerToken;Z)Landroid/window/WindowContainerTransaction;
+
+    iget-object p0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionController:Lcom/android/wm/shell/pip/PipTransitionController;
+
+    invoke-virtual {p0, v2, v0}, Lcom/android/wm/shell/pip/PipTransitionController;->startTransition(Landroid/graphics/Rect;Landroid/window/WindowContainerTransaction;)V
+
+    return-void
+
+    :cond_0
     :try_start_0
     new-instance v0, Landroid/window/WindowContainerTransaction;
 
     invoke-direct {v0}, Landroid/window/WindowContainerTransaction;-><init>()V
 
-    iget-object v1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mToken:Landroid/window/WindowContainerToken;
+    iget-object v3, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mToken:Landroid/window/WindowContainerToken;
 
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2}, Landroid/window/WindowContainerTransaction;->setBounds(Landroid/window/WindowContainerToken;Landroid/graphics/Rect;)Landroid/window/WindowContainerTransaction;
+    invoke-virtual {v0, v3, v2}, Landroid/window/WindowContainerTransaction;->setBounds(Landroid/window/WindowContainerToken;Landroid/graphics/Rect;)Landroid/window/WindowContainerTransaction;
 
     iget-object p0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mTaskOrganizer:Lcom/android/wm/shell/ShellTaskOrganizer;
 
@@ -1627,8 +1795,6 @@
     const/4 v0, 0x1
 
     new-array v0, v0, [I
-
-    const/4 v1, 0x0
 
     const/4 v2, 0x2
 
@@ -1671,9 +1837,9 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    invoke-static {v0}, Lcom/android/wm/shell/pip/PipTaskOrganizer$State;->access$1100(Lcom/android/wm/shell/pip/PipTaskOrganizer$State;)Z
+    invoke-virtual {v0}, Lcom/android/wm/shell/pip/PipTransitionState;->isInPip()Z
 
     move-result v0
 
@@ -1721,15 +1887,17 @@
 .end method
 
 .method private sendOnPipTransitionStarted(I)V
-    .locals 1
+    .locals 2
 
     const/4 v0, 0x2
 
     if-ne p1, v0, :cond_0
 
-    sget-object v0, Lcom/android/wm/shell/pip/PipTaskOrganizer$State;->ENTERING_PIP:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    iput-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    const/4 v1, 0x3
+
+    invoke-virtual {v0, v1}, Lcom/android/wm/shell/pip/PipTransitionState;->setTransitionState(I)V
 
     :cond_0
     iget-object p0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionController:Lcom/android/wm/shell/pip/PipTransitionController;
@@ -1761,23 +1929,70 @@
     return-void
 .end method
 
-.method private syncWithSplitScreenBounds(Landroid/graphics/Rect;)Z
-    .locals 2
+.method private syncWithSplitScreenBounds(Landroid/graphics/Rect;Z)Z
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSplitScreenOptional:Ljava/util/Optional;
+    const/4 v0, 0x1
 
-    invoke-virtual {v0}, Ljava/util/Optional;->isPresent()Z
+    if-eqz p2, :cond_1
 
-    move-result v0
+    iget-object p2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSplitScreenOptional:Ljava/util/Optional;
+
+    invoke-virtual {p2}, Ljava/util/Optional;->isPresent()Z
+
+    move-result p2
+
+    if-eqz p2, :cond_1
+
+    new-instance p2, Landroid/graphics/Rect;
+
+    invoke-direct {p2}, Landroid/graphics/Rect;-><init>()V
+
+    new-instance v1, Landroid/graphics/Rect;
+
+    invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
+
+    iget-object v2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSplitScreenOptional:Ljava/util/Optional;
+
+    invoke-virtual {v2}, Ljava/util/Optional;->get()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/wm/shell/splitscreen/SplitScreenController;
+
+    invoke-virtual {v2, p2, v1}, Lcom/android/wm/shell/splitscreen/SplitScreenController;->getStageBounds(Landroid/graphics/Rect;Landroid/graphics/Rect;)V
+
+    invoke-direct {p0}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->isPipTopLeft()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    move-object p2, v1
+
+    :goto_0
+    invoke-virtual {p1, p2}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
+
+    return v0
+
+    :cond_1
+    iget-object p2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mLegacySplitScreenOptional:Ljava/util/Optional;
+
+    invoke-virtual {p2}, Ljava/util/Optional;->isPresent()Z
+
+    move-result p2
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez p2, :cond_2
 
     return v1
 
-    :cond_0
-    iget-object p0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSplitScreenOptional:Ljava/util/Optional;
+    :cond_2
+    iget-object p0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mLegacySplitScreenOptional:Ljava/util/Optional;
 
     invoke-virtual {p0}, Ljava/util/Optional;->get()Ljava/lang/Object;
 
@@ -1787,13 +2002,13 @@
 
     invoke-virtual {p0}, Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreenController;->isDividerVisible()Z
 
-    move-result v0
+    move-result p2
 
-    if-nez v0, :cond_1
+    if-nez p2, :cond_3
 
     return v1
 
-    :cond_1
+    :cond_3
     invoke-virtual {p0}, Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreenController;->getDividerView()Lcom/android/wm/shell/legacysplitscreen/DividerView;
 
     move-result-object p0
@@ -1804,20 +2019,40 @@
 
     invoke-virtual {p1, p0}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    const/4 p0, 0x1
-
-    return p0
+    return v0
 .end method
 
 
 # virtual methods
-.method public applyFinishBoundsResize(Landroid/window/WindowContainerTransaction;I)V
-    .locals 0
+.method public applyFinishBoundsResize(Landroid/window/WindowContainerTransaction;IZ)V
+    .locals 1
 
+    const/4 v0, 0x4
+
+    if-ne p2, v0, :cond_0
+
+    iget-object p2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSplitScreenOptional:Ljava/util/Optional;
+
+    invoke-virtual {p2}, Ljava/util/Optional;->get()Ljava/lang/Object;
+
+    move-result-object p2
+
+    check-cast p2, Lcom/android/wm/shell/splitscreen/SplitScreenController;
+
+    iget-object p0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mTaskInfo:Landroid/app/ActivityManager$RunningTaskInfo;
+
+    iget p0, p0, Landroid/app/ActivityManager$RunningTaskInfo;->taskId:I
+
+    invoke-virtual {p2, p0, p3, p1}, Lcom/android/wm/shell/splitscreen/SplitScreenController;->enterSplitScreen(IZLandroid/window/WindowContainerTransaction;)V
+
+    goto :goto_0
+
+    :cond_0
     iget-object p0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mTaskOrganizer:Lcom/android/wm/shell/ShellTaskOrganizer;
 
     invoke-virtual {p0, p1}, Landroid/window/TaskOrganizer;->applyTransaction(Landroid/window/WindowContainerTransaction;)V
 
+    :goto_0
     return-void
 .end method
 
@@ -1944,9 +2179,13 @@
 
     invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object v1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Lcom/android/wm/shell/pip/PipTransitionState;->getTransitionState()I
+
+    move-result v1
+
+    invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -2016,9 +2255,11 @@
 
     invoke-virtual {v0}, Landroid/view/SurfaceControl$Transaction;->apply()V
 
-    sget-object v0, Lcom/android/wm/shell/pip/PipTaskOrganizer$State;->ENTRY_SCHEDULED:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    iput-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    const/4 v1, 0x2
+
+    invoke-virtual {v0, v1}, Lcom/android/wm/shell/pip/PipTransitionState;->setTransitionState(I)V
 
     new-instance v0, Lcom/android/wm/shell/pip/PipTaskOrganizer$$ExternalSyntheticLambda7;
 
@@ -2031,22 +2272,26 @@
     return-void
 .end method
 
-.method public exitPip(I)V
+.method public exitPip(IZ)V
     .locals 9
 
-    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    invoke-static {v0}, Lcom/android/wm/shell/pip/PipTaskOrganizer$State;->access$1100(Lcom/android/wm/shell/pip/PipTaskOrganizer$State;)Z
+    invoke-virtual {v0}, Lcom/android/wm/shell/pip/PipTransitionState;->isInPip()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
-    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    sget-object v1, Lcom/android/wm/shell/pip/PipTaskOrganizer$State;->EXITING_PIP:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    invoke-virtual {v0}, Lcom/android/wm/shell/pip/PipTransitionState;->getTransitionState()I
 
-    if-eq v0, v1, :cond_3
+    move-result v0
+
+    const/4 v1, 0x5
+
+    if-eq v0, v1, :cond_4
 
     iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mToken:Landroid/window/WindowContainerToken;
 
@@ -2071,7 +2316,7 @@
 
     move-result-object v2
 
-    invoke-direct {p0, v2}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->syncWithSplitScreenBounds(Landroid/graphics/Rect;)Z
+    invoke-direct {p0, v2, p2}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->syncWithSplitScreenBounds(Landroid/graphics/Rect;Z)Z
 
     move-result v3
 
@@ -2121,6 +2366,8 @@
 
     if-ne v3, v4, :cond_2
 
+    if-nez p2, :cond_2
+
     goto :goto_1
 
     :cond_2
@@ -2129,55 +2376,72 @@
     :goto_1
     invoke-virtual {v0, v6, v4}, Landroid/window/WindowContainerTransaction;->setActivityWindowingMode(Landroid/window/WindowContainerToken;I)Landroid/window/WindowContainerTransaction;
 
-    iget-object v4, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mToken:Landroid/window/WindowContainerToken;
+    iget-object p2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mToken:Landroid/window/WindowContainerToken;
 
-    invoke-virtual {v0, v4, v2}, Landroid/window/WindowContainerTransaction;->setBounds(Landroid/window/WindowContainerToken;Landroid/graphics/Rect;)Landroid/window/WindowContainerTransaction;
+    invoke-virtual {v0, p2, v2}, Landroid/window/WindowContainerTransaction;->setBounds(Landroid/window/WindowContainerToken;Landroid/graphics/Rect;)Landroid/window/WindowContainerTransaction;
 
-    iget-object v4, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mToken:Landroid/window/WindowContainerToken;
+    iget-object p2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mToken:Landroid/window/WindowContainerToken;
 
-    invoke-virtual {v0, v4, v5}, Landroid/window/WindowContainerTransaction;->setBoundsChangeTransaction(Landroid/window/WindowContainerToken;Landroid/view/SurfaceControl$Transaction;)Landroid/window/WindowContainerTransaction;
+    invoke-virtual {v0, p2, v5}, Landroid/window/WindowContainerTransaction;->setBoundsChangeTransaction(Landroid/window/WindowContainerToken;Landroid/view/SurfaceControl$Transaction;)Landroid/window/WindowContainerTransaction;
 
-    iput-object v1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object p2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    iget-object v1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSyncTransactionQueue:Lcom/android/wm/shell/common/SyncTransactionQueue;
+    invoke-virtual {p2, v1}, Lcom/android/wm/shell/pip/PipTransitionState;->setTransitionState(I)V
 
-    invoke-virtual {v1, v0}, Lcom/android/wm/shell/common/SyncTransactionQueue;->queue(Landroid/window/WindowContainerTransaction;)V
+    sget-boolean p2, Lcom/android/wm/shell/transition/Transitions;->ENABLE_SHELL_TRANSITIONS:Z
 
-    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSyncTransactionQueue:Lcom/android/wm/shell/common/SyncTransactionQueue;
+    if-eqz p2, :cond_3
 
-    new-instance v1, Lcom/android/wm/shell/pip/PipTaskOrganizer$$ExternalSyntheticLambda1;
+    iget-object p0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionController:Lcom/android/wm/shell/pip/PipTransitionController;
 
-    invoke-direct {v1, p0, v2, v3, p1}, Lcom/android/wm/shell/pip/PipTaskOrganizer$$ExternalSyntheticLambda1;-><init>(Lcom/android/wm/shell/pip/PipTaskOrganizer;Landroid/graphics/Rect;II)V
-
-    invoke-virtual {v0, v1}, Lcom/android/wm/shell/common/SyncTransactionQueue;->runInSync(Lcom/android/wm/shell/common/SyncTransactionQueue$TransactionRunnable;)V
+    invoke-virtual {p0, v2, v0}, Lcom/android/wm/shell/pip/PipTransitionController;->startTransition(Landroid/graphics/Rect;Landroid/window/WindowContainerTransaction;)V
 
     return-void
 
     :cond_3
+    iget-object p2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSyncTransactionQueue:Lcom/android/wm/shell/common/SyncTransactionQueue;
+
+    invoke-virtual {p2, v0}, Lcom/android/wm/shell/common/SyncTransactionQueue;->queue(Landroid/window/WindowContainerTransaction;)V
+
+    iget-object p2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mSyncTransactionQueue:Lcom/android/wm/shell/common/SyncTransactionQueue;
+
+    new-instance v0, Lcom/android/wm/shell/pip/PipTaskOrganizer$$ExternalSyntheticLambda1;
+
+    invoke-direct {v0, p0, v2, v3, p1}, Lcom/android/wm/shell/pip/PipTaskOrganizer$$ExternalSyntheticLambda1;-><init>(Lcom/android/wm/shell/pip/PipTaskOrganizer;Landroid/graphics/Rect;II)V
+
+    invoke-virtual {p2, v0}, Lcom/android/wm/shell/common/SyncTransactionQueue;->runInSync(Lcom/android/wm/shell/common/SyncTransactionQueue$TransactionRunnable;)V
+
+    return-void
+
+    :cond_4
     :goto_2
     sget-object p1, Lcom/android/wm/shell/pip/PipTaskOrganizer;->TAG:Ljava/lang/String;
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "Not allowed to exitPip in current state mState="
+    const-string v0, "Not allowed to exitPip in current state mState="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Lcom/android/wm/shell/pip/PipTransitionState;->getTransitionState()I
 
-    const-string v1, " mToken="
+    move-result v0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v0, " mToken="
+
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object p0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mToken:Landroid/window/WindowContainerToken;
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -2264,12 +2528,24 @@
     return-object p0
 .end method
 
+.method public getTaskInfo()Landroid/app/ActivityManager$RunningTaskInfo;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mTaskInfo:Landroid/app/ActivityManager$RunningTaskInfo;
+
+    return-object p0
+.end method
+
 .method public isEntryScheduled()Z
     .locals 1
 
-    iget-object p0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object p0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    sget-object v0, Lcom/android/wm/shell/pip/PipTaskOrganizer$State;->ENTRY_SCHEDULED:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    invoke-virtual {p0}, Lcom/android/wm/shell/pip/PipTransitionState;->getTransitionState()I
+
+    move-result p0
+
+    const/4 v0, 0x2
 
     if-ne p0, v0, :cond_0
 
@@ -2287,9 +2563,9 @@
 .method public isInPip()Z
     .locals 0
 
-    iget-object p0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object p0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    invoke-static {p0}, Lcom/android/wm/shell/pip/PipTaskOrganizer$State;->access$1100(Lcom/android/wm/shell/pip/PipTaskOrganizer$State;)Z
+    invoke-virtual {p0}, Lcom/android/wm/shell/pip/PipTransitionState;->isInPip()Z
 
     move-result p0
 
@@ -2355,13 +2631,21 @@
     return-void
 
     :cond_0
-    iget-object p1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object p1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    sget-object v0, Lcom/android/wm/shell/pip/PipTaskOrganizer$State;->TASK_APPEARED:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    invoke-virtual {p1}, Lcom/android/wm/shell/pip/PipTransitionState;->getTransitionState()I
+
+    move-result p1
+
+    const/4 v0, 0x1
 
     if-ne p1, v0, :cond_2
 
-    iget-boolean p1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mInSwipePipToHomeTransition:Z
+    iget-object p1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
+
+    invoke-virtual {p1}, Lcom/android/wm/shell/pip/PipTransitionState;->getInSwipePipToHomeTransition()Z
+
+    move-result p1
 
     if-eqz p1, :cond_1
 
@@ -2385,22 +2669,32 @@
     goto :goto_0
 
     :cond_2
-    sget-object v0, Lcom/android/wm/shell/pip/PipTaskOrganizer$State;->ENTERED_PIP:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object p1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    if-ne p1, v0, :cond_3
+    invoke-virtual {p1}, Lcom/android/wm/shell/pip/PipTransitionState;->getTransitionState()I
 
-    iget-boolean v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mHasFadeOut:Z
+    move-result p1
 
-    if-eqz v0, :cond_3
+    const/4 v1, 0x4
 
-    const/4 p1, 0x1
+    if-ne p1, v1, :cond_3
 
-    invoke-direct {p0, p1}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->fadeExistingPip(Z)V
+    iget-boolean p1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mHasFadeOut:Z
+
+    if-eqz p1, :cond_3
+
+    invoke-direct {p0, v0}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->fadeExistingPip(Z)V
 
     goto :goto_0
 
     :cond_3
-    sget-object v0, Lcom/android/wm/shell/pip/PipTaskOrganizer$State;->ENTERING_PIP:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object p1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
+
+    invoke-virtual {p1}, Lcom/android/wm/shell/pip/PipTransitionState;->getTransitionState()I
+
+    move-result p1
+
+    const/4 v0, 0x3
 
     if-ne p1, v0, :cond_4
 
@@ -2446,9 +2740,9 @@
 
     iput-boolean p1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mWaitForFixedRotation:Z
 
-    iget-object p1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object p1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    invoke-static {p1}, Lcom/android/wm/shell/pip/PipTaskOrganizer$State;->access$1100(Lcom/android/wm/shell/pip/PipTaskOrganizer$State;)Z
+    invoke-virtual {p1}, Lcom/android/wm/shell/pip/PipTransitionState;->isInPip()Z
 
     move-result p1
 
@@ -2459,6 +2753,16 @@
     invoke-direct {p0, p1}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->fadeExistingPip(Z)V
 
     :cond_0
+    return-void
+.end method
+
+.method public onFocusTaskChanged(Landroid/app/ActivityManager$RunningTaskInfo;)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipMenuController:Lcom/android/wm/shell/pip/PipMenuController;
+
+    invoke-interface {p0, p1}, Lcom/android/wm/shell/pip/PipMenuController;->onFocusTaskChanged(Landroid/app/ActivityManager$RunningTaskInfo;)V
+
     return-void
 .end method
 
@@ -2473,9 +2777,13 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    sget-object v3, Lcom/android/wm/shell/pip/PipTaskOrganizer$State;->ENTERED_PIP:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    invoke-virtual {v0}, Lcom/android/wm/shell/pip/PipTransitionState;->getTransitionState()I
+
+    move-result v0
+
+    const/4 v3, 0x4
 
     if-eq v0, v3, :cond_0
 
@@ -2487,7 +2795,11 @@
     move v0, v2
 
     :goto_0
-    iget-boolean v3, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mInSwipePipToHomeTransition:Z
+    iget-object v3, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
+
+    invoke-virtual {v3}, Lcom/android/wm/shell/pip/PipTransitionState;->getInSwipePipToHomeTransition()Z
+
+    move-result v3
 
     if-nez v3, :cond_1
 
@@ -2607,9 +2919,9 @@
 
     :cond_8
     :goto_2
-    iget-object p3, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object p3, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    invoke-static {p3}, Lcom/android/wm/shell/pip/PipTaskOrganizer$State;->access$1100(Lcom/android/wm/shell/pip/PipTaskOrganizer$State;)Z
+    invoke-virtual {p3}, Lcom/android/wm/shell/pip/PipTransitionState;->isInPip()Z
 
     move-result p3
 
@@ -2737,21 +3049,25 @@
 
     iput-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mToken:Landroid/window/WindowContainerToken;
 
-    sget-object v0, Lcom/android/wm/shell/pip/PipTaskOrganizer$State;->TASK_APPEARED:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    iput-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/android/wm/shell/pip/PipTransitionState;->setTransitionState(I)V
 
     iput-object p2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mLeash:Landroid/view/SurfaceControl;
 
-    iget-object p2, p1, Landroid/app/ActivityManager$RunningTaskInfo;->pictureInPictureParams:Landroid/app/PictureInPictureParams;
+    iget-object p2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mTaskInfo:Landroid/app/ActivityManager$RunningTaskInfo;
 
-    iput-object p2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPictureInPictureParams:Landroid/app/PictureInPictureParams;
+    iget-object v0, p2, Landroid/app/ActivityManager$RunningTaskInfo;->pictureInPictureParams:Landroid/app/PictureInPictureParams;
 
-    iget-object v0, p1, Landroid/app/ActivityManager$RunningTaskInfo;->topActivity:Landroid/content/ComponentName;
+    iput-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPictureInPictureParams:Landroid/app/PictureInPictureParams;
 
-    iget-object v1, p1, Landroid/app/ActivityManager$RunningTaskInfo;->topActivityInfo:Landroid/content/pm/ActivityInfo;
+    iget-object v2, p2, Landroid/app/ActivityManager$RunningTaskInfo;->topActivity:Landroid/content/ComponentName;
 
-    invoke-direct {p0, v0, p2, v1}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->setBoundsStateForEntry(Landroid/content/ComponentName;Landroid/app/PictureInPictureParams;Landroid/content/pm/ActivityInfo;)V
+    iget-object p2, p2, Landroid/app/ActivityManager$RunningTaskInfo;->topActivityInfo:Landroid/content/pm/ActivityInfo;
+
+    invoke-direct {p0, v2, v0, p2}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->setBoundsStateForEntry(Landroid/content/ComponentName;Landroid/app/PictureInPictureParams;Landroid/content/pm/ActivityInfo;)V
 
     iget-object p2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipUiEventLoggerLogger:Lcom/android/wm/shell/pip/PipUiEventLogger;
 
@@ -2784,7 +3100,11 @@
     invoke-interface {p2, v0}, Ljava/util/function/IntConsumer;->accept(I)V
 
     :cond_0
-    iget-boolean p2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mInSwipePipToHomeTransition:Z
+    iget-object p2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
+
+    invoke-virtual {p2}, Lcom/android/wm/shell/pip/PipTransitionState;->getInSwipePipToHomeTransition()Z
+
+    move-result p2
 
     if-eqz p2, :cond_2
 
@@ -2810,8 +3130,6 @@
     iget p2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mOneShotAnimationType:I
 
     const/4 v0, 0x0
-
-    const/4 v1, 0x1
 
     if-ne p2, v1, :cond_3
 
@@ -2869,7 +3187,7 @@
 
     sget-boolean p2, Lcom/android/wm/shell/transition/Transitions;->ENABLE_SHELL_TRANSITIONS:Z
 
-    if-eqz p2, :cond_6
+    if-eqz p2, :cond_7
 
     iget p1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mOneShotAnimationType:I
 
@@ -2881,13 +3199,21 @@
 
     invoke-interface {p1, p0}, Lcom/android/wm/shell/pip/PipMenuController;->attach(Landroid/view/SurfaceControl;)V
 
+    goto :goto_1
+
     :cond_5
-    return-void
+    if-ne p1, v1, :cond_6
+
+    iput v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mOneShotAnimationType:I
 
     :cond_6
+    :goto_1
+    return-void
+
+    :cond_7
     iget p2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mOneShotAnimationType:I
 
-    if-nez p2, :cond_7
+    if-nez p2, :cond_8
 
     iget-object p2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipMenuController:Lcom/android/wm/shell/pip/PipMenuController;
 
@@ -2913,14 +3239,16 @@
 
     invoke-direct/range {v2 .. v9}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->scheduleAnimateResizePip(Landroid/graphics/Rect;Landroid/graphics/Rect;FLandroid/graphics/Rect;IILjava/util/function/Consumer;)Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator;
 
-    sget-object p1, Lcom/android/wm/shell/pip/PipTaskOrganizer$State;->ENTERING_PIP:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object p0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    iput-object p1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    const/4 p1, 0x3
 
-    goto :goto_1
+    invoke-virtual {p0, p1}, Lcom/android/wm/shell/pip/PipTransitionState;->setTransitionState(I)V
 
-    :cond_7
-    if-ne p2, v1, :cond_8
+    goto :goto_2
+
+    :cond_8
+    if-ne p2, v1, :cond_9
 
     iget p1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mEnterAnimationDuration:I
 
@@ -2930,10 +3258,10 @@
 
     iput v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mOneShotAnimationType:I
 
-    :goto_1
+    :goto_2
     return-void
 
-    :cond_8
+    :cond_9
     new-instance p1, Ljava/lang/RuntimeException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -2966,13 +3294,23 @@
 
     invoke-static {v0, v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    sget-object v1, Lcom/android/wm/shell/pip/PipTaskOrganizer$State;->ENTERED_PIP:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    invoke-virtual {v0}, Lcom/android/wm/shell/pip/PipTransitionState;->getTransitionState()I
+
+    move-result v0
+
+    const/4 v1, 0x4
 
     if-eq v0, v1, :cond_0
 
-    sget-object v1, Lcom/android/wm/shell/pip/PipTaskOrganizer$State;->EXITING_PIP:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
+
+    invoke-virtual {v0}, Lcom/android/wm/shell/pip/PipTransitionState;->getTransitionState()I
+
+    move-result v0
+
+    const/4 v1, 0x5
 
     if-eq v0, v1, :cond_0
 
@@ -2986,9 +3324,13 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object v2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2}, Lcom/android/wm/shell/pip/PipTransitionState;->getTransitionState()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -3088,32 +3430,34 @@
 .method public onTaskVanished(Landroid/app/ActivityManager$RunningTaskInfo;)V
     .locals 4
 
-    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    sget-object v1, Lcom/android/wm/shell/pip/PipTaskOrganizer$State;->UNDEFINED:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    invoke-virtual {v0}, Lcom/android/wm/shell/pip/PipTransitionState;->getTransitionState()I
 
-    if-ne v0, v1, :cond_0
+    move-result v0
+
+    if-nez v0, :cond_0
 
     return-void
 
     :cond_0
     iget-object v0, p1, Landroid/app/ActivityManager$RunningTaskInfo;->token:Landroid/window/WindowContainerToken;
 
-    const-string v2, "Requires valid WindowContainerToken"
+    const-string v1, "Requires valid WindowContainerToken"
 
-    invoke-static {v0, v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    invoke-static {v0, v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
     invoke-virtual {v0}, Landroid/window/WindowContainerToken;->asBinder()Landroid/os/IBinder;
 
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mToken:Landroid/window/WindowContainerToken;
+
+    invoke-virtual {v2}, Landroid/window/WindowContainerToken;->asBinder()Landroid/os/IBinder;
+
     move-result-object v2
 
-    iget-object v3, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mToken:Landroid/window/WindowContainerToken;
-
-    invoke-virtual {v3}, Landroid/window/WindowContainerToken;->asBinder()Landroid/os/IBinder;
-
-    move-result-object v3
-
-    if-eq v2, v3, :cond_1
+    if-eq v1, v2, :cond_1
 
     sget-object p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->TAG:Ljava/lang/String;
 
@@ -3138,31 +3482,35 @@
     :cond_1
     invoke-direct {p0}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->clearWaitForFixedRotation()V
 
+    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/wm/shell/pip/PipTransitionState;->setInSwipePipToHomeTransition(Z)V
+
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mInSwipePipToHomeTransition:Z
+    iput-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPictureInPictureParams:Landroid/app/PictureInPictureParams;
 
-    const/4 v2, 0x0
+    iget-object v2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    iput-object v2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPictureInPictureParams:Landroid/app/PictureInPictureParams;
+    invoke-virtual {v2, v1}, Lcom/android/wm/shell/pip/PipTransitionState;->setTransitionState(I)V
 
-    iput-object v1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
-
-    iget-object v1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipBoundsState:Lcom/android/wm/shell/pip/PipBoundsState;
+    iget-object v2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipBoundsState:Lcom/android/wm/shell/pip/PipBoundsState;
 
     new-instance v3, Landroid/graphics/Rect;
 
     invoke-direct {v3}, Landroid/graphics/Rect;-><init>()V
 
-    invoke-virtual {v1, v3}, Lcom/android/wm/shell/pip/PipBoundsState;->setBounds(Landroid/graphics/Rect;)V
+    invoke-virtual {v2, v3}, Lcom/android/wm/shell/pip/PipBoundsState;->setBounds(Landroid/graphics/Rect;)V
 
-    iget-object v1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipUiEventLoggerLogger:Lcom/android/wm/shell/pip/PipUiEventLogger;
+    iget-object v2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipUiEventLoggerLogger:Lcom/android/wm/shell/pip/PipUiEventLogger;
 
-    invoke-virtual {v1, v2}, Lcom/android/wm/shell/pip/PipUiEventLogger;->setTaskInfo(Landroid/app/TaskInfo;)V
+    invoke-virtual {v2, v0}, Lcom/android/wm/shell/pip/PipUiEventLogger;->setTaskInfo(Landroid/app/TaskInfo;)V
 
-    iget-object v1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipMenuController:Lcom/android/wm/shell/pip/PipMenuController;
+    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipMenuController:Lcom/android/wm/shell/pip/PipMenuController;
 
-    invoke-interface {v1}, Lcom/android/wm/shell/pip/PipMenuController;->detach()V
+    invoke-interface {v0}, Lcom/android/wm/shell/pip/PipMenuController;->detach()V
 
     iget p1, p1, Landroid/app/ActivityManager$RunningTaskInfo;->displayId:I
 
@@ -3172,22 +3520,31 @@
 
     if-eqz p1, :cond_2
 
-    invoke-interface {p1, v0}, Ljava/util/function/IntConsumer;->accept(I)V
+    invoke-interface {p1, v1}, Ljava/util/function/IntConsumer;->accept(I)V
 
     :cond_2
+    sget-boolean p1, Lcom/android/wm/shell/transition/Transitions;->ENABLE_SHELL_TRANSITIONS:Z
+
+    if-eqz p1, :cond_3
+
+    iget-object p1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionController:Lcom/android/wm/shell/pip/PipTransitionController;
+
+    invoke-virtual {p1}, Lcom/android/wm/shell/pip/PipTransitionController;->forceFinishTransition()V
+
+    :cond_3
     iget-object p1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipAnimationController:Lcom/android/wm/shell/pip/PipAnimationController;
 
     invoke-virtual {p1}, Lcom/android/wm/shell/pip/PipAnimationController;->getCurrentAnimator()Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator;
 
     move-result-object p1
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_5
 
     invoke-virtual {p1}, Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator;->getContentOverlay()Landroid/view/SurfaceControl;
 
     move-result-object v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     invoke-virtual {p1}, Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator;->getContentOverlay()Landroid/view/SurfaceControl;
 
@@ -3199,14 +3556,14 @@
 
     invoke-direct {p0, v0, v1}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->removeContentOverlay(Landroid/view/SurfaceControl;Ljava/lang/Runnable;)V
 
-    :cond_3
+    :cond_4
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->removeAllUpdateListeners()V
 
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->removeAllListeners()V
 
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->cancel()V
 
-    :cond_4
+    :cond_5
     return-void
 .end method
 
@@ -3221,9 +3578,9 @@
 .method public removePip()V
     .locals 7
 
-    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    invoke-static {v0}, Lcom/android/wm/shell/pip/PipTaskOrganizer$State;->access$1100(Lcom/android/wm/shell/pip/PipTaskOrganizer$State;)Z
+    invoke-virtual {v0}, Lcom/android/wm/shell/pip/PipTransitionState;->isInPip()Z
 
     move-result v0
 
@@ -3262,33 +3619,33 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransactionHandler:Lcom/android/wm/shell/pip/PipAnimationController$PipTransactionHandler;
+    iget-object v2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransactionHandler:Lcom/android/wm/shell/pip/PipAnimationController$PipTransactionHandler;
 
-    invoke-virtual {v0, v1}, Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator;->setPipTransactionHandler(Lcom/android/wm/shell/pip/PipAnimationController$PipTransactionHandler;)Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipAnimationCallback:Lcom/android/wm/shell/pip/PipAnimationController$PipAnimationCallback;
-
-    invoke-virtual {v0, v1}, Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator;->setPipAnimationCallback(Lcom/android/wm/shell/pip/PipAnimationController$PipAnimationCallback;)Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator;
+    invoke-virtual {v0, v2}, Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator;->setPipTransactionHandler(Lcom/android/wm/shell/pip/PipAnimationController$PipTransactionHandler;)Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator;
 
     move-result-object v0
 
-    iget v1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mExitAnimationDuration:I
+    iget-object v2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipAnimationCallback:Lcom/android/wm/shell/pip/PipAnimationController$PipAnimationCallback;
 
-    int-to-long v1, v1
+    invoke-virtual {v0, v2}, Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator;->setPipAnimationCallback(Lcom/android/wm/shell/pip/PipAnimationController$PipAnimationCallback;)Lcom/android/wm/shell/pip/PipAnimationController$PipTransitionAnimator;
 
-    invoke-virtual {v0, v1, v2}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+    move-result-object v0
 
-    sget-object v1, Lcom/android/wm/shell/animation/Interpolators;->ALPHA_OUT:Landroid/view/animation/Interpolator;
+    iget v2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mExitAnimationDuration:I
 
-    invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+    int-to-long v2, v2
+
+    invoke-virtual {v0, v2, v3}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+
+    sget-object v2, Lcom/android/wm/shell/animation/Interpolators;->ALPHA_OUT:Landroid/view/animation/Interpolator;
+
+    invoke-virtual {v0, v2}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
 
-    sget-object v0, Lcom/android/wm/shell/pip/PipTaskOrganizer$State;->EXITING_PIP:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object p0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    iput-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    invoke-virtual {p0, v1}, Lcom/android/wm/shell/pip/PipTransitionState;->setTransitionState(I)V
 
     return-void
 
@@ -3304,9 +3661,13 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object v2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2}, Lcom/android/wm/shell/pip/PipTransitionState;->getTransitionState()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     const-string v2, " mToken="
 
@@ -3467,9 +3828,9 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    invoke-static {v0}, Lcom/android/wm/shell/pip/PipTaskOrganizer$State;->access$1200(Lcom/android/wm/shell/pip/PipTaskOrganizer$State;)Z
+    invoke-virtual {v0}, Lcom/android/wm/shell/pip/PipTransitionState;->shouldBlockResizeRequest()Z
 
     move-result v0
 
@@ -3526,9 +3887,9 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    invoke-static {v0}, Lcom/android/wm/shell/pip/PipTaskOrganizer$State;->access$1200(Lcom/android/wm/shell/pip/PipTaskOrganizer$State;)Z
+    invoke-virtual {v0}, Lcom/android/wm/shell/pip/PipTransitionState;->shouldBlockResizeRequest()Z
 
     move-result v0
 
@@ -3611,9 +3972,9 @@
 
     iget-object v2, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mLeash:Landroid/view/SurfaceControl;
 
-    iget-object v3, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object v3, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    invoke-static {v3}, Lcom/android/wm/shell/pip/PipTaskOrganizer$State;->access$1100(Lcom/android/wm/shell/pip/PipTaskOrganizer$State;)Z
+    invoke-virtual {v3}, Lcom/android/wm/shell/pip/PipTransitionState;->isInPip()Z
 
     move-result v3
 
@@ -3792,7 +4153,7 @@
 .end method
 
 .method sendOnPipTransitionFinished(I)V
-    .locals 2
+    .locals 3
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
@@ -3800,9 +4161,11 @@
 
     if-ne p1, v0, :cond_0
 
-    sget-object v1, Lcom/android/wm/shell/pip/PipTaskOrganizer$State;->ENTERED_PIP:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    iget-object v1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    iput-object v1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mState:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    const/4 v2, 0x4
+
+    invoke-virtual {v1, v2}, Lcom/android/wm/shell/pip/PipTransitionState;->setTransitionState(I)V
 
     :cond_0
     iget-object v1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionController:Lcom/android/wm/shell/pip/PipTransitionController;
@@ -3845,11 +4208,13 @@
 .end method
 
 .method public startSwipePipToHome(Landroid/content/ComponentName;Landroid/content/pm/ActivityInfo;Landroid/app/PictureInPictureParams;)Landroid/graphics/Rect;
-    .locals 1
+    .locals 2
 
-    const/4 v0, 0x1
+    iget-object v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
 
-    iput-boolean v0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mInSwipePipToHomeTransition:Z
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/android/wm/shell/pip/PipTransitionState;->setInSwipePipToHomeTransition(Z)V
 
     const/4 v0, 0x2
 
@@ -3869,7 +4234,11 @@
 .method public stopSwipePipToHome(Landroid/content/ComponentName;Landroid/graphics/Rect;Landroid/view/SurfaceControl;)V
     .locals 0
 
-    iget-boolean p1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mInSwipePipToHomeTransition:Z
+    iget-object p1, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer;->mPipTransitionState:Lcom/android/wm/shell/pip/PipTransitionState;
+
+    invoke-virtual {p1}, Lcom/android/wm/shell/pip/PipTransitionState;->getInSwipePipToHomeTransition()Z
+
+    move-result p1
 
     if-eqz p1, :cond_0
 
@@ -3883,7 +4252,7 @@
     return-void
 .end method
 
-.method public supportSizeCompatUI()Z
+.method public supportCompatUI()Z
     .locals 0
 
     const/4 p0, 0x0

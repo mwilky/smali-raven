@@ -3,7 +3,7 @@
 .source "WMShell.java"
 
 # interfaces
-.implements Lcom/android/systemui/keyguard/WakefulnessLifecycle$Observer;
+.implements Lcom/android/wm/shell/onehanded/OneHandedEventCallback;
 
 
 # annotations
@@ -20,50 +20,58 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/wmshell/WMShell;
 
-.field final synthetic val$oneHanded:Lcom/android/wm/shell/onehanded/OneHanded;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/wmshell/WMShell;Lcom/android/wm/shell/onehanded/OneHanded;)V
+.method public static synthetic $r8$lambda$L61q3JQeKkrZPlaTh1qA61srf4Y(Lcom/android/systemui/wmshell/WMShell$8;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/wmshell/WMShell$8;->lambda$notifyExpandNotification$0()V
+
+    return-void
+.end method
+
+.method constructor <init>(Lcom/android/systemui/wmshell/WMShell;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/wmshell/WMShell$8;->this$0:Lcom/android/systemui/wmshell/WMShell;
-
-    iput-object p2, p0, Lcom/android/systemui/wmshell/WMShell$8;->val$oneHanded:Lcom/android/wm/shell/onehanded/OneHanded;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
-
-# virtual methods
-.method public onFinishedWakingUp()V
+.method private synthetic lambda$notifyExpandNotification$0()V
     .locals 1
 
-    iget-object p0, p0, Lcom/android/systemui/wmshell/WMShell$8;->val$oneHanded:Lcom/android/wm/shell/onehanded/OneHanded;
+    iget-object p0, p0, Lcom/android/systemui/wmshell/WMShell$8;->this$0:Lcom/android/systemui/wmshell/WMShell;
 
-    const/4 v0, 0x0
+    invoke-static {p0}, Lcom/android/systemui/wmshell/WMShell;->access$200(Lcom/android/systemui/wmshell/WMShell;)Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-interface {p0, v0, v0}, Lcom/android/wm/shell/onehanded/OneHanded;->setLockedDisabled(ZZ)V
+    move-result-object p0
+
+    const/16 v0, 0x119
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/CommandQueue;->handleSystemKey(I)V
 
     return-void
 .end method
 
-.method public onStartedGoingToSleep()V
+
+# virtual methods
+.method public notifyExpandNotification()V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/systemui/wmshell/WMShell$8;->val$oneHanded:Lcom/android/wm/shell/onehanded/OneHanded;
+    iget-object v0, p0, Lcom/android/systemui/wmshell/WMShell$8;->this$0:Lcom/android/systemui/wmshell/WMShell;
 
-    invoke-interface {v0}, Lcom/android/wm/shell/onehanded/OneHanded;->stopOneHanded()V
+    invoke-static {v0}, Lcom/android/systemui/wmshell/WMShell;->access$000(Lcom/android/systemui/wmshell/WMShell;)Ljava/util/concurrent/Executor;
 
-    iget-object p0, p0, Lcom/android/systemui/wmshell/WMShell$8;->val$oneHanded:Lcom/android/wm/shell/onehanded/OneHanded;
+    move-result-object v0
 
-    const/4 v0, 0x1
+    new-instance v1, Lcom/android/systemui/wmshell/WMShell$8$$ExternalSyntheticLambda0;
 
-    const/4 v1, 0x0
+    invoke-direct {v1, p0}, Lcom/android/systemui/wmshell/WMShell$8$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/wmshell/WMShell$8;)V
 
-    invoke-interface {p0, v0, v1}, Lcom/android/wm/shell/onehanded/OneHanded;->setLockedDisabled(ZZ)V
+    invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
     return-void
 .end method

@@ -816,7 +816,7 @@
 .end method
 
 .method public movePipToFullscreen()V
-    .locals 2
+    .locals 3
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -846,7 +846,9 @@
 
     iget v1, p0, Lcom/android/wm/shell/pip/tv/TvPipController;->mResizeAnimationDuration:I
 
-    invoke-virtual {v0, v1}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->exitPip(I)V
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->exitPip(IZ)V
 
     invoke-direct {p0}, Lcom/android/wm/shell/pip/tv/TvPipController;->onPipDisappeared()V
 

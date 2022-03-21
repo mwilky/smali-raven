@@ -3,12 +3,13 @@
 .source "ShellTaskOrganizer.java"
 
 # interfaces
-.implements Lcom/android/wm/shell/sizecompatui/SizeCompatUIController$SizeCompatUICallback;
+.implements Lcom/android/wm/shell/compatui/CompatUIController$CompatUICallback;
 
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/wm/shell/ShellTaskOrganizer$FocusListener;,
         Lcom/android/wm/shell/ShellTaskOrganizer$LocusIdListener;,
         Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;,
         Lcom/android/wm/shell/ShellTaskOrganizer$TaskListenerType;
@@ -17,6 +18,20 @@
 
 
 # instance fields
+.field private final mCompatUI:Lcom/android/wm/shell/compatui/CompatUIController;
+
+.field private final mFocusListeners:Landroid/util/ArraySet;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/ArraySet<",
+            "Lcom/android/wm/shell/ShellTaskOrganizer$FocusListener;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private mLastFocusedTaskInfo:Landroid/app/ActivityManager$RunningTaskInfo;
+
 .field private final mLaunchCookieToListener:Landroid/util/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -40,7 +55,15 @@
     .end annotation
 .end field
 
-.field private final mSizeCompatUI:Lcom/android/wm/shell/sizecompatui/SizeCompatUIController;
+.field private final mRecentTasks:Ljava/util/Optional;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/recents/RecentTasksController;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field private mStartingWindow:Lcom/android/wm/shell/startingsurface/StartingWindowController;
 
@@ -76,9 +99,38 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/window/ITaskOrganizerController;Lcom/android/wm/shell/common/ShellExecutor;Landroid/content/Context;Lcom/android/wm/shell/sizecompatui/SizeCompatUIController;)V
+.method public static synthetic $r8$lambda$7OeAk05uJ7U9_ZEsyblT18Gaq5A(Landroid/app/ActivityManager$RunningTaskInfo;Lcom/android/wm/shell/recents/RecentTasksController;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/wm/shell/ShellTaskOrganizer;->lambda$onTaskVanished$1(Landroid/app/ActivityManager$RunningTaskInfo;Lcom/android/wm/shell/recents/RecentTasksController;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$CDAwe6Nor3DlO2XKojTJD_bHmag(Landroid/app/ActivityManager$RunningTaskInfo;Lcom/android/wm/shell/recents/RecentTasksController;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/wm/shell/ShellTaskOrganizer;->lambda$onTaskInfoChanged$0(Landroid/app/ActivityManager$RunningTaskInfo;Lcom/android/wm/shell/recents/RecentTasksController;)V
+
+    return-void
+.end method
+
+.method constructor <init>(Landroid/window/ITaskOrganizerController;Lcom/android/wm/shell/common/ShellExecutor;Landroid/content/Context;Lcom/android/wm/shell/compatui/CompatUIController;Ljava/util/Optional;)V
     .locals 0
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/window/ITaskOrganizerController;",
+            "Lcom/android/wm/shell/common/ShellExecutor;",
+            "Landroid/content/Context;",
+            "Lcom/android/wm/shell/compatui/CompatUIController;",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/recents/RecentTasksController;",
+            ">;)V"
+        }
     .end annotation
 
     invoke-direct {p0, p1, p2}, Landroid/window/TaskOrganizer;-><init>(Landroid/window/ITaskOrganizerController;Ljava/util/concurrent/Executor;)V
@@ -113,28 +165,57 @@
 
     iput-object p1, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mLocusIdListeners:Landroid/util/ArraySet;
 
+    new-instance p1, Landroid/util/ArraySet;
+
+    invoke-direct {p1}, Landroid/util/ArraySet;-><init>()V
+
+    iput-object p1, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mFocusListeners:Landroid/util/ArraySet;
+
     new-instance p1, Ljava/lang/Object;
 
     invoke-direct {p1}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mLock:Ljava/lang/Object;
 
-    iput-object p4, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mSizeCompatUI:Lcom/android/wm/shell/sizecompatui/SizeCompatUIController;
+    iput-object p4, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mCompatUI:Lcom/android/wm/shell/compatui/CompatUIController;
+
+    iput-object p5, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mRecentTasks:Ljava/util/Optional;
 
     if-eqz p4, :cond_0
 
-    invoke-virtual {p4, p0}, Lcom/android/wm/shell/sizecompatui/SizeCompatUIController;->setSizeCompatUICallback(Lcom/android/wm/shell/sizecompatui/SizeCompatUIController$SizeCompatUICallback;)V
+    invoke-virtual {p4, p0}, Lcom/android/wm/shell/compatui/CompatUIController;->setCompatUICallback(Lcom/android/wm/shell/compatui/CompatUIController$CompatUICallback;)V
 
     :cond_0
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/wm/shell/common/ShellExecutor;Landroid/content/Context;Lcom/android/wm/shell/sizecompatui/SizeCompatUIController;)V
-    .locals 1
+.method public constructor <init>(Lcom/android/wm/shell/common/ShellExecutor;Landroid/content/Context;Lcom/android/wm/shell/compatui/CompatUIController;Ljava/util/Optional;)V
+    .locals 6
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/android/wm/shell/common/ShellExecutor;",
+            "Landroid/content/Context;",
+            "Lcom/android/wm/shell/compatui/CompatUIController;",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/recents/RecentTasksController;",
+            ">;)V"
+        }
+    .end annotation
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    invoke-direct {p0, v0, p1, p2, p3}, Lcom/android/wm/shell/ShellTaskOrganizer;-><init>(Landroid/window/ITaskOrganizerController;Lcom/android/wm/shell/common/ShellExecutor;Landroid/content/Context;Lcom/android/wm/shell/sizecompatui/SizeCompatUIController;)V
+    move-object v0, p0
+
+    move-object v2, p1
+
+    move-object v3, p2
+
+    move-object v4, p3
+
+    move-object v5, p4
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/wm/shell/ShellTaskOrganizer;-><init>(Landroid/window/ITaskOrganizerController;Lcom/android/wm/shell/common/ShellExecutor;Landroid/content/Context;Lcom/android/wm/shell/compatui/CompatUIController;Ljava/util/Optional;)V
 
     return-void
 .end method
@@ -249,6 +330,103 @@
     check-cast p0, Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;
 
     return-object p0
+.end method
+
+.method private static synthetic lambda$onTaskInfoChanged$0(Landroid/app/ActivityManager$RunningTaskInfo;Lcom/android/wm/shell/recents/RecentTasksController;)V
+    .locals 0
+
+    invoke-virtual {p1, p0}, Lcom/android/wm/shell/recents/RecentTasksController;->onTaskWindowingModeChanged(Landroid/app/TaskInfo;)V
+
+    return-void
+.end method
+
+.method private static synthetic lambda$onTaskVanished$1(Landroid/app/ActivityManager$RunningTaskInfo;Lcom/android/wm/shell/recents/RecentTasksController;)V
+    .locals 0
+
+    invoke-virtual {p1, p0}, Lcom/android/wm/shell/recents/RecentTasksController;->onTaskRemoved(Landroid/app/TaskInfo;)V
+
+    return-void
+.end method
+
+.method private logSizeCompatRestartButtonEventReported(Landroid/window/TaskAppearedInfo;I)V
+    .locals 0
+
+    invoke-virtual {p1}, Landroid/window/TaskAppearedInfo;->getTaskInfo()Landroid/app/ActivityManager$RunningTaskInfo;
+
+    move-result-object p0
+
+    iget-object p0, p0, Landroid/app/ActivityManager$RunningTaskInfo;->topActivityInfo:Landroid/content/pm/ActivityInfo;
+
+    if-nez p0, :cond_0
+
+    return-void
+
+    :cond_0
+    const/16 p1, 0x183
+
+    iget-object p0, p0, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+
+    iget p0, p0, Landroid/content/pm/ApplicationInfo;->uid:I
+
+    invoke-static {p1, p0, p2}, Lcom/android/internal/util/FrameworkStatsLog;->write(III)V
+
+    return-void
+.end method
+
+.method private notifyCompatUI(Landroid/app/ActivityManager$RunningTaskInfo;Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mCompatUI:Lcom/android/wm/shell/compatui/CompatUIController;
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    if-eqz p2, :cond_2
+
+    invoke-interface {p2}, Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;->supportCompatUI()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    iget-boolean v0, p1, Landroid/app/ActivityManager$RunningTaskInfo;->topActivityInSizeCompat:Z
+
+    if-eqz v0, :cond_2
+
+    iget-boolean v0, p1, Landroid/app/ActivityManager$RunningTaskInfo;->isVisible:Z
+
+    if-nez v0, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    iget-object p0, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mCompatUI:Lcom/android/wm/shell/compatui/CompatUIController;
+
+    iget v0, p1, Landroid/app/ActivityManager$RunningTaskInfo;->displayId:I
+
+    iget v1, p1, Landroid/app/ActivityManager$RunningTaskInfo;->taskId:I
+
+    iget-object p1, p1, Landroid/app/ActivityManager$RunningTaskInfo;->configuration:Landroid/content/res/Configuration;
+
+    invoke-virtual {p0, v0, v1, p1, p2}, Lcom/android/wm/shell/compatui/CompatUIController;->onCompatInfoChanged(IILandroid/content/res/Configuration;Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;)V
+
+    return-void
+
+    :cond_2
+    :goto_0
+    iget-object p0, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mCompatUI:Lcom/android/wm/shell/compatui/CompatUIController;
+
+    iget p2, p1, Landroid/app/ActivityManager$RunningTaskInfo;->displayId:I
+
+    iget p1, p1, Landroid/app/ActivityManager$RunningTaskInfo;->taskId:I
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, p2, p1, v0, v0}, Lcom/android/wm/shell/compatui/CompatUIController;->onCompatInfoChanged(IILandroid/content/res/Configuration;Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;)V
+
+    return-void
 .end method
 
 .method private notifyLocusIdChange(ILandroid/content/LocusId;Z)V
@@ -378,62 +556,6 @@
     return-void
 .end method
 
-.method private notifySizeCompatUI(Landroid/app/ActivityManager$RunningTaskInfo;Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mSizeCompatUI:Lcom/android/wm/shell/sizecompatui/SizeCompatUIController;
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    if-eqz p2, :cond_2
-
-    invoke-interface {p2}, Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;->supportSizeCompatUI()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    iget-boolean v0, p1, Landroid/app/ActivityManager$RunningTaskInfo;->topActivityInSizeCompat:Z
-
-    if-eqz v0, :cond_2
-
-    iget-boolean v0, p1, Landroid/app/ActivityManager$RunningTaskInfo;->isVisible:Z
-
-    if-nez v0, :cond_1
-
-    goto :goto_0
-
-    :cond_1
-    iget-object p0, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mSizeCompatUI:Lcom/android/wm/shell/sizecompatui/SizeCompatUIController;
-
-    iget v0, p1, Landroid/app/ActivityManager$RunningTaskInfo;->displayId:I
-
-    iget v1, p1, Landroid/app/ActivityManager$RunningTaskInfo;->taskId:I
-
-    iget-object p1, p1, Landroid/app/ActivityManager$RunningTaskInfo;->configuration:Landroid/content/res/Configuration;
-
-    invoke-virtual {p0, v0, v1, p1, p2}, Lcom/android/wm/shell/sizecompatui/SizeCompatUIController;->onSizeCompatInfoChanged(IILandroid/content/res/Configuration;Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;)V
-
-    return-void
-
-    :cond_2
-    :goto_0
-    iget-object p0, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mSizeCompatUI:Lcom/android/wm/shell/sizecompatui/SizeCompatUIController;
-
-    iget p2, p1, Landroid/app/ActivityManager$RunningTaskInfo;->displayId:I
-
-    iget p1, p1, Landroid/app/ActivityManager$RunningTaskInfo;->taskId:I
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, p2, p1, v0, v0}, Lcom/android/wm/shell/sizecompatui/SizeCompatUIController;->onSizeCompatInfoChanged(IILandroid/content/res/Configuration;Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;)V
-
-    return-void
-.end method
-
 .method private onTaskAppeared(Landroid/window/TaskAppearedInfo;)V
     .locals 10
 
@@ -513,7 +635,7 @@
 
     move-result-object p1
 
-    invoke-direct {p0, p1, v1}, Lcom/android/wm/shell/ShellTaskOrganizer;->notifySizeCompatUI(Landroid/app/ActivityManager$RunningTaskInfo;Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;)V
+    invoke-direct {p0, p1, v1}, Lcom/android/wm/shell/ShellTaskOrganizer;->notifyCompatUI(Landroid/app/ActivityManager$RunningTaskInfo;Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;)V
 
     return-void
 .end method
@@ -532,9 +654,13 @@
 
     const/4 v0, 0x1
 
-    if-eq p0, v0, :cond_2
+    if-eq p0, v0, :cond_3
 
     const/4 v0, 0x2
+
+    if-eq p0, v0, :cond_2
+
+    const/4 v0, 0x5
 
     if-eq p0, v0, :cond_1
 
@@ -552,11 +678,16 @@
     return p0
 
     :cond_1
-    const/4 p0, -0x4
+    const/4 p0, -0x5
 
     return p0
 
     :cond_2
+    const/4 p0, -0x4
+
+    return p0
+
+    :cond_3
     const/4 p0, -0x2
 
     return p0
@@ -568,6 +699,10 @@
         .annotation build Lcom/android/wm/shell/ShellTaskOrganizer$TaskListenerType;
         .end annotation
     .end param
+
+    const/4 v0, -0x5
+
+    if-eq p0, v0, :cond_4
 
     const/4 v0, -0x4
 
@@ -620,6 +755,11 @@
     const-string p0, "TASK_LISTENER_TYPE_PIP"
 
     return-object p0
+
+    :cond_4
+    const-string p0, "TASK_LISTENER_TYPE_FREEFORM"
+
+    return-object p0
 .end method
 
 .method private updateTaskListenerIfNeeded(Landroid/app/ActivityManager$RunningTaskInfo;Landroid/view/SurfaceControl;Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;)Z
@@ -649,6 +789,39 @@
 
 
 # virtual methods
+.method public addFocusListener(Lcom/android/wm/shell/ShellTaskOrganizer$FocusListener;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mFocusListeners:Landroid/util/ArraySet;
+
+    invoke-virtual {v1, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
+
+    iget-object p0, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mLastFocusedTaskInfo:Landroid/app/ActivityManager$RunningTaskInfo;
+
+    if-eqz p0, :cond_0
+
+    invoke-interface {p1, p0}, Lcom/android/wm/shell/ShellTaskOrganizer$FocusListener;->onFocusTaskChanged(Landroid/app/ActivityManager$RunningTaskInfo;)V
+
+    :cond_0
+    monitor-exit v0
+
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method
+
 .method public varargs addListenerForType(Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;[I)V
     .locals 9
     .param p2    # [I
@@ -701,7 +874,7 @@
     array-length v1, p2
 
     :goto_0
-    if-ge v3, v1, :cond_4
+    if-ge v3, v1, :cond_2
 
     aget v4, p2, v3
 
@@ -711,65 +884,17 @@
 
     move-result-object v5
 
-    if-nez v5, :cond_3
+    if-nez v5, :cond_1
 
     iget-object v5, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mTaskListeners:Landroid/util/SparseArray;
 
     invoke-virtual {v5, v4, p1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    iget-object v4, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mTasks:Landroid/util/SparseArray;
-
-    invoke-virtual {v4}, Landroid/util/SparseArray;->size()I
-
-    move-result v4
-
-    sub-int/2addr v4, v2
-
-    :goto_1
-    if-ltz v4, :cond_2
-
-    iget-object v5, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mTasks:Landroid/util/SparseArray;
-
-    invoke-virtual {v5, v4}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/window/TaskAppearedInfo;
-
-    invoke-virtual {v5}, Landroid/window/TaskAppearedInfo;->getTaskInfo()Landroid/app/ActivityManager$RunningTaskInfo;
-
-    move-result-object v6
-
-    invoke-direct {p0, v6}, Lcom/android/wm/shell/ShellTaskOrganizer;->getTaskListener(Landroid/app/ActivityManager$RunningTaskInfo;)Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;
-
-    move-result-object v6
-
-    if-eq v6, p1, :cond_1
-
-    goto :goto_2
-
-    :cond_1
-    invoke-virtual {v5}, Landroid/window/TaskAppearedInfo;->getTaskInfo()Landroid/app/ActivityManager$RunningTaskInfo;
-
-    move-result-object v6
-
-    invoke-virtual {v5}, Landroid/window/TaskAppearedInfo;->getLeash()Landroid/view/SurfaceControl;
-
-    move-result-object v5
-
-    invoke-interface {p1, v6, v5}, Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;->onTaskAppeared(Landroid/app/ActivityManager$RunningTaskInfo;Landroid/view/SurfaceControl;)V
-
-    :goto_2
-    add-int/lit8 v4, v4, -0x1
-
-    goto :goto_1
-
-    :cond_2
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    :cond_3
+    :cond_1
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance p1, Ljava/lang/StringBuilder;
@@ -793,6 +918,54 @@
     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw p0
+
+    :cond_2
+    iget-object p2, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mTasks:Landroid/util/SparseArray;
+
+    invoke-virtual {p2}, Landroid/util/SparseArray;->size()I
+
+    move-result p2
+
+    sub-int/2addr p2, v2
+
+    :goto_1
+    if-ltz p2, :cond_4
+
+    iget-object v1, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mTasks:Landroid/util/SparseArray;
+
+    invoke-virtual {v1, p2}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/window/TaskAppearedInfo;
+
+    invoke-virtual {v1}, Landroid/window/TaskAppearedInfo;->getTaskInfo()Landroid/app/ActivityManager$RunningTaskInfo;
+
+    move-result-object v2
+
+    invoke-direct {p0, v2}, Lcom/android/wm/shell/ShellTaskOrganizer;->getTaskListener(Landroid/app/ActivityManager$RunningTaskInfo;)Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;
+
+    move-result-object v2
+
+    if-eq v2, p1, :cond_3
+
+    goto :goto_2
+
+    :cond_3
+    invoke-virtual {v1}, Landroid/window/TaskAppearedInfo;->getTaskInfo()Landroid/app/ActivityManager$RunningTaskInfo;
+
+    move-result-object v2
+
+    invoke-virtual {v1}, Landroid/window/TaskAppearedInfo;->getLeash()Landroid/view/SurfaceControl;
+
+    move-result-object v1
+
+    invoke-interface {p1, v2, v1}, Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;->onTaskAppeared(Landroid/app/ActivityManager$RunningTaskInfo;Landroid/view/SurfaceControl;)V
+
+    :goto_2
+    add-int/lit8 p2, p2, -0x1
+
+    goto :goto_1
 
     :cond_4
     monitor-exit v0
@@ -1428,6 +1601,48 @@
     return-void
 .end method
 
+.method public onSizeCompatRestartButtonAppeared(I)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mTasks:Landroid/util/SparseArray;
+
+    invoke-virtual {v1, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/window/TaskAppearedInfo;
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-nez p1, :cond_0
+
+    return-void
+
+    :cond_0
+    const/4 v0, 0x1
+
+    invoke-direct {p0, p1, v0}, Lcom/android/wm/shell/ShellTaskOrganizer;->logSizeCompatRestartButtonEventReported(Landroid/window/TaskAppearedInfo;I)V
+
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    :try_start_1
+    monitor-exit v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw p0
+.end method
+
 .method public onSizeCompatRestartButtonClicked(I)V
     .locals 2
 
@@ -1448,7 +1663,14 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eqz p1, :cond_0
+    if-nez p1, :cond_0
+
+    return-void
+
+    :cond_0
+    const/4 v0, 0x2
+
+    invoke-direct {p0, p1, v0}, Lcom/android/wm/shell/ShellTaskOrganizer;->logSizeCompatRestartButtonEventReported(Landroid/window/TaskAppearedInfo;I)V
 
     invoke-virtual {p1}, Landroid/window/TaskAppearedInfo;->getTaskInfo()Landroid/app/ActivityManager$RunningTaskInfo;
 
@@ -1458,7 +1680,6 @@
 
     invoke-virtual {p0, p1}, Landroid/window/TaskOrganizer;->restartTaskTopActivityProcessIfVisible(Landroid/window/WindowContainerToken;)V
 
-    :cond_0
     return-void
 
     :catchall_0
@@ -1501,7 +1722,7 @@
 .end method
 
 .method public onTaskInfoChanged(Landroid/app/ActivityManager$RunningTaskInfo;)V
-    .locals 9
+    .locals 10
 
     iget-object v0, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mLock:Ljava/lang/Object;
 
@@ -1510,38 +1731,38 @@
     :try_start_0
     sget-boolean v1, Lcom/android/wm/shell/protolog/ShellProtoLogCache;->WM_SHELL_TASK_ORG_enabled:Z
 
+    const/4 v2, 0x0
+
+    const/4 v3, 0x1
+
     if-eqz v1, :cond_0
 
     iget v1, p1, Landroid/app/ActivityManager$RunningTaskInfo;->taskId:I
 
-    int-to-long v1, v1
+    int-to-long v4, v1
 
-    sget-object v3, Lcom/android/wm/shell/protolog/ShellProtoLogGroup;->WM_SHELL_TASK_ORG:Lcom/android/wm/shell/protolog/ShellProtoLogGroup;
+    sget-object v1, Lcom/android/wm/shell/protolog/ShellProtoLogGroup;->WM_SHELL_TASK_ORG:Lcom/android/wm/shell/protolog/ShellProtoLogGroup;
 
-    const v4, 0x966826d
+    const v6, 0x966826d
 
-    const/4 v5, 0x0
+    const/4 v7, 0x0
 
-    const/4 v6, 0x1
+    new-array v8, v3, [Ljava/lang/Object;
 
-    new-array v7, v6, [Ljava/lang/Object;
+    invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    const/4 v8, 0x0
+    move-result-object v4
 
-    invoke-static {v1, v2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    aput-object v4, v8, v2
 
-    move-result-object v1
-
-    aput-object v1, v7, v8
-
-    invoke-static {v3, v4, v6, v5, v7}, Lcom/android/wm/shell/protolog/ShellProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
+    invoke-static {v1, v6, v3, v7, v8}, Lcom/android/wm/shell/protolog/ShellProtoLogImpl;->v(Lcom/android/internal/protolog/common/IProtoLogGroup;IILjava/lang/String;[Ljava/lang/Object;)V
 
     :cond_0
     iget-object v1, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mTasks:Landroid/util/SparseArray;
 
-    iget v2, p1, Landroid/app/ActivityManager$RunningTaskInfo;->taskId:I
+    iget v4, p1, Landroid/app/ActivityManager$RunningTaskInfo;->taskId:I
 
-    invoke-virtual {v1, v2}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {v1, v4}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -1549,63 +1770,160 @@
 
     invoke-virtual {v1}, Landroid/window/TaskAppearedInfo;->getTaskInfo()Landroid/app/ActivityManager$RunningTaskInfo;
 
-    move-result-object v2
+    move-result-object v4
 
-    invoke-direct {p0, v2}, Lcom/android/wm/shell/ShellTaskOrganizer;->getTaskListener(Landroid/app/ActivityManager$RunningTaskInfo;)Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;
-
-    move-result-object v2
-
-    invoke-direct {p0, p1}, Lcom/android/wm/shell/ShellTaskOrganizer;->getTaskListener(Landroid/app/ActivityManager$RunningTaskInfo;)Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mTasks:Landroid/util/SparseArray;
-
-    iget v5, p1, Landroid/app/ActivityManager$RunningTaskInfo;->taskId:I
-
-    new-instance v6, Landroid/window/TaskAppearedInfo;
-
-    invoke-virtual {v1}, Landroid/window/TaskAppearedInfo;->getLeash()Landroid/view/SurfaceControl;
-
-    move-result-object v7
-
-    invoke-direct {v6, p1, v7}, Landroid/window/TaskAppearedInfo;-><init>(Landroid/app/ActivityManager$RunningTaskInfo;Landroid/view/SurfaceControl;)V
-
-    invoke-virtual {v4, v5, v6}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
-
-    invoke-virtual {v1}, Landroid/window/TaskAppearedInfo;->getLeash()Landroid/view/SurfaceControl;
+    invoke-direct {p0, v4}, Lcom/android/wm/shell/ShellTaskOrganizer;->getTaskListener(Landroid/app/ActivityManager$RunningTaskInfo;)Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;
 
     move-result-object v4
 
-    invoke-direct {p0, p1, v4, v2, v3}, Lcom/android/wm/shell/ShellTaskOrganizer;->updateTaskListenerIfNeeded(Landroid/app/ActivityManager$RunningTaskInfo;Landroid/view/SurfaceControl;Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;)Z
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/ShellTaskOrganizer;->getTaskListener(Landroid/app/ActivityManager$RunningTaskInfo;)Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;
 
-    move-result v2
+    move-result-object v5
 
-    if-nez v2, :cond_1
+    iget-object v6, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mTasks:Landroid/util/SparseArray;
 
-    if-eqz v3, :cond_1
+    iget v7, p1, Landroid/app/ActivityManager$RunningTaskInfo;->taskId:I
 
-    invoke-interface {v3, p1}, Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;->onTaskInfoChanged(Landroid/app/ActivityManager$RunningTaskInfo;)V
+    new-instance v8, Landroid/window/TaskAppearedInfo;
+
+    invoke-virtual {v1}, Landroid/window/TaskAppearedInfo;->getLeash()Landroid/view/SurfaceControl;
+
+    move-result-object v9
+
+    invoke-direct {v8, p1, v9}, Landroid/window/TaskAppearedInfo;-><init>(Landroid/app/ActivityManager$RunningTaskInfo;Landroid/view/SurfaceControl;)V
+
+    invoke-virtual {v6, v7, v8}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    invoke-virtual {v1}, Landroid/window/TaskAppearedInfo;->getLeash()Landroid/view/SurfaceControl;
+
+    move-result-object v6
+
+    invoke-direct {p0, p1, v6, v4, v5}, Lcom/android/wm/shell/ShellTaskOrganizer;->updateTaskListenerIfNeeded(Landroid/app/ActivityManager$RunningTaskInfo;Landroid/view/SurfaceControl;Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
+    if-eqz v5, :cond_1
+
+    invoke-interface {v5, p1}, Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;->onTaskInfoChanged(Landroid/app/ActivityManager$RunningTaskInfo;)V
 
     :cond_1
     invoke-direct {p0, p1}, Lcom/android/wm/shell/ShellTaskOrganizer;->notifyLocusVisibilityIfNeeded(Landroid/app/TaskInfo;)V
 
-    if-nez v2, :cond_2
+    if-nez v4, :cond_2
 
+    invoke-virtual {v1}, Landroid/window/TaskAppearedInfo;->getTaskInfo()Landroid/app/ActivityManager$RunningTaskInfo;
+
+    move-result-object v4
+
+    invoke-virtual {p1, v4}, Landroid/app/ActivityManager$RunningTaskInfo;->equalsForSizeCompat(Landroid/app/TaskInfo;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_3
+
+    :cond_2
+    invoke-direct {p0, p1, v5}, Lcom/android/wm/shell/ShellTaskOrganizer;->notifyCompatUI(Landroid/app/ActivityManager$RunningTaskInfo;Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;)V
+
+    :cond_3
     invoke-virtual {v1}, Landroid/window/TaskAppearedInfo;->getTaskInfo()Landroid/app/ActivityManager$RunningTaskInfo;
 
     move-result-object v1
 
-    invoke-virtual {p1, v1}, Landroid/app/ActivityManager$RunningTaskInfo;->equalsForSizeCompat(Landroid/app/TaskInfo;)Z
+    invoke-virtual {v1}, Landroid/app/ActivityManager$RunningTaskInfo;->getWindowingMode()I
 
     move-result v1
 
-    if-nez v1, :cond_3
+    invoke-virtual {p1}, Landroid/app/ActivityManager$RunningTaskInfo;->getWindowingMode()I
 
-    :cond_2
-    invoke-direct {p0, p1, v3}, Lcom/android/wm/shell/ShellTaskOrganizer;->notifySizeCompatUI(Landroid/app/ActivityManager$RunningTaskInfo;Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;)V
+    move-result v4
 
-    :cond_3
+    if-eq v1, v4, :cond_4
+
+    iget-object v1, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mRecentTasks:Ljava/util/Optional;
+
+    new-instance v4, Lcom/android/wm/shell/ShellTaskOrganizer$$ExternalSyntheticLambda1;
+
+    invoke-direct {v4, p1}, Lcom/android/wm/shell/ShellTaskOrganizer$$ExternalSyntheticLambda1;-><init>(Landroid/app/ActivityManager$RunningTaskInfo;)V
+
+    invoke-virtual {v1, v4}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
+
+    :cond_4
+    iget-boolean v1, p1, Landroid/app/ActivityManager$RunningTaskInfo;->isFocused:Z
+
+    if-nez v1, :cond_6
+
+    iget v1, p1, Landroid/app/ActivityManager$RunningTaskInfo;->topActivityType:I
+
+    const/4 v4, 0x2
+
+    if-ne v1, v4, :cond_5
+
+    iget-boolean v1, p1, Landroid/app/ActivityManager$RunningTaskInfo;->isVisible:Z
+
+    if-eqz v1, :cond_5
+
+    goto :goto_0
+
+    :cond_5
+    move v1, v2
+
+    goto :goto_1
+
+    :cond_6
+    :goto_0
+    move v1, v3
+
+    :goto_1
+    iget-object v4, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mLastFocusedTaskInfo:Landroid/app/ActivityManager$RunningTaskInfo;
+
+    if-eqz v4, :cond_7
+
+    iget v4, v4, Landroid/app/ActivityManager$RunningTaskInfo;->taskId:I
+
+    iget v5, p1, Landroid/app/ActivityManager$RunningTaskInfo;->taskId:I
+
+    if-eq v4, v5, :cond_8
+
+    :cond_7
+    if-eqz v1, :cond_8
+
+    goto :goto_2
+
+    :cond_8
+    move v3, v2
+
+    :goto_2
+    if-eqz v3, :cond_a
+
+    :goto_3
+    iget-object v1, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mFocusListeners:Landroid/util/ArraySet;
+
+    invoke-virtual {v1}, Landroid/util/ArraySet;->size()I
+
+    move-result v1
+
+    if-ge v2, v1, :cond_9
+
+    iget-object v1, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mFocusListeners:Landroid/util/ArraySet;
+
+    invoke-virtual {v1, v2}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/wm/shell/ShellTaskOrganizer$FocusListener;
+
+    invoke-interface {v1, p1}, Lcom/android/wm/shell/ShellTaskOrganizer$FocusListener;->onFocusTaskChanged(Landroid/app/ActivityManager$RunningTaskInfo;)V
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_3
+
+    :cond_9
+    iput-object p1, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mLastFocusedTaskInfo:Landroid/app/ActivityManager$RunningTaskInfo;
+
+    :cond_a
     monitor-exit v0
 
     return-void
@@ -1686,7 +2004,15 @@
     :cond_1
     invoke-direct {p0, p1}, Lcom/android/wm/shell/ShellTaskOrganizer;->notifyLocusVisibilityIfNeeded(Landroid/app/TaskInfo;)V
 
-    invoke-direct {p0, p1, v2}, Lcom/android/wm/shell/ShellTaskOrganizer;->notifySizeCompatUI(Landroid/app/ActivityManager$RunningTaskInfo;Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;)V
+    invoke-direct {p0, p1, v2}, Lcom/android/wm/shell/ShellTaskOrganizer;->notifyCompatUI(Landroid/app/ActivityManager$RunningTaskInfo;Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;)V
+
+    iget-object p0, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mRecentTasks:Ljava/util/Optional;
+
+    new-instance v1, Lcom/android/wm/shell/ShellTaskOrganizer$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p1}, Lcom/android/wm/shell/ShellTaskOrganizer$$ExternalSyntheticLambda0;-><init>(Landroid/app/ActivityManager$RunningTaskInfo;)V
+
+    invoke-virtual {p0, v1}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
 
     monitor-exit v0
 
@@ -1870,92 +2196,117 @@
     return-void
 
     :cond_1
-    new-instance v4, Ljava/util/ArrayList;
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+
+    iget-object v4, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mTasks:Landroid/util/SparseArray;
+
+    invoke-virtual {v4}, Landroid/util/SparseArray;->size()I
+
+    move-result v4
+
+    sub-int/2addr v4, v3
+
+    :goto_0
+    if-ltz v4, :cond_3
 
     iget-object v5, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mTasks:Landroid/util/SparseArray;
 
-    invoke-virtual {v5}, Landroid/util/SparseArray;->size()I
+    invoke-virtual {v5, v4}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
 
-    move-result v5
+    move-result-object v5
 
-    sub-int/2addr v5, v3
+    check-cast v5, Landroid/window/TaskAppearedInfo;
 
-    :goto_0
-    if-ltz v5, :cond_3
-
-    iget-object v6, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mTasks:Landroid/util/SparseArray;
-
-    invoke-virtual {v6, v5}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+    invoke-virtual {v5}, Landroid/window/TaskAppearedInfo;->getTaskInfo()Landroid/app/ActivityManager$RunningTaskInfo;
 
     move-result-object v6
 
-    check-cast v6, Landroid/window/TaskAppearedInfo;
+    invoke-direct {p0, v6}, Lcom/android/wm/shell/ShellTaskOrganizer;->getTaskListener(Landroid/app/ActivityManager$RunningTaskInfo;)Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;
 
-    invoke-virtual {v6}, Landroid/window/TaskAppearedInfo;->getTaskInfo()Landroid/app/ActivityManager$RunningTaskInfo;
+    move-result-object v6
 
-    move-result-object v7
-
-    invoke-direct {p0, v7}, Lcom/android/wm/shell/ShellTaskOrganizer;->getTaskListener(Landroid/app/ActivityManager$RunningTaskInfo;)Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;
-
-    move-result-object v7
-
-    if-eq v7, p1, :cond_2
+    if-eq v6, p1, :cond_2
 
     goto :goto_1
 
     :cond_2
-    invoke-virtual {v4, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :goto_1
-    add-int/lit8 v5, v5, -0x1
+    add-int/lit8 v4, v4, -0x1
 
     goto :goto_0
 
     :cond_3
-    iget-object p1, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mTaskListeners:Landroid/util/SparseArray;
+    iget-object v4, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mTaskListeners:Landroid/util/SparseArray;
 
-    invoke-virtual {p1, v1}, Landroid/util/SparseArray;->removeAt(I)V
+    invoke-virtual {v4}, Landroid/util/SparseArray;->size()I
 
-    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+    move-result v4
+
+    sub-int/2addr v4, v3
+
+    :goto_2
+    if-ltz v4, :cond_5
+
+    iget-object v5, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mTaskListeners:Landroid/util/SparseArray;
+
+    invoke-virtual {v5, v4}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    if-ne v5, p1, :cond_4
+
+    iget-object v5, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mTaskListeners:Landroid/util/SparseArray;
+
+    invoke-virtual {v5, v4}, Landroid/util/SparseArray;->removeAt(I)V
+
+    :cond_4
+    add-int/lit8 v4, v4, -0x1
+
+    goto :goto_2
+
+    :cond_5
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result p1
 
     sub-int/2addr p1, v3
 
-    :goto_2
-    if-ltz p1, :cond_4
+    :goto_3
+    if-ltz p1, :cond_6
 
-    invoke-virtual {v4, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/window/TaskAppearedInfo;
-
-    invoke-virtual {v1}, Landroid/window/TaskAppearedInfo;->getTaskInfo()Landroid/app/ActivityManager$RunningTaskInfo;
+    invoke-virtual {v1, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
-    invoke-virtual {v1}, Landroid/window/TaskAppearedInfo;->getLeash()Landroid/view/SurfaceControl;
+    check-cast v3, Landroid/window/TaskAppearedInfo;
+
+    invoke-virtual {v3}, Landroid/window/TaskAppearedInfo;->getTaskInfo()Landroid/app/ActivityManager$RunningTaskInfo;
+
+    move-result-object v4
+
+    invoke-virtual {v3}, Landroid/window/TaskAppearedInfo;->getLeash()Landroid/view/SurfaceControl;
 
     move-result-object v5
 
-    invoke-virtual {v1}, Landroid/window/TaskAppearedInfo;->getTaskInfo()Landroid/app/ActivityManager$RunningTaskInfo;
+    invoke-virtual {v3}, Landroid/window/TaskAppearedInfo;->getTaskInfo()Landroid/app/ActivityManager$RunningTaskInfo;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-direct {p0, v1}, Lcom/android/wm/shell/ShellTaskOrganizer;->getTaskListener(Landroid/app/ActivityManager$RunningTaskInfo;)Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;
+    invoke-direct {p0, v3}, Lcom/android/wm/shell/ShellTaskOrganizer;->getTaskListener(Landroid/app/ActivityManager$RunningTaskInfo;)Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-direct {p0, v3, v5, v2, v1}, Lcom/android/wm/shell/ShellTaskOrganizer;->updateTaskListenerIfNeeded(Landroid/app/ActivityManager$RunningTaskInfo;Landroid/view/SurfaceControl;Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;)Z
+    invoke-direct {p0, v4, v5, v2, v3}, Lcom/android/wm/shell/ShellTaskOrganizer;->updateTaskListenerIfNeeded(Landroid/app/ActivityManager$RunningTaskInfo;Landroid/view/SurfaceControl;Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;Lcom/android/wm/shell/ShellTaskOrganizer$TaskListener;)Z
 
     add-int/lit8 p1, p1, -0x1
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_4
+    :cond_6
     monitor-exit v0
 
     return-void
@@ -1970,14 +2321,14 @@
     throw p0
 .end method
 
-.method public removeStartingWindow(ILandroid/view/SurfaceControl;Landroid/graphics/Rect;Z)V
+.method public removeStartingWindow(Landroid/window/StartingWindowRemovalInfo;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mStartingWindow:Lcom/android/wm/shell/startingsurface/StartingWindowController;
 
     if-eqz p0, :cond_0
 
-    invoke-virtual {p0, p1, p2, p3, p4}, Lcom/android/wm/shell/startingsurface/StartingWindowController;->removeStartingWindow(ILandroid/view/SurfaceControl;Landroid/graphics/Rect;Z)V
+    invoke-virtual {p0, p1}, Lcom/android/wm/shell/startingsurface/StartingWindowController;->removeStartingWindow(Landroid/window/StartingWindowRemovalInfo;)V
 
     :cond_0
     return-void
@@ -2103,4 +2454,19 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw p0
+.end method
+
+.method public unregisterOrganizer()V
+    .locals 0
+
+    invoke-super {p0}, Landroid/window/TaskOrganizer;->unregisterOrganizer()V
+
+    iget-object p0, p0, Lcom/android/wm/shell/ShellTaskOrganizer;->mStartingWindow:Lcom/android/wm/shell/startingsurface/StartingWindowController;
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/wm/shell/startingsurface/StartingWindowController;->clearAllWindows()V
+
+    :cond_0
+    return-void
 .end method

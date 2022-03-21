@@ -151,6 +151,12 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
+    const/4 v0, 0x2
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p0, v0, v1}, Landroid/widget/FrameLayout;->setLayerType(ILandroid/graphics/Paint;)V
+
     sget v0, Lcom/android/systemui/R$id;->slider:I
 
     invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->requireViewById(I)Landroid/view/View;

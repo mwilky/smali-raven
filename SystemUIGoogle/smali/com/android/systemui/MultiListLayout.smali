@@ -37,9 +37,6 @@
 
 
 # virtual methods
-.method public abstract getAnimationOffsetX()F
-.end method
-
 .method protected abstract getListView()Landroid/view/ViewGroup;
 .end method
 

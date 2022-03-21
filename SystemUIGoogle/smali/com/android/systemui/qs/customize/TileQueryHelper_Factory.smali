@@ -42,7 +42,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;"
         }
     .end annotation
@@ -88,7 +88,7 @@
             "Ljava/util/concurrent/Executor;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;)V"
         }
     .end annotation
@@ -126,7 +126,7 @@
             "Ljava/util/concurrent/Executor;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;)",
             "Lcom/android/systemui/qs/customize/TileQueryHelper_Factory;"
         }
@@ -151,7 +151,7 @@
     return-object v6
 .end method
 
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/settings/UserTracker;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/statusbar/FeatureFlags;)Lcom/android/systemui/qs/customize/TileQueryHelper;
+.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/settings/UserTracker;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/flags/FeatureFlags;)Lcom/android/systemui/qs/customize/TileQueryHelper;
     .locals 7
 
     new-instance v6, Lcom/android/systemui/qs/customize/TileQueryHelper;
@@ -168,7 +168,7 @@
 
     move-object v5, p4
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/qs/customize/TileQueryHelper;-><init>(Landroid/content/Context;Lcom/android/systemui/settings/UserTracker;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/statusbar/FeatureFlags;)V
+    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/qs/customize/TileQueryHelper;-><init>(Landroid/content/Context;Lcom/android/systemui/settings/UserTracker;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/flags/FeatureFlags;)V
 
     return-object v6
 .end method
@@ -216,9 +216,9 @@
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/systemui/statusbar/FeatureFlags;
+    check-cast p0, Lcom/android/systemui/flags/FeatureFlags;
 
-    invoke-static {v0, v1, v2, v3, p0}, Lcom/android/systemui/qs/customize/TileQueryHelper_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/settings/UserTracker;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/statusbar/FeatureFlags;)Lcom/android/systemui/qs/customize/TileQueryHelper;
+    invoke-static {v0, v1, v2, v3, p0}, Lcom/android/systemui/qs/customize/TileQueryHelper_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/settings/UserTracker;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/flags/FeatureFlags;)Lcom/android/systemui/qs/customize/TileQueryHelper;
 
     move-result-object p0
 

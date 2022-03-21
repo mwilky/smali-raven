@@ -12,6 +12,8 @@
 
 
 # instance fields
+.field private mFixedChildWidth:I
+
 .field private mHorizontalSpacing:I
 
 .field private mNumColumns:I
@@ -21,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 5
+    .locals 6
 
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
@@ -29,9 +31,13 @@
 
     iput v0, p0, Lcom/android/systemui/qs/PseudoGridView;->mNumColumns:I
 
-    sget-object v1, Lcom/android/systemui/R$styleable;->PseudoGridView:[I
+    const/4 v1, -0x1
 
-    invoke-virtual {p1, p2, v1}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
+    iput v1, p0, Lcom/android/systemui/qs/PseudoGridView;->mFixedChildWidth:I
+
+    sget-object v2, Lcom/android/systemui/R$styleable;->PseudoGridView:[I
+
+    invoke-virtual {p1, p2, v2}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
     move-result-object p1
 
@@ -39,60 +45,73 @@
 
     move-result p2
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    move v2, v1
+    move v3, v2
 
     :goto_0
-    if-ge v2, p2, :cond_3
+    if-ge v3, p2, :cond_4
 
-    invoke-virtual {p1, v2}, Landroid/content/res/TypedArray;->getIndex(I)I
+    invoke-virtual {p1, v3}, Landroid/content/res/TypedArray;->getIndex(I)I
 
-    move-result v3
+    move-result v4
 
-    sget v4, Lcom/android/systemui/R$styleable;->PseudoGridView_numColumns:I
+    sget v5, Lcom/android/systemui/R$styleable;->PseudoGridView_numColumns:I
 
-    if-ne v3, v4, :cond_0
+    if-ne v4, v5, :cond_0
 
-    invoke-virtual {p1, v3, v0}, Landroid/content/res/TypedArray;->getInt(II)I
+    invoke-virtual {p1, v4, v0}, Landroid/content/res/TypedArray;->getInt(II)I
 
-    move-result v3
+    move-result v4
 
-    iput v3, p0, Lcom/android/systemui/qs/PseudoGridView;->mNumColumns:I
+    iput v4, p0, Lcom/android/systemui/qs/PseudoGridView;->mNumColumns:I
 
     goto :goto_1
 
     :cond_0
-    sget v4, Lcom/android/systemui/R$styleable;->PseudoGridView_verticalSpacing:I
+    sget v5, Lcom/android/systemui/R$styleable;->PseudoGridView_verticalSpacing:I
 
-    if-ne v3, v4, :cond_1
+    if-ne v4, v5, :cond_1
 
-    invoke-virtual {p1, v3, v1}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+    invoke-virtual {p1, v4, v2}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
-    move-result v3
+    move-result v4
 
-    iput v3, p0, Lcom/android/systemui/qs/PseudoGridView;->mVerticalSpacing:I
+    iput v4, p0, Lcom/android/systemui/qs/PseudoGridView;->mVerticalSpacing:I
 
     goto :goto_1
 
     :cond_1
-    sget v4, Lcom/android/systemui/R$styleable;->PseudoGridView_horizontalSpacing:I
+    sget v5, Lcom/android/systemui/R$styleable;->PseudoGridView_horizontalSpacing:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v4, v5, :cond_2
 
-    invoke-virtual {p1, v3, v1}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+    invoke-virtual {p1, v4, v2}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
-    move-result v3
+    move-result v4
 
-    iput v3, p0, Lcom/android/systemui/qs/PseudoGridView;->mHorizontalSpacing:I
+    iput v4, p0, Lcom/android/systemui/qs/PseudoGridView;->mHorizontalSpacing:I
+
+    goto :goto_1
 
     :cond_2
+    sget v5, Lcom/android/systemui/R$styleable;->PseudoGridView_fixedChildWidth:I
+
+    if-ne v4, v5, :cond_3
+
+    invoke-virtual {p1, v4, v1}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+
+    move-result v4
+
+    iput v4, p0, Lcom/android/systemui/qs/PseudoGridView;->mFixedChildWidth:I
+
+    :cond_3
     :goto_1
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    :cond_3
+    :cond_4
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
 
     return-void
@@ -126,7 +145,7 @@
     move v0, p5
 
     :goto_0
-    if-ge p5, p4, :cond_5
+    if-ge p5, p4, :cond_4
 
     if-eqz p1, :cond_0
 
@@ -203,20 +222,17 @@
     goto :goto_2
 
     :cond_3
-    add-int/2addr v0, v4
-
-    if-lez p5, :cond_4
-
     iget v1, p0, Lcom/android/systemui/qs/PseudoGridView;->mVerticalSpacing:I
 
-    add-int/2addr v0, v1
+    add-int/2addr v4, v1
 
-    :cond_4
+    add-int/2addr v0, v4
+
     add-int/lit8 p5, p5, 0x1
 
     goto :goto_0
 
-    :cond_5
+    :cond_4
     return-void
 .end method
 
@@ -227,29 +243,57 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6
 
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
     move-result p1
 
-    iget v0, p0, Lcom/android/systemui/qs/PseudoGridView;->mNumColumns:I
+    iget v0, p0, Lcom/android/systemui/qs/PseudoGridView;->mFixedChildWidth:I
 
-    add-int/lit8 v1, v0, -0x1
+    iget v1, p0, Lcom/android/systemui/qs/PseudoGridView;->mNumColumns:I
 
-    iget v2, p0, Lcom/android/systemui/qs/PseudoGridView;->mHorizontalSpacing:I
+    mul-int v2, v0, v1
 
-    mul-int/2addr v1, v2
+    iget v3, p0, Lcom/android/systemui/qs/PseudoGridView;->mHorizontalSpacing:I
 
-    sub-int v1, p1, v1
+    add-int/lit8 v4, v1, -0x1
 
-    div-int/2addr v1, v0
+    mul-int/2addr v4, v3
 
-    const/high16 v0, 0x40000000    # 2.0f
+    add-int/2addr v2, v4
 
-    invoke-static {v1, v0}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+    const/4 v4, -0x1
 
-    move-result v1
+    if-eq v0, v4, :cond_0
+
+    if-gt v2, p1, :cond_0
+
+    mul-int p1, v0, v1
+
+    add-int/lit8 v1, v1, -0x1
+
+    mul-int/2addr v3, v1
+
+    add-int/2addr p1, v3
+
+    goto :goto_0
+
+    :cond_0
+    add-int/lit8 v0, v1, -0x1
+
+    mul-int/2addr v0, v3
+
+    sub-int v0, p1, v0
+
+    div-int/2addr v0, v1
+
+    :goto_0
+    const/high16 v1, 0x40000000    # 2.0f
+
+    invoke-static {v0, v1}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+
+    move-result v0
 
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
 
@@ -269,8 +313,8 @@
 
     move v6, v5
 
-    :goto_0
-    if-ge v5, v4, :cond_4
+    :goto_1
+    if-ge v5, v4, :cond_5
 
     iget v7, p0, Lcom/android/systemui/qs/PseudoGridView;->mNumColumns:I
 
@@ -286,14 +330,14 @@
 
     move v9, v8
 
-    :goto_1
-    if-ge v9, v7, :cond_0
+    :goto_2
+    if-ge v9, v7, :cond_1
 
     invoke-virtual {p0, v9}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v11
 
-    invoke-virtual {v11, v1, v3}, Landroid/view/View;->measure(II)V
+    invoke-virtual {v11, v0, v3}, Landroid/view/View;->measure(II)V
 
     invoke-virtual {v11}, Landroid/view/View;->getMeasuredHeight()I
 
@@ -305,15 +349,15 @@
 
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_1
+    goto :goto_2
 
-    :cond_0
-    invoke-static {v10, v0}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+    :cond_1
+    invoke-static {v10, v1}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
     move-result v9
 
-    :goto_2
-    if-ge v8, v7, :cond_2
+    :goto_3
+    if-ge v8, v7, :cond_3
 
     invoke-virtual {p0, v8}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
@@ -323,30 +367,30 @@
 
     move-result v12
 
-    if-eq v12, v10, :cond_1
+    if-eq v12, v10, :cond_2
 
-    invoke-virtual {v11, v1, v9}, Landroid/view/View;->measure(II)V
-
-    :cond_1
-    add-int/lit8 v8, v8, 0x1
-
-    goto :goto_2
+    invoke-virtual {v11, v0, v9}, Landroid/view/View;->measure(II)V
 
     :cond_2
+    add-int/lit8 v8, v8, 0x1
+
+    goto :goto_3
+
+    :cond_3
     add-int/2addr v6, v10
 
-    if-lez v5, :cond_3
+    if-lez v5, :cond_4
 
     iget v7, p0, Lcom/android/systemui/qs/PseudoGridView;->mVerticalSpacing:I
 
     add-int/2addr v6, v7
 
-    :cond_3
+    :cond_4
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_4
+    :cond_5
     invoke-static {v6, p2, v3}, Landroid/view/ViewGroup;->resolveSizeAndState(III)I
 
     move-result p2
@@ -355,7 +399,7 @@
 
     return-void
 
-    :cond_5
+    :cond_6
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Needs a maximum width"

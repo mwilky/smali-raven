@@ -9,6 +9,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/systemui/fragments/FragmentService$FragmentInstantiationInfo;,
         Lcom/android/systemui/fragments/FragmentService$FragmentHostState;,
         Lcom/android/systemui/fragments/FragmentService$FragmentCreator;
     }
@@ -17,8 +18,6 @@
 
 # instance fields
 .field private mConfigurationListener:Lcom/android/systemui/statusbar/policy/ConfigurationController$ConfigurationListener;
-
-.field private final mFragmentCreator:Lcom/android/systemui/fragments/FragmentService$FragmentCreator;
 
 .field private final mHandler:Landroid/os/Handler;
 
@@ -38,7 +37,7 @@
         value = {
             "Landroid/util/ArrayMap<",
             "Ljava/lang/String;",
-            "Ljava/lang/reflect/Method;",
+            "Lcom/android/systemui/fragments/FragmentService$FragmentInstantiationInfo;",
             ">;"
         }
     .end annotation
@@ -46,7 +45,7 @@
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/systemui/fragments/FragmentService$FragmentCreator$Factory;Lcom/android/systemui/statusbar/policy/ConfigurationController;)V
+.method public constructor <init>(Lcom/android/systemui/fragments/FragmentService$FragmentCreator$Factory;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/dump/DumpManager;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -79,13 +78,19 @@
 
     move-result-object p1
 
-    iput-object p1, p0, Lcom/android/systemui/fragments/FragmentService;->mFragmentCreator:Lcom/android/systemui/fragments/FragmentService$FragmentCreator;
+    invoke-virtual {p0, p1}, Lcom/android/systemui/fragments/FragmentService;->addFragmentInstantiationProvider(Ljava/lang/Object;)V
 
-    invoke-direct {p0}, Lcom/android/systemui/fragments/FragmentService;->initInjectionMap()V
+    iget-object p1, p0, Lcom/android/systemui/fragments/FragmentService;->mConfigurationListener:Lcom/android/systemui/statusbar/policy/ConfigurationController$ConfigurationListener;
 
-    iget-object p0, p0, Lcom/android/systemui/fragments/FragmentService;->mConfigurationListener:Lcom/android/systemui/statusbar/policy/ConfigurationController$ConfigurationListener;
+    invoke-interface {p2, p1}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
 
-    invoke-interface {p2, p0}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
+    const-class p1, Lcom/android/systemui/fragments/FragmentService;
+
+    invoke-virtual {p1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p3, p1, p0}, Lcom/android/systemui/dump/DumpManager;->registerDumpable(Ljava/lang/String;Lcom/android/systemui/Dumpable;)V
 
     return-void
 .end method
@@ -106,10 +111,14 @@
     return-object p0
 .end method
 
-.method private initInjectionMap()V
-    .locals 6
 
-    const-class v0, Lcom/android/systemui/fragments/FragmentService$FragmentCreator;
+# virtual methods
+.method public addFragmentInstantiationProvider(Ljava/lang/Object;)V
+    .locals 7
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v0
 
     invoke-virtual {v0}, Ljava/lang/Class;->getDeclaredMethods()[Ljava/lang/reflect/Method;
 
@@ -120,7 +129,7 @@
     const/4 v2, 0x0
 
     :goto_0
-    if-ge v2, v1, :cond_1
+    if-ge v2, v1, :cond_2
 
     aget-object v3, v0, v2
 
@@ -134,7 +143,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1
 
     invoke-virtual {v3}, Ljava/lang/reflect/Method;->getModifiers()I
 
@@ -142,31 +151,67 @@
 
     and-int/lit8 v4, v4, 0x1
 
-    if-eqz v4, :cond_0
-
-    iget-object v4, p0, Lcom/android/systemui/fragments/FragmentService;->mInjectionMap:Landroid/util/ArrayMap;
+    if-eqz v4, :cond_1
 
     invoke-virtual {v3}, Ljava/lang/reflect/Method;->getReturnType()Ljava/lang/Class;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v5}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-virtual {v4, v5, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    iget-object v5, p0, Lcom/android/systemui/fragments/FragmentService;->mInjectionMap:Landroid/util/ArrayMap;
+
+    invoke-virtual {v5, v4}, Landroid/util/ArrayMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "Fragment "
+
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v4, " is already provided by different Dagger component; Not adding method"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string v4, "FragmentService"
+
+    invoke-static {v4, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
 
     :cond_0
+    iget-object v5, p0, Lcom/android/systemui/fragments/FragmentService;->mInjectionMap:Landroid/util/ArrayMap;
+
+    new-instance v6, Lcom/android/systemui/fragments/FragmentService$FragmentInstantiationInfo;
+
+    invoke-direct {v6, v3, p1}, Lcom/android/systemui/fragments/FragmentService$FragmentInstantiationInfo;-><init>(Ljava/lang/reflect/Method;Ljava/lang/Object;)V
+
+    invoke-virtual {v5, v4, v6}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_1
+    :goto_1
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     return-void
 .end method
 
-
-# virtual methods
 .method public destroyAll()V
     .locals 1
 
@@ -253,14 +298,6 @@
     return-void
 .end method
 
-.method getFragmentCreator()Lcom/android/systemui/fragments/FragmentService$FragmentCreator;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/fragments/FragmentService;->mFragmentCreator:Lcom/android/systemui/fragments/FragmentService$FragmentCreator;
-
-    return-object p0
-.end method
-
 .method public getFragmentHostManager(Landroid/view/View;)Lcom/android/systemui/fragments/FragmentHostManager;
     .locals 1
 
@@ -301,7 +338,7 @@
             "()",
             "Landroid/util/ArrayMap<",
             "Ljava/lang/String;",
-            "Ljava/lang/reflect/Method;",
+            "Lcom/android/systemui/fragments/FragmentService$FragmentInstantiationInfo;",
             ">;"
         }
     .end annotation

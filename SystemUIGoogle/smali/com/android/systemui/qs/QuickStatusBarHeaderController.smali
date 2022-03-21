@@ -2,6 +2,9 @@
 .super Lcom/android/systemui/util/ViewController;
 .source "QuickStatusBarHeaderController.java"
 
+# interfaces
+.implements Lcom/android/systemui/qs/ChipVisibilityListener;
+
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
@@ -14,15 +17,14 @@
     value = {
         "Lcom/android/systemui/util/ViewController<",
         "Lcom/android/systemui/qs/QuickStatusBarHeader;",
-        ">;"
+        ">;",
+        "Lcom/android/systemui/qs/ChipVisibilityListener;"
     }
 .end annotation
 
 
 # instance fields
-.field private final mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
-
-.field private final mCameraSlot:Ljava/lang/String;
+.field private final mBatteryMeterViewController:Lcom/android/systemui/battery/BatteryMeterViewController;
 
 .field private final mClockView:Lcom/android/systemui/statusbar/policy/Clock;
 
@@ -32,47 +34,27 @@
 
 .field private final mDemoModeReceiver:Lcom/android/systemui/demomode/DemoMode;
 
-.field private final mFeatureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
-
-.field private final mHeaderQsPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
+.field private final mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
 
 .field private final mIconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
 
 .field private final mIconManager:Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;
 
+.field private final mInsetsProvider:Lcom/android/systemui/statusbar/phone/StatusBarContentInsetsProvider;
+
 .field private mListening:Z
-
-.field private mLocationIndicatorsEnabled:Z
-
-.field private final mLocationSlot:Ljava/lang/String;
-
-.field private mMicCameraIndicatorsEnabled:Z
-
-.field private final mMicSlot:Ljava/lang/String;
-
-.field private mOnClickListener:Landroid/view/View$OnClickListener;
 
 .field private mOnColorsChangedListener:Lcom/android/internal/colorextraction/ColorExtractor$OnColorsChangedListener;
 
-.field private mPICCallback:Lcom/android/systemui/privacy/PrivacyItemController$Callback;
-
-.field private final mPrivacyChip:Lcom/android/systemui/privacy/OngoingPrivacyChip;
-
-.field private mPrivacyChipLogged:Z
-
-.field private final mPrivacyDialogController:Lcom/android/systemui/privacy/PrivacyDialogController;
-
-.field private final mPrivacyItemController:Lcom/android/systemui/privacy/PrivacyItemController;
-
-.field private final mPrivacyLogger:Lcom/android/systemui/privacy/logging/PrivacyLogger;
+.field private final mPrivacyIconsController:Lcom/android/systemui/qs/HeaderPrivacyIconsController;
 
 .field private final mQSCarrierGroupController:Lcom/android/systemui/qs/carrier/QSCarrierGroupController;
 
 .field private final mQSExpansionPathInterpolator:Lcom/android/systemui/qs/QSExpansionPathInterpolator;
 
-.field private final mStatusBarIconController:Lcom/android/systemui/statusbar/phone/StatusBarIconController;
+.field private final mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
 
-.field private final mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+.field private final mStatusBarIconController:Lcom/android/systemui/statusbar/phone/StatusBarIconController;
 
 .field private final mVariableDateViewControllerClockDateView:Lcom/android/systemui/statusbar/policy/VariableDateViewController;
 
@@ -88,42 +70,26 @@
     return-void
 .end method
 
-.method constructor <init>(Lcom/android/systemui/qs/QuickStatusBarHeader;Lcom/android/systemui/privacy/PrivacyItemController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/phone/StatusBarIconController;Lcom/android/systemui/demomode/DemoModeController;Lcom/android/systemui/qs/QuickQSPanelController;Lcom/android/systemui/qs/carrier/QSCarrierGroupController$Builder;Lcom/android/systemui/privacy/logging/PrivacyLogger;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/systemui/privacy/PrivacyDialogController;Lcom/android/systemui/qs/QSExpansionPathInterpolator;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/statusbar/policy/VariableDateViewController$Factory;)V
+.method constructor <init>(Lcom/android/systemui/qs/QuickStatusBarHeader;Lcom/android/systemui/qs/HeaderPrivacyIconsController;Lcom/android/systemui/statusbar/phone/StatusBarIconController;Lcom/android/systemui/demomode/DemoModeController;Lcom/android/systemui/qs/QuickQSPanelController;Lcom/android/systemui/qs/carrier/QSCarrierGroupController$Builder;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/systemui/qs/QSExpansionPathInterpolator;Lcom/android/systemui/battery/BatteryMeterViewController;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/statusbar/policy/VariableDateViewController$Factory;Lcom/android/systemui/statusbar/phone/StatusBarContentInsetsProvider;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/util/ViewController;-><init>(Landroid/view/View;)V
 
-    new-instance p1, Lcom/android/systemui/qs/QuickStatusBarHeaderController$1;
+    iput-object p2, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mPrivacyIconsController:Lcom/android/systemui/qs/HeaderPrivacyIconsController;
 
-    invoke-direct {p1, p0}, Lcom/android/systemui/qs/QuickStatusBarHeaderController$1;-><init>(Lcom/android/systemui/qs/QuickStatusBarHeaderController;)V
+    iput-object p3, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mStatusBarIconController:Lcom/android/systemui/statusbar/phone/StatusBarIconController;
 
-    iput-object p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mPICCallback:Lcom/android/systemui/privacy/PrivacyItemController$Callback;
+    iput-object p4, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mDemoModeController:Lcom/android/systemui/demomode/DemoModeController;
 
-    new-instance p1, Lcom/android/systemui/qs/QuickStatusBarHeaderController$2;
+    iput-object p5, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
 
-    invoke-direct {p1, p0}, Lcom/android/systemui/qs/QuickStatusBarHeaderController$2;-><init>(Lcom/android/systemui/qs/QuickStatusBarHeaderController;)V
+    iput-object p8, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mQSExpansionPathInterpolator:Lcom/android/systemui/qs/QSExpansionPathInterpolator;
 
-    iput-object p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mOnClickListener:Landroid/view/View$OnClickListener;
+    iput-object p9, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mBatteryMeterViewController:Lcom/android/systemui/battery/BatteryMeterViewController;
 
-    iput-object p2, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mPrivacyItemController:Lcom/android/systemui/privacy/PrivacyItemController;
+    iput-object p10, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
 
-    iput-object p3, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
-
-    iput-object p4, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
-
-    iput-object p5, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mStatusBarIconController:Lcom/android/systemui/statusbar/phone/StatusBarIconController;
-
-    iput-object p6, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mDemoModeController:Lcom/android/systemui/demomode/DemoModeController;
-
-    iput-object p7, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mHeaderQsPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
-
-    iput-object p9, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mPrivacyLogger:Lcom/android/systemui/privacy/logging/PrivacyLogger;
-
-    iput-object p11, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mPrivacyDialogController:Lcom/android/systemui/privacy/PrivacyDialogController;
-
-    iput-object p12, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mQSExpansionPathInterpolator:Lcom/android/systemui/qs/QSExpansionPathInterpolator;
-
-    iput-object p13, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mFeatureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
+    iput-object p12, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mInsetsProvider:Lcom/android/systemui/statusbar/phone/StatusBarContentInsetsProvider;
 
     iget-object p1, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
@@ -137,7 +103,7 @@
 
     check-cast p1, Lcom/android/systemui/qs/carrier/QSCarrierGroup;
 
-    invoke-virtual {p8, p1}, Lcom/android/systemui/qs/carrier/QSCarrierGroupController$Builder;->setQSCarrierGroup(Lcom/android/systemui/qs/carrier/QSCarrierGroup;)Lcom/android/systemui/qs/carrier/QSCarrierGroupController$Builder;
+    invoke-virtual {p6, p1}, Lcom/android/systemui/qs/carrier/QSCarrierGroupController$Builder;->setQSCarrierGroup(Lcom/android/systemui/qs/carrier/QSCarrierGroup;)Lcom/android/systemui/qs/carrier/QSCarrierGroupController$Builder;
 
     move-result-object p1
 
@@ -146,20 +112,6 @@
     move-result-object p1
 
     iput-object p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mQSCarrierGroupController:Lcom/android/systemui/qs/carrier/QSCarrierGroupController;
-
-    iget-object p1, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast p1, Lcom/android/systemui/qs/QuickStatusBarHeader;
-
-    sget p2, Lcom/android/systemui/R$id;->privacy_chip:I
-
-    invoke-virtual {p1, p2}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/android/systemui/privacy/OngoingPrivacyChip;
-
-    iput-object p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mPrivacyChip:Lcom/android/systemui/privacy/OngoingPrivacyChip;
 
     iget-object p1, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
@@ -201,7 +153,7 @@
 
     check-cast p3, Lcom/android/systemui/statusbar/policy/VariableDateView;
 
-    invoke-virtual {p14, p3}, Lcom/android/systemui/statusbar/policy/VariableDateViewController$Factory;->create(Lcom/android/systemui/statusbar/policy/VariableDateView;)Lcom/android/systemui/statusbar/policy/VariableDateViewController;
+    invoke-virtual {p11, p3}, Lcom/android/systemui/statusbar/policy/VariableDateViewController$Factory;->create(Lcom/android/systemui/statusbar/policy/VariableDateView;)Lcom/android/systemui/statusbar/policy/VariableDateViewController;
 
     move-result-object p3
 
@@ -219,7 +171,7 @@
 
     check-cast p3, Lcom/android/systemui/statusbar/policy/VariableDateView;
 
-    invoke-virtual {p14, p3}, Lcom/android/systemui/statusbar/policy/VariableDateViewController$Factory;->create(Lcom/android/systemui/statusbar/policy/VariableDateView;)Lcom/android/systemui/statusbar/policy/VariableDateViewController;
+    invoke-virtual {p11, p3}, Lcom/android/systemui/statusbar/policy/VariableDateViewController$Factory;->create(Lcom/android/systemui/statusbar/policy/VariableDateView;)Lcom/android/systemui/statusbar/policy/VariableDateViewController;
 
     move-result-object p3
 
@@ -227,7 +179,7 @@
 
     new-instance p3, Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;
 
-    invoke-direct {p3, p2, p13}, Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;-><init>(Landroid/view/ViewGroup;Lcom/android/systemui/statusbar/FeatureFlags;)V
+    invoke-direct {p3, p2, p10}, Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;-><init>(Landroid/view/ViewGroup;Lcom/android/systemui/flags/FeatureFlags;)V
 
     iput-object p3, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mIconManager:Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;
 
@@ -237,7 +189,7 @@
 
     iput-object p2, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mDemoModeReceiver:Lcom/android/systemui/demomode/DemoMode;
 
-    iput-object p10, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mColorExtractor:Lcom/android/systemui/colorextraction/SysuiColorExtractor;
+    iput-object p7, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mColorExtractor:Lcom/android/systemui/colorextraction/SysuiColorExtractor;
 
     new-instance p1, Lcom/android/systemui/qs/QuickStatusBarHeaderController$$ExternalSyntheticLambda0;
 
@@ -245,153 +197,11 @@
 
     iput-object p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mOnColorsChangedListener:Lcom/android/internal/colorextraction/ColorExtractor$OnColorsChangedListener;
 
-    invoke-virtual {p10, p1}, Lcom/android/internal/colorextraction/ColorExtractor;->addOnColorsChangedListener(Lcom/android/internal/colorextraction/ColorExtractor$OnColorsChangedListener;)V
+    invoke-virtual {p7, p1}, Lcom/android/internal/colorextraction/ColorExtractor;->addOnColorsChangedListener(Lcom/android/internal/colorextraction/ColorExtractor$OnColorsChangedListener;)V
 
-    invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p1
-
-    const p2, 0x1040819
-
-    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mCameraSlot:Ljava/lang/String;
-
-    invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p1
-
-    const p2, 0x1040825
-
-    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mMicSlot:Ljava/lang/String;
-
-    invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p1
-
-    const p2, 0x1040823
-
-    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mLocationSlot:Ljava/lang/String;
+    invoke-virtual {p9}, Lcom/android/systemui/battery/BatteryMeterViewController;->ignoreTunerUpdates()V
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/systemui/qs/QuickStatusBarHeaderController;)Lcom/android/systemui/privacy/OngoingPrivacyChip;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mPrivacyChip:Lcom/android/systemui/privacy/OngoingPrivacyChip;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/systemui/qs/QuickStatusBarHeaderController;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->setChipVisibility(Z)V
-
-    return-void
-.end method
-
-.method static synthetic access$200(Lcom/android/systemui/qs/QuickStatusBarHeaderController;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mMicCameraIndicatorsEnabled:Z
-
-    return p0
-.end method
-
-.method static synthetic access$202(Lcom/android/systemui/qs/QuickStatusBarHeaderController;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mMicCameraIndicatorsEnabled:Z
-
-    return p1
-.end method
-
-.method static synthetic access$300(Lcom/android/systemui/qs/QuickStatusBarHeaderController;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mLocationIndicatorsEnabled:Z
-
-    return p0
-.end method
-
-.method static synthetic access$302(Lcom/android/systemui/qs/QuickStatusBarHeaderController;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mLocationIndicatorsEnabled:Z
-
-    return p1
-.end method
-
-.method static synthetic access$400(Lcom/android/systemui/qs/QuickStatusBarHeaderController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->updatePrivacyIconSlots()V
-
-    return-void
-.end method
-
-.method static synthetic access$500(Lcom/android/systemui/qs/QuickStatusBarHeaderController;)Lcom/android/internal/logging/UiEventLogger;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
-
-    return-object p0
-.end method
-
-.method static synthetic access$600(Lcom/android/systemui/qs/QuickStatusBarHeaderController;)Landroid/content/Context;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->getContext()Landroid/content/Context;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method static synthetic access$700(Lcom/android/systemui/qs/QuickStatusBarHeaderController;)Lcom/android/systemui/privacy/PrivacyDialogController;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mPrivacyDialogController:Lcom/android/systemui/privacy/PrivacyDialogController;
-
-    return-object p0
-.end method
-
-.method private getChipEnabled()Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mMicCameraIndicatorsEnabled:Z
-
-    if-nez v0, :cond_1
-
-    iget-boolean p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mLocationIndicatorsEnabled:Z
-
-    if-eqz p0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    const/4 p0, 0x1
-
-    :goto_1
-    return p0
 .end method
 
 .method private synthetic lambda$new$0(Lcom/android/internal/colorextraction/ColorExtractor;I)V
@@ -414,50 +224,11 @@
     return-void
 .end method
 
-.method private setChipVisibility(Z)V
-    .locals 2
 
-    if-eqz p1, :cond_0
+# virtual methods
+.method public onChipVisibilityRefreshed(Z)V
+    .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->getChipEnabled()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mPrivacyLogger:Lcom/android/systemui/privacy/logging/PrivacyLogger;
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/privacy/logging/PrivacyLogger;->logChipVisible(Z)V
-
-    iget-boolean v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mPrivacyChipLogged:Z
-
-    if-nez v0, :cond_1
-
-    iget-boolean v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mListening:Z
-
-    if-eqz v0, :cond_1
-
-    iput-boolean v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mPrivacyChipLogged:Z
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
-
-    sget-object v1, Lcom/android/systemui/privacy/PrivacyChipEvent;->ONGOING_INDICATORS_CHIP_VIEW:Lcom/android/systemui/privacy/PrivacyChipEvent;
-
-    invoke-interface {v0, v1}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mPrivacyLogger:Lcom/android/systemui/privacy/logging/PrivacyLogger;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/privacy/logging/PrivacyLogger;->logChipVisible(Z)V
-
-    :cond_1
-    :goto_0
     iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast p0, Lcom/android/systemui/qs/QuickStatusBarHeader;
@@ -467,119 +238,26 @@
     return-void
 .end method
 
-.method private updatePrivacyIconSlots()V
-    .locals 2
+.method protected onInit()V
+    .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->getChipEnabled()Z
+    iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mBatteryMeterViewController:Lcom/android/systemui/battery/BatteryMeterViewController;
 
-    move-result v0
+    invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->init()V
 
-    if-eqz v0, :cond_2
-
-    iget-boolean v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mMicCameraIndicatorsEnabled:Z
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mIconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
-
-    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mCameraSlot:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->addIgnoredSlot(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mIconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
-
-    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mMicSlot:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->addIgnoredSlot(Ljava/lang/String;)V
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mIconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
-
-    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mCameraSlot:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->removeIgnoredSlot(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mIconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
-
-    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mMicSlot:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->removeIgnoredSlot(Ljava/lang/String;)V
-
-    :goto_0
-    iget-boolean v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mLocationIndicatorsEnabled:Z
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mIconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mLocationSlot:Ljava/lang/String;
-
-    invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->addIgnoredSlot(Ljava/lang/String;)V
-
-    goto :goto_1
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mIconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mLocationSlot:Ljava/lang/String;
-
-    invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->removeIgnoredSlot(Ljava/lang/String;)V
-
-    goto :goto_1
-
-    :cond_2
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mIconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
-
-    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mCameraSlot:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->removeIgnoredSlot(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mIconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
-
-    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mMicSlot:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->removeIgnoredSlot(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mIconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mLocationSlot:Ljava/lang/String;
-
-    invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->removeIgnoredSlot(Ljava/lang/String;)V
-
-    :goto_1
     return-void
 .end method
 
-
-# virtual methods
 .method protected onViewAttached()V
-    .locals 4
+    .locals 7
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mPrivacyChip:Lcom/android/systemui/privacy/OngoingPrivacyChip;
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mPrivacyIconsController:Lcom/android/systemui/qs/HeaderPrivacyIconsController;
 
-    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mOnClickListener:Landroid/view/View$OnClickListener;
+    invoke-virtual {v0}, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->onParentVisible()V
 
-    invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mPrivacyIconsController:Lcom/android/systemui/qs/HeaderPrivacyIconsController;
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mPrivacyItemController:Lcom/android/systemui/privacy/PrivacyItemController;
-
-    invoke-virtual {v0}, Lcom/android/systemui/privacy/PrivacyItemController;->getMicCameraAvailable()Z
-
-    move-result v0
-
-    iput-boolean v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mMicCameraIndicatorsEnabled:Z
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mPrivacyItemController:Lcom/android/systemui/privacy/PrivacyItemController;
-
-    invoke-virtual {v0}, Lcom/android/systemui/privacy/PrivacyItemController;->getLocationAvailable()Z
-
-    move-result v0
-
-    iput-boolean v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mLocationIndicatorsEnabled:Z
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->updatePrivacyIconSlots()V
+    invoke-virtual {v0, p0}, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->setChipVisibilityListener(Lcom/android/systemui/qs/ChipVisibilityListener;)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mIconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
 
@@ -587,7 +265,7 @@
 
     move-result-object v1
 
-    const v2, 0x1040824
+    const v2, 0x1040829
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -603,22 +281,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mStatusBarIconController:Lcom/android/systemui/statusbar/phone/StatusBarIconController;
 
-    iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mIconManager:Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;
+    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mIconManager:Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;
 
-    invoke-interface {v0, v2}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->addIconGroup(Lcom/android/systemui/statusbar/phone/StatusBarIconController$IconManager;)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mPrivacyChip:Lcom/android/systemui/privacy/OngoingPrivacyChip;
-
-    invoke-virtual {v0}, Landroid/widget/FrameLayout;->getVisibility()I
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    const/4 v1, 0x1
-
-    :cond_0
-    invoke-direct {p0, v1}, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->setChipVisibility(Z)V
+    invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->addIconGroup(Lcom/android/systemui/statusbar/phone/StatusBarIconController$IconManager;)V
 
     iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
@@ -646,19 +311,19 @@
 
     invoke-virtual {v0, v2}, Lcom/android/systemui/qs/carrier/QSCarrierGroupController;->setOnSingleCarrierChangedListener(Lcom/android/systemui/qs/carrier/QSCarrierGroupController$OnSingleCarrierChangedListener;)V
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mFeatureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/FeatureFlags;->isCombinedStatusBarSignalIconsEnabled()Z
+    invoke-virtual {v0}, Lcom/android/systemui/flags/FeatureFlags;->isCombinedStatusBarSignalIconsEnabled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x1040829
+    const v1, 0x104082e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -668,7 +333,7 @@
 
     move-result-object v1
 
-    const v2, 0x1040818
+    const v2, 0x104081d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -680,12 +345,12 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_0
     invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x1040826
+    const v1, 0x104082b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -696,7 +361,11 @@
     move-result-object v0
 
     :goto_0
-    iget-object v1, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+    move-object v4, v0
+
+    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    move-object v1, v0
 
     check-cast v1, Lcom/android/systemui/qs/QuickStatusBarHeader;
 
@@ -704,7 +373,15 @@
 
     iget-object v3, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mQSExpansionPathInterpolator:Lcom/android/systemui/qs/QSExpansionPathInterpolator;
 
-    invoke-virtual {v1, v2, v3, v0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->onAttach(Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;Lcom/android/systemui/qs/QSExpansionPathInterpolator;Ljava/util/List;)V
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
+
+    invoke-virtual {v0}, Lcom/android/systemui/flags/FeatureFlags;->useCombinedQSHeaders()Z
+
+    move-result v5
+
+    iget-object v6, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mInsetsProvider:Lcom/android/systemui/statusbar/phone/StatusBarContentInsetsProvider;
+
+    invoke-virtual/range {v1 .. v6}, Lcom/android/systemui/qs/QuickStatusBarHeader;->onAttach(Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;Lcom/android/systemui/qs/QSExpansionPathInterpolator;Ljava/util/List;ZLcom/android/systemui/statusbar/phone/StatusBarContentInsetsProvider;)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mDemoModeController:Lcom/android/systemui/demomode/DemoModeController;
 
@@ -724,7 +401,7 @@
 .end method
 
 .method protected onViewDetached()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mColorExtractor:Lcom/android/systemui/colorextraction/SysuiColorExtractor;
 
@@ -732,19 +409,19 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/colorextraction/ColorExtractor;->removeOnColorsChangedListener(Lcom/android/internal/colorextraction/ColorExtractor$OnColorsChangedListener;)V
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mPrivacyChip:Lcom/android/systemui/privacy/OngoingPrivacyChip;
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mPrivacyIconsController:Lcom/android/systemui/qs/HeaderPrivacyIconsController;
 
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0}, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->onParentInvisible()V
 
     iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mStatusBarIconController:Lcom/android/systemui/statusbar/phone/StatusBarIconController;
 
-    iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mIconManager:Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;
+    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mIconManager:Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;
 
-    invoke-interface {v0, v2}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->removeIconGroup(Lcom/android/systemui/statusbar/phone/StatusBarIconController$IconManager;)V
+    invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->removeIconGroup(Lcom/android/systemui/statusbar/phone/StatusBarIconController$IconManager;)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mQSCarrierGroupController:Lcom/android/systemui/qs/carrier/QSCarrierGroupController;
+
+    const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/qs/carrier/QSCarrierGroupController;->setOnSingleCarrierChangedListener(Lcom/android/systemui/qs/carrier/QSCarrierGroupController$OnSingleCarrierChangedListener;)V
 
@@ -764,7 +441,7 @@
 .method public setContentMargins(II)V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mHeaderQsPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
+    iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
 
     invoke-virtual {p0, p1, p2}, Lcom/android/systemui/qs/QuickQSPanelController;->setContentMargins(II)V
 
@@ -787,11 +464,11 @@
     :cond_0
     iput-boolean p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mListening:Z
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mHeaderQsPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
 
-    invoke-virtual {v0, p1}, Lcom/android/systemui/qs/QSPanelControllerBase;->setListening(Z)V
+    invoke-virtual {v0, p1}, Lcom/android/systemui/qs/QuickQSPanelController;->setListening(Z)V
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mHeaderQsPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
 
     invoke-virtual {v0}, Lcom/android/systemui/qs/QuickQSPanelController;->isListening()Z
 
@@ -799,12 +476,12 @@
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mHeaderQsPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
 
-    invoke-virtual {v0}, Lcom/android/systemui/qs/QSPanelControllerBase;->refreshAllTiles()V
+    invoke-virtual {v0}, Lcom/android/systemui/qs/QuickQSPanelController;->refreshAllTiles()V
 
     :cond_1
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mHeaderQsPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
 
     const/4 v1, 0x0
 
@@ -823,38 +500,16 @@
     :cond_2
     if-eqz p1, :cond_3
 
-    iget-object p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mPrivacyItemController:Lcom/android/systemui/privacy/PrivacyItemController;
+    iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mPrivacyIconsController:Lcom/android/systemui/qs/HeaderPrivacyIconsController;
 
-    invoke-virtual {p1}, Lcom/android/systemui/privacy/PrivacyItemController;->getMicCameraAvailable()Z
-
-    move-result p1
-
-    iput-boolean p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mMicCameraIndicatorsEnabled:Z
-
-    iget-object p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mPrivacyItemController:Lcom/android/systemui/privacy/PrivacyItemController;
-
-    invoke-virtual {p1}, Lcom/android/systemui/privacy/PrivacyItemController;->getLocationAvailable()Z
-
-    move-result p1
-
-    iput-boolean p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mLocationIndicatorsEnabled:Z
-
-    iget-object p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mPrivacyItemController:Lcom/android/systemui/privacy/PrivacyItemController;
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mPICCallback:Lcom/android/systemui/privacy/PrivacyItemController$Callback;
-
-    invoke-virtual {p1, p0}, Lcom/android/systemui/privacy/PrivacyItemController;->addCallback(Lcom/android/systemui/privacy/PrivacyItemController$Callback;)V
+    invoke-virtual {p0}, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->startListening()V
 
     goto :goto_0
 
     :cond_3
-    iget-object p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mPrivacyItemController:Lcom/android/systemui/privacy/PrivacyItemController;
+    iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mPrivacyIconsController:Lcom/android/systemui/qs/HeaderPrivacyIconsController;
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mPICCallback:Lcom/android/systemui/privacy/PrivacyItemController$Callback;
-
-    invoke-virtual {p1, v0}, Lcom/android/systemui/privacy/PrivacyItemController;->removeCallback(Lcom/android/systemui/privacy/PrivacyItemController$Callback;)V
-
-    iput-boolean v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mPrivacyChipLogged:Z
+    invoke-virtual {p0}, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->stopListening()V
 
     :goto_0
     return-void

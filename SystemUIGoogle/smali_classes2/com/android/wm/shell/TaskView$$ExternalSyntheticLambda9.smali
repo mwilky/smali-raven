@@ -8,18 +8,18 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/wm/shell/TaskView;
 
-.field public final synthetic f$1:Landroid/os/Binder;
+.field public final synthetic f$1:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/wm/shell/TaskView;Landroid/os/Binder;)V
+.method public synthetic constructor <init>(Lcom/android/wm/shell/TaskView;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda9;->f$0:Lcom/android/wm/shell/TaskView;
 
-    iput-object p2, p0, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda9;->f$1:Landroid/os/Binder;
+    iput p2, p0, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda9;->f$1:I
 
     return-void
 .end method
@@ -31,9 +31,9 @@
 
     iget-object v0, p0, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda9;->f$0:Lcom/android/wm/shell/TaskView;
 
-    iget-object p0, p0, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda9;->f$1:Landroid/os/Binder;
+    iget p0, p0, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda9;->f$1:I
 
-    invoke-static {v0, p0}, Lcom/android/wm/shell/TaskView;->$r8$lambda$gUVcjQEtjaAWohBYwfk3QLmw4aQ(Lcom/android/wm/shell/TaskView;Landroid/os/Binder;)V
+    invoke-static {v0, p0}, Lcom/android/wm/shell/TaskView;->$r8$lambda$xYuRP3T2DPsFhL-FuvZ4xw7znHM(Lcom/android/wm/shell/TaskView;I)V
 
     return-void
 .end method

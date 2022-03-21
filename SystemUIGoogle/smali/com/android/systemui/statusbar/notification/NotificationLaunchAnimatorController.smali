@@ -146,7 +146,7 @@
 
 
 # virtual methods
-.method public createAnimatorState()Lcom/android/systemui/animation/ActivityLaunchAnimator$State;
+.method public createAnimatorState()Lcom/android/systemui/animation/LaunchAnimator$State;
     .locals 15
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationLaunchAnimatorController;->notification:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
@@ -452,7 +452,7 @@
     return-void
 .end method
 
-.method public onLaunchAnimationProgress(Lcom/android/systemui/animation/ActivityLaunchAnimator$State;FF)V
+.method public onLaunchAnimationProgress(Lcom/android/systemui/animation/LaunchAnimator$State;FF)V
     .locals 1
 
     const-string v0, "state"

@@ -28,6 +28,16 @@
     .end annotation
 .end field
 
+.field private final dumpManagerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final wallpaperManagerServiceProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -40,7 +50,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -50,6 +60,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Landroid/app/IWallpaperManager;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
             ">;)V"
         }
     .end annotation
@@ -60,10 +73,12 @@
 
     iput-object p2, p0, Lcom/android/systemui/keyguard/WakefulnessLifecycle_Factory;->wallpaperManagerServiceProvider:Ljavax/inject/Provider;
 
+    iput-object p3, p0, Lcom/android/systemui/keyguard/WakefulnessLifecycle_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
+
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/keyguard/WakefulnessLifecycle_Factory;
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/keyguard/WakefulnessLifecycle_Factory;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -73,6 +88,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Landroid/app/IWallpaperManager;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
             ">;)",
             "Lcom/android/systemui/keyguard/WakefulnessLifecycle_Factory;"
         }
@@ -80,17 +98,17 @@
 
     new-instance v0, Lcom/android/systemui/keyguard/WakefulnessLifecycle_Factory;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/keyguard/WakefulnessLifecycle_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/keyguard/WakefulnessLifecycle_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
 
     return-object v0
 .end method
 
-.method public static newInstance(Landroid/content/Context;Landroid/app/IWallpaperManager;)Lcom/android/systemui/keyguard/WakefulnessLifecycle;
+.method public static newInstance(Landroid/content/Context;Landroid/app/IWallpaperManager;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/keyguard/WakefulnessLifecycle;
     .locals 1
 
     new-instance v0, Lcom/android/systemui/keyguard/WakefulnessLifecycle;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/keyguard/WakefulnessLifecycle;-><init>(Landroid/content/Context;Landroid/app/IWallpaperManager;)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/keyguard/WakefulnessLifecycle;-><init>(Landroid/content/Context;Landroid/app/IWallpaperManager;Lcom/android/systemui/dump/DumpManager;)V
 
     return-object v0
 .end method
@@ -98,7 +116,7 @@
 
 # virtual methods
 .method public get()Lcom/android/systemui/keyguard/WakefulnessLifecycle;
-    .locals 1
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/keyguard/WakefulnessLifecycle_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -108,15 +126,23 @@
 
     check-cast v0, Landroid/content/Context;
 
-    iget-object p0, p0, Lcom/android/systemui/keyguard/WakefulnessLifecycle_Factory;->wallpaperManagerServiceProvider:Ljavax/inject/Provider;
+    iget-object v1, p0, Lcom/android/systemui/keyguard/WakefulnessLifecycle_Factory;->wallpaperManagerServiceProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/app/IWallpaperManager;
+
+    iget-object p0, p0, Lcom/android/systemui/keyguard/WakefulnessLifecycle_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    check-cast p0, Landroid/app/IWallpaperManager;
+    check-cast p0, Lcom/android/systemui/dump/DumpManager;
 
-    invoke-static {v0, p0}, Lcom/android/systemui/keyguard/WakefulnessLifecycle_Factory;->newInstance(Landroid/content/Context;Landroid/app/IWallpaperManager;)Lcom/android/systemui/keyguard/WakefulnessLifecycle;
+    invoke-static {v0, v1, p0}, Lcom/android/systemui/keyguard/WakefulnessLifecycle_Factory;->newInstance(Landroid/content/Context;Landroid/app/IWallpaperManager;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/keyguard/WakefulnessLifecycle;
 
     move-result-object p0
 

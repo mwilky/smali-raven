@@ -22,7 +22,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;"
         }
     .end annotation
@@ -56,7 +56,7 @@
         value = {
             "(",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;",
@@ -84,7 +84,7 @@
         value = {
             "(",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;",
@@ -103,12 +103,12 @@
     return-object v0
 .end method
 
-.method public static newInstance(Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/notification/row/RowContentBindStage;)Lcom/android/systemui/statusbar/notification/collection/inflation/LowPriorityInflationHelper;
+.method public static newInstance(Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/notification/row/RowContentBindStage;)Lcom/android/systemui/statusbar/notification/collection/inflation/LowPriorityInflationHelper;
     .locals 1
 
     new-instance v0, Lcom/android/systemui/statusbar/notification/collection/inflation/LowPriorityInflationHelper;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/statusbar/notification/collection/inflation/LowPriorityInflationHelper;-><init>(Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/notification/row/RowContentBindStage;)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/statusbar/notification/collection/inflation/LowPriorityInflationHelper;-><init>(Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/notification/row/RowContentBindStage;)V
 
     return-object v0
 .end method
@@ -124,7 +124,7 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/systemui/statusbar/FeatureFlags;
+    check-cast v0, Lcom/android/systemui/flags/FeatureFlags;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/notification/collection/inflation/LowPriorityInflationHelper_Factory;->groupManagerProvider:Ljavax/inject/Provider;
 
@@ -142,7 +142,7 @@
 
     check-cast p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindStage;
 
-    invoke-static {v0, v1, p0}, Lcom/android/systemui/statusbar/notification/collection/inflation/LowPriorityInflationHelper_Factory;->newInstance(Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/notification/row/RowContentBindStage;)Lcom/android/systemui/statusbar/notification/collection/inflation/LowPriorityInflationHelper;
+    invoke-static {v0, v1, p0}, Lcom/android/systemui/statusbar/notification/collection/inflation/LowPriorityInflationHelper_Factory;->newInstance(Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/notification/row/RowContentBindStage;)Lcom/android/systemui/statusbar/notification/collection/inflation/LowPriorityInflationHelper;
 
     move-result-object p0
 

@@ -29,7 +29,7 @@
 
     check-cast p1, Ljava/lang/Boolean;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/navigationbar/NavigationBarView;->$r8$lambda$aEwa7Yfyr3BMwAiFEqI-EtxD-BM(Lcom/android/systemui/navigationbar/NavigationBarView;Ljava/lang/Boolean;)V
+    invoke-static {p0, p1}, Lcom/android/systemui/navigationbar/NavigationBarView;->$r8$lambda$zrVj1CRTBgJdvSq-Y_nDNDucAEQ(Lcom/android/systemui/navigationbar/NavigationBarView;Ljava/lang/Boolean;)V
 
     return-void
 .end method

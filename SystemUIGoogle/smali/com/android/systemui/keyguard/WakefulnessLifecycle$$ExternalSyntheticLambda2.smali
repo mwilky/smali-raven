@@ -37,7 +37,7 @@
 
     check-cast p1, Lcom/android/systemui/keyguard/WakefulnessLifecycle$Observer;
 
-    invoke-interface {p1}, Lcom/android/systemui/keyguard/WakefulnessLifecycle$Observer;->onStartedGoingToSleep()V
+    invoke-interface {p1}, Lcom/android/systemui/keyguard/WakefulnessLifecycle$Observer;->onPostFinishedWakingUp()V
 
     return-void
 .end method

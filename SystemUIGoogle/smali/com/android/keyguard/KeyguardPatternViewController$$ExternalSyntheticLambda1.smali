@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardPatternViewController$$ExternalSyntheticLambda1;->f$0:Lcom/android/keyguard/KeyguardPatternViewController;
 
-    invoke-static {p0, p1, p2}, Lcom/android/keyguard/KeyguardPatternViewController;->$r8$lambda$9FF4Id9_aeLZ_a7_yDLXSlXa67I(Lcom/android/keyguard/KeyguardPatternViewController;Landroid/view/View;Landroid/view/MotionEvent;)Z
+    invoke-static {p0, p1, p2}, Lcom/android/keyguard/KeyguardPatternViewController;->$r8$lambda$NC0LzAXv-ChW6ybDgJBCwl0n8IA(Lcom/android/keyguard/KeyguardPatternViewController;Landroid/view/View;Landroid/view/MotionEvent;)Z
 
     move-result p0
 

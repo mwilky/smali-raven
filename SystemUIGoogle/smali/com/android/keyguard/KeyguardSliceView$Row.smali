@@ -31,8 +31,6 @@
 
 .field private mLayoutTransition:Landroid/animation/LayoutTransition;
 
-.field private mLockScreenModeRow:I
-
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
@@ -76,10 +74,6 @@
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardSliceView$Row;->mKeyguardSliceTextViewSet:Ljava/util/Set;
 
-    const/4 p1, 0x0
-
-    iput p1, p0, Lcom/android/keyguard/KeyguardSliceView$Row;->mLockScreenModeRow:I
-
     new-instance p1, Lcom/android/systemui/util/wakelock/KeepAwakeAnimationListener;
 
     iget-object p2, p0, Landroid/widget/LinearLayout;->mContext:Landroid/content/Context;
@@ -102,13 +96,9 @@
 
     if-eqz p2, :cond_0
 
-    check-cast p1, Lcom/android/keyguard/KeyguardSliceView$KeyguardSliceTextView;
-
-    iget p2, p0, Lcom/android/keyguard/KeyguardSliceView$Row;->mLockScreenModeRow:I
-
-    invoke-virtual {p1, p2}, Lcom/android/keyguard/KeyguardSliceView$KeyguardSliceTextView;->setLockScreenMode(I)V
-
     iget-object p0, p0, Lcom/android/keyguard/KeyguardSliceView$Row;->mKeyguardSliceTextViewSet:Ljava/util/Set;
+
+    check-cast p1, Lcom/android/keyguard/KeyguardSliceView$KeyguardSliceTextView;
 
     invoke-interface {p0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
@@ -279,57 +269,39 @@
 .end method
 
 .method protected onMeasure(II)V
-    .locals 6
+    .locals 4
 
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
-    move-result v0
-
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getChildCount()I
 
-    move-result v1
+    move-result v0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    if-ge v2, v1, :cond_2
+    if-ge v1, v0, :cond_1
 
-    invoke-virtual {p0, v2}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v3
+    move-result-object v2
 
-    instance-of v4, v3, Lcom/android/keyguard/KeyguardSliceView$KeyguardSliceTextView;
+    instance-of v3, v2, Lcom/android/keyguard/KeyguardSliceView$KeyguardSliceTextView;
 
-    if-eqz v4, :cond_1
+    if-eqz v3, :cond_0
 
-    iget v4, p0, Lcom/android/keyguard/KeyguardSliceView$Row;->mLockScreenModeRow:I
+    check-cast v2, Lcom/android/keyguard/KeyguardSliceView$KeyguardSliceTextView;
 
-    const/4 v5, 0x1
+    const v3, 0x7fffffff
 
-    if-ne v4, v5, :cond_0
-
-    check-cast v3, Lcom/android/keyguard/KeyguardSliceView$KeyguardSliceTextView;
-
-    const v4, 0x7fffffff
-
-    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setMaxWidth(I)V
-
-    goto :goto_1
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setMaxWidth(I)V
 
     :cond_0
-    check-cast v3, Lcom/android/keyguard/KeyguardSliceView$KeyguardSliceTextView;
-
-    div-int/lit8 v4, v0, 0x3
-
-    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setMaxWidth(I)V
-
-    :cond_1
-    :goto_1
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    :cond_2
+    :cond_1
     invoke-super {p0, p1, p2}, Landroid/widget/LinearLayout;->onMeasure(II)V
 
     return-void
@@ -426,61 +398,5 @@
     :goto_2
     invoke-virtual {p0, p1}, Landroid/widget/LinearLayout;->setLayoutAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    return-void
-.end method
-
-.method public setLockscreenMode(I)V
-    .locals 2
-
-    iput p1, p0, Lcom/android/keyguard/KeyguardSliceView$Row;->mLockScreenModeRow:I
-
-    const/4 v0, 0x1
-
-    if-ne p1, v0, :cond_0
-
-    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->setOrientation(I)V
-
-    const p1, 0x800003
-
-    invoke-virtual {p0, p1}, Landroid/widget/LinearLayout;->setGravity(I)V
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p1, 0x0
-
-    invoke-virtual {p0, p1}, Landroid/widget/LinearLayout;->setOrientation(I)V
-
-    const/16 p1, 0x11
-
-    invoke-virtual {p0, p1}, Landroid/widget/LinearLayout;->setGravity(I)V
-
-    :goto_0
-    iget-object p1, p0, Lcom/android/keyguard/KeyguardSliceView$Row;->mKeyguardSliceTextViewSet:Ljava/util/Set;
-
-    invoke-interface {p1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object p1
-
-    :goto_1
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/keyguard/KeyguardSliceView$KeyguardSliceTextView;
-
-    iget v1, p0, Lcom/android/keyguard/KeyguardSliceView$Row;->mLockScreenModeRow:I
-
-    invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardSliceView$KeyguardSliceTextView;->setLockScreenMode(I)V
-
-    goto :goto_1
-
-    :cond_1
     return-void
 .end method

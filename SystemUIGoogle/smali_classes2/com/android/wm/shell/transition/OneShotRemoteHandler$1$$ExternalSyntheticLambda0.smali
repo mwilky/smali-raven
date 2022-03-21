@@ -6,20 +6,28 @@
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/wm/shell/transition/Transitions$TransitionFinishCallback;
+.field public final synthetic f$0:Landroid/view/SurfaceControl$Transaction;
 
-.field public final synthetic f$1:Landroid/window/WindowContainerTransaction;
+.field public final synthetic f$1:Landroid/view/SurfaceControl$Transaction;
+
+.field public final synthetic f$2:Lcom/android/wm/shell/transition/Transitions$TransitionFinishCallback;
+
+.field public final synthetic f$3:Landroid/window/WindowContainerTransaction;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/wm/shell/transition/Transitions$TransitionFinishCallback;Landroid/window/WindowContainerTransaction;)V
+.method public synthetic constructor <init>(Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl$Transaction;Lcom/android/wm/shell/transition/Transitions$TransitionFinishCallback;Landroid/window/WindowContainerTransaction;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/wm/shell/transition/OneShotRemoteHandler$1$$ExternalSyntheticLambda0;->f$0:Lcom/android/wm/shell/transition/Transitions$TransitionFinishCallback;
+    iput-object p1, p0, Lcom/android/wm/shell/transition/OneShotRemoteHandler$1$$ExternalSyntheticLambda0;->f$0:Landroid/view/SurfaceControl$Transaction;
 
-    iput-object p2, p0, Lcom/android/wm/shell/transition/OneShotRemoteHandler$1$$ExternalSyntheticLambda0;->f$1:Landroid/window/WindowContainerTransaction;
+    iput-object p2, p0, Lcom/android/wm/shell/transition/OneShotRemoteHandler$1$$ExternalSyntheticLambda0;->f$1:Landroid/view/SurfaceControl$Transaction;
+
+    iput-object p3, p0, Lcom/android/wm/shell/transition/OneShotRemoteHandler$1$$ExternalSyntheticLambda0;->f$2:Lcom/android/wm/shell/transition/Transitions$TransitionFinishCallback;
+
+    iput-object p4, p0, Lcom/android/wm/shell/transition/OneShotRemoteHandler$1$$ExternalSyntheticLambda0;->f$3:Landroid/window/WindowContainerTransaction;
 
     return-void
 .end method
@@ -27,13 +35,17 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/wm/shell/transition/OneShotRemoteHandler$1$$ExternalSyntheticLambda0;->f$0:Lcom/android/wm/shell/transition/Transitions$TransitionFinishCallback;
+    iget-object v0, p0, Lcom/android/wm/shell/transition/OneShotRemoteHandler$1$$ExternalSyntheticLambda0;->f$0:Landroid/view/SurfaceControl$Transaction;
 
-    iget-object p0, p0, Lcom/android/wm/shell/transition/OneShotRemoteHandler$1$$ExternalSyntheticLambda0;->f$1:Landroid/window/WindowContainerTransaction;
+    iget-object v1, p0, Lcom/android/wm/shell/transition/OneShotRemoteHandler$1$$ExternalSyntheticLambda0;->f$1:Landroid/view/SurfaceControl$Transaction;
 
-    invoke-static {v0, p0}, Lcom/android/wm/shell/transition/OneShotRemoteHandler$1;->$r8$lambda$EvfvUaRBJyghb5sipkKLYMwClwQ(Lcom/android/wm/shell/transition/Transitions$TransitionFinishCallback;Landroid/window/WindowContainerTransaction;)V
+    iget-object v2, p0, Lcom/android/wm/shell/transition/OneShotRemoteHandler$1$$ExternalSyntheticLambda0;->f$2:Lcom/android/wm/shell/transition/Transitions$TransitionFinishCallback;
+
+    iget-object p0, p0, Lcom/android/wm/shell/transition/OneShotRemoteHandler$1$$ExternalSyntheticLambda0;->f$3:Landroid/window/WindowContainerTransaction;
+
+    invoke-static {v0, v1, v2, p0}, Lcom/android/wm/shell/transition/OneShotRemoteHandler$1;->$r8$lambda$LZb2lHv8BmzZc0DQQd426gau52s(Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl$Transaction;Lcom/android/wm/shell/transition/Transitions$TransitionFinishCallback;Landroid/window/WindowContainerTransaction;)V
 
     return-void
 .end method

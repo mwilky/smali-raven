@@ -32,18 +32,6 @@
         <item quantity="other">Ez da zuzena SIM txartelaren PUK kodea. %d saiakera geratzen zaizkizu SIM txartela betiko erabilgaitz geratu aurretik.</item>
         <item quantity="one">Ez da zuzena SIM txartelaren PUK kodea. %d saiakera geratzen zaizu SIM txartela betiko erabilgaitz geratu aurretik.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">Gailua ez da desblokeatu %d orduz. Berretsi pasahitza.</item>
-        <item quantity="one">Gailua ez da desblokeatu %d orduz. Berretsi pasahitza.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">Gailua ez da desblokeatu %d orduz. Berretsi eredua.</item>
-        <item quantity="one">Gailua ez da desblokeatu %d orduz. Berretsi eredua.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">Gailua ez da desblokeatu %d orduz. Berretsi PINa.</item>
-        <item quantity="one">Gailua ez da desblokeatu %d orduz. Berretsi PINa.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">Saiatu berriro %d segundo igarotakoan.</item>
         <item quantity="one">Saiatu berriro segundo bat igarotakoan.</item>

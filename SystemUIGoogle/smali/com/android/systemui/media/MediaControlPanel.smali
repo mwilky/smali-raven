@@ -24,7 +24,11 @@
 
 .field private mDevicePadding:I
 
+.field private final mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
+
 .field protected mInstanceId:I
+
+.field protected mIsImpressed:Z
 
 .field private mKey:Ljava/lang/String;
 
@@ -55,6 +59,8 @@
 .field private final mSeekBarViewModel:Lcom/android/systemui/media/SeekBarViewModel;
 
 .field private mSmartspaceMediaItemsCount:I
+
+.field private mSystemClock:Lcom/android/systemui/util/time/SystemClock;
 
 .field private mToken:Landroid/media/session/MediaSession$Token;
 
@@ -240,7 +246,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Ljava/util/concurrent/Executor;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/media/MediaViewController;Lcom/android/systemui/media/SeekBarViewModel;Ldagger/Lazy;Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;Lcom/android/systemui/media/MediaCarouselController;)V
+.method public constructor <init>(Landroid/content/Context;Ljava/util/concurrent/Executor;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/media/MediaViewController;Lcom/android/systemui/media/SeekBarViewModel;Ldagger/Lazy;Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;Lcom/android/systemui/media/MediaCarouselController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/util/time/SystemClock;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -256,6 +262,8 @@
             "Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;",
             "Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;",
             "Lcom/android/systemui/media/MediaCarouselController;",
+            "Lcom/android/systemui/plugins/FalsingManager;",
+            "Lcom/android/systemui/util/time/SystemClock;",
             ")V"
         }
     .end annotation
@@ -267,6 +275,10 @@
     iput v0, p0, Lcom/android/systemui/media/MediaControlPanel;->mInstanceId:I
 
     iput v0, p0, Lcom/android/systemui/media/MediaControlPanel;->mUid:I
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/systemui/media/MediaControlPanel;->mIsImpressed:Z
 
     iput-object p1, p0, Lcom/android/systemui/media/MediaControlPanel;->mContext:Landroid/content/Context;
 
@@ -285,6 +297,10 @@
     iput-object p8, p0, Lcom/android/systemui/media/MediaControlPanel;->mMediaOutputDialogFactory:Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;
 
     iput-object p9, p0, Lcom/android/systemui/media/MediaControlPanel;->mMediaCarouselController:Lcom/android/systemui/media/MediaCarouselController;
+
+    iput-object p10, p0, Lcom/android/systemui/media/MediaControlPanel;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
+
+    iput-object p11, p0, Lcom/android/systemui/media/MediaControlPanel;->mSystemClock:Lcom/android/systemui/util/time/SystemClock;
 
     invoke-direct {p0}, Lcom/android/systemui/media/MediaControlPanel;->loadDimens()V
 
@@ -417,24 +433,44 @@
 .end method
 
 .method private synthetic lambda$attachPlayer$2(Landroid/view/View;)V
-    .locals 0
+    .locals 1
+
+    iget-object p1, p0, Lcom/android/systemui/media/MediaControlPanel;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
+
+    const/4 v0, 0x1
+
+    invoke-interface {p1, v0}, Lcom/android/systemui/plugins/FalsingManager;->isFalseTap(I)Z
+
+    move-result p1
+
+    if-nez p1, :cond_0
 
     invoke-direct {p0}, Lcom/android/systemui/media/MediaControlPanel;->closeGuts()V
 
+    :cond_0
     return-void
 .end method
 
 .method private synthetic lambda$attachPlayer$3(Landroid/view/View;)V
     .locals 1
 
+    iget-object p1, p0, Lcom/android/systemui/media/MediaControlPanel;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
+
+    const/4 v0, 0x1
+
+    invoke-interface {p1, v0}, Lcom/android/systemui/plugins/FalsingManager;->isFalseTap(I)Z
+
+    move-result p1
+
+    if-nez p1, :cond_0
+
     iget-object p0, p0, Lcom/android/systemui/media/MediaControlPanel;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
 
     sget-object p1, Lcom/android/systemui/media/MediaControlPanel;->SETTINGS_INTENT:Landroid/content/Intent;
 
-    const/4 v0, 0x1
-
     invoke-interface {p0, p1, v0}, Lcom/android/systemui/plugins/ActivityStarter;->startActivity(Landroid/content/Intent;Z)V
 
+    :cond_0
     return-void
 .end method
 
@@ -462,24 +498,44 @@
 .end method
 
 .method private synthetic lambda$attachRecommendation$5(Landroid/view/View;)V
-    .locals 0
+    .locals 1
+
+    iget-object p1, p0, Lcom/android/systemui/media/MediaControlPanel;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
+
+    const/4 v0, 0x1
+
+    invoke-interface {p1, v0}, Lcom/android/systemui/plugins/FalsingManager;->isFalseTap(I)Z
+
+    move-result p1
+
+    if-nez p1, :cond_0
 
     invoke-direct {p0}, Lcom/android/systemui/media/MediaControlPanel;->closeGuts()V
 
+    :cond_0
     return-void
 .end method
 
 .method private synthetic lambda$attachRecommendation$6(Landroid/view/View;)V
     .locals 1
 
+    iget-object p1, p0, Lcom/android/systemui/media/MediaControlPanel;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
+
+    const/4 v0, 0x1
+
+    invoke-interface {p1, v0}, Lcom/android/systemui/plugins/FalsingManager;->isFalseTap(I)Z
+
+    move-result p1
+
+    if-nez p1, :cond_0
+
     iget-object p0, p0, Lcom/android/systemui/media/MediaControlPanel;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
 
     sget-object p1, Lcom/android/systemui/media/MediaControlPanel;->SETTINGS_INTENT:Landroid/content/Intent;
 
-    const/4 v0, 0x1
-
     invoke-interface {p0, p1, v0}, Lcom/android/systemui/plugins/ActivityStarter;->startActivity(Landroid/content/Intent;Z)V
 
+    :cond_0
     return-void
 .end method
 
@@ -496,6 +552,19 @@
 .method private synthetic lambda$bindPlayer$11(Ljava/lang/String;Lcom/android/systemui/media/MediaData;Landroid/view/View;)V
     .locals 6
 
+    iget-object p3, p0, Lcom/android/systemui/media/MediaControlPanel;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
+
+    const/4 v0, 0x1
+
+    invoke-interface {p3, v0}, Lcom/android/systemui/plugins/FalsingManager;->isFalseTap(I)Z
+
+    move-result p3
+
+    if-eqz p3, :cond_0
+
+    return-void
+
+    :cond_0
     const/16 p3, 0x2f9
 
     const/4 v0, 0x0
@@ -506,7 +575,7 @@
 
     const-string v1, "MediaControlPanel"
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_1
 
     invoke-direct {p0}, Lcom/android/systemui/media/MediaControlPanel;->closeGuts()V
 
@@ -530,7 +599,7 @@
 
     move-result p2
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_2
 
     new-instance p2, Ljava/lang/StringBuilder;
 
@@ -556,7 +625,7 @@
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     new-instance p0, Ljava/lang/StringBuilder;
 
     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
@@ -581,7 +650,7 @@
 
     invoke-static {v1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1
+    :cond_2
     :goto_0
     return-void
 .end method
@@ -589,9 +658,11 @@
 .method private synthetic lambda$bindPlayer$7(Landroid/app/PendingIntent;Landroid/view/View;)V
     .locals 1
 
-    iget-object p2, p0, Lcom/android/systemui/media/MediaControlPanel;->mMediaViewController:Lcom/android/systemui/media/MediaViewController;
+    iget-object p2, p0, Lcom/android/systemui/media/MediaControlPanel;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
 
-    invoke-virtual {p2}, Lcom/android/systemui/media/MediaViewController;->isGutsVisible()Z
+    const/4 v0, 0x1
+
+    invoke-interface {p2, v0}, Lcom/android/systemui/plugins/FalsingManager;->isFalseTap(I)Z
 
     move-result p2
 
@@ -600,6 +671,17 @@
     return-void
 
     :cond_0
+    iget-object p2, p0, Lcom/android/systemui/media/MediaControlPanel;->mMediaViewController:Lcom/android/systemui/media/MediaViewController;
+
+    invoke-virtual {p2}, Lcom/android/systemui/media/MediaViewController;->isGutsVisible()Z
+
+    move-result p2
+
+    if-eqz p2, :cond_1
+
+    return-void
+
+    :cond_1
     const/16 p2, 0x2f8
 
     const/4 v0, 0x0
@@ -624,23 +706,48 @@
 .end method
 
 .method private synthetic lambda$bindPlayer$8(Lcom/android/systemui/media/MediaData;Landroid/view/View;)V
-    .locals 0
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/systemui/media/MediaControlPanel;->mMediaOutputDialogFactory:Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;
+    iget-object p2, p0, Lcom/android/systemui/media/MediaControlPanel;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
+
+    const/4 v0, 0x1
+
+    invoke-interface {p2, v0}, Lcom/android/systemui/plugins/FalsingManager;->isFalseTap(I)Z
+
+    move-result p2
+
+    if-nez p2, :cond_0
+
+    iget-object p2, p0, Lcom/android/systemui/media/MediaControlPanel;->mMediaOutputDialogFactory:Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;
 
     invoke-virtual {p1}, Lcom/android/systemui/media/MediaData;->getPackageName()Ljava/lang/String;
 
     move-result-object p1
 
-    const/4 p2, 0x1
+    iget-object p0, p0, Lcom/android/systemui/media/MediaControlPanel;->mPlayerViewHolder:Lcom/android/systemui/media/PlayerViewHolder;
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;->create(Ljava/lang/String;Z)V
+    invoke-virtual {p0}, Lcom/android/systemui/media/PlayerViewHolder;->getSeamlessButton()Landroid/view/View;
 
+    move-result-object p0
+
+    invoke-virtual {p2, p1, v0, p0}, Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;->create(Ljava/lang/String;ZLandroid/view/View;)V
+
+    :cond_0
     return-void
 .end method
 
 .method private synthetic lambda$bindPlayer$9(Ljava/lang/Runnable;Landroid/view/View;)V
     .locals 1
+
+    iget-object p2, p0, Lcom/android/systemui/media/MediaControlPanel;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
+
+    const/4 v0, 0x1
+
+    invoke-interface {p2, v0}, Lcom/android/systemui/plugins/FalsingManager;->isFalseTap(I)Z
+
+    move-result p2
+
+    if-nez p2, :cond_0
 
     const/16 p2, 0x2f8
 
@@ -650,6 +757,7 @@
 
     invoke-interface {p1}, Ljava/lang/Runnable;->run()V
 
+    :cond_0
     return-void
 .end method
 
@@ -675,9 +783,20 @@
 .method private synthetic lambda$bindRecommendation$13(Lcom/android/systemui/media/SmartspaceMediaData;Landroid/view/View;)V
     .locals 5
 
-    const/16 p2, 0x2f9
+    iget-object p2, p0, Lcom/android/systemui/media/MediaControlPanel;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
 
     const/4 v0, 0x1
+
+    invoke-interface {p2, v0}, Lcom/android/systemui/plugins/FalsingManager;->isFalseTap(I)Z
+
+    move-result p2
+
+    if-eqz p2, :cond_0
+
+    return-void
+
+    :cond_0
+    const/16 p2, 0x2f9
 
     invoke-direct {p0, p2, v0}, Lcom/android/systemui/media/MediaControlPanel;->logSmartspaceCardReported(IZ)V
 
@@ -707,7 +826,7 @@
 
     move-result-object p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_1
 
     const-string p0, "MediaControlPanel"
 
@@ -717,12 +836,12 @@
 
     return-void
 
-    :cond_0
+    :cond_1
     invoke-virtual {p1}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
     move-result-object p2
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_2
 
     invoke-virtual {p1}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
@@ -738,7 +857,7 @@
 
     move-result p2
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_2
 
     iget-object p0, p0, Lcom/android/systemui/media/MediaControlPanel;->mContext:Landroid/content/Context;
 
@@ -746,7 +865,7 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     iget-object p0, p0, Lcom/android/systemui/media/MediaControlPanel;->mContext:Landroid/content/Context;
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
@@ -772,21 +891,32 @@
 .method private synthetic lambda$setSmartspaceRecItemOnClickListener$14(ILandroid/app/smartspace/SmartspaceAction;Landroid/view/View;Landroid/view/View;)V
     .locals 2
 
-    invoke-direct {p0}, Lcom/android/systemui/media/MediaControlPanel;->getSmartspaceSubCardCardinality()I
+    iget-object p4, p0, Lcom/android/systemui/media/MediaControlPanel;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
+
+    const/4 v0, 0x1
+
+    invoke-interface {p4, v0}, Lcom/android/systemui/plugins/FalsingManager;->isFalseTap(I)Z
 
     move-result p4
 
-    const/16 v0, 0x2f8
+    if-eqz p4, :cond_0
 
-    const/4 v1, 0x1
+    return-void
 
-    invoke-direct {p0, v0, v1, p1, p4}, Lcom/android/systemui/media/MediaControlPanel;->logSmartspaceCardReported(IZII)V
+    :cond_0
+    const/16 p4, 0x2f8
+
+    invoke-direct {p0}, Lcom/android/systemui/media/MediaControlPanel;->getSmartspaceSubCardCardinality()I
+
+    move-result v1
+
+    invoke-direct {p0, p4, v0, p1, v1}, Lcom/android/systemui/media/MediaControlPanel;->logSmartspaceCardReported(IZII)V
 
     invoke-direct {p0, p2}, Lcom/android/systemui/media/MediaControlPanel;->shouldSmartspaceRecItemOpenInForeground(Landroid/app/smartspace/SmartspaceAction;)Z
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
     iget-object p1, p0, Lcom/android/systemui/media/MediaControlPanel;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
 
@@ -810,7 +940,7 @@
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     invoke-virtual {p3}, Landroid/view/View;->getContext()Landroid/content/Context;
 
     move-result-object p1
@@ -824,7 +954,7 @@
     :goto_0
     iget-object p0, p0, Lcom/android/systemui/media/MediaControlPanel;->mMediaCarouselController:Lcom/android/systemui/media/MediaCarouselController;
 
-    invoke-virtual {p0, v1}, Lcom/android/systemui/media/MediaCarouselController;->setShouldScrollToActivePlayer(Z)V
+    invoke-virtual {p0, v0}, Lcom/android/systemui/media/MediaCarouselController;->setShouldScrollToActivePlayer(Z)V
 
     return-void
 .end method
@@ -882,9 +1012,17 @@
 
     iget v3, p0, Lcom/android/systemui/media/MediaControlPanel;->mUid:I
 
+    const/4 v1, 0x1
+
+    new-array v5, v1, [I
+
     invoke-virtual {p0}, Lcom/android/systemui/media/MediaControlPanel;->getSurfaceForSmartspaceLogging()I
 
-    move-result v5
+    move-result p0
+
+    const/4 v1, 0x0
+
+    aput p0, v5, v1
 
     move v1, p1
 
@@ -894,7 +1032,7 @@
 
     move v7, p4
 
-    invoke-virtual/range {v0 .. v7}, Lcom/android/systemui/media/MediaCarouselController;->logSmartspaceCardReported(IIIZIII)V
+    invoke-virtual/range {v0 .. v7}, Lcom/android/systemui/media/MediaCarouselController;->logSmartspaceCardReported(IIIZ[III)V
 
     return-void
 .end method
@@ -1478,7 +1616,23 @@
     invoke-static {v4, v7, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
+    iget v0, v1, Lcom/android/systemui/media/MediaControlPanel;->mInstanceId:I
+
+    const/4 v7, -0x1
+
+    if-ne v0, v7, :cond_1
+
     iget v0, v1, Lcom/android/systemui/media/MediaControlPanel;->mUid:I
+
+    iget-object v7, v1, Lcom/android/systemui/media/MediaControlPanel;->mSystemClock:Lcom/android/systemui/util/time/SystemClock;
+
+    invoke-interface {v7}, Lcom/android/systemui/util/time/SystemClock;->currentTimeMillis()J
+
+    move-result-wide v7
+
+    long-to-int v7, v7
+
+    add-int/2addr v0, v7
 
     invoke-static {v0}, Lcom/android/systemui/media/SmallHash;->hash(I)I
 
@@ -1486,6 +1640,7 @@
 
     iput v0, v1, Lcom/android/systemui/media/MediaControlPanel;->mInstanceId:I
 
+    :cond_1
     invoke-virtual/range {p1 .. p1}, Lcom/android/systemui/media/MediaData;->getBackgroundColor()I
 
     move-result v0
@@ -1494,21 +1649,21 @@
 
     iget-object v0, v1, Lcom/android/systemui/media/MediaControlPanel;->mToken:Landroid/media/session/MediaSession$Token;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     invoke-virtual {v0, v5}, Landroid/media/session/MediaSession$Token;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_2
-
-    :cond_1
-    iput-object v5, v1, Lcom/android/systemui/media/MediaControlPanel;->mToken:Landroid/media/session/MediaSession$Token;
+    if-nez v0, :cond_3
 
     :cond_2
+    iput-object v5, v1, Lcom/android/systemui/media/MediaControlPanel;->mToken:Landroid/media/session/MediaSession$Token;
+
+    :cond_3
     iget-object v0, v1, Lcom/android/systemui/media/MediaControlPanel;->mToken:Landroid/media/session/MediaSession$Token;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     new-instance v0, Landroid/media/session/MediaController;
 
@@ -1522,7 +1677,7 @@
 
     goto :goto_1
 
-    :cond_3
+    :cond_4
     const/4 v0, 0x0
 
     iput-object v0, v1, Lcom/android/systemui/media/MediaControlPanel;->mController:Landroid/media/session/MediaController;
@@ -1544,7 +1699,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
     iget-object v8, v1, Lcom/android/systemui/media/MediaControlPanel;->mPlayerViewHolder:Lcom/android/systemui/media/PlayerViewHolder;
 
@@ -1558,7 +1713,7 @@
 
     invoke-virtual {v8, v9}, Landroid/view/ViewGroup;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    :cond_4
+    :cond_5
     iget-object v0, v1, Lcom/android/systemui/media/MediaControlPanel;->mPlayerViewHolder:Lcom/android/systemui/media/PlayerViewHolder;
 
     invoke-virtual {v0}, Lcom/android/systemui/media/PlayerViewHolder;->getPlayer()Lcom/android/systemui/util/animation/TransitionLayout;
@@ -1611,17 +1766,17 @@
 
     move-result-object v8
 
-    if-eqz v8, :cond_5
+    if-eqz v8, :cond_6
 
     move v8, v12
 
     goto :goto_2
 
-    :cond_5
+    :cond_6
     move v8, v6
 
     :goto_2
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_7
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/systemui/media/MediaData;->getArtwork()Landroid/graphics/drawable/Icon;
 
@@ -1637,12 +1792,12 @@
 
     goto :goto_4
 
-    :cond_6
+    :cond_7
     invoke-virtual/range {p1 .. p1}, Lcom/android/systemui/media/MediaData;->getDevice()Lcom/android/systemui/media/MediaDeviceData;
 
     move-result-object v8
 
-    if-eqz v8, :cond_7
+    if-eqz v8, :cond_8
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/systemui/media/MediaData;->getDevice()Lcom/android/systemui/media/MediaDeviceData;
 
@@ -1652,7 +1807,7 @@
 
     move-result-object v8
 
-    if-eqz v8, :cond_7
+    if-eqz v8, :cond_8
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/systemui/media/MediaData;->getDevice()Lcom/android/systemui/media/MediaDeviceData;
 
@@ -1676,7 +1831,7 @@
 
     goto :goto_3
 
-    :cond_7
+    :cond_8
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/media/MediaControlPanel;->getContext()Landroid/content/Context;
 
     move-result-object v8
@@ -1715,13 +1870,13 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_9
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/systemui/media/MediaData;->getResumption()Z
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_9
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/systemui/media/MediaData;->getAppIcon()Landroid/graphics/drawable/Icon;
 
@@ -1741,7 +1896,7 @@
 
     goto :goto_5
 
-    :cond_8
+    :cond_9
     invoke-direct/range {p0 .. p0}, Lcom/android/systemui/media/MediaControlPanel;->getGrayscaleFilter()Landroid/graphics/ColorMatrixColorFilter;
 
     move-result-object v0
@@ -1867,39 +2022,39 @@
 
     move-result v11
 
-    if-eqz v10, :cond_9
+    if-eqz v10, :cond_a
 
     invoke-virtual {v10}, Lcom/android/systemui/media/MediaDeviceData;->getEnabled()Z
-
-    move-result v13
-
-    if-eqz v13, :cond_a
-
-    :cond_9
-    invoke-virtual/range {p1 .. p1}, Lcom/android/systemui/media/MediaData;->getResumption()Z
 
     move-result v13
 
     if-eqz v13, :cond_b
 
     :cond_a
+    invoke-virtual/range {p1 .. p1}, Lcom/android/systemui/media/MediaData;->getResumption()Z
+
+    move-result v13
+
+    if-eqz v13, :cond_c
+
+    :cond_b
     move v13, v12
 
     goto :goto_6
 
-    :cond_b
+    :cond_c
     move v13, v6
 
     :goto_6
     const/high16 v15, 0x3f800000    # 1.0f
 
-    if-eqz v13, :cond_c
+    if-eqz v13, :cond_d
 
     const v14, 0x3ec28f5c    # 0.38f
 
     goto :goto_7
 
-    :cond_c
+    :cond_d
     move v14, v15
 
     :goto_7
@@ -1917,13 +2072,13 @@
 
     invoke-virtual {v11, v13}, Landroid/view/ViewGroup;->setEnabled(Z)V
 
-    if-eqz v10, :cond_e
+    if-eqz v10, :cond_f
 
     invoke-virtual {v10}, Lcom/android/systemui/media/MediaDeviceData;->getEnabled()Z
 
     move-result v11
 
-    if-eqz v11, :cond_e
+    if-eqz v11, :cond_f
 
     invoke-virtual {v10}, Lcom/android/systemui/media/MediaDeviceData;->getIcon()Landroid/graphics/drawable/Drawable;
 
@@ -1931,7 +2086,7 @@
 
     instance-of v11, v4, Lcom/android/settingslib/widget/AdaptiveIcon;
 
-    if-eqz v11, :cond_d
+    if-eqz v11, :cond_e
 
     check-cast v4, Lcom/android/settingslib/widget/AdaptiveIcon;
 
@@ -1943,7 +2098,7 @@
 
     goto :goto_8
 
-    :cond_d
+    :cond_e
     invoke-virtual {v8, v4}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     :goto_8
@@ -1953,7 +2108,7 @@
 
     goto :goto_9
 
-    :cond_e
+    :cond_f
     new-instance v11, Ljava/lang/StringBuilder;
 
     invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
@@ -2006,13 +2161,13 @@
 
     move-result v9
 
-    if-ge v8, v9, :cond_10
+    if-ge v8, v9, :cond_11
 
     sget-object v9, Lcom/android/systemui/media/MediaControlPanel;->ACTION_IDS:[I
 
     array-length v10, v9
 
-    if-ge v8, v10, :cond_10
+    if-ge v8, v10, :cond_11
 
     aget v9, v9, v8
 
@@ -2044,13 +2199,13 @@
 
     move-result-object v11
 
-    if-nez v11, :cond_f
+    if-nez v11, :cond_10
 
     invoke-virtual {v10, v6}, Landroid/widget/ImageButton;->setEnabled(Z)V
 
     goto :goto_b
 
-    :cond_f
+    :cond_10
     invoke-virtual {v10, v12}, Landroid/widget/ImageButton;->setEnabled(Z)V
 
     new-instance v13, Lcom/android/systemui/media/MediaControlPanel$$ExternalSyntheticLambda8;
@@ -2076,13 +2231,13 @@
 
     goto :goto_a
 
-    :cond_10
+    :cond_11
     :goto_c
     sget-object v0, Lcom/android/systemui/media/MediaControlPanel;->ACTION_IDS:[I
 
     array-length v9, v0
 
-    if-ge v8, v9, :cond_11
+    if-ge v8, v9, :cond_12
 
     aget v9, v0, v8
 
@@ -2096,12 +2251,12 @@
 
     goto :goto_c
 
-    :cond_11
+    :cond_12
     invoke-interface {v4}, Ljava/util/List;->size()I
 
     move-result v4
 
-    if-nez v4, :cond_12
+    if-nez v4, :cond_13
 
     aget v0, v0, v6
 
@@ -2109,7 +2264,7 @@
 
     invoke-virtual {v5, v0, v4}, Landroidx/constraintlayout/widget/ConstraintSet;->setVisibility(II)V
 
-    :cond_12
+    :cond_13
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/media/MediaControlPanel;->getController()Landroid/media/session/MediaController;
 
     move-result-object v0
@@ -2132,13 +2287,13 @@
 
     move-result-object v4
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_14
 
     sget v5, Lcom/android/systemui/R$string;->controls_media_close_session:I
 
     goto :goto_d
 
-    :cond_13
+    :cond_14
     sget v5, Lcom/android/systemui/R$string;->controls_media_active_session:I
 
     :goto_d
@@ -2150,13 +2305,13 @@
 
     move-result-object v4
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_15
 
     move v14, v15
 
     goto :goto_e
 
-    :cond_14
+    :cond_15
     const v14, 0x3ec28f5c    # 0.38f
 
     :goto_e

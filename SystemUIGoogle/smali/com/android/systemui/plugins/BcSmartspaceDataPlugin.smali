@@ -25,6 +25,8 @@
 # static fields
 .field public static final ACTION:Ljava/lang/String; = "com.android.systemui.action.PLUGIN_BC_SMARTSPACE_DATA"
 
+.field public static final TAG:Ljava/lang/String; = "BcSmartspaceDataPlugin"
+
 .field public static final VERSION:I = 0x1
 
 

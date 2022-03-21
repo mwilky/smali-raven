@@ -59,7 +59,7 @@
 
     const-string v5, "p"
 
-    const-string/jumbo v6, "u"
+    const-string v6, "u"
 
     filled-new-array/range {v1 .. v6}, [Ljava/lang/String;
 
@@ -85,7 +85,7 @@
 
     const-string v0, "cm"
 
-    const-string/jumbo v1, "tm"
+    const-string v1, "tm"
 
     const-string v2, "dr"
 

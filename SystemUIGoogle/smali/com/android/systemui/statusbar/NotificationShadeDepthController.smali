@@ -3,7 +3,7 @@
 .source "NotificationShadeDepthController.kt"
 
 # interfaces
-.implements Lcom/android/systemui/statusbar/phone/PanelExpansionListener;
+.implements Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionListener;
 .implements Lcom/android/systemui/Dumpable;
 
 
@@ -98,7 +98,7 @@
 
 .field private wakeAndUnlockBlurRadius:F
 
-.field private final wallpaperManager:Landroid/app/WallpaperManager;
+.field private final wallpaperController:Lcom/android/systemui/util/WallpaperController;
 
 
 # direct methods
@@ -116,7 +116,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/BlurUtils;Lcom/android/systemui/statusbar/phone/BiometricUnlockController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/view/Choreographer;Landroid/app/WallpaperManager;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/dump/DumpManager;)V
+.method public constructor <init>(Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/BlurUtils;Lcom/android/systemui/statusbar/phone/BiometricUnlockController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/view/Choreographer;Lcom/android/systemui/util/WallpaperController;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/dump/DumpManager;)V
     .locals 1
 
     const-string v0, "statusBarStateController"
@@ -139,7 +139,7 @@
 
     invoke-static {p5, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string/jumbo v0, "wallpaperManager"
+    const-string/jumbo v0, "wallpaperController"
 
     invoke-static {p6, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -167,7 +167,7 @@
 
     iput-object p5, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->choreographer:Landroid/view/Choreographer;
 
-    iput-object p6, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->wallpaperManager:Landroid/app/WallpaperManager;
+    iput-object p6, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->wallpaperController:Lcom/android/systemui/util/WallpaperController;
 
     iput-object p7, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->notificationShadeWindowController:Lcom/android/systemui/statusbar/NotificationShadeWindowController;
 
@@ -366,10 +366,10 @@
     return p0
 .end method
 
-.method public static final synthetic access$getWallpaperManager$p(Lcom/android/systemui/statusbar/NotificationShadeDepthController;)Landroid/app/WallpaperManager;
+.method public static final synthetic access$getWallpaperController$p(Lcom/android/systemui/statusbar/NotificationShadeDepthController;)Lcom/android/systemui/util/WallpaperController;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->wallpaperManager:Landroid/app/WallpaperManager;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->wallpaperController:Lcom/android/systemui/util/WallpaperController;
 
     return-object p0
 .end method
@@ -910,7 +910,7 @@
 
     move-result-object p2
 
-    const-string/jumbo p3, "transitionToFullShadeProgress: "
+    const-string p3, "transitionToFullShadeProgress: "
 
     invoke-static {p3, p2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1002,123 +1002,123 @@
     return p0
 .end method
 
-.method public onPanelExpansionChanged(FZ)V
-    .locals 9
+.method public onPanelExpansionChanged(FZZ)V
+    .locals 8
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtimeNanos()J
 
     move-result-wide v0
 
-    iget v2, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->panelPullDownMinFraction:F
+    iget p2, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->panelPullDownMinFraction:F
 
-    sub-float/2addr p1, v2
+    sub-float/2addr p1, p2
 
-    const/high16 v3, 0x3f800000    # 1.0f
+    const/high16 v2, 0x3f800000    # 1.0f
 
-    sub-float v2, v3, v2
+    sub-float p2, v2, p2
 
-    div-float/2addr p1, v2
+    div-float/2addr p1, p2
 
     invoke-static {p1}, Landroid/util/MathUtils;->saturate(F)F
 
     move-result p1
 
-    iget v2, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->shadeExpansion:F
+    iget p2, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->shadeExpansion:F
 
-    cmpg-float v2, v2, p1
+    cmpg-float p2, p2, p1
 
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
-    if-nez v2, :cond_0
+    if-nez p2, :cond_0
 
-    move v2, v4
+    move p2, v3
 
     goto :goto_0
 
     :cond_0
-    const/4 v2, 0x0
+    const/4 p2, 0x0
 
     :goto_0
-    if-eqz v2, :cond_1
+    if-eqz p2, :cond_1
 
-    iget-boolean v2, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->prevTracking:Z
+    iget-boolean p2, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->prevTracking:Z
 
-    if-ne v2, p2, :cond_1
+    if-ne p2, p3, :cond_1
 
     iput-wide v0, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->prevTimestamp:J
 
     return-void
 
     :cond_1
-    iget-wide v5, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->prevTimestamp:J
+    iget-wide v4, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->prevTimestamp:J
 
-    const-wide/16 v7, 0x0
+    const-wide/16 v6, 0x0
 
-    cmp-long v2, v5, v7
+    cmp-long p2, v4, v6
 
-    if-gez v2, :cond_2
+    if-gez p2, :cond_2
 
     iput-wide v0, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->prevTimestamp:J
 
     goto :goto_1
 
     :cond_2
-    sub-long v5, v0, v5
+    sub-long v4, v0, v4
 
-    long-to-double v5, v5
+    long-to-double v4, v4
 
-    const-wide v7, 0x41cdcd6500000000L    # 1.0E9
+    const-wide v6, 0x41cdcd6500000000L    # 1.0E9
 
-    div-double/2addr v5, v7
+    div-double/2addr v4, v6
 
-    double-to-float v2, v5
+    double-to-float p2, v4
 
-    const v5, 0x3727c5ac    # 1.0E-5f
+    const v4, 0x3727c5ac    # 1.0E-5f
 
-    invoke-static {v2, v5, v3}, Landroid/util/MathUtils;->constrain(FFF)F
-
-    move-result v3
-
-    :goto_1
-    iget v2, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->shadeExpansion:F
-
-    sub-float v2, p1, v2
-
-    invoke-static {v2}, Ljava/lang/Math;->signum(F)F
-
-    move-result v5
-
-    float-to-int v5, v5
-
-    const/high16 v6, 0x42c80000    # 100.0f
-
-    mul-float/2addr v2, v6
-
-    div-float/2addr v2, v3
-
-    const v3, -0x3ac48000    # -3000.0f
-
-    const v6, 0x453b8000    # 3000.0f
-
-    invoke-static {v2, v3, v6}, Landroid/util/MathUtils;->constrain(FFF)F
+    invoke-static {p2, v4, v2}, Landroid/util/MathUtils;->constrain(FFF)F
 
     move-result v2
 
-    invoke-direct {p0, p1, p2, v2, v5}, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->updateShadeAnimationBlur(FZFI)V
+    :goto_1
+    iget p2, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->shadeExpansion:F
 
-    iput v5, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->prevShadeDirection:I
+    sub-float p2, p1, p2
 
-    iput v2, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->prevShadeVelocity:F
+    invoke-static {p2}, Ljava/lang/Math;->signum(F)F
+
+    move-result v4
+
+    float-to-int v4, v4
+
+    const/high16 v5, 0x42c80000    # 100.0f
+
+    mul-float/2addr p2, v5
+
+    div-float/2addr p2, v2
+
+    const v2, -0x3ac48000    # -3000.0f
+
+    const v5, 0x453b8000    # 3000.0f
+
+    invoke-static {p2, v2, v5}, Landroid/util/MathUtils;->constrain(FFF)F
+
+    move-result p2
+
+    invoke-direct {p0, p1, p3, p2, v4}, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->updateShadeAnimationBlur(FZFI)V
+
+    iput v4, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->prevShadeDirection:I
+
+    iput p2, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->prevShadeVelocity:F
 
     iput p1, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->shadeExpansion:F
 
-    iput-boolean p2, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->prevTracking:Z
+    iput-boolean p3, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->prevTracking:Z
 
     iput-wide v0, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->prevTimestamp:J
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1, v4, p1}, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->scheduleUpdate$default(Lcom/android/systemui/statusbar/NotificationShadeDepthController;Landroid/view/View;ILjava/lang/Object;)V
+    invoke-static {p0, p1, v3, p1}, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->scheduleUpdate$default(Lcom/android/systemui/statusbar/NotificationShadeDepthController;Landroid/view/View;ILjava/lang/Object;)V
 
     return-void
 .end method

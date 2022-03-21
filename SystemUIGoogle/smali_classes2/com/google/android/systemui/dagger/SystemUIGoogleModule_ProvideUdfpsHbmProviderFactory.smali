@@ -78,19 +78,9 @@
     .end annotation
 .end field
 
-.field private final uiBgExecutorProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Ljava/util/concurrent/Executor;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -100,9 +90,6 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Landroid/os/Handler;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Ljava/util/concurrent/Executor;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/google/android/systemui/fingerprint/UdfpsGhbmProvider;",
@@ -125,21 +112,19 @@
 
     iput-object p2, p0, Lcom/google/android/systemui/dagger/SystemUIGoogleModule_ProvideUdfpsHbmProviderFactory;->mainHandlerProvider:Ljavax/inject/Provider;
 
-    iput-object p3, p0, Lcom/google/android/systemui/dagger/SystemUIGoogleModule_ProvideUdfpsHbmProviderFactory;->uiBgExecutorProvider:Ljavax/inject/Provider;
+    iput-object p3, p0, Lcom/google/android/systemui/dagger/SystemUIGoogleModule_ProvideUdfpsHbmProviderFactory;->ghbmProvider:Ljavax/inject/Provider;
 
-    iput-object p4, p0, Lcom/google/android/systemui/dagger/SystemUIGoogleModule_ProvideUdfpsHbmProviderFactory;->ghbmProvider:Ljavax/inject/Provider;
+    iput-object p4, p0, Lcom/google/android/systemui/dagger/SystemUIGoogleModule_ProvideUdfpsHbmProviderFactory;->lhbmProvider:Ljavax/inject/Provider;
 
-    iput-object p5, p0, Lcom/google/android/systemui/dagger/SystemUIGoogleModule_ProvideUdfpsHbmProviderFactory;->lhbmProvider:Ljavax/inject/Provider;
+    iput-object p5, p0, Lcom/google/android/systemui/dagger/SystemUIGoogleModule_ProvideUdfpsHbmProviderFactory;->authControllerProvider:Ljavax/inject/Provider;
 
-    iput-object p6, p0, Lcom/google/android/systemui/dagger/SystemUIGoogleModule_ProvideUdfpsHbmProviderFactory;->authControllerProvider:Ljavax/inject/Provider;
-
-    iput-object p7, p0, Lcom/google/android/systemui/dagger/SystemUIGoogleModule_ProvideUdfpsHbmProviderFactory;->displayManagerProvider:Ljavax/inject/Provider;
+    iput-object p6, p0, Lcom/google/android/systemui/dagger/SystemUIGoogleModule_ProvideUdfpsHbmProviderFactory;->displayManagerProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/google/android/systemui/dagger/SystemUIGoogleModule_ProvideUdfpsHbmProviderFactory;
-    .locals 9
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/google/android/systemui/dagger/SystemUIGoogleModule_ProvideUdfpsHbmProviderFactory;
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -148,9 +133,6 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Landroid/os/Handler;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Ljava/util/concurrent/Executor;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/google/android/systemui/fingerprint/UdfpsGhbmProvider;",
@@ -168,9 +150,9 @@
         }
     .end annotation
 
-    new-instance v8, Lcom/google/android/systemui/dagger/SystemUIGoogleModule_ProvideUdfpsHbmProviderFactory;
+    new-instance v7, Lcom/google/android/systemui/dagger/SystemUIGoogleModule_ProvideUdfpsHbmProviderFactory;
 
-    move-object v0, v8
+    move-object v0, v7
 
     move-object v1, p0
 
@@ -184,17 +166,15 @@
 
     move-object v6, p5
 
-    move-object v7, p6
+    invoke-direct/range {v0 .. v6}, Lcom/google/android/systemui/dagger/SystemUIGoogleModule_ProvideUdfpsHbmProviderFactory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
 
-    invoke-direct/range {v0 .. v7}, Lcom/google/android/systemui/dagger/SystemUIGoogleModule_ProvideUdfpsHbmProviderFactory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v8
+    return-object v7
 .end method
 
-.method public static provideUdfpsHbmProvider(Landroid/content/Context;Landroid/os/Handler;Ljava/util/concurrent/Executor;Lcom/google/android/systemui/fingerprint/UdfpsGhbmProvider;Lcom/google/android/systemui/fingerprint/UdfpsLhbmProvider;Lcom/android/systemui/biometrics/AuthController;Landroid/hardware/display/DisplayManager;)Lcom/android/systemui/biometrics/UdfpsHbmProvider;
+.method public static provideUdfpsHbmProvider(Landroid/content/Context;Landroid/os/Handler;Lcom/google/android/systemui/fingerprint/UdfpsGhbmProvider;Lcom/google/android/systemui/fingerprint/UdfpsLhbmProvider;Lcom/android/systemui/biometrics/AuthController;Landroid/hardware/display/DisplayManager;)Lcom/android/systemui/biometrics/UdfpsHbmProvider;
     .locals 0
 
-    invoke-static/range {p0 .. p6}, Lcom/google/android/systemui/dagger/SystemUIGoogleModule;->provideUdfpsHbmProvider(Landroid/content/Context;Landroid/os/Handler;Ljava/util/concurrent/Executor;Lcom/google/android/systemui/fingerprint/UdfpsGhbmProvider;Lcom/google/android/systemui/fingerprint/UdfpsLhbmProvider;Lcom/android/systemui/biometrics/AuthController;Landroid/hardware/display/DisplayManager;)Lcom/android/systemui/biometrics/UdfpsHbmProvider;
+    invoke-static/range {p0 .. p5}, Lcom/google/android/systemui/dagger/SystemUIGoogleModule;->provideUdfpsHbmProvider(Landroid/content/Context;Landroid/os/Handler;Lcom/google/android/systemui/fingerprint/UdfpsGhbmProvider;Lcom/google/android/systemui/fingerprint/UdfpsLhbmProvider;Lcom/android/systemui/biometrics/AuthController;Landroid/hardware/display/DisplayManager;)Lcom/android/systemui/biometrics/UdfpsHbmProvider;
 
     move-result-object p0
 
@@ -210,7 +190,7 @@
 
 # virtual methods
 .method public get()Lcom/android/systemui/biometrics/UdfpsHbmProvider;
-    .locals 8
+    .locals 7
 
     iget-object v0, p0, Lcom/google/android/systemui/dagger/SystemUIGoogleModule_ProvideUdfpsHbmProviderFactory;->contextProvider:Ljavax/inject/Provider;
 
@@ -232,7 +212,7 @@
 
     check-cast v2, Landroid/os/Handler;
 
-    iget-object v0, p0, Lcom/google/android/systemui/dagger/SystemUIGoogleModule_ProvideUdfpsHbmProviderFactory;->uiBgExecutorProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/google/android/systemui/dagger/SystemUIGoogleModule_ProvideUdfpsHbmProviderFactory;->ghbmProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -240,17 +220,7 @@
 
     move-object v3, v0
 
-    check-cast v3, Ljava/util/concurrent/Executor;
-
-    iget-object v0, p0, Lcom/google/android/systemui/dagger/SystemUIGoogleModule_ProvideUdfpsHbmProviderFactory;->ghbmProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v4, v0
-
-    check-cast v4, Lcom/google/android/systemui/fingerprint/UdfpsGhbmProvider;
+    check-cast v3, Lcom/google/android/systemui/fingerprint/UdfpsGhbmProvider;
 
     iget-object v0, p0, Lcom/google/android/systemui/dagger/SystemUIGoogleModule_ProvideUdfpsHbmProviderFactory;->lhbmProvider:Ljavax/inject/Provider;
 
@@ -258,9 +228,9 @@
 
     move-result-object v0
 
-    move-object v5, v0
+    move-object v4, v0
 
-    check-cast v5, Lcom/google/android/systemui/fingerprint/UdfpsLhbmProvider;
+    check-cast v4, Lcom/google/android/systemui/fingerprint/UdfpsLhbmProvider;
 
     iget-object v0, p0, Lcom/google/android/systemui/dagger/SystemUIGoogleModule_ProvideUdfpsHbmProviderFactory;->authControllerProvider:Ljavax/inject/Provider;
 
@@ -268,9 +238,9 @@
 
     move-result-object v0
 
-    move-object v6, v0
+    move-object v5, v0
 
-    check-cast v6, Lcom/android/systemui/biometrics/AuthController;
+    check-cast v5, Lcom/android/systemui/biometrics/AuthController;
 
     iget-object p0, p0, Lcom/google/android/systemui/dagger/SystemUIGoogleModule_ProvideUdfpsHbmProviderFactory;->displayManagerProvider:Ljavax/inject/Provider;
 
@@ -278,11 +248,11 @@
 
     move-result-object p0
 
-    move-object v7, p0
+    move-object v6, p0
 
-    check-cast v7, Landroid/hardware/display/DisplayManager;
+    check-cast v6, Landroid/hardware/display/DisplayManager;
 
-    invoke-static/range {v1 .. v7}, Lcom/google/android/systemui/dagger/SystemUIGoogleModule_ProvideUdfpsHbmProviderFactory;->provideUdfpsHbmProvider(Landroid/content/Context;Landroid/os/Handler;Ljava/util/concurrent/Executor;Lcom/google/android/systemui/fingerprint/UdfpsGhbmProvider;Lcom/google/android/systemui/fingerprint/UdfpsLhbmProvider;Lcom/android/systemui/biometrics/AuthController;Landroid/hardware/display/DisplayManager;)Lcom/android/systemui/biometrics/UdfpsHbmProvider;
+    invoke-static/range {v1 .. v6}, Lcom/google/android/systemui/dagger/SystemUIGoogleModule_ProvideUdfpsHbmProviderFactory;->provideUdfpsHbmProvider(Landroid/content/Context;Landroid/os/Handler;Lcom/google/android/systemui/fingerprint/UdfpsGhbmProvider;Lcom/google/android/systemui/fingerprint/UdfpsLhbmProvider;Lcom/android/systemui/biometrics/AuthController;Landroid/hardware/display/DisplayManager;)Lcom/android/systemui/biometrics/UdfpsHbmProvider;
 
     move-result-object p0
 

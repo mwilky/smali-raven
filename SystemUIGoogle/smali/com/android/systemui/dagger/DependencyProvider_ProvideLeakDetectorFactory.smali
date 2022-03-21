@@ -18,34 +18,65 @@
 
 
 # instance fields
+.field private final dumpManagerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final module:Lcom/android/systemui/dagger/DependencyProvider;
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/systemui/dagger/DependencyProvider;)V
+.method public constructor <init>(Lcom/android/systemui/dagger/DependencyProvider;Ljavax/inject/Provider;)V
     .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/android/systemui/dagger/DependencyProvider;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
+            ">;)V"
+        }
+    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/dagger/DependencyProvider_ProvideLeakDetectorFactory;->module:Lcom/android/systemui/dagger/DependencyProvider;
 
+    iput-object p2, p0, Lcom/android/systemui/dagger/DependencyProvider_ProvideLeakDetectorFactory;->dumpManagerProvider:Ljavax/inject/Provider;
+
     return-void
 .end method
 
-.method public static create(Lcom/android/systemui/dagger/DependencyProvider;)Lcom/android/systemui/dagger/DependencyProvider_ProvideLeakDetectorFactory;
+.method public static create(Lcom/android/systemui/dagger/DependencyProvider;Ljavax/inject/Provider;)Lcom/android/systemui/dagger/DependencyProvider_ProvideLeakDetectorFactory;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/android/systemui/dagger/DependencyProvider;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
+            ">;)",
+            "Lcom/android/systemui/dagger/DependencyProvider_ProvideLeakDetectorFactory;"
+        }
+    .end annotation
 
     new-instance v0, Lcom/android/systemui/dagger/DependencyProvider_ProvideLeakDetectorFactory;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/dagger/DependencyProvider_ProvideLeakDetectorFactory;-><init>(Lcom/android/systemui/dagger/DependencyProvider;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/systemui/dagger/DependencyProvider_ProvideLeakDetectorFactory;-><init>(Lcom/android/systemui/dagger/DependencyProvider;Ljavax/inject/Provider;)V
 
     return-object v0
 .end method
 
-.method public static provideLeakDetector(Lcom/android/systemui/dagger/DependencyProvider;)Lcom/android/systemui/util/leak/LeakDetector;
+.method public static provideLeakDetector(Lcom/android/systemui/dagger/DependencyProvider;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/util/leak/LeakDetector;
     .locals 0
 
-    invoke-virtual {p0}, Lcom/android/systemui/dagger/DependencyProvider;->provideLeakDetector()Lcom/android/systemui/util/leak/LeakDetector;
+    invoke-virtual {p0, p1}, Lcom/android/systemui/dagger/DependencyProvider;->provideLeakDetector(Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/util/leak/LeakDetector;
 
     move-result-object p0
 
@@ -61,11 +92,19 @@
 
 # virtual methods
 .method public get()Lcom/android/systemui/util/leak/LeakDetector;
-    .locals 0
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/systemui/dagger/DependencyProvider_ProvideLeakDetectorFactory;->module:Lcom/android/systemui/dagger/DependencyProvider;
+    iget-object v0, p0, Lcom/android/systemui/dagger/DependencyProvider_ProvideLeakDetectorFactory;->module:Lcom/android/systemui/dagger/DependencyProvider;
 
-    invoke-static {p0}, Lcom/android/systemui/dagger/DependencyProvider_ProvideLeakDetectorFactory;->provideLeakDetector(Lcom/android/systemui/dagger/DependencyProvider;)Lcom/android/systemui/util/leak/LeakDetector;
+    iget-object p0, p0, Lcom/android/systemui/dagger/DependencyProvider_ProvideLeakDetectorFactory;->dumpManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/systemui/dump/DumpManager;
+
+    invoke-static {v0, p0}, Lcom/android/systemui/dagger/DependencyProvider_ProvideLeakDetectorFactory;->provideLeakDetector(Lcom/android/systemui/dagger/DependencyProvider;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/util/leak/LeakDetector;
 
     move-result-object p0
 

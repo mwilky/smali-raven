@@ -38,7 +38,7 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/keyguard/KeyguardSecurityContainer;->access$302(Lcom/android/keyguard/KeyguardSecurityContainer;Landroid/view/ViewPropertyAnimator;)Landroid/view/ViewPropertyAnimator;
+    invoke-static {p0, p1}, Lcom/android/keyguard/KeyguardSecurityContainer;->access$302(Lcom/android/keyguard/KeyguardSecurityContainer;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
 
     return-void
 .end method

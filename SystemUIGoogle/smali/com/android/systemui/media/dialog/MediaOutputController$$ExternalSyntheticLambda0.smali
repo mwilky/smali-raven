@@ -2,34 +2,38 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/android/systemui/plugins/ActivityStarter$OnDismissAction;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/systemui/media/dialog/MediaOutputController;
+.field public final synthetic f$0:Lcom/android/settingslib/media/MediaDevice;
+
+.field public final synthetic f$1:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/media/dialog/MediaOutputController;)V
+.method public synthetic constructor <init>(Lcom/android/settingslib/media/MediaDevice;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/media/dialog/MediaOutputController$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/media/dialog/MediaOutputController;
+    iput-object p1, p0, Lcom/android/systemui/media/dialog/MediaOutputController$$ExternalSyntheticLambda0;->f$0:Lcom/android/settingslib/media/MediaDevice;
+
+    iput p2, p0, Lcom/android/systemui/media/dialog/MediaOutputController$$ExternalSyntheticLambda0;->f$1:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onDismiss()Z
-    .locals 0
+.method public final run()V
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/systemui/media/dialog/MediaOutputController$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/media/dialog/MediaOutputController;
+    iget-object v0, p0, Lcom/android/systemui/media/dialog/MediaOutputController$$ExternalSyntheticLambda0;->f$0:Lcom/android/settingslib/media/MediaDevice;
 
-    invoke-static {p0}, Lcom/android/systemui/media/dialog/MediaOutputController;->$r8$lambda$KING0QJ4KuOYGMQnnP8vCcodenI(Lcom/android/systemui/media/dialog/MediaOutputController;)Z
+    iget p0, p0, Lcom/android/systemui/media/dialog/MediaOutputController$$ExternalSyntheticLambda0;->f$1:I
 
-    move-result p0
+    invoke-static {v0, p0}, Lcom/android/systemui/media/dialog/MediaOutputController;->$r8$lambda$BbeRQNa3Pc3kbkfCXSZBGEaXiaI(Lcom/android/settingslib/media/MediaDevice;I)V
 
-    return p0
+    return-void
 .end method

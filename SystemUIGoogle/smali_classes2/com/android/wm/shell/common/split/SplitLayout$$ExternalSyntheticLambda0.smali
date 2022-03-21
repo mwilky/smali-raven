@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/common/split/SplitLayout$$ExternalSyntheticLambda0;->f$0:Lcom/android/wm/shell/common/split/SplitLayout;
 
-    invoke-static {p0, p1}, Lcom/android/wm/shell/common/split/SplitLayout;->$r8$lambda$fanpTAUMcvNjWd7aXkZ-6RP-ugo(Lcom/android/wm/shell/common/split/SplitLayout;Landroid/animation/ValueAnimator;)V
+    invoke-static {p0, p1}, Lcom/android/wm/shell/common/split/SplitLayout;->$r8$lambda$4Fv2uN32_6HTkZCx6CYjYXUjLmk(Lcom/android/wm/shell/common/split/SplitLayout;Landroid/animation/ValueAnimator;)V
 
     return-void
 .end method

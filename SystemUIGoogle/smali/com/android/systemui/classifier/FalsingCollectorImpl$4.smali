@@ -57,7 +57,7 @@
 
     move-result-object p0
 
-    invoke-virtual {p0}, Lcom/android/systemui/util/sensors/ProximitySensor;->resume()V
+    invoke-interface {p0}, Lcom/android/systemui/util/sensors/ThresholdSensor;->resume()V
 
     goto :goto_0
 
@@ -68,7 +68,7 @@
 
     move-result-object p0
 
-    invoke-virtual {p0}, Lcom/android/systemui/util/sensors/ProximitySensor;->pause()V
+    invoke-interface {p0}, Lcom/android/systemui/util/sensors/ThresholdSensor;->pause()V
 
     :goto_0
     return-void

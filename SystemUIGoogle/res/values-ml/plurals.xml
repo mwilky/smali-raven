@@ -32,18 +32,6 @@
         <item quantity="other">സിം PUK കോഡ് തെറ്റാണ്, സിം ശാശ്വതമായി ഉപയോഗശൂന്യമാകുന്നതിന് മുമ്പായി നിങ്ങൾക്ക് %d ശ്രമങ്ങൾ കൂടി ശേഷിക്കുന്നു.</item>
         <item quantity="one">സിം PUK കോഡ് തെറ്റാണ്, സിം ശാശ്വതമായി ഉപയോഗശൂന്യമാകുന്നതിന് മുമ്പായി നിങ്ങൾക്ക് %d ശ്രമം കൂടി ശേഷിക്കുന്നു.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">ഉപകരണം %d മണിക്കൂറായി അൺലോക്ക് ചെയ്തിട്ടില്ല. പാസ്‌വേഡ് സ്ഥിരീകരിക്കുക.</item>
-        <item quantity="one">ഉപകരണം %d മണിക്കൂറായി അൺലോക്ക് ചെയ്തിട്ടില്ല. പാസ്‌വേഡ് സ്ഥിരീകരിക്കുക.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">ഉപകരണം %d മണിക്കൂറായി അൺലോക്ക് ചെയ്തിട്ടില്ല. പാറ്റേൺ സ്ഥിരീകരിക്കുക.</item>
-        <item quantity="one">ഉപകരണം %d മണിക്കൂറായി അൺലോക്ക് ചെയ്തിട്ടില്ല. പാറ്റേൺ സ്ഥിരീകരിക്കുക.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">ഉപകരണം %d മണിക്കൂറായി അൺലോക്ക് ചെയ്തിട്ടില്ല. പിൻ സ്ഥിരീകരിക്കുക.</item>
-        <item quantity="one">ഉപകരണം %d മണിക്കൂറായി അൺലോക്ക് ചെയ്തിട്ടില്ല. പിൻ സ്ഥിരീകരിക്കുക.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">%d സെക്കൻഡുകൾക്കുള്ളിൽ വീണ്ടും ശ്രമിക്കുക.</item>
         <item quantity="one">ഒരു സെക്കൻഡിനുള്ളിൽ വീണ്ടും ശ്രമിക്കുക.</item>

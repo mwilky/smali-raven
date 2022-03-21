@@ -17,8 +17,8 @@
     c = "com.google.android.systemui.statusbar.notification.voicereplies.VoiceReplyTarget"
     f = "NotificationVoiceReplyManager.kt"
     l = {
-        0x2b6,
-        0x2bc
+        0x34f,
+        0x355
     }
     m = "awaitKeyguardNotOccluded"
 .end annotation

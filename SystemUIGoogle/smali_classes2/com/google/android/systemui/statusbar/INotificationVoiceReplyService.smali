@@ -15,6 +15,14 @@
 
 
 # virtual methods
+.method public abstract hideVisibleQuickPhraseCta()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract onVoiceAuthStateChanged(II)V
     .annotation system Ldalvik/annotation/Throws;
         value = {

@@ -2,6 +2,9 @@
 .super Ljava/lang/Object;
 .source "ActivityLaunchAnimator.kt"
 
+# interfaces
+.implements Lcom/android/systemui/animation/LaunchAnimator$Controller;
+
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
@@ -50,26 +53,8 @@
 
 
 # virtual methods
-.method public abstract createAnimatorState()Lcom/android/systemui/animation/ActivityLaunchAnimator$State;
-.end method
-
-.method public abstract getLaunchContainer()Landroid/view/ViewGroup;
-.end method
-
 .method public abstract onIntentStarted(Z)V
 .end method
 
 .method public abstract onLaunchAnimationCancelled()V
-.end method
-
-.method public abstract onLaunchAnimationEnd(Z)V
-.end method
-
-.method public abstract onLaunchAnimationProgress(Lcom/android/systemui/animation/ActivityLaunchAnimator$State;FF)V
-.end method
-
-.method public abstract onLaunchAnimationStart(Z)V
-.end method
-
-.method public abstract setLaunchContainer(Landroid/view/ViewGroup;)V
 .end method

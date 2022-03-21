@@ -160,7 +160,7 @@
 .end method
 
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 19
+    .locals 20
 
     move-object/from16 v0, p0
 
@@ -257,7 +257,7 @@
 
     invoke-static {v10, v11, v8, v9}, Ljava/lang/Math;->min(JJ)J
 
-    move-result-wide v10
+    move-result-wide v11
 
     const-string v2, "com.google.android.ambientindication.extra.SKIP_UNLOCK"
 
@@ -273,29 +273,35 @@
 
     move-result v8
 
+    const-string v2, "com.google.android.ambientindication.extra.ICON_DESCRIPTION"
+
+    invoke-virtual {v1, v2}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v10
+
     iget-object v4, v0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationService;->mAmbientIndicationContainer:Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;
 
-    invoke-virtual/range {v4 .. v9}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->setAmbientMusic(Ljava/lang/CharSequence;Landroid/app/PendingIntent;Landroid/app/PendingIntent;IZ)V
+    invoke-virtual/range {v4 .. v10}, Lcom/google/android/systemui/ambientmusic/AmbientIndicationContainer;->setAmbientMusic(Ljava/lang/CharSequence;Landroid/app/PendingIntent;Landroid/app/PendingIntent;IZLjava/lang/String;)V
 
-    iget-object v12, v0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationService;->mAlarmManager:Landroid/app/AlarmManager;
+    iget-object v13, v0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationService;->mAlarmManager:Landroid/app/AlarmManager;
 
-    const/4 v13, 0x2
+    const/4 v14, 0x2
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v1
 
-    add-long v14, v1, v10
+    add-long v15, v1, v11
 
     iget-object v0, v0, Lcom/google/android/systemui/ambientmusic/AmbientIndicationService;->mHideIndicationListener:Landroid/app/AlarmManager$OnAlarmListener;
 
-    const/16 v18, 0x0
+    const/16 v19, 0x0
 
-    const-string v16, "AmbientIndication"
+    const-string v17, "AmbientIndication"
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    invoke-virtual/range {v12 .. v18}, Landroid/app/AlarmManager;->setExact(IJLjava/lang/String;Landroid/app/AlarmManager$OnAlarmListener;Landroid/os/Handler;)V
+    invoke-virtual/range {v13 .. v19}, Landroid/app/AlarmManager;->setExact(IJLjava/lang/String;Landroid/app/AlarmManager$OnAlarmListener;Landroid/os/Handler;)V
 
     const-string v0, "Showing ambient indication."
 

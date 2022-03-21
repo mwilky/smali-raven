@@ -88,6 +88,26 @@
     .end annotation
 .end field
 
+.field private final dialogLaunchAnimatorProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/animation/DialogLaunchAnimator;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final dialogManagerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final globalSettingsProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -133,16 +153,6 @@
         value = {
             "Ljavax/inject/Provider<",
             "Landroid/view/IWindowManager;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final infoProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/globalactions/GlobalActionsInfoProvider;",
             ">;"
         }
     .end annotation
@@ -238,12 +248,13 @@
     .end annotation
 .end field
 
-.field private final statusBarProvider:Ljavax/inject/Provider;
+.field private final statusBarOptionalProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;"
+            ">;>;"
         }
     .end annotation
 .end field
@@ -340,7 +351,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -421,9 +432,6 @@
             "Lcom/android/internal/logging/UiEventLogger;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/globalactions/GlobalActionsInfoProvider;",
-            ">;",
-            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/util/RingerModeTracker;",
             ">;",
             "Ljavax/inject/Provider<",
@@ -436,10 +444,17 @@
             "Landroid/content/pm/PackageManager;",
             ">;",
             "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;",
+            ">;>;",
             "Ljavax/inject/Provider<",
             "Lcom/android/keyguard/KeyguardUpdateMonitor;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/animation/DialogLaunchAnimator;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;",
             ">;)V"
         }
     .end annotation
@@ -550,37 +565,41 @@
 
     move-object/from16 v1, p26
 
-    iput-object v1, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;->infoProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;->ringerModeTrackerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p27
 
-    iput-object v1, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;->ringerModeTrackerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;->sysUiStateProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p28
 
-    iput-object v1, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;->sysUiStateProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;->handlerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p29
 
-    iput-object v1, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;->handlerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;->packageManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p30
 
-    iput-object v1, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;->packageManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;->statusBarOptionalProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p31
 
-    iput-object v1, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;->statusBarProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;->keyguardUpdateMonitorProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p32
 
-    iput-object v1, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;->keyguardUpdateMonitorProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;->dialogLaunchAnimatorProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p33
+
+    iput-object v1, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;->dialogManagerProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;
-    .locals 34
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;
+    .locals 35
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -660,9 +679,6 @@
             "Lcom/android/internal/logging/UiEventLogger;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/globalactions/GlobalActionsInfoProvider;",
-            ">;",
-            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/util/RingerModeTracker;",
             ">;",
             "Ljavax/inject/Provider<",
@@ -675,10 +691,17 @@
             "Landroid/content/pm/PackageManager;",
             ">;",
             "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;",
+            ">;>;",
             "Ljavax/inject/Provider<",
             "Lcom/android/keyguard/KeyguardUpdateMonitor;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/animation/DialogLaunchAnimator;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;",
             ">;)",
             "Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;"
         }
@@ -748,17 +771,61 @@
 
     move-object/from16 v32, p31
 
-    new-instance v33, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;
+    move-object/from16 v33, p32
 
-    move-object/from16 v0, v33
+    new-instance v34, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;
 
-    invoke-direct/range {v0 .. v32}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v0, v34
 
-    return-object v33
+    invoke-direct/range {v0 .. v33}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v34
 .end method
 
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/plugins/GlobalActions$GlobalActionsManager;Landroid/media/AudioManager;Landroid/service/dreams/IDreamManager;Landroid/app/admin/DevicePolicyManager;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/telephony/TelephonyListenerManager;Lcom/android/systemui/util/settings/GlobalSettings;Lcom/android/systemui/util/settings/SecureSettings;Landroid/os/Vibrator;Landroid/content/res/Resources;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/os/UserManager;Landroid/app/trust/TrustManager;Landroid/app/IActivityManager;Landroid/telecom/TelecomManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/internal/statusbar/IStatusBarService;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Landroid/view/IWindowManager;Ljava/util/concurrent/Executor;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/globalactions/GlobalActionsInfoProvider;Lcom/android/systemui/util/RingerModeTracker;Lcom/android/systemui/model/SysUiState;Landroid/os/Handler;Landroid/content/pm/PackageManager;Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/keyguard/KeyguardUpdateMonitor;)Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
-    .locals 34
+.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/plugins/GlobalActions$GlobalActionsManager;Landroid/media/AudioManager;Landroid/service/dreams/IDreamManager;Landroid/app/admin/DevicePolicyManager;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/telephony/TelephonyListenerManager;Lcom/android/systemui/util/settings/GlobalSettings;Lcom/android/systemui/util/settings/SecureSettings;Landroid/os/Vibrator;Landroid/content/res/Resources;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/os/UserManager;Landroid/app/trust/TrustManager;Landroid/app/IActivityManager;Landroid/telecom/TelecomManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/internal/statusbar/IStatusBarService;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Landroid/view/IWindowManager;Ljava/util/concurrent/Executor;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/util/RingerModeTracker;Lcom/android/systemui/model/SysUiState;Landroid/os/Handler;Landroid/content/pm/PackageManager;Ljava/util/Optional;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/animation/DialogLaunchAnimator;Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;)Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
+    .locals 35
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            "Lcom/android/systemui/plugins/GlobalActions$GlobalActionsManager;",
+            "Landroid/media/AudioManager;",
+            "Landroid/service/dreams/IDreamManager;",
+            "Landroid/app/admin/DevicePolicyManager;",
+            "Lcom/android/internal/widget/LockPatternUtils;",
+            "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
+            "Lcom/android/systemui/telephony/TelephonyListenerManager;",
+            "Lcom/android/systemui/util/settings/GlobalSettings;",
+            "Lcom/android/systemui/util/settings/SecureSettings;",
+            "Landroid/os/Vibrator;",
+            "Landroid/content/res/Resources;",
+            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
+            "Lcom/android/systemui/statusbar/policy/KeyguardStateController;",
+            "Landroid/os/UserManager;",
+            "Landroid/app/trust/TrustManager;",
+            "Landroid/app/IActivityManager;",
+            "Landroid/telecom/TelecomManager;",
+            "Lcom/android/internal/logging/MetricsLogger;",
+            "Lcom/android/systemui/colorextraction/SysuiColorExtractor;",
+            "Lcom/android/internal/statusbar/IStatusBarService;",
+            "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
+            "Landroid/view/IWindowManager;",
+            "Ljava/util/concurrent/Executor;",
+            "Lcom/android/internal/logging/UiEventLogger;",
+            "Lcom/android/systemui/util/RingerModeTracker;",
+            "Lcom/android/systemui/model/SysUiState;",
+            "Landroid/os/Handler;",
+            "Landroid/content/pm/PackageManager;",
+            "Ljava/util/Optional<",
+            "Lcom/android/systemui/statusbar/phone/StatusBar;",
+            ">;",
+            "Lcom/android/keyguard/KeyguardUpdateMonitor;",
+            "Lcom/android/systemui/animation/DialogLaunchAnimator;",
+            "Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;",
+            ")",
+            "Lcom/android/systemui/globalactions/GlobalActionsDialogLite;"
+        }
+    .end annotation
 
     move-object/from16 v1, p0
 
@@ -824,19 +891,21 @@
 
     move-object/from16 v32, p31
 
-    new-instance v33, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
+    move-object/from16 v33, p32
 
-    move-object/from16 v0, v33
+    new-instance v34, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
-    invoke-direct/range {v0 .. v32}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;-><init>(Landroid/content/Context;Lcom/android/systemui/plugins/GlobalActions$GlobalActionsManager;Landroid/media/AudioManager;Landroid/service/dreams/IDreamManager;Landroid/app/admin/DevicePolicyManager;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/telephony/TelephonyListenerManager;Lcom/android/systemui/util/settings/GlobalSettings;Lcom/android/systemui/util/settings/SecureSettings;Landroid/os/Vibrator;Landroid/content/res/Resources;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/os/UserManager;Landroid/app/trust/TrustManager;Landroid/app/IActivityManager;Landroid/telecom/TelecomManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/internal/statusbar/IStatusBarService;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Landroid/view/IWindowManager;Ljava/util/concurrent/Executor;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/globalactions/GlobalActionsInfoProvider;Lcom/android/systemui/util/RingerModeTracker;Lcom/android/systemui/model/SysUiState;Landroid/os/Handler;Landroid/content/pm/PackageManager;Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+    move-object/from16 v0, v34
 
-    return-object v33
+    invoke-direct/range {v0 .. v33}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;-><init>(Landroid/content/Context;Lcom/android/systemui/plugins/GlobalActions$GlobalActionsManager;Landroid/media/AudioManager;Landroid/service/dreams/IDreamManager;Landroid/app/admin/DevicePolicyManager;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/telephony/TelephonyListenerManager;Lcom/android/systemui/util/settings/GlobalSettings;Lcom/android/systemui/util/settings/SecureSettings;Landroid/os/Vibrator;Landroid/content/res/Resources;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/os/UserManager;Landroid/app/trust/TrustManager;Landroid/app/IActivityManager;Landroid/telecom/TelecomManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/internal/statusbar/IStatusBarService;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Landroid/view/IWindowManager;Ljava/util/concurrent/Executor;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/util/RingerModeTracker;Lcom/android/systemui/model/SysUiState;Landroid/os/Handler;Landroid/content/pm/PackageManager;Ljava/util/Optional;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/animation/DialogLaunchAnimator;Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;)V
+
+    return-object v34
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
-    .locals 34
+    .locals 35
 
     move-object/from16 v0, p0
 
@@ -1090,7 +1159,7 @@
 
     check-cast v26, Lcom/android/internal/logging/UiEventLogger;
 
-    iget-object v1, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;->infoProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;->ringerModeTrackerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1098,17 +1167,7 @@
 
     move-object/from16 v27, v1
 
-    check-cast v27, Lcom/android/systemui/globalactions/GlobalActionsInfoProvider;
-
-    iget-object v1, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;->ringerModeTrackerProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v1
-
-    move-object/from16 v28, v1
-
-    check-cast v28, Lcom/android/systemui/util/RingerModeTracker;
+    check-cast v27, Lcom/android/systemui/util/RingerModeTracker;
 
     iget-object v1, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;->sysUiStateProvider:Ljavax/inject/Provider;
 
@@ -1116,9 +1175,9 @@
 
     move-result-object v1
 
-    move-object/from16 v29, v1
+    move-object/from16 v28, v1
 
-    check-cast v29, Lcom/android/systemui/model/SysUiState;
+    check-cast v28, Lcom/android/systemui/model/SysUiState;
 
     iget-object v1, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;->handlerProvider:Ljavax/inject/Provider;
 
@@ -1126,9 +1185,9 @@
 
     move-result-object v1
 
-    move-object/from16 v30, v1
+    move-object/from16 v29, v1
 
-    check-cast v30, Landroid/os/Handler;
+    check-cast v29, Landroid/os/Handler;
 
     iget-object v1, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;->packageManagerProvider:Ljavax/inject/Provider;
 
@@ -1136,11 +1195,21 @@
 
     move-result-object v1
 
+    move-object/from16 v30, v1
+
+    check-cast v30, Landroid/content/pm/PackageManager;
+
+    iget-object v1, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;->statusBarOptionalProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
     move-object/from16 v31, v1
 
-    check-cast v31, Landroid/content/pm/PackageManager;
+    check-cast v31, Ljava/util/Optional;
 
-    iget-object v1, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;->statusBarProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;->keyguardUpdateMonitorProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1148,19 +1217,29 @@
 
     move-object/from16 v32, v1
 
-    check-cast v32, Lcom/android/systemui/statusbar/phone/StatusBar;
+    check-cast v32, Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    iget-object v0, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;->keyguardUpdateMonitorProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;->dialogLaunchAnimatorProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object/from16 v33, v1
+
+    check-cast v33, Lcom/android/systemui/animation/DialogLaunchAnimator;
+
+    iget-object v0, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;->dialogManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    move-object/from16 v33, v0
+    move-object/from16 v34, v0
 
-    check-cast v33, Lcom/android/keyguard/KeyguardUpdateMonitor;
+    check-cast v34, Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;
 
-    invoke-static/range {v2 .. v33}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/plugins/GlobalActions$GlobalActionsManager;Landroid/media/AudioManager;Landroid/service/dreams/IDreamManager;Landroid/app/admin/DevicePolicyManager;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/telephony/TelephonyListenerManager;Lcom/android/systemui/util/settings/GlobalSettings;Lcom/android/systemui/util/settings/SecureSettings;Landroid/os/Vibrator;Landroid/content/res/Resources;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/os/UserManager;Landroid/app/trust/TrustManager;Landroid/app/IActivityManager;Landroid/telecom/TelecomManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/internal/statusbar/IStatusBarService;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Landroid/view/IWindowManager;Ljava/util/concurrent/Executor;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/globalactions/GlobalActionsInfoProvider;Lcom/android/systemui/util/RingerModeTracker;Lcom/android/systemui/model/SysUiState;Landroid/os/Handler;Landroid/content/pm/PackageManager;Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/keyguard/KeyguardUpdateMonitor;)Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
+    invoke-static/range {v2 .. v34}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/plugins/GlobalActions$GlobalActionsManager;Landroid/media/AudioManager;Landroid/service/dreams/IDreamManager;Landroid/app/admin/DevicePolicyManager;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/telephony/TelephonyListenerManager;Lcom/android/systemui/util/settings/GlobalSettings;Lcom/android/systemui/util/settings/SecureSettings;Landroid/os/Vibrator;Landroid/content/res/Resources;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/os/UserManager;Landroid/app/trust/TrustManager;Landroid/app/IActivityManager;Landroid/telecom/TelecomManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/internal/statusbar/IStatusBarService;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Landroid/view/IWindowManager;Ljava/util/concurrent/Executor;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/util/RingerModeTracker;Lcom/android/systemui/model/SysUiState;Landroid/os/Handler;Landroid/content/pm/PackageManager;Ljava/util/Optional;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/animation/DialogLaunchAnimator;Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;)Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
     move-result-object v0
 

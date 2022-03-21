@@ -504,6 +504,10 @@
 
     :cond_1
     :goto_0
+    iget-object p1, p0, Lcom/android/systemui/wallet/ui/WalletView;->mCardCarousel:Lcom/android/systemui/wallet/ui/WalletCardCarousel;
+
+    invoke-virtual {p1}, Lcom/android/systemui/wallet/ui/WalletCardCarousel;->resetAdapter()V
+
     iget-object p1, p0, Lcom/android/systemui/wallet/ui/WalletView;->mCardCarouselContainer:Landroid/view/ViewGroup;
 
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -760,16 +764,6 @@
     invoke-virtual {p0, p3}, Landroid/widget/Button;->setAlpha(F)V
 
     :goto_0
-    return-void
-.end method
-
-.method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .locals 0
-
-    iget p1, p1, Landroid/content/res/Configuration;->orientation:I
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/wallet/ui/WalletView;->updateViewForOrientation(I)V
-
     return-void
 .end method
 

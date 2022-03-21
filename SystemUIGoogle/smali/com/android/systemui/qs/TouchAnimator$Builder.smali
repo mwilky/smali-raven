@@ -205,7 +205,7 @@
     goto :goto_0
 
     :sswitch_6
-    const-string/jumbo v1, "translationZ"
+    const-string v1, "translationZ"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -221,7 +221,7 @@
     goto :goto_0
 
     :sswitch_7
-    const-string/jumbo v1, "translationY"
+    const-string v1, "translationY"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -237,7 +237,7 @@
     goto :goto_0
 
     :sswitch_8
-    const-string/jumbo v1, "translationX"
+    const-string v1, "translationX"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -330,6 +330,8 @@
     move-result-object p0
 
     return-object p0
+
+    nop
 
     :sswitch_data_0
     .sparse-switch

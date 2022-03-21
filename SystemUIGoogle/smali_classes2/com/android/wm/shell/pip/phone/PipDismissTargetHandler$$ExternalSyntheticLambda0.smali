@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/view/View$OnApplyWindowInsetsListener;
 
 
 # instance fields
@@ -22,12 +22,14 @@
 
 
 # virtual methods
-.method public final run()V
+.method public final onApplyWindowInsets(Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipDismissTargetHandler$$ExternalSyntheticLambda0;->f$0:Lcom/android/wm/shell/pip/phone/PipDismissTargetHandler;
 
-    invoke-static {p0}, Lcom/android/wm/shell/pip/phone/PipDismissTargetHandler;->$r8$lambda$q3UY_ZqYC4UFDFBq8V1NT-MJltQ(Lcom/android/wm/shell/pip/phone/PipDismissTargetHandler;)V
+    invoke-static {p0, p1, p2}, Lcom/android/wm/shell/pip/phone/PipDismissTargetHandler;->$r8$lambda$3Q2UXFPGrFTksZbw49Wwdq9m1ys(Lcom/android/wm/shell/pip/phone/PipDismissTargetHandler;Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
 
-    return-void
+    move-result-object p0
+
+    return-object p0
 .end method

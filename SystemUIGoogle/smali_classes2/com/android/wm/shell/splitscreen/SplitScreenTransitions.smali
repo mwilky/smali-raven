@@ -407,7 +407,7 @@
 
     const/4 v5, 0x6
 
-    const/16 v6, 0xb
+    const/16 v6, 0xd
 
     if-ne v4, v5, :cond_2
 
@@ -907,20 +907,28 @@
     return-void
 .end method
 
-.method playAnimation(Landroid/os/IBinder;Landroid/window/TransitionInfo;Landroid/view/SurfaceControl$Transaction;Lcom/android/wm/shell/transition/Transitions$TransitionFinishCallback;Landroid/window/WindowContainerToken;Landroid/window/WindowContainerToken;)V
+.method playAnimation(Landroid/os/IBinder;Landroid/window/TransitionInfo;Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl$Transaction;Lcom/android/wm/shell/transition/Transitions$TransitionFinishCallback;Landroid/window/WindowContainerToken;Landroid/window/WindowContainerToken;)V
     .locals 6
 
-    iput-object p4, p0, Lcom/android/wm/shell/splitscreen/SplitScreenTransitions;->mFinishCallback:Lcom/android/wm/shell/transition/Transitions$TransitionFinishCallback;
+    iput-object p5, p0, Lcom/android/wm/shell/splitscreen/SplitScreenTransitions;->mFinishCallback:Lcom/android/wm/shell/transition/Transitions$TransitionFinishCallback;
 
     iput-object p1, p0, Lcom/android/wm/shell/splitscreen/SplitScreenTransitions;->mAnimatingTransition:Landroid/os/IBinder;
 
-    iget-object p4, p0, Lcom/android/wm/shell/splitscreen/SplitScreenTransitions;->mRemoteHandler:Lcom/android/wm/shell/transition/OneShotRemoteHandler;
+    iget-object v0, p0, Lcom/android/wm/shell/splitscreen/SplitScreenTransitions;->mRemoteHandler:Lcom/android/wm/shell/transition/OneShotRemoteHandler;
 
-    if-eqz p4, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object p5, p0, Lcom/android/wm/shell/splitscreen/SplitScreenTransitions;->mRemoteFinishCB:Lcom/android/wm/shell/transition/Transitions$TransitionFinishCallback;
+    iget-object v5, p0, Lcom/android/wm/shell/splitscreen/SplitScreenTransitions;->mRemoteFinishCB:Lcom/android/wm/shell/transition/Transitions$TransitionFinishCallback;
 
-    invoke-virtual {p4, p1, p2, p3, p5}, Lcom/android/wm/shell/transition/OneShotRemoteHandler;->startAnimation(Landroid/os/IBinder;Landroid/window/TransitionInfo;Landroid/view/SurfaceControl$Transaction;Lcom/android/wm/shell/transition/Transitions$TransitionFinishCallback;)Z
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move-object v3, p3
+
+    move-object v4, p4
+
+    invoke-virtual/range {v0 .. v5}, Lcom/android/wm/shell/transition/OneShotRemoteHandler;->startAnimation(Landroid/os/IBinder;Landroid/window/TransitionInfo;Landroid/view/SurfaceControl$Transaction;Landroid/view/SurfaceControl$Transaction;Lcom/android/wm/shell/transition/Transitions$TransitionFinishCallback;)Z
 
     const/4 p1, 0x0
 
@@ -937,16 +945,16 @@
 
     move-object v3, p3
 
-    move-object v4, p5
+    move-object v4, p6
 
-    move-object v5, p6
+    move-object v5, p7
 
     invoke-direct/range {v0 .. v5}, Lcom/android/wm/shell/splitscreen/SplitScreenTransitions;->playInternalAnimation(Landroid/os/IBinder;Landroid/window/TransitionInfo;Landroid/view/SurfaceControl$Transaction;Landroid/window/WindowContainerToken;Landroid/window/WindowContainerToken;)V
 
     return-void
 .end method
 
-.method startEnterTransition(ILandroid/window/WindowContainerTransaction;Landroid/window/IRemoteTransition;Lcom/android/wm/shell/transition/Transitions$TransitionHandler;)Landroid/os/IBinder;
+.method startEnterTransition(ILandroid/window/WindowContainerTransaction;Landroid/window/RemoteTransition;Lcom/android/wm/shell/transition/Transitions$TransitionHandler;)Landroid/os/IBinder;
     .locals 2
 
     if-eqz p3, :cond_0
@@ -959,7 +967,7 @@
 
     move-result-object v1
 
-    invoke-direct {v0, v1, p3}, Lcom/android/wm/shell/transition/OneShotRemoteHandler;-><init>(Lcom/android/wm/shell/common/ShellExecutor;Landroid/window/IRemoteTransition;)V
+    invoke-direct {v0, v1, p3}, Lcom/android/wm/shell/transition/OneShotRemoteHandler;-><init>(Lcom/android/wm/shell/common/ShellExecutor;Landroid/window/RemoteTransition;)V
 
     iput-object v0, p0, Lcom/android/wm/shell/splitscreen/SplitScreenTransitions;->mRemoteHandler:Lcom/android/wm/shell/transition/OneShotRemoteHandler;
 
@@ -987,7 +995,7 @@
 
     iget-object v0, p0, Lcom/android/wm/shell/splitscreen/SplitScreenTransitions;->mTransitions:Lcom/android/wm/shell/transition/Transitions;
 
-    const/16 v1, 0xb
+    const/16 v1, 0xd
 
     invoke-virtual {v0, v1, p1, p2}, Lcom/android/wm/shell/transition/Transitions;->startTransition(ILandroid/window/WindowContainerTransaction;Lcom/android/wm/shell/transition/Transitions$TransitionHandler;)Landroid/os/IBinder;
 

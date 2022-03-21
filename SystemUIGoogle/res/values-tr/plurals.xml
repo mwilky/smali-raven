@@ -32,18 +32,6 @@
         <item quantity="other">Yanlış SIM PUK kodu, SIM kalıcı olarak kullanılmaz hale gelmeden önce %d deneme hakkınız kaldı.</item>
         <item quantity="one">Yanlış SIM PUK kodu. SIM kalıcı olarak kullanılmaz hale gelmeden önce %d deneme hakkınız kaldı.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">Cihazın kilidi son %d saattir açılmadı. Şifreyi doğrulayın.</item>
-        <item quantity="one">Cihazın kilidi son %d saattir açılmadı. Şifreyi doğrulayın.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">Cihazın kilidi son %d saattir açılmadı. Deseni doğrulayın.</item>
-        <item quantity="one">Cihazın kilidi son %d saattir açılmadı. Deseni doğrulayın.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">"Cihazın kilidi son %d saattir açılmadı. PIN'i doğrulayın."</item>
-        <item quantity="one">"Cihazın kilidi son %d saattir açılmadı. PIN'i doğrulayın."</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">%d saniye içinde tekrar deneyin.</item>
         <item quantity="one">1 saniye içinde tekrar deneyin.</item>

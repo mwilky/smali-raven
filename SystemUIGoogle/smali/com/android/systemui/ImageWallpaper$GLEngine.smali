@@ -58,58 +58,34 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$FWMjchjczJbKWvRftgd1gCAXYPc(Lcom/android/systemui/ImageWallpaper$GLEngine;)V
+.method public static synthetic $r8$lambda$9g3qrxmCNtjmE1IJzu6AzIVY0w8(Lcom/android/systemui/ImageWallpaper$GLEngine;Ljava/util/List;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/ImageWallpaper$GLEngine;->lambda$onOffsetsChanged$0()V
+    invoke-direct {p0, p1}, Lcom/android/systemui/ImageWallpaper$GLEngine;->lambda$removeLocalColorsAreas$4(Ljava/util/List;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$IxfwSTBbdn9767JAfVO6ikfMnN4(Lcom/android/systemui/ImageWallpaper$GLEngine;Ljava/util/List;)V
+.method public static synthetic $r8$lambda$Py4SWhllP-m3HGlzRetd04MxREU(Lcom/android/systemui/ImageWallpaper$GLEngine;Landroid/graphics/Bitmap;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/ImageWallpaper$GLEngine;->lambda$addLocalColorsAreas$2(Ljava/util/List;)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/ImageWallpaper$GLEngine;->updateMiniBitmapAndNotify(Landroid/graphics/Bitmap;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$MIYM-MEDaNuNTJ7lf7TKPJIq7JM(Lcom/android/systemui/ImageWallpaper$GLEngine;Ljava/util/List;)V
+.method public static synthetic $r8$lambda$bJqjp1e-t9H4Pna1VSwc1QwpKjU(Lcom/android/systemui/ImageWallpaper$GLEngine;II)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/ImageWallpaper$GLEngine;->lambda$removeLocalColorsAreas$3(Ljava/util/List;)V
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/ImageWallpaper$GLEngine;->lambda$onSurfaceChanged$6(II)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$PvegW5dxHOOXScMJPCrsg3C3W9o(Lcom/android/systemui/ImageWallpaper$GLEngine;)V
+.method public static synthetic $r8$lambda$lkx81Bng04Iod-4bvPK_-35b81g(Lcom/android/systemui/ImageWallpaper$GLEngine;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/ImageWallpaper$GLEngine;->lambda$onDestroy$1()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$RRKzfeEd6ZtOtAMy4Zv6Q14rzcA(Lcom/android/systemui/ImageWallpaper$GLEngine;Landroid/view/SurfaceHolder;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/ImageWallpaper$GLEngine;->lambda$onSurfaceCreated$4(Landroid/view/SurfaceHolder;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$VqThTYKKE4bUyXZIoUJ6GkdgW7o(Lcom/android/systemui/ImageWallpaper$GLEngine;Landroid/graphics/Bitmap;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/ImageWallpaper$GLEngine;->updateMiniBitmap(Landroid/graphics/Bitmap;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$cj3lQNWnNZwWf78aJFl7o3YLdEA(Lcom/android/systemui/ImageWallpaper$GLEngine;II)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/ImageWallpaper$GLEngine;->lambda$onSurfaceChanged$5(II)V
+    invoke-direct {p0}, Lcom/android/systemui/ImageWallpaper$GLEngine;->lambda$onOffsetsChanged$1()V
 
     return-void
 .end method
@@ -118,6 +94,38 @@
     .locals 0
 
     invoke-direct {p0}, Lcom/android/systemui/ImageWallpaper$GLEngine;->drawFrame()V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$v--hxAQAkAxBa3Kj2Fb2HmTjp6w(Lcom/android/systemui/ImageWallpaper$GLEngine;Landroid/graphics/Bitmap;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/ImageWallpaper$GLEngine;->lambda$onCreate$0(Landroid/graphics/Bitmap;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$wiYb4Tly7uoqa--reY1GMVTo7c8(Lcom/android/systemui/ImageWallpaper$GLEngine;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/ImageWallpaper$GLEngine;->lambda$onDestroy$2()V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$xXQCyEnJF12w8UbEsmO_FkJelm8(Lcom/android/systemui/ImageWallpaper$GLEngine;Landroid/view/SurfaceHolder;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/ImageWallpaper$GLEngine;->lambda$onSurfaceCreated$5(Landroid/view/SurfaceHolder;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$yntuzcLguMOFtXmiapf1ErFDEVc(Lcom/android/systemui/ImageWallpaper$GLEngine;Ljava/util/List;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/ImageWallpaper$GLEngine;->lambda$addLocalColorsAreas$3(Ljava/util/List;)V
 
     return-void
 .end method
@@ -159,7 +167,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/ImageWallpaper$GLEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
 
-    sget-object v0, Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda9;->INSTANCE:Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda9;
+    sget-object v0, Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda10;->INSTANCE:Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda10;
 
     invoke-direct {p0, p1, v0, p2}, Landroid/service/wallpaper/WallpaperService$Engine;-><init>(Landroid/service/wallpaper/WallpaperService;Ljava/util/function/Supplier;Landroid/os/Handler;)V
 
@@ -491,7 +499,7 @@
     return-object v0
 .end method
 
-.method private synthetic lambda$addLocalColorsAreas$2(Ljava/util/List;)V
+.method private synthetic lambda$addLocalColorsAreas$3(Ljava/util/List;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/ImageWallpaper$GLEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
@@ -531,29 +539,71 @@
 
     if-nez v0, :cond_1
 
-    iget-object p0, p0, Lcom/android/systemui/ImageWallpaper$GLEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
+    iget-object v0, p0, Lcom/android/systemui/ImageWallpaper$GLEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
 
-    invoke-static {p0}, Lcom/android/systemui/ImageWallpaper;->access$300(Lcom/android/systemui/ImageWallpaper;)Ljava/util/ArrayList;
+    invoke-static {v0}, Lcom/android/systemui/ImageWallpaper;->access$300(Lcom/android/systemui/ImageWallpaper;)Ljava/util/ArrayList;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
+
+    iget-object p1, p0, Lcom/android/systemui/ImageWallpaper$GLEngine;->mRenderer:Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;
+
+    if-eqz p1, :cond_2
+
+    new-instance v0, Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda8;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda8;-><init>(Lcom/android/systemui/ImageWallpaper$GLEngine;)V
+
+    invoke-virtual {p1, v0}, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;->use(Ljava/util/function/Consumer;)V
 
     goto :goto_0
 
     :cond_1
     invoke-direct {p0, p1, v0}, Lcom/android/systemui/ImageWallpaper$GLEngine;->computeAndNotifyLocalColors(Ljava/util/List;Landroid/graphics/Bitmap;)V
 
+    :cond_2
     :goto_0
     return-void
 .end method
 
-.method private synthetic lambda$onDestroy$1()V
+.method private synthetic lambda$onCreate$0(Landroid/graphics/Bitmap;)V
     .locals 2
 
-    const-string v0, "ImageWallpaper.Engine#onDestroy"
+    iget-object v0, p0, Lcom/android/systemui/ImageWallpaper$GLEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
 
-    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
+    invoke-static {v0}, Lcom/android/systemui/ImageWallpaper;->access$300(Lcom/android/systemui/ImageWallpaper;)Ljava/util/ArrayList;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/systemui/ImageWallpaper$GLEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
+
+    invoke-static {v1}, Lcom/android/systemui/ImageWallpaper;->access$400(Lcom/android/systemui/ImageWallpaper;)Landroid/util/ArraySet;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
+
+    iget-object v0, p0, Lcom/android/systemui/ImageWallpaper$GLEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
+
+    invoke-static {v0}, Lcom/android/systemui/ImageWallpaper;->access$300(Lcom/android/systemui/ImageWallpaper;)Ljava/util/ArrayList;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    if-lez v0, :cond_0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/ImageWallpaper$GLEngine;->updateMiniBitmapAndNotify(Landroid/graphics/Bitmap;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method private synthetic lambda$onDestroy$2()V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/ImageWallpaper$GLEngine;->mRenderer:Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;
 
@@ -569,12 +619,10 @@
 
     iput-object v0, p0, Lcom/android/systemui/ImageWallpaper$GLEngine;->mEglHelper:Lcom/android/systemui/glwallpaper/EglHelper;
 
-    invoke-static {}, Landroid/os/Trace;->endSection()V
-
     return-void
 .end method
 
-.method private synthetic lambda$onOffsetsChanged$0()V
+.method private synthetic lambda$onOffsetsChanged$1()V
     .locals 2
 
     new-instance v0, Ljava/util/ArrayList;
@@ -598,7 +646,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$onSurfaceChanged$5(II)V
+.method private synthetic lambda$onSurfaceChanged$6(II)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/ImageWallpaper$GLEngine;->mRenderer:Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;
@@ -608,7 +656,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$onSurfaceCreated$4(Landroid/view/SurfaceHolder;)V
+.method private synthetic lambda$onSurfaceCreated$5(Landroid/view/SurfaceHolder;)V
     .locals 2
 
     const-string v0, "ImageWallpaper#onSurfaceCreated"
@@ -632,7 +680,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$removeLocalColorsAreas$3(Ljava/util/List;)V
+.method private synthetic lambda$removeLocalColorsAreas$4(Ljava/util/List;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/ImageWallpaper$GLEngine;->this$0:Lcom/android/systemui/ImageWallpaper;
@@ -1185,7 +1233,7 @@
     return-void
 .end method
 
-.method private updateMiniBitmap(Landroid/graphics/Bitmap;)V
+.method private updateMiniBitmapAndNotify(Landroid/graphics/Bitmap;)V
     .locals 5
 
     if-nez p1, :cond_0
@@ -1301,6 +1349,10 @@
 .method private updateSurfaceSize()V
     .locals 3
 
+    const-string v0, "ImageWallpaper#updateSurfaceSize"
+
+    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
+
     invoke-virtual {p0}, Landroid/service/wallpaper/WallpaperService$Engine;->getSurfaceHolder()Landroid/view/SurfaceHolder;
 
     move-result-object v0
@@ -1331,6 +1383,8 @@
 
     invoke-interface {v0, v1, p0}, Landroid/view/SurfaceHolder;->setFixedSize(II)V
 
+    invoke-static {}, Landroid/os/Trace;->endSection()V
+
     return-void
 .end method
 
@@ -1357,9 +1411,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda6;
+    new-instance v1, Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda7;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda6;-><init>(Lcom/android/systemui/ImageWallpaper$GLEngine;Ljava/util/List;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda7;-><init>(Lcom/android/systemui/ImageWallpaper$GLEngine;Ljava/util/List;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
@@ -1512,9 +1566,9 @@
 
     iget-object p1, p0, Lcom/android/systemui/ImageWallpaper$GLEngine;->mRenderer:Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;
 
-    new-instance v0, Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda8;
+    new-instance v0, Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda9;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda8;-><init>(Lcom/android/systemui/ImageWallpaper$GLEngine;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda9;-><init>(Lcom/android/systemui/ImageWallpaper$GLEngine;)V
 
     invoke-virtual {p1, v0}, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;->setOnBitmapChanged(Ljava/util/function/Consumer;)V
 
@@ -1580,9 +1634,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda2;
+    new-instance v1, Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda3;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/ImageWallpaper$GLEngine;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/ImageWallpaper$GLEngine;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
@@ -1797,9 +1851,9 @@
 
     move-result-object p1
 
-    new-instance v0, Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda3;
+    new-instance v0, Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda2;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/ImageWallpaper$GLEngine;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/ImageWallpaper$GLEngine;)V
 
     invoke-virtual {p1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
@@ -1809,17 +1863,11 @@
 .method public postRender()V
     .locals 1
 
-    const-string v0, "ImageWallpaper#postRender"
-
-    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
-
     invoke-direct {p0}, Lcom/android/systemui/ImageWallpaper$GLEngine;->scheduleFinishRendering()V
 
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Landroid/service/wallpaper/WallpaperService$Engine;->reportEngineShown(Z)V
-
-    invoke-static {}, Landroid/os/Trace;->endSection()V
 
     return-void
 .end method
@@ -1859,9 +1907,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda7;
+    new-instance v1, Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda6;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda7;-><init>(Lcom/android/systemui/ImageWallpaper$GLEngine;Ljava/util/List;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda6;-><init>(Lcom/android/systemui/ImageWallpaper$GLEngine;Ljava/util/List;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 

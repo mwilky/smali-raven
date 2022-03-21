@@ -32,18 +32,6 @@
         <item quantity="other">Kod PUK SIM salah. Tinggal %d percubaan sebelum SIM tidak boleh digunakan secara kekal.</item>
         <item quantity="one">Kod PUK SIM salah. Tinggal %d percubaan sebelum SIM tidak boleh digunakan secara kekal.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">Peranti tidak dibuka kuncinya selama %d jam. Sahkan kata laluan.</item>
-        <item quantity="one">Peranti tidak dibuka kuncinya selama %d jam. Sahkan kata laluan.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">Peranti tidak dibuka kuncinya selama %d jam. Sahkan corak.</item>
-        <item quantity="one">Peranti tidak dibuka kuncinya selama %d jam. Sahkan corak.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">Peranti tidak dibuka kuncinya selama %d jam. Sahkan PIN.</item>
-        <item quantity="one">Peranti tidak dibuka kuncinya selama %d jam. Sahkan PIN.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">Cuba lagi dalam masa %d saat.</item>
         <item quantity="one">Cuba lagi dalam masa 1 saat.</item>

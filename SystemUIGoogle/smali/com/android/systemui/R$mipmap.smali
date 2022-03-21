@@ -4,4 +4,4 @@
 
 
 # static fields
-.field public static final ic_launcher_dreams:I = 0x7f100001
+.field public static final ic_launcher_dreams:I = 0x7f100000

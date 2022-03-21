@@ -2,32 +2,38 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/android/wm/shell/common/split/SplitWindowManager$ParentContainerCallbacks;
+.implements Lcom/android/wm/shell/common/SyncTransactionQueue$TransactionRunnable;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/android/wm/shell/splitscreen/StageCoordinator;
 
+.field public final synthetic f$1:Lcom/android/wm/shell/common/split/SplitLayout;
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/wm/shell/splitscreen/StageCoordinator;)V
+.method public synthetic constructor <init>(Lcom/android/wm/shell/splitscreen/StageCoordinator;Lcom/android/wm/shell/common/split/SplitLayout;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/wm/shell/splitscreen/StageCoordinator$$ExternalSyntheticLambda3;->f$0:Lcom/android/wm/shell/splitscreen/StageCoordinator;
 
+    iput-object p2, p0, Lcom/android/wm/shell/splitscreen/StageCoordinator$$ExternalSyntheticLambda3;->f$1:Lcom/android/wm/shell/common/split/SplitLayout;
+
     return-void
 .end method
 
 
 # virtual methods
-.method public final attachToParentSurface(Landroid/view/SurfaceControl$Builder;)V
-    .locals 0
+.method public final runWithTransaction(Landroid/view/SurfaceControl$Transaction;)V
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/wm/shell/splitscreen/StageCoordinator$$ExternalSyntheticLambda3;->f$0:Lcom/android/wm/shell/splitscreen/StageCoordinator;
+    iget-object v0, p0, Lcom/android/wm/shell/splitscreen/StageCoordinator$$ExternalSyntheticLambda3;->f$0:Lcom/android/wm/shell/splitscreen/StageCoordinator;
 
-    invoke-static {p0, p1}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->$r8$lambda$1fksxINfBgJCPtYYnwbLkkTm2F8(Lcom/android/wm/shell/splitscreen/StageCoordinator;Landroid/view/SurfaceControl$Builder;)V
+    iget-object p0, p0, Lcom/android/wm/shell/splitscreen/StageCoordinator$$ExternalSyntheticLambda3;->f$1:Lcom/android/wm/shell/common/split/SplitLayout;
+
+    invoke-static {v0, p0, p1}, Lcom/android/wm/shell/splitscreen/StageCoordinator;->$r8$lambda$ALB4DKFH_hgMGv_VLyQpullzORk(Lcom/android/wm/shell/splitscreen/StageCoordinator;Lcom/android/wm/shell/common/split/SplitLayout;Landroid/view/SurfaceControl$Transaction;)V
 
     return-void
 .end method

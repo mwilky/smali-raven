@@ -32,18 +32,6 @@
         <item quantity="other">SIM 卡的 PUK 碼輸入錯誤，你還可以再試 %d 次。如果仍然失敗，SIM 卡將永久無法使用。</item>
         <item quantity="one">SIM 卡的 PUK 碼輸入錯誤，你還可以再試 %d 次。如果仍然失敗，SIM 卡將永久無法使用。</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">裝置已有 %d 小時未解鎖。請確認密碼。</item>
-        <item quantity="one">裝置已有 %d 小時未解鎖。請確認密碼。</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">裝置已有 %d 小時未解鎖。請確認解鎖圖案。</item>
-        <item quantity="one">裝置已有 %d 小時未解鎖。請確認解鎖圖案。</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">裝置已有 %d 小時未解鎖。請確認 PIN 碼。</item>
-        <item quantity="one">裝置已有 %d 小時未解鎖。請確認 PIN 碼。</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">請於 %d 秒後再試一次。</item>
         <item quantity="one">請於 1 秒後再試一次。</item>

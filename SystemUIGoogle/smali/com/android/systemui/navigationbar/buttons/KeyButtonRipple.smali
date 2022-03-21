@@ -13,6 +13,10 @@
 .end annotation
 
 
+# static fields
+.field private static final ALPHA_OUT_INTERPOLATOR:Landroid/view/animation/Interpolator;
+
+
 # instance fields
 .field private final mAnimatorListener:Landroid/animation/AnimatorListenerAdapter;
 
@@ -57,6 +61,8 @@
 .end field
 
 .field private mMaxWidth:I
+
+.field private final mMaxWidthResource:I
 
 .field private mPaintProp:Landroid/graphics/CanvasProperty;
     .annotation system Ldalvik/annotation/Signature;
@@ -158,7 +164,25 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Landroid/view/View;)V
+.method static constructor <clinit>()V
+    .locals 4
+
+    new-instance v0, Landroid/view/animation/PathInterpolator;
+
+    const/4 v1, 0x0
+
+    const v2, 0x3f4ccccd    # 0.8f
+
+    const/high16 v3, 0x3f800000    # 1.0f
+
+    invoke-direct {v0, v1, v1, v2, v3}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
+
+    sput-object v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->ALPHA_OUT_INTERPOLATOR:Landroid/view/animation/Interpolator;
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/view/View;I)V
     .locals 2
 
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
@@ -223,13 +247,13 @@
 
     iput-object v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->mAnimatorListener:Landroid/animation/AnimatorListenerAdapter;
 
+    iput p3, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->mMaxWidthResource:I
+
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object p1
 
-    sget v0, Lcom/android/systemui/R$dimen;->key_button_ripple_max_width:I
-
-    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {p1, p3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result p1
 
@@ -1044,7 +1068,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/view/RenderNodeAnimator;->setDuration(J)Landroid/graphics/animation/RenderNodeAnimator;
 
-    sget-object v1, Lcom/android/systemui/animation/Interpolators;->ALPHA_OUT:Landroid/view/animation/Interpolator;
+    sget-object v1, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->ALPHA_OUT_INTERPOLATOR:Landroid/view/animation/Interpolator;
 
     invoke-virtual {v0, v1}, Landroid/view/RenderNodeAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
@@ -1096,7 +1120,7 @@
 
     move-result-object v0
 
-    sget-object v1, Lcom/android/systemui/animation/Interpolators;->ALPHA_OUT:Landroid/view/animation/Interpolator;
+    sget-object v1, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->ALPHA_OUT_INTERPOLATOR:Landroid/view/animation/Interpolator;
 
     invoke-virtual {v0, v1}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
@@ -1546,6 +1570,8 @@
 
 .method public getGlowAlpha()F
     .locals 0
+    .annotation build Landroidx/annotation/Keep;
+    .end annotation
 
     iget p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->mGlowAlpha:F
 
@@ -1554,6 +1580,8 @@
 
 .method public getGlowScale()F
     .locals 0
+    .annotation build Landroidx/annotation/Keep;
+    .end annotation
 
     iget p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->mGlowScale:F
 
@@ -1687,6 +1715,8 @@
 
 .method public setGlowAlpha(F)V
     .locals 0
+    .annotation build Landroidx/annotation/Keep;
+    .end annotation
 
     iput p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->mGlowAlpha:F
 
@@ -1697,6 +1727,8 @@
 
 .method public setGlowScale(F)V
     .locals 0
+    .annotation build Landroidx/annotation/Keep;
+    .end annotation
 
     iput p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->mGlowScale:F
 
@@ -1759,4 +1791,30 @@
 
     :cond_0
     return p1
+.end method
+
+.method public updateResources()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->mTargetView:Landroid/view/View;
+
+    invoke-virtual {v0}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->mMaxWidthResource:I
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->mMaxWidth:I
+
+    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
+
+    return-void
 .end method

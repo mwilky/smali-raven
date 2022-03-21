@@ -24,7 +24,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/NetworkController;",
+            "Lcom/android/systemui/statusbar/connectivity/NetworkController;",
             ">;"
         }
     .end annotation
@@ -39,7 +39,7 @@
             "(",
             "Lcom/android/systemui/dagger/DependencyProvider;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/NetworkController;",
+            "Lcom/android/systemui/statusbar/connectivity/NetworkController;",
             ">;)V"
         }
     .end annotation
@@ -60,7 +60,7 @@
             "(",
             "Lcom/android/systemui/dagger/DependencyProvider;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/NetworkController;",
+            "Lcom/android/systemui/statusbar/connectivity/NetworkController;",
             ">;)",
             "Lcom/android/systemui/dagger/DependencyProvider_ProvideDataSaverControllerFactory;"
         }
@@ -73,10 +73,10 @@
     return-object v0
 .end method
 
-.method public static provideDataSaverController(Lcom/android/systemui/dagger/DependencyProvider;Lcom/android/systemui/statusbar/policy/NetworkController;)Lcom/android/systemui/statusbar/policy/DataSaverController;
+.method public static provideDataSaverController(Lcom/android/systemui/dagger/DependencyProvider;Lcom/android/systemui/statusbar/connectivity/NetworkController;)Lcom/android/systemui/statusbar/policy/DataSaverController;
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/dagger/DependencyProvider;->provideDataSaverController(Lcom/android/systemui/statusbar/policy/NetworkController;)Lcom/android/systemui/statusbar/policy/DataSaverController;
+    invoke-virtual {p0, p1}, Lcom/android/systemui/dagger/DependencyProvider;->provideDataSaverController(Lcom/android/systemui/statusbar/connectivity/NetworkController;)Lcom/android/systemui/statusbar/policy/DataSaverController;
 
     move-result-object p0
 
@@ -102,9 +102,9 @@
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/systemui/statusbar/policy/NetworkController;
+    check-cast p0, Lcom/android/systemui/statusbar/connectivity/NetworkController;
 
-    invoke-static {v0, p0}, Lcom/android/systemui/dagger/DependencyProvider_ProvideDataSaverControllerFactory;->provideDataSaverController(Lcom/android/systemui/dagger/DependencyProvider;Lcom/android/systemui/statusbar/policy/NetworkController;)Lcom/android/systemui/statusbar/policy/DataSaverController;
+    invoke-static {v0, p0}, Lcom/android/systemui/dagger/DependencyProvider_ProvideDataSaverControllerFactory;->provideDataSaverController(Lcom/android/systemui/dagger/DependencyProvider;Lcom/android/systemui/statusbar/connectivity/NetworkController;)Lcom/android/systemui/statusbar/policy/DataSaverController;
 
     move-result-object p0
 

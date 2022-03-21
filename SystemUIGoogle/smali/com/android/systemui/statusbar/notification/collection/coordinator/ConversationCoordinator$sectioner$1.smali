@@ -30,7 +30,9 @@
 
     const-string p1, "People"
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/NotifSectioner;-><init>(Ljava/lang/String;)V
+    const/4 p2, 0x4
+
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/NotifSectioner;-><init>(Ljava/lang/String;I)V
 
     return-void
 .end method
@@ -40,7 +42,7 @@
 .method public getHeaderNodeController()Lcom/android/systemui/statusbar/notification/collection/render/NodeController;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/coordinator/ConversationCoordinator$sectioner$1;->$peopleHeaderController:Lcom/android/systemui/statusbar/notification/collection/render/NodeController;
+    const/4 p0, 0x0
 
     return-object p0
 .end method

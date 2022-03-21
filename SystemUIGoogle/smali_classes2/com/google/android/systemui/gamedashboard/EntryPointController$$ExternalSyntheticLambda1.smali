@@ -35,7 +35,7 @@
 
     check-cast p1, Lcom/android/wm/shell/tasksurfacehelper/TaskSurfaceHelper;
 
-    invoke-static {v0, p0, p1}, Lcom/google/android/systemui/gamedashboard/EntryPointController;->$r8$lambda$7p3Q-0CD199K_DFpydbawO34zwY(IILcom/android/wm/shell/tasksurfacehelper/TaskSurfaceHelper;)V
+    invoke-static {v0, p0, p1}, Lcom/google/android/systemui/gamedashboard/EntryPointController;->$r8$lambda$c1pD_Zvq6L-o-JTKevSmBLtB43U(IILcom/android/wm/shell/tasksurfacehelper/TaskSurfaceHelper;)V
 
     return-void
 .end method

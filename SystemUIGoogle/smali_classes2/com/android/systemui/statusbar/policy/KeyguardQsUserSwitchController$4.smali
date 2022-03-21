@@ -40,7 +40,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController$4;->this$0:Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->access$300(Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;)Landroid/content/Context;
+    invoke-static {p0}, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;->access$400(Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;)Landroid/content/Context;
 
     move-result-object p0
 

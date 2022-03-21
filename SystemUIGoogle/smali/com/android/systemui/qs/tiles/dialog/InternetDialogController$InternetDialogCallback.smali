@@ -18,7 +18,7 @@
 .method public abstract dismissDialog()V
 .end method
 
-.method public abstract onAccessPointsChanged(Ljava/util/List;Lcom/android/wifitrackerlib/WifiEntry;)V
+.method public abstract onAccessPointsChanged(Ljava/util/List;Lcom/android/wifitrackerlib/WifiEntry;Z)V
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -26,7 +26,7 @@
             "Lcom/android/wifitrackerlib/WifiEntry;",
             ">;",
             "Lcom/android/wifitrackerlib/WifiEntry;",
-            ")V"
+            "Z)V"
         }
     .end annotation
 .end method

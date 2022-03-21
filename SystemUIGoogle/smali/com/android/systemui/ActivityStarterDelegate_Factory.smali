@@ -18,14 +18,13 @@
 
 
 # instance fields
-.field private final statusBarProvider:Ljavax/inject/Provider;
+.field private final statusBarOptionalLazyProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
             "Ljava/util/Optional<",
-            "Ldagger/Lazy<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;>;"
+            ">;>;"
         }
     .end annotation
 .end field
@@ -39,15 +38,14 @@
             "(",
             "Ljavax/inject/Provider<",
             "Ljava/util/Optional<",
-            "Ldagger/Lazy<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;>;)V"
+            ">;>;)V"
         }
     .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/ActivityStarterDelegate_Factory;->statusBarProvider:Ljavax/inject/Provider;
+    iput-object p1, p0, Lcom/android/systemui/ActivityStarterDelegate_Factory;->statusBarOptionalLazyProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
@@ -59,9 +57,8 @@
             "(",
             "Ljavax/inject/Provider<",
             "Ljava/util/Optional<",
-            "Ldagger/Lazy<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;>;)",
+            ">;>;)",
             "Lcom/android/systemui/ActivityStarterDelegate_Factory;"
         }
     .end annotation
@@ -73,13 +70,13 @@
     return-object v0
 .end method
 
-.method public static newInstance(Ljava/util/Optional;)Lcom/android/systemui/ActivityStarterDelegate;
+.method public static newInstance(Ldagger/Lazy;)Lcom/android/systemui/ActivityStarterDelegate;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Ljava/util/Optional<",
             "Ldagger/Lazy<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
             ">;>;)",
             "Lcom/android/systemui/ActivityStarterDelegate;"
@@ -88,7 +85,7 @@
 
     new-instance v0, Lcom/android/systemui/ActivityStarterDelegate;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/ActivityStarterDelegate;-><init>(Ljava/util/Optional;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/ActivityStarterDelegate;-><init>(Ldagger/Lazy;)V
 
     return-object v0
 .end method
@@ -98,15 +95,13 @@
 .method public get()Lcom/android/systemui/ActivityStarterDelegate;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/ActivityStarterDelegate_Factory;->statusBarProvider:Ljavax/inject/Provider;
+    iget-object p0, p0, Lcom/android/systemui/ActivityStarterDelegate_Factory;->statusBarOptionalLazyProvider:Ljavax/inject/Provider;
 
-    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    invoke-static {p0}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
 
     move-result-object p0
 
-    check-cast p0, Ljava/util/Optional;
-
-    invoke-static {p0}, Lcom/android/systemui/ActivityStarterDelegate_Factory;->newInstance(Ljava/util/Optional;)Lcom/android/systemui/ActivityStarterDelegate;
+    invoke-static {p0}, Lcom/android/systemui/ActivityStarterDelegate_Factory;->newInstance(Ldagger/Lazy;)Lcom/android/systemui/ActivityStarterDelegate;
 
     move-result-object p0
 

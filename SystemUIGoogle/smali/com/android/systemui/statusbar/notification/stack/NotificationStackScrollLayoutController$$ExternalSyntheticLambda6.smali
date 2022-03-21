@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout$FooterDismissListener;
+.implements Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout$DismissListener;
 
 
 # instance fields
@@ -22,12 +22,12 @@
 
 
 # virtual methods
-.method public final onDismiss()V
+.method public final onDismiss(I)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController$$ExternalSyntheticLambda6;->f$0:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->$r8$lambda$C7P-sUNF88oFzMvF9x-m81nMivc(Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;)V
+    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->$r8$lambda$MY0XtHtq3BWATb1uiFhJ1LzVSCw(Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;I)V
 
     return-void
 .end method

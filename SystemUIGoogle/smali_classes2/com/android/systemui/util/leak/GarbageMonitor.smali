@@ -9,7 +9,6 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/systemui/util/leak/GarbageMonitor$BackgroundHeapCheckHandler;,
         Lcom/android/systemui/util/leak/GarbageMonitor$Service;,
         Lcom/android/systemui/util/leak/GarbageMonitor$ProcessMemInfo;,
         Lcom/android/systemui/util/leak/GarbageMonitor$MemoryTile;,
@@ -30,8 +29,6 @@
 
 
 # instance fields
-.field private final mAm:Landroid/app/ActivityManager;
-
 .field private final mContext:Landroid/content/Context;
 
 .field private final mData:Landroid/util/LongSparseArray;
@@ -44,13 +41,15 @@
     .end annotation
 .end field
 
-.field private mDumpTruck:Lcom/android/systemui/util/leak/DumpTruck;
+.field private final mDelayableExecutor:Lcom/android/systemui/util/concurrency/DelayableExecutor;
 
-.field private final mHandler:Landroid/os/Handler;
+.field private final mDumpTruck:Lcom/android/systemui/util/leak/DumpTruck;
 
 .field private mHeapLimit:J
 
 .field private final mLeakReporter:Lcom/android/systemui/util/leak/LeakReporter;
+
+.field private final mMessageRouter:Lcom/android/systemui/util/concurrency/MessageRouter;
 
 .field private final mPids:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -68,6 +67,22 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$NUvryoAC712O5XWd9v1UAVjb6wk(Lcom/android/systemui/util/leak/GarbageMonitor;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/util/leak/GarbageMonitor;->doHeapTrack(I)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$y-3zmqEzhtZNB4djW3XT_zFbjkg(Lcom/android/systemui/util/leak/GarbageMonitor;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/util/leak/GarbageMonitor;->doGarbageInspection(I)V
+
+    return-void
+.end method
+
 .method static constructor <clinit>()V
     .locals 3
 
@@ -132,7 +147,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Landroid/os/Looper;Lcom/android/systemui/util/leak/LeakDetector;Lcom/android/systemui/util/leak/LeakReporter;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/systemui/util/concurrency/MessageRouter;Lcom/android/systemui/util/leak/LeakDetector;Lcom/android/systemui/util/leak/LeakReporter;Lcom/android/systemui/dump/DumpManager;)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -155,35 +170,47 @@
 
     iput-object v0, p0, Lcom/android/systemui/util/leak/GarbageMonitor;->mContext:Landroid/content/Context;
 
-    const-string v1, "activity"
+    iput-object p2, p0, Lcom/android/systemui/util/leak/GarbageMonitor;->mDelayableExecutor:Lcom/android/systemui/util/concurrency/DelayableExecutor;
 
-    invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    iput-object p3, p0, Lcom/android/systemui/util/leak/GarbageMonitor;->mMessageRouter:Lcom/android/systemui/util/concurrency/MessageRouter;
 
-    move-result-object v1
+    new-instance p2, Lcom/android/systemui/util/leak/GarbageMonitor$$ExternalSyntheticLambda1;
 
-    check-cast v1, Landroid/app/ActivityManager;
+    invoke-direct {p2, p0}, Lcom/android/systemui/util/leak/GarbageMonitor$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/util/leak/GarbageMonitor;)V
 
-    iput-object v1, p0, Lcom/android/systemui/util/leak/GarbageMonitor;->mAm:Landroid/app/ActivityManager;
+    const/16 v1, 0x3e8
 
-    new-instance v1, Lcom/android/systemui/util/leak/GarbageMonitor$BackgroundHeapCheckHandler;
+    invoke-interface {p3, v1, p2}, Lcom/android/systemui/util/concurrency/MessageRouter;->subscribeTo(ILcom/android/systemui/util/concurrency/MessageRouter$SimpleMessageListener;)V
 
-    invoke-direct {v1, p0, p2}, Lcom/android/systemui/util/leak/GarbageMonitor$BackgroundHeapCheckHandler;-><init>(Lcom/android/systemui/util/leak/GarbageMonitor;Landroid/os/Looper;)V
+    new-instance p2, Lcom/android/systemui/util/leak/GarbageMonitor$$ExternalSyntheticLambda0;
 
-    iput-object v1, p0, Lcom/android/systemui/util/leak/GarbageMonitor;->mHandler:Landroid/os/Handler;
+    invoke-direct {p2, p0}, Lcom/android/systemui/util/leak/GarbageMonitor$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/util/leak/GarbageMonitor;)V
 
-    invoke-virtual {p3}, Lcom/android/systemui/util/leak/LeakDetector;->getTrackedGarbage()Lcom/android/systemui/util/leak/TrackedGarbage;
+    const/16 v1, 0xbb8
+
+    invoke-interface {p3, v1, p2}, Lcom/android/systemui/util/concurrency/MessageRouter;->subscribeTo(ILcom/android/systemui/util/concurrency/MessageRouter$SimpleMessageListener;)V
+
+    invoke-virtual {p4}, Lcom/android/systemui/util/leak/LeakDetector;->getTrackedGarbage()Lcom/android/systemui/util/leak/TrackedGarbage;
 
     move-result-object p2
 
     iput-object p2, p0, Lcom/android/systemui/util/leak/GarbageMonitor;->mTrackedGarbage:Lcom/android/systemui/util/leak/TrackedGarbage;
 
-    iput-object p4, p0, Lcom/android/systemui/util/leak/GarbageMonitor;->mLeakReporter:Lcom/android/systemui/util/leak/LeakReporter;
+    iput-object p5, p0, Lcom/android/systemui/util/leak/GarbageMonitor;->mLeakReporter:Lcom/android/systemui/util/leak/LeakReporter;
 
     new-instance p2, Lcom/android/systemui/util/leak/DumpTruck;
 
     invoke-direct {p2, v0}, Lcom/android/systemui/util/leak/DumpTruck;-><init>(Landroid/content/Context;)V
 
     iput-object p2, p0, Lcom/android/systemui/util/leak/GarbageMonitor;->mDumpTruck:Lcom/android/systemui/util/leak/DumpTruck;
+
+    const-class p2, Lcom/android/systemui/util/leak/GarbageMonitor;
+
+    invoke-virtual {p2}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-virtual {p6, p2, p0}, Lcom/android/systemui/dump/DumpManager;->registerDumpable(Ljava/lang/String;Lcom/android/systemui/Dumpable;)V
 
     sget-boolean p2, Lcom/android/systemui/util/leak/GarbageMonitor;->ENABLE_AM_HEAP_LIMIT:Z
 
@@ -227,14 +254,6 @@
     return-object p0
 .end method
 
-.method static synthetic access$1000(Lcom/android/systemui/util/leak/GarbageMonitor;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/util/leak/GarbageMonitor;->update()V
-
-    return-void
-.end method
-
 .method static synthetic access$500(Lcom/android/systemui/util/leak/GarbageMonitor;Lcom/android/systemui/util/leak/GarbageMonitor$MemoryTile;)V
     .locals 0
 
@@ -261,14 +280,59 @@
     return-object p0
 .end method
 
-.method static synthetic access$900(Lcom/android/systemui/util/leak/GarbageMonitor;)Z
-    .locals 0
+.method private doGarbageInspection(I)V
+    .locals 3
 
     invoke-direct {p0}, Lcom/android/systemui/util/leak/GarbageMonitor;->gcAndCheckGarbage()Z
 
-    move-result p0
+    move-result p1
 
-    return p0
+    if-eqz p1, :cond_0
+
+    iget-object p1, p0, Lcom/android/systemui/util/leak/GarbageMonitor;->mDelayableExecutor:Lcom/android/systemui/util/concurrency/DelayableExecutor;
+
+    new-instance v0, Lcom/android/systemui/util/leak/GarbageMonitor$$ExternalSyntheticLambda2;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/util/leak/GarbageMonitor$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/util/leak/GarbageMonitor;)V
+
+    const-wide/16 v1, 0x64
+
+    invoke-interface {p1, v0, v1, v2}, Lcom/android/systemui/util/concurrency/DelayableExecutor;->executeDelayed(Ljava/lang/Runnable;J)Ljava/lang/Runnable;
+
+    :cond_0
+    iget-object p1, p0, Lcom/android/systemui/util/leak/GarbageMonitor;->mMessageRouter:Lcom/android/systemui/util/concurrency/MessageRouter;
+
+    const/16 v0, 0x3e8
+
+    invoke-interface {p1, v0}, Lcom/android/systemui/util/concurrency/MessageRouter;->cancelMessages(I)V
+
+    iget-object p0, p0, Lcom/android/systemui/util/leak/GarbageMonitor;->mMessageRouter:Lcom/android/systemui/util/concurrency/MessageRouter;
+
+    const-wide/32 v1, 0xdbba0
+
+    invoke-interface {p0, v0, v1, v2}, Lcom/android/systemui/util/concurrency/MessageRouter;->sendMessageDelayed(IJ)V
+
+    return-void
+.end method
+
+.method private doHeapTrack(I)V
+    .locals 3
+
+    invoke-direct {p0}, Lcom/android/systemui/util/leak/GarbageMonitor;->update()V
+
+    iget-object p1, p0, Lcom/android/systemui/util/leak/GarbageMonitor;->mMessageRouter:Lcom/android/systemui/util/concurrency/MessageRouter;
+
+    const/16 v0, 0xbb8
+
+    invoke-interface {p1, v0}, Lcom/android/systemui/util/concurrency/MessageRouter;->cancelMessages(I)V
+
+    iget-object p0, p0, Lcom/android/systemui/util/leak/GarbageMonitor;->mMessageRouter:Lcom/android/systemui/util/concurrency/MessageRouter;
+
+    const-wide/32 v1, 0xea60
+
+    invoke-interface {p0, v0, v1, v2}, Lcom/android/systemui/util/concurrency/MessageRouter;->sendMessageDelayed(IJ)V
+
+    return-void
 .end method
 
 .method private dumpHprofAndGetShareIntent()Landroid/content/Intent;
@@ -885,11 +949,11 @@
 
     invoke-virtual/range {v1 .. v6}, Lcom/android/systemui/util/leak/GarbageMonitor;->startTrackingProcess(JLjava/lang/String;J)V
 
-    iget-object p0, p0, Lcom/android/systemui/util/leak/GarbageMonitor;->mHandler:Landroid/os/Handler;
+    iget-object p0, p0, Lcom/android/systemui/util/leak/GarbageMonitor;->mMessageRouter:Lcom/android/systemui/util/concurrency/MessageRouter;
 
     const/16 v0, 0xbb8
 
-    invoke-virtual {p0, v0}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    invoke-interface {p0, v0}, Lcom/android/systemui/util/concurrency/MessageRouter;->sendMessage(I)V
 
     return-void
 .end method
@@ -904,11 +968,11 @@
     return-void
 
     :cond_0
-    iget-object p0, p0, Lcom/android/systemui/util/leak/GarbageMonitor;->mHandler:Landroid/os/Handler;
+    iget-object p0, p0, Lcom/android/systemui/util/leak/GarbageMonitor;->mMessageRouter:Lcom/android/systemui/util/concurrency/MessageRouter;
 
     const/16 v0, 0x3e8
 
-    invoke-virtual {p0, v0}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    invoke-interface {p0, v0}, Lcom/android/systemui/util/concurrency/MessageRouter;->sendMessage(I)V
 
     return-void
 .end method

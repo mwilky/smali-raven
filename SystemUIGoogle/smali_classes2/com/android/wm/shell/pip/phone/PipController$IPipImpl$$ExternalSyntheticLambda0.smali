@@ -41,7 +41,7 @@
 
     check-cast p1, Lcom/android/wm/shell/pip/phone/PipController;
 
-    invoke-static {v0, v1, p0, p1}, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->$r8$lambda$pOe8scalhXSRE16OQJWgcaxIRMw(Landroid/content/ComponentName;Landroid/graphics/Rect;Landroid/view/SurfaceControl;Lcom/android/wm/shell/pip/phone/PipController;)V
+    invoke-static {v0, v1, p0, p1}, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->$r8$lambda$BjWOEHab9sLjX3Q-XiVEFbFaIhY(Landroid/content/ComponentName;Landroid/graphics/Rect;Landroid/view/SurfaceControl;Lcom/android/wm/shell/pip/phone/PipController;)V
 
     return-void
 .end method

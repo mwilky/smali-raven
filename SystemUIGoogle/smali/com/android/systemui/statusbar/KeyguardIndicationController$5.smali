@@ -55,7 +55,18 @@
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->showActionToUnlock()V
 
+    goto :goto_0
+
     :cond_1
+    const/4 v0, 0x3
+
+    if-ne p1, v0, :cond_2
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController$5;->this$0:Lcom/android/systemui/statusbar/KeyguardIndicationController;
+
+    invoke-static {p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->access$400(Lcom/android/systemui/statusbar/KeyguardIndicationController;)V
+
+    :cond_2
     :goto_0
     return-void
 .end method

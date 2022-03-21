@@ -78,15 +78,34 @@
 .end method
 
 .method private synthetic lambda$hideUdfpsOverlay$1()V
-    .locals 1
+    .locals 2
 
+    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsController$UdfpsOverlayController;->this$0:Lcom/android/systemui/biometrics/UdfpsController;
+
+    invoke-static {v0}, Lcom/android/systemui/biometrics/UdfpsController;->access$500(Lcom/android/systemui/biometrics/UdfpsController;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isFingerprintDetectionRunning()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "UdfpsController"
+
+    const-string v1, "hiding udfps overlay when mKeyguardUpdateMonitor.isFingerprintDetectionRunning()=true"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsController$UdfpsOverlayController;->this$0:Lcom/android/systemui/biometrics/UdfpsController;
 
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/systemui/biometrics/UdfpsController;->mServerRequest:Lcom/android/systemui/biometrics/UdfpsController$ServerRequest;
 
-    invoke-static {p0}, Lcom/android/systemui/biometrics/UdfpsController;->access$500(Lcom/android/systemui/biometrics/UdfpsController;)V
+    invoke-static {p0}, Lcom/android/systemui/biometrics/UdfpsController;->access$600(Lcom/android/systemui/biometrics/UdfpsController;)V
 
     return-void
 .end method
@@ -251,13 +270,13 @@
 
     iget-object v1, p0, Lcom/android/systemui/biometrics/UdfpsController$UdfpsOverlayController;->this$0:Lcom/android/systemui/biometrics/UdfpsController;
 
-    invoke-static {v1}, Lcom/android/systemui/biometrics/UdfpsController;->access$600(Lcom/android/systemui/biometrics/UdfpsController;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/systemui/biometrics/UdfpsController;->access$700(Lcom/android/systemui/biometrics/UdfpsController;)Landroid/content/Context;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/systemui/biometrics/UdfpsController$UdfpsOverlayController;->this$0:Lcom/android/systemui/biometrics/UdfpsController;
 
-    invoke-static {v2}, Lcom/android/systemui/biometrics/UdfpsController;->access$700(Lcom/android/systemui/biometrics/UdfpsController;)Landroid/hardware/fingerprint/FingerprintManager;
+    invoke-static {v2}, Lcom/android/systemui/biometrics/UdfpsController;->access$800(Lcom/android/systemui/biometrics/UdfpsController;)Landroid/hardware/fingerprint/FingerprintManager;
 
     move-result-object v2
 
@@ -274,7 +293,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsController$UdfpsOverlayController;->this$0:Lcom/android/systemui/biometrics/UdfpsController;
 
-    invoke-static {p0}, Lcom/android/systemui/biometrics/UdfpsController;->access$500(Lcom/android/systemui/biometrics/UdfpsController;)V
+    invoke-static {p0}, Lcom/android/systemui/biometrics/UdfpsController;->access$600(Lcom/android/systemui/biometrics/UdfpsController;)V
 
     return-void
 .end method

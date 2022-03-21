@@ -32,23 +32,58 @@
 
 # virtual methods
 .method public onSimStateChanged(III)V
-    .locals 0
+    .locals 1
 
+    invoke-static {}, Lcom/android/keyguard/KeyguardSimPukViewController;->access$100()Z
+
+    move-result p2
+
+    if-eqz p2, :cond_0
+
+    new-instance p2, Ljava/lang/StringBuilder;
+
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v0, "onSimStateChanged(subId="
+
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string p1, ",state="
+
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string p1, ")"
+
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string p2, "KeyguardSimPukView"
+
+    invoke-static {p2, p1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     const/4 p1, 0x5
 
-    if-ne p3, p1, :cond_0
+    if-ne p3, p1, :cond_1
 
     iget-object p1, p0, Lcom/android/keyguard/KeyguardSimPukViewController$1;->this$0:Lcom/android/keyguard/KeyguardSimPukViewController;
 
     const/4 p2, -0x1
 
-    invoke-static {p1, p2}, Lcom/android/keyguard/KeyguardSimPukViewController;->access$102(Lcom/android/keyguard/KeyguardSimPukViewController;I)I
+    invoke-static {p1, p2}, Lcom/android/keyguard/KeyguardSimPukViewController;->access$202(Lcom/android/keyguard/KeyguardSimPukViewController;I)I
 
     iget-object p1, p0, Lcom/android/keyguard/KeyguardSimPukViewController$1;->this$0:Lcom/android/keyguard/KeyguardSimPukViewController;
 
     const/4 p2, 0x1
 
-    invoke-static {p1, p2}, Lcom/android/keyguard/KeyguardSimPukViewController;->access$202(Lcom/android/keyguard/KeyguardSimPukViewController;Z)Z
+    invoke-static {p1, p2}, Lcom/android/keyguard/KeyguardSimPukViewController;->access$302(Lcom/android/keyguard/KeyguardSimPukViewController;Z)Z
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardSimPukViewController$1;->this$0:Lcom/android/keyguard/KeyguardSimPukViewController;
 
@@ -64,7 +99,7 @@
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     iget-object p0, p0, Lcom/android/keyguard/KeyguardSimPukViewController$1;->this$0:Lcom/android/keyguard/KeyguardSimPukViewController;
 
     invoke-virtual {p0}, Lcom/android/keyguard/KeyguardSimPukViewController;->resetState()V

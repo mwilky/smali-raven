@@ -7,12 +7,6 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/systemui/dagger/SystemUIModule_ProvideSysUiStateFactory$InstanceHolder;
-    }
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
@@ -23,39 +17,70 @@
 .end annotation
 
 
+# instance fields
+.field private final dumpManagerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+
 # direct methods
-.method public constructor <init>()V
+.method public constructor <init>(Ljavax/inject/Provider;)V
     .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
+            ">;)V"
+        }
+    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/systemui/dagger/SystemUIModule_ProvideSysUiStateFactory;->dumpManagerProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create()Lcom/android/systemui/dagger/SystemUIModule_ProvideSysUiStateFactory;
+.method public static create(Ljavax/inject/Provider;)Lcom/android/systemui/dagger/SystemUIModule_ProvideSysUiStateFactory;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
+            ">;)",
+            "Lcom/android/systemui/dagger/SystemUIModule_ProvideSysUiStateFactory;"
+        }
+    .end annotation
 
-    invoke-static {}, Lcom/android/systemui/dagger/SystemUIModule_ProvideSysUiStateFactory$InstanceHolder;->access$000()Lcom/android/systemui/dagger/SystemUIModule_ProvideSysUiStateFactory;
+    new-instance v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideSysUiStateFactory;
 
-    move-result-object v0
+    invoke-direct {v0, p0}, Lcom/android/systemui/dagger/SystemUIModule_ProvideSysUiStateFactory;-><init>(Ljavax/inject/Provider;)V
 
     return-object v0
 .end method
 
-.method public static provideSysUiState()Lcom/android/systemui/model/SysUiState;
-    .locals 1
+.method public static provideSysUiState(Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/model/SysUiState;
+    .locals 0
 
-    invoke-static {}, Lcom/android/systemui/dagger/SystemUIModule;->provideSysUiState()Lcom/android/systemui/model/SysUiState;
+    invoke-static {p0}, Lcom/android/systemui/dagger/SystemUIModule;->provideSysUiState(Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/model/SysUiState;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-static {v0}, Ldagger/internal/Preconditions;->checkNotNullFromProvides(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {p0}, Ldagger/internal/Preconditions;->checkNotNullFromProvides(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/systemui/model/SysUiState;
+    check-cast p0, Lcom/android/systemui/model/SysUiState;
 
-    return-object v0
+    return-object p0
 .end method
 
 
@@ -63,7 +88,15 @@
 .method public get()Lcom/android/systemui/model/SysUiState;
     .locals 0
 
-    invoke-static {}, Lcom/android/systemui/dagger/SystemUIModule_ProvideSysUiStateFactory;->provideSysUiState()Lcom/android/systemui/model/SysUiState;
+    iget-object p0, p0, Lcom/android/systemui/dagger/SystemUIModule_ProvideSysUiStateFactory;->dumpManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/systemui/dump/DumpManager;
+
+    invoke-static {p0}, Lcom/android/systemui/dagger/SystemUIModule_ProvideSysUiStateFactory;->provideSysUiState(Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/model/SysUiState;
 
     move-result-object p0
 

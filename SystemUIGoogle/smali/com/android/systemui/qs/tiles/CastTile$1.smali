@@ -3,7 +3,7 @@
 .source "CastTile.java"
 
 # interfaces
-.implements Lcom/android/systemui/statusbar/policy/NetworkController$SignalCallback;
+.implements Lcom/android/systemui/statusbar/connectivity/SignalCallback;
 
 
 # annotations
@@ -34,21 +34,21 @@
 
 
 # virtual methods
-.method public setWifiIndicators(Lcom/android/systemui/statusbar/policy/NetworkController$WifiIndicators;)V
+.method public setWifiIndicators(Lcom/android/systemui/statusbar/connectivity/WifiIndicators;)V
     .locals 1
 
-    iget-boolean v0, p1, Lcom/android/systemui/statusbar/policy/NetworkController$WifiIndicators;->enabled:Z
+    iget-boolean v0, p1, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->enabled:Z
 
     if-eqz v0, :cond_1
 
-    iget-object p1, p1, Lcom/android/systemui/statusbar/policy/NetworkController$WifiIndicators;->qsIcon:Lcom/android/systemui/statusbar/policy/NetworkController$IconState;
+    iget-object p1, p1, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->qsIcon:Lcom/android/systemui/statusbar/connectivity/IconState;
 
     if-nez p1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    iget-boolean p1, p1, Lcom/android/systemui/statusbar/policy/NetworkController$IconState;->visible:Z
+    iget-boolean p1, p1, Lcom/android/systemui/statusbar/connectivity/IconState;->visible:Z
 
     if-eqz p1, :cond_1
 

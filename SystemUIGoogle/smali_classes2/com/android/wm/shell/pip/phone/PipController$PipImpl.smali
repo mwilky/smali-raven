@@ -24,10 +24,26 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$-2OE3Z96H_HGB9Y0XvbkZd1WSOc(Lcom/android/wm/shell/pip/phone/PipController$PipImpl;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/wm/shell/pip/phone/PipController$PipImpl;->lambda$showPictureInPictureMenu$11()V
+
+    return-void
+.end method
+
 .method public static synthetic $r8$lambda$-5zDqC7Ju6FP4BME1mtTIc5pbfI(Lcom/android/wm/shell/pip/phone/PipController$PipImpl;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/wm/shell/pip/phone/PipController$PipImpl;->lambda$onDensityOrFontScaleChanged$3()V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$3f1njRJ31GU--dV86xWr8QUofaw(Lcom/android/wm/shell/pip/phone/PipController$PipImpl;Ljava/util/function/Consumer;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/pip/phone/PipController$PipImpl;->lambda$addPipExclusionBoundsChangeListener$9(Ljava/util/function/Consumer;)V
 
     return-void
 .end method
@@ -40,22 +56,6 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$HrGKbYL0fDHOzv9jmqZ6mmxkPu8(Lcom/android/wm/shell/pip/phone/PipController$PipImpl;Ljava/util/function/Consumer;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/wm/shell/pip/phone/PipController$PipImpl;->lambda$setPipExclusionBoundsChangeListener$9(Ljava/util/function/Consumer;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$JIK2_B9VSUIQLN_1UsuYknEHdmc(Lcom/android/wm/shell/pip/phone/PipController$PipImpl;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/wm/shell/pip/phone/PipController$PipImpl;->lambda$showPictureInPictureMenu$10()V
-
-    return-void
-.end method
-
 .method public static synthetic $r8$lambda$QLAq71XCs03hGYtg8ovTks4zD4Q(Lcom/android/wm/shell/pip/phone/PipController$PipImpl;Landroid/content/res/Configuration;)V
     .locals 0
 
@@ -64,10 +64,10 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$bOvczKyoJ1B1yYfXXxWzy9XzX44(Lcom/android/wm/shell/pip/phone/PipController$PipImpl;Ljava/io/PrintWriter;)V
+.method public static synthetic $r8$lambda$Qkyr-I7ZT5y08kUbe73Ar_rG-Z4(Lcom/android/wm/shell/pip/phone/PipController$PipImpl;Ljava/io/PrintWriter;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/wm/shell/pip/phone/PipController$PipImpl;->lambda$dump$11(Ljava/io/PrintWriter;)V
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/pip/phone/PipController$PipImpl;->lambda$dump$12(Ljava/io/PrintWriter;)V
 
     return-void
 .end method
@@ -76,6 +76,14 @@
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/wm/shell/pip/phone/PipController$PipImpl;->lambda$setPinnedStackAnimationType$8(I)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$m0H9BHEDbfYo-Hq12UHg5ovqk4w(Lcom/android/wm/shell/pip/phone/PipController$PipImpl;Ljava/util/function/Consumer;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/pip/phone/PipController$PipImpl;->lambda$removePipExclusionBoundsChangeListener$10(Ljava/util/function/Consumer;)V
 
     return-void
 .end method
@@ -122,7 +130,21 @@
     return-void
 .end method
 
-.method private synthetic lambda$dump$11(Ljava/io/PrintWriter;)V
+.method private synthetic lambda$addPipExclusionBoundsChangeListener$9(Ljava/util/function/Consumer;)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipController$PipImpl;->this$0:Lcom/android/wm/shell/pip/phone/PipController;
+
+    invoke-static {p0}, Lcom/android/wm/shell/pip/phone/PipController;->access$200(Lcom/android/wm/shell/pip/phone/PipController;)Lcom/android/wm/shell/pip/PipBoundsState;
+
+    move-result-object p0
+
+    invoke-virtual {p0, p1}, Lcom/android/wm/shell/pip/PipBoundsState;->addPipExclusionBoundsChangeCallback(Ljava/util/function/Consumer;)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$dump$12(Ljava/io/PrintWriter;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipController$PipImpl;->this$0:Lcom/android/wm/shell/pip/phone/PipController;
@@ -192,6 +214,20 @@
     return-void
 .end method
 
+.method private synthetic lambda$removePipExclusionBoundsChangeListener$10(Ljava/util/function/Consumer;)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipController$PipImpl;->this$0:Lcom/android/wm/shell/pip/phone/PipController;
+
+    invoke-static {p0}, Lcom/android/wm/shell/pip/phone/PipController;->access$200(Lcom/android/wm/shell/pip/phone/PipController;)Lcom/android/wm/shell/pip/PipBoundsState;
+
+    move-result-object p0
+
+    invoke-virtual {p0, p1}, Lcom/android/wm/shell/pip/PipBoundsState;->removePipExclusionBoundsChangeCallback(Ljava/util/function/Consumer;)V
+
+    return-void
+.end method
+
 .method private synthetic lambda$setPinnedStackAnimationType$8(I)V
     .locals 0
 
@@ -202,21 +238,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$setPipExclusionBoundsChangeListener$9(Ljava/util/function/Consumer;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipController$PipImpl;->this$0:Lcom/android/wm/shell/pip/phone/PipController;
-
-    invoke-static {p0}, Lcom/android/wm/shell/pip/phone/PipController;->access$200(Lcom/android/wm/shell/pip/phone/PipController;)Lcom/android/wm/shell/pip/PipBoundsState;
-
-    move-result-object p0
-
-    invoke-virtual {p0, p1}, Lcom/android/wm/shell/pip/PipBoundsState;->setPipExclusionBoundsChangeCallback(Ljava/util/function/Consumer;)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$showPictureInPictureMenu$10()V
+.method private synthetic lambda$showPictureInPictureMenu$11()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipController$PipImpl;->this$0:Lcom/android/wm/shell/pip/phone/PipController;
@@ -228,6 +250,30 @@
 
 
 # virtual methods
+.method public addPipExclusionBoundsChangeListener(Ljava/util/function/Consumer;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/function/Consumer<",
+            "Landroid/graphics/Rect;",
+            ">;)V"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PipController$PipImpl;->this$0:Lcom/android/wm/shell/pip/phone/PipController;
+
+    iget-object v0, v0, Lcom/android/wm/shell/pip/phone/PipController;->mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
+
+    new-instance v1, Lcom/android/wm/shell/pip/phone/PipController$PipImpl$$ExternalSyntheticLambda8;
+
+    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/pip/phone/PipController$PipImpl$$ExternalSyntheticLambda8;-><init>(Lcom/android/wm/shell/pip/phone/PipController$PipImpl;Ljava/util/function/Consumer;)V
+
+    invoke-interface {v0, v1}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
+
+    return-void
+.end method
+
 .method public createExternalInterface()Lcom/android/wm/shell/pip/IPip;
     .locals 2
 
@@ -317,9 +363,9 @@
 
     iget-object v0, v0, Lcom/android/wm/shell/pip/phone/PipController;->mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
 
-    new-instance v1, Lcom/android/wm/shell/pip/phone/PipController$PipImpl$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/wm/shell/pip/phone/PipController$PipImpl$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0}, Lcom/android/wm/shell/pip/phone/PipController$PipImpl$$ExternalSyntheticLambda0;-><init>(Lcom/android/wm/shell/pip/phone/PipController$PipImpl;)V
+    invoke-direct {v1, p0}, Lcom/android/wm/shell/pip/phone/PipController$PipImpl$$ExternalSyntheticLambda1;-><init>(Lcom/android/wm/shell/pip/phone/PipController$PipImpl;)V
 
     invoke-interface {v0, v1}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
 
@@ -349,9 +395,9 @@
 
     iget-object v0, v0, Lcom/android/wm/shell/pip/phone/PipController;->mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
 
-    new-instance v1, Lcom/android/wm/shell/pip/phone/PipController$PipImpl$$ExternalSyntheticLambda9;
+    new-instance v1, Lcom/android/wm/shell/pip/phone/PipController$PipImpl$$ExternalSyntheticLambda10;
 
-    invoke-direct {v1, p0, p1, p2}, Lcom/android/wm/shell/pip/phone/PipController$PipImpl$$ExternalSyntheticLambda9;-><init>(Lcom/android/wm/shell/pip/phone/PipController$PipImpl;ZI)V
+    invoke-direct {v1, p0, p1, p2}, Lcom/android/wm/shell/pip/phone/PipController$PipImpl$$ExternalSyntheticLambda10;-><init>(Lcom/android/wm/shell/pip/phone/PipController$PipImpl;ZI)V
 
     invoke-interface {v0, v1}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
 
@@ -374,6 +420,30 @@
     return-void
 .end method
 
+.method public removePipExclusionBoundsChangeListener(Ljava/util/function/Consumer;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/function/Consumer<",
+            "Landroid/graphics/Rect;",
+            ">;)V"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PipController$PipImpl;->this$0:Lcom/android/wm/shell/pip/phone/PipController;
+
+    iget-object v0, v0, Lcom/android/wm/shell/pip/phone/PipController;->mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
+
+    new-instance v1, Lcom/android/wm/shell/pip/phone/PipController$PipImpl$$ExternalSyntheticLambda9;
+
+    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/pip/phone/PipController$PipImpl$$ExternalSyntheticLambda9;-><init>(Lcom/android/wm/shell/pip/phone/PipController$PipImpl;Ljava/util/function/Consumer;)V
+
+    invoke-interface {v0, v1}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
+
+    return-void
+.end method
+
 .method public setPinnedStackAnimationType(I)V
     .locals 2
 
@@ -390,30 +460,6 @@
     return-void
 .end method
 
-.method public setPipExclusionBoundsChangeListener(Ljava/util/function/Consumer;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/function/Consumer<",
-            "Landroid/graphics/Rect;",
-            ">;)V"
-        }
-    .end annotation
-
-    iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PipController$PipImpl;->this$0:Lcom/android/wm/shell/pip/phone/PipController;
-
-    iget-object v0, v0, Lcom/android/wm/shell/pip/phone/PipController;->mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
-
-    new-instance v1, Lcom/android/wm/shell/pip/phone/PipController$PipImpl$$ExternalSyntheticLambda8;
-
-    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/pip/phone/PipController$PipImpl$$ExternalSyntheticLambda8;-><init>(Lcom/android/wm/shell/pip/phone/PipController$PipImpl;Ljava/util/function/Consumer;)V
-
-    invoke-interface {v0, v1}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
-
-    return-void
-.end method
-
 .method public showPictureInPictureMenu()V
     .locals 2
 
@@ -421,9 +467,9 @@
 
     iget-object v0, v0, Lcom/android/wm/shell/pip/phone/PipController;->mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
 
-    new-instance v1, Lcom/android/wm/shell/pip/phone/PipController$PipImpl$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/wm/shell/pip/phone/PipController$PipImpl$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0}, Lcom/android/wm/shell/pip/phone/PipController$PipImpl$$ExternalSyntheticLambda1;-><init>(Lcom/android/wm/shell/pip/phone/PipController$PipImpl;)V
+    invoke-direct {v1, p0}, Lcom/android/wm/shell/pip/phone/PipController$PipImpl$$ExternalSyntheticLambda0;-><init>(Lcom/android/wm/shell/pip/phone/PipController$PipImpl;)V
 
     invoke-interface {v0, v1}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
 

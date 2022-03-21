@@ -32,18 +32,6 @@
         <item quantity="other">Código PUK do cartão SIM incorreto. Tem mais %d tentativas antes de o cartão SIM ficar permanentemente inutilizável.</item>
         <item quantity="one">Código PUK do cartão SIM incorreto. Tem mais %d tentativa antes de o cartão SIM ficar permanentemente inutilizável.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">O dispositivo não é desbloqueado há %d horas. Confirme a palavra-passe.</item>
-        <item quantity="one">O dispositivo não é desbloqueado há %d hora. Confirme a palavra-passe.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">O dispositivo não é desbloqueado há %d horas. Confirme o padrão.</item>
-        <item quantity="one">O dispositivo não é desbloqueado há %d hora. Confirme o padrão.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">O dispositivo não é desbloqueado há %d horas. Confirme o PIN.</item>
-        <item quantity="one">O dispositivo não é desbloqueado há %d hora. Confirme o PIN.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">Tente novamente dentro de %d segundos.</item>
         <item quantity="one">Tente novamente dentro de 1 segundo.</item>

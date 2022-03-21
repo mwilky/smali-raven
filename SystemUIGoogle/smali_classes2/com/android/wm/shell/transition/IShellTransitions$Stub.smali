@@ -39,7 +39,7 @@
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -52,11 +52,13 @@
 
     const v2, 0x5f4e5446
 
-    if-eq p1, v2, :cond_3
+    if-eq p1, v2, :cond_5
 
     const/4 v2, 0x2
 
-    if-eq p1, v2, :cond_1
+    const/4 v3, 0x0
+
+    if-eq p1, v2, :cond_2
 
     const/4 v2, 0x3
 
@@ -71,26 +73,35 @@
     :cond_0
     invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
-    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result p1
+
+    if-eqz p1, :cond_1
+
+    sget-object p1, Landroid/window/RemoteTransition;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {p1, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object p1
 
-    invoke-static {p1}, Landroid/window/IRemoteTransition$Stub;->asInterface(Landroid/os/IBinder;)Landroid/window/IRemoteTransition;
+    move-object v3, p1
 
-    move-result-object p1
+    check-cast v3, Landroid/window/RemoteTransition;
 
-    invoke-interface {p0, p1}, Lcom/android/wm/shell/transition/IShellTransitions;->unregisterRemote(Landroid/window/IRemoteTransition;)V
+    :cond_1
+    invoke-interface {p0, v3}, Lcom/android/wm/shell/transition/IShellTransitions;->unregisterRemote(Landroid/window/RemoteTransition;)V
 
     return v0
 
-    :cond_1
+    :cond_2
     invoke-virtual {p2, v1}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
 
     move-result p1
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_3
 
     sget-object p1, Landroid/window/TransitionFilter;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -102,23 +113,32 @@
 
     goto :goto_0
 
-    :cond_2
-    const/4 p1, 0x0
+    :cond_3
+    move-object p1, v3
 
     :goto_0
-    invoke-virtual {p2}, Landroid/os/Parcel;->readStrongBinder()Landroid/os/IBinder;
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result p3
+
+    if-eqz p3, :cond_4
+
+    sget-object p3, Landroid/window/RemoteTransition;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {p3, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
 
     move-result-object p2
 
-    invoke-static {p2}, Landroid/window/IRemoteTransition$Stub;->asInterface(Landroid/os/IBinder;)Landroid/window/IRemoteTransition;
+    move-object v3, p2
 
-    move-result-object p2
+    check-cast v3, Landroid/window/RemoteTransition;
 
-    invoke-interface {p0, p1, p2}, Lcom/android/wm/shell/transition/IShellTransitions;->registerRemote(Landroid/window/TransitionFilter;Landroid/window/IRemoteTransition;)V
+    :cond_4
+    invoke-interface {p0, p1, v3}, Lcom/android/wm/shell/transition/IShellTransitions;->registerRemote(Landroid/window/TransitionFilter;Landroid/window/RemoteTransition;)V
 
     return v0
 
-    :cond_3
+    :cond_5
     invoke-virtual {p3, v1}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     return v0

@@ -82,7 +82,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/common/DisplayController$DisplayWindowListenerImpl;->this$0:Lcom/android/wm/shell/common/DisplayController;
 
-    invoke-static {p0, p1}, Lcom/android/wm/shell/common/DisplayController;->access$700(Lcom/android/wm/shell/common/DisplayController;I)V
+    invoke-static {p0, p1}, Lcom/android/wm/shell/common/DisplayController;->access$1100(Lcom/android/wm/shell/common/DisplayController;I)V
 
     return-void
 .end method
@@ -92,7 +92,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/common/DisplayController$DisplayWindowListenerImpl;->this$0:Lcom/android/wm/shell/common/DisplayController;
 
-    invoke-static {p0, p1, p2}, Lcom/android/wm/shell/common/DisplayController;->access$600(Lcom/android/wm/shell/common/DisplayController;ILandroid/content/res/Configuration;)V
+    invoke-static {p0, p1, p2}, Lcom/android/wm/shell/common/DisplayController;->access$1000(Lcom/android/wm/shell/common/DisplayController;ILandroid/content/res/Configuration;)V
 
     return-void
 .end method
@@ -102,7 +102,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/common/DisplayController$DisplayWindowListenerImpl;->this$0:Lcom/android/wm/shell/common/DisplayController;
 
-    invoke-static {p0, p1}, Lcom/android/wm/shell/common/DisplayController;->access$500(Lcom/android/wm/shell/common/DisplayController;I)V
+    invoke-static {p0, p1}, Lcom/android/wm/shell/common/DisplayController;->access$900(Lcom/android/wm/shell/common/DisplayController;I)V
 
     return-void
 .end method
@@ -112,7 +112,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/common/DisplayController$DisplayWindowListenerImpl;->this$0:Lcom/android/wm/shell/common/DisplayController;
 
-    invoke-static {p0, p1}, Lcom/android/wm/shell/common/DisplayController;->access$300(Lcom/android/wm/shell/common/DisplayController;I)V
+    invoke-static {p0, p1}, Lcom/android/wm/shell/common/DisplayController;->access$700(Lcom/android/wm/shell/common/DisplayController;I)V
 
     return-void
 .end method
@@ -122,7 +122,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/common/DisplayController$DisplayWindowListenerImpl;->this$0:Lcom/android/wm/shell/common/DisplayController;
 
-    invoke-static {p0, p1, p2}, Lcom/android/wm/shell/common/DisplayController;->access$400(Lcom/android/wm/shell/common/DisplayController;II)V
+    invoke-static {p0, p1, p2}, Lcom/android/wm/shell/common/DisplayController;->access$800(Lcom/android/wm/shell/common/DisplayController;II)V
 
     return-void
 .end method
@@ -134,7 +134,7 @@
 
     iget-object v0, p0, Lcom/android/wm/shell/common/DisplayController$DisplayWindowListenerImpl;->this$0:Lcom/android/wm/shell/common/DisplayController;
 
-    invoke-static {v0}, Lcom/android/wm/shell/common/DisplayController;->access$200(Lcom/android/wm/shell/common/DisplayController;)Lcom/android/wm/shell/common/ShellExecutor;
+    invoke-static {v0}, Lcom/android/wm/shell/common/DisplayController;->access$600(Lcom/android/wm/shell/common/DisplayController;)Lcom/android/wm/shell/common/ShellExecutor;
 
     move-result-object v0
 
@@ -152,7 +152,7 @@
 
     iget-object v0, p0, Lcom/android/wm/shell/common/DisplayController$DisplayWindowListenerImpl;->this$0:Lcom/android/wm/shell/common/DisplayController;
 
-    invoke-static {v0}, Lcom/android/wm/shell/common/DisplayController;->access$200(Lcom/android/wm/shell/common/DisplayController;)Lcom/android/wm/shell/common/ShellExecutor;
+    invoke-static {v0}, Lcom/android/wm/shell/common/DisplayController;->access$600(Lcom/android/wm/shell/common/DisplayController;)Lcom/android/wm/shell/common/ShellExecutor;
 
     move-result-object v0
 
@@ -170,7 +170,7 @@
 
     iget-object v0, p0, Lcom/android/wm/shell/common/DisplayController$DisplayWindowListenerImpl;->this$0:Lcom/android/wm/shell/common/DisplayController;
 
-    invoke-static {v0}, Lcom/android/wm/shell/common/DisplayController;->access$200(Lcom/android/wm/shell/common/DisplayController;)Lcom/android/wm/shell/common/ShellExecutor;
+    invoke-static {v0}, Lcom/android/wm/shell/common/DisplayController;->access$600(Lcom/android/wm/shell/common/DisplayController;)Lcom/android/wm/shell/common/ShellExecutor;
 
     move-result-object v0
 
@@ -188,7 +188,7 @@
 
     iget-object v0, p0, Lcom/android/wm/shell/common/DisplayController$DisplayWindowListenerImpl;->this$0:Lcom/android/wm/shell/common/DisplayController;
 
-    invoke-static {v0}, Lcom/android/wm/shell/common/DisplayController;->access$200(Lcom/android/wm/shell/common/DisplayController;)Lcom/android/wm/shell/common/ShellExecutor;
+    invoke-static {v0}, Lcom/android/wm/shell/common/DisplayController;->access$600(Lcom/android/wm/shell/common/DisplayController;)Lcom/android/wm/shell/common/ShellExecutor;
 
     move-result-object v0
 
@@ -206,7 +206,7 @@
 
     iget-object v0, p0, Lcom/android/wm/shell/common/DisplayController$DisplayWindowListenerImpl;->this$0:Lcom/android/wm/shell/common/DisplayController;
 
-    invoke-static {v0}, Lcom/android/wm/shell/common/DisplayController;->access$200(Lcom/android/wm/shell/common/DisplayController;)Lcom/android/wm/shell/common/ShellExecutor;
+    invoke-static {v0}, Lcom/android/wm/shell/common/DisplayController;->access$600(Lcom/android/wm/shell/common/DisplayController;)Lcom/android/wm/shell/common/ShellExecutor;
 
     move-result-object v0
 

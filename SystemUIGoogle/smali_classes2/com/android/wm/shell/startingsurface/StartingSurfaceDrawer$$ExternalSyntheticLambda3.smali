@@ -33,7 +33,7 @@
 
     iget p0, p0, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer$$ExternalSyntheticLambda3;->f$1:I
 
-    invoke-static {v0, p0}, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;->$r8$lambda$6w5svbhRTuK67gXq5sXqkW5cDf4(Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;I)V
+    invoke-static {v0, p0}, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;->$r8$lambda$CBhMC_9KDOee95Dsk0VjG00I7zA(Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;I)V
 
     return-void
 .end method

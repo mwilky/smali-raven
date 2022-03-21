@@ -393,11 +393,32 @@
     goto :goto_0
 
     :cond_5
-    iget-boolean p1, p0, Lcom/android/keyguard/KeyguardVisibilityHelper;->mLastOccludedState:Z
+    iget-object p1, p0, Lcom/android/keyguard/KeyguardVisibilityHelper;->mUnlockedScreenOffAnimationController:Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
+
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;->shouldAnimateInKeyguard()Z
+
+    move-result p1
 
     if-eqz p1, :cond_6
 
-    if-nez v0, :cond_6
+    iput-boolean v5, p0, Lcom/android/keyguard/KeyguardVisibilityHelper;->mKeyguardViewVisibilityAnimating:Z
+
+    iget-object p1, p0, Lcom/android/keyguard/KeyguardVisibilityHelper;->mUnlockedScreenOffAnimationController:Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
+
+    iget-object p2, p0, Lcom/android/keyguard/KeyguardVisibilityHelper;->mView:Landroid/view/View;
+
+    iget-object p3, p0, Lcom/android/keyguard/KeyguardVisibilityHelper;->mAnimateKeyguardStatusViewVisibleEndRunnable:Ljava/lang/Runnable;
+
+    invoke-virtual {p1, p2, p3}, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;->animateInKeyguard(Landroid/view/View;Ljava/lang/Runnable;)V
+
+    goto :goto_0
+
+    :cond_6
+    iget-boolean p1, p0, Lcom/android/keyguard/KeyguardVisibilityHelper;->mLastOccludedState:Z
+
+    if-eqz p1, :cond_7
+
+    if-nez v0, :cond_7
 
     iget-object p1, p0, Lcom/android/keyguard/KeyguardVisibilityHelper;->mView:Landroid/view/View;
 
@@ -436,27 +457,6 @@
     move-result-object p1
 
     invoke-virtual {p1}, Landroid/view/ViewPropertyAnimator;->start()V
-
-    goto :goto_0
-
-    :cond_6
-    iget-object p1, p0, Lcom/android/keyguard/KeyguardVisibilityHelper;->mUnlockedScreenOffAnimationController:Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
-
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;->shouldAnimateInKeyguard()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_7
-
-    iput-boolean v5, p0, Lcom/android/keyguard/KeyguardVisibilityHelper;->mKeyguardViewVisibilityAnimating:Z
-
-    iget-object p1, p0, Lcom/android/keyguard/KeyguardVisibilityHelper;->mUnlockedScreenOffAnimationController:Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
-
-    iget-object p2, p0, Lcom/android/keyguard/KeyguardVisibilityHelper;->mView:Landroid/view/View;
-
-    iget-object p3, p0, Lcom/android/keyguard/KeyguardVisibilityHelper;->mAnimateKeyguardStatusViewVisibleEndRunnable:Ljava/lang/Runnable;
-
-    invoke-virtual {p1, p2, p3}, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;->animateInKeyguard(Landroid/view/View;Ljava/lang/Runnable;)V
 
     goto :goto_0
 

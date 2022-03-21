@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/wmshell/BubblesManager$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/wmshell/BubblesManager;
 
-    invoke-static {p0, p1, p2, p3}, Lcom/android/systemui/wmshell/BubblesManager;->$r8$lambda$sZE5BcvPsRdOfQMtoADdoOFF8Xw(Lcom/android/systemui/wmshell/BubblesManager;Ljava/lang/String;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;I)Z
+    invoke-static {p0, p1, p2, p3}, Lcom/android/systemui/wmshell/BubblesManager;->$r8$lambda$a85Qf4_ORE22D-nLZDR_1_WdIhk(Lcom/android/systemui/wmshell/BubblesManager;Ljava/lang/String;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;I)Z
 
     move-result p0
 

@@ -1271,8 +1271,8 @@
     throw p0
 .end method
 
-.method public static min(Ljava/lang/Iterable;)Ljava/lang/Comparable;
-    .locals 1
+.method public static maxOrNull(Ljava/lang/Iterable;)Ljava/lang/Comparable;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -1283,15 +1283,57 @@
         }
     .end annotation
 
-    const-string v0, "$this$min"
+    const-string v0, "$this$maxOrNull"
 
     invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {p0}, Lkotlin/collections/CollectionsKt;->minOrNull(Ljava/lang/Iterable;)Ljava/lang/Comparable;
+    invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object p0
 
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const/4 p0, 0x0
+
     return-object p0
+
+    :cond_0
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/Comparable;
+
+    :cond_1
+    :goto_0
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/Comparable;
+
+    invoke-interface {v0, v1}, Ljava/lang/Comparable;->compareTo(Ljava/lang/Object;)I
+
+    move-result v2
+
+    if-gez v2, :cond_1
+
+    move-object v0, v1
+
+    goto :goto_0
+
+    :cond_2
+    return-object v0
 .end method
 
 .method public static minOrNull(Ljava/lang/Iterable;)Ljava/lang/Comparable;

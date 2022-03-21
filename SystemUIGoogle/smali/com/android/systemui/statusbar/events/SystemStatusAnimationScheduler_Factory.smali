@@ -62,7 +62,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/StatusBarWindowController;",
+            "Lcom/android/systemui/statusbar/window/StatusBarWindowController;",
             ">;"
         }
     .end annotation
@@ -92,7 +92,7 @@
             "Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/StatusBarWindowController;",
+            "Lcom/android/systemui/statusbar/window/StatusBarWindowController;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/dump/DumpManager;",
@@ -135,7 +135,7 @@
             "Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/StatusBarWindowController;",
+            "Lcom/android/systemui/statusbar/window/StatusBarWindowController;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/dump/DumpManager;",
@@ -171,7 +171,7 @@
     return-object v7
 .end method
 
-.method public static newInstance(Lcom/android/systemui/statusbar/events/SystemEventCoordinator;Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;Lcom/android/systemui/statusbar/phone/StatusBarWindowController;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/util/concurrency/DelayableExecutor;)Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;
+.method public static newInstance(Lcom/android/systemui/statusbar/events/SystemEventCoordinator;Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;Lcom/android/systemui/statusbar/window/StatusBarWindowController;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/util/concurrency/DelayableExecutor;)Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;
     .locals 8
 
     new-instance v7, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;
@@ -190,7 +190,7 @@
 
     move-object v6, p5
 
-    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;-><init>(Lcom/android/systemui/statusbar/events/SystemEventCoordinator;Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;Lcom/android/systemui/statusbar/phone/StatusBarWindowController;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/util/concurrency/DelayableExecutor;)V
+    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;-><init>(Lcom/android/systemui/statusbar/events/SystemEventCoordinator;Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;Lcom/android/systemui/statusbar/window/StatusBarWindowController;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/util/concurrency/DelayableExecutor;)V
 
     return-object v7
 .end method
@@ -228,7 +228,7 @@
 
     move-object v3, v0
 
-    check-cast v3, Lcom/android/systemui/statusbar/phone/StatusBarWindowController;
+    check-cast v3, Lcom/android/systemui/statusbar/window/StatusBarWindowController;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
 
@@ -260,7 +260,7 @@
 
     check-cast v6, Lcom/android/systemui/util/concurrency/DelayableExecutor;
 
-    invoke-static/range {v1 .. v6}, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler_Factory;->newInstance(Lcom/android/systemui/statusbar/events/SystemEventCoordinator;Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;Lcom/android/systemui/statusbar/phone/StatusBarWindowController;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/util/concurrency/DelayableExecutor;)Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;
+    invoke-static/range {v1 .. v6}, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler_Factory;->newInstance(Lcom/android/systemui/statusbar/events/SystemEventCoordinator;Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;Lcom/android/systemui/statusbar/window/StatusBarWindowController;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/util/concurrency/DelayableExecutor;)Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;
 
     move-result-object p0
 

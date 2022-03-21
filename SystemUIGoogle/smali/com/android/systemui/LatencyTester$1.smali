@@ -59,9 +59,9 @@
 
     invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result p2
+    move-result p1
 
-    if-eqz p2, :cond_1
+    if-eqz p1, :cond_1
 
     iget-object p0, p0, Lcom/android/systemui/LatencyTester$1;->this$0:Lcom/android/systemui/LatencyTester;
 
@@ -69,22 +69,7 @@
 
     invoke-static {p0, p1}, Lcom/android/systemui/LatencyTester;->access$000(Lcom/android/systemui/LatencyTester;Landroid/hardware/biometrics/BiometricSourceType;)V
 
-    goto :goto_0
-
     :cond_1
-    const-string p2, "com.android.systemui.latency.ACTION_TURN_ON_SCREEN"
-
-    invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_2
-
-    iget-object p0, p0, Lcom/android/systemui/LatencyTester$1;->this$0:Lcom/android/systemui/LatencyTester;
-
-    invoke-static {p0}, Lcom/android/systemui/LatencyTester;->access$100(Lcom/android/systemui/LatencyTester;)V
-
-    :cond_2
     :goto_0
     return-void
 .end method

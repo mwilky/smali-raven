@@ -3,12 +3,12 @@
 .source "NavigationBarView.java"
 
 # interfaces
-.implements Lcom/android/systemui/navigationbar/gestural/RegionSamplingHelper$SamplingCallback;
+.implements Lcom/android/systemui/shared/rotation/RotationButton$RotationButtonUpdatesCallback;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/navigationbar/NavigationBarView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/systemui/navigationbar/NavigationBarView;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,75 +34,41 @@
 
 
 # virtual methods
-.method public getSampledRegion(Landroid/view/View;)Landroid/graphics/Rect;
+.method public onPositionChanged()V
     .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBarView$2;->this$0:Lcom/android/systemui/navigationbar/NavigationBarView;
+
+    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/NavigationBarView;->notifyActiveTouchRegions()V
+
+    return-void
+.end method
+
+.method public onVisibilityChanged(Z)V
+    .locals 0
+
+    if-eqz p1, :cond_0
 
     iget-object p1, p0, Lcom/android/systemui/navigationbar/NavigationBarView$2;->this$0:Lcom/android/systemui/navigationbar/NavigationBarView;
 
-    invoke-static {p1}, Lcom/android/systemui/navigationbar/NavigationBarView;->access$100(Lcom/android/systemui/navigationbar/NavigationBarView;)Landroid/graphics/Rect;
+    invoke-static {p1}, Lcom/android/systemui/navigationbar/NavigationBarView;->access$200(Lcom/android/systemui/navigationbar/NavigationBarView;)Lcom/android/systemui/statusbar/phone/AutoHideController;
 
     move-result-object p1
 
     if-eqz p1, :cond_0
 
-    iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBarView$2;->this$0:Lcom/android/systemui/navigationbar/NavigationBarView;
-
-    invoke-static {p0}, Lcom/android/systemui/navigationbar/NavigationBarView;->access$100(Lcom/android/systemui/navigationbar/NavigationBarView;)Landroid/graphics/Rect;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_0
     iget-object p1, p0, Lcom/android/systemui/navigationbar/NavigationBarView$2;->this$0:Lcom/android/systemui/navigationbar/NavigationBarView;
 
-    invoke-static {p1}, Lcom/android/systemui/navigationbar/NavigationBarView;->access$200(Lcom/android/systemui/navigationbar/NavigationBarView;)V
+    invoke-static {p1}, Lcom/android/systemui/navigationbar/NavigationBarView;->access$200(Lcom/android/systemui/navigationbar/NavigationBarView;)Lcom/android/systemui/statusbar/phone/AutoHideController;
 
+    move-result-object p1
+
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/phone/AutoHideController;->touchAutoHide()V
+
+    :cond_0
     iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBarView$2;->this$0:Lcom/android/systemui/navigationbar/NavigationBarView;
 
-    invoke-static {p0}, Lcom/android/systemui/navigationbar/NavigationBarView;->access$300(Lcom/android/systemui/navigationbar/NavigationBarView;)Landroid/graphics/Rect;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public isSamplingEnabled()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/navigationbar/NavigationBarView$2;->this$0:Lcom/android/systemui/navigationbar/NavigationBarView;
-
-    invoke-virtual {v0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBarView$2;->this$0:Lcom/android/systemui/navigationbar/NavigationBarView;
-
-    invoke-static {p0}, Lcom/android/systemui/navigationbar/NavigationBarView;->access$400(Lcom/android/systemui/navigationbar/NavigationBarView;)I
-
-    move-result p0
-
-    invoke-static {v0, p0}, Lcom/android/systemui/util/Utils;->isGesturalModeOnDefaultDisplay(Landroid/content/Context;I)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public onRegionDarknessChanged(Z)V
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBarView$2;->this$0:Lcom/android/systemui/navigationbar/NavigationBarView;
-
-    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/NavigationBarView;->getLightTransitionsController()Lcom/android/systemui/statusbar/phone/LightBarTransitionsController;
-
-    move-result-object p0
-
-    const/4 v0, 0x1
-
-    xor-int/2addr p1, v0
-
-    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/statusbar/phone/LightBarTransitionsController;->setIconsDark(ZZ)V
+    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/NavigationBarView;->notifyActiveTouchRegions()V
 
     return-void
 .end method

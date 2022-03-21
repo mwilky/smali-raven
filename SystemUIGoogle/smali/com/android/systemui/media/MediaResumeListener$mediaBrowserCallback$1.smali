@@ -135,7 +135,7 @@
 
     move-result v3
 
-    const-string/jumbo p0, "token"
+    const-string p0, "token"
 
     invoke-static {v6, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 

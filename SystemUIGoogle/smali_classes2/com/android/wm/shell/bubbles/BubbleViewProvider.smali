@@ -28,9 +28,6 @@
 .method public abstract getTaskId()I
 .end method
 
-.method public abstract setExpandedContentAlpha(F)V
-.end method
-
 .method public abstract setTaskViewVisibility(Z)V
 .end method
 

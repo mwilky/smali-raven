@@ -6,7 +6,9 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lkotlinx/coroutines/internal/LockFreeLinkedListNode$CondAddOp;
+        Lkotlinx/coroutines/internal/LockFreeLinkedListNode$CondAddOp;,
+        Lkotlinx/coroutines/internal/LockFreeLinkedListNode$RemoveFirstDesc;,
+        Lkotlinx/coroutines/internal/LockFreeLinkedListNode$AbstractAtomicDesc;
     }
 .end annotation
 
@@ -88,6 +90,24 @@
     invoke-direct {p0, p1}, Lkotlinx/coroutines/internal/LockFreeLinkedListNode;->finishAdd(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;)V
 
     return-void
+.end method
+
+.method public static final synthetic access$finishRemove(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;Lkotlinx/coroutines/internal/LockFreeLinkedListNode;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lkotlinx/coroutines/internal/LockFreeLinkedListNode;->finishRemove(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;)V
+
+    return-void
+.end method
+
+.method public static final synthetic access$removed(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;)Lkotlinx/coroutines/internal/Removed;
+    .locals 0
+
+    invoke-direct {p0}, Lkotlinx/coroutines/internal/LockFreeLinkedListNode;->removed()Lkotlinx/coroutines/internal/Removed;
+
+    move-result-object p0
+
+    return-object p0
 .end method
 
 .method private final correctPrev(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;Lkotlinx/coroutines/internal/OpDescriptor;)Lkotlinx/coroutines/internal/LockFreeLinkedListNode;
@@ -413,6 +433,40 @@
 
 
 # virtual methods
+.method public final addLast(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;)V
+    .locals 1
+
+    const-string v0, "node"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+
+    :cond_0
+    invoke-virtual {p0}, Lkotlinx/coroutines/internal/LockFreeLinkedListNode;->getPrev()Ljava/lang/Object;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    check-cast v0, Lkotlinx/coroutines/internal/LockFreeLinkedListNode;
+
+    invoke-virtual {v0, p1, p0}, Lkotlinx/coroutines/internal/LockFreeLinkedListNode;->addNext(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;Lkotlinx/coroutines/internal/LockFreeLinkedListNode;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    return-void
+
+    :cond_1
+    new-instance p0, Lkotlin/TypeCastException;
+
+    const-string p1, "null cannot be cast to non-null type kotlinx.coroutines.internal.Node /* = kotlinx.coroutines.internal.LockFreeLinkedListNode */"
+
+    invoke-direct {p0, p1}, Lkotlin/TypeCastException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+.end method
+
 .method public final addNext(Lkotlinx/coroutines/internal/LockFreeLinkedListNode;Lkotlinx/coroutines/internal/LockFreeLinkedListNode;)Z
     .locals 1
 

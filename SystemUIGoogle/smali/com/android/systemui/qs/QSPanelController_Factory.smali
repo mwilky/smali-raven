@@ -32,7 +32,17 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/settings/brightness/BrightnessSlider$Factory;",
+            "Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final commandQueueProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/CommandQueue;",
             ">;"
         }
     .end annotation
@@ -53,16 +63,6 @@
         value = {
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/plugins/FalsingManager;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final featureFlagsProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
             ">;"
         }
     .end annotation
@@ -225,13 +225,13 @@
             "Lcom/android/systemui/settings/brightness/BrightnessController$Factory;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/settings/brightness/BrightnessSlider$Factory;",
+            "Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/plugins/FalsingManager;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/statusbar/CommandQueue;",
             ">;)V"
         }
     .end annotation
@@ -302,7 +302,7 @@
 
     move-object/from16 v1, p16
 
-    iput-object v1, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->commandQueueProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
@@ -352,13 +352,13 @@
             "Lcom/android/systemui/settings/brightness/BrightnessController$Factory;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/settings/brightness/BrightnessSlider$Factory;",
+            "Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/plugins/FalsingManager;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/statusbar/CommandQueue;",
             ">;)",
             "Lcom/android/systemui/qs/QSPanelController_Factory;"
         }
@@ -405,7 +405,7 @@
     return-object v17
 .end method
 
-.method public static newInstance(Lcom/android/systemui/qs/QSPanel;Ljava/lang/Object;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/customize/QSCustomizerController;ZLcom/android/systemui/media/MediaHost;Ljava/lang/Object;Lcom/android/systemui/dump/DumpManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/settings/brightness/BrightnessController$Factory;Lcom/android/systemui/settings/brightness/BrightnessSlider$Factory;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/FeatureFlags;)Lcom/android/systemui/qs/QSPanelController;
+.method public static newInstance(Lcom/android/systemui/qs/QSPanel;Ljava/lang/Object;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/customize/QSCustomizerController;ZLcom/android/systemui/media/MediaHost;Ljava/lang/Object;Lcom/android/systemui/dump/DumpManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/settings/brightness/BrightnessController$Factory;Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/qs/QSPanelController;
     .locals 18
 
     move-object/from16 v1, p0
@@ -448,7 +448,7 @@
 
     check-cast v8, Lcom/android/systemui/qs/QSTileRevealController$Factory;
 
-    invoke-direct/range {v0 .. v16}, Lcom/android/systemui/qs/QSPanelController;-><init>(Lcom/android/systemui/qs/QSPanel;Lcom/android/systemui/qs/QSSecurityFooter;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/customize/QSCustomizerController;ZLcom/android/systemui/media/MediaHost;Lcom/android/systemui/qs/QSTileRevealController$Factory;Lcom/android/systemui/dump/DumpManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/settings/brightness/BrightnessController$Factory;Lcom/android/systemui/settings/brightness/BrightnessSlider$Factory;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/FeatureFlags;)V
+    invoke-direct/range {v0 .. v16}, Lcom/android/systemui/qs/QSPanelController;-><init>(Lcom/android/systemui/qs/QSPanel;Lcom/android/systemui/qs/QSSecurityFooter;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/customize/QSCustomizerController;ZLcom/android/systemui/media/MediaHost;Lcom/android/systemui/qs/QSTileRevealController$Factory;Lcom/android/systemui/dump/DumpManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/settings/brightness/BrightnessController$Factory;Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/CommandQueue;)V
 
     return-object v17
 .end method
@@ -592,7 +592,7 @@
 
     move-object v15, v1
 
-    check-cast v15, Lcom/android/systemui/settings/brightness/BrightnessSlider$Factory;
+    check-cast v15, Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;
 
     iget-object v1, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->falsingManagerProvider:Ljavax/inject/Provider;
 
@@ -604,7 +604,7 @@
 
     check-cast v16, Lcom/android/systemui/plugins/FalsingManager;
 
-    iget-object v0, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
+    iget-object v0, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->commandQueueProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -612,9 +612,9 @@
 
     move-object/from16 v17, v0
 
-    check-cast v17, Lcom/android/systemui/statusbar/FeatureFlags;
+    check-cast v17, Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static/range {v2 .. v17}, Lcom/android/systemui/qs/QSPanelController_Factory;->newInstance(Lcom/android/systemui/qs/QSPanel;Ljava/lang/Object;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/customize/QSCustomizerController;ZLcom/android/systemui/media/MediaHost;Ljava/lang/Object;Lcom/android/systemui/dump/DumpManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/settings/brightness/BrightnessController$Factory;Lcom/android/systemui/settings/brightness/BrightnessSlider$Factory;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/FeatureFlags;)Lcom/android/systemui/qs/QSPanelController;
+    invoke-static/range {v2 .. v17}, Lcom/android/systemui/qs/QSPanelController_Factory;->newInstance(Lcom/android/systemui/qs/QSPanel;Ljava/lang/Object;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/customize/QSCustomizerController;ZLcom/android/systemui/media/MediaHost;Ljava/lang/Object;Lcom/android/systemui/dump/DumpManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/settings/brightness/BrightnessController$Factory;Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/qs/QSPanelController;
 
     move-result-object v0
 

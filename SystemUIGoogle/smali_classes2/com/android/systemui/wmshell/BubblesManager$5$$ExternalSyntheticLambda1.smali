@@ -39,7 +39,7 @@
 
     iget-boolean p0, p0, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda1;->f$2:Z
 
-    invoke-static {v0, v1, p0}, Lcom/android/systemui/wmshell/BubblesManager$5;->$r8$lambda$Ii48R127xNFat2zyTajZVl4lgCM(Lcom/android/systemui/wmshell/BubblesManager$5;Lcom/android/systemui/model/SysUiState;Z)V
+    invoke-static {v0, v1, p0}, Lcom/android/systemui/wmshell/BubblesManager$5;->$r8$lambda$E4hBu2R9-9yPqpVj9zEcue7NDs8(Lcom/android/systemui/wmshell/BubblesManager$5;Lcom/android/systemui/model/SysUiState;Z)V
 
     return-void
 .end method

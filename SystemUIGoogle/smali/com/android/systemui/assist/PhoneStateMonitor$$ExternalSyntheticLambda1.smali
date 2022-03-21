@@ -35,9 +35,13 @@
 .method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
-    check-cast p1, Ldagger/Lazy;
+    check-cast p1, Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    invoke-static {p1}, Lcom/android/systemui/assist/PhoneStateMonitor;->$r8$lambda$BwlgcROhqoTsNOqWgCvSGqlbyfo(Ldagger/Lazy;)Ljava/lang/Boolean;
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/phone/StatusBar;->isBouncerShowing()Z
+
+    move-result p0
+
+    invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object p0
 

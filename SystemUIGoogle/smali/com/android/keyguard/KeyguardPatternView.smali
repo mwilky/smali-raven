@@ -17,10 +17,14 @@
 .end annotation
 
 
+# static fields
+.field private static final DEBUG:Z
+
+
 # instance fields
 .field private final mAppearAnimationUtils:Lcom/android/settingslib/animation/AppearAnimationUtils;
 
-.field private mContainer:Landroid/view/ViewGroup;
+.field private mContainer:Landroidx/constraintlayout/widget/ConstraintLayout;
 
 .field private final mDisappearAnimationUtils:Lcom/android/settingslib/animation/DisappearAnimationUtils;
 
@@ -54,6 +58,16 @@
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardPatternView;->lambda$startDisappearAnimation$1(Ljava/lang/Runnable;)V
+
+    return-void
+.end method
+
+.method static constructor <clinit>()V
+    .locals 1
+
+    sget-boolean v0, Lcom/android/keyguard/KeyguardConstants;->DEBUG:Z
+
+    sput-boolean v0, Lcom/android/keyguard/KeyguardPatternView;->DEBUG:Z
 
     return-void
 .end method
@@ -175,11 +189,11 @@
 
     invoke-virtual {p0, p1}, Landroid/widget/LinearLayout;->setClipChildren(Z)V
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardPatternView;->mContainer:Landroid/view/ViewGroup;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardPatternView;->mContainer:Landroidx/constraintlayout/widget/ConstraintLayout;
 
     invoke-virtual {v0, p1}, Landroid/view/ViewGroup;->setClipToPadding(Z)V
 
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardPatternView;->mContainer:Landroid/view/ViewGroup;
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardPatternView;->mContainer:Landroidx/constraintlayout/widget/ConstraintLayout;
 
     invoke-virtual {p0, p1}, Landroid/view/ViewGroup;->setClipChildren(Z)V
 
@@ -371,7 +385,7 @@
 
     move-result-object p0
 
-    const v0, 0x1040437
+    const v0, 0x104043c
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -398,6 +412,50 @@
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/keyguard/KeyguardPatternView;->mSecurityMessageDisplay:Lcom/android/keyguard/KeyguardMessageArea;
+
+    return-void
+.end method
+
+.method onDevicePostureChanged(I)V
+    .locals 4
+
+    iget-object v0, p0, Landroid/widget/LinearLayout;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    sget v1, Lcom/android/systemui/R$dimen;->half_opened_bouncer_height_ratio:I
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getFloat(I)F
+
+    move-result v0
+
+    new-instance v1, Landroidx/constraintlayout/widget/ConstraintSet;
+
+    invoke-direct {v1}, Landroidx/constraintlayout/widget/ConstraintSet;-><init>()V
+
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardPatternView;->mContainer:Landroidx/constraintlayout/widget/ConstraintLayout;
+
+    invoke-virtual {v1, v2}, Landroidx/constraintlayout/widget/ConstraintSet;->clone(Landroidx/constraintlayout/widget/ConstraintLayout;)V
+
+    sget v2, Lcom/android/systemui/R$id;->pattern_top_guideline:I
+
+    const/4 v3, 0x2
+
+    if-ne p1, v3, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    invoke-virtual {v1, v2, v0}, Landroidx/constraintlayout/widget/ConstraintSet;->setGuidelinePercent(IF)V
+
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardPatternView;->mContainer:Landroidx/constraintlayout/widget/ConstraintLayout;
+
+    invoke-virtual {v1, p0}, Landroidx/constraintlayout/widget/ConstraintSet;->applyTo(Landroidx/constraintlayout/widget/ConstraintLayout;)V
 
     return-void
 .end method
@@ -431,9 +489,9 @@
 
     move-result-object v0
 
-    check-cast v0, Landroid/view/ViewGroup;
+    check-cast v0, Landroidx/constraintlayout/widget/ConstraintLayout;
 
-    iput-object v0, p0, Lcom/android/keyguard/KeyguardPatternView;->mContainer:Landroid/view/ViewGroup;
+    iput-object v0, p0, Lcom/android/keyguard/KeyguardPatternView;->mContainer:Landroidx/constraintlayout/widget/ConstraintLayout;
 
     return-void
 .end method

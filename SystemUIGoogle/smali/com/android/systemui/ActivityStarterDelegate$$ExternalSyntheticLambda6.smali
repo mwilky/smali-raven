@@ -33,9 +33,9 @@
 
     iget p0, p0, Lcom/android/systemui/ActivityStarterDelegate$$ExternalSyntheticLambda6;->f$1:I
 
-    check-cast p1, Ldagger/Lazy;
+    check-cast p1, Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    invoke-static {v0, p0, p1}, Lcom/android/systemui/ActivityStarterDelegate;->$r8$lambda$7CADyxpqsE3shlaxQ_Y_7aUHr7A(Landroid/content/Intent;ILdagger/Lazy;)V
+    invoke-static {v0, p0, p1}, Lcom/android/systemui/ActivityStarterDelegate;->$r8$lambda$rz4RAFLfJKF9349QBeODYz6mPL8(Landroid/content/Intent;ILcom/android/systemui/statusbar/phone/StatusBar;)V
 
     return-void
 .end method

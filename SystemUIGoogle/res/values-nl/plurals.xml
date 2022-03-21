@@ -32,18 +32,6 @@
         <item quantity="other">Onjuiste pukcode voor simkaart. Je hebt nog %d pogingen over voordat de simkaart definitief onbruikbaar wordt.</item>
         <item quantity="one">Onjuiste pukcode voor simkaart. Je hebt nog %d poging over voordat de simkaart definitief onbruikbaar wordt.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">Apparaat is al %d uur niet ontgrendeld. Bevestig het wachtwoord.</item>
-        <item quantity="one">Apparaat is al %d uur niet ontgrendeld. Bevestig het wachtwoord.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">Apparaat is al %d uur niet ontgrendeld. Bevestig het patroon.</item>
-        <item quantity="one">Apparaat is al %d uur niet ontgrendeld. Bevestig het patroon.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">Apparaat is al %d uur niet ontgrendeld. Bevestig de pincode.</item>
-        <item quantity="one">Apparaat is al %d uur niet ontgrendeld. Bevestig de pincode.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">Probeer het over %d seconden opnieuw.</item>
         <item quantity="one">Probeer het over één seconde opnieuw.</item>

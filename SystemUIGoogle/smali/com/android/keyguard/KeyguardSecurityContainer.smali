@@ -38,9 +38,7 @@
 
 .field private mOneHandedMode:Z
 
-.field private mRunningOneHandedAnimator:Landroid/view/ViewPropertyAnimator;
-
-.field private mSecurityMode:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+.field private mRunningOneHandedAnimator:Landroid/animation/ValueAnimator;
 
 .field mSecurityViewFlipper:Lcom/android/keyguard/KeyguardSecurityViewFlipper;
 
@@ -60,24 +58,32 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$F6CZdwTTzyX0eUVHA_bg6y_Eeo0(Landroid/view/MotionEvent;Lcom/android/systemui/Gefingerpoken;)Z
+.method public static synthetic $r8$lambda$GNYX5EBUIeeKPi_L3hzK-6b44Xg(Landroid/view/MotionEvent;Lcom/android/systemui/Gefingerpoken;)Z
     .locals 0
 
-    invoke-static {p0, p1}, Lcom/android/keyguard/KeyguardSecurityContainer;->lambda$onInterceptTouchEvent$0(Landroid/view/MotionEvent;Lcom/android/systemui/Gefingerpoken;)Z
+    invoke-static {p0, p1}, Lcom/android/keyguard/KeyguardSecurityContainer;->lambda$onTouchEvent$2(Landroid/view/MotionEvent;Lcom/android/systemui/Gefingerpoken;)Z
 
     move-result p0
 
     return p0
 .end method
 
-.method public static synthetic $r8$lambda$J7kIOl0DwWmzaigpCnvoE9gikaI(Landroid/view/MotionEvent;Lcom/android/systemui/Gefingerpoken;)Z
+.method public static synthetic $r8$lambda$b5UExkDEektNts46mJA0iEYGFB4(Landroid/view/MotionEvent;Lcom/android/systemui/Gefingerpoken;)Z
     .locals 0
 
-    invoke-static {p0, p1}, Lcom/android/keyguard/KeyguardSecurityContainer;->lambda$onTouchEvent$1(Landroid/view/MotionEvent;Lcom/android/systemui/Gefingerpoken;)Z
+    invoke-static {p0, p1}, Lcom/android/keyguard/KeyguardSecurityContainer;->lambda$onInterceptTouchEvent$1(Landroid/view/MotionEvent;Lcom/android/systemui/Gefingerpoken;)Z
 
     move-result p0
 
     return p0
+.end method
+
+.method public static synthetic $r8$lambda$lSjM2CPH3lfkGkPttRfr7Yatxgs(Lcom/android/keyguard/KeyguardSecurityContainer;Landroid/view/animation/Interpolator;ILandroid/view/animation/Interpolator;FILandroid/view/animation/Interpolator;IZLandroid/animation/ValueAnimator;)V
+    .locals 0
+
+    invoke-direct/range {p0 .. p9}, Lcom/android/keyguard/KeyguardSecurityContainer;->lambda$updateSecurityViewLocation$0(Landroid/view/animation/Interpolator;ILandroid/view/animation/Interpolator;FILandroid/view/animation/Interpolator;IZLandroid/animation/ValueAnimator;)V
+
+    return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
@@ -137,10 +143,6 @@
 
     iput-boolean p2, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mOneHandedMode:Z
 
-    sget-object p3, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->Invalid:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
-    iput-object p3, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mSecurityMode:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
     new-instance p3, Lcom/android/keyguard/KeyguardSecurityContainer$1;
 
     invoke-direct {p3, p0, p2}, Lcom/android/keyguard/KeyguardSecurityContainer$1;-><init>(Lcom/android/keyguard/KeyguardSecurityContainer;I)V
@@ -188,10 +190,10 @@
     return-void
 .end method
 
-.method static synthetic access$302(Lcom/android/keyguard/KeyguardSecurityContainer;Landroid/view/ViewPropertyAnimator;)Landroid/view/ViewPropertyAnimator;
+.method static synthetic access$302(Lcom/android/keyguard/KeyguardSecurityContainer;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
     .locals 0
 
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mRunningOneHandedAnimator:Landroid/view/ViewPropertyAnimator;
+    iput-object p1, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mRunningOneHandedAnimator:Landroid/animation/ValueAnimator;
 
     return-object p1
 .end method
@@ -219,50 +221,6 @@
     return-void
 .end method
 
-.method private canUseOneHandedBouncer()Z
-    .locals 2
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x11100cc
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    if-nez v0, :cond_0
-
-    return v1
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mSecurityMode:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardSecurityModel;->isSecurityViewOneHanded(Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    return v1
-
-    :cond_1
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p0
-
-    sget v0, Lcom/android/systemui/R$bool;->can_use_one_handed_bouncer:I
-
-    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method private endJankInstrument(I)V
     .locals 0
 
@@ -273,43 +231,6 @@
     invoke-virtual {p0, p1}, Lcom/android/internal/jank/InteractionJankMonitor;->end(I)Z
 
     return-void
-.end method
-
-.method private findKeyguardSecurityView()Lcom/android/keyguard/KeyguardSecurityViewFlipper;
-    .locals 3
-
-    const/4 v0, 0x0
-
-    :goto_0
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getChildCount()I
-
-    move-result v1
-
-    if-ge v0, v1, :cond_1
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v1
-
-    invoke-direct {p0, v1}, Lcom/android/keyguard/KeyguardSecurityContainer;->isKeyguardSecurityView(Landroid/view/View;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    check-cast v1, Lcom/android/keyguard/KeyguardSecurityViewFlipper;
-
-    return-object v1
-
-    :cond_0
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    const/4 p0, 0x0
-
-    return-object p0
 .end method
 
 .method private handleTap(Landroid/view/MotionEvent;)V
@@ -333,45 +254,7 @@
     return-void
 .end method
 
-.method private isKeyguardSecurityView(Landroid/view/View;)Z
-    .locals 0
-
-    instance-of p0, p1, Lcom/android/keyguard/KeyguardSecurityViewFlipper;
-
-    return p0
-.end method
-
-.method private isOneHandedKeyguardLeftAligned(Landroid/content/Context;)Z
-    .locals 1
-
-    const/4 p0, 0x1
-
-    :try_start_0
-    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object p1
-
-    const-string v0, "one_handed_keyguard_side"
-
-    invoke-static {p1, v0}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
-
-    move-result p1
-    :try_end_0
-    .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-
-    if-nez p1, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :catch_0
-    :goto_0
-    return p0
-.end method
-
-.method private static synthetic lambda$onInterceptTouchEvent$0(Landroid/view/MotionEvent;Lcom/android/systemui/Gefingerpoken;)Z
+.method private static synthetic lambda$onInterceptTouchEvent$1(Landroid/view/MotionEvent;Lcom/android/systemui/Gefingerpoken;)Z
     .locals 0
 
     invoke-interface {p1, p0}, Lcom/android/systemui/Gefingerpoken;->onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
@@ -381,7 +264,7 @@
     return p0
 .end method
 
-.method private static synthetic lambda$onTouchEvent$1(Landroid/view/MotionEvent;Lcom/android/systemui/Gefingerpoken;)Z
+.method private static synthetic lambda$onTouchEvent$2(Landroid/view/MotionEvent;Lcom/android/systemui/Gefingerpoken;)Z
     .locals 0
 
     invoke-interface {p1, p0}, Lcom/android/systemui/Gefingerpoken;->onTouchEvent(Landroid/view/MotionEvent;)Z
@@ -389,6 +272,134 @@
     move-result p0
 
     return p0
+.end method
+
+.method private synthetic lambda$updateSecurityViewLocation$0(Landroid/view/animation/Interpolator;ILandroid/view/animation/Interpolator;FILandroid/view/animation/Interpolator;IZLandroid/animation/ValueAnimator;)V
+    .locals 5
+
+    invoke-virtual {p9}, Landroid/animation/ValueAnimator;->getAnimatedFraction()F
+
+    move-result v0
+
+    const v1, 0x3e4ccccd    # 0.2f
+
+    cmpg-float v0, v0, v1
+
+    const/4 v2, 0x0
+
+    if-gez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    move v0, v2
+
+    :goto_0
+    invoke-virtual {p9}, Landroid/animation/ValueAnimator;->getAnimatedFraction()F
+
+    move-result v3
+
+    invoke-interface {p1, v3}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
+
+    move-result p1
+
+    int-to-float v3, p2
+
+    mul-float/2addr p1, v3
+
+    float-to-int p1, p1
+
+    sub-int/2addr p2, p1
+
+    iget-boolean v3, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mIsSecurityViewLeftAligned:Z
+
+    if-eqz v3, :cond_1
+
+    neg-int p1, p1
+
+    neg-int p2, p2
+
+    :cond_1
+    const/4 v3, 0x0
+
+    const/high16 v4, 0x3f800000    # 1.0f
+
+    if-eqz v0, :cond_2
+
+    invoke-virtual {p9}, Landroid/animation/ValueAnimator;->getAnimatedFraction()F
+
+    move-result p2
+
+    invoke-static {v4, v3, v3, v1, p2}, Landroid/util/MathUtils;->constrainedMap(FFFFF)F
+
+    move-result p2
+
+    invoke-interface {p3, p2}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
+
+    move-result p2
+
+    iget-object p3, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mSecurityViewFlipper:Lcom/android/keyguard/KeyguardSecurityViewFlipper;
+
+    mul-float/2addr p2, p4
+
+    invoke-virtual {p3, p2}, Landroid/widget/ViewFlipper;->setAlpha(F)V
+
+    iget-object p2, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mSecurityViewFlipper:Lcom/android/keyguard/KeyguardSecurityViewFlipper;
+
+    add-int/2addr p5, p1
+
+    int-to-float p1, p5
+
+    invoke-virtual {p2, p1}, Landroid/widget/ViewFlipper;->setTranslationX(F)V
+
+    goto :goto_1
+
+    :cond_2
+    invoke-virtual {p9}, Landroid/animation/ValueAnimator;->getAnimatedFraction()F
+
+    move-result p1
+
+    invoke-static {v3, v4, v1, v4, p1}, Landroid/util/MathUtils;->constrainedMap(FFFFF)F
+
+    move-result p1
+
+    invoke-interface {p6, p1}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
+
+    move-result p1
+
+    iget-object p3, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mSecurityViewFlipper:Lcom/android/keyguard/KeyguardSecurityViewFlipper;
+
+    invoke-virtual {p3, p1}, Landroid/widget/ViewFlipper;->setAlpha(F)V
+
+    iget-object p1, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mSecurityViewFlipper:Lcom/android/keyguard/KeyguardSecurityViewFlipper;
+
+    sub-int/2addr p7, p2
+
+    int-to-float p2, p7
+
+    invoke-virtual {p1, p2}, Landroid/widget/ViewFlipper;->setTranslationX(F)V
+
+    :goto_1
+    invoke-virtual {p9}, Landroid/animation/ValueAnimator;->getAnimatedFraction()F
+
+    move-result p1
+
+    cmpl-float p1, p1, v4
+
+    if-nez p1, :cond_3
+
+    if-eqz p8, :cond_3
+
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mSecurityViewFlipper:Lcom/android/keyguard/KeyguardSecurityViewFlipper;
+
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, v2, p1}, Landroid/widget/ViewFlipper;->setLayerType(ILandroid/graphics/Paint;)V
+
+    :cond_3
+    return-void
 .end method
 
 .method private moveBouncerForXCoordinate(FZ)V
@@ -415,7 +426,7 @@
     :cond_0
     iget-boolean v0, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mIsSecurityViewLeftAligned:Z
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getWidth()I
 
@@ -427,7 +438,7 @@
 
     cmpg-float p1, p1, v0
 
-    if-gez p1, :cond_2
+    if-gez p1, :cond_3
 
     :cond_1
     iget-boolean p1, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mIsSecurityViewLeftAligned:Z
@@ -450,9 +461,25 @@
 
     invoke-static {p1, v1, v0}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    invoke-direct {p0, p2}, Lcom/android/keyguard/KeyguardSecurityContainer;->updateSecurityViewLocation(Z)V
+    iget-boolean p1, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mIsSecurityViewLeftAligned:Z
+
+    if-eqz p1, :cond_2
+
+    const/4 p1, 0x5
+
+    goto :goto_0
 
     :cond_2
+    const/4 p1, 0x6
+
+    :goto_0
+    const/16 v0, 0x3f
+
+    invoke-static {v0, p1}, Lcom/android/systemui/shared/system/SysUiStatsLog;->write(II)V
+
+    invoke-direct {p0, p2}, Lcom/android/keyguard/KeyguardSecurityContainer;->updateSecurityViewLocation(Z)V
+
+    :cond_3
     return-void
 .end method
 
@@ -573,48 +600,46 @@
 .method private updateSecurityViewGravity()V
     .locals 2
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSecurityContainer;->findKeyguardSecurityView()Lcom/android/keyguard/KeyguardSecurityViewFlipper;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mSecurityViewFlipper:Lcom/android/keyguard/KeyguardSecurityViewFlipper;
 
     if-nez v0, :cond_0
 
     return-void
 
     :cond_0
-    invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {v0}, Landroid/widget/ViewFlipper;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/widget/FrameLayout$LayoutParams;
+    check-cast v0, Landroid/widget/FrameLayout$LayoutParams;
 
-    iget-boolean p0, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mOneHandedMode:Z
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mOneHandedMode:Z
 
-    if-eqz p0, :cond_1
+    if-eqz v1, :cond_1
 
-    const/16 p0, 0x53
+    const/16 v1, 0x53
 
-    iput p0, v1, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
+    iput v1, v0, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
 
     goto :goto_0
 
     :cond_1
-    const/4 p0, 0x1
+    const/4 v1, 0x1
 
-    iput p0, v1, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
+    iput v1, v0, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
 
     :goto_0
-    invoke-virtual {v0, v1}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mSecurityViewFlipper:Lcom/android/keyguard/KeyguardSecurityViewFlipper;
+
+    invoke-virtual {p0, v0}, Landroid/widget/ViewFlipper;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     return-void
 .end method
 
 .method private updateSecurityViewLocation(Z)V
-    .locals 3
+    .locals 13
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSecurityContainer;->findKeyguardSecurityView()Lcom/android/keyguard/KeyguardSecurityViewFlipper;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mSecurityViewFlipper:Lcom/android/keyguard/KeyguardSecurityViewFlipper;
 
     if-nez v0, :cond_0
 
@@ -627,89 +652,179 @@
 
     const/4 p0, 0x0
 
-    invoke-virtual {v0, p0}, Landroid/view/View;->setTranslationX(F)V
+    invoke-virtual {v0, p0}, Landroid/widget/ViewFlipper;->setTranslationX(F)V
 
     return-void
 
     :cond_1
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mRunningOneHandedAnimator:Landroid/view/ViewPropertyAnimator;
-
-    if-eqz v1, :cond_2
-
-    invoke-virtual {v1}, Landroid/view/ViewPropertyAnimator;->cancel()V
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mRunningOneHandedAnimator:Landroid/animation/ValueAnimator;
 
     const/4 v1, 0x0
 
-    iput-object v1, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mRunningOneHandedAnimator:Landroid/view/ViewPropertyAnimator;
+    if-eqz v0, :cond_2
+
+    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->cancel()V
+
+    iput-object v1, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mRunningOneHandedAnimator:Landroid/animation/ValueAnimator;
 
     :cond_2
-    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mIsSecurityViewLeftAligned:Z
+    iget-boolean v0, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mIsSecurityViewLeftAligned:Z
 
-    if-eqz v1, :cond_3
+    const/4 v2, 0x0
 
-    const/4 v1, 0x0
+    if-eqz v0, :cond_3
+
+    move v11, v2
 
     goto :goto_0
 
     :cond_3
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getMeasuredWidth()I
 
-    move-result v1
+    move-result v0
 
-    int-to-float v1, v1
+    iget-object v3, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mSecurityViewFlipper:Lcom/android/keyguard/KeyguardSecurityViewFlipper;
 
-    const/high16 v2, 0x40000000    # 2.0f
+    invoke-virtual {v3}, Landroid/widget/ViewFlipper;->getWidth()I
 
-    div-float/2addr v1, v2
+    move-result v3
 
-    float-to-int v1, v1
+    sub-int/2addr v0, v3
+
+    move v11, v0
 
     :goto_0
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_6
 
-    invoke-virtual {v0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
+    iget-object p1, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
 
-    move-result-object p1
+    const v0, 0x10c001a
 
-    int-to-float v0, v1
+    invoke-static {p1, v0}, Landroid/view/animation/AnimationUtils;->loadInterpolator(Landroid/content/Context;I)Landroid/view/animation/Interpolator;
 
-    invoke-virtual {p1, v0}, Landroid/view/ViewPropertyAnimator;->translationX(F)Landroid/view/ViewPropertyAnimator;
+    move-result-object v5
 
-    move-result-object p1
+    sget-object v7, Lcom/android/systemui/animation/Interpolators;->FAST_OUT_LINEAR_IN:Landroid/view/animation/Interpolator;
 
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mRunningOneHandedAnimator:Landroid/view/ViewPropertyAnimator;
+    sget-object v10, Lcom/android/systemui/animation/Interpolators;->LINEAR_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
 
-    sget-object v0, Lcom/android/systemui/animation/Interpolators;->FAST_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
+    const/4 p1, 0x2
 
-    invoke-virtual {p1, v0}, Landroid/view/ViewPropertyAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)Landroid/view/ViewPropertyAnimator;
+    new-array v0, p1, [F
 
-    iget-object p1, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mRunningOneHandedAnimator:Landroid/view/ViewPropertyAnimator;
+    fill-array-data v0, :array_0
+
+    invoke-static {v0}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mRunningOneHandedAnimator:Landroid/animation/ValueAnimator;
+
+    const-wide/16 v3, 0x1f4
+
+    invoke-virtual {v0, v3, v4}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mRunningOneHandedAnimator:Landroid/animation/ValueAnimator;
+
+    sget-object v3, Lcom/android/systemui/animation/Interpolators;->LINEAR:Landroid/view/animation/Interpolator;
+
+    invoke-virtual {v0, v3}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mSecurityViewFlipper:Lcom/android/keyguard/KeyguardSecurityViewFlipper;
+
+    invoke-virtual {v0}, Landroid/widget/ViewFlipper;->getTranslationX()F
+
+    move-result v0
+
+    float-to-int v9, v0
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    sget v3, Lcom/android/systemui/R$dimen;->one_handed_bouncer_move_animation_translation:I
+
+    invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v0
+
+    float-to-int v6, v0
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mSecurityViewFlipper:Lcom/android/keyguard/KeyguardSecurityViewFlipper;
+
+    invoke-virtual {v0}, Landroid/widget/ViewFlipper;->hasOverlappingRendering()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mSecurityViewFlipper:Lcom/android/keyguard/KeyguardSecurityViewFlipper;
+
+    invoke-virtual {v0}, Landroid/widget/ViewFlipper;->getLayerType()I
+
+    move-result v0
+
+    if-eq v0, p1, :cond_4
+
+    const/4 v2, 0x1
+
+    :cond_4
+    move v12, v2
+
+    if-eqz v12, :cond_5
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mSecurityViewFlipper:Lcom/android/keyguard/KeyguardSecurityViewFlipper;
+
+    invoke-virtual {v0, p1, v1}, Landroid/widget/ViewFlipper;->setLayerType(ILandroid/graphics/Paint;)V
+
+    :cond_5
+    iget-object p1, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mSecurityViewFlipper:Lcom/android/keyguard/KeyguardSecurityViewFlipper;
+
+    invoke-virtual {p1}, Landroid/widget/ViewFlipper;->getAlpha()F
+
+    move-result v8
+
+    iget-object p1, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mRunningOneHandedAnimator:Landroid/animation/ValueAnimator;
 
     new-instance v0, Lcom/android/keyguard/KeyguardSecurityContainer$2;
 
     invoke-direct {v0, p0}, Lcom/android/keyguard/KeyguardSecurityContainer$2;-><init>(Lcom/android/keyguard/KeyguardSecurityContainer;)V
 
-    invoke-virtual {p1, v0}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
+    invoke-virtual {p1, v0}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
-    iget-object p1, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mRunningOneHandedAnimator:Landroid/view/ViewPropertyAnimator;
+    iget-object p1, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mRunningOneHandedAnimator:Landroid/animation/ValueAnimator;
 
-    const-wide/16 v0, 0x168
+    new-instance v0, Lcom/android/keyguard/KeyguardSecurityContainer$$ExternalSyntheticLambda0;
 
-    invoke-virtual {p1, v0, v1}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
+    move-object v3, v0
 
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mRunningOneHandedAnimator:Landroid/view/ViewPropertyAnimator;
+    move-object v4, p0
 
-    invoke-virtual {p0}, Landroid/view/ViewPropertyAnimator;->start()V
+    invoke-direct/range {v3 .. v12}, Lcom/android/keyguard/KeyguardSecurityContainer$$ExternalSyntheticLambda0;-><init>(Lcom/android/keyguard/KeyguardSecurityContainer;Landroid/view/animation/Interpolator;ILandroid/view/animation/Interpolator;FILandroid/view/animation/Interpolator;IZ)V
+
+    invoke-virtual {p1, v0}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mRunningOneHandedAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {p0}, Landroid/animation/ValueAnimator;->start()V
 
     goto :goto_1
 
-    :cond_4
-    int-to-float p0, v1
+    :cond_6
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mSecurityViewFlipper:Lcom/android/keyguard/KeyguardSecurityViewFlipper;
 
-    invoke-virtual {v0, p0}, Landroid/view/View;->setTranslationX(F)V
+    int-to-float p1, v11
+
+    invoke-virtual {p0, p1}, Landroid/widget/ViewFlipper;->setTranslationX(F)V
 
     :goto_1
     return-void
+
+    :array_0
+    .array-data 4
+        0x0
+        0x3f800000    # 1.0f
+    .end array-data
 .end method
 
 
@@ -734,6 +849,22 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public isOneHandedMode()Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mOneHandedMode:Z
+
+    return p0
+.end method
+
+.method public isOneHandedModeLeftAligned()Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mIsSecurityViewLeftAligned:Z
+
+    return p0
 .end method
 
 .method public onApplyWindowInsets(Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
@@ -813,9 +944,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/keyguard/KeyguardSecurityContainer$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/keyguard/KeyguardSecurityContainer$$ExternalSyntheticLambda2;
 
-    invoke-direct {v1, p1}, Lcom/android/keyguard/KeyguardSecurityContainer$$ExternalSyntheticLambda0;-><init>(Landroid/view/MotionEvent;)V
+    invoke-direct {v1, p1}, Lcom/android/keyguard/KeyguardSecurityContainer$$ExternalSyntheticLambda2;-><init>(Landroid/view/MotionEvent;)V
 
     invoke-interface {v0, v1}, Ljava/util/stream/Stream;->anyMatch(Ljava/util/function/Predicate;)Z
 
@@ -1024,11 +1155,9 @@
 
     if-eqz v0, :cond_0
 
-    invoke-direct {p0, v11}, Lcom/android/keyguard/KeyguardSecurityContainer;->isKeyguardSecurityView(Landroid/view/View;)Z
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mSecurityViewFlipper:Lcom/android/keyguard/KeyguardSecurityViewFlipper;
 
-    move-result v0
-
-    if-eqz v0, :cond_0
+    if-ne v11, v0, :cond_0
 
     const/4 v3, 0x0
 
@@ -1199,8 +1328,6 @@
 .method onResume(Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;Z)V
     .locals 2
 
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mSecurityMode:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
     iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mSecurityViewFlipper:Lcom/android/keyguard/KeyguardSecurityViewFlipper;
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mWindowInsetsAnimationCallback:Landroid/view/WindowInsetsAnimation$Callback;
@@ -1208,8 +1335,6 @@
     invoke-virtual {v0, v1}, Landroid/widget/ViewFlipper;->setWindowInsetsAnimationCallback(Landroid/view/WindowInsetsAnimation$Callback;)V
 
     invoke-direct {p0, p1, p2}, Lcom/android/keyguard/KeyguardSecurityContainer;->updateBiometricRetry(Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;Z)V
-
-    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardSecurityContainer;->updateLayoutForSecurityMode(Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;)V
 
     return-void
 .end method
@@ -1417,6 +1542,30 @@
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mDisappearAnimRunning:Z
+
+    return-void
+.end method
+
+.method public setOneHandedMode(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mOneHandedMode:Z
+
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSecurityContainer;->updateSecurityViewGravity()V
+
+    const/4 p1, 0x0
+
+    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardSecurityContainer;->updateSecurityViewLocation(Z)V
+
+    return-void
+.end method
+
+.method public setOneHandedModeLeftAligned(ZZ)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mIsSecurityViewLeftAligned:Z
+
+    invoke-direct {p0, p2}, Lcom/android/keyguard/KeyguardSecurityContainer;->updateSecurityViewLocation(Z)V
 
     return-void
 .end method
@@ -1708,52 +1857,6 @@
     const/4 p1, 0x1
 
     iput-boolean p1, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mDisappearAnimRunning:Z
-
-    return-void
-.end method
-
-.method public updateKeyguardPosition(F)V
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mOneHandedMode:Z
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x0
-
-    invoke-direct {p0, p1, v0}, Lcom/android/keyguard/KeyguardSecurityContainer;->moveBouncerForXCoordinate(FZ)V
-
-    :cond_0
-    return-void
-.end method
-
-.method updateLayoutForSecurityMode(Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mSecurityMode:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSecurityContainer;->canUseOneHandedBouncer()Z
-
-    move-result p1
-
-    iput-boolean p1, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mOneHandedMode:Z
-
-    if-eqz p1, :cond_0
-
-    iget-object p1, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
-
-    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardSecurityContainer;->isOneHandedKeyguardLeftAligned(Landroid/content/Context;)Z
-
-    move-result p1
-
-    iput-boolean p1, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mIsSecurityViewLeftAligned:Z
-
-    :cond_0
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSecurityContainer;->updateSecurityViewGravity()V
-
-    const/4 p1, 0x0
-
-    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardSecurityContainer;->updateSecurityViewLocation(Z)V
 
     return-void
 .end method

@@ -32,18 +32,6 @@
         <item quantity="other">चुकीचा सिम PUK कोड, सिम कायमचे निरुपयोगी होण्यापूर्वी आपल्याकडे %d प्रयत्न शिल्लक आहेत.</item>
         <item quantity="one">चुकीचा सिम PUK कोड, सिम कायमचे निरुपयोगी होण्यापूर्वी आपल्याकडे %d प्रयत्न शिल्लक आहे.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">डिव्हाइस %d तासांसाठी अनलॉक केले गेले नाही. पासवर्डची खात्री करा.</item>
-        <item quantity="one">डिव्हाइस %d तासासाठी अनलॉक केले गेले नाही. पासवर्डची खात्री करा.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">डिव्हाइस %d तासांसाठी अनलॉक केले गेले नाही. पॅटर्नची खात्री करा.</item>
-        <item quantity="one">डिव्हाइस %d तासासाठी अनलॉक केले गेले नाही. पॅटर्नची खात्री करा.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">डिव्हाइस %d तासांसाठी अनलॉक केले गेले नाही. पिन ची खात्री करा.</item>
-        <item quantity="one">डिव्हाइस %d तासासाठी अनलॉक केले गेले नाही. पिनची खात्री करा.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">%d सेकंदांत पुन्हा प्रयत्न करा.</item>
         <item quantity="one">एका सेकंदात पुन्‍हा प्रयत्न करा.</item>

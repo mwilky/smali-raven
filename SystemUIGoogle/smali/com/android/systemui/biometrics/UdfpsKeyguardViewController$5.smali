@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$5;->this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
 
-    invoke-static {v0}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->access$2100(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+    invoke-static {v0}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->access$2000(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
     move-result-object v1
 
@@ -47,7 +47,7 @@
 
     move-result v1
 
-    invoke-static {v0, v1}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->access$2002(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;Z)Z
+    invoke-static {v0, v1}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->access$1902(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;Z)Z
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$5;->this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
 

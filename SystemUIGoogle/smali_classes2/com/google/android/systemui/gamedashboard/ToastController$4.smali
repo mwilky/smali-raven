@@ -44,9 +44,23 @@
 
     invoke-virtual {p1, v0}, Landroid/view/View;->setVisibility(I)V
 
+    iget-object p1, p0, Lcom/google/android/systemui/gamedashboard/ToastController$4;->this$0:Lcom/google/android/systemui/gamedashboard/ToastController;
+
+    invoke-virtual {p1}, Lcom/google/android/systemui/gamedashboard/ToastController;->removeViewImmediate()V
+
     iget-object p0, p0, Lcom/google/android/systemui/gamedashboard/ToastController$4;->this$0:Lcom/google/android/systemui/gamedashboard/ToastController;
 
-    invoke-virtual {p0}, Lcom/google/android/systemui/gamedashboard/ToastController;->removeViewImmediate()V
+    invoke-static {p0}, Lcom/google/android/systemui/gamedashboard/ToastController;->access$000(Lcom/google/android/systemui/gamedashboard/ToastController;)Landroid/view/View;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
+
+    move-result-object p0
+
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
 
     return-void
 .end method

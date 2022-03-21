@@ -24,11 +24,7 @@
 
 .field private final mDeviceProvisionedController:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
 
-.field private final mOrbController:Lcom/android/systemui/assist/AssistOrbController;
-
 .field private final mPhoneStateMonitor:Lcom/android/systemui/assist/PhoneStateMonitor;
-
-.field private mShowCallback:Lcom/android/internal/app/IVoiceInteractionSessionShowCallback;
 
 .field protected final mSysUiState:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
@@ -54,8 +50,8 @@
     return-object p0
 .end method
 
-.method public constructor <init>(Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Landroid/content/Context;Lcom/android/internal/app/AssistUtils;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/assist/PhoneStateMonitor;Lcom/android/systemui/recents/OverviewProxyService;Lcom/android/systemui/statusbar/policy/ConfigurationController;Ldagger/Lazy;Lcom/android/systemui/assist/ui/DefaultUiController;Lcom/android/systemui/assist/AssistLogger;)V
-    .locals 1
+.method public constructor <init>(Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Landroid/content/Context;Lcom/android/internal/app/AssistUtils;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/assist/PhoneStateMonitor;Lcom/android/systemui/recents/OverviewProxyService;Ldagger/Lazy;Lcom/android/systemui/assist/ui/DefaultUiController;Lcom/android/systemui/assist/AssistLogger;Landroid/os/Handler;)V
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -65,23 +61,17 @@
             "Lcom/android/systemui/statusbar/CommandQueue;",
             "Lcom/android/systemui/assist/PhoneStateMonitor;",
             "Lcom/android/systemui/recents/OverviewProxyService;",
-            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
             "Ldagger/Lazy<",
             "Lcom/android/systemui/model/SysUiState;",
             ">;",
             "Lcom/android/systemui/assist/ui/DefaultUiController;",
             "Lcom/android/systemui/assist/AssistLogger;",
+            "Landroid/os/Handler;",
             ")V"
         }
     .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    new-instance v0, Lcom/android/systemui/assist/AssistManager$1;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/assist/AssistManager$1;-><init>(Lcom/android/systemui/assist/AssistManager;)V
-
-    iput-object v0, p0, Lcom/android/systemui/assist/AssistManager;->mShowCallback:Lcom/android/internal/app/IVoiceInteractionSessionShowCallback;
 
     iput-object p2, p0, Lcom/android/systemui/assist/AssistManager;->mContext:Landroid/content/Context;
 
@@ -93,45 +83,27 @@
 
     new-instance p1, Lcom/android/systemui/assist/AssistDisclosure;
 
-    new-instance p3, Landroid/os/Handler;
-
-    invoke-direct {p3}, Landroid/os/Handler;-><init>()V
-
-    invoke-direct {p1, p2, p3}, Lcom/android/systemui/assist/AssistDisclosure;-><init>(Landroid/content/Context;Landroid/os/Handler;)V
+    invoke-direct {p1, p2, p10}, Lcom/android/systemui/assist/AssistDisclosure;-><init>(Landroid/content/Context;Landroid/os/Handler;)V
 
     iput-object p1, p0, Lcom/android/systemui/assist/AssistManager;->mAssistDisclosure:Lcom/android/systemui/assist/AssistDisclosure;
 
     iput-object p5, p0, Lcom/android/systemui/assist/AssistManager;->mPhoneStateMonitor:Lcom/android/systemui/assist/PhoneStateMonitor;
 
-    iput-object p10, p0, Lcom/android/systemui/assist/AssistManager;->mAssistLogger:Lcom/android/systemui/assist/AssistLogger;
-
-    new-instance p1, Lcom/android/systemui/assist/AssistOrbController;
-
-    invoke-direct {p1, p7, p2}, Lcom/android/systemui/assist/AssistOrbController;-><init>(Lcom/android/systemui/statusbar/policy/ConfigurationController;Landroid/content/Context;)V
-
-    iput-object p1, p0, Lcom/android/systemui/assist/AssistManager;->mOrbController:Lcom/android/systemui/assist/AssistOrbController;
+    iput-object p9, p0, Lcom/android/systemui/assist/AssistManager;->mAssistLogger:Lcom/android/systemui/assist/AssistLogger;
 
     invoke-virtual {p0}, Lcom/android/systemui/assist/AssistManager;->registerVoiceInteractionSessionListener()V
 
-    iput-object p9, p0, Lcom/android/systemui/assist/AssistManager;->mUiController:Lcom/android/systemui/assist/AssistManager$UiController;
+    iput-object p8, p0, Lcom/android/systemui/assist/AssistManager;->mUiController:Lcom/android/systemui/assist/AssistManager$UiController;
 
-    iput-object p8, p0, Lcom/android/systemui/assist/AssistManager;->mSysUiState:Ldagger/Lazy;
+    iput-object p7, p0, Lcom/android/systemui/assist/AssistManager;->mSysUiState:Ldagger/Lazy;
 
-    new-instance p1, Lcom/android/systemui/assist/AssistManager$2;
+    new-instance p1, Lcom/android/systemui/assist/AssistManager$1;
 
-    invoke-direct {p1, p0}, Lcom/android/systemui/assist/AssistManager$2;-><init>(Lcom/android/systemui/assist/AssistManager;)V
+    invoke-direct {p1, p0}, Lcom/android/systemui/assist/AssistManager$1;-><init>(Lcom/android/systemui/assist/AssistManager;)V
 
     invoke-virtual {p6, p1}, Lcom/android/systemui/recents/OverviewProxyService;->addCallback(Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;)V
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/systemui/assist/AssistManager;)Lcom/android/systemui/assist/AssistOrbController;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/assist/AssistManager;->mOrbController:Lcom/android/systemui/assist/AssistOrbController;
-
-    return-object p0
 .end method
 
 .method private getAssistInfo()Landroid/content/ComponentName;
@@ -146,18 +118,6 @@
     move-result-object p0
 
     return-object p0
-.end method
-
-.method private isVoiceSessionRunning()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/assist/AssistManager;->mAssistUtils:Lcom/android/internal/app/AssistUtils;
-
-    invoke-virtual {p0}, Lcom/android/internal/app/AssistUtils;->isSessionRunning()Z
-
-    move-result p0
-
-    return p0
 .end method
 
 .method private synthetic lambda$canVoiceAssistBeLaunchedFromKeyguard$0()Ljava/lang/Boolean;
@@ -275,9 +235,9 @@
 
     invoke-virtual {v0, p2}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
-    new-instance p2, Lcom/android/systemui/assist/AssistManager$4;
+    new-instance p2, Lcom/android/systemui/assist/AssistManager$3;
 
-    invoke-direct {p2, p0, v0, p1}, Lcom/android/systemui/assist/AssistManager$4;-><init>(Lcom/android/systemui/assist/AssistManager;Landroid/content/Intent;Landroid/app/ActivityOptions;)V
+    invoke-direct {p2, p0, v0, p1}, Lcom/android/systemui/assist/AssistManager$3;-><init>(Lcom/android/systemui/assist/AssistManager;Landroid/content/Intent;Landroid/app/ActivityOptions;)V
 
     invoke-static {p2}, Landroid/os/AsyncTask;->execute(Ljava/lang/Runnable;)V
     :try_end_0
@@ -329,17 +289,15 @@
 .end method
 
 .method private startVoiceInteractor(Landroid/os/Bundle;)V
-    .locals 3
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/systemui/assist/AssistManager;->mAssistUtils:Lcom/android/internal/app/AssistUtils;
+    iget-object p0, p0, Lcom/android/systemui/assist/AssistManager;->mAssistUtils:Lcom/android/internal/app/AssistUtils;
 
-    iget-object p0, p0, Lcom/android/systemui/assist/AssistManager;->mShowCallback:Lcom/android/internal/app/IVoiceInteractionSessionShowCallback;
+    const/4 v0, 0x4
 
-    const/4 v1, 0x4
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, p1, v1, p0, v2}, Lcom/android/internal/app/AssistUtils;->showSessionForActiveService(Landroid/os/Bundle;ILcom/android/internal/app/IVoiceInteractionSessionShowCallback;Landroid/os/IBinder;)Z
+    invoke-virtual {p0, p1, v0, v1, v1}, Lcom/android/internal/app/AssistUtils;->showSessionForActiveService(Landroid/os/Bundle;ILcom/android/internal/app/IVoiceInteractionSessionShowCallback;Landroid/os/IBinder;)Z
 
     return-void
 .end method
@@ -461,9 +419,9 @@
 .method public onLockscreenShown()V
     .locals 1
 
-    new-instance v0, Lcom/android/systemui/assist/AssistManager$5;
+    new-instance v0, Lcom/android/systemui/assist/AssistManager$4;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/assist/AssistManager$5;-><init>(Lcom/android/systemui/assist/AssistManager;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/assist/AssistManager$4;-><init>(Lcom/android/systemui/assist/AssistManager;)V
 
     invoke-static {v0}, Landroid/os/AsyncTask;->execute(Ljava/lang/Runnable;)V
 
@@ -475,25 +433,13 @@
 
     iget-object v0, p0, Lcom/android/systemui/assist/AssistManager;->mAssistUtils:Lcom/android/internal/app/AssistUtils;
 
-    new-instance v1, Lcom/android/systemui/assist/AssistManager$3;
+    new-instance v1, Lcom/android/systemui/assist/AssistManager$2;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/assist/AssistManager$3;-><init>(Lcom/android/systemui/assist/AssistManager;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/assist/AssistManager$2;-><init>(Lcom/android/systemui/assist/AssistManager;)V
 
     invoke-virtual {v0, v1}, Lcom/android/internal/app/AssistUtils;->registerVoiceInteractionSessionListener(Lcom/android/internal/app/IVoiceInteractionSessionListener;)V
 
     return-void
-.end method
-
-.method protected shouldShowOrb()Z
-    .locals 0
-
-    invoke-static {}, Landroid/app/ActivityManager;->isLowRamDeviceStatic()Z
-
-    move-result p0
-
-    xor-int/lit8 p0, p0, 0x1
-
-    return p0
 .end method
 
 .method public showDisclosure()V
@@ -526,47 +472,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
-
-    invoke-direct {p0}, Lcom/android/systemui/assist/AssistManager;->isVoiceSessionRunning()Z
-
-    move-result v2
-
-    if-nez v2, :cond_3
-
-    invoke-virtual {p0}, Lcom/android/systemui/assist/AssistManager;->shouldShowOrb()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_3
-
-    :cond_1
-    iget-object v2, p0, Lcom/android/systemui/assist/AssistManager;->mOrbController:Lcom/android/systemui/assist/AssistOrbController;
-
-    invoke-virtual {v2, v0, v1}, Lcom/android/systemui/assist/AssistOrbController;->showOrb(Landroid/content/ComponentName;Z)V
-
-    iget-object v2, p0, Lcom/android/systemui/assist/AssistManager;->mOrbController:Lcom/android/systemui/assist/AssistOrbController;
-
-    if-eqz v1, :cond_2
-
-    const-wide/16 v3, 0x9c4
-
-    goto :goto_0
-
-    :cond_2
-    const-wide/16 v3, 0x3e8
-
-    :goto_0
-    invoke-virtual {v2, v3, v4}, Lcom/android/systemui/assist/AssistOrbController;->postHideDelayed(J)V
-
-    :cond_3
-    if-nez p1, :cond_4
+    if-nez p1, :cond_1
 
     new-instance p1, Landroid/os/Bundle;
 
     invoke-direct {p1}, Landroid/os/Bundle;-><init>()V
 
-    :cond_4
+    :cond_1
     const/4 v2, 0x0
 
     const-string v3, "invocation_type"

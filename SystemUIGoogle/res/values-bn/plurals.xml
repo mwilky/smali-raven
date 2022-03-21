@@ -32,18 +32,6 @@
         <item quantity="other">সিমের PUK কোডটি ভুল, আপনি আর %d বার চেষ্টা করতে পারেন, তারপর আপনার সিমটি স্থায়ীভাবে অব্যবহারযোগ্য হবে।</item>
         <item quantity="one">সিমের PUK কোডটি ভুল, আপনি আর %d বার চেষ্টা করতে পারেন, তারপর আপনার সিমটি স্থায়ীভাবে অব্যবহারযোগ্য হবে।</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">ডিভাইসটি %d ঘণ্টা ধরে আনলক করা হয় নি। পাসওয়ার্ড নিশ্চিত করুন।</item>
-        <item quantity="one">ডিভাইসটি %d ঘণ্টা ধরে আনলক করা হয় নি। পাসওয়ার্ড নিশ্চিত করুন।</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">ডিভাইসটি %d ঘণ্টা ধরে আনলক করা হয় নি। প্যাটার্নটি নিশ্চিত করুন।</item>
-        <item quantity="one">ডিভাইসটি %d ঘণ্টা ধরে আনলক করা হয় নি। প্যাটার্নটি নিশ্চিত করুন।</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">ডিভাইসটি %d ঘণ্টা ধরে আনলক করা হয়নি। পিন নিশ্চিত করুন৷</item>
-        <item quantity="one">ডিভাইসটি %d ঘণ্টা ধরে আনলক করা হয়নি। পিন নিশ্চিত করুন৷</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">%d সেকেন্ডের মধ্যে আবার চেষ্টা করুন।</item>
         <item quantity="one">%d সেকেন্ডের মধ্যে আবার চেষ্টা করুন।</item>

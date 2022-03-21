@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl$$ExternalSyntheticLambda0;->f$0:Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;
 
-    invoke-static {p0}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->$r8$lambda$RnZX_LIhbGE5Z7W7jK7r11emFYM(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;)V
+    invoke-static {p0}, Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;->$r8$lambda$64MfwT1YqQxuGVX2-uHarEBMbWM(Lcom/android/wm/shell/bubbles/BubbleController$BubblesImpl;)V
 
     return-void
 .end method

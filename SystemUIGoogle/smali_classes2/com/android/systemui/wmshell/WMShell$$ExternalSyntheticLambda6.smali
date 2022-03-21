@@ -6,16 +6,16 @@
 
 
 # instance fields
-.field public final synthetic f$0:Ljava/io/PrintWriter;
+.field public final synthetic f$0:Lcom/android/systemui/wmshell/WMShell;
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/io/PrintWriter;)V
+.method public synthetic constructor <init>(Lcom/android/systemui/wmshell/WMShell;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/wmshell/WMShell$$ExternalSyntheticLambda6;->f$0:Ljava/io/PrintWriter;
+    iput-object p1, p0, Lcom/android/systemui/wmshell/WMShell$$ExternalSyntheticLambda6;->f$0:Lcom/android/systemui/wmshell/WMShell;
 
     return-void
 .end method
@@ -25,11 +25,11 @@
 .method public final accept(Ljava/lang/Object;)V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/wmshell/WMShell$$ExternalSyntheticLambda6;->f$0:Ljava/io/PrintWriter;
+    iget-object p0, p0, Lcom/android/systemui/wmshell/WMShell$$ExternalSyntheticLambda6;->f$0:Lcom/android/systemui/wmshell/WMShell;
 
-    check-cast p1, Lcom/android/wm/shell/ShellCommandHandler;
+    check-cast p1, Lcom/android/wm/shell/onehanded/OneHanded;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/wmshell/WMShell;->$r8$lambda$0GlPp1cqdMec6wNfFbut6h0x-Ko(Ljava/io/PrintWriter;Lcom/android/wm/shell/ShellCommandHandler;)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/wmshell/WMShell;->initOneHanded(Lcom/android/wm/shell/onehanded/OneHanded;)V
 
     return-void
 .end method

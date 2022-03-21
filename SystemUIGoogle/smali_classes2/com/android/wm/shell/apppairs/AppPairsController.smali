@@ -30,6 +30,8 @@
 
 .field private final mDisplayImeController:Lcom/android/wm/shell/common/DisplayImeController;
 
+.field private final mDisplayInsetsController:Lcom/android/wm/shell/common/DisplayInsetsController;
+
 .field private final mImpl:Lcom/android/wm/shell/apppairs/AppPairsController$AppPairsImpl;
 
 .field private final mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
@@ -48,7 +50,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/wm/shell/ShellTaskOrganizer;Lcom/android/wm/shell/common/SyncTransactionQueue;Lcom/android/wm/shell/common/DisplayController;Lcom/android/wm/shell/common/ShellExecutor;Lcom/android/wm/shell/common/DisplayImeController;)V
+.method public constructor <init>(Lcom/android/wm/shell/ShellTaskOrganizer;Lcom/android/wm/shell/common/SyncTransactionQueue;Lcom/android/wm/shell/common/DisplayController;Lcom/android/wm/shell/common/ShellExecutor;Lcom/android/wm/shell/common/DisplayImeController;Lcom/android/wm/shell/common/DisplayInsetsController;)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -74,6 +76,8 @@
     iput-object p3, p0, Lcom/android/wm/shell/apppairs/AppPairsController;->mDisplayController:Lcom/android/wm/shell/common/DisplayController;
 
     iput-object p5, p0, Lcom/android/wm/shell/apppairs/AppPairsController;->mDisplayImeController:Lcom/android/wm/shell/common/DisplayImeController;
+
+    iput-object p6, p0, Lcom/android/wm/shell/apppairs/AppPairsController;->mDisplayInsetsController:Lcom/android/wm/shell/common/DisplayInsetsController;
 
     iput-object p4, p0, Lcom/android/wm/shell/apppairs/AppPairsController;->mMainExecutor:Lcom/android/wm/shell/common/ShellExecutor;
 
@@ -181,6 +185,14 @@
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/apppairs/AppPairsController;->mDisplayImeController:Lcom/android/wm/shell/common/DisplayImeController;
+
+    return-object p0
+.end method
+
+.method getDisplayInsetsController()Lcom/android/wm/shell/common/DisplayInsetsController;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/wm/shell/apppairs/AppPairsController;->mDisplayInsetsController:Lcom/android/wm/shell/common/DisplayInsetsController;
 
     return-object p0
 .end method

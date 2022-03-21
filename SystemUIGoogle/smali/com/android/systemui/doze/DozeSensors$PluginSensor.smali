@@ -34,46 +34,8 @@
     return-void
 .end method
 
-.method constructor <init>(Lcom/android/systemui/doze/DozeSensors;Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;Ljava/lang/String;ZIZZJLcom/android/systemui/doze/DozeLog;)V
+.method constructor <init>(Lcom/android/systemui/doze/DozeSensors;Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;Ljava/lang/String;ZIZZ)V
     .locals 10
-
-    move-object v9, p0
-
-    move-object v1, p1
-
-    iput-object v1, v9, Lcom/android/systemui/doze/DozeSensors$PluginSensor;->this$0:Lcom/android/systemui/doze/DozeSensors;
-
-    const/4 v2, 0x0
-
-    move-object v0, p0
-
-    move-object v3, p3
-
-    move v4, p4
-
-    move v5, p5
-
-    move/from16 v6, p6
-
-    move/from16 v7, p7
-
-    move-object/from16 v8, p10
-
-    invoke-direct/range {v0 .. v8}, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;-><init>(Lcom/android/systemui/doze/DozeSensors;Landroid/hardware/Sensor;Ljava/lang/String;ZIZZLcom/android/systemui/doze/DozeLog;)V
-
-    move-object v0, p2
-
-    iput-object v0, v9, Lcom/android/systemui/doze/DozeSensors$PluginSensor;->mPluginSensor:Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;
-
-    move-wide/from16 v0, p8
-
-    iput-wide v0, v9, Lcom/android/systemui/doze/DozeSensors$PluginSensor;->mDebounce:J
-
-    return-void
-.end method
-
-.method constructor <init>(Lcom/android/systemui/doze/DozeSensors;Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;Ljava/lang/String;ZIZZLcom/android/systemui/doze/DozeLog;)V
-    .locals 11
 
     const-wide/16 v8, 0x0
 
@@ -87,15 +49,49 @@
 
     move v4, p4
 
-    move/from16 v5, p5
+    move v5, p5
 
     move/from16 v6, p6
 
     move/from16 v7, p7
 
-    move-object/from16 v10, p8
+    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/doze/DozeSensors$PluginSensor;-><init>(Lcom/android/systemui/doze/DozeSensors;Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;Ljava/lang/String;ZIZZJ)V
 
-    invoke-direct/range {v0 .. v10}, Lcom/android/systemui/doze/DozeSensors$PluginSensor;-><init>(Lcom/android/systemui/doze/DozeSensors;Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;Ljava/lang/String;ZIZZJLcom/android/systemui/doze/DozeLog;)V
+    return-void
+.end method
+
+.method constructor <init>(Lcom/android/systemui/doze/DozeSensors;Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;Ljava/lang/String;ZIZZJ)V
+    .locals 9
+
+    move-object v8, p0
+
+    move-object v1, p1
+
+    iput-object v1, v8, Lcom/android/systemui/doze/DozeSensors$PluginSensor;->this$0:Lcom/android/systemui/doze/DozeSensors;
+
+    const/4 v2, 0x0
+
+    move-object v0, p0
+
+    move-object v3, p3
+
+    move v4, p4
+
+    move v5, p5
+
+    move v6, p6
+
+    move/from16 v7, p7
+
+    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;-><init>(Lcom/android/systemui/doze/DozeSensors;Landroid/hardware/Sensor;Ljava/lang/String;ZIZZ)V
+
+    move-object v0, p2
+
+    iput-object v0, v8, Lcom/android/systemui/doze/DozeSensors$PluginSensor;->mPluginSensor:Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;
+
+    move-wide/from16 v0, p8
+
+    iput-wide v0, v8, Lcom/android/systemui/doze/DozeSensors$PluginSensor;->mDebounce:J
 
     return-void
 .end method
@@ -109,7 +105,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/doze/DozeSensors$PluginSensor;->this$0:Lcom/android/systemui/doze/DozeSensors;
 
-    invoke-static {v2}, Lcom/android/systemui/doze/DozeSensors;->access$1200(Lcom/android/systemui/doze/DozeSensors;)J
+    invoke-static {v2}, Lcom/android/systemui/doze/DozeSensors;->access$1300(Lcom/android/systemui/doze/DozeSensors;)J
 
     move-result-wide v2
 
@@ -146,7 +142,7 @@
     return-void
 
     :cond_0
-    invoke-static {}, Lcom/android/systemui/doze/DozeSensors;->access$400()Z
+    invoke-static {}, Lcom/android/systemui/doze/DozeSensors;->access$300()Z
 
     move-result v0
 
@@ -175,7 +171,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/systemui/doze/DozeSensors$PluginSensor;->this$0:Lcom/android/systemui/doze/DozeSensors;
 
-    invoke-static {v0}, Lcom/android/systemui/doze/DozeSensors;->access$1100(Lcom/android/systemui/doze/DozeSensors;)Lcom/android/systemui/doze/DozeSensors$Callback;
+    invoke-static {v0}, Lcom/android/systemui/doze/DozeSensors;->access$1200(Lcom/android/systemui/doze/DozeSensors;)Lcom/android/systemui/doze/DozeSensors$Callback;
 
     move-result-object v0
 
@@ -272,7 +268,11 @@
 .method public onSensorChanged(Lcom/android/systemui/plugins/SensorManagerPlugin$SensorEvent;)V
     .locals 3
 
-    iget-object v0, p0, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mDozeLog:Lcom/android/systemui/doze/DozeLog;
+    iget-object v0, p0, Lcom/android/systemui/doze/DozeSensors$PluginSensor;->this$0:Lcom/android/systemui/doze/DozeSensors;
+
+    invoke-static {v0}, Lcom/android/systemui/doze/DozeSensors;->access$400(Lcom/android/systemui/doze/DozeSensors;)Lcom/android/systemui/doze/DozeLog;
+
+    move-result-object v0
 
     iget v1, p0, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mPulseReason:I
 
@@ -280,13 +280,13 @@
 
     iget-object v0, p0, Lcom/android/systemui/doze/DozeSensors$PluginSensor;->this$0:Lcom/android/systemui/doze/DozeSensors;
 
-    invoke-static {v0}, Lcom/android/systemui/doze/DozeSensors;->access$800(Lcom/android/systemui/doze/DozeSensors;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/systemui/doze/DozeSensors;->access$900(Lcom/android/systemui/doze/DozeSensors;)Landroid/os/Handler;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/doze/DozeSensors$PluginSensor;->this$0:Lcom/android/systemui/doze/DozeSensors;
 
-    invoke-static {v1}, Lcom/android/systemui/doze/DozeSensors;->access$700(Lcom/android/systemui/doze/DozeSensors;)Lcom/android/systemui/util/wakelock/WakeLock;
+    invoke-static {v1}, Lcom/android/systemui/doze/DozeSensors;->access$800(Lcom/android/systemui/doze/DozeSensors;)Lcom/android/systemui/util/wakelock/WakeLock;
 
     move-result-object v1
 
@@ -379,7 +379,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/doze/DozeSensors$PluginSensor;->this$0:Lcom/android/systemui/doze/DozeSensors;
 
-    invoke-static {v0}, Lcom/android/systemui/doze/DozeSensors;->access$300(Lcom/android/systemui/doze/DozeSensors;)Lcom/android/systemui/util/sensors/AsyncSensorManager;
+    invoke-static {v0}, Lcom/android/systemui/doze/DozeSensors;->access$200(Lcom/android/systemui/doze/DozeSensors;)Lcom/android/systemui/util/sensors/AsyncSensorManager;
 
     move-result-object v0
 
@@ -416,7 +416,7 @@
 
     iput-boolean v0, p0, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mRegistered:Z
 
-    invoke-static {}, Lcom/android/systemui/doze/DozeSensors;->access$400()Z
+    invoke-static {}, Lcom/android/systemui/doze/DozeSensors;->access$300()Z
 
     move-result p0
 
@@ -441,13 +441,13 @@
 
     iput-boolean v0, p0, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mRegistered:Z
 
-    invoke-static {}, Lcom/android/systemui/doze/DozeSensors;->access$400()Z
+    invoke-static {}, Lcom/android/systemui/doze/DozeSensors;->access$300()Z
 
     move-result p0
 
     if-eqz p0, :cond_3
 
-    const-string/jumbo p0, "unregisterPluginListener"
+    const-string p0, "unregisterPluginListener"
 
     invoke-static {v2, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 

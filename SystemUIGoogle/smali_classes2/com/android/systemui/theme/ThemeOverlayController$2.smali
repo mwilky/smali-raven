@@ -1,6 +1,9 @@
 .class Lcom/android/systemui/theme/ThemeOverlayController$2;
-.super Landroid/content/BroadcastReceiver;
+.super Ljava/lang/Object;
 .source "ThemeOverlayController.java"
+
+# interfaces
+.implements Landroid/app/WallpaperManager$OnColorsChangedListener;
 
 
 # annotations
@@ -24,141 +27,145 @@
 
     iput-object p1, p0, Lcom/android/systemui/theme/ThemeOverlayController$2;->this$0:Lcom/android/systemui/theme/ThemeOverlayController;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 4
+.method public onColorsChanged(Landroid/app/WallpaperColors;I)V
+    .locals 0
 
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    move-result-object p1
+    const-string p1, "This should never be invoked, all messages should arrive on the overload that has a user id"
 
-    const-string v0, "android.intent.action.MANAGED_PROFILE_ADDED"
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    throw p0
+.end method
 
-    move-result p1
+.method public onColorsChanged(Landroid/app/WallpaperColors;II)V
+    .locals 3
 
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    iget-object v0, p0, Lcom/android/systemui/theme/ThemeOverlayController$2;->this$0:Lcom/android/systemui/theme/ThemeOverlayController;
+
+    invoke-static {v0}, Lcom/android/systemui/theme/ThemeOverlayController;->access$300(Lcom/android/systemui/theme/ThemeOverlayController;)Lcom/android/systemui/settings/UserTracker;
 
     move-result-object v0
 
-    const-string v1, "android.intent.action.USER_SWITCHED"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-interface {v0}, Lcom/android/systemui/settings/UserTracker;->getUserId()I
 
     move-result v0
 
-    iget-object v1, p0, Lcom/android/systemui/theme/ThemeOverlayController$2;->this$0:Lcom/android/systemui/theme/ThemeOverlayController;
+    const/4 v1, 0x0
 
-    invoke-static {v1}, Lcom/android/systemui/theme/ThemeOverlayController;->access$300(Lcom/android/systemui/theme/ThemeOverlayController;)Landroid/os/UserManager;
+    if-ne p3, v0, :cond_0
 
-    move-result-object v1
-
-    const-string v2, "android.intent.extra.user_handle"
-
-    const/4 v3, 0x0
-
-    invoke-virtual {p2, v2, v3}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Landroid/os/UserManager;->isManagedProfile(I)Z
-
-    move-result v1
-
-    const/4 v2, 0x1
-
-    const-string v3, "ThemeOverlayController"
-
-    if-nez v0, :cond_1
-
-    if-eqz p1, :cond_0
+    const/4 v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    move v0, v1
 
-    move-result-object p1
+    :goto_0
+    if-eqz v0, :cond_1
 
-    const-string p2, "android.intent.action.WALLPAPER_CHANGED"
+    iget-object v2, p0, Lcom/android/systemui/theme/ThemeOverlayController$2;->this$0:Lcom/android/systemui/theme/ThemeOverlayController;
 
-    invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {v2}, Lcom/android/systemui/theme/ThemeOverlayController;->access$400(Lcom/android/systemui/theme/ThemeOverlayController;)Z
 
-    move-result p1
+    move-result v2
 
-    if-eqz p1, :cond_3
+    if-nez v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/systemui/theme/ThemeOverlayController$2;->this$0:Lcom/android/systemui/theme/ThemeOverlayController;
+
+    invoke-static {v2}, Lcom/android/systemui/theme/ThemeOverlayController;->access$500(Lcom/android/systemui/theme/ThemeOverlayController;)Lcom/android/systemui/keyguard/WakefulnessLifecycle;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/systemui/keyguard/WakefulnessLifecycle;->getWakefulness()I
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/theme/ThemeOverlayController$2;->this$0:Lcom/android/systemui/theme/ThemeOverlayController;
+
+    invoke-static {v0}, Lcom/android/systemui/theme/ThemeOverlayController;->access$600(Lcom/android/systemui/theme/ThemeOverlayController;)Landroid/util/SparseArray;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p3, p1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     iget-object p0, p0, Lcom/android/systemui/theme/ThemeOverlayController$2;->this$0:Lcom/android/systemui/theme/ThemeOverlayController;
 
-    invoke-static {p0, v2}, Lcom/android/systemui/theme/ThemeOverlayController;->access$402(Lcom/android/systemui/theme/ThemeOverlayController;Z)Z
+    invoke-static {p0}, Lcom/android/systemui/theme/ThemeOverlayController;->access$700(Lcom/android/systemui/theme/ThemeOverlayController;)Landroid/util/SparseIntArray;
 
-    const-string p0, "Allowing color events again"
+    move-result-object p0
 
-    invoke-static {v3, p0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    iget-object p1, p0, Lcom/android/systemui/theme/ThemeOverlayController$2;->this$0:Lcom/android/systemui/theme/ThemeOverlayController;
-
-    invoke-static {p1}, Lcom/android/systemui/theme/ThemeOverlayController;->access$000(Lcom/android/systemui/theme/ThemeOverlayController;)Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
-
-    move-result-object p1
-
-    invoke-interface {p1}, Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;->isCurrentUserSetup()Z
-
-    move-result p1
-
-    if-nez p1, :cond_2
-
-    if-eqz v1, :cond_2
+    invoke-virtual {p0, p3, p2}, Landroid/util/SparseIntArray;->put(II)V
 
     new-instance p0, Ljava/lang/StringBuilder;
 
     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string p1, "User setup not finished when "
+    const-string p2, "colors received; processing deferred until screen off: "
+
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string p1, " user: "
 
     invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string p1, " was received. Deferring... Managed profile? "
-
-    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
-    invoke-static {v3, p0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    const-string p1, "ThemeOverlayController"
+
+    invoke-static {p1, p0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
+    :cond_1
+    if-eqz v0, :cond_2
+
+    if-eqz p1, :cond_2
+
+    iget-object v0, p0, Lcom/android/systemui/theme/ThemeOverlayController$2;->this$0:Lcom/android/systemui/theme/ThemeOverlayController;
+
+    invoke-static {v0, v1}, Lcom/android/systemui/theme/ThemeOverlayController;->access$402(Lcom/android/systemui/theme/ThemeOverlayController;Z)Z
+
+    iget-object v0, p0, Lcom/android/systemui/theme/ThemeOverlayController$2;->this$0:Lcom/android/systemui/theme/ThemeOverlayController;
+
+    invoke-static {v0}, Lcom/android/systemui/theme/ThemeOverlayController;->access$600(Lcom/android/systemui/theme/ThemeOverlayController;)Landroid/util/SparseArray;
+
+    move-result-object v0
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, p3, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    iget-object v0, p0, Lcom/android/systemui/theme/ThemeOverlayController$2;->this$0:Lcom/android/systemui/theme/ThemeOverlayController;
+
+    invoke-static {v0}, Lcom/android/systemui/theme/ThemeOverlayController;->access$700(Lcom/android/systemui/theme/ThemeOverlayController;)Landroid/util/SparseIntArray;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p3, v1}, Landroid/util/SparseIntArray;->put(II)V
+
     :cond_2
-    const-string p1, "Updating overlays for user switch / profile added."
-
-    invoke-static {v3, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     iget-object p0, p0, Lcom/android/systemui/theme/ThemeOverlayController$2;->this$0:Lcom/android/systemui/theme/ThemeOverlayController;
 
-    invoke-static {p0, v2}, Lcom/android/systemui/theme/ThemeOverlayController;->access$200(Lcom/android/systemui/theme/ThemeOverlayController;Z)V
+    invoke-static {p0, p1, p2, p3}, Lcom/android/systemui/theme/ThemeOverlayController;->access$800(Lcom/android/systemui/theme/ThemeOverlayController;Landroid/app/WallpaperColors;II)V
 
-    :cond_3
-    :goto_1
     return-void
 .end method

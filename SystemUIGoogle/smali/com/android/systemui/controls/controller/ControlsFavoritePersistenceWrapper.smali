@@ -192,7 +192,7 @@
 
     move-result-object v4
 
-    const-string/jumbo v5, "title"
+    const-string v5, "title"
 
     invoke-interface {p1, v1, v5}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -212,7 +212,7 @@
     move-object v6, v7
 
     :goto_1
-    const-string/jumbo v7, "type"
+    const-string v7, "type"
 
     invoke-interface {p1, v1, v7}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 

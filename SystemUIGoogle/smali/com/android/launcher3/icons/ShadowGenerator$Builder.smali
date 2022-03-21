@@ -42,11 +42,11 @@
 
     iput-object v0, p0, Lcom/android/launcher3/icons/ShadowGenerator$Builder;->bounds:Landroid/graphics/RectF;
 
-    const/4 v0, 0x7
+    const/16 v0, 0x19
 
     iput v0, p0, Lcom/android/launcher3/icons/ShadowGenerator$Builder;->ambientShadowAlpha:I
 
-    const/16 v0, 0xa
+    const/4 v0, 0x7
 
     iput v0, p0, Lcom/android/launcher3/icons/ShadowGenerator$Builder;->keyShadowAlpha:I
 

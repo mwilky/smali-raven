@@ -29,7 +29,7 @@
 
     check-cast p1, Lcom/android/systemui/Gefingerpoken;
 
-    invoke-static {p0, p1}, Lcom/android/keyguard/KeyguardSecurityContainer;->$r8$lambda$J7kIOl0DwWmzaigpCnvoE9gikaI(Landroid/view/MotionEvent;Lcom/android/systemui/Gefingerpoken;)Z
+    invoke-static {p0, p1}, Lcom/android/keyguard/KeyguardSecurityContainer;->$r8$lambda$GNYX5EBUIeeKPi_L3hzK-6b44Xg(Landroid/view/MotionEvent;Lcom/android/systemui/Gefingerpoken;)Z
 
     move-result p0
 

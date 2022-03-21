@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/wm/shell/bubbles/ManageEducationView;->show(Lcom/android/wm/shell/bubbles/BubbleExpandedView;Landroid/graphics/Rect;)V
+    value = Lcom/android/wm/shell/bubbles/ManageEducationView;->show(Lcom/android/wm/shell/bubbles/BubbleExpandedView;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,16 @@
 # instance fields
 .field final synthetic $expandedView:Lcom/android/wm/shell/bubbles/BubbleExpandedView;
 
-.field final synthetic $rect:Landroid/graphics/Rect;
-
 .field final synthetic this$0:Lcom/android/wm/shell/bubbles/ManageEducationView;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/wm/shell/bubbles/BubbleExpandedView;Landroid/graphics/Rect;Lcom/android/wm/shell/bubbles/ManageEducationView;)V
+.method constructor <init>(Lcom/android/wm/shell/bubbles/ManageEducationView;Lcom/android/wm/shell/bubbles/BubbleExpandedView;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1;->$expandedView:Lcom/android/wm/shell/bubbles/BubbleExpandedView;
+    iput-object p1, p0, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1;->this$0:Lcom/android/wm/shell/bubbles/ManageEducationView;
 
-    iput-object p2, p0, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1;->$rect:Landroid/graphics/Rect;
-
-    iput-object p3, p0, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1;->this$0:Lcom/android/wm/shell/bubbles/ManageEducationView;
+    iput-object p2, p0, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1;->$expandedView:Lcom/android/wm/shell/bubbles/BubbleExpandedView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,13 +39,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 5
-
-    iget-object v0, p0, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1;->$expandedView:Lcom/android/wm/shell/bubbles/BubbleExpandedView;
-
-    iget-object v1, p0, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1;->$rect:Landroid/graphics/Rect;
-
-    invoke-virtual {v0, v1}, Lcom/android/wm/shell/bubbles/BubbleExpandedView;->getManageButtonBoundsOnScreen(Landroid/graphics/Rect;)V
+    .locals 4
 
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1;->this$0:Lcom/android/wm/shell/bubbles/ManageEducationView;
 
@@ -59,11 +49,11 @@
 
     new-instance v1, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1$1;
 
-    iget-object v2, p0, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1;->$expandedView:Lcom/android/wm/shell/bubbles/BubbleExpandedView;
+    iget-object v2, p0, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1;->this$0:Lcom/android/wm/shell/bubbles/ManageEducationView;
 
-    iget-object v3, p0, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1;->this$0:Lcom/android/wm/shell/bubbles/ManageEducationView;
+    iget-object v3, p0, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1;->$expandedView:Lcom/android/wm/shell/bubbles/BubbleExpandedView;
 
-    invoke-direct {v1, v2, v3}, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1$1;-><init>(Lcom/android/wm/shell/bubbles/BubbleExpandedView;Lcom/android/wm/shell/bubbles/ManageEducationView;)V
+    invoke-direct {v1, v2, v3}, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1$1;-><init>(Lcom/android/wm/shell/bubbles/ManageEducationView;Lcom/android/wm/shell/bubbles/BubbleExpandedView;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -89,47 +79,53 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    iget-object v0, p0, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1;->this$0:Lcom/android/wm/shell/bubbles/ManageEducationView;
+    new-instance v0, Landroid/graphics/Rect;
 
-    invoke-static {v0}, Lcom/android/wm/shell/bubbles/ManageEducationView;->access$getManageView(Lcom/android/wm/shell/bubbles/ManageEducationView;)Landroid/view/View;
+    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
-    move-result-object v0
+    iget-object v1, p0, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1;->this$0:Lcom/android/wm/shell/bubbles/ManageEducationView;
 
-    iget-object v1, p0, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1;->$rect:Landroid/graphics/Rect;
+    invoke-static {v1}, Lcom/android/wm/shell/bubbles/ManageEducationView;->access$getManageButton(Lcom/android/wm/shell/bubbles/ManageEducationView;)Landroid/widget/Button;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Landroid/widget/Button;->getDrawingRect(Landroid/graphics/Rect;)V
+
+    iget-object v1, p0, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1;->this$0:Lcom/android/wm/shell/bubbles/ManageEducationView;
+
+    invoke-static {v1}, Lcom/android/wm/shell/bubbles/ManageEducationView;->access$getManageView(Lcom/android/wm/shell/bubbles/ManageEducationView;)Landroid/view/ViewGroup;
+
+    move-result-object v1
 
     iget-object v2, p0, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1;->this$0:Lcom/android/wm/shell/bubbles/ManageEducationView;
 
-    const/4 v3, 0x0
-
-    invoke-virtual {v0, v3}, Landroid/view/View;->setTranslationX(F)V
-
-    invoke-virtual {v0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v3
-
-    sget v4, Lcom/android/wm/shell/R$dimen;->bubbles_manage_education_top_inset:I
-
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v3
-
-    iget v1, v1, Landroid/graphics/Rect;->top:I
-
-    invoke-static {v2}, Lcom/android/wm/shell/bubbles/ManageEducationView;->access$getManageView(Lcom/android/wm/shell/bubbles/ManageEducationView;)Landroid/view/View;
+    invoke-static {v2}, Lcom/android/wm/shell/bubbles/ManageEducationView;->access$getManageButton(Lcom/android/wm/shell/bubbles/ManageEducationView;)Landroid/widget/Button;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Landroid/view/View;->getHeight()I
+    invoke-virtual {v1, v2, v0}, Landroid/view/ViewGroup;->offsetDescendantRectToMyCoords(Landroid/view/View;Landroid/graphics/Rect;)V
 
-    move-result v2
+    iget-object v1, p0, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1;->this$0:Lcom/android/wm/shell/bubbles/ManageEducationView;
 
-    sub-int/2addr v1, v2
+    const/4 v2, 0x0
 
-    add-int/2addr v1, v3
+    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setTranslationX(F)V
 
-    int-to-float v1, v1
+    iget-object v1, p0, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1;->this$0:Lcom/android/wm/shell/bubbles/ManageEducationView;
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setTranslationY(F)V
+    invoke-static {v1}, Lcom/android/wm/shell/bubbles/ManageEducationView;->access$getRealManageButtonRect$p(Lcom/android/wm/shell/bubbles/ManageEducationView;)Landroid/graphics/Rect;
+
+    move-result-object v2
+
+    iget v2, v2, Landroid/graphics/Rect;->top:I
+
+    iget v0, v0, Landroid/graphics/Rect;->top:I
+
+    sub-int/2addr v2, v0
+
+    int-to-float v0, v2
+
+    invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->setTranslationY(F)V
 
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/ManageEducationView$show$1;->this$0:Lcom/android/wm/shell/bubbles/ManageEducationView;
 

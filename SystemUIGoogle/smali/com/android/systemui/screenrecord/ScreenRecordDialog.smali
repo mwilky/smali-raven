@@ -1,14 +1,10 @@
 .class public Lcom/android/systemui/screenrecord/ScreenRecordDialog;
-.super Landroid/app/Activity;
+.super Lcom/android/systemui/statusbar/phone/SystemUIDialog;
 .source "ScreenRecordDialog.java"
 
 
-# instance fields
-.field private mAudioSwitch:Landroid/widget/Switch;
-
-.field private final mController:Lcom/android/systemui/screenrecord/RecordingController;
-
-.field private mModes:Ljava/util/List;
+# static fields
+.field private static final MODES:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -18,9 +14,15 @@
     .end annotation
 .end field
 
-.field private mOptions:Landroid/widget/Spinner;
 
-.field private mTapsSwitch:Landroid/widget/Switch;
+# instance fields
+.field private mAudioSwitch:Landroid/widget/Switch;
+
+.field private final mController:Lcom/android/systemui/screenrecord/RecordingController;
+
+.field private final mOnStartRecordingClicked:Ljava/lang/Runnable;
+
+.field private mOptions:Landroid/widget/Spinner;
 
 .field private final mUserContextProvider:Lcom/android/systemui/settings/UserContextProvider;
 
@@ -50,14 +52,50 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/systemui/screenrecord/RecordingController;Lcom/android/systemui/settings/UserContextProvider;)V
+.method static constructor <clinit>()V
+    .locals 3
+
+    const/4 v0, 0x3
+
+    new-array v0, v0, [Lcom/android/systemui/screenrecord/ScreenRecordingAudioSource;
+
+    sget-object v1, Lcom/android/systemui/screenrecord/ScreenRecordingAudioSource;->INTERNAL:Lcom/android/systemui/screenrecord/ScreenRecordingAudioSource;
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    sget-object v1, Lcom/android/systemui/screenrecord/ScreenRecordingAudioSource;->MIC:Lcom/android/systemui/screenrecord/ScreenRecordingAudioSource;
+
+    const/4 v2, 0x1
+
+    aput-object v1, v0, v2
+
+    sget-object v1, Lcom/android/systemui/screenrecord/ScreenRecordingAudioSource;->MIC_AND_INTERNAL:Lcom/android/systemui/screenrecord/ScreenRecordingAudioSource;
+
+    const/4 v2, 0x2
+
+    aput-object v1, v0, v2
+
+    invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/systemui/screenrecord/ScreenRecordDialog;->MODES:Ljava/util/List;
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/screenrecord/RecordingController;Lcom/android/systemui/settings/UserContextProvider;Ljava/lang/Runnable;)V
     .locals 0
 
-    invoke-direct {p0}, Landroid/app/Activity;-><init>()V
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;-><init>(Landroid/content/Context;)V
 
-    iput-object p1, p0, Lcom/android/systemui/screenrecord/ScreenRecordDialog;->mController:Lcom/android/systemui/screenrecord/RecordingController;
+    iput-object p2, p0, Lcom/android/systemui/screenrecord/ScreenRecordDialog;->mController:Lcom/android/systemui/screenrecord/RecordingController;
 
-    iput-object p2, p0, Lcom/android/systemui/screenrecord/ScreenRecordDialog;->mUserContextProvider:Lcom/android/systemui/settings/UserContextProvider;
+    iput-object p3, p0, Lcom/android/systemui/screenrecord/ScreenRecordDialog;->mUserContextProvider:Lcom/android/systemui/settings/UserContextProvider;
+
+    iput-object p4, p0, Lcom/android/systemui/screenrecord/ScreenRecordDialog;->mOnStartRecordingClicked:Ljava/lang/Runnable;
 
     return-void
 .end method
@@ -65,7 +103,7 @@
 .method private synthetic lambda$onCreate$0(Landroid/view/View;)V
     .locals 0
 
-    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+    invoke-virtual {p0}, Landroid/app/AlertDialog;->dismiss()V
 
     return-void
 .end method
@@ -73,9 +111,16 @@
 .method private synthetic lambda$onCreate$1(Landroid/view/View;)V
     .locals 0
 
+    iget-object p1, p0, Lcom/android/systemui/screenrecord/ScreenRecordDialog;->mOnStartRecordingClicked:Ljava/lang/Runnable;
+
+    if-eqz p1, :cond_0
+
+    invoke-interface {p1}, Ljava/lang/Runnable;->run()V
+
+    :cond_0
     invoke-direct {p0}, Lcom/android/systemui/screenrecord/ScreenRecordDialog;->requestScreenCapture()V
 
-    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+    invoke-virtual {p0}, Landroid/app/AlertDialog;->dismiss()V
 
     return-void
 .end method
@@ -101,41 +146,35 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/systemui/screenrecord/ScreenRecordDialog;->mTapsSwitch:Landroid/widget/Switch;
+    iget-object v1, p0, Lcom/android/systemui/screenrecord/ScreenRecordDialog;->mAudioSwitch:Landroid/widget/Switch;
 
     invoke-virtual {v1}, Landroid/widget/Switch;->isChecked()Z
 
     move-result v1
 
-    iget-object v2, p0, Lcom/android/systemui/screenrecord/ScreenRecordDialog;->mAudioSwitch:Landroid/widget/Switch;
+    if-eqz v1, :cond_0
 
-    invoke-virtual {v2}, Landroid/widget/Switch;->isChecked()Z
+    iget-object v1, p0, Lcom/android/systemui/screenrecord/ScreenRecordDialog;->mOptions:Landroid/widget/Spinner;
 
-    move-result v2
+    invoke-virtual {v1}, Landroid/widget/Spinner;->getSelectedItem()Ljava/lang/Object;
 
-    if-eqz v2, :cond_0
+    move-result-object v1
 
-    iget-object v2, p0, Lcom/android/systemui/screenrecord/ScreenRecordDialog;->mOptions:Landroid/widget/Spinner;
-
-    invoke-virtual {v2}, Landroid/widget/Spinner;->getSelectedItem()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/systemui/screenrecord/ScreenRecordingAudioSource;
+    check-cast v1, Lcom/android/systemui/screenrecord/ScreenRecordingAudioSource;
 
     goto :goto_0
 
     :cond_0
-    sget-object v2, Lcom/android/systemui/screenrecord/ScreenRecordingAudioSource;->NONE:Lcom/android/systemui/screenrecord/ScreenRecordingAudioSource;
+    sget-object v1, Lcom/android/systemui/screenrecord/ScreenRecordingAudioSource;->NONE:Lcom/android/systemui/screenrecord/ScreenRecordingAudioSource;
 
     :goto_0
-    const/4 v3, -0x1
+    const/4 v2, -0x1
 
-    invoke-virtual {v2}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
 
-    move-result v2
+    move-result v1
 
-    invoke-static {v0, v3, v2, v1}, Lcom/android/systemui/screenrecord/RecordingService;->getStartIntent(Landroid/content/Context;IIZ)Landroid/content/Intent;
+    invoke-static {v0, v2, v1}, Lcom/android/systemui/screenrecord/RecordingService;->getStartIntent(Landroid/content/Context;II)Landroid/content/Intent;
 
     move-result-object v1
 
@@ -171,39 +210,31 @@
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 3
 
-    invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->onCreate(Landroid/os/Bundle;)V
 
-    invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+    invoke-virtual {p0}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
 
     move-result-object p1
-
-    invoke-virtual {p1}, Landroid/view/Window;->getDecorView()Landroid/view/View;
-
-    const/4 v0, -0x1
-
-    const/4 v1, -0x2
-
-    invoke-virtual {p1, v0, v1}, Landroid/view/Window;->setLayout(II)V
 
     const/16 v0, 0x10
 
     invoke-virtual {p1, v0}, Landroid/view/Window;->addPrivateFlags(I)V
 
-    const/16 v0, 0x30
+    const/16 v0, 0x11
 
     invoke-virtual {p1, v0}, Landroid/view/Window;->setGravity(I)V
 
     sget p1, Lcom/android/systemui/R$string;->screenrecord_name:I
 
-    invoke-virtual {p0, p1}, Landroid/app/Activity;->setTitle(I)V
+    invoke-virtual {p0, p1}, Landroid/app/AlertDialog;->setTitle(I)V
 
     sget p1, Lcom/android/systemui/R$layout;->screen_record_dialog:I
 
-    invoke-virtual {p0, p1}, Landroid/app/Activity;->setContentView(I)V
+    invoke-virtual {p0, p1}, Landroid/app/AlertDialog;->setContentView(I)V
 
     sget p1, Lcom/android/systemui/R$id;->button_cancel:I
 
-    invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, p1}, Landroid/app/AlertDialog;->findViewById(I)Landroid/view/View;
 
     move-result-object p1
 
@@ -217,7 +248,7 @@
 
     sget p1, Lcom/android/systemui/R$id;->button_start:I
 
-    invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, p1}, Landroid/app/AlertDialog;->findViewById(I)Landroid/view/View;
 
     move-result-object p1
 
@@ -229,31 +260,9 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    new-instance p1, Ljava/util/ArrayList;
-
-    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object p1, p0, Lcom/android/systemui/screenrecord/ScreenRecordDialog;->mModes:Ljava/util/List;
-
-    sget-object v0, Lcom/android/systemui/screenrecord/ScreenRecordingAudioSource;->INTERNAL:Lcom/android/systemui/screenrecord/ScreenRecordingAudioSource;
-
-    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    iget-object p1, p0, Lcom/android/systemui/screenrecord/ScreenRecordDialog;->mModes:Ljava/util/List;
-
-    sget-object v0, Lcom/android/systemui/screenrecord/ScreenRecordingAudioSource;->MIC:Lcom/android/systemui/screenrecord/ScreenRecordingAudioSource;
-
-    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    iget-object p1, p0, Lcom/android/systemui/screenrecord/ScreenRecordDialog;->mModes:Ljava/util/List;
-
-    sget-object v0, Lcom/android/systemui/screenrecord/ScreenRecordingAudioSource;->MIC_AND_INTERNAL:Lcom/android/systemui/screenrecord/ScreenRecordingAudioSource;
-
-    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
     sget p1, Lcom/android/systemui/R$id;->screenrecord_audio_switch:I
 
-    invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, p1}, Landroid/app/AlertDialog;->findViewById(I)Landroid/view/View;
 
     move-result-object p1
 
@@ -261,19 +270,9 @@
 
     iput-object p1, p0, Lcom/android/systemui/screenrecord/ScreenRecordDialog;->mAudioSwitch:Landroid/widget/Switch;
 
-    sget p1, Lcom/android/systemui/R$id;->screenrecord_taps_switch:I
-
-    invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
-
-    move-result-object p1
-
-    check-cast p1, Landroid/widget/Switch;
-
-    iput-object p1, p0, Lcom/android/systemui/screenrecord/ScreenRecordDialog;->mTapsSwitch:Landroid/widget/Switch;
-
     sget p1, Lcom/android/systemui/R$id;->screen_recording_options:I
 
-    invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, p1}, Landroid/app/AlertDialog;->findViewById(I)Landroid/view/View;
 
     move-result-object p1
 
@@ -283,11 +282,15 @@
 
     new-instance p1, Lcom/android/systemui/screenrecord/ScreenRecordingAdapter;
 
-    invoke-virtual {p0}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/app/AlertDialog;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/systemui/screenrecord/ScreenRecordDialog;->mModes:Ljava/util/List;
+    invoke-virtual {v0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/android/systemui/screenrecord/ScreenRecordDialog;->MODES:Ljava/util/List;
 
     const v2, 0x1090009
 

@@ -6,16 +6,16 @@
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/systemui/doze/DozeTriggers;
+.field public final synthetic f$0:Lcom/android/internal/logging/UiEventLogger;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/doze/DozeTriggers;)V
+.method public synthetic constructor <init>(Lcom/android/internal/logging/UiEventLogger;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda3;->f$0:Lcom/android/systemui/doze/DozeTriggers;
+    iput-object p1, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda3;->f$0:Lcom/android/internal/logging/UiEventLogger;
 
     return-void
 .end method
@@ -25,15 +25,11 @@
 .method public final accept(Ljava/lang/Object;)V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda3;->f$0:Lcom/android/systemui/doze/DozeTriggers;
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda3;->f$0:Lcom/android/internal/logging/UiEventLogger;
 
-    check-cast p1, Ljava/lang/Boolean;
+    check-cast p1, Lcom/android/systemui/doze/DozeTriggers$DozingUpdateUiEvent;
 
-    invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result p1
-
-    invoke-static {p0, p1}, Lcom/android/systemui/doze/DozeTriggers;->$r8$lambda$tYVQpUBU5w_IkmuBvGNlrH1O8EI(Lcom/android/systemui/doze/DozeTriggers;Z)V
+    invoke-interface {p0, p1}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
 
     return-void
 .end method

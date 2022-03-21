@@ -785,16 +785,6 @@
     return-void
 .end method
 
-.method public setExecutor(Ljava/util/concurrent/Executor;Landroid/os/Looper;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/scrim/ScrimView;->mExecutor:Ljava/util/concurrent/Executor;
-
-    iput-object p2, p0, Lcom/android/systemui/scrim/ScrimView;->mExecutorLooper:Landroid/os/Looper;
-
-    return-void
-.end method
-
 .method public setTint(I)V
     .locals 1
 

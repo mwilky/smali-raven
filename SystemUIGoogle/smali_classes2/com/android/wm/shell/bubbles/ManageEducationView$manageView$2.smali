@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/wm/shell/bubbles/ManageEducationView;-><init>(Landroid/content/Context;)V
+    value = Lcom/android/wm/shell/bubbles/ManageEducationView;-><init>(Landroid/content/Context;Lcom/android/wm/shell/bubbles/BubblePositioner;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,7 +20,7 @@
     value = {
         "Lkotlin/jvm/internal/Lambda;",
         "Lkotlin/jvm/functions/Function0<",
-        "Landroid/view/View;",
+        "Landroid/view/ViewGroup;",
         ">;"
     }
 .end annotation
@@ -45,7 +45,7 @@
 
 
 # virtual methods
-.method public final invoke()Landroid/view/View;
+.method public final invoke()Landroid/view/ViewGroup;
     .locals 1
 
     iget-object p0, p0, Lcom/android/wm/shell/bubbles/ManageEducationView$manageView$2;->this$0:Lcom/android/wm/shell/bubbles/ManageEducationView;
@@ -56,13 +56,15 @@
 
     move-result-object p0
 
+    check-cast p0, Landroid/view/ViewGroup;
+
     return-object p0
 .end method
 
 .method public bridge synthetic invoke()Ljava/lang/Object;
     .locals 0
 
-    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/ManageEducationView$manageView$2;->invoke()Landroid/view/View;
+    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/ManageEducationView$manageView$2;->invoke()Landroid/view/ViewGroup;
 
     move-result-object p0
 

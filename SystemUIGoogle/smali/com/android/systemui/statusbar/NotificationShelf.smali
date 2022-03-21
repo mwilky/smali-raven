@@ -265,9 +265,9 @@
 
     move-result-object v0
 
-    sget v1, Lcom/android/systemui/R$dimen;->status_bar_height:I
+    iget-object v1, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
+    invoke-static {v1}, Lcom/android/internal/policy/SystemBarUtils;->getStatusBarHeight(Landroid/content/Context;)I
 
     move-result v1
 
@@ -2782,7 +2782,7 @@
 
     move-result v2
 
-    invoke-static {v2, v4}, Lcom/android/systemui/animation/Interpolators;->getNotificationScrimAlpha(FZ)F
+    invoke-static {v2}, Lcom/android/systemui/animation/ShadeInterpolation;->getContentAlpha(F)F
 
     move-result v2
 
@@ -2858,14 +2858,6 @@
     move-result v0
 
     if-eqz v0, :cond_3
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationShelf;->mAmbientState:Lcom/android/systemui/statusbar/notification/stack/AmbientState;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->isQsCustomizerShowing()Z
-
-    move-result v0
-
-    if-nez v0, :cond_3
 
     iget-object v0, p1, Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$StackScrollAlgorithmState;->firstViewInShelf:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 

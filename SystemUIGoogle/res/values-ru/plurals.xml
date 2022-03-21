@@ -48,24 +48,6 @@
         <item quantity="few">Неверный PUK-код. Осталось %d попытки. После этого SIM-карта будет заблокирована навсегда.</item>
         <item quantity="many">Неверный PUK-код. Осталось %d попыток. После этого SIM-карта будет заблокирована навсегда.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">Устройство не разблокировалось в течение %d часа. Введите пароль ещё раз.</item>
-        <item quantity="one">Устройство не разблокировалось в течение %d часа. Введите пароль ещё раз.</item>
-        <item quantity="few">Устройство не разблокировалось в течение %d часов. Введите пароль ещё раз.</item>
-        <item quantity="many">Устройство не разблокировалось в течение %d часов. Введите пароль ещё раз.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">Устройство не разблокировалось в течение %d часа. Подтвердите графический ключ.</item>
-        <item quantity="one">Устройство не разблокировалось в течение %d часа. Подтвердите графический ключ.</item>
-        <item quantity="few">Устройство не разблокировалось в течение %d часов. Подтвердите графический ключ.</item>
-        <item quantity="many">Устройство не разблокировалось в течение %d часов. Подтвердите графический ключ.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">Устройство не разблокировалось в течение %d часа. Введите PIN-код ещё раз.</item>
-        <item quantity="one">Устройство не разблокировалось в течение %d часа. Введите PIN-код ещё раз.</item>
-        <item quantity="few">Устройство не разблокировалось в течение %d часов. Введите PIN-код ещё раз.</item>
-        <item quantity="many">Устройство не разблокировалось в течение %d часов. Введите PIN-код ещё раз.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">Повторите попытку через %d секунды.</item>
         <item quantity="one">Повторите попытку через %d секунду.</item>

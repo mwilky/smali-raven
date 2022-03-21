@@ -20,25 +20,38 @@
 
 
 # instance fields
+.field private final mDialogListener:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager$Listener;
+
+.field final mDialogManager:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;
+
 .field final mDumpManger:Lcom/android/systemui/dump/DumpManager;
 
-.field mNotificationShadeExpanded:Z
+.field mNotificationShadeVisible:Z
 
-.field final mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+.field private final mPanelExpansionListener:Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionListener;
 
-.field private final mStatusBarExpansionChangedListener:Lcom/android/systemui/statusbar/phone/StatusBar$ExpansionChangedListener;
+.field final mPanelExpansionStateManager:Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;
 
 .field final mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
 
 # direct methods
-.method protected constructor <init>(Lcom/android/systemui/biometrics/UdfpsAnimationView;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/systemui/dump/DumpManager;)V
+.method public static synthetic $r8$lambda$9EG4kv_GYzrtsNRqjK9b4yB7T6E(Lcom/android/systemui/biometrics/UdfpsAnimationViewController;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->lambda$new$0(Z)V
+
+    return-void
+.end method
+
+.method protected constructor <init>(Lcom/android/systemui/biometrics/UdfpsAnimationView;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;Lcom/android/systemui/dump/DumpManager;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;",
             "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
+            "Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;",
+            "Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;",
             "Lcom/android/systemui/dump/DumpManager;",
             ")V"
         }
@@ -50,13 +63,21 @@
 
     invoke-direct {p1, p0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController$1;-><init>(Lcom/android/systemui/biometrics/UdfpsAnimationViewController;)V
 
-    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mStatusBarExpansionChangedListener:Lcom/android/systemui/statusbar/phone/StatusBar$ExpansionChangedListener;
+    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mPanelExpansionListener:Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionListener;
+
+    new-instance p1, Lcom/android/systemui/biometrics/UdfpsAnimationViewController$$ExternalSyntheticLambda0;
+
+    invoke-direct {p1, p0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/biometrics/UdfpsAnimationViewController;)V
+
+    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mDialogListener:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager$Listener;
 
     iput-object p2, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
-    iput-object p3, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+    iput-object p3, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mPanelExpansionStateManager:Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;
 
-    iput-object p4, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mDumpManger:Lcom/android/systemui/dump/DumpManager;
+    iput-object p4, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mDialogManager:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;
+
+    iput-object p5, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mDumpManger:Lcom/android/systemui/dump/DumpManager;
 
     return-void
 .end method
@@ -99,6 +120,14 @@
     return-object p0
 .end method
 
+.method private synthetic lambda$new$0(Z)V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->updatePauseAuth()V
+
+    return-void
+.end method
+
 
 # virtual methods
 .method dozeTimeTick()V
@@ -131,11 +160,11 @@
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string p3, "mNotificationShadeExpanded="
+    const-string p3, "mNotificationShadeVisible="
 
     invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-boolean p3, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mNotificationShadeExpanded:Z
+    iget-boolean p3, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mNotificationShadeVisible:Z
 
     invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
@@ -288,11 +317,17 @@
 .method protected onViewAttached()V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mPanelExpansionStateManager:Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;
 
-    iget-object v1, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mStatusBarExpansionChangedListener:Lcom/android/systemui/statusbar/phone/StatusBar$ExpansionChangedListener;
+    iget-object v1, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mPanelExpansionListener:Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionListener;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->addExpansionChangedListener(Lcom/android/systemui/statusbar/phone/StatusBar$ExpansionChangedListener;)V
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;->addExpansionListener(Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionListener;)V
+
+    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mDialogManager:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;
+
+    iget-object v1, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mDialogListener:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager$Listener;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;->registerListener(Lcom/android/systemui/statusbar/phone/SystemUIDialogManager$Listener;)V
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mDumpManger:Lcom/android/systemui/dump/DumpManager;
 
@@ -308,11 +343,17 @@
 .method protected onViewDetached()V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mPanelExpansionStateManager:Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;
 
-    iget-object v1, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mStatusBarExpansionChangedListener:Lcom/android/systemui/statusbar/phone/StatusBar$ExpansionChangedListener;
+    iget-object v1, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mPanelExpansionListener:Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionListener;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->removeExpansionChangedListener(Lcom/android/systemui/statusbar/phone/StatusBar$ExpansionChangedListener;)V
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;->removeExpansionListener(Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionListener;)V
+
+    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mDialogManager:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;
+
+    iget-object v1, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mDialogListener:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager$Listener;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;->unregisterListener(Lcom/android/systemui/statusbar/phone/SystemUIDialogManager$Listener;)V
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mDumpManger:Lcom/android/systemui/dump/DumpManager;
 
@@ -326,10 +367,32 @@
 .end method
 
 .method shouldPauseAuth()Z
-    .locals 0
+    .locals 1
 
-    iget-boolean p0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mNotificationShadeExpanded:Z
+    iget-boolean v0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mNotificationShadeVisible:Z
 
+    if-nez v0, :cond_1
+
+    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mDialogManager:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;->shouldHideAffordance()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    const/4 p0, 0x1
+
+    :goto_1
     return p0
 .end method
 

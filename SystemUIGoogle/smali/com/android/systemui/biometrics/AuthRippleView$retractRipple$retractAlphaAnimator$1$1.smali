@@ -39,17 +39,17 @@
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthRippleView$retractRipple$retractAlphaAnimator$1$1;->this$0:Lcom/android/systemui/biometrics/AuthRippleView;
 
-    invoke-static {v0}, Lcom/android/systemui/biometrics/AuthRippleView;->access$getRippleShader$p(Lcom/android/systemui/biometrics/AuthRippleView;)Lcom/android/systemui/statusbar/charging/RippleShader;
+    invoke-static {v0}, Lcom/android/systemui/biometrics/AuthRippleView;->access$getDwellShader$p(Lcom/android/systemui/biometrics/AuthRippleView;)Lcom/android/systemui/statusbar/charging/DwellRippleShader;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/biometrics/AuthRippleView$retractRipple$retractAlphaAnimator$1$1;->this$0:Lcom/android/systemui/biometrics/AuthRippleView;
 
-    invoke-static {v1}, Lcom/android/systemui/biometrics/AuthRippleView;->access$getRippleShader$p(Lcom/android/systemui/biometrics/AuthRippleView;)Lcom/android/systemui/statusbar/charging/RippleShader;
+    invoke-static {v1}, Lcom/android/systemui/biometrics/AuthRippleView;->access$getDwellShader$p(Lcom/android/systemui/biometrics/AuthRippleView;)Lcom/android/systemui/statusbar/charging/DwellRippleShader;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/charging/RippleShader;->getColor()I
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/charging/DwellRippleShader;->getColor()I
 
     move-result v1
 
@@ -71,7 +71,7 @@
 
     move-result p1
 
-    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/charging/RippleShader;->setColor(I)V
+    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/charging/DwellRippleShader;->setColor(I)V
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/AuthRippleView$retractRipple$retractAlphaAnimator$1$1;->this$0:Lcom/android/systemui/biometrics/AuthRippleView;
 

@@ -21,8 +21,5 @@
 
 
 # virtual methods
-.method public abstract createCollapsedStatusBarFragment()Lcom/android/systemui/statusbar/phone/CollapsedStatusBarFragment;
-.end method
-
 .method public abstract createQSFragment()Lcom/android/systemui/qs/QSFragment;
 .end method

@@ -58,11 +58,11 @@
     .end annotation
 .end field
 
-.field private final displayMetricsProvider:Ljavax/inject/Provider;
+.field private final dumpManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Landroid/util/DisplayMetrics;",
+            "Lcom/android/systemui/dump/DumpManager;",
             ">;"
         }
     .end annotation
@@ -88,16 +88,6 @@
     .end annotation
 .end field
 
-.field private final featureFlagsProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 .field private final keyguardBypassControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -118,11 +108,11 @@
     .end annotation
 .end field
 
-.field private final lockscreenGestureLoggerProvider:Ljavax/inject/Provider;
+.field private final loggerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/LockscreenGestureLogger;",
+            "Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;",
             ">;"
         }
     .end annotation
@@ -158,6 +148,16 @@
     .end annotation
 .end field
 
+.field private final wakefulnessLifecycleProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/keyguard/WakefulnessLifecycle;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 
 # direct methods
 .method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
@@ -169,7 +169,7 @@
             "Lcom/android/systemui/statusbar/SysuiStatusBarStateController;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/LockscreenGestureLogger;",
+            "Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/phone/KeyguardBypassController;",
@@ -184,9 +184,6 @@
             "Lcom/android/systemui/statusbar/notification/stack/AmbientState;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Landroid/util/DisplayMetrics;",
-            ">;",
-            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/media/MediaHierarchyManager;",
             ">;",
             "Ljavax/inject/Provider<",
@@ -196,16 +193,19 @@
             "Lcom/android/systemui/statusbar/NotificationShadeDepthController;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Landroid/content/Context;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
+            "Lcom/android/systemui/keyguard/WakefulnessLifecycle;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/plugins/FalsingManager;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
             ">;)V"
         }
     .end annotation
@@ -214,7 +214,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
 
-    iput-object p2, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->lockscreenGestureLoggerProvider:Ljavax/inject/Provider;
+    iput-object p2, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->loggerProvider:Ljavax/inject/Provider;
 
     iput-object p3, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->keyguardBypassControllerProvider:Ljavax/inject/Provider;
 
@@ -224,21 +224,21 @@
 
     iput-object p6, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->ambientStateProvider:Ljavax/inject/Provider;
 
-    iput-object p7, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->displayMetricsProvider:Ljavax/inject/Provider;
+    iput-object p7, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->mediaHierarchyManagerProvider:Ljavax/inject/Provider;
 
-    iput-object p8, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->mediaHierarchyManagerProvider:Ljavax/inject/Provider;
+    iput-object p8, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->scrimControllerProvider:Ljavax/inject/Provider;
 
-    iput-object p9, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->scrimControllerProvider:Ljavax/inject/Provider;
+    iput-object p9, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->depthControllerProvider:Ljavax/inject/Provider;
 
-    iput-object p10, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->depthControllerProvider:Ljavax/inject/Provider;
+    iput-object p10, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->contextProvider:Ljavax/inject/Provider;
 
-    iput-object p11, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
+    iput-object p11, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->wakefulnessLifecycleProvider:Ljavax/inject/Provider;
 
-    iput-object p12, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->contextProvider:Ljavax/inject/Provider;
+    iput-object p12, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
 
-    iput-object p13, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
+    iput-object p13, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->falsingManagerProvider:Ljavax/inject/Provider;
 
-    iput-object p14, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->falsingManagerProvider:Ljavax/inject/Provider;
+    iput-object p14, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
@@ -252,7 +252,7 @@
             "Lcom/android/systemui/statusbar/SysuiStatusBarStateController;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/LockscreenGestureLogger;",
+            "Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/phone/KeyguardBypassController;",
@@ -267,9 +267,6 @@
             "Lcom/android/systemui/statusbar/notification/stack/AmbientState;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Landroid/util/DisplayMetrics;",
-            ">;",
-            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/media/MediaHierarchyManager;",
             ">;",
             "Ljavax/inject/Provider<",
@@ -279,16 +276,19 @@
             "Lcom/android/systemui/statusbar/NotificationShadeDepthController;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Landroid/content/Context;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
+            "Lcom/android/systemui/keyguard/WakefulnessLifecycle;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/plugins/FalsingManager;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
             ">;)",
             "Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;"
         }
@@ -331,7 +331,7 @@
     return-object v15
 .end method
 
-.method public static newInstance(Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/phone/LockscreenGestureLogger;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/statusbar/notification/stack/AmbientState;Landroid/util/DisplayMetrics;Lcom/android/systemui/media/MediaHierarchyManager;Lcom/android/systemui/statusbar/phone/ScrimController;Lcom/android/systemui/statusbar/NotificationShadeDepthController;Lcom/android/systemui/statusbar/FeatureFlags;Landroid/content/Context;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/plugins/FalsingManager;)Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
+.method public static newInstance(Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/statusbar/notification/stack/AmbientState;Lcom/android/systemui/media/MediaHierarchyManager;Lcom/android/systemui/statusbar/phone/ScrimController;Lcom/android/systemui/statusbar/NotificationShadeDepthController;Landroid/content/Context;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
     .locals 16
 
     new-instance v15, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
@@ -366,7 +366,7 @@
 
     move-object/from16 v14, p13
 
-    invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;-><init>(Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/phone/LockscreenGestureLogger;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/statusbar/notification/stack/AmbientState;Landroid/util/DisplayMetrics;Lcom/android/systemui/media/MediaHierarchyManager;Lcom/android/systemui/statusbar/phone/ScrimController;Lcom/android/systemui/statusbar/NotificationShadeDepthController;Lcom/android/systemui/statusbar/FeatureFlags;Landroid/content/Context;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/plugins/FalsingManager;)V
+    invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;-><init>(Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/statusbar/notification/stack/AmbientState;Lcom/android/systemui/media/MediaHierarchyManager;Lcom/android/systemui/statusbar/phone/ScrimController;Lcom/android/systemui/statusbar/NotificationShadeDepthController;Landroid/content/Context;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/dump/DumpManager;)V
 
     return-object v15
 .end method
@@ -386,7 +386,7 @@
 
     check-cast v1, Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->lockscreenGestureLoggerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->loggerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -394,7 +394,7 @@
 
     move-object v2, v0
 
-    check-cast v2, Lcom/android/systemui/statusbar/phone/LockscreenGestureLogger;
+    check-cast v2, Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->keyguardBypassControllerProvider:Ljavax/inject/Provider;
 
@@ -436,7 +436,7 @@
 
     check-cast v6, Lcom/android/systemui/statusbar/notification/stack/AmbientState;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->displayMetricsProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->mediaHierarchyManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -444,17 +444,7 @@
 
     move-object v7, v0
 
-    check-cast v7, Landroid/util/DisplayMetrics;
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->mediaHierarchyManagerProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v8, v0
-
-    check-cast v8, Lcom/android/systemui/media/MediaHierarchyManager;
+    check-cast v7, Lcom/android/systemui/media/MediaHierarchyManager;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->scrimControllerProvider:Ljavax/inject/Provider;
 
@@ -462,9 +452,9 @@
 
     move-result-object v0
 
-    move-object v9, v0
+    move-object v8, v0
 
-    check-cast v9, Lcom/android/systemui/statusbar/phone/ScrimController;
+    check-cast v8, Lcom/android/systemui/statusbar/phone/ScrimController;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->depthControllerProvider:Ljavax/inject/Provider;
 
@@ -472,19 +462,9 @@
 
     move-result-object v0
 
-    move-object v10, v0
+    move-object v9, v0
 
-    check-cast v10, Lcom/android/systemui/statusbar/NotificationShadeDepthController;
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v11, v0
-
-    check-cast v11, Lcom/android/systemui/statusbar/FeatureFlags;
+    check-cast v9, Lcom/android/systemui/statusbar/NotificationShadeDepthController;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -492,9 +472,19 @@
 
     move-result-object v0
 
-    move-object v12, v0
+    move-object v10, v0
 
-    check-cast v12, Landroid/content/Context;
+    check-cast v10, Landroid/content/Context;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->wakefulnessLifecycleProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v11, v0
+
+    check-cast v11, Lcom/android/systemui/keyguard/WakefulnessLifecycle;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
 
@@ -502,11 +492,21 @@
 
     move-result-object v0
 
+    move-object v12, v0
+
+    check-cast v12, Lcom/android/systemui/statusbar/policy/ConfigurationController;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->falsingManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
     move-object v13, v0
 
-    check-cast v13, Lcom/android/systemui/statusbar/policy/ConfigurationController;
+    check-cast v13, Lcom/android/systemui/plugins/FalsingManager;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->falsingManagerProvider:Ljavax/inject/Provider;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -514,9 +514,9 @@
 
     move-object v14, p0
 
-    check-cast v14, Lcom/android/systemui/plugins/FalsingManager;
+    check-cast v14, Lcom/android/systemui/dump/DumpManager;
 
-    invoke-static/range {v1 .. v14}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->newInstance(Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/phone/LockscreenGestureLogger;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/statusbar/notification/stack/AmbientState;Landroid/util/DisplayMetrics;Lcom/android/systemui/media/MediaHierarchyManager;Lcom/android/systemui/statusbar/phone/ScrimController;Lcom/android/systemui/statusbar/NotificationShadeDepthController;Lcom/android/systemui/statusbar/FeatureFlags;Landroid/content/Context;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/plugins/FalsingManager;)Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
+    invoke-static/range {v1 .. v14}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController_Factory;->newInstance(Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/statusbar/notification/stack/AmbientState;Lcom/android/systemui/media/MediaHierarchyManager;Lcom/android/systemui/statusbar/phone/ScrimController;Lcom/android/systemui/statusbar/NotificationShadeDepthController;Landroid/content/Context;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
 
     move-result-object p0
 

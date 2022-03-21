@@ -22,10 +22,12 @@
 
 .field private final spring:Lcom/android/wm/shell/animation/PhysicsAnimator$SpringConfig;
 
+.field private wm:Landroid/view/WindowManager;
+
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 3
+    .locals 4
 
     const-string v0, "context"
 
@@ -37,101 +39,71 @@
 
     invoke-direct {v0, p1}, Lcom/android/wm/shell/common/DismissCircleView;-><init>(Landroid/content/Context;)V
 
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p1
-
-    sget v1, Lcom/android/wm/shell/R$dimen;->dismiss_circle_size:I
-
-    invoke-virtual {p1, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result p1
-
-    new-instance v1, Landroid/widget/FrameLayout$LayoutParams;
-
-    invoke-direct {v1, p1, p1}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
-
-    const/16 p1, 0x51
-
-    iput p1, v1, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
-
-    invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    invoke-virtual {v0}, Landroid/widget/FrameLayout;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p1
-
-    sget v1, Lcom/android/wm/shell/R$dimen;->floating_dismiss_gradient_height:I
-
-    invoke-virtual {p1, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result p1
-
-    int-to-float p1, p1
-
-    invoke-virtual {v0, p1}, Landroid/widget/FrameLayout;->setTranslationY(F)V
-
-    sget-object p1, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-
     iput-object v0, p0, Lcom/android/wm/shell/bubbles/DismissView;->circle:Lcom/android/wm/shell/common/DismissCircleView;
 
-    sget-object p1, Lcom/android/wm/shell/animation/PhysicsAnimator;->Companion:Lcom/android/wm/shell/animation/PhysicsAnimator$Companion;
+    sget-object v1, Lcom/android/wm/shell/animation/PhysicsAnimator;->Companion:Lcom/android/wm/shell/animation/PhysicsAnimator$Companion;
 
-    invoke-virtual {p1, v0}, Lcom/android/wm/shell/animation/PhysicsAnimator$Companion;->getInstance(Ljava/lang/Object;)Lcom/android/wm/shell/animation/PhysicsAnimator;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/wm/shell/bubbles/DismissView;->animator:Lcom/android/wm/shell/animation/PhysicsAnimator;
-
-    new-instance p1, Lcom/android/wm/shell/animation/PhysicsAnimator$SpringConfig;
-
-    const/high16 v0, 0x43480000    # 200.0f
-
-    const/high16 v2, 0x3f400000    # 0.75f
-
-    invoke-direct {p1, v0, v2}, Lcom/android/wm/shell/animation/PhysicsAnimator$SpringConfig;-><init>(FF)V
-
-    iput-object p1, p0, Lcom/android/wm/shell/bubbles/DismissView;->spring:Lcom/android/wm/shell/animation/PhysicsAnimator$SpringConfig;
-
-    const/16 p1, 0xc8
-
-    iput p1, p0, Lcom/android/wm/shell/bubbles/DismissView;->DISMISS_SCRIM_FADE_MS:I
-
-    new-instance p1, Landroid/widget/FrameLayout$LayoutParams;
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v1, v0}, Lcom/android/wm/shell/animation/PhysicsAnimator$Companion;->getInstance(Ljava/lang/Object;)Lcom/android/wm/shell/animation/PhysicsAnimator;
 
     move-result-object v0
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    iput-object v0, p0, Lcom/android/wm/shell/bubbles/DismissView;->animator:Lcom/android/wm/shell/animation/PhysicsAnimator;
 
-    move-result v0
+    new-instance v0, Lcom/android/wm/shell/animation/PhysicsAnimator$SpringConfig;
 
-    const/4 v1, -0x1
+    const/high16 v1, 0x43480000    # 200.0f
 
-    const/16 v2, 0x50
+    const/high16 v2, 0x3f400000    # 0.75f
 
-    invoke-direct {p1, v1, v0, v2}, Landroid/widget/FrameLayout$LayoutParams;-><init>(III)V
+    invoke-direct {v0, v1, v2}, Lcom/android/wm/shell/animation/PhysicsAnimator$SpringConfig;-><init>(FF)V
 
-    invoke-virtual {p0, p1}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    iput-object v0, p0, Lcom/android/wm/shell/bubbles/DismissView;->spring:Lcom/android/wm/shell/animation/PhysicsAnimator$SpringConfig;
 
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getResources()Landroid/content/res/Resources;
+    const/16 v0, 0xc8
+
+    iput v0, p0, Lcom/android/wm/shell/bubbles/DismissView;->DISMISS_SCRIM_FADE_MS:I
+
+    const-string v0, "window"
+
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object p1
 
-    sget v0, Lcom/android/wm/shell/R$dimen;->floating_dismiss_bottom_margin:I
+    const-string v0, "null cannot be cast to non-null type android.view.WindowManager"
 
-    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result p1
+    check-cast p1, Landroid/view/WindowManager;
 
-    const/4 v0, 0x0
+    iput-object p1, p0, Lcom/android/wm/shell/bubbles/DismissView;->wm:Landroid/view/WindowManager;
 
-    invoke-virtual {p0, v0, v0, v0, p1}, Landroid/widget/FrameLayout;->setPadding(IIII)V
+    new-instance p1, Landroid/widget/FrameLayout$LayoutParams;
 
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->setClipToPadding(Z)V
+    const/4 v0, -0x1
 
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->setClipChildren(Z)V
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    sget v2, Lcom/android/wm/shell/R$dimen;->floating_dismiss_gradient_height:I
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    const/16 v3, 0x50
+
+    invoke-direct {p1, v0, v1, v3}, Landroid/widget/FrameLayout$LayoutParams;-><init>(III)V
+
+    invoke-virtual {p0, p1}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    invoke-direct {p0}, Lcom/android/wm/shell/bubbles/DismissView;->updatePadding()V
+
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1}, Landroid/widget/FrameLayout;->setClipToPadding(Z)V
+
+    invoke-virtual {p0, p1}, Landroid/widget/FrameLayout;->setClipChildren(Z)V
 
     const/4 p1, 0x4
 
@@ -141,9 +113,85 @@
 
     invoke-virtual {p0, p1}, Landroid/widget/FrameLayout;->setBackgroundResource(I)V
 
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    sget v0, Lcom/android/wm/shell/R$dimen;->dismiss_circle_size:I
+
+    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result p1
+
+    iget-object v0, p0, Lcom/android/wm/shell/bubbles/DismissView;->circle:Lcom/android/wm/shell/common/DismissCircleView;
+
+    new-instance v1, Landroid/widget/FrameLayout$LayoutParams;
+
+    const/16 v3, 0x51
+
+    invoke-direct {v1, p1, p1, v3}, Landroid/widget/FrameLayout$LayoutParams;-><init>(III)V
+
+    invoke-virtual {p0, v0, v1}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
     iget-object p1, p0, Lcom/android/wm/shell/bubbles/DismissView;->circle:Lcom/android/wm/shell/common/DismissCircleView;
 
-    invoke-virtual {p0, p1}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p0
+
+    invoke-virtual {p0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result p0
+
+    int-to-float p0, p0
+
+    invoke-virtual {p1, p0}, Landroid/widget/FrameLayout;->setTranslationY(F)V
+
+    return-void
+.end method
+
+.method private final updatePadding()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/wm/shell/bubbles/DismissView;->wm:Landroid/view/WindowManager;
+
+    invoke-interface {v0}, Landroid/view/WindowManager;->getCurrentWindowMetrics()Landroid/view/WindowMetrics;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/WindowMetrics;->getWindowInsets()Landroid/view/WindowInsets;
+
+    move-result-object v0
+
+    const-string v1, "wm.getCurrentWindowMetrics().getWindowInsets()"
+
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    invoke-static {}, Landroid/view/WindowInsets$Type;->navigationBars()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/view/WindowInsets;->getInsetsIgnoringVisibility(I)Landroid/graphics/Insets;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/graphics/Insets;->bottom:I
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    sget v2, Lcom/android/wm/shell/R$dimen;->floating_dismiss_bottom_margin:I
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p0, v1, v1, v1, v0}, Landroid/widget/FrameLayout;->setPadding(IIII)V
 
     return-void
 .end method
@@ -291,13 +339,27 @@
 .end method
 
 .method public final updateResources()V
-    .locals 2
+    .locals 3
 
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
+    invoke-direct {p0}, Lcom/android/wm/shell/bubbles/DismissView;->updatePadding()V
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    sget v2, Lcom/android/wm/shell/R$dimen;->floating_dismiss_gradient_height:I
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v1
+
+    iput v1, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 

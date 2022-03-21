@@ -27,9 +27,9 @@
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBar$$ExternalSyntheticLambda18;->f$0:Lcom/android/systemui/navigationbar/NavigationBarView;
 
-    check-cast p1, Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;
+    check-cast p1, Lcom/android/wm/shell/pip/Pip;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/navigationbar/NavigationBarView;->registerDockedListener(Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/navigationbar/NavigationBarView;->addPipExclusionBoundsChangeListener(Lcom/android/wm/shell/pip/Pip;)V
 
     return-void
 .end method

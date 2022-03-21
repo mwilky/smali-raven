@@ -127,9 +127,9 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 1
+    .locals 0
 
-    invoke-super {p0, p1}, Landroid/app/AlertDialog;->onCreate(Landroid/os/Bundle;)V
+    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->onCreate(Landroid/os/Bundle;)V
 
     sget p1, Lcom/android/systemui/R$layout;->columbus_target_request_dialog:I
 
@@ -174,28 +174,6 @@
     check-cast p1, Landroid/widget/Button;
 
     iput-object p1, p0, Lcom/google/android/systemui/columbus/ColumbusTargetRequestDialog;->mNegativeButton:Landroid/widget/Button;
-
-    invoke-virtual {p0}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
-
-    move-result-object p1
-
-    invoke-virtual {p0}, Landroid/app/AlertDialog;->getContext()Landroid/content/Context;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p0
-
-    sget v0, Lcom/android/systemui/R$dimen;->columbus_target_request_dialog_width:I
-
-    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result p0
-
-    const/4 v0, -0x2
-
-    invoke-virtual {p1, p0, v0}, Landroid/view/Window;->setLayout(II)V
 
     return-void
 .end method

@@ -122,7 +122,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->contentResolver:Landroid/content/ContentResolver;
 
-    const-string/jumbo v1, "systemui/buffer"
+    const-string v1, "systemui/buffer"
 
     invoke-static {v1}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -142,7 +142,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->contentResolver:Landroid/content/ContentResolver;
 
-    const-string/jumbo v1, "systemui/tag"
+    const-string v1, "systemui/tag"
 
     invoke-static {v1}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -535,7 +535,7 @@
 
     move-result p2
 
-    const-string/jumbo v0, "systemui/buffer"
+    const-string v0, "systemui/buffer"
 
     iget-object v1, p0, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->cachedBufferLevels:Ljava/util/Map;
 
@@ -577,7 +577,7 @@
     monitor-enter p0
 
     :try_start_0
-    const-string/jumbo v0, "tagName"
+    const-string v0, "tagName"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -585,7 +585,7 @@
 
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const-string/jumbo v0, "systemui/tag"
+    const-string v0, "systemui/tag"
 
     iget-object v1, p0, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->cachedTagLevels:Ljava/util/Map;
 

@@ -55,7 +55,7 @@
 
     const-string p1, "long"
 
-    const-string/jumbo v0, "ttl"
+    const-string v0, "ttl"
 
     const/4 v1, 0x0
 

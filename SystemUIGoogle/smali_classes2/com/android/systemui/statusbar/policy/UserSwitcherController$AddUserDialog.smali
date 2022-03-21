@@ -50,7 +50,7 @@
 
     move-result-object p1
 
-    const/4 v0, -0x2
+    const/4 v0, -0x3
 
     invoke-virtual {p0, v0, p1, p0}, Landroid/app/AlertDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
 
@@ -78,29 +78,31 @@
 
     if-ne p2, p1, :cond_0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x2
+    const/4 p1, 0x2
 
     :goto_0
-    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$AddUserDialog;->this$0:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$AddUserDialog;->this$0:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->access$1900(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)Lcom/android/systemui/plugins/FalsingManager;
+    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->access$1900(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)Lcom/android/systemui/plugins/FalsingManager;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-interface {v1, v0}, Lcom/android/systemui/plugins/FalsingManager;->isFalseTap(I)Z
+    invoke-interface {v0, p1}, Lcom/android/systemui/plugins/FalsingManager;->isFalseTap(I)Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_1
 
     return-void
 
     :cond_1
+    const/4 p1, -0x3
+
     if-ne p2, p1, :cond_2
 
     invoke-virtual {p0}, Landroid/app/AlertDialog;->cancel()V
@@ -108,7 +110,13 @@
     goto :goto_1
 
     :cond_2
-    invoke-virtual {p0}, Landroid/app/AlertDialog;->dismiss()V
+    iget-object p1, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$AddUserDialog;->this$0:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
+
+    invoke-static {p1}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->access$2100(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)Lcom/android/systemui/animation/DialogLaunchAnimator;
+
+    move-result-object p1
+
+    invoke-virtual {p1, p0}, Lcom/android/systemui/animation/DialogLaunchAnimator;->dismissStack(Landroid/app/Dialog;)V
 
     invoke-static {}, Landroid/app/ActivityManager;->isUserAMonkey()Z
 
@@ -154,7 +162,7 @@
     :try_start_0
     iget-object p1, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$AddUserDialog;->this$0:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
-    invoke-static {p1}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->access$2100(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)Landroid/app/IActivityTaskManager;
+    invoke-static {p1}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->access$2200(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)Landroid/app/IActivityTaskManager;
 
     move-result-object v0
 
@@ -222,7 +230,7 @@
     :cond_4
     iget-object p0, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$AddUserDialog;->this$0:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->access$2200(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)Lcom/android/systemui/plugins/ActivityStarter;
+    invoke-static {p0}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->access$2300(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)Lcom/android/systemui/plugins/ActivityStarter;
 
     move-result-object p0
 

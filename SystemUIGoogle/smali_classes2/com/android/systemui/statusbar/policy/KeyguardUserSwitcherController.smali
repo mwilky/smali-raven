@@ -22,6 +22,8 @@
 # static fields
 .field private static final ANIMATION_PROPERTIES:Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;
 
+.field private static final DEBUG:Z
+
 
 # instance fields
 .field private final mAdapter:Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController$KeyguardUserAdapter;
@@ -77,6 +79,10 @@
 .method static constructor <clinit>()V
     .locals 3
 
+    sget-boolean v0, Lcom/android/keyguard/KeyguardConstants;->DEBUG:Z
+
+    sput-boolean v0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->DEBUG:Z
+
     new-instance v0, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;
 
     invoke-direct {v0}, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;-><init>()V
@@ -129,6 +135,17 @@
 
     iput-object v0, v6, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mDataSetObserver:Landroid/database/DataSetObserver;
 
+    sget-boolean v0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "KeyguardUserSwitcherController"
+
+    const-string v1, "New KeyguardUserSwitcherController"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     iput-object v7, v6, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mContext:Landroid/content/Context;
 
     move-object v0, p5
@@ -194,7 +211,15 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;)Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+.method static synthetic access$000()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->DEBUG:Z
+
+    return v0
+.end method
+
+.method static synthetic access$100(Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;)Lcom/android/systemui/statusbar/policy/KeyguardStateController;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
@@ -202,7 +227,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$100(Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;)I
+.method static synthetic access$200(Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;)I
     .locals 0
 
     iget p0, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mBarState:I
@@ -210,7 +235,7 @@
     return p0
 .end method
 
-.method static synthetic access$102(Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;I)I
+.method static synthetic access$202(Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;I)I
     .locals 0
 
     iput p1, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mBarState:I
@@ -218,7 +243,7 @@
     return p1
 .end method
 
-.method static synthetic access$200(Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;F)V
+.method static synthetic access$300(Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;F)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->setDarkAmount(F)V
@@ -226,7 +251,7 @@
     return-void
 .end method
 
-.method static synthetic access$302(Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;Landroid/animation/ObjectAnimator;)Landroid/animation/ObjectAnimator;
+.method static synthetic access$402(Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;Landroid/animation/ObjectAnimator;)Landroid/animation/ObjectAnimator;
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mBgAnimator:Landroid/animation/ObjectAnimator;
@@ -234,7 +259,7 @@
     return-object p1
 .end method
 
-.method static synthetic access$400(Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;)Z
+.method static synthetic access$500(Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;)Z
     .locals 0
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->isListAnimating()Z
@@ -244,7 +269,7 @@
     return p0
 .end method
 
-.method static synthetic access$500(Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;)Z
+.method static synthetic access$600(Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;)Z
     .locals 0
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->isUserSwitcherOpen()Z
@@ -254,7 +279,7 @@
     return p0
 .end method
 
-.method static synthetic access$600(Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;ZZ)V
+.method static synthetic access$700(Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;ZZ)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->setUserSwitcherOpened(ZZ)V
@@ -370,8 +395,53 @@
 .end method
 
 .method private setUserSwitcherOpened(ZZ)V
-    .locals 0
+    .locals 3
 
+    sget-boolean v0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x3
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    const/4 v1, 0x0
+
+    iget-boolean v2, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mUserSwitcherOpen:Z
+
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x1
+
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x2
+
+    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    aput-object v2, v0, v1
+
+    const-string v1, "setUserSwitcherOpened: %b -> %b (animate=%b)"
+
+    invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "KeyguardUserSwitcherController"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     iput-boolean p1, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mUserSwitcherOpen:Z
 
     invoke-direct {p0, p2}, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->updateVisibilities(Z)V
@@ -382,13 +452,40 @@
 .method private updateVisibilities(Z)V
     .locals 5
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mBgAnimator:Landroid/animation/ObjectAnimator;
+    sget-boolean v0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->DEBUG:Z
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->cancel()V
+    const/4 v0, 0x1
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    const/4 v1, 0x0
+
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    aput-object v2, v0, v1
+
+    const-string v1, "updateVisibilities: animate=%b"
+
+    invoke-static {v1, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "KeyguardUserSwitcherController"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mBgAnimator:Landroid/animation/ObjectAnimator;
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->cancel()V
+
+    :cond_1
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mUserSwitcherOpen:Z
 
     const-wide/16 v1, 0x190
@@ -397,7 +494,7 @@
 
     const-string v4, "alpha"
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mBackground:Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherScrim;
 
@@ -433,7 +530,7 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mBackground:Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherScrim;
 
     new-array v3, v3, [I
@@ -474,8 +571,6 @@
     invoke-virtual {v0, p0, p1}, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;->updateVisibilities(ZZ)V
 
     return-void
-
-    nop
 
     :array_0
     .array-data 4
@@ -519,6 +614,18 @@
     return v1
 .end method
 
+.method public getHeight()I
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mListView:Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;
+
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getHeight()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public isSimpleUserSwitcher()Z
     .locals 0
 
@@ -536,6 +643,17 @@
 
     invoke-super {p0}, Lcom/android/systemui/util/ViewController;->onInit()V
 
+    sget-boolean v0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "KeyguardUserSwitcherController"
+
+    const-string v1, "onInit"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast v0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherView;
@@ -566,6 +684,17 @@
 .method protected onViewAttached()V
     .locals 2
 
+    sget-boolean v0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "KeyguardUserSwitcherController"
+
+    const-string v1, "onViewAttached"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mAdapter:Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController$KeyguardUserAdapter;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mDataSetObserver:Landroid/database/DataSetObserver;
@@ -598,7 +727,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     const/4 v0, 0x1
 
@@ -606,7 +735,7 @@
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast v0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherView;
@@ -636,6 +765,17 @@
 .method protected onViewDetached()V
     .locals 3
 
+    sget-boolean v0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "KeyguardUserSwitcherController"
+
+    const-string v1, "onViewDetached"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->closeSwitcherIfOpenAndNotSimple(Z)Z
@@ -706,123 +846,152 @@
 
     move-result v2
 
-    const/4 v3, 0x0
+    sget-boolean v3, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->DEBUG:Z
 
-    move v4, v3
+    const-string v4, "KeyguardUserSwitcherController"
 
-    move v5, v4
+    const/4 v5, 0x1
 
-    :goto_0
-    const-string v6, "KeyguardUserSwitcherController"
+    const/4 v6, 0x0
 
-    if-ge v4, v2, :cond_6
+    if-eqz v3, :cond_0
 
-    if-ge v4, v1, :cond_4
+    const/4 v3, 0x2
 
-    const/4 v7, 0x0
+    new-array v3, v3, [Ljava/lang/Object;
 
-    if-ge v4, v0, :cond_0
-
-    iget-object v7, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mListView:Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;
-
-    invoke-virtual {v7, v4}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v7
 
+    aput-object v7, v3, v6
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    aput-object v7, v3, v5
+
+    const-string v7, "refreshUserList childCount=%d adapterCount=%d"
+
+    invoke-static {v7, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v4, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     :cond_0
-    iget-object v8, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mAdapter:Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController$KeyguardUserAdapter;
+    move v3, v6
 
-    iget-object v9, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mListView:Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;
+    move v7, v3
 
-    invoke-virtual {v8, v4, v7, v9}, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController$KeyguardUserAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+    :goto_0
+    if-ge v3, v2, :cond_7
+
+    if-ge v3, v1, :cond_5
+
+    const/4 v8, 0x0
+
+    if-ge v3, v0, :cond_1
+
+    iget-object v8, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mListView:Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;
+
+    invoke-virtual {v8, v3}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v8
 
-    check-cast v8, Lcom/android/systemui/statusbar/policy/KeyguardUserDetailItemView;
+    :cond_1
+    iget-object v9, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mAdapter:Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController$KeyguardUserAdapter;
 
-    invoke-virtual {v8}, Landroid/widget/LinearLayout;->getTag()Ljava/lang/Object;
+    iget-object v10, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mListView:Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;
+
+    invoke-virtual {v9, v3, v8, v10}, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController$KeyguardUserAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v9
 
-    check-cast v9, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;
+    check-cast v9, Lcom/android/systemui/statusbar/policy/KeyguardUserDetailItemView;
 
-    iget-boolean v10, v9, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->isCurrent:Z
+    invoke-virtual {v9}, Landroid/widget/LinearLayout;->getTag()Ljava/lang/Object;
 
-    const/4 v11, 0x1
+    move-result-object v10
 
-    if-eqz v10, :cond_2
+    check-cast v10, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;
 
-    if-eqz v4, :cond_1
+    iget-boolean v11, v10, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->isCurrent:Z
 
-    const-string v5, "Current user is not the first view in the list"
+    if-eqz v11, :cond_3
 
-    invoke-static {v6, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    if-eqz v3, :cond_2
 
-    :cond_1
-    iget-object v5, v9, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->info:Landroid/content/pm/UserInfo;
+    const-string v7, "Current user is not the first view in the list"
 
-    iget v5, v5, Landroid/content/pm/UserInfo;->id:I
+    invoke-static {v4, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    iput v5, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mCurrentUserId:I
+    :cond_2
+    iget-object v7, v10, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->info:Landroid/content/pm/UserInfo;
 
-    iget-boolean v5, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mUserSwitcherOpen:Z
+    iget v7, v7, Landroid/content/pm/UserInfo;->id:I
 
-    invoke-virtual {v8, v11, v5, v3}, Lcom/android/systemui/statusbar/policy/KeyguardUserDetailItemView;->updateVisibilities(ZZZ)V
+    iput v7, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mCurrentUserId:I
 
-    move v5, v11
+    iget-boolean v7, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mUserSwitcherOpen:Z
+
+    invoke-virtual {v9, v5, v7, v6}, Lcom/android/systemui/statusbar/policy/KeyguardUserDetailItemView;->updateVisibilities(ZZZ)V
+
+    move v7, v5
 
     goto :goto_1
 
-    :cond_2
-    iget-boolean v6, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mUserSwitcherOpen:Z
+    :cond_3
+    iget-boolean v10, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mUserSwitcherOpen:Z
 
-    invoke-virtual {v8, v6, v11, v3}, Lcom/android/systemui/statusbar/policy/KeyguardUserDetailItemView;->updateVisibilities(ZZZ)V
+    invoke-virtual {v9, v10, v5, v6}, Lcom/android/systemui/statusbar/policy/KeyguardUserDetailItemView;->updateVisibilities(ZZZ)V
 
     :goto_1
-    iget v6, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mDarkAmount:F
+    iget v10, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mDarkAmount:F
 
-    invoke-virtual {v8, v6}, Lcom/android/systemui/statusbar/policy/KeyguardUserDetailItemView;->setDarkAmount(F)V
+    invoke-virtual {v9, v10}, Lcom/android/systemui/statusbar/policy/KeyguardUserDetailItemView;->setDarkAmount(F)V
 
-    if-nez v7, :cond_3
+    if-nez v8, :cond_4
 
-    iget-object v6, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mListView:Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;
+    iget-object v8, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mListView:Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;
 
-    invoke-virtual {v6, v8}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
-
-    goto :goto_2
-
-    :cond_3
-    if-eq v7, v8, :cond_5
-
-    iget-object v6, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mListView:Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;
-
-    invoke-virtual {v6, v8, v4}, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;->replaceView(Lcom/android/systemui/statusbar/policy/KeyguardUserDetailItemView;I)V
+    invoke-virtual {v8, v9}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
     goto :goto_2
 
     :cond_4
-    iget-object v6, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mListView:Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;
+    if-eq v8, v9, :cond_6
 
-    invoke-virtual {v6}, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;->removeLastView()V
+    iget-object v8, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mListView:Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;
+
+    invoke-virtual {v8, v9, v3}, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;->replaceView(Lcom/android/systemui/statusbar/policy/KeyguardUserDetailItemView;I)V
+
+    goto :goto_2
 
     :cond_5
+    iget-object v8, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mListView:Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;
+
+    invoke-virtual {v8}, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;->removeLastView()V
+
+    :cond_6
     :goto_2
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    :cond_6
-    if-nez v5, :cond_7
+    :cond_7
+    if-nez v7, :cond_8
 
     const-string v0, "Current user is not listed"
 
-    invoke-static {v6, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     const/16 v0, -0x2710
 
     iput v0, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherController;->mCurrentUserId:I
 
-    :cond_7
+    :cond_8
     return-void
 .end method
 

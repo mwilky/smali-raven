@@ -36,19 +36,19 @@
 
     iget-object p1, p0, Lcom/android/systemui/biometrics/AuthRippleView$retractRipple$1$1;->this$0:Lcom/android/systemui/biometrics/AuthRippleView;
 
-    const/16 v0, 0x8
+    const/4 v0, 0x0
 
-    invoke-virtual {p1, v0}, Landroid/view/View;->setVisibility(I)V
+    invoke-static {p1, v0}, Lcom/android/systemui/biometrics/AuthRippleView;->access$setDrawDwell$p(Lcom/android/systemui/biometrics/AuthRippleView;Z)V
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/AuthRippleView$retractRipple$1$1;->this$0:Lcom/android/systemui/biometrics/AuthRippleView;
 
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/AuthRippleView;->resetRippleAlpha()V
+    invoke-virtual {p0}, Lcom/android/systemui/biometrics/AuthRippleView;->resetDwellAlpha()V
 
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 1
+    .locals 0
 
     iget-object p1, p0, Lcom/android/systemui/biometrics/AuthRippleView$retractRipple$1$1;->this$0:Lcom/android/systemui/biometrics/AuthRippleView;
 
@@ -64,19 +64,11 @@
     invoke-virtual {p1}, Landroid/animation/Animator;->cancel()V
 
     :goto_0
-    iget-object p1, p0, Lcom/android/systemui/biometrics/AuthRippleView$retractRipple$1$1;->this$0:Lcom/android/systemui/biometrics/AuthRippleView;
-
-    invoke-static {p1}, Lcom/android/systemui/biometrics/AuthRippleView;->access$getRippleShader$p(Lcom/android/systemui/biometrics/AuthRippleView;)Lcom/android/systemui/statusbar/charging/RippleShader;
-
-    move-result-object p1
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p1, v0}, Lcom/android/systemui/statusbar/charging/RippleShader;->setShouldFadeOutRipple(Z)V
-
     iget-object p0, p0, Lcom/android/systemui/biometrics/AuthRippleView$retractRipple$1$1;->this$0:Lcom/android/systemui/biometrics/AuthRippleView;
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->setVisibility(I)V
+    const/4 p1, 0x1
+
+    invoke-static {p0, p1}, Lcom/android/systemui/biometrics/AuthRippleView;->access$setDrawDwell$p(Lcom/android/systemui/biometrics/AuthRippleView;Z)V
 
     return-void
 .end method

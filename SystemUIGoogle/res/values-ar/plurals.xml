@@ -64,30 +64,6 @@
         <item quantity="few">‏رمز PUK لشريحة SIM غير صحيح، ويتبقى لديك %d محاولات تصبح بعدها شريحة SIM غير صالحة للاستخدام بشكل دائم.</item>
         <item quantity="many">‏رمز PUK لشريحة SIM غير صحيح، ويتبقى لديك %d محاولة تصبح بعدها شريحة SIM غير صالحة للاستخدام بشكل دائم.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">لم يتم فتح قفل الجهاز لمدة %d ساعة. تأكيد كلمة المرور.</item>
-        <item quantity="zero">لم يتم فتح قفل الجهاز لمدة %d ساعة. تأكيد كلمة المرور.</item>
-        <item quantity="one">لم يتم فتح قفل الجهاز لمدة %d ساعة. تأكيد كلمة المرور.</item>
-        <item quantity="two">لم يتم فتح قفل الجهاز لمدة ساعتين (%d). تأكيد كلمة المرور.</item>
-        <item quantity="few">لم يتم فتح قفل الجهاز لمدة %d ساعات. تأكيد كلمة المرور.</item>
-        <item quantity="many">لم يتم فتح قفل الجهاز لمدة %d ساعة. تأكيد كلمة المرور.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">لم يتم فتح قفل الجهاز لمدة %d ساعة. تأكيد النقش.</item>
-        <item quantity="zero">لم يتم فتح قفل الجهاز لمدة %d ساعة. تأكيد النقش.</item>
-        <item quantity="one">لم يتم فتح قفل الجهاز لمدة %d ساعة. تأكيد النقش.</item>
-        <item quantity="two">لم يتم فتح قفل الجهاز لمدة ساعتين (%d). تأكيد النقش.</item>
-        <item quantity="few">لم يتم فتح قفل الجهاز لمدة %d ساعات. تأكيد النقش.</item>
-        <item quantity="many">لم يتم فتح قفل الجهاز لمدة %d ساعة. تأكيد النقش.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">لم يتم فتح قفل الجهاز لمدة %d ساعة. تأكيد رقم التعريف الشخصي.</item>
-        <item quantity="zero">لم يتم فتح قفل الجهاز لمدة %d ساعة. تأكيد رقم التعريف الشخصي.</item>
-        <item quantity="one">لم يتم فتح قفل الجهاز لمدة %d ساعة. تأكيد رقم التعريف الشخصي.</item>
-        <item quantity="two">لم يتم فتح قفل الجهاز لمدة ساعتين (%d). تأكيد رقم التعريف الشخصي.</item>
-        <item quantity="few">لم يتم فتح قفل الجهاز لمدة %d ساعة. تأكيد رقم التعريف الشخصي.</item>
-        <item quantity="many">لم يتم فتح قفل الجهاز لمدة %d ساعة. تأكيد رقم التعريف الشخصي.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">حاول مرة أخرى خلال %d ثانية.</item>
         <item quantity="zero">حاول مرة أخرى خلال %d ثانية.</item>

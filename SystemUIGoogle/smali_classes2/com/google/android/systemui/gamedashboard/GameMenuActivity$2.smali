@@ -36,13 +36,23 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 0
+    .locals 1
+
+    iget-object p1, p0, Lcom/google/android/systemui/gamedashboard/GameMenuActivity$2;->val$sourceView:Landroid/view/View;
+
+    const/16 v0, 0x8
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->setVisibility(I)V
 
     iget-object p0, p0, Lcom/google/android/systemui/gamedashboard/GameMenuActivity$2;->val$sourceView:Landroid/view/View;
 
-    const/16 p1, 0x8
+    invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
-    invoke-virtual {p0, p1}, Landroid/view/View;->setVisibility(I)V
+    move-result-object p0
+
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
 
     return-void
 .end method

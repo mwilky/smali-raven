@@ -41,9 +41,6 @@
 .method public abstract setAndInstrumentDozeAmount(Landroid/view/View;FZ)V
 .end method
 
-.method public abstract setFullscreenState(Z)V
-.end method
-
 .method public abstract setIsDozing(Z)Z
 .end method
 
@@ -72,6 +69,9 @@
 .end method
 
 .method public abstract setState(IZ)Z
+.end method
+
+.method public abstract setSystemBarAttributes(IILandroid/view/InsetsVisibilities;Ljava/lang/String;)V
 .end method
 
 .method public abstract setUpcomingState(I)V

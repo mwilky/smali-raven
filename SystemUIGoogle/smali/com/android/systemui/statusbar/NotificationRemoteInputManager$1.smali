@@ -22,10 +22,18 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$AWVEgFMmlF_fxrnMlg7icKHgsV4(Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;Landroid/widget/RemoteViews$RemoteResponse;Landroid/view/View;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/app/PendingIntent;)Z
+.method public static synthetic $r8$lambda$IEwM2Zi1a7m0PhgfZVcYLdQqrqA(Landroid/view/View;Lcom/android/systemui/statusbar/phone/StatusBar;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->lambda$onInteraction$0(Landroid/widget/RemoteViews$RemoteResponse;Landroid/view/View;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/app/PendingIntent;)Z
+    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->lambda$onInteraction$0(Landroid/view/View;Lcom/android/systemui/statusbar/phone/StatusBar;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$yuVpzya3VbjlocNfOJg-_NjUB3Q(Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;Landroid/widget/RemoteViews$RemoteResponse;Landroid/view/View;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/app/PendingIntent;)Z
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->lambda$onInteraction$1(Landroid/widget/RemoteViews$RemoteResponse;Landroid/view/View;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/app/PendingIntent;)Z
 
     move-result p0
 
@@ -45,7 +53,7 @@
 .method private getActionFromView(Landroid/view/View;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/app/PendingIntent;)Landroid/app/Notification$Action;
     .locals 3
 
-    const p0, 0x10203af
+    const p0, 0x10203b2
 
     invoke-virtual {p1, p0}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
@@ -181,7 +189,7 @@
     return p0
 
     :cond_0
-    const v0, 0x1020426
+    const v0, 0x1020429
 
     invoke-virtual {p1, v0}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
@@ -255,7 +263,21 @@
     return p0
 .end method
 
-.method private synthetic lambda$onInteraction$0(Landroid/widget/RemoteViews$RemoteResponse;Landroid/view/View;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/app/PendingIntent;)Z
+.method private static synthetic lambda$onInteraction$0(Landroid/view/View;Lcom/android/systemui/statusbar/phone/StatusBar;)V
+    .locals 3
+
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v0
+
+    const-string v2, "NOTIFICATION_CLICK"
+
+    invoke-virtual {p1, v0, v1, p0, v2}, Lcom/android/systemui/statusbar/phone/StatusBar;->wakeUpIfDozing(JLandroid/view/View;Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$onInteraction$1(Landroid/widget/RemoteViews$RemoteResponse;Landroid/view/View;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/app/PendingIntent;)Z
     .locals 1
 
     invoke-virtual {p1, p2}, Landroid/widget/RemoteViews$RemoteResponse;->getLaunchOptions(Landroid/view/View;)Landroid/util/Pair;
@@ -314,7 +336,7 @@
 
     move-result v2
 
-    const v4, 0x1020199
+    const v4, 0x102019c
 
     if-ne v2, v4, :cond_1
 
@@ -394,15 +416,13 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/systemui/statusbar/phone/StatusBar;
+    check-cast v0, Ljava/util/Optional;
 
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+    new-instance v1, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1$$ExternalSyntheticLambda1;
 
-    move-result-wide v1
+    invoke-direct {v1, p1}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1$$ExternalSyntheticLambda1;-><init>(Landroid/view/View;)V
 
-    const-string v3, "NOTIFICATION_CLICK"
-
-    invoke-virtual {v0, v1, v2, p1, v3}, Lcom/android/systemui/statusbar/phone/StatusBar;->wakeUpIfDozing(JLandroid/view/View;Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
 
     invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 

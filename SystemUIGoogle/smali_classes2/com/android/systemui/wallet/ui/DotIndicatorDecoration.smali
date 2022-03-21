@@ -113,13 +113,9 @@
 
     iget v0, p0, Lcom/android/systemui/wallet/ui/DotIndicatorDecoration;->mUnselectedRadius:I
 
-    int-to-float v0, v0
-
     iget v1, p0, Lcom/android/systemui/wallet/ui/DotIndicatorDecoration;->mSelectedColor:I
 
-    int-to-float v1, v1
-
-    invoke-static {v0, v1, p2}, Landroid/util/MathUtils;->lerp(FFF)F
+    invoke-static {v0, v1, p2}, Landroid/util/MathUtils;->lerp(IIF)F
 
     move-result p2
 
@@ -161,13 +157,9 @@
 
     iget v0, p0, Lcom/android/systemui/wallet/ui/DotIndicatorDecoration;->mSelectedRadius:I
 
-    int-to-float v0, v0
-
     iget v1, p0, Lcom/android/systemui/wallet/ui/DotIndicatorDecoration;->mUnselectedRadius:I
 
-    int-to-float v1, v1
-
-    invoke-static {v0, v1, p2}, Landroid/util/MathUtils;->lerp(FFF)F
+    invoke-static {v0, v1, p2}, Landroid/util/MathUtils;->lerp(IIF)F
 
     move-result p2
 

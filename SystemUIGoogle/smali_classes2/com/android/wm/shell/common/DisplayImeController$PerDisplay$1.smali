@@ -78,7 +78,7 @@
 
     iget-object p1, p1, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->this$0:Lcom/android/wm/shell/common/DisplayImeController;
 
-    invoke-static {p1}, Lcom/android/wm/shell/common/DisplayImeController;->access$300(Lcom/android/wm/shell/common/DisplayImeController;)Lcom/android/wm/shell/common/TransactionPool;
+    invoke-static {p1}, Lcom/android/wm/shell/common/DisplayImeController;->access$400(Lcom/android/wm/shell/common/DisplayImeController;)Lcom/android/wm/shell/common/TransactionPool;
 
     move-result-object p1
 
@@ -125,7 +125,7 @@
 
     iget-boolean v2, p0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay$1;->mCancelled:Z
 
-    invoke-static {v1, v0, v2, p1}, Lcom/android/wm/shell/common/DisplayImeController;->access$700(Lcom/android/wm/shell/common/DisplayImeController;IZLandroid/view/SurfaceControl$Transaction;)V
+    invoke-static {v1, v0, v2, p1}, Lcom/android/wm/shell/common/DisplayImeController;->access$800(Lcom/android/wm/shell/common/DisplayImeController;IZLandroid/view/SurfaceControl$Transaction;)V
 
     iget-object v0, p0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay$1;->this$1:Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;
 
@@ -160,7 +160,7 @@
 
     iget-object v0, v0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->this$0:Lcom/android/wm/shell/common/DisplayImeController;
 
-    invoke-static {v0}, Lcom/android/wm/shell/common/DisplayImeController;->access$300(Lcom/android/wm/shell/common/DisplayImeController;)Lcom/android/wm/shell/common/TransactionPool;
+    invoke-static {v0}, Lcom/android/wm/shell/common/DisplayImeController;->access$400(Lcom/android/wm/shell/common/DisplayImeController;)Lcom/android/wm/shell/common/TransactionPool;
 
     move-result-object v0
 
@@ -186,7 +186,7 @@
 
     iget-object p1, p1, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->this$0:Lcom/android/wm/shell/common/DisplayImeController;
 
-    invoke-static {p1}, Lcom/android/wm/shell/common/DisplayImeController;->access$300(Lcom/android/wm/shell/common/DisplayImeController;)Lcom/android/wm/shell/common/TransactionPool;
+    invoke-static {p1}, Lcom/android/wm/shell/common/DisplayImeController;->access$400(Lcom/android/wm/shell/common/DisplayImeController;)Lcom/android/wm/shell/common/TransactionPool;
 
     move-result-object p1
 
@@ -216,7 +216,7 @@
 
     iget v3, p0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay$1;->val$hiddenY:F
 
-    invoke-static {v0, v3}, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->access$500(Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;F)I
+    invoke-static {v0, v3}, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->access$600(Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;F)I
 
     move-result v3
 
@@ -224,7 +224,7 @@
 
     iget v4, p0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay$1;->val$shownY:F
 
-    invoke-static {v0, v4}, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->access$500(Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;F)I
+    invoke-static {v0, v4}, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->access$600(Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;F)I
 
     move-result v4
 
@@ -262,7 +262,7 @@
 
     move-object v6, p1
 
-    invoke-static/range {v0 .. v6}, Lcom/android/wm/shell/common/DisplayImeController;->access$600(Lcom/android/wm/shell/common/DisplayImeController;IIIZZLandroid/view/SurfaceControl$Transaction;)I
+    invoke-static/range {v0 .. v6}, Lcom/android/wm/shell/common/DisplayImeController;->access$700(Lcom/android/wm/shell/common/DisplayImeController;IIIZZLandroid/view/SurfaceControl$Transaction;)I
 
     move-result v0
 
@@ -334,7 +334,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/common/DisplayImeController$PerDisplay;->this$0:Lcom/android/wm/shell/common/DisplayImeController;
 
-    invoke-static {p0}, Lcom/android/wm/shell/common/DisplayImeController;->access$300(Lcom/android/wm/shell/common/DisplayImeController;)Lcom/android/wm/shell/common/TransactionPool;
+    invoke-static {p0}, Lcom/android/wm/shell/common/DisplayImeController;->access$400(Lcom/android/wm/shell/common/DisplayImeController;)Lcom/android/wm/shell/common/TransactionPool;
 
     move-result-object p0
 

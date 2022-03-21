@@ -3663,6 +3663,107 @@
     return-object p0
 .end method
 
+.method public final registerSelectClause1Internal$kotlinx_coroutines_core(Lkotlinx/coroutines/selects/SelectInstance;Lkotlin/jvm/functions/Function2;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Ljava/lang/Object;",
+            "R:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Lkotlinx/coroutines/selects/SelectInstance<",
+            "-TR;>;",
+            "Lkotlin/jvm/functions/Function2<",
+            "-TT;-",
+            "Lkotlin/coroutines/Continuation<",
+            "-TR;>;+",
+            "Ljava/lang/Object;",
+            ">;)V"
+        }
+    .end annotation
+
+    const-string v0, "select"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string v0, "block"
+
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+
+    :cond_0
+    invoke-virtual {p0}, Lkotlinx/coroutines/JobSupport;->getState$kotlinx_coroutines_core()Ljava/lang/Object;
+
+    move-result-object v0
+
+    invoke-interface {p1}, Lkotlinx/coroutines/selects/SelectInstance;->isSelected()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    return-void
+
+    :cond_1
+    instance-of v1, v0, Lkotlinx/coroutines/Incomplete;
+
+    if-nez v1, :cond_4
+
+    const/4 p0, 0x0
+
+    invoke-interface {p1, p0}, Lkotlinx/coroutines/selects/SelectInstance;->trySelect(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_3
+
+    instance-of p0, v0, Lkotlinx/coroutines/CompletedExceptionally;
+
+    if-eqz p0, :cond_2
+
+    check-cast v0, Lkotlinx/coroutines/CompletedExceptionally;
+
+    iget-object p0, v0, Lkotlinx/coroutines/CompletedExceptionally;->cause:Ljava/lang/Throwable;
+
+    invoke-interface {p1, p0}, Lkotlinx/coroutines/selects/SelectInstance;->resumeSelectCancellableWithException(Ljava/lang/Throwable;)V
+
+    goto :goto_0
+
+    :cond_2
+    invoke-static {v0}, Lkotlinx/coroutines/JobSupportKt;->unboxState(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    invoke-interface {p1}, Lkotlinx/coroutines/selects/SelectInstance;->getCompletion()Lkotlin/coroutines/Continuation;
+
+    move-result-object p1
+
+    invoke-static {p2, p0, p1}, Lkotlinx/coroutines/intrinsics/UndispatchedKt;->startCoroutineUnintercepted(Lkotlin/jvm/functions/Function2;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)V
+
+    :cond_3
+    :goto_0
+    return-void
+
+    :cond_4
+    invoke-direct {p0, v0}, Lkotlinx/coroutines/JobSupport;->startInternal(Ljava/lang/Object;)I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Lkotlinx/coroutines/SelectAwaitOnCompletion;
+
+    invoke-direct {v0, p0, p1, p2}, Lkotlinx/coroutines/SelectAwaitOnCompletion;-><init>(Lkotlinx/coroutines/JobSupport;Lkotlinx/coroutines/selects/SelectInstance;Lkotlin/jvm/functions/Function2;)V
+
+    invoke-virtual {p0, v0}, Lkotlinx/coroutines/JobSupport;->invokeOnCompletion(Lkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/DisposableHandle;
+
+    move-result-object p0
+
+    invoke-interface {p1, p0}, Lkotlinx/coroutines/selects/SelectInstance;->disposeOnSelect(Lkotlinx/coroutines/DisposableHandle;)V
+
+    return-void
+.end method
+
 .method public final removeNode$kotlinx_coroutines_core(Lkotlinx/coroutines/JobNode;)V
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
@@ -3721,6 +3822,65 @@
     invoke-virtual {p1}, Lkotlinx/coroutines/internal/LockFreeLinkedListNode;->remove()Z
 
     :cond_3
+    return-void
+.end method
+
+.method public final selectAwaitCompletion$kotlinx_coroutines_core(Lkotlinx/coroutines/selects/SelectInstance;Lkotlin/jvm/functions/Function2;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<T:",
+            "Ljava/lang/Object;",
+            "R:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Lkotlinx/coroutines/selects/SelectInstance<",
+            "-TR;>;",
+            "Lkotlin/jvm/functions/Function2<",
+            "-TT;-",
+            "Lkotlin/coroutines/Continuation<",
+            "-TR;>;+",
+            "Ljava/lang/Object;",
+            ">;)V"
+        }
+    .end annotation
+
+    const-string v0, "select"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string v0, "block"
+
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Lkotlinx/coroutines/JobSupport;->getState$kotlinx_coroutines_core()Ljava/lang/Object;
+
+    move-result-object p0
+
+    instance-of v0, p0, Lkotlinx/coroutines/CompletedExceptionally;
+
+    if-eqz v0, :cond_0
+
+    check-cast p0, Lkotlinx/coroutines/CompletedExceptionally;
+
+    iget-object p0, p0, Lkotlinx/coroutines/CompletedExceptionally;->cause:Ljava/lang/Throwable;
+
+    invoke-interface {p1, p0}, Lkotlinx/coroutines/selects/SelectInstance;->resumeSelectCancellableWithException(Ljava/lang/Throwable;)V
+
+    goto :goto_0
+
+    :cond_0
+    invoke-static {p0}, Lkotlinx/coroutines/JobSupportKt;->unboxState(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    invoke-interface {p1}, Lkotlinx/coroutines/selects/SelectInstance;->getCompletion()Lkotlin/coroutines/Continuation;
+
+    move-result-object p1
+
+    invoke-static {p2, p0, p1}, Lkotlinx/coroutines/intrinsics/CancellableKt;->startCoroutineCancellable(Lkotlin/jvm/functions/Function2;Ljava/lang/Object;Lkotlin/coroutines/Continuation;)V
+
+    :goto_0
     return-void
 .end method
 

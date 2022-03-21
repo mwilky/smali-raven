@@ -3,6 +3,18 @@
 .source "MediaData.kt"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/systemui/media/MediaData$Companion;
+    }
+.end annotation
+
+
+# static fields
+.field public static final Companion:Lcom/android/systemui/media/MediaData$Companion;
+
+
 # instance fields
 .field private final actions:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -46,8 +58,6 @@
 
 .field private final isClearable:Z
 
-.field private isLocalSession:Z
-
 .field private final isPlaying:Ljava/lang/Boolean;
 
 .field private lastActive:J
@@ -55,6 +65,8 @@
 .field private final notificationKey:Ljava/lang/String;
 
 .field private final packageName:Ljava/lang/String;
+
+.field private playbackLocation:I
 
 .field private resumeAction:Ljava/lang/Runnable;
 
@@ -68,7 +80,21 @@
 
 
 # direct methods
-.method public constructor <init>(IZILjava/lang/String;Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Icon;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Landroid/media/session/MediaSession$Token;Landroid/app/PendingIntent;Lcom/android/systemui/media/MediaDeviceData;ZLjava/lang/Runnable;ZZLjava/lang/String;ZLjava/lang/Boolean;ZJ)V
+.method static constructor <clinit>()V
+    .locals 2
+
+    new-instance v0, Lcom/android/systemui/media/MediaData$Companion;
+
+    const/4 v1, 0x0
+
+    invoke-direct {v0, v1}, Lcom/android/systemui/media/MediaData$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+
+    sput-object v0, Lcom/android/systemui/media/MediaData;->Companion:Lcom/android/systemui/media/MediaData$Companion;
+
+    return-void
+.end method
+
+.method public constructor <init>(IZILjava/lang/String;Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Icon;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Landroid/media/session/MediaSession$Token;Landroid/app/PendingIntent;Lcom/android/systemui/media/MediaDeviceData;ZLjava/lang/Runnable;IZLjava/lang/String;ZLjava/lang/Boolean;ZJ)V
     .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -90,7 +116,7 @@
             "Lcom/android/systemui/media/MediaDeviceData;",
             "Z",
             "Ljava/lang/Runnable;",
-            "ZZ",
+            "IZ",
             "Ljava/lang/String;",
             "Z",
             "Ljava/lang/Boolean;",
@@ -180,7 +206,7 @@
 
     move/from16 v1, p17
 
-    iput-boolean v1, v0, Lcom/android/systemui/media/MediaData;->isLocalSession:Z
+    iput v1, v0, Lcom/android/systemui/media/MediaData;->playbackLocation:I
 
     move/from16 v1, p18
 
@@ -209,7 +235,7 @@
     return-void
 .end method
 
-.method public synthetic constructor <init>(IZILjava/lang/String;Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Icon;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Landroid/media/session/MediaSession$Token;Landroid/app/PendingIntent;Lcom/android/systemui/media/MediaDeviceData;ZLjava/lang/Runnable;ZZLjava/lang/String;ZLjava/lang/Boolean;ZJILkotlin/jvm/internal/DefaultConstructorMarker;)V
+.method public synthetic constructor <init>(IZILjava/lang/String;Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Icon;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Landroid/media/session/MediaSession$Token;Landroid/app/PendingIntent;Lcom/android/systemui/media/MediaDeviceData;ZLjava/lang/Runnable;IZLjava/lang/String;ZLjava/lang/Boolean;ZJILkotlin/jvm/internal/DefaultConstructorMarker;)V
     .locals 27
 
     and-int/lit8 v0, p25, 0x2
@@ -230,11 +256,9 @@
 
     and-int v0, p25, v0
 
-    const/4 v2, 0x1
-
     if-eqz v0, :cond_1
 
-    move/from16 v19, v2
+    move/from16 v19, v1
 
     goto :goto_1
 
@@ -260,11 +284,11 @@
 
     and-int v0, p25, v0
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     if-eqz v0, :cond_3
 
-    move-object/from16 v21, v3
+    move-object/from16 v21, v2
 
     goto :goto_3
 
@@ -292,7 +316,7 @@
 
     if-eqz v0, :cond_5
 
-    move-object/from16 v23, v3
+    move-object/from16 v23, v2
 
     goto :goto_5
 
@@ -306,7 +330,9 @@
 
     if-eqz v0, :cond_6
 
-    move/from16 v24, v2
+    const/4 v0, 0x1
+
+    move/from16 v24, v0
 
     goto :goto_6
 
@@ -362,12 +388,12 @@
 
     move-object/from16 v18, p16
 
-    invoke-direct/range {v2 .. v26}, Lcom/android/systemui/media/MediaData;-><init>(IZILjava/lang/String;Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Icon;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Landroid/media/session/MediaSession$Token;Landroid/app/PendingIntent;Lcom/android/systemui/media/MediaDeviceData;ZLjava/lang/Runnable;ZZLjava/lang/String;ZLjava/lang/Boolean;ZJ)V
+    invoke-direct/range {v2 .. v26}, Lcom/android/systemui/media/MediaData;-><init>(IZILjava/lang/String;Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Icon;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Landroid/media/session/MediaSession$Token;Landroid/app/PendingIntent;Lcom/android/systemui/media/MediaDeviceData;ZLjava/lang/Runnable;IZLjava/lang/String;ZLjava/lang/Boolean;ZJ)V
 
     return-void
 .end method
 
-.method public static synthetic copy$default(Lcom/android/systemui/media/MediaData;IZILjava/lang/String;Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Icon;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Landroid/media/session/MediaSession$Token;Landroid/app/PendingIntent;Lcom/android/systemui/media/MediaDeviceData;ZLjava/lang/Runnable;ZZLjava/lang/String;ZLjava/lang/Boolean;ZJILjava/lang/Object;)Lcom/android/systemui/media/MediaData;
+.method public static synthetic copy$default(Lcom/android/systemui/media/MediaData;IZILjava/lang/String;Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Icon;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Landroid/media/session/MediaSession$Token;Landroid/app/PendingIntent;Lcom/android/systemui/media/MediaDeviceData;ZLjava/lang/Runnable;IZLjava/lang/String;ZLjava/lang/Boolean;ZJILjava/lang/Object;)Lcom/android/systemui/media/MediaData;
     .locals 17
 
     move-object/from16 v0, p0
@@ -580,7 +606,7 @@
 
     if-eqz v16, :cond_10
 
-    iget-boolean v15, v0, Lcom/android/systemui/media/MediaData;->isLocalSession:Z
+    iget v15, v0, Lcom/android/systemui/media/MediaData;->playbackLocation:I
 
     goto :goto_10
 
@@ -712,7 +738,7 @@
 
     move-wide/from16 p23, v14
 
-    invoke-virtual/range {p0 .. p24}, Lcom/android/systemui/media/MediaData;->copy(IZILjava/lang/String;Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Icon;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Landroid/media/session/MediaSession$Token;Landroid/app/PendingIntent;Lcom/android/systemui/media/MediaDeviceData;ZLjava/lang/Runnable;ZZLjava/lang/String;ZLjava/lang/Boolean;ZJ)Lcom/android/systemui/media/MediaData;
+    invoke-virtual/range {p0 .. p24}, Lcom/android/systemui/media/MediaData;->copy(IZILjava/lang/String;Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Icon;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Landroid/media/session/MediaSession$Token;Landroid/app/PendingIntent;Lcom/android/systemui/media/MediaDeviceData;ZLjava/lang/Runnable;IZLjava/lang/String;ZLjava/lang/Boolean;ZJ)Lcom/android/systemui/media/MediaData;
 
     move-result-object v0
 
@@ -721,7 +747,7 @@
 
 
 # virtual methods
-.method public final copy(IZILjava/lang/String;Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Icon;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Landroid/media/session/MediaSession$Token;Landroid/app/PendingIntent;Lcom/android/systemui/media/MediaDeviceData;ZLjava/lang/Runnable;ZZLjava/lang/String;ZLjava/lang/Boolean;ZJ)Lcom/android/systemui/media/MediaData;
+.method public final copy(IZILjava/lang/String;Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Icon;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Landroid/media/session/MediaSession$Token;Landroid/app/PendingIntent;Lcom/android/systemui/media/MediaDeviceData;ZLjava/lang/Runnable;IZLjava/lang/String;ZLjava/lang/Boolean;ZJ)Lcom/android/systemui/media/MediaData;
     .locals 26
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -743,7 +769,7 @@
             "Lcom/android/systemui/media/MediaDeviceData;",
             "Z",
             "Ljava/lang/Runnable;",
-            "ZZ",
+            "IZ",
             "Ljava/lang/String;",
             "Z",
             "Ljava/lang/Boolean;",
@@ -824,7 +850,7 @@
 
     move/from16 v1, p0
 
-    invoke-direct/range {v0 .. v24}, Lcom/android/systemui/media/MediaData;-><init>(IZILjava/lang/String;Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Icon;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Landroid/media/session/MediaSession$Token;Landroid/app/PendingIntent;Lcom/android/systemui/media/MediaDeviceData;ZLjava/lang/Runnable;ZZLjava/lang/String;ZLjava/lang/Boolean;ZJ)V
+    invoke-direct/range {v0 .. v24}, Lcom/android/systemui/media/MediaData;-><init>(IZILjava/lang/String;Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Icon;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Landroid/media/session/MediaSession$Token;Landroid/app/PendingIntent;Lcom/android/systemui/media/MediaDeviceData;ZLjava/lang/Runnable;IZLjava/lang/String;ZLjava/lang/Boolean;ZJ)V
 
     return-object v25
 .end method
@@ -1042,9 +1068,9 @@
     return v2
 
     :cond_11
-    iget-boolean v1, p0, Lcom/android/systemui/media/MediaData;->isLocalSession:Z
+    iget v1, p0, Lcom/android/systemui/media/MediaData;->playbackLocation:I
 
-    iget-boolean v3, p1, Lcom/android/systemui/media/MediaData;->isLocalSession:Z
+    iget v3, p1, Lcom/android/systemui/media/MediaData;->playbackLocation:I
 
     if-eq v1, v3, :cond_12
 
@@ -1230,12 +1256,28 @@
     return-wide v0
 .end method
 
+.method public final getNotificationKey()Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/media/MediaData;->notificationKey:Ljava/lang/String;
+
+    return-object p0
+.end method
+
 .method public final getPackageName()Ljava/lang/String;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/media/MediaData;->packageName:Ljava/lang/String;
 
     return-object p0
+.end method
+
+.method public final getPlaybackLocation()I
+    .locals 0
+
+    iget p0, p0, Lcom/android/systemui/media/MediaData;->playbackLocation:I
+
+    return p0
 .end method
 
 .method public final getResumeAction()Ljava/lang/Runnable;
@@ -1517,7 +1559,17 @@
 
     mul-int/lit8 v0, v0, 0x1f
 
-    iget-boolean v1, p0, Lcom/android/systemui/media/MediaData;->isLocalSession:Z
+    iget v1, p0, Lcom/android/systemui/media/MediaData;->playbackLocation:I
+
+    invoke-static {v1}, Ljava/lang/Integer;->hashCode(I)I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    mul-int/lit8 v0, v0, 0x1f
+
+    iget-boolean v1, p0, Lcom/android/systemui/media/MediaData;->resumption:Z
 
     if-eqz v1, :cond_b
 
@@ -1528,26 +1580,15 @@
 
     mul-int/lit8 v0, v0, 0x1f
 
-    iget-boolean v1, p0, Lcom/android/systemui/media/MediaData;->resumption:Z
-
-    if-eqz v1, :cond_c
-
-    move v1, v2
-
-    :cond_c
-    add-int/2addr v0, v1
-
-    mul-int/lit8 v0, v0, 0x1f
-
     iget-object v1, p0, Lcom/android/systemui/media/MediaData;->notificationKey:Ljava/lang/String;
 
-    if-nez v1, :cond_d
+    if-nez v1, :cond_c
 
     move v1, v3
 
     goto :goto_9
 
-    :cond_d
+    :cond_c
     invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
 
     move-result v1
@@ -1559,22 +1600,22 @@
 
     iget-boolean v1, p0, Lcom/android/systemui/media/MediaData;->hasCheckedForResume:Z
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_d
 
     move v1, v2
 
-    :cond_e
+    :cond_d
     add-int/2addr v0, v1
 
     mul-int/lit8 v0, v0, 0x1f
 
     iget-object v1, p0, Lcom/android/systemui/media/MediaData;->isPlaying:Ljava/lang/Boolean;
 
-    if-nez v1, :cond_f
+    if-nez v1, :cond_e
 
     goto :goto_a
 
-    :cond_f
+    :cond_e
     invoke-virtual {v1}, Ljava/lang/Object;->hashCode()I
 
     move-result v3
@@ -1586,11 +1627,11 @@
 
     iget-boolean v1, p0, Lcom/android/systemui/media/MediaData;->isClearable:Z
 
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_f
 
     goto :goto_b
 
-    :cond_10
+    :cond_f
     move v2, v1
 
     :goto_b
@@ -1620,8 +1661,18 @@
 .method public final isLocalSession()Z
     .locals 0
 
-    iget-boolean p0, p0, Lcom/android/systemui/media/MediaData;->isLocalSession:Z
+    iget p0, p0, Lcom/android/systemui/media/MediaData;->playbackLocation:I
 
+    if-nez p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
     return p0
 .end method
 
@@ -1792,13 +1843,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v1, ", isLocalSession="
+    const-string v1, ", playbackLocation="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-boolean v1, p0, Lcom/android/systemui/media/MediaData;->isLocalSession:Z
+    iget v1, p0, Lcom/android/systemui/media/MediaData;->playbackLocation:I
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     const-string v1, ", resumption="
 

@@ -18,11 +18,21 @@
 
 
 # instance fields
-.field private final broadcastDispatcherProvider:Ljavax/inject/Provider;
+.field private final backgroundHandlerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
+            "Landroid/os/Handler;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final dumpManagerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
             ">;"
         }
     .end annotation
@@ -38,11 +48,11 @@
     .end annotation
 .end field
 
-.field private final mainHandlerProvider:Ljavax/inject/Provider;
+.field private final mainExecutorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Landroid/os/Handler;",
+            "Ljava/util/concurrent/Executor;",
             ">;"
         }
     .end annotation
@@ -58,117 +68,199 @@
     .end annotation
 .end field
 
+.field private final userTrackerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/settings/UserTracker;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljavax/inject/Provider<",
-            "Landroid/os/Handler;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
+            "Lcom/android/systemui/util/settings/SecureSettings;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/util/settings/GlobalSettings;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/util/settings/SecureSettings;",
+            "Lcom/android/systemui/settings/UserTracker;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Landroid/os/Handler;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Ljava/util/concurrent/Executor;",
             ">;)V"
         }
     .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl_Factory;->mainHandlerProvider:Ljavax/inject/Provider;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl_Factory;->secureSettingsProvider:Ljavax/inject/Provider;
 
-    iput-object p2, p0, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
+    iput-object p2, p0, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl_Factory;->globalSettingsProvider:Ljavax/inject/Provider;
 
-    iput-object p3, p0, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl_Factory;->globalSettingsProvider:Ljavax/inject/Provider;
+    iput-object p3, p0, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl_Factory;->userTrackerProvider:Ljavax/inject/Provider;
 
-    iput-object p4, p0, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl_Factory;->secureSettingsProvider:Ljavax/inject/Provider;
+    iput-object p4, p0, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
+
+    iput-object p5, p0, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl_Factory;->backgroundHandlerProvider:Ljavax/inject/Provider;
+
+    iput-object p6, p0, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl_Factory;->mainExecutorProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl_Factory;
-    .locals 1
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl_Factory;
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljavax/inject/Provider<",
-            "Landroid/os/Handler;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
+            "Lcom/android/systemui/util/settings/SecureSettings;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/util/settings/GlobalSettings;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/util/settings/SecureSettings;",
+            "Lcom/android/systemui/settings/UserTracker;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Landroid/os/Handler;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Ljava/util/concurrent/Executor;",
             ">;)",
             "Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl_Factory;"
         }
     .end annotation
 
-    new-instance v0, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl_Factory;
+    new-instance v7, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl_Factory;
 
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object v0, v7
 
-    return-object v0
+    move-object v1, p0
+
+    move-object v2, p1
+
+    move-object v3, p2
+
+    move-object v4, p3
+
+    move-object v5, p4
+
+    move-object v6, p5
+
+    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v7
 .end method
 
-.method public static newInstance(Landroid/os/Handler;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/util/settings/GlobalSettings;Lcom/android/systemui/util/settings/SecureSettings;)Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl;
-    .locals 1
+.method public static newInstance(Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/util/settings/GlobalSettings;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/dump/DumpManager;Landroid/os/Handler;Ljava/util/concurrent/Executor;)Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl;
+    .locals 8
 
-    new-instance v0, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl;
+    new-instance v7, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl;
 
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl;-><init>(Landroid/os/Handler;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/util/settings/GlobalSettings;Lcom/android/systemui/util/settings/SecureSettings;)V
+    move-object v0, v7
 
-    return-object v0
+    move-object v1, p0
+
+    move-object v2, p1
+
+    move-object v3, p2
+
+    move-object v4, p3
+
+    move-object v5, p4
+
+    move-object v6, p5
+
+    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl;-><init>(Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/util/settings/GlobalSettings;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/dump/DumpManager;Landroid/os/Handler;Ljava/util/concurrent/Executor;)V
+
+    return-object v7
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl;
-    .locals 3
+    .locals 7
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl_Factory;->mainHandlerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl_Factory;->secureSettingsProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Landroid/os/Handler;
+    move-object v1, v0
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
+    check-cast v1, Lcom/android/systemui/util/settings/SecureSettings;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl_Factory;->globalSettingsProvider:Ljavax/inject/Provider;
 
-    move-result-object v1
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    check-cast v1, Lcom/android/systemui/broadcast/BroadcastDispatcher;
+    move-result-object v0
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl_Factory;->globalSettingsProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v2
+    move-object v2, v0
 
     check-cast v2, Lcom/android/systemui/util/settings/GlobalSettings;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl_Factory;->secureSettingsProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl_Factory;->userTrackerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v3, v0
+
+    check-cast v3, Lcom/android/systemui/settings/UserTracker;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v4, v0
+
+    check-cast v4, Lcom/android/systemui/dump/DumpManager;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl_Factory;->backgroundHandlerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v5, v0
+
+    check-cast v5, Landroid/os/Handler;
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl_Factory;->mainExecutorProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/systemui/util/settings/SecureSettings;
+    move-object v6, p0
 
-    invoke-static {v0, v1, v2, p0}, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl_Factory;->newInstance(Landroid/os/Handler;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/util/settings/GlobalSettings;Lcom/android/systemui/util/settings/SecureSettings;)Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl;
+    check-cast v6, Ljava/util/concurrent/Executor;
+
+    invoke-static/range {v1 .. v6}, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl_Factory;->newInstance(Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/util/settings/GlobalSettings;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/dump/DumpManager;Landroid/os/Handler;Ljava/util/concurrent/Executor;)Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl;
 
     move-result-object p0
 

@@ -343,52 +343,6 @@
     return p1
 .end method
 
-.method private static getOpenCalendarIntent()Landroid/content/Intent;
-    .locals 3
-
-    sget-object v0, Landroid/provider/CalendarContract;->CONTENT_URI:Landroid/net/Uri;
-
-    invoke-virtual {v0}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
-
-    move-result-object v0
-
-    const-string v1, "time"
-
-    invoke-virtual {v0, v1}, Landroid/net/Uri$Builder;->appendPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
-
-    move-result-object v0
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v1
-
-    invoke-static {v0, v1, v2}, Landroid/content/ContentUris;->appendId(Landroid/net/Uri$Builder;J)Landroid/net/Uri$Builder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
-
-    move-result-object v0
-
-    new-instance v1, Landroid/content/Intent;
-
-    const-string v2, "android.intent.action.VIEW"
-
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v1, v0}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
-
-    move-result-object v0
-
-    const/high16 v1, 0x10200000
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 .method private isHolidayAlarmsTarget(Landroid/app/smartspace/SmartspaceTarget;)Z
     .locals 0
 
@@ -1210,36 +1164,6 @@
     invoke-direct {v3, v4, p1, v1}, Landroid/app/smartspace/SmartspaceTarget$Builder;-><init>(Ljava/lang/String;Landroid/content/ComponentName;Landroid/os/UserHandle;)V
 
     invoke-virtual {v3, v0}, Landroid/app/smartspace/SmartspaceTarget$Builder;->setFeatureType(I)Landroid/app/smartspace/SmartspaceTarget$Builder;
-
-    move-result-object p1
-
-    new-instance v1, Landroid/app/smartspace/SmartspaceAction$Builder;
-
-    invoke-static {}, Ljava/util/UUID;->randomUUID()Ljava/util/UUID;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/util/UUID;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    const-string v4, "unusedTitle"
-
-    invoke-direct {v1, v3, v4}, Landroid/app/smartspace/SmartspaceAction$Builder;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-static {}, Lcom/google/android/systemui/smartspace/CardPagerAdapter;->getOpenCalendarIntent()Landroid/content/Intent;
-
-    move-result-object v3
-
-    invoke-virtual {v1, v3}, Landroid/app/smartspace/SmartspaceAction$Builder;->setIntent(Landroid/content/Intent;)Landroid/app/smartspace/SmartspaceAction$Builder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/app/smartspace/SmartspaceAction$Builder;->build()Landroid/app/smartspace/SmartspaceAction;
-
-    move-result-object v1
-
-    invoke-virtual {p1, v1}, Landroid/app/smartspace/SmartspaceTarget$Builder;->setBaseAction(Landroid/app/smartspace/SmartspaceAction;)Landroid/app/smartspace/SmartspaceTarget$Builder;
 
     move-result-object p1
 

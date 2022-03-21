@@ -48,12 +48,13 @@
     .end annotation
 .end field
 
-.field private final statusBarLazyProvider:Ljavax/inject/Provider;
+.field private final statusBarOptionalLazyProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;"
+            ">;>;"
         }
     .end annotation
 .end field
@@ -75,8 +76,9 @@
             "Lcom/android/systemui/statusbar/CommandQueue;",
             ">;",
             "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;)V"
+            ">;>;)V"
         }
     .end annotation
 
@@ -88,7 +90,7 @@
 
     iput-object p3, p0, Lcom/android/systemui/power/PowerUI_Factory;->commandQueueProvider:Ljavax/inject/Provider;
 
-    iput-object p4, p0, Lcom/android/systemui/power/PowerUI_Factory;->statusBarLazyProvider:Ljavax/inject/Provider;
+    iput-object p4, p0, Lcom/android/systemui/power/PowerUI_Factory;->statusBarOptionalLazyProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
@@ -108,8 +110,9 @@
             "Lcom/android/systemui/statusbar/CommandQueue;",
             ">;",
             "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;)",
+            ">;>;)",
             "Lcom/android/systemui/power/PowerUI_Factory;"
         }
     .end annotation
@@ -130,8 +133,9 @@
             "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
             "Lcom/android/systemui/statusbar/CommandQueue;",
             "Ldagger/Lazy<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;)",
+            ">;>;)",
             "Lcom/android/systemui/power/PowerUI;"
         }
     .end annotation
@@ -172,7 +176,7 @@
 
     check-cast v2, Lcom/android/systemui/statusbar/CommandQueue;
 
-    iget-object p0, p0, Lcom/android/systemui/power/PowerUI_Factory;->statusBarLazyProvider:Ljavax/inject/Provider;
+    iget-object p0, p0, Lcom/android/systemui/power/PowerUI_Factory;->statusBarOptionalLazyProvider:Ljavax/inject/Provider;
 
     invoke-static {p0}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
 

@@ -58,6 +58,16 @@
     .end annotation
 .end field
 
+.field private final devicePostureControllerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/policy/DevicePostureController;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final dockManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -122,7 +132,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/util/sensors/ProximitySensor$ProximityCheck;",
+            "Lcom/android/systemui/util/sensors/ProximityCheck;",
             ">;"
         }
     .end annotation
@@ -180,7 +190,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -210,7 +220,7 @@
             "Lcom/android/systemui/util/sensors/ProximitySensor;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/util/sensors/ProximitySensor$ProximityCheck;",
+            "Lcom/android/systemui/util/sensors/ProximityCheck;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/doze/DozeLog;",
@@ -232,6 +242,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/policy/KeyguardStateController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/policy/DevicePostureController;",
             ">;)V"
         }
     .end annotation
@@ -304,11 +317,15 @@
 
     iput-object v1, v0, Lcom/android/systemui/doze/DozeTriggers_Factory;->keyguardStateControllerProvider:Ljavax/inject/Provider;
 
+    move-object/from16 v1, p17
+
+    iput-object v1, v0, Lcom/android/systemui/doze/DozeTriggers_Factory;->devicePostureControllerProvider:Ljavax/inject/Provider;
+
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/doze/DozeTriggers_Factory;
-    .locals 18
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/doze/DozeTriggers_Factory;
+    .locals 19
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -337,7 +354,7 @@
             "Lcom/android/systemui/util/sensors/ProximitySensor;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/util/sensors/ProximitySensor$ProximityCheck;",
+            "Lcom/android/systemui/util/sensors/ProximityCheck;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/doze/DozeLog;",
@@ -359,6 +376,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/policy/KeyguardStateController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/policy/DevicePostureController;",
             ">;)",
             "Lcom/android/systemui/doze/DozeTriggers_Factory;"
         }
@@ -396,17 +416,19 @@
 
     move-object/from16 v16, p15
 
-    new-instance v17, Lcom/android/systemui/doze/DozeTriggers_Factory;
+    move-object/from16 v17, p16
 
-    move-object/from16 v0, v17
+    new-instance v18, Lcom/android/systemui/doze/DozeTriggers_Factory;
 
-    invoke-direct/range {v0 .. v16}, Lcom/android/systemui/doze/DozeTriggers_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v0, v18
 
-    return-object v17
+    invoke-direct/range {v0 .. v17}, Lcom/android/systemui/doze/DozeTriggers_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v18
 .end method
 
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/doze/DozeHost;Landroid/hardware/display/AmbientDisplayConfiguration;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/util/sensors/AsyncSensorManager;Lcom/android/systemui/util/wakelock/WakeLock;Lcom/android/systemui/dock/DockManager;Lcom/android/systemui/util/sensors/ProximitySensor;Lcom/android/systemui/util/sensors/ProximitySensor$ProximityCheck;Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/policy/KeyguardStateController;)Lcom/android/systemui/doze/DozeTriggers;
-    .locals 18
+.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/doze/DozeHost;Landroid/hardware/display/AmbientDisplayConfiguration;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/util/sensors/AsyncSensorManager;Lcom/android/systemui/util/wakelock/WakeLock;Lcom/android/systemui/dock/DockManager;Lcom/android/systemui/util/sensors/ProximitySensor;Lcom/android/systemui/util/sensors/ProximityCheck;Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/policy/DevicePostureController;)Lcom/android/systemui/doze/DozeTriggers;
+    .locals 19
 
     move-object/from16 v1, p0
 
@@ -440,19 +462,21 @@
 
     move-object/from16 v16, p15
 
-    new-instance v17, Lcom/android/systemui/doze/DozeTriggers;
+    move-object/from16 v17, p16
 
-    move-object/from16 v0, v17
+    new-instance v18, Lcom/android/systemui/doze/DozeTriggers;
 
-    invoke-direct/range {v0 .. v16}, Lcom/android/systemui/doze/DozeTriggers;-><init>(Landroid/content/Context;Lcom/android/systemui/doze/DozeHost;Landroid/hardware/display/AmbientDisplayConfiguration;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/util/sensors/AsyncSensorManager;Lcom/android/systemui/util/wakelock/WakeLock;Lcom/android/systemui/dock/DockManager;Lcom/android/systemui/util/sensors/ProximitySensor;Lcom/android/systemui/util/sensors/ProximitySensor$ProximityCheck;Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/policy/KeyguardStateController;)V
+    move-object/from16 v0, v18
 
-    return-object v17
+    invoke-direct/range {v0 .. v17}, Lcom/android/systemui/doze/DozeTriggers;-><init>(Landroid/content/Context;Lcom/android/systemui/doze/DozeHost;Landroid/hardware/display/AmbientDisplayConfiguration;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/util/sensors/AsyncSensorManager;Lcom/android/systemui/util/wakelock/WakeLock;Lcom/android/systemui/dock/DockManager;Lcom/android/systemui/util/sensors/ProximitySensor;Lcom/android/systemui/util/sensors/ProximityCheck;Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/policy/DevicePostureController;)V
+
+    return-object v18
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/systemui/doze/DozeTriggers;
-    .locals 18
+    .locals 19
 
     move-object/from16 v0, p0
 
@@ -544,7 +568,7 @@
 
     move-object v10, v1
 
-    check-cast v10, Lcom/android/systemui/util/sensors/ProximitySensor$ProximityCheck;
+    check-cast v10, Lcom/android/systemui/util/sensors/ProximityCheck;
 
     iget-object v1, v0, Lcom/android/systemui/doze/DozeTriggers_Factory;->dozeLogProvider:Ljavax/inject/Provider;
 
@@ -606,17 +630,27 @@
 
     check-cast v16, Lcom/android/internal/logging/UiEventLogger;
 
-    iget-object v0, v0, Lcom/android/systemui/doze/DozeTriggers_Factory;->keyguardStateControllerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/doze/DozeTriggers_Factory;->keyguardStateControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object/from16 v17, v1
+
+    check-cast v17, Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+
+    iget-object v0, v0, Lcom/android/systemui/doze/DozeTriggers_Factory;->devicePostureControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    move-object/from16 v17, v0
+    move-object/from16 v18, v0
 
-    check-cast v17, Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+    check-cast v18, Lcom/android/systemui/statusbar/policy/DevicePostureController;
 
-    invoke-static/range {v2 .. v17}, Lcom/android/systemui/doze/DozeTriggers_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/doze/DozeHost;Landroid/hardware/display/AmbientDisplayConfiguration;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/util/sensors/AsyncSensorManager;Lcom/android/systemui/util/wakelock/WakeLock;Lcom/android/systemui/dock/DockManager;Lcom/android/systemui/util/sensors/ProximitySensor;Lcom/android/systemui/util/sensors/ProximitySensor$ProximityCheck;Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/policy/KeyguardStateController;)Lcom/android/systemui/doze/DozeTriggers;
+    invoke-static/range {v2 .. v18}, Lcom/android/systemui/doze/DozeTriggers_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/doze/DozeHost;Landroid/hardware/display/AmbientDisplayConfiguration;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/util/sensors/AsyncSensorManager;Lcom/android/systemui/util/wakelock/WakeLock;Lcom/android/systemui/dock/DockManager;Lcom/android/systemui/util/sensors/ProximitySensor;Lcom/android/systemui/util/sensors/ProximityCheck;Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/policy/DevicePostureController;)Lcom/android/systemui/doze/DozeTriggers;
 
     move-result-object v0
 

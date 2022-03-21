@@ -4,14 +4,14 @@
 
 # interfaces
 .implements Lcom/android/systemui/settings/brightness/ToggleSlider$Listener;
+.implements Lcom/android/systemui/settings/brightness/MirroredBrightnessController;
 
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/systemui/settings/brightness/BrightnessController$Factory;,
-        Lcom/android/systemui/settings/brightness/BrightnessController$BrightnessObserver;,
-        Lcom/android/systemui/settings/brightness/BrightnessController$BrightnessStateChangeCallback;
+        Lcom/android/systemui/settings/brightness/BrightnessController$BrightnessObserver;
     }
 .end annotation
 
@@ -32,16 +32,6 @@
 .field private mBrightnessMin:F
 
 .field private final mBrightnessObserver:Lcom/android/systemui/settings/brightness/BrightnessController$BrightnessObserver;
-
-.field private mChangeCallbacks:Ljava/util/ArrayList;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/ArrayList<",
-            "Lcom/android/systemui/settings/brightness/BrightnessController$BrightnessStateChangeCallback;",
-            ">;"
-        }
-    .end annotation
-.end field
 
 .field private final mContext:Landroid/content/Context;
 
@@ -115,7 +105,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/settings/brightness/ToggleSlider;Lcom/android/systemui/broadcast/BroadcastDispatcher;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/settings/brightness/ToggleSlider;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/os/Handler;)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -125,12 +115,6 @@
     invoke-direct {v0, p0}, Lcom/android/systemui/settings/brightness/BrightnessController$1;-><init>(Lcom/android/systemui/settings/brightness/BrightnessController;)V
 
     iput-object v0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mDisplayListener:Landroid/hardware/display/DisplayManager$DisplayListener;
-
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mChangeCallbacks:Ljava/util/ArrayList;
 
     const/4 v0, 0x0
 
@@ -184,19 +168,7 @@
 
     invoke-interface {p2, v1}, Lcom/android/systemui/settings/brightness/ToggleSlider;->setMax(I)V
 
-    new-instance p2, Landroid/os/Handler;
-
-    sget-object v1, Lcom/android/systemui/Dependency;->BG_LOOPER:Lcom/android/systemui/Dependency$DependencyKey;
-
-    invoke-static {v1}, Lcom/android/systemui/Dependency;->get(Lcom/android/systemui/Dependency$DependencyKey;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/os/Looper;
-
-    invoke-direct {p2, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
-
-    iput-object p2, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mBackgroundHandler:Landroid/os/Handler;
+    iput-object p4, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mBackgroundHandler:Landroid/os/Handler;
 
     new-instance p2, Lcom/android/systemui/settings/brightness/BrightnessController$8;
 
@@ -281,23 +253,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$1000(Lcom/android/systemui/settings/brightness/BrightnessController;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mListening:Z
-
-    return p0
-.end method
-
-.method static synthetic access$1002(Lcom/android/systemui/settings/brightness/BrightnessController;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mListening:Z
-
-    return p1
-.end method
-
-.method static synthetic access$1100(Lcom/android/systemui/settings/brightness/BrightnessController;)Landroid/service/vr/IVrManager;
+.method static synthetic access$1000(Lcom/android/systemui/settings/brightness/BrightnessController;)Landroid/service/vr/IVrManager;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mVrManager:Landroid/service/vr/IVrManager;
@@ -305,7 +261,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$1200(Lcom/android/systemui/settings/brightness/BrightnessController;)Landroid/service/vr/IVrStateCallbacks;
+.method static synthetic access$1100(Lcom/android/systemui/settings/brightness/BrightnessController;)Landroid/service/vr/IVrStateCallbacks;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mVrStateCallbacks:Landroid/service/vr/IVrStateCallbacks;
@@ -313,7 +269,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$1300(Lcom/android/systemui/settings/brightness/BrightnessController;)Z
+.method static synthetic access$1200(Lcom/android/systemui/settings/brightness/BrightnessController;)Z
     .locals 0
 
     iget-boolean p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mIsVrModeEnabled:Z
@@ -321,7 +277,7 @@
     return p0
 .end method
 
-.method static synthetic access$1302(Lcom/android/systemui/settings/brightness/BrightnessController;Z)Z
+.method static synthetic access$1202(Lcom/android/systemui/settings/brightness/BrightnessController;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mIsVrModeEnabled:Z
@@ -329,7 +285,7 @@
     return p1
 .end method
 
-.method static synthetic access$1400(Lcom/android/systemui/settings/brightness/BrightnessController;)Lcom/android/systemui/settings/brightness/BrightnessController$BrightnessObserver;
+.method static synthetic access$1300(Lcom/android/systemui/settings/brightness/BrightnessController;)Lcom/android/systemui/settings/brightness/BrightnessController$BrightnessObserver;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mBrightnessObserver:Lcom/android/systemui/settings/brightness/BrightnessController$BrightnessObserver;
@@ -337,7 +293,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$1500(Lcom/android/systemui/settings/brightness/BrightnessController;)Lcom/android/systemui/settings/CurrentUserTracker;
+.method static synthetic access$1400(Lcom/android/systemui/settings/brightness/BrightnessController;)Lcom/android/systemui/settings/CurrentUserTracker;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mUserTracker:Lcom/android/systemui/settings/CurrentUserTracker;
@@ -345,7 +301,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$1602(Lcom/android/systemui/settings/brightness/BrightnessController;Z)Z
+.method static synthetic access$1502(Lcom/android/systemui/settings/brightness/BrightnessController;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mAutomatic:Z
@@ -353,7 +309,7 @@
     return p1
 .end method
 
-.method static synthetic access$1702(Lcom/android/systemui/settings/brightness/BrightnessController;F)F
+.method static synthetic access$1602(Lcom/android/systemui/settings/brightness/BrightnessController;F)F
     .locals 0
 
     iput p1, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mBrightnessMax:F
@@ -361,7 +317,7 @@
     return p1
 .end method
 
-.method static synthetic access$1802(Lcom/android/systemui/settings/brightness/BrightnessController;F)F
+.method static synthetic access$1702(Lcom/android/systemui/settings/brightness/BrightnessController;F)F
     .locals 0
 
     iput p1, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mBrightnessMin:F
@@ -369,7 +325,7 @@
     return p1
 .end method
 
-.method static synthetic access$1902(Lcom/android/systemui/settings/brightness/BrightnessController;Z)Z
+.method static synthetic access$1802(Lcom/android/systemui/settings/brightness/BrightnessController;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mExternalChange:Z
@@ -377,15 +333,7 @@
     return p1
 .end method
 
-.method static synthetic access$200(Lcom/android/systemui/settings/brightness/BrightnessController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/settings/brightness/BrightnessController;->notifyCallbacks()V
-
-    return-void
-.end method
-
-.method static synthetic access$2000(Lcom/android/systemui/settings/brightness/BrightnessController;FZ)V
+.method static synthetic access$1900(Lcom/android/systemui/settings/brightness/BrightnessController;FZ)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/systemui/settings/brightness/BrightnessController;->updateSlider(FZ)V
@@ -393,31 +341,7 @@
     return-void
 .end method
 
-.method static synthetic access$2100(Lcom/android/systemui/settings/brightness/BrightnessController;)Lcom/android/systemui/settings/brightness/ToggleSlider;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mControl:Lcom/android/systemui/settings/brightness/ToggleSlider;
-
-    return-object p0
-.end method
-
-.method static synthetic access$2200(Lcom/android/systemui/settings/brightness/BrightnessController;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/settings/brightness/BrightnessController;->updateVrMode(Z)V
-
-    return-void
-.end method
-
-.method static synthetic access$2300(Lcom/android/systemui/settings/brightness/BrightnessController;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mDisplayId:I
-
-    return p0
-.end method
-
-.method static synthetic access$300()Landroid/net/Uri;
+.method static synthetic access$200()Landroid/net/Uri;
     .locals 1
 
     sget-object v0, Lcom/android/systemui/settings/brightness/BrightnessController;->BRIGHTNESS_MODE_URI:Landroid/net/Uri;
@@ -425,7 +349,31 @@
     return-object v0
 .end method
 
-.method static synthetic access$400(Lcom/android/systemui/settings/brightness/BrightnessController;)Ljava/lang/Runnable;
+.method static synthetic access$2000(Lcom/android/systemui/settings/brightness/BrightnessController;)Lcom/android/systemui/settings/brightness/ToggleSlider;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mControl:Lcom/android/systemui/settings/brightness/ToggleSlider;
+
+    return-object p0
+.end method
+
+.method static synthetic access$2100(Lcom/android/systemui/settings/brightness/BrightnessController;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/settings/brightness/BrightnessController;->updateVrMode(Z)V
+
+    return-void
+.end method
+
+.method static synthetic access$2200(Lcom/android/systemui/settings/brightness/BrightnessController;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mDisplayId:I
+
+    return p0
+.end method
+
+.method static synthetic access$300(Lcom/android/systemui/settings/brightness/BrightnessController;)Ljava/lang/Runnable;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mUpdateModeRunnable:Ljava/lang/Runnable;
@@ -433,7 +381,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$500()Landroid/net/Uri;
+.method static synthetic access$400()Landroid/net/Uri;
     .locals 1
 
     sget-object v0, Lcom/android/systemui/settings/brightness/BrightnessController;->BRIGHTNESS_FOR_VR_FLOAT_URI:Landroid/net/Uri;
@@ -441,7 +389,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$600(Lcom/android/systemui/settings/brightness/BrightnessController;)Landroid/content/Context;
+.method static synthetic access$500(Lcom/android/systemui/settings/brightness/BrightnessController;)Landroid/content/Context;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mContext:Landroid/content/Context;
@@ -449,7 +397,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$700(Lcom/android/systemui/settings/brightness/BrightnessController;)Landroid/hardware/display/DisplayManager$DisplayListener;
+.method static synthetic access$600(Lcom/android/systemui/settings/brightness/BrightnessController;)Landroid/hardware/display/DisplayManager$DisplayListener;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mDisplayListener:Landroid/hardware/display/DisplayManager$DisplayListener;
@@ -457,7 +405,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$800(Lcom/android/systemui/settings/brightness/BrightnessController;)Landroid/os/Handler;
+.method static synthetic access$700(Lcom/android/systemui/settings/brightness/BrightnessController;)Landroid/os/Handler;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mHandler:Landroid/os/Handler;
@@ -465,12 +413,28 @@
     return-object p0
 .end method
 
-.method static synthetic access$900(Lcom/android/systemui/settings/brightness/BrightnessController;)Landroid/hardware/display/DisplayManager;
+.method static synthetic access$800(Lcom/android/systemui/settings/brightness/BrightnessController;)Landroid/hardware/display/DisplayManager;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mDisplayManager:Landroid/hardware/display/DisplayManager;
 
     return-object p0
+.end method
+
+.method static synthetic access$900(Lcom/android/systemui/settings/brightness/BrightnessController;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mListening:Z
+
+    return p0
+.end method
+
+.method static synthetic access$902(Lcom/android/systemui/settings/brightness/BrightnessController;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mListening:Z
+
+    return p1
 .end method
 
 .method private animateSliderTo(I)V
@@ -480,30 +444,39 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_0
 
+    iget-object v0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mControl:Lcom/android/systemui/settings/brightness/ToggleSlider;
+
+    invoke-interface {v0}, Lcom/android/systemui/settings/brightness/ToggleSlider;->isVisible()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    :cond_0
     iget-object v0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mControl:Lcom/android/systemui/settings/brightness/ToggleSlider;
 
     invoke-interface {v0, p1}, Lcom/android/systemui/settings/brightness/ToggleSlider;->setValue(I)V
 
     iput-boolean v1, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mControlValueInitialized:Z
 
-    :cond_0
+    :cond_1
     iget-object v0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mSliderAnimator:Landroid/animation/ValueAnimator;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->isStarted()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mSliderAnimator:Landroid/animation/ValueAnimator;
 
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->cancel()V
 
-    :cond_1
+    :cond_2
     const/4 v0, 0x2
 
     new-array v0, v0, [I
@@ -588,38 +561,6 @@
 
     iput-boolean p1, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mExternalChange:Z
 
-    return-void
-.end method
-
-.method private notifyCallbacks()V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mChangeCallbacks:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    :goto_0
-    if-ge v1, v0, :cond_0
-
-    iget-object v2, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mChangeCallbacks:Ljava/util/ArrayList;
-
-    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/systemui/settings/brightness/BrightnessController$BrightnessStateChangeCallback;
-
-    invoke-interface {v2}, Lcom/android/systemui/settings/brightness/BrightnessController$BrightnessStateChangeCallback;->onBrightnessLevelChanged()V
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_0
     return-void
 .end method
 
@@ -715,6 +656,16 @@
     return-void
 .end method
 
+.method public hideSlider()V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mControl:Lcom/android/systemui/settings/brightness/ToggleSlider;
+
+    invoke-interface {p0}, Lcom/android/systemui/settings/brightness/ToggleSlider;->hideView()V
+
+    return-void
+.end method
+
 .method public onChanged(ZIZ)V
     .locals 3
 
@@ -792,30 +743,6 @@
     invoke-static {p1}, Landroid/os/AsyncTask;->execute(Ljava/lang/Runnable;)V
 
     :cond_5
-    iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mChangeCallbacks:Ljava/util/ArrayList;
-
-    invoke-virtual {p0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object p0
-
-    :goto_2
-    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_6
-
-    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/android/systemui/settings/brightness/BrightnessController$BrightnessStateChangeCallback;
-
-    invoke-interface {p1}, Lcom/android/systemui/settings/brightness/BrightnessController$BrightnessStateChangeCallback;->onBrightnessLevelChanged()V
-
-    goto :goto_2
-
-    :cond_6
     return-void
 .end method
 
@@ -827,6 +754,26 @@
     iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mStartListeningRunnable:Ljava/lang/Runnable;
 
     invoke-virtual {v0, p0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    return-void
+.end method
+
+.method public setMirror(Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mControl:Lcom/android/systemui/settings/brightness/ToggleSlider;
+
+    invoke-interface {p0, p1}, Lcom/android/systemui/settings/brightness/ToggleSlider;->setMirrorControllerAndMirror(Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;)V
+
+    return-void
+.end method
+
+.method public showSlider()V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mControl:Lcom/android/systemui/settings/brightness/ToggleSlider;
+
+    invoke-interface {p0}, Lcom/android/systemui/settings/brightness/ToggleSlider;->showView()V
 
     return-void
 .end method

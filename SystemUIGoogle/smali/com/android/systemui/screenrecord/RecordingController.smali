@@ -54,9 +54,11 @@
     .end annotation
 .end field
 
+.field private mUserContextProvider:Lcom/android/systemui/settings/UserContextProvider;
+
 
 # direct methods
-.method public constructor <init>(Lcom/android/systemui/broadcast/BroadcastDispatcher;)V
+.method public constructor <init>(Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/settings/UserContextProvider;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -84,6 +86,8 @@
     iput-object v0, p0, Lcom/android/systemui/screenrecord/RecordingController;->mStateChangeReceiver:Landroid/content/BroadcastReceiver;
 
     iput-object p1, p0, Lcom/android/systemui/screenrecord/RecordingController;->mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
+
+    iput-object p2, p0, Lcom/android/systemui/screenrecord/RecordingController;->mUserContextProvider:Lcom/android/systemui/settings/UserContextProvider;
 
     return-void
 .end method
@@ -192,26 +196,14 @@
     return-void
 .end method
 
-.method public getPromptIntent()Landroid/content/Intent;
+.method public createScreenRecordDialog(Landroid/content/Context;Ljava/lang/Runnable;)Lcom/android/systemui/screenrecord/ScreenRecordDialog;
     .locals 2
 
-    new-instance p0, Landroid/content/ComponentName;
+    new-instance v0, Lcom/android/systemui/screenrecord/ScreenRecordDialog;
 
-    const-string v0, "com.android.systemui"
+    iget-object v1, p0, Lcom/android/systemui/screenrecord/RecordingController;->mUserContextProvider:Lcom/android/systemui/settings/UserContextProvider;
 
-    const-string v1, "com.android.systemui.screenrecord.ScreenRecordDialog"
-
-    invoke-direct {p0, v0, v1}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    new-instance v0, Landroid/content/Intent;
-
-    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
-
-    invoke-virtual {v0, p0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
-
-    const/high16 p0, 0x10000000
-
-    invoke-virtual {v0, p0}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+    invoke-direct {v0, p1, p0, v1, p2}, Lcom/android/systemui/screenrecord/ScreenRecordDialog;-><init>(Landroid/content/Context;Lcom/android/systemui/screenrecord/RecordingController;Lcom/android/systemui/settings/UserContextProvider;Ljava/lang/Runnable;)V
 
     return-object v0
 .end method

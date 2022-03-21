@@ -8,22 +8,18 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/systemui/wmshell/BubblesManager$5;
 
-.field public final synthetic f$1:Z
-
-.field public final synthetic f$2:Ljava/lang/String;
+.field public final synthetic f$1:Ljava/util/function/Consumer;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/wmshell/BubblesManager$5;ZLjava/lang/String;)V
+.method public synthetic constructor <init>(Lcom/android/systemui/wmshell/BubblesManager$5;Ljava/util/function/Consumer;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda12;->f$0:Lcom/android/systemui/wmshell/BubblesManager$5;
 
-    iput-boolean p2, p0, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda12;->f$1:Z
-
-    iput-object p3, p0, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda12;->f$2:Ljava/lang/String;
+    iput-object p2, p0, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda12;->f$1:Ljava/util/function/Consumer;
 
     return-void
 .end method
@@ -31,15 +27,13 @@
 
 # virtual methods
 .method public final run()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda12;->f$0:Lcom/android/systemui/wmshell/BubblesManager$5;
 
-    iget-boolean v1, p0, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda12;->f$1:Z
+    iget-object p0, p0, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda12;->f$1:Ljava/util/function/Consumer;
 
-    iget-object p0, p0, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda12;->f$2:Ljava/lang/String;
-
-    invoke-static {v0, v1, p0}, Lcom/android/systemui/wmshell/BubblesManager$5;->$r8$lambda$39VxIVHhCaYkoSsyow_m5fPk_nI(Lcom/android/systemui/wmshell/BubblesManager$5;ZLjava/lang/String;)V
+    invoke-static {v0, p0}, Lcom/android/systemui/wmshell/BubblesManager$5;->$r8$lambda$brRX_Utfggj7Xh9oRj7EYYOIVYc(Lcom/android/systemui/wmshell/BubblesManager$5;Ljava/util/function/Consumer;)V
 
     return-void
 .end method

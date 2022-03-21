@@ -32,18 +32,6 @@
         <item quantity="other">Mali ang PUK code ng SIM, mayroon kang %d na natitirang pagsubok bago tuluyang hindi magamit ang SIM.</item>
         <item quantity="one">Mali ang PUK code ng SIM, mayroon kang %d natitirang pagsubok bago tuluyang hindi magamit ang SIM.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">Hindi na-unlock ang device sa loob ng %d na oras. Kumpirmahin ang password.</item>
-        <item quantity="one">Hindi na-unlock ang device sa loob ng %d oras. Kumpirmahin ang password.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">Hindi na-unlock ang device sa loob ng %d na oras. Kumpirmahin ang pattern.</item>
-        <item quantity="one">Hindi na-unlock ang device sa loob ng %d oras. Kumpirmahin ang pattern.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">Hindi na-unlock ang device sa loob ng %d na oras. Kumpirmahin ang PIN.</item>
-        <item quantity="one">Hindi na-unlock ang device sa loob ng %d oras. Kumpirmahin ang PIN.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">Subukang muli sa loob ng %d na segundo.</item>
         <item quantity="one">Subukang muli sa loob ng %d segundo.</item>

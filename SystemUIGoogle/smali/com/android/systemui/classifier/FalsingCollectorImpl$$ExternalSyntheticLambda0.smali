@@ -22,12 +22,12 @@
 
 
 # virtual methods
-.method public final onThresholdCrossed(Lcom/android/systemui/util/sensors/ThresholdSensor$ThresholdSensorEvent;)V
+.method public final onThresholdCrossed(Lcom/android/systemui/util/sensors/ThresholdSensorEvent;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/classifier/FalsingCollectorImpl$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/classifier/FalsingCollectorImpl;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/classifier/FalsingCollectorImpl;->$r8$lambda$GHD5NqS_UivQZRtWSaZkM3kaw9Y(Lcom/android/systemui/classifier/FalsingCollectorImpl;Lcom/android/systemui/util/sensors/ThresholdSensor$ThresholdSensorEvent;)V
+    invoke-static {p0, p1}, Lcom/android/systemui/classifier/FalsingCollectorImpl;->$r8$lambda$46E8rIKAPM-_BziFC6P7CAGq5TY(Lcom/android/systemui/classifier/FalsingCollectorImpl;Lcom/android/systemui/util/sensors/ThresholdSensorEvent;)V
 
     return-void
 .end method

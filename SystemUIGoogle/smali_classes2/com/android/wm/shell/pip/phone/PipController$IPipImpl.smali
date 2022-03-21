@@ -17,46 +17,71 @@
 # instance fields
 .field private mController:Lcom/android/wm/shell/pip/phone/PipController;
 
-.field private mListener:Lcom/android/wm/shell/pip/IPipAnimationListener;
+.field private final mListener:Lcom/android/wm/shell/common/SingleInstanceRemoteListener;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/android/wm/shell/common/SingleInstanceRemoteListener<",
+            "Lcom/android/wm/shell/pip/phone/PipController;",
+            "Lcom/android/wm/shell/pip/IPipAnimationListener;",
+            ">;"
+        }
+    .end annotation
+.end field
 
-.field private final mListenerDeathRecipient:Landroid/os/IBinder$DeathRecipient;
+.field private final mPipAnimationListener:Lcom/android/wm/shell/pip/phone/PipController$PipAnimationListener;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$kOfWKc5ABEHl4_14Vl5MkvyWQeQ(Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;Lcom/android/wm/shell/pip/IPipAnimationListener;Lcom/android/wm/shell/pip/phone/PipController;)V
+.method public static synthetic $r8$lambda$BjWOEHab9sLjX3Q-XiVEFbFaIhY(Landroid/content/ComponentName;Landroid/graphics/Rect;Landroid/view/SurfaceControl;Lcom/android/wm/shell/pip/phone/PipController;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->lambda$setPinnedStackAnimationListener$3(Lcom/android/wm/shell/pip/IPipAnimationListener;Lcom/android/wm/shell/pip/phone/PipController;)V
+    invoke-static {p0, p1, p2, p3}, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->lambda$stopSwipePipToHome$3(Landroid/content/ComponentName;Landroid/graphics/Rect;Landroid/view/SurfaceControl;Lcom/android/wm/shell/pip/phone/PipController;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$pOe8scalhXSRE16OQJWgcaxIRMw(Landroid/content/ComponentName;Landroid/graphics/Rect;Landroid/view/SurfaceControl;Lcom/android/wm/shell/pip/phone/PipController;)V
+.method public static synthetic $r8$lambda$CKD2sMJyQmO26wCmvLZS5n7ClzY(Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;Lcom/android/wm/shell/pip/phone/PipController;)V
     .locals 0
 
-    invoke-static {p0, p1, p2, p3}, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->lambda$stopSwipePipToHome$1(Landroid/content/ComponentName;Landroid/graphics/Rect;Landroid/view/SurfaceControl;Lcom/android/wm/shell/pip/phone/PipController;)V
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->lambda$new$0(Lcom/android/wm/shell/pip/phone/PipController;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$vN_cm6eKbtp62Rjqhnu0EAfikek(ZILcom/android/wm/shell/pip/phone/PipController;)V
+.method public static synthetic $r8$lambda$dJoEZgnV31jhhRFLu_0TyakpYZs([Landroid/graphics/Rect;Landroid/content/ComponentName;Landroid/content/pm/ActivityInfo;Landroid/app/PictureInPictureParams;IILcom/android/wm/shell/pip/phone/PipController;)V
     .locals 0
 
-    invoke-static {p0, p1, p2}, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->lambda$setShelfHeight$2(ZILcom/android/wm/shell/pip/phone/PipController;)V
+    invoke-static/range {p0 .. p6}, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->lambda$startSwipePipToHome$2([Landroid/graphics/Rect;Landroid/content/ComponentName;Landroid/content/pm/ActivityInfo;Landroid/app/PictureInPictureParams;IILcom/android/wm/shell/pip/phone/PipController;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$xx3wzbRZkuBspTY54n-g2GKTtXc([Landroid/graphics/Rect;Landroid/content/ComponentName;Landroid/content/pm/ActivityInfo;Landroid/app/PictureInPictureParams;IILcom/android/wm/shell/pip/phone/PipController;)V
+.method public static synthetic $r8$lambda$hqes09eKmyuFdUc7eJMcszYQNfM(ZILcom/android/wm/shell/pip/phone/PipController;)V
     .locals 0
 
-    invoke-static/range {p0 .. p6}, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->lambda$startSwipePipToHome$0([Landroid/graphics/Rect;Landroid/content/ComponentName;Landroid/content/pm/ActivityInfo;Landroid/app/PictureInPictureParams;IILcom/android/wm/shell/pip/phone/PipController;)V
+    invoke-static {p0, p1, p2}, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->lambda$setShelfHeight$4(ZILcom/android/wm/shell/pip/phone/PipController;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$oQTCE2b0H6I4bUN1VoCdUpPv6ko(Lcom/android/wm/shell/pip/phone/PipController;)V
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->lambda$new$1(Lcom/android/wm/shell/pip/phone/PipController;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$pSWH5d5egEfvclzSCFxYqbP2YX4(Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;Lcom/android/wm/shell/pip/IPipAnimationListener;Lcom/android/wm/shell/pip/phone/PipController;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->lambda$setPinnedStackAnimationListener$5(Lcom/android/wm/shell/pip/IPipAnimationListener;Lcom/android/wm/shell/pip/phone/PipController;)V
 
     return-void
 .end method
 
 .method constructor <init>(Lcom/android/wm/shell/pip/phone/PipController;)V
-    .locals 1
+    .locals 3
 
     invoke-direct {p0}, Lcom/android/wm/shell/pip/IPip$Stub;-><init>()V
 
@@ -64,81 +89,76 @@
 
     invoke-direct {v0, p0}, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$1;-><init>(Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;)V
 
-    iput-object v0, p0, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->mListenerDeathRecipient:Landroid/os/IBinder$DeathRecipient;
+    iput-object v0, p0, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->mPipAnimationListener:Lcom/android/wm/shell/pip/phone/PipController$PipAnimationListener;
 
     iput-object p1, p0, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->mController:Lcom/android/wm/shell/pip/phone/PipController;
+
+    new-instance p1, Lcom/android/wm/shell/common/SingleInstanceRemoteListener;
+
+    iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->mController:Lcom/android/wm/shell/pip/phone/PipController;
+
+    new-instance v1, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$$ExternalSyntheticLambda1;
+
+    invoke-direct {v1, p0}, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$$ExternalSyntheticLambda1;-><init>(Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;)V
+
+    sget-object v2, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$$ExternalSyntheticLambda5;->INSTANCE:Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$$ExternalSyntheticLambda5;
+
+    invoke-direct {p1, v0, v1, v2}, Lcom/android/wm/shell/common/SingleInstanceRemoteListener;-><init>(Lcom/android/wm/shell/common/RemoteCallable;Ljava/util/function/Consumer;Ljava/util/function/Consumer;)V
+
+    iput-object p1, p0, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->mListener:Lcom/android/wm/shell/common/SingleInstanceRemoteListener;
 
     return-void
 .end method
 
-.method static synthetic access$2000(Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;)Lcom/android/wm/shell/pip/phone/PipController;
+.method static synthetic access$2000(Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;)Lcom/android/wm/shell/common/SingleInstanceRemoteListener;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->mController:Lcom/android/wm/shell/pip/phone/PipController;
+    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->mListener:Lcom/android/wm/shell/common/SingleInstanceRemoteListener;
 
     return-object p0
 .end method
 
-.method static synthetic access$2102(Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;Lcom/android/wm/shell/pip/IPipAnimationListener;)Lcom/android/wm/shell/pip/IPipAnimationListener;
+.method private synthetic lambda$new$0(Lcom/android/wm/shell/pip/phone/PipController;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->mListener:Lcom/android/wm/shell/pip/IPipAnimationListener;
+    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->mPipAnimationListener:Lcom/android/wm/shell/pip/phone/PipController$PipAnimationListener;
 
-    return-object p1
+    invoke-static {p1, p0}, Lcom/android/wm/shell/pip/phone/PipController;->access$2300(Lcom/android/wm/shell/pip/phone/PipController;Lcom/android/wm/shell/pip/phone/PipController$PipAnimationListener;)V
+
+    return-void
 .end method
 
-.method private synthetic lambda$setPinnedStackAnimationListener$3(Lcom/android/wm/shell/pip/IPipAnimationListener;Lcom/android/wm/shell/pip/phone/PipController;)V
-    .locals 3
+.method private static synthetic lambda$new$1(Lcom/android/wm/shell/pip/phone/PipController;)V
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->mListener:Lcom/android/wm/shell/pip/IPipAnimationListener;
+    const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    invoke-static {p0, v0}, Lcom/android/wm/shell/pip/phone/PipController;->access$2300(Lcom/android/wm/shell/pip/phone/PipController;Lcom/android/wm/shell/pip/phone/PipController$PipAnimationListener;)V
 
-    if-eqz v0, :cond_0
+    return-void
+.end method
 
-    invoke-interface {v0}, Landroid/os/IInterface;->asBinder()Landroid/os/IBinder;
+.method private synthetic lambda$setPinnedStackAnimationListener$5(Lcom/android/wm/shell/pip/IPipAnimationListener;Lcom/android/wm/shell/pip/phone/PipController;)V
+    .locals 0
 
-    move-result-object v0
+    if-eqz p1, :cond_0
 
-    iget-object v2, p0, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->mListenerDeathRecipient:Landroid/os/IBinder$DeathRecipient;
+    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->mListener:Lcom/android/wm/shell/common/SingleInstanceRemoteListener;
 
-    invoke-interface {v0, v2, v1}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
-
-    :cond_0
-    if-eqz p1, :cond_1
-
-    :try_start_0
-    invoke-interface {p1}, Landroid/os/IInterface;->asBinder()Landroid/os/IBinder;
-
-    move-result-object v0
-
-    iget-object v2, p0, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->mListenerDeathRecipient:Landroid/os/IBinder$DeathRecipient;
-
-    invoke-interface {v0, v2, v1}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-virtual {p0, p1}, Lcom/android/wm/shell/common/SingleInstanceRemoteListener;->register(Landroid/os/IInterface;)V
 
     goto :goto_0
 
-    :catch_0
-    const-string p0, "PipController"
+    :cond_0
+    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->mListener:Lcom/android/wm/shell/common/SingleInstanceRemoteListener;
 
-    const-string p1, "Failed to link to death"
+    invoke-virtual {p0}, Lcom/android/wm/shell/common/SingleInstanceRemoteListener;->unregister()V
 
-    invoke-static {p0, p1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_1
     :goto_0
-    iput-object p1, p0, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->mListener:Lcom/android/wm/shell/pip/IPipAnimationListener;
-
-    invoke-static {p2, p1}, Lcom/android/wm/shell/pip/phone/PipController;->access$2200(Lcom/android/wm/shell/pip/phone/PipController;Lcom/android/wm/shell/pip/IPipAnimationListener;)V
-
     return-void
 .end method
 
-.method private static synthetic lambda$setShelfHeight$2(ZILcom/android/wm/shell/pip/phone/PipController;)V
+.method private static synthetic lambda$setShelfHeight$4(ZILcom/android/wm/shell/pip/phone/PipController;)V
     .locals 0
 
     invoke-static {p2, p0, p1}, Lcom/android/wm/shell/pip/phone/PipController;->access$1400(Lcom/android/wm/shell/pip/phone/PipController;ZI)V
@@ -146,7 +166,7 @@
     return-void
 .end method
 
-.method private static synthetic lambda$startSwipePipToHome$0([Landroid/graphics/Rect;Landroid/content/ComponentName;Landroid/content/pm/ActivityInfo;Landroid/app/PictureInPictureParams;IILcom/android/wm/shell/pip/phone/PipController;)V
+.method private static synthetic lambda$startSwipePipToHome$2([Landroid/graphics/Rect;Landroid/content/ComponentName;Landroid/content/pm/ActivityInfo;Landroid/app/PictureInPictureParams;IILcom/android/wm/shell/pip/phone/PipController;)V
     .locals 6
 
     move-object v0, p6
@@ -161,7 +181,7 @@
 
     move v5, p5
 
-    invoke-static/range {v0 .. v5}, Lcom/android/wm/shell/pip/phone/PipController;->access$2400(Lcom/android/wm/shell/pip/phone/PipController;Landroid/content/ComponentName;Landroid/content/pm/ActivityInfo;Landroid/app/PictureInPictureParams;II)Landroid/graphics/Rect;
+    invoke-static/range {v0 .. v5}, Lcom/android/wm/shell/pip/phone/PipController;->access$2200(Lcom/android/wm/shell/pip/phone/PipController;Landroid/content/ComponentName;Landroid/content/pm/ActivityInfo;Landroid/app/PictureInPictureParams;II)Landroid/graphics/Rect;
 
     move-result-object p1
 
@@ -172,10 +192,10 @@
     return-void
 .end method
 
-.method private static synthetic lambda$stopSwipePipToHome$1(Landroid/content/ComponentName;Landroid/graphics/Rect;Landroid/view/SurfaceControl;Lcom/android/wm/shell/pip/phone/PipController;)V
+.method private static synthetic lambda$stopSwipePipToHome$3(Landroid/content/ComponentName;Landroid/graphics/Rect;Landroid/view/SurfaceControl;Lcom/android/wm/shell/pip/phone/PipController;)V
     .locals 0
 
-    invoke-static {p3, p0, p1, p2}, Lcom/android/wm/shell/pip/phone/PipController;->access$2300(Lcom/android/wm/shell/pip/phone/PipController;Landroid/content/ComponentName;Landroid/graphics/Rect;Landroid/view/SurfaceControl;)V
+    invoke-static {p3, p0, p1, p2}, Lcom/android/wm/shell/pip/phone/PipController;->access$2100(Lcom/android/wm/shell/pip/phone/PipController;Landroid/content/ComponentName;Landroid/graphics/Rect;Landroid/view/SurfaceControl;)V
 
     return-void
 .end method
@@ -197,9 +217,9 @@
 
     iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->mController:Lcom/android/wm/shell/pip/phone/PipController;
 
-    new-instance v1, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$$ExternalSyntheticLambda2;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$$ExternalSyntheticLambda1;-><init>(Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;Lcom/android/wm/shell/pip/IPipAnimationListener;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$$ExternalSyntheticLambda2;-><init>(Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;Lcom/android/wm/shell/pip/IPipAnimationListener;)V
 
     const-string p0, "setPinnedStackAnimationListener"
 
@@ -213,9 +233,9 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->mController:Lcom/android/wm/shell/pip/phone/PipController;
 
-    new-instance v0, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$$ExternalSyntheticLambda2;
+    new-instance v0, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$$ExternalSyntheticLambda3;
 
-    invoke-direct {v0, p1, p2}, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$$ExternalSyntheticLambda2;-><init>(ZI)V
+    invoke-direct {v0, p1, p2}, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$$ExternalSyntheticLambda3;-><init>(ZI)V
 
     const-string p1, "setShelfHeight"
 
@@ -233,7 +253,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->mController:Lcom/android/wm/shell/pip/phone/PipController;
 
-    new-instance v9, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$$ExternalSyntheticLambda3;
+    new-instance v9, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$$ExternalSyntheticLambda4;
 
     move-object v1, v9
 
@@ -249,7 +269,7 @@
 
     move v7, p5
 
-    invoke-direct/range {v1 .. v7}, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$$ExternalSyntheticLambda3;-><init>([Landroid/graphics/Rect;Landroid/content/ComponentName;Landroid/content/pm/ActivityInfo;Landroid/app/PictureInPictureParams;II)V
+    invoke-direct/range {v1 .. v7}, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$$ExternalSyntheticLambda4;-><init>([Landroid/graphics/Rect;Landroid/content/ComponentName;Landroid/content/pm/ActivityInfo;Landroid/app/PictureInPictureParams;II)V
 
     const-string p1, "startSwipePipToHome"
 

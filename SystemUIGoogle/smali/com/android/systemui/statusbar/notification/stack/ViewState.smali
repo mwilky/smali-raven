@@ -1812,7 +1812,7 @@
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/ViewState;->updateAlphaAnimation(Landroid/view/View;)V
 
-    goto :goto_a
+    goto :goto_c
 
     :cond_d
     invoke-virtual {p1}, Landroid/view/View;->getAlpha()F
@@ -1823,7 +1823,7 @@
 
     cmpl-float v4, v4, v5
 
-    if-eqz v4, :cond_12
+    if-eqz v4, :cond_14
 
     const/high16 v4, 0x3f800000    # 1.0f
 
@@ -1843,55 +1843,85 @@
 
     if-nez v4, :cond_f
 
-    invoke-virtual {p1}, Landroid/view/View;->hasOverlappingRendering()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_f
+    move v4, v2
 
     goto :goto_8
 
     :cond_f
-    move v2, v3
+    move v4, v3
 
     :goto_8
+    instance-of v5, p1, Lcom/android/systemui/statusbar/notification/NotificationFadeAware$FadeOptimizedNotification;
+
+    if-eqz v5, :cond_10
+
+    move-object v2, p1
+
+    check-cast v2, Lcom/android/systemui/statusbar/notification/NotificationFadeAware$FadeOptimizedNotification;
+
+    invoke-interface {v2}, Lcom/android/systemui/statusbar/notification/NotificationFadeAware$FadeOptimizedNotification;->isNotificationFaded()Z
+
+    move-result v5
+
+    if-eq v5, v4, :cond_13
+
+    invoke-interface {v2, v4}, Lcom/android/systemui/statusbar/notification/NotificationFadeAware;->setNotificationFaded(Z)V
+
+    goto :goto_b
+
+    :cond_10
+    if-eqz v4, :cond_11
+
+    invoke-virtual {p1}, Landroid/view/View;->hasOverlappingRendering()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_11
+
+    goto :goto_9
+
+    :cond_11
+    move v2, v3
+
+    :goto_9
     invoke-virtual {p1}, Landroid/view/View;->getLayerType()I
 
     move-result v4
 
-    if-eqz v2, :cond_10
+    if-eqz v2, :cond_12
 
     const/4 v2, 0x2
 
-    goto :goto_9
+    goto :goto_a
 
-    :cond_10
+    :cond_12
     move v2, v3
 
-    :goto_9
-    if-eq v4, v2, :cond_11
+    :goto_a
+    if-eq v4, v2, :cond_13
 
     const/4 v4, 0x0
 
     invoke-virtual {p1, v2, v4}, Landroid/view/View;->setLayerType(ILandroid/graphics/Paint;)V
 
-    :cond_11
+    :cond_13
+    :goto_b
     iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/ViewState;->alpha:F
 
     invoke-virtual {p1, p0}, Landroid/view/View;->setAlpha(F)V
 
-    :cond_12
-    :goto_a
-    if-eqz v1, :cond_13
+    :cond_14
+    :goto_c
+    if-eqz v1, :cond_15
 
     const/4 v3, 0x4
 
-    :cond_13
-    if-eq v3, v0, :cond_15
+    :cond_15
+    if-eq v3, v0, :cond_17
 
     instance-of p0, p1, Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-    if-eqz p0, :cond_14
+    if-eqz p0, :cond_16
 
     move-object p0, p1
 
@@ -1901,12 +1931,12 @@
 
     move-result p0
 
-    if-nez p0, :cond_15
+    if-nez p0, :cond_17
 
-    :cond_14
+    :cond_16
     invoke-virtual {p1, v3}, Landroid/view/View;->setVisibility(I)V
 
-    :cond_15
+    :cond_17
     return-void
 .end method
 

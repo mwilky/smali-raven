@@ -15,6 +15,10 @@
 
 
 # instance fields
+.field private mActual:I
+
+.field private mExpected:I
+
 .field private final mTooNew:Z
 
 
@@ -59,6 +63,10 @@
 
     iput-boolean p2, p0, Lcom/android/systemui/shared/plugins/VersionInfo$InvalidVersionException;->mTooNew:Z
 
+    iput p3, p0, Lcom/android/systemui/shared/plugins/VersionInfo$InvalidVersionException;->mExpected:I
+
+    iput p4, p0, Lcom/android/systemui/shared/plugins/VersionInfo$InvalidVersionException;->mActual:I
+
     return-void
 .end method
 
@@ -74,6 +82,22 @@
 
 
 # virtual methods
+.method public getActualVersion()I
+    .locals 0
+
+    iget p0, p0, Lcom/android/systemui/shared/plugins/VersionInfo$InvalidVersionException;->mActual:I
+
+    return p0
+.end method
+
+.method public getExpectedVersion()I
+    .locals 0
+
+    iget p0, p0, Lcom/android/systemui/shared/plugins/VersionInfo$InvalidVersionException;->mExpected:I
+
+    return p0
+.end method
+
 .method public isTooNew()Z
     .locals 0
 

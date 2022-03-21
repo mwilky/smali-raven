@@ -68,7 +68,7 @@
 
 .field private mIsImportantConversation:Z
 
-.field private mIsVisuallyInterruptive:Z
+.field private mIsTextChanged:Z
 
 .field private final mKey:Ljava/lang/String;
 
@@ -1502,10 +1502,10 @@
     return p0
 .end method
 
-.method isVisuallyInterruptive()Z
+.method isTextChanged()Z
     .locals 0
 
-    iget-boolean p0, p0, Lcom/android/wm/shell/bubbles/Bubble;->mIsVisuallyInterruptive:Z
+    iget-boolean p0, p0, Lcom/android/wm/shell/bubbles/Bubble;->mIsTextChanged:Z
 
     return p0
 .end method
@@ -1522,6 +1522,14 @@
     const/4 p1, 0x0
 
     invoke-virtual {p0, p1}, Lcom/android/wm/shell/bubbles/Bubble;->setShowDot(Z)V
+
+    return-void
+.end method
+
+.method markUpdatedAt(J)V
+    .locals 0
+
+    iput-wide p1, p0, Lcom/android/wm/shell/bubbles/Bubble;->mLastUpdated:J
 
     return-void
 .end method
@@ -1651,11 +1659,11 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/service/notification/NotificationListenerService$Ranking;->visuallyInterruptive()Z
+    invoke-virtual {v0}, Landroid/service/notification/NotificationListenerService$Ranking;->isTextChanged()Z
 
     move-result v0
 
-    iput-boolean v0, p0, Lcom/android/wm/shell/bubbles/Bubble;->mIsVisuallyInterruptive:Z
+    iput-boolean v0, p0, Lcom/android/wm/shell/bubbles/Bubble;->mIsTextChanged:Z
 
     invoke-virtual {p1}, Lcom/android/wm/shell/bubbles/BubbleEntry;->getRanking()Landroid/service/notification/NotificationListenerService$Ranking;
 
@@ -1841,23 +1849,6 @@
 
     iput-boolean p1, p0, Lcom/android/wm/shell/bubbles/Bubble;->mShouldSuppressPeek:Z
 
-    return-void
-.end method
-
-.method public setExpandedContentAlpha(F)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/wm/shell/bubbles/Bubble;->mExpandedView:Lcom/android/wm/shell/bubbles/BubbleExpandedView;
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0, p1}, Landroid/widget/LinearLayout;->setAlpha(F)V
-
-    iget-object p0, p0, Lcom/android/wm/shell/bubbles/Bubble;->mExpandedView:Lcom/android/wm/shell/bubbles/BubbleExpandedView;
-
-    invoke-virtual {p0, p1}, Lcom/android/wm/shell/bubbles/BubbleExpandedView;->setTaskViewAlpha(F)V
-
-    :cond_0
     return-void
 .end method
 
@@ -2070,6 +2061,16 @@
     return-void
 .end method
 
+.method setTextChangedForTest(Z)V
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+
+    iput-boolean p1, p0, Lcom/android/wm/shell/bubbles/Bubble;->mIsTextChanged:Z
+
+    return-void
+.end method
+
 .method setViewInfo(Lcom/android/wm/shell/bubbles/BubbleViewInfoTask$BubbleViewInfo;)V
     .locals 1
 
@@ -2130,16 +2131,6 @@
     invoke-virtual {p1, p0}, Lcom/android/wm/shell/bubbles/BadgedImageView;->setRenderedBubble(Lcom/android/wm/shell/bubbles/BubbleViewProvider;)V
 
     :cond_2
-    return-void
-.end method
-
-.method setVisuallyInterruptiveForTest(Z)V
-    .locals 0
-    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
-    .end annotation
-
-    iput-boolean p1, p0, Lcom/android/wm/shell/bubbles/Bubble;->mIsVisuallyInterruptive:Z
-
     return-void
 .end method
 

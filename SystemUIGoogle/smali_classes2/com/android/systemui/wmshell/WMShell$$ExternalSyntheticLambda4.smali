@@ -27,9 +27,9 @@
 
     iget-object p0, p0, Lcom/android/systemui/wmshell/WMShell$$ExternalSyntheticLambda4;->f$0:Lcom/android/systemui/wmshell/WMShell;
 
-    check-cast p1, Lcom/android/wm/shell/onehanded/OneHanded;
+    check-cast p1, Lcom/android/wm/shell/hidedisplaycutout/HideDisplayCutout;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/wmshell/WMShell;->initOneHanded(Lcom/android/wm/shell/onehanded/OneHanded;)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/wmshell/WMShell;->initHideDisplayCutout(Lcom/android/wm/shell/hidedisplaycutout/HideDisplayCutout;)V
 
     return-void
 .end method

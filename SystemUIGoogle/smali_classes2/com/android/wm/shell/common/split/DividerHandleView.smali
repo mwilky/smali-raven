@@ -30,8 +30,6 @@
 # instance fields
 .field private mAnimator:Landroid/animation/AnimatorSet;
 
-.field private final mCircleDiameter:I
-
 .field private mCurrentHeight:I
 
 .field private mCurrentWidth:I
@@ -41,6 +39,10 @@
 .field private final mPaint:Landroid/graphics/Paint;
 
 .field private mTouching:Z
+
+.field private final mTouchingHeight:I
+
+.field private final mTouchingWidth:I
 
 .field private final mWidth:I
 
@@ -103,7 +105,7 @@
 
     move-result-object p1
 
-    sget p2, Lcom/android/wm/shell/R$dimen;->docked_divider_handle_width:I
+    sget p2, Lcom/android/wm/shell/R$dimen;->split_divider_handle_width:I
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -115,7 +117,7 @@
 
     move-result-object p2
 
-    sget v0, Lcom/android/wm/shell/R$dimen;->docked_divider_handle_height:I
+    sget v0, Lcom/android/wm/shell/R$dimen;->split_divider_handle_height:I
 
     invoke-virtual {p2, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -127,11 +129,24 @@
 
     iput p2, p0, Lcom/android/wm/shell/common/split/DividerHandleView;->mCurrentHeight:I
 
-    add-int/2addr p1, p2
+    if-le p1, p2, :cond_0
 
-    div-int/lit8 p1, p1, 0x3
+    div-int/lit8 v0, p1, 0x2
 
-    iput p1, p0, Lcom/android/wm/shell/common/split/DividerHandleView;->mCircleDiameter:I
+    goto :goto_0
+
+    :cond_0
+    move v0, p1
+
+    :goto_0
+    iput v0, p0, Lcom/android/wm/shell/common/split/DividerHandleView;->mTouchingWidth:I
+
+    if-le p2, p1, :cond_1
+
+    div-int/lit8 p2, p2, 0x2
+
+    :cond_1
+    iput p2, p0, Lcom/android/wm/shell/common/split/DividerHandleView;->mTouchingHeight:I
 
     return-void
 .end method
@@ -369,9 +384,11 @@
 
     if-eqz p1, :cond_2
 
-    iget p2, p0, Lcom/android/wm/shell/common/split/DividerHandleView;->mCircleDiameter:I
+    iget p2, p0, Lcom/android/wm/shell/common/split/DividerHandleView;->mTouchingWidth:I
 
     iput p2, p0, Lcom/android/wm/shell/common/split/DividerHandleView;->mCurrentWidth:I
+
+    iget p2, p0, Lcom/android/wm/shell/common/split/DividerHandleView;->mTouchingHeight:I
 
     iput p2, p0, Lcom/android/wm/shell/common/split/DividerHandleView;->mCurrentHeight:I
 
@@ -394,7 +411,7 @@
     :cond_3
     if-eqz p1, :cond_4
 
-    iget p2, p0, Lcom/android/wm/shell/common/split/DividerHandleView;->mCircleDiameter:I
+    iget p2, p0, Lcom/android/wm/shell/common/split/DividerHandleView;->mTouchingWidth:I
 
     goto :goto_1
 
@@ -404,7 +421,7 @@
     :goto_1
     if-eqz p1, :cond_5
 
-    iget v0, p0, Lcom/android/wm/shell/common/split/DividerHandleView;->mCircleDiameter:I
+    iget v0, p0, Lcom/android/wm/shell/common/split/DividerHandleView;->mTouchingHeight:I
 
     goto :goto_2
 

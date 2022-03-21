@@ -12,7 +12,7 @@
 
 
 # static fields
-.field private static DEBUG:Z = false
+.field private static DEBUG:Z
 
 
 # instance fields
@@ -71,7 +71,11 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 0
+    .locals 1
+
+    sget-boolean v0, Lcom/android/keyguard/KeyguardConstants;->DEBUG:Z
+
+    sput-boolean v0, Lcom/android/keyguard/KeyguardDisplayManager;->DEBUG:Z
 
     return-void
 .end method

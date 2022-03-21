@@ -2,36 +2,44 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/BiConsumer;
+.implements Ljava/util/function/IntConsumer;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/android/systemui/wmshell/BubblesManager;
 
+.field public final synthetic f$1:Ljava/util/List;
+
+.field public final synthetic f$2:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/wmshell/BubblesManager;)V
+.method public synthetic constructor <init>(Lcom/android/systemui/wmshell/BubblesManager;Ljava/util/List;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/wmshell/BubblesManager$$ExternalSyntheticLambda1;->f$0:Lcom/android/systemui/wmshell/BubblesManager;
 
+    iput-object p2, p0, Lcom/android/systemui/wmshell/BubblesManager$$ExternalSyntheticLambda1;->f$1:Ljava/util/List;
+
+    iput-object p3, p0, Lcom/android/systemui/wmshell/BubblesManager$$ExternalSyntheticLambda1;->f$2:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+.method public final accept(I)V
+    .locals 2
 
-    iget-object p0, p0, Lcom/android/systemui/wmshell/BubblesManager$$ExternalSyntheticLambda1;->f$0:Lcom/android/systemui/wmshell/BubblesManager;
+    iget-object v0, p0, Lcom/android/systemui/wmshell/BubblesManager$$ExternalSyntheticLambda1;->f$0:Lcom/android/systemui/wmshell/BubblesManager;
 
-    check-cast p1, Ljava/util/concurrent/Executor;
+    iget-object v1, p0, Lcom/android/systemui/wmshell/BubblesManager$$ExternalSyntheticLambda1;->f$1:Ljava/util/List;
 
-    check-cast p2, Landroid/os/Looper;
+    iget-object p0, p0, Lcom/android/systemui/wmshell/BubblesManager$$ExternalSyntheticLambda1;->f$2:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    invoke-static {p0, p1, p2}, Lcom/android/systemui/wmshell/BubblesManager;->$r8$lambda$9p9sqUmzv-jxk85a64Hx6nEaTG0(Lcom/android/systemui/wmshell/BubblesManager;Ljava/util/concurrent/Executor;Landroid/os/Looper;)V
+    invoke-static {v0, v1, p0, p1}, Lcom/android/systemui/wmshell/BubblesManager;->$r8$lambda$OqEks02KUDqqZ3qiuZBEIiY3Xow(Lcom/android/systemui/wmshell/BubblesManager;Ljava/util/List;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;I)V
 
     return-void
 .end method

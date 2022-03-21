@@ -36,7 +36,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$7;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
-    invoke-static {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$2800(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)V
+    invoke-static {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$2900(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)V
 
     return-void
 .end method

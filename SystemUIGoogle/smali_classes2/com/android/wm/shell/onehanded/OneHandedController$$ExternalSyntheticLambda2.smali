@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Lcom/android/wm/shell/onehanded/OneHandedTouchHandler$OneHandedTouchEventCallback;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
@@ -22,12 +22,12 @@
 
 
 # virtual methods
-.method public final onStop()V
+.method public final run()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/onehanded/OneHandedController$$ExternalSyntheticLambda2;->f$0:Lcom/android/wm/shell/onehanded/OneHandedController;
 
-    invoke-static {p0}, Lcom/android/wm/shell/onehanded/OneHandedController;->$r8$lambda$ATS_-SYfDEdXE49yQIVOUaqWFOk(Lcom/android/wm/shell/onehanded/OneHandedController;)V
+    invoke-virtual {p0}, Lcom/android/wm/shell/onehanded/OneHandedController;->onActivatedActionChanged()V
 
     return-void
 .end method

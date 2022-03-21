@@ -35,9 +35,9 @@
 .method public final accept(Ljava/lang/Object;)V
     .locals 0
 
-    check-cast p1, Lcom/android/wm/shell/bubbles/BubbleController;
+    check-cast p1, Lcom/android/wm/shell/apppairs/AppPairsController;
 
-    invoke-virtual {p1}, Lcom/android/wm/shell/bubbles/BubbleController;->initialize()V
+    invoke-virtual {p1}, Lcom/android/wm/shell/apppairs/AppPairsController;->onOrganizerRegistered()V
 
     return-void
 .end method

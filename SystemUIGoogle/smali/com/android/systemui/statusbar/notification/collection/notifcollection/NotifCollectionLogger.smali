@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nNotifCollectionLogger.kt\nKotlin\n*S Kotlin\n*F\n+ 1 NotifCollectionLogger.kt\ncom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionLogger\n+ 2 LogBuffer.kt\ncom/android/systemui/log/LogBuffer\n*L\n1#1,190:1\n113#2,6:191\n113#2,6:197\n113#2,6:203\n113#2,6:209\n113#2,6:215\n113#2,6:221\n113#2,6:227\n113#2,6:233\n113#2,6:239\n113#2,6:245\n113#2,6:251\n113#2,6:257\n113#2,6:263\n113#2,6:269\n113#2,6:275\n113#2,6:281\n113#2,6:287\n113#2,6:293\n113#2,6:299\n113#2,6:305\n*E\n*S KotlinDebug\n*F\n+ 1 NotifCollectionLogger.kt\ncom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionLogger\n*L\n35#1,6:191\n43#1,6:197\n52#1,6:203\n60#1,6:209\n69#1,6:215\n77#1,6:221\n85#1,6:227\n93#1,6:233\n101#1,6:239\n109#1,6:245\n117#1,6:251\n125#1,6:257\n133#1,6:263\n134#1,6:269\n136#1,6:275\n141#1,6:281\n150#1,6:287\n158#1,6:293\n171#1,6:299\n181#1,6:305\n*E\n"
+    value = "SMAP\nNotifCollectionLogger.kt\nKotlin\n*S Kotlin\n*F\n+ 1 NotifCollectionLogger.kt\ncom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionLogger\n+ 2 LogBuffer.kt\ncom/android/systemui/log/LogBuffer\n*L\n1#1,210:1\n120#2,6:211\n120#2,6:217\n120#2,6:223\n120#2,6:229\n120#2,6:235\n120#2,6:241\n120#2,6:247\n120#2,6:253\n120#2,6:259\n120#2,6:265\n120#2,6:271\n120#2,6:277\n120#2,6:283\n120#2,6:289\n120#2,6:295\n120#2,6:301\n120#2,6:307\n120#2,6:313\n120#2,6:319\n120#2,6:325\n120#2,6:331\n120#2,6:337\n*E\n*S KotlinDebug\n*F\n+ 1 NotifCollectionLogger.kt\ncom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionLogger\n*L\n35#1,6:211\n43#1,6:217\n52#1,6:223\n60#1,6:229\n69#1,6:235\n77#1,6:241\n85#1,6:247\n93#1,6:253\n101#1,6:259\n109#1,6:265\n117#1,6:271\n125#1,6:277\n135#1,6:283\n145#1,6:289\n153#1,6:295\n154#1,6:301\n156#1,6:307\n161#1,6:313\n170#1,6:319\n178#1,6:325\n191#1,6:331\n201#1,6:337\n*E\n"
 .end annotation
 
 
@@ -381,6 +381,96 @@
     invoke-interface {v0, p1}, Lcom/android/systemui/log/LogMessage;->setStr1(Ljava/lang/String;)V
 
     invoke-interface {v0, p2}, Lcom/android/systemui/log/LogMessage;->setInt1(I)V
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/log/LogBuffer;->push(Lcom/android/systemui/log/LogMessage;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public final logNotifInternalUpdate(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 3
+
+    const-string v0, "key"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string v0, "name"
+
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string v0, "reason"
+
+    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionLogger;->buffer:Lcom/android/systemui/log/LogBuffer;
+
+    sget-object v0, Lcom/android/systemui/log/LogLevel;->INFO:Lcom/android/systemui/log/LogLevel;
+
+    sget-object v1, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionLogger$logNotifInternalUpdate$2;->INSTANCE:Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionLogger$logNotifInternalUpdate$2;
+
+    invoke-virtual {p0}, Lcom/android/systemui/log/LogBuffer;->getFrozen()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const-string v2, "NotifCollection"
+
+    invoke-virtual {p0, v2, v0, v1}, Lcom/android/systemui/log/LogBuffer;->obtain(Ljava/lang/String;Lcom/android/systemui/log/LogLevel;Lkotlin/jvm/functions/Function1;)Lcom/android/systemui/log/LogMessageImpl;
+
+    move-result-object v0
+
+    invoke-interface {v0, p1}, Lcom/android/systemui/log/LogMessage;->setStr1(Ljava/lang/String;)V
+
+    invoke-interface {v0, p2}, Lcom/android/systemui/log/LogMessage;->setStr2(Ljava/lang/String;)V
+
+    invoke-interface {v0, p3}, Lcom/android/systemui/log/LogMessage;->setStr3(Ljava/lang/String;)V
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/log/LogBuffer;->push(Lcom/android/systemui/log/LogMessage;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public final logNotifInternalUpdateFailed(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 3
+
+    const-string v0, "key"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string v0, "name"
+
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    const-string v0, "reason"
+
+    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionLogger;->buffer:Lcom/android/systemui/log/LogBuffer;
+
+    sget-object v0, Lcom/android/systemui/log/LogLevel;->INFO:Lcom/android/systemui/log/LogLevel;
+
+    sget-object v1, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionLogger$logNotifInternalUpdateFailed$2;->INSTANCE:Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionLogger$logNotifInternalUpdateFailed$2;
+
+    invoke-virtual {p0}, Lcom/android/systemui/log/LogBuffer;->getFrozen()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const-string v2, "NotifCollection"
+
+    invoke-virtual {p0, v2, v0, v1}, Lcom/android/systemui/log/LogBuffer;->obtain(Ljava/lang/String;Lcom/android/systemui/log/LogLevel;Lkotlin/jvm/functions/Function1;)Lcom/android/systemui/log/LogMessageImpl;
+
+    move-result-object v0
+
+    invoke-interface {v0, p1}, Lcom/android/systemui/log/LogMessage;->setStr1(Ljava/lang/String;)V
+
+    invoke-interface {v0, p2}, Lcom/android/systemui/log/LogMessage;->setStr2(Ljava/lang/String;)V
+
+    invoke-interface {v0, p3}, Lcom/android/systemui/log/LogMessage;->setStr3(Ljava/lang/String;)V
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/log/LogBuffer;->push(Lcom/android/systemui/log/LogMessage;)V
 

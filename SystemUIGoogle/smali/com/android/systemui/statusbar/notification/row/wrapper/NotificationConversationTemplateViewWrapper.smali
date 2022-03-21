@@ -8,6 +8,8 @@
 
 .field private conversationBadgeBg:Landroid/view/View;
 
+.field private conversationIconContainer:Landroid/view/View;
+
 .field private conversationIconView:Lcom/android/internal/widget/CachingIconView;
 
 .field private final conversationLayout:Lcom/android/internal/widget/ConversationLayout;
@@ -95,7 +97,19 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->conversationLayout:Lcom/android/internal/widget/ConversationLayout;
 
-    const v1, 0x102025e
+    const v1, 0x1020265
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->requireViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    const-string v2, "requireViewById(com.android.internal.R.id.conversation_icon_container)"
+
+    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+    iput-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->conversationIconContainer:Landroid/view/View;
+
+    const v1, 0x1020261
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->requireViewById(I)Landroid/view/View;
 
@@ -109,7 +123,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->conversationIconView:Lcom/android/internal/widget/CachingIconView;
 
-    const v1, 0x1020260
+    const v1, 0x1020263
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->requireViewById(I)Landroid/view/View;
 
@@ -121,7 +135,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->conversationBadgeBg:Landroid/view/View;
 
-    const v1, 0x102029a
+    const v1, 0x102029d
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->requireViewById(I)Landroid/view/View;
 
@@ -133,7 +147,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->expandBtn:Landroid/view/View;
 
-    const v1, 0x102029c
+    const v1, 0x102029f
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->requireViewById(I)Landroid/view/View;
 
@@ -145,7 +159,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->expandBtnContainer:Landroid/view/View;
 
-    const v1, 0x1020261
+    const v1, 0x1020264
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->requireViewById(I)Landroid/view/View;
 
@@ -157,7 +171,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->importanceRing:Landroid/view/View;
 
-    const v1, 0x10201db
+    const v1, 0x10201de
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->requireViewById(I)Landroid/view/View;
 
@@ -169,7 +183,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->appName:Landroid/view/View;
 
-    const v1, 0x1020264
+    const v1, 0x1020267
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->requireViewById(I)Landroid/view/View;
 
@@ -181,7 +195,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->conversationTitleView:Landroid/view/View;
 
-    const v1, 0x102025c
+    const v1, 0x102025f
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->findViewById(I)Landroid/view/View;
 
@@ -189,7 +203,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->facePileTop:Landroid/view/View;
 
-    const v1, 0x102025a
+    const v1, 0x102025d
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->findViewById(I)Landroid/view/View;
 
@@ -197,7 +211,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->facePileBottom:Landroid/view/View;
 
-    const v1, 0x102025b
+    const v1, 0x102025e
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->findViewById(I)Landroid/view/View;
 
@@ -309,6 +323,40 @@
     invoke-super {p0, p1}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper;->onContentUpdated(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;)V
 
     return-void
+.end method
+
+.method public setNotificationFaded(Z)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->expandBtn:Landroid/view/View;
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_1
+
+    invoke-static {v0, p1}, Lcom/android/systemui/statusbar/notification/NotificationFadeAware;->setLayerTypeForFaded(Landroid/view/View;Z)V
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->conversationIconContainer:Landroid/view/View;
+
+    if-eqz p0, :cond_0
+
+    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationFadeAware;->setLayerTypeForFaded(Landroid/view/View;Z)V
+
+    return-void
+
+    :cond_0
+    const-string p0, "conversationIconContainer"
+
+    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    throw v1
+
+    :cond_1
+    const-string p0, "expandBtn"
+
+    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+
+    throw v1
 .end method
 
 .method public setRemoteInputVisible(Z)V

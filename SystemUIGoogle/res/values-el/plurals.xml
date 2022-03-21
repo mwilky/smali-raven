@@ -32,18 +32,6 @@
         <item quantity="other">Λανθασμένος κωδικός PUK κάρτας SIM. Απομένουν άλλες %d προσπάθειες προτού να μην είναι πλέον δυνατή η χρήση της κάρτας SIM.</item>
         <item quantity="one">Λανθασμένος κωδικός PUK κάρτας SIM. Απομένει άλλη %d προσπάθεια προτού να μην είναι πλέον δυνατή η χρήση της κάρτας SIM.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">Η συσκευή δεν έχει ξεκλειδωθεί εδώ και %d ώρες. Επιβεβαιώστε τον κωδικό πρόσβασης.</item>
-        <item quantity="one">Η συσκευή δεν έχει ξεκλειδωθεί εδώ και %d ώρα. Επιβεβαιώστε τον κωδικό πρόσβασης.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">Η συσκευή δεν έχει ξεκλειδωθεί εδώ και %d ώρες. Επιβεβαιώστε το μοτίβο.</item>
-        <item quantity="one">Η συσκευή δεν έχει ξεκλειδωθεί εδώ και %d ώρα. Επιβεβαιώστε το μοτίβο.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">Η συσκευή δεν έχει ξεκλειδωθεί εδώ και %d ώρες. Επιβεβαιώστε τον αριθμό PIN.</item>
-        <item quantity="one">Η συσκευή δεν έχει ξεκλειδωθεί εδώ και %d ώρα. Επιβεβαιώστε τον αριθμό PIN.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">Δοκιμάστε ξανά σε %d δευτερόλεπτα.</item>
         <item quantity="one">Δοκιμάστε ξανά σε 1 δευτερόλεπτο.</item>

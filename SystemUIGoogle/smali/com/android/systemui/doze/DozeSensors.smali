@@ -21,13 +21,23 @@
 
 
 # instance fields
-.field private final mCallback:Lcom/android/systemui/doze/DozeSensors$Callback;
+.field private final mAuthController:Lcom/android/systemui/biometrics/AuthController;
+
+.field private final mAuthControllerCallback:Lcom/android/systemui/biometrics/AuthController$Callback;
 
 .field private final mConfig:Landroid/hardware/display/AmbientDisplayConfiguration;
 
 .field private final mContext:Landroid/content/Context;
 
 .field private mDebounceFrom:J
+
+.field private mDevicePosture:I
+
+.field private final mDevicePostureCallback:Lcom/android/systemui/statusbar/policy/DevicePostureController$Callback;
+
+.field private final mDevicePostureController:Lcom/android/systemui/statusbar/policy/DevicePostureController;
+
+.field private final mDozeLog:Lcom/android/systemui/doze/DozeLog;
 
 .field private final mHandler:Landroid/os/Handler;
 
@@ -55,22 +65,34 @@
 
 .field private mSelectivelyRegisterProxSensors:Z
 
-.field private final mSensorManager:Lcom/android/systemui/util/sensors/AsyncSensorManager;
+.field private final mSensorCallback:Lcom/android/systemui/doze/DozeSensors$Callback;
 
-.field protected mSensors:[Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
+.field private final mSensorManager:Lcom/android/systemui/util/sensors/AsyncSensorManager;
 
 .field private mSettingRegistered:Z
 
 .field private final mSettingsObserver:Landroid/database/ContentObserver;
 
+.field protected mTriggerSensors:[Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
+
+.field private mUdfpsEnrolled:Z
+
 .field private final mWakeLock:Lcom/android/systemui/util/wakelock/WakeLock;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$N4YrYDoXTRYK88tngl6eFyEj_Pk(Lcom/android/systemui/doze/DozeSensors;Lcom/android/systemui/util/sensors/ThresholdSensor$ThresholdSensorEvent;)V
+.method public static synthetic $r8$lambda$3KOYE8Q2-MlL-D0NdFYJt2eufCQ(Lcom/android/systemui/doze/DozeSensors;Lcom/android/systemui/util/sensors/ThresholdSensorEvent;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/doze/DozeSensors;->lambda$new$0(Lcom/android/systemui/util/sensors/ThresholdSensor$ThresholdSensorEvent;)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/doze/DozeSensors;->lambda$new$0(Lcom/android/systemui/util/sensors/ThresholdSensorEvent;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$VQjohpwsnLQ5JraKYCVNTU2ST1U(Lcom/android/systemui/doze/DozeSensors;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/doze/DozeSensors;->lambda$new$1(I)V
 
     return-void
 .end method
@@ -91,7 +113,7 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/content/Context;Lcom/android/systemui/util/sensors/AsyncSensorManager;Lcom/android/systemui/statusbar/phone/DozeParameters;Landroid/hardware/display/AmbientDisplayConfiguration;Lcom/android/systemui/util/wakelock/WakeLock;Lcom/android/systemui/doze/DozeSensors$Callback;Ljava/util/function/Consumer;Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/util/sensors/ProximitySensor;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/biometrics/AuthController;)V
+.method constructor <init>(Landroid/content/Context;Lcom/android/systemui/util/sensors/AsyncSensorManager;Lcom/android/systemui/statusbar/phone/DozeParameters;Landroid/hardware/display/AmbientDisplayConfiguration;Lcom/android/systemui/util/wakelock/WakeLock;Lcom/android/systemui/doze/DozeSensors$Callback;Ljava/util/function/Consumer;Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/util/sensors/ProximitySensor;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/statusbar/policy/DevicePostureController;)V
     .locals 23
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -109,109 +131,136 @@
             "Lcom/android/systemui/util/sensors/ProximitySensor;",
             "Lcom/android/systemui/util/settings/SecureSettings;",
             "Lcom/android/systemui/biometrics/AuthController;",
+            "Lcom/android/systemui/statusbar/policy/DevicePostureController;",
             ")V"
         }
     .end annotation
 
-    move-object/from16 v13, p0
+    move-object/from16 v12, p0
 
-    move-object/from16 v9, p2
+    move-object/from16 v8, p2
 
-    move-object/from16 v14, p4
+    move-object/from16 v13, p4
 
-    move-object/from16 v15, p9
+    move-object/from16 v14, p9
+
+    move-object/from16 v0, p11
+
+    move-object/from16 v15, p12
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Landroid/os/Handler;
+    new-instance v1, Landroid/os/Handler;
 
-    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
+    invoke-direct {v1}, Landroid/os/Handler;-><init>()V
 
-    iput-object v0, v13, Lcom/android/systemui/doze/DozeSensors;->mHandler:Landroid/os/Handler;
+    iput-object v1, v12, Lcom/android/systemui/doze/DozeSensors;->mHandler:Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/systemui/doze/DozeSensors$1;
+    new-instance v2, Lcom/android/systemui/doze/DozeSensors$1;
 
-    invoke-direct {v1, v13, v0}, Lcom/android/systemui/doze/DozeSensors$1;-><init>(Lcom/android/systemui/doze/DozeSensors;Landroid/os/Handler;)V
+    invoke-direct {v2, v12, v1}, Lcom/android/systemui/doze/DozeSensors$1;-><init>(Lcom/android/systemui/doze/DozeSensors;Landroid/os/Handler;)V
 
-    iput-object v1, v13, Lcom/android/systemui/doze/DozeSensors;->mSettingsObserver:Landroid/database/ContentObserver;
+    iput-object v2, v12, Lcom/android/systemui/doze/DozeSensors;->mSettingsObserver:Landroid/database/ContentObserver;
 
-    move-object/from16 v0, p1
+    new-instance v11, Lcom/android/systemui/doze/DozeSensors$$ExternalSyntheticLambda0;
 
-    iput-object v0, v13, Lcom/android/systemui/doze/DozeSensors;->mContext:Landroid/content/Context;
+    invoke-direct {v11, v12}, Lcom/android/systemui/doze/DozeSensors$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/doze/DozeSensors;)V
 
-    iput-object v9, v13, Lcom/android/systemui/doze/DozeSensors;->mSensorManager:Lcom/android/systemui/util/sensors/AsyncSensorManager;
+    iput-object v11, v12, Lcom/android/systemui/doze/DozeSensors;->mDevicePostureCallback:Lcom/android/systemui/statusbar/policy/DevicePostureController$Callback;
 
-    iput-object v14, v13, Lcom/android/systemui/doze/DozeSensors;->mConfig:Landroid/hardware/display/AmbientDisplayConfiguration;
+    new-instance v1, Lcom/android/systemui/doze/DozeSensors$2;
 
-    move-object/from16 v0, p5
+    invoke-direct {v1, v12}, Lcom/android/systemui/doze/DozeSensors$2;-><init>(Lcom/android/systemui/doze/DozeSensors;)V
 
-    iput-object v0, v13, Lcom/android/systemui/doze/DozeSensors;->mWakeLock:Lcom/android/systemui/util/wakelock/WakeLock;
+    iput-object v1, v12, Lcom/android/systemui/doze/DozeSensors;->mAuthControllerCallback:Lcom/android/systemui/biometrics/AuthController$Callback;
 
-    move-object/from16 v0, p7
+    move-object/from16 v2, p1
 
-    iput-object v0, v13, Lcom/android/systemui/doze/DozeSensors;->mProxCallback:Ljava/util/function/Consumer;
+    iput-object v2, v12, Lcom/android/systemui/doze/DozeSensors;->mContext:Landroid/content/Context;
 
-    move-object/from16 v0, p10
+    iput-object v8, v12, Lcom/android/systemui/doze/DozeSensors;->mSensorManager:Lcom/android/systemui/util/sensors/AsyncSensorManager;
 
-    iput-object v0, v13, Lcom/android/systemui/doze/DozeSensors;->mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
+    iput-object v13, v12, Lcom/android/systemui/doze/DozeSensors;->mConfig:Landroid/hardware/display/AmbientDisplayConfiguration;
 
-    move-object/from16 v0, p6
+    move-object/from16 v2, p5
 
-    iput-object v0, v13, Lcom/android/systemui/doze/DozeSensors;->mCallback:Lcom/android/systemui/doze/DozeSensors$Callback;
+    iput-object v2, v12, Lcom/android/systemui/doze/DozeSensors;->mWakeLock:Lcom/android/systemui/util/wakelock/WakeLock;
 
-    iput-object v15, v13, Lcom/android/systemui/doze/DozeSensors;->mProximitySensor:Lcom/android/systemui/util/sensors/ProximitySensor;
+    move-object/from16 v2, p7
 
-    const-string v0, "DozeSensors"
+    iput-object v2, v12, Lcom/android/systemui/doze/DozeSensors;->mProxCallback:Ljava/util/function/Consumer;
 
-    invoke-virtual {v15, v0}, Lcom/android/systemui/util/sensors/ProximitySensor;->setTag(Ljava/lang/String;)V
+    move-object/from16 v2, p10
+
+    iput-object v2, v12, Lcom/android/systemui/doze/DozeSensors;->mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
+
+    move-object/from16 v2, p6
+
+    iput-object v2, v12, Lcom/android/systemui/doze/DozeSensors;->mSensorCallback:Lcom/android/systemui/doze/DozeSensors$Callback;
+
+    move-object/from16 v2, p8
+
+    iput-object v2, v12, Lcom/android/systemui/doze/DozeSensors;->mDozeLog:Lcom/android/systemui/doze/DozeLog;
+
+    iput-object v14, v12, Lcom/android/systemui/doze/DozeSensors;->mProximitySensor:Lcom/android/systemui/util/sensors/ProximitySensor;
+
+    const-string v2, "DozeSensors"
+
+    invoke-interface {v14, v2}, Lcom/android/systemui/util/sensors/ThresholdSensor;->setTag(Ljava/lang/String;)V
 
     invoke-virtual/range {p3 .. p3}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getSelectivelyRegisterSensorsUsingProx()Z
 
-    move-result v0
+    move-result v2
 
-    iput-boolean v0, v13, Lcom/android/systemui/doze/DozeSensors;->mSelectivelyRegisterProxSensors:Z
+    iput-boolean v2, v12, Lcom/android/systemui/doze/DozeSensors;->mSelectivelyRegisterProxSensors:Z
 
-    const/4 v12, 0x1
+    const/4 v10, 0x1
 
-    xor-int/2addr v0, v12
+    xor-int/2addr v2, v10
 
-    iput-boolean v0, v13, Lcom/android/systemui/doze/DozeSensors;->mListeningProxSensors:Z
-
-    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
-
-    move-result v0
-
-    invoke-virtual {v14, v0}, Landroid/hardware/display/AmbientDisplayConfiguration;->screenOffUdfpsEnabled(I)Z
-
-    move-result v11
-
-    iput-boolean v11, v13, Lcom/android/systemui/doze/DozeSensors;->mScreenOffUdfpsEnabled:Z
+    iput-boolean v2, v12, Lcom/android/systemui/doze/DozeSensors;->mListeningProxSensors:Z
 
     invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
 
-    move-result v0
+    move-result v2
 
-    move-object/from16 v1, p11
+    invoke-virtual {v13, v2}, Landroid/hardware/display/AmbientDisplayConfiguration;->screenOffUdfpsEnabled(I)Z
 
-    invoke-virtual {v1, v0}, Lcom/android/systemui/biometrics/AuthController;->isUdfpsEnrolled(I)Z
+    move-result v2
 
-    move-result v16
+    iput-boolean v2, v12, Lcom/android/systemui/doze/DozeSensors;->mScreenOffUdfpsEnabled:Z
 
-    const/4 v0, -0x2
+    iput-object v15, v12, Lcom/android/systemui/doze/DozeSensors;->mDevicePostureController:Lcom/android/systemui/statusbar/policy/DevicePostureController;
 
-    invoke-virtual {v14, v0}, Landroid/hardware/display/AmbientDisplayConfiguration;->alwaysOnEnabled(I)Z
+    invoke-interface/range {p12 .. p12}, Lcom/android/systemui/statusbar/policy/DevicePostureController;->getDevicePosture()I
 
-    move-result v17
+    move-result v2
+
+    iput v2, v12, Lcom/android/systemui/doze/DozeSensors;->mDevicePosture:I
+
+    iput-object v0, v12, Lcom/android/systemui/doze/DozeSensors;->mAuthController:Lcom/android/systemui/biometrics/AuthController;
+
+    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
+
+    move-result v2
+
+    invoke-virtual {v0, v2}, Lcom/android/systemui/biometrics/AuthController;->isUdfpsEnrolled(I)Z
+
+    move-result v2
+
+    iput-boolean v2, v12, Lcom/android/systemui/doze/DozeSensors;->mUdfpsEnrolled:Z
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/biometrics/AuthController;->addCallback(Lcom/android/systemui/biometrics/AuthController$Callback;)V
 
     const/16 v0, 0x9
 
-    new-array v10, v0, [Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
+    new-array v9, v0, [Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
 
-    new-instance v18, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
+    new-instance v16, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
 
     const/16 v0, 0x11
 
-    invoke-virtual {v9, v0}, Landroid/hardware/SensorManager;->getDefaultSensor(I)Landroid/hardware/Sensor;
+    invoke-virtual {v8, v0}, Landroid/hardware/SensorManager;->getDefaultSensor(I)Landroid/hardware/Sensor;
 
     move-result-object v2
 
@@ -227,23 +276,19 @@
 
     const/4 v7, 0x0
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v16
 
     move-object/from16 v1, p0
 
-    move-object/from16 v8, p8
+    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;-><init>(Lcom/android/systemui/doze/DozeSensors;Landroid/hardware/Sensor;Ljava/lang/String;ZIZZ)V
 
-    invoke-direct/range {v0 .. v8}, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;-><init>(Lcom/android/systemui/doze/DozeSensors;Landroid/hardware/Sensor;Ljava/lang/String;ZIZZLcom/android/systemui/doze/DozeLog;)V
+    aput-object v16, v9, v7
 
-    const/4 v8, 0x0
-
-    aput-object v18, v10, v8
-
-    new-instance v18, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
+    new-instance v16, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
 
     const/16 v0, 0x19
 
-    invoke-virtual {v9, v0}, Landroid/hardware/SensorManager;->getDefaultSensor(I)Landroid/hardware/Sensor;
+    invoke-virtual {v8, v0}, Landroid/hardware/SensorManager;->getDefaultSensor(I)Landroid/hardware/Sensor;
 
     move-result-object v2
 
@@ -255,47 +300,43 @@
 
     const/4 v6, 0x3
 
-    const/4 v9, 0x0
+    const/4 v8, 0x0
+
+    const/16 v17, 0x0
+
+    const/16 v18, 0x0
 
     const/16 v19, 0x0
 
-    const/16 v20, 0x0
-
-    const/16 v21, 0x0
-
     const-string v3, "doze_pulse_on_pick_up"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v16
 
-    move v8, v9
+    move v7, v8
 
-    move/from16 v9, v19
+    move/from16 v8, v17
 
-    move-object/from16 v22, v10
+    move-object/from16 v20, v9
 
-    move/from16 v10, v20
+    move/from16 v9, v18
 
-    move/from16 v19, v11
+    move v15, v10
 
-    move-object/from16 v11, p8
+    move/from16 v10, v19
 
-    move v15, v12
+    invoke-direct/range {v0 .. v10}, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;-><init>(Lcom/android/systemui/doze/DozeSensors;Landroid/hardware/Sensor;Ljava/lang/String;ZZIZZZZ)V
 
-    move-object/from16 v12, v21
+    move-object/from16 v10, v20
 
-    invoke-direct/range {v0 .. v12}, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;-><init>(Lcom/android/systemui/doze/DozeSensors;Landroid/hardware/Sensor;Ljava/lang/String;ZZIZZZZLcom/android/systemui/doze/DozeLog;Lcom/android/systemui/doze/DozeSensors$1;)V
+    aput-object v16, v10, v15
 
-    move-object/from16 v12, v22
-
-    aput-object v18, v12, v15
-
-    new-instance v9, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
+    new-instance v8, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
 
     invoke-virtual/range {p4 .. p4}, Landroid/hardware/display/AmbientDisplayConfiguration;->doubleTapSensorType()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {v13, v0}, Lcom/android/systemui/doze/DozeSensors;->findSensorWithType(Ljava/lang/String;)Landroid/hardware/Sensor;
+    invoke-direct {v12, v0}, Lcom/android/systemui/doze/DozeSensors;->findSensor(Ljava/lang/String;)Landroid/hardware/Sensor;
 
     move-result-object v2
 
@@ -309,25 +350,23 @@
 
     const-string v3, "doze_pulse_on_double_tap"
 
-    move-object v0, v9
+    move-object v0, v8
 
-    move-object/from16 v8, p8
+    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;-><init>(Lcom/android/systemui/doze/DozeSensors;Landroid/hardware/Sensor;Ljava/lang/String;ZIZZ)V
 
-    invoke-direct/range {v0 .. v8}, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;-><init>(Lcom/android/systemui/doze/DozeSensors;Landroid/hardware/Sensor;Ljava/lang/String;ZIZZLcom/android/systemui/doze/DozeLog;)V
+    const/4 v9, 0x2
 
-    const/4 v11, 0x2
+    aput-object v8, v10, v9
 
-    aput-object v9, v12, v11
+    const/16 v16, 0x3
 
-    const/16 v18, 0x3
+    new-instance v17, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
 
-    new-instance v20, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
-
-    invoke-virtual/range {p4 .. p4}, Landroid/hardware/display/AmbientDisplayConfiguration;->tapSensorType()Ljava/lang/String;
+    invoke-virtual/range {p4 .. p4}, Landroid/hardware/display/AmbientDisplayConfiguration;->tapSensorTypeMapping()[Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {v13, v0}, Lcom/android/systemui/doze/DozeSensors;->findSensorWithType(Ljava/lang/String;)Landroid/hardware/Sensor;
+    invoke-direct {v12, v0}, Lcom/android/systemui/doze/DozeSensors;->findSensors([Ljava/lang/String;)[Landroid/hardware/Sensor;
 
     move-result-object v2
 
@@ -339,37 +378,51 @@
 
     const/4 v8, 0x1
 
-    const/4 v9, 0x0
+    iget v0, v12, Lcom/android/systemui/doze/DozeSensors;->mDevicePosture:I
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/systemui/statusbar/phone/DozeParameters;->singleTapUsesProx()Z
+    move-object/from16 v3, p3
 
-    move-result v10
+    invoke-virtual {v3, v0}, Lcom/android/systemui/statusbar/phone/DozeParameters;->singleTapUsesProx(I)Z
 
-    const-string v3, "doze_tap_gesture"
+    move-result v19
 
-    move-object/from16 v0, v20
+    iget v1, v12, Lcom/android/systemui/doze/DozeSensors;->mDevicePosture:I
 
-    move v15, v11
+    const-string v20, "doze_tap_gesture"
 
-    move-object/from16 v11, p8
+    move-object/from16 v0, v17
 
-    move-object v15, v12
+    move/from16 v21, v1
 
-    move-object/from16 v12, v21
+    move-object/from16 v1, p0
 
-    invoke-direct/range {v0 .. v12}, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;-><init>(Lcom/android/systemui/doze/DozeSensors;Landroid/hardware/Sensor;Ljava/lang/String;ZZIZZZZLcom/android/systemui/doze/DozeLog;Lcom/android/systemui/doze/DozeSensors$1;)V
+    move-object/from16 v3, v20
 
-    aput-object v20, v15, v18
+    move v15, v9
 
-    const/16 v18, 0x4
+    move/from16 v9, v18
 
-    new-instance v20, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
+    move-object v15, v10
+
+    move/from16 v10, v19
+
+    move-object/from16 v22, v11
+
+    move/from16 v11, v21
+
+    invoke-direct/range {v0 .. v11}, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;-><init>(Lcom/android/systemui/doze/DozeSensors;[Landroid/hardware/Sensor;Ljava/lang/String;ZZIZZZZI)V
+
+    aput-object v17, v15, v16
+
+    const/4 v11, 0x4
+
+    new-instance v16, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
 
     invoke-virtual/range {p4 .. p4}, Landroid/hardware/display/AmbientDisplayConfiguration;->longPressSensorType()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {v13, v0}, Lcom/android/systemui/doze/DozeSensors;->findSensorWithType(Ljava/lang/String;)Landroid/hardware/Sensor;
+    invoke-direct {v12, v0}, Lcom/android/systemui/doze/DozeSensors;->findSensor(Ljava/lang/String;)Landroid/hardware/Sensor;
 
     move-result-object v2
 
@@ -379,78 +432,55 @@
 
     const/4 v7, 0x1
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/systemui/statusbar/phone/DozeParameters;->longPressUsesProx()Z
-
-    move-result v10
-
-    const/4 v12, 0x0
-
-    const-string v3, "doze_pulse_on_long_press"
-
-    move-object/from16 v0, v20
-
-    invoke-direct/range {v0 .. v12}, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;-><init>(Lcom/android/systemui/doze/DozeSensors;Landroid/hardware/Sensor;Ljava/lang/String;ZZIZZZZLcom/android/systemui/doze/DozeLog;Lcom/android/systemui/doze/DozeSensors$1;)V
-
-    aput-object v20, v15, v18
-
-    const/16 v18, 0x5
-
-    new-instance v20, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
-
-    invoke-virtual/range {p4 .. p4}, Landroid/hardware/display/AmbientDisplayConfiguration;->udfpsLongPressSensorType()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {v13, v0}, Lcom/android/systemui/doze/DozeSensors;->findSensorWithType(Ljava/lang/String;)Landroid/hardware/Sensor;
-
-    move-result-object v2
-
-    const/4 v4, 0x1
-
-    if-eqz v16, :cond_1
-
-    if-nez v17, :cond_0
-
-    if-eqz v19, :cond_1
-
-    :cond_0
-    const/4 v5, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v5, 0x0
-
-    :goto_0
-    const/16 v6, 0xa
-
-    const/4 v7, 0x1
-
-    const/4 v8, 0x1
-
     const/4 v9, 0x0
 
     invoke-virtual/range {p3 .. p3}, Lcom/android/systemui/statusbar/phone/DozeParameters;->longPressUsesProx()Z
 
     move-result v10
 
-    const/4 v12, 0x0
+    const-string v3, "doze_pulse_on_long_press"
+
+    move-object/from16 v0, v16
+
+    invoke-direct/range {v0 .. v10}, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;-><init>(Lcom/android/systemui/doze/DozeSensors;Landroid/hardware/Sensor;Ljava/lang/String;ZZIZZZZ)V
+
+    aput-object v16, v15, v11
+
+    const/4 v11, 0x5
+
+    new-instance v16, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
+
+    invoke-virtual/range {p4 .. p4}, Landroid/hardware/display/AmbientDisplayConfiguration;->udfpsLongPressSensorType()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {v12, v0}, Lcom/android/systemui/doze/DozeSensors;->findSensor(Ljava/lang/String;)Landroid/hardware/Sensor;
+
+    move-result-object v2
+
+    const/4 v4, 0x1
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/systemui/doze/DozeSensors;->udfpsLongPressConfigured()Z
+
+    move-result v5
+
+    const/16 v6, 0xa
+
+    invoke-virtual/range {p3 .. p3}, Lcom/android/systemui/statusbar/phone/DozeParameters;->longPressUsesProx()Z
+
+    move-result v10
 
     const-string v3, "doze_pulse_on_auth"
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v16
 
-    move-object/from16 v1, p0
+    invoke-direct/range {v0 .. v10}, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;-><init>(Lcom/android/systemui/doze/DozeSensors;Landroid/hardware/Sensor;Ljava/lang/String;ZZIZZZZ)V
 
-    move-object/from16 v11, p8
+    aput-object v16, v15, v11
 
-    invoke-direct/range {v0 .. v12}, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;-><init>(Lcom/android/systemui/doze/DozeSensors;Landroid/hardware/Sensor;Ljava/lang/String;ZZIZZZZLcom/android/systemui/doze/DozeLog;Lcom/android/systemui/doze/DozeSensors$1;)V
+    const/4 v8, 0x6
 
-    aput-object v20, v15, v18
-
-    const/4 v9, 0x6
-
-    new-instance v10, Lcom/android/systemui/doze/DozeSensors$PluginSensor;
+    new-instance v9, Lcom/android/systemui/doze/DozeSensors$PluginSensor;
 
     new-instance v2, Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;
 
@@ -462,18 +492,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_0
 
-    if-eqz v17, :cond_2
+    const/4 v0, -0x2
+
+    invoke-virtual {v13, v0}, Landroid/hardware/display/AmbientDisplayConfiguration;->alwaysOnEnabled(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
 
     const/4 v4, 0x1
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_2
+    :cond_0
     const/4 v4, 0x0
 
-    :goto_1
+    :goto_0
     const/4 v5, 0x7
 
     const/4 v6, 0x0
@@ -482,25 +518,23 @@
 
     const-string v3, "doze_wake_display_gesture"
 
-    move-object v0, v10
+    move-object v0, v9
 
     move-object/from16 v1, p0
 
-    move-object/from16 v8, p8
+    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/doze/DozeSensors$PluginSensor;-><init>(Lcom/android/systemui/doze/DozeSensors;Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;Ljava/lang/String;ZIZZ)V
 
-    invoke-direct/range {v0 .. v8}, Lcom/android/systemui/doze/DozeSensors$PluginSensor;-><init>(Lcom/android/systemui/doze/DozeSensors;Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;Ljava/lang/String;ZIZZLcom/android/systemui/doze/DozeLog;)V
+    aput-object v9, v15, v8
 
-    aput-object v10, v15, v9
+    const/4 v10, 0x7
 
-    const/4 v11, 0x7
-
-    new-instance v12, Lcom/android/systemui/doze/DozeSensors$PluginSensor;
+    new-instance v11, Lcom/android/systemui/doze/DozeSensors$PluginSensor;
 
     new-instance v2, Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;
 
-    const/4 v10, 0x1
+    const/4 v0, 0x1
 
-    invoke-direct {v2, v10}, Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;-><init>(I)V
+    invoke-direct {v2, v0}, Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;-><init>(I)V
 
     invoke-virtual/range {p4 .. p4}, Landroid/hardware/display/AmbientDisplayConfiguration;->wakeScreenGestureAvailable()Z
 
@@ -514,86 +548,76 @@
 
     const-string v3, "doze_wake_screen_gesture"
 
-    move-object v0, v12
+    move-object v0, v11
 
-    move/from16 v17, v10
+    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/doze/DozeSensors$PluginSensor;-><init>(Lcom/android/systemui/doze/DozeSensors;Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;Ljava/lang/String;ZIZZJ)V
 
-    move-object/from16 v10, p8
+    aput-object v11, v15, v10
 
-    invoke-direct/range {v0 .. v10}, Lcom/android/systemui/doze/DozeSensors$PluginSensor;-><init>(Lcom/android/systemui/doze/DozeSensors;Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;Ljava/lang/String;ZIZZJLcom/android/systemui/doze/DozeLog;)V
+    const/16 v11, 0x8
 
-    aput-object v12, v15, v11
-
-    const/16 v10, 0x8
-
-    new-instance v11, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
+    new-instance v16, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
 
     invoke-virtual/range {p4 .. p4}, Landroid/hardware/display/AmbientDisplayConfiguration;->quickPickupSensorType()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {v13, v0}, Lcom/android/systemui/doze/DozeSensors;->findSensorWithType(Ljava/lang/String;)Landroid/hardware/Sensor;
+    invoke-direct {v12, v0}, Lcom/android/systemui/doze/DozeSensors;->findSensor(Ljava/lang/String;)Landroid/hardware/Sensor;
 
     move-result-object v2
 
     const/4 v4, 0x1
 
-    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
+    invoke-direct/range {p0 .. p0}, Lcom/android/systemui/doze/DozeSensors;->quickPickUpConfigured()Z
 
-    move-result v0
+    move-result v5
 
-    invoke-virtual {v14, v0}, Landroid/hardware/display/AmbientDisplayConfiguration;->quickPickupSensorEnabled(I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    if-eqz v16, :cond_3
-
-    move/from16 v5, v17
-
-    goto :goto_2
-
-    :cond_3
-    const/4 v5, 0x0
-
-    :goto_2
     const/16 v6, 0xb
-
-    const/4 v7, 0x0
 
     const/4 v8, 0x0
 
+    const/4 v9, 0x0
+
+    const/4 v10, 0x0
+
     const-string v3, "doze_quick_pickup_gesture"
 
-    move-object v0, v11
+    move-object/from16 v0, v16
 
-    move-object/from16 v1, p0
+    invoke-direct/range {v0 .. v10}, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;-><init>(Lcom/android/systemui/doze/DozeSensors;Landroid/hardware/Sensor;Ljava/lang/String;ZZIZZZZ)V
 
-    move-object/from16 v9, p8
+    aput-object v16, v15, v11
 
-    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;-><init>(Lcom/android/systemui/doze/DozeSensors;Landroid/hardware/Sensor;Ljava/lang/String;ZZIZZLcom/android/systemui/doze/DozeLog;)V
-
-    aput-object v11, v15, v10
-
-    iput-object v15, v13, Lcom/android/systemui/doze/DozeSensors;->mSensors:[Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
+    iput-object v15, v12, Lcom/android/systemui/doze/DozeSensors;->mTriggerSensors:[Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
 
     const/4 v0, 0x0
 
-    invoke-virtual {v13, v0}, Lcom/android/systemui/doze/DozeSensors;->setProxListening(Z)V
+    invoke-virtual {v12, v0}, Lcom/android/systemui/doze/DozeSensors;->setProxListening(Z)V
 
-    new-instance v0, Lcom/android/systemui/doze/DozeSensors$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/systemui/doze/DozeSensors$$ExternalSyntheticLambda1;
 
-    invoke-direct {v0, v13}, Lcom/android/systemui/doze/DozeSensors$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/doze/DozeSensors;)V
+    invoke-direct {v0, v12}, Lcom/android/systemui/doze/DozeSensors$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/doze/DozeSensors;)V
 
-    move-object/from16 v1, p9
+    invoke-interface {v14, v0}, Lcom/android/systemui/util/sensors/ThresholdSensor;->register(Lcom/android/systemui/util/sensors/ThresholdSensor$Listener;)V
 
-    invoke-virtual {v1, v0}, Lcom/android/systemui/util/sensors/ProximitySensor;->register(Lcom/android/systemui/util/sensors/ThresholdSensor$Listener;)V
+    move-object/from16 v0, p12
+
+    move-object/from16 v1, v22
+
+    invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
 
     return-void
 .end method
 
-.method static synthetic access$1000()Lcom/android/internal/logging/UiEventLogger;
+.method static synthetic access$1000(Lcom/android/systemui/doze/DozeSensors;)Landroid/database/ContentObserver;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeSensors;->mSettingsObserver:Landroid/database/ContentObserver;
+
+    return-object p0
+.end method
+
+.method static synthetic access$1100()Lcom/android/internal/logging/UiEventLogger;
     .locals 1
 
     sget-object v0, Lcom/android/systemui/doze/DozeSensors;->UI_EVENT_LOGGER:Lcom/android/internal/logging/UiEventLogger;
@@ -601,15 +625,15 @@
     return-object v0
 .end method
 
-.method static synthetic access$1100(Lcom/android/systemui/doze/DozeSensors;)Lcom/android/systemui/doze/DozeSensors$Callback;
+.method static synthetic access$1200(Lcom/android/systemui/doze/DozeSensors;)Lcom/android/systemui/doze/DozeSensors$Callback;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/doze/DozeSensors;->mCallback:Lcom/android/systemui/doze/DozeSensors$Callback;
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeSensors;->mSensorCallback:Lcom/android/systemui/doze/DozeSensors$Callback;
 
     return-object p0
 .end method
 
-.method static synthetic access$1200(Lcom/android/systemui/doze/DozeSensors;)J
+.method static synthetic access$1300(Lcom/android/systemui/doze/DozeSensors;)J
     .locals 2
 
     iget-wide v0, p0, Lcom/android/systemui/doze/DozeSensors;->mDebounceFrom:J
@@ -617,7 +641,43 @@
     return-wide v0
 .end method
 
-.method static synthetic access$300(Lcom/android/systemui/doze/DozeSensors;)Lcom/android/systemui/util/sensors/AsyncSensorManager;
+.method static synthetic access$1402(Lcom/android/systemui/doze/DozeSensors;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/doze/DozeSensors;->mUdfpsEnrolled:Z
+
+    return p1
+.end method
+
+.method static synthetic access$1500(Lcom/android/systemui/doze/DozeSensors;)Lcom/android/systemui/biometrics/AuthController;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeSensors;->mAuthController:Lcom/android/systemui/biometrics/AuthController;
+
+    return-object p0
+.end method
+
+.method static synthetic access$1600(Lcom/android/systemui/doze/DozeSensors;)Z
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/doze/DozeSensors;->quickPickUpConfigured()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method static synthetic access$1700(Lcom/android/systemui/doze/DozeSensors;)Z
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/doze/DozeSensors;->udfpsLongPressConfigured()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method static synthetic access$200(Lcom/android/systemui/doze/DozeSensors;)Lcom/android/systemui/util/sensors/AsyncSensorManager;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/doze/DozeSensors;->mSensorManager:Lcom/android/systemui/util/sensors/AsyncSensorManager;
@@ -625,12 +685,20 @@
     return-object p0
 .end method
 
-.method static synthetic access$400()Z
+.method static synthetic access$300()Z
     .locals 1
 
     sget-boolean v0, Lcom/android/systemui/doze/DozeSensors;->DEBUG:Z
 
     return v0
+.end method
+
+.method static synthetic access$400(Lcom/android/systemui/doze/DozeSensors;)Lcom/android/systemui/doze/DozeLog;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeSensors;->mDozeLog:Lcom/android/systemui/doze/DozeLog;
+
+    return-object p0
 .end method
 
 .method static synthetic access$500(Lcom/android/systemui/doze/DozeSensors;)Landroid/hardware/display/AmbientDisplayConfiguration;
@@ -649,7 +717,15 @@
     return-object p0
 .end method
 
-.method static synthetic access$700(Lcom/android/systemui/doze/DozeSensors;)Lcom/android/systemui/util/wakelock/WakeLock;
+.method static synthetic access$700(Lcom/android/systemui/doze/DozeSensors;)I
+    .locals 0
+
+    iget p0, p0, Lcom/android/systemui/doze/DozeSensors;->mDevicePosture:I
+
+    return p0
+.end method
+
+.method static synthetic access$800(Lcom/android/systemui/doze/DozeSensors;)Lcom/android/systemui/util/wakelock/WakeLock;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/doze/DozeSensors;->mWakeLock:Lcom/android/systemui/util/wakelock/WakeLock;
@@ -657,7 +733,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$800(Lcom/android/systemui/doze/DozeSensors;)Landroid/os/Handler;
+.method static synthetic access$900(Lcom/android/systemui/doze/DozeSensors;)Landroid/os/Handler;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/doze/DozeSensors;->mHandler:Landroid/os/Handler;
@@ -665,31 +741,29 @@
     return-object p0
 .end method
 
-.method static synthetic access$900(Lcom/android/systemui/doze/DozeSensors;)Landroid/database/ContentObserver;
-    .locals 0
+.method public static findSensor(Landroid/hardware/SensorManager;Ljava/lang/String;Ljava/lang/String;)Landroid/hardware/Sensor;
+    .locals 4
 
-    iget-object p0, p0, Lcom/android/systemui/doze/DozeSensors;->mSettingsObserver:Landroid/database/ContentObserver;
-
-    return-object p0
-.end method
-
-.method public static findSensorWithType(Landroid/hardware/SensorManager;Ljava/lang/String;)Landroid/hardware/Sensor;
-    .locals 3
-
-    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    const/4 v1, 0x0
+    xor-int/lit8 v0, v0, 0x1
 
-    if-eqz v0, :cond_0
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    return-object v1
+    move-result v1
+
+    xor-int/lit8 v1, v1, 0x1
+
+    if-nez v0, :cond_0
+
+    if-eqz v1, :cond_4
 
     :cond_0
-    const/4 v0, -0x1
+    const/4 v2, -0x1
 
-    invoke-virtual {p0, v0}, Landroid/hardware/SensorManager;->getSensorList(I)Ljava/util/List;
+    invoke-virtual {p0, v2}, Landroid/hardware/SensorManager;->getSensorList(I)Ljava/util/List;
 
     move-result-object p0
 
@@ -700,52 +774,121 @@
     :cond_1
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v0
+    move-result v2
 
-    if-eqz v0, :cond_2
+    if-eqz v2, :cond_4
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v0
-
-    check-cast v0, Landroid/hardware/Sensor;
-
-    invoke-virtual {v0}, Landroid/hardware/Sensor;->getStringType()Ljava/lang/String;
-
     move-result-object v2
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    check-cast v2, Landroid/hardware/Sensor;
 
-    move-result v2
+    if-eqz v0, :cond_2
 
-    if-eqz v2, :cond_1
+    invoke-virtual {v2}, Landroid/hardware/Sensor;->getName()Ljava/lang/String;
 
-    return-object v0
+    move-result-object v3
+
+    invoke-virtual {p2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
 
     :cond_2
-    return-object v1
+    if-eqz v1, :cond_3
+
+    invoke-virtual {v2}, Landroid/hardware/Sensor;->getStringType()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {p1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    :cond_3
+    return-object v2
+
+    :cond_4
+    const/4 p0, 0x0
+
+    return-object p0
 .end method
 
-.method private findSensorWithType(Ljava/lang/String;)Landroid/hardware/Sensor;
-    .locals 0
+.method private findSensor(Ljava/lang/String;)Landroid/hardware/Sensor;
+    .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/doze/DozeSensors;->mSensorManager:Lcom/android/systemui/util/sensors/AsyncSensorManager;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/doze/DozeSensors;->findSensorWithType(Landroid/hardware/SensorManager;Ljava/lang/String;)Landroid/hardware/Sensor;
+    const/4 v0, 0x0
+
+    invoke-static {p0, p1, v0}, Lcom/android/systemui/doze/DozeSensors;->findSensor(Landroid/hardware/SensorManager;Ljava/lang/String;Ljava/lang/String;)Landroid/hardware/Sensor;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method private synthetic lambda$new$0(Lcom/android/systemui/util/sensors/ThresholdSensor$ThresholdSensorEvent;)V
+.method private findSensors([Ljava/lang/String;)[Landroid/hardware/Sensor;
+    .locals 5
+
+    const/4 v0, 0x5
+
+    new-array v0, v0, [Landroid/hardware/Sensor;
+
+    new-instance v1, Ljava/util/HashMap;
+
+    invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
+
+    const/4 v2, 0x0
+
+    :goto_0
+    array-length v3, p1
+
+    if-ge v2, v3, :cond_1
+
+    aget-object v3, p1, v2
+
+    invoke-interface {v1, v3}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    invoke-direct {p0, v3}, Lcom/android/systemui/doze/DozeSensors;->findSensor(Ljava/lang/String;)Landroid/hardware/Sensor;
+
+    move-result-object v4
+
+    invoke-interface {v1, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_0
+    invoke-interface {v1, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/hardware/Sensor;
+
+    aput-object v3, v0, v2
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    return-object v0
+.end method
+
+.method private synthetic lambda$new$0(Lcom/android/systemui/util/sensors/ThresholdSensorEvent;)V
     .locals 0
 
     if-eqz p1, :cond_0
 
     iget-object p0, p0, Lcom/android/systemui/doze/DozeSensors;->mProxCallback:Ljava/util/function/Consumer;
 
-    invoke-virtual {p1}, Lcom/android/systemui/util/sensors/ThresholdSensor$ThresholdSensorEvent;->getBelow()Z
+    invoke-virtual {p1}, Lcom/android/systemui/util/sensors/ThresholdSensorEvent;->getBelow()Z
 
     move-result p1
 
@@ -761,10 +904,108 @@
     return-void
 .end method
 
+.method private synthetic lambda$new$1(I)V
+    .locals 4
+
+    iget v0, p0, Lcom/android/systemui/doze/DozeSensors;->mDevicePosture:I
+
+    if-ne v0, p1, :cond_0
+
+    return-void
+
+    :cond_0
+    iput p1, p0, Lcom/android/systemui/doze/DozeSensors;->mDevicePosture:I
+
+    iget-object p1, p0, Lcom/android/systemui/doze/DozeSensors;->mTriggerSensors:[Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
+
+    array-length v0, p1
+
+    const/4 v1, 0x0
+
+    :goto_0
+    if-ge v1, v0, :cond_1
+
+    aget-object v2, p1, v1
+
+    iget v3, p0, Lcom/android/systemui/doze/DozeSensors;->mDevicePosture:I
+
+    invoke-virtual {v2, v3}, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->setPosture(I)Z
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    return-void
+.end method
+
+.method private quickPickUpConfigured()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/doze/DozeSensors;->mUdfpsEnrolled:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeSensors;->mConfig:Landroid/hardware/display/AmbientDisplayConfiguration;
+
+    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Landroid/hardware/display/AmbientDisplayConfiguration;->quickPickupSensorEnabled(I)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
+.end method
+
+.method private udfpsLongPressConfigured()Z
+    .locals 2
+
+    iget-boolean v0, p0, Lcom/android/systemui/doze/DozeSensors;->mUdfpsEnrolled:Z
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/doze/DozeSensors;->mConfig:Landroid/hardware/display/AmbientDisplayConfiguration;
+
+    const/4 v1, -0x2
+
+    invoke-virtual {v0, v1}, Landroid/hardware/display/AmbientDisplayConfiguration;->alwaysOnEnabled(I)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-boolean p0, p0, Lcom/android/systemui/doze/DozeSensors;->mScreenOffUdfpsEnabled:Z
+
+    if-eqz p0, :cond_1
+
+    :cond_0
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
+.end method
+
 .method private updateListening()V
     .locals 8
 
-    iget-object v0, p0, Lcom/android/systemui/doze/DozeSensors;->mSensors:[Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
+    iget-object v0, p0, Lcom/android/systemui/doze/DozeSensors;->mTriggerSensors:[Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
 
     array-length v1, v0
 
@@ -785,7 +1026,7 @@
 
     if-eqz v6, :cond_2
 
-    invoke-static {v5}, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->access$100(Lcom/android/systemui/doze/DozeSensors$TriggerSensor;)Z
+    invoke-static {v5}, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->access$000(Lcom/android/systemui/doze/DozeSensors$TriggerSensor;)Z
 
     move-result v6
 
@@ -796,7 +1037,7 @@
     if-eqz v6, :cond_2
 
     :cond_0
-    invoke-static {v5}, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->access$200(Lcom/android/systemui/doze/DozeSensors$TriggerSensor;)Z
+    invoke-static {v5}, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->access$100(Lcom/android/systemui/doze/DozeSensors$TriggerSensor;)Z
 
     move-result v6
 
@@ -842,7 +1083,7 @@
 
     if-nez v0, :cond_6
 
-    iget-object v0, p0, Lcom/android/systemui/doze/DozeSensors;->mSensors:[Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
+    iget-object v0, p0, Lcom/android/systemui/doze/DozeSensors;->mTriggerSensors:[Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
 
     array-length v1, v0
 
@@ -871,7 +1112,7 @@
 .method public destroy()V
     .locals 5
 
-    iget-object v0, p0, Lcom/android/systemui/doze/DozeSensors;->mSensors:[Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
+    iget-object v0, p0, Lcom/android/systemui/doze/DozeSensors;->mTriggerSensors:[Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
 
     array-length v1, v0
 
@@ -891,9 +1132,21 @@
     goto :goto_0
 
     :cond_0
-    iget-object p0, p0, Lcom/android/systemui/doze/DozeSensors;->mProximitySensor:Lcom/android/systemui/util/sensors/ProximitySensor;
+    iget-object v0, p0, Lcom/android/systemui/doze/DozeSensors;->mProximitySensor:Lcom/android/systemui/util/sensors/ProximitySensor;
 
-    invoke-virtual {p0}, Lcom/android/systemui/util/sensors/ProximitySensor;->pause()V
+    invoke-interface {v0}, Lcom/android/systemui/util/sensors/ThresholdSensor;->pause()V
+
+    iget-object v0, p0, Lcom/android/systemui/doze/DozeSensors;->mDevicePostureController:Lcom/android/systemui/statusbar/policy/DevicePostureController;
+
+    iget-object v1, p0, Lcom/android/systemui/doze/DozeSensors;->mDevicePostureCallback:Lcom/android/systemui/statusbar/policy/DevicePostureController$Callback;
+
+    invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/policy/CallbackController;->removeCallback(Ljava/lang/Object;)V
+
+    iget-object v0, p0, Lcom/android/systemui/doze/DozeSensors;->mAuthController:Lcom/android/systemui/biometrics/AuthController;
+
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeSensors;->mAuthControllerCallback:Lcom/android/systemui/biometrics/AuthController$Callback;
+
+    invoke-virtual {v0, p0}, Lcom/android/systemui/biometrics/AuthController;->removeCallback(Lcom/android/systemui/biometrics/AuthController$Callback;)V
 
     return-void
 .end method
@@ -912,6 +1165,28 @@
     iget-boolean v1, p0, Lcom/android/systemui/doze/DozeSensors;->mListening:Z
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "mDevicePosture="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v1, p0, Lcom/android/systemui/doze/DozeSensors;->mDevicePosture:I
+
+    invoke-static {v1}, Lcom/android/systemui/statusbar/policy/DevicePostureController;->devicePostureToString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -991,13 +1266,31 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "mUdfpsEnrolled="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-boolean v1, p0, Lcom/android/systemui/doze/DozeSensors;->mUdfpsEnrolled:Z
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
     new-instance v0, Landroid/util/IndentingPrintWriter;
 
     invoke-direct {v0, p1}, Landroid/util/IndentingPrintWriter;-><init>(Ljava/io/Writer;)V
 
     invoke-virtual {v0}, Landroid/util/IndentingPrintWriter;->increaseIndent()Landroid/util/IndentingPrintWriter;
 
-    iget-object p1, p0, Lcom/android/systemui/doze/DozeSensors;->mSensors:[Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
+    iget-object p1, p0, Lcom/android/systemui/doze/DozeSensors;->mTriggerSensors:[Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
 
     array-length v1, p1
 
@@ -1043,7 +1336,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/doze/DozeSensors;->mProximitySensor:Lcom/android/systemui/util/sensors/ProximitySensor;
 
-    invoke-virtual {p0}, Lcom/android/systemui/util/sensors/ProximitySensor;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -1061,7 +1354,7 @@
 .method public ignoreTouchScreenSensorsSettingInterferingWithDocking(Z)V
     .locals 4
 
-    iget-object p0, p0, Lcom/android/systemui/doze/DozeSensors;->mSensors:[Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeSensors;->mTriggerSensors:[Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
 
     array-length v0, p0
 
@@ -1072,7 +1365,7 @@
 
     aget-object v2, p0, v1
 
-    invoke-static {v2}, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->access$100(Lcom/android/systemui/doze/DozeSensors$TriggerSensor;)Z
+    invoke-static {v2}, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->access$000(Lcom/android/systemui/doze/DozeSensors$TriggerSensor;)Z
 
     move-result v3
 
@@ -1094,7 +1387,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/doze/DozeSensors;->mProximitySensor:Lcom/android/systemui/util/sensors/ProximitySensor;
 
-    invoke-virtual {p0}, Lcom/android/systemui/util/sensors/ProximitySensor;->isNear()Ljava/lang/Boolean;
+    invoke-interface {p0}, Lcom/android/systemui/util/sensors/ProximitySensor;->isNear()Ljava/lang/Boolean;
 
     move-result-object p0
 
@@ -1125,7 +1418,7 @@
 
     :cond_1
     :goto_0
-    invoke-virtual {p0, v0}, Lcom/android/systemui/util/sensors/ProximitySensor;->setSecondarySafe(Z)V
+    invoke-interface {p0, v0}, Lcom/android/systemui/util/sensors/ProximitySensor;->setSecondarySafe(Z)V
 
     return-void
 .end method
@@ -1133,7 +1426,7 @@
 .method public onUserSwitched()V
     .locals 3
 
-    iget-object p0, p0, Lcom/android/systemui/doze/DozeSensors;->mSensors:[Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeSensors;->mTriggerSensors:[Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
 
     array-length v0, p0
 
@@ -1241,7 +1534,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/doze/DozeSensors;->mProximitySensor:Lcom/android/systemui/util/sensors/ProximitySensor;
 
-    invoke-virtual {v0}, Lcom/android/systemui/util/sensors/ProximitySensor;->isRegistered()Z
+    invoke-interface {v0}, Lcom/android/systemui/util/sensors/ProximitySensor;->isRegistered()Z
 
     move-result v0
 
@@ -1251,7 +1544,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/doze/DozeSensors;->mProximitySensor:Lcom/android/systemui/util/sensors/ProximitySensor;
 
-    invoke-virtual {p0}, Lcom/android/systemui/util/sensors/ProximitySensor;->alertListeners()V
+    invoke-interface {p0}, Lcom/android/systemui/util/sensors/ProximitySensor;->alertListeners()V
 
     goto :goto_0
 
@@ -1260,14 +1553,14 @@
 
     iget-object p0, p0, Lcom/android/systemui/doze/DozeSensors;->mProximitySensor:Lcom/android/systemui/util/sensors/ProximitySensor;
 
-    invoke-virtual {p0}, Lcom/android/systemui/util/sensors/ProximitySensor;->resume()V
+    invoke-interface {p0}, Lcom/android/systemui/util/sensors/ThresholdSensor;->resume()V
 
     goto :goto_0
 
     :cond_1
     iget-object p0, p0, Lcom/android/systemui/doze/DozeSensors;->mProximitySensor:Lcom/android/systemui/util/sensors/ProximitySensor;
 
-    invoke-virtual {p0}, Lcom/android/systemui/util/sensors/ProximitySensor;->pause()V
+    invoke-interface {p0}, Lcom/android/systemui/util/sensors/ThresholdSensor;->pause()V
 
     :goto_0
     return-void

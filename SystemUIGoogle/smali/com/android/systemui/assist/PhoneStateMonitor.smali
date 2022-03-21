@@ -14,11 +14,11 @@
 
 .field private mLauncherShowing:Z
 
-.field private final mStatusBarOptionalLazy:Ljava/util/Optional;
+.field private final mStatusBarOptionalLazy:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Ljava/util/Optional<",
             "Ldagger/Lazy<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
             ">;>;"
         }
@@ -29,16 +29,6 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$BwlgcROhqoTsNOqWgCvSGqlbyfo(Ldagger/Lazy;)Ljava/lang/Boolean;
-    .locals 0
-
-    invoke-static {p0}, Lcom/android/systemui/assist/PhoneStateMonitor;->lambda$isBouncerShowing$1(Ldagger/Lazy;)Ljava/lang/Boolean;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
 .method public static synthetic $r8$lambda$GUABkCGu7fz0odzjodKjcl6hYw8(Lcom/android/systemui/assist/PhoneStateMonitor;)V
     .locals 0
 
@@ -67,15 +57,15 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Ljava/util/Optional;Lcom/android/systemui/BootCompleteCache;)V
+.method constructor <init>(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Ldagger/Lazy;Lcom/android/systemui/BootCompleteCache;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/content/Context;",
             "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
-            "Ljava/util/Optional<",
             "Ldagger/Lazy<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
             ">;>;",
             "Lcom/android/systemui/BootCompleteCache;",
@@ -87,7 +77,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/assist/PhoneStateMonitor;->mContext:Landroid/content/Context;
 
-    iput-object p3, p0, Lcom/android/systemui/assist/PhoneStateMonitor;->mStatusBarOptionalLazy:Ljava/util/Optional;
+    iput-object p3, p0, Lcom/android/systemui/assist/PhoneStateMonitor;->mStatusBarOptionalLazy:Ldagger/Lazy;
 
     const-class p1, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
@@ -344,7 +334,13 @@
 .method private isBouncerShowing()Z
     .locals 1
 
-    iget-object p0, p0, Lcom/android/systemui/assist/PhoneStateMonitor;->mStatusBarOptionalLazy:Ljava/util/Optional;
+    iget-object p0, p0, Lcom/android/systemui/assist/PhoneStateMonitor;->mStatusBarOptionalLazy:Ldagger/Lazy;
+
+    invoke-interface {p0}, Ldagger/Lazy;->get()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Ljava/util/Optional;
 
     sget-object v0, Lcom/android/systemui/assist/PhoneStateMonitor$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/systemui/assist/PhoneStateMonitor$$ExternalSyntheticLambda1;
 
@@ -473,26 +469,6 @@
     :cond_1
     :goto_0
     return v0
-.end method
-
-.method private static synthetic lambda$isBouncerShowing$1(Ldagger/Lazy;)Ljava/lang/Boolean;
-    .locals 0
-
-    invoke-interface {p0}, Ldagger/Lazy;->get()Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Lcom/android/systemui/statusbar/phone/StatusBar;
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->isBouncerShowing()Z
-
-    move-result p0
-
-    invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object p0
-
-    return-object p0
 .end method
 
 .method private synthetic lambda$new$0()V

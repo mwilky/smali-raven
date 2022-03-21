@@ -39,7 +39,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotController$3;->this$0:Lcom/android/systemui/screenshot/ScreenshotController;
 
-    invoke-static {p0}, Lcom/android/systemui/screenshot/ScreenshotController;->access$300(Lcom/android/systemui/screenshot/ScreenshotController;)V
+    invoke-static {p0}, Lcom/android/systemui/screenshot/ScreenshotController;->access$400(Lcom/android/systemui/screenshot/ScreenshotController;)V
 
     return-void
 .end method
@@ -51,7 +51,7 @@
 
     const/4 v0, 0x0
 
-    invoke-static {p0, v0}, Lcom/android/systemui/screenshot/ScreenshotController;->access$400(Lcom/android/systemui/screenshot/ScreenshotController;Z)V
+    invoke-static {p0, v0}, Lcom/android/systemui/screenshot/ScreenshotController;->access$500(Lcom/android/systemui/screenshot/ScreenshotController;Z)V
 
     return-void
 .end method
@@ -61,7 +61,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotController$3;->this$0:Lcom/android/systemui/screenshot/ScreenshotController;
 
-    invoke-static {p0}, Lcom/android/systemui/screenshot/ScreenshotController;->access$200(Lcom/android/systemui/screenshot/ScreenshotController;)V
+    invoke-static {p0}, Lcom/android/systemui/screenshot/ScreenshotController;->access$300(Lcom/android/systemui/screenshot/ScreenshotController;)V
 
     return-void
 .end method

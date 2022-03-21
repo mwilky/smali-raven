@@ -220,7 +220,7 @@
 .end method
 
 .method public updateResources()Z
-    .locals 2
+    .locals 3
 
     sget v0, Lcom/android/systemui/R$dimen;->qs_quick_tile_size:I
 
@@ -230,7 +230,15 @@
 
     move-result v0
 
-    const/4 v1, 0x2
+    invoke-virtual {p0}, Landroid/view/ViewGroup;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    sget v2, Lcom/android/systemui/R$integer;->quick_qs_panel_max_rows:I
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v1
 
     iput v1, p0, Lcom/android/systemui/qs/TileLayout;->mMaxAllowedRows:I
 

@@ -210,14 +210,14 @@
     </string-array>
     <string-array name="select_logpersist_summaries">
         <item>অফ কৰক</item>
-        <item>সকলো লগ বাফাৰ</item>
-        <item>"ৰেডিঅ' লগ বাফাৰৰ বাহিৰে সকলো"</item>
+        <item>আটাইবোৰ লগ বাফাৰ</item>
+        <item>"ৰেডিঅ' লগ বাফাৰৰ বাহিৰে আটাইবোৰ"</item>
         <item>কেৱল কাৰ্ণেল লগ বাফাৰ</item>
     </string-array>
     <string-array name="select_logpersist_titles">
         <item>অফ অৱস্থাত আছে</item>
-        <item>সকলো</item>
-        <item>"ৰেডিঅ'ৰ বাহিৰে সকলো"</item>
+        <item>আটাইবোৰ</item>
+        <item>"ৰেডিঅ'ৰ বাহিৰে আটাইবোৰ"</item>
         <item>কেৱল কাৰ্ণেল</item>
     </string-array>
     <string-array name="show_non_rect_clip_entries">

@@ -185,7 +185,7 @@
 
     sget-object v5, Lcom/android/systemui/statusbar/NotificationGroupingUtil;->GREY_APPLICATOR:Lcom/android/systemui/statusbar/NotificationGroupingUtil$ResultApplicator;
 
-    const v2, 0x10204b8
+    const v2, 0x10204bb
 
     move-object v0, v8
 
@@ -209,7 +209,7 @@
 
     sget-object v4, Lcom/android/systemui/statusbar/NotificationGroupingUtil;->BADGE_COMPARATOR:Lcom/android/systemui/statusbar/NotificationGroupingUtil$ViewComparator;
 
-    const v2, 0x102040d
+    const v2, 0x1020410
 
     const/4 v3, 0x0
 
@@ -227,7 +227,7 @@
 
     sget-object v5, Lcom/android/systemui/statusbar/NotificationGroupingUtil;->APP_NAME_APPLICATOR:Lcom/android/systemui/statusbar/NotificationGroupingUtil$VisibilityApplicator;
 
-    const v2, 0x10201db
+    const v2, 0x10201de
 
     move-object v0, v8
 
@@ -235,7 +235,7 @@
 
     invoke-virtual {v6, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const v0, 0x10202f3
+    const v0, 0x10202f6
 
     invoke-static {p1, v0}, Lcom/android/systemui/statusbar/NotificationGroupingUtil$Processor;->forTextView(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;I)Lcom/android/systemui/statusbar/NotificationGroupingUtil$Processor;
 
@@ -243,7 +243,7 @@
 
     invoke-virtual {v6, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    const v0, 0x10202f4
+    const v0, 0x10202f7
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -251,7 +251,7 @@
 
     invoke-virtual {v7, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    const v0, 0x10202f6
+    const v0, 0x10202f9
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -259,7 +259,7 @@
 
     invoke-virtual {v7, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    const v0, 0x10204f7
+    const v0, 0x10204fa
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -291,7 +291,7 @@
 
     if-eqz p1, :cond_0
 
-    const v0, 0x10203be
+    const v0, 0x10203c1
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -317,7 +317,7 @@
 
     move-result v0
 
-    const v1, 0x10204f3
+    const v1, 0x10204f6
 
     invoke-virtual {p1, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 

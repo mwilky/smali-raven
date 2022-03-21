@@ -150,7 +150,7 @@
 
     const/4 v1, 0x0
 
-    const-string/jumbo v2, "systemui.guest_has_logged_in"
+    const-string v2, "systemui.guest_has_logged_in"
 
     invoke-interface {p2, v2, v1, v0}, Lcom/android/systemui/util/settings/SettingsProxy;->getIntForUser(Ljava/lang/String;II)I
 

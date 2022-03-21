@@ -3,7 +3,7 @@
 .source "NavigationBarEdgePanel.java"
 
 # interfaces
-.implements Lcom/android/systemui/navigationbar/gestural/RegionSamplingHelper$SamplingCallback;
+.implements Lcom/android/systemui/shared/navigationbar/RegionSamplingHelper$SamplingCallback;
 
 
 # annotations

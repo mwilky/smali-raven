@@ -4,6 +4,7 @@
 
 # interfaces
 .implements Lcom/android/systemui/qs/tileimpl/HeightOverrideable;
+.implements Lcom/android/systemui/animation/LaunchableView;
 
 
 # annotations
@@ -22,6 +23,8 @@
 .field private final _icon:Lcom/android/systemui/plugins/qs/QSIconView;
 
 .field private accessibilityClass:Ljava/lang/String;
+
+.field private blockVisibilityChanges:Z
 
 .field private chevronView:Landroid/widget/ImageView;
 
@@ -59,6 +62,8 @@
 
 .field private lastStateDescription:Ljava/lang/CharSequence;
 
+.field private lastVisibility:I
+
 .field private final locInScreen:[I
 
 .field private paintColor:I
@@ -72,6 +77,8 @@
 .field protected sideView:Landroid/view/ViewGroup;
 
 .field private final singleAnimator:Landroid/animation/ValueAnimator;
+
+.field private squishinessFraction:F
 
 .field private stateDescriptionDeltas:Ljava/lang/CharSequence;
 
@@ -113,6 +120,10 @@
     const/4 p3, -0x1
 
     iput p3, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->heightOverride:I
+
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    iput v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->squishinessFraction:F
 
     const v0, 0x1120024
 
@@ -934,6 +945,10 @@
 
     if-eqz v0, :cond_0
 
+    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->setTint(I)V
 
     iput p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->paintColor:I
@@ -979,6 +994,68 @@
     move-result-object p0
 
     invoke-virtual {p0, p1}, Landroid/widget/TextView;->setTextColor(I)V
+
+    return-void
+.end method
+
+.method private final updateHeight()V
+    .locals 4
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getHeightOverride()I
+
+    move-result v0
+
+    const/4 v1, -0x1
+
+    if-eq v0, v1, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getHeightOverride()I
+
+    move-result v0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getMeasuredHeight()I
+
+    move-result v0
+
+    :goto_0
+    const v1, 0x3dcccccd    # 0.1f
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getSquishinessFraction()F
+
+    move-result v2
+
+    const v3, 0x3f666666    # 0.9f
+
+    mul-float/2addr v2, v3
+
+    add-float/2addr v2, v1
+
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getTop()I
+
+    move-result v1
+
+    int-to-float v3, v0
+
+    mul-float/2addr v3, v2
+
+    float-to-int v2, v3
+
+    add-int/2addr v1, v2
+
+    invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->setBottom(I)V
+
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getHeight()I
+
+    move-result v1
+
+    sub-int/2addr v0, v1
+
+    div-int/lit8 v0, v0, 0x2
+
+    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->setScrollY(I)V
 
     return-void
 .end method
@@ -1212,6 +1289,14 @@
     const/4 p0, 0x0
 
     throw p0
+.end method
+
+.method public getSquishinessFraction()F
+    .locals 0
+
+    iget p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->squishinessFraction:F
+
+    return p0
 .end method
 
 .method protected handleStateChanged(Lcom/android/systemui/plugins/qs/QSTile$State;)V
@@ -1681,7 +1766,7 @@
 .method public init(Lcom/android/systemui/plugins/qs/QSTile;)V
     .locals 2
 
-    const-string/jumbo v0, "tile"
+    const-string v0, "tile"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
@@ -1864,27 +1949,8 @@
 
     invoke-super/range {p0 .. p5}, Landroid/widget/LinearLayout;->onLayout(ZIIII)V
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getHeightOverride()I
+    invoke-direct {p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->updateHeight()V
 
-    move-result p1
-
-    const/4 p2, -0x1
-
-    if-eq p1, p2, :cond_0
-
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getTop()I
-
-    move-result p1
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getHeightOverride()I
-
-    move-result p2
-
-    add-int/2addr p1, p2
-
-    invoke-virtual {p0, p1}, Landroid/widget/LinearLayout;->setBottom(I)V
-
-    :cond_0
     return-void
 .end method
 
@@ -1905,9 +1971,13 @@
 .end method
 
 .method public resetOverride()V
-    .locals 0
+    .locals 1
 
-    invoke-static {p0}, Lcom/android/systemui/qs/tileimpl/HeightOverrideable$DefaultImpls;->resetOverride(Lcom/android/systemui/qs/tileimpl/HeightOverrideable;)V
+    const/4 v0, -0x1
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->setHeightOverride(I)V
+
+    invoke-direct {p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->updateHeight()V
 
     return-void
 .end method
@@ -1970,9 +2040,18 @@
 .end method
 
 .method public setHeightOverride(I)V
-    .locals 0
+    .locals 1
 
+    iget v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->heightOverride:I
+
+    if-ne v0, p1, :cond_0
+
+    return-void
+
+    :cond_0
     iput p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->heightOverride:I
+
+    invoke-direct {p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->updateHeight()V
 
     return-void
 .end method
@@ -1986,6 +2065,30 @@
 
     iput-object p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->secondaryLabel:Landroid/widget/TextView;
 
+    return-void
+.end method
+
+.method public setShouldBlockVisibilityChanges(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->blockVisibilityChanges:Z
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getVisibility()I
+
+    move-result p1
+
+    iput p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->lastVisibility:I
+
+    goto :goto_0
+
+    :cond_0
+    iget p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->lastVisibility:I
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->setVisibility(I)V
+
+    :goto_0
     return-void
 .end method
 
@@ -2005,6 +2108,69 @@
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     iput-object p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->sideView:Landroid/view/ViewGroup;
+
+    return-void
+.end method
+
+.method public setSquishinessFraction(F)V
+    .locals 1
+
+    iget v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->squishinessFraction:F
+
+    cmpg-float v0, v0, p1
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    if-eqz v0, :cond_1
+
+    return-void
+
+    :cond_1
+    iput p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->squishinessFraction:F
+
+    invoke-direct {p0}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->updateHeight()V
+
+    return-void
+.end method
+
+.method public setTransitionVisibility(I)V
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->blockVisibilityChanges:Z
+
+    if-eqz v0, :cond_0
+
+    iput p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->lastVisibility:I
+
+    return-void
+
+    :cond_0
+    invoke-super {p0, p1}, Landroid/widget/LinearLayout;->setTransitionVisibility(I)V
+
+    return-void
+.end method
+
+.method public setVisibility(I)V
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->blockVisibilityChanges:Z
+
+    if-eqz v0, :cond_0
+
+    iput p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->lastVisibility:I
+
+    return-void
+
+    :cond_0
+    invoke-super {p0, p1}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
     return-void
 .end method

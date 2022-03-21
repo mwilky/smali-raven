@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/util/sensors/ThresholdSensorImpl$Builder;
+.class public Lcom/android/systemui/util/sensors/ThresholdSensorImpl$Builder;
 .super Ljava/lang/Object;
 .source "ThresholdSensorImpl.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "Builder"
 .end annotation
 
@@ -131,7 +131,7 @@
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
-    invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 

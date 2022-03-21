@@ -48,24 +48,6 @@
         <item quantity="few">Netinkamas SIM kortelės PUK kodas. Liko %d bandymai. Paskui visiškai nebegalėsite naudoti SIM kortelės.</item>
         <item quantity="many">Netinkamas SIM kortelės PUK kodas. Liko %d bandymo. Paskui visiškai nebegalėsite naudoti SIM kortelės.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">Įrenginys nebuvo atrakintas %d valandų. Patvirtinkite slaptažodį.</item>
-        <item quantity="one">Įrenginys nebuvo atrakintas %d valandą. Patvirtinkite slaptažodį.</item>
-        <item quantity="few">Įrenginys nebuvo atrakintas %d valandas. Patvirtinkite slaptažodį.</item>
-        <item quantity="many">Įrenginys nebuvo atrakintas %d valandos. Patvirtinkite slaptažodį.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">Įrenginys nebuvo atrakintas %d valandų. Patvirtinkite atrakinimo piešinį.</item>
-        <item quantity="one">Įrenginys nebuvo atrakintas %d valandą. Patvirtinkite atrakinimo piešinį.</item>
-        <item quantity="few">Įrenginys nebuvo atrakintas %d valandas. Patvirtinkite atrakinimo piešinį.</item>
-        <item quantity="many">Įrenginys nebuvo atrakintas %d valandos. Patvirtinkite atrakinimo piešinį.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">Įrenginys nebuvo atrakintas %d valandų. Patvirtinkite PIN kodą.</item>
-        <item quantity="one">Įrenginys nebuvo atrakintas %d valandą. Patvirtinkite PIN kodą.</item>
-        <item quantity="few">Įrenginys nebuvo atrakintas %d valandas. Patvirtinkite PIN kodą.</item>
-        <item quantity="many">Įrenginys nebuvo atrakintas %d valandos. Patvirtinkite PIN kodą.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">Bandykite dar kartą po %d sekundžių.</item>
         <item quantity="one">Bandykite dar kartą po %d sekundės.</item>

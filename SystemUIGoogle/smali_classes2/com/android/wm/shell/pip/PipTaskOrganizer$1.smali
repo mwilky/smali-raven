@@ -194,11 +194,15 @@
     :goto_0
     iget-object p3, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer$1;->this$0:Lcom/android/wm/shell/pip/PipTaskOrganizer;
 
-    invoke-static {p3}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->access$700(Lcom/android/wm/shell/pip/PipTaskOrganizer;)Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    invoke-static {p3}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->access$700(Lcom/android/wm/shell/pip/PipTaskOrganizer;)Lcom/android/wm/shell/pip/PipTransitionState;
 
     move-result-object p3
 
-    sget-object v2, Lcom/android/wm/shell/pip/PipTaskOrganizer$State;->EXITING_PIP:Lcom/android/wm/shell/pip/PipTaskOrganizer$State;
+    invoke-virtual {p3}, Lcom/android/wm/shell/pip/PipTransitionState;->getTransitionState()I
+
+    move-result p3
+
+    const/4 v2, 0x5
 
     if-ne p3, v2, :cond_4
 

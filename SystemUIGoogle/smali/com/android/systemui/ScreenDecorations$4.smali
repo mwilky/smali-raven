@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/ScreenDecorations;->createOverlay(I)V
+    value = Lcom/android/systemui/ScreenDecorations;->createOverlay(ILandroid/view/DisplayCutout;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

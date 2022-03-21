@@ -32,18 +32,6 @@
         <item quantity="other">Clé PUK de la carte SIM incorrecte. Il vous reste %d tentatives avant que votre carte SIM ne devienne définitivement inutilisable.</item>
         <item quantity="one">Clé PUK de la carte SIM incorrecte. Il vous reste %d tentative avant que votre carte SIM ne devienne définitivement inutilisable.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">"L'appareil n'a pas été déverrouillé depuis %d heures. Confirmez le mot de passe."</item>
-        <item quantity="one">"L'appareil n'a pas été déverrouillé depuis %d heure. Confirmez le mot de passe."</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">"L'appareil n'a pas été déverrouillé depuis %d heures. Confirmez le schéma."</item>
-        <item quantity="one">"L'appareil n'a pas été déverrouillé depuis %d heure. Confirmez le schéma."</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">"L'appareil n'a pas été déverrouillé depuis %d heures. Confirmez le code."</item>
-        <item quantity="one">"L'appareil n'a pas été déverrouillé depuis %d heure. Confirmez le code."</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">Réessayez dans %d secondes.</item>
         <item quantity="one">Réessayez dans %d seconde.</item>

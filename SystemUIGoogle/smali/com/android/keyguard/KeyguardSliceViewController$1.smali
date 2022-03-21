@@ -50,7 +50,7 @@
     return-void
 .end method
 
-.method public onOverlayChanged()V
+.method public onThemeChanged()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardSliceViewController$1;->this$0:Lcom/android/keyguard/KeyguardSliceViewController;

@@ -12,6 +12,9 @@
     return p0
 .end method
 
+.method public abstract onDragSuccess(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+.end method
+
 .method public abstract onNotificationClicked(Landroid/service/notification/StatusBarNotification;Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;)V
 .end method
 

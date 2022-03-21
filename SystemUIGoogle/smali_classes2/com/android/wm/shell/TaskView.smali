@@ -31,6 +31,8 @@
 
 .field private mSurfaceCreated:Z
 
+.field private final mSyncQueue:Lcom/android/wm/shell/common/SyncTransactionQueue;
+
 .field private mTaskInfo:Landroid/app/ActivityManager$RunningTaskInfo;
 
 .field private mTaskLeash:Landroid/view/SurfaceControl;
@@ -49,10 +51,18 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$DR69fHp-JcyhT-nGaWm4B3rOUKw(Lcom/android/wm/shell/TaskView;ILandroid/content/ComponentName;)V
+.method public static synthetic $r8$lambda$0gcKCG8bIq-9bFn_jA0PYbHL17A(Lcom/android/wm/shell/TaskView;ILandroid/view/SurfaceControl$Transaction;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/wm/shell/TaskView;->lambda$onTaskAppeared$4(ILandroid/content/ComponentName;)V
+    invoke-direct {p0, p1, p2}, Lcom/android/wm/shell/TaskView;->lambda$onTaskAppeared$5(ILandroid/view/SurfaceControl$Transaction;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$68fbTwrwIuqW3KQ1SIMm8uHY-EE(Lcom/android/wm/shell/TaskView;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/wm/shell/TaskView;->lambda$surfaceCreated$10()V
 
     return-void
 .end method
@@ -65,26 +75,34 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$Hm4Fz9kSOjYyKRyfVWnxZ-MK7Lk(Lcom/android/wm/shell/TaskView;I)V
+.method public static synthetic $r8$lambda$FzhQeK4zisjrfq5F8BnMfXw6ipI(Lcom/android/wm/shell/TaskView;ILandroid/view/SurfaceControl$Transaction;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/wm/shell/TaskView;->lambda$onBackPressedOnTaskRoot$6(I)V
+    invoke-direct {p0, p1, p2}, Lcom/android/wm/shell/TaskView;->lambda$updateTaskVisibility$4(ILandroid/view/SurfaceControl$Transaction;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$Qt9euhM2L1QPAFyAHU1Pbi2emQc(Lcom/android/wm/shell/TaskView;)V
+.method public static synthetic $r8$lambda$cg3PbrUIUMCTEvDPvu-OUPjsetY(Lcom/android/wm/shell/TaskView;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/wm/shell/TaskView;->lambda$surfaceCreated$7()V
+    invoke-direct {p0}, Lcom/android/wm/shell/TaskView;->lambda$surfaceCreated$9()V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$U09OMreLXlp6UrntKA3xt8O9WA4(Lcom/android/wm/shell/TaskView;)V
+.method public static synthetic $r8$lambda$dDb4GjX0ndicg_NlgvyhxCUJyBU(Lcom/android/wm/shell/TaskView;I)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/wm/shell/TaskView;->lambda$surfaceDestroyed$9()V
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/TaskView;->lambda$onBackPressedOnTaskRoot$8(I)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$fnvLu4oEarq1AfXWtNY2w2aTJig(Lcom/android/wm/shell/TaskView;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/wm/shell/TaskView;->lambda$surfaceDestroyed$11()V
 
     return-void
 .end method
@@ -93,14 +111,6 @@
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/wm/shell/TaskView;->lambda$prepareActivityOptions$0(Landroid/os/Binder;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$gzXtlYCczHfnmBZuL3KtOGtmxpo(Lcom/android/wm/shell/TaskView;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/wm/shell/TaskView;->lambda$surfaceCreated$8()V
 
     return-void
 .end method
@@ -121,15 +131,23 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$yaX_0PFtXrifdHGmoVvwNyd25zs(Lcom/android/wm/shell/TaskView;I)V
+.method public static synthetic $r8$lambda$wIMfXd186u0mtw6Tr-CMjgYxVS0(Lcom/android/wm/shell/TaskView;ILandroid/content/ComponentName;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/wm/shell/TaskView;->lambda$onTaskVanished$5(I)V
+    invoke-direct {p0, p1, p2}, Lcom/android/wm/shell/TaskView;->lambda$onTaskAppeared$6(ILandroid/content/ComponentName;)V
 
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Lcom/android/wm/shell/ShellTaskOrganizer;)V
+.method public static synthetic $r8$lambda$xYuRP3T2DPsFhL-FuvZ4xw7znHM(Lcom/android/wm/shell/TaskView;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/TaskView;->lambda$onTaskVanished$7(I)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Lcom/android/wm/shell/ShellTaskOrganizer;Lcom/android/wm/shell/common/SyncTransactionQueue;)V
     .locals 6
 
     const/4 v2, 0x0
@@ -184,6 +202,8 @@
 
     iput-object p2, p0, Lcom/android/wm/shell/TaskView;->mShellExecutor:Ljava/util/concurrent/Executor;
 
+    iput-object p3, p0, Lcom/android/wm/shell/TaskView;->mSyncQueue:Lcom/android/wm/shell/common/SyncTransactionQueue;
+
     invoke-virtual {p0}, Landroid/view/SurfaceView;->setUseAlpha()V
 
     invoke-virtual {p0}, Landroid/view/SurfaceView;->getHolder()Landroid/view/SurfaceHolder;
@@ -199,7 +219,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$onBackPressedOnTaskRoot$6(I)V
+.method private synthetic lambda$onBackPressedOnTaskRoot$8(I)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/TaskView;->mListener:Lcom/android/wm/shell/TaskView$Listener;
@@ -209,7 +229,15 @@
     return-void
 .end method
 
-.method private synthetic lambda$onTaskAppeared$4(ILandroid/content/ComponentName;)V
+.method private synthetic lambda$onTaskAppeared$5(ILandroid/view/SurfaceControl$Transaction;)V
+    .locals 0
+
+    invoke-virtual {p0, p2, p1}, Landroid/view/SurfaceView;->setResizeBackgroundColor(Landroid/view/SurfaceControl$Transaction;I)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$onTaskAppeared$6(ILandroid/content/ComponentName;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/TaskView;->mListener:Lcom/android/wm/shell/TaskView$Listener;
@@ -219,7 +247,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$onTaskVanished$5(I)V
+.method private synthetic lambda$onTaskVanished$7(I)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/TaskView;->mListener:Lcom/android/wm/shell/TaskView$Listener;
@@ -261,17 +289,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$surfaceCreated$7()V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/wm/shell/TaskView;->mListener:Lcom/android/wm/shell/TaskView$Listener;
-
-    invoke-interface {p0}, Lcom/android/wm/shell/TaskView$Listener;->onInitialized()V
-
-    return-void
-.end method
-
-.method private synthetic lambda$surfaceCreated$8()V
+.method private synthetic lambda$surfaceCreated$10()V
     .locals 3
 
     iget-object v0, p0, Lcom/android/wm/shell/TaskView;->mTaskToken:Landroid/window/WindowContainerToken;
@@ -306,7 +324,17 @@
     return-void
 .end method
 
-.method private synthetic lambda$surfaceDestroyed$9()V
+.method private synthetic lambda$surfaceCreated$9()V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/wm/shell/TaskView;->mListener:Lcom/android/wm/shell/TaskView$Listener;
+
+    invoke-interface {p0}, Lcom/android/wm/shell/TaskView$Listener;->onInitialized()V
+
+    return-void
+.end method
+
+.method private synthetic lambda$surfaceDestroyed$11()V
     .locals 3
 
     iget-object v0, p0, Lcom/android/wm/shell/TaskView;->mTaskToken:Landroid/window/WindowContainerToken;
@@ -345,6 +373,20 @@
     return-void
 .end method
 
+.method private synthetic lambda$updateTaskVisibility$4(ILandroid/view/SurfaceControl$Transaction;)V
+    .locals 1
+
+    iget-object p2, p0, Lcom/android/wm/shell/TaskView;->mListenerExecutor:Ljava/util/concurrent/Executor;
+
+    new-instance v0, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda8;
+
+    invoke-direct {v0, p0, p1}, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda8;-><init>(Lcom/android/wm/shell/TaskView;I)V
+
+    invoke-interface {p2, v0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+
+    return-void
+.end method
+
 .method private performRelease()V
     .locals 2
 
@@ -356,9 +398,9 @@
 
     iget-object v0, p0, Lcom/android/wm/shell/TaskView;->mShellExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v1, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda4;
+    new-instance v1, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda6;
 
-    invoke-direct {v1, p0}, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda4;-><init>(Lcom/android/wm/shell/TaskView;)V
+    invoke-direct {v1, p0}, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda6;-><init>(Lcom/android/wm/shell/TaskView;)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -376,9 +418,9 @@
 
     iget-object v0, p0, Lcom/android/wm/shell/TaskView;->mListenerExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v1, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda3;
 
-    invoke-direct {v1, p0}, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda0;-><init>(Lcom/android/wm/shell/TaskView;)V
+    invoke-direct {v1, p0}, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda3;-><init>(Lcom/android/wm/shell/TaskView;)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -399,9 +441,9 @@
 
     iget-object v1, p0, Lcom/android/wm/shell/TaskView;->mShellExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v2, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda9;
+    new-instance v2, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda11;
 
-    invoke-direct {v2, p0, v0}, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda9;-><init>(Lcom/android/wm/shell/TaskView;Landroid/os/Binder;)V
+    invoke-direct {v2, p0, v0}, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda11;-><init>(Lcom/android/wm/shell/TaskView;Landroid/os/Binder;)V
 
     invoke-interface {v1, v2}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -449,27 +491,29 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/window/WindowContainerTransaction;->setHidden(Landroid/window/WindowContainerToken;Z)Landroid/window/WindowContainerTransaction;
 
-    iget-object v1, p0, Lcom/android/wm/shell/TaskView;->mTaskOrganizer:Lcom/android/wm/shell/ShellTaskOrganizer;
+    iget-object v1, p0, Lcom/android/wm/shell/TaskView;->mSyncQueue:Lcom/android/wm/shell/common/SyncTransactionQueue;
 
-    invoke-virtual {v1, v0}, Landroid/window/TaskOrganizer;->applyTransaction(Landroid/window/WindowContainerTransaction;)V
+    invoke-virtual {v1, v0}, Lcom/android/wm/shell/common/SyncTransactionQueue;->queue(Landroid/window/WindowContainerTransaction;)V
 
     iget-object v0, p0, Lcom/android/wm/shell/TaskView;->mListener:Lcom/android/wm/shell/TaskView$Listener;
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
+    return-void
+
+    :cond_0
     iget-object v0, p0, Lcom/android/wm/shell/TaskView;->mTaskInfo:Landroid/app/ActivityManager$RunningTaskInfo;
 
     iget v0, v0, Landroid/app/ActivityManager$RunningTaskInfo;->taskId:I
 
-    iget-object v1, p0, Lcom/android/wm/shell/TaskView;->mListenerExecutor:Ljava/util/concurrent/Executor;
+    iget-object v1, p0, Lcom/android/wm/shell/TaskView;->mSyncQueue:Lcom/android/wm/shell/common/SyncTransactionQueue;
 
-    new-instance v2, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda6;
+    new-instance v2, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda1;
 
-    invoke-direct {v2, p0, v0}, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda6;-><init>(Lcom/android/wm/shell/TaskView;I)V
+    invoke-direct {v2, p0, v0}, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda1;-><init>(Lcom/android/wm/shell/TaskView;I)V
 
-    invoke-interface {v1, v2}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+    invoke-virtual {v1, v2}, Lcom/android/wm/shell/common/SyncTransactionQueue;->runInSync(Lcom/android/wm/shell/common/SyncTransactionQueue$TransactionRunnable;)V
 
-    :cond_0
     return-void
 .end method
 
@@ -614,9 +658,9 @@
 
     iget-object v0, p0, Lcom/android/wm/shell/TaskView;->mListenerExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v1, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda5;
+    new-instance v1, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda7;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda5;-><init>(Lcom/android/wm/shell/TaskView;I)V
+    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda7;-><init>(Lcom/android/wm/shell/TaskView;I)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -792,9 +836,9 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/window/WindowContainerTransaction;->setBounds(Landroid/window/WindowContainerToken;Landroid/graphics/Rect;)Landroid/window/WindowContainerTransaction;
 
-    iget-object p0, p0, Lcom/android/wm/shell/TaskView;->mTaskOrganizer:Lcom/android/wm/shell/ShellTaskOrganizer;
+    iget-object p0, p0, Lcom/android/wm/shell/TaskView;->mSyncQueue:Lcom/android/wm/shell/common/SyncTransactionQueue;
 
-    invoke-virtual {p0, v0}, Landroid/window/TaskOrganizer;->applyTransaction(Landroid/window/WindowContainerTransaction;)V
+    invoke-virtual {p0, v0}, Lcom/android/wm/shell/common/SyncTransactionQueue;->queue(Landroid/window/WindowContainerTransaction;)V
 
     return-void
 .end method
@@ -856,7 +900,13 @@
 
     move-result p2
 
-    invoke-virtual {p0, p2}, Landroid/view/SurfaceView;->setResizeBackgroundColor(I)V
+    iget-object v0, p0, Lcom/android/wm/shell/TaskView;->mSyncQueue:Lcom/android/wm/shell/common/SyncTransactionQueue;
+
+    new-instance v1, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p0, p2}, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda0;-><init>(Lcom/android/wm/shell/TaskView;I)V
+
+    invoke-virtual {v0, v1}, Lcom/android/wm/shell/common/SyncTransactionQueue;->runInSync(Lcom/android/wm/shell/common/SyncTransactionQueue$TransactionRunnable;)V
 
     :cond_1
     iget-object p2, p0, Lcom/android/wm/shell/TaskView;->mListener:Lcom/android/wm/shell/TaskView$Listener;
@@ -869,9 +919,9 @@
 
     iget-object v0, p0, Lcom/android/wm/shell/TaskView;->mListenerExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v1, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda8;
+    new-instance v1, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda10;
 
-    invoke-direct {v1, p0, p2, p1}, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda8;-><init>(Lcom/android/wm/shell/TaskView;ILandroid/content/ComponentName;)V
+    invoke-direct {v1, p0, p2, p1}, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda10;-><init>(Lcom/android/wm/shell/TaskView;ILandroid/content/ComponentName;)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -922,9 +972,9 @@
 
     iget-object v0, p0, Lcom/android/wm/shell/TaskView;->mListenerExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v1, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda7;
+    new-instance v1, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda9;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda7;-><init>(Lcom/android/wm/shell/TaskView;I)V
+    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda9;-><init>(Lcom/android/wm/shell/TaskView;I)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -1107,18 +1157,18 @@
 
     iget-object p1, p0, Lcom/android/wm/shell/TaskView;->mListenerExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v0, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda4;
 
-    invoke-direct {v0, p0}, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda1;-><init>(Lcom/android/wm/shell/TaskView;)V
+    invoke-direct {v0, p0}, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda4;-><init>(Lcom/android/wm/shell/TaskView;)V
 
     invoke-interface {p1, v0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
     :cond_0
     iget-object p1, p0, Lcom/android/wm/shell/TaskView;->mShellExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v0, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda3;
+    new-instance v0, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda2;
 
-    invoke-direct {v0, p0}, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda3;-><init>(Lcom/android/wm/shell/TaskView;)V
+    invoke-direct {v0, p0}, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda2;-><init>(Lcom/android/wm/shell/TaskView;)V
 
     invoke-interface {p1, v0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -1134,9 +1184,9 @@
 
     iget-object p1, p0, Lcom/android/wm/shell/TaskView;->mShellExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v0, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda2;
+    new-instance v0, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda5;
 
-    invoke-direct {v0, p0}, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda2;-><init>(Lcom/android/wm/shell/TaskView;)V
+    invoke-direct {v0, p0}, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda5;-><init>(Lcom/android/wm/shell/TaskView;)V
 
     invoke-interface {p1, v0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 

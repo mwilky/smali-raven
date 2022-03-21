@@ -4,6 +4,12 @@
 
 
 # annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lkotlinx/coroutines/channels/SendChannel$DefaultImpls;
+    }
+.end annotation
+
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<E:",
@@ -15,6 +21,17 @@
 
 
 # virtual methods
+.method public abstract close(Ljava/lang/Throwable;)Z
+.end method
+
+.method public abstract offer(Ljava/lang/Object;)Z
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(TE;)Z"
+        }
+    .end annotation
+.end method
+
 .method public abstract send(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {

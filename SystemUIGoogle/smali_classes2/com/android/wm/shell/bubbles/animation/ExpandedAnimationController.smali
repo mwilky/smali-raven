@@ -16,15 +16,11 @@
 
 .field private mBubbleDraggedOutEnough:Z
 
-.field private mBubblePaddingTop:F
-
 .field private mBubbleSizePx:F
 
-.field private mBubblesMaxRendered:I
+.field private mBubbleStackView:Lcom/android/wm/shell/bubbles/BubbleStackView;
 
 .field private mCollapsePoint:Landroid/graphics/PointF;
-
-.field private mExpandedViewPadding:I
 
 .field private mLeadBubbleEndAction:Ljava/lang/Runnable;
 
@@ -43,8 +39,6 @@
 .field private mPositioner:Lcom/android/wm/shell/bubbles/BubblePositioner;
 
 .field private mPreparingToCollapse:Z
-
-.field private mSpaceBetweenBubbles:F
 
 .field private mSpringToTouchOnNextMotionEvent:Z
 
@@ -94,15 +88,15 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$n7KjySQ-Y90wiVvZj-qLYIvD0yA(ILcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;)V
+.method public static synthetic $r8$lambda$jewmcnBLr3GjSFhvncFEpa7Zt1g(ILcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;)V
     .locals 0
 
-    invoke-static {p0, p1}, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->lambda$onActiveControllerForLayout$6(ILcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;)V
+    invoke-static {p0, p1}, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->lambda$onActiveControllerForLayout$5(ILcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;)V
 
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/wm/shell/bubbles/BubblePositioner;ILjava/lang/Runnable;)V
+.method public constructor <init>(Lcom/android/wm/shell/bubbles/BubblePositioner;Ljava/lang/Runnable;Lcom/android/wm/shell/bubbles/BubbleStackView;)V
     .locals 3
 
     invoke-direct {p0}, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsAnimationController;-><init>()V
@@ -135,9 +129,7 @@
 
     invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->updateResources()V
 
-    iput p2, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mExpandedViewPadding:I
-
-    iput-object p3, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mOnBubbleAnimatedOutAction:Ljava/lang/Runnable;
+    iput-object p2, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mOnBubbleAnimatedOutAction:Ljava/lang/Runnable;
 
     iget-object p1, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mPositioner:Lcom/android/wm/shell/bubbles/BubblePositioner;
 
@@ -146,6 +138,8 @@
     move-result-object p1
 
     iput-object p1, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mCollapsePoint:Landroid/graphics/PointF;
+
+    iput-object p3, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mBubbleStackView:Lcom/android/wm/shell/bubbles/BubbleStackView;
 
     return-void
 .end method
@@ -158,7 +152,7 @@
     return p0
 .end method
 
-.method private static synthetic lambda$onActiveControllerForLayout$6(ILcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;)V
+.method private static synthetic lambda$onActiveControllerForLayout$5(ILcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;)V
     .locals 2
 
     const/4 p0, 0x0
@@ -249,7 +243,7 @@
 .end method
 
 .method private synthetic lambda$startOrUpdatePathAnimation$3(ZILcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;)V
-    .locals 8
+    .locals 7
 
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsAnimationController;->mLayout:Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout;
 
@@ -273,155 +267,82 @@
 
     iget-object v2, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mPositioner:Lcom/android/wm/shell/bubbles/BubblePositioner;
 
-    invoke-virtual {v2}, Lcom/android/wm/shell/bubbles/BubblePositioner;->showBubblesVertically()Z
+    iget-object v3, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mBubbleStackView:Lcom/android/wm/shell/bubbles/BubbleStackView;
 
-    move-result v2
+    invoke-virtual {v3}, Lcom/android/wm/shell/bubbles/BubbleStackView;->getState()Lcom/android/wm/shell/bubbles/BubbleStackView$StackViewState;
 
-    if-eqz v2, :cond_0
+    move-result-object v3
 
-    invoke-virtual {p0, p2}, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->getBubbleXOrYForOrientation(I)F
+    invoke-virtual {v2, p2, v3}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getExpandedBubbleXY(ILcom/android/wm/shell/bubbles/BubbleStackView$StackViewState;)Landroid/graphics/PointF;
 
-    move-result v2
+    move-result-object v2
+
+    const/4 v3, 0x1
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {v0}, Landroid/view/View;->getTranslationX()F
+
+    move-result v4
+
+    iget v5, v2, Landroid/graphics/PointF;->y:F
+
+    invoke-virtual {v1, v4, v5}, Landroid/graphics/Path;->lineTo(FF)V
+
+    iget v4, v2, Landroid/graphics/PointF;->x:F
+
+    iget v2, v2, Landroid/graphics/PointF;->y:F
+
+    invoke-virtual {v1, v4, v2}, Landroid/graphics/Path;->lineTo(FF)V
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->getExpandedY()F
+    iget-object v4, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mCollapsePoint:Landroid/graphics/PointF;
 
-    move-result v2
+    iget v4, v4, Landroid/graphics/PointF;->x:F
 
-    :goto_0
-    const/4 v3, 0x0
+    iget v2, v2, Landroid/graphics/PointF;->y:F
 
-    const/4 v4, 0x1
-
-    if-eqz p1, :cond_4
-
-    invoke-virtual {v0}, Landroid/view/View;->getTranslationX()F
-
-    move-result v5
-
-    invoke-virtual {v1, v5, v2}, Landroid/graphics/Path;->lineTo(FF)V
-
-    iget-object v5, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mPositioner:Lcom/android/wm/shell/bubbles/BubblePositioner;
-
-    invoke-virtual {v5}, Lcom/android/wm/shell/bubbles/BubblePositioner;->showBubblesVertically()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_3
-
-    iget-object v2, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mPositioner:Lcom/android/wm/shell/bubbles/BubblePositioner;
-
-    invoke-virtual {v2}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getAvailableRect()Landroid/graphics/Rect;
-
-    move-result-object v2
-
-    iget-object v5, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mCollapsePoint:Landroid/graphics/PointF;
-
-    if-eqz v5, :cond_1
-
-    iget v5, v5, Landroid/graphics/PointF;->x:F
-
-    invoke-virtual {v2}, Landroid/graphics/Rect;->width()I
-
-    move-result v6
-
-    int-to-float v6, v6
-
-    const/high16 v7, 0x40000000    # 2.0f
-
-    div-float/2addr v6, v7
-
-    cmpg-float v5, v5, v6
-
-    if-gez v5, :cond_1
-
-    move v5, v4
-
-    goto :goto_1
-
-    :cond_1
-    move v5, v3
-
-    :goto_1
-    if-eqz v5, :cond_2
-
-    iget v2, v2, Landroid/graphics/Rect;->left:I
-
-    int-to-float v2, v2
-
-    goto :goto_2
-
-    :cond_2
-    iget v2, v2, Landroid/graphics/Rect;->right:I
-
-    int-to-float v2, v2
-
-    iget v5, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mBubbleSizePx:F
-
-    sub-float/2addr v2, v5
-
-    :goto_2
-    invoke-virtual {p0, p2}, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->getBubbleXOrYForOrientation(I)F
-
-    move-result v5
-
-    invoke-virtual {v1, v2, v5}, Landroid/graphics/Path;->lineTo(FF)V
-
-    goto :goto_3
-
-    :cond_3
-    invoke-virtual {p0, p2}, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->getBubbleXOrYForOrientation(I)F
-
-    move-result v5
-
-    invoke-virtual {v1, v5, v2}, Landroid/graphics/Path;->lineTo(FF)V
-
-    goto :goto_3
-
-    :cond_4
-    iget-object v5, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mCollapsePoint:Landroid/graphics/PointF;
-
-    iget v5, v5, Landroid/graphics/PointF;->x:F
-
-    invoke-virtual {v1, v5, v2}, Landroid/graphics/Path;->lineTo(FF)V
+    invoke-virtual {v1, v4, v2}, Landroid/graphics/Path;->lineTo(FF)V
 
     iget-object v2, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mCollapsePoint:Landroid/graphics/PointF;
 
     iget v2, v2, Landroid/graphics/PointF;->y:F
 
-    invoke-static {p2, v4}, Ljava/lang/Math;->min(II)I
+    invoke-static {p2, v3}, Ljava/lang/Math;->min(II)I
 
-    move-result v6
+    move-result v5
 
-    int-to-float v6, v6
+    int-to-float v5, v5
 
-    iget v7, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mStackOffsetPx:F
+    iget v6, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mStackOffsetPx:F
 
-    mul-float/2addr v6, v7
+    mul-float/2addr v5, v6
 
-    add-float/2addr v2, v6
+    add-float/2addr v2, v5
 
-    invoke-virtual {v1, v5, v2}, Landroid/graphics/Path;->lineTo(FF)V
+    invoke-virtual {v1, v4, v2}, Landroid/graphics/Path;->lineTo(FF)V
 
-    :goto_3
-    if-eqz p1, :cond_5
+    :goto_0
+    const/4 v2, 0x0
 
-    iget-object v2, p0, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsAnimationController;->mLayout:Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout;
+    if-eqz p1, :cond_1
+
+    iget-object v4, p0, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsAnimationController;->mLayout:Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout;
 
     invoke-virtual {v0}, Landroid/view/View;->getTranslationX()F
 
     move-result v0
 
-    invoke-virtual {v2, v0}, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout;->isFirstChildXLeftOfCenter(F)Z
+    invoke-virtual {v4, v0}, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout;->isFirstChildXLeftOfCenter(F)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_2
 
-    :cond_5
-    if-nez p1, :cond_7
+    :cond_1
+    if-nez p1, :cond_3
 
     iget-object p1, p0, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsAnimationController;->mLayout:Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout;
 
@@ -433,24 +354,24 @@
 
     move-result p1
 
-    if-eqz p1, :cond_7
+    if-eqz p1, :cond_3
 
-    :cond_6
-    move p1, v4
-
-    goto :goto_4
-
-    :cond_7
+    :cond_2
     move p1, v3
 
-    :goto_4
-    if-eqz p1, :cond_8
+    goto :goto_1
+
+    :cond_3
+    move p1, v2
+
+    :goto_1
+    if-eqz p1, :cond_4
 
     mul-int/lit8 v0, p2, 0xa
 
-    goto :goto_5
+    goto :goto_2
 
-    :cond_8
+    :cond_4
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsAnimationController;->mLayout:Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout;
 
     invoke-virtual {v0}, Landroid/widget/FrameLayout;->getChildCount()I
@@ -461,13 +382,13 @@
 
     mul-int/lit8 v0, v0, 0xa
 
-    :goto_5
-    if-eqz p1, :cond_9
+    :goto_2
+    if-eqz p1, :cond_5
 
-    if-eqz p2, :cond_a
+    if-eqz p2, :cond_6
 
-    :cond_9
-    if-nez p1, :cond_b
+    :cond_5
+    if-nez p1, :cond_7
 
     iget-object p1, p0, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsAnimationController;->mLayout:Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout;
 
@@ -475,46 +396,46 @@
 
     move-result p1
 
-    sub-int/2addr p1, v4
+    sub-int/2addr p1, v3
 
-    if-ne p2, p1, :cond_b
+    if-ne p2, p1, :cond_7
 
-    :cond_a
-    move p1, v4
-
-    goto :goto_6
-
-    :cond_b
+    :cond_6
     move p1, v3
 
-    :goto_6
+    goto :goto_3
+
+    :cond_7
+    move p1, v2
+
+    :goto_3
     const/16 p2, 0xaf
 
-    sget-object v2, Lcom/android/wm/shell/animation/Interpolators;->LINEAR:Landroid/view/animation/Interpolator;
+    sget-object v4, Lcom/android/wm/shell/animation/Interpolators;->LINEAR:Landroid/view/animation/Interpolator;
 
     const/4 v5, 0x2
 
     new-array v5, v5, [Ljava/lang/Runnable;
 
-    if-eqz p1, :cond_c
+    if-eqz p1, :cond_8
 
     iget-object p1, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mLeadBubbleEndAction:Ljava/lang/Runnable;
 
-    goto :goto_7
+    goto :goto_4
 
-    :cond_c
+    :cond_8
     const/4 p1, 0x0
 
-    :goto_7
-    aput-object p1, v5, v3
+    :goto_4
+    aput-object p1, v5, v2
 
     new-instance p1, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController$$ExternalSyntheticLambda4;
 
     invoke-direct {p1, p0}, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController$$ExternalSyntheticLambda4;-><init>(Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;)V
 
-    aput-object p1, v5, v4
+    aput-object p1, v5, v3
 
-    invoke-virtual {p3, v1, p2, v2, v5}, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;->followAnimatedTargetAlongPath(Landroid/graphics/Path;ILandroid/animation/TimeInterpolator;[Ljava/lang/Runnable;)Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;
+    invoke-virtual {p3, v1, p2, v4, v5}, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;->followAnimatedTargetAlongPath(Landroid/graphics/Path;ILandroid/animation/TimeInterpolator;[Ljava/lang/Runnable;)Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;
 
     move-result-object p0
 
@@ -604,17 +525,17 @@
 .end method
 
 .method private updateBubblePositions()V
-    .locals 7
+    .locals 6
 
     iget-boolean v0, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mAnimatingExpand:Z
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_2
 
     iget-boolean v0, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mAnimatingCollapse:Z
 
     if-eqz v0, :cond_0
 
-    goto/16 :goto_4
+    goto :goto_1
 
     :cond_0
     const/4 v0, 0x0
@@ -628,7 +549,7 @@
 
     move-result v2
 
-    if-ge v1, v2, :cond_5
+    if-ge v1, v2, :cond_2
 
     iget-object v2, p0, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsAnimationController;->mLayout:Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout;
 
@@ -651,77 +572,29 @@
     :cond_1
     iget-object v3, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mPositioner:Lcom/android/wm/shell/bubbles/BubblePositioner;
 
-    invoke-virtual {v3}, Lcom/android/wm/shell/bubbles/BubblePositioner;->showBubblesVertically()Z
+    iget-object v4, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mBubbleStackView:Lcom/android/wm/shell/bubbles/BubbleStackView;
 
-    move-result v3
+    invoke-virtual {v4}, Lcom/android/wm/shell/bubbles/BubbleStackView;->getState()Lcom/android/wm/shell/bubbles/BubbleStackView$StackViewState;
 
-    if-eqz v3, :cond_4
+    move-result-object v4
 
-    iget-object v3, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mPositioner:Lcom/android/wm/shell/bubbles/BubblePositioner;
-
-    invoke-virtual {v3}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getAvailableRect()Landroid/graphics/Rect;
+    invoke-virtual {v3, v1, v4}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getExpandedBubbleXY(ILcom/android/wm/shell/bubbles/BubbleStackView$StackViewState;)Landroid/graphics/PointF;
 
     move-result-object v3
 
-    iget-object v4, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mCollapsePoint:Landroid/graphics/PointF;
-
-    if-eqz v4, :cond_2
-
-    iget v4, v4, Landroid/graphics/PointF;->x:F
-
-    invoke-virtual {v3}, Landroid/graphics/Rect;->width()I
-
-    move-result v5
-
-    int-to-float v5, v5
-
-    const/high16 v6, 0x40000000    # 2.0f
-
-    div-float/2addr v5, v6
-
-    cmpg-float v4, v4, v5
-
-    if-gez v4, :cond_2
-
-    const/4 v4, 0x1
-
-    goto :goto_1
-
-    :cond_2
-    move v4, v0
-
-    :goto_1
     invoke-virtual {p0, v2}, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsAnimationController;->animationForChild(Landroid/view/View;)Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;
 
     move-result-object v2
 
-    if-eqz v4, :cond_3
+    iget v4, v3, Landroid/graphics/PointF;->x:F
 
-    iget v3, v3, Landroid/graphics/Rect;->left:I
+    new-array v5, v0, [Ljava/lang/Runnable;
 
-    int-to-float v3, v3
-
-    goto :goto_2
-
-    :cond_3
-    iget v3, v3, Landroid/graphics/Rect;->right:I
-
-    int-to-float v3, v3
-
-    iget v4, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mBubbleSizePx:F
-
-    sub-float/2addr v3, v4
-
-    :goto_2
-    new-array v4, v0, [Ljava/lang/Runnable;
-
-    invoke-virtual {v2, v3, v4}, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;->translationX(F[Ljava/lang/Runnable;)Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;
+    invoke-virtual {v2, v4, v5}, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;->translationX(F[Ljava/lang/Runnable;)Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;
 
     move-result-object v2
 
-    invoke-virtual {p0, v1}, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->getBubbleXOrYForOrientation(I)F
-
-    move-result v3
+    iget v3, v3, Landroid/graphics/PointF;->y:F
 
     new-array v4, v0, [Ljava/lang/Runnable;
 
@@ -733,44 +606,12 @@
 
     invoke-virtual {v2, v3}, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;->start([Ljava/lang/Runnable;)V
 
-    goto :goto_3
-
-    :cond_4
-    invoke-virtual {p0, v2}, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsAnimationController;->animationForChild(Landroid/view/View;)Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;
-
-    move-result-object v2
-
-    invoke-virtual {p0, v1}, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->getBubbleXOrYForOrientation(I)F
-
-    move-result v3
-
-    new-array v4, v0, [Ljava/lang/Runnable;
-
-    invoke-virtual {v2, v3, v4}, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;->translationX(F[Ljava/lang/Runnable;)Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;
-
-    move-result-object v2
-
-    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->getExpandedY()F
-
-    move-result v3
-
-    new-array v4, v0, [Ljava/lang/Runnable;
-
-    invoke-virtual {v2, v3, v4}, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;->translationY(F[Ljava/lang/Runnable;)Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;
-
-    move-result-object v2
-
-    new-array v3, v0, [Ljava/lang/Runnable;
-
-    invoke-virtual {v2, v3}, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;->start([Ljava/lang/Runnable;)V
-
-    :goto_3
     add-int/lit8 v1, v1, 0x1
 
-    goto/16 :goto_0
+    goto :goto_0
 
-    :cond_5
-    :goto_4
+    :cond_2
+    :goto_1
     return-void
 .end method
 
@@ -866,56 +707,20 @@
 .method public dragBubbleOut(Landroid/view/View;FF)V
     .locals 5
 
-    iget-boolean v0, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mSpringToTouchOnNextMotionEvent:Z
-
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
-
-    if-eqz v0, :cond_0
-
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mMagnetizedBubbleDraggingOut:Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject;
 
-    invoke-virtual {v0}, Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject;->getUnderlyingObject()Ljava/lang/Object;
+    if-nez v0, :cond_0
 
-    move-result-object v0
-
-    check-cast v0, Landroid/view/View;
-
-    invoke-direct {p0, v0, p2, p3}, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->springBubbleTo(Landroid/view/View;FF)V
-
-    iput-boolean v2, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mSpringToTouchOnNextMotionEvent:Z
-
-    iput-boolean v1, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mSpringingBubbleToTouch:Z
-
-    goto :goto_0
+    return-void
 
     :cond_0
-    iget-boolean v0, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mSpringingBubbleToTouch:Z
+    iget-boolean v1, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mSpringToTouchOnNextMotionEvent:Z
 
-    if-eqz v0, :cond_2
+    const/4 v2, 0x1
 
-    iget-object v0, p0, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsAnimationController;->mLayout:Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout;
+    const/4 v3, 0x0
 
-    const/4 v3, 0x2
-
-    new-array v3, v3, [Landroidx/dynamicanimation/animation/DynamicAnimation$ViewProperty;
-
-    sget-object v4, Landroidx/dynamicanimation/animation/DynamicAnimation;->TRANSLATION_X:Landroidx/dynamicanimation/animation/DynamicAnimation$ViewProperty;
-
-    aput-object v4, v3, v2
-
-    sget-object v4, Landroidx/dynamicanimation/animation/DynamicAnimation;->TRANSLATION_Y:Landroidx/dynamicanimation/animation/DynamicAnimation$ViewProperty;
-
-    aput-object v4, v3, v1
-
-    invoke-virtual {v0, p1, v3}, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout;->arePropertiesAnimatingOnView(Landroid/view/View;[Landroidx/dynamicanimation/animation/DynamicAnimation$ViewProperty;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mMagnetizedBubbleDraggingOut:Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject;
+    if-eqz v1, :cond_1
 
     invoke-virtual {v0}, Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject;->getUnderlyingObject()Ljava/lang/Object;
 
@@ -924,17 +729,58 @@
     check-cast v0, Landroid/view/View;
 
     invoke-direct {p0, v0, p2, p3}, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->springBubbleTo(Landroid/view/View;FF)V
+
+    iput-boolean v3, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mSpringToTouchOnNextMotionEvent:Z
+
+    iput-boolean v2, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mSpringingBubbleToTouch:Z
 
     goto :goto_0
 
     :cond_1
-    iput-boolean v2, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mSpringingBubbleToTouch:Z
+    iget-boolean v0, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mSpringingBubbleToTouch:Z
+
+    if-eqz v0, :cond_3
+
+    iget-object v0, p0, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsAnimationController;->mLayout:Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout;
+
+    const/4 v1, 0x2
+
+    new-array v1, v1, [Landroidx/dynamicanimation/animation/DynamicAnimation$ViewProperty;
+
+    sget-object v4, Landroidx/dynamicanimation/animation/DynamicAnimation;->TRANSLATION_X:Landroidx/dynamicanimation/animation/DynamicAnimation$ViewProperty;
+
+    aput-object v4, v1, v3
+
+    sget-object v4, Landroidx/dynamicanimation/animation/DynamicAnimation;->TRANSLATION_Y:Landroidx/dynamicanimation/animation/DynamicAnimation$ViewProperty;
+
+    aput-object v4, v1, v2
+
+    invoke-virtual {v0, p1, v1}, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout;->arePropertiesAnimatingOnView(Landroid/view/View;[Landroidx/dynamicanimation/animation/DynamicAnimation$ViewProperty;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mMagnetizedBubbleDraggingOut:Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject;
+
+    invoke-virtual {v0}, Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject;->getUnderlyingObject()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/View;
+
+    invoke-direct {p0, v0, p2, p3}, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->springBubbleTo(Landroid/view/View;FF)V
+
+    goto :goto_0
 
     :cond_2
+    iput-boolean v3, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mSpringingBubbleToTouch:Z
+
+    :cond_3
     :goto_0
     iget-boolean v0, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mSpringingBubbleToTouch:Z
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4
 
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mMagnetizedBubbleDraggingOut:Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject;
 
@@ -942,53 +788,49 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4
 
     invoke-virtual {p1, p2}, Landroid/view/View;->setTranslationX(F)V
 
     invoke-virtual {p1, p3}, Landroid/view/View;->setTranslationY(F)V
 
-    :cond_3
-    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->getExpandedY()F
+    :cond_4
+    iget-object p1, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mPositioner:Lcom/android/wm/shell/bubbles/BubblePositioner;
+
+    invoke-virtual {p1}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getExpandedViewYTopAligned()F
 
     move-result p1
 
     iget p2, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mBubbleSizePx:F
 
-    add-float/2addr p1, p2
+    add-float v0, p1, p2
 
-    cmpl-float p1, p3, p1
+    cmpl-float v0, p3, v0
 
-    if-gtz p1, :cond_5
-
-    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->getExpandedY()F
-
-    move-result p1
-
-    iget p2, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mBubbleSizePx:F
+    if-gtz v0, :cond_6
 
     sub-float/2addr p1, p2
 
     cmpg-float p1, p3, p1
 
-    if-gez p1, :cond_4
+    if-gez p1, :cond_5
 
     goto :goto_1
 
-    :cond_4
-    move v1, v2
-
     :cond_5
+    move v2, v3
+
+    :cond_6
     :goto_1
     iget-boolean p1, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mBubbleDraggedOutEnough:Z
 
-    if-eq v1, p1, :cond_6
+    if-eq v2, p1, :cond_7
 
     invoke-direct {p0}, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->updateBubblePositions()V
 
-    iput-boolean v1, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mBubbleDraggedOutEnough:Z
+    iput-boolean v2, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mBubbleDraggedOutEnough:Z
 
-    :cond_6
+    :cond_7
     return-void
 .end method
 
@@ -1120,95 +962,6 @@
     return-object p0
 .end method
 
-.method public getBubbleXOrYForOrientation(I)F
-    .locals 4
-
-    iget-object v0, p0, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsAnimationController;->mLayout:Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout;
-
-    if-nez v0, :cond_0
-
-    const/4 p0, 0x0
-
-    return p0
-
-    :cond_0
-    int-to-float p1, p1
-
-    iget v0, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mBubbleSizePx:F
-
-    iget v1, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mSpaceBetweenBubbles:F
-
-    add-float/2addr v0, v1
-
-    mul-float/2addr p1, v0
-
-    iget-object v0, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mPositioner:Lcom/android/wm/shell/bubbles/BubblePositioner;
-
-    invoke-virtual {v0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getAvailableRect()Landroid/graphics/Rect;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mPositioner:Lcom/android/wm/shell/bubbles/BubblePositioner;
-
-    invoke-virtual {v1}, Lcom/android/wm/shell/bubbles/BubblePositioner;->showBubblesVertically()Z
-
-    move-result v1
-
-    iget-object v2, p0, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsAnimationController;->mLayout:Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout;
-
-    invoke-virtual {v2}, Landroid/widget/FrameLayout;->getChildCount()I
-
-    move-result v2
-
-    int-to-float v2, v2
-
-    iget v3, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mBubbleSizePx:F
-
-    mul-float/2addr v2, v3
-
-    iget-object v3, p0, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsAnimationController;->mLayout:Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout;
-
-    invoke-virtual {v3}, Landroid/widget/FrameLayout;->getChildCount()I
-
-    move-result v3
-
-    add-int/lit8 v3, v3, -0x1
-
-    int-to-float v3, v3
-
-    iget p0, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mSpaceBetweenBubbles:F
-
-    mul-float/2addr v3, p0
-
-    add-float/2addr v2, v3
-
-    if-eqz v1, :cond_1
-
-    invoke-virtual {v0}, Landroid/graphics/Rect;->centerY()I
-
-    move-result p0
-
-    goto :goto_0
-
-    :cond_1
-    invoke-virtual {v0}, Landroid/graphics/Rect;->centerX()I
-
-    move-result p0
-
-    :goto_0
-    int-to-float p0, p0
-
-    const/high16 v0, 0x40000000    # 2.0f
-
-    div-float/2addr v2, v0
-
-    sub-float/2addr p0, v2
-
-    add-float/2addr p0, p1
-
-    return p0
-.end method
-
 .method public getDraggedOutBubble()Landroid/view/View;
     .locals 0
 
@@ -1229,26 +982,6 @@
 
     :goto_0
     return-object p0
-.end method
-
-.method public getExpandedY()F
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mPositioner:Lcom/android/wm/shell/bubbles/BubblePositioner;
-
-    invoke-virtual {v0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getAvailableRect()Landroid/graphics/Rect;
-
-    move-result-object v0
-
-    iget v0, v0, Landroid/graphics/Rect;->top:I
-
-    int-to-float v0, v0
-
-    iget p0, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mBubblePaddingTop:F
-
-    add-float/2addr v0, p0
-
-    return v0
 .end method
 
 .method public getMagnetizedBubbleDraggingOut()Lcom/android/wm/shell/common/magnetictarget/MagnetizedObject;
@@ -1340,192 +1073,155 @@
 .end method
 
 .method onChildAdded(Landroid/view/View;I)V
-    .locals 6
+    .locals 4
 
     iget-boolean v0, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mAnimatingExpand:Z
 
-    const/4 v1, 0x1
-
     if-eqz v0, :cond_0
 
-    invoke-direct {p0, v1}, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->startOrUpdatePathAnimation(Z)V
+    const/4 p1, 0x1
+
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->startOrUpdatePathAnimation(Z)V
 
     goto/16 :goto_3
 
     :cond_0
     iget-boolean v0, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mAnimatingCollapse:Z
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     if-eqz v0, :cond_1
 
-    invoke-direct {p0, v2}, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->startOrUpdatePathAnimation(Z)V
+    invoke-direct {p0, v1}, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->startOrUpdatePathAnimation(Z)V
 
-    goto/16 :goto_3
+    goto :goto_3
 
     :cond_1
     iget-object v0, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mPositioner:Lcom/android/wm/shell/bubbles/BubblePositioner;
 
-    invoke-virtual {v0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->showBubblesVertically()Z
+    iget-object v2, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mCollapsePoint:Landroid/graphics/PointF;
+
+    invoke-virtual {v0, v2}, Lcom/android/wm/shell/bubbles/BubblePositioner;->isStackOnLeft(Landroid/graphics/PointF;)Z
 
     move-result v0
 
-    const/high16 v3, 0x40800000    # 4.0f
+    iget-object v2, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mPositioner:Lcom/android/wm/shell/bubbles/BubblePositioner;
 
-    if-eqz v0, :cond_5
+    iget-object v3, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mBubbleStackView:Lcom/android/wm/shell/bubbles/BubbleStackView;
 
-    invoke-virtual {p0, p2}, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->getBubbleXOrYForOrientation(I)F
+    invoke-virtual {v3}, Lcom/android/wm/shell/bubbles/BubbleStackView;->getState()Lcom/android/wm/shell/bubbles/BubbleStackView$StackViewState;
 
-    move-result p2
+    move-result-object v3
 
-    invoke-virtual {p1, p2}, Landroid/view/View;->setTranslationY(F)V
-
-    iget-boolean p2, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mPreparingToCollapse:Z
-
-    if-nez p2, :cond_6
-
-    iget-object p2, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mPositioner:Lcom/android/wm/shell/bubbles/BubblePositioner;
-
-    invoke-virtual {p2}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getAvailableRect()Landroid/graphics/Rect;
+    invoke-virtual {v2, p2, v3}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getExpandedBubbleXY(ILcom/android/wm/shell/bubbles/BubbleStackView$StackViewState;)Landroid/graphics/PointF;
 
     move-result-object p2
 
-    iget-object v0, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mCollapsePoint:Landroid/graphics/PointF;
+    iget-object v2, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mPositioner:Lcom/android/wm/shell/bubbles/BubblePositioner;
 
-    if-eqz v0, :cond_2
+    invoke-virtual {v2}, Lcom/android/wm/shell/bubbles/BubblePositioner;->showBubblesVertically()Z
 
-    iget v0, v0, Landroid/graphics/PointF;->x:F
+    move-result v2
 
-    invoke-virtual {p2}, Landroid/graphics/Rect;->width()I
+    if-eqz v2, :cond_2
 
-    move-result v4
+    iget v2, p2, Landroid/graphics/PointF;->y:F
 
-    int-to-float v4, v4
-
-    const/high16 v5, 0x40000000    # 2.0f
-
-    div-float/2addr v4, v5
-
-    cmpg-float v0, v0, v4
-
-    if-gez v0, :cond_2
+    invoke-virtual {p1, v2}, Landroid/view/View;->setTranslationY(F)V
 
     goto :goto_0
 
     :cond_2
-    move v1, v2
+    iget v2, p2, Landroid/graphics/PointF;->x:F
+
+    invoke-virtual {p1, v2}, Landroid/view/View;->setTranslationX(F)V
 
     :goto_0
-    if-eqz v1, :cond_3
+    iget-boolean v2, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mPreparingToCollapse:Z
 
-    iget v0, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mBubbleSizePx:F
+    if-eqz v2, :cond_3
 
-    neg-float v0, v0
+    return-void
 
-    mul-float/2addr v0, v3
+    :cond_3
+    iget-object v2, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mPositioner:Lcom/android/wm/shell/bubbles/BubblePositioner;
+
+    invoke-virtual {v2}, Lcom/android/wm/shell/bubbles/BubblePositioner;->showBubblesVertically()Z
+
+    move-result v2
+
+    const/high16 v3, 0x40800000    # 4.0f
+
+    if-eqz v2, :cond_5
+
+    if-eqz v0, :cond_4
+
+    iget v0, p2, Landroid/graphics/PointF;->x:F
+
+    iget v2, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mBubbleSizePx:F
+
+    mul-float/2addr v2, v3
+
+    sub-float/2addr v0, v2
 
     goto :goto_1
 
-    :cond_3
-    iget v0, p2, Landroid/graphics/Rect;->right:I
+    :cond_4
+    iget v0, p2, Landroid/graphics/PointF;->x:F
 
-    int-to-float v0, v0
+    iget v2, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mBubbleSizePx:F
 
-    iget v4, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mBubbleSizePx:F
+    mul-float/2addr v2, v3
 
-    mul-float/2addr v4, v3
-
-    add-float/2addr v0, v4
+    add-float/2addr v0, v2
 
     :goto_1
-    if-eqz v1, :cond_4
+    invoke-virtual {p0, p1}, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsAnimationController;->animationForChild(Landroid/view/View;)Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;
 
-    iget p2, p2, Landroid/graphics/Rect;->left:I
+    move-result-object p1
 
-    iget v1, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mExpandedViewPadding:I
+    iget p2, p2, Landroid/graphics/PointF;->y:F
 
-    add-int/2addr p2, v1
+    new-array v2, v1, [Ljava/lang/Runnable;
 
-    int-to-float p2, p2
+    invoke-virtual {p1, v0, p2, v2}, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;->translationX(FF[Ljava/lang/Runnable;)Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;
+
+    move-result-object p1
+
+    new-array p2, v1, [Ljava/lang/Runnable;
+
+    invoke-virtual {p1, p2}, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;->start([Ljava/lang/Runnable;)V
 
     goto :goto_2
 
-    :cond_4
-    iget p2, p2, Landroid/graphics/Rect;->right:I
+    :cond_5
+    iget v0, p2, Landroid/graphics/PointF;->y:F
 
-    int-to-float p2, p2
+    iget v2, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mBubbleSizePx:F
 
-    iget v1, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mBubbleSizePx:F
+    mul-float/2addr v2, v3
 
-    sub-float/2addr p2, v1
+    sub-float/2addr v0, v2
 
-    iget v1, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mExpandedViewPadding:I
+    invoke-virtual {p0, p1}, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsAnimationController;->animationForChild(Landroid/view/View;)Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;
 
-    int-to-float v1, v1
+    move-result-object p1
 
-    sub-float/2addr p2, v1
+    iget p2, p2, Landroid/graphics/PointF;->y:F
+
+    new-array v2, v1, [Ljava/lang/Runnable;
+
+    invoke-virtual {p1, v0, p2, v2}, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;->translationY(FF[Ljava/lang/Runnable;)Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;
+
+    move-result-object p1
+
+    new-array p2, v1, [Ljava/lang/Runnable;
+
+    invoke-virtual {p1, p2}, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;->start([Ljava/lang/Runnable;)V
 
     :goto_2
-    invoke-virtual {p0, p1}, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsAnimationController;->animationForChild(Landroid/view/View;)Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;
-
-    move-result-object p1
-
-    new-array v1, v2, [Ljava/lang/Runnable;
-
-    invoke-virtual {p1, v0, p2, v1}, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;->translationX(FF[Ljava/lang/Runnable;)Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;
-
-    move-result-object p1
-
-    new-array p2, v2, [Ljava/lang/Runnable;
-
-    invoke-virtual {p1, p2}, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;->start([Ljava/lang/Runnable;)V
-
     invoke-direct {p0}, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->updateBubblePositions()V
 
-    goto :goto_3
-
-    :cond_5
-    invoke-virtual {p0, p2}, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->getBubbleXOrYForOrientation(I)F
-
-    move-result p2
-
-    invoke-virtual {p1, p2}, Landroid/view/View;->setTranslationX(F)V
-
-    iget-boolean p2, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mPreparingToCollapse:Z
-
-    if-nez p2, :cond_6
-
-    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->getExpandedY()F
-
-    move-result p2
-
-    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->getExpandedY()F
-
-    move-result v0
-
-    iget v1, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mBubbleSizePx:F
-
-    mul-float/2addr v1, v3
-
-    sub-float/2addr v0, v1
-
-    invoke-virtual {p0, p1}, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsAnimationController;->animationForChild(Landroid/view/View;)Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;
-
-    move-result-object p1
-
-    new-array v1, v2, [Ljava/lang/Runnable;
-
-    invoke-virtual {p1, v0, p2, v1}, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;->translationY(FF[Ljava/lang/Runnable;)Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;
-
-    move-result-object p1
-
-    new-array p2, v2, [Ljava/lang/Runnable;
-
-    invoke-virtual {p1, p2}, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;->start([Ljava/lang/Runnable;)V
-
-    invoke-direct {p0}, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->updateBubblePositions()V
-
-    :cond_6
     :goto_3
     return-void
 .end method
@@ -1733,23 +1429,31 @@
 
     move-result v0
 
-    invoke-virtual {p0, v0}, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsAnimationController;->animationForChildAtIndex(I)Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;
+    iget-object v1, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mPositioner:Lcom/android/wm/shell/bubbles/BubblePositioner;
+
+    iget-object v2, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mBubbleStackView:Lcom/android/wm/shell/bubbles/BubbleStackView;
+
+    invoke-virtual {v2}, Lcom/android/wm/shell/bubbles/BubbleStackView;->getState()Lcom/android/wm/shell/bubbles/BubbleStackView$StackViewState;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v0, v2}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getExpandedBubbleXY(ILcom/android/wm/shell/bubbles/BubbleStackView$StackViewState;)Landroid/graphics/PointF;
 
     move-result-object v1
 
-    invoke-virtual {p0, v0}, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->getBubbleXOrYForOrientation(I)F
+    invoke-virtual {p0, v0}, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsAnimationController;->animationForChildAtIndex(I)Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;
 
-    move-result v0
+    move-result-object v0
 
-    invoke-virtual {p0}, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->getExpandedY()F
+    iget v2, v1, Landroid/graphics/PointF;->x:F
 
-    move-result v2
+    iget v1, v1, Landroid/graphics/PointF;->y:F
 
     const/4 v3, 0x0
 
     new-array v4, v3, [Ljava/lang/Runnable;
 
-    invoke-virtual {v1, v0, v2, v4}, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;->position(FF[Ljava/lang/Runnable;)Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;
+    invoke-virtual {v0, v2, v1, v4}, Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;->position(FF[Ljava/lang/Runnable;)Lcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;
 
     move-result-object v0
 
@@ -1796,45 +1500,7 @@
 
     move-result-object v0
 
-    sget v1, Lcom/android/wm/shell/R$dimen;->bubble_padding_top:I
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v1
-
-    int-to-float v1, v1
-
-    iput v1, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mBubblePaddingTop:F
-
     sget v1, Lcom/android/wm/shell/R$dimen;->bubble_stack_offset:I
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v1
-
-    int-to-float v1, v1
-
-    iput v1, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mStackOffsetPx:F
-
-    iget-object v1, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mPositioner:Lcom/android/wm/shell/bubbles/BubblePositioner;
-
-    invoke-virtual {v1}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getBubbleSize()I
-
-    move-result v1
-
-    int-to-float v1, v1
-
-    iput v1, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mBubbleSizePx:F
-
-    iget-object v1, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mPositioner:Lcom/android/wm/shell/bubbles/BubblePositioner;
-
-    invoke-virtual {v1}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getMaxBubbles()I
-
-    move-result v1
-
-    iput v1, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mBubblesMaxRendered:I
-
-    sget v1, Lcom/android/wm/shell/R$dimen;->bubble_spacing:I
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1842,7 +1508,17 @@
 
     int-to-float v0, v0
 
-    iput v0, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mSpaceBetweenBubbles:F
+    iput v0, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mStackOffsetPx:F
+
+    iget-object v0, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mPositioner:Lcom/android/wm/shell/bubbles/BubblePositioner;
+
+    invoke-virtual {v0}, Lcom/android/wm/shell/bubbles/BubblePositioner;->getBubbleSize()I
+
+    move-result v0
+
+    int-to-float v0, v0
+
+    iput v0, p0, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->mBubbleSizePx:F
 
     return-void
 .end method

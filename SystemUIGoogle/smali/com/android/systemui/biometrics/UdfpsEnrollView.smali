@@ -126,10 +126,10 @@
     return-void
 .end method
 
-.method public bridge synthetic onExpansionChanged(FZ)V
+.method public bridge synthetic onExpansionChanged(F)V
     .locals 0
 
-    invoke-super {p0, p1, p2}, Lcom/android/systemui/biometrics/UdfpsAnimationView;->onExpansionChanged(FZ)V
+    invoke-super {p0, p1}, Lcom/android/systemui/biometrics/UdfpsAnimationView;->onExpansionChanged(F)V
 
     return-void
 .end method
@@ -191,11 +191,7 @@
 .end method
 
 .method setEnrollHelper(Lcom/android/systemui/biometrics/UdfpsEnrollHelper;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollView;->mFingerprintProgressDrawable:Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarDrawable;
-
-    invoke-virtual {v0, p1}, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarDrawable;->setEnrollHelper(Lcom/android/systemui/biometrics/UdfpsEnrollHelper;)V
+    .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollView;->mFingerprintDrawable:Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;
 
@@ -213,7 +209,11 @@
 
     move-result-object p0
 
-    iget p1, p1, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->sensorRadius:I
+    invoke-virtual {p1}, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->getLocation()Landroid/hardware/biometrics/SensorLocationInternal;
+
+    move-result-object p1
+
+    iget p1, p1, Landroid/hardware/biometrics/SensorLocationInternal;->sensorRadius:I
 
     mul-int/lit8 p1, p1, 0x2
 

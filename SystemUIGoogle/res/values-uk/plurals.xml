@@ -48,24 +48,6 @@
         <item quantity="few">Неправильний PUK-код SIM-карти. У вас залишилося %d спроби. Після цього SIM-карту буде назавжди заблоковано.</item>
         <item quantity="many">Неправильний PUK-код SIM-карти. У вас залишилося %d спроб. Після цього SIM-карту буде назавжди заблоковано.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">Ви не розблоковували пристрій %d години. Підтвердьте пароль.</item>
-        <item quantity="one">Ви не розблоковували пристрій %d годину. Підтвердьте пароль.</item>
-        <item quantity="few">Ви не розблоковували пристрій %d години. Підтвердьте пароль.</item>
-        <item quantity="many">Ви не розблоковували пристрій %d годин. Підтвердьте пароль.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">Ви не розблоковували пристрій %d години. Підтвердьте ключ.</item>
-        <item quantity="one">Ви не розблоковували пристрій %d годину. Підтвердьте ключ.</item>
-        <item quantity="few">Ви не розблоковували пристрій %d години. Підтвердьте ключ.</item>
-        <item quantity="many">Ви не розблоковували пристрій %d годин. Підтвердьте ключ.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">Ви не розблоковували пристрій %d години. Підтвердьте PIN-код.</item>
-        <item quantity="one">Ви не розблоковували пристрій %d годину. Підтвердьте PIN-код.</item>
-        <item quantity="few">Ви не розблоковували пристрій %d години. Підтвердьте PIN-код.</item>
-        <item quantity="many">Ви не розблоковували пристрій %d годин. Підтвердьте PIN-код.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">Повторіть спробу через %d секунди.</item>
         <item quantity="one">Повторіть спробу через %d секунду.</item>

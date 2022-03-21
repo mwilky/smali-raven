@@ -32,18 +32,6 @@
         <item quantity="other">SIM-картанын PUK-коду туура эмес, SIM-картанын биротоло жарактан чыгаарына %d аракет калды.</item>
         <item quantity="one">SIM-картанын PUK-коду туура эмес, SIM-картанын биротоло жарактан чыгаарына %d аракет калды.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">Түзмөктүн кулпусу %d саат бою ачылган жок. Сырсөздү ырастаңыз.</item>
-        <item quantity="one">Түзмөктүн кулпусу %d саат бою ачылган жок. Сырсөздү ырастаңыз.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">Түзмөктүн кулпусу %d саат бою ачылган жок. Графикалык ачкычты ырастаңыз.</item>
-        <item quantity="one">Түзмөктүн кулпусу %d саат бою ачылган жок. Графикалык ачкычты ырастаңыз.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">Түзмөктүн кулпусу %d саат бою ачылган жок. PIN-кодду ырастаңыз.</item>
-        <item quantity="one">Түзмөктүн кулпусу %d саат бою ачылган жок. PIN-кодду ырастаңыз.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">%d секунддан кийин кайталаңыз.</item>
         <item quantity="one">1 секунддан кийин кайталаңыз.</item>

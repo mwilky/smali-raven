@@ -684,7 +684,7 @@
 
     move-object/from16 v17, v14
 
-    const-string/jumbo v14, "targetFont"
+    const-string v14, "targetFont"
 
     invoke-static {v10, v14}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 

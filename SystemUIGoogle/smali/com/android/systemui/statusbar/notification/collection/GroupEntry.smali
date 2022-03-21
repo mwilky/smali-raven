@@ -140,6 +140,14 @@
     return-object p0
 .end method
 
+.method public getUntruncatedChildCount()I
+    .locals 0
+
+    iget p0, p0, Lcom/android/systemui/statusbar/notification/collection/GroupEntry;->mUntruncatedChildCount:I
+
+    return p0
+.end method
+
 .method setSummary(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
     .locals 0
 

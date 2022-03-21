@@ -1105,7 +1105,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "unused attribute 0x"
+    const-string v3, "unused attribute 0x"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2216,8 +2216,6 @@
     :cond_3
     return-void
 
-    nop
-
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_51
@@ -2310,7 +2308,7 @@
 
     packed-switch p1, :pswitch_data_0
 
-    const-string/jumbo p0, "undefined"
+    const-string p0, "undefined"
 
     return-object p0
 
@@ -2335,7 +2333,7 @@
     return-object p0
 
     :pswitch_4
-    const-string/jumbo p0, "top"
+    const-string p0, "top"
 
     return-object p0
 
@@ -3117,7 +3115,7 @@
 
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string/jumbo p1, "unknown constraint"
+    const-string p1, "unknown constraint"
 
     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
@@ -3209,6 +3207,8 @@
     :cond_0
     :goto_0
     return-void
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -4084,6 +4084,20 @@
     iput p3, p0, Landroidx/constraintlayout/widget/ConstraintSet$Layout;->circleRadius:I
 
     iput p4, p0, Landroidx/constraintlayout/widget/ConstraintSet$Layout;->circleAngle:F
+
+    return-void
+.end method
+
+.method public constrainHeight(II)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Landroidx/constraintlayout/widget/ConstraintSet;->get(I)Landroidx/constraintlayout/widget/ConstraintSet$Constraint;
+
+    move-result-object p0
+
+    iget-object p0, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->layout:Landroidx/constraintlayout/widget/ConstraintSet$Layout;
+
+    iput p2, p0, Landroidx/constraintlayout/widget/ConstraintSet$Layout;->mHeight:I
 
     return-void
 .end method
@@ -5313,6 +5327,121 @@
     iput-boolean p1, p0, Landroidx/constraintlayout/widget/ConstraintSet;->mForceId:Z
 
     return-void
+.end method
+
+.method public setGuidelinePercent(IF)V
+    .locals 1
+
+    invoke-direct {p0, p1}, Landroidx/constraintlayout/widget/ConstraintSet;->get(I)Landroidx/constraintlayout/widget/ConstraintSet$Constraint;
+
+    move-result-object v0
+
+    iget-object v0, v0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->layout:Landroidx/constraintlayout/widget/ConstraintSet$Layout;
+
+    iput p2, v0, Landroidx/constraintlayout/widget/ConstraintSet$Layout;->guidePercent:F
+
+    invoke-direct {p0, p1}, Landroidx/constraintlayout/widget/ConstraintSet;->get(I)Landroidx/constraintlayout/widget/ConstraintSet$Constraint;
+
+    move-result-object p2
+
+    iget-object p2, p2, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->layout:Landroidx/constraintlayout/widget/ConstraintSet$Layout;
+
+    const/4 v0, -0x1
+
+    iput v0, p2, Landroidx/constraintlayout/widget/ConstraintSet$Layout;->guideEnd:I
+
+    invoke-direct {p0, p1}, Landroidx/constraintlayout/widget/ConstraintSet;->get(I)Landroidx/constraintlayout/widget/ConstraintSet$Constraint;
+
+    move-result-object p0
+
+    iget-object p0, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->layout:Landroidx/constraintlayout/widget/ConstraintSet$Layout;
+
+    iput v0, p0, Landroidx/constraintlayout/widget/ConstraintSet$Layout;->guideBegin:I
+
+    return-void
+.end method
+
+.method public setMargin(III)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Landroidx/constraintlayout/widget/ConstraintSet;->get(I)Landroidx/constraintlayout/widget/ConstraintSet$Constraint;
+
+    move-result-object p0
+
+    packed-switch p2, :pswitch_data_0
+
+    new-instance p0, Ljava/lang/IllegalArgumentException;
+
+    const-string p1, "unknown constraint"
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :pswitch_0
+    iget-object p0, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->layout:Landroidx/constraintlayout/widget/ConstraintSet$Layout;
+
+    iput p3, p0, Landroidx/constraintlayout/widget/ConstraintSet$Layout;->endMargin:I
+
+    goto :goto_0
+
+    :pswitch_1
+    iget-object p0, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->layout:Landroidx/constraintlayout/widget/ConstraintSet$Layout;
+
+    iput p3, p0, Landroidx/constraintlayout/widget/ConstraintSet$Layout;->startMargin:I
+
+    goto :goto_0
+
+    :pswitch_2
+    new-instance p0, Ljava/lang/IllegalArgumentException;
+
+    const-string p1, "baseline does not support margins"
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :pswitch_3
+    iget-object p0, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->layout:Landroidx/constraintlayout/widget/ConstraintSet$Layout;
+
+    iput p3, p0, Landroidx/constraintlayout/widget/ConstraintSet$Layout;->bottomMargin:I
+
+    goto :goto_0
+
+    :pswitch_4
+    iget-object p0, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->layout:Landroidx/constraintlayout/widget/ConstraintSet$Layout;
+
+    iput p3, p0, Landroidx/constraintlayout/widget/ConstraintSet$Layout;->topMargin:I
+
+    goto :goto_0
+
+    :pswitch_5
+    iget-object p0, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->layout:Landroidx/constraintlayout/widget/ConstraintSet$Layout;
+
+    iput p3, p0, Landroidx/constraintlayout/widget/ConstraintSet$Layout;->rightMargin:I
+
+    goto :goto_0
+
+    :pswitch_6
+    iget-object p0, p0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->layout:Landroidx/constraintlayout/widget/ConstraintSet$Layout;
+
+    iput p3, p0, Landroidx/constraintlayout/widget/ConstraintSet$Layout;->leftMargin:I
+
+    :goto_0
+    return-void
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_6
+        :pswitch_5
+        :pswitch_4
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method
 
 .method public setValidateOnParse(Z)V

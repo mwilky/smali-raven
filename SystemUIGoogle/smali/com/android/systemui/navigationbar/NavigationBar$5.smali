@@ -91,7 +91,7 @@
 
     move-result v1
 
-    invoke-static {v0, v1}, Lcom/android/systemui/navigationbar/NavigationBar;->access$1402(Lcom/android/systemui/navigationbar/NavigationBar;Z)Z
+    invoke-static {v0, v1}, Lcom/android/systemui/navigationbar/NavigationBar;->access$1602(Lcom/android/systemui/navigationbar/NavigationBar;Z)Z
 
     :cond_0
     invoke-virtual {p1}, Landroid/provider/DeviceConfig$Properties;->getKeyset()Ljava/util/Set;
@@ -128,11 +128,11 @@
 
     move-result-object p1
 
-    invoke-static {v0, p1}, Lcom/android/systemui/navigationbar/NavigationBar;->access$1602(Lcom/android/systemui/navigationbar/NavigationBar;Ljava/util/Optional;)Ljava/util/Optional;
+    invoke-static {v0, p1}, Lcom/android/systemui/navigationbar/NavigationBar;->access$1802(Lcom/android/systemui/navigationbar/NavigationBar;Ljava/util/Optional;)Ljava/util/Optional;
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBar$5;->this$0:Lcom/android/systemui/navigationbar/NavigationBar;
 
-    invoke-static {p0}, Lcom/android/systemui/navigationbar/NavigationBar;->access$1700(Lcom/android/systemui/navigationbar/NavigationBar;)V
+    invoke-static {p0}, Lcom/android/systemui/navigationbar/NavigationBar;->access$1900(Lcom/android/systemui/navigationbar/NavigationBar;)V
 
     :cond_1
     return-void

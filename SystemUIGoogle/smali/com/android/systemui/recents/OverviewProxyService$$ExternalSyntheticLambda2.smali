@@ -22,12 +22,12 @@
 
 
 # virtual methods
-.method public final onStateChanged(ZZZ)V
+.method public final onStateChanged(ZZZZ)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda2;->f$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {p0, p1, p2, p3}, Lcom/android/systemui/recents/OverviewProxyService;->$r8$lambda$bTS8OIyX-ukIR3cfygXFXYgSWrE(Lcom/android/systemui/recents/OverviewProxyService;ZZZ)V
+    invoke-static {p0, p1, p2, p3, p4}, Lcom/android/systemui/recents/OverviewProxyService;->$r8$lambda$jEKvhfopqPCrvf9mQHK8tJntAnQ(Lcom/android/systemui/recents/OverviewProxyService;ZZZZ)V
 
     return-void
 .end method

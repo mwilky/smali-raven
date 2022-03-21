@@ -32,29 +32,40 @@
 
 # virtual methods
 .method public onKeyguardVisibilityChanged(Z)V
-    .locals 0
+    .locals 2
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
+    invoke-static {}, Lcom/android/keyguard/KeyguardStatusViewController;->access$200()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "refresh statusview showing:"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v0, "KeyguardStatusViewController"
+
+    invoke-static {v0, p1}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     iget-object p0, p0, Lcom/android/keyguard/KeyguardStatusViewController$2;->this$0:Lcom/android/keyguard/KeyguardStatusViewController;
 
     invoke-static {p0}, Lcom/android/keyguard/KeyguardStatusViewController;->access$000(Lcom/android/keyguard/KeyguardStatusViewController;)V
 
-    :cond_0
-    return-void
-.end method
-
-.method public onLockScreenModeChanged(I)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardStatusViewController$2;->this$0:Lcom/android/keyguard/KeyguardStatusViewController;
-
-    invoke-static {p0}, Lcom/android/keyguard/KeyguardStatusViewController;->access$200(Lcom/android/keyguard/KeyguardStatusViewController;)Lcom/android/keyguard/KeyguardSliceViewController;
-
-    move-result-object p0
-
-    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardSliceViewController;->updateLockScreenMode(I)V
-
+    :cond_1
     return-void
 .end method
 

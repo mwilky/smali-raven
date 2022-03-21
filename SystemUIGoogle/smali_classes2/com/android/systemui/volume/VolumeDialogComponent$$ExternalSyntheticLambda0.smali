@@ -29,7 +29,7 @@
 
     check-cast p1, Lcom/android/systemui/plugins/VolumeDialog;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/volume/VolumeDialogComponent;->$r8$lambda$OGhUKebRIkL9obK7zhlYZgrHN-w(Lcom/android/systemui/volume/VolumeDialogComponent;Lcom/android/systemui/plugins/VolumeDialog;)V
+    invoke-static {p0, p1}, Lcom/android/systemui/volume/VolumeDialogComponent;->$r8$lambda$YHoIVAo6PK6bVgqec6iEEPwYDZE(Lcom/android/systemui/volume/VolumeDialogComponent;Lcom/android/systemui/plugins/VolumeDialog;)V
 
     return-void
 .end method

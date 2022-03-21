@@ -18,6 +18,16 @@
 
 
 # instance fields
+.field private final contextProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Landroid/content/Context;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final controllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -58,16 +68,6 @@
     .end annotation
 .end field
 
-.field private final userContextProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/settings/UserContextProvider;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 
 # direct methods
 .method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
@@ -85,7 +85,7 @@
             "Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/settings/UserContextProvider;",
+            "Landroid/content/Context;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/google/android/systemui/gamedashboard/ToastController;",
@@ -101,7 +101,7 @@
 
     iput-object p3, p0, Lcom/google/android/systemui/gamedashboard/ScreenRecordController_Factory;->keyguardDismissUtilProvider:Ljavax/inject/Provider;
 
-    iput-object p4, p0, Lcom/google/android/systemui/gamedashboard/ScreenRecordController_Factory;->userContextProvider:Ljavax/inject/Provider;
+    iput-object p4, p0, Lcom/google/android/systemui/gamedashboard/ScreenRecordController_Factory;->contextProvider:Ljavax/inject/Provider;
 
     iput-object p5, p0, Lcom/google/android/systemui/gamedashboard/ScreenRecordController_Factory;->toastProvider:Ljavax/inject/Provider;
 
@@ -123,7 +123,7 @@
             "Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/settings/UserContextProvider;",
+            "Landroid/content/Context;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/google/android/systemui/gamedashboard/ToastController;",
@@ -151,7 +151,7 @@
     return-object v6
 .end method
 
-.method public static newInstance(Lcom/android/systemui/screenrecord/RecordingController;Landroid/os/Handler;Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;Lcom/android/systemui/settings/UserContextProvider;Lcom/google/android/systemui/gamedashboard/ToastController;)Lcom/google/android/systemui/gamedashboard/ScreenRecordController;
+.method public static newInstance(Lcom/android/systemui/screenrecord/RecordingController;Landroid/os/Handler;Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;Landroid/content/Context;Lcom/google/android/systemui/gamedashboard/ToastController;)Lcom/google/android/systemui/gamedashboard/ScreenRecordController;
     .locals 7
 
     new-instance v6, Lcom/google/android/systemui/gamedashboard/ScreenRecordController;
@@ -168,7 +168,7 @@
 
     move-object v5, p4
 
-    invoke-direct/range {v0 .. v5}, Lcom/google/android/systemui/gamedashboard/ScreenRecordController;-><init>(Lcom/android/systemui/screenrecord/RecordingController;Landroid/os/Handler;Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;Lcom/android/systemui/settings/UserContextProvider;Lcom/google/android/systemui/gamedashboard/ToastController;)V
+    invoke-direct/range {v0 .. v5}, Lcom/google/android/systemui/gamedashboard/ScreenRecordController;-><init>(Lcom/android/systemui/screenrecord/RecordingController;Landroid/os/Handler;Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;Landroid/content/Context;Lcom/google/android/systemui/gamedashboard/ToastController;)V
 
     return-object v6
 .end method
@@ -202,13 +202,13 @@
 
     check-cast v2, Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;
 
-    iget-object v3, p0, Lcom/google/android/systemui/gamedashboard/ScreenRecordController_Factory;->userContextProvider:Ljavax/inject/Provider;
+    iget-object v3, p0, Lcom/google/android/systemui/gamedashboard/ScreenRecordController_Factory;->contextProvider:Ljavax/inject/Provider;
 
     invoke-interface {v3}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v3
 
-    check-cast v3, Lcom/android/systemui/settings/UserContextProvider;
+    check-cast v3, Landroid/content/Context;
 
     iget-object p0, p0, Lcom/google/android/systemui/gamedashboard/ScreenRecordController_Factory;->toastProvider:Ljavax/inject/Provider;
 
@@ -218,7 +218,7 @@
 
     check-cast p0, Lcom/google/android/systemui/gamedashboard/ToastController;
 
-    invoke-static {v0, v1, v2, v3, p0}, Lcom/google/android/systemui/gamedashboard/ScreenRecordController_Factory;->newInstance(Lcom/android/systemui/screenrecord/RecordingController;Landroid/os/Handler;Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;Lcom/android/systemui/settings/UserContextProvider;Lcom/google/android/systemui/gamedashboard/ToastController;)Lcom/google/android/systemui/gamedashboard/ScreenRecordController;
+    invoke-static {v0, v1, v2, v3, p0}, Lcom/google/android/systemui/gamedashboard/ScreenRecordController_Factory;->newInstance(Lcom/android/systemui/screenrecord/RecordingController;Landroid/os/Handler;Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;Landroid/content/Context;Lcom/google/android/systemui/gamedashboard/ToastController;)Lcom/google/android/systemui/gamedashboard/ScreenRecordController;
 
     move-result-object p0
 

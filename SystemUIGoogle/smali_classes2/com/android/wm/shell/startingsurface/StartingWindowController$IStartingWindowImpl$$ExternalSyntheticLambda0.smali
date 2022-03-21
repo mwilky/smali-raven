@@ -29,23 +29,11 @@
 
     check-cast p1, Ljava/lang/Integer;
 
-    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
-
-    move-result p1
-
     check-cast p2, Ljava/lang/Integer;
-
-    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
-
-    move-result p2
 
     check-cast p3, Ljava/lang/Integer;
 
-    invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
-
-    move-result p3
-
-    invoke-static {p0, p1, p2, p3}, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;->$r8$lambda$jVH2QBIzzn-s-uZNfXvXt3o4NtM(Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;III)V
+    invoke-static {p0, p1, p2, p3}, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;->$r8$lambda$vgfvXGsDiAfm0Ukp3nI_QN4USpA(Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;)V
 
     return-void
 .end method

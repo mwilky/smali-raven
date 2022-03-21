@@ -33,9 +33,9 @@
 
     iget-object p0, p0, Lcom/android/systemui/ActivityStarterDelegate$$ExternalSyntheticLambda3;->f$1:Ljava/lang/Runnable;
 
-    check-cast p1, Ldagger/Lazy;
+    check-cast p1, Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    invoke-static {v0, p0, p1}, Lcom/android/systemui/ActivityStarterDelegate;->$r8$lambda$FBf0zedluqDHJZZwHcw2AxX0srs(Landroid/app/PendingIntent;Ljava/lang/Runnable;Ldagger/Lazy;)V
+    invoke-static {v0, p0, p1}, Lcom/android/systemui/ActivityStarterDelegate;->$r8$lambda$wWL1lX10CzzKny5n8HeMSF4ELWk(Landroid/app/PendingIntent;Ljava/lang/Runnable;Lcom/android/systemui/statusbar/phone/StatusBar;)V
 
     return-void
 .end method

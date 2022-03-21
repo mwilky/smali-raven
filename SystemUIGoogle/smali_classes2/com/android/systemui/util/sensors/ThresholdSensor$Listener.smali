@@ -15,5 +15,5 @@
 
 
 # virtual methods
-.method public abstract onThresholdCrossed(Lcom/android/systemui/util/sensors/ThresholdSensor$ThresholdSensorEvent;)V
+.method public abstract onThresholdCrossed(Lcom/android/systemui/util/sensors/ThresholdSensorEvent;)V
 .end method

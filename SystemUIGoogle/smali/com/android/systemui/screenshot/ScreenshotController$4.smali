@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/screenshot/ScreenshotController;->saveScreenshot(Landroid/graphics/Bitmap;Ljava/util/function/Consumer;Landroid/graphics/Rect;Landroid/graphics/Insets;Z)V
+    value = Lcom/android/systemui/screenshot/ScreenshotController;->saveScreenshot(Landroid/graphics/Bitmap;Ljava/util/function/Consumer;Landroid/graphics/Rect;Landroid/graphics/Insets;Landroid/content/ComponentName;Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -47,7 +47,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/ScreenshotController$4;->this$0:Lcom/android/systemui/screenshot/ScreenshotController;
 
-    invoke-static {v0}, Lcom/android/systemui/screenshot/ScreenshotController;->access$500(Lcom/android/systemui/screenshot/ScreenshotController;)Lcom/android/systemui/screenshot/ScreenshotView;
+    invoke-static {v0}, Lcom/android/systemui/screenshot/ScreenshotController;->access$600(Lcom/android/systemui/screenshot/ScreenshotController;)Lcom/android/systemui/screenshot/ScreenshotView;
 
     move-result-object v0
 
@@ -63,7 +63,7 @@
 
     iget-boolean p0, p0, Lcom/android/systemui/screenshot/ScreenshotController$4;->val$showFlash:Z
 
-    invoke-static {v0, v1, p0}, Lcom/android/systemui/screenshot/ScreenshotController;->access$600(Lcom/android/systemui/screenshot/ScreenshotController;Landroid/graphics/Rect;Z)V
+    invoke-static {v0, v1, p0}, Lcom/android/systemui/screenshot/ScreenshotController;->access$700(Lcom/android/systemui/screenshot/ScreenshotController;Landroid/graphics/Rect;Z)V
 
     const/4 p0, 0x1
 

@@ -48,7 +48,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/pip/PipTaskOrganizer$3;->val$callback:Ljava/lang/Runnable;
 
-    invoke-static {p1, v0, p0}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->access$1300(Lcom/android/wm/shell/pip/PipTaskOrganizer;Landroid/view/SurfaceControl;Ljava/lang/Runnable;)V
+    invoke-static {p1, v0, p0}, Lcom/android/wm/shell/pip/PipTaskOrganizer;->access$1100(Lcom/android/wm/shell/pip/PipTaskOrganizer;Landroid/view/SurfaceControl;Ljava/lang/Runnable;)V
 
     return-void
 .end method

@@ -38,13 +38,13 @@
 
 .field private mHideSensitive:Z
 
-.field private mIntrinsicPadding:I
-
 .field private mIsShadeOpening:Z
 
 .field private mLastVisibleBackgroundChild:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
 .field private mLayoutHeight:I
+
+.field private mLayoutMaxHeight:I
 
 .field private mLayoutMinHeight:I
 
@@ -66,8 +66,6 @@
 
 .field private mPulsing:Z
 
-.field private mQsCustomizerShowing:Z
-
 .field private mScrollY:I
 
 .field private final mSectionProvider:Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$SectionProvider;
@@ -79,6 +77,8 @@
 .field private mStackEndHeight:F
 
 .field private mStackHeight:F
+
+.field private mStackTopMargin:I
 
 .field private mStackTranslation:F
 
@@ -310,6 +310,14 @@
     return-object p0
 .end method
 
+.method public getLayoutMaxHeight()I
+    .locals 0
+
+    iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mLayoutMaxHeight:I
+
+    return p0
+.end method
+
 .method public getMaxHeadsUpTranslation()F
     .locals 0
 
@@ -395,6 +403,14 @@
     .locals 0
 
     iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mStackHeight:F
+
+    return p0
+.end method
+
+.method public getStackTopMargin()I
+    .locals 0
+
+    iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mStackTopMargin:I
 
     return p0
 .end method
@@ -750,14 +766,6 @@
     return p0
 .end method
 
-.method public isQsCustomizerShowing()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mQsCustomizerShowing:Z
-
-    return p0
-.end method
-
 .method public isShadeExpanded()Z
     .locals 0
 
@@ -961,14 +969,6 @@
     return-void
 .end method
 
-.method public setIntrinsicPadding(I)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mIntrinsicPadding:I
-
-    return-void
-.end method
-
 .method public setIsShadeOpening(Z)V
     .locals 0
 
@@ -989,6 +989,14 @@
     .locals 0
 
     iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mLayoutHeight:I
+
+    return-void
+.end method
+
+.method public setLayoutMaxHeight(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mLayoutMaxHeight:I
 
     return-void
 .end method
@@ -1086,14 +1094,6 @@
     return-void
 .end method
 
-.method public setQsCustomizerShowing(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mQsCustomizerShowing:Z
-
-    return-void
-.end method
-
 .method public setScrollY(I)V
     .locals 1
 
@@ -1136,6 +1136,14 @@
     .locals 0
 
     iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mStackHeight:F
+
+    return-void
+.end method
+
+.method public setStackTopMargin(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mStackTopMargin:I
 
     return-void
 .end method

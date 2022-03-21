@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/media/MediaDeviceManager$Entry;->setCurrent(Lcom/android/settingslib/media/MediaDevice;)V
+    value = Lcom/android/systemui/media/MediaDeviceManager$Entry;->setCurrent(Lcom/android/systemui/media/MediaDeviceData;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field final synthetic $value:Lcom/android/settingslib/media/MediaDevice;
+.field final synthetic $value:Lcom/android/systemui/media/MediaDeviceData;
 
 .field final synthetic this$0:Lcom/android/systemui/media/MediaDeviceManager;
 
@@ -26,14 +26,14 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/MediaDeviceManager;Lcom/android/systemui/media/MediaDeviceManager$Entry;Lcom/android/settingslib/media/MediaDevice;)V
+.method constructor <init>(Lcom/android/systemui/media/MediaDeviceManager;Lcom/android/systemui/media/MediaDeviceManager$Entry;Lcom/android/systemui/media/MediaDeviceData;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/MediaDeviceManager$Entry$current$1;->this$0:Lcom/android/systemui/media/MediaDeviceManager;
 
     iput-object p2, p0, Lcom/android/systemui/media/MediaDeviceManager$Entry$current$1;->this$1:Lcom/android/systemui/media/MediaDeviceManager$Entry;
 
-    iput-object p3, p0, Lcom/android/systemui/media/MediaDeviceManager$Entry$current$1;->$value:Lcom/android/settingslib/media/MediaDevice;
+    iput-object p3, p0, Lcom/android/systemui/media/MediaDeviceManager$Entry$current$1;->$value:Lcom/android/systemui/media/MediaDeviceData;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -59,9 +59,9 @@
 
     move-result-object v2
 
-    iget-object p0, p0, Lcom/android/systemui/media/MediaDeviceManager$Entry$current$1;->$value:Lcom/android/settingslib/media/MediaDevice;
+    iget-object p0, p0, Lcom/android/systemui/media/MediaDeviceManager$Entry$current$1;->$value:Lcom/android/systemui/media/MediaDeviceData;
 
-    invoke-static {v0, v1, v2, p0}, Lcom/android/systemui/media/MediaDeviceManager;->access$processDevice(Lcom/android/systemui/media/MediaDeviceManager;Ljava/lang/String;Ljava/lang/String;Lcom/android/settingslib/media/MediaDevice;)V
+    invoke-static {v0, v1, v2, p0}, Lcom/android/systemui/media/MediaDeviceManager;->access$processDevice(Lcom/android/systemui/media/MediaDeviceManager;Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaDeviceData;)V
 
     return-void
 .end method

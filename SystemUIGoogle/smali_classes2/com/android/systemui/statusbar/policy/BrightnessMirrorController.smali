@@ -48,9 +48,9 @@
 
 .field private final mStatusBarWindow:Lcom/android/systemui/statusbar/phone/NotificationShadeWindowView;
 
-.field private mToggleSliderController:Lcom/android/systemui/settings/brightness/BrightnessSlider;
+.field private mToggleSliderController:Lcom/android/systemui/settings/brightness/BrightnessSliderController;
 
-.field private final mToggleSliderFactory:Lcom/android/systemui/settings/brightness/BrightnessSlider$Factory;
+.field private final mToggleSliderFactory:Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;
 
 .field private final mVisibilityCallback:Ljava/util/function/Consumer;
     .annotation system Ldalvik/annotation/Signature;
@@ -72,7 +72,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/systemui/statusbar/phone/NotificationShadeWindowView;Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;Lcom/android/systemui/statusbar/NotificationShadeDepthController;Lcom/android/systemui/settings/brightness/BrightnessSlider$Factory;Ljava/util/function/Consumer;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/phone/NotificationShadeWindowView;Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;Lcom/android/systemui/statusbar/NotificationShadeDepthController;Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;Ljava/util/function/Consumer;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -80,7 +80,7 @@
             "Lcom/android/systemui/statusbar/phone/NotificationShadeWindowView;",
             "Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;",
             "Lcom/android/systemui/statusbar/NotificationShadeDepthController;",
-            "Lcom/android/systemui/settings/brightness/BrightnessSlider$Factory;",
+            "Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;",
             "Ljava/util/function/Consumer<",
             "Ljava/lang/Boolean;",
             ">;)V"
@@ -107,7 +107,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/NotificationShadeWindowView;
 
-    iput-object p4, p0, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->mToggleSliderFactory:Lcom/android/systemui/settings/brightness/BrightnessSlider$Factory;
+    iput-object p4, p0, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->mToggleSliderFactory:Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;
 
     sget p4, Lcom/android/systemui/R$id;->brightness_mirror_container:I
 
@@ -119,11 +119,11 @@
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->mBrightnessMirror:Landroid/widget/FrameLayout;
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->setMirrorLayout()Lcom/android/systemui/settings/brightness/BrightnessSlider;
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->setMirrorLayout()Lcom/android/systemui/settings/brightness/BrightnessSliderController;
 
     move-result-object p1
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->mToggleSliderController:Lcom/android/systemui/settings/brightness/BrightnessSlider;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->mToggleSliderController:Lcom/android/systemui/settings/brightness/BrightnessSliderController;
 
     iput-object p2, p0, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->mNotificationPanel:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;
 
@@ -193,11 +193,11 @@
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->mBrightnessMirror:Landroid/widget/FrameLayout;
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->setMirrorLayout()Lcom/android/systemui/settings/brightness/BrightnessSlider;
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->setMirrorLayout()Lcom/android/systemui/settings/brightness/BrightnessSliderController;
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->mToggleSliderController:Lcom/android/systemui/settings/brightness/BrightnessSlider;
+    iput-object v1, p0, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->mToggleSliderController:Lcom/android/systemui/settings/brightness/BrightnessSliderController;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/NotificationShadeWindowView;
 
@@ -234,7 +234,7 @@
     return-void
 .end method
 
-.method private setMirrorLayout()Lcom/android/systemui/settings/brightness/BrightnessSlider;
+.method private setMirrorLayout()Lcom/android/systemui/settings/brightness/BrightnessSliderController;
     .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->mBrightnessMirror:Landroid/widget/FrameLayout;
@@ -243,11 +243,11 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->mToggleSliderFactory:Lcom/android/systemui/settings/brightness/BrightnessSlider$Factory;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->mToggleSliderFactory:Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->mBrightnessMirror:Landroid/widget/FrameLayout;
 
-    invoke-virtual {v1, v0, v2}, Lcom/android/systemui/settings/brightness/BrightnessSlider$Factory;->create(Landroid/content/Context;Landroid/view/ViewGroup;)Lcom/android/systemui/settings/brightness/BrightnessSlider;
+    invoke-virtual {v1, v0, v2}, Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;->create(Landroid/content/Context;Landroid/view/ViewGroup;)Lcom/android/systemui/settings/brightness/BrightnessSliderController;
 
     move-result-object v0
 
@@ -255,7 +255,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->mBrightnessMirror:Landroid/widget/FrameLayout;
 
-    invoke-virtual {v0}, Lcom/android/systemui/settings/brightness/BrightnessSlider;->getRootView()Landroid/view/View;
+    invoke-virtual {v0}, Lcom/android/systemui/settings/brightness/BrightnessSliderController;->getRootView()Landroid/view/View;
 
     move-result-object v1
 
@@ -295,7 +295,7 @@
 .method public getToggleSlider()Lcom/android/systemui/settings/brightness/ToggleSlider;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->mToggleSliderController:Lcom/android/systemui/settings/brightness/BrightnessSlider;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->mToggleSliderController:Lcom/android/systemui/settings/brightness/BrightnessSliderController;
 
     return-object p0
 .end method

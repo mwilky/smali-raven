@@ -852,8 +852,6 @@
 
     move-result p1
 
-    const/4 v0, 0x2
-
     if-eqz p1, :cond_a
 
     iget-object p1, p0, Lcom/android/wm/shell/pip/phone/PipTouchHandler$DefaultPipTouchGesture;->this$0:Lcom/android/wm/shell/pip/phone/PipTouchHandler;
@@ -874,7 +872,7 @@
 
     move-result p1
 
-    if-eq p1, v0, :cond_a
+    if-eq p1, v3, :cond_a
 
     iget-object p1, p0, Lcom/android/wm/shell/pip/phone/PipTouchHandler$DefaultPipTouchGesture;->this$0:Lcom/android/wm/shell/pip/phone/PipTouchHandler;
 
@@ -1021,7 +1019,7 @@
 
     move-result-object p0
 
-    invoke-virtual {p0}, Lcom/android/wm/shell/pip/phone/PipMotionHelper;->expandLeavePip()V
+    invoke-virtual {p0, v2}, Lcom/android/wm/shell/pip/phone/PipMotionHelper;->expandLeavePip(Z)V
 
     goto :goto_2
 
@@ -1032,7 +1030,7 @@
 
     move-result p1
 
-    if-eq p1, v0, :cond_d
+    if-eq p1, v3, :cond_d
 
     iget-object p1, p0, Lcom/android/wm/shell/pip/phone/PipTouchHandler$DefaultPipTouchGesture;->this$0:Lcom/android/wm/shell/pip/phone/PipTouchHandler;
 
@@ -1097,7 +1095,7 @@
 
     move-result-object v4
 
-    const/4 v5, 0x2
+    const/4 v5, 0x1
 
     iget-object p1, p0, Lcom/android/wm/shell/pip/phone/PipTouchHandler$DefaultPipTouchGesture;->this$0:Lcom/android/wm/shell/pip/phone/PipTouchHandler;
 

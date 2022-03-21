@@ -94,7 +94,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsController;->mServerRequest:Lcom/android/systemui/biometrics/UdfpsController$ServerRequest;
 
-    invoke-static {p0}, Lcom/android/systemui/biometrics/UdfpsController;->access$500(Lcom/android/systemui/biometrics/UdfpsController;)V
+    invoke-static {p0}, Lcom/android/systemui/biometrics/UdfpsController;->access$600(Lcom/android/systemui/biometrics/UdfpsController;)V
 
     :cond_0
     return-void

@@ -20,5 +20,15 @@
 .method public abstract getPollResult()Ljava/lang/Object;
 .end method
 
+.method public abstract resumeSendClosed(Lkotlinx/coroutines/channels/Closed;)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lkotlinx/coroutines/channels/Closed<",
+            "*>;)V"
+        }
+    .end annotation
+.end method
+
 .method public abstract tryResumeSend(Ljava/lang/Object;)Ljava/lang/Object;
 .end method

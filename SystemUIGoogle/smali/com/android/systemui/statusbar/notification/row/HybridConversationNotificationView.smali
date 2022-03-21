@@ -131,7 +131,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    const v0, 0x1020259
+    const v0, 0x102025c
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->requireViewById(I)Landroid/view/View;
 
@@ -139,7 +139,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/notification/row/HybridConversationNotificationView;->mConversationFacePile:Landroid/view/View;
 
-    const v3, 0x102025b
+    const v3, 0x102025e
 
     invoke-virtual {v0, v3}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -149,7 +149,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/notification/row/HybridConversationNotificationView;->mConversationFacePile:Landroid/view/View;
 
-    const v4, 0x102025a
+    const v4, 0x102025d
 
     invoke-virtual {v3, v4}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -159,7 +159,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/notification/row/HybridConversationNotificationView;->mConversationFacePile:Landroid/view/View;
 
-    const v5, 0x102025c
+    const v5, 0x102025f
 
     invoke-virtual {v4, v5}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -274,7 +274,7 @@
 
     invoke-super {p0}, Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;->onFinishInflate()V
 
-    const v0, 0x102025e
+    const v0, 0x1020261
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->requireViewById(I)Landroid/view/View;
 
@@ -284,7 +284,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/notification/row/HybridConversationNotificationView;->mConversationIconView:Landroid/widget/ImageView;
 
-    const v0, 0x1020259
+    const v0, 0x102025c
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->requireViewById(I)Landroid/view/View;
 
@@ -361,6 +361,18 @@
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/HybridConversationNotificationView;->mConversationSenderName:Landroid/widget/TextView;
 
     invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->addTransformedView(Landroid/view/View;)V
+
+    return-void
+.end method
+
+.method public setNotificationFaded(Z)V
+    .locals 0
+
+    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;->setNotificationFaded(Z)V
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/HybridConversationNotificationView;->mConversationFacePile:Landroid/view/View;
+
+    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationFadeAware;->setLayerTypeForFaded(Landroid/view/View;Z)V
 
     return-void
 .end method

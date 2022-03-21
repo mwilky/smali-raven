@@ -370,7 +370,7 @@
     return-object p0
 .end method
 
-.method public static bridge synthetic min(Ljava/lang/Iterable;)Ljava/lang/Comparable;
+.method public static bridge synthetic maxOrNull(Ljava/lang/Iterable;)Ljava/lang/Comparable;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -382,7 +382,7 @@
         }
     .end annotation
 
-    invoke-static {p0}, Lkotlin/collections/CollectionsKt___CollectionsKt;->min(Ljava/lang/Iterable;)Ljava/lang/Comparable;
+    invoke-static {p0}, Lkotlin/collections/CollectionsKt___CollectionsKt;->maxOrNull(Ljava/lang/Iterable;)Ljava/lang/Comparable;
 
     move-result-object p0
 

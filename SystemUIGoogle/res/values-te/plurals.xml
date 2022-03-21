@@ -32,18 +32,6 @@
         <item quantity="other">SIM PUK కోడ్ తప్పు, మీకు మరో %d ప్రయత్నాలు మిగిలి ఉన్నాయి, ఆ తర్వాత SIM శాశ్వతంగా నిరుపయోగకరంగా మారుతుంది.</item>
         <item quantity="one">SIM PUK కోడ్ తప్పు, మీకు మరో %d ప్రయత్నం మిగిలి ఉంది, ఆ తర్వాత SIM శాశ్వతంగా నిరుపయోగకరంగా మారుతుంది.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">%d గంటల పాటు పరికరాన్ని అన్‌లాక్ చేయలేదు. పాస్‌వర్డ్‌ని నమోదు చేయండి.</item>
-        <item quantity="one">%d గంట పాటు పరికరాన్ని అన్‌లాక్ చేయలేదు. పాస్‌వర్డ్‌ని నమోదు చేయండి.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">%d గంటల పాటు పరికరాన్ని అన్‌లాక్ చేయలేదు. నమూనాను గీయండి.</item>
-        <item quantity="one">%d గంట పాటు పరికరాన్ని అన్‌లాక్ చేయలేదు. నమూనాను గీయండి.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">%d గంటల పాటు డివైజ్‌ను అన్‌లాక్ చేయలేదు. పిన్‌ను నిర్ధారించండి.</item>
-        <item quantity="one">%d గంట పాటు డివైజ్‌ను అన్‌లాక్ చేయలేదు. పిన్‌ను నిర్ధారించండి.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">%d సెకన్లలో మళ్లీ ప్రయత్నించండి.</item>
         <item quantity="one">1 సెకనులో మళ్లీ ప్రయత్నించండి.</item>

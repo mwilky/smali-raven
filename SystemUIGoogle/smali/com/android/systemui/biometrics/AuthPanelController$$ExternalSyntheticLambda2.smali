@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/AuthPanelController$$ExternalSyntheticLambda2;->f$0:Lcom/android/systemui/biometrics/AuthPanelController;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/biometrics/AuthPanelController;->$r8$lambda$Sa1F1wJ3gLG9zxl4DJc-WLwNHGg(Lcom/android/systemui/biometrics/AuthPanelController;Landroid/animation/ValueAnimator;)V
+    invoke-static {p0, p1}, Lcom/android/systemui/biometrics/AuthPanelController;->$r8$lambda$bqvcZaXlv1g34WNwZHupKRr_oAw(Lcom/android/systemui/biometrics/AuthPanelController;Landroid/animation/ValueAnimator;)V
 
     return-void
 .end method

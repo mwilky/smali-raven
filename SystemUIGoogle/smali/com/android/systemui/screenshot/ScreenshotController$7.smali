@@ -42,7 +42,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/screenshot/ScreenshotController$7;->this$0:Lcom/android/systemui/screenshot/ScreenshotController;
 
-    invoke-static {p1}, Lcom/android/systemui/screenshot/ScreenshotController;->access$500(Lcom/android/systemui/screenshot/ScreenshotController;)Lcom/android/systemui/screenshot/ScreenshotView;
+    invoke-static {p1}, Lcom/android/systemui/screenshot/ScreenshotController;->access$600(Lcom/android/systemui/screenshot/ScreenshotController;)Lcom/android/systemui/screenshot/ScreenshotView;
 
     move-result-object p1
 

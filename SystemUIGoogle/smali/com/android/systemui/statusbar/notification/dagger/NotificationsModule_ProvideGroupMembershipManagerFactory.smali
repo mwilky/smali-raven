@@ -22,7 +22,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;"
         }
     .end annotation
@@ -46,7 +46,7 @@
         value = {
             "(",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;",
@@ -69,7 +69,7 @@
         value = {
             "(",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;",
@@ -85,12 +85,12 @@
     return-object v0
 .end method
 
-.method public static provideGroupMembershipManager(Lcom/android/systemui/statusbar/FeatureFlags;Ldagger/Lazy;)Lcom/android/systemui/statusbar/notification/collection/render/GroupMembershipManager;
+.method public static provideGroupMembershipManager(Lcom/android/systemui/flags/FeatureFlags;Ldagger/Lazy;)Lcom/android/systemui/statusbar/notification/collection/render/GroupMembershipManager;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             "Ldagger/Lazy<",
             "Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;",
             ">;)",
@@ -98,7 +98,7 @@
         }
     .end annotation
 
-    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule;->provideGroupMembershipManager(Lcom/android/systemui/statusbar/FeatureFlags;Ldagger/Lazy;)Lcom/android/systemui/statusbar/notification/collection/render/GroupMembershipManager;
+    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule;->provideGroupMembershipManager(Lcom/android/systemui/flags/FeatureFlags;Ldagger/Lazy;)Lcom/android/systemui/statusbar/notification/collection/render/GroupMembershipManager;
 
     move-result-object p0
 
@@ -122,7 +122,7 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/systemui/statusbar/FeatureFlags;
+    check-cast v0, Lcom/android/systemui/flags/FeatureFlags;
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideGroupMembershipManagerFactory;->groupManagerLegacyProvider:Ljavax/inject/Provider;
 
@@ -130,7 +130,7 @@
 
     move-result-object p0
 
-    invoke-static {v0, p0}, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideGroupMembershipManagerFactory;->provideGroupMembershipManager(Lcom/android/systemui/statusbar/FeatureFlags;Ldagger/Lazy;)Lcom/android/systemui/statusbar/notification/collection/render/GroupMembershipManager;
+    invoke-static {v0, p0}, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideGroupMembershipManagerFactory;->provideGroupMembershipManager(Lcom/android/systemui/flags/FeatureFlags;Ldagger/Lazy;)Lcom/android/systemui/statusbar/notification/collection/render/GroupMembershipManager;
 
     move-result-object p0
 

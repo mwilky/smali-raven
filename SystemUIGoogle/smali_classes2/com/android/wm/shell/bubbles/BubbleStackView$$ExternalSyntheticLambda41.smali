@@ -6,16 +6,20 @@
 
 
 # instance fields
-.field public final synthetic f$0:Ljava/util/function/Consumer;
+.field public final synthetic f$0:Lcom/android/wm/shell/bubbles/BubbleStackView;
+
+.field public final synthetic f$1:Z
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/util/function/Consumer;)V
+.method public synthetic constructor <init>(Lcom/android/wm/shell/bubbles/BubbleStackView;Z)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$$ExternalSyntheticLambda41;->f$0:Ljava/util/function/Consumer;
+    iput-object p1, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$$ExternalSyntheticLambda41;->f$0:Lcom/android/wm/shell/bubbles/BubbleStackView;
+
+    iput-boolean p2, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$$ExternalSyntheticLambda41;->f$1:Z
 
     return-void
 .end method
@@ -23,11 +27,13 @@
 
 # virtual methods
 .method public final run()V
-    .locals 0
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$$ExternalSyntheticLambda41;->f$0:Ljava/util/function/Consumer;
+    iget-object v0, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$$ExternalSyntheticLambda41;->f$0:Lcom/android/wm/shell/bubbles/BubbleStackView;
 
-    invoke-static {p0}, Lcom/android/wm/shell/bubbles/BubbleStackView;->$r8$lambda$vHl82xohWOLEEFXzaIhrFIgP0WA(Ljava/util/function/Consumer;)V
+    iget-boolean p0, p0, Lcom/android/wm/shell/bubbles/BubbleStackView$$ExternalSyntheticLambda41;->f$1:Z
+
+    invoke-static {v0, p0}, Lcom/android/wm/shell/bubbles/BubbleStackView;->$r8$lambda$9f-TvlB-N-cVEgS7mAfOvV40eWo(Lcom/android/wm/shell/bubbles/BubbleStackView;Z)V
 
     return-void
 .end method

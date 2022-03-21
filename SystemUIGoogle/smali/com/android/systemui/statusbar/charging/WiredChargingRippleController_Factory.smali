@@ -62,7 +62,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;"
         }
     .end annotation
@@ -115,7 +115,7 @@
             "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Landroid/content/Context;",
@@ -168,7 +168,7 @@
             "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Landroid/content/Context;",
@@ -211,7 +211,7 @@
     return-object v9
 .end method
 
-.method public static newInstance(Lcom/android/systemui/statusbar/commandline/CommandRegistry;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/FeatureFlags;Landroid/content/Context;Landroid/view/WindowManager;Lcom/android/systemui/util/time/SystemClock;Lcom/android/internal/logging/UiEventLogger;)Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;
+.method public static newInstance(Lcom/android/systemui/statusbar/commandline/CommandRegistry;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/flags/FeatureFlags;Landroid/content/Context;Landroid/view/WindowManager;Lcom/android/systemui/util/time/SystemClock;Lcom/android/internal/logging/UiEventLogger;)Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;
     .locals 10
 
     new-instance v9, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;
@@ -234,7 +234,7 @@
 
     move-object/from16 v8, p7
 
-    invoke-direct/range {v0 .. v8}, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;-><init>(Lcom/android/systemui/statusbar/commandline/CommandRegistry;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/FeatureFlags;Landroid/content/Context;Landroid/view/WindowManager;Lcom/android/systemui/util/time/SystemClock;Lcom/android/internal/logging/UiEventLogger;)V
+    invoke-direct/range {v0 .. v8}, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;-><init>(Lcom/android/systemui/statusbar/commandline/CommandRegistry;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/flags/FeatureFlags;Landroid/content/Context;Landroid/view/WindowManager;Lcom/android/systemui/util/time/SystemClock;Lcom/android/internal/logging/UiEventLogger;)V
 
     return-object v9
 .end method
@@ -282,7 +282,7 @@
 
     move-object v4, v0
 
-    check-cast v4, Lcom/android/systemui/statusbar/FeatureFlags;
+    check-cast v4, Lcom/android/systemui/flags/FeatureFlags;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -324,7 +324,7 @@
 
     check-cast v8, Lcom/android/internal/logging/UiEventLogger;
 
-    invoke-static/range {v1 .. v8}, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController_Factory;->newInstance(Lcom/android/systemui/statusbar/commandline/CommandRegistry;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/FeatureFlags;Landroid/content/Context;Landroid/view/WindowManager;Lcom/android/systemui/util/time/SystemClock;Lcom/android/internal/logging/UiEventLogger;)Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;
+    invoke-static/range {v1 .. v8}, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController_Factory;->newInstance(Lcom/android/systemui/statusbar/commandline/CommandRegistry;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/flags/FeatureFlags;Landroid/content/Context;Landroid/view/WindowManager;Lcom/android/systemui/util/time/SystemClock;Lcom/android/internal/logging/UiEventLogger;)Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;
 
     move-result-object p0
 

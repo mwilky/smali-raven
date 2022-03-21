@@ -309,3 +309,21 @@
 
     return-void
 .end method
+
+.method public use(Ljava/util/function/Consumer;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/function/Consumer<",
+            "Landroid/graphics/Bitmap;",
+            ">;)V"
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;->mTexture:Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->use(Ljava/util/function/Consumer;)V
+
+    return-void
+.end method

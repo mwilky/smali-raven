@@ -26,8 +26,6 @@
 
 .field private mAppearAnimationFraction:F
 
-.field private mAppearAnimationRect:Landroid/graphics/RectF;
-
 .field private mAppearAnimationTranslation:F
 
 .field private mAppearAnimator:Landroid/animation/ValueAnimator;
@@ -35,8 +33,6 @@
 .field private mBackgroundColorAnimator:Landroid/animation/ValueAnimator;
 
 .field mBackgroundNormal:Lcom/android/systemui/statusbar/notification/row/NotificationBackgroundView;
-
-.field private mBackgroundVisibilityUpdater:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
 .field mBgTint:I
 
@@ -49,12 +45,6 @@
 .field private mDrawingAppearAnimation:Z
 
 .field private mFakeShadow:Lcom/android/systemui/statusbar/notification/FakeShadowView;
-
-.field private mHeadsUpAddStartLocation:I
-
-.field private mHeadsUpLocation:F
-
-.field private mIsAppearing:Z
 
 .field private mIsBelowSpeedBump:Z
 
@@ -83,6 +73,8 @@
 .field private final mSlowOutLinearInInterpolator:Landroid/view/animation/Interpolator;
 
 .field private mStartTint:I
+
+.field protected mTargetPoint:Landroid/graphics/Point;
 
 .field private mTargetTint:I
 
@@ -143,21 +135,9 @@
 
     iput p1, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mBgTint:I
 
-    new-instance p2, Landroid/graphics/RectF;
-
-    invoke-direct {p2}, Landroid/graphics/RectF;-><init>()V
-
-    iput-object p2, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mAppearAnimationRect:Landroid/graphics/RectF;
-
     const/high16 p2, -0x40800000    # -1.0f
 
     iput p2, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mAppearAnimationFraction:F
-
-    new-instance p2, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView$1;
-
-    invoke-direct {p2, p0}, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView$1;-><init>(Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;)V
-
-    iput-object p2, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mBackgroundVisibilityUpdater:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
     new-instance p2, Landroid/view/animation/PathInterpolator;
 
@@ -185,20 +165,10 @@
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->updateColors()V
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->initDimens()V
-
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;F)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->setNormalBackgroundVisibilityAmount(F)V
-
-    return-void
-.end method
-
-.method static synthetic access$102(Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
+.method static synthetic access$002(Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mBackgroundColorAnimator:Landroid/animation/ValueAnimator;
@@ -206,7 +176,7 @@
     return-object p1
 .end method
 
-.method static synthetic access$200(Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;Z)V
+.method static synthetic access$100(Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;Z)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->enableAppearDrawing(Z)V
@@ -214,7 +184,7 @@
     return-void
 .end method
 
-.method static synthetic access$300(Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;Z)I
+.method static synthetic access$200(Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;Z)I
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->getCujType(Z)I
@@ -396,24 +366,6 @@
     return p0
 .end method
 
-.method private initDimens()V
-    .locals 2
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x10501e3
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mHeadsUpAddStartLocation:I
-
-    return-void
-.end method
-
 .method private synthetic lambda$startAppearAnimation$1(Landroid/animation/ValueAnimator;)V
     .locals 0
 
@@ -459,65 +411,56 @@
 .end method
 
 .method private setContentAlpha(F)V
-    .locals 2
+    .locals 4
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->getContentView()Landroid/view/View;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {p0}, Landroid/view/View;->hasOverlappingRendering()Z
+    invoke-virtual {v0}, Landroid/view/View;->hasOverlappingRendering()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_2
+    const/high16 v2, 0x3f800000    # 1.0f
 
-    const/4 v0, 0x0
+    if-eqz v1, :cond_2
 
-    cmpl-float v0, p1, v0
+    const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    cmpl-float v1, p1, v1
 
-    const/high16 v0, 0x3f800000    # 1.0f
+    if-eqz v1, :cond_1
 
-    cmpl-float v0, p1, v0
+    cmpl-float v1, p1, v2
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x2
+    const/4 v1, 0x2
 
     goto :goto_1
 
     :cond_1
     :goto_0
-    const/4 v0, 0x0
-
-    :goto_1
-    invoke-virtual {p0}, Landroid/view/View;->getLayerType()I
-
-    move-result v1
-
-    if-eq v1, v0, :cond_2
-
     const/4 v1, 0x0
 
-    invoke-virtual {p0, v0, v1}, Landroid/view/View;->setLayerType(ILandroid/graphics/Paint;)V
+    :goto_1
+    const/4 v3, 0x0
+
+    invoke-virtual {v0, v1, v3}, Landroid/view/View;->setLayerType(ILandroid/graphics/Paint;)V
 
     :cond_2
-    invoke-virtual {p0, p1}, Landroid/view/View;->setAlpha(F)V
+    invoke-virtual {v0, p1}, Landroid/view/View;->setAlpha(F)V
 
-    return-void
-.end method
+    cmpl-float p1, p1, v2
 
-.method private setNormalBackgroundVisibilityAmount(F)V
-    .locals 0
+    if-nez p1, :cond_3
 
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mNormalBackgroundVisibilityAmount:F
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->resetAllContentAlphas()V
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->updateOutlineAlpha()V
-
+    :cond_3
     return-void
 .end method
 
@@ -565,8 +508,6 @@
 
     :cond_1
     :goto_0
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mIsAppearing:Z
-
     if-eqz p1, :cond_2
 
     sget-object p2, Lcom/android/systemui/animation/Interpolators;->FAST_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
@@ -657,9 +598,9 @@
     :cond_4
     iget-object p2, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mAppearAnimator:Landroid/animation/ValueAnimator;
 
-    new-instance p3, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView$3;
+    new-instance p3, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView$2;
 
-    invoke-direct {p3, p0, p7, p1}, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView$3;-><init>(Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;Ljava/lang/Runnable;Z)V
+    invoke-direct {p3, p0, p7, p1}, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView$2;-><init>(Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;Ljava/lang/Runnable;Z)V
 
     invoke-virtual {p2, p3}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
@@ -701,7 +642,7 @@
 .end method
 
 .method private updateAppearRect()V
-    .locals 4
+    .locals 9
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mCurrentAppearInterpolator:Landroid/view/animation/Interpolator;
 
@@ -713,38 +654,94 @@
 
     const/high16 v1, 0x3f800000    # 1.0f
 
-    sub-float/2addr v1, v0
+    sub-float v2, v1, v0
 
-    iget v2, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mAnimationTranslationY:F
+    iget v3, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mAnimationTranslationY:F
 
-    mul-float/2addr v1, v2
+    mul-float/2addr v2, v3
 
-    iput v1, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mAppearAnimationTranslation:F
+    iput v2, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mAppearAnimationTranslation:F
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getActualHeight()I
 
-    move-result v1
+    move-result v2
 
-    int-to-float v1, v1
+    int-to-float v3, v2
 
-    mul-float/2addr v1, v0
+    mul-float/2addr v0, v3
 
-    iget v0, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mAppearAnimationTranslation:F
+    iget-object v4, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mTargetPoint:Landroid/graphics/Point;
+
+    if-eqz v4, :cond_0
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getWidth()I
 
-    move-result v2
+    move-result v0
 
-    int-to-float v2, v2
+    iget v4, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mAppearAnimationFraction:F
 
-    iget v3, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mAppearAnimationTranslation:F
+    sub-float/2addr v1, v4
 
-    add-float/2addr v1, v3
+    iget-object v4, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mTargetPoint:Landroid/graphics/Point;
 
-    const/4 v3, 0x0
+    iget v5, v4, Landroid/graphics/Point;->x:I
 
-    invoke-virtual {p0, v3, v0, v2, v1}, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->setOutlineRect(FFFF)V
+    int-to-float v6, v5
 
+    mul-float/2addr v6, v1
+
+    iget v7, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mAnimationTranslationY:F
+
+    iget v4, v4, Landroid/graphics/Point;->y:I
+
+    int-to-float v8, v4
+
+    sub-float v8, v7, v8
+
+    mul-float/2addr v8, v1
+
+    add-float/2addr v7, v8
+
+    int-to-float v8, v0
+
+    sub-int/2addr v0, v5
+
+    int-to-float v0, v0
+
+    mul-float/2addr v0, v1
+
+    sub-float/2addr v8, v0
+
+    sub-int/2addr v2, v4
+
+    int-to-float v0, v2
+
+    mul-float/2addr v0, v1
+
+    sub-float/2addr v3, v0
+
+    invoke-virtual {p0, v6, v7, v8, v3}, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->setOutlineRect(FFFF)V
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x0
+
+    iget v2, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mAppearAnimationTranslation:F
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getWidth()I
+
+    move-result v3
+
+    int-to-float v3, v3
+
+    iget v4, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mAppearAnimationTranslation:F
+
+    add-float/2addr v0, v4
+
+    invoke-virtual {p0, v1, v2, v3, v0}, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->setOutlineRect(FFFF)V
+
+    :goto_0
     return-void
 .end method
 
@@ -817,9 +814,9 @@
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mBackgroundColorAnimator:Landroid/animation/ValueAnimator;
 
-    new-instance v0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView$2;
+    new-instance v0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView$1;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView$2;-><init>(Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView$1;-><init>(Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;)V
 
     invoke-virtual {p1, v0}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
@@ -1197,16 +1194,6 @@
     return-void
 .end method
 
-.method public onDensityOrFontScaleChanged()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->onDensityOrFontScaleChanged()V
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->initDimens()V
-
-    return-void
-.end method
-
 .method protected onFinishInflate()V
     .locals 1
 
@@ -1315,12 +1302,6 @@
 
     iput-boolean p5, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mIsHeadsUpAnimation:Z
 
-    iget v0, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mHeadsUpAddStartLocation:I
-
-    int-to-float v0, v0
-
-    iput v0, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mHeadsUpLocation:F
-
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mDrawingAppearAnimation:Z
 
     if-eqz v0, :cond_1
@@ -1368,10 +1349,6 @@
 
     iput-boolean v1, v0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mIsHeadsUpAnimation:Z
 
-    move/from16 v1, p7
-
-    iput v1, v0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mHeadsUpLocation:F
-
     iget-boolean v1, v0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mDrawingAppearAnimation:Z
 
     if-eqz v1, :cond_0
@@ -1404,6 +1381,12 @@
     const-wide/16 v0, 0x0
 
     return-wide v0
+.end method
+
+.method protected resetAllContentAlphas()V
+    .locals 0
+
+    return-void
 .end method
 
 .method public setAccessibilityManager(Landroid/view/accessibility/AccessibilityManager;)V

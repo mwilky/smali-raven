@@ -348,7 +348,31 @@
 .end method
 
 .method private onDragEnd(Lcom/android/systemui/accessibility/floatingmenu/Position;)V
-    .locals 1
+    .locals 4
+
+    invoke-virtual {p1}, Lcom/android/systemui/accessibility/floatingmenu/Position;->getPercentageX()F
+
+    move-result v0
+
+    invoke-virtual {p1}, Lcom/android/systemui/accessibility/floatingmenu/Position;->getPercentageY()F
+
+    move-result v1
+
+    iget-object v2, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenu;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v2
+
+    iget v2, v2, Landroid/content/res/Configuration;->orientation:I
+
+    const/16 v3, 0x189
+
+    invoke-static {v3, v0, v1, v2}, Lcom/android/systemui/shared/system/SysUiStatsLog;->write(IFFI)V
 
     iget-object v0, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenu;->mContext:Landroid/content/Context;
 

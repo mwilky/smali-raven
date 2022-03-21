@@ -19,6 +19,10 @@
 .end annotation
 
 
+# static fields
+.field private static final DEBUG:Z
+
+
 # instance fields
 .field private final mChildren:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -39,6 +43,16 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    sget-boolean v0, Lcom/android/keyguard/KeyguardConstants;->DEBUG:Z
+
+    sput-boolean v0, Lcom/android/keyguard/KeyguardSecurityViewFlipperController;->DEBUG:Z
+
+    return-void
+.end method
+
 .method protected constructor <init>(Lcom/android/keyguard/KeyguardSecurityViewFlipper;Landroid/view/LayoutInflater;Lcom/android/keyguard/KeyguardInputViewController$Factory;Lcom/android/keyguard/EmergencyButtonController$Factory;)V
     .locals 0
 
@@ -172,22 +186,45 @@
     move-object v1, v2
 
     :goto_0
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3
 
     sget-object v0, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->None:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
-    if-eq p1, v0, :cond_2
+    if-eq p1, v0, :cond_3
 
     sget-object v0, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->Invalid:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
-    if-eq p1, v0, :cond_2
+    if-eq p1, v0, :cond_3
 
     invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardSecurityViewFlipperController;->getLayoutIdFor(Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;)I
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
+    sget-boolean v1, Lcom/android/keyguard/KeyguardSecurityViewFlipperController;->DEBUG:Z
+
+    if-eqz v1, :cond_2
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "inflating id = "
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v3, "KeyguardSecurityView"
+
+    invoke-static {v3, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSecurityViewFlipperController;->mLayoutInflater:Landroid/view/LayoutInflater;
 
     iget-object v3, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
@@ -220,8 +257,8 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :cond_2
-    if-nez v1, :cond_3
+    :cond_3
+    if-nez v1, :cond_4
 
     new-instance v1, Lcom/android/keyguard/KeyguardSecurityViewFlipperController$NullKeyguardInputViewController;
 
@@ -233,7 +270,7 @@
 
     invoke-direct {v1, p1, p2, p0}, Lcom/android/keyguard/KeyguardSecurityViewFlipperController$NullKeyguardInputViewController;-><init>(Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;Lcom/android/keyguard/KeyguardSecurityCallback;Lcom/android/keyguard/EmergencyButtonController;)V
 
-    :cond_3
+    :cond_4
     return-object v1
 .end method
 

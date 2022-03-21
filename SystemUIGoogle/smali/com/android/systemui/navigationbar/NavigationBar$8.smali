@@ -68,7 +68,7 @@
     :cond_1
     iget-object p2, p0, Lcom/android/systemui/navigationbar/NavigationBar$8;->this$0:Lcom/android/systemui/navigationbar/NavigationBar;
 
-    invoke-static {p2}, Lcom/android/systemui/navigationbar/NavigationBar;->access$1900(Lcom/android/systemui/navigationbar/NavigationBar;)V
+    invoke-static {p2}, Lcom/android/systemui/navigationbar/NavigationBar;->access$2100(Lcom/android/systemui/navigationbar/NavigationBar;)V
 
     iget-object p2, p0, Lcom/android/systemui/navigationbar/NavigationBar$8;->this$0:Lcom/android/systemui/navigationbar/NavigationBar;
 
@@ -93,11 +93,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBar$8;->this$0:Lcom/android/systemui/navigationbar/NavigationBar;
 
-    invoke-static {p0}, Lcom/android/systemui/navigationbar/NavigationBar;->access$2000(Lcom/android/systemui/navigationbar/NavigationBar;)Landroid/view/accessibility/AccessibilityManager;
-
-    move-result-object p1
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/navigationbar/NavigationBar;->updateAccessibilityServicesState(Landroid/view/accessibility/AccessibilityManager;)V
+    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/NavigationBar;->updateAcessibilityStateFlags()V
 
     :cond_3
     return-void

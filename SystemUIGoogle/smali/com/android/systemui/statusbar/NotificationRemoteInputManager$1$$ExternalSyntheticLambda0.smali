@@ -51,7 +51,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1$$ExternalSyntheticLambda0;->f$4:Landroid/app/PendingIntent;
 
-    invoke-static {v0, v1, v2, v3, p0}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->$r8$lambda$AWVEgFMmlF_fxrnMlg7icKHgsV4(Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;Landroid/widget/RemoteViews$RemoteResponse;Landroid/view/View;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/app/PendingIntent;)Z
+    invoke-static {v0, v1, v2, v3, p0}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->$r8$lambda$yuVpzya3VbjlocNfOJg-_NjUB3Q(Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;Landroid/widget/RemoteViews$RemoteResponse;Landroid/view/View;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/app/PendingIntent;)Z
 
     move-result p0
 

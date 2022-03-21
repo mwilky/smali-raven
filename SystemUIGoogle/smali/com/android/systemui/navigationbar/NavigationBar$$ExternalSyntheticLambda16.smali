@@ -27,9 +27,9 @@
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBar$$ExternalSyntheticLambda16;->f$0:Lcom/android/systemui/navigationbar/NavigationBar;
 
-    check-cast p1, Ljava/lang/Integer;
+    check-cast p1, Ljava/lang/Long;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/navigationbar/NavigationBar;->$r8$lambda$1ikVut1IKywCdr39DwIhxxpGYBw(Lcom/android/systemui/navigationbar/NavigationBar;Ljava/lang/Integer;)V
+    invoke-static {p0, p1}, Lcom/android/systemui/navigationbar/NavigationBar;->$r8$lambda$LCNaADsgtD7BEqiJjLxeEA3aoT0(Lcom/android/systemui/navigationbar/NavigationBar;Ljava/lang/Long;)V
 
     return-void
 .end method

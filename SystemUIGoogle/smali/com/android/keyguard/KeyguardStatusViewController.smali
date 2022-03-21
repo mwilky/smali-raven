@@ -16,6 +16,8 @@
 # static fields
 .field private static final CLOCK_ANIMATION_PROPERTIES:Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;
 
+.field private static final DEBUG:Z
+
 
 # instance fields
 .field private final mClipBounds:Landroid/graphics/Rect;
@@ -48,6 +50,10 @@
 # direct methods
 .method static constructor <clinit>()V
     .locals 3
+
+    sget-boolean v0, Lcom/android/keyguard/KeyguardConstants;->DEBUG:Z
+
+    sput-boolean v0, Lcom/android/keyguard/KeyguardStatusViewController;->DEBUG:Z
 
     new-instance v0, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;
 
@@ -160,12 +166,12 @@
     return-object p0
 .end method
 
-.method static synthetic access$200(Lcom/android/keyguard/KeyguardStatusViewController;)Lcom/android/keyguard/KeyguardSliceViewController;
-    .locals 0
+.method static synthetic access$200()Z
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardStatusViewController;->mKeyguardSliceViewController:Lcom/android/keyguard/KeyguardSliceViewController;
+    sget-boolean v0, Lcom/android/keyguard/KeyguardStatusViewController;->DEBUG:Z
 
-    return-object p0
+    return v0
 .end method
 
 .method static synthetic access$300(Lcom/android/keyguard/KeyguardStatusViewController;)Lcom/android/systemui/statusbar/policy/KeyguardStateController;
@@ -196,6 +202,16 @@
 
 
 # virtual methods
+.method public displayClock(I)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardStatusViewController;->mKeyguardClockSwitchController:Lcom/android/keyguard/KeyguardClockSwitchController;
+
+    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardClockSwitchController;->displayClock(I)V
+
+    return-void
+.end method
+
 .method public dozeTimeTick()V
     .locals 0
 
@@ -487,16 +503,6 @@
     check-cast p0, Lcom/android/keyguard/KeyguardStatusView;
 
     invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardStatusView;->setDarkAmount(F)V
-
-    return-void
-.end method
-
-.method public setHasVisibleNotifications(Z)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardStatusViewController;->mKeyguardClockSwitchController:Lcom/android/keyguard/KeyguardClockSwitchController;
-
-    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardClockSwitchController;->setHasVisibleNotifications(Z)V
 
     return-void
 .end method

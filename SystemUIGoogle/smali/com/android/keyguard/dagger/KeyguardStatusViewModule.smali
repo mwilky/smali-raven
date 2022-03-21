@@ -21,7 +21,7 @@
 .method static getKeyguardSliceView(Lcom/android/keyguard/KeyguardClockSwitch;)Lcom/android/keyguard/KeyguardSliceView;
     .locals 1
 
-    sget v0, Lcom/android/systemui/R$id;->keyguard_status_area:I
+    sget v0, Lcom/android/systemui/R$id;->keyguard_slice_view:I
 
     invoke-virtual {p0, v0}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 

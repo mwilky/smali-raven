@@ -375,7 +375,7 @@
 
     iput-object p12, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
 
-    const p2, 0x1040271
+    const p2, 0x1040272
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -727,7 +727,9 @@
 
     iget v1, v7, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
-    or-int/lit8 v1, v1, 0x10
+    const v2, 0x200010
+
+    or-int/2addr v1, v2
 
     iput v1, v7, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
@@ -1976,6 +1978,10 @@
 
     invoke-virtual {p0}, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->updateCurrentUserResources()V
 
+    iget-object v1, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->mStateChangeCallback:Ljava/lang/Runnable;
+
+    if-eqz v1, :cond_0
+
     invoke-virtual {p0}, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->isHandlingGestures()Z
 
     move-result v1
@@ -2261,7 +2267,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->mOnPropertiesChangedListener:Landroid/provider/DeviceConfig$OnPropertiesChangedListener;
 
-    const-string/jumbo v4, "systemui"
+    const-string v4, "systemui"
 
     invoke-static {v4, v3, v0}, Landroid/provider/DeviceConfig;->addOnPropertiesChangedListener(Ljava/lang/String;Ljava/util/concurrent/Executor;Landroid/provider/DeviceConfig$OnPropertiesChangedListener;)V
 
@@ -2350,7 +2356,7 @@
 
     const/4 v1, 0x1
 
-    const-string/jumbo v2, "systemui"
+    const-string v2, "systemui"
 
     const/4 v3, 0x0
 
@@ -3250,7 +3256,7 @@
 
     move-result-object v1
 
-    const v3, 0x10501c8
+    const v3, 0x10501ca
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -3260,7 +3266,7 @@
 
     div-float/2addr v0, v3
 
-    const-string/jumbo v3, "systemui"
+    const-string v3, "systemui"
 
     const-string v4, "back_gesture_bottom_height"
 

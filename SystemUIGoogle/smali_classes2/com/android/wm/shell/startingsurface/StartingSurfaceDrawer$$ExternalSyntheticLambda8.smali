@@ -27,9 +27,9 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer$$ExternalSyntheticLambda8;->f$0:Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer$SplashScreenViewSupplier;
 
-    check-cast p1, Landroid/window/SplashScreenView;
+    check-cast p1, Ljava/lang/Runnable;
 
-    invoke-virtual {p0, p1}, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer$SplashScreenViewSupplier;->setView(Landroid/window/SplashScreenView;)V
+    invoke-virtual {p0, p1}, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer$SplashScreenViewSupplier;->setUiThreadInitTask(Ljava/lang/Runnable;)V
 
     return-void
 .end method

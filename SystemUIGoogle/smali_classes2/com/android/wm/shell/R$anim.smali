@@ -15,15 +15,15 @@
 
 
 # static fields
-.field public static final forced_resizable_exit:I = 0x7f01024b
+.field public static final forced_resizable_exit:I = 0x7f010219
 
-.field public static final tv_pip_controls_focus_gain_animation:I = 0x7f010281
+.field public static final tv_pip_controls_focus_gain_animation:I = 0x7f01024f
 
-.field public static final tv_pip_controls_focus_loss_animation:I = 0x7f010282
+.field public static final tv_pip_controls_focus_loss_animation:I = 0x7f010250
 
-.field public static final tv_pip_menu_fade_in_animation:I = 0x7f010283
+.field public static final tv_pip_menu_fade_in_animation:I = 0x7f010251
 
-.field public static final tv_pip_menu_fade_out_animation:I = 0x7f010284
+.field public static final tv_pip_menu_fade_out_animation:I = 0x7f010252
 
 
 # direct methods

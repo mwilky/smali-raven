@@ -32,18 +32,6 @@
         <item quantity="other">Falscher PUK-Code der SIM-Karte. Du hast noch %d Versuche, bevor deine SIM-Karte endgültig gesperrt wird.</item>
         <item quantity="one">Falscher PUK-Code der SIM-Karte. Du hast noch %d Versuch, bevor deine SIM-Karte endgültig gesperrt wird.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">Das Gerät wurde seit %d Stunden nicht mehr entsperrt. Bitte bestätige das Passwort.</item>
-        <item quantity="one">Das Gerät wurde seit %d Stunde nicht mehr entsperrt. Bitte bestätige das Passwort.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">Das Gerät wurde seit %d Stunden nicht mehr entsperrt. Bitte bestätige das Muster.</item>
-        <item quantity="one">Das Gerät wurde seit %d Stunde nicht mehr entsperrt. Bitte bestätige das Muster.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">Das Gerät wurde seit %d Stunden nicht mehr entsperrt. Bitte bestätige die PIN.</item>
-        <item quantity="one">Das Gerät wurde seit %d Stunde nicht mehr entsperrt. Bitte bestätige die PIN.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">In %d Sekunden noch einmal versuchen.</item>
         <item quantity="one">In 1 Sekunde noch einmal versuchen.</item>

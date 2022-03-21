@@ -56,6 +56,8 @@
 
 .field private goingToSleep:Z
 
+.field private inSplitShade:Z
+
 .field private isCrossFadeAnimatorRunning:Z
 
 .field private final keyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
@@ -806,68 +808,73 @@
 
     const/4 v6, 0x2
 
-    if-lez v5, :cond_3
+    if-gtz v5, :cond_3
 
-    if-nez v0, :cond_3
+    iget-boolean v5, p0, Lcom/android/systemui/media/MediaHierarchyManager;->inSplitShade:Z
+
+    if-eqz v5, :cond_4
+
+    :cond_3
+    if-nez v0, :cond_4
 
     :goto_1
     move v1, v2
 
     goto :goto_2
 
-    :cond_3
+    :cond_4
     const v5, 0x3ecccccd    # 0.4f
 
     cmpl-float v4, v4, v5
 
-    if-lez v4, :cond_4
+    if-lez v4, :cond_5
 
-    if-eqz v0, :cond_4
-
-    goto :goto_1
-
-    :cond_4
-    invoke-direct {p0}, Lcom/android/systemui/media/MediaHierarchyManager;->getHasActiveMedia()Z
-
-    move-result v4
-
-    if-nez v4, :cond_5
+    if-eqz v0, :cond_5
 
     goto :goto_1
 
     :cond_5
-    if-eqz v0, :cond_6
+    invoke-direct {p0}, Lcom/android/systemui/media/MediaHierarchyManager;->getHasActiveMedia()Z
+
+    move-result v4
+
+    if-nez v4, :cond_6
+
+    goto :goto_1
+
+    :cond_6
+    if-eqz v0, :cond_7
 
     invoke-direct {p0}, Lcom/android/systemui/media/MediaHierarchyManager;->isTransformingToFullShadeAndInQQS()Z
 
     move-result v4
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_7
 
     goto :goto_2
 
-    :cond_6
-    if-eqz v0, :cond_7
+    :cond_7
+    if-eqz v0, :cond_8
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_8
 
     move v1, v6
 
-    :cond_7
+    :cond_8
     :goto_2
-    if-ne v1, v6, :cond_9
+    if-ne v1, v6, :cond_a
 
     invoke-direct {p0, v1}, Lcom/android/systemui/media/MediaHierarchyManager;->getHost(I)Lcom/android/systemui/media/MediaHost;
 
     move-result-object v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_9
 
     const/4 v0, 0x0
 
     goto :goto_3
 
-    :cond_8
+    :cond_9
     invoke-virtual {v0}, Lcom/android/systemui/media/MediaHost;->getVisible()Z
 
     move-result v0
@@ -883,7 +890,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_a
 
     iget-object v0, p0, Lcom/android/systemui/media/MediaHierarchyManager;->statusBarStateController:Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
 
@@ -891,37 +898,37 @@
 
     move-result v0
 
-    if-nez v0, :cond_9
-
-    return v2
-
-    :cond_9
-    if-ne v1, v6, :cond_a
-
-    iget v0, p0, Lcom/android/systemui/media/MediaHierarchyManager;->desiredLocation:I
-
     if-nez v0, :cond_a
-
-    iget-boolean v0, p0, Lcom/android/systemui/media/MediaHierarchyManager;->collapsingShadeFromQS:Z
-
-    if-eqz v0, :cond_a
 
     return v2
 
     :cond_a
-    if-eq v1, v6, :cond_b
+    if-ne v1, v6, :cond_b
 
     iget v0, p0, Lcom/android/systemui/media/MediaHierarchyManager;->desiredLocation:I
 
-    if-ne v0, v6, :cond_b
+    if-nez v0, :cond_b
+
+    iget-boolean v0, p0, Lcom/android/systemui/media/MediaHierarchyManager;->collapsingShadeFromQS:Z
+
+    if-eqz v0, :cond_b
+
+    return v2
+
+    :cond_b
+    if-eq v1, v6, :cond_c
+
+    iget v0, p0, Lcom/android/systemui/media/MediaHierarchyManager;->desiredLocation:I
+
+    if-ne v0, v6, :cond_c
 
     iget-boolean p0, p0, Lcom/android/systemui/media/MediaHierarchyManager;->fullyAwake:Z
 
-    if-nez p0, :cond_b
+    if-nez p0, :cond_c
 
     return v6
 
-    :cond_b
+    :cond_c
     return v1
 .end method
 
@@ -1186,6 +1193,10 @@
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
+
+    if-nez v0, :cond_5
+
+    iget-boolean v0, p0, Lcom/android/systemui/media/MediaHierarchyManager;->inSplitShade:Z
 
     if-nez v0, :cond_5
 
@@ -2265,6 +2276,18 @@
     move-result v0
 
     iput v0, p0, Lcom/android/systemui/media/MediaHierarchyManager;->distanceForFullShadeTransition:I
+
+    iget-object v0, p0, Lcom/android/systemui/media/MediaHierarchyManager;->context:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/systemui/util/Utils;->shouldUseSplitNotificationShade(Landroid/content/res/Resources;)Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/android/systemui/media/MediaHierarchyManager;->inSplitShade:Z
 
     return-void
 .end method

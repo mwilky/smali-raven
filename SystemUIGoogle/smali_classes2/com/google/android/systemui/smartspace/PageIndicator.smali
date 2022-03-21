@@ -326,24 +326,6 @@
     goto/16 :goto_1
 
     :cond_9
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getBackground()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    iget v2, p0, Lcom/google/android/systemui/smartspace/PageIndicator;->mPrimaryColor:I
-
-    const/high16 v3, 0x424c0000    # 51.0f
-
-    invoke-static {v3}, Ljava/lang/Math;->round(F)I
-
-    move-result v3
-
-    invoke-static {v2, v3}, Landroidx/core/graphics/ColorUtils;->setAlphaComponent(II)I
-
-    move-result v2
-
-    invoke-virtual {v0, v2}, Landroid/graphics/drawable/Drawable;->setTint(I)V
-
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -452,69 +434,67 @@
     return-void
 
     :cond_0
-    const-string v1, "PageIndicator"
-
-    if-ltz p1, :cond_8
+    if-ltz p1, :cond_6
 
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getChildCount()I
 
-    move-result v2
+    move-result v1
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    sub-int/2addr v2, v3
+    sub-int/2addr v1, v2
 
-    if-lt p1, v2, :cond_1
+    if-lt p1, v1, :cond_1
 
-    goto :goto_3
+    goto :goto_2
 
     :cond_1
     invoke-virtual {p0, p1}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Landroid/widget/ImageView;
+    check-cast v1, Landroid/widget/ImageView;
 
-    add-int/lit8 v4, p1, 0x1
+    add-int/lit8 v3, p1, 0x1
 
-    invoke-virtual {p0, v4}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v3}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v4
 
-    check-cast v5, Landroid/widget/ImageView;
+    check-cast v4, Landroid/widget/ImageView;
 
-    if-eqz v2, :cond_7
+    if-eqz v1, :cond_6
 
-    if-nez v5, :cond_2
+    if-nez v4, :cond_2
 
     goto :goto_2
 
     :cond_2
-    const/high16 v1, 0x3f800000    # 1.0f
+    const/high16 v5, 0x3f800000    # 1.0f
 
-    sub-float/2addr v1, p2
+    sub-float/2addr v5, p2
 
     const v6, 0x3f19999a    # 0.6f
 
-    mul-float/2addr v1, v6
+    mul-float/2addr v5, v6
 
     const v7, 0x3ecccccd    # 0.4f
 
-    add-float/2addr v1, v7
+    add-float/2addr v5, v7
 
-    invoke-virtual {v2, v1}, Landroid/widget/ImageView;->setAlpha(F)V
+    invoke-virtual {v1, v5}, Landroid/widget/ImageView;->setAlpha(F)V
 
     mul-float/2addr v6, p2
 
     add-float/2addr v6, v7
 
-    invoke-virtual {v5, v6}, Landroid/widget/ImageView;->setAlpha(F)V
+    invoke-virtual {v4, v6}, Landroid/widget/ImageView;->setAlpha(F)V
 
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
-    sget v2, Lcom/android/systemui/bcsmartspace/R$string;->accessibility_smartspace_page:I
+    sget v4, Lcom/android/systemui/bcsmartspace/R$string;->accessibility_smartspace_page:I
 
     const/4 v5, 0x2
 
@@ -530,7 +510,7 @@
 
     if-gez v7, :cond_3
 
-    move v7, v4
+    move v7, v3
 
     goto :goto_0
 
@@ -550,9 +530,9 @@
 
     move-result-object v6
 
-    aput-object v6, v5, v3
+    aput-object v6, v5, v2
 
-    invoke-virtual {v1, v2, v5}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v1, v4, v5}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -572,28 +552,13 @@
     goto :goto_1
 
     :cond_5
-    move p1, v4
+    move p1, v3
 
     :goto_1
     iput p1, p0, Lcom/google/android/systemui/smartspace/PageIndicator;->mCurrentPageIndex:I
 
     :cond_6
-    return-void
-
-    :cond_7
     :goto_2
-    const-string p0, "Current and next dot missing. Cannot set current page offset."
-
-    invoke-static {v1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_8
-    :goto_3
-    const-string p0, "Current dot index invalid. Cannot set current page offset."
-
-    invoke-static {v1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
     return-void
 .end method
 
@@ -601,24 +566,6 @@
     .locals 2
 
     iput p1, p0, Lcom/google/android/systemui/smartspace/PageIndicator;->mPrimaryColor:I
-
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getBackground()Landroid/graphics/drawable/Drawable;
-
-    move-result-object p1
-
-    iget v0, p0, Lcom/google/android/systemui/smartspace/PageIndicator;->mPrimaryColor:I
-
-    const/high16 v1, 0x424c0000    # 51.0f
-
-    invoke-static {v1}, Ljava/lang/Math;->round(F)I
-
-    move-result v1
-
-    invoke-static {v0, v1}, Landroidx/core/graphics/ColorUtils;->setAlphaComponent(II)I
-
-    move-result v0
-
-    invoke-virtual {p1, v0}, Landroid/graphics/drawable/Drawable;->setTint(I)V
 
     const/4 p1, 0x0
 

@@ -30,7 +30,7 @@
     return-object v0
 
     :cond_0
-    const v1, 0x10203b5
+    const v1, 0x10203b8
 
     invoke-virtual {p0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -43,7 +43,7 @@
     return-object v0
 
     :cond_1
-    const v1, 0x10203b1
+    const v1, 0x10203b4
 
     invoke-virtual {p0, v1}, Landroid/view/ViewGroup;->getTag(I)Ljava/lang/Object;
 
@@ -130,6 +130,18 @@
 
     :cond_0
     invoke-super {p0, p1}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper;->onContentUpdated(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;)V
+
+    return-void
+.end method
+
+.method public setNotificationFaded(Z)V
+    .locals 0
+
+    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationViewWrapper;->setNotificationFaded(Z)V
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationDecoratedCustomViewWrapper;->mWrappedView:Landroid/view/View;
+
+    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationFadeAware;->setLayerTypeForFaded(Landroid/view/View;Z)V
 
     return-void
 .end method

@@ -23,6 +23,8 @@
 
 .field private final mContext:Landroid/content/Context;
 
+.field private mLoggerSessionId:Lcom/android/internal/logging/InstanceId;
+
 .field private mSession:Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$DragSession;
 
 .field private final mSplitScreen:Lcom/android/wm/shell/splitscreen/SplitScreenController;
@@ -101,8 +103,8 @@
     return-object v0
 .end method
 
-.method private startClipDescription(Landroid/content/ClipDescription;Landroid/content/Intent;II)V
-    .locals 9
+.method private startClipDescription(Landroid/content/ClipDescription;Landroid/content/Intent;I)V
+    .locals 8
 
     const-string v0, "application/vnd.android.task"
 
@@ -136,7 +138,7 @@
     invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
 
     :goto_0
-    move-object v7, v1
+    move-object v6, v1
 
     if-eqz v0, :cond_1
 
@@ -150,7 +152,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->mStarter:Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Starter;
 
-    invoke-interface {p0, p1, p3, p4, v7}, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Starter;->startTask(IIILandroid/os/Bundle;)V
+    invoke-interface {p0, p1, p3, v6}, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Starter;->startTask(IILandroid/os/Bundle;)V
 
     goto :goto_1
 
@@ -175,40 +177,32 @@
 
     move-result-object p1
 
-    move-object v8, p1
+    move-object v7, p1
 
-    check-cast v8, Landroid/os/UserHandle;
+    check-cast v7, Landroid/os/UserHandle;
 
     iget-object v2, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->mStarter:Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Starter;
 
     move v5, p3
 
-    move v6, p4
-
-    invoke-interface/range {v2 .. v8}, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Starter;->startShortcut(Ljava/lang/String;Ljava/lang/String;IILandroid/os/Bundle;Landroid/os/UserHandle;)V
+    invoke-interface/range {v2 .. v7}, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Starter;->startShortcut(Ljava/lang/String;Ljava/lang/String;ILandroid/os/Bundle;Landroid/os/UserHandle;)V
 
     goto :goto_1
 
     :cond_2
-    iget-object v2, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->mStarter:Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Starter;
+    iget-object p0, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->mStarter:Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Starter;
 
-    const-string p0, "android.intent.extra.PENDING_INTENT"
+    const-string p1, "android.intent.extra.PENDING_INTENT"
 
-    invoke-virtual {p2, p0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+    invoke-virtual {p2, p1}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
-    move-result-object p0
+    move-result-object p1
 
-    move-object v3, p0
+    check-cast p1, Landroid/app/PendingIntent;
 
-    check-cast v3, Landroid/app/PendingIntent;
+    const/4 p2, 0x0
 
-    const/4 v4, 0x0
-
-    move v5, p3
-
-    move v6, p4
-
-    invoke-interface/range {v2 .. v7}, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Starter;->startIntent(Landroid/app/PendingIntent;Landroid/content/Intent;IILandroid/os/Bundle;)V
+    invoke-interface {p0, p1, p2, p3, v6}, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Starter;->startIntent(Landroid/app/PendingIntent;Landroid/content/Intent;ILandroid/os/Bundle;)V
 
     :goto_1
     return-void
@@ -260,7 +254,7 @@
 .end method
 
 .method getTargets(Landroid/graphics/Insets;)Ljava/util/ArrayList;
-    .locals 11
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -341,9 +335,9 @@
 
     iget-object v3, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->mSplitScreen:Lcom/android/wm/shell/splitscreen/SplitScreenController;
 
-    const/4 v4, 0x1
+    const/4 v4, 0x0
 
-    const/4 v5, 0x0
+    const/4 v5, 0x1
 
     if-eqz v3, :cond_1
 
@@ -353,172 +347,172 @@
 
     if-eqz v3, :cond_1
 
-    move v3, v4
+    move v3, v5
 
     goto :goto_0
 
     :cond_1
-    move v3, v5
+    move v3, v4
 
     :goto_0
     if-nez v3, :cond_3
 
-    iget-object v3, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->mSession:Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$DragSession;
+    iget-object v6, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->mSession:Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$DragSession;
 
-    iget v6, v3, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$DragSession;->runningTaskActType:I
+    iget v7, v6, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$DragSession;->runningTaskActType:I
 
-    if-ne v6, v4, :cond_2
+    if-ne v7, v5, :cond_2
 
-    iget v3, v3, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$DragSession;->runningTaskWinMode:I
+    iget v6, v6, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$DragSession;->runningTaskWinMode:I
 
-    if-ne v3, v4, :cond_2
+    if-ne v6, v5, :cond_2
 
     goto :goto_1
 
     :cond_2
-    move v3, v5
+    move v6, v4
 
     goto :goto_2
 
     :cond_3
     :goto_1
-    move v3, v4
+    move v6, v5
 
     :goto_2
-    if-eqz v3, :cond_5
+    if-eqz v6, :cond_7
 
-    new-instance v3, Landroid/graphics/Rect;
+    new-instance v0, Landroid/graphics/Rect;
 
-    invoke-direct {v3}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
-    new-instance v6, Landroid/graphics/Rect;
+    new-instance v1, Landroid/graphics/Rect;
 
-    invoke-direct {v6}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
 
-    iget-object v7, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->mSplitScreen:Lcom/android/wm/shell/splitscreen/SplitScreenController;
+    iget-object v6, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->mSplitScreen:Lcom/android/wm/shell/splitscreen/SplitScreenController;
 
-    invoke-virtual {v7, v3, v6}, Lcom/android/wm/shell/splitscreen/SplitScreenController;->getStageBounds(Landroid/graphics/Rect;Landroid/graphics/Rect;)V
+    invoke-virtual {v6, v0, v1}, Lcom/android/wm/shell/splitscreen/SplitScreenController;->getStageBounds(Landroid/graphics/Rect;Landroid/graphics/Rect;)V
 
-    invoke-virtual {v3, p1}, Landroid/graphics/Rect;->intersect(Landroid/graphics/Rect;)Z
+    invoke-virtual {v0, p1}, Landroid/graphics/Rect;->intersect(Landroid/graphics/Rect;)Z
 
-    invoke-virtual {v6, p1}, Landroid/graphics/Rect;->intersect(Landroid/graphics/Rect;)Z
+    invoke-virtual {v1, p1}, Landroid/graphics/Rect;->intersect(Landroid/graphics/Rect;)Z
 
-    const/4 v7, 0x2
+    const/4 v6, 0x2
 
-    const/4 v8, 0x3
-
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_5
 
     new-instance v2, Landroid/graphics/Rect;
 
     invoke-direct {v2}, Landroid/graphics/Rect;-><init>()V
 
-    new-instance v9, Landroid/graphics/Rect;
+    new-instance v7, Landroid/graphics/Rect;
 
-    invoke-direct {v9}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {v7}, Landroid/graphics/Rect;-><init>()V
 
-    new-array v10, v8, [Landroid/graphics/Rect;
+    if-eqz v3, :cond_4
 
-    aput-object v2, v10, v5
+    invoke-virtual {v2, v0}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    aput-object v1, v10, v4
-
-    aput-object v9, v10, v7
-
-    invoke-virtual {p1, v10}, Landroid/graphics/Rect;->splitVertically([Landroid/graphics/Rect;)V
-
-    iget-object p1, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->mTargets:Ljava/util/ArrayList;
-
-    new-instance v7, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;
-
-    invoke-direct {v7, v5, v1, v0}, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;-><init>(ILandroid/graphics/Rect;Landroid/graphics/Rect;)V
-
-    invoke-virtual {p1, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    iget-object p1, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->mTargets:Ljava/util/ArrayList;
-
-    new-instance v0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;
-
-    invoke-direct {v0, v4, v2, v3}, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;-><init>(ILandroid/graphics/Rect;Landroid/graphics/Rect;)V
-
-    invoke-virtual {p1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    iget-object p1, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->mTargets:Ljava/util/ArrayList;
-
-    new-instance v0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;
-
-    invoke-direct {v0, v8, v9, v6}, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;-><init>(ILandroid/graphics/Rect;Landroid/graphics/Rect;)V
-
-    invoke-virtual {p1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v7, v1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
     goto :goto_3
 
     :cond_4
+    new-array v3, v6, [Landroid/graphics/Rect;
+
+    aput-object v2, v3, v4
+
+    aput-object v7, v3, v5
+
+    invoke-virtual {p1, v3}, Landroid/graphics/Rect;->splitVertically([Landroid/graphics/Rect;)V
+
+    :goto_3
+    iget-object p1, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->mTargets:Ljava/util/ArrayList;
+
+    new-instance v3, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;
+
+    invoke-direct {v3, v5, v2, v0}, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;-><init>(ILandroid/graphics/Rect;Landroid/graphics/Rect;)V
+
+    invoke-virtual {p1, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    iget-object p1, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->mTargets:Ljava/util/ArrayList;
+
+    new-instance v0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;
+
+    const/4 v2, 0x3
+
+    invoke-direct {v0, v2, v7, v1}, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;-><init>(ILandroid/graphics/Rect;Landroid/graphics/Rect;)V
+
+    invoke-virtual {p1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_5
+
+    :cond_5
     new-instance v2, Landroid/graphics/Rect;
 
     invoke-direct {v2}, Landroid/graphics/Rect;-><init>()V
 
-    new-instance v9, Landroid/graphics/Rect;
+    new-instance v7, Landroid/graphics/Rect;
 
-    invoke-direct {v9}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {v7}, Landroid/graphics/Rect;-><init>()V
 
-    new-array v8, v8, [Landroid/graphics/Rect;
+    if-eqz v3, :cond_6
 
-    aput-object v2, v8, v5
+    invoke-virtual {v2, v0}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    aput-object v1, v8, v4
+    invoke-virtual {v7, v1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
-    aput-object v9, v8, v7
+    goto :goto_4
 
-    invoke-virtual {p1, v8}, Landroid/graphics/Rect;->splitHorizontally([Landroid/graphics/Rect;)V
+    :cond_6
+    new-array v3, v6, [Landroid/graphics/Rect;
 
+    aput-object v2, v3, v4
+
+    aput-object v7, v3, v5
+
+    invoke-virtual {p1, v3}, Landroid/graphics/Rect;->splitHorizontally([Landroid/graphics/Rect;)V
+
+    :goto_4
     iget-object p1, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->mTargets:Ljava/util/ArrayList;
 
-    new-instance v4, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;
+    new-instance v3, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;
 
-    invoke-direct {v4, v5, v1, v0}, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;-><init>(ILandroid/graphics/Rect;Landroid/graphics/Rect;)V
+    invoke-direct {v3, v6, v2, v0}, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;-><init>(ILandroid/graphics/Rect;Landroid/graphics/Rect;)V
 
-    invoke-virtual {p1, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     iget-object p1, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->mTargets:Ljava/util/ArrayList;
 
     new-instance v0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;
 
-    invoke-direct {v0, v7, v2, v3}, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;-><init>(ILandroid/graphics/Rect;Landroid/graphics/Rect;)V
+    const/4 v2, 0x4
+
+    invoke-direct {v0, v2, v7, v1}, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;-><init>(ILandroid/graphics/Rect;Landroid/graphics/Rect;)V
 
     invoke-virtual {p1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    iget-object p1, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->mTargets:Ljava/util/ArrayList;
+    goto :goto_5
 
-    new-instance v0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;
-
-    const/4 v1, 0x4
-
-    invoke-direct {v0, v1, v9, v6}, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;-><init>(ILandroid/graphics/Rect;Landroid/graphics/Rect;)V
-
-    invoke-virtual {p1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto :goto_3
-
-    :cond_5
+    :cond_7
     iget-object p1, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->mTargets:Ljava/util/ArrayList;
 
     new-instance v2, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;
 
-    invoke-direct {v2, v5, v1, v0}, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;-><init>(ILandroid/graphics/Rect;Landroid/graphics/Rect;)V
+    invoke-direct {v2, v4, v1, v0}, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;-><init>(ILandroid/graphics/Rect;Landroid/graphics/Rect;)V
 
     invoke-virtual {p1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :goto_3
+    :goto_5
     iget-object p0, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->mTargets:Ljava/util/ArrayList;
 
     return-object p0
 .end method
 
 .method handleDrop(Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;Landroid/content/ClipData;)V
-    .locals 4
+    .locals 3
 
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_4
 
     iget-object v0, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->mTargets:Ljava/util/ArrayList;
 
@@ -528,69 +522,46 @@
 
     if-nez v0, :cond_0
 
-    goto :goto_3
+    goto :goto_2
 
     :cond_0
-    iget-object v0, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->mSplitScreen:Lcom/android/wm/shell/splitscreen/SplitScreenController;
+    iget p1, p1, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;->type:I
 
-    const/4 v1, 0x0
+    const/4 v0, 0x2
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    if-eqz v0, :cond_1
+    if-eq p1, v0, :cond_2
 
-    invoke-virtual {v0}, Lcom/android/wm/shell/splitscreen/SplitScreenController;->isSplitScreenVisible()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    move v0, v2
+    if-ne p1, v1, :cond_1
 
     goto :goto_0
 
     :cond_1
-    move v0, v1
-
-    :goto_0
-    iget p1, p1, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$Target;->type:I
-
-    const/4 v3, 0x2
-
-    if-eq p1, v3, :cond_2
-
-    if-ne p1, v2, :cond_3
-
-    :cond_2
-    move v1, v2
-
-    :cond_3
-    const/4 v3, -0x1
-
-    if-eqz p1, :cond_5
-
-    iget-object p1, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->mSplitScreen:Lcom/android/wm/shell/splitscreen/SplitScreenController;
-
-    if-eqz p1, :cond_5
-
-    xor-int/lit8 p1, v1, 0x1
-
-    if-nez v0, :cond_4
+    const/4 v0, 0x0
 
     goto :goto_1
 
-    :cond_4
-    move v2, v3
+    :cond_2
+    :goto_0
+    move v0, v1
 
     :goto_1
-    move v3, p1
+    const/4 v2, -0x1
 
-    goto :goto_2
+    if-eqz p1, :cond_3
 
-    :cond_5
-    move v2, v3
+    iget-object p1, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->mSplitScreen:Lcom/android/wm/shell/splitscreen/SplitScreenController;
 
-    :goto_2
+    if-eqz p1, :cond_3
+
+    xor-int/lit8 v2, v0, 0x1
+
+    iget-object v0, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->mLoggerSessionId:Lcom/android/internal/logging/InstanceId;
+
+    invoke-virtual {p1, v2, v0}, Lcom/android/wm/shell/splitscreen/SplitScreenController;->logOnDroppedToSplit(ILcom/android/internal/logging/InstanceId;)V
+
+    :cond_3
     invoke-virtual {p2}, Landroid/content/ClipData;->getDescription()Landroid/content/ClipDescription;
 
     move-result-object p1
@@ -599,27 +570,29 @@
 
     iget-object p2, p2, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$DragSession;->dragData:Landroid/content/Intent;
 
-    invoke-direct {p0, p1, p2, v2, v3}, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->startClipDescription(Landroid/content/ClipDescription;Landroid/content/Intent;II)V
+    invoke-direct {p0, p1, p2, v2}, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->startClipDescription(Landroid/content/ClipDescription;Landroid/content/Intent;I)V
 
-    :cond_6
-    :goto_3
+    :cond_4
+    :goto_2
     return-void
 .end method
 
-.method start(Lcom/android/wm/shell/common/DisplayLayout;Landroid/content/ClipData;)V
-    .locals 3
+.method start(Lcom/android/wm/shell/common/DisplayLayout;Landroid/content/ClipData;Lcom/android/internal/logging/InstanceId;)V
+    .locals 2
 
-    new-instance v0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$DragSession;
+    iput-object p3, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->mLoggerSessionId:Lcom/android/internal/logging/InstanceId;
 
-    iget-object v1, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->mContext:Landroid/content/Context;
+    new-instance p3, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$DragSession;
 
-    iget-object v2, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->mActivityTaskManager:Landroid/app/ActivityTaskManager;
+    iget-object v0, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->mContext:Landroid/content/Context;
 
-    invoke-direct {v0, v1, v2, p1, p2}, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$DragSession;-><init>(Landroid/content/Context;Landroid/app/ActivityTaskManager;Lcom/android/wm/shell/common/DisplayLayout;Landroid/content/ClipData;)V
+    iget-object v1, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->mActivityTaskManager:Landroid/app/ActivityTaskManager;
 
-    iput-object v0, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->mSession:Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$DragSession;
+    invoke-direct {p3, v0, v1, p1, p2}, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$DragSession;-><init>(Landroid/content/Context;Landroid/app/ActivityTaskManager;Lcom/android/wm/shell/common/DisplayLayout;Landroid/content/ClipData;)V
 
-    invoke-virtual {v0}, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$DragSession;->update()V
+    iput-object p3, p0, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy;->mSession:Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$DragSession;
+
+    invoke-virtual {p3}, Lcom/android/wm/shell/draganddrop/DragAndDropPolicy$DragSession;->update()V
 
     return-void
 .end method

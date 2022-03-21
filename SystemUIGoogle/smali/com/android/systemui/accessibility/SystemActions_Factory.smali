@@ -38,22 +38,24 @@
     .end annotation
 .end field
 
-.field private final recentsProvider:Ljavax/inject/Provider;
+.field private final recentsOptionalProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/recents/Recents;",
-            ">;"
+            ">;>;"
         }
     .end annotation
 .end field
 
-.field private final statusBarProvider:Ljavax/inject/Provider;
+.field private final statusBarOptionalLazyProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;"
+            ">;>;"
         }
     .end annotation
 .end field
@@ -72,11 +74,13 @@
             "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
             ">;",
             "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;",
+            ">;>;",
             "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/recents/Recents;",
-            ">;)V"
+            ">;>;)V"
         }
     .end annotation
 
@@ -86,9 +90,9 @@
 
     iput-object p2, p0, Lcom/android/systemui/accessibility/SystemActions_Factory;->notificationShadeControllerProvider:Ljavax/inject/Provider;
 
-    iput-object p3, p0, Lcom/android/systemui/accessibility/SystemActions_Factory;->statusBarProvider:Ljavax/inject/Provider;
+    iput-object p3, p0, Lcom/android/systemui/accessibility/SystemActions_Factory;->statusBarOptionalLazyProvider:Ljavax/inject/Provider;
 
-    iput-object p4, p0, Lcom/android/systemui/accessibility/SystemActions_Factory;->recentsProvider:Ljavax/inject/Provider;
+    iput-object p4, p0, Lcom/android/systemui/accessibility/SystemActions_Factory;->recentsOptionalProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
@@ -105,11 +109,13 @@
             "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
             ">;",
             "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;",
+            ">;>;",
             "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/recents/Recents;",
-            ">;)",
+            ">;>;)",
             "Lcom/android/systemui/accessibility/SystemActions_Factory;"
         }
     .end annotation
@@ -121,7 +127,7 @@
     return-object v0
 .end method
 
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Ldagger/Lazy;Lcom/android/systemui/recents/Recents;)Lcom/android/systemui/accessibility/SystemActions;
+.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Ldagger/Lazy;Ljava/util/Optional;)Lcom/android/systemui/accessibility/SystemActions;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -129,17 +135,19 @@
             "Landroid/content/Context;",
             "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
             "Ldagger/Lazy<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;",
+            ">;>;",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/recents/Recents;",
-            ")",
+            ">;)",
             "Lcom/android/systemui/accessibility/SystemActions;"
         }
     .end annotation
 
     new-instance v0, Lcom/android/systemui/accessibility/SystemActions;
 
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/systemui/accessibility/SystemActions;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Ldagger/Lazy;Lcom/android/systemui/recents/Recents;)V
+    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/systemui/accessibility/SystemActions;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Ldagger/Lazy;Ljava/util/Optional;)V
 
     return-object v0
 .end method
@@ -165,21 +173,21 @@
 
     check-cast v1, Lcom/android/systemui/statusbar/NotificationShadeWindowController;
 
-    iget-object v2, p0, Lcom/android/systemui/accessibility/SystemActions_Factory;->statusBarProvider:Ljavax/inject/Provider;
+    iget-object v2, p0, Lcom/android/systemui/accessibility/SystemActions_Factory;->statusBarOptionalLazyProvider:Ljavax/inject/Provider;
 
     invoke-static {v2}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
 
     move-result-object v2
 
-    iget-object p0, p0, Lcom/android/systemui/accessibility/SystemActions_Factory;->recentsProvider:Ljavax/inject/Provider;
+    iget-object p0, p0, Lcom/android/systemui/accessibility/SystemActions_Factory;->recentsOptionalProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/systemui/recents/Recents;
+    check-cast p0, Ljava/util/Optional;
 
-    invoke-static {v0, v1, v2, p0}, Lcom/android/systemui/accessibility/SystemActions_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Ldagger/Lazy;Lcom/android/systemui/recents/Recents;)Lcom/android/systemui/accessibility/SystemActions;
+    invoke-static {v0, v1, v2, p0}, Lcom/android/systemui/accessibility/SystemActions_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Ldagger/Lazy;Ljava/util/Optional;)Lcom/android/systemui/accessibility/SystemActions;
 
     move-result-object p0
 

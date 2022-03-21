@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
 
 # instance fields
@@ -22,12 +22,12 @@
 
 
 # virtual methods
-.method public final run()V
+.method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarDrawable$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarDrawable;
 
-    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
+    invoke-static {p0, p1}, Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarDrawable;->$r8$lambda$QuF4aU4rKy4Seup1XvknLQvv9os(Lcom/android/systemui/biometrics/UdfpsEnrollProgressBarDrawable;Landroid/animation/ValueAnimator;)V
 
     return-void
 .end method

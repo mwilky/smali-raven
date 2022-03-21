@@ -48,16 +48,6 @@
     .end annotation
 .end field
 
-.field private final featureFlagsProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 .field private final mediaHostProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -90,7 +80,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -106,9 +96,6 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Landroid/content/Context;",
@@ -129,17 +116,15 @@
 
     iput-object p4, p0, Lcom/android/systemui/media/KeyguardMediaController_Factory;->notifLockscreenUserManagerProvider:Ljavax/inject/Provider;
 
-    iput-object p5, p0, Lcom/android/systemui/media/KeyguardMediaController_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
+    iput-object p5, p0, Lcom/android/systemui/media/KeyguardMediaController_Factory;->contextProvider:Ljavax/inject/Provider;
 
-    iput-object p6, p0, Lcom/android/systemui/media/KeyguardMediaController_Factory;->contextProvider:Ljavax/inject/Provider;
-
-    iput-object p7, p0, Lcom/android/systemui/media/KeyguardMediaController_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
+    iput-object p6, p0, Lcom/android/systemui/media/KeyguardMediaController_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/media/KeyguardMediaController_Factory;
-    .locals 9
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/media/KeyguardMediaController_Factory;
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -156,9 +141,6 @@
             "Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
-            ">;",
-            "Ljavax/inject/Provider<",
             "Landroid/content/Context;",
             ">;",
             "Ljavax/inject/Provider<",
@@ -168,9 +150,9 @@
         }
     .end annotation
 
-    new-instance v8, Lcom/android/systemui/media/KeyguardMediaController_Factory;
+    new-instance v7, Lcom/android/systemui/media/KeyguardMediaController_Factory;
 
-    move-object v0, v8
+    move-object v0, v7
 
     move-object v1, p0
 
@@ -184,19 +166,17 @@
 
     move-object v6, p5
 
-    move-object v7, p6
+    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/media/KeyguardMediaController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
 
-    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/media/KeyguardMediaController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v8
+    return-object v7
 .end method
 
-.method public static newInstance(Lcom/android/systemui/media/MediaHost;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/FeatureFlags;Landroid/content/Context;Lcom/android/systemui/statusbar/policy/ConfigurationController;)Lcom/android/systemui/media/KeyguardMediaController;
-    .locals 9
+.method public static newInstance(Lcom/android/systemui/media/MediaHost;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Landroid/content/Context;Lcom/android/systemui/statusbar/policy/ConfigurationController;)Lcom/android/systemui/media/KeyguardMediaController;
+    .locals 8
 
-    new-instance v8, Lcom/android/systemui/media/KeyguardMediaController;
+    new-instance v7, Lcom/android/systemui/media/KeyguardMediaController;
 
-    move-object v0, v8
+    move-object v0, v7
 
     move-object v1, p0
 
@@ -210,17 +190,15 @@
 
     move-object v6, p5
 
-    move-object v7, p6
+    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/media/KeyguardMediaController;-><init>(Lcom/android/systemui/media/MediaHost;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Landroid/content/Context;Lcom/android/systemui/statusbar/policy/ConfigurationController;)V
 
-    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/media/KeyguardMediaController;-><init>(Lcom/android/systemui/media/MediaHost;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/FeatureFlags;Landroid/content/Context;Lcom/android/systemui/statusbar/policy/ConfigurationController;)V
-
-    return-object v8
+    return-object v7
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/systemui/media/KeyguardMediaController;
-    .locals 8
+    .locals 7
 
     iget-object v0, p0, Lcom/android/systemui/media/KeyguardMediaController_Factory;->mediaHostProvider:Ljavax/inject/Provider;
 
@@ -262,7 +240,7 @@
 
     check-cast v4, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
 
-    iget-object v0, p0, Lcom/android/systemui/media/KeyguardMediaController_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/media/KeyguardMediaController_Factory;->contextProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -270,17 +248,7 @@
 
     move-object v5, v0
 
-    check-cast v5, Lcom/android/systemui/statusbar/FeatureFlags;
-
-    iget-object v0, p0, Lcom/android/systemui/media/KeyguardMediaController_Factory;->contextProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v6, v0
-
-    check-cast v6, Landroid/content/Context;
+    check-cast v5, Landroid/content/Context;
 
     iget-object p0, p0, Lcom/android/systemui/media/KeyguardMediaController_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
 
@@ -288,11 +256,11 @@
 
     move-result-object p0
 
-    move-object v7, p0
+    move-object v6, p0
 
-    check-cast v7, Lcom/android/systemui/statusbar/policy/ConfigurationController;
+    check-cast v6, Lcom/android/systemui/statusbar/policy/ConfigurationController;
 
-    invoke-static/range {v1 .. v7}, Lcom/android/systemui/media/KeyguardMediaController_Factory;->newInstance(Lcom/android/systemui/media/MediaHost;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/FeatureFlags;Landroid/content/Context;Lcom/android/systemui/statusbar/policy/ConfigurationController;)Lcom/android/systemui/media/KeyguardMediaController;
+    invoke-static/range {v1 .. v6}, Lcom/android/systemui/media/KeyguardMediaController_Factory;->newInstance(Lcom/android/systemui/media/MediaHost;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Landroid/content/Context;Lcom/android/systemui/statusbar/policy/ConfigurationController;)Lcom/android/systemui/media/KeyguardMediaController;
 
     move-result-object p0
 

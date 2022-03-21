@@ -4,6 +4,8 @@
 
 
 # static fields
+.field private static final DEBUG:Z
+
 .field private static final settingsIntent:Landroid/content/Intent;
 
 
@@ -23,7 +25,25 @@
 
     sput-object v0, Lcom/android/systemui/media/MediaCarouselControllerKt;->settingsIntent:Landroid/content/Intent;
 
+    const-string v0, "MediaCarouselController"
+
+    const/4 v1, 0x3
+
+    invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/systemui/media/MediaCarouselControllerKt;->DEBUG:Z
+
     return-void
+.end method
+
+.method public static final synthetic access$getDEBUG$p()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/systemui/media/MediaCarouselControllerKt;->DEBUG:Z
+
+    return v0
 .end method
 
 .method public static final synthetic access$getSettingsIntent$p()Landroid/content/Intent;

@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda9;->f$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialog;
 
-    invoke-static {p0, p1, p2}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->$r8$lambda$X-JoCVs8vL5GgZJ2zOMqky8R4vM(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;Landroid/widget/CompoundButton;Z)V
+    invoke-static {p0, p1, p2}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->$r8$lambda$ahRiRAT7-6gsHdOA8VjuF3IpspA(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;Landroid/widget/CompoundButton;Z)V
 
     return-void
 .end method

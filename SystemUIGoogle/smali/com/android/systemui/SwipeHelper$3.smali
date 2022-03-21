@@ -64,11 +64,11 @@
 
     iget-boolean v1, p0, Lcom/android/systemui/SwipeHelper$3;->val$canBeDismissed:Z
 
-    invoke-static {p1, v0, v1}, Lcom/android/systemui/SwipeHelper;->access$400(Lcom/android/systemui/SwipeHelper;Landroid/view/View;Z)V
+    invoke-static {p1, v0, v1}, Lcom/android/systemui/SwipeHelper;->access$500(Lcom/android/systemui/SwipeHelper;Landroid/view/View;Z)V
 
     iget-object p1, p0, Lcom/android/systemui/SwipeHelper$3;->this$0:Lcom/android/systemui/SwipeHelper;
 
-    invoke-static {p1}, Lcom/android/systemui/SwipeHelper;->access$500(Lcom/android/systemui/SwipeHelper;)Landroid/util/ArrayMap;
+    invoke-static {p1}, Lcom/android/systemui/SwipeHelper;->access$600(Lcom/android/systemui/SwipeHelper;)Landroid/util/ArrayMap;
 
     move-result-object p1
 
@@ -105,7 +105,7 @@
     :cond_1
     iget-object p1, p0, Lcom/android/systemui/SwipeHelper$3;->this$0:Lcom/android/systemui/SwipeHelper;
 
-    invoke-static {p1}, Lcom/android/systemui/SwipeHelper;->access$300(Lcom/android/systemui/SwipeHelper;)Lcom/android/systemui/SwipeHelper$Callback;
+    invoke-static {p1}, Lcom/android/systemui/SwipeHelper;->access$400(Lcom/android/systemui/SwipeHelper;)Lcom/android/systemui/SwipeHelper$Callback;
 
     move-result-object p1
 
@@ -127,7 +127,7 @@
     :cond_3
     iget-object p1, p0, Lcom/android/systemui/SwipeHelper$3;->this$0:Lcom/android/systemui/SwipeHelper;
 
-    invoke-static {p1}, Lcom/android/systemui/SwipeHelper;->access$600(Lcom/android/systemui/SwipeHelper;)Z
+    invoke-static {p1}, Lcom/android/systemui/SwipeHelper;->access$700(Lcom/android/systemui/SwipeHelper;)Z
 
     move-result p1
 
@@ -150,7 +150,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/SwipeHelper$3;->this$0:Lcom/android/systemui/SwipeHelper;
 
-    invoke-static {p1}, Lcom/android/systemui/SwipeHelper;->access$300(Lcom/android/systemui/SwipeHelper;)Lcom/android/systemui/SwipeHelper$Callback;
+    invoke-static {p1}, Lcom/android/systemui/SwipeHelper;->access$400(Lcom/android/systemui/SwipeHelper;)Lcom/android/systemui/SwipeHelper$Callback;
 
     move-result-object p1
 

@@ -12,9 +12,6 @@
 
 
 # virtual methods
-.method public abstract createThreadFactory()Lcom/android/systemui/util/concurrency/ThreadFactory;
-.end method
-
 .method public abstract getSysUIComponent()Lcom/android/systemui/dagger/SysUIComponent$Builder;
 .end method
 

@@ -628,6 +628,7 @@
     <attr name="fast_forward" format="reference" />
     <attr name="fillColor" format="integer" />
     <attr name="firstBaselineToTopHeight" format="dimension" />
+    <attr name="fixedChildWidth" format="dimension" />
     <attr name="floatingActionButtonStyle" format="reference" />
     <attr name="flow_firstHorizontalBias" format="float" />
     <attr name="flow_firstHorizontalStyle">

@@ -135,6 +135,18 @@
     return-void
 .end method
 
+.method public setNotificationFaded(Z)V
+    .locals 0
+
+    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationViewWrapper;->setNotificationFaded(Z)V
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationViewWrapper;->mView:Landroid/view/View;
+
+    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationFadeAware;->setLayerTypeForFaded(Landroid/view/View;Z)V
+
+    return-void
+.end method
+
 .method public setVisible(Z)V
     .locals 0
 

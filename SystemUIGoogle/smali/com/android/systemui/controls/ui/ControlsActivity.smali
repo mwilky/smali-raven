@@ -17,7 +17,7 @@
 .method public constructor <init>(Lcom/android/systemui/controls/ui/ControlsUiController;Lcom/android/systemui/broadcast/BroadcastDispatcher;)V
     .locals 1
 
-    const-string/jumbo v0, "uiController"
+    const-string v0, "uiController"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 

@@ -408,10 +408,10 @@
     return-void
 .end method
 
-.method public bridge synthetic onExpansionChanged(FZ)V
+.method public bridge synthetic onExpansionChanged(F)V
     .locals 0
 
-    invoke-super {p0, p1, p2}, Lcom/android/systemui/biometrics/UdfpsAnimationView;->onExpansionChanged(FZ)V
+    invoke-super {p0, p1}, Lcom/android/systemui/biometrics/UdfpsAnimationView;->onExpansionChanged(F)V
 
     return-void
 .end method

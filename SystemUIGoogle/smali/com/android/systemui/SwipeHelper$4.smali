@@ -62,7 +62,7 @@
 
     const/4 v0, 0x0
 
-    invoke-static {p1, v0}, Lcom/android/systemui/SwipeHelper;->access$702(Lcom/android/systemui/SwipeHelper;Z)Z
+    invoke-static {p1, v0}, Lcom/android/systemui/SwipeHelper;->access$802(Lcom/android/systemui/SwipeHelper;Z)Z
 
     iget-boolean p1, p0, Lcom/android/systemui/SwipeHelper$4;->wasCancelled:Z
 
@@ -74,7 +74,7 @@
 
     iget-boolean v1, p0, Lcom/android/systemui/SwipeHelper$4;->val$canBeDismissed:Z
 
-    invoke-static {p1, v0, v1}, Lcom/android/systemui/SwipeHelper;->access$400(Lcom/android/systemui/SwipeHelper;Landroid/view/View;Z)V
+    invoke-static {p1, v0, v1}, Lcom/android/systemui/SwipeHelper;->access$500(Lcom/android/systemui/SwipeHelper;Landroid/view/View;Z)V
 
     iget-object p0, p0, Lcom/android/systemui/SwipeHelper$4;->this$0:Lcom/android/systemui/SwipeHelper;
 

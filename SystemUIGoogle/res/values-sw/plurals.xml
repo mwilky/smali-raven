@@ -32,18 +32,6 @@
         <item quantity="other">Nambari ya PUK ya SIM si sahihi, bado unaweza kujaribu mara %d kabla ya SIM kuacha kutumika kabisa.</item>
         <item quantity="one">Nambari ya PUK ya SIM si sahihi, bado unaweza kujaribu mara %d kabla ya SIM kuacha kutumika kabisa.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">Hujafungua kifaa kwa saa %d. Thibitisha nenosiri.</item>
-        <item quantity="one">Hujafungua kifaa kwa saa %d. Thibitisha nenosiri.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">Hujafungua kifaa kwa saa %d. Thibitisha mchoro.</item>
-        <item quantity="one">Hujafungua kifaa kwa saa %d. Thibitisha mchoro.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">Hujafungua kifaa kwa saa %d. Thibitisha PIN.</item>
-        <item quantity="one">Hujafungua kifaa kwa saa %d. Thibitisha PIN.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">Jaribu tena baada ya sekunde %d.</item>
         <item quantity="one">Jaribu tena baada ya sekunde 1.</item>

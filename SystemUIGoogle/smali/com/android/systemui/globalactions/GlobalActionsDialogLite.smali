@@ -78,6 +78,10 @@
     .end annotation
 .end field
 
+.field private final mDialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
+
+.field private final mDialogManager:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;
+
 .field private mDialogPressDelay:I
 
 .field private final mDreamManager:Landroid/service/dreams/IDreamManager;
@@ -95,8 +99,6 @@
 .field private final mIActivityManager:Landroid/app/IActivityManager;
 
 .field private final mIWindowManager:Landroid/view/IWindowManager;
-
-.field private final mInfoProvider:Lcom/android/systemui/globalactions/GlobalActionsInfoProvider;
 
 .field private mIsWaitingForEcmExit:Z
 
@@ -175,7 +177,15 @@
 
 .field private mSmallestScreenWidthDp:I
 
-.field private final mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+.field private final mStatusBarOptional:Ljava/util/Optional;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Optional<",
+            "Lcom/android/systemui/statusbar/phone/StatusBar;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field private final mStatusBarService:Lcom/android/internal/statusbar/IStatusBarService;
 
@@ -205,8 +215,49 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/plugins/GlobalActions$GlobalActionsManager;Landroid/media/AudioManager;Landroid/service/dreams/IDreamManager;Landroid/app/admin/DevicePolicyManager;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/telephony/TelephonyListenerManager;Lcom/android/systemui/util/settings/GlobalSettings;Lcom/android/systemui/util/settings/SecureSettings;Landroid/os/Vibrator;Landroid/content/res/Resources;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/os/UserManager;Landroid/app/trust/TrustManager;Landroid/app/IActivityManager;Landroid/telecom/TelecomManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/internal/statusbar/IStatusBarService;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Landroid/view/IWindowManager;Ljava/util/concurrent/Executor;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/globalactions/GlobalActionsInfoProvider;Lcom/android/systemui/util/RingerModeTracker;Lcom/android/systemui/model/SysUiState;Landroid/os/Handler;Landroid/content/pm/PackageManager;Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/plugins/GlobalActions$GlobalActionsManager;Landroid/media/AudioManager;Landroid/service/dreams/IDreamManager;Landroid/app/admin/DevicePolicyManager;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/telephony/TelephonyListenerManager;Lcom/android/systemui/util/settings/GlobalSettings;Lcom/android/systemui/util/settings/SecureSettings;Landroid/os/Vibrator;Landroid/content/res/Resources;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/os/UserManager;Landroid/app/trust/TrustManager;Landroid/app/IActivityManager;Landroid/telecom/TelecomManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/internal/statusbar/IStatusBarService;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Landroid/view/IWindowManager;Ljava/util/concurrent/Executor;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/util/RingerModeTracker;Lcom/android/systemui/model/SysUiState;Landroid/os/Handler;Landroid/content/pm/PackageManager;Ljava/util/Optional;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/animation/DialogLaunchAnimator;Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;)V
     .locals 13
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            "Lcom/android/systemui/plugins/GlobalActions$GlobalActionsManager;",
+            "Landroid/media/AudioManager;",
+            "Landroid/service/dreams/IDreamManager;",
+            "Landroid/app/admin/DevicePolicyManager;",
+            "Lcom/android/internal/widget/LockPatternUtils;",
+            "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
+            "Lcom/android/systemui/telephony/TelephonyListenerManager;",
+            "Lcom/android/systemui/util/settings/GlobalSettings;",
+            "Lcom/android/systemui/util/settings/SecureSettings;",
+            "Landroid/os/Vibrator;",
+            "Landroid/content/res/Resources;",
+            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
+            "Lcom/android/systemui/statusbar/policy/KeyguardStateController;",
+            "Landroid/os/UserManager;",
+            "Landroid/app/trust/TrustManager;",
+            "Landroid/app/IActivityManager;",
+            "Landroid/telecom/TelecomManager;",
+            "Lcom/android/internal/logging/MetricsLogger;",
+            "Lcom/android/systemui/colorextraction/SysuiColorExtractor;",
+            "Lcom/android/internal/statusbar/IStatusBarService;",
+            "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
+            "Landroid/view/IWindowManager;",
+            "Ljava/util/concurrent/Executor;",
+            "Lcom/android/internal/logging/UiEventLogger;",
+            "Lcom/android/systemui/util/RingerModeTracker;",
+            "Lcom/android/systemui/model/SysUiState;",
+            "Landroid/os/Handler;",
+            "Landroid/content/pm/PackageManager;",
+            "Ljava/util/Optional<",
+            "Lcom/android/systemui/statusbar/phone/StatusBar;",
+            ">;",
+            "Lcom/android/keyguard/KeyguardUpdateMonitor;",
+            "Lcom/android/systemui/animation/DialogLaunchAnimator;",
+            "Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;",
+            ")V"
+        }
+    .end annotation
 
     move-object v0, p0
 
@@ -354,10 +405,6 @@
 
     iput-object v10, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
-    move-object/from16 v10, p26
-
-    iput-object v10, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mInfoProvider:Lcom/android/systemui/globalactions/GlobalActionsInfoProvider;
-
     move-object/from16 v10, p20
 
     iput-object v10, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mSysuiColorExtractor:Lcom/android/systemui/colorextraction/SysuiColorExtractor;
@@ -378,15 +425,15 @@
 
     iput-object v10, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mBackgroundExecutor:Ljava/util/concurrent/Executor;
 
-    move-object/from16 v10, p27
+    move-object/from16 v10, p26
 
     iput-object v10, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mRingerModeTracker:Lcom/android/systemui/util/RingerModeTracker;
 
-    move-object/from16 v11, p28
+    move-object/from16 v11, p27
 
     iput-object v11, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mSysUiState:Lcom/android/systemui/model/SysUiState;
 
-    move-object/from16 v11, p29
+    move-object/from16 v11, p28
 
     iput-object v11, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mMainHandler:Landroid/os/Handler;
 
@@ -398,13 +445,21 @@
 
     iput v11, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mSmallestScreenWidthDp:I
 
+    move-object/from16 v11, p30
+
+    iput-object v11, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mStatusBarOptional:Ljava/util/Optional;
+
     move-object/from16 v11, p31
 
-    iput-object v11, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+    iput-object v11, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
     move-object/from16 v11, p32
 
-    iput-object v11, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    iput-object v11, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mDialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
+
+    move-object/from16 v11, p33
+
+    iput-object v11, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mDialogManager:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;
 
     new-instance v11, Landroid/content/IntentFilter;
 
@@ -428,7 +483,7 @@
 
     const-string v2, "android.hardware.telephony"
 
-    move-object/from16 v11, p30
+    move-object/from16 v11, p29
 
     invoke-virtual {v11, v2}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
 
@@ -461,7 +516,7 @@
     :cond_0
     iput-boolean v7, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mHasVibrator:Z
 
-    const v2, 0x1110164
+    const v2, 0x111016b
 
     invoke-virtual {v5, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -473,7 +528,7 @@
 
     if-eqz v2, :cond_1
 
-    invoke-interface/range {p27 .. p27}, Lcom/android/systemui/util/RingerModeTracker;->getRingerMode()Landroidx/lifecycle/LiveData;
+    invoke-interface/range {p26 .. p26}, Lcom/android/systemui/util/RingerModeTracker;->getRingerMode()Landroidx/lifecycle/LiveData;
 
     move-result-object v2
 
@@ -501,10 +556,10 @@
     return-void
 .end method
 
-.method static synthetic access$1000(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Lcom/android/systemui/statusbar/phone/StatusBar;
+.method static synthetic access$1000(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Ljava/util/Optional;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+    iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mStatusBarOptional:Ljava/util/Optional;
 
     return-object p0
 .end method
@@ -597,7 +652,15 @@
     return p0
 .end method
 
-.method static synthetic access$2200(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Z
+.method static synthetic access$2200(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Lcom/android/systemui/animation/DialogLaunchAnimator;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mDialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
+
+    return-object p0
+.end method
+
+.method static synthetic access$2300(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Z
     .locals 0
 
     iget-boolean p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mHasTelephony:Z
@@ -605,7 +668,7 @@
     return p0
 .end method
 
-.method static synthetic access$2300(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Z
+.method static synthetic access$2400(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Z
     .locals 0
 
     iget-boolean p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mIsWaitingForEcmExit:Z
@@ -613,7 +676,7 @@
     return p0
 .end method
 
-.method static synthetic access$2302(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;Z)Z
+.method static synthetic access$2402(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mIsWaitingForEcmExit:Z
@@ -621,7 +684,7 @@
     return p1
 .end method
 
-.method static synthetic access$2400(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;Z)V
+.method static synthetic access$2500(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;Z)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->changeAirplaneModeSystemSetting(Z)V
@@ -629,7 +692,7 @@
     return-void
 .end method
 
-.method static synthetic access$2500(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
+.method static synthetic access$2600(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mAirplaneState:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
@@ -637,7 +700,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$2502(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;)Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
+.method static synthetic access$2602(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;)Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mAirplaneState:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
@@ -645,7 +708,7 @@
     return-object p1
 .end method
 
-.method static synthetic access$2600(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Landroid/media/AudioManager;
+.method static synthetic access$2700(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Landroid/media/AudioManager;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mAudioManager:Landroid/media/AudioManager;
@@ -653,7 +716,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$2700(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleAction;
+.method static synthetic access$2800(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleAction;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mAirplaneModeOn:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleAction;
@@ -661,7 +724,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$2800(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)V
+.method static synthetic access$2900(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->onAirplaneModeChanged()V
@@ -669,7 +732,7 @@
     return-void
 .end method
 
-.method static synthetic access$2900(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)V
+.method static synthetic access$3000(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->refreshSilentMode()V
@@ -980,7 +1043,7 @@
 
     const v1, 0x108031e
 
-    const v2, 0x10403c0
+    const v2, 0x10403c5
 
     invoke-direct {v0, p0, v1, v2}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$2;-><init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;II)V
 
@@ -994,7 +1057,7 @@
 
     const v1, 0x1080531
 
-    const v2, 0x10403ca
+    const v2, 0x10403cf
 
     invoke-direct {v0, p0, v1, v2}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$1;-><init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;II)V
 
@@ -1008,7 +1071,7 @@
 
     const v1, 0x108055b
 
-    const v2, 0x10403ce
+    const v2, 0x10403d3
 
     invoke-direct {v0, p0, v1, v2}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$3;-><init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;II)V
 
@@ -1724,33 +1787,33 @@
 
     iget-object v13, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
-    iget-object v14, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mInfoProvider:Lcom/android/systemui/globalactions/GlobalActionsInfoProvider;
+    iget-object v14, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mStatusBarOptional:Ljava/util/Optional;
 
     move-object/from16 v16, v15
 
-    iget-object v15, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+    iget-object v15, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
     move-object/from16 v18, v16
 
     move-object/from16 v19, v1
 
-    iget-object v1, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    iget-object v1, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
     move-object/from16 v16, v1
 
-    iget-object v1, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+    iget-object v1, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mDialogManager:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;
 
     move-object/from16 v17, v1
 
     move-object/from16 v1, v19
 
-    invoke-direct/range {v1 .. v17}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;-><init>(Landroid/content/Context;ILcom/android/systemui/globalactions/GlobalActionsDialogLite$MyAdapter;Lcom/android/systemui/globalactions/GlobalActionsDialogLite$MyOverflowAdapter;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/internal/statusbar/IStatusBarService;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/model/SysUiState;Ljava/lang/Runnable;ZLcom/android/systemui/globalactions/GlobalActionsDialogLite$MyPowerOptionsAdapter;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/globalactions/GlobalActionsInfoProvider;Lcom/android/systemui/statusbar/phone/StatusBar;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/internal/widget/LockPatternUtils;)V
+    invoke-direct/range {v1 .. v17}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;-><init>(Landroid/content/Context;ILcom/android/systemui/globalactions/GlobalActionsDialogLite$MyAdapter;Lcom/android/systemui/globalactions/GlobalActionsDialogLite$MyOverflowAdapter;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/internal/statusbar/IStatusBarService;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/model/SysUiState;Ljava/lang/Runnable;ZLcom/android/systemui/globalactions/GlobalActionsDialogLite$MyPowerOptionsAdapter;Lcom/android/internal/logging/UiEventLogger;Ljava/util/Optional;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;)V
 
     move-object/from16 v1, v18
 
-    invoke-virtual {v1, v0}, Landroid/app/Dialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+    invoke-virtual {v1, v0}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
 
-    invoke-virtual {v1, v0}, Landroid/app/Dialog;->setOnShowListener(Landroid/content/DialogInterface$OnShowListener;)V
+    invoke-virtual {v1, v0}, Landroid/app/AlertDialog;->setOnShowListener(Landroid/content/DialogInterface$OnShowListener;)V
 
     return-object v1
 .end method
@@ -1834,7 +1897,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mResources:Landroid/content/res/Resources;
 
-    const v0, 0x107004e
+    const v0, 0x1070055
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -1933,7 +1996,7 @@
     return v0
 .end method
 
-.method protected handleShow()V
+.method protected handleShow(Landroid/view/View;)V
     .locals 2
 
     invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->awakenIfNecessary()V
@@ -1948,7 +2011,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mDialog:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;
 
-    invoke-virtual {v0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
 
     move-result-object v0
 
@@ -1966,7 +2029,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mDialog:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;
 
-    invoke-virtual {v1}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {v1}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
 
     move-result-object v1
 
@@ -1974,18 +2037,30 @@
 
     iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mDialog:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;
 
-    invoke-virtual {v0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
 
     move-result-object v0
 
     const/high16 v1, 0x20000
 
-    invoke-virtual {v0, v1, v1}, Landroid/view/Window;->setFlags(II)V
+    invoke-virtual {v0, v1}, Landroid/view/Window;->addFlags(I)V
 
-    iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mDialog:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;
+    if-eqz p1, :cond_0
 
-    invoke-virtual {v0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->show()V
+    iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mDialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
 
+    iget-object v1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mDialog:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;
+
+    invoke-virtual {v0, v1, p1}, Lcom/android/systemui/animation/DialogLaunchAnimator;->showFromView(Landroid/app/Dialog;Landroid/view/View;)V
+
+    goto :goto_0
+
+    :cond_0
+    iget-object p1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mDialog:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;
+
+    invoke-virtual {p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->show()V
+
+    :goto_0
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mWindowManagerFuncs:Lcom/android/systemui/plugins/GlobalActions$GlobalActionsManager;
 
     invoke-interface {p0}, Lcom/android/systemui/plugins/GlobalActions$GlobalActionsManager;->onGlobalActionsShown()V
@@ -2064,7 +2139,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0}, Landroid/app/Dialog;->isShowing()Z
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->isShowing()Z
 
     move-result v0
 
@@ -2117,7 +2192,7 @@
     return-void
 .end method
 
-.method protected onRotate()V
+.method protected onRefresh()V
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->createActionItems()V
@@ -2140,43 +2215,6 @@
 
     invoke-interface {p0, p1}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
 
-    return-void
-.end method
-
-.method public onUiModeChanged()V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getThemeResId()I
-
-    move-result v1
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/res/Resources$Theme;->applyStyle(IZ)V
-
-    iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mDialog:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Landroid/app/Dialog;->isShowing()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mDialog:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;
-
-    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->refreshDialog()V
-
-    :cond_0
     return-void
 .end method
 
@@ -2332,7 +2370,7 @@
     return p0
 .end method
 
-.method public showOrHideDialog(ZZ)V
+.method public showOrHideDialog(ZZLandroid/view/View;)V
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mKeyguardShowing:Z
@@ -2343,7 +2381,7 @@
 
     if-eqz p1, :cond_0
 
-    invoke-virtual {p1}, Landroid/app/Dialog;->isShowing()Z
+    invoke-virtual {p1}, Landroid/app/AlertDialog;->isShowing()Z
 
     move-result p1
 
@@ -2364,7 +2402,7 @@
     goto :goto_0
 
     :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->handleShow()V
+    invoke-virtual {p0, p3}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->handleShow(Landroid/view/View;)V
 
     :goto_0
     return-void

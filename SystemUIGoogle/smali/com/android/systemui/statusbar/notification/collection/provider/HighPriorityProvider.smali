@@ -39,7 +39,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/app/Notification;->hasMediaSession()Z
+    invoke-virtual {v0}, Landroid/app/Notification;->isMediaNotification()Z
 
     move-result v0
 

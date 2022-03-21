@@ -32,18 +32,6 @@
         <item quantity="other">ລະຫັດ PUK ຂອງ SIM ບໍ່ຖືກຕ້ອງ, ທ່ານສາມາດລອງໄດ້ອີກ %d ເທື່ອກ່ອນທີ່ SIM ຂອງທ່ານຈະໃຊ້ບໍ່ໄດ້ຢ່າງຖາວອນ.</item>
         <item quantity="one">ລະຫັດ PUK ຂອງ SIM ບໍ່ຖືກຕ້ອງ, ທ່ານສາມາດລອງໄດ້ອີກ %d ເທື່ອກ່ອນທີ່ SIM ຂອງທ່ານຈະໃຊ້ບໍ່ໄດ້ຢ່າງຖາວອນ.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">ອຸປະກອນບໍ່ໄດ້ຖືກປົດລັອກເປັນເວລາ %d ຊົ່ວໂມງ. ຢືນຢັນລະຫັດຜ່ານ.</item>
-        <item quantity="one">ອຸປະກອນບໍ່ໄດ້ຖືກປົດລັອກເປັນເວລາ %d ຊົ່ວໂມງ. ຢືນຢັນລະຫັດຜ່ານ.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">ອຸປະກອນບໍ່ໄດ້ຖືກປົດລັອກເປັນເວລາ %d ຊົ່ວໂມງ. ຢືນຢັນແບບຮູບ.</item>
-        <item quantity="one">ອຸປະກອນບໍ່ໄດ້ຖືກປົດລັອກເປັນເວລາ %d ຊົ່ວໂມງ. ຢືນຢັນແບບຮູບ.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">ອຸປະກອນບໍ່ໄດ້ຖືກປົດລັອກເປັນເວລາ %d ຊົ່ວໂມງ. ຢືນຢັນ PIN</item>
-        <item quantity="one">ອຸປະກອນບໍ່ໄດ້ຖືກປົດລັອກເປັນເວລາ %d ຊົ່ວໂມງ. ຢືນຢັນ PIN</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">ລອງໃໝ່ໃນອີກ %d ວິນາທີ.</item>
         <item quantity="one">ລອງໃໝ່ໃນອີກ 1 ວິນາທີ.</item>

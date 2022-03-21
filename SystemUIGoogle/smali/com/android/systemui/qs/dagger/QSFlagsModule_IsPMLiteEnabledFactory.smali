@@ -22,7 +22,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;"
         }
     .end annotation
@@ -46,7 +46,7 @@
         value = {
             "(",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/util/settings/GlobalSettings;",
@@ -69,7 +69,7 @@
         value = {
             "(",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/util/settings/GlobalSettings;",
@@ -85,10 +85,10 @@
     return-object v0
 .end method
 
-.method public static isPMLiteEnabled(Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/util/settings/GlobalSettings;)Z
+.method public static isPMLiteEnabled(Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/util/settings/GlobalSettings;)Z
     .locals 0
 
-    invoke-static {p0, p1}, Lcom/android/systemui/qs/dagger/QSFlagsModule;->isPMLiteEnabled(Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/util/settings/GlobalSettings;)Z
+    invoke-static {p0, p1}, Lcom/android/systemui/qs/dagger/QSFlagsModule;->isPMLiteEnabled(Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/util/settings/GlobalSettings;)Z
 
     move-result p0
 
@@ -106,7 +106,7 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/systemui/statusbar/FeatureFlags;
+    check-cast v0, Lcom/android/systemui/flags/FeatureFlags;
 
     iget-object p0, p0, Lcom/android/systemui/qs/dagger/QSFlagsModule_IsPMLiteEnabledFactory;->globalSettingsProvider:Ljavax/inject/Provider;
 
@@ -116,7 +116,7 @@
 
     check-cast p0, Lcom/android/systemui/util/settings/GlobalSettings;
 
-    invoke-static {v0, p0}, Lcom/android/systemui/qs/dagger/QSFlagsModule_IsPMLiteEnabledFactory;->isPMLiteEnabled(Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/util/settings/GlobalSettings;)Z
+    invoke-static {v0, p0}, Lcom/android/systemui/qs/dagger/QSFlagsModule_IsPMLiteEnabledFactory;->isPMLiteEnabled(Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/util/settings/GlobalSettings;)Z
 
     move-result p0
 

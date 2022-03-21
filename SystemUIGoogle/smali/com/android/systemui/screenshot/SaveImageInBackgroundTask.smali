@@ -133,7 +133,7 @@
 
     iput-object p4, p0, Lcom/android/systemui/screenshot/SaveImageInBackgroundTask;->mParams:Lcom/android/systemui/screenshot/ScreenshotController$SaveImageInBackgroundData;
 
-    const-string/jumbo p2, "systemui"
+    const-string p2, "systemui"
 
     const-string p3, "enable_screenshot_notification_smart_actions"
 
@@ -643,7 +643,7 @@
 
     move-result-object p2
 
-    const v1, 0x10407af
+    const v1, 0x10407b4
 
     invoke-virtual {p3, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -717,7 +717,7 @@
 
     new-instance v6, Landroid/content/ClipDescription;
 
-    const-string/jumbo v7, "text/plain"
+    const-string v7, "text/plain"
 
     filled-new-array {v7}, [Ljava/lang/String;
 
@@ -835,7 +835,7 @@
 
     move-result-object p2
 
-    const v1, 0x10407dc
+    const v1, 0x10407e1
 
     invoke-virtual {p3, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -877,7 +877,7 @@
 
     move-result-object v7
 
-    const-string/jumbo p1, "systemui"
+    const-string p1, "systemui"
 
     const-string p2, "screenshot_notification_quick_share_actions_timeout_ms"
 
@@ -992,7 +992,7 @@
 
     move-result-object p3
 
-    const v0, 0x10402de
+    const v0, 0x10402e2
 
     invoke-virtual {p2, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1183,7 +1183,7 @@
 
     if-eqz v4, :cond_2
 
-    const-string/jumbo v4, "systemui"
+    const-string v4, "systemui"
 
     const-string v5, "screenshot_notification_smart_actions_timeout_ms"
 

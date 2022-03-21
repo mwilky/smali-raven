@@ -96,12 +96,6 @@
     return-void
 .end method
 
-.method public setFaceAuthDisplayBrightness(F)V
-    .locals 0
-
-    return-void
-.end method
-
 .method public setForceDozeBrightness(Z)V
     .locals 0
 

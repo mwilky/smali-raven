@@ -16,7 +16,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nNotificationSectionsManager.kt\nKotlin\n*S Kotlin\n*F\n+ 1 NotificationSectionsManager.kt\ncom/android/systemui/statusbar/notification/stack/NotificationSectionsManager\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n+ 3 _Arrays.kt\nkotlin/collections/ArraysKt___ArraysKt\n+ 4 ArraysJVM.kt\nkotlin/collections/ArraysKt__ArraysJVMKt\n+ 5 _Sequences.kt\nkotlin/sequences/SequencesKt___SequencesKt\n+ 6 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n+ 7 SparseArrayUtils.kt\ncom/android/systemui/util/SparseArrayUtilsKt\n+ 8 Iterators.kt\nkotlin/collections/CollectionsKt__IteratorsKt\n*L\n1#1,473:1\n1#2:474\n11328#3:475\n11663#3,3:476\n12917#3,3:501\n37#4,2:479\n1267#5,3:481\n1256#5,2:484\n1002#5:488\n1819#6,2:486\n62#7,5:489\n67#7,4:495\n71#7:500\n32#8:494\n33#8:499\n*E\n*S KotlinDebug\n*F\n+ 1 NotificationSectionsManager.kt\ncom/android/systemui/statusbar/notification/stack/NotificationSectionsManager\n*L\n128#1:475\n128#1,3:476\n412#1,3:501\n129#1,2:479\n181#1,3:481\n298#1,2:484\n401#1:488\n343#1,2:486\n406#1,5:489\n406#1,4:495\n406#1:500\n406#1:494\n406#1:499\n*E\n"
+    value = "SMAP\nNotificationSectionsManager.kt\nKotlin\n*S Kotlin\n*F\n+ 1 NotificationSectionsManager.kt\ncom/android/systemui/statusbar/notification/stack/NotificationSectionsManager\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n+ 3 _Arrays.kt\nkotlin/collections/ArraysKt___ArraysKt\n+ 4 ArraysJVM.kt\nkotlin/collections/ArraysKt__ArraysJVMKt\n+ 5 _Sequences.kt\nkotlin/sequences/SequencesKt___SequencesKt\n+ 6 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n+ 7 SparseArrayUtils.kt\ncom/android/systemui/util/SparseArrayUtilsKt\n+ 8 Iterators.kt\nkotlin/collections/CollectionsKt__IteratorsKt\n*L\n1#1,450:1\n1#2:451\n11328#3:452\n11663#3,3:453\n12917#3,3:478\n37#4,2:456\n1267#5,3:458\n1256#5,2:461\n1002#5:465\n1819#6,2:463\n62#7,5:466\n67#7,4:472\n71#7:477\n32#8:471\n33#8:476\n*E\n*S KotlinDebug\n*F\n+ 1 NotificationSectionsManager.kt\ncom/android/systemui/statusbar/notification/stack/NotificationSectionsManager\n*L\n127#1:452\n127#1,3:453\n411#1,3:478\n128#1,2:456\n180#1,3:458\n297#1,2:461\n400#1:465\n342#1,2:463\n405#1,5:466\n405#1,4:472\n405#1:477\n405#1:471\n405#1:476\n*E\n"
 .end annotation
 
 
@@ -1278,7 +1278,7 @@
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
-    const-string/jumbo v0, "test"
+    const-string v0, "test"
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->updateSectionBoundaries(Ljava/lang/String;)V
 
@@ -2117,7 +2117,7 @@
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;->setAreThereDismissableGentleNotifs(Z)V
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;->setClearSectionButtonEnabled(Z)V
 
     sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 

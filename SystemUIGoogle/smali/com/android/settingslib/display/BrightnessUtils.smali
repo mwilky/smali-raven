@@ -111,9 +111,9 @@
     :goto_0
     const/4 p1, 0x0
 
-    const p2, 0x477fff00    # 65535.0f
+    const p2, 0xffff
 
-    invoke-static {p1, p2, p0}, Landroid/util/MathUtils;->lerp(FFF)F
+    invoke-static {p1, p2, p0}, Landroid/util/MathUtils;->lerp(IIF)F
 
     move-result p0
 

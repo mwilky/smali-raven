@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;-><init>(Lcom/android/systemui/statusbar/commandline/CommandRegistry;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/FeatureFlags;Landroid/content/Context;Landroid/view/WindowManager;Lcom/android/systemui/util/time/SystemClock;Lcom/android/internal/logging/UiEventLogger;)V
+    value = Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;-><init>(Lcom/android/systemui/statusbar/commandline/CommandRegistry;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/flags/FeatureFlags;Landroid/content/Context;Landroid/view/WindowManager;Lcom/android/systemui/util/time/SystemClock;Lcom/android/internal/logging/UiEventLogger;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,12 +24,12 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;Lcom/android/systemui/statusbar/policy/BatteryController;)V
+.method constructor <init>(Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$batteryStateChangeCallback$1;->this$0:Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$batteryStateChangeCallback$1;->$batteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
 
-    iput-object p2, p0, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$batteryStateChangeCallback$1;->$batteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
+    iput-object p2, p0, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$batteryStateChangeCallback$1;->this$0:Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -41,14 +41,6 @@
 .method public onBatteryLevelChanged(IZZ)V
     .locals 1
 
-    iget-object p1, p0, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$batteryStateChangeCallback$1;->this$0:Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;
-
-    invoke-static {p1}, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;->access$getRippleEnabled$p(Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_2
-
     iget-object p1, p0, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$batteryStateChangeCallback$1;->$batteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
 
     invoke-interface {p1}, Lcom/android/systemui/statusbar/policy/BatteryController;->isPluggedInWireless()Z
@@ -57,7 +49,7 @@
 
     if-eqz p1, :cond_0
 
-    goto :goto_0
+    return-void
 
     :cond_0
     iget-object p1, p0, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$batteryStateChangeCallback$1;->this$0:Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;
@@ -90,6 +82,5 @@
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;->startRippleWithDebounce$frameworks__base__packages__SystemUI__android_common__SystemUI_core()V
 
     :cond_2
-    :goto_0
     return-void
 .end method

@@ -82,7 +82,7 @@
 
     const-string v3, "keywords"
 
-    const-string/jumbo v4, "ttl"
+    const-string v4, "ttl"
 
     const-string v5, "last_updated"
 
@@ -141,7 +141,7 @@
 
     const-string v0, "shortcut"
 
-    const-string/jumbo v3, "title"
+    const-string v3, "title"
 
     filled-new-array {v0, v3}, [Ljava/lang/String;
 
@@ -497,7 +497,7 @@
 
     if-nez v0, :cond_0
 
-    const-string/jumbo v0, "text"
+    const-string v0, "text"
 
     const/4 v2, 0x0
 
@@ -598,7 +598,7 @@
 
     const-string v6, "keywords"
 
-    const-string/jumbo v7, "ttl"
+    const-string v7, "ttl"
 
     const-string v8, "last_updated"
 

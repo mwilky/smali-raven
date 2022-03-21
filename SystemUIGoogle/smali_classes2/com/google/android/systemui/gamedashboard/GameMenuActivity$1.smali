@@ -112,9 +112,19 @@
 
     iget-object p1, p0, Lcom/google/android/systemui/gamedashboard/GameMenuActivity$1;->this$0:Lcom/google/android/systemui/gamedashboard/GameMenuActivity;
 
+    iget-object v0, p0, Lcom/google/android/systemui/gamedashboard/GameMenuActivity$1;->val$destinationView:Landroid/view/View;
+
+    invoke-static {p1, v0}, Lcom/google/android/systemui/gamedashboard/GameMenuActivity;->access$002(Lcom/google/android/systemui/gamedashboard/GameMenuActivity;Landroid/view/View;)Landroid/view/View;
+
     iget-object p0, p0, Lcom/google/android/systemui/gamedashboard/GameMenuActivity$1;->val$destinationView:Landroid/view/View;
 
-    invoke-static {p1, p0}, Lcom/google/android/systemui/gamedashboard/GameMenuActivity;->access$002(Lcom/google/android/systemui/gamedashboard/GameMenuActivity;Landroid/view/View;)Landroid/view/View;
+    invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
+
+    move-result-object p0
+
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
 
     return-void
 .end method

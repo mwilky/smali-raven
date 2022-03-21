@@ -32,18 +32,6 @@
         <item quantity="other">"ছিমৰ ভুল PUK ক'ড, আপুনি আৰু %d বাৰ ভুল ক’ড দিলে আপোনাৰ ছিম চিৰকালৰ বাবে ব্যৱহাৰৰ অনুপযোগী হ’ব।"</item>
         <item quantity="one">"ছিমৰ ভুল PUK ক'ড, আপুনি আৰু %d বাৰ ভুল ক’ড দিলে আপোনাৰ ছিম চিৰকালৰ বাবে ব্যৱহাৰৰ অনুপযোগী হ’ব।"</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">ডিভাইচটো %d ঘণ্টা ধৰি আনলক কৰা হোৱা নাই। পাছৱৰ্ড নিশ্চিত কৰক।</item>
-        <item quantity="one">ডিভাইচটো %d ঘণ্টা ধৰি আনলক কৰা হোৱা নাই। পাছৱৰ্ড নিশ্চিত কৰক।</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">ডিভাইচটো %d ঘণ্টা ধৰি আনলক কৰা হোৱা নাই। আর্হি নিশ্চিত কৰক।</item>
-        <item quantity="one">ডিভাইচটো %d ঘণ্টা ধৰি আনলক কৰা হোৱা নাই। আর্হি নিশ্চিত কৰক।</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">ডিভাইচটো %d ঘণ্টা ধৰি আনলক কৰা হোৱা নাই। পিন নিশ্চিত কৰক।</item>
-        <item quantity="one">ডিভাইচটো %d ঘণ্টা ধৰি আনলক কৰা হোৱা নাই। পিন নিশ্চিত কৰক।</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">%d ছেকেণ্ডত আকৌ চেষ্টা কৰক।</item>
         <item quantity="one">%d ছেকেণ্ডত আকৌ চেষ্টা কৰক।</item>

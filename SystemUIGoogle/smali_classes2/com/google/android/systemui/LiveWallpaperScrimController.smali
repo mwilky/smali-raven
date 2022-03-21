@@ -124,16 +124,16 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/systemui/statusbar/phone/LightBarController;Lcom/android/systemui/statusbar/phone/DozeParameters;Landroid/app/AlarmManager;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/util/wakelock/DelayedWakeLock$Builder;Landroid/os/Handler;Landroid/app/IWallpaperManager;Lcom/android/systemui/statusbar/phone/LockscreenWallpaper;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/dock/DockManager;Ljava/util/concurrent/Executor;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)V
-    .locals 13
+.method public constructor <init>(Lcom/android/systemui/statusbar/phone/LightBarController;Lcom/android/systemui/statusbar/phone/DozeParameters;Landroid/app/AlarmManager;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/util/wakelock/DelayedWakeLock$Builder;Landroid/os/Handler;Landroid/app/IWallpaperManager;Lcom/android/systemui/statusbar/phone/LockscreenWallpaper;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/dock/DockManager;Ljava/util/concurrent/Executor;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;)V
+    .locals 14
 
-    move-object v12, p0
+    move-object v13, p0
 
     move-object v0, p0
 
     move-object v1, p1
 
-    move-object v2, p2
+    move-object/from16 v2, p2
 
     move-object/from16 v3, p3
 
@@ -153,21 +153,23 @@
 
     move-object/from16 v11, p13
 
-    invoke-direct/range {v0 .. v11}, Lcom/android/systemui/statusbar/phone/ScrimController;-><init>(Lcom/android/systemui/statusbar/phone/LightBarController;Lcom/android/systemui/statusbar/phone/DozeParameters;Landroid/app/AlarmManager;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/util/wakelock/DelayedWakeLock$Builder;Landroid/os/Handler;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/dock/DockManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Ljava/util/concurrent/Executor;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)V
+    move-object/from16 v12, p14
+
+    invoke-direct/range {v0 .. v12}, Lcom/android/systemui/statusbar/phone/ScrimController;-><init>(Lcom/android/systemui/statusbar/phone/LightBarController;Lcom/android/systemui/statusbar/phone/DozeParameters;Landroid/app/AlarmManager;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/util/wakelock/DelayedWakeLock$Builder;Landroid/os/Handler;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/dock/DockManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Ljava/util/concurrent/Executor;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;)V
 
     invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
 
     move-result v0
 
-    iput v0, v12, Lcom/google/android/systemui/LiveWallpaperScrimController;->mCurrentUser:I
+    iput v0, v13, Lcom/google/android/systemui/LiveWallpaperScrimController;->mCurrentUser:I
 
     move-object/from16 v0, p7
 
-    iput-object v0, v12, Lcom/google/android/systemui/LiveWallpaperScrimController;->mWallpaperManager:Landroid/app/IWallpaperManager;
+    iput-object v0, v13, Lcom/google/android/systemui/LiveWallpaperScrimController;->mWallpaperManager:Landroid/app/IWallpaperManager;
 
     move-object/from16 v0, p8
 
-    iput-object v0, v12, Lcom/google/android/systemui/LiveWallpaperScrimController;->mLockscreenWallpaper:Lcom/android/systemui/statusbar/phone/LockscreenWallpaper;
+    iput-object v0, v13, Lcom/google/android/systemui/LiveWallpaperScrimController;->mLockscreenWallpaper:Lcom/android/systemui/statusbar/phone/LockscreenWallpaper;
 
     return-void
 .end method

@@ -39,7 +39,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBar$6;->this$0:Lcom/android/systemui/navigationbar/NavigationBar;
 
-    invoke-static {p0}, Lcom/android/systemui/navigationbar/NavigationBar;->access$1800(Lcom/android/systemui/navigationbar/NavigationBar;)Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
+    invoke-static {p0}, Lcom/android/systemui/navigationbar/NavigationBar;->access$2000(Lcom/android/systemui/navigationbar/NavigationBar;)Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
 
     move-result-object v0
 
@@ -47,7 +47,7 @@
 
     move-result v0
 
-    invoke-static {p0, v0}, Lcom/android/systemui/navigationbar/NavigationBar;->access$1102(Lcom/android/systemui/navigationbar/NavigationBar;Z)Z
+    invoke-static {p0, v0}, Lcom/android/systemui/navigationbar/NavigationBar;->access$1302(Lcom/android/systemui/navigationbar/NavigationBar;Z)Z
 
     return-void
 .end method

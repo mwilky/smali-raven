@@ -15,6 +15,9 @@
 
 
 # virtual methods
+.method public abstract onChildTaskEnterPip(I)V
+.end method
+
 .method public abstract onChildTaskStatusChanged(IZZ)V
 .end method
 

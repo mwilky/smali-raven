@@ -223,7 +223,7 @@
 
     if-eqz v1, :cond_d
 
-    const-string/jumbo v1, "tracing"
+    const-string v1, "tracing"
 
     goto :goto_d
 
@@ -311,13 +311,77 @@
 
     const/high16 v1, 0x80000
 
-    and-int/2addr p0, v1
+    and-int/2addr v1, p0
 
-    if-eqz p0, :cond_13
+    if-eqz v1, :cond_13
 
-    const-string v2, "magnification_overlap"
+    const-string v1, "magnification_overlap"
+
+    goto :goto_13
 
     :cond_13
+    move-object v1, v2
+
+    :goto_13
+    invoke-virtual {v0, v1}, Ljava/util/StringJoiner;->add(Ljava/lang/CharSequence;)Ljava/util/StringJoiner;
+
+    const/high16 v1, 0x100000
+
+    and-int/2addr v1, p0
+
+    if-eqz v1, :cond_14
+
+    const-string v1, "ime_switcher_showing"
+
+    goto :goto_14
+
+    :cond_14
+    move-object v1, v2
+
+    :goto_14
+    invoke-virtual {v0, v1}, Ljava/util/StringJoiner;->add(Ljava/lang/CharSequence;)Ljava/util/StringJoiner;
+
+    const/high16 v1, 0x200000
+
+    and-int/2addr v1, p0
+
+    if-eqz v1, :cond_15
+
+    const-string v1, "device_dozing"
+
+    goto :goto_15
+
+    :cond_15
+    move-object v1, v2
+
+    :goto_15
+    invoke-virtual {v0, v1}, Ljava/util/StringJoiner;->add(Ljava/lang/CharSequence;)Ljava/util/StringJoiner;
+
+    const/high16 v1, 0x400000
+
+    and-int/2addr v1, p0
+
+    if-eqz v1, :cond_16
+
+    const-string v1, "back_disabled"
+
+    goto :goto_16
+
+    :cond_16
+    move-object v1, v2
+
+    :goto_16
+    invoke-virtual {v0, v1}, Ljava/util/StringJoiner;->add(Ljava/lang/CharSequence;)Ljava/util/StringJoiner;
+
+    const/high16 v1, 0x800000
+
+    and-int/2addr p0, v1
+
+    if-eqz p0, :cond_17
+
+    const-string v2, "bubbles_mange_menu_expanded"
+
+    :cond_17
     invoke-virtual {v0, v2}, Ljava/util/StringJoiner;->add(Ljava/lang/CharSequence;)Ljava/util/StringJoiner;
 
     invoke-virtual {v0}, Ljava/util/StringJoiner;->toString()Ljava/lang/String;

@@ -21,6 +21,8 @@
 # static fields
 .field public static final CORE_APPS_ONLY:Z
 
+.field private static final DEBUG:Z
+
 .field private static final DEBUG_FACE:Z
 
 .field private static final DEBUG_FINGERPRINT:Z
@@ -31,8 +33,6 @@
 
 
 # instance fields
-.field private final mAcquiredHapticEnabled:Z
-
 .field private mActiveMobileDataSubscription:I
 
 .field private mAssistantVisible:Z
@@ -95,6 +95,8 @@
 
 .field private final mDreamManager:Landroid/service/dreams/IDreamManager;
 
+.field private mFaceAuthUserId:I
+
 .field final mFaceAuthenticationCallback:Landroid/hardware/face/FaceManager$AuthenticationCallback;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -153,7 +155,7 @@
 
 .field private mHardwareFingerprintUnavailableRetryCount:I
 
-.field private mHasLockscreenWallpaper:Z
+.field private final mInteractionJankMonitor:Lcom/android/internal/jank/InteractionJankMonitor;
 
 .field private final mIsAutomotive:Z
 
@@ -175,13 +177,13 @@
 
 .field private mKeyguardOccluded:Z
 
+.field private final mLatencyTracker:Lcom/android/internal/util/LatencyTracker;
+
 .field private final mListenModels:Lcom/android/keyguard/KeyguardListenQueue;
 
 .field private mLockIconPressed:Z
 
 .field private mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-.field private mLockScreenMode:I
 
 .field private mLogoutEnabled:Z
 
@@ -230,6 +232,8 @@
 .end field
 
 .field private mSecureCameraLaunched:Z
+
+.field private mSensorPrivacyManager:Landroid/hardware/SensorPrivacyManager;
 
 .field mServiceStates:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
@@ -292,8 +296,6 @@
 
 .field private mTrustManager:Landroid/app/trust/TrustManager;
 
-.field private mUpdateBiometricListeningState:Ljava/lang/Runnable;
-
 .field mUserFaceAuthenticated:Landroid/util/SparseArray;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -334,14 +336,28 @@
 
 .field private mUserTrustIsUsuallyManaged:Landroid/util/SparseBooleanArray;
 
-.field private final mVibrator:Landroid/os/Vibrator;
-
 
 # direct methods
 .method public static synthetic $r8$lambda$0K6JfH7XOEkCKwLjEx_hm3rTZ1c(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->registerRingerTracker()V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$0z0G1S2d5hpCluaojbsT9WiZ1bo(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->lambda$setSwitchingUser$10()V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$1Pq2YnSq57CCQN5eScNy-vV_dog(Lcom/android/keyguard/KeyguardUpdateMonitor;IIZ)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/keyguard/KeyguardUpdateMonitor;->lambda$new$6(IIZ)V
 
     return-void
 .end method
@@ -354,32 +370,22 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$4MGQCj_eVfjKiTMkk4pea1IFRT0(Lcom/android/keyguard/KeyguardUpdateMonitor;Landroid/app/admin/DevicePolicyManager;I)Ljava/lang/Boolean;
+.method public static synthetic $r8$lambda$4oBPzUvvi4RngzG3ZA1uDFqY-cM(Lcom/android/keyguard/KeyguardUpdateMonitor;I)Ljava/lang/Boolean;
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->lambda$isFaceDisabled$2(Landroid/app/admin/DevicePolicyManager;I)Ljava/lang/Boolean;
+    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->lambda$updateFaceEnrolled$8(I)Ljava/lang/Boolean;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method public static synthetic $r8$lambda$ClFEvd1_h5XoFwwyS4E3h1-Llb0(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+.method public static synthetic $r8$lambda$6lT4f6JcVvl3z_tv5zbzGPXFYLM(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->lambda$new$5()V
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->lambda$new$7()V
 
     return-void
-.end method
-
-.method public static synthetic $r8$lambda$Lb0rEKnA9sqNeg4wEfKYw-BagYs(Lcom/android/keyguard/KeyguardUpdateMonitor;I)Ljava/lang/Boolean;
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->lambda$updateFaceEnrolled$6(I)Ljava/lang/Boolean;
-
-    move-result-object p0
-
-    return-object p0
 .end method
 
 .method public static synthetic $r8$lambda$MRWO15HDv1EOJjSqXNb8hN8lq0g(Lcom/android/keyguard/KeyguardUpdateMonitor;I)V
@@ -390,44 +396,46 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$SmcskrJsftCnAPht4MUwNuUJsyM(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+.method public static synthetic $r8$lambda$T49MKzabbosDxCKYc8-bGVTR0dQ(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;Ljava/lang/ref/WeakReference;)Z
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFingerprintListeningState()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$VZdYI1gx58OEgnhpsNeeXF4T2MU(Lcom/android/keyguard/KeyguardUpdateMonitor;IIZ)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/keyguard/KeyguardUpdateMonitor;->lambda$new$4(IIZ)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$fud59kP0vgDXuX96pprbYZDIhQM(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$jq-CcZMoJkosweK3ih8K14A-MQs(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;Ljava/lang/ref/WeakReference;)Z
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->lambda$removeCallback$7(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;Ljava/lang/ref/WeakReference;)Z
+    invoke-static {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->lambda$removeCallback$9(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;Ljava/lang/ref/WeakReference;)Z
 
     move-result p0
 
     return p0
 .end method
 
-.method public static synthetic $r8$lambda$k6HXo2MY2lAQ7CC1scrj1q0VnDA(Lcom/android/keyguard/KeyguardUpdateMonitor;IIZ)V
+.method public static synthetic $r8$lambda$Up4UaPkQPiTfxhVzP8btW0ClGG8(Lcom/android/keyguard/KeyguardUpdateMonitor;Landroid/app/admin/DevicePolicyManager;I)Ljava/lang/Boolean;
     .locals 0
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/keyguard/KeyguardUpdateMonitor;->lambda$new$3(IIZ)V
+    invoke-direct {p0, p1, p2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->lambda$isFaceDisabled$4(Landroid/app/admin/DevicePolicyManager;I)Ljava/lang/Boolean;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static synthetic $r8$lambda$W5kKjsMrYheN7jlvSzd1IQzWzig(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->lambda$handleFaceLockoutReset$3()V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$dQf3JtZ5ita01H-FFGOXVQN6VA0(Lcom/android/keyguard/KeyguardUpdateMonitor;IIZ)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/keyguard/KeyguardUpdateMonitor;->lambda$new$5(IIZ)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$dtzaN3RPhGIpEAtaRDeXIljDj0w(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->lambda$handleFingerprintLockoutReset$2()V
 
     return-void
 .end method
@@ -442,6 +450,10 @@
 
 .method static constructor <clinit>()V
     .locals 3
+
+    sget-boolean v0, Lcom/android/keyguard/KeyguardConstants;->DEBUG:Z
+
+    sput-boolean v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->DEBUG:Z
 
     sget-boolean v0, Landroid/os/Build;->IS_DEBUGGABLE:Z
 
@@ -490,7 +502,7 @@
     throw v0
 .end method
 
-.method protected constructor <init>(Landroid/content/Context;Landroid/os/Looper;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/util/RingerModeTracker;Ljava/util/concurrent/Executor;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/telephony/TelephonyListenerManager;Lcom/android/systemui/statusbar/FeatureFlags;Landroid/os/Vibrator;)V
+.method protected constructor <init>(Landroid/content/Context;Landroid/os/Looper;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/util/RingerModeTracker;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/telephony/TelephonyListenerManager;Lcom/android/internal/jank/InteractionJankMonitor;Lcom/android/internal/util/LatencyTracker;)V
     .locals 18
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -503,7 +515,7 @@
 
     move-object/from16 v3, p6
 
-    move-object/from16 v4, p7
+    move-object/from16 v4, p8
 
     invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
@@ -525,15 +537,13 @@
 
     iput-object v6, v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->mServiceStates:Ljava/util/HashMap;
 
-    const/4 v6, 0x0
-
-    iput-boolean v6, v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->mAcquiredHapticEnabled:Z
-
     invoke-static {}, Lcom/google/android/collect/Lists;->newArrayList()Ljava/util/ArrayList;
 
-    move-result-object v7
+    move-result-object v6
 
-    iput-object v7, v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
+    iput-object v6, v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
+
+    const/4 v6, 0x0
 
     iput v6, v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintRunningState:I
 
@@ -547,15 +557,15 @@
 
     iput v6, v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHardwareFaceUnavailableRetryCount:I
 
-    new-instance v8, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda7;
+    new-instance v8, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda8;
 
-    invoke-direct {v8, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda7;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+    invoke-direct {v8, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda8;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
 
     iput-object v8, v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFpCancelNotReceived:Ljava/lang/Runnable;
 
-    new-instance v8, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda3;
+    new-instance v8, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda4;
 
-    invoke-direct {v8, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda3;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+    invoke-direct {v8, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda4;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
 
     iput-object v8, v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceCancelNotReceived:Ljava/lang/Runnable;
 
@@ -643,12 +653,6 @@
 
     iput-object v8, v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->mListenModels:Lcom/android/keyguard/KeyguardListenQueue;
 
-    new-instance v8, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda6;
-
-    invoke-direct {v8, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda6;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
-
-    iput-object v8, v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->mUpdateBiometricListeningState:Ljava/lang/Runnable;
-
     new-instance v8, Lcom/android/keyguard/KeyguardUpdateMonitor$7;
 
     invoke-direct {v8, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor$7;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
@@ -715,15 +719,15 @@
 
     iput-object v10, v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceAuthenticationCallback:Landroid/hardware/face/FaceManager$AuthenticationCallback;
 
-    new-instance v10, Lcom/android/keyguard/KeyguardUpdateMonitor$17;
+    new-instance v10, Lcom/android/keyguard/KeyguardUpdateMonitor$18;
 
-    invoke-direct {v10, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor$17;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+    invoke-direct {v10, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor$18;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
 
     iput-object v10, v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->mUserSwitchObserver:Landroid/app/UserSwitchObserver;
 
-    new-instance v11, Lcom/android/keyguard/KeyguardUpdateMonitor$19;
+    new-instance v11, Lcom/android/keyguard/KeyguardUpdateMonitor$20;
 
-    invoke-direct {v11, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor$19;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+    invoke-direct {v11, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor$20;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
 
     iput-object v11, v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->mTaskStackListener:Lcom/android/systemui/shared/system/TaskStackChangeListener;
 
@@ -735,7 +739,7 @@
 
     iput-object v11, v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->mSubscriptionManager:Landroid/telephony/SubscriptionManager;
 
-    move-object/from16 v11, p10
+    move-object/from16 v11, p11
 
     iput-object v11, v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->mTelephonyListenerManager:Lcom/android/systemui/telephony/TelephonyListenerManager;
 
@@ -747,9 +751,9 @@
 
     new-instance v11, Lcom/android/keyguard/KeyguardUpdateMonitor$StrongAuthTracker;
 
-    new-instance v12, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda8;
+    new-instance v12, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda9;
 
-    invoke-direct {v12, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda8;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+    invoke-direct {v12, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda9;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
 
     invoke-direct {v11, v2, v12}, Lcom/android/keyguard/KeyguardUpdateMonitor$StrongAuthTracker;-><init>(Landroid/content/Context;Ljava/util/function/Consumer;)V
 
@@ -759,6 +763,14 @@
 
     iput-object v0, v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
+    move-object/from16 v11, p12
+
+    iput-object v11, v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->mInteractionJankMonitor:Lcom/android/internal/jank/InteractionJankMonitor;
+
+    move-object/from16 v11, p13
+
+    iput-object v11, v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->mLatencyTracker:Lcom/android/internal/util/LatencyTracker;
+
     move-object/from16 v11, p5
 
     iput-object v11, v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->mRingerModeTracker:Lcom/android/systemui/util/RingerModeTracker;
@@ -767,17 +779,17 @@
 
     invoke-interface {v4, v5}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->addCallback(Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;)V
 
-    invoke-interface/range {p7 .. p7}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->getState()I
+    invoke-interface/range {p8 .. p8}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->getState()I
 
     move-result v4
 
     iput v4, v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->mStatusBarState:I
 
-    move-object/from16 v4, p8
+    move-object/from16 v4, p9
 
     iput-object v4, v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    move-object/from16 v4, p9
+    move-object/from16 v4, p10
 
     iput-object v4, v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->mAuthController:Lcom/android/systemui/biometrics/AuthController;
 
@@ -791,9 +803,15 @@
 
     invoke-virtual {v5, v4, v1}, Lcom/android/systemui/dump/DumpManager;->registerDumpable(Ljava/lang/String;Lcom/android/systemui/Dumpable;)V
 
-    move-object/from16 v4, p12
+    const-class v4, Landroid/hardware/SensorPrivacyManager;
 
-    iput-object v4, v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->mVibrator:Landroid/os/Vibrator;
+    invoke-virtual {v2, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/hardware/SensorPrivacyManager;
+
+    iput-object v4, v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->mSensorPrivacyManager:Landroid/hardware/SensorPrivacyManager;
 
     new-instance v4, Lcom/android/keyguard/KeyguardUpdateMonitor$15;
 
@@ -876,9 +894,9 @@
 
     invoke-virtual {v0, v8, v5, v4}, Lcom/android/systemui/broadcast/BroadcastDispatcher;->registerReceiverWithHandler(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Landroid/os/Handler;)V
 
-    new-instance v5, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda4;
+    new-instance v5, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda5;
 
-    invoke-direct {v5, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda4;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+    invoke-direct {v5, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda5;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
 
     invoke-interface {v3, v5}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -1063,7 +1081,19 @@
     invoke-virtual {v0, v3}, Landroid/hardware/biometrics/BiometricManager;->registerEnabledOnKeyguardCallback(Landroid/hardware/biometrics/IBiometricEnabledOnKeyguardCallback;)V
 
     :cond_4
-    invoke-direct/range {p0 .. p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState()V
+    iget-object v0, v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->mAuthController:Lcom/android/systemui/biometrics/AuthController;
+
+    new-instance v3, Lcom/android/keyguard/KeyguardUpdateMonitor$16;
+
+    move-object/from16 v4, p7
+
+    invoke-direct {v3, v1, v4}, Lcom/android/keyguard/KeyguardUpdateMonitor$16;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitor;Ljava/util/concurrent/Executor;)V
+
+    invoke-virtual {v0, v3}, Lcom/android/systemui/biometrics/AuthController;->addCallback(Lcom/android/systemui/biometrics/AuthController$Callback;)V
+
+    const/4 v0, 0x2
+
+    invoke-direct {v1, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState(I)V
 
     iget-object v0, v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFpm:Landroid/hardware/fingerprint/FingerprintManager;
 
@@ -1261,17 +1291,11 @@
     goto :goto_2
 
     :cond_9
-    invoke-virtual/range {p11 .. p11}, Lcom/android/systemui/statusbar/FeatureFlags;->isKeyguardLayoutEnabled()Z
-
-    move-result v0
-
-    invoke-direct {v1, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateLockScreenMode(Z)V
-
-    new-instance v0, Lcom/android/keyguard/KeyguardUpdateMonitor$16;
+    new-instance v0, Lcom/android/keyguard/KeyguardUpdateMonitor$17;
 
     iget-object v2, v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHandler:Landroid/os/Handler;
 
-    invoke-direct {v0, v1, v2}, Lcom/android/keyguard/KeyguardUpdateMonitor$16;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitor;Landroid/os/Handler;)V
+    invoke-direct {v0, v1, v2}, Lcom/android/keyguard/KeyguardUpdateMonitor$17;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitor;Landroid/os/Handler;)V
 
     iput-object v0, v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->mTimeFormatChangeObserver:Landroid/database/ContentObserver;
 
@@ -1281,7 +1305,7 @@
 
     move-result-object v0
 
-    const-string/jumbo v2, "time_12_24"
+    const-string v2, "time_12_24"
 
     invoke-static {v2}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -1326,15 +1350,23 @@
     return p0
 .end method
 
-.method static synthetic access$1200(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+.method static synthetic access$1200(Lcom/android/keyguard/KeyguardUpdateMonitor;I)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFaceListeningState()V
+    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFaceListeningState(I)V
 
     return-void
 .end method
 
-.method static synthetic access$1500(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+.method static synthetic access$1500()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->DEBUG:Z
+
+    return v0
+.end method
+
+.method static synthetic access$1600(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->handleFingerprintLockoutReset()V
@@ -1342,7 +1374,7 @@
     return-void
 .end method
 
-.method static synthetic access$1600(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+.method static synthetic access$1700(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->handleFaceLockoutReset()V
@@ -1350,7 +1382,7 @@
     return-void
 .end method
 
-.method static synthetic access$1700(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+.method static synthetic access$1800(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->handleFingerprintAuthFailed()V
@@ -1358,18 +1390,10 @@
     return-void
 .end method
 
-.method static synthetic access$1800(Lcom/android/keyguard/KeyguardUpdateMonitor;IZ)V
+.method static synthetic access$1900(Lcom/android/keyguard/KeyguardUpdateMonitor;IZ)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->handleFingerprintAuthenticated(IZ)V
-
-    return-void
-.end method
-
-.method static synthetic access$1900(Lcom/android/keyguard/KeyguardUpdateMonitor;ILjava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->handleFingerprintHelp(ILjava/lang/String;)V
 
     return-void
 .end method
@@ -1385,12 +1409,20 @@
 .method static synthetic access$2000(Lcom/android/keyguard/KeyguardUpdateMonitor;ILjava/lang/String;)V
     .locals 0
 
+    invoke-direct {p0, p1, p2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->handleFingerprintHelp(ILjava/lang/String;)V
+
+    return-void
+.end method
+
+.method static synthetic access$2100(Lcom/android/keyguard/KeyguardUpdateMonitor;ILjava/lang/String;)V
+    .locals 0
+
     invoke-direct {p0, p1, p2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->handleFingerprintError(ILjava/lang/String;)V
 
     return-void
 .end method
 
-.method static synthetic access$2100(Lcom/android/keyguard/KeyguardUpdateMonitor;I)V
+.method static synthetic access$2200(Lcom/android/keyguard/KeyguardUpdateMonitor;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->handleFingerprintAcquired(I)V
@@ -1398,7 +1430,7 @@
     return-void
 .end method
 
-.method static synthetic access$2200(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+.method static synthetic access$2300(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->handleFaceAuthFailed()V
@@ -1406,7 +1438,7 @@
     return-void
 .end method
 
-.method static synthetic access$2300(Lcom/android/keyguard/KeyguardUpdateMonitor;)Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
+.method static synthetic access$2400(Lcom/android/keyguard/KeyguardUpdateMonitor;)Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mKeyguardBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
@@ -1414,7 +1446,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$2400(Lcom/android/keyguard/KeyguardUpdateMonitor;IZ)V
+.method static synthetic access$2500(Lcom/android/keyguard/KeyguardUpdateMonitor;IZ)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->handleFaceAuthenticated(IZ)V
@@ -1422,7 +1454,7 @@
     return-void
 .end method
 
-.method static synthetic access$2500(Lcom/android/keyguard/KeyguardUpdateMonitor;ILjava/lang/String;)V
+.method static synthetic access$2600(Lcom/android/keyguard/KeyguardUpdateMonitor;ILjava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->handleFaceHelp(ILjava/lang/String;)V
@@ -1430,7 +1462,7 @@
     return-void
 .end method
 
-.method static synthetic access$2600(Lcom/android/keyguard/KeyguardUpdateMonitor;ILjava/lang/String;)V
+.method static synthetic access$2700(Lcom/android/keyguard/KeyguardUpdateMonitor;ILjava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->handleFaceError(ILjava/lang/String;)V
@@ -1438,7 +1470,7 @@
     return-void
 .end method
 
-.method static synthetic access$2700(Lcom/android/keyguard/KeyguardUpdateMonitor;I)V
+.method static synthetic access$2800(Lcom/android/keyguard/KeyguardUpdateMonitor;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->handleFaceAcquired(I)V
@@ -1446,18 +1478,10 @@
     return-void
 .end method
 
-.method static synthetic access$2800(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+.method static synthetic access$2900(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->handleTimeUpdate()V
-
-    return-void
-.end method
-
-.method static synthetic access$2900(Lcom/android/keyguard/KeyguardUpdateMonitor;Ljava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->handleTimeZoneUpdate(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -1470,7 +1494,15 @@
     return-object p0
 .end method
 
-.method static synthetic access$3000(Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/settingslib/fuelgauge/BatteryStatus;)V
+.method static synthetic access$3000(Lcom/android/keyguard/KeyguardUpdateMonitor;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->handleTimeZoneUpdate(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method static synthetic access$3100(Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/settingslib/fuelgauge/BatteryStatus;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->handleBatteryUpdate(Lcom/android/settingslib/fuelgauge/BatteryStatus;)V
@@ -1478,7 +1510,7 @@
     return-void
 .end method
 
-.method static synthetic access$3100(Lcom/android/keyguard/KeyguardUpdateMonitor;I)V
+.method static synthetic access$3200(Lcom/android/keyguard/KeyguardUpdateMonitor;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->handleRingerModeChange(I)V
@@ -1486,7 +1518,7 @@
     return-void
 .end method
 
-.method static synthetic access$3200(Lcom/android/keyguard/KeyguardUpdateMonitor;Ljava/lang/String;)V
+.method static synthetic access$3300(Lcom/android/keyguard/KeyguardUpdateMonitor;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->handlePhoneStateChanged(Ljava/lang/String;)V
@@ -1494,7 +1526,7 @@
     return-void
 .end method
 
-.method static synthetic access$3300(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+.method static synthetic access$3400(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->handleDeviceProvisioned()V
@@ -1502,18 +1534,10 @@
     return-void
 .end method
 
-.method static synthetic access$3400(Lcom/android/keyguard/KeyguardUpdateMonitor;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->handleDevicePolicyManagerStateChanged(I)V
-
-    return-void
-.end method
-
 .method static synthetic access$3500(Lcom/android/keyguard/KeyguardUpdateMonitor;I)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->handleUserSwitchComplete(I)V
+    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->handleDevicePolicyManagerStateChanged(I)V
 
     return-void
 .end method
@@ -1550,10 +1574,10 @@
     return-void
 .end method
 
-.method static synthetic access$400(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+.method static synthetic access$400(Lcom/android/keyguard/KeyguardUpdateMonitor;I)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState()V
+    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState(I)V
 
     return-void
 .end method
@@ -1638,10 +1662,10 @@
     return-void
 .end method
 
-.method static synthetic access$5000(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+.method static synthetic access$5000(Lcom/android/keyguard/KeyguardUpdateMonitor;Ljava/lang/String;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->handleLockScreenMode()V
+    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->handleTimeFormatUpdate(Ljava/lang/String;)V
 
     return-void
 .end method
@@ -1654,15 +1678,7 @@
     return p1
 .end method
 
-.method static synthetic access$5100(Lcom/android/keyguard/KeyguardUpdateMonitor;Ljava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->handleTimeFormatUpdate(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method static synthetic access$5200(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+.method static synthetic access$5100(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->handleRequireUnlockForNfc()V
@@ -1670,7 +1686,7 @@
     return-void
 .end method
 
-.method static synthetic access$5300(Lcom/android/keyguard/KeyguardUpdateMonitor;)Landroid/content/Context;
+.method static synthetic access$5200(Lcom/android/keyguard/KeyguardUpdateMonitor;)Landroid/content/Context;
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mContext:Landroid/content/Context;
@@ -1678,7 +1694,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$5400(Lcom/android/keyguard/KeyguardUpdateMonitor;)Z
+.method static synthetic access$5300(Lcom/android/keyguard/KeyguardUpdateMonitor;)Z
     .locals 0
 
     iget-boolean p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mDeviceProvisioned:Z
@@ -1686,7 +1702,7 @@
     return p0
 .end method
 
-.method static synthetic access$5402(Lcom/android/keyguard/KeyguardUpdateMonitor;Z)Z
+.method static synthetic access$5302(Lcom/android/keyguard/KeyguardUpdateMonitor;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mDeviceProvisioned:Z
@@ -1694,7 +1710,7 @@
     return p1
 .end method
 
-.method static synthetic access$5500(Lcom/android/keyguard/KeyguardUpdateMonitor;)Z
+.method static synthetic access$5400(Lcom/android/keyguard/KeyguardUpdateMonitor;)Z
     .locals 0
 
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isDeviceProvisionedInSettingsDb()Z
@@ -1740,10 +1756,10 @@
     return-object p0
 .end method
 
-.method static synthetic access$900(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+.method static synthetic access$900(Lcom/android/keyguard/KeyguardUpdateMonitor;I)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFingerprintListeningState()V
+    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFingerprintListeningState(I)V
 
     return-void
 .end method
@@ -1958,6 +1974,17 @@
 
     invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
 
+    sget-boolean v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "KeyguardUpdateMonitor"
+
+    const-string v1, "handleBatteryUpdate"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mBatteryStatus:Lcom/android/settingslib/fuelgauge/BatteryStatus;
 
     invoke-direct {p0, v0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isBatteryUpdateInteresting(Lcom/android/settingslib/fuelgauge/BatteryStatus;Lcom/android/settingslib/fuelgauge/BatteryStatus;)Z
@@ -1966,7 +1993,7 @@
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mBatteryStatus:Lcom/android/settingslib/fuelgauge/BatteryStatus;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     const/4 v0, 0x0
 
@@ -1977,7 +2004,7 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_2
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
 
@@ -1993,16 +2020,16 @@
 
     check-cast v1, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     invoke-virtual {v1, p1}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->onRefreshBatteryInfo(Lcom/android/settingslib/fuelgauge/BatteryStatus;)V
 
-    :cond_0
+    :cond_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     return-void
 .end method
 
@@ -2011,7 +2038,9 @@
 
     invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFingerprintListeningState()V
+    const/4 v0, 0x2
+
+    invoke-direct {p0, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFingerprintListeningState(I)V
 
     invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateSecondaryLockscreenRequirement(I)V
 
@@ -2169,7 +2198,9 @@
     goto :goto_1
 
     :cond_2
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState()V
+    const/4 p1, 0x2
+
+    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState(I)V
 
     return-void
 .end method
@@ -2453,7 +2484,7 @@
 .end method
 
 .method private handleFaceError(ILjava/lang/String;)V
-    .locals 6
+    .locals 8
 
     invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
 
@@ -2501,83 +2532,129 @@
 
     iput-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceCancelSignal:Landroid/os/CancellationSignal;
 
-    const/4 v0, 0x5
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mSensorPrivacyManager:Landroid/hardware/SensorPrivacyManager;
 
-    const/4 v1, 0x0
+    const/4 v1, 0x2
 
-    if-ne p1, v0, :cond_2
+    const/4 v2, 0x0
 
-    iget v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceRunningState:I
+    if-eqz v0, :cond_2
 
-    const/4 v2, 0x3
+    iget v3, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceAuthUserId:I
 
-    if-ne v0, v2, :cond_2
+    invoke-virtual {v0, v1, v3}, Landroid/hardware/SensorPrivacyManager;->isSensorPrivacyEnabled(II)Z
 
-    invoke-direct {p0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setFaceRunningState(I)V
-
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFaceListeningState()V
+    move-result v0
 
     goto :goto_0
 
     :cond_2
-    invoke-direct {p0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setFaceRunningState(I)V
+    move v0, v2
 
     :goto_0
-    const/4 v0, 0x1
+    const/4 v3, 0x5
 
-    if-eq p1, v0, :cond_3
+    if-ne p1, v3, :cond_3
 
-    const/4 v2, 0x2
+    iget v3, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceRunningState:I
 
-    if-ne p1, v2, :cond_4
+    const/4 v4, 0x3
+
+    if-ne v3, v4, :cond_3
+
+    invoke-direct {p0, v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setFaceRunningState(I)V
+
+    invoke-direct {p0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFaceListeningState(I)V
+
+    goto :goto_1
 
     :cond_3
-    iget v2, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHardwareFaceUnavailableRetryCount:I
+    invoke-direct {p0, v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setFaceRunningState(I)V
 
-    const/16 v3, 0x14
+    :goto_1
+    const/4 v3, 0x1
 
-    if-ge v2, v3, :cond_4
+    if-ne p1, v3, :cond_4
 
-    add-int/2addr v2, v0
+    move v4, v3
 
-    iput v2, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHardwareFaceUnavailableRetryCount:I
-
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHandler:Landroid/os/Handler;
-
-    iget-object v3, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mRetryFaceAuthentication:Ljava/lang/Runnable;
-
-    invoke-virtual {v2, v3}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
-
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHandler:Landroid/os/Handler;
-
-    iget-object v3, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mRetryFaceAuthentication:Ljava/lang/Runnable;
-
-    const-wide/16 v4, 0x1f4
-
-    invoke-virtual {v2, v3, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    goto :goto_2
 
     :cond_4
-    const/16 v2, 0x9
+    move v4, v2
 
-    if-ne p1, v2, :cond_5
+    :goto_2
+    if-nez v4, :cond_5
 
-    iput-boolean v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceLockedOutPermanent:Z
-
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->requireStrongAuthIfAllLockedOut()V
+    if-ne p1, v1, :cond_6
 
     :cond_5
-    :goto_1
+    iget v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHardwareFaceUnavailableRetryCount:I
+
+    const/16 v5, 0x14
+
+    if-ge v1, v5, :cond_6
+
+    add-int/2addr v1, v3
+
+    iput v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHardwareFaceUnavailableRetryCount:I
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHandler:Landroid/os/Handler;
+
+    iget-object v5, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mRetryFaceAuthentication:Ljava/lang/Runnable;
+
+    invoke-virtual {v1, v5}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHandler:Landroid/os/Handler;
+
+    iget-object v5, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mRetryFaceAuthentication:Ljava/lang/Runnable;
+
+    const-wide/16 v6, 0x1f4
+
+    invoke-virtual {v1, v5, v6, v7}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    :cond_6
+    const/16 v1, 0x9
+
+    if-ne p1, v1, :cond_7
+
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceLockedOutPermanent:Z
+
+    xor-int/2addr v1, v3
+
+    iput-boolean v3, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceLockedOutPermanent:Z
+
+    goto :goto_3
+
+    :cond_7
+    move v1, v2
+
+    :goto_3
+    if-eqz v4, :cond_8
+
+    if-eqz v0, :cond_8
+
+    iget-object p2, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mContext:Landroid/content/Context;
+
+    sget v0, Lcom/android/systemui/R$string;->kg_face_sensor_privacy_enabled:I
+
+    invoke-virtual {p2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p2
+
+    :cond_8
+    :goto_4
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    if-ge v1, v0, :cond_7
+    if-ge v2, v0, :cond_a
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -2589,18 +2666,25 @@
 
     check-cast v0, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_9
 
-    sget-object v2, Landroid/hardware/biometrics/BiometricSourceType;->FACE:Landroid/hardware/biometrics/BiometricSourceType;
+    sget-object v3, Landroid/hardware/biometrics/BiometricSourceType;->FACE:Landroid/hardware/biometrics/BiometricSourceType;
 
-    invoke-virtual {v0, p1, p2, v2}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->onBiometricError(ILjava/lang/String;Landroid/hardware/biometrics/BiometricSourceType;)V
+    invoke-virtual {v0, p1, p2, v3}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->onBiometricError(ILjava/lang/String;Landroid/hardware/biometrics/BiometricSourceType;)V
 
-    :cond_6
-    add-int/lit8 v1, v1, 0x1
+    :cond_9
+    add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_4
 
-    :cond_7
+    :cond_a
+    if-eqz v1, :cond_b
+
+    sget-object p1, Landroid/hardware/biometrics/BiometricSourceType;->FACE:Landroid/hardware/biometrics/BiometricSourceType;
+
+    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->notifyLockedOutStateChanged(Landroid/hardware/biometrics/BiometricSourceType;)V
+
+    :cond_b
     return-void
 .end method
 
@@ -2673,14 +2757,31 @@
 .end method
 
 .method private handleFaceLockoutReset()V
-    .locals 1
+    .locals 5
 
-    const/4 v0, 0x0
+    iget-boolean v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceLockedOutPermanent:Z
 
-    iput-boolean v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceLockedOutPermanent:Z
+    const/4 v1, 0x0
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFaceListeningState()V
+    iput-boolean v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceLockedOutPermanent:Z
 
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHandler:Landroid/os/Handler;
+
+    new-instance v2, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda6;
+
+    invoke-direct {v2, p0}, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda6;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+
+    const-wide/16 v3, 0x258
+
+    invoke-virtual {v1, v2, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Landroid/hardware/biometrics/BiometricSourceType;->FACE:Landroid/hardware/biometrics/BiometricSourceType;
+
+    invoke-direct {p0, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->notifyLockedOutStateChanged(Landroid/hardware/biometrics/BiometricSourceType;)V
+
+    :cond_0
     return-void
 .end method
 
@@ -2956,7 +3057,7 @@
 .end method
 
 .method private handleFingerprintError(ILjava/lang/String;)V
-    .locals 6
+    .locals 8
 
     invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
 
@@ -2983,55 +3084,88 @@
 
     const/4 v0, 0x5
 
-    const/4 v1, 0x0
+    const/4 v1, 0x2
+
+    const/4 v2, 0x0
 
     if-ne p1, v0, :cond_1
 
     iget v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintRunningState:I
 
-    const/4 v2, 0x3
+    const/4 v3, 0x3
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v3, :cond_1
 
-    invoke-direct {p0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setFingerprintRunningState(I)V
+    invoke-direct {p0, v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setFingerprintRunningState(I)V
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFingerprintListeningState()V
+    invoke-direct {p0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFingerprintListeningState(I)V
 
     goto :goto_0
 
     :cond_1
-    invoke-direct {p0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setFingerprintRunningState(I)V
+    invoke-direct {p0, v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setFingerprintRunningState(I)V
 
     :goto_0
     const/4 v0, 0x1
 
     if-ne p1, v0, :cond_2
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHandler:Landroid/os/Handler;
+    iget-object v3, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHandler:Landroid/os/Handler;
 
-    iget-object v3, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mRetryFingerprintAuthentication:Ljava/lang/Runnable;
+    iget-object v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mRetryFingerprintAuthentication:Ljava/lang/Runnable;
 
-    const-wide/16 v4, 0x1f4
+    const-wide/16 v5, 0x1f4
 
-    invoke-virtual {v2, v3, v4, v5}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {v3, v4, v5, v6}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     :cond_2
-    const/16 v2, 0x9
+    const/16 v3, 0x9
 
-    if-ne p1, v2, :cond_3
+    if-ne p1, v3, :cond_3
+
+    iget-boolean v4, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintLockedOutPermanent:Z
+
+    xor-int/2addr v4, v0
+
+    or-int/2addr v4, v2
 
     iput-boolean v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintLockedOutPermanent:Z
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->requireStrongAuthIfAllLockedOut()V
+    const-string v5, "KeyguardUpdateMonitor"
+
+    const-string v6, "Fingerprint locked out - requiring strong auth"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v5, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    const/16 v6, 0x8
+
+    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
+
+    move-result v7
+
+    invoke-virtual {v5, v6, v7}, Lcom/android/internal/widget/LockPatternUtils;->requireStrongAuth(II)V
+
+    goto :goto_1
 
     :cond_3
-    const/4 v3, 0x7
+    move v4, v2
 
-    if-eq p1, v3, :cond_4
+    :goto_1
+    const/4 v5, 0x7
 
-    if-ne p1, v2, :cond_5
+    if-eq p1, v5, :cond_4
+
+    if-ne p1, v3, :cond_6
 
     :cond_4
+    iget-boolean v3, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintLockedOut:Z
+
+    xor-int/2addr v3, v0
+
+    or-int/2addr v4, v3
+
     iput-boolean v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintLockedOut:Z
 
     invoke-virtual {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isUdfpsEnrolled()Z
@@ -3040,21 +3174,24 @@
 
     if-eqz v0, :cond_5
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFingerprintListeningState()V
+    invoke-direct {p0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFingerprintListeningState(I)V
 
     :cond_5
-    :goto_1
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->stopListeningForFace()V
+
+    :cond_6
+    :goto_2
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    if-ge v1, v0, :cond_7
+    if-ge v2, v0, :cond_8
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -3066,18 +3203,25 @@
 
     check-cast v0, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_7
 
-    sget-object v2, Landroid/hardware/biometrics/BiometricSourceType;->FINGERPRINT:Landroid/hardware/biometrics/BiometricSourceType;
+    sget-object v1, Landroid/hardware/biometrics/BiometricSourceType;->FINGERPRINT:Landroid/hardware/biometrics/BiometricSourceType;
 
-    invoke-virtual {v0, p1, p2, v2}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->onBiometricError(ILjava/lang/String;Landroid/hardware/biometrics/BiometricSourceType;)V
-
-    :cond_6
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_1
+    invoke-virtual {v0, p1, p2, v1}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->onBiometricError(ILjava/lang/String;Landroid/hardware/biometrics/BiometricSourceType;)V
 
     :cond_7
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_2
+
+    :cond_8
+    if-eqz v4, :cond_9
+
+    sget-object p1, Landroid/hardware/biometrics/BiometricSourceType;->FINGERPRINT:Landroid/hardware/biometrics/BiometricSourceType;
+
+    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->notifyLockedOutStateChanged(Landroid/hardware/biometrics/BiometricSourceType;)V
+
+    :cond_9
     return-void
 .end method
 
@@ -3127,36 +3271,65 @@
 .end method
 
 .method private handleFingerprintLockoutReset()V
-    .locals 4
+    .locals 5
 
-    const/4 v0, 0x0
+    iget-boolean v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintLockedOut:Z
 
-    iput-boolean v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintLockedOut:Z
+    const/4 v1, 0x0
 
-    iput-boolean v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintLockedOutPermanent:Z
+    if-nez v0, :cond_1
 
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isUdfpsEnrolled()Z
-
-    move-result v0
+    iget-boolean v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintLockedOutPermanent:Z
 
     if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHandler:Landroid/os/Handler;
-
-    new-instance v1, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda5;
-
-    invoke-direct {v1, p0}, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda5;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
-
-    const-wide/16 v2, 0x258
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     goto :goto_0
 
     :cond_0
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFingerprintListeningState()V
+    move v0, v1
 
+    goto :goto_1
+
+    :cond_1
     :goto_0
+    const/4 v0, 0x1
+
+    :goto_1
+    iput-boolean v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintLockedOut:Z
+
+    iput-boolean v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintLockedOutPermanent:Z
+
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isUdfpsEnrolled()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHandler:Landroid/os/Handler;
+
+    new-instance v2, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda7;
+
+    invoke-direct {v2, p0}, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda7;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+
+    const-wide/16 v3, 0x258
+
+    invoke-virtual {v1, v2, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    goto :goto_2
+
+    :cond_2
+    const/4 v1, 0x2
+
+    invoke-direct {p0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFingerprintListeningState(I)V
+
+    :goto_2
+    if-eqz v0, :cond_3
+
+    sget-object v0, Landroid/hardware/biometrics/BiometricSourceType;->FINGERPRINT:Landroid/hardware/biometrics/BiometricSourceType;
+
+    invoke-direct {p0, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->notifyLockedOutStateChanged(Landroid/hardware/biometrics/BiometricSourceType;)V
+
+    :cond_3
     return-void
 .end method
 
@@ -3165,187 +3338,57 @@
 
     invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
 
+    sget-boolean v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "handleKeyguardBouncerChanged("
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, ")"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "KeyguardUpdateMonitor"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_1
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     move v0, v1
 
     :goto_0
     iput-boolean v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mBouncer:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     iput-boolean v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mSecureCameraLaunched:Z
 
     goto :goto_1
 
-    :cond_1
+    :cond_2
     iput-boolean v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCredentialAttempted:Z
 
     :goto_1
-    iget-object p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
-
-    invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
-
-    move-result p1
-
-    if-ge v1, p1, :cond_3
-
-    iget-object p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
-
-    invoke-virtual {p1, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {p1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
-
-    if-eqz p1, :cond_2
-
-    iget-boolean v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mBouncer:Z
-
-    invoke-virtual {p1, v0}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->onKeyguardBouncerChanged(Z)V
-
-    :cond_2
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_1
-
-    :cond_3
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState()V
-
-    return-void
-.end method
-
-.method private handleKeyguardGoingAway(Z)V
-    .locals 0
-
-    invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
-
-    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setKeyguardGoingAway(Z)V
-
-    return-void
-.end method
-
-.method private handleKeyguardReset()V
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState()V
-
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->resolveNeedsSlowUnlockTransition()Z
-
-    move-result v0
-
-    iput-boolean v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mNeedsSlowUnlockTransition:Z
-
-    return-void
-.end method
-
-.method private handleLockScreenMode()V
-    .locals 3
-
-    invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
-
-    const/4 v0, 0x0
-
-    :goto_0
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
-
-    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
-
-    move-result v1
-
-    if-ge v0, v1, :cond_1
-
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
-
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
-
-    if-eqz v1, :cond_0
-
-    iget v2, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mLockScreenMode:I
-
-    invoke-virtual {v1, v2}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->onLockScreenModeChanged(I)V
-
-    :cond_0
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    return-void
-.end method
-
-.method private handlePhoneStateChanged(Ljava/lang/String;)V
-    .locals 2
-
-    invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
-
-    sget-object v0, Landroid/telephony/TelephonyManager;->EXTRA_STATE_IDLE:Ljava/lang/String;
-
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_0
-
-    iput v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mPhoneState:I
-
-    goto :goto_0
-
-    :cond_0
-    sget-object v0, Landroid/telephony/TelephonyManager;->EXTRA_STATE_OFFHOOK:Ljava/lang/String;
-
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    const/4 p1, 0x2
-
-    iput p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mPhoneState:I
-
-    goto :goto_0
-
-    :cond_1
-    sget-object v0, Landroid/telephony/TelephonyManager;->EXTRA_STATE_RINGING:Ljava/lang/String;
-
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_2
-
-    const/4 p1, 0x1
-
-    iput p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mPhoneState:I
-
-    :cond_2
-    :goto_0
     iget-object p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
 
     invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
@@ -3370,16 +3413,170 @@
 
     if-eqz p1, :cond_3
 
-    iget v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mPhoneState:I
+    iget-boolean v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mBouncer:Z
 
-    invoke-virtual {p1, v0}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->onPhoneStateChanged(I)V
+    invoke-virtual {p1, v0}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->onKeyguardBouncerChanged(Z)V
 
     :cond_3
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_4
+    const/4 p1, 0x2
+
+    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState(I)V
+
+    return-void
+.end method
+
+.method private handleKeyguardGoingAway(Z)V
+    .locals 0
+
+    invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
+
+    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setKeyguardGoingAway(Z)V
+
+    return-void
+.end method
+
+.method private handleKeyguardReset()V
+    .locals 2
+
+    sget-boolean v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "KeyguardUpdateMonitor"
+
+    const-string v1, "handleKeyguardReset"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    const/4 v0, 0x2
+
+    invoke-direct {p0, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState(I)V
+
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->resolveNeedsSlowUnlockTransition()Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mNeedsSlowUnlockTransition:Z
+
+    return-void
+.end method
+
+.method private handlePhoneStateChanged(Ljava/lang/String;)V
+    .locals 2
+
+    invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
+
+    sget-boolean v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "handlePhoneStateChanged("
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, ")"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "KeyguardUpdateMonitor"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    sget-object v0, Landroid/telephony/TelephonyManager;->EXTRA_STATE_IDLE:Ljava/lang/String;
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_1
+
+    iput v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mPhoneState:I
+
+    goto :goto_0
+
+    :cond_1
+    sget-object v0, Landroid/telephony/TelephonyManager;->EXTRA_STATE_OFFHOOK:Ljava/lang/String;
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const/4 p1, 0x2
+
+    iput p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mPhoneState:I
+
+    goto :goto_0
+
+    :cond_2
+    sget-object v0, Landroid/telephony/TelephonyManager;->EXTRA_STATE_RINGING:Ljava/lang/String;
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_3
+
+    const/4 p1, 0x1
+
+    iput p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mPhoneState:I
+
+    :cond_3
+    :goto_0
+    iget-object p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
+
+    invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
+
+    move-result p1
+
+    if-ge v1, p1, :cond_5
+
+    iget-object p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
+
+    invoke-virtual {p1, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {p1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
+
+    if-eqz p1, :cond_4
+
+    iget v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mPhoneState:I
+
+    invoke-virtual {p1, v0}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->onPhoneStateChanged(I)V
+
+    :cond_4
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_5
     return-void
 .end method
 
@@ -3474,6 +3671,33 @@
 
     invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
 
+    sget-boolean v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "handleRingerModeChange("
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v1, ")"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "KeyguardUpdateMonitor"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     iput p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mRingMode:I
 
     const/4 v0, 0x0
@@ -3485,7 +3709,7 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_2
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
 
@@ -3501,16 +3725,16 @@
 
     check-cast v1, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     invoke-virtual {v1, p1}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->onRingerModeChanged(I)V
 
-    :cond_0
+    :cond_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     return-void
 .end method
 
@@ -3926,6 +4150,29 @@
 
     invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
 
+    sget-boolean v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "handleTimeFormatUpdate timeFormat="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "KeyguardUpdateMonitor"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     const/4 v0, 0x0
 
     :goto_0
@@ -3935,7 +4182,7 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_2
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
 
@@ -3951,16 +4198,16 @@
 
     check-cast v1, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     invoke-virtual {v1, p1}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->onTimeFormatChanged(Ljava/lang/String;)V
 
-    :cond_0
+    :cond_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     return-void
 .end method
 
@@ -3969,6 +4216,17 @@
 
     invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
 
+    sget-boolean v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "KeyguardUpdateMonitor"
+
+    const-string v1, "handleTimeUpdate"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     const/4 v0, 0x0
 
     :goto_0
@@ -3978,7 +4236,7 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_2
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
 
@@ -3994,16 +4252,16 @@
 
     check-cast v1, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     invoke-virtual {v1}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->onTimeChanged()V
 
-    :cond_0
+    :cond_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     return-void
 .end method
 
@@ -4012,6 +4270,17 @@
 
     invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
 
+    sget-boolean v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "KeyguardUpdateMonitor"
+
+    const-string v1, "handleTimeZoneUpdate"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     const/4 v0, 0x0
 
     :goto_0
@@ -4021,7 +4290,7 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_2
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
 
@@ -4037,7 +4306,7 @@
 
     check-cast v1, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     invoke-static {p1}, Ljava/util/TimeZone;->getTimeZone(Ljava/lang/String;)Ljava/util/TimeZone;
 
@@ -4047,12 +4316,12 @@
 
     invoke-virtual {v1}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->onTimeChanged()V
 
-    :cond_0
+    :cond_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     return-void
 .end method
 
@@ -4114,49 +4383,6 @@
 
     invoke-virtual {v0, p1, p0}, Landroid/util/SparseBooleanArray;->put(IZ)V
 
-    return-void
-.end method
-
-.method private handleUserSwitchComplete(I)V
-    .locals 2
-
-    invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
-
-    const/4 v0, 0x0
-
-    :goto_0
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
-
-    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
-
-    move-result v1
-
-    if-ge v0, v1, :cond_1
-
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
-
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
-
-    if-eqz v1, :cond_0
-
-    invoke-virtual {v1, p1}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->onUserSwitchComplete(I)V
-
-    :cond_0
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_1
     return-void
 .end method
 
@@ -4412,9 +4638,9 @@
 
     check-cast v0, Landroid/app/admin/DevicePolicyManager;
 
-    new-instance v1, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda11;
+    new-instance v1, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda12;
 
-    invoke-direct {v1, p0, v0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda11;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitor;Landroid/app/admin/DevicePolicyManager;I)V
+    invoke-direct {v1, p0, v0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda12;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitor;Landroid/app/admin/DevicePolicyManager;I)V
 
     invoke-static {v1}, Lcom/android/systemui/DejankUtils;->whitelistIpcs(Ljava/util/function/Supplier;)Ljava/lang/Object;
 
@@ -4577,7 +4803,27 @@
     return p0
 .end method
 
-.method private synthetic lambda$isFaceDisabled$2(Landroid/app/admin/DevicePolicyManager;I)Ljava/lang/Boolean;
+.method private synthetic lambda$handleFaceLockoutReset$3()V
+    .locals 1
+
+    const/4 v0, 0x2
+
+    invoke-direct {p0, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFaceListeningState(I)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$handleFingerprintLockoutReset$2()V
+    .locals 1
+
+    const/4 v0, 0x2
+
+    invoke-direct {p0, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFingerprintListeningState(I)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$isFaceDisabled$4(Landroid/app/admin/DevicePolicyManager;I)Ljava/lang/Boolean;
     .locals 1
 
     if-eqz p1, :cond_0
@@ -4628,7 +4874,9 @@
 
     iput v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintRunningState:I
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFingerprintListeningState()V
+    const/4 v0, 0x1
+
+    invoke-direct {p0, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFingerprintListeningState(I)V
 
     return-void
 .end method
@@ -4646,12 +4894,14 @@
 
     iput v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceRunningState:I
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFaceListeningState()V
+    const/4 v0, 0x1
+
+    invoke-direct {p0, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFaceListeningState(I)V
 
     return-void
 .end method
 
-.method private synthetic lambda$new$3(IIZ)V
+.method private synthetic lambda$new$5(IIZ)V
     .locals 0
 
     invoke-direct {p0, p2, p3}, Lcom/android/keyguard/KeyguardUpdateMonitor;->handleFingerprintAuthenticated(IZ)V
@@ -4659,7 +4909,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$new$4(IIZ)V
+.method private synthetic lambda$new$6(IIZ)V
     .locals 0
 
     invoke-direct {p0, p2, p3}, Lcom/android/keyguard/KeyguardUpdateMonitor;->handleFaceAuthenticated(IZ)V
@@ -4667,7 +4917,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$new$5()V
+.method private synthetic lambda$new$7()V
     .locals 5
 
     invoke-static {}, Landroid/telephony/SubscriptionManager;->getDefaultSubscriptionId()I
@@ -4734,7 +4984,7 @@
     return-void
 .end method
 
-.method private static synthetic lambda$removeCallback$7(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;Ljava/lang/ref/WeakReference;)Z
+.method private static synthetic lambda$removeCallback$9(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;Ljava/lang/ref/WeakReference;)Z
     .locals 0
 
     invoke-virtual {p1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -4754,7 +5004,17 @@
     return p0
 .end method
 
-.method private synthetic lambda$updateFaceEnrolled$6(I)Ljava/lang/Boolean;
+.method private synthetic lambda$setSwitchingUser$10()V
+    .locals 1
+
+    const/4 v0, 0x2
+
+    invoke-direct {p0, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState(I)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$updateFaceEnrolled$8(I)Ljava/lang/Boolean;
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceManager:Landroid/hardware/face/FaceManager;
@@ -4990,6 +5250,49 @@
     return-void
 .end method
 
+.method private notifyLockedOutStateChanged(Landroid/hardware/biometrics/BiometricSourceType;)V
+    .locals 2
+
+    invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
+
+    const/4 v0, 0x0
+
+    :goto_0
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+
+    move-result v1
+
+    if-ge v0, v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
+
+    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v1, p1}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->onLockedOutStateChanged(Landroid/hardware/biometrics/BiometricSourceType;)V
+
+    :cond_0
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    return-void
+.end method
+
 .method private notifyStrongAuthStateChanged(I)V
     .locals 2
 
@@ -5136,83 +5439,6 @@
     return-void
 .end method
 
-.method private requireStrongAuthIfAllLockedOut()V
-    .locals 4
-
-    iget-boolean v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceLockedOutPermanent:Z
-
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
-
-    if-nez v0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->shouldListenForFace()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    :cond_0
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getIsFaceAuthenticated()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    move v0, v1
-
-    goto :goto_0
-
-    :cond_1
-    move v0, v2
-
-    :goto_0
-    iget-boolean v3, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintLockedOutPermanent:Z
-
-    if-nez v3, :cond_3
-
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isUdfpsEnrolled()Z
-
-    move-result v3
-
-    invoke-virtual {p0, v3}, Lcom/android/keyguard/KeyguardUpdateMonitor;->shouldListenForFingerprint(Z)Z
-
-    move-result v3
-
-    if-nez v3, :cond_2
-
-    goto :goto_1
-
-    :cond_2
-    move v1, v2
-
-    :cond_3
-    :goto_1
-    if-eqz v0, :cond_4
-
-    if-eqz v1, :cond_4
-
-    const-string v0, "KeyguardUpdateMonitor"
-
-    const-string v1, "All biometrics locked out - requiring strong auth"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    const/16 v0, 0x8
-
-    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
-
-    move-result v1
-
-    invoke-virtual {p0, v0, v1}, Lcom/android/internal/widget/LockPatternUtils;->requireStrongAuth(II)V
-
-    :cond_4
-    return-void
-.end method
-
 .method private resolveNeedsSlowUnlockTransition()Z
     .locals 3
 
@@ -5306,6 +5532,10 @@
 
     invoke-virtual {p1}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->onClockVisibilityChanged()V
 
+    iget-boolean v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mKeyguardOccluded:Z
+
+    invoke-virtual {p1, v0}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->onKeyguardOccludedChanged(Z)V
+
     iget-boolean v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mKeyguardIsVisible:Z
 
     invoke-virtual {p1, v0}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->onKeyguardVisibilityChangedRaw(Z)V
@@ -5313,10 +5543,6 @@
     iget-boolean v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mTelephonyCapable:Z
 
     invoke-virtual {p1, v0}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->onTelephonyCapable(Z)V
-
-    iget v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mLockScreenMode:I
-
-    invoke-virtual {p1, v0}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->onLockScreenModeChanged(I)V
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mSimDatas:Ljava/util/HashMap;
 
@@ -5610,23 +5836,25 @@
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceCancelSignal:Landroid/os/CancellationSignal;
 
+    const-string v2, "KeyguardUpdateMonitor"
+
     if-eqz v1, :cond_0
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Cancellation signal is not null, high chance of bug in face auth lifecycle management. Face state: "
+    const-string v3, "Cancellation signal is not null, high chance of bug in face auth lifecycle management. Face state: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v2, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceRunningState:I
+    iget v3, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceRunningState:I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v2, ", unlockPossible: "
+    const-string v3, ", unlockPossible: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
@@ -5634,30 +5862,51 @@
 
     move-result-object v1
 
-    const-string v2, "KeyguardUpdateMonitor"
-
     invoke-static {v2, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     iget v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceRunningState:I
 
-    const/4 v2, 0x2
+    const/4 v3, 0x2
 
-    const/4 v3, 0x3
+    const/4 v4, 0x3
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v3, :cond_1
 
-    invoke-direct {p0, v3}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setFaceRunningState(I)V
+    invoke-direct {p0, v4}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setFaceRunningState(I)V
 
     return-void
 
     :cond_1
-    if-ne v1, v3, :cond_2
+    if-ne v1, v4, :cond_2
 
     return-void
 
     :cond_2
-    if-eqz v0, :cond_6
+    sget-boolean v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->DEBUG:Z
+
+    if-eqz v1, :cond_3
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "startListeningForFace(): "
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v3, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceRunningState:I
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v2, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_3
+    if-eqz v0, :cond_7
 
     new-instance v0, Landroid/os/CancellationSignal;
 
@@ -5675,7 +5924,7 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceSensorProperties:Ljava/util/List;
 
@@ -5687,23 +5936,25 @@
 
     iget-boolean v0, v0, Landroid/hardware/face/FaceSensorPropertiesInternal;->supportsFaceDetection:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     move v0, v7
 
     goto :goto_0
 
-    :cond_3
+    :cond_4
     move v0, v1
 
     :goto_0
+    iput v5, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceAuthUserId:I
+
     invoke-direct {p0, v5}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isEncryptedOrLockdown(I)Z
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_5
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceManager:Landroid/hardware/face/FaceManager;
 
@@ -5715,22 +5966,22 @@
 
     goto :goto_2
 
-    :cond_4
+    :cond_5
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mKeyguardBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/KeyguardBypassController;->isBypassEnabled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6
 
     move v6, v7
 
     goto :goto_1
 
-    :cond_5
+    :cond_6
     move v6, v1
 
     :goto_1
@@ -5749,12 +6000,12 @@
     :goto_2
     invoke-direct {p0, v7}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setFaceRunningState(I)V
 
-    :cond_6
+    :cond_7
     return-void
 .end method
 
 .method private startListeningForFingerprint()V
-    .locals 7
+    .locals 8
 
     invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
 
@@ -5766,23 +6017,25 @@
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintCancelSignal:Landroid/os/CancellationSignal;
 
+    const-string v2, "KeyguardUpdateMonitor"
+
     if-eqz v1, :cond_0
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Cancellation signal is not null, high chance of bug in fp auth lifecycle management. FP state: "
+    const-string v3, "Cancellation signal is not null, high chance of bug in fp auth lifecycle management. FP state: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v2, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintRunningState:I
+    iget v3, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintRunningState:I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v2, ", unlockPossible: "
+    const-string v3, ", unlockPossible: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
@@ -5790,30 +6043,37 @@
 
     move-result-object v1
 
-    const-string v2, "KeyguardUpdateMonitor"
-
     invoke-static {v2, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     iget v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintRunningState:I
 
-    const/4 v2, 0x2
+    const/4 v3, 0x2
 
-    const/4 v3, 0x3
+    const/4 v4, 0x3
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v3, :cond_1
 
-    invoke-direct {p0, v3}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setFingerprintRunningState(I)V
+    invoke-direct {p0, v4}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setFingerprintRunningState(I)V
 
     return-void
 
     :cond_1
-    if-ne v1, v3, :cond_2
+    if-ne v1, v4, :cond_2
 
     return-void
 
     :cond_2
-    if-eqz v0, :cond_4
+    sget-boolean v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->DEBUG:Z
+
+    if-eqz v1, :cond_3
+
+    const-string v1, "startListeningForFingerprint()"
+
+    invoke-static {v2, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_3
+    if-eqz v0, :cond_5
 
     new-instance v0, Landroid/os/CancellationSignal;
 
@@ -5825,7 +6085,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFpm:Landroid/hardware/fingerprint/FingerprintManager;
 
@@ -5837,7 +6097,7 @@
 
     goto :goto_0
 
-    :cond_3
+    :cond_4
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFpm:Landroid/hardware/fingerprint/FingerprintManager;
 
     const/4 v1, 0x0
@@ -5850,31 +6110,44 @@
 
     const/4 v5, -0x1
 
-    invoke-virtual/range {v0 .. v6}, Landroid/hardware/fingerprint/FingerprintManager;->authenticate(Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;Landroid/os/CancellationSignal;Landroid/hardware/fingerprint/FingerprintManager$AuthenticationCallback;Landroid/os/Handler;II)V
+    const/4 v7, 0x0
+
+    invoke-virtual/range {v0 .. v7}, Landroid/hardware/fingerprint/FingerprintManager;->authenticate(Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;Landroid/os/CancellationSignal;Landroid/hardware/fingerprint/FingerprintManager$AuthenticationCallback;Landroid/os/Handler;III)V
 
     :goto_0
     const/4 v0, 0x1
 
     invoke-direct {p0, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setFingerprintRunningState(I)V
 
-    :cond_4
+    :cond_5
     return-void
 .end method
 
 .method private stopListeningForFace()V
     .locals 5
 
+    sget-boolean v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "KeyguardUpdateMonitor"
+
+    const-string v1, "stopListeningForFace()"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     iget v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceRunningState:I
 
-    const/4 v1, 0x2
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    const/4 v2, 0x2
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v1, :cond_2
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceCancelSignal:Landroid/os/CancellationSignal;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     invoke-virtual {v0}, Landroid/os/CancellationSignal;->cancel()V
 
@@ -5884,48 +6157,59 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHandler:Landroid/os/Handler;
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceCancelNotReceived:Ljava/lang/Runnable;
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceCancelNotReceived:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v2}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHandler:Landroid/os/Handler;
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceCancelNotReceived:Ljava/lang/Runnable;
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceCancelNotReceived:Ljava/lang/Runnable;
 
     const-wide/16 v3, 0xbb8
 
-    invoke-virtual {v0, v2, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    :cond_0
-    invoke-direct {p0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setFaceRunningState(I)V
+    invoke-virtual {v0, v1, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     :cond_1
-    iget v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceRunningState:I
-
-    const/4 v2, 0x3
-
-    if-ne v0, v2, :cond_2
-
-    invoke-direct {p0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setFaceRunningState(I)V
+    invoke-direct {p0, v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setFaceRunningState(I)V
 
     :cond_2
+    iget v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceRunningState:I
+
+    const/4 v1, 0x3
+
+    if-ne v0, v1, :cond_3
+
+    invoke-direct {p0, v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setFaceRunningState(I)V
+
+    :cond_3
     return-void
 .end method
 
 .method private stopListeningForFingerprint()V
     .locals 5
 
+    sget-boolean v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "KeyguardUpdateMonitor"
+
+    const-string v1, "stopListeningForFingerprint()"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     iget v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintRunningState:I
 
-    const/4 v1, 0x2
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    const/4 v2, 0x2
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v1, :cond_2
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintCancelSignal:Landroid/os/CancellationSignal;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     invoke-virtual {v0}, Landroid/os/CancellationSignal;->cancel()V
 
@@ -5935,31 +6219,31 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHandler:Landroid/os/Handler;
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFpCancelNotReceived:Ljava/lang/Runnable;
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFpCancelNotReceived:Ljava/lang/Runnable;
 
-    invoke-virtual {v0, v2}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHandler:Landroid/os/Handler;
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFpCancelNotReceived:Ljava/lang/Runnable;
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFpCancelNotReceived:Ljava/lang/Runnable;
 
     const-wide/16 v3, 0xbb8
 
-    invoke-virtual {v0, v2, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    :cond_0
-    invoke-direct {p0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setFingerprintRunningState(I)V
+    invoke-virtual {v0, v1, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     :cond_1
-    iget v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintRunningState:I
-
-    const/4 v2, 0x3
-
-    if-ne v0, v2, :cond_2
-
-    invoke-direct {p0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setFingerprintRunningState(I)V
+    invoke-direct {p0, v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setFingerprintRunningState(I)V
 
     :cond_2
+    iget v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintRunningState:I
+
+    const/4 v1, 0x3
+
+    if-ne v0, v1, :cond_3
+
+    invoke-direct {p0, v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setFingerprintRunningState(I)V
+
+    :cond_3
     return-void
 .end method
 
@@ -5996,12 +6280,12 @@
     return-void
 .end method
 
-.method private updateBiometricListeningState()V
+.method private updateBiometricListeningState(I)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFingerprintListeningState()V
+    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFingerprintListeningState(I)V
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFaceListeningState()V
+    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFaceListeningState(I)V
 
     return-void
 .end method
@@ -6009,9 +6293,9 @@
 .method private updateFaceEnrolled(I)V
     .locals 1
 
-    new-instance v0, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda10;
+    new-instance v0, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda11;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda10;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitor;I)V
+    invoke-direct {v0, p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda11;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitor;I)V
 
     invoke-static {v0}, Lcom/android/systemui/DejankUtils;->whitelistIpcs(Ljava/util/function/Supplier;)Ljava/lang/Object;
 
@@ -6028,8 +6312,8 @@
     return-void
 .end method
 
-.method private updateFaceListeningState()V
-    .locals 3
+.method private updateFaceListeningState(I)V
+    .locals 4
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHandler:Landroid/os/Handler;
 
@@ -6056,33 +6340,53 @@
 
     iget v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceRunningState:I
 
-    const/4 v2, 0x1
+    const-string v2, "KeyguardUpdateMonitor"
 
-    if-ne v1, v2, :cond_1
+    const/4 v3, 0x1
 
-    if-nez v0, :cond_1
+    if-ne v1, v3, :cond_2
 
-    const/4 v0, 0x0
+    if-nez v0, :cond_2
 
-    iput-boolean v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mIsFaceAuthUserRequested:Z
+    if-nez p1, :cond_1
+
+    const-string p0, "Ignoring stopListeningForFace()"
+
+    invoke-static {v2, p0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_1
+    const/4 p1, 0x0
+
+    iput-boolean p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mIsFaceAuthUserRequested:Z
 
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->stopListeningForFace()V
 
     goto :goto_0
 
-    :cond_1
-    if-eq v1, v2, :cond_2
+    :cond_2
+    if-eq v1, v3, :cond_4
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_4
 
+    if-ne p1, v3, :cond_3
+
+    const-string p0, "Ignoring startListeningForFace()"
+
+    invoke-static {v2, p0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_3
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->startListeningForFace()V
 
-    :cond_2
+    :cond_4
     :goto_0
     return-void
 .end method
 
-.method private updateFingerprintListeningState()V
+.method private updateFingerprintListeningState(I)V
     .locals 4
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHandler:Landroid/os/Handler;
@@ -6104,7 +6408,7 @@
 
     invoke-direct {p0, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateUdfpsEnrolled(I)V
 
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isUdfpsEnrolled()Z
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isUdfpsSupported()Z
 
     move-result v0
 
@@ -6125,46 +6429,52 @@
     goto :goto_0
 
     :cond_1
-    const/4 v2, 0x0
-
-    :cond_2
-    :goto_0
-    if-eqz v2, :cond_3
-
-    if-nez v0, :cond_3
-
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->stopListeningForFingerprint()V
+    const/4 v1, 0x0
 
     goto :goto_1
 
+    :cond_2
+    :goto_0
+    move v1, v2
+
+    :goto_1
+    const-string v3, "KeyguardUpdateMonitor"
+
+    if-eqz v1, :cond_4
+
+    if-nez v0, :cond_4
+
+    if-nez p1, :cond_3
+
+    const-string p0, "Ignoring stopListeningForFingerprint()"
+
+    invoke-static {v3, p0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
     :cond_3
-    if-nez v2, :cond_4
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->stopListeningForFingerprint()V
 
-    if-eqz v0, :cond_4
-
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->startListeningForFingerprint()V
+    goto :goto_2
 
     :cond_4
-    :goto_1
+    if-nez v1, :cond_6
+
+    if-eqz v0, :cond_6
+
+    if-ne p1, v2, :cond_5
+
+    const-string p0, "Ignoring startListeningForFingerprint()"
+
+    invoke-static {v3, p0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
     return-void
-.end method
 
-.method private updateLockScreenMode(Z)V
-    .locals 1
+    :cond_5
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->startListeningForFingerprint()V
 
-    iget v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mLockScreenMode:I
-
-    if-eq p1, v0, :cond_0
-
-    iput p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mLockScreenMode:I
-
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHandler:Landroid/os/Handler;
-
-    const/16 p1, 0x157
-
-    invoke-virtual {p0, p1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
-
-    :cond_0
+    :cond_6
+    :goto_2
     return-void
 .end method
 
@@ -6420,11 +6730,11 @@
 .method private watchForDeviceProvisioning()V
     .locals 4
 
-    new-instance v0, Lcom/android/keyguard/KeyguardUpdateMonitor$18;
+    new-instance v0, Lcom/android/keyguard/KeyguardUpdateMonitor$19;
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHandler:Landroid/os/Handler;
 
-    invoke-direct {v0, p0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor$18;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitor;Landroid/os/Handler;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor$19;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitor;Landroid/os/Handler;)V
 
     iput-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mDeviceProvisionedObserver:Landroid/database/ContentObserver;
 
@@ -7230,26 +7540,6 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "    udfpsEnrolled="
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isUdfpsEnrolled()Z
-
-    move-result v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v1, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v4, "    mFingerprintLockedOut="
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -7304,11 +7594,31 @@
 
     invoke-virtual {v1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isUdfpsEnrolled()Z
+    invoke-virtual/range {p0 .. p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isUdfpsSupported()Z
 
     move-result v2
 
     if-eqz v2, :cond_5
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "        udfpsEnrolled="
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isUdfpsEnrolled()Z
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -8248,31 +8558,60 @@
     goto :goto_0
 
     :cond_1
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState()V
+    const/4 p1, 0x2
+
+    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState(I)V
 
     return-void
 .end method
 
 .method handleServiceStateChange(ILandroid/telephony/ServiceState;)V
-    .locals 1
+    .locals 3
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
+    sget-boolean v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->DEBUG:Z
+
+    const-string v1, "KeyguardUpdateMonitor"
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "handleServiceStateChange(subId="
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v2, ", serviceState="
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     invoke-static {p1}, Landroid/telephony/SubscriptionManager;->isValidSubscriptionId(I)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
-    const-string p0, "KeyguardUpdateMonitor"
+    const-string p0, "invalid subId in handleServiceStateChange()"
 
-    const-string p1, "invalid subId in handleServiceStateChange()"
-
-    invoke-static {p0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
-    :cond_0
+    :cond_1
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateTelephonyCapable(Z)V
@@ -8549,7 +8888,9 @@
 
     iput-boolean p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mGoingToSleep:Z
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState()V
+    const/4 p1, 0x2
+
+    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState(I)V
 
     return-void
 .end method
@@ -8563,7 +8904,9 @@
 
     invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState()V
+    const/4 v0, 0x2
+
+    invoke-direct {p0, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState(I)V
 
     const/4 v0, 0x0
 
@@ -8619,6 +8962,63 @@
     iget-object p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mUserTrustIsUsuallyManaged:Landroid/util/SparseBooleanArray;
 
     invoke-virtual {p0, p1}, Landroid/util/SparseBooleanArray;->delete(I)V
+
+    return-void
+.end method
+
+.method handleUserSwitchComplete(I)V
+    .locals 2
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+
+    invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
+
+    const/4 v0, 0x0
+
+    :goto_0
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+
+    move-result v1
+
+    if-ge v0, v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
+
+    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v1, p1}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->onUserSwitchComplete(I)V
+
+    :cond_0
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    iget-object p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mInteractionJankMonitor:Lcom/android/internal/jank/InteractionJankMonitor;
+
+    const/16 v0, 0x25
+
+    invoke-virtual {p1, v0}, Lcom/android/internal/jank/InteractionJankMonitor;->end(I)Z
+
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mLatencyTracker:Lcom/android/internal/util/LatencyTracker;
+
+    const/16 p1, 0xc
+
+    invoke-virtual {p0, p1}, Lcom/android/internal/util/LatencyTracker;->onActionEnd(I)V
 
     return-void
 .end method
@@ -8686,14 +9086,6 @@
 
     :catch_0
     return-void
-.end method
-
-.method public hasLockscreenWallpaper()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHasLockscreenWallpaper:Z
-
-    return p0
 .end method
 
 .method public isDeviceInteractive()Z
@@ -8772,6 +9164,32 @@
 
     :goto_0
     return v0
+.end method
+
+.method public isFingerprintLockedOut()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintLockedOut:Z
+
+    if-nez v0, :cond_1
+
+    iget-boolean p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintLockedOutPermanent:Z
+
+    if-eqz p0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    const/4 p0, 0x1
+
+    :goto_1
+    return p0
 .end method
 
 .method public isGoingToSleep()Z
@@ -8886,7 +9304,15 @@
     return p0
 .end method
 
-.method public isUdfpsAvailable()Z
+.method public isUdfpsEnrolled()Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mIsUdfpsEnrolled:Z
+
+    return p0
+.end method
+
+.method public isUdfpsSupported()Z
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mAuthController:Lcom/android/systemui/biometrics/AuthController;
@@ -8917,14 +9343,6 @@
     const/4 p0, 0x0
 
     :goto_0
-    return p0
-.end method
-
-.method public isUdfpsEnrolled()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mIsUdfpsEnrolled:Z
-
     return p0
 .end method
 
@@ -9009,18 +9427,47 @@
 .end method
 
 .method public onAuthInterruptDetected(Z)V
-    .locals 1
+    .locals 2
 
+    sget-boolean v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "onAuthInterruptDetected("
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    const-string v1, ")"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "KeyguardUpdateMonitor"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     iget-boolean v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mAuthInterruptActive:Z
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_1
 
     return-void
 
-    :cond_0
+    :cond_1
     iput-boolean p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mAuthInterruptActive:Z
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFaceListeningState()V
+    const/4 p1, 0x2
+
+    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFaceListeningState(I)V
 
     return-void
 .end method
@@ -9032,7 +9479,9 @@
 
     iput-boolean v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mSecureCameraLaunched:Z
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState()V
+    const/4 v0, 0x2
+
+    invoke-direct {p0, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState(I)V
 
     return-void
 .end method
@@ -9075,7 +9524,9 @@
 
     iput-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceCancelSignal:Landroid/os/CancellationSignal;
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState()V
+    const/4 v0, 0x2
+
+    invoke-direct {p0, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState(I)V
 
     const/4 v0, 0x0
 
@@ -9163,7 +9614,9 @@
 
     iput-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintCancelSignal:Landroid/os/CancellationSignal;
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState()V
+    const/4 v0, 0x2
+
+    invoke-direct {p0, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState(I)V
 
     const/4 v0, 0x0
 
@@ -9222,6 +9675,76 @@
 
     invoke-static {}, Landroid/os/Trace;->endSection()V
 
+    return-void
+.end method
+
+.method public onKeyguardOccludedChanged(Z)V
+    .locals 2
+
+    invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
+
+    sget-boolean v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "onKeyguardOccludedChanged("
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    const-string v1, ")"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "KeyguardUpdateMonitor"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+
+    move-result v1
+
+    if-ge v0, v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
+
+    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {v1, p1}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->onKeyguardOccludedChanged(Z)V
+
+    :cond_1
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_2
     return-void
 .end method
 
@@ -9301,63 +9824,83 @@
     goto :goto_0
 
     :cond_3
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState()V
+    const/4 p1, 0x2
+
+    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState(I)V
 
     return-void
 .end method
 
 .method public onTrustChanged(ZII)V
-    .locals 2
+    .locals 3
 
     invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mUserHasTrust:Landroid/util/SparseBooleanArray;
 
-    invoke-virtual {v0, p2, p1}, Landroid/util/SparseBooleanArray;->put(IZ)V
+    const/4 v1, 0x0
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState()V
+    invoke-virtual {v0, p2, v1}, Landroid/util/SparseBooleanArray;->get(IZ)Z
 
-    const/4 v0, 0x0
+    move-result v0
 
-    :goto_0
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mUserHasTrust:Landroid/util/SparseBooleanArray;
 
-    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v2, p2, p1}, Landroid/util/SparseBooleanArray;->put(IZ)V
 
-    move-result v1
+    if-ne v0, p1, :cond_0
 
-    if-ge v0, v1, :cond_1
+    const/4 v0, 0x1
 
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
-
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
-
-    if-eqz v1, :cond_0
-
-    invoke-virtual {v1, p2}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->onTrustChanged(I)V
-
-    if-eqz p1, :cond_0
-
-    if-eqz p3, :cond_0
-
-    invoke-virtual {v1, p3, p2}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->onTrustGrantedWithFlags(II)V
-
-    :cond_0
-    add-int/lit8 v0, v0, 0x1
+    invoke-direct {p0, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState(I)V
 
     goto :goto_0
 
+    :cond_0
+    if-nez p1, :cond_1
+
+    invoke-direct {p0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState(I)V
+
     :cond_1
+    :goto_0
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    if-ge v1, v0, :cond_3
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
+
+    if-eqz v0, :cond_2
+
+    invoke-virtual {v0, p2}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->onTrustChanged(I)V
+
+    if-eqz p1, :cond_2
+
+    if-eqz p3, :cond_2
+
+    invoke-virtual {v0, p3, p2}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->onTrustGrantedWithFlags(II)V
+
+    :cond_2
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_3
     return-void
 .end method
 
@@ -9426,52 +9969,82 @@
     return-void
 .end method
 
-.method public playAcquiredHaptic()V
-    .locals 0
-    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
-    .end annotation
-
-    return-void
-.end method
-
 .method public registerCallback(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
-    .locals 2
+    .locals 3
 
     invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
 
+    sget-boolean v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->DEBUG:Z
+
+    const-string v1, "KeyguardUpdateMonitor"
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "*** register callback for "
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v1, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     const/4 v0, 0x0
 
     :goto_0
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
 
-    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
-    move-result v1
+    move-result v2
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v2, :cond_3
 
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
+    iget-object v2, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
 
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
-    check-cast v1, Ljava/lang/ref/WeakReference;
+    check-cast v2, Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+    invoke-virtual {v2}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
-    if-ne v1, p1, :cond_0
+    if-ne v2, p1, :cond_2
 
+    sget-boolean p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->DEBUG:Z
+
+    if-eqz p0, :cond_1
+
+    new-instance p0, Ljava/lang/Exception;
+
+    const-string p1, "Called by"
+
+    invoke-direct {p0, p1}, Ljava/lang/Exception;-><init>(Ljava/lang/String;)V
+
+    const-string p1, "Object tried to add another callback"
+
+    invoke-static {v1, p1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :cond_1
     return-void
 
-    :cond_0
+    :cond_2
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    :cond_1
+    :cond_3
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
 
     new-instance v1, Ljava/lang/ref/WeakReference;
@@ -9490,15 +10063,38 @@
 .end method
 
 .method public removeCallback(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
-    .locals 1
+    .locals 2
 
     invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
 
+    sget-boolean v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "*** unregister callback for "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "KeyguardUpdateMonitor"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     iget-object p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
 
-    new-instance v0, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda9;
+    new-instance v0, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda10;
 
-    invoke-direct {v0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda9;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
+    invoke-direct {v0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda10;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
 
     invoke-virtual {p0, v0}, Ljava/util/ArrayList;->removeIf(Ljava/util/function/Predicate;)Z
 
@@ -9568,15 +10164,40 @@
 .end method
 
 .method public requestFaceAuth(Z)V
-    .locals 1
+    .locals 2
 
+    sget-boolean v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "requestFaceAuth() userInitiated="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "KeyguardUpdateMonitor"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     iget-boolean v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mIsFaceAuthUserRequested:Z
 
     or-int/2addr p1, v0
 
     iput-boolean p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mIsFaceAuthUserRequested:Z
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFaceListeningState()V
+    const/4 p1, 0x2
+
+    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFaceListeningState(I)V
 
     return-void
 .end method
@@ -9586,7 +10207,9 @@
 
     iput-boolean p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mOccludingAppRequestingFace:Z
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFaceListeningState()V
+    const/4 p1, 0x2
+
+    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFaceListeningState(I)V
 
     return-void
 .end method
@@ -9596,7 +10219,9 @@
 
     iput-boolean p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mOccludingAppRequestingFp:Z
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFingerprintListeningState()V
+    const/4 p1, 0x2
+
+    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFingerprintListeningState(I)V
 
     return-void
 .end method
@@ -9616,8 +10241,35 @@
 .end method
 
 .method public sendKeyguardBouncerChanged(Z)V
-    .locals 1
+    .locals 2
 
+    sget-boolean v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "sendKeyguardBouncerChanged("
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    const-string v1, ")"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "KeyguardUpdateMonitor"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     iget-object p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHandler:Landroid/os/Handler;
 
     const/16 v0, 0x142
@@ -9656,7 +10308,9 @@
 
     iput-boolean p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mAssistantVisible:Z
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState()V
+    const/4 p1, 0x2
+
+    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState(I)V
 
     return-void
 .end method
@@ -9668,57 +10322,10 @@
 
     iput-boolean v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCredentialAttempted:Z
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState()V
+    const/4 v0, 0x2
 
-    return-void
-.end method
+    invoke-direct {p0, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFingerprintListeningState(I)V
 
-.method public setHasLockscreenWallpaper(Z)V
-    .locals 2
-
-    invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
-
-    iget-boolean v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHasLockscreenWallpaper:Z
-
-    if-eq p1, v0, :cond_1
-
-    iput-boolean p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHasLockscreenWallpaper:Z
-
-    const/4 v0, 0x0
-
-    :goto_0
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
-
-    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
-
-    move-result v1
-
-    if-ge v0, v1, :cond_1
-
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
-
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
-
-    if-eqz v1, :cond_0
-
-    invoke-virtual {v1, p1}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->onHasLockscreenWallpaperChanged(Z)V
-
-    :cond_0
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_1
     return-void
 .end method
 
@@ -9735,7 +10342,9 @@
 
     iput-boolean p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mKeyguardGoingAway:Z
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState()V
+    const/4 p1, 0x2
+
+    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState(I)V
 
     return-void
 .end method
@@ -9745,7 +10354,9 @@
 
     iput-boolean p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mKeyguardOccluded:Z
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState()V
+    const/4 p1, 0x2
+
+    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateBiometricListeningState(I)V
 
     return-void
 .end method
@@ -9774,15 +10385,17 @@
 .end method
 
 .method public setSwitchingUser(Z)V
-    .locals 0
+    .locals 1
 
     iput-boolean p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mSwitchingUser:Z
 
     iget-object p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHandler:Landroid/os/Handler;
 
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mUpdateBiometricListeningState:Ljava/lang/Runnable;
+    new-instance v0, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda3;
 
-    invoke-virtual {p1, p0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-direct {v0, p0}, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda3;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+
+    invoke-virtual {p1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
@@ -9901,104 +10514,124 @@
     move v1, v4
 
     :goto_5
-    iget-object v5, v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mKeyguardBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
+    iget-boolean v5, v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintLockedOut:Z
+
+    if-nez v5, :cond_8
+
+    iget-boolean v5, v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintLockedOutPermanent:Z
 
     if-eqz v5, :cond_7
-
-    invoke-virtual {v5}, Lcom/android/systemui/statusbar/phone/KeyguardBypassController;->canBypass()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_7
-
-    move v5, v4
 
     goto :goto_6
 
     :cond_7
     move v5, v2
 
+    goto :goto_7
+
+    :cond_8
     :goto_6
-    invoke-virtual {v0, v9}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getUserCanSkipBouncer(I)Z
+    move v5, v4
+
+    :goto_7
+    iget-object v6, v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mKeyguardBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
+
+    if-eqz v6, :cond_9
+
+    invoke-virtual {v6}, Lcom/android/systemui/statusbar/phone/KeyguardBypassController;->canBypass()Z
 
     move-result v6
 
     if-eqz v6, :cond_9
 
-    if-eqz v5, :cond_8
-
-    goto :goto_7
-
-    :cond_8
-    move v12, v2
+    move v6, v4
 
     goto :goto_8
 
     :cond_9
-    :goto_7
-    move v12, v4
+    move v6, v2
 
     :goto_8
-    if-eqz v1, :cond_b
+    invoke-virtual {v0, v9}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getUserCanSkipBouncer(I)Z
 
-    if-eqz v5, :cond_a
+    move-result v7
 
-    iget-boolean v1, v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mBouncer:Z
+    if-eqz v7, :cond_b
 
-    if-nez v1, :cond_a
+    if-eqz v6, :cond_a
 
     goto :goto_9
 
     :cond_a
-    move v1, v2
+    move v12, v2
 
     goto :goto_a
 
     :cond_b
     :goto_9
-    move v1, v4
+    move v12, v4
 
     :goto_a
-    iget-object v5, v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceSensorProperties:Ljava/util/List;
+    if-eqz v1, :cond_d
 
-    invoke-interface {v5}, Ljava/util/List;->isEmpty()Z
+    if-eqz v6, :cond_c
 
-    move-result v5
+    iget-boolean v1, v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mBouncer:Z
 
-    if-nez v5, :cond_c
-
-    iget-object v5, v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceSensorProperties:Ljava/util/List;
-
-    invoke-interface {v5, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/hardware/face/FaceSensorPropertiesInternal;
-
-    iget-boolean v5, v5, Landroid/hardware/face/FaceSensorPropertiesInternal;->supportsFaceDetection:Z
-
-    if-eqz v5, :cond_c
-
-    move v5, v4
+    if-nez v1, :cond_c
 
     goto :goto_b
 
     :cond_c
-    move v5, v2
-
-    :goto_b
-    if-eqz v3, :cond_d
-
-    if-nez v5, :cond_d
-
-    move/from16 v23, v2
+    move v1, v2
 
     goto :goto_c
 
     :cond_d
-    move/from16 v23, v1
+    :goto_b
+    move v1, v4
 
     :goto_c
+    iget-object v6, v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceSensorProperties:Ljava/util/List;
+
+    invoke-interface {v6}, Ljava/util/List;->isEmpty()Z
+
+    move-result v6
+
+    if-nez v6, :cond_e
+
+    iget-object v6, v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFaceSensorProperties:Ljava/util/List;
+
+    invoke-interface {v6, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/hardware/face/FaceSensorPropertiesInternal;
+
+    iget-boolean v6, v6, Landroid/hardware/face/FaceSensorPropertiesInternal;->supportsFaceDetection:Z
+
+    if-eqz v6, :cond_e
+
+    move v6, v4
+
+    goto :goto_d
+
+    :cond_e
+    move v6, v2
+
+    :goto_d
+    if-eqz v3, :cond_f
+
+    if-nez v6, :cond_f
+
+    move/from16 v23, v2
+
+    goto :goto_e
+
+    :cond_f
+    move/from16 v23, v1
+
+    :goto_e
     invoke-direct/range {p0 .. p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getIsFaceAuthenticated()Z
 
     move-result v15
@@ -10019,66 +10652,68 @@
 
     iget-boolean v1, v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mBouncer:Z
 
-    if-nez v1, :cond_e
+    if-nez v1, :cond_10
 
     iget-boolean v1, v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mAuthInterruptActive:Z
 
-    if-nez v1, :cond_e
+    if-nez v1, :cond_10
 
     iget-boolean v1, v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mOccludingAppRequestingFace:Z
 
-    if-nez v1, :cond_e
-
-    if-nez v17, :cond_e
-
-    if-eqz v19, :cond_10
-
-    :cond_e
-    iget-boolean v1, v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mSwitchingUser:Z
-
     if-nez v1, :cond_10
 
-    if-nez v16, :cond_10
+    if-nez v17, :cond_10
 
-    if-eqz v12, :cond_10
+    if-eqz v19, :cond_12
+
+    :cond_10
+    iget-boolean v1, v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mSwitchingUser:Z
+
+    if-nez v1, :cond_12
+
+    if-nez v16, :cond_12
+
+    if-eqz v12, :cond_12
 
     iget-boolean v1, v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mKeyguardGoingAway:Z
 
-    if-nez v1, :cond_10
+    if-nez v1, :cond_12
 
-    if-eqz v13, :cond_10
+    if-eqz v13, :cond_12
 
     iget-boolean v1, v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mLockIconPressed:Z
 
-    if-nez v1, :cond_10
+    if-nez v1, :cond_12
 
-    if-eqz v23, :cond_10
+    if-eqz v23, :cond_12
 
     iget-boolean v1, v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mIsPrimaryUser:Z
 
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_12
 
     iget-boolean v1, v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mSecureCameraLaunched:Z
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_11
 
     iget-boolean v1, v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mOccludingAppRequestingFace:Z
 
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_12
 
-    :cond_f
-    if-nez v15, :cond_10
+    :cond_11
+    if-nez v15, :cond_12
+
+    if-nez v5, :cond_12
 
     move v2, v4
 
-    :cond_10
+    :cond_12
     sget-boolean v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->DEBUG_FACE:Z
 
-    if-nez v1, :cond_11
+    if-nez v1, :cond_13
 
-    goto :goto_d
+    goto :goto_f
 
-    :cond_11
+    :cond_13
     new-instance v1, Lcom/android/keyguard/KeyguardFaceListenModel;
 
     move-object v6, v1
@@ -10121,7 +10756,7 @@
 
     invoke-direct {v0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->maybeLogListenerModelData(Lcom/android/keyguard/KeyguardListenModel;)V
 
-    :goto_d
+    :goto_f
     return v2
 .end method
 

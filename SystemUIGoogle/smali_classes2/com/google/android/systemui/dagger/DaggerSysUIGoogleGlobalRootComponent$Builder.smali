@@ -51,7 +51,7 @@
 .end method
 
 .method public build()Lcom/google/android/systemui/dagger/SysUIGoogleGlobalRootComponent;
-    .locals 3
+    .locals 4
 
     iget-object v0, p0, Lcom/google/android/systemui/dagger/DaggerSysUIGoogleGlobalRootComponent$Builder;->context:Landroid/content/Context;
 
@@ -65,11 +65,15 @@
 
     invoke-direct {v1}, Lcom/android/systemui/dagger/GlobalModule;-><init>()V
 
+    new-instance v2, Lcom/android/systemui/unfold/UnfoldTransitionModule;
+
+    invoke-direct {v2}, Lcom/android/systemui/unfold/UnfoldTransitionModule;-><init>()V
+
     iget-object p0, p0, Lcom/google/android/systemui/dagger/DaggerSysUIGoogleGlobalRootComponent$Builder;->context:Landroid/content/Context;
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    invoke-direct {v0, v1, p0, v2}, Lcom/google/android/systemui/dagger/DaggerSysUIGoogleGlobalRootComponent;-><init>(Lcom/android/systemui/dagger/GlobalModule;Landroid/content/Context;Lcom/google/android/systemui/dagger/DaggerSysUIGoogleGlobalRootComponent$1;)V
+    invoke-direct {v0, v1, v2, p0, v3}, Lcom/google/android/systemui/dagger/DaggerSysUIGoogleGlobalRootComponent;-><init>(Lcom/android/systemui/dagger/GlobalModule;Lcom/android/systemui/unfold/UnfoldTransitionModule;Landroid/content/Context;Lcom/google/android/systemui/dagger/DaggerSysUIGoogleGlobalRootComponent$1;)V
 
     return-object v0
 .end method

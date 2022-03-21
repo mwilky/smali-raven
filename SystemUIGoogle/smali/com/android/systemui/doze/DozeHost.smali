@@ -55,9 +55,6 @@
 .method public abstract removeCallback(Lcom/android/systemui/doze/DozeHost$Callback;)V
 .end method
 
-.method public abstract setAnimateScreenOff(Z)V
-.end method
-
 .method public abstract setAnimateWakeup(Z)V
 .end method
 

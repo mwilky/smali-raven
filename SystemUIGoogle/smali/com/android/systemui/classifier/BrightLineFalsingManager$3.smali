@@ -298,7 +298,7 @@
 
     move-result-object v2
 
-    const-string/jumbo v3, "unclassified"
+    const-string v3, "unclassified"
 
     invoke-static {v0, v1, v2, v3}, Lcom/android/systemui/classifier/FalsingClassifier$Result;->falsed(DLjava/lang/String;Ljava/lang/String;)Lcom/android/systemui/classifier/FalsingClassifier$Result;
 

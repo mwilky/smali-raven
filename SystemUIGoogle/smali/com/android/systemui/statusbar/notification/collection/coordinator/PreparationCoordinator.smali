@@ -590,7 +590,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, p1, v1}, Lcom/android/systemui/statusbar/notification/collection/render/NotifViewBarn;->registerViewForEntry(Lcom/android/systemui/statusbar/notification/collection/ListEntry;Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRowController;)V
+    invoke-virtual {v0, p1, v1}, Lcom/android/systemui/statusbar/notification/collection/render/NotifViewBarn;->registerViewForEntry(Lcom/android/systemui/statusbar/notification/collection/ListEntry;Lcom/android/systemui/statusbar/notification/collection/render/NodeController;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/coordinator/PreparationCoordinator;->mInflationStates:Ljava/util/Map;
 

@@ -195,7 +195,7 @@
     return-void
 .end method
 
-.method public onSystemBarAttributesChanged(II[Lcom/android/internal/view/AppearanceRegion;ZIZ)V
+.method public onSystemBarAttributesChanged(II[Lcom/android/internal/view/AppearanceRegion;ZILandroid/view/InsetsVisibilities;Ljava/lang/String;)V
     .locals 0
 
     return-void
@@ -323,6 +323,14 @@
 
 .method public showTransient(I[I)V
     .locals 0
+
+    return-void
+.end method
+
+.method public showTransient(I[IZ)V
+    .locals 0
+
+    invoke-interface {p0, p1, p2}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->showTransient(I[I)V
 
     return-void
 .end method

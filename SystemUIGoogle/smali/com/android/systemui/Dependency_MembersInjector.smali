@@ -140,6 +140,23 @@
     return-void
 .end method
 
+.method public static injectMAmbientStateLazy(Lcom/android/systemui/Dependency;Ldagger/Lazy;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/android/systemui/Dependency;",
+            "Ldagger/Lazy<",
+            "Lcom/android/systemui/statusbar/notification/stack/AmbientState;",
+            ">;)V"
+        }
+    .end annotation
+
+    iput-object p1, p0, Lcom/android/systemui/Dependency;->mAmbientStateLazy:Ldagger/Lazy;
+
+    return-void
+.end method
+
 .method public static injectMAppOpsController(Lcom/android/systemui/Dependency;Ldagger/Lazy;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -597,7 +614,7 @@
             "(",
             "Lcom/android/systemui/Dependency;",
             "Ldagger/Lazy<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;)V"
         }
     .end annotation
@@ -688,6 +705,40 @@
     .end annotation
 
     iput-object p1, p0, Lcom/android/systemui/Dependency;->mGarbageMonitor:Ldagger/Lazy;
+
+    return-void
+.end method
+
+.method public static injectMGroupExpansionManagerLazy(Lcom/android/systemui/Dependency;Ldagger/Lazy;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/android/systemui/Dependency;",
+            "Ldagger/Lazy<",
+            "Lcom/android/systemui/statusbar/notification/collection/render/GroupExpansionManager;",
+            ">;)V"
+        }
+    .end annotation
+
+    iput-object p1, p0, Lcom/android/systemui/Dependency;->mGroupExpansionManagerLazy:Ldagger/Lazy;
+
+    return-void
+.end method
+
+.method public static injectMGroupMembershipManagerLazy(Lcom/android/systemui/Dependency;Ldagger/Lazy;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/android/systemui/Dependency;",
+            "Ldagger/Lazy<",
+            "Lcom/android/systemui/statusbar/notification/collection/render/GroupMembershipManager;",
+            ">;)V"
+        }
+    .end annotation
+
+    iput-object p1, p0, Lcom/android/systemui/Dependency;->mGroupMembershipManagerLazy:Ldagger/Lazy;
 
     return-void
 .end method
@@ -1134,23 +1185,6 @@
     return-void
 .end method
 
-.method public static injectMNetworkController(Lcom/android/systemui/Dependency;Ldagger/Lazy;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/systemui/Dependency;",
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/statusbar/policy/NetworkController;",
-            ">;)V"
-        }
-    .end annotation
-
-    iput-object p1, p0, Lcom/android/systemui/Dependency;->mNetworkController:Ldagger/Lazy;
-
-    return-void
-.end method
-
 .method public static injectMNextAlarmController(Lcom/android/systemui/Dependency;Ldagger/Lazy;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -1372,6 +1406,23 @@
     return-void
 .end method
 
+.method public static injectMNotificationSectionsManagerLazy(Lcom/android/systemui/Dependency;Ldagger/Lazy;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/android/systemui/Dependency;",
+            "Ldagger/Lazy<",
+            "Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;",
+            ">;)V"
+        }
+    .end annotation
+
+    iput-object p1, p0, Lcom/android/systemui/Dependency;->mNotificationSectionsManagerLazy:Ldagger/Lazy;
+
+    return-void
+.end method
+
 .method public static injectMNotificationShadeWindowController(Lcom/android/systemui/Dependency;Ldagger/Lazy;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -1521,23 +1572,6 @@
     .end annotation
 
     iput-object p1, p0, Lcom/android/systemui/Dependency;->mProtoTracer:Ldagger/Lazy;
-
-    return-void
-.end method
-
-.method public static injectMRecents(Lcom/android/systemui/Dependency;Ldagger/Lazy;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/systemui/Dependency;",
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/recents/Recents;",
-            ">;)V"
-        }
-    .end annotation
-
-    iput-object p1, p0, Lcom/android/systemui/Dependency;->mRecents:Ldagger/Lazy;
 
     return-void
 .end method
@@ -1729,23 +1763,6 @@
     return-void
 .end method
 
-.method public static injectMStatusBar(Lcom/android/systemui/Dependency;Ldagger/Lazy;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/systemui/Dependency;",
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;)V"
-        }
-    .end annotation
-
-    iput-object p1, p0, Lcom/android/systemui/Dependency;->mStatusBar:Ldagger/Lazy;
-
-    return-void
-.end method
-
 .method public static injectMStatusBarIconController(Lcom/android/systemui/Dependency;Ldagger/Lazy;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -1855,7 +1872,7 @@
             "(",
             "Lcom/android/systemui/Dependency;",
             "Ldagger/Lazy<",
-            "Lcom/android/systemui/statusbar/phone/StatusBarWindowController;",
+            "Lcom/android/systemui/statusbar/window/StatusBarWindowController;",
             ">;)V"
         }
     .end annotation
@@ -1946,6 +1963,23 @@
     .end annotation
 
     iput-object p1, p0, Lcom/android/systemui/Dependency;->mUiOffloadThread:Ldagger/Lazy;
+
+    return-void
+.end method
+
+.method public static injectMUnlockedScreenOffAnimationControllerLazy(Lcom/android/systemui/Dependency;Ldagger/Lazy;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/android/systemui/Dependency;",
+            "Ldagger/Lazy<",
+            "Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;",
+            ">;)V"
+        }
+    .end annotation
+
+    iput-object p1, p0, Lcom/android/systemui/Dependency;->mUnlockedScreenOffAnimationControllerLazy:Ldagger/Lazy;
 
     return-void
 .end method

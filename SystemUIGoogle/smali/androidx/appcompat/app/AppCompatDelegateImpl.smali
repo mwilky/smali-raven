@@ -4547,7 +4547,7 @@
 
     move-result-object p2
 
-    const-string/jumbo v0, "uimode"
+    const-string v0, "uimode"
 
     invoke-virtual {p2, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

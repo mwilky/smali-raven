@@ -28,16 +28,6 @@
     .end annotation
 .end field
 
-.field private final configurationControllerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 .field private final contextProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -108,16 +98,6 @@
     .end annotation
 .end field
 
-.field private final tunerServiceProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/tuner/TunerService;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 .field private final wakeLockProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -130,7 +110,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -160,13 +140,7 @@
             "Lcom/android/systemui/doze/DozeLog;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/tuner/TunerService;",
-            ">;",
-            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
             ">;)V"
         }
     .end annotation
@@ -189,17 +163,13 @@
 
     iput-object p8, p0, Lcom/android/systemui/doze/DozeUi_Factory;->dozeLogProvider:Ljavax/inject/Provider;
 
-    iput-object p9, p0, Lcom/android/systemui/doze/DozeUi_Factory;->tunerServiceProvider:Ljavax/inject/Provider;
-
-    iput-object p10, p0, Lcom/android/systemui/doze/DozeUi_Factory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
-
-    iput-object p11, p0, Lcom/android/systemui/doze/DozeUi_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
+    iput-object p9, p0, Lcom/android/systemui/doze/DozeUi_Factory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/doze/DozeUi_Factory;
-    .locals 13
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/doze/DozeUi_Factory;
+    .locals 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -228,21 +198,15 @@
             "Lcom/android/systemui/doze/DozeLog;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/tuner/TunerService;",
-            ">;",
-            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
             ">;)",
             "Lcom/android/systemui/doze/DozeUi_Factory;"
         }
     .end annotation
 
-    new-instance v12, Lcom/android/systemui/doze/DozeUi_Factory;
+    new-instance v10, Lcom/android/systemui/doze/DozeUi_Factory;
 
-    move-object v0, v12
+    move-object v0, v10
 
     move-object v1, p0
 
@@ -250,9 +214,9 @@
 
     move-object v3, p2
 
-    move-object/from16 v4, p3
+    move-object v4, p3
 
-    move-object/from16 v5, p4
+    move-object v5, p4
 
     move-object/from16 v6, p5
 
@@ -262,17 +226,13 @@
 
     move-object/from16 v9, p8
 
-    move-object/from16 v10, p9
+    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/doze/DozeUi_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
 
-    move-object/from16 v11, p10
-
-    invoke-direct/range {v0 .. v11}, Lcom/android/systemui/doze/DozeUi_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v12
+    return-object v10
 .end method
 
-.method public static newInstance(Landroid/content/Context;Landroid/app/AlarmManager;Lcom/android/systemui/util/wakelock/WakeLock;Lcom/android/systemui/doze/DozeHost;Landroid/os/Handler;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/tuner/TunerService;Ldagger/Lazy;Lcom/android/systemui/statusbar/policy/ConfigurationController;)Lcom/android/systemui/doze/DozeUi;
-    .locals 13
+.method public static newInstance(Landroid/content/Context;Landroid/app/AlarmManager;Lcom/android/systemui/util/wakelock/WakeLock;Lcom/android/systemui/doze/DozeHost;Landroid/os/Handler;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/doze/DozeLog;Ldagger/Lazy;)Lcom/android/systemui/doze/DozeUi;
+    .locals 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -284,19 +244,16 @@
             "Lcom/android/systemui/statusbar/phone/DozeParameters;",
             "Lcom/android/keyguard/KeyguardUpdateMonitor;",
             "Lcom/android/systemui/doze/DozeLog;",
-            "Lcom/android/systemui/tuner/TunerService;",
             "Ldagger/Lazy<",
             "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
-            ">;",
-            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
-            ")",
+            ">;)",
             "Lcom/android/systemui/doze/DozeUi;"
         }
     .end annotation
 
-    new-instance v12, Lcom/android/systemui/doze/DozeUi;
+    new-instance v10, Lcom/android/systemui/doze/DozeUi;
 
-    move-object v0, v12
+    move-object v0, v10
 
     move-object v1, p0
 
@@ -304,9 +261,9 @@
 
     move-object v3, p2
 
-    move-object/from16 v4, p3
+    move-object v4, p3
 
-    move-object/from16 v5, p4
+    move-object v5, p4
 
     move-object/from16 v6, p5
 
@@ -316,19 +273,15 @@
 
     move-object/from16 v9, p8
 
-    move-object/from16 v10, p9
+    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/doze/DozeUi;-><init>(Landroid/content/Context;Landroid/app/AlarmManager;Lcom/android/systemui/util/wakelock/WakeLock;Lcom/android/systemui/doze/DozeHost;Landroid/os/Handler;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/doze/DozeLog;Ldagger/Lazy;)V
 
-    move-object/from16 v11, p10
-
-    invoke-direct/range {v0 .. v11}, Lcom/android/systemui/doze/DozeUi;-><init>(Landroid/content/Context;Landroid/app/AlarmManager;Lcom/android/systemui/util/wakelock/WakeLock;Lcom/android/systemui/doze/DozeHost;Landroid/os/Handler;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/tuner/TunerService;Ldagger/Lazy;Lcom/android/systemui/statusbar/policy/ConfigurationController;)V
-
-    return-object v12
+    return-object v10
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/systemui/doze/DozeUi;
-    .locals 12
+    .locals 10
 
     iget-object v0, p0, Lcom/android/systemui/doze/DozeUi_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -410,33 +363,13 @@
 
     check-cast v8, Lcom/android/systemui/doze/DozeLog;
 
-    iget-object v0, p0, Lcom/android/systemui/doze/DozeUi_Factory;->tunerServiceProvider:Ljavax/inject/Provider;
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeUi_Factory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
 
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    invoke-static {p0}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
 
-    move-result-object v0
+    move-result-object v9
 
-    move-object v9, v0
-
-    check-cast v9, Lcom/android/systemui/tuner/TunerService;
-
-    iget-object v0, p0, Lcom/android/systemui/doze/DozeUi_Factory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
-
-    invoke-static {v0}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
-
-    move-result-object v10
-
-    iget-object p0, p0, Lcom/android/systemui/doze/DozeUi_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
-
-    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object p0
-
-    move-object v11, p0
-
-    check-cast v11, Lcom/android/systemui/statusbar/policy/ConfigurationController;
-
-    invoke-static/range {v1 .. v11}, Lcom/android/systemui/doze/DozeUi_Factory;->newInstance(Landroid/content/Context;Landroid/app/AlarmManager;Lcom/android/systemui/util/wakelock/WakeLock;Lcom/android/systemui/doze/DozeHost;Landroid/os/Handler;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/tuner/TunerService;Ldagger/Lazy;Lcom/android/systemui/statusbar/policy/ConfigurationController;)Lcom/android/systemui/doze/DozeUi;
+    invoke-static/range {v1 .. v9}, Lcom/android/systemui/doze/DozeUi_Factory;->newInstance(Landroid/content/Context;Landroid/app/AlarmManager;Lcom/android/systemui/util/wakelock/WakeLock;Lcom/android/systemui/doze/DozeHost;Landroid/os/Handler;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/doze/DozeLog;Ldagger/Lazy;)Lcom/android/systemui/doze/DozeUi;
 
     move-result-object p0
 

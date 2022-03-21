@@ -32,18 +32,6 @@
         <item quantity="other">Ikhodi ye-PUK ye-SIM engalungile, unemizamo engu-%d esele ngaphambi kokuthi i-SIM ingasasebenziseki unaphakade.</item>
         <item quantity="one">Ikhodi ye-PUK ye-SIM engalungile, unemizamo engu-%d esele ngaphambi kokuthi i-SIM ingasasebenziseki unaphakade.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">Idivayisi ayikavulwa ngamahora angu-%d. Qinisekisa iphasiwedi.</item>
-        <item quantity="one">Idivayisi ayikavulwa ngamahora angu-%d. Qinisekisa iphasiwedi.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">Idivayisi ayikavulwa ngamahora angu-%d. Qinisekisa iphethini.</item>
-        <item quantity="one">Idivayisi ayikavulwa ngamahora angu-%d. Qinisekisa iphethini.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">Idivayisi ayikavulwa ngamahora angu-%d. Qinisekisa iphinikhodi.</item>
-        <item quantity="one">Idivayisi ayikavulwa ngamahora angu-%d. Qinisekisa iphinikhodi.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">Zama futhi kumasekhondi angu-%d.</item>
         <item quantity="one">Zama futhi kumasekhondi angu-%d.</item>

@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/wm/shell/bubbles/ManageEducationView;-><init>(Landroid/content/Context;)V
+    value = Lcom/android/wm/shell/bubbles/ManageEducationView;-><init>(Landroid/content/Context;Lcom/android/wm/shell/bubbles/BubblePositioner;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -50,7 +50,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/bubbles/ManageEducationView$manageButton$2;->this$0:Lcom/android/wm/shell/bubbles/ManageEducationView;
 
-    sget v0, Lcom/android/wm/shell/R$id;->manage:I
+    sget v0, Lcom/android/wm/shell/R$id;->manage_button:I
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 

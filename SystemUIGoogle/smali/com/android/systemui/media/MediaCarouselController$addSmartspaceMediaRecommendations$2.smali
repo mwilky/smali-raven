@@ -34,9 +34,9 @@
 
     const/4 v1, 0x0
 
-    const-string/jumbo v4, "updateCarouselDimensions"
+    const-string v4, "updateCarouselDimensions"
 
-    const-string/jumbo v5, "updateCarouselDimensions()V"
+    const-string v5, "updateCarouselDimensions()V"
 
     const/4 v6, 0x0
 

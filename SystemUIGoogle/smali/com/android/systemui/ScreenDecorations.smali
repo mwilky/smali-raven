@@ -45,11 +45,15 @@
 
 .field private mDisplayManager:Landroid/hardware/display/DisplayManager;
 
+.field private mDisplayUniqueId:Ljava/lang/String;
+
 .field private final mDotViewController:Lcom/android/systemui/statusbar/events/PrivacyDotViewController;
 
 .field private mExecutor:Lcom/android/systemui/util/concurrency/DelayableExecutor;
 
 .field private mHandler:Landroid/os/Handler;
+
+.field private mIsPrivacyDotEnabled:Z
 
 .field protected mIsRegistered:Z
 
@@ -63,6 +67,12 @@
 
 .field private mRotation:I
 
+.field private mRoundedCornerDrawable:Landroid/graphics/drawable/Drawable;
+
+.field private mRoundedCornerDrawableBottom:Landroid/graphics/drawable/Drawable;
+
+.field private mRoundedCornerDrawableTop:Landroid/graphics/drawable/Drawable;
+
 .field protected mRoundedDefault:Landroid/graphics/Point;
 
 .field protected mRoundedDefaultBottom:Landroid/graphics/Point;
@@ -70,10 +80,6 @@
 .field protected mRoundedDefaultTop:Landroid/graphics/Point;
 
 .field private final mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
-
-.field private mStatusBarHeightLandscape:I
-
-.field private mStatusBarHeightPortrait:I
 
 .field private final mThreadFactory:Lcom/android/systemui/util/concurrency/ThreadFactory;
 
@@ -227,6 +233,14 @@
     return p0
 .end method
 
+.method static synthetic access$1000(Lcom/android/systemui/ScreenDecorations;)Lcom/android/systemui/qs/SecureSetting;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/ScreenDecorations;->mColorInversionSetting:Lcom/android/systemui/qs/SecureSetting;
+
+    return-object p0
+.end method
+
 .method static synthetic access$200(Lcom/android/systemui/ScreenDecorations;)Z
     .locals 0
 
@@ -243,7 +257,49 @@
     return p1
 .end method
 
-.method static synthetic access$400(Lcom/android/systemui/ScreenDecorations;)V
+.method static synthetic access$400(Lcom/android/systemui/ScreenDecorations;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/ScreenDecorations;->mDisplayUniqueId:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method static synthetic access$402(Lcom/android/systemui/ScreenDecorations;Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/systemui/ScreenDecorations;->mDisplayUniqueId:Ljava/lang/String;
+
+    return-object p1
+.end method
+
+.method static synthetic access$502(Lcom/android/systemui/ScreenDecorations;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/ScreenDecorations;->mIsRoundedCornerMultipleRadius:Z
+
+    return p1
+.end method
+
+.method static synthetic access$600(Landroid/content/Context;Ljava/lang/String;)Z
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/systemui/ScreenDecorations;->isRoundedCornerMultipleRadius(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method static synthetic access$700(Lcom/android/systemui/ScreenDecorations;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/ScreenDecorations;->updateRoundedCornerDrawable()V
+
+    return-void
+.end method
+
+.method static synthetic access$800(Lcom/android/systemui/ScreenDecorations;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/systemui/ScreenDecorations;->updateOrientation()V
@@ -251,7 +307,7 @@
     return-void
 .end method
 
-.method static synthetic access$500(Lcom/android/systemui/ScreenDecorations;I)V
+.method static synthetic access$900(Lcom/android/systemui/ScreenDecorations;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/ScreenDecorations;->updateColorInversion(I)V
@@ -259,25 +315,7 @@
     return-void
 .end method
 
-.method static synthetic access$600(Lcom/android/systemui/ScreenDecorations;)Lcom/android/systemui/qs/SecureSetting;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/ScreenDecorations;->mColorInversionSetting:Lcom/android/systemui/qs/SecureSetting;
-
-    return-object p0
-.end method
-
-.method static synthetic access$900(II)I
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/android/systemui/ScreenDecorations;->getBoundPositionFromRotation(II)I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method private createOverlay(I)V
+.method private createOverlay(ILandroid/view/DisplayCutout;)V
     .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mOverlays:[Landroid/view/View;
@@ -309,7 +347,7 @@
     return-void
 
     :cond_2
-    invoke-direct {p0, p1}, Lcom/android/systemui/ScreenDecorations;->overlayForPosition(I)Landroid/view/View;
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/ScreenDecorations;->overlayForPosition(ILandroid/view/DisplayCutout;)Landroid/view/View;
 
     move-result-object v1
 
@@ -361,52 +399,52 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setForceDarkAllowed(Z)V
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/ScreenDecorations;->updateView(I)V
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/ScreenDecorations;->updateView(ILandroid/view/DisplayCutout;)V
 
-    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mWindowManager:Landroid/view/WindowManager;
+    iget-object p2, p0, Lcom/android/systemui/ScreenDecorations;->mWindowManager:Landroid/view/WindowManager;
 
-    iget-object v1, p0, Lcom/android/systemui/ScreenDecorations;->mOverlays:[Landroid/view/View;
+    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mOverlays:[Landroid/view/View;
 
-    aget-object v1, v1, p1
+    aget-object v0, v0, p1
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/ScreenDecorations;->getWindowLayoutParams(I)Landroid/view/WindowManager$LayoutParams;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {v0, v1, v2}, Landroid/view/WindowManager;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-interface {p2, v0, v1}, Landroid/view/WindowManager;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mOverlays:[Landroid/view/View;
+    iget-object p2, p0, Lcom/android/systemui/ScreenDecorations;->mOverlays:[Landroid/view/View;
 
-    aget-object v0, v0, p1
+    aget-object p2, p2, p1
 
-    new-instance v1, Lcom/android/systemui/ScreenDecorations$4;
+    new-instance v0, Lcom/android/systemui/ScreenDecorations$4;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/ScreenDecorations$4;-><init>(Lcom/android/systemui/ScreenDecorations;I)V
+    invoke-direct {v0, p0, p1}, Lcom/android/systemui/ScreenDecorations$4;-><init>(Lcom/android/systemui/ScreenDecorations;I)V
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->addOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
+    invoke-virtual {p2, v0}, Landroid/view/View;->addOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
 
-    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mOverlays:[Landroid/view/View;
+    iget-object p2, p0, Lcom/android/systemui/ScreenDecorations;->mOverlays:[Landroid/view/View;
 
-    aget-object v0, v0, p1
+    aget-object p2, p2, p1
 
-    invoke-virtual {v0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+    invoke-virtual {p2}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
-    move-result-object v0
+    move-result-object p2
 
-    new-instance v1, Lcom/android/systemui/ScreenDecorations$ValidatingPreDrawListener;
+    new-instance v0, Lcom/android/systemui/ScreenDecorations$ValidatingPreDrawListener;
 
-    iget-object v2, p0, Lcom/android/systemui/ScreenDecorations;->mOverlays:[Landroid/view/View;
+    iget-object v1, p0, Lcom/android/systemui/ScreenDecorations;->mOverlays:[Landroid/view/View;
 
-    aget-object p1, v2, p1
+    aget-object p1, v1, p1
 
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/ScreenDecorations$ValidatingPreDrawListener;-><init>(Lcom/android/systemui/ScreenDecorations;Landroid/view/View;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/systemui/ScreenDecorations$ValidatingPreDrawListener;-><init>(Lcom/android/systemui/ScreenDecorations;Landroid/view/View;)V
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewTreeObserver;->addOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
+    invoke-virtual {p2, v0}, Landroid/view/ViewTreeObserver;->addOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 
     return-void
 .end method
 
-.method private static getBoundPositionFromRotation(II)I
+.method static getBoundPositionFromRotation(II)I
     .locals 0
 
     sub-int/2addr p0, p1
@@ -485,7 +523,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v1, "unknown bound position: "
+    const-string v1, "unknown bound position: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -511,6 +549,94 @@
 
     :cond_3
     return v0
+.end method
+
+.method private static getRoundedCornerBottomDrawable(Landroid/content/Context;Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
+    .locals 2
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-static {v0, p1}, Landroid/util/DisplayUtils;->getDisplayUniqueIdConfigIndex(Landroid/content/res/Resources;Ljava/lang/String;)I
+
+    move-result p1
+
+    sget v1, Lcom/android/systemui/R$array;->config_roundedCornerBottomDrawableArray:I
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->obtainTypedArray(I)Landroid/content/res/TypedArray;
+
+    move-result-object v0
+
+    if-ltz p1, :cond_0
+
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->length()I
+
+    move-result v1
+
+    if-ge p1, v1, :cond_0
+
+    invoke-virtual {v0, p1}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object p0
+
+    goto :goto_0
+
+    :cond_0
+    sget p1, Lcom/android/systemui/R$drawable;->rounded_corner_bottom:I
+
+    invoke-virtual {p0, p1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object p0
+
+    :goto_0
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
+
+    return-object p0
+.end method
+
+.method private static getRoundedCornerDrawable(Landroid/content/Context;Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
+    .locals 2
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-static {v0, p1}, Landroid/util/DisplayUtils;->getDisplayUniqueIdConfigIndex(Landroid/content/res/Resources;Ljava/lang/String;)I
+
+    move-result p1
+
+    sget v1, Lcom/android/systemui/R$array;->config_roundedCornerDrawableArray:I
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->obtainTypedArray(I)Landroid/content/res/TypedArray;
+
+    move-result-object v0
+
+    if-ltz p1, :cond_0
+
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->length()I
+
+    move-result v1
+
+    if-ge p1, v1, :cond_0
+
+    invoke-virtual {v0, p1}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object p0
+
+    goto :goto_0
+
+    :cond_0
+    sget p1, Lcom/android/systemui/R$drawable;->rounded:I
+
+    invoke-virtual {p0, p1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object p0
+
+    :goto_0
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
+
+    return-object p0
 .end method
 
 .method private getRoundedCornerGravity(IZ)I
@@ -609,6 +735,50 @@
     return p1
 .end method
 
+.method private static getRoundedCornerTopDrawable(Landroid/content/Context;Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
+    .locals 2
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-static {v0, p1}, Landroid/util/DisplayUtils;->getDisplayUniqueIdConfigIndex(Landroid/content/res/Resources;Ljava/lang/String;)I
+
+    move-result p1
+
+    sget v1, Lcom/android/systemui/R$array;->config_roundedCornerTopDrawableArray:I
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->obtainTypedArray(I)Landroid/content/res/TypedArray;
+
+    move-result-object v0
+
+    if-ltz p1, :cond_0
+
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->length()I
+
+    move-result v1
+
+    if-ge p1, v1, :cond_0
+
+    invoke-virtual {v0, p1}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object p0
+
+    goto :goto_0
+
+    :cond_0
+    sget p1, Lcom/android/systemui/R$drawable;->rounded_corner_top:I
+
+    invoke-virtual {p0, p1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object p0
+
+    :goto_0
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
+
+    return-object p0
+.end method
+
 .method private getWidthLayoutParamByPos(I)I
     .locals 0
 
@@ -669,7 +839,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v2, "unknown bound position: "
+    const-string v2, "unknown bound position: "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -739,6 +909,221 @@
     return p0
 .end method
 
+.method private initPrivacyDotView(Landroid/view/ViewGroup;ILandroid/view/DisplayCutout;)V
+    .locals 2
+
+    sget v0, Lcom/android/systemui/R$id;->privacy_dot_left_container:I
+
+    invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    sget v1, Lcom/android/systemui/R$id;->privacy_dot_right_container:I
+
+    invoke-virtual {p1, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    invoke-direct {p0, p2, p3}, Lcom/android/systemui/ScreenDecorations;->shouldShowPrivacyDot(ILandroid/view/DisplayCutout;)Z
+
+    move-result p3
+
+    if-nez p3, :cond_0
+
+    invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
+
+    invoke-virtual {p1, v1}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
+
+    return-void
+
+    :cond_0
+    if-eqz p2, :cond_4
+
+    const/4 p1, 0x1
+
+    if-eq p2, p1, :cond_3
+
+    const/4 p1, 0x2
+
+    if-eq p2, p1, :cond_2
+
+    const/4 p1, 0x3
+
+    if-eq p2, p1, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    iput-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mBottomLeftDot:Landroid/view/View;
+
+    iput-object v1, p0, Lcom/android/systemui/ScreenDecorations;->mBottomRightDot:Landroid/view/View;
+
+    goto :goto_0
+
+    :cond_2
+    iput-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mTopRightDot:Landroid/view/View;
+
+    iput-object v1, p0, Lcom/android/systemui/ScreenDecorations;->mBottomRightDot:Landroid/view/View;
+
+    goto :goto_0
+
+    :cond_3
+    iput-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mTopLeftDot:Landroid/view/View;
+
+    iput-object v1, p0, Lcom/android/systemui/ScreenDecorations;->mTopRightDot:Landroid/view/View;
+
+    goto :goto_0
+
+    :cond_4
+    iput-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mTopLeftDot:Landroid/view/View;
+
+    iput-object v1, p0, Lcom/android/systemui/ScreenDecorations;->mBottomLeftDot:Landroid/view/View;
+
+    :goto_0
+    return-void
+.end method
+
+.method private isDefaultShownOverlayPos(ILandroid/view/DisplayCutout;)Z
+    .locals 5
+
+    const/4 v0, 0x0
+
+    const/4 v1, 0x1
+
+    if-eqz p2, :cond_1
+
+    invoke-virtual {p2}, Landroid/view/DisplayCutout;->isBoundsEmpty()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    move v2, v0
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    move v2, v1
+
+    :goto_1
+    iget v3, p0, Lcom/android/systemui/ScreenDecorations;->mRotation:I
+
+    invoke-static {v1, v3}, Lcom/android/systemui/ScreenDecorations;->getBoundPositionFromRotation(II)I
+
+    move-result v3
+
+    iget p0, p0, Lcom/android/systemui/ScreenDecorations;->mRotation:I
+
+    const/4 v4, 0x3
+
+    invoke-static {v4, p0}, Lcom/android/systemui/ScreenDecorations;->getBoundPositionFromRotation(II)I
+
+    move-result p0
+
+    if-nez v2, :cond_5
+
+    invoke-virtual {p2}, Landroid/view/DisplayCutout;->getBoundingRectsAll()[Landroid/graphics/Rect;
+
+    move-result-object v2
+
+    aget-object v2, v2, v3
+
+    invoke-virtual {v2}, Landroid/graphics/Rect;->isEmpty()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_5
+
+    invoke-virtual {p2}, Landroid/view/DisplayCutout;->getBoundingRectsAll()[Landroid/graphics/Rect;
+
+    move-result-object p2
+
+    aget-object p0, p2, p0
+
+    invoke-virtual {p0}, Landroid/graphics/Rect;->isEmpty()Z
+
+    move-result p0
+
+    if-nez p0, :cond_2
+
+    goto :goto_2
+
+    :cond_2
+    if-eqz p1, :cond_3
+
+    const/4 p0, 0x2
+
+    if-ne p1, p0, :cond_4
+
+    :cond_3
+    move v0, v1
+
+    :cond_4
+    return v0
+
+    :cond_5
+    :goto_2
+    if-eq p1, v1, :cond_6
+
+    if-ne p1, v4, :cond_7
+
+    :cond_6
+    move v0, v1
+
+    :cond_7
+    return v0
+.end method
+
+.method private static isRoundedCornerMultipleRadius(Landroid/content/Context;Ljava/lang/String;)Z
+    .locals 2
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p0
+
+    invoke-static {p0, p1}, Landroid/util/DisplayUtils;->getDisplayUniqueIdConfigIndex(Landroid/content/res/Resources;Ljava/lang/String;)I
+
+    move-result p1
+
+    sget v0, Lcom/android/systemui/R$array;->config_roundedCornerMultipleRadiusArray:I
+
+    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->obtainTypedArray(I)Landroid/content/res/TypedArray;
+
+    move-result-object v0
+
+    if-ltz p1, :cond_0
+
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->length()I
+
+    move-result v1
+
+    if-ge p1, v1, :cond_0
+
+    const/4 p0, 0x0
+
+    invoke-virtual {v0, p1, p0}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+
+    move-result p0
+
+    goto :goto_0
+
+    :cond_0
+    sget p1, Lcom/android/systemui/R$bool;->config_roundedCornerMultipleRadius:I
+
+    invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result p0
+
+    :goto_0
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
+
+    return p0
+.end method
+
 .method private synthetic lambda$onConfigurationChanged$2()V
     .locals 1
 
@@ -772,7 +1157,7 @@
     return-void
 
     :cond_0
-    const-string/jumbo v0, "sysui_rounded_size"
+    const-string v0, "sysui_rounded_size"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -822,7 +1207,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mTunerService:Lcom/android/systemui/tuner/TunerService;
 
-    const-string/jumbo v1, "sysui_rounded_size"
+    const-string v1, "sysui_rounded_size"
 
     filled-new-array {v1}, [Ljava/lang/String;
 
@@ -843,98 +1228,44 @@
     return-void
 .end method
 
-.method private overlayForPosition(I)Landroid/view/View;
-    .locals 2
+.method private overlayForPosition(ILandroid/view/DisplayCutout;)Landroid/view/View;
+    .locals 3
 
-    const/4 v0, 0x0
+    if-eqz p1, :cond_1
 
-    if-eqz p1, :cond_2
+    const/4 v0, 0x1
 
-    const/4 v1, 0x1
-
-    if-eq p1, v1, :cond_2
-
-    const/4 v1, 0x2
-
-    if-eq p1, v1, :cond_1
-
-    const/4 v1, 0x3
-
-    if-ne p1, v1, :cond_0
+    if-ne p1, v0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    new-instance p0, Ljava/lang/IllegalArgumentException;
+    sget v0, Lcom/android/systemui/R$layout;->rounded_corners_bottom:I
 
-    const-string p1, "Unknown bounds position"
-
-    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw p0
+    goto :goto_1
 
     :cond_1
     :goto_0
-    iget-object p1, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
+    sget v0, Lcom/android/systemui/R$layout;->rounded_corners_top:I
 
-    invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+    :goto_1
+    iget-object v1, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
 
-    move-result-object p1
+    invoke-static {v1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
-    sget v1, Lcom/android/systemui/R$layout;->rounded_corners_bottom:I
+    move-result-object v1
 
-    invoke-virtual {p1, v1, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    const/4 v2, 0x0
 
-    move-result-object p1
-
-    sget v0, Lcom/android/systemui/R$id;->privacy_dot_left_container:I
-
-    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v1, v0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mBottomLeftDot:Landroid/view/View;
+    check-cast v0, Landroid/view/ViewGroup;
 
-    sget v0, Lcom/android/systemui/R$id;->privacy_dot_right_container:I
+    invoke-direct {p0, v0, p1, p2}, Lcom/android/systemui/ScreenDecorations;->initPrivacyDotView(Landroid/view/ViewGroup;ILandroid/view/DisplayCutout;)V
 
-    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mBottomRightDot:Landroid/view/View;
-
-    return-object p1
-
-    :cond_2
-    iget-object p1, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
-
-    invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
-
-    move-result-object p1
-
-    sget v1, Lcom/android/systemui/R$layout;->rounded_corners_top:I
-
-    invoke-virtual {p1, v1, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object p1
-
-    sget v0, Lcom/android/systemui/R$id;->privacy_dot_left_container:I
-
-    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mTopLeftDot:Landroid/view/View;
-
-    sget v0, Lcom/android/systemui/R$id;->privacy_dot_right_container:I
-
-    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mTopRightDot:Landroid/view/View;
-
-    return-object p1
+    return-object v0
 .end method
 
 .method public static rectsToRegion(Ljava/util/List;)Landroid/graphics/Region;
@@ -1186,6 +1517,10 @@
 
     move-result v0
 
+    if-nez v0, :cond_1
+
+    iget-boolean v0, p0, Lcom/android/systemui/ScreenDecorations;->mIsPrivacyDotEnabled:Z
+
     if-eqz v0, :cond_0
 
     goto :goto_0
@@ -1197,94 +1532,87 @@
 
     :cond_1
     :goto_0
-    invoke-direct {p0}, Lcom/android/systemui/ScreenDecorations;->updateStatusBarHeight()V
-
     invoke-virtual {p0}, Lcom/android/systemui/ScreenDecorations;->getCutout()Landroid/view/DisplayCutout;
 
     move-result-object v0
 
-    if-nez v0, :cond_2
-
-    const/4 v0, 0x0
-
-    goto :goto_1
-
-    :cond_2
-    invoke-virtual {v0}, Landroid/view/DisplayCutout;->getBoundingRectsAll()[Landroid/graphics/Rect;
-
-    move-result-object v0
-
-    :goto_1
     move v2, v1
 
-    :goto_2
+    :goto_1
     const/4 v3, 0x4
 
-    if-ge v2, v3, :cond_6
+    if-ge v2, v3, :cond_4
 
-    iget v3, p0, Lcom/android/systemui/ScreenDecorations;->mRotation:I
-
-    invoke-static {v2, v3}, Lcom/android/systemui/ScreenDecorations;->getBoundPositionFromRotation(II)I
+    invoke-direct {p0, v2, v0}, Lcom/android/systemui/ScreenDecorations;->shouldShowCutout(ILandroid/view/DisplayCutout;)Z
 
     move-result v3
 
-    if-eqz v0, :cond_3
+    if-nez v3, :cond_3
 
-    aget-object v3, v0, v3
-
-    invoke-virtual {v3}, Landroid/graphics/Rect;->isEmpty()Z
+    invoke-direct {p0, v2, v0}, Lcom/android/systemui/ScreenDecorations;->shouldShowRoundedCorner(ILandroid/view/DisplayCutout;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-nez v3, :cond_3
 
-    :cond_3
-    invoke-direct {p0, v2}, Lcom/android/systemui/ScreenDecorations;->shouldShowRoundedCorner(I)Z
+    invoke-direct {p0, v2, v0}, Lcom/android/systemui/ScreenDecorations;->shouldShowPrivacyDot(ILandroid/view/DisplayCutout;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_2
 
-    :cond_4
-    invoke-direct {p0, v2}, Lcom/android/systemui/ScreenDecorations;->createOverlay(I)V
+    goto :goto_2
+
+    :cond_2
+    invoke-direct {p0, v2}, Lcom/android/systemui/ScreenDecorations;->removeOverlay(I)V
 
     goto :goto_3
 
-    :cond_5
-    invoke-direct {p0, v2}, Lcom/android/systemui/ScreenDecorations;->removeOverlay(I)V
+    :cond_3
+    :goto_2
+    invoke-direct {p0, v2, v0}, Lcom/android/systemui/ScreenDecorations;->createOverlay(ILandroid/view/DisplayCutout;)V
 
     :goto_3
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_2
+    goto :goto_1
 
-    :cond_6
-    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mDotViewController:Lcom/android/systemui/statusbar/events/PrivacyDotViewController;
+    :cond_4
+    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mTopLeftDot:Landroid/view/View;
 
-    iget-object v2, p0, Lcom/android/systemui/ScreenDecorations;->mTopLeftDot:Landroid/view/View;
+    if-eqz v0, :cond_5
 
-    iget-object v3, p0, Lcom/android/systemui/ScreenDecorations;->mTopRightDot:Landroid/view/View;
+    iget-object v2, p0, Lcom/android/systemui/ScreenDecorations;->mTopRightDot:Landroid/view/View;
 
-    iget-object v4, p0, Lcom/android/systemui/ScreenDecorations;->mBottomLeftDot:Landroid/view/View;
+    if-eqz v2, :cond_5
 
-    iget-object v5, p0, Lcom/android/systemui/ScreenDecorations;->mBottomRightDot:Landroid/view/View;
+    iget-object v3, p0, Lcom/android/systemui/ScreenDecorations;->mBottomLeftDot:Landroid/view/View;
 
-    invoke-virtual {v0, v2, v3, v4, v5}, Lcom/android/systemui/statusbar/events/PrivacyDotViewController;->initialize(Landroid/view/View;Landroid/view/View;Landroid/view/View;Landroid/view/View;)V
+    if-eqz v3, :cond_5
 
+    iget-object v4, p0, Lcom/android/systemui/ScreenDecorations;->mBottomRightDot:Landroid/view/View;
+
+    if-eqz v4, :cond_5
+
+    iget-object v5, p0, Lcom/android/systemui/ScreenDecorations;->mDotViewController:Lcom/android/systemui/statusbar/events/PrivacyDotViewController;
+
+    invoke-virtual {v5, v0, v2, v3, v4}, Lcom/android/systemui/statusbar/events/PrivacyDotViewController;->initialize(Landroid/view/View;Landroid/view/View;Landroid/view/View;Landroid/view/View;)V
+
+    :cond_5
     :goto_4
     invoke-virtual {p0}, Lcom/android/systemui/ScreenDecorations;->hasOverlays()Z
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_8
 
     iget-boolean v0, p0, Lcom/android/systemui/ScreenDecorations;->mIsRegistered:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_6
 
     return-void
 
-    :cond_7
+    :cond_6
     new-instance v0, Landroid/util/DisplayMetrics;
 
     invoke-direct {v0}, Landroid/util/DisplayMetrics;-><init>()V
@@ -1311,7 +1639,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mColorInversionSetting:Lcom/android/systemui/qs/SecureSetting;
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_7
 
     new-instance v0, Lcom/android/systemui/ScreenDecorations$3;
 
@@ -1335,7 +1663,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mColorInversionSetting:Lcom/android/systemui/qs/SecureSetting;
 
-    :cond_8
+    :cond_7
     iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mColorInversionSetting:Lcom/android/systemui/qs/SecureSetting;
 
     const/4 v2, 0x1
@@ -1368,7 +1696,7 @@
 
     goto :goto_5
 
-    :cond_9
+    :cond_8
     iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mMainExecutor:Ljava/util/concurrent/Executor;
 
     new-instance v2, Lcom/android/systemui/ScreenDecorations$$ExternalSyntheticLambda0;
@@ -1379,11 +1707,11 @@
 
     iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mColorInversionSetting:Lcom/android/systemui/qs/SecureSetting;
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_9
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/qs/SecureSetting;->setListening(Z)V
 
-    :cond_a
+    :cond_9
     iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
     iget-object v2, p0, Lcom/android/systemui/ScreenDecorations;->mUserSwitchIntentReceiver:Landroid/content/BroadcastReceiver;
@@ -1413,123 +1741,113 @@
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
+    move-result-object v0
+
+    invoke-virtual {p0}, Landroid/content/Context;->getDisplay()Landroid/view/Display;
+
     move-result-object p0
 
-    const v0, 0x11100e6
+    invoke-virtual {p0}, Landroid/view/Display;->getUniqueId()Ljava/lang/String;
 
-    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
+    move-result-object p0
+
+    invoke-static {v0, p0}, Landroid/view/DisplayCutout;->getFillBuiltInDisplayCutout(Landroid/content/res/Resources;Ljava/lang/String;)Z
 
     move-result p0
 
     return p0
 .end method
 
-.method private shouldShowRoundedCorner(I)Z
-    .locals 6
+.method private shouldShowCutout(ILandroid/view/DisplayCutout;)Z
+    .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/ScreenDecorations;->hasRoundedCorners()Z
+    if-nez p2, :cond_0
 
-    move-result v0
-
-    const/4 v1, 0x0
-
-    if-nez v0, :cond_0
-
-    return v1
-
-    :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/ScreenDecorations;->getCutout()Landroid/view/DisplayCutout;
-
-    move-result-object v0
-
-    const/4 v2, 0x1
-
-    if-eqz v0, :cond_2
-
-    invoke-virtual {v0}, Landroid/view/DisplayCutout;->isBoundsEmpty()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
+    const/4 p2, 0x0
 
     goto :goto_0
 
-    :cond_1
-    move v3, v1
+    :cond_0
+    invoke-virtual {p2}, Landroid/view/DisplayCutout;->getBoundingRectsAll()[Landroid/graphics/Rect;
 
-    goto :goto_1
+    move-result-object p2
 
-    :cond_2
     :goto_0
-    move v3, v2
-
-    :goto_1
-    iget v4, p0, Lcom/android/systemui/ScreenDecorations;->mRotation:I
-
-    invoke-static {v2, v4}, Lcom/android/systemui/ScreenDecorations;->getBoundPositionFromRotation(II)I
-
-    move-result v4
-
     iget p0, p0, Lcom/android/systemui/ScreenDecorations;->mRotation:I
 
-    const/4 v5, 0x3
-
-    invoke-static {v5, p0}, Lcom/android/systemui/ScreenDecorations;->getBoundPositionFromRotation(II)I
+    invoke-static {p1, p0}, Lcom/android/systemui/ScreenDecorations;->getBoundPositionFromRotation(II)I
 
     move-result p0
 
-    if-nez v3, :cond_6
+    if-eqz p2, :cond_1
 
-    invoke-virtual {v0}, Landroid/view/DisplayCutout;->getBoundingRectsAll()[Landroid/graphics/Rect;
-
-    move-result-object v3
-
-    aget-object v3, v3, v4
-
-    invoke-virtual {v3}, Landroid/graphics/Rect;->isEmpty()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_6
-
-    invoke-virtual {v0}, Landroid/view/DisplayCutout;->getBoundingRectsAll()[Landroid/graphics/Rect;
-
-    move-result-object v0
-
-    aget-object p0, v0, p0
+    aget-object p0, p2, p0
 
     invoke-virtual {p0}, Landroid/graphics/Rect;->isEmpty()Z
 
     move-result p0
 
-    if-nez p0, :cond_3
+    if-nez p0, :cond_1
 
-    goto :goto_2
+    const/4 p0, 0x1
 
-    :cond_3
-    if-eqz p1, :cond_4
+    goto :goto_1
 
-    const/4 p0, 0x2
+    :cond_1
+    const/4 p0, 0x0
 
-    if-ne p1, p0, :cond_5
+    :goto_1
+    return p0
+.end method
 
-    :cond_4
-    move v1, v2
+.method private shouldShowPrivacyDot(ILandroid/view/DisplayCutout;)Z
+    .locals 1
 
-    :cond_5
-    return v1
+    iget-boolean v0, p0, Lcom/android/systemui/ScreenDecorations;->mIsPrivacyDotEnabled:Z
 
-    :cond_6
-    :goto_2
-    if-eq p1, v2, :cond_7
+    if-eqz v0, :cond_0
 
-    if-ne p1, v5, :cond_8
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/ScreenDecorations;->isDefaultShownOverlayPos(ILandroid/view/DisplayCutout;)Z
 
-    :cond_7
-    move v1, v2
+    move-result p0
 
-    :cond_8
-    return v1
+    if-eqz p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
+.end method
+
+.method private shouldShowRoundedCorner(ILandroid/view/DisplayCutout;)Z
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/systemui/ScreenDecorations;->hasRoundedCorners()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/ScreenDecorations;->isDefaultShownOverlayPos(ILandroid/view/DisplayCutout;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
 .end method
 
 .method private startOnScreenDecorationsThread()V
@@ -1546,6 +1864,40 @@
     move-result v0
 
     iput v0, p0, Lcom/android/systemui/ScreenDecorations;->mRotation:I
+
+    iget-object v0, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getDisplay()Landroid/view/Display;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/view/Display;->getUniqueId()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mDisplayUniqueId:Ljava/lang/String;
+
+    iget-object v1, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
+
+    invoke-static {v1, v0}, Lcom/android/systemui/ScreenDecorations;->isRoundedCornerMultipleRadius(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/android/systemui/ScreenDecorations;->mIsRoundedCornerMultipleRadius:Z
+
+    iget-object v0, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    sget v1, Lcom/android/systemui/R$bool;->config_enablePrivacyDot:I
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/android/systemui/ScreenDecorations;->mIsPrivacyDotEnabled:Z
 
     iget-object v0, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
 
@@ -1571,19 +1923,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mDisplayManager:Landroid/hardware/display/DisplayManager;
 
-    iget-object v0, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    sget v1, Lcom/android/systemui/R$bool;->config_roundedCornerMultipleRadius:I
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
-
-    move-result v0
-
-    iput-boolean v0, p0, Lcom/android/systemui/ScreenDecorations;->mIsRoundedCornerMultipleRadius:Z
+    invoke-direct {p0}, Lcom/android/systemui/ScreenDecorations;->updateRoundedCornerDrawable()V
 
     invoke-direct {p0}, Lcom/android/systemui/ScreenDecorations;->updateRoundedCornerRadii()V
 
@@ -1882,21 +2222,25 @@
 
     invoke-direct {p0}, Lcom/android/systemui/ScreenDecorations;->updateLayoutParams()V
 
+    invoke-virtual {p0}, Lcom/android/systemui/ScreenDecorations;->getCutout()Landroid/view/DisplayCutout;
+
+    move-result-object v0
+
     :goto_1
-    const/4 v0, 0x4
+    const/4 v1, 0x4
 
-    if-ge v2, v0, :cond_4
+    if-ge v2, v1, :cond_4
 
-    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mOverlays:[Landroid/view/View;
+    iget-object v1, p0, Lcom/android/systemui/ScreenDecorations;->mOverlays:[Landroid/view/View;
 
-    aget-object v0, v0, v2
+    aget-object v1, v1, v2
 
-    if-nez v0, :cond_3
+    if-nez v1, :cond_3
 
     goto :goto_2
 
     :cond_3
-    invoke-direct {p0, v2}, Lcom/android/systemui/ScreenDecorations;->updateView(I)V
+    invoke-direct {p0, v2, v0}, Lcom/android/systemui/ScreenDecorations;->updateView(ILandroid/view/DisplayCutout;)V
 
     :goto_2
     add-int/lit8 v2, v2, 0x1
@@ -1904,6 +2248,153 @@
     goto :goto_1
 
     :cond_4
+    return-void
+.end method
+
+.method private updateRoundedCornerDrawable()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
+
+    iget-object v1, p0, Lcom/android/systemui/ScreenDecorations;->mDisplayUniqueId:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/android/systemui/ScreenDecorations;->getRoundedCornerDrawable(Landroid/content/Context;Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mRoundedCornerDrawable:Landroid/graphics/drawable/Drawable;
+
+    iget-object v0, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
+
+    iget-object v1, p0, Lcom/android/systemui/ScreenDecorations;->mDisplayUniqueId:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/android/systemui/ScreenDecorations;->getRoundedCornerTopDrawable(Landroid/content/Context;Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mRoundedCornerDrawableTop:Landroid/graphics/drawable/Drawable;
+
+    iget-object v0, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
+
+    iget-object v1, p0, Lcom/android/systemui/ScreenDecorations;->mDisplayUniqueId:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/android/systemui/ScreenDecorations;->getRoundedCornerBottomDrawable(Landroid/content/Context;Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mRoundedCornerDrawableBottom:Landroid/graphics/drawable/Drawable;
+
+    invoke-direct {p0}, Lcom/android/systemui/ScreenDecorations;->updateRoundedCornerImageView()V
+
+    return-void
+.end method
+
+.method private updateRoundedCornerImageView()V
+    .locals 5
+
+    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mRoundedCornerDrawableTop:Landroid/graphics/drawable/Drawable;
+
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mRoundedCornerDrawable:Landroid/graphics/drawable/Drawable;
+
+    :goto_0
+    iget-object v1, p0, Lcom/android/systemui/ScreenDecorations;->mRoundedCornerDrawableBottom:Landroid/graphics/drawable/Drawable;
+
+    if-eqz v1, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    iget-object v1, p0, Lcom/android/systemui/ScreenDecorations;->mRoundedCornerDrawable:Landroid/graphics/drawable/Drawable;
+
+    :goto_1
+    iget-object v2, p0, Lcom/android/systemui/ScreenDecorations;->mOverlays:[Landroid/view/View;
+
+    if-nez v2, :cond_2
+
+    return-void
+
+    :cond_2
+    const/4 v2, 0x0
+
+    :goto_2
+    const/4 v3, 0x4
+
+    if-ge v2, v3, :cond_6
+
+    iget-object v3, p0, Lcom/android/systemui/ScreenDecorations;->mOverlays:[Landroid/view/View;
+
+    aget-object v4, v3, v2
+
+    if-nez v4, :cond_3
+
+    goto :goto_5
+
+    :cond_3
+    aget-object v3, v3, v2
+
+    sget v4, Lcom/android/systemui/R$id;->left:I
+
+    invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/widget/ImageView;
+
+    invoke-virtual {p0, v2, v4}, Lcom/android/systemui/ScreenDecorations;->isTopRoundedCorner(II)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    move-object v4, v0
+
+    goto :goto_3
+
+    :cond_4
+    move-object v4, v1
+
+    :goto_3
+    invoke-virtual {v3, v4}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    iget-object v3, p0, Lcom/android/systemui/ScreenDecorations;->mOverlays:[Landroid/view/View;
+
+    aget-object v3, v3, v2
+
+    sget v4, Lcom/android/systemui/R$id;->right:I
+
+    invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/widget/ImageView;
+
+    invoke-virtual {p0, v2, v4}, Lcom/android/systemui/ScreenDecorations;->isTopRoundedCorner(II)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_5
+
+    move-object v4, v0
+
+    goto :goto_4
+
+    :cond_5
+    move-object v4, v1
+
+    :goto_4
+    invoke-virtual {v3, v4}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    :goto_5
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_2
+
+    :cond_6
     return-void
 .end method
 
@@ -1916,9 +2407,9 @@
 
     move-result-object v0
 
-    const v1, 0x1050259
+    iget-object v1, p0, Lcom/android/systemui/ScreenDecorations;->mDisplayUniqueId:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-static {v0, v1}, Landroid/view/RoundedCorners;->getRoundedCornerRadius(Landroid/content/res/Resources;Ljava/lang/String;)I
 
     move-result v0
 
@@ -1928,9 +2419,9 @@
 
     move-result-object v1
 
-    const v2, 0x105025d
+    iget-object v2, p0, Lcom/android/systemui/ScreenDecorations;->mDisplayUniqueId:Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-static {v1, v2}, Landroid/view/RoundedCorners;->getRoundedCornerTopRadius(Landroid/content/res/Resources;Ljava/lang/String;)I
 
     move-result v1
 
@@ -1940,9 +2431,9 @@
 
     move-result-object v2
 
-    const v3, 0x105025b
+    iget-object v3, p0, Lcom/android/systemui/ScreenDecorations;->mDisplayUniqueId:Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-static {v2, v3}, Landroid/view/RoundedCorners;->getRoundedCornerBottomRadius(Landroid/content/res/Resources;Ljava/lang/String;)I
 
     move-result v2
 
@@ -1982,65 +2473,51 @@
 
     if-eqz v4, :cond_2
 
-    iget-object v0, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
-
-    sget v1, Lcom/android/systemui/R$drawable;->rounded:I
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/systemui/ScreenDecorations;->mRoundedDefault:Landroid/graphics/Point;
+    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mRoundedCornerDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
-    move-result v2
-
-    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
-
     move-result v0
 
-    invoke-virtual {v1, v2, v0}, Landroid/graphics/Point;->set(II)V
+    iget-object v1, p0, Lcom/android/systemui/ScreenDecorations;->mRoundedCornerDrawable:Landroid/graphics/drawable/Drawable;
 
-    iget-object v0, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
+    invoke-virtual {v1}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
-    sget v1, Lcom/android/systemui/R$drawable;->rounded_corner_top:I
+    move-result v1
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v3, v0, v1}, Landroid/graphics/Point;->set(II)V
 
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mRoundedDefaultTop:Landroid/graphics/Point;
 
-    iget-object v1, p0, Lcom/android/systemui/ScreenDecorations;->mRoundedDefaultTop:Landroid/graphics/Point;
+    iget-object v1, p0, Lcom/android/systemui/ScreenDecorations;->mRoundedCornerDrawableTop:Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
+    invoke-virtual {v1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
-    move-result v2
+    move-result v1
 
-    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
+    iget-object v2, p0, Lcom/android/systemui/ScreenDecorations;->mRoundedCornerDrawableTop:Landroid/graphics/drawable/Drawable;
 
-    move-result v0
-
-    invoke-virtual {v1, v2, v0}, Landroid/graphics/Point;->set(II)V
-
-    iget-object v0, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
-
-    sget v1, Lcom/android/systemui/R$drawable;->rounded_corner_bottom:I
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/systemui/ScreenDecorations;->mRoundedDefaultBottom:Landroid/graphics/Point;
-
-    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
+    invoke-virtual {v2}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
     move-result v2
 
-    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
+    invoke-virtual {v0, v1, v2}, Landroid/graphics/Point;->set(II)V
 
-    move-result v0
+    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mRoundedDefaultBottom:Landroid/graphics/Point;
 
-    invoke-virtual {v1, v2, v0}, Landroid/graphics/Point;->set(II)V
+    iget-object v1, p0, Lcom/android/systemui/ScreenDecorations;->mRoundedCornerDrawableBottom:Landroid/graphics/drawable/Drawable;
+
+    invoke-virtual {v1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
+
+    move-result v1
+
+    iget-object v2, p0, Lcom/android/systemui/ScreenDecorations;->mRoundedCornerDrawableBottom:Landroid/graphics/drawable/Drawable;
+
+    invoke-virtual {v2}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
+
+    move-result v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/graphics/Point;->set(II)V
 
     goto :goto_2
 
@@ -2058,7 +2535,7 @@
     :goto_2
     const/4 v0, 0x0
 
-    const-string/jumbo v1, "sysui_rounded_size"
+    const-string v1, "sysui_rounded_size"
 
     invoke-virtual {p0, v1, v0}, Lcom/android/systemui/ScreenDecorations;->onTuningChanged(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -2067,7 +2544,7 @@
 .end method
 
 .method private updateRoundedCornerSize(Landroid/graphics/Point;Landroid/graphics/Point;Landroid/graphics/Point;)V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mOverlays:[Landroid/view/View;
 
@@ -2098,7 +2575,7 @@
     :goto_1
     const/4 v0, 0x4
 
-    if-ge p3, v0, :cond_9
+    if-ge p3, v0, :cond_6
 
     iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mOverlays:[Landroid/view/View;
 
@@ -2106,33 +2583,32 @@
 
     if-nez v1, :cond_3
 
-    goto/16 :goto_3
+    goto :goto_4
 
     :cond_3
-    const/4 v1, 0x3
+    aget-object v0, v0, p3
 
-    if-eqz p3, :cond_6
+    sget v1, Lcom/android/systemui/R$id;->left:I
 
-    const/4 v2, 0x2
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    if-ne p3, v2, :cond_4
+    move-result-object v0
+
+    invoke-virtual {p0, p3, v1}, Lcom/android/systemui/ScreenDecorations;->isTopRoundedCorner(II)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    move-object v1, p2
 
     goto :goto_2
 
     :cond_4
-    const/4 v2, 0x1
+    move-object v1, p1
 
-    if-ne p3, v2, :cond_5
-
-    aget-object v0, v0, p3
-
-    sget v1, Lcom/android/systemui/R$id;->left:I
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0, p2}, Lcom/android/systemui/ScreenDecorations;->setSize(Landroid/view/View;Landroid/graphics/Point;)V
+    :goto_2
+    invoke-virtual {p0, v0, v1}, Lcom/android/systemui/ScreenDecorations;->setSize(Landroid/view/View;Landroid/graphics/Point;)V
 
     iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mOverlays:[Landroid/view/View;
 
@@ -2144,102 +2620,33 @@
 
     move-result-object v0
 
-    invoke-virtual {p0, v0, p2}, Lcom/android/systemui/ScreenDecorations;->setSize(Landroid/view/View;Landroid/graphics/Point;)V
+    invoke-virtual {p0, p3, v1}, Lcom/android/systemui/ScreenDecorations;->isTopRoundedCorner(II)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    move-object v1, p2
 
     goto :goto_3
 
     :cond_5
-    if-ne p3, v1, :cond_8
+    move-object v1, p1
 
-    aget-object v0, v0, p3
-
-    sget v1, Lcom/android/systemui/R$id;->left:I
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0, p1}, Lcom/android/systemui/ScreenDecorations;->setSize(Landroid/view/View;Landroid/graphics/Point;)V
-
-    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mOverlays:[Landroid/view/View;
-
-    aget-object v0, v0, p3
-
-    sget v1, Lcom/android/systemui/R$id;->right:I
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0, p1}, Lcom/android/systemui/ScreenDecorations;->setSize(Landroid/view/View;Landroid/graphics/Point;)V
-
-    goto :goto_3
-
-    :cond_6
-    :goto_2
-    iget v2, p0, Lcom/android/systemui/ScreenDecorations;->mRotation:I
-
-    if-ne v2, v1, :cond_7
-
-    aget-object v0, v0, p3
-
-    sget v1, Lcom/android/systemui/R$id;->left:I
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0, p1}, Lcom/android/systemui/ScreenDecorations;->setSize(Landroid/view/View;Landroid/graphics/Point;)V
-
-    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mOverlays:[Landroid/view/View;
-
-    aget-object v0, v0, p3
-
-    sget v1, Lcom/android/systemui/R$id;->right:I
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0, p2}, Lcom/android/systemui/ScreenDecorations;->setSize(Landroid/view/View;Landroid/graphics/Point;)V
-
-    goto :goto_3
-
-    :cond_7
-    aget-object v0, v0, p3
-
-    sget v1, Lcom/android/systemui/R$id;->left:I
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0, p2}, Lcom/android/systemui/ScreenDecorations;->setSize(Landroid/view/View;Landroid/graphics/Point;)V
-
-    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mOverlays:[Landroid/view/View;
-
-    aget-object v0, v0, p3
-
-    sget v1, Lcom/android/systemui/R$id;->right:I
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0, p1}, Lcom/android/systemui/ScreenDecorations;->setSize(Landroid/view/View;Landroid/graphics/Point;)V
-
-    :cond_8
     :goto_3
+    invoke-virtual {p0, v0, v1}, Lcom/android/systemui/ScreenDecorations;->setSize(Landroid/view/View;Landroid/graphics/Point;)V
+
+    :goto_4
     add-int/lit8 p3, p3, 0x1
 
-    goto/16 :goto_1
+    goto :goto_1
 
-    :cond_9
+    :cond_6
     return-void
 .end method
 
-.method private updateRoundedCornerView(II)V
-    .locals 3
+.method private updateRoundedCornerView(IILandroid/view/DisplayCutout;)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mOverlays:[Landroid/view/View;
 
@@ -2258,24 +2665,24 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/ScreenDecorations;->shouldShowRoundedCorner(I)Z
+    invoke-direct {p0, p1, p3}, Lcom/android/systemui/ScreenDecorations;->shouldShowRoundedCorner(ILandroid/view/DisplayCutout;)Z
 
-    move-result v1
+    move-result p3
 
-    if-eqz v1, :cond_2
+    if-eqz p3, :cond_2
 
-    sget v1, Lcom/android/systemui/R$id;->left:I
+    sget p3, Lcom/android/systemui/R$id;->left:I
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    if-ne p2, v1, :cond_1
+    if-ne p2, p3, :cond_1
 
     const/4 p2, 0x1
 
     goto :goto_0
 
     :cond_1
-    move p2, v2
+    move p2, v1
 
     :goto_0
     invoke-direct {p0, p1, p2}, Lcom/android/systemui/ScreenDecorations;->getRoundedCornerGravity(IZ)I
@@ -2292,54 +2699,14 @@
 
     invoke-direct {p0, v0, p1}, Lcom/android/systemui/ScreenDecorations;->setRoundedCornerOrientation(Landroid/view/View;I)V
 
-    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     :cond_2
     return-void
 .end method
 
-.method private updateStatusBarHeight()V
+.method private updateView(ILandroid/view/DisplayCutout;)V
     .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x1050277
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/ScreenDecorations;->mStatusBarHeightLandscape:I
-
-    iget-object v0, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x1050278
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/ScreenDecorations;->mStatusBarHeightPortrait:I
-
-    iget-object v1, p0, Lcom/android/systemui/ScreenDecorations;->mDotViewController:Lcom/android/systemui/statusbar/events/PrivacyDotViewController;
-
-    iget p0, p0, Lcom/android/systemui/ScreenDecorations;->mStatusBarHeightLandscape:I
-
-    invoke-virtual {v1, v0, p0}, Lcom/android/systemui/statusbar/events/PrivacyDotViewController;->setStatusBarHeights(II)V
-
-    return-void
-.end method
-
-.method private updateView(I)V
-    .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mOverlays:[Landroid/view/View;
 
@@ -2354,29 +2721,31 @@
     :cond_0
     sget v0, Lcom/android/systemui/R$id;->left:I
 
-    invoke-direct {p0, p1, v0}, Lcom/android/systemui/ScreenDecorations;->updateRoundedCornerView(II)V
+    invoke-direct {p0, p1, v0, p2}, Lcom/android/systemui/ScreenDecorations;->updateRoundedCornerView(IILandroid/view/DisplayCutout;)V
 
     sget v0, Lcom/android/systemui/R$id;->right:I
 
-    invoke-direct {p0, p1, v0}, Lcom/android/systemui/ScreenDecorations;->updateRoundedCornerView(II)V
+    invoke-direct {p0, p1, v0, p2}, Lcom/android/systemui/ScreenDecorations;->updateRoundedCornerView(IILandroid/view/DisplayCutout;)V
 
-    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mRoundedDefault:Landroid/graphics/Point;
+    iget-object p2, p0, Lcom/android/systemui/ScreenDecorations;->mRoundedDefault:Landroid/graphics/Point;
 
-    iget-object v1, p0, Lcom/android/systemui/ScreenDecorations;->mRoundedDefaultTop:Landroid/graphics/Point;
+    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mRoundedDefaultTop:Landroid/graphics/Point;
 
-    iget-object v2, p0, Lcom/android/systemui/ScreenDecorations;->mRoundedDefaultBottom:Landroid/graphics/Point;
+    iget-object v1, p0, Lcom/android/systemui/ScreenDecorations;->mRoundedDefaultBottom:Landroid/graphics/Point;
 
-    invoke-direct {p0, v0, v1, v2}, Lcom/android/systemui/ScreenDecorations;->updateRoundedCornerSize(Landroid/graphics/Point;Landroid/graphics/Point;Landroid/graphics/Point;)V
+    invoke-direct {p0, p2, v0, v1}, Lcom/android/systemui/ScreenDecorations;->updateRoundedCornerSize(Landroid/graphics/Point;Landroid/graphics/Point;Landroid/graphics/Point;)V
 
-    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mCutoutViews:[Lcom/android/systemui/ScreenDecorations$DisplayCutoutView;
+    invoke-direct {p0}, Lcom/android/systemui/ScreenDecorations;->updateRoundedCornerImageView()V
+
+    iget-object p2, p0, Lcom/android/systemui/ScreenDecorations;->mCutoutViews:[Lcom/android/systemui/ScreenDecorations$DisplayCutoutView;
+
+    if-eqz p2, :cond_1
+
+    aget-object v0, p2, p1
 
     if-eqz v0, :cond_1
 
-    aget-object v1, v0, p1
-
-    if-eqz v1, :cond_1
-
-    aget-object p1, v0, p1
+    aget-object p1, p2, p1
 
     iget p0, p0, Lcom/android/systemui/ScreenDecorations;->mRotation:I
 
@@ -2431,6 +2800,12 @@
     iget v0, v6, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
     or-int/lit8 v0, v0, 0x50
+
+    iput v0, v6, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+
+    const/high16 v1, 0x20000000
+
+    or-int/2addr v0, v1
 
     iput v0, v6, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
@@ -2515,6 +2890,67 @@
 
     iput-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mOverlays:[Landroid/view/View;
 
+    return v1
+.end method
+
+.method isTopRoundedCorner(II)Z
+    .locals 4
+
+    const/4 v0, 0x3
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x1
+
+    if-eqz p1, :cond_2
+
+    if-eq p1, v2, :cond_1
+
+    const/4 v3, 0x2
+
+    if-eq p1, v3, :cond_2
+
+    if-ne p1, v0, :cond_0
+
+    return v1
+
+    :cond_0
+    new-instance p0, Ljava/lang/IllegalArgumentException;
+
+    const-string p1, "Unknown bounds position"
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :cond_1
+    return v2
+
+    :cond_2
+    iget p0, p0, Lcom/android/systemui/ScreenDecorations;->mRotation:I
+
+    if-ne p0, v0, :cond_4
+
+    sget p0, Lcom/android/systemui/R$id;->left:I
+
+    if-ne p2, p0, :cond_3
+
+    goto :goto_0
+
+    :cond_3
+    move v1, v2
+
+    :goto_0
+    return v1
+
+    :cond_4
+    sget p0, Lcom/android/systemui/R$id;->left:I
+
+    if-ne p2, p0, :cond_5
+
+    move v1, v2
+
+    :cond_5
     return v1
 .end method
 

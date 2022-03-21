@@ -39,22 +39,6 @@
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$3;->this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
 
-    invoke-static {p0}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->access$1800(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)Landroid/view/View;
-
-    move-result-object p0
-
-    check-cast p0, Lcom/android/systemui/biometrics/UdfpsKeyguardView;
-
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/UdfpsKeyguardView;->updateColor()V
-
-    return-void
-.end method
-
-.method public onOverlayChanged()V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$3;->this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
-
     invoke-static {p0}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->access$1700(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)Landroid/view/View;
 
     move-result-object p0

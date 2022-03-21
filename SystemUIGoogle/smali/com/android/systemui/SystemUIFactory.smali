@@ -428,6 +428,16 @@
 
     iget-object p2, p0, Lcom/android/systemui/SystemUIFactory;->mWMComponent:Lcom/android/systemui/dagger/WMComponent;
 
+    invoke-interface {p2}, Lcom/android/systemui/dagger/WMComponent;->getDisplayAreaHelper()Ljava/util/Optional;
+
+    move-result-object p2
+
+    invoke-interface {p1, p2}, Lcom/android/systemui/dagger/SysUIComponent$Builder;->setDisplayAreaHelper(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+
+    move-result-object p1
+
+    iget-object p2, p0, Lcom/android/systemui/SystemUIFactory;->mWMComponent:Lcom/android/systemui/dagger/WMComponent;
+
     invoke-interface {p2}, Lcom/android/systemui/dagger/WMComponent;->getTaskSurfaceHelper()Ljava/util/Optional;
 
     move-result-object p2
@@ -436,7 +446,45 @@
 
     move-result-object p1
 
-    goto :goto_1
+    iget-object p2, p0, Lcom/android/systemui/SystemUIFactory;->mWMComponent:Lcom/android/systemui/dagger/WMComponent;
+
+    invoke-interface {p2}, Lcom/android/systemui/dagger/WMComponent;->getRecentTasks()Ljava/util/Optional;
+
+    move-result-object p2
+
+    invoke-interface {p1, p2}, Lcom/android/systemui/dagger/SysUIComponent$Builder;->setRecentTasks(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+
+    move-result-object p1
+
+    iget-object p2, p0, Lcom/android/systemui/SystemUIFactory;->mWMComponent:Lcom/android/systemui/dagger/WMComponent;
+
+    invoke-interface {p2}, Lcom/android/systemui/dagger/WMComponent;->getCompatUI()Lcom/android/wm/shell/compatui/CompatUI;
+
+    move-result-object p2
+
+    invoke-static {p2}, Ljava/util/Optional;->of(Ljava/lang/Object;)Ljava/util/Optional;
+
+    move-result-object p2
+
+    invoke-interface {p1, p2}, Lcom/android/systemui/dagger/SysUIComponent$Builder;->setCompatUI(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+
+    move-result-object p1
+
+    iget-object p2, p0, Lcom/android/systemui/SystemUIFactory;->mWMComponent:Lcom/android/systemui/dagger/WMComponent;
+
+    invoke-interface {p2}, Lcom/android/systemui/dagger/WMComponent;->getDragAndDrop()Lcom/android/wm/shell/draganddrop/DragAndDrop;
+
+    move-result-object p2
+
+    invoke-static {p2}, Ljava/util/Optional;->of(Ljava/lang/Object;)Ljava/util/Optional;
+
+    move-result-object p2
+
+    invoke-interface {p1, p2}, Lcom/android/systemui/dagger/SysUIComponent$Builder;->setDragAndDrop(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+
+    move-result-object p1
+
+    goto/16 :goto_1
 
     :cond_2
     iget-object p2, p0, Lcom/android/systemui/SystemUIFactory;->mWMComponent:Lcom/android/systemui/dagger/WMComponent;
@@ -519,11 +567,19 @@
 
     move-result-object p1
 
-    invoke-static {}, Lcom/android/wm/shell/transition/Transitions;->createEmptyForTesting()Lcom/android/wm/shell/transition/ShellTransitions;
+    new-instance v0, Lcom/android/systemui/SystemUIFactory$1;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/SystemUIFactory$1;-><init>(Lcom/android/systemui/SystemUIFactory;)V
+
+    invoke-interface {p1, v0}, Lcom/android/systemui/dagger/SysUIComponent$Builder;->setTransitions(Lcom/android/wm/shell/transition/ShellTransitions;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+
+    move-result-object p1
+
+    invoke-static {p2}, Ljava/util/Optional;->ofNullable(Ljava/lang/Object;)Ljava/util/Optional;
 
     move-result-object v0
 
-    invoke-interface {p1, v0}, Lcom/android/systemui/dagger/SysUIComponent$Builder;->setTransitions(Lcom/android/wm/shell/transition/ShellTransitions;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+    invoke-interface {p1, v0}, Lcom/android/systemui/dagger/SysUIComponent$Builder;->setDisplayAreaHelper(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
 
     move-result-object p1
 
@@ -537,9 +593,33 @@
 
     invoke-static {p2}, Ljava/util/Optional;->ofNullable(Ljava/lang/Object;)Ljava/util/Optional;
 
+    move-result-object v0
+
+    invoke-interface {p1, v0}, Lcom/android/systemui/dagger/SysUIComponent$Builder;->setTaskSurfaceHelper(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+
+    move-result-object p1
+
+    invoke-static {p2}, Ljava/util/Optional;->ofNullable(Ljava/lang/Object;)Ljava/util/Optional;
+
+    move-result-object v0
+
+    invoke-interface {p1, v0}, Lcom/android/systemui/dagger/SysUIComponent$Builder;->setRecentTasks(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+
+    move-result-object p1
+
+    invoke-static {p2}, Ljava/util/Optional;->ofNullable(Ljava/lang/Object;)Ljava/util/Optional;
+
+    move-result-object v0
+
+    invoke-interface {p1, v0}, Lcom/android/systemui/dagger/SysUIComponent$Builder;->setCompatUI(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+
+    move-result-object p1
+
+    invoke-static {p2}, Ljava/util/Optional;->ofNullable(Ljava/lang/Object;)Ljava/util/Optional;
+
     move-result-object p2
 
-    invoke-interface {p1, p2}, Lcom/android/systemui/dagger/SysUIComponent$Builder;->setTaskSurfaceHelper(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+    invoke-interface {p1, p2}, Lcom/android/systemui/dagger/SysUIComponent$Builder;->setDragAndDrop(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
 
     move-result-object p1
 

@@ -15,6 +15,14 @@
 
 
 # virtual methods
+.method public abstract disable(IIIZ)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract onActiveNavBarRegionChanges(Landroid/graphics/Region;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -47,7 +55,7 @@
     .end annotation
 .end method
 
-.method public abstract onImeWindowStatusChanged(ILandroid/os/IBinder;IIZ)V
+.method public abstract onInitialize(Landroid/os/Bundle;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -55,7 +63,7 @@
     .end annotation
 .end method
 
-.method public abstract onInitialize(Landroid/os/Bundle;)V
+.method public abstract onNavButtonsDarkIntensityChanged(F)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -87,7 +95,31 @@
     .end annotation
 .end method
 
+.method public abstract onRotationProposal(IZ)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract onScreenTurnedOn()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract onSplitScreenSecondaryBoundsChanged(Landroid/graphics/Rect;Landroid/graphics/Rect;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract onSystemBarAttributesChanged(II)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

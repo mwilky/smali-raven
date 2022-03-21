@@ -17,7 +17,7 @@
 
     const-string v2, "o"
 
-    const-string/jumbo v3, "tr"
+    const-string v3, "tr"
 
     const-string v4, "hd"
 

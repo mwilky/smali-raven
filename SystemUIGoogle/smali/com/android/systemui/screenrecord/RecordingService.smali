@@ -17,11 +17,7 @@
 
 .field private final mNotificationManager:Landroid/app/NotificationManager;
 
-.field private mOriginalShowTaps:Z
-
 .field private mRecorder:Lcom/android/systemui/screenrecord/ScreenMediaRecorder;
-
-.field private mShowTaps:Z
 
 .field private final mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
@@ -109,7 +105,7 @@
     return-object p0
 .end method
 
-.method public static getStartIntent(Landroid/content/Context;IIZ)Landroid/content/Intent;
+.method public static getStartIntent(Landroid/content/Context;II)Landroid/content/Intent;
     .locals 2
 
     new-instance v0, Landroid/content/Intent;
@@ -133,12 +129,6 @@
     const-string p1, "extra_useAudio"
 
     invoke-virtual {p0, p1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    move-result-object p0
-
-    const-string p1, "extra_showTaps"
-
-    invoke-virtual {p0, p1, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     move-result-object p0
 
@@ -340,20 +330,6 @@
     return-void
 .end method
 
-.method private setTapsVisible(Z)V
-    .locals 1
-
-    invoke-virtual {p0}, Landroid/app/Service;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object p0
-
-    const-string v0, "show_touches"
-
-    invoke-static {p0, v0, p1}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
-
-    return-void
-.end method
-
 .method private startRecording()Z
     .locals 2
 
@@ -388,10 +364,6 @@
 
 .method private stopRecording(I)V
     .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/screenrecord/RecordingService;->mOriginalShowTaps:Z
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/screenrecord/RecordingService;->setTapsVisible(Z)V
 
     invoke-virtual {p0}, Lcom/android/systemui/screenrecord/RecordingService;->getRecorder()Lcom/android/systemui/screenrecord/ScreenMediaRecorder;
 
@@ -1185,7 +1157,7 @@
     :goto_1
     packed-switch v3, :pswitch_data_0
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
     :pswitch_0
     invoke-virtual {v4, p3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -1255,7 +1227,7 @@
 
     invoke-virtual {p0}, Landroid/app/Service;->stopSelf()V
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
     :pswitch_1
     invoke-static {}, Lcom/android/systemui/screenrecord/ScreenRecordingAudioSource;->values()[Lcom/android/systemui/screenrecord/ScreenRecordingAudioSource;
@@ -1266,67 +1238,29 @@
 
     invoke-virtual {p1, v2, v7}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v2
-
-    aget-object p3, p3, v2
-
-    iput-object p3, p0, Lcom/android/systemui/screenrecord/RecordingService;->mAudioSource:Lcom/android/systemui/screenrecord/ScreenRecordingAudioSource;
-
-    new-instance p3, Ljava/lang/StringBuilder;
-
-    invoke-direct {p3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "recording with audio source"
-
-    invoke-virtual {p3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v2, p0, Lcom/android/systemui/screenrecord/RecordingService;->mAudioSource:Lcom/android/systemui/screenrecord/ScreenRecordingAudioSource;
-
-    invoke-virtual {p3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p3
-
-    invoke-static {v1, p3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string p3, "extra_showTaps"
-
-    invoke-virtual {p1, p3, v7}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
     move-result p1
 
-    iput-boolean p1, p0, Lcom/android/systemui/screenrecord/RecordingService;->mShowTaps:Z
+    aget-object p1, p3, p1
 
-    invoke-virtual {p0}, Landroid/app/Service;->getApplicationContext()Landroid/content/Context;
+    iput-object p1, p0, Lcom/android/systemui/screenrecord/RecordingService;->mAudioSource:Lcom/android/systemui/screenrecord/ScreenRecordingAudioSource;
+
+    new-instance p1, Ljava/lang/StringBuilder;
+
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string p3, "recording with audio source"
+
+    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object p3, p0, Lcom/android/systemui/screenrecord/RecordingService;->mAudioSource:Lcom/android/systemui/screenrecord/ScreenRecordingAudioSource;
+
+    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
-    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object p1
-
-    const-string p3, "show_touches"
-
-    invoke-static {p1, p3, v7}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result p1
-
-    if-eqz p1, :cond_7
-
-    move p1, v6
-
-    goto :goto_3
-
-    :cond_7
-    move p1, v7
-
-    :goto_3
-    iput-boolean p1, p0, Lcom/android/systemui/screenrecord/RecordingService;->mOriginalShowTaps:Z
-
-    iget-boolean p1, p0, Lcom/android/systemui/screenrecord/RecordingService;->mShowTaps:Z
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/screenrecord/RecordingService;->setTapsVisible(Z)V
+    invoke-static {v1, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     new-instance p1, Lcom/android/systemui/screenrecord/ScreenMediaRecorder;
 
@@ -1346,7 +1280,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_7
 
     invoke-direct {p0, v6}, Lcom/android/systemui/screenrecord/RecordingService;->updateState(Z)V
 
@@ -1358,9 +1292,9 @@
 
     invoke-interface {p0, p1}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
 
-    goto :goto_4
+    goto :goto_3
 
-    :cond_8
+    :cond_7
     invoke-direct {p0, v7}, Lcom/android/systemui/screenrecord/RecordingService;->updateState(Z)V
 
     invoke-virtual {p0}, Lcom/android/systemui/screenrecord/RecordingService;->createErrorNotification()V
@@ -1416,7 +1350,7 @@
 
     invoke-virtual {p0, p1}, Landroid/app/Service;->sendBroadcast(Landroid/content/Intent;)V
 
-    :goto_4
+    :goto_3
     return v6
 
     nop

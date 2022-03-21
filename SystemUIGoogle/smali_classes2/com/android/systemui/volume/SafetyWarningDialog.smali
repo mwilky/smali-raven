@@ -62,7 +62,7 @@
 
     move-result-object v0
 
-    const v1, 0x1110123
+    const v1, 0x1110127
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -90,7 +90,7 @@
 
     iget-object p2, p0, Lcom/android/systemui/volume/SafetyWarningDialog;->mContext:Landroid/content/Context;
 
-    const v0, 0x10407a2
+    const v0, 0x10407a7
 
     invoke-virtual {p2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

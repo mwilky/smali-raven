@@ -56,17 +56,7 @@
     return-void
 .end method
 
-
-# virtual methods
-.method public getKey()Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/SecureSetting;->mSettingName:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method public getValue()I
+.method private getValueFromProvider()I
     .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/qs/SecureSetting;->mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
@@ -84,13 +74,43 @@
     return p0
 .end method
 
+
+# virtual methods
+.method public getKey()Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/qs/SecureSetting;->mSettingName:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method public getValue()I
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/qs/SecureSetting;->mListening:Z
+
+    if-eqz v0, :cond_0
+
+    iget p0, p0, Lcom/android/systemui/qs/SecureSetting;->mObservedValue:I
+
+    goto :goto_0
+
+    :cond_0
+    invoke-direct {p0}, Lcom/android/systemui/qs/SecureSetting;->getValueFromProvider()I
+
+    move-result p0
+
+    :goto_0
+    return p0
+.end method
+
 .method protected abstract handleValueChanged(IZ)V
 .end method
 
 .method public onChange(Z)V
     .locals 1
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/SecureSetting;->getValue()I
+    invoke-direct {p0}, Lcom/android/systemui/qs/SecureSetting;->getValueFromProvider()I
 
     move-result p1
 
@@ -106,9 +126,9 @@
     const/4 v0, 0x0
 
     :goto_0
-    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/qs/SecureSetting;->handleValueChanged(IZ)V
-
     iput p1, p0, Lcom/android/systemui/qs/SecureSetting;->mObservedValue:I
+
+    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/qs/SecureSetting;->handleValueChanged(IZ)V
 
     return-void
 .end method
@@ -127,7 +147,7 @@
 
     if-eqz p1, :cond_1
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/SecureSetting;->getValue()I
+    invoke-direct {p0}, Lcom/android/systemui/qs/SecureSetting;->getValueFromProvider()I
 
     move-result p1
 

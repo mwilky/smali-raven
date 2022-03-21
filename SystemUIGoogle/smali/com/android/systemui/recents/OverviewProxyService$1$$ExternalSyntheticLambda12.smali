@@ -5,27 +5,21 @@
 .implements Ljava/lang/Runnable;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda12;
+# instance fields
+.field public final synthetic f$0:Lcom/android/systemui/recents/OverviewProxyService$1;
+
+.field public final synthetic f$1:Landroid/view/MotionEvent;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda12;
-
-    invoke-direct {v0}, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda12;-><init>()V
-
-    sput-object v0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda12;->INSTANCE:Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda12;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Lcom/android/systemui/recents/OverviewProxyService$1;Landroid/view/MotionEvent;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda12;->f$0:Lcom/android/systemui/recents/OverviewProxyService$1;
+
+    iput-object p2, p0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda12;->f$1:Landroid/view/MotionEvent;
 
     return-void
 .end method
@@ -33,9 +27,13 @@
 
 # virtual methods
 .method public final run()V
-    .locals 0
+    .locals 1
 
-    invoke-static {}, Lcom/android/systemui/recents/OverviewProxyService$1;->$r8$lambda$4jFp4JwEtAwnpqQGpgOJ6jEKebM()V
+    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda12;->f$0:Lcom/android/systemui/recents/OverviewProxyService$1;
+
+    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$1$$ExternalSyntheticLambda12;->f$1:Landroid/view/MotionEvent;
+
+    invoke-static {v0, p0}, Lcom/android/systemui/recents/OverviewProxyService$1;->$r8$lambda$MYtnpxfI0IaHwV2wCHDJcLlCmWg(Lcom/android/systemui/recents/OverviewProxyService$1;Landroid/view/MotionEvent;)V
 
     return-void
 .end method

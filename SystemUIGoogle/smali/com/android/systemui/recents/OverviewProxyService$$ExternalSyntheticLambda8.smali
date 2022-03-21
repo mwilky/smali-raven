@@ -27,9 +27,9 @@
 
     iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda8;->f$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    check-cast p1, Ldagger/Lazy;
+    check-cast p1, Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService;->$r8$lambda$p-CmI7KzEPqQWtwJ1fqq6-JsER0(Lcom/android/systemui/recents/OverviewProxyService;Ldagger/Lazy;)V
+    invoke-static {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService;->$r8$lambda$E2kpKu45zlhkn_A2qdV6zeoFrl0(Lcom/android/systemui/recents/OverviewProxyService;Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)V
 
     return-void
 .end method

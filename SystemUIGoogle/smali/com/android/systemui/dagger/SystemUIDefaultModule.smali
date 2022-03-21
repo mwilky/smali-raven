@@ -4,6 +4,14 @@
 
 
 # direct methods
+.method static bindDeviceProvisionedController(Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl;)Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl;->init()V
+
+    return-object p0
+.end method
+
 .method static provideAllowNotificationLongPress()Z
     .locals 1
 

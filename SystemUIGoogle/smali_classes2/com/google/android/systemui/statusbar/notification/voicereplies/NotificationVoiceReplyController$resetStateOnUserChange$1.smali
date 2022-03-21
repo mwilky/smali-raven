@@ -17,7 +17,7 @@
     c = "com.google.android.systemui.statusbar.notification.voicereplies.NotificationVoiceReplyController"
     f = "NotificationVoiceReplyManager.kt"
     l = {
-        0x3f9
+        0x494
     }
     m = "resetStateOnUserChange"
 .end annotation

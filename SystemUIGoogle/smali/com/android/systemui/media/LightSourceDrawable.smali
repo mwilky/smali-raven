@@ -378,7 +378,7 @@
 .method public applyTheme(Landroid/content/res/Resources$Theme;)V
     .locals 2
 
-    const-string/jumbo v0, "t"
+    const-string v0, "t"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 

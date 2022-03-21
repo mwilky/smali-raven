@@ -17,9 +17,16 @@
 # instance fields
 .field private mController:Lcom/android/wm/shell/startingsurface/StartingWindowController;
 
-.field private mListener:Lcom/android/wm/shell/startingsurface/IStartingWindowListener;
-
-.field private final mListenerDeathRecipient:Landroid/os/IBinder$DeathRecipient;
+.field private mListener:Lcom/android/wm/shell/common/SingleInstanceRemoteListener;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/android/wm/shell/common/SingleInstanceRemoteListener<",
+            "Lcom/android/wm/shell/startingsurface/StartingWindowController;",
+            "Lcom/android/wm/shell/startingsurface/IStartingWindowListener;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field private final mStartingWindowListener:Lcom/android/internal/util/function/TriConsumer;
     .annotation system Ldalvik/annotation/Signature;
@@ -35,24 +42,48 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$M0ZyrR71XJ_pY5MIJcwJvru-qoI(Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;Lcom/android/wm/shell/startingsurface/IStartingWindowListener;Lcom/android/wm/shell/startingsurface/StartingWindowController;)V
+.method public static synthetic $r8$lambda$LzVM6rSG6eAqahF95oNYoLqyRiQ(Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;Lcom/android/wm/shell/startingsurface/IStartingWindowListener;Lcom/android/wm/shell/startingsurface/StartingWindowController;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;->lambda$setStartingWindowListener$0(Lcom/android/wm/shell/startingsurface/IStartingWindowListener;Lcom/android/wm/shell/startingsurface/StartingWindowController;)V
+    invoke-direct {p0, p1, p2}, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;->lambda$setStartingWindowListener$4(Lcom/android/wm/shell/startingsurface/IStartingWindowListener;Lcom/android/wm/shell/startingsurface/StartingWindowController;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$jVH2QBIzzn-s-uZNfXvXt3o4NtM(Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;III)V
+.method public static synthetic $r8$lambda$YRTaK5zpGAJ3Ow1bZzysIA2is2k(Lcom/android/wm/shell/startingsurface/StartingWindowController;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;->notifyIStartingWindowListener(III)V
+    invoke-static {p0}, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;->lambda$new$3(Lcom/android/wm/shell/startingsurface/StartingWindowController;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$Zwvnb-x0BWUfttGVSiFEKxXio7Q(Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;Lcom/android/wm/shell/startingsurface/IStartingWindowListener;)V
+    .locals 0
+
+    invoke-static {p0, p1, p2, p3}, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;->lambda$new$0(Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;Lcom/android/wm/shell/startingsurface/IStartingWindowListener;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$kICdxrFA6kVoZkm-4CbcTPP42FA(Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;Lcom/android/wm/shell/startingsurface/StartingWindowController;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;->lambda$new$2(Lcom/android/wm/shell/startingsurface/StartingWindowController;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$vgfvXGsDiAfm0Ukp3nI_QN4USpA(Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;->lambda$new$1(Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;)V
 
     return-void
 .end method
 
 .method public constructor <init>(Lcom/android/wm/shell/startingsurface/StartingWindowController;)V
-    .locals 1
+    .locals 3
 
     invoke-direct {p0}, Lcom/android/wm/shell/startingsurface/IStartingWindow$Stub;-><init>()V
 
@@ -62,115 +93,97 @@
 
     iput-object v0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;->mStartingWindowListener:Lcom/android/internal/util/function/TriConsumer;
 
-    new-instance v0, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl$1;
-
-    invoke-direct {v0, p0}, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl$1;-><init>(Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;)V
-
-    iput-object v0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;->mListenerDeathRecipient:Landroid/os/IBinder$DeathRecipient;
-
     iput-object p1, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;->mController:Lcom/android/wm/shell/startingsurface/StartingWindowController;
 
+    new-instance v0, Lcom/android/wm/shell/common/SingleInstanceRemoteListener;
+
+    new-instance v1, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl$$ExternalSyntheticLambda2;
+
+    invoke-direct {v1, p0}, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl$$ExternalSyntheticLambda2;-><init>(Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;)V
+
+    sget-object v2, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl$$ExternalSyntheticLambda4;->INSTANCE:Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl$$ExternalSyntheticLambda4;
+
+    invoke-direct {v0, p1, v1, v2}, Lcom/android/wm/shell/common/SingleInstanceRemoteListener;-><init>(Lcom/android/wm/shell/common/RemoteCallable;Ljava/util/function/Consumer;Ljava/util/function/Consumer;)V
+
+    iput-object v0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;->mListener:Lcom/android/wm/shell/common/SingleInstanceRemoteListener;
+
+    return-void
+.end method
+
+.method private static synthetic lambda$new$0(Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;Lcom/android/wm/shell/startingsurface/IStartingWindowListener;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Ljava/lang/Integer;->intValue()I
+
+    move-result p0
+
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
+
+    move-result p1
+
+    invoke-virtual {p2}, Ljava/lang/Integer;->intValue()I
+
+    move-result p2
+
+    invoke-interface {p3, p0, p1, p2}, Lcom/android/wm/shell/startingsurface/IStartingWindowListener;->onTaskLaunching(III)V
+
     return-void
 .end method
 
-.method static synthetic access$300(Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;)Lcom/android/wm/shell/startingsurface/StartingWindowController;
-    .locals 0
+.method private synthetic lambda$new$1(Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;)V
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;->mController:Lcom/android/wm/shell/startingsurface/StartingWindowController;
+    iget-object p0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;->mListener:Lcom/android/wm/shell/common/SingleInstanceRemoteListener;
 
-    return-object p0
-.end method
+    new-instance v0, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl$$ExternalSyntheticLambda1;
 
-.method static synthetic access$402(Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;Lcom/android/wm/shell/startingsurface/IStartingWindowListener;)Lcom/android/wm/shell/startingsurface/IStartingWindowListener;
-    .locals 0
+    invoke-direct {v0, p1, p2, p3}, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl$$ExternalSyntheticLambda1;-><init>(Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;)V
 
-    iput-object p1, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;->mListener:Lcom/android/wm/shell/startingsurface/IStartingWindowListener;
-
-    return-object p1
-.end method
-
-.method private synthetic lambda$setStartingWindowListener$0(Lcom/android/wm/shell/startingsurface/IStartingWindowListener;Lcom/android/wm/shell/startingsurface/StartingWindowController;)V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;->mListener:Lcom/android/wm/shell/startingsurface/IStartingWindowListener;
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {v0}, Landroid/os/IInterface;->asBinder()Landroid/os/IBinder;
-
-    move-result-object v0
-
-    iget-object v2, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;->mListenerDeathRecipient:Landroid/os/IBinder$DeathRecipient;
-
-    invoke-interface {v0, v2, v1}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
-
-    :cond_0
-    if-eqz p1, :cond_1
-
-    :try_start_0
-    invoke-interface {p1}, Landroid/os/IInterface;->asBinder()Landroid/os/IBinder;
-
-    move-result-object v0
-
-    iget-object v2, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;->mListenerDeathRecipient:Landroid/os/IBinder$DeathRecipient;
-
-    invoke-interface {v0, v2, v1}, Landroid/os/IBinder;->linkToDeath(Landroid/os/IBinder$DeathRecipient;I)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    invoke-static {}, Lcom/android/wm/shell/startingsurface/StartingWindowController;->access$500()Ljava/lang/String;
-
-    move-result-object p0
-
-    const-string p1, "Failed to link to death"
-
-    invoke-static {p0, p1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {p0, v0}, Lcom/android/wm/shell/common/SingleInstanceRemoteListener;->call(Lcom/android/wm/shell/common/SingleInstanceRemoteListener$RemoteCall;)V
 
     return-void
+.end method
 
-    :cond_1
-    :goto_0
-    iput-object p1, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;->mListener:Lcom/android/wm/shell/startingsurface/IStartingWindowListener;
+.method private synthetic lambda$new$2(Lcom/android/wm/shell/startingsurface/StartingWindowController;)V
+    .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;->mStartingWindowListener:Lcom/android/internal/util/function/TriConsumer;
 
-    invoke-virtual {p2, p0}, Lcom/android/wm/shell/startingsurface/StartingWindowController;->setStartingWindowListener(Lcom/android/internal/util/function/TriConsumer;)V
+    invoke-virtual {p1, p0}, Lcom/android/wm/shell/startingsurface/StartingWindowController;->setStartingWindowListener(Lcom/android/internal/util/function/TriConsumer;)V
 
     return-void
 .end method
 
-.method private notifyIStartingWindowListener(III)V
-    .locals 0
+.method private static synthetic lambda$new$3(Lcom/android/wm/shell/startingsurface/StartingWindowController;)V
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;->mListener:Lcom/android/wm/shell/startingsurface/IStartingWindowListener;
+    const/4 v0, 0x0
 
-    if-nez p0, :cond_0
+    invoke-virtual {p0, v0}, Lcom/android/wm/shell/startingsurface/StartingWindowController;->setStartingWindowListener(Lcom/android/internal/util/function/TriConsumer;)V
 
     return-void
+.end method
 
-    :cond_0
-    :try_start_0
-    invoke-interface {p0, p1, p2, p3}, Lcom/android/wm/shell/startingsurface/IStartingWindowListener;->onTaskLaunching(III)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+.method private synthetic lambda$setStartingWindowListener$4(Lcom/android/wm/shell/startingsurface/IStartingWindowListener;Lcom/android/wm/shell/startingsurface/StartingWindowController;)V
+    .locals 0
+
+    if-eqz p1, :cond_0
+
+    iget-object p0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;->mListener:Lcom/android/wm/shell/common/SingleInstanceRemoteListener;
+
+    invoke-virtual {p0, p1}, Lcom/android/wm/shell/common/SingleInstanceRemoteListener;->register(Landroid/os/IInterface;)V
 
     goto :goto_0
 
-    :catch_0
-    move-exception p0
+    :cond_0
+    iget-object p0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;->mListener:Lcom/android/wm/shell/common/SingleInstanceRemoteListener;
 
-    invoke-static {}, Lcom/android/wm/shell/startingsurface/StartingWindowController;->access$500()Ljava/lang/String;
-
-    move-result-object p1
-
-    const-string p2, "Failed to notify task launching"
-
-    invoke-static {p1, p2, p0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-virtual {p0}, Lcom/android/wm/shell/common/SingleInstanceRemoteListener;->unregister()V
 
     :goto_0
     return-void
@@ -193,9 +206,9 @@
 
     iget-object v0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;->mController:Lcom/android/wm/shell/startingsurface/StartingWindowController;
 
-    new-instance v1, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl$$ExternalSyntheticLambda3;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl$$ExternalSyntheticLambda1;-><init>(Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;Lcom/android/wm/shell/startingsurface/IStartingWindowListener;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl$$ExternalSyntheticLambda3;-><init>(Lcom/android/wm/shell/startingsurface/StartingWindowController$IStartingWindowImpl;Lcom/android/wm/shell/startingsurface/IStartingWindowListener;)V
 
     const-string p0, "setStartingWindowListener"
 

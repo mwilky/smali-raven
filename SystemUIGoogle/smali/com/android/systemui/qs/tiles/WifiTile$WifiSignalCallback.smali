@@ -3,7 +3,7 @@
 .source "WifiTile.java"
 
 # interfaces
-.implements Lcom/android/systemui/statusbar/policy/NetworkController$SignalCallback;
+.implements Lcom/android/systemui/statusbar/connectivity/SignalCallback;
 
 
 # annotations
@@ -42,7 +42,7 @@
 
 
 # virtual methods
-.method public setWifiIndicators(Lcom/android/systemui/statusbar/policy/NetworkController$WifiIndicators;)V
+.method public setWifiIndicators(Lcom/android/systemui/statusbar/connectivity/WifiIndicators;)V
     .locals 3
 
     invoke-static {}, Lcom/android/systemui/qs/tiles/WifiTile;->access$000()Z
@@ -65,7 +65,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-boolean v2, p1, Lcom/android/systemui/statusbar/policy/NetworkController$WifiIndicators;->enabled:Z
+    iget-boolean v2, p1, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->enabled:Z
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
@@ -76,7 +76,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    iget-object v0, p1, Lcom/android/systemui/statusbar/policy/NetworkController$WifiIndicators;->qsIcon:Lcom/android/systemui/statusbar/policy/NetworkController$IconState;
+    iget-object v0, p1, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->qsIcon:Lcom/android/systemui/statusbar/connectivity/IconState;
 
     if-nez v0, :cond_1
 
@@ -85,39 +85,39 @@
     :cond_1
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/WifiTile$WifiSignalCallback;->mInfo:Lcom/android/systemui/qs/tiles/WifiTile$CallbackInfo;
 
-    iget-boolean v2, p1, Lcom/android/systemui/statusbar/policy/NetworkController$WifiIndicators;->enabled:Z
+    iget-boolean v2, p1, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->enabled:Z
 
     iput-boolean v2, v1, Lcom/android/systemui/qs/tiles/WifiTile$CallbackInfo;->enabled:Z
 
-    iget-boolean v2, v0, Lcom/android/systemui/statusbar/policy/NetworkController$IconState;->visible:Z
+    iget-boolean v2, v0, Lcom/android/systemui/statusbar/connectivity/IconState;->visible:Z
 
     iput-boolean v2, v1, Lcom/android/systemui/qs/tiles/WifiTile$CallbackInfo;->connected:Z
 
-    iget v2, v0, Lcom/android/systemui/statusbar/policy/NetworkController$IconState;->icon:I
+    iget v2, v0, Lcom/android/systemui/statusbar/connectivity/IconState;->icon:I
 
     iput v2, v1, Lcom/android/systemui/qs/tiles/WifiTile$CallbackInfo;->wifiSignalIconId:I
 
-    iget-object v2, p1, Lcom/android/systemui/statusbar/policy/NetworkController$WifiIndicators;->description:Ljava/lang/String;
+    iget-object v2, p1, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->description:Ljava/lang/String;
 
     iput-object v2, v1, Lcom/android/systemui/qs/tiles/WifiTile$CallbackInfo;->ssid:Ljava/lang/String;
 
-    iget-boolean v2, p1, Lcom/android/systemui/statusbar/policy/NetworkController$WifiIndicators;->activityIn:Z
+    iget-boolean v2, p1, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->activityIn:Z
 
     iput-boolean v2, v1, Lcom/android/systemui/qs/tiles/WifiTile$CallbackInfo;->activityIn:Z
 
-    iget-boolean v2, p1, Lcom/android/systemui/statusbar/policy/NetworkController$WifiIndicators;->activityOut:Z
+    iget-boolean v2, p1, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->activityOut:Z
 
     iput-boolean v2, v1, Lcom/android/systemui/qs/tiles/WifiTile$CallbackInfo;->activityOut:Z
 
-    iget-object v0, v0, Lcom/android/systemui/statusbar/policy/NetworkController$IconState;->contentDescription:Ljava/lang/String;
+    iget-object v0, v0, Lcom/android/systemui/statusbar/connectivity/IconState;->contentDescription:Ljava/lang/String;
 
     iput-object v0, v1, Lcom/android/systemui/qs/tiles/WifiTile$CallbackInfo;->wifiSignalContentDescription:Ljava/lang/String;
 
-    iget-boolean v0, p1, Lcom/android/systemui/statusbar/policy/NetworkController$WifiIndicators;->isTransient:Z
+    iget-boolean v0, p1, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->isTransient:Z
 
     iput-boolean v0, v1, Lcom/android/systemui/qs/tiles/WifiTile$CallbackInfo;->isTransient:Z
 
-    iget-object p1, p1, Lcom/android/systemui/statusbar/policy/NetworkController$WifiIndicators;->statusLabel:Ljava/lang/String;
+    iget-object p1, p1, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->statusLabel:Ljava/lang/String;
 
     iput-object p1, v1, Lcom/android/systemui/qs/tiles/WifiTile$CallbackInfo;->statusLabel:Ljava/lang/String;
 

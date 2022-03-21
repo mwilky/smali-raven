@@ -18,17 +18,23 @@
 .method public abstract getSplitItemPosition(Landroid/window/WindowContainerToken;)I
 .end method
 
-.method public abstract onBoundsChanged(Lcom/android/wm/shell/common/split/SplitLayout;)V
-.end method
-
-.method public abstract onBoundsChanging(Lcom/android/wm/shell/common/split/SplitLayout;)V
-.end method
-
 .method public onDoubleTappedDivider()V
     .locals 0
 
     return-void
 .end method
 
+.method public abstract onLayoutPositionChanging(Lcom/android/wm/shell/common/split/SplitLayout;)V
+.end method
+
+.method public abstract onLayoutSizeChanged(Lcom/android/wm/shell/common/split/SplitLayout;)V
+.end method
+
+.method public abstract onLayoutSizeChanging(Lcom/android/wm/shell/common/split/SplitLayout;)V
+.end method
+
 .method public abstract onSnappedToDismiss(Z)V
+.end method
+
+.method public abstract setLayoutOffsetTarget(IILcom/android/wm/shell/common/split/SplitLayout;)V
 .end method

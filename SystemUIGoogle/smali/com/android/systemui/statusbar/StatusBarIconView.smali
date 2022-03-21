@@ -830,7 +830,7 @@
     iput v0, p0, Lcom/android/systemui/statusbar/StatusBarIconView;->mDotRadius:F
 
     :cond_1
-    const v0, 0x105027b
+    const v0, 0x1050287
 
     invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -838,7 +838,7 @@
 
     iput v0, p0, Lcom/android/systemui/statusbar/StatusBarIconView;->mSystemIconDesiredHeight:F
 
-    const v0, 0x105027a
+    const v0, 0x1050286
 
     invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getDimension(I)F
 

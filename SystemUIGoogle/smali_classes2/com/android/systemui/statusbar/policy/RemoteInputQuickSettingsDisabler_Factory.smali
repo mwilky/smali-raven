@@ -59,10 +59,10 @@
             "Landroid/content/Context;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
+            "Lcom/android/systemui/statusbar/CommandQueue;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/CommandQueue;",
+            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
             ">;)V"
         }
     .end annotation
@@ -71,9 +71,9 @@
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler_Factory;->contextProvider:Ljavax/inject/Provider;
 
-    iput-object p2, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler_Factory;->configControllerProvider:Ljavax/inject/Provider;
+    iput-object p2, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler_Factory;->commandQueueProvider:Ljavax/inject/Provider;
 
-    iput-object p3, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler_Factory;->commandQueueProvider:Ljavax/inject/Provider;
+    iput-object p3, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler_Factory;->configControllerProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
@@ -87,10 +87,10 @@
             "Landroid/content/Context;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
+            "Lcom/android/systemui/statusbar/CommandQueue;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/CommandQueue;",
+            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
             ">;)",
             "Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler_Factory;"
         }
@@ -103,12 +103,12 @@
     return-object v0
 .end method
 
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;
+.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/statusbar/policy/ConfigurationController;)Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;
     .locals 1
 
     new-instance v0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/CommandQueue;)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/statusbar/policy/ConfigurationController;)V
 
     return-object v0
 .end method
@@ -126,23 +126,23 @@
 
     check-cast v0, Landroid/content/Context;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler_Factory;->configControllerProvider:Ljavax/inject/Provider;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler_Factory;->commandQueueProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v1
 
-    check-cast v1, Lcom/android/systemui/statusbar/policy/ConfigurationController;
+    check-cast v1, Lcom/android/systemui/statusbar/CommandQueue;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler_Factory;->commandQueueProvider:Ljavax/inject/Provider;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler_Factory;->configControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/systemui/statusbar/CommandQueue;
+    check-cast p0, Lcom/android/systemui/statusbar/policy/ConfigurationController;
 
-    invoke-static {v0, v1, p0}, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;
+    invoke-static {v0, v1, p0}, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/statusbar/policy/ConfigurationController;)Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;
 
     move-result-object p0
 

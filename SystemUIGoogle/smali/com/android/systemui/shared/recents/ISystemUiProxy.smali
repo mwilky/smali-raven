@@ -90,6 +90,22 @@
     .end annotation
 .end method
 
+.method public abstract notifyTaskbarAutohideSuspend(Z)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract notifyTaskbarStatus(ZZ)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract onAssistantGestureCompletion(F)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -107,6 +123,14 @@
 .end method
 
 .method public abstract onBackPressed()V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract onImeSwitcherPressed()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -32,18 +32,6 @@
         <item quantity="other">SIM PUK कोड गलत है, SIM के हमेशा के लिए बेकार हो जाने से पहले आप %d बार और कोशिश कर सकते हैं.</item>
         <item quantity="one">SIM PUK कोड गलत है, SIM के हमेशा के लिए बेकार हो जाने से पहले आप %d बार और कोशिश कर सकते हैं.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">डिवाइस को %d घंटों से अनलॉक नहीं किया गया है. पासवर्ड की पुष्टि करें.</item>
-        <item quantity="one">डिवाइस को %d घंटों से अनलॉक नहीं किया गया है. पासवर्ड की पुष्टि करें.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">डिवाइस को %d घंटों से अनलॉक नहीं किया गया है. पैटर्न की पुष्टि करें.</item>
-        <item quantity="one">डिवाइस को %d घंटों से अनलॉक नहीं किया गया है. पैटर्न की पुष्टि करें.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">डिवाइस को %d घंटों से अनलॉक नहीं किया गया है. पिन की पुष्‍टि करें.</item>
-        <item quantity="one">डिवाइस को %d घंटों से अनलॉक नहीं किया गया है. पिन की पुष्‍टि करें.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">%d सेकंड में फिर से कोशिश करें.</item>
         <item quantity="one">%d सेकंड में फिर से कोशिश करें.</item>

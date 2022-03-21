@@ -32,7 +32,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;"
         }
     .end annotation
@@ -69,7 +69,7 @@
             "Landroid/content/Context;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController;",
@@ -102,7 +102,7 @@
             "Landroid/content/Context;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController;",
@@ -121,12 +121,12 @@
     return-object v0
 .end method
 
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController;Lcom/google/android/systemui/smartspace/KeyguardMediaViewController;)Lcom/google/android/systemui/smartspace/KeyguardSmartspaceController;
+.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/flags/FeatureFlags;Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController;Lcom/google/android/systemui/smartspace/KeyguardMediaViewController;)Lcom/google/android/systemui/smartspace/KeyguardSmartspaceController;
     .locals 1
 
     new-instance v0, Lcom/google/android/systemui/smartspace/KeyguardSmartspaceController;
 
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/google/android/systemui/smartspace/KeyguardSmartspaceController;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController;Lcom/google/android/systemui/smartspace/KeyguardMediaViewController;)V
+    invoke-direct {v0, p0, p1, p2, p3}, Lcom/google/android/systemui/smartspace/KeyguardSmartspaceController;-><init>(Landroid/content/Context;Lcom/android/systemui/flags/FeatureFlags;Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController;Lcom/google/android/systemui/smartspace/KeyguardMediaViewController;)V
 
     return-object v0
 .end method
@@ -150,7 +150,7 @@
 
     move-result-object v1
 
-    check-cast v1, Lcom/android/systemui/statusbar/FeatureFlags;
+    check-cast v1, Lcom/android/systemui/flags/FeatureFlags;
 
     iget-object v2, p0, Lcom/google/android/systemui/smartspace/KeyguardSmartspaceController_Factory;->zenControllerProvider:Ljavax/inject/Provider;
 
@@ -168,7 +168,7 @@
 
     check-cast p0, Lcom/google/android/systemui/smartspace/KeyguardMediaViewController;
 
-    invoke-static {v0, v1, v2, p0}, Lcom/google/android/systemui/smartspace/KeyguardSmartspaceController_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController;Lcom/google/android/systemui/smartspace/KeyguardMediaViewController;)Lcom/google/android/systemui/smartspace/KeyguardSmartspaceController;
+    invoke-static {v0, v1, v2, p0}, Lcom/google/android/systemui/smartspace/KeyguardSmartspaceController_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/flags/FeatureFlags;Lcom/google/android/systemui/smartspace/KeyguardZenAlarmViewController;Lcom/google/android/systemui/smartspace/KeyguardMediaViewController;)Lcom/google/android/systemui/smartspace/KeyguardSmartspaceController;
 
     move-result-object p0
 

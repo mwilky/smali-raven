@@ -212,13 +212,13 @@
         <item>Desaktibatuta</item>
         <item>Erregistroen buffer guztiak</item>
         <item>Erregistroen buffer guztiak, irratiarenak izan ezik</item>
-        <item>kernelaren erregistroaren bufferra soilik</item>
+        <item>kernel-aren erregistroaren bufferra soilik</item>
     </string-array>
     <string-array name="select_logpersist_titles">
         <item>Desaktibatuta</item>
         <item>Guztiak</item>
         <item>Guztiak, irratiarenak izan ezik</item>
-        <item>kernela soilik</item>
+        <item>kernel-a soilik</item>
     </string-array>
     <string-array name="show_non_rect_clip_entries">
         <item>Desaktibatuta</item>

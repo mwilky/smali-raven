@@ -38,11 +38,11 @@
 
     const/4 v0, 0x0
 
-    invoke-static {p1, v0}, Lcom/android/systemui/ScreenDecorations$DisplayCutoutView;->access$702(Lcom/android/systemui/ScreenDecorations$DisplayCutoutView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
+    invoke-static {p1, v0}, Lcom/android/systemui/ScreenDecorations$DisplayCutoutView;->access$1102(Lcom/android/systemui/ScreenDecorations$DisplayCutoutView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
 
     iget-object p1, p0, Lcom/android/systemui/ScreenDecorations$DisplayCutoutView$1;->this$0:Lcom/android/systemui/ScreenDecorations$DisplayCutoutView;
 
-    invoke-static {p1}, Lcom/android/systemui/ScreenDecorations$DisplayCutoutView;->access$800(Lcom/android/systemui/ScreenDecorations$DisplayCutoutView;)Z
+    invoke-static {p1}, Lcom/android/systemui/ScreenDecorations$DisplayCutoutView;->access$1200(Lcom/android/systemui/ScreenDecorations$DisplayCutoutView;)Z
 
     move-result p1
 

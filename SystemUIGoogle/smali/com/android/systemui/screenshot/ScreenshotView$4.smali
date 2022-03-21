@@ -50,7 +50,7 @@
 .end method
 
 .method private synthetic lambda$onAnimationEnd$0(Landroid/view/View;)V
-    .locals 1
+    .locals 3
 
     iget-object p1, p0, Lcom/android/systemui/screenshot/ScreenshotView$4;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
 
@@ -60,7 +60,15 @@
 
     sget-object v0, Lcom/android/systemui/screenshot/ScreenshotEvent;->SCREENSHOT_EXPLICIT_DISMISSAL:Lcom/android/systemui/screenshot/ScreenshotEvent;
 
-    invoke-interface {p1, v0}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
+    iget-object v1, p0, Lcom/android/systemui/screenshot/ScreenshotView$4;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
+
+    invoke-static {v1}, Lcom/android/systemui/screenshot/ScreenshotView;->access$700(Lcom/android/systemui/screenshot/ScreenshotView;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    invoke-interface {p1, v0, v2, v1}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;ILjava/lang/String;)V
 
     iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotView$4;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
 
@@ -76,7 +84,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/screenshot/ScreenshotView$4;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
 
-    invoke-static {p1}, Lcom/android/systemui/screenshot/ScreenshotView;->access$500(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/FrameLayout;
+    invoke-static {p1}, Lcom/android/systemui/screenshot/ScreenshotView;->access$400(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/FrameLayout;
 
     move-result-object p1
 
@@ -88,7 +96,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/screenshot/ScreenshotView$4;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
 
-    invoke-static {p1}, Lcom/android/systemui/screenshot/ScreenshotView;->access$500(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/FrameLayout;
+    invoke-static {p1}, Lcom/android/systemui/screenshot/ScreenshotView;->access$400(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/FrameLayout;
 
     move-result-object p1
 
@@ -98,7 +106,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/screenshot/ScreenshotView$4;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
 
-    invoke-static {p1}, Lcom/android/systemui/screenshot/ScreenshotView;->access$500(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/FrameLayout;
+    invoke-static {p1}, Lcom/android/systemui/screenshot/ScreenshotView;->access$400(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/FrameLayout;
 
     move-result-object p1
 
@@ -114,7 +122,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/screenshot/ScreenshotView$4;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
 
-    invoke-static {v2}, Lcom/android/systemui/screenshot/ScreenshotView;->access$600(Lcom/android/systemui/screenshot/ScreenshotView;)Z
+    invoke-static {v2}, Lcom/android/systemui/screenshot/ScreenshotView;->access$500(Lcom/android/systemui/screenshot/ScreenshotView;)Z
 
     move-result v2
 
@@ -170,7 +178,7 @@
     :goto_0
     iget-object v3, p0, Lcom/android/systemui/screenshot/ScreenshotView$4;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
 
-    invoke-static {v3}, Lcom/android/systemui/screenshot/ScreenshotView;->access$500(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/FrameLayout;
+    invoke-static {v3}, Lcom/android/systemui/screenshot/ScreenshotView;->access$400(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/FrameLayout;
 
     move-result-object v3
 
@@ -178,7 +186,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/screenshot/ScreenshotView$4;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
 
-    invoke-static {v2}, Lcom/android/systemui/screenshot/ScreenshotView;->access$500(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/FrameLayout;
+    invoke-static {v2}, Lcom/android/systemui/screenshot/ScreenshotView;->access$400(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/FrameLayout;
 
     move-result-object v2
 
@@ -208,7 +216,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/screenshot/ScreenshotView$4;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
 
-    invoke-static {p1}, Lcom/android/systemui/screenshot/ScreenshotView;->access$300(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/ImageView;
+    invoke-static {p1}, Lcom/android/systemui/screenshot/ScreenshotView;->access$200(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/ImageView;
 
     move-result-object p1
 
@@ -216,7 +224,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/screenshot/ScreenshotView$4;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
 
-    invoke-static {p1}, Lcom/android/systemui/screenshot/ScreenshotView;->access$300(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/ImageView;
+    invoke-static {p1}, Lcom/android/systemui/screenshot/ScreenshotView;->access$200(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/ImageView;
 
     move-result-object p1
 
@@ -224,7 +232,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/screenshot/ScreenshotView$4;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
 
-    invoke-static {p1}, Lcom/android/systemui/screenshot/ScreenshotView;->access$300(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/ImageView;
+    invoke-static {p1}, Lcom/android/systemui/screenshot/ScreenshotView;->access$200(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/ImageView;
 
     move-result-object p1
 
@@ -234,7 +242,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/screenshot/ScreenshotView$4;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
 
-    invoke-static {v2}, Lcom/android/systemui/screenshot/ScreenshotView;->access$300(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/ImageView;
+    invoke-static {v2}, Lcom/android/systemui/screenshot/ScreenshotView;->access$200(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/ImageView;
 
     move-result-object v2
 
@@ -252,7 +260,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/screenshot/ScreenshotView$4;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
 
-    invoke-static {p1}, Lcom/android/systemui/screenshot/ScreenshotView;->access$300(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/ImageView;
+    invoke-static {p1}, Lcom/android/systemui/screenshot/ScreenshotView;->access$200(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/ImageView;
 
     move-result-object p1
 
@@ -262,7 +270,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/screenshot/ScreenshotView$4;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
 
-    invoke-static {v2}, Lcom/android/systemui/screenshot/ScreenshotView;->access$300(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/ImageView;
+    invoke-static {v2}, Lcom/android/systemui/screenshot/ScreenshotView;->access$200(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/ImageView;
 
     move-result-object v2
 
@@ -292,7 +300,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotView$4;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
 
-    invoke-static {p0}, Lcom/android/systemui/screenshot/ScreenshotView;->access$700(Lcom/android/systemui/screenshot/ScreenshotView;)Lcom/android/systemui/screenshot/ScreenshotView$SwipeDismissHandler;
+    invoke-static {p0}, Lcom/android/systemui/screenshot/ScreenshotView;->access$600(Lcom/android/systemui/screenshot/ScreenshotView;)Lcom/android/systemui/screenshot/ScreenshotView$SwipeDismissHandler;
 
     move-result-object p1
 

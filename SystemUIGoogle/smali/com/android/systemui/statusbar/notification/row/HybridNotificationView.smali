@@ -4,6 +4,7 @@
 
 # interfaces
 .implements Lcom/android/systemui/statusbar/TransformableView;
+.implements Lcom/android/systemui/statusbar/notification/NotificationFadeAware;
 
 
 # instance fields
@@ -203,6 +204,12 @@
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;->mTextView:Landroid/widget/TextView;
 
     invoke-virtual {v0, v2, p0}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->addTransformedView(ILandroid/view/View;)V
+
+    return-void
+.end method
+
+.method public setNotificationFaded(Z)V
+    .locals 0
 
     return-void
 .end method

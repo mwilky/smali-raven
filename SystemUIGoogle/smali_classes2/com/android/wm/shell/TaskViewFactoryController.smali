@@ -16,6 +16,8 @@
 
 .field private final mShellExecutor:Lcom/android/wm/shell/common/ShellExecutor;
 
+.field private final mSyncQueue:Lcom/android/wm/shell/common/SyncTransactionQueue;
+
 .field private final mTaskOrganizer:Lcom/android/wm/shell/ShellTaskOrganizer;
 
 
@@ -28,7 +30,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/android/wm/shell/ShellTaskOrganizer;Lcom/android/wm/shell/common/ShellExecutor;)V
+.method public constructor <init>(Lcom/android/wm/shell/ShellTaskOrganizer;Lcom/android/wm/shell/common/ShellExecutor;Lcom/android/wm/shell/common/SyncTransactionQueue;)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,6 +46,8 @@
     iput-object p1, p0, Lcom/android/wm/shell/TaskViewFactoryController;->mTaskOrganizer:Lcom/android/wm/shell/ShellTaskOrganizer;
 
     iput-object p2, p0, Lcom/android/wm/shell/TaskViewFactoryController;->mShellExecutor:Lcom/android/wm/shell/common/ShellExecutor;
+
+    iput-object p3, p0, Lcom/android/wm/shell/TaskViewFactoryController;->mSyncQueue:Lcom/android/wm/shell/common/SyncTransactionQueue;
 
     return-void
 .end method
@@ -75,7 +79,7 @@
 .end method
 
 .method public create(Landroid/content/Context;Ljava/util/concurrent/Executor;Ljava/util/function/Consumer;)V
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -89,9 +93,11 @@
 
     new-instance v0, Lcom/android/wm/shell/TaskView;
 
-    iget-object p0, p0, Lcom/android/wm/shell/TaskViewFactoryController;->mTaskOrganizer:Lcom/android/wm/shell/ShellTaskOrganizer;
+    iget-object v1, p0, Lcom/android/wm/shell/TaskViewFactoryController;->mTaskOrganizer:Lcom/android/wm/shell/ShellTaskOrganizer;
 
-    invoke-direct {v0, p1, p0}, Lcom/android/wm/shell/TaskView;-><init>(Landroid/content/Context;Lcom/android/wm/shell/ShellTaskOrganizer;)V
+    iget-object p0, p0, Lcom/android/wm/shell/TaskViewFactoryController;->mSyncQueue:Lcom/android/wm/shell/common/SyncTransactionQueue;
+
+    invoke-direct {v0, p1, v1, p0}, Lcom/android/wm/shell/TaskView;-><init>(Landroid/content/Context;Lcom/android/wm/shell/ShellTaskOrganizer;Lcom/android/wm/shell/common/SyncTransactionQueue;)V
 
     new-instance p0, Lcom/android/wm/shell/TaskViewFactoryController$$ExternalSyntheticLambda0;
 

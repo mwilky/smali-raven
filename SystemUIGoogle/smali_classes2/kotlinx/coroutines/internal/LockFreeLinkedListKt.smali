@@ -52,10 +52,26 @@
     return-void
 .end method
 
+.method public static final synthetic access$getREMOVE_PREPARED$p()Ljava/lang/Object;
+    .locals 1
+
+    sget-object v0, Lkotlinx/coroutines/internal/LockFreeLinkedListKt;->REMOVE_PREPARED:Ljava/lang/Object;
+
+    return-object v0
+.end method
+
 .method public static final getCONDITION_FALSE()Ljava/lang/Object;
     .locals 1
 
     sget-object v0, Lkotlinx/coroutines/internal/LockFreeLinkedListKt;->CONDITION_FALSE:Ljava/lang/Object;
+
+    return-object v0
+.end method
+
+.method public static final getLIST_EMPTY()Ljava/lang/Object;
+    .locals 1
+
+    sget-object v0, Lkotlinx/coroutines/internal/LockFreeLinkedListKt;->LIST_EMPTY:Ljava/lang/Object;
 
     return-object v0
 .end method

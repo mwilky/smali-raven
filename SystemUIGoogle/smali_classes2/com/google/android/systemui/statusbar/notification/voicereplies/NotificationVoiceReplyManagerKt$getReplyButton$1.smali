@@ -79,7 +79,7 @@
 
     move-result p0
 
-    const p1, 0x1020199
+    const p1, 0x102019c
 
     if-ne p0, p1, :cond_0
 

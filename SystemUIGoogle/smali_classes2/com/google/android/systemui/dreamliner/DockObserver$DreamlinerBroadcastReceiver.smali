@@ -525,7 +525,7 @@
 
     iget-object p0, p0, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver;->this$0:Lcom/google/android/systemui/dreamliner/DockObserver;
 
-    invoke-static {p0}, Lcom/google/android/systemui/dreamliner/DockObserver;->access$2400(Lcom/google/android/systemui/dreamliner/DockObserver;)V
+    invoke-static {p0}, Lcom/google/android/systemui/dreamliner/DockObserver;->access$2300(Lcom/google/android/systemui/dreamliner/DockObserver;)V
 
     return-void
 .end method
@@ -1037,19 +1037,11 @@
     goto/16 :goto_1
 
     :pswitch_4
-    iget-object p1, p0, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver;->this$0:Lcom/google/android/systemui/dreamliner/DockObserver;
-
-    invoke-static {p1}, Lcom/google/android/systemui/dreamliner/DockObserver;->access$1900(Lcom/google/android/systemui/dreamliner/DockObserver;)Lcom/google/android/systemui/dreamliner/DockIndicationController;
-
-    move-result-object p1
-
-    if-eqz p1, :cond_17
-
     iget-object p0, p0, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver;->this$0:Lcom/google/android/systemui/dreamliner/DockObserver;
 
-    invoke-static {p0}, Lcom/google/android/systemui/dreamliner/DockObserver;->access$1900(Lcom/google/android/systemui/dreamliner/DockObserver;)Lcom/google/android/systemui/dreamliner/DockIndicationController;
+    iget-object p0, p0, Lcom/google/android/systemui/dreamliner/DockObserver;->mIndicationController:Lcom/google/android/systemui/dreamliner/DockIndicationController;
 
-    move-result-object p0
+    if-eqz p0, :cond_17
 
     const-string p1, "showing"
 
@@ -1064,11 +1056,11 @@
     :pswitch_5
     iget-object p1, p0, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver;->this$0:Lcom/google/android/systemui/dreamliner/DockObserver;
 
-    invoke-static {p1, p2}, Lcom/google/android/systemui/dreamliner/DockObserver;->access$2000(Lcom/google/android/systemui/dreamliner/DockObserver;Landroid/content/Intent;)V
+    invoke-static {p1, p2}, Lcom/google/android/systemui/dreamliner/DockObserver;->access$1900(Lcom/google/android/systemui/dreamliner/DockObserver;Landroid/content/Intent;)V
 
     iget-object p0, p0, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver;->this$0:Lcom/google/android/systemui/dreamliner/DockObserver;
 
-    invoke-static {p0}, Lcom/google/android/systemui/dreamliner/DockObserver;->access$2100(Lcom/google/android/systemui/dreamliner/DockObserver;)V
+    invoke-static {p0}, Lcom/google/android/systemui/dreamliner/DockObserver;->access$2000(Lcom/google/android/systemui/dreamliner/DockObserver;)V
 
     goto/16 :goto_1
 
@@ -1227,7 +1219,7 @@
     :pswitch_f
     iget-object p0, p0, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver;->this$0:Lcom/google/android/systemui/dreamliner/DockObserver;
 
-    invoke-static {p0}, Lcom/google/android/systemui/dreamliner/DockObserver;->access$2200(Lcom/google/android/systemui/dreamliner/DockObserver;)V
+    invoke-static {p0}, Lcom/google/android/systemui/dreamliner/DockObserver;->access$2100(Lcom/google/android/systemui/dreamliner/DockObserver;)V
 
     goto :goto_1
 
@@ -1271,7 +1263,7 @@
 
     invoke-direct {p2, p0}, Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver$$ExternalSyntheticLambda0;-><init>(Lcom/google/android/systemui/dreamliner/DockObserver$DreamlinerBroadcastReceiver;)V
 
-    invoke-static {p1, p2}, Lcom/google/android/systemui/dreamliner/DockObserver;->access$2300(Lcom/google/android/systemui/dreamliner/DockObserver;Ljava/lang/Runnable;)V
+    invoke-static {p1, p2}, Lcom/google/android/systemui/dreamliner/DockObserver;->access$2200(Lcom/google/android/systemui/dreamliner/DockObserver;Ljava/lang/Runnable;)V
 
     :cond_17
     :goto_1

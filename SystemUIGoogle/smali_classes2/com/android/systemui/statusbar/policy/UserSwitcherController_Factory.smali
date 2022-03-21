@@ -18,6 +18,16 @@
 
 
 # instance fields
+.field private final activityManagerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Landroid/app/IActivityManager;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final activityStarterProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -88,6 +98,26 @@
     .end annotation
 .end field
 
+.field private final dialogLaunchAnimatorProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/animation/DialogLaunchAnimator;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final dumpManagerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final falsingManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -108,11 +138,31 @@
     .end annotation
 .end field
 
+.field private final interactionJankMonitorProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/internal/jank/InteractionJankMonitor;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final keyguardStateControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/policy/KeyguardStateController;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private final latencyTrackerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/internal/util/LatencyTracker;",
             ">;"
         }
     .end annotation
@@ -180,13 +230,16 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljavax/inject/Provider<",
             "Landroid/content/Context;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Landroid/app/IActivityManager;",
             ">;",
             "Ljavax/inject/Provider<",
             "Landroid/os/UserManager;",
@@ -232,6 +285,18 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Ljava/util/concurrent/Executor;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/internal/jank/InteractionJankMonitor;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/internal/util/LatencyTracker;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/animation/DialogLaunchAnimator;",
             ">;)V"
         }
     .end annotation
@@ -246,74 +311,97 @@
 
     move-object v1, p2
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->userManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->activityManagerProvider:Ljavax/inject/Provider;
 
     move-object v1, p3
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->userTrackerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->userManagerProvider:Ljavax/inject/Provider;
 
     move-object v1, p4
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->keyguardStateControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->userTrackerProvider:Ljavax/inject/Provider;
 
     move-object v1, p5
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->deviceProvisionedControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->keyguardStateControllerProvider:Ljavax/inject/Provider;
 
     move-object v1, p6
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->devicePolicyManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->deviceProvisionedControllerProvider:Ljavax/inject/Provider;
 
     move-object v1, p7
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->handlerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->devicePolicyManagerProvider:Ljavax/inject/Provider;
 
     move-object v1, p8
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->activityStarterProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->handlerProvider:Ljavax/inject/Provider;
 
     move-object v1, p9
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->activityStarterProvider:Ljavax/inject/Provider;
 
     move-object v1, p10
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
 
     move-object v1, p11
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->falsingManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
 
     move-object v1, p12
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->telephonyListenerManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->falsingManagerProvider:Ljavax/inject/Provider;
 
     move-object v1, p13
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->activityTaskManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->telephonyListenerManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p14
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->userDetailAdapterProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->activityTaskManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p15
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->secureSettingsProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->userDetailAdapterProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p16
 
+    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->secureSettingsProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p17
+
     iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->bgExecutorProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p18
+
+    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->interactionJankMonitorProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p19
+
+    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->latencyTrackerProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p20
+
+    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p21
+
+    iput-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->dialogLaunchAnimatorProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;
-    .locals 18
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;
+    .locals 23
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljavax/inject/Provider<",
             "Landroid/content/Context;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Landroid/app/IActivityManager;",
             ">;",
             "Ljavax/inject/Provider<",
             "Landroid/os/UserManager;",
@@ -359,6 +447,18 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Ljava/util/concurrent/Executor;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/internal/jank/InteractionJankMonitor;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/internal/util/LatencyTracker;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/animation/DialogLaunchAnimator;",
             ">;)",
             "Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;"
         }
@@ -396,17 +496,27 @@
 
     move-object/from16 v16, p15
 
-    new-instance v17, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;
+    move-object/from16 v17, p16
 
-    move-object/from16 v0, v17
+    move-object/from16 v18, p17
 
-    invoke-direct/range {v0 .. v16}, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v19, p18
 
-    return-object v17
+    move-object/from16 v20, p19
+
+    move-object/from16 v21, p20
+
+    new-instance v22, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;
+
+    move-object/from16 v0, v22
+
+    invoke-direct/range {v0 .. v21}, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v22
 .end method
 
-.method public static newInstance(Landroid/content/Context;Landroid/os/UserManager;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Landroid/app/admin/DevicePolicyManager;Landroid/os/Handler;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/telephony/TelephonyListenerManager;Landroid/app/IActivityTaskManager;Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserDetailAdapter;Lcom/android/systemui/util/settings/SecureSettings;Ljava/util/concurrent/Executor;)Lcom/android/systemui/statusbar/policy/UserSwitcherController;
-    .locals 18
+.method public static newInstance(Landroid/content/Context;Landroid/app/IActivityManager;Landroid/os/UserManager;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Landroid/app/admin/DevicePolicyManager;Landroid/os/Handler;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/telephony/TelephonyListenerManager;Landroid/app/IActivityTaskManager;Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserDetailAdapter;Lcom/android/systemui/util/settings/SecureSettings;Ljava/util/concurrent/Executor;Lcom/android/internal/jank/InteractionJankMonitor;Lcom/android/internal/util/LatencyTracker;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/animation/DialogLaunchAnimator;)Lcom/android/systemui/statusbar/policy/UserSwitcherController;
+    .locals 23
 
     move-object/from16 v1, p0
 
@@ -440,19 +550,29 @@
 
     move-object/from16 v16, p15
 
-    new-instance v17, Lcom/android/systemui/statusbar/policy/UserSwitcherController;
+    move-object/from16 v17, p16
 
-    move-object/from16 v0, v17
+    move-object/from16 v18, p17
 
-    invoke-direct/range {v0 .. v16}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;-><init>(Landroid/content/Context;Landroid/os/UserManager;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Landroid/app/admin/DevicePolicyManager;Landroid/os/Handler;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/telephony/TelephonyListenerManager;Landroid/app/IActivityTaskManager;Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserDetailAdapter;Lcom/android/systemui/util/settings/SecureSettings;Ljava/util/concurrent/Executor;)V
+    move-object/from16 v19, p18
 
-    return-object v17
+    move-object/from16 v20, p19
+
+    move-object/from16 v21, p20
+
+    new-instance v22, Lcom/android/systemui/statusbar/policy/UserSwitcherController;
+
+    move-object/from16 v0, v22
+
+    invoke-direct/range {v0 .. v21}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;-><init>(Landroid/content/Context;Landroid/app/IActivityManager;Landroid/os/UserManager;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Landroid/app/admin/DevicePolicyManager;Landroid/os/Handler;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/telephony/TelephonyListenerManager;Landroid/app/IActivityTaskManager;Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserDetailAdapter;Lcom/android/systemui/util/settings/SecureSettings;Ljava/util/concurrent/Executor;Lcom/android/internal/jank/InteractionJankMonitor;Lcom/android/internal/util/LatencyTracker;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/animation/DialogLaunchAnimator;)V
+
+    return-object v22
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/systemui/statusbar/policy/UserSwitcherController;
-    .locals 18
+    .locals 23
 
     move-object/from16 v0, p0
 
@@ -466,7 +586,7 @@
 
     check-cast v2, Landroid/content/Context;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->userManagerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->activityManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -474,9 +594,9 @@
 
     move-object v3, v1
 
-    check-cast v3, Landroid/os/UserManager;
+    check-cast v3, Landroid/app/IActivityManager;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->userTrackerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->userManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -484,9 +604,9 @@
 
     move-object v4, v1
 
-    check-cast v4, Lcom/android/systemui/settings/UserTracker;
+    check-cast v4, Landroid/os/UserManager;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->keyguardStateControllerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->userTrackerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -494,9 +614,9 @@
 
     move-object v5, v1
 
-    check-cast v5, Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+    check-cast v5, Lcom/android/systemui/settings/UserTracker;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->deviceProvisionedControllerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->keyguardStateControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -504,9 +624,9 @@
 
     move-object v6, v1
 
-    check-cast v6, Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
+    check-cast v6, Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->devicePolicyManagerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->deviceProvisionedControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -514,9 +634,9 @@
 
     move-object v7, v1
 
-    check-cast v7, Landroid/app/admin/DevicePolicyManager;
+    check-cast v7, Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->handlerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->devicePolicyManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -524,9 +644,9 @@
 
     move-object v8, v1
 
-    check-cast v8, Landroid/os/Handler;
+    check-cast v8, Landroid/app/admin/DevicePolicyManager;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->activityStarterProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->handlerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -534,9 +654,9 @@
 
     move-object v9, v1
 
-    check-cast v9, Lcom/android/systemui/plugins/ActivityStarter;
+    check-cast v9, Landroid/os/Handler;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->activityStarterProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -544,9 +664,9 @@
 
     move-object v10, v1
 
-    check-cast v10, Lcom/android/systemui/broadcast/BroadcastDispatcher;
+    check-cast v10, Lcom/android/systemui/plugins/ActivityStarter;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -554,9 +674,9 @@
 
     move-object v11, v1
 
-    check-cast v11, Lcom/android/internal/logging/UiEventLogger;
+    check-cast v11, Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->falsingManagerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -564,9 +684,9 @@
 
     move-object v12, v1
 
-    check-cast v12, Lcom/android/systemui/plugins/FalsingManager;
+    check-cast v12, Lcom/android/internal/logging/UiEventLogger;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->telephonyListenerManagerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->falsingManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -574,9 +694,9 @@
 
     move-object v13, v1
 
-    check-cast v13, Lcom/android/systemui/telephony/TelephonyListenerManager;
+    check-cast v13, Lcom/android/systemui/plugins/FalsingManager;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->activityTaskManagerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->telephonyListenerManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -584,9 +704,9 @@
 
     move-object v14, v1
 
-    check-cast v14, Landroid/app/IActivityTaskManager;
+    check-cast v14, Lcom/android/systemui/telephony/TelephonyListenerManager;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->userDetailAdapterProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->activityTaskManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -594,9 +714,9 @@
 
     move-object v15, v1
 
-    check-cast v15, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserDetailAdapter;
+    check-cast v15, Landroid/app/IActivityTaskManager;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->secureSettingsProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->userDetailAdapterProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -604,19 +724,69 @@
 
     move-object/from16 v16, v1
 
-    check-cast v16, Lcom/android/systemui/util/settings/SecureSettings;
+    check-cast v16, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserDetailAdapter;
 
-    iget-object v0, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->bgExecutorProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->secureSettingsProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object/from16 v17, v1
+
+    check-cast v17, Lcom/android/systemui/util/settings/SecureSettings;
+
+    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->bgExecutorProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object/from16 v18, v1
+
+    check-cast v18, Ljava/util/concurrent/Executor;
+
+    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->interactionJankMonitorProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object/from16 v19, v1
+
+    check-cast v19, Lcom/android/internal/jank/InteractionJankMonitor;
+
+    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->latencyTrackerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object/from16 v20, v1
+
+    check-cast v20, Lcom/android/internal/util/LatencyTracker;
+
+    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object/from16 v21, v1
+
+    check-cast v21, Lcom/android/systemui/dump/DumpManager;
+
+    iget-object v0, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->dialogLaunchAnimatorProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    move-object/from16 v17, v0
+    move-object/from16 v22, v0
 
-    check-cast v17, Ljava/util/concurrent/Executor;
+    check-cast v22, Lcom/android/systemui/animation/DialogLaunchAnimator;
 
-    invoke-static/range {v2 .. v17}, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->newInstance(Landroid/content/Context;Landroid/os/UserManager;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Landroid/app/admin/DevicePolicyManager;Landroid/os/Handler;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/telephony/TelephonyListenerManager;Landroid/app/IActivityTaskManager;Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserDetailAdapter;Lcom/android/systemui/util/settings/SecureSettings;Ljava/util/concurrent/Executor;)Lcom/android/systemui/statusbar/policy/UserSwitcherController;
+    invoke-static/range {v2 .. v22}, Lcom/android/systemui/statusbar/policy/UserSwitcherController_Factory;->newInstance(Landroid/content/Context;Landroid/app/IActivityManager;Landroid/os/UserManager;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Landroid/app/admin/DevicePolicyManager;Landroid/os/Handler;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/telephony/TelephonyListenerManager;Landroid/app/IActivityTaskManager;Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserDetailAdapter;Lcom/android/systemui/util/settings/SecureSettings;Ljava/util/concurrent/Executor;Lcom/android/internal/jank/InteractionJankMonitor;Lcom/android/internal/util/LatencyTracker;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/animation/DialogLaunchAnimator;)Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
     move-result-object v0
 

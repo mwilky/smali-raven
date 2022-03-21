@@ -41,7 +41,7 @@
     return-void
 .end method
 
-.method public onFullscreenStateChanged(ZZ)V
+.method public onFullscreenStateChanged(Z)V
     .locals 0
 
     return-void

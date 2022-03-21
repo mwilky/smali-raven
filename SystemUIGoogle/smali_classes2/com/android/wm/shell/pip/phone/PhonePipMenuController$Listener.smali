@@ -15,6 +15,9 @@
 
 
 # virtual methods
+.method public abstract onEnterSplit()V
+.end method
+
 .method public abstract onPipDismiss()V
 .end method
 

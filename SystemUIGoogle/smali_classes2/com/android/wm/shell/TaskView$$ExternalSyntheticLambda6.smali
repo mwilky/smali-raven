@@ -8,18 +8,14 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/wm/shell/TaskView;
 
-.field public final synthetic f$1:I
-
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/wm/shell/TaskView;I)V
+.method public synthetic constructor <init>(Lcom/android/wm/shell/TaskView;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda6;->f$0:Lcom/android/wm/shell/TaskView;
-
-    iput p2, p0, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda6;->f$1:I
 
     return-void
 .end method
@@ -27,13 +23,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda6;->f$0:Lcom/android/wm/shell/TaskView;
+    iget-object p0, p0, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda6;->f$0:Lcom/android/wm/shell/TaskView;
 
-    iget p0, p0, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda6;->f$1:I
-
-    invoke-static {v0, p0}, Lcom/android/wm/shell/TaskView;->$r8$lambda$ryl-SE-w_QuXOs7OPjl3BbM4lTs(Lcom/android/wm/shell/TaskView;I)V
+    invoke-static {p0}, Lcom/android/wm/shell/TaskView;->$r8$lambda$sVBaWhz9L005LnajRQ9JcFFjsyo(Lcom/android/wm/shell/TaskView;)V
 
     return-void
 .end method

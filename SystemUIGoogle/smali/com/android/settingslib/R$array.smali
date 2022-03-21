@@ -4,14 +4,14 @@
 
 
 # static fields
-.field public static final batterymeter_bolt_points:I = 0x7f03000b
+.field public static final batterymeter_bolt_points:I = 0x7f03000a
 
-.field public static final batterymeter_color_levels:I = 0x7f03000c
+.field public static final batterymeter_color_levels:I = 0x7f03000b
 
-.field public static final batterymeter_color_values:I = 0x7f03000d
+.field public static final batterymeter_color_values:I = 0x7f03000c
 
-.field public static final batterymeter_plus_points:I = 0x7f03000e
+.field public static final batterymeter_plus_points:I = 0x7f03000d
 
-.field public static final select_logpersist_summaries:I = 0x7f030054
+.field public static final select_logpersist_summaries:I = 0x7f030056
 
-.field public static final select_logpersist_values:I = 0x7f030056
+.field public static final select_logpersist_values:I = 0x7f030058

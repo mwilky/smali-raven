@@ -22,7 +22,29 @@
 # instance fields
 .field private final mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
 
+.field private mCompatUIKeyguardCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
+
+.field private final mCompatUIOptional:Ljava/util/Optional;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/compatui/CompatUI;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final mConfigurationController:Lcom/android/systemui/statusbar/policy/ConfigurationController;
+
+.field private final mDragAndDropOptional:Ljava/util/Optional;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/draganddrop/DragAndDrop;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field private final mHideDisplayCutoutOptional:Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
@@ -37,6 +59,18 @@
 .field private mIsSysUiStateValid:Z
 
 .field private final mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+.field private mLegacySplitScreenKeyguardCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
+
+.field private final mLegacySplitScreenOptional:Ljava/util/Optional;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field private final mNavigationModeController:Lcom/android/systemui/navigationbar/NavigationModeController;
 
@@ -84,7 +118,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Optional<",
-            "Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;",
+            "Lcom/android/wm/shell/splitscreen/SplitScreen;",
             ">;"
         }
     .end annotation
@@ -130,8 +164,8 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/model/SysUiState;Lcom/android/systemui/tracing/ProtoTracer;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Ljava/util/concurrent/Executor;)V
-    .locals 0
+.method public constructor <init>(Landroid/content/Context;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/model/SysUiState;Lcom/android/systemui/tracing/ProtoTracer;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Ljava/util/concurrent/Executor;)V
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -143,6 +177,9 @@
             "Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;",
             ">;",
             "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/splitscreen/SplitScreen;",
+            ">;",
+            "Ljava/util/Optional<",
             "Lcom/android/wm/shell/onehanded/OneHanded;",
             ">;",
             "Ljava/util/Optional<",
@@ -150,6 +187,12 @@
             ">;",
             "Ljava/util/Optional<",
             "Lcom/android/wm/shell/ShellCommandHandler;",
+            ">;",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/compatui/CompatUI;",
+            ">;",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/draganddrop/DragAndDrop;",
             ">;",
             "Lcom/android/systemui/statusbar/CommandQueue;",
             "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
@@ -164,35 +207,77 @@
         }
     .end annotation
 
+    move-object v0, p0
+
     invoke-direct {p0, p1}, Lcom/android/systemui/SystemUI;-><init>(Landroid/content/Context;)V
 
-    iput-object p7, p0, Lcom/android/systemui/wmshell/WMShell;->mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
+    move-object v1, p10
 
-    iput-object p8, p0, Lcom/android/systemui/wmshell/WMShell;->mConfigurationController:Lcom/android/systemui/statusbar/policy/ConfigurationController;
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell;->mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
 
-    iput-object p9, p0, Lcom/android/systemui/wmshell/WMShell;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    move-object v1, p11
 
-    iput-object p10, p0, Lcom/android/systemui/wmshell/WMShell;->mNavigationModeController:Lcom/android/systemui/navigationbar/NavigationModeController;
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell;->mConfigurationController:Lcom/android/systemui/statusbar/policy/ConfigurationController;
 
-    iput-object p11, p0, Lcom/android/systemui/wmshell/WMShell;->mScreenLifecycle:Lcom/android/systemui/keyguard/ScreenLifecycle;
+    move-object v1, p12
 
-    iput-object p12, p0, Lcom/android/systemui/wmshell/WMShell;->mSysUiState:Lcom/android/systemui/model/SysUiState;
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    iput-object p2, p0, Lcom/android/systemui/wmshell/WMShell;->mPipOptional:Ljava/util/Optional;
+    move-object v1, p13
 
-    iput-object p3, p0, Lcom/android/systemui/wmshell/WMShell;->mSplitScreenOptional:Ljava/util/Optional;
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell;->mNavigationModeController:Lcom/android/systemui/navigationbar/NavigationModeController;
 
-    iput-object p4, p0, Lcom/android/systemui/wmshell/WMShell;->mOneHandedOptional:Ljava/util/Optional;
+    move-object/from16 v1, p14
 
-    iput-object p5, p0, Lcom/android/systemui/wmshell/WMShell;->mHideDisplayCutoutOptional:Ljava/util/Optional;
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell;->mScreenLifecycle:Lcom/android/systemui/keyguard/ScreenLifecycle;
 
-    iput-object p14, p0, Lcom/android/systemui/wmshell/WMShell;->mWakefulnessLifecycle:Lcom/android/systemui/keyguard/WakefulnessLifecycle;
+    move-object/from16 v1, p15
 
-    iput-object p13, p0, Lcom/android/systemui/wmshell/WMShell;->mProtoTracer:Lcom/android/systemui/tracing/ProtoTracer;
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell;->mSysUiState:Lcom/android/systemui/model/SysUiState;
 
-    iput-object p6, p0, Lcom/android/systemui/wmshell/WMShell;->mShellCommandHandler:Ljava/util/Optional;
+    move-object v1, p2
 
-    iput-object p15, p0, Lcom/android/systemui/wmshell/WMShell;->mSysUiMainExecutor:Ljava/util/concurrent/Executor;
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell;->mPipOptional:Ljava/util/Optional;
+
+    move-object v1, p3
+
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell;->mLegacySplitScreenOptional:Ljava/util/Optional;
+
+    move-object v1, p4
+
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell;->mSplitScreenOptional:Ljava/util/Optional;
+
+    move-object v1, p5
+
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell;->mOneHandedOptional:Ljava/util/Optional;
+
+    move-object v1, p6
+
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell;->mHideDisplayCutoutOptional:Ljava/util/Optional;
+
+    move-object/from16 v1, p17
+
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell;->mWakefulnessLifecycle:Lcom/android/systemui/keyguard/WakefulnessLifecycle;
+
+    move-object/from16 v1, p16
+
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell;->mProtoTracer:Lcom/android/systemui/tracing/ProtoTracer;
+
+    move-object v1, p7
+
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell;->mShellCommandHandler:Ljava/util/Optional;
+
+    move-object v1, p8
+
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell;->mCompatUIOptional:Ljava/util/Optional;
+
+    move-object v1, p9
+
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell;->mDragAndDropOptional:Ljava/util/Optional;
+
+    move-object/from16 v1, p18
+
+    iput-object v1, v0, Lcom/android/systemui/wmshell/WMShell;->mSysUiMainExecutor:Ljava/util/concurrent/Executor;
 
     return-void
 .end method
@@ -358,7 +443,7 @@
 .method private synthetic lambda$initPip$0(Lcom/android/wm/shell/pip/Pip;I)V
     .locals 1
 
-    const v0, 0xca4c
+    const v0, 0x80ca4c
 
     and-int/2addr v0, p2
 
@@ -428,9 +513,9 @@
     :cond_1
     iget-object p0, p0, Lcom/android/systemui/wmshell/WMShell;->mShellCommandHandler:Ljava/util/Optional;
 
-    new-instance p1, Lcom/android/systemui/wmshell/WMShell$$ExternalSyntheticLambda6;
+    new-instance p1, Lcom/android/systemui/wmshell/WMShell$$ExternalSyntheticLambda9;
 
-    invoke-direct {p1, p2}, Lcom/android/systemui/wmshell/WMShell$$ExternalSyntheticLambda6;-><init>(Ljava/io/PrintWriter;)V
+    invoke-direct {p1, p2}, Lcom/android/systemui/wmshell/WMShell$$ExternalSyntheticLambda9;-><init>(Ljava/io/PrintWriter;)V
 
     invoke-virtual {p0, p1}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
 
@@ -457,6 +542,38 @@
     return-void
 .end method
 
+.method initCompatUi(Lcom/android/wm/shell/compatui/CompatUI;)V
+    .locals 1
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+
+    new-instance v0, Lcom/android/systemui/wmshell/WMShell$15;
+
+    invoke-direct {v0, p0, p1}, Lcom/android/systemui/wmshell/WMShell$15;-><init>(Lcom/android/systemui/wmshell/WMShell;Lcom/android/wm/shell/compatui/CompatUI;)V
+
+    iput-object v0, p0, Lcom/android/systemui/wmshell/WMShell;->mCompatUIKeyguardCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
+
+    iget-object p0, p0, Lcom/android/systemui/wmshell/WMShell;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->registerCallback(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
+
+    return-void
+.end method
+
+.method initDragAndDrop(Lcom/android/wm/shell/draganddrop/DragAndDrop;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/wmshell/WMShell;->mConfigurationController:Lcom/android/systemui/statusbar/policy/ConfigurationController;
+
+    new-instance v1, Lcom/android/systemui/wmshell/WMShell$16;
+
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/wmshell/WMShell$16;-><init>(Lcom/android/systemui/wmshell/WMShell;Lcom/android/wm/shell/draganddrop/DragAndDrop;)V
+
+    invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
+
+    return-void
+.end method
+
 .method initHideDisplayCutout(Lcom/android/wm/shell/hidedisplaycutout/HideDisplayCutout;)V
     .locals 2
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
@@ -464,11 +581,29 @@
 
     iget-object v0, p0, Lcom/android/systemui/wmshell/WMShell;->mConfigurationController:Lcom/android/systemui/statusbar/policy/ConfigurationController;
 
-    new-instance v1, Lcom/android/systemui/wmshell/WMShell$12;
+    new-instance v1, Lcom/android/systemui/wmshell/WMShell$14;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/wmshell/WMShell$12;-><init>(Lcom/android/systemui/wmshell/WMShell;Lcom/android/wm/shell/hidedisplaycutout/HideDisplayCutout;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/wmshell/WMShell$14;-><init>(Lcom/android/systemui/wmshell/WMShell;Lcom/android/wm/shell/hidedisplaycutout/HideDisplayCutout;)V
 
     invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
+
+    return-void
+.end method
+
+.method initLegacySplitScreen(Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)V
+    .locals 1
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+
+    new-instance v0, Lcom/android/systemui/wmshell/WMShell$4;
+
+    invoke-direct {v0, p0, p1}, Lcom/android/systemui/wmshell/WMShell$4;-><init>(Lcom/android/systemui/wmshell/WMShell;Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)V
+
+    iput-object v0, p0, Lcom/android/systemui/wmshell/WMShell;->mLegacySplitScreenKeyguardCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
+
+    iget-object p0, p0, Lcom/android/systemui/wmshell/WMShell;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->registerCallback(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
 
     return-void
 .end method
@@ -478,21 +613,21 @@
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
-    new-instance v0, Lcom/android/systemui/wmshell/WMShell$5;
+    new-instance v0, Lcom/android/systemui/wmshell/WMShell$7;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/wmshell/WMShell$5;-><init>(Lcom/android/systemui/wmshell/WMShell;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/wmshell/WMShell$7;-><init>(Lcom/android/systemui/wmshell/WMShell;)V
 
     invoke-interface {p1, v0}, Lcom/android/wm/shell/onehanded/OneHanded;->registerTransitionCallback(Lcom/android/wm/shell/onehanded/OneHandedTransitionCallback;)V
 
-    new-instance v0, Lcom/android/systemui/wmshell/WMShell$6;
+    new-instance v0, Lcom/android/systemui/wmshell/WMShell$8;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/wmshell/WMShell$6;-><init>(Lcom/android/systemui/wmshell/WMShell;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/wmshell/WMShell$8;-><init>(Lcom/android/systemui/wmshell/WMShell;)V
 
     invoke-interface {p1, v0}, Lcom/android/wm/shell/onehanded/OneHanded;->registerEventCallback(Lcom/android/wm/shell/onehanded/OneHandedEventCallback;)V
 
-    new-instance v0, Lcom/android/systemui/wmshell/WMShell$7;
+    new-instance v0, Lcom/android/systemui/wmshell/WMShell$9;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/wmshell/WMShell$7;-><init>(Lcom/android/systemui/wmshell/WMShell;Lcom/android/wm/shell/onehanded/OneHanded;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/systemui/wmshell/WMShell$9;-><init>(Lcom/android/systemui/wmshell/WMShell;Lcom/android/wm/shell/onehanded/OneHanded;)V
 
     iput-object v0, p0, Lcom/android/systemui/wmshell/WMShell;->mOneHandedKeyguardCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
@@ -500,9 +635,9 @@
 
     invoke-virtual {v1, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->registerCallback(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
 
-    new-instance v0, Lcom/android/systemui/wmshell/WMShell$8;
+    new-instance v0, Lcom/android/systemui/wmshell/WMShell$10;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/wmshell/WMShell$8;-><init>(Lcom/android/systemui/wmshell/WMShell;Lcom/android/wm/shell/onehanded/OneHanded;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/systemui/wmshell/WMShell$10;-><init>(Lcom/android/systemui/wmshell/WMShell;Lcom/android/wm/shell/onehanded/OneHanded;)V
 
     iput-object v0, p0, Lcom/android/systemui/wmshell/WMShell;->mWakefulnessObserver:Lcom/android/systemui/keyguard/WakefulnessLifecycle$Observer;
 
@@ -512,25 +647,25 @@
 
     iget-object v0, p0, Lcom/android/systemui/wmshell/WMShell;->mScreenLifecycle:Lcom/android/systemui/keyguard/ScreenLifecycle;
 
-    new-instance v1, Lcom/android/systemui/wmshell/WMShell$9;
+    new-instance v1, Lcom/android/systemui/wmshell/WMShell$11;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/wmshell/WMShell$9;-><init>(Lcom/android/systemui/wmshell/WMShell;Lcom/android/wm/shell/onehanded/OneHanded;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/wmshell/WMShell$11;-><init>(Lcom/android/systemui/wmshell/WMShell;Lcom/android/wm/shell/onehanded/OneHanded;)V
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/keyguard/Lifecycle;->addObserver(Ljava/lang/Object;)V
 
     iget-object v0, p0, Lcom/android/systemui/wmshell/WMShell;->mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
 
-    new-instance v1, Lcom/android/systemui/wmshell/WMShell$10;
+    new-instance v1, Lcom/android/systemui/wmshell/WMShell$12;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/wmshell/WMShell$10;-><init>(Lcom/android/systemui/wmshell/WMShell;Lcom/android/wm/shell/onehanded/OneHanded;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/wmshell/WMShell$12;-><init>(Lcom/android/systemui/wmshell/WMShell;Lcom/android/wm/shell/onehanded/OneHanded;)V
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/CommandQueue;->addCallback(Lcom/android/systemui/statusbar/CommandQueue$Callbacks;)V
 
     iget-object v0, p0, Lcom/android/systemui/wmshell/WMShell;->mConfigurationController:Lcom/android/systemui/statusbar/policy/ConfigurationController;
 
-    new-instance v1, Lcom/android/systemui/wmshell/WMShell$11;
+    new-instance v1, Lcom/android/systemui/wmshell/WMShell$13;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/wmshell/WMShell$11;-><init>(Lcom/android/systemui/wmshell/WMShell;Lcom/android/wm/shell/onehanded/OneHanded;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/wmshell/WMShell$13;-><init>(Lcom/android/systemui/wmshell/WMShell;Lcom/android/wm/shell/onehanded/OneHanded;)V
 
     invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
 
@@ -593,20 +728,28 @@
     return-void
 .end method
 
-.method initSplitScreen(Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)V
-    .locals 1
+.method initSplitScreen(Lcom/android/wm/shell/splitscreen/SplitScreen;)V
+    .locals 2
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
-    new-instance v0, Lcom/android/systemui/wmshell/WMShell$4;
+    new-instance v0, Lcom/android/systemui/wmshell/WMShell$5;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/wmshell/WMShell$4;-><init>(Lcom/android/systemui/wmshell/WMShell;Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/systemui/wmshell/WMShell$5;-><init>(Lcom/android/systemui/wmshell/WMShell;Lcom/android/wm/shell/splitscreen/SplitScreen;)V
 
     iput-object v0, p0, Lcom/android/systemui/wmshell/WMShell;->mSplitScreenKeyguardCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
-    iget-object p0, p0, Lcom/android/systemui/wmshell/WMShell;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    iget-object v1, p0, Lcom/android/systemui/wmshell/WMShell;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->registerCallback(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
+    invoke-virtual {v1, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->registerCallback(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
+
+    iget-object v0, p0, Lcom/android/systemui/wmshell/WMShell;->mWakefulnessLifecycle:Lcom/android/systemui/keyguard/WakefulnessLifecycle;
+
+    new-instance v1, Lcom/android/systemui/wmshell/WMShell$6;
+
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/wmshell/WMShell$6;-><init>(Lcom/android/systemui/wmshell/WMShell;Lcom/android/wm/shell/splitscreen/SplitScreen;)V
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/keyguard/Lifecycle;->addObserver(Ljava/lang/Object;)V
 
     return-void
 .end method
@@ -624,6 +767,14 @@
 
     iget-object v0, p0, Lcom/android/systemui/wmshell/WMShell;->mPipOptional:Ljava/util/Optional;
 
+    new-instance v1, Lcom/android/systemui/wmshell/WMShell$$ExternalSyntheticLambda7;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/wmshell/WMShell$$ExternalSyntheticLambda7;-><init>(Lcom/android/systemui/wmshell/WMShell;)V
+
+    invoke-virtual {v0, v1}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
+
+    iget-object v0, p0, Lcom/android/systemui/wmshell/WMShell;->mLegacySplitScreenOptional:Ljava/util/Optional;
+
     new-instance v1, Lcom/android/systemui/wmshell/WMShell$$ExternalSyntheticLambda5;
 
     invoke-direct {v1, p0}, Lcom/android/systemui/wmshell/WMShell$$ExternalSyntheticLambda5;-><init>(Lcom/android/systemui/wmshell/WMShell;)V
@@ -632,13 +783,21 @@
 
     iget-object v0, p0, Lcom/android/systemui/wmshell/WMShell;->mSplitScreenOptional:Ljava/util/Optional;
 
-    new-instance v1, Lcom/android/systemui/wmshell/WMShell$$ExternalSyntheticLambda3;
+    new-instance v1, Lcom/android/systemui/wmshell/WMShell$$ExternalSyntheticLambda8;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/wmshell/WMShell$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/wmshell/WMShell;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/wmshell/WMShell$$ExternalSyntheticLambda8;-><init>(Lcom/android/systemui/wmshell/WMShell;)V
 
     invoke-virtual {v0, v1}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
 
     iget-object v0, p0, Lcom/android/systemui/wmshell/WMShell;->mOneHandedOptional:Ljava/util/Optional;
+
+    new-instance v1, Lcom/android/systemui/wmshell/WMShell$$ExternalSyntheticLambda6;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/wmshell/WMShell$$ExternalSyntheticLambda6;-><init>(Lcom/android/systemui/wmshell/WMShell;)V
+
+    invoke-virtual {v0, v1}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
+
+    iget-object v0, p0, Lcom/android/systemui/wmshell/WMShell;->mHideDisplayCutoutOptional:Ljava/util/Optional;
 
     new-instance v1, Lcom/android/systemui/wmshell/WMShell$$ExternalSyntheticLambda4;
 
@@ -646,11 +805,19 @@
 
     invoke-virtual {v0, v1}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
 
-    iget-object v0, p0, Lcom/android/systemui/wmshell/WMShell;->mHideDisplayCutoutOptional:Ljava/util/Optional;
+    iget-object v0, p0, Lcom/android/systemui/wmshell/WMShell;->mCompatUIOptional:Ljava/util/Optional;
 
     new-instance v1, Lcom/android/systemui/wmshell/WMShell$$ExternalSyntheticLambda2;
 
     invoke-direct {v1, p0}, Lcom/android/systemui/wmshell/WMShell$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/wmshell/WMShell;)V
+
+    invoke-virtual {v0, v1}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
+
+    iget-object v0, p0, Lcom/android/systemui/wmshell/WMShell;->mDragAndDropOptional:Ljava/util/Optional;
+
+    new-instance v1, Lcom/android/systemui/wmshell/WMShell$$ExternalSyntheticLambda3;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/wmshell/WMShell$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/wmshell/WMShell;)V
 
     invoke-virtual {v0, v1}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
 

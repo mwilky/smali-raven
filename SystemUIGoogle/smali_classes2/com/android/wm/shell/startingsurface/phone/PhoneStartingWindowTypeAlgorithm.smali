@@ -6,10 +6,6 @@
 .implements Lcom/android/wm/shell/startingsurface/StartingWindowTypeAlgorithm;
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "PhoneStartingWindowTypeAlgorithm"
-
-
 # direct methods
 .method static constructor <clinit>()V
     .locals 0
@@ -26,47 +22,17 @@
 .end method
 
 .method private isSnapshotCompatible(Landroid/window/StartingWindowInfo;)Z
-    .locals 4
+    .locals 3
 
-    iget-object p0, p1, Landroid/window/StartingWindowInfo;->mTaskSnapshot:Landroid/window/TaskSnapshot;
+    iget-object p0, p1, Landroid/window/StartingWindowInfo;->taskSnapshot:Landroid/window/TaskSnapshot;
 
     const/4 v0, 0x0
 
-    if-nez p0, :cond_1
-
-    sget-boolean p0, Lcom/android/wm/shell/startingsurface/StartingWindowController;->DEBUG_SPLASH_SCREEN:Z
-
     if-nez p0, :cond_0
 
-    goto :goto_0
-
-    :cond_0
-    sget-object p0, Lcom/android/wm/shell/startingsurface/phone/PhoneStartingWindowTypeAlgorithm;->TAG:Ljava/lang/String;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "isSnapshotCompatible no snapshot "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object p1, p1, Landroid/window/StartingWindowInfo;->taskInfo:Landroid/app/ActivityManager$RunningTaskInfo;
-
-    iget p1, p1, Landroid/app/ActivityManager$RunningTaskInfo;->taskId:I
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-static {p0, p1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_0
     return v0
 
-    :cond_1
+    :cond_0
     invoke-virtual {p0}, Landroid/window/TaskSnapshot;->getTopActivityComponent()Landroid/content/ComponentName;
 
     move-result-object v1
@@ -79,41 +45,11 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_1
 
-    sget-boolean p0, Lcom/android/wm/shell/startingsurface/StartingWindowController;->DEBUG_SPLASH_SCREEN:Z
-
-    if-nez p0, :cond_2
-
-    goto :goto_1
-
-    :cond_2
-    sget-object p0, Lcom/android/wm/shell/startingsurface/phone/PhoneStartingWindowTypeAlgorithm;->TAG:Ljava/lang/String;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "isSnapshotCompatible obsoleted snapshot "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object p1, p1, Landroid/window/StartingWindowInfo;->taskInfo:Landroid/app/ActivityManager$RunningTaskInfo;
-
-    iget-object p1, p1, Landroid/app/ActivityManager$RunningTaskInfo;->topActivity:Landroid/content/ComponentName;
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-static {p0, p1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_1
     return v0
 
-    :cond_3
+    :cond_1
     iget-object p1, p1, Landroid/window/StartingWindowInfo;->taskInfo:Landroid/app/ActivityManager$RunningTaskInfo;
 
     iget-object p1, p1, Landroid/app/ActivityManager$RunningTaskInfo;->configuration:Landroid/content/res/Configuration;
@@ -128,50 +64,18 @@
 
     move-result p0
 
-    sget-boolean v1, Lcom/android/wm/shell/startingsurface/StartingWindowController;->DEBUG_SPLASH_SCREEN:Z
-
-    if-nez v1, :cond_4
-
-    goto :goto_2
-
-    :cond_4
-    sget-object v1, Lcom/android/wm/shell/startingsurface/phone/PhoneStartingWindowTypeAlgorithm;->TAG:Ljava/lang/String;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "isSnapshotCompatible rotation "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v3, " snapshot "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_2
-    if-ne p1, p0, :cond_5
+    if-ne p1, p0, :cond_2
 
     const/4 v0, 0x1
 
-    :cond_5
+    :cond_2
     return v0
 .end method
 
 
 # virtual methods
 .method public getSuggestedWindowType(Landroid/window/StartingWindowInfo;)I
-    .locals 14
+    .locals 12
 
     iget v0, p1, Landroid/window/StartingWindowInfo;->startingWindowTypeParameter:I
 
@@ -281,127 +185,52 @@
     move v9, v2
 
     :goto_7
-    sget-boolean v11, Lcom/android/wm/shell/startingsurface/StartingWindowController;->DEBUG_SPLASH_SCREEN:Z
+    const/4 v11, 0x3
 
-    if-nez v11, :cond_8
+    if-nez v9, :cond_b
+
+    if-eqz v5, :cond_8
+
+    if-nez v1, :cond_8
+
+    if-eqz v4, :cond_b
+
+    if-nez v7, :cond_b
+
+    :cond_8
+    if-eqz v8, :cond_9
+
+    move v3, v11
 
     goto :goto_8
 
-    :cond_8
-    sget-object v11, Lcom/android/wm/shell/startingsurface/phone/PhoneStartingWindowTypeAlgorithm;->TAG:Ljava/lang/String;
-
-    new-instance v12, Ljava/lang/StringBuilder;
-
-    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v13, "preferredStartingWindowType newTask:"
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v12, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    const-string v13, " taskSwitch:"
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v12, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    const-string v13, " processRunning:"
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v12, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    const-string v13, " allowTaskSnapshot:"
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v12, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    const-string v13, " activityCreated:"
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v12, v7}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    const-string v13, " useEmptySplashScreen:"
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v12, v8}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    const-string v13, " legacySplashScreen:"
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v12, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    const-string v13, " topIsHome:"
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v12, v9}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-static {v11, v12}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_8
-    if-eqz v0, :cond_9
+    :cond_9
+    if-eqz v0, :cond_a
 
     const/4 v3, 0x4
 
-    :cond_9
-    const/4 v0, 0x3
-
-    if-nez v9, :cond_e
-
-    if-nez v5, :cond_b
-
-    if-eqz v8, :cond_a
-
-    move v3, v0
-
     :cond_a
+    :goto_8
     return v3
 
     :cond_b
-    if-eqz v1, :cond_d
+    if-eqz v4, :cond_d
 
-    if-eqz v8, :cond_c
-
-    move v3, v0
-
-    :cond_c
-    return v3
-
-    :cond_d
-    if-eqz v4, :cond_e
-
-    if-nez v7, :cond_e
-
-    return v3
-
-    :cond_e
-    if-eqz v4, :cond_10
-
-    if-eqz v6, :cond_10
+    if-eqz v6, :cond_d
 
     invoke-direct {p0, p1}, Lcom/android/wm/shell/startingsurface/phone/PhoneStartingWindowTypeAlgorithm;->isSnapshotCompatible(Landroid/window/StartingWindowInfo;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_f
+    if-eqz p0, :cond_c
 
     return v10
 
-    :cond_f
-    if-nez v9, :cond_10
+    :cond_c
+    if-nez v9, :cond_d
 
-    return v0
+    return v11
 
-    :cond_10
+    :cond_d
     return v2
 .end method

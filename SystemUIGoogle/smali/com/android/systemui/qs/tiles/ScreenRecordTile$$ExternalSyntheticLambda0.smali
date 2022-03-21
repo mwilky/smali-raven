@@ -8,18 +8,26 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/systemui/qs/tiles/ScreenRecordTile;
 
-.field public final synthetic f$1:Landroid/content/Intent;
+.field public final synthetic f$1:Z
+
+.field public final synthetic f$2:Lcom/android/systemui/screenrecord/ScreenRecordDialog;
+
+.field public final synthetic f$3:Landroid/view/View;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/qs/tiles/ScreenRecordTile;Landroid/content/Intent;)V
+.method public synthetic constructor <init>(Lcom/android/systemui/qs/tiles/ScreenRecordTile;ZLcom/android/systemui/screenrecord/ScreenRecordDialog;Landroid/view/View;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/qs/tiles/ScreenRecordTile;
 
-    iput-object p2, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile$$ExternalSyntheticLambda0;->f$1:Landroid/content/Intent;
+    iput-boolean p2, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile$$ExternalSyntheticLambda0;->f$1:Z
+
+    iput-object p3, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile$$ExternalSyntheticLambda0;->f$2:Lcom/android/systemui/screenrecord/ScreenRecordDialog;
+
+    iput-object p4, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile$$ExternalSyntheticLambda0;->f$3:Landroid/view/View;
 
     return-void
 .end method
@@ -27,13 +35,17 @@
 
 # virtual methods
 .method public final onDismiss()Z
-    .locals 1
+    .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/qs/tiles/ScreenRecordTile;
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile$$ExternalSyntheticLambda0;->f$1:Landroid/content/Intent;
+    iget-boolean v1, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile$$ExternalSyntheticLambda0;->f$1:Z
 
-    invoke-static {v0, p0}, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->$r8$lambda$uPKAmku2Ulv877Doo6iVoJ8aEeo(Lcom/android/systemui/qs/tiles/ScreenRecordTile;Landroid/content/Intent;)Z
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile$$ExternalSyntheticLambda0;->f$2:Lcom/android/systemui/screenrecord/ScreenRecordDialog;
+
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile$$ExternalSyntheticLambda0;->f$3:Landroid/view/View;
+
+    invoke-static {v0, v1, v2, p0}, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->$r8$lambda$cBOd4kSfrS6zRX8dgLmV_3MxE8w(Lcom/android/systemui/qs/tiles/ScreenRecordTile;ZLcom/android/systemui/screenrecord/ScreenRecordDialog;Landroid/view/View;)Z
 
     move-result p0
 

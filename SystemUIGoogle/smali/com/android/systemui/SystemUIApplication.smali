@@ -89,7 +89,7 @@
 
     if-nez v0, :cond_1
 
-    const-string/jumbo v0, "sys.boot_completed"
+    const-string v0, "sys.boot_completed"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 

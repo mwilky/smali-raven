@@ -3,6 +3,10 @@
 .source "KeyguardUserSwitcherListView.java"
 
 
+# static fields
+.field private static final DEBUG:Z
+
+
 # instance fields
 .field private mAnimating:Z
 
@@ -12,10 +16,20 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$TmINzvQcbZlD7JNH5-4Pil_GAJ4(Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;)V
+.method public static synthetic $r8$lambda$-P1lY8lPqf__nC9wujcHsrOovIo(Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;Z[Lcom/android/systemui/statusbar/policy/KeyguardUserDetailItemView;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;->lambda$updateVisibilities$0()V
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;->lambda$updateVisibilities$0(Z[Lcom/android/systemui/statusbar/policy/KeyguardUserDetailItemView;)V
+
+    return-void
+.end method
+
+.method static constructor <clinit>()V
+    .locals 1
+
+    sget-boolean v0, Lcom/android/keyguard/KeyguardConstants;->DEBUG:Z
+
+    sput-boolean v0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;->DEBUG:Z
 
     return-void
 .end method
@@ -66,8 +80,8 @@
     return-void
 .end method
 
-.method private synthetic lambda$updateVisibilities$0()V
-    .locals 1
+.method private synthetic lambda$updateVisibilities$0(Z[Lcom/android/systemui/statusbar/policy/KeyguardUserDetailItemView;)V
+    .locals 2
 
     const/4 v0, 0x1
 
@@ -75,10 +89,28 @@
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->setClipToPadding(Z)V
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;->mAnimating:Z
+    iput-boolean v1, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;->mAnimating:Z
 
+    if-nez p1, :cond_0
+
+    move p0, v0
+
+    :goto_0
+    array-length p1, p2
+
+    if-ge p0, p1, :cond_0
+
+    aget-object p1, p2, p0
+
+    invoke-virtual {p1, v1, v0, v1}, Lcom/android/systemui/statusbar/policy/KeyguardUserDetailItemView;->updateVisibilities(ZZZ)V
+
+    add-int/lit8 p0, p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
     return-void
 .end method
 
@@ -150,109 +182,139 @@
 .end method
 
 .method updateVisibilities(ZZ)V
-    .locals 7
+    .locals 6
 
-    const/4 v0, 0x0
+    sget-boolean v0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;->DEBUG:Z
 
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;->mAnimating:Z
+    const/4 v1, 0x0
+
+    const/4 v2, 0x1
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x3
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v3
+
+    aput-object v3, v0, v1
+
+    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v3
+
+    aput-object v3, v0, v2
+
+    const/4 v3, 0x2
 
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getChildCount()I
 
-    move-result v1
+    move-result v4
 
-    new-array v2, v1, [Lcom/android/systemui/statusbar/policy/KeyguardUserDetailItemView;
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move v3, v0
+    move-result-object v4
+
+    aput-object v4, v0, v3
+
+    const-string v3, "updateVisibilities: open=%b animate=%b childCount=%d"
+
+    invoke-static {v3, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v3, "KeyguardUserSwitcherListView"
+
+    invoke-static {v3, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    iput-boolean v1, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;->mAnimating:Z
+
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getChildCount()I
+
+    move-result v0
+
+    new-array v3, v0, [Lcom/android/systemui/statusbar/policy/KeyguardUserDetailItemView;
+
+    move v4, v1
 
     :goto_0
-    const/4 v4, 0x1
+    if-ge v4, v0, :cond_3
 
-    if-ge v3, v1, :cond_3
-
-    invoke-virtual {p0, v3}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v4}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v5
 
     check-cast v5, Lcom/android/systemui/statusbar/policy/KeyguardUserDetailItemView;
 
-    aput-object v5, v2, v3
+    aput-object v5, v3, v4
 
-    aget-object v5, v2, v3
+    aget-object v5, v3, v4
 
     invoke-virtual {v5}, Landroid/widget/LinearLayout;->clearAnimation()V
 
-    if-nez v3, :cond_0
+    if-nez v4, :cond_1
 
-    aget-object v5, v2, v3
+    aget-object v5, v3, v4
 
-    invoke-virtual {v5, v4, p1, p2}, Lcom/android/systemui/statusbar/policy/KeyguardUserDetailItemView;->updateVisibilities(ZZZ)V
+    invoke-virtual {v5, v2, p1, p2}, Lcom/android/systemui/statusbar/policy/KeyguardUserDetailItemView;->updateVisibilities(ZZZ)V
 
-    aget-object v5, v2, v3
+    aget-object v5, v3, v4
 
-    invoke-virtual {v5, v4}, Landroid/widget/LinearLayout;->setClickable(Z)V
-
-    goto :goto_3
-
-    :cond_0
-    aget-object v5, v2, v3
-
-    invoke-virtual {v5, p1}, Landroid/widget/LinearLayout;->setClickable(Z)V
-
-    aget-object v5, v2, v3
-
-    if-nez p2, :cond_2
-
-    if-eqz p1, :cond_1
+    invoke-virtual {v5, v2}, Landroid/widget/LinearLayout;->setClickable(Z)V
 
     goto :goto_1
 
     :cond_1
-    move v6, v0
+    aget-object v5, v3, v4
 
-    goto :goto_2
+    invoke-virtual {v5, p1}, Landroid/widget/LinearLayout;->setClickable(Z)V
+
+    if-eqz p1, :cond_2
+
+    aget-object v5, v3, v4
+
+    invoke-virtual {v5, v2, v2, v1}, Lcom/android/systemui/statusbar/policy/KeyguardUserDetailItemView;->updateVisibilities(ZZZ)V
 
     :cond_2
     :goto_1
-    move v6, v4
-
-    :goto_2
-    invoke-virtual {v5, v6, v4, v0}, Lcom/android/systemui/statusbar/policy/KeyguardUserDetailItemView;->updateVisibilities(ZZZ)V
-
-    :goto_3
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
     :cond_3
     if-eqz p2, :cond_5
 
-    if-le v1, v4, :cond_5
+    if-le v0, v2, :cond_5
 
     const/4 p2, 0x0
 
-    aput-object p2, v2, v0
+    aput-object p2, v3, v1
 
-    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->setClipChildren(Z)V
+    invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->setClipChildren(Z)V
 
-    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->setClipToPadding(Z)V
+    invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->setClipToPadding(Z)V
 
-    iput-boolean v4, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;->mAnimating:Z
+    iput-boolean v2, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;->mAnimating:Z
 
     if-eqz p1, :cond_4
 
-    iget-object p1, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;->mAppearAnimationUtils:Lcom/android/settingslib/animation/AppearAnimationUtils;
+    iget-object p2, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;->mAppearAnimationUtils:Lcom/android/settingslib/animation/AppearAnimationUtils;
 
-    goto :goto_4
+    goto :goto_2
 
     :cond_4
-    iget-object p1, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;->mDisappearAnimationUtils:Lcom/android/settingslib/animation/DisappearAnimationUtils;
+    iget-object p2, p0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;->mDisappearAnimationUtils:Lcom/android/settingslib/animation/DisappearAnimationUtils;
 
-    :goto_4
-    new-instance p2, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView$$ExternalSyntheticLambda0;
+    :goto_2
+    new-instance v0, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView$$ExternalSyntheticLambda0;
 
-    invoke-direct {p2, p0}, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;)V
+    invoke-direct {v0, p0, p1, v3}, Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/statusbar/policy/KeyguardUserSwitcherListView;Z[Lcom/android/systemui/statusbar/policy/KeyguardUserDetailItemView;)V
 
-    invoke-virtual {p1, v2, p2}, Lcom/android/settingslib/animation/AppearAnimationUtils;->startAnimation([Landroid/view/View;Ljava/lang/Runnable;)V
+    invoke-virtual {p2, v3, v0}, Lcom/android/settingslib/animation/AppearAnimationUtils;->startAnimation([Landroid/view/View;Ljava/lang/Runnable;)V
 
     :cond_5
     return-void

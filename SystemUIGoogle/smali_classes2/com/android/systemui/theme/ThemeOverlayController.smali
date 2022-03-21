@@ -14,15 +14,33 @@
 
 .field private final mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
-.field private mCurrentColors:Landroid/app/WallpaperColors;
+.field private mColorScheme:Lcom/android/systemui/monet/ColorScheme;
+
+.field private final mCurrentColors:Landroid/util/SparseArray;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/SparseArray<",
+            "Landroid/app/WallpaperColors;",
+            ">;"
+        }
+    .end annotation
+.end field
 
 .field private mDeferredThemeEvaluation:Z
 
-.field private mDeferredWallpaperColors:Landroid/app/WallpaperColors;
+.field private final mDeferredWallpaperColors:Landroid/util/SparseArray;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Landroid/util/SparseArray<",
+            "Landroid/app/WallpaperColors;",
+            ">;"
+        }
+    .end annotation
+.end field
 
-.field private mDeferredWallpaperColorsFlags:I
+.field private final mDeferredWallpaperColorsFlags:Landroid/util/SparseIntArray;
 
-.field private mDeviceProvisionedController:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
+.field private final mDeviceProvisionedController:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
 
 .field private final mDeviceProvisionedListener:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController$DeviceProvisionedListener;
 
@@ -40,7 +58,7 @@
 
 .field private mSecondaryOverlay:Landroid/content/om/FabricatedOverlay;
 
-.field private mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
+.field private final mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
 
 .field private mSkipSettingChange:Z
 
@@ -48,54 +66,54 @@
 
 .field private final mUserManager:Landroid/os/UserManager;
 
-.field private mUserTracker:Lcom/android/systemui/settings/UserTracker;
+.field private final mUserTracker:Lcom/android/systemui/settings/UserTracker;
 
-.field private mWakefulnessLifecycle:Lcom/android/systemui/keyguard/WakefulnessLifecycle;
+.field private final mUserTrackerCallback:Lcom/android/systemui/settings/UserTracker$Callback;
+
+.field private final mWakefulnessLifecycle:Lcom/android/systemui/keyguard/WakefulnessLifecycle;
 
 .field protected mWallpaperAccentColor:I
 
-.field private mWallpaperManager:Landroid/app/WallpaperManager;
+.field private final mWallpaperManager:Landroid/app/WallpaperManager;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$4cBbJrB1bp_rxXJ2pMu2eAni80k(Lcom/android/systemui/theme/ThemeOverlayController;Landroid/app/WallpaperColors;)V
+.method public static synthetic $r8$lambda$FmDXY7q5wdow4beruMjg4970KUk(Lcom/android/systemui/theme/ThemeOverlayController;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/theme/ThemeOverlayController;->lambda$start$1(Landroid/app/WallpaperColors;)V
+    invoke-direct {p0}, Lcom/android/systemui/theme/ThemeOverlayController;->lambda$start$1()V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$bwzSfJVlvwP831EnhmBVXyBbzpQ(Lcom/android/systemui/theme/ThemeOverlayController;)V
+.method public static synthetic $r8$lambda$MhjNc8crRZkPW_z7htKa2mJa3_s(Lcom/android/systemui/theme/ThemeOverlayController;Landroid/app/WallpaperColors;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/theme/ThemeOverlayController;->lambda$start$2()V
+    invoke-direct {p0, p1}, Lcom/android/systemui/theme/ThemeOverlayController;->lambda$start$0(Landroid/app/WallpaperColors;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$gR8pdSVC_lbP5x7eZWKmHgSj3rQ(Ljava/util/Map;Ljava/lang/String;)Ljava/lang/String;
+.method public static synthetic $r8$lambda$eGIx99lFye6ycQqVOgetuJGarhI(Ljava/util/Map;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
 
-    invoke-static {p0, p1}, Lcom/android/systemui/theme/ThemeOverlayController;->lambda$updateThemeOverlays$3(Ljava/util/Map;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p0, p1}, Lcom/android/systemui/theme/ThemeOverlayController;->lambda$updateThemeOverlays$2(Ljava/util/Map;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method public static synthetic $r8$lambda$nMkDxo4SIYEfpZmxAxmJUUp-Fls(Lcom/android/systemui/theme/ThemeOverlayController;Landroid/app/WallpaperColors;I)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/theme/ThemeOverlayController;->lambda$new$0(Landroid/app/WallpaperColors;I)V
-
-    return-void
-.end method
-
-.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/os/Handler;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/theme/ThemeOverlayApplier;Lcom/android/systemui/util/settings/SecureSettings;Landroid/app/WallpaperManager;Landroid/os/UserManager;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/keyguard/WakefulnessLifecycle;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/os/Handler;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/theme/ThemeOverlayApplier;Lcom/android/systemui/util/settings/SecureSettings;Landroid/app/WallpaperManager;Landroid/os/UserManager;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/keyguard/WakefulnessLifecycle;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/SystemUI;-><init>(Landroid/content/Context;)V
+
+    new-instance p1, Landroid/util/SparseArray;
+
+    invoke-direct {p1}, Landroid/util/SparseArray;-><init>()V
+
+    iput-object p1, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mCurrentColors:Landroid/util/SparseArray;
 
     const/4 p1, 0x0
 
@@ -107,25 +125,43 @@
 
     iput-boolean p1, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mAcceptColorEvents:Z
 
+    new-instance p1, Landroid/util/SparseArray;
+
+    invoke-direct {p1}, Landroid/util/SparseArray;-><init>()V
+
+    iput-object p1, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mDeferredWallpaperColors:Landroid/util/SparseArray;
+
+    new-instance p1, Landroid/util/SparseIntArray;
+
+    invoke-direct {p1}, Landroid/util/SparseIntArray;-><init>()V
+
+    iput-object p1, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mDeferredWallpaperColorsFlags:Landroid/util/SparseIntArray;
+
     new-instance p1, Lcom/android/systemui/theme/ThemeOverlayController$1;
 
     invoke-direct {p1, p0}, Lcom/android/systemui/theme/ThemeOverlayController$1;-><init>(Lcom/android/systemui/theme/ThemeOverlayController;)V
 
     iput-object p1, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mDeviceProvisionedListener:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController$DeviceProvisionedListener;
 
-    new-instance p1, Lcom/android/systemui/theme/ThemeOverlayController$$ExternalSyntheticLambda0;
-
-    invoke-direct {p1, p0}, Lcom/android/systemui/theme/ThemeOverlayController$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/theme/ThemeOverlayController;)V
-
-    iput-object p1, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mOnColorsChangedListener:Landroid/app/WallpaperManager$OnColorsChangedListener;
-
     new-instance p1, Lcom/android/systemui/theme/ThemeOverlayController$2;
 
     invoke-direct {p1, p0}, Lcom/android/systemui/theme/ThemeOverlayController$2;-><init>(Lcom/android/systemui/theme/ThemeOverlayController;)V
 
+    iput-object p1, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mOnColorsChangedListener:Landroid/app/WallpaperManager$OnColorsChangedListener;
+
+    new-instance p1, Lcom/android/systemui/theme/ThemeOverlayController$3;
+
+    invoke-direct {p1, p0}, Lcom/android/systemui/theme/ThemeOverlayController$3;-><init>(Lcom/android/systemui/theme/ThemeOverlayController;)V
+
+    iput-object p1, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mUserTrackerCallback:Lcom/android/systemui/settings/UserTracker$Callback;
+
+    new-instance p1, Lcom/android/systemui/theme/ThemeOverlayController$4;
+
+    invoke-direct {p1, p0}, Lcom/android/systemui/theme/ThemeOverlayController$4;-><init>(Lcom/android/systemui/theme/ThemeOverlayController;)V
+
     iput-object p1, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mBroadcastReceiver:Landroid/content/BroadcastReceiver;
 
-    invoke-virtual {p13}, Lcom/android/systemui/statusbar/FeatureFlags;->isMonetEnabled()Z
+    invoke-virtual {p13}, Lcom/android/systemui/flags/FeatureFlags;->isMonetEnabled()Z
 
     move-result p1
 
@@ -176,6 +212,22 @@
     return p0
 .end method
 
+.method static synthetic access$1000(Lcom/android/systemui/theme/ThemeOverlayController;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mSkipSettingChange:Z
+
+    return p0
+.end method
+
+.method static synthetic access$1002(Lcom/android/systemui/theme/ThemeOverlayController;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mSkipSettingChange:Z
+
+    return p1
+.end method
+
 .method static synthetic access$102(Lcom/android/systemui/theme/ThemeOverlayController;Z)Z
     .locals 0
 
@@ -192,12 +244,20 @@
     return-void
 .end method
 
-.method static synthetic access$300(Lcom/android/systemui/theme/ThemeOverlayController;)Landroid/os/UserManager;
+.method static synthetic access$300(Lcom/android/systemui/theme/ThemeOverlayController;)Lcom/android/systemui/settings/UserTracker;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mUserManager:Landroid/os/UserManager;
+    iget-object p0, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mUserTracker:Lcom/android/systemui/settings/UserTracker;
 
     return-object p0
+.end method
+
+.method static synthetic access$400(Lcom/android/systemui/theme/ThemeOverlayController;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mAcceptColorEvents:Z
+
+    return p0
 .end method
 
 .method static synthetic access$402(Lcom/android/systemui/theme/ThemeOverlayController;Z)Z
@@ -208,78 +268,54 @@
     return p1
 .end method
 
-.method static synthetic access$500(Lcom/android/systemui/theme/ThemeOverlayController;)Lcom/android/systemui/settings/UserTracker;
+.method static synthetic access$500(Lcom/android/systemui/theme/ThemeOverlayController;)Lcom/android/systemui/keyguard/WakefulnessLifecycle;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mUserTracker:Lcom/android/systemui/settings/UserTracker;
+    iget-object p0, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mWakefulnessLifecycle:Lcom/android/systemui/keyguard/WakefulnessLifecycle;
 
     return-object p0
 .end method
 
-.method static synthetic access$600(Lcom/android/systemui/theme/ThemeOverlayController;)Z
+.method static synthetic access$600(Lcom/android/systemui/theme/ThemeOverlayController;)Landroid/util/SparseArray;
     .locals 0
 
-    iget-boolean p0, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mSkipSettingChange:Z
-
-    return p0
-.end method
-
-.method static synthetic access$602(Lcom/android/systemui/theme/ThemeOverlayController;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mSkipSettingChange:Z
-
-    return p1
-.end method
-
-.method static synthetic access$700(Lcom/android/systemui/theme/ThemeOverlayController;)Landroid/app/WallpaperColors;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mDeferredWallpaperColors:Landroid/app/WallpaperColors;
+    iget-object p0, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mDeferredWallpaperColors:Landroid/util/SparseArray;
 
     return-object p0
 .end method
 
-.method static synthetic access$702(Lcom/android/systemui/theme/ThemeOverlayController;Landroid/app/WallpaperColors;)Landroid/app/WallpaperColors;
+.method static synthetic access$700(Lcom/android/systemui/theme/ThemeOverlayController;)Landroid/util/SparseIntArray;
     .locals 0
 
-    iput-object p1, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mDeferredWallpaperColors:Landroid/app/WallpaperColors;
+    iget-object p0, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mDeferredWallpaperColorsFlags:Landroid/util/SparseIntArray;
 
-    return-object p1
+    return-object p0
 .end method
 
-.method static synthetic access$800(Lcom/android/systemui/theme/ThemeOverlayController;)I
+.method static synthetic access$800(Lcom/android/systemui/theme/ThemeOverlayController;Landroid/app/WallpaperColors;II)V
     .locals 0
 
-    iget p0, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mDeferredWallpaperColorsFlags:I
-
-    return p0
-.end method
-
-.method static synthetic access$802(Lcom/android/systemui/theme/ThemeOverlayController;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mDeferredWallpaperColorsFlags:I
-
-    return p1
-.end method
-
-.method static synthetic access$900(Lcom/android/systemui/theme/ThemeOverlayController;Landroid/app/WallpaperColors;I)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/theme/ThemeOverlayController;->handleWallpaperColors(Landroid/app/WallpaperColors;I)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/theme/ThemeOverlayController;->handleWallpaperColors(Landroid/app/WallpaperColors;II)V
 
     return-void
 .end method
 
-.method private getLatestWallpaperType()I
+.method static synthetic access$900(Lcom/android/systemui/theme/ThemeOverlayController;)Landroid/os/UserManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mUserManager:Landroid/os/UserManager;
+
+    return-object p0
+.end method
+
+.method private getLatestWallpaperType(I)I
     .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mWallpaperManager:Landroid/app/WallpaperManager;
 
     const/4 v1, 0x2
 
-    invoke-virtual {v0, v1}, Landroid/app/WallpaperManager;->getWallpaperId(I)I
+    invoke-virtual {v0, v1, p1}, Landroid/app/WallpaperManager;->getWallpaperIdForUser(II)I
 
     move-result v0
 
@@ -287,7 +323,7 @@
 
     const/4 v2, 0x1
 
-    invoke-virtual {p0, v2}, Landroid/app/WallpaperManager;->getWallpaperId(I)I
+    invoke-virtual {p0, v2, p1}, Landroid/app/WallpaperManager;->getWallpaperIdForUser(II)I
 
     move-result p0
 
@@ -302,83 +338,128 @@
     return v1
 .end method
 
-.method private handleWallpaperColors(Landroid/app/WallpaperColors;I)V
+.method private handleWallpaperColors(Landroid/app/WallpaperColors;II)V
     .locals 11
 
     const-string v0, "android.theme.customization.accent_color"
 
     const-string v1, "android.theme.customization.color_source"
 
-    iget-object v2, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mCurrentColors:Landroid/app/WallpaperColors;
+    iget-object v2, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mUserTracker:Lcom/android/systemui/settings/UserTracker;
 
-    const/4 v3, 0x0
+    invoke-interface {v2}, Lcom/android/systemui/settings/UserTracker;->getUserId()I
 
-    const/4 v4, 0x1
+    move-result v2
 
-    if-eqz v2, :cond_0
+    iget-object v3, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mCurrentColors:Landroid/util/SparseArray;
 
-    move v2, v4
+    invoke-virtual {v3, p3}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x1
+
+    if-eqz v3, :cond_0
+
+    move v3, v5
 
     goto :goto_0
 
     :cond_0
-    move v2, v3
+    move v3, v4
 
     :goto_0
-    invoke-direct {p0}, Lcom/android/systemui/theme/ThemeOverlayController;->getLatestWallpaperType()I
+    invoke-direct {p0, p3}, Lcom/android/systemui/theme/ThemeOverlayController;->getLatestWallpaperType(I)I
 
-    move-result v5
+    move-result v6
 
-    and-int/2addr v5, p2
+    and-int/2addr v6, p2
 
-    const-string v6, "ThemeOverlayController"
+    const-string v7, "ThemeOverlayController"
 
-    if-eqz v5, :cond_1
+    if-eqz v6, :cond_1
 
-    iput-object p1, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mCurrentColors:Landroid/app/WallpaperColors;
+    iget-object v8, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mCurrentColors:Landroid/util/SparseArray;
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    invoke-virtual {v8, p3, p1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    const-string v8, "got new colors: "
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v9, "got new colors: "
 
-    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v8, " where: "
+    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v9, " where: "
 
-    invoke-virtual {v7, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v8, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
-    iget-object v7, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mDeviceProvisionedController:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
+    if-eq p3, v2, :cond_2
 
-    if-eqz v7, :cond_5
+    new-instance p0, Ljava/lang/StringBuilder;
 
-    invoke-interface {v7}, Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;->isCurrentUserSetup()Z
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result v7
+    const-string p2, "Colors "
 
-    if-nez v7, :cond_5
+    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-eqz v2, :cond_2
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string p1, " for user "
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string p1, ". Not for current user: "
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-static {v7, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_2
+    iget-object v8, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mDeviceProvisionedController:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
+
+    if-eqz v8, :cond_6
+
+    invoke-interface {v8}, Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;->isCurrentUserSetup()Z
+
+    move-result v8
+
+    if-nez v8, :cond_6
+
+    if-eqz v3, :cond_3
 
     new-instance p2, Ljava/lang/StringBuilder;
 
     invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v0, "Wallpaper color event deferred until setup is finished: "
+    const-string p3, "Wallpaper color event deferred until setup is finished: "
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -386,16 +467,16 @@
 
     move-result-object p1
 
-    invoke-static {v6, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    iput-boolean v4, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mDeferredThemeEvaluation:Z
+    iput-boolean v5, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mDeferredThemeEvaluation:Z
 
     return-void
 
-    :cond_2
-    iget-boolean v7, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mDeferredThemeEvaluation:Z
+    :cond_3
+    iget-boolean v8, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mDeferredThemeEvaluation:Z
 
-    if-eqz v7, :cond_3
+    if-eqz v8, :cond_4
 
     new-instance p0, Ljava/lang/StringBuilder;
 
@@ -411,73 +492,71 @@
 
     move-result-object p0
 
-    invoke-static {v6, p0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, p0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
-    :cond_3
-    new-instance p1, Ljava/lang/StringBuilder;
+    :cond_4
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v7, "During user setup, but allowing first color event: had? "
+    const-string v9, "During user setup, but allowing first color event: had? "
 
-    invoke-virtual {p1, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    const-string v2, " has? "
+    const-string v3, " has? "
 
-    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mCurrentColors:Landroid/app/WallpaperColors;
+    iget-object v3, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mCurrentColors:Landroid/util/SparseArray;
 
-    if-eqz v2, :cond_4
+    invoke-virtual {v3, p3}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
-    move v2, v4
+    move-result-object p3
+
+    if-eqz p3, :cond_5
+
+    move p3, v5
 
     goto :goto_1
 
-    :cond_4
-    move v2, v3
+    :cond_5
+    move p3, v4
 
     :goto_1
-    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, p3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p3
 
-    invoke-static {v6, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, p3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_5
-    iget-object p1, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mUserTracker:Lcom/android/systemui/settings/UserTracker;
+    :cond_6
+    iget-object p3, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
 
-    invoke-interface {p1}, Lcom/android/systemui/settings/UserTracker;->getUserId()I
+    const-string v3, "theme_customization_overlay_packages"
 
-    move-result p1
+    invoke-interface {p3, v3, v2}, Lcom/android/systemui/util/settings/SettingsProxy;->getStringForUser(Ljava/lang/String;I)Ljava/lang/String;
 
-    iget-object v2, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
-
-    const-string v7, "theme_customization_overlay_packages"
-
-    invoke-interface {v2, v7, p1}, Lcom/android/systemui/util/settings/SettingsProxy;->getStringForUser(Ljava/lang/String;I)Ljava/lang/String;
-
-    move-result-object p1
+    move-result-object p3
 
     const/4 v2, 0x3
 
-    if-ne p2, v2, :cond_6
+    if-ne p2, v2, :cond_7
 
-    move v2, v4
+    move v2, v5
 
     goto :goto_2
 
-    :cond_6
-    move v2, v3
+    :cond_7
+    move v2, v4
 
     :goto_2
-    if-nez p1, :cond_7
+    if-nez p3, :cond_8
 
     :try_start_0
     new-instance v8, Lorg/json/JSONObject;
@@ -486,10 +565,10 @@
 
     goto :goto_3
 
-    :cond_7
+    :cond_8
     new-instance v8, Lorg/json/JSONObject;
 
-    invoke-direct {v8, p1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
+    invoke-direct {v8, p3}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
 
     :goto_3
     const-string v9, "preset"
@@ -502,100 +581,106 @@
 
     move-result v9
 
-    if-nez v9, :cond_c
+    if-nez v9, :cond_d
 
-    if-eqz v5, :cond_c
+    if-eqz v6, :cond_d
 
-    iput-boolean v4, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mSkipSettingChange:Z
+    invoke-direct {p0, v8, p1}, Lcom/android/systemui/theme/ThemeOverlayController;->isSeedColorSet(Lorg/json/JSONObject;Landroid/app/WallpaperColors;)Z
+
+    move-result p1
+
+    if-nez p1, :cond_d
+
+    iput-boolean v5, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mSkipSettingChange:Z
 
     invoke-virtual {v8, v0}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
 
-    move-result v4
+    move-result p1
     :try_end_0
     .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
 
     const-string v5, "android.theme.customization.system_palette"
 
-    if-nez v4, :cond_8
+    if-nez p1, :cond_9
 
     :try_start_1
     invoke-virtual {v8, v5}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
 
-    move-result v4
+    move-result p1
 
-    if-eqz v4, :cond_9
+    if-eqz p1, :cond_a
 
-    :cond_8
+    :cond_9
     invoke-virtual {v8, v0}, Lorg/json/JSONObject;->remove(Ljava/lang/String;)Ljava/lang/Object;
 
     invoke-virtual {v8, v5}, Lorg/json/JSONObject;->remove(Ljava/lang/String;)Ljava/lang/Object;
 
-    const-string v0, "android.theme.customization.color_index"
+    const-string p1, "android.theme.customization.color_index"
 
-    invoke-virtual {v8, v0}, Lorg/json/JSONObject;->remove(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v8, p1}, Lorg/json/JSONObject;->remove(Ljava/lang/String;)Ljava/lang/Object;
 
-    :cond_9
-    const-string v0, "android.theme.customization.color_both"
+    :cond_a
+    const-string p1, "android.theme.customization.color_both"
 
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_b
 
-    const-string v2, "1"
+    const-string v0, "1"
 
     goto :goto_4
 
-    :cond_a
-    const-string v2, "0"
+    :cond_b
+    const-string v0, "0"
 
     :goto_4
-    invoke-virtual {v8, v0, v2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v8, p1, v0}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    const/4 v0, 0x2
+    const/4 p1, 0x2
 
-    if-ne p2, v0, :cond_b
+    if-ne p2, p1, :cond_c
 
-    const-string p2, "lock_wallpaper"
+    const-string p1, "lock_wallpaper"
 
     goto :goto_5
 
-    :cond_b
-    const-string p2, "home_wallpaper"
+    :cond_c
+    const-string p1, "home_wallpaper"
 
     :goto_5
-    invoke-virtual {v8, v1, p2}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
+    invoke-virtual {v8, v1, p1}, Lorg/json/JSONObject;->put(Ljava/lang/String;Ljava/lang/Object;)Lorg/json/JSONObject;
 
-    const-string p2, "_applied_timestamp"
+    const-string p1, "_applied_timestamp"
 
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
-    invoke-virtual {v8, p2, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
+    invoke-virtual {v8, p1, v0, v1}, Lorg/json/JSONObject;->put(Ljava/lang/String;J)Lorg/json/JSONObject;
 
-    new-instance p2, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v0, "Updating theme setting from "
+    const-string p2, "Updating theme setting from "
 
-    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, " to "
+    const-string p2, " to "
 
-    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v8}, Lorg/json/JSONObject;->toString()Ljava/lang/String;
 
+    move-result-object p2
+
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
     move-result-object p1
 
-    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-static {v6, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v7, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object p1, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
 
@@ -603,7 +688,7 @@
 
     move-result-object p2
 
-    invoke-interface {p1, v7, p2}, Lcom/android/systemui/util/settings/SettingsProxy;->putString(Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-interface {p1, v3, p2}, Lcom/android/systemui/util/settings/SettingsProxy;->putString(Ljava/lang/String;Ljava/lang/String;)Z
     :try_end_1
     .catch Lorg/json/JSONException; {:try_start_1 .. :try_end_1} :catch_0
 
@@ -614,43 +699,99 @@
 
     const-string p2, "Failed to parse THEME_CUSTOMIZATION_OVERLAY_PACKAGES."
 
-    invoke-static {v6, p2, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v7, p2, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :cond_c
+    :cond_d
     :goto_6
-    invoke-direct {p0, v3}, Lcom/android/systemui/theme/ThemeOverlayController;->reevaluateSystemTheme(Z)V
+    invoke-direct {p0, v4}, Lcom/android/systemui/theme/ThemeOverlayController;->reevaluateSystemTheme(Z)V
 
     return-void
 .end method
 
-.method private synthetic lambda$new$0(Landroid/app/WallpaperColors;I)V
+.method private isSeedColorSet(Lorg/json/JSONObject;Landroid/app/WallpaperColors;)Z
     .locals 2
 
-    iget-boolean v0, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mAcceptColorEvents:Z
+    const/4 p0, 0x0
 
-    if-nez v0, :cond_0
+    if-nez p2, :cond_0
 
-    iget-object v0, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mWakefulnessLifecycle:Lcom/android/systemui/keyguard/WakefulnessLifecycle;
+    return p0
 
-    invoke-virtual {v0}, Lcom/android/systemui/keyguard/WakefulnessLifecycle;->getWakefulness()I
+    :cond_0
+    const-string v0, "android.theme.customization.system_palette"
+
+    invoke-virtual {p1, v0}, Lorg/json/JSONObject;->opt(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/lang/String;
+
+    if-nez p1, :cond_1
+
+    return p0
+
+    :cond_1
+    const-string v0, "#"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    :cond_2
+    invoke-static {p1}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    invoke-static {p2}, Lcom/android/systemui/monet/ColorScheme;->getSeedColors(Landroid/app/WallpaperColors;)Ljava/util/List;
 
-    iput-object p1, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mDeferredWallpaperColors:Landroid/app/WallpaperColors;
+    move-result-object p2
 
-    iput p2, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mDeferredWallpaperColorsFlags:I
+    invoke-interface {p2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object p2
+
+    :cond_3
+    invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/Integer;
+
+    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+
+    move-result v1
+
+    if-ne v1, v0, :cond_3
 
     new-instance p0, Ljava/lang/StringBuilder;
 
     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string p2, "colors received; processing deferred until screen off: "
+    const-string p2, "Same as previous set system palette: "
 
     invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -658,30 +799,15 @@
 
     const-string p1, "ThemeOverlayController"
 
-    invoke-static {p1, p0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-void
+    const/4 p0, 0x1
 
-    :cond_0
-    if-eqz p1, :cond_1
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mAcceptColorEvents:Z
-
-    const/4 v1, 0x0
-
-    iput-object v1, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mDeferredWallpaperColors:Landroid/app/WallpaperColors;
-
-    iput v0, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mDeferredWallpaperColorsFlags:I
-
-    :cond_1
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/theme/ThemeOverlayController;->handleWallpaperColors(Landroid/app/WallpaperColors;I)V
-
-    return-void
+    :cond_4
+    return p0
 .end method
 
-.method private synthetic lambda$start$1(Landroid/app/WallpaperColors;)V
+.method private synthetic lambda$start$0(Landroid/app/WallpaperColors;)V
     .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -702,7 +828,15 @@
 
     invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iput-object p1, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mCurrentColors:Landroid/app/WallpaperColors;
+    iget-object v0, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mCurrentColors:Landroid/util/SparseArray;
+
+    iget-object v1, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mUserTracker:Lcom/android/systemui/settings/UserTracker;
+
+    invoke-interface {v1}, Lcom/android/systemui/settings/UserTracker;->getUserId()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1, p1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     const/4 p1, 0x0
 
@@ -711,12 +845,18 @@
     return-void
 .end method
 
-.method private synthetic lambda$start$2()V
+.method private synthetic lambda$start$1()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mWallpaperManager:Landroid/app/WallpaperManager;
 
-    invoke-direct {p0}, Lcom/android/systemui/theme/ThemeOverlayController;->getLatestWallpaperType()I
+    iget-object v1, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mUserTracker:Lcom/android/systemui/settings/UserTracker;
+
+    invoke-interface {v1}, Lcom/android/systemui/settings/UserTracker;->getUserId()I
+
+    move-result v1
+
+    invoke-direct {p0, v1}, Lcom/android/systemui/theme/ThemeOverlayController;->getLatestWallpaperType(I)I
 
     move-result v1
 
@@ -724,9 +864,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/systemui/theme/ThemeOverlayController$$ExternalSyntheticLambda2;
+    new-instance v1, Lcom/android/systemui/theme/ThemeOverlayController$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0, v0}, Lcom/android/systemui/theme/ThemeOverlayController$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/theme/ThemeOverlayController;Landroid/app/WallpaperColors;)V
+    invoke-direct {v1, p0, v0}, Lcom/android/systemui/theme/ThemeOverlayController$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/theme/ThemeOverlayController;Landroid/app/WallpaperColors;)V
 
     iget-object v0, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mDeviceProvisionedController:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
 
@@ -749,7 +889,7 @@
     return-void
 .end method
 
-.method private static synthetic lambda$updateThemeOverlays$3(Ljava/util/Map;Ljava/lang/String;)Ljava/lang/String;
+.method private static synthetic lambda$updateThemeOverlays$2(Ljava/util/Map;Ljava/lang/String;)Ljava/lang/String;
     .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -778,7 +918,19 @@
 .method private reevaluateSystemTheme(Z)V
     .locals 4
 
-    iget-object v0, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mCurrentColors:Landroid/app/WallpaperColors;
+    iget-object v0, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mCurrentColors:Landroid/util/SparseArray;
+
+    iget-object v1, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mUserTracker:Lcom/android/systemui/settings/UserTracker;
+
+    invoke-interface {v1}, Lcom/android/systemui/settings/UserTracker;->getUserId()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/WallpaperColors;
 
     const/4 v1, 0x0
 
@@ -1292,9 +1444,9 @@
 
     move-result-object v5
 
-    new-instance v6, Lcom/android/systemui/theme/ThemeOverlayController$$ExternalSyntheticLambda3;
+    new-instance v6, Lcom/android/systemui/theme/ThemeOverlayController$$ExternalSyntheticLambda2;
 
-    invoke-direct {v6, v2}, Lcom/android/systemui/theme/ThemeOverlayController$$ExternalSyntheticLambda3;-><init>(Ljava/util/Map;)V
+    invoke-direct {v6, v2}, Lcom/android/systemui/theme/ThemeOverlayController$$ExternalSyntheticLambda2;-><init>(Ljava/util/Map;)V
 
     invoke-interface {v5, v6}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
 
@@ -1368,7 +1520,7 @@
 
     invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object p3, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mCurrentColors:Landroid/app/WallpaperColors;
+    iget-object p3, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mCurrentColors:Landroid/util/SparseArray;
 
     invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -1480,6 +1632,24 @@
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
+    const-string p3, "mColorScheme="
+
+    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object p3, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mColorScheme:Lcom/android/systemui/monet/ColorScheme;
+
+    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    new-instance p1, Ljava/lang/StringBuilder;
+
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+
     const-string p3, "mNeedsOverlayCreation="
 
     invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1536,25 +1706,7 @@
 .method protected getAccentColor(Landroid/app/WallpaperColors;)I
     .locals 0
 
-    invoke-virtual {p1}, Landroid/app/WallpaperColors;->getSecondaryColor()Landroid/graphics/Color;
-
-    move-result-object p0
-
-    if-nez p0, :cond_0
-
-    invoke-virtual {p1}, Landroid/app/WallpaperColors;->getTertiaryColor()Landroid/graphics/Color;
-
-    move-result-object p0
-
-    :cond_0
-    if-nez p0, :cond_1
-
-    invoke-virtual {p1}, Landroid/app/WallpaperColors;->getPrimaryColor()Landroid/graphics/Color;
-
-    move-result-object p0
-
-    :cond_1
-    invoke-virtual {p0}, Landroid/graphics/Color;->toArgb()I
+    invoke-static {p1}, Lcom/android/systemui/monet/ColorScheme;->getSeedColor(Landroid/app/WallpaperColors;)I
 
     move-result p0
 
@@ -1564,11 +1716,7 @@
 .method protected getNeutralColor(Landroid/app/WallpaperColors;)I
     .locals 0
 
-    invoke-virtual {p1}, Landroid/app/WallpaperColors;->getPrimaryColor()Landroid/graphics/Color;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/graphics/Color;->toArgb()I
+    invoke-static {p1}, Lcom/android/systemui/monet/ColorScheme;->getSeedColor(Landroid/app/WallpaperColors;)I
 
     move-result p0
 
@@ -1576,9 +1724,202 @@
 .end method
 
 .method protected getOverlay(II)Landroid/content/om/FabricatedOverlay;
-    .locals 0
+    .locals 7
 
-    const/4 p0, 0x0
+    iget-object v0, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/content/res/Configuration;->uiMode:I
+
+    and-int/lit8 v0, v0, 0x30
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x1
+
+    const/16 v3, 0x20
+
+    if-ne v0, v3, :cond_0
+
+    move v0, v2
+
+    goto :goto_0
+
+    :cond_0
+    move v0, v1
+
+    :goto_0
+    new-instance v3, Lcom/android/systemui/monet/ColorScheme;
+
+    invoke-direct {v3, p1, v0}, Lcom/android/systemui/monet/ColorScheme;-><init>(IZ)V
+
+    iput-object v3, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mColorScheme:Lcom/android/systemui/monet/ColorScheme;
+
+    if-ne p2, v2, :cond_1
+
+    invoke-virtual {v3}, Lcom/android/systemui/monet/ColorScheme;->getAllAccentColors()Ljava/util/List;
+
+    move-result-object p1
+
+    goto :goto_1
+
+    :cond_1
+    invoke-virtual {v3}, Lcom/android/systemui/monet/ColorScheme;->getAllNeutralColors()Ljava/util/List;
+
+    move-result-object p1
+
+    :goto_1
+    if-ne p2, v2, :cond_2
+
+    const-string p2, "accent"
+
+    goto :goto_2
+
+    :cond_2
+    const-string p2, "neutral"
+
+    :goto_2
+    iget-object p0, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mColorScheme:Lcom/android/systemui/monet/ColorScheme;
+
+    invoke-virtual {p0}, Lcom/android/systemui/monet/ColorScheme;->getAccent1()Ljava/util/List;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Ljava/util/List;->size()I
+
+    move-result p0
+
+    new-instance v0, Landroid/content/om/FabricatedOverlay$Builder;
+
+    const-string v3, "com.android.systemui"
+
+    const-string v4, "android"
+
+    invoke-direct {v0, v3, p2, v4}, Landroid/content/om/FabricatedOverlay$Builder;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+
+    :goto_3
+    invoke-interface {p1}, Ljava/util/List;->size()I
+
+    move-result v3
+
+    if-ge v1, v3, :cond_5
+
+    rem-int v3, v1, p0
+
+    div-int v4, v1, p0
+
+    add-int/2addr v4, v2
+
+    const-string v5, "android:color/system_"
+
+    if-eqz v3, :cond_4
+
+    if-eq v3, v2, :cond_3
+
+    add-int/lit8 v3, v3, -0x1
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v6, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v4, "_"
+
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v3, "00"
+
+    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    goto :goto_4
+
+    :cond_3
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v4, "_50"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    goto :goto_4
+
+    :cond_4
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v4, "_10"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    :goto_4
+    const/16 v4, 0x1c
+
+    invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Ljava/lang/Integer;
+
+    invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
+
+    move-result v5
+
+    const/16 v6, 0xff
+
+    invoke-static {v5, v6}, Lcom/android/internal/graphics/ColorUtils;->setAlphaComponent(II)I
+
+    move-result v5
+
+    invoke-virtual {v0, v3, v4, v5}, Landroid/content/om/FabricatedOverlay$Builder;->setResourceValue(Ljava/lang/String;II)Landroid/content/om/FabricatedOverlay$Builder;
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_3
+
+    :cond_5
+    invoke-virtual {v0}, Landroid/content/om/FabricatedOverlay$Builder;->build()Landroid/content/om/FabricatedOverlay;
+
+    move-result-object p0
 
     return-object p0
 .end method
@@ -1595,10 +1936,6 @@
     new-instance v0, Landroid/content/IntentFilter;
 
     invoke-direct {v0}, Landroid/content/IntentFilter;-><init>()V
-
-    const-string v1, "android.intent.action.USER_SWITCHED"
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
     const-string v1, "android.intent.action.MANAGED_PROFILE_ADDED"
 
@@ -1626,11 +1963,11 @@
 
     move-result-object v1
 
-    new-instance v2, Lcom/android/systemui/theme/ThemeOverlayController$3;
+    new-instance v2, Lcom/android/systemui/theme/ThemeOverlayController$5;
 
     iget-object v3, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mBgHandler:Landroid/os/Handler;
 
-    invoke-direct {v2, p0, v3}, Lcom/android/systemui/theme/ThemeOverlayController$3;-><init>(Lcom/android/systemui/theme/ThemeOverlayController;Landroid/os/Handler;)V
+    invoke-direct {v2, p0, v3}, Lcom/android/systemui/theme/ThemeOverlayController$5;-><init>(Lcom/android/systemui/theme/ThemeOverlayController;Landroid/os/Handler;)V
 
     const/4 v3, 0x0
 
@@ -1645,15 +1982,23 @@
     return-void
 
     :cond_0
+    iget-object v0, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mUserTracker:Lcom/android/systemui/settings/UserTracker;
+
+    iget-object v1, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mUserTrackerCallback:Lcom/android/systemui/settings/UserTracker$Callback;
+
+    iget-object v2, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mMainExecutor:Ljava/util/concurrent/Executor;
+
+    invoke-interface {v0, v1, v2}, Lcom/android/systemui/settings/UserTracker;->addCallback(Lcom/android/systemui/settings/UserTracker$Callback;Ljava/util/concurrent/Executor;)V
+
     iget-object v0, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mDeviceProvisionedController:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
 
     iget-object v1, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mDeviceProvisionedListener:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController$DeviceProvisionedListener;
 
     invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
 
-    new-instance v0, Lcom/android/systemui/theme/ThemeOverlayController$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/systemui/theme/ThemeOverlayController$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/theme/ThemeOverlayController$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/theme/ThemeOverlayController;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/theme/ThemeOverlayController$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/theme/ThemeOverlayController;)V
 
     iget-object v1, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mDeviceProvisionedController:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
 
@@ -1683,9 +2028,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/theme/ThemeOverlayController;->mWakefulnessLifecycle:Lcom/android/systemui/keyguard/WakefulnessLifecycle;
 
-    new-instance v1, Lcom/android/systemui/theme/ThemeOverlayController$4;
+    new-instance v1, Lcom/android/systemui/theme/ThemeOverlayController$6;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/theme/ThemeOverlayController$4;-><init>(Lcom/android/systemui/theme/ThemeOverlayController;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/theme/ThemeOverlayController$6;-><init>(Lcom/android/systemui/theme/ThemeOverlayController;)V
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/keyguard/Lifecycle;->addObserver(Ljava/lang/Object;)V
 

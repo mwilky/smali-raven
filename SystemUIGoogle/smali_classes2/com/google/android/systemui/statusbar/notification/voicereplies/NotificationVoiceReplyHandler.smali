@@ -9,13 +9,16 @@
         value = {
             "()",
             "Lkotlinx/coroutines/flow/StateFlow<",
-            "Ljava/lang/Boolean;",
+            "Lcom/google/android/systemui/statusbar/notification/voicereplies/CtaState;",
             ">;"
         }
     .end annotation
 .end method
 
 .method public abstract getUserId()I
+.end method
+
+.method public abstract onNotifAvailableForQuickPhraseReplyChanged(Z)V
 .end method
 
 .method public abstract onNotifAvailableForReplyChanged(Z)V

@@ -32,7 +32,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;"
         }
     .end annotation
@@ -140,7 +140,7 @@
             "Lcom/android/systemui/statusbar/notification/collection/render/ShadeViewManagerFactory;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;)V"
         }
     .end annotation
@@ -198,7 +198,7 @@
             "Lcom/android/systemui/statusbar/notification/collection/render/ShadeViewManagerFactory;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;)",
             "Lcom/android/systemui/statusbar/notification/collection/init/NotifPipelineInitializer_Factory;"
         }
@@ -231,7 +231,7 @@
     return-object v10
 .end method
 
-.method public static newInstance(Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/statusbar/notification/collection/coalescer/GroupCoalescer;Lcom/android/systemui/statusbar/notification/collection/NotifCollection;Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;Lcom/android/systemui/statusbar/notification/collection/coordinator/NotifCoordinators;Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/statusbar/notification/collection/render/ShadeViewManagerFactory;Lcom/android/systemui/statusbar/FeatureFlags;)Lcom/android/systemui/statusbar/notification/collection/init/NotifPipelineInitializer;
+.method public static newInstance(Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/statusbar/notification/collection/coalescer/GroupCoalescer;Lcom/android/systemui/statusbar/notification/collection/NotifCollection;Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;Lcom/android/systemui/statusbar/notification/collection/coordinator/NotifCoordinators;Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/statusbar/notification/collection/render/ShadeViewManagerFactory;Lcom/android/systemui/flags/FeatureFlags;)Lcom/android/systemui/statusbar/notification/collection/init/NotifPipelineInitializer;
     .locals 11
 
     new-instance v10, Lcom/android/systemui/statusbar/notification/collection/init/NotifPipelineInitializer;
@@ -256,7 +256,7 @@
 
     move-object/from16 v9, p8
 
-    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/statusbar/notification/collection/init/NotifPipelineInitializer;-><init>(Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/statusbar/notification/collection/coalescer/GroupCoalescer;Lcom/android/systemui/statusbar/notification/collection/NotifCollection;Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;Lcom/android/systemui/statusbar/notification/collection/coordinator/NotifCoordinators;Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/statusbar/notification/collection/render/ShadeViewManagerFactory;Lcom/android/systemui/statusbar/FeatureFlags;)V
+    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/statusbar/notification/collection/init/NotifPipelineInitializer;-><init>(Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/statusbar/notification/collection/coalescer/GroupCoalescer;Lcom/android/systemui/statusbar/notification/collection/NotifCollection;Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;Lcom/android/systemui/statusbar/notification/collection/coordinator/NotifCoordinators;Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/statusbar/notification/collection/render/ShadeViewManagerFactory;Lcom/android/systemui/flags/FeatureFlags;)V
 
     return-object v10
 .end method
@@ -354,9 +354,9 @@
 
     move-object v9, p0
 
-    check-cast v9, Lcom/android/systemui/statusbar/FeatureFlags;
+    check-cast v9, Lcom/android/systemui/flags/FeatureFlags;
 
-    invoke-static/range {v1 .. v9}, Lcom/android/systemui/statusbar/notification/collection/init/NotifPipelineInitializer_Factory;->newInstance(Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/statusbar/notification/collection/coalescer/GroupCoalescer;Lcom/android/systemui/statusbar/notification/collection/NotifCollection;Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;Lcom/android/systemui/statusbar/notification/collection/coordinator/NotifCoordinators;Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/statusbar/notification/collection/render/ShadeViewManagerFactory;Lcom/android/systemui/statusbar/FeatureFlags;)Lcom/android/systemui/statusbar/notification/collection/init/NotifPipelineInitializer;
+    invoke-static/range {v1 .. v9}, Lcom/android/systemui/statusbar/notification/collection/init/NotifPipelineInitializer_Factory;->newInstance(Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/statusbar/notification/collection/coalescer/GroupCoalescer;Lcom/android/systemui/statusbar/notification/collection/NotifCollection;Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;Lcom/android/systemui/statusbar/notification/collection/coordinator/NotifCoordinators;Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/statusbar/notification/collection/render/ShadeViewManagerFactory;Lcom/android/systemui/flags/FeatureFlags;)Lcom/android/systemui/statusbar/notification/collection/init/NotifPipelineInitializer;
 
     move-result-object p0
 

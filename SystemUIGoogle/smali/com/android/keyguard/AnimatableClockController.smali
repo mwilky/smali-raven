@@ -26,8 +26,6 @@
 
 .field private final mBurmeseNumerals:Ljava/lang/String;
 
-.field private final mBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
-
 .field private final mDefaultLineSpacing:F
 
 .field private mDozeAmount:F
@@ -56,7 +54,7 @@
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/keyguard/AnimatableClockView;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Landroid/content/res/Resources;)V
+.method public constructor <init>(Lcom/android/keyguard/AnimatableClockView;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/keyguard/KeyguardUpdateMonitor;Landroid/content/res/Resources;)V
     .locals 1
 
     invoke-direct {p0, p1}, Lcom/android/systemui/util/ViewController;-><init>(Landroid/view/View;)V
@@ -107,8 +105,6 @@
 
     iput-object p5, p0, Lcom/android/keyguard/AnimatableClockController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    iput-object p6, p0, Lcom/android/keyguard/AnimatableClockController;->mBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
-
     iput-object p4, p0, Lcom/android/keyguard/AnimatableClockController;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
 
     const-wide/32 p2, 0x499602d2
@@ -121,7 +117,7 @@
 
     sget p1, Lcom/android/systemui/R$dimen;->keyguard_clock_line_spacing_scale_burmese:I
 
-    invoke-virtual {p7, p1}, Landroid/content/res/Resources;->getFloat(I)F
+    invoke-virtual {p6, p1}, Landroid/content/res/Resources;->getFloat(I)F
 
     move-result p1
 
@@ -129,7 +125,7 @@
 
     sget p1, Lcom/android/systemui/R$dimen;->keyguard_clock_line_spacing_scale:I
 
-    invoke-virtual {p7, p1}, Landroid/content/res/Resources;->getFloat(I)F
+    invoke-virtual {p6, p1}, Landroid/content/res/Resources;->getFloat(I)F
 
     move-result p1
 

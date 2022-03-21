@@ -23,15 +23,7 @@
 
 .field private final handler:Landroid/os/Handler;
 
-.field private final navigationBarController:Ldagger/Lazy;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/navigationbar/NavigationBarController;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field private final navigationBarController:Lcom/android/systemui/navigationbar/NavigationBarController;
 
 .field private final onTimeout:Ljava/lang/Runnable;
 
@@ -53,18 +45,8 @@
     return-void
 .end method
 
-.method public constructor <init>(Ldagger/Lazy;Landroid/os/Handler;)V
+.method public constructor <init>(Lcom/android/systemui/navigationbar/NavigationBarController;Landroid/os/Handler;)V
     .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/navigationbar/NavigationBarController;",
-            ">;",
-            "Landroid/os/Handler;",
-            ")V"
-        }
-    .end annotation
 
     const-string v0, "navigationBarController"
 
@@ -76,24 +58,38 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/google/android/systemui/assist/uihints/NavBarFader;->navigationBarController:Ldagger/Lazy;
+    iput-object p1, p0, Lcom/google/android/systemui/assist/uihints/NavBarFader;->navigationBarController:Lcom/android/systemui/navigationbar/NavigationBarController;
 
     iput-object p2, p0, Lcom/google/android/systemui/assist/uihints/NavBarFader;->handler:Landroid/os/Handler;
 
-    new-instance p1, Lcom/google/android/systemui/assist/uihints/NavBarFader$onTimeout$1;
+    new-instance p2, Lcom/google/android/systemui/assist/uihints/NavBarFader$onTimeout$1;
 
-    invoke-direct {p1, p0}, Lcom/google/android/systemui/assist/uihints/NavBarFader$onTimeout$1;-><init>(Lcom/google/android/systemui/assist/uihints/NavBarFader;)V
+    invoke-direct {p2, p0}, Lcom/google/android/systemui/assist/uihints/NavBarFader$onTimeout$1;-><init>(Lcom/google/android/systemui/assist/uihints/NavBarFader;)V
 
-    iput-object p1, p0, Lcom/google/android/systemui/assist/uihints/NavBarFader;->onTimeout:Ljava/lang/Runnable;
+    iput-object p2, p0, Lcom/google/android/systemui/assist/uihints/NavBarFader;->onTimeout:Ljava/lang/Runnable;
 
-    new-instance p1, Landroid/animation/ObjectAnimator;
+    new-instance p2, Landroid/animation/ObjectAnimator;
 
-    invoke-direct {p1}, Landroid/animation/ObjectAnimator;-><init>()V
+    invoke-direct {p2}, Landroid/animation/ObjectAnimator;-><init>()V
 
-    iput-object p1, p0, Lcom/google/android/systemui/assist/uihints/NavBarFader;->animator:Landroid/animation/ObjectAnimator;
+    iput-object p2, p0, Lcom/google/android/systemui/assist/uihints/NavBarFader;->animator:Landroid/animation/ObjectAnimator;
 
-    const/high16 p1, -0x40800000    # -1.0f
+    invoke-virtual {p1}, Lcom/android/systemui/navigationbar/NavigationBarController;->getDefaultNavigationBarView()Lcom/android/systemui/navigationbar/NavigationBarView;
 
+    move-result-object p1
+
+    if-nez p1, :cond_0
+
+    const/high16 p1, 0x3f800000    # 1.0f
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p1}, Landroid/widget/FrameLayout;->getAlpha()F
+
+    move-result p1
+
+    :goto_0
     iput p1, p0, Lcom/google/android/systemui/assist/uihints/NavBarFader;->targetAlpha:F
 
     return-void
@@ -104,13 +100,7 @@
 .method public onVisibleRequest(Z)V
     .locals 7
 
-    iget-object v0, p0, Lcom/google/android/systemui/assist/uihints/NavBarFader;->navigationBarController:Ldagger/Lazy;
-
-    invoke-interface {v0}, Ldagger/Lazy;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/navigationbar/NavigationBarController;
+    iget-object v0, p0, Lcom/google/android/systemui/assist/uihints/NavBarFader;->navigationBarController:Lcom/android/systemui/navigationbar/NavigationBarController;
 
     invoke-virtual {v0}, Lcom/android/systemui/navigationbar/NavigationBarController;->getDefaultNavigationBarView()Lcom/android/systemui/navigationbar/NavigationBarView;
 
@@ -138,74 +128,60 @@
     invoke-virtual {v1, v2, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     :cond_1
-    invoke-virtual {v0}, Landroid/widget/FrameLayout;->getAlpha()F
-
-    move-result v1
-
     if-eqz p1, :cond_2
 
-    const/high16 v2, 0x3f800000    # 1.0f
+    const/high16 v1, 0x3f800000    # 1.0f
 
     goto :goto_0
 
     :cond_2
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    cmpg-float v3, v2, v1
+    iget v2, p0, Lcom/google/android/systemui/assist/uihints/NavBarFader;->targetAlpha:F
 
-    const/4 v4, 0x1
+    cmpg-float v2, v1, v2
 
-    const/4 v5, 0x0
+    const/4 v3, 0x1
 
-    if-nez v3, :cond_3
+    const/4 v4, 0x0
 
-    move v3, v4
+    if-nez v2, :cond_3
+
+    move v2, v3
 
     goto :goto_1
 
     :cond_3
-    move v3, v5
+    move v2, v4
 
     :goto_1
-    if-nez v3, :cond_7
+    if-eqz v2, :cond_4
 
-    iget v3, p0, Lcom/google/android/systemui/assist/uihints/NavBarFader;->targetAlpha:F
-
-    cmpg-float v3, v2, v3
-
-    if-nez v3, :cond_4
-
-    move v3, v4
-
-    goto :goto_2
+    return-void
 
     :cond_4
-    move v3, v5
+    iget-object v2, p0, Lcom/google/android/systemui/assist/uihints/NavBarFader;->animator:Landroid/animation/ObjectAnimator;
 
-    :goto_2
-    if-eqz v3, :cond_5
+    invoke-virtual {v2}, Landroid/animation/ObjectAnimator;->cancel()V
 
-    goto :goto_3
+    invoke-virtual {v0}, Landroid/widget/FrameLayout;->getAlpha()F
 
-    :cond_5
-    iget-object v3, p0, Lcom/google/android/systemui/assist/uihints/NavBarFader;->animator:Landroid/animation/ObjectAnimator;
+    move-result v2
 
-    invoke-virtual {v3}, Landroid/animation/ObjectAnimator;->cancel()V
+    iput v1, p0, Lcom/google/android/systemui/assist/uihints/NavBarFader;->targetAlpha:F
 
-    iput v2, p0, Lcom/google/android/systemui/assist/uihints/NavBarFader;->targetAlpha:F
-
-    sget-object v3, Landroid/view/View;->ALPHA:Landroid/util/Property;
+    sget-object v5, Landroid/view/View;->ALPHA:Landroid/util/Property;
 
     const/4 v6, 0x2
 
     new-array v6, v6, [F
 
-    aput v1, v6, v5
-
     aput v2, v6, v4
 
-    invoke-static {v0, v3, v6}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
+    aput v1, v6, v3
+
+    invoke-static {v0, v5, v6}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
 
     move-result-object v0
 
@@ -213,9 +189,9 @@
 
     long-to-float v5, v3
 
-    sub-float/2addr v2, v1
+    sub-float/2addr v1, v2
 
-    invoke-static {v2}, Ljava/lang/Math;->abs(F)F
+    invoke-static {v1}, Ljava/lang/Math;->abs(F)F
 
     move-result v1
 
@@ -233,16 +209,14 @@
 
     iput-object v0, p0, Lcom/google/android/systemui/assist/uihints/NavBarFader;->animator:Landroid/animation/ObjectAnimator;
 
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_5
 
     invoke-virtual {v0, v3, v4}, Landroid/animation/ObjectAnimator;->setStartDelay(J)V
 
-    :cond_6
+    :cond_5
     iget-object p0, p0, Lcom/google/android/systemui/assist/uihints/NavBarFader;->animator:Landroid/animation/ObjectAnimator;
 
     invoke-virtual {p0}, Landroid/animation/ObjectAnimator;->start()V
 
-    :cond_7
-    :goto_3
     return-void
 .end method

@@ -51,11 +51,15 @@
 
 .field private final mFastOutSlowIn:Landroid/view/animation/Interpolator;
 
+.field private mInputEventReceiver:Lcom/android/systemui/shared/system/InputChannelCompat$InputEventReceiver;
+
 .field private mInputMonitor:Lcom/android/systemui/shared/system/InputMonitorCompat;
 
 .field private mNavMode:I
 
 .field private mOrientationPortrait:Z
+
+.field private mPackageName:Ljava/lang/String;
 
 .field private mPendingInteraction:Lcom/android/systemui/screenshot/ScreenshotView$PendingInteraction;
 
@@ -95,13 +99,9 @@
     .end annotation
 .end field
 
-.field private mStaticLeftMargin:I
-
 .field private mSwipeDetector:Landroid/view/GestureDetector;
 
 .field private mSwipeDismissHandler:Lcom/android/systemui/screenshot/ScreenshotView$SwipeDismissHandler;
-
-.field private mTransitionView:Landroid/view/View;
 
 .field private mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
@@ -346,6 +346,10 @@
 
     iput-object p1, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mAccelerateInterpolator:Landroid/view/animation/Interpolator;
 
+    const-string p1, ""
+
+    iput-object p1, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mPackageName:Ljava/lang/String;
+
     new-instance p1, Ljava/util/ArrayList;
 
     invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
@@ -509,12 +513,12 @@
     return-object p0
 .end method
 
-.method static synthetic access$200(Lcom/android/systemui/screenshot/ScreenshotView;)V
+.method static synthetic access$200(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/ImageView;
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/screenshot/ScreenshotView;->stopInputListening()V
+    iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mScreenshotPreview:Landroid/widget/ImageView;
 
-    return-void
+    return-object p0
 .end method
 
 .method static synthetic access$2000(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/util/DisplayMetrics;
@@ -525,15 +529,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$300(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/ImageView;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mScreenshotPreview:Landroid/widget/ImageView;
-
-    return-object p0
-.end method
-
-.method static synthetic access$400(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/view/accessibility/AccessibilityManager;
+.method static synthetic access$300(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/view/accessibility/AccessibilityManager;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
@@ -541,7 +537,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$500(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/FrameLayout;
+.method static synthetic access$400(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/FrameLayout;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mDismissButton:Landroid/widget/FrameLayout;
@@ -549,7 +545,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$600(Lcom/android/systemui/screenshot/ScreenshotView;)Z
+.method static synthetic access$500(Lcom/android/systemui/screenshot/ScreenshotView;)Z
     .locals 0
 
     iget-boolean p0, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mDirectionLTR:Z
@@ -557,10 +553,18 @@
     return p0
 .end method
 
-.method static synthetic access$700(Lcom/android/systemui/screenshot/ScreenshotView;)Lcom/android/systemui/screenshot/ScreenshotView$SwipeDismissHandler;
+.method static synthetic access$600(Lcom/android/systemui/screenshot/ScreenshotView;)Lcom/android/systemui/screenshot/ScreenshotView$SwipeDismissHandler;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mSwipeDismissHandler:Lcom/android/systemui/screenshot/ScreenshotView$SwipeDismissHandler;
+
+    return-object p0
+.end method
+
+.method static synthetic access$700(Lcom/android/systemui/screenshot/ScreenshotView;)Ljava/lang/String;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mPackageName:Ljava/lang/String;
 
     return-object p0
 .end method
@@ -1694,13 +1698,17 @@
 .end method
 
 .method private synthetic lambda$setChipIntents$10(Lcom/android/systemui/screenshot/ScreenshotController$SavedImageData;Landroid/view/View;)V
-    .locals 1
+    .locals 3
 
     iget-object p2, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
     sget-object v0, Lcom/android/systemui/screenshot/ScreenshotEvent;->SCREENSHOT_SHARE_TAPPED:Lcom/android/systemui/screenshot/ScreenshotEvent;
 
-    invoke-interface {p2, v0}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
+    iget-object v1, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mPackageName:Ljava/lang/String;
+
+    const/4 v2, 0x0
+
+    invoke-interface {p2, v0, v2, v1}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;ILjava/lang/String;)V
 
     iget-object p1, p1, Lcom/android/systemui/screenshot/ScreenshotController$SavedImageData;->shareTransition:Ljava/util/function/Supplier;
 
@@ -1716,13 +1724,17 @@
 .end method
 
 .method private synthetic lambda$setChipIntents$11(Lcom/android/systemui/screenshot/ScreenshotController$SavedImageData;Landroid/view/View;)V
-    .locals 1
+    .locals 3
 
     iget-object p2, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
     sget-object v0, Lcom/android/systemui/screenshot/ScreenshotEvent;->SCREENSHOT_EDIT_TAPPED:Lcom/android/systemui/screenshot/ScreenshotEvent;
 
-    invoke-interface {p2, v0}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
+    iget-object v1, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mPackageName:Ljava/lang/String;
+
+    const/4 v2, 0x0
+
+    invoke-interface {p2, v0, v2, v1}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;ILjava/lang/String;)V
 
     iget-object p1, p1, Lcom/android/systemui/screenshot/ScreenshotController$SavedImageData;->editTransition:Ljava/util/function/Supplier;
 
@@ -1738,13 +1750,17 @@
 .end method
 
 .method private synthetic lambda$setChipIntents$12(Lcom/android/systemui/screenshot/ScreenshotController$SavedImageData;Landroid/view/View;)V
-    .locals 1
+    .locals 3
 
     iget-object p2, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
     sget-object v0, Lcom/android/systemui/screenshot/ScreenshotEvent;->SCREENSHOT_PREVIEW_TAPPED:Lcom/android/systemui/screenshot/ScreenshotEvent;
 
-    invoke-interface {p2, v0}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
+    iget-object v1, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mPackageName:Ljava/lang/String;
+
+    const/4 v2, 0x0
+
+    invoke-interface {p2, v0, v2, v1}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;ILjava/lang/String;)V
 
     iget-object p1, p1, Lcom/android/systemui/screenshot/ScreenshotController$SavedImageData;->editTransition:Ljava/util/function/Supplier;
 
@@ -1760,13 +1776,17 @@
 .end method
 
 .method private synthetic lambda$setChipIntents$13()V
-    .locals 2
+    .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
     sget-object v1, Lcom/android/systemui/screenshot/ScreenshotEvent;->SCREENSHOT_SMART_ACTION_TAPPED:Lcom/android/systemui/screenshot/ScreenshotEvent;
 
-    invoke-interface {v0, v1}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
+    iget-object v2, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mPackageName:Ljava/lang/String;
+
+    const/4 v3, 0x0
+
+    invoke-interface {v0, v1, v3, v2}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;ILjava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/android/systemui/screenshot/ScreenshotView;->animateDismissal()V
 
@@ -1774,13 +1794,17 @@
 .end method
 
 .method private synthetic lambda$setChipIntents$14()V
-    .locals 2
+    .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
     sget-object v1, Lcom/android/systemui/screenshot/ScreenshotEvent;->SCREENSHOT_SMART_ACTION_TAPPED:Lcom/android/systemui/screenshot/ScreenshotEvent;
 
-    invoke-interface {v0, v1}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
+    iget-object v2, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mPackageName:Ljava/lang/String;
+
+    const/4 v3, 0x0
+
+    invoke-interface {v0, v1, v3, v2}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;ILjava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/android/systemui/screenshot/ScreenshotView;->animateDismissal()V
 
@@ -1975,7 +1999,7 @@
 .method private startInputListening()V
     .locals 4
 
-    invoke-direct {p0}, Lcom/android/systemui/screenshot/ScreenshotView;->stopInputListening()V
+    invoke-virtual {p0}, Lcom/android/systemui/screenshot/ScreenshotView;->stopInputListening()V
 
     new-instance v0, Lcom/android/systemui/shared/system/InputMonitorCompat;
 
@@ -2000,6 +2024,10 @@
     invoke-direct {v3, p0}, Lcom/android/systemui/screenshot/ScreenshotView$$ExternalSyntheticLambda20;-><init>(Lcom/android/systemui/screenshot/ScreenshotView;)V
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/android/systemui/shared/system/InputMonitorCompat;->getInputReceiver(Landroid/os/Looper;Landroid/view/Choreographer;Lcom/android/systemui/shared/system/InputChannelCompat$InputEventListener;)Lcom/android/systemui/shared/system/InputChannelCompat$InputEventReceiver;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mInputEventReceiver:Lcom/android/systemui/shared/system/InputChannelCompat$InputEventReceiver;
 
     return-void
 .end method
@@ -2049,23 +2077,6 @@
     invoke-static {p0, p1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
-    return-void
-.end method
-
-.method private stopInputListening()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mInputMonitor:Lcom/android/systemui/shared/system/InputMonitorCompat;
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Lcom/android/systemui/shared/system/InputMonitorCompat;->dispose()V
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mInputMonitor:Lcom/android/systemui/shared/system/InputMonitorCompat;
-
-    :cond_0
     return-void
 .end method
 
@@ -2173,7 +2184,7 @@
 
     iget-object v2, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
 
-    const v3, 0x10407dc
+    sget v3, Lcom/android/systemui/R$string;->screenshot_share_description:I
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2211,7 +2222,7 @@
 
     iget-object v2, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
 
-    sget v4, Lcom/android/systemui/R$string;->screenshot_edit_label:I
+    sget v4, Lcom/android/systemui/R$string;->screenshot_edit_description:I
 
     invoke-virtual {v2, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2344,8 +2355,6 @@
     invoke-virtual {v1, v2}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
     return-object v1
-
-    nop
 
     :array_0
     .array-data 4
@@ -2668,18 +2677,10 @@
     .end array-data
 .end method
 
-.method getStaticLeftMargin()I
+.method getScreenshotPreview()Landroid/view/View;
     .locals 0
 
-    iget p0, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mStaticLeftMargin:I
-
-    return p0
-.end method
-
-.method getTransitionView()Landroid/view/View;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mTransitionView:Landroid/view/View;
+    iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mScreenshotPreview:Landroid/widget/ImageView;
 
     return-object p0
 .end method
@@ -2800,18 +2801,6 @@
     check-cast v0, Landroid/widget/ImageView;
 
     iput-object v0, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mScreenshotPreview:Landroid/widget/ImageView;
-
-    sget v0, Lcom/android/systemui/R$id;->screenshot_transition_view:I
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    invoke-static {v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    check-cast v0, Landroid/view/View;
-
-    iput-object v0, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mTransitionView:Landroid/view/View;
 
     sget v0, Lcom/android/systemui/R$id;->global_screenshot_preview_border:I
 
@@ -3047,7 +3036,7 @@
 
     move-result-object v0
 
-    const v3, 0x10e0091
+    const v3, 0x10e0095
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -3775,6 +3764,14 @@
     return-void
 .end method
 
+.method setPackageName(Ljava/lang/String;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mPackageName:Ljava/lang/String;
+
+    return-void
+.end method
+
 .method setScreenshot(Landroid/graphics/Bitmap;Landroid/graphics/Insets;)V
     .locals 1
 
@@ -4055,6 +4052,32 @@
     .end array-data
 .end method
 
+.method stopInputListening()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mInputMonitor:Lcom/android/systemui/shared/system/InputMonitorCompat;
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/systemui/shared/system/InputMonitorCompat;->dispose()V
+
+    iput-object v1, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mInputMonitor:Lcom/android/systemui/shared/system/InputMonitorCompat;
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mInputEventReceiver:Lcom/android/systemui/shared/system/InputChannelCompat$InputEventReceiver;
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Lcom/android/systemui/shared/system/InputChannelCompat$InputEventReceiver;->dispose()V
+
+    iput-object v1, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mInputEventReceiver:Lcom/android/systemui/shared/system/InputChannelCompat$InputEventReceiver;
+
+    :cond_1
+    return-void
+.end method
+
 .method takePartialScreenshot(Ljava/util/function/Consumer;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -4217,10 +4240,6 @@
     invoke-virtual {v0, v3, v4, v1, p1}, Landroid/widget/FrameLayout$LayoutParams;->setMargins(IIII)V
 
     :goto_1
-    iget p1, v0, Landroid/widget/FrameLayout$LayoutParams;->leftMargin:I
-
-    iput p1, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mStaticLeftMargin:I
-
     iget-object p1, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mScreenshotStatic:Landroid/view/View;
 
     invoke-virtual {p1, v0}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V

@@ -40,6 +40,14 @@
     return-void
 .end method
 
+.method public onEntryUpdated(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Z)V
+    .locals 0
+
+    invoke-interface {p0, p1}, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;->onEntryUpdated(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+
+    return-void
+.end method
+
 .method public onRankingApplied()V
     .locals 0
 

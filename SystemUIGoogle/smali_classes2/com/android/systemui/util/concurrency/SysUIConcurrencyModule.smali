@@ -114,22 +114,32 @@
     return-object v0
 .end method
 
-.method public static provideMainDelayableExecutor(Landroid/os/Looper;)Lcom/android/systemui/util/concurrency/DelayableExecutor;
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/util/concurrency/ExecutorImpl;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/util/concurrency/ExecutorImpl;-><init>(Landroid/os/Looper;)V
-
-    return-object v0
-.end method
-
 .method public static provideUiBackgroundExecutor()Ljava/util/concurrent/Executor;
     .locals 1
 
     invoke-static {}, Ljava/util/concurrent/Executors;->newSingleThreadExecutor()Ljava/util/concurrent/ExecutorService;
 
     move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static providesBackgroundMessageRouter(Lcom/android/systemui/util/concurrency/DelayableExecutor;)Lcom/android/systemui/util/concurrency/MessageRouter;
+    .locals 1
+
+    new-instance v0, Lcom/android/systemui/util/concurrency/MessageRouterImpl;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/util/concurrency/MessageRouterImpl;-><init>(Lcom/android/systemui/util/concurrency/DelayableExecutor;)V
+
+    return-object v0
+.end method
+
+.method public static providesMainMessageRouter(Lcom/android/systemui/util/concurrency/DelayableExecutor;)Lcom/android/systemui/util/concurrency/MessageRouter;
+    .locals 1
+
+    new-instance v0, Lcom/android/systemui/util/concurrency/MessageRouterImpl;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/util/concurrency/MessageRouterImpl;-><init>(Lcom/android/systemui/util/concurrency/DelayableExecutor;)V
 
     return-object v0
 .end method

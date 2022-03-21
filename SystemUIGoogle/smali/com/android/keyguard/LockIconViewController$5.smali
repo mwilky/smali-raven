@@ -39,21 +39,11 @@
 
     iget-object p1, p0, Lcom/android/keyguard/LockIconViewController$5;->this$0:Lcom/android/keyguard/LockIconViewController;
 
-    invoke-static {p1}, Lcom/android/keyguard/LockIconViewController;->access$2300(Lcom/android/keyguard/LockIconViewController;)V
+    invoke-static {p1}, Lcom/android/keyguard/LockIconViewController;->access$2400(Lcom/android/keyguard/LockIconViewController;)V
 
     iget-object p0, p0, Lcom/android/keyguard/LockIconViewController$5;->this$0:Lcom/android/keyguard/LockIconViewController;
 
-    invoke-static {p0}, Lcom/android/keyguard/LockIconViewController;->access$2200(Lcom/android/keyguard/LockIconViewController;)V
-
-    return-void
-.end method
-
-.method public onOverlayChanged()V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/keyguard/LockIconViewController$5;->this$0:Lcom/android/keyguard/LockIconViewController;
-
-    invoke-static {p0}, Lcom/android/keyguard/LockIconViewController;->access$2200(Lcom/android/keyguard/LockIconViewController;)V
+    invoke-static {p0}, Lcom/android/keyguard/LockIconViewController;->access$2300(Lcom/android/keyguard/LockIconViewController;)V
 
     return-void
 .end method
@@ -63,7 +53,7 @@
 
     iget-object p0, p0, Lcom/android/keyguard/LockIconViewController$5;->this$0:Lcom/android/keyguard/LockIconViewController;
 
-    invoke-static {p0}, Lcom/android/keyguard/LockIconViewController;->access$2200(Lcom/android/keyguard/LockIconViewController;)V
+    invoke-static {p0}, Lcom/android/keyguard/LockIconViewController;->access$2300(Lcom/android/keyguard/LockIconViewController;)V
 
     return-void
 .end method
@@ -73,7 +63,7 @@
 
     iget-object p0, p0, Lcom/android/keyguard/LockIconViewController$5;->this$0:Lcom/android/keyguard/LockIconViewController;
 
-    invoke-static {p0}, Lcom/android/keyguard/LockIconViewController;->access$2200(Lcom/android/keyguard/LockIconViewController;)V
+    invoke-static {p0}, Lcom/android/keyguard/LockIconViewController;->access$2300(Lcom/android/keyguard/LockIconViewController;)V
 
     return-void
 .end method

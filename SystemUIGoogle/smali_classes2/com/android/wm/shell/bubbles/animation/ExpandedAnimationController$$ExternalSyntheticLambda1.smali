@@ -35,7 +35,7 @@
 .method public final configureAnimationForChildAtIndex(ILcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;)V
     .locals 0
 
-    invoke-static {p1, p2}, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->$r8$lambda$n7KjySQ-Y90wiVvZj-qLYIvD0yA(ILcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;)V
+    invoke-static {p1, p2}, Lcom/android/wm/shell/bubbles/animation/ExpandedAnimationController;->$r8$lambda$jewmcnBLr3GjSFhvncFEpa7Zt1g(ILcom/android/wm/shell/bubbles/animation/PhysicsAnimationLayout$PhysicsPropertyAnimator;)V
 
     return-void
 .end method

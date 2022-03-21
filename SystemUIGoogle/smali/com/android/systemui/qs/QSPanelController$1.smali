@@ -39,7 +39,11 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/QSPanelController$1;->this$0:Lcom/android/systemui/qs/QSPanelController;
 
-    invoke-static {p1}, Lcom/android/systemui/qs/QSPanelController;->access$000(Lcom/android/systemui/qs/QSPanelController;)Landroid/view/View;
+    invoke-static {p1}, Lcom/android/systemui/qs/QSPanelController;->access$000(Lcom/android/systemui/qs/QSPanelController;)V
+
+    iget-object p1, p0, Lcom/android/systemui/qs/QSPanelController$1;->this$0:Lcom/android/systemui/qs/QSPanelController;
+
+    invoke-static {p1}, Lcom/android/systemui/qs/QSPanelController;->access$100(Lcom/android/systemui/qs/QSPanelController;)Landroid/view/View;
 
     move-result-object p1
 
@@ -49,7 +53,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/QSPanelController$1;->this$0:Lcom/android/systemui/qs/QSPanelController;
 
-    invoke-static {p1}, Lcom/android/systemui/qs/QSPanelController;->access$100(Lcom/android/systemui/qs/QSPanelController;)Lcom/android/systemui/qs/QSSecurityFooter;
+    invoke-static {p1}, Lcom/android/systemui/qs/QSPanelController;->access$200(Lcom/android/systemui/qs/QSPanelController;)Lcom/android/systemui/qs/QSSecurityFooter;
 
     move-result-object p1
 
@@ -57,7 +61,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/QSPanelController$1;->this$0:Lcom/android/systemui/qs/QSPanelController;
 
-    invoke-static {p1}, Lcom/android/systemui/qs/QSPanelController;->access$200(Lcom/android/systemui/qs/QSPanelController;)Landroid/view/View;
+    invoke-static {p1}, Lcom/android/systemui/qs/QSPanelController;->access$300(Lcom/android/systemui/qs/QSPanelController;)Landroid/view/View;
 
     move-result-object p1
 
@@ -74,9 +78,19 @@
     invoke-virtual {p1}, Lcom/android/systemui/qs/QSPanelController;->refreshAllTiles()V
 
     :cond_0
+    iget-object p1, p0, Lcom/android/systemui/qs/QSPanelController$1;->this$0:Lcom/android/systemui/qs/QSPanelController;
+
+    invoke-static {p1}, Lcom/android/systemui/qs/QSPanelController;->access$400(Lcom/android/systemui/qs/QSPanelController;)Landroid/view/View;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/android/systemui/qs/QSPanel;
+
     iget-object p0, p0, Lcom/android/systemui/qs/QSPanelController$1;->this$0:Lcom/android/systemui/qs/QSPanelController;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/QSPanelController;->access$300(Lcom/android/systemui/qs/QSPanelController;)V
+    iget-boolean p0, p0, Lcom/android/systemui/qs/QSPanelControllerBase;->mShouldUseSplitNotificationShade:Z
+
+    invoke-virtual {p1, p0}, Lcom/android/systemui/qs/QSPanel;->switchSecurityFooter(Z)V
 
     return-void
 .end method

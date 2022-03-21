@@ -24,29 +24,54 @@
 
 .field private final mReceiver:Lcom/android/systemui/accessibility/SystemActions$SystemActionsBroadcastReceiver;
 
-.field private final mRecents:Lcom/android/systemui/recents/Recents;
+.field private final mRecentsOptional:Ljava/util/Optional;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Optional<",
+            "Lcom/android/systemui/recents/Recents;",
+            ">;"
+        }
+    .end annotation
+.end field
 
-.field private final mStatusBar:Ldagger/Lazy;
+.field private final mStatusBarOptionalLazy:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;"
+            ">;>;"
         }
     .end annotation
 .end field
 
 
 # direct methods
-.method public static synthetic $r8$lambda$utnwEEQvm8Mv9_tRtcZGSPwEM-Q(Lcom/android/systemui/accessibility/SystemActions;ZZZ)V
+.method public static synthetic $r8$lambda$AhKDiEkrf8Sz7fAC8CI8R3hxk9E(Lcom/android/systemui/statusbar/phone/StatusBar;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/accessibility/SystemActions;->lambda$new$0(ZZZ)V
+    invoke-static {p0}, Lcom/android/systemui/accessibility/SystemActions;->lambda$handleAccessibilityDismissNotificationShade$2(Lcom/android/systemui/statusbar/phone/StatusBar;)V
 
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Ldagger/Lazy;Lcom/android/systemui/recents/Recents;)V
+.method public static synthetic $r8$lambda$XVS7pfXEEgbUmsZ9En7pL5nA_tI(Lcom/android/systemui/statusbar/phone/StatusBar;)V
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/systemui/accessibility/SystemActions;->lambda$handleQuickSettings$1(Lcom/android/systemui/statusbar/phone/StatusBar;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$pLoygYw5_ul-CAL-YKCnnm7W8Zo(Lcom/android/systemui/accessibility/SystemActions;ZZZZ)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/systemui/accessibility/SystemActions;->lambda$new$0(ZZZZ)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Ldagger/Lazy;Ljava/util/Optional;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -54,16 +79,18 @@
             "Landroid/content/Context;",
             "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
             "Ldagger/Lazy<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;",
+            ">;>;",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/recents/Recents;",
-            ")V"
+            ">;)V"
         }
     .end annotation
 
     invoke-direct {p0, p1}, Lcom/android/systemui/SystemUI;-><init>(Landroid/content/Context;)V
 
-    iput-object p4, p0, Lcom/android/systemui/accessibility/SystemActions;->mRecents:Lcom/android/systemui/recents/Recents;
+    iput-object p4, p0, Lcom/android/systemui/accessibility/SystemActions;->mRecentsOptional:Ljava/util/Optional;
 
     new-instance p1, Lcom/android/systemui/accessibility/SystemActions$SystemActionsBroadcastReceiver;
 
@@ -115,7 +142,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/accessibility/SystemActions;->mNotificationShadeCallback:Lcom/android/systemui/statusbar/phone/StatusBarWindowCallback;
 
-    iput-object p3, p0, Lcom/android/systemui/accessibility/SystemActions;->mStatusBar:Ldagger/Lazy;
+    iput-object p3, p0, Lcom/android/systemui/accessibility/SystemActions;->mStatusBarOptionalLazy:Ldagger/Lazy;
 
     return-void
 .end method
@@ -305,17 +332,17 @@
 .method private handleAccessibilityDismissNotificationShade()V
     .locals 1
 
-    iget-object p0, p0, Lcom/android/systemui/accessibility/SystemActions;->mStatusBar:Ldagger/Lazy;
+    iget-object p0, p0, Lcom/android/systemui/accessibility/SystemActions;->mStatusBarOptionalLazy:Ldagger/Lazy;
 
     invoke-interface {p0}, Ldagger/Lazy;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/systemui/statusbar/phone/StatusBar;
+    check-cast p0, Ljava/util/Optional;
 
-    const/4 v0, 0x0
+    sget-object v0, Lcom/android/systemui/accessibility/SystemActions$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/systemui/accessibility/SystemActions$$ExternalSyntheticLambda3;
 
-    invoke-virtual {p0, v0, v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->animateCollapsePanels(IZ)V
+    invoke-virtual {p0, v0}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
 
     return-void
 .end method
@@ -398,17 +425,19 @@
 .end method
 
 .method private handleNotifications()V
-    .locals 0
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/systemui/accessibility/SystemActions;->mStatusBar:Ldagger/Lazy;
+    iget-object p0, p0, Lcom/android/systemui/accessibility/SystemActions;->mStatusBarOptionalLazy:Ldagger/Lazy;
 
     invoke-interface {p0}, Ldagger/Lazy;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/systemui/statusbar/phone/StatusBar;
+    check-cast p0, Ljava/util/Optional;
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->animateExpandNotificationsPanel()V
+    sget-object v0, Lcom/android/systemui/accessibility/SystemActions$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/systemui/accessibility/SystemActions$$ExternalSyntheticLambda2;
+
+    invoke-virtual {p0, v0}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
 
     return-void
 .end method
@@ -441,27 +470,29 @@
 .method private handleQuickSettings()V
     .locals 1
 
-    iget-object p0, p0, Lcom/android/systemui/accessibility/SystemActions;->mStatusBar:Ldagger/Lazy;
+    iget-object p0, p0, Lcom/android/systemui/accessibility/SystemActions;->mStatusBarOptionalLazy:Ldagger/Lazy;
 
     invoke-interface {p0}, Ldagger/Lazy;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/systemui/statusbar/phone/StatusBar;
+    check-cast p0, Ljava/util/Optional;
 
-    const/4 v0, 0x0
+    sget-object v0, Lcom/android/systemui/accessibility/SystemActions$$ExternalSyntheticLambda4;->INSTANCE:Lcom/android/systemui/accessibility/SystemActions$$ExternalSyntheticLambda4;
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->animateExpandSettingsPanel(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
 
     return-void
 .end method
 
 .method private handleRecents()V
-    .locals 0
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/systemui/accessibility/SystemActions;->mRecents:Lcom/android/systemui/recents/Recents;
+    iget-object p0, p0, Lcom/android/systemui/accessibility/SystemActions;->mRecentsOptional:Ljava/util/Optional;
 
-    invoke-virtual {p0}, Lcom/android/systemui/recents/Recents;->toggleRecentApps()V
+    sget-object v0, Lcom/android/systemui/accessibility/SystemActions$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/systemui/accessibility/SystemActions$$ExternalSyntheticLambda1;
+
+    invoke-virtual {p0, v0}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
 
     return-void
 .end method
@@ -498,7 +529,27 @@
     return-void
 .end method
 
-.method private synthetic lambda$new$0(ZZZ)V
+.method private static synthetic lambda$handleAccessibilityDismissNotificationShade$2(Lcom/android/systemui/statusbar/phone/StatusBar;)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0, v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->animateCollapsePanels(IZ)V
+
+    return-void
+.end method
+
+.method private static synthetic lambda$handleQuickSettings$1(Lcom/android/systemui/statusbar/phone/StatusBar;)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->animateExpandSettingsPanel(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$new$0(ZZZZ)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/systemui/accessibility/SystemActions;->registerOrUnregisterDismissNotificationShadeAction()V
@@ -645,21 +696,41 @@
 
     invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
 
-    iget-object v0, p0, Lcom/android/systemui/accessibility/SystemActions;->mStatusBar:Ldagger/Lazy;
+    iget-object v0, p0, Lcom/android/systemui/accessibility/SystemActions;->mStatusBarOptionalLazy:Ldagger/Lazy;
 
     invoke-interface {v0}, Ldagger/Lazy;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/systemui/statusbar/phone/StatusBar;
+    check-cast v0, Ljava/util/Optional;
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->isPanelExpanded()Z
+    sget-object v1, Lcom/android/systemui/accessibility/SystemActions$$ExternalSyntheticLambda5;->INSTANCE:Lcom/android/systemui/accessibility/SystemActions$$ExternalSyntheticLambda5;
+
+    invoke-virtual {v0, v1}, Ljava/util/Optional;->map(Ljava/util/function/Function;)Ljava/util/Optional;
+
+    move-result-object v1
+
+    sget-object v2, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+
+    invoke-virtual {v1, v2}, Ljava/util/Optional;->orElse(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/Boolean;
+
+    invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v1
 
     const/16 v2, 0xf
 
     if-eqz v1, :cond_0
+
+    invoke-virtual {v0}, Ljava/util/Optional;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/phone/StatusBar;
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->isKeyguardShowing()Z
 

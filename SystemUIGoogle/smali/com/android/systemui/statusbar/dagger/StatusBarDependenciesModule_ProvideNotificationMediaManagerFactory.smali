@@ -28,11 +28,11 @@
     .end annotation
 .end field
 
-.field private final deviceConfigProxyProvider:Ljavax/inject/Provider;
+.field private final dumpManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/util/DeviceConfigProxy;",
+            "Lcom/android/systemui/dump/DumpManager;",
             ">;"
         }
     .end annotation
@@ -42,7 +42,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;"
         }
     .end annotation
@@ -128,12 +128,13 @@
     .end annotation
 .end field
 
-.field private final statusBarLazyProvider:Ljavax/inject/Provider;
+.field private final statusBarOptionalLazyProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;"
+            ">;>;"
         }
     .end annotation
 .end field
@@ -149,8 +150,9 @@
             "Landroid/content/Context;",
             ">;",
             "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;",
+            ">;>;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
             ">;",
@@ -170,16 +172,16 @@
             "Lcom/android/systemui/statusbar/notification/collection/NotifCollection;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/util/concurrency/DelayableExecutor;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/util/DeviceConfigProxy;",
+            "Lcom/android/systemui/media/MediaDataManager;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/media/MediaDataManager;",
+            "Lcom/android/systemui/dump/DumpManager;",
             ">;)V"
         }
     .end annotation
@@ -188,7 +190,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideNotificationMediaManagerFactory;->contextProvider:Ljavax/inject/Provider;
 
-    iput-object p2, p0, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideNotificationMediaManagerFactory;->statusBarLazyProvider:Ljavax/inject/Provider;
+    iput-object p2, p0, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideNotificationMediaManagerFactory;->statusBarOptionalLazyProvider:Ljavax/inject/Provider;
 
     iput-object p3, p0, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideNotificationMediaManagerFactory;->notificationShadeWindowControllerProvider:Ljavax/inject/Provider;
 
@@ -206,9 +208,9 @@
 
     iput-object p10, p0, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideNotificationMediaManagerFactory;->mainExecutorProvider:Ljavax/inject/Provider;
 
-    iput-object p11, p0, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideNotificationMediaManagerFactory;->deviceConfigProxyProvider:Ljavax/inject/Provider;
+    iput-object p11, p0, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideNotificationMediaManagerFactory;->mediaDataManagerProvider:Ljavax/inject/Provider;
 
-    iput-object p12, p0, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideNotificationMediaManagerFactory;->mediaDataManagerProvider:Ljavax/inject/Provider;
+    iput-object p12, p0, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideNotificationMediaManagerFactory;->dumpManagerProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
@@ -222,8 +224,9 @@
             "Landroid/content/Context;",
             ">;",
             "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;",
+            ">;>;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
             ">;",
@@ -243,16 +246,16 @@
             "Lcom/android/systemui/statusbar/notification/collection/NotifCollection;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/util/concurrency/DelayableExecutor;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/util/DeviceConfigProxy;",
+            "Lcom/android/systemui/media/MediaDataManager;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/media/MediaDataManager;",
+            "Lcom/android/systemui/dump/DumpManager;",
             ">;)",
             "Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideNotificationMediaManagerFactory;"
         }
@@ -291,15 +294,16 @@
     return-object v13
 .end method
 
-.method public static provideNotificationMediaManager(Landroid/content/Context;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/MediaArtworkProcessor;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/statusbar/notification/collection/NotifCollection;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/systemui/util/DeviceConfigProxy;Lcom/android/systemui/media/MediaDataManager;)Lcom/android/systemui/statusbar/NotificationMediaManager;
+.method public static provideNotificationMediaManager(Landroid/content/Context;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/MediaArtworkProcessor;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/statusbar/notification/collection/NotifCollection;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/systemui/media/MediaDataManager;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/NotificationMediaManager;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/content/Context;",
             "Ldagger/Lazy<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;",
+            ">;>;",
             "Ldagger/Lazy<",
             "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
             ">;",
@@ -308,16 +312,16 @@
             "Lcom/android/systemui/statusbar/phone/KeyguardBypassController;",
             "Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;",
             "Lcom/android/systemui/statusbar/notification/collection/NotifCollection;",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             "Lcom/android/systemui/util/concurrency/DelayableExecutor;",
-            "Lcom/android/systemui/util/DeviceConfigProxy;",
             "Lcom/android/systemui/media/MediaDataManager;",
+            "Lcom/android/systemui/dump/DumpManager;",
             ")",
             "Lcom/android/systemui/statusbar/NotificationMediaManager;"
         }
     .end annotation
 
-    invoke-static/range {p0 .. p11}, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule;->provideNotificationMediaManager(Landroid/content/Context;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/MediaArtworkProcessor;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/statusbar/notification/collection/NotifCollection;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/systemui/util/DeviceConfigProxy;Lcom/android/systemui/media/MediaDataManager;)Lcom/android/systemui/statusbar/NotificationMediaManager;
+    invoke-static/range {p0 .. p11}, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule;->provideNotificationMediaManager(Landroid/content/Context;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/MediaArtworkProcessor;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/statusbar/notification/collection/NotifCollection;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/systemui/media/MediaDataManager;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/NotificationMediaManager;
 
     move-result-object p0
 
@@ -345,7 +349,7 @@
 
     check-cast v1, Landroid/content/Context;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideNotificationMediaManagerFactory;->statusBarLazyProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideNotificationMediaManagerFactory;->statusBarOptionalLazyProvider:Ljavax/inject/Provider;
 
     invoke-static {v0}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
 
@@ -415,7 +419,7 @@
 
     move-object v9, v0
 
-    check-cast v9, Lcom/android/systemui/statusbar/FeatureFlags;
+    check-cast v9, Lcom/android/systemui/flags/FeatureFlags;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideNotificationMediaManagerFactory;->mainExecutorProvider:Ljavax/inject/Provider;
 
@@ -427,7 +431,7 @@
 
     check-cast v10, Lcom/android/systemui/util/concurrency/DelayableExecutor;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideNotificationMediaManagerFactory;->deviceConfigProxyProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideNotificationMediaManagerFactory;->mediaDataManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -435,9 +439,9 @@
 
     move-object v11, v0
 
-    check-cast v11, Lcom/android/systemui/util/DeviceConfigProxy;
+    check-cast v11, Lcom/android/systemui/media/MediaDataManager;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideNotificationMediaManagerFactory;->mediaDataManagerProvider:Ljavax/inject/Provider;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideNotificationMediaManagerFactory;->dumpManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -445,9 +449,9 @@
 
     move-object v12, p0
 
-    check-cast v12, Lcom/android/systemui/media/MediaDataManager;
+    check-cast v12, Lcom/android/systemui/dump/DumpManager;
 
-    invoke-static/range {v1 .. v12}, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideNotificationMediaManagerFactory;->provideNotificationMediaManager(Landroid/content/Context;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/MediaArtworkProcessor;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/statusbar/notification/collection/NotifCollection;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/systemui/util/DeviceConfigProxy;Lcom/android/systemui/media/MediaDataManager;)Lcom/android/systemui/statusbar/NotificationMediaManager;
+    invoke-static/range {v1 .. v12}, Lcom/android/systemui/statusbar/dagger/StatusBarDependenciesModule_ProvideNotificationMediaManagerFactory;->provideNotificationMediaManager(Landroid/content/Context;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/MediaArtworkProcessor;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/statusbar/notification/collection/NotifCollection;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/systemui/media/MediaDataManager;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/NotificationMediaManager;
 
     move-result-object p0
 

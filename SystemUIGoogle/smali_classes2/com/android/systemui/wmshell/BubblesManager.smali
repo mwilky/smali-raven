@@ -17,8 +17,6 @@
 # instance fields
 .field private final mBarService:Lcom/android/internal/statusbar/IStatusBarService;
 
-.field private mBubbleScrim:Lcom/android/systemui/scrim/ScrimView;
-
 .field private final mBubbles:Lcom/android/wm/shell/bubbles/Bubbles;
 
 .field private final mCallbacks:Ljava/util/List;
@@ -53,130 +51,104 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$9p9sqUmzv-jxk85a64Hx6nEaTG0(Lcom/android/systemui/wmshell/BubblesManager;Ljava/util/concurrent/Executor;Landroid/os/Looper;)V
+.method public static synthetic $r8$lambda$OqEks02KUDqqZ3qiuZBEIiY3Xow(Lcom/android/systemui/wmshell/BubblesManager;Ljava/util/List;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;I)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/wmshell/BubblesManager;->lambda$new$0(Ljava/util/concurrent/Executor;Landroid/os/Looper;)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/wmshell/BubblesManager;->lambda$handleDismissalInterception$1(Ljava/util/List;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;I)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$FG84U6DQhyP8sfaHSOvq_AV1fRA(Lcom/android/systemui/wmshell/BubblesManager;Ljava/util/List;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;I)V
+.method public static synthetic $r8$lambda$a85Qf4_ORE22D-nLZDR_1_WdIhk(Lcom/android/systemui/wmshell/BubblesManager;Ljava/lang/String;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;I)Z
     .locals 0
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/wmshell/BubblesManager;->lambda$handleDismissalInterception$2(Ljava/util/List;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;I)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$sZE5BcvPsRdOfQMtoADdoOFF8Xw(Lcom/android/systemui/wmshell/BubblesManager;Ljava/lang/String;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;I)Z
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/wmshell/BubblesManager;->lambda$setupNEM$1(Ljava/lang/String;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;I)Z
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/wmshell/BubblesManager;->lambda$setupNEM$0(Ljava/lang/String;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;I)Z
 
     move-result p0
 
     return p0
 .end method
 
-.method constructor <init>(Landroid/content/Context;Lcom/android/wm/shell/bubbles/Bubbles;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/internal/statusbar/IStatusBarService;Landroid/app/INotificationManager;Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;Lcom/android/systemui/statusbar/policy/ZenModeController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/model/SysUiState;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/dump/DumpManager;Ljava/util/concurrent/Executor;)V
+.method constructor <init>(Landroid/content/Context;Lcom/android/wm/shell/bubbles/Bubbles;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/internal/statusbar/IStatusBarService;Landroid/app/INotificationManager;Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;Lcom/android/systemui/statusbar/policy/ZenModeController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/model/SysUiState;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/dump/DumpManager;Ljava/util/concurrent/Executor;)V
     .locals 5
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
     move-object v0, p0
 
-    move-object v1, p1
+    move-object v1, p2
 
-    move-object v2, p2
-
-    move-object/from16 v3, p18
+    move-object/from16 v2, p18
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v4, Ljava/util/ArrayList;
+    new-instance v3, Ljava/util/ArrayList;
 
-    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v4, v0, Lcom/android/systemui/wmshell/BubblesManager;->mCallbacks:Ljava/util/List;
+    iput-object v3, v0, Lcom/android/systemui/wmshell/BubblesManager;->mCallbacks:Ljava/util/List;
 
-    iput-object v1, v0, Lcom/android/systemui/wmshell/BubblesManager;->mContext:Landroid/content/Context;
+    move-object v3, p1
 
-    iput-object v2, v0, Lcom/android/systemui/wmshell/BubblesManager;->mBubbles:Lcom/android/wm/shell/bubbles/Bubbles;
+    iput-object v3, v0, Lcom/android/systemui/wmshell/BubblesManager;->mContext:Landroid/content/Context;
 
-    move-object v4, p3
+    iput-object v1, v0, Lcom/android/systemui/wmshell/BubblesManager;->mBubbles:Lcom/android/wm/shell/bubbles/Bubbles;
 
-    iput-object v4, v0, Lcom/android/systemui/wmshell/BubblesManager;->mNotificationShadeWindowController:Lcom/android/systemui/statusbar/NotificationShadeWindowController;
+    move-object v3, p3
 
-    move-object v4, p5
+    iput-object v3, v0, Lcom/android/systemui/wmshell/BubblesManager;->mNotificationShadeWindowController:Lcom/android/systemui/statusbar/NotificationShadeWindowController;
 
-    iput-object v4, v0, Lcom/android/systemui/wmshell/BubblesManager;->mShadeController:Lcom/android/systemui/statusbar/phone/ShadeController;
+    move-object v3, p5
 
-    move-object v4, p8
+    iput-object v3, v0, Lcom/android/systemui/wmshell/BubblesManager;->mShadeController:Lcom/android/systemui/statusbar/phone/ShadeController;
 
-    iput-object v4, v0, Lcom/android/systemui/wmshell/BubblesManager;->mNotificationManager:Landroid/app/INotificationManager;
+    move-object v3, p8
 
-    move-object v4, p9
+    iput-object v3, v0, Lcom/android/systemui/wmshell/BubblesManager;->mNotificationManager:Landroid/app/INotificationManager;
 
-    iput-object v4, v0, Lcom/android/systemui/wmshell/BubblesManager;->mNotificationInterruptStateProvider:Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;
+    move-object v3, p9
 
-    move-object/from16 v4, p12
+    iput-object v3, v0, Lcom/android/systemui/wmshell/BubblesManager;->mNotificationInterruptStateProvider:Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;
 
-    iput-object v4, v0, Lcom/android/systemui/wmshell/BubblesManager;->mNotificationGroupManager:Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;
+    move-object/from16 v3, p12
 
-    move-object/from16 v4, p13
+    iput-object v3, v0, Lcom/android/systemui/wmshell/BubblesManager;->mNotificationGroupManager:Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;
 
-    iput-object v4, v0, Lcom/android/systemui/wmshell/BubblesManager;->mNotificationEntryManager:Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
+    move-object/from16 v3, p13
 
-    move-object/from16 v4, p14
+    iput-object v3, v0, Lcom/android/systemui/wmshell/BubblesManager;->mNotificationEntryManager:Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
 
-    iput-object v4, v0, Lcom/android/systemui/wmshell/BubblesManager;->mNotifPipeline:Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;
+    move-object/from16 v3, p14
 
-    iput-object v3, v0, Lcom/android/systemui/wmshell/BubblesManager;->mSysuiMainExecutor:Ljava/util/concurrent/Executor;
+    iput-object v3, v0, Lcom/android/systemui/wmshell/BubblesManager;->mNotifPipeline:Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;
+
+    iput-object v2, v0, Lcom/android/systemui/wmshell/BubblesManager;->mSysuiMainExecutor:Ljava/util/concurrent/Executor;
 
     if-nez p7, :cond_0
 
-    const-string v4, "statusbar"
+    const-string v3, "statusbar"
 
-    invoke-static {v4}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
+    invoke-static {v3}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-static {v4}, Lcom/android/internal/statusbar/IStatusBarService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/statusbar/IStatusBarService;
+    invoke-static {v3}, Lcom/android/internal/statusbar/IStatusBarService$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/statusbar/IStatusBarService;
 
-    move-result-object v4
+    move-result-object v3
 
     goto :goto_0
 
     :cond_0
-    move-object v4, p7
+    move-object v3, p7
 
     :goto_0
-    iput-object v4, v0, Lcom/android/systemui/wmshell/BubblesManager;->mBarService:Lcom/android/internal/statusbar/IStatusBarService;
+    iput-object v3, v0, Lcom/android/systemui/wmshell/BubblesManager;->mBarService:Lcom/android/internal/statusbar/IStatusBarService;
 
-    new-instance v4, Lcom/android/systemui/scrim/ScrimView;
+    invoke-virtual/range {p16 .. p16}, Lcom/android/systemui/flags/FeatureFlags;->isNewNotifPipelineRenderingEnabled()Z
 
-    invoke-direct {v4, p1}, Lcom/android/systemui/scrim/ScrimView;-><init>(Landroid/content/Context;)V
+    move-result v3
 
-    iput-object v4, v0, Lcom/android/systemui/wmshell/BubblesManager;->mBubbleScrim:Lcom/android/systemui/scrim/ScrimView;
-
-    const/4 v1, 0x2
-
-    invoke-virtual {v4, v1}, Landroid/view/View;->setImportantForAccessibility(I)V
-
-    iget-object v1, v0, Lcom/android/systemui/wmshell/BubblesManager;->mBubbleScrim:Lcom/android/systemui/scrim/ScrimView;
-
-    new-instance v4, Lcom/android/systemui/wmshell/BubblesManager$$ExternalSyntheticLambda1;
-
-    invoke-direct {v4, p0}, Lcom/android/systemui/wmshell/BubblesManager$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/wmshell/BubblesManager;)V
-
-    invoke-interface {p2, v1, v4}, Lcom/android/wm/shell/bubbles/Bubbles;->setBubbleScrim(Landroid/view/View;Ljava/util/function/BiConsumer;)V
-
-    invoke-virtual/range {p16 .. p16}, Lcom/android/systemui/statusbar/FeatureFlags;->isNewNotifPipelineRenderingEnabled()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
+    if-eqz v3, :cond_1
 
     invoke-direct {p0}, Lcom/android/systemui/wmshell/BubblesManager;->setupNotifPipeline()V
 
@@ -186,53 +158,53 @@
     invoke-direct {p0}, Lcom/android/systemui/wmshell/BubblesManager;->setupNEM()V
 
     :goto_1
-    const-string v1, "Bubbles"
+    const-string v3, "Bubbles"
 
     move-object/from16 v4, p17
 
-    invoke-virtual {v4, v1, p0}, Lcom/android/systemui/dump/DumpManager;->registerDumpable(Ljava/lang/String;Lcom/android/systemui/Dumpable;)V
+    invoke-virtual {v4, v3, p0}, Lcom/android/systemui/dump/DumpManager;->registerDumpable(Ljava/lang/String;Lcom/android/systemui/Dumpable;)V
 
-    new-instance v1, Lcom/android/systemui/wmshell/BubblesManager$1;
+    new-instance v3, Lcom/android/systemui/wmshell/BubblesManager$1;
 
-    invoke-direct {v1, p0, p2}, Lcom/android/systemui/wmshell/BubblesManager$1;-><init>(Lcom/android/systemui/wmshell/BubblesManager;Lcom/android/wm/shell/bubbles/Bubbles;)V
+    invoke-direct {v3, p0, p2}, Lcom/android/systemui/wmshell/BubblesManager$1;-><init>(Lcom/android/systemui/wmshell/BubblesManager;Lcom/android/wm/shell/bubbles/Bubbles;)V
 
     move-object v4, p4
 
-    invoke-interface {p4, v1}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->addCallback(Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;)V
+    invoke-interface {p4, v3}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->addCallback(Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;)V
 
-    new-instance v1, Lcom/android/systemui/wmshell/BubblesManager$2;
+    new-instance v3, Lcom/android/systemui/wmshell/BubblesManager$2;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/wmshell/BubblesManager$2;-><init>(Lcom/android/systemui/wmshell/BubblesManager;)V
+    invoke-direct {v3, p0}, Lcom/android/systemui/wmshell/BubblesManager$2;-><init>(Lcom/android/systemui/wmshell/BubblesManager;)V
 
     move-object v4, p6
 
-    invoke-interface {p6, v1}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
+    invoke-interface {p6, v3}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
 
-    new-instance v1, Lcom/android/systemui/wmshell/BubblesManager$3;
+    new-instance v3, Lcom/android/systemui/wmshell/BubblesManager$3;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/wmshell/BubblesManager$3;-><init>(Lcom/android/systemui/wmshell/BubblesManager;)V
+    invoke-direct {v3, p0}, Lcom/android/systemui/wmshell/BubblesManager$3;-><init>(Lcom/android/systemui/wmshell/BubblesManager;)V
 
     move-object v4, p10
 
-    invoke-interface {p10, v1}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
+    invoke-interface {p10, v3}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
 
-    new-instance v1, Lcom/android/systemui/wmshell/BubblesManager$4;
+    new-instance v3, Lcom/android/systemui/wmshell/BubblesManager$4;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/wmshell/BubblesManager$4;-><init>(Lcom/android/systemui/wmshell/BubblesManager;)V
+    invoke-direct {v3, p0}, Lcom/android/systemui/wmshell/BubblesManager$4;-><init>(Lcom/android/systemui/wmshell/BubblesManager;)V
 
     move-object/from16 v4, p11
 
-    invoke-interface {v4, v1}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->addUserChangedListener(Lcom/android/systemui/statusbar/NotificationLockscreenUserManager$UserChangedListener;)V
+    invoke-interface {v4, v3}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->addUserChangedListener(Lcom/android/systemui/statusbar/NotificationLockscreenUserManager$UserChangedListener;)V
 
-    new-instance v1, Lcom/android/systemui/wmshell/BubblesManager$5;
+    new-instance v3, Lcom/android/systemui/wmshell/BubblesManager$5;
 
     move-object/from16 v4, p15
 
-    invoke-direct {v1, p0, v3, v4}, Lcom/android/systemui/wmshell/BubblesManager$5;-><init>(Lcom/android/systemui/wmshell/BubblesManager;Ljava/util/concurrent/Executor;Lcom/android/systemui/model/SysUiState;)V
+    invoke-direct {v3, p0, v2, v4}, Lcom/android/systemui/wmshell/BubblesManager$5;-><init>(Lcom/android/systemui/wmshell/BubblesManager;Ljava/util/concurrent/Executor;Lcom/android/systemui/model/SysUiState;)V
 
-    iput-object v1, v0, Lcom/android/systemui/wmshell/BubblesManager;->mSysuiProxy:Lcom/android/wm/shell/bubbles/Bubbles$SysuiProxy;
+    iput-object v3, v0, Lcom/android/systemui/wmshell/BubblesManager;->mSysuiProxy:Lcom/android/wm/shell/bubbles/Bubbles$SysuiProxy;
 
-    invoke-interface {p2, v1}, Lcom/android/wm/shell/bubbles/Bubbles;->setSysuiProxy(Lcom/android/wm/shell/bubbles/Bubbles$SysuiProxy;)V
+    invoke-interface {p2, v3}, Lcom/android/wm/shell/bubbles/Bubbles;->setSysuiProxy(Lcom/android/wm/shell/bubbles/Bubbles$SysuiProxy;)V
 
     return-void
 .end method
@@ -368,7 +340,7 @@
     return v2
 .end method
 
-.method public static create(Landroid/content/Context;Ljava/util/Optional;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/internal/statusbar/IStatusBarService;Landroid/app/INotificationManager;Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;Lcom/android/systemui/statusbar/policy/ZenModeController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/model/SysUiState;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/dump/DumpManager;Ljava/util/concurrent/Executor;)Lcom/android/systemui/wmshell/BubblesManager;
+.method public static create(Landroid/content/Context;Ljava/util/Optional;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/internal/statusbar/IStatusBarService;Landroid/app/INotificationManager;Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;Lcom/android/systemui/statusbar/policy/ZenModeController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/model/SysUiState;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/dump/DumpManager;Ljava/util/concurrent/Executor;)Lcom/android/systemui/wmshell/BubblesManager;
     .locals 20
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -390,7 +362,7 @@
             "Lcom/android/systemui/statusbar/notification/NotificationEntryManager;",
             "Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;",
             "Lcom/android/systemui/model/SysUiState;",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             "Lcom/android/systemui/dump/DumpManager;",
             "Ljava/util/concurrent/Executor;",
             ")",
@@ -450,7 +422,7 @@
 
     move-object/from16 v19, p17
 
-    invoke-direct/range {v1 .. v19}, Lcom/android/systemui/wmshell/BubblesManager;-><init>(Landroid/content/Context;Lcom/android/wm/shell/bubbles/Bubbles;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/internal/statusbar/IStatusBarService;Landroid/app/INotificationManager;Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;Lcom/android/systemui/statusbar/policy/ZenModeController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/model/SysUiState;Lcom/android/systemui/statusbar/FeatureFlags;Lcom/android/systemui/dump/DumpManager;Ljava/util/concurrent/Executor;)V
+    invoke-direct/range {v1 .. v19}, Lcom/android/systemui/wmshell/BubblesManager;-><init>(Landroid/content/Context;Lcom/android/wm/shell/bubbles/Bubbles;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/internal/statusbar/IStatusBarService;Landroid/app/INotificationManager;Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;Lcom/android/systemui/statusbar/policy/ZenModeController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/model/SysUiState;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/dump/DumpManager;Ljava/util/concurrent/Executor;)V
 
     return-object v0
 
@@ -500,7 +472,7 @@
     return-object v0
 .end method
 
-.method private synthetic lambda$handleDismissalInterception$2(Ljava/util/List;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;I)V
+.method private synthetic lambda$handleDismissalInterception$1(Ljava/util/List;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;I)V
     .locals 4
 
     if-ltz p3, :cond_0
@@ -557,17 +529,7 @@
     return-void
 .end method
 
-.method private synthetic lambda$new$0(Ljava/util/concurrent/Executor;Landroid/os/Looper;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/wmshell/BubblesManager;->mBubbleScrim:Lcom/android/systemui/scrim/ScrimView;
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/scrim/ScrimView;->setExecutor(Ljava/util/concurrent/Executor;Landroid/os/Looper;)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$setupNEM$1(Ljava/lang/String;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;I)Z
+.method private synthetic lambda$setupNEM$0(Ljava/lang/String;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;I)Z
     .locals 5
 
     const/4 p1, 0x1
@@ -816,14 +778,6 @@
     return-object p0
 .end method
 
-.method public getScrimForBubble()Lcom/android/systemui/scrim/ScrimView;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/wmshell/BubblesManager;->mBubbleScrim:Lcom/android/systemui/scrim/ScrimView;
-
-    return-object p0
-.end method
-
 .method public handleDismissalInterception(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
     .locals 5
 
@@ -876,9 +830,9 @@
 
     move-result-object v3
 
-    new-instance v4, Lcom/android/systemui/wmshell/BubblesManager$$ExternalSyntheticLambda2;
+    new-instance v4, Lcom/android/systemui/wmshell/BubblesManager$$ExternalSyntheticLambda1;
 
-    invoke-direct {v4, p0, v1, p1}, Lcom/android/systemui/wmshell/BubblesManager$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/wmshell/BubblesManager;Ljava/util/List;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+    invoke-direct {v4, p0, v1, p1}, Lcom/android/systemui/wmshell/BubblesManager$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/wmshell/BubblesManager;Ljava/util/List;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
 
     iget-object p0, p0, Lcom/android/systemui/wmshell/BubblesManager;->mSysuiMainExecutor:Ljava/util/concurrent/Executor;
 

@@ -32,18 +32,6 @@
         <item quantity="other">Погрешен PUK-код за SIM, ви преостануваат уште %d обиди пред SIM-картичката да стане трајно неупотреблива.</item>
         <item quantity="one">Погрешен PUK-код за SIM, ви преостанува уште %d обид пред SIM-картичката да стане трајно неупотреблива.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">Уредот не е отклучен веќе %d часа. Потврдете ја лозинката.</item>
-        <item quantity="one">Уредот не е отклучен веќе %d час. Потврдете ја лозинката.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">Уредот не е отклучен веќе %d часа. Потврдете ја шемата.</item>
-        <item quantity="one">Уредот не е отклучен веќе %d час. Потврдете ја шемата.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">Уредот не е отклучен веќе %d часа. Потврдете го PIN-кодот.</item>
-        <item quantity="one">Уредот не е отклучен веќе %d час. Потврдете го PIN-кодот.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">Обидете се повторно за %d секунди.</item>
         <item quantity="one">Обидете се повторно за %d секунда.</item>

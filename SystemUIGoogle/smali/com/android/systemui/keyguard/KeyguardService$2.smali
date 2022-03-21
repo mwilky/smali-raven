@@ -34,59 +34,47 @@
 .method public onAnimationCancelled()V
     .locals 0
 
+    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService$2;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
+
+    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardService;->access$200(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardViewMediator;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->cancelKeyguardExitAnimation()V
+
     return-void
 .end method
 
 .method public onAnimationStart(I[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;Landroid/view/IRemoteAnimationFinishedCallback;)V
-    .locals 0
+    .locals 6
 
-    const/16 p2, 0x16
+    const-string v0, "mExitAnimationRunner.onAnimationStart#startKeyguardExitAnimation"
 
-    const/4 p3, 0x1
+    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
 
-    if-ne p1, p2, :cond_0
+    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService$2;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
 
-    :try_start_0
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService$2;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardService;->access$100(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/internal/policy/IKeyguardService$Stub;
-
-    move-result-object p0
-
-    invoke-virtual {p0, p3, p3}, Lcom/android/internal/policy/IKeyguardService$Stub;->setOccluded(ZZ)V
-
-    goto :goto_0
-
-    :cond_0
-    const/16 p2, 0x17
-
-    if-ne p1, p2, :cond_1
+    invoke-virtual {v0}, Lcom/android/systemui/keyguard/KeyguardService;->checkPermission()V
 
     iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService$2;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
 
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardService;->access$100(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/internal/policy/IKeyguardService$Stub;
+    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardService;->access$200(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardViewMediator;
 
-    move-result-object p0
+    move-result-object v0
 
-    const/4 p1, 0x0
+    move v1, p1
 
-    invoke-virtual {p0, p1, p3}, Lcom/android/internal/policy/IKeyguardService$Stub;->setOccluded(ZZ)V
+    move-object v2, p2
 
-    :cond_1
-    :goto_0
-    invoke-interface {p5}, Landroid/view/IRemoteAnimationFinishedCallback;->onAnimationFinished()V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    move-object v3, p3
 
-    goto :goto_1
+    move-object v4, p4
 
-    :catch_0
-    const-string p0, "KeyguardService"
+    move-object v5, p5
 
-    const-string p1, "RemoteException"
+    invoke-virtual/range {v0 .. v5}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->startKeyguardExitAnimation(I[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;Landroid/view/IRemoteAnimationFinishedCallback;)V
 
-    invoke-static {p0, p1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {}, Landroid/os/Trace;->endSection()V
 
-    :goto_1
     return-void
 .end method

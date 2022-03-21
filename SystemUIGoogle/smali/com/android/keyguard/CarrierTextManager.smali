@@ -14,6 +14,10 @@
 .end annotation
 
 
+# static fields
+.field private static final DEBUG:Z
+
+
 # instance fields
 .field private final mBgExecutor:Ljava/util/concurrent/Executor;
 
@@ -101,6 +105,16 @@
     .locals 0
 
     invoke-direct {p0}, Lcom/android/keyguard/CarrierTextManager;->lambda$handleSetListening$1()V
+
+    return-void
+.end method
+
+.method static constructor <clinit>()V
+    .locals 1
+
+    sget-boolean v0, Lcom/android/keyguard/KeyguardConstants;->DEBUG:Z
+
+    sput-boolean v0, Lcom/android/keyguard/CarrierTextManager;->DEBUG:Z
 
     return-void
 .end method
@@ -201,7 +215,15 @@
     return-object p0
 .end method
 
-.method static synthetic access$100(Lcom/android/keyguard/CarrierTextManager;)Z
+.method static synthetic access$100()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/keyguard/CarrierTextManager;->DEBUG:Z
+
+    return v0
+.end method
+
+.method static synthetic access$200(Lcom/android/keyguard/CarrierTextManager;)Z
     .locals 0
 
     iget-boolean p0, p0, Lcom/android/keyguard/CarrierTextManager;->mTelephonyCapable:Z
@@ -209,7 +231,7 @@
     return p0
 .end method
 
-.method static synthetic access$102(Lcom/android/keyguard/CarrierTextManager;Z)Z
+.method static synthetic access$202(Lcom/android/keyguard/CarrierTextManager;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/keyguard/CarrierTextManager;->mTelephonyCapable:Z
@@ -217,7 +239,7 @@
     return p1
 .end method
 
-.method static synthetic access$200(Lcom/android/keyguard/CarrierTextManager;)I
+.method static synthetic access$300(Lcom/android/keyguard/CarrierTextManager;)I
     .locals 0
 
     iget p0, p0, Lcom/android/keyguard/CarrierTextManager;->mSimSlotsNumber:I
@@ -225,7 +247,7 @@
     return p0
 .end method
 
-.method static synthetic access$300(Lcom/android/keyguard/CarrierTextManager;I)Lcom/android/keyguard/CarrierTextManager$StatusMode;
+.method static synthetic access$400(Lcom/android/keyguard/CarrierTextManager;I)Lcom/android/keyguard/CarrierTextManager$StatusMode;
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/keyguard/CarrierTextManager;->getStatusForIccState(I)Lcom/android/keyguard/CarrierTextManager$StatusMode;
@@ -235,7 +257,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$400(Lcom/android/keyguard/CarrierTextManager;)[Z
+.method static synthetic access$500(Lcom/android/keyguard/CarrierTextManager;)[Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/CarrierTextManager;->mSimErrorState:[Z
@@ -243,7 +265,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$500(Lcom/android/keyguard/CarrierTextManager;)Ljava/util/concurrent/atomic/AtomicBoolean;
+.method static synthetic access$600(Lcom/android/keyguard/CarrierTextManager;)Ljava/util/concurrent/atomic/AtomicBoolean;
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/CarrierTextManager;->mNetworkSupported:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -622,12 +644,6 @@
 
     invoke-interface {p1, v0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    iget-object p1, p0, Lcom/android/keyguard/CarrierTextManager;->mWakefulnessLifecycle:Lcom/android/systemui/keyguard/WakefulnessLifecycle;
-
-    iget-object v0, p0, Lcom/android/keyguard/CarrierTextManager;->mWakefulnessObserver:Lcom/android/systemui/keyguard/WakefulnessLifecycle$Observer;
-
-    invoke-virtual {p1, v0}, Lcom/android/systemui/keyguard/Lifecycle;->addObserver(Ljava/lang/Object;)V
-
     iget-object p1, p0, Lcom/android/keyguard/CarrierTextManager;->mTelephonyListenerManager:Lcom/android/systemui/telephony/TelephonyListenerManager;
 
     iget-object p0, p0, Lcom/android/keyguard/CarrierTextManager;->mPhoneStateListener:Landroid/telephony/TelephonyCallback$ActiveDataSubscriptionIdListener;
@@ -659,12 +675,6 @@
     invoke-direct {v0, p0}, Lcom/android/keyguard/CarrierTextManager$$ExternalSyntheticLambda3;-><init>(Lcom/android/keyguard/CarrierTextManager;)V
 
     invoke-interface {p1, v0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-
-    iget-object p1, p0, Lcom/android/keyguard/CarrierTextManager;->mWakefulnessLifecycle:Lcom/android/systemui/keyguard/WakefulnessLifecycle;
-
-    iget-object v0, p0, Lcom/android/keyguard/CarrierTextManager;->mWakefulnessObserver:Lcom/android/systemui/keyguard/WakefulnessLifecycle$Observer;
-
-    invoke-virtual {p1, v0}, Lcom/android/systemui/keyguard/Lifecycle;->removeObserver(Ljava/lang/Object;)V
 
     iget-object p1, p0, Lcom/android/keyguard/CarrierTextManager;->mTelephonyListenerManager:Lcom/android/systemui/telephony/TelephonyListenerManager;
 
@@ -732,13 +742,19 @@
 .end method
 
 .method private synthetic lambda$handleSetListening$1()V
-    .locals 1
+    .locals 2
 
     iget-object v0, p0, Lcom/android/keyguard/CarrierTextManager;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    iget-object p0, p0, Lcom/android/keyguard/CarrierTextManager;->mCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
+    iget-object v1, p0, Lcom/android/keyguard/CarrierTextManager;->mCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
-    invoke-virtual {v0, p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->registerCallback(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
+    invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->registerCallback(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
+
+    iget-object v0, p0, Lcom/android/keyguard/CarrierTextManager;->mWakefulnessLifecycle:Lcom/android/systemui/keyguard/WakefulnessLifecycle;
+
+    iget-object p0, p0, Lcom/android/keyguard/CarrierTextManager;->mWakefulnessObserver:Lcom/android/systemui/keyguard/WakefulnessLifecycle$Observer;
+
+    invoke-virtual {v0, p0}, Lcom/android/systemui/keyguard/Lifecycle;->addObserver(Ljava/lang/Object;)V
 
     return-void
 .end method
@@ -762,13 +778,19 @@
 .end method
 
 .method private synthetic lambda$handleSetListening$3()V
-    .locals 1
+    .locals 2
 
     iget-object v0, p0, Lcom/android/keyguard/CarrierTextManager;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    iget-object p0, p0, Lcom/android/keyguard/CarrierTextManager;->mCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
+    iget-object v1, p0, Lcom/android/keyguard/CarrierTextManager;->mCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
-    invoke-virtual {v0, p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->removeCallback(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
+    invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->removeCallback(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
+
+    iget-object v0, p0, Lcom/android/keyguard/CarrierTextManager;->mWakefulnessLifecycle:Lcom/android/systemui/keyguard/WakefulnessLifecycle;
+
+    iget-object p0, p0, Lcom/android/keyguard/CarrierTextManager;->mWakefulnessObserver:Lcom/android/systemui/keyguard/WakefulnessLifecycle$Observer;
+
+    invoke-virtual {v0, p0}, Lcom/android/systemui/keyguard/Lifecycle;->removeObserver(Ljava/lang/Object;)V
 
     return-void
 .end method
@@ -939,7 +961,7 @@
 
     move-result-object p1
 
-    const p2, 0x1040309
+    const p2, 0x104030d
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1048,352 +1070,470 @@
 .end method
 
 .method protected updateCarrierText()V
-    .locals 13
+    .locals 17
 
-    invoke-virtual {p0}, Lcom/android/keyguard/CarrierTextManager;->getSubscriptionInfo()Ljava/util/List;
+    move-object/from16 v0, p0
 
-    move-result-object v0
+    invoke-virtual/range {p0 .. p0}, Lcom/android/keyguard/CarrierTextManager;->getSubscriptionInfo()Ljava/util/List;
 
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    move-result-object v1
 
-    move-result v1
+    invoke-interface {v1}, Ljava/util/List;->size()I
 
-    new-array v6, v1, [I
+    move-result v2
 
-    iget v2, p0, Lcom/android/keyguard/CarrierTextManager;->mSimSlotsNumber:I
+    new-array v7, v2, [I
 
-    new-array v2, v2, [I
+    iget v3, v0, Lcom/android/keyguard/CarrierTextManager;->mSimSlotsNumber:I
 
-    const/4 v3, 0x0
+    new-array v3, v3, [I
 
-    move v4, v3
+    const/4 v5, 0x0
 
     :goto_0
-    iget v5, p0, Lcom/android/keyguard/CarrierTextManager;->mSimSlotsNumber:I
+    iget v6, v0, Lcom/android/keyguard/CarrierTextManager;->mSimSlotsNumber:I
 
-    if-ge v4, v5, :cond_0
+    if-ge v5, v6, :cond_0
 
-    const/4 v5, -0x1
+    const/4 v6, -0x1
 
-    aput v5, v2, v4
+    aput v6, v3, v5
 
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v5, v5, 0x1
 
     goto :goto_0
 
     :cond_0
-    new-array v4, v1, [Ljava/lang/CharSequence;
+    new-array v5, v2, [Ljava/lang/CharSequence;
 
-    const/4 v5, 0x1
+    sget-boolean v6, Lcom/android/keyguard/CarrierTextManager;->DEBUG:Z
 
-    move v7, v3
+    const-string v8, "CarrierTextController"
 
-    move v9, v7
+    if-eqz v6, :cond_1
 
-    move v8, v5
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v9, "updateCarrierText(): "
+
+    invoke-virtual {v6, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v8, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    const/4 v9, 0x0
+
+    const/4 v10, 0x1
+
+    const/4 v11, 0x0
 
     :goto_1
-    const-string v10, ""
+    const-string v12, ""
 
-    if-ge v7, v1, :cond_4
+    if-ge v9, v2, :cond_7
 
-    invoke-interface {v0, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v1, v9}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v11
+    move-result-object v13
 
-    check-cast v11, Landroid/telephony/SubscriptionInfo;
+    check-cast v13, Landroid/telephony/SubscriptionInfo;
 
-    invoke-virtual {v11}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
+    invoke-virtual {v13}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
 
-    move-result v11
+    move-result v13
 
-    aput-object v10, v4, v7
+    aput-object v12, v5, v9
 
-    aput v11, v6, v7
+    aput v13, v7, v9
 
-    invoke-interface {v0, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v10
-
-    check-cast v10, Landroid/telephony/SubscriptionInfo;
-
-    invoke-virtual {v10}, Landroid/telephony/SubscriptionInfo;->getSimSlotIndex()I
-
-    move-result v10
-
-    aput v7, v2, v10
-
-    iget-object v10, p0, Lcom/android/keyguard/CarrierTextManager;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-virtual {v10, v11}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getSimState(I)I
-
-    move-result v10
-
-    invoke-interface {v0, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v1, v9}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v12
 
     check-cast v12, Landroid/telephony/SubscriptionInfo;
 
-    invoke-virtual {v12}, Landroid/telephony/SubscriptionInfo;->getCarrierName()Ljava/lang/CharSequence;
+    invoke-virtual {v12}, Landroid/telephony/SubscriptionInfo;->getSimSlotIndex()I
 
-    move-result-object v12
+    move-result v12
 
-    invoke-direct {p0, v10, v12}, Lcom/android/keyguard/CarrierTextManager;->getCarrierTextForSimState(ILjava/lang/CharSequence;)Ljava/lang/CharSequence;
+    aput v9, v3, v12
 
-    move-result-object v12
+    iget-object v12, v0, Lcom/android/keyguard/CarrierTextManager;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    if-eqz v12, :cond_1
+    invoke-virtual {v12, v13}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getSimState(I)I
 
-    aput-object v12, v4, v7
+    move-result v12
 
-    move v8, v3
+    invoke-interface {v1, v9}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    :cond_1
-    const/4 v12, 0x5
+    move-result-object v14
 
-    if-ne v10, v12, :cond_3
+    check-cast v14, Landroid/telephony/SubscriptionInfo;
 
-    iget-object v10, p0, Lcom/android/keyguard/CarrierTextManager;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    invoke-virtual {v14}, Landroid/telephony/SubscriptionInfo;->getCarrierName()Ljava/lang/CharSequence;
 
-    iget-object v10, v10, Lcom/android/keyguard/KeyguardUpdateMonitor;->mServiceStates:Ljava/util/HashMap;
+    move-result-object v14
 
-    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-direct {v0, v12, v14}, Lcom/android/keyguard/CarrierTextManager;->getCarrierTextForSimState(ILjava/lang/CharSequence;)Ljava/lang/CharSequence;
 
-    move-result-object v11
+    move-result-object v15
 
-    invoke-virtual {v10, v11}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    sget-boolean v16, Lcom/android/keyguard/CarrierTextManager;->DEBUG:Z
 
-    move-result-object v10
+    if-eqz v16, :cond_2
 
-    check-cast v10, Landroid/telephony/ServiceState;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    if-eqz v10, :cond_3
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v10}, Landroid/telephony/ServiceState;->getDataRegistrationState()I
+    const-string v4, "Handling (subId="
 
-    move-result v11
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-nez v11, :cond_3
+    invoke-virtual {v6, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v10}, Landroid/telephony/ServiceState;->getRilDataRadioTechnology()I
+    const-string v4, "): "
 
-    move-result v10
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/16 v11, 0x12
+    invoke-virtual {v6, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    if-ne v10, v11, :cond_2
+    const-string v4, " "
 
-    iget-object v10, p0, Lcom/android/keyguard/CarrierTextManager;->mWifiManager:Landroid/net/wifi/WifiManager;
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-eqz v10, :cond_3
+    invoke-virtual {v6, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v10}, Landroid/net/wifi/WifiManager;->isWifiEnabled()Z
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result v10
+    move-result-object v4
 
-    if-eqz v10, :cond_3
-
-    iget-object v10, p0, Lcom/android/keyguard/CarrierTextManager;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    invoke-virtual {v10}, Landroid/net/wifi/WifiManager;->getConnectionInfo()Landroid/net/wifi/WifiInfo;
-
-    move-result-object v10
-
-    if-eqz v10, :cond_3
-
-    iget-object v10, p0, Lcom/android/keyguard/CarrierTextManager;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    invoke-virtual {v10}, Landroid/net/wifi/WifiManager;->getConnectionInfo()Landroid/net/wifi/WifiInfo;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Landroid/net/wifi/WifiInfo;->getBSSID()Ljava/lang/String;
-
-    move-result-object v10
-
-    if-eqz v10, :cond_3
+    invoke-static {v8, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
-    move v9, v5
+    if-eqz v15, :cond_3
+
+    aput-object v15, v5, v9
+
+    const/4 v10, 0x0
 
     :cond_3
-    add-int/lit8 v7, v7, 0x1
+    const/4 v4, 0x5
 
-    goto :goto_1
+    if-ne v12, v4, :cond_6
+
+    iget-object v4, v0, Lcom/android/keyguard/CarrierTextManager;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    iget-object v4, v4, Lcom/android/keyguard/KeyguardUpdateMonitor;->mServiceStates:Ljava/util/HashMap;
+
+    invoke-static {v13}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v4, v6}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/telephony/ServiceState;
+
+    if-eqz v4, :cond_6
+
+    invoke-virtual {v4}, Landroid/telephony/ServiceState;->getDataRegistrationState()I
+
+    move-result v6
+
+    if-nez v6, :cond_6
+
+    invoke-virtual {v4}, Landroid/telephony/ServiceState;->getRilDataRadioTechnology()I
+
+    move-result v6
+
+    const/16 v12, 0x12
+
+    if-ne v6, v12, :cond_4
+
+    iget-object v6, v0, Lcom/android/keyguard/CarrierTextManager;->mWifiManager:Landroid/net/wifi/WifiManager;
+
+    if-eqz v6, :cond_6
+
+    invoke-virtual {v6}, Landroid/net/wifi/WifiManager;->isWifiEnabled()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_6
+
+    iget-object v6, v0, Lcom/android/keyguard/CarrierTextManager;->mWifiManager:Landroid/net/wifi/WifiManager;
+
+    invoke-virtual {v6}, Landroid/net/wifi/WifiManager;->getConnectionInfo()Landroid/net/wifi/WifiInfo;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_6
+
+    iget-object v6, v0, Lcom/android/keyguard/CarrierTextManager;->mWifiManager:Landroid/net/wifi/WifiManager;
+
+    invoke-virtual {v6}, Landroid/net/wifi/WifiManager;->getConnectionInfo()Landroid/net/wifi/WifiInfo;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Landroid/net/wifi/WifiInfo;->getBSSID()Ljava/lang/String;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_6
 
     :cond_4
-    const/4 v7, 0x0
+    if-eqz v16, :cond_5
 
-    if-eqz v8, :cond_a
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    if-nez v9, :cond_a
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    if-eqz v1, :cond_5
+    const-string v11, "SIM ready and in service: subId="
 
-    invoke-direct {p0}, Lcom/android/keyguard/CarrierTextManager;->getMissingSimMessage()Ljava/lang/String;
+    invoke-virtual {v6, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    invoke-virtual {v6, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    const-string v11, ", ss="
 
-    move-result-object v0
+    invoke-virtual {v6, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    check-cast v0, Landroid/telephony/SubscriptionInfo;
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Landroid/telephony/SubscriptionInfo;->getCarrierName()Ljava/lang/CharSequence;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v4
 
-    invoke-direct {p0, v1, v0}, Lcom/android/keyguard/CarrierTextManager;->makeCarrierStringOnEmergencyCapable(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-
-    move-result-object v7
-
-    goto :goto_4
+    invoke-static {v8, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_5
-    invoke-direct {p0}, Lcom/android/keyguard/CarrierTextManager;->getContext()Landroid/content/Context;
+    const/4 v11, 0x1
 
-    move-result-object v0
+    :cond_6
+    add-int/lit8 v9, v9, 0x1
 
-    const v1, 0x1040309
+    goto/16 :goto_1
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+    :cond_7
+    const/4 v4, 0x0
 
-    move-result-object v0
+    if-eqz v10, :cond_8
 
-    invoke-direct {p0}, Lcom/android/keyguard/CarrierTextManager;->getContext()Landroid/content/Context;
+    if-nez v11, :cond_8
+
+    if-eqz v2, :cond_9
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/keyguard/CarrierTextManager;->getMissingSimMessage()Ljava/lang/String;
+
+    move-result-object v2
+
+    const/4 v4, 0x0
+
+    invoke-interface {v1, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
-    new-instance v11, Landroid/content/IntentFilter;
+    check-cast v1, Landroid/telephony/SubscriptionInfo;
 
-    const-string v12, "android.telephony.action.SERVICE_PROVIDERS_UPDATED"
-
-    invoke-direct {v11, v12}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v1, v7, v11}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-virtual {v1}, Landroid/telephony/SubscriptionInfo;->getCarrierName()Ljava/lang/CharSequence;
 
     move-result-object v1
 
-    if-eqz v1, :cond_9
+    invoke-direct {v0, v2, v1}, Lcom/android/keyguard/CarrierTextManager;->makeCarrierStringOnEmergencyCapable(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
-    const-string v0, "android.telephony.extra.SHOW_SPN"
+    move-result-object v4
 
-    invoke-virtual {v1, v0, v3}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    :cond_8
+    const/4 v6, 0x0
 
-    move-result v0
+    goto/16 :goto_4
 
-    if-eqz v0, :cond_6
+    :cond_9
+    invoke-direct/range {p0 .. p0}, Lcom/android/keyguard/CarrierTextManager;->getContext()Landroid/content/Context;
 
-    const-string v0, "android.telephony.extra.SPN"
+    move-result-object v1
 
-    invoke-virtual {v1, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+    const v2, 0x104030d
 
-    move-result-object v0
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/keyguard/CarrierTextManager;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    new-instance v6, Landroid/content/IntentFilter;
+
+    const-string v9, "android.telephony.action.SERVICE_PROVIDERS_UPDATED"
+
+    invoke-direct {v6, v9}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v2, v4, v6}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_e
+
+    const-string v1, "android.telephony.extra.SHOW_SPN"
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v2, v1, v6}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_a
+
+    const-string v1, "android.telephony.extra.SPN"
+
+    invoke-virtual {v2, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
 
     goto :goto_2
 
-    :cond_6
-    move-object v0, v10
+    :cond_a
+    move-object v1, v12
 
     :goto_2
-    const-string v7, "android.telephony.extra.SHOW_PLMN"
+    const-string v4, "android.telephony.extra.SHOW_PLMN"
 
-    invoke-virtual {v1, v7, v3}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    invoke-virtual {v2, v4, v6}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    move-result v7
+    move-result v4
 
-    if-eqz v7, :cond_7
+    if-eqz v4, :cond_b
 
-    const-string v7, "android.telephony.extra.PLMN"
+    const-string v4, "android.telephony.extra.PLMN"
 
-    invoke-virtual {v1, v7}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v2, v4}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v12
 
-    :cond_7
-    invoke-static {v10, v0}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    :cond_b
+    sget-boolean v2, Lcom/android/keyguard/CarrierTextManager;->DEBUG:Z
 
-    move-result v1
+    if-eqz v2, :cond_c
 
-    if-eqz v1, :cond_8
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    move-object v0, v10
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "Getting plmn/spn sticky brdcst "
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v4, "/"
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v8, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_c
+    invoke-static {v12, v1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_d
+
+    move-object v1, v12
 
     goto :goto_3
 
-    :cond_8
-    iget-object v1, p0, Lcom/android/keyguard/CarrierTextManager;->mSeparator:Ljava/lang/CharSequence;
+    :cond_d
+    iget-object v2, v0, Lcom/android/keyguard/CarrierTextManager;->mSeparator:Ljava/lang/CharSequence;
 
-    invoke-static {v10, v0, v1}, Lcom/android/keyguard/CarrierTextManager;->concatenate(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    :cond_9
-    :goto_3
-    invoke-direct {p0}, Lcom/android/keyguard/CarrierTextManager;->getMissingSimMessage()Ljava/lang/String;
+    invoke-static {v12, v1, v2}, Lcom/android/keyguard/CarrierTextManager;->concatenate(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
     move-result-object v1
 
-    invoke-direct {p0, v1, v0}, Lcom/android/keyguard/CarrierTextManager;->makeCarrierStringOnEmergencyCapable(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+    goto :goto_3
 
-    move-result-object v7
+    :cond_e
+    const/4 v6, 0x0
 
-    :cond_a
+    :goto_3
+    invoke-direct/range {p0 .. p0}, Lcom/android/keyguard/CarrierTextManager;->getMissingSimMessage()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {v0, v2, v1}, Lcom/android/keyguard/CarrierTextManager;->makeCarrierStringOnEmergencyCapable(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+
+    move-result-object v4
+
     :goto_4
-    invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_b
-
-    iget-object v0, p0, Lcom/android/keyguard/CarrierTextManager;->mSeparator:Ljava/lang/CharSequence;
-
-    invoke-static {v0, v4}, Lcom/android/keyguard/CarrierTextManager;->joinNotEmpty(Ljava/lang/CharSequence;[Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-
-    move-result-object v7
-
-    :cond_b
-    invoke-direct {p0, v7, v4, v2, v8}, Lcom/android/keyguard/CarrierTextManager;->updateCarrierTextWithSimIoError(Ljava/lang/CharSequence;[Ljava/lang/CharSequence;[IZ)Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    if-nez v9, :cond_c
-
-    iget-object v1, p0, Lcom/android/keyguard/CarrierTextManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v1}, Lcom/android/settingslib/WirelessUtils;->isAirplaneModeOn(Landroid/content/Context;)Z
+    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_f
 
-    invoke-direct {p0}, Lcom/android/keyguard/CarrierTextManager;->getAirplaneModeMessage()Ljava/lang/String;
+    iget-object v1, v0, Lcom/android/keyguard/CarrierTextManager;->mSeparator:Ljava/lang/CharSequence;
 
-    move-result-object v0
+    invoke-static {v1, v5}, Lcom/android/keyguard/CarrierTextManager;->joinNotEmpty(Ljava/lang/CharSequence;[Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
 
-    move-object v3, v0
+    move-result-object v4
 
-    move v7, v5
+    :cond_f
+    invoke-direct {v0, v4, v5, v3, v10}, Lcom/android/keyguard/CarrierTextManager;->updateCarrierTextWithSimIoError(Ljava/lang/CharSequence;[Ljava/lang/CharSequence;[IZ)Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    if-nez v11, :cond_10
+
+    iget-object v2, v0, Lcom/android/keyguard/CarrierTextManager;->mContext:Landroid/content/Context;
+
+    invoke-static {v2}, Lcom/android/settingslib/WirelessUtils;->isAirplaneModeOn(Landroid/content/Context;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_10
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/keyguard/CarrierTextManager;->getAirplaneModeMessage()Ljava/lang/String;
+
+    move-result-object v1
+
+    move-object v4, v1
+
+    const/4 v8, 0x1
 
     goto :goto_5
 
-    :cond_c
-    move v7, v3
+    :cond_10
+    move-object v4, v1
 
-    move-object v3, v0
+    move v8, v6
 
     :goto_5
-    new-instance v0, Lcom/android/keyguard/CarrierTextManager$CarrierTextCallbackInfo;
+    new-instance v1, Lcom/android/keyguard/CarrierTextManager$CarrierTextCallbackInfo;
 
-    xor-int/2addr v5, v8
+    const/4 v2, 0x1
 
-    move-object v2, v0
+    xor-int/lit8 v6, v10, 0x1
 
-    invoke-direct/range {v2 .. v7}, Lcom/android/keyguard/CarrierTextManager$CarrierTextCallbackInfo;-><init>(Ljava/lang/CharSequence;[Ljava/lang/CharSequence;Z[IZ)V
+    move-object v3, v1
 
-    invoke-virtual {p0, v0}, Lcom/android/keyguard/CarrierTextManager;->postToCallback(Lcom/android/keyguard/CarrierTextManager$CarrierTextCallbackInfo;)V
+    invoke-direct/range {v3 .. v8}, Lcom/android/keyguard/CarrierTextManager$CarrierTextCallbackInfo;-><init>(Ljava/lang/CharSequence;[Ljava/lang/CharSequence;Z[IZ)V
+
+    invoke-virtual {v0, v1}, Lcom/android/keyguard/CarrierTextManager;->postToCallback(Lcom/android/keyguard/CarrierTextManager$CarrierTextCallbackInfo;)V
 
     return-void
 .end method

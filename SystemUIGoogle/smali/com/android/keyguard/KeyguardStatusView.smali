@@ -3,6 +3,10 @@
 .source "KeyguardStatusView.java"
 
 
+# static fields
+.field private static final DEBUG:Z
+
+
 # instance fields
 .field private mChildrenAlphaExcludingSmartSpace:F
 
@@ -30,6 +34,16 @@
     .locals 0
 
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardStatusView;->onSliceContentChanged()V
+
+    return-void
+.end method
+
+.method static constructor <clinit>()V
+    .locals 1
+
+    sget-boolean v0, Lcom/android/keyguard/KeyguardConstants;->DEBUG:Z
+
+    sput-boolean v0, Lcom/android/keyguard/KeyguardStatusView;->DEBUG:Z
 
     return-void
 .end method
@@ -163,7 +177,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->setAccessibilityDelegate(Landroid/view/View$AccessibilityDelegate;)V
 
     :cond_0
-    sget v0, Lcom/android/systemui/R$id;->keyguard_status_area:I
+    sget v0, Lcom/android/systemui/R$id;->keyguard_slice_view:I
 
     invoke-virtual {p0, v0}, Landroid/widget/GridLayout;->findViewById(I)Landroid/view/View;
 

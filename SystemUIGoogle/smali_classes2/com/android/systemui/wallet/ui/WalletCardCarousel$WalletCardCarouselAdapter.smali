@@ -371,7 +371,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/wallet/ui/WalletCardCarousel$WalletCardCarouselAdapter;->this$0:Lcom/android/systemui/wallet/ui/WalletCardCarousel;
 
-    invoke-static {v1}, Lcom/android/systemui/wallet/ui/WalletCardCarousel;->access$1300(Lcom/android/systemui/wallet/ui/WalletCardCarousel;)I
+    invoke-virtual {v1}, Lcom/android/systemui/wallet/ui/WalletCardCarousel;->getCardWidthPx()I
 
     move-result v1
 
@@ -379,7 +379,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/wallet/ui/WalletCardCarousel$WalletCardCarouselAdapter;->this$0:Lcom/android/systemui/wallet/ui/WalletCardCarousel;
 
-    invoke-static {p0}, Lcom/android/systemui/wallet/ui/WalletCardCarousel;->access$1400(Lcom/android/systemui/wallet/ui/WalletCardCarousel;)I
+    invoke-virtual {p0}, Lcom/android/systemui/wallet/ui/WalletCardCarousel;->getCardHeightPx()I
 
     move-result p0
 

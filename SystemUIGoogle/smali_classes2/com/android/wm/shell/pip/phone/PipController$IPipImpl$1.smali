@@ -3,7 +3,7 @@
 .source "PipController.java"
 
 # interfaces
-.implements Landroid/os/IBinder$DeathRecipient;
+.implements Lcom/android/wm/shell/pip/phone/PipController$PipAnimationListener;
 
 
 # annotations
@@ -22,10 +22,18 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$_3J-BhDJDJZiSmaNzow9I9mq-wY(Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$1;Lcom/android/wm/shell/pip/phone/PipController;)V
+.method public static synthetic $r8$lambda$kUsvkkx2t0SgIbFaoD89ormWq-4(Lcom/android/wm/shell/pip/IPipAnimationListener;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$1;->lambda$binderDied$0(Lcom/android/wm/shell/pip/phone/PipController;)V
+    invoke-static {p0}, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$1;->lambda$onPipAnimationStarted$0(Lcom/android/wm/shell/pip/IPipAnimationListener;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$qM2eAkbPtfCBTTHQTYHGeJg8Kx4(ILcom/android/wm/shell/pip/IPipAnimationListener;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$1;->lambda$onPipCornerRadiusChanged$1(ILcom/android/wm/shell/pip/IPipAnimationListener;)V
 
     return-void
 .end method
@@ -40,40 +48,64 @@
     return-void
 .end method
 
-.method private synthetic lambda$binderDied$0(Lcom/android/wm/shell/pip/phone/PipController;)V
-    .locals 1
+.method private static synthetic lambda$onPipAnimationStarted$0(Lcom/android/wm/shell/pip/IPipAnimationListener;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
 
-    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$1;->this$0:Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;
+    invoke-interface {p0}, Lcom/android/wm/shell/pip/IPipAnimationListener;->onPipAnimationStarted()V
 
-    const/4 v0, 0x0
+    return-void
+.end method
 
-    invoke-static {p0, v0}, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->access$2102(Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;Lcom/android/wm/shell/pip/IPipAnimationListener;)Lcom/android/wm/shell/pip/IPipAnimationListener;
+.method private static synthetic lambda$onPipCornerRadiusChanged$1(ILcom/android/wm/shell/pip/IPipAnimationListener;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
 
-    invoke-static {p1, v0}, Lcom/android/wm/shell/pip/phone/PipController;->access$2200(Lcom/android/wm/shell/pip/phone/PipController;Lcom/android/wm/shell/pip/IPipAnimationListener;)V
+    invoke-interface {p1, p0}, Lcom/android/wm/shell/pip/IPipAnimationListener;->onPipCornerRadiusChanged(I)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public binderDied()V
-    .locals 3
+.method public onPipAnimationStarted()V
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$1;->this$0:Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;
+    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$1;->this$0:Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;
 
-    invoke-static {v0}, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->access$2000(Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;)Lcom/android/wm/shell/pip/phone/PipController;
+    invoke-static {p0}, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->access$2000(Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;)Lcom/android/wm/shell/common/SingleInstanceRemoteListener;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {v0}, Lcom/android/wm/shell/pip/phone/PipController;->getRemoteCallExecutor()Lcom/android/wm/shell/common/ShellExecutor;
+    sget-object v0, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$1$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$1$$ExternalSyntheticLambda1;
 
-    move-result-object v1
+    invoke-virtual {p0, v0}, Lcom/android/wm/shell/common/SingleInstanceRemoteListener;->call(Lcom/android/wm/shell/common/SingleInstanceRemoteListener$RemoteCall;)V
 
-    new-instance v2, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$1$$ExternalSyntheticLambda0;
+    return-void
+.end method
 
-    invoke-direct {v2, p0, v0}, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$1$$ExternalSyntheticLambda0;-><init>(Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$1;Lcom/android/wm/shell/pip/phone/PipController;)V
+.method public onPipCornerRadiusChanged(I)V
+    .locals 1
 
-    invoke-interface {v1, v2}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
+    iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$1;->this$0:Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;
+
+    invoke-static {p0}, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;->access$2000(Lcom/android/wm/shell/pip/phone/PipController$IPipImpl;)Lcom/android/wm/shell/common/SingleInstanceRemoteListener;
+
+    move-result-object p0
+
+    new-instance v0, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$1$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0, p1}, Lcom/android/wm/shell/pip/phone/PipController$IPipImpl$1$$ExternalSyntheticLambda0;-><init>(I)V
+
+    invoke-virtual {p0, v0}, Lcom/android/wm/shell/common/SingleInstanceRemoteListener;->call(Lcom/android/wm/shell/common/SingleInstanceRemoteListener$RemoteCall;)V
 
     return-void
 .end method

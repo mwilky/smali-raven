@@ -51,30 +51,48 @@
     .end annotation
 .end field
 
+.field private final mPostureCallback:Lcom/android/systemui/statusbar/policy/DevicePostureController$Callback;
+
+.field private final mPostureController:Lcom/android/systemui/statusbar/policy/DevicePostureController;
+
 
 # direct methods
-.method public static synthetic $r8$lambda$9FF4Id9_aeLZ_a7_yDLXSlXa67I(Lcom/android/keyguard/KeyguardPatternViewController;Landroid/view/View;Landroid/view/MotionEvent;)Z
+.method public static synthetic $r8$lambda$NC0LzAXv-ChW6ybDgJBCwl0n8IA(Lcom/android/keyguard/KeyguardPatternViewController;Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/keyguard/KeyguardPatternViewController;->lambda$onViewAttached$0(Landroid/view/View;Landroid/view/MotionEvent;)Z
+    invoke-direct {p0, p1, p2}, Lcom/android/keyguard/KeyguardPatternViewController;->lambda$onViewAttached$1(Landroid/view/View;Landroid/view/MotionEvent;)Z
 
     move-result p0
 
     return p0
 .end method
 
-.method public static synthetic $r8$lambda$Ff9KpUhZ1bEpMHY1fStKFXv4_nQ(Lcom/android/keyguard/KeyguardPatternViewController;Landroid/view/View;)V
+.method public static synthetic $r8$lambda$rCrHmdCFDbPgH6FHvjvU7vz668U(Lcom/android/keyguard/KeyguardPatternViewController;I)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardPatternViewController;->lambda$onViewAttached$1(Landroid/view/View;)V
+    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardPatternViewController;->lambda$new$0(I)V
 
     return-void
 .end method
 
-.method protected constructor <init>(Lcom/android/keyguard/KeyguardPatternView;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/keyguard/KeyguardSecurityCallback;Lcom/android/internal/util/LatencyTracker;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/keyguard/EmergencyButtonController;Lcom/android/keyguard/KeyguardMessageAreaController$Factory;)V
+.method public static synthetic $r8$lambda$sczUUS-PeCpNTiVnvYDgwRhExNc(Lcom/android/keyguard/KeyguardPatternViewController;Landroid/view/View;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardPatternViewController;->lambda$onViewAttached$2(Landroid/view/View;)V
+
+    return-void
+.end method
+
+.method protected constructor <init>(Lcom/android/keyguard/KeyguardPatternView;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/keyguard/KeyguardSecurityCallback;Lcom/android/internal/util/LatencyTracker;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/keyguard/EmergencyButtonController;Lcom/android/keyguard/KeyguardMessageAreaController$Factory;Lcom/android/systemui/statusbar/policy/DevicePostureController;)V
     .locals 0
 
     invoke-direct {p0, p1, p3, p5, p8}, Lcom/android/keyguard/KeyguardInputViewController;-><init>(Lcom/android/keyguard/KeyguardInputView;Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;Lcom/android/keyguard/KeyguardSecurityCallback;Lcom/android/keyguard/EmergencyButtonController;)V
+
+    new-instance p1, Lcom/android/keyguard/KeyguardPatternViewController$$ExternalSyntheticLambda2;
+
+    invoke-direct {p1, p0}, Lcom/android/keyguard/KeyguardPatternViewController$$ExternalSyntheticLambda2;-><init>(Lcom/android/keyguard/KeyguardPatternViewController;)V
+
+    iput-object p1, p0, Lcom/android/keyguard/KeyguardPatternViewController;->mPostureCallback:Lcom/android/systemui/statusbar/policy/DevicePostureController$Callback;
 
     new-instance p1, Lcom/android/keyguard/KeyguardPatternViewController$1;
 
@@ -125,6 +143,8 @@
     check-cast p1, Lcom/android/internal/widget/LockPatternView;
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardPatternViewController;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
+
+    iput-object p10, p0, Lcom/android/keyguard/KeyguardPatternViewController;->mPostureController:Lcom/android/systemui/statusbar/policy/DevicePostureController;
 
     return-void
 .end method
@@ -291,7 +311,19 @@
     return-void
 .end method
 
-.method private synthetic lambda$onViewAttached$0(Landroid/view/View;Landroid/view/MotionEvent;)Z
+.method private synthetic lambda$new$0(I)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast p0, Lcom/android/keyguard/KeyguardPatternView;
+
+    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardPatternView;->onDevicePostureChanged(I)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$onViewAttached$1(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 0
 
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getActionMasked()I
@@ -310,7 +342,7 @@
     return p0
 .end method
 
-.method private synthetic lambda$onViewAttached$1(Landroid/view/View;)V
+.method private synthetic lambda$onViewAttached$2(Landroid/view/View;)V
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/keyguard/KeyguardInputViewController;->getKeyguardSecurityCallback()Lcom/android/keyguard/KeyguardSecurityCallback;
@@ -462,11 +494,17 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_0
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardPatternViewController;->mPostureController:Lcom/android/systemui/statusbar/policy/DevicePostureController;
+
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardPatternViewController;->mPostureCallback:Lcom/android/systemui/statusbar/policy/DevicePostureController$Callback;
+
+    invoke-interface {v0, p0}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
+
     return-void
 .end method
 
 .method protected onViewDetached()V
-    .locals 2
+    .locals 3
 
     invoke-super {p0}, Lcom/android/keyguard/KeyguardInputViewController;->onViewDetached()V
 
@@ -484,21 +522,27 @@
 
     invoke-virtual {v0, v1}, Lcom/android/keyguard/EmergencyButtonController;->setEmergencyButtonCallback(Lcom/android/keyguard/EmergencyButtonController$EmergencyButtonCallback;)V
 
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
-    check-cast p0, Lcom/android/keyguard/KeyguardPatternView;
+    check-cast v0, Lcom/android/keyguard/KeyguardPatternView;
 
-    sget v0, Lcom/android/systemui/R$id;->cancel_button:I
+    sget v2, Lcom/android/systemui/R$id;->cancel_button:I
 
-    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
-    move-result-object p0
+    move-result-object v0
 
-    if-eqz p0, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-virtual {p0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_0
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardPatternViewController;->mPostureController:Lcom/android/systemui/statusbar/policy/DevicePostureController;
+
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardPatternViewController;->mPostureCallback:Lcom/android/systemui/statusbar/policy/DevicePostureController$Callback;
+
+    invoke-interface {v0, p0}, Lcom/android/systemui/statusbar/policy/CallbackController;->removeCallback(Ljava/lang/Object;)V
+
     return-void
 .end method
 

@@ -37,7 +37,7 @@
 
     check-cast p1, Lcom/android/wm/shell/pip/phone/PhonePipMenuController$Listener;
 
-    invoke-interface {p1}, Lcom/android/wm/shell/pip/phone/PhonePipMenuController$Listener;->onPipShowMenu()V
+    invoke-interface {p1}, Lcom/android/wm/shell/pip/phone/PhonePipMenuController$Listener;->onPipExpand()V
 
     return-void
 .end method

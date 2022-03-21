@@ -74,6 +74,41 @@
     return-object p0
 .end method
 
+.method public resumeSendClosed(Lkotlinx/coroutines/channels/Closed;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lkotlinx/coroutines/channels/Closed<",
+            "*>;)V"
+        }
+    .end annotation
+
+    const-string v0, "closed"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+
+    iget-object p0, p0, Lkotlinx/coroutines/channels/SendElement;->cont:Lkotlinx/coroutines/CancellableContinuation;
+
+    invoke-virtual {p1}, Lkotlinx/coroutines/channels/Closed;->getSendException()Ljava/lang/Throwable;
+
+    move-result-object p1
+
+    sget-object v0, Lkotlin/Result;->Companion:Lkotlin/Result$Companion;
+
+    invoke-static {p1}, Lkotlin/ResultKt;->createFailure(Ljava/lang/Throwable;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    invoke-static {p1}, Lkotlin/Result;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    invoke-interface {p0, p1}, Lkotlin/coroutines/Continuation;->resumeWith(Ljava/lang/Object;)V
+
+    return-void
+.end method
+
 .method public toString()Ljava/lang/String;
     .locals 2
 

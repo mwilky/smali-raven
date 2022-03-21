@@ -292,6 +292,39 @@
     return-object p0
 .end method
 
+.method public addExtras(Landroid/os/Bundle;)Landroidx/core/app/NotificationCompat$Builder;
+    .locals 1
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "extras"
+        }
+    .end annotation
+
+    if-eqz p1, :cond_1
+
+    iget-object v0, p0, Landroidx/core/app/NotificationCompat$Builder;->mExtras:Landroid/os/Bundle;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Landroid/os/Bundle;
+
+    invoke-direct {v0, p1}, Landroid/os/Bundle;-><init>(Landroid/os/Bundle;)V
+
+    iput-object v0, p0, Landroidx/core/app/NotificationCompat$Builder;->mExtras:Landroid/os/Bundle;
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {v0, p1}, Landroid/os/Bundle;->putAll(Landroid/os/Bundle;)V
+
+    :cond_1
+    :goto_0
+    return-object p0
+.end method
+
 .method public build()Landroid/app/Notification;
     .locals 1
 

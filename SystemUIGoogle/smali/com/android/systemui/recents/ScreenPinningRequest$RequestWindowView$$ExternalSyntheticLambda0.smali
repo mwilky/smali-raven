@@ -35,9 +35,9 @@
 .method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
-    check-cast p1, Ldagger/Lazy;
+    check-cast p1, Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    invoke-static {p1}, Lcom/android/systemui/recents/ScreenPinningRequest$RequestWindowView;->$r8$lambda$wYShk2fUBRDFLhCqRnFc-SrsIdw(Ldagger/Lazy;)Lcom/android/systemui/navigationbar/NavigationBarView;
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/phone/StatusBar;->getNavigationBarView()Lcom/android/systemui/navigationbar/NavigationBarView;
 
     move-result-object p0
 

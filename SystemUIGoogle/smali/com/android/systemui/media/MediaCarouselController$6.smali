@@ -17,7 +17,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nMediaCarouselController.kt\nKotlin\n*S Kotlin\n*F\n+ 1 MediaCarouselController.kt\ncom/android/systemui/media/MediaCarouselController$6\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n+ 3 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,942:1\n1828#2,3:943\n1#3:946\n*E\n*S KotlinDebug\n*F\n+ 1 MediaCarouselController.kt\ncom/android/systemui/media/MediaCarouselController$6\n*L\n228#1,3:943\n*E\n"
+    value = "SMAP\nMediaCarouselController.kt\nKotlin\n*S Kotlin\n*F\n+ 1 MediaCarouselController.kt\ncom/android/systemui/media/MediaCarouselController$6\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n+ 3 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,991:1\n1828#2,3:992\n1828#2,3:996\n1#3:995\n*E\n*S KotlinDebug\n*F\n+ 1 MediaCarouselController.kt\ncom/android/systemui/media/MediaCarouselController$6\n*L\n236#1,3:992\n288#1,3:996\n*E\n"
 .end annotation
 
 
@@ -38,8 +38,8 @@
 
 
 # virtual methods
-.method public onMediaDataLoaded(Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;ZZ)V
-    .locals 19
+.method public onMediaDataLoaded(Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;ZI)V
+    .locals 20
 
     move-object/from16 v0, p0
 
@@ -63,152 +63,54 @@
 
     move-result v3
 
+    const/4 v4, 0x2
+
+    const/4 v5, 0x0
+
     if-eqz v3, :cond_1
 
     sget-object v3, Lcom/android/systemui/media/MediaPlayerData;->INSTANCE:Lcom/android/systemui/media/MediaPlayerData;
 
     invoke-virtual {v3, v1}, Lcom/android/systemui/media/MediaPlayerData;->getMediaPlayer(Ljava/lang/String;)Lcom/android/systemui/media/MediaControlPanel;
 
-    move-result-object v4
+    move-result-object v6
 
-    if-nez v4, :cond_0
+    if-nez v6, :cond_0
 
     goto :goto_0
 
     :cond_0
-    iget-object v5, v0, Lcom/android/systemui/media/MediaCarouselController$6;->this$0:Lcom/android/systemui/media/MediaCarouselController;
+    iget-object v7, v0, Lcom/android/systemui/media/MediaCarouselController$6;->this$0:Lcom/android/systemui/media/MediaCarouselController;
 
-    const/16 v6, 0x2f7
+    const/16 v8, 0x2f7
 
-    iget v7, v4, Lcom/android/systemui/media/MediaControlPanel;->mInstanceId:I
+    iget v9, v6, Lcom/android/systemui/media/MediaControlPanel;->mInstanceId:I
 
-    iget v8, v4, Lcom/android/systemui/media/MediaControlPanel;->mUid:I
-
-    const/4 v9, 0x0
-
-    invoke-virtual {v4}, Lcom/android/systemui/media/MediaControlPanel;->getSurfaceForSmartspaceLogging()I
-
-    move-result v10
+    iget v10, v6, Lcom/android/systemui/media/MediaControlPanel;->mUid:I
 
     const/4 v11, 0x0
 
-    const/4 v12, 0x0
+    new-array v12, v4, [I
+
+    fill-array-data v12, :array_0
+
+    const/4 v13, 0x0
+
+    const/4 v14, 0x0
 
     invoke-virtual {v3, v1}, Lcom/android/systemui/media/MediaPlayerData;->getMediaPlayerIndex(Ljava/lang/String;)I
 
-    move-result v13
+    move-result v15
 
-    const/16 v14, 0x60
+    const/16 v16, 0x0
 
-    const/4 v15, 0x0
+    const/16 v17, 0x160
 
-    invoke-static/range {v5 .. v15}, Lcom/android/systemui/media/MediaCarouselController;->logSmartspaceCardReported$default(Lcom/android/systemui/media/MediaCarouselController;IIIZIIIIILjava/lang/Object;)V
+    const/16 v18, 0x0
 
-    :cond_1
+    invoke-static/range {v7 .. v18}, Lcom/android/systemui/media/MediaCarouselController;->logSmartspaceCardReported$default(Lcom/android/systemui/media/MediaCarouselController;IIIZ[IIIIIILjava/lang/Object;)V
+
     :goto_0
-    const/4 v3, 0x0
-
-    if-eqz p5, :cond_4
-
-    sget-object v4, Lcom/android/systemui/media/MediaPlayerData;->INSTANCE:Lcom/android/systemui/media/MediaPlayerData;
-
-    invoke-virtual {v4}, Lcom/android/systemui/media/MediaPlayerData;->players()Ljava/util/Collection;
-
-    move-result-object v4
-
-    iget-object v15, v0, Lcom/android/systemui/media/MediaCarouselController$6;->this$0:Lcom/android/systemui/media/MediaCarouselController;
-
-    invoke-interface {v4}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v4
-
-    move v13, v3
-
-    :goto_1
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_4
-
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v5
-
-    add-int/lit8 v16, v13, 0x1
-
-    if-gez v13, :cond_2
-
-    invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
-
-    :cond_2
-    check-cast v5, Lcom/android/systemui/media/MediaControlPanel;
-
-    invoke-virtual {v5}, Lcom/android/systemui/media/MediaControlPanel;->getRecommendationViewHolder()Lcom/android/systemui/media/RecommendationViewHolder;
-
-    move-result-object v6
-
-    if-nez v6, :cond_3
-
-    iget v6, v5, Lcom/android/systemui/media/MediaControlPanel;->mUid:I
-
-    invoke-static {v15}, Lcom/android/systemui/media/MediaCarouselController;->access$getSystemClock$p(Lcom/android/systemui/media/MediaCarouselController;)Lcom/android/systemui/util/time/SystemClock;
-
-    move-result-object v7
-
-    invoke-interface {v7}, Lcom/android/systemui/util/time/SystemClock;->currentTimeMillis()J
-
-    move-result-wide v7
-
-    long-to-int v7, v7
-
-    add-int/2addr v6, v7
-
-    invoke-static {v6}, Lcom/android/systemui/media/SmallHash;->hash(I)I
-
-    move-result v7
-
-    iput v7, v5, Lcom/android/systemui/media/MediaControlPanel;->mInstanceId:I
-
-    const/16 v6, 0x2f7
-
-    iget v8, v5, Lcom/android/systemui/media/MediaControlPanel;->mUid:I
-
-    const/4 v9, 0x0
-
-    invoke-virtual {v5}, Lcom/android/systemui/media/MediaControlPanel;->getSurfaceForSmartspaceLogging()I
-
-    move-result v10
-
-    const/4 v11, 0x0
-
-    const/4 v12, 0x0
-
-    const/16 v14, 0x60
-
-    const/16 v17, 0x0
-
-    move-object v5, v15
-
-    move-object/from16 v18, v15
-
-    move-object/from16 v15, v17
-
-    invoke-static/range {v5 .. v15}, Lcom/android/systemui/media/MediaCarouselController;->logSmartspaceCardReported$default(Lcom/android/systemui/media/MediaCarouselController;IIIZIIIIILjava/lang/Object;)V
-
-    goto :goto_2
-
-    :cond_3
-    move-object/from16 v18, v15
-
-    :goto_2
-    move/from16 v13, v16
-
-    move-object/from16 v15, v18
-
-    goto :goto_1
-
-    :cond_4
     iget-object v4, v0, Lcom/android/systemui/media/MediaCarouselController$6;->this$0:Lcom/android/systemui/media/MediaCarouselController;
 
     invoke-virtual {v4}, Lcom/android/systemui/media/MediaCarouselController;->getMediaCarouselScrollHandler()Lcom/android/systemui/media/MediaCarouselScrollHandler;
@@ -221,11 +123,25 @@
 
     if-eqz v4, :cond_5
 
-    if-eqz p5, :cond_5
-
     iget-object v4, v0, Lcom/android/systemui/media/MediaCarouselController$6;->this$0:Lcom/android/systemui/media/MediaCarouselController;
 
     invoke-virtual {v4}, Lcom/android/systemui/media/MediaCarouselController;->getMediaCarouselScrollHandler()Lcom/android/systemui/media/MediaCarouselScrollHandler;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/systemui/media/MediaCarouselScrollHandler;->getVisibleMediaIndex()I
+
+    move-result v4
+
+    invoke-virtual {v3, v1}, Lcom/android/systemui/media/MediaPlayerData;->getMediaPlayerIndex(Ljava/lang/String;)I
+
+    move-result v3
+
+    if-ne v4, v3, :cond_5
+
+    iget-object v3, v0, Lcom/android/systemui/media/MediaCarouselController$6;->this$0:Lcom/android/systemui/media/MediaCarouselController;
+
+    invoke-virtual {v3}, Lcom/android/systemui/media/MediaCarouselController;->getMediaCarouselScrollHandler()Lcom/android/systemui/media/MediaCarouselScrollHandler;
 
     move-result-object v4
 
@@ -233,60 +149,191 @@
 
     move-result v4
 
-    if-nez v4, :cond_5
+    invoke-virtual {v3, v4}, Lcom/android/systemui/media/MediaCarouselController;->logSmartspaceImpression(Z)V
 
-    iget-object v4, v0, Lcom/android/systemui/media/MediaCarouselController$6;->this$0:Lcom/android/systemui/media/MediaCarouselController;
+    goto/16 :goto_3
 
-    invoke-virtual {v4}, Lcom/android/systemui/media/MediaCarouselController;->getMediaCarouselScrollHandler()Lcom/android/systemui/media/MediaCarouselScrollHandler;
+    :cond_1
+    if-eqz p5, :cond_5
 
-    move-result-object v5
+    sget-object v3, Lcom/android/systemui/media/MediaPlayerData;->INSTANCE:Lcom/android/systemui/media/MediaPlayerData;
 
-    invoke-virtual {v5}, Lcom/android/systemui/media/MediaCarouselScrollHandler;->getQsExpanded()Z
+    invoke-virtual {v3}, Lcom/android/systemui/media/MediaPlayerData;->players()Ljava/util/Collection;
 
-    move-result v5
+    move-result-object v3
 
-    invoke-virtual {v4, v5}, Lcom/android/systemui/media/MediaCarouselController;->logSmartspaceImpression(Z)V
+    iget-object v15, v0, Lcom/android/systemui/media/MediaCarouselController$6;->this$0:Lcom/android/systemui/media/MediaCarouselController;
+
+    invoke-interface {v3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    move v14, v5
+
+    :goto_1
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_4
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v6
+
+    add-int/lit8 v18, v14, 0x1
+
+    if-gez v14, :cond_2
+
+    invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
+
+    :cond_2
+    check-cast v6, Lcom/android/systemui/media/MediaControlPanel;
+
+    invoke-virtual {v6}, Lcom/android/systemui/media/MediaControlPanel;->getRecommendationViewHolder()Lcom/android/systemui/media/RecommendationViewHolder;
+
+    move-result-object v7
+
+    if-nez v7, :cond_3
+
+    iget v7, v6, Lcom/android/systemui/media/MediaControlPanel;->mUid:I
+
+    invoke-static {v15}, Lcom/android/systemui/media/MediaCarouselController;->access$getSystemClock$p(Lcom/android/systemui/media/MediaCarouselController;)Lcom/android/systemui/util/time/SystemClock;
+
+    move-result-object v8
+
+    invoke-interface {v8}, Lcom/android/systemui/util/time/SystemClock;->currentTimeMillis()J
+
+    move-result-wide v8
+
+    long-to-int v8, v8
+
+    add-int/2addr v7, v8
+
+    invoke-static {v7}, Lcom/android/systemui/media/SmallHash;->hash(I)I
+
+    move-result v8
+
+    iput v8, v6, Lcom/android/systemui/media/MediaControlPanel;->mInstanceId:I
+
+    iput-boolean v5, v6, Lcom/android/systemui/media/MediaControlPanel;->mIsImpressed:Z
+
+    const/16 v7, 0x2f7
+
+    iget v9, v6, Lcom/android/systemui/media/MediaControlPanel;->mUid:I
+
+    const/4 v10, 0x0
+
+    new-array v11, v4, [I
+
+    fill-array-data v11, :array_1
+
+    const/4 v12, 0x0
+
+    const/4 v13, 0x0
+
+    const/16 v16, 0x60
+
+    const/16 v17, 0x0
+
+    move-object v6, v15
+
+    move-object/from16 v19, v15
+
+    move/from16 v15, p5
+
+    invoke-static/range {v6 .. v17}, Lcom/android/systemui/media/MediaCarouselController;->logSmartspaceCardReported$default(Lcom/android/systemui/media/MediaCarouselController;IIIZ[IIIIIILjava/lang/Object;)V
+
+    goto :goto_2
+
+    :cond_3
+    move-object/from16 v19, v15
+
+    :goto_2
+    move/from16 v14, v18
+
+    move-object/from16 v15, v19
+
+    goto :goto_1
+
+    :cond_4
+    iget-object v3, v0, Lcom/android/systemui/media/MediaCarouselController$6;->this$0:Lcom/android/systemui/media/MediaCarouselController;
+
+    invoke-virtual {v3}, Lcom/android/systemui/media/MediaCarouselController;->getMediaCarouselScrollHandler()Lcom/android/systemui/media/MediaCarouselScrollHandler;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/systemui/media/MediaCarouselScrollHandler;->getVisibleToUser()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_5
+
+    iget-object v3, v0, Lcom/android/systemui/media/MediaCarouselController$6;->this$0:Lcom/android/systemui/media/MediaCarouselController;
+
+    invoke-virtual {v3}, Lcom/android/systemui/media/MediaCarouselController;->getMediaCarouselScrollHandler()Lcom/android/systemui/media/MediaCarouselScrollHandler;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/systemui/media/MediaCarouselScrollHandler;->getQsExpanded()Z
+
+    move-result v3
+
+    if-nez v3, :cond_5
+
+    iget-object v3, v0, Lcom/android/systemui/media/MediaCarouselController$6;->this$0:Lcom/android/systemui/media/MediaCarouselController;
+
+    invoke-virtual {v3}, Lcom/android/systemui/media/MediaCarouselController;->getMediaCarouselScrollHandler()Lcom/android/systemui/media/MediaCarouselScrollHandler;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/systemui/media/MediaCarouselScrollHandler;->getQsExpanded()Z
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Lcom/android/systemui/media/MediaCarouselController;->logSmartspaceImpression(Z)V
 
     :cond_5
+    :goto_3
     invoke-virtual/range {p3 .. p3}, Lcom/android/systemui/media/MediaData;->isPlaying()Ljava/lang/Boolean;
 
-    move-result-object v4
+    move-result-object v3
 
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
-    if-nez v4, :cond_6
+    if-nez v3, :cond_6
 
-    const/4 v4, 0x0
-
-    goto :goto_3
-
-    :cond_6
-    invoke-virtual {v4}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v4
-
-    xor-int/2addr v4, v5
-
-    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v4
-
-    :goto_3
-    if-nez v4, :cond_7
-
-    invoke-virtual/range {p3 .. p3}, Lcom/android/systemui/media/MediaData;->isClearable()Z
-
-    move-result v4
+    const/4 v3, 0x0
 
     goto :goto_4
 
-    :cond_7
-    invoke-virtual {v4}, Ljava/lang/Boolean;->booleanValue()Z
+    :cond_6
+    invoke-virtual {v3}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v4
+    move-result v3
+
+    xor-int/2addr v3, v4
+
+    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v3
 
     :goto_4
-    if-eqz v4, :cond_8
+    if-nez v3, :cond_7
+
+    invoke-virtual/range {p3 .. p3}, Lcom/android/systemui/media/MediaData;->isClearable()Z
+
+    move-result v3
+
+    goto :goto_5
+
+    :cond_7
+    invoke-virtual {v3}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v3
+
+    :goto_5
+    if-eqz v3, :cond_8
 
     invoke-virtual/range {p3 .. p3}, Lcom/android/systemui/media/MediaData;->getActive()Z
 
@@ -294,10 +341,10 @@
 
     if-nez v2, :cond_8
 
-    move v3, v5
+    move v5, v4
 
     :cond_8
-    if-eqz v3, :cond_a
+    if-eqz v5, :cond_a
 
     iget-object v2, v0, Lcom/android/systemui/media/MediaCarouselController$6;->this$0:Lcom/android/systemui/media/MediaCarouselController;
 
@@ -325,7 +372,7 @@
 
     invoke-virtual/range {p0 .. p1}, Lcom/android/systemui/media/MediaCarouselController$6;->onMediaDataRemoved(Ljava/lang/String;)V
 
-    goto :goto_5
+    goto :goto_6
 
     :cond_9
     iget-object v0, v0, Lcom/android/systemui/media/MediaCarouselController$6;->this$0:Lcom/android/systemui/media/MediaCarouselController;
@@ -336,7 +383,7 @@
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    goto :goto_5
+    goto :goto_6
 
     :cond_a
     iget-object v0, v0, Lcom/android/systemui/media/MediaCarouselController$6;->this$0:Lcom/android/systemui/media/MediaCarouselController;
@@ -347,8 +394,20 @@
 
     invoke-interface {v0, v1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
-    :goto_5
+    :goto_6
     return-void
+
+    :array_0
+    .array-data 4
+        0x4
+        0x2
+    .end array-data
+
+    :array_1
+    .array-data 4
+        0x4
+        0x2
+    .end array-data
 .end method
 
 .method public onMediaDataRemoved(Ljava/lang/String;)V
@@ -375,142 +434,340 @@
     return-void
 .end method
 
-.method public onSmartspaceMediaDataLoaded(Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;Z)V
-    .locals 11
+.method public onSmartspaceMediaDataLoaded(Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;ZZ)V
+    .locals 23
 
-    const-string v0, "key"
+    move-object/from16 v0, p0
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    move-object/from16 v1, p1
 
-    const-string v0, "data"
+    move-object/from16 v2, p2
 
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    move/from16 v3, p3
 
-    invoke-virtual {p2}, Lcom/android/systemui/media/SmartspaceMediaData;->isActive()Z
+    const-string v4, "key"
 
-    move-result v0
+    invoke-static {v1, v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    if-eqz v0, :cond_1
+    const-string v4, "data"
 
-    iget-object v0, p0, Lcom/android/systemui/media/MediaCarouselController$6;->this$0:Lcom/android/systemui/media/MediaCarouselController;
+    invoke-static {v2, v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {v0, p1, p2, p3}, Lcom/android/systemui/media/MediaCarouselController;->access$addSmartspaceMediaRecommendations(Lcom/android/systemui/media/MediaCarouselController;Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;Z)V
+    invoke-static {}, Lcom/android/systemui/media/MediaCarouselControllerKt;->access$getDEBUG$p()Z
 
-    sget-object p2, Lcom/android/systemui/media/MediaPlayerData;->INSTANCE:Lcom/android/systemui/media/MediaPlayerData;
+    move-result v4
 
-    invoke-virtual {p2, p1}, Lcom/android/systemui/media/MediaPlayerData;->getMediaPlayer(Ljava/lang/String;)Lcom/android/systemui/media/MediaControlPanel;
+    if-eqz v4, :cond_0
 
-    move-result-object p3
+    const-string v4, "MediaCarouselController"
 
-    if-nez p3, :cond_0
+    const-string v5, "Loading Smartspace media update"
 
-    goto :goto_0
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    iget-object p0, p0, Lcom/android/systemui/media/MediaCarouselController$6;->this$0:Lcom/android/systemui/media/MediaCarouselController;
+    invoke-virtual/range {p2 .. p2}, Lcom/android/systemui/media/SmartspaceMediaData;->isActive()Z
 
-    const/16 v1, 0x2f7
+    move-result v4
 
-    iget v2, p3, Lcom/android/systemui/media/MediaControlPanel;->mInstanceId:I
+    if-eqz v4, :cond_5
 
-    iget v3, p3, Lcom/android/systemui/media/MediaControlPanel;->mUid:I
+    const/4 v4, 0x2
 
-    const/4 v4, 0x1
+    if-eqz p4, :cond_3
 
-    invoke-virtual {p3}, Lcom/android/systemui/media/MediaControlPanel;->getSurfaceForSmartspaceLogging()I
+    if-eqz v3, :cond_3
 
-    move-result v5
+    sget-object v5, Lcom/android/systemui/media/MediaPlayerData;->INSTANCE:Lcom/android/systemui/media/MediaPlayerData;
 
-    const/4 v6, 0x0
+    invoke-virtual {v5}, Lcom/android/systemui/media/MediaPlayerData;->players()Ljava/util/Collection;
 
-    const/4 v7, 0x0
+    move-result-object v5
 
-    invoke-virtual {p2, p1}, Lcom/android/systemui/media/MediaPlayerData;->getMediaPlayerIndex(Ljava/lang/String;)I
+    iget-object v15, v0, Lcom/android/systemui/media/MediaCarouselController$6;->this$0:Lcom/android/systemui/media/MediaCarouselController;
+
+    invoke-interface {v5}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v5
+
+    const/4 v14, 0x0
+
+    move/from16 v16, v14
+
+    :goto_0
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_3
+
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v6
+
+    add-int/lit8 v18, v16, 0x1
+
+    if-gez v16, :cond_1
+
+    invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
+
+    :cond_1
+    check-cast v6, Lcom/android/systemui/media/MediaControlPanel;
+
+    invoke-virtual {v6}, Lcom/android/systemui/media/MediaControlPanel;->getRecommendationViewHolder()Lcom/android/systemui/media/RecommendationViewHolder;
+
+    move-result-object v7
+
+    if-nez v7, :cond_2
+
+    iget v7, v6, Lcom/android/systemui/media/MediaControlPanel;->mUid:I
+
+    invoke-static {v15}, Lcom/android/systemui/media/MediaCarouselController;->access$getSystemClock$p(Lcom/android/systemui/media/MediaCarouselController;)Lcom/android/systemui/util/time/SystemClock;
+
+    move-result-object v8
+
+    invoke-interface {v8}, Lcom/android/systemui/util/time/SystemClock;->currentTimeMillis()J
+
+    move-result-wide v8
+
+    long-to-int v8, v8
+
+    add-int/2addr v7, v8
+
+    invoke-static {v7}, Lcom/android/systemui/media/SmallHash;->hash(I)I
 
     move-result v8
 
-    const/16 v9, 0x60
+    iput v8, v6, Lcom/android/systemui/media/MediaControlPanel;->mInstanceId:I
+
+    iput-boolean v14, v6, Lcom/android/systemui/media/MediaControlPanel;->mIsImpressed:Z
+
+    const/16 v7, 0x2f7
+
+    iget v9, v6, Lcom/android/systemui/media/MediaControlPanel;->mUid:I
 
     const/4 v10, 0x0
 
-    move-object v0, p0
+    new-array v11, v4, [I
 
-    invoke-static/range {v0 .. v10}, Lcom/android/systemui/media/MediaCarouselController;->logSmartspaceCardReported$default(Lcom/android/systemui/media/MediaCarouselController;IIIZIIIIILjava/lang/Object;)V
+    fill-array-data v11, :array_0
 
-    invoke-virtual {p0}, Lcom/android/systemui/media/MediaCarouselController;->getMediaCarouselScrollHandler()Lcom/android/systemui/media/MediaCarouselScrollHandler;
+    const/4 v12, 0x0
 
-    move-result-object v0
+    const/4 v13, 0x0
 
-    invoke-virtual {v0}, Lcom/android/systemui/media/MediaCarouselScrollHandler;->getVisibleToUser()Z
+    invoke-static {v15}, Lcom/android/systemui/media/MediaCarouselController;->access$getSystemClock$p(Lcom/android/systemui/media/MediaCarouselController;)Lcom/android/systemui/util/time/SystemClock;
 
-    move-result v0
+    move-result-object v6
 
-    if-eqz v0, :cond_2
+    invoke-interface {v6}, Lcom/android/systemui/util/time/SystemClock;->currentTimeMillis()J
 
-    invoke-virtual {p0}, Lcom/android/systemui/media/MediaCarouselController;->getMediaCarouselScrollHandler()Lcom/android/systemui/media/MediaCarouselScrollHandler;
+    move-result-wide v19
 
-    move-result-object v0
+    invoke-virtual/range {p2 .. p2}, Lcom/android/systemui/media/SmartspaceMediaData;->getHeadphoneConnectionTimeMillis()J
 
-    invoke-virtual {v0}, Lcom/android/systemui/media/MediaCarouselScrollHandler;->getVisibleMediaIndex()I
+    move-result-wide v21
 
-    move-result v0
+    move-object/from16 p4, v5
 
-    invoke-virtual {p2, p1}, Lcom/android/systemui/media/MediaPlayerData;->getMediaPlayerIndex(Ljava/lang/String;)I
+    sub-long v4, v19, v21
 
-    move-result p1
+    long-to-int v4, v4
 
-    if-ne v0, p1, :cond_2
+    const/16 v5, 0x60
 
-    const/16 v1, 0x320
+    const/16 v17, 0x0
 
-    iget v2, p3, Lcom/android/systemui/media/MediaControlPanel;->mInstanceId:I
+    move-object v6, v15
 
-    iget v3, p3, Lcom/android/systemui/media/MediaControlPanel;->mUid:I
+    move/from16 v19, v14
 
-    const/4 v4, 0x1
+    move/from16 v14, v16
 
-    invoke-virtual {p3}, Lcom/android/systemui/media/MediaControlPanel;->getSurfaceForSmartspaceLogging()I
+    move-object/from16 v20, v15
 
-    move-result v5
+    move v15, v4
 
-    const/4 v6, 0x0
+    move/from16 v16, v5
 
-    const/4 v7, 0x0
+    invoke-static/range {v6 .. v17}, Lcom/android/systemui/media/MediaCarouselController;->logSmartspaceCardReported$default(Lcom/android/systemui/media/MediaCarouselController;IIIZ[IIIIIILjava/lang/Object;)V
 
-    const/4 v8, 0x0
+    goto :goto_1
 
-    const/16 v9, 0xe0
+    :cond_2
+    move-object/from16 p4, v5
 
-    const/4 v10, 0x0
+    move/from16 v19, v14
 
-    move-object v0, p0
+    move-object/from16 v20, v15
 
-    invoke-static/range {v0 .. v10}, Lcom/android/systemui/media/MediaCarouselController;->logSmartspaceCardReported$default(Lcom/android/systemui/media/MediaCarouselController;IIIZIIIIILjava/lang/Object;)V
+    :goto_1
+    move-object/from16 v5, p4
+
+    move/from16 v16, v18
+
+    move/from16 v14, v19
+
+    move-object/from16 v15, v20
+
+    const/4 v4, 0x2
 
     goto :goto_0
 
-    :cond_1
-    invoke-virtual {p2}, Lcom/android/systemui/media/SmartspaceMediaData;->getTargetId()Ljava/lang/String;
+    :cond_3
+    iget-object v4, v0, Lcom/android/systemui/media/MediaCarouselController$6;->this$0:Lcom/android/systemui/media/MediaCarouselController;
 
-    move-result-object p1
+    invoke-static {v4, v1, v2, v3}, Lcom/android/systemui/media/MediaCarouselController;->access$addSmartspaceMediaRecommendations(Lcom/android/systemui/media/MediaCarouselController;Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;Z)V
 
-    const/4 p2, 0x1
+    sget-object v3, Lcom/android/systemui/media/MediaPlayerData;->INSTANCE:Lcom/android/systemui/media/MediaPlayerData;
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/media/MediaCarouselController$6;->onSmartspaceMediaDataRemoved(Ljava/lang/String;Z)V
+    invoke-virtual {v3, v1}, Lcom/android/systemui/media/MediaPlayerData;->getMediaPlayer(Ljava/lang/String;)Lcom/android/systemui/media/MediaControlPanel;
 
-    :cond_2
-    :goto_0
+    move-result-object v4
+
+    if-nez v4, :cond_4
+
+    goto :goto_2
+
+    :cond_4
+    iget-object v5, v0, Lcom/android/systemui/media/MediaCarouselController$6;->this$0:Lcom/android/systemui/media/MediaCarouselController;
+
+    const/16 v6, 0x2f7
+
+    iget v7, v4, Lcom/android/systemui/media/MediaControlPanel;->mInstanceId:I
+
+    iget v8, v4, Lcom/android/systemui/media/MediaControlPanel;->mUid:I
+
+    const/4 v9, 0x1
+
+    const/4 v4, 0x2
+
+    new-array v10, v4, [I
+
+    fill-array-data v10, :array_1
+
+    const/4 v11, 0x0
+
+    const/4 v12, 0x0
+
+    invoke-virtual {v3, v1}, Lcom/android/systemui/media/MediaPlayerData;->getMediaPlayerIndex(Ljava/lang/String;)I
+
+    move-result v13
+
+    invoke-static {v5}, Lcom/android/systemui/media/MediaCarouselController;->access$getSystemClock$p(Lcom/android/systemui/media/MediaCarouselController;)Lcom/android/systemui/util/time/SystemClock;
+
+    move-result-object v4
+
+    invoke-interface {v4}, Lcom/android/systemui/util/time/SystemClock;->currentTimeMillis()J
+
+    move-result-wide v14
+
+    invoke-virtual/range {p2 .. p2}, Lcom/android/systemui/media/SmartspaceMediaData;->getHeadphoneConnectionTimeMillis()J
+
+    move-result-wide v16
+
+    sub-long v14, v14, v16
+
+    long-to-int v14, v14
+
+    const/16 v15, 0x60
+
+    const/16 v16, 0x0
+
+    invoke-static/range {v5 .. v16}, Lcom/android/systemui/media/MediaCarouselController;->logSmartspaceCardReported$default(Lcom/android/systemui/media/MediaCarouselController;IIIZ[IIIIIILjava/lang/Object;)V
+
+    :goto_2
+    iget-object v2, v0, Lcom/android/systemui/media/MediaCarouselController$6;->this$0:Lcom/android/systemui/media/MediaCarouselController;
+
+    invoke-virtual {v2}, Lcom/android/systemui/media/MediaCarouselController;->getMediaCarouselScrollHandler()Lcom/android/systemui/media/MediaCarouselScrollHandler;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/systemui/media/MediaCarouselScrollHandler;->getVisibleToUser()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_6
+
+    iget-object v2, v0, Lcom/android/systemui/media/MediaCarouselController$6;->this$0:Lcom/android/systemui/media/MediaCarouselController;
+
+    invoke-virtual {v2}, Lcom/android/systemui/media/MediaCarouselController;->getMediaCarouselScrollHandler()Lcom/android/systemui/media/MediaCarouselScrollHandler;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/systemui/media/MediaCarouselScrollHandler;->getVisibleMediaIndex()I
+
+    move-result v2
+
+    invoke-virtual {v3, v1}, Lcom/android/systemui/media/MediaPlayerData;->getMediaPlayerIndex(Ljava/lang/String;)I
+
+    move-result v1
+
+    if-ne v2, v1, :cond_6
+
+    iget-object v0, v0, Lcom/android/systemui/media/MediaCarouselController$6;->this$0:Lcom/android/systemui/media/MediaCarouselController;
+
+    invoke-virtual {v0}, Lcom/android/systemui/media/MediaCarouselController;->getMediaCarouselScrollHandler()Lcom/android/systemui/media/MediaCarouselScrollHandler;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/systemui/media/MediaCarouselScrollHandler;->getQsExpanded()Z
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/media/MediaCarouselController;->logSmartspaceImpression(Z)V
+
+    goto :goto_3
+
+    :cond_5
+    invoke-virtual/range {p2 .. p2}, Lcom/android/systemui/media/SmartspaceMediaData;->getTargetId()Ljava/lang/String;
+
+    move-result-object v1
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/media/MediaCarouselController$6;->onSmartspaceMediaDataRemoved(Ljava/lang/String;Z)V
+
+    :cond_6
+    :goto_3
     return-void
+
+    nop
+
+    :array_0
+    .array-data 4
+        0x4
+        0x2
+    .end array-data
+
+    :array_1
+    .array-data 4
+        0x4
+        0x2
+    .end array-data
 .end method
 
 .method public onSmartspaceMediaDataRemoved(Ljava/lang/String;Z)V
-    .locals 1
+    .locals 2
 
     const-string v0, "key"
 
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
-    if-nez p2, :cond_1
+    invoke-static {}, Lcom/android/systemui/media/MediaCarouselControllerKt;->access$getDEBUG$p()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "MediaCarouselController"
+
+    const-string v1, "My Smartspace media removal request is received"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    if-nez p2, :cond_2
 
     iget-object p2, p0, Lcom/android/systemui/media/MediaCarouselController$6;->this$0:Lcom/android/systemui/media/MediaCarouselController;
 
@@ -522,11 +779,11 @@
 
     move-result p2
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_1
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     iget-object p0, p0, Lcom/android/systemui/media/MediaCarouselController$6;->this$0:Lcom/android/systemui/media/MediaCarouselController;
 
     invoke-static {p0}, Lcom/android/systemui/media/MediaCarouselController;->access$getKeysNeedRemoval$p(Lcom/android/systemui/media/MediaCarouselController;)Ljava/util/Set;
@@ -537,7 +794,7 @@
 
     goto :goto_1
 
-    :cond_1
+    :cond_2
     :goto_0
     invoke-virtual {p0, p1}, Lcom/android/systemui/media/MediaCarouselController$6;->onMediaDataRemoved(Ljava/lang/String;)V
 

@@ -27,9 +27,9 @@
 
     iget-object p0, p0, Lcom/android/systemui/wmshell/WMShell$$ExternalSyntheticLambda2;->f$0:Lcom/android/systemui/wmshell/WMShell;
 
-    check-cast p1, Lcom/android/wm/shell/hidedisplaycutout/HideDisplayCutout;
+    check-cast p1, Lcom/android/wm/shell/compatui/CompatUI;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/wmshell/WMShell;->initHideDisplayCutout(Lcom/android/wm/shell/hidedisplaycutout/HideDisplayCutout;)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/wmshell/WMShell;->initCompatUi(Lcom/android/wm/shell/compatui/CompatUI;)V
 
     return-void
 .end method

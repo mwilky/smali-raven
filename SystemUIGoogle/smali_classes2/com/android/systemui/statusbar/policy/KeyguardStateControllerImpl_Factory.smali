@@ -28,6 +28,16 @@
     .end annotation
 .end field
 
+.field private final dumpManagerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final keyguardUpdateMonitorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -60,7 +70,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -76,6 +86,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
             ">;)V"
         }
     .end annotation
@@ -90,11 +103,13 @@
 
     iput-object p4, p0, Lcom/android/systemui/statusbar/policy/KeyguardStateControllerImpl_Factory;->smartspaceTransitionControllerProvider:Ljavax/inject/Provider;
 
+    iput-object p5, p0, Lcom/android/systemui/statusbar/policy/KeyguardStateControllerImpl_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
+
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/policy/KeyguardStateControllerImpl_Factory;
-    .locals 1
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/policy/KeyguardStateControllerImpl_Factory;
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -109,32 +124,59 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
             ">;)",
             "Lcom/android/systemui/statusbar/policy/KeyguardStateControllerImpl_Factory;"
         }
     .end annotation
 
-    new-instance v0, Lcom/android/systemui/statusbar/policy/KeyguardStateControllerImpl_Factory;
+    new-instance v6, Lcom/android/systemui/statusbar/policy/KeyguardStateControllerImpl_Factory;
 
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/systemui/statusbar/policy/KeyguardStateControllerImpl_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object v0, v6
 
-    return-object v0
+    move-object v1, p0
+
+    move-object v2, p1
+
+    move-object v3, p2
+
+    move-object v4, p3
+
+    move-object v5, p4
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/statusbar/policy/KeyguardStateControllerImpl_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v6
 .end method
 
-.method public static newInstance(Landroid/content/Context;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;)Lcom/android/systemui/statusbar/policy/KeyguardStateControllerImpl;
-    .locals 1
+.method public static newInstance(Landroid/content/Context;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/policy/KeyguardStateControllerImpl;
+    .locals 7
 
-    new-instance v0, Lcom/android/systemui/statusbar/policy/KeyguardStateControllerImpl;
+    new-instance v6, Lcom/android/systemui/statusbar/policy/KeyguardStateControllerImpl;
 
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/systemui/statusbar/policy/KeyguardStateControllerImpl;-><init>(Landroid/content/Context;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;)V
+    move-object v0, v6
 
-    return-object v0
+    move-object v1, p0
+
+    move-object v2, p1
+
+    move-object v3, p2
+
+    move-object v4, p3
+
+    move-object v5, p4
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/statusbar/policy/KeyguardStateControllerImpl;-><init>(Landroid/content/Context;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;Lcom/android/systemui/dump/DumpManager;)V
+
+    return-object v6
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/systemui/statusbar/policy/KeyguardStateControllerImpl;
-    .locals 3
+    .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/KeyguardStateControllerImpl_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -160,15 +202,23 @@
 
     check-cast v2, Lcom/android/internal/widget/LockPatternUtils;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/KeyguardStateControllerImpl_Factory;->smartspaceTransitionControllerProvider:Ljavax/inject/Provider;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/KeyguardStateControllerImpl_Factory;->smartspaceTransitionControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v3}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/KeyguardStateControllerImpl_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;
+    check-cast p0, Lcom/android/systemui/dump/DumpManager;
 
-    invoke-static {v0, v1, v2, p0}, Lcom/android/systemui/statusbar/policy/KeyguardStateControllerImpl_Factory;->newInstance(Landroid/content/Context;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;)Lcom/android/systemui/statusbar/policy/KeyguardStateControllerImpl;
+    invoke-static {v0, v1, v2, v3, p0}, Lcom/android/systemui/statusbar/policy/KeyguardStateControllerImpl_Factory;->newInstance(Landroid/content/Context;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/policy/KeyguardStateControllerImpl;
 
     move-result-object p0
 

@@ -39,7 +39,7 @@
     return-void
 .end method
 
-.method public onOverlayChanged()V
+.method public onMaxBoundsChanged()V
     .locals 0
 
     return-void

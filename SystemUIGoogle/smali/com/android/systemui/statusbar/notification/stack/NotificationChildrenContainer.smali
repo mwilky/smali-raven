@@ -2,6 +2,9 @@
 .super Landroid/view/ViewGroup;
 .source "NotificationChildrenContainer.java"
 
+# interfaces
+.implements Lcom/android/systemui/statusbar/notification/NotificationFadeAware;
+
 
 # static fields
 .field private static final ALPHA_FADE_IN:Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;
@@ -39,6 +42,8 @@
 .field private mCollapsedBottompadding:F
 
 .field private mContainingNotification:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+.field private mContainingNotificationIsFaded:Z
 
 .field private mCurrentHeader:Landroid/view/ViewGroup;
 
@@ -190,6 +195,8 @@
     const/high16 p2, 0x3f800000    # 1.0f
 
     iput p2, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationChildrenContainer;->mHeaderVisibleAmount:F
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationChildrenContainer;->mContainingNotificationIsFaded:Z
 
     new-instance p2, Lcom/android/systemui/statusbar/notification/row/HybridGroupManager;
 
@@ -725,7 +732,7 @@
 
     iput v2, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationChildrenContainer;->mHeaderHeight:I
 
-    const v1, 0x10501e1
+    const v1, 0x10501e3
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -848,7 +855,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationChildrenContainer;->mNotificationHeaderLowPriority:Landroid/view/NotificationHeaderView;
 
-    const p2, 0x102029a
+    const p2, 0x102029d
 
     invoke-virtual {p1, p2}, Landroid/view/NotificationHeaderView;->findViewById(I)Landroid/view/View;
 
@@ -1455,7 +1462,7 @@
 
 # virtual methods
 .method public addNotification(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;I)V
-    .locals 1
+    .locals 2
 
     if-gez p2, :cond_0
 
@@ -1482,15 +1489,19 @@
 
     invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationChildrenContainer;->mDividers:Ljava/util/List;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationChildrenContainer;->mDividers:Ljava/util/List;
 
-    invoke-interface {p0, p2, v0}, Ljava/util/List;->add(ILjava/lang/Object;)V
-
-    const/4 p0, 0x0
+    invoke-interface {v1, p2, v0}, Ljava/util/List;->add(ILjava/lang/Object;)V
 
     const/4 p2, 0x0
 
-    invoke-virtual {p1, p0, p2}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->setContentTransformationAmount(FZ)V
+    const/4 v0, 0x0
+
+    invoke-virtual {p1, p2, v0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->setContentTransformationAmount(FZ)V
+
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationChildrenContainer;->mContainingNotificationIsFaded:Z
+
+    invoke-virtual {p1, p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->setNotificationFaded(Z)V
 
     invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getViewState()Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;
 
@@ -3032,7 +3043,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationChildrenContainer;->mNotificationHeader:Landroid/view/NotificationHeaderView;
 
-    const v1, 0x102029a
+    const v1, 0x102029d
 
     invoke-virtual {v0, v1}, Landroid/view/NotificationHeaderView;->findViewById(I)Landroid/view/View;
 
@@ -3139,6 +3150,8 @@
     const/4 v0, 0x0
 
     invoke-virtual {p1, v0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->setSystemChildExpanded(Z)V
+
+    invoke-virtual {p1, v0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->setNotificationFaded(Z)V
 
     invoke-virtual {p1, v0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->setUserLocked(Z)V
 
@@ -3465,6 +3478,52 @@
     invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationChildrenContainer;->setUserLocked(Z)V
 
     :cond_1
+    return-void
+.end method
+
+.method public setNotificationFaded(Z)V
+    .locals 1
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationChildrenContainer;->mContainingNotificationIsFaded:Z
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationChildrenContainer;->mNotificationHeaderWrapper:Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationViewWrapper;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationViewWrapper;->setNotificationFaded(Z)V
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationChildrenContainer;->mNotificationHeaderWrapperLowPriority:Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationViewWrapper;
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationViewWrapper;->setNotificationFaded(Z)V
+
+    :cond_1
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationChildrenContainer;->mAttachedChildren:Ljava/util/List;
+
+    invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :goto_0
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->setNotificationFaded(Z)V
+
+    goto :goto_0
+
+    :cond_2
     return-void
 .end method
 

@@ -77,7 +77,7 @@
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController$2;->this$0:Lcom/android/keyguard/KeyguardSecurityContainerController;
 
-    invoke-static {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$000(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/keyguard/KeyguardSecurityContainer$SecurityCallback;
+    invoke-static {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$600(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/keyguard/KeyguardSecurityContainer$SecurityCallback;
 
     move-result-object p0
 
@@ -91,7 +91,7 @@
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController$2;->this$0:Lcom/android/keyguard/KeyguardSecurityContainerController;
 
-    invoke-static {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$000(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/keyguard/KeyguardSecurityContainer$SecurityCallback;
+    invoke-static {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$600(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/keyguard/KeyguardSecurityContainer$SecurityCallback;
 
     move-result-object p0
 
@@ -105,7 +105,7 @@
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController$2;->this$0:Lcom/android/keyguard/KeyguardSecurityContainerController;
 
-    invoke-static {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$100(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+    invoke-static {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$700(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/keyguard/KeyguardUpdateMonitor;
 
     move-result-object p0
 
@@ -115,19 +115,50 @@
 .end method
 
 .method public reportUnlockAttempt(IZI)V
-    .locals 2
+    .locals 4
 
-    const/16 v0, 0x40
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController$2;->this$0:Lcom/android/keyguard/KeyguardSecurityContainerController;
 
-    if-eqz p2, :cond_0
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$800(Lcom/android/keyguard/KeyguardSecurityContainerController;)Z
 
-    const/4 p3, 0x2
+    move-result v0
 
-    invoke-static {v0, p3}, Lcom/android/systemui/shared/system/SysUiStatsLog;->write(II)V
+    const/4 v1, 0x2
+
+    const/4 v2, 0x1
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController$2;->this$0:Lcom/android/keyguard/KeyguardSecurityContainerController;
+
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$900(Lcom/android/keyguard/KeyguardSecurityContainerController;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    move v0, v2
+
+    goto :goto_0
+
+    :cond_0
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    :goto_0
+    const/16 v3, 0x40
+
+    if-eqz p2, :cond_2
+
+    invoke-static {v3, v1, v0}, Lcom/android/systemui/shared/system/SysUiStatsLog;->write(III)V
 
     iget-object p3, p0, Lcom/android/keyguard/KeyguardSecurityContainerController$2;->this$0:Lcom/android/keyguard/KeyguardSecurityContainerController;
 
-    invoke-static {p3}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$200(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/internal/widget/LockPatternUtils;
+    invoke-static {p3}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$1000(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/internal/widget/LockPatternUtils;
 
     move-result-object p3
 
@@ -137,21 +168,19 @@
 
     invoke-static {p1}, Lcom/android/settingslib/utils/ThreadUtils;->postOnBackgroundThread(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_0
-    const/4 v1, 0x1
-
-    invoke-static {v0, v1}, Lcom/android/systemui/shared/system/SysUiStatsLog;->write(II)V
+    :cond_2
+    invoke-static {v3, v2, v0}, Lcom/android/systemui/shared/system/SysUiStatsLog;->write(III)V
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController$2;->this$0:Lcom/android/keyguard/KeyguardSecurityContainerController;
 
     invoke-virtual {v0, p1, p3}, Lcom/android/keyguard/KeyguardSecurityContainerController;->reportFailedUnlockAttempt(II)V
 
-    :goto_0
+    :goto_1
     iget-object p1, p0, Lcom/android/keyguard/KeyguardSecurityContainerController$2;->this$0:Lcom/android/keyguard/KeyguardSecurityContainerController;
 
-    invoke-static {p1}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$300(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/internal/logging/MetricsLogger;
+    invoke-static {p1}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$1100(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/internal/logging/MetricsLogger;
 
     move-result-object p1
 
@@ -161,16 +190,16 @@
 
     invoke-direct {p3, v0}, Landroid/metrics/LogMaker;-><init>(I)V
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_3
 
     const/16 v0, 0xa
 
-    goto :goto_1
+    goto :goto_2
 
-    :cond_1
+    :cond_3
     const/16 v0, 0xb
 
-    :goto_1
+    :goto_2
     invoke-virtual {p3, v0}, Landroid/metrics/LogMaker;->setType(I)Landroid/metrics/LogMaker;
 
     move-result-object p3
@@ -179,20 +208,20 @@
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController$2;->this$0:Lcom/android/keyguard/KeyguardSecurityContainerController;
 
-    invoke-static {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$400(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/internal/logging/UiEventLogger;
+    invoke-static {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$1200(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/internal/logging/UiEventLogger;
 
     move-result-object p0
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_4
 
     sget-object p1, Lcom/android/keyguard/KeyguardSecurityContainer$BouncerUiEvent;->BOUNCER_PASSWORD_SUCCESS:Lcom/android/keyguard/KeyguardSecurityContainer$BouncerUiEvent;
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_2
+    :cond_4
     sget-object p1, Lcom/android/keyguard/KeyguardSecurityContainer$BouncerUiEvent;->BOUNCER_PASSWORD_FAILURE:Lcom/android/keyguard/KeyguardSecurityContainer$BouncerUiEvent;
 
-    :goto_2
+    :goto_3
     invoke-interface {p0, p1}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
 
     return-void
@@ -203,7 +232,7 @@
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController$2;->this$0:Lcom/android/keyguard/KeyguardSecurityContainerController;
 
-    invoke-static {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$000(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/keyguard/KeyguardSecurityContainer$SecurityCallback;
+    invoke-static {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$600(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/keyguard/KeyguardSecurityContainer$SecurityCallback;
 
     move-result-object p0
 
@@ -217,7 +246,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController$2;->this$0:Lcom/android/keyguard/KeyguardSecurityContainerController;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$000(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/keyguard/KeyguardSecurityContainer$SecurityCallback;
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$600(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/keyguard/KeyguardSecurityContainer$SecurityCallback;
 
     move-result-object v0
 
@@ -225,7 +254,7 @@
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController$2;->this$0:Lcom/android/keyguard/KeyguardSecurityContainerController;
 
-    invoke-static {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$000(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/keyguard/KeyguardSecurityContainer$SecurityCallback;
+    invoke-static {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$600(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/keyguard/KeyguardSecurityContainer$SecurityCallback;
 
     move-result-object p0
 

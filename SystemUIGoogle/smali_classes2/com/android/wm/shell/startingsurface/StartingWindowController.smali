@@ -24,12 +24,6 @@
 .end annotation
 
 
-# static fields
-.field public static final DEBUG_SPLASH_SCREEN:Z
-
-.field private static final TAG:Ljava/lang/String; = "StartingWindowController"
-
-
 # instance fields
 .field private final mContext:Landroid/content/Context;
 
@@ -71,6 +65,14 @@
     return-void
 .end method
 
+.method public static synthetic $r8$lambda$9y4Yg4CZBYOWYyUF9YZFEoeZUck(Lcom/android/wm/shell/startingsurface/StartingWindowController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/wm/shell/startingsurface/StartingWindowController;->lambda$clearAllWindows$6()V
+
+    return-void
+.end method
+
 .method public static synthetic $r8$lambda$Nsve7j-qdEujmRJ49hHw0qVTWtY(Lcom/android/wm/shell/startingsurface/StartingWindowController;I)V
     .locals 0
 
@@ -87,10 +89,18 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$iMKoHIPhiH2Br4N4zJSx_yVuY3c(Lcom/android/wm/shell/startingsurface/StartingWindowController;ILandroid/view/SurfaceControl;Landroid/graphics/Rect;Z)V
+.method public static synthetic $r8$lambda$SBgmZG4Rl3Lb0aUa_3EsiniLrzA(Lcom/android/wm/shell/startingsurface/StartingWindowController;Landroid/window/StartingWindowRemovalInfo;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/wm/shell/startingsurface/StartingWindowController;->lambda$removeStartingWindow$4(ILandroid/view/SurfaceControl;Landroid/graphics/Rect;Z)V
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/startingsurface/StartingWindowController;->lambda$removeStartingWindow$5(Landroid/window/StartingWindowRemovalInfo;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$qG0mTCPcPig28ujIzll9N1h0gXA(Lcom/android/wm/shell/startingsurface/StartingWindowController;Landroid/window/StartingWindowRemovalInfo;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/startingsurface/StartingWindowController;->lambda$removeStartingWindow$4(Landroid/window/StartingWindowRemovalInfo;)V
 
     return-void
 .end method
@@ -103,27 +113,13 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$uHvAfg3eenwIhnTuTKsp26C7tL4(Lcom/android/wm/shell/startingsurface/StartingWindowController;I)V
+.method static constructor <clinit>()V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/wm/shell/startingsurface/StartingWindowController;->lambda$removeStartingWindow$5(I)V
-
     return-void
 .end method
 
-.method static constructor <clinit>()V
-    .locals 1
-
-    invoke-static {}, Landroid/os/Build;->isDebuggable()Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/android/wm/shell/startingsurface/StartingWindowController;->DEBUG_SPLASH_SCREEN:Z
-
-    return-void
-.end method
-
-.method public constructor <init>(Landroid/content/Context;Lcom/android/wm/shell/common/ShellExecutor;Lcom/android/wm/shell/startingsurface/StartingWindowTypeAlgorithm;Lcom/android/wm/shell/common/TransactionPool;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/wm/shell/common/ShellExecutor;Lcom/android/wm/shell/startingsurface/StartingWindowTypeAlgorithm;Lcom/android/launcher3/icons/IconProvider;Lcom/android/wm/shell/common/TransactionPool;)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -146,7 +142,7 @@
 
     new-instance v0, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;
 
-    invoke-direct {v0, p1, p2, p4}, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;-><init>(Landroid/content/Context;Lcom/android/wm/shell/common/ShellExecutor;Lcom/android/wm/shell/common/TransactionPool;)V
+    invoke-direct {v0, p1, p2, p4, p5}, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;-><init>(Landroid/content/Context;Lcom/android/wm/shell/common/ShellExecutor;Lcom/android/launcher3/icons/IconProvider;Lcom/android/wm/shell/common/TransactionPool;)V
 
     iput-object v0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController;->mStartingSurfaceDrawer:Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;
 
@@ -173,12 +169,12 @@
     return-object p0
 .end method
 
-.method static synthetic access$500()Ljava/lang/String;
-    .locals 1
+.method static synthetic access$300(Lcom/android/wm/shell/startingsurface/StartingWindowController;)Lcom/android/wm/shell/common/ShellExecutor;
+    .locals 0
 
-    sget-object v0, Lcom/android/wm/shell/startingsurface/StartingWindowController;->TAG:Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController;->mSplashScreenExecutor:Lcom/android/wm/shell/common/ShellExecutor;
 
-    return-object v0
+    return-object p0
 .end method
 
 .method private static isSplashScreenType(I)Z
@@ -244,7 +240,7 @@
 
     if-ne v0, v4, :cond_1
 
-    iget-object v4, p1, Landroid/window/StartingWindowInfo;->mTaskSnapshot:Landroid/window/TaskSnapshot;
+    iget-object v4, p1, Landroid/window/StartingWindowInfo;->taskSnapshot:Landroid/window/TaskSnapshot;
 
     iget-object v5, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController;->mStartingSurfaceDrawer:Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;
 
@@ -320,6 +316,36 @@
     return-void
 .end method
 
+.method private synthetic lambda$clearAllWindows$6()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController;->mStartingSurfaceDrawer:Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;
+
+    invoke-virtual {v0}, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;->clearAllWindows()V
+
+    iget-object v0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController;->mTaskBackgroundColors:Landroid/util/SparseIntArray;
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object p0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController;->mTaskBackgroundColors:Landroid/util/SparseIntArray;
+
+    invoke-virtual {p0}, Landroid/util/SparseIntArray;->clear()V
+
+    monitor-exit v0
+
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method
+
 .method private synthetic lambda$copySplashScreenView$1(I)V
     .locals 0
 
@@ -350,17 +376,17 @@
     return-void
 .end method
 
-.method private synthetic lambda$removeStartingWindow$4(ILandroid/view/SurfaceControl;Landroid/graphics/Rect;Z)V
+.method private synthetic lambda$removeStartingWindow$4(Landroid/window/StartingWindowRemovalInfo;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController;->mStartingSurfaceDrawer:Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;
 
-    invoke-virtual {p0, p1, p2, p3, p4}, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;->removeStartingWindow(ILandroid/view/SurfaceControl;Landroid/graphics/Rect;Z)V
+    invoke-virtual {p0, p1}, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;->removeStartingWindow(Landroid/window/StartingWindowRemovalInfo;)V
 
     return-void
 .end method
 
-.method private synthetic lambda$removeStartingWindow$5(I)V
+.method private synthetic lambda$removeStartingWindow$5(Landroid/window/StartingWindowRemovalInfo;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController;->mTaskBackgroundColors:Landroid/util/SparseIntArray;
@@ -369,6 +395,8 @@
 
     :try_start_0
     iget-object p0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController;->mTaskBackgroundColors:Landroid/util/SparseIntArray;
+
+    iget p1, p1, Landroid/window/StartingWindowRemovalInfo;->taskId:I
 
     invoke-virtual {p0, p1}, Landroid/util/SparseIntArray;->delete(I)V
 
@@ -393,9 +421,9 @@
 
     iget-object v0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController;->mSplashScreenExecutor:Lcom/android/wm/shell/common/ShellExecutor;
 
-    new-instance v1, Lcom/android/wm/shell/startingsurface/StartingWindowController$$ExternalSyntheticLambda5;
+    new-instance v1, Lcom/android/wm/shell/startingsurface/StartingWindowController$$ExternalSyntheticLambda4;
 
-    invoke-direct {v1, p0, p1, p2}, Lcom/android/wm/shell/startingsurface/StartingWindowController$$ExternalSyntheticLambda5;-><init>(Lcom/android/wm/shell/startingsurface/StartingWindowController;Landroid/window/StartingWindowInfo;Landroid/os/IBinder;)V
+    invoke-direct {v1, p0, p1, p2}, Lcom/android/wm/shell/startingsurface/StartingWindowController$$ExternalSyntheticLambda4;-><init>(Lcom/android/wm/shell/startingsurface/StartingWindowController;Landroid/window/StartingWindowInfo;Landroid/os/IBinder;)V
 
     invoke-interface {v0, v1}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
 
@@ -410,14 +438,28 @@
     return-object p0
 .end method
 
+.method public clearAllWindows()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController;->mSplashScreenExecutor:Lcom/android/wm/shell/common/ShellExecutor;
+
+    new-instance v1, Lcom/android/wm/shell/startingsurface/StartingWindowController$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p0}, Lcom/android/wm/shell/startingsurface/StartingWindowController$$ExternalSyntheticLambda0;-><init>(Lcom/android/wm/shell/startingsurface/StartingWindowController;)V
+
+    invoke-interface {v0, v1}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
+
+    return-void
+.end method
+
 .method public copySplashScreenView(I)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController;->mSplashScreenExecutor:Lcom/android/wm/shell/common/ShellExecutor;
 
-    new-instance v1, Lcom/android/wm/shell/startingsurface/StartingWindowController$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/wm/shell/startingsurface/StartingWindowController$$ExternalSyntheticLambda2;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/startingsurface/StartingWindowController$$ExternalSyntheticLambda1;-><init>(Lcom/android/wm/shell/startingsurface/StartingWindowController;I)V
+    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/startingsurface/StartingWindowController$$ExternalSyntheticLambda2;-><init>(Lcom/android/wm/shell/startingsurface/StartingWindowController;I)V
 
     invoke-interface {v0, v1}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
 
@@ -445,9 +487,9 @@
 
     iget-object v0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController;->mSplashScreenExecutor:Lcom/android/wm/shell/common/ShellExecutor;
 
-    new-instance v1, Lcom/android/wm/shell/startingsurface/StartingWindowController$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/wm/shell/startingsurface/StartingWindowController$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/startingsurface/StartingWindowController$$ExternalSyntheticLambda0;-><init>(Lcom/android/wm/shell/startingsurface/StartingWindowController;I)V
+    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/startingsurface/StartingWindowController$$ExternalSyntheticLambda1;-><init>(Lcom/android/wm/shell/startingsurface/StartingWindowController;I)V
 
     invoke-interface {v0, v1}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
 
@@ -459,47 +501,35 @@
 
     iget-object v0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController;->mSplashScreenExecutor:Lcom/android/wm/shell/common/ShellExecutor;
 
-    new-instance v1, Lcom/android/wm/shell/startingsurface/StartingWindowController$$ExternalSyntheticLambda2;
+    new-instance v1, Lcom/android/wm/shell/startingsurface/StartingWindowController$$ExternalSyntheticLambda3;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/startingsurface/StartingWindowController$$ExternalSyntheticLambda2;-><init>(Lcom/android/wm/shell/startingsurface/StartingWindowController;I)V
+    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/startingsurface/StartingWindowController$$ExternalSyntheticLambda3;-><init>(Lcom/android/wm/shell/startingsurface/StartingWindowController;I)V
 
     invoke-interface {v0, v1}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
 
     return-void
 .end method
 
-.method public removeStartingWindow(ILandroid/view/SurfaceControl;Landroid/graphics/Rect;Z)V
-    .locals 8
+.method public removeStartingWindow(Landroid/window/StartingWindowRemovalInfo;)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController;->mSplashScreenExecutor:Lcom/android/wm/shell/common/ShellExecutor;
 
-    new-instance v7, Lcom/android/wm/shell/startingsurface/StartingWindowController$$ExternalSyntheticLambda4;
+    new-instance v1, Lcom/android/wm/shell/startingsurface/StartingWindowController$$ExternalSyntheticLambda6;
 
-    move-object v1, v7
+    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/startingsurface/StartingWindowController$$ExternalSyntheticLambda6;-><init>(Lcom/android/wm/shell/startingsurface/StartingWindowController;Landroid/window/StartingWindowRemovalInfo;)V
 
-    move-object v2, p0
+    invoke-interface {v0, v1}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
 
-    move v3, p1
+    iget-object v0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController;->mSplashScreenExecutor:Lcom/android/wm/shell/common/ShellExecutor;
 
-    move-object v4, p2
+    new-instance v1, Lcom/android/wm/shell/startingsurface/StartingWindowController$$ExternalSyntheticLambda5;
 
-    move-object v5, p3
-
-    move v6, p4
-
-    invoke-direct/range {v1 .. v6}, Lcom/android/wm/shell/startingsurface/StartingWindowController$$ExternalSyntheticLambda4;-><init>(Lcom/android/wm/shell/startingsurface/StartingWindowController;ILandroid/view/SurfaceControl;Landroid/graphics/Rect;Z)V
-
-    invoke-interface {v0, v7}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
-
-    iget-object p2, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController;->mSplashScreenExecutor:Lcom/android/wm/shell/common/ShellExecutor;
-
-    new-instance p3, Lcom/android/wm/shell/startingsurface/StartingWindowController$$ExternalSyntheticLambda3;
-
-    invoke-direct {p3, p0, p1}, Lcom/android/wm/shell/startingsurface/StartingWindowController$$ExternalSyntheticLambda3;-><init>(Lcom/android/wm/shell/startingsurface/StartingWindowController;I)V
+    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/startingsurface/StartingWindowController$$ExternalSyntheticLambda5;-><init>(Lcom/android/wm/shell/startingsurface/StartingWindowController;Landroid/window/StartingWindowRemovalInfo;)V
 
     const-wide/16 p0, 0x1388
 
-    invoke-interface {p2, p3, p0, p1}, Lcom/android/wm/shell/common/ShellExecutor;->executeDelayed(Ljava/lang/Runnable;J)V
+    invoke-interface {v0, v1, p0, p1}, Lcom/android/wm/shell/common/ShellExecutor;->executeDelayed(Ljava/lang/Runnable;J)V
 
     return-void
 .end method

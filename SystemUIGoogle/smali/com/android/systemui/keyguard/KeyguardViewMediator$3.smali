@@ -53,7 +53,7 @@
 .end method
 
 .method public getBouncerPromptReason()I
-    .locals 5
+    .locals 6
 
     invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
 
@@ -61,7 +61,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$3;->this$0:Lcom/android/systemui/keyguard/KeyguardViewMediator;
 
-    invoke-static {v1}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->access$1000(Lcom/android/systemui/keyguard/KeyguardViewMediator;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+    invoke-static {v1}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->access$1100(Lcom/android/systemui/keyguard/KeyguardViewMediator;)Lcom/android/keyguard/KeyguardUpdateMonitor;
 
     move-result-object v1
 
@@ -71,7 +71,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$3;->this$0:Lcom/android/systemui/keyguard/KeyguardViewMediator;
 
-    invoke-static {v2}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->access$1000(Lcom/android/systemui/keyguard/KeyguardViewMediator;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+    invoke-static {v2}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->access$1100(Lcom/android/systemui/keyguard/KeyguardViewMediator;)Lcom/android/keyguard/KeyguardUpdateMonitor;
 
     move-result-object v2
 
@@ -99,36 +99,36 @@
     move v2, v4
 
     :goto_1
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$3;->this$0:Lcom/android/systemui/keyguard/KeyguardViewMediator;
+    iget-object v5, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$3;->this$0:Lcom/android/systemui/keyguard/KeyguardViewMediator;
 
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->access$1000(Lcom/android/systemui/keyguard/KeyguardViewMediator;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+    invoke-static {v5}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->access$1100(Lcom/android/systemui/keyguard/KeyguardViewMediator;)Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    move-result-object p0
+    move-result-object v5
 
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getStrongAuthTracker()Lcom/android/keyguard/KeyguardUpdateMonitor$StrongAuthTracker;
+    invoke-virtual {v5}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getStrongAuthTracker()Lcom/android/keyguard/KeyguardUpdateMonitor$StrongAuthTracker;
 
-    move-result-object p0
+    move-result-object v5
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/widget/LockPatternUtils$StrongAuthTracker;->getStrongAuthForUser(I)I
+    invoke-virtual {v5, v0}, Lcom/android/internal/widget/LockPatternUtils$StrongAuthTracker;->getStrongAuthForUser(I)I
 
     move-result v0
 
     if-eqz v2, :cond_2
 
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor$StrongAuthTracker;->hasUserAuthenticatedSinceBoot()Z
+    invoke-virtual {v5}, Lcom/android/keyguard/KeyguardUpdateMonitor$StrongAuthTracker;->hasUserAuthenticatedSinceBoot()Z
 
-    move-result p0
+    move-result v5
 
-    if-nez p0, :cond_2
+    if-nez v5, :cond_2
 
     return v4
 
     :cond_2
     if-eqz v2, :cond_3
 
-    and-int/lit8 p0, v0, 0x10
+    and-int/lit8 v4, v0, 0x10
 
-    if-eqz p0, :cond_3
+    if-eqz v4, :cond_3
 
     const/4 p0, 0x2
 
@@ -137,9 +137,9 @@
     :cond_3
     if-eqz v2, :cond_4
 
-    and-int/lit8 p0, v0, 0x2
+    and-int/lit8 v4, v0, 0x2
 
-    if-eqz p0, :cond_4
+    if-eqz v4, :cond_4
 
     const/4 p0, 0x3
 
@@ -148,48 +148,61 @@
     :cond_4
     if-eqz v1, :cond_5
 
-    and-int/lit8 p0, v0, 0x4
+    and-int/lit8 v1, v0, 0x4
 
-    if-eqz p0, :cond_5
+    if-eqz v1, :cond_5
 
     const/4 p0, 0x4
 
     return p0
 
     :cond_5
-    if-eqz v2, :cond_6
-
-    and-int/lit8 p0, v0, 0x8
-
-    if-eqz p0, :cond_6
-
-    const/4 p0, 0x5
-
-    return p0
-
-    :cond_6
     if-eqz v2, :cond_7
 
-    and-int/lit8 p0, v0, 0x40
+    and-int/lit8 v1, v0, 0x8
+
+    if-nez v1, :cond_6
+
+    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$3;->this$0:Lcom/android/systemui/keyguard/KeyguardViewMediator;
+
+    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->access$1100(Lcom/android/systemui/keyguard/KeyguardViewMediator;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isFingerprintLockedOut()Z
+
+    move-result p0
 
     if-eqz p0, :cond_7
 
-    const/4 p0, 0x6
+    :cond_6
+    const/4 p0, 0x5
 
     return p0
 
     :cond_7
     if-eqz v2, :cond_8
 
-    and-int/lit16 p0, v0, 0x80
+    and-int/lit8 p0, v0, 0x40
 
     if-eqz p0, :cond_8
+
+    const/4 p0, 0x6
+
+    return p0
+
+    :cond_8
+    if-eqz v2, :cond_9
+
+    and-int/lit16 p0, v0, 0x80
+
+    if-eqz p0, :cond_9
 
     const/4 p0, 0x7
 
     return p0
 
-    :cond_8
+    :cond_9
     return v3
 .end method
 
@@ -217,6 +230,19 @@
     return-void
 
     :cond_0
+    invoke-static {}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->access$300()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
+
+    const-string p1, "KeyguardViewMediator"
+
+    const-string p2, "keyguardDone"
+
+    invoke-static {p1, p2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
     iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$3;->this$0:Lcom/android/systemui/keyguard/KeyguardViewMediator;
 
     invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->access$1700(Lcom/android/systemui/keyguard/KeyguardViewMediator;)V
@@ -253,17 +279,30 @@
 
     invoke-static {p1}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
 
+    invoke-static {}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->access$300()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_0
+
+    const-string p1, "KeyguardViewMediator"
+
+    const-string v0, "keyguardDonePending"
+
+    invoke-static {p1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
 
     move-result p1
 
-    if-eq p2, p1, :cond_0
+    if-eq p2, p1, :cond_1
 
     invoke-static {}, Landroid/os/Trace;->endSection()V
 
     return-void
 
-    :cond_0
+    :cond_1
     iget-object p1, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$3;->this$0:Lcom/android/systemui/keyguard/KeyguardViewMediator;
 
     const/4 p2, 0x1
@@ -322,6 +361,19 @@
 
     invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
 
+    invoke-static {}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->access$300()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "KeyguardViewMediator"
+
+    const-string v1, "keyguardGone"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
     iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$3;->this$0:Lcom/android/systemui/keyguard/KeyguardViewMediator;
 
     invoke-static {v0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->access$1900(Lcom/android/systemui/keyguard/KeyguardViewMediator;)Ldagger/Lazy;
@@ -452,7 +504,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$3;->this$0:Lcom/android/systemui/keyguard/KeyguardViewMediator;
 
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->access$500(Lcom/android/systemui/keyguard/KeyguardViewMediator;)V
+    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->access$600(Lcom/android/systemui/keyguard/KeyguardViewMediator;)V
 
     return-void
 .end method

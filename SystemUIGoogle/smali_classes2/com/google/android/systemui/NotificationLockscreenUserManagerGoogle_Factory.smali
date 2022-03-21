@@ -68,6 +68,16 @@
     .end annotation
 .end field
 
+.field private final dumpManagerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final keyguardBypassControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -140,7 +150,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -180,6 +190,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/google/android/systemui/smartspace/SmartSpaceController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
             ">;)V"
         }
     .end annotation
@@ -210,11 +223,13 @@
 
     iput-object p12, p0, Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle_Factory;->smartSpaceControllerProvider:Ljavax/inject/Provider;
 
+    iput-object p13, p0, Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
+
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle_Factory;
-    .locals 14
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle_Factory;
+    .locals 15
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -253,18 +268,21 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/google/android/systemui/smartspace/SmartSpaceController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
             ">;)",
             "Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle_Factory;"
         }
     .end annotation
 
-    new-instance v13, Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle_Factory;
+    new-instance v14, Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle_Factory;
 
-    move-object v0, v13
+    move-object v0, v14
 
     move-object v1, p0
 
-    move-object v2, p1
+    move-object/from16 v2, p1
 
     move-object/from16 v3, p2
 
@@ -286,13 +304,15 @@
 
     move-object/from16 v12, p11
 
-    invoke-direct/range {v0 .. v12}, Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v13, p12
 
-    return-object v13
+    invoke-direct/range {v0 .. v13}, Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v14
 .end method
 
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/app/admin/DevicePolicyManager;Landroid/os/UserManager;Lcom/android/systemui/statusbar/NotificationClickNotifier;Landroid/app/KeyguardManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Landroid/os/Handler;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ldagger/Lazy;Lcom/google/android/systemui/smartspace/SmartSpaceController;)Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle;
-    .locals 14
+.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/app/admin/DevicePolicyManager;Landroid/os/UserManager;Lcom/android/systemui/statusbar/NotificationClickNotifier;Landroid/app/KeyguardManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Landroid/os/Handler;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ldagger/Lazy;Lcom/google/android/systemui/smartspace/SmartSpaceController;Lcom/android/systemui/dump/DumpManager;)Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle;
+    .locals 15
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -310,18 +330,19 @@
             "Lcom/android/systemui/statusbar/phone/KeyguardBypassController;",
             ">;",
             "Lcom/google/android/systemui/smartspace/SmartSpaceController;",
+            "Lcom/android/systemui/dump/DumpManager;",
             ")",
             "Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle;"
         }
     .end annotation
 
-    new-instance v13, Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle;
+    new-instance v14, Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle;
 
-    move-object v0, v13
+    move-object v0, v14
 
     move-object v1, p0
 
-    move-object v2, p1
+    move-object/from16 v2, p1
 
     move-object/from16 v3, p2
 
@@ -343,15 +364,17 @@
 
     move-object/from16 v12, p11
 
-    invoke-direct/range {v0 .. v12}, Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle;-><init>(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/app/admin/DevicePolicyManager;Landroid/os/UserManager;Lcom/android/systemui/statusbar/NotificationClickNotifier;Landroid/app/KeyguardManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Landroid/os/Handler;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ldagger/Lazy;Lcom/google/android/systemui/smartspace/SmartSpaceController;)V
+    move-object/from16 v13, p12
 
-    return-object v13
+    invoke-direct/range {v0 .. v13}, Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle;-><init>(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/app/admin/DevicePolicyManager;Landroid/os/UserManager;Lcom/android/systemui/statusbar/NotificationClickNotifier;Landroid/app/KeyguardManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Landroid/os/Handler;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ldagger/Lazy;Lcom/google/android/systemui/smartspace/SmartSpaceController;Lcom/android/systemui/dump/DumpManager;)V
+
+    return-object v14
 .end method
 
 
 # virtual methods
 .method public get()Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle;
-    .locals 13
+    .locals 14
 
     iget-object v0, p0, Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -459,17 +482,27 @@
 
     move-result-object v11
 
-    iget-object p0, p0, Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle_Factory;->smartSpaceControllerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle_Factory;->smartSpaceControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v12, v0
+
+    check-cast v12, Lcom/google/android/systemui/smartspace/SmartSpaceController;
+
+    iget-object p0, p0, Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    move-object v12, p0
+    move-object v13, p0
 
-    check-cast v12, Lcom/google/android/systemui/smartspace/SmartSpaceController;
+    check-cast v13, Lcom/android/systemui/dump/DumpManager;
 
-    invoke-static/range {v1 .. v12}, Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/app/admin/DevicePolicyManager;Landroid/os/UserManager;Lcom/android/systemui/statusbar/NotificationClickNotifier;Landroid/app/KeyguardManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Landroid/os/Handler;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ldagger/Lazy;Lcom/google/android/systemui/smartspace/SmartSpaceController;)Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle;
+    invoke-static/range {v1 .. v13}, Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/app/admin/DevicePolicyManager;Landroid/os/UserManager;Lcom/android/systemui/statusbar/NotificationClickNotifier;Landroid/app/KeyguardManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Landroid/os/Handler;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ldagger/Lazy;Lcom/google/android/systemui/smartspace/SmartSpaceController;Lcom/android/systemui/dump/DumpManager;)Lcom/google/android/systemui/NotificationLockscreenUserManagerGoogle;
 
     move-result-object p0
 

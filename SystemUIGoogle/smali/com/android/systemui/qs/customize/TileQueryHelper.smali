@@ -19,7 +19,7 @@
 
 .field private final mContext:Landroid/content/Context;
 
-.field private final mFeatureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
+.field private final mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
 
 .field private mFinished:Z
 
@@ -67,7 +67,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/settings/UserTracker;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/statusbar/FeatureFlags;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/settings/UserTracker;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/flags/FeatureFlags;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -92,7 +92,7 @@
 
     iput-object p2, p0, Lcom/android/systemui/qs/customize/TileQueryHelper;->mUserTracker:Lcom/android/systemui/settings/UserTracker;
 
-    iput-object p5, p0, Lcom/android/systemui/qs/customize/TileQueryHelper;->mFeatureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
+    iput-object p5, p0, Lcom/android/systemui/qs/customize/TileQueryHelper;->mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
 
     return-void
 .end method
@@ -146,7 +146,7 @@
 
     move-result-object v1
 
-    const-string/jumbo v2, "sysui_qs_tiles"
+    const-string v2, "sysui_qs_tiles"
 
     invoke-static {v1, v2}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
@@ -222,9 +222,9 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iget-object v1, p0, Lcom/android/systemui/qs/customize/TileQueryHelper;->mFeatureFlags:Lcom/android/systemui/statusbar/FeatureFlags;
+    iget-object v1, p0, Lcom/android/systemui/qs/customize/TileQueryHelper;->mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/FeatureFlags;->isProviderModelSettingEnabled()Z
+    invoke-virtual {v1}, Lcom/android/systemui/flags/FeatureFlags;->isProviderModelSettingEnabled()Z
 
     move-result v1
 

@@ -27,15 +27,9 @@
 
     move-result-object p1
 
-    sget p2, Lcom/android/systemui/R$integer;->quick_qs_panel_max_columns:I
+    sget p2, Lcom/android/systemui/R$integer;->quick_qs_panel_max_tiles:I
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result p1
-
-    const/4 p2, 0x6
-
-    invoke-static {p2, p1}, Ljava/lang/Math;->min(II)I
 
     move-result p1
 
@@ -179,12 +173,6 @@
     return-object p0
 .end method
 
-.method public setBrightnessView(Landroid/view/View;)V
-    .locals 0
-
-    return-void
-.end method
-
 .method setDisabledByPolicy(Z)V
     .locals 1
 
@@ -211,13 +199,7 @@
 .end method
 
 .method public setMaxTiles(I)V
-    .locals 1
-
-    const/4 v0, 0x6
-
-    invoke-static {p1, v0}, Ljava/lang/Math;->min(II)I
-
-    move-result p1
+    .locals 0
 
     iput p1, p0, Lcom/android/systemui/qs/QuickQSPanel;->mMaxTiles:I
 

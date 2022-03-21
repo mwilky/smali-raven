@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/pip/phone/PipController$PipImpl$$ExternalSyntheticLambda0;->f$0:Lcom/android/wm/shell/pip/phone/PipController$PipImpl;
 
-    invoke-static {p0}, Lcom/android/wm/shell/pip/phone/PipController$PipImpl;->$r8$lambda$-5zDqC7Ju6FP4BME1mtTIc5pbfI(Lcom/android/wm/shell/pip/phone/PipController$PipImpl;)V
+    invoke-static {p0}, Lcom/android/wm/shell/pip/phone/PipController$PipImpl;->$r8$lambda$-2OE3Z96H_HGB9Y0XvbkZd1WSOc(Lcom/android/wm/shell/pip/phone/PipController$PipImpl;)V
 
     return-void
 .end method

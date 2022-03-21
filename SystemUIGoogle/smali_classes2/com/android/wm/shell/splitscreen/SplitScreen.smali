@@ -70,3 +70,15 @@
 
     return-object p0
 .end method
+
+.method public abstract onFinishedGoingToSleep()V
+.end method
+
+.method public abstract onFinishedWakingUp()V
+.end method
+
+.method public abstract onKeyguardOccludedChanged(Z)V
+.end method
+
+.method public abstract onKeyguardVisibilityChanged(Z)V
+.end method

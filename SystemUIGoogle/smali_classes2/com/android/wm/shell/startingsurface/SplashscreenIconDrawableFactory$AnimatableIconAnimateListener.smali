@@ -1,4 +1,4 @@
-.class Lcom/android/wm/shell/startingsurface/SplashscreenIconDrawableFactory$AnimatableIconAnimateListener;
+.class public Lcom/android/wm/shell/startingsurface/SplashscreenIconDrawableFactory$AnimatableIconAnimateListener;
 .super Lcom/android/wm/shell/startingsurface/SplashscreenIconDrawableFactory$AdaptiveForegroundDrawable;
 .source "SplashscreenIconDrawableFactory.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "AnimatableIconAnimateListener"
 .end annotation
 
@@ -25,6 +25,8 @@
 .field private final mCallback:Landroid/graphics/drawable/Drawable$Callback;
 
 .field private mIconAnimator:Landroid/animation/Animator;
+
+.field private mJankMonitoringListener:Landroid/animation/AnimatorListenerAdapter;
 
 
 # direct methods
@@ -46,7 +48,15 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/wm/shell/startingsurface/SplashscreenIconDrawableFactory$AnimatableIconAnimateListener;)Landroid/graphics/drawable/Animatable;
+.method static synthetic access$000(Lcom/android/wm/shell/startingsurface/SplashscreenIconDrawableFactory$AnimatableIconAnimateListener;)Landroid/animation/AnimatorListenerAdapter;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/wm/shell/startingsurface/SplashscreenIconDrawableFactory$AnimatableIconAnimateListener;->mJankMonitoringListener:Landroid/animation/AnimatorListenerAdapter;
+
+    return-object p0
+.end method
+
+.method static synthetic access$100(Lcom/android/wm/shell/startingsurface/SplashscreenIconDrawableFactory$AnimatableIconAnimateListener;)Landroid/graphics/drawable/Animatable;
     .locals 0
 
     iget-object p0, p0, Lcom/android/wm/shell/startingsurface/SplashscreenIconDrawableFactory$AnimatableIconAnimateListener;->mAnimatableIcon:Landroid/graphics/drawable/Animatable;
@@ -140,4 +150,45 @@
         0x0
         0x1
     .end array-data
+.end method
+
+.method public setAnimationJankMonitoring(Landroid/animation/AnimatorListenerAdapter;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/wm/shell/startingsurface/SplashscreenIconDrawableFactory$AnimatableIconAnimateListener;->mJankMonitoringListener:Landroid/animation/AnimatorListenerAdapter;
+
+    return-void
+.end method
+
+.method public bridge synthetic setColorFilter(Landroid/graphics/ColorFilter;)V
+    .locals 0
+
+    invoke-super {p0, p1}, Lcom/android/wm/shell/startingsurface/SplashscreenIconDrawableFactory$AdaptiveForegroundDrawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
+
+    return-void
+.end method
+
+.method public stopAnimation()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/wm/shell/startingsurface/SplashscreenIconDrawableFactory$AnimatableIconAnimateListener;->mIconAnimator:Landroid/animation/Animator;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Landroid/animation/Animator;->isRunning()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/wm/shell/startingsurface/SplashscreenIconDrawableFactory$AnimatableIconAnimateListener;->mIconAnimator:Landroid/animation/Animator;
+
+    invoke-virtual {v0}, Landroid/animation/Animator;->end()V
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/wm/shell/startingsurface/SplashscreenIconDrawableFactory$AnimatableIconAnimateListener;->mJankMonitoringListener:Landroid/animation/AnimatorListenerAdapter;
+
+    :cond_0
+    return-void
 .end method

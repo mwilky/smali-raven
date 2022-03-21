@@ -16,11 +16,7 @@
 
 
 # static fields
-.field private static final DIM_INTERPOLATOR:Landroid/view/animation/PathInterpolator;
-
 .field private static final IME_ADJUST_INTERPOLATOR:Landroid/view/animation/Interpolator;
-
-.field private static final SLOWDOWN_INTERPOLATOR:Landroid/view/animation/PathInterpolator;
 
 
 # instance fields
@@ -165,41 +161,19 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 6
-
-    new-instance v0, Landroid/view/animation/PathInterpolator;
-
-    const/high16 v1, 0x3f000000    # 0.5f
-
-    const/high16 v2, 0x3f800000    # 1.0f
-
-    invoke-direct {v0, v1, v2, v1, v2}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
-
-    sput-object v0, Lcom/android/wm/shell/legacysplitscreen/DividerView;->SLOWDOWN_INTERPOLATOR:Landroid/view/animation/PathInterpolator;
-
-    new-instance v0, Landroid/view/animation/PathInterpolator;
-
-    const v1, 0x3e6b851f    # 0.23f
-
-    const v3, 0x3f5eb852    # 0.87f
-
-    const v4, 0x3f051eb8    # 0.52f
-
-    const v5, -0x421eb852    # -0.11f
-
-    invoke-direct {v0, v1, v3, v4, v5}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
-
-    sput-object v0, Lcom/android/wm/shell/legacysplitscreen/DividerView;->DIM_INTERPOLATOR:Landroid/view/animation/PathInterpolator;
+    .locals 5
 
     new-instance v0, Landroid/view/animation/PathInterpolator;
 
     const v1, 0x3e4ccccd    # 0.2f
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    const v4, 0x3dcccccd    # 0.1f
+    const v3, 0x3dcccccd    # 0.1f
 
-    invoke-direct {v0, v1, v3, v4, v2}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
+    const/high16 v4, 0x3f800000    # 1.0f
+
+    invoke-direct {v0, v1, v2, v3, v4}, Landroid/view/animation/PathInterpolator;-><init>(FFFF)V
 
     sput-object v0, Lcom/android/wm/shell/legacysplitscreen/DividerView;->IME_ADJUST_INTERPOLATOR:Landroid/view/animation/Interpolator;
 
@@ -836,7 +810,7 @@
 .method private static calculateParallaxDismissingFraction(FI)F
     .locals 1
 
-    sget-object v0, Lcom/android/wm/shell/legacysplitscreen/DividerView;->SLOWDOWN_INTERPOLATOR:Landroid/view/animation/PathInterpolator;
+    sget-object v0, Lcom/android/wm/shell/animation/Interpolators;->SLOWDOWN_INTERPOLATOR:Landroid/view/animation/PathInterpolator;
 
     invoke-virtual {v0, p0}, Landroid/view/animation/PathInterpolator;->getInterpolation(F)F
 
@@ -1164,7 +1138,7 @@
 
     move-result p0
 
-    sget-object p1, Lcom/android/wm/shell/legacysplitscreen/DividerView;->DIM_INTERPOLATOR:Landroid/view/animation/PathInterpolator;
+    sget-object p1, Lcom/android/wm/shell/animation/Interpolators;->DIM_INTERPOLATOR:Landroid/view/animation/PathInterpolator;
 
     invoke-virtual {p1, p0}, Landroid/view/animation/PathInterpolator;->getInterpolation(F)F
 
@@ -1291,7 +1265,7 @@
 
     iget-object v1, p0, Lcom/android/wm/shell/legacysplitscreen/DividerView;->mSplitLayout:Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;
 
-    invoke-virtual {v1, v0}, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->resizeSplits(I)V
+    invoke-virtual {v1, v0}, Lcom/android/wm/shell/legacysplitscreen/LegacySplitDisplayLayout;->resizeSplits(I)Z
 
     iget-object v0, p0, Lcom/android/wm/shell/legacysplitscreen/DividerView;->mTiles:Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreenTaskListener;
 
@@ -2735,6 +2709,10 @@
 
     invoke-virtual {v0, v2}, Lcom/android/wm/shell/legacysplitscreen/DividerWindowManager;->setSlippery(Z)V
 
+    iget-object v0, p0, Lcom/android/wm/shell/legacysplitscreen/DividerView;->mWindowManagerProxy:Lcom/android/wm/shell/legacysplitscreen/WindowManagerProxy;
+
+    invoke-virtual {v0, v1}, Lcom/android/wm/shell/legacysplitscreen/WindowManagerProxy;->setResizing(Z)V
+
     invoke-direct {p0}, Lcom/android/wm/shell/legacysplitscreen/DividerView;->releaseBackground()V
 
     return-void
@@ -3245,7 +3223,7 @@
 
     move-result-object v0
 
-    const v1, 0x105012e
+    const v1, 0x1050130
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -3255,7 +3233,7 @@
 
     move-result-object v1
 
-    const v2, 0x105012d
+    const v2, 0x105012f
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

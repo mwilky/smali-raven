@@ -20,6 +20,10 @@
 .end annotation
 
 
+# static fields
+.field private static final DEBUG:Z
+
+
 # instance fields
 .field private mCheckSimPukThread:Lcom/android/keyguard/KeyguardSimPukViewController$CheckSimPuk;
 
@@ -49,6 +53,16 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    sget-boolean v0, Lcom/android/keyguard/KeyguardConstants;->DEBUG:Z
+
+    sput-boolean v0, Lcom/android/keyguard/KeyguardSimPukViewController;->DEBUG:Z
+
+    return-void
+.end method
+
 .method protected constructor <init>(Lcom/android/keyguard/KeyguardSimPukView;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/keyguard/KeyguardSecurityCallback;Lcom/android/keyguard/KeyguardMessageAreaController$Factory;Lcom/android/internal/util/LatencyTracker;Lcom/android/keyguard/LiftToActivateListener;Landroid/telephony/TelephonyManager;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/keyguard/EmergencyButtonController;)V
     .locals 12
 
@@ -121,7 +135,23 @@
     return-void
 .end method
 
+.method static synthetic access$100()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/keyguard/KeyguardSimPukViewController;->DEBUG:Z
+
+    return v0
+.end method
+
 .method static synthetic access$1000(Lcom/android/keyguard/KeyguardSimPukViewController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSimPukViewController;->handleSubInfoChangeIfNeeded()V
+
+    return-void
+.end method
+
+.method static synthetic access$1100(Lcom/android/keyguard/KeyguardSimPukViewController;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardSimPukViewController;->showDefaultMessage()V
@@ -129,15 +159,7 @@
     return-void
 .end method
 
-.method static synthetic access$102(Lcom/android/keyguard/KeyguardSimPukViewController;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/keyguard/KeyguardSimPukViewController;->mRemainingAttempts:I
-
-    return p1
-.end method
-
-.method static synthetic access$1100(Lcom/android/keyguard/KeyguardSimPukViewController;)Landroid/view/View;
+.method static synthetic access$1200(Lcom/android/keyguard/KeyguardSimPukViewController;)Landroid/view/View;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
@@ -145,20 +167,12 @@
     return-object p0
 .end method
 
-.method static synthetic access$1200(Lcom/android/keyguard/KeyguardSimPukViewController;)I
+.method static synthetic access$1300(Lcom/android/keyguard/KeyguardSimPukViewController;)I
     .locals 0
 
     iget p0, p0, Lcom/android/keyguard/KeyguardSimPukViewController;->mSubId:I
 
     return p0
-.end method
-
-.method static synthetic access$1300(Lcom/android/keyguard/KeyguardSimPukViewController;)Landroid/view/View;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    return-object p0
 .end method
 
 .method static synthetic access$1400(Lcom/android/keyguard/KeyguardSimPukViewController;)Landroid/view/View;
@@ -185,7 +199,15 @@
     return-object p0
 .end method
 
-.method static synthetic access$1700(Lcom/android/keyguard/KeyguardSimPukViewController;)Landroid/app/ProgressDialog;
+.method static synthetic access$1700(Lcom/android/keyguard/KeyguardSimPukViewController;)Landroid/view/View;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    return-object p0
+.end method
+
+.method static synthetic access$1800(Lcom/android/keyguard/KeyguardSimPukViewController;)Landroid/app/ProgressDialog;
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardSimPukViewController;->mSimUnlockProgressDialog:Landroid/app/ProgressDialog;
@@ -193,7 +215,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$1800(Lcom/android/keyguard/KeyguardSimPukViewController;)Landroid/view/View;
+.method static synthetic access$1900(Lcom/android/keyguard/KeyguardSimPukViewController;)Landroid/view/View;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
@@ -201,7 +223,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$1900(Lcom/android/keyguard/KeyguardSimPukViewController;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+.method static synthetic access$2000(Lcom/android/keyguard/KeyguardSimPukViewController;)Lcom/android/keyguard/KeyguardUpdateMonitor;
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardSimPukViewController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
@@ -209,26 +231,10 @@
     return-object p0
 .end method
 
-.method static synthetic access$200(Lcom/android/keyguard/KeyguardSimPukViewController;)Z
+.method static synthetic access$202(Lcom/android/keyguard/KeyguardSimPukViewController;I)I
     .locals 0
 
-    iget-boolean p0, p0, Lcom/android/keyguard/KeyguardSimPukViewController;->mShowDefaultMessage:Z
-
-    return p0
-.end method
-
-.method static synthetic access$2000(Lcom/android/keyguard/KeyguardSimPukViewController;)Landroid/view/View;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    return-object p0
-.end method
-
-.method static synthetic access$202(Lcom/android/keyguard/KeyguardSimPukViewController;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/keyguard/KeyguardSimPukViewController;->mShowDefaultMessage:Z
+    iput p1, p0, Lcom/android/keyguard/KeyguardSimPukViewController;->mRemainingAttempts:I
 
     return p1
 .end method
@@ -241,20 +247,20 @@
     return-object p0
 .end method
 
-.method static synthetic access$2200(Lcom/android/keyguard/KeyguardSimPukViewController;I)Landroid/app/Dialog;
+.method static synthetic access$2200(Lcom/android/keyguard/KeyguardSimPukViewController;)Landroid/view/View;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    return-object p0
+.end method
+
+.method static synthetic access$2300(Lcom/android/keyguard/KeyguardSimPukViewController;I)Landroid/app/Dialog;
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardSimPukViewController;->getPukRemainingAttemptsDialog(I)Landroid/app/Dialog;
 
     move-result-object p0
-
-    return-object p0
-.end method
-
-.method static synthetic access$2300(Lcom/android/keyguard/KeyguardSimPukViewController;)Landroid/view/View;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     return-object p0
 .end method
@@ -275,31 +281,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$2600(Lcom/android/keyguard/KeyguardSimPukViewController;)Lcom/android/keyguard/KeyguardSimPukViewController$StateMachine;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardSimPukViewController;->mStateMachine:Lcom/android/keyguard/KeyguardSimPukViewController$StateMachine;
-
-    return-object p0
-.end method
-
-.method static synthetic access$2702(Lcom/android/keyguard/KeyguardSimPukViewController;Lcom/android/keyguard/KeyguardSimPukViewController$CheckSimPuk;)Lcom/android/keyguard/KeyguardSimPukViewController$CheckSimPuk;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardSimPukViewController;->mCheckSimPukThread:Lcom/android/keyguard/KeyguardSimPukViewController$CheckSimPuk;
-
-    return-object p1
-.end method
-
-.method static synthetic access$2800(Lcom/android/keyguard/KeyguardSimPukViewController;)Landroid/telephony/TelephonyManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardSimPukViewController;->mTelephonyManager:Landroid/telephony/TelephonyManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$2900(Lcom/android/keyguard/KeyguardSimPukViewController;)Landroid/view/View;
+.method static synthetic access$2600(Lcom/android/keyguard/KeyguardSimPukViewController;)Landroid/view/View;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
@@ -307,7 +289,55 @@
     return-object p0
 .end method
 
+.method static synthetic access$2700(Lcom/android/keyguard/KeyguardSimPukViewController;)Lcom/android/keyguard/KeyguardSimPukViewController$StateMachine;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardSimPukViewController;->mStateMachine:Lcom/android/keyguard/KeyguardSimPukViewController$StateMachine;
+
+    return-object p0
+.end method
+
+.method static synthetic access$2802(Lcom/android/keyguard/KeyguardSimPukViewController;Lcom/android/keyguard/KeyguardSimPukViewController$CheckSimPuk;)Lcom/android/keyguard/KeyguardSimPukViewController$CheckSimPuk;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/keyguard/KeyguardSimPukViewController;->mCheckSimPukThread:Lcom/android/keyguard/KeyguardSimPukViewController$CheckSimPuk;
+
+    return-object p1
+.end method
+
+.method static synthetic access$2900(Lcom/android/keyguard/KeyguardSimPukViewController;)Landroid/telephony/TelephonyManager;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardSimPukViewController;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+
+    return-object p0
+.end method
+
 .method static synthetic access$300(Lcom/android/keyguard/KeyguardSimPukViewController;)Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/keyguard/KeyguardSimPukViewController;->mShowDefaultMessage:Z
+
+    return p0
+.end method
+
+.method static synthetic access$3000(Lcom/android/keyguard/KeyguardSimPukViewController;)Landroid/view/View;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    return-object p0
+.end method
+
+.method static synthetic access$302(Lcom/android/keyguard/KeyguardSimPukViewController;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/keyguard/KeyguardSimPukViewController;->mShowDefaultMessage:Z
+
+    return p1
+.end method
+
+.method static synthetic access$400(Lcom/android/keyguard/KeyguardSimPukViewController;)Z
     .locals 0
 
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardSimPukViewController;->checkPuk()Z
@@ -317,7 +347,7 @@
     return p0
 .end method
 
-.method static synthetic access$400(Lcom/android/keyguard/KeyguardSimPukViewController;)Z
+.method static synthetic access$500(Lcom/android/keyguard/KeyguardSimPukViewController;)Z
     .locals 0
 
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardSimPukViewController;->checkPin()Z
@@ -327,7 +357,7 @@
     return p0
 .end method
 
-.method static synthetic access$500(Lcom/android/keyguard/KeyguardSimPukViewController;)V
+.method static synthetic access$600(Lcom/android/keyguard/KeyguardSimPukViewController;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/keyguard/KeyguardSimPukViewController;->updateSim()V
@@ -335,7 +365,7 @@
     return-void
 .end method
 
-.method static synthetic access$600(Lcom/android/keyguard/KeyguardSimPukViewController;)Landroid/view/View;
+.method static synthetic access$700(Lcom/android/keyguard/KeyguardSimPukViewController;)Landroid/view/View;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
@@ -343,7 +373,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$702(Lcom/android/keyguard/KeyguardSimPukViewController;Ljava/lang/String;)Ljava/lang/String;
+.method static synthetic access$802(Lcom/android/keyguard/KeyguardSimPukViewController;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardSimPukViewController;->mPinText:Ljava/lang/String;
@@ -351,20 +381,12 @@
     return-object p1
 .end method
 
-.method static synthetic access$802(Lcom/android/keyguard/KeyguardSimPukViewController;Ljava/lang/String;)Ljava/lang/String;
+.method static synthetic access$902(Lcom/android/keyguard/KeyguardSimPukViewController;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardSimPukViewController;->mPukText:Ljava/lang/String;
 
     return-object p1
-.end method
-
-.method static synthetic access$900(Lcom/android/keyguard/KeyguardSimPukViewController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSimPukViewController;->handleSubInfoChangeIfNeeded()V
-
-    return-void
 .end method
 
 .method private checkPin()Z

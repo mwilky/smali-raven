@@ -42,6 +42,42 @@
     .end annotation
 .end method
 
+.method public abstract setCompatUI(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/compatui/CompatUI;",
+            ">;)",
+            "Lcom/android/systemui/dagger/SysUIComponent$Builder;"
+        }
+    .end annotation
+.end method
+
+.method public abstract setDisplayAreaHelper(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/displayareahelper/DisplayAreaHelper;",
+            ">;)",
+            "Lcom/android/systemui/dagger/SysUIComponent$Builder;"
+        }
+    .end annotation
+.end method
+
+.method public abstract setDragAndDrop(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/draganddrop/DragAndDrop;",
+            ">;)",
+            "Lcom/android/systemui/dagger/SysUIComponent$Builder;"
+        }
+    .end annotation
+.end method
+
 .method public abstract setHideDisplayCutout(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -84,6 +120,18 @@
             "(",
             "Ljava/util/Optional<",
             "Lcom/android/wm/shell/pip/Pip;",
+            ">;)",
+            "Lcom/android/systemui/dagger/SysUIComponent$Builder;"
+        }
+    .end annotation
+.end method
+
+.method public abstract setRecentTasks(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/recents/RecentTasks;",
             ">;)",
             "Lcom/android/systemui/dagger/SysUIComponent$Builder;"
         }

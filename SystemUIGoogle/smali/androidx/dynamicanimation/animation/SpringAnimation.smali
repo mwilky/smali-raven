@@ -271,6 +271,20 @@
     return-object p0
 .end method
 
+.method setValueThreshold(F)V
+    .locals 0
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0
+        }
+        names = {
+            "threshold"
+        }
+    .end annotation
+
+    return-void
+.end method
+
 .method public skipToEnd()V
     .locals 1
 

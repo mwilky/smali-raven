@@ -65,11 +65,7 @@
 
     move-result-object p0
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->getController()Lcom/android/systemui/statusbar/RemoteInputController;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/RemoteInputController;->isRemoteInputActive()Z
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->isRemoteInputActive()Z
 
     move-result p0
 

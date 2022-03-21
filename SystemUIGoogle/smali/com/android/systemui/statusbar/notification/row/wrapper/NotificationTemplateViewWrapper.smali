@@ -117,7 +117,7 @@
 
     move-result-object p2
 
-    const p3, 0x10501e1
+    const p3, 0x10501e3
 
     invoke-virtual {p2, p3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -127,7 +127,7 @@
 
     move-result-object p1
 
-    const p3, 0x10501e4
+    const p3, 0x10501e6
 
     invoke-virtual {p1, p3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -249,7 +249,7 @@
 
     move-result-object v4
 
-    const v5, 0x10501d2
+    const v5, 0x10501d4
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -290,7 +290,7 @@
 .method private performOnPendingIntentCancellation(Landroid/view/View;Ljava/lang/Runnable;)V
     .locals 3
 
-    const v0, 0x10203e6
+    const v0, 0x10203e9
 
     invoke-virtual {p1, v0}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
@@ -365,7 +365,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationViewWrapper;->mView:Landroid/view/View;
 
-    const v1, 0x1020444
+    const v1, 0x1020447
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -400,7 +400,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationViewWrapper;->mView:Landroid/view/View;
 
-    const v1, 0x102034e
+    const v1, 0x1020351
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -439,7 +439,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationViewWrapper;->mView:Landroid/view/View;
 
-    const v0, 0x10204d5
+    const v0, 0x10204d8
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -475,7 +475,7 @@
     :goto_0
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationViewWrapper;->mView:Landroid/view/View;
 
-    const v0, 0x1020494
+    const v0, 0x1020497
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -485,7 +485,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationViewWrapper;->mView:Landroid/view/View;
 
-    const v0, 0x10201b3
+    const v0, 0x10201b6
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -495,7 +495,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationViewWrapper;->mView:Landroid/view/View;
 
-    const v0, 0x10201b2
+    const v0, 0x10201b5
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -507,7 +507,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationViewWrapper;->mView:Landroid/view/View;
 
-    const v0, 0x10203b6
+    const v0, 0x10203b9
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

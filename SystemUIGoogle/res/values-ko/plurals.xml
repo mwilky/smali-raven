@@ -32,18 +32,6 @@
         <item quantity="other">잘못된 SIM PUK 코드입니다. 입력에 %d번 더 실패할 경우 SIM이 영구적으로 사용 중지됩니다.</item>
         <item quantity="one">잘못된 SIM PUK 코드입니다. 입력에 %d번 더 실패할 경우 SIM이 영구적으로 사용 중지됩니다.</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">기기가 %d시간 동안 잠금 해제되지 않았습니다. 비밀번호를 입력하세요.</item>
-        <item quantity="one">기기가 %d시간 동안 잠금 해제되지 않았습니다. 비밀번호를 입력하세요.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">기기가 %d시간 동안 잠금 해제되지 않았습니다. 패턴을 입력하세요.</item>
-        <item quantity="one">기기가 %d시간 동안 잠금 해제되지 않았습니다. 패턴을 입력하세요.</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">기기가 %d시간 동안 잠금 해제되지 않았습니다. PIN을 입력하세요.</item>
-        <item quantity="one">기기가 %d시간 동안 잠금 해제되지 않았습니다. PIN을 입력하세요.</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">%d초 후에 다시 시도하세요.</item>
         <item quantity="one">1초 후에 다시 시도하세요.</item>

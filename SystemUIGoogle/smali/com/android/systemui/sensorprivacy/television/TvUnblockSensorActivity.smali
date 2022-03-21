@@ -170,7 +170,7 @@
     invoke-virtual {v3, v8}, Landroid/widget/ImageView;->setVisibility(I)V
 
     :goto_0
-    const v0, 0x10407c7
+    const v0, 0x10407cc
 
     invoke-virtual {v4, v0}, Landroid/widget/Button;->setText(I)V
 

@@ -29,7 +29,7 @@
 
     check-cast p1, Ljava/lang/Integer;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->$r8$lambda$baXwu0H6jAe2yuQyVjikQl8WsGc(ILjava/lang/Integer;)Z
+    invoke-static {p0, p1}, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->$r8$lambda$EM89DmuwGo7Ve1xWwt1SseGo4CQ(ILjava/lang/Integer;)Z
 
     move-result p0
 

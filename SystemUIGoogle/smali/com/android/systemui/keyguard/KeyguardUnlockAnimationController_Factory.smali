@@ -18,6 +18,16 @@
 
 
 # instance fields
+.field private final biometricUnlockControllerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/phone/BiometricUnlockController;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final contextProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -32,7 +42,7 @@
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;"
         }
     .end annotation
@@ -80,7 +90,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -101,7 +111,10 @@
             "Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/phone/BiometricUnlockController;",
             ">;)V"
         }
     .end annotation
@@ -120,11 +133,13 @@
 
     iput-object p6, p0, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
 
+    iput-object p7, p0, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;->biometricUnlockControllerProvider:Ljavax/inject/Provider;
+
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;
-    .locals 8
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;
+    .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -144,15 +159,18 @@
             "Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/phone/BiometricUnlockController;",
             ">;)",
             "Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;"
         }
     .end annotation
 
-    new-instance v7, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;
+    new-instance v8, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;
 
-    move-object v0, v7
+    move-object v0, v8
 
     move-object v1, p0
 
@@ -166,13 +184,15 @@
 
     move-object v6, p5
 
-    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object v7, p6
 
-    return-object v7
+    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v8
 .end method
 
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ldagger/Lazy;Lcom/android/keyguard/KeyguardViewController;Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;Lcom/android/systemui/statusbar/FeatureFlags;)Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;
-    .locals 8
+.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ldagger/Lazy;Lcom/android/keyguard/KeyguardViewController;Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/statusbar/phone/BiometricUnlockController;)Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;
+    .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -183,15 +203,16 @@
             ">;",
             "Lcom/android/keyguard/KeyguardViewController;",
             "Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;",
-            "Lcom/android/systemui/statusbar/FeatureFlags;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
+            "Lcom/android/systemui/statusbar/phone/BiometricUnlockController;",
             ")",
             "Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;"
         }
     .end annotation
 
-    new-instance v7, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;
+    new-instance v8, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;
 
-    move-object v0, v7
+    move-object v0, v8
 
     move-object v1, p0
 
@@ -205,15 +226,17 @@
 
     move-object v6, p5
 
-    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ldagger/Lazy;Lcom/android/keyguard/KeyguardViewController;Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;Lcom/android/systemui/statusbar/FeatureFlags;)V
+    move-object v7, p6
 
-    return-object v7
+    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ldagger/Lazy;Lcom/android/keyguard/KeyguardViewController;Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/statusbar/phone/BiometricUnlockController;)V
+
+    return-object v8
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;
-    .locals 7
+    .locals 8
 
     iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -261,17 +284,27 @@
 
     check-cast v5, Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;
 
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v6, v0
+
+    check-cast v6, Lcom/android/systemui/flags/FeatureFlags;
+
+    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;->biometricUnlockControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    move-object v6, p0
+    move-object v7, p0
 
-    check-cast v6, Lcom/android/systemui/statusbar/FeatureFlags;
+    check-cast v7, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;
 
-    invoke-static/range {v1 .. v6}, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ldagger/Lazy;Lcom/android/keyguard/KeyguardViewController;Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;Lcom/android/systemui/statusbar/FeatureFlags;)Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;
+    invoke-static/range {v1 .. v7}, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ldagger/Lazy;Lcom/android/keyguard/KeyguardViewController;Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/statusbar/phone/BiometricUnlockController;)Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;
 
     move-result-object p0
 

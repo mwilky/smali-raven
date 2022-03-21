@@ -48,6 +48,16 @@
     .end annotation
 .end field
 
+.field private final dumpManagerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final legacySplitScreenOptionalProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -101,6 +111,27 @@
     .end annotation
 .end field
 
+.field private final recentTasksProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/recents/RecentTasks;",
+            ">;>;"
+        }
+    .end annotation
+.end field
+
+.field private final screenLifecycleProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/keyguard/ScreenLifecycle;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final shellTransitionsProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -148,9 +179,8 @@
         value = {
             "Ljavax/inject/Provider<",
             "Ljava/util/Optional<",
-            "Ldagger/Lazy<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;>;"
+            ">;>;"
         }
     .end annotation
 .end field
@@ -175,10 +205,20 @@
     .end annotation
 .end field
 
+.field private final uiEventLoggerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/internal/logging/UiEventLogger;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-    .locals 0
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -191,6 +231,10 @@
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/navigationbar/NavigationBarController;",
             ">;",
+            "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
+            "Lcom/android/systemui/statusbar/phone/StatusBar;",
+            ">;>;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/navigationbar/NavigationModeController;",
             ">;",
@@ -214,12 +258,15 @@
             ">;>;",
             "Ljavax/inject/Provider<",
             "Ljava/util/Optional<",
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;>;",
+            "Lcom/android/wm/shell/onehanded/OneHanded;",
+            ">;>;",
             "Ljavax/inject/Provider<",
             "Ljava/util/Optional<",
-            "Lcom/android/wm/shell/onehanded/OneHanded;",
+            "Lcom/android/wm/shell/recents/RecentTasks;",
+            ">;>;",
+            "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/startingsurface/StartingSurface;",
             ">;>;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
@@ -228,52 +275,105 @@
             "Lcom/android/wm/shell/transition/ShellTransitions;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Ljava/util/Optional<",
-            "Lcom/android/wm/shell/startingsurface/StartingSurface;",
-            ">;>;",
+            "Lcom/android/systemui/keyguard/ScreenLifecycle;",
+            ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/internal/logging/UiEventLogger;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
             ">;)V"
         }
     .end annotation
 
+    move-object v0, p0
+
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->contextProvider:Ljavax/inject/Provider;
+    move-object v1, p1
 
-    iput-object p2, p0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->commandQueueProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->contextProvider:Ljavax/inject/Provider;
 
-    iput-object p3, p0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->navBarControllerLazyProvider:Ljavax/inject/Provider;
+    move-object v1, p2
 
-    iput-object p4, p0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->navModeControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->commandQueueProvider:Ljavax/inject/Provider;
 
-    iput-object p5, p0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->statusBarWinControllerProvider:Ljavax/inject/Provider;
+    move-object v1, p3
 
-    iput-object p6, p0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->sysUiStateProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->navBarControllerLazyProvider:Ljavax/inject/Provider;
 
-    iput-object p7, p0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->pipOptionalProvider:Ljavax/inject/Provider;
+    move-object v1, p4
 
-    iput-object p8, p0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->legacySplitScreenOptionalProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->statusBarOptionalLazyProvider:Ljavax/inject/Provider;
 
-    iput-object p9, p0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->splitScreenOptionalProvider:Ljavax/inject/Provider;
+    move-object v1, p5
 
-    iput-object p10, p0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->statusBarOptionalLazyProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->navModeControllerProvider:Ljavax/inject/Provider;
 
-    iput-object p11, p0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->oneHandedOptionalProvider:Ljavax/inject/Provider;
+    move-object v1, p6
 
-    iput-object p12, p0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->statusBarWinControllerProvider:Ljavax/inject/Provider;
 
-    iput-object p13, p0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->shellTransitionsProvider:Ljavax/inject/Provider;
+    move-object v1, p7
 
-    iput-object p14, p0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->startingSurfaceProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->sysUiStateProvider:Ljavax/inject/Provider;
 
-    iput-object p15, p0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->smartspaceTransitionControllerProvider:Ljavax/inject/Provider;
+    move-object v1, p8
+
+    iput-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->pipOptionalProvider:Ljavax/inject/Provider;
+
+    move-object v1, p9
+
+    iput-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->legacySplitScreenOptionalProvider:Ljavax/inject/Provider;
+
+    move-object v1, p10
+
+    iput-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->splitScreenOptionalProvider:Ljavax/inject/Provider;
+
+    move-object v1, p11
+
+    iput-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->oneHandedOptionalProvider:Ljavax/inject/Provider;
+
+    move-object v1, p12
+
+    iput-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->recentTasksProvider:Ljavax/inject/Provider;
+
+    move-object v1, p13
+
+    iput-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->startingSurfaceProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p14
+
+    iput-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p15
+
+    iput-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->shellTransitionsProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p16
+
+    iput-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->screenLifecycleProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p17
+
+    iput-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->smartspaceTransitionControllerProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p18
+
+    iput-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p19
+
+    iput-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/recents/OverviewProxyService_Factory;
-    .locals 17
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/recents/OverviewProxyService_Factory;
+    .locals 21
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -286,6 +386,10 @@
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/navigationbar/NavigationBarController;",
             ">;",
+            "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
+            "Lcom/android/systemui/statusbar/phone/StatusBar;",
+            ">;>;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/navigationbar/NavigationModeController;",
             ">;",
@@ -309,12 +413,15 @@
             ">;>;",
             "Ljavax/inject/Provider<",
             "Ljava/util/Optional<",
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;>;",
+            "Lcom/android/wm/shell/onehanded/OneHanded;",
+            ">;>;",
             "Ljavax/inject/Provider<",
             "Ljava/util/Optional<",
-            "Lcom/android/wm/shell/onehanded/OneHanded;",
+            "Lcom/android/wm/shell/recents/RecentTasks;",
+            ">;>;",
+            "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/startingsurface/StartingSurface;",
             ">;>;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
@@ -323,20 +430,21 @@
             "Lcom/android/wm/shell/transition/ShellTransitions;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Ljava/util/Optional<",
-            "Lcom/android/wm/shell/startingsurface/StartingSurface;",
-            ">;>;",
+            "Lcom/android/systemui/keyguard/ScreenLifecycle;",
+            ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/internal/logging/UiEventLogger;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
             ">;)",
             "Lcom/android/systemui/recents/OverviewProxyService_Factory;"
         }
     .end annotation
 
-    new-instance v16, Lcom/android/systemui/recents/OverviewProxyService_Factory;
-
-    move-object/from16 v0, v16
-
     move-object/from16 v1, p0
 
     move-object/from16 v2, p1
@@ -367,13 +475,25 @@
 
     move-object/from16 v15, p14
 
-    invoke-direct/range {v0 .. v15}, Lcom/android/systemui/recents/OverviewProxyService_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v16, p15
 
-    return-object v16
+    move-object/from16 v17, p16
+
+    move-object/from16 v18, p17
+
+    move-object/from16 v19, p18
+
+    new-instance v20, Lcom/android/systemui/recents/OverviewProxyService_Factory;
+
+    move-object/from16 v0, v20
+
+    invoke-direct/range {v0 .. v19}, Lcom/android/systemui/recents/OverviewProxyService_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v20
 .end method
 
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/CommandQueue;Ldagger/Lazy;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/model/SysUiState;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/wm/shell/transition/ShellTransitions;Ljava/util/Optional;Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;)Lcom/android/systemui/recents/OverviewProxyService;
-    .locals 17
+.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/CommandQueue;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/model/SysUiState;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/wm/shell/transition/ShellTransitions;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/recents/OverviewProxyService;
+    .locals 21
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -382,6 +502,10 @@
             "Ldagger/Lazy<",
             "Lcom/android/systemui/navigationbar/NavigationBarController;",
             ">;",
+            "Ldagger/Lazy<",
+            "Ljava/util/Optional<",
+            "Lcom/android/systemui/statusbar/phone/StatusBar;",
+            ">;>;",
             "Lcom/android/systemui/navigationbar/NavigationModeController;",
             "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
             "Lcom/android/systemui/model/SysUiState;",
@@ -395,26 +519,24 @@
             "Lcom/android/wm/shell/splitscreen/SplitScreen;",
             ">;",
             "Ljava/util/Optional<",
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;",
-            "Ljava/util/Optional<",
             "Lcom/android/wm/shell/onehanded/OneHanded;",
             ">;",
-            "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
-            "Lcom/android/wm/shell/transition/ShellTransitions;",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/recents/RecentTasks;",
+            ">;",
             "Ljava/util/Optional<",
             "Lcom/android/wm/shell/startingsurface/StartingSurface;",
             ">;",
+            "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
+            "Lcom/android/wm/shell/transition/ShellTransitions;",
+            "Lcom/android/systemui/keyguard/ScreenLifecycle;",
             "Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;",
+            "Lcom/android/internal/logging/UiEventLogger;",
+            "Lcom/android/systemui/dump/DumpManager;",
             ")",
             "Lcom/android/systemui/recents/OverviewProxyService;"
         }
     .end annotation
-
-    new-instance v16, Lcom/android/systemui/recents/OverviewProxyService;
-
-    move-object/from16 v0, v16
 
     move-object/from16 v1, p0
 
@@ -446,15 +568,27 @@
 
     move-object/from16 v15, p14
 
-    invoke-direct/range {v0 .. v15}, Lcom/android/systemui/recents/OverviewProxyService;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/CommandQueue;Ldagger/Lazy;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/model/SysUiState;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/wm/shell/transition/ShellTransitions;Ljava/util/Optional;Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;)V
+    move-object/from16 v16, p15
 
-    return-object v16
+    move-object/from16 v17, p16
+
+    move-object/from16 v18, p17
+
+    move-object/from16 v19, p18
+
+    new-instance v20, Lcom/android/systemui/recents/OverviewProxyService;
+
+    move-object/from16 v0, v20
+
+    invoke-direct/range {v0 .. v19}, Lcom/android/systemui/recents/OverviewProxyService;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/CommandQueue;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/model/SysUiState;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/wm/shell/transition/ShellTransitions;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/dump/DumpManager;)V
+
+    return-object v20
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/systemui/recents/OverviewProxyService;
-    .locals 17
+    .locals 21
 
     move-object/from16 v0, p0
 
@@ -484,17 +618,13 @@
 
     move-result-object v4
 
+    iget-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->statusBarOptionalLazyProvider:Ljavax/inject/Provider;
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
+
+    move-result-object v5
+
     iget-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->navModeControllerProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v1
-
-    move-object v5, v1
-
-    check-cast v5, Lcom/android/systemui/navigationbar/NavigationModeController;
-
-    iget-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->statusBarWinControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -502,9 +632,9 @@
 
     move-object v6, v1
 
-    check-cast v6, Lcom/android/systemui/statusbar/NotificationShadeWindowController;
+    check-cast v6, Lcom/android/systemui/navigationbar/NavigationModeController;
 
-    iget-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->sysUiStateProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->statusBarWinControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -512,9 +642,9 @@
 
     move-object v7, v1
 
-    check-cast v7, Lcom/android/systemui/model/SysUiState;
+    check-cast v7, Lcom/android/systemui/statusbar/NotificationShadeWindowController;
 
-    iget-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->pipOptionalProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->sysUiStateProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -522,9 +652,9 @@
 
     move-object v8, v1
 
-    check-cast v8, Ljava/util/Optional;
+    check-cast v8, Lcom/android/systemui/model/SysUiState;
 
-    iget-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->legacySplitScreenOptionalProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->pipOptionalProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -534,7 +664,7 @@
 
     check-cast v9, Ljava/util/Optional;
 
-    iget-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->splitScreenOptionalProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->legacySplitScreenOptionalProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -544,7 +674,7 @@
 
     check-cast v10, Ljava/util/Optional;
 
-    iget-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->statusBarOptionalLazyProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->splitScreenOptionalProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -564,7 +694,7 @@
 
     check-cast v12, Ljava/util/Optional;
 
-    iget-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->recentTasksProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -572,17 +702,7 @@
 
     move-object v13, v1
 
-    check-cast v13, Lcom/android/systemui/broadcast/BroadcastDispatcher;
-
-    iget-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->shellTransitionsProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v1
-
-    move-object v14, v1
-
-    check-cast v14, Lcom/android/wm/shell/transition/ShellTransitions;
+    check-cast v13, Ljava/util/Optional;
 
     iget-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->startingSurfaceProvider:Ljavax/inject/Provider;
 
@@ -590,21 +710,71 @@
 
     move-result-object v1
 
+    move-object v14, v1
+
+    check-cast v14, Ljava/util/Optional;
+
+    iget-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
     move-object v15, v1
 
-    check-cast v15, Ljava/util/Optional;
+    check-cast v15, Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
-    iget-object v0, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->smartspaceTransitionControllerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->shellTransitionsProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object/from16 v16, v1
+
+    check-cast v16, Lcom/android/wm/shell/transition/ShellTransitions;
+
+    iget-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->screenLifecycleProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object/from16 v17, v1
+
+    check-cast v17, Lcom/android/systemui/keyguard/ScreenLifecycle;
+
+    iget-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->smartspaceTransitionControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object/from16 v18, v1
+
+    check-cast v18, Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;
+
+    iget-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object/from16 v19, v1
+
+    check-cast v19, Lcom/android/internal/logging/UiEventLogger;
+
+    iget-object v0, v0, Lcom/android/systemui/recents/OverviewProxyService_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    move-object/from16 v16, v0
+    move-object/from16 v20, v0
 
-    check-cast v16, Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;
+    check-cast v20, Lcom/android/systemui/dump/DumpManager;
 
-    invoke-static/range {v2 .. v16}, Lcom/android/systemui/recents/OverviewProxyService_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/CommandQueue;Ldagger/Lazy;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/model/SysUiState;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/wm/shell/transition/ShellTransitions;Ljava/util/Optional;Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;)Lcom/android/systemui/recents/OverviewProxyService;
+    invoke-static/range {v2 .. v20}, Lcom/android/systemui/recents/OverviewProxyService_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/CommandQueue;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/model/SysUiState;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/wm/shell/transition/ShellTransitions;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/recents/OverviewProxyService;
 
     move-result-object v0
 

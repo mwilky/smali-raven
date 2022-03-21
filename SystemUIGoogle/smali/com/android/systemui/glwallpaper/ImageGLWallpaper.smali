@@ -320,7 +320,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/glwallpaper/ImageGLWallpaper;->mProgram:Lcom/android/systemui/glwallpaper/ImageGLProgram;
 
-    const-string/jumbo v1, "uTexture"
+    const-string v1, "uTexture"
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/glwallpaper/ImageGLProgram;->getUniformHandle(Ljava/lang/String;)I
 

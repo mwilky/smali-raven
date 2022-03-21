@@ -24,6 +24,14 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$ldw87q7r_SpVRwxoT4Y0OAVuDsA(Lcom/android/wm/shell/startingsurface/StartingWindowController$StartingSurfaceImpl;Lcom/android/wm/shell/startingsurface/StartingSurface$SysuiProxy;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/wm/shell/startingsurface/StartingWindowController$StartingSurfaceImpl;->lambda$setSysuiProxy$0(Lcom/android/wm/shell/startingsurface/StartingSurface$SysuiProxy;)V
+
+    return-void
+.end method
+
 .method private constructor <init>(Lcom/android/wm/shell/startingsurface/StartingWindowController;)V
     .locals 0
 
@@ -38,6 +46,20 @@
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/wm/shell/startingsurface/StartingWindowController$StartingSurfaceImpl;-><init>(Lcom/android/wm/shell/startingsurface/StartingWindowController;)V
+
+    return-void
+.end method
+
+.method private synthetic lambda$setSysuiProxy$0(Lcom/android/wm/shell/startingsurface/StartingSurface$SysuiProxy;)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController$StartingSurfaceImpl;->this$0:Lcom/android/wm/shell/startingsurface/StartingWindowController;
+
+    invoke-static {p0}, Lcom/android/wm/shell/startingsurface/StartingWindowController;->access$200(Lcom/android/wm/shell/startingsurface/StartingWindowController;)Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;
+
+    move-result-object p0
+
+    invoke-virtual {p0, p1}, Lcom/android/wm/shell/startingsurface/StartingSurfaceDrawer;->setSysuiProxy(Lcom/android/wm/shell/startingsurface/StartingSurface$SysuiProxy;)V
 
     return-void
 .end method
@@ -151,4 +173,22 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw p0
+.end method
+
+.method public setSysuiProxy(Lcom/android/wm/shell/startingsurface/StartingSurface$SysuiProxy;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/wm/shell/startingsurface/StartingWindowController$StartingSurfaceImpl;->this$0:Lcom/android/wm/shell/startingsurface/StartingWindowController;
+
+    invoke-static {v0}, Lcom/android/wm/shell/startingsurface/StartingWindowController;->access$300(Lcom/android/wm/shell/startingsurface/StartingWindowController;)Lcom/android/wm/shell/common/ShellExecutor;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/wm/shell/startingsurface/StartingWindowController$StartingSurfaceImpl$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p0, p1}, Lcom/android/wm/shell/startingsurface/StartingWindowController$StartingSurfaceImpl$$ExternalSyntheticLambda0;-><init>(Lcom/android/wm/shell/startingsurface/StartingWindowController$StartingSurfaceImpl;Lcom/android/wm/shell/startingsurface/StartingSurface$SysuiProxy;)V
+
+    invoke-interface {v0, v1}, Lcom/android/wm/shell/common/ShellExecutor;->execute(Ljava/lang/Runnable;)V
+
+    return-void
 .end method

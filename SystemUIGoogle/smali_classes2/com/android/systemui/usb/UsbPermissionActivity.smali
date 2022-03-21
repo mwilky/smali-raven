@@ -347,7 +347,7 @@
 
     iput-object p1, v4, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const v1, 0x10201d1
+    const v1, 0x10201d4
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -409,7 +409,7 @@
 
     iget-object p1, v4, Lcom/android/internal/app/AlertController$AlertParams;->mView:Landroid/view/View;
 
-    const v0, 0x1020231
+    const v0, 0x1020234
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

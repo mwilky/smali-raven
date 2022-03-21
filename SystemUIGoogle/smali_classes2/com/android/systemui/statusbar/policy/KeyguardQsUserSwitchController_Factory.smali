@@ -58,6 +58,16 @@
     .end annotation
 .end field
 
+.field private final featureFlagsProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/flags/FeatureFlags;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final keyguardStateControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -118,6 +128,16 @@
     .end annotation
 .end field
 
+.field private final userSwitchDialogControllerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/qs/user/UserSwitchDialogController;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final userSwitcherControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -140,7 +160,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -180,6 +200,12 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/flags/FeatureFlags;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/qs/user/UserSwitchDialogController;",
             ">;)V"
         }
     .end annotation
@@ -210,11 +236,15 @@
 
     iput-object p12, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController_Factory;->unlockedScreenOffAnimationControllerProvider:Ljavax/inject/Provider;
 
+    iput-object p13, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
+
+    iput-object p14, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController_Factory;->userSwitchDialogControllerProvider:Ljavax/inject/Provider;
+
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController_Factory;
-    .locals 14
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController_Factory;
+    .locals 16
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -253,18 +283,24 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/flags/FeatureFlags;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/qs/user/UserSwitchDialogController;",
             ">;)",
             "Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController_Factory;"
         }
     .end annotation
 
-    new-instance v13, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController_Factory;
+    new-instance v15, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController_Factory;
 
-    move-object v0, v13
+    move-object v0, v15
 
-    move-object v1, p0
+    move-object/from16 v1, p0
 
-    move-object v2, p1
+    move-object/from16 v2, p1
 
     move-object/from16 v3, p2
 
@@ -286,13 +322,17 @@
 
     move-object/from16 v12, p11
 
-    invoke-direct/range {v0 .. v12}, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v13, p12
 
-    return-object v13
+    move-object/from16 v14, p13
+
+    invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v15
 .end method
 
-.method public static newInstance(Landroid/widget/FrameLayout;Landroid/content/Context;Landroid/content/res/Resources;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/phone/DozeParameters;Ljavax/inject/Provider;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;
-    .locals 14
+.method public static newInstance(Landroid/widget/FrameLayout;Landroid/content/Context;Landroid/content/res/Resources;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/phone/DozeParameters;Ljavax/inject/Provider;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/qs/user/UserSwitchDialogController;)Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;
+    .locals 16
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -310,18 +350,20 @@
             "Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;",
             ">;",
             "Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;",
+            "Lcom/android/systemui/flags/FeatureFlags;",
+            "Lcom/android/systemui/qs/user/UserSwitchDialogController;",
             ")",
             "Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;"
         }
     .end annotation
 
-    new-instance v13, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;
+    new-instance v15, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;
 
-    move-object v0, v13
+    move-object v0, v15
 
-    move-object v1, p0
+    move-object/from16 v1, p0
 
-    move-object v2, p1
+    move-object/from16 v2, p1
 
     move-object/from16 v3, p2
 
@@ -343,15 +385,19 @@
 
     move-object/from16 v12, p11
 
-    invoke-direct/range {v0 .. v12}, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;-><init>(Landroid/widget/FrameLayout;Landroid/content/Context;Landroid/content/res/Resources;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/phone/DozeParameters;Ljavax/inject/Provider;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)V
+    move-object/from16 v13, p12
 
-    return-object v13
+    move-object/from16 v14, p13
+
+    invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;-><init>(Landroid/widget/FrameLayout;Landroid/content/Context;Landroid/content/res/Resources;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/phone/DozeParameters;Ljavax/inject/Provider;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/qs/user/UserSwitchDialogController;)V
+
+    return-object v15
 .end method
 
 
 # virtual methods
 .method public get()Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;
-    .locals 13
+    .locals 15
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController_Factory;->viewProvider:Ljavax/inject/Provider;
 
@@ -455,17 +501,37 @@
 
     iget-object v11, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController_Factory;->userDetailViewAdapterProvider:Ljavax/inject/Provider;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController_Factory;->unlockedScreenOffAnimationControllerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController_Factory;->unlockedScreenOffAnimationControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v12, v0
+
+    check-cast v12, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v13, v0
+
+    check-cast v13, Lcom/android/systemui/flags/FeatureFlags;
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController_Factory;->userSwitchDialogControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    move-object v12, p0
+    move-object v14, p0
 
-    check-cast v12, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
+    check-cast v14, Lcom/android/systemui/qs/user/UserSwitchDialogController;
 
-    invoke-static/range {v1 .. v12}, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController_Factory;->newInstance(Landroid/widget/FrameLayout;Landroid/content/Context;Landroid/content/res/Resources;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/phone/DozeParameters;Ljavax/inject/Provider;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;
+    invoke-static/range {v1 .. v14}, Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController_Factory;->newInstance(Landroid/widget/FrameLayout;Landroid/content/Context;Landroid/content/res/Resources;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/phone/DozeParameters;Ljavax/inject/Provider;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/qs/user/UserSwitchDialogController;)Lcom/android/systemui/statusbar/policy/KeyguardQsUserSwitchController;
 
     move-result-object p0
 

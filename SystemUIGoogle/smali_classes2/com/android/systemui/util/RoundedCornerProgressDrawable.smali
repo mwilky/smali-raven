@@ -70,6 +70,42 @@
 
 
 # virtual methods
+.method public canApplyTheme()Z
+    .locals 2
+
+    invoke-virtual {p0}, Landroid/graphics/drawable/InsetDrawable;->getDrawable()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    if-nez v0, :cond_0
+
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->canApplyTheme()Z
+
+    move-result v0
+
+    :goto_0
+    if-nez v0, :cond_1
+
+    invoke-super {p0}, Landroid/graphics/drawable/InsetDrawable;->canApplyTheme()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_2
+
+    :cond_1
+    const/4 v1, 0x1
+
+    :cond_2
+    return v1
+.end method
+
 .method public getChangingConfigurations()I
     .locals 0
 

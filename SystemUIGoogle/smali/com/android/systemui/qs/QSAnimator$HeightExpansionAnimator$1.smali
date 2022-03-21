@@ -84,14 +84,6 @@
 
     check-cast v3, Landroid/view/View;
 
-    invoke-virtual {v3}, Landroid/view/View;->getTop()I
-
-    move-result v4
-
-    add-int/2addr v4, p1
-
-    invoke-virtual {v3, v4}, Landroid/view/View;->setBottom(I)V
-
     instance-of v4, v3, Lcom/android/systemui/qs/tileimpl/HeightOverrideable;
 
     if-eqz v4, :cond_0
@@ -100,7 +92,18 @@
 
     invoke-interface {v3, p1}, Lcom/android/systemui/qs/tileimpl/HeightOverrideable;->setHeightOverride(I)V
 
+    goto :goto_1
+
     :cond_0
+    invoke-virtual {v3}, Landroid/view/View;->getTop()I
+
+    move-result v4
+
+    add-int/2addr v4, p1
+
+    invoke-virtual {v3, v4}, Landroid/view/View;->setBottom(I)V
+
+    :goto_1
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
@@ -120,7 +123,7 @@
 
     invoke-interface {p1}, Lcom/android/systemui/qs/TouchAnimator$Listener;->onAnimationAtStart()V
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_2
     const/high16 v1, 0x3f800000    # 1.0f
@@ -137,7 +140,7 @@
 
     invoke-interface {p1}, Lcom/android/systemui/qs/TouchAnimator$Listener;->onAnimationAtEnd()V
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_3
     iget v2, p0, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator$1;->mLastT:F
@@ -160,7 +163,7 @@
     invoke-interface {p1}, Lcom/android/systemui/qs/TouchAnimator$Listener;->onAnimationStarted()V
 
     :cond_5
-    :goto_1
+    :goto_2
     iput v0, p0, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator$1;->mLastT:F
 
     return-void

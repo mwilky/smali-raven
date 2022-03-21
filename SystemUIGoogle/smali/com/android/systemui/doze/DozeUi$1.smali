@@ -31,30 +31,6 @@
 
 
 # virtual methods
-.method public onKeyguardVisibilityChanged(Z)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/doze/DozeUi$1;->this$0:Lcom/android/systemui/doze/DozeUi;
-
-    invoke-static {v0, p1}, Lcom/android/systemui/doze/DozeUi;->access$002(Lcom/android/systemui/doze/DozeUi;Z)Z
-
-    iget-object p0, p0, Lcom/android/systemui/doze/DozeUi$1;->this$0:Lcom/android/systemui/doze/DozeUi;
-
-    invoke-static {p0}, Lcom/android/systemui/doze/DozeUi;->access$100(Lcom/android/systemui/doze/DozeUi;)V
-
-    return-void
-.end method
-
-.method public onShadeExpandedChanged(Z)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/doze/DozeUi$1;->this$0:Lcom/android/systemui/doze/DozeUi;
-
-    invoke-static {p0}, Lcom/android/systemui/doze/DozeUi;->access$100(Lcom/android/systemui/doze/DozeUi;)V
-
-    return-void
-.end method
-
 .method public onTimeChanged()V
     .locals 0
 

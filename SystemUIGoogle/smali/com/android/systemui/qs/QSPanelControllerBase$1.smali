@@ -35,31 +35,29 @@
 
 # virtual methods
 .method public onConfigurationChange(Landroid/content/res/Configuration;)V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSPanelControllerBase$1;->this$0:Lcom/android/systemui/qs/QSPanelControllerBase;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/QSPanelControllerBase;->access$100(Lcom/android/systemui/qs/QSPanelControllerBase;)Lcom/android/systemui/statusbar/FeatureFlags;
+    invoke-static {v0}, Lcom/android/systemui/qs/QSPanelControllerBase;->access$000(Lcom/android/systemui/qs/QSPanelControllerBase;)Landroid/content/res/Resources;
 
     move-result-object v1
 
-    iget-object v2, p0, Lcom/android/systemui/qs/QSPanelControllerBase$1;->this$0:Lcom/android/systemui/qs/QSPanelControllerBase;
-
-    invoke-static {v2}, Lcom/android/systemui/qs/QSPanelControllerBase;->access$200(Lcom/android/systemui/qs/QSPanelControllerBase;)Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Lcom/android/systemui/util/Utils;->shouldUseSplitNotificationShade(Lcom/android/systemui/statusbar/FeatureFlags;Landroid/content/res/Resources;)Z
+    invoke-static {v1}, Lcom/android/systemui/util/Utils;->shouldUseSplitNotificationShade(Landroid/content/res/Resources;)Z
 
     move-result v1
 
-    invoke-static {v0, v1}, Lcom/android/systemui/qs/QSPanelControllerBase;->access$002(Lcom/android/systemui/qs/QSPanelControllerBase;Z)Z
+    iput-boolean v1, v0, Lcom/android/systemui/qs/QSPanelControllerBase;->mShouldUseSplitNotificationShade:Z
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QSPanelControllerBase$1;->this$0:Lcom/android/systemui/qs/QSPanelControllerBase;
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/QSPanelControllerBase;->onConfigurationChanged()V
 
     iget v0, p1, Landroid/content/res/Configuration;->orientation:I
 
     iget-object v1, p0, Lcom/android/systemui/qs/QSPanelControllerBase$1;->this$0:Lcom/android/systemui/qs/QSPanelControllerBase;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/QSPanelControllerBase;->access$300(Lcom/android/systemui/qs/QSPanelControllerBase;)I
+    invoke-static {v1}, Lcom/android/systemui/qs/QSPanelControllerBase;->access$100(Lcom/android/systemui/qs/QSPanelControllerBase;)I
 
     move-result v1
 
@@ -69,7 +67,7 @@
 
     iget p1, p1, Landroid/content/res/Configuration;->orientation:I
 
-    invoke-static {v0, p1}, Lcom/android/systemui/qs/QSPanelControllerBase;->access$302(Lcom/android/systemui/qs/QSPanelControllerBase;I)I
+    invoke-static {v0, p1}, Lcom/android/systemui/qs/QSPanelControllerBase;->access$102(Lcom/android/systemui/qs/QSPanelControllerBase;I)I
 
     iget-object p0, p0, Lcom/android/systemui/qs/QSPanelControllerBase$1;->this$0:Lcom/android/systemui/qs/QSPanelControllerBase;
 

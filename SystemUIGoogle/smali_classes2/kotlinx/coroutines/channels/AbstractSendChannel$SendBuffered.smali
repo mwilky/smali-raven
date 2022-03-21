@@ -104,6 +104,23 @@
     return-object p0
 .end method
 
+.method public resumeSendClosed(Lkotlinx/coroutines/channels/Closed;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lkotlinx/coroutines/channels/Closed<",
+            "*>;)V"
+        }
+    .end annotation
+
+    const-string p0, "closed"
+
+    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkParameterIsNotNull(Ljava/lang/Object;Ljava/lang/String;)V
+
+    return-void
+.end method
+
 .method public tryResumeSend(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 

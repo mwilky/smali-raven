@@ -27,7 +27,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/classifier/ProximityClassifier;->mDistanceClassifier:Lcom/android/systemui/classifier/DistanceClassifier;
 
-    const-string/jumbo p1, "systemui"
+    const-string p1, "systemui"
 
     const-string p2, "brightline_falsing_proximity_percent_covered_threshold"
 

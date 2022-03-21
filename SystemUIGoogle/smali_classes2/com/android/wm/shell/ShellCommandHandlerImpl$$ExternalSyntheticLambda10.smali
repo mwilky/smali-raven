@@ -27,9 +27,9 @@
 
     iget-object p0, p0, Lcom/android/wm/shell/ShellCommandHandlerImpl$$ExternalSyntheticLambda10;->f$0:Ljava/io/PrintWriter;
 
-    check-cast p1, Lcom/android/wm/shell/splitscreen/SplitScreenController;
+    check-cast p1, Lcom/android/wm/shell/recents/RecentTasksController;
 
-    invoke-static {p0, p1}, Lcom/android/wm/shell/ShellCommandHandlerImpl;->$r8$lambda$BUWnPT3d0cAWLgS7qzH2wWN_lEc(Ljava/io/PrintWriter;Lcom/android/wm/shell/splitscreen/SplitScreenController;)V
+    invoke-static {p0, p1}, Lcom/android/wm/shell/ShellCommandHandlerImpl;->$r8$lambda$0WBK15HakPT6-vXTr1aXDkH32rc(Ljava/io/PrintWriter;Lcom/android/wm/shell/recents/RecentTasksController;)V
 
     return-void
 .end method

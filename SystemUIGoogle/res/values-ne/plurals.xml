@@ -32,18 +32,6 @@
         <item quantity="other">SIM को PUK कोड गलत छ, SIM सदाका लागि काम नलाग्ने हुनु अघि तपाईं अझै %d पटक प्रयास गर्न सक्नुहुन्छ।</item>
         <item quantity="one">SIM को PUK कोड गलत छ, SIM सदाका लागि काम नलाग्ने हुनु अघि तपाईं अझै %d पटक प्रयास गर्न सक्नुहुन्छ।</item>
     </plurals>
-    <plurals name="kg_prompt_reason_time_password">
-        <item quantity="other">यन्त्र %d घन्टा देखि अनलक भएको छैन। पासवर्ड पुष्टि गर्नुहोस्।</item>
-        <item quantity="one">यन्त्र %d घन्टा देखि अनलक भएको छैन। पासवर्ड पुष्टि गर्नुहोस्।</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pattern">
-        <item quantity="other">यन्त्र %d घन्टा देखि अनलक भएको छैन। ढाँचा पुष्टि गर्नुहोस्।</item>
-        <item quantity="one">यन्त्र %d घन्टा देखि अनलक भएको छैन। ढाँचा पुष्टि गर्नुहोस्।</item>
-    </plurals>
-    <plurals name="kg_prompt_reason_time_pin">
-        <item quantity="other">यन्त्र %d घन्टा देखि अनलक भएको छैन। PIN पुष्टि गर्नुहोस्।</item>
-        <item quantity="one">यन्त्र %d घन्टा देखि अनलक भएको छैन। PIN पुष्टि गर्नुहोस्।</item>
-    </plurals>
     <plurals name="kg_too_many_failed_attempts_countdown">
         <item quantity="other">%d सेकेन्डपछि फेरि प्रयास गर्नुहोस्।</item>
         <item quantity="one">१ सेकेन्डपछि फेरि प्रयास गर्नुहोस्।</item>

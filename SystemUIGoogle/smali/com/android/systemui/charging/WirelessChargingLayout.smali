@@ -191,7 +191,7 @@
 
     aput v14, v10, v4
 
-    const-string/jumbo v4, "textSize"
+    const-string v4, "textSize"
 
     invoke-static {v7, v4, v10}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
 
@@ -641,8 +641,6 @@
     invoke-virtual {v3}, Landroid/animation/AnimatorSet;->start()V
 
     return-void
-
-    nop
 
     :array_0
     .array-data 4

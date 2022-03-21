@@ -110,6 +110,14 @@
     return-object p0
 .end method
 
+.method static synthetic access$600(Lcom/android/keyguard/KeyguardMessageAreaController;)Landroid/view/View;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    return-object p0
+.end method
+
 
 # virtual methods
 .method protected onViewAttached()V

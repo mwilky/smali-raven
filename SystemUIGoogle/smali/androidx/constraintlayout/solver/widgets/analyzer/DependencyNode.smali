@@ -229,7 +229,7 @@
     goto :goto_0
 
     :cond_0
-    const-string/jumbo v1, "unresolved"
+    const-string v1, "unresolved"
 
     :goto_0
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;

@@ -25,8 +25,6 @@
 
 .field private final mLayoutTransition:Landroid/animation/LayoutTransition;
 
-.field private mLockScreenMode:I
-
 .field private mOnClickListener:Landroid/view/View$OnClickListener;
 
 .field private mRow:Lcom/android/keyguard/KeyguardSliceView$Row;
@@ -49,10 +47,6 @@
 
     iput p2, p0, Lcom/android/keyguard/KeyguardSliceView;->mDarkAmount:F
 
-    const/4 p2, 0x0
-
-    iput p2, p0, Lcom/android/keyguard/KeyguardSliceView;->mLockScreenMode:I
-
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     new-instance p1, Landroid/animation/LayoutTransition;
@@ -61,21 +55,23 @@
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardSliceView;->mLayoutTransition:Landroid/animation/LayoutTransition;
 
+    const/4 p0, 0x0
+
     const-wide/16 v0, 0x113
 
-    invoke-virtual {p1, p2, v0, v1}, Landroid/animation/LayoutTransition;->setStagger(IJ)V
+    invoke-virtual {p1, p0, v0, v1}, Landroid/animation/LayoutTransition;->setStagger(IJ)V
 
-    const/4 p0, 0x2
+    const/4 p2, 0x2
 
     const-wide/16 v2, 0x226
 
-    invoke-virtual {p1, p0, v2, v3}, Landroid/animation/LayoutTransition;->setDuration(IJ)V
+    invoke-virtual {p1, p2, v2, v3}, Landroid/animation/LayoutTransition;->setDuration(IJ)V
 
     const/4 v2, 0x3
 
     invoke-virtual {p1, v2, v0, v1}, Landroid/animation/LayoutTransition;->setDuration(IJ)V
 
-    invoke-virtual {p1, p2}, Landroid/animation/LayoutTransition;->disableTransitionType(I)V
+    invoke-virtual {p1, p0}, Landroid/animation/LayoutTransition;->disableTransitionType(I)V
 
     const/4 v0, 0x1
 
@@ -83,13 +79,13 @@
 
     sget-object v0, Lcom/android/systemui/animation/Interpolators;->FAST_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
 
-    invoke-virtual {p1, p0, v0}, Landroid/animation/LayoutTransition;->setInterpolator(ILandroid/animation/TimeInterpolator;)V
+    invoke-virtual {p1, p2, v0}, Landroid/animation/LayoutTransition;->setInterpolator(ILandroid/animation/TimeInterpolator;)V
 
-    sget-object p0, Lcom/android/systemui/animation/Interpolators;->ALPHA_OUT:Landroid/view/animation/Interpolator;
+    sget-object p2, Lcom/android/systemui/animation/Interpolators;->ALPHA_OUT:Landroid/view/animation/Interpolator;
 
-    invoke-virtual {p1, v2, p0}, Landroid/animation/LayoutTransition;->setInterpolator(ILandroid/animation/TimeInterpolator;)V
+    invoke-virtual {p1, v2, p2}, Landroid/animation/LayoutTransition;->setInterpolator(ILandroid/animation/TimeInterpolator;)V
 
-    invoke-virtual {p1, p2}, Landroid/animation/LayoutTransition;->setAnimateParentHierarchy(Z)V
+    invoke-virtual {p1, p0}, Landroid/animation/LayoutTransition;->setAnimateParentHierarchy(Z)V
 
     return-void
 .end method
@@ -576,26 +572,16 @@
 
     check-cast v4, Landroid/widget/LinearLayout$LayoutParams;
 
-    iget v7, p0, Lcom/android/keyguard/KeyguardSliceView;->mLockScreenMode:I
-
-    if-eqz v7, :cond_5
-
     const v7, 0x800003
 
-    goto :goto_3
-
-    :cond_5
-    const/16 v7, 0x11
-
-    :goto_3
     iput v7, v4, Landroid/widget/LinearLayout$LayoutParams;->gravity:I
 
     iget-object v7, p0, Lcom/android/keyguard/KeyguardSliceView;->mRow:Lcom/android/keyguard/KeyguardSliceView$Row;
 
     invoke-virtual {v7, v4}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    :goto_4
-    if-ge v6, p1, :cond_e
+    :goto_3
+    if-ge v6, p1, :cond_d
 
     invoke-interface {p2, v6}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -623,7 +609,7 @@
 
     check-cast v9, Lcom/android/keyguard/KeyguardSliceView$KeyguardSliceTextView;
 
-    if-nez v9, :cond_6
+    if-nez v9, :cond_5
 
     new-instance v9, Lcom/android/keyguard/KeyguardSliceView$KeyguardSliceTextView;
 
@@ -643,12 +629,12 @@
 
     invoke-virtual {v10, v9, v8}, Lcom/android/keyguard/KeyguardSliceView$Row;->addView(Landroid/view/View;I)V
 
-    :cond_6
+    :cond_5
     invoke-virtual {v4}, Landroidx/slice/widget/RowContent;->getPrimaryAction()Landroidx/slice/SliceItem;
 
     move-result-object v8
 
-    if-eqz v8, :cond_7
+    if-eqz v8, :cond_6
 
     invoke-virtual {v4}, Landroidx/slice/widget/RowContent;->getPrimaryAction()Landroidx/slice/SliceItem;
 
@@ -658,30 +644,30 @@
 
     move-result-object v8
 
-    goto :goto_5
+    goto :goto_4
 
-    :cond_7
+    :cond_6
     move-object v8, v5
 
-    :goto_5
+    :goto_4
     invoke-interface {v2, v9, v8}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-virtual {v4}, Landroidx/slice/widget/RowContent;->getTitleItem()Landroidx/slice/SliceItem;
 
     move-result-object v10
 
-    if-nez v10, :cond_8
+    if-nez v10, :cond_7
 
     move-object v10, v5
 
-    goto :goto_6
+    goto :goto_5
 
-    :cond_8
+    :cond_7
     invoke-virtual {v10}, Landroidx/slice/SliceItem;->getText()Ljava/lang/CharSequence;
 
     move-result-object v10
 
-    :goto_6
+    :goto_5
     invoke-virtual {v9, v10}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     invoke-virtual {v4}, Landroidx/slice/widget/SliceContent;->getContentDescription()Ljava/lang/CharSequence;
@@ -700,20 +686,20 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_a
 
     iget-boolean v7, p0, Lcom/android/keyguard/KeyguardSliceView;->mHasHeader:Z
 
-    if-eqz v7, :cond_9
+    if-eqz v7, :cond_8
 
     iget v7, p0, Lcom/android/keyguard/KeyguardSliceView;->mIconSizeWithHeader:I
 
-    goto :goto_7
+    goto :goto_6
 
-    :cond_9
+    :cond_8
     iget v7, p0, Lcom/android/keyguard/KeyguardSliceView;->mIconSize:I
 
-    :goto_7
+    :goto_6
     invoke-virtual {v4}, Landroidx/slice/SliceItem;->getIcon()Landroidx/core/graphics/drawable/IconCompat;
 
     move-result-object v4
@@ -724,15 +710,11 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_c
+    if-eqz v4, :cond_b
 
     instance-of v10, v4, Landroid/graphics/drawable/InsetDrawable;
 
-    if-eqz v10, :cond_a
-
-    iget v10, p0, Lcom/android/keyguard/KeyguardSliceView;->mLockScreenMode:I
-
-    if-ne v10, v0, :cond_a
+    if-eqz v10, :cond_9
 
     check-cast v4, Landroid/graphics/drawable/InsetDrawable;
 
@@ -740,7 +722,7 @@
 
     move-result-object v4
 
-    :cond_a
+    :cond_9
     invoke-virtual {v4}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v10
@@ -767,44 +749,44 @@
 
     invoke-virtual {v4, v1, v1, v10, v7}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    goto :goto_8
+    goto :goto_7
 
-    :cond_b
+    :cond_a
     move-object v4, v5
 
-    :cond_c
-    :goto_8
+    :cond_b
+    :goto_7
     invoke-virtual {v9, v4, v5, v5, v5}, Lcom/android/keyguard/KeyguardSliceView$KeyguardSliceTextView;->setCompoundDrawablesRelative(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
     iget-object v4, p0, Lcom/android/keyguard/KeyguardSliceView;->mOnClickListener:Landroid/view/View$OnClickListener;
 
     invoke-virtual {v9, v4}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    if-eqz v8, :cond_d
+    if-eqz v8, :cond_c
 
     move v4, v0
 
-    goto :goto_9
+    goto :goto_8
 
-    :cond_d
+    :cond_c
     move v4, v1
 
-    :goto_9
+    :goto_8
     invoke-virtual {v9, v4}, Landroid/widget/TextView;->setClickable(Z)V
 
     add-int/lit8 v6, v6, 0x1
 
-    goto/16 :goto_4
+    goto/16 :goto_3
 
-    :cond_e
-    :goto_a
+    :cond_d
+    :goto_9
     iget-object p1, p0, Lcom/android/keyguard/KeyguardSliceView;->mRow:Lcom/android/keyguard/KeyguardSliceView$Row;
 
     invoke-virtual {p1}, Landroid/widget/LinearLayout;->getChildCount()I
 
     move-result p1
 
-    if-ge v1, p1, :cond_10
+    if-ge v1, p1, :cond_f
 
     iget-object p1, p0, Lcom/android/keyguard/KeyguardSliceView;->mRow:Lcom/android/keyguard/KeyguardSliceView$Row;
 
@@ -816,7 +798,7 @@
 
     move-result p2
 
-    if-nez p2, :cond_f
+    if-nez p2, :cond_e
 
     iget-object p2, p0, Lcom/android/keyguard/KeyguardSliceView;->mRow:Lcom/android/keyguard/KeyguardSliceView$Row;
 
@@ -824,104 +806,20 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    :cond_f
+    :cond_e
     add-int/2addr v1, v0
 
-    goto :goto_a
+    goto :goto_9
 
-    :cond_10
+    :cond_f
     iget-object p0, p0, Lcom/android/keyguard/KeyguardSliceView;->mContentChangeListener:Ljava/lang/Runnable;
 
-    if-eqz p0, :cond_11
+    if-eqz p0, :cond_10
 
     invoke-interface {p0}, Ljava/lang/Runnable;->run()V
 
-    :cond_11
+    :cond_10
     invoke-static {}, Landroid/os/Trace;->endSection()V
 
     return-object v2
-.end method
-
-.method public updateLockScreenMode(I)V
-    .locals 5
-
-    iput p1, p0, Lcom/android/keyguard/KeyguardSliceView;->mLockScreenMode:I
-
-    const/16 v0, 0xe
-
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
-
-    if-ne p1, v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardSliceView;->mTitle:Landroid/widget/TextView;
-
-    invoke-virtual {v1, v2, v2, v2, v2}, Landroid/widget/TextView;->setPaddingRelative(IIII)V
-
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardSliceView;->mTitle:Landroid/widget/TextView;
-
-    const v2, 0x800003
-
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setGravity(I)V
-
-    invoke-virtual {p0, v2}, Landroid/widget/LinearLayout;->setGravity(I)V
-
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/RelativeLayout$LayoutParams;
-
-    invoke-virtual {v1, v0}, Landroid/widget/RelativeLayout$LayoutParams;->removeRule(I)V
-
-    invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    goto :goto_0
-
-    :cond_0
-    const/high16 v3, 0x42300000    # 44.0f
-
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
-
-    move-result-object v4
-
-    invoke-static {v1, v3, v4}, Landroid/util/TypedValue;->applyDimension(IFLandroid/util/DisplayMetrics;)F
-
-    move-result v3
-
-    float-to-int v3, v3
-
-    iget-object v4, p0, Lcom/android/keyguard/KeyguardSliceView;->mTitle:Landroid/widget/TextView;
-
-    invoke-virtual {v4, v3, v2, v3, v2}, Landroid/widget/TextView;->setPaddingRelative(IIII)V
-
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardSliceView;->mTitle:Landroid/widget/TextView;
-
-    invoke-virtual {v2, v1}, Landroid/widget/TextView;->setGravity(I)V
-
-    invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->setGravity(I)V
-
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/widget/RelativeLayout$LayoutParams;
-
-    invoke-virtual {v1, v0}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(I)V
-
-    invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    :goto_0
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardSliceView;->mRow:Lcom/android/keyguard/KeyguardSliceView$Row;
-
-    invoke-virtual {v0, p1}, Lcom/android/keyguard/KeyguardSliceView$Row;->setLockscreenMode(I)V
-
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->requestLayout()V
-
-    return-void
 .end method

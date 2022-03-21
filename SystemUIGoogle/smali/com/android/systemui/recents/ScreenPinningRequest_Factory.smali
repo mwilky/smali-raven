@@ -33,9 +33,8 @@
         value = {
             "Ljavax/inject/Provider<",
             "Ljava/util/Optional<",
-            "Ldagger/Lazy<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;>;"
+            ">;>;"
         }
     .end annotation
 .end field
@@ -52,9 +51,8 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Ljava/util/Optional<",
-            "Ldagger/Lazy<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;>;)V"
+            ">;>;)V"
         }
     .end annotation
 
@@ -77,9 +75,8 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Ljava/util/Optional<",
-            "Ldagger/Lazy<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;>;)",
+            ">;>;)",
             "Lcom/android/systemui/recents/ScreenPinningRequest_Factory;"
         }
     .end annotation
@@ -91,14 +88,14 @@
     return-object v0
 .end method
 
-.method public static newInstance(Landroid/content/Context;Ljava/util/Optional;)Lcom/android/systemui/recents/ScreenPinningRequest;
+.method public static newInstance(Landroid/content/Context;Ldagger/Lazy;)Lcom/android/systemui/recents/ScreenPinningRequest;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/content/Context;",
-            "Ljava/util/Optional<",
             "Ldagger/Lazy<",
+            "Ljava/util/Optional<",
             "Lcom/android/systemui/statusbar/phone/StatusBar;",
             ">;>;)",
             "Lcom/android/systemui/recents/ScreenPinningRequest;"
@@ -107,7 +104,7 @@
 
     new-instance v0, Lcom/android/systemui/recents/ScreenPinningRequest;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/recents/ScreenPinningRequest;-><init>(Landroid/content/Context;Ljava/util/Optional;)V
+    invoke-direct {v0, p0, p1}, Lcom/android/systemui/recents/ScreenPinningRequest;-><init>(Landroid/content/Context;Ldagger/Lazy;)V
 
     return-object v0
 .end method
@@ -127,13 +124,11 @@
 
     iget-object p0, p0, Lcom/android/systemui/recents/ScreenPinningRequest_Factory;->statusBarOptionalLazyProvider:Ljavax/inject/Provider;
 
-    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    invoke-static {p0}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
 
     move-result-object p0
 
-    check-cast p0, Ljava/util/Optional;
-
-    invoke-static {v0, p0}, Lcom/android/systemui/recents/ScreenPinningRequest_Factory;->newInstance(Landroid/content/Context;Ljava/util/Optional;)Lcom/android/systemui/recents/ScreenPinningRequest;
+    invoke-static {v0, p0}, Lcom/android/systemui/recents/ScreenPinningRequest_Factory;->newInstance(Landroid/content/Context;Ldagger/Lazy;)Lcom/android/systemui/recents/ScreenPinningRequest;
 
     move-result-object p0
 

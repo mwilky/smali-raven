@@ -18,16 +18,16 @@
 
 
 # instance fields
-.field private mThresholdSensorEvent:Lcom/android/systemui/util/sensors/ThresholdSensor$ThresholdSensorEvent;
+.field private mThresholdSensorEvent:Lcom/android/systemui/util/sensors/ThresholdSensorEvent;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/util/sensors/ThresholdSensor$ThresholdSensorEvent;)V
+.method constructor <init>(Lcom/android/systemui/util/sensors/ThresholdSensorEvent;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/classifier/FalsingCollectorImpl$ProximityEventImpl;->mThresholdSensorEvent:Lcom/android/systemui/util/sensors/ThresholdSensor$ThresholdSensorEvent;
+    iput-object p1, p0, Lcom/android/systemui/classifier/FalsingCollectorImpl$ProximityEventImpl;->mThresholdSensorEvent:Lcom/android/systemui/util/sensors/ThresholdSensorEvent;
 
     return-void
 .end method
@@ -37,9 +37,9 @@
 .method public getCovered()Z
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/classifier/FalsingCollectorImpl$ProximityEventImpl;->mThresholdSensorEvent:Lcom/android/systemui/util/sensors/ThresholdSensor$ThresholdSensorEvent;
+    iget-object p0, p0, Lcom/android/systemui/classifier/FalsingCollectorImpl$ProximityEventImpl;->mThresholdSensorEvent:Lcom/android/systemui/util/sensors/ThresholdSensorEvent;
 
-    invoke-virtual {p0}, Lcom/android/systemui/util/sensors/ThresholdSensor$ThresholdSensorEvent;->getBelow()Z
+    invoke-virtual {p0}, Lcom/android/systemui/util/sensors/ThresholdSensorEvent;->getBelow()Z
 
     move-result p0
 
@@ -49,9 +49,9 @@
 .method public getTimestampNs()J
     .locals 2
 
-    iget-object p0, p0, Lcom/android/systemui/classifier/FalsingCollectorImpl$ProximityEventImpl;->mThresholdSensorEvent:Lcom/android/systemui/util/sensors/ThresholdSensor$ThresholdSensorEvent;
+    iget-object p0, p0, Lcom/android/systemui/classifier/FalsingCollectorImpl$ProximityEventImpl;->mThresholdSensorEvent:Lcom/android/systemui/util/sensors/ThresholdSensorEvent;
 
-    invoke-virtual {p0}, Lcom/android/systemui/util/sensors/ThresholdSensor$ThresholdSensorEvent;->getTimestampNs()J
+    invoke-virtual {p0}, Lcom/android/systemui/util/sensors/ThresholdSensorEvent;->getTimestampNs()J
 
     move-result-wide v0
 

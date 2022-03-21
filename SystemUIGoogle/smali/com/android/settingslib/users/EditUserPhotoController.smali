@@ -186,7 +186,7 @@
 
     const-string v0, "crop"
 
-    const-string/jumbo v1, "true"
+    const-string v1, "true"
 
     invoke-virtual {p1, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
