@@ -118,6 +118,14 @@
     return-object p0
 .end method
 
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d07
+
+    return p0
+.end method
+
 .method public getSummary()Ljava/lang/CharSequence;
     .locals 2
 
@@ -135,12 +143,12 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f040314
+    const p0, 0x7f040328
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f040315
+    const p0, 0x7f040329
 
     :goto_0
     invoke-virtual {v0, p0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;

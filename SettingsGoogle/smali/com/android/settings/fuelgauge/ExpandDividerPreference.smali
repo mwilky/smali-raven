@@ -28,14 +28,6 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$37-NW20HbcVMFf0glW_MGMN4zSE(Lcom/android/settings/fuelgauge/ExpandDividerPreference;Ljava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settings/fuelgauge/ExpandDividerPreference;->lambda$setTitle$0(Ljava/lang/String;)V
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
@@ -59,7 +51,7 @@
 
     iput-object p1, p0, Lcom/android/settings/fuelgauge/ExpandDividerPreference;->mTitleContent:Ljava/lang/String;
 
-    const p1, 0x7f060197
+    const p1, 0x7f06019b
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -70,42 +62,37 @@
     return-void
 .end method
 
-.method private synthetic lambda$setTitle$0(Ljava/lang/String;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settings/fuelgauge/ExpandDividerPreference;->mTextView:Landroid/widget/TextView;
-
-    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    return-void
-.end method
-
 .method private refreshState()V
     .locals 2
 
-    iget-boolean v0, p0, Lcom/android/settings/fuelgauge/ExpandDividerPreference;->mIsExpanded:Z
+    iget-object v0, p0, Lcom/android/settings/fuelgauge/ExpandDividerPreference;->mImageView:Landroid/widget/ImageView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
-    const v0, 0x7f02033a
+    iget-boolean v1, p0, Lcom/android/settings/fuelgauge/ExpandDividerPreference;->mIsExpanded:Z
+
+    if-eqz v1, :cond_0
+
+    const v1, 0x7f020341
 
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f02033b
+    const v1, 0x7f020342
 
     :goto_0
-    iget-object v1, p0, Lcom/android/settings/fuelgauge/ExpandDividerPreference;->mImageView:Landroid/widget/ImageView;
-
-    if-eqz v1, :cond_1
-
-    invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setImageResource(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
     :cond_1
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/ExpandDividerPreference;->mTitleContent:Ljava/lang/String;
+    iget-object v0, p0, Lcom/android/settings/fuelgauge/ExpandDividerPreference;->mTextView:Landroid/widget/TextView;
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/fuelgauge/ExpandDividerPreference;->setTitle(Ljava/lang/String;)V
+    if-eqz v0, :cond_2
 
+    iget-object p0, p0, Lcom/android/settings/fuelgauge/ExpandDividerPreference;->mTitleContent:Ljava/lang/String;
+
+    invoke-virtual {v0, p0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    :cond_2
     return-void
 .end method
 
@@ -116,7 +103,7 @@
 
     invoke-super {p0, p1}, Landroidx/preference/Preference;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
 
-    const v0, 0x7f0d021a
+    const v0, 0x7f0d021f
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -126,7 +113,7 @@
 
     iput-object v0, p0, Lcom/android/settings/fuelgauge/ExpandDividerPreference;->mTextView:Landroid/widget/TextView;
 
-    const v0, 0x7f0d0218
+    const v0, 0x7f0d021d
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -148,9 +135,7 @@
 
     xor-int/lit8 v0, v0, 0x1
 
-    iput-boolean v0, p0, Lcom/android/settings/fuelgauge/ExpandDividerPreference;->mIsExpanded:Z
-
-    invoke-direct {p0}, Lcom/android/settings/fuelgauge/ExpandDividerPreference;->refreshState()V
+    invoke-virtual {p0, v0}, Lcom/android/settings/fuelgauge/ExpandDividerPreference;->setIsExpanded(Z)V
 
     iget-object v0, p0, Lcom/android/settings/fuelgauge/ExpandDividerPreference;->mOnExpandListener:Lcom/android/settings/fuelgauge/ExpandDividerPreference$OnExpandListener;
 
@@ -183,22 +168,11 @@
 .end method
 
 .method setTitle(Ljava/lang/String;)V
-    .locals 2
+    .locals 0
 
     iput-object p1, p0, Lcom/android/settings/fuelgauge/ExpandDividerPreference;->mTitleContent:Ljava/lang/String;
 
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/ExpandDividerPreference;->mTextView:Landroid/widget/TextView;
+    invoke-direct {p0}, Lcom/android/settings/fuelgauge/ExpandDividerPreference;->refreshState()V
 
-    if-eqz v0, :cond_0
-
-    new-instance v1, Lcom/android/settings/fuelgauge/ExpandDividerPreference$$ExternalSyntheticLambda0;
-
-    invoke-direct {v1, p0, p1}, Lcom/android/settings/fuelgauge/ExpandDividerPreference$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/fuelgauge/ExpandDividerPreference;Ljava/lang/String;)V
-
-    const-wide/16 p0, 0x32
-
-    invoke-virtual {v0, v1, p0, p1}, Landroid/widget/TextView;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    :cond_0
     return-void
 .end method

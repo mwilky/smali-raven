@@ -239,7 +239,7 @@
     :try_start_0
     const-string v0, "LocalBluetoothManager"
 
-    const-string v1, "setting foreground activity to non-null context"
+    const-string/jumbo v1, "setting foreground activity to non-null context"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -258,7 +258,7 @@
 
     const-string p1, "LocalBluetoothManager"
 
-    const-string v0, "setting foreground activity to null"
+    const-string/jumbo v0, "setting foreground activity to null"
 
     invoke-static {p1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 

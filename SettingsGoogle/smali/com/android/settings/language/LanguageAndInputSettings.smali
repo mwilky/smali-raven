@@ -13,7 +13,7 @@
 
     new-instance v0, Lcom/android/settings/language/LanguageAndInputSettings$1;
 
-    const v1, 0x7f150085
+    const v1, 0x7f150086
 
     invoke-direct {v0, v1}, Lcom/android/settings/language/LanguageAndInputSettings$1;-><init>(I)V
 
@@ -106,7 +106,7 @@
 
     new-instance p1, Lcom/android/settings/language/TtsPreferenceController;
 
-    const-string v2, "tts_settings_summary"
+    const-string/jumbo v2, "tts_settings_summary"
 
     invoke-direct {p1, p0, v2}, Lcom/android/settings/language/TtsPreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
@@ -194,7 +194,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150085
+    const p0, 0x7f150086
 
     return p0
 .end method

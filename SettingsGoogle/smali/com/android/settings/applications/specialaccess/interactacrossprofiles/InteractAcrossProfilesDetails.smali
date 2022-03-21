@@ -82,7 +82,7 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/specialaccess/interactacrossprofiles/InteractAcrossProfilesDetails;->mHeader:Lcom/android/settingslib/widget/LayoutPreference;
 
-    const v1, 0x7f0d0206
+    const v1, 0x7f0d020b
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -111,7 +111,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/applications/specialaccess/interactacrossprofiles/InteractAcrossProfilesDetails;->mHeader:Lcom/android/settingslib/widget/LayoutPreference;
 
-    const v1, 0x7f0d0201
+    const v1, 0x7f0d0206
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -159,7 +159,7 @@
     :cond_2
     iget-object p1, p0, Lcom/android/settings/applications/specialaccess/interactacrossprofiles/InteractAcrossProfilesDetails;->mHeader:Lcom/android/settingslib/widget/LayoutPreference;
 
-    const v0, 0x7f0d0202
+    const v0, 0x7f0d0207
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -277,13 +277,13 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/specialaccess/interactacrossprofiles/InteractAcrossProfilesDetails;->mSwitchPref:Lcom/android/settingslib/RestrictedSwitchPreference;
 
-    const v1, 0x7f040aa3
+    const v1, 0x7f040abb
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setTitle(I)V
 
     iget-object v0, p0, Lcom/android/settings/applications/specialaccess/interactacrossprofiles/InteractAcrossProfilesDetails;->mHeader:Lcom/android/settingslib/widget/LayoutPreference;
 
-    const v1, 0x7f0d0205
+    const v1, 0x7f0d020a
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -295,7 +295,7 @@
 
     iget-object p0, p0, Lcom/android/settings/applications/specialaccess/interactacrossprofiles/InteractAcrossProfilesDetails;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f02037f
+    const v1, 0x7f020386
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -332,13 +332,13 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/specialaccess/interactacrossprofiles/InteractAcrossProfilesDetails;->mSwitchPref:Lcom/android/settingslib/RestrictedSwitchPreference;
 
-    const v1, 0x7f040aa4
+    const v1, 0x7f040abc
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setTitle(I)V
 
     iget-object v0, p0, Lcom/android/settings/applications/specialaccess/interactacrossprofiles/InteractAcrossProfilesDetails;->mHeader:Lcom/android/settingslib/widget/LayoutPreference;
 
-    const v1, 0x7f0d0205
+    const v1, 0x7f0d020a
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -350,7 +350,7 @@
 
     iget-object p0, p0, Lcom/android/settings/applications/specialaccess/interactacrossprofiles/InteractAcrossProfilesDetails;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f02037e
+    const v1, 0x7f020385
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -371,12 +371,12 @@
 
     if-eqz p1, :cond_0
 
-    const p1, 0x7f040aa1
+    const p1, 0x7f040ab9
 
     goto :goto_0
 
     :cond_0
-    const p1, 0x7f040aa2
+    const p1, 0x7f040aba
 
     :goto_0
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -876,7 +876,7 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/specialaccess/interactacrossprofiles/InteractAcrossProfilesDetails;->mSwitchPref:Lcom/android/settingslib/RestrictedSwitchPreference;
 
-    const v2, 0x7f040aa3
+    const v2, 0x7f040abb
 
     invoke-virtual {v0, v2}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -924,13 +924,13 @@
     return v1
 
     :cond_1
-    const v3, 0x7f040a99
+    const v3, 0x7f040ab1
 
     if-nez v0, :cond_3
 
     iget-object v0, p0, Lcom/android/settings/applications/specialaccess/interactacrossprofiles/InteractAcrossProfilesDetails;->mInstallBanner:Lcom/android/settings/widget/CardPreference;
 
-    const v4, 0x7f040a9a
+    const v4, 0x7f040ab2
 
     new-array v5, v2, [Ljava/lang/Object;
 
@@ -966,7 +966,7 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/specialaccess/interactacrossprofiles/InteractAcrossProfilesDetails;->mInstallBanner:Lcom/android/settings/widget/CardPreference;
 
-    const v4, 0x7f040a9b
+    const v4, 0x7f040ab3
 
     new-array v5, v2, [Ljava/lang/Object;
 
@@ -1006,7 +1006,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f06010e
+    const v1, 0x7f060112
 
     const/4 v2, 0x0
 
@@ -1014,7 +1014,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d02df
+    const v1, 0x7f0d02eb
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1032,7 +1032,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f040a97
+    const v4, 0x7f040aaf
 
     invoke-virtual {p0, v4, v3}, Landroidx/fragment/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1040,7 +1040,7 @@
 
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v1, 0x7f0d0091
+    const v1, 0x7f0d0094
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1054,7 +1054,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f040a92
+    const v4, 0x7f040aaa
 
     invoke-virtual {p0, v4, v3}, Landroidx/fragment/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1062,7 +1062,7 @@
 
     invoke-virtual {v1, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v1, 0x7f0d042e
+    const v1, 0x7f0d043c
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1076,7 +1076,7 @@
 
     aput-object v3, v2, v5
 
-    const v3, 0x7f040a94
+    const v3, 0x7f040aac
 
     invoke-virtual {p0, v3, v2}, Landroidx/fragment/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1100,7 +1100,7 @@
 
     invoke-direct {v1, p0}, Lcom/android/settings/applications/specialaccess/interactacrossprofiles/InteractAcrossProfilesDetails$2;-><init>(Lcom/android/settings/applications/specialaccess/interactacrossprofiles/InteractAcrossProfilesDetails;)V
 
-    const v2, 0x7f0401e5
+    const v2, 0x7f0401f9
 
     invoke-virtual {v0, v2, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -1110,7 +1110,7 @@
 
     invoke-direct {v1, p0}, Lcom/android/settings/applications/specialaccess/interactacrossprofiles/InteractAcrossProfilesDetails$1;-><init>(Lcom/android/settings/applications/specialaccess/interactacrossprofiles/InteractAcrossProfilesDetails;)V
 
-    const p0, 0x7f0407b0
+    const p0, 0x7f0407c8
 
     invoke-virtual {v0, p0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -1275,7 +1275,7 @@
 
     iput-object p1, p0, Lcom/android/settings/applications/specialaccess/interactacrossprofiles/InteractAcrossProfilesDetails;->mInstallAppIntent:Landroid/content/Intent;
 
-    const p1, 0x7f150082
+    const p1, 0x7f150083
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 

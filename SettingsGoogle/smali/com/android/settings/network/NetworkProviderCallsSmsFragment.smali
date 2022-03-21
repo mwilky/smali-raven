@@ -27,7 +27,7 @@
 
     new-instance v0, Lcom/android/settings/network/NetworkProviderCallsSmsFragment$1;
 
-    const v1, 0x7f15009a
+    const v1, 0x7f15009f
 
     invoke-direct {v0, v1}, Lcom/android/settings/network/NetworkProviderCallsSmsFragment$1;-><init>(I)V
 
@@ -133,7 +133,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15009a
+    const p0, 0x7f15009f
 
     return p0
 .end method

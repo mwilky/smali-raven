@@ -164,7 +164,7 @@
 
     iget-object v0, v1, Lcom/android/settings/MainClear;->mContentView:Landroid/view/View;
 
-    const v2, 0x7f0d0039
+    const v2, 0x7f0d003a
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -172,7 +172,7 @@
 
     iget-object v0, v1, Lcom/android/settings/MainClear;->mContentView:Landroid/view/View;
 
-    const v3, 0x7f0d0038
+    const v3, 0x7f0d0039
 
     invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -288,12 +288,12 @@
 
     if-eqz v13, :cond_1
 
-    const v13, 0x7f040581
+    const v13, 0x7f040599
 
     goto :goto_1
 
     :cond_1
-    const v13, 0x7f040580
+    const v13, 0x7f040598
 
     :goto_1
     invoke-virtual {v6, v13}, Landroid/widget/TextView;->setText(I)V
@@ -522,7 +522,7 @@
     :cond_7
     move-object/from16 v0, v16
 
-    const v5, 0x7f060119
+    const v5, 0x7f06011d
 
     const/4 v8, 0x0
 
@@ -597,7 +597,7 @@
     :cond_a
     iget-object v0, v1, Lcom/android/settings/MainClear;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0d03fb
+    const v1, 0x7f0d0409
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -657,7 +657,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f040c69
+    const p1, 0x7f040c81
 
     invoke-virtual {v0, p1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -730,7 +730,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/MainClear;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0d04e2
+    const v1, 0x7f0d04f1
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -754,7 +754,7 @@
 
     invoke-direct {v1, v2}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f040c5c
+    const v2, 0x7f040c74
 
     invoke-virtual {v1, v2}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -772,7 +772,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f13021a
+    const v2, 0x7f13021c
 
     invoke-virtual {v1, v2}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -804,7 +804,7 @@
 
     iget-object v0, p0, Lcom/android/settings/MainClear;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0d020a
+    const v1, 0x7f0d020f
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -814,7 +814,7 @@
 
     iget-object v0, p0, Lcom/android/settings/MainClear;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0d0209
+    const v1, 0x7f0d020e
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -826,7 +826,7 @@
 
     iget-object v0, p0, Lcom/android/settings/MainClear;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0d0208
+    const v1, 0x7f0d020d
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -836,7 +836,7 @@
 
     iget-object v0, p0, Lcom/android/settings/MainClear;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0d0207
+    const v1, 0x7f0d020c
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -859,7 +859,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/MainClear;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0d0339
+    const v1, 0x7f0d0347
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -914,7 +914,7 @@
 
     iget-object v3, p0, Lcom/android/settings/MainClear;->mContentView:Landroid/view/View;
 
-    const v5, 0x7f0d020b
+    const v5, 0x7f0d0210
 
     invoke-virtual {v3, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -924,7 +924,7 @@
 
     iget-object v3, p0, Lcom/android/settings/MainClear;->mContentView:Landroid/view/View;
 
-    const v4, 0x7f0d0080
+    const v4, 0x7f0d0082
 
     invoke-virtual {v3, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -968,7 +968,7 @@
     :cond_3
     iget-object v0, p0, Lcom/android/settings/MainClear;->mContentView:Landroid/view/View;
 
-    const v3, 0x7f0d007f
+    const v3, 0x7f0d0081
 
     invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -978,7 +978,7 @@
 
     iget-object v0, p0, Lcom/android/settings/MainClear;->mContentView:Landroid/view/View;
 
-    const v3, 0x7f0d03dc
+    const v3, 0x7f0d03ea
 
     invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1002,7 +1002,7 @@
 
     move-result-object v0
 
-    const-string v1, "user"
+    const-string/jumbo v1, "user"
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -1018,7 +1018,7 @@
 
     iget-object v1, p0, Lcom/android/settings/MainClear;->mContentView:Landroid/view/View;
 
-    const v2, 0x7f0d0338
+    const v2, 0x7f0d0346
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1054,19 +1054,19 @@
 
     move-result-object p0
 
-    const v0, 0x7f04017f
+    const v0, 0x7f040193
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f040171
+    const v1, 0x7f040185
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    const v2, 0x7f040170
+    const v2, 0x7f040184
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1421,7 +1421,7 @@
 
     if-nez p2, :cond_2
 
-    const p0, 0x7f06011b
+    const p0, 0x7f06011f
 
     invoke-virtual {p1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -1465,7 +1465,7 @@
     return-object p1
 
     :cond_3
-    const p2, 0x7f060118
+    const p2, 0x7f06011c
 
     invoke-virtual {p1, p2, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -1561,7 +1561,7 @@
 
     const-string v0, ":settings:show_fragment_title_resid"
 
-    const v2, 0x7f040c5d
+    const v2, 0x7f040c75
 
     invoke-virtual {v1, v0, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 

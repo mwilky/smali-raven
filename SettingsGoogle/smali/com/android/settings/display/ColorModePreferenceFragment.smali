@@ -66,7 +66,7 @@
 
     new-instance v0, Lcom/android/settings/display/ColorModePreferenceFragment$3;
 
-    const v1, 0x7f150045
+    const v1, 0x7f150046
 
     invoke-direct {v0, v1}, Lcom/android/settings/display/ColorModePreferenceFragment$3;-><init>(I)V
 
@@ -216,7 +216,7 @@
 
     aget-object v2, v2, v1
 
-    const v3, 0x7f0201a5
+    const v3, 0x7f0201ac
 
     invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
@@ -233,7 +233,7 @@
 
     aget-object v2, v2, v1
 
-    const v4, 0x7f0201a6
+    const v4, 0x7f0201ad
 
     invoke-virtual {v2, v4}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
@@ -306,7 +306,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f06007d
+    const v2, 0x7f06007f
 
     invoke-direct {v0, v1, v2}, Lcom/android/settingslib/widget/LayoutPreference;-><init>(Landroid/content/Context;I)V
 
@@ -324,7 +324,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d061d
+    const v1, 0x7f0d062d
 
     invoke-virtual {p1, v1}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -422,7 +422,7 @@
 
     invoke-virtual {v0, v2}, Landroidx/viewpager/widget/ViewPager;->setAdapter(Landroidx/viewpager/widget/PagerAdapter;)V
 
-    const v0, 0x7f0d00ad
+    const v0, 0x7f0d00b0
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -436,7 +436,7 @@
 
     invoke-virtual {v0, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f0d00ac
+    const v0, 0x7f0d00af
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -458,7 +458,7 @@
 
     invoke-virtual {v0, v2}, Landroidx/viewpager/widget/ViewPager;->addOnPageChangeListener(Landroidx/viewpager/widget/ViewPager$OnPageChangeListener;)V
 
-    const v0, 0x7f0d0617
+    const v0, 0x7f0d0627
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -684,7 +684,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150045
+    const p0, 0x7f150046
 
     return p0
 .end method
@@ -706,7 +706,7 @@
 
     new-array v0, v0, [Ljava/lang/Integer;
 
-    const v1, 0x7f06007e
+    const v1, 0x7f060080
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -716,7 +716,7 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f06007f
+    const v1, 0x7f060081
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -726,7 +726,7 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f060080
+    const v1, 0x7f060082
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 

@@ -30,7 +30,7 @@
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
-    const-string v0, "show_clip_access_notification"
+    const-string/jumbo v0, "show_clip_access_notification"
 
     invoke-direct {p0, p1, v0}, Lcom/android/settings/core/TogglePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
@@ -58,7 +58,7 @@
 
     const-string v0, "clipboard"
 
-    const-string v1, "show_access_notifications"
+    const-string/jumbo v1, "show_access_notifications"
 
     const/4 v2, 0x1
 
@@ -138,6 +138,14 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d0c
+
+    return p0
 .end method
 
 .method public bridge synthetic hasAsyncUpdate()Z

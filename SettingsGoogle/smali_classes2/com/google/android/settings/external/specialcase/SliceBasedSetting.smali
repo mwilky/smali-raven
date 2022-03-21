@@ -15,12 +15,22 @@
     return-void
 .end method
 
-.method private static getIntentString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+.method private static getIntentString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)Ljava/lang/String;
+    .locals 6
 
-    const/16 v0, 0x409
+    const/16 v4, 0x409
 
-    invoke-static {p0, p2, p1, p3, v0}, Lcom/android/settings/slices/SliceBuilderUtils;->buildSearchResultPageIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)Landroid/content/Intent;
+    move-object v0, p0
+
+    move-object v1, p2
+
+    move-object v2, p1
+
+    move-object v3, p3
+
+    move v5, p4
+
+    invoke-static/range {v0 .. v5}, Lcom/android/settings/slices/SliceBuilderUtils;->buildSearchResultPageIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)Landroid/content/Intent;
 
     move-result-object p0
 
@@ -71,7 +81,7 @@
 
 # virtual methods
 .method public getAccessCursor(Landroid/content/Context;Lcom/android/settings/slices/SliceData;)Landroid/database/Cursor;
-    .locals 4
+    .locals 5
 
     invoke-static {p1, p2}, Lcom/android/settings/slices/SliceBuilderUtils;->getPreferenceController(Landroid/content/Context;Lcom/android/settings/slices/SliceData;)Lcom/android/settings/core/BasePreferenceController;
 
@@ -149,7 +159,11 @@
 
     move-result-object v3
 
-    invoke-static {p1, v0, v2, v3}, Lcom/google/android/settings/external/specialcase/SliceBasedSetting;->getIntentString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p2}, Lcom/android/settings/slices/SliceData;->getHighlightMenuRes()I
+
+    move-result v4
+
+    invoke-static {p1, v0, v2, v3, v4}, Lcom/google/android/settings/external/specialcase/SliceBasedSetting;->getIntentString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object p1
 

@@ -153,7 +153,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    const-string v3, "user"
+    const-string/jumbo v3, "user"
 
     invoke-virtual {p0, v3}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -187,6 +187,39 @@
     return v2
 .end method
 
+.method private checkCallerIsSelf()Z
+    .locals 3
+
+    const/4 v0, 0x0
+
+    :try_start_0
+    invoke-static {}, Landroid/os/Process;->myUid()I
+
+    move-result v1
+
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
+
+    move-result-object v2
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getActivityToken()Landroid/os/IBinder;
+
+    move-result-object p0
+
+    invoke-interface {v2, p0}, Landroid/app/IActivityManager;->getLaunchedFromUid(Landroid/os/IBinder;)I
+
+    move-result p0
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    if-ne v1, p0, :cond_0
+
+    const/4 v0, 0x1
+
+    :catch_0
+    :cond_0
+    return v0
+.end method
+
 .method private clearLegacyVpnIfEstablished()V
     .locals 2
 
@@ -200,7 +233,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f041548
+    const v0, 0x7f04156d
 
     const/4 v1, 0x0
 
@@ -229,7 +262,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f0406a6
+    const p1, 0x7f0406be
 
     invoke-virtual {v0, p1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -372,7 +405,7 @@
     return v1
 
     :cond_2
-    const-string v4, "user_key_pair_name"
+    const-string/jumbo v4, "user_key_pair_name"
 
     invoke-virtual {v0, v4, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
@@ -391,13 +424,13 @@
     return v1
 
     :cond_3
-    const-string v1, "user_private_key_data"
+    const-string/jumbo v1, "user_private_key_data"
 
     invoke-virtual {v0, v1}, Landroid/os/Bundle;->getByteArray(Ljava/lang/String;)[B
 
     move-result-object v8
 
-    const-string v1, "user_certificate_data"
+    const-string/jumbo v1, "user_certificate_data"
 
     invoke-virtual {v0, v1}, Landroid/os/Bundle;->getByteArray(Ljava/lang/String;)[B
 
@@ -574,7 +607,7 @@
 
     move-result-object v1
 
-    const-string v2, "user"
+    const-string/jumbo v2, "user"
 
     invoke-virtual {p0, v2}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -593,6 +626,12 @@
     const-string v2, "com.android.credentials.RESET"
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-direct {p0}, Lcom/android/settings/security/CredentialStorage;->checkCallerIsSelf()Z
 
     move-result v2
 

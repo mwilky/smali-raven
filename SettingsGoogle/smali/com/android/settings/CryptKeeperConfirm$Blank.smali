@@ -40,7 +40,7 @@
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f0600a3
+    const p1, 0x7f0600a5
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setContentView(I)V
 
@@ -53,7 +53,7 @@
     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     :cond_0
-    const-string p1, "statusbar"
+    const-string/jumbo p1, "statusbar"
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

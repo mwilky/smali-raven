@@ -13,7 +13,7 @@
 
     new-instance v0, Lcom/google/android/settings/aware/SilenceGestureSettings$1;
 
-    const v1, 0x7f1500d6
+    const v1, 0x7f1500db
 
     invoke-direct {v0, v1}, Lcom/google/android/settings/aware/SilenceGestureSettings$1;-><init>(I)V
 
@@ -51,7 +51,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500d6
+    const p0, 0x7f1500db
 
     return p0
 .end method

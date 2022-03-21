@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Hnökralaus skjár</string>
     <string name="peak_refresh_rate_summary">Breytir endurnýjunarhraða sjálfkrafa úr 60 í 90 Hz fyrir sumt efni. Eykur rafhlöðunotkun.</string>
     <string name="accessibility_vibration_settings_title">Titringur og snertisvörun</string>
+    <string name="columbus_title">Pikkaðu til að ræsa aðgerðir</string>
     <string name="emergency_gesture_screen_title">Neyðartilkynning</string>
     <string name="abc_action_mode_done">Lokið</string>
     <string name="vibrate_for_calls_category_title">Símtöl</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Sýna tækjastjórnun</string>
     <string name="lockscreen_privacy_wallet_summary">Leyfa aðgang að veski af lásskjá og úr flýtistillingum</string>
     <string name="lockscreen_privacy_controls_summary">Aðgangur að stýringum þegar tækið er læst</string>
+    <string name="lockscreen_double_line_clock_summary">Sýna klukku í tveimur línum þegar hægt er</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Klukka í tveimur línum</string>
     <string name="abc_activity_chooser_view_see_all">Sjá allt</string>
     <string name="abc_activitychooserview_choose_application">Veldu forrit</string>
     <string name="abc_capital_off">SLÖKKT</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Titringur viðvarana</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Uppsetning á Active Edge. Farðu á næsta skjá eða haltu áfram að stilla.</string>
     <string name="accessibility_audio_adjustment_title">Hljóðstilling</string>
+    <string name="accessibility_autoclick_about_title">Nánar um sjálfv. smell (dvalartíma)</string>
     <string name="accessibility_autoclick_custom_title">Sérstillt</string>
     <string name="accessibility_autoclick_default_title">Slökkt</string>
     <string name="accessibility_autoclick_description">Sjálfvirkur smellur virkar þegar mús er tengd. Þú getur stillt músarbendilinn á að smella sjálfkrafa þegar hann er óhreyfður í tiltekinn tíma.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Frekari upplýsingar um sjálfvirka smelli (dvalartíma)</string>
     <string name="accessibility_autoclick_long_summary">1 sekúnda</string>
     <string name="accessibility_autoclick_long_title">Langt</string>
     <string name="accessibility_autoclick_longer_desc">Lengri</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Stutt</string>
     <string name="accessibility_autoclick_shorter_desc">Styttri</string>
     <string name="accessibility_banner_message_dismiss">Hunsa</string>
-    <string name="accessibility_button_description">"Opnaðu aðgengiseiginleika á skjótan hátt á hvaða skjá sem er. 
+    <string name="accessibility_button_about_title">Nánar um aðgengishnapp</string>
+    <string name="accessibility_button_description">"Fáðu skjótan aðgang að aðgengiseiginleikum á öllum skjám.
 
-Til að hefjast handa skaltu opna aðgengisstillingar og velja eiginleika. Ýttu á flýtileiðina og veldu aðgengishnappinn."</string>
+Opnaðu aðgengisstillingarnar og veldu eiginleika til að hefjast handa. Ýttu á flýtileiðina og veldu aðgengishnappinn."</string>
     <string name="accessibility_button_fade_summary">Dofnar eftir nokkrar sekúndur svo að þú sjáir betur á skjáinn</string>
     <string name="accessibility_button_fade_title">Deyfa þegar hann er ekki í notkun</string>
-    <string name="accessibility_button_gesture_description">"Opnaðu aðgengiseiginleika á hvaða skjá sem er í flýti.
+    <string name="accessibility_button_gesture_about_title">Nánar um aðgengishnapp og bendingu</string>
+    <string name="accessibility_button_gesture_description">"Fáðu skjótan aðgang að aðgengiseiginleikum á öllum skjám.
 
-Farðu í aðgengisstillingar og veldu eiginleika til að hefjast handa. Ýttu á flýtileiðina og veldu aðgengishnappinn.
-
-Til að nota aðgengishnappinn frekar á yfirlitsstikunni skaltu skipta yfir í tveggja eða þriggja hnappa stjórnun."</string>
+Opnaðu aðgengisstillingarnar og veldu eiginleika til að hefjast handa. Ýttu á flýtileiðina og veldu aðgengishnappinn eða bendingu."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Frekari upplýsingar um aðgengishnapp og bendingu</string>
     <string name="accessibility_button_gesture_title">Aðgengishnappur og bending</string>
     <string name="accessibility_button_high_label">Ógagnsætt</string>
     <string name="accessibility_button_intro">Notkun aðgengishnappsins. Ekki er hægt að nota bendinguna með þriggja hnappa stjórnun.</string>
@@ -184,14 +190,23 @@ Til að nota aðgengishnappinn frekar á yfirlitsstikunni skaltu skipta yfir í 
     <string name="accessibility_caption_preference_summary">Ekki er víst að öll forrit styðji þessa skjátextastillingu</string>
     <string name="accessibility_caption_primary_switch_summary">Aðeins fyrir stutt forrit</string>
     <string name="accessibility_caption_primary_switch_title">Birta skjátexta</string>
+    <string name="accessibility_captioning_about_title">Nánar um kjörstillingar skjátexta</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Frekari upplýsingar um kjörstillingar skjátexta</string>
     <string name="accessibility_captioning_title">Kjörstillingar skjátexta</string>
     <string name="accessibility_category_personal">Reikningar eigin sniðs</string>
     <string name="accessibility_category_work">Reikningar vinnusniðs – %s</string>
+    <string name="accessibility_color_inversion_about_title">Nánar um umsnúning lita</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Frekari upplýsingar um umsnúning lita</string>
+    <string name="accessibility_control_timeout_about_title">Um tíma til að grípa til aðgerða (tímalokun aðgengis)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Frekari upplýsingar um tíma til að grípa til aðgerða (tímalokun aðgengis)</string>
     <string name="accessibility_control_timeout_preference_summary">"Veldu hversu lengi skilaboð birtast sem biðja þig um að grípa til aðgerða, en eru aðeins sýnileg tímabundið.
 
 Ekki er víst að öll forrit styðji þennan eiginleika."</string>
     <string name="accessibility_control_timeout_preference_title">Tími til að grípa til aðgerða</string>
+    <string name="accessibility_daltonizer_about_title">Nánar um litaleiðréttingu</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Frekari upplýsingar um litaleiðréttingu</string>
     <string name="accessibility_daltonizer_primary_switch_title">Nota litaleiðréttingu</string>
+    <string name="accessibility_daltonizer_shortcut_title">Flýtileið litaleiðréttingar</string>
     <string name="accessibility_data_one_bar">Sendistyrkur gagnatengingar er eitt strik.</string>
     <string name="accessibility_data_signal_full">Fullur sendistyrkur gagnatengingar.</string>
     <string name="accessibility_data_three_bars">Sendistyrkur gagnatengingar er þrjú strik.</string>
@@ -206,6 +221,7 @@ Ekki er víst að öll forrit styðji þennan eiginleika."</string>
     <string name="accessibility_display_daltonizer_preference_title">Litaleiðrétting</string>
     <string name="accessibility_display_inversion_preference_subtitle">Umsnúningur lita dekkir ljósa skjái.&lt;br/>&lt;br/> Athugaðu: &lt;ol> &lt;li> Umsnúningur lita lýsir líka dökka skjái.&lt;/li> &lt;li> Litir í efni og myndum breytast.&lt;/li> &lt;li> Hægt er að nota dökkt þema til að sýna dökkan bakgrunn. Dökkt þema virkar með studdum forritum. Umsnúningur lita virkar í öllum forritum.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Umsnúningur lita</string>
+    <string name="accessibility_display_inversion_shortcut_title">Flýtileið umsnúnings lita</string>
     <string name="accessibility_display_inversion_switch_title">Nota umsnúning lita</string>
     <string name="accessibility_ethernet_connected">Ethernet.</string>
     <string name="accessibility_ethernet_disconnected">Ethernet aftengt.</string>
@@ -255,6 +271,8 @@ Aðgengishnappurinn flýtur á skjánum yfir öllum öðrum forritum. Ýttu á h
     <string name="accessibility_phone_two_bars">Styrkur símasambands er tvö strik.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Aflrofi lýkur símtali</string>
     <string name="accessibility_preference_magnification_summary">Auka aðdrátt á skjá</string>
+    <string name="accessibility_screen_magnification_about_title">Nánar um stækkun</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Frekari upplýsingar um stækkun</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">Aðgengisbending er stillt á %1$s. Til að nota stækkun skaltu strjúka upp með tveimur fingrum frá neðri hluta skjásins og halda inni. Síðan skaltu velja stækkun.</string>
     <string name="accessibility_screen_magnification_gestures_title">Stækka með því að ýta þrisvar</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">Aðgengishnappurinn er stilltur á %1$s. Til að nota stækkun skaltu halda aðgengishnappnum inni og velja stækkun.</string>
@@ -272,6 +290,7 @@ Aðgengishnappurinn flýtur á skjánum yfir öllum öðrum forritum. Ýttu á h
 Þú getur ekki stækkað á lyklaborðinu eða yfirlitsstikunni."</string>
     <string name="accessibility_screen_magnification_navbar_title">Stækka með flýtilykli</string>
     <string name="accessibility_screen_magnification_short_summary">Ýtt þrisvar til að auka aðdrátt</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Flýtileið stækkunar</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Stækka með flýtilykli og með því að ýta þrisvar</string>
     <string name="accessibility_screen_magnification_summary">Auktu aðdráttinn á skjánum til að sjá efnið betur.&lt;br/>&lt;br/> &lt;Gerðu eftirfarandi til að auka aðdráttinn:&lt;/b>&lt;br/> {0,number,integer}. Notaðu flýtileið til að hefja stækkun&lt;br/> {1,number,integer}. Ýttu á skjáinn&lt;br/> {2,number,integer}. Dragðu 2 fingur til að hreyfa um skjáinn&lt;br/> {3,number,integer}. Færðu tvo fingur saman til að stilla aðdráttinn&lt;br/> {4,number,integer}. Notaðu flýtileið til að hætta stækkun&lt;br/>&lt;br/> Til að auka aðdrátt tímabundið:&lt;/b>&lt;br/> {0,number,integer}. Notaðu flýtileið til að hefja stækkun&lt;br/> {1,number,integer}. Haltu fingri hvar sem er á skjánum&lt;br/> {2,number,integer}. Dragðu fingurinn til að hreyfa um skjáinn&lt;br/> {3,number,integer}. Lyftu fingri til að hætta stækkun</string>
     <string name="accessibility_screen_magnification_title">Stækkun</string>
@@ -370,7 +389,7 @@ Til að skipta á milli eiginleika skaltu strjúka upp með þremur fingrum og h
     <string name="accessibility_tutorial_dialog_message_volume">Til að nota þennan eiginleika skaltu halda inni báðum hljóðstyrkstökkum.</string>
     <string name="accessibility_tutorial_dialog_title_button">Notaðu aðgengishnappinn til að opna</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Nota bendingu til að opna</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Notaðu nýja aðgengisbendingu</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Nota aðgengisbendingu</string>
     <string name="accessibility_tutorial_dialog_title_triple">Ýttu þrisvar á skjáinn til að opna</string>
     <string name="accessibility_tutorial_dialog_title_volume">Haltu hljóðstyrkstökkunum inni til að opna</string>
     <string name="accessibility_tutorial_pager">Síða %1$d af %2$d</string>
@@ -936,6 +955,7 @@ Eftir að endurstillingu er lokið skaltu fara í gegnum uppsetningarferlið til
     <string name="battery_level_title">Staða rafhlöðu</string>
     <string name="battery_manager_off">Slökkt</string>
     <string name="battery_manager_summary">Auka rafhlöðuendingu og fínstilla hleðslu</string>
+    <string name="battery_manager_summary_unsupported">Lengja endingartíma rafhlöðu</string>
     <string name="battery_missing_link_a11y_message">Ýttu til að fá frekari upplýsingar um þessa villu</string>
     <string name="battery_missing_link_message">Frekari upplýsingar</string>
     <string name="battery_missing_message">Vandamál við að lesa stöðu rafhlöðu.</string>
@@ -1061,6 +1081,7 @@ síðasta sólarhringinn"</string>
     <string name="battery_usage_screen_footer">Upplýsingar um rafhlöðunotkun eru áætlaðar og mæla ekki notkun á meðan síminn er í hleðslu</string>
     <string name="battery_usage_screen_footer_empty">Gögn rafhlöðunotkunar verða tiltæk þegar þú hefur notað símann í nokkrar klukkustundir</string>
     <string name="battery_usage_total_less_than_one_minute">Alls: innan við mínúta</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s notuð af %2$s</string>
     <string name="battery_used_for">Notað í ^1</string>
     <string name="bearer">Flutningsmáti</string>
@@ -1069,12 +1090,14 @@ síðasta sólarhringinn"</string>
     <string name="billing_cycle_less_than_one_day_left">Innan við einn dagur eftir</string>
     <string name="billing_cycle_none_left">Enginn tími eftir</string>
     <string name="biometric_settings_category_ways_to_unlock">Leiðir til að taka úr lás</string>
-    <string name="biometric_settings_category_ways_to_use">Nota andlit og fingrafar til að</string>
     <string name="biometric_settings_hand_back_to_guardian">Réttu foreldri þínu símann</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">Í lagi</string>
     <string name="biometric_settings_intro">Þegar þú setur upp andlits- og fingrafarskenni biður síminn um fingrafarið þitt þegar þú ert með grímu eða á dimmum stað</string>
-    <string name="biometric_settings_use_biometric_for_apps">Auðkenning í forritum</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">Taka símann úr lás</string>
+    <string name="biometric_settings_use_biometric_for_apps">Staðfestu hver þú ert í forritum</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">Opnaðu símann þinn</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Með andlitinu eða fingrafari</string>
+    <string name="biometric_settings_use_face_preference_summary">Með andlitinu</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Með fingrafari</string>
     <string name="biometrics_unlock_set_unlock_password">Aðgangsorð • Andlit • Fingrafar</string>
     <string name="biometrics_unlock_set_unlock_pattern">Mynstur • Andlit • Fingrafar</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN-númer • Andlit • Fingrafar</string>
@@ -1332,7 +1355,6 @@ Val"</string>
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Sýna Bluetooth-tæki án heita</string>
     <string name="bluetooth_show_devices_without_names_summary">Bluetooth-tæki án heita (aðeins MAC-vistfang) verða birt</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Skrár sem bárust í gegnum Bluetooth</string>
     <string name="bluetooth_show_received_files">Mótteknar skrár</string>
     <string name="bluetooth_sim_card_access_dialog_content">"Bluetooth-tækið %1$s vill fá aðgang að gögnum á SIM-kortinu þínu. Þar á meðal að tengiliðunum þínum.
 
@@ -1426,6 +1448,7 @@ Ef þú setur upp CA-vottorð gæti eigandi vottorðsins fengið aðgang að gö
     <string name="calls_sms_temp_unavailable">Ekki tiltækt í augnablikinu</string>
     <string name="calls_sms_unavailable">ekki tiltækt</string>
     <string name="calls_sms_wfc_summary">Hringdu símtöl og svaraðu þeim með Wi‑Fi</string>
+    <string name="cam_toggle_description">Fyrir forrit og þjónustur</string>
     <string name="camera_double_tap_power_gesture_desc">Opnaðu myndavélina hratt án þess að taka skjáinn úr lás</string>
     <string name="camera_double_tap_power_gesture_title">Ýttu tvisvar á aflrofann til að opna myndavélina</string>
     <string name="camera_laser_sensor_switch">Leysigeislaskynjari myndavélar</string>
@@ -3302,6 +3325,7 @@ Aðrir notendur eru til staðar í þessu tæki.
     <string name="menu_stats_total">Heildarnotkun</string>
     <string name="menu_stats_unplugged">%1$s síðan tekið var úr sambandi</string>
     <string name="menu_use_uss">Nota USS</string>
+    <string name="mic_toggle_description">Fyrir forrit og þjónustur. Þegar slökkt er á þessari stillingu verður hljóðnemagögnum þó hugsanlega deilt þegar þú hringir í neyðarnúmer.</string>
     <string name="mic_toggle_title">Aðgangur að hljóðnema</string>
     <string name="misc_files">Ýmsar skrár</string>
     <string name="misc_files_selected_count">%1$d valdar af %2$d</string>
@@ -3728,6 +3752,7 @@ Auknar tilkynningar hafa aðgang að efni tilkynninga, þ. á m. persónuupplýs
     <string name="one_handed_action_show_notification_title">Sýna tilkynningar</string>
     <string name="one_handed_mode_enabled">Nota einhenta stillingu</string>
     <string name="one_handed_mode_intro_text">Strjúktu niður frá neðri brún skjásins til að nota einhenta stillingu. Til að nota þennan eiginleika þarftu að ganga úr skugga um að kveikt sé á bendingastjórnun í stillingum kerfisstjórnunar.</string>
+    <string name="one_handed_mode_shortcut_title">Flýtileið fyrir einhenta stillingu</string>
     <string name="one_handed_mode_swipe_down_category">Strjúktu niður til að</string>
     <string name="one_handed_mode_use_shortcut_category">Nota flýtileiðina til að</string>
     <string name="one_usercrt">eitt notandavottorð</string>
@@ -3803,7 +3828,7 @@ Auknar tilkynningar hafa aðgang að efni tilkynninga, þ. á m. persónuupplýs
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s er virkt</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Myndavél</string>
-    <string name="power_cell">Farsímakerfi í biðstöðu</string>
+    <string name="power_cell">Farsímakerfi</string>
     <string name="power_charge_remaining">%1$s þar til fullri hleðslu er náð</string>
     <string name="power_charging">%1$s – %2$s</string>
     <string name="power_charging_duration">%1$s - %2$s fram að fullri hleðslu</string>
@@ -4037,6 +4062,7 @@ Flýtileið í boði á hljóðvalmyndinni."</string>
     <string name="recent_notifications">Sent nýlega</string>
     <string name="recent_notifications_see_all_title">Sjá allt frá síðustu 7 dögum</string>
     <string name="recompute_size">Endurreiknar stærð…</string>
+    <string name="reduce_bright_colors_about_title">Nánar um mjög dökkt</string>
     <string name="reduce_bright_colors_intensity_end_label">Bjartara</string>
     <string name="reduce_bright_colors_intensity_preference_title">Styrkur</string>
     <string name="reduce_bright_colors_intensity_start_label">Dimmara</string>
@@ -4044,6 +4070,7 @@ Flýtileið í boði á hljóðvalmyndinni."</string>
     <string name="reduce_bright_colors_preference_subtitle">Gerðu skjáinn dekkri svo að það sé þægilegra að lesa.&lt;br/>&lt;br/> Þetta getur gagnast þegar: &lt;ol> &lt;li> Sjálfgefin lágmarksbirta símans er of mikil&lt;/li> &lt;li> Þú notar símann í myrkri, t.d. á nóttunni eða í dimmu herbergi áður en þú ferð að sofa&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">Gera skjáinn dekkri en lágmarksbirtustillingu símans</string>
     <string name="reduce_bright_colors_preference_title">Mjög dökkt</string>
+    <string name="reduce_bright_colors_shortcut_title">Flýtileið fyrir mjög dökkt</string>
     <string name="reduce_bright_colors_switch_title">Gera skjáinn mjög dökkan</string>
     <string name="register_automatically">Sjálfvirk skráning…</string>
     <string name="register_on_network">Skráning á %s…</string>
@@ -4249,7 +4276,6 @@ Til að nota forritsfestingu: \u0009
     <string name="screen_pinning_unlock_pattern">Biðja um opnunarmynstur til að losa</string>
     <string name="screen_pinning_unlock_pin">Biðja um PIN-númer til að losa</string>
     <string name="screen_reader_category_title">Skjálesari</string>
-    <string name="screen_saver_main_switch_title">Nota skjávara</string>
     <string name="screen_time_summary_usage_today">%1$s í dag</string>
     <string name="screen_timeout_summary">Eftir %1$s af aðgerðaleysi</string>
     <string name="screen_timeout_title">Slökkt er á skjánum</string>
@@ -4279,6 +4305,7 @@ Til að nota forritsfestingu: \u0009
     <string name="screensaver_settings_button">Stillingar</string>
     <string name="screensaver_settings_current">Núverandi skjávari</string>
     <string name="screensaver_settings_disabled_prompt">Kveiktu á skjávaranum til að stjórna því hvað gerist þegar síminn er í dokku og/eða í biðstöðu.</string>
+    <string name="screensaver_settings_dream_start">Byrja núna</string>
     <string name="screensaver_settings_summary_dock">Þegar tækið er í dokku</string>
     <string name="screensaver_settings_summary_either_long">Við hleðslu eða í dokku</string>
     <string name="screensaver_settings_summary_either_short">Annaðhvort</string>
@@ -4329,15 +4356,6 @@ Til að nota forritsfestingu: \u0009
     <string name="security_settings_biometric_preference_summary_both_fp_single">Andliti og fingrafari bætt við</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Ýttu til að setja upp</string>
     <string name="security_settings_biometric_preference_title">Andlits- og fingrafarskenni</string>
-    <string name="security_settings_biometrics_description">Þegar þú setur upp andlits- og fingrafarskenni biður síminn um fingrafarið þitt þegar þú ert með grímu eða á dimmum stað</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Auðkenning í forritum</string>
-    <string name="security_settings_biometrics_preferences_category">Nota andlit eða fingrafar fyrir</string>
-    <string name="security_settings_biometrics_summary_both">Andlit og fingrafar</string>
-    <string name="security_settings_biometrics_summary_face">Aðeins andlit</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Aðeins fingrafar</string>
-    <string name="security_settings_biometrics_summary_none">Ýttu til að setja upp</string>
-    <string name="security_settings_biometrics_title">Andlits- og fingrafarskenni</string>
-    <string name="security_settings_biometrics_types_category">Leiðir til að taka úr lás</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Leyfa andlitslás</string>
     <string name="security_settings_face_enroll_dialog_ok">Ég skil</string>
     <string name="security_settings_face_enroll_done">Lokið</string>
@@ -4383,18 +4401,19 @@ Nánar á g.co/pixel/faceunlock."</string>
 
 Nánar á g.co/pixel/faceunlock."</string>
     <string name="security_settings_face_enroll_introduction_control_title">Þú ert við stjórnvölinn</string>
-    <string name="security_settings_face_enroll_introduction_how_consent_message">"Andlitslás býr til einkvæmt líkan af andliti barnsins þíns til að staðfesta hver það er. Til að búa andlitslíkanið til við uppsetningu tekur barnið þitt myndir af andlitinu á sér frá nokkrum sjónarhornum.
+    <string name="security_settings_face_enroll_introduction_how_consent_message">"Andlitskenni býr til einkvæmt líkan af andliti barnsins þíns til að staðfesta hver það er. Til að búa andlitslíkanið til við uppsetningu tekur barnið þitt myndir af andlitinu á sér frá nokkrum sjónarhornum.
 
-Síminn mun einnig nota myndir frá notkun barnsins á andlitslás til að uppfæra andlitslíkanið. Myndir sem eru notaðar til að búa andlitslíkan barnsins til eru aldrei geymdar en andlitslíkanið er geymt á öruggan hátt í símanum og fer aldrei þaðan. Öll úrvinnsla fer fram í símanum á öruggan hátt."</string>
-    <string name="security_settings_face_enroll_introduction_how_message">"Andlitslás býr til einkvæmt líkan af andlitinu á þér til að staðfesta hver þú ert. Til að búa andlitslíkanið til við uppsetningu tekurðu myndir af andlitinu á þér frá nokkrum sjónarhornum.
+Síminn mun einnig nota myndir frá notkun barnsins á andlitskenni til að uppfæra andlitslíkanið. Myndir sem eru notaðar til að búa andlitslíkan barnsins til eru ekki geymdar en andlitslíkanið er geymt á öruggan hátt í símanum og fer aldrei þaðan. Öll úrvinnsla fer fram í símanum á öruggan hátt."</string>
+    <string name="security_settings_face_enroll_introduction_how_message">"Andlitskenni býr til einkvæmt líkan af andlitinu á þér til að staðfesta hver þú ert. Til að búa andlitslíkanið til við uppsetningu tekurðu myndir af andlitinu á þér frá nokkrum sjónarhornum.
 
-Þegar þú notar andlitslás eru myndir notaðar til að uppfæra andlitslíkanið þitt. Myndir sem eru notaðar til að búa andlitslíkanið til eru aldrei geymdar en andlitslíkanið er geymt á öruggan hátt í símanum og fer aldrei þaðan. Öll úrvinnsla fer fram í símanum á öruggan hátt."</string>
+Þegar þú notar andlitskenni eru myndir notaðar til að uppfæra andlitslíkanið þitt. Myndir sem eru notaðar til að búa andlitslíkanið til eru ekki geymdar en andlitslíkanið er geymt á öruggan hátt í símanum og fer aldrei þaðan. Öll úrvinnsla fer fram í tækinu á öruggan hátt."</string>
     <string name="security_settings_face_enroll_introduction_how_title">Svona virkar þetta</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">Andlitskenni kann að krefjast þess að barnið hafi augun opin til að taka símann úr lás eða staðfesta hver það er. Þú og barnið þitt getið slökkt á þessum valkosti hvenær sem er í stillingum.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Ef barnið notar gleraugu að staðaldri getur það verið með þau við uppsetningu.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Síminn gæti opnast óvart þegar barnið lítur á hann. Sími barnsins gæti einnig opnast þegar einhver sem líkist því mikið horfir á hann, t.d. eineggja tvíburi, eða ef einhver heldur símanum upp að andliti barnsins.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Andlitskenni kann að krefjast þess að þú hafir augun opin til að taka símann úr lás eða staðfesta hver þú ert. Þú getur slökkt á þessum valkosti hvenær sem er í stillingum.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Gleraugu eða lítið dekkt sólgleraugu trufla ekki.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Hugsanlega er ekki eins öruggt að taka símann úr lás með andliti eins og að taka hann úr lás með öflugu mynstri eða PIN-númeri.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Síminn gæti opnast óvart þegar þú lítur á hann. Síminn gæti einnig opnast þegar einhver sem líkist þér mikið horfir á hann, t.d. eineggja tvíburi, eða ef einhver heldur símanum upp að andlitinu á þér.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Hafðu í huga</string>
     <string name="security_settings_face_enroll_introduction_message">Notaðu andlitið þitt til að opna símann eða staðfesta að þetta sért þú, t.d. þegar þú skráir þig inn í forrit eða samþykkir kaup.</string>
@@ -4452,13 +4471,14 @@ Aðrir geta opnað símann þinn með því að halda honum upp að andlitinu á
 
 Manneskja sem er mjög lík þér getur opnað símann þinn, t.d. eineggja tvíburi."</string>
     <string name="security_settings_face_settings_preferences_category">Þegar andlitskenni er notað</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Andlitslíkaninu þínu verður eytt endanlega á öruggan hátt. Þegar búið er að eyða því þarftu að nota fingrafar, PIN-númer, mynstur eða aðgangsorð til að taka símann úr lás eða til að auðkenna þig í forritum.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Andlitslíkaninu þínu verður eytt endanlega á öruggan hátt.
+
+Þegar búið er að eyða því þarftu PIN-númer, mynstur eða aðgangsorð til að taka símann úr lás eða til að auðkenna þig í forritum."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Andlitslíkaninu þínu verður eytt endanlega á öruggan hátt.
+
+Þegar búið er að eyða því þarftu PIN-númer, mynstur eða aðgangsorð til að taka símann úr lás."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Eyða andlitslíkani?</string>
     <string name="security_settings_face_settings_remove_face_model">Eyða andlitslíkani</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Andlitslíkaninu þínu verður eytt endanlega á öruggan hátt.
-
-Þegar búið er að eyða því þarftu að nota fingrafar, PIN-númer, mynstur eða aðgangsorð til að taka símann úr lás eða til að auðkenna þig í forritum."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Eyða andlitslíkani?</string>
     <string name="security_settings_face_settings_require_attention">Krefst þess að augun séu opin</string>
     <string name="security_settings_face_settings_require_attention_details">Augun verða að vera opin til að aflæsa</string>
     <string name="security_settings_face_settings_require_confirmation">Krefjast alltaf staðfestingar</string>
@@ -4541,7 +4561,7 @@ Athugaðu: Þú getur ekki notað fingrafarið til að taka lásinn af þessu t�
     <string name="security_settings_title">Öryggi</string>
     <string name="security_settings_udfps_enroll_a11y">Renndu fingrinum yfir skjáinn til að finna lesarann. Haltu fingri á fingrafaralesaranum.</string>
     <string name="security_settings_udfps_enroll_edge_message">Settu hlið fingrafarsins á fingrafaralesarann og haltu fingrinum þar. Skiptu svo yfir á hina hliðina</string>
-    <string name="security_settings_udfps_enroll_edge_title">Að lokum skaltu skrá hliðar fingursins</string>
+    <string name="security_settings_udfps_enroll_edge_title">Að lokum skaltu nota hliðar fingursins</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Fingrafaralesarinn er á skjánum. Þú myndar fingrafarið á næsta skjá.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Byrja</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Svona skráirðu fingrafar</string>
@@ -4550,7 +4570,7 @@ Athugaðu: Þú getur ekki notað fingrafarið til að taka lásinn af þessu t�
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Þannig er hægt að mynda fingrafarið þitt betur</string>
     <string name="security_settings_udfps_enroll_repeat_message">Haltu inni í hvert sinn sem fingrafarstáknið hreyfist. Þannig er hægt að mynda fingrafarið þitt betur.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Fylgdu fingrafarstákninu</string>
-    <string name="security_settings_udfps_enroll_start_message">Haltu fingri á lesaranum þar til þú finnur titring</string>
+    <string name="security_settings_udfps_enroll_start_message">Ýttu fingrinum beint á lesarann þar til þú finnur fyrir titringi</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Einu sinni enn</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint fyrir vinnu</string>
     <string name="security_status_title">Öryggisstaða</string>
@@ -4576,7 +4596,6 @@ Athugaðu: Þú getur ekki notað fingrafarið til að taka lásinn af þessu t�
     <string name="select_webview_provider_dialog_title">Stilla innleiðingu WebView</string>
     <string name="select_webview_provider_title">Innleiðing WebView</string>
     <string name="select_webview_provider_toast_text">Þetta val er ekki lengur gilt. Reyndu aftur.</string>
-    <string name="sensor_toggle_description">Fyrir öll forrit og þjónustur</string>
     <string name="sensors_off_quick_settings_title">Slökkt á skynjurum</string>
     <string name="service_background_processes">%1$s laus</string>
     <string name="service_foreground_processes">%1$s í notkun</string>
@@ -4808,6 +4827,7 @@ PIN-númerið er hugsanlega rangt."</string>
     <string name="sound_settings_summary_silent">Hljóð tekið af hringjara</string>
     <string name="sound_settings_summary_vibrate">Hringjari stilltur á titring</string>
     <string name="sound_work_settings">Hljóð vinnuprófils</string>
+    <string name="spatial_audio_title">Rýmishljóð</string>
     <string name="special_access">Sérstakur forritaaðgangur</string>
     <string name="special_access_more">Sjá meira</string>
     <string name="speed_label_fast">Hratt</string>
@@ -5619,7 +5639,7 @@ Hvaða notandi sem er getur uppfært forrit fyrir alla aðra notendur."</string>
     <string name="vpn_turn_on">Kveikja</string>
     <string name="vpn_type">Tegund</string>
     <string name="vpn_username">Notandanafn</string>
-    <string name="vpn_version">Útgáfa %s</string>
+    <string name="vpn_version">Útgáfa</string>
     <string name="vr_listener_security_warning_summary">Hægt verður að keyra %1$s þegar þú notar forrit í sýndarveruleikastillingu.</string>
     <string name="vr_listener_security_warning_title">Leyfa sýndarveruleikaaðgang fyrir %1$s?</string>
     <string name="vr_listeners_title">Hjálparþjónusta sýndarveruleika</string>
@@ -5889,7 +5909,7 @@ Stillingum beinisins verður ekki breytt þótt netið sé falið."</string>
     <string name="wifi_not_in_range">Ekkert samband</string>
     <string name="wifi_not_in_range_message">Ekkert samband við netkerfi</string>
     <string name="wifi_notify_open_networks">Tilkynna opin net</string>
-    <string name="wifi_notify_open_networks_summary">Þegar sjálfvirk tenging er ekki í boði</string>
+    <string name="wifi_notify_open_networks_summary">Tilkynna þegar opið gæðanet er tiltækt</string>
     <string name="wifi_on_time">Wi-Fi tími</string>
     <string name="wifi_p2p_cancel_connect_message">Viltu hætta við boð um að tengjast %1$s?</string>
     <string name="wifi_p2p_cancel_connect_title">Hætta við boð?</string>
@@ -5977,7 +5997,6 @@ Leyfa þetta fyrir öll forrit sem vilja leita að neti?"</string>
     <string name="wifi_suspend_optimizations">Wi-Fi sparnaður</string>
     <string name="wifi_suspend_optimizations_summary">Draga úr rafhlöðunotkun þegar kveikt er á Wi-Fi</string>
     <string name="wifi_switch_away_when_unvalidated">Skipta yfir í farsímagögn ef Wi-Fi glatar nettengingunni.</string>
-    <string name="wifi_switch_summary">Finna og tengjast Wi-Fi neti</string>
     <string name="wifi_tap_to_sign_in">Ýttu hér til að skrá þig inn á netkerfi</string>
     <string name="wifi_tether_configure_ap_text">Setja upp heitan Wi-Fi reit</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

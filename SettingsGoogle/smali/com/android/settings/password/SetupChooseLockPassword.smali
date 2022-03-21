@@ -76,7 +76,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/password/ChooseLockPassword;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f0d0176
+    const p1, 0x7f0d017a
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 

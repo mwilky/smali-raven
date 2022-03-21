@@ -116,7 +116,7 @@
 
     iget-object v0, p0, Lcom/android/settings/media/RemoteMediaSlice;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f02039b
+    const v1, 0x7f0203a2
 
     invoke-static {v0, v1}, Landroidx/core/graphics/drawable/IconCompat;->createWithResource(Landroid/content/Context;I)Landroidx/core/graphics/drawable/IconCompat;
 
@@ -124,7 +124,7 @@
 
     iget-object p0, p0, Lcom/android/settings/media/RemoteMediaSlice;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040cb6
+    const v1, 0x7f040cce
 
     const/4 v2, 0x1
 
@@ -202,7 +202,7 @@
 .end method
 
 .method private getSoundSettingAction(Ljava/lang/CharSequence;Landroidx/core/graphics/drawable/IconCompat;Ljava/lang/String;)Landroidx/slice/builders/SliceAction;
-    .locals 5
+    .locals 7
 
     new-instance v0, Landroid/net/Uri$Builder;
 
@@ -226,7 +226,7 @@
 
     iget-object v3, p0, Lcom/android/settings/media/RemoteMediaSlice;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f041291
+    const v4, 0x7f0412b5
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -234,11 +234,15 @@
 
     invoke-interface {v3}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    const/4 v4, 0x0
+    const/4 v5, 0x0
 
-    invoke-static {v1, v2, p3, v3, v4}, Lcom/android/settings/slices/SliceBuilderUtils;->buildSearchResultPageIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)Landroid/content/Intent;
+    const v6, 0x7f040d0e
+
+    move-object v3, p3
+
+    invoke-static/range {v1 .. v6}, Lcom/android/settings/slices/SliceBuilderUtils;->buildSearchResultPageIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)Landroid/content/Intent;
 
     move-result-object p3
 
@@ -260,13 +264,15 @@
 
     iget-object p0, p0, Lcom/android/settings/media/RemoteMediaSlice;->mContext:Landroid/content/Context;
 
-    const/high16 v0, 0x4000000
+    const/4 v0, 0x0
 
-    invoke-static {p0, v4, p3, v0}, Landroid/app/PendingIntent;->getActivity(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+    const/high16 v1, 0x4000000
+
+    invoke-static {p0, v0, p3, v1}, Landroid/app/PendingIntent;->getActivity(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
     move-result-object p0
 
-    invoke-static {p0, p2, v4, p1}, Landroidx/slice/builders/SliceAction;->createDeeplink(Landroid/app/PendingIntent;Landroidx/core/graphics/drawable/IconCompat;ILjava/lang/CharSequence;)Landroidx/slice/builders/SliceAction;
+    invoke-static {p0, p2, v0, p1}, Landroidx/slice/builders/SliceAction;->createDeeplink(Landroid/app/PendingIntent;Landroidx/core/graphics/drawable/IconCompat;ILjava/lang/CharSequence;)Landroidx/slice/builders/SliceAction;
 
     move-result-object p0
 
@@ -396,7 +402,7 @@
     :cond_2
     iget-object v3, p0, Lcom/android/settings/media/RemoteMediaSlice;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f040ff6
+    const v4, 0x7f041024
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -404,7 +410,7 @@
 
     iget-object v4, p0, Lcom/android/settings/media/RemoteMediaSlice;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f02039b
+    const v5, 0x7f0203a2
 
     invoke-static {v4, v5}, Landroidx/core/graphics/drawable/IconCompat;->createWithResource(Landroid/content/Context;I)Landroidx/core/graphics/drawable/IconCompat;
 
@@ -513,7 +519,7 @@
 
     iget-object v9, p0, Lcom/android/settings/media/RemoteMediaSlice;->mContext:Landroid/content/Context;
 
-    const v10, 0x7f040cb6
+    const v10, 0x7f040cce
 
     const/4 v11, 0x1
 
@@ -673,6 +679,14 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d06
+
+    return p0
 .end method
 
 .method public getUri()Landroid/net/Uri;

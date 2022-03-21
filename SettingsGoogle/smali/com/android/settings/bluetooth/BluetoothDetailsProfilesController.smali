@@ -493,7 +493,7 @@
 
     iput-object p1, p0, Lcom/android/settings/bluetooth/BluetoothDetailsProfilesController;->mProfilesContainer:Landroidx/preference/PreferenceCategory;
 
-    const v0, 0x7f060189
+    const v0, 0x7f06018d
 
     invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -743,7 +743,7 @@
 
     invoke-direct {v0, v2}, Landroidx/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f060189
+    const v2, 0x7f06018d
 
     invoke-virtual {v0, v2}, Landroidx/preference/Preference;->setLayoutResource(I)V
 

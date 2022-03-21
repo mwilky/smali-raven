@@ -105,7 +105,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f090038
+    const v0, 0x7f090039
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -151,6 +151,16 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public bridge synthetic hasAsyncUpdate()Z
@@ -214,7 +224,7 @@
 
     invoke-virtual {p1, v2}, Landroidx/preference/Preference;->setEnabled(Z)V
 
-    const p0, 0x7f0407eb
+    const p0, 0x7f040803
 
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -254,7 +264,7 @@
     :cond_1
     invoke-virtual {p1, v1}, Landroidx/preference/Preference;->setEnabled(Z)V
 
-    const p0, 0x7f040c75
+    const p0, 0x7f040c8d
 
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSummary(I)V
 

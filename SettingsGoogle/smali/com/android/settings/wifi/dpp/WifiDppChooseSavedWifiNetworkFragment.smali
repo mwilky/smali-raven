@@ -126,9 +126,9 @@
 
     move-result-object p0
 
-    const p1, 0x7f0d0636
+    const p1, 0x7f0d0646
 
-    const-string v1, "wifi_network_list_fragment"
+    const-string/jumbo v1, "wifi_network_list_fragment"
 
     invoke-virtual {p0, p1, v0, v1}, Landroidx/fragment/app/FragmentTransaction;->replace(ILandroidx/fragment/app/Fragment;Ljava/lang/String;)Landroidx/fragment/app/FragmentTransaction;
 
@@ -140,7 +140,7 @@
 .method public final onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 0
 
-    const p0, 0x7f0602b0
+    const p0, 0x7f0602bc
 
     const/4 p3, 0x0
 
@@ -160,13 +160,13 @@
 
     new-array p1, p1, [Ljava/lang/Object;
 
-    const p2, 0x7f041621
+    const p2, 0x7f041646
 
     invoke-virtual {p0, p2, p1}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeBaseFragment;->setHeaderTitle(I[Ljava/lang/Object;)V
 
     iget-object p1, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeBaseFragment;->mSummary:Landroid/widget/TextView;
 
-    const p2, 0x7f041622
+    const p2, 0x7f041647
 
     invoke-virtual {p1, p2}, Landroid/widget/TextView;->setText(I)V
 
@@ -176,7 +176,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f04054c
+    const v0, 0x7f040564
 
     invoke-virtual {p1, p2, v0}, Lcom/google/android/setupcompat/template/FooterButton;->setText(Landroid/content/Context;I)V
 

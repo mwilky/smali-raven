@@ -30,7 +30,7 @@
 
     aput v1, v0, v2
 
-    const v1, 0x7f050330
+    const v1, 0x7f050338
 
     const v3, 0x101008e
 
@@ -84,7 +84,7 @@
 
     iget v1, p0, Lcom/android/settings/datausage/DataUsagePreference;->mSubId:I
 
-    const-string v2, "sub_id"
+    const-string/jumbo v2, "sub_id"
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
@@ -136,7 +136,7 @@
 
     if-eqz v1, :cond_0
 
-    const p0, 0x7f040224
+    const p0, 0x7f040238
 
     invoke-virtual {v0, p0}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -176,7 +176,7 @@
 
     if-eqz p3, :cond_0
 
-    const p3, 0x7f040224
+    const p3, 0x7f040238
 
     invoke-virtual {p0, p3}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -197,7 +197,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f04075c
+    const v2, 0x7f040774
 
     const/4 v3, 0x2
 

@@ -101,7 +101,7 @@
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    const-string v1, "winddown"
+    const-string/jumbo v1, "winddown"
 
     invoke-virtual {v0, v1, p0}, Landroid/os/PowerManager;->isAmbientDisplaySuppressedForTokenByApp(Ljava/lang/String;I)Z
 
@@ -196,6 +196,14 @@
     return-object p0
 .end method
 
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d07
+
+    return p0
+.end method
+
 .method public getSummary()Ljava/lang/CharSequence;
     .locals 1
 
@@ -207,7 +215,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f040313
+    const v0, 0x7f040327
 
     goto :goto_0
 

@@ -55,7 +55,7 @@
 
     iput-object v0, p0, Lcom/android/settings/security/CredentialManagementAppPolicyPreference;->mHandler:Landroid/os/Handler;
 
-    const v0, 0x7f0600a1
+    const v0, 0x7f0600a3
 
     invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -71,7 +71,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0d047e
+    const v0, 0x7f0d048b
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 

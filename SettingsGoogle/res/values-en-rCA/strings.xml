@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Smooth display</string>
     <string name="peak_refresh_rate_summary">Automatically raises the refresh rate from 60 to 90 Hz for some content. Increases battery usage.</string>
     <string name="accessibility_vibration_settings_title">Vibration and haptics</string>
+    <string name="columbus_title">Quick Tap to start actions</string>
     <string name="emergency_gesture_screen_title">Emergency SOS</string>
     <string name="abc_action_mode_done">Done</string>
     <string name="vibrate_for_calls_category_title">Calls</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Show device controls</string>
     <string name="lockscreen_privacy_wallet_summary">Allow access to wallet from lock screen and Quick Settings</string>
     <string name="lockscreen_privacy_controls_summary">Access controls when locked</string>
+    <string name="lockscreen_double_line_clock_summary">Show double-line clock when available</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Double-line clock</string>
     <string name="abc_activity_chooser_view_see_all">See all</string>
     <string name="abc_activitychooserview_choose_application">Choose an app</string>
     <string name="abc_capital_off">OFF</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Alarm vibration</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Active Edge set up. Go to the next screen or keep adjusting.</string>
     <string name="accessibility_audio_adjustment_title">Audio adjustment</string>
+    <string name="accessibility_autoclick_about_title">About auto-click (dwell timing)</string>
     <string name="accessibility_autoclick_custom_title">Custom</string>
     <string name="accessibility_autoclick_default_title">Off</string>
     <string name="accessibility_autoclick_description">Autoclick works with a connected mouse. You can set the mouse cursor to click automatically when the cursor stops moving for a certain amount of time.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Learn more about auto-click (dwell timing)</string>
     <string name="accessibility_autoclick_long_summary">1 second</string>
     <string name="accessibility_autoclick_long_title">Long</string>
     <string name="accessibility_autoclick_longer_desc">Longer</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Short</string>
     <string name="accessibility_autoclick_shorter_desc">Shorter</string>
     <string name="accessibility_banner_message_dismiss">Dismiss</string>
-    <string name="accessibility_button_description">"Quickly access accessibility features from any screen. 
+    <string name="accessibility_button_about_title">About accessibility button</string>
+    <string name="accessibility_button_description">"Quickly access accessibility features from any screen.
 
 To get started, go to accessibility settings and select a feature. Tap on the shortcut and select the Accessibility button."</string>
     <string name="accessibility_button_fade_summary">Fades after a few seconds so it’s easier to see your screen</string>
     <string name="accessibility_button_fade_title">Fade when not in use</string>
+    <string name="accessibility_button_gesture_about_title">About accessibility button &amp; gesture</string>
     <string name="accessibility_button_gesture_description">"Quickly access accessibility features from any screen.
 
-To get started, go to accessibility settings and select a feature. Tap on the shortcut and select the accessibility button.
-
-To use the accessibility button in the navigation bar instead, switch to 2-button navigation or 3-button navigation."</string>
+To get started, go to accessibility settings and select a feature. Tap on the shortcut and select the Accessibility button or gesture."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Learn more about accessibility button &amp; gesture</string>
     <string name="accessibility_button_gesture_title">Accessibility button &amp; gesture</string>
     <string name="accessibility_button_high_label">Non-transparent</string>
     <string name="accessibility_button_intro">Using the accessibility button. The gesture isn’t available with 3-button navigation.</string>
@@ -184,14 +190,23 @@ To use the accessibility button in the navigation bar instead, switch to 2-butto
     <string name="accessibility_caption_preference_summary">Not all apps support these caption preferences</string>
     <string name="accessibility_caption_primary_switch_summary">For supported app only</string>
     <string name="accessibility_caption_primary_switch_title">Show captions</string>
+    <string name="accessibility_captioning_about_title">About caption preferences</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Learn more about caption preferences</string>
     <string name="accessibility_captioning_title">Caption preferences</string>
     <string name="accessibility_category_personal">Personal profile accounts</string>
     <string name="accessibility_category_work">Work profile accounts - %s</string>
+    <string name="accessibility_color_inversion_about_title">About colour inversion</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Learn more about colour inversion</string>
+    <string name="accessibility_control_timeout_about_title">About time to take action (accessibility timeout)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Learn more about time to take action (accessibility timeout)</string>
     <string name="accessibility_control_timeout_preference_summary">"Choose how long to show messages that ask you to take action, but are visible only temporarily.
 
 Not all apps support this setting."</string>
     <string name="accessibility_control_timeout_preference_title">Time to take action</string>
+    <string name="accessibility_daltonizer_about_title">About colour correction</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Learn more about colour correction</string>
     <string name="accessibility_daltonizer_primary_switch_title">Use colour correction</string>
+    <string name="accessibility_daltonizer_shortcut_title">Colour correction shortcut</string>
     <string name="accessibility_data_one_bar">Data one bar.</string>
     <string name="accessibility_data_signal_full">Data signal full.</string>
     <string name="accessibility_data_three_bars">Data three bars.</string>
@@ -206,6 +221,7 @@ Not all apps support this setting."</string>
     <string name="accessibility_display_daltonizer_preference_title">Colour correction</string>
     <string name="accessibility_display_inversion_preference_subtitle">Colour inversion turns light screens dark.&lt;br/>&lt;br/> Note: &lt;ol> &lt;li> Colour inversion also turns dark screens light.&lt;/li> &lt;li> Colours will change in media and images.&lt;/li> &lt;li> Dark theme can be used to display a dark background. Dark theme works with supported apps. Colour inversion works on all apps.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Colour inversion</string>
+    <string name="accessibility_display_inversion_shortcut_title">Colour inversion shortcut</string>
     <string name="accessibility_display_inversion_switch_title">Use colour inversion</string>
     <string name="accessibility_ethernet_connected">Ethernet.</string>
     <string name="accessibility_ethernet_disconnected">Ethernet disconnected.</string>
@@ -255,6 +271,8 @@ The Accessibility button floats on your screen over other apps. Tap it to magnif
     <string name="accessibility_phone_two_bars">Phone two bars.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Power button ends call</string>
     <string name="accessibility_preference_magnification_summary">Zoom in on screen</string>
+    <string name="accessibility_screen_magnification_about_title">About magnification</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Learn more about magnification</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">The accessibility gesture is set to the %1$s. To use magnification, swipe up with two fingers from the bottom of the screen and hold. Then select magnification.</string>
     <string name="accessibility_screen_magnification_gestures_title">Magnify with triple-tap</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">The accessibility button is set to %1$s. To use magnification, touch &amp; hold the accessibility button, then select magnification.</string>
@@ -272,6 +290,7 @@ The Accessibility button floats on your screen over other apps. Tap it to magnif
 You can’t zoom in on the keyboard or navigation bar."</string>
     <string name="accessibility_screen_magnification_navbar_title">Magnify with shortcut</string>
     <string name="accessibility_screen_magnification_short_summary">Tap 3 times to zoom</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Magnification shortcut</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Magnify with shortcut &amp; triple-tap</string>
     <string name="accessibility_screen_magnification_summary">Quickly zoom in on the screen to make content larger.&lt;br/>&lt;br/> &lt;b>To zoom in:&lt;/b>&lt;br/> {0,number,integer}. Use shortcut to start magnification&lt;br/> {1,number,integer}. Tap the screen&lt;br/> {2,number,integer}. Drag two fingers to move around screen&lt;br/> {3,number,integer}. Pinch with two fingers to adjust zoom&lt;br/> {4,number,integer}. Use shortcut to stop magnification&lt;br/>&lt;br/> &lt;b>To zoom in temporarily:&lt;/b>&lt;br/> {0,number,integer}. Use shortcut to start magnification&lt;br/> {1,number,integer}. Touch &amp; hold anywhere on the screen&lt;br/> {2,number,integer}. Drag finger to move around screen&lt;br/> {3,number,integer}. Lift finger to stop magnification</string>
     <string name="accessibility_screen_magnification_title">Magnification</string>
@@ -370,7 +389,7 @@ To switch between features, swipe up with three fingers and hold."</string>
     <string name="accessibility_tutorial_dialog_message_volume">To use this feature, press and hold both volume keys.</string>
     <string name="accessibility_tutorial_dialog_title_button">Use accessibility button to open</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Use gesture to open</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Use new accessibility gesture</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Use accessibility gesture</string>
     <string name="accessibility_tutorial_dialog_title_triple">Triple-tap screen to open</string>
     <string name="accessibility_tutorial_dialog_title_volume">Hold volume keys to open</string>
     <string name="accessibility_tutorial_pager">Page %1$d of %2$d</string>
@@ -936,6 +955,7 @@ Once it resets, go through the setup process and choose to bring your data from 
     <string name="battery_level_title">Battery level</string>
     <string name="battery_manager_off">Off</string>
     <string name="battery_manager_summary">Extend battery life and optimise charging</string>
+    <string name="battery_manager_summary_unsupported">Extend battery life</string>
     <string name="battery_missing_link_a11y_message">Tap to find out more about this error</string>
     <string name="battery_missing_link_message">Learn more</string>
     <string name="battery_missing_message">Problem reading the battery meter.</string>
@@ -1061,6 +1081,7 @@ for ^2"</string>
     <string name="battery_usage_screen_footer">"Battery usage data is approximate and doesn't measure usage when phone is charging"</string>
     <string name="battery_usage_screen_footer_empty">Battery usage data will be available after you use your phone for a few hours</string>
     <string name="battery_usage_total_less_than_one_minute">Total: less than a min.</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s used by %2$s</string>
     <string name="battery_used_for">Used for ^1</string>
     <string name="bearer">Bearer</string>
@@ -1069,12 +1090,14 @@ for ^2"</string>
     <string name="billing_cycle_less_than_one_day_left">Less than one day left</string>
     <string name="billing_cycle_none_left">No time remaining</string>
     <string name="biometric_settings_category_ways_to_unlock">Ways to unlock</string>
-    <string name="biometric_settings_category_ways_to_use">Use face and fingerprint for</string>
     <string name="biometric_settings_hand_back_to_guardian">Hand the phone back to your parent</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">OK</string>
     <string name="biometric_settings_intro">When you set up Face Unlock and Fingerprint Unlock, your phone will ask for your fingerprint when you wear a mask or are in a dark area</string>
-    <string name="biometric_settings_use_biometric_for_apps">Authentication in apps</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">Unlocking your phone</string>
+    <string name="biometric_settings_use_biometric_for_apps">Verify that it’s you in apps</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">Unlock your phone</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Using face or fingerprint</string>
+    <string name="biometric_settings_use_face_preference_summary">Using face</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Using fingerprint</string>
     <string name="biometrics_unlock_set_unlock_password">Password • Face • Fingerprint</string>
     <string name="biometrics_unlock_set_unlock_pattern">Pattern • Face • Fingerprint</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN • Face • Fingerprint</string>
@@ -1332,7 +1355,6 @@ Selection"</string>
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Show Bluetooth devices without names</string>
     <string name="bluetooth_show_devices_without_names_summary">Bluetooth devices without names (MAC addresses only) will be displayed</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Files received via Bluetooth</string>
     <string name="bluetooth_show_received_files">Received files</string>
     <string name="bluetooth_sim_card_access_dialog_content">"A Bluetooth device, %1$s, wants to access data on your SIM card. This includes your contacts.
 
@@ -1425,6 +1447,7 @@ If you install a CA certificate, the certificate owner could access your data, s
     <string name="calls_sms_temp_unavailable">Temporarily unavailable</string>
     <string name="calls_sms_unavailable">unavailable</string>
     <string name="calls_sms_wfc_summary">Make and receive calls over Wi‑Fi</string>
+    <string name="cam_toggle_description">For apps and services</string>
     <string name="camera_double_tap_power_gesture_desc">Quickly open camera without unlocking your screen</string>
     <string name="camera_double_tap_power_gesture_title">Press power button twice for camera</string>
     <string name="camera_laser_sensor_switch">Camera laser sensor</string>
@@ -3282,6 +3305,7 @@ There are other users present on this device.
     <string name="menu_stats_total">Usage totals</string>
     <string name="menu_stats_unplugged">%1$s since unplugged</string>
     <string name="menu_use_uss">Use Uss</string>
+    <string name="mic_toggle_description">For apps and services. If this setting is off, microphone data may still be shared when you call an emergency number.</string>
     <string name="mic_toggle_title">Microphone access</string>
     <string name="misc_files">Misc. files</string>
     <string name="misc_files_selected_count">selected %1$d out of %2$d</string>
@@ -3675,6 +3699,7 @@ This will also give the app the ability to turn Do Not Disturb on or off and cha
     <string name="one_handed_action_show_notification_title">Show notifications</string>
     <string name="one_handed_mode_enabled">Use one-handed mode</string>
     <string name="one_handed_mode_intro_text">To use one-handed mode, swipe down from the bottom edge of the screen. To use this feature, make sure that gesture navigation is turned on in system navigation settings.</string>
+    <string name="one_handed_mode_shortcut_title">One-handed mode shortcut</string>
     <string name="one_handed_mode_swipe_down_category">Swipe down to</string>
     <string name="one_handed_mode_use_shortcut_category">Use the shortcut to</string>
     <string name="one_usercrt">one user certificate</string>
@@ -3749,7 +3774,7 @@ This will also give the app the ability to turn Do Not Disturb on or off and cha
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s is active</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Camera</string>
-    <string name="power_cell">Mobile network standby</string>
+    <string name="power_cell">Mobile network</string>
     <string name="power_charge_remaining">%1$s to charge</string>
     <string name="power_charging">%1$s - %2$s</string>
     <string name="power_charging_duration">%1$s – %2$s left until full</string>
@@ -3983,6 +4008,7 @@ Press power and volume up at the same time."</string>
     <string name="recent_notifications">Recently sent</string>
     <string name="recent_notifications_see_all_title">See all from last 7 days</string>
     <string name="recompute_size">Recomputing size…</string>
+    <string name="reduce_bright_colors_about_title">About extra dim</string>
     <string name="reduce_bright_colors_intensity_end_label">Brighter</string>
     <string name="reduce_bright_colors_intensity_preference_title">Intensity</string>
     <string name="reduce_bright_colors_intensity_start_label">Dimmer</string>
@@ -3990,6 +4016,7 @@ Press power and volume up at the same time."</string>
     <string name="reduce_bright_colors_preference_subtitle">Make your screen dimmer so that it’s more comfortable to read.&lt;br/>&lt;br/> This can be helpful when: &lt;ol> &lt;li> Your phone’s default minimum brightness is still too bright&lt;/li> &lt;li> You’re using your phone in dark situations, like at night or in a dark room before bed&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">Dim screen beyond your phone’s minimum brightness</string>
     <string name="reduce_bright_colors_preference_title">Extra dim</string>
+    <string name="reduce_bright_colors_shortcut_title">Extra dim shortcut</string>
     <string name="reduce_bright_colors_switch_title">Make screen extra dim</string>
     <string name="register_automatically">Automatic registration…</string>
     <string name="register_on_network">Registering on %s…</string>
@@ -4195,7 +4222,6 @@ To use app pinning: \u0009
     <string name="screen_pinning_unlock_pattern">Ask for unlock pattern before unpinning</string>
     <string name="screen_pinning_unlock_pin">Ask for PIN before unpinning</string>
     <string name="screen_reader_category_title">Screen reader</string>
-    <string name="screen_saver_main_switch_title">Use screen saver</string>
     <string name="screen_time_summary_usage_today">%1$s today</string>
     <string name="screen_timeout_summary">After %1$s of inactivity</string>
     <string name="screen_timeout_title">Screen turns off</string>
@@ -4225,6 +4251,7 @@ To use app pinning: \u0009
     <string name="screensaver_settings_button">Settings</string>
     <string name="screensaver_settings_current">Current screen saver</string>
     <string name="screensaver_settings_disabled_prompt">To control what happens when the phone is docked and/or sleeping, turn the screen saver on.</string>
+    <string name="screensaver_settings_dream_start">Start now</string>
     <string name="screensaver_settings_summary_dock">While docked</string>
     <string name="screensaver_settings_summary_either_long">While charging or docked</string>
     <string name="screensaver_settings_summary_either_short">Either</string>
@@ -4275,15 +4302,6 @@ To use app pinning: \u0009
     <string name="security_settings_biometric_preference_summary_both_fp_single">Face and fingerprint added</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Tap to set up</string>
     <string name="security_settings_biometric_preference_title">Face &amp; Fingerprint Unlock</string>
-    <string name="security_settings_biometrics_description">When you set up face and Fingerprint Unlock, your phone will ask for your fingerprint when you wear a mask or are in a dark area</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Authentication in apps</string>
-    <string name="security_settings_biometrics_preferences_category">Use face or fingerprint for</string>
-    <string name="security_settings_biometrics_summary_both">Face and fingerprint</string>
-    <string name="security_settings_biometrics_summary_face">Face only</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Fingerprint only</string>
-    <string name="security_settings_biometrics_summary_none">Tap to set up</string>
-    <string name="security_settings_biometrics_title">Face &amp; Fingerprint Unlock</string>
-    <string name="security_settings_biometrics_types_category">Ways to unlock</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Allow Face Unlock</string>
     <string name="security_settings_face_enroll_dialog_ok">OK</string>
     <string name="security_settings_face_enroll_done">Done</string>
@@ -4331,16 +4349,17 @@ Learn more at g.co/pixel/faceunlock."</string>
     <string name="security_settings_face_enroll_introduction_control_title">"You're in control"</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message">"Face Unlock creates a unique model of your child’s face to verify that it’s them. To create this face model during setup, your child will take images of their face from different angles.
 
-When they use Face Unlock, images are used to update their face model. Images used to create their face model are never stored, but the face model is stored securely on the phone and never leaves the phone. All processing occurs securely on the phone."</string>
+When they use Face Unlock, images are used to update their face model. Images used to create their face model are not stored, but the face model is stored securely on the phone and never leaves the phone. All processing occurs securely on the phone."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"Face Unlock creates a unique model of your face to verify that it’s you. To create this face model during setup, you will take images of your face from different angles.
 
-When you use Face Unlock, images are used to update your face model. Images used to create your face model are never stored, but the face model is stored securely on your phone and never leaves the phone. All processing occurs securely on your phone."</string>
+When you use Face Unlock, images are used to update your face model. Images used to create your face model are not stored, but the face model is stored securely on your phone and never leaves the phone. All processing occurs securely on your phone."</string>
     <string name="security_settings_face_enroll_introduction_how_title">How it works</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">Face Unlock can require your child’s eyes to be open to unlock the phone or verify that it’s them. You and your child can turn this option on at any time in Settings.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">If your child normally wears glasses, they can wear them during setup.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Looking at the phone can unlock it even when they don’t intend to. Their phone can also be unlocked by someone who looks a lot like them, like an identical sibling, or if someone holds it up to their face.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Face Unlock can require your eyes to be open to unlock the phone or verify that it’s you. You can turn this option on at any time in Settings.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Glasses or lightly tinted sunglasses are OK.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Using a face to unlock the phone may be less secure than a strong pattern or PIN.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Looking at the phone can unlock it even when you don’t intend to. Your phone can also be unlocked by someone who looks a lot like you, like an identical sibling, or if someone holds it up to your face.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Bear in mind</string>
     <string name="security_settings_face_enroll_introduction_message">Use your face to unlock your phone or verify that it’s you, like when you sign in to apps or approve a purchase.</string>
@@ -4398,13 +4417,14 @@ Your phone can be unlocked by someone else if it’s held up to your face, even 
 
 Your phone can be unlocked by someone who looks a lot like you, like an identical sibling."</string>
     <string name="security_settings_face_settings_preferences_category">When using Face Unlock</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Your face model will be permanently and securely deleted. After deletion, you will need your PIN, pattern or password to unlock your phone or for authentication in apps.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Your face model will be permanently and securely deleted.
+
+After deletion, you will need your PIN, pattern or password to unlock your phone or for authentication in apps."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Your face model will be permanently and securely deleted.
+
+After deletion, you will need your PIN, pattern or password to unlock your phone."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Delete face model?</string>
     <string name="security_settings_face_settings_remove_face_model">Delete face model</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Your face model will be permanently and securely deleted.
-
-After deletion, you will need your fingerprint, PIN, pattern or password to unlock your phone or for authentication in apps."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Delete face model?</string>
     <string name="security_settings_face_settings_require_attention">Require eyes to be open</string>
     <string name="security_settings_face_settings_require_attention_details">To unlock the phone, your eyes must be open</string>
     <string name="security_settings_face_settings_require_confirmation">Always require confirmation</string>
@@ -4487,7 +4507,7 @@ Note: You can't use your fingerprint to unlock this device. For more information
     <string name="security_settings_title">Security</string>
     <string name="security_settings_udfps_enroll_a11y">Move your finger across the screen to find the sensor. Touch &amp; hold the fingerprint sensor.</string>
     <string name="security_settings_udfps_enroll_edge_message">Place the side of your fingerprint on the sensor and hold, then switch to the other side</string>
-    <string name="security_settings_udfps_enroll_edge_title">Finally, place the edges of your finger</string>
+    <string name="security_settings_udfps_enroll_edge_title">Finally, use the edges of your finger</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">The fingerprint sensor is on your screen. You’ll capture your fingerprint on the next screen.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Start</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">How to set up your fingerprint</string>
@@ -4496,7 +4516,7 @@ Note: You can't use your fingerprint to unlock this device. For more information
     <string name="security_settings_udfps_enroll_repeat_a11y_message">This helps capture more of your fingerprint</string>
     <string name="security_settings_udfps_enroll_repeat_message">Touch &amp; hold each time the fingerprint icon moves. This helps capture more of your fingerprint.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Follow the fingerprint icon</string>
-    <string name="security_settings_udfps_enroll_start_message">Keep your finger on the sensor until you feel a vibration</string>
+    <string name="security_settings_udfps_enroll_start_message">Keep your fingerprint flat on the sensor until you feel a vibration</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">One more time</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint for work</string>
     <string name="security_status_title">Security status</string>
@@ -4522,7 +4542,6 @@ Note: You can't use your fingerprint to unlock this device. For more information
     <string name="select_webview_provider_dialog_title">Set WebView implementation</string>
     <string name="select_webview_provider_title">WebView implementation</string>
     <string name="select_webview_provider_toast_text">This choice is no longer valid. Try again.</string>
-    <string name="sensor_toggle_description">For all apps and services</string>
     <string name="sensors_off_quick_settings_title">Sensors Off</string>
     <string name="service_background_processes">%1$s free</string>
     <string name="service_foreground_processes">%1$s used</string>
@@ -4754,6 +4773,7 @@ Possibly incorrect PIN."</string>
     <string name="sound_settings_summary_silent">Ringer set to silent</string>
     <string name="sound_settings_summary_vibrate">Ringer set to vibrate</string>
     <string name="sound_work_settings">Work profile sounds</string>
+    <string name="spatial_audio_title">Spatial audio</string>
     <string name="special_access">Special app access</string>
     <string name="special_access_more">See more</string>
     <string name="speed_label_fast">Fast</string>
@@ -5565,7 +5585,7 @@ During a voice call, you can’t use the Internet and some apps may not work."</
     <string name="vpn_turn_on">Turn on</string>
     <string name="vpn_type">Type</string>
     <string name="vpn_username">Username</string>
-    <string name="vpn_version">Version %s</string>
+    <string name="vpn_version">Version</string>
     <string name="vr_listener_security_warning_summary">%1$s will be able to run when you are using applications in virtual reality mode.</string>
     <string name="vr_listener_security_warning_title">Allow VR service access for %1$s?</string>
     <string name="vr_listeners_title">VR helper services</string>
@@ -5835,7 +5855,7 @@ Setting the network as hidden will not change your router settings."</string>
     <string name="wifi_not_in_range">Not in range</string>
     <string name="wifi_not_in_range_message">Network not in range</string>
     <string name="wifi_notify_open_networks">Notify for public networks</string>
-    <string name="wifi_notify_open_networks_summary">"When automatic connection isn't available"</string>
+    <string name="wifi_notify_open_networks_summary">Notify when a high‑quality public network is available</string>
     <string name="wifi_on_time">Wi‑Fi on time</string>
     <string name="wifi_p2p_cancel_connect_message">Do you want to cancel invitation to connect with %1$s?</string>
     <string name="wifi_p2p_cancel_connect_title">Cancel invitation</string>
@@ -5923,7 +5943,6 @@ Allow this for all apps that want to scan?"</string>
     <string name="wifi_suspend_optimizations">Wi‑Fi optimisation</string>
     <string name="wifi_suspend_optimizations_summary">Minimise battery usage when Wi‑Fi is on</string>
     <string name="wifi_switch_away_when_unvalidated">Switch to mobile data if Wi‑Fi loses Internet access.</string>
-    <string name="wifi_switch_summary">Find and connect to Wi‑Fi networks</string>
     <string name="wifi_tap_to_sign_in">Tap here to sign in to network</string>
     <string name="wifi_tether_configure_ap_text">Set up Wi‑Fi hotspot</string>
     <string name="wifi_tether_configure_ssid_default">Android Hotspot</string>

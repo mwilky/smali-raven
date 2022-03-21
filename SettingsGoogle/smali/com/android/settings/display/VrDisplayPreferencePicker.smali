@@ -45,7 +45,7 @@
 
     const/4 v2, 0x0
 
-    const v3, 0x7f040808
+    const v3, 0x7f040820
 
     invoke-direct {v1, p0, v2, v3}, Lcom/android/settings/display/VrDisplayPreferencePicker$VrCandidateInfo;-><init>(Landroid/content/Context;II)V
 
@@ -55,7 +55,7 @@
 
     const/4 v2, 0x1
 
-    const v3, 0x7f040809
+    const v3, 0x7f040821
 
     invoke-direct {v1, p0, v2, v3}, Lcom/android/settings/display/VrDisplayPreferencePicker$VrCandidateInfo;-><init>(Landroid/content/Context;II)V
 
@@ -77,7 +77,7 @@
 
     iget p0, p0, Lcom/android/settings/widget/RadioButtonPickerFragment;->mUserId:I
 
-    const-string v1, "vr_display_mode"
+    const-string/jumbo v1, "vr_display_mode"
 
     const/4 v2, 0x0
 
@@ -89,7 +89,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "vr_display_pref_"
+    const-string/jumbo v1, "vr_display_pref_"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -113,7 +113,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150106
+    const p0, 0x7f15010b
 
     return p0
 .end method
@@ -134,17 +134,17 @@
     :cond_0
     invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
 
-    const-string v0, "vr_display_pref_0"
+    const-string/jumbo v0, "vr_display_pref_0"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    const-string v2, "vr_display_mode"
+    const-string/jumbo v2, "vr_display_mode"
 
     if-nez v0, :cond_2
 
-    const-string v0, "vr_display_pref_1"
+    const-string/jumbo v0, "vr_display_pref_1"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

@@ -58,6 +58,9 @@
     return-object p0
 .end method
 
+.method public abstract getSliceHighlightMenuRes()I
+.end method
+
 .method public getSliceType()I
     .locals 0
 

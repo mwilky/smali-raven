@@ -140,6 +140,16 @@
     return-object p0
 .end method
 
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public bridge synthetic hasAsyncUpdate()Z
     .locals 0
 
@@ -191,7 +201,7 @@
 
     const-string p0, "NetworkProviderDownloadedSimsCategoryController"
 
-    const-string p1, "updateState(), Can not find the category."
+    const-string/jumbo p1, "updateState(), Can not find the category."
 
     invoke-static {p0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -208,12 +218,12 @@
 
     if-le p1, v1, :cond_1
 
-    const p1, 0x7f040838
+    const p1, 0x7f040850
 
     goto :goto_0
 
     :cond_1
-    const p1, 0x7f040837
+    const p1, 0x7f04084f
 
     :goto_0
     invoke-virtual {v0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;

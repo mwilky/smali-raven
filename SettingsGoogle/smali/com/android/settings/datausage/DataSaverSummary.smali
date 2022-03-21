@@ -35,7 +35,7 @@
 
     new-instance v0, Lcom/android/settings/datausage/DataSaverSummary$1;
 
-    const v1, 0x7f150053
+    const v1, 0x7f150054
 
     invoke-direct {v0, v1}, Lcom/android/settings/datausage/DataSaverSummary$1;-><init>(I)V
 
@@ -57,7 +57,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a13
+    const p0, 0x7f040a2b
 
     return p0
 .end method
@@ -91,7 +91,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040706
+    const v1, 0x7f04071e
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -127,11 +127,11 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f150053
+    const p1, 0x7f150054
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
-    const-string p1, "unrestricted_access"
+    const-string/jumbo p1, "unrestricted_access"
 
     invoke-virtual {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 

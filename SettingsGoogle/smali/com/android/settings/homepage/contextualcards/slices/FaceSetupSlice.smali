@@ -82,7 +82,7 @@
 
 # virtual methods
 .method public getIntent()Landroid/content/Intent;
-    .locals 5
+    .locals 7
 
     iget-object v0, p0, Lcom/android/settings/homepage/contextualcards/slices/FaceSetupSlice;->mFaceManager:Landroid/hardware/face/FaceManager;
 
@@ -96,31 +96,33 @@
 
     if-nez v0, :cond_0
 
+    iget-object v1, p0, Lcom/android/settings/homepage/contextualcards/slices/FaceSetupSlice;->mContext:Landroid/content/Context;
+
+    const-class v0, Lcom/android/settings/security/SecuritySettings;
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v2
+
     iget-object v0, p0, Lcom/android/settings/homepage/contextualcards/slices/FaceSetupSlice;->mContext:Landroid/content/Context;
 
-    const-class v1, Lcom/android/settings/security/SecuritySettings;
+    const v3, 0x7f041162
 
-    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v0, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
-    move-result-object v1
+    move-result-object v0
 
-    iget-object v2, p0, Lcom/android/settings/homepage/contextualcards/slices/FaceSetupSlice;->mContext:Landroid/content/Context;
+    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    const v3, 0x7f04113c
+    move-result-object v4
 
-    invoke-virtual {v2, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+    const/16 v5, 0x579
 
-    move-result-object v2
+    const-string v3, "face_settings"
 
-    invoke-interface {v2}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    move-object v6, p0
 
-    move-result-object v2
-
-    const/16 v3, 0x579
-
-    const-string v4, "face_settings"
-
-    invoke-static {v0, v1, v4, v2, v3}, Lcom/android/settings/slices/SliceBuilderUtils;->buildSearchResultPageIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)Landroid/content/Intent;
+    invoke-static/range {v1 .. v6}, Lcom/android/settings/slices/SliceBuilderUtils;->buildSearchResultPageIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILcom/android/settings/slices/CustomSliceable;)Landroid/content/Intent;
 
     move-result-object v0
 
@@ -210,7 +212,7 @@
 
     iget-object v0, p0, Lcom/android/settings/homepage/contextualcards/slices/FaceSetupSlice;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f04113c
+    const v1, 0x7f041162
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -218,7 +220,7 @@
 
     iget-object v1, p0, Lcom/android/settings/homepage/contextualcards/slices/FaceSetupSlice;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f04113b
+    const v4, 0x7f041161
 
     invoke-virtual {v1, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -231,7 +233,7 @@
 
     iget-object v0, p0, Lcom/android/settings/homepage/contextualcards/slices/FaceSetupSlice;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f04112e
+    const v1, 0x7f041154
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -239,7 +241,7 @@
 
     iget-object v1, p0, Lcom/android/settings/homepage/contextualcards/slices/FaceSetupSlice;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f04112d
+    const v4, 0x7f041153
 
     invoke-virtual {v1, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -254,7 +256,7 @@
 
     iget-object v0, p0, Lcom/android/settings/homepage/contextualcards/slices/FaceSetupSlice;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f041127
+    const v1, 0x7f04114d
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -262,7 +264,7 @@
 
     iget-object v1, p0, Lcom/android/settings/homepage/contextualcards/slices/FaceSetupSlice;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f041126
+    const v4, 0x7f04114c
 
     invoke-virtual {v1, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -289,7 +291,7 @@
 
     iget-object v3, p0, Lcom/android/settings/homepage/contextualcards/slices/FaceSetupSlice;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0201c4
+    const v4, 0x7f0201cb
 
     invoke-static {v3, v4}, Landroidx/core/graphics/drawable/IconCompat;->createWithResource(Landroid/content/Context;I)Landroidx/core/graphics/drawable/IconCompat;
 
@@ -333,6 +335,14 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d0d
+
+    return p0
 .end method
 
 .method public getUri()Landroid/net/Uri;

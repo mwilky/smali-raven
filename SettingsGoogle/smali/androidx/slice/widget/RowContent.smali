@@ -104,7 +104,7 @@
 
     const/4 v0, 0x0
 
-    const-string v1, "title"
+    const-string/jumbo v1, "title"
 
     invoke-static {p1, v0, v1, v0}, Landroidx/slice/core/SliceQuery;->findAll(Landroidx/slice/SliceItem;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
 
@@ -114,7 +114,7 @@
 
     move-result v3
 
-    const-string v4, "slice"
+    const-string/jumbo v4, "slice"
 
     const-string v5, "action"
 
@@ -183,7 +183,7 @@
     iput-object v2, p0, Landroidx/slice/widget/RowContent;->mStartItem:Landroidx/slice/SliceItem;
 
     :cond_2
-    const-string v2, "shortcut"
+    const-string/jumbo v2, "shortcut"
 
     filled-new-array {v2, v1}, [Ljava/lang/String;
 
@@ -415,7 +415,7 @@
 
     move-result-object v1
 
-    const-string v2, "slice"
+    const-string/jumbo v2, "slice"
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -510,7 +510,7 @@
 
     const-string v0, "keywords"
 
-    const-string v1, "ttl"
+    const-string/jumbo v1, "ttl"
 
     const-string v2, "last_updated"
 
@@ -579,7 +579,7 @@
 
     if-nez v0, :cond_1
 
-    const-string v0, "text"
+    const-string/jumbo v0, "text"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -611,7 +611,7 @@
 
     if-nez v0, :cond_1
 
-    const-string v0, "slice"
+    const-string/jumbo v0, "slice"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -702,7 +702,7 @@
 
     move-result v2
 
-    const-string v3, "title"
+    const-string/jumbo v3, "title"
 
     const-string v4, "action"
 
@@ -734,7 +734,7 @@
 
     move-result-object v2
 
-    const-string v5, "slice"
+    const-string/jumbo v5, "slice"
 
     invoke-virtual {v5, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -749,7 +749,7 @@
 
     check-cast v2, Landroidx/slice/SliceItem;
 
-    const-string v5, "shortcut"
+    const-string/jumbo v5, "shortcut"
 
     filled-new-array {v5, v3}, [Ljava/lang/String;
 
@@ -945,7 +945,7 @@
 
     move-result-object v6
 
-    const-string v7, "text"
+    const-string/jumbo v7, "text"
 
     invoke-virtual {v7, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -955,7 +955,7 @@
 
     iget-object v6, p0, Landroidx/slice/widget/RowContent;->mTitleItem:Landroidx/slice/SliceItem;
 
-    const-string v7, "summary"
+    const-string/jumbo v7, "summary"
 
     if-eqz v6, :cond_b
 

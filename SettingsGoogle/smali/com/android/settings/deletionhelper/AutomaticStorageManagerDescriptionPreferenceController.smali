@@ -69,7 +69,7 @@
     goto :goto_0
 
     :cond_0
-    const v2, 0x7f0402f1
+    const v2, 0x7f040305
 
     const/4 v3, 0x2
 
@@ -103,7 +103,7 @@
 
     :cond_1
     :goto_0
-    const p1, 0x7f0402f5
+    const p1, 0x7f040309
 
     invoke-virtual {p0, p1}, Lcom/android/settingslib/widget/FooterPreference;->setSummary(I)V
 

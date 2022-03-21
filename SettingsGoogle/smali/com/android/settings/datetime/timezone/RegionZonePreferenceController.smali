@@ -71,6 +71,16 @@
     return-object p0
 .end method
 
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public getSummary()Ljava/lang/CharSequence;
     .locals 5
 
@@ -89,7 +99,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f041896
+    const v1, 0x7f0418bb
 
     const/4 v2, 0x2
 

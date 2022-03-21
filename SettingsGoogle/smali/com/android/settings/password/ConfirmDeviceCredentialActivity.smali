@@ -216,7 +216,7 @@
     :cond_0
     if-eqz p2, :cond_1
 
-    const p1, 0x7f040c04
+    const p1, 0x7f040c1c
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -225,7 +225,7 @@
     goto :goto_0
 
     :cond_1
-    const p1, 0x7f040c03
+    const p1, 0x7f040c1b
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -237,7 +237,7 @@
     :cond_2
     if-eqz p2, :cond_3
 
-    const p1, 0x7f040c0e
+    const p1, 0x7f040c26
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -246,7 +246,7 @@
     goto :goto_1
 
     :cond_3
-    const p1, 0x7f040c0d
+    const p1, 0x7f040c25
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -258,7 +258,7 @@
     :cond_4
     if-eqz p2, :cond_5
 
-    const p1, 0x7f040c09
+    const p1, 0x7f040c21
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -267,7 +267,7 @@
     goto :goto_2
 
     :cond_5
-    const p1, 0x7f040c08
+    const p1, 0x7f040c20
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -299,7 +299,7 @@
     :cond_0
     if-eqz p2, :cond_1
 
-    const p1, 0x7f040c11
+    const p1, 0x7f040c29
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -308,7 +308,7 @@
     goto :goto_0
 
     :cond_1
-    const p1, 0x7f040c05
+    const p1, 0x7f040c1d
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -320,7 +320,7 @@
     :cond_2
     if-eqz p2, :cond_3
 
-    const p1, 0x7f040c13
+    const p1, 0x7f040c2b
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -329,7 +329,7 @@
     goto :goto_1
 
     :cond_3
-    const p1, 0x7f040c0f
+    const p1, 0x7f040c27
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -341,7 +341,7 @@
     :cond_4
     if-eqz p2, :cond_5
 
-    const p1, 0x7f040c12
+    const p1, 0x7f040c2a
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -350,7 +350,7 @@
     goto :goto_2
 
     :cond_5
-    const p1, 0x7f040c0a
+    const p1, 0x7f040c22
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 

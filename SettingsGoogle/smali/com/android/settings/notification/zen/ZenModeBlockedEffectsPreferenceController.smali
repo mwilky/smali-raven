@@ -11,7 +11,7 @@
 .method public constructor <init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
     .locals 1
 
-    const-string v0, "zen_mode_block_effects_settings"
+    const-string/jumbo v0, "zen_mode_block_effects_settings"
 
     invoke-direct {p0, p1, v0, p2}, Lcom/android/settings/notification/zen/AbstractZenModePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
 
@@ -29,7 +29,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "zen_mode_block_effects_settings"
+    const-string/jumbo p0, "zen_mode_block_effects_settings"
 
     return-object p0
 .end method

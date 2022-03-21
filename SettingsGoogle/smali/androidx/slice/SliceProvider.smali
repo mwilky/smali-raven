@@ -142,7 +142,7 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    const-string v1, "slice_uri"
+    const-string/jumbo v1, "slice_uri"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
@@ -655,9 +655,9 @@
 
     move-result-object v2
 
-    const-string v3, "title"
+    const-string/jumbo v3, "title"
 
-    const-string v5, "shortcut"
+    const-string/jumbo v5, "shortcut"
 
     filled-new-array {v3, v5}, [Ljava/lang/String;
 
@@ -888,7 +888,7 @@
     return-object p0
 
     :cond_0
-    const-string p0, "vnd.android.slice"
+    const-string/jumbo p0, "vnd.android.slice"
 
     return-object p0
 .end method
@@ -1041,7 +1041,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "slice_perms_"
+    const-string/jumbo v3, "slice_perms_"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

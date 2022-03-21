@@ -244,7 +244,7 @@
 
     move-result-object v0
 
-    const-string v1, "sidecar"
+    const-string/jumbo v1, "sidecar"
 
     invoke-virtual {v0, v1}, Landroidx/fragment/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroidx/fragment/app/Fragment;
 

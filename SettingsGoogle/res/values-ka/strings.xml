@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Smooth Display</string>
     <string name="peak_refresh_rate_summary">ავტომატურად ზრდის განახლების სიხშირეს 60-დან და 90 ჰც-მდე გარკვეული კონტენტისთვის. გაზრდის ბატარეის მოხმარებას.</string>
     <string name="accessibility_vibration_settings_title">ვიბრაცია და შეხებისადმი მგრძნობელობა</string>
+    <string name="columbus_title">სწრაფად შეეხეთ მოქმედებების დასაწყებად</string>
     <string name="emergency_gesture_screen_title">გადაუდებელი დახმარება</string>
     <string name="abc_action_mode_done">მზადაა</string>
     <string name="vibrate_for_calls_category_title">ზარები</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">მოწყობილობის მართვის საშუალებების ჩვენება</string>
     <string name="lockscreen_privacy_wallet_summary">დაუშვით საფულეზე წვდომა ჩაკეტილი ეკრანიდან და სწრაფი პარამეტრებიდან</string>
     <string name="lockscreen_privacy_controls_summary">მართვის საშუალებებზე წვდომა, როცა ჩაკეტილია</string>
+    <string name="lockscreen_double_line_clock_summary">ორხაზიანი საათის ჩვენება, როცა ხელმისაწვდომია</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">ორხაზიანი საათი</string>
     <string name="abc_activity_chooser_view_see_all">ყველას ნახვა</string>
     <string name="abc_activitychooserview_choose_application">აირჩიეთ აპი</string>
     <string name="abc_capital_off">გამორთვა</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">მაღვიძარის ვიბრაცია</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Active Edge დაყენებულია. გადადით მომდევნო ეკრანზე ან განაგრძეთ დარეგულირება.</string>
     <string name="accessibility_audio_adjustment_title">აუდიოს კორექტირება</string>
+    <string name="accessibility_autoclick_about_title">ავტოდაწკაპუნების (გაყინვის დრო) შესახებ</string>
     <string name="accessibility_autoclick_custom_title">მორგებული</string>
     <string name="accessibility_autoclick_default_title">გამორთვა</string>
     <string name="accessibility_autoclick_description">ავტომატური დაწკაპუნება მუშაობს დაკავშირებული მაუსით. თქვენ შეგიძლიათ დააყენოთ მაუსის კურსორი ისე, რომ ავტომატურად დააწკაპუნოს, როდესაც კურსორი მოძრაობას შეწყვეტს გარკვეული დროით.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">შეიტყვეთ მეტი ავტოდაწკაპუნების (გაყინვის დრო) შესახებ</string>
     <string name="accessibility_autoclick_long_summary">1 წამი</string>
     <string name="accessibility_autoclick_long_title">გრძელი</string>
     <string name="accessibility_autoclick_longer_desc">უფრო გრძელი</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">მოკლე</string>
     <string name="accessibility_autoclick_shorter_desc">უფრო მოკლე</string>
     <string name="accessibility_banner_message_dismiss">უარყოფა</string>
-    <string name="accessibility_button_description">"სწრაფად იქონიეთ წვდომა მარტივი წვდომის ფუნქციებზე ნებისმიერი ეკრანიდან. 
+    <string name="accessibility_button_about_title">მარტივი წვდომის ღილაკის შესახებ</string>
+    <string name="accessibility_button_description">"სწრაფი წვდომა მარტივი წვდომის ფუნქციებზე ნებისმიერი ეკრანიდან.
 
 დასაწყებად გადადით მარტივი წვდომის პარამეტრებზე და აირჩიეთ რომელიმე ფუნქცია. შეეხეთ მალსახმობს და აირჩიეთ მარტივი წვდომის ღილაკი."</string>
     <string name="accessibility_button_fade_summary">გაქრება რამდენიმე წამში, რათა უფრო მარტივი გახადოს თქვენი ეკრანის დანახვა</string>
     <string name="accessibility_button_fade_title">გაქრეს გამოუყენებლობისას</string>
+    <string name="accessibility_button_gesture_about_title">მარტივი წვდომის ღილაკისა და ჟესტის შესახებ</string>
     <string name="accessibility_button_gesture_description">"სწრაფი წვდომა მარტივი წვდომის ფუნქციებზე ნებისმიერი ეკრანიდან.
 
-დასაწყებად გადადით მარტივი წვდომის პარამეტრებზე და აირჩიეთ რომელიმე ფუნქცია. შეეხეთ მალსახმობს და აირჩიეთ მარტივი წვდომის ღილაკი.
-
-ნავიგაციის ზოლში მარტივი წვდომის ღილაკის გამოსაყენებლად კი გადაერთეთ 2- ან 3-ღილაკიან ნავიგაციაზე."</string>
+დასაწყებად გადადით მარტივი წვდომის პარამეტრებზე და აირჩიეთ რომელიმე ფუნქცია. შეეხეთ მალსახმობს და აირჩიეთ მარტივი წვდომის ღილაკი ან ჟესტი."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">შეიტყვეთ მეტი მარტივი წვდომის ღილაკისა და ჟესტის შესახებ</string>
     <string name="accessibility_button_gesture_title">მარტივი წვდომის ღილაკი და ჟესტი</string>
     <string name="accessibility_button_high_label">გაუმჭვირვალე</string>
     <string name="accessibility_button_intro">მარტივი წვდომის ღილაკის გამოყენებისას. ჟესტი არ არის ხელმისაწვდომი 3-ღილაკიანი ნავიგაციით.</string>
@@ -184,14 +190,23 @@
     <string name="accessibility_caption_preference_summary">წარწერის ამ პარამეტრების მხარდაჭერა ყველა აპს არ აქვს</string>
     <string name="accessibility_caption_primary_switch_summary">მხოლოდ მხარდაჭერილი აპებისთვის</string>
     <string name="accessibility_caption_primary_switch_title">წარწერების ჩვენება</string>
+    <string name="accessibility_captioning_about_title">სუბტიტრების პარამეტრების შესახებ</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">შეიტყვეთ მეტი სუბტიტრების პარამეტრების შესახებ</string>
     <string name="accessibility_captioning_title">სუბტიტრების პარამეტრები</string>
     <string name="accessibility_category_personal">პირადი პროფილის ანგარიშები</string>
     <string name="accessibility_category_work">სამუშაო პროფილის ანგარიშები - %s</string>
+    <string name="accessibility_color_inversion_about_title">ფერთა ინვერსიის შესახებ</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">შეიტყვეთ მეტი ფერთა ინვერსიის შესახებ</string>
+    <string name="accessibility_control_timeout_about_title">მოქმედების დროის (მისაწვდომობის ლოდინის დრო) შესახებ</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">შეიტყვეთ მეტი მოქმედების დროის (მისაწვდომობის ლოდინის დრო) შესახებ</string>
     <string name="accessibility_control_timeout_preference_summary">"აირჩიეთ, რა დროის განმავლობაში გამოჩნდეს შეტყობინებები, რომლებიც გთხოვთ ქმედების შესრულებას, თუმცა მხოლოდ დროებით ჩანს.
 
 ეს პარამეტრი არ არის მხარდაჭერილი ყველა აპის მიერ."</string>
     <string name="accessibility_control_timeout_preference_title">ქმედების შესრულების დრო</string>
+    <string name="accessibility_daltonizer_about_title">ფერთა კორექციის შესახებ</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">შეიტყვეთ მეტი ფერთა კორექციის შესახებ</string>
     <string name="accessibility_daltonizer_primary_switch_title">ფერთა კორექციის გამოყენება</string>
+    <string name="accessibility_daltonizer_shortcut_title">ფერთა კორექციის მალსახმობი</string>
     <string name="accessibility_data_one_bar">თარიღი ზოლზე.</string>
     <string name="accessibility_data_signal_full">მონაცემთა გადაცემის საიმედო სიგნალი.</string>
     <string name="accessibility_data_three_bars">მონაცემების გადაცემა: სამი ზოლი</string>
@@ -206,6 +221,7 @@
     <string name="accessibility_display_daltonizer_preference_title">ფერის კორექცია</string>
     <string name="accessibility_display_inversion_preference_subtitle">ფერთა ინვერსია ნათელ ეკრანებს მუქს ხდის.&lt;br/>&lt;br/> შენიშვნა: &lt;ol> &lt;li> ფერთა ინვერსია ასევე მოქმედებს მუქ ეკრანებზე და მათ ნათელს ხდის.&lt;/li> &lt;li> ამით ფერები შეიცვლება მედია-კონტენტსა და სურათებში.&lt;/li> &lt;li> მუქი თემა გამოიყენება მუქი ფონის საჩვენებლად. მუქი თემა მუშაობს მხარდაჭერილ აპებში. ფერთა ინვერსია ყველა აპში მუშაობს.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">ფერის ინვერსია</string>
+    <string name="accessibility_display_inversion_shortcut_title">ფერთა ინვერსიის მალსახმობი</string>
     <string name="accessibility_display_inversion_switch_title">ფერთა ინვერსიის გამოყენება</string>
     <string name="accessibility_ethernet_connected">Ethernet.</string>
     <string name="accessibility_ethernet_disconnected">Ethernet კავშირი შეწყვეტილია.</string>
@@ -255,6 +271,8 @@
     <string name="accessibility_phone_two_bars">ტელეფონის სიგნალი ორ ზოლზეა.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">ზარი შეწყდება ჩართვის ღილაკზე დაჭერით</string>
     <string name="accessibility_preference_magnification_summary">ეკრანზე მასშტაბის გადიდება</string>
+    <string name="accessibility_screen_magnification_about_title">გადიდების შესახებ</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">შეიტყვეთ მეტი გადიდების შესახებ</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">მარტივი წვდომის ჟესტი დაყენებულია %1$s-ზე. გადიდების გამოსაყენებლად, გადაფურცლეთ ორი თითით ეკრანის ქვედა კიდიდან ზემოთ და დააყოვნეთ. შემდეგ აირჩიეთ გადიდება.</string>
     <string name="accessibility_screen_magnification_gestures_title">გადიდება სამმაგი შეხებით</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">მარტივი წვდომის ღილაკად დაყენებულია %1$s. გადიდების გამოსაყენებლად ხანგრძლივად შეეხეთ მარტივი წვდომის ღილაკს, ხოლო შემდეგ აირჩიეთ გადიდება.</string>
@@ -272,6 +290,7 @@
 კლავიატურისა და ნავიგაციის ზოლის მასშტაბის გაზრდა ვერ მოხერხდება."</string>
     <string name="accessibility_screen_magnification_navbar_title">გადიდება მალსახმობით</string>
     <string name="accessibility_screen_magnification_short_summary">მასშტაბის გასაზრდელად, შეეხეთ 3-ჯერ</string>
+    <string name="accessibility_screen_magnification_shortcut_title">გადიდების მალსახმობი</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">გადიდება მალსახმობითა და სამმაგი შეხებით</string>
     <string name="accessibility_screen_magnification_summary">კონტენტის ზომის გასაზრდელად სწრაფად გაადიდეთ მასშტაბი ეკრანზე.&lt;br/>&lt;br/>&lt;b>მასშტაბის გასადიდებლად:&lt;/b>&lt;br/> {0,number,integer}. გადიდების დასაწყებად გამოიყენეთ მალსახმობი&lt;br/> {1,number,integer}. შეეხეთ ეკრანს&lt;br/> {2,number,integer}. ჩაავლეთ 2 თითი ეკრანზე გადასაადგილებლად&lt;br/> {3,number,integer}. მასშტაბის კორექტირებისთვის მოუჭირეთ 2 თითით&lt;br/> {4,number,integer}. გადიდების შესაწყვეტად გამოიყენეთ მალსახმობი&lt;br/>&lt;br/>&lt;b>მასშტაბის დროებით გასადიდებლად:&lt;/b>&lt;br/> {0,number,integer}. გადიდების დასაწყებად გამოიყენეთ მალსახმობი&lt;br/> {1,number,integer}. ხანგრძლივად შეეხეთ ეკრანს ნებისმიერ ადგილას&lt;br/> {2,number,integer}. ჩაავლეთ თითი ეკრანზე გადასაადგილებლად&lt;br/> {3,number,integer}. გადიდების შესაწყვეტად მოაშორეთ თითი</string>
     <string name="accessibility_screen_magnification_title">გადიდება</string>
@@ -370,7 +389,7 @@
     <string name="accessibility_tutorial_dialog_message_volume">ამ ფუნქციით სარგებლობისთვის ხანგრძლივად დააჭირეთ ხმის ორივე ღილაკს.</string>
     <string name="accessibility_tutorial_dialog_title_button">გასახსნელად გამოიყენეთ მარტივი წვდომის ღილაკი</string>
     <string name="accessibility_tutorial_dialog_title_gesture">გასახსნელად გამოიყენეთ ჟესტი</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">მარტივი წვდომის ახალი ჟესტის გამოყენება</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">მარტივი წვდომის ჟესტის გამოყენება</string>
     <string name="accessibility_tutorial_dialog_title_triple">სამმაგად შეეხეთ ეკრანს გასახსნელად</string>
     <string name="accessibility_tutorial_dialog_title_volume">გასახსნელად დააჭირეთ ხმის ღილაკებს</string>
     <string name="accessibility_tutorial_pager">გვერდი %1$d / %2$d-დან</string>
@@ -936,6 +955,7 @@
     <string name="battery_level_title">ბატარეის დატენვის დონე</string>
     <string name="battery_manager_off">გამორთული</string>
     <string name="battery_manager_summary">ახანგრძლივებს ბატარეის მუშაობას და ახდენს დატენვის ოპტიმიზაციას</string>
+    <string name="battery_manager_summary_unsupported">ზრდის ბატარეის მუშაობის ხანგრძლივობას</string>
     <string name="battery_missing_link_a11y_message">შეეხეთ ამ შეცდომის შესახებ მეტის გასაგებად</string>
     <string name="battery_missing_link_message">შეიტყვეთ მეტი</string>
     <string name="battery_missing_message">ბატარეის მზომის წაკითხვასთან დაკავშირებით პრობლემა დაფიქსირდა</string>
@@ -1061,6 +1081,7 @@
     <string name="battery_usage_screen_footer">ბატარეის მოხმარების მონაცემები მიახლოებითია და არ ზომავს მოხმარებას დამუხტვისას</string>
     <string name="battery_usage_screen_footer_empty">ბატარეის მოხმარების მონაცემები ხელმისაწვდომი გახდება მას შემდეგ, რაც ტელეფონს რამდენიმე საათით გამოიყენებთ</string>
     <string name="battery_usage_total_less_than_one_minute">სულ: წუთზე ნაკლები</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s-ს იყენებს %2$s</string>
     <string name="battery_used_for">გამოიყენება ^1</string>
     <string name="bearer">მატარებელი</string>
@@ -1069,12 +1090,14 @@
     <string name="billing_cycle_less_than_one_day_left">დარჩენილია 1 დღეზე ნაკლები</string>
     <string name="billing_cycle_none_left">დარჩენილი დრო არ არის</string>
     <string name="biometric_settings_category_ways_to_unlock">განბლოკვის ხერხები</string>
-    <string name="biometric_settings_category_ways_to_use">გამოიყენეთ სახე ან თითის ანაბეჭდი</string>
     <string name="biometric_settings_hand_back_to_guardian">დაუბრუნეთ ტელეფონი მშობელს</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">კარგი</string>
     <string name="biometric_settings_intro">სახით და ანაბეჭდით განბლოკვას რომ დააყენებთ, ტელეფონი მოგთხოვთ თითის ანაბეჭდს, როცა პირბადეს ატარებთ ან ბნელ სივრცეში ხართ</string>
-    <string name="biometric_settings_use_biometric_for_apps">აპებში ავტორიზაცია</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">ტელეფონის განბლოკვა</string>
+    <string name="biometric_settings_use_biometric_for_apps">დაადასტურეთ ვინაობა აპებში</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">განბლოკეთ თქვენი ტელეფონი</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">სახის ან თითის ანაბეჭდის მეშვეობით</string>
+    <string name="biometric_settings_use_face_preference_summary">სახის მეშვეობით</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">თთის ანაბეჭდის მეშვეობით</string>
     <string name="biometrics_unlock_set_unlock_password">პაროლი • სახე • თითის ანაბეჭდი</string>
     <string name="biometrics_unlock_set_unlock_pattern">ნიმუში • სახე • თითის ანაბეჭდი</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN-კოდი • სახე • თითის ანაბეჭდი</string>
@@ -1332,7 +1355,6 @@
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Bluetooth-მოწყობილობების ჩვენება სახელების გარეშე</string>
     <string name="bluetooth_show_devices_without_names_summary">Bluetooth-მოწყობილობები ნაჩვენები იქნება სახელების გარეშე (მხოლოდ MAC-მისამართები)</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Bluetooth-ით მიღებული ფაილები</string>
     <string name="bluetooth_show_received_files">მიღებული ფაილები</string>
     <string name="bluetooth_sim_card_access_dialog_content">"Bluetooth მოწყობილობას, %1$s, სურს წვდომა თქვენი SIM ბარათის მონაცემებზე. ეს მოიცავს თქვენს კონტაქტებს.
 
@@ -1426,6 +1448,7 @@
     <string name="calls_sms_temp_unavailable">დროებით მიუწვდომელია</string>
     <string name="calls_sms_unavailable">მიუწვდომელი</string>
     <string name="calls_sms_wfc_summary">დარეკეთ ან მიიღეთ ზარები Wi‑Fi ქსელის მეშვეობით</string>
+    <string name="cam_toggle_description">აპებისა და სერვისებისთვის</string>
     <string name="camera_double_tap_power_gesture_desc">კამერის სწრაფად გახსნა ეკრანის განბლოკვის გარეშე</string>
     <string name="camera_double_tap_power_gesture_title">კამერისთვის ჩართვის ღილაკზე ორჯერ დაჭერა</string>
     <string name="camera_laser_sensor_switch">კამერის ლაზერული სენსორი</string>
@@ -3302,6 +3325,7 @@ PIN-კოდი დაიცავს ტელეფონს, თუ ის �
     <string name="menu_stats_total">სულ გამოყენებული</string>
     <string name="menu_stats_unplugged">%1$s გამორთვის მომენტიდან</string>
     <string name="menu_use_uss">Uss-ის გამოყენება</string>
+    <string name="mic_toggle_description">აპებისა და სერვისებისთვის. მიკროფონის მონაცემები, შესაძლოა, მაინც გაზიარდეს გადაუდებელი დახმარების სამსახურის ნომერზე დარეკვისას, როცა ეს პარამეტრი გამორთულია.</string>
     <string name="mic_toggle_title">მიკროფონზე წვდომა</string>
     <string name="misc_files">სხვადასხვა ფაილი</string>
     <string name="misc_files_selected_count">არჩეულია %1$d სულ %2$d-დან</string>
@@ -3728,6 +3752,7 @@ PIN-კოდი დაიცავს ტელეფონს, თუ ის �
     <string name="one_handed_action_show_notification_title">შეტყობინებების ჩვენება</string>
     <string name="one_handed_mode_enabled">ცალი ხელის რეჟიმის გამოყენება</string>
     <string name="one_handed_mode_intro_text">ცალი ხელის რეჟიმის გამოსაყენებლად, გადაფურცლეთ ქვემოთ ეკრანის ქვედა კიდიდან. ამ ფუნქციის გამოსაყენებლად დარწმუნდით, რომ სისტემის ნავიგაციის პარამეტრებში ჩართულია ჟესტებით ნავიგაცია.</string>
+    <string name="one_handed_mode_shortcut_title">ცალი ხელის რეჟიმის მალსახმობი</string>
     <string name="one_handed_mode_swipe_down_category">გადაფურცვლა ქვემოთ, მიმართულებით:</string>
     <string name="one_handed_mode_use_shortcut_category">მალსახმობის გამოყენება შემდეგისთვის:</string>
     <string name="one_usercrt">მომხმარებლის ერთი სერტიფიკატი</string>
@@ -3803,7 +3828,7 @@ PIN-კოდი დაიცავს ტელეფონს, თუ ის �
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s აქტიურია</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">კამერა</string>
-    <string name="power_cell">მობილური ქსელის მოლოდინის რეჟიმი</string>
+    <string name="power_cell">მობილური ქსელი</string>
     <string name="power_charge_remaining">დატენვამდე %1$s</string>
     <string name="power_charging">%1$s - %2$s</string>
     <string name="power_charging_duration">%1$s — სრულ დატენვამდე დარჩენილია %2$s</string>
@@ -4037,6 +4062,7 @@ PIN-კოდი დაიცავს ტელეფონს, თუ ის �
     <string name="recent_notifications">ახლახან გაგზავნილი</string>
     <string name="recent_notifications_see_all_title">ყველაფრის ნახვა ბოლო 7 დღიდან</string>
     <string name="recompute_size">ზომის გადათვლა…</string>
+    <string name="reduce_bright_colors_about_title">დამატებითი დაბინდვის შესახებ</string>
     <string name="reduce_bright_colors_intensity_end_label">უფრო კაშკაშა</string>
     <string name="reduce_bright_colors_intensity_preference_title">ინტენსივობა</string>
     <string name="reduce_bright_colors_intensity_start_label">უფრო მკრთალი</string>
@@ -4044,6 +4070,7 @@ PIN-კოდი დაიცავს ტელეფონს, თუ ის �
     <string name="reduce_bright_colors_preference_subtitle">დააბნელეთ ეკრანი, რომ კითხვა უფრო კომფორტული იყოს.&lt;br/>&lt;br/> ეს დაგეხმარებათ, როცა: &lt;ol> &lt;li> თქვენი ტელეფონის ნაგულისხმევი მინიმალური სიკაშკაშე მაინც ზედმეტად მაღალია&lt;/li> &lt;li> ტელეფონს ბნელ გარემოში იყენებთ, მაგალითად, ღამით ან ბნელ ოთახში ძილის წინ&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">თქვენი ტელეფონის მინიმალურ სიკაშკაშეზე უფრო ბნელი ეკრანი</string>
     <string name="reduce_bright_colors_preference_title">დამატებითი დაბინდვა</string>
+    <string name="reduce_bright_colors_shortcut_title">დამატებითი დაბინდვის მალსახმობი</string>
     <string name="reduce_bright_colors_switch_title">დამატებით დაბინდეთ ეკრანი</string>
     <string name="register_automatically">ავტომატური რეგისტრაცია…</string>
     <string name="register_on_network">მიმდინარეობს %s-ზე რეგისტრაცია…</string>
@@ -4249,7 +4276,6 @@ PIN-კოდი დაიცავს ტელეფონს, თუ ის �
     <string name="screen_pinning_unlock_pattern">ფიქსაციის მოხსნამდე განბლოკვის ნიმუშის მოთხოვნა</string>
     <string name="screen_pinning_unlock_pin">ჩამაგ. მოხსნამდე PIN-ის მოთხოვნა</string>
     <string name="screen_reader_category_title">ეკრანის წამკითხველი</string>
-    <string name="screen_saver_main_switch_title">გამოიყენეთ ეკრანმზოგი</string>
     <string name="screen_time_summary_usage_today">%1$s დღეს</string>
     <string name="screen_timeout_summary">%1$s უმოქმედობის შემდეგ</string>
     <string name="screen_timeout_title">ეკრანი გამოირთვება</string>
@@ -4279,6 +4305,7 @@ PIN-კოდი დაიცავს ტელეფონს, თუ ის �
     <string name="screensaver_settings_button">პარამეტრები</string>
     <string name="screensaver_settings_current">ამჟამინდელი ეკრანმზოგი</string>
     <string name="screensaver_settings_disabled_prompt">დოკ-სადგურთან მიერთების და/ან ძილის რეჟიმზე გადასვლის დროს ტელეფონის ქცევის სამართავად, ჩართეთ ეკრანმზოგი.</string>
+    <string name="screensaver_settings_dream_start">დაწყება ახლავე</string>
     <string name="screensaver_settings_summary_dock">სანამ ჩამაგრებულია</string>
     <string name="screensaver_settings_summary_either_long">დატენვისას ან სანამ ჩამაგრებულია</string>
     <string name="screensaver_settings_summary_either_short">ორივე შემთხვევაში</string>
@@ -4329,15 +4356,6 @@ PIN-კოდი დაიცავს ტელეფონს, თუ ის �
     <string name="security_settings_biometric_preference_summary_both_fp_single">სახე და თითის ანაბეჭდი დამატებულია</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">შეეხეთ დასაყენებლად</string>
     <string name="security_settings_biometric_preference_title">სახით და ანაბეჭდით განბლოკვა</string>
-    <string name="security_settings_biometrics_description">სახით და ანაბეჭდით განბლოკვას რომ დააყენებთ, ტელეფონი მოგთხოვთ თითის ანაბეჭდს, როცა პირბადეს ატარებთ ან ბნელ სივრცეში ხართ</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">აპებში ავტორიზაცია</string>
-    <string name="security_settings_biometrics_preferences_category">სახის ან თითს ანაბეჭდის გამოყენება</string>
-    <string name="security_settings_biometrics_summary_both">სახე და თითის ანაბეჭდი</string>
-    <string name="security_settings_biometrics_summary_face">მხოლოდ სახე</string>
-    <string name="security_settings_biometrics_summary_fingerprint">მხოლოდ თითის ანაბეჭდი</string>
-    <string name="security_settings_biometrics_summary_none">შეეხეთ დასაყენებლად</string>
-    <string name="security_settings_biometrics_title">სახით და ანაბეჭდით განბლოკვა</string>
-    <string name="security_settings_biometrics_types_category">განბლოკვის ხერხები</string>
     <string name="security_settings_face_enroll_consent_introduction_title">სახით განბლოკვის დაშვება</string>
     <string name="security_settings_face_enroll_dialog_ok">კარგი</string>
     <string name="security_settings_face_enroll_done">მზადაა</string>
@@ -4383,18 +4401,19 @@ PIN-კოდი დაიცავს ტელეფონს, თუ ის �
 
 შეიტყვეთ მეტი ბმულზე g.co/pixel/faceunlock."</string>
     <string name="security_settings_face_enroll_introduction_control_title">ამას თქვენ აკონტროლებთ</string>
-    <string name="security_settings_face_enroll_introduction_how_consent_message">"სახით განბლოკვის ფუნქცია თქვენი ბავშვის სახის უნიკალურ მოდელს ქმნის მათი ვინაობის დადასტურების მიზნით. დაყენებისას სახის ამ მოდელის შესაქმნელად თქვენმა ბავშვმა უნდა გადაიღოს სახის სურათები სხვადასხვა რაკურსიდან.
+    <string name="security_settings_face_enroll_introduction_how_consent_message">"სახით განბლოკვის ფუნქცია თქვენი ბავშვის სახის უნიკალურ მოდელს ქმნის მისი ვინაობის დადასტურების მიზნით. დაყენებისას სახის ამ მოდელის შესაქმნელად თქვენმა ბავშვმა უნდა გადაიღოს სახის სურათები სხვადასხვა რაკურსიდან.
 
-სახით განბლოკვის გამოყენებისას სახის მოდელი სურათების მეშვეობით იქმნება. სახის მოდელის შესაქმნელად გამოყენებული სურათები არ ინახება, სახის მოდელი კი უსაფრთხოდ შეინახება თქვენს ტელეფონში. ტელეფონში ყველა დამუშავება ხდება უსაფრთხოდ."</string>
+სახით განბლოკვის გამოყენებისას სახის მოდელი სურათების მეშვეობით განახლდება. სახის მოდელის შესაქმნელად გამოყენებული სურათები არ ინახება, სახის მოდელი კი უსაფრთხოდ შეინახება ტელეფონში და არასოდეს გასცდება მას. ყველაფერი მუშავდება უსაფრთხოდ, ტელეფონში."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"სახით განბლოკვის ფუნქცია თქვენი სახის უნიკალურ მოდელს ქმნის თქვენი ვინაობის დასადასტურებლად. დაყენების პროცესში სახის ამ მოდელის შესაქმნელად სახის სურათები სხვადასხვა რაკურსიდან უნდა გადაიღოთ.
 
-სახით განბლოკვის გამოყენებისას სახის მოდელი სურათების მეშვეობით იქმნება. სახის მოდელის შესაქმნელად გამოყენებული სურათები არ ინახება, სახის მოდელი კი უსაფრთხოდ შეინახება თქვენს ტელეფონში. ტელეფონში ყველა დამუშავება ხდება უსაფრთხოდ."</string>
+სახით განბლოკვის გამოყენებისას სახის მოდელი სურათების მეშვეობით განახლდება. სახის მოდელის შესაქმნელად გამოყენებული სურათები არ ინახება, სახის მოდელი კი უსაფრთხოდ შეინახება თქვენს ტელეფონში და არასოდეს გასცდება მას. ყველაფერი მუშავდება უსაფრთხოდ, თქვენს ტელეფონში."</string>
     <string name="security_settings_face_enroll_introduction_how_title">მუშაობის პრინციპი</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">სახით განბლოკვამ, ტელეფონის განსაბლოკად ან იმის დადასტურებლად, რომ ნამდვილად ის არის, შეიძლება მოითხოვოს, რომ თქვენს ბავშვს თვალები გახელილი ჰქონდეს. თქვენ და თქვენს ბავშვს ამ ვარიანტის ჩართვა ნებისმიერ დროს შეგიძლიათ პარამეტრებიდან.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">თუ თქვენი ბავშვი, ჩვეულებრივ, სათვალეს ატარებს, მას სახით ამოცნობის დაყენების დროსაც შეუძლია მისი გამოყენება.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">ტელეფონზე დახედვისასაც შეიძლება განიბლოკოს ის, თუნდაც ამის განზრახვა არ ჰქონდეს ადამიანს. მისი ტელეფონის განბლოკვა შეუძლია სხვასაც, ვინც ტყუპისცალივით ჰგავს მას, ან იმ შემთხვევაში, თუ ვინმე სახესთან მიუტანს ტელეფონს.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">სახით განბლოკვამ, ტელეფონის განსაბლოკად ან იმის დადასტურებლად, რომ ნამდვილად თქვენ ხართ, შეიძლება მოითხოვოს, რომ თვალები გახელილი გქონდეთ. ამ ვარიანტის ჩართვა ნებისმიერ დროს შეგიძლიათ პარამეტრებიდან.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">სათვალე ან მკრთალად შეფერილი მზის სათვალე დასაშვებია.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">ტელეფონის განსაბლოკად სახის გამოყენება შეიძლება ნაკლებად უსაფრთხო იყოს, ვიდრე მძლავრი განმბლოკავი ნიმუში ან PIN-კოდი.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">ტელეფონზე შეხედვას შეუძლია განბლოკოს ის, თუნდაც ამის განზრახვა არ გქონდეთ. თქვენი ტელეფონის განბლოკვა შეუძლია ისეთ პირსაც, რომელიც ძალიან გგავთ, მაგალითად, იდენტურ დას ან ძმას, ან თუ ვინმე ტელეფონს თქვენს სახეთან დაიჭერს.</string>
     <string name="security_settings_face_enroll_introduction_info_title">გაითვალისწინეთ</string>
     <string name="security_settings_face_enroll_introduction_message">გამოიყენეთ სახე ტელეფონის განბლოკვისას ან ვინაობის დადასტურებისას, ისეთ შემთხვევებში, როცა აპებში შედიხართ ან შენაძენს ადასტურებთ.</string>
@@ -4452,13 +4471,14 @@ PIN-კოდი დაიცავს ტელეფონს, თუ ის �
 
 თქვენი ტელეფონი შეიძლება განბლოკოს უცხო პირმა, რომელიც ტყუპისცალივით გგავთ."</string>
     <string name="security_settings_face_settings_preferences_category">სახით განბლოკვის გამოყენებისას</string>
-    <string name="security_settings_face_settings_remove_dialog_details">თქვენი სახის მოდელი სამუდამოდ წაიშლება. წაშლის შემდეგ ტელეფონის განბლოკვის ან აპებში ავტორიზაციისთვის დაგჭირდებათ თქვენი თითის ანაბეჭდი, ნიმუში ან პაროლი.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"თქვენი სახის მოდელი სამუდამოდ და უსაფრთხოდ წაიშლება.
+
+წაშლის შემდეგ ტელეფონის განბლოკვის ან აპებში ავტორიზაციისთვის თქვენი PIN-კოდი, ნიმუში ან პაროლი დაგჭირდებათ."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"თქვენი სახის მოდელი სამუდამოდ და უსაფრთხოდ წაიშლება.
+
+წაშლის შემდეგ ტელეფონის განბლოკვისთვის თქვენი PIN-კოდი, ნიმუში ან პაროლი დაგჭირდებათ."</string>
     <string name="security_settings_face_settings_remove_dialog_title">გსურთ სახის მოდელის წაშლა?</string>
     <string name="security_settings_face_settings_remove_face_model">სახის მოდელის წაშლა</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"თქვენი სახის მოდელი სამუდამოდ წაიშლება.
-
-წაშლის შემდეგ ტელეფონის განბლოკვის ან აპებში ავტორიზაციისთვის დაგჭირდებათ თქვენი თითის ანაბეჭდი, ნიმუში ან პაროლი."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">წაიშალოს სახის მოდელი?</string>
     <string name="security_settings_face_settings_require_attention">თვალები გახელილი უნდა გქონდეთ</string>
     <string name="security_settings_face_settings_require_attention_details">ტელეფონის განსაბლოკად თვალები გახელილი უნდა გქონდეთ</string>
     <string name="security_settings_face_settings_require_confirmation">დადასტურების ყოველთვის მოთხოვნა</string>
@@ -4576,7 +4596,6 @@ PIN-კოდი დაიცავს ტელეფონს, თუ ის �
     <string name="select_webview_provider_dialog_title">WebView რეალიზაციის დაყენება</string>
     <string name="select_webview_provider_title">WebView რეალიზაცია</string>
     <string name="select_webview_provider_toast_text">თქვენი არჩევანი აღარ მოქმედებს. ცადეთ ხელახლა.</string>
-    <string name="sensor_toggle_description">ყველა აპისა და სერვისისთვის</string>
     <string name="sensors_off_quick_settings_title">სენსორების გამორთვა</string>
     <string name="service_background_processes">%1$s თავისუფალი</string>
     <string name="service_foreground_processes">%1$s დაკავ.</string>
@@ -4808,6 +4827,7 @@ PIN-კოდი დაიცავს ტელეფონს, თუ ის �
     <string name="sound_settings_summary_silent">მრეკავი დაყენებულია უხმოზე</string>
     <string name="sound_settings_summary_vibrate">მრეკავი დაყენებულია ვიბრაციაზე</string>
     <string name="sound_work_settings">სამსახურის პროფილის ხმები</string>
+    <string name="spatial_audio_title">სივრცითი აუდიო</string>
     <string name="special_access">აპების სპეციალური წვდომა</string>
     <string name="special_access_more">მეტის ნახვა</string>
     <string name="speed_label_fast">სწრაფი</string>
@@ -5619,7 +5639,7 @@ Google-ის სინქრონიზაციის ტექნოლო�
     <string name="vpn_turn_on">ჩართვა</string>
     <string name="vpn_type">ტიპი</string>
     <string name="vpn_username">მომხმარებლის სახელი</string>
-    <string name="vpn_version">ვერსია %s</string>
+    <string name="vpn_version">ვერსია</string>
     <string name="vr_listener_security_warning_summary">თქვენ მიერ აპლიკაციების ვირტუალური რეალობის რეჟიმში გამოყენებისას %1$s გაშვებას შეძლებს.</string>
     <string name="vr_listener_security_warning_title">გსურთ ვირტუალური რეალობის სერვისისთვის %1$s-ზე წვდომის დაშვება?</string>
     <string name="vr_listeners_title">ვირტუალური რეალობის დამხმარე სერვისები</string>
@@ -5889,7 +5909,7 @@ Google-ის სინქრონიზაციის ტექნოლო�
     <string name="wifi_not_in_range">არ არის დიაპაზონში</string>
     <string name="wifi_not_in_range_message">ქსელი არეალში არ არის</string>
     <string name="wifi_notify_open_networks">შეტყობინება საჯარო ქსელების არსებობის შესახებ</string>
-    <string name="wifi_notify_open_networks_summary">როცა ავტომატური კავშირი მიუწვდომელია</string>
+    <string name="wifi_notify_open_networks_summary">შეტყობინების მიღება მაღალხარისხიანი საჯარო ქსელის ხელმისაწვდომობისას</string>
     <string name="wifi_on_time">Wi-Fi-ს მუშაობის დრო</string>
     <string name="wifi_p2p_cancel_connect_message">ნამდვილად გსურთ %1$s-თან დაკავშირების მიწვევის გაუქმება?</string>
     <string name="wifi_p2p_cancel_connect_title">გსურთ მოწვევის გაუქმება?</string>
@@ -5977,7 +5997,6 @@ Google-ის სინქრონიზაციის ტექნოლო�
     <string name="wifi_suspend_optimizations">Wi-Fi-ის ოპტიმიზაცია</string>
     <string name="wifi_suspend_optimizations_summary">შეამცირეთ ბატარეის მოხმარება Wi-Fi-ის მუშაობისას</string>
     <string name="wifi_switch_away_when_unvalidated">მობილურ ინტერნეტზე გადართვა, თუ Wi‑Fi ინტერნეტთან კავშირს დაკარგავს.</string>
-    <string name="wifi_switch_summary">Wi‑Fi ქსელების პოვნა და მათთან დაკავშირება</string>
     <string name="wifi_tap_to_sign_in">შეეხეთ აქ ქსელში შესასვლელად</string>
     <string name="wifi_tether_configure_ap_text">დააყენეთ Wi‑Fi უსადენო ქსელი</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

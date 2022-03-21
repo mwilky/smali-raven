@@ -155,7 +155,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "visibility_override"
+    const-string/jumbo p0, "visibility_override"
 
     return-object p0
 .end method
@@ -340,7 +340,7 @@
 
     iget-object v2, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f040bb1
+    const v4, 0x7f040bc9
 
     invoke-virtual {v2, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -367,7 +367,7 @@
 
     iget-object v2, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f040baf
+    const v4, 0x7f040bc7
 
     invoke-virtual {v2, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -390,7 +390,7 @@
     :cond_1
     iget-object v2, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f040bae
+    const v4, 0x7f040bc6
 
     invoke-virtual {v2, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

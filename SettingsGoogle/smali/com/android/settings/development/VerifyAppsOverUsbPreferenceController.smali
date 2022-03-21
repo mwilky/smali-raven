@@ -105,7 +105,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "verify_apps_over_usb"
+    const-string/jumbo p0, "verify_apps_over_usb"
 
     return-object p0
 .end method
@@ -119,7 +119,7 @@
 
     move-result-object p0
 
-    const-string v0, "verifier_setting_visible"
+    const-string/jumbo v0, "verifier_setting_visible"
 
     const/4 v1, 0x1
 
@@ -182,7 +182,7 @@
 
     move-result-object p0
 
-    const-string p2, "verifier_verify_adb_installs"
+    const-string/jumbo p2, "verifier_verify_adb_installs"
 
     invoke-static {p0, p2, p1}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
@@ -248,7 +248,7 @@
 
     move-result-object p0
 
-    const-string v0, "verifier_verify_adb_installs"
+    const-string/jumbo v0, "verifier_verify_adb_installs"
 
     invoke-static {p0, v0, v2}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 

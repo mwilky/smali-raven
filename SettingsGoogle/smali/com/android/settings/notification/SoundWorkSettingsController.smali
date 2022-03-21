@@ -151,7 +151,7 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/SoundWorkSettingsController;->mWorkPhoneRingtonePreference:Landroidx/preference/Preference;
 
-    const v1, 0x7f041784
+    const v1, 0x7f0417a9
 
     if-eqz v0, :cond_0
 
@@ -291,7 +291,7 @@
     :goto_0
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const p1, 0x7f040c7d
+    const p1, 0x7f040c95
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -318,7 +318,7 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/SoundWorkSettingsController;->mScreen:Landroidx/preference/PreferenceScreen;
 
-    const-string v1, "work_use_personal_sounds"
+    const-string/jumbo v1, "work_use_personal_sounds"
 
     invoke-virtual {v0, v1}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -341,7 +341,7 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/SoundWorkSettingsController;->mScreen:Landroidx/preference/PreferenceScreen;
 
-    const-string v1, "work_ringtone"
+    const-string/jumbo v1, "work_ringtone"
 
     invoke-direct {p0, v0, v1}, Lcom/android/settings/notification/SoundWorkSettingsController;->initWorkPreference(Landroidx/preference/PreferenceGroup;Ljava/lang/String;)Lcom/android/settings/DefaultRingtonePreference;
 
@@ -356,7 +356,7 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/SoundWorkSettingsController;->mScreen:Landroidx/preference/PreferenceScreen;
 
-    const-string v1, "work_notification_ringtone"
+    const-string/jumbo v1, "work_notification_ringtone"
 
     invoke-direct {p0, v0, v1}, Lcom/android/settings/notification/SoundWorkSettingsController;->initWorkPreference(Landroidx/preference/PreferenceGroup;Ljava/lang/String;)Lcom/android/settings/DefaultRingtonePreference;
 
@@ -371,7 +371,7 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/SoundWorkSettingsController;->mScreen:Landroidx/preference/PreferenceScreen;
 
-    const-string v1, "work_alarm_ringtone"
+    const-string/jumbo v1, "work_alarm_ringtone"
 
     invoke-direct {p0, v0, v1}, Lcom/android/settings/notification/SoundWorkSettingsController;->initWorkPreference(Landroidx/preference/PreferenceGroup;Ljava/lang/String;)Lcom/android/settings/DefaultRingtonePreference;
 
@@ -405,7 +405,7 @@
 
     iget v2, p0, Lcom/android/settings/notification/SoundWorkSettingsController;->mManagedProfileId:I
 
-    const-string v3, "sync_parent_sounds"
+    const-string/jumbo v3, "sync_parent_sounds"
 
     invoke-static {v0, v3, v1, v2}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
 
@@ -602,7 +602,7 @@
 
     move-result-object p2
 
-    const-string v0, "work_ringtone"
+    const-string/jumbo v0, "work_ringtone"
 
     invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -621,7 +621,7 @@
 
     move-result-object p2
 
-    const-string v1, "work_notification_ringtone"
+    const-string/jumbo v1, "work_notification_ringtone"
 
     invoke-virtual {v1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -638,7 +638,7 @@
 
     move-result-object p2
 
-    const-string v1, "work_alarm_ringtone"
+    const-string/jumbo v1, "work_alarm_ringtone"
 
     invoke-virtual {v1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

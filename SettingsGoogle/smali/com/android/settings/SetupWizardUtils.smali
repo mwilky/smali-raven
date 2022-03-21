@@ -455,7 +455,7 @@
 .method public static getThemeString(Landroid/content/Intent;)Ljava/lang/String;
     .locals 1
 
-    const-string v0, "theme"
+    const-string/jumbo v0, "theme"
 
     invoke-virtual {p0, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
@@ -542,7 +542,7 @@
 
     if-ne p1, v0, :cond_5
 
-    const v0, 0x7f1301cf
+    const v0, 0x7f1301cd
 
     goto :goto_1
 
@@ -551,7 +551,7 @@
 
     if-ne p1, v0, :cond_6
 
-    const v0, 0x7f1301d0
+    const v0, 0x7f1301ce
 
     goto :goto_1
 
@@ -578,7 +578,7 @@
 
     if-ne p1, v0, :cond_9
 
-    const v0, 0x7f1301d1
+    const v0, 0x7f1301cf
 
     goto :goto_1
 

@@ -95,7 +95,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040694
+    const v1, 0x7f0406ac
 
     const/4 v2, 0x1
 

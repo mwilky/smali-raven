@@ -243,12 +243,6 @@
 
     move-result-object v0
 
-    const/high16 v2, 0x10000000
-
-    invoke-virtual {v0, v2}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
-
-    move-result-object v0
-
     iget-object p0, p0, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;->mPm:Landroid/content/pm/PackageManager;
 
     const/4 v2, 0x0
@@ -310,12 +304,6 @@
 
     move-result-object v2
 
-    const/high16 v3, 0x10000000
-
-    invoke-virtual {v2, v3}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
-
-    move-result-object v2
-
     iget-object p0, p0, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;->mPm:Landroid/content/pm/PackageManager;
 
     const/4 v3, 0x0
@@ -366,7 +354,7 @@
 
     iget-object p0, p0, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;->mResources:Landroid/content/res/Resources;
 
-    const v2, 0x7f040815
+    const v2, 0x7f04082d
 
     const/4 v3, 0x1
 
@@ -387,7 +375,7 @@
     :cond_1
     iget-object p0, p0, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;->mResources:Landroid/content/res/Resources;
 
-    const v1, 0x7f040813
+    const v1, 0x7f04082b
 
     invoke-virtual {p0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -935,8 +923,8 @@
     return p0
 .end method
 
-.method public showWorkPolicyInfo()Z
-    .locals 3
+.method public showWorkPolicyInfo(Landroid/content/Context;)Z
+    .locals 2
 
     invoke-direct {p0}, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;->getWorkPolicyInfoIntentDO()Landroid/content/Intent;
 
@@ -946,9 +934,7 @@
 
     if-eqz v0, :cond_0
 
-    iget-object p0, p0, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;->mContext:Landroid/content/Context;
-
-    invoke-virtual {p0, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
     return v1
 
@@ -959,19 +945,17 @@
 
     invoke-direct {p0}, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;->getManagedProfileUserInfo()Landroid/content/pm/UserInfo;
 
-    move-result-object v2
+    move-result-object p0
 
     if-eqz v0, :cond_1
 
-    if-eqz v2, :cond_1
+    if-eqz p0, :cond_1
 
-    iget-object p0, p0, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProviderImpl;->mContext:Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/content/pm/UserInfo;->getUserHandle()Landroid/os/UserHandle;
 
-    invoke-virtual {v2}, Landroid/content/pm/UserInfo;->getUserHandle()Landroid/os/UserHandle;
+    move-result-object p0
 
-    move-result-object v2
-
-    invoke-virtual {p0, v0, v2}, Landroid/content/Context;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
+    invoke-virtual {p1, v0, p0}, Landroid/content/Context;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
     return v1
 

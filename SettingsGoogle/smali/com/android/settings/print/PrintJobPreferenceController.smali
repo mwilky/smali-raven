@@ -51,6 +51,16 @@
     return-object p0
 .end method
 
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public bridge synthetic hasAsyncUpdate()Z
     .locals 0
 
@@ -146,7 +156,7 @@
 
     if-eq v3, v8, :cond_7
 
-    const v10, 0x7f040f6f
+    const v10, 0x7f040f9b
 
     if-eq v3, v7, :cond_5
 
@@ -163,7 +173,7 @@
 
     iget-object v3, v0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v10, 0x7f040f71
+    const v10, 0x7f040f9d
 
     new-array v11, v8, [Ljava/lang/Object;
 
@@ -196,7 +206,7 @@
 
     iget-object v3, v0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v10, 0x7f040f6d
+    const v10, 0x7f040f99
 
     new-array v11, v8, [Ljava/lang/Object;
 
@@ -250,7 +260,7 @@
 
     iget-object v3, v0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v10, 0x7f040f7e
+    const v10, 0x7f040faa
 
     new-array v11, v8, [Ljava/lang/Object;
 
@@ -294,7 +304,7 @@
 
     iget-object v3, v0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v10, 0x7f040f70
+    const v10, 0x7f040f9c
 
     new-array v11, v8, [Ljava/lang/Object;
 
@@ -315,7 +325,7 @@
 
     iget-object v3, v0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v10, 0x7f040f74
+    const v10, 0x7f040fa0
 
     new-array v11, v7, [Ljava/lang/Object;
 

@@ -140,7 +140,7 @@
     :try_start_0
     const-class v0, Landroid/widget/PopupWindow;
 
-    const-string v3, "setWindowLayoutType"
+    const-string/jumbo v3, "setWindowLayoutType"
 
     new-array v4, v2, [Ljava/lang/Class;
 

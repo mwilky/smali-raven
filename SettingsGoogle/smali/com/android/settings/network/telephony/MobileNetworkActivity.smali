@@ -616,7 +616,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "subId missing: "
+    const-string/jumbo v2, "subId missing: "
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -682,7 +682,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0d003c
+    const v0, 0x7f0d003d
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -993,6 +993,8 @@
 
     if-nez v0, :cond_0
 
+    invoke-interface {p1}, Ljava/lang/Runnable;->run()V
+
     invoke-virtual {p0}, Lcom/android/settings/network/telephony/MobileNetworkActivity;->tryToFinishActivity()V
 
     return-void
@@ -1113,7 +1115,7 @@
 
     invoke-virtual {p1, v3}, Landroidx/fragment/app/Fragment;->setArguments(Landroid/os/Bundle;)V
 
-    const v0, 0x7f0d0175
+    const v0, 0x7f0d0179
 
     invoke-virtual {v1, v0, p1, p0}, Landroidx/fragment/app/FragmentTransaction;->replace(ILandroidx/fragment/app/Fragment;Ljava/lang/String;)Landroidx/fragment/app/FragmentTransaction;
 

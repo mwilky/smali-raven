@@ -210,7 +210,7 @@
     goto :goto_1
 
     :cond_0
-    const-string v1, "uri"
+    const-string/jumbo v1, "uri"
 
     invoke-virtual {p1, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 

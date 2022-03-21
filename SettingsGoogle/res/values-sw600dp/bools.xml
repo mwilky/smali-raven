@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <bool name="config_supported_large_screen">true</bool>
     <bool name="has_silent_mode">false</bool>
     <bool name="is_tablet">true</bool>
     <bool name="sudUseTabletLayout">true</bool>

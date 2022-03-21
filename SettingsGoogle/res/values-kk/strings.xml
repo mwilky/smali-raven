@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Smooth Display</string>
     <string name="peak_refresh_rate_summary">Кейбір мазмұн үшін жаңарту жиілігі 60-тан 90 Гц-ке автоматты түрде артады. Батарея заряды тезірек таусылады.</string>
     <string name="accessibility_vibration_settings_title">Діріл және хептика</string>
+    <string name="columbus_title">Әрекеттерді бастау үшін жылдам түртіңіз</string>
     <string name="emergency_gesture_screen_title">Құтқару қызметін шақыру</string>
     <string name="abc_action_mode_done">Дайын</string>
     <string name="vibrate_for_calls_category_title">Қоңыраулар</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Құрылғыны басқару элементтерін көрсету</string>
     <string name="lockscreen_privacy_wallet_summary">Құлыптаулы экран мен жылдам параметрлерден әмиянды пайдалануға рұқсат беру</string>
     <string name="lockscreen_privacy_controls_summary">Басқару элементтерін құлыпталған экраннан пайдалану</string>
+    <string name="lockscreen_double_line_clock_summary">Қолжетімді болған кезде, екі қатарлы сағатты көрсету</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Екі қатарлы сағат</string>
     <string name="abc_activity_chooser_view_see_all">Барлығын көру</string>
     <string name="abc_activitychooserview_choose_application">Қолданбаны таңдау</string>
     <string name="abc_capital_off">ӨШІРУ</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Дабыл дірілі</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Active Edge реттелді. Келесі экранға өтіңіз немесе реттеуді жалғастырыңыз.</string>
     <string name="accessibility_audio_adjustment_title">Аудионы реттеу</string>
+    <string name="accessibility_autoclick_about_title">Автоматты басу (кідіру уақыты) туралы</string>
     <string name="accessibility_autoclick_custom_title">Басқа</string>
     <string name="accessibility_autoclick_default_title">Өшіру</string>
     <string name="accessibility_autoclick_description">Автоматты түрде басу функциясы тінтуір жалғанғанда ғана жұмыс істейді. Курсор белгілі бір уақыт бойы жылжымаған кезде, тінтуір түймесі автоматты түрде басылатын етіп реттеуге болады.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Автоматты басу (кідіру уақыты) туралы толығырақ</string>
     <string name="accessibility_autoclick_long_summary">1 секунд</string>
     <string name="accessibility_autoclick_long_title">Ұзақ</string>
     <string name="accessibility_autoclick_longer_desc">Ұзағырақ</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Қысқа</string>
     <string name="accessibility_autoclick_shorter_desc">Қысқарақ</string>
     <string name="accessibility_banner_message_dismiss">Жабу</string>
-    <string name="accessibility_button_description">"Арнайы мүмкіндіктерге кез келген экраннан жылдам қол жеткізуге болады. 
+    <string name="accessibility_button_about_title">Арнайы мүмкіндіктер түймесі туралы</string>
+    <string name="accessibility_button_description">"Арнайы мүмкіндіктерді кез келген экраннан пайдалануға болады.
 
-Ол үшін арнайы мүмкіндіктер параметрлерінен керек функцияны таңдаңыз. Жылдам пәрменді түртіңіз де, оның түймесін таңдаңыз."</string>
+Ол үшін арнайы мүмкіндіктер параметрлерінен қажетті функцияны таңдаңыз. Жылдам пәрменді түртіңіз де, \"Арнайы мүмкіндіктер\" түймесін таңдаңыз."</string>
     <string name="accessibility_button_fade_summary">Экран толық көрінуі үшін, бірнеше секундтан кейін түссізденеді.</string>
     <string name="accessibility_button_fade_title">Пайдаланылмағанда түссіздендіру</string>
+    <string name="accessibility_button_gesture_about_title">Арнайы мүмкіндіктер түймесі мен қимылы туралы</string>
     <string name="accessibility_button_gesture_description">"Арнайы мүмкіндіктерді кез келген экраннан пайдалануға болады.
 
-Ол үшін арнайы мүмкіндіктер параметрлерінен қажетті функцияны таңдаңыз. Таңбашаны түртіңіз де, \"Арнайы мүмкіндіктер\" түймесін таңдаңыз.
-
-\"Арнайы мүмкіндіктер\" түймесін навигация жолағында қолдану үшін 2 түймемен басқару немесе 3 түймемен басқару режиміне ауысыңыз."</string>
+Ол үшін арнайы мүмкіндіктер параметрлерінен қажетті функцияны таңдаңыз. Жылдам пәрменді түртіңіз де, арнайы мүмкіндіктер түймесін немесе қимылын таңдаңыз."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Арнайы мүмкіндіктер түймесі мен қимылы туралы толығырақ</string>
     <string name="accessibility_button_gesture_title">Арнайы мүмкіндіктер түймесі мен қимылы</string>
     <string name="accessibility_button_high_label">Мөлдір емес</string>
     <string name="accessibility_button_intro">Арнайы мүмкіндіктер түймесі қолданылуда. Бұл қимыл 3 түймемен басқарылмайды.</string>
@@ -184,14 +190,23 @@
     <string name="accessibility_caption_preference_summary">Бұл субтитр параметрлері барлық қолданбаларда бола бермейді.</string>
     <string name="accessibility_caption_primary_switch_summary">Тек қолдау көрсетілетін қолданба үшін</string>
     <string name="accessibility_caption_primary_switch_title">Субтитрді көрсету</string>
+    <string name="accessibility_captioning_about_title">Субтитр параметрлері туралы</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Субтитр параметрлері туралы толығырақ</string>
     <string name="accessibility_captioning_title">Субтитр параметрлері</string>
     <string name="accessibility_category_personal">Жеке профиль аккаунттары</string>
     <string name="accessibility_category_work">Жұмыс профилінің аккаунттары - %s</string>
+    <string name="accessibility_color_inversion_about_title">Түс инверсиясы туралы</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Түс инверсиясы туралы толығырақ</string>
+    <string name="accessibility_control_timeout_about_title">Шара қолдану ұзақтығы (арнайы мүмкіндіктерді күту уақыты) туралы</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Шара қолдану ұзақтығы (арнайы мүмкіндіктерді күту уақыты) туралы толығырақ</string>
     <string name="accessibility_control_timeout_preference_summary">"Шара қолдануды талап ететін хабарлардың көрсетілу ұзақтығын таңдаңыз.
 
 Бұл параметр барлық қолданбаларда бола бермейді."</string>
     <string name="accessibility_control_timeout_preference_title">Шара қолдану ұзақтығы</string>
+    <string name="accessibility_daltonizer_about_title">Түсті түзету туралы</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Түсті түзету туралы толығырақ</string>
     <string name="accessibility_daltonizer_primary_switch_title">Түсті түзету функциясын пайдалану</string>
+    <string name="accessibility_daltonizer_shortcut_title">Түсті түзету таңбашасы</string>
     <string name="accessibility_data_one_bar">Дерекқор бір баған.</string>
     <string name="accessibility_data_signal_full">Дерекқор сигналы толы.</string>
     <string name="accessibility_data_three_bars">Дерекқор үш баған.</string>
@@ -206,6 +221,7 @@
     <string name="accessibility_display_daltonizer_preference_title">Түсті түзету</string>
     <string name="accessibility_display_inversion_preference_subtitle">Түс инверсиясы жарық экранды қараңғыға ауыстырады.&lt;br/>&lt;br/> Ескертпе: &lt;ol> &lt;li> Қараңғы экранды жарыққа ауыстыру мүмкіндігі де бар.&lt;/li> &lt;li> Мультимедиа мен суреттердегі түстер өзгереді.&lt;/li> &lt;li> Қараңғы фонды көрсету үшін қараңғы тақырыпты қолдануға болады. Бірақ қараңғы тақырып қолдау көрсетілетін қолданбаларда ғана қосылады. Ал түстер инверсиясы кез келген қолданбада бар.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Түс инверсиясы</string>
+    <string name="accessibility_display_inversion_shortcut_title">Түс инверсиясы таңбашасы</string>
     <string name="accessibility_display_inversion_switch_title">Түстер инверсиясын пайдалану</string>
     <string name="accessibility_ethernet_connected">Ethernet.</string>
     <string name="accessibility_ethernet_disconnected">Ethernet ажыратылған.</string>
@@ -255,6 +271,8 @@
     <string name="accessibility_phone_two_bars">Телефон екі баған.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Қуат түймесі арқылы қоңырауды үзу</string>
     <string name="accessibility_preference_magnification_summary">Экранда ұлғайту</string>
+    <string name="accessibility_screen_magnification_about_title">Ұлғайту туралы</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Ұлғайту туралы толығырақ</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">Арнайы мүмкіндіктер қимылы %1$s қызметіне орнатылған. Үлкейту үшін экранның төменгі жағынан жоғары қарай екі саусақпен сырғытып, ұстап тұрыңыз. Одан кейін үлкейтуді таңдаңыз.</string>
     <string name="accessibility_screen_magnification_gestures_title">Үш рет түртіп үлкейту</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">Арнайы мүмкіндіктер %1$s қызметіне орнатылды. Ұлғайту функциясын пайдалану үшін арнайы мүмкіндіктер түймесін басып тұрып, ұлғайту пәрменін таңдаңыз.</string>
@@ -272,6 +290,7 @@
 Пернетақтада және навигация жолағында ұлғайту мүмкін емес."</string>
     <string name="accessibility_screen_magnification_navbar_title">Таңбашамен үлкейту</string>
     <string name="accessibility_screen_magnification_short_summary">Масштабтау үшін 3 рет түртіңіз</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Ұлғайту таңбашасы</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Таңбашамен және үш рет түртіп үлкейту</string>
     <string name="accessibility_screen_magnification_summary">Мазмұнды үлкенірек қылу үшін экранды жылдам ұлғайтыңыз.&lt;br/>&lt;br/> &lt;b>Ұлғайту үшін:&lt;/b>&lt;br/> {0,number,integer}. Ұлғайтуды бастау үшін жылдам пәрменді пайдаланыңыз.&lt;br/> {1,number,integer}. Экранды түртіңіз.&lt;br/> {2,number,integer}. Экран бойымен қозғалу үшін 2 саусақпен сүйреңіз.&lt;br/> {3,number,integer}. Ыңғайлы масштабты таңдау үшін 2 саусақты жақындатыңыз.&lt;br/> {4,number,integer}. Ұлғайтуды тоқтату үшін жылдам пәрменді пайдаланыңыз.&lt;br/>&lt;br/> &lt;b>Уақытша ұлғайту үшін:&lt;/b>&lt;br/> {0,number,integer}. Ұлғайтуды бастау үшін жылдам пәрменді пайдаланыңыз.&lt;br/> {1,number,integer}. Экранның кез келген жерін басып тұрыңыз.&lt;br/> {2,number,integer}. Экран бойымен қозғалу үшін саусақпен сүйреңіз.&lt;br/> {3,number,integer}. Ұлғайтуды тоқтату үшін саусағыңызды көтеріңіз.</string>
     <string name="accessibility_screen_magnification_title">Ұлғайту</string>
@@ -370,7 +389,7 @@
     <string name="accessibility_tutorial_dialog_message_volume">Бұл функцияны пайдалану үшін дыбыс деңгейі пернелерін басып тұрыңыз.</string>
     <string name="accessibility_tutorial_dialog_title_button">Ашу үшін арнайы мүмкіндіктер түймесін қолдану</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Ашу үшін қол қимылын пайдалану</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Арнайы мүмкіндіктер үшін жаңа қимылды қолдану</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Арнайы мүмкіндік қимылын қолдану</string>
     <string name="accessibility_tutorial_dialog_title_triple">Ашу үшін экранды үш рет түртіңіз</string>
     <string name="accessibility_tutorial_dialog_title_volume">Ашу үшін дыбыс деңгейі пернелерін басып тұрыңыз</string>
     <string name="accessibility_tutorial_pager">%1$d/%2$d бет</string>
@@ -936,6 +955,7 @@
     <string name="battery_level_title">Батарея деңгейі</string>
     <string name="battery_manager_off">Өшірулі</string>
     <string name="battery_manager_summary">Батарея жұмысын ұзарту және зарядтауды оңтайландыру</string>
+    <string name="battery_manager_summary_unsupported">Батарея жұмысының ұзақтығын арттырады.</string>
     <string name="battery_missing_link_a11y_message">Осы қате туралы толығырақ ақпарат алыңыз.</string>
     <string name="battery_missing_link_message">Толығырақ</string>
     <string name="battery_missing_message">Батарея заряды туралы дерек алынбай жатыр.</string>
@@ -1061,6 +1081,7 @@
     <string name="battery_usage_screen_footer">Батарея шығыны туралы дерек шамамен алынған. Телефон зарядталып жатқанда, шығын өлшенбейді.</string>
     <string name="battery_usage_screen_footer_empty">Батарея шығыны туралы дерек телефонды бірнеше сағат пайдаланғаннан кейін қолжетімді болады.</string>
     <string name="battery_usage_total_less_than_one_minute">Барлығы: бір минуттан аз</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%2$s %1$s-н пайдаланды</string>
     <string name="battery_used_for">Пайдаланылу уақыты: ^1</string>
     <string name="bearer">Арна</string>
@@ -1069,12 +1090,14 @@
     <string name="billing_cycle_less_than_one_day_left">1 күннен аз уақыт қалды</string>
     <string name="billing_cycle_none_left">Уақыт қалмады</string>
     <string name="biometric_settings_category_ways_to_unlock">Құлыпты ашу тәсілдері</string>
-    <string name="biometric_settings_category_ways_to_use">Бет және саусақ ізі пайдаланылатын кездер</string>
     <string name="biometric_settings_hand_back_to_guardian">Телефонды ата-анаңызға қайтарыңыз.</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">Жарайды</string>
     <string name="biometric_settings_intro">Бет тану және саусақ ізімен ашу функцияларын реттесеңіз, бетперде таққанда немесе қараңғы жерде болғанда, телефон саусақ ізін пайдалануды ұсынатын болады.</string>
-    <string name="biometric_settings_use_biometric_for_apps">Қолданбаларда аутентификациялау</string>
+    <string name="biometric_settings_use_biometric_for_apps">Қолданбаларда жеке басты растау</string>
     <string name="biometric_settings_use_biometric_unlock_phone">Телефон құлпын ашу</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Бет тану функциясын немесе саусақ ізін пайдалану</string>
+    <string name="biometric_settings_use_face_preference_summary">Бет тану функциясын пайдалану</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Саусақ ізін пайдалану</string>
     <string name="biometrics_unlock_set_unlock_password">Құпия сөз • Бет • Саусақ ізі</string>
     <string name="biometrics_unlock_set_unlock_pattern">Өрнек • Бет • Саусақ ізі</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN коды • Бет • Саусақ ізі</string>
@@ -1332,7 +1355,6 @@
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Bluetooth құрылғыларын атаусыз көрсету</string>
     <string name="bluetooth_show_devices_without_names_summary">Bluetooth құрылғылары атаусыз (тек MAC мекенжайымен) көрсетіледі</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Bluetooth арқылы алынған файлдар</string>
     <string name="bluetooth_show_received_files">Алынған файлдар</string>
     <string name="bluetooth_sim_card_access_dialog_content">"Bluetooth құрылғысы (%1$s) SIM картаңыздағы деректерді (соның ішінде контактілеріңізді) пайдалануға рұқсат сұрайды.
 
@@ -1426,6 +1448,7 @@
     <string name="calls_sms_temp_unavailable">Уақытша қолжетімді емес</string>
     <string name="calls_sms_unavailable">қолжетімді емес</string>
     <string name="calls_sms_wfc_summary">Wi‑Fi арқылы қоңырау шалу және қабылдау</string>
+    <string name="cam_toggle_description">Қолданбалар мен қызметтерге арналған.</string>
     <string name="camera_double_tap_power_gesture_desc">Экран құлпын ашпастан камераны жылдам ашу</string>
     <string name="camera_double_tap_power_gesture_title">Камера үшін қуат түймес. екі рет басыңыз</string>
     <string name="camera_laser_sensor_switch">Камераның лазерлік датчигі</string>
@@ -3302,6 +3325,7 @@
     <string name="menu_stats_total">Барлық қолданысы</string>
     <string name="menu_stats_unplugged">Ажыратылғаннан бері %1$s</string>
     <string name="menu_use_uss">Uss (бірегей реттеу өлшемі) қолдану</string>
+    <string name="mic_toggle_description">Қолданбалар мен қызметтерге арналған. Бұл параметр өшірілсе де, құтқару қызметінің нөміріне қоңырау шалғанда, микрофон деректері жіберілуі мүмкін.</string>
     <string name="mic_toggle_title">Микрофонды пайдалану</string>
     <string name="misc_files">Басқа файлдар</string>
     <string name="misc_files_selected_count">%1$d таңдалды, барлығы %2$d</string>
@@ -3728,6 +3752,7 @@
     <string name="one_handed_action_show_notification_title">Хабарландыруларды көрсету</string>
     <string name="one_handed_mode_enabled">Бір қолмен басқару режимін пайдалану</string>
     <string name="one_handed_mode_intro_text">Бір қолмен басқару режимін пайдалану үшін экранның төменгі жиегінен төмен қарай сырғытыңыз. Бұл функцияны қолдану үшін жүйе навигациясы параметрлерінде қимылмен басқаруды іске қосқаныңызға көз жеткізіңіз.</string>
+    <string name="one_handed_mode_shortcut_title">Бір қолмен басқару режимінің белгішесі</string>
     <string name="one_handed_mode_swipe_down_category">Келесі әрекеттерді орындау үшін төмен сырғытыңыз:</string>
     <string name="one_handed_mode_use_shortcut_category">Келесілер үшін жылдам пәрменді пайдалану:</string>
     <string name="one_usercrt">бір пайдаланушы сертификаты</string>
@@ -3803,7 +3828,7 @@
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s қосулы</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Камера</string>
-    <string name="power_cell">Мобильдік желі күту режимінде</string>
+    <string name="power_cell">Мобильдік желі</string>
     <string name="power_charge_remaining">Зарядталғанша %1$s</string>
     <string name="power_charging">%1$s - %2$s</string>
     <string name="power_charging_duration">%1$s – толық зарядталғанға дейін %2$s қалды.</string>
@@ -4037,6 +4062,7 @@
     <string name="recent_notifications">Жақында жіберілді</string>
     <string name="recent_notifications_see_all_title">Соңғы 7 күндегі барлық қолданбаларды көру</string>
     <string name="recompute_size">Өлшемін қайта есептеуде…</string>
+    <string name="reduce_bright_colors_about_title">Экранды қарайту туралы</string>
     <string name="reduce_bright_colors_intensity_end_label">Жарықтығын арттыру</string>
     <string name="reduce_bright_colors_intensity_preference_title">Деңгейі</string>
     <string name="reduce_bright_colors_intensity_start_label">Жарықтығын азайту</string>
@@ -4044,6 +4070,7 @@
     <string name="reduce_bright_colors_preference_subtitle">Экранды қарайтсаңыз, оқуға жеңіл болады.&lt;br/>&lt;br/> Бұл функция: &lt;ol> &lt;li> телефонның әдепкі минималды жарықтығы әлі де қолайсыз болғанда;&lt;/li> &lt;li> телефонды түнде немесе ұйықтар алдында қараңғы бөлмеде қолданғанда пайдалы.&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">Экран күңгірттігін телефондағы минималды жарықтықтан да төмендету</string>
     <string name="reduce_bright_colors_preference_title">Экранды қарайту</string>
+    <string name="reduce_bright_colors_shortcut_title">Экранды қарайту таңбашасы</string>
     <string name="reduce_bright_colors_switch_title">Экранды қарайту</string>
     <string name="register_automatically">Aвтоматты тіркелу…</string>
     <string name="register_on_network">%s желісіне тіркелуде…</string>
@@ -4249,7 +4276,6 @@
     <string name="screen_pinning_unlock_pattern">Босату алдында құлыпты ашу өрнегін сұрау</string>
     <string name="screen_pinning_unlock_pin">Босату алдында PIN кодын сұрау</string>
     <string name="screen_reader_category_title">Экранды оқу құралы</string>
-    <string name="screen_saver_main_switch_title">Скринсейверді пайдалану</string>
     <string name="screen_time_summary_usage_today">Бүгін %1$s</string>
     <string name="screen_timeout_summary">Әрекетсіз %1$s тұрған соң</string>
     <string name="screen_timeout_title">Экран өшеді</string>
@@ -4279,6 +4305,7 @@
     <string name="screensaver_settings_button">Параметрлер</string>
     <string name="screensaver_settings_current">Қазіргі скринсейвер</string>
     <string name="screensaver_settings_disabled_prompt">Телефон қондырылған және/немесе ұйықтаған кездегі процесті бақылау үшін скринсейверді қосыңыз.</string>
+    <string name="screensaver_settings_dream_start">Қазір бастау</string>
     <string name="screensaver_settings_summary_dock">Қондыру станциясында</string>
     <string name="screensaver_settings_summary_either_long">Зарядтау кезінде немесе қондыру станциясында</string>
     <string name="screensaver_settings_summary_either_short">Екеуі де</string>
@@ -4329,15 +4356,6 @@
     <string name="security_settings_biometric_preference_summary_both_fp_single">Бет және саусақ ізі енгізілді.</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Реттеу үшін түртіңіз.</string>
     <string name="security_settings_biometric_preference_title">Бет және саусақ ізі арқылы құлыпты ашу</string>
-    <string name="security_settings_biometrics_description">Бет және саусақ ізі арқылы құлыпты ашу функциясын орнатқан кезде, бетперде киіп тұрсаңыз немесе қараңғы жерде болсаңыз, телефоныңыз саусақ ізін пайдалануды сұрайды.</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Қолданбаларда аутентификациялау</string>
-    <string name="security_settings_biometrics_preferences_category">Бет немесе саусақ ізі пайдаланылатын әрекеттер</string>
-    <string name="security_settings_biometrics_summary_both">Бет және саусақ ізі</string>
-    <string name="security_settings_biometrics_summary_face">Тек бет</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Тек саусақ ізі</string>
-    <string name="security_settings_biometrics_summary_none">Реттеу үшін түртіңіз.</string>
-    <string name="security_settings_biometrics_title">Бет және саусақ ізі арқылы құлыпты ашу</string>
-    <string name="security_settings_biometrics_types_category">Құлыпты ашу тәсілдері</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Бет тану функциясына рұқсат беріңіз</string>
     <string name="security_settings_face_enroll_dialog_ok">Жарайды</string>
     <string name="security_settings_face_enroll_done">Дайын</string>
@@ -4385,16 +4403,17 @@
     <string name="security_settings_face_enroll_introduction_control_title">Барлығы өз қолыңызда</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message">"Балаңыздың жеке басын растау үшін Бет тану функциясы оның бетінің қайталанбас үлгісін жасайды. Реттеу кезінде бет үлгісін жасау үшін, балаңыз бетін жан-жағынан суретке түсіреді.
 
-Балаңыз Бет тану функциясын пайдаланған кездегі суреттер оның бет үлгісін жаңарту үшін пайдаланылады. Бет үлгісін жасау үшін қолданылған суреттер ешқашан сақталмайды, бірақ үлгінің өзі телефонда қауіпсіз түрде сақталады және басқа ешқайда жіберілмейді. Барлық өңдеу жұмыстары телефонда ғана орындалады."</string>
+Балаңыз Бет тану функциясын пайдаланған кездегі суреттер оның бет үлгісін жаңарту үшін пайдаланылады. Бет үлгісін жасау үшін қолданылған суреттер сақталмайды, бірақ үлгінің өзі телефонда қауіпсіз түрде сақталады және басқа ешқайда жіберілмейді. Барлық өңдеу жұмыстары телефонда ғана орындалады."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"Жеке басыңызды растау үшін Бет тану функциясы бетіңіздің қайталанбас үлгісін жасайды. Реттеу кезінде бет үлгісін жасау үшін бетіңізді жан-жағынан суретке түсіресіз.
 
-Бет тану функциясын қолданған кездегі суреттер бетіңіздің үлгісін жаңарту үшін пайдаланылады. Бетіңіздің үлгісін жасау үшін қолданылған суреттер ешқашан сақталмайды, бірақ үлгінің өзі телефонда қауіпсіз түрде сақталады және басқа ешқайда жіберілмейді. Барлық өңдеу жұмыстары телефонда ғана орындалады."</string>
+Бет тану функциясын қолданған кездегі суреттер бетіңіздің үлгісін жаңарту үшін пайдаланылады. Бетіңіздің үлгісін жасау үшін қолданылған суреттер сақталмайды, бірақ үлгінің өзі телефонда сақталады және басқа ешқайда жіберілмейді. Барлық өңдеу жұмыстары телефонда ғана орындалады."</string>
     <string name="security_settings_face_enroll_introduction_how_title">Бұл қалай жұмыс істейді?</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">Бет тану функциясы телефонның құлпын ашу үшін немесе балаңыздың жеке басын растау үшін одан көзін ашуын талап етуі мүмкін. Балаңыз екеуіңіз бұл функцияны \"Параметрлер\" бөлімінен кез келген уақытта қоса аласыздар.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Балаңыз әдетте көзілдірік тағатын болса, реттеу кезінде оны шешпесе де болады.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Ашқысы келмесе де, телефонға қараған кезде, оның құлпы ашылып кетуі мүмкін. Құлыпты оған ұқсайтын біреу (мысалы, оның сыңары) ашып алуы мүмкін. Телефонды бетіне тақаған кезде де ашылып кетуі ықтимал.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Бет тану функциясы телефонның құлпын ашу үшін немесе жеке басыңызды растау үшін көзіңізді ашуды талап етуі мүмкін. Бұл функцияны \"Параметрлер\" бөлімінен кез келген уақытта қоса аласыз.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Түссіз немесе сәл күңгірттелген көзілдірікті шешпеуге болады.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Телефонның құлпын бетті анықтау функциясы арқылы ашу күрделі өрнекке немесе PIN кодына қарағанда сенімсіздеу болуы мүмкін.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Ашқыңыз келмесе де, телефонға қараған кезде, оның құлпы ашылып кетуі мүмкін. Құлыпты өзіңізге ұқсайтын біреу, мысалы, егіз бауырыңыз ашып алуы мүмкін. Телефонды бетіңізге тақаған кезде де ашылып кетуі ықтимал.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Есте сақтаңыз</string>
     <string name="security_settings_face_enroll_introduction_message">Телефон құлпын ашу немесе жеке басыңызды растау үшін (мысалы, қолданбаларға кіргенде не бірдеңе сатып алғанда) бет тану функциясын пайдаланыңыз.</string>
@@ -4452,13 +4471,14 @@
 
 Телефон құлпын өзіңізге ұқсайтын біреу, мысалы, егіз бауырыңыз ашып алуы мүмкін."</string>
     <string name="security_settings_face_settings_preferences_category">Бет тану функциясын пайдаланған кезде</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Бет үлгіңіз біржола әрі қауіпсіз жойылады. Оны жойған соң, телефон құлпын ашу немесе қолданбаларда аутентификациялану үшін PIN кодын, өрнекті немесе құпия сөзді пайдалану керек болады.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Бет үлгісі біржола әрі қауіпсіз жойылады.
+
+Оны жойған соң, телефон құлпын ашу немесе қолданбаларда аутентификациядан өту үшін PIN кодын, өрнекті немесе құпия сөзді пайдалану керек болады."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Бет үлгісі біржола әрі қауіпсіз жойылады.
+
+Оны жойған соң, телефон құлпын ашу үшін PIN кодын, өрнекті немесе құпия сөзді пайдалану керек болады."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Бет үлгісін жою керек пе?</string>
     <string name="security_settings_face_settings_remove_face_model">Бет үлгісін жою</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Бет үлгісі біржола әрі қауіпсіз жойылады.
-
-Оны жойған соң, телефоныңыздың құлпын ашу немесе қолданбаларда аутентификациялау үшін саусақ ізін, PIN кодын, өрнекті немесе құпия сөзді пайдалану керек болады."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Бет үлгісін жою керек пе?</string>
     <string name="security_settings_face_settings_require_attention">Көзіңізді ашып тұрыңыз.</string>
     <string name="security_settings_face_settings_require_attention_details">Телефон құлпын ашу үшін көздеріңізді ашып тұрыңыз.</string>
     <string name="security_settings_face_settings_require_confirmation">Әрқашан растауды сұрау</string>
@@ -4541,7 +4561,7 @@
     <string name="security_settings_title">Қауіпсіздік</string>
     <string name="security_settings_udfps_enroll_a11y">Сканерді табу үшін саусағыңызды экран бойымен жылжытыңыз. Саусақ ізін оқу сканерін басып тұрыңыз.</string>
     <string name="security_settings_udfps_enroll_edge_message">Саусақ ізінің бір жағын датчикке қойыңыз, сосын екінші жағына ауысыңыз.</string>
-    <string name="security_settings_udfps_enroll_edge_title">Енді саусағыңыздың шеттерін тигізіңіз</string>
+    <string name="security_settings_udfps_enroll_edge_title">Енді саусағыңыздың шеттерін пайдаланыңыз</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Саусақ ізін оқу сканері экраныңызда орналасқан. Саусақ ізі келесі экранда суретке түсіріледі.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Бастау</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Саусақ ізін орнату жолы</string>
@@ -4550,7 +4570,7 @@
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Осы арқылы саусағыңыздың көп бөлігін қамтуға болады.</string>
     <string name="security_settings_udfps_enroll_repeat_message">Саусақ ізі белгішесі жылжыған кезде, оны түртіп ұстап тұрыңыз. Осы арқылы саусағыңыздың көп бөлігін қамтуға болады.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Саусақ ізі белгішесімен жұмыс істеу</string>
-    <string name="security_settings_udfps_enroll_start_message">Саусағыңызды сканерде ұстап, дірілді сезген кезде көтеріңіз.</string>
+    <string name="security_settings_udfps_enroll_start_message">Саусағыңызды сканерде ұстап тұрып, діріл сезілгенде жіберіңіз.</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Тағы бір рет</string>
     <string name="security_settings_work_fingerprint_preference_title">Жұмысқа арналған Pixel Imprint</string>
     <string name="security_status_title">Қауіпсіздік күйі</string>
@@ -4576,7 +4596,6 @@
     <string name="select_webview_provider_dialog_title">WebView ендіруін орнату</string>
     <string name="select_webview_provider_title">WebView қызметі</string>
     <string name="select_webview_provider_toast_text">Бұл таңдау енді жарамды емес. Әрекетті қайталаңыз.</string>
-    <string name="sensor_toggle_description">Барлық қолданба мен қызмет үшін</string>
     <string name="sensors_off_quick_settings_title">Датчиктер өшірулі</string>
     <string name="service_background_processes">%1$s бос</string>
     <string name="service_foreground_processes">%1$s қолданылған</string>
@@ -4808,6 +4827,7 @@ PIN коды қате болуы мүмкін."</string>
     <string name="sound_settings_summary_silent">Қоңырау үнсіз режимге қойылған</string>
     <string name="sound_settings_summary_vibrate">Қоңырау дірілдеу режиміне қойылған</string>
     <string name="sound_work_settings">Жұмыс профилінің дыбыстары</string>
+    <string name="spatial_audio_title">Көлемді дыбыс</string>
     <string name="special_access">Арнайы рұқсат</string>
     <string name="special_access_more">Толығырақ</string>
     <string name="speed_label_fast">Жылдам</string>
@@ -5619,7 +5639,7 @@ Google дерекқор синхрондау әдісі  қай жерде бо�
     <string name="vpn_turn_on">Қосу</string>
     <string name="vpn_type">Tүрі</string>
     <string name="vpn_username">Пайдаланушы аты</string>
-    <string name="vpn_version">Нұсқасы: %s</string>
+    <string name="vpn_version">Нұсқа</string>
     <string name="vr_listener_security_warning_summary">%1$s қолданбаларды виртуалды шындық режимінде пайдаланып жатқанда іске қосыла алады.</string>
     <string name="vr_listener_security_warning_title">Көмекші VR қызметтеріне %1$s пайдалануға рұқсат беру керек пе?</string>
     <string name="vr_listeners_title">Көмекші VR қызметтері</string>
@@ -5889,7 +5909,7 @@ Google дерекқор синхрондау әдісі  қай жерде бо�
     <string name="wifi_not_in_range">Аумақта жоқ</string>
     <string name="wifi_not_in_range_message">Желі байланыс аясында емес.</string>
     <string name="wifi_notify_open_networks">Қоғамдық желі қолжетімді болғанда хабарлау</string>
-    <string name="wifi_notify_open_networks_summary">Автоматты қосылу мүмкін болмағанда</string>
+    <string name="wifi_notify_open_networks_summary">Жоғары сапалы ашық желі қолжетімді болғанда хабарлау</string>
     <string name="wifi_on_time">Wi‑Fi уақытында</string>
     <string name="wifi_p2p_cancel_connect_message">%1$s қосылу шақыруынан бас тартуды қалайсыз ба?</string>
     <string name="wifi_p2p_cancel_connect_title">Шақыру өшірілсін бе?</string>
@@ -5977,7 +5997,6 @@ Google дерекқор синхрондау әдісі  қай жерде бо�
     <string name="wifi_suspend_optimizations">Wi‑Fi жетілдіру</string>
     <string name="wifi_suspend_optimizations_summary">Wi‑Fi қосылғанда батарея қолданысын азайту</string>
     <string name="wifi_switch_away_when_unvalidated">Wi-Fi желісі интернеттен ажыратылған жағдайда, мобильдік деректерге ауысу.</string>
-    <string name="wifi_switch_summary">Wi‑Fi желілерін тауып, оларға қосылу</string>
     <string name="wifi_tap_to_sign_in">Желіге кіру үшін түртіңіз</string>
     <string name="wifi_tether_configure_ap_text">Wi‑Fi хотспот орнату</string>
     <string name="wifi_tether_configure_ssid_default">Android хот-споты</string>

@@ -75,7 +75,7 @@
 
     iput-object v1, p0, Lcom/android/settings/bluetooth/BluetoothDevicePreference;->mResources:Landroid/content/res/Resources;
 
-    const-string v1, "user"
+    const-string/jumbo v1, "user"
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -170,14 +170,14 @@
 
     if-eqz v2, :cond_0
 
-    const v1, 0x7f040431
+    const v1, 0x7f040449
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
     :cond_0
-    const v2, 0x7f04044e
+    const v2, 0x7f040466
 
     const/4 v3, 0x1
 
@@ -191,7 +191,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040454
+    const v2, 0x7f04046c
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -237,7 +237,7 @@
 
     move-result-object p0
 
-    const v1, 0x7f04049b
+    const v1, 0x7f0404b3
 
     invoke-static {v0, p0, v1}, Lcom/android/settings/bluetooth/Utils;->showError(Landroid/content/Context;Ljava/lang/String;I)V
 
@@ -372,7 +372,7 @@
 .method protected getSecondTargetResId()I
     .locals 0
 
-    const p0, 0x7f0601b4
+    const p0, 0x7f0601b8
 
     return p0
 .end method
@@ -446,7 +446,7 @@
 
     if-ne v0, v1, :cond_1
 
-    const v0, 0x7f0d04d7
+    const v0, 0x7f0d04e6
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 

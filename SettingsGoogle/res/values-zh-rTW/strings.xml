@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">流暢顯示</string>
     <string name="peak_refresh_rate_summary">自動將某些內容的重新整理頻率從 60 調高到 90 赫茲 (Hz)。請注意，開啟這項設定會增加電池用量。</string>
     <string name="accessibility_vibration_settings_title">震動與觸動回饋</string>
+    <string name="columbus_title">快速輕觸即可執行操作</string>
     <string name="emergency_gesture_screen_title">緊急求救</string>
     <string name="abc_action_mode_done">完成</string>
     <string name="vibrate_for_calls_category_title">通話</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">顯示裝置控制</string>
     <string name="lockscreen_privacy_wallet_summary">允許從螢幕鎖定畫面和快速設定選單中使用電子錢包</string>
     <string name="lockscreen_privacy_controls_summary">在鎖定畫面上顯示控制項</string>
+    <string name="lockscreen_double_line_clock_summary">顯示雙行時鐘 (如果可用的話)</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">雙行時鐘</string>
     <string name="abc_activity_chooser_view_see_all">查看全部</string>
     <string name="abc_activitychooserview_choose_application">選擇應用程式</string>
     <string name="abc_capital_off">關閉</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">鬧鐘震動</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Active Edge 已設定完成。請前往下一個畫面或繼續調整相關設定。</string>
     <string name="accessibility_audio_adjustment_title">音訊調整</string>
+    <string name="accessibility_autoclick_about_title">關於自動點擊 (停留時間)</string>
     <string name="accessibility_autoclick_custom_title">自訂</string>
     <string name="accessibility_autoclick_default_title">關閉</string>
     <string name="accessibility_autoclick_description">你必須連接滑鼠才能使用自動點擊功能。你可以將滑鼠游標設為在停止移動一段時間後自動點擊。</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">進一步瞭解自動點擊 (停留時間)</string>
     <string name="accessibility_autoclick_long_summary">1 秒</string>
     <string name="accessibility_autoclick_long_title">長</string>
     <string name="accessibility_autoclick_longer_desc">較長</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">短</string>
     <string name="accessibility_autoclick_shorter_desc">較短</string>
     <string name="accessibility_banner_message_dismiss">關閉</string>
-    <string name="accessibility_button_description">"不論在任何畫面中，你都能快速使用無障礙功能。
+    <string name="accessibility_button_about_title">關於無障礙工具按鈕</string>
+    <string name="accessibility_button_description">"不論在哪個畫面，都能快速開啟無障礙功能。
 
-首先，請前往無障礙設定頁面，選取要使用的功能，然後輕觸捷徑並選取無障礙工具按鈕。"</string>
+首先，請先前往無障礙設定選取要使用的功能，然後輕觸捷徑並選取無障礙工具按鈕。"</string>
     <string name="accessibility_button_fade_summary">在幾秒過後自動淡出，方便你查看整個畫面</string>
     <string name="accessibility_button_fade_title">未使用時淡出</string>
-    <string name="accessibility_button_gesture_description">"不論在哪個畫面，都能快速開啟無障礙功能。
+    <string name="accessibility_button_gesture_about_title">關於無障礙工具按鈕和手勢</string>
+    <string name="accessibility_button_gesture_description">"不論在哪個畫面，你都能快速使用無障礙功能。
 
-首先，請先前往無障礙設定，選取要使用的功能，然後輕觸捷徑並選取無障礙工具按鈕。
-
-如要改用導覽列中的無障礙工具按鈕，請切換成雙按鈕操作或三按鈕操作。"</string>
+首先，請先前往無障礙設定選取要使用的功能，然後輕觸捷徑並選取無障礙工具按鈕或手勢。"</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">進一步瞭解無障礙工具按鈕和手勢</string>
     <string name="accessibility_button_gesture_title">無障礙工具按鈕和手勢</string>
     <string name="accessibility_button_high_label">不透明</string>
     <string name="accessibility_button_intro">請使用無障礙工具按鈕。手勢無法搭配三按鈕操作機制。</string>
@@ -184,14 +190,23 @@
     <string name="accessibility_caption_preference_summary">並非所有應用程式都支援這些字幕偏好設定</string>
     <string name="accessibility_caption_primary_switch_summary">僅限支援的應用程式</string>
     <string name="accessibility_caption_primary_switch_title">顯示字幕</string>
+    <string name="accessibility_captioning_about_title">關於字幕偏好設定</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">進一步瞭解字幕偏好設定</string>
     <string name="accessibility_captioning_title">字幕偏好設定</string>
     <string name="accessibility_category_personal">個人設定檔帳戶</string>
     <string name="accessibility_category_work">工作資料夾帳戶 - %s</string>
+    <string name="accessibility_color_inversion_about_title">關於色彩反轉</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">進一步瞭解色彩反轉</string>
+    <string name="accessibility_control_timeout_about_title">關於提示顯示時間 (無障礙功能逾時)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">進一步瞭解提示顯示時間 (無障礙功能逾時)</string>
     <string name="accessibility_control_timeout_preference_summary">"選擇提示你進行操作的訊息會暫時顯示多久。
 
 只有部分應用程式支援這項設定。"</string>
     <string name="accessibility_control_timeout_preference_title">提示顯示時間</string>
+    <string name="accessibility_daltonizer_about_title">關於色彩校正</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">進一步瞭解色彩校正</string>
     <string name="accessibility_daltonizer_primary_switch_title">使用色彩校正</string>
+    <string name="accessibility_daltonizer_shortcut_title">色彩校正捷徑</string>
     <string name="accessibility_data_one_bar">數據網路訊號強度一格。</string>
     <string name="accessibility_data_signal_full">數據網路訊號滿格。</string>
     <string name="accessibility_data_three_bars">數據網路訊號強度三格。</string>
@@ -206,6 +221,7 @@
     <string name="accessibility_display_daltonizer_preference_title">色彩校正</string>
     <string name="accessibility_display_inversion_preference_subtitle">色彩反轉可將明亮的螢幕畫面調暗。&lt;br/>&lt;br/> 注意：&lt;ol> &lt;li> 這項功能也會將深色畫面轉為淺色畫面。&lt;/li> &lt;li> 使用這項功能後，媒體和圖片中的色彩會有所不同。&lt;/li> &lt;li> 你可以使用深色主題顯示深色背景。深色主題僅適用於支援的應用程式，而色彩反轉適用於所有應用程式。&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">色彩反轉</string>
+    <string name="accessibility_display_inversion_shortcut_title">色彩反轉捷徑</string>
     <string name="accessibility_display_inversion_switch_title">使用色彩反轉</string>
     <string name="accessibility_ethernet_connected">乙太網路。</string>
     <string name="accessibility_ethernet_disconnected">未連上乙太網路。</string>
@@ -255,6 +271,8 @@
     <string name="accessibility_phone_two_bars">電話訊號強度兩格。</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">按電源鍵結束通話</string>
     <string name="accessibility_preference_magnification_summary">放大畫面內容</string>
+    <string name="accessibility_screen_magnification_about_title">關於放大功能</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">進一步瞭解放大功能</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">無障礙手勢已設為「%1$s」。如要使用放大功能，請用兩指從螢幕底部向上滑動並按住，然後選取 [放大]。</string>
     <string name="accessibility_screen_magnification_gestures_title">輕觸螢幕三下進行放大</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">[無障礙] 按鈕已設為 %1$s。如要使用放大功能，請按住 [無障礙] 按鈕，然後選取 [放大]。</string>
@@ -272,6 +290,7 @@
 你無法放大鍵盤和導覽列部分。"</string>
     <string name="accessibility_screen_magnification_navbar_title">使用快速手勢放大畫面</string>
     <string name="accessibility_screen_magnification_short_summary">輕觸三下即可縮放畫面</string>
+    <string name="accessibility_screen_magnification_shortcut_title">放大功能捷徑</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">使用快速手勢並輕觸三下即可放大畫面</string>
     <string name="accessibility_screen_magnification_summary">快速放大螢幕畫面，讓內容更大更清晰。&lt;br/>&lt;br/> &lt;b>如要放大螢幕畫面，請按照以下步驟操作：&lt;/b>&lt;br/> {0,number,integer}. 透過快速鍵啟用放大功能&lt;br/> {1,number,integer}. 輕觸螢幕&lt;br/> {2,number,integer}. 拖曳 2 指即可四處移動畫面&lt;br/> {3,number,integer}. 使用 2 指撥動即可調整縮放等級&lt;br/> {4,number,integer}. 透過快速鍵停用放大功能&lt;br/>&lt;br/> &lt;b>如要暫時放大螢幕畫面，請按照以下步驟操作：&lt;/b>&lt;br/> {0,number,integer}. 透過快速鍵啟用放大功能&lt;br/> {1,number,integer}. 按住螢幕上的任一處&lt;br/> {2,number,integer}. 拖曳手指即可四處移動畫面&lt;br/> {3,number,integer}. 移開手指即可停用放大功能</string>
     <string name="accessibility_screen_magnification_title">放大</string>
@@ -370,7 +389,7 @@
     <string name="accessibility_tutorial_dialog_message_volume">如要使用這項功能，請同時按住音量調高鍵和調低鍵。</string>
     <string name="accessibility_tutorial_dialog_title_button">使用無障礙按鈕開啟</string>
     <string name="accessibility_tutorial_dialog_title_gesture">使用手勢啟用無障礙服務</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">使用全新的無障礙手勢</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">使用無障礙手勢</string>
     <string name="accessibility_tutorial_dialog_title_triple">輕觸螢幕三下即可開啟</string>
     <string name="accessibility_tutorial_dialog_title_volume">按住音量調高鍵和調低鍵即可開啟</string>
     <string name="accessibility_tutorial_pager">第 %1$d 頁，共 %2$d 頁</string>
@@ -936,6 +955,7 @@
     <string name="battery_level_title">電池電量</string>
     <string name="battery_manager_off">關閉</string>
     <string name="battery_manager_summary">延長電池續航力並對充電效率進行最佳化調整</string>
+    <string name="battery_manager_summary_unsupported">延長電池續航力</string>
     <string name="battery_missing_link_a11y_message">輕觸即可進一步瞭解這個錯誤</string>
     <string name="battery_missing_link_message">瞭解詳情</string>
     <string name="battery_missing_message">讀取電池計量器時發生問題。</string>
@@ -1015,7 +1035,7 @@
 當上述情況解除後，手機就會自動正常充電。"</string>
     <string name="battery_tip_limited_temporarily_dialog_resume_charge">繼續充電</string>
     <string name="battery_tip_limited_temporarily_summary">這是為了延長電池壽命。瞭解詳情。</string>
-    <string name="battery_tip_limited_temporarily_title">充電功能暫時受到限制</string>
+    <string name="battery_tip_limited_temporarily_title">已暫時限制充電</string>
     <string name="battery_tip_low_battery_summary">開啟省電模式可延長電池續航力</string>
     <string name="battery_tip_low_battery_title">電池電力不足</string>
     <string name="battery_tip_restrict_app_dialog_message">如要節省電量，請禁止「%1$s」在背景中消耗裝置電量。這麼做可能會導致這個應用程式無法正常運作，且相關通知可能會延遲。</string>
@@ -1061,6 +1081,7 @@
     <string name="battery_usage_screen_footer">電池用量資料為概略值，而且手機在充電時不會估算電池用量</string>
     <string name="battery_usage_screen_footer_empty">手機使用幾小時後，才會顯示電池用量資料</string>
     <string name="battery_usage_total_less_than_one_minute">總計：不到 1 分鐘</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%2$s用量佔 %1$s</string>
     <string name="battery_used_for">使用時間：^1</string>
     <string name="bearer">承載系統</string>
@@ -1069,12 +1090,14 @@
     <string name="billing_cycle_less_than_one_day_left">剩下不到 1 天</string>
     <string name="billing_cycle_none_left">已沒有剩餘時間</string>
     <string name="biometric_settings_category_ways_to_unlock">解鎖方式</string>
-    <string name="biometric_settings_category_ways_to_use">臉孔和指紋的用途</string>
     <string name="biometric_settings_hand_back_to_guardian">請將手機交還給家長</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">確定</string>
     <string name="biometric_settings_intro">設定人臉解鎖和指紋解鎖功能時，如果你戴著口罩或人在昏暗的地方，手機會要求你提供指紋</string>
-    <string name="biometric_settings_use_biometric_for_apps">應用程式內的驗證程序</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">將手機解鎖</string>
+    <string name="biometric_settings_use_biometric_for_apps">在應用程式中驗證你的身分</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">解鎖手機</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">使用人臉或指紋解鎖功能</string>
+    <string name="biometric_settings_use_face_preference_summary">使用人臉解鎖</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">使用指紋解鎖</string>
     <string name="biometrics_unlock_set_unlock_password">密碼 • 人臉 • 指紋</string>
     <string name="biometrics_unlock_set_unlock_pattern">解鎖圖案 • 人臉 • 指紋</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN 碼 • 人臉 • 指紋</string>
@@ -1332,7 +1355,6 @@
     <string name="bluetooth_settings_title">藍牙</string>
     <string name="bluetooth_show_devices_without_names">顯示沒有名稱的藍牙裝置</string>
     <string name="bluetooth_show_devices_without_names_summary">系統會顯示沒有名稱 (僅具有 MAC 位址) 的藍牙裝置</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">透過藍牙接收的檔案</string>
     <string name="bluetooth_show_received_files">已接收的檔案</string>
     <string name="bluetooth_sim_card_access_dialog_content">"藍牙裝置「%1$s」想要存取 SIM 卡上的資料，包括你的聯絡人。
 
@@ -1426,6 +1448,7 @@
     <string name="calls_sms_temp_unavailable">暫時無法使用</string>
     <string name="calls_sms_unavailable">無法使用</string>
     <string name="calls_sms_wfc_summary">透過 Wi‑Fi 撥打及接聽電話</string>
+    <string name="cam_toggle_description">用於應用程式和服務</string>
     <string name="camera_double_tap_power_gesture_desc">不必將螢幕解鎖就能快速開啟相機</string>
     <string name="camera_double_tap_power_gesture_title">按兩下電源按鈕即可開啟相機</string>
     <string name="camera_laser_sensor_switch">相機雷射感應器</string>
@@ -3302,6 +3325,7 @@
     <string name="menu_stats_total">電池整體使用狀況</string>
     <string name="menu_stats_unplugged">拔除插頭後已過了 %1$s</string>
     <string name="menu_use_uss">使用 Uss</string>
+    <string name="mic_toggle_description">用於應用程式和服務。如果關閉這項設定，系統仍會在你撥打緊急電話號碼時提供麥克風的資料。</string>
     <string name="mic_toggle_title">麥克風存取權</string>
     <string name="misc_files">其他檔案</string>
     <string name="misc_files_selected_count">已選取 %1$d 個，共 %2$d 個</string>
@@ -3728,6 +3752,7 @@
     <string name="one_handed_action_show_notification_title">顯示通知</string>
     <string name="one_handed_mode_enabled">使用單手模式</string>
     <string name="one_handed_mode_intro_text">如要使用單手模式，請由螢幕畫面底部向下滑動。使用這項功能時，請記得先開啟系統操作機制設定中的手勢操作。</string>
+    <string name="one_handed_mode_shortcut_title">單手模式捷徑</string>
     <string name="one_handed_mode_swipe_down_category">向下滑動</string>
     <string name="one_handed_mode_use_shortcut_category">這個捷徑的用途</string>
     <string name="one_usercrt">一個使用者憑證</string>
@@ -3803,11 +3828,11 @@
     <string name="post_dsds_reboot_notification_title_with_carrier">「%1$s」已啟用</string>
     <string name="power_bluetooth">藍牙</string>
     <string name="power_camera">相機</string>
-    <string name="power_cell">行動網路待命中</string>
+    <string name="power_cell">行動網路</string>
     <string name="power_charge_remaining">%1$s後充電完畢</string>
     <string name="power_charging">%1$s - %2$s</string>
     <string name="power_charging_duration">%1$s - %2$s後充飽</string>
-    <string name="power_charging_limited">%1$s - 充電功能暫時受到限制</string>
+    <string name="power_charging_limited">%1$s - 已暫時限制充電</string>
     <string name="power_discharge_by">目前電量 %2$s，預估可用到%1$s</string>
     <string name="power_discharge_by_enhanced">根據你的使用情形，目前電量為 %2$s，預估可持續使用到%1$s</string>
     <string name="power_discharge_by_only">預估電力大約可使用到%1$s</string>
@@ -4037,6 +4062,7 @@
     <string name="recent_notifications">最近傳送通知的應用程式</string>
     <string name="recent_notifications_see_all_title">查看過去 7 天的所有應用程式</string>
     <string name="recompute_size">重新計算大小…</string>
+    <string name="reduce_bright_colors_about_title">關於超暗功能</string>
     <string name="reduce_bright_colors_intensity_end_label">較亮</string>
     <string name="reduce_bright_colors_intensity_preference_title">亮度</string>
     <string name="reduce_bright_colors_intensity_start_label">較暗</string>
@@ -4044,6 +4070,7 @@
     <string name="reduce_bright_colors_preference_subtitle">將螢幕調暗可讓你看手機時更舒適。&lt;br/>&lt;br/> 這項設定適用於以下情況：&lt;ol> &lt;li> 手機預設的最低亮度依然太亮&lt;/li> &lt;li> 在夜間或就寢前黑暗的房間等昏暗環境下使用手機&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">將螢幕調得比手機最低亮度更暗</string>
     <string name="reduce_bright_colors_preference_title">超暗</string>
+    <string name="reduce_bright_colors_shortcut_title">超暗功能捷徑</string>
     <string name="reduce_bright_colors_switch_title">啟用超暗螢幕設定</string>
     <string name="register_automatically">自動註冊…</string>
     <string name="register_on_network">正在註冊「%s」…</string>
@@ -4249,7 +4276,6 @@
     <string name="screen_pinning_unlock_pattern">取消固定時必須畫出解鎖圖案</string>
     <string name="screen_pinning_unlock_pin">取消固定時必須輸入 PIN 碼</string>
     <string name="screen_reader_category_title">螢幕閱讀器</string>
-    <string name="screen_saver_main_switch_title">使用螢幕保護程式</string>
     <string name="screen_time_summary_usage_today">今天使用了 %1$s</string>
     <string name="screen_timeout_summary">閒置 %1$s後</string>
     <string name="screen_timeout_title">螢幕關閉時</string>
@@ -4279,6 +4305,7 @@
     <string name="screensaver_settings_button">設定</string>
     <string name="screensaver_settings_current">目前的螢幕保護程式</string>
     <string name="screensaver_settings_disabled_prompt">如要控制手機安置於座架上和/或休眠時的設定，請開啟螢幕保護程式。</string>
+    <string name="screensaver_settings_dream_start">立即開啟</string>
     <string name="screensaver_settings_summary_dock">安置於座架上時</string>
     <string name="screensaver_settings_summary_either_long">充電或安置於座架上時</string>
     <string name="screensaver_settings_summary_either_short">以上任一情況</string>
@@ -4329,15 +4356,6 @@
     <string name="security_settings_biometric_preference_summary_both_fp_single">已新增臉孔和指紋</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">輕觸即可設定</string>
     <string name="security_settings_biometric_preference_title">人臉和指紋解鎖</string>
-    <string name="security_settings_biometrics_description">設定人臉和指紋解鎖功能時，如果你戴著口罩或人在昏暗的地方，手機就會要求你註冊指紋</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">應用程式內的驗證程序</string>
-    <string name="security_settings_biometrics_preferences_category">在以下情況下使用臉孔或指紋驗證身分</string>
-    <string name="security_settings_biometrics_summary_both">臉孔和指紋</string>
-    <string name="security_settings_biometrics_summary_face">僅註冊臉孔</string>
-    <string name="security_settings_biometrics_summary_fingerprint">僅註冊指紋</string>
-    <string name="security_settings_biometrics_summary_none">輕觸即可設定</string>
-    <string name="security_settings_biometrics_title">人臉和指紋解鎖</string>
-    <string name="security_settings_biometrics_types_category">解鎖方式</string>
     <string name="security_settings_face_enroll_consent_introduction_title">允許使用人臉解鎖功能</string>
     <string name="security_settings_face_enroll_dialog_ok">確定</string>
     <string name="security_settings_face_enroll_done">完成</string>
@@ -4385,16 +4403,17 @@
     <string name="security_settings_face_enroll_introduction_control_title">一切由你掌控</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message">"人臉解鎖功能會建立孩子的專屬臉部模型，用來驗證他們的身分。在設定期間，孩子必須拍攝臉部的各個角度，才能建立這個臉部模型。
 
-孩子使用人臉解鎖功能時產生的圖像會做為系統更新臉部模型的依據。系統不會儲存孩子在建立臉部模型時使用的圖像，但會將臉部模型安全存放在手機上，而且絕對不會外洩。整個處理過程都是在手機上進行，安全有保障。"</string>
+孩子使用人臉解鎖功能時產生的圖像會做為系統更新臉部模型的依據。系統不會儲存為孩子建立臉部模型時所使用的圖像，但會將臉部模型安全地儲存於手機內，絕對不會外洩。整個處理過程都是在手機上進行，安全有保障。"</string>
     <string name="security_settings_face_enroll_introduction_how_message">"人臉解鎖功能會建立你的專屬臉部模型，用來驗證你的身分。在設定期間，你必須拍攝臉部的各個角度，才能建立這個臉部模型。
 
-你使用人臉解鎖功能時產生的圖像會做為系統更新臉部模型的依據。系統不會儲存你在建立臉部模型時使用的圖像，但會將臉部模型安全存放在手機上，而且絕對不會外洩。整個處理過程都是在你的手機上進行，安全有保障。"</string>
+你使用人臉解鎖功能時產生的圖像會做為系統更新臉部模型的依據。系統不會儲存為你建立臉部模型時所使用的圖像，但會將臉部模型安全地儲存於手機內，絕對不會外洩。整個處理過程都是在手機上進行，安全有保障。"</string>
     <string name="security_settings_face_enroll_introduction_how_title">運作方式</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">如果使用人臉解鎖功能，系統可能會要求孩子必須睜開雙眼才能解鎖手機或驗證身分。你和孩子隨時可以前往「設定」開啟這個選項。</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">如果孩子通常戴著眼鏡，不用特地在設定過程中取下。</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">只要看著手機，就可能會讓手機意外解鎖。長相與你孩子十分相似的人 (例如孿生兄弟姐妹)，或有人將手機拿到孩子的面前，都有可能會將手機解鎖。</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">如果使用人臉解鎖功能，系統可能會要求你必須睜開雙眼才能解鎖手機或驗證身分。你隨時可以前往「設定」開啟這個選項。</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">配戴眼鏡或淺色太陽眼鏡不會造成影響。</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">你可以用臉解鎖手機，但安全性可能不如解鎖圖案或 PIN 碼。</string>
     <string name="security_settings_face_enroll_introduction_info_looking">只要看著手機，就可能會讓手機意外解鎖。長相與你十分相似的人 (例如你的孿生兄弟姐妹)，或有人將手機拿到你的面前，都有可能會將手機解鎖。</string>
     <string name="security_settings_face_enroll_introduction_info_title">注意事項</string>
     <string name="security_settings_face_enroll_introduction_message">你可以使用臉孔解鎖手機或驗證身分，以便執行特定操作，例如登入應用程式或核准購買交易。</string>
@@ -4452,13 +4471,14 @@
 
 長相與你十分相似的人 (例如孿生兄弟姐妹) 或許可以解鎖你的手機。"</string>
     <string name="security_settings_face_settings_preferences_category">使用人臉解鎖功能時</string>
-    <string name="security_settings_face_settings_remove_dialog_details">系統會安全地將你的臉部模型永久刪除。臉部模型刪除後，你必須使用 PIN 碼、解鎖圖案或密碼，才能解鎖手機或在應用程式中驗證身分。</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"系統會安全地將臉部模型永久刪除。
+
+模型刪除後，你必須使用 PIN 碼、解鎖圖案或密碼，才能解鎖手機或在應用程式中驗證身分。"</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"系統會安全地將臉部模型永久刪除。
+
+模型刪除後，你必須使用 PIN 碼、解鎖圖案或密碼才能解鎖手機。"</string>
     <string name="security_settings_face_settings_remove_dialog_title">要刪除臉部模型嗎？</string>
     <string name="security_settings_face_settings_remove_face_model">刪除臉部模型</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"系統會安全地將你的臉部模型永久刪除。
-
-臉部模型刪除後，你必須使用指紋、PIN 碼、解鎖圖案或密碼，才能解鎖手機或在應用程式內驗證身分。"</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">要刪除臉部模型嗎？</string>
     <string name="security_settings_face_settings_require_attention">必須睜開雙眼</string>
     <string name="security_settings_face_settings_require_attention_details">必須睜開雙眼才能將手機解鎖</string>
     <string name="security_settings_face_settings_require_confirmation">一律需要確認</string>
@@ -4541,7 +4561,7 @@
     <string name="security_settings_title">安全性</string>
     <string name="security_settings_udfps_enroll_a11y">請用手指在螢幕上移動，找出感應器的位置。找到後，請按住指紋感應器。</string>
     <string name="security_settings_udfps_enroll_edge_message">將指紋的一側放上感應器並按住，然後再換另一側</string>
-    <string name="security_settings_udfps_enroll_edge_title">最後，請將手指邊緣放上感應器</string>
+    <string name="security_settings_udfps_enroll_edge_title">最後一步是將手指邊緣放到感應器上</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">指紋感應器在螢幕上。系統會在下一個畫面擷取你的指紋。</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">開始</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">如何設定指紋</string>
@@ -4549,7 +4569,7 @@
     <string name="security_settings_udfps_enroll_repeat_a11y_message">這樣做可以擷取更多指紋</string>
     <string name="security_settings_udfps_enroll_repeat_message">請依照指紋圖示的移動方式重複按下手指。這樣做可以擷取更多指紋。</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">依照指紋圖示重複按下手指</string>
-    <string name="security_settings_udfps_enroll_start_message">請將手指放在感應器上，感到震動後再移開</string>
+    <string name="security_settings_udfps_enroll_start_message">請將手指平放在指紋感應器上，感覺到震動時再放開</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">再一次</string>
     <string name="security_settings_work_fingerprint_preference_title">使用 Pixel Imprint 解鎖工作資料夾</string>
     <string name="security_status_title">安全性狀態</string>
@@ -4575,7 +4595,6 @@
     <string name="select_webview_provider_dialog_title">設定 WebView 實作</string>
     <string name="select_webview_provider_title">WebView 實作</string>
     <string name="select_webview_provider_toast_text">這個選項已失效，請再試一次。</string>
-    <string name="sensor_toggle_description">適用於所有應用程式和服務</string>
     <string name="sensors_off_quick_settings_title">感應器已關閉</string>
     <string name="service_background_processes">%1$s 可用</string>
     <string name="service_foreground_processes">%1$s 已使用</string>
@@ -4807,6 +4826,7 @@ PIN 碼可能不正確。"</string>
     <string name="sound_settings_summary_silent">鈴聲已設為靜音</string>
     <string name="sound_settings_summary_vibrate">鈴聲已設為震動</string>
     <string name="sound_work_settings">工作資料夾音效</string>
+    <string name="spatial_audio_title">空間音效</string>
     <string name="special_access">特殊應用程式存取權</string>
     <string name="special_access_more">查看更多項目</string>
     <string name="speed_label_fast">快</string>
@@ -5618,7 +5638,7 @@ PIN 碼可能不正確。"</string>
     <string name="vpn_turn_on">開啟</string>
     <string name="vpn_type">類型</string>
     <string name="vpn_username">使用者名稱</string>
-    <string name="vpn_version">版本 %s</string>
+    <string name="vpn_version">版本</string>
     <string name="vr_listener_security_warning_summary">你必須透過虛擬實境模式使用應用程式，才能執行「%1$s」。</string>
     <string name="vr_listener_security_warning_title">要允許 %1$s 存取 VR 服務嗎？</string>
     <string name="vr_listeners_title">VR 小幫手服務</string>
@@ -5888,7 +5908,7 @@ PIN 碼可能不正確。"</string>
     <string name="wifi_not_in_range">不在有效範圍內</string>
     <string name="wifi_not_in_range_message">不在網路有效範圍內</string>
     <string name="wifi_notify_open_networks">附近有公用網路時通知我</string>
-    <string name="wifi_notify_open_networks_summary">無法自動連線時</string>
+    <string name="wifi_notify_open_networks_summary">有高品質的公用網路時通知我</string>
     <string name="wifi_on_time">開啟 Wi-Fi 的時間</string>
     <string name="wifi_p2p_cancel_connect_message">你要取消 %1$s 的連線邀請？</string>
     <string name="wifi_p2p_cancel_connect_title">取消邀請？</string>
@@ -5976,7 +5996,6 @@ PIN 碼可能不正確。"</string>
     <string name="wifi_suspend_optimizations">Wi-Fi 最佳化</string>
     <string name="wifi_suspend_optimizations_summary">開啟 Wi-Fi 時儘可能節約電池用量</string>
     <string name="wifi_switch_away_when_unvalidated">Wi-Fi 網路無法連線時，切換到行動數據。</string>
-    <string name="wifi_switch_summary">尋找 Wi-Fi 網路並建立連線</string>
     <string name="wifi_tap_to_sign_in">輕觸這裡即可登入網路</string>
     <string name="wifi_tether_configure_ap_text">設定 Wi-Fi 無線基地台</string>
     <string name="wifi_tether_configure_ssid_default">Android 無線基地台</string>

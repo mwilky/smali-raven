@@ -53,7 +53,7 @@
 
     move-result-object p0
 
-    const-string v0, "skip_screen_lock_dialog"
+    const-string/jumbo v0, "skip_screen_lock_dialog"
 
     invoke-virtual {p1, p0, v0}, Landroidx/fragment/app/DialogFragment;->show(Landroidx/fragment/app/FragmentManager;Ljava/lang/String;)V
 
@@ -239,7 +239,7 @@
 
     move-result-object p2
 
-    const-string v0, "show_options_button"
+    const-string/jumbo v0, "show_options_button"
 
     invoke-virtual {p2, v0, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
@@ -258,7 +258,7 @@
 
     if-eqz v1, :cond_2
 
-    const p2, 0x7f0d04b1
+    const p2, 0x7f0d04bf
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -301,7 +301,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f04126b
+    const v4, 0x7f04128f
 
     invoke-virtual {v0, v3, v4}, Lcom/google/android/setupcompat/template/FooterButton;->setText(Landroid/content/Context;I)V
 
@@ -318,7 +318,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f040bfe
+    const v4, 0x7f040c16
 
     invoke-virtual {v0, v3, v4}, Lcom/google/android/setupcompat/template/FooterButton;->setText(Landroid/content/Context;I)V
 

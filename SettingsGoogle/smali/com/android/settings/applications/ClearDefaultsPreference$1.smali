@@ -176,7 +176,7 @@
 
     iget-object p1, p0, Lcom/android/settings/applications/ClearDefaultsPreference$1;->val$view:Landroidx/preference/PreferenceViewHolder;
 
-    const v0, 0x7f0d00b8
+    const v0, 0x7f0d00bb
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 

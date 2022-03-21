@@ -156,7 +156,7 @@
     :cond_0
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string p1, "snap preference should be one of the constants defined in SmoothScroller, starting with SNAP_"
+    const-string/jumbo p1, "snap preference should be one of the constants defined in SmoothScroller, starting with SNAP_"
 
     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 

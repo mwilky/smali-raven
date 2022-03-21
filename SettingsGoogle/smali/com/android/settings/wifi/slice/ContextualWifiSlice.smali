@@ -104,7 +104,7 @@
 
     iget-object p1, p0, Lcom/android/settings/wifi/slice/WifiSlice;->mContext:Landroid/content/Context;
 
-    const p2, 0x7f0203a9
+    const p2, 0x7f0203b0
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -194,7 +194,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/slice/WifiSlice;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0415ee
+    const v0, 0x7f041613
 
     new-array v2, v2, [Ljava/lang/Object;
 
@@ -213,7 +213,7 @@
     :cond_1
     iget-object p0, p0, Lcom/android/settings/wifi/slice/WifiSlice;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0415ec
+    const v0, 0x7f041611
 
     new-array v2, v2, [Ljava/lang/Object;
 
@@ -233,7 +233,7 @@
     :goto_0
     iget-object p0, p0, Lcom/android/settings/wifi/slice/WifiSlice;->mContext:Landroid/content/Context;
 
-    const p1, 0x7f0407fe
+    const p1, 0x7f040816
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

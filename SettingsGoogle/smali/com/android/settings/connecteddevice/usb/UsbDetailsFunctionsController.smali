@@ -67,7 +67,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0414a0
+    const v2, 0x7f0414c5
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -81,7 +81,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0414a5
+    const v2, 0x7f0414ca
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -95,7 +95,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f04149c
+    const v2, 0x7f0414c1
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -109,7 +109,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0414a2
+    const v2, 0x7f0414c7
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -123,7 +123,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f04149e
+    const v2, 0x7f0414c3
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -308,7 +308,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "usb_details_functions"
+    const-string/jumbo p0, "usb_details_functions"
 
     return-object p0
 .end method

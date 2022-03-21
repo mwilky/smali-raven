@@ -232,7 +232,7 @@
 
     move-result-object v1
 
-    const-string v0, "ssid"
+    const-string/jumbo v0, "ssid"
 
     invoke-virtual {p0, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 

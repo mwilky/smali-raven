@@ -48,7 +48,7 @@
 
     new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
 
-    const v1, 0x7f1500a5
+    const v1, 0x7f1500aa
 
     invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
 
@@ -110,7 +110,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/settings/notification/NotificationAssistantPicker;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040e18
+    const v0, 0x7f040e43
 
     const/4 v1, 0x1
 
@@ -166,7 +166,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500a5
+    const p0, 0x7f1500aa
 
     return p0
 .end method

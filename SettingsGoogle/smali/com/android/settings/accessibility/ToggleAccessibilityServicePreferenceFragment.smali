@@ -99,17 +99,17 @@
 
     if-eq v0, v1, :cond_0
 
-    const v0, 0x7f040878
+    const v0, 0x7f040890
 
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f04087a
+    const v0, 0x7f040892
 
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f040879
+    const v0, 0x7f040891
 
     :goto_0
     const/4 v1, 0x1
@@ -557,7 +557,7 @@
 
     move-result p1
 
-    const v0, 0x7f0d0427
+    const v0, 0x7f0d0435
 
     if-ne p1, v0, :cond_0
 
@@ -566,7 +566,7 @@
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f0d0428
+    const v0, 0x7f0d0436
 
     if-ne p1, v0, :cond_1
 
@@ -904,9 +904,39 @@
 .end method
 
 .method public getMetricsCategory()I
-    .locals 0
+    .locals 2
 
-    const/4 p0, 0x4
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getArguments()Landroid/os/Bundle;
+
+    move-result-object v0
+
+    const-string v1, "component_name"
+
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/ComponentName;
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object p0
+
+    invoke-static {p0}, Lcom/android/settings/overlay/FeatureFactory;->getFactory(Landroid/content/Context;)Lcom/android/settings/overlay/FeatureFactory;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Lcom/android/settings/overlay/FeatureFactory;->getAccessibilityMetricsFeatureProvider()Lcom/android/settings/accessibility/AccessibilityMetricsFeatureProvider;
+
+    move-result-object p0
+
+    invoke-interface {p0, v0}, Lcom/android/settings/accessibility/AccessibilityMetricsFeatureProvider;->getDownloadedFeatureMetricsCategory(Landroid/content/ComponentName;)I
+
+    move-result p0
 
     return p0
 .end method
@@ -1144,7 +1174,7 @@
 
     move-result p1
 
-    const v0, 0x7f0d0427
+    const v0, 0x7f0d0435
 
     if-ne p1, v0, :cond_0
 
@@ -1153,7 +1183,7 @@
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f0d0428
+    const v0, 0x7f0d0436
 
     if-ne p1, v0, :cond_1
 
@@ -1179,7 +1209,7 @@
 
     move-result p1
 
-    const v0, 0x7f0d0427
+    const v0, 0x7f0d0435
 
     if-ne p1, v0, :cond_0
 
@@ -1188,7 +1218,7 @@
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f0d0428
+    const v0, 0x7f0d0436
 
     if-ne p1, v0, :cond_1
 
@@ -1230,13 +1260,13 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->onProcessArguments(Landroid/os/Bundle;)V
 
-    const-string v0, "settings_title"
+    const-string/jumbo v0, "settings_title"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    const-string v1, "settings_component_name"
+    const-string/jumbo v1, "settings_component_name"
 
     invoke-virtual {p1, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
@@ -1597,52 +1627,6 @@
     iget-object p0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->mToggleServiceSwitchPreference:Lcom/android/settings/widget/SettingsMainSwitchPreference;
 
     invoke-virtual {p0, v0}, Lcom/android/settings/widget/SettingsMainSwitchPreference;->setChecked(Z)V
-
-    return-void
-.end method
-
-.method protected updateToggleServiceTitle(Lcom/android/settings/widget/SettingsMainSwitchPreference;)V
-    .locals 5
-
-    invoke-virtual {p0}, Lcom/android/settings/accessibility/ToggleAccessibilityServicePreferenceFragment;->getAccessibilityServiceInfo()Landroid/accessibilityservice/AccessibilityServiceInfo;
-
-    move-result-object v0
-
-    if-nez v0, :cond_0
-
-    const-string p0, ""
-
-    goto :goto_0
-
-    :cond_0
-    const v1, 0x7f04010b
-
-    const/4 v2, 0x1
-
-    new-array v2, v2, [Ljava/lang/Object;
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v0}, Landroid/accessibilityservice/AccessibilityServiceInfo;->getResolveInfo()Landroid/content/pm/ResolveInfo;
-
-    move-result-object v0
-
-    invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v4
-
-    invoke-virtual {v0, v4}, Landroid/content/pm/ResolveInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    aput-object v0, v2, v3
-
-    invoke-virtual {p0, v1, v2}, Landroidx/fragment/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p0
-
-    :goto_0
-    invoke-virtual {p1, p0}, Lcom/android/settings/widget/SettingsMainSwitchPreference;->setTitle(Ljava/lang/CharSequence;)V
 
     return-void
 .end method

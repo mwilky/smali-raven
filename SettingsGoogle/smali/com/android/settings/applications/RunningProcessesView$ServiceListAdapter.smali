@@ -284,7 +284,7 @@
 
     iget-object p0, p0, Lcom/android/settings/applications/RunningProcessesView$ServiceListAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v0, 0x7f0601e7
+    const v0, 0x7f0601eb
 
     const/4 v1, 0x0
 

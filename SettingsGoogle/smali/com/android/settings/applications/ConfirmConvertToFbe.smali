@@ -25,7 +25,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 0
 
-    const p2, 0x7f06008e
+    const p2, 0x7f060090
 
     const/4 p3, 0x0
 
@@ -33,7 +33,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0d0126
+    const p2, 0x7f0d012a
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -27,7 +27,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "tethering_hardware_offload"
+    const-string/jumbo p0, "tethering_hardware_offload"
 
     return-object p0
 .end method
@@ -43,7 +43,7 @@
 
     move-result-object v0
 
-    const-string v1, "tether_offload_disabled"
+    const-string/jumbo v1, "tether_offload_disabled"
 
     const/4 v2, 0x1
 
@@ -79,7 +79,7 @@
 
     xor-int/2addr p1, p2
 
-    const-string v0, "tether_offload_disabled"
+    const-string/jumbo v0, "tether_offload_disabled"
 
     invoke-static {p0, v0, p1}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
@@ -95,7 +95,7 @@
 
     move-result-object p1
 
-    const-string v0, "tether_offload_disabled"
+    const-string/jumbo v0, "tether_offload_disabled"
 
     const/4 v1, 0x0
 

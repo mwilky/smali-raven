@@ -17,7 +17,7 @@
 
     new-instance v0, Lcom/android/settings/nfc/PaymentSettings$1;
 
-    const v1, 0x7f1500a0
+    const v1, 0x7f1500a5
 
     invoke-direct {v0, v1}, Lcom/android/settings/nfc/PaymentSettings$1;-><init>(I)V
 
@@ -55,7 +55,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500a0
+    const p0, 0x7f1500a5
 
     return p0
 .end method
@@ -148,7 +148,7 @@
 
     invoke-super {p0, p1, p2}, Lcom/android/settingslib/core/lifecycle/ObservablePreferenceFragment;->onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
 
-    const p2, 0x7f040dbf
+    const p2, 0x7f040dea
 
     invoke-interface {p1, p2}, Landroid/view/Menu;->add(I)Landroid/view/MenuItem;
 
@@ -220,7 +220,7 @@
 
     move-result-object p0
 
-    const p2, 0x7f06015e
+    const p2, 0x7f060162
 
     const/4 v0, 0x0
 

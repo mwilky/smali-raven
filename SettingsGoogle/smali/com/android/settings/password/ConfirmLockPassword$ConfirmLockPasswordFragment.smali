@@ -214,12 +214,12 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f040c02
+    const p0, 0x7f040c1a
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f040c0c
+    const p0, 0x7f040c24
 
     :goto_0
     return p0
@@ -261,12 +261,12 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f040c06
+    const p0, 0x7f040c1e
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f040c10
+    const p0, 0x7f040c28
 
     :goto_0
     return p0
@@ -280,12 +280,12 @@
 
     if-eqz p0, :cond_2
 
-    const p0, 0x7f040c11
+    const p0, 0x7f040c29
 
     goto :goto_1
 
     :cond_2
-    const p0, 0x7f040c13
+    const p0, 0x7f040c2b
 
     :goto_1
     return p0
@@ -295,12 +295,12 @@
 
     if-eqz p0, :cond_4
 
-    const p0, 0x7f040c05
+    const p0, 0x7f040c1d
 
     goto :goto_2
 
     :cond_4
-    const p0, 0x7f040c0f
+    const p0, 0x7f040c27
 
     :goto_2
     return p0
@@ -313,12 +313,12 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f040c1b
+    const p0, 0x7f040c33
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f040c1c
+    const p0, 0x7f040c34
 
     :goto_0
     return p0
@@ -818,12 +818,12 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f040ba0
+    const p0, 0x7f040bb8
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f040ba6
+    const p0, 0x7f040bbe
 
     :goto_0
     return p0
@@ -854,12 +854,12 @@
 
     if-eqz p0, :cond_3
 
-    const p0, 0x7f040b9f
+    const p0, 0x7f040bb7
 
     goto :goto_1
 
     :cond_3
-    const p0, 0x7f040ba5
+    const p0, 0x7f040bbd
 
     :goto_1
     return p0
@@ -869,12 +869,12 @@
 
     if-eqz p0, :cond_5
 
-    const p0, 0x7f040b9e
+    const p0, 0x7f040bb6
 
     goto :goto_2
 
     :cond_5
-    const p0, 0x7f040ba4
+    const p0, 0x7f040bbc
 
     :goto_2
     return p0
@@ -895,7 +895,7 @@
 
     move-result v0
 
-    const v1, 0x7f0d03d3
+    const v1, 0x7f0d03e1
 
     if-ne v0, v1, :cond_0
 
@@ -908,7 +908,7 @@
 
     move-result p1
 
-    const v0, 0x7f0d0136
+    const v0, 0x7f0d013a
 
     if-ne p1, v0, :cond_1
 
@@ -958,12 +958,12 @@
 
     if-ne v2, v3, :cond_0
 
-    const v2, 0x7f060092
+    const v2, 0x7f060094
 
     goto :goto_0
 
     :cond_0
-    const v2, 0x7f060090
+    const v2, 0x7f060092
 
     :goto_0
     const/4 v3, 0x0
@@ -976,7 +976,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f0d04e2
+    const v4, 0x7f0d04f1
 
     invoke-virtual {v2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -986,7 +986,7 @@
 
     iput-object v4, v0, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->mGlifLayout:Lcom/google/android/setupdesign/GlifLayout;
 
-    const v4, 0x7f0d0416
+    const v4, 0x7f0d0424
 
     invoke-virtual {v2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1010,7 +1010,7 @@
 
     iput-object v4, v0, Lcom/android/settings/password/ConfirmLockPassword$ConfirmLockPasswordFragment;->mPasswordEntryInputDisabler:Lcom/android/internal/widget/TextViewInputDisabler;
 
-    const v4, 0x7f0d020c
+    const v4, 0x7f0d0211
 
     invoke-virtual {v2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1180,7 +1180,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f041451
+    const v5, 0x7f041476
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1203,7 +1203,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f041455
+    const v5, 0x7f04147a
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1503,12 +1503,12 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f040c17
+    const p0, 0x7f040c2f
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f040c19
+    const p0, 0x7f040c31
 
     :goto_0
     invoke-virtual {p1, p0}, Landroid/widget/Button;->setText(I)V

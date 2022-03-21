@@ -53,13 +53,49 @@
 .end method
 
 .method public constructor <init>(Landroidx/lifecycle/Lifecycle;Landroid/content/Context;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/net/NetworkScoreManager;Landroid/os/Handler;Landroid/os/Handler;Ljava/time/Clock;JJLjava/lang/String;)V
-    .locals 16
+    .locals 15
 
-    move-object/from16 v14, p0
+    new-instance v1, Lcom/android/wifitrackerlib/WifiTrackerInjector;
 
-    move-object/from16 v15, p13
+    move-object/from16 v3, p2
 
-    const-string v13, "PasspointNetworkDetailsTracker"
+    invoke-direct {v1, v3}, Lcom/android/wifitrackerlib/WifiTrackerInjector;-><init>(Landroid/content/Context;)V
+
+    move-object v0, p0
+
+    move-object/from16 v2, p1
+
+    move-object/from16 v4, p3
+
+    move-object/from16 v5, p4
+
+    move-object/from16 v6, p5
+
+    move-object/from16 v7, p6
+
+    move-object/from16 v8, p7
+
+    move-object/from16 v9, p8
+
+    move-wide/from16 v10, p9
+
+    move-wide/from16 v12, p11
+
+    move-object/from16 v14, p13
+
+    invoke-direct/range {v0 .. v14}, Lcom/android/wifitrackerlib/PasspointNetworkDetailsTracker;-><init>(Lcom/android/wifitrackerlib/WifiTrackerInjector;Landroidx/lifecycle/Lifecycle;Landroid/content/Context;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/net/NetworkScoreManager;Landroid/os/Handler;Landroid/os/Handler;Ljava/time/Clock;JJLjava/lang/String;)V
+
+    return-void
+.end method
+
+.method constructor <init>(Lcom/android/wifitrackerlib/WifiTrackerInjector;Landroidx/lifecycle/Lifecycle;Landroid/content/Context;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/net/NetworkScoreManager;Landroid/os/Handler;Landroid/os/Handler;Ljava/time/Clock;JJLjava/lang/String;)V
+    .locals 17
+
+    move-object/from16 v15, p0
+
+    move-object/from16 v14, p14
+
+    const-string v16, "PasspointNetworkDetailsTracker"
 
     move-object/from16 v0, p0
 
@@ -79,13 +115,17 @@
 
     move-object/from16 v8, p8
 
-    move-wide/from16 v9, p9
+    move-object/from16 v9, p9
 
-    move-wide/from16 v11, p11
+    move-wide/from16 v10, p10
 
-    invoke-direct/range {v0 .. v13}, Lcom/android/wifitrackerlib/NetworkDetailsTracker;-><init>(Landroidx/lifecycle/Lifecycle;Landroid/content/Context;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/net/NetworkScoreManager;Landroid/os/Handler;Landroid/os/Handler;Ljava/time/Clock;JJLjava/lang/String;)V
+    move-wide/from16 v12, p12
 
-    iget-object v0, v14, Lcom/android/wifitrackerlib/BaseWifiTracker;->mWifiManager:Landroid/net/wifi/WifiManager;
+    move-object/from16 v14, v16
+
+    invoke-direct/range {v0 .. v14}, Lcom/android/wifitrackerlib/NetworkDetailsTracker;-><init>(Lcom/android/wifitrackerlib/WifiTrackerInjector;Landroidx/lifecycle/Lifecycle;Landroid/content/Context;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/net/NetworkScoreManager;Landroid/os/Handler;Landroid/os/Handler;Ljava/time/Clock;JJLjava/lang/String;)V
+
+    iget-object v0, v15, Lcom/android/wifitrackerlib/BaseWifiTracker;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->getPasspointConfigurations()Ljava/util/List;
 
@@ -97,7 +137,9 @@
 
     new-instance v1, Lcom/android/wifitrackerlib/PasspointNetworkDetailsTracker$$ExternalSyntheticLambda3;
 
-    invoke-direct {v1, v15}, Lcom/android/wifitrackerlib/PasspointNetworkDetailsTracker$$ExternalSyntheticLambda3;-><init>(Ljava/lang/String;)V
+    move-object/from16 v2, p14
+
+    invoke-direct {v1, v2}, Lcom/android/wifitrackerlib/PasspointNetworkDetailsTracker$$ExternalSyntheticLambda3;-><init>(Ljava/lang/String;)V
 
     invoke-interface {v0, v1}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
@@ -115,9 +157,11 @@
 
     new-instance v1, Lcom/android/wifitrackerlib/PasspointWifiEntry;
 
-    iget-object v2, v14, Lcom/android/wifitrackerlib/BaseWifiTracker;->mContext:Landroid/content/Context;
+    iget-object v2, v15, Lcom/android/wifitrackerlib/BaseWifiTracker;->mInjector:Lcom/android/wifitrackerlib/WifiTrackerInjector;
 
-    iget-object v3, v14, Lcom/android/wifitrackerlib/BaseWifiTracker;->mMainHandler:Landroid/os/Handler;
+    iget-object v3, v15, Lcom/android/wifitrackerlib/BaseWifiTracker;->mContext:Landroid/content/Context;
+
+    iget-object v4, v15, Lcom/android/wifitrackerlib/BaseWifiTracker;->mMainHandler:Landroid/os/Handler;
 
     invoke-virtual {v0}, Ljava/util/Optional;->get()Ljava/lang/Object;
 
@@ -125,11 +169,11 @@
 
     check-cast v0, Landroid/net/wifi/hotspot2/PasspointConfiguration;
 
-    iget-object v4, v14, Lcom/android/wifitrackerlib/BaseWifiTracker;->mWifiManager:Landroid/net/wifi/WifiManager;
+    iget-object v5, v15, Lcom/android/wifitrackerlib/BaseWifiTracker;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    iget-object v5, v14, Lcom/android/wifitrackerlib/BaseWifiTracker;->mWifiNetworkScoreCache:Landroid/net/wifi/WifiNetworkScoreCache;
+    iget-object v6, v15, Lcom/android/wifitrackerlib/BaseWifiTracker;->mWifiNetworkScoreCache:Landroid/net/wifi/WifiNetworkScoreCache;
 
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
     move-object/from16 p1, v1
 
@@ -137,22 +181,24 @@
 
     move-object/from16 p3, v3
 
-    move-object/from16 p4, v0
+    move-object/from16 p4, v4
 
-    move-object/from16 p5, v4
+    move-object/from16 p5, v0
 
     move-object/from16 p6, v5
 
-    move/from16 p7, v6
+    move-object/from16 p7, v6
 
-    invoke-direct/range {p1 .. p7}, Lcom/android/wifitrackerlib/PasspointWifiEntry;-><init>(Landroid/content/Context;Landroid/os/Handler;Landroid/net/wifi/hotspot2/PasspointConfiguration;Landroid/net/wifi/WifiManager;Landroid/net/wifi/WifiNetworkScoreCache;Z)V
+    move/from16 p8, v7
 
-    iput-object v1, v14, Lcom/android/wifitrackerlib/PasspointNetworkDetailsTracker;->mChosenEntry:Lcom/android/wifitrackerlib/PasspointWifiEntry;
+    invoke-direct/range {p1 .. p8}, Lcom/android/wifitrackerlib/PasspointWifiEntry;-><init>(Lcom/android/wifitrackerlib/WifiTrackerInjector;Landroid/content/Context;Landroid/os/Handler;Landroid/net/wifi/hotspot2/PasspointConfiguration;Landroid/net/wifi/WifiManager;Landroid/net/wifi/WifiNetworkScoreCache;Z)V
+
+    iput-object v1, v15, Lcom/android/wifitrackerlib/PasspointNetworkDetailsTracker;->mChosenEntry:Lcom/android/wifitrackerlib/PasspointWifiEntry;
 
     goto :goto_0
 
     :cond_0
-    iget-object v0, v14, Lcom/android/wifitrackerlib/BaseWifiTracker;->mWifiManager:Landroid/net/wifi/WifiManager;
+    iget-object v0, v15, Lcom/android/wifitrackerlib/BaseWifiTracker;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->getPrivilegedConfiguredNetworks()Ljava/util/List;
 
@@ -164,7 +210,7 @@
 
     new-instance v1, Lcom/android/wifitrackerlib/PasspointNetworkDetailsTracker$$ExternalSyntheticLambda2;
 
-    invoke-direct {v1, v15}, Lcom/android/wifitrackerlib/PasspointNetworkDetailsTracker$$ExternalSyntheticLambda2;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Lcom/android/wifitrackerlib/PasspointNetworkDetailsTracker$$ExternalSyntheticLambda2;-><init>(Ljava/lang/String;)V
 
     invoke-interface {v0, v1}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
@@ -182,9 +228,11 @@
 
     new-instance v1, Lcom/android/wifitrackerlib/PasspointWifiEntry;
 
-    iget-object v2, v14, Lcom/android/wifitrackerlib/BaseWifiTracker;->mContext:Landroid/content/Context;
+    iget-object v2, v15, Lcom/android/wifitrackerlib/BaseWifiTracker;->mInjector:Lcom/android/wifitrackerlib/WifiTrackerInjector;
 
-    iget-object v3, v14, Lcom/android/wifitrackerlib/BaseWifiTracker;->mMainHandler:Landroid/os/Handler;
+    iget-object v3, v15, Lcom/android/wifitrackerlib/BaseWifiTracker;->mContext:Landroid/content/Context;
+
+    iget-object v4, v15, Lcom/android/wifitrackerlib/BaseWifiTracker;->mMainHandler:Landroid/os/Handler;
 
     invoke-virtual {v0}, Ljava/util/Optional;->get()Ljava/lang/Object;
 
@@ -192,11 +240,11 @@
 
     check-cast v0, Landroid/net/wifi/WifiConfiguration;
 
-    iget-object v4, v14, Lcom/android/wifitrackerlib/BaseWifiTracker;->mWifiManager:Landroid/net/wifi/WifiManager;
+    iget-object v5, v15, Lcom/android/wifitrackerlib/BaseWifiTracker;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    iget-object v5, v14, Lcom/android/wifitrackerlib/BaseWifiTracker;->mWifiNetworkScoreCache:Landroid/net/wifi/WifiNetworkScoreCache;
+    iget-object v6, v15, Lcom/android/wifitrackerlib/BaseWifiTracker;->mWifiNetworkScoreCache:Landroid/net/wifi/WifiNetworkScoreCache;
 
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
     move-object/from16 p1, v1
 
@@ -204,17 +252,19 @@
 
     move-object/from16 p3, v3
 
-    move-object/from16 p4, v0
+    move-object/from16 p4, v4
 
-    move-object/from16 p5, v4
+    move-object/from16 p5, v0
 
     move-object/from16 p6, v5
 
-    move/from16 p7, v6
+    move-object/from16 p7, v6
 
-    invoke-direct/range {p1 .. p7}, Lcom/android/wifitrackerlib/PasspointWifiEntry;-><init>(Landroid/content/Context;Landroid/os/Handler;Landroid/net/wifi/WifiConfiguration;Landroid/net/wifi/WifiManager;Landroid/net/wifi/WifiNetworkScoreCache;Z)V
+    move/from16 p8, v7
 
-    iput-object v1, v14, Lcom/android/wifitrackerlib/PasspointNetworkDetailsTracker;->mChosenEntry:Lcom/android/wifitrackerlib/PasspointWifiEntry;
+    invoke-direct/range {p1 .. p8}, Lcom/android/wifitrackerlib/PasspointWifiEntry;-><init>(Lcom/android/wifitrackerlib/WifiTrackerInjector;Landroid/content/Context;Landroid/os/Handler;Landroid/net/wifi/WifiConfiguration;Landroid/net/wifi/WifiManager;Landroid/net/wifi/WifiNetworkScoreCache;Z)V
+
+    iput-object v1, v15, Lcom/android/wifitrackerlib/PasspointNetworkDetailsTracker;->mChosenEntry:Lcom/android/wifitrackerlib/PasspointWifiEntry;
 
     :goto_0
     invoke-direct/range {p0 .. p0}, Lcom/android/wifitrackerlib/PasspointNetworkDetailsTracker;->updateStartInfo()V

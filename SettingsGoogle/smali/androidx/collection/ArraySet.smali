@@ -1501,7 +1501,7 @@
 
     if-eqz v0, :cond_0
 
-    const-string p0, "{}"
+    const-string/jumbo p0, "{}"
 
     return-object p0
 

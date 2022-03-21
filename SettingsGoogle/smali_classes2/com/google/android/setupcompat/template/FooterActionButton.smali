@@ -6,6 +6,8 @@
 # instance fields
 .field private footerButton:Lcom/google/android/setupcompat/template/FooterButton;
 
+.field private isPrimaryButtonStyle:Z
+
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -13,11 +15,23 @@
 
     invoke-direct {p0, p1, p2}, Landroid/widget/Button;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
+    const/4 p1, 0x0
+
+    iput-boolean p1, p0, Lcom/google/android/setupcompat/template/FooterActionButton;->isPrimaryButtonStyle:Z
+
     return-void
 .end method
 
 
 # virtual methods
+.method public isPrimaryButtonStyle()Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/google/android/setupcompat/template/FooterActionButton;->isPrimaryButtonStyle:Z
+
+    return p0
+.end method
+
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 1
     .annotation build Landroid/annotation/SuppressLint;
@@ -72,6 +86,14 @@
     .locals 0
 
     iput-object p1, p0, Lcom/google/android/setupcompat/template/FooterActionButton;->footerButton:Lcom/google/android/setupcompat/template/FooterButton;
+
+    return-void
+.end method
+
+.method setPrimaryButtonStyle(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/google/android/setupcompat/template/FooterActionButton;->isPrimaryButtonStyle:Z
 
     return-void
 .end method

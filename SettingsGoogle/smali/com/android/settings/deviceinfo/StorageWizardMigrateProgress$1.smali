@@ -130,7 +130,7 @@
     :cond_1
     iget-object p2, p0, Lcom/android/settings/deviceinfo/StorageWizardMigrateProgress$1;->this$0:Lcom/android/settings/deviceinfo/StorageWizardMigrateProgress;
 
-    const p3, 0x7f040a8a
+    const p3, 0x7f040aa2
 
     invoke-virtual {p2, p3}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 

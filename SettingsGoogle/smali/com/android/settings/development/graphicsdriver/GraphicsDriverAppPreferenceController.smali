@@ -128,7 +128,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0409b3
+    const v1, 0x7f0409cb
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -136,7 +136,7 @@
 
     iput-object v1, p0, Lcom/android/settings/development/graphicsdriver/GraphicsDriverAppPreferenceController;->mPreferenceTitle:Ljava/lang/String;
 
-    const v1, 0x7f0409af
+    const v1, 0x7f0409c7
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -144,7 +144,7 @@
 
     iput-object v1, p0, Lcom/android/settings/development/graphicsdriver/GraphicsDriverAppPreferenceController;->mPreferenceDefault:Ljava/lang/String;
 
-    const v1, 0x7f0409b1
+    const v1, 0x7f0409c9
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -152,7 +152,7 @@
 
     iput-object v1, p0, Lcom/android/settings/development/graphicsdriver/GraphicsDriverAppPreferenceController;->mPreferenceProductionDriver:Ljava/lang/String;
 
-    const v1, 0x7f0409b0
+    const v1, 0x7f0409c8
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -160,7 +160,7 @@
 
     iput-object v1, p0, Lcom/android/settings/development/graphicsdriver/GraphicsDriverAppPreferenceController;->mPreferencePrereleaseDriver:Ljava/lang/String;
 
-    const v1, 0x7f0409b2
+    const v1, 0x7f0409ca
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -182,7 +182,7 @@
 
     iput-object p1, p0, Lcom/android/settings/development/graphicsdriver/GraphicsDriverAppPreferenceController;->mAppInfos:Ljava/util/List;
 
-    const-string p1, "updatable_driver_production_opt_in_apps"
+    const-string/jumbo p1, "updatable_driver_production_opt_in_apps"
 
     invoke-direct {p0, p2, p1}, Lcom/android/settings/development/graphicsdriver/GraphicsDriverAppPreferenceController;->getGlobalSettingsString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/util/Set;
 
@@ -190,7 +190,7 @@
 
     iput-object p1, p0, Lcom/android/settings/development/graphicsdriver/GraphicsDriverAppPreferenceController;->mDevOptInApps:Ljava/util/Set;
 
-    const-string p1, "updatable_driver_prerelease_opt_in_apps"
+    const-string/jumbo p1, "updatable_driver_prerelease_opt_in_apps"
 
     invoke-direct {p0, p2, p1}, Lcom/android/settings/development/graphicsdriver/GraphicsDriverAppPreferenceController;->getGlobalSettingsString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/util/Set;
 
@@ -198,7 +198,7 @@
 
     iput-object p1, p0, Lcom/android/settings/development/graphicsdriver/GraphicsDriverAppPreferenceController;->mDevPrereleaseOptInApps:Ljava/util/Set;
 
-    const-string p1, "updatable_driver_production_opt_out_apps"
+    const-string/jumbo p1, "updatable_driver_production_opt_out_apps"
 
     invoke-direct {p0, p2, p1}, Lcom/android/settings/development/graphicsdriver/GraphicsDriverAppPreferenceController;->getGlobalSettingsString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/util/Set;
 
@@ -503,7 +503,7 @@
 
     iget-object p0, p0, Lcom/android/settings/development/graphicsdriver/GraphicsDriverAppPreferenceController;->mContentResolver:Landroid/content/ContentResolver;
 
-    const-string v0, "updatable_driver_all_apps"
+    const-string/jumbo v0, "updatable_driver_all_apps"
 
     invoke-static {p0, v0, v1}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
@@ -549,6 +549,16 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public bridge synthetic hasAsyncUpdate()Z
@@ -712,7 +722,7 @@
 
     move-result-object p2
 
-    const-string v1, "updatable_driver_production_opt_in_apps"
+    const-string/jumbo v1, "updatable_driver_production_opt_in_apps"
 
     invoke-static {p1, v1, p2}, Landroid/provider/Settings$Global;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
@@ -724,7 +734,7 @@
 
     move-result-object p2
 
-    const-string v1, "updatable_driver_prerelease_opt_in_apps"
+    const-string/jumbo v1, "updatable_driver_prerelease_opt_in_apps"
 
     invoke-static {p1, v1, p2}, Landroid/provider/Settings$Global;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
@@ -736,7 +746,7 @@
 
     move-result-object p0
 
-    const-string p2, "updatable_driver_production_opt_out_apps"
+    const-string/jumbo p2, "updatable_driver_production_opt_out_apps"
 
     invoke-static {p1, p2, p0}, Landroid/provider/Settings$Global;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 

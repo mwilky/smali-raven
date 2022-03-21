@@ -30,7 +30,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "zen_mode_automation_settings"
+    const-string/jumbo p0, "zen_mode_automation_settings"
 
     return-object p0
 .end method

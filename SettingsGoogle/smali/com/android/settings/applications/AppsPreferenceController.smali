@@ -383,7 +383,7 @@
 
     move-result v6
 
-    const v1, 0x7f04026b
+    const v1, 0x7f04027f
 
     const/16 v5, 0x3e9
 
@@ -457,6 +457,16 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public bridge synthetic hasAsyncUpdate()Z

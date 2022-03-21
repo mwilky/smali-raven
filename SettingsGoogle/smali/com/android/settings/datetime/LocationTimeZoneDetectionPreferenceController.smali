@@ -221,6 +221,14 @@
     return-object p0
 .end method
 
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
 .method public getSummary()Ljava/lang/CharSequence;
     .locals 3
 
@@ -246,7 +254,7 @@
 
     if-ne v1, v2, :cond_0
 
-    const v0, 0x7f040b91
+    const v0, 0x7f040ba9
 
     goto :goto_0
 
@@ -255,7 +263,7 @@
 
     if-ne v1, v2, :cond_1
 
-    const v0, 0x7f040b8f
+    const v0, 0x7f040ba7
 
     goto :goto_0
 
@@ -272,7 +280,7 @@
 
     if-nez v1, :cond_2
 
-    const v0, 0x7f040b68
+    const v0, 0x7f040b80
 
     goto :goto_0
 
@@ -283,12 +291,12 @@
 
     if-nez v0, :cond_3
 
-    const v0, 0x7f040b8a
+    const v0, 0x7f040ba2
 
     goto :goto_0
 
     :cond_3
-    const v0, 0x7f040b90
+    const v0, 0x7f040ba8
 
     :goto_0
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;

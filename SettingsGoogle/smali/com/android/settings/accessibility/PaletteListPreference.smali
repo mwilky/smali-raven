@@ -53,7 +53,7 @@
 
     iput-object p1, p0, Lcom/android/settings/accessibility/PaletteListPreference;->mGradientOffsets:Ljava/util/List;
 
-    const p1, 0x7f0600b1
+    const p1, 0x7f0600b3
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -239,7 +239,7 @@
 .method private initPaletteAttributes(Landroid/content/Context;)V
     .locals 4
 
-    const v0, 0x7f0a0195
+    const v0, 0x7f0a0193
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getColor(I)I
 
@@ -474,7 +474,7 @@
 
     iget-object p1, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    const v0, 0x7f0d0409
+    const v0, 0x7f0d0417
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

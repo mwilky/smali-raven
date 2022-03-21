@@ -131,6 +131,14 @@
     return-object p0
 .end method
 
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d06
+
+    return p0
+.end method
+
 .method public hasAsyncUpdate()Z
     .locals 0
 

@@ -4,8 +4,8 @@
 
 
 # direct methods
-.method public static crashCallingApplication(Landroid/os/IBinder;Ljava/lang/String;)V
-    .locals 7
+.method public static crashCallingApplication(Landroid/os/IBinder;Ljava/lang/String;I)V
+    .locals 8
 
     invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
@@ -30,7 +30,9 @@
 
     move-object v5, p1
 
-    invoke-interface/range {v0 .. v6}, Landroid/app/IActivityManager;->crashApplication(IILjava/lang/String;ILjava/lang/String;Z)V
+    move v7, p2
+
+    invoke-interface/range {v0 .. v7}, Landroid/app/IActivityManager;->crashApplicationWithType(IILjava/lang/String;ILjava/lang/String;ZI)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -41,9 +43,9 @@
 
     const-string p1, "Settings"
 
-    const-string v0, "Could not talk to activity manager."
+    const-string p2, "Could not talk to activity manager."
 
-    invoke-static {p1, v0, p0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {p1, p2, p0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     return-void

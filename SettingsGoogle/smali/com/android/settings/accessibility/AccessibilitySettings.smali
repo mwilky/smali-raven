@@ -88,7 +88,7 @@
 
     const-string v4, "interaction_control_category"
 
-    const-string v5, "user_installed_services_category"
+    const-string/jumbo v5, "user_installed_services_category"
 
     filled-new-array/range {v0 .. v5}, [Ljava/lang/String;
 
@@ -389,7 +389,7 @@
 
     if-eqz p2, :cond_0
 
-    const p1, 0x7f0400c3
+    const p1, 0x7f0400d3
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -418,7 +418,7 @@
 
     if-eqz v0, :cond_0
 
-    const p1, 0x7f040133
+    const p1, 0x7f040147
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -473,7 +473,7 @@
     :goto_0
     if-eqz p2, :cond_2
 
-    const p2, 0x7f040130
+    const p2, 0x7f040144
 
     invoke-virtual {p0, p2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -482,7 +482,7 @@
     goto :goto_1
 
     :cond_2
-    const p2, 0x7f04012f
+    const p2, 0x7f040143
 
     invoke-virtual {p0, p2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -493,7 +493,7 @@
     :cond_3
     if-eqz p2, :cond_4
 
-    const p2, 0x7f040132
+    const p2, 0x7f040146
 
     invoke-virtual {p0, p2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -502,7 +502,7 @@
     goto :goto_1
 
     :cond_4
-    const p2, 0x7f040131
+    const p2, 0x7f040145
 
     invoke-virtual {p0, p2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -517,7 +517,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f040f2f
+    const v0, 0x7f040f5b
 
     const/4 v3, 0x2
 
@@ -816,7 +816,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f0409da
+    const p0, 0x7f0409f2
 
     return p0
 .end method
@@ -1041,7 +1041,7 @@
 
     iget-object v7, p0, Lcom/android/settings/accessibility/AccessibilitySettings;->mCategoryToPrefCategoryMap:Ljava/util/Map;
 
-    const-string v8, "user_installed_services_category"
+    const-string/jumbo v8, "user_installed_services_category"
 
     invoke-interface {v7, v8}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 

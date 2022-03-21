@@ -72,7 +72,7 @@
 .method private init()V
     .locals 2
 
-    const v0, 0x7f0601b7
+    const v0, 0x7f0601bb
 
     invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setWidgetLayoutResource(I)V
 
@@ -142,7 +142,7 @@
 .method public getGestureDialogTitle()I
     .locals 0
 
-    const p0, 0x7f04151c
+    const p0, 0x7f041541
 
     return p0
 .end method
@@ -198,7 +198,7 @@
 
     iput-object v0, p0, Lcom/google/android/settings/accessibility/HapticsDialogPreference;->mSummary:Landroid/view/View;
 
-    const v0, 0x7f0d02d2
+    const v0, 0x7f0d02dc
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -252,7 +252,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f040ea1
+    const p2, 0x7f040ecc
 
     invoke-virtual {p1, p2, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 

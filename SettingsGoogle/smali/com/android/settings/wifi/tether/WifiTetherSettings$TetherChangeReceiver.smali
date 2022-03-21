@@ -42,7 +42,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "updating display config due to receiving broadcast action "
+    const-string/jumbo v1, "updating display config due to receiving broadcast action "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -107,7 +107,7 @@
 
     const/4 p1, 0x0
 
-    const-string v0, "wifi_state"
+    const-string/jumbo v0, "wifi_state"
 
     invoke-virtual {p2, v0, p1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 

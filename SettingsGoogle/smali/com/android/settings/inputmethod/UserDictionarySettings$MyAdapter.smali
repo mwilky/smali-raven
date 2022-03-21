@@ -37,13 +37,13 @@
 
     if-eqz p3, :cond_0
 
-    const p4, 0x1040379
+    const p4, 0x104037e
 
     invoke-virtual {p1, p4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object p1
 
-    const-string p4, "word"
+    const-string/jumbo p4, "word"
 
     invoke-interface {p3, p4}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
 

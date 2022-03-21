@@ -11,7 +11,7 @@
 
 
 # static fields
-.field static final STREAMING_LABEL_ID:I = 0x7f0404dc
+.field static final STREAMING_LABEL_ID:I = 0x7f0404f4
 
 
 # instance fields
@@ -239,7 +239,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0404dc
+    const v3, 0x7f0404f4
 
     new-array v4, v1, [Ljava/lang/Object;
 
@@ -370,7 +370,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0404dc
+    const v2, 0x7f0404f4
 
     const/4 v3, 0x1
 

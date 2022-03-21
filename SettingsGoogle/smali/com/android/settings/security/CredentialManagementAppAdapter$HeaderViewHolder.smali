@@ -30,7 +30,7 @@
 
     invoke-direct {p0, p2}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;-><init>(Landroid/view/View;)V
 
-    const p1, 0x7f0d018b
+    const p1, 0x7f0d018f
 
     invoke-virtual {p2, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -40,7 +40,7 @@
 
     iput-object p1, p0, Lcom/android/settings/security/CredentialManagementAppAdapter$HeaderViewHolder;->mAppIconView:Landroid/widget/ImageView;
 
-    const p1, 0x7f0d018c
+    const p1, 0x7f0d0190
 
     invoke-virtual {p2, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -60,7 +60,7 @@
 
     const/4 v0, 0x1
 
-    const v1, 0x7f041006
+    const v1, 0x7f041034
 
     const/4 v2, 0x0
 

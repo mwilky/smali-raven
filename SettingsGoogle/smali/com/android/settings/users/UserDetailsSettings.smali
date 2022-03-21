@@ -318,7 +318,7 @@
 
     iget v1, v1, Landroid/content/pm/UserInfo;->id:I
 
-    const-string v2, "user_id"
+    const-string/jumbo v2, "user_id"
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
@@ -348,7 +348,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0414fb
+    const v0, 0x7f041520
 
     invoke-virtual {p1, v0}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -592,7 +592,7 @@
 
     if-eqz p2, :cond_0
 
-    const-string v1, "user_id"
+    const-string/jumbo v1, "user_id"
 
     invoke-virtual {p2, v1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
@@ -622,7 +622,7 @@
 
     iput-object v0, p0, Lcom/android/settings/users/UserDetailsSettings;->mUserInfo:Landroid/content/pm/UserInfo;
 
-    const-string v0, "switch_user"
+    const-string/jumbo v0, "switch_user"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -660,7 +660,7 @@
 
     iget-object v5, p0, Lcom/android/settings/users/UserDetailsSettings;->mSwitchUserPref:Lcom/android/settingslib/RestrictedPreference;
 
-    const v6, 0x7f041508
+    const v6, 0x7f04152d
 
     const/4 v7, 0x1
 
@@ -771,7 +771,7 @@
 
     iget-object p2, p0, Lcom/android/settings/users/UserDetailsSettings;->mPhonePref:Landroidx/preference/SwitchPreference;
 
-    const v1, 0x7f0414de
+    const v1, 0x7f041503
 
     invoke-virtual {p2, v1}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -799,12 +799,12 @@
 
     if-eqz v0, :cond_6
 
-    const v0, 0x7f0409bb
+    const v0, 0x7f0409d3
 
     goto :goto_3
 
     :cond_6
-    const v0, 0x7f0414e7
+    const v0, 0x7f04150c
 
     :goto_3
     invoke-virtual {p2, v0}, Landroidx/preference/Preference;->setTitle(I)V
@@ -849,7 +849,7 @@
 
     iget-object p2, p0, Lcom/android/settings/users/UserDetailsSettings;->mRemoveUserPref:Landroidx/preference/Preference;
 
-    const v0, 0x7f0414f7
+    const v0, 0x7f04151c
 
     invoke-virtual {p2, v0}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -904,7 +904,7 @@
 
     move-result-object p1
 
-    const-string v0, "user"
+    const-string/jumbo v0, "user"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -920,7 +920,7 @@
 
     iput-object v0, p0, Lcom/android/settings/users/UserDetailsSettings;->mUserCaps:Lcom/android/settings/users/UserCapabilities;
 
-    const v0, 0x7f1500fe
+    const v0, 0x7f150103
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -932,7 +932,7 @@
 
     move-result-object v0
 
-    const v1, 0x11100ef
+    const v1, 0x11100f1
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 

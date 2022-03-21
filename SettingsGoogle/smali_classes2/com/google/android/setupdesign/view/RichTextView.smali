@@ -6,6 +6,10 @@
 .implements Lcom/google/android/setupdesign/span/LinkSpan$OnLinkClickListener;
 
 
+# static fields
+.field static spanTypeface:Landroid/graphics/Typeface;
+
+
 # instance fields
 .field private accessibilityHelper:Lcom/google/android/setupdesign/accessibility/LinkAccessibilityHelper;
 
@@ -35,10 +39,19 @@
 
 .method public static getRichText(Landroid/content/Context;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
     .locals 10
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "NewApi"
+        }
+    .end annotation
+
+    .annotation build Landroid/annotation/TargetApi;
+        value = 0x1c
+    .end annotation
 
     instance-of v0, p1, Landroid/text/Spanned;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
     new-instance v0, Landroid/text/SpannableString;
 
@@ -63,7 +76,7 @@
     move v3, v2
 
     :goto_0
-    if-ge v3, v1, :cond_3
+    if-ge v3, v1, :cond_4
 
     aget-object v4, p1, v3
 
@@ -130,7 +143,7 @@
 
     invoke-static {v0, v4, v5}, Lcom/google/android/setupdesign/span/SpanHelper;->replaceSpan(Landroid/text/Spannable;Ljava/lang/Object;[Ljava/lang/Object;)V
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_1
     const-string v6, "link"
@@ -139,7 +152,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_3
 
     new-instance v5, Lcom/google/android/setupdesign/span/LinkSpan;
 
@@ -149,12 +162,26 @@
 
     invoke-direct {v5, v6}, Lcom/google/android/setupdesign/span/LinkSpan;-><init>(Ljava/lang/String;)V
 
+    sget-object v6, Lcom/google/android/setupdesign/view/RichTextView;->spanTypeface:Landroid/graphics/Typeface;
+
+    if-eqz v6, :cond_2
+
+    new-instance v6, Landroid/text/style/TypefaceSpan;
+
+    sget-object v8, Lcom/google/android/setupdesign/view/RichTextView;->spanTypeface:Landroid/graphics/Typeface;
+
+    invoke-direct {v6, v8}, Landroid/text/style/TypefaceSpan;-><init>(Landroid/graphics/Typeface;)V
+
+    goto :goto_1
+
+    :cond_2
     new-instance v6, Landroid/text/style/TypefaceSpan;
 
     const-string v8, "sans-serif-medium"
 
     invoke-direct {v6, v8}, Landroid/text/style/TypefaceSpan;-><init>(Ljava/lang/String;)V
 
+    :goto_1
     const/4 v8, 0x2
 
     new-array v8, v8, [Ljava/lang/Object;
@@ -165,16 +192,16 @@
 
     invoke-static {v0, v4, v8}, Lcom/google/android/setupdesign/span/SpanHelper;->replaceSpan(Landroid/text/Spannable;Ljava/lang/Object;[Ljava/lang/Object;)V
 
-    :cond_2
-    :goto_1
+    :cond_3
+    :goto_2
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    :cond_3
+    :cond_4
     return-object v0
 
-    :cond_4
+    :cond_5
     return-object p1
 .end method
 
@@ -374,6 +401,17 @@
     .locals 0
 
     iput-object p1, p0, Lcom/google/android/setupdesign/view/RichTextView;->onLinkClickListener:Lcom/google/android/setupdesign/span/LinkSpan$OnLinkClickListener;
+
+    return-void
+.end method
+
+.method public setSpanTypeface(Landroid/graphics/Typeface;)V
+    .locals 0
+    .annotation build Landroid/annotation/TargetApi;
+        value = 0x1c
+    .end annotation
+
+    sput-object p1, Lcom/google/android/setupdesign/view/RichTextView;->spanTypeface:Landroid/graphics/Typeface;
 
     return-void
 .end method

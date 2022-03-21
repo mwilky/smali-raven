@@ -464,7 +464,7 @@
 .method private showErrorUi(ILandroid/content/Intent;Z)V
     .locals 6
 
-    const v0, 0x7f041627
+    const v0, 0x7f04164c
 
     const/4 v1, 0x0
 
@@ -479,7 +479,7 @@
     throw p0
 
     :pswitch_0
-    const v0, 0x7f041631
+    const v0, 0x7f041656
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -495,7 +495,7 @@
     goto/16 :goto_0
 
     :pswitch_2
-    const v0, 0x7f04162c
+    const v0, 0x7f041651
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -550,7 +550,7 @@
     throw p0
 
     :pswitch_5
-    const v0, 0x7f04162e
+    const v0, 0x7f041653
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -559,7 +559,7 @@
     goto :goto_0
 
     :pswitch_6
-    const v0, 0x7f04162b
+    const v0, 0x7f041650
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -568,7 +568,7 @@
     goto :goto_0
 
     :pswitch_7
-    const v0, 0x7f04162d
+    const v0, 0x7f041652
 
     const/4 v2, 0x1
 
@@ -596,7 +596,7 @@
     throw p0
 
     :pswitch_9
-    const v0, 0x7f041628
+    const v0, 0x7f04164d
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -605,7 +605,7 @@
     goto :goto_0
 
     :pswitch_a
-    const v0, 0x7f041629
+    const v0, 0x7f04164e
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -614,14 +614,14 @@
     goto :goto_0
 
     :pswitch_b
-    const v0, 0x7f04162a
+    const v0, 0x7f04164f
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v0
 
     :goto_0
-    const v2, 0x7f041625
+    const v2, 0x7f04164a
 
     new-array v3, v1, [Ljava/lang/Object;
 
@@ -633,7 +633,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/dpp/WifiDppAddDeviceFragment;->mWifiApPictureView:Landroid/widget/ImageView;
 
-    const v2, 0x7f020459
+    const v2, 0x7f020464
 
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -657,7 +657,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f041036
+    const v5, 0x7f041064
 
     invoke-virtual {v3, v4, v5}, Lcom/google/android/setupcompat/template/FooterButton;->setText(Landroid/content/Context;I)V
 
@@ -670,7 +670,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f040831
+    const v4, 0x7f040849
 
     invoke-virtual {v0, v3, v4}, Lcom/google/android/setupcompat/template/FooterButton;->setText(Landroid/content/Context;I)V
 
@@ -695,7 +695,7 @@
 
     iget-object p2, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeBaseFragment;->mSummary:Landroid/widget/TextView;
 
-    const v0, 0x7f041639
+    const v0, 0x7f04165e
 
     invoke-virtual {p2, v0}, Landroid/widget/TextView;->setText(I)V
 
@@ -746,7 +746,7 @@
 .method private showSuccessUi(Z)V
     .locals 4
 
-    const v0, 0x7f0201b2
+    const v0, 0x7f0201b9
 
     invoke-virtual {p0, v0}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeBaseFragment;->setHeaderIconImageResource(I)V
 
@@ -754,7 +754,7 @@
 
     new-array v1, v0, [Ljava/lang/Object;
 
-    const v2, 0x7f04163b
+    const v2, 0x7f041660
 
     invoke-virtual {p0, v2, v1}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeBaseFragment;->setHeaderTitle(I[Ljava/lang/Object;)V
 
@@ -772,7 +772,7 @@
 
     iget-object v1, p0, Lcom/android/settings/wifi/dpp/WifiDppAddDeviceFragment;->mWifiApPictureView:Landroid/widget/ImageView;
 
-    const v3, 0x7f02045a
+    const v3, 0x7f020465
 
     invoke-virtual {v1, v3}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -786,7 +786,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f04161a
+    const v3, 0x7f04163f
 
     invoke-virtual {v1, v2, v3}, Lcom/google/android/setupcompat/template/FooterButton;->setText(Landroid/content/Context;I)V
 
@@ -804,7 +804,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f040831
+    const v3, 0x7f040849
 
     invoke-virtual {v1, v2, v3}, Lcom/google/android/setupcompat/template/FooterButton;->setText(Landroid/content/Context;I)V
 
@@ -889,7 +889,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeBaseFragment;->mSummary:Landroid/widget/TextView;
 
-    const v0, 0x7f041639
+    const v0, 0x7f04165e
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setText(I)V
 
@@ -898,7 +898,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeBaseFragment;->mSummary:Landroid/widget/TextView;
 
-    const v1, 0x7f04161d
+    const v1, 0x7f041642
 
     const/4 v2, 0x1
 
@@ -996,7 +996,7 @@
 .method public final onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 0
 
-    const p0, 0x7f0602af
+    const p0, 0x7f0602bb
 
     const/4 p3, 0x0
 
@@ -1038,7 +1038,7 @@
 
     invoke-super {p0, p1, p2}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeBaseFragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    const v0, 0x7f0201b4
+    const v0, 0x7f0201bb
 
     invoke-virtual {p0, v0}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeBaseFragment;->setHeaderIconImageResource(I)V
 
@@ -1064,7 +1064,7 @@
 
     if-eqz v1, :cond_0
 
-    const v0, 0x7f041626
+    const v0, 0x7f04164b
 
     new-array v1, v2, [Ljava/lang/Object;
 
@@ -1078,7 +1078,7 @@
     :goto_0
     invoke-direct {p0}, Lcom/android/settings/wifi/dpp/WifiDppAddDeviceFragment;->updateSummary()V
 
-    const v0, 0x7f0d0632
+    const v0, 0x7f0d0642
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1088,7 +1088,7 @@
 
     iput-object v0, p0, Lcom/android/settings/wifi/dpp/WifiDppAddDeviceFragment;->mWifiApPictureView:Landroid/widget/ImageView;
 
-    const v0, 0x7f0d0150
+    const v0, 0x7f0d0154
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1110,7 +1110,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04054c
+    const v1, 0x7f040564
 
     invoke-virtual {p1, v0, v1}, Lcom/google/android/setupcompat/template/FooterButton;->setText(Landroid/content/Context;I)V
 
@@ -1128,7 +1128,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f041638
+    const v1, 0x7f04165d
 
     invoke-virtual {p1, v0, v1}, Lcom/google/android/setupcompat/template/FooterButton;->setText(Landroid/content/Context;I)V
 

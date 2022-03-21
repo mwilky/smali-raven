@@ -174,7 +174,7 @@
     :cond_0
     iget-object p1, p0, Lcom/android/settings/CryptKeeper$DecryptTask;->this$0:Lcom/android/settings/CryptKeeper;
 
-    const v0, 0x7f0d0531
+    const v0, 0x7f0d0540
 
     invoke-virtual {p1, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -182,27 +182,27 @@
 
     check-cast p1, Landroid/widget/TextView;
 
-    const v0, 0x7f0412aa
+    const v0, 0x7f0412cf
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(I)V
 
-    const p1, 0x7f0d0414
+    const p1, 0x7f0d0422
 
     invoke-direct {p0, p1}, Lcom/android/settings/CryptKeeper$DecryptTask;->hide(I)V
 
-    const p1, 0x7f0d0584
+    const p1, 0x7f0d0593
 
     invoke-direct {p0, p1}, Lcom/android/settings/CryptKeeper$DecryptTask;->hide(I)V
 
-    const p1, 0x7f0d032e
+    const p1, 0x7f0d033b
 
     invoke-direct {p0, p1}, Lcom/android/settings/CryptKeeper$DecryptTask;->hide(I)V
 
-    const p1, 0x7f0d03ff
+    const p1, 0x7f0d040d
 
     invoke-direct {p0, p1}, Lcom/android/settings/CryptKeeper$DecryptTask;->hide(I)V
 
-    const p1, 0x7f0d01f1
+    const p1, 0x7f0d01f6
 
     invoke-direct {p0, p1}, Lcom/android/settings/CryptKeeper$DecryptTask;->hide(I)V
 
@@ -254,7 +254,7 @@
 
     iget-object p1, p0, Lcom/android/settings/CryptKeeper$DecryptTask;->this$0:Lcom/android/settings/CryptKeeper;
 
-    const v0, 0x7f0600ac
+    const v0, 0x7f0600ae
 
     invoke-virtual {p1, v0}, Landroid/app/Activity;->setContentView(I)V
 

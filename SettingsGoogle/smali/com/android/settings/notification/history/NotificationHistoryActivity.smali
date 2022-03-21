@@ -221,7 +221,7 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mSwitchBar:Lcom/android/settingslib/widget/MainSwitchBar;
 
-    const v1, 0x7f040e3c
+    const v1, 0x7f040e67
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -326,7 +326,7 @@
 
     if-nez p2, :cond_2
 
-    const p2, 0x7f040618
+    const p2, 0x7f040630
 
     invoke-virtual {p0, p2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -335,7 +335,7 @@
     goto :goto_1
 
     :cond_2
-    const p2, 0x7f040619
+    const p2, 0x7f040631
 
     invoke-virtual {p0, p2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -415,7 +415,7 @@
 
     move-object/from16 v7, p0
 
-    const v0, 0x7f0d05c8
+    const v0, 0x7f0d05d7
 
     invoke-virtual {v7, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -447,7 +447,7 @@
 
     iget-object v0, v7, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mTodayView:Landroid/view/ViewGroup;
 
-    const v1, 0x7f0d00a7
+    const v1, 0x7f0d00aa
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -492,7 +492,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f060168
+    const v1, 0x7f06016c
 
     const/4 v2, 0x0
 
@@ -500,7 +500,7 @@
 
     move-result-object v15
 
-    const v0, 0x7f0d03e4
+    const v0, 0x7f0d03f2
 
     invoke-virtual {v15, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -508,13 +508,13 @@
 
     invoke-virtual {v2, v8}, Landroid/view/View;->setVisibility(I)V
 
-    const v0, 0x7f0d0098
+    const v0, 0x7f0d009b
 
     invoke-virtual {v15, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v6
 
-    const v0, 0x102029a
+    const v0, 0x102029d
 
     invoke-virtual {v15, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -548,7 +548,7 @@
 
     if-nez v0, :cond_1
 
-    const v0, 0x7f040618
+    const v0, 0x7f040630
 
     invoke-virtual {v7, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -557,7 +557,7 @@
     goto :goto_2
 
     :cond_1
-    const v0, 0x7f040619
+    const v0, 0x7f040631
 
     invoke-virtual {v7, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -586,7 +586,7 @@
 
     invoke-virtual {v9, v8}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f0d0308
+    const v0, 0x7f0d0314
 
     invoke-virtual {v15, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -624,7 +624,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    const v0, 0x7f0d02aa
+    const v0, 0x7f0d02b1
 
     invoke-virtual {v15, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -636,7 +636,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    const v0, 0x7f0d0186
+    const v0, 0x7f0d018a
 
     invoke-virtual {v15, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -678,7 +678,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v1, 0x7f0d03e3
+    const v1, 0x7f0d03f1
 
     invoke-virtual {v15, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -841,7 +841,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0d05c8
+    const v0, 0x7f0d05d7
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -906,7 +906,7 @@
 
     sget-object v1, Lcom/android/settings/notification/history/NotificationHistoryActivity;->TAG:Ljava/lang/String;
 
-    const-string v2, "timed out waiting for loading"
+    const-string/jumbo v2, "timed out waiting for loading"
 
     invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
@@ -1031,15 +1031,15 @@
 
     invoke-super {p0, p1}, Lcom/android/settingslib/collapsingtoolbar/CollapsingToolbarBaseActivity;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f040e33
+    const p1, 0x7f040e5e
 
     invoke-virtual {p0, p1}, Lcom/android/settingslib/collapsingtoolbar/CollapsingToolbarBaseActivity;->setTitle(I)V
 
-    const p1, 0x7f060167
+    const p1, 0x7f06016b
 
     invoke-virtual {p0, p1}, Lcom/android/settingslib/collapsingtoolbar/CollapsingToolbarBaseActivity;->setContentView(I)V
 
-    const p1, 0x7f0d00a7
+    const p1, 0x7f0d00aa
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1049,7 +1049,7 @@
 
     iput-object p1, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mTodayView:Landroid/view/ViewGroup;
 
-    const p1, 0x7f0d050e
+    const p1, 0x7f0d051d
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1059,7 +1059,7 @@
 
     iput-object p1, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mSnoozeView:Landroid/view/ViewGroup;
 
-    const p1, 0x7f0d047c
+    const p1, 0x7f0d0489
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1069,7 +1069,7 @@
 
     iput-object p1, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mDismissView:Landroid/view/ViewGroup;
 
-    const v0, 0x7f0d03e3
+    const v0, 0x7f0d03f1
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1085,7 +1085,7 @@
 
     invoke-direct {p0, p1}, Lcom/android/settings/notification/history/NotificationHistoryActivity;->configureNotificationList(Landroid/view/View;)V
 
-    const p1, 0x7f0d0296
+    const p1, 0x7f0d029b
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1095,7 +1095,7 @@
 
     iput-object p1, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mHistoryOff:Landroid/view/ViewGroup;
 
-    const p1, 0x7f0d0299
+    const p1, 0x7f0d029e
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1105,7 +1105,7 @@
 
     iput-object p1, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mHistoryOn:Landroid/view/ViewGroup;
 
-    const p1, 0x7f0d029a
+    const p1, 0x7f0d029f
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1115,7 +1115,7 @@
 
     iput-object p1, p0, Lcom/android/settings/notification/history/NotificationHistoryActivity;->mHistoryEmpty:Landroid/view/ViewGroup;
 
-    const p1, 0x7f0d033d
+    const p1, 0x7f0d034b
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 

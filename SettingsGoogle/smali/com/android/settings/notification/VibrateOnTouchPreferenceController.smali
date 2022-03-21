@@ -17,7 +17,7 @@
 
     const/4 v2, 0x2
 
-    const-string v3, "vibrate_on_touch"
+    const-string/jumbo v3, "vibrate_on_touch"
 
     const-string v4, "haptic_feedback_enabled"
 
@@ -47,7 +47,7 @@
 .method private static hasHaptic(Landroid/content/Context;)Z
     .locals 1
 
-    const-string v0, "vibrator"
+    const-string/jumbo v0, "vibrator"
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

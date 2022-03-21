@@ -139,7 +139,15 @@
     return-void
 .end method
 
-.method static synthetic access$1100(Lcom/android/settings/users/AppRestrictionsFragment;Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;)I
+.method static synthetic access$1100()Ljava/lang/String;
+    .locals 1
+
+    sget-object v0, Lcom/android/settings/users/AppRestrictionsFragment;->TAG:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic access$1200(Lcom/android/settings/users/AppRestrictionsFragment;Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;)I
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/settings/users/AppRestrictionsFragment;->generateCustomActivityRequestCode(Lcom/android/settings/users/AppRestrictionsFragment$AppRestrictionsPreference;)I
@@ -170,7 +178,7 @@
 
     iget-object p1, p1, Lcom/android/settingslib/users/AppRestrictionsHelper$SelectableAppInfo;->packageName:Ljava/lang/String;
 
-    const v0, 0x7f020301
+    const v0, 0x7f020308
 
     invoke-virtual {p2, v0}, Landroidx/preference/Preference;->setIcon(I)V
 
@@ -325,7 +333,7 @@
 
     if-eqz p1, :cond_0
 
-    const p1, 0x7f040266
+    const p1, 0x7f04027a
 
     new-array v0, v2, [Ljava/lang/Object;
 
@@ -340,7 +348,7 @@
     return-object p0
 
     :cond_0
-    const p1, 0x7f0414fa
+    const p1, 0x7f04151f
 
     new-array v0, v2, [Ljava/lang/Object;
 
@@ -359,7 +367,7 @@
 
     if-eqz p1, :cond_2
 
-    const p1, 0x7f040265
+    const p1, 0x7f040279
 
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -826,7 +834,7 @@
 
     invoke-virtual {v4, p0}, Landroidx/preference/Preference;->setOnPreferenceChangeListener(Landroidx/preference/Preference$OnPreferenceChangeListener;)V
 
-    const v3, 0x7f020125
+    const v3, 0x7f02012b
 
     invoke-virtual {v4, v3}, Landroidx/preference/Preference;->setIcon(I)V
 
@@ -1385,7 +1393,7 @@
 
     const/4 v0, 0x0
 
-    const-string v1, "user_id"
+    const-string/jumbo v1, "user_id"
 
     if-eqz p1, :cond_0
 
@@ -1484,7 +1492,7 @@
 
     move-result-object p1
 
-    const-string v1, "user"
+    const-string/jumbo v1, "user"
 
     invoke-virtual {p1, v1}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -1526,7 +1534,7 @@
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     :catch_0
-    const p1, 0x7f150029
+    const p1, 0x7f15002a
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -1666,7 +1674,7 @@
 
     move-result p1
 
-    const v1, 0x7f0d009c
+    const v1, 0x7f0d009f
 
     if-ne p1, v1, :cond_0
 
@@ -2212,7 +2220,7 @@
 
     move-result p0
 
-    const-string v0, "user_id"
+    const-string/jumbo v0, "user_id"
 
     invoke-virtual {p1, v0, p0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 

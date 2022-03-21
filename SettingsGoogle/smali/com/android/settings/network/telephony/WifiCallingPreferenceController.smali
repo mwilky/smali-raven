@@ -94,7 +94,7 @@
 
     if-eqz v1, :cond_0
 
-    const-string v0, "use_wfc_home_network_mode_in_roaming_network_bool"
+    const-string/jumbo v0, "use_wfc_home_network_mode_in_roaming_network_bool"
 
     invoke-virtual {v1, v0}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
 
@@ -144,23 +144,23 @@
     goto :goto_1
 
     :cond_2
-    const v0, 0x10408ca
+    const v0, 0x10408cf
 
     goto :goto_2
 
     :cond_3
-    const v0, 0x10408c8
+    const v0, 0x10408cd
 
     goto :goto_2
 
     :cond_4
-    const v0, 0x10408c9
+    const v0, 0x10408ce
 
     goto :goto_2
 
     :cond_5
     :goto_1
-    const v0, 0x10408e8
+    const v0, 0x10408ed
 
     :goto_2
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
@@ -295,6 +295,16 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method getTelephonyManager(Landroid/content/Context;I)Landroid/telephony/TelephonyManager;
@@ -508,7 +518,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0415d7
+    const v1, 0x7f0415fc
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

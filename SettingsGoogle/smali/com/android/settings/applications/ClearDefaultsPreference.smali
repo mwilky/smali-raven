@@ -53,7 +53,7 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 2
 
-    const v0, 0x7f050330
+    const v0, 0x7f050338
 
     const v1, 0x101008e
 
@@ -81,7 +81,7 @@
 
     invoke-direct {p0, p1, p2, p3, p4}, Landroidx/preference/Preference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
-    const p2, 0x7f060050
+    const p2, 0x7f060051
 
     invoke-virtual {p0, p2}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -97,7 +97,7 @@
 
     iput-object p1, p0, Lcom/android/settings/applications/ClearDefaultsPreference;->mPm:Landroid/content/pm/PackageManager;
 
-    const-string p1, "usb"
+    const-string/jumbo p1, "usb"
 
     invoke-static {p1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
@@ -201,7 +201,7 @@
 .method private resetLaunchDefaultsUi(Landroid/widget/TextView;)V
     .locals 1
 
-    const v0, 0x7f0402cb
+    const v0, 0x7f0402df
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(I)V
 
@@ -221,7 +221,7 @@
 
     invoke-super {p0, p1}, Landroidx/preference/Preference;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
 
-    const v0, 0x7f0d0155
+    const v0, 0x7f0d0159
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -273,7 +273,7 @@
 
     move-result v0
 
-    const v1, 0x7f0d00b8
+    const v1, 0x7f0d00bb
 
     invoke-virtual {p1, v1}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -352,14 +352,14 @@
     :goto_2
     if-eqz v0, :cond_4
 
-    const v5, 0x7f0402ce
+    const v5, 0x7f0402e2
 
     invoke-virtual {p1, v5}, Landroid/widget/TextView;->setText(I)V
 
     goto :goto_3
 
     :cond_4
-    const v5, 0x7f0402cd
+    const v5, 0x7f0402e1
 
     invoke-virtual {p1, v5}, Landroid/widget/TextView;->setText(I)V
 
@@ -374,7 +374,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b01b4
+    const v8, 0x7f0b01b8
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -386,7 +386,7 @@
 
     if-eqz v1, :cond_6
 
-    const v1, 0x7f0402cc
+    const v1, 0x7f0402e0
 
     invoke-virtual {v5, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -422,7 +422,7 @@
     :cond_6
     if-eqz v0, :cond_9
 
-    const v0, 0x7f0401f0
+    const v0, 0x7f040204
 
     invoke-virtual {v5, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

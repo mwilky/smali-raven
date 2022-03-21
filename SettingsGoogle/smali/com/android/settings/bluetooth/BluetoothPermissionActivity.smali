@@ -81,7 +81,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f060064
+    const v2, 0x7f060066
 
     const/4 v3, 0x0
 
@@ -91,7 +91,7 @@
 
     iput-object v1, p0, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->mView:Landroid/view/View;
 
-    const v2, 0x7f0d0358
+    const v2, 0x7f0d0366
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -113,7 +113,7 @@
 
     aput-object v0, v2, v3
 
-    const v0, 0x7f040419
+    const v0, 0x7f040431
 
     invoke-virtual {p0, v0, v2}, Lcom/android/internal/app/AlertActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -139,7 +139,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f060064
+    const v2, 0x7f060066
 
     const/4 v3, 0x0
 
@@ -149,7 +149,7 @@
 
     iput-object v1, p0, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->mView:Landroid/view/View;
 
-    const v2, 0x7f0d0358
+    const v2, 0x7f0d0366
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -171,7 +171,7 @@
 
     aput-object v0, v2, v3
 
-    const v0, 0x7f040481
+    const v0, 0x7f040499
 
     invoke-virtual {p0, v0, v2}, Lcom/android/internal/app/AlertActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -197,7 +197,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f060064
+    const v2, 0x7f060066
 
     const/4 v3, 0x0
 
@@ -207,7 +207,7 @@
 
     iput-object v1, p0, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->mView:Landroid/view/View;
 
-    const v2, 0x7f0d0358
+    const v2, 0x7f0d0366
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -229,7 +229,7 @@
 
     aput-object v0, v2, v3
 
-    const v0, 0x7f0404a9
+    const v0, 0x7f0404c1
 
     invoke-virtual {p0, v0, v2}, Lcom/android/internal/app/AlertActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -263,7 +263,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f060064
+    const v3, 0x7f060066
 
     const/4 v4, 0x0
 
@@ -273,7 +273,7 @@
 
     iput-object v2, p0, Lcom/android/settings/bluetooth/BluetoothPermissionActivity;->mView:Landroid/view/View;
 
-    const v3, 0x7f0d0358
+    const v3, 0x7f0d0366
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -303,7 +303,7 @@
 
     aput-object v0, v3, v1
 
-    const v0, 0x7f0404ed
+    const v0, 0x7f040504
 
     invoke-virtual {p0, v0, v3}, Lcom/android/internal/app/AlertActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -371,7 +371,7 @@
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "showDialog() Request type: "
+    const-string/jumbo v1, "showDialog() Request type: "
 
     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -448,12 +448,12 @@
     :goto_0
     if-ne p2, p1, :cond_4
 
-    const v1, 0x7f04041b
+    const v1, 0x7f040433
 
     goto :goto_1
 
     :cond_4
-    const v1, 0x7f0401e5
+    const v1, 0x7f0401f9
 
     :goto_1
     invoke-virtual {p0, v1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
@@ -466,12 +466,12 @@
 
     if-ne p2, p1, :cond_5
 
-    const p1, 0x7f04041a
+    const p1, 0x7f040432
 
     goto :goto_2
 
     :cond_5
-    const p1, 0x7f041001
+    const p1, 0x7f04102f
 
     :goto_2
     invoke-virtual {p0, p1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
@@ -620,7 +620,7 @@
 
     if-ne p1, v0, :cond_1
 
-    const p1, 0x7f04041c
+    const p1, 0x7f040434
 
     invoke-virtual {p0, p1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
 
@@ -635,7 +635,7 @@
     :cond_1
     if-ne p1, v2, :cond_2
 
-    const p1, 0x7f0404aa
+    const p1, 0x7f0404c2
 
     invoke-virtual {p0, p1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
 
@@ -652,7 +652,7 @@
 
     if-ne p1, v2, :cond_3
 
-    const p1, 0x7f040482
+    const p1, 0x7f04049a
 
     invoke-virtual {p0, p1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
 
@@ -669,7 +669,7 @@
 
     if-ne p1, v2, :cond_4
 
-    const p1, 0x7f0404ee
+    const p1, 0x7f040505
 
     invoke-virtual {p0, p1}, Lcom/android/internal/app/AlertActivity;->getString(I)Ljava/lang/String;
 

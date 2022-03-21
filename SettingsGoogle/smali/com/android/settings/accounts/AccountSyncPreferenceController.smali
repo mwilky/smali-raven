@@ -114,7 +114,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f04017e
+    const p1, 0x7f040192
 
     invoke-virtual {p0, p1}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -270,7 +270,7 @@
     :cond_5
     if-nez v7, :cond_6
 
-    const p0, 0x7f04017b
+    const p0, 0x7f04018f
 
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -279,7 +279,7 @@
     :cond_6
     if-ne v7, v6, :cond_7
 
-    const p0, 0x7f04017c
+    const p0, 0x7f040190
 
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -288,7 +288,7 @@
     :cond_7
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f04017d
+    const v0, 0x7f040191
 
     const/4 v1, 0x2
 

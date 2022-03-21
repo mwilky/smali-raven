@@ -53,7 +53,7 @@
 
     iput-object v0, p0, Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;->mSummary:Landroid/widget/TextView;
 
-    const v0, 0x7f0d00a5
+    const v0, 0x7f0d00a8
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -63,7 +63,7 @@
 
     iput-object v0, p0, Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;->mDisabled:Landroid/widget/TextView;
 
-    const v0, 0x7f0d0582
+    const v0, 0x7f0d0591
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -97,7 +97,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f060185
+    const v1, 0x7f060189
 
     const/4 v2, 0x0
 
@@ -127,7 +127,7 @@
 
     move-result-object p1
 
-    const v3, 0x7f0601ba
+    const v3, 0x7f0601be
 
     const/4 v4, 0x1
 
@@ -141,7 +141,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f0601aa
+    const p1, 0x7f0601ae
 
     invoke-virtual {p0, p1, v0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -263,7 +263,7 @@
 
     iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;->mDisabled:Landroid/widget/TextView;
 
-    const p1, 0x7f040e05
+    const p1, 0x7f040e30
 
     invoke-virtual {p0, p1}, Landroid/widget/TextView;->setText(I)V
 
@@ -299,7 +299,7 @@
 
     iget-object p0, p0, Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;->mDisabled:Landroid/widget/TextView;
 
-    const p1, 0x7f0407ea
+    const p1, 0x7f040802
 
     invoke-virtual {p0, p1}, Landroid/widget/TextView;->setText(I)V
 
@@ -318,7 +318,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "updateSizeText of "
+    const-string/jumbo v1, "updateSizeText of "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

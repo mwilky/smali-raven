@@ -242,7 +242,7 @@
 
     move-result-object v4
 
-    const-string v5, "status_bar_height"
+    const-string/jumbo v5, "status_bar_height"
 
     const-string v6, "dimen"
 
@@ -466,7 +466,7 @@
     :cond_0
     iget-object v0, p0, Landroidx/appcompat/widget/TooltipPopup;->mContext:Landroid/content/Context;
 
-    const-string v1, "window"
+    const-string/jumbo v1, "window"
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -535,7 +535,7 @@
 
     iget-object p1, p0, Landroidx/appcompat/widget/TooltipPopup;->mContext:Landroid/content/Context;
 
-    const-string p2, "window"
+    const-string/jumbo p2, "window"
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

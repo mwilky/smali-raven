@@ -73,7 +73,7 @@
 
     const-string v2, "apn"
 
-    const-string v3, "type"
+    const-string/jumbo v3, "type"
 
     const-string v4, "mvno_type"
 
@@ -271,7 +271,7 @@
     const/4 v1, -0x1
 
     :goto_0
-    const-string v2, "sub_id"
+    const-string/jumbo v2, "sub_id"
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
@@ -681,7 +681,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "subId/"
+    const-string/jumbo v1, "subId/"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -914,7 +914,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f04021f
+    const v0, 0x7f040233
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(I)V
 
@@ -932,14 +932,14 @@
 
     if-eqz p1, :cond_0
 
-    const p1, 0x7f1500b1
+    const p1, 0x7f1500b6
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
     return-void
 
     :cond_0
-    const p1, 0x7f150020
+    const p1, 0x7f150021
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -959,7 +959,7 @@
 
     move-result-object v0
 
-    const-string v1, "sub_id"
+    const-string/jumbo v1, "sub_id"
 
     const/4 v2, -0x1
 
@@ -1104,7 +1104,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f04101e
+    const v0, 0x7f04104c
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1141,7 +1141,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f040ce9
+    const v2, 0x7f040d13
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1153,7 +1153,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f02016a
+    const v3, 0x7f020171
 
     invoke-interface {v0, v3}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -1168,7 +1168,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f040cef
+    const v3, 0x7f040d19
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

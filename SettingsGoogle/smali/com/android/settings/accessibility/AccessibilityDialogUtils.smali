@@ -12,10 +12,26 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$28ldejVwVFxzN0rnual0_W8751A(ILjava/lang/Throwable;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->lambda$setupShortcutWidgetWithImageRawResource$3(ILjava/lang/Throwable;)V
+
+    return-void
+.end method
+
 .method public static synthetic $r8$lambda$5tpTm4hWSKs1IoLRxkN2mTLuPQs(Lcom/android/settings/accessibility/AccessibilityDialogUtils$CustomButtonsClickListener;Landroid/app/Dialog;Landroid/view/View;)V
     .locals 0
 
     invoke-static {p0, p1, p2}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->lambda$setCustomButtonsClickListener$2(Lcom/android/settings/accessibility/AccessibilityDialogUtils$CustomButtonsClickListener;Landroid/app/Dialog;Landroid/view/View;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$BOkU21lt4XycGuZhEuySgyn3hbg(Landroid/widget/LinearLayout;Landroid/view/View;Landroid/view/View;)V
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->lambda$initAdvancedWidget$4(Landroid/widget/LinearLayout;Landroid/view/View;Landroid/view/View;)V
 
     return-void
 .end method
@@ -28,26 +44,18 @@
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$F89HzqjFJpwf-2rTv8FkXE-QZ4E(Landroid/content/Context;Landroid/view/View;)V
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->lambda$getCustomizeAccessibilityButtonLink$4(Landroid/content/Context;Landroid/view/View;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$P9t-vu-Sg_wToNlRG5YrdF0OiiY(Landroid/widget/LinearLayout;Landroid/view/View;Landroid/view/View;)V
-    .locals 0
-
-    invoke-static {p0, p1, p2}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->lambda$initAdvancedWidget$3(Landroid/widget/LinearLayout;Landroid/view/View;Landroid/view/View;)V
-
-    return-void
-.end method
-
 .method public static synthetic $r8$lambda$X9ckJH4zJhbC2cbkh7p9U9dbooQ(Landroid/content/DialogInterface;I)V
     .locals 0
 
     invoke-static {p0, p1}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->lambda$createDialog$0(Landroid/content/DialogInterface;I)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$f0IslXjBJgjFGDzugI7ak6Z7O_k(Landroid/content/Context;Landroid/view/View;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->lambda$getCustomizeAccessibilityButtonLink$5(Landroid/content/Context;Landroid/view/View;)V
 
     return-void
 .end method
@@ -73,13 +81,13 @@
 
     move-result-object p0
 
-    const p1, 0x7f041083
+    const p1, 0x7f0410b1
 
     invoke-virtual {p0, p1, p3}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p0
 
-    const p1, 0x7f04054c
+    const p1, 0x7f040564
 
     const/4 p3, 0x0
 
@@ -125,7 +133,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f041083
+    const p1, 0x7f0410b1
 
     invoke-virtual {p0, p1, p3}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -133,7 +141,7 @@
 
     sget-object p1, Lcom/android/settings/accessibility/AccessibilityDialogUtils$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/settings/accessibility/AccessibilityDialogUtils$$ExternalSyntheticLambda0;
 
-    const p2, 0x7f04054c
+    const p2, 0x7f040564
 
     invoke-virtual {p0, p2, p1}, Landroidx/appcompat/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -157,7 +165,7 @@
 
     check-cast v0, Landroid/view/LayoutInflater;
 
-    const v1, 0x7f060035
+    const v1, 0x7f060033
 
     const/4 v2, 0x0
 
@@ -169,7 +177,7 @@
 
     const/4 v1, 0x2
 
-    const v3, 0x7f060037
+    const v3, 0x7f060035
 
     if-eq p1, v1, :cond_2
 
@@ -181,13 +189,13 @@
 
     if-ne p1, v1, :cond_0
 
-    const p1, 0x7f060034
+    const p1, 0x7f060032
 
     invoke-virtual {v0, p1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object p1
 
-    const v0, 0x7f0d02c3
+    const v0, 0x7f0d02cc
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -279,7 +287,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0400eb
+    const v2, 0x7f0400fc
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -370,7 +378,7 @@
 
     invoke-direct {v1, v2, v0}, Lcom/android/settings/utils/AnnotationSpan$LinkInfo;-><init>(Ljava/lang/String;Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f040117
+    const v0, 0x7f04012b
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -394,7 +402,7 @@
 .method private static getSummaryStringWithIcon(Landroid/content/Context;I)Landroid/text/SpannableString;
     .locals 5
 
-    const v0, 0x7f040116
+    const v0, 0x7f04012a
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -412,7 +420,7 @@
 
     add-int/lit8 v2, v0, 0x2
 
-    const v3, 0x7f020165
+    const v3, 0x7f02016c
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -440,7 +448,7 @@
 .method private static initAdvancedWidget(Landroid/view/View;)V
     .locals 2
 
-    const v0, 0x7f0d0070
+    const v0, 0x7f0d0072
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -448,7 +456,7 @@
 
     check-cast v0, Landroid/widget/LinearLayout;
 
-    const v1, 0x7f0d05dd
+    const v1, 0x7f0d05ec
 
     invoke-virtual {p0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -466,25 +474,25 @@
 .method private static initHardwareShortcut(Landroid/content/Context;Landroid/view/View;)V
     .locals 2
 
-    const v0, 0x7f0d0263
+    const v0, 0x7f0d0268
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object p1
 
-    const v0, 0x7f04011c
+    const v0, 0x7f040130
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    const v1, 0x7f040115
+    const v1, 0x7f040129
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object p0
 
-    const v1, 0x7f0200f0
+    const v1, 0x7f0200f7
 
     invoke-static {p1, v0, p0, v1}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->setupShortcutWidget(Landroid/view/View;Ljava/lang/CharSequence;Ljava/lang/CharSequence;I)V
 
@@ -494,19 +502,19 @@
 .method private static initMagnifyShortcut(Landroid/content/Context;Landroid/view/View;)V
     .locals 4
 
-    const v0, 0x7f0d05dd
+    const v0, 0x7f0d05ec
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object p1
 
-    const v0, 0x7f040121
+    const v0, 0x7f040135
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    const v1, 0x7f04011a
+    const v1, 0x7f04012e
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -530,9 +538,9 @@
 
     move-result-object p0
 
-    const v1, 0x7f0200f5
+    const v1, 0x7f030005
 
-    invoke-static {p1, v0, p0, v1}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->setupShortcutWidget(Landroid/view/View;Ljava/lang/CharSequence;Ljava/lang/CharSequence;I)V
+    invoke-static {p1, v0, p0, v1}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->setupShortcutWidgetWithImageRawResource(Landroid/view/View;Ljava/lang/CharSequence;Ljava/lang/CharSequence;I)V
 
     return-void
 .end method
@@ -540,39 +548,37 @@
 .method private static initSoftwareShortcut(Landroid/content/Context;Landroid/view/View;)V
     .locals 2
 
-    const v0, 0x7f0d0510
+    const v0, 0x7f0d051f
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object p1
 
-    const v0, 0x7f04011d
+    const v0, 0x7f0d058a
 
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    const v1, 0x7f0d057b
+    check-cast v0, Landroid/widget/TextView;
 
-    invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0}, Landroid/widget/TextView;->getLineHeight()I
 
-    move-result-object v1
+    move-result v0
 
-    check-cast v1, Landroid/widget/TextView;
-
-    invoke-virtual {v1}, Landroid/widget/TextView;->getLineHeight()I
-
-    move-result v1
-
-    invoke-static {p0, v1}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->retrieveSoftwareShortcutSummary(Landroid/content/Context;I)Ljava/lang/CharSequence;
+    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->retrieveTitle(Landroid/content/Context;)Ljava/lang/CharSequence;
 
     move-result-object v1
+
+    invoke-static {p0, v0}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->retrieveSoftwareShortcutSummary(Landroid/content/Context;I)Ljava/lang/CharSequence;
+
+    move-result-object v0
 
     invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->retrieveSoftwareShortcutImageResId(Landroid/content/Context;)I
 
     move-result p0
 
-    invoke-static {p1, v0, v1, p0}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->setupShortcutWidget(Landroid/view/View;Ljava/lang/CharSequence;Ljava/lang/CharSequence;I)V
+    invoke-static {p1, v1, v0, p0}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->setupShortcutWidget(Landroid/view/View;Ljava/lang/CharSequence;Ljava/lang/CharSequence;I)V
 
     return-void
 .end method
@@ -580,19 +586,19 @@
 .method private static initSoftwareShortcutForSUW(Landroid/content/Context;Landroid/view/View;)V
     .locals 2
 
-    const v0, 0x7f0d0510
+    const v0, 0x7f0d051f
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object p1
 
-    const v0, 0x7f04011d
+    const v0, 0x7f040131
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    const v1, 0x7f0d057b
+    const v1, 0x7f0d058a
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -625,7 +631,7 @@
     return-void
 .end method
 
-.method private static synthetic lambda$getCustomizeAccessibilityButtonLink$4(Landroid/content/Context;Landroid/view/View;)V
+.method private static synthetic lambda$getCustomizeAccessibilityButtonLink$5(Landroid/content/Context;Landroid/view/View;)V
     .locals 0
 
     new-instance p1, Lcom/android/settings/core/SubSettingLauncher;
@@ -653,7 +659,7 @@
     return-void
 .end method
 
-.method private static synthetic lambda$initAdvancedWidget$3(Landroid/widget/LinearLayout;Landroid/view/View;Landroid/view/View;)V
+.method private static synthetic lambda$initAdvancedWidget$4(Landroid/widget/LinearLayout;Landroid/view/View;Landroid/view/View;)V
     .locals 0
 
     const/16 p2, 0x8
@@ -697,28 +703,74 @@
     return-void
 .end method
 
+.method private static synthetic lambda$setupShortcutWidgetWithImageRawResource$3(ILjava/lang/Throwable;)V
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "Invalid image raw resource id: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string v0, "AccessibilityDialogUtils"
+
+    invoke-static {v0, p0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    return-void
+.end method
+
 .method private static retrieveSoftwareShortcutImageResId(Landroid/content/Context;)I
-    .locals 0
+    .locals 1
 
     invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityUtil;->isFloatingMenuEnabled(Landroid/content/Context;)Z
 
-    move-result p0
+    move-result v0
 
-    if-eqz p0, :cond_0
+    if-eqz v0, :cond_0
 
-    const p0, 0x7f0200f2
+    const p0, 0x7f0200f9
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f0200f1
+    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityUtil;->isGestureNavigateEnabled(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityUtil;->isTouchExploreEnabled(Landroid/content/Context;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_1
+
+    const p0, 0x7f0200fb
+
+    goto :goto_0
+
+    :cond_1
+    const p0, 0x7f0200fa
+
+    goto :goto_0
+
+    :cond_2
+    const p0, 0x7f0200f8
 
     :goto_0
     return p0
 .end method
 
 .method private static retrieveSoftwareShortcutSummary(Landroid/content/Context;I)Ljava/lang/CharSequence;
-    .locals 2
+    .locals 3
 
     new-instance v0, Landroid/text/SpannableStringBuilder;
 
@@ -728,25 +780,71 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-eqz v1, :cond_0
 
-    invoke-static {p0, p1}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->getSummaryStringWithIcon(Landroid/content/Context;I)Landroid/text/SpannableString;
-
-    move-result-object p1
-
-    invoke-virtual {v0, p1}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
-
-    const-string p1, "\n\n"
-
-    invoke-virtual {v0, p1}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
-
-    :cond_0
     invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->getCustomizeAccessibilityButtonLink(Landroid/content/Context;)Ljava/lang/CharSequence;
 
     move-result-object p0
 
     invoke-virtual {v0, p0}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
 
+    goto :goto_1
+
+    :cond_0
+    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityUtil;->isGestureNavigateEnabled(Landroid/content/Context;)Z
+
+    move-result v1
+
+    const-string v2, "\n\n"
+
+    if-eqz v1, :cond_2
+
+    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityUtil;->isTouchExploreEnabled(Landroid/content/Context;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
+
+    const p1, 0x7f04012d
+
+    goto :goto_0
+
+    :cond_1
+    const p1, 0x7f04012c
+
+    :goto_0
+    invoke-virtual {p0, p1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object p1
+
+    invoke-virtual {v0, p1}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
+
+    invoke-virtual {v0, v2}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
+
+    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->getCustomizeAccessibilityButtonLink(Landroid/content/Context;)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
+
+    goto :goto_1
+
+    :cond_2
+    invoke-static {p0, p1}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->getSummaryStringWithIcon(Landroid/content/Context;I)Landroid/text/SpannableString;
+
+    move-result-object p1
+
+    invoke-virtual {v0, p1}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
+
+    invoke-virtual {v0, v2}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
+
+    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->getCustomizeAccessibilityButtonLink(Landroid/content/Context;)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
+
+    :goto_1
     return-object v0
 .end method
 
@@ -773,10 +871,41 @@
     return-object v0
 .end method
 
+.method private static retrieveTitle(Landroid/content/Context;)Ljava/lang/CharSequence;
+    .locals 2
+
+    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityUtil;->isFloatingMenuEnabled(Landroid/content/Context;)Z
+
+    move-result v0
+
+    const v1, 0x7f040131
+
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityUtil;->isGestureNavigateEnabled(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const v1, 0x7f040132
+
+    :cond_1
+    :goto_0
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method private static setCustomButtonsClickListener(Landroid/app/Dialog;Landroid/view/View;Lcom/android/settings/accessibility/AccessibilityDialogUtils$CustomButtonsClickListener;Lcom/android/settings/accessibility/AccessibilityDialogUtils$CustomButtonsClickListener;)V
     .locals 2
 
-    const v0, 0x7f0d0195
+    const v0, 0x7f0d0199
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -784,7 +913,7 @@
 
     check-cast v0, Landroid/widget/Button;
 
-    const v1, 0x7f0d0194
+    const v1, 0x7f0d0198
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -826,7 +955,7 @@
 .method private static setScrollIndicators(Landroidx/appcompat/app/AlertDialog;)V
     .locals 1
 
-    const v0, 0x7f0d0170
+    const v0, 0x7f0d0174
 
     invoke-virtual {p0, v0}, Landroidx/appcompat/app/AppCompatDialog;->findViewById(I)Landroid/view/View;
 
@@ -840,9 +969,73 @@
 .end method
 
 .method private static setupShortcutWidget(Landroid/view/View;Ljava/lang/CharSequence;Ljava/lang/CharSequence;I)V
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->setupShortcutWidgetWithTitleAndSummary(Landroid/view/View;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
+
+    invoke-static {p0, p3}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->setupShortcutWidgetWithImageResource(Landroid/view/View;I)V
+
+    return-void
+.end method
+
+.method private static setupShortcutWidgetWithImageRawResource(Landroid/view/View;I)V
     .locals 1
 
-    const v0, 0x7f0d0146
+    const v0, 0x7f0d02cc
+
+    invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/airbnb/lottie/LottieAnimationView;
+
+    new-instance v0, Lcom/android/settings/accessibility/AccessibilityDialogUtils$$ExternalSyntheticLambda5;
+
+    invoke-direct {v0, p1}, Lcom/android/settings/accessibility/AccessibilityDialogUtils$$ExternalSyntheticLambda5;-><init>(I)V
+
+    invoke-virtual {p0, v0}, Lcom/airbnb/lottie/LottieAnimationView;->setFailureListener(Lcom/airbnb/lottie/LottieListener;)V
+
+    invoke-virtual {p0, p1}, Lcom/airbnb/lottie/LottieAnimationView;->setAnimation(I)V
+
+    const/4 p1, -0x1
+
+    invoke-virtual {p0, p1}, Lcom/airbnb/lottie/LottieAnimationView;->setRepeatCount(I)V
+
+    invoke-virtual {p0}, Lcom/airbnb/lottie/LottieAnimationView;->playAnimation()V
+
+    return-void
+.end method
+
+.method private static setupShortcutWidgetWithImageRawResource(Landroid/view/View;Ljava/lang/CharSequence;Ljava/lang/CharSequence;I)V
+    .locals 0
+
+    invoke-static {p0, p1, p2}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->setupShortcutWidgetWithTitleAndSummary(Landroid/view/View;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
+
+    invoke-static {p0, p3}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->setupShortcutWidgetWithImageRawResource(Landroid/view/View;I)V
+
+    return-void
+.end method
+
+.method private static setupShortcutWidgetWithImageResource(Landroid/view/View;I)V
+    .locals 1
+
+    const v0, 0x7f0d02cc
+
+    invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/widget/ImageView;
+
+    invoke-virtual {p0, p1}, Landroid/widget/ImageView;->setImageResource(I)V
+
+    return-void
+.end method
+
+.method private static setupShortcutWidgetWithTitleAndSummary(Landroid/view/View;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
+    .locals 1
+
+    const v0, 0x7f0d014a
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -852,50 +1045,40 @@
 
     invoke-virtual {v0, p1}, Landroid/widget/CheckBox;->setText(Ljava/lang/CharSequence;)V
 
-    const p1, 0x7f0d057b
-
-    invoke-virtual {p0, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object p1
-
-    check-cast p1, Landroid/widget/TextView;
-
-    invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/16 p2, 0x8
-
-    invoke-virtual {p1, p2}, Landroid/widget/TextView;->setVisibility(I)V
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {p1, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    invoke-static {}, Landroid/text/method/LinkMovementMethod;->getInstance()Landroid/text/method/MovementMethod;
-
-    move-result-object p2
-
-    invoke-virtual {p1, p2}, Landroid/widget/TextView;->setMovementMethod(Landroid/text/method/MovementMethod;)V
-
-    const/4 p2, 0x0
-
-    invoke-virtual {p1, p2}, Landroid/widget/TextView;->setFocusable(Z)V
-
-    :goto_0
-    const p1, 0x7f0d02c3
+    const p1, 0x7f0d058a
 
     invoke-virtual {p0, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object p0
 
-    check-cast p0, Landroid/widget/ImageView;
+    check-cast p0, Landroid/widget/TextView;
 
-    invoke-virtual {p0, p3}, Landroid/widget/ImageView;->setImageResource(I)V
+    invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
+    move-result p1
+
+    if-eqz p1, :cond_0
+
+    const/16 p1, 0x8
+
+    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setVisibility(I)V
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p0, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    invoke-static {}, Landroid/text/method/LinkMovementMethod;->getInstance()Landroid/text/method/MovementMethod;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setMovementMethod(Landroid/text/method/MovementMethod;)V
+
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setFocusable(Z)V
+
+    :goto_0
     return-void
 .end method
 
@@ -911,4 +1094,27 @@
     invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->setScrollIndicators(Landroidx/appcompat/app/AlertDialog;)V
 
     return-object p0
+.end method
+
+.method public static updateSoftwareShortcutInDialog(Landroid/content/Context;Landroid/app/Dialog;)Z
+    .locals 1
+
+    const v0, 0x7f0d0174
+
+    invoke-virtual {p1, v0}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_0
+
+    invoke-static {p0, p1}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->initSoftwareShortcut(Landroid/content/Context;Landroid/view/View;)V
+
+    const/4 p0, 0x1
+
+    return p0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    return p0
 .end method

@@ -3,7 +3,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@android:id/background">
         <shape android:tint="?android:colorControlNormal" android:shape="ring" android:innerRadiusRatio="2.2" android:useLevel="false" android:thickness="@dimen/ring_progress_bar_thickness">
-            <solid android:color="@*android:color/white_disabled_material" />
+            <solid android:color="@android:color/white_disabled_material" />
         </shape>
     </item>
     <item android:id="@android:id/progress">

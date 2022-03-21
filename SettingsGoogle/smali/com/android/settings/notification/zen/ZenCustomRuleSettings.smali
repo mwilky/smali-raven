@@ -39,7 +39,7 @@
 
     move-result-object v2
 
-    const-string v3, "zen_custom_rule_setting_default"
+    const-string/jumbo v3, "zen_custom_rule_setting_default"
 
     invoke-direct {v1, p1, v2, v3}, Lcom/android/settings/notification/zen/ZenRuleDefaultPolicyPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Ljava/lang/String;)V
 
@@ -53,7 +53,7 @@
 
     move-result-object v2
 
-    const-string v3, "zen_custom_rule_setting"
+    const-string/jumbo v3, "zen_custom_rule_setting"
 
     invoke-direct {v1, p1, v2, v3}, Lcom/android/settings/notification/zen/ZenRuleCustomPolicyPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Ljava/lang/String;)V
 
@@ -85,7 +85,7 @@
 .method getPreferenceCategoryKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "zen_custom_rule_category"
+    const-string/jumbo p0, "zen_custom_rule_category"
 
     return-object p0
 .end method
@@ -93,7 +93,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150122
+    const p0, 0x7f150127
 
     return p0
 .end method

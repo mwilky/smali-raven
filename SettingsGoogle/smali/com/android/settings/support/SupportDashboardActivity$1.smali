@@ -46,7 +46,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f090060
+    const v0, 0x7f090061
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -54,7 +54,7 @@
 
     if-nez p1, :cond_0
 
-    const-string p1, "support_dashboard_activity"
+    const-string/jumbo p1, "support_dashboard_activity"
 
     invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -83,7 +83,7 @@
 
     invoke-direct {p2, p1}, Lcom/android/settingslib/search/SearchIndexableRaw;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f040ec7
+    const v0, 0x7f040ef3
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -97,7 +97,7 @@
 
     iput-object v0, p2, Lcom/android/settingslib/search/SearchIndexableRaw;->screenTitle:Ljava/lang/String;
 
-    const v0, 0x7f041370
+    const v0, 0x7f041395
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -123,7 +123,7 @@
 
     iput-object p1, p2, Landroid/provider/SearchIndexableData;->intentAction:Ljava/lang/String;
 
-    const-string p1, "support_dashboard_activity"
+    const-string/jumbo p1, "support_dashboard_activity"
 
     iput-object p1, p2, Landroid/provider/SearchIndexableData;->key:Ljava/lang/String;
 

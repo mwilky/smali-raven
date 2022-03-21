@@ -17,7 +17,7 @@
 
     invoke-direct {p0, p1, p2}, Lcom/android/settings/notification/app/NotificationPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settings/notification/NotificationBackend;)V
 
-    const-string p2, "vibrator"
+    const-string/jumbo p2, "vibrator"
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -35,7 +35,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "vibrate"
+    const-string/jumbo p0, "vibrate"
 
     return-object p0
 .end method
@@ -94,7 +94,7 @@
 
     iget-object p0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mPreferenceFilter:Ljava/util/List;
 
-    const-string v0, "vibration"
+    const-string/jumbo v0, "vibration"
 
     invoke-interface {p0, v0}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 

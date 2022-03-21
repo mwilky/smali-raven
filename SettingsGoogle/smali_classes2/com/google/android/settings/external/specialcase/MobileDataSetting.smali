@@ -62,7 +62,7 @@
 .method private getIconResource()I
     .locals 0
 
-    const p0, 0x7f0202d6
+    const p0, 0x7f0202dd
 
     return p0
 .end method
@@ -70,7 +70,7 @@
 .method private getScreenTitle(Landroid/content/Context;)Ljava/lang/String;
     .locals 0
 
-    const p0, 0x7f040754
+    const p0, 0x7f04076c
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -119,7 +119,7 @@
 
 # virtual methods
 .method public getAccessCursor(Landroid/content/Context;Lcom/android/settings/slices/SliceData;)Landroid/database/Cursor;
-    .locals 4
+    .locals 7
 
     new-instance p2, Lcom/android/settingslib/net/DataUsageController;
 
@@ -133,15 +133,21 @@
 
     move-result p2
 
-    const-class v1, Lcom/android/settings/datausage/DataUsageSummary;
+    const-class v4, Lcom/android/settings/datausage/DataUsageSummary;
 
     invoke-direct {p0, p1}, Lcom/google/android/settings/external/specialcase/MobileDataSetting;->getScreenTitle(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v5
 
     const-string v3, "mobile_data"
 
-    invoke-interface {p0, p1, v3, v1, v2}, Lcom/google/android/settings/external/Queryable;->getIntentString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;
+    const v6, 0x7f040d0a
+
+    move-object v1, p0
+
+    move-object v2, p1
+
+    invoke-interface/range {v1 .. v6}, Lcom/google/android/settings/external/Queryable;->getIntentString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object p1
 
@@ -197,7 +203,7 @@
 .end method
 
 .method public getUpdateCursor(Landroid/content/Context;Lcom/android/settings/slices/SliceData;I)Landroid/database/Cursor;
-    .locals 5
+    .locals 8
 
     invoke-direct {p0, p3}, Lcom/google/android/settings/external/specialcase/MobileDataSetting;->validateInput(I)V
 
@@ -213,15 +219,21 @@
 
     move-result v1
 
-    const-class v2, Lcom/android/settings/datausage/DataUsageSummary;
+    const-class v5, Lcom/android/settings/datausage/DataUsageSummary;
 
     invoke-direct {p0, p1}, Lcom/google/android/settings/external/specialcase/MobileDataSetting;->getScreenTitle(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v6
 
     const-string v4, "mobile_data"
 
-    invoke-interface {p0, p1, v4, v2, v3}, Lcom/google/android/settings/external/Queryable;->getIntentString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;
+    const v7, 0x7f040d0a
+
+    move-object v2, p0
+
+    move-object v3, p1
+
+    invoke-interface/range {v2 .. v7}, Lcom/google/android/settings/external/Queryable;->getIntentString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object p1
 

@@ -99,7 +99,7 @@
 
     iget-object v4, v0, Lcom/android/settingslib/net/UidDetailProvider;->mContext:Landroid/content/Context;
 
-    const-string v7, "user"
+    const-string/jumbo v7, "user"
 
     invoke-virtual {v4, v7}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

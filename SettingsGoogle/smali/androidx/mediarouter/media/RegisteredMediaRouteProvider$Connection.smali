@@ -1001,7 +1001,7 @@
 
     invoke-direct {v5}, Landroid/os/Bundle;-><init>()V
 
-    const-string v0, "volume"
+    const-string/jumbo v0, "volume"
 
     invoke-virtual {v5, v0, p2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
@@ -1041,7 +1041,7 @@
 
     invoke-direct {v5}, Landroid/os/Bundle;-><init>()V
 
-    const-string v0, "unselectReason"
+    const-string/jumbo v0, "unselectReason"
 
     invoke-virtual {v5, v0, p2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
@@ -1134,7 +1134,7 @@
 
     invoke-direct {v5}, Landroid/os/Bundle;-><init>()V
 
-    const-string v0, "volume"
+    const-string/jumbo v0, "volume"
 
     invoke-virtual {v5, v0, p2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 

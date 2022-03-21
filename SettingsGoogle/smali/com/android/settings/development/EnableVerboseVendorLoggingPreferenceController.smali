@@ -294,7 +294,7 @@
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v0, "setVerboseLoggingEnabled fail: "
+    const-string/jumbo v0, "setVerboseLoggingEnabled fail: "
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -316,7 +316,7 @@
 
     if-eqz p0, :cond_3
 
-    const-string p0, "setVerboseLoggingEnabled not supported."
+    const-string/jumbo p0, "setVerboseLoggingEnabled not supported."
 
     invoke-static {v1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 

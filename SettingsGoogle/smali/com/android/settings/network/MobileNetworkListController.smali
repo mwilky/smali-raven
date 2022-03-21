@@ -7,6 +7,11 @@
 .implements Lcom/android/settings/network/SubscriptionsChangeListener$SubscriptionsChangeListenerClient;
 
 
+# annotations
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
+
 # static fields
 .field static final KEY_ADD_MORE:Ljava/lang/String; = "add_more"
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
@@ -42,38 +47,6 @@
     move-result p0
 
     return p0
-.end method
-
-.method public constructor <init>(Landroid/content/Context;Landroidx/lifecycle/Lifecycle;)V
-    .locals 1
-
-    invoke-direct {p0, p1}, Lcom/android/settingslib/core/AbstractPreferenceController;-><init>(Landroid/content/Context;)V
-
-    const-class v0, Landroid/telephony/SubscriptionManager;
-
-    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/telephony/SubscriptionManager;
-
-    iput-object v0, p0, Lcom/android/settings/network/MobileNetworkListController;->mSubscriptionManager:Landroid/telephony/SubscriptionManager;
-
-    new-instance v0, Lcom/android/settings/network/SubscriptionsChangeListener;
-
-    invoke-direct {v0, p1, p0}, Lcom/android/settings/network/SubscriptionsChangeListener;-><init>(Landroid/content/Context;Lcom/android/settings/network/SubscriptionsChangeListener$SubscriptionsChangeListenerClient;)V
-
-    iput-object v0, p0, Lcom/android/settings/network/MobileNetworkListController;->mChangeListener:Lcom/android/settings/network/SubscriptionsChangeListener;
-
-    new-instance p1, Landroid/util/ArrayMap;
-
-    invoke-direct {p1}, Landroid/util/ArrayMap;-><init>()V
-
-    iput-object p1, p0, Lcom/android/settings/network/MobileNetworkListController;->mPreferences:Ljava/util/Map;
-
-    invoke-virtual {p2, p0}, Landroidx/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
-
-    return-void
 .end method
 
 .method private synthetic lambda$update$0(Landroid/telephony/SubscriptionInfo;ILandroidx/preference/Preference;)Z
@@ -228,14 +201,14 @@
 
     if-eqz v5, :cond_2
 
-    const v5, 0x7f040d10
+    const v5, 0x7f040d3b
 
     invoke-virtual {v4, v5}, Landroidx/preference/Preference;->setSummary(I)V
 
     goto :goto_1
 
     :cond_2
-    const v5, 0x7f040d1b
+    const v5, 0x7f040d46
 
     invoke-virtual {v4, v5}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -250,7 +223,7 @@
 
     if-eqz v6, :cond_4
 
-    const v5, 0x7f040d11
+    const v5, 0x7f040d3c
 
     invoke-virtual {v4, v5}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -267,7 +240,7 @@
 
     iget-object v5, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f040d1c
+    const v6, 0x7f040d47
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -280,7 +253,7 @@
     :cond_5
     iget-object v6, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f040d25
+    const v7, 0x7f040d50
 
     const/4 v8, 0x1
 

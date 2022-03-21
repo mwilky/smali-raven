@@ -149,7 +149,7 @@
 
     iget v1, p0, Lcom/android/settings/CustomListPreference$CustomListPreferenceDialogFragment;->mClickedDialogEntryIndex:I
 
-    const-string v2, "settings.CustomListPrefDialog.KEY_CLICKED_ENTRY_INDEX"
+    const-string/jumbo v2, "settings.CustomListPrefDialog.KEY_CLICKED_ENTRY_INDEX"
 
     invoke-virtual {p1, v2, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
@@ -337,7 +337,7 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f040ea1
+    const v0, 0x7f040ecc
 
     new-instance v1, Lcom/android/settings/CustomListPreference$CustomListPreferenceDialogFragment$1;
 
@@ -356,7 +356,7 @@
 
     iget p0, p0, Lcom/android/settings/CustomListPreference$CustomListPreferenceDialogFragment;->mClickedDialogEntryIndex:I
 
-    const-string v0, "settings.CustomListPrefDialog.KEY_CLICKED_ENTRY_INDEX"
+    const-string/jumbo v0, "settings.CustomListPrefDialog.KEY_CLICKED_ENTRY_INDEX"
 
     invoke-virtual {p1, v0, p0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 

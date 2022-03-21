@@ -69,26 +69,6 @@
     return p0
 .end method
 
-.method public getDefaultSmsSubscriptionId()I
-    .locals 0
-
-    invoke-static {}, Landroid/telephony/SubscriptionManager;->getDefaultSmsSubscriptionId()I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public getDefaultVoiceSubscriptionId()I
-    .locals 0
-
-    invoke-static {}, Landroid/telephony/SubscriptionManager;->getDefaultVoiceSubscriptionId()I
-
-    move-result p0
-
-    return p0
-.end method
-
 .method public getIcon(Landroid/content/Context;IIZ)Landroid/graphics/drawable/Drawable;
     .locals 0
 
@@ -186,16 +166,6 @@
     .locals 0
 
     invoke-static {p1}, Lcom/android/settings/network/telephony/MobileNetworkUtils;->activeNetworkIsCellular(Landroid/content/Context;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public isProviderModelEnabled(Landroid/content/Context;)Z
-    .locals 0
-
-    invoke-static {p1}, Lcom/android/settings/Utils;->isProviderModelEnabled(Landroid/content/Context;)Z
 
     move-result p0
 

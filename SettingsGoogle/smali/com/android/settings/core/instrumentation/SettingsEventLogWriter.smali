@@ -15,7 +15,7 @@
 .method private static shouldDisableGenericEventLogging()Z
     .locals 3
 
-    const-string v0, "settings_ui"
+    const-string/jumbo v0, "settings_ui"
 
     const-string v1, "event_logging_enabled"
 

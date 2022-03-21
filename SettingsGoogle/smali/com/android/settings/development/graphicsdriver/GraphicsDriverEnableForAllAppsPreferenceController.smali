@@ -60,7 +60,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f0409af
+    const v0, 0x7f0409c7
 
     invoke-virtual {p2, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -68,7 +68,7 @@
 
     iput-object v0, p0, Lcom/android/settings/development/graphicsdriver/GraphicsDriverEnableForAllAppsPreferenceController;->mPreferenceDefault:Ljava/lang/String;
 
-    const v0, 0x7f0409b1
+    const v0, 0x7f0409c9
 
     invoke-virtual {p2, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -76,7 +76,7 @@
 
     iput-object v0, p0, Lcom/android/settings/development/graphicsdriver/GraphicsDriverEnableForAllAppsPreferenceController;->mPreferenceProductionDriver:Ljava/lang/String;
 
-    const v0, 0x7f0409b0
+    const v0, 0x7f0409c8
 
     invoke-virtual {p2, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -182,7 +182,7 @@
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    const v4, 0x7f0409af
+    const v4, 0x7f0409c7
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -206,7 +206,7 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x7f0409b0
+    const v1, 0x7f0409c8
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -227,7 +227,7 @@
 
     if-eqz p0, :cond_1
 
-    const p0, 0x7f0409b1
+    const p0, 0x7f0409c9
 
     invoke-virtual {v0, p0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -238,7 +238,7 @@
     :cond_1
     if-eqz p1, :cond_2
 
-    const p0, 0x7f0409b2
+    const p0, 0x7f0409ca
 
     invoke-virtual {v0, p0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -361,7 +361,7 @@
 
     iget-object p0, p0, Lcom/android/settings/development/graphicsdriver/GraphicsDriverEnableForAllAppsPreferenceController;->mContentResolver:Landroid/content/ContentResolver;
 
-    const-string v0, "updatable_driver_all_apps"
+    const-string/jumbo v0, "updatable_driver_all_apps"
 
     invoke-static {p0, v0, v1}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
@@ -407,6 +407,16 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public bridge synthetic hasAsyncUpdate()Z
@@ -470,7 +480,7 @@
 
     iget-object v0, p0, Lcom/android/settings/development/graphicsdriver/GraphicsDriverEnableForAllAppsPreferenceController;->mContentResolver:Landroid/content/ContentResolver;
 
-    const-string v1, "updatable_driver_all_apps"
+    const-string/jumbo v1, "updatable_driver_all_apps"
 
     const/4 v2, 0x0
 
@@ -556,7 +566,7 @@
 
     iget-object v0, p0, Lcom/android/settings/development/graphicsdriver/GraphicsDriverEnableForAllAppsPreferenceController;->mContentResolver:Landroid/content/ContentResolver;
 
-    const-string v1, "updatable_driver_all_apps"
+    const-string/jumbo v1, "updatable_driver_all_apps"
 
     const/4 v2, 0x0
 

@@ -21,7 +21,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "show_hw_layers_updates"
+    const-string/jumbo p0, "show_hw_layers_updates"
 
     return-object p0
 .end method
@@ -59,7 +59,7 @@
 
     if-eqz p0, :cond_0
 
-    const-string p0, "true"
+    const-string/jumbo p0, "true"
 
     goto :goto_0
 

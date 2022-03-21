@@ -15,7 +15,7 @@
 
 # direct methods
 .method public static copyWizardManagerExtras(Landroid/content/Intent;Landroid/content/Intent;)V
-    .locals 5
+    .locals 8
 
     const-string v0, "wizardBundle"
 
@@ -25,17 +25,19 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/Intent;
 
-    const-string v0, "firstRun"
+    const-string v2, "firstRun"
 
-    const-string v1, "deferredSetup"
+    const-string v3, "deferredSetup"
 
-    const-string v2, "preDeferredSetup"
+    const-string v4, "preDeferredSetup"
 
-    const-string v3, "portalSetup"
+    const-string v5, "portalSetup"
 
-    const-string v4, "isSetupFlow"
+    const-string v6, "isSetupFlow"
 
-    filled-new-array {v0, v1, v2, v3, v4}, [Ljava/lang/String;
+    const-string v7, "isSuwSuggestedActionFlow"
+
+    filled-new-array/range {v2 .. v7}, [Ljava/lang/String;
 
     move-result-object v0
 
@@ -287,4 +289,59 @@
     move-result p0
 
     return p0
+.end method
+
+.method public static isUserSetupComplete(Landroid/content/Context;)Z
+    .locals 4
+
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    const/16 v3, 0x11
+
+    if-lt v0, v3, :cond_1
+
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object p0
+
+    const-string v0, "user_setup_complete"
+
+    invoke-static {p0, v0, v2}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result p0
+
+    if-ne p0, v1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    move v1, v2
+
+    :goto_0
+    return v1
+
+    :cond_1
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object p0
+
+    const-string v0, "device_provisioned"
+
+    invoke-static {p0, v0, v2}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result p0
+
+    if-ne p0, v1, :cond_2
+
+    goto :goto_1
+
+    :cond_2
+    move v1, v2
+
+    :goto_1
+    return v1
 .end method

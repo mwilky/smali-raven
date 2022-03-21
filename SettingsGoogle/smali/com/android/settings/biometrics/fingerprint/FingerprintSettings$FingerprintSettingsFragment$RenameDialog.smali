@@ -165,7 +165,7 @@
 
     move-result-object v1
 
-    const-string v2, "startSelection"
+    const-string/jumbo v2, "startSelection"
 
     invoke-virtual {p1, v2, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
@@ -197,13 +197,13 @@
 
     invoke-direct {v2, v3}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0600f1
+    const v3, 0x7f0600f4
 
     invoke-virtual {v2, v3}, Landroidx/appcompat/app/AlertDialog$Builder;->setView(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    const v3, 0x7f04114e
+    const v3, 0x7f041173
 
     new-instance v4, Lcom/android/settings/biometrics/fingerprint/FingerprintSettings$FingerprintSettingsFragment$RenameDialog$1;
 
@@ -257,7 +257,7 @@
 
     move-result v0
 
-    const-string v1, "startSelection"
+    const-string/jumbo v1, "startSelection"
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 

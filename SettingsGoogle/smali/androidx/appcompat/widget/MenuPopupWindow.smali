@@ -35,7 +35,7 @@
 
     const-class v0, Landroid/widget/PopupWindow;
 
-    const-string v1, "setTouchModal"
+    const-string/jumbo v1, "setTouchModal"
 
     const/4 v2, 0x1
 

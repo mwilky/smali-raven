@@ -42,7 +42,7 @@
 
     move-result-object v2
 
-    const-string v3, "slice"
+    const-string/jumbo v3, "slice"
 
     invoke-direct {v0, p1, v3, v1, v2}, Landroidx/slice/SliceItem;-><init>(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V
 
@@ -103,7 +103,7 @@
 
     iget-object p0, p0, Landroidx/slice/widget/SliceContent;->mSliceItem:Landroidx/slice/SliceItem;
 
-    const-string v0, "slice"
+    const-string/jumbo v0, "slice"
 
     const/4 v1, 0x0
 
@@ -293,7 +293,7 @@
 
     move-result-object v0
 
-    const-string v1, "slice"
+    const-string/jumbo v1, "slice"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -343,7 +343,7 @@
     iput-object v0, p0, Landroidx/slice/widget/SliceContent;->mLayoutDirItem:Landroidx/slice/SliceItem;
 
     :cond_1
-    const-string v0, "text"
+    const-string/jumbo v0, "text"
 
     const-string v1, "content_description"
 
@@ -470,9 +470,9 @@
     :cond_0
     const/4 v3, 0x5
 
-    const-string v4, "title"
+    const-string/jumbo v4, "title"
 
-    const-string v5, "shortcut"
+    const-string/jumbo v5, "shortcut"
 
     filled-new-array {v4, v5}, [Ljava/lang/String;
 
@@ -484,7 +484,7 @@
 
     move-result-object v1
 
-    const-string v5, "text"
+    const-string/jumbo v5, "text"
 
     const-string v7, "image"
 

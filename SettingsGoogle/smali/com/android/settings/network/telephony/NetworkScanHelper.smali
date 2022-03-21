@@ -433,6 +433,12 @@
 
     if-nez p1, :cond_2
 
+    const-string p1, "NetworkScanHelper"
+
+    const-string v0, "mNetworkScanRequester == null"
+
+    invoke-static {p1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     const/16 p1, 0x2710
 
     invoke-direct {p0, p1}, Lcom/android/settings/network/telephony/NetworkScanHelper;->onError(I)V

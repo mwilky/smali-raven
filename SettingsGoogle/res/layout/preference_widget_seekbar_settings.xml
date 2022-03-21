@@ -7,6 +7,6 @@
             <TextView android:textAppearance="?android:textAppearanceListItem" android:textColor="?android:textColorPrimary" android:ellipsize="marquee" android:id="@android:id/title" android:fadingEdge="horizontal" android:layout_width="0.0dip" android:layout_height="wrap_content" android:singleLine="true" android:layout_weight="1.0" />
             <LinearLayout android:gravity="end|center" android:orientation="vertical" android:id="@android:id/widget_frame" android:layout_width="wrap_content" android:layout_height="fill_parent" android:paddingStart="12.0dip" />
         </LinearLayout>
-        <SeekBar android:layout_gravity="center_vertical" android:id="@*android:id/seekbar" android:layout_width="fill_parent" android:layout_height="48.0dip" android:paddingStart="0.0dip" android:paddingEnd="12.0dip" />
+        <SeekBar android:layout_gravity="center_vertical" android:id="@android:id/seekbar" android:layout_width="fill_parent" android:layout_height="48.0dip" android:paddingStart="12.0dip" android:paddingEnd="12.0dip" />
     </LinearLayout>
 </LinearLayout>

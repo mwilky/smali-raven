@@ -445,7 +445,7 @@
 
     if-eqz p1, :cond_4
 
-    const p1, 0x7f04078c
+    const p1, 0x7f0407a4
 
     invoke-static {p0, p1}, Lcom/android/settings/network/SubscriptionUtil;->getResForDefaultConfig(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -458,7 +458,7 @@
     :cond_4
     if-eqz v0, :cond_5
 
-    const p1, 0x7f04078b
+    const p1, 0x7f0407a3
 
     invoke-static {p0, p1}, Lcom/android/settings/network/SubscriptionUtil;->getResForDefaultConfig(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -471,7 +471,7 @@
     :cond_5
     if-eqz v3, :cond_6
 
-    const p1, 0x7f04078d
+    const p1, 0x7f0407a5
 
     invoke-static {p0, p1}, Lcom/android/settings/network/SubscriptionUtil;->getResForDefaultConfig(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -494,7 +494,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f04122d
+    const p1, 0x7f041251
 
     new-array v0, v1, [Ljava/lang/Object;
 
@@ -1627,7 +1627,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f041226
+    const p1, 0x7f04124a
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

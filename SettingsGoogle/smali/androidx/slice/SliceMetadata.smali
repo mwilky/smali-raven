@@ -55,7 +55,7 @@
 
     const-string p1, "long"
 
-    const-string v0, "ttl"
+    const-string/jumbo v0, "ttl"
 
     const/4 v1, 0x0
 
@@ -280,7 +280,7 @@
         }
     .end annotation
 
-    const-string v0, "slice"
+    const-string/jumbo v0, "slice"
 
     const-string v1, "actions"
 
@@ -290,7 +290,7 @@
 
     move-result-object p0
 
-    const-string v3, "shortcut"
+    const-string/jumbo v3, "shortcut"
 
     filled-new-array {v1, v3}, [Ljava/lang/String;
 

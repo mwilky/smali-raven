@@ -264,7 +264,7 @@
     return v1
 
     :cond_1
-    const-string v0, "settingsdebug.instant.packages"
+    const-string/jumbo v0, "settingsdebug.instant.packages"
 
     invoke-static {v0}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
 

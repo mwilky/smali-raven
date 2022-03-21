@@ -128,7 +128,7 @@
 
     iget v0, v0, Landroid/content/pm/ApplicationInfo;->uid:I
 
-    const-string v1, "uid"
+    const-string/jumbo v1, "uid"
 
     invoke-virtual {p2, v1, v0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
@@ -196,7 +196,7 @@
 
     iput-object p1, p0, Lcom/android/settings/notification/zen/ZenModeAddBypassingAppsPreferenceController;->mPreferenceScreen:Landroidx/preference/PreferenceScreen;
 
-    const-string v0, "zen_mode_bypassing_apps_add"
+    const-string/jumbo v0, "zen_mode_bypassing_apps_add"
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -224,7 +224,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "zen_mode_non_bypassing_apps_list"
+    const-string/jumbo p0, "zen_mode_non_bypassing_apps_list"
 
     return-object p0
 .end method
@@ -288,7 +288,7 @@
 
     iput-object v0, p0, Lcom/android/settings/notification/zen/ZenModeAddBypassingAppsPreferenceController;->mPreferenceCategory:Landroidx/preference/PreferenceCategory;
 
-    const v1, 0x7f0417d9
+    const v1, 0x7f0417fe    # 1.7558267E38f
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -435,7 +435,7 @@
 
     invoke-virtual {p1, v1}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
 
-    const v1, 0x7f0417e0
+    const v1, 0x7f041805
 
     invoke-virtual {p1, v1}, Landroidx/preference/Preference;->setTitle(I)V
 

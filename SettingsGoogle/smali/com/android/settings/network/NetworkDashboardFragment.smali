@@ -24,7 +24,7 @@
 
     new-instance v0, Lcom/android/settings/network/NetworkDashboardFragment$1;
 
-    const v1, 0x7f150099
+    const v1, 0x7f1500a0
 
     invoke-direct {v0, v1}, Lcom/android/settings/network/NetworkDashboardFragment$1;-><init>(I)V
 
@@ -52,7 +52,7 @@
 .end method
 
 .method private static buildPreferenceControllers(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;Landroidx/fragment/app/Fragment;Lcom/android/settings/network/MobilePlanPreferenceController$MobilePlanPreferenceHost;)Ljava/util/List;
-    .locals 4
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -68,113 +68,68 @@
         }
     .end annotation
 
-    new-instance p3, Lcom/android/settings/network/MobilePlanPreferenceController;
+    new-instance p2, Lcom/android/settings/network/MobilePlanPreferenceController;
 
-    invoke-direct {p3, p0, p4}, Lcom/android/settings/network/MobilePlanPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settings/network/MobilePlanPreferenceController$MobilePlanPreferenceHost;)V
+    invoke-direct {p2, p0, p4}, Lcom/android/settings/network/MobilePlanPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settings/network/MobilePlanPreferenceController$MobilePlanPreferenceHost;)V
 
-    invoke-static {p0}, Lcom/android/settings/Utils;->isProviderModelEnabled(Landroid/content/Context;)Z
+    new-instance p3, Lcom/android/settings/network/InternetPreferenceController;
 
-    move-result p4
+    invoke-direct {p3, p0, p1}, Lcom/android/settings/network/InternetPreferenceController;-><init>(Landroid/content/Context;Landroidx/lifecycle/Lifecycle;)V
 
-    const/4 v0, 0x0
+    new-instance p4, Lcom/android/settings/network/VpnPreferenceController;
 
-    if-eqz p4, :cond_0
+    invoke-direct {p4, p0}, Lcom/android/settings/network/VpnPreferenceController;-><init>(Landroid/content/Context;)V
 
-    move-object p4, v0
+    new-instance v0, Lcom/android/settings/network/PrivateDnsPreferenceController;
 
-    goto :goto_0
+    invoke-direct {v0, p0}, Lcom/android/settings/network/PrivateDnsPreferenceController;-><init>(Landroid/content/Context;)V
 
-    :cond_0
-    new-instance p4, Lcom/android/settings/wifi/WifiPrimarySwitchPreferenceController;
+    if-eqz p1, :cond_0
 
-    invoke-direct {p4, p0, p2}, Lcom/android/settings/wifi/WifiPrimarySwitchPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;)V
-
-    :goto_0
-    invoke-static {p0}, Lcom/android/settings/Utils;->isProviderModelEnabled(Landroid/content/Context;)Z
-
-    move-result p2
-
-    if-eqz p2, :cond_1
-
-    new-instance v0, Lcom/android/settings/network/InternetPreferenceController;
-
-    invoke-direct {v0, p0, p1}, Lcom/android/settings/network/InternetPreferenceController;-><init>(Landroid/content/Context;Landroidx/lifecycle/Lifecycle;)V
-
-    :cond_1
-    new-instance p2, Lcom/android/settings/network/VpnPreferenceController;
-
-    invoke-direct {p2, p0}, Lcom/android/settings/network/VpnPreferenceController;-><init>(Landroid/content/Context;)V
-
-    new-instance v1, Lcom/android/settings/network/PrivateDnsPreferenceController;
-
-    invoke-direct {v1, p0}, Lcom/android/settings/network/PrivateDnsPreferenceController;-><init>(Landroid/content/Context;)V
-
-    if-eqz p1, :cond_3
-
-    invoke-virtual {p1, p3}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
-
-    if-eqz p4, :cond_2
+    invoke-virtual {p1, p2}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
 
     invoke-virtual {p1, p4}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
 
-    :cond_2
-    invoke-virtual {p1, p2}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
+    invoke-virtual {p1, v0}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
 
-    invoke-virtual {p1, v1}, Lcom/android/settingslib/core/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
+    :cond_0
+    new-instance v1, Ljava/util/ArrayList;
 
-    :cond_3
-    new-instance v2, Ljava/util/ArrayList;
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+    new-instance v2, Lcom/android/settings/network/MobileNetworkSummaryController;
 
-    new-instance v3, Lcom/android/settings/network/MobileNetworkSummaryController;
+    invoke-direct {v2, p0, p1}, Lcom/android/settings/network/MobileNetworkSummaryController;-><init>(Landroid/content/Context;Landroidx/lifecycle/Lifecycle;)V
 
-    invoke-direct {v3, p0, p1}, Lcom/android/settings/network/MobileNetworkSummaryController;-><init>(Landroid/content/Context;Landroidx/lifecycle/Lifecycle;)V
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    new-instance v2, Lcom/android/settings/network/TetherPreferenceController;
 
-    new-instance v3, Lcom/android/settings/network/TetherPreferenceController;
+    invoke-direct {v2, p0, p1}, Lcom/android/settings/network/TetherPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
 
-    invoke-direct {v3, p0, p1}, Lcom/android/settings/network/TetherPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    invoke-interface {v2, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, p4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    invoke-interface {v2, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    new-instance p4, Lcom/android/settings/network/ProxyPreferenceController;
 
-    new-instance p2, Lcom/android/settings/network/ProxyPreferenceController;
+    invoke-direct {p4, p0}, Lcom/android/settings/network/ProxyPreferenceController;-><init>(Landroid/content/Context;)V
 
-    invoke-direct {p2, p0}, Lcom/android/settings/network/ProxyPreferenceController;-><init>(Landroid/content/Context;)V
+    invoke-interface {v1, p4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    invoke-interface {v2, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    invoke-interface {v2, p3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, p3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    if-eqz p4, :cond_4
-
-    invoke-interface {v2, p4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    :cond_4
-    if-eqz v0, :cond_5
-
-    invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    :cond_5
-    invoke-interface {v2, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    invoke-static {p0}, Lcom/android/settings/Utils;->isProviderModelEnabled(Landroid/content/Context;)Z
-
-    move-result p2
-
-    if-eqz p2, :cond_6
+    invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     new-instance p2, Lcom/android/settings/network/NetworkProviderCallsSmsController;
 
     invoke-direct {p2, p0, p1}, Lcom/android/settings/network/NetworkProviderCallsSmsController;-><init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
 
-    invoke-interface {v2, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :cond_6
-    return-object v2
+    return-object v1
 .end method
 
 .method private static synthetic lambda$onCreateDialog$0(Lcom/android/settings/network/MobilePlanPreferenceController;Landroid/content/DialogInterface;I)V
@@ -235,7 +190,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a25
+    const p0, 0x7f040a3d
 
     return p0
 .end method
@@ -259,22 +214,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
-
-    move-result-object p0
-
-    invoke-static {p0}, Lcom/android/settings/Utils;->isProviderModelEnabled(Landroid/content/Context;)Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    const p0, 0x7f15009b
-
-    return p0
-
-    :cond_0
-    const p0, 0x7f150099
+    const p0, 0x7f1500a0
 
     return p0
 .end method
@@ -284,27 +224,6 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->onAttach(Landroid/content/Context;)V
 
-    invoke-static {p1}, Lcom/android/settings/Utils;->isProviderModelEnabled(Landroid/content/Context;)Z
-
-    move-result p1
-
-    if-nez p1, :cond_0
-
-    const-class p1, Lcom/android/settings/network/MultiNetworkHeaderController;
-
-    invoke-virtual {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/android/settings/network/MultiNetworkHeaderController;
-
-    invoke-virtual {p0}, Lcom/android/settingslib/core/lifecycle/ObservablePreferenceFragment;->getSettingsLifecycle()Lcom/android/settingslib/core/lifecycle/Lifecycle;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Lcom/android/settings/network/MultiNetworkHeaderController;->init(Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
-
-    :cond_0
     const-class p1, Lcom/android/settings/network/AirplaneModePreferenceController;
 
     invoke-virtual {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->use(Ljava/lang/Class;)Lcom/android/settingslib/core/AbstractPreferenceController;

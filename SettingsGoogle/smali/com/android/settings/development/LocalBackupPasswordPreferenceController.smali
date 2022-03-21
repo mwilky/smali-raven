@@ -18,7 +18,7 @@
 
     invoke-direct {p0, p1}, Lcom/android/settingslib/development/DeveloperOptionsPreferenceController;-><init>(Landroid/content/Context;)V
 
-    const-string v0, "user"
+    const-string/jumbo v0, "user"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -80,14 +80,14 @@
 
     if-eqz p0, :cond_2
 
-    const p0, 0x7f040b5c
+    const p0, 0x7f040b74
 
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSummary(I)V
 
     goto :goto_1
 
     :cond_2
-    const p0, 0x7f040b5d
+    const p0, 0x7f040b75
 
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSummary(I)V
     :try_end_0

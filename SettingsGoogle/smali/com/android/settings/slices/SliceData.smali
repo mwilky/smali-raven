@@ -15,6 +15,8 @@
 # instance fields
 .field private final mFragmentClassName:Ljava/lang/String;
 
+.field private final mHighlightMenuRes:I
+
 .field private final mIconResource:I
 
 .field private final mIsPublicSlice:Z
@@ -112,9 +114,15 @@
 
     invoke-static {p1}, Lcom/android/settings/slices/SliceData$Builder;->access$1100(Lcom/android/settings/slices/SliceData$Builder;)Z
 
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/android/settings/slices/SliceData;->mIsPublicSlice:Z
+
+    invoke-static {p1}, Lcom/android/settings/slices/SliceData$Builder;->access$1200(Lcom/android/settings/slices/SliceData$Builder;)I
+
     move-result p1
 
-    iput-boolean p1, p0, Lcom/android/settings/slices/SliceData;->mIsPublicSlice:Z
+    iput p1, p0, Lcom/android/settings/slices/SliceData;->mHighlightMenuRes:I
 
     return-void
 .end method
@@ -160,6 +168,14 @@
     iget-object p0, p0, Lcom/android/settings/slices/SliceData;->mFragmentClassName:Ljava/lang/String;
 
     return-object p0
+.end method
+
+.method public getHighlightMenuRes()I
+    .locals 0
+
+    iget p0, p0, Lcom/android/settings/slices/SliceData;->mHighlightMenuRes:I
+
+    return p0
 .end method
 
 .method public getIconResource()I

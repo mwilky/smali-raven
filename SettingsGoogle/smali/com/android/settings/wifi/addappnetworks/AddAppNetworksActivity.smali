@@ -4,6 +4,11 @@
 
 
 # instance fields
+.field mActivityManager:Landroid/app/IActivityManager;
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
+
 .field final mBundle:Landroid/os/Bundle;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -22,22 +27,69 @@
 
     iput-object v0, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksActivity;->mBundle:Landroid/os/Bundle;
 
+    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksActivity;->mActivityManager:Landroid/app/IActivityManager;
+
     return-void
 .end method
 
 
 # virtual methods
+.method protected getCallingAppPackageName()Ljava/lang/String;
+    .locals 1
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+
+    :try_start_0
+    iget-object v0, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksActivity;->mActivityManager:Landroid/app/IActivityManager;
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getActivityToken()Landroid/os/IBinder;
+
+    move-result-object p0
+
+    invoke-interface {v0, p0}, Landroid/app/IActivityManager;->getLaunchedFromPackage(Landroid/os/IBinder;)Ljava/lang/String;
+
+    move-result-object p0
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-object p0
+
+    :catch_0
+    const-string p0, "AddAppNetworksActivity"
+
+    const-string v0, "Can not get the package from activity manager"
+
+    invoke-static {p0, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 1
 
     invoke-super {p0, p1}, Landroidx/fragment/app/FragmentActivity;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f060201
+    const p1, 0x7f060208
 
     invoke-virtual {p0, p1}, Landroidx/activity/ComponentActivity;->setContentView(I)V
 
-    invoke-virtual {p0}, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksActivity;->showAddNetworksFragment()V
+    invoke-virtual {p0}, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksActivity;->showAddNetworksFragment()Z
 
+    move-result p1
+
+    if-nez p1, :cond_0
+
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+
+    return-void
+
+    :cond_0
     invoke-virtual {p0}, Landroidx/activity/ComponentActivity;->getLifecycle()Landroidx/lifecycle/Lifecycle;
 
     move-result-object p1
@@ -72,25 +124,49 @@
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setIntent(Landroid/content/Intent;)V
 
-    invoke-virtual {p0}, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksActivity;->showAddNetworksFragment()V
+    invoke-virtual {p0}, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksActivity;->showAddNetworksFragment()Z
 
+    move-result p1
+
+    if-nez p1, :cond_0
+
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+
+    :cond_0
     return-void
 .end method
 
-.method showAddNetworksFragment()V
-    .locals 3
+.method protected showAddNetworksFragment()Z
+    .locals 4
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
-    iget-object v0, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksActivity;->mBundle:Landroid/os/Bundle;
+    invoke-virtual {p0}, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksActivity;->getCallingAppPackageName()Ljava/lang/String;
 
-    invoke-virtual {p0}, Landroid/app/Activity;->getCallingPackage()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    const-string v2, "panel_calling_package_name"
+    move-result v1
 
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    const-string v2, "AddAppNetworksActivity"
+
+    if-eqz v1, :cond_0
+
+    const-string p0, "Package name is null"
+
+    invoke-static {v2, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 p0, 0x0
+
+    return p0
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksActivity;->mBundle:Landroid/os/Bundle;
+
+    const-string v3, "panel_calling_package_name"
+
+    invoke-virtual {v1, v3, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksActivity;->mBundle:Landroid/os/Bundle;
 
@@ -98,41 +174,39 @@
 
     move-result-object v1
 
-    const-string v2, "android.provider.extra.WIFI_NETWORK_LIST"
+    const-string v3, "android.provider.extra.WIFI_NETWORK_LIST"
 
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->getParcelableArrayListExtra(Ljava/lang/String;)Ljava/util/ArrayList;
+    invoke-virtual {v1, v3}, Landroid/content/Intent;->getParcelableArrayListExtra(Ljava/lang/String;)Ljava/util/ArrayList;
 
     move-result-object v1
 
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
+    invoke-virtual {v0, v3, v1}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
 
     invoke-virtual {p0}, Landroidx/fragment/app/FragmentActivity;->getSupportFragmentManager()Landroidx/fragment/app/FragmentManager;
 
     move-result-object v0
 
-    const-string v1, "AddAppNetworksActivity"
+    invoke-virtual {v0, v2}, Landroidx/fragment/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroidx/fragment/app/Fragment;
 
-    invoke-virtual {v0, v1}, Landroidx/fragment/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroidx/fragment/app/Fragment;
+    move-result-object v1
 
-    move-result-object v2
+    if-nez v1, :cond_1
 
-    if-nez v2, :cond_0
+    new-instance v1, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;
 
-    new-instance v2, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;
-
-    invoke-direct {v2}, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;-><init>()V
+    invoke-direct {v1}, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;-><init>()V
 
     iget-object p0, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksActivity;->mBundle:Landroid/os/Bundle;
 
-    invoke-virtual {v2, p0}, Landroidx/fragment/app/Fragment;->setArguments(Landroid/os/Bundle;)V
+    invoke-virtual {v1, p0}, Landroidx/fragment/app/Fragment;->setArguments(Landroid/os/Bundle;)V
 
     invoke-virtual {v0}, Landroidx/fragment/app/FragmentManager;->beginTransaction()Landroidx/fragment/app/FragmentTransaction;
 
     move-result-object p0
 
-    const v0, 0x7f0d033a
+    const v0, 0x7f0d0348
 
-    invoke-virtual {p0, v0, v2, v1}, Landroidx/fragment/app/FragmentTransaction;->add(ILandroidx/fragment/app/Fragment;Ljava/lang/String;)Landroidx/fragment/app/FragmentTransaction;
+    invoke-virtual {p0, v0, v1, v2}, Landroidx/fragment/app/FragmentTransaction;->add(ILandroidx/fragment/app/Fragment;Ljava/lang/String;)Landroidx/fragment/app/FragmentTransaction;
 
     move-result-object p0
 
@@ -140,13 +214,15 @@
 
     goto :goto_0
 
-    :cond_0
-    check-cast v2, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;
+    :cond_1
+    check-cast v1, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;
 
     iget-object p0, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksActivity;->mBundle:Landroid/os/Bundle;
 
-    invoke-virtual {v2, p0}, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->createContent(Landroid/os/Bundle;)V
+    invoke-virtual {v1, p0}, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->createContent(Landroid/os/Bundle;)V
 
     :goto_0
-    return-void
+    const/4 p0, 0x1
+
+    return p0
 .end method

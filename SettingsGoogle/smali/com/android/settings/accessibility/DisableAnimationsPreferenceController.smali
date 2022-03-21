@@ -15,9 +15,9 @@
 .method static constructor <clinit>()V
     .locals 3
 
-    const-string v0, "window_animation_scale"
+    const-string/jumbo v0, "window_animation_scale"
 
-    const-string v1, "transition_animation_scale"
+    const-string/jumbo v1, "transition_animation_scale"
 
     const-string v2, "animator_duration_scale"
 
@@ -83,6 +83,14 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d02
+
+    return p0
 .end method
 
 .method public bridge synthetic hasAsyncUpdate()Z

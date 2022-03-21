@@ -42,7 +42,7 @@
         <item>IPv4/IPv6</item>
     </string-array>
     <string-array name="app_install_location_entries">
-        <item>আভ্যন্তৰীণ ডিভাইচ সঞ্চয়াগাৰ</item>
+        <item>আভ্যন্তৰীণ ডিভাইচ ষ্ট’ৰেজ</item>
         <item>গুচাব পৰা SD কাৰ্ড</item>
         <item>ছিষ্টেমটোক সিদ্ধান্ত ল’বলৈ দিয়ক</item>
     </string-array>
@@ -113,8 +113,8 @@
         <item>শৰীৰৰ ছেন্সৰসমূহ</item>
         <item>চেল সম্প্ৰচাৰবোৰ পঢ়ক</item>
         <item>নকল অৱস্থান</item>
-        <item>সঞ্চয়াগাৰ পঢ়ক</item>
-        <item>সঞ্চয়াগাৰত লিখক</item>
+        <item>ষ্ট’ৰেজত পঢ়ক</item>
+        <item>ষ্ট’ৰেজত লিখক</item>
         <item>স্ক্ৰীন অন কৰক</item>
         <item>একাউণ্টবোৰ বিচাৰক</item>
         <item>নেপথ্যত চলাওক</item>
@@ -180,8 +180,8 @@
         <item>শৰীৰৰ ছেন্সৰসমূহ</item>
         <item>চেল সম্প্ৰচাৰসমূহ পঢ়ক</item>
         <item>নকল অৱস্থান</item>
-        <item>সঞ্চয়াগাৰত পঢ়ক</item>
-        <item>সঞ্চয়াগাৰত লিখক</item>
+        <item>ষ্ট’ৰেজত পঢ়ক</item>
+        <item>ষ্ট’ৰেজত লিখক</item>
         <item>স্ক্ৰীন অন কৰক</item>
         <item>একাউণ্টবোৰ বিচাৰক</item>
         <item>নেপথ্যত চলাওক</item>
@@ -598,14 +598,14 @@
     </string-array>
     <string-array name="select_logpersist_summaries">
         <item>অফ কৰক</item>
-        <item>সকলো লগ বাফাৰ</item>
-        <item>"ৰেডিঅ' লগ বাফাৰৰ বাহিৰে সকলো"</item>
+        <item>আটাইবোৰ লগ বাফাৰ</item>
+        <item>"ৰেডিঅ' লগ বাফাৰৰ বাহিৰে আটাইবোৰ"</item>
         <item>কেৱল কাৰ্ণেল লগ বাফাৰ</item>
     </string-array>
     <string-array name="select_logpersist_titles">
         <item>অফ অৱস্থাত আছে</item>
-        <item>সকলো</item>
-        <item>"ৰেডিঅ'ৰ বাহিৰে সকলো"</item>
+        <item>আটাইবোৰ</item>
+        <item>"ৰেডিঅ'ৰ বাহিৰে আটাইবোৰ"</item>
         <item>কেৱল কাৰ্ণেল</item>
     </string-array>
     <string-array name="show_non_rect_clip_entries">
@@ -632,7 +632,7 @@
         <item>এছিয়া</item>
         <item>অষ্ট্ৰেলিয়া</item>
         <item>প্ৰশান্ত মহাসাগৰীয়</item>
-        <item>সকলো</item>
+        <item>আটাইবোৰ</item>
     </string-array>
     <string-array name="track_frame_time_entries">
         <item>অফ হৈ আছে</item>

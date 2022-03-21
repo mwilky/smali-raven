@@ -106,7 +106,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0415bd
+    const v0, 0x7f0415e2
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -136,7 +136,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const-string v0, "settings_tether_all_in_one"
+    const-string/jumbo v0, "settings_tether_all_in_one"
 
     invoke-static {p0, v0}, Landroid/util/FeatureFlagUtils;->isEnabled(Landroid/content/Context;Ljava/lang/String;)Z
 
@@ -144,12 +144,12 @@
 
     if-eqz p0, :cond_0
 
-    const-string p0, "wifi_tether_network_ap_band_2"
+    const-string/jumbo p0, "wifi_tether_network_ap_band_2"
 
     goto :goto_0
 
     :cond_0
-    const-string p0, "wifi_tether_network_ap_band"
+    const-string/jumbo p0, "wifi_tether_network_ap_band"
 
     :goto_0
     return-object p0
@@ -311,7 +311,7 @@
 
     invoke-virtual {v1, p0}, Landroidx/preference/Preference;->setEnabled(Z)V
 
-    const p0, 0x7f0415ba
+    const p0, 0x7f0415df
 
     invoke-virtual {v1, p0}, Landroidx/preference/Preference;->setSummary(I)V
 

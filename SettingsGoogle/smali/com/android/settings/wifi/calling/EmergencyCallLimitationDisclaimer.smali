@@ -24,7 +24,7 @@
 .method protected getMessageId()I
     .locals 0
 
-    const p0, 0x7f04159a
+    const p0, 0x7f0415bf
 
     return p0
 .end method
@@ -48,7 +48,7 @@
 .method protected getTitleId()I
     .locals 0
 
-    const p0, 0x7f04159b
+    const p0, 0x7f0415c0
 
     return p0
 .end method
@@ -70,7 +70,7 @@
 
     if-ne v0, v1, :cond_0
 
-    const-string v0, "shouldShow: false due to carrier config is default(-1)."
+    const-string/jumbo v0, "shouldShow: false due to carrier config is default(-1)."
 
     invoke-virtual {p0, v0}, Lcom/android/settings/wifi/calling/DisclaimerItem;->logd(Ljava/lang/String;)V
 

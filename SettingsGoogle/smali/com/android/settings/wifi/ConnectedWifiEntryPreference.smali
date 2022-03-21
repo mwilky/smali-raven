@@ -21,7 +21,7 @@
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/settingslib/wifi/LongPressWifiEntryPreference;-><init>(Landroid/content/Context;Lcom/android/wifitrackerlib/WifiEntry;Landroidx/fragment/app/Fragment;)V
 
-    const p1, 0x7f0601b6
+    const p1, 0x7f0601ba
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setWidgetLayoutResource(I)V
 
@@ -35,7 +35,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settingslib/wifi/LongPressWifiEntryPreference;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
 
-    const v0, 0x7f0d04d7
+    const v0, 0x7f0d04e6
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -51,7 +51,7 @@
 
     move-result p0
 
-    const v1, 0x7f0d04d8
+    const v1, 0x7f0d04e7
 
     invoke-virtual {p1, v1}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -85,7 +85,7 @@
     :goto_1
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    const v0, 0x7f0d05e3
+    const v0, 0x7f0d05f3
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -108,7 +108,7 @@
 
     move-result p1
 
-    const v0, 0x7f0d04d7
+    const v0, 0x7f0d04e6
 
     if-ne p1, v0, :cond_0
 

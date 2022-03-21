@@ -49,7 +49,7 @@
 
     invoke-direct {v0}, Lcom/android/settings/sim/smartForwarding/MDNHandlerFragment;-><init>()V
 
-    const v1, 0x7f0d0175
+    const v1, 0x7f0d0179
 
     invoke-virtual {p0, v1, v0}, Landroidx/fragment/app/FragmentTransaction;->replace(ILandroidx/fragment/app/Fragment;)Landroidx/fragment/app/FragmentTransaction;
 
@@ -73,7 +73,7 @@
 .method public onCreatePreferences(Landroid/os/Bundle;Ljava/lang/String;)V
     .locals 0
 
-    const p1, 0x7f1500dd
+    const p1, 0x7f1500e2
 
     invoke-virtual {p0, p1, p2}, Landroidx/preference/PreferenceFragmentCompat;->setPreferencesFromResource(ILjava/lang/String;)V
 
@@ -81,7 +81,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f04127d
+    const p2, 0x7f0412a1
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -97,7 +97,7 @@
 
     invoke-virtual {p2, p1}, Landroid/app/ActionBar;->setTitle(Ljava/lang/CharSequence;)V
 
-    const-string p1, "smart_forwarding_switch"
+    const-string/jumbo p1, "smart_forwarding_switch"
 
     invoke-virtual {p0, p1}, Landroidx/preference/PreferenceFragmentCompat;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -227,7 +227,7 @@
 .method public turnOnSwitchPreference()V
     .locals 1
 
-    const-string v0, "smart_forwarding_switch"
+    const-string/jumbo v0, "smart_forwarding_switch"
 
     invoke-virtual {p0, v0}, Landroidx/preference/PreferenceFragmentCompat;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 

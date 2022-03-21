@@ -230,7 +230,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f040296
+    const p1, 0x7f0402aa
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -243,7 +243,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f040291
+    const p1, 0x7f0402a5
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -256,7 +256,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f040295
+    const p1, 0x7f0402a9
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -269,7 +269,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f040292
+    const p1, 0x7f0402a6
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -427,7 +427,7 @@
 
     invoke-super {p0, p1}, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingBase;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f0d020d
+    const p1, 0x7f0d0212
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -453,7 +453,7 @@
 
     iput-object p1, p0, Lcom/google/android/settings/gestures/assist/AssistGestureTrainingSliderBase;->mFastOutLinearInInterpolator:Landroid/view/animation/Interpolator;
 
-    const p1, 0x7f0d00b0
+    const p1, 0x7f0d00b3
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 

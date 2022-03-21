@@ -49,7 +49,7 @@
 
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    const p2, 0x7f0a0135
+    const p2, 0x7f0a0133
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getColor(I)I
 

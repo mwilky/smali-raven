@@ -31,7 +31,7 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 2
 
-    const v0, 0x7f050427
+    const v0, 0x7f05043b
 
     const v1, 0x101036d
 
@@ -147,7 +147,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f040728
+    const v0, 0x7f040740
 
     invoke-virtual {p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -193,7 +193,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f04125f
+    const v2, 0x7f041283
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -215,7 +215,7 @@
     move-result-object v1
 
     :goto_0
-    const v2, 0x7f041234
+    const v2, 0x7f041258
 
     invoke-virtual {p1, v2}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -223,7 +223,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f041232
+    const v3, 0x7f041256
 
     const/4 v4, 0x2
 
@@ -265,11 +265,11 @@
 
     invoke-virtual {p1, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroidx/appcompat/app/AlertDialog$Builder;
 
-    const p0, 0x7f040ea1
+    const p0, 0x7f040ecc
 
     invoke-virtual {p1, p0, p2}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
-    const p0, 0x7f04054c
+    const p0, 0x7f040564
 
     invoke-virtual {p1, p0, v6}, Landroidx/appcompat/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 

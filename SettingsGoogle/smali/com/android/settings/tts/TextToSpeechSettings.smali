@@ -99,7 +99,7 @@
 
     new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
 
-    const v1, 0x7f1500f9
+    const v1, 0x7f1500fe
 
     invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
 
@@ -299,7 +299,7 @@
 
     move-result-object p0
 
-    const v2, 0x7f0413f5
+    const v2, 0x7f04141a
 
     invoke-virtual {p0, v2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -578,7 +578,7 @@
 
     :catch_0
     :cond_1
-    const v0, 0x7f0413f4
+    const v0, 0x7f041419
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -641,7 +641,7 @@
 
     move-result-object v2
 
-    const-string v3, "variant"
+    const-string/jumbo v3, "variant"
 
     invoke-virtual {v1, v3, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
@@ -686,7 +686,7 @@
 .method private getSeekBarProgressFromValue(Ljava/lang/String;I)I
     .locals 0
 
-    const-string p0, "tts_default_rate"
+    const-string/jumbo p0, "tts_default_rate"
 
     invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -699,7 +699,7 @@
     return p2
 
     :cond_0
-    const-string p0, "tts_default_pitch"
+    const-string/jumbo p0, "tts_default_pitch"
 
     invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -716,7 +716,7 @@
 .method private getValueFromSeekBarProgress(Ljava/lang/String;I)I
     .locals 0
 
-    const-string p0, "tts_default_rate"
+    const-string/jumbo p0, "tts_default_rate"
 
     invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -729,7 +729,7 @@
     return p2
 
     :cond_0
-    const-string p0, "tts_default_pitch"
+    const-string/jumbo p0, "tts_default_pitch"
 
     invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -750,7 +750,7 @@
 
     move-result-object v0
 
-    const-string v1, "tts_default_rate"
+    const-string/jumbo v1, "tts_default_rate"
 
     const/16 v2, 0x64
 
@@ -760,7 +760,7 @@
 
     iput v3, p0, Lcom/android/settings/tts/TextToSpeechSettings;->mDefaultRate:I
 
-    const-string v3, "tts_default_pitch"
+    const-string/jumbo v3, "tts_default_pitch"
 
     invoke-static {v0, v3, v2}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
@@ -893,7 +893,7 @@
 
     move-result-object v0
 
-    const-string v1, "tts_engine_preference"
+    const-string/jumbo v1, "tts_engine_preference"
 
     invoke-virtual {p0, v1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -1126,7 +1126,7 @@
 
     move-result-object v2
 
-    const-string v3, "tts_default_synth"
+    const-string/jumbo v3, "tts_default_synth"
 
     invoke-static {v2, v3, v0}, Landroid/provider/Settings$Secure;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
@@ -1166,7 +1166,7 @@
 .method private resetTts()V
     .locals 3
 
-    const-string v0, "tts_default_rate"
+    const-string/jumbo v0, "tts_default_rate"
 
     const/16 v1, 0x64
 
@@ -1180,7 +1180,7 @@
 
     invoke-direct {p0, v0}, Lcom/android/settings/tts/TextToSpeechSettings;->updateSpeechRate(I)V
 
-    const-string v0, "tts_default_pitch"
+    const-string/jumbo v0, "tts_default_pitch"
 
     invoke-direct {p0, v0, v1}, Lcom/android/settings/tts/TextToSpeechSettings;->getSeekBarProgressFromValue(Ljava/lang/String;I)I
 
@@ -1208,7 +1208,7 @@
 
     iget-object p0, p0, Lcom/android/settings/tts/TextToSpeechSettings;->mLocalePreference:Landroidx/preference/ListPreference;
 
-    const p1, 0x7f041404
+    const p1, 0x7f041429
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -1292,7 +1292,7 @@
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    const-string v1, "utteranceId"
+    const-string/jumbo v1, "utteranceId"
 
     const-string v2, "Sample"
 
@@ -1337,7 +1337,7 @@
 
     move-result-object v0
 
-    const-string v1, "unavailableVoices"
+    const-string/jumbo v1, "unavailableVoices"
 
     invoke-virtual {p1, v1}, Landroid/content/Intent;->getStringArrayListExtra(Ljava/lang/String;)Ljava/util/ArrayList;
 
@@ -1480,7 +1480,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f041405
+    const v6, 0x7f04142a
 
     invoke-virtual {v5, v6}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1637,7 +1637,7 @@
 
     const-string p0, "TextToSpeechSettings"
 
-    const-string p1, "updateLanguageTo called with unknown locale argument"
+    const-string/jumbo p1, "updateLanguageTo called with unknown locale argument"
 
     invoke-static {p0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -1686,7 +1686,7 @@
 .method private updateSpeechPitchValue(I)V
     .locals 1
 
-    const-string v0, "tts_default_pitch"
+    const-string/jumbo v0, "tts_default_pitch"
 
     invoke-direct {p0, v0, p1}, Lcom/android/settings/tts/TextToSpeechSettings;->getValueFromSeekBarProgress(Ljava/lang/String;I)I
 
@@ -1732,7 +1732,7 @@
 .method private updateSpeechRate(I)V
     .locals 1
 
-    const-string v0, "tts_default_rate"
+    const-string/jumbo v0, "tts_default_rate"
 
     invoke-direct {p0, v0, p1}, Lcom/android/settings/tts/TextToSpeechSettings;->getValueFromSeekBarProgress(Ljava/lang/String;I)I
 
@@ -1866,7 +1866,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f1500f9
+    const v0, 0x7f1500fe
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -1892,7 +1892,7 @@
 
     iput-object v0, p0, Lcom/android/settings/tts/TextToSpeechSettings;->mEnginesHelper:Landroid/speech/tts/TtsEngines;
 
-    const-string v0, "tts_default_lang"
+    const-string/jumbo v0, "tts_default_lang"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -1904,7 +1904,7 @@
 
     invoke-virtual {v0, p0}, Landroidx/preference/Preference;->setOnPreferenceChangeListener(Landroidx/preference/Preference$OnPreferenceChangeListener;)V
 
-    const-string v0, "tts_default_pitch"
+    const-string/jumbo v0, "tts_default_pitch"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -1914,7 +1914,7 @@
 
     iput-object v0, p0, Lcom/android/settings/tts/TextToSpeechSettings;->mDefaultPitchPref:Lcom/android/settings/widget/SeekBarPreference;
 
-    const-string v0, "tts_default_rate"
+    const-string/jumbo v0, "tts_default_rate"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -1932,7 +1932,7 @@
 
     check-cast v0, Lcom/android/settingslib/widget/ActionButtonsPreference;
 
-    const v1, 0x7f041406
+    const v1, 0x7f04142b
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/ActionButtonsPreference;->setButton1Text(I)Lcom/android/settingslib/widget/ActionButtonsPreference;
 
@@ -1952,7 +1952,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f041409
+    const v2, 0x7f04142e
 
     invoke-virtual {v0, v2}, Lcom/android/settingslib/widget/ActionButtonsPreference;->setButton2Text(I)Lcom/android/settingslib/widget/ActionButtonsPreference;
 
@@ -1982,7 +1982,7 @@
 
     move-result-object v0
 
-    const-string v3, "user"
+    const-string/jumbo v3, "user"
 
     invoke-virtual {v0, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -2118,7 +2118,7 @@
 
     move-result-object v0
 
-    const-string v1, "tts_engine_preference"
+    const-string/jumbo v1, "tts_engine_preference"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -2151,7 +2151,7 @@
     :cond_0
     const-string v0, "TextToSpeechSettings"
 
-    const-string v1, "settingsIntent is null"
+    const-string/jumbo v1, "settingsIntent is null"
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -2203,7 +2203,7 @@
 
     move-result-object v0
 
-    const-string v1, "tts_default_rate"
+    const-string/jumbo v1, "tts_default_rate"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -2228,7 +2228,7 @@
 
     move-result-object v0
 
-    const-string v2, "tts_default_pitch"
+    const-string/jumbo v2, "tts_default_pitch"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -2405,7 +2405,7 @@
 
     const/16 v2, 0x64
 
-    const-string v3, "tts_default_pitch"
+    const-string/jumbo v3, "tts_default_pitch"
 
     invoke-static {v0, v3, v2}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 

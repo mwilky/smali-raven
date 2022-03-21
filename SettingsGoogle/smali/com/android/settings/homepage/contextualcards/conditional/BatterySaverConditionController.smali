@@ -99,7 +99,7 @@
 
     iget-object v1, p0, Lcom/android/settings/homepage/contextualcards/conditional/BatterySaverConditionController;->mAppContext:Landroid/content/Context;
 
-    const v2, 0x7f040620
+    const v2, 0x7f040638
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -127,7 +127,7 @@
 
     iget-object v2, p0, Lcom/android/settings/homepage/contextualcards/conditional/BatterySaverConditionController;->mAppContext:Landroid/content/Context;
 
-    const v3, 0x7f04060e
+    const v3, 0x7f040626
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -159,7 +159,7 @@
 
     iget-object v1, p0, Lcom/android/settings/homepage/contextualcards/conditional/BatterySaverConditionController;->mAppContext:Landroid/content/Context;
 
-    const v2, 0x7f04060d
+    const v2, 0x7f040625
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -175,7 +175,7 @@
 
     iget-object p0, p0, Lcom/android/settings/homepage/contextualcards/conditional/BatterySaverConditionController;->mAppContext:Landroid/content/Context;
 
-    const v1, 0x7f020188
+    const v1, 0x7f02018f
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -185,7 +185,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f06008b
+    const v0, 0x7f06008d
 
     invoke-virtual {p0, v0}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->setViewType(I)Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;
 
@@ -271,7 +271,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f040383
+    const p1, 0x7f040398
 
     invoke-virtual {p0, p1}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 

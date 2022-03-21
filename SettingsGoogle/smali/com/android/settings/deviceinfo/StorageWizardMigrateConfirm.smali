@@ -56,7 +56,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/deviceinfo/StorageWizardBase;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f060220
+    const p1, 0x7f060228
 
     invoke-virtual {p0, p1}, Lcom/android/settings/deviceinfo/StorageWizardBase;->setContentView(I)V
 
@@ -90,11 +90,11 @@
     goto :goto_0
 
     :cond_1
-    const p1, 0x7f02037d
+    const p1, 0x7f020384
 
     invoke-virtual {p0, p1}, Lcom/android/settings/deviceinfo/StorageWizardBase;->setIcon(I)V
 
-    const p1, 0x7f04133b
+    const p1, 0x7f041360
 
     new-array v0, v0, [Ljava/lang/CharSequence;
 
@@ -108,7 +108,7 @@
 
     invoke-virtual {p0, p1, v0}, Lcom/android/settings/deviceinfo/StorageWizardBase;->setHeaderText(I[Ljava/lang/CharSequence;)V
 
-    const p1, 0x7f040cce
+    const p1, 0x7f040ce6
 
     new-array v0, v2, [Ljava/lang/CharSequence;
 
@@ -134,13 +134,13 @@
 
     invoke-virtual {p1, v0}, Landroid/os/AsyncTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    const p1, 0x7f041339
+    const p1, 0x7f04135e
 
     new-array v0, v2, [Ljava/lang/CharSequence;
 
     invoke-virtual {p0, p1, v0}, Lcom/android/settings/deviceinfo/StorageWizardBase;->setBackButtonText(I[Ljava/lang/CharSequence;)V
 
-    const p1, 0x7f04133a
+    const p1, 0x7f04135f
 
     new-array v0, v2, [Ljava/lang/CharSequence;
 
@@ -281,7 +281,7 @@
 
     invoke-static {v3, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const p1, 0x7f041341
+    const p1, 0x7f041366
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -385,7 +385,7 @@
     return-void
 
     :catch_0
-    const p1, 0x7f040208
+    const p1, 0x7f04021c
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -404,7 +404,7 @@
     :catch_1
     move-exception p1
 
-    const-string v0, "storage"
+    const-string/jumbo v0, "storage"
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

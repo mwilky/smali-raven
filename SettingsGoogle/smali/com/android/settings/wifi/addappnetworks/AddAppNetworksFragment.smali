@@ -326,7 +326,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->mLayoutView:Landroid/view/View;
 
-    const p2, 0x7f0d0099
+    const p2, 0x7f0d009c
 
     invoke-virtual {p0, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -344,7 +344,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->mLayoutView:Landroid/view/View;
 
-    const v1, 0x7f0d00a1
+    const v1, 0x7f0d00a4
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -448,12 +448,12 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0415a9
+    const v0, 0x7f0415ce
 
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f0415a5
+    const v0, 0x7f0415ca
 
     :goto_0
     const/4 v1, 0x1
@@ -478,12 +478,12 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0415aa
+    const v0, 0x7f0415cf
 
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f0415a6
+    const v0, 0x7f0415cb
 
     :goto_0
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
@@ -976,7 +976,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->mLayoutView:Landroid/view/View;
 
-    const v0, 0x7f0d04f1
+    const v0, 0x7f0d0500
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1079,9 +1079,9 @@
 
     move-result v0
 
-    const v2, 0x7f0d03be
+    const v2, 0x7f0d03cc
 
-    const v3, 0x7f0d04fb
+    const v3, 0x7f0d050a
 
     const/4 v4, 0x1
 
@@ -1111,7 +1111,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->mLayoutView:Landroid/view/View;
 
-    const v2, 0x7f0d04fc
+    const v2, 0x7f0d050b
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1162,7 +1162,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->mLayoutView:Landroid/view/View;
 
-    const v1, 0x7f0d016a
+    const v1, 0x7f0d016e
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1174,7 +1174,7 @@
 
     iget-object v2, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->mActivity:Landroidx/fragment/app/FragmentActivity;
 
-    const v3, 0x7f060184
+    const v3, 0x7f060188
 
     iget-object v4, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->mUiToRequestedList:Ljava/util/List;
 
@@ -1413,7 +1413,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "}"
+    const-string/jumbo v2, "}"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1481,7 +1481,7 @@
 
     iput-object v0, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->mWifiPickerTracker:Lcom/android/wifitrackerlib/WifiPickerTracker;
 
-    const v0, 0x7f0602a4
+    const v0, 0x7f0602b0
 
     const/4 v1, 0x0
 
@@ -1533,7 +1533,7 @@
 
     iput-object p1, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->mLayoutView:Landroid/view/View;
 
-    const p2, 0x7f0d0133
+    const p2, 0x7f0d0137
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1543,7 +1543,7 @@
 
     iput-object p2, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->mCancelButton:Landroid/widget/Button;
 
-    const p2, 0x7f0d04a7
+    const p2, 0x7f0d04b5
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1553,7 +1553,7 @@
 
     iput-object p2, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->mSaveButton:Landroid/widget/Button;
 
-    const p2, 0x7f0d009f
+    const p2, 0x7f0d00a2
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1563,7 +1563,7 @@
 
     iput-object p2, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->mSummaryView:Landroid/widget/TextView;
 
-    const p2, 0x7f0d04fd
+    const p2, 0x7f0d050c
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1738,7 +1738,7 @@
     :cond_0
     iget-boolean p1, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->mIsSingleNetwork:Z
 
-    const v0, 0x7f0415a2
+    const v0, 0x7f0415c7
 
     const v1, 0x1010543
 
@@ -1792,7 +1792,7 @@
 
     iget-object p1, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->mSingleNetworkProcessingStatusView:Landroid/widget/TextView;
 
-    const v0, 0x7f0415a7
+    const v0, 0x7f0415cc
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1805,7 +1805,7 @@
     :cond_3
     iget-object p1, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->mSummaryView:Landroid/widget/TextView;
 
-    const v0, 0x7f0415a3
+    const v0, 0x7f0415c8
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1836,7 +1836,7 @@
 
     iget-object p1, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->mSingleNetworkProcessingStatusView:Landroid/widget/TextView;
 
-    const v0, 0x7f0415a8
+    const v0, 0x7f0415cd
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1863,7 +1863,7 @@
 
     iget-object p1, p0, Lcom/android/settings/wifi/addappnetworks/AddAppNetworksFragment;->mSummaryView:Landroid/widget/TextView;
 
-    const v2, 0x7f0415a4    # 1.7557046E38f
+    const v2, 0x7f0415c9
 
     new-array v0, v0, [Ljava/lang/Object;
 

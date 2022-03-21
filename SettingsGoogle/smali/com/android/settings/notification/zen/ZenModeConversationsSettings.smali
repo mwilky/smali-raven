@@ -17,7 +17,7 @@
 
     new-instance v0, Lcom/android/settings/notification/zen/ZenModeConversationsSettings$1;
 
-    const v1, 0x7f15011e
+    const v1, 0x7f150123
 
     invoke-direct {v0, v1}, Lcom/android/settings/notification/zen/ZenModeConversationsSettings$1;-><init>(I)V
 
@@ -71,7 +71,7 @@
 
     new-instance v1, Lcom/android/settings/notification/zen/ZenModeConversationsImagePreferenceController;
 
-    const-string v2, "zen_mode_conversations_image"
+    const-string/jumbo v2, "zen_mode_conversations_image"
 
     invoke-direct {v1, p0, v2, p1, p2}, Lcom/android/settings/notification/zen/ZenModeConversationsImagePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;Lcom/android/settingslib/core/lifecycle/Lifecycle;Lcom/android/settings/notification/NotificationBackend;)V
 
@@ -79,7 +79,7 @@
 
     new-instance v1, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;
 
-    const-string v2, "zen_mode_conversations_radio_buttons"
+    const-string/jumbo v2, "zen_mode_conversations_radio_buttons"
 
     invoke-direct {v1, p0, v2, p1, p2}, Lcom/android/settings/notification/zen/ZenModePriorityConversationsPreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;Lcom/android/settingslib/core/lifecycle/Lifecycle;Lcom/android/settings/notification/NotificationBackend;)V
 
@@ -127,7 +127,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15011e
+    const p0, 0x7f150123
 
     return p0
 .end method

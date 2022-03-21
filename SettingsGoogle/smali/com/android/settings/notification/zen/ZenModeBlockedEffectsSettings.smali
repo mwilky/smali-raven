@@ -13,7 +13,7 @@
 
     new-instance v0, Lcom/android/settings/notification/zen/ZenModeBlockedEffectsSettings$1;
 
-    const v1, 0x7f15011b
+    const v1, 0x7f150120
 
     invoke-direct {v0, v1}, Lcom/android/settings/notification/zen/ZenModeBlockedEffectsSettings$1;-><init>(I)V
 
@@ -60,7 +60,7 @@
 
     new-instance v8, Lcom/android/settings/notification/zen/ZenModeVisEffectPreferenceController;
 
-    const-string v4, "zen_effect_intent"
+    const-string/jumbo v4, "zen_effect_intent"
 
     const/4 v5, 0x4
 
@@ -80,7 +80,7 @@
 
     new-instance v1, Lcom/android/settings/notification/zen/ZenModeVisEffectPreferenceController;
 
-    const-string v12, "zen_effect_light"
+    const-string/jumbo v12, "zen_effect_light"
 
     const/16 v13, 0x8
 
@@ -100,7 +100,7 @@
 
     new-instance v1, Lcom/android/settings/notification/zen/ZenModeVisEffectPreferenceController;
 
-    const-string v5, "zen_effect_peek"
+    const-string/jumbo v5, "zen_effect_peek"
 
     const/16 v6, 0x10
 
@@ -130,7 +130,7 @@
 
     aput v3, v15, v2
 
-    const-string v12, "zen_effect_status"
+    const-string/jumbo v12, "zen_effect_status"
 
     const/16 v13, 0x20
 
@@ -144,7 +144,7 @@
 
     new-instance v1, Lcom/android/settings/notification/zen/ZenModeVisEffectPreferenceController;
 
-    const-string v5, "zen_effect_badge"
+    const-string/jumbo v5, "zen_effect_badge"
 
     const/16 v6, 0x40
 
@@ -160,7 +160,7 @@
 
     new-instance v1, Lcom/android/settings/notification/zen/ZenModeVisEffectPreferenceController;
 
-    const-string v12, "zen_effect_ambient"
+    const-string/jumbo v12, "zen_effect_ambient"
 
     const/16 v13, 0x80
 
@@ -176,7 +176,7 @@
 
     new-instance v1, Lcom/android/settings/notification/zen/ZenModeVisEffectPreferenceController;
 
-    const-string v5, "zen_effect_list"
+    const-string/jumbo v5, "zen_effect_list"
 
     const/16 v6, 0x100
 
@@ -228,7 +228,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15011b
+    const p0, 0x7f150120
 
     return p0
 .end method

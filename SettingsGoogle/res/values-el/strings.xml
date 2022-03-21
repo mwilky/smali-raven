@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Smooth Display</string>
     <string name="peak_refresh_rate_summary">Αυξάνει αυτόματα τον ρυθμό ανανέωσης από τα 60 στα 90 Hz για ορισμένο περιεχόμενο. Αυξάνει τη χρήση της μπαταρίας.</string>
     <string name="accessibility_vibration_settings_title">Δόνηση και απτική λειτουργία</string>
+    <string name="columbus_title">Γρήγορο πάτημα για έναρξη ενεργειών</string>
     <string name="emergency_gesture_screen_title">Έκτακτη ανάγκη SOS</string>
     <string name="abc_action_mode_done">Τέλος</string>
     <string name="vibrate_for_calls_category_title">Κλήσεις</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Εμφάνιση στοιχείων ελέγχου συσκευής</string>
     <string name="lockscreen_privacy_wallet_summary">Επιτρέψτε την πρόσβαση στο πορτοφόλι από την οθόνη κλειδώματος και τις γρήγορες ρυθμίσεις</string>
     <string name="lockscreen_privacy_controls_summary">Πρόσβαση στα στοιχεία ελέγχου κατά το κλείδωμα</string>
+    <string name="lockscreen_double_line_clock_summary">Εμφάνιση ρολογιού διπλής γραμμής όταν είναι διαθέσιμο</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Ρολόι διπλής γραμμής</string>
     <string name="abc_activity_chooser_view_see_all">Εμφάνιση όλων</string>
     <string name="abc_activitychooserview_choose_application">Επιλέξτε μια εφαρμογή</string>
     <string name="abc_capital_off">ΑΠΕΝΕΡΓΟΠΟΙΗΣΗ</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Δόνηση ξυπνητηριού</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Ρύθμιση Active Edge. Μεταβείτε στην επόμενη οθόνη ή συνεχίστε την προσαρμογή.</string>
     <string name="accessibility_audio_adjustment_title">Προσαρμογή ήχου</string>
+    <string name="accessibility_autoclick_about_title">Πληροφ. αυτόμ. κλικ (χρ. παραμονής)</string>
     <string name="accessibility_autoclick_custom_title">Προσαρμογή</string>
     <string name="accessibility_autoclick_default_title">Απενεργοποιημένο</string>
     <string name="accessibility_autoclick_description">Το αυτόματο κλικ λειτουργεί με ένα συνδεδεμένο ποντίκι. Μπορείτε να ρυθμίσετε τον δείκτη του ποντικιού να κάνει κλικ αυτόματα όταν σταματάει να κινείται για ένα συγκεκριμένο χρονικό διάστημα.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Μάθετε περισσότερα σχετικά με το αυτόματο κλικ (χρόνος παραμονής)</string>
     <string name="accessibility_autoclick_long_summary">1 δευτερόλεπτο</string>
     <string name="accessibility_autoclick_long_title">Μεγάλο</string>
     <string name="accessibility_autoclick_longer_desc">Πιο παρατεταμένη</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Σύντομο</string>
     <string name="accessibility_autoclick_shorter_desc">Πιο σύντομη</string>
     <string name="accessibility_banner_message_dismiss">Παράβλεψη</string>
-    <string name="accessibility_button_description">"Αποκτήστε γρήγορα πρόσβαση σε λειτουργίες προσβασιμότητας από οποιαδήποτε οθόνη. 
+    <string name="accessibility_button_about_title">Σχετικά με το κουμπί προσβασιμότ.</string>
+    <string name="accessibility_button_description">"Αποκτήστε γρήγορα πρόσβαση σε λειτουργίες προσβασιμότητας από οποιαδήποτε οθόνη.
 
 Για να ξεκινήσετε, μεταβείτε στις ρυθμίσεις προσβασιμότητας και επιλέξτε μια λειτουργία. Πατήστε τη συντόμευση και επιλέξτε το κουμπί προσβασιμότητας."</string>
     <string name="accessibility_button_fade_summary">Εξαφανίζεται σταδιακά μετά από λίγα δευτερ. για να βλέπετε πιο εύκολα την οθόνη</string>
     <string name="accessibility_button_fade_title">Εξαφαν. σταδιακά όταν δεν χρησιμοπ.</string>
+    <string name="accessibility_button_gesture_about_title">Σχετικά με το κουμπί και την κίνηση προσβασιμότητας</string>
     <string name="accessibility_button_gesture_description">"Αποκτήστε γρήγορα πρόσβαση σε λειτουργίες προσβασιμότητας από οποιαδήποτε οθόνη.
 
-Για να ξεκινήσετε, μεταβείτε στις ρυθμίσεις προσβασιμότητας και επιλέξτε μια λειτουργία. Πατήστε τη συντόμευση και επιλέξτε το κουμπί προσβασιμότητας.
-
-Για να χρησιμοποιήσετε το κουμπί προσβασιμότητας της γραμμής πλοήγησης, αλλάξτε σε πλοήγηση με 2 ή 3 κουμπιά."</string>
+Για να ξεκινήσετε, μεταβείτε στις ρυθμίσεις προσβασιμότητας και επιλέξτε μια λειτουργία. Πατήστε τη συντόμευση και επιλέξτε το κουμπί ή την κίνηση προσβασιμότητας."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Μάθετε περισσότερα για το κουμπί και την κίνηση προσβασιμότητας</string>
     <string name="accessibility_button_gesture_title">Κουμπί και κίνηση προσβασιμότητας</string>
     <string name="accessibility_button_high_label">Μη διαφανές</string>
     <string name="accessibility_button_intro">Χρήση του κουμπιού προσβασιμότητας. Η κίνηση δεν είναι διαθέσιμη με Πλοήγηση με τρία κουμπιά.</string>
@@ -184,14 +190,23 @@
     <string name="accessibility_caption_preference_summary">Δεν υποστηρίζουν όλες οι εφαρμογές αυτές τις προτιμήσεις υποτίτλων</string>
     <string name="accessibility_caption_primary_switch_summary">Μόνο για την υποστηριζόμενη εφαρμογή.</string>
     <string name="accessibility_caption_primary_switch_title">Εμφάνιση υποτίτλων</string>
+    <string name="accessibility_captioning_about_title">Σχετικά με τις προτιμήσεις υποτίτλων</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Μάθετε περισσότερα σχετικά με τις προτιμήσεις υποτίτλων</string>
     <string name="accessibility_captioning_title">Προτιμήσεις υπότιτλων</string>
     <string name="accessibility_category_personal">Λογαριασμοί προσωπικών προφίλ</string>
     <string name="accessibility_category_work">Λογαριασμοί προφίλ εργασίας - %s</string>
+    <string name="accessibility_color_inversion_about_title">Σχετικά με την αντιστροφή χρωμάτων</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Μάθετε περισσότερα σχετικά με την αντιστροφή χρωμάτων</string>
+    <string name="accessibility_control_timeout_about_title">Σχετικά με την ώρα εκτέλεσης ενεργειών (χρονικό όριο προσβασιμ.)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Μάθετε περισσότερα σχετικά με την ώρα εκτέλεσης ενεργειών (χρονικό όριο προσβασιμότητας)</string>
     <string name="accessibility_control_timeout_preference_summary">"Επιλέξτε το χρονικό διάστημα για το οποίο θέλετε να εμφανίζονται τα μηνύματα που σας ζητούν να προβείτε σε κάποια ενέργεια, αλλά τα οποία είναι ορατά μόνο προσωρινά.
 
 Αυτή η ρύθμιση δεν υποστηρίζεται από όλες τις εφαρμογές."</string>
     <string name="accessibility_control_timeout_preference_title">Ώρα για την εκτέλεση ενεργειών</string>
+    <string name="accessibility_daltonizer_about_title">Σχετικά με τη διόρθωση χρωμάτων</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Μάθετε περισσότερα σχετικά με τη διόρθωση χρωμάτων</string>
     <string name="accessibility_daltonizer_primary_switch_title">Χρήση διόρθωσης χρωμάτων</string>
+    <string name="accessibility_daltonizer_shortcut_title">Συντόμευση διόρθωσης χρωμάτων</string>
     <string name="accessibility_data_one_bar">Μία γραμμή δεδομένων.</string>
     <string name="accessibility_data_signal_full">Πλήρες σήμα δεδομένων.</string>
     <string name="accessibility_data_three_bars">Τρεις γραμμές δεδομένων.</string>
@@ -206,6 +221,7 @@
     <string name="accessibility_display_daltonizer_preference_title">Διόρθωση χρωμάτων</string>
     <string name="accessibility_display_inversion_preference_subtitle">Η αντιστροφή χρωμάτων μετατρέπει τις ανοιχτόχρωμες οθόνες σε σκουρόχρωμες.&lt;br/>&lt;br/> Σημείωση: &lt;ol> &lt;li> Η αντιστροφή χρωμάτων μετατρέπει επίσης τις σκουρόχρωμες οθόνες σε ανοιχτόχρωμες.&lt;/li> &lt;li> Τα χρώματα θα αλλάξουν στα πολυμέσα και τις εικόνες.&lt;/li> &lt;li> Το Σκούρο θέμα μπορεί να χρησιμοποιηθεί για την προβολή ενός σκουρόχρωμου παρασκηνίου. Το σκούρο θέμα λειτουργεί με υποστηριζόμενες εφαρμογές. Η αντιστροφή χρωμάτων λειτουργεί σε όλες τις εφαρμογές.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Αντιστροφή χρωμάτων</string>
+    <string name="accessibility_display_inversion_shortcut_title">Συντόμευση αντιστροφής χρωμάτων</string>
     <string name="accessibility_display_inversion_switch_title">Χρήση αντιστροφής χρωμάτων</string>
     <string name="accessibility_ethernet_connected">Ethernet.</string>
     <string name="accessibility_ethernet_disconnected">Το Ethernet αποσυνδέθηκε.</string>
@@ -255,6 +271,8 @@
     <string name="accessibility_phone_two_bars">Δύο γραμμές τηλεφώνου.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Τερματ. κλήσης με κουμπί λειτουργίας</string>
     <string name="accessibility_preference_magnification_summary">Μεγέθυνση στην οθόνη</string>
+    <string name="accessibility_screen_magnification_about_title">Σχετικά με τη μεγιστοποίηση</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Μάθετε περισσότερα σχετικά με τη μεγιστοποίηση</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">Η κίνηση προσβασιμότητας ορίστηκε στην υπηρεσία %1$s. Για να χρησιμοποιήσετε τη μεγιστοποίηση, σύρετε παρατεταμένα προς τα επάνω με δύο δάχτυλα από το κάτω μέρος της οθόνης και μην τα απομακρύνετε από την οθόνη. Στη συνέχεια, επιλέξτε μεγιστοποίηση.</string>
     <string name="accessibility_screen_magnification_gestures_title">Μεγέθ. με 3πλό πάτημα</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">Το κουμπί Προσβασιμότητας έχει οριστεί σε %1$s. Για να χρησιμοποιήσετε τη μεγέθυνση, αγγίξτε παρατεταμένα το κουμπί Προσβασιμότητας και έπειτα επιλέξτε να κάνετε μεγέθυνση.</string>
@@ -272,6 +290,7 @@
 Δεν μπορείτε να κάνετε μεγέθυνση στο πληκτρολόγιο ή τη γραμμή πλοήγησης."</string>
     <string name="accessibility_screen_magnification_navbar_title">Συντόμ. μεγέθυνσης</string>
     <string name="accessibility_screen_magnification_short_summary">Πατήστε 3 φορές για εστίαση</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Συντόμευση μεγιστοποίησης</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Μεγέθυνση με συντόμευση και τριπλό πάτημα</string>
     <string name="accessibility_screen_magnification_summary">Μεγεθύνετε γρήγορα την οθόνη προκειμένου το περιεχόμενο να εμφανίζεται μεγαλύτερο.&lt;br/>&lt;br/> &lt;b>Για μεγέθυνση:&lt;/b>&lt;br/> {0,number,integer}. Χρησιμοποιήστε τη συντόμευση για να ξεκινήσετε τη μεγιστοποίηση&lt;br/> {1,number,integer}. Πατήστε την οθόνη&lt;br/> {2,number,integer}. Σύρετε 2 δάχτυλα για να μετακινηθείτε στην οθόνη&lt;br/> {3,number,integer}. Πλησιάστε δύο δάχτυλα μεταξύ τους για προσαρμογή της εστίασης&lt;br/> {4,number,integer}. Χρησιμοποιήσετε τη συντόμευση για να διακόψετε τη μεγιστοποίηση&lt;br/>&lt;br/> &lt;b>Για προσωρινή μεγέθυνση:&lt;/b>&lt;br/> {0,number,integer}. Χρησιμοποιήστε τη συντόμευση για να ξεκινήσετε τη μεγιστοποίηση&lt;br/> {1,number,integer}. Αγγίξτε παρατεταμένα οπουδήποτε στην οθόνη&lt;br/> {2,number,integer}. Σύρετε το δάχτυλό σας για να μετακινηθείτε στην οθόνη&lt;br/> {3,number,integer}. Σηκώστε το δάχτυλό σας για διακοπή της μεγιστοποίησης.</string>
     <string name="accessibility_screen_magnification_title">Μεγιστοποίηση</string>
@@ -370,7 +389,7 @@
     <string name="accessibility_tutorial_dialog_message_volume">Για να χρησιμοποιήσετε αυτήν τη λειτουργία, πιέστε παρατεταμένα και τα δύο πλήκτρα έντασης ήχου.</string>
     <string name="accessibility_tutorial_dialog_title_button">Χρήση κουμπιού προσβασιμότητας για άνοιγμα</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Χρήση κίνησης για άνοιγμα</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Χρήση της νέας κίνησης προσβασιμότητας</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Χρήση κίνησης προσβασιμότητας</string>
     <string name="accessibility_tutorial_dialog_title_triple">Πατήστε τρεις φορές για να ανοίξει η οθόνη</string>
     <string name="accessibility_tutorial_dialog_title_volume">Παρατεταμένο πάτημα πλήκτρων έντασης για άνοιγμα</string>
     <string name="accessibility_tutorial_pager">Σελίδα %1$d από %2$d</string>
@@ -936,6 +955,7 @@
     <string name="battery_level_title">Επίπεδο μπαταρίας</string>
     <string name="battery_manager_off">Ανενεργή</string>
     <string name="battery_manager_summary">Επέκταση διάρκειας ζωής μπαταρίας και βελτιστοποίηση της φόρτισης</string>
+    <string name="battery_manager_summary_unsupported">Επέκταση διάρκειας ζωής της μπαταρίας</string>
     <string name="battery_missing_link_a11y_message">Πατήστε για να μάθετε περισσότερα σχετικά με αυτό το σφάλμα.</string>
     <string name="battery_missing_link_message">Μάθετε περισσότερα</string>
     <string name="battery_missing_message">Υπάρχει κάποιο πρόβλημα με την ανάγνωση του μετρητή μπαταρίας.</string>
@@ -1061,6 +1081,7 @@
     <string name="battery_usage_screen_footer">Τα δεδομένα χρήσης μπαταρίας υπολογίζονται κατά προσέγγιση και όχι κατά τη φόρτιση του τηλεφώνου</string>
     <string name="battery_usage_screen_footer_empty">Τα δεδομένα χρήσης μπαταρίας θα είναι διαθέσιμα, αφού έχετε χρησιμοποιήσει το τηλέφωνό σας μερικές ώρες.</string>
     <string name="battery_usage_total_less_than_one_minute">Σύνολο: λιγότερο από ένα λεπτό</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s χρησιμοποιείται από: %2$s</string>
     <string name="battery_used_for">Χρησιμοποιείται για ^1</string>
     <string name="bearer">Φορέας</string>
@@ -1069,12 +1090,14 @@
     <string name="billing_cycle_less_than_one_day_left">Απομένει λιγότερο από 1 ημέρα</string>
     <string name="billing_cycle_none_left">Δεν απομένει χρόνος</string>
     <string name="biometric_settings_category_ways_to_unlock">Τρόποι ξεκλειδώματος</string>
-    <string name="biometric_settings_category_ways_to_use">Χρήση προσώπου και δακτυλικού αποτυπώματος για</string>
     <string name="biometric_settings_hand_back_to_guardian">Δώσε ξανά το τηλέφωνό σου στον γονέα σου</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">ΟΚ</string>
     <string name="biometric_settings_intro">Όταν ρυθμίσετε τις λειτουργίες Ξεκλείδωμα με το πρόσωπο και Ξεκλείδωμα με δακτυλικό αποτύπωμα, το τηλέφωνό σας θα ζητά το δακτυλικό σας αποτύπωμα όταν φοράτε μάσκα ή βρίσκεστε σε σκοτεινό χώρο.</string>
-    <string name="biometric_settings_use_biometric_for_apps">Έλεγχος ταυτότ. στις εφαρμογές</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">Ξεκλείδωμα τηλεφώνου</string>
+    <string name="biometric_settings_use_biometric_for_apps">Επαληθεύστε την ταυτότητά σας σε εφαρμογές</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">Ξεκλείδωμα του τηλεφώνου</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Χρήση προσώπου ή δακτυλικού αποτυπώματος</string>
+    <string name="biometric_settings_use_face_preference_summary">Χρήση προσώπου</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Χρήση δακτυλικού αποτυπώματος</string>
     <string name="biometrics_unlock_set_unlock_password">Κωδικός πρόσβασης • Πρόσωπο • Δακτ. αποτύπωμα</string>
     <string name="biometrics_unlock_set_unlock_pattern">Μοτίβο • Πρόσωπο • Δακτυλικό αποτύπωμα</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN • Πρόσωπο • Δακτυλικό αποτύπωμα</string>
@@ -1332,7 +1355,6 @@
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Εμφάνιση συσκευών Bluetooth χωρίς ονόματα</string>
     <string name="bluetooth_show_devices_without_names_summary">Θα εμφανιστούν οι συσκευές Bluetooth χωρίς ονόματα (μόνο διευθύνσεις MAC)</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Αρχεία ληφθέντα μέσω Bluetooth</string>
     <string name="bluetooth_show_received_files">Αρχεία που έχουν ληφθεί</string>
     <string name="bluetooth_sim_card_access_dialog_content">"Η συσκευή Bluetooth %1$s, θέλει να αποκτήσει πρόσβαση σε δεδομένα της κάρτας SIM. Στα δεδομένα περιλαμβάνονται οι επαφές σας.
 
@@ -1426,6 +1448,7 @@
     <string name="calls_sms_temp_unavailable">Προσωρινά μη διαθέσιμη</string>
     <string name="calls_sms_unavailable">μη διαθέσιμη</string>
     <string name="calls_sms_wfc_summary">Πραγματοποίηση και λήψη κλήσεων μέσω Wi‑Fi</string>
+    <string name="cam_toggle_description">Για εφαρμογές και υπηρεσίες</string>
     <string name="camera_double_tap_power_gesture_desc">Γρήγορο άνοιγμα κάμερας χωρίς ξεκλείδωμα οθόνης</string>
     <string name="camera_double_tap_power_gesture_title">Διπλό πάτημα κουμπιού λειτ. για κάμερα</string>
     <string name="camera_laser_sensor_switch">Αισθητήρας λέιζερ κάμερας</string>
@@ -3302,6 +3325,7 @@
     <string name="menu_stats_total">Συνολικές τιμές χρήσης</string>
     <string name="menu_stats_unplugged">%1$s από την αποσύνδεση</string>
     <string name="menu_use_uss">Χρήση Uss</string>
+    <string name="mic_toggle_description">Για εφαρμογές και υπηρεσίες. Εάν είναι απενεργοποιημένη αυτή η ρύθμιση, τα δεδομένα μικροφώνου ενδέχεται να κοινοποιούνται όταν καλείτε έναν αριθμό έκτακτης ανάγκης.</string>
     <string name="mic_toggle_title">Πρόσβαση μικροφώνου</string>
     <string name="misc_files">Διάφορα αρχεία</string>
     <string name="misc_files_selected_count">Επιλέχθηκαν %1$d από %2$d</string>
@@ -3728,6 +3752,7 @@
     <string name="one_handed_action_show_notification_title">Εμφάνιση ειδοποιήσεων</string>
     <string name="one_handed_mode_enabled">Χρήση λειτουργίας ενός χεριού</string>
     <string name="one_handed_mode_intro_text">Για να χρησιμοποιήσετε τη λειτουργία ενός χεριού, σύρετε προς τα κάτω από το κάτω άκρο της οθόνης. Για να χρησιμοποιήσετε αυτήν τη λειτουργία, βεβαιωθείτε ότι η πλοήγηση με κινήσεις είναι ενεργοποιημένη στις ρυθμίσεις πλοήγησης του συστήματος.</string>
+    <string name="one_handed_mode_shortcut_title">Συντόμευση λειτουργίας ενός χεριού</string>
     <string name="one_handed_mode_swipe_down_category">Σύρετε προς τα κάτω για</string>
     <string name="one_handed_mode_use_shortcut_category">Χρήση της συντόμευσης για</string>
     <string name="one_usercrt">πιστοποιητικό για ένα χρήστη</string>
@@ -3803,7 +3828,7 @@
     <string name="post_dsds_reboot_notification_title_with_carrier">Η εταιρεία κινητής τηλεφωνίας %1$s είναι ενεργή</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Κάμερα</string>
-    <string name="power_cell">Κατάσταση αναμονής δικτύου κινητής τηλεφωνίας</string>
+    <string name="power_cell">Δίκτυο κινητής τηλεφωνίας</string>
     <string name="power_charge_remaining">%1$s για τη φόρτωση</string>
     <string name="power_charging">%1$s - %2$s</string>
     <string name="power_charging_duration">%1$s - Απομένουν %2$s για πλήρη φόρτιση</string>
@@ -4037,6 +4062,7 @@
     <string name="recent_notifications">Στάλθηκαν πρόσφατα</string>
     <string name="recent_notifications_see_all_title">Εμφάνιση όλων από τις τελευταίες 7 ημέρες</string>
     <string name="recompute_size">Εκ νέου υπολογισμός μεγέθους...</string>
+    <string name="reduce_bright_colors_about_title">Πληρ. για επιπλέον μείωση φωτεινότ.</string>
     <string name="reduce_bright_colors_intensity_end_label">Φωτεινότερο</string>
     <string name="reduce_bright_colors_intensity_preference_title">Ένταση</string>
     <string name="reduce_bright_colors_intensity_start_label">Λιγότερο φωτεινό</string>
@@ -4044,6 +4070,7 @@
     <string name="reduce_bright_colors_preference_subtitle">Μειώστε τη φωτεινότητα της οθόνης προκειμένου η ανάγνωση να είναι πιο άνετη.&lt;br/>&lt;br/> Αυτό μπορεί να βοηθήσει: &lt;ol> &lt;li> Όταν η προεπιλεγμένη ελάχιστη φωτεινότητα του τηλεφώνου σας δεν είναι αρκετά σκοτεινή&lt;/li> &lt;li> Όταν χρησιμοποιείτε το τηλέφωνό σας σε συνθήκες χαμηλού φωτισμού, όπως κατά τη διάρκεια της νύχτας ή σε ένα σκοτεινό δωμάτιο πριν κοιμηθείτε&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">Μειώστε τη φωτεινότητα της οθόνης κάτω από το ελάχιστο επίπεδο φωτεινότητας του τηλεφώνου</string>
     <string name="reduce_bright_colors_preference_title">Επιπλέον μείωση φωτεινότητας</string>
+    <string name="reduce_bright_colors_shortcut_title">Συντόμευση επιπλέον μείωσης φωτεινότητας</string>
     <string name="reduce_bright_colors_switch_title">Επιπλέον μείωση φωτεινότητας της οθόνης</string>
     <string name="register_automatically">Αυτόματη εγγραφή…</string>
     <string name="register_on_network">Εγγραφή στο δίκτυο %s…</string>
@@ -4249,7 +4276,6 @@
     <string name="screen_pinning_unlock_pattern">Να ζητείται το μοτίβο ξεκλειδώματος πριν από το ξεκαρφίτσωμα</string>
     <string name="screen_pinning_unlock_pin">Να ζητείται το PIN πριν από το ξεκαρφίτσωμα</string>
     <string name="screen_reader_category_title">Αναγνώστης οθόνης</string>
-    <string name="screen_saver_main_switch_title">Χρήση προφύλαξης οθόνης</string>
     <string name="screen_time_summary_usage_today">%1$s σήμερα</string>
     <string name="screen_timeout_summary">Μετά από %1$s αδράνειας</string>
     <string name="screen_timeout_title">Η οθόνη απενεργοποιείται</string>
@@ -4279,6 +4305,7 @@
     <string name="screensaver_settings_button">Ρυθμίσεις</string>
     <string name="screensaver_settings_current">Τρέχουσα προφύλαξη οθόνης</string>
     <string name="screensaver_settings_disabled_prompt">Ενεργοποιήστε την προφύλαξη οθόνης για να ελέγξετε τι συμβαίνει όταν το τηλέφωνό σας είναι συνδεδεμένο στη βάση σύνδεσης ή/και βρίσκεται σε κατάσταση αδράνειας.</string>
+    <string name="screensaver_settings_dream_start">Έναρξη τώρα</string>
     <string name="screensaver_settings_summary_dock">Στη βάση</string>
     <string name="screensaver_settings_summary_either_long">Στη φόρτιση ή στη βάση</string>
     <string name="screensaver_settings_summary_either_short">Είτε</string>
@@ -4329,15 +4356,6 @@
     <string name="security_settings_biometric_preference_summary_both_fp_single">Προστέθηκε πρόσωπο και δακτυλικό αποτύπωμα</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Πατήστε για ρύθμιση</string>
     <string name="security_settings_biometric_preference_title">Ξεκλείδωμα με το πρόσωπο και με δακτυλικό αποτύπωμα</string>
-    <string name="security_settings_biometrics_description">Όταν ρυθμίζετε το ξεκλείδωμα με το πρόσωπο και δακτυλικό αποτύπωμα, το τηλέφωνό σας θα ζητά το δακτυλικό σας αποτύπωμα όταν φοράτε μάσκα ή βρίσκεστε σε σκοτεινό χώρο</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Έλεγχος ταυτότητας στις εφαρμογές</string>
-    <string name="security_settings_biometrics_preferences_category">Χρήση προσώπου ή δακτυλικού αποτυπώματος για</string>
-    <string name="security_settings_biometrics_summary_both">Πρόσωπο και δακτυλικό αποτύπωμα</string>
-    <string name="security_settings_biometrics_summary_face">Μόνο πρόσωπο</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Μόνο δακτυλικό αποτύπωμα</string>
-    <string name="security_settings_biometrics_summary_none">Πατήστε για ρύθμιση</string>
-    <string name="security_settings_biometrics_title">Ξεκλείδωμα με πρόσωπο/δακτ. αποτύπωμα</string>
-    <string name="security_settings_biometrics_types_category">Τρόποι ξεκλειδώματος</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Επιτρέπεται το Ξεκλείδωμα με το πρόσωπο</string>
     <string name="security_settings_face_enroll_dialog_ok">OK</string>
     <string name="security_settings_face_enroll_done">Τέλος</string>
@@ -4385,16 +4403,17 @@
     <string name="security_settings_face_enroll_introduction_control_title">Έχετε τον έλεγχο</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message">"Το Ξεκλείδωμα με το πρόσωπο δημιουργεί ένα μοναδικό μοντέλο του προσώπου του παιδιού σας για να επαληθεύει την ταυτότητά του. Για τη δημιουργία αυτού του μοντέλου προσώπου κατά τη ρύθμιση, θα πρέπει να ληφθούν εικόνες του προσώπου του παιδιού σας από διαφορετικές γωνίες.
 
-Κατά τη χρήση του Ξεκλειδώματος με το πρόσωπο, οι εικόνες χρησιμοποιούνται για την ενημέρωση του μοντέλου προσώπου του. Οι εικόνες που χρησιμοποιούνται για τη δημιουργία του μοντέλου προσώπου του δεν αποθηκεύονται ποτέ, αλλά το μοντέλο προσώπου αποθηκεύεται με ασφάλεια στο τηλέφωνο και παραμένει με ασφάλεια αποκλειστικά στο τηλέφωνο. Όλη η επεξεργασία πραγματοποιείται με ασφάλεια στο τηλέφωνο."</string>
-    <string name="security_settings_face_enroll_introduction_how_message">"Το Ξεκλείδωμα με το πρόσωπο δημιουργεί ένα μοναδικό μοντέλο του προσώπου σας για να επαληθεύει την ταυτότητά σας. Για τη δημιουργία αυτού του μοντέλο προσώπου κατά τη ρύθμιση, θα ληφθούν εικόνες του προσώπου σας από διαφορετικές οπτικές γωνίες.
+Κατά τη χρήση του Ξεκλειδώματος με το πρόσωπο, οι εικόνες χρησιμοποιούνται για την ενημέρωση του μοντέλου προσώπου του. Οι εικόνες που χρησιμοποιούνται για τη δημιουργία του μοντέλου προσώπου του δεν αποθηκεύονται, αλλά το μοντέλο προσώπου αποθηκεύεται με ασφάλεια στο τηλέφωνο και παραμένει αποκλειστικά στο τηλέφωνο. Όλη η επεξεργασία πραγματοποιείται με ασφάλεια στο τηλέφωνο."</string>
+    <string name="security_settings_face_enroll_introduction_how_message">"Το Ξεκλείδωμα με το πρόσωπο δημιουργεί ένα μοναδικό μοντέλο του προσώπου σας για να επαληθεύει την ταυτότητά σας. Για τη δημιουργία αυτού του μοντέλου προσώπου κατά τη ρύθμιση, θα ληφθούν εικόνες του προσώπου σας από διαφορετικές οπτικές γωνίες.
 
-Κατά τη χρήση του Ξεκλειδώματος με το πρόσωπο, οι εικόνες χρησιμοποιούνται για την ενημέρωση του φωνητικού μοντέλου σας. Οι εικόνες που χρησιμοποιούνται για τη δημιουργία του μοντέλου προσώπου σας δεν αποθηκεύονται ποτέ, αλλά το μοντέλο προσώπου αποθηκεύεται με ασφάλεια στο τηλέφωνό σας και παραμένει με ασφάλεια αποκλειστικά στο τηλέφωνο. Όλη η επεξεργασία πραγματοποιείται με ασφάλεια στο τηλέφωνό σας."</string>
+Κατά τη χρήση του Ξεκλειδώματος με το πρόσωπο, οι εικόνες χρησιμοποιούνται για την ενημέρωση του μοντέλου προσώπου σας. Οι εικόνες που χρησιμοποιούνται για τη δημιουργία του μοντέλου προσώπου σας δεν αποθηκεύονται ποτέ, αλλά το μοντέλο προσώπου αποθηκεύεται με ασφάλεια στο τηλέφωνό σας και παραμένει αποκλειστικά στο τηλέφωνο. Όλη η επεξεργασία πραγματοποιείται με ασφάλεια στο τηλέφωνό σας."</string>
     <string name="security_settings_face_enroll_introduction_how_title">Πώς λειτουργεί</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">Το παιδί σας θα πρέπει να έχει τα μάτια του ανοικτά προκειμένου η λειτουργία Ξεκλείδωμα με το πρόσωπο να ξεκλειδώσει το τηλέφωνο ή να επαληθεύσει την ταυτότητά του. Εσείς και το παιδί σας μπορείτε να ενεργοποιήσετε αυτήν την επιλογή ανά πάσα στιγμή στις Ρυθμίσεις.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Εάν το παιδί σας φορά γυαλιά συνήθως, μπορεί να τα φορά κατά τη ρύθμιση.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Το τηλέφωνο μπορεί να ξεκλειδώσει όταν το κοιτά ακόμη και αν δεν σκοπεύει να το ξεκλειδώσει. Το τηλέφωνο του παιδιού σας μπορεί επίσης να ξεκλειδωθεί από κάποιο άτομο που του μοιάζει πολύ, όπως για παράδειγμα, τον δίδυμο αδελφό του, ή σε περίπτωση που κάποιος το κρατήσει μπροστά στο πρόσωπό του.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Θα πρέπει να έχετε τα μάτια σας ανοικτά προκειμένου η λειτουργία Ξεκλείδωμα με το πρόσωπο να ξεκλειδώσει το τηλέφωνο ή να επαληθεύσει την ταυτότητά σας. Μπορείτε να ενεργοποιήσετε αυτήν την επιλογή ανά πάσα στιγμή στις Ρυθμίσεις.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Η χρήση γυαλιών όρασης και γυαλιών ηλίου με ελαφριά απόχρωση είναι αποδεκτή.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Η χρήση προσώπου για ξεκλείδωμα του τηλεφώνου ενδέχεται να είναι λιγότερο ασφαλής από ένα ισχυρό μοτίβο ή PIN.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Το τηλέφωνο μπορεί να ξεκλειδώσει όταν το κοιτάτε ακόμη και αν δεν σκοπεύετε να το ξεκλειδώσετε. Το τηλέφωνό σας μπορεί επίσης να ξεκλειδωθεί από κάποιο άτομο που σας μοιάζει πολύ, όπως για παράδειγμα, τον δίδυμο αδελφό σας, ή σε περίπτωση που κάποιος το κρατήσει μπροστά στο πρόσωπό σας.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Έχετε υπόψη τα εξής</string>
     <string name="security_settings_face_enroll_introduction_message">Χρησιμοποιήστε το πρόσωπό σας για να ξεκλειδώσετε το τηλέφωνό σας ή να επαληθεύσετε την ταυτότητά σας, για παράδειγμα κατά τη σύνδεση σε εφαρμογές ή την έγκριση μιας αγοράς.</string>
@@ -4452,13 +4471,14 @@
 
 Το τηλέφωνό σας μπορεί να ξεκλειδωθεί από κάποιο άλλο άτομο που σας μοιάζει πολύ, όπως για παράδειγμα τον δίδυμο αδελφό ή τη δίδυμη αδελφή σας."</string>
     <string name="security_settings_face_settings_preferences_category">Κατά τη χρήση του Ξεκλειδώματος με το πρόσωπο</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Το μοντέλο προσώπου θα διαγραφεί οριστικά και με ασφάλεια. Μετά τη διαγραφή, θα χρειαστείτε το PIN, το μοτίβο ή τον κωδικό πρόσβασης για να ξεκλειδώσετε το τηλέφωνό σας ή για τον έλεγχο ταυτότητας σε εφαρμογές.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Το μοντέλο προσώπου θα διαγραφεί οριστικά και με ασφάλεια.
+
+Μετά τη διαγραφή, θα χρειαστείτε το PIN, το μοτίβο ή τον κωδικό πρόσβασης για να ξεκλειδώσετε το τηλέφωνό σας ή για τον έλεγχο ταυτότητας σε εφαρμογές."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Το μοντέλο προσώπου θα διαγραφεί οριστικά και με ασφάλεια.
+
+Μετά τη διαγραφή, θα χρειαστείτε το PIN, το μοτίβο ή τον κωδικό πρόσβασης για να ξεκλειδώσετε το τηλέφωνό σας."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Διαγραφή μοντέλου προσώπου;</string>
     <string name="security_settings_face_settings_remove_face_model">Διαγραφή μοντέλου προσώπου</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Το μοντέλο προσώπου σας θα διαγραφεί οριστικά και με ασφάλεια.
-
-Μετά τη διαγραφή, θα χρειαστείτε το δακτυλικό σας αποτύπωμα, το PIN, το μοτίβο ή τον κωδικό πρόσβασης για να ξεκλειδώσετε το τηλέφωνό σας ή για τον έλεγχο ταυτότητας σε εφαρμογές."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Διαγραφή μοντέλου προσώπου;</string>
     <string name="security_settings_face_settings_require_attention">Απαίτηση για ανοιχτά μάτια</string>
     <string name="security_settings_face_settings_require_attention_details">Για να ξεκλειδώσετε το τηλέφωνο, τα μάτια σας πρέπει να είναι ανοικτά</string>
     <string name="security_settings_face_settings_require_confirmation">Να απαιτείται πάντα επιβεβαίωση</string>
@@ -4541,7 +4561,7 @@
     <string name="security_settings_title">Ασφάλεια</string>
     <string name="security_settings_udfps_enroll_a11y">Μετακινήστε το δάκτυλό σας κατά μήκος της οθόνης για να βρείτε τον αισθητήρα. Αγγίξτε παρατεταμένα τον αισθητήρα δακτυλικών αποτυπωμάτων.</string>
     <string name="security_settings_udfps_enroll_edge_message">Τοποθετήστε τη μία πλευρά του δακτυλικού σας αποτυπώματος στον αισθητήρα και αγγίξτε παρατεταμένα, μετά τοποθετήστε την άλλη πλευρά</string>
-    <string name="security_settings_udfps_enroll_edge_title">Τέλος, τοποθετήστε τα πλαϊνά σημεία του δαχτύλου σας</string>
+    <string name="security_settings_udfps_enroll_edge_title">Τέλος, χρησιμοποιήστε τα πλαϊνά άκρα του δαχτύλου σας</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Ο αισθητήρας δακτυλικών αποτυπωμάτων βρίσκεται στην οθόνη σας. Θα γίνει λήψη του δακτυλικού αποτυπώματός σας στην επόμενη οθόνη.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Έναρξη</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Τρόπος ρύθμισης του δακτυλικού αποτυπώματός σας</string>
@@ -4550,7 +4570,7 @@
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Με αυτόν τον τρόπο γίνεται καλύτερη λήψη του δακτυλικού σας αποτυπώματος</string>
     <string name="security_settings_udfps_enroll_repeat_message">Αγγίζετε παρατεταμένα κάθε φορά που μετακινείται το εικονίδιο δακτυλικού αποτυπώματος. Με αυτόν τον τρόπο γίνεται καλύτερη λήψη του δακτυλικού σας αποτυπώματος.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Ακολουθήστε το εικονίδιο δακτυλικού αποτυπώματος</string>
-    <string name="security_settings_udfps_enroll_start_message">Κρατήστε το δάκτυλό σας στον αισθητήρα, μέχρι να νιώσετε μια δόνηση</string>
+    <string name="security_settings_udfps_enroll_start_message">Καλύψτε τον αισθητήρα με το δακτυλικό σας αποτύπωμα, μέχρι να νιώσετε μια δόνηση.</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Ακόμα μία φορά</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint για επαγγελματική χρήση</string>
     <string name="security_status_title">Κατάσταση ασφάλειας</string>
@@ -4576,7 +4596,6 @@
     <string name="select_webview_provider_dialog_title">Ορισμός υλοποίησης WebView</string>
     <string name="select_webview_provider_title">Υλοποίηση WebView</string>
     <string name="select_webview_provider_toast_text">Αυτή η επιλογή δεν είναι πια έγκυρη. Δοκιμάστε ξανά.</string>
-    <string name="sensor_toggle_description">Για όλες τις εφαρμογές και τις υπηρεσίες</string>
     <string name="sensors_off_quick_settings_title">Αισθητήρες ανενεργοί</string>
     <string name="service_background_processes">%1$s ελεύθ.</string>
     <string name="service_foreground_processes">%1$s μετ.</string>
@@ -4808,6 +4827,7 @@
     <string name="sound_settings_summary_silent">Η ειδοποίηση ήχου τέθηκε σε σίγαση</string>
     <string name="sound_settings_summary_vibrate">Η ειδοποίηση ήχου ορίστηκε σε δόνηση</string>
     <string name="sound_work_settings">Ήχοι προφίλ εργασίας</string>
+    <string name="spatial_audio_title">Χωρικός ήχος</string>
     <string name="special_access">Ειδική πρόσβαση εφαρμογής</string>
     <string name="special_access_more">Δείτε περισσότερα</string>
     <string name="speed_label_fast">Γρήγορη</string>
@@ -5619,7 +5639,7 @@
     <string name="vpn_turn_on">Ενεργοποίηση</string>
     <string name="vpn_type">Τύπος</string>
     <string name="vpn_username">Όνομα χρήστη</string>
-    <string name="vpn_version">Έκδοση %s</string>
+    <string name="vpn_version">Έκδοση</string>
     <string name="vr_listener_security_warning_summary">Η υπηρεσία %1$s θα μπορεί να λειτουργήσει όταν χρησιμοποιείτε εφαρμογές σε λειτουργία Εικονικής Πραγματικότητας.</string>
     <string name="vr_listener_security_warning_title">Να επιτρέπεται στην υπηρεσία %1$s να έχει πρόσβαση στην υπηρεσία Εικονικής Πραγματικότητας;</string>
     <string name="vr_listeners_title">Βοηθητικές υπηρεσίες Εικονικής Πραγματικότητας</string>
@@ -5889,7 +5909,7 @@
     <string name="wifi_not_in_range">Εκτός εμβέλειας</string>
     <string name="wifi_not_in_range_message">Το δίκτυο δεν βρίσκεται εντός εμβέλειας</string>
     <string name="wifi_notify_open_networks">Ειδοποίηση για δημόσια δίκτυα</string>
-    <string name="wifi_notify_open_networks_summary">Όταν η αυτόματη σύνδεση δεν είναι διαθέσιμη</string>
+    <string name="wifi_notify_open_networks_summary">Να εμφανίζεται ειδοποίηση όταν υπάρχει διαθέσιμο δημόσιο δίκτυο υψηλής ποιότητας</string>
     <string name="wifi_on_time">Wi-Fi στην ώρα του</string>
     <string name="wifi_p2p_cancel_connect_message">Θέλετε να ακυρώσετε την πρόσκληση για τη σύνδεση με τη συσκευή %1$s;</string>
     <string name="wifi_p2p_cancel_connect_title">Ακύρωση πρόσκλησης;</string>
@@ -5977,7 +5997,6 @@
     <string name="wifi_suspend_optimizations">Βελτιστοποίηση Wi-Fi</string>
     <string name="wifi_suspend_optimizations_summary">Ελαχιστοποίηση χρήσης μπαταρίας όταν το Wi-Fi είναι ενεργό</string>
     <string name="wifi_switch_away_when_unvalidated">Εναλλαγή σε δεδομένα κινητής τηλεφωνίας, εάν το Wi-Fi χάσει την πρόσβαση στο διαδίκτυο.</string>
-    <string name="wifi_switch_summary">Εύρεση και σύνδεση σε δίκτυα Wi‑Fi</string>
     <string name="wifi_tap_to_sign_in">Πατήστε εδώ για να συνδεθείτε σε δίκτυο</string>
     <string name="wifi_tether_configure_ap_text">Ρύθμιση φορητού σημείου πρόσβασης Wi-Fi</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

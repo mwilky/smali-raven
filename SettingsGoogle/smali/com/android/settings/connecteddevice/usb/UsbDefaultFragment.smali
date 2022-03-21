@@ -274,7 +274,7 @@
 
     const-string v0, "UsbDefaultFragment"
 
-    const-string v1, "startTethering()"
+    const-string/jumbo v1, "startTethering()"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -429,7 +429,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500fc
+    const p0, 0x7f150101
 
     return p0
 .end method
@@ -511,7 +511,7 @@
 
     invoke-direct {p2, p0}, Lcom/android/settingslib/widget/FooterPreference$Builder;-><init>(Landroid/content/Context;)V
 
-    const p0, 0x7f04147e
+    const p0, 0x7f0414a3
 
     invoke-virtual {p2, p0}, Lcom/android/settingslib/widget/FooterPreference$Builder;->setTitle(I)Lcom/android/settingslib/widget/FooterPreference$Builder;
 

@@ -71,7 +71,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->setName(Ljava/lang/String;)Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;
 
-    const-string v1, "type"
+    const-string/jumbo v1, "type"
 
     invoke-interface {p1, v1}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
@@ -99,7 +99,7 @@
 
     invoke-virtual {v0, v2, v3}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->setRankingScore(D)Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;
 
-    const-string v2, "slice_uri"
+    const-string/jumbo v2, "slice_uri"
 
     invoke-interface {p1, v2}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
@@ -311,7 +311,7 @@
 
     if-ne p1, p0, :cond_0
 
-    const p0, 0x7f060098
+    const p0, 0x7f06009a
 
     return p0
 

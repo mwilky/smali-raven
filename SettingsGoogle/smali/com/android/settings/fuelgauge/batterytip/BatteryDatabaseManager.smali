@@ -152,7 +152,7 @@
 
     const-string v1, "anomaly"
 
-    const-string v2, "time_stamp_ms < ?"
+    const-string/jumbo v2, "time_stamp_ms < ?"
 
     const/4 v3, 0x1
 
@@ -198,7 +198,7 @@
 
     invoke-direct {v1}, Landroid/content/ContentValues;-><init>()V
 
-    const-string v2, "uid"
+    const-string/jumbo v2, "uid"
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -218,7 +218,7 @@
 
     invoke-virtual {v1, p2, p1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    const-string p1, "time_stamp_ms"
+    const-string/jumbo p1, "time_stamp_ms"
 
     invoke-static {p4, p5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
@@ -280,7 +280,7 @@
 
     invoke-direct {v1}, Landroid/content/ContentValues;-><init>()V
 
-    const-string v2, "uid"
+    const-string/jumbo v2, "uid"
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -308,7 +308,7 @@
 
     invoke-virtual {v1, p1, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    const-string p1, "time_stamp_ms"
+    const-string/jumbo p1, "time_stamp_ms"
 
     invoke-static {p5, p6}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
@@ -370,9 +370,9 @@
 
     move-result-object v2
 
-    const-string v1, "uid"
+    const-string/jumbo v1, "uid"
 
-    const-string v3, "time_stamp_ms"
+    const-string/jumbo v3, "time_stamp_ms"
 
     filled-new-array {v1, v3}, [Ljava/lang/String;
 
@@ -407,13 +407,13 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_2
 
     :try_start_1
-    const-string v1, "uid"
+    const-string/jumbo v1, "uid"
 
     invoke-interface {p1, v1}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
     move-result v1
 
-    const-string v2, "time_stamp_ms"
+    const-string/jumbo v2, "time_stamp_ms"
 
     invoke-interface {p1, v2}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
@@ -510,7 +510,7 @@
 
     const-string v3, "anomaly_type"
 
-    const-string v4, "uid"
+    const-string/jumbo v4, "uid"
 
     filled-new-array {v1, v3, v4}, [Ljava/lang/String;
 
@@ -542,13 +542,13 @@
 
     const-string v3, "anomaly"
 
-    const-string v5, "time_stamp_ms > ? AND anomaly_state = ? "
+    const-string/jumbo v5, "time_stamp_ms > ? AND anomaly_state = ? "
 
     const/4 v7, 0x0
 
     const/4 v8, 0x0
 
-    const-string v9, "time_stamp_ms DESC"
+    const-string/jumbo v9, "time_stamp_ms DESC"
 
     invoke-virtual/range {v2 .. v9}, Landroid/database/sqlite/SQLiteDatabase;->query(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
@@ -564,7 +564,7 @@
 
     if-eqz p2, :cond_1
 
-    const-string p2, "uid"
+    const-string/jumbo p2, "uid"
 
     invoke-interface {p1, p2}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 

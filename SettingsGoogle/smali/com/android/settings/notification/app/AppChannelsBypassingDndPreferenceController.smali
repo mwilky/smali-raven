@@ -232,7 +232,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f040e27
+    const p1, 0x7f040e52
 
     invoke-virtual {p0, p1}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -383,7 +383,7 @@
 
     iget v5, v5, Lcom/android/settings/notification/NotificationBackend$AppRow;->uid:I
 
-    const-string v6, "uid"
+    const-string/jumbo v6, "uid"
 
     invoke-virtual {v3, v6, v5}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
@@ -482,7 +482,7 @@
 .method public displayPreference(Landroidx/preference/PreferenceScreen;)V
     .locals 2
 
-    const-string v0, "zen_mode_bypassing_app_channels_list"
+    const-string/jumbo v0, "zen_mode_bypassing_app_channels_list"
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -502,7 +502,7 @@
 
     iput-object v1, p0, Lcom/android/settings/notification/app/AppChannelsBypassingDndPreferenceController;->mAllNotificationsToggle:Lcom/android/settingslib/RestrictedSwitchPreference;
 
-    const v0, 0x7f0417d6
+    const v0, 0x7f0417fb
 
     invoke-virtual {v1, v0}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -556,7 +556,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "zen_mode_bypassing_app_channels_list"
+    const-string/jumbo p0, "zen_mode_bypassing_app_channels_list"
 
     return-object p0
 .end method

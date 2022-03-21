@@ -38,6 +38,7 @@
     <item type="id" name="accessibility_custom_action_9" />
     <item type="id" name="account" />
     <item type="id" name="account_avatar" />
+    <item type="id" name="account_avatar_two_pane_version" />
     <item type="id" name="account_settings_menu_auto_sync" />
     <item type="id" name="account_settings_menu_auto_sync_personal" />
     <item type="id" name="account_settings_menu_auto_sync_work" />
@@ -112,6 +113,7 @@
     <item type="id" name="also_erases_external" />
     <item type="id" name="always_on_invalid_reason" />
     <item type="id" name="always_on_vpn" />
+    <item type="id" name="androidx_window_activity_scope" />
     <item type="id" name="animation" />
     <item type="id" name="anonymous" />
     <item type="id" name="apn_radiobutton" />
@@ -159,6 +161,7 @@
     <item type="id" name="back" />
     <item type="id" name="back_button" />
     <item type="id" name="background_image" />
+    <item type="id" name="background_view" />
     <item type="id" name="backup_pw_cancel_button" />
     <item type="id" name="backup_pw_set_button" />
     <item type="id" name="banner_dismiss_btn" />
@@ -414,6 +417,7 @@
     <item type="id" name="dragHandle" />
     <item type="id" name="dragList" />
     <item type="id" name="drawable" />
+    <item type="id" name="dream_start_now_button" />
     <item type="id" name="eap" />
     <item type="id" name="edit_query" />
     <item type="id" name="edit_sim_name" />
@@ -478,6 +482,7 @@
     <item type="id" name="first_action" />
     <item type="id" name="five" />
     <item type="id" name="flashlight_group" />
+    <item type="id" name="font_size_preview_text_group" />
     <item type="id" name="footer" />
     <item type="id" name="footerText" />
     <item type="id" name="footer_divider" />
@@ -503,7 +508,6 @@
     <item type="id" name="gesture_animation_view" />
     <item type="id" name="gesture_tutorial_message" />
     <item type="id" name="gesture_tutorial_title" />
-    <item type="id" name="gesture_tutorial_video" />
     <item type="id" name="ghost_view" />
     <item type="id" name="ghost_view_holder" />
     <item type="id" name="glif_layout" />
@@ -572,6 +576,8 @@
     <item type="id" name="history_toggled_on_title" />
     <item type="id" name="home" />
     <item type="id" name="homepage_all_settings" />
+    <item type="id" name="homepage_app_bar_regular_phone_view" />
+    <item type="id" name="homepage_app_bar_two_pane_view" />
     <item type="id" name="homepage_container" />
     <item type="id" name="homepage_personal_settings" />
     <item type="id" name="homepage_title" />
@@ -589,6 +595,7 @@
     <item type="id" name="icon_group" />
     <item type="id" name="icon_info" />
     <item type="id" name="icon_label_container" />
+    <item type="id" name="icon_less_secure" />
     <item type="id" name="icon_link" />
     <item type="id" name="icon_looking" />
     <item type="id" name="icon_require_eyes" />
@@ -602,10 +609,12 @@
     <item type="id" name="illustration_default" />
     <item type="id" name="illustration_frame" />
     <item type="id" name="illustration_lottie" />
+    <item type="id" name="illustration_lottie_portrait" />
     <item type="id" name="image" />
     <item type="id" name="image1" />
     <item type="id" name="image2" />
     <item type="id" name="image3" />
+    <item type="id" name="image_background" />
     <item type="id" name="imei_label" />
     <item type="id" name="imei_sv_label" />
     <item type="id" name="imei_sv_value" />
@@ -619,8 +628,10 @@
     <item type="id" name="info" />
     <item type="id" name="info_button" />
     <item type="id" name="info_message_glasses" />
+    <item type="id" name="info_message_less_secure" />
     <item type="id" name="info_message_looking" />
     <item type="id" name="info_message_require_eyes" />
+    <item type="id" name="info_row_less_secure" />
     <item type="id" name="info_row_require_eyes" />
     <item type="id" name="initiate_encrypt" />
     <item type="id" name="initiate_reset_network" />
@@ -949,7 +960,6 @@
     <item type="id" name="preference_highlighted" />
     <item type="id" name="prefs_container" />
     <item type="id" name="preview" />
-    <item type="id" name="preview_image" />
     <item type="id" name="preview_pager" />
     <item type="id" name="preview_text" />
     <item type="id" name="preview_view" />
@@ -1054,6 +1064,7 @@
     <item type="id" name="scrollView" />
     <item type="id" name="search_action_bar" />
     <item type="id" name="search_action_bar_title" />
+    <item type="id" name="search_action_bar_two_pane" />
     <item type="id" name="search_app_list_menu" />
     <item type="id" name="search_badge" />
     <item type="id" name="search_bar" />
@@ -1315,6 +1326,7 @@
     <item type="id" name="trusted_credential_subject_secondary" />
     <item type="id" name="trusted_devices_prompt_layout" />
     <item type="id" name="two" />
+    <item type="id" name="two_pane_suggestion_content" />
     <item type="id" name="two_target_divider" />
     <item type="id" name="tx_link_speed" />
     <item type="id" name="type" />

@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/settings/accessibility/AccessibilityDialogUtils$$ExternalSyntheticLambda1;->f$0:Landroid/content/Context;
 
-    invoke-static {p0, p1}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->$r8$lambda$F89HzqjFJpwf-2rTv8FkXE-QZ4E(Landroid/content/Context;Landroid/view/View;)V
+    invoke-static {p0, p1}, Lcom/android/settings/accessibility/AccessibilityDialogUtils;->$r8$lambda$f0IslXjBJgjFGDzugI7ak6Z7O_k(Landroid/content/Context;Landroid/view/View;)V
 
     return-void
 .end method

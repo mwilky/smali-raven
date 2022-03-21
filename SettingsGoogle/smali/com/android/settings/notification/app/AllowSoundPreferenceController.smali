@@ -73,7 +73,7 @@
 
     iget-object p0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mPreferenceFilter:Ljava/util/List;
 
-    const-string v0, "sound"
+    const-string/jumbo v0, "sound"
 
     invoke-interface {p0, v0}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
@@ -184,7 +184,7 @@
     :cond_2
     const-string p0, "AllowSoundPrefContr"
 
-    const-string p1, "tried to updatestate on a null channel?!"
+    const-string/jumbo p1, "tried to updatestate on a null channel?!"
 
     invoke-static {p0, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 

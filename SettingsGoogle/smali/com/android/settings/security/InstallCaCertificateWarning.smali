@@ -65,7 +65,7 @@
 .method private synthetic lambda$returnToInstallCertificateFromStorage$1(Landroid/view/View;)V
     .locals 1
 
-    const p1, 0x7f040592
+    const p1, 0x7f0405aa
 
     const/4 v0, 0x0
 
@@ -109,7 +109,7 @@
 
     invoke-static {p0}, Lcom/google/android/setupdesign/util/ThemeHelper;->trySetDynamicColor(Landroid/content/Context;)Z
 
-    const p1, 0x7f060072
+    const p1, 0x7f060074
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setContentView(I)V
 
@@ -121,7 +121,7 @@
 
     invoke-virtual {p1, v0}, Landroid/view/Window;->addSystemFlags(I)V
 
-    const p1, 0x7f0d04e2
+    const p1, 0x7f0d04f1
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -129,7 +129,7 @@
 
     check-cast p1, Lcom/google/android/setupdesign/GlifLayout;
 
-    const v0, 0x7f040528
+    const v0, 0x7f04053f
 
     invoke-virtual {p1, v0}, Lcom/google/android/setupdesign/GlifLayout;->setHeaderText(I)V
 
@@ -145,7 +145,7 @@
 
     invoke-direct {v0, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f040596
+    const v1, 0x7f0405ae
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -165,7 +165,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f13021b
+    const v1, 0x7f13021d
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -189,7 +189,7 @@
 
     invoke-direct {v0, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f040595
+    const v2, 0x7f0405ad
 
     invoke-virtual {v0, v2}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -209,7 +209,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f13021a
+    const v0, 0x7f13021c
 
     invoke-virtual {p0, v0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 

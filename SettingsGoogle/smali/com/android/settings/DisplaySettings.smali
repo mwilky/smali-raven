@@ -13,7 +13,7 @@
 
     new-instance v0, Lcom/android/settings/DisplaySettings$1;
 
-    const v1, 0x7f150064
+    const v1, 0x7f150065
 
     invoke-direct {v0, v1}, Lcom/android/settings/DisplaySettings$1;-><init>(I)V
 
@@ -138,7 +138,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f0409e8
+    const p0, 0x7f040a00
 
     return p0
 .end method
@@ -162,7 +162,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150064
+    const p0, 0x7f150065
 
     return p0
 .end method

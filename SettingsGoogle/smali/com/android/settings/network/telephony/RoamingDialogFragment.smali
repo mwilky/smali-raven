@@ -32,7 +32,7 @@
 
     invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
 
-    const-string v2, "sub_id_key"
+    const-string/jumbo v2, "sub_id_key"
 
     invoke-virtual {v1, v2, p0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
@@ -60,7 +60,7 @@
 
     move-result-object v0
 
-    const-string v1, "sub_id_key"
+    const-string/jumbo v1, "sub_id_key"
 
     invoke-virtual {v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
@@ -148,12 +148,12 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f041059
+    const v0, 0x7f041087
 
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f04105f
+    const v0, 0x7f04108d
 
     :goto_0
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getResources()Landroid/content/res/Resources;
@@ -168,7 +168,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f041058
+    const v1, 0x7f041086
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

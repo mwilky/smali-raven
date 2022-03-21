@@ -44,7 +44,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/calling/DisclaimerItem;->mContext:Landroid/content/Context;
 
-    const-string v1, "wfc_disclaimer_prefs"
+    const-string/jumbo v1, "wfc_disclaimer_prefs"
 
     const/4 v2, 0x0
 
@@ -78,7 +78,7 @@
 
     iget-object v0, p0, Lcom/android/settings/wifi/calling/DisclaimerItem;->mContext:Landroid/content/Context;
 
-    const-string v1, "wfc_disclaimer_prefs"
+    const-string/jumbo v1, "wfc_disclaimer_prefs"
 
     const/4 v2, 0x0
 
@@ -213,14 +213,14 @@
 
     if-eqz v0, :cond_0
 
-    const-string v0, "shouldShow: false due to a user has already agreed."
+    const-string/jumbo v0, "shouldShow: false due to a user has already agreed."
 
     invoke-virtual {p0, v0}, Lcom/android/settings/wifi/calling/DisclaimerItem;->logd(Ljava/lang/String;)V
 
     return v1
 
     :cond_0
-    const-string v0, "shouldShow: true"
+    const-string/jumbo v0, "shouldShow: true"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/wifi/calling/DisclaimerItem;->logd(Ljava/lang/String;)V
 

@@ -83,6 +83,14 @@
     return-void
 .end method
 
+.method public static synthetic $r8$lambda$c_SGg4Bm-3VqeJC7-H4hxuWIsIk(Lcom/android/settings/utils/SensorPrivacyManagerHelper;IIIZ)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/settings/utils/SensorPrivacyManagerHelper;->lambda$registerListenerIfNeeded$2(IIIZ)V
+
+    return-void
+.end method
+
 .method public static synthetic $r8$lambda$hiZuP0e6WH5O4Mwstq1t1p7vRts(Lcom/android/settings/utils/SensorPrivacyManagerHelper$Callback;IZ)V
     .locals 0
 
@@ -145,6 +153,72 @@
     return-void
 .end method
 
+.method private createUserCachedStateIfNeededLocked(I)Landroid/util/SparseArray;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I)",
+            "Landroid/util/SparseArray<",
+            "Ljava/lang/Boolean;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/settings/utils/SensorPrivacyManagerHelper;->mCachedState:Landroid/util/SparseArray;
+
+    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/util/SparseArray;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Landroid/util/SparseArray;
+
+    invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
+
+    iget-object p0, p0, Lcom/android/settings/utils/SensorPrivacyManagerHelper;->mCachedState:Landroid/util/SparseArray;
+
+    invoke-virtual {p0, p1, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    :cond_0
+    return-object v0
+.end method
+
+.method private createUserServiceListenersIfNeededLocked(I)Landroid/util/SparseArray;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I)",
+            "Landroid/util/SparseArray<",
+            "Landroid/hardware/SensorPrivacyManager$OnSensorPrivacyChangedListener;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/settings/utils/SensorPrivacyManagerHelper;->mServiceListeners:Landroid/util/SparseArray;
+
+    invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/util/SparseArray;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Landroid/util/SparseArray;
+
+    invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
+
+    iget-object p0, p0, Lcom/android/settings/utils/SensorPrivacyManagerHelper;->mServiceListeners:Landroid/util/SparseArray;
+
+    invoke-virtual {p0, p1, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    :cond_0
+    return-object v0
+.end method
+
 .method private dispatchStateChangedLocked(IZI)V
     .locals 3
 
@@ -180,9 +254,9 @@
 
     iget-object v0, v0, Lcom/android/settings/utils/SensorPrivacyManagerHelper$CallbackInfo;->mExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v2, Lcom/android/settings/utils/SensorPrivacyManagerHelper$$ExternalSyntheticLambda1;
+    new-instance v2, Lcom/android/settings/utils/SensorPrivacyManagerHelper$$ExternalSyntheticLambda2;
 
-    invoke-direct {v2, v1, p1, p2}, Lcom/android/settings/utils/SensorPrivacyManagerHelper$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/utils/SensorPrivacyManagerHelper$Callback;IZ)V
+    invoke-direct {v2, v1, p1, p2}, Lcom/android/settings/utils/SensorPrivacyManagerHelper$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/utils/SensorPrivacyManagerHelper$Callback;IZ)V
 
     invoke-interface {v0, v2}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -237,6 +311,24 @@
     return-void
 .end method
 
+.method private synthetic lambda$registerListenerIfNeeded$2(IIIZ)V
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/settings/utils/SensorPrivacyManagerHelper;->createUserCachedStateIfNeededLocked(I)Landroid/util/SparseArray;
+
+    move-result-object p3
+
+    invoke-static {p4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    invoke-virtual {p3, p2, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    invoke-direct {p0, p2, p4, p1}, Lcom/android/settings/utils/SensorPrivacyManagerHelper;->dispatchStateChangedLocked(IZI)V
+
+    return-void
+.end method
+
 .method private registerCurrentUserListenerIfNeeded(I)V
     .locals 3
 
@@ -260,6 +352,51 @@
     iget-object v2, p0, Lcom/android/settings/utils/SensorPrivacyManagerHelper;->mCurrentUserServiceListeners:Landroid/util/SparseArray;
 
     invoke-virtual {v2, p1, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    iget-object p0, p0, Lcom/android/settings/utils/SensorPrivacyManagerHelper;->mSensorPrivacyManager:Landroid/hardware/SensorPrivacyManager;
+
+    invoke-virtual {p0, p1, v1}, Landroid/hardware/SensorPrivacyManager;->addSensorPrivacyListener(ILandroid/hardware/SensorPrivacyManager$OnSensorPrivacyChangedListener;)V
+
+    :cond_0
+    monitor-exit v0
+
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method
+
+.method private registerListenerIfNeeded(II)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/settings/utils/SensorPrivacyManagerHelper;->mLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    invoke-direct {p0, p2}, Lcom/android/settings/utils/SensorPrivacyManagerHelper;->createUserServiceListenersIfNeededLocked(I)Landroid/util/SparseArray;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Landroid/util/SparseArray;->contains(I)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    new-instance v1, Lcom/android/settings/utils/SensorPrivacyManagerHelper$$ExternalSyntheticLambda1;
+
+    invoke-direct {v1, p0, p2, p1}, Lcom/android/settings/utils/SensorPrivacyManagerHelper$$ExternalSyntheticLambda1;-><init>(Lcom/android/settings/utils/SensorPrivacyManagerHelper;II)V
+
+    iget-object p2, p0, Lcom/android/settings/utils/SensorPrivacyManagerHelper;->mCurrentUserServiceListeners:Landroid/util/SparseArray;
+
+    invoke-virtual {p2, p1, v1}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     iget-object p0, p0, Lcom/android/settings/utils/SensorPrivacyManagerHelper;->mSensorPrivacyManager:Landroid/hardware/SensorPrivacyManager;
 
@@ -350,6 +487,59 @@
 
     :cond_0
     invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result p0
+
+    monitor-exit v0
+
+    return p0
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+.end method
+
+.method public isSensorBlocked(II)Z
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/settings/utils/SensorPrivacyManagerHelper;->mLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    invoke-direct {p0, p2}, Lcom/android/settings/utils/SensorPrivacyManagerHelper;->createUserCachedStateIfNeededLocked(I)Landroid/util/SparseArray;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/Boolean;
+
+    if-nez v2, :cond_0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/utils/SensorPrivacyManagerHelper;->registerListenerIfNeeded(II)V
+
+    iget-object p0, p0, Lcom/android/settings/utils/SensorPrivacyManagerHelper;->mSensorPrivacyManager:Landroid/hardware/SensorPrivacyManager;
+
+    invoke-virtual {p0, p1}, Landroid/hardware/SensorPrivacyManager;->isSensorPrivacyEnabled(I)Z
+
+    move-result p0
+
+    invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v2
+
+    invoke-virtual {v1, p1, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    :cond_0
+    invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result p0
 

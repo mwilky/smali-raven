@@ -83,11 +83,11 @@
 
     move-result-object p0
 
-    const v0, 0x7f0406d4
+    const v0, 0x7f0406ec
 
     new-array v1, v3, [Ljava/lang/Object;
 
-    const v3, 0x7f0400ca
+    const v3, 0x7f0400da
 
     invoke-virtual {p0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -225,7 +225,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "simulate_color_space"
+    const-string/jumbo p0, "simulate_color_space"
 
     return-object p0
 .end method

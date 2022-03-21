@@ -125,7 +125,7 @@
 .method public send()V
     .locals 8
 
-    const-string v0, "utf-8"
+    const-string/jumbo v0, "utf-8"
 
     const/4 v1, 0x0
 

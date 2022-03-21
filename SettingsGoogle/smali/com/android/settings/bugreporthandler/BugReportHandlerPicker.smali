@@ -60,7 +60,7 @@
 
     if-eqz p1, :cond_0
 
-    const p0, 0x7f041396
+    const p0, 0x7f0413bb
 
     invoke-virtual {v0, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -102,7 +102,7 @@
 
     if-eqz p0, :cond_2
 
-    const p0, 0x7f04177d
+    const p0, 0x7f0417a2
 
     invoke-virtual {v0, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -111,7 +111,7 @@
     return-object p0
 
     :cond_2
-    const p0, 0x7f040edc
+    const p0, 0x7f040f08
 
     invoke-virtual {v0, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -216,7 +216,7 @@
 
     iput-object v0, p0, Lcom/android/settings/bugreporthandler/BugReportHandlerPicker;->mFooter:Lcom/android/settingslib/widget/FooterPreference;
 
-    const v1, 0x7f02022a
+    const v1, 0x7f020231
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setIcon(I)V
 
@@ -228,7 +228,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bugreporthandler/BugReportHandlerPicker;->mFooter:Lcom/android/settingslib/widget/FooterPreference;
 
-    const v2, 0x7f04051d
+    const v2, 0x7f040534
 
     invoke-virtual {v0, v2}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -407,7 +407,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15003e
+    const p0, 0x7f15003f
 
     return p0
 .end method

@@ -185,7 +185,7 @@
 
     move-result-object v5
 
-    const-string v6, "wifi_calling_mode"
+    const-string/jumbo v6, "wifi_calling_mode"
 
     invoke-virtual {v5, v6}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -216,7 +216,7 @@
 
     move-result-object p0
 
-    const-string v0, "wifi_calling_roaming_mode"
+    const-string/jumbo v0, "wifi_calling_roaming_mode"
 
     invoke-virtual {p0, v0}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 

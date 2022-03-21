@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Smooth Display</string>
     <string name="peak_refresh_rate_summary">Nostaa tietyn sisällön päivitysvälin automaattisesti 60 hertsistä 90:een. Lisää akun käyttöä.</string>
     <string name="accessibility_vibration_settings_title">Värinä ja haptinen palaute</string>
+    <string name="columbus_title">Käynnistä toimintoja pikanäpäytyksellä</string>
     <string name="emergency_gesture_screen_title">Hätätilanne</string>
     <string name="abc_action_mode_done">Valmis</string>
     <string name="vibrate_for_calls_category_title">Puhelut</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Näytä laitteiden hallinta</string>
     <string name="lockscreen_privacy_wallet_summary">Salli Walletin käyttö lukitusnäytöltä ja pika-asetuksista</string>
     <string name="lockscreen_privacy_controls_summary">Käytä säätimiä laitteen ollessa lukittuna</string>
+    <string name="lockscreen_double_line_clock_summary">Näytä kaksirivinen kello, kun saatavilla</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Kaksirivinen kello</string>
     <string name="abc_activity_chooser_view_see_all">Näytä kaikki</string>
     <string name="abc_activitychooserview_choose_application">Valitse sovellus</string>
     <string name="abc_capital_off">POIS PÄÄLTÄ</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Värinähälytys</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Active Edge on määritetty. Siirry seuraavalle näytölle tai säädä ominaisuutta lisää.</string>
     <string name="accessibility_audio_adjustment_title">Audion säätö</string>
+    <string name="accessibility_autoclick_about_title">Automaattinen klikkaus (viiveaika)</string>
     <string name="accessibility_autoclick_custom_title">Oma</string>
     <string name="accessibility_autoclick_default_title">Pois päältä</string>
     <string name="accessibility_autoclick_description">Automaattiset klikkaukset ovat käytettävissä hiiren kanssa. Voit laittaa kursorin klikkaamaan automaattisesti, kun hiiri on ollut paikoillaan tietyn aikaa.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Lue lisää automaattisesta klikkauksesta (viiveaika)</string>
     <string name="accessibility_autoclick_long_summary">1 sekunti</string>
     <string name="accessibility_autoclick_long_title">Pitkä</string>
     <string name="accessibility_autoclick_longer_desc">Pidempi</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Lyhyt</string>
     <string name="accessibility_autoclick_shorter_desc">Lyhyempi</string>
     <string name="accessibility_banner_message_dismiss">Ohita</string>
-    <string name="accessibility_button_description">"Avaa esteettömyysominaisuudet nopeasti miltä tahansa näytöltä. 
+    <string name="accessibility_button_about_title">Tietoja esteettömyyspainikkeesta</string>
+    <string name="accessibility_button_description">"Käytä esteettömyysominaisuuksia helposti millä tahansa näytöllä.
 
 Siirry ensin esteettömyysasetuksiin ja valitse ominaisuus. Napauta pikakuvaketta ja valitse esteettömyyspainike."</string>
     <string name="accessibility_button_fade_summary">Katoaa vaiheittain muutaman sekunnin päästä, jotta näytön näkee helpommin</string>
     <string name="accessibility_button_fade_title">Katoaa vaiheittain, kun ei käytössä</string>
+    <string name="accessibility_button_gesture_about_title">Tietoja esteettömyyspainikkeesta ja ‑eleestä</string>
     <string name="accessibility_button_gesture_description">"Käytä esteettömyysominaisuuksia helposti millä tahansa näytöllä.
 
-Siirry ensin esteettömyysasetuksiin ja valitse ominaisuus. Napauta pikakuvaketta ja valitse esteettömyyspainike.
-
-Jos käytät mieluummin navigointipalkin esteettömyyspainiketta, vaihda kahden tai kolmen painikkeen navigointiin."</string>
+Siirry ensin esteettömyysasetuksiin ja valitse ominaisuus. Napauta pikakuvaketta ja valitse esteettömyyspainike tai ‑ele."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Lue lisää esteettömyyspainikkeesta ja ‑eleestä</string>
     <string name="accessibility_button_gesture_title">Esteettömyyspainike ja ‑ele</string>
     <string name="accessibility_button_high_label">Läpinäkymätön</string>
     <string name="accessibility_button_intro">Esteettömyyspainikkeen käyttö. Elettä ei voi käyttää kolmen painikkeen navigoinnissa.</string>
@@ -184,14 +190,23 @@ Jos käytät mieluummin navigointipalkin esteettömyyspainiketta, vaihda kahden 
     <string name="accessibility_caption_preference_summary">Kaikki sovellukset eivät tue näitä tekstitysasetuksia</string>
     <string name="accessibility_caption_primary_switch_summary">Vain tuetuille sovelluksille</string>
     <string name="accessibility_caption_primary_switch_title">Näytä tekstitykset</string>
+    <string name="accessibility_captioning_about_title">Tietoja tekstitysvalinnoista</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Lue lisää tekstitysvalinnoista</string>
     <string name="accessibility_captioning_title">Tekstitysvalinnat</string>
     <string name="accessibility_category_personal">Henkilökohtaiset profiilit</string>
     <string name="accessibility_category_work">Työprofiilit – %s</string>
+    <string name="accessibility_color_inversion_about_title">Tietoja käänteisistä väreistä</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Lue lisää käänteisistä väreistä</string>
+    <string name="accessibility_control_timeout_about_title">Tietoja toiminnon ajasta (esteettömyyskatkaisu)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Lue lisää toiminnon ajasta (esteettömyyskatkaisu)</string>
     <string name="accessibility_control_timeout_preference_summary">"Valitse, miten pitkään haluat nähdä viestit, jotka pyytävät reagoimaan mutta näkyvät vain väliaikaisesti.
 
 Kaikki sovellukset eivät tue tätä asetusta."</string>
     <string name="accessibility_control_timeout_preference_title">Reagointiaika</string>
+    <string name="accessibility_daltonizer_about_title">Tietoja värinkorjauksesta</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Lue lisää värinkorjauksesta</string>
     <string name="accessibility_daltonizer_primary_switch_title">Käytä värinkorjausta</string>
+    <string name="accessibility_daltonizer_shortcut_title">Värinkorjauksen pikanäppäin</string>
     <string name="accessibility_data_one_bar">Datasignaali - yksi palkki.</string>
     <string name="accessibility_data_signal_full">Vahva kuuluvuus.</string>
     <string name="accessibility_data_three_bars">Datasignaali - kolme palkkia</string>
@@ -206,6 +221,7 @@ Kaikki sovellukset eivät tue tätä asetusta."</string>
     <string name="accessibility_display_daltonizer_preference_title">Värinkorjaus</string>
     <string name="accessibility_display_inversion_preference_subtitle">Käänteiset värit tekee kirkkaista näytöistä tummia.&lt;br/>&lt;br/> Huom. &lt;ol> &lt;li> Käänteiset värit myös tekevät tummista näytöistä kirkkaita.&lt;/li> &lt;li> Median ja kuvien värit muuttuvat.&lt;/li> &lt;li> Saat tumman taustan myös käyttämällä tummaa teemaa. Tumma teema toimii yhteensopivissa sovelluksissa. Käänteiset värit toimivat kaikissa sovelluksissa.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Käänteiset värit</string>
+    <string name="accessibility_display_inversion_shortcut_title">Käänteisten värien pikanäppäin</string>
     <string name="accessibility_display_inversion_switch_title">Käytä käänteisiä värejä</string>
     <string name="accessibility_ethernet_connected">Ethernet</string>
     <string name="accessibility_ethernet_disconnected">Ethernet on irrotettu.</string>
@@ -255,6 +271,8 @@ Esteettömyyspainike kelluu näytöllä muiden sovellusten päällä. Suurenna s
     <string name="accessibility_phone_two_bars">Puhelinverkkosignaali - kaksi palkkia.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Puhelun katkaisu virtapainikkeella</string>
     <string name="accessibility_preference_magnification_summary">Lähennä näkymää.</string>
+    <string name="accessibility_screen_magnification_about_title">Tietoja suurennuksesta</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Lue lisää suurennuksesta</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">Esteettömyyseleen asetus on %1$s. Jos haluat käyttää suurennusta, pyyhkäise kahdella sormella ylös näytön alalaidasta ja paina pitkään. Valitse sitten suurennus.</string>
     <string name="accessibility_screen_magnification_gestures_title">Suurenna kolmoisnapautuksella</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">Esteettömyys-painikkeen toiminnoksi on valittu %1$s. Jos haluat käyttää suurennusta, kosketa Esteettömyys-painiketta pitkään ja valitse suurennus.</string>
@@ -272,6 +290,7 @@ Esteettömyyspainike kelluu näytöllä muiden sovellusten päällä. Suurenna s
 Suurennus ei toimi näppäimistöllä tai siirtymispalkissa."</string>
     <string name="accessibility_screen_magnification_navbar_title">Suurenna pikanäppäimellä</string>
     <string name="accessibility_screen_magnification_short_summary">Lähennä napauttamalla kolme kertaa.</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Suurennuksen pikanäppäin</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Suurenna pikanäppäimellä ja kolmoisnapautuksella.</string>
     <string name="accessibility_screen_magnification_summary">Lähennä näyttöä nopeasti, niin näet sisällön suurempana.&lt;br/>&lt;br/> &lt;b>Lähentäminen:&lt;/b>&lt;br/> {0,number,integer}. Aloita suurennus käyttämällä pikanäppäintä&lt;br/> {1,number,integer}. Napauta näyttöä&lt;br/> {2,number,integer}. Siirry näytöllä vetämällä kahdella sormella&lt;br/> {3,number,integer}. Säädä zoomausta nipistämällä kahdella sormella&lt;br/> {4,number,integer}. Lopeta suurennus käyttämällä pikanäppäintä&lt;br/>&lt;br/>&lt;b>Väliaikainen lähentäminen:&lt;/b>&lt;br/> {0,number,integer}. Aloita suurennus käyttämällä pikanäppäintä&lt;br/> {1,number,integer}. Kosketa näyttöä pitkään&lt;br/> {2,number,integer}. Siirry näytöllä vetämällä kahdella sormella&lt;br/> {3,number,integer}. Lopeta suurennus nostamalla sormi näytöltä</string>
     <string name="accessibility_screen_magnification_title">Suurennus</string>
@@ -370,7 +389,7 @@ Vaihda ominaisuudesta toiseen pyyhkäisemällä ylös kolmella sormella ja koske
     <string name="accessibility_tutorial_dialog_message_volume">Laita tämä ominaisuus päälle painamalla pitkään molempia äänenvoimakkuuspainikkeita.</string>
     <string name="accessibility_tutorial_dialog_title_button">Avaa esteettömyyspainikkeella</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Avaa eleellä</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Käytä uutta esteettömyyselettä</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Käytä esteettömyyselettä</string>
     <string name="accessibility_tutorial_dialog_title_triple">Avaa kolmoisnapauttamalla näyttöä</string>
     <string name="accessibility_tutorial_dialog_title_volume">Avaa painamalla äänenvoimakkuuspainikkeita</string>
     <string name="accessibility_tutorial_pager">Sivu %1$d/%2$d</string>
@@ -936,6 +955,7 @@ Kun palautus on valmis, määritä laite uudelleen ja valitse tietojen tuominen 
     <string name="battery_level_title">Akun taso</string>
     <string name="battery_manager_off">Pois päältä</string>
     <string name="battery_manager_summary">Pidennä akunkestoa ja optimoi lataamista</string>
+    <string name="battery_manager_summary_unsupported">Pidennä akunkestoa</string>
     <string name="battery_missing_link_a11y_message">Katso lisätietoja virheestä napauttamalla</string>
     <string name="battery_missing_link_message">Lue lisää</string>
     <string name="battery_missing_message">Ongelma akkumittarin lukemisessa</string>
@@ -1061,6 +1081,7 @@ klo ^2"</string>
     <string name="battery_usage_screen_footer">Akun käyttödata on arvio, eikä käyttöä mitata puhelimen latautuessa</string>
     <string name="battery_usage_screen_footer_empty">Akun käyttödata on nähtävissä, kun olet käyttänyt puhelinta muutaman tunnin</string>
     <string name="battery_usage_total_less_than_one_minute">Yhteensä: alle minuutti</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%2$s on käyttänyt %1$s</string>
     <string name="battery_used_for">Käyttöaika: ^1</string>
     <string name="bearer">Bearer</string>
@@ -1069,12 +1090,14 @@ klo ^2"</string>
     <string name="billing_cycle_less_than_one_day_left">Alle 1 päivä jäljellä</string>
     <string name="billing_cycle_none_left">Ei aikaa jäljellä</string>
     <string name="biometric_settings_category_ways_to_unlock">Tapoja avata lukitus</string>
-    <string name="biometric_settings_category_ways_to_use">Käytä kasvoja ja sormenjälkeä seuraaviin:</string>
     <string name="biometric_settings_hand_back_to_guardian">Anna puhelin takaisin vanhemmalle</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">OK</string>
     <string name="biometric_settings_intro">Otettuasi kasvojentunnistus- ja sormenjälkiavauksen käyttöön puhelimesi pyytää sormenjälkeäsi, kun käytät maskia tai olet pimeässä ympäristössä</string>
-    <string name="biometric_settings_use_biometric_for_apps">Sovelluksissa todentaminen</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">Lukituksen avaaminen</string>
+    <string name="biometric_settings_use_biometric_for_apps">Vahvista henkilöllisyytesi sovelluksilla</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">Avaa puhelimen lukitus</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Käytä kasvoja tai sormenjälkeä</string>
+    <string name="biometric_settings_use_face_preference_summary">Käytä kasvoja</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Käytä sormenjälkeä</string>
     <string name="biometrics_unlock_set_unlock_password">Salasana • Kasvot • Sormenjälki</string>
     <string name="biometrics_unlock_set_unlock_pattern">Kuvio • Kasvot • Sormenjälki</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN-koodi • Kasvot • Sormenjälki</string>
@@ -1332,7 +1355,6 @@ Valinta"</string>
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Näytä nimettömät Bluetooth-laitteet</string>
     <string name="bluetooth_show_devices_without_names_summary">Näytetään Bluetooth-laitteet, joilla ei ole nimiä (vain MAC-osoitteet)</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Bluetoothilla vastaanotetut tiedostot</string>
     <string name="bluetooth_show_received_files">Vastaanotetut tiedostot</string>
     <string name="bluetooth_sim_card_access_dialog_content">"Bluetooth-laite, %1$s, haluaa pääsyn SIM-korttisi dataan. Yhteystietosi sisältyvät dataan.
 
@@ -1426,6 +1448,7 @@ Jos asennat CA-varmenteen, sen omistaja voi päästä sivustoilta ja sovelluksis
     <string name="calls_sms_temp_unavailable">Tilapäisesti poissa käytöstä</string>
     <string name="calls_sms_unavailable">ei saatavilla</string>
     <string name="calls_sms_wfc_summary">Soita ja vastaanota puheluita Wi-Fi-verkon kautta</string>
+    <string name="cam_toggle_description">sovellusten ja palvelujen osalta</string>
     <string name="camera_double_tap_power_gesture_desc">Avaa kamera nopeasti avaamatta näytön lukitusta</string>
     <string name="camera_double_tap_power_gesture_title">Kamera: paina virtapainiketta kahdesti</string>
     <string name="camera_laser_sensor_switch">Kameran laseranturi</string>
@@ -1742,7 +1765,7 @@ Avaa ilmoitusalue vetämällä alas näytön yläreunasta ja kosketa keskustelua
     <string name="credentials_settings_not_available">Kirjautumistunnukset eivät ole tämän käyttäjän käytettävissä</string>
     <string name="credentials_title">Kirjautumistietojen tallennustila</string>
     <string name="cross_profile_calendar_summary">Näytä työtapahtumat omassa kalenterissa</string>
-    <string name="cross_profile_calendar_title">Profiilienvälinen kalenteri</string>
+    <string name="cross_profile_calendar_title">Kahden profiilin kalenteri</string>
     <string name="crypt_keeper_button_text">Salaa puhelin</string>
     <string name="crypt_keeper_confirm_title">Salataanko?</string>
     <string name="crypt_keeper_data_corrupt_summary">"Annoit oikean salasanan, mutta tiedot ovat valitettavasti vioittuneet. 
@@ -3302,6 +3325,7 @@ Muut käyttävät laitetta parhaillaan.
     <string name="menu_stats_total">Käyttö yhteensä</string>
     <string name="menu_stats_unplugged">%1$s laturin irrottamisen jälkeen</string>
     <string name="menu_use_uss">Käytä USS-muistimääritystä</string>
+    <string name="mic_toggle_description">Sovellukset ja palvelut. Vaikka asetus olisi poissa päältä, mikrofonidataa saatetaan silti jakaa, kun soitat hätänumeroon.</string>
     <string name="mic_toggle_title">Pääsy mikrofoniin</string>
     <string name="misc_files">Muut tiedostot</string>
     <string name="misc_files_selected_count">valittu %1$d/%2$d</string>
@@ -3728,6 +3752,7 @@ Tämä antaa sovellukselle myös oikeuden laittaa Älä häiritse ‑tilan pää
     <string name="one_handed_action_show_notification_title">Näytä ilmoitukset</string>
     <string name="one_handed_mode_enabled">Käytä yhden käden moodia</string>
     <string name="one_handed_mode_intro_text">Jos haluat käyttää yhden käden moodia, pyyhkäise alas näytön alareunasta. Varmista, että eleillä navigointi on laitettu päälle järjestelmän navigointiasetuksista, jotta voit käyttää tätä ominaisuutta.</string>
+    <string name="one_handed_mode_shortcut_title">Yhden käden moodin pikanäppäin</string>
     <string name="one_handed_mode_swipe_down_category">Pyyhkäise alas:</string>
     <string name="one_handed_mode_use_shortcut_category">Käytä pikakuvaketta:</string>
     <string name="one_usercrt">yhden käyttäjän varmenne</string>
@@ -3803,7 +3828,7 @@ Tämä antaa sovellukselle myös oikeuden laittaa Älä häiritse ‑tilan pää
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s on aktiivinen</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Kamera</string>
-    <string name="power_cell">Mobiiliverkon valmiustila</string>
+    <string name="power_cell">Mobiiliverkko</string>
     <string name="power_charge_remaining">%1$s latausaikaa jäljellä</string>
     <string name="power_charging">%1$s – %2$s</string>
     <string name="power_charging_duration">%1$s – %2$s kunnes täynnä</string>
@@ -4037,6 +4062,7 @@ Paina virta‑ ja äänenvoimakkuuspainiketta yhtä aikaa."</string>
     <string name="recent_notifications">Äskettäin lähetetyt</string>
     <string name="recent_notifications_see_all_title">Näytä kaikki 7 viime päivän ajalta</string>
     <string name="recompute_size">Lasketaan kokoa uudelleen...</string>
+    <string name="reduce_bright_colors_about_title">Tietoja erittäin himmeästä</string>
     <string name="reduce_bright_colors_intensity_end_label">Kirkkaampi</string>
     <string name="reduce_bright_colors_intensity_preference_title">Voimakkuus</string>
     <string name="reduce_bright_colors_intensity_start_label">Himmeämpi</string>
@@ -4044,6 +4070,7 @@ Paina virta‑ ja äänenvoimakkuuspainiketta yhtä aikaa."</string>
     <string name="reduce_bright_colors_preference_subtitle">Himmennä näyttöä, jotta sen lukeminen on miellyttävämpää.&lt;br/>&lt;br/> Tästä voi olla apua, kun &lt;ol> &lt;li> puhelin on liian kirkas, vaikka kirkkauden oletusvähimmäisarvo on valittuna&lt;/li> &lt;li> käytät puhelinta pimeässä, esimerkiksi yöllä tai pimeässä huoneessa ennen nukkumaanmenoa&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">Himmennä näyttöä puhelimen vähimmäiskirkkautta himmeämmäksi</string>
     <string name="reduce_bright_colors_preference_title">Erittäin himmeä</string>
+    <string name="reduce_bright_colors_shortcut_title">Erittäin himmeän pikanäppäin</string>
     <string name="reduce_bright_colors_switch_title">Tee näytöstä erittäin himmeä</string>
     <string name="register_automatically">Automaattinen rekisteröinti…</string>
     <string name="register_on_network">%s rekisteröidään…</string>
@@ -4249,7 +4276,6 @@ Sovelluksen kiinnittäminen: \u0009
     <string name="screen_pinning_unlock_pattern">Pyydä lukituksenpoistokuviota ennen irrotusta</string>
     <string name="screen_pinning_unlock_pin">Pyydä PIN ennen irrotusta</string>
     <string name="screen_reader_category_title">Näytönlukuohjelma</string>
-    <string name="screen_saver_main_switch_title">Käytä näytönsäästäjää</string>
     <string name="screen_time_summary_usage_today">%1$s tänään</string>
     <string name="screen_timeout_summary">Laitteen oltua käyttämättä: %1$s</string>
     <string name="screen_timeout_title">Näyttö sammuu</string>
@@ -4279,6 +4305,7 @@ Sovelluksen kiinnittäminen: \u0009
     <string name="screensaver_settings_button">Asetukset</string>
     <string name="screensaver_settings_current">Nykyinen näytönsäästäjä</string>
     <string name="screensaver_settings_disabled_prompt">Ota näytönsäästäjä käyttöön, niin voit hallita puhelimen toimintaa telakoituna ja/tai lepotilassa.</string>
+    <string name="screensaver_settings_dream_start">Aloita nyt</string>
     <string name="screensaver_settings_summary_dock">Telakoituna</string>
     <string name="screensaver_settings_summary_either_long">Latauksen aikana tai telakoituna</string>
     <string name="screensaver_settings_summary_either_short">Kumpi vain</string>
@@ -4329,15 +4356,6 @@ Sovelluksen kiinnittäminen: \u0009
     <string name="security_settings_biometric_preference_summary_both_fp_single">Kasvot ja sormenjälki lisättiin</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Ota käyttöön napauttamalla</string>
     <string name="security_settings_biometric_preference_title">Kasvojentunnistus- ja sormenjälkiavaus</string>
-    <string name="security_settings_biometrics_description">Otettuasi kasvojentunnistus- ja sormenjälkiavauksen käyttöön puhelimesi pyytää sormenjälkeäsi, kun käytät maskia tai olet pimeässä ympäristössä</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Sovelluksissa todentaminen</string>
-    <string name="security_settings_biometrics_preferences_category">Käytä kasvoja tai sormenjälkeä seuraaviin:</string>
-    <string name="security_settings_biometrics_summary_both">Kasvot ja sormenjälki</string>
-    <string name="security_settings_biometrics_summary_face">Vain kasvot</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Vain sormenjälki</string>
-    <string name="security_settings_biometrics_summary_none">Ota käyttöön napauttamalla</string>
-    <string name="security_settings_biometrics_title">Avaa lukitus kasvoilla ja sormenjäljellä</string>
-    <string name="security_settings_biometrics_types_category">Tapoja avata lukitus</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Salli Face Unlock</string>
     <string name="security_settings_face_enroll_dialog_ok">OK</string>
     <string name="security_settings_face_enroll_done">Valmis</string>
@@ -4385,16 +4403,17 @@ Lue lisää: g.co/pixel/faceunlock."</string>
     <string name="security_settings_face_enroll_introduction_control_title">Sinä päätät</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message">"Face Unlock luo lapsesi kasvoista yksilöllisen mallin, jonka avulla hänen henkilöllisyytensä voidaan todentaa. Lapsesi voi luoda kasvomallin käyttöönoton aikana ottamalla kasvoistaan kuvia eri kuvakulmista.
 
-Kun lapsi käyttää Face Unlockia, kuvia käytetään kasvomallin päivittämiseen. Kasvomallin luontiin käytettäviä kuvia ei koskaan säilytetä, mutta itse kasvomalli säilytetään suojatusti puhelimella, eikä se poistu puhelimelta. Kaikki käsittely tapahtuu turvallisesti puhelimella."</string>
+Kun lapsi käyttää Face Unlockia, kuvia käytetään kasvomallin päivittämiseen. Kasvomallin luontiin käytettäviä kuvia ei säilytetä, mutta itse kasvomalli säilytetään suojatusti puhelimella, eikä se poistu puhelimelta. Kaikki käsittely tapahtuu turvallisesti puhelimella."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"Face Unlock luo kasvoistasi yksilöllisen mallin, jonka avulla henkilöllisyytesi voidaan todentaa. Voit luoda kasvomallin käyttöönoton aikana ottamalla kasvoistasi kuvia eri kuvakulmista.
 
-Kun käytät Face Unlockia, kuvia käytetään kasvomallin päivittämiseen. Kasvomallin luontiin käytettäviä kuvia ei koskaan säilytetä, mutta itse kasvomalli säilytetään suojatusti puhelimellasi, eikä se poistu puhelimelta. Kaikki käsittely tapahtuu turvallisesti puhelimellasi."</string>
+Kun käytät Face Unlockia, kuvia käytetään kasvomallin päivittämiseen. Kasvomallin luontiin käytettäviä kuvia ei säilytetä, mutta itse kasvomalli säilytetään suojatusti puhelimellasi, eikä se poistu puhelimelta. Kaikki käsittely tapahtuu turvallisesti puhelimellasi."</string>
     <string name="security_settings_face_enroll_introduction_how_title">Näin se toimii</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">Kasvojentunnistusavaus saattaa edellyttää, että lapsesi silmät ovat auki puhelimen avaamiseksi tai henkilöllisyyden vahvistamiseksi. Sinä ja lapsesi voitte laittaa ominaisuuden päälle asetuksista milloin tahansa.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Jos lapsi käyttää yleensä silmälaseja, hän voi käyttää niitä myös käyttöönoton aikana.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Puhelimen katsominen voi avata sen lukituksen lapsen haluamatta. Joku muu voi myös avata lapsesi puhelimen lukituksen, jos hän näyttää lapselta (esim. identtinen kaksonen) tai pitää laitetta tämän kasvojen edessä.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Kasvojentunnistusavaus saattaa edellyttää, että silmäsi ovat auki puhelimen avaamiseksi tai henkilöllisyyden vahvistamiseksi. Voit laittaa ominaisuuden päälle asetuksista milloin tahansa.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Silmälasit tai kevyesti sävytetyt aurinkolasit eivät haittaa.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Puhelimen avaaminen kasvojen avulla voi olla vähemmän turvallista kuin vahvan kuvion tai PIN-koodin käyttö.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Puhelimen katsominen voi avata sen lukituksen haluamattasi. Joku muu voi myös avata puhelimesi lukituksen, jos hän näyttää sinulta (esim. identtinen kaksonen) ta pitää laitetta kasvojesi edessä.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Hyvä muistaa</string>
     <string name="security_settings_face_enroll_introduction_message">Käytä kasvojasi puhelimen lukituksen avaamiseen tai henkilöllisyyden todentamiseen esim. kirjautuessasi sovelluksiin tai hyväksyessäsi ostoksen.</string>
@@ -4452,13 +4471,14 @@ Joku muu voi avata puhelimesi lukituksen, jos hän pitää puhelinta kasvojesi e
 
 Joku muu voi avata puhelimesi lukituksen, jos hän näyttää sinulta (esim. identtinen kaksosesi)."</string>
     <string name="security_settings_face_settings_preferences_category">Kun kasvojentunnistusavaus on käytössä</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Kasvomalli poistetaan pysyvästi ja turvallisesti. Poistamisen jälkeen tarvitset sormenjälkeä, PIN-koodia, kuviota tai salasanaa puhelimen lukituksen avaamiseen tai sovelluksissa todentamiseen.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Kasvomalli poistetaan pysyvästi ja turvallisesti.
+
+Poistamisen jälkeen tarvitset sormenjälkeä, PIN-koodia, kuviota tai salasanaa puhelimen lukituksen avaamiseen tai sovelluksissa todentamiseen."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Kasvomalli poistetaan pysyvästi ja turvallisesti.
+
+Poistamisen jälkeen tarvitset PIN-koodia, kuviota tai salasanaa puhelimen lukituksen avaamiseen."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Poistetaanko kasvomalli?</string>
     <string name="security_settings_face_settings_remove_face_model">Poista kasvomalli</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Kasvomalli poistetaan pysyvästi ja turvallisesti.
-
-Poistamisen jälkeen tarvitset sormenjälkeä, PIN-koodia, kuviota tai salasanaa puhelimen lukituksen avaamiseen tai sovelluksessa todentamiseen."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Poistetaanko kasvomalli?</string>
     <string name="security_settings_face_settings_require_attention">Edellytä avoimia silmiä</string>
     <string name="security_settings_face_settings_require_attention_details">Puhelin aukeaa vain, jos silmät ovat auki</string>
     <string name="security_settings_face_settings_require_confirmation">Pyydä aina vahvistusta</string>
@@ -4550,7 +4570,7 @@ Huom. Tämän laitteen lukitusta ei voi avata sormenjäljellä. Saat lisätietoj
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Tämä auttaa tallentamaan suuremman osan sormenjäljestäsi</string>
     <string name="security_settings_udfps_enroll_repeat_message">Kosketa tunnistinta pitkään aina kun sormenjälkikuvake liikkuu. Tämä auttaa tallentamaan suuremman osan sormenjäljestäsi.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Seuraa sormenjälkikuvaketta</string>
-    <string name="security_settings_udfps_enroll_start_message">Pidä sormesi tunnistimen päällä, kunnes tunnet värähdyksen</string>
+    <string name="security_settings_udfps_enroll_start_message">Pidä sormesi tunnistimella, kunnes tunnet värähdyksen</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Vielä kerran</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint työkäyttöön</string>
     <string name="security_status_title">Suojaustila</string>
@@ -4576,7 +4596,6 @@ Huom. Tämän laitteen lukitusta ei voi avata sormenjäljellä. Saat lisätietoj
     <string name="select_webview_provider_dialog_title">Määritä WebView-käyttöönotto</string>
     <string name="select_webview_provider_title">WebView-käyttöönotto</string>
     <string name="select_webview_provider_toast_text">Tämä valinta ei ole enää saatavilla. Yritä uudestaan.</string>
-    <string name="sensor_toggle_description">Kaikki sovellukset ja palvelut</string>
     <string name="sensors_off_quick_settings_title">Anturit pois päältä</string>
     <string name="service_background_processes">%1$s vapaa</string>
     <string name="service_foreground_processes">%1$s käyt.</string>
@@ -4808,6 +4827,7 @@ PIN-koodi on mahdollisesti virheellinen."</string>
     <string name="sound_settings_summary_silent">Soittoääni on mykistetty.</string>
     <string name="sound_settings_summary_vibrate">Soittoääni on mykistetty. Puhelin värisee, kun saat puhelun.</string>
     <string name="sound_work_settings">Työprofiilin äänet</string>
+    <string name="spatial_audio_title">Spatiaalinen audio</string>
     <string name="special_access">Erityisluvat</string>
     <string name="special_access_more">Katso lisää</string>
     <string name="speed_label_fast">Nopea</string>
@@ -5619,7 +5639,7 @@ Puhelun aikana et voi käyttää internetiä ja kaikki sovellukset eivät vältt
     <string name="vpn_turn_on">Ota käyttöön</string>
     <string name="vpn_type">Tyyppi</string>
     <string name="vpn_username">Käyttäjätunnus</string>
-    <string name="vpn_version">Versio %s</string>
+    <string name="vpn_version">Versio</string>
     <string name="vr_listener_security_warning_summary">%1$s voidaan käynnistää, kun käytät sovelluksia virtuaalitodellisuustilassa.</string>
     <string name="vr_listener_security_warning_title">Sallitaanko VR-palveluiden käyttöoikeus palvelulle %1$s?</string>
     <string name="vr_listeners_title">VR-avustinpalvelut</string>
@@ -5725,7 +5745,7 @@ Katso lisätietoja operaattorin tietosuojakäytännöstä."</string>
     <string name="wifi_certificate">Wi‑Fi-varmenne</string>
     <string name="wifi_check_password_try_again">Tarkista salasana ja yritä uudelleen.</string>
     <string name="wifi_configure_settings_preference_summary_wakeup_off">Wi-Fiä ei oteta uudelleen käyttöön automaattisesti.</string>
-    <string name="wifi_configure_settings_preference_summary_wakeup_on">Wi-Fi otetaan uudelleen käyttöön automaattisesti.</string>
+    <string name="wifi_configure_settings_preference_summary_wakeup_on">Wi-Fi otetaan uudelleen käyttöön automaattisesti</string>
     <string name="wifi_configure_settings_preference_title">Wi-Fi-asetukset</string>
     <string name="wifi_connect">Yhdistä</string>
     <string name="wifi_connected_low_quality">Heikko laatu</string>
@@ -5889,7 +5909,7 @@ Verkon piilottaminen ei muuta reititinasetuksiasi."</string>
     <string name="wifi_not_in_range">Ei kantoalueella</string>
     <string name="wifi_not_in_range_message">Verkko ei ole kantoalueella</string>
     <string name="wifi_notify_open_networks">Ilmoita julkisista verkoista</string>
-    <string name="wifi_notify_open_networks_summary">Kun automaattista yhteyttä ei ole saatavilla</string>
+    <string name="wifi_notify_open_networks_summary">Ilmoita, kun käytettävissä on laadukkaita julkisia verkkoja.</string>
     <string name="wifi_on_time">Wi-Fi-yhteyden käytössäoloaika</string>
     <string name="wifi_p2p_cancel_connect_message">Haluatko peruuttaa laitteelle %1$s lähetetyn yhteydenmuodostuskutsun?</string>
     <string name="wifi_p2p_cancel_connect_title">Perutaanko kutsu?</string>
@@ -5977,7 +5997,6 @@ Annetaanko tämä lupa kaikille sovelluksille, jotka haluavat etsiä verkkoja?"<
     <string name="wifi_suspend_optimizations">Wi-Fi-optimointi</string>
     <string name="wifi_suspend_optimizations_summary">Vähennä akun kulutusta, kun Wi-Fi on käytössä</string>
     <string name="wifi_switch_away_when_unvalidated">Vaihda mobiilidataan, jos Wi-Fi-yhteys katkeaa</string>
-    <string name="wifi_switch_summary">Etsi Wi-Fi-verkkoja ja yhdistä niihin</string>
     <string name="wifi_tap_to_sign_in">Napauta tästä kirjautuaksesi verkkoon</string>
     <string name="wifi_tether_configure_ap_text">Luo Wi-Fi-hotspot</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

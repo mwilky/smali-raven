@@ -85,6 +85,14 @@
     return-object p0
 .end method
 
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d02
+
+    return p0
+.end method
+
 .method public getSummary()Ljava/lang/CharSequence;
     .locals 1
 
@@ -92,7 +100,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0400ff
+    const v0, 0x7f040112
 
     goto :goto_0
 
@@ -103,12 +111,12 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f0400d1
+    const v0, 0x7f0400e2
 
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f0400d0
+    const v0, 0x7f0400e1
 
     :goto_0
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
@@ -147,15 +155,15 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    const v0, 0x7f040101
+    const v0, 0x7f040114
 
-    const-string v1, "title_res"
+    const-string/jumbo v1, "title_res"
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040100
+    const v1, 0x7f040113
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

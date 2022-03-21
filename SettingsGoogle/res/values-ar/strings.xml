@@ -68,7 +68,7 @@
     <string name="reset_dashboard_summary">يمكن إعادة ضبط الشبكة أو التطبيقات أو الجهاز</string>
     <string name="reset_dashboard_title">خيارات إعادة الضبط</string>
     <string name="abc_action_menu_overflow_description">خيارات أكثر</string>
-    <string name="screensaver_settings_title">شاشة التوقف</string>
+    <string name="screensaver_settings_title">شاشة الاستراحة</string>
     <string name="screen_timeout">مهلة غلق الشاشة</string>
     <string name="screen_zoom_title">حجم العرض</string>
     <string name="show_operator_name_summary">عرض اسم الشبكة في شريط الحالة</string>
@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">العرض السلس</string>
     <string name="peak_refresh_rate_summary">تعمل هذه الميزة على رفع معدل إعادة التحميل تلقائيًا من 60 إلى 90 هرتز لبعض أنواع المحتوى، ما يؤدي إلى زيادة استخدام البطارية.</string>
     <string name="accessibility_vibration_settings_title">الاهتزاز واللمس</string>
+    <string name="columbus_title">النقرة السريعة لبدء الإجراءات</string>
     <string name="emergency_gesture_screen_title">اتصالات الطوارئ</string>
     <string name="abc_action_mode_done">تم</string>
     <string name="vibrate_for_calls_category_title">المكالمات</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">إظهار عناصر التحكّم في الجهاز</string>
     <string name="lockscreen_privacy_wallet_summary">السماح بالوصول إلى المحفظة من شاشة القفل والإعدادات السريعة</string>
     <string name="lockscreen_privacy_controls_summary">يمكنك الوصول إلى عناصر التحكّم عندما تكون الشاشة مُقفَلة.</string>
+    <string name="lockscreen_double_line_clock_summary">إظهار الساعة بخطين عندما تكون متاحة.</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">ساعة بخطين</string>
     <string name="abc_activity_chooser_view_see_all">عرض الكل</string>
     <string name="abc_activitychooserview_choose_application">اختيار تطبيق</string>
     <string name="abc_capital_off">إيقاف</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">اهتزاز المنبّه</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">‏تم إعداد Active Edge. انتقل إلى الشاشة التالية أو استمر في التعديل.</string>
     <string name="accessibility_audio_adjustment_title">تعديل الصوت</string>
+    <string name="accessibility_autoclick_about_title">حول النقر التلقائي (فترة الثبات)</string>
     <string name="accessibility_autoclick_custom_title">مخصّص</string>
     <string name="accessibility_autoclick_default_title">غير مفعَّل</string>
     <string name="accessibility_autoclick_description">تعمل ميزة النقر التلقائي مع ماوس متصل. يمكنك ضبط مؤشر الماوس بحيث يتم النقر تلقائيًا عند توقف المؤشر عن الحركة لمدة زمنية معيّنة.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">تعرّف على مزيد من المعلومات حول النقر التلقائي (فترة الثبات)</string>
     <string name="accessibility_autoclick_long_summary">ثانية واحدة</string>
     <string name="accessibility_autoclick_long_title">طويل</string>
     <string name="accessibility_autoclick_longer_desc">أطول</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">قصير</string>
     <string name="accessibility_autoclick_shorter_desc">أقصر</string>
     <string name="accessibility_banner_message_dismiss">إغلاق</string>
-    <string name="accessibility_button_description">"يمكنك الوصول بسرعة إلى ميزات تسهيل الاستخدام من أي شاشة. 
+    <string name="accessibility_button_about_title">لمحة عن زرّ أدوات تسهيل الاستخدام</string>
+    <string name="accessibility_button_description">"يمكنك الوصول بسرعة إلى ميزات تسهيل الاستخدام من أي شاشة.
 
-لبدء الاستخدام، انتقِل إلى إعدادات تسهيل الاستخدام واختَر ميزة. انقر على الاختصار واختَر زر أدوات تسهيل الاستخدام."</string>
+للبدء، انتقِل إلى إعدادات تسهيل الاستخدام واختَر ميزة. انقر على الاختصار واختَر زر أدوات تسهيل الاستخدام."</string>
     <string name="accessibility_button_fade_summary">يتلاشى الزر بعد بضع ثوانٍ، مما يسهِّل رؤية الشاشة.</string>
     <string name="accessibility_button_fade_title">تلاشي الزر عند عدم استخدامه</string>
+    <string name="accessibility_button_gesture_about_title">لمحة عن إيماءة وزرّ أدوات تسهيل الاستخدام</string>
     <string name="accessibility_button_gesture_description">"يمكنك الوصول بسرعة إلى ميزات تسهيل الاستخدام من أي شاشة.
 
-للبدء، انتقِل إلى إعدادات تسهيل الاستخدام واختَر ميزة. انقر على الاختصار واختَر زر أدوات تسهيل الاستخدام.
-
-لاستخدام زر أدوات تسهيل الاستخدام في شريط التنقُّل بدلاً من ذلك، عليك التبديل إلى نظام التنقُّل باستخدام زرّين أو نظام التنقُّل باستخدام ثلاثة أزرار."</string>
+للبدء، انتقِل إلى إعدادات تسهيل الاستخدام واختَر ميزة. انقر على الاختصار واختَر إيماءة أو زر أدوات تسهيل الاستخدام."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">تعرّف على مزيد من المعلومات حول إيماءة وزرّ أدوات تسهيل الاستخدام</string>
     <string name="accessibility_button_gesture_title">إيماءة وزرّ أدوات تسهيل الاستخدام</string>
     <string name="accessibility_button_high_label">غير شفاف</string>
     <string name="accessibility_button_intro">استخدام زرّ أدوات تسهيل الاستخدام: لا تتوفّر إيماءة التنقُّل باستخدام ثلاثة أزرار</string>
@@ -184,14 +190,23 @@
     <string name="accessibility_caption_preference_summary">لا تتوفّر هذه الإعدادات المفضّلة للشرح في بعض التطبيقات.</string>
     <string name="accessibility_caption_primary_switch_summary">للتطبيقات المتوافقة فقط</string>
     <string name="accessibility_caption_primary_switch_title">عرض الشرح</string>
+    <string name="accessibility_captioning_about_title">لمحة عن الإعدادات المفضّلة للشرح</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">تعرّف على مزيد من المعلومات حول الإعدادات المفضّلة للشرح</string>
     <string name="accessibility_captioning_title">الإعدادات المفضّلة للشرح</string>
     <string name="accessibility_category_personal">حسابات الملفات الشخصية</string>
     <string name="accessibility_category_work">حسابات الملفات الشخصية للعمل - %s</string>
-    <string name="accessibility_control_timeout_preference_summary">"اختَر مدة عرض الرسائل التي تطلب منك اتخاذ إجراء، ولكن يقتصر عرضها على فترة مؤقتة.
+    <string name="accessibility_color_inversion_about_title">لمحة عن قلب الألوان</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">تعرّف على مزيد من المعلومات حول قلب الألوان</string>
+    <string name="accessibility_control_timeout_about_title">لمحة عن وقت اتخاذ الإجراء (مهلة أدوات تسهيل الاستخدام)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">تعرّف على مزيد من المعلومات حول وقت اتخاذ الإجراء (مهلة أدوات تسهيل الاستخدام)</string>
+    <string name="accessibility_control_timeout_preference_summary">"حدّد مدة عرض الرسائل التي تطلب منك اتخاذ إجراء، على أن يتم عرضها بشكل مؤقت.
 
-لا تتوافق بعض التطبيقات مع هذا الإعداد."</string>
+هذا الإعداد غير متاح في كل التطبيقات."</string>
     <string name="accessibility_control_timeout_preference_title">وقت اتخاذ الإجراء</string>
+    <string name="accessibility_daltonizer_about_title">لمحة عن تصحيح الألوان</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">تعرّف على مزيد من المعلومات حول تصحيح الألوان</string>
     <string name="accessibility_daltonizer_primary_switch_title">استخدام ميزة \"تصحيح الألوان\"</string>
+    <string name="accessibility_daltonizer_shortcut_title">اختصار تصحيح الألوان</string>
     <string name="accessibility_data_one_bar">إشارة البيانات تتكون من شريط واحد.</string>
     <string name="accessibility_data_signal_full">إشارة البيانات كاملة.</string>
     <string name="accessibility_data_three_bars">إشارة البيانات تتكون من ثلاثة أشرطة.</string>
@@ -206,6 +221,7 @@
     <string name="accessibility_display_daltonizer_preference_title">تصحيح الألوان</string>
     <string name="accessibility_display_inversion_preference_subtitle">‏تحوّل ميزة \"قلب الألوان\" الشاشات المضيئة إلى شاشات معتمة.&lt;br/>&lt;br/> ملاحظة: &lt;ol> &lt;li> تحوّل أيضًا ميزة \"قلب الألوان\" الشاشات المعتمة إلى شاشات مضيئة.&lt;/li> &lt;li> ستتغيّر الألوان في الوسائط والصور.&lt;/li> &lt;li> يمكن استخدام المظهر الداكن لعرض خلفية داكنة. يعمل وضع \"المظهر الداكن\" مع التطبيقات المتوافقة. أما خيار \"قلب الألوان\"، فيعمل مع جميع التطبيقات.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">قلب الألوان</string>
+    <string name="accessibility_display_inversion_shortcut_title">اختصار قلب الألوان</string>
     <string name="accessibility_display_inversion_switch_title">استخدام قلب الألوان</string>
     <string name="accessibility_ethernet_connected">إيثرنت</string>
     <string name="accessibility_ethernet_disconnected">‏تم قطع اتصال Ethernet.</string>
@@ -255,6 +271,8 @@
     <string name="accessibility_phone_two_bars">إشارة الهاتف تتكون من شريطين.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">إنهاء الاتصال عبر زر التشغيل</string>
     <string name="accessibility_preference_magnification_summary">التكبير على الشاشة</string>
+    <string name="accessibility_screen_magnification_about_title">لمحة عن التكبير</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">تعرّف على مزيد من المعلومات حول التكبير</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">تم ضبط إيماءة تمكين الوصول على %1$s. للتكبير، مرّر سريعًا من أسفل الشاشة إلى أعلاها باستخدام إصبعين مع تثبيتهما. ثم اختَر التكبير.</string>
     <string name="accessibility_screen_magnification_gestures_title">التكبير بالنقر ثلاث مرّات</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">تم ضبط زر \"سهولة الاستخدام\" لخدمة %1$s. لاستخدام التكبير، المس زر \"سهولة الاستخدام\" مع الاستمرار ثم اختَر التكبير.</string>
@@ -272,9 +290,10 @@
 لن يكون بإمكانك التكبير على لوحة المفاتيح أو شريط التنقل."</string>
     <string name="accessibility_screen_magnification_navbar_title">التكبير باستخدام الاختصار</string>
     <string name="accessibility_screen_magnification_short_summary">انقر ٣ مرات للتكبير.</string>
+    <string name="accessibility_screen_magnification_shortcut_title">اختصار التكبير</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">التكبير باستخدام الزر والنقر الثلاثي</string>
-    <string name="accessibility_screen_magnification_summary">‏يمكنك تكبير الشاشة بسرعة لتكبير المحتوى.&lt;br/>&lt;br/> &lt;b>لتكبير الشاشة، نفِّذ الخطوات التالية:&lt;/b>&lt;br/> {0,number,integer}. استخدِم الاختصار المخصّص لبدء تكبير المحتوى&lt;br/> {1,number,integer}. انقر على الشاشة&lt;br/> {2,number,integer}. اسحب إصبعين للتنقّل على الشاشة&lt;br/> {3,number,integer}. باعِد أو قارِب بإصبعين لتعديل مستوى التكبير/التصغير&lt;br/> {4,number,integer}. استخدِم الاختصار المخصّص لإيقاف تكبير المحتوى&lt;br/>&lt;br/>&lt;b>لتكبير المحتوى مؤقتًا، نفِّذ الخطوات التالية:&lt;/b>&lt;br/> {0,number,integer}. استخدِم الاختصار المخصّص لبدء تكبير المحتوى&lt;br/> {1,number,integer}. انقر مع الاستمرار على أي مكان على الشاشة&lt;br/> {2,number,integer}. اسحب إصبعك للتنقّل على الشاشة&lt;br/> {3,number,integer}. ارفع إصبعك لإيقاف تكبير الشاشة.</string>
-    <string name="accessibility_screen_magnification_title">تكبير حجم الشاشة</string>
+    <string name="accessibility_screen_magnification_summary">‏يمكنك تكبير الشاشة بسرعة لتكبير المحتوى.&lt;br/>&lt;br/> &lt;b>لتكبير الشاشة، نفِّذ الخطوات التالية:&lt;/b>&lt;br/> {0,number,integer}. استخدِم الاختصار لبدء تكبير المحتوى&lt;br/> {1,number,integer}. انقر على الشاشة&lt;br/> {2,number,integer}. اسحب إصبعين للتنقّل على الشاشة&lt;br/> {3,number,integer}. باعِد أو قارِب بإصبعين لتعديل مستوى التكبير/التصغير&lt;br/> {4,number,integer}. استخدِم الاختصار لإيقاف تكبير المحتوى&lt;br/>&lt;br/>&lt;b>لتكبير المحتوى مؤقتًا، نفِّذ الخطوات التالية:&lt;/b>&lt;br/> {0,number,integer}. استخدِم الاختصار لبدء تكبير المحتوى&lt;br/> {1,number,integer}. انقر مع الاستمرار على أي مكان على الشاشة&lt;br/> {2,number,integer}. اسحب إصبعك للتنقّل على الشاشة&lt;br/> {3,number,integer}. ارفع إصبعك لإيقاف تكبير الشاشة.</string>
+    <string name="accessibility_screen_magnification_title">التكبير</string>
     <string name="accessibility_screen_option">الخيارات</string>
     <string name="accessibility_service_action_perform_description">يمكنها تتبّع تعاملاتك مع تطبيق أو جهاز استشعار والتفاعل مع التطبيقات نيابةً عنك.</string>
     <string name="accessibility_service_action_perform_title">عرض الإجراءات وتنفيذها</string>
@@ -370,7 +389,7 @@
     <string name="accessibility_tutorial_dialog_message_volume">لاستخدام هذه الميزة، اضغط مع الاستمرار على كلا مفتاحَي مستوى الصوت.</string>
     <string name="accessibility_tutorial_dialog_title_button">استخدام زر أدوات تسهيل الاستخدام في الفتح</string>
     <string name="accessibility_tutorial_dialog_title_gesture">الفتح بحركة واحدة</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">استخدام إيماءة \"سهولة الاستخدام\" الجديدة</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">استخدام إيماءة تسهيل الاستخدام</string>
     <string name="accessibility_tutorial_dialog_title_triple">انقر على الشاشة ثلاث مرات لفتحها.</string>
     <string name="accessibility_tutorial_dialog_title_volume">اضغط مع الاستمرار على مفتاحَي مستوى الصوت للفتح</string>
     <string name="accessibility_tutorial_pager">الصفحة %1$d من %2$d</string>
@@ -425,7 +444,7 @@
     <string name="adaptive_charging_time_estimate"><b>جارٍ الشحن التكيُّفي</b> • يكتمل الشحن بحلول %1$s.</string>
     <string name="adaptive_connectivity_summary">إطالة عمر البطارية وتحسين أداء الجهاز عن طريق الإدارة التلقائية للاتصالات بالشبكات</string>
     <string name="adaptive_connectivity_switch_off">إيقاف</string>
-    <string name="adaptive_connectivity_switch_on">تفعيل</string>
+    <string name="adaptive_connectivity_switch_on">مفعّل</string>
     <string name="adaptive_connectivity_title">الاتصال التكيفي</string>
     <string name="adaptive_sleep_camera_lock_summary">يجب فتح قفل الكاميرا لاستخدام ميزة \"استعراض الشاشة\".</string>
     <string name="adaptive_sleep_contextual_slice_summary">إبقاء شاشتك قيد التفعيل أثناء النظر إليها</string>
@@ -763,7 +782,7 @@
     <string name="auto_rotate_camera_lock_title">الكاميرا مُقفَلة</string>
     <string name="auto_rotate_manage_permission_button">إدارة الأذونات</string>
     <string name="auto_rotate_option_face_based">تفعيل - استنادًا للوجه</string>
-    <string name="auto_rotate_option_off">متوقف</string>
+    <string name="auto_rotate_option_off">غير مفعّل</string>
     <string name="auto_rotate_option_on">مفعّل</string>
     <string name="auto_rotate_settings_primary_switch_title">استخدام \"التدوير التلقائي\"</string>
     <string name="auto_rotate_summary_no_permission">يجب منح إذن الوصول إلى الكاميرا لاستخدام تقنية \"التعرّف على الوجوه\". يمكنك النقر لإدارة الأذونات في \"خدمات تخصيص الأجهزة\".</string>
@@ -929,13 +948,14 @@
     <string name="battery_info_status_charging_slow">جارٍ الشحن ببطء</string>
     <string name="battery_info_status_charging_wireless">جارٍ الشحن لاسلكيًا</string>
     <string name="battery_info_status_discharging">لا يتم الشحن</string>
-    <string name="battery_info_status_full">تم الشحن</string>
+    <string name="battery_info_status_full">مشحونة</string>
     <string name="battery_info_status_not_charging">الجهاز متصل بالشاحن، ولا يتم الشحن.</string>
     <string name="battery_info_status_unknown">غير معروف</string>
     <string name="battery_last_full_charge">آخر شحن كامل</string>
     <string name="battery_level_title">مستوى البطارية</string>
     <string name="battery_manager_off">غير مفعّلة</string>
     <string name="battery_manager_summary">إطالة عمر البطارية وتحسين عملية الشحن</string>
+    <string name="battery_manager_summary_unsupported">إطالة عمر البطارية</string>
     <string name="battery_missing_link_a11y_message">انقر لمعرفة المزيد عن هذا الخطأ.</string>
     <string name="battery_missing_link_message">مزيد من المعلومات</string>
     <string name="battery_missing_message">حدثت مشكلة أثناء قراءة مقياس مستوى شحن البطارية.</string>
@@ -1010,9 +1030,9 @@
     <string name="battery_tip_early_heads_up_title">تفعيل ميزة \"توفير شحن البطارية\"</string>
     <string name="battery_tip_high_usage_summary">عرض التطبيقات ذات أعلى معدّل استخدام للبطارية</string>
     <string name="battery_tip_high_usage_title">استخدام أعلى للبطارية</string>
-    <string name="battery_tip_limited_temporarily_dialog_msg">"في ظروف معيّنة، مثلاً درجات الحرارة المرتفعة وفترات الشحن الطويلة، قد يتم تحديد نسبة الشحن لتصبح %1$s للمساعدة في الحفاظ على سلامة البطارية.
+    <string name="battery_tip_limited_temporarily_dialog_msg">"قد يتم ضبط نسبة الشحن على %1$s كحد أقصى للمساعدة في الحفاظ على سلامة البطارية في حالات معيّنة، مثلاً في درجات الحرارة المرتفعة وفترات الشحن الطويلة.
 
-عندما تنتهي تلك الظروف، سيتم تلقائيًا شحن الهاتف بشكلٍ عادي."</string>
+عند العودة إلى الحالة الطبيعية، سيتم تلقائيًا شحن الهاتف بشكلٍ عادي."</string>
     <string name="battery_tip_limited_temporarily_dialog_resume_charge">استئناف الشحن</string>
     <string name="battery_tip_limited_temporarily_summary">للحفاظ على عمر البطارية. مزيد من المعلومات</string>
     <string name="battery_tip_limited_temporarily_title">الشحن محدود مؤقتًا</string>
@@ -1061,6 +1081,7 @@
     <string name="battery_usage_screen_footer">بيانات استخدام البطارية تقريبية ولا تقيس الاستخدام عندما يجري شحن الهاتف.</string>
     <string name="battery_usage_screen_footer_empty">ستتوفّر بيانات استخدام البطارية بعد استخدام الهاتف لعدة ساعات.</string>
     <string name="battery_usage_total_less_than_one_minute">مدة الاستخدام الإجمالي: أقل من دقيقة</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s مستخدمة بواسطة %2$s</string>
     <string name="battery_used_for">تم استخدامه لمدة ^1</string>
     <string name="bearer">الحامل</string>
@@ -1069,12 +1090,14 @@
     <string name="billing_cycle_less_than_one_day_left">يتبقى أقل من يوم واحد</string>
     <string name="billing_cycle_none_left">لا يتبقى أي وقت</string>
     <string name="biometric_settings_category_ways_to_unlock">طرق فتح القفل</string>
-    <string name="biometric_settings_category_ways_to_use">استخدام الوجه وبصمة الإصبع لـ</string>
     <string name="biometric_settings_hand_back_to_guardian">عليك إعادة الهاتف إلى أحد الوالدين.</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">حسنًا</string>
     <string name="biometric_settings_intro">في حال إعداد ميزتَي \"فتح الجهاز بالتعرف على الوجه\" و\"فتح الجهاز ببصمة الإصبع\"، سيطلب منك الهاتف إدخال بصمة إصبعك عندما ترتدي قناعًا أو عندما تكون في منطقة مظلمة.</string>
-    <string name="biometric_settings_use_biometric_for_apps">المصادقة في التطبيقات</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">فتح قفل هاتفك</string>
+    <string name="biometric_settings_use_biometric_for_apps">إثبات هويتك في التطبيقات</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">فتح قفل الهاتف</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">استخدام الوجه أو بصمة الإصبع</string>
+    <string name="biometric_settings_use_face_preference_summary">استخدام ميزة \"فتح الجهاز بالتعرف على الوجه\"</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">استخدام ميزة \"فتح الجهاز ببصمة الإصبع\"</string>
     <string name="biometrics_unlock_set_unlock_password">كلمة المرور • الوجه • بصمة الإصبع</string>
     <string name="biometrics_unlock_set_unlock_pattern">النقش • الوجه • بصمة الإصبع</string>
     <string name="biometrics_unlock_set_unlock_pin">رقم التعريف الشخصي • الوجه • بصمة الإصبع</string>
@@ -1332,7 +1355,6 @@
     <string name="bluetooth_settings_title">بلوتوث</string>
     <string name="bluetooth_show_devices_without_names">عرض أجهزة البلوتوث بدون أسماء</string>
     <string name="bluetooth_show_devices_without_names_summary">‏سيتم عرض أجهزة البلوتوث بدون أسماء (عناوين MAC فقط).</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">الملفات المستلَمة عبر البلوتوث</string>
     <string name="bluetooth_show_received_files">الملفات التي تم استلامها</string>
     <string name="bluetooth_sim_card_access_dialog_content">"‏يريد الجهاز الذي يتضمّن بلوتوث %1$s الوصول إلى البيانات على شريحة SIM. يتضمّن ذلك جهات اتصالك.
 
@@ -1390,7 +1412,7 @@
     <string name="bugreport_in_power_summary">عرض زر في قائمة زر التشغيل لإعداد تقرير بالأخطاء</string>
     <string name="build_number">رقم الإصدار</string>
     <string name="builtin_keyboard_settings_summary">إعدادات لوحة المفاتيح الفعلية</string>
-    <string name="builtin_keyboard_settings_title">لوحة مفاتيح فعلية</string>
+    <string name="builtin_keyboard_settings_title">لوحة مفاتيح خارجية</string>
     <string name="button_confirm_convert_fbe">مسح وتحويل</string>
     <string name="button_convert_fbe">مسح وتحويل…</string>
     <string name="ca_certificate">‏شهادة CA</string>
@@ -1426,6 +1448,7 @@
     <string name="calls_sms_temp_unavailable">غير متاح مؤقتًا</string>
     <string name="calls_sms_unavailable">غير متاحة</string>
     <string name="calls_sms_wfc_summary">‏يمكنك إجراء مكالمات وتلقّيها عبر شبكة Wi-Fi.</string>
+    <string name="cam_toggle_description">للتطبيقات والخدمات</string>
     <string name="camera_double_tap_power_gesture_desc">فتح الكاميرا سريعًا بدون فتح قفل الشاشة</string>
     <string name="camera_double_tap_power_gesture_title">اضغط على زر التشغيل مرتين لتشغيل الكاميرا</string>
     <string name="camera_laser_sensor_switch">مُستشعِر الليزر في الكاميرا</string>
@@ -1705,7 +1728,7 @@
     <string name="controls_label">عناصر التحكم</string>
     <string name="controls_subtitle">ضبط استخدام الطاقة</string>
     <string name="conversation_category_title">المحادثة</string>
-    <string name="conversation_notifs_category">إشعارات المحادثة</string>
+    <string name="conversation_notifs_category">المحادثة</string>
     <string name="conversation_onboarding_summary">"بعد وضع علامة على محادثة لمنحها الأولوية، أو إجراء أي تغييرات أخرى على المحادثات، ستظهر هذه المحادثات هنا. 
 
 لتغيير إعدادات المحادثة: 
@@ -1740,7 +1763,7 @@
     <string name="credentials_reset_hint">هل تريد إزالة جميع المحتوى؟</string>
     <string name="credentials_reset_summary">إزالة جميع الشهادات</string>
     <string name="credentials_settings_not_available">لا تتوفر بيانات الاعتماد لهذا المستخدم</string>
-    <string name="credentials_title">تخزين بيانات الاعتماد</string>
+    <string name="credentials_title">وحدة تخزين بيانات الاعتماد</string>
     <string name="cross_profile_calendar_summary">عرض أحداث العمل على تقويمك الشخصي</string>
     <string name="cross_profile_calendar_title">تقويم على جميع الملفات الشخصية</string>
     <string name="crypt_keeper_button_text">ترميز الهاتف</string>
@@ -3174,7 +3197,7 @@
     <string name="manage_device_admin">تطبيقات مشرف الجهاز</string>
     <string name="manage_external_storage_title">الوصول إلى كل الملفات</string>
     <string name="manage_mobile_plan_title">خطة الجوّال</string>
-    <string name="manage_notification_access_summary">التحكّم في التطبيقات والأجهزة التي يمكنها قراءة الإشعارات</string>
+    <string name="manage_notification_access_summary">تحديد التطبيقات والأجهزة التي يمكنها قراءة الإشعارات</string>
     <string name="manage_notification_access_summary_zero">لا يُمكن للتطبيقات قراءة الإشعارات</string>
     <string name="manage_notification_access_title">إشعارات التطبيقات والأجهزة</string>
     <string name="manage_space_text">إدارة المساحة</string>
@@ -3302,6 +3325,7 @@
     <string name="menu_stats_total">إجمالي الاستخدام</string>
     <string name="menu_stats_unplugged">%1$s منذ عدم التوصيل</string>
     <string name="menu_use_uss">‏استخدام Uss</string>
+    <string name="mic_toggle_description">للتطبيقات والخدمات. إذا كان هذا الخيار غير مفعّل، قد تتم مشاركة بيانات الميكروفون عند الاتصال برقم طوارئ.</string>
     <string name="mic_toggle_title">الوصول إلى الميكروفون</string>
     <string name="misc_files">ملفات متنوعة</string>
     <string name="misc_files_selected_count">تم اختيار %1$d من إجمالي %2$d</string>
@@ -3484,7 +3508,7 @@
     <string name="nfc_how_it_works_content">بعد إعداد تطبيق للدفع، ما عليك سوى توجيه الجزء الخلفي من هاتفك إلى أي محطة دفع تتضمّن علامة \"بدون تلامس الأجهزة\".</string>
     <string name="nfc_how_it_works_got_it">حسنًا</string>
     <string name="nfc_how_it_works_title">طريقة الدفع</string>
-    <string name="nfc_main_switch_title">‏استخدام الاتصالات القريبة المدى (NFC)</string>
+    <string name="nfc_main_switch_title">‏استخدام الاتصال القصير المدى (NFC)</string>
     <string name="nfc_more_title">المزيد…</string>
     <string name="nfc_payment_app_and_desc">%1$s - %2$s</string>
     <string name="nfc_payment_btn_text_set_deault">ضبط كتطبيق تلقائي</string>
@@ -3728,6 +3752,7 @@
     <string name="one_handed_action_show_notification_title">عرض الإشعارات</string>
     <string name="one_handed_mode_enabled">استخدام وضع \"التصفح بيد واحدة\"</string>
     <string name="one_handed_mode_intro_text">لاستخدام وضع \"التصفح بيد واحدة\"، مرِّر للأسفل من الحافة السفلى للشاشة. لاستخدام هذه الميزة، تأكّد من أن نظام التنقُّل بالإيماءات مفعّل في إعدادات التنقّل داخل النظام.</string>
+    <string name="one_handed_mode_shortcut_title">اختصار وضع \"التصفح بيد واحدة\"</string>
     <string name="one_handed_mode_swipe_down_category">مرِّر للأسفل من أجل</string>
     <string name="one_handed_mode_use_shortcut_category">استخدام الاختصار من أجل</string>
     <string name="one_usercrt">شهادة مستخدم واحدة</string>
@@ -3778,7 +3803,7 @@
     <string name="personal_profile_app_subtext">شخصي</string>
     <string name="phone_language">اللغات</string>
     <string name="phone_language_summary" />
-    <string name="physical_keyboard_title">لوحة المفاتيح الفعلية</string>
+    <string name="physical_keyboard_title">لوحة المفاتيح الخارجية</string>
     <string name="picture_color_mode">نمط لون الصورة</string>
     <string name="picture_color_mode_desc">‏استخدام sRGB</string>
     <string name="picture_in_picture_app_detail_summary">يمكنك السماح لهذا التطبيق بإنشاء نافذة ضمن نافذة أثناء فتح التطبيق أو بعد مغادرته (على سبيل المثال، لمتابعة مشاهدة فيديو)، علمًا بأن هذه النافذة تظهر فوق التطبيقات الأخرى التي تستخدمها.</string>
@@ -3803,7 +3828,7 @@
     <string name="post_dsds_reboot_notification_title_with_carrier">مشغّل شبكة الجوّال %1$s مفعّل</string>
     <string name="power_bluetooth">بلوتوث</string>
     <string name="power_camera">الكاميرا</string>
-    <string name="power_cell">وضع الاستعداد لشبكة الجوّال</string>
+    <string name="power_cell">شبكة الجوّال</string>
     <string name="power_charge_remaining">%1$s للشحن</string>
     <string name="power_charging">%1$s - %2$s</string>
     <string name="power_charging_duration">%1$s - يتبقّى %2$s حتى اكتمال شحن البطارية.</string>
@@ -4010,7 +4035,7 @@
     <string name="proxy_settings_title">الخادم الوكيل</string>
     <string name="proxy_url_title">"‏عنوان URL لإعداد PAC: "</string>
     <string name="proxy_warning_limited_support">‏يتم استخدام الخادم الوكيل HTTP على المتصفّح، ولكن قد لا تستخدمه التطبيقات الأخرى.</string>
-    <string name="quick_controls_lower">أدوات التحكم بالأجهزة</string>
+    <string name="quick_controls_lower">التحكّم بالجهاز</string>
     <string name="quick_settings_developer_tiles">فئات مطوّري البرامج في الإعدادات السريعة</string>
     <string name="radioInfo_data_connected">متصل</string>
     <string name="radioInfo_data_connecting">جارٍ الاتصال</string>
@@ -4037,6 +4062,7 @@
     <string name="recent_notifications">الإشعارات التي تم إرسالها مؤخرًا</string>
     <string name="recent_notifications_see_all_title">عرض كل التطبيقات من آخر ٧ أيام</string>
     <string name="recompute_size">جارٍ إعادة حساب الحجم...</string>
+    <string name="reduce_bright_colors_about_title">لمحة عن زيادة تعتيم الشاشة</string>
     <string name="reduce_bright_colors_intensity_end_label">أكثر سطوعًا</string>
     <string name="reduce_bright_colors_intensity_preference_title">درجة السطوع</string>
     <string name="reduce_bright_colors_intensity_start_label">أقل سطوعًا</string>
@@ -4044,6 +4070,7 @@
     <string name="reduce_bright_colors_preference_subtitle">‏يمكنك زيادة تعتيم الشاشة لتصبح أنسب للقراءة.&lt;br/>&lt;br/> يمكن الاستفادة من هذه الميزة عندما: &lt;ol> &lt;li> تكون أقلّ درجة سطوع تلقائية في هاتفك غير كافية&lt;/li> &lt;li> تستخدم هاتفك في الظلام، مثلاً عندما تستخدمه ليلاً أو في غرفة مظلمة قبل النوم&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">يمكنك ضبط تعتيم الشاشة على مستوى أقلّ من الحد الأدنى لسطوع هاتفك.</string>
     <string name="reduce_bright_colors_preference_title">زيادة تعتيم الشاشة</string>
+    <string name="reduce_bright_colors_shortcut_title">اختصار زيادة تعتيم الشاشة</string>
     <string name="reduce_bright_colors_switch_title">زيادة تعتيم الشاشة</string>
     <string name="register_automatically">التسجيل التلقائي…</string>
     <string name="register_on_network">جارٍ التسجيل على %s…</string>
@@ -4249,7 +4276,6 @@
     <string name="screen_pinning_unlock_pattern">طلب إدخال النقش الخاص بإلغاء القفل قبل إزالة التثبيت</string>
     <string name="screen_pinning_unlock_pin">طلب إدخال رقم التعريف الشخصي قبل إزالة التثبيت</string>
     <string name="screen_reader_category_title">قارئ الشاشة</string>
-    <string name="screen_saver_main_switch_title">استخدام شاشة التوقف</string>
     <string name="screen_time_summary_usage_today">%1$s اليوم</string>
     <string name="screen_timeout_summary">بعد %1$s من عدم النشاط</string>
     <string name="screen_timeout_title">إيقاف الشاشة</string>
@@ -4277,8 +4303,9 @@
     <string name="screen_zoom_summary_small">صغير</string>
     <string name="screen_zoom_summary_very_large">أكبر</string>
     <string name="screensaver_settings_button">إعدادات</string>
-    <string name="screensaver_settings_current">شاشة التوقف الحالية</string>
+    <string name="screensaver_settings_current">شاشة الاستراحة الحالية</string>
     <string name="screensaver_settings_disabled_prompt">للتحكم في ما يحدث عند إرساء الهاتف و/أو دخوله حالة السكون، عليك تشغيل شاشة التوقف.</string>
+    <string name="screensaver_settings_dream_start">البدء الآن</string>
     <string name="screensaver_settings_summary_dock">أثناء الإرساء</string>
     <string name="screensaver_settings_summary_either_long">أثناء الشحن أو الإرساء</string>
     <string name="screensaver_settings_summary_either_short">أيهما</string>
@@ -4329,15 +4356,6 @@
     <string name="security_settings_biometric_preference_summary_both_fp_single">تمت إضافة وجه وبصمة إصبع.</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">انقر للإعداد.</string>
     <string name="security_settings_biometric_preference_title">ميزتَا \"فتح الجهاز بالتعرف على الوجه\" و\"فتح الجهاز ببصمة الإصبع\"</string>
-    <string name="security_settings_biometrics_description">في حال إعداد خيار فتح الجهاز بالتعرف على الوجه وببصمة الإصبع، سيطلب منك الهاتف إدخال بصمة إصبعك عندما ترتدي قناعًا أو عندما تكون في منطقة مظلمة.</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">المصادقة في التطبيقات</string>
-    <string name="security_settings_biometrics_preferences_category">استخدام الوجه أو بصمة الإصبع لـ</string>
-    <string name="security_settings_biometrics_summary_both">الوجه وبصمة الإصبع</string>
-    <string name="security_settings_biometrics_summary_face">الوجه فقط</string>
-    <string name="security_settings_biometrics_summary_fingerprint">بصمة الإصبع فقط</string>
-    <string name="security_settings_biometrics_summary_none">انقر للإعداد</string>
-    <string name="security_settings_biometrics_title">فتح الجهاز بالتعرف على الوجه وببصمة الإصبع</string>
-    <string name="security_settings_biometrics_types_category">طرق فتح القفل</string>
     <string name="security_settings_face_enroll_consent_introduction_title">السماح بـ \"فتح الجهاز بالتعرف على الوجه\"</string>
     <string name="security_settings_face_enroll_dialog_ok">حسنًا</string>
     <string name="security_settings_face_enroll_done">تم</string>
@@ -4385,16 +4403,17 @@
     <string name="security_settings_face_enroll_introduction_control_title">القرار لك</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message">"تنشئ ميزة \"فتح الجهاز بالتعرف على الوجه\" نموذجًا فريدًا من وجه طفلك لإثبات هويته. لإنشاء نموذج الوجه هذا أثناء عملية الإعداد، سيلتقط طفلك صورًا لوجهه من زوايا مختلفة.
 
-عندما يستخدم ميزة \"فتح الجهاز بالتعرف على الوجه\"، سيتم استخدام الصور لتعديل نموذج وجهه. لا يتم مطلقًا تخزين الصور المستخدمة لإنشاء نموذج الوجه، ولكن يتم تخزين نموذج الوجه بأمان على الهاتف ولا يتم نقله خارج الهاتف مطلقًا. تتم كل عمليات المعالجة بأمان على الهاتف."</string>
+عندما يستخدم ميزة \"فتح الجهاز بالتعرف على الوجه\"، سيتم استخدام الصور لتعديل نموذج وجهه. لا يتم تخزين الصور المستخدمة لإنشاء نموذج الوجه، ولكن يتم تخزين نموذج الوجه بأمان على الهاتف ولا يتم نقله خارج الهاتف مطلقًا. تتم كل عمليات المعالجة بأمان على الهاتف."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"تنشئ ميزة \"فتح الجهاز بالتعرف على الوجه\" نموذجًا فريدًا من وجهك لإثبات هويتك. لإنشاء نموذج الوجه هذا أثناء عملية الإعداد، سيتم التقاط صور لوجهك من زوايا مختلفة.
 
-عندما تستخدم ميزة \"فتح الجهاز بالتعرف على الوجه\"، سيتم استخدام الصور لتعديل نموذج الوجه. لا يتم مطلقًا تخزين الصور المستخدمة لإنشاء نموذج الوجه، ولكن يتم تخزين نموذج الوجه بأمان على هاتفك ولا يتم نقله خارج هاتفك مطلقًا. تتم كل عمليات المعالجة بأمان على هاتفك."</string>
+عندما تستخدم ميزة \"فتح الجهاز بالتعرف على الوجه\"، سيتم استخدام الصور لتعديل نموذج الوجه. لا يتم تخزين الصور المستخدمة لإنشاء نموذج الوجه، ولكن يتم تخزين نموذج الوجه بأمان على هاتفك ولا يتم نقله خارج هاتفك مطلقًا. تتم كل عمليات المعالجة بأمان على هاتفك."</string>
     <string name="security_settings_face_enroll_introduction_how_title">آلية العمل</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">يمكن أن تطلب ميزة \"فتح الجهاز بالتعرف على الوجه\" أن تكون عينا الطفل مفتوحتين لفتح قفل الهاتف أو إثبات هويته. يمكنك أنت وطفلك تفعيل هذا الخيار في أي وقت من \"الإعدادات\".</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">إذا كان طفلك يرتدي نظارات في العادة، يمكنه ارتداؤها أثناء عملية الإعداد.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">يمكن أن يؤدي النظر للهاتف إلى فتح قفله حتى إذا كان لا يقصد ذلك. يستطيع أيضًا شخص آخر فتح قفل هاتفه إذا كان يشبهه بدرجة كبيرة، مثلاً توأم متماثل أو شقيق شديد الشبه، أو إذا قرَّب شخص الهاتف من وجهه.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">يمكن أن تطلب ميزة \"فتح الجهاز بالتعرف على الوجه\" أن تكون عيناك مفتوحتين لفتح قفل الهاتف أو إثبات هويتك. يمكنك تفعيل هذا الخيار في أي وقت من \"الإعدادات\".</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">مسموح بالنظارات العادية أو النظارات الشمسية الغامقة قليلاً.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">استخدام الوجه لفتح قفل الهاتف قد يكون أقل أمانًا من رقم تعريف شخصي أو نقش قوي.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">يمكن أن يؤدي النظر للهاتف إلى فتح قفله حتى إذا كنت لا تقصد ذلك. يستطيع أيضًا شخص آخر فتح قفل هاتفك إذا كان يشبهك بدرجة كبيرة، مثلاً توأم متماثل أو شقيق شديد الشبه، أو إذا قرَّب شخص الهاتف من وجهك.</string>
     <string name="security_settings_face_enroll_introduction_info_title">تنبيه</string>
     <string name="security_settings_face_enroll_introduction_message">يمكنك استخدام وجهك لفتح قفل الهاتف أو لإثبات هويتك، مثلاً عند تسجيل الدخول إلى التطبيقات أو الموافقة على عملية شراء</string>
@@ -4452,13 +4471,14 @@
 
 وكذلك، يمكن لشخص يشبهك كثيرًا، مثل شقيقك التوأم، فتح قفل هاتفك."</string>
     <string name="security_settings_face_settings_preferences_category">عند استخدام ميزة \"فتح الجهاز بالتعرف على الوجه\"</string>
-    <string name="security_settings_face_settings_remove_dialog_details">سيتم حذف نموذج الوجه نهائيًا وبأمان. بعد حذفه، ستحتاج إلى رقم التعريف الشخصي أو النقش أو كلمة المرور لفتح قفل هاتفك أو لعمليات المصادقة في التطبيقات.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"سيتم حذف نموذج الوجه نهائيًا وبأمان.
+
+بعد حذفه، ستحتاج إلى رقم التعريف الشخصي أو النقش أو كلمة المرور لفتح قفل هاتفك أو لعمليات المصادقة في التطبيقات."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"سيتم حذف نموذج الوجه نهائيًا وبأمان.
+
+بعد حذفه، ستحتاج إلى رقم التعريف الشخصي أو النقش أو كلمة المرور لفتح قفل الهاتف."</string>
     <string name="security_settings_face_settings_remove_dialog_title">هل تريد حذف نموذج الوجه؟</string>
     <string name="security_settings_face_settings_remove_face_model">حذف نموذج الوجه</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"سيتم حذف نموذج الوجه نهائيًا وبشكلٍ آمن.
-
-بعد حذفه، ستحتاج إلى بصمة الإصبع أو رقم التعريف الشخصي أو النقش أو كلمة المرور لفتح قفل هاتفك أو لعمليات المصادقة في التطبيقات."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">هل تريد حذف نموذج الوجه؟</string>
     <string name="security_settings_face_settings_require_attention">مطلوب فتح العينين</string>
     <string name="security_settings_face_settings_require_attention_details">يتطلب فتح قفل الهاتف النظر إليه بعينين مفتوحتين.</string>
     <string name="security_settings_face_settings_require_confirmation">طلب التأكيد دائمًا</string>
@@ -4541,7 +4561,7 @@
     <string name="security_settings_title">الأمان</string>
     <string name="security_settings_udfps_enroll_a11y">يمكنك تحريك إصبعك على الشاشة للعثور على المستشعر. انقر مع الاستمرار على مستشعر بصمات الإصبع.</string>
     <string name="security_settings_udfps_enroll_edge_message">ضع جانب بصمة الإصبع على المستشعر واضغط مع الاستمرار ثم بدِّل إلى الجانب الآخر.</string>
-    <string name="security_settings_udfps_enroll_edge_title">في النهاية، ضع حواف إصبعك.</string>
+    <string name="security_settings_udfps_enroll_edge_title">في النهاية، استخدِم حواف إصبعك.</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">مستشعر بصمات الإصبع على شاشتك. ستسجِّل بصمة إصبعك في الشاشة التالية.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">بدء</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">كيفية إعداد بصمة إصبعك</string>
@@ -4550,7 +4570,7 @@
     <string name="security_settings_udfps_enroll_repeat_a11y_message">يساعد هذا على التقاط قدر أكبر من بصمة إصبعك.</string>
     <string name="security_settings_udfps_enroll_repeat_message">انقر مع الاستمرار في كل مرة يتحرك فيها رمز بصمة الإصبع. يساعد هذا على التقاط قدر أكبر من بصمة إصبعك.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">اتّبِع رمز بصمة الإصبع</string>
-    <string name="security_settings_udfps_enroll_start_message">ثبِّت إصبعك على المستشعر حتى يتم اهتزاز الجهاز.</string>
+    <string name="security_settings_udfps_enroll_start_message">ثبِّت بصمة إصبعك على جهاز الاستشعار تمامًا حتى يتم اهتزاز الجهاز.</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">مرة أخرى</string>
     <string name="security_settings_work_fingerprint_preference_title">‏Pixel Imprint للملف الشخصي للعمل</string>
     <string name="security_status_title">حالة الأمان</string>
@@ -4576,7 +4596,6 @@
     <string name="select_webview_provider_dialog_title">‏تعيين تطبيق WebView</string>
     <string name="select_webview_provider_title">‏تطبيق WebView</string>
     <string name="select_webview_provider_toast_text">لم يعد هذا الاختيار صالحًا. أعد المحاولة.</string>
-    <string name="sensor_toggle_description">لكل التطبيقات والخدمات</string>
     <string name="sensors_off_quick_settings_title">إيقاف أجهزة الاستشعار</string>
     <string name="service_background_processes">متاح %1$s</string>
     <string name="service_foreground_processes">مستخدَم: %1$s</string>
@@ -4808,6 +4827,7 @@
     <string name="sound_settings_summary_silent">تم ضبط الرنين على صامت</string>
     <string name="sound_settings_summary_vibrate">تم ضبط الرنين على اهتزاز</string>
     <string name="sound_work_settings">أصوات الملف الشخصي للعمل</string>
+    <string name="spatial_audio_title">الصوت المكاني</string>
     <string name="special_access">أذونات خاصة للتطبيقات</string>
     <string name="special_access_more">الاطّلاع على المزيد</string>
     <string name="speed_label_fast">سريعة</string>
@@ -4928,9 +4948,9 @@
     <string name="storage_settings_title">إعدادات وحدة التخزين</string>
     <string name="storage_size_large">^1<small><small> ^2</small></small></string>
     <string name="storage_size_large_alternate">^1<small> <font size="20">^2</font></small></string>
-    <string name="storage_summary">%1$s مستخدمة - %2$s فارغة</string>
+    <string name="storage_summary">%1$s مستخدمة - %2$s متاحة</string>
     <string name="storage_summary_format">يتم استخدام %1$s في %2$s.</string>
-    <string name="storage_summary_with_sdcard">وحدة التخزين الداخلية: %1$s مستخدمة - %2$s فارغة</string>
+    <string name="storage_summary_with_sdcard">وحدة التخزين الداخلية: %1$s مستخدمة - %2$s متاحة</string>
     <string name="storage_system">النظام</string>
     <string name="storage_title_usb">‏اتصال USB بالكمبيوتر</string>
     <string name="storage_total_summary">المجموع: %1$s %2$s</string>
@@ -5073,7 +5093,7 @@
     <string name="swipe_up_to_switch_apps_suggestion_title">تجربة زر \"الشاشة الرئيسية\" الجديد</string>
     <string name="swipe_up_to_switch_apps_summary">للتبديل بين التطبيقات، مرّر سريعًا للأعلى على زر \"الشاشة الرئيسية\". للاطّلاع على كل التطبيقات، مرّر سريعًا للأعلى مرة أخرى. للرجوع، انقر على زر الرجوع.</string>
     <string name="swipe_up_to_switch_apps_title">التنقل باستخدام زرّين</string>
-    <string name="switch_off_text">غير مفعّلة</string>
+    <string name="switch_off_text">غير مفعّل</string>
     <string name="switch_on_text">مفعّل</string>
     <string name="switch_sim_dialog_no_switch_text">لاستخدام بيانات الجوّال وميزات المكالمات والرسائل القصيرة في وقتٍ لاحق، انتقِل إلى إعدادات الشبكة.</string>
     <string name="switch_sim_dialog_no_switch_title">‏لا تتوفّر أي شرائح SIM مفعّلة</string>
@@ -5309,7 +5329,7 @@
     <string name="unlock_set_unlock_none_summary">بدون تأمين</string>
     <string name="unlock_set_unlock_none_title">التمرير السريع</string>
     <string name="unlock_set_unlock_off_summary" />
-    <string name="unlock_set_unlock_off_title">بدون</string>
+    <string name="unlock_set_unlock_off_title">بدون قفل</string>
     <string name="unlock_set_unlock_password_summary">تأمين عال</string>
     <string name="unlock_set_unlock_password_title">كلمة مرور</string>
     <string name="unlock_set_unlock_pattern_summary">تأمين متوسط</string>
@@ -5619,7 +5639,7 @@
     <string name="vpn_turn_on">تفعيل</string>
     <string name="vpn_type">النوع</string>
     <string name="vpn_username">اسم المستخدم</string>
-    <string name="vpn_version">الإصدار %s</string>
+    <string name="vpn_version">الإصدار</string>
     <string name="vr_listener_security_warning_summary">لن يتمكن %1$s من العمل عند استخدامك تطبيقات في وضع الواقع الافتراضي.</string>
     <string name="vr_listener_security_warning_title">هل تريد السماح لخدمة %1$s بالوصول إلى خدمة الواقع الافتراضي؟</string>
     <string name="vr_listeners_title">خدمات مساعد الواقع الافتراضي</string>
@@ -5633,7 +5653,7 @@
     <string name="wallpaper_attributions">الخلفيات</string>
     <string name="wallpaper_attributions_values">"‏الشركات الموفرة لصور القمر الصناعي:
 ‎©2014 CNES / Astrium وDigitalGlobe وBluesky"</string>
-    <string name="wallpaper_dashboard_summary">الألوان والرموز المتوافقة مع مظهر معيّن وشبكة التطبيقات</string>
+    <string name="wallpaper_dashboard_summary">الألوان والرموز المرتبطة بموضوع معيّن وشبكة التطبيقات</string>
     <string name="wallpaper_settings_fragment_title">اختيار خلفية من</string>
     <string name="wallpaper_settings_summary_custom">مخصصة</string>
     <string name="wallpaper_settings_summary_default">تلقائية</string>
@@ -5756,7 +5776,7 @@
     <string name="wifi_display_options_forget">حذف</string>
     <string name="wifi_display_options_name">الاسم</string>
     <string name="wifi_display_options_title">خيارات وحدات العرض اللاسلكية</string>
-    <string name="wifi_display_settings_title">الإرسال</string>
+    <string name="wifi_display_settings_title">البث</string>
     <string name="wifi_display_status_connected">متّصل</string>
     <string name="wifi_display_status_connecting">جارٍ الاتصال</string>
     <string name="wifi_display_status_in_use">قيد الاستخدام</string>
@@ -5889,7 +5909,7 @@
     <string name="wifi_not_in_range">ليست في النطاق</string>
     <string name="wifi_not_in_range_message">الشبكة ليست في النطاق.</string>
     <string name="wifi_notify_open_networks">إشعاري بالشبكات العامة</string>
-    <string name="wifi_notify_open_networks_summary">عند عدم توفر اتصال تلقائي</string>
+    <string name="wifi_notify_open_networks_summary">الإشعار عند توفر شبكة عامة عالية الجودة</string>
     <string name="wifi_on_time">‏وقت تفعيل Wi-Fi</string>
     <string name="wifi_p2p_cancel_connect_message">هل تريد إلغاء الدعوة للاتصال بـ %1$s؟</string>
     <string name="wifi_p2p_cancel_connect_title">هل تريد إلغاء الدعوة؟</string>
@@ -5977,7 +5997,6 @@
     <string name="wifi_suspend_optimizations">‏تحسين Wi-Fi</string>
     <string name="wifi_suspend_optimizations_summary">‏تقليل استخدام البطارية إلى الحد الأدنى عند تفعيل Wi-Fi</string>
     <string name="wifi_switch_away_when_unvalidated">‏التبديل إلى بيانات الجوّال في حالة انقطاع اتصال شبكة Wi‑Fi بالإنترنت.</string>
-    <string name="wifi_switch_summary">‏البحث عن شبكات Wi‑Fi والاتصال بها</string>
     <string name="wifi_tap_to_sign_in">انقر هنا لتسجيل الدخول إلى الشبكة.</string>
     <string name="wifi_tether_configure_ap_text">‏إعداد نقطة اتصال Wi-Fi</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>
@@ -6234,7 +6253,7 @@
     <string name="zen_mode_none_calls">غير مسموح بأي مكالمات</string>
     <string name="zen_mode_none_messages">غير مسموح بأي رسائل</string>
     <string name="zen_mode_other_options">خيارات أخرى</string>
-    <string name="zen_mode_other_sounds_summary">{count,plural,offset:2 =0{عدم السماح لأي فئة صوتية بمقاطعة عمل الميزة}=1{السماح لـ {sound_category_1} بمقاطعة عمل الميزة}=2{السماح لـ {sound_category_1} و{sound_category_2} بمقاطعة عمل الميزة}=3{السماح لـ {sound_category_1} و{sound_category_2} و{sound_category_3} بمقاطعة عمل الميزة}few{السماح لـ {sound_category_1} و{sound_category_2} و# فئات صوتية أخرى بمقاطعة عمل الميزة}many{السماح لـ {sound_category_1} و{sound_category_2} و# فئة صوتية أخرى بمقاطعة عمل الميزة}other{السماح لـ {sound_category_1} و{sound_category_2} و# فئة صوتية أخرى بمقاطعة عمل الميزة}}</string>
+    <string name="zen_mode_other_sounds_summary">{count,plural,offset:2 =0{عدم السماح لأي فئة صوتية بمقاطعة عمل الميزة}=1{مقاطعة عمل الميزة من قِبل {sound_category_1} }=2{مقاطعة عمل الميزة من قِبل {sound_category_1} و{sound_category_2} }=3{مقاطعة عمل الميزة من قِبل {sound_category_1} و{sound_category_2} و{sound_category_3} }few{مقاطعة عمل الميزة من قِبل {sound_category_1} و{sound_category_2} و# فئات صوتية أخرى }many{مقاطعة عمل الميزة من قِبل {sound_category_1} و{sound_category_2} و# فئة صوتية أخرى }other{مقاطعة عمل الميزة من قِبل {sound_category_1} و{sound_category_2} و# فئة صوتية أخرى }}</string>
     <string name="zen_mode_people_all">السماح لكل المستخدمين بمقاطعة عمل الميزة</string>
     <string name="zen_mode_people_calls_messages_section_title">مَن يمكنه مقاطعة عمل الميزة</string>
     <string name="zen_mode_people_none">عدم السماح لأي مستخدم بمقاطعة عمل الميزة</string>

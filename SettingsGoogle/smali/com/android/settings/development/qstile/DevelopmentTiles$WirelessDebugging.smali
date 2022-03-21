@@ -109,7 +109,7 @@
 
     iget-object v0, p0, Lcom/android/settings/development/qstile/DevelopmentTiles$WirelessDebugging;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0401b4
+    const v1, 0x7f0401c8
 
     const/4 v2, 0x1
 

@@ -65,7 +65,7 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 2
 
-    const v0, 0x7f050362
+    const v0, 0x7f05036d
 
     const v1, 0x11200d8
 
@@ -324,7 +324,7 @@
 
     invoke-virtual {v0, p0}, Landroid/view/View;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
 
-    const v0, 0x1020466
+    const v0, 0x1020469
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -477,7 +477,7 @@
     return v0
 
     :cond_0
-    const p0, 0x1020466
+    const p0, 0x1020469
 
     invoke-virtual {p1, p0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

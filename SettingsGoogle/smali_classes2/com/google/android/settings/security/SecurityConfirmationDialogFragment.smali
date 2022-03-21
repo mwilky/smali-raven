@@ -35,15 +35,19 @@
 .method private synthetic lambda$onCreateDialog$0(Landroid/os/Bundle;Landroid/content/DialogInterface;I)V
     .locals 0
 
-    iget-object p0, p0, Lcom/google/android/settings/security/SecurityConfirmationDialogFragment;->mSecurityContentManager:Lcom/google/android/settings/security/SecurityContentManager;
+    iget-object p2, p0, Lcom/google/android/settings/security/SecurityConfirmationDialogFragment;->mSecurityContentManager:Lcom/google/android/settings/security/SecurityContentManager;
 
-    const-string p2, "continueBundle"
+    const-string p3, "continueBundle"
 
-    invoke-virtual {p1, p2}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
+    invoke-virtual {p1, p3}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
 
     move-result-object p1
 
-    invoke-virtual {p0, p1}, Lcom/google/android/settings/security/SecurityContentManager;->handleClick(Landroid/os/Bundle;)Z
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
+
+    move-result-object p0
+
+    invoke-virtual {p2, p1, p0}, Lcom/google/android/settings/security/SecurityContentManager;->handleClick(Landroid/os/Bundle;Landroid/app/Activity;)Z
 
     return-void
 .end method

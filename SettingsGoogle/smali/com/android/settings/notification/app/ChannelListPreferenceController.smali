@@ -117,7 +117,7 @@
 
     iget-object v4, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f040e80
+    const v5, 0x7f040eab
 
     new-array v6, v1, [Ljava/lang/Object;
 
@@ -328,7 +328,7 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0202e8
+    const v1, 0x7f0202ef
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -410,7 +410,7 @@
 
     check-cast p2, Lcom/android/settings/widget/PrimarySwitchPreference;
 
-    const p3, 0x7f020125
+    const p3, 0x7f02012b
 
     invoke-virtual {p2, p3}, Landroidx/preference/Preference;->setIcon(I)V
 
@@ -568,7 +568,7 @@
 
     if-nez v2, :cond_0
 
-    const v2, 0x7f040e29
+    const v2, 0x7f040e54
 
     invoke-virtual {p2, v2}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -803,7 +803,7 @@
     goto :goto_1
 
     :cond_1
-    const p3, 0x7f020125
+    const p3, 0x7f02012b
 
     invoke-virtual {p1, p3}, Landroidx/preference/Preference;->setIcon(I)V
 
@@ -857,7 +857,7 @@
 
     iget v0, v0, Lcom/android/settings/notification/NotificationBackend$AppRow;->uid:I
 
-    const-string v2, "uid"
+    const-string/jumbo v2, "uid"
 
     invoke-virtual {p3, v2, v0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
@@ -901,7 +901,7 @@
 
     move-result-object p3
 
-    const v0, 0x7f040e27
+    const v0, 0x7f040e52
 
     invoke-virtual {p3, v0}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -1056,11 +1056,11 @@
 
     const/4 v0, 0x1
 
-    const v1, 0x7f040df0
+    const v1, 0x7f040e1b
 
-    const-string v2, "zeroCategories"
+    const-string/jumbo v2, "zeroCategories"
 
-    const v3, 0x7f040e28
+    const v3, 0x7f040e53
 
     const/4 v4, 0x0
 

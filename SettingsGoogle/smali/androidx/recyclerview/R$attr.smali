@@ -4,4 +4,4 @@
 
 
 # static fields
-.field public static final recyclerViewStyle:I = 0x7f050346
+.field public static final recyclerViewStyle:I = 0x7f05034f

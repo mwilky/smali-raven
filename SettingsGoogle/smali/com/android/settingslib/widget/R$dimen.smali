@@ -8,14 +8,18 @@
 
 .field public static final advanced_dashboard_tile_foreground_image_inset:I = 0x7f0b0089
 
-.field public static final dashboard_tile_foreground_image_inset:I = 0x7f0b0116
+.field public static final dashboard_tile_foreground_image_inset:I = 0x7f0b0117
 
-.field public static final settings_bar_view_max_height:I = 0x7f0b0310
+.field public static final settings_bar_view_max_height:I = 0x7f0b0317
 
-.field public static final settingslib_preferred_minimum_touch_target:I = 0x7f0b0319
+.field public static final settingslib_illustration_height:I = 0x7f0b031d
 
-.field public static final spinner_padding_top_or_bottom:I = 0x7f0b0331
+.field public static final settingslib_illustration_width:I = 0x7f0b031f
 
-.field public static final two_target_pref_medium_icon_size:I = 0x7f0b03d4
+.field public static final settingslib_preferred_minimum_touch_target:I = 0x7f0b0322
 
-.field public static final two_target_pref_small_icon_size:I = 0x7f0b03d5
+.field public static final spinner_padding_top_or_bottom:I = 0x7f0b033a
+
+.field public static final two_target_pref_medium_icon_size:I = 0x7f0b03e4
+
+.field public static final two_target_pref_small_icon_size:I = 0x7f0b03e5

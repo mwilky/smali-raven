@@ -223,7 +223,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->onAttach(Landroid/content/Context;)V
 
-    const-string v0, "user"
+    const-string/jumbo v0, "user"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -308,7 +308,7 @@
 
     check-cast p1, Landroid/os/Bundle;
 
-    const-string p2, "staticPreferenceLocation"
+    const-string/jumbo p2, "staticPreferenceLocation"
 
     invoke-virtual {p1, p2}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
@@ -505,11 +505,11 @@
     invoke-virtual {v5, v4}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
     :cond_3
-    const v6, 0x7f02030d
+    const v6, 0x7f020314
 
     invoke-virtual {v5, v6}, Landroidx/preference/Preference;->setIcon(I)V
 
-    const v6, 0x7f040243
+    const v6, 0x7f040257
 
     invoke-virtual {v5, v6}, Landroidx/preference/Preference;->setTitle(I)V
 

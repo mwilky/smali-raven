@@ -131,7 +131,7 @@
 
     move-result-object v4
 
-    const-string v7, "trust-agent"
+    const-string/jumbo v7, "trust-agent"
 
     invoke-virtual {v7, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

@@ -417,7 +417,7 @@
     goto/16 :goto_2
 
     :sswitch_1
-    const-string v4, "transitionPathRotate"
+    const-string/jumbo v4, "transitionPathRotate"
 
     invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -508,7 +508,7 @@
     goto :goto_2
 
     :sswitch_7
-    const-string v4, "translationZ"
+    const-string/jumbo v4, "translationZ"
 
     invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -524,7 +524,7 @@
     goto :goto_2
 
     :sswitch_8
-    const-string v4, "translationY"
+    const-string/jumbo v4, "translationY"
 
     invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -540,7 +540,7 @@
     goto :goto_2
 
     :sswitch_9
-    const-string v4, "translationX"
+    const-string/jumbo v4, "translationX"
 
     invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -564,7 +564,7 @@
 
     if-nez v4, :cond_b
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :cond_b
     const/4 v4, 0x1
@@ -820,6 +820,8 @@
     :cond_e
     return-void
 
+    nop
+
     :sswitch_data_0
     .sparse-switch
         -0x4a771f66 -> :sswitch_b
@@ -937,7 +939,7 @@
 
     if-nez v0, :cond_5
 
-    const-string v0, "translationX"
+    const-string/jumbo v0, "translationX"
 
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
@@ -950,7 +952,7 @@
 
     if-nez v0, :cond_6
 
-    const-string v0, "translationY"
+    const-string/jumbo v0, "translationY"
 
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
@@ -963,7 +965,7 @@
 
     if-nez v0, :cond_7
 
-    const-string v0, "translationZ"
+    const-string/jumbo v0, "translationZ"
 
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
@@ -976,7 +978,7 @@
 
     if-nez v0, :cond_8
 
-    const-string v0, "transitionPathRotate"
+    const-string/jumbo v0, "transitionPathRotate"
 
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
@@ -1217,7 +1219,7 @@
 
     move-result-object v0
 
-    const-string v1, "translationX"
+    const-string/jumbo v1, "translationX"
 
     invoke-virtual {p1, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1236,7 +1238,7 @@
 
     move-result-object v0
 
-    const-string v1, "translationY"
+    const-string/jumbo v1, "translationY"
 
     invoke-virtual {p1, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1255,7 +1257,7 @@
 
     move-result-object v0
 
-    const-string v1, "translationZ"
+    const-string/jumbo v1, "translationZ"
 
     invoke-virtual {p1, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1274,7 +1276,7 @@
 
     move-result-object v0
 
-    const-string v1, "transitionPathRotate"
+    const-string/jumbo v1, "transitionPathRotate"
 
     invoke-virtual {p1, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 

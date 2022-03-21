@@ -16,10 +16,6 @@
 
 .field private mDoneButton:Landroid/widget/Button;
 
-.field private mFooterDivider:Landroid/view/View;
-
-.field private mHeaderDivider:Landroid/view/View;
-
 .field private mHeaderLayout:Landroid/widget/LinearLayout;
 
 .field private mHeaderSubtitle:Landroid/widget/TextView;
@@ -221,7 +217,7 @@
 
     iget-object v0, p0, Lcom/android/settings/panel/PanelFragment;->mLayoutView:Landroid/view/View;
 
-    const v1, 0x7f0d040a
+    const v1, 0x7f0d0418
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -285,7 +281,7 @@
 .method private static buildAnimatorSet(Landroid/view/View;FFFFI)Landroid/animation/AnimatorSet;
     .locals 5
 
-    const v0, 0x7f0d040a
+    const v0, 0x7f0d0418
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -381,7 +377,7 @@
 
     iget-object v1, p0, Lcom/android/settings/panel/PanelFragment;->mLayoutView:Landroid/view/View;
 
-    const v2, 0x7f0d040c
+    const v2, 0x7f0d041a
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -393,7 +389,7 @@
 
     iget-object v1, p0, Lcom/android/settings/panel/PanelFragment;->mLayoutView:Landroid/view/View;
 
-    const v2, 0x7f0d04ca
+    const v2, 0x7f0d04d9
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -405,7 +401,7 @@
 
     iget-object v1, p0, Lcom/android/settings/panel/PanelFragment;->mLayoutView:Landroid/view/View;
 
-    const v2, 0x7f0d01da
+    const v2, 0x7f0d01de
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -417,7 +413,7 @@
 
     iget-object v1, p0, Lcom/android/settings/panel/PanelFragment;->mLayoutView:Landroid/view/View;
 
-    const v2, 0x7f0d040d
+    const v2, 0x7f0d041b
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -429,7 +425,7 @@
 
     iget-object v1, p0, Lcom/android/settings/panel/PanelFragment;->mLayoutView:Landroid/view/View;
 
-    const v2, 0x7f0d040b
+    const v2, 0x7f0d0419
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -441,7 +437,7 @@
 
     iget-object v1, p0, Lcom/android/settings/panel/PanelFragment;->mLayoutView:Landroid/view/View;
 
-    const v2, 0x7f0d05c5
+    const v2, 0x7f0d05d4
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -453,7 +449,7 @@
 
     iget-object v1, p0, Lcom/android/settings/panel/PanelFragment;->mLayoutView:Landroid/view/View;
 
-    const v2, 0x7f0d05c4
+    const v2, 0x7f0d05d3
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -465,7 +461,7 @@
 
     iget-object v1, p0, Lcom/android/settings/panel/PanelFragment;->mLayoutView:Landroid/view/View;
 
-    const v2, 0x7f0d0287
+    const v2, 0x7f0d028c
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -477,7 +473,7 @@
 
     iget-object v1, p0, Lcom/android/settings/panel/PanelFragment;->mLayoutView:Landroid/view/View;
 
-    const v2, 0x7f0d0289
+    const v2, 0x7f0d028e
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -489,7 +485,7 @@
 
     iget-object v1, p0, Lcom/android/settings/panel/PanelFragment;->mLayoutView:Landroid/view/View;
 
-    const v2, 0x7f0d0288
+    const v2, 0x7f0d028d
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -501,17 +497,7 @@
 
     iget-object v1, p0, Lcom/android/settings/panel/PanelFragment;->mLayoutView:Landroid/view/View;
 
-    const v2, 0x7f0d023b
-
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/settings/panel/PanelFragment;->mFooterDivider:Landroid/view/View;
-
-    iget-object v1, p0, Lcom/android/settings/panel/PanelFragment;->mLayoutView:Landroid/view/View;
-
-    const v2, 0x7f0d045e
+    const v2, 0x7f0d046b
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -520,16 +506,6 @@
     check-cast v1, Landroid/widget/ProgressBar;
 
     iput-object v1, p0, Lcom/android/settings/panel/PanelFragment;->mProgressBar:Landroid/widget/ProgressBar;
-
-    iget-object v1, p0, Lcom/android/settings/panel/PanelFragment;->mLayoutView:Landroid/view/View;
-
-    const v2, 0x7f0d0284
-
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/settings/panel/PanelFragment;->mHeaderDivider:Landroid/view/View;
 
     iget-object v1, p0, Lcom/android/settings/panel/PanelFragment;->mPanelSlices:Landroidx/recyclerview/widget/RecyclerView;
 
@@ -663,10 +639,6 @@
     invoke-direct {p0, v0, v1, v3}, Lcom/android/settings/panel/PanelFragment;->enablePanelHeader(Landroidx/core/graphics/drawable/IconCompat;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V
 
     :goto_1
-    iget-object v0, p0, Lcom/android/settings/panel/PanelFragment;->mFooterDivider:Landroid/view/View;
-
-    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
-
     iget-object v0, p0, Lcom/android/settings/panel/PanelFragment;->mSeeMoreButton:Landroid/widget/Button;
 
     invoke-virtual {p0}, Lcom/android/settings/panel/PanelFragment;->getSeeMoreListener()Landroid/view/View$OnClickListener;
@@ -855,7 +827,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0b02db
+    const p2, 0x7f0b02df
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1282,7 +1254,7 @@
 .end method
 
 .method private updateProgressBar()V
-    .locals 3
+    .locals 1
 
     iget-object v0, p0, Lcom/android/settings/panel/PanelFragment;->mPanel:Lcom/android/settings/panel/PanelContent;
 
@@ -1290,30 +1262,22 @@
 
     move-result v0
 
-    const/4 v1, 0x0
-
-    const/16 v2, 0x8
-
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/settings/panel/PanelFragment;->mProgressBar:Landroid/widget/ProgressBar;
+    iget-object p0, p0, Lcom/android/settings/panel/PanelFragment;->mProgressBar:Landroid/widget/ProgressBar;
 
-    invoke-virtual {v0, v1}, Landroid/widget/ProgressBar;->setVisibility(I)V
+    const/4 v0, 0x0
 
-    iget-object p0, p0, Lcom/android/settings/panel/PanelFragment;->mHeaderDivider:Landroid/view/View;
-
-    invoke-virtual {p0, v2}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {p0, v0}, Landroid/widget/ProgressBar;->setVisibility(I)V
 
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/settings/panel/PanelFragment;->mProgressBar:Landroid/widget/ProgressBar;
+    iget-object p0, p0, Lcom/android/settings/panel/PanelFragment;->mProgressBar:Landroid/widget/ProgressBar;
 
-    invoke-virtual {v0, v2}, Landroid/widget/ProgressBar;->setVisibility(I)V
+    const/16 v0, 0x8
 
-    iget-object p0, p0, Lcom/android/settings/panel/PanelFragment;->mHeaderDivider:Landroid/view/View;
-
-    invoke-virtual {p0, v1}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {p0, v0}, Landroid/widget/ProgressBar;->setVisibility(I)V
 
     :goto_0
     return-void
@@ -1380,7 +1344,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 1
 
-    const p3, 0x7f06017c
+    const p3, 0x7f060180
 
     const/4 v0, 0x0
 
@@ -1402,7 +1366,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0b02dc
+    const p2, 0x7f0b02e0
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1485,7 +1449,7 @@
 
     iget-object v0, p0, Lcom/android/settings/panel/PanelFragment;->mLayoutView:Landroid/view/View;
 
-    const v1, 0x7f0d040a
+    const v1, 0x7f0d0418
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

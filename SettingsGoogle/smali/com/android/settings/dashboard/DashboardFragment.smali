@@ -353,7 +353,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "unregister observer: @"
+    const-string/jumbo v1, "unregister observer: @"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -478,7 +478,7 @@
 
     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v0, "tile list is empty, skipping category "
+    const-string/jumbo v0, "tile list is empty, skipping category "
 
     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -540,7 +540,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "tile does not contain a key, skipping "
+    const-string/jumbo v5, "tile does not contain a key, skipping "
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -582,21 +582,19 @@
 
     move-result-object v5
 
-    invoke-interface {p0}, Lcom/android/settingslib/core/instrumentation/Instrumentable;->getMetricsCategory()I
-
-    move-result v7
-
     iget-object v6, p0, Lcom/android/settings/dashboard/DashboardFragment;->mPlaceholderPreferenceController:Lcom/android/settings/dashboard/DashboardTilePlaceholderPreferenceController;
 
     invoke-virtual {v6}, Lcom/android/settings/dashboard/DashboardTilePlaceholderPreferenceController;->getOrder()I
 
     move-result v11
 
-    move v6, v3
+    move-object v6, p0
+
+    move v7, v3
 
     move-object v10, v12
 
-    invoke-interface/range {v4 .. v11}, Lcom/android/settings/dashboard/DashboardFeatureProvider;->bindPreferenceToTileAndGetObservers(Landroidx/fragment/app/FragmentActivity;ZILandroidx/preference/Preference;Lcom/android/settingslib/drawer/Tile;Ljava/lang/String;I)Ljava/util/List;
+    invoke-interface/range {v4 .. v11}, Lcom/android/settings/dashboard/DashboardFeatureProvider;->bindPreferenceToTileAndGetObservers(Landroidx/fragment/app/FragmentActivity;Lcom/android/settings/dashboard/DashboardFragment;ZLandroidx/preference/Preference;Lcom/android/settingslib/drawer/Tile;Ljava/lang/String;I)Ljava/util/List;
 
     goto :goto_1
 
@@ -611,23 +609,21 @@
 
     move-result-object v5
 
-    invoke-interface {p0}, Lcom/android/settingslib/core/instrumentation/Instrumentable;->getMetricsCategory()I
-
-    move-result v7
-
     iget-object v6, p0, Lcom/android/settings/dashboard/DashboardFragment;->mPlaceholderPreferenceController:Lcom/android/settings/dashboard/DashboardTilePlaceholderPreferenceController;
 
     invoke-virtual {v6}, Lcom/android/settings/dashboard/DashboardTilePlaceholderPreferenceController;->getOrder()I
 
     move-result v11
 
-    move v6, v3
+    move-object v6, p0
+
+    move v7, v3
 
     move-object v8, v13
 
     move-object v10, v12
 
-    invoke-interface/range {v4 .. v11}, Lcom/android/settings/dashboard/DashboardFeatureProvider;->bindPreferenceToTileAndGetObservers(Landroidx/fragment/app/FragmentActivity;ZILandroidx/preference/Preference;Lcom/android/settingslib/drawer/Tile;Ljava/lang/String;I)Ljava/util/List;
+    invoke-interface/range {v4 .. v11}, Lcom/android/settings/dashboard/DashboardFeatureProvider;->bindPreferenceToTileAndGetObservers(Landroidx/fragment/app/FragmentActivity;Lcom/android/settings/dashboard/DashboardFragment;ZLandroidx/preference/Preference;Lcom/android/settingslib/drawer/Tile;Ljava/lang/String;I)Ljava/util/List;
 
     move-result-object v4
 
@@ -642,7 +638,7 @@
     :goto_1
     invoke-interface {v1, v12}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto/16 :goto_0
+    goto :goto_0
 
     :cond_5
     invoke-interface {v1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
@@ -880,7 +876,7 @@
     return-void
 .end method
 
-.method createPreference(Lcom/android/settingslib/drawer/Tile;)Landroidx/preference/Preference;
+.method protected createPreference(Lcom/android/settingslib/drawer/Tile;)Landroidx/preference/Preference;
     .locals 1
 
     instance-of v0, p1, Lcom/android/settingslib/drawer/ProviderTile;

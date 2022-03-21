@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Landroid/content/DialogInterface$OnDismissListener;
 
 
 # instance fields
@@ -22,12 +22,12 @@
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
+.method public final onDismiss(Landroid/content/DialogInterface;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settings/gestures/SystemNavigationGestureSettings$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/gestures/SystemNavigationGestureSettings;
 
-    invoke-static {p0, p1}, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->$r8$lambda$Mzrx1HhtmppPe7Fw5XsjaF04tGc(Lcom/android/settings/gestures/SystemNavigationGestureSettings;Landroid/view/View;)V
+    invoke-static {p0, p1}, Lcom/android/settings/gestures/SystemNavigationGestureSettings;->$r8$lambda$1YBdl_wL5kE-FdxuqiEnEtXAebo(Lcom/android/settings/gestures/SystemNavigationGestureSettings;Landroid/content/DialogInterface;)V
 
     return-void
 .end method

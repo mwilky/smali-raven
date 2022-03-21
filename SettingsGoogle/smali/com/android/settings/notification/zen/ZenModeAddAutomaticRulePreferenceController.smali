@@ -22,7 +22,7 @@
 .method public constructor <init>(Landroid/content/Context;Landroidx/fragment/app/Fragment;Lcom/android/settings/utils/ZenServiceListing;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
     .locals 1
 
-    const-string v0, "zen_mode_add_automatic_rule"
+    const-string/jumbo v0, "zen_mode_add_automatic_rule"
 
     invoke-direct {p0, p1, v0, p2, p4}, Lcom/android/settings/notification/zen/AbstractZenModeAutomaticRulePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;Landroidx/fragment/app/Fragment;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
 
@@ -38,7 +38,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/notification/zen/AbstractZenModePreferenceController;->displayPreference(Landroidx/preference/PreferenceScreen;)V
 
-    const-string v0, "zen_mode_add_automatic_rule"
+    const-string/jumbo v0, "zen_mode_add_automatic_rule"
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -56,7 +56,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "zen_mode_add_automatic_rule"
+    const-string/jumbo p0, "zen_mode_add_automatic_rule"
 
     return-object p0
 .end method

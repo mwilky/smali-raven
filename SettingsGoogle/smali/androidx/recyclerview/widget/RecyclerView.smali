@@ -9619,6 +9619,28 @@
     return-void
 .end method
 
+.method public nestedScrollBy(II)V
+    .locals 2
+    .annotation system Ldalvik/annotation/MethodParameters;
+        accessFlags = {
+            0x0,
+            0x0
+        }
+        names = {
+            "x",
+            "y"
+        }
+    .end annotation
+
+    const/4 v0, 0x0
+
+    const/4 v1, 0x1
+
+    invoke-direct {p0, p1, p2, v0, v1}, Landroidx/recyclerview/widget/RecyclerView;->nestedScrollByInternal(IILandroid/view/MotionEvent;I)V
+
+    return-void
+.end method
+
 .method public offsetChildrenHorizontal(I)V
     .locals 3
     .annotation system Ldalvik/annotation/MethodParameters;
@@ -13602,7 +13624,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "setScrollingTouchSlop(): bad argument constant "
+    const-string/jumbo v2, "setScrollingTouchSlop(): bad argument constant "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

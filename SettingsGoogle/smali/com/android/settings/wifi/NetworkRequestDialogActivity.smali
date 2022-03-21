@@ -185,7 +185,7 @@
 
     invoke-interface {v0, v1}, Landroid/net/wifi/WifiManager$NetworkRequestUserSelectionCallback;->select(Landroid/net/wifi/WifiConfiguration;)V
 
-    const v0, 0x7f040d89
+    const v0, 0x7f040db4
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -218,7 +218,7 @@
 
     iput-object v0, p0, Lcom/android/settings/wifi/NetworkRequestDialogActivity;->mMatchedConfig:Landroid/net/wifi/WifiConfiguration;
 
-    const v0, 0x7f040d8e
+    const v0, 0x7f040db9
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -273,7 +273,7 @@
 
     if-eqz p1, :cond_1
 
-    const p1, 0x7f040d8e
+    const p1, 0x7f040db9
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -457,7 +457,7 @@
 
     if-nez p1, :cond_0
 
-    const p1, 0x7f040d87
+    const p1, 0x7f040db2
 
     const/4 v0, 0x0
 
@@ -486,7 +486,7 @@
 
     if-nez p1, :cond_0
 
-    const p1, 0x7f040d88
+    const p1, 0x7f040db3
 
     const/4 v0, 0x0
 

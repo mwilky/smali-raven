@@ -58,7 +58,7 @@
 
     iget-object p1, p0, Lcom/android/settings/development/graphicsdriver/GraphicsDriverGlobalSwitchBarController;->mSwitchWidgetController:Lcom/android/settings/widget/SwitchWidgetController;
 
-    const-string p2, "updatable_driver_all_apps"
+    const-string/jumbo p2, "updatable_driver_all_apps"
 
     const/4 v1, 0x0
 
@@ -91,7 +91,7 @@
 
     iget-object p0, p0, Lcom/android/settings/development/graphicsdriver/GraphicsDriverGlobalSwitchBarController;->mContentResolver:Landroid/content/ContentResolver;
 
-    const-string v1, "updatable_driver_all_apps"
+    const-string/jumbo v1, "updatable_driver_all_apps"
 
     const/4 v2, 0x0
 
@@ -148,7 +148,7 @@
 
     iget-object v0, p0, Lcom/android/settings/development/graphicsdriver/GraphicsDriverGlobalSwitchBarController;->mContentResolver:Landroid/content/ContentResolver;
 
-    const-string v1, "updatable_driver_all_apps"
+    const-string/jumbo v1, "updatable_driver_all_apps"
 
     const/4 v2, 0x0
 

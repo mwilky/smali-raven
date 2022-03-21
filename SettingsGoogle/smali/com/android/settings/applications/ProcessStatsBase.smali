@@ -100,10 +100,10 @@
 
     :array_0
     .array-data 4
-        0x7f040ce6
-        0x7f040ce7
-        0x7f040ce4
-        0x7f040ce5
+        0x7f040cfe
+        0x7f040cff
+        0x7f040cfc
+        0x7f040cfd
     .end array-data
 .end method
 
@@ -128,13 +128,13 @@
 
     iget-wide v0, p1, Lcom/android/settings/applications/ProcStatsData$MemInfo;->weightToRam:D
 
-    const-string p2, "weight_to_ram"
+    const-string/jumbo p2, "weight_to_ram"
 
     invoke-virtual {p3, p2, v0, v1}, Landroid/os/Bundle;->putDouble(Ljava/lang/String;D)V
 
     iget-wide v0, p1, Lcom/android/settings/applications/ProcStatsData$MemInfo;->memTotalTime:J
 
-    const-string p2, "total_time"
+    const-string/jumbo p2, "total_time"
 
     invoke-virtual {p3, p2, v0, v1}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
 
@@ -150,7 +150,7 @@
 
     iget-wide p1, p1, Lcom/android/settings/applications/ProcStatsData$MemInfo;->totalScale:D
 
-    const-string v0, "total_scale"
+    const-string/jumbo v0, "total_scale"
 
     invoke-virtual {p3, v0, p1, p2}, Landroid/os/Bundle;->putDouble(Ljava/lang/String;D)V
 
@@ -168,7 +168,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f040cde
+    const p1, 0x7f040cf6
 
     invoke-virtual {p0, p1}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -212,7 +212,7 @@
 
     if-eqz v0, :cond_0
 
-    const-string v4, "transfer_stats"
+    const-string/jumbo v4, "transfer_stats"
 
     invoke-virtual {v0, v4, v3}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
 
@@ -402,7 +402,7 @@
 
     invoke-super {p0, p1, p2}, Landroidx/preference/PreferenceFragmentCompat;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    const p1, 0x7f060052
+    const p1, 0x7f060053
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->setPinnedHeaderView(I)Landroid/view/View;
 
@@ -412,7 +412,7 @@
 
     iput-object p1, p0, Lcom/android/settings/applications/ProcessStatsBase;->mSpinnerHeader:Landroid/view/ViewGroup;
 
-    const p2, 0x7f0d022a
+    const p2, 0x7f0d022f
 
     invoke-virtual {p1, p2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 

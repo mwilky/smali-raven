@@ -187,7 +187,7 @@
 .method private disableTethering(I)V
     .locals 1
 
-    const-string v0, "tethering"
+    const-string/jumbo v0, "tethering"
 
     invoke-virtual {p0, v0}, Landroid/app/Service;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -756,7 +756,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    const-string v0, "tetherPrefs"
+    const-string/jumbo v0, "tetherPrefs"
 
     const/4 v1, 0x0
 
@@ -879,7 +879,7 @@
     :cond_0
     const/4 v0, 0x0
 
-    const-string v2, "tetherPrefs"
+    const-string/jumbo v2, "tetherPrefs"
 
     invoke-virtual {p0, v2, v0}, Landroid/app/Service;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 

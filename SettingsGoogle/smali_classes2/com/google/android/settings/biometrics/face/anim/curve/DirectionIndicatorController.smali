@@ -214,7 +214,7 @@
     :cond_1
     iget-object v0, p0, Lcom/google/android/settings/biometrics/face/anim/curve/DirectionIndicatorController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f020130
+    const v1, 0x7f020136
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

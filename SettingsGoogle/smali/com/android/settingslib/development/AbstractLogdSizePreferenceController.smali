@@ -57,7 +57,7 @@
 
     move-result-object p0
 
-    const-string v0, "true"
+    const-string/jumbo v0, "true"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -229,7 +229,7 @@
 
     move-result-object v4
 
-    const-string v5, "true"
+    const-string/jumbo v5, "true"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

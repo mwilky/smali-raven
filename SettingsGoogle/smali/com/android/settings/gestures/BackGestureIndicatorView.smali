@@ -25,7 +25,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f06005b
+    const v1, 0x7f06005c
 
     const/4 v2, 0x0
 
@@ -60,7 +60,7 @@
 
     iget-object v0, p0, Lcom/android/settings/gestures/BackGestureIndicatorView;->mLayout:Landroid/view/ViewGroup;
 
-    const v3, 0x7f0d02ce
+    const v3, 0x7f0d02d8
 
     invoke-virtual {v0, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -72,7 +72,7 @@
 
     iget-object v0, p0, Lcom/android/settings/gestures/BackGestureIndicatorView;->mLayout:Landroid/view/ViewGroup;
 
-    const v3, 0x7f0d02cf
+    const v3, 0x7f0d02d9
 
     invoke-virtual {v0, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 

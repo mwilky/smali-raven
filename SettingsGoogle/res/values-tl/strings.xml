@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Smooth na Display</string>
     <string name="peak_refresh_rate_summary">Awtomatikong itinataas sa 90 Hz mula sa 60 Hz ang refresh rate para sa ilang content. Mas lumalakas ang paggamit ng baterya.</string>
     <string name="accessibility_vibration_settings_title">Pag-vibrate at haptics</string>
+    <string name="columbus_title">Mag-Quick Tap para magsimula ng mga pagkilos</string>
     <string name="emergency_gesture_screen_title">Pang-emergency na SOS</string>
     <string name="abc_action_mode_done">Tapos na</string>
     <string name="vibrate_for_calls_category_title">Mga Tawag</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Ipakita ang mga kontrol ng device</string>
     <string name="lockscreen_privacy_wallet_summary">Payagan ang pag-access sa wallet mula sa lock screen at mga mabilisang setting</string>
     <string name="lockscreen_privacy_controls_summary">I-access ang mga kontrol kapag naka-lock</string>
+    <string name="lockscreen_double_line_clock_summary">Ipakita ang orasang may dalawang linya kapag available</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Orasang may dalawang linya</string>
     <string name="abc_activity_chooser_view_see_all">Tingnan lahat</string>
     <string name="abc_activitychooserview_choose_application">Pumili ng app</string>
     <string name="abc_capital_off">I-OFF</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Pag-vibrate ng alarm</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Pag-set up ng Active Edge. Pumunta sa susunod na screen o patuloy na mag-adjust.</string>
     <string name="accessibility_audio_adjustment_title">Pag-adjust ng audio</string>
+    <string name="accessibility_autoclick_about_title">Tungkol sa autoclick (dwell timing)</string>
     <string name="accessibility_autoclick_custom_title">Custom</string>
     <string name="accessibility_autoclick_default_title">I-off</string>
     <string name="accessibility_autoclick_description">Gumagana ang awtomatikong pag-click sa konektadong mouse. Puwede mong itakdang awtomatikong mag-click ang cursor ng mouse kapag huminto sa paggalaw ang cursor sa loob ng partikular na tagal ng oras.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Matuto pa tungkol sa awtomatikong pag-click (oras ng pananatili)</string>
     <string name="accessibility_autoclick_long_summary">1 segundo</string>
     <string name="accessibility_autoclick_long_title">Mahaba</string>
     <string name="accessibility_autoclick_longer_desc">Mas mahaba</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Maikli</string>
     <string name="accessibility_autoclick_shorter_desc">Mas maikli</string>
     <string name="accessibility_banner_message_dismiss">I-dismiss</string>
-    <string name="accessibility_button_description">"Mabilis na i-access ang mga feature sa pagiging naa-access mula sa anumang screen. 
+    <string name="accessibility_button_about_title">Tungkol sa button ng accessibility</string>
+    <string name="accessibility_button_description">"Mabilis na i-access ang mga feature ng pagiging naa-access mula sa anumang screen.
 
-Para magsimula, pumunta sa mga setting ng accessibility at pumili ng feature. I-tap ang shortcut at piliin ang button ng accessibility."</string>
+Para magsimula, pumunta sa mga setting ng pagiging accessible at pumili ng feature. I-tap ang shortcut at piliin ang button ng pagiging accessible."</string>
     <string name="accessibility_button_fade_summary">Nagfe-fade pagkatapos ng ilang segundo para mas madaling makita ang iyong screen</string>
     <string name="accessibility_button_fade_title">I-fade kapag hindi ginagamit</string>
-    <string name="accessibility_button_gesture_description">"Mabilis na i-access ang mga feature ng pagiging naa-access mula sa anumang screen.
+    <string name="accessibility_button_gesture_about_title">Tungkol sa button ng accessibility at paggalaw</string>
+    <string name="accessibility_button_gesture_description">"Mabilis na i-access ang mga feature ng pagiging naa-access mula sa anumang screen. 
 
-Para magsimula, pumunta sa mga setting ng accessibility at pumili ng feature. Mag-tap sa shortcut at piliin ang button o galaw ng accessibility.
-
-Para gamitin na lang ang button ng accessibility sa navigation bar, lumipat sa 2-button na navigation o 3-button na navigation."</string>
+Para magsimula, pumunta sa mga setting ng pagiging naa-access at pumili ng feature. I-tap ang shortcut at piliin ang button o galaw ng pagiging accessible."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Matuto pa tungkol sa button ng accessibility at paggalaw</string>
     <string name="accessibility_button_gesture_title">Button ng accessibility at galaw</string>
     <string name="accessibility_button_high_label">Hindi transparent</string>
     <string name="accessibility_button_intro">Paggamit sa button ng accessibility. Hindi available ang galaw sa 3-button na navigaton.</string>
@@ -184,14 +190,23 @@ Para gamitin na lang ang button ng accessibility sa navigation bar, lumipat sa 2
     <string name="accessibility_caption_preference_summary">Hindi sinusuportahan ng lahat ng app ang mga kagustuhan sa caption na ito</string>
     <string name="accessibility_caption_primary_switch_summary">Para sa sinusuportahang app lang</string>
     <string name="accessibility_caption_primary_switch_title">Ipakita ang mga caption</string>
+    <string name="accessibility_captioning_about_title">Tungkol sa mga kagustuhan sa caption</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Matuto pa tungkol sa mga kagustuhan sa caption</string>
     <string name="accessibility_captioning_title">Mga kagustuhan sa caption</string>
     <string name="accessibility_category_personal">Mga account ng personal na profile</string>
     <string name="accessibility_category_work">Mga account ng profile sa trabaho - %s</string>
+    <string name="accessibility_color_inversion_about_title">Tungkol sa pag-invert ng kulay</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Matuto pa tungkol sa pag-invert ng kulay</string>
+    <string name="accessibility_control_timeout_about_title">Tungkol sa tagal ng aksyon (Timeout ng accessibility)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Matuto pa tungkol sa tagal ng aksyon (Timeout ng accessibility)</string>
     <string name="accessibility_control_timeout_preference_summary">"Piliin kung gaano katagal ipapakita ang mga mensaheng humihiling sa iyong umaksyon, ngunit pansamantala lang makikita.
 
 Hindi lahat ng app ay sumusuporta sa setting na ito."</string>
     <string name="accessibility_control_timeout_preference_title">Tagal ng pag-aksyon</string>
+    <string name="accessibility_daltonizer_about_title">Tungkol sa pagtatama ng kulay</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Matuto pa tungkol sa pagtatama ng kulay</string>
     <string name="accessibility_daltonizer_primary_switch_title">Gumamit ng pagtatama ng kulay</string>
+    <string name="accessibility_daltonizer_shortcut_title">Shortcut ng pagtatama ng kulay</string>
     <string name="accessibility_data_one_bar">Data na isang bar.</string>
     <string name="accessibility_data_signal_full">Puno ang signal ng data.</string>
     <string name="accessibility_data_three_bars">Data na tatlong bar.</string>
@@ -206,6 +221,7 @@ Hindi lahat ng app ay sumusuporta sa setting na ito."</string>
     <string name="accessibility_display_daltonizer_preference_title">Pagtatama ng kulay</string>
     <string name="accessibility_display_inversion_preference_subtitle">Pinapadilim ng pag-invert ng kulay ang maliliwanag na screen.&lt;br/>&lt;br/> Tandaan: &lt;ol> &lt;li> Pinapaliwanag din ng pag-invert ng kulay ang madidilim na screen.&lt;/li> &lt;li> Magbabago ang mga kulay ng media at mga larawan.&lt;/li> &lt;li> Puwedeng gamitin ang Madilim na tema para maging madilim ang background. Gumagana ang madilim na tema sa mga sinusuportahang app. Gumagana ang pag-invert ng kulay sa lahat ng app.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Pag-invert ng kulay</string>
+    <string name="accessibility_display_inversion_shortcut_title">Shortcut ng pag-invert ng kulay</string>
     <string name="accessibility_display_inversion_switch_title">Gamitin ang pag-invert ng kulay</string>
     <string name="accessibility_ethernet_connected">Ethernet.</string>
     <string name="accessibility_ethernet_disconnected">Nadiskonekta ang Ethernet.</string>
@@ -255,6 +271,8 @@ Nakalutang ang button ng accessibility sa iyong screen sa ibabaw ng iba pang app
     <string name="accessibility_phone_two_bars">Telepono na dalawang bar.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Tatapusin ng power button ang tawag</string>
     <string name="accessibility_preference_magnification_summary">Mag-zoom in sa screen</string>
+    <string name="accessibility_screen_magnification_about_title">Tungkol sa pag-magnify</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Matuto pa tungkol sa pag-magnify</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">Nakatakda sa %1$s ang galaw ng accessibility. Para magamit ang pag-magnify, mag-swipe pataas gamit ang dalawang daliri mula sa ibaba ng screen at i-hold. Pagkatapos ay piliin ang pag-magnify.</string>
     <string name="accessibility_screen_magnification_gestures_title">Mag-magnify gamit ang triple-tap</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">Nakatakda sa %1$s ang button na Accessibility. Upang gumamit ng pag-magnify, pindutin nang matagal ang button na Accessibility, pagkatapos ay piliin ang pag-magnify.</string>
@@ -272,6 +290,7 @@ Nakalutang ang button ng accessibility sa iyong screen sa ibabaw ng iba pang app
 Hindi ka makakapag-zoom in sa keyboard o navigation bar."</string>
     <string name="accessibility_screen_magnification_navbar_title">Mag-magnify gamit ang shortcut</string>
     <string name="accessibility_screen_magnification_short_summary">Mag-tap nang 3 beses upang mag-zoom</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Shortcut ng pag-magnify</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Mag-magnify gamit ang shortcut at pag-triple tap</string>
     <string name="accessibility_screen_magnification_summary">Mabilis na mag-zoom in sa screen para palakihin ang content.&lt;br/>&lt;br/> &lt;b>Para mag-zoom in:&lt;/b>&lt;br/> {0,number,integer}. Gamitin ang shortcut para simulan ang pag-magnify&lt;br/> {1,number,integer}. I-tap ang screen&lt;br/> {2,number,integer}. I-drag ang 2 daliri para gumalaw sa screen&lt;br/> {3,number,integer}. Mag-pinch gamit ang 2 daliri para i-adjust ang pag-zoom&lt;br/> {4,number,integer}. Gamitin ang shortcut para ihinto ang pag-magnify&lt;br/>&lt;br/> &lt;b>Para mag-zoom in nang pansamantala:&lt;/b>&lt;br/> {0,number,integer}. Gamitin ang shortcut para simulan ang pag-magnify&lt;br/> {1,number,integer}. Pumindot nang matagal kahit saan sa screen&lt;br/> {2,number,integer}. I-drag ang daliri para gumalaw sa screen&lt;br/> {3,number,integer}. Iangat ang daliri para ihinto ang pag-magnify</string>
     <string name="accessibility_screen_magnification_title">Pag-magnify</string>
@@ -370,7 +389,7 @@ Para magpalipat-lipat sa mga feature, mag-swipe pataas gamit ang 3 daliri at i-h
     <string name="accessibility_tutorial_dialog_message_volume">Para magamit ang feature na ito, pindutin nang matagal ang parehong volume key.</string>
     <string name="accessibility_tutorial_dialog_title_button">Gamitin ang button ng accessibility para buksan</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Gumamit ng galaw para buksan</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Gamitin ang bagong galaw sa accessibility</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Gamitin ang galaw para sa accessibility</string>
     <string name="accessibility_tutorial_dialog_title_triple">I-triple tap ang screen para buksan</string>
     <string name="accessibility_tutorial_dialog_title_volume">I-hold ang mga volume key para buksan</string>
     <string name="accessibility_tutorial_pager">Page %1$d sa %2$d</string>
@@ -493,7 +512,7 @@ May kakayahan ang admin mo na subaybayan at pamahalaan ang mga setting, access, 
     <string name="advanced_battery_graph_subtext">Nakabatay ang pagtatantya ng natitirang baterya sa paggamit ng iyong device</string>
     <string name="advanced_battery_preference_summary">Usage mula noong huling na-full charge</string>
     <string name="advanced_battery_preference_summary_with_hours">Tingnan ang paggamit sa huling 24 oras</string>
-    <string name="advanced_battery_preference_title">Paggamit ng Baterya</string>
+    <string name="advanced_battery_preference_title">Paggamit ng baterya</string>
     <string name="advanced_battery_title">Paggamit ng baterya</string>
     <string name="advanced_section_header">Pangkalahatan</string>
     <string name="advanced_security_title">Advanced</string>
@@ -936,6 +955,7 @@ Kapag na-reset na ito, sundan ang proseso ng pag-setup at pumili upang mailipat 
     <string name="battery_level_title">Antas ng baterya</string>
     <string name="battery_manager_off">Naka-off</string>
     <string name="battery_manager_summary">Patagalin ang baterya at i-optimize ang pag-charge</string>
+    <string name="battery_manager_summary_unsupported">Patagalin ang baterya</string>
     <string name="battery_missing_link_a11y_message">Mag-tap para matuto pa tungkol sa error na ito</string>
     <string name="battery_missing_link_message">Matuto pa</string>
     <string name="battery_missing_message">Nagkaproblema sa pagbabasa ng battery meter.</string>
@@ -1061,6 +1081,7 @@ noong ^2"</string>
     <string name="battery_usage_screen_footer">Pagtatantya lang ang data ng paggamit ng baterya at hindi nito sinusukat ang paggamit kapag nagcha-charge ang telepono</string>
     <string name="battery_usage_screen_footer_empty">Magiging available ang data ng paggamit ng baterya kapag nagamit mo na nang ilang oras ang iyong telepono</string>
     <string name="battery_usage_total_less_than_one_minute">Kabuuan: wala pang isang minuto</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s ang ginagamit ng %2$s</string>
     <string name="battery_used_for">Ginamit nang ^1</string>
     <string name="bearer">Bearer</string>
@@ -1069,12 +1090,14 @@ noong ^2"</string>
     <string name="billing_cycle_less_than_one_day_left">Wala pang 1 araw ang natitira</string>
     <string name="billing_cycle_none_left">Walang natitirang oras</string>
     <string name="biometric_settings_category_ways_to_unlock">Mga paraan para mag-unlock</string>
-    <string name="biometric_settings_category_ways_to_use">Gamitin ang mukha at fingerprint para sa</string>
     <string name="biometric_settings_hand_back_to_guardian">Ibigay ulit ang iyong telepono sa magulang mo</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">OK</string>
     <string name="biometric_settings_intro">Kapag na-set up mo ang Pag-unlock Gamit ang Mukha at Pag-unlock Gamit ang Fingerprint, hihingin ng iyong telepono ang fingerprint mo kapag nakasuot ka ng mask o nasa madilim na lugar ka.</string>
-    <string name="biometric_settings_use_biometric_for_apps">Pag-authenticate sa mga app</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">Pag-unlock sa phone</string>
+    <string name="biometric_settings_use_biometric_for_apps">I-verify na ikaw ito sa mga app</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">I-unlock ang telepono mo</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Gamit ang mukha o fingerprint</string>
+    <string name="biometric_settings_use_face_preference_summary">Gamit ang mukha</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Gamit ang fingerprint</string>
     <string name="biometrics_unlock_set_unlock_password">Password • Mukha • Fingerprint</string>
     <string name="biometrics_unlock_set_unlock_pattern">Pattern • Mukha • Fingerprint</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN • Mukha • Fingerprint</string>
@@ -1332,7 +1355,6 @@ Bluetooth"</string>
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Ipakita ang mga Bluetooth device na walang pangalan</string>
     <string name="bluetooth_show_devices_without_names_summary">Ipapakita ang mga Bluetooth device na walang pangalan (mga MAC address lang)</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Mga natanggap sa Bluetooth</string>
     <string name="bluetooth_show_received_files">Mga natanggap na file</string>
     <string name="bluetooth_sim_card_access_dialog_content">"Gustong i-access ng Bluetooth device na %1$s ang data sa iyong SIM card. Kasama rito ang iyong mga contact.
 
@@ -1426,6 +1448,7 @@ Kung mag-i-install ka ng CA certificate, magagawa ng may-ari ng certificate na i
     <string name="calls_sms_temp_unavailable">Pansamantalang hindi available</string>
     <string name="calls_sms_unavailable">hindi available</string>
     <string name="calls_sms_wfc_summary">Tumawag at makatanggap ng mga tawag sa Wi‑Fi</string>
+    <string name="cam_toggle_description">Para sa mga app at serbisyo</string>
     <string name="camera_double_tap_power_gesture_desc">Mabilisang buksan ang camera nang hindi ina-unlock ang iyong screen</string>
     <string name="camera_double_tap_power_gesture_title">Pindutin nang dalawang beses ang power button para sa camera</string>
     <string name="camera_laser_sensor_switch">Sensor ng Laser ng Camera</string>
@@ -3302,6 +3325,7 @@ May iba pang user sa device na ito.
     <string name="menu_stats_total">Mga kabuuan ng paggamit</string>
     <string name="menu_stats_unplugged">%1$s mula nang na-unplug</string>
     <string name="menu_use_uss">Gamitin ang Uss</string>
+    <string name="mic_toggle_description">Para sa mga app at serbisyo. Kung naka-off ang setting na ito, posible pa ring ibahagi ang data ng mikropono kapag tumawag ka sa isang pang-emergency na numero.</string>
     <string name="mic_toggle_title">Access sa mikropono</string>
     <string name="misc_files">Misc na mga file</string>
     <string name="misc_files_selected_count">pinili %1$d sa %2$d</string>
@@ -3728,6 +3752,7 @@ Bibigyan din nito ng kakayahan ang app na i-on o i-off ang Huwag Istorbohin at b
     <string name="one_handed_action_show_notification_title">Ipakita ang mga notification</string>
     <string name="one_handed_mode_enabled">Gumamit ng one-handed mode</string>
     <string name="one_handed_mode_intro_text">Para magamit ang one handed mode, mag-swipe pababa mula sa ibabang dulo ng screen. Para magamit ang feature na ito, tiyaking naka-on ang navigation gamit ang galaw sa mga setting ng navigation sa system.</string>
+    <string name="one_handed_mode_shortcut_title">Shortcut sa one-handed mode</string>
     <string name="one_handed_mode_swipe_down_category">Mag-swipe pababa para</string>
     <string name="one_handed_mode_use_shortcut_category">Gamitin ang shortcut sa</string>
     <string name="one_usercrt">isang certificate ng user</string>
@@ -3803,7 +3828,7 @@ Bibigyan din nito ng kakayahan ang app na i-on o i-off ang Huwag Istorbohin at b
     <string name="post_dsds_reboot_notification_title_with_carrier">Aktibo ang %1$s</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Camera</string>
-    <string name="power_cell">Naka-standby ang mobile network</string>
+    <string name="power_cell">Mobile network</string>
     <string name="power_charge_remaining">%1$s upang ma-charge</string>
     <string name="power_charging">%1$s - %2$s</string>
     <string name="power_charging_duration">%1$s - %2$s na lang bago mapuno</string>
@@ -4037,6 +4062,7 @@ Pindutin nang magkasabay ang Power at Pataas na volume."</string>
     <string name="recent_notifications">Naipadala kamakailan</string>
     <string name="recent_notifications_see_all_title">Tingnan lahat mula sa nakalipas na 7 araw</string>
     <string name="recompute_size">Muling kino-compute ang laki…</string>
+    <string name="reduce_bright_colors_about_title">Tungkol sa extra dim</string>
     <string name="reduce_bright_colors_intensity_end_label">Mas Maliwanag</string>
     <string name="reduce_bright_colors_intensity_preference_title">Intensity</string>
     <string name="reduce_bright_colors_intensity_start_label">Mas Madilim</string>
@@ -4044,6 +4070,7 @@ Pindutin nang magkasabay ang Power at Pataas na volume."</string>
     <string name="reduce_bright_colors_preference_subtitle">Gawing mas madilim ang iyong screen para maging mas kumportableng magbasa.&lt;br/>&lt;br/> Puwede itong makatulong kapag: &lt;ol> &lt;li> Masyado pa ring maliwanag ang default na minimum na liwanag ng iyong telepono&lt;/li> &lt;li> Ginagamit mo ang iyong telepono sa madidilim na sitwasyon, halimbawa, kapag gabi o sa madilim na kuwarto bago matulog&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">Padilimin ang screen nang lampas sa minimum na liwanag ng iyong telepono</string>
     <string name="reduce_bright_colors_preference_title">Extra dim</string>
+    <string name="reduce_bright_colors_shortcut_title">Shortcut ng extra dim</string>
     <string name="reduce_bright_colors_switch_title">Gawing extra dim ang screen</string>
     <string name="register_automatically">Awtomatikong pagpaparehistro…</string>
     <string name="register_on_network">Nagpaparehistro sa %s…</string>
@@ -4249,7 +4276,6 @@ Para gamitin ang pag-pin ng app: \u0009
     <string name="screen_pinning_unlock_pattern">Humingi ng pattern sa pag-unlock bago mag-unpin</string>
     <string name="screen_pinning_unlock_pin">Humingi ng PIN bago mag-unpin</string>
     <string name="screen_reader_category_title">Screen reader</string>
-    <string name="screen_saver_main_switch_title">Gumamit ng screen saver</string>
     <string name="screen_time_summary_usage_today">%1$s ngayong araw</string>
     <string name="screen_timeout_summary">Pagkatapos ng %1$s ng kawalan ng aktibidad</string>
     <string name="screen_timeout_title">Pag-off ng screen</string>
@@ -4279,6 +4305,7 @@ Para gamitin ang pag-pin ng app: \u0009
     <string name="screensaver_settings_button">Mga Setting</string>
     <string name="screensaver_settings_current">Kasalukuyang screen saver</string>
     <string name="screensaver_settings_disabled_prompt">Upang makontrol kung ano ang mangyayari kapag naka-dock o naka-sleep ang telepono, i-on ang screen saver.</string>
+    <string name="screensaver_settings_dream_start">Magsimula ngayon</string>
     <string name="screensaver_settings_summary_dock">Habang naka-dock</string>
     <string name="screensaver_settings_summary_either_long">Habang nagcha-charge o naka-dock</string>
     <string name="screensaver_settings_summary_either_short">Alinman</string>
@@ -4329,15 +4356,6 @@ Para gamitin ang pag-pin ng app: \u0009
     <string name="security_settings_biometric_preference_summary_both_fp_single">Nagdagdag ng mukha at fingerprint</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">I-tap para i-set up</string>
     <string name="security_settings_biometric_preference_title">Pag-unlock Gamit ang Mukha &amp; Fingerprint</string>
-    <string name="security_settings_biometrics_description">Kapag na-set up mo ang pag-unlock gamit ang mukha at pag-unlock gamit ang fingerprint, hihingin ng iyong telepono ang fingerprint mo kapag may suot kang mask o kapag nasa madilim kang lugar</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Pag-authenticate sa mga app</string>
-    <string name="security_settings_biometrics_preferences_category">Gamitin ang mukha o fingerprint para sa</string>
-    <string name="security_settings_biometrics_summary_both">Mukha at fingerprint</string>
-    <string name="security_settings_biometrics_summary_face">Mukha lang</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Fingerprint lang</string>
-    <string name="security_settings_biometrics_summary_none">I-tap para i-set up</string>
-    <string name="security_settings_biometrics_title">Mukha at fingerprint na pag-unlock</string>
-    <string name="security_settings_biometrics_types_category">Mga paraan para mag-unlock</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Payagan ang Pag-unlock Gamit ang Mukha</string>
     <string name="security_settings_face_enroll_dialog_ok">OK</string>
     <string name="security_settings_face_enroll_done">Tapos na</string>
@@ -4383,18 +4401,19 @@ Matuto pa sa g.co/pixel/faceunlock."</string>
 
 Matuto pa sa g.co/pixel/faceunlock."</string>
     <string name="security_settings_face_enroll_introduction_control_title">Ikaw ang may kontrol</string>
-    <string name="security_settings_face_enroll_introduction_how_consent_message">"Gumagawa ang Pag-unlock Gamit ang Mukha ng natatanging modelo ng mukha ng iyong anak para i-verify na sila iyon. Para magawa ang face model na ito habang nagse-set up, kukuha ang iyong anak ng mga larawan ng kanyang mukha mula sa iba't ibang anggulo.
+    <string name="security_settings_face_enroll_introduction_how_consent_message">"Gumagawa ang Pag-unlock Gamit ang Mukha ng natatanging modelo ng mukha ng iyong anak para i-verify na siya iyon. Para magawa ang face model na ito habang nagse-set up, kukuha ang iyong anak ng mga larawan ng kanyang mukha mula sa iba't ibang anggulo.
 
-Kapag ginamit niya ang Pag-unlock Gamit ang Mukha, gagamitin ang mga larawan para i-update ang kanyang face model. Hindi kailanman sino-store ang mga larawang ginamit para gawin ang kanyang face model, pero secure na naka-store ang face model sa telepono at hindi ito kailanman lalabas sa telepono. Sa telepono secure na nangyayari ang lahat ng pagpoproseso."</string>
+Kapag ginamit niya ang Pag-unlock Gamit ang Mukha, gagamitin ang mga larawan para i-update ang kanyang face model. Hindi sino-store ang mga larawang ginamit para gawin ang kanyang face model, pero secure na naka-store ang face model sa telepono at hindi ito kailanman lalabas sa telepono. Sa telepono secure na nangyayari ang lahat ng pagpoproseso."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"Gumagawa ang Pag-unlock Gamit ang Mukha ng natatanging modelo ng iyong mukha para i-verify na ikaw ito. Para magawa ang face model na ito habang nagse-set up, kukuha ka ng mga larawan ng iyong mukha mula sa iba't ibang anggulo.
 
-Kapag ginamit mo ang Pag-unlock Gamit ang Mukha, gagamitin ang mga larawan para i-update ang iyong face model. Hindi kailanman sino-store ang mga larawang ginamit para gawin ang iyong face model, pero secure na naka-store ang face model sa telepono mo at hindi ito kailanman lalabas sa telepono. Sa iyong telepono secure na nangyayari ang lahat ng pagpoproseso."</string>
+Kapag ginamit mo ang Pag-unlock Gamit ang Mukha, gagamitin ang mga larawan para i-update ang iyong face model. Hindi sino-store ang mga larawang ginamit para gawin ang iyong face model, pero secure na naka-store ang face model sa telepono mo at hindi ito kailanman lalabas sa telepono. Sa iyong telepono secure na nangyayari ang lahat ng pagpoproseso."</string>
     <string name="security_settings_face_enroll_introduction_how_title">Paano ito gumagana</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">Posibleng kailanganin ng Pag-unlock Gamit ang Mukha na bukas ang mga mata ng iyong anak para i-unlock ang telepono o i-verify na siya ito. Magagawa mo at ng iyong anak na i-on ang opsyong ito anumang oras sa Mga Setting.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Kung karaniwang nagsusuot ng salamin sa mata ang iyong anak, puwede niya itong isuot habang nagse-set up.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Kapag tumingin siya sa telepono, puwede itong ma-unlock nang hindi sinasadya. Ang kanyang telepono ay puwede ring ma-unlock ng taong kamukha niya, tulad ng kanyang kapatid na kamukhang kamukha niya, o kung may magtatapat nito sa kanyang mukha.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Posibleng kailanganin ng Pag-unlock Gamit ang Mukha na bukas ang iyong mga mata para i-unlock ang telepono o i-verify na ikaw ito. Magagawa mong i-on ang opsyong ito anumang oras sa Mga Setting.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Ayos lang ang salamin o hindi madilim na sunglasses.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Posibleng mas hindi secure ang paggamit ng mukha para i-unlock ang telepono kaysa sa malakas na pattern o PIN.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Kapag tumingin ka sa telepono, puwede itong ma-unlock nang hindi sinasadya. Ang iyong telepono ay puwede ring ma-unlock ng taong kamukha mo, tulad ng iyong kapatid na kamukhang kamukha mo, o kung may magtatapat nito sa iyong mukha.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Tandaan</string>
     <string name="security_settings_face_enroll_introduction_message">Gamitin ang iyong mukha para i-unlock ang telepono mo o i-verify na ikaw ito, tulad ng kapag nagsa-sign in ka sa mga app o nag-aapruba ng pagbili.</string>
@@ -4452,13 +4471,14 @@ Puwedeng ma-unlock ng ibang tao ang telepono mo kung itatapat ito sa iyong mukha
 
 Puwedeng ma-unlock ng isang taong may malaking pagkakahawig sa iyo ang telepono mo, gaya ng kapatid na kamukha mo."</string>
     <string name="security_settings_face_settings_preferences_category">Kapag gumagamit ng Pag-unlock Gamit ang Mukha</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Permanente at secure na ide-delete ang iyong face model. Pagkatapos ng pag-delete, kakailanganin mo ang iyong PIN, pattern, o password para i-unlock ang telepono mo o para sa pag-authenticate sa mga app.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Permanente at secure na ide-delete ang iyong face model.
+
+Pagkatapos ng pag-delete, kakailanganin mo ang iyong PIN, pattern, o password para i-unlock ang telepono mo o para sa pag-authenticate sa mga app."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Permanente at secure na ide-delete ang iyong face model.
+
+Pagkatapos ng pag-delete, kakailanganin mo ang iyong PIN, pattern, o password para i-unlock ang telepono mo."</string>
     <string name="security_settings_face_settings_remove_dialog_title">I-delete ang face model?</string>
     <string name="security_settings_face_settings_remove_face_model">I-delete ang face model</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Permanente at secure na ide-delete ang iyong face model.
-
-Pagkatapos ng pag-delete, kakailanganin mo ang iyong fingerprint, PIN, pattern, o password para i-unlock ang telepono mo o para sa pag-authenticate sa mga app."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">I-delete ang face model?</string>
     <string name="security_settings_face_settings_require_attention">I-require na nakadilat</string>
     <string name="security_settings_face_settings_require_attention_details">Para i-unlock ang telepono, dapat ay nakadilat ka</string>
     <string name="security_settings_face_settings_require_confirmation">Palaging humiling ng kumpirmasyon</string>
@@ -4541,7 +4561,7 @@ Tandaan: Hindi mo magagamit ang iyong fingerprint upang ma-unlock ang device na 
     <string name="security_settings_title">Seguridad</string>
     <string name="security_settings_udfps_enroll_a11y">Igalaw ang iyong daliri sa screen para mahanap ang sensor. Pindutin nang matagal ang sensor para sa fingerprint.</string>
     <string name="security_settings_udfps_enroll_edge_message">Ilagay ang gilid ng iyong fingerprint sa sensor nang matagal, pagkatapos ay ang kabilang gilid</string>
-    <string name="security_settings_udfps_enroll_edge_title">Panghuli, ilagay ang mga dulo ng iyong daliri</string>
+    <string name="security_settings_udfps_enroll_edge_title">Panghuli, gamitin ang mga dulo ng iyong daliri</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Nasa screen mo ang sensor para sa fingerprint. Ika-capture mo ang iyong fingerprint sa susunod na screen.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Magsimula</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Paano i-set up ang iyong fingerprint</string>
@@ -4550,7 +4570,7 @@ Tandaan: Hindi mo magagamit ang iyong fingerprint upang ma-unlock ang device na 
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Makakatulong itong mas makuha ang iyong fingerprint</string>
     <string name="security_settings_udfps_enroll_repeat_message">Pindutin nang matagal sa tuwing gagalaw ang icon ng fingerprint. Makakatulong itong mas makuha ang iyong fingerprint.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Sundan ang icon ng fingerprint</string>
-    <string name="security_settings_udfps_enroll_start_message">Huwag alisin ang iyong daliri sa sensor hanggang sa may maramdaman kang pag-vibrate</string>
+    <string name="security_settings_udfps_enroll_start_message">Huwag alisin ang iyong fingerprint sa sensor hanggang sa may maramdaman kang pag-vibrate</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Isa pa</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint para sa trabaho</string>
     <string name="security_status_title">Status ng seguridad</string>
@@ -4576,7 +4596,6 @@ Tandaan: Hindi mo magagamit ang iyong fingerprint upang ma-unlock ang device na 
     <string name="select_webview_provider_dialog_title">Itakda ang pagpapatupad sa WebView</string>
     <string name="select_webview_provider_title">Pagpapatupad sa WebView</string>
     <string name="select_webview_provider_toast_text">Wala nang bisa ang napiling ito. Subukang muli.</string>
-    <string name="sensor_toggle_description">Para sa lahat ng app at serbisyo</string>
     <string name="sensors_off_quick_settings_title">I-Off ang Mga Sensor</string>
     <string name="service_background_processes">%1$s libre</string>
     <string name="service_foreground_processes">%1$s gamit</string>
@@ -4808,6 +4827,7 @@ Posibleng maling PIN."</string>
     <string name="sound_settings_summary_silent">Naka-silent ang ringer</string>
     <string name="sound_settings_summary_vibrate">Naka-vibrate ang ringer</string>
     <string name="sound_work_settings">Mga tunog sa profile sa trabaho</string>
+    <string name="spatial_audio_title">Spatial audio</string>
     <string name="special_access">Espesyal na access ng app</string>
     <string name="special_access_more">Tumingin pa</string>
     <string name="speed_label_fast">Mabilis</string>
@@ -5619,7 +5639,7 @@ Habang nasa isang voice call, hindi mo magagamit ang internet at posibleng hindi
     <string name="vpn_turn_on">I-on</string>
     <string name="vpn_type">Uri</string>
     <string name="vpn_username">Username</string>
-    <string name="vpn_version">Bersyon %s</string>
+    <string name="vpn_version">Bersyon</string>
     <string name="vr_listener_security_warning_summary">Gagana ang %1$s kapag gumagamit ka ng mga application sa virtual reality mode.</string>
     <string name="vr_listener_security_warning_title">Payagan ang access sa serbisyo ng VR para sa %1$s?</string>
     <string name="vr_listeners_title">Mga serbisyong pantulong sa VR</string>
@@ -5889,7 +5909,7 @@ Kahit na itakda ang network bilang nakatago, hindi nito mababago ang mga setting
     <string name="wifi_not_in_range">Wala sa sakop</string>
     <string name="wifi_not_in_range_message">Walang signal ang network</string>
     <string name="wifi_notify_open_networks">Abisuhan kapag may mga pampublikong network</string>
-    <string name="wifi_notify_open_networks_summary">Kapag hindi available ang awtomatikong koneksyon</string>
+    <string name="wifi_notify_open_networks_summary">Mag-abiso kapag may available na pampublikong network na may mataas na kalidad</string>
     <string name="wifi_on_time">Wi-Fi na nasa oras</string>
     <string name="wifi_p2p_cancel_connect_message">Nais mo bang kanselahin ang imbitasyong kumonekta kay %1$s?</string>
     <string name="wifi_p2p_cancel_connect_title">Kanselahin ang imbitasyon?</string>
@@ -5977,7 +5997,6 @@ Payagan ito para sa lahat ng apps na gustong mag-scan?"</string>
     <string name="wifi_suspend_optimizations">Pag-optimize ng Wi-Fi</string>
     <string name="wifi_suspend_optimizations_summary">Bawasan ang paggamit ng baterya kapag naka-on ang Wi-Fi</string>
     <string name="wifi_switch_away_when_unvalidated">Lumipat sa mobile data kung mawawalan ang Wi‑Fi ng access sa internet.</string>
-    <string name="wifi_switch_summary">Maghanap ng at kumonekta sa mga Wi‑Fi network</string>
     <string name="wifi_tap_to_sign_in">Mag-tap dito para mag-sign in sa network</string>
     <string name="wifi_tether_configure_ap_text">I-set up ang Wi-Fi hotspot</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

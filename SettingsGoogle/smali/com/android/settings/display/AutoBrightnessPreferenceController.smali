@@ -45,7 +45,7 @@
 
     move-result-object p0
 
-    const v0, 0x111002f
+    const v0, 0x1110030
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -93,6 +93,14 @@
     return-object p0
 .end method
 
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d07
+
+    return p0
+.end method
+
 .method public getSummary()Ljava/lang/CharSequence;
     .locals 1
 
@@ -104,12 +112,12 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f0402c3
+    const p0, 0x7f0402d7
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f0402c2
+    const p0, 0x7f0402d6
 
     :goto_0
     invoke-virtual {v0, p0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;

@@ -1,5 +1,5 @@
 .class public Lcom/android/settings/accessibility/AccessibilitySettingsForSetupWizard;
-.super Lcom/android/settings/SettingsPreferenceFragment;
+.super Lcom/android/settings/dashboard/DashboardFragment;
 .source "AccessibilitySettingsForSetupWizard.java"
 
 # interfaces
@@ -18,7 +18,7 @@
 .method public constructor <init>()V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/settings/SettingsPreferenceFragment;-><init>()V
+    invoke-direct {p0}, Lcom/android/settings/dashboard/DashboardFragment;-><init>()V
 
     return-void
 .end method
@@ -91,7 +91,7 @@
 
     iget-object v2, v1, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {p1, v2}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
     move-result v2
 
@@ -99,7 +99,7 @@
 
     iget-object v1, v1, Landroid/content/pm/ServiceInfo;->name:Ljava/lang/String;
 
-    invoke-virtual {p2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {p2, v1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
     move-result v1
 
@@ -222,7 +222,7 @@
 
     invoke-virtual {p3, p4, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string p1, "title"
+    const-string/jumbo p1, "title"
 
     invoke-virtual {p3, p1, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -234,7 +234,7 @@
 
     move-result-object p1
 
-    const-string p4, "summary"
+    const-string/jumbo p4, "summary"
 
     invoke-virtual {p3, p4, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -263,10 +263,26 @@
 
 
 # virtual methods
+.method protected getLogTag()Ljava/lang/String;
+    .locals 0
+
+    const-string p0, "AccessibilitySettingsForSetupWizard"
+
+    return-object p0
+.end method
+
 .method public getMetricsCategory()I
     .locals 0
 
     const/16 p0, 0x16f
+
+    return p0
+.end method
+
+.method protected getPreferenceScreenResId()I
+    .locals 0
+
+    const p0, 0x7f15000c
 
     return p0
 .end method
@@ -286,11 +302,7 @@
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 0
 
-    invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
-
-    const p1, 0x7f15000c
-
-    invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
+    invoke-super {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->onCreate(Landroid/os/Bundle;)V
 
     const-string p1, "screen_magnification_preference"
 
@@ -363,7 +375,7 @@
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
     :cond_0
-    invoke-super {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->onPreferenceTreeClick(Landroidx/preference/Preference;)Z
+    invoke-super {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->onPreferenceTreeClick(Landroidx/preference/Preference;)Z
 
     move-result p0
 
@@ -373,7 +385,7 @@
 .method public onResume()V
     .locals 4
 
-    invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onResume()V
+    invoke-super {p0}, Lcom/android/settings/dashboard/DashboardFragment;->onResume()V
 
     iget-object v0, p0, Lcom/android/settings/accessibility/AccessibilitySettingsForSetupWizard;->mScreenReaderPreference:Lcom/android/settingslib/RestrictedPreference;
 
@@ -409,66 +421,47 @@
 .end method
 
 .method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
-    .locals 2
+    .locals 3
 
     invoke-super {p0, p1, p2}, Landroidx/preference/PreferenceFragmentCompat;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
     check-cast p1, Lcom/google/android/setupdesign/GlifPreferenceLayout;
 
-    const p2, 0x7fffffff
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p1, p2, v0}, Lcom/google/android/setupdesign/GlifRecyclerLayout;->setDividerInsets(II)V
-
-    const p2, 0x7f041521
-
-    invoke-virtual {p1, p2}, Lcom/google/android/setupdesign/GlifLayout;->setDescriptionText(I)V
-
-    const p2, 0x7f041523
-
-    invoke-virtual {p1, p2}, Lcom/google/android/setupdesign/GlifLayout;->setHeaderText(I)V
-
-    invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
     move-result-object p2
 
-    const v1, 0x7f020168
+    const v0, 0x7f041548
 
-    invoke-virtual {p2, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object p2
 
-    invoke-virtual {p1, p2}, Lcom/google/android/setupdesign/GlifLayout;->setIcon(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
+    move-result-object v0
+
+    const v1, 0x7f041546
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    const v2, 0x7f02016f
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
     move-result-object p0
 
-    invoke-static {p0}, Lcom/google/android/setupdesign/util/ThemeHelper;->shouldApplyExtendedPartnerConfig(Landroid/content/Context;)Z
+    invoke-static {p0, p1, p2, v0, v1}, Lcom/android/settings/accessibility/AccessibilitySetupWizardUtils;->updateGlifPreferenceLayout(Landroid/content/Context;Lcom/google/android/setupdesign/GlifPreferenceLayout;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Drawable;)V
 
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    const p0, 0x7f0d0567
-
-    invoke-virtual {p1, p0}, Lcom/google/android/setupdesign/GlifRecyclerLayout;->findManagedViewById(I)Landroid/view/View;
-
-    move-result-object p0
-
-    check-cast p0, Landroid/widget/LinearLayout;
-
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getPaddingTop()I
-
-    move-result p1
-
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getPaddingBottom()I
-
-    move-result p2
-
-    invoke-virtual {p0, v0, p1, v0, p2}, Landroid/widget/LinearLayout;->setPadding(IIII)V
-
-    :cond_0
     return-void
 .end method

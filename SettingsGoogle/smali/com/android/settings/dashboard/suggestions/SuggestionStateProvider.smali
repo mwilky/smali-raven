@@ -166,7 +166,7 @@
 
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
-    const-string p1, "update operation not supported currently."
+    const-string/jumbo p1, "update operation not supported currently."
 
     invoke-direct {p0, p1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 

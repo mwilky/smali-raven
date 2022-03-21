@@ -44,11 +44,11 @@
 
 # virtual methods
 .method public getIntent()Landroid/content/Intent;
-    .locals 6
+    .locals 7
 
     iget-object v0, p0, Lcom/android/settings/location/LocationSlice;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040b87
+    const v1, 0x7f040b9f
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -56,35 +56,39 @@
 
     invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
+    move-result-object v4
+
+    new-instance v0, Landroid/net/Uri$Builder;
+
+    invoke-direct {v0}, Landroid/net/Uri$Builder;-><init>()V
+
+    const-string v1, "location"
+
+    invoke-virtual {v0, v1}, Landroid/net/Uri$Builder;->appendPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
+
     move-result-object v0
 
-    new-instance v1, Landroid/net/Uri$Builder;
+    invoke-virtual {v0}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
 
-    invoke-direct {v1}, Landroid/net/Uri$Builder;-><init>()V
+    move-result-object v0
 
-    const-string v2, "location"
+    iget-object v1, p0, Lcom/android/settings/location/LocationSlice;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v1, v2}, Landroid/net/Uri$Builder;->appendPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
+    const-class v2, Lcom/android/settings/location/LocationSettings;
 
-    move-result-object v1
+    invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
-    invoke-virtual {v1}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
+    move-result-object v2
 
-    move-result-object v1
-
-    iget-object v3, p0, Lcom/android/settings/location/LocationSlice;->mContext:Landroid/content/Context;
-
-    const-class v4, Lcom/android/settings/location/LocationSettings;
-
-    invoke-virtual {v4}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object v4
+    const-string v3, "location"
 
     const/16 v5, 0x3f
 
-    invoke-static {v3, v4, v2, v0, v5}, Lcom/android/settings/slices/SliceBuilderUtils;->buildSearchResultPageIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)Landroid/content/Intent;
+    move-object v6, p0
 
-    move-result-object v0
+    invoke-static/range {v1 .. v6}, Lcom/android/settings/slices/SliceBuilderUtils;->buildSearchResultPageIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILcom/android/settings/slices/CustomSliceable;)Landroid/content/Intent;
+
+    move-result-object v1
 
     iget-object p0, p0, Lcom/android/settings/location/LocationSlice;->mContext:Landroid/content/Context;
 
@@ -98,11 +102,11 @@
 
     move-result-object v2
 
-    invoke-virtual {v0, p0, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v1, p0, v2}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     move-result-object p0
 
-    invoke-virtual {p0, v1}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
+    invoke-virtual {p0, v0}, Landroid/content/Intent;->setData(Landroid/net/Uri;)Landroid/content/Intent;
 
     move-result-object p0
 
@@ -122,7 +126,7 @@
 
     iget-object v1, p0, Lcom/android/settings/location/LocationSlice;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f040b87
+    const v2, 0x7f040b9f
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -183,6 +187,14 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d09
+
+    return p0
 .end method
 
 .method public getUri()Landroid/net/Uri;

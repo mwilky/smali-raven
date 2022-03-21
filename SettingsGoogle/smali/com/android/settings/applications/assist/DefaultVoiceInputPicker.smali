@@ -132,7 +132,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15005c
+    const p0, 0x7f15005d
 
     return p0
 .end method
@@ -195,7 +195,7 @@
 
     move-result-object p0
 
-    const-string v0, "voice_recognition_service"
+    const-string/jumbo v0, "voice_recognition_service"
 
     invoke-static {p0, v0, p1}, Landroid/provider/Settings$Secure;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 

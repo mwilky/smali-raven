@@ -349,7 +349,7 @@
 
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    const v3, 0x7f041805
+    const v3, 0x7f04182a
 
     invoke-virtual {p0, v3}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -607,7 +607,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150123
+    const p0, 0x7f150128
 
     return p0
 .end method
@@ -653,7 +653,7 @@
 
     new-array v3, v2, [Ljava/lang/CharSequence;
 
-    const v4, 0x7f041807
+    const v4, 0x7f04182c
 
     invoke-virtual {p0, v4}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -663,7 +663,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f041809
+    const v4, 0x7f04182e
 
     invoke-virtual {p0, v4}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -671,7 +671,7 @@
 
     aput-object v4, v3, v0
 
-    const v4, 0x7f041808
+    const v4, 0x7f04182d
 
     invoke-virtual {p0, v4}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 

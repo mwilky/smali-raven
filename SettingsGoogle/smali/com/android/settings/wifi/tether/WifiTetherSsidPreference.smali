@@ -96,15 +96,15 @@
 .method private initialize()V
     .locals 1
 
-    const v0, 0x7f0601a9
+    const v0, 0x7f0601ad
 
     invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
-    const v0, 0x7f0602a7
+    const v0, 0x7f0602b3
 
     invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setWidgetLayoutResource(I)V
 
-    const v0, 0x7f020305
+    const v0, 0x7f02030c
 
     invoke-direct {p0, v0}, Lcom/android/settings/wifi/tether/WifiTetherSsidPreference;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -146,7 +146,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/widget/ValidatedEditTextPreference;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
 
-    const v0, 0x7f0d0128
+    const v0, 0x7f0d012c
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -154,7 +154,7 @@
 
     check-cast v0, Landroid/widget/ImageButton;
 
-    const v1, 0x7f0d05e3
+    const v1, 0x7f0d05f3
 
     invoke-virtual {p1, v1}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -176,7 +176,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f041637
+    const v3, 0x7f04165c
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

@@ -67,7 +67,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f041091
+    const v0, 0x7f0410bf
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -80,7 +80,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f04108f
+    const v0, 0x7f0410bd
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -134,12 +134,12 @@
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f041096
+    const p0, 0x7f0410c4
 
     return p0
 
     :cond_1
-    const p0, 0x7f041098
+    const p0, 0x7f0410c6
 
     return p0
 
@@ -156,13 +156,13 @@
 
     if-eqz p0, :cond_3
 
-    const p0, 0x7f041097
+    const p0, 0x7f0410c5
 
     return p0
 
     :cond_3
     :goto_0
-    const p0, 0x7f041095
+    const p0, 0x7f0410c3
 
     return p0
 .end method
@@ -411,7 +411,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a2c
+    const p0, 0x7f040a44
 
     return p0
 .end method
@@ -435,7 +435,7 @@
 
     check-cast p1, Lcom/android/settings/SettingsActivity;
 
-    const v0, 0x7f041094
+    const v0, 0x7f0410c2
 
     invoke-virtual {p1, v0}, Lcom/android/settings/core/SettingsBaseActivity;->setTitle(I)V
 
@@ -455,7 +455,7 @@
 
     iput-object v0, p0, Lcom/android/settings/security/ScreenPinningSettings;->mUserManager:Landroid/os/UserManager;
 
-    const v0, 0x7f1500c8
+    const v0, 0x7f1500cd
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -463,7 +463,7 @@
 
     move-result-object v0
 
-    const-string v1, "use_screen_lock"
+    const-string/jumbo v1, "use_screen_lock"
 
     invoke-virtual {v0, v1}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -493,7 +493,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040262
+    const v1, 0x7f040276
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -628,19 +628,19 @@
 
     invoke-direct {p2, v0}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f041090
+    const v0, 0x7f0410be
 
     invoke-virtual {p2, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p2
 
-    const v0, 0x7f04080f
+    const v0, 0x7f040827
 
     invoke-virtual {p2, v0, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p2
 
-    const v0, 0x7f04080a
+    const v0, 0x7f040822
 
     invoke-virtual {p2, v0, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 

@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Smooth Display</string>
     <string name="peak_refresh_rate_summary">Meningkatkan kadar muat semula daripada 60 kepada 90 Hz untuk sesetengah kandungan secara automatik. Meningkatkan penggunaan bateri.</string>
     <string name="accessibility_vibration_settings_title">Getaran &amp; haptik</string>
+    <string name="columbus_title">Ketikan Segera untuk memulakan tindakan</string>
     <string name="emergency_gesture_screen_title">SOS Kecemasan</string>
     <string name="abc_action_mode_done">Selesai</string>
     <string name="vibrate_for_calls_category_title">Panggilan</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Tunjukkan kawalan peranti</string>
     <string name="lockscreen_privacy_wallet_summary">Benarkan akses kepada wallet daripada skrin kunci dan tetapan pantas</string>
     <string name="lockscreen_privacy_controls_summary">Akses kawalan apabila dikunci</string>
+    <string name="lockscreen_double_line_clock_summary">Tunjukkan jam dua baris apabila tersedia</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Jam dua baris</string>
     <string name="abc_activity_chooser_view_see_all">Lihat semua</string>
     <string name="abc_activitychooserview_choose_application">Pilih apl</string>
     <string name="abc_capital_off">MATI</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Getaran penggera</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Sisi Aktif disediakan. Pergi ke skrin seterusnya atau teruskan membuat pelarasan.</string>
     <string name="accessibility_audio_adjustment_title">Pelarasan audio</string>
+    <string name="accessibility_autoclick_about_title">Perihal autoklik (masa diam)</string>
     <string name="accessibility_autoclick_custom_title">Tersuai</string>
     <string name="accessibility_autoclick_default_title">Mati</string>
     <string name="accessibility_autoclick_description">Autoklik berfungsi dengan tetikus yang disambungkan. Anda boleh menetapkan supaya kursor tetikus mengklik secara automatik apabila kursor berhenti bergerak dalam tempoh tertentu.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Ketahui lebih lanjut tentang autoklik (masa diam)</string>
     <string name="accessibility_autoclick_long_summary">1 saat</string>
     <string name="accessibility_autoclick_long_title">Panjang</string>
     <string name="accessibility_autoclick_longer_desc">Lebih lama</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Pendek</string>
     <string name="accessibility_autoclick_shorter_desc">Lebih pendek</string>
     <string name="accessibility_banner_message_dismiss">Ketepikan</string>
-    <string name="accessibility_button_description">"Akses ciri kebolehaksesan dengan cepat daripada mana-mana skrin. 
+    <string name="accessibility_button_about_title">Perihal butang kebolehaksesan</string>
+    <string name="accessibility_button_description">"Akses ciri kebolehaksesan dengan cepat daripada mana-mana skrin.
 
 Untuk bermula, pergi ke tetapan kebolehaksesan dan pilih satu ciri. Ketik pada pintasan dan pilih butang kebolehaksesan."</string>
     <string name="accessibility_button_fade_summary">Lenyap selepas beberapa saat supaya lebih mudah untuk melihat skrin anda</string>
     <string name="accessibility_button_fade_title">Lenyap apabila tidak digunakan</string>
+    <string name="accessibility_button_gesture_about_title">Perihal butang kebolehaksesan &amp; gerak isyarat</string>
     <string name="accessibility_button_gesture_description">"Akses ciri kebolehaksesan dengan cepat daripada mana-mana skrin.
 
-Untuk bermula, pergi ke tetapan kebolehaksesan dan pilih satu ciri. Ketik pada pintasan dan pilih butang kebolehaksesan.
-
-Untuk menggunakan butang kebolehaksesan di bar navigasi, tukar kepada navigasi 2 butang atau navigasi 3 butang."</string>
+Untuk bermula, pergi ke tetapan kebolehaksesan dan pilih satu ciri. Ketik pada pintasan dan pilih butang kebolehaksesan atau gerak isyarat."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Ketahui lebih lanjut tentang butang kebolehaksesan &amp; gerak isyarat</string>
     <string name="accessibility_button_gesture_title">Butang boleh akses &amp; gerak isyarat</string>
     <string name="accessibility_button_high_label">Bukan lut sinar</string>
     <string name="accessibility_button_intro">Menggunakan butang kebolehaksesan. Gerak isyarat tidak tersedia dengan navigasi 3 butang.</string>
@@ -184,14 +190,23 @@ Untuk menggunakan butang kebolehaksesan di bar navigasi, tukar kepada navigasi 2
     <string name="accessibility_caption_preference_summary">Bukan semua apl menyokong pilihan kapsyen ini</string>
     <string name="accessibility_caption_primary_switch_summary">Untuk apl yang disokong sahaja</string>
     <string name="accessibility_caption_primary_switch_title">Tunjukkan kapsyen</string>
+    <string name="accessibility_captioning_about_title">Perihal pilihan kapsyen</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Ketahui lebih lanjut tentang pilihan kapsyen</string>
     <string name="accessibility_captioning_title">Pilihan sari kata</string>
     <string name="accessibility_category_personal">Akaun profil peribadi</string>
     <string name="accessibility_category_work">Akaun profil kerja - %s</string>
+    <string name="accessibility_color_inversion_about_title">Perihal penyongsangan warna</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Ketahui lebih lanjut tentang penyongsangan warna</string>
+    <string name="accessibility_control_timeout_about_title">Perihal tempoh mengambil tindakan (tamat masa Kebolehaksesan)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Ketahui lebih lanjut tentang tempoh untuk mengambil tindakan (tamat masa Kebolehaksesan)</string>
     <string name="accessibility_control_timeout_preference_summary">"Pilih tempoh untuk menunjukkan mesej yang meminta anda mengambil tindakan, tetapi mesej itu hanya dapat dilihat buat sementara waktu.
 
 Tidak semua apl menyokong tetapan ini."</string>
     <string name="accessibility_control_timeout_preference_title">Tempoh untuk mengambil tindakan</string>
+    <string name="accessibility_daltonizer_about_title">Perihal pembetulan warna</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Ketahui lebih lanjut tentang pembetulan warna</string>
     <string name="accessibility_daltonizer_primary_switch_title">Gunakan pembetulan warna</string>
+    <string name="accessibility_daltonizer_shortcut_title">Pintasan pembetulan warna</string>
     <string name="accessibility_data_one_bar">Data satu bar.</string>
     <string name="accessibility_data_signal_full">Isyarat data penuh.</string>
     <string name="accessibility_data_three_bars">Data tiga bar.</string>
@@ -206,6 +221,7 @@ Tidak semua apl menyokong tetapan ini."</string>
     <string name="accessibility_display_daltonizer_preference_title">Pembetulan warna</string>
     <string name="accessibility_display_inversion_preference_subtitle">Penyongsangan warna menjadikan skrin cerah kelihatan gelap.&lt;br/>&lt;br/> Nota: &lt;ol> &lt;li> Penyongsangan warna juga menjadikan skrin gelap kelihatan cerah.&lt;/li> &lt;li> Warna akan berubah dalam media dan imej.&lt;/li> &lt;li> Tema gelap boleh digunakan untuk memaparkan latar belakang gelap. Tema gelap berfungsi dengan apl yang disokong. Penyongsangan warna berfungsi dengan semua apl.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Penyongsangan warna</string>
+    <string name="accessibility_display_inversion_shortcut_title">Pintasan penyongsangan warna</string>
     <string name="accessibility_display_inversion_switch_title">Gunakan penyongsangan warna</string>
     <string name="accessibility_ethernet_connected">Ethernet.</string>
     <string name="accessibility_ethernet_disconnected">Ethernet diputuskan sambungan.</string>
@@ -255,6 +271,8 @@ Butang kebolehaksesan terapung pada skrin anda di atas apl lain. Ketik untuk mem
     <string name="accessibility_phone_two_bars">Telefon dua bar.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Butang kuasa menamatkan panggilan</string>
     <string name="accessibility_preference_magnification_summary">Zum masuk pada skrin</string>
+    <string name="accessibility_screen_magnification_about_title">Perihal pembesaran</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Ketahui lebih lanjut tentang pembesaran</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">Gerak isyarat kebolehaksesan ditetapkan pada %1$s. Untuk menggunakan pembesaran, leret ke atas menggunakan dua jari dari bahagian bawah skrin dan tahan. Kemudian, pilih pembesaran.</string>
     <string name="accessibility_screen_magnification_gestures_title">Besarkan dengan tiga ketikan</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">Butang Kebolehaksesan ditetapkan kepada %1$s. Untuk menggunakan pembesaran, sentuh &amp; tahan butang Kebolehaksesan, kemudian pilih pembesaran.</string>
@@ -272,6 +290,7 @@ Butang kebolehaksesan terapung pada skrin anda di atas apl lain. Ketik untuk mem
 Anda tidak boleh mengezum masuk pada papan kekunci atau bar navigasi."</string>
     <string name="accessibility_screen_magnification_navbar_title">Besarkan menggunakan pintasan</string>
     <string name="accessibility_screen_magnification_short_summary">Ketik 3 kali untuk mengezum</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Pintasan pembesaran</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Besarkan menggunakan pintasan &amp; tiga ketikan</string>
     <string name="accessibility_screen_magnification_summary">Zum masuk dengan pantas pada skrin untuk menjadikan kandungan lebih besar.&lt;br/>&lt;br/> &lt;b>Untuk mengezum masuk:&lt;/b>&lt;br/> {0,number,integer}. Gunakan pintasan untuk memulakan pembesaran&lt;br/> {1,number,integer}. Ketik skrin&lt;br/> {2,number,integer}. Seret 2 jari untuk menerokai skrin&lt;br/> {3,number,integer}. Cubit dengan 2 jari untuk melaraskan zum&lt;br/> {4,number,integer}. Gunakan pintasan untuk menghentikan pembesaran&lt;br/>&lt;br/> &lt;b>Untuk mengezum masuk sementara:&lt;/b>&lt;br/> {0,number,integer}. Gunakan pintasan untuk memulakan pembesaran&lt;br/> {1,number,integer}. Sentuh &amp; tahan di mana-mana pada skrin&lt;br/> {2,number,integer}. Seret jari untuk menerokai skrin&lt;br/> {3,number,integer}. Angkat jari untuk menghentikan pembesaran</string>
     <string name="accessibility_screen_magnification_title">Pembesaran</string>
@@ -370,7 +389,7 @@ Untuk menukar antara ciri, leret ke atas dengan menggunakan 3 jari dan tahan."</
     <string name="accessibility_tutorial_dialog_message_volume">Untuk menggunakan ciri ini, tekan &amp; tahan kedua-dua kekunci kelantangan.</string>
     <string name="accessibility_tutorial_dialog_title_button">Gunakan butang kebolehaksesan untuk buka</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Gunakan gerak isyarat untuk buka</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Gunakan gerak isyarat kebolehaksesan baharu</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Gunakan gerak isyarat kebolehaksesan</string>
     <string name="accessibility_tutorial_dialog_title_triple">Ketik skrin tiga kali untuk buka</string>
     <string name="accessibility_tutorial_dialog_title_volume">Tahan kekunci kelantangan untuk buka</string>
     <string name="accessibility_tutorial_pager">Halaman %1$d daripada %2$d</string>
@@ -493,7 +512,7 @@ Pentadbir anda berupaya memantau dan mengurus tetapan, akses, apl dan data yang 
     <string name="advanced_battery_graph_subtext">Anggaran baki bateri adalah berdasarkan penggunaan peranti anda</string>
     <string name="advanced_battery_preference_summary">Lihat penggunaan dari cas penuh terakhir</string>
     <string name="advanced_battery_preference_summary_with_hours">Lihat penggunaan untuk 24 jam yang lalu</string>
-    <string name="advanced_battery_preference_title">Penggunaan Bateri</string>
+    <string name="advanced_battery_preference_title">Penggunaan bateri</string>
     <string name="advanced_battery_title">Penggunaan bateri</string>
     <string name="advanced_section_header">Umum</string>
     <string name="advanced_security_title">Lanjutan</string>
@@ -936,6 +955,7 @@ Setelah peranti anda ditetapkan semula, jalankan proses persediaan dan pilih unt
     <string name="battery_level_title">Aras bateri</string>
     <string name="battery_manager_off">Mati</string>
     <string name="battery_manager_summary">Lanjutkan hayat bateri dan optimumkan pengecasan</string>
+    <string name="battery_manager_summary_unsupported">Panjangkan hayat bateri</string>
     <string name="battery_missing_link_a11y_message">Ketik untuk mengetahui lebih lanjut tentang ralat ini</string>
     <string name="battery_missing_link_message">Ketahui lebih lanjut</string>
     <string name="battery_missing_message">Masalah membaca meter bateri.</string>
@@ -1010,12 +1030,12 @@ Anda boleh menghidupkan Penjimat Bateri pada sepanjang masa jika anda hampir keh
     <string name="battery_tip_early_heads_up_title">Hidupkan Penjimat Bateri</string>
     <string name="battery_tip_high_usage_summary">Lihat apl dengan penggunaan tertinggi</string>
     <string name="battery_tip_high_usage_title">Penggunaan bateri tertinggi</string>
-    <string name="battery_tip_limited_temporarily_dialog_msg">"Dalam keadaan tertentu, seperti suhu tinggi dan tempoh pengecasan yang panjang, pengecasan mungkin dihadkan kepada %1$s untuk membantu mengekalkan kesihatan bateri.
+    <string name="battery_tip_limited_temporarily_dialog_msg">"Dalam keadaan tertentu, seperti suhu tinggi dan tempoh pengecasan yang panjang, pengecasan mungkin dihadkan kepada %1$s untuk membantu anda mengekalkan kesihatan bateri.
 
 Apabila keadaan tersebut berakhir, telefon anda akan dicas secara automatik seperti biasa."</string>
     <string name="battery_tip_limited_temporarily_dialog_resume_charge">Sambung semula pengecasan</string>
     <string name="battery_tip_limited_temporarily_summary">Untuk menjimatkan bateri anda. Ketahui lebih lanjut.</string>
-    <string name="battery_tip_limited_temporarily_title">Pengecasan terhad buat sementara waktu</string>
+    <string name="battery_tip_limited_temporarily_title">Pengecasan terhad sementara</string>
     <string name="battery_tip_low_battery_summary">Hidupkan Penjimat Bateri bagi melanjutkan hayat bateri</string>
     <string name="battery_tip_low_battery_title">Aras bateri rendah</string>
     <string name="battery_tip_restrict_app_dialog_message">Untuk menjimatkan bateri, hentikan %1$s daripada menggunakan bateri di latar belakang. Apl ini mungkin tidak berfungsi dengan betul dan pemberitahuan mungkin ditangguhkan.</string>
@@ -1061,6 +1081,7 @@ untuk ^2"</string>
     <string name="battery_usage_screen_footer">Data penggunaan bateri ialah anggaran dan tidak mengukur penggunaan semasa telefon dicas</string>
     <string name="battery_usage_screen_footer_empty">Data penggunaan bateri akan tersedia selepas anda menggunakan telefon anda selama beberapa jam.</string>
     <string name="battery_usage_total_less_than_one_minute">Jumlah: kurang dari seminit</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s digunakan oleh %2$s</string>
     <string name="battery_used_for">Digunakan selama ^1</string>
     <string name="bearer">Pembawa</string>
@@ -1069,12 +1090,14 @@ untuk ^2"</string>
     <string name="billing_cycle_less_than_one_day_left">Tinggal kurang daripada 1 hari</string>
     <string name="billing_cycle_none_left">Tiada baki masa</string>
     <string name="biometric_settings_category_ways_to_unlock">Cara untuk buka kunci</string>
-    <string name="biometric_settings_category_ways_to_use">Gunakan wajah dan cap jari untuk</string>
     <string name="biometric_settings_hand_back_to_guardian">Kembalikan telefon kepada ibu bapa anda</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">OK</string>
     <string name="biometric_settings_intro">Semasa anda menyediakan Buka Kunci Wajah dan Buka Kunci Cap Jari, telefon anda akan meminta cap jari anda apabila anda memakai pelitup muka atau berada dalam kawasan gelap</string>
-    <string name="biometric_settings_use_biometric_for_apps">Pengesahan dalam apl</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">Buka kunci telefon</string>
+    <string name="biometric_settings_use_biometric_for_apps">Sahkan identiti anda dalam apl</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">Buka kunci telefon anda</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Menggunakan wajah atau cap jari</string>
+    <string name="biometric_settings_use_face_preference_summary">Menggunakan wajah</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Menggunakan cap jari</string>
     <string name="biometrics_unlock_set_unlock_password">Kata Laluan • Wajah • Cap Jari</string>
     <string name="biometrics_unlock_set_unlock_pattern">Corak • Wajah • Cap Jari</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN • Wajah • Cap Jari</string>
@@ -1332,7 +1355,6 @@ Pilihan"</string>
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Tunjukkan peranti Bluetooth tanpa nama</string>
     <string name="bluetooth_show_devices_without_names_summary">Peranti Bluetooth tanpa nama (alamat MAC sahaja) akan dipaparkan</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Fail diterima melalui Bluetooth</string>
     <string name="bluetooth_show_received_files">Fail yang diterima</string>
     <string name="bluetooth_sim_card_access_dialog_content">"Peranti Bluetooth, %1$s ingin mengakses data pada kad SIM anda. Ini termasuk kenalan anda.
 
@@ -1394,7 +1416,7 @@ Hal ini melibatkan apl lain atau perbualan yang dibenarkan untuk menjadi gelembu
     <string name="button_confirm_convert_fbe">Padamkan dan tukar</string>
     <string name="button_convert_fbe">Hapuskan dan tukar...</string>
     <string name="ca_certificate">Sijil CA</string>
-    <string name="ca_certificate_warning_description">"Sijil CA digunakan oleh tapak web, apl dan VPN untuk penyulitan. Hanya pasang sijil CA daripada organisasi yang anda percayai. 
+    <string name="ca_certificate_warning_description">"Sijil CA digunakan oleh laman web, apl dan VPN untuk penyulitan. Hanya pasang sijil CA daripada organisasi yang anda percayai. 
 
 Jika anda memasang sijil CA, pemilik sijil dapat mengakses data anda, seperti kata laluan atau butiran kad kredit, dari laman web yang anda lawati atau apl yang anda gunakan – meskipun data anda disulitkan."</string>
     <string name="ca_certificate_warning_title">Data anda tidak akan kekal rahsia</string>
@@ -1426,6 +1448,7 @@ Jika anda memasang sijil CA, pemilik sijil dapat mengakses data anda, seperti ka
     <string name="calls_sms_temp_unavailable">Tidak tersedia buat sementara waktu</string>
     <string name="calls_sms_unavailable">tidak tersedia</string>
     <string name="calls_sms_wfc_summary">Buat dan terima panggilan melalui Wi‑Fi</string>
+    <string name="cam_toggle_description">Untuk apl dan perkhidmatan</string>
     <string name="camera_double_tap_power_gesture_desc">Buka kamera dengan cepat tanpa membuka kunci skrin</string>
     <string name="camera_double_tap_power_gesture_title">Tekan butang kuasa dua kali untuk kamera</string>
     <string name="camera_laser_sensor_switch">Penderia Laser Kamera</string>
@@ -3302,6 +3325,7 @@ Terdapat pengguna lain pada peranti ini.
     <string name="menu_stats_total">Jumlah penggunaan</string>
     <string name="menu_stats_unplugged">%1$s sejak palam dicabut</string>
     <string name="menu_use_uss">Gunakan Uss</string>
+    <string name="mic_toggle_description">Untuk apl dan perkhidmatan. Jika tetapan ini dimatikan, data mikrofon mungkin masih dikongsi apabila anda memanggil nombor kecemasan.</string>
     <string name="mic_toggle_title">Akses mikrofon</string>
     <string name="misc_files">Fail Pelbagai</string>
     <string name="misc_files_selected_count">pilihan %1$d dari %2$d</string>
@@ -3354,7 +3378,7 @@ Bertukar kepada %1$s tidak akan membatalkan perkhidmatan %2$s anda."</string>
     <string name="mobile_network_tap_to_activate">Ketik untuk mengaktifkan %1$s</string>
     <string name="mobile_network_use_sim_off">Mati</string>
     <string name="mobile_network_use_sim_on">Gunakan SIM</string>
-    <string name="mobile_no_provisioning_url">%1$s tiada tapak web peruntukan yang dikenali</string>
+    <string name="mobile_no_provisioning_url">%1$s tiada laman web peruntukan yang dikenali</string>
     <string name="mobile_unknown_sim_operator">Pengendali SIM yang tidak diketahui</string>
     <string name="mock_location_app">Pilih apl lokasi olokan</string>
     <string name="mock_location_app_not_set">Tiada apl lokasi olokan ditetapkan</string>
@@ -3728,6 +3752,7 @@ Hal ini turut mengupayakan apl untuk menghidupkan atau mematikan ciri Jangan Gan
     <string name="one_handed_action_show_notification_title">Tunjukkan pemberitahuan</string>
     <string name="one_handed_mode_enabled">Gunakan mod sebelah tangan</string>
     <string name="one_handed_mode_intro_text">Untuk menggunakan mod sebelah tangan, leret ke bawah dari tepi bahagian bawah skrin. Untuk menggunakan ciri ini, pastikan navigasi gerak isyarat dihidupkan dalam tetapan navigasi sistem.</string>
+    <string name="one_handed_mode_shortcut_title">Pintasan mod sebelah tangan</string>
     <string name="one_handed_mode_swipe_down_category">Leret ke bawah hingga</string>
     <string name="one_handed_mode_use_shortcut_category">Gunakan pintasan untuk</string>
     <string name="one_usercrt">sijil satu pengguna</string>
@@ -3803,11 +3828,11 @@ Hal ini turut mengupayakan apl untuk menghidupkan atau mematikan ciri Jangan Gan
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s aktif</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Kamera</string>
-    <string name="power_cell">Kuasa tunggu sedia rangkaian mudah alih</string>
+    <string name="power_cell">Rangkaian mudah alih</string>
     <string name="power_charge_remaining">%1$s untuk mengecas</string>
     <string name="power_charging">%1$s - %2$s</string>
     <string name="power_charging_duration">%1$s - %2$s lagi hingga penuh</string>
-    <string name="power_charging_limited">%1$s - Pengecasan terhad buat sementara waktu</string>
+    <string name="power_charging_limited">%1$s - Pengecasan terhad sementara</string>
     <string name="power_discharge_by">Seharusnya boleh digunakan hingga kira-kira %1$s (%2$s)</string>
     <string name="power_discharge_by_enhanced">Seharusnya boleh digunakan hingga kira-kira %1$s berdasarkan penggunaan anda (%2$s)</string>
     <string name="power_discharge_by_only">Seharusnya boleh digunakan hingga kira-kira %1$s</string>
@@ -4037,6 +4062,7 @@ Tekan Kuasa dan Naikkan kelantangan pada masa yang sama."</string>
     <string name="recent_notifications">Terbaharu dihantar</string>
     <string name="recent_notifications_see_all_title">Lihat semua daripada 7 hari yang lalu</string>
     <string name="recompute_size">Mengira semula saiz...</string>
+    <string name="reduce_bright_colors_about_title">Perihal amat malap</string>
     <string name="reduce_bright_colors_intensity_end_label">Lebih cerah</string>
     <string name="reduce_bright_colors_intensity_preference_title">Keamatan</string>
     <string name="reduce_bright_colors_intensity_start_label">Lebih malap</string>
@@ -4044,6 +4070,7 @@ Tekan Kuasa dan Naikkan kelantangan pada masa yang sama."</string>
     <string name="reduce_bright_colors_preference_subtitle">Buat skrin anda lebih malap supaya lebih selesa untuk dibaca.&lt;br/>&lt;br/> Tindakan ini dapat membantu ketika: &lt;ol> &lt;li> Kecerahan minimum lalai telefon anda masih terlalu terang&lt;/li> &lt;li> Anda menggunakan telefon anda dalam keadaan gelap, seperti pada waktu malam atau di bilik gelap sebelum tidur&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">Malapkan skrin melebihi kecerahan minimum telefon anda</string>
     <string name="reduce_bright_colors_preference_title">Amat malap</string>
+    <string name="reduce_bright_colors_shortcut_title">Pintasan amat malap</string>
     <string name="reduce_bright_colors_switch_title">Jadikan skrin amat malap</string>
     <string name="register_automatically">Pendaftaran automatik…</string>
     <string name="register_on_network">Mendaftar di %s…</string>
@@ -4249,7 +4276,6 @@ Untuk menggunakan penyematan apl: \u0009
     <string name="screen_pinning_unlock_pattern">Minta corak buka kunci sebelum menyahsemat</string>
     <string name="screen_pinning_unlock_pin">Minta PIN sebelum nyahsemat</string>
     <string name="screen_reader_category_title">Pembaca skrin</string>
-    <string name="screen_saver_main_switch_title">Gunakan penyelamat skrin</string>
     <string name="screen_time_summary_usage_today">%1$s hari ini</string>
     <string name="screen_timeout_summary">Selepas %1$s tanpa aktiviti</string>
     <string name="screen_timeout_title">Skrin dimatikan</string>
@@ -4279,6 +4305,7 @@ Untuk menggunakan penyematan apl: \u0009
     <string name="screensaver_settings_button">Tetapan</string>
     <string name="screensaver_settings_current">Penyelamat skrin semasa</string>
     <string name="screensaver_settings_disabled_prompt">Untuk mengawal perkara yang berlaku semasa telefon didok dan/atau tidur, hidupkan penyelamat skrin.</string>
+    <string name="screensaver_settings_dream_start">Mulakan sekarang</string>
     <string name="screensaver_settings_summary_dock">Semasa didok</string>
     <string name="screensaver_settings_summary_either_long">Semasa dicas atau didok</string>
     <string name="screensaver_settings_summary_either_short">Salah satu</string>
@@ -4329,15 +4356,6 @@ Untuk menggunakan penyematan apl: \u0009
     <string name="security_settings_biometric_preference_summary_both_fp_single">Wajah dan cap jari ditambahkan</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Ketik untuk menyediakan</string>
     <string name="security_settings_biometric_preference_title">Buka Kunci Wajah &amp; Cap Jari</string>
-    <string name="security_settings_biometrics_description">Semasa anda menyediakan buka kunci wajah dan cap jari, telefon anda akan meminta cap jari anda apabila anda memakai pelitup muka atau berada dalam kawasan gelap</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Pengesahan dalam apl</string>
-    <string name="security_settings_biometrics_preferences_category">Gunakan wajah atau cap jari untuk</string>
-    <string name="security_settings_biometrics_summary_both">Wajah dan cap jari</string>
-    <string name="security_settings_biometrics_summary_face">Wajah sahaja</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Cap jari sahaja</string>
-    <string name="security_settings_biometrics_summary_none">Ketik untuk menyediakan</string>
-    <string name="security_settings_biometrics_title">Buka kunci wajah &amp; cap jari</string>
-    <string name="security_settings_biometrics_types_category">Cara untuk buka kunci</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Benarkan Buka Kunci Wajah</string>
     <string name="security_settings_face_enroll_dialog_ok">OK</string>
     <string name="security_settings_face_enroll_done">Selesai</string>
@@ -4383,18 +4401,19 @@ Ketahui lebih lanjut melalui g.co/pixel/faceunlock."</string>
 
 Ketahui lebih lanjut melalui g.co/pixel/faceunlock."</string>
     <string name="security_settings_face_enroll_introduction_control_title">Kawalan di tangan anda</string>
-    <string name="security_settings_face_enroll_introduction_how_consent_message">"Buka Kunci Wajah menghasilkan model unik wajah anak anda untuk mengesahkan sama ada itulah mereka atau tidak. Untuk menghasilkan model wajah semasa persediaan, anak anda akan mengambil imej wajah mereka daripada sudut yang berbeza.
+    <string name="security_settings_face_enroll_introduction_how_consent_message">"Buka Kunci Wajah menghasilkan model unik wajah anak anda untuk mengesahkan identiti anak anda. Untuk menghasilkan model wajah semasa persediaan, anak anda akan mengambil imej wajah mereka daripada sudut yang berbeza.
 
-Apabila mereka menggunakan Buka Kunci Wajah, imej digunakan untuk mengemas kini model wajah mereka. Imej yang digunakan untuk menghasilkan model wajah mereka tidak akan disimpan, tetapi model wajah disimpan dengan selamat pada telefon mereka dan tidak akan keluar daripada telefon itu. Semua pemprosesan berlaku dengan selamat pada telefon."</string>
-    <string name="security_settings_face_enroll_introduction_how_message">"Buka Kunci Wajah menghasilkan model unik wajah anda untuk mengesahkan sama ada itulah anda atau tidak. Untuk menghasilkan model wajah ini semasa persediaan, anda akan mengambil imej wajah anda dari sudut yang berbeza.
+Apabila mereka menggunakan Buka Kunci Wajah, imej digunakan untuk mengemas kini model wajah mereka. Imej yang digunakan untuk menghasilkan model wajah anak anda tidak disimpan, tetapi model wajah disimpan dengan selamat pada telefon dan tidak akan keluar daripada telefon itu. Semua pemprosesan berlaku dengan selamat pada telefon."</string>
+    <string name="security_settings_face_enroll_introduction_how_message">"Buka Kunci Wajah menghasilkan model unik wajah anda untuk mengesahkan identiti anda. Untuk menghasilkan model wajah ini semasa persediaan, anda akan mengambil imej wajah anda dari sudut yang berbeza.
 
-Apabila anda menggunakan Buka Kunci Wajah, imej digunakan untuk mengemas kini model wajah anda. Imej yang digunakan untuk menghasilkan model wajah anda tidak akan disimpan, tetapi model wajah disimpan dengan selamat pada telefon anda dan tidak akan keluar daripada telefon itu. Semua pemprosesan berlaku dengan selamat pada telefon anda."</string>
+Apabila anda menggunakan Buka Kunci Wajah, imej akan digunakan untuk mengemas kini model wajah anda. Imej yang digunakan untuk menghasilkan model wajah anda tidak disimpan, tetapi model wajah disimpan dengan selamat pada telefon anda dan tidak akan keluar daripada telefon itu. Semua pemprosesan berlaku dengan selamat pada telefon anda."</string>
     <string name="security_settings_face_enroll_introduction_how_title">Caranya</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">Buka Kunci Wajah memerlukan mata anak anda dibuka untuk membuka kunci telefon atau mengesahkan diri mereka. Anda dan anak anda boleh menghidupkan pilihan ini pada bila-bila masa dalam Tetapan.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Jika anak anda biasanya memakai cermin mata, mereka boleh memakai cermin mata semasa persediaan.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Tindakan melihat telefon boleh membuka kunci telefon itu meskipun mereka tidak bermaksud untuk berbuat demikian. Telefon mereka juga boleh dibuka kunci oleh seseorang yang amat mirip dengan mereka, seperti kembar seiras atau jika seseorang menghalakan telefon rapat ke wajah mereka.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Buka Kunci Wajah memerlukan mata anda dibuka untuk membuka kunci telefon atau mengesahkan diri anda. Anda boleh menghidupkan pilihan ini pada bila-bila masa dalam Tetapan.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Cermin mata atau cermin mata hitam yang cair warna hitamnya boleh digunakan.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Penggunaan wajah untuk membuka kunci telefon mungkin menjadi kurang selamat daripada corak atau PIN yang kuat.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Tindakan melihat telefon boleh membuka kunci telefon itu meskipun anda tidak bermaksud untuk berbuat demikian. Telefon anda juga boleh dibuka kunci oleh seseorang yang amat mirip dengan anda, seperti kembar seiras atau jika seseorang memegang rapat telefon ke wajah anda.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Jangan lupa</string>
     <string name="security_settings_face_enroll_introduction_message">Gunakan wajah anda untuk membuka kunci telefon anda atau mengesahkan sama ada itulah anda atau tidak, seperti masa anda log masuk aplikasi atau meluluskan pembelian.</string>
@@ -4452,13 +4471,14 @@ Telefon anda boleh dibuka kunci oleh orang lain jika telefon itu dihalakan rapat
 
 Telefon anda boleh dibuka kunci oleh seseorang yang mirip anda, seperti adik-beradik yang berwajah seiras anda."</string>
     <string name="security_settings_face_settings_preferences_category">Semasa menggunakan Buka Kunci Wajah</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Model wajah anda akan dipadamkan secara kekal dan selamat. Selepas pemadaman, anda akan memerlukan PIN, corak atau kata laluan untuk membuka kunci telefon anda atau untuk pengesahan dalam apl.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Model wajah anda akan dipadamkan secara kekal dan selamat.
+
+Selepas pemadaman, anda akan memerlukan PIN, corak atau kata laluan untuk membuka kunci telefon anda atau untuk pengesahan dalam apl."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Model wajah anda akan dipadamkan secara kekal dan selamat.
+
+Selepas pemadaman, anda akan memerlukan PIN, corak atau kata laluan untuk membuka kunci telefon anda."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Padamkan model wajah?</string>
     <string name="security_settings_face_settings_remove_face_model">Padamkan model wajah</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Model wajah anda akan dipadamkan secara kekal dan selamat.
-
-Selepas pemadaman, anda akan memerlukan cap jari, PIN, corak atau kata laluan untuk membuka kunci telefon anda atau untuk pengesahan dalam apl."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Padamkan model wajah?</string>
     <string name="security_settings_face_settings_require_attention">Mata perlu dibuka</string>
     <string name="security_settings_face_settings_require_attention_details">Untuk membuka kunci telefon, mata anda mesti dibuka</string>
     <string name="security_settings_face_settings_require_confirmation">Sentiasa memerlukan pengesahan</string>
@@ -4541,7 +4561,7 @@ Perhatian: Anda tidak boleh menggunakan cap jari untuk membuka kunci peranti ini
     <string name="security_settings_title">Keselamatan</string>
     <string name="security_settings_udfps_enroll_a11y">Gerakkan jari anda merentasi skrin untuk mencari penderia. Sentuh &amp; tahan penderia cap jari.</string>
     <string name="security_settings_udfps_enroll_edge_message">Letakkan bahagian tepi cap jari anda pada penderia dan tahan, kemudian alih ke bahagian yang lain</string>
-    <string name="security_settings_udfps_enroll_edge_title">Akhir sekali, letakkan bahagian tepi jari anda</string>
+    <string name="security_settings_udfps_enroll_edge_title">Akhir sekali, gunakan bahagian tepi jari anda</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Penderia cap jari terdapat pada skrin anda. Anda akan menangkap cap jari anda pada skrin seterusnya.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Mula</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Cara menyediakan cap jari anda</string>
@@ -4550,7 +4570,7 @@ Perhatian: Anda tidak boleh menggunakan cap jari untuk membuka kunci peranti ini
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Hal ini membantu menangkap lebih banyak permukaan cap jari anda</string>
     <string name="security_settings_udfps_enroll_repeat_message">Sentuh &amp; tahan setiap kali ikon cap jari bergerak. Hal ini membantu menangkap lebih banyak permukaan cap jari anda.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Ikut ikon cap jari</string>
-    <string name="security_settings_udfps_enroll_start_message">Terus letakkan jari anda pada penderia sehingga anda merasa getaran</string>
+    <string name="security_settings_udfps_enroll_start_message">Terus letakkan cap jari anda dengan rata pada penderia sehingga anda merasakan getaran</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Sekali lagi</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint untuk kerja</string>
     <string name="security_status_title">Status keselamatan</string>
@@ -4576,7 +4596,6 @@ Perhatian: Anda tidak boleh menggunakan cap jari untuk membuka kunci peranti ini
     <string name="select_webview_provider_dialog_title">Tetapkan pelaksanaan WebView</string>
     <string name="select_webview_provider_title">Pelaksanaan WebView</string>
     <string name="select_webview_provider_toast_text">Pilihan ini tidak lagi sah. Cuba lagi.</string>
-    <string name="sensor_toggle_description">Untuk semua apl dan perkhidmatan</string>
     <string name="sensors_off_quick_settings_title">Penderia Dimatikan</string>
     <string name="service_background_processes">%1$s bebas</string>
     <string name="service_foreground_processes">%1$s diguna</string>
@@ -4808,6 +4827,7 @@ Mungkin PIN salah."</string>
     <string name="sound_settings_summary_silent">Pendering ditetapkan kepada senyap</string>
     <string name="sound_settings_summary_vibrate">Pendering ditetapkan kepada getar</string>
     <string name="sound_work_settings">Bunyi profil kerja</string>
+    <string name="spatial_audio_title">Audio ruang</string>
     <string name="special_access">Akses apl khas</string>
     <string name="special_access_more">Lihat lagi</string>
     <string name="speed_label_fast">Laju</string>
@@ -4824,7 +4844,7 @@ Mungkin PIN salah."</string>
     <string name="spellcheckers_settings_for_work_title">Penyemak ejaan untuk tempat kerja</string>
     <string name="spellcheckers_settings_title">Penyemak ejaan</string>
     <string name="ssl_ca_cert_warning">Rangkaian mungkin dipantau</string>
-    <string name="ssl_ca_cert_warning_message">"Pihak ketiga berkeupayaan untuk memantau aktiviti rangkaian anda, termasuk e-mel, apl dan tapak web selamat.
+    <string name="ssl_ca_cert_warning_message">"Pihak ketiga berkeupayaan untuk memantau aktiviti rangkaian anda, termasuk e-mel, apl dan laman web selamat.
 
 Bukti kelayakan dipercayai yang dipasang pada peranti anda yang membolehkan perkara ini."</string>
     <string name="standby_bucket_summary">Keadaan tunggu sedia apl: %s</string>
@@ -5619,7 +5639,7 @@ Semasa panggilan suara, anda tidak boleh menggunakan Internet dan sesetengah apl
     <string name="vpn_turn_on">Hidupkan</string>
     <string name="vpn_type">Jenis</string>
     <string name="vpn_username">Nama pengguna</string>
-    <string name="vpn_version">Versi %s</string>
+    <string name="vpn_version">Versi</string>
     <string name="vr_listener_security_warning_summary">%1$s akan dapat berjalan apabila anda menggunakan aplikasi dalam mod realiti maya.</string>
     <string name="vr_listener_security_warning_title">Benarkan akses perkhidmatan VR untuk %1$s?</string>
     <string name="vr_listeners_title">Perkhidmatan pembantu VR</string>
@@ -5889,7 +5909,7 @@ Penetapan rangkaian sebagai disembunyikan tidak menukar tetapan penghala anda."<
     <string name="wifi_not_in_range">Tidak dalam liputan</string>
     <string name="wifi_not_in_range_message">Rangkaian di luar liputan</string>
     <string name="wifi_notify_open_networks">Beritahu untuk rangkaian awam</string>
-    <string name="wifi_notify_open_networks_summary">Apabila sambungan automatik tidak tersedia</string>
+    <string name="wifi_notify_open_networks_summary">Beritahu apabila rangkaian awam berkualiti tinggi tersedia</string>
     <string name="wifi_on_time">Masa hidup Wi-Fi</string>
     <string name="wifi_p2p_cancel_connect_message">Adakah anda mahu membatalkan jemputan untuk berhubung dengan %1$s?</string>
     <string name="wifi_p2p_cancel_connect_title">Batalkan jemputan?</string>
@@ -5977,7 +5997,6 @@ Benarkan fungsi ini untuk semua apl yang ingin mengimbas?"</string>
     <string name="wifi_suspend_optimizations">Pengoptimuman Wi‑Fi</string>
     <string name="wifi_suspend_optimizations_summary">Minimumkan penggunaan bateri apabila Wi-Fi dihidupkan</string>
     <string name="wifi_switch_away_when_unvalidated">Beralih kepada data mudah alih jika Wi-Fi kehilangan akses Internet.</string>
-    <string name="wifi_switch_summary">Cari dan sambung kepada rangkaian Wi-Fi</string>
     <string name="wifi_tap_to_sign_in">Ketik di sini untuk log masuk ke rangkaian</string>
     <string name="wifi_tether_configure_ap_text">Sediakan liputan Wi-Fi</string>
     <string name="wifi_tether_configure_ssid_default">TitikPanasAndroid</string>

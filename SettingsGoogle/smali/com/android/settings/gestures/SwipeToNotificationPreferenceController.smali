@@ -45,7 +45,7 @@
 
     move-result-object p0
 
-    const v0, 0x1110147
+    const v0, 0x111014c
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -97,7 +97,7 @@
 
     move-result-object p0
 
-    const-string v0, "system_navigation_keys_enabled"
+    const-string/jumbo v0, "system_navigation_keys_enabled"
 
     const/4 v1, 0x0
 
@@ -122,7 +122,7 @@
 
     move-result-object p0
 
-    const-string v0, "system_navigation_keys_enabled"
+    const-string/jumbo v0, "system_navigation_keys_enabled"
 
     invoke-static {p0, v0, p1}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 

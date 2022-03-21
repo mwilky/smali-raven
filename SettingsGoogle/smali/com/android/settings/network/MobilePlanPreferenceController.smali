@@ -59,7 +59,7 @@
 
     iput-object p2, p0, Lcom/android/settings/network/MobilePlanPreferenceController;->mTm:Landroid/telephony/TelephonyManager;
 
-    const-string p2, "user"
+    const-string/jumbo p2, "user"
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -228,7 +228,7 @@
 
     move-result v2
 
-    const v6, 0x7f040d28
+    const v6, 0x7f040d53
 
     if-eqz v2, :cond_4
 
@@ -244,7 +244,7 @@
 
     if-eqz v2, :cond_3
 
-    const v1, 0x7f040d29
+    const v1, 0x7f040d54
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -289,7 +289,7 @@
 
     if-nez v1, :cond_6
 
-    const v1, 0x7f040d0f
+    const v1, 0x7f040d3a
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -300,7 +300,7 @@
     goto :goto_0
 
     :cond_6
-    const v1, 0x7f040cfe
+    const v1, 0x7f040d29
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -415,7 +415,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f09003b
+    const v1, 0x7f09003c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 

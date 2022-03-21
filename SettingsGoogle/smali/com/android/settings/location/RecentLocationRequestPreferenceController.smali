@@ -233,7 +233,7 @@
 
     invoke-direct {v0, p1}, Lcom/android/settingslib/widget/AppPreference;-><init>(Landroid/content/Context;)V
 
-    const p1, 0x7f040b76
+    const p1, 0x7f040b8e
 
     invoke-virtual {v0, p1}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -274,6 +274,16 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public bridge synthetic hasAsyncUpdate()Z

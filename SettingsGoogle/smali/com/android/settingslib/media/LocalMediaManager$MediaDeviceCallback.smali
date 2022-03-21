@@ -363,6 +363,12 @@
     monitor-enter v0
 
     :try_start_0
+    invoke-static {}, Lcom/android/settingslib/media/LocalMediaManager;->access$100()Ljava/util/Comparator;
+
+    move-result-object v1
+
+    invoke-static {p1, v1}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
+
     iget-object v1, p0, Lcom/android/settingslib/media/LocalMediaManager$MediaDeviceCallback;->this$0:Lcom/android/settingslib/media/LocalMediaManager;
 
     iget-object v1, v1, Lcom/android/settingslib/media/LocalMediaManager;->mMediaDevices:Ljava/util/List;
@@ -374,12 +380,6 @@
     iget-object v1, v1, Lcom/android/settingslib/media/LocalMediaManager;->mMediaDevices:Ljava/util/List;
 
     invoke-interface {v1, p1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
-
-    invoke-static {}, Lcom/android/settingslib/media/LocalMediaManager;->access$100()Ljava/util/Comparator;
-
-    move-result-object v1
-
-    invoke-static {p1, v1}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 

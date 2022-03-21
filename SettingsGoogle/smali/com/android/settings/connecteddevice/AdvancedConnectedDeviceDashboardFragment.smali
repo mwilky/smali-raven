@@ -56,12 +56,6 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    new-instance v1, Lcom/android/settings/bluetooth/BluetoothFilesPreferenceController;
-
-    invoke-direct {v1, p0}, Lcom/android/settings/bluetooth/BluetoothFilesPreferenceController;-><init>(Landroid/content/Context;)V
-
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
     new-instance v1, Lcom/android/settings/print/PrintSettingPreferenceController;
 
     invoke-direct {v1, p0}, Lcom/android/settings/print/PrintSettingPreferenceController;-><init>(Landroid/content/Context;)V
@@ -105,7 +99,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a10
+    const p0, 0x7f040a28
 
     return p0
 .end method
@@ -129,7 +123,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15004b
+    const p0, 0x7f15004c
 
     return p0
 .end method

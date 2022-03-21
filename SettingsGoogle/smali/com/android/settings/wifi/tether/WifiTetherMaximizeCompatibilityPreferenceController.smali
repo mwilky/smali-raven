@@ -65,7 +65,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "wifi_tether_maximize_compatibility"
+    const-string/jumbo p0, "wifi_tether_maximize_compatibility"
 
     return-object p0
 .end method
@@ -304,12 +304,12 @@
 
     if-eqz p0, :cond_1
 
-    const p0, 0x7f041660
+    const p0, 0x7f041685
 
     goto :goto_0
 
     :cond_1
-    const p0, 0x7f041661
+    const p0, 0x7f041686
 
     :goto_0
     invoke-virtual {v0, p0}, Landroidx/preference/Preference;->setSummary(I)V

@@ -70,7 +70,7 @@
 
     iput-object p1, p0, Lcom/android/settings/notification/app/NotificationSoundPreference;->mRingtone:Landroid/net/Uri;
 
-    const-string p1, "\u00a0"
+    const-string/jumbo p1, "\u00a0"
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 

@@ -400,7 +400,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0407c2
+    const v0, 0x7f0407da
 
     invoke-virtual {p1, v0}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -790,7 +790,7 @@
 
     const-string p0, "BluetoothDeviceUpdater"
 
-    const-string v0, "unregisterCallback() Bluetooth is not supported on this device"
+    const-string/jumbo v0, "unregisterCallback() Bluetooth is not supported on this device"
 
     invoke-static {p0, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 

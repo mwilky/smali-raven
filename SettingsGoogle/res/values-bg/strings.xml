@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Плавно показване</string>
     <string name="peak_refresh_rate_summary">Автоматично увеличава честотата на опресняване от 60 на 90 Hz за част от съдържанието. По-интензивно използване на батерията.</string>
     <string name="accessibility_vibration_settings_title">Вибриране и осезателна обр. връзка</string>
+    <string name="columbus_title">Бързо докосване за стартиране на действия</string>
     <string name="emergency_gesture_screen_title">Спешно повикване SOS</string>
     <string name="abc_action_mode_done">Готово</string>
     <string name="vibrate_for_calls_category_title">Обаждания</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Показване на контролите за устройството</string>
     <string name="lockscreen_privacy_wallet_summary">Разрешаване на достъп до портфейла от заключения екран и от бързите настройки</string>
     <string name="lockscreen_privacy_controls_summary">Достъп до контролите при заключен екран</string>
+    <string name="lockscreen_double_line_clock_summary">Показване на часовника с двойна линия, когато е налице</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Часовник с двойна линия</string>
     <string name="abc_activity_chooser_view_see_all">Преглед на всички</string>
     <string name="abc_activitychooserview_choose_application">Изберете приложение</string>
     <string name="abc_capital_off">ИЗКЛ.</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Будилници – вибриране</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Настройване на Active Edge. Преминете към следващия екран или продължете да коригирате.</string>
     <string name="accessibility_audio_adjustment_title">Коригиране на звука</string>
+    <string name="accessibility_autoclick_about_title">Авт. кликване (време на задържане)</string>
     <string name="accessibility_autoclick_custom_title">Персонализирано</string>
     <string name="accessibility_autoclick_default_title">Изкл.</string>
     <string name="accessibility_autoclick_description">Автоматичното кликване работи със свързана мишка. Можете да зададете курсорът да кликва автоматично, когато спре да се движи за определен период от време.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Научете повече за автоматичното кликване (време на задържане на курсора на мишката)</string>
     <string name="accessibility_autoclick_long_summary">1 секунда</string>
     <string name="accessibility_autoclick_long_title">Продължително</string>
     <string name="accessibility_autoclick_longer_desc">По-дълго</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Кратко</string>
     <string name="accessibility_autoclick_shorter_desc">По-кратко</string>
     <string name="accessibility_banner_message_dismiss">Отхвърляне</string>
-    <string name="accessibility_button_description">"Осъществявайте бързо достъп до функциите за достъпност от всеки екран. 
+    <string name="accessibility_button_about_title">Всичко за бутона за достъпност</string>
+    <string name="accessibility_button_description">"Осъществявайте бързо достъп до функциите за достъпност от всеки екран.
 
 За да започнете, отворете настройките за достъпност и изберете функция. Докоснете прекия път и изберете бутона за достъпност."</string>
     <string name="accessibility_button_fade_summary">Бутонът избледнява след няколко секунди, за да виждате екрана по-лесно</string>
     <string name="accessibility_button_fade_title">Избледняване при неизползване</string>
+    <string name="accessibility_button_gesture_about_title">Всичко за бутона и жеста за достъпност</string>
     <string name="accessibility_button_gesture_description">"Осъществявайте бързо достъп до функциите за достъпност от всеки екран.
 
-За да започнете, отворете настройките за достъпност и изберете функция. Докоснете прекия път и изберете бутона за достъпност.
-
-Ако вместо това искате да използвате бутона за достъпност в лентата за навигация, преминете към навигиране с 2 или 3 бутона."</string>
+За да започнете, отворете настройките за достъпност и изберете функция. Докоснете прекия път и изберете бутона или жеста за достъпност."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Научете повече за бутона и жеста за достъпност</string>
     <string name="accessibility_button_gesture_title">Бутон и жест за достъпност</string>
     <string name="accessibility_button_high_label">Непрозрачен</string>
     <string name="accessibility_button_intro">Използване на бутона за достъпност. Жестът не е налице посредством навигиране с 3 бутона.</string>
@@ -184,14 +190,23 @@
     <string name="accessibility_caption_preference_summary">Не всички приложения поддържат тези предпочитания за надписи</string>
     <string name="accessibility_caption_primary_switch_summary">Само за поддържаното приложение</string>
     <string name="accessibility_caption_primary_switch_title">Показване на надписите</string>
+    <string name="accessibility_captioning_about_title">Всичко за предпочитанията за надписите</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Научете повече за предпочитанията за надписите</string>
     <string name="accessibility_captioning_title">Предпочитания за надписите</string>
     <string name="accessibility_category_personal">Профили с личен потребителски профил</string>
     <string name="accessibility_category_work">Профили със служебен потребителски профил – %s</string>
+    <string name="accessibility_color_inversion_about_title">Инф. за инвертирането на цветовете</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Научете повече за инвертирането на цветовете</string>
+    <string name="accessibility_control_timeout_about_title">Всичко за времето за изчакване на действие</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Научете повече за времето за изчакване на действие</string>
     <string name="accessibility_control_timeout_preference_summary">"Изберете колко дълго да се показват съобщенията, които изискват да предприемете действие, но са видими само временно.
 
 Не всички приложения поддържат тази настройка."</string>
     <string name="accessibility_control_timeout_preference_title">Време за предприемане на действие</string>
+    <string name="accessibility_daltonizer_about_title">Всичко за корекцията на цветовете</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Научете повече за корекцията на цветовете</string>
     <string name="accessibility_daltonizer_primary_switch_title">Използване на корекция на цветовете</string>
+    <string name="accessibility_daltonizer_shortcut_title">Пряк път за корекция на цветовете</string>
     <string name="accessibility_data_one_bar">Данните са с една чертичка.</string>
     <string name="accessibility_data_signal_full">Сигналът за данни е пълен.</string>
     <string name="accessibility_data_three_bars">Данните са с три чертички.</string>
@@ -206,6 +221,7 @@
     <string name="accessibility_display_daltonizer_preference_title">Корекция на цветове</string>
     <string name="accessibility_display_inversion_preference_subtitle">Функцията за инвертиране на цветовете превръща светлите цветове на екрана в тъмни.&lt;br/>&lt;br/> Забележка: &lt;ol> &lt;li> Функцията също така прави тъмните екрани светли.&lt;/li> &lt;li> Цветовете в мултимедийното съдържание и изображенията ще се променят.&lt;/li> &lt;li> Тъмната тема може да се използва за показване на тъмен фон. Тя работи с поддържаните приложения, а функцията за инвертиране на цветовете – с всички.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Инвертиране на цветовете</string>
+    <string name="accessibility_display_inversion_shortcut_title">Пряк път за инвертиране на цветовете</string>
     <string name="accessibility_display_inversion_switch_title">Използване на инвертиране на цветовете</string>
     <string name="accessibility_ethernet_connected">Ethernet.</string>
     <string name="accessibility_ethernet_disconnected">Връзката с Ethernet е прекратена.</string>
@@ -255,6 +271,8 @@
     <string name="accessibility_phone_two_bars">Телефонът е с две чертички.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Край на обажд.: Бутон за вкл./изкл.</string>
     <string name="accessibility_preference_magnification_summary">Увеличаване на мащаба на екрана</string>
+    <string name="accessibility_screen_magnification_about_title">Всичко за увеличението на мащаба</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Научете повече за увеличението на мащаба</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">За жеста за достъпност е зададено „%1$s“. За да използвате функцията за увеличение, прекарайте два пръста нагоре от долната част на екрана и задръжте. След това изберете опцията.</string>
     <string name="accessibility_screen_magnification_gestures_title">Увеличаване с трикратно докосване</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">Бутонът за достъпност е настроен за %1$s. За да използвате функцията за увеличение, докоснете и задръжте бутона за достъпност, след което я изберете.</string>
@@ -272,6 +290,7 @@
 Не можете да увеличавате мащаба на клавиатурата или лентата за навигация."</string>
     <string name="accessibility_screen_magnification_navbar_title">Увеличаване на мащаба с пряк път</string>
     <string name="accessibility_screen_magnification_short_summary">Трикратно докосване за промяна на мащаба</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Пряк път за увеличение</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Увелич. на мащаба с пряк път и трикратно докосване</string>
     <string name="accessibility_screen_magnification_summary">Бързо увеличавайте мащаба на екрана, така че да уголемите съдържанието.&lt;br/>&lt;br/> &lt;b>За целта&lt;/b>:&lt;br/> {0,number,integer}. Използвайте прекия път за стартиране на увеличението.&lt;br/> {1,number,integer}. Докоснете екрана.&lt;br/> {2,number,integer}. Плъзнете с 2 пръста, за да се придвижите по екрана.&lt;br/> {3,number,integer}. Съберете 2 пръста, за да коригирате мащаба.&lt;br/> {4,number,integer}. Използвайте прекия път за спиране на увеличението.&lt;br/>&lt;br/> &lt;b>За временно увеличаване на мащаба&lt;/b>:&lt;br/> {0,number,integer}. Използвайте прекия път за стартиране на увеличението.&lt;br/> {1,number,integer}. Докоснете и задръжте произволно място на екрана.&lt;br/> {2,number,integer}. Плъзнете пръст, за да се придвижите по екрана.&lt;br/> {3,number,integer}. Вдигнете пръста си, за да спрете увеличението.</string>
     <string name="accessibility_screen_magnification_title">Ниво на мащаба</string>
@@ -370,7 +389,7 @@
     <string name="accessibility_tutorial_dialog_message_volume">За да използвате тази функция, натиснете и задръжте двата бутона за силата на звука.</string>
     <string name="accessibility_tutorial_dialog_title_button">Отваряне с бутона за достъпност</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Отваряне с жест</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Използване на новите жестове за достъпност</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Използване на жеста за достъпност</string>
     <string name="accessibility_tutorial_dialog_title_triple">Трикратно докосване на екрана с цел отваряне</string>
     <string name="accessibility_tutorial_dialog_title_volume">За отваряне натиснете бутоните за силата на звука</string>
     <string name="accessibility_tutorial_pager">Страница %1$d от %2$d</string>
@@ -936,6 +955,7 @@
     <string name="battery_level_title">Ниво на батерията</string>
     <string name="battery_manager_off">Изключено</string>
     <string name="battery_manager_summary">Удължаване на живота на батерията и оптимизиране на зареждането</string>
+    <string name="battery_manager_summary_unsupported">Удължаване на живота на батерията</string>
     <string name="battery_missing_link_a11y_message">Докоснете, за да научите повече за тази грешка</string>
     <string name="battery_missing_link_message">Научете повече</string>
     <string name="battery_missing_message">Възникна проблем при четенето на данните за нивото на батерията.</string>
@@ -1061,6 +1081,7 @@
     <string name="battery_usage_screen_footer">Данните за използването на батерията са приблизителни и не се отчитат, докато телефонът се зарежда</string>
     <string name="battery_usage_screen_footer_empty">Данните за използването на батерията ще са налице, след като ползвате телефона си няколко часа</string>
     <string name="battery_usage_total_less_than_one_minute">Общо: По-малко от една минута</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">Използван капацитет от %2$s: %1$s</string>
     <string name="battery_used_for">Използвано за ^1</string>
     <string name="bearer">Носител</string>
@@ -1069,12 +1090,14 @@
     <string name="billing_cycle_less_than_one_day_left">Остава по-малко от 1 ден</string>
     <string name="billing_cycle_none_left">Няма оставащо време</string>
     <string name="biometric_settings_category_ways_to_unlock">Начини за отключване</string>
-    <string name="biometric_settings_category_ways_to_use">Използване на лицето и отпечатъка за</string>
     <string name="biometric_settings_hand_back_to_guardian">Дайте отново телефона на родителя си</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">OK</string>
     <string name="biometric_settings_intro">Когато носите маска или се намирате на тъмно място и сте настроили опциите за отключване с лице и отпечатък, телефонът ви ще поиска да използвате отпечатъка си</string>
-    <string name="biometric_settings_use_biometric_for_apps">Удостоверяване в приложения</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">Отключв. на телефона</string>
+    <string name="biometric_settings_use_biometric_for_apps">Потвърждаване на самоличността ви в приложенията</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">Отключване на телефона ви</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Използване на лице/отпечатък</string>
+    <string name="biometric_settings_use_face_preference_summary">Използване на лице</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Използване на отпечатък</string>
     <string name="biometrics_unlock_set_unlock_password">Парола • Лице • Отпечатък</string>
     <string name="biometrics_unlock_set_unlock_pattern">Фигура • Лице • Отпечатък</string>
     <string name="biometrics_unlock_set_unlock_pin">ПИН • Лице • Отпечатък</string>
@@ -1332,7 +1355,6 @@
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Показване на устройствата с Bluetooth без имена</string>
     <string name="bluetooth_show_devices_without_names_summary">Ще бъдат показани устройствата с Bluetooth без имена (само MAC адресите)</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Получени през Bluetooth файлове</string>
     <string name="bluetooth_show_received_files">Получени файлове</string>
     <string name="bluetooth_sim_card_access_dialog_content">"Устройство с Bluetooth (%1$s) иска да осъществи достъп до данните на SIM картата ви. Това включва контактите ви.
 
@@ -1426,6 +1448,7 @@
     <string name="calls_sms_temp_unavailable">Временно не е налице</string>
     <string name="calls_sms_unavailable">не е налице</string>
     <string name="calls_sms_wfc_summary">Извършване и получаване на обаждания през Wi‑Fi</string>
+    <string name="cam_toggle_description">За приложения и услуги</string>
     <string name="camera_double_tap_power_gesture_desc">Бързо отваряйте камерата, без да отключвате екрана си</string>
     <string name="camera_double_tap_power_gesture_title">За камерата натиснете бутона за захранване 2 пъти</string>
     <string name="camera_laser_sensor_switch">Сензор на лазера на камерата</string>
@@ -1837,7 +1860,7 @@
     <string name="data_overusage">^1 над лимита</string>
     <string name="data_remaining">Остават: ^1</string>
     <string name="data_roaming_enable_mobile">Роуминг</string>
-    <string name="data_saver_off">Изключено</string>
+    <string name="data_saver_off">Изкл.</string>
     <string name="data_saver_on">Включено</string>
     <string name="data_saver_switch_title">Използване на „Икономия на данни“</string>
     <string name="data_saver_title">Икономия на данни</string>
@@ -3302,6 +3325,7 @@
     <string name="menu_stats_total">Обща употреба</string>
     <string name="menu_stats_unplugged">%1$s след изключването</string>
     <string name="menu_use_uss">Използване на USS</string>
+    <string name="mic_toggle_description">За приложения и услуги. Ако тази настройка е изключена, данните от микрофона пак може да бъдат споделени, когато се обадите на номер за спешни случаи.</string>
     <string name="mic_toggle_title">Достъп до микрофона</string>
     <string name="misc_files">Разни файлове</string>
     <string name="misc_files_selected_count">избрани са %1$d от %2$d</string>
@@ -3728,6 +3752,7 @@
     <string name="one_handed_action_show_notification_title">Показване на известията</string>
     <string name="one_handed_mode_enabled">Използване на режима за работа с една ръка</string>
     <string name="one_handed_mode_intro_text">За да използвате режима за работа с една ръка, прекарайте пръст надолу от долния ъгъл на телефона. За да ползвате тази функция, уверете се, че навигирането с жестове е включено от настройките за навигиране в системата.</string>
+    <string name="one_handed_mode_shortcut_title">Пряк път към режима за работа с една ръка</string>
     <string name="one_handed_mode_swipe_down_category">Прекарайте пръст надолу за</string>
     <string name="one_handed_mode_use_shortcut_category">Използване на прекия път за</string>
     <string name="one_usercrt">един потребителски сертификат</string>
@@ -3803,7 +3828,7 @@
     <string name="post_dsds_reboot_notification_title_with_carrier">Услугата %1$s е активна</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Камера</string>
-    <string name="power_cell">Режим на готовност на мобилната мрежа</string>
+    <string name="power_cell">Мобилна мрежа</string>
     <string name="power_charge_remaining">%1$s до зареждане</string>
     <string name="power_charging">%1$s – %2$s</string>
     <string name="power_charging_duration">%1$s – Оставащо време до пълно зареждане: %2$s</string>
@@ -4037,6 +4062,7 @@
     <string name="recent_notifications">Наскоро изпратили известия</string>
     <string name="recent_notifications_see_all_title">Преглед на всички от последните 7 дни</string>
     <string name="recompute_size">Размерът се преизчислява...</string>
+    <string name="reduce_bright_colors_about_title">Инф. за допълнителното затъмняване</string>
     <string name="reduce_bright_colors_intensity_end_label">По-ярко</string>
     <string name="reduce_bright_colors_intensity_preference_title">Интензивност</string>
     <string name="reduce_bright_colors_intensity_start_label">По-тъмно</string>
@@ -4044,6 +4070,7 @@
     <string name="reduce_bright_colors_preference_subtitle">Затъмнете екрана си така, че да ви е по-удобно да четете.&lt;br/>&lt;br/> Това може да бъде полезно, когато: &lt;ol> &lt;li> екранът е твърде светъл при стандартната настройка за минимална яркост на телефона ви;&lt;/li> &lt;li> използвате телефона си на тъмно, като например през нощта или в тъмна стая преди лягане.&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">Затъмнете екрана повече, отколкото с настройката за минимална яркост на телефона ви</string>
     <string name="reduce_bright_colors_preference_title">Допълнително затъмняване</string>
+    <string name="reduce_bright_colors_shortcut_title">Пряк път за допълнително затъмняване</string>
     <string name="reduce_bright_colors_switch_title">Допълнително затъмняване на екрана</string>
     <string name="register_automatically">Регистрира се автоматично...</string>
     <string name="register_on_network">Извършва се регистрация в(ъв) %s…</string>
@@ -4249,7 +4276,6 @@
     <string name="screen_pinning_unlock_pattern">Запитване за фигура за отключване преди освобождаване</string>
     <string name="screen_pinning_unlock_pin">ПИН код преди освобождаване</string>
     <string name="screen_reader_category_title">Екранен четец</string>
-    <string name="screen_saver_main_switch_title">Използване на скрийнсейвър</string>
     <string name="screen_time_summary_usage_today">Днес: %1$s</string>
     <string name="screen_timeout_summary">След %1$s неактивност</string>
     <string name="screen_timeout_title">Екранът се изключва</string>
@@ -4279,6 +4305,7 @@
     <string name="screensaver_settings_button">Настройки</string>
     <string name="screensaver_settings_current">Текущ скрийнсейвър</string>
     <string name="screensaver_settings_disabled_prompt">За да контролирате какво се случва, когато телефонът е свързан с докинг станция и/или е в спящ режим, включете скрийнсейвъра.</string>
+    <string name="screensaver_settings_dream_start">Стартиране сега</string>
     <string name="screensaver_settings_summary_dock">При свързване с докинг станция</string>
     <string name="screensaver_settings_summary_either_long">При зареждане или връзка с докинг станция</string>
     <string name="screensaver_settings_summary_either_short">И в двата случая</string>
@@ -4329,15 +4356,6 @@
     <string name="security_settings_biometric_preference_summary_both_fp_single">Добавени са лице и отпечатък</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Докоснете, за да настроите</string>
     <string name="security_settings_biometric_preference_title">Отключване с лице и отпечатък</string>
-    <string name="security_settings_biometrics_description">Когато носите маска или се намирате на тъмно място и сте настроили опциите за отключване с лице и отпечатък, телефонът ви ще поиска да използвате отпечатъка си</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Удостоверяване в приложения</string>
-    <string name="security_settings_biometrics_preferences_category">Използване на лицето или отпечатъка за</string>
-    <string name="security_settings_biometrics_summary_both">Лице и отпечатък</string>
-    <string name="security_settings_biometrics_summary_face">Само лице</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Само отпечатък</string>
-    <string name="security_settings_biometrics_summary_none">Докоснете, за да настроите</string>
-    <string name="security_settings_biometrics_title">Отключване с лице и отпечатък</string>
-    <string name="security_settings_biometrics_types_category">Начини за отключване</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Разрешаване на отключването с лице</string>
     <string name="security_settings_face_enroll_dialog_ok">OK</string>
     <string name="security_settings_face_enroll_done">Готово</string>
@@ -4395,6 +4413,7 @@
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Дори и да не възнамерява да отключи телефона, това може да стане, когато детето ви гледа в него. Той може да бъде отключен и от някого, който много прилича на детето ви, например от негов брат или сестра близнак, или ако бъде задържан пред лицето му.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Функцията за отключване с лице може да изисква очите ви да са отворени за отключване на телефона или потвърждаване на самоличността ви. По всяко време можете да включите тази опция от настройките.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Може да носите очила или леко затъмнени слънчеви очила.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Използването на лице за отключване на телефона може да не е толкова сигурно в сравнение с надеждна фигура или ПИН код.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Дори и да не възнамерявате да отключите телефона, това може да стане, когато гледате в него. Той може да бъде отключен и от някого, който много прилича на вас, например от ваш брат или сестра близнак, или ако бъде задържан пред лицето ви.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Имайте предвид следното</string>
     <string name="security_settings_face_enroll_introduction_message">Използвайте лицето си, за да отключвате телефона или да потвърждавате самоличността си, например при влизане в приложения или одобряване на покупки.</string>
@@ -4452,13 +4471,14 @@
 
 Той би могъл да бъде отключен и от някого, който много прилича на вас, например брат или сестра близнак."</string>
     <string name="security_settings_face_settings_preferences_category">При използване на отключването с лице</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Моделът на лицето ви ще бъде изтрит надеждно и за постоянно. След това ще имате нужда от ПИН кода, фигурата или паролата си, за да отключвате телефона и за удостоверяване в приложения.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Моделът на лицето ви ще бъде изтрит надеждно и за постоянно.
+
+След това ще имате нужда от ПИН кода, фигурата или паролата си, за да отключвате телефона или за удостоверяване в приложенията."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Моделът на лицето ви ще бъде изтрит надеждно и за постоянно.
+
+След това ще имате нужда от ПИН кода, фигурата или паролата си, за да отключвате телефона си."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Да се изтрие ли моделът на лицето?</string>
     <string name="security_settings_face_settings_remove_face_model">Изтриване на модела на лицето</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Моделът на лицето ви ще бъде изтрит надеждно и за постоянно.
-
-След това ще имате нужда от отпечатъка, ПИН кода, фигурата или паролата си, за да отключвате телефона и за удостоверяване в приложения."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Да се изтрие ли моделът на лицето?</string>
     <string name="security_settings_face_settings_require_attention">Очите трябва да са отворени</string>
     <string name="security_settings_face_settings_require_attention_details">За да отключите телефона, очите ви трябва да са отворени</string>
     <string name="security_settings_face_settings_require_confirmation">Винаги да се изисква потвърждение</string>
@@ -4541,7 +4561,7 @@
     <string name="security_settings_title">Сигурност</string>
     <string name="security_settings_udfps_enroll_a11y">За да откриете сензора, преместете пръста си по дисплея. Докоснете и задръжте сензора за отпечатъци.</string>
     <string name="security_settings_udfps_enroll_edge_message">Поставете едната страна на отпечатъка си върху сензора и задръжте, след това поставете другата</string>
-    <string name="security_settings_udfps_enroll_edge_title">Накрая поставете краищата на пръста си</string>
+    <string name="security_settings_udfps_enroll_edge_title">Накрая използвайте краищата на пръста си</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Сензорът за отпечатъци се намира на екрана ви. На следващия екран ще заснемете отпечатъка си.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Начало</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Как да настроите отпечатъка си</string>
@@ -4549,7 +4569,7 @@
     <string name="security_settings_udfps_enroll_repeat_a11y_message">По този начин се улавя най-голяма част от отпечатъка ви</string>
     <string name="security_settings_udfps_enroll_repeat_message">При всяко преместване на иконата за отпечатъци я докоснете и задръжте. По този начин се улавя най-голяма част от отпечатъка ви.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Следвайте иконата за отпечатъци</string>
-    <string name="security_settings_udfps_enroll_start_message">Задръжте пръста си върху сензора, докато усетите вибриране</string>
+    <string name="security_settings_udfps_enroll_start_message">Задръжте отпечатъка си върху сензора, докато усетите вибриране</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Още веднъж</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint за служебни цели</string>
     <string name="security_status_title">Състояние на сигурността</string>
@@ -4575,7 +4595,6 @@
     <string name="select_webview_provider_dialog_title">Задаване на внедряването на WebView</string>
     <string name="select_webview_provider_title">Внедряване на WebView</string>
     <string name="select_webview_provider_toast_text">Този избор вече не е валиден. Опитайте отново.</string>
-    <string name="sensor_toggle_description">За всички приложения и услуги</string>
     <string name="sensors_off_quick_settings_title">Сензорите са изключени</string>
     <string name="service_background_processes">Свободни: %1$s</string>
     <string name="service_foreground_processes">Ползвани: %1$s</string>
@@ -4807,6 +4826,7 @@
     <string name="sound_settings_summary_silent">Зададен е тих режим при звънене</string>
     <string name="sound_settings_summary_vibrate">Зададено е вибриране при звънене</string>
     <string name="sound_work_settings">Звуци за служебния потребителски профил</string>
+    <string name="spatial_audio_title">Пространствено аудио</string>
     <string name="special_access">Специален достъп за приложението</string>
     <string name="special_access_more">Вижте още</string>
     <string name="speed_label_fast">Бърза</string>
@@ -5618,7 +5638,7 @@
     <string name="vpn_turn_on">Включване</string>
     <string name="vpn_type">Тип</string>
     <string name="vpn_username">Потребителско име</string>
-    <string name="vpn_version">Версия %s</string>
+    <string name="vpn_version">Версия</string>
     <string name="vr_listener_security_warning_summary">%1$s ще може да се изпълнява, когато използвате приложения в режим на виртуална реалност.</string>
     <string name="vr_listener_security_warning_title">Искате ли %1$s да има достъп като услуга за VR?</string>
     <string name="vr_listeners_title">Помощни услуги за VR</string>
@@ -5888,7 +5908,7 @@
     <string name="wifi_not_in_range">Извън обхват</string>
     <string name="wifi_not_in_range_message">Мрежата не е в обхват</string>
     <string name="wifi_notify_open_networks">Известяване за обществени мрежи</string>
-    <string name="wifi_notify_open_networks_summary">Когато не е налице автоматична връзка</string>
+    <string name="wifi_notify_open_networks_summary">Известяване при наличие на висококачествена обществена мрежа</string>
     <string name="wifi_on_time">Време на включен Wi‑Fi</string>
     <string name="wifi_p2p_cancel_connect_message">Искате ли да анулирате поканата за свързване с/ъс %1$s?</string>
     <string name="wifi_p2p_cancel_connect_title">Да се анулира ли поканата?</string>
@@ -5976,7 +5996,6 @@
     <string name="wifi_suspend_optimizations">Wi-Fi да се оптимизира</string>
     <string name="wifi_suspend_optimizations_summary">Намаляване на използването на батерията, когато Wi‑Fi е включен</string>
     <string name="wifi_switch_away_when_unvalidated">Превключване към мобилни данни, ако Wi‑Fi мрежата изгуби достъп до интернет.</string>
-    <string name="wifi_switch_summary">Намиране на Wi‑Fi мрежи и свързване с тях</string>
     <string name="wifi_tap_to_sign_in">Докоснете тук, за да влезете в мрежата</string>
     <string name="wifi_tether_configure_ap_text">Настройка на точката за достъп до Wi‑Fi</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

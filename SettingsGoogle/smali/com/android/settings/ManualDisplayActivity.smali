@@ -15,7 +15,7 @@
 .method private showErrorAndFinish()V
     .locals 2
 
-    const v0, 0x7f0411c8
+    const v0, 0x7f0411ec
 
     const/4 v1, 0x1
 
@@ -41,7 +41,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f090039
+    const v0, 0x7f09003a
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -89,11 +89,11 @@
 
     move-result-object p1
 
-    const-string v2, "text/html"
+    const-string/jumbo v2, "text/html"
 
     invoke-virtual {v0, p1, v2}, Landroid/content/Intent;->setDataAndType(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;
 
-    const p1, 0x7f0411c7
+    const p1, 0x7f0411eb
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 

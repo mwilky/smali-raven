@@ -15,13 +15,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 10
+    .locals 11
 
     const-string v0, "key"
 
-    const-string v1, "title"
+    const-string/jumbo v1, "title"
 
-    const-string v2, "summary"
+    const-string/jumbo v2, "summary"
 
     const-string v3, "screentitle"
 
@@ -33,11 +33,13 @@
 
     const-string v7, "controller"
 
-    const-string v8, "slice_type"
+    const-string/jumbo v8, "slice_type"
 
-    const-string v9, "unavailable_slice_subtitle"
+    const-string/jumbo v9, "unavailable_slice_subtitle"
 
-    filled-new-array/range {v0 .. v9}, [Ljava/lang/String;
+    const-string v10, "highlight_menu"
+
+    filled-new-array/range {v0 .. v10}, [Ljava/lang/String;
 
     move-result-object v0
 
@@ -83,7 +85,7 @@
 .end method
 
 .method private static buildSliceData(Landroid/database/Cursor;Landroid/net/Uri;Z)Lcom/android/settings/slices/SliceData;
-    .locals 10
+    .locals 11
 
     const-string v0, "key"
 
@@ -95,7 +97,7 @@
 
     move-result-object v0
 
-    const-string v1, "title"
+    const-string/jumbo v1, "title"
 
     invoke-interface {p0, v1}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
@@ -105,7 +107,7 @@
 
     move-result-object v1
 
-    const-string v2, "summary"
+    const-string/jumbo v2, "summary"
 
     invoke-interface {p0, v2}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
@@ -165,7 +167,7 @@
 
     move-result-object v7
 
-    const-string v8, "slice_type"
+    const-string/jumbo v8, "slice_type"
 
     invoke-interface {p0, v8}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
@@ -175,7 +177,7 @@
 
     move-result v8
 
-    const-string v9, "unavailable_slice_subtitle"
+    const-string/jumbo v9, "unavailable_slice_subtitle"
 
     invoke-interface {p0, v9}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
@@ -183,7 +185,17 @@
 
     invoke-interface {p0, v9}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v9
+
+    const-string v10, "highlight_menu"
+
+    invoke-interface {p0, v10}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+
+    move-result v10
+
+    invoke-interface {p0, v10}, Landroid/database/Cursor;->getInt(I)I
+
+    move-result p0
 
     if-eqz p2, :cond_0
 
@@ -234,7 +246,11 @@
 
     move-result-object p1
 
-    invoke-virtual {p1, p0}, Lcom/android/settings/slices/SliceData$Builder;->setUnavailableSliceSubtitle(Ljava/lang/String;)Lcom/android/settings/slices/SliceData$Builder;
+    invoke-virtual {p1, v9}, Lcom/android/settings/slices/SliceData$Builder;->setUnavailableSliceSubtitle(Ljava/lang/String;)Lcom/android/settings/slices/SliceData$Builder;
+
+    move-result-object p1
+
+    invoke-virtual {p1, p0}, Lcom/android/settings/slices/SliceData$Builder;->setHighlightMenuRes(I)Lcom/android/settings/slices/SliceData$Builder;
 
     move-result-object p0
 
@@ -270,7 +286,7 @@
 
     sget-object v2, Lcom/android/settings/slices/SlicesDatabaseAccessor;->SELECT_COLUMNS_ALL:[Ljava/lang/String;
 
-    const-string v1, "slices_index"
+    const-string/jumbo v1, "slices_index"
 
     const/4 v5, 0x0
 
@@ -557,7 +573,7 @@
 
     move-result-object v2
 
-    const-string p0, "slice_uri"
+    const-string/jumbo p0, "slice_uri"
 
     filled-new-array {p0}, [Ljava/lang/String;
 
@@ -571,7 +587,7 @@
 
     const/4 v9, 0x0
 
-    const-string v3, "slices_index"
+    const-string/jumbo v3, "slices_index"
 
     invoke-virtual/range {v2 .. v9}, Landroid/database/sqlite/SQLiteDatabase;->query(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 

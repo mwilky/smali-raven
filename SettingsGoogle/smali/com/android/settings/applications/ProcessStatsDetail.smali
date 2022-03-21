@@ -314,7 +314,7 @@
 .method private createDetails()V
     .locals 8
 
-    const v0, 0x7f150026
+    const v0, 0x7f150027
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -330,7 +330,7 @@
 
     invoke-direct {p0}, Lcom/android/settings/applications/ProcessStatsDetail;->fillProcessesSection()V
 
-    const-string v0, "status_header"
+    const-string/jumbo v0, "status_header"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -659,7 +659,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f040ce0
+    const v7, 0x7f040cf8
 
     new-array v4, v4, [Ljava/lang/Object;
 
@@ -875,13 +875,13 @@
 
     invoke-direct {v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f041079
+    const v1, 0x7f0410a7
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f041078
+    const v1, 0x7f0410a6
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -891,13 +891,13 @@
 
     invoke-direct {v1, p0, p1, p2}, Lcom/android/settings/applications/ProcessStatsDetail$5;-><init>(Lcom/android/settings/applications/ProcessStatsDetail;Ljava/lang/String;Ljava/lang/String;)V
 
-    const p0, 0x7f04080f
+    const p0, 0x7f040827
 
     invoke-virtual {v0, p0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p0
 
-    const p1, 0x7f04080a
+    const p1, 0x7f040822
 
     const/4 p2, 0x0
 
@@ -1144,7 +1144,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/settings/applications/ProcStatsPackageEntry;->retrieveUiData(Landroid/content/Context;Landroid/content/pm/PackageManager;)V
 
-    const-string v0, "weight_to_ram"
+    const-string/jumbo v0, "weight_to_ram"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getDouble(Ljava/lang/String;)D
 
@@ -1152,7 +1152,7 @@
 
     iput-wide v0, p0, Lcom/android/settings/applications/ProcessStatsDetail;->mWeightToRam:D
 
-    const-string v0, "total_time"
+    const-string/jumbo v0, "total_time"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
@@ -1168,7 +1168,7 @@
 
     iput-wide v0, p0, Lcom/android/settings/applications/ProcessStatsDetail;->mMaxMemoryUsage:D
 
-    const-string v0, "total_scale"
+    const-string/jumbo v0, "total_scale"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getDouble(Ljava/lang/String;)D
 
@@ -1204,7 +1204,7 @@
 
     const/4 v0, 0x1
 
-    const v1, 0x7f04095f
+    const v1, 0x7f040977
 
     invoke-interface {p1, p2, v0, p2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 

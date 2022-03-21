@@ -75,7 +75,7 @@
 
     move-result p1
 
-    const v0, 0x7f0d024f
+    const v0, 0x7f0d0255
 
     if-ne p1, v0, :cond_0
 
@@ -85,7 +85,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f041653
+    const v0, 0x7f041678
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setHint(I)V
 
@@ -98,7 +98,7 @@
 
     move-result p1
 
-    const v0, 0x7f0d03ca
+    const v0, 0x7f0d03d8
 
     if-ne p1, v0, :cond_1
 
@@ -108,7 +108,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f04168b
+    const v0, 0x7f0416b0
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setHint(I)V
 
@@ -121,7 +121,7 @@
 
     move-result p1
 
-    const v0, 0x7f0d01d4
+    const v0, 0x7f0d01d8
 
     if-ne p1, v0, :cond_2
 
@@ -131,7 +131,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f041615
+    const v0, 0x7f04163a
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setHint(I)V
 

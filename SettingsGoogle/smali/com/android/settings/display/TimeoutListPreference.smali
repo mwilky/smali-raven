@@ -53,13 +53,13 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0d0064
+    const v0, 0x7f0d0066
 
     invoke-virtual {p1, v0}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
 
     move-result-object p1
 
-    const v0, 0x7f0d0066
+    const v0, 0x7f0d0068
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -84,7 +84,7 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f06003e
+    const p0, 0x7f06003f
 
     invoke-virtual {p1, p0}, Landroidx/appcompat/app/AlertDialog$Builder;->setView(I)Landroidx/appcompat/app/AlertDialog$Builder;
 

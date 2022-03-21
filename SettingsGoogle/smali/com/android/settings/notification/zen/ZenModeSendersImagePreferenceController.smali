@@ -60,7 +60,7 @@
 
     check-cast p1, Lcom/android/settingslib/widget/LayoutPreference;
 
-    const v0, 0x7f0d0656
+    const v0, 0x7f0d0666
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -102,17 +102,17 @@
 
     if-eqz p1, :cond_0
 
-    const p1, 0x7f020462
+    const p1, 0x7f02046d
 
     goto :goto_0
 
     :cond_0
-    const p1, 0x7f02045e
+    const p1, 0x7f020469
 
     :goto_0
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f041813
+    const v1, 0x7f041838
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -129,17 +129,17 @@
 
     if-eqz p1, :cond_2
 
-    const p1, 0x7f020463
+    const p1, 0x7f02046e
 
     goto :goto_1
 
     :cond_2
-    const p1, 0x7f02045f
+    const p1, 0x7f02046a
 
     :goto_1
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f041814
+    const v1, 0x7f041839
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -156,17 +156,17 @@
 
     if-eqz p1, :cond_4
 
-    const p1, 0x7f020465
+    const p1, 0x7f020470
 
     goto :goto_2
 
     :cond_4
-    const p1, 0x7f020461
+    const p1, 0x7f02046c
 
     :goto_2
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f041817
+    const v1, 0x7f04183c
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -179,24 +179,24 @@
 
     if-eqz p1, :cond_6
 
-    const v0, 0x7f020464
+    const v0, 0x7f02046f
 
     goto :goto_3
 
     :cond_6
-    const v0, 0x7f020460
+    const v0, 0x7f02046b
 
     :goto_3
     iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
     if-eqz p1, :cond_7
 
-    const p1, 0x7f041823
+    const p1, 0x7f041848
 
     goto :goto_4
 
     :cond_7
-    const p1, 0x7f041822
+    const p1, 0x7f041847
 
     :goto_4
     invoke-virtual {v1, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;

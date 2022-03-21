@@ -34,7 +34,7 @@
 
     invoke-direct {p0, p1, p2}, Lcom/android/settings/core/TogglePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    const-string p1, "volume_hush_gesture"
+    const-string/jumbo p1, "volume_hush_gesture"
 
     iput-object p1, p0, Lcom/android/settings/gestures/PreventRingingParentPreferenceController;->SECURE_KEY:Ljava/lang/String;
 
@@ -56,7 +56,7 @@
 
     move-result-object p0
 
-    const v1, 0x10e006e
+    const v1, 0x10e0071
 
     invoke-virtual {p0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -128,7 +128,7 @@
 
     move-result-object v0
 
-    const v1, 0x1110175
+    const v1, 0x111017c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -158,7 +158,7 @@
 
     move-result-object p0
 
-    const v0, 0x1110103
+    const v0, 0x1110106
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -203,6 +203,14 @@
     return-object p0
 .end method
 
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d0e
+
+    return p0
+.end method
+
 .method public bridge synthetic hasAsyncUpdate()Z
     .locals 0
 
@@ -233,7 +241,7 @@
 
     move-result-object p0
 
-    const-string v0, "volume_hush_gesture"
+    const-string/jumbo v0, "volume_hush_gesture"
 
     const/4 v2, 0x1
 
@@ -314,7 +322,7 @@
 
     move-result-object v0
 
-    const-string v1, "volume_hush_gesture"
+    const-string/jumbo v1, "volume_hush_gesture"
 
     const/4 v2, 0x1
 
@@ -362,7 +370,7 @@
 
     move-result-object v0
 
-    const-string v1, "volume_hush_gesture"
+    const-string/jumbo v1, "volume_hush_gesture"
 
     const/4 v2, 0x1
 
@@ -384,7 +392,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f041378
+    const v1, 0x7f04139d
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -395,7 +403,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040f64
+    const v1, 0x7f040f90
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -406,7 +414,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040f68
+    const v1, 0x7f040f94
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -424,7 +432,7 @@
     :cond_2
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040f66
+    const v1, 0x7f040f92
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

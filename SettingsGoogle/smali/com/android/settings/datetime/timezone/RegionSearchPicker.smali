@@ -38,9 +38,9 @@
 .method public constructor <init>()V
     .locals 3
 
-    const v0, 0x7f040774
+    const v0, 0x7f04078c
 
-    const v1, 0x7f040772
+    const v1, 0x7f04078a
 
     const/4 v2, 0x1
 

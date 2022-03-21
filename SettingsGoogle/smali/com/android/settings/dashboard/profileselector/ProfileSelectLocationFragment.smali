@@ -58,6 +58,14 @@
     return-object p0
 .end method
 
+.method protected getPreferenceScreenResId()I
+    .locals 0
+
+    const p0, 0x7f150091
+
+    return p0
+.end method
+
 .method public onActivityCreated(Landroid/os/Bundle;)V
     .locals 3
 
@@ -77,7 +85,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040b85
+    const v2, 0x7f040b9d
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

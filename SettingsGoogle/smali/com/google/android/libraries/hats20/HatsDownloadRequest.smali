@@ -107,7 +107,7 @@
 
     iget-object v1, p0, Lcom/google/android/libraries/hats20/HatsDownloadRequest;->siteId:Ljava/lang/String;
 
-    const-string v2, "site"
+    const-string/jumbo v2, "site"
 
     invoke-virtual {v0, v2, v1}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
 

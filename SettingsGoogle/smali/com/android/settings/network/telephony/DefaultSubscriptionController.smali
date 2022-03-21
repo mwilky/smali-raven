@@ -142,14 +142,6 @@
 
     invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
 
-    iget-object v5, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    invoke-static {v5}, Lcom/android/settings/Utils;->isProviderModelEnabled(Landroid/content/Context;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_2
-
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v5
@@ -241,21 +233,21 @@
 
     move-result v0
 
-    const/4 v2, -0x1
+    const/4 v7, -0x1
 
     if-eqz v0, :cond_6
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f04053c
+    const v8, 0x7f040553
 
-    invoke-virtual {v0, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {v0, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
     invoke-virtual {v3, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-static {v2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    invoke-static {v7}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v0
 
@@ -264,15 +256,19 @@
     :cond_6
     iget-object v0, p0, Lcom/android/settings/network/telephony/DefaultSubscriptionController;->mPreference:Landroidx/preference/ListPreference;
 
-    new-array v7, v1, [Ljava/lang/CharSequence;
+    invoke-virtual {v0, v2}, Landroidx/preference/Preference;->setEnabled(Z)V
 
-    invoke-virtual {v3, v7}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    iget-object v0, p0, Lcom/android/settings/network/telephony/DefaultSubscriptionController;->mPreference:Landroidx/preference/ListPreference;
 
-    move-result-object v3
+    new-array v2, v1, [Ljava/lang/CharSequence;
 
-    check-cast v3, [Ljava/lang/CharSequence;
+    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
-    invoke-virtual {v0, v3}, Landroidx/preference/ListPreference;->setEntries([Ljava/lang/CharSequence;)V
+    move-result-object v2
+
+    check-cast v2, [Ljava/lang/CharSequence;
+
+    invoke-virtual {v0, v2}, Landroidx/preference/ListPreference;->setEntries([Ljava/lang/CharSequence;)V
 
     iget-object v0, p0, Lcom/android/settings/network/telephony/DefaultSubscriptionController;->mPreference:Landroidx/preference/ListPreference;
 
@@ -301,7 +297,7 @@
     :cond_7
     iget-object p0, p0, Lcom/android/settings/network/telephony/DefaultSubscriptionController;->mPreference:Landroidx/preference/ListPreference;
 
-    invoke-static {v2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    invoke-static {v7}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v0
 
@@ -344,39 +340,8 @@
 .end method
 
 .method public getAvailabilityStatus(I)I
-    .locals 1
+    .locals 0
 
-    iget-object p1, p0, Lcom/android/settings/network/telephony/DefaultSubscriptionController;->mManager:Landroid/telephony/SubscriptionManager;
-
-    invoke-static {p1}, Lcom/android/settings/network/SubscriptionUtil;->getActiveSubscriptions(Landroid/telephony/SubscriptionManager;)Ljava/util/List;
-
-    move-result-object p1
-
-    invoke-interface {p1}, Ljava/util/List;->size()I
-
-    move-result p1
-
-    const/4 v0, 0x1
-
-    if-gt p1, v0, :cond_1
-
-    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    invoke-static {p0}, Lcom/android/settings/Utils;->isProviderModelEnabled(Landroid/content/Context;)Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x2
-
-    return p0
-
-    :cond_1
-    :goto_0
     const/4 p0, 0x0
 
     return p0
@@ -554,6 +519,16 @@
     return-object p0
 .end method
 
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public getSummary()Ljava/lang/CharSequence;
     .locals 2
 
@@ -599,7 +574,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f04053c
+    const v0, 0x7f040553
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

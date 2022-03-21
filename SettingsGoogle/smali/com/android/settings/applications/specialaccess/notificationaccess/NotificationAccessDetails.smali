@@ -268,7 +268,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040e08
+    const v1, 0x7f040e33
 
     invoke-virtual {v0, v1}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -396,7 +396,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500a3
+    const p0, 0x7f1500a8
 
     return p0
 .end method

@@ -231,7 +231,7 @@
 
     move-result-object p0
 
-    const-string p1, "vpnappdialog"
+    const-string/jumbo p1, "vpnappdialog"
 
     invoke-virtual {p2, p0, p1}, Landroidx/fragment/app/DialogFragment;->show(Landroidx/fragment/app/FragmentManager;Ljava/lang/String;)V
 
@@ -395,7 +395,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f041547
+    const v2, 0x7f04156c
 
     invoke-virtual {v1, v2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -409,7 +409,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f041540
+    const v2, 0x7f041565
 
     invoke-virtual {v1, v2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -433,7 +433,7 @@
 
     move-result-object p1
 
-    const v1, 0x7f041546
+    const v1, 0x7f04156b
 
     invoke-virtual {p1, v1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 

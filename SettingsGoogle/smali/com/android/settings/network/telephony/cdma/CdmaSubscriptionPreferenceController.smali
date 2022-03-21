@@ -192,6 +192,16 @@
     return-object p0
 .end method
 
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public bridge synthetic hasAsyncUpdate()Z
     .locals 0
 
@@ -252,7 +262,7 @@
 
     move-result-object p0
 
-    const-string p2, "subscription_mode"
+    const-string/jumbo p2, "subscription_mode"
 
     invoke-static {p0, p2, p1}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
     :try_end_0
@@ -299,7 +309,7 @@
 
     move-result-object p0
 
-    const-string v0, "subscription_mode"
+    const-string/jumbo v0, "subscription_mode"
 
     invoke-static {p0, v0, v1}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 

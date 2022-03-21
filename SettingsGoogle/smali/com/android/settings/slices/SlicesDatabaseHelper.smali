@@ -15,11 +15,11 @@
 .method private constructor <init>(Landroid/content/Context;)V
     .locals 3
 
-    const-string v0, "slices_index.db"
+    const-string/jumbo v0, "slices_index.db"
 
     const/4 v1, 0x0
 
-    const/16 v2, 0x8
+    const/16 v2, 0x9
 
     invoke-direct {p0, p1, v0, v1, v2}, Landroid/database/sqlite/SQLiteOpenHelper;-><init>(Landroid/content/Context;Ljava/lang/String;Landroid/database/sqlite/SQLiteDatabase$CursorFactory;I)V
 
@@ -31,7 +31,7 @@
 .method private createDatabases(Landroid/database/sqlite/SQLiteDatabase;)V
     .locals 0
 
-    const-string p0, "CREATE VIRTUAL TABLE slices_index USING fts4(key, slice_uri, title, summary, screentitle, keywords, icon, fragment, controller, slice_type, unavailable_slice_subtitle, public_slice INTEGER DEFAULT 0 );"
+    const-string p0, "CREATE VIRTUAL TABLE slices_index USING fts4(key, slice_uri, title, summary, screentitle, keywords, icon, fragment, controller, slice_type, unavailable_slice_subtitle, public_slice, highlight_menu INTEGER DEFAULT 0 );"
 
     invoke-virtual {p1, p0}, Landroid/database/sqlite/SQLiteDatabase;->execSQL(Ljava/lang/String;)V
 
@@ -98,7 +98,7 @@
 
     iget-object v0, p0, Lcom/android/settings/slices/SlicesDatabaseHelper;->mContext:Landroid/content/Context;
 
-    const-string v1, "slices_shared_prefs"
+    const-string/jumbo v1, "slices_shared_prefs"
 
     const/4 v2, 0x0
 
@@ -122,7 +122,7 @@
 
     iget-object p0, p0, Lcom/android/settings/slices/SlicesDatabaseHelper;->mContext:Landroid/content/Context;
 
-    const-string v0, "slices_shared_prefs"
+    const-string/jumbo v0, "slices_shared_prefs"
 
     const/4 v1, 0x0
 
@@ -150,7 +150,7 @@
 
     iget-object v0, p0, Lcom/android/settings/slices/SlicesDatabaseHelper;->mContext:Landroid/content/Context;
 
-    const-string v1, "slices_shared_prefs"
+    const-string/jumbo v1, "slices_shared_prefs"
 
     const/4 v2, 0x0
 
@@ -182,7 +182,7 @@
 
     iget-object p0, p0, Lcom/android/settings/slices/SlicesDatabaseHelper;->mContext:Landroid/content/Context;
 
-    const-string v0, "slices_shared_prefs"
+    const-string/jumbo v0, "slices_shared_prefs"
 
     const/4 v1, 0x0
 
@@ -260,7 +260,7 @@
 .method public onUpgrade(Landroid/database/sqlite/SQLiteDatabase;II)V
     .locals 2
 
-    const/16 v0, 0x8
+    const/16 v0, 0x9
 
     if-ge p2, v0, :cond_0
 
@@ -299,7 +299,7 @@
 
     iget-object v0, p0, Lcom/android/settings/slices/SlicesDatabaseHelper;->mContext:Landroid/content/Context;
 
-    const-string v1, "slices_shared_prefs"
+    const-string/jumbo v1, "slices_shared_prefs"
 
     const/4 v2, 0x0
 

@@ -79,7 +79,7 @@
 
     const/4 v4, 0x0
 
-    const-string v5, "summary"
+    const-string/jumbo v5, "summary"
 
     invoke-virtual {v2, v5, v4}, Landroid/os/Bundle;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 

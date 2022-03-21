@@ -444,7 +444,7 @@
 .method safeGetVrManager()Landroid/service/vr/IVrManager;
     .locals 0
 
-    const-string p0, "vrmanager"
+    const-string/jumbo p0, "vrmanager"
 
     invoke-static {p0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 

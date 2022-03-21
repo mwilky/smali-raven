@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Smooth Display</string>
     <string name="peak_refresh_rate_summary">Айрым материалдар үчүн экрандын жаңыруу жыштыгы автоматтык түрдө 60 Гцтен 90 Гцке өзгөрүлөт (батарея тез отуруп калышы мүмкүн).</string>
     <string name="accessibility_vibration_settings_title">Дирилдөө жана сенсорлор</string>
+    <string name="columbus_title">Тез баскылап, аракеттерди аткарып баштоо</string>
     <string name="emergency_gesture_screen_title">Кырсыктаганда чалуу</string>
     <string name="abc_action_mode_done">Бүттү</string>
     <string name="vibrate_for_calls_category_title">Чалуулар</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Түзмөктү башкаруу элементтерин көрсөтүү</string>
     <string name="lockscreen_privacy_wallet_summary">Капчыкка кулпуланган экрандан жана ыкчам жөндөөлөрдөн өтөсүз</string>
     <string name="lockscreen_privacy_controls_summary">Экран кулпуланып турганда түзмөктү башкарган виджеттерди колдоносуз</string>
+    <string name="lockscreen_double_line_clock_summary">Кош саптуу саат жеткиликтүү болгондо көрсөтүү</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Кош саптуу саат</string>
     <string name="abc_activity_chooser_view_see_all">Баарын көрүү</string>
     <string name="abc_activitychooserview_choose_application">Колдонмо тандоо</string>
     <string name="abc_capital_off">ӨЧҮК</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Ойготкучту дирилдетүү</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Active Edge жөндөлдү. Кийинки экранга өтүңүз же тууралоону улантыңыз.</string>
     <string name="accessibility_audio_adjustment_title">Аудиону тууралоо</string>
+    <string name="accessibility_autoclick_about_title">Автоматтык түрдө чыкылдатуу (кечигүү убакыты) тууралуу</string>
     <string name="accessibility_autoclick_custom_title">Ыңгайлаштырылган</string>
     <string name="accessibility_autoclick_default_title">Өчүк</string>
     <string name="accessibility_autoclick_description">Автоматтык түрдө басуу чычкан туташып турганда гана иштейт. Чычкандын көрсөткүчү белгилүү бир убакыт бою кыймылсыз тургандан кийин басылат.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Автоматтык түрдө чыкылдатуу (кечигүү убакыты) тууралуу кеңири маалымат</string>
     <string name="accessibility_autoclick_long_summary">1 секунд</string>
     <string name="accessibility_autoclick_long_title">Узун</string>
     <string name="accessibility_autoclick_longer_desc">Узагыраак</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Кыска</string>
     <string name="accessibility_autoclick_shorter_desc">Кыскараак</string>
     <string name="accessibility_banner_message_dismiss">Жабуу</string>
-    <string name="accessibility_button_description">"Атайын мүмкүнчүлүктөргө каалаган экрандан тез өтөсүз. 
+    <string name="accessibility_button_about_title">Атайын мүмкүнчүлүктөр баскычы тууралуу</string>
+    <string name="accessibility_button_description">"Атайын мүмкүнчүлүктөргө каалаган экрандан тез өтүңүз.
 
-Баштоо үчүн атайын мүмкүнчүлүктөрдүн жөндөөлөрүнө өтүп, функция тандаңыз. Ыкчам баскычты басып, атайын мүмкүнчүлүктөр баскычын тандаңыз."</string>
+Баштоо үчүн атайын мүмкүнчүлүктөрдү тууралоого өтүп, функция тандаңыз. Ыкчам баскычты басып, атайын мүмкүнчүлүктөр баскычын тандаңыз."</string>
     <string name="accessibility_button_fade_summary">Экранды көрүүнү жеңилдетүү үчүн бир нече секунддан кийин жок болот</string>
     <string name="accessibility_button_fade_title">Колдонулбай турганда өчөт</string>
-    <string name="accessibility_button_gesture_description">"Атайын мүмкүнчүлүктөргө каалаган экрандан тез өтүңүз.
+    <string name="accessibility_button_gesture_about_title">Атайын мүмкүнчүлүктөр баскычы жана жаңсоосу тууралуу</string>
+    <string name="accessibility_button_gesture_description">"Атайын мүмкүнчүлүктөргө каалаган экрандан тез өтөсүз.
 
-Баштоо үчүн атайын мүмкүнчүлүктөрдүн жөндөөлөрүнө өтүп, функция тандаңыз. Ыкчам баскычты басып, атайын мүмкүнчүлүктөр баскычын тандаңыз.
-
-Анын ордуна чабыттоо тилкесиндеги атайын мүмкүнчүлүктөр баскычын колдонуу үчүн 2 баскычтуу чабыттоо же 3 баскычтуу чабыттоо схемасына өтүңүз."</string>
+Баштоо үчүн атайын мүмкүнчүлүктөрдү тууралоого өтүп, функция тандаңыз. Ыкчам баскычты таптап, атайын мүмкүнчүлүктөр баскычын же жаңсоосун тандаңыз."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Атайын мүмкүнчүлүктөр баскычы жана жаңсоосу тууралуу кеңири маалымат</string>
     <string name="accessibility_button_gesture_title">Атайын мүмкүнчүлүктөр баскычы жана жаңсоо</string>
     <string name="accessibility_button_high_label">Тунук эмес</string>
     <string name="accessibility_button_intro">Атайын мүмкүнчүлүктөр баскычын колдонуңуз. Бул жаңсоо 3 баскычтуу чабыттоодо жеткиликсиз.</string>
@@ -184,14 +190,23 @@
     <string name="accessibility_caption_preference_summary">Коштомо жазуулардын бул параметрлери айрым колдонмолордо иштебейт</string>
     <string name="accessibility_caption_primary_switch_summary">Колдоого алынган колдонмолордо гана</string>
     <string name="accessibility_caption_primary_switch_title">Коштомо жазууларды көрсөтүү</string>
+    <string name="accessibility_captioning_about_title">Коштомо жазуулардын жеке жөндөөлөрү тууралуу</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Коштомо жазуулардын жеке жөндөөлөрү тууралуу кеңири маалымат</string>
     <string name="accessibility_captioning_title">Коштомо жазуулардын жөндөөлөрү</string>
     <string name="accessibility_category_personal">Жеке профилдин аккаунттары</string>
     <string name="accessibility_category_work">Жумуш профилинин аккаунттары - %s</string>
+    <string name="accessibility_color_inversion_about_title">Түстөрдү инверсиялоо тууралуу</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Түстөрдү инверсиялоо тууралуу кеңири маалымат</string>
+    <string name="accessibility_control_timeout_about_title">Аракетти аткаруу убакыты (Атайын мүмкүнчүлүктөр) тууралуу</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Аракетти аткаруу убакыты (Атайын мүмкүнчүлүктөр) тууралуу кеңири маалымат</string>
     <string name="accessibility_control_timeout_preference_summary">"Автоматтык түрдө жоголуп кетүүчү билдирүүлөрдөгү аракеттерди аткарууга канча убакыт керектелерин көрсөтүңүз.
 
 Бул параметр айрым колдонмолордо иштебейт."</string>
     <string name="accessibility_control_timeout_preference_title">Аракетке канча убакыт керек</string>
+    <string name="accessibility_daltonizer_about_title">Түстөрдү тууралоо жөнүндө маалымат</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Түстөрдү тууралоо жөнүндө кеңири маалымат алыңыз</string>
     <string name="accessibility_daltonizer_primary_switch_title">Түстөрдү тууралоону колдонуу</string>
+    <string name="accessibility_daltonizer_shortcut_title">Түстөрдү тууралоо ыкчам баскычы</string>
     <string name="accessibility_data_one_bar">Мобилдик интернеттин сигналы бир таякча.</string>
     <string name="accessibility_data_signal_full">Мобилдик интернеттин сигналы толук.</string>
     <string name="accessibility_data_three_bars">Мобилдик интернеттин сигналы үч таякча.</string>
@@ -206,6 +221,7 @@
     <string name="accessibility_display_daltonizer_preference_title">Түсүн тууралоо</string>
     <string name="accessibility_display_inversion_preference_subtitle">Түстөрдү инверсиялоо менен, жарык түстөрдү караңгылатканга болот.&lt;br/>&lt;br/> Көңүл буруңуз: &lt;ol> &lt;li> Кара түстөр жарыгыраак болот.&lt;/li> &lt;li> Түстөрдү инверсиялоо функциясын медиафайлдарга жана сүрөттөргө колдонсо болот.&lt;/li> &lt;li>  Караңгы тема айрым колдонмолордо, ал эми түстөрдү инверсиялоо бардык колдонмолордо колдонулат.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Түстү инверсиялоо</string>
+    <string name="accessibility_display_inversion_shortcut_title">Түстөрдү инверсиялоо ыкчам баскычы</string>
     <string name="accessibility_display_inversion_switch_title">Түстү инверсиялоону колдонуу</string>
     <string name="accessibility_ethernet_connected">Ethernet.</string>
     <string name="accessibility_ethernet_disconnected">Ethernet ажырады.</string>
@@ -255,6 +271,8 @@
     <string name="accessibility_phone_two_bars">Телефон сигналы эки таякча.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Чалууну кубат баскычы бүтүрөт</string>
     <string name="accessibility_preference_magnification_summary">Экран чоңоет</string>
+    <string name="accessibility_screen_magnification_about_title">Чоңойтуу тууралуу</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Чоңойтуу тууралуу кеңири маалымат</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">Атайын мүмкүнчүлүктөр жаңсоосу %1$s функциясына коюлду. Масштабын чоңойтуу үчүн эки манжаңыз менен экранды ылдыйдан өйдө сүрүп, кармап туруңуз. Андан соң чоңойтууну тандаңыз.</string>
     <string name="accessibility_screen_magnification_gestures_title">Үч жолу таптап чоңойтуу</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">Атайын мүмкүнчүлүктөр баскычы %1$s кызматы үчүн коюлган. Чоңойтуу функциясын колдонуу үчүн Атайын мүмкүнчүлүктөр баскычын басып, кармап туруңуз да, чоңойтуу функциясын тандаңыз.</string>
@@ -272,6 +290,7 @@
 Баскычтопто же чабыттоо тилкесинде көрүнүш чоңойбойт."</string>
     <string name="accessibility_screen_magnification_navbar_title">Ыкчам баскыч менен чоңойтуу</string>
     <string name="accessibility_screen_magnification_short_summary">Өлчөмүн өзгөртүү үчүн 3 жолу таптаңыз</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Чоңойтуу ыкчам баскычы</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Ыкчам баскыч жана үч жолу таптоо менен чоңойтуу</string>
     <string name="accessibility_screen_magnification_summary">Экрандагы нерсени чоңойтуп жакшыраак көрө аласыз.&lt;br/>&lt;br/> &lt;b>Чоңойтуп көрүү үчүн:&lt;/b>&lt;br/> {0,number,integer}. Чоңойтуу режимин иштетүү үчүн ыкчам баскычын басыңыз&lt;br/> {1,number,integer}. Экранды басыңыз&lt;br/> {2,number,integer}. Экрандын башка бөлүгүнө 2 манжаңыз менен жылыңыз&lt;br/> {3,number,integer}. Чоңойтуп/кичирейтүү үчүн эки манжаңызды бириктириңиз&lt;br/> {4,number,integer}. Чоңойтуу режиминен чыгуу үчүн ыкчам баскычты басыңыз&lt;br/>&lt;br/> &lt;b>Убактылуу чоңойтуу үчүн:&lt;/b>&lt;br/> {0,number,integer}. Чоңойтуу режимин иштетүү үчүн ыкчам баскычын басыңыз&lt;br/> {1,number,integer}. Экрандын бир жерин коё бербей басып туруңуз&lt;br/> {2,number,integer}. Экрандын башка бөлүгүнө манжаңыз менен жылыңыз&lt;br/> {3,number,integer}. Көрүнүштүн баштапкы өлчөмүнө кайтуу үчүн манжаңызды көтөрүп коюңуз</string>
     <string name="accessibility_screen_magnification_title">Чоңойтуу</string>
@@ -287,7 +306,7 @@
     <string name="accessibility_service_warning_description">Толук көзөмөл атайын мүмкүнчүлүктөрдү пайдаланууга керек, бирок калган көпчүлүк колдонмолорго кереги жок.</string>
     <string name="accessibility_setting_item_control_timeout_title">Аракетти аткаруу убакыты (Атайын мүмкүнчүлүктөр)</string>
     <string name="accessibility_settings">Атайын мүмкүнчүлүктөр</string>
-    <string name="accessibility_settings_summary">Дисплей, өз ара аракет, аудио</string>
+    <string name="accessibility_settings_summary">Дисплей, башкаруу элементтери, аудио</string>
     <string name="accessibility_settings_title">Атайын мүмкүнчүлүктөрдүн жөндөөлөрү</string>
     <string name="accessibility_shortcut_description">Үндү катуулатуу/акырындатуу баскычтарын бир нече секундга чейин кое бербей басып туруп, кулпуланган экранда белгилүү бир функцияны иштетесиз.</string>
     <string name="accessibility_shortcut_edit_dialog_summary_hardware">Үндү катуулатуу/акырындатуу баскычтарын коё бербей басып туруңуз</string>
@@ -370,7 +389,7 @@
     <string name="accessibility_tutorial_dialog_message_volume">Бул функцияны колдонуу үчүн үндү чоңойтуп/кичирейтүү баскычтарын коё бербей басып туруңуз.</string>
     <string name="accessibility_tutorial_dialog_title_button">Атайын мүмкүнчүлүктөр баскычын басыңыз</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Ачуу үчүн жаңсаңыз</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Жаңы атайын мүмкүнчүлүктөр жаңсоосун колдонуңуз</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Атайын мүмкүнчүлүктөр жаңсоосун колдонуу</string>
     <string name="accessibility_tutorial_dialog_title_triple">Ачуу үчүн экранды үч жолу таптаңыз</string>
     <string name="accessibility_tutorial_dialog_title_volume">Ачуу үчүн үн баскычтарын коё бербей басып туруңуз</string>
     <string name="accessibility_tutorial_pager">%2$d ичинен %1$d-барак</string>
@@ -936,6 +955,7 @@
     <string name="battery_level_title">Батарея деңгээли</string>
     <string name="battery_manager_off">Өчүк</string>
     <string name="battery_manager_summary">Батареяны көбүрөөк убакытка жеткирүү жана кубаттоону оптималдаштыруу</string>
+    <string name="battery_manager_summary_unsupported">Батареянын кубатынын мөөнөтүн узартуу</string>
     <string name="battery_missing_link_a11y_message">Бул ката жөнүндө толук маалымат алуу үчүн таптап коюңуз</string>
     <string name="battery_missing_link_message">Кененирээк</string>
     <string name="battery_missing_message">Батареянын кубаты аныкталбай жатат.</string>
@@ -1010,9 +1030,9 @@
     <string name="battery_tip_early_heads_up_title">Батареяны үнөмдөгүчтү күйгүзүү</string>
     <string name="battery_tip_high_usage_summary">Эң көп иштетилген колдонмолорду көрүү</string>
     <string name="battery_tip_high_usage_title">Батареянын көбүрөөк колдонулушу</string>
-    <string name="battery_tip_limited_temporarily_dialog_msg">"Батареяны көбүрөөк убакытка жеткирүү үчүн жогорку температура жана узакка кубаттоо сыяктуу айрым шарттарда кубаттоо %1$s чейин чектелиши мүмкүн.
+    <string name="battery_tip_limited_temporarily_dialog_msg">"Батареяны көбүрөөк убакытка жеткирүү үчүн жогорку температурада жана узакка кубатталган шарттарда кубаттоо %1$s чейин чектелиши мүмкүн.
 
-Мындай шарттар бүткөндөн кийин, телефонуңуз автоматтык түрдө кадимкидей кубаттала баштайт."</string>
+Мындай шарттар калыбына келгенден кийин, түзмөгүңүз автоматтык түрдө кадимкидей кубаттала баштайт."</string>
     <string name="battery_tip_limited_temporarily_dialog_resume_charge">Кубаттоону улантуу</string>
     <string name="battery_tip_limited_temporarily_summary">Батареяңызды үнөмдөө үчүн. Кеңири маалымат.</string>
     <string name="battery_tip_limited_temporarily_title">Кубаттоо убактылуу чектелген</string>
@@ -1061,6 +1081,7 @@
     <string name="battery_usage_screen_footer">Батареянын колдонулушу тууралуу маалымат болжол менен көрсөтүлүп, телефон кубатталып жатканда өлчөнбөйт</string>
     <string name="battery_usage_screen_footer_empty">Телефонуңузду бир нече саат колдонгондон кийин батареянын керектелиши тууралуу маалымат жеткиликтүү болот</string>
     <string name="battery_usage_total_less_than_one_minute">Жалпысынан: бир мүнөткө жетпейт</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%2$s колдонмосу %1$s сарптады</string>
     <string name="battery_used_for">^1 бою колдонулду</string>
     <string name="bearer">Канал</string>
@@ -1069,12 +1090,14 @@
     <string name="billing_cycle_less_than_one_day_left">1 күнгө жетпеген убакыт калды</string>
     <string name="billing_cycle_none_left">Убакыт калган жок</string>
     <string name="biometric_settings_category_ways_to_unlock">Кулпуну ачуу жолдору</string>
-    <string name="biometric_settings_category_ways_to_use">Төмөнкүлөр үчүн жүз жана манжа изин колдонуңуз:</string>
     <string name="biometric_settings_hand_back_to_guardian">Телефонду кайрадан ата-энеңе бер</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">Макул</string>
     <string name="biometric_settings_intro">Эгер манжа изи жана жүзүнөн таанып ачуу функциясын жөндөсөңүз, беткап тагынып же караңгы жерде турганыңызда телефонуңуз манжаңыздын изин сурайт</string>
-    <string name="biometric_settings_use_biometric_for_apps">Колдонмолордо аныктыгын текшерүү</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">Телефондун кулпусун ачуу</string>
+    <string name="biometric_settings_use_biometric_for_apps">Колдонмолордо өздүгүңүздү ырастаңыз</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">Телефонуңуздун кулпусун ачыңыз</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Жүз же манжа изи аркылуу</string>
+    <string name="biometric_settings_use_face_preference_summary">Жүз аркылуу</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Манжа изи аркылуу</string>
     <string name="biometrics_unlock_set_unlock_password">Сырсөз • Жүз • Манжа изи</string>
     <string name="biometrics_unlock_set_unlock_pattern">Графикалык ачкыч • Жүз • Манжа изи</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN код • Жүз • Манжа изи</string>
@@ -1332,7 +1355,6 @@
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Аталышсыз Bluetooth түзмөктөрү көрүнсүн</string>
     <string name="bluetooth_show_devices_without_names_summary">Аталышсыз Bluetooth түзмөктөрү (MAC даректери менен гана) көрүнөт</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Bluetooth аркылуу алынган файлдар</string>
     <string name="bluetooth_show_received_files">Алынган файлдар</string>
     <string name="bluetooth_sim_card_access_dialog_content">"%1$s Bluetooth түзмөгү SIM картаңыздагы маалыматты көргүсү келет. Ага байланыштарыңыз да кирет.
 
@@ -1426,6 +1448,7 @@
     <string name="calls_sms_temp_unavailable">Убактылуу жеткиликсиз</string>
     <string name="calls_sms_unavailable">жеткиликсиз</string>
     <string name="calls_sms_wfc_summary">Wi‑Fi аркылуу чалуу</string>
+    <string name="cam_toggle_description">Колдонмолор жана кызматтар үчүн</string>
     <string name="camera_double_tap_power_gesture_desc">Камераны экраныңыздын кулпусун ачпастан, тез эле ачып алыңыз</string>
     <string name="camera_double_tap_power_gesture_title">Камера үчүн кубат баскычын эки басыңыз</string>
     <string name="camera_laser_sensor_switch">Камеранын лазердик сенсору</string>
@@ -2491,12 +2514,12 @@
     <string name="forgot_password_text">Ал PIN кодду, графикалык ачкычты же сырсөздү кайра коюуга жардам берет</string>
     <string name="forgot_password_title">IT администраторуңуз менен байланышыңыз</string>
     <string name="free_memory">Бош</string>
-    <string name="fullbackup_data_summary">"Түзмөктөгү дайындары (мисалы, Wi-Fi тармагынын сырсөздөрү жана чалуулар таржымалы) менен колдонмонун дайындарынын (мисалы жөндөөлөр жана файлдар) камдалган көчүрмөлөрүн Google Drive'га автоматтык түрдө сактап коюңуз.
+    <string name="fullbackup_data_summary">"Түзмөктөгү дайындары (мисалы, Wi-Fi тармагынын сырсөздөрү жана чалуулар таржымалы) менен колдонмодогу нерселердин (мисалы жөндөөлөр жана файлдар) камдалган көчүрмөлөрүн Google Drive'га автоматтык түрдө сактап коюңуз.
 
 Автоматтык түрдө көчүрмөнү сактоо мүмкүнчүлүгү иштетилгенде,түзмөк менен колдонмонун дайындары Google Drive'дагы жеке куржунга маал-маалы менен сакталып турат. Иштеп чыгуучунун жөндөөлөрүнө ылайык колдонмодо сакталган дайындарда байланыштар, билдирүүлөр, сүрөттөр сыяктуу купуя маалыматтар камтылышы мүмкүн.
 
 Көчүрмөсү сакталган дайындар Google Drive'да орун ээлебейт. Ири файлдардын же иштеп чыгуучулар көчүрмөлөөгө тыюу салган файлдардын көчүрмөлөрү сакталбайт."</string>
-    <string name="fullbackup_erase_dialog_message">"Түзмөктөгү дайындардын (мисалы, Wi-Fi тармагынын сырсөздөрү жана чалуулар таржымалы) жана колдонмонун дайындарынын (мисалы жөндөөлөр жана файлдар) камдык көчүрмөлөрү мындан ары сакталбай, Google Drive'дагы бардык көчүрмөлөр өчүрүлөт. Уланта бересизби?"</string>
+    <string name="fullbackup_erase_dialog_message">"Түзмөктөгү нерселердин (мисалы, Wi-Fi тармагынын сырсөздөрү жана чалуулар таржымалы) жана колдонмодогу нерселердин (мисалы жөндөөлөр жана файлдар) камдык көчүрмөлөрү мындан ары сакталбай, Google Drive'дагы бардык көчүрмөлөр өчүрүлөт. Уланта бересизби?"</string>
     <string name="gadget_picker_title">Гаджет тандоо</string>
     <string name="game_controller_settings_category">Оюн контроллери</string>
     <string name="game_dashboard_always_on_summary">Оюндарда оюн тактасынын ыкчам баскычын көрсөтүү</string>
@@ -2564,7 +2587,7 @@
     <string name="graphics_driver_app_preference_title">Графикалык драйвер тандоо</string>
     <string name="graphics_driver_dashboard_summary">Графикалык драйвердин жөндөөлөрү өзгөрүлөт</string>
     <string name="graphics_driver_dashboard_title">Графикалык драйвердин параметрлери</string>
-    <string name="graphics_driver_footer_text">Бир нече графикалык драйвер болгондо, түзмөктө орнотулган колдонмолор үчүн жаңыртылган графикалык драйверди колдонууну тандасаңыз болот.</string>
+    <string name="graphics_driver_footer_text">Бир нече графикалык драйвер болгондо, түзмөктө орнотулган колдонмолор үчүн жаңырган графикалык драйверди колдонууну тандасаңыз болот.</string>
     <string name="graphics_driver_main_switch_title">Графикалык драйвердин жөндөөлөрүн колдонуу</string>
     <string name="guest_exit_guest">Конокту өчүрүү</string>
     <string name="guest_new_guest">Конок кошуу</string>
@@ -3302,6 +3325,7 @@ PIN код телефон жоголсо же уурдалса, аны корг�
     <string name="menu_stats_total">Жалпы колдонулушу</string>
     <string name="menu_stats_unplugged">Суурулгандан бери %1$s</string>
     <string name="menu_use_uss">Uss колдонуу</string>
+    <string name="mic_toggle_description">Колдонмолор жана кызматтар үчүн. Эгер бул жөндөө өчүрүлсө, кырсыктаганда жардамга келчү кызматтын номерине чалганыңызда микрофондогу нерселер өткөрүлүшү мүмкүн.</string>
     <string name="mic_toggle_title">Микрофонду колдонуу</string>
     <string name="misc_files">Башка файлдар</string>
     <string name="misc_files_selected_count">%2$d ичинен %1$d тандалды</string>
@@ -3728,6 +3752,7 @@ PIN код телефон жоголсо же уурдалса, аны корг�
     <string name="one_handed_action_show_notification_title">Билдирмелерди көрсөтүү</string>
     <string name="one_handed_mode_enabled">Бир кол режимин колдонуу</string>
     <string name="one_handed_mode_intro_text">Бир колдуу режимди иштетүү үчүн экрандын төмөнкү кырын ылдый сүрүңүз. Бул функцияны колдонуу үчүн тутумдун жөндөөлөрүндө жаңсап чабыттоо иштетилгенин текшериңиз.</string>
+    <string name="one_handed_mode_shortcut_title">Бир колдуу режимдин ыкчам баскычы</string>
     <string name="one_handed_mode_swipe_down_category">Ылдый сүрүңүз:</string>
     <string name="one_handed_mode_use_shortcut_category">Төмөнкү үчүн ыкчам баскычты колдонуу:</string>
     <string name="one_usercrt">бир колдонуучу тастыктамасы</string>
@@ -3803,7 +3828,7 @@ PIN код телефон жоголсо же уурдалса, аны корг�
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s иштеп жатат</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Камера</string>
-    <string name="power_cell">Күтүү режиминдеги мобилдик тармак</string>
+    <string name="power_cell">Мобилдик тармак</string>
     <string name="power_charge_remaining">%1$s кубаттоо</string>
     <string name="power_charging">%1$s - %2$s</string>
     <string name="power_charging_duration">%1$s – %2$s кийин толук кубатталат</string>
@@ -4037,6 +4062,7 @@ PIN код телефон жоголсо же уурдалса, аны корг�
     <string name="recent_notifications">Акыркы жолу билдирмелерди жөнөткөн колдонмолор</string>
     <string name="recent_notifications_see_all_title">Акыркы 7 күндөгү бардык колдонмолорду көрүү</string>
     <string name="recompute_size">Өлчөмү кайра эсептелүүдө…</string>
+    <string name="reduce_bright_colors_about_title">Кошумча караңгылатуу тууралуу</string>
     <string name="reduce_bright_colors_intensity_end_label">Жарыгыраак</string>
     <string name="reduce_bright_colors_intensity_preference_title">Жарыктыгы</string>
     <string name="reduce_bright_colors_intensity_start_label">Күңүртүрөөк</string>
@@ -4044,6 +4070,7 @@ PIN код телефон жоголсо же уурдалса, аны корг�
     <string name="reduce_bright_colors_preference_subtitle">Ыңгайлуу шарттарда окуу үчүн экранды караңгылатыңыз.&lt;br/>&lt;br/> Төмөнкү учурларда: &lt;ol> &lt;li> Телефонуңуздун экранынын эң төмөнкү жарык деңгээлинен да караңгылаткыңыз келсе &lt;/li> &lt;li> Телефонуңузду караңгы жерлерде: түнкүсүн же уктаганга чейин караңгы уктоочу бөлмөдө колдонсоңуз&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">Телефондун экраны эң төмөнкү жарык деңгээлинен да караңгылатылат</string>
     <string name="reduce_bright_colors_preference_title">Кошумча караңгылатуу</string>
+    <string name="reduce_bright_colors_shortcut_title">Кошумча караңгылатуу ыкчам баскычы</string>
     <string name="reduce_bright_colors_switch_title">Экранды кошумча караңгылатуу</string>
     <string name="register_automatically">Автоматтык катталуу…</string>
     <string name="register_on_network">%s тармагына катталууда…</string>
@@ -4249,7 +4276,6 @@ PIN код телефон жоголсо же уурдалса, аны корг�
     <string name="screen_pinning_unlock_pattern">Бошотуудан мурун графикалык ачкыч суралсын</string>
     <string name="screen_pinning_unlock_pin">Бошотуудан мурун PIN суралсын</string>
     <string name="screen_reader_category_title">Экрандагыны окугуч</string>
-    <string name="screen_saver_main_switch_title">Экранды сактагычты колдонуу</string>
     <string name="screen_time_summary_usage_today">Бүгүн %1$s колдонулду</string>
     <string name="screen_timeout_summary">%1$s колдонулбагандан кийин</string>
     <string name="screen_timeout_title">Экран өчөт</string>
@@ -4279,6 +4305,7 @@ PIN код телефон жоголсо же уурдалса, аны корг�
     <string name="screensaver_settings_button">Жөндөөлөр</string>
     <string name="screensaver_settings_current">Учурдагы көшөгө</string>
     <string name="screensaver_settings_disabled_prompt">Телефон докко орнотулганда жана/же уйку режиминде турганда эмне болоорун көзөмөлдөө үчүн көшөгөнү күйгүзүңүз.</string>
+    <string name="screensaver_settings_dream_start">Азыр баштоо</string>
     <string name="screensaver_settings_summary_dock">Док-станцияда</string>
     <string name="screensaver_settings_summary_either_long">Кубатталып жатканда же док-станцияга туташканда</string>
     <string name="screensaver_settings_summary_either_short">Эки учурда тең</string>
@@ -4329,15 +4356,6 @@ PIN код телефон жоголсо же уурдалса, аны корг�
     <string name="security_settings_biometric_preference_summary_both_fp_single">Жүз жана манжа изи кошулду</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Жөндөө үчүн таптаңыз</string>
     <string name="security_settings_biometric_preference_title">Кулпуланган түзмөктү жүз жана манжа изи менен ачуу</string>
-    <string name="security_settings_biometrics_description">Эгер манжа изи жана жүзүнөн таанып ачуу функциясын жөндөсөңүз, беткап тагынып же караңгы жерде турганыңызда телефонуңуз манжаңыздын изин сурайт</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Колдонмолордо аныктыгын текшерүү</string>
-    <string name="security_settings_biometrics_preferences_category">Төмөнкү үчүн жүз же манжа изин колдонуу:</string>
-    <string name="security_settings_biometrics_summary_both">Жүз жана манжа изи</string>
-    <string name="security_settings_biometrics_summary_face">Жүз гана</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Манжа изи гана</string>
-    <string name="security_settings_biometrics_summary_none">Жөндөө үчүн таптаңыз</string>
-    <string name="security_settings_biometrics_title">Жүз жана манжа изи менен кулпуну ачуу</string>
-    <string name="security_settings_biometrics_types_category">Кулпуну ачуу жолдору</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Жүзүнөн таанып ачууга уруксат берүү</string>
     <string name="security_settings_face_enroll_dialog_ok">ЖАРАЙТ</string>
     <string name="security_settings_face_enroll_done">Бүттү</string>
@@ -4383,18 +4401,19 @@ PIN код телефон жоголсо же уурдалса, аны корг�
 
 Кененирээк малымат: g.co/pixel/faceunlock."</string>
     <string name="security_settings_face_enroll_introduction_control_title">Баары өзүңүздүн колуңузда</string>
-    <string name="security_settings_face_enroll_introduction_how_consent_message">"Жүзүнөн таанып ачуу балаңызды таануу үчүн жүзүнүн кайталанбас үлгүсүн түзөт. Жүзүнүн үлгүсүн түзүү үчүн балаңыз жүзүн ар тараптан сүрөткө тартышы керек.
+    <string name="security_settings_face_enroll_introduction_how_consent_message">"Жүзүнөн таанып ачуу функциясы балаңызды таануу үчүн жүзүнүн өзгөчө үлгүсүн түзөт. Жүзүнүн үлгүсүн түзүү үчүн балаңыз жүзүн ар тараптан сүрөткө тартышы керек.
 
-Ал Жүзүнөн таанып ачуу функциясын колдонгондо жүзүнүн үлгүсү сүрөттөр боюнча жаңыртылат. Анын жүзүнүн үлгүсүн түзүү үчүн колдонулган сүрөттөр эч качан сакталбайт, ал эми жүзүнүн үлгүсү телефондо гана сакталат. Сүрөттөр телефондо гана иштетилет."</string>
-    <string name="security_settings_face_enroll_introduction_how_message">"Жүзүнөн таанып ачуу функциясы сизди таануу үчүн жүзүңүздүн уникалдуу үлгүсүн түзөт. Жүздүн үлгүсүн түзүү үчүн жүзүңүздү ар тараптан сүрөткө тартышыңыз керек.
+Ал Жүзүнөн таанып ачуу функциясын колдонгондо, жүзүнүн үлгүсү сүрөттөр аркылуу жаңырат. Анын жүзүнүн үлгүсүн түзүү үчүн колдонулган сүрөттөр сакталбайт, ал эми жүзүнүн үлгүсү телефондо гана сакталат. Сүрөттөр телефондо гана иштетилет."</string>
+    <string name="security_settings_face_enroll_introduction_how_message">"Жүзүнөн таанып ачуу функциясы сиз экениңизди ырастоо үчүн жүзүңүздүн өзгөчө үлгүсүн түзөт. Жүздүн үлгүсүн түзүү үчүн жүзүңүздү ар тараптан сүрөткө тартышыңыз керек.
 
-Сиз Жүзүнөн таанып ачуу функциясын колдонгондо жүзүңүздүн үлгүсү сүрөттөр боюнча жаңыртылат. Жүзүңүздүн үлгүсүн түзүү үчүн колдонулган сүрөттөр эч качан сакталбайт, ал эми жүздүн үлгүсү телефонуңузда гана сакталат. Сүрөттөр телефонуңузда гана иштетилет."</string>
+Жүзүнөн таанып ачуу функциясын колдонгонуңузда, жүзүңүздүн үлгүсү сүрөттөр аркылуу жаңырат. Жүзүңүздүн үлгүсүн түзүү үчүн колдонулган сүрөттөр сакталбайт, ал эми жүздүн үлгүсү телефонуңузда гана сакталат. Сүрөттөр телефонуңузда гана иштетилет."</string>
     <string name="security_settings_face_enroll_introduction_how_title">Ал кантип иштейт</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">Жүзүнөн таанып ачуу функциясы телефондун кулпусун ачуу үчүн балаңыздан көздөрүн ачып туруусун талап кылышы мүмкүн, же болбосо, аныктыгын ырастоо керек болот. Бул функцияны Жөндөөлөргө өтүп, өзүңүз же балаңыз каалаган убакта өчүрүп коё аласыңар.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Эгер балаңыз көз айнек тагынса, жөндөп жатканда аны тагып алса болот.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Ал телефонду карап койсо эле кулпусу ачылат. Анын телефонунун кулпусун ага аябай окшош адам (мисалы, эгизи), ошондой эле кимдир бирөө телефонун анын жүзүнө жакын алып келип ачып алышы мүмкүн.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Жүзүнөн таанып ачуу функциясы телефондун кулпусун ачуу үчүн көздөрүңүздү ачып турууну талап кылышы мүмкүн, же болбосо, аныктыгыңызды ырастоо керек болот. Бул функцияны Жөндөөлөргө өтүп, каалаган убакта өчүрүп коё аласыз.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Көз айнегиңизди чечпей эле койсоңуз болот (күндөн коргогон көз айнегиңизди да, эгер өтө капкара болбосо).</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Телефонду жүзүнөн таанып ачууга салыштырмалуу татаал графикалык ачкыч же PIN код коопсуз болот.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Телефонду карап койсоңуз эле кулпусу ачылат. Телефонуңуздун кулпусун сизге аябай окшош адам (мисалы, эгизиңиз), ошондой эле кимдир бирөө телефонуңузду жүзүңүзгө жакын алып келип ачып алышы мүмкүн.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Көңүл буруңуз</string>
     <string name="security_settings_face_enroll_introduction_message">Телефонуңуздун кулпусун ачуу же өзүңүз экениңизди ырастоо (мисалы, колдонмолорго кирүүдү же сатып алууну ырастоодо) үчүн жүзүңүздү колдонуңуз.</string>
@@ -4452,13 +4471,14 @@ PIN код телефон жоголсо же уурдалса, аны корг�
 
 Телефонуңуздун кулпусун сизге аябай окшош адам (мисалы, эгизиңиз) ачып алышы мүмкүн."</string>
     <string name="security_settings_face_settings_preferences_category">Жүзүнөн таанып ачуу колдонулганда</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Жүзүңүздүн үлгүсү биротоло жана коопсуз өчүрүлөт. Өчүрүлгөндөн кийин телефонуңуздун кулпусун ачуу же колдонмолордо аныктыгын текшерүү үчүн PIN кодуңуз, графикалык ачкычыңыз же сырсөзүңүз керек болот.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Жүзүңүздүн үлгүсү биротоло жана коопсуз өчүрүлөт.
+
+Өчүрүлгөндөн кийин телефонуңуздун кулпусун ачуу же колдонмолордо аныктыгын текшерүү үчүн PIN кодуңуз, графикалык ачкычыңыз же сырсөзүңүз керек болот."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Жүзүңүздүн үлгүсү биротоло жана коопсуз өчүрүлөт.
+
+Өчүрүлгөндөн кийин телефонуңуздун кулпусун ачуу үчүн манжаңыздын изи, PIN код, графикалык ачкыч же сырсөз керек болот."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Жүздүн үлгүсүн өчүрөсүзбү?</string>
     <string name="security_settings_face_settings_remove_face_model">Жүздүн үлгүсүн өчүрүү</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Жүзүңүздүн үлгүсү биротоло жана коопсуз өчүрүлөт.
-
-Өчүрүлгөндөн кийин телефонуңуздун кулпусун ачуу же колдонмолордо аныктыгын текшерүү үчүн манжа изиңиз, PIN кодуңуз, графикалык ачкычыңыз же сырсөзүңүз керек болот."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Жүздүн үлгүсүн өчүрөсүзбү?</string>
     <string name="security_settings_face_settings_require_attention">Көздөр ачык болушу керек</string>
     <string name="security_settings_face_settings_require_attention_details">Телефондун кулпусун ачуу үчүн, көзүңүз ачык болушу керек</string>
     <string name="security_settings_face_settings_require_confirmation">Ар дайым ырастоо талап кылынсын</string>
@@ -4576,7 +4596,6 @@ PIN код телефон жоголсо же уурдалса, аны корг�
     <string name="select_webview_provider_dialog_title">WebView аткарылышын коюу</string>
     <string name="select_webview_provider_title">WebView кызматы</string>
     <string name="select_webview_provider_toast_text">Тандалган нерсе жараксыз болуп калган. Кайталап көрүңүз.</string>
-    <string name="sensor_toggle_description">Бардык колдонмолор жана кызматтар үчүн</string>
     <string name="sensors_off_quick_settings_title">Сенсорлорду өчүрүү</string>
     <string name="service_background_processes">%1$s бош</string>
     <string name="service_foreground_processes">%1$s колдонлд</string>
@@ -4808,6 +4827,7 @@ PIN туура эмес өңдөнөт."</string>
     <string name="sound_settings_summary_silent">Коңгуроонун үнү өчүрүлгөн</string>
     <string name="sound_settings_summary_vibrate">Коңгуроо дирилдейт</string>
     <string name="sound_work_settings">Жумуш профилиндеги үндөр</string>
+    <string name="spatial_audio_title">Мейкиндиктүү аудио</string>
     <string name="special_access">Атайын мүмкүнчүлүк</string>
     <string name="special_access_more">Дагы көрүү</string>
     <string name="speed_label_fast">Ылдам</string>
@@ -5619,7 +5639,7 @@ PIN туура эмес өңдөнөт."</string>
     <string name="vpn_turn_on">Күйгүзүү</string>
     <string name="vpn_type">Түрү</string>
     <string name="vpn_username">Колдонуучунун аты</string>
-    <string name="vpn_version">%s версиясы</string>
+    <string name="vpn_version">Версия</string>
     <string name="vr_listener_security_warning_summary">Колдонмолор виртуалдык дүйнө режиминде колдонулганда %1$s иштей баштайт.</string>
     <string name="vr_listener_security_warning_title">VR кызматына %1$s кызматында иштөөгө уруксат берилсинби?</string>
     <string name="vr_listeners_title">VR көмөкчү кызматтары</string>
@@ -5889,7 +5909,7 @@ PIN туура эмес өңдөнөт."</string>
     <string name="wifi_not_in_range">Тейлөө аймагында эмес</string>
     <string name="wifi_not_in_range_message">Тармак тейлөө аймагында эмес</string>
     <string name="wifi_notify_open_networks">Жалпыга ачык тармактар жөнүндө кабарлоо</string>
-    <string name="wifi_notify_open_networks_summary">Автоматтык туташуу функциясы иштебеген учурда</string>
+    <string name="wifi_notify_open_networks_summary">Байланыш сигналы күчтүү жалпыга ачык тармактар жеткиликтүү болгондо эскертет</string>
     <string name="wifi_on_time">Wi‑Fi өз учурунда</string>
     <string name="wifi_p2p_cancel_connect_message">%1$s менен байланышууга чакырууну жокко чыгарууну каалайсызбы?</string>
     <string name="wifi_p2p_cancel_connect_title">Чакыруу жокко чыгарылсынбы?</string>
@@ -5977,7 +5997,6 @@ PIN туура эмес өңдөнөт."</string>
     <string name="wifi_suspend_optimizations">Wi‑Fi оптималдаштыруу</string>
     <string name="wifi_suspend_optimizations_summary">Wi‑Fi иштегенде батарейди пайдаланууну минималдаштыруу</string>
     <string name="wifi_switch_away_when_unvalidated">Wi-Fi тармагы үзгүлтүккө учураганда, мобилдик Интернет колдонулсун.</string>
-    <string name="wifi_switch_summary">Wi‑Fi тармактарын таап, туташуу</string>
     <string name="wifi_tap_to_sign_in">Тармакка кирүү үчүн бул жерди таптаңыз</string>
     <string name="wifi_tether_configure_ap_text">Wi‑Fi байланыш түйүнүн жөндөө</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

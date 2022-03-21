@@ -15,7 +15,7 @@
     <string name="aware_display_settings_title">इस्तेमाल में न होने पर लॉक स्क्रीन</string>
     <string name="aware_settings_description" />
     <string name="aware_settings_summary" />
-    <string name="brightness">स्क्रीन की रोशनी का स्तर</string>
+    <string name="brightness">स्क्रीन की रोशनी का लेवल</string>
     <string name="camera_gesture_desc">अपनी कलाई को दो बार मोड़कर कैमरा ऐप खोलें</string>
     <string name="camera_gesture_title">कैमरे के लिए दो बार मोड़ना</string>
     <string name="color_mode_title">रंग</string>
@@ -66,7 +66,7 @@
     <string name="power_menu_setting_name">पावर बटन को दबाकर रखें</string>
     <string name="profile_section_header">वर्क प्रोफ़ाइल सूचनाएं</string>
     <string name="reset_dashboard_summary">नेटवर्क, ऐप्लिकेशन या डिवाइस रीसेट किए जा सकते हैं</string>
-    <string name="reset_dashboard_title">रीसेट विकल्प</string>
+    <string name="reset_dashboard_title">डिवाइस को रीसेट करने के विकल्प</string>
     <string name="abc_action_menu_overflow_description">ज़्यादा विकल्प</string>
     <string name="screensaver_settings_title">स्क्रीन सेवर</string>
     <string name="screen_timeout">स्क्रीन इतनी देर में बंद हो जाएगी</string>
@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">स्मूद डिसप्ले</string>
     <string name="peak_refresh_rate_summary">कुछ कॉन्टेंट के लिए, यह अपने-आप ही रीफ़्रेश दर को 60 हर्ट्ज़ से बढ़ाकर 90 हर्ट्ज़ कर देता है. इसमें बैटरी ज़्यादा खर्च होती है.</string>
     <string name="accessibility_vibration_settings_title">वाइब्रेशन और हैप्टिक</string>
+    <string name="columbus_title">कार्रवाइयां शुरू करने के लिए, क्विक टैप का इस्तेमाल करें</string>
     <string name="emergency_gesture_screen_title">इमरजेंसी एसओएस</string>
     <string name="abc_action_mode_done">हो गया</string>
     <string name="vibrate_for_calls_category_title">कॉल</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">डिवाइस कंट्रोल दिखाएं</string>
     <string name="lockscreen_privacy_wallet_summary">लॉक स्क्रीन और फटाफट सेटिंग से वॉलेट ऐक्सेस करने की अनुमति दें</string>
     <string name="lockscreen_privacy_controls_summary">स्क्रीन लॉक होने पर कंट्रोल को ऐक्सेस करें</string>
+    <string name="lockscreen_double_line_clock_summary">उपलब्ध होने पर, दो समय क्षेत्र वाली घड़ी दिखाएं</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">दो समय क्षेत्र वाली घड़ी</string>
     <string name="abc_activity_chooser_view_see_all">सभी देखें</string>
     <string name="abc_activitychooserview_choose_application">कोई ऐप्लिकेशन चुनें</string>
     <string name="abc_capital_off">बंद</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">अलार्म का वाइब्रेशन</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Active Edge का सेटअप पूरा हो गया है. अगली स्क्रीन पर जाएं या मनमुताबिक बदलाव करना जारी रखें.</string>
     <string name="accessibility_audio_adjustment_title">ऑडियो में बदलाव करने की सेटिंग</string>
+    <string name="accessibility_autoclick_about_title">ऑटो क्लिक (कॉन्टेंट पर बिताया गया समय) के बारे में जानकारी</string>
     <string name="accessibility_autoclick_custom_title">पसंद के मुताबिक</string>
     <string name="accessibility_autoclick_default_title">बंद है</string>
     <string name="accessibility_autoclick_description">अपने-आप क्लिक होने (ऑटो क्लिक) की सुविधा, माउस कनेक्ट करने पर काम करती है. आप माउस के कर्सर को अपने-आप क्लिक होने के लिए सेट कर सकते हैं. ऐसा, कर्सर के किसी जगह पर एक तय समय तक रुक जाने पर होता है.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">ऑटो क्लिक (कॉन्टेंट पर बिताया गया समय) के बारे में ज़्यादा जानें</string>
     <string name="accessibility_autoclick_long_summary">1 सेकंड</string>
     <string name="accessibility_autoclick_long_title">ज़्यादा</string>
     <string name="accessibility_autoclick_longer_desc">ज़्यादा</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">कम</string>
     <string name="accessibility_autoclick_shorter_desc">कम</string>
     <string name="accessibility_banner_message_dismiss">खारिज करें</string>
-    <string name="accessibility_button_description">"किसी भी स्क्रीन से, सुलभता सुविधाओं को फटाफट ऐक्सेस करें. 
+    <string name="accessibility_button_about_title">सुलभता बटन के बारे में जानकारी</string>
+    <string name="accessibility_button_description">"किसी भी स्क्रीन से, सुलभता सुविधाओं को तुरंत ऐक्सेस करें.
 
 शुरू करने के लिए, सुलभता सेटिंग में जाकर कोई सुविधा चुनें. शॉर्टकट पर टैप करें और सुलभता बटन को चुनें."</string>
     <string name="accessibility_button_fade_summary">कुछ सेकंड के बाद फ़ेड हो जाएगा, ताकि आप आसानी से अपनी स्क्रीन देख सकें</string>
     <string name="accessibility_button_fade_title">इस्तेमाल न होने पर फ़ेड हो जाए</string>
-    <string name="accessibility_button_gesture_description">"किसी भी स्क्रीन से, सुलभता सुविधाओं को फटाफट ऐक्सेस करें.
+    <string name="accessibility_button_gesture_about_title">सुलभता बटन और हाथ के जेस्चर के बारे में जानकारी</string>
+    <string name="accessibility_button_gesture_description">"किसी भी स्क्रीन से, सुलभता सुविधाओं को तुरंत ऐक्सेस करें.
 
-शुरू करने के लिए, सुलभता सेटिंग में जाकर कोई सुविधा चुनें. शॉर्टकट पर टैप करें और सुलभता बटन को चुनें.
-
-इसके अलावा, नेविगेशन बार में सुलभता बटन का इस्तेमाल करने के लिए दो बटन वाले नेविगेशन या तीन बटन वाले नेविगेशन पर स्विच करें."</string>
+शुरू करने के लिए, सुलभता सेटिंग में जाकर कोई सुविधा चुनें. शॉर्टकट पर टैप करें और सुलभता बटन या हाथ के जेस्चर (हाव-भाव) को चुनें."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">सुलभता बटन और हाथ के जेस्चर के बारे में ज़्यादा जानें</string>
     <string name="accessibility_button_gesture_title">सुलभता बटन और जेस्चर (हाव-भाव)</string>
     <string name="accessibility_button_high_label">पारदर्शी नहीं है</string>
     <string name="accessibility_button_intro">सुलभता बटन का इस्तेमाल करना. तीन बटन वाले नेविगेशन का इस्तेमाल करने पर, जेस्चर काम नहीं करता.</string>
@@ -184,14 +190,23 @@
     <string name="accessibility_caption_preference_summary">सभी ऐप्लिकेशन में, कैप्शन के लिए आपकी पसंद की सेटिंग काम नहीं करती</string>
     <string name="accessibility_caption_primary_switch_summary">सिर्फ़ इस सुविधा के साथ काम करने वाले ऐप्लिकेशन के लिए</string>
     <string name="accessibility_caption_primary_switch_title">कैप्शन दिखाएं</string>
+    <string name="accessibility_captioning_about_title">कैप्शन की प्राथमिकताओं के बारे में जानकारी</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">कैप्शन की प्राथमिकताओं के बारे में ज़्यादा जानें</string>
     <string name="accessibility_captioning_title">कैप्शन की सेटिंग</string>
     <string name="accessibility_category_personal">व्‍यक्‍तिगत प्रोफ़ाइल खाते</string>
     <string name="accessibility_category_work">वर्क प्रोफ़ाइल खाते - %s</string>
+    <string name="accessibility_color_inversion_about_title">रंग बदलने की सुविधा के बारे में जानकारी</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">रंग बदलने की सुविधा के बारे में ज़्यादा जानें</string>
+    <string name="accessibility_control_timeout_about_title">कार्रवाई करने के समय (सुलभता टाइम आउट) के बारे में जानकारी</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">कार्रवाई करने के समय (सुलभता टाइम आउट) के बारे में ज़्यादा जानें</string>
     <string name="accessibility_control_timeout_preference_summary">"चुनें कि आपको कार्रवाई करने के लिए कहने वाले मैसेज कितनी देर तक दिखाने हैं, लेकिन वे सिर्फ़ कुछ समय के लिए ही दिखाई देते हैं.
 
 यह सेटिंग सभी ऐप्लिकेशन पर काम नहीं करती है."</string>
     <string name="accessibility_control_timeout_preference_title">कार्रवाई करने के लिए समय</string>
+    <string name="accessibility_daltonizer_about_title">रंग में सुधार करने की सुविधा के बारे में जानकारी</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">रंग में सुधार करने की सुविधा के बारे में ज़्यादा जानें</string>
     <string name="accessibility_daltonizer_primary_switch_title">रंग में सुधार करने की सुविधा इस्तेमाल करें</string>
+    <string name="accessibility_daltonizer_shortcut_title">रंग में सुधार करने की सुविधा का शॉर्टकट</string>
     <string name="accessibility_data_one_bar">डेटा एक बार.</string>
     <string name="accessibility_data_signal_full">डेटा सि‍ग्‍नल पूरा.</string>
     <string name="accessibility_data_three_bars">डेटा तीन बार.</string>
@@ -206,6 +221,7 @@
     <string name="accessibility_display_daltonizer_preference_title">रंग में सुधार करने की सुविधा</string>
     <string name="accessibility_display_inversion_preference_subtitle">रंग बदलने की सुविधा के इस्तेमाल से हल्के रंग की स्क्रीन गहरे रंग में बदल जाती हैं.&lt;br/>&lt;br/> ध्यान दें: &lt;ol> &lt;li> रंग बदलने की सुविधा से गहरे रंग की स्क्रीन हल्के रंग में भी बदल जाती हैं.&lt;/li> &lt;li> मीडिया और इमेज में रंग बदल जाएंगे.&lt;/li> &lt;li> गहरे रंग वाली थीम का इस्तेमाल करके, गहरा बैकग्राउंड दिखाया जा सकता है. गहरे रंग वाली थीम, इसके साथ काम करने वाले ऐप्लिकेशन पर ही काम करती है. रंग बदलने की सुविधा सभी ऐप्लिकेशन पर काम करती है.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">रंग बदलने की सुविधा</string>
+    <string name="accessibility_display_inversion_shortcut_title">रंग बदलने की सुविधा का शॉर्टकट</string>
     <string name="accessibility_display_inversion_switch_title">रंग बदलने की सुविधा का इस्तेमाल करें</string>
     <string name="accessibility_ethernet_connected">ईथरनेट.</string>
     <string name="accessibility_ethernet_disconnected">ईथरनेट डिस्‍कनेक्‍ट किया गया.</string>
@@ -255,6 +271,8 @@
     <string name="accessibility_phone_two_bars">फ़ोन दो बार.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">पावर बटन से कॉल काटना</string>
     <string name="accessibility_preference_magnification_summary">स्क्रीन पर ज़ूम इन करें</string>
+    <string name="accessibility_screen_magnification_about_title">ज़ूम करने की सुविधा के बारे में जानकारी</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">ज़ूम करने की सुविधा के बारे में ज़्यादा जानें</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">"सुलभता जेस्चर को %1$s के लिए सेट किया गया है. बड़ा करने के लिए, दो उंगलियों से स्क्रीन के सबसे निचले हिस्से से ऊपर की ओर स्वाइप करें और रुके रहें. फिर 'बड़ा करना' चुनें."</string>
     <string name="accessibility_screen_magnification_gestures_title">तीन बार टैप करके आकार बढ़ाएं</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">सुलभता बटन %1$s पर सेट है. बड़ा करने के लिए, सुलभता बटन को दबाकर रखें, फिर बड़ा करना चुनें.</string>
@@ -272,6 +290,7 @@
 आप कीबोर्ड या नेविगेशन बार को ज़ूम इन नहीं कर सकते."</string>
     <string name="accessibility_screen_magnification_navbar_title">शॉर्टकट की मदद से बड़ा करके देखें</string>
     <string name="accessibility_screen_magnification_short_summary">ज़ूम करने के लिए तीन बार टैप करें</string>
+    <string name="accessibility_screen_magnification_shortcut_title">ज़ूम करने की सुविधा का शॉर्टकट</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">तीन बार टैप और शॉर्टकट की मदद से बड़ा करके देखें</string>
     <string name="accessibility_screen_magnification_summary">कॉन्टेंट को बड़ा करके देखने के लिए, स्क्रीन पर तेज़ी से ज़ूम इन करें.&lt;br/>&lt;br/> &lt;b>ज़ूम इन करने के लिए:&lt;/b>&lt;br/> {0,number,integer}. ज़ूम करने की सुविधा को शुरू करने के लिए, शॉर्टकट का इस्तेमाल करें&lt;br/> {1,number,integer}. स्क्रीन पर टैप करें&lt;br/> {2,number,integer}. स्क्रीन पर इधर-उधर जाने के लिए, दो उंगलियों से खींचें और छोड़ें&lt;br/> {3,number,integer}. ज़ूम काे कम या ज़्यादा करने के लिए, दो उंगलियों से पिंच करें&lt;br/> {4,number,integer}. ज़ूम करने की सुविधा को बंद करने के लिए, शॉर्टकट का इस्तेमाल करें&lt;br/>&lt;br/> &lt;b>कुछ समय के लिए ज़ूम इन करना हो, ताे:&lt;/b>&lt;br/> {0,number,integer}. ज़ूम करने की सुविधा को शुरू करने के लिए, शॉर्टकट का इस्तेमाल करें&lt;br/> {1,number,integer}. स्क्रीन पर कहीं भी उंगली से दबाकर रखें&lt;br/> {2,number,integer}. स्क्रीन पर इधर-उधर जाने के लिए, उंगली से खींचें और छोड़ें&lt;br/> {3,number,integer}. ज़ूम करने की सुविधा बंद करने के लिए, स्क्रीन से अपनी उंगली हटाएं</string>
     <string name="accessibility_screen_magnification_title">ज़ूम करने की सुविधा</string>
@@ -370,7 +389,7 @@
     <string name="accessibility_tutorial_dialog_message_volume">इस सुविधा का इस्तेमाल करने के लिए, आवाज़ कम-ज़्यादा करने वाले दोनों बटन दबाकर रखें.</string>
     <string name="accessibility_tutorial_dialog_title_button">इसे खोलने के लिए सुलभता बटन का इस्तेमाल करें</string>
     <string name="accessibility_tutorial_dialog_title_gesture">इसे खोलने के लिए हाथ के जेस्चर का इस्तेमाल करें</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">सुलभता वाले नए जेस्चर इस्तेमाल करें</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">सुलभता से जुड़े हाथ के जेस्चर का इस्तेमाल करें</string>
     <string name="accessibility_tutorial_dialog_title_triple">खोलने के लिए स्क्रीन पर तीन बार टैप करें</string>
     <string name="accessibility_tutorial_dialog_title_volume">खोलने के लिए, आवाज़ कम-ज़्यादा करने वाले दोनों बटन दबाकर रखें</string>
     <string name="accessibility_tutorial_pager">पेज %2$d में से %1$d</string>
@@ -425,7 +444,7 @@
     <string name="adaptive_charging_time_estimate"><b>अडैप्टिव चार्जिंग की सुविधा</b> • %1$s में पूरा चार्ज हो जाएगा</string>
     <string name="adaptive_connectivity_summary">अडैप्टिव कनेक्टिविटी का विकल्प चुनने पर, आपका इंटरनेट कनेक्शन अपने-आप मैनेज हो जाएगा. इससे बैटरी लाइफ़ बढ़ती है और डिवाइस की परफ़ॉर्मेंस बेहतर होती है</string>
     <string name="adaptive_connectivity_switch_off">बंद करें</string>
-    <string name="adaptive_connectivity_switch_on">चालू करें</string>
+    <string name="adaptive_connectivity_switch_on">चालू</string>
     <string name="adaptive_connectivity_title">Adaptive connectivity</string>
     <string name="adaptive_sleep_camera_lock_summary">स्क्रीन चालू रखने की सुविधा के लिए, कैमरा अनलॉक होना ज़रूरी है</string>
     <string name="adaptive_sleep_contextual_slice_summary">जब तक आप स्क्रीन देख रहें हैं, तब तक स्क्रीन चालू रखें</string>
@@ -936,6 +955,7 @@
     <string name="battery_level_title">बैटरी स्‍तर</string>
     <string name="battery_manager_off">बंद है</string>
     <string name="battery_manager_summary">इसके चालू होने पर, बैटरी लाइफ़ बढ़ जाती है और डिवाइस जल्दी चार्ज होता है</string>
+    <string name="battery_manager_summary_unsupported">बैटरी लाइफ़ बढ़ाएं</string>
     <string name="battery_missing_link_a11y_message">इस गड़बड़ी के बारे में ज़्यादा जानने के लिए टैप करें</string>
     <string name="battery_missing_link_message">ज़्यादा जानें</string>
     <string name="battery_missing_message">डिवाइस के बैटरी मीटर की रीडिंग लेने में समस्या आ रही है.</string>
@@ -1015,7 +1035,7 @@
 इन स्थितियों के बदल जाने पर, आपका फ़ोन अपने-आप सामान्य रूप से चार्ज होने लगेगा."</string>
     <string name="battery_tip_limited_temporarily_dialog_resume_charge">चार्जिंग फिर से शुरू करें</string>
     <string name="battery_tip_limited_temporarily_summary">बैटरी कम खर्च करने के लिए. ज़्यादा जानें.</string>
-    <string name="battery_tip_limited_temporarily_title">चार्जिंग कुछ समय के लिए सीमित की गई</string>
+    <string name="battery_tip_limited_temporarily_title">कुछ समय के लिए चार्जिंग रोक दी गई</string>
     <string name="battery_tip_low_battery_summary">बैटरी लाइफ़ बढ़ाने के लिए, बैटरी सेवर को चालू करें</string>
     <string name="battery_tip_low_battery_title">बैटरी कम है</string>
     <string name="battery_tip_restrict_app_dialog_message">बैटरी बचाने के लिए, %1$s को बैकग्राउंड में बैटरी इस्तेमाल करने से रोकें. हो सकता है कि यह ऐप्लिकेशन ठीक तरह से काम न करे और इसके बारे में सूचनाएं देर से मिलें.</string>
@@ -1061,6 +1081,7 @@
     <string name="battery_usage_screen_footer">बैटरी खर्च से जुड़ा डेटा अनुमानित होता है. साथ ही, फ़ोन के चार्ज होने के दौरान, बैटरी खर्च से जुड़े डेटा का अनुमान नहीं लगाया जाता</string>
     <string name="battery_usage_screen_footer_empty">कुछ घंटों तक फ़ोन इस्तेमाल करने के बाद, बैटरी खर्च से जुड़ा डेटा उपलब्ध हो जाएगा</string>
     <string name="battery_usage_total_less_than_one_minute">इस्तेमाल का कुल समय: एक मिनट से कम</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%2$s ने %1$s उपयोग किया है</string>
     <string name="battery_used_for">^1 के लिए उपयोग किया गया</string>
     <string name="bearer">धारक</string>
@@ -1069,12 +1090,14 @@
     <string name="billing_cycle_less_than_one_day_left">1 दिन से कम समय बचा है</string>
     <string name="billing_cycle_none_left">बिलिंग साइकिल पूरा हो चुका है</string>
     <string name="biometric_settings_category_ways_to_unlock">फ़ोन को अनलॉक करने के तरीके</string>
-    <string name="biometric_settings_category_ways_to_use">इसके लिए फ़ेस या फ़िंगरप्रिंट का इस्तेमाल करें</string>
     <string name="biometric_settings_hand_back_to_guardian">फ़ोन वापस अपने माता-पिता को दें</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">ठीक है</string>
     <string name="biometric_settings_intro">अगर आप फ़ोन में फ़िंगरप्रिंट अनलॉक और फ़ेस अनलॉक की सुविधा सेट अप करेंगे, तो चेहरे पर मास्क होने पर या आस-पास रोशनी न होने पर, फ़ोन आपका फ़िंगरप्रिंट मांगेगा</string>
-    <string name="biometric_settings_use_biometric_for_apps">ऐप्लिकेशन में पुष्टि</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">फ़ाेन अनलॉक के लिए</string>
+    <string name="biometric_settings_use_biometric_for_apps">पुष्टि करें कि आप ही ऐप्लिकेशन इस्तेमाल कर रहे हैं</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">अपना फ़ोन अनलॉक करें</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">अपने फ़िंगरप्रिंट या चेहरे का इस्तेमाल करके</string>
+    <string name="biometric_settings_use_face_preference_summary">अपने चेहरे का इस्तेमाल करके</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">अपने फ़िंगरप्रिंट का इस्तेमाल करके</string>
     <string name="biometrics_unlock_set_unlock_password">पासवर्ड • फ़ेस अनलॉक • फ़िंगरप्रिंट</string>
     <string name="biometrics_unlock_set_unlock_pattern">पैटर्न • फ़ेस अनलॉक • फ़िंगरप्रिंट</string>
     <string name="biometrics_unlock_set_unlock_pin">पिन • फ़ेस अनलॉक • फ़िंगरप्रिंट</string>
@@ -1332,7 +1355,6 @@
     <string name="bluetooth_settings_title">ब्लूटूथ</string>
     <string name="bluetooth_show_devices_without_names">बिना नाम वाले ब्लूटूथ डिवाइस दिखाएं</string>
     <string name="bluetooth_show_devices_without_names_summary">बिना नाम वाले ब्लूटूथ डिवाइस (सिर्फ़ MAC पते वाले) दिखाए जाएंगे</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">ब्लूटूथ से मिली फ़ाइलें</string>
     <string name="bluetooth_show_received_files">मिलने वाली फ़ाइलें</string>
     <string name="bluetooth_sim_card_access_dialog_content">"ब्लूटूथ डिवाइस, %1$s आपके सिम कार्ड पर मौजूद डेटा को ऐक्सेस करना चाहता है. इस डेटा में आपके संपर्क शामिल हैं.
 
@@ -1426,6 +1448,7 @@
     <string name="calls_sms_temp_unavailable">फ़िलहाल, उपलब्ध नहीं है</string>
     <string name="calls_sms_unavailable">उपलब्ध नहीं है</string>
     <string name="calls_sms_wfc_summary">वाई-फ़ाई की मदद से कॉल करें और कॉल रिसीव करें</string>
+    <string name="cam_toggle_description">ऐप्लिकेशन और सेवाओं के लिए</string>
     <string name="camera_double_tap_power_gesture_desc">अपनी स्‍क्रीन को अनलाॅक किए बिना अपना कैमरा तुरंत खोलें</string>
     <string name="camera_double_tap_power_gesture_title">कैमरे के लिए पावर बटन दो बार दबाएं</string>
     <string name="camera_laser_sensor_switch">कैमरा लेज़र सेंसर</string>
@@ -1501,7 +1524,7 @@
     <string name="cellular_data_summary">मोबाइल नेटवर्क पर डेटा खर्च की अनुमति</string>
     <string name="cellular_data_usage">मोबाइल डेटा खर्च</string>
     <string name="cert_not_installed">प्रमाणपत्र इंस्टॉल नहीं किया गया है</string>
-    <string name="certificate_management_app">प्रमाणपत्र मैनेजमेंट ​ऐप</string>
+    <string name="certificate_management_app">सर्टिफ़िकेट मैनेजमेंट ​ऐप</string>
     <string name="certificate_management_app_description">जब आप यहां बताए गए ऐप्लिकेशन और यूआरएल का इस्तेमाल करेंगे, तो सर्टिफ़िकेट आपकी पुष्टि करेंगे</string>
     <string name="certificate_warning_dont_install">इंस्टॉल न करें</string>
     <string name="certificate_warning_install_anyway">फिर भी इंस्टॉल करें</string>
@@ -1733,12 +1756,12 @@
     <string name="credential_for_vpn_and_apps">वीपीएन और ऐप्लिकेशन के लिए इंस्टॉल किया गया</string>
     <string name="credential_for_wifi">वाई-फ़ाई के लिए इंस्टॉल किया गया</string>
     <string name="credentials_erased">प्रमाणिकता मेमोरी मिटा दिया गया है.</string>
-    <string name="credentials_install">कोई प्रमाणपत्र इंस्टॉल करें</string>
+    <string name="credentials_install">कोई सर्टिफ़िकेट इंस्टॉल करें</string>
     <string name="credentials_install_summary">मेमोरी से प्रमाणपत्र इंस्‍टॉल करें</string>
     <string name="credentials_not_erased">प्रमाणिकता मेमोरी मिटाया नहीं जा सका.</string>
     <string name="credentials_reset">क्रेडेंशियल हटाएं</string>
     <string name="credentials_reset_hint">सभी सामग्री हटाएं?</string>
-    <string name="credentials_reset_summary">सभी प्रमाणपत्र हटाएं</string>
+    <string name="credentials_reset_summary">सभी सर्टिफ़िकेट हटाएं</string>
     <string name="credentials_settings_not_available">इस उपयोगकर्ता के लिए क्रेडेंशियल मौजूद नहीं हैं</string>
     <string name="credentials_title">क्रेडेंशियल स्टोरेज</string>
     <string name="cross_profile_calendar_summary">निजी कैलेंडर पर काम से जुड़े इवेंट दिखाएं</string>
@@ -1968,7 +1991,7 @@
     <string name="debug_app_not_set">डीबग करने के लिए कोई ऐप्लिकेशन सेट नहीं है</string>
     <string name="debug_app_set">डीबग करने वाला ऐप्लिकेशन : %1$s</string>
     <string name="debug_applications_category">ऐप्लिकेशन</string>
-    <string name="debug_autofill_category">अपने-आप भरने की सुविधा (ऑटो फ़िल)</string>
+    <string name="debug_autofill_category">ऑटोमैटिक भरने की सुविधा</string>
     <string name="debug_debugging_category">डीबग करना</string>
     <string name="debug_drawing_category">ड्रॉइंग</string>
     <string name="debug_hw_drawing_category">हार्डवेयर ऐक्सेलरेटेड रेंडरिंग</string>
@@ -2087,7 +2110,7 @@
     <string name="disable_wifi_hotspot_when_usb_and_ethernet_on">सिर्फ़ यूएसबी और ईथरनेट से इंटरनेट शेयर करें</string>
     <string name="disable_wifi_hotspot_when_usb_on">सिर्फ़ यूएसबी के ज़रिए इंटरनेट शेयर करें</string>
     <string name="disabled">बंद किया गया</string>
-    <string name="disabled_because_no_backup_security">उपयोग करने के लिए, सबसे पहले स्क्रीन लॉक सेट करें</string>
+    <string name="disabled_because_no_backup_security">इस्तेमाल करने के लिए, सबसे पहले स्क्रीन लॉक सेट करें</string>
     <string name="disabled_by_admin">एडमिन की ओर से बंद किया गया</string>
     <string name="disabled_by_admin_summary_text">इसका नियंत्रण एडमिन के पास है</string>
     <string name="disabled_by_administrator_summary">उपलब्ध नहीं है</string>
@@ -2463,8 +2486,8 @@
 वहां कई लोग थे, महिलाएं, पुरुष, और बच्चे. उन सभी ने हरे रंग के कपड़े पहने हुए थे और उनकी त्वचा भी हरे रंग की थी. उन्होंने डॉरथी और उसके अजीबो-गरीब दोस्तों की ओर अचरज भरी नज़रों से देखा. जब बच्चों ने शेर को देखा, तो वे सभी अपनी-अपनी मां के पीछे जाकर छिप गए, लेकिन किसी ने भी उनसे बात नहीं की. सड़क पर कई दुकानें थीं और डॉरथी ने देखा कि वहां सब कुछ हरा था. हरी कैंडी और हरे पॉपकॉर्न बिक रहे थे. साथ ही, हरे जूते, हरी टोपियां, और सभी तरह के हरे कपड़े भी. एक जगह पर, एक व्यक्ति हरे रंग वाला नींबू का शरबत बेच रहा था. डॉरथी ने देखा कि शरबत खरीदने के लिए बच्चे हरे रंग के सिक्के दिए. 
 
 वहां कोई भी घोड़ा या किसी भी तरह का कोई जानवर नहीं था; लोग उनके सामने से हरे रंग की गाड़ियों में यहां-वहां सामान ले जा रहे थे. हर कोई खुश, संतुष्ट और समृद्ध नज़र आ रहा था."</string>
-    <string name="font_size_preview_text_headline">नमूना लेख</string>
-    <string name="font_size_preview_text_subtitle">अध्याय 11: पन्ने का अद्भुत शहर ओज़</string>
+    <string name="font_size_preview_text_headline">सैंपल टेक्स्ट</string>
+    <string name="font_size_preview_text_subtitle">पाठ 11: ओज़ का पन्ने वाला अद्भुत शहर</string>
     <string name="font_size_preview_text_title">ओज़ का अद्भुत जादू</string>
     <string name="font_size_save">ठीक है</string>
     <string name="font_size_summary">स्क्रीन पर मौजूद टेक्स्ट को छोटा या बड़ा करें.</string>
@@ -2846,7 +2869,7 @@
     <string name="language_input_gesture_title">भाषाएं, इनपुट और जेस्चर</string>
     <string name="language_keyboard_settings_title">भाषाएं और इनपुट</string>
     <string name="language_picker_title">भाषाएं</string>
-    <string name="last_synced">आखिरी बार सिंक %1$s किया गया था</string>
+    <string name="last_synced">आखिरी बार %1$s पर किया गया था</string>
     <string name="last_time_used_label">पिछली बार उपयोग किया गया</string>
     <string name="launch_by_default">डिफ़ॉल्ट रूप से खोलें</string>
     <string name="launch_defaults_none">कोई डिफ़ॉल्‍ट सेट नहीं है</string>
@@ -3273,7 +3296,7 @@
     <string name="memory_media_usage">मीडिया</string>
     <string name="memory_music_usage">ऑडियो (संगीत, रिंगटोन, पॉडकास्‍ट, वगैरह)</string>
     <string name="memory_performance">परफ़ॉर्मेंस</string>
-    <string name="memory_settings_title">मेमोरी</string>
+    <string name="memory_settings_title">स्टोरेज</string>
     <string name="memory_size">कुल जगह</string>
     <string name="memory_summary">औसतन %2$s में से %1$s मेमोरी उपयोग की गई</string>
     <string name="memory_usage">मेमोरी का उपयोग</string>
@@ -3302,6 +3325,7 @@
     <string name="menu_stats_total">कुल उपयोग</string>
     <string name="menu_stats_unplugged">अनप्लग करने के बाद से %1$s</string>
     <string name="menu_use_uss">Uss का उपयोग करें</string>
+    <string name="mic_toggle_description">ऐप्लिकेशन और सेवाओं के लिए. इस सेटिंग के बंद होने पर भी, माइक्रोफ़ोन डेटा को शेयर किया जा सकता है. ऐसा तब होता है, जब किसी आपातकालीन नंबर पर कॉल किया जाता है.</string>
     <string name="mic_toggle_title">माइक्रोफ़ोन का ऐक्सेस</string>
     <string name="misc_files">विविध फ़ाइलें</string>
     <string name="misc_files_selected_count">%2$d में से %1$d चयनित</string>
@@ -3543,7 +3567,7 @@
     <string name="no_battery_summary_24hr">पिछले 24 घंटे में, बैटरी का इस्तेमाल नहीं हुआ</string>
     <string name="no_carrier_update_now_text">अभी-अभी अपडेट किया गया</string>
     <string name="no_carrier_update_text">^2 पहले अपडेट किया गया</string>
-    <string name="no_certificate_management_app">प्रमाणपत्र मैनेज करने के लिए कोई ऐप्लिकेशन नहीं है</string>
+    <string name="no_certificate_management_app">सर्टिफ़िकेट मैनेज करने के लिए कोई ऐप्लिकेशन नहीं है</string>
     <string name="no_channels">इस ऐप्लिकेशन ने कोई भी सूचना पोस्ट नहीं की है</string>
     <string name="no_data_usage">किसी डेटा का इस्तेमाल नहीं किया गया</string>
     <string name="no_default_apps">कोई डिफ़ॉल्ट ऐप नहीं.</string>
@@ -3728,6 +3752,7 @@
     <string name="one_handed_action_show_notification_title">सूचनाएं दिखाएं</string>
     <string name="one_handed_mode_enabled">वन-हैंडेड मोड का इस्तेमाल करें</string>
     <string name="one_handed_mode_intro_text">"'वन-हैंडेड मोड' का इस्तेमाल करने के लिए, स्क्रीन के निचले किनारे की ओर स्वाइप करें. इस सुविधा का इस्तेमाल करने के लिए, पक्का करें कि सिस्टम नेविगेशन सेटिंग में हाथ के जेस्चर (हाव-भाव) वाला नेविगेशन चालू है."</string>
+    <string name="one_handed_mode_shortcut_title">वन-हैंडेड मोड का शॉर्टकट</string>
     <string name="one_handed_mode_swipe_down_category">इनके लिए नीचे स्वाइप करें</string>
     <string name="one_handed_mode_use_shortcut_category">इसके लिए शॉर्टकट का इस्तेमाल करें</string>
     <string name="one_usercrt">एक उपयोगकर्ता प्रमाणपत्र</string>
@@ -3803,7 +3828,7 @@
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s चालू है</string>
     <string name="power_bluetooth">ब्लूटूथ</string>
     <string name="power_camera">कैमरा</string>
-    <string name="power_cell">मोबाइल नेटवर्क स्टैंडबाय</string>
+    <string name="power_cell">मोबाइल नेटवर्क</string>
     <string name="power_charge_remaining">चार्ज होने में %1$s शेष</string>
     <string name="power_charging">%1$s - %2$s</string>
     <string name="power_charging_duration">%1$s - %2$s में बैटरी पूरी चार्ज हो जाएगी</string>
@@ -4037,6 +4062,7 @@
     <string name="recent_notifications">हाल ही में सूचनाएं भेजने वाले ऐप्लिकेशन</string>
     <string name="recent_notifications_see_all_title">पिछले 7 दिनों में इस्तेमाल किए गए सभी ऐप्लिकेशन देखें</string>
     <string name="recompute_size">आकार फिर से परिकलित कर रहा है…</string>
+    <string name="reduce_bright_colors_about_title">स्क्रीन की रोशनी को सामान्य लेवल से और कम करने की सुविधा के बारे में जानकारी</string>
     <string name="reduce_bright_colors_intensity_end_label">ज़्यादा रोशनी</string>
     <string name="reduce_bright_colors_intensity_preference_title">स्क्रीन की चमक</string>
     <string name="reduce_bright_colors_intensity_start_label">हल्की रोशनी</string>
@@ -4044,6 +4070,7 @@
     <string name="reduce_bright_colors_preference_subtitle">स्क्रीन की चमक को और कम करें, ताकि इस पर दिखने वाला कॉन्टेंट ज़्यादा आराम से पढ़ा जा सके.&lt;br/>&lt;br/> यह सुविधा तब ज़्यादा मददगार होती है, जब &lt;ol> &lt;li> आपके फ़ोन की स्क्रीन की चमक डिफ़ॉल्ट तौर पर सबसे कम होने के बावजूद, बहुत ज़्यादा होती है&lt;/li> &lt;li> आप फ़ोन को अंधेरे में इस्तेमाल कर रहे हों, जैसे कि रात के समय या सोने से पहले बिना रोशनी वाले कमरे में&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">स्क्रीन की रोशनी को, अपने फ़ोन में चमक कम करने के सबसे कम लेवल से और कम करें</string>
     <string name="reduce_bright_colors_preference_title">स्क्रीन की रोशनी को सामान्य लेवल से और कम करने की सुविधा</string>
+    <string name="reduce_bright_colors_shortcut_title">स्क्रीन की रोशनी को सामान्य लेवल से और कम करने का शॉर्टकट</string>
     <string name="reduce_bright_colors_switch_title">स्क्रीन की रोशनी को सामान्य लेवल से और कम करें</string>
     <string name="register_automatically">अपने आप रजिस्ट्रेशन…</string>
     <string name="register_on_network">%s पर रजिस्टर किया जा रहा है…</string>
@@ -4249,7 +4276,6 @@
     <string name="screen_pinning_unlock_pattern">अनपिन करने से पहले लॉक खोलने के पैटर्न के लिए पूछें</string>
     <string name="screen_pinning_unlock_pin">अनपिन करने से पहले पिन के लिए पूछें</string>
     <string name="screen_reader_category_title">स्क्रीन रीडर</string>
-    <string name="screen_saver_main_switch_title">स्क्रीन सेवर का इस्तेमाल करें</string>
     <string name="screen_time_summary_usage_today">आज %1$s</string>
     <string name="screen_timeout_summary">%1$s तक इस्तेमाल न होने पर</string>
     <string name="screen_timeout_title">स्क्रीन बंद हो जाती है</string>
@@ -4279,6 +4305,7 @@
     <string name="screensaver_settings_button">सेटिंग</string>
     <string name="screensaver_settings_current">मौजूदा स्क्रीन सेवर</string>
     <string name="screensaver_settings_disabled_prompt">फ़ोन के डॉक रहते समय और/या उपयोग में नहीं होने पर जो भी होता है, उसे नियंत्रित करने के लिए स्क्रीन सेवर चालू करें.</string>
+    <string name="screensaver_settings_dream_start">अभी शुरू करें</string>
     <string name="screensaver_settings_summary_dock">जब डॉक किया हुआ हो</string>
     <string name="screensaver_settings_summary_either_long">चार्ज होते समय या डॉक किए होने पर</string>
     <string name="screensaver_settings_summary_either_short">कोई एक</string>
@@ -4329,15 +4356,6 @@
     <string name="security_settings_biometric_preference_summary_both_fp_single">चेहरे का मॉडल और फ़िंगरप्रिंट जोड़ा गया</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">सेट अप करने के लिए टैप करें</string>
     <string name="security_settings_biometric_preference_title">फ़िंगरप्रिंट और फ़ेस अनलॉक</string>
-    <string name="security_settings_biometrics_description">आपके चेहरे पर मास्क होने या आस-पास रोशनी न होने पर, फ़ोन आपका फ़िंगरप्रिंट मांगेगा. ऐसा तब होगा, जब आप अपने फ़ोन में फ़िंगरप्रिंट और फ़ेस अनलॉक, दोनों सेट करेंगे</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">ऐप्लिकेशन में पुष्टि करने से जुड़ी प्राथमिकता</string>
-    <string name="security_settings_biometrics_preferences_category">इसके लिए फ़िंगरप्रिंट या फ़ेस अनलॉक इस्तेमाल करें</string>
-    <string name="security_settings_biometrics_summary_both">फ़िंगरप्रिंट और फ़ेस अनलॉक की सुविधा चालू है</string>
-    <string name="security_settings_biometrics_summary_face">सिर्फ़ फ़ेस अनलॉक की सुविधा चालू है</string>
-    <string name="security_settings_biometrics_summary_fingerprint">सिर्फ़ फ़िंगरप्रिंट से अनलॉक करने की सुविधा चालू है</string>
-    <string name="security_settings_biometrics_summary_none">अपने बायोमेट्रिक सेट अप करने के लिए टैप करें</string>
-    <string name="security_settings_biometrics_title">फ़िंगरप्रिंट और फ़ेस अनलॉक</string>
-    <string name="security_settings_biometrics_types_category">फ़ोन को अनलॉक करने के तरीके</string>
     <string name="security_settings_face_enroll_consent_introduction_title">चेहरे की मदद से अनलॉक करने की सुविधा इस्तेमाल करने की अनुमति दें</string>
     <string name="security_settings_face_enroll_dialog_ok">ठीक है</string>
     <string name="security_settings_face_enroll_done">हो गया</string>
@@ -4383,18 +4401,19 @@
 
 ज़्यादा जानने के लिए, g.co/pixel/faceunlock पर जाएं."</string>
     <string name="security_settings_face_enroll_introduction_control_title">इस सुविधा का कंट्रोल आपके पास है</string>
-    <string name="security_settings_face_enroll_introduction_how_consent_message">"चेहरे की मदद से अनलॉक करने की सुविधा इस्तेमाल करके, आपके बच्चे के चेहरे का एक खास मॉडल बनाया जाता है. इससे, पुष्टि करते समय उसके चेहरे की पहचान करने में मदद मिलती है. चेहरे की मदद से अनलॉक करने की सुविधा सेट अप करते समय, चेहरे का यह मॉडल बनाने के लिए आपके बच्चे को अलग-अलग ऐंगल से अपने चेहरे की इमेज कैप्चर करनी होंगी.
+    <string name="security_settings_face_enroll_introduction_how_consent_message">"फ़ेस अनलॉक की सुविधा की मदद से, आपके बच्चे के चेहरे का एक खास मॉडल बनाया जाता है. इससे, पुष्टि करते समय उसके चेहरे की पहचान करने में मदद मिलती है. फ़ेस अनलॉक की सुविधा सेट अप करते समय, चेहरे का यह मॉडल बनाने के लिए आपके बच्चे को अलग-अलग ऐंगल से अपने चेहरे की इमेज कैप्चर करनी होंगी.
 
-जब आपका बच्चा चेहरे की मदद से अनलॉक करने की सुविधा इस्तेमाल करता है, तब उसके चेहरे के मॉडल को अपडेट करने के लिए उसके चेहरे की इमेज इस्तेमाल की जाती हैं. आपके बच्चे के चेहरे का मॉडल बनाते समय इस्तेमाल की गई इमेज कभी भी सेव नहीं की जाती हैं. हालांकि, चेहरे का मॉडल फ़ोन में सुरक्षित तरीके से सेव किया जाता है और इसे किसी के साथ शेयर नहीं किया जाता है. इसे पूरी तरह से आपके फ़ोन में ही सुरक्षित तरीके से प्रोसेस किया जाता है."</string>
-    <string name="security_settings_face_enroll_introduction_how_message">"चेहरे की मदद से अनलॉक करने की सुविधा इस्तेमाल करके, आपके चेहरे का एक खास मॉडल बनाया जाता है. इससे, पुष्टि करते समय आपके चेहरे की पहचान करने में मदद मिलती है. चेहरे की मदद से अनलॉक करने की सुविधा सेट अप करते समय, चेहरे का यह मॉडल बनाने के लिए आपको अलग-अलग ऐंगल से अपने चेहरे की इमेज कैप्चर करनी होंगी.
+जब आपका बच्चा फ़ेस अनलॉक की सुविधा का इस्तेमाल करता है, तब उसके चेहरे के मॉडल को अपडेट करने के लिए उसके चेहरे की इमेज इस्तेमाल की जाती हैं. आपके बच्चे के चेहरे का मॉडल बनाते समय इस्तेमाल की गई इमेज सेव नहीं की जाती हैं. हालांकि, चेहरे का मॉडल फ़ोन में सुरक्षित तरीके से सेव किया जाता है और इसे किसी के साथ शेयर नहीं किया जाता है. इसे पूरी तरह से फ़ोन में ही सुरक्षित तरीके से प्रोसेस किया जाता है."</string>
+    <string name="security_settings_face_enroll_introduction_how_message">"फ़ेस अनलॉक सुविधा की मदद से, आपके चेहरे का एक खास मॉडल बनाया जाता है. इससे, पुष्टि करते समय आपके चेहरे की पहचान करने में मदद मिलती है. फ़ेस अनलॉक की सुविधा सेट अप करते समय, चेहरे का यह मॉडल बनाने के लिए आपको अलग-अलग ऐंगल से अपने चेहरे की इमेज कैप्चर करनी होंगी.
 
-जब आप चेहरे की मदद से अनलॉक करने की सुविधा इस्तेमाल करते हैं, तब आपके चेहरे के मॉडल को अपडेट करने के लिए आपके चेहरे की इमेज इस्तेमाल की जाती हैं. आपके चेहरे का मॉडल बनाते समय इस्तेमाल की गई इमेज कभी भी सेव नहीं की जाती हैं. हालांकि, चेहरे का मॉडल आपके फ़ोन में सुरक्षित तरीके से सेव किया जाता है और इसे किसी के साथ शेयर नहीं किया जाता है. इसे पूरी तरह से आपके फ़ोन में ही सुरक्षित तरीके से प्रोसेस किया जाता है."</string>
+जब आप फ़ेस अनलॉक की सुविधा का इस्तेमाल करते हैं, तब आपके चेहरे के मॉडल को अपडेट करने के लिए आपके चेहरे की इमेज इस्तेमाल की जाती हैं. आपके चेहरे का मॉडल बनाते समय इस्तेमाल की गई इमेज सेव नहीं की जाती हैं. हालांकि, चेहरे का मॉडल आपके फ़ोन में सुरक्षित तरीके से सेव किया जाता है और इसे किसी के साथ शेयर नहीं किया जाता है. इसे पूरी तरह से आपके फ़ोन में ही सुरक्षित तरीके से प्रोसेस किया जाता है."</string>
     <string name="security_settings_face_enroll_introduction_how_title">फ़ेस अनलॉक की सुविधा कैसे काम करती है</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">"फ़ेस अनलॉक की सुविधा का इस्तेमाल करते समय, आपके बच्चे की आंखों का खुला रहना ज़रूरी हो सकता है. ऐसा, फ़ोन अनलॉक करने या बच्चे की पहचान की पुष्टि करने के लिए ज़रूरी है. आप या आपका बच्चा जब चाहें, 'सेटिंग' में जाकर इस विकल्प को चालू कर सकते हैं."</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">अगर आपका बच्चा आम तौर पर चश्मा पहनता है, तो वह सेट अप के दौरान भी चश्मा पहन सकता है.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">फ़ोन को सामने से देखने पर, आपके बच्चे के न चाहते हुए भी फ़ोन अनलॉक हो सकता है. आपके बच्चे के फ़ोन को ऐसा कोई भी व्यक्ति अनलॉक कर सकता है जिसका चेहरा बच्चे से मिलता-जुलता हो, जैसे कि जुड़वां भाई या बहन. इसके अलावा, फ़ोन को बच्चे के चेहरे के सामने लाकर भी अनलॉक किया जा सकता है.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">"फ़ेस अनलॉक की सुविधा का इस्तेमाल करते समय, आपकी आंखों का खुला रहना ज़रूरी हो सकता है. ऐसा, फ़ोन अनलॉक करने या आपकी पहचान की पुष्टि करने के लिए ज़रूरी है. आप जब चाहें, 'सेटिंग' में जाकर इस विकल्प को चालू कर सकते हैं."</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">चश्मे या हल्के रंग वाले धूप के चश्मे पहने जा सकते हैं.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">फ़ोन को अनलॉक करने के लिए चेहरा दिखाना, किसी मज़बूत पैटर्न या पिन का इस्तेमाल करने के मुकाबले कम सुरक्षित हो सकता है.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">फ़ोन की तरफ़ देखने से वह अनलॉक हो सकता है. भले ही, आप फ़ोन अनलॉक न करना चाहते हों. आपका फ़ोन ऐसा कोई भी व्यक्ति अनलॉक कर सकता है जिसका चेहरा आपसे मिलता-जुलता हो, जैसे कि जुड़वां भाई या बहन. इसके अलावा, कोई भी व्यक्ति फ़ोन को आपके चेहरे के सामने लाकर भी अनलॉक कर सकता है.</string>
     <string name="security_settings_face_enroll_introduction_info_title">ध्यान रखें</string>
     <string name="security_settings_face_enroll_introduction_message">अपने चेहरे की मदद से फ़ोन अनलॉक करें. इसके अलावा, किसी ऐप्लिकेशन में साइन इन करने, किसी खरीदारी की मंज़ूरी देने या ऐसे और काम करने के दौरान, अपनी पहचान की पुष्टि करने के लिए भी आप अपने चेहरे की मदद ले सकते हैं.</string>
@@ -4452,13 +4471,14 @@
 
 आपका फ़ोन कोई ऐसा व्यक्ति भी अनलॉक कर सकता है जिसका चेहरा आपसे बहुत मिलता हो, जैसे कि जुड़वा भाई या बहन."</string>
     <string name="security_settings_face_settings_preferences_category">फ़ेस अनलॉक की सुविधा इस्तेमाल करते समय</string>
-    <string name="security_settings_face_settings_remove_dialog_details">आपके चेहरे का मॉडल सुरक्षित तरीके से हमेशा के लिए मिटा दिया जाएगा. इसके मिटने के बाद, अपने फ़ोन को अनलॉक करने या ऐप्लिकेशन में अपनी पहचान की पुष्टि करने के लिए, आपको पिन, पैटर्न या पासवर्ड का इस्तेमाल करना होगा.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"आपके चेहरे का मॉडल सुरक्षित तरीके से हमेशा के लिए मिटा दिया जाएगा.
+
+इसके मिटने के बाद, अपने फ़ोन को अनलॉक करने या ऐप्लिकेशन में अपनी पहचान की पुष्टि करने के लिए, आपको पिन, पैटर्न या पासवर्ड का इस्तेमाल करना होगा."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"आपके चेहरे का मॉडल सुरक्षित तरीके से हमेशा के लिए मिटा दिया जाएगा.
+
+इसके मिटने के बाद, अपने फ़ोन को अनलॉक करने के लिए, आपको पिन, पैटर्न या पासवर्ड का इस्तेमाल करना होगा."</string>
     <string name="security_settings_face_settings_remove_dialog_title">चेहरे का मॉडल मिटाना चाहते हैं?</string>
     <string name="security_settings_face_settings_remove_face_model">चेहरे का मॉडल मिटाएं</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"आपके चेहरे का मॉडल सुरक्षित तरीके से हमेशा के लिए मिटा दिया जाएगा.
-
-इसके मिटने के बाद, अपने फ़ोन को अनलॉक करने या किसी ऐप्लिकेशन के इस्तेमाल के दौरान पुष्टि करने के लिए, आपको फ़िंगरप्रिंट, पिन, पैटर्न या पासवर्ड का इस्तेमाल करना होगा."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">चेहरे का मॉडल मिटाना चाहते हैं?</string>
     <string name="security_settings_face_settings_require_attention">अनलॉक करने के लिए आंख खुली हो</string>
     <string name="security_settings_face_settings_require_attention_details">फ़ाेन अनलॉक करने के लिए, आंखें खुली होनी चाहिए</string>
     <string name="security_settings_face_settings_require_confirmation">हमेशा पुष्टि करना ज़रूरी है</string>
@@ -4541,7 +4561,7 @@
     <string name="security_settings_title">सुरक्षा</string>
     <string name="security_settings_udfps_enroll_a11y">फ़िंगरप्रिंट सेंसर ढूंढने के लिए, स्क्रीन पर अपनी उंगली घुमाएं. फ़िंगरप्रिंट सेंसर को दबाकर रखें.</string>
     <string name="security_settings_udfps_enroll_edge_message">पहले अपनी उंगली के एक किनारे को सेंसर पर कुछ देर के लिए रखें और फिर दूसरी तरफ़ से भी ऐसा करें</string>
-    <string name="security_settings_udfps_enroll_edge_title">आखिर में, अपनी उंगली के दोनों किनारों को बारी-बारी से सेंसर पर रखें</string>
+    <string name="security_settings_udfps_enroll_edge_title">आखिर में, अपनी उंगली के दोनों किनारों को सेंसर पर रखें</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">फ़िंगरप्रिंट सेंसर आपकी स्क्रीन पर मौजूद है. आप अगली स्क्रीन पर अपना फ़िंगरप्रिंट कैप्चर करेंगे.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">शुरू करें</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">फ़िंगरप्रिंट सेट अप करने का तरीका</string>
@@ -4550,7 +4570,7 @@
     <string name="security_settings_udfps_enroll_repeat_a11y_message">ऐसा करके, आपके फ़िंगरप्रिंट को बेहतर तरीके से कैप्चर किया जा सकता है</string>
     <string name="security_settings_udfps_enroll_repeat_message">हर बार फ़िंगरप्रिंट आइकॉन में हलचल होने पर, उसे दबाकर रखें. ऐसा करके, आपके फ़िंगरप्रिंट को बेहतर तरीके से कैप्चर किया जा सकता है.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">फ़िंगरप्रिंट आइकॉन को दबाते रहें</string>
-    <string name="security_settings_udfps_enroll_start_message">अपनी उंगली को सेंसर पर तब तक रखें, जब तक आपको वाइब्रेशन न महसूस हो</string>
+    <string name="security_settings_udfps_enroll_start_message">अपने फ़िंगरप्रिंट को सेंसर पर तब तक रखें, जब तक आपको वाइब्रेशन न महसूस हो</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">एक बार और छुएं</string>
     <string name="security_settings_work_fingerprint_preference_title">वर्क प्रोफ़ाइल के लिए Pixel Imprint की सुविधा</string>
     <string name="security_status_title">सुरक्षा स्थिति</string>
@@ -4576,7 +4596,6 @@
     <string name="select_webview_provider_dialog_title">वेबव्यू सेट करें</string>
     <string name="select_webview_provider_title">वेबव्यू लागू करें</string>
     <string name="select_webview_provider_toast_text">यह चुनाव अब मान्य नहीं है. दोबारा कोशिश करें.</string>
-    <string name="sensor_toggle_description">सभी ऐप्लिकेशन और सेवाओं के लिए</string>
     <string name="sensors_off_quick_settings_title">सेंसर बंद हैं</string>
     <string name="service_background_processes">%1$s खाली</string>
     <string name="service_foreground_processes">%1$s उपयोग किया गया</string>
@@ -4636,7 +4655,7 @@
     <string name="show_all_anrs_summary">"बैकग्राउंड में चलने वाले ऐप्लिकेशन के लिए, 'यह ऐप्लिकेशन नहीं चल रहा' मैसेज दिखाएं"</string>
     <string name="show_all_apps">डिवाइस के इस्तेमाल की पूरी जानकारी दिखाएं</string>
     <string name="show_background_processes">कैश की गई प्रक्रियाएं दिखाएं</string>
-    <string name="show_clip_access_notification">क्लिपबोर्ड में स्टोर किए गए डेटा को दिखाएं</string>
+    <string name="show_clip_access_notification">क्लिपबोर्ड का डेटा ऐक्सेस किए जाने पर मैसेज दिखाएं</string>
     <string name="show_clip_access_notification_summary">जब ऐप्लिकेशन, कॉपी किए गए टेक्स्ट, इमेज या अन्य कॉन्टेंट का इस्तेमाल करें, तो मैसेज दिखाएं</string>
     <string name="show_dev_already">आप पहले से ही डेवलपर हैं, इसलिए इसकी ज़रूरत नहीं.</string>
     <string name="show_dev_on">अब आप डेवलपर बन गए हैं!</string>
@@ -4808,6 +4827,7 @@
     <string name="sound_settings_summary_silent">रिंगर मौन पर सेट है</string>
     <string name="sound_settings_summary_vibrate">रिंगर, कंपन (वाइब्रेशन) पर सेट है</string>
     <string name="sound_work_settings">वर्क प्रोफ़ाइल से जुड़ी आवाज़ें</string>
+    <string name="spatial_audio_title">स्पेशल ऑडियो</string>
     <string name="special_access">ऐप्लिकेशन के लिए खास ऐक्सेस</string>
     <string name="special_access_more">और देखें</string>
     <string name="speed_label_fast">तेज़</string>
@@ -4896,7 +4916,7 @@
     <string name="storage_internal_unmount_details"><b>जब आप इस ^1 को निकालते हैं, तो इस पर संग्रहित ऐप्‍स काम करना बंद कर देंगे और इस पर संग्रहित मीडिया फ़ाइलें इसे फिर से लगाए जाने तक उपलब्‍ध नहीं होंगी.</b>" 
 
 इस ^1 को केवल इसी डिवाइस पर काम करने के लिए प्रारूपित किया गया है. यह किसी भी अन्‍य पर काम नहीं करेगा."</string>
-    <string name="storage_label">मेमोरी</string>
+    <string name="storage_label">स्टोरेज</string>
     <string name="storage_low_summary">हो सकता है कुछ सिस्टम के कुछ फ़ंक्‍शन, जैसे सिंक करना, ठीक से काम न करें. ऐप या मीडिया सामग्री जैसे आइटम को हटाकर या अनपिन करके जगह खाली करने की कोशिश करें.</string>
     <string name="storage_low_title">मेमोरी में जगह खत्म हो रही है</string>
     <string name="storage_manager_indicator">स्मार्ट जगह: ^1</string>
@@ -4922,8 +4942,8 @@
     <string name="storage_percent_full">उपयोग की गई</string>
     <string name="storage_photos_videos">फ़ोटो और वीडियो</string>
     <string name="storage_rename_title">मेमोरी का नाम बदलें</string>
-    <string name="storage_settings">मेमोरी</string>
-    <string name="storage_settings_for_app">मेमोरी और कैश</string>
+    <string name="storage_settings">स्टोरेज</string>
+    <string name="storage_settings_for_app">स्टोरेज और कैश</string>
     <string name="storage_settings_summary">USB मेमोरी अनमाउंट करें, उपलब्‍ध मेमोरी देखें</string>
     <string name="storage_settings_title">मेमोरी सेटिंग</string>
     <string name="storage_size_large">^1<small><small> ^2</small></small></string>
@@ -4944,7 +4964,7 @@
     <string name="storage_unmount_failure">%1$s को सुरक्षित रूप से नहीं निकाला जा सका</string>
     <string name="storage_unmount_success">%1$s को सुरक्षित रूप से निकाला गया</string>
     <string name="storage_usage_summary">%1$s %2$s स्टोरेज इस्तेमाल किया गया</string>
-    <string name="storage_usb_settings">मेमोरी</string>
+    <string name="storage_usb_settings">स्टोरेज</string>
     <string name="storage_used">उपयोग की गई मेमोरी</string>
     <string name="storage_videos">वीडियो</string>
     <string name="storage_volume_total">%1$s में से उपयोग की गई</string>
@@ -5065,7 +5085,7 @@
     <string name="summary_divider_text">", "</string>
     <string name="summary_range_symbol_combination">%1$s - %2$s</string>
     <string name="summary_range_verbal_combination">%1$s से %2$s</string>
-    <string name="support_summary">सहायता लेख, स्मार्टफ़ोन, और चैट</string>
+    <string name="support_summary">सहायता लेख, फ़ोन और चैट</string>
     <string name="swipe_direction_ltr">खारिज करने के लिए दाईं ओर स्वाइप करें और मेन्यू दिखाने के लिए बाईं ओर</string>
     <string name="swipe_direction_rtl">खारिज करने के लिए बाईं ओर स्वाइप करें और मेन्यू दिखाने के लिए दाईं ओर</string>
     <string name="swipe_direction_title">स्वाइप करने पर होने वाली कार्रवाइयां</string>
@@ -5185,7 +5205,7 @@
     <string name="trusted_credentials_enable_label">चालू करें</string>
     <string name="trusted_credentials_remove_confirmation">स्‍थायी रूप से उपयोगकर्ता CA प्रमाणपत्र निकालना चाहते हैं?</string>
     <string name="trusted_credentials_remove_label">अनइंस्टॉल करें</string>
-    <string name="trusted_credentials_summary">भरोसेमंद CA प्रमाणपत्र दिखाएं</string>
+    <string name="trusted_credentials_summary">भरोसेमंद CA सर्टिफ़िकेट दिखाएं</string>
     <string name="trusted_credentials_system_tab">सिस्‍टम</string>
     <string name="trusted_credentials_trust_label">भरोसा</string>
     <string name="trusted_credentials_user_tab">उपयोगकर्ता</string>
@@ -5619,7 +5639,7 @@
     <string name="vpn_turn_on">चालू करें</string>
     <string name="vpn_type">टाइप</string>
     <string name="vpn_username">उपयोगकर्ता का नाम</string>
-    <string name="vpn_version">वर्शन %s</string>
+    <string name="vpn_version">वर्शन</string>
     <string name="vr_listener_security_warning_summary">जब आप आभासी वास्तविकता मोड में ऐप्लिकेशन का उपयोग कर रहे होते हैं, तब %1$s चला पाएगा.</string>
     <string name="vr_listener_security_warning_title">%1$s के लिए VR सेवा के इस्तेमाल की अनुमति दें?</string>
     <string name="vr_listeners_title">वीआर सहायक सेवाएं</string>
@@ -5725,7 +5745,7 @@
     <string name="wifi_certificate">वाई-फ़ाई प्रमाणपत्र</string>
     <string name="wifi_check_password_try_again">पासवर्ड जाँचें और दोबारा कोशिश करें</string>
     <string name="wifi_configure_settings_preference_summary_wakeup_off">नेटवर्क मिलने पर भी वाई-फ़ाई अपने-आप चालू नहीं होता</string>
-    <string name="wifi_configure_settings_preference_summary_wakeup_on">नेटवर्क मिलने पर वाई-फ़ाई अपने आप चालू हो जाता है</string>
+    <string name="wifi_configure_settings_preference_summary_wakeup_on">नेटवर्क मिलने पर वाई-फ़ाई अपने-आप चालू हो जाता है</string>
     <string name="wifi_configure_settings_preference_title">वाई-फ़ाई से जुड़ी पसंद</string>
     <string name="wifi_connect">कनेक्ट करें</string>
     <string name="wifi_connected_low_quality">खराब कनेक्शन</string>
@@ -5889,7 +5909,7 @@
     <string name="wifi_not_in_range">रेंज में नहीं</string>
     <string name="wifi_not_in_range_message">नेटवर्क पहुंच से बाहर है</string>
     <string name="wifi_notify_open_networks">सार्वजनिक नेटवर्क मिलने की सूचना पाएं</string>
-    <string name="wifi_notify_open_networks_summary">जब अपने-आप कनेक्ट होने वाला नेटवर्क न मौजूद हो</string>
+    <string name="wifi_notify_open_networks_summary">बढ़िया इंटरनेट देने वाला सार्वजनिक नेटवर्क मिलने पर बताएं</string>
     <string name="wifi_on_time">"वाई-फ़ाई  चालू होने से अब तक का समय"</string>
     <string name="wifi_p2p_cancel_connect_message">क्या आप %1$s से कनेक्ट होने का आमंत्रण रद्द करना चाहते हैं?</string>
     <string name="wifi_p2p_cancel_connect_title">आमंत्रण ना करें?</string>
@@ -5977,7 +5997,6 @@
     <string name="wifi_suspend_optimizations">"वाई-फ़ाई  ऑप्टिमाइज़ेशन"</string>
     <string name="wifi_suspend_optimizations_summary">"वाई-फ़ाई  के चालू रहने पर बैटरी उपयोग को कम से कम करें"</string>
     <string name="wifi_switch_away_when_unvalidated">अगर वाई-फ़ाई नहीं चल रहा हो, तो मोबाइल डेटा पर स्विच करें.</string>
-    <string name="wifi_switch_summary">वाई-फ़ाई नेटवर्क ढूंढकर, उनसे कनेक्ट करता है</string>
     <string name="wifi_tap_to_sign_in">नेटवर्क में साइन इन करने के लिए टैप करें</string>
     <string name="wifi_tether_configure_ap_text">"वाई-फ़ाई  हॉटस्‍पॉट सेट करें"</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

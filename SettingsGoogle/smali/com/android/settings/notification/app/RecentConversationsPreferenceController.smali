@@ -92,7 +92,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const p2, 0x7f040fe3
+    const p2, 0x7f04100f
 
     invoke-virtual {p0, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -190,7 +190,7 @@
     :cond_1
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const p1, 0x7f040fe4
+    const p1, 0x7f041010
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -363,7 +363,7 @@
 
     iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f06009f
+    const v2, 0x7f0600a1
 
     invoke-direct {v0, v1, v2}, Lcom/android/settingslib/widget/LayoutPreference;-><init>(Landroid/content/Context;I)V
 
@@ -371,7 +371,7 @@
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setOrder(I)V
 
-    const v1, 0x7f0d0183
+    const v1, 0x7f0d0187
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -407,7 +407,7 @@
 
     move-result v1
 
-    const-string v2, "uid"
+    const-string/jumbo v2, "uid"
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
@@ -518,7 +518,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040e2e
+    const v0, 0x7f040e59
 
     const/4 v1, 0x2
 

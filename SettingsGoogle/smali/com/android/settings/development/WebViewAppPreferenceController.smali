@@ -119,7 +119,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/development/DeveloperOptionsPreferenceController;->mPreference:Landroidx/preference/Preference;
 
-    const p1, 0x7f040243
+    const p1, 0x7f040257
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
 

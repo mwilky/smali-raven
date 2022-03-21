@@ -78,7 +78,7 @@
     return-object p0
 
     :cond_0
-    const-string p0, "vibrate_when_ringing"
+    const-string/jumbo p0, "vibrate_when_ringing"
 
     return-object p0
 .end method

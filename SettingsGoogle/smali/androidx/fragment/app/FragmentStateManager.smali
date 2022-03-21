@@ -1047,7 +1047,7 @@
     goto :goto_0
 
     :catch_0
-    const-string v0, "unknown"
+    const-string/jumbo v0, "unknown"
 
     :goto_0
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -2500,7 +2500,7 @@
 
     if-eqz v2, :cond_1
 
-    const-string v0, "succeeded"
+    const-string/jumbo v0, "succeeded"
 
     goto :goto_0
 

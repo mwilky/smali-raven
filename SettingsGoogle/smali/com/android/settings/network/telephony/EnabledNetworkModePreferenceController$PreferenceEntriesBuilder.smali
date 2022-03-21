@@ -196,7 +196,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040d7d
+    const v2, 0x7f040da8
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -226,7 +226,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040d7e
+    const v2, 0x7f040da9
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -256,7 +256,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040d7f
+    const v2, 0x7f040daa
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -292,7 +292,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040d81
+    const v2, 0x7f040dac
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -311,7 +311,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040d80
+    const v2, 0x7f040dab
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -366,7 +366,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f040d82
+    const v3, 0x7f040dad
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -484,7 +484,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040d96
+    const v2, 0x7f040dc1
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -531,7 +531,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040d98
+    const v2, 0x7f040dc3
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -550,7 +550,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040d97
+    const v2, 0x7f040dc2
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1367,7 +1367,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040da6
+    const v2, 0x7f040dd1
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1383,7 +1383,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040da7
+    const v2, 0x7f040dd2
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1986,9 +1986,9 @@
 
     invoke-direct {p0, p1}, Lcom/android/settings/network/telephony/EnabledNetworkModePreferenceController$PreferenceEntriesBuilder;->setSelectedEntry(I)V
 
-    const v0, 0x7f040d81
+    const v0, 0x7f040dac
 
-    const v1, 0x7f040d80
+    const v1, 0x7f040dab
 
     const/4 v2, 0x0
 
@@ -1996,17 +1996,17 @@
 
     const/4 v4, 0x2
 
-    const v5, 0x7f040d98
+    const v5, 0x7f040dc3
 
-    const v6, 0x7f040d97
+    const v6, 0x7f040dc2
 
     const/16 v7, 0xa
 
-    const v8, 0x7f040d82
+    const v8, 0x7f040dad
 
-    const v9, 0x7f040d96
+    const v9, 0x7f040dc1
 
-    const v10, 0x7f040d7f
+    const v10, 0x7f040daa
 
     packed-switch p1, :pswitch_data_0
 
@@ -2016,7 +2016,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040d1e
+    const v1, 0x7f040d49
 
     new-array v3, v3, [Ljava/lang/Object;
 
@@ -2279,7 +2279,7 @@
 
     if-eqz p1, :cond_9
 
-    const p1, 0x7f040f3c
+    const p1, 0x7f040f68
 
     invoke-direct {p0, p1}, Lcom/android/settings/network/telephony/EnabledNetworkModePreferenceController$PreferenceEntriesBuilder;->setSummary(I)V
 
@@ -2348,7 +2348,7 @@
 
     if-eqz p1, :cond_e
 
-    const p1, 0x7f040f3b
+    const p1, 0x7f040f67
 
     invoke-direct {p0, p1}, Lcom/android/settings/network/telephony/EnabledNetworkModePreferenceController$PreferenceEntriesBuilder;->setSummary(I)V
 
@@ -2380,7 +2380,7 @@
 
     invoke-direct {p0, p1}, Lcom/android/settings/network/telephony/EnabledNetworkModePreferenceController$PreferenceEntriesBuilder;->setSelectedEntry(I)V
 
-    const p1, 0x7f040d7d
+    const p1, 0x7f040da8
 
     invoke-direct {p0, p1}, Lcom/android/settings/network/telephony/EnabledNetworkModePreferenceController$PreferenceEntriesBuilder;->setSummary(I)V
 
@@ -2402,7 +2402,7 @@
 
     invoke-direct {p0, v3}, Lcom/android/settings/network/telephony/EnabledNetworkModePreferenceController$PreferenceEntriesBuilder;->setSelectedEntry(I)V
 
-    const p1, 0x7f040d7e
+    const p1, 0x7f040da9
 
     invoke-direct {p0, p1}, Lcom/android/settings/network/telephony/EnabledNetworkModePreferenceController$PreferenceEntriesBuilder;->setSummary(I)V
 
@@ -2536,7 +2536,7 @@
 
     if-eqz v0, :cond_0
 
-    const-string v1, "show_cdma_choices_bool"
+    const-string/jumbo v1, "show_cdma_choices_bool"
 
     invoke-virtual {v0, v1}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
 
@@ -2556,7 +2556,7 @@
 
     if-eqz v0, :cond_1
 
-    const-string v1, "show_4g_for_lte_data_icon_bool"
+    const-string/jumbo v1, "show_4g_for_lte_data_icon_bool"
 
     invoke-virtual {v0, v1}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
 

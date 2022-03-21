@@ -1601,7 +1601,7 @@
 
     const/4 v7, 0x2
 
-    const-string v8, "wifi"
+    const-string/jumbo v8, "wifi"
 
     if-eqz v1, :cond_1
 
@@ -2019,7 +2019,7 @@
 
     const-string p2, "network_available_sign_in"
 
-    const-string p3, "string"
+    const-string/jumbo p3, "string"
 
     const-string p4, "android"
 
@@ -2097,7 +2097,7 @@
 
     const-string p0, "SettingsLib.AccessPoint"
 
-    const-string p1, "state is null, returning empty summary"
+    const-string/jumbo p1, "state is null, returning empty summary"
 
     invoke-static {p0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -2167,7 +2167,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/wifi/AccessPoint;->mContext:Landroid/content/Context;
 
-    const-string v1, "wifi"
+    const-string/jumbo v1, "wifi"
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

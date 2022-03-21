@@ -77,19 +77,19 @@
 
     invoke-direct {p1, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f040b8e
+    const v0, 0x7f040ba6
 
     invoke-virtual {p1, v0}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object p1
 
-    const v0, 0x7f0203a2
+    const v0, 0x7f0203a9
 
     invoke-virtual {p1, v0}, Landroid/app/AlertDialog$Builder;->setIcon(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object p1
 
-    const v0, 0x7f040b8c
+    const v0, 0x7f040ba4
 
     invoke-virtual {p1, v0}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -99,7 +99,7 @@
 
     invoke-direct {v0, p0}, Lcom/android/settings/datetime/LocationToggleDisabledDialogFragment$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/datetime/LocationToggleDisabledDialogFragment;)V
 
-    const p0, 0x7f040b8d
+    const p0, 0x7f040ba5
 
     invoke-virtual {p1, p0, v0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -107,7 +107,7 @@
 
     sget-object p1, Lcom/android/settings/datetime/LocationToggleDisabledDialogFragment$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/settings/datetime/LocationToggleDisabledDialogFragment$$ExternalSyntheticLambda1;
 
-    const v0, 0x7f040b8b
+    const v0, 0x7f040ba3
 
     invoke-virtual {p0, v0, p1}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

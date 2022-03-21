@@ -21,13 +21,13 @@
 
     const-string v2, "o"
 
-    const-string v3, "t"
+    const-string/jumbo v3, "t"
 
     const-string v4, "s"
 
     const-string v5, "e"
 
-    const-string v6, "w"
+    const-string/jumbo v6, "w"
 
     const-string v7, "lc"
 
@@ -65,7 +65,7 @@
 
     const-string v0, "n"
 
-    const-string v1, "v"
+    const-string/jumbo v1, "v"
 
     filled-new-array {v0, v1}, [Ljava/lang/String;
 

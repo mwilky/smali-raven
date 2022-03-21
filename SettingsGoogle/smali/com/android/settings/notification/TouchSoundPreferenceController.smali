@@ -17,9 +17,9 @@
 
     const/4 v2, 0x2
 
-    const-string v3, "touch_sounds"
+    const-string/jumbo v3, "touch_sounds"
 
-    const-string v4, "sound_effects_enabled"
+    const-string/jumbo v4, "sound_effects_enabled"
 
     const/4 v5, 0x1
 
@@ -45,7 +45,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f090053
+    const v0, 0x7f090054
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 

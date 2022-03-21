@@ -247,7 +247,7 @@
 .method private updateFooterPreference()V
     .locals 1
 
-    const-string v0, "supported_links_footer"
+    const-string/jumbo v0, "supported_links_footer"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -399,7 +399,7 @@
 .method initRadioPreferencesGroup()V
     .locals 6
 
-    const-string v0, "supported_links_radio_group"
+    const-string/jumbo v0, "supported_links_radio_group"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -411,7 +411,7 @@
 
     const-string v0, "app_link_open_always"
 
-    const v1, 0x7f04023f
+    const v1, 0x7f040253
 
     invoke-direct {p0, v0, v1}, Lcom/android/settings/applications/OpenSupportedLinks;->makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/RadioButtonPreference;
 
@@ -457,7 +457,7 @@
 
     const-string v0, "app_link_open_ask"
 
-    const v1, 0x7f040240
+    const v1, 0x7f040254
 
     invoke-direct {p0, v0, v1}, Lcom/android/settings/applications/OpenSupportedLinks;->makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/RadioButtonPreference;
 
@@ -467,7 +467,7 @@
 
     const-string v0, "app_link_open_never"
 
-    const v1, 0x7f040241
+    const v1, 0x7f040255
 
     invoke-direct {p0, v0, v1}, Lcom/android/settings/applications/OpenSupportedLinks;->makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/RadioButtonPreference;
 
@@ -507,7 +507,7 @@
 
     iput-object p1, p0, Lcom/android/settings/applications/OpenSupportedLinks;->mPackageManager:Landroid/content/pm/PackageManager;
 
-    const p1, 0x7f1500aa
+    const p1, 0x7f1500af
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 

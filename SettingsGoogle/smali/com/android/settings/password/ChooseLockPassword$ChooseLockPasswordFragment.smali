@@ -196,7 +196,7 @@
 .method private setupPasswordRequirementsView(Landroid/view/View;)V
     .locals 2
 
-    const v0, 0x7f0d0419
+    const v0, 0x7f0d0427
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -238,7 +238,7 @@
 
     const-string p0, "ChooseLockPassword"
 
-    const-string v0, "startSaveAndFinish with an existing SaveAndFinishWorker."
+    const-string/jumbo v0, "startSaveAndFinish with an existing SaveAndFinishWorker."
 
     invoke-static {p0, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -307,7 +307,7 @@
 
     if-eq v1, v2, :cond_2
 
-    const-string v1, "unification_profile_credential"
+    const-string/jumbo v1, "unification_profile_credential"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
@@ -437,7 +437,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "unknown error validating password: "
+    const-string/jumbo v4, "unknown error validating password: "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -458,12 +458,12 @@
 
     if-eqz v2, :cond_0
 
-    const v2, 0x7f040c1d
+    const v2, 0x7f040c35
 
     goto :goto_1
 
     :cond_0
-    const v2, 0x7f040c24
+    const v2, 0x7f040c3c
 
     :goto_1
     invoke-virtual {p0, v2}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
@@ -650,7 +650,7 @@
     goto/16 :goto_0
 
     :pswitch_8
-    const v2, 0x7f040c23
+    const v2, 0x7f040c3b
 
     invoke-virtual {p0, v2}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -735,7 +735,7 @@
     goto/16 :goto_0
 
     :pswitch_b
-    const v2, 0x7f040c1a
+    const v2, 0x7f040c32
 
     invoke-virtual {p0, v2}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -755,6 +755,8 @@
     check-cast p0, [Ljava/lang/String;
 
     return-object p0
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x2
@@ -1162,7 +1164,7 @@
 
     const/16 v0, -0x2710
 
-    const-string v2, "unification_profile_id"
+    const-string/jumbo v2, "unification_profile_id"
 
     invoke-virtual {p1, v2, v0}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
@@ -1281,7 +1283,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 0
 
-    const p0, 0x7f060078
+    const p0, 0x7f06007a
 
     const/4 p3, 0x0
 
@@ -1408,7 +1410,7 @@
 
     move-result-object v0
 
-    const-string v1, "ui_stage"
+    const-string/jumbo v1, "ui_stage"
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -1463,7 +1465,7 @@
 
     iput-object v0, p0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment;->mLayout:Lcom/google/android/setupdesign/GlifLayout;
 
-    const v0, 0x7f0d0415
+    const v0, 0x7f0d0423
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1493,7 +1495,7 @@
 
     invoke-direct {v1, v2}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f040bfe
+    const v2, 0x7f040c16
 
     invoke-virtual {v1, v2}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -1513,7 +1515,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f13021b
+    const v2, 0x7f13021d
 
     invoke-virtual {v1, v2}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -1533,7 +1535,7 @@
 
     invoke-direct {v1, v2}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f040dac
+    const v2, 0x7f040dd7
 
     invoke-virtual {v1, v2}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -1553,7 +1555,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f13021a
+    const v2, 0x7f13021c
 
     invoke-virtual {v1, v2}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -1577,7 +1579,7 @@
 
     iput-object v0, p0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment;->mNextButton:Lcom/google/android/setupcompat/template/FooterButton;
 
-    const v0, 0x7f0d0566
+    const v0, 0x7f0d0575
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1593,7 +1595,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f020237
+    const v2, 0x7f02023e
 
     invoke-virtual {v1, v2}, Landroid/app/Activity;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1647,7 +1649,7 @@
 
     invoke-virtual {v0, v3}, Landroidx/recyclerview/widget/RecyclerView;->setLayoutManager(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)V
 
-    const v0, 0x7f0d0416
+    const v0, 0x7f0d0424
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1705,7 +1707,7 @@
 
     iget-object v0, p0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment;->mPasswordEntry:Landroid/widget/ImeAwareEditText;
 
-    const v3, 0x7f041451
+    const v3, 0x7f041476
 
     invoke-virtual {p0, v3}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1718,7 +1720,7 @@
     :cond_3
     iget-object v0, p0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment;->mPasswordEntry:Landroid/widget/ImeAwareEditText;
 
-    const v3, 0x7f041455
+    const v3, 0x7f04147a
 
     invoke-virtual {p0, v3}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1799,7 +1801,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f041445
+    const v0, 0x7f04146a
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1840,7 +1842,7 @@
 
     iput-object v0, p0, Lcom/android/settings/password/ChooseLockPassword$ChooseLockPasswordFragment;->mFirstPassword:Lcom/android/internal/widget/LockscreenCredential;
 
-    const-string v0, "ui_stage"
+    const-string/jumbo v0, "ui_stage"
 
     invoke-virtual {p2, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 

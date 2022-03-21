@@ -93,7 +93,7 @@
 
     invoke-virtual {p0, p2}, Lcom/android/settingslib/widget/MainSwitchBar;->addOnSwitchChangeListener(Lcom/android/settingslib/widget/OnMainSwitchChangeListener;)V
 
-    const p2, 0x7f0d0490
+    const p2, 0x7f0d049d
 
     invoke-virtual {p0, p2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 

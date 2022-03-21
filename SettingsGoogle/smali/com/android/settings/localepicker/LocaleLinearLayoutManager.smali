@@ -31,13 +31,13 @@
 
     new-instance p2, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
 
-    const v0, 0x7f040183
+    const v0, 0x7f040197
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f0d004b
+    const v1, 0x7f0d004c
 
     invoke-direct {p2, v1, v0}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;-><init>(ILjava/lang/CharSequence;)V
 
@@ -45,21 +45,7 @@
 
     new-instance p2, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
 
-    const v0, 0x7f040181
-
-    invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    const v1, 0x7f0d0049
-
-    invoke-direct {p2, v1, v0}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;-><init>(ILjava/lang/CharSequence;)V
-
-    iput-object p2, p0, Lcom/android/settings/localepicker/LocaleLinearLayoutManager;->mActionMoveDown:Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
-
-    new-instance p2, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
-
-    const v0, 0x7f040182
+    const v0, 0x7f040195
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -69,17 +55,31 @@
 
     invoke-direct {p2, v1, v0}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;-><init>(ILjava/lang/CharSequence;)V
 
-    iput-object p2, p0, Lcom/android/settings/localepicker/LocaleLinearLayoutManager;->mActionMoveTop:Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
+    iput-object p2, p0, Lcom/android/settings/localepicker/LocaleLinearLayoutManager;->mActionMoveDown:Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
 
     new-instance p2, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
 
-    const v0, 0x7f040180
+    const v0, 0x7f040196
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f0d0048
+    const v1, 0x7f0d004b
+
+    invoke-direct {p2, v1, v0}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;-><init>(ILjava/lang/CharSequence;)V
+
+    iput-object p2, p0, Lcom/android/settings/localepicker/LocaleLinearLayoutManager;->mActionMoveTop:Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
+
+    new-instance p2, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
+
+    const v0, 0x7f040194
+
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    const v1, 0x7f0d0049
 
     invoke-direct {p2, v1, v0}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;-><init>(ILjava/lang/CharSequence;)V
 
@@ -87,13 +87,13 @@
 
     new-instance p2, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
 
-    const v0, 0x7f040184
+    const v0, 0x7f040198
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object p1
 
-    const v0, 0x7f0d004c
+    const v0, 0x7f0d004d
 
     invoke-direct {p2, v0, p1}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;-><init>(ILjava/lang/CharSequence;)V
 
@@ -207,7 +207,7 @@
 
     const/4 v3, 0x1
 
-    const v4, 0x7f0d004b
+    const v4, 0x7f0d004c
 
     if-ne p4, v4, :cond_0
 
@@ -225,7 +225,7 @@
     goto :goto_1
 
     :cond_0
-    const v4, 0x7f0d0049
+    const v4, 0x7f0d004a
 
     if-ne p4, v4, :cond_1
 
@@ -240,7 +240,7 @@
     goto :goto_0
 
     :cond_1
-    const v4, 0x7f0d004a
+    const v4, 0x7f0d004b
 
     if-ne p4, v4, :cond_2
 
@@ -253,7 +253,7 @@
     goto :goto_0
 
     :cond_2
-    const v4, 0x7f0d0048
+    const v4, 0x7f0d0049
 
     if-ne p4, v4, :cond_3
 
@@ -268,7 +268,7 @@
     goto :goto_0
 
     :cond_3
-    const v4, 0x7f0d004c
+    const v4, 0x7f0d004d
 
     if-ne p4, v4, :cond_6
 

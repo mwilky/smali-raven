@@ -25,7 +25,7 @@
 
     sput-object v0, Lcom/android/settings/development/featureflags/FeatureFlagPersistent;->PERSISTENT_FLAGS:Ljava/util/HashSet;
 
-    const-string v1, "settings_bluetooth_hearing_aid"
+    const-string/jumbo v1, "settings_bluetooth_hearing_aid"
 
     invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
@@ -120,7 +120,7 @@
 
     if-eqz p2, :cond_0
 
-    const-string v1, "true"
+    const-string/jumbo v1, "true"
 
     goto :goto_0
 

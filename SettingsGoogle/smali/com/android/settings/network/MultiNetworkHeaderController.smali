@@ -7,6 +7,11 @@
 .implements Lcom/android/settings/network/SubscriptionsPreferenceController$UpdateListener;
 
 
+# annotations
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
+
 # static fields
 .field public static final TAG:Ljava/lang/String; = "MultiNetworkHdrCtrl"
 
@@ -182,6 +187,16 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public bridge synthetic hasAsyncUpdate()Z

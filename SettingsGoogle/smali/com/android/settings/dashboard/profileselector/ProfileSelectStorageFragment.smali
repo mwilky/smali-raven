@@ -136,7 +136,7 @@
 
     :cond_1
     :goto_0
-    const v0, 0x7f0412cc
+    const v0, 0x7f0412f1
 
     invoke-virtual {p1}, Lcom/android/settings/deviceinfo/storage/StorageEntry;->getDiskId()Ljava/lang/String;
 
@@ -280,7 +280,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a30
+    const p0, 0x7f040a48
 
     return p0
 .end method
@@ -304,7 +304,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500e9
+    const p0, 0x7f1500ee
 
     return p0
 .end method

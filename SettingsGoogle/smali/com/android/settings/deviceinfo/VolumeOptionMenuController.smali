@@ -102,7 +102,7 @@
 
     move-result p1
 
-    const v0, 0x7f0d053d
+    const v0, 0x7f0d054c
 
     const/4 v2, 0x1
 
@@ -142,7 +142,7 @@
     return v1
 
     :cond_2
-    const v0, 0x7f0d053f
+    const v0, 0x7f0d054e
 
     const/16 v3, 0x2a
 
@@ -233,7 +233,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f0412ed
+    const v0, 0x7f041312
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -255,7 +255,7 @@
     return v1
 
     :cond_5
-    const v0, 0x7f0d053e
+    const v0, 0x7f0d054d
 
     if-ne p1, v0, :cond_9
 
@@ -301,7 +301,7 @@
     return v1
 
     :cond_9
-    const v0, 0x7f0d0538
+    const v0, 0x7f0d0547
 
     if-ne p1, v0, :cond_c
 
@@ -345,7 +345,7 @@
     return v2
 
     :cond_c
-    const v0, 0x7f0d053a
+    const v0, 0x7f0d0549
 
     if-ne p1, v0, :cond_e
 
@@ -385,7 +385,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f0412e4
+    const v0, 0x7f041309
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -407,7 +407,7 @@
     return v1
 
     :cond_e
-    const v0, 0x7f0d0539
+    const v0, 0x7f0d0548
 
     if-ne p1, v0, :cond_10
 
@@ -439,7 +439,7 @@
     return v1
 
     :cond_10
-    const v0, 0x7f0d053c
+    const v0, 0x7f0d054b
 
     if-ne p1, v0, :cond_12
 
@@ -477,7 +477,7 @@
     return v1
 
     :cond_12
-    const v0, 0x7f0d0537
+    const v0, 0x7f0d0546
 
     if-ne p1, v0, :cond_13
 
@@ -504,7 +504,7 @@
 .method public onPrepareOptionsMenu(Landroid/view/Menu;)V
     .locals 4
 
-    const v0, 0x7f0d053e
+    const v0, 0x7f0d054d
 
     invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -512,7 +512,7 @@
 
     iput-object v0, p0, Lcom/android/settings/deviceinfo/VolumeOptionMenuController;->mRename:Landroid/view/MenuItem;
 
-    const v0, 0x7f0d053d
+    const v0, 0x7f0d054c
 
     invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -520,7 +520,7 @@
 
     iput-object v0, p0, Lcom/android/settings/deviceinfo/VolumeOptionMenuController;->mMount:Landroid/view/MenuItem;
 
-    const v0, 0x7f0d053f
+    const v0, 0x7f0d054e
 
     invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -528,7 +528,7 @@
 
     iput-object v0, p0, Lcom/android/settings/deviceinfo/VolumeOptionMenuController;->mUnmount:Landroid/view/MenuItem;
 
-    const v0, 0x7f0d0538
+    const v0, 0x7f0d0547
 
     invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -536,7 +536,7 @@
 
     iput-object v0, p0, Lcom/android/settings/deviceinfo/VolumeOptionMenuController;->mFormat:Landroid/view/MenuItem;
 
-    const v0, 0x7f0d053a
+    const v0, 0x7f0d0549
 
     invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -544,7 +544,7 @@
 
     iput-object v0, p0, Lcom/android/settings/deviceinfo/VolumeOptionMenuController;->mFormatAsPortable:Landroid/view/MenuItem;
 
-    const v0, 0x7f0d0539
+    const v0, 0x7f0d0548
 
     invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -552,7 +552,7 @@
 
     iput-object v0, p0, Lcom/android/settings/deviceinfo/VolumeOptionMenuController;->mFormatAsInternal:Landroid/view/MenuItem;
 
-    const v0, 0x7f0d053c
+    const v0, 0x7f0d054b
 
     invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -560,7 +560,7 @@
 
     iput-object v0, p0, Lcom/android/settings/deviceinfo/VolumeOptionMenuController;->mMigrate:Landroid/view/MenuItem;
 
-    const v0, 0x7f0d053b
+    const v0, 0x7f0d054a
 
     invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -568,7 +568,7 @@
 
     iput-object v0, p0, Lcom/android/settings/deviceinfo/VolumeOptionMenuController;->mFree:Landroid/view/MenuItem;
 
-    const v0, 0x7f0d0537
+    const v0, 0x7f0d0546
 
     invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 

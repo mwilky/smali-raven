@@ -237,7 +237,7 @@
     goto :goto_0
 
     :cond_3
-    const v3, 0x7f040eed
+    const v3, 0x7f040f19
 
     invoke-virtual {p0, v3}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -245,7 +245,7 @@
 
     invoke-virtual {p0, v0, p1, v3}, Lcom/android/settings/development/compat/PlatformCompatDashboard;->createChangeCategoryPreference(Ljava/util/List;Lcom/android/internal/compat/CompatibilityChangeConfig;Ljava/lang/String;)Landroidx/preference/PreferenceCategory;
 
-    const v0, 0x7f040eec
+    const v0, 0x7f040f18
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -280,7 +280,7 @@
 
     check-cast v3, Ljava/util/List;
 
-    const v4, 0x7f040ef1
+    const v4, 0x7f040f1d
 
     const/4 v6, 0x1
 
@@ -449,7 +449,7 @@
 
     aput-object p1, v0, v1
 
-    const p1, 0x7f040ef0
+    const p1, 0x7f040f1c
 
     invoke-virtual {p0, p1, v0}, Landroidx/fragment/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -697,7 +697,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500b2
+    const p0, 0x7f1500b7
 
     return p0
 .end method
@@ -782,19 +782,19 @@
 
     invoke-direct {p1, p2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const p2, 0x7f040eef
+    const p2, 0x7f040f1b
 
     invoke-virtual {p1, p2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object p1
 
-    const p2, 0x7f040eee
+    const p2, 0x7f040f1a
 
     invoke-virtual {p1, p2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object p1
 
-    const p2, 0x7f040ea1
+    const p2, 0x7f040ecc
 
     new-instance p3, Lcom/android/settings/development/compat/PlatformCompatDashboard$$ExternalSyntheticLambda0;
 

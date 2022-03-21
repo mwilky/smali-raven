@@ -52,7 +52,7 @@
 .method getClearId()I
     .locals 0
 
-    const p0, 0x7f0d0156
+    const p0, 0x7f0d015a
 
     return p0
 .end method
@@ -68,7 +68,7 @@
 .method protected getSecondTargetResId()I
     .locals 0
 
-    const p0, 0x7f0601b0
+    const p0, 0x7f0601b4
 
     return p0
 .end method

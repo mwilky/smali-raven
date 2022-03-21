@@ -25,7 +25,7 @@
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    const-string p1, "wifi"
+    const-string/jumbo p1, "wifi"
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -35,11 +35,11 @@
 
     iput-object p1, p0, Lcom/android/settings/wifi/WifiConfigInfo;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    const p1, 0x7f0602aa
+    const p1, 0x7f0602b6
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setContentView(I)V
 
-    const p1, 0x7f0d016a
+    const p1, 0x7f0d016e
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -104,7 +104,7 @@
     :cond_1
     iget-object p0, p0, Lcom/android/settings/wifi/WifiConfigInfo;->mConfigList:Landroid/widget/TextView;
 
-    const v0, 0x7f0416fa
+    const v0, 0x7f04171f
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setText(I)V
 

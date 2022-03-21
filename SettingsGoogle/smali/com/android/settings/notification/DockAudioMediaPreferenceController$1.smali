@@ -52,7 +52,7 @@
 
     if-ne p2, p0, :cond_0
 
-    const p0, 0x7f040819
+    const p0, 0x7f040831
 
     invoke-virtual {p1, p0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -68,7 +68,7 @@
     throw p0
 
     :cond_1
-    const p0, 0x7f040818
+    const p0, 0x7f040830
 
     invoke-virtual {p1, p0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -84,7 +84,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f090065
+    const p1, 0x7f090068
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getBoolean(I)Z
 

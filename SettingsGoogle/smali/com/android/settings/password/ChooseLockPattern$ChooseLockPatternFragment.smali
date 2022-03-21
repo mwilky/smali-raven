@@ -79,6 +79,16 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$Y9Po3xj0kdQ4k5orBNW1SERHvD8(Landroid/view/View;Landroid/view/MotionEvent;)Z
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/settings/password/ChooseLockPattern$ChooseLockPatternFragment;->lambda$onCreateView$0(Landroid/view/View;Landroid/view/MotionEvent;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public constructor <init>()V
     .locals 4
 
@@ -181,6 +191,29 @@
     return-object p0
 .end method
 
+.method private static synthetic lambda$onCreateView$0(Landroid/view/View;Landroid/view/MotionEvent;)Z
+    .locals 0
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
+
+    move-result p1
+
+    if-nez p1, :cond_0
+
+    invoke-virtual {p0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+
+    move-result-object p0
+
+    const/4 p1, 0x1
+
+    invoke-interface {p0, p1}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V
+
+    :cond_0
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
 .method private postClearPatternRunnable()V
     .locals 3
 
@@ -210,7 +243,7 @@
 
     const-string p0, "ChooseLockPattern"
 
-    const-string v0, "startSaveAndFinish with an existing SaveAndFinishWorker."
+    const-string/jumbo v0, "startSaveAndFinish with an existing SaveAndFinishWorker."
 
     invoke-static {p0, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -269,7 +302,7 @@
 
     move-result v5
 
-    const-string v1, "unification_profile_id"
+    const-string/jumbo v1, "unification_profile_id"
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
 
@@ -277,7 +310,7 @@
 
     if-eqz v2, :cond_2
 
-    const-string v2, "unification_profile_credential"
+    const-string/jumbo v2, "unification_profile_credential"
 
     invoke-virtual {v0, v2}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
@@ -351,7 +384,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f040bf5
+    const v0, 0x7f040c0d
 
     goto :goto_0
 
@@ -360,7 +393,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f040bf4
+    const v0, 0x7f040c0c
 
     goto :goto_0
 
@@ -369,12 +402,12 @@
 
     if-eqz v0, :cond_2
 
-    const v0, 0x7f040bfc
+    const v0, 0x7f040c14
 
     goto :goto_0
 
     :cond_2
-    const v0, 0x7f040bf2
+    const v0, 0x7f040c0a
 
     :goto_0
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
@@ -862,8 +895,13 @@
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 2
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "ClickableViewAccessibility"
+        }
+    .end annotation
 
-    const p3, 0x7f060079
+    const p3, 0x7f06007b
 
     const/4 v0, 0x0
 
@@ -872,6 +910,16 @@
     move-result-object p1
 
     check-cast p1, Lcom/google/android/setupdesign/GlifLayout;
+
+    const p2, 0x7f0d033b
+
+    invoke-virtual {p1, p2}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object p2
+
+    sget-object p3, Lcom/android/settings/password/ChooseLockPattern$ChooseLockPatternFragment$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/settings/password/ChooseLockPattern$ChooseLockPatternFragment$$ExternalSyntheticLambda2;
+
+    invoke-virtual {p2, p3}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
     invoke-direct {p0}, Lcom/android/settings/password/ChooseLockPattern$ChooseLockPatternFragment;->updateActivityTitle()V
 
@@ -897,7 +945,7 @@
 
     move-result-object p2
 
-    const p3, 0x7f090019
+    const p3, 0x7f09001a
 
     invoke-virtual {p2, p3}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -905,7 +953,7 @@
 
     if-eqz p2, :cond_0
 
-    const p2, 0x7f0d0568
+    const p2, 0x7f0d0577
 
     invoke-virtual {p1, p2}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -932,7 +980,7 @@
 
     move-result-object p2
 
-    const p3, 0x7f020237
+    const p3, 0x7f02023e
 
     invoke-virtual {p2, p3}, Landroid/app/Activity;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -958,7 +1006,7 @@
 
     invoke-direct {p3, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f040c4d
+    const v1, 0x7f040c65
 
     invoke-virtual {p3, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -976,7 +1024,7 @@
 
     move-result-object p3
 
-    const v0, 0x7f13021b
+    const v0, 0x7f13021d
 
     invoke-virtual {p3, v0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -996,7 +1044,7 @@
 
     invoke-direct {p3, v0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f040c4e
+    const v0, 0x7f040c66
 
     invoke-virtual {p3, v0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -1016,7 +1064,7 @@
 
     move-result-object p3
 
-    const v0, 0x7f13021a
+    const v0, 0x7f13021c
 
     invoke-virtual {p3, v0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -1125,7 +1173,7 @@
 
     move-result v0
 
-    const-string v1, "uiStage"
+    const-string/jumbo v1, "uiStage"
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
@@ -1167,7 +1215,7 @@
 
     invoke-super {p0, p1, p2}, Landroidx/fragment/app/Fragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    const v0, 0x7f0d0281
+    const v0, 0x7f0d0286
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1183,7 +1231,7 @@
 
     iput-object v0, p0, Lcom/android/settings/password/ChooseLockPattern$ChooseLockPatternFragment;->mDefaultHeaderColorList:Landroid/content/res/ColorStateList;
 
-    const v0, 0x7f0d032e
+    const v0, 0x7f0d033b
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1213,7 +1261,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/LockPatternView;->setFadePattern(Z)V
 
-    const v0, 0x7f0d023a
+    const v0, 0x7f0d0240
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1223,7 +1271,7 @@
 
     iput-object v0, p0, Lcom/android/settings/password/ChooseLockPattern$ChooseLockPatternFragment;->mFooterText:Landroid/widget/TextView;
 
-    const v0, 0x7f0d05ce
+    const v0, 0x7f0d05dd
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1299,7 +1347,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f041445
+    const p2, 0x7f04146a
 
     invoke-virtual {p0, p2}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -1369,7 +1417,7 @@
 
     move-result-object p1
 
-    const-string v0, "uiStage"
+    const-string/jumbo v0, "uiStage"
 
     invoke-virtual {p2, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
@@ -1523,7 +1571,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d04e2
+    const v5, 0x7f0d04f1
 
     invoke-virtual {v4, v5}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1623,7 +1671,7 @@
 
     invoke-virtual {v1, v8}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v1, 0x7f040c16
+    const v1, 0x7f040c2e
 
     invoke-virtual {v4, v1}, Lcom/google/android/setupdesign/GlifLayout;->setHeaderText(I)V
 
@@ -1643,7 +1691,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0500d7
+    const v5, 0x7f0500db
 
     invoke-virtual {v4, v5, v1, v3}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
 

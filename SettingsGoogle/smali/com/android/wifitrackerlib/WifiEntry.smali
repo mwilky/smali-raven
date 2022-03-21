@@ -965,7 +965,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "standard = "
+    const-string/jumbo v2, "standard = "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1496,7 +1496,7 @@
 
     if-ne v1, v2, :cond_1
 
-    const-string v1, "true"
+    const-string/jumbo v1, "true"
 
     goto :goto_1
 

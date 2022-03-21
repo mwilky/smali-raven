@@ -123,7 +123,7 @@
 
     move-result-object v0
 
-    const-string v1, "shared"
+    const-string/jumbo v1, "shared"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

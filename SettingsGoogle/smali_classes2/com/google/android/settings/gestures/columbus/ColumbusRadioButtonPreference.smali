@@ -39,7 +39,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0405f3
+    const v2, 0x7f04060b
 
     const/4 v3, 0x1
 
@@ -78,7 +78,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settingslib/widget/RadioButtonPreference;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
 
-    const v0, 0x7f0d0476
+    const v0, 0x7f0d0483
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 

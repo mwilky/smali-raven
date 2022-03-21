@@ -11,7 +11,7 @@
 .method public constructor <init>(Landroid/content/Context;Lcom/android/settings/SettingsPreferenceFragment;)V
     .locals 1
 
-    const-string v0, "unlock_set_or_change_profile"
+    const-string/jumbo v0, "unlock_set_or_change_profile"
 
     invoke-direct {p0, p1, p2, v0}, Lcom/android/settings/security/ChangeProfileScreenLockPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settings/SettingsPreferenceFragment;Ljava/lang/String;)V
 
@@ -228,7 +228,7 @@
 
     iget-object p1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040be6
+    const v0, 0x7f040bfe
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

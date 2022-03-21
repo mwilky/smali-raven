@@ -324,7 +324,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f060283
+    const v6, 0x7f06028f
 
     invoke-virtual {p0, v6, p1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -752,7 +752,7 @@
 
     move-result-object v0
 
-    const-string v1, "user"
+    const-string/jumbo v1, "user"
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -843,7 +843,7 @@
 
     invoke-virtual {v0, p0, p1}, Landroid/app/Activity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    const p0, 0x7f0413e3
+    const p0, 0x7f041408
 
     invoke-virtual {v0, p0}, Landroid/app/Activity;->setTitle(I)V
 
@@ -853,7 +853,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 1
 
-    const p3, 0x7f060284
+    const p3, 0x7f060290
 
     const/4 v0, 0x0
 

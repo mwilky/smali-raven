@@ -298,7 +298,7 @@
     goto :goto_1
 
     :cond_1
-    const-string v0, "sprite_name"
+    const-string/jumbo v0, "sprite_name"
 
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->optString(Ljava/lang/String;)Ljava/lang/String;
 
@@ -466,7 +466,7 @@
 
     invoke-virtual {v4, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p0, "}"
+    const-string/jumbo p0, "}"
 
     invoke-virtual {v4, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

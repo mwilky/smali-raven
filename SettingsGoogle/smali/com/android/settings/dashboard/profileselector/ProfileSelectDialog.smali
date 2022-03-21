@@ -11,6 +11,12 @@
 
 
 # instance fields
+.field private mOnCancelListener:Landroid/content/DialogInterface$OnCancelListener;
+
+.field private mOnDismissListener:Landroid/content/DialogInterface$OnDismissListener;
+
+.field private mOnShowListener:Landroid/content/DialogInterface$OnShowListener;
+
 .field private mSelectedTile:Lcom/android/settingslib/drawer/Tile;
 
 .field private mSourceMetricCategory:I
@@ -41,7 +47,7 @@
     return-void
 .end method
 
-.method public static show(Landroidx/fragment/app/FragmentManager;Lcom/android/settingslib/drawer/Tile;I)V
+.method public static show(Landroidx/fragment/app/FragmentManager;Lcom/android/settingslib/drawer/Tile;ILandroid/content/DialogInterface$OnShowListener;Landroid/content/DialogInterface$OnDismissListener;Landroid/content/DialogInterface$OnCancelListener;)V
     .locals 3
 
     new-instance v0, Lcom/android/settings/dashboard/profileselector/ProfileSelectDialog;
@@ -56,11 +62,17 @@
 
     invoke-virtual {v1, v2, p1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    const-string p1, "sourceMetricCategory"
+    const-string/jumbo p1, "sourceMetricCategory"
 
     invoke-virtual {v1, p1, p2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     invoke-virtual {v0, v1}, Landroidx/fragment/app/Fragment;->setArguments(Landroid/os/Bundle;)V
+
+    iput-object p3, v0, Lcom/android/settings/dashboard/profileselector/ProfileSelectDialog;->mOnShowListener:Landroid/content/DialogInterface$OnShowListener;
+
+    iput-object p4, v0, Lcom/android/settings/dashboard/profileselector/ProfileSelectDialog;->mOnDismissListener:Landroid/content/DialogInterface$OnDismissListener;
+
+    iput-object p5, v0, Lcom/android/settings/dashboard/profileselector/ProfileSelectDialog;->mOnCancelListener:Landroid/content/DialogInterface$OnCancelListener;
 
     const-string p1, "select_profile"
 
@@ -163,6 +175,21 @@
 
 
 # virtual methods
+.method public onCancel(Landroid/content/DialogInterface;)V
+    .locals 0
+
+    invoke-super {p0, p1}, Landroidx/fragment/app/DialogFragment;->onCancel(Landroid/content/DialogInterface;)V
+
+    iget-object p0, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectDialog;->mOnCancelListener:Landroid/content/DialogInterface$OnCancelListener;
+
+    if-eqz p0, :cond_0
+
+    invoke-interface {p0, p1}, Landroid/content/DialogInterface$OnCancelListener;->onCancel(Landroid/content/DialogInterface;)V
+
+    :cond_0
+    return-void
+.end method
+
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 4
 
@@ -244,7 +271,7 @@
 
     move-result-object p1
 
-    const-string v0, "sourceMetricCategory"
+    const-string/jumbo v0, "sourceMetricCategory"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
@@ -278,7 +305,7 @@
 
     move-result-object p1
 
-    const v1, 0x7f0405a9
+    const v1, 0x7f0405c1
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -291,4 +318,38 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public onDismiss(Landroid/content/DialogInterface;)V
+    .locals 0
+
+    invoke-super {p0, p1}, Landroidx/fragment/app/DialogFragment;->onDismiss(Landroid/content/DialogInterface;)V
+
+    iget-object p0, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectDialog;->mOnDismissListener:Landroid/content/DialogInterface$OnDismissListener;
+
+    if-eqz p0, :cond_0
+
+    invoke-interface {p0, p1}, Landroid/content/DialogInterface$OnDismissListener;->onDismiss(Landroid/content/DialogInterface;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public onStart()V
+    .locals 1
+
+    invoke-super {p0}, Landroidx/fragment/app/DialogFragment;->onStart()V
+
+    iget-object v0, p0, Lcom/android/settings/dashboard/profileselector/ProfileSelectDialog;->mOnShowListener:Landroid/content/DialogInterface$OnShowListener;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Landroidx/fragment/app/DialogFragment;->getDialog()Landroid/app/Dialog;
+
+    move-result-object p0
+
+    invoke-interface {v0, p0}, Landroid/content/DialogInterface$OnShowListener;->onShow(Landroid/content/DialogInterface;)V
+
+    :cond_0
+    return-void
 .end method

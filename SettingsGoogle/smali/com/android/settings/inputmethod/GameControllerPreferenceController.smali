@@ -72,7 +72,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090057
+    const v1, 0x7f090058
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -168,6 +168,14 @@
     return-object p0
 .end method
 
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d11
+
+    return p0
+.end method
+
 .method public bridge synthetic hasAsyncUpdate()Z
     .locals 0
 
@@ -187,7 +195,7 @@
 
     move-result-object p0
 
-    const-string v0, "vibrate_input_devices"
+    const-string/jumbo v0, "vibrate_input_devices"
 
     const/4 v1, 0x1
 
@@ -277,7 +285,7 @@
 
     move-result-object p0
 
-    const-string v0, "vibrate_input_devices"
+    const-string/jumbo v0, "vibrate_input_devices"
 
     invoke-static {p0, v0, p1}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 

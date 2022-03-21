@@ -35,7 +35,7 @@
 
     new-instance v0, Lcom/android/settings/gestures/OneHandedSettings$1;
 
-    const v1, 0x7f1500a9
+    const v1, 0x7f1500ae
 
     invoke-direct {v0, v1}, Lcom/android/settings/gestures/OneHandedSettings$1;-><init>(I)V
 
@@ -131,7 +131,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500a9
+    const p0, 0x7f1500ae
 
     return p0
 .end method
@@ -243,7 +243,7 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f030033
+    const p0, 0x7f030034
 
     goto :goto_0
 
@@ -254,5 +254,15 @@
     invoke-virtual {v0, p0}, Lcom/android/settingslib/widget/IllustrationPreference;->setLottieAnimationResId(I)V
 
     :cond_1
+    return-void
+.end method
+
+.method protected updateShortcutTitle(Lcom/android/settings/accessibility/ShortcutPreference;)V
+    .locals 0
+
+    const p0, 0x7f040ed4
+
+    invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setTitle(I)V
+
     return-void
 .end method

@@ -46,20 +46,8 @@
 
     invoke-direct {p2, p1}, Landroid/provider/SearchIndexableResource;-><init>(Landroid/content/Context;)V
 
-    invoke-static {p1}, Lcom/android/settings/Utils;->isProviderModelEnabled(Landroid/content/Context;)Z
+    const p1, 0x7f1500a2
 
-    move-result p1
-
-    if-eqz p1, :cond_0
-
-    const p1, 0x7f15009d
-
-    goto :goto_0
-
-    :cond_0
-    const p1, 0x7f150095
-
-    :goto_0
     iput p1, p2, Landroid/provider/SearchIndexableResource;->xmlResId:I
 
     invoke-virtual {p0, p2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z

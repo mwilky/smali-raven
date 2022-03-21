@@ -14,6 +14,14 @@
 
 
 # virtual methods
+.method protected getActivityLayoutResId()I
+    .locals 0
+
+    const p0, 0x7f060275
+
+    return p0
+.end method
+
 .method public getMetricsCategory()I
     .locals 0
 

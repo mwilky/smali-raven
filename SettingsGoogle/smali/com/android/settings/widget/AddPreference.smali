@@ -36,7 +36,7 @@
 .method getAddWidgetResId()I
     .locals 0
 
-    const p0, 0x7f0d0061
+    const p0, 0x7f0d0062
 
     return p0
 .end method
@@ -44,7 +44,7 @@
 .method protected getSecondTargetResId()I
     .locals 0
 
-    const p0, 0x7f0601ae
+    const p0, 0x7f0601b2
 
     return p0
 .end method

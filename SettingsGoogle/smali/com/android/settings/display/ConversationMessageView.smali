@@ -123,7 +123,7 @@
 
     move-result-object p2
 
-    const p3, 0x7f06009d
+    const p3, 0x7f06009f
 
     invoke-virtual {p2, p3, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -131,7 +131,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f06009c
+    const p2, 0x7f06009e
 
     invoke-virtual {p1, p2, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -194,22 +194,22 @@
 
     if-eqz v0, :cond_0
 
-    const v1, 0x7f0a0133
+    const v1, 0x7f0a0131
 
     goto :goto_0
 
     :cond_0
-    const v1, 0x7f0a0134
+    const v1, 0x7f0a0132
 
     :goto_0
     if-eqz v0, :cond_1
 
-    const v0, 0x7f0a0263
+    const v0, 0x7f0a0271
 
     goto :goto_1
 
     :cond_1
-    const v0, 0x7f0a0264
+    const v0, 0x7f0a0272
 
     :goto_1
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
@@ -242,25 +242,25 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b01e1
+    const v1, 0x7f0b01e5
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
     move-result v1
 
-    const v2, 0x7f0b01e5
+    const v2, 0x7f0b01e9
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
     move-result v2
 
-    const v3, 0x7f0b01e6
+    const v3, 0x7f0b01ea
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
     move-result v3
 
-    const v4, 0x7f0b01e4
+    const v4, 0x7f0b01e8
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -294,13 +294,13 @@
     const v5, 0x800015
 
     :goto_1
-    const v6, 0x7f0b01e3
+    const v6, 0x7f0b01e7
 
     invoke-virtual {v0, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v6
 
-    const v7, 0x7f0b01e2
+    const v7, 0x7f0b01e6
 
     invoke-virtual {v0, v7}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -310,22 +310,22 @@
 
     if-eqz v7, :cond_2
 
-    const v8, 0x7f0203dd
+    const v8, 0x7f0203e6
 
     goto :goto_2
 
     :cond_2
-    const v8, 0x7f0203de
+    const v8, 0x7f0203e7
 
     :goto_2
     if-eqz v7, :cond_3
 
-    const v7, 0x7f0a012d
+    const v7, 0x7f0a012b
 
     goto :goto_3
 
     :cond_3
-    const v7, 0x7f0a012e
+    const v7, 0x7f0a012c
 
     :goto_3
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
@@ -422,7 +422,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f020118
+    const v1, 0x7f02011e
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -450,7 +450,7 @@
 .method protected onFinishInflate()V
     .locals 1
 
-    const v0, 0x7f0d035a
+    const v0, 0x7f0d0368
 
     invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -460,7 +460,7 @@
 
     iput-object v0, p0, Lcom/android/settings/display/ConversationMessageView;->mMessageBubble:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f0d035e
+    const v0, 0x7f0d036c
 
     invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -470,7 +470,7 @@
 
     iput-object v0, p0, Lcom/android/settings/display/ConversationMessageView;->mMessageTextAndInfoView:Landroid/view/ViewGroup;
 
-    const v0, 0x7f0d035d
+    const v0, 0x7f0d036b
 
     invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -480,7 +480,7 @@
 
     iput-object v0, p0, Lcom/android/settings/display/ConversationMessageView;->mMessageTextView:Landroid/widget/TextView;
 
-    const v0, 0x7f0d035c
+    const v0, 0x7f0d036a
 
     invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -490,7 +490,7 @@
 
     iput-object v0, p0, Lcom/android/settings/display/ConversationMessageView;->mStatusTextView:Landroid/widget/TextView;
 
-    const v0, 0x7f0d0182
+    const v0, 0x7f0d0186
 
     invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -666,7 +666,7 @@
 
     move-result-object p2
 
-    const v1, 0x7f0b01e1
+    const v1, 0x7f0b01e5
 
     invoke-virtual {p2, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

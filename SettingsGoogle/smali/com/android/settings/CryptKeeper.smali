@@ -69,7 +69,7 @@
 
     iput v0, p0, Lcom/android/settings/CryptKeeper;->mReleaseWakeLockCountdown:I
 
-    const v0, 0x7f0408a0
+    const v0, 0x7f0408b8
 
     iput v0, p0, Lcom/android/settings/CryptKeeper;->mStatusString:I
 
@@ -265,7 +265,7 @@
 .method private beginAttempt()V
     .locals 1
 
-    const v0, 0x7f0d0531
+    const v0, 0x7f0d0540
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -273,7 +273,7 @@
 
     check-cast p0, Landroid/widget/TextView;
 
-    const v0, 0x7f0405a6
+    const v0, 0x7f0405be
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setText(I)V
 
@@ -299,7 +299,7 @@
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/LockPatternView;->setEnabled(Z)V
 
     :cond_1
-    const v0, 0x7f0d0531
+    const v0, 0x7f0d0540
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -307,7 +307,7 @@
 
     check-cast p0, Landroid/widget/TextView;
 
-    const v0, 0x7f0406b6
+    const v0, 0x7f0406ce
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setText(I)V
 
@@ -400,7 +400,7 @@
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->acquire()V
 
     :cond_0
-    const v0, 0x7f0d045e
+    const v0, 0x7f0d046b
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -461,7 +461,7 @@
 .method private getTelecomManager()Landroid/telecom/TelecomManager;
     .locals 1
 
-    const-string v0, "telecom"
+    const-string/jumbo v0, "telecom"
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -531,7 +531,7 @@
     goto/16 :goto_2
 
     :cond_1
-    const v0, 0x7f0d0531
+    const v0, 0x7f0d0540
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -549,7 +549,7 @@
 
     if-ge p1, v1, :cond_2
 
-    const v1, 0x7f0406be
+    const v1, 0x7f0406d6
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -611,7 +611,7 @@
 
     if-ne v3, p1, :cond_3
 
-    const p1, 0x7f0406c3
+    const p1, 0x7f0406db
 
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(I)V
 
@@ -622,14 +622,14 @@
 
     if-ne v3, p1, :cond_4
 
-    const p1, 0x7f0406c2
+    const p1, 0x7f0406da
 
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(I)V
 
     goto :goto_1
 
     :cond_4
-    const p1, 0x7f0406c1
+    const p1, 0x7f0406d9
 
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(I)V
 
@@ -951,7 +951,7 @@
 .method private passwordEntryInit()V
     .locals 5
 
-    const v0, 0x7f0d0414
+    const v0, 0x7f0d0422
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -982,7 +982,7 @@
     invoke-virtual {v0, p0}, Landroid/widget/ImeAwareEditText;->addTextChangedListener(Landroid/text/TextWatcher;)V
 
     :cond_0
-    const v0, 0x7f0d032e
+    const v0, 0x7f0d033b
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1011,7 +1011,7 @@
 
     if-nez v0, :cond_2
 
-    const v0, 0x7f0d01f1
+    const v0, 0x7f0d01f6
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1028,7 +1028,7 @@
     invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
     :cond_2
-    const v0, 0x7f0d0584
+    const v0, 0x7f0d0593
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1177,7 +1177,7 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string v1, "state"
+    const-string/jumbo v1, "state"
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
@@ -1218,7 +1218,7 @@
 
     iget-boolean v0, p0, Lcom/android/settings/CryptKeeper;->mEncryptionGoneBad:Z
 
-    const v1, 0x7f0600ac
+    const v1, 0x7f0600ae
 
     if-nez v0, :cond_6
 
@@ -1333,7 +1333,7 @@
 .method private showFactoryReset(Z)V
     .locals 3
 
-    const v0, 0x7f0d01f6
+    const v0, 0x7f0d01fb
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1343,7 +1343,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    const v0, 0x7f0d0223
+    const v0, 0x7f0d0228
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1361,9 +1361,9 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f0d0531
+    const v0, 0x7f0d0540
 
-    const v2, 0x7f0d05c1
+    const v2, 0x7f0d05d0
 
     if-eqz p1, :cond_0
 
@@ -1373,7 +1373,7 @@
 
     check-cast p1, Landroid/widget/TextView;
 
-    const v2, 0x7f0406ac
+    const v2, 0x7f0406c4
 
     invoke-virtual {p1, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -1383,7 +1383,7 @@
 
     check-cast p1, Landroid/widget/TextView;
 
-    const v0, 0x7f0406ab
+    const v0, 0x7f0406c3
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(I)V
 
@@ -1396,7 +1396,7 @@
 
     check-cast p1, Landroid/widget/TextView;
 
-    const v2, 0x7f0406b4
+    const v2, 0x7f0406cc
 
     invoke-virtual {p1, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -1406,12 +1406,12 @@
 
     check-cast p1, Landroid/widget/TextView;
 
-    const v0, 0x7f0406b3
+    const v0, 0x7f0406cb
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(I)V
 
     :goto_0
-    const p1, 0x7f0d0102
+    const p1, 0x7f0d0106
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1454,7 +1454,7 @@
 .method private updateEmergencyCallButtonState()V
     .locals 2
 
-    const v0, 0x7f0d01f1
+    const v0, 0x7f0d01f6
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1493,12 +1493,12 @@
 
     if-eqz p0, :cond_1
 
-    const p0, 0x7f0406c0
+    const p0, 0x7f0406d8
 
     goto :goto_0
 
     :cond_1
-    const p0, 0x7f0406bf
+    const p0, 0x7f0406d7
 
     :goto_0
     invoke-virtual {v0, p0}, Landroid/widget/Button;->setText(I)V
@@ -1545,7 +1545,7 @@
     return-void
 
     :cond_0
-    const v2, 0x7f0406b9
+    const v2, 0x7f0406d1
 
     invoke-virtual {p0, v2}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -1646,7 +1646,7 @@
 
     move-result-object v1
 
-    const v0, 0x7f0406ba
+    const v0, 0x7f0406d2
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -1658,7 +1658,7 @@
 
     :catch_1
     :cond_2
-    const v0, 0x7f0d0531
+    const v0, 0x7f0d0540
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1743,7 +1743,7 @@
 
     if-nez v1, :cond_0
 
-    const-string v1, "trigger_restart_framework"
+    const-string/jumbo v1, "trigger_restart_framework"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1764,7 +1764,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090063
+    const v1, 0x7f090066
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1780,7 +1780,7 @@
 
     :catch_0
     :cond_2
-    const-string v0, "statusbar"
+    const-string/jumbo v0, "statusbar"
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

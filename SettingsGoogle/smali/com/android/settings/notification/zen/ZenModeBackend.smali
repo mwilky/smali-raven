@@ -167,22 +167,22 @@
 
     if-eq p0, v0, :cond_0
 
-    const-string p0, "zen_mode_from_none"
+    const-string/jumbo p0, "zen_mode_from_none"
 
     return-object p0
 
     :cond_0
-    const-string p0, "zen_mode_from_starred"
+    const-string/jumbo p0, "zen_mode_from_starred"
 
     return-object p0
 
     :cond_1
-    const-string p0, "zen_mode_from_contacts"
+    const-string/jumbo p0, "zen_mode_from_contacts"
 
     return-object p0
 
     :cond_2
-    const-string p0, "zen_mode_from_anyone"
+    const-string/jumbo p0, "zen_mode_from_anyone"
 
     return-object p0
 .end method
@@ -323,7 +323,7 @@
     goto :goto_0
 
     :sswitch_0
-    const-string v0, "zen_mode_from_starred"
+    const-string/jumbo v0, "zen_mode_from_starred"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -336,7 +336,7 @@
     goto :goto_1
 
     :sswitch_1
-    const-string v0, "zen_mode_from_anyone"
+    const-string/jumbo v0, "zen_mode_from_anyone"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -349,7 +349,7 @@
     goto :goto_1
 
     :sswitch_2
-    const-string v0, "zen_mode_from_contacts"
+    const-string/jumbo v0, "zen_mode_from_contacts"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -362,7 +362,7 @@
     goto :goto_1
 
     :sswitch_3
-    const-string v0, "zen_mode_from_none"
+    const-string/jumbo v0, "zen_mode_from_none"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -456,11 +456,11 @@
 
     move-result-object v2
 
-    const-string v3, "starred=1"
+    const-string/jumbo v3, "starred=1"
 
     const/4 v4, 0x0
 
-    const-string v5, "times_contacted"
+    const-string/jumbo v5, "times_contacted"
 
     invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
@@ -502,7 +502,7 @@
 
     if-ne p1, p0, :cond_0
 
-    const p0, 0x7f041823
+    const p0, 0x7f041848
 
     return p0
 
@@ -511,12 +511,12 @@
 
     if-ne p1, p0, :cond_1
 
-    const p0, 0x7f041822
+    const p0, 0x7f041847
 
     return p0
 
     :cond_1
-    const p0, 0x7f041816
+    const p0, 0x7f04183b
 
     return p0
 .end method
@@ -617,22 +617,22 @@
 
     if-eq p0, p1, :cond_0
 
-    const p0, 0x7f041822
+    const p0, 0x7f041847
 
     return p0
 
     :cond_0
-    const p0, 0x7f041817
+    const p0, 0x7f04183c
 
     return p0
 
     :cond_1
-    const p0, 0x7f041814
+    const p0, 0x7f041839
 
     return p0
 
     :cond_2
-    const p0, 0x7f041813
+    const p0, 0x7f041838
 
     return p0
 .end method
@@ -656,22 +656,22 @@
 
     if-eq p0, p1, :cond_0
 
-    const p0, 0x7f041823
+    const p0, 0x7f041848
 
     return p0
 
     :cond_0
-    const p0, 0x7f041817
+    const p0, 0x7f04183c
 
     return p0
 
     :cond_1
-    const p0, 0x7f041814
+    const p0, 0x7f041839
 
     return p0
 
     :cond_2
-    const p0, 0x7f041813
+    const p0, 0x7f041838
 
     return p0
 .end method
@@ -683,7 +683,7 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/zen/ZenModeBackend;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0417ed
+    const v1, 0x7f041812
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -737,17 +737,17 @@
 
     if-eq p0, v0, :cond_0
 
-    const p0, 0x7f041816
+    const p0, 0x7f04183b
 
     return p0
 
     :cond_0
-    const p0, 0x7f041815
+    const p0, 0x7f04183a
 
     return p0
 
     :cond_1
-    const p0, 0x7f041812
+    const p0, 0x7f041837
 
     return p0
 .end method
@@ -882,7 +882,7 @@
     :cond_1
     iget-object v1, p0, Lcom/android/settings/notification/zen/ZenModeBackend;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f04186a
+    const v2, 0x7f04188f
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -916,7 +916,7 @@
 
     iget-object p0, p0, Lcom/android/settings/notification/zen/ZenModeBackend;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f04186b
+    const v2, 0x7f041890
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -997,7 +997,7 @@
 
     iget v1, p0, Lcom/android/settings/notification/zen/ZenModeBackend;->mZenMode:I
 
-    const-string v2, "zen_mode"
+    const-string/jumbo v2, "zen_mode"
 
     invoke-static {v0, v2, v1}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
@@ -1293,7 +1293,7 @@
 
     move-result-object v0
 
-    const-string v1, "zen_settings_updated"
+    const-string/jumbo v1, "zen_settings_updated"
 
     const/4 v2, 0x1
 
@@ -1639,7 +1639,7 @@
 
     iget v1, p0, Lcom/android/settings/notification/zen/ZenModeBackend;->mZenMode:I
 
-    const-string v2, "zen_mode"
+    const-string/jumbo v2, "zen_mode"
 
     invoke-static {v0, v2, v1}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 

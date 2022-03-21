@@ -549,7 +549,7 @@
     :try_start_0
     const-class v0, Landroid/graphics/drawable/Drawable;
 
-    const-string v4, "setLayoutDirection"
+    const-string/jumbo v4, "setLayoutDirection"
 
     new-array v5, v3, [Ljava/lang/Class;
 

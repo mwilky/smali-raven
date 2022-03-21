@@ -73,7 +73,7 @@
 
     const-string v7, "android.intent.action.INSERT"
 
-    const-string v8, "vnd.android.cursor.dir/event"
+    const-string/jumbo v8, "vnd.android.cursor.dir/event"
 
     invoke-static {v7, v6, v6, v8}, Lcom/android/settings/applications/EnterpriseDefaultApps;->buildIntent(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
@@ -121,7 +121,7 @@
 
     const-string v10, "android.intent.action.PICK"
 
-    const-string v11, "vnd.android.cursor.dir/contact"
+    const-string/jumbo v11, "vnd.android.cursor.dir/contact"
 
     invoke-static {v10, v6, v6, v11}, Lcom/android/settings/applications/EnterpriseDefaultApps;->buildIntent(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 

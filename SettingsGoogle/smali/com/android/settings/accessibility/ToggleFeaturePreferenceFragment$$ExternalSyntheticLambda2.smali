@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment$$ExternalSyntheticLambda2;->f$0:Landroid/widget/CheckBox;
 
-    invoke-static {p0, p1}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->$r8$lambda$d6cOU3XF9GCMFOa077_91iaky3Y(Landroid/widget/CheckBox;Landroid/view/View;)V
+    invoke-static {p0, p1}, Lcom/android/settings/accessibility/ToggleFeaturePreferenceFragment;->$r8$lambda$Qn29PFxP1Y9MdbAHocjz-kg8Khg(Landroid/widget/CheckBox;Landroid/view/View;)V
 
     return-void
 .end method

@@ -16,9 +16,14 @@
     }
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # static fields
 .field static final ADD_NETWORK_REQUEST:I = 0x2
+
+.field static IS_ENABLED_PROVIDER_MODEL:Ljava/lang/Boolean; = null
 
 .field static final MENU_ID_DISCONNECT:I = 0x3
 
@@ -177,9 +182,13 @@
 .method static constructor <clinit>()V
     .locals 2
 
+    sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+
+    sput-object v0, Lcom/android/settings/wifi/WifiSettings;->IS_ENABLED_PROVIDER_MODEL:Ljava/lang/Boolean;
+
     new-instance v0, Lcom/android/settings/wifi/WifiSettings$4;
 
-    const v1, 0x7f150115
+    const v1, 0x7f15011a
 
     invoke-direct {v0, v1}, Lcom/android/settings/wifi/WifiSettings$4;-><init>(I)V
 
@@ -277,7 +286,7 @@
 .method private addPreferences()V
     .locals 3
 
-    const v0, 0x7f150115
+    const v0, 0x7f15011a
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -327,7 +336,7 @@
 
     iput-object v0, p0, Lcom/android/settings/wifi/WifiSettings;->mAddWifiNetworkPreference:Lcom/android/settings/wifi/AddWifiNetworkPreference;
 
-    const-string v0, "wifi_status_message"
+    const-string/jumbo v0, "wifi_status_message"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -337,7 +346,7 @@
 
     iput-object v0, p0, Lcom/android/settings/wifi/WifiSettings;->mStatusMessagePreference:Lcom/android/settings/wifi/LinkablePreference;
 
-    const-string v0, "wifi_data_usage"
+    const-string/jumbo v0, "wifi_data_usage"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -541,7 +550,7 @@
 .method private handleAddNetworkSubmitEvent(Landroid/content/Intent;)V
     .locals 1
 
-    const-string v0, "wifi_config_key"
+    const-string/jumbo v0, "wifi_config_key"
 
     invoke-virtual {p1, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
@@ -795,7 +804,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040b7d
+    const v1, 0x7f040b95
 
     invoke-virtual {v0, v1}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -865,7 +874,7 @@
 
     invoke-direct {v0, v1}, Lcom/android/settings/core/SubSettingLauncher;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0415ab
+    const v1, 0x7f0415d0
 
     invoke-virtual {v0, v1}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -975,7 +984,7 @@
 
     move-result-object v0
 
-    const-string v1, "settings_wifi_details_datausage_header"
+    const-string/jumbo v1, "settings_wifi_details_datausage_header"
 
     invoke-static {v0, v1}, Landroid/util/FeatureFlagUtils;->isEnabled(Landroid/content/Context;Ljava/lang/String;)Z
 
@@ -990,7 +999,7 @@
     goto :goto_0
 
     :cond_0
-    const v1, 0x7f040f2c
+    const v1, 0x7f040f58
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1141,7 +1150,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f041643
+    const v1, 0x7f041668
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -1158,7 +1167,7 @@
 .method private setOffMessage()V
     .locals 4
 
-    const v0, 0x7f041644
+    const v0, 0x7f041669
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -1172,7 +1181,7 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x7f0416bd
+    const v1, 0x7f0416e2
 
     invoke-virtual {p0, v1}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -1181,7 +1190,7 @@
     goto :goto_0
 
     :cond_0
-    const v1, 0x7f0416be
+    const v1, 0x7f0416e3
 
     invoke-virtual {p0, v1}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -1526,7 +1535,7 @@
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setSelectable(Z)V
 
-    const v1, 0x7f041645
+    const v1, 0x7f04166a
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -1534,7 +1543,7 @@
 
     invoke-virtual {v0, v4}, Landroidx/preference/Preference;->setOrder(I)V
 
-    const-string v2, "wifi_empty_list"
+    const-string/jumbo v2, "wifi_empty_list"
 
     invoke-virtual {v0, v2}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
 
@@ -1734,7 +1743,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a3c
+    const p0, 0x7f040a54
 
     return p0
 .end method
@@ -1789,7 +1798,7 @@
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, "}"
+    const-string/jumbo v3, "}"
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1912,7 +1921,7 @@
 
     iput v0, p0, Lcom/android/settings/wifi/WifiSettings;->mDialogMode:I
 
-    const-string v0, "wifi_ap_key"
+    const-string/jumbo v0, "wifi_ap_key"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
@@ -1931,7 +1940,7 @@
 
     const/4 v0, 0x0
 
-    const-string v1, "wifi_enable_next_on_connect"
+    const-string/jumbo v1, "wifi_enable_next_on_connect"
 
     invoke-virtual {p1, v1, v0}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
@@ -1939,7 +1948,7 @@
 
     iput-boolean v0, p0, Lcom/android/settings/wifi/WifiSettings;->mEnableNextOnConnection:Z
 
-    const-string v0, "wifi_start_connect_ssid"
+    const-string/jumbo v0, "wifi_start_connect_ssid"
 
     invoke-virtual {p1, v0}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
 
@@ -2140,13 +2149,9 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/RestrictedSettingsFragment;->onCreate(Landroid/os/Bundle;)V
 
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+    sget-object p1, Lcom/android/settings/wifi/WifiSettings;->IS_ENABLED_PROVIDER_MODEL:Ljava/lang/Boolean;
 
-    move-result-object p1
-
-    const-string v0, "settings_provider_model"
-
-    invoke-static {p1, v0}, Landroid/util/FeatureFlagUtils;->isEnabled(Landroid/content/Context;Ljava/lang/String;)Z
+    invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result p1
 
@@ -2261,7 +2266,7 @@
 
     if-eqz p2, :cond_1
 
-    const p2, 0x7f0415e9
+    const p2, 0x7f04160e
 
     invoke-interface {p1, v0, p3, v0, p2}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2276,7 +2281,7 @@
 
     const/4 p2, 0x6
 
-    const v1, 0x7f0411e2
+    const v1, 0x7f041206
 
     invoke-interface {p1, v0, p2, v0, v1}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2284,7 +2289,7 @@
 
     const/4 v1, 0x1
 
-    const v2, 0x7f0415fa
+    const v2, 0x7f04161f
 
     invoke-interface {p1, v0, p2, v1, v2}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2297,7 +2302,7 @@
 
     const/4 p2, 0x4
 
-    const v1, 0x7f040962
+    const v1, 0x7f04097a
 
     invoke-interface {p1, v0, p2, v0, v1}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2339,7 +2344,7 @@
 
     const/4 p0, 0x5
 
-    const p2, 0x7f041687
+    const p2, 0x7f0416ac
 
     invoke-interface {p1, v0, p0, v0, p2}, Landroid/view/ContextMenu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2616,7 +2621,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/WifiSettings;->mDialogWifiEntryKey:Ljava/lang/String;
 
-    const-string v0, "wifi_ap_key"
+    const-string/jumbo v0, "wifi_ap_key"
 
     invoke-virtual {p1, v0, p0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -2627,7 +2632,11 @@
 .method public onScan(Lcom/android/settings/wifi/WifiDialog2;Ljava/lang/String;)V
     .locals 0
 
-    invoke-static {p2}, Lcom/android/settings/wifi/dpp/WifiDppUtils;->getEnrolleeQrCodeScannerIntent(Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {p1}, Landroid/app/Dialog;->getContext()Landroid/content/Context;
+
+    move-result-object p1
+
+    invoke-static {p1, p2}, Lcom/android/settings/wifi/dpp/WifiDppUtils;->getEnrolleeQrCodeScannerIntent(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
 
     move-result-object p1
 
@@ -2718,7 +2727,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f04164d
+    const p1, 0x7f041672
 
     invoke-static {p0, p1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -2784,13 +2793,13 @@
 
     if-eqz p1, :cond_0
 
-    const p2, 0x7f0601cd
+    const p2, 0x7f0601d1
 
     invoke-virtual {p0, p2}, Lcom/android/settings/SettingsPreferenceFragment;->setPinnedHeaderView(I)Landroid/view/View;
 
     move-result-object p2
 
-    const v0, 0x7f0d045f
+    const v0, 0x7f0d046c
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2813,7 +2822,7 @@
 
     move-result-object p0
 
-    const p2, 0x7f0416e6
+    const p2, 0x7f04170b
 
     invoke-virtual {p0, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2983,7 +2992,7 @@
 
     invoke-direct {p0}, Lcom/android/settings/wifi/WifiSettings;->removeWifiEntryPreference()V
 
-    const v0, 0x7f0416f9
+    const v0, 0x7f04171e
 
     invoke-direct {p0, v0}, Lcom/android/settings/wifi/WifiSettings;->addMessagePreference(I)V
 
@@ -3009,7 +3018,7 @@
 
     invoke-direct {p0}, Lcom/android/settings/wifi/WifiSettings;->removeWifiEntryPreference()V
 
-    const v0, 0x7f041705
+    const v0, 0x7f04172a
 
     invoke-direct {p0, v0}, Lcom/android/settings/wifi/WifiSettings;->addMessagePreference(I)V
 
@@ -3082,12 +3091,12 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x7f0415e7
+    const v1, 0x7f04160c
 
     goto :goto_0
 
     :cond_0
-    const v1, 0x7f0415e6
+    const v1, 0x7f04160b
 
     :goto_0
     invoke-virtual {p0, v1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;

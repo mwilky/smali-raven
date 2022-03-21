@@ -7,9 +7,9 @@
 .method public constructor <init>()V
     .locals 3
 
-    const v0, 0x7f040773
+    const v0, 0x7f04078b
 
-    const v1, 0x7f0410dd
+    const v1, 0x7f04110b
 
     const/4 v2, 0x0
 

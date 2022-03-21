@@ -95,7 +95,7 @@
 
     invoke-static {v2, v4}, Ljava/util/Arrays;->fill([BB)V
 
-    const-string v2, "type"
+    const-string/jumbo v2, "type"
 
     const/4 v4, -0x1
 

@@ -378,18 +378,24 @@
 .method public setActiveDevice(Landroid/bluetooth/BluetoothDevice;)Z
     .locals 1
 
-    iget-object p0, p0, Lcom/android/settingslib/bluetooth/HearingAidProfile;->mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
+    iget-object v0, p0, Lcom/android/settingslib/bluetooth/HearingAidProfile;->mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
 
-    if-nez p0, :cond_0
+    if-nez v0, :cond_0
 
     const/4 p0, 0x0
 
     return p0
 
     :cond_0
-    const/4 v0, 0x2
+    iget-object v0, p0, Lcom/android/settingslib/bluetooth/HearingAidProfile;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/settingslib/Utils;->isAudioModeOngoingCall(Landroid/content/Context;)Z
+
+    move-result v0
 
     if-nez p1, :cond_1
+
+    iget-object p0, p0, Lcom/android/settingslib/bluetooth/HearingAidProfile;->mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
 
     invoke-virtual {p0, v0}, Landroid/bluetooth/BluetoothAdapter;->removeActiveDevice(I)Z
 
@@ -398,6 +404,8 @@
     goto :goto_0
 
     :cond_1
+    iget-object p0, p0, Lcom/android/settingslib/bluetooth/HearingAidProfile;->mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
+
     invoke-virtual {p0, p1, v0}, Landroid/bluetooth/BluetoothAdapter;->setActiveDevice(Landroid/bluetooth/BluetoothDevice;I)Z
 
     move-result p0

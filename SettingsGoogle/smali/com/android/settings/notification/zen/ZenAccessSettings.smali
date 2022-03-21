@@ -36,7 +36,7 @@
 
     new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
 
-    const v1, 0x7f150119
+    const v1, 0x7f15011e
 
     invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
 
@@ -70,12 +70,12 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f04025c
+    const p0, 0x7f040270
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f04025d
+    const p0, 0x7f040271
 
     :goto_0
     return p0
@@ -92,7 +92,7 @@
 
     move-result v6
 
-    const v1, 0x7f040c76
+    const v1, 0x7f040c8e
 
     const/4 v5, -0x1
 
@@ -279,7 +279,7 @@
 
     invoke-virtual {v7, v4}, Landroidx/preference/Preference;->setEnabled(Z)V
 
-    const v6, 0x7f041795
+    const v6, 0x7f0417ba
 
     invoke-virtual {p0, v6}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -324,7 +324,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150119
+    const p0, 0x7f15011e
 
     return p0
 .end method
@@ -390,7 +390,7 @@
 
     invoke-super {p0, p1, p2}, Lcom/android/settings/widget/EmptyTextSettings;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    const p1, 0x7f041796
+    const p1, 0x7f0417bb
 
     invoke-virtual {p0, p1}, Lcom/android/settings/widget/EmptyTextSettings;->setEmptyText(I)V
 

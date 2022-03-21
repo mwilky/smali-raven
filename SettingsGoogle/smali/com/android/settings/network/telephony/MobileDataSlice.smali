@@ -207,7 +207,7 @@
 
     iget-object v0, p0, Lcom/android/settings/network/telephony/MobileDataSlice;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0202d6
+    const v1, 0x7f0202dd
 
     invoke-static {v0, v1}, Landroidx/core/graphics/drawable/IconCompat;->createWithResource(Landroid/content/Context;I)Landroidx/core/graphics/drawable/IconCompat;
 
@@ -215,7 +215,7 @@
 
     iget-object v1, p0, Lcom/android/settings/network/telephony/MobileDataSlice;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f040d0d
+    const v2, 0x7f040d38
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -331,6 +331,14 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d0a
+
+    return p0
 .end method
 
 .method public getUri()Landroid/net/Uri;

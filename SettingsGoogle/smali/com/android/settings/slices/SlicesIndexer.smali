@@ -199,7 +199,7 @@
 
     move-result-object v1
 
-    const-string v2, "slice_uri"
+    const-string/jumbo v2, "slice_uri"
 
     invoke-virtual {v0, v2, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -207,7 +207,7 @@
 
     move-result-object v1
 
-    const-string v2, "title"
+    const-string/jumbo v2, "title"
 
     invoke-virtual {v0, v2, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -215,7 +215,7 @@
 
     move-result-object v1
 
-    const-string v2, "summary"
+    const-string/jumbo v2, "summary"
 
     invoke-virtual {v0, v2, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -278,7 +278,7 @@
 
     move-result-object v1
 
-    const-string v2, "slice_type"
+    const-string/jumbo v2, "slice_type"
 
     invoke-virtual {v0, v2, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
@@ -286,25 +286,37 @@
 
     move-result-object v1
 
-    const-string v2, "unavailable_slice_subtitle"
+    const-string/jumbo v2, "unavailable_slice_subtitle"
 
     invoke-virtual {v0, v2, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-virtual {p2}, Lcom/android/settings/slices/SliceData;->isPublicSlice()Z
 
+    move-result v1
+
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v1
+
+    const-string v2, "public_slice"
+
+    invoke-virtual {v0, v2, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
+
+    invoke-virtual {p2}, Lcom/android/settings/slices/SliceData;->getHighlightMenuRes()I
+
     move-result p2
 
-    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object p2
 
-    const-string v1, "public_slice"
+    const-string v1, "highlight_menu"
 
-    invoke-virtual {v0, v1, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
+    invoke-virtual {v0, v1, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     const/4 p2, 0x0
 
-    const-string v1, "slices_index"
+    const-string/jumbo v1, "slices_index"
 
     invoke-virtual {p1, v1, p2, v0}, Landroid/database/sqlite/SQLiteDatabase;->replaceOrThrow(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;)J
 

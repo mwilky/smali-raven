@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Ljava/util/function/IntFunction;
+.implements Ljava/util/function/Predicate;
 
 
 # static fields
@@ -32,12 +32,14 @@
 
 
 # virtual methods
-.method public final apply(I)Ljava/lang/Object;
+.method public final test(Ljava/lang/Object;)Z
     .locals 0
 
-    invoke-static {p1}, Lcom/android/settings/wifi/WifiConfigController2;->$r8$lambda$02jllJg-vrL0Ftb3B3eYrpaGqRc(I)[Ljava/lang/String;
+    check-cast p1, Ljava/lang/String;
 
-    move-result-object p0
+    invoke-static {p1}, Lcom/android/settings/wifi/WifiConfigController2;->$r8$lambda$u_cFuM1nkHDDvy8OJHr9Ws9EKOc(Ljava/lang/String;)Z
 
-    return-object p0
+    move-result p0
+
+    return p0
 .end method

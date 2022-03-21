@@ -58,7 +58,7 @@
 
     iput-object p5, p0, Lcom/android/settings/fuelgauge/BackgroundActivityPreferenceController;->mPowerAllowlistBackend:Lcom/android/settingslib/fuelgauge/PowerAllowlistBackend;
 
-    const-string p5, "user"
+    const-string/jumbo p5, "user"
 
     invoke-virtual {p1, p5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -330,7 +330,7 @@
 
     if-eqz v0, :cond_0
 
-    const p0, 0x7f04031b
+    const p0, 0x7f04032f
 
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -353,7 +353,7 @@
 
     if-ne p0, v0, :cond_1
 
-    const p0, 0x7f04031c
+    const p0, 0x7f040330
 
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -372,12 +372,12 @@
     :goto_0
     if-eqz v0, :cond_3
 
-    const p0, 0x7f041026
+    const p0, 0x7f041054
 
     goto :goto_1
 
     :cond_3
-    const p0, 0x7f041025
+    const p0, 0x7f041053
 
     :goto_1
     invoke-virtual {p1, p0}, Landroidx/preference/Preference;->setSummary(I)V

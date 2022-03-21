@@ -64,7 +64,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f060166
+    const v2, 0x7f06016a
 
     invoke-virtual {p0, v2}, Landroidx/activity/ComponentActivity;->setContentView(I)V
 
@@ -82,7 +82,7 @@
 
     invoke-virtual {v2, v3, v4}, Landroid/view/Window;->setLayout(II)V
 
-    const v2, 0x7f0d01da
+    const v2, 0x7f0d01de
 
     invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -94,7 +94,7 @@
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v2, 0x7f0d04ca
+    const v2, 0x7f0d04d9
 
     invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 

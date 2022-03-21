@@ -31,12 +31,12 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f130210
+    const v0, 0x7f130212
 
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f13020f
+    const v0, 0x7f130211
 
     :goto_0
     invoke-virtual {p0, v0}, Landroid/app/Activity;->setTheme(I)V
@@ -69,7 +69,7 @@
 
     invoke-virtual {p0}, Lcom/android/settings/accessibility/AccessibilitySettingsForSetupWizardActivity;->tryLaunchFontSizeSettings()V
 
-    const p1, 0x7f0d0176
+    const p1, 0x7f0d017a
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -233,7 +233,7 @@
 .end method
 
 .method tryLaunchFontSizeSettings()V
-    .locals 4
+    .locals 3
 
     invoke-virtual {p0}, Lcom/android/settings/SettingsActivity;->getIntent()Landroid/content/Intent;
 
@@ -269,75 +269,25 @@
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Landroid/os/Bundle;
+    new-instance v0, Landroid/content/Intent;
 
-    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+    const-class v1, Lcom/android/settings/accessibility/AccessibilityScreenSizeForSetupWizardActivity;
 
-    const-string v1, "help_uri_resource"
+    invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    const/4 v2, 0x0
+    const/4 v1, 0x1
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+    const-string/jumbo v2, "vision_fragment_no"
 
-    const-string v1, "need_search_icon_in_action_bar"
+    invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
-    new-instance v1, Lcom/android/settings/core/SubSettingLauncher;
+    const-string v0, "A11ySettingsForSUW"
 
-    invoke-direct {v1, p0}, Lcom/android/settings/core/SubSettingLauncher;-><init>(Landroid/content/Context;)V
+    const-string v1, "Launch font size settings"
 
-    const-class v3, Lcom/android/settings/display/FontSizePreferenceFragmentForSetupWizard;
-
-    invoke-virtual {v3}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v1, v3}, Lcom/android/settings/core/SubSettingLauncher;->setDestination(Ljava/lang/String;)Lcom/android/settings/core/SubSettingLauncher;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Lcom/android/settings/core/SubSettingLauncher;->setArguments(Landroid/os/Bundle;)Lcom/android/settings/core/SubSettingLauncher;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v2}, Lcom/android/settings/core/SubSettingLauncher;->setSourceMetricsCategory(I)Lcom/android/settings/core/SubSettingLauncher;
-
-    move-result-object v0
-
-    invoke-virtual {p0}, Lcom/android/settings/SettingsActivity;->getIntent()Landroid/content/Intent;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
-
-    move-result-object v1
-
-    new-instance v2, Landroid/os/Bundle;
-
-    invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
-
-    invoke-static {v1, v2}, Lcom/android/settings/SetupWizardUtils;->copyLifecycleExtra(Landroid/os/Bundle;Landroid/os/Bundle;)Landroid/os/Bundle;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/core/SubSettingLauncher;->setExtras(Landroid/os/Bundle;)Lcom/android/settings/core/SubSettingLauncher;
-
-    move-result-object v0
-
-    const/4 v1, 0x2
-
-    invoke-virtual {v0, v1}, Lcom/android/settings/core/SubSettingLauncher;->setTransitionType(I)Lcom/android/settings/core/SubSettingLauncher;
-
-    move-result-object v0
-
-    const-string v1, "A11ySettingsForSUW"
-
-    const-string v2, "Launch font size settings"
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {v0}, Lcom/android/settings/core/SubSettingLauncher;->launch()V
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 

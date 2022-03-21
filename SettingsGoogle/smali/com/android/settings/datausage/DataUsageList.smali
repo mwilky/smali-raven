@@ -565,7 +565,7 @@
 
     invoke-direct {p0}, Landroid/os/Bundle;-><init>()V
 
-    const-string v0, "template"
+    const-string/jumbo v0, "template"
 
     invoke-virtual {p0, v0, p1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
@@ -615,7 +615,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0403ec
+    const v1, 0x7f040402
 
     invoke-virtual {v0, v1}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -660,7 +660,7 @@
 
     invoke-virtual {v1}, Landroid/app/Activity;->invalidateOptionsMenu()V
 
-    const v1, 0x7f0a0204
+    const v1, 0x7f0a01fe
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getColor(I)I
 
@@ -773,7 +773,7 @@
 
     iget-object v1, p0, Lcom/android/settings/datausage/DataUsageList;->mUsageAmount:Landroidx/preference/Preference;
 
-    const v2, 0x7f040767
+    const v2, 0x7f04077f
 
     const/4 v3, 0x1
 
@@ -813,7 +813,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150057
+    const p0, 0x7f150058
 
     return p0
 .end method
@@ -850,7 +850,7 @@
 
     iput-object v0, p0, Lcom/android/settings/datausage/DataUsageList;->mUidDetailProvider:Lcom/android/settingslib/net/UidDetailProvider;
 
-    const-string v0, "usage_amount"
+    const-string/jumbo v0, "usage_amount"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -878,41 +878,19 @@
 
     iput-object v0, p0, Lcom/android/settings/datausage/DataUsageList;->mApps:Landroidx/preference/PreferenceGroup;
 
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    const-string v1, "settings_provider_model"
-
-    invoke-static {v0, v1}, Landroid/util/FeatureFlagUtils;->isEnabled(Landroid/content/Context;Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
     const-string v0, "operator_warning"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
     move-result-object v0
 
-    goto :goto_0
-
-    :cond_1
-    const-string v0, "non_carrier_data_usage_warning"
-
-    invoke-virtual {p0, v0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
-
-    move-result-object v0
-
-    :goto_0
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setVisible(Z)V
 
-    :cond_2
+    :cond_1
     invoke-virtual {p0}, Lcom/android/settings/datausage/DataUsageList;->processArgument()V
 
     new-instance v0, Lcom/android/settings/network/MobileDataEnabledListener;
@@ -1013,7 +991,7 @@
 
     invoke-super {p0, p1, p2}, Landroidx/preference/PreferenceFragmentCompat;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    const p1, 0x7f060052
+    const p1, 0x7f060053
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->setPinnedHeaderView(I)Landroid/view/View;
 
@@ -1021,7 +999,7 @@
 
     iput-object p1, p0, Lcom/android/settings/datausage/DataUsageList;->mHeader:Landroid/view/View;
 
-    const p2, 0x7f0d0229
+    const p2, 0x7f0d022e
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1035,7 +1013,7 @@
 
     iget-object p1, p0, Lcom/android/settings/datausage/DataUsageList;->mHeader:Landroid/view/View;
 
-    const p2, 0x7f0d022a
+    const p2, 0x7f0d022f
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1081,7 +1059,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f0d032c
+    const v0, 0x7f0d0338
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1113,7 +1091,7 @@
 
     if-eqz v0, :cond_0
 
-    const-string v3, "sub_id"
+    const-string/jumbo v3, "sub_id"
 
     invoke-virtual {v0, v3, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
@@ -1300,7 +1278,7 @@
 
     move-result-object p1
 
-    const v1, 0x7f040716
+    const v1, 0x7f04072e
 
     invoke-virtual {p1, v1}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -1338,7 +1316,7 @@
 
     iget-object v1, p0, Lcom/android/settings/datausage/DataUsageList;->mHeader:Landroid/view/View;
 
-    const v2, 0x7f0d0229
+    const v2, 0x7f0d022e
 
     invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

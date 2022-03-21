@@ -58,7 +58,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "virtual_keyboard_pref"
+    const-string/jumbo p0, "virtual_keyboard_pref"
 
     return-object p0
 .end method
@@ -72,7 +72,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f090058
+    const v0, 0x7f090059
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -90,7 +90,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04136a
+    const v1, 0x7f04138f
 
     if-nez v0, :cond_0
 

@@ -13,7 +13,7 @@
 
     new-instance v0, Lcom/android/settings/emergency/EmergencyGestureSettings$1;
 
-    const v1, 0x7f15006a
+    const v1, 0x7f15006b
 
     invoke-direct {v0, v1}, Lcom/android/settings/emergency/EmergencyGestureSettings$1;-><init>(I)V
 
@@ -51,7 +51,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15006a
+    const p0, 0x7f15006b
 
     return p0
 .end method

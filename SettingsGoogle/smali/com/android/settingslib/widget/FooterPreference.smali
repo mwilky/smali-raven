@@ -19,6 +19,8 @@
 
 .field mLearnMoreListener:Landroid/view/View$OnClickListener;
 
+.field private mLearnMoreSpan:Lcom/android/settingslib/widget/FooterPreference$FooterLearnMoreSpan;
+
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
@@ -161,11 +163,11 @@
 
     check-cast p1, Landroid/widget/TextView;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2
 
     iget-object v0, p0, Lcom/android/settingslib/widget/FooterPreference;->mLearnMoreListener:Landroid/view/View$OnClickListener;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     invoke-virtual {p1, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
@@ -177,11 +179,20 @@
 
     invoke-direct {v0, v2}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
 
+    iget-object v2, p0, Lcom/android/settingslib/widget/FooterPreference;->mLearnMoreSpan:Lcom/android/settingslib/widget/FooterPreference$FooterLearnMoreSpan;
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {v0, v2}, Landroid/text/SpannableString;->removeSpan(Ljava/lang/Object;)V
+
+    :cond_1
     new-instance v2, Lcom/android/settingslib/widget/FooterPreference$FooterLearnMoreSpan;
 
     iget-object v3, p0, Lcom/android/settingslib/widget/FooterPreference;->mLearnMoreListener:Landroid/view/View$OnClickListener;
 
     invoke-direct {v2, v3}, Lcom/android/settingslib/widget/FooterPreference$FooterLearnMoreSpan;-><init>(Landroid/view/View$OnClickListener;)V
+
+    iput-object v2, p0, Lcom/android/settingslib/widget/FooterPreference;->mLearnMoreSpan:Lcom/android/settingslib/widget/FooterPreference$FooterLearnMoreSpan;
 
     invoke-virtual {v0}, Landroid/text/SpannableString;->length()I
 
@@ -197,7 +208,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3
 
     iget-object p0, p0, Lcom/android/settingslib/widget/FooterPreference;->mLearnMoreContentDescription:Ljava/lang/CharSequence;
 
@@ -205,12 +216,12 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     const/16 p0, 0x8
 
     invoke-virtual {p1, p0}, Landroid/widget/TextView;->setVisibility(I)V
 
-    :cond_2
+    :cond_3
     :goto_0
     return-void
 .end method

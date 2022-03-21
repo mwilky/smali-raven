@@ -25,7 +25,7 @@
 
     new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
 
-    const v1, 0x7f150035
+    const v1, 0x7f150036
 
     invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
 
@@ -63,7 +63,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f040a0a
+    const v0, 0x7f040a22
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -109,7 +109,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/FooterPreference;->setLearnMoreAction(Landroid/view/View$OnClickListener;)V
 
-    const v1, 0x7f04038c
+    const v1, 0x7f0403a1
 
     invoke-virtual {p0, v1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -124,7 +124,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a0a
+    const p0, 0x7f040a22
 
     return p0
 .end method
@@ -148,7 +148,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150035
+    const p0, 0x7f150036
 
     return p0
 .end method
@@ -166,7 +166,7 @@
 .method setupFooter()V
     .locals 1
 
-    const v0, 0x7f040a0a
+    const v0, 0x7f040a22
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 

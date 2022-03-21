@@ -200,7 +200,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 0
 
-    const p0, 0x7f0600db
+    const p0, 0x7f0600de
 
     const/4 p3, 0x0
 
@@ -302,85 +302,85 @@
 
     if-eqz p2, :cond_0
 
-    const p2, 0x7f04088f
+    const p2, 0x7f0408a7
 
     goto :goto_0
 
     :cond_0
     if-eqz v0, :cond_1
 
-    const p2, 0x7f04088e
+    const p2, 0x7f0408a6
 
     goto :goto_0
 
     :cond_1
     if-eqz v2, :cond_2
 
-    const p2, 0x7f04088d
+    const p2, 0x7f0408a5
 
     goto :goto_0
 
     :cond_2
-    const p2, 0x7f04088c
+    const p2, 0x7f0408a4
 
     goto :goto_0
 
     :cond_3
     if-eqz p2, :cond_4
 
-    const p2, 0x7f040897
+    const p2, 0x7f0408af
 
     goto :goto_0
 
     :cond_4
     if-eqz v0, :cond_5
 
-    const p2, 0x7f040896
+    const p2, 0x7f0408ae
 
     goto :goto_0
 
     :cond_5
     if-eqz v2, :cond_6
 
-    const p2, 0x7f040895
+    const p2, 0x7f0408ad
 
     goto :goto_0
 
     :cond_6
-    const p2, 0x7f040894
+    const p2, 0x7f0408ac
 
     goto :goto_0
 
     :cond_7
     if-eqz p2, :cond_8
 
-    const p2, 0x7f040893
+    const p2, 0x7f0408ab
 
     goto :goto_0
 
     :cond_8
     if-eqz v0, :cond_9
 
-    const p2, 0x7f040892
+    const p2, 0x7f0408aa
 
     goto :goto_0
 
     :cond_9
     if-eqz v2, :cond_a
 
-    const p2, 0x7f040891
+    const p2, 0x7f0408a9
 
     goto :goto_0
 
     :cond_a
-    const p2, 0x7f040890
+    const p2, 0x7f0408a8
 
     :goto_0
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
 
     move-result-object v0
 
-    const v1, 0x7f0d0566
+    const v1, 0x7f0d0575
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -436,7 +436,7 @@
 
     invoke-direct {p2, v0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f040898
+    const v0, 0x7f0408b0
 
     invoke-virtual {p2, v0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -456,7 +456,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f13021b
+    const v0, 0x7f13021d
 
     invoke-virtual {p2, v0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -476,7 +476,7 @@
 
     invoke-direct {p2, v0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f040899
+    const v0, 0x7f0408b1
 
     invoke-virtual {p2, v0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -496,7 +496,7 @@
 
     move-result-object p0
 
-    const p2, 0x7f13021a
+    const p2, 0x7f13021c
 
     invoke-virtual {p0, p2}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 

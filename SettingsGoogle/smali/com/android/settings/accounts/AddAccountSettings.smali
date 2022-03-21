@@ -298,7 +298,7 @@
     invoke-static {v0, p1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    const-string p1, "user"
+    const-string/jumbo p1, "user"
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -334,7 +334,7 @@
 
     if-eqz v0, :cond_1
 
-    const p1, 0x7f0414bc
+    const p1, 0x7f0414e1
 
     const/4 v0, 0x1
 
@@ -398,7 +398,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f041445
+    const v0, 0x7f04146a
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 

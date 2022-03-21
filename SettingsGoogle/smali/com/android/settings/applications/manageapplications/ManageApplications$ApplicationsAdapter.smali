@@ -328,7 +328,7 @@
     :goto_0
     if-eqz p4, :cond_a
 
-    const-string v0, "state_last_scroll_index"
+    const-string/jumbo v0, "state_last_scroll_index"
 
     invoke-virtual {p4, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
@@ -625,12 +625,12 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f04025c
+    const p0, 0x7f040270
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f04025d
+    const p0, 0x7f040271
 
     :goto_0
     invoke-virtual {p1, p0}, Lcom/android/settings/applications/manageapplications/ApplicationViewHolder;->setSummary(I)V
@@ -949,7 +949,7 @@
 
     iget v0, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mLastSortMode:I
 
-    const v1, 0x7f0d0514
+    const v1, 0x7f0d0523
 
     if-ne v0, v1, :cond_0
 
@@ -1466,7 +1466,7 @@
 
     move-result p0
 
-    const-string v0, "state_last_scroll_index"
+    const-string/jumbo v0, "state_last_scroll_index"
 
     invoke-virtual {p1, v0, p0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
@@ -1596,7 +1596,7 @@
     :cond_4
     iget v1, p0, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->mLastSortMode:I
 
-    const v3, 0x7f0d0514
+    const v3, 0x7f0d0523
 
     if-ne v1, v3, :cond_7
 
@@ -1623,7 +1623,7 @@
     goto :goto_2
 
     :cond_7
-    const v2, 0x7f0d0513
+    const v2, 0x7f0d0522
 
     if-ne v1, v2, :cond_8
 
@@ -1632,7 +1632,7 @@
     goto :goto_2
 
     :cond_8
-    const v2, 0x7f0d0512
+    const v2, 0x7f0d0521
 
     if-ne v1, v2, :cond_9
 
@@ -1842,7 +1842,7 @@
 
     if-ne v0, v1, :cond_0
 
-    const p1, 0x7f0d0512
+    const p1, 0x7f0d0521
 
     invoke-virtual {p0, p1}, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->rebuild(I)V
 
@@ -1857,7 +1857,7 @@
 
     if-ne v0, v1, :cond_1
 
-    const p1, 0x7f0d0513
+    const p1, 0x7f0d0522
 
     invoke-virtual {p0, p1}, Lcom/android/settings/applications/manageapplications/ManageApplications$ApplicationsAdapter;->rebuild(I)V
 
@@ -1870,7 +1870,7 @@
 
     move-result p1
 
-    const v1, 0x7f0d0511
+    const v1, 0x7f0d0520
 
     if-ne v0, p1, :cond_2
 

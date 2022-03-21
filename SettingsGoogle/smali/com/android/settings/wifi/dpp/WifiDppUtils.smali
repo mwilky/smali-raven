@@ -115,24 +115,28 @@
     return-object p0
 .end method
 
-.method public static getEnrolleeQrCodeScannerIntent(Ljava/lang/String;)Landroid/content/Intent;
+.method public static getEnrolleeQrCodeScannerIntent(Landroid/content/Context;Ljava/lang/String;)Landroid/content/Intent;
     .locals 2
 
     new-instance v0, Landroid/content/Intent;
 
-    const-string v1, "android.settings.WIFI_DPP_ENROLLEE_QR_CODE_SCANNER"
+    const-class v1, Lcom/android/settings/wifi/dpp/WifiDppEnrolleeActivity;
 
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    const-string p0, "android.settings.WIFI_DPP_ENROLLEE_QR_CODE_SCANNER"
 
-    move-result v1
+    invoke-virtual {v0, p0}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
 
-    if-nez v1, :cond_0
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    const-string v1, "ssid"
+    move-result p0
 
-    invoke-virtual {v0, v1, p0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    if-nez p0, :cond_0
+
+    const-string/jumbo p0, "ssid"
+
+    invoke-virtual {v0, p0, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     :cond_0
     return-object v0
@@ -212,7 +216,7 @@
 
     if-nez v3, :cond_3
 
-    const-string v3, "ssid"
+    const-string/jumbo v3, "ssid"
 
     invoke-virtual {p1, v3, p0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
@@ -832,7 +836,7 @@
 
     if-nez v2, :cond_0
 
-    const-string v2, "ssid"
+    const-string/jumbo v2, "ssid"
 
     invoke-virtual {p0, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
@@ -893,7 +897,7 @@
 
     invoke-direct {p1, p0}, Landroid/hardware/biometrics/BiometricPrompt$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f041630
+    const v2, 0x7f041655
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -948,7 +952,7 @@
 .method static triggerVibrationForQrCodeRecognition(Landroid/content/Context;)V
     .locals 3
 
-    const-string v0, "vibrator"
+    const-string/jumbo v0, "vibrator"
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

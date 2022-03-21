@@ -80,17 +80,55 @@
 .end method
 
 .method private updateStateInternal()V
-    .locals 2
+    .locals 5
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const/16 v1, 0xa
+    const/16 v1, 0x8
 
     invoke-static {v0, v1}, Lcom/android/settings/biometrics/ParentalControlsUtils;->parentConsentRequired(Landroid/content/Context;I)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
     move-result-object v0
 
-    invoke-virtual {p0, v0}, Lcom/android/settings/biometrics/combination/CombinedBiometricStatusPreferenceController;->updateStateInternal(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
+    iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+
+    const/4 v2, 0x2
+
+    invoke-static {v1, v2}, Lcom/android/settings/biometrics/ParentalControlsUtils;->parentConsentRequired(Landroid/content/Context;I)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
+
+    move-result-object v1
+
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
+
+    if-eqz v0, :cond_0
+
+    move v4, v2
+
+    goto :goto_0
+
+    :cond_0
+    move v4, v3
+
+    :goto_0
+    if-eqz v1, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    move v2, v3
+
+    :goto_1
+    if-eqz v0, :cond_2
+
+    goto :goto_2
+
+    :cond_2
+    move-object v0, v1
+
+    :goto_2
+    invoke-virtual {p0, v0, v4, v2}, Lcom/android/settings/biometrics/combination/CombinedBiometricStatusPreferenceController;->updateStateInternal(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;ZZ)V
 
     return-void
 .end method
@@ -176,12 +214,22 @@
     return-object p0
 .end method
 
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method protected getSummaryTextEnrolled()Ljava/lang/String;
     .locals 1
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0410e9
+    const v0, 0x7f041117
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -247,7 +295,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0410e7
+    const v0, 0x7f041115
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -262,7 +310,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0410e8
+    const v0, 0x7f041116
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -275,7 +323,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f041137
+    const v0, 0x7f04115d
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -311,7 +359,7 @@
     :cond_5
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0410e9
+    const v0, 0x7f041117
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -419,18 +467,35 @@
     return-void
 .end method
 
-.method updateStateInternal(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
+.method updateStateInternal(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;ZZ)V
     .locals 0
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
+    if-eqz p2, :cond_0
+
+    if-eqz p3, :cond_0
+
+    const/4 p2, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p2, 0x0
+
+    :goto_0
+    if-nez p2, :cond_1
+
+    const/4 p1, 0x0
+
+    :cond_1
     iget-object p0, p0, Lcom/android/settings/biometrics/combination/CombinedBiometricStatusPreferenceController;->mPreference:Lcom/android/settingslib/RestrictedPreference;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_2
 
     invoke-virtual {p0, p1}, Lcom/android/settingslib/RestrictedPreference;->setDisabledByAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
 
-    :cond_0
+    :cond_2
     return-void
 .end method
 

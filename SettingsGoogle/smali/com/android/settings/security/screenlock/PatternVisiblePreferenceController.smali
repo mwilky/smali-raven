@@ -67,7 +67,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "visiblepattern"
+    const-string/jumbo p0, "visiblepattern"
 
     return-object p0
 .end method

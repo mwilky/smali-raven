@@ -82,17 +82,17 @@
 
     if-eq v0, v1, :cond_0
 
-    const v0, 0x7f0406e0
+    const v0, 0x7f0406f8
 
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f0406df
+    const v0, 0x7f0406f7
 
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f0406de
+    const v0, 0x7f0406f6
 
     :goto_0
     iget-object v1, p0, Lcom/android/settings/display/darkmode/DarkModeScheduleSelectorController;->mPreference:Landroidx/preference/DropDownPreference;
@@ -177,6 +177,16 @@
     return-object p0
 .end method
 
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public bridge synthetic hasAsyncUpdate()Z
     .locals 0
 
@@ -241,7 +251,7 @@
 
     iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0406e0
+    const v2, 0x7f0406f8
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -295,7 +305,7 @@
 
     iget-object v2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0406de
+    const v3, 0x7f0406f6
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -333,7 +343,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0406df
+    const v2, 0x7f0406f7
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

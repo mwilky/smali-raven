@@ -31,7 +31,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "show_notification_channel_warnings"
+    const-string/jumbo p0, "show_notification_channel_warnings"
 
     return-object p0
 .end method
@@ -55,7 +55,7 @@
 
     move-result-object v0
 
-    const-string v1, "show_notification_channel_warnings"
+    const-string/jumbo v1, "show_notification_channel_warnings"
 
     const/4 v2, 0x0
 
@@ -85,7 +85,7 @@
 
     move-result-object p0
 
-    const-string p2, "show_notification_channel_warnings"
+    const-string/jumbo p2, "show_notification_channel_warnings"
 
     invoke-static {p0, p2, p1}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
@@ -107,7 +107,7 @@
 
     move-result-object v0
 
-    const-string v1, "show_notification_channel_warnings"
+    const-string/jumbo v1, "show_notification_channel_warnings"
 
     invoke-static {v0, v1, p1}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 

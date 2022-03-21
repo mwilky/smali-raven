@@ -85,7 +85,7 @@
 
     move-result-object p1
 
-    const-string v0, "tetherArray"
+    const-string/jumbo v0, "tetherArray"
 
     invoke-virtual {p2, v0}, Landroid/content/Intent;->getStringArrayListExtra(Ljava/lang/String;)Ljava/util/ArrayList;
 

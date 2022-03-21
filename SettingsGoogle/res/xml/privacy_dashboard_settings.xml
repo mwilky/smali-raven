@@ -12,8 +12,8 @@
     <Preference android:title="@string/app_permissions" android:key="privacy_manage_perms" android:summary="@string/runtime_permissions_summary_control_app_access" settings:searchable="false">
         <intent android:action="android.intent.action.MANAGE_PERMISSIONS" />
     </Preference>
-    <com.android.settingslib.RestrictedSwitchPreference android:title="@string/camera_toggle_title" android:key="privacy_camera_toggle" android:summary="@string/sensor_toggle_description" settings:controller="com.android.settings.privacy.CameraToggleController" />
-    <com.android.settingslib.RestrictedSwitchPreference android:title="@string/mic_toggle_title" android:key="privacy_mic_toggle" android:summary="@string/sensor_toggle_description" settings:controller="com.android.settings.privacy.MicToggleController" />
+    <com.android.settingslib.RestrictedSwitchPreference android:title="@string/camera_toggle_title" android:key="privacy_camera_toggle" android:summary="@string/cam_toggle_description" settings:controller="com.android.settings.privacy.CameraToggleController" />
+    <com.android.settingslib.RestrictedSwitchPreference android:title="@string/mic_toggle_title" android:key="privacy_mic_toggle" android:summary="@string/mic_toggle_description" settings:controller="com.android.settings.privacy.MicToggleController" />
     <SwitchPreference android:title="@string/show_password" android:key="show_password" android:summary="@string/show_password_summary" settings:controller="com.android.settings.security.ShowPasswordPreferenceController" />
     <com.android.settings.RestrictedListPreference android:title="@string/lock_screen_notifs_title" android:key="privacy_lock_screen_notifications" android:summary="@string/summary_placeholder" settings:searchable="false" />
     <PreferenceCategory android:layout="@layout/preference_category_no_label" android:key="privacy_services" />

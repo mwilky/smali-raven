@@ -447,7 +447,7 @@
 .method public static getBatteryStatus(Landroid/content/Context;Landroid/content/Intent;)Ljava/lang/String;
     .locals 4
 
-    const-string v0, "status"
+    const-string/jumbo v0, "status"
 
     const/4 v1, 0x1
 
@@ -726,7 +726,7 @@
 .method public static getDefaultStorageManagerDaysToRetain(Landroid/content/res/Resources;)I
     .locals 1
 
-    const v0, 0x10e00d0
+    const v0, 0x10e00d4
 
     :try_start_0
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getInteger(I)I

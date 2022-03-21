@@ -139,7 +139,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "show_non_rect_clip"
+    const-string/jumbo p0, "show_non_rect_clip"
 
     return-object p0
 .end method

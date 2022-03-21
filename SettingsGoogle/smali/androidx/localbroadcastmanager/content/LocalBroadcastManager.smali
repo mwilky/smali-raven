@@ -664,12 +664,12 @@
 
     if-eq v3, v4, :cond_9
 
-    const-string v3, "unknown reason"
+    const-string/jumbo v3, "unknown reason"
 
     goto :goto_3
 
     :cond_9
-    const-string v3, "type"
+    const-string/jumbo v3, "type"
 
     goto :goto_3
 

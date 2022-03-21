@@ -69,7 +69,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settingslib/CustomDialogPreferenceCompat;->onBindDialogView(Landroid/view/View;)V
 
-    const v0, 0x7f0d01f2
+    const v0, 0x7f0d01f7
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

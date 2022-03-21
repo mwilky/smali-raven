@@ -681,7 +681,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d033a
+    const v1, 0x7f0d0348
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -854,6 +854,12 @@
 
     move-result-object v2
 
+    const/high16 v5, 0x10000000
+
+    invoke-virtual {v2, v5}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    move-result-object v2
+
     iput-object v2, v4, Lcom/android/settings/notification/NotificationBackend$AppRow;->settingsIntent:Landroid/content/Intent;
 
     iget-object v2, p0, Lcom/android/settings/notification/app/NotificationSettings;->mChannel:Landroid/app/NotificationChannel;
@@ -988,7 +994,7 @@
 
     if-eqz p1, :cond_1
 
-    const-string v2, "uid"
+    const-string/jumbo v2, "uid"
 
     invoke-virtual {p1, v2}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
@@ -1371,7 +1377,7 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/app/NotificationSettings;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040248
+    const v1, 0x7f04025c
 
     const/4 v2, 0x0
 

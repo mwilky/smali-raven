@@ -323,19 +323,34 @@
 .method parseBatteryData()V
     .locals 3
 
+    :try_start_0
     iget-object v0, p0, Lcom/android/settings/fuelgauge/batterytip/detectors/HighUsageDetector;->mBatteryInfo:Lcom/android/settings/fuelgauge/BatteryInfo;
 
     const/4 v1, 0x1
 
     new-array v1, v1, [Lcom/android/settings/fuelgauge/BatteryInfo$BatteryDataParser;
 
-    iget-object p0, p0, Lcom/android/settings/fuelgauge/batterytip/detectors/HighUsageDetector;->mDataParser:Lcom/android/settings/fuelgauge/batterytip/HighUsageDataParser;
-
     const/4 v2, 0x0
+
+    iget-object p0, p0, Lcom/android/settings/fuelgauge/batterytip/detectors/HighUsageDetector;->mDataParser:Lcom/android/settings/fuelgauge/batterytip/HighUsageDataParser;
 
     aput-object p0, v1, v2
 
     invoke-virtual {v0, v1}, Lcom/android/settings/fuelgauge/BatteryInfo;->parseBatteryHistory([Lcom/android/settings/fuelgauge/BatteryInfo$BatteryDataParser;)V
+    :try_end_0
+    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
 
+    goto :goto_0
+
+    :catch_0
+    move-exception p0
+
+    const-string v0, "HighUsageDetector"
+
+    const-string v1, "parseBatteryData() failed"
+
+    invoke-static {v0, v1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :goto_0
     return-void
 .end method

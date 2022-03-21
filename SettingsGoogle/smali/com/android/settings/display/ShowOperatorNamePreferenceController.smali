@@ -21,7 +21,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "show_operator_name"
+    const-string/jumbo p0, "show_operator_name"
 
     return-object p0
 .end method
@@ -35,7 +35,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f090020
+    const v0, 0x7f090021
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -59,7 +59,7 @@
 
     move-result-object p0
 
-    const-string p2, "show_operator_name"
+    const-string/jumbo p2, "show_operator_name"
 
     invoke-static {p0, p2, p1}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
@@ -77,7 +77,7 @@
 
     move-result-object p0
 
-    const-string v0, "show_operator_name"
+    const-string/jumbo v0, "show_operator_name"
 
     const/4 v1, 0x1
 

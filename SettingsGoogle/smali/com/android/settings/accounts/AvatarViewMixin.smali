@@ -108,7 +108,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f090026
+    const v0, 0x7f090027
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -193,7 +193,7 @@
 .end method
 
 .method private synthetic lambda$new$0(Lcom/android/settings/homepage/SettingsHomepageActivity;Landroid/view/View;)V
-    .locals 3
+    .locals 7
 
     const-string p2, "AvatarViewMixin"
 
@@ -204,7 +204,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040627
+    const v1, 0x7f04063f
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -247,9 +247,9 @@
 
     invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_1
+    if-eqz v2, :cond_1
 
     const-string p0, "Cannot find any matching action VIEW_ACCOUNT intent."
 
@@ -258,6 +258,42 @@
     return-void
 
     :cond_1
+    const/4 p2, 0x0
+
+    invoke-interface {v1, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object p2
+
+    check-cast p2, Landroid/content/pm/ResolveInfo;
+
+    invoke-virtual {p2}, Landroid/content/pm/ResolveInfo;->getComponentInfo()Landroid/content/pm/ComponentInfo;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Landroid/content/pm/ComponentInfo;->getComponentName()Landroid/content/ComponentName;
+
+    move-result-object p2
+
+    invoke-virtual {v0, p2}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+
+    iget-object v1, p0, Lcom/android/settings/accounts/AvatarViewMixin;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v2
+
+    invoke-virtual {v0}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v3
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x1
+
+    const/4 v6, 0x0
+
+    invoke-static/range {v1 .. v6}, Lcom/android/settings/activityembedding/ActivityEmbeddingRulesController;->registerTwoPanePairRuleForSettingsHome(Landroid/content/Context;Landroid/content/ComponentName;Ljava/lang/String;ZZZ)V
+
     iget-object p0, p0, Lcom/android/settings/accounts/AvatarViewMixin;->mContext:Landroid/content/Context;
 
     invoke-static {p0}, Lcom/android/settings/overlay/FeatureFactory;->getFactory(Landroid/content/Context;)Lcom/android/settings/overlay/FeatureFactory;
@@ -382,7 +418,7 @@
 
     iget-object p0, p0, Lcom/android/settings/accounts/AvatarViewMixin;->mAvatarView:Landroid/widget/ImageView;
 
-    const v0, 0x7f020169
+    const v0, 0x7f020170
 
     invoke-virtual {p0, v0}, Landroid/widget/ImageView;->setImageResource(I)V
 

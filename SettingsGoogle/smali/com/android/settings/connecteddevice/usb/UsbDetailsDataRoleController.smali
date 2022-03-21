@@ -48,7 +48,7 @@
 
     if-eqz v0, :cond_0
 
-    const v1, 0x7f041495
+    const v1, 0x7f0414ba
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -111,7 +111,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f04147c
+    const v0, 0x7f0414a1
 
     invoke-direct {p0, p1, v0}, Lcom/android/settings/connecteddevice/usb/UsbDetailsDataRoleController;->makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/RadioButtonPreference;
 
@@ -125,7 +125,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f04147b
+    const v0, 0x7f0414a0
 
     invoke-direct {p0, p1, v0}, Lcom/android/settings/connecteddevice/usb/UsbDetailsDataRoleController;->makeRadioPreference(Ljava/lang/String;I)Lcom/android/settingslib/widget/RadioButtonPreference;
 
@@ -139,7 +139,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "usb_details_data_role"
+    const-string/jumbo p0, "usb_details_data_role"
 
     return-object p0
 .end method
@@ -191,7 +191,7 @@
 
     iput-object p1, p0, Lcom/android/settings/connecteddevice/usb/UsbDetailsDataRoleController;->mNextRolePref:Lcom/android/settingslib/widget/RadioButtonPreference;
 
-    const v0, 0x7f041494
+    const v0, 0x7f0414b9
 
     invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -314,7 +314,7 @@
     :cond_4
     iget-object p1, p0, Lcom/android/settings/connecteddevice/usb/UsbDetailsDataRoleController;->mNextRolePref:Lcom/android/settingslib/widget/RadioButtonPreference;
 
-    const p2, 0x7f041495
+    const p2, 0x7f0414ba
 
     invoke-virtual {p1, p2}, Landroidx/preference/Preference;->setSummary(I)V
 

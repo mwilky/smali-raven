@@ -31,9 +31,9 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    const-string v0, "yyyy-MM-dd"
+    const-string/jumbo v0, "yyyy-MM-dd"
 
-    const-string v1, "yyyy-MM"
+    const-string/jumbo v1, "yyyy-MM"
 
     filled-new-array {v0, v1}, [Ljava/lang/String;
 
@@ -259,6 +259,16 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public getSummary()Ljava/lang/CharSequence;

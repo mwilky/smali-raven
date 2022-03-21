@@ -17,9 +17,9 @@
 
     const-string v0, "_id"
 
-    const-string v1, "word"
+    const-string/jumbo v1, "word"
 
-    const-string v2, "shortcut"
+    const-string/jumbo v2, "shortcut"
 
     filled-new-array {v0, v1, v2}, [Ljava/lang/String;
 

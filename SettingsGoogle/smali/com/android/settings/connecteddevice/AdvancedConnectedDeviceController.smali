@@ -23,7 +23,7 @@
 
     new-instance v0, Lcom/android/settings/nfc/NfcPreferenceController;
 
-    const-string v1, "toggle_nfc"
+    const-string/jumbo v1, "toggle_nfc"
 
     invoke-direct {v0, p0, v1}, Lcom/android/settings/nfc/NfcPreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
@@ -55,24 +55,24 @@
 
     if-eqz p1, :cond_0
 
-    const p0, 0x7f040662
+    const p0, 0x7f04067a
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f04065f
+    const p0, 0x7f040677
 
     goto :goto_0
 
     :cond_1
     if-eqz p1, :cond_2
 
-    const p0, 0x7f040661
+    const p0, 0x7f040679
 
     goto :goto_0
 
     :cond_2
-    const p0, 0x7f040660
+    const p0, 0x7f040678
 
     goto :goto_0
 
@@ -85,24 +85,24 @@
 
     if-eqz p1, :cond_4
 
-    const p0, 0x7f040667
+    const p0, 0x7f04067f
 
     goto :goto_0
 
     :cond_4
-    const p0, 0x7f040665
+    const p0, 0x7f04067d
 
     goto :goto_0
 
     :cond_5
     if-eqz p1, :cond_6
 
-    const p0, 0x7f040666
+    const p0, 0x7f04067e
 
     goto :goto_0
 
     :cond_6
-    const p0, 0x7f040664
+    const p0, 0x7f04067c
 
     :goto_0
     return p0
@@ -212,6 +212,16 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public getSummary()Ljava/lang/CharSequence;

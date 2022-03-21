@@ -268,3 +268,81 @@
     :goto_1
     return-void
 .end method
+
+.method public tryApplyPartnerCustomizationStyle()V
+    .locals 4
+
+    invoke-virtual {p0}, Lcom/google/android/setupdesign/template/ProgressBarMixin;->peekProgressBar()Landroid/widget/ProgressBar;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/google/android/setupdesign/template/ProgressBarMixin;->useBottomProgressBar:Z
+
+    if-eqz v1, :cond_2
+
+    if-nez v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    iget-object p0, p0, Lcom/google/android/setupdesign/template/ProgressBarMixin;->templateLayout:Lcom/google/android/setupcompat/internal/TemplateLayout;
+
+    invoke-static {p0}, Lcom/google/android/setupdesign/util/PartnerStyleHelper;->isPartnerHeavyThemeLayout(Lcom/google/android/setupcompat/internal/TemplateLayout;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_1
+
+    invoke-static {v0}, Lcom/google/android/setupdesign/util/HeaderAreaStyler;->applyPartnerCustomizationProgressBarStyle(Landroid/widget/ProgressBar;)V
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {v0}, Landroid/widget/ProgressBar;->getContext()Landroid/content/Context;
+
+    move-result-object p0
+
+    invoke-virtual {v0}, Landroid/widget/ProgressBar;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v0
+
+    instance-of v1, v0, Landroid/view/ViewGroup$MarginLayoutParams;
+
+    if-eqz v1, :cond_2
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    sget v2, Lcom/google/android/setupdesign/R$dimen;->sud_progress_bar_margin_top:I
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v1
+
+    float-to-int v1, v1
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p0
+
+    sget v2, Lcom/google/android/setupdesign/R$dimen;->sud_progress_bar_margin_bottom:I
+
+    invoke-virtual {p0, v2}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result p0
+
+    float-to-int p0, p0
+
+    check-cast v0, Landroid/view/ViewGroup$MarginLayoutParams;
+
+    iget v2, v0, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
+
+    iget v3, v0, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
+
+    invoke-virtual {v0, v2, v1, v3, p0}, Landroid/view/ViewGroup$MarginLayoutParams;->setMargins(IIII)V
+
+    :cond_2
+    :goto_0
+    return-void
+.end method

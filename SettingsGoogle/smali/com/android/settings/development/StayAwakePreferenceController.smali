@@ -113,7 +113,7 @@
 
     move-result-object v0
 
-    const-string v1, "stay_on_while_plugged_in"
+    const-string/jumbo v1, "stay_on_while_plugged_in"
 
     const/4 v2, 0x0
 
@@ -174,7 +174,7 @@
     const/4 p1, 0x0
 
     :goto_0
-    const-string p2, "stay_on_while_plugged_in"
+    const-string/jumbo p2, "stay_on_while_plugged_in"
 
     invoke-static {p0, p2, p1}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
@@ -235,7 +235,7 @@
 
     move-result-object p1
 
-    const-string v0, "stay_on_while_plugged_in"
+    const-string/jumbo v0, "stay_on_while_plugged_in"
 
     const/4 v1, 0x0
 

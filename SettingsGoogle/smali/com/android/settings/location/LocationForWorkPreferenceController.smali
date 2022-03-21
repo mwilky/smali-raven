@@ -83,6 +83,16 @@
     return-object p0
 .end method
 
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public handlePreferenceTreeClick(Landroidx/preference/Preference;)Z
     .locals 4
 
@@ -122,12 +132,12 @@
 
     if-eqz p1, :cond_0
 
-    const p1, 0x7f041379
+    const p1, 0x7f04139e
 
     goto :goto_0
 
     :cond_0
-    const p1, 0x7f041378
+    const p1, 0x7f04139d
 
     :goto_0
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
@@ -256,7 +266,7 @@
 
     invoke-virtual {p1, p2}, Landroidx/preference/TwoStatePreference;->setChecked(Z)V
 
-    const p1, 0x7f041379
+    const p1, 0x7f04139e
 
     goto :goto_1
 
@@ -270,12 +280,12 @@
 
     if-eqz p1, :cond_4
 
-    const p1, 0x7f041378
+    const p1, 0x7f04139d
 
     goto :goto_1
 
     :cond_4
-    const p1, 0x7f040b68
+    const p1, 0x7f040b80
 
     :goto_1
     iget-object p0, p0, Lcom/android/settings/location/LocationForWorkPreferenceController;->mPreference:Lcom/android/settingslib/RestrictedSwitchPreference;

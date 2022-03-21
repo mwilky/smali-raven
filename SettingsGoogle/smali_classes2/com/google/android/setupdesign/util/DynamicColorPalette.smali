@@ -4,7 +4,7 @@
 
 
 # static fields
-.field static colorRes:I
+.field private static colorRes:I
 
 
 # direct methods

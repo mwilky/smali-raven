@@ -39,6 +39,8 @@
 
 .field mHandler:Landroid/os/Handler;
 
+.field mHoveredIndex:I
+
 .field private final mIndent:Landroid/graphics/Rect;
 
 .field private mIsSlotsClickabled:Z
@@ -61,7 +63,7 @@
 
 .field private final mTimestampsBounds:[Landroid/graphics/Rect;
 
-.field private mTouchUpEvent:Landroid/view/MotionEvent;
+.field private mTouchUpEventX:F
 
 .field private mTrapezoidColor:I
 
@@ -70,6 +72,8 @@
 .field mTrapezoidCurvePaint:Landroid/graphics/Paint;
 
 .field private mTrapezoidHOffset:F
+
+.field private mTrapezoidHoverColor:I
 
 .field private mTrapezoidPaint:Landroid/graphics/Paint;
 
@@ -133,6 +137,12 @@
     move-result-object p1
 
     iput-object p1, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mPercentages:[Ljava/lang/String;
+
+    const/4 p1, -0x2
+
+    iput p1, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mHoveredIndex:I
+
+    iput p1, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mSelectedIndex:I
 
     new-instance p1, Landroid/graphics/Rect;
 
@@ -214,6 +224,10 @@
 
     iput-object v0, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidCurvePaint:Landroid/graphics/Paint;
 
+    const/4 p1, 0x1
+
+    iput p1, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTouchUpEventX:F
+
     return-void
 .end method
 
@@ -227,6 +241,12 @@
     move-result-object p2
 
     iput-object p2, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mPercentages:[Ljava/lang/String;
+
+    const/4 p2, -0x2
+
+    iput p2, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mHoveredIndex:I
+
+    iput p2, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mSelectedIndex:I
 
     new-instance p2, Landroid/graphics/Rect;
 
@@ -309,6 +329,10 @@
     const/4 p2, 0x0
 
     iput-object p2, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidCurvePaint:Landroid/graphics/Paint;
+
+    const/4 p2, 0x1
+
+    iput p2, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTouchUpEventX:F
 
     invoke-direct {p0, p1}, Lcom/android/settings/fuelgauge/BatteryChartView;->initializeColors(Landroid/content/Context;)V
 
@@ -655,7 +679,7 @@
 .end method
 
 .method private drawTrapezoids(Landroid/graphics/Canvas;)V
-    .locals 9
+    .locals 10
 
     iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mLevels:[I
 
@@ -714,86 +738,95 @@
 
     const/4 v4, 0x0
 
-    move-object v5, v4
+    move v5, v3
+
+    move-object v6, v4
 
     :goto_0
-    iget v6, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidCount:I
+    iget v7, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidCount:I
 
-    if-ge v3, v6, :cond_7
+    if-ge v5, v7, :cond_9
 
-    invoke-direct {p0, v3}, Lcom/android/settings/fuelgauge/BatteryChartView;->isValidToDraw(I)Z
+    invoke-direct {p0, v5}, Lcom/android/settings/fuelgauge/BatteryChartView;->isValidToDraw(I)Z
 
-    move-result v6
+    move-result v7
 
-    if-nez v6, :cond_1
+    if-nez v7, :cond_1
 
-    iget-object v6, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidCurvePaint:Landroid/graphics/Paint;
+    iget-object v7, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidCurvePaint:Landroid/graphics/Paint;
 
-    if-eqz v6, :cond_6
+    if-eqz v7, :cond_8
 
-    if-eqz v5, :cond_6
+    if-eqz v6, :cond_8
 
-    invoke-virtual {p1, v5, v6}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
+    invoke-virtual {p1, v6, v7}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
 
-    move-object v5, v4
+    move-object v6, v4
 
-    goto/16 :goto_4
+    goto/16 :goto_5
 
     :cond_1
-    iget-boolean v6, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mIsSlotsClickabled:Z
+    iget-boolean v7, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mIsSlotsClickabled:Z
 
-    if-nez v6, :cond_2
+    if-nez v7, :cond_2
 
-    iget v6, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidColor:I
+    iget v8, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidColor:I
 
     goto :goto_2
 
     :cond_2
-    iget v6, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mSelectedIndex:I
+    iget v8, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mSelectedIndex:I
 
-    if-eq v6, v3, :cond_4
+    if-eq v8, v5, :cond_4
 
-    const/4 v7, -0x1
+    const/4 v9, -0x1
 
-    if-ne v6, v7, :cond_3
+    if-ne v8, v9, :cond_3
 
     goto :goto_1
 
     :cond_3
-    iget v6, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidColor:I
+    iget v8, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidColor:I
 
     goto :goto_2
 
     :cond_4
     :goto_1
-    iget v6, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidSolidColor:I
+    iget v8, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidSolidColor:I
 
     :goto_2
-    iget-object v7, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidPaint:Landroid/graphics/Paint;
+    if-eqz v7, :cond_5
 
-    invoke-virtual {v7, v6}, Landroid/graphics/Paint;->setColor(I)V
+    iget v7, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mHoveredIndex:I
 
-    iget-object v6, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mLevels:[I
+    if-ne v7, v5, :cond_5
 
-    aget v6, v6, v3
+    invoke-direct {p0, v7}, Lcom/android/settings/fuelgauge/BatteryChartView;->isValidToDraw(I)Z
 
-    int-to-float v6, v6
+    move-result v7
 
-    mul-float/2addr v6, v2
+    if-eqz v7, :cond_5
 
-    sub-float v6, v0, v6
+    const/4 v7, 0x1
 
-    invoke-static {v6}, Ljava/lang/Math;->round(F)I
+    goto :goto_3
 
-    move-result v6
+    :cond_5
+    move v7, v3
 
-    int-to-float v6, v6
+    :goto_3
+    iget-object v9, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidPaint:Landroid/graphics/Paint;
+
+    if-eqz v7, :cond_6
+
+    iget v8, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidHoverColor:I
+
+    :cond_6
+    invoke-virtual {v9, v8}, Landroid/graphics/Paint;->setColor(I)V
 
     iget-object v7, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mLevels:[I
 
-    add-int/lit8 v8, v3, 0x1
-
-    aget v7, v7, v8
+    aget v7, v7, v5
 
     int-to-float v7, v7
 
@@ -807,114 +840,132 @@
 
     int-to-float v7, v7
 
+    iget-object v8, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mLevels:[I
+
+    add-int/lit8 v9, v5, 0x1
+
+    aget v8, v8, v9
+
+    int-to-float v8, v8
+
+    mul-float/2addr v8, v2
+
+    sub-float v8, v0, v8
+
+    invoke-static {v8}, Ljava/lang/Math;->round(F)I
+
+    move-result v8
+
+    int-to-float v8, v8
+
     invoke-virtual {v1}, Landroid/graphics/Path;->reset()V
 
-    iget-object v8, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidSlots:[Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;
+    iget-object v9, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidSlots:[Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;
 
-    aget-object v8, v8, v3
+    aget-object v9, v9, v5
 
-    iget v8, v8, Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;->mLeft:F
+    iget v9, v9, Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;->mLeft:F
 
-    invoke-virtual {v1, v8, v0}, Landroid/graphics/Path;->moveTo(FF)V
+    invoke-virtual {v1, v9, v0}, Landroid/graphics/Path;->moveTo(FF)V
 
-    iget-object v8, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidSlots:[Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;
+    iget-object v9, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidSlots:[Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;
 
-    aget-object v8, v8, v3
+    aget-object v9, v9, v5
 
-    iget v8, v8, Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;->mLeft:F
+    iget v9, v9, Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;->mLeft:F
 
-    invoke-virtual {v1, v8, v6}, Landroid/graphics/Path;->lineTo(FF)V
+    invoke-virtual {v1, v9, v7}, Landroid/graphics/Path;->lineTo(FF)V
 
-    iget-object v8, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidSlots:[Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;
+    iget-object v9, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidSlots:[Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;
 
-    aget-object v8, v8, v3
+    aget-object v9, v9, v5
 
-    iget v8, v8, Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;->mRight:F
+    iget v9, v9, Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;->mRight:F
 
-    invoke-virtual {v1, v8, v7}, Landroid/graphics/Path;->lineTo(FF)V
+    invoke-virtual {v1, v9, v8}, Landroid/graphics/Path;->lineTo(FF)V
 
-    iget-object v8, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidSlots:[Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;
+    iget-object v9, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidSlots:[Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;
 
-    aget-object v8, v8, v3
+    aget-object v9, v9, v5
 
-    iget v8, v8, Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;->mRight:F
+    iget v9, v9, Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;->mRight:F
 
-    invoke-virtual {v1, v8, v0}, Landroid/graphics/Path;->lineTo(FF)V
+    invoke-virtual {v1, v9, v0}, Landroid/graphics/Path;->lineTo(FF)V
 
-    iget-object v8, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidSlots:[Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;
+    iget-object v9, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidSlots:[Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;
 
-    aget-object v8, v8, v3
+    aget-object v9, v9, v5
 
-    iget v8, v8, Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;->mLeft:F
+    iget v9, v9, Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;->mLeft:F
 
-    invoke-virtual {v1, v8, v0}, Landroid/graphics/Path;->lineTo(FF)V
+    invoke-virtual {v1, v9, v0}, Landroid/graphics/Path;->lineTo(FF)V
 
-    iget-object v8, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidSlots:[Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;
+    iget-object v9, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidSlots:[Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;
 
-    aget-object v8, v8, v3
+    aget-object v9, v9, v5
 
-    iget v8, v8, Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;->mLeft:F
+    iget v9, v9, Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;->mLeft:F
 
-    invoke-virtual {v1, v8, v6}, Landroid/graphics/Path;->lineTo(FF)V
+    invoke-virtual {v1, v9, v7}, Landroid/graphics/Path;->lineTo(FF)V
 
-    iget-object v8, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidPaint:Landroid/graphics/Paint;
+    iget-object v9, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {p1, v1, v8}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
+    invoke-virtual {p1, v1, v9}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
 
-    iget-object v8, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidCurvePaint:Landroid/graphics/Paint;
+    iget-object v9, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidCurvePaint:Landroid/graphics/Paint;
 
-    if-eqz v8, :cond_6
+    if-eqz v9, :cond_8
 
-    if-nez v5, :cond_5
+    if-nez v6, :cond_7
 
-    new-instance v5, Landroid/graphics/Path;
+    new-instance v6, Landroid/graphics/Path;
 
-    invoke-direct {v5}, Landroid/graphics/Path;-><init>()V
+    invoke-direct {v6}, Landroid/graphics/Path;-><init>()V
 
-    iget-object v8, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidSlots:[Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;
+    iget-object v9, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidSlots:[Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;
 
-    aget-object v8, v8, v3
+    aget-object v9, v9, v5
 
-    iget v8, v8, Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;->mLeft:F
+    iget v9, v9, Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;->mLeft:F
 
-    invoke-virtual {v5, v8, v6}, Landroid/graphics/Path;->moveTo(FF)V
+    invoke-virtual {v6, v9, v7}, Landroid/graphics/Path;->moveTo(FF)V
 
-    goto :goto_3
+    goto :goto_4
 
-    :cond_5
-    iget-object v8, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidSlots:[Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;
+    :cond_7
+    iget-object v9, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidSlots:[Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;
 
-    aget-object v8, v8, v3
+    aget-object v9, v9, v5
 
-    iget v8, v8, Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;->mLeft:F
+    iget v9, v9, Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;->mLeft:F
 
-    invoke-virtual {v5, v8, v6}, Landroid/graphics/Path;->lineTo(FF)V
+    invoke-virtual {v6, v9, v7}, Landroid/graphics/Path;->lineTo(FF)V
 
-    :goto_3
-    iget-object v6, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidSlots:[Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;
-
-    aget-object v6, v6, v3
-
-    iget v6, v6, Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;->mRight:F
-
-    invoke-virtual {v5, v6, v7}, Landroid/graphics/Path;->lineTo(FF)V
-
-    :cond_6
     :goto_4
-    add-int/lit8 v3, v3, 0x1
+    iget-object v7, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidSlots:[Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;
+
+    aget-object v7, v7, v5
+
+    iget v7, v7, Lcom/android/settings/fuelgauge/BatteryChartView$TrapezoidSlot;->mRight:F
+
+    invoke-virtual {v6, v7, v8}, Landroid/graphics/Path;->lineTo(FF)V
+
+    :cond_8
+    :goto_5
+    add-int/lit8 v5, v5, 0x1
 
     goto/16 :goto_0
 
-    :cond_7
+    :cond_9
     iget-object p0, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidCurvePaint:Landroid/graphics/Paint;
 
-    if-eqz p0, :cond_8
+    if-eqz p0, :cond_a
 
-    if-eqz v5, :cond_8
+    if-eqz v6, :cond_a
 
-    invoke-virtual {p1, v5, p0}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
+    invoke-virtual {p1, v6, p0}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
 
-    :cond_8
+    :cond_a
     return-void
 .end method
 
@@ -1254,9 +1305,17 @@
 
     invoke-static {p1, v0}, Lcom/android/settingslib/Utils;->getDisabled(Landroid/content/Context;I)I
 
+    move-result v0
+
+    iput v0, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidColor:I
+
+    const v0, 0x1120027
+
+    invoke-static {p1, v0}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
+
     move-result p1
 
-    iput p1, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidColor:I
+    iput p1, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTrapezoidHoverColor:I
 
     invoke-virtual {p0}, Landroid/widget/ImageView;->getContext()Landroid/content/Context;
 
@@ -1759,9 +1818,13 @@
 .method public onClick(Landroid/view/View;)V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTouchUpEvent:Landroid/view/MotionEvent;
+    iget v0, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTouchUpEventX:F
 
-    if-nez v0, :cond_0
+    const/4 v1, 0x1
+
+    cmpl-float v1, v0, v1
+
+    if-nez v1, :cond_0
 
     const-string p0, "BatteryChartView"
 
@@ -1772,10 +1835,6 @@
     return-void
 
     :cond_0
-    invoke-virtual {v0}, Landroid/view/MotionEvent;->getX()F
-
-    move-result v0
-
     invoke-direct {p0, v0}, Lcom/android/settings/fuelgauge/BatteryChartView;->getTrapezoidIndex(F)I
 
     move-result v0
@@ -1840,6 +1899,66 @@
     invoke-virtual {v0, p0}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
     return-void
+.end method
+
+.method public onHoverChanged(Z)V
+    .locals 0
+
+    invoke-super {p0, p1}, Landroid/widget/ImageView;->onHoverChanged(Z)V
+
+    if-nez p1, :cond_0
+
+    const/4 p1, -0x2
+
+    iput p1, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mHoveredIndex:I
+
+    invoke-virtual {p0}, Landroid/widget/ImageView;->invalidate()V
+
+    :cond_0
+    return-void
+.end method
+
+.method public onHoverEvent(Landroid/view/MotionEvent;)Z
+    .locals 2
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
+
+    move-result v0
+
+    const/4 v1, 0x7
+
+    if-eq v0, v1, :cond_0
+
+    const/16 v1, 0x9
+
+    if-eq v0, v1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
+
+    move-result v0
+
+    invoke-direct {p0, v0}, Lcom/android/settings/fuelgauge/BatteryChartView;->getTrapezoidIndex(F)I
+
+    move-result v0
+
+    iget v1, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mHoveredIndex:I
+
+    if-eq v1, v0, :cond_1
+
+    iput v0, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mHoveredIndex:I
+
+    invoke-virtual {p0}, Landroid/widget/ImageView;->invalidate()V
+
+    :cond_1
+    :goto_0
+    invoke-super {p0, p1}, Landroid/widget/ImageView;->onHoverEvent(Landroid/view/MotionEvent;)Z
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public onMeasure(II)V
@@ -1982,7 +2101,7 @@
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v0, "setIndent:"
+    const-string/jumbo v0, "setIndent:"
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2020,26 +2139,28 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-eq v0, v1, :cond_1
 
-    invoke-static {p1}, Landroid/view/MotionEvent;->obtain(Landroid/view/MotionEvent;)Landroid/view/MotionEvent;
+    const/4 v1, 0x3
 
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTouchUpEvent:Landroid/view/MotionEvent;
+    if-eq v0, v1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x3
+    const/4 v0, 0x1
 
-    if-ne v0, v1, :cond_1
+    iput v0, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTouchUpEventX:F
 
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTouchUpEvent:Landroid/view/MotionEvent;
+    goto :goto_0
 
     :cond_1
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/settings/fuelgauge/BatteryChartView;->mTouchUpEventX:F
+
     :goto_0
     invoke-super {p0, p1}, Landroid/widget/ImageView;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
@@ -2193,7 +2314,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "setLevels() "
+    const-string/jumbo v1, "setLevels() "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2332,7 +2453,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "trapezoidCount:"
+    const-string/jumbo v1, "trapezoidCount:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

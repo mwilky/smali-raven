@@ -71,7 +71,7 @@
 
     iput p1, p0, Lcom/android/settings/datausage/ChartDataUsagePreference;->mWarningColor:I
 
-    const p1, 0x7f0600b6
+    const p1, 0x7f0600b8
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -104,7 +104,7 @@
 
     const/4 v7, 0x2
 
-    const v8, 0x7f040755
+    const v8, 0x7f04076d
 
     invoke-direct {p0, v1, v2, v8, v5}, Lcom/android/settings/datausage/ChartDataUsagePreference;->getLabel(JII)Ljava/lang/CharSequence;
 
@@ -154,7 +154,7 @@
 
     iget-wide v1, p2, Landroid/net/NetworkPolicy;->warningBytes:J
 
-    const p2, 0x7f040756
+    const p2, 0x7f04076e
 
     invoke-direct {p0, v1, v2, p2, v6}, Lcom/android/settings/datausage/ChartDataUsagePreference;->getLabel(JII)Ljava/lang/CharSequence;
 
@@ -339,7 +339,7 @@
 
     aput-object v1, v3, v11
 
-    const v0, 0x7f04071f
+    const v0, 0x7f040737
 
     invoke-virtual {v2, v0, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -454,7 +454,7 @@
     :goto_3
     iget-object p0, p0, Lcom/android/settings/datausage/ChartDataUsagePreference;->mResources:Landroid/content/res/Resources;
 
-    const p2, 0x7f040720
+    const p2, 0x7f040738
 
     invoke-virtual {p0, p2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -827,7 +827,7 @@
 
     invoke-super {p0, p1}, Landroidx/preference/Preference;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
 
-    const v0, 0x7f0d01a1
+    const v0, 0x7f0d01a5
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 

@@ -123,7 +123,7 @@
 
     move-result-object p1
 
-    const v3, 0x7f0600cb
+    const v3, 0x7f0600cd
 
     const/4 v4, 0x0
 
@@ -133,7 +133,7 @@
 
     move-result-object p1
 
-    const v3, 0x7f0d01ed
+    const v3, 0x7f0d01f2
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -149,7 +149,7 @@
 
     invoke-virtual {v3}, Landroid/widget/EditText;->requestFocus()Z
 
-    const v1, 0x7f0412f6
+    const v1, 0x7f04131b
 
     invoke-virtual {v2, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -163,13 +163,13 @@
 
     invoke-direct {v1, v0, p0, v3}, Lcom/android/settings/deviceinfo/storage/StorageRenameFragment$$ExternalSyntheticLambda0;-><init>(Landroid/os/storage/StorageManager;Ljava/lang/String;Landroid/widget/EditText;)V
 
-    const p0, 0x7f041083
+    const p0, 0x7f0410b1
 
     invoke-virtual {p1, p0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p0
 
-    const p1, 0x7f04054c
+    const p1, 0x7f040564
 
     invoke-virtual {p0, p1, v4}, Landroidx/appcompat/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 

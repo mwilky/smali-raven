@@ -31,7 +31,7 @@
 
     if-nez p1, :cond_0
 
-    const p1, 0x7f060185
+    const p1, 0x7f060189
 
     const/4 v0, 0x0
 
@@ -75,7 +75,7 @@
 
     iput-object v0, p1, Lcom/android/settings/development/AppViewHolder;->summary:Landroid/widget/TextView;
 
-    const v0, 0x7f0d00a5
+    const v0, 0x7f0d00a8
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -90,7 +90,7 @@
     :goto_1
     sput-boolean v1, Lcom/android/launcher3/icons/BaseIconFactory;->ATLEAST_P:Z
 
-    const/16 v0, 0xf0
+    const/16 v0, 0xf5
 
     invoke-static {v0, v0, v0}, Landroid/graphics/Color;->rgb(III)I
 
@@ -644,7 +644,7 @@
 
     if-eqz v1, :cond_2
 
-    const/high16 v1, 0x3d000000    # 0.03125f
+    const v1, 0x3d0f5c29    # 0.035f
 
     int-to-float v2, p3
 

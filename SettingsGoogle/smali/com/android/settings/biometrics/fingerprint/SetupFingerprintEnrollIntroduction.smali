@@ -276,7 +276,7 @@
     :cond_0
     const/4 v0, 0x0
 
-    const-string v1, "wasLockScreenPresent"
+    const-string/jumbo v1, "wasLockScreenPresent"
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
 
@@ -295,7 +295,7 @@
 
     iget-boolean p0, p0, Lcom/android/settings/biometrics/fingerprint/SetupFingerprintEnrollIntroduction;->mAlreadyHadLockScreenSetup:Z
 
-    const-string v0, "wasLockScreenPresent"
+    const-string/jumbo v0, "wasLockScreenPresent"
 
     invoke-virtual {p1, v0, p0}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 

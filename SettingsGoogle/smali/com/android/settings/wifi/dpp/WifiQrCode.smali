@@ -313,7 +313,7 @@
 
     move-result-object p1
 
-    const-string v3, "true"
+    const-string/jumbo v3, "true"
 
     invoke-virtual {v3, p1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 

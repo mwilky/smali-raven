@@ -55,7 +55,7 @@
 
     move-result-object p0
 
-    const v1, 0x7f0d0247
+    const v1, 0x7f0d024d
 
     invoke-virtual {p0, v1, p1, v0}, Landroidx/fragment/app/FragmentTransaction;->replace(ILandroidx/fragment/app/Fragment;Ljava/lang/String;)Landroidx/fragment/app/FragmentTransaction;
 

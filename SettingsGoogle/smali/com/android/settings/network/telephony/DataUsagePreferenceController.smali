@@ -152,7 +152,7 @@
     return-object p0
 
     :cond_1
-    const p0, 0x7f04075c
+    const p0, 0x7f040774
 
     const/4 v2, 0x2
 
@@ -362,6 +362,16 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public handlePreferenceTreeClick(Landroidx/preference/Preference;)Z

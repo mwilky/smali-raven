@@ -75,7 +75,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a0b
+    const p0, 0x7f040a23
 
     return p0
 .end method
@@ -99,7 +99,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150039
+    const p0, 0x7f15003a
 
     return p0
 .end method
@@ -371,7 +371,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f040656
+    const v0, 0x7f04066e
 
     const/4 v1, 0x0
 
@@ -438,7 +438,7 @@
 
     iget-object p1, p0, Lcom/android/settings/bluetooth/BluetoothPairingDetail;->mAvailableDevicesCategory:Lcom/android/settings/bluetooth/BluetoothProgressCategory;
 
-    const v0, 0x7f0404b1
+    const v0, 0x7f0404c9
 
     sget-object v1, Lcom/android/settingslib/bluetooth/BluetoothDeviceFilter;->ALL_FILTER:Lcom/android/settingslib/bluetooth/BluetoothDeviceFilter$Filter;
 

@@ -7,10 +7,10 @@
         <item name="android:orientation">vertical</item>
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:divider">@*android:drawable/list_divider_material</item>
+        <item name="android:divider">@android:drawable/list_divider_material</item>
         <item name="android:showDividers">middle</item>
     </style>
-    <style name="AccessibilityDialogButton" parent="@*android:style/Widget.DeviceDefault.Button.ButtonBar.AlertDialog">
+    <style name="AccessibilityDialogButton" parent="@android:style/Widget.DeviceDefault.Button.ButtonBar.AlertDialog">
         <item name="android:background">?android:selectableItemBackground</item>
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">56.0dip</item>
@@ -26,7 +26,7 @@
         <item name="android:orientation">vertical</item>
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:divider">@*android:drawable/list_divider_material</item>
+        <item name="android:divider">@android:drawable/list_divider_material</item>
         <item name="android:showDividers">middle</item>
     </style>
     <style name="AccessibilityDialogDescription" parent="@android:style/TextAppearance.DeviceDefault">
@@ -54,7 +54,7 @@
         <item name="android:textColor">?android:textColorPrimary</item>
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:fontFamily">@*android:string/config_headlineFontFamily</item>
+        <item name="android:fontFamily">@android:string/config_headlineFontFamily</item>
     </style>
     <style name="AccessibilityDialogServiceIcon">
         <item name="android:layout_width">36.0dip</item>
@@ -69,12 +69,12 @@
         <item name="android:gravity">center</item>
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
+        <item name="android:fontFamily">@android:string/config_headlineFontFamilyMedium</item>
     </style>
     <style name="ActionPrimaryButton" parent="@android:style/Widget.DeviceDefault.Button.Colored">
         <item name="android:theme">@style/RoundedCornerThemeOverlay</item>
         <item name="android:textSize">16.0sp</item>
-        <item name="android:fontFamily">@*android:string/config_bodyFontFamilyMedium</item>
+        <item name="android:fontFamily">@android:string/config_bodyFontFamilyMedium</item>
     </style>
     <style name="ActionSecondaryButton" parent="@android:style/Widget.DeviceDefault.Button" />
     <style name="AlertDialog.AppCompat" parent="@style/Base.AlertDialog.AppCompat" />
@@ -128,12 +128,12 @@
     </style>
     <style name="AppEntitiesHeader.Text" parent="@android:style/TextAppearance.Material.Subhead">
         <item name="android:textColor">?android:textColorPrimary</item>
-        <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
+        <item name="android:fontFamily">@android:string/config_headlineFontFamilyMedium</item>
     </style>
     <style name="AppEntitiesHeader.Text.HeaderTitle" parent="@style/AppEntitiesHeader.Text">
         <item name="android:textSize">14.0sp</item>
     </style>
-    <style name="AppEntitiesHeader.Text.Summary" parent="@*android:style/TextAppearance.DeviceDefault.Body1">
+    <style name="AppEntitiesHeader.Text.Summary" parent="@android:style/TextAppearance.DeviceDefault.Body1">
         <item name="android:textSize">14.0sp</item>
         <item name="android:textColor">?android:textColorSecondary</item>
     </style>
@@ -1847,14 +1847,14 @@
         <item name="android:textColor">?android:textColorPrimary</item>
         <item name="android:paddingVertical">24.0dip</item>
     </style>
-    <style name="BiometricHeaderStyle" parent="@*android:style/TextAppearance.DeviceDefault.Subhead">
+    <style name="BiometricHeaderStyle" parent="@android:style/TextAppearance.DeviceDefault.Subhead">
         <item name="android:paddingTop">16.0dip</item>
         <item name="android:paddingBottom">24.0dip</item>
         <item name="android:lineSpacingMultiplier">1.2</item>
     </style>
     <style name="BorderlessButton">
         <item name="android:gravity">center</item>
-        <item name="android:background">@*android:drawable/btn_borderless_rect</item>
+        <item name="android:background">@android:drawable/btn_borderless_rect</item>
         <item name="android:padding">12.0dip</item>
     </style>
     <style name="BottomSheetButton" parent="@android:style/Widget.DeviceDefault.Button.Colored">
@@ -1915,7 +1915,7 @@
         <item name="android:textAlignment">viewStart</item>
         <item name="android:layout_marginStart">4.0dip</item>
     </style>
-    <style name="ConfirmDeviceCredentialsAnimationStyle" parent="@*android:style/Animation.Material.Activity">
+    <style name="ConfirmDeviceCredentialsAnimationStyle" parent="@android:style/Animation.Material.Activity">
         <item name="android:activityOpenEnterAnimation">@anim/confirm_credential_open_enter</item>
         <item name="android:activityOpenExitAnimation">@anim/confirm_credential_open_exit</item>
     </style>
@@ -1927,7 +1927,7 @@
         <item name="android:layout_marginBottom">@dimen/contextual_card_vertical_margin</item>
         <item name="android:layout_marginStart">@dimen/contextual_card_side_margin</item>
         <item name="android:layout_marginEnd">@dimen/contextual_card_side_margin</item>
-        <item name="cardBackgroundColor">?*android:^attr-private/colorSurface</item>
+        <item name="cardBackgroundColor">?android:^attr-private/colorSurface</item>
         <item name="cardCornerRadius">@dimen/contextual_card_corner_radius</item>
         <item name="cardElevation">0.0dip</item>
         <item name="rippleColor">?android:colorControlHighlight</item>
@@ -1935,7 +1935,7 @@
     <style name="ContextualSuggestionCardStyle">
         <item name="android:layout_marginTop">@dimen/suggestion_card_margin_top</item>
         <item name="android:layout_marginHorizontal">@dimen/suggestion_card_margin_horizontal</item>
-        <item name="cardBackgroundColor">?*android:^attr-private/colorAccentPrimary</item>
+        <item name="cardBackgroundColor">?android:^attr-private/colorAccentPrimary</item>
         <item name="cardCornerRadius">@dimen/suggestion_card_corner_radius</item>
         <item name="cardElevation">0.0dip</item>
         <item name="rippleColor">?android:colorControlHighlight</item>
@@ -2059,12 +2059,12 @@
     </style>
     <style name="GlifTheme" parent="@style/SudThemeGlif.DayNight">
         <item name="android:windowBackground">?android:colorBackground</item>
-        <item name="*android:lockPatternStyle">@style/LockPatternStyle.Setup</item>
-        <item name="*android:preferencePanelStyle">@*android:style/PreferencePanel.Dialog</item>
+        <item name="android:lockPatternStyle">@style/LockPatternStyle</item>
+        <item name="android:preferencePanelStyle">@android:style/PreferencePanel.Dialog</item>
         <item name="alertDialogTheme">@style/ThemeOverlay.AlertDialog</item>
         <item name="face_layout_theme">@style/FaceLayoutTheme</item>
         <item name="fingerprint_layout_theme">@style/FingerprintLayoutTheme</item>
-        <item name="ic_menu_moreoverflow">@*android:drawable/ic_menu_moreoverflow_material</item>
+        <item name="ic_menu_moreoverflow">@android:drawable/ic_menu_moreoverflow_material</item>
         <item name="preferenceBackgroundColor">?android:colorBackground</item>
         <item name="preferenceTheme">@style/PreferenceTheme.SetupWizard</item>
         <item name="side_margin">0.0dip</item>
@@ -2075,12 +2075,12 @@
     <style name="GlifTheme.DayNight" parent="@style/GlifTheme.Light" />
     <style name="GlifTheme.Light" parent="@style/SudThemeGlif.Light">
         <item name="android:windowBackground">?android:colorBackground</item>
-        <item name="*android:lockPatternStyle">@style/LockPatternStyle.Setup</item>
-        <item name="*android:preferencePanelStyle">@*android:style/PreferencePanel.Dialog</item>
+        <item name="android:lockPatternStyle">@style/LockPatternStyle</item>
+        <item name="android:preferencePanelStyle">@android:style/PreferencePanel.Dialog</item>
         <item name="alertDialogTheme">@style/ThemeOverlay.AlertDialog</item>
         <item name="face_layout_theme">@style/FaceLayoutTheme</item>
         <item name="fingerprint_layout_theme">@style/FingerprintLayoutTheme</item>
-        <item name="ic_menu_moreoverflow">@*android:drawable/ic_menu_moreoverflow_material</item>
+        <item name="ic_menu_moreoverflow">@android:drawable/ic_menu_moreoverflow_material</item>
         <item name="preferenceBackgroundColor">?android:colorBackground</item>
         <item name="preferenceTheme">@style/PreferenceTheme.SetupWizard</item>
         <item name="side_margin">0.0dip</item>
@@ -2090,12 +2090,12 @@
     </style>
     <style name="GlifV2Theme" parent="@style/SudThemeGlifV2.DayNight">
         <item name="android:windowBackground">?android:colorBackground</item>
-        <item name="*android:lockPatternStyle">@style/LockPatternStyle.Setup</item>
-        <item name="*android:preferencePanelStyle">@*android:style/PreferencePanel.Dialog</item>
+        <item name="android:lockPatternStyle">@style/LockPatternStyle</item>
+        <item name="android:preferencePanelStyle">@android:style/PreferencePanel.Dialog</item>
         <item name="alertDialogTheme">@style/GlifV2ThemeAlertDialog</item>
         <item name="face_layout_theme">@style/FaceLayoutTheme</item>
         <item name="fingerprint_layout_theme">@style/FingerprintLayoutTheme</item>
-        <item name="ic_menu_moreoverflow">@*android:drawable/ic_menu_moreoverflow_material</item>
+        <item name="ic_menu_moreoverflow">@android:drawable/ic_menu_moreoverflow_material</item>
         <item name="preferenceBackgroundColor">?android:colorBackground</item>
         <item name="preferenceTheme">@style/PreferenceTheme.SetupWizard</item>
         <item name="side_margin">0.0dip</item>
@@ -2107,12 +2107,12 @@
     <style name="GlifV2Theme.DayNight.Transparent" parent="@style/GlifV2Theme.Light.Transparent" />
     <style name="GlifV2Theme.Light" parent="@style/SudThemeGlifV2.Light">
         <item name="android:windowBackground">?android:colorBackground</item>
-        <item name="*android:lockPatternStyle">@style/LockPatternStyle.Setup</item>
-        <item name="*android:preferencePanelStyle">@*android:style/PreferencePanel.Dialog</item>
+        <item name="android:lockPatternStyle">@style/LockPatternStyle</item>
+        <item name="android:preferencePanelStyle">@android:style/PreferencePanel.Dialog</item>
         <item name="alertDialogTheme">@style/GlifV2ThemeAlertDialog.Light</item>
         <item name="face_layout_theme">@style/FaceLayoutTheme</item>
         <item name="fingerprint_layout_theme">@style/FingerprintLayoutTheme</item>
-        <item name="ic_menu_moreoverflow">@*android:drawable/ic_menu_moreoverflow_material</item>
+        <item name="ic_menu_moreoverflow">@android:drawable/ic_menu_moreoverflow_material</item>
         <item name="preferenceBackgroundColor">?android:colorBackground</item>
         <item name="preferenceTheme">@style/PreferenceTheme.SetupWizard</item>
         <item name="side_margin">0.0dip</item>
@@ -2140,12 +2140,12 @@
     </style>
     <style name="GlifV3Theme" parent="@style/SudThemeGlifV3.DayNight">
         <item name="android:windowBackground">?android:colorBackground</item>
-        <item name="*android:lockPatternStyle">@style/LockPatternStyle.Setup</item>
-        <item name="*android:preferencePanelStyle">@*android:style/PreferencePanel.Dialog</item>
+        <item name="android:lockPatternStyle">@style/LockPatternStyle</item>
+        <item name="android:preferencePanelStyle">@android:style/PreferencePanel.Dialog</item>
         <item name="alertDialogTheme">@style/GlifV2ThemeAlertDialog</item>
         <item name="face_layout_theme">@style/FaceLayoutTheme</item>
         <item name="fingerprint_layout_theme">@style/FingerprintLayoutTheme</item>
-        <item name="ic_menu_moreoverflow">@*android:drawable/ic_menu_moreoverflow_material</item>
+        <item name="ic_menu_moreoverflow">@android:drawable/ic_menu_moreoverflow_material</item>
         <item name="preferenceBackgroundColor">?android:colorBackground</item>
         <item name="preferenceTheme">@style/PreferenceTheme.SetupWizard</item>
         <item name="side_margin">0.0dip</item>
@@ -2162,12 +2162,12 @@
     </style>
     <style name="GlifV3Theme.Light" parent="@style/SudThemeGlifV3.Light">
         <item name="android:windowBackground">?android:colorBackground</item>
-        <item name="*android:lockPatternStyle">@style/LockPatternStyle.Setup</item>
-        <item name="*android:preferencePanelStyle">@*android:style/PreferencePanel.Dialog</item>
+        <item name="android:lockPatternStyle">@style/LockPatternStyle</item>
+        <item name="android:preferencePanelStyle">@android:style/PreferencePanel.Dialog</item>
         <item name="alertDialogTheme">@style/GlifV2ThemeAlertDialog.Light</item>
         <item name="face_layout_theme">@style/FaceLayoutTheme</item>
         <item name="fingerprint_layout_theme">@style/FingerprintLayoutTheme</item>
-        <item name="ic_menu_moreoverflow">@*android:drawable/ic_menu_moreoverflow_material</item>
+        <item name="ic_menu_moreoverflow">@android:drawable/ic_menu_moreoverflow_material</item>
         <item name="preferenceBackgroundColor">?android:colorBackground</item>
         <item name="preferenceTheme">@style/PreferenceTheme.SetupWizard</item>
         <item name="side_margin">0.0dip</item>
@@ -2234,17 +2234,17 @@
         <item name="android:layout_marginStart">?android:listPreferredItemPaddingStart</item>
     </style>
     <style name="LightTheme.SettingsBase.SetupWizard" parent="@android:style/Theme.DeviceDefault">
-        <item name="android:colorBackground">@*android:color/background_device_default_light</item>
+        <item name="android:colorBackground">@android:color/background_device_default_light</item>
         <item name="android:textColorPrimary">@android:color/primary_text_light</item>
         <item name="android:textColorSecondary">@android:color/secondary_text_light</item>
-        <item name="android:listDivider">@*android:color/list_divider_color_light</item>
-        <item name="android:colorPrimary">@*android:color/primary_device_default_settings_light</item>
-        <item name="android:colorPrimaryDark">@*android:color/primary_dark_device_default_settings_light</item>
-        <item name="android:colorAccent">@*android:color/accent_device_default_light</item>
+        <item name="android:listDivider">@android:color/list_divider_color_light</item>
+        <item name="android:colorPrimary">@android:color/primary_device_default_settings_light</item>
+        <item name="android:colorPrimaryDark">@android:color/primary_dark_device_default_settings_light</item>
+        <item name="android:colorAccent">@android:color/accent_device_default_light</item>
         <item name="android:navigationBarColor">@android:color/white</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowLightNavigationBar">true</item>
-        <item name="android:navigationBarDividerColor">@*android:color/navigation_bar_divider_device_default_settings</item>
+        <item name="android:navigationBarDividerColor">@android:color/navigation_bar_divider_device_default_settings</item>
     </style>
     <style name="LockPatternContainerStyle">
         <item name="android:paddingTop">0.0dip</item>
@@ -2256,24 +2256,10 @@
         <item name="android:paddingHorizontal">44.0dip</item>
     </style>
     <style name="LockPatternStyle">
-        <item name="*android:errorColor">?android:colorError</item>
-        <item name="*android:regularColor">@color/lock_pattern_view_regular_color</item>
-        <item name="*android:successColor">@color/lock_pattern_view_success_color</item>
-    </style>
-    <style name="LockPatternStyle.Dark" parent="@style/LockPatternStyle">
-        <item name="*android:regularColor">@color/lock_pattern_view_regular_color_dark</item>
-        <item name="*android:successColor">@color/lock_pattern_view_regular_color_dark</item>
-    </style>
-    <style name="LockPatternStyle.Dark.Work" parent="@style/LockPatternStyle.Dark">
-        <item name="*android:regularColor">@android:color/white</item>
-    </style>
-    <style name="LockPatternStyle.Setup" parent="@style/LockPatternStyle">
-        <item name="*android:regularColor">@color/setup_lock_pattern_view_regular_color_light</item>
-        <item name="*android:successColor">@color/setup_lock_pattern_view_success_color_light</item>
-    </style>
-    <style name="LockPatternStyle.Unlock" parent="@style/LockPatternStyle">
-        <item name="*android:regularColor">@color/unlock_pattern_view_regular_color</item>
-        <item name="*android:successColor">@color/unlock_pattern_view_success_color</item>
+        <item name="android:dotColor">?android:textColorSecondary</item>
+        <item name="android:errorColor">?android:colorError</item>
+        <item name="android:regularColor">?android:colorAccent</item>
+        <item name="android:successColor">?android:textColorPrimary</item>
     </style>
     <style name="MainSwitchText.Settingslib" parent="@android:style/TextAppearance.DeviceDefault.Widget.ActionBar.Title">
         <item name="android:textSize">20.0sp</item>
@@ -2351,7 +2337,14 @@
         <item name="android:layout_gravity">center</item>
         <item name="android:textAlignment">center</item>
     </style>
-    <style name="PickerDialogTheme.Settings" parent="@*android:style/ThemeOverlay.Material.Dialog.DatePicker">
+    <style name="PanelOptionRoundedOutlinedButton" parent="@android:style/Widget.Material.Button">
+        <item name="android:background">@drawable/volume_dialog_button_background_outline</item>
+    </style>
+    <style name="PanelOptionRoundedSolidButton" parent="@android:style/Widget.Material.Button">
+        <item name="android:textColor">@android:color/system_neutral1_900</item>
+        <item name="android:background">@drawable/volume_dialog_button_background_solid</item>
+    </style>
+    <style name="PickerDialogTheme.Settings" parent="@android:style/ThemeOverlay.Material.Dialog.DatePicker">
         <item name="android:clipChildren">true</item>
         <item name="android:clipToPadding">true</item>
     </style>
@@ -2531,7 +2524,7 @@
         <item name="android:paddingStart">0.0dip</item>
         <item name="android:paddingEnd">0.0dip</item>
     </style>
-    <style name="PreferenceFragmentListSinglePane" parent="@*android:style/PreferenceFragmentList">
+    <style name="PreferenceFragmentListSinglePane" parent="@android:style/PreferenceFragmentList">
         <item name="android:scrollbarStyle">outsideOverlay</item>
         <item name="android:layout_marginStart">0.0dip</item>
         <item name="android:layout_marginEnd">0.0dip</item>
@@ -2775,7 +2768,7 @@
         <item name="android:paddingTop">20.0dip</item>
         <item name="android:paddingBottom">20.0dip</item>
         <item name="android:drawablePadding">4.0dip</item>
-        <item name="android:drawableTint">@*android:color/btn_colored_borderless_text_material</item>
+        <item name="android:drawableTint">@android:color/btn_colored_borderless_text_material</item>
     </style>
     <style name="SettingsMultiSelectListPreference" parent="@style/Preference.Material">
         <item name="android:positiveButtonText">@android:string/ok</item>
@@ -2787,7 +2780,7 @@
         <item name="layout">@layout/settingslib_preference</item>
     </style>
     <style name="SettingsPreferenceFragmentStyle" parent="@style/PreferenceFragment.Material">
-        <item name="android:divider">@*android:drawable/list_divider_material</item>
+        <item name="android:divider">@android:drawable/list_divider_material</item>
     </style>
     <style name="SettingsPreferenceTheme" parent="@style/PreferenceTheme.SettingsLib">
         <item name="apnPreferenceStyle">@style/ApnPreference</item>
@@ -2933,13 +2926,14 @@
         <item name="contentStartPadding">8.0dip</item>
     </style>
     <style name="SliceRow.Slider" parent="@style/SliceRow">
-        <item name="contentEndPadding">36.0dip</item>
-        <item name="contentStartPadding">0.0dip</item>
+        <item name="contentEndPadding">0.0dip</item>
+        <item name="contentStartPadding">5.0dip</item>
         <item name="endItemEndPadding">8.0dip</item>
         <item name="endItemStartPadding">0.0dip</item>
         <item name="progressBarEndPadding">16.0dip</item>
         <item name="progressBarStartPadding">12.0dip</item>
         <item name="subContentStartPadding">11.0dip</item>
+        <item name="titleSize">20.0sp</item>
         <item name="titleStartPadding">11.0dip</item>
     </style>
     <style name="SliceRow.Slider.LargeIcon" parent="@style/SliceRow.Slider">
@@ -2947,7 +2941,6 @@
         <item name="iconSize">36.0dip</item>
         <item name="titleItemStartPadding">10.0dip</item>
     </style>
-    <style name="SubSettings.SetupWizard" parent="@style/SudThemeGlifV3.Light" />
     <style name="SucPartnerCustomizationButton.Primary" parent="@android:style/Widget.Material.Button.Colored">
         <item name="android:theme">@style/SucPartnerCustomizationButton.Primary</item>
         <item name="android:buttonStyle">@style/SucPartnerCustomizationButton.Primary</item>
@@ -2993,8 +2986,11 @@
     </style>
     <style name="SudAlertDialogTheme" parent="@android:style/Theme.DeviceDefault.Dialog.Alert">
         <item name="android:colorBackground">@color/sud_glif_v3_dialog_background_color_dark</item>
+        <item name="android:buttonBarButtonStyle">@style/SudDeviceDefaultButtonBarButtonStyle</item>
     </style>
-    <style name="SudAlertDialogTheme.Light" parent="@android:style/Theme.DeviceDefault.Light.Dialog.Alert" />
+    <style name="SudAlertDialogTheme.Light" parent="@android:style/Theme.DeviceDefault.Light.Dialog.Alert">
+        <item name="android:buttonBarButtonStyle">@style/SudDeviceDefaultButtonBarButtonStyle.Light</item>
+    </style>
     <style name="SudAlertDialogThemeCompat" parent="@style/Theme.AppCompat.Dialog.Alert">
         <item name="android:colorBackground">@color/sud_glif_v3_dialog_background_color_dark</item>
         <item name="android:textAllCaps">false</item>
@@ -3005,6 +3001,14 @@
         <item name="android:textAllCaps">false</item>
         <item name="colorAccent">@color/sud_color_accent_glif_v3_light</item>
         <item name="dialogCornerRadius">@dimen/sud_glif_alert_dialog_corner_radius</item>
+    </style>
+    <style name="SudAppCompatButtonButtonBarAlertDialog" parent="@style/Widget.AppCompat.ButtonBar.AlertDialog">
+        <item name="android:textAppearance">@style/SudTextAppearanceDeviceDefaultMedium</item>
+        <item name="android:minWidth">@dimen/sud_alert_dialog_button_bar_width</item>
+        <item name="android:minHeight">@dimen/sud_alert_dialog_button_bar_height</item>
+    </style>
+    <style name="SudAppCompatButtonButtonBarAlertDialog.Light" parent="@style/SudAppCompatButtonButtonBarAlertDialog">
+        <item name="android:textAppearance">@style/SudTextAppearanceDeviceDefaultMedium.Light</item>
     </style>
     <style name="SudBase.ProgressBarLarge" parent="@android:style/Widget.Material.ProgressBar.Large" />
     <style name="SudBaseCardTitle">
@@ -3094,6 +3098,10 @@
         <item name="sudMarginStart">@dimen/sud_glif_margin_start</item>
         <item name="sudScrollBarThumb">@drawable/sud_scroll_bar_dark</item>
         <item name="sudScrollIndicators">bottom</item>
+        <item name="sudSwitchBarThumbOffColor">@color/sud_switch_thumb_off_dark</item>
+        <item name="sudSwitchBarThumbOnColor">@color/sud_switch_thumb_on_dark</item>
+        <item name="sudSwitchBarTrackOffColor">@color/sud_switch_track_off_dark</item>
+        <item name="sudSwitchBarTrackOnColor">@color/sud_switch_track_on_dark</item>
         <item name="textAppearanceListItem">@style/TextAppearance.SudGlifItemTitle</item>
         <item name="textAppearanceListItemSmall">@style/TextAppearance.SudGlifItemSummary</item>
     </style>
@@ -3167,6 +3175,10 @@
         <item name="sudMarginStart">@dimen/sud_glif_margin_start</item>
         <item name="sudScrollBarThumb">@drawable/sud_scroll_bar_light</item>
         <item name="sudScrollIndicators">bottom</item>
+        <item name="sudSwitchBarThumbOffColor">@color/sud_switch_thumb_off_light</item>
+        <item name="sudSwitchBarThumbOnColor">@color/sud_switch_thumb_on_light</item>
+        <item name="sudSwitchBarTrackOffColor">@color/sud_switch_track_off_light</item>
+        <item name="sudSwitchBarTrackOnColor">@color/sud_switch_track_on_light</item>
         <item name="textAppearanceListItem">@style/TextAppearance.SudGlifItemTitle</item>
         <item name="textAppearanceListItemSmall">@style/TextAppearance.SudGlifItemSummary</item>
     </style>
@@ -3246,15 +3258,31 @@
         <item name="android:layout_marginTop">@dimen/sud_description_glif_margin_top</item>
         <item name="android:textAlignment">gravity</item>
     </style>
+    <style name="SudDeviceDefaultButtonBarButtonStyle" parent="@android:style/Widget.DeviceDefault.Button.Borderless.Colored">
+        <item name="android:textAppearance">@style/SudTextAppearanceDeviceDefaultMedium</item>
+        <item name="android:minWidth">@dimen/sud_alert_dialog_button_bar_width</item>
+        <item name="android:minHeight">@dimen/sud_alert_dialog_button_bar_height</item>
+    </style>
+    <style name="SudDeviceDefaultButtonBarButtonStyle.Light" parent="@style/SudDeviceDefaultButtonBarButtonStyle">
+        <item name="android:textAppearance">@style/SudTextAppearanceDeviceDefaultMedium.Light</item>
+    </style>
+    <style name="SudDeviceDefaultWindowTitleTextAppearance" parent="@android:style/TextAppearance.DeviceDefault.WindowTitle">
+        <item name="android:textSize">@dimen/sud_alert_dialog_title_text_size</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
+    </style>
     <style name="SudDynamicColorAlertDialogThemeCompat" parent="@style/Theme.AppCompat.Dialog.Alert">
         <item name="android:colorBackground">@color/sud_glif_v3_dialog_background_color_dark</item>
+        <item name="android:windowTitleStyle">@style/SudWindowTitleStyle</item>
         <item name="android:textAllCaps">false</item>
+        <item name="buttonBarButtonStyle">@style/SudAppCompatButtonButtonBarAlertDialog</item>
         <item name="colorAccent">@color/sud_dynamic_color_accent_glif_v3_dark</item>
         <item name="dialogCornerRadius">@dimen/sud_glif_device_default_dialog_corner_radius</item>
     </style>
     <style name="SudDynamicColorAlertDialogThemeCompat.Light" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:colorBackground">@color/sud_glif_v3_dialog_background_color_light</item>
+        <item name="android:windowTitleStyle">@style/SudWindowTitleStyle</item>
         <item name="android:textAllCaps">false</item>
+        <item name="buttonBarButtonStyle">@style/SudAppCompatButtonButtonBarAlertDialog.Light</item>
         <item name="colorAccent">@color/sud_dynamic_color_accent_glif_v3_light</item>
         <item name="dialogCornerRadius">@dimen/sud_glif_device_default_dialog_corner_radius</item>
     </style>
@@ -3267,27 +3295,36 @@
         <item name="dialogCornerRadius">@dimen/sud_glif_device_default_dialog_corner_radius</item>
     </style>
     <style name="SudDynamicColorThemeGlifV3" parent="@style/SudThemeGlifV3">
-        <item name="android:textColorLink">@color/sud_dynamic_color_accent_glif_v3_dark</item>
+        <item name="android:textColorLink">@color/sud_system_accent1_300</item>
         <item name="android:timePickerDialogTheme">@style/SudDynamicColorDateTimePickerDialogTheme</item>
         <item name="android:datePickerDialogTheme">@style/SudDynamicColorDateTimePickerDialogTheme</item>
         <item name="alertDialogTheme">@style/SudDynamicColorAlertDialogThemeCompat</item>
         <item name="colorAccent">@color/sud_dynamic_color_accent_glif_v3_dark</item>
         <item name="sucFullDynamicColor">false</item>
+        <item name="sudSwitchBarThumbOffColor">@color/sud_dynamic_switch_thumb_off_dark</item>
+        <item name="sudSwitchBarThumbOnColor">@color/sud_dynamic_switch_thumb_on_dark</item>
+        <item name="sudSwitchBarTrackOffColor">@color/sud_dynamic_switch_track_off_dark</item>
+        <item name="sudSwitchBarTrackOnColor">@color/sud_dynamic_switch_track_on_dark</item>
     </style>
     <style name="SudDynamicColorThemeGlifV3.DayNight" parent="@style/SudDynamicColorThemeGlifV3.Light" />
     <style name="SudDynamicColorThemeGlifV3.Light" parent="@style/SudThemeGlifV3.Light">
-        <item name="android:textColorLink">@color/sud_dynamic_color_accent_glif_v3_light</item>
+        <item name="android:textColorLink">@color/sud_system_accent1_600</item>
         <item name="android:timePickerDialogTheme">@style/SudDynamicColorDateTimePickerDialogTheme.Light</item>
         <item name="android:datePickerDialogTheme">@style/SudDynamicColorDateTimePickerDialogTheme.Light</item>
         <item name="alertDialogTheme">@style/SudDynamicColorAlertDialogThemeCompat.Light</item>
         <item name="colorAccent">@color/sud_dynamic_color_accent_glif_v3_light</item>
         <item name="sucFullDynamicColor">false</item>
+        <item name="sudSwitchBarThumbOffColor">@color/sud_dynamic_switch_thumb_off_light</item>
+        <item name="sudSwitchBarThumbOnColor">@color/sud_dynamic_switch_thumb_on_light</item>
+        <item name="sudSwitchBarTrackOffColor">@color/sud_dynamic_switch_track_off_light</item>
+        <item name="sudSwitchBarTrackOnColor">@color/sud_dynamic_switch_track_on_light</item>
     </style>
     <style name="SudDynamicColorThemeSettings.SetupWizard" parent="@style/SudDynamicColorThemeGlifV3.Light">
         <item name="android:textAppearanceListItem">@style/TextAppearance.PreferenceTitle.SettingsLib</item>
         <item name="android:listPreferredItemPaddingStart">24.0dip</item>
         <item name="android:listPreferredItemPaddingEnd">16.0dip</item>
         <item name="android:switchStyle">@style/Switch.SettingsLib</item>
+        <item name="preferenceFragmentCompatStyle">@style/SetupWizardPreferenceFragmentStyle</item>
         <item name="preferenceTheme">@style/PreferenceTheme.SettingsLib</item>
     </style>
     <style name="SudDynamicColorThemeSettings.SetupWizard.DayNight" parent="@style/SudDynamicColorThemeGlifV3.DayNight">
@@ -3295,6 +3332,7 @@
         <item name="android:listPreferredItemPaddingStart">24.0dip</item>
         <item name="android:listPreferredItemPaddingEnd">16.0dip</item>
         <item name="android:switchStyle">@style/Switch.SettingsLib</item>
+        <item name="preferenceFragmentCompatStyle">@style/SetupWizardPreferenceFragmentStyle</item>
         <item name="preferenceTheme">@style/PreferenceTheme.SettingsLib</item>
     </style>
     <style name="SudEditText" parent="@android:style/Widget.Material.EditText">
@@ -3436,6 +3474,7 @@
         <item name="android:layout_marginRight">?sudMarginEnd</item>
         <item name="android:layout_marginBottom">?sudGlifDescriptionMarginBottom</item>
         <item name="android:fontFamily">@string/sudFontSecondary</item>
+        <item name="android:textDirection">locale</item>
         <item name="android:layout_marginStart">?sudMarginStart</item>
         <item name="android:layout_marginEnd">?sudMarginEnd</item>
     </style>
@@ -3451,7 +3490,9 @@
         <item name="android:layout_marginRight">?sudMarginEnd</item>
         <item name="android:layout_marginBottom">?sucGlifHeaderMarginBottom</item>
         <item name="android:fontFamily">@string/sudFontSecondary</item>
+        <item name="android:textDirection">locale</item>
         <item name="android:textAlignment">gravity</item>
+        <item name="android:accessibilityHeading">true</item>
     </style>
     <style name="SudGlifIcon">
         <item name="android:layout_marginLeft">?sudMarginStart</item>
@@ -3581,11 +3622,21 @@
         <item name="android:paddingRight">?listPreferredItemPaddingRight</item>
         <item name="android:paddingEnd">?listPreferredItemPaddingRight</item>
     </style>
+    <style name="SudTextAppearanceDeviceDefaultMedium" parent="@android:style/TextAppearance.DeviceDefault.Medium">
+        <item name="android:textSize">@dimen/sud_alert_dialog_button_bar_button_text_size</item>
+        <item name="android:textColor">@color/sud_dynamic_color_accent_glif_v3_dark</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+    <style name="SudTextAppearanceDeviceDefaultMedium.Light" parent="@style/SudTextAppearanceDeviceDefaultMedium">
+        <item name="android:textColor">@color/sud_dynamic_color_accent_glif_v3_light</item>
+    </style>
     <style name="SudThemeGlif" parent="@style/SudBaseThemeGlif">
+        <item name="android:windowSplashScreenBackground">?android:colorBackground</item>
         <item name="sucSystemNavBarBackgroundColor">?android:navigationBarColor</item>
     </style>
     <style name="SudThemeGlif.DayNight" parent="@style/SudThemeGlif.Light" />
     <style name="SudThemeGlif.Light" parent="@style/SudBaseThemeGlif.Light">
+        <item name="android:windowSplashScreenBackground">?android:colorBackground</item>
         <item name="sucSystemNavBarBackgroundColor">?android:navigationBarColor</item>
     </style>
     <style name="SudThemeGlifV2" parent="@style/SudThemeGlif">
@@ -3624,6 +3675,19 @@
         <item name="sudScrollIndicators">bottom|top</item>
     </style>
     <style name="SudThemeGlifV3" parent="@style/SudBaseThemeGlifV3">
+        <item name="android:textAppearance">@android:style/TextAppearance.DeviceDefault</item>
+        <item name="android:textAppearanceInverse">@android:style/TextAppearance.DeviceDefault.Inverse</item>
+        <item name="android:textAppearanceLarge">@android:style/TextAppearance.DeviceDefault.Large</item>
+        <item name="android:textAppearanceMedium">@android:style/TextAppearance.DeviceDefault.Medium</item>
+        <item name="android:textAppearanceSmall">@android:style/TextAppearance.DeviceDefault.Small</item>
+        <item name="android:textAppearanceLargeInverse">@android:style/TextAppearance.DeviceDefault.Large.Inverse</item>
+        <item name="android:textAppearanceMediumInverse">@android:style/TextAppearance.DeviceDefault.Medium.Inverse</item>
+        <item name="android:textAppearanceSmallInverse">@android:style/TextAppearance.DeviceDefault.Small.Inverse</item>
+        <item name="android:textAppearanceButton">@android:style/TextAppearance.DeviceDefault.Widget.Button</item>
+        <item name="android:textAppearanceSearchResultSubtitle">@android:style/TextAppearance.DeviceDefault.SearchResult.Subtitle</item>
+        <item name="android:textAppearanceSearchResultTitle">@android:style/TextAppearance.DeviceDefault.SearchResult.Title</item>
+        <item name="android:textAppearanceLargePopupMenu">@android:style/TextAppearance.DeviceDefault.Widget.PopupMenu.Large</item>
+        <item name="android:textAppearanceSmallPopupMenu">@android:style/TextAppearance.DeviceDefault.Widget.PopupMenu.Small</item>
         <item name="android:navigationBarColor">@color/sud_glif_v3_nav_bar_color_dark</item>
         <item name="android:windowLightNavigationBar">false</item>
         <item name="android:navigationBarDividerColor">@color/sud_glif_v3_nav_bar_divider_color_dark</item>
@@ -3632,6 +3696,19 @@
     </style>
     <style name="SudThemeGlifV3.DayNight" parent="@style/SudThemeGlifV3.Light" />
     <style name="SudThemeGlifV3.Light" parent="@style/SudBaseThemeGlifV3.Light">
+        <item name="android:textAppearance">@android:style/TextAppearance.DeviceDefault</item>
+        <item name="android:textAppearanceInverse">@android:style/TextAppearance.DeviceDefault.Inverse</item>
+        <item name="android:textAppearanceLarge">@android:style/TextAppearance.DeviceDefault.Large</item>
+        <item name="android:textAppearanceMedium">@android:style/TextAppearance.DeviceDefault.Medium</item>
+        <item name="android:textAppearanceSmall">@android:style/TextAppearance.DeviceDefault.Small</item>
+        <item name="android:textAppearanceLargeInverse">@android:style/TextAppearance.DeviceDefault.Large.Inverse</item>
+        <item name="android:textAppearanceMediumInverse">@android:style/TextAppearance.DeviceDefault.Medium.Inverse</item>
+        <item name="android:textAppearanceSmallInverse">@android:style/TextAppearance.DeviceDefault.Small.Inverse</item>
+        <item name="android:textAppearanceButton">@android:style/TextAppearance.DeviceDefault.Widget.Button</item>
+        <item name="android:textAppearanceSearchResultSubtitle">@android:style/TextAppearance.DeviceDefault.SearchResult.Subtitle</item>
+        <item name="android:textAppearanceSearchResultTitle">@android:style/TextAppearance.DeviceDefault.SearchResult.Title</item>
+        <item name="android:textAppearanceLargePopupMenu">@android:style/TextAppearance.DeviceDefault.Widget.PopupMenu.Large</item>
+        <item name="android:textAppearanceSmallPopupMenu">@android:style/TextAppearance.DeviceDefault.Widget.PopupMenu.Small</item>
         <item name="android:navigationBarColor">@color/sud_glif_v3_nav_bar_color_light</item>
         <item name="android:windowLightNavigationBar">true</item>
         <item name="android:navigationBarDividerColor">@color/sud_glif_v3_nav_bar_divider_color_light</item>
@@ -3727,6 +3804,9 @@
         <item name="sudNavBarTheme">@style/SudNavBarThemeLight</item>
         <item name="textAppearanceListItemSmall">@style/TextAppearance.SudItemSummary</item>
     </style>
+    <style name="SudWindowTitleStyle" parent="@style/RtlOverlay.DialogWindowTitle.AppCompat">
+        <item name="android:textAppearance">@style/SudDeviceDefaultWindowTitleTextAppearance</item>
+    </style>
     <style name="SuggestionCardIcon">
         <item name="android:layout_centerHorizontal">true</item>
         <item name="android:layout_marginStart">12.0dip</item>
@@ -3748,17 +3828,17 @@
     <style name="SuwAlertDialogThemeCompat" parent="@style/Theme.AppCompat.Dialog.Alert">
         <item name="android:windowSoftInputMode">adjustResize</item>
         <item name="android:textAllCaps">false</item>
-        <item name="android:fontFamily">@*android:string/config_bodyFontFamily</item>
-        <item name="colorAccent">@*android:color/accent_device_default_dark</item>
-        <item name="dialogCornerRadius">@*android:dimen/config_dialogCornerRadius</item>
+        <item name="android:fontFamily">@android:string/config_bodyFontFamily</item>
+        <item name="colorAccent">@android:color/accent_device_default_dark</item>
+        <item name="dialogCornerRadius">@android:dimen/config_dialogCornerRadius</item>
     </style>
     <style name="SuwAlertDialogThemeCompat.DayNight" parent="@style/SuwAlertDialogThemeCompat.Light" />
     <style name="SuwAlertDialogThemeCompat.Light" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:windowSoftInputMode">adjustResize</item>
         <item name="android:textAllCaps">false</item>
-        <item name="android:fontFamily">@*android:string/config_bodyFontFamily</item>
-        <item name="colorAccent">@*android:color/accent_device_default_light</item>
-        <item name="dialogCornerRadius">@*android:dimen/config_dialogCornerRadius</item>
+        <item name="android:fontFamily">@android:string/config_bodyFontFamily</item>
+        <item name="colorAccent">@android:color/accent_device_default_light</item>
+        <item name="dialogCornerRadius">@android:dimen/config_dialogCornerRadius</item>
     </style>
     <style name="Switch.SettingsLib" parent="@android:style/Widget.Material.CompoundButton.Switch">
         <item name="android:minHeight">@dimen/settingslib_preferred_minimum_touch_target</item>
@@ -3830,9 +3910,9 @@
     <style name="TextAppearance.AdminDialogMessage" parent="@android:style/TextAppearance.DeviceDefault">
         <item name="android:textColor">?android:textColorSecondary</item>
     </style>
-    <style name="TextAppearance.AdminDialogTitle" parent="@*android:style/TextAppearance.DeviceDefault.Title">
+    <style name="TextAppearance.AdminDialogTitle" parent="@android:style/TextAppearance.DeviceDefault.Title">
         <item name="android:textSize">24.0sp</item>
-        <item name="android:fontFamily">@*android:string/config_headlineFontFamily</item>
+        <item name="android:fontFamily">@android:string/config_headlineFontFamily</item>
     </style>
     <style name="TextAppearance.AppCompat" parent="@style/Base.TextAppearance.AppCompat" />
     <style name="TextAppearance.AppCompat.Body1" parent="@style/Base.TextAppearance.AppCompat.Body1" />
@@ -3885,7 +3965,7 @@
     <style name="TextAppearance.AppCompat.Widget.PopupMenu.Small" parent="@style/Base.TextAppearance.AppCompat.Widget.PopupMenu.Small" />
     <style name="TextAppearance.AppCompat.Widget.Switch" parent="@style/Base.TextAppearance.AppCompat.Widget.Switch" />
     <style name="TextAppearance.AppCompat.Widget.TextView.SpinnerItem" parent="@style/Base.TextAppearance.AppCompat.Widget.TextView.SpinnerItem" />
-    <style name="TextAppearance.CategoryTitle" parent="@*android:style/TextAppearance.DeviceDefault.Body2">
+    <style name="TextAppearance.CategoryTitle" parent="@android:style/TextAppearance.DeviceDefault.Body2">
         <item name="android:textSize">11.0sp</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:letterSpacing">0.07272727</item>
@@ -3904,12 +3984,12 @@
     <style name="TextAppearance.Compat.Notification.Time.Media" parent="@style/TextAppearance.Compat.Notification.Time" />
     <style name="TextAppearance.Compat.Notification.Title" parent="@android:style/TextAppearance.Material.Notification.Title" />
     <style name="TextAppearance.Compat.Notification.Title.Media" parent="@style/TextAppearance.Compat.Notification.Title" />
-    <style name="TextAppearance.ConditionCardSummary" parent="@*android:style/TextAppearance.DeviceDefault.Body1">
+    <style name="TextAppearance.ConditionCardSummary" parent="@android:style/TextAppearance.DeviceDefault.Body1">
         <item name="android:textColor">?android:textColorSecondary</item>
     </style>
-    <style name="TextAppearance.ContextualCardDismissalText" parent="@*android:style/TextAppearance.DeviceDefault.Body1">
+    <style name="TextAppearance.ContextualCardDismissalText" parent="@android:style/TextAppearance.DeviceDefault.Body1">
         <item name="android:textSize">16.0sp</item>
-        <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
+        <item name="android:fontFamily">@android:string/config_headlineFontFamilyMedium</item>
     </style>
     <style name="TextAppearance.CryptKeeper_PasswordEntry" parent="@android:style/TextAppearance.DeviceDefault">
         <item name="android:gravity">center_horizontal</item>
@@ -3944,7 +4024,7 @@
         <item name="android:textColor">@color/mtrl_tabs_legacy_text_color_selector</item>
         <item name="textAllCaps">true</item>
     </style>
-    <style name="TextAppearance.DialogMessage" parent="@*android:style/TextAppearance.DeviceDefault.Body1">
+    <style name="TextAppearance.DialogMessage" parent="@android:style/TextAppearance.DeviceDefault.Body1">
         <item name="android:textSize">16.0sp</item>
     </style>
     <style name="TextAppearance.EntityHeaderSummary" parent="@android:style/TextAppearance.DeviceDefault">
@@ -3957,7 +4037,7 @@
         <item name="android:textSize">20.0sp</item>
         <item name="android:textColor">?android:textColorPrimary</item>
     </style>
-    <style name="TextAppearance.ErrorText" parent="@*android:style/TextAppearance.DeviceDefault.Body1">
+    <style name="TextAppearance.ErrorText" parent="@android:style/TextAppearance.DeviceDefault.Body1">
         <item name="android:textColor">?android:colorError</item>
     </style>
     <style name="TextAppearance.FaceErrorText" parent="@android:style/TextAppearance.Material.Body1">
@@ -3967,15 +4047,15 @@
         <item name="android:textSize">14.0sp</item>
         <item name="android:textColor">?android:colorAccent</item>
     </style>
-    <style name="TextAppearance.HeadLineFontFamily" parent="@*android:style/TextAppearance.DeviceDefault.Title">
-        <item name="android:fontFamily">@*android:string/config_headlineFontFamily</item>
+    <style name="TextAppearance.HeadLineFontFamily" parent="@android:style/TextAppearance.DeviceDefault.Title">
+        <item name="android:fontFamily">@android:string/config_headlineFontFamily</item>
     </style>
-    <style name="TextAppearance.HeadLineFontFamily.Subhead" parent="@*android:style/TextAppearance.DeviceDefault.Subhead">
-        <item name="android:fontFamily">@*android:string/config_headlineFontFamily</item>
+    <style name="TextAppearance.HeadLineFontFamily.Subhead" parent="@android:style/TextAppearance.DeviceDefault.Subhead">
+        <item name="android:fontFamily">@android:string/config_headlineFontFamily</item>
     </style>
-    <style name="TextAppearance.HomepageCardTitle" parent="@*android:style/TextAppearance.DeviceDefault.Subhead">
+    <style name="TextAppearance.HomepageCardTitle" parent="@android:style/TextAppearance.DeviceDefault.Subhead">
         <item name="android:textSize">16.0sp</item>
-        <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
+        <item name="android:fontFamily">@android:string/config_headlineFontFamilyMedium</item>
     </style>
     <style name="TextAppearance.MaterialComponents.Badge" parent="@style/Base.TextAppearance.MaterialComponents.Badge">
         <item name="android:textStyle">normal</item>
@@ -4119,12 +4199,12 @@
     </style>
     <style name="TextAppearance.NotificationHistory.AppName" parent="@style/TextAppearance.NotificationHistory">
         <item name="android:textSize">12.0sp</item>
-        <item name="android:fontFamily">@*android:string/config_bodyFontFamily</item>
+        <item name="android:fontFamily">@android:string/config_bodyFontFamily</item>
     </style>
     <style name="TextAppearance.NotificationImportanceButton" parent="@style/TextAppearance">
         <item name="android:textSize">@dimen/notification_importance_button_text</item>
         <item name="android:gravity">center</item>
-        <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
+        <item name="android:fontFamily">@android:string/config_headlineFontFamilyMedium</item>
     </style>
     <style name="TextAppearance.NotificationImportanceButton.Selected" parent="@style/TextAppearance.NotificationImportanceButton">
         <item name="android:textColor">?android:colorAccent</item>
@@ -4135,7 +4215,7 @@
     <style name="TextAppearance.NotificationImportanceDetail" parent="@style/TextAppearance">
         <item name="android:textSize">@dimen/notification_importance_description_text</item>
         <item name="android:gravity">center</item>
-        <item name="android:fontFamily">@*android:string/config_bodyFontFamily</item>
+        <item name="android:fontFamily">@android:string/config_bodyFontFamily</item>
     </style>
     <style name="TextAppearance.PasswordEntry" parent="@android:style/TextAppearance.DeviceDefault">
         <item name="android:textSize">24.0sp</item>
@@ -4156,7 +4236,7 @@
         <item name="android:textColor">?android:textColorSecondary</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:singleLine">true</item>
-        <item name="android:fontFamily">@*android:string/config_headlineFontFamily</item>
+        <item name="android:fontFamily">@android:string/config_headlineFontFamily</item>
     </style>
     <style name="TextAppearance.SecurityShowMoreTitle" parent="@style/TextAppearance.SecurityStatusSummary">
         <item name="android:textColor">?android:textColorPrimary</item>
@@ -4164,12 +4244,12 @@
     <style name="TextAppearance.SecurityStatusSummary" parent="@android:style/TextAppearance.DeviceDefault.Small">
         <item name="android:textSize">14.0sp</item>
         <item name="android:textColor">?android:textColorSecondary</item>
-        <item name="android:fontFamily">@*android:string/config_bodyFontFamily</item>
+        <item name="android:fontFamily">@android:string/config_bodyFontFamily</item>
     </style>
     <style name="TextAppearance.SecurityStatusTitle" parent="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">22.0sp</item>
         <item name="android:textColor">?android:textColorPrimary</item>
-        <item name="android:fontFamily">@*android:string/config_headlineFontFamily</item>
+        <item name="android:fontFamily">@android:string/config_headlineFontFamily</item>
     </style>
     <style name="TextAppearance.Small" parent="@android:style/TextAppearance.DeviceDefault.Small" />
     <style name="TextAppearance.Small.SwitchBar" parent="@style/TextAppearance.Small">
@@ -4204,16 +4284,16 @@
     </style>
     <style name="TextAppearance.SuggestionCardSummary" parent="@style/SuggestionCardSummaryColor">
         <item name="android:textSize">14.0sp</item>
-        <item name="android:fontFamily">@*android:string/config_bodyFontFamily</item>
+        <item name="android:fontFamily">@android:string/config_bodyFontFamily</item>
     </style>
     <style name="TextAppearance.SuggestionCardTitle" parent="@style/SuggestionCardTitleColor">
         <item name="android:textSize">20.0sp</item>
-        <item name="android:fontFamily">@*android:string/config_headlineFontFamily</item>
+        <item name="android:fontFamily">@android:string/config_headlineFontFamily</item>
     </style>
     <style name="TextAppearance.SuggestionSummary" parent="@style/TextAppearance.Small">
         <item name="android:textColor">?android:textColorSecondary</item>
     </style>
-    <style name="TextAppearance.SuggestionTitle" parent="@*android:style/TextAppearance.DeviceDefault.Subhead">
+    <style name="TextAppearance.SuggestionTitle" parent="@android:style/TextAppearance.DeviceDefault.Subhead">
         <item name="android:textSize">16.0sp</item>
     </style>
     <style name="TextAppearance.Switch" parent="@android:style/TextAppearance.DeviceDefault.Widget.ActionBar.Title">
@@ -4222,7 +4302,7 @@
     <style name="TextAppearance.Tab" parent="@android:style/TextAppearance.DeviceDefault.Medium">
         <item name="android:textSize">14.0sp</item>
         <item name="android:textAllCaps">false</item>
-        <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
+        <item name="android:fontFamily">@android:string/config_headlineFontFamilyMedium</item>
     </style>
     <style name="TextAppearance.TopIntroText" parent="@android:style/TextAppearance.DeviceDefault">
         <item name="android:textSize">14.0sp</item>
@@ -4235,7 +4315,7 @@
         <item name="android:textSize">14.0sp</item>
         <item name="android:textColor">?android:colorAccent</item>
         <item name="android:gravity">center</item>
-        <item name="android:background">@*android:drawable/btn_borderless_rect</item>
+        <item name="android:background">@android:drawable/btn_borderless_rect</item>
         <item name="android:padding">8.0dip</item>
         <item name="android:focusable">true</item>
         <item name="android:fontFamily">sans-serif-medium</item>
@@ -4260,18 +4340,18 @@
     </style>
     <style name="Theme.AlertDialog" parent="@style/Theme.AlertDialog.Base">
         <item name="android:textAppearanceMedium">@style/TextAppearance.DialogMessage</item>
-        <item name="android:windowTitleStyle">@*android:style/DialogWindowTitle.DeviceDefault</item>
+        <item name="android:windowTitleStyle">@android:style/DialogWindowTitle.DeviceDefault</item>
         <item name="android:clipChildren">true</item>
         <item name="android:clipToPadding">true</item>
         <item name="android:windowSoftInputMode">adjustResize</item>
         <item name="android:actionBarStyle">@style/Widget.ActionBar</item>
-        <item name="buttonBarButtonStyle">@*android:style/Widget.DeviceDefault.Button.ButtonBar.AlertDialog</item>
-        <item name="dialogCornerRadius">@*android:dimen/config_dialogCornerRadius</item>
+        <item name="buttonBarButtonStyle">@android:style/Widget.DeviceDefault.Button.ButtonBar.AlertDialog</item>
+        <item name="dialogCornerRadius">@android:dimen/config_dialogCornerRadius</item>
     </style>
     <style name="Theme.AlertDialog.Base" parent="@style/Theme.AppCompat.DayNight.Dialog.Alert">
-        <item name="android:colorBackground">@*android:color/surface_light</item>
+        <item name="android:colorBackground">@android:color/surface_light</item>
         <item name="android:colorError">@color/settings_dialog_colorError</item>
-        <item name="colorAccent">@*android:color/accent_device_default_light</item>
+        <item name="colorAccent">@android:color/accent_device_default_light</item>
     </style>
     <style name="Theme.AlertDialog.SettingsLib" parent="@style/Theme.AppCompat.DayNight.Dialog.Alert">
         <item name="android:colorBackground">@color/settingslib_dialog_background</item>
@@ -4328,20 +4408,20 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowAnimationStyle">@style/ConfirmDeviceCredentialsAnimationStyle</item>
         <item name="android:windowActionBar">false</item>
-        <item name="*android:lockPatternStyle">@style/LockPatternStyle.Dark</item>
+        <item name="android:lockPatternStyle">@style/LockPatternStyle</item>
         <item name="confirmDeviceCredentialsSideMargin">32.0dip</item>
         <item name="confirmDeviceCredentialsTopMargin">32.0dip</item>
     </style>
     <style name="Theme.ConfirmDeviceCredentialsWork" parent="@style/Theme.ConfirmDeviceCredentialsDark">
         <item name="android:colorAccent">@android:color/white</item>
-        <item name="*android:lockPatternStyle">@style/LockPatternStyle.Dark.Work</item>
+        <item name="android:lockPatternStyle">@style/LockPatternStyle</item>
     </style>
     <style name="Theme.CryptKeeper" parent="@android:style/Theme.Material.NoActionBar">
         <item name="android:background">@android:color/black</item>
         <item name="android:windowTranslucentStatus">false</item>
         <item name="android:windowTranslucentNavigation">false</item>
         <item name="android:windowDrawsSystemBarBackgrounds">false</item>
-        <item name="*android:lockPatternStyle">@style/LockPatternStyle.Unlock</item>
+        <item name="android:lockPatternStyle">@style/LockPatternStyle</item>
     </style>
     <style name="Theme.Design" parent="@style/Theme.AppCompat" />
     <style name="Theme.Design.BottomSheetDialog" parent="@style/Theme.AppCompat.Dialog">
@@ -4501,12 +4581,12 @@
     <style name="Theme.MediaRouter.LightControlPanel" parent="@style/Theme.MediaRouter">
         <item name="mediaRouteControlPanelThemeOverlay">@style/ThemeOverlay.MediaRouter.Light</item>
     </style>
-    <style name="Theme.Panel" parent="@*android:style/Theme.DeviceDefault.Settings.Dialog">
+    <style name="Theme.Panel" parent="@android:style/Theme.DeviceDefault.Settings.Dialog">
         <item name="android:windowBackground">@null</item>
         <item name="android:windowNoTitle">true</item>
-        <item name="android:listDivider">@*android:drawable/list_divider_material</item>
-        <item name="android:dividerHorizontal">@*android:drawable/list_divider_material</item>
-        <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
+        <item name="android:listDivider">@android:drawable/list_divider_material</item>
+        <item name="android:dividerHorizontal">@android:drawable/list_divider_material</item>
+        <item name="android:fontFamily">@android:string/config_headlineFontFamilyMedium</item>
     </style>
     <style name="Theme.ProvisioningActivity" parent="@android:style/Theme.Translucent.NoTitleBar">
         <item name="android:windowBackground">@android:color/transparent</item>
@@ -4526,13 +4606,13 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:datePickerDialogTheme">@style/PickerDialogTheme.Settings</item>
-        <item name="*android:lockPatternStyle">@style/LockPatternStyle.Setup</item>
+        <item name="android:lockPatternStyle">@style/LockPatternStyle</item>
         <item name="alertDialogTheme">@style/Theme.AlertDialog</item>
-        <item name="colorPrimary">@*android:color/primary_device_default_settings_light</item>
+        <item name="colorPrimary">@android:color/primary_device_default_settings_light</item>
         <item name="colorPrimaryVariant">@android:color/white</item>
         <item name="face_layout_theme">@style/FaceLayoutTheme</item>
         <item name="fingerprint_layout_theme">@style/FingerprintLayoutTheme</item>
-        <item name="ic_menu_moreoverflow">@*android:drawable/ic_menu_moreoverflow_holo_dark</item>
+        <item name="ic_menu_moreoverflow">@android:drawable/ic_menu_moreoverflow_holo_dark</item>
         <item name="preferenceBackgroundColor">@drawable/preference_background</item>
         <item name="preferenceTheme">@style/SettingsPreferenceTheme</item>
         <item name="side_margin">0.0dip</item>
@@ -4550,13 +4630,16 @@
         <item name="android:statusBarColor">?colorPrimaryDark</item>
         <item name="android:navigationBarColor">@android:color/white</item>
         <item name="android:windowLightStatusBar">true</item>
-        <item name="android:navigationBarDividerColor">@*android:color/ripple_material_light</item>
-        <item name="colorPrimaryDark">@*android:color/primary_dark_device_default_settings_light</item>
+        <item name="android:navigationBarDividerColor">@android:color/ripple_material_light</item>
+        <item name="colorPrimaryDark">@android:color/primary_dark_device_default_settings_light</item>
+    </style>
+    <style name="Theme.Settings.Home.DeepLink" parent="@style/Theme.Settings.Home">
+        <item name="android:windowAnimationStyle">@null</item>
     </style>
     <style name="Theme.Settings.HomeBase" parent="@style/Theme.Settings.NoActionBar">
-        <item name="android:actionBarTheme">@*android:style/ThemeOverlay.DeviceDefault.ActionBar</item>
-        <item name="colorAccent">@*android:color/accent_device_default_light</item>
-        <item name="colorPrimary">@*android:color/primary_device_default_settings_light</item>
+        <item name="android:actionBarTheme">@android:style/ThemeOverlay.DeviceDefault.ActionBar</item>
+        <item name="colorAccent">@android:color/accent_device_default_light</item>
+        <item name="colorPrimary">@android:color/primary_device_default_settings_light</item>
         <item name="colorPrimaryVariant">@android:color/white</item>
         <item name="preferenceTheme">@style/SettingsPreferenceTheme</item>
     </style>
@@ -4590,7 +4673,7 @@
         <item name="colorControlNormal">?android:colorControlNormal</item>
     </style>
     <style name="Theme.TabTheme" parent="@style/Theme.MaterialComponents.DayNight">
-        <item name="colorPrimary">@*android:color/edge_effect_device_default_light</item>
+        <item name="colorPrimary">@android:color/edge_effect_device_default_light</item>
     </style>
     <style name="ThemeOverlay.AlertDialog" parent="@android:style/ThemeOverlay.Material.Dialog.Alert">
         <item name="android:windowSoftInputMode">adjustResize</item>
@@ -4766,7 +4849,7 @@
         <item name="mediaRouteStopDrawable">@drawable/mr_media_stop_light</item>
     </style>
     <style name="ThemeOverlay.SwitchBar.Settings" parent="@style/ThemeOverlay.SwitchBar.Settings.Base" />
-    <style name="ThemeOverlay.SwitchBar.Settings.Base" parent="@*android:style/ThemeOverlay.DeviceDefault.ActionBar">
+    <style name="ThemeOverlay.SwitchBar.Settings.Base" parent="@android:style/ThemeOverlay.DeviceDefault.ActionBar">
         <item name="android:elevation">1.0dip</item>
         <item name="switchBarBackgroundActivatedColor">?android:colorAccent</item>
         <item name="switchBarBackgroundColor">@color/switchbar_background_color</item>
@@ -5707,7 +5790,7 @@
     </style>
     <style name="Widget.SliceView.Settings" parent="@style/Widget.SliceView">
         <item name="rowStyle">@style/SliceRow.Settings</item>
-        <item name="titleSize">@*android:dimen/text_size_subhead_material</item>
+        <item name="titleSize">@android:dimen/text_size_subhead_material</item>
     </style>
     <style name="Widget.Support.CoordinatorLayout" parent="@android:style/Widget">
         <item name="statusBarBackground">#ff000000</item>
@@ -5768,14 +5851,14 @@
     <style name="device_info_dialog_label">
         <item name="android:textSize">20.0sp</item>
         <item name="android:textColor">?android:textColorSecondary</item>
-        <item name="android:fontFamily">@*android:string/config_headlineFontFamily</item>
+        <item name="android:fontFamily">@android:string/config_headlineFontFamily</item>
         <item name="android:textAlignment">viewStart</item>
     </style>
     <style name="device_info_dialog_value">
         <item name="android:textSize">14.0sp</item>
         <item name="android:textColor">?android:textColorPrimary</item>
         <item name="android:paddingBottom">24.0dip</item>
-        <item name="android:fontFamily">@*android:string/config_bodyFontFamily</item>
+        <item name="android:fontFamily">@android:string/config_bodyFontFamily</item>
         <item name="android:textAlignment">viewStart</item>
     </style>
     <style name="entry_layout">
@@ -5811,6 +5894,23 @@
         <item name="android:textAppearance">@style/TextAppearance.info_value</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="screen_size_imageview_style">
+        <item name="android:background">?android:selectableItemBackgroundBorderless</item>
+        <item name="android:focusable">true</item>
+        <item name="android:layout_width">48.0dip</item>
+        <item name="android:layout_height">48.0dip</item>
+        <item name="android:scaleType">center</item>
+        <item name="android:tint">?android:textColorPrimary</item>
+        <item name="android:tintMode">src_in</item>
+    </style>
+    <style name="vpn_app_management_version_summary">
+        <item name="android:textAppearance">?android:textAppearanceListItemSecondary</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
+    </style>
+    <style name="vpn_app_management_version_title">
+        <item name="android:textAppearance">?android:textAppearanceListItem</item>
+        <item name="android:textColor">?android:textColorPrimary</item>
     </style>
     <style name="vpn_label">
         <item name="android:textAppearance">?android:textAppearanceSmall</item>
@@ -5849,7 +5949,7 @@
         <item name="android:layout_marginEnd">8.0dip</item>
     </style>
     <style name="wifi_item_content">
-        <item name="android:textAppearance">@*android:style/TextAppearance.DeviceDefault.Subhead</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.DeviceDefault.Subhead</item>
         <item name="android:textColor">?android:textColorPrimary</item>
         <item name="android:minHeight">@dimen/min_tap_target_size</item>
         <item name="android:textAlignment">viewStart</item>
@@ -5863,7 +5963,7 @@
         <item name="android:layout_marginStart">4.0dip</item>
     </style>
     <style name="wifi_item_label">
-        <item name="android:textAppearance">@*android:style/TextAppearance.DeviceDefault.Body1</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.DeviceDefault.Body1</item>
         <item name="android:textSize">14.0sp</item>
         <item name="android:textColor">?android:textColorSecondary</item>
         <item name="android:textAlignment">viewStart</item>
@@ -5873,7 +5973,7 @@
         <item name="android:minHeight">48.0dip</item>
     </style>
     <style name="wifi_item_warning">
-        <item name="android:textAppearance">@*android:style/TextAppearance.DeviceDefault.Body1</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.DeviceDefault.Body1</item>
         <item name="android:textSize">12.0sp</item>
         <item name="android:textColor">?android:colorError</item>
         <item name="android:textAlignment">viewStart</item>

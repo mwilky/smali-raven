@@ -56,11 +56,11 @@
 
     if-nez v1, :cond_0
 
-    const-string v1, "tether_prefs_screen"
+    const-string/jumbo v1, "tether_prefs_screen"
 
     invoke-interface {p0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    const-string v1, "wifi_tether"
+    const-string/jumbo v1, "wifi_tether"
 
     invoke-interface {p0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -94,7 +94,7 @@
     if-eqz v1, :cond_3
 
     :cond_2
-    const-string v1, "usb_tether_settings"
+    const-string/jumbo v1, "usb_tether_settings"
 
     invoke-interface {p0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -160,7 +160,7 @@
 
     invoke-direct {p0, p1}, Landroid/provider/SearchIndexableResource;-><init>(Landroid/content/Context;)V
 
-    const p1, 0x7f1500f2
+    const p1, 0x7f1500f7
 
     iput p1, p0, Landroid/provider/SearchIndexableResource;->xmlResId:I
 
@@ -182,7 +182,7 @@
 .method protected isPageSearchEnabled(Landroid/content/Context;)Z
     .locals 0
 
-    const-string p0, "settings_tether_all_in_one"
+    const-string/jumbo p0, "settings_tether_all_in_one"
 
     invoke-static {p1, p0}, Landroid/util/FeatureFlagUtils;->isEnabled(Landroid/content/Context;Ljava/lang/String;)Z
 

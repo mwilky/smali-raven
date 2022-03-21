@@ -19,7 +19,7 @@
 
     move-result-object p1
 
-    const p2, 0x1110137
+    const p2, 0x111013c
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -103,16 +103,18 @@
     return-object p0
 .end method
 
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public getSummary()Ljava/lang/CharSequence;
     .locals 3
-
-    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/settings/Utils;->isProviderModelEnabled(Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
 
     invoke-virtual {p0}, Lcom/android/settings/network/telephony/DefaultSubscriptionController;->isRtlMode()Z
 
@@ -125,13 +127,6 @@
     const/4 v2, 0x0
 
     invoke-static {v0, v1, p0, v2}, Lcom/android/settings/network/telephony/MobileNetworkUtils;->getPreferredStatus(ZLandroid/content/Context;Landroid/telephony/SubscriptionManager;Z)Ljava/lang/CharSequence;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_0
-    invoke-super {p0}, Lcom/android/settings/network/telephony/DefaultSubscriptionController;->getSummary()Ljava/lang/CharSequence;
 
     move-result-object p0
 

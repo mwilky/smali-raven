@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">സ്‌മൂത്ത് ഡിസ്പ്ലേ</string>
     <string name="peak_refresh_rate_summary">ചില ഉള്ളടക്കങ്ങളുടെ പുതുക്കൽ നിരക്ക് 60 Hz-ൽ നിന്നും 90 Hz-ലേക്ക് സ്വയമേവ ഉയർത്തുന്നു. ബാറ്ററി ഉപയോഗം വർദ്ധിപ്പിക്കുന്നു.</string>
     <string name="accessibility_vibration_settings_title">വെെബ്രേഷനും സ്‌പർശനങ്ങളും</string>
+    <string name="columbus_title">പ്രവർത്തനങ്ങൾ ആരംഭിക്കാൻ വേഗത്തിലുള്ള ടാപ്പ്</string>
     <string name="emergency_gesture_screen_title">അടിയന്തര SOS</string>
     <string name="abc_action_mode_done">പൂർത്തിയായി</string>
     <string name="vibrate_for_calls_category_title">കോളുകൾ</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">ഉപകരണ നിയന്ത്രണങ്ങൾ കാണിക്കുക</string>
     <string name="lockscreen_privacy_wallet_summary">ലോക്ക് സ്‌ക്രീനിൽ നിന്നും ദ്രുത ക്രമീകരണത്തിൽ നിന്നും Wallet-ലേക്ക് ആക്‌സസ് അനുവദിക്കുക</string>
     <string name="lockscreen_privacy_controls_summary">ലോക്ക് ചെയ്‌തിരിക്കുമ്പോൾ നിയന്ത്രണങ്ങൾ ആക്‌സസ് ചെയ്യുക</string>
+    <string name="lockscreen_double_line_clock_summary">ലഭ്യമാകുമ്പോൾ ഡബിൾലൈൻ ക്ലോക്ക് കാണിക്കുക</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">ഡബിൾലൈൻ ക്ലോക്ക്</string>
     <string name="abc_activity_chooser_view_see_all">എല്ലാം കാണുക</string>
     <string name="abc_activitychooserview_choose_application">ആപ്പ് തിരഞ്ഞെടുക്കുക</string>
     <string name="abc_capital_off">ഓഫ്</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">അലാറം വെെബ്രേഷൻ</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Active Edge സജ്ജീകരണം. അടുത്ത സ്‌ക്രീനിലേക്ക് പോവുക അല്ലെങ്കിൽ ക്രമീകരിക്കുക.</string>
     <string name="accessibility_audio_adjustment_title">ഓഡിയോ ക്രമീകരണം</string>
+    <string name="accessibility_autoclick_about_title">ഓട്ടോക്ലിക്കിനെ കുറിച്ച് (ഡ്വെൽ സമയം)</string>
     <string name="accessibility_autoclick_custom_title">ഇഷ്ടാനുസൃതം</string>
     <string name="accessibility_autoclick_default_title">ഓഫാക്കുക</string>
     <string name="accessibility_autoclick_description">സ്വയമേവ ക്ലിക്ക് ചെയ്യൽ, കണക്‌റ്റ് ചെയ്‌ത മൗസിനൊപ്പം പ്രവർത്തിക്കുന്നു. കഴ്‌സർ ഒരു നിശ്ചിത സമയത്തേക്ക് ചലിക്കുന്നത് നിൽക്കുമ്പോൾ മൗസ് കഴ്‌സർ സ്വയമേവ ക്ലിക്ക് ചെയ്യാനായി നിങ്ങൾക്ക് സജ്ജീകരിക്കാവുന്നതാണ്.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">ഓട്ടോക്ലിക്കിനെ കുറിച്ച് കൂടുതലറിയുക (കഴ്സർ വച്ച് ചെലവഴിച്ച സമയം)</string>
     <string name="accessibility_autoclick_long_summary">ഒരു സെക്കൻഡ്</string>
     <string name="accessibility_autoclick_long_title">ദൈർഘ്യമുള്ളത്</string>
     <string name="accessibility_autoclick_longer_desc">കൂടുതൽ സമയം</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">ഹ്രസ്വം</string>
     <string name="accessibility_autoclick_shorter_desc">കുറഞ്ഞ സമയം</string>
     <string name="accessibility_banner_message_dismiss">ഡിസ്‌മിസ് ചെയ്യുക</string>
-    <string name="accessibility_button_description">"ഉപയോഗസഹായി ഫീച്ചറുകൾ ഏത് സ്ക്രീനിൽ നിന്നും അതിവേഗം ആക്‌സസ് ചെയ്യൂ. 
+    <string name="accessibility_button_about_title">ഉപയോഗസഹായി ബട്ടണിനെ കുറിച്ച്</string>
+    <string name="accessibility_button_description">"ഉപയോഗസഹായി ഫീച്ചറുകൾ ഏത് സ്ക്രീനിൽ നിന്നും അതിവേഗം ആക്‌സസ് ചെയ്യുക.
 
 ആരംഭിക്കാൻ, ഉപയോഗസഹായി ക്രമീകരണത്തിലേക്ക് പോയി ഒരു ഫീച്ചർ തിരഞ്ഞെടുക്കുക. കുറുക്കുവഴിയിൽ ടാപ്പ് ചെയ്‌ത് ഉപയോഗസഹായി ബട്ടൺ തിരഞ്ഞെടുക്കുക."</string>
     <string name="accessibility_button_fade_summary">കുറച്ച് സെക്കന്റിന് ശേഷം ഇത് മങ്ങുന്നതിനാൽ നിങ്ങളുടെ സ്ക്രീൻ കാണാൻ എളുപ്പമാണ്</string>
     <string name="accessibility_button_fade_title">ഉപയോഗിക്കാതിരിക്കുമ്പോൾ മങ്ങിക്കുക</string>
+    <string name="accessibility_button_gesture_about_title">ഉപയോഗസഹായി ബട്ടൺ, ജെസ്ച്ചർ എന്നിവയെ കുറിച്ച്</string>
     <string name="accessibility_button_gesture_description">"ഉപയോഗസഹായി ഫീച്ചറുകൾ ഏത് സ്ക്രീനിൽ നിന്നും അതിവേഗം ആക്‌സസ് ചെയ്യുക.
 
-ആരംഭിക്കാൻ, ഉപയോഗസഹായി ക്രമീകരണത്തിലേക്ക് പോയി ഒരു ഫീച്ചർ തിരഞ്ഞെടുക്കുക. കുറുക്കുവഴിയിൽ ടാപ്പ് ചെയ്‌ത് ഉപയോഗസഹായി ബട്ടൺ തിരഞ്ഞെടുക്കുക.
-
-പകരം നാവിഗേഷൻ ബാറിൽ ഉപയോഗസഹായി ബട്ടൺ ഉപയോഗിക്കാൻ, 2-ബട്ടൺ നാവിഗേഷനിലേക്കോ 3-ബട്ടൺ നാവിഗേഷനിലേക്കോ മാറുക."</string>
+ആരംഭിക്കാൻ, ഉപയോഗസഹായി ക്രമീകരണത്തിലേക്ക് പോയി ഒരു ഫീച്ചർ തിരഞ്ഞെടുക്കുക. കുറുക്കുവഴിയിൽ ടാപ്പ് ചെയ്‌ത് ഉപയോഗസഹായി ബട്ടണോ ജെസ്‌ച്ചറോ തിരഞ്ഞെടുക്കുക."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">ഉപയോഗസഹായി ബട്ടൺ, ജെസ്ച്ചർ എന്നിവയെ കുറിച്ച് കൂടുതലറിയുക</string>
     <string name="accessibility_button_gesture_title">ഉപയോഗസഹായി ബട്ടണും ജെസ്ച്ചറും</string>
     <string name="accessibility_button_high_label">അതാര്യമായത്</string>
     <string name="accessibility_button_intro">ഉപയോഗസഹായി ബട്ടൺ ഉപയോഗിക്കുന്നു. 3-ബട്ടൺ നാവിഗേഷനൊപ്പം ഈ ജെസ്ച്ചർ ലഭ്യമല്ല.</string>
@@ -184,14 +190,23 @@
     <string name="accessibility_caption_preference_summary">എല്ലാ ആപ്പുകളും ഈ അടിക്കുറിപ്പ് മുൻഗണനകൾ പിന്തുണയ്‌ക്കുന്നില്ല</string>
     <string name="accessibility_caption_primary_switch_summary">പിന്തുണയുള്ള ആപ്പിന് മാത്രം</string>
     <string name="accessibility_caption_primary_switch_title">അടിക്കുറിപ്പുകൾ കാണിക്കുക</string>
+    <string name="accessibility_captioning_about_title">അടിക്കുറിപ്പ് മുൻഗണനകളെ കുറിച്ച്</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">അടിക്കുറിപ്പ് മുൻഗണനകളെ കുറിച്ച് കൂടുതലറിയുക</string>
     <string name="accessibility_captioning_title">അടിക്കുറിപ്പ് മുൻഗണനകൾ</string>
     <string name="accessibility_category_personal">വ്യക്തിഗത പ്രൊഫൈൽ അക്കൗണ്ടുകൾ</string>
     <string name="accessibility_category_work">ഔദ്യോഗിക പ്രൊഫൈൽ അക്കൗണ്ടുകൾ - %s</string>
+    <string name="accessibility_color_inversion_about_title">നിറം വിപരീതമാക്കലിനെ കുറിച്ച്</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">നിറം വിപരീതമാക്കലിനെ കുറിച്ച് കൂടുതലറിയുക</string>
+    <string name="accessibility_control_timeout_about_title">നടപടിയെടുക്കാനുള്ള സമയത്തെ കുറിച്ച് (ഉപയോഗസഹായി ടൈംഔട്ട്)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">നടപടിയെടുക്കാനുള്ള സമയത്തെ കുറിച്ച് കൂടുതലറിയുക (ഉപയോഗസഹായി ടൈംഔട്ട്)</string>
     <string name="accessibility_control_timeout_preference_summary">"നടപടി സ്വീകരിക്കാൻ ആവശ്യപ്പെടുന്ന സന്ദേശങ്ങൾ എത്ര സമയം കാണിക്കണമെന്നത് തിരഞ്ഞെടുക്കുക, എന്നാൽ താൽക്കാലികമായി മാത്രമേ ഇവ ദൃശ്യമാകൂ.
 
 എല്ലാ ആപ്പുകളും ഈ ക്രമീകരണം പിന്തുണയ്ക്കുന്നില്ല."</string>
     <string name="accessibility_control_timeout_preference_title">നടപടി സ്വീകരിക്കാനുള്ള സമയം</string>
+    <string name="accessibility_daltonizer_about_title">നിറം ശരിയാക്കലിനെ കുറിച്ച്</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">നിറം ശരിയാക്കലിനെ കുറിച്ച് കൂടുതലറിയുക</string>
     <string name="accessibility_daltonizer_primary_switch_title">നിറം ക്രമീകരിക്കൽ ഉപയോഗിക്കുക</string>
+    <string name="accessibility_daltonizer_shortcut_title">നിറം ശരിയാക്കൽ കുറുക്കുവഴി</string>
     <string name="accessibility_data_one_bar">ഡാറ്റ ഒരു ബാർ.</string>
     <string name="accessibility_data_signal_full">ഡാറ്റ സിഗ്‌നൽ പൂർണ്ണമാണ്.</string>
     <string name="accessibility_data_three_bars">ഡാറ്റ മൂന്ന് ബാർ.</string>
@@ -206,6 +221,7 @@
     <string name="accessibility_display_daltonizer_preference_title">നിറം ക്രമീകരിക്കൽ</string>
     <string name="accessibility_display_inversion_preference_subtitle">നിറം വിപരീതമാക്കൽ തെളിച്ചമുള്ള സ്ക്രീനുകളെ ഇരുണ്ടതാക്കുന്നു.&lt;br/>&lt;br/> ശ്രദ്ധിക്കുക: &lt;ol> &lt;li> നിറം വിപരീതമാക്കൽ ഇരുണ്ട സ്ക്രീനുകളെ തെളിച്ചമുള്ളതാക്കുന്നു.&lt;/li> &lt;li> മീഡിയയിലും ചിത്രത്തിലും നിറങ്ങൾ മാറും.&lt;/li> &lt;li> ഇരുണ്ട പശ്ചാത്തലം പ്രദർശിപ്പിക്കാൻ ഡാർക്ക് തീം ഉപയോഗിക്കാം. പിന്തുണയുള്ള ആപ്പുകളിൽ ഡാർക്ക് തീം പ്രവർത്തിക്കുന്നു. നിറം വിപരീതമാക്കൽ എല്ലാ ആപ്പുകളിലും പ്രവർത്തിക്കുന്നു.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">നിറം വിപരീതമാക്കൽ</string>
+    <string name="accessibility_display_inversion_shortcut_title">നിറം വിപരീതമാക്കൽ കുറുക്കുവഴി</string>
     <string name="accessibility_display_inversion_switch_title">നിറം വിപരീതമാക്കൽ ഉപയോഗിക്കുക</string>
     <string name="accessibility_ethernet_connected">ഇതർനെറ്റ്.</string>
     <string name="accessibility_ethernet_disconnected">ഇതർനെറ്റ് വിച്ഛേദിച്ചു.</string>
@@ -255,6 +271,8 @@
     <string name="accessibility_phone_two_bars">ഫോണിൽ രണ്ട് ബാർ.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">പവർബട്ടൺ കോൾ നിർത്തുന്നു</string>
     <string name="accessibility_preference_magnification_summary">സ്ക്രീനിൽ സൂം ഇൻ ചെയ്യുക</string>
+    <string name="accessibility_screen_magnification_about_title">മാഗ്നിഫിക്കേഷനെ കുറിച്ച്</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">മാഗ്നിഫിക്കേഷനെ കുറിച്ച് കൂടുതലറിയുക</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">ഉപയോഗസഹായി വിരൽചലനം %1$s എന്നതിൽ ക്രമീകരിച്ചു. മാഗ്നിഫിക്കേഷൻ ഉപയോഗിക്കാൻ, സ്‌ക്രീനിന്റെ താഴെ നിന്ന് രണ്ട് വിരലുകൾ ഉപയോഗിച്ച് മുകളിലേക്ക് സ്വൈപ്പ് ചെയ്‌ത് പിടിക്കുക. തുടർന്ന് മാഗ്നിഫിക്കേഷൻ തിരഞ്ഞെടുക്കുക.</string>
     <string name="accessibility_screen_magnification_gestures_title">3 തവണ ടാപ്പ് ചെയ്‌ത് മാഗ്നിഫൈചെയ്യൂ</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">%1$s സേവനത്തിലേക്ക് ഉപയോഗസഹായി ബട്ടൺ സജ്ജമാക്കിയിരിക്കുന്നു. മാഗ്നിഫിക്കേഷൻ ഉപയോഗിക്കുന്നതിന് ഉപയോഗസഹായി ബട്ടൺ സ്‌പർശിച്ചുപിടിച്ച് മാഗ്നിഫിക്കേഷൻ തിരഞ്ഞെടുക്കുക.</string>
@@ -272,6 +290,7 @@
 കീബോർഡിലും നാവിഗേഷൻ ബാറിലും നിങ്ങൾക്ക് സൂം ഇൻ ചെയ്യാനാവില്ല."</string>
     <string name="accessibility_screen_magnification_navbar_title">കുറുക്കുവഴിയിലൂടെ മാഗ്നിഫൈ ചെയ്യൂ</string>
     <string name="accessibility_screen_magnification_short_summary">സൂം ചെയ്യാൻ 3 തവണ ടാപ്പ് ചെയ്യുക</string>
+    <string name="accessibility_screen_magnification_shortcut_title">മാഗ്നിഫിക്കേഷൻ കുറുക്കുവഴി</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">കുറുക്കുവഴി, മൂന്ന് തവണ ടാപ്പ് എന്നിവയിലൂടെ മാഗ്നിഫൈ ചെയ്യൂ</string>
     <string name="accessibility_screen_magnification_summary">ഉള്ളടക്കം വലുതാക്കാൻ സ്ക്രീനിൽ വേഗത്തിൽ സൂം ഇൻ ചെയ്യുക.&lt;br/>&lt;br/> &lt;b>സൂം ഇൻ ചെയ്യാൻ:&lt;/b>&lt;br/> {0,number,integer}. മാഗ്നിഫിക്കേഷൻ ആരംഭിക്കാൻ കുറുക്കുവഴി ഉപയോഗിക്കുക&lt;br/> {1,number,integer}. സ്ക്രീനിൽ ടാപ്പ് ചെയ്യുക&lt;br/> {2,number,integer}. സ്ക്രീനിലുടനീളം നീക്കാൻ 2 വിരലുകൾ ഉപയോഗിച്ച് വലിച്ചിടുക&lt;br/> {3,number,integer}. സൂം ക്രമീകരിക്കാൻ 2 വിരലുകൾ ഉപയോഗിച്ച് പിഞ്ച് ചെയ്യുക&lt;br/> {4,number,integer}. മാഗ്നിഫിക്കേഷൻ നിർത്താൻ കുറുക്കുവഴി ഉപയോഗിക്കുക&lt;br/>&lt;br/> &lt;b>താൽക്കാലികമായി സൂം ഇൻ ചെയ്യാൻ:&lt;/b>&lt;br/> {0,number,integer}. മാഗ്നിഫിക്കേഷൻ ആരംഭിക്കാൻ കുറുക്കുവഴി ഉപയോഗിക്കുക&lt;br/> {1,number,integer}. സ്ക്രീനിൽ എവിടെയെങ്കിലും സ്‌പർശിച്ച് പിടിക്കുക&lt;br/> {2,number,integer}. സ്ക്രീനിലുടനീളം നീക്കാൻ വിരൽ ഉപയോഗിച്ച് വലിച്ചിടുക&lt;br/> {3,number,integer}. മാഗ്നിഫിക്കേഷൻ നിർത്താൻ വിരൽ സ്ക്രീനിൽ നിന്ന് എടുക്കുക</string>
     <string name="accessibility_screen_magnification_title">മാഗ്നിഫിക്കേഷൻ</string>
@@ -370,7 +389,7 @@
     <string name="accessibility_tutorial_dialog_message_volume">ഈ ഫീച്ചർ ഉപയോഗിക്കാൻ, രണ്ട് വോളിയം കീകളും അമർത്തിപ്പിടിക്കുക.</string>
     <string name="accessibility_tutorial_dialog_title_button">തുറക്കാൻ ഉപയോഗസഹായി ബട്ടൺ ഉപയോഗിക്കുക</string>
     <string name="accessibility_tutorial_dialog_title_gesture">തുറക്കാൻ വിരൽചലനം ഉപയോഗിക്കുക</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">പുതിയ ഉപയോഗസഹായി വിരൽചലനം ഉപയോഗിക്കുക</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">ഉപയോഗസഹായി ജെസ്ച്ചർ ഉപയോഗിക്കുക</string>
     <string name="accessibility_tutorial_dialog_title_triple">തുറക്കുന്നതിന് സ്ക്രീൻ മൂന്ന് തവണ ടാപ്പ് ചെയ്യുക</string>
     <string name="accessibility_tutorial_dialog_title_volume">തുറക്കുന്നതിന് വോളിയം കീകൾ അമർത്തിപ്പിടിക്കുക</string>
     <string name="accessibility_tutorial_pager">%2$d പേജുകളിൽ %1$d-ാമത്തെ പേജ്</string>
@@ -936,6 +955,7 @@
     <string name="battery_level_title">ബാറ്ററി നില</string>
     <string name="battery_manager_off">ഓഫ്</string>
     <string name="battery_manager_summary">ബാറ്ററി ലൈഫ് വർധിപ്പിക്കുക, ചാർജിംഗ് ഒപ്റ്റിമൈസ് ചെയ്യുക</string>
+    <string name="battery_manager_summary_unsupported">ബാറ്ററി ലൈഫ് നീട്ടുക</string>
     <string name="battery_missing_link_a11y_message">ഈ പിശകിനെ കുറിച്ച് കൂടുതലറിയാൻ ടാപ്പ് ചെയ്യുക</string>
     <string name="battery_missing_link_message">കൂടുതലറിയുക</string>
     <string name="battery_missing_message">ബാറ്ററി മീറ്റർ വായിക്കുന്നതിൽ പ്രശ്‌നമുണ്ട്.</string>
@@ -1013,9 +1033,9 @@
     <string name="battery_tip_limited_temporarily_dialog_msg">"ഉയർന്ന താപനിലയും ദൈർഘ്യമേറിയ ചാർജിംഗ് കാലയളവും പോലുള്ള ഏതാനും സാഹചര്യങ്ങളിൽ ബാറ്ററിയുടെ ആരോഗ്യം സംരക്ഷിക്കാൻ ചാർജിംഗ് %1$s-ലേക്ക് പരിമിതപ്പെടുത്തിയിരിക്കുന്നു.
 
 ആ സാഹചര്യങ്ങൾ അവസാനിക്കുമ്പോൾ, നിങ്ങളുടെ ഫോൺ സാധാരണ ഗതിയിൽ സ്വയമേവ ചാർജ് ചെയ്യും."</string>
-    <string name="battery_tip_limited_temporarily_dialog_resume_charge">ചാർജ് ചെയ്യൽ പുനരാരംഭിക്കുക</string>
+    <string name="battery_tip_limited_temporarily_dialog_resume_charge">ചാർജിംഗ് പുനനരാരംഭിക്കുക</string>
     <string name="battery_tip_limited_temporarily_summary">നിങ്ങളുടെ ബാറ്ററി ചാർജ് നിലനിർത്താൻ. കൂടുതലറിയുക.</string>
-    <string name="battery_tip_limited_temporarily_title">ചാർജ് ചെയ്യൽ താൽക്കാലികമായി പരിമിതപ്പെടുത്തിയിരിക്കുന്നു</string>
+    <string name="battery_tip_limited_temporarily_title">ചാർജിംഗ് താൽക്കാലികമായി പരിമിതപ്പെടുത്തിയിരിക്കുന്നു</string>
     <string name="battery_tip_low_battery_summary">ബാറ്ററി ലെെഫ് വർദ്ധിപ്പിക്കാൻ ബാറ്ററി ലാഭിക്കൽ ഓണാക്കുക</string>
     <string name="battery_tip_low_battery_title">ബാറ്ററി നില കുറവാണ്</string>
     <string name="battery_tip_restrict_app_dialog_message">ബാറ്ററി ലാഭിക്കാൻ, %1$s എന്നതിനെ പശ്ചാത്തലത്തിൽ ബാറ്ററി ഉപയോഗിക്കുന്നതിൽ നിന്നും തടയുക. ഈ ആപ്പ് ശരിയായ രീതിയിൽ പ്രവർത്തിക്കാതിരിക്കുകയും അറിയിപ്പുകൾ വൈകുകയും ചെയ്‌തേക്കാം.</string>
@@ -1061,6 +1081,7 @@
     <string name="battery_usage_screen_footer">ബാറ്ററി ഉപയോഗ ഡാറ്റ ഏകദേശ കണക്കാണ്, ഫോൺ ചാർജ് ചെയ്യുമ്പോൾ ഉപയോഗം അളക്കില്ല</string>
     <string name="battery_usage_screen_footer_empty">ഏതാനും മണിക്കൂറുകൾ ഫോൺ ഉപയോഗിച്ച ശേഷം ബാറ്ററി ഉപയോഗ ഡാറ്റ ലഭ്യമാകും</string>
     <string name="battery_usage_total_less_than_one_minute">ആകെ: ഒരു മിനിറ്റിൽ താഴെ</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%2$s ആപ്പ് %1$s ഉപയോഗിച്ചു</string>
     <string name="battery_used_for">^1 സമയം ഉപയോഗിച്ചു</string>
     <string name="bearer">ബെയറർ</string>
@@ -1069,12 +1090,14 @@
     <string name="billing_cycle_less_than_one_day_left">ഒരു ദിവസത്തിൽ കുറഞ്ഞ സമയം ശേഷിക്കുന്നു</string>
     <string name="billing_cycle_none_left">സമയമൊന്നും അവശേഷിക്കുന്നില്ല</string>
     <string name="biometric_settings_category_ways_to_unlock">അൺലോക്ക് ചെയ്യാനുള്ള മാർഗ്ഗങ്ങൾ</string>
-    <string name="biometric_settings_category_ways_to_use">ഇനിപ്പറയുന്നതിന് മുഖവും ഫിംഗർപ്രിന്റും ഉപയോഗിക്കുക</string>
     <string name="biometric_settings_hand_back_to_guardian">ഫോൺ നിങ്ങളുടെ രക്ഷിതാവിന് തിരിച്ച് നൽകുക</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">ശരി</string>
     <string name="biometric_settings_intro">ഫെയ്‌സ് അൺലോക്കും ഫിംഗർപ്രിന്റ് അൺലോക്കും സജ്ജീകരിച്ചാൽ, നിങ്ങൾ മാസ്‌ക് ധരിച്ചിരിക്കുകയാണെങ്കിലോ വെളിച്ചം കുറവുള്ള സ്ഥലത്താണെങ്കിലോ ഫോൺ നിങ്ങളുടെ ഫിംഗർപ്രിന്റ് ആവശ്യപ്പെടും</string>
-    <string name="biometric_settings_use_biometric_for_apps">ആപ്പിലെ പരിശോധിച്ചുറപ്പിക്കൽ</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">ഫോൺ അൺലോക്ക് ചെയ്യൽ</string>
+    <string name="biometric_settings_use_biometric_for_apps">ആപ്പുകളിൽ നിങ്ങളാണെന്ന് പരിശോധിച്ചുറപ്പിക്കുക</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">നിങ്ങളുടെ ഫോൺ അൺലോക്ക് ചെയ്യുക</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">നിങ്ങളുടെ മുഖമോ ഫിംഗർപ്രിന്റോ ഉപയോഗിക്കുന്നു</string>
+    <string name="biometric_settings_use_face_preference_summary">മുഖം ഉപയോഗിക്കുന്നു</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">ഫിംഗർപ്രിന്റ് ഉപയോഗിക്കുന്നു</string>
     <string name="biometrics_unlock_set_unlock_password">പാസ്‍വേഡ് • മുഖം • ഫിംഗർപ്രിന്റ്</string>
     <string name="biometrics_unlock_set_unlock_pattern">പാറ്റേൺ • മുഖം • ഫിംഗർപ്രിന്റ്</string>
     <string name="biometrics_unlock_set_unlock_pin">പിൻ • മുഖം • ഫിംഗർപ്രിന്റ്</string>
@@ -1332,7 +1355,6 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">പേരില്ലാത്ത Bluetooth ഉപകരണങ്ങൾ കാണിക്കുക</string>
     <string name="bluetooth_show_devices_without_names_summary">പേരില്ലാത്ത Bluetooth ഉപകരണങ്ങൾ (MAC വിലാസങ്ങൾ മാത്രം) പ്രദർശിപ്പിക്കും</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Bluetooth വഴി സ്വീകരിച്ച ഫയലുകൾ</string>
     <string name="bluetooth_show_received_files">സ്വീകരിച്ച ഫയലുകള്‍</string>
     <string name="bluetooth_sim_card_access_dialog_content">"Bluetooth ഉപകരണമായ %1$s എന്നതിന് നിങ്ങളുടെ സിം കാർഡിലെ ഡാറ്റ ആക്സസ് ചെയ്യണമെന്നുണ്ട്. ഇതിൽ നിങ്ങളുടെ കോൺടാക്റ്റുകൾ ഉൾപ്പെടുന്നു.
 
@@ -1426,6 +1448,7 @@ CA സർട്ടിഫിക്കറ്റ് ഇൻസ്‌റ്റാൾ 
     <string name="calls_sms_temp_unavailable">താൽക്കാലികമായി ലഭ്യമല്ല</string>
     <string name="calls_sms_unavailable">ലഭ്യമല്ല</string>
     <string name="calls_sms_wfc_summary">വൈഫൈയിലൂടെ കോളുകൾ വിളിക്കുകയും സ്വീകരിക്കുകയും ചെയ്യുക</string>
+    <string name="cam_toggle_description">ആപ്പുകൾക്കും സേവനങ്ങൾക്കും</string>
     <string name="camera_double_tap_power_gesture_desc">സ്ക്രീൻ അൺലോക്ക് ചെയ്യാതെ തന്നെ, അതിവേഗം ക്യാമറ തുറക്കുക</string>
     <string name="camera_double_tap_power_gesture_title">ക്യാമറയ്ക്ക് പവർബട്ടൺ രണ്ടുതവണയമർത്തൂ</string>
     <string name="camera_laser_sensor_switch">ക്യാമറ ലേസർ സെൻസർ</string>
@@ -3302,6 +3325,7 @@ CA സർട്ടിഫിക്കറ്റ് ഇൻസ്‌റ്റാൾ 
     <string name="menu_stats_total">ആകെ ഉപയോഗങ്ങൾ</string>
     <string name="menu_stats_unplugged">അൺപ്ലഗ്ഗുചെയ്‌തതിന് ശേഷമുള്ള %1$s</string>
     <string name="menu_use_uss">Uss ഉപയോഗിക്കുക</string>
+    <string name="mic_toggle_description">ആപ്പുകൾക്കും സേവനങ്ങൾക്കും. ഈ ക്രമീകരണം ഓഫാണെങ്കിൽ, നിങ്ങൾ അടിയന്തര നമ്പറിൽ വിളിക്കുമ്പോഴും മൈക്രോഫോൺ ഡാറ്റ തുടർന്നും പങ്കിടും.</string>
     <string name="mic_toggle_title">മൈക്രോഫോൺ ആക്‌സസ്</string>
     <string name="misc_files">പലവക ഫയലുകൾ</string>
     <string name="misc_files_selected_count">%2$d-ൽ %1$d എണ്ണം തിരഞ്ഞടുത്തു</string>
@@ -3728,6 +3752,7 @@ CA സർട്ടിഫിക്കറ്റ് ഇൻസ്‌റ്റാൾ 
     <string name="one_handed_action_show_notification_title">അറിയിപ്പുകൾ കാണിക്കുക</string>
     <string name="one_handed_mode_enabled">ഒറ്റക്കൈ മോഡ് ഉപയോഗിക്കുക</string>
     <string name="one_handed_mode_intro_text">ഒറ്റക്കൈ മോഡ് ഉപയോഗിക്കാൻ സ്ക്രീനിന്റെ താഴത്തെ അരികിൽ നിന്ന് താഴേക്ക് സ്വൈപ്പ് ചെയ്യുക. ഈ ഫീച്ചർ ഉപയോഗിക്കാൻ സിസ്‌റ്റം നാവിഗേഷൻ ക്രമീകരണത്തിൽ ജെസ്ച്ചർ നാവിഗേഷൻ ഓണാക്കിയിട്ടുണ്ടെന്ന് ഉറപ്പാക്കുക.</string>
+    <string name="one_handed_mode_shortcut_title">ഒറ്റക്കൈ മോഡ് കുറുക്കുവഴി</string>
     <string name="one_handed_mode_swipe_down_category">ഇനിപ്പറയുന്നത് ചെയ്യാൻ താഴേക്ക് സ്വെെപ്പ് ചെയ്യുക</string>
     <string name="one_handed_mode_use_shortcut_category">ഇനിപ്പറയുന്നതിലേക്കുള്ള കുറുക്കുവഴി ഉപയോഗിക്കുക</string>
     <string name="one_usercrt">ഒരു ഉപയോക്തൃ സർട്ടിഫിക്കറ്റ്</string>
@@ -3803,11 +3828,11 @@ CA സർട്ടിഫിക്കറ്റ് ഇൻസ്‌റ്റാൾ 
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s സജീവമാണ്</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">ക്യാമറ</string>
-    <string name="power_cell">മൊബൈൽ നെറ്റ്‍വര്‍ക്ക് സ്‌റ്റാൻഡ്‌ബൈ</string>
+    <string name="power_cell">മൊബൈൽ നെറ്റ്‌വർക്ക്</string>
     <string name="power_charge_remaining">ചാർജ്ജാകാനുള്ള സമയം %1$s</string>
     <string name="power_charging">%1$s - %2$s</string>
     <string name="power_charging_duration">%1$s - പൂർണ്ണമാകാൻ %2$s ശേഷിക്കുന്നു</string>
-    <string name="power_charging_limited">%1$s - ചാർജ് ചെയ്യൽ താൽക്കാലികമായി പരിമിതപ്പെടുത്തിയിരിക്കുന്നു</string>
+    <string name="power_charging_limited">%1$s - ചാർജിംഗ് താൽക്കാലികമായി പരിമിതപ്പെടുത്തിയിരിക്കുന്നു</string>
     <string name="power_discharge_by">ഏകദേശം %1$s വരെ നീണ്ടുനിൽക്കേണ്ടതാണ് (%2$s)</string>
     <string name="power_discharge_by_enhanced">നിങ്ങളുടെ ഉപയോഗത്തെ അടിസ്ഥാനമാക്കി ഏകദേശം %1$s വരെ നീണ്ടുനിൽക്കേണ്ടതാണ് (%2$s)</string>
     <string name="power_discharge_by_only">ഏകദേശം %1$s വരെ നീണ്ടുനിൽക്കേണ്ടതാണ്</string>
@@ -4037,6 +4062,7 @@ CA സർട്ടിഫിക്കറ്റ് ഇൻസ്‌റ്റാൾ 
     <string name="recent_notifications">അടുത്തിടെ അയച്ചവ</string>
     <string name="recent_notifications_see_all_title">കഴിഞ്ഞ 7 ദിവസത്തെ എല്ലാം കാണുക</string>
     <string name="recompute_size">വലുപ്പം വീണ്ടും കണക്കാക്കുന്നു...</string>
+    <string name="reduce_bright_colors_about_title">കൂടുതൽ ഡിം ചെയ്യലിനെ കുറിച്ച്</string>
     <string name="reduce_bright_colors_intensity_end_label">കൂടുതൽ തെളിച്ചമുള്ളത്</string>
     <string name="reduce_bright_colors_intensity_preference_title">തീവ്രത</string>
     <string name="reduce_bright_colors_intensity_start_label">കൂടുതൽ മങ്ങിയത്</string>
@@ -4044,6 +4070,7 @@ CA സർട്ടിഫിക്കറ്റ് ഇൻസ്‌റ്റാൾ 
     <string name="reduce_bright_colors_preference_subtitle">വായനാസുഖത്തിന് നിങ്ങളുടെ സ്ക്രീൻ കൂടുതൽ മങ്ങിയതാക്കുക.&lt;br/>&lt;br/> ഇനിപ്പറയുന്ന സന്ദർഭങ്ങളിൽ ഇത് സഹായകരമാകും: &lt;ol> &lt;li> നിങ്ങളുടെ ഫോണിന്റെ ഡിഫോൾട്ട് ആയ ഏറ്റവും കുറഞ്ഞ തെളിച്ചം പോലും കൂടുതലായിരിക്കുമ്പോൾ&lt;/li> &lt;li> ഉറങ്ങുന്നതിന് മുമ്പ്, രാത്രിയിലോ ഇരുട്ടുള്ള മുറിയിലോ പോലെ, ഇരുട്ടുള്ള സന്ദർഭങ്ങളിൽ നിങ്ങൾ ഫോൺ ഉപയോഗിക്കുമ്പോൾ&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">നിങ്ങളുടെ ഫോൺ സ്ക്രീൻ അതിന്റെ ഏറ്റവും കുറഞ്ഞ തെളിച്ചത്തെക്കാൾ മങ്ങിയതാക്കുക</string>
     <string name="reduce_bright_colors_preference_title">കൂടുതൽ ഡിം ചെയ്യൽ</string>
+    <string name="reduce_bright_colors_shortcut_title">കൂടുതൽ ഡിം ചെയ്യൽ കുറുക്കുവഴി</string>
     <string name="reduce_bright_colors_switch_title">സ്‌ക്രീൻ കൂടുതൽ ഡിം ചെയ്യിക്കുക</string>
     <string name="register_automatically">സ്വമേധയായുള്ള രജിസ്‌ട്രേഷൻ…</string>
     <string name="register_on_network">%s എന്നതിൽ രജിസ്‌റ്റർ ചെയ്യുന്നു…</string>
@@ -4249,7 +4276,6 @@ CA സർട്ടിഫിക്കറ്റ് ഇൻസ്‌റ്റാൾ 
     <string name="screen_pinning_unlock_pattern">അൺപിൻ ചെയ്യും മുമ്പ് അൺലോക്ക് പാറ്റേൺ ആവശ്യപ്പെടുക</string>
     <string name="screen_pinning_unlock_pin">അൺപിൻ ചെയ്യുംമുമ്പ് പിൻ ചോദിക്കുക</string>
     <string name="screen_reader_category_title">സ്‌ക്രീൻ റീഡർ</string>
-    <string name="screen_saver_main_switch_title">സ്ക്രീൻ സേവർ ഉപയോഗിക്കുക</string>
     <string name="screen_time_summary_usage_today">ഇന്ന് %1$s</string>
     <string name="screen_timeout_summary">%1$s നിഷ്ക്രിയത്വത്തിന് ശേഷം</string>
     <string name="screen_timeout_title">സ്ക്രീൻ ഓഫാക്കുന്നു</string>
@@ -4279,6 +4305,7 @@ CA സർട്ടിഫിക്കറ്റ് ഇൻസ്‌റ്റാൾ 
     <string name="screensaver_settings_button">ക്രമീകരണം</string>
     <string name="screensaver_settings_current">നിലവിലെ സ്‌ക്രീൻ സേവർ</string>
     <string name="screensaver_settings_disabled_prompt">ഫോൺ ഡോക്ക് ചെയ്തിരിക്കുമ്പോൾ ഒപ്പം/അല്ലെങ്കിൽ ഉറക്കത്തിലായിരിക്കുമ്പോൾ ഫോണിൽ നടക്കുന്നതെല്ലാം നിയന്ത്രിക്കുന്നതിന് സ്ക്രീൻ സേവർ ഓണാക്കുക.</string>
+    <string name="screensaver_settings_dream_start">ഇപ്പോൾ ആരംഭിക്കുക</string>
     <string name="screensaver_settings_summary_dock">ഡോക്ക് ചെയ്‌തിരിക്കുമ്പോൾ</string>
     <string name="screensaver_settings_summary_either_long">ചാർജ്/ഡോക്ക് ചെയ്യുമ്പോൾ</string>
     <string name="screensaver_settings_summary_either_short">ഏതിലെങ്കിലും</string>
@@ -4329,15 +4356,6 @@ CA സർട്ടിഫിക്കറ്റ് ഇൻസ്‌റ്റാൾ 
     <string name="security_settings_biometric_preference_summary_both_fp_single">മുഖവും ഫിംഗർപ്രിന്റും ചേർത്തു</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">സജ്ജീകരിക്കാൻ ടാപ്പ് ചെയ്യുക</string>
     <string name="security_settings_biometric_preference_title">ഫെയ്‌സും ഫിംഗർപ്രിന്റും ഉപയോഗിച്ചുള്ള അൺലോക്ക് ചെയ്യൽ</string>
-    <string name="security_settings_biometrics_description">മുഖവും ഫിംഗർപ്രിന്റും ഉപയോഗിച്ചുള്ള അൺലോക്ക് ചെയ്യൽ സജ്ജീകരിക്കുമ്പോൾ, നിങ്ങൾ മാസ്ക് ധരിച്ചിരിക്കുകയാണെങ്കിലോ വെളിച്ചം കുറവുള്ള സ്ഥലത്താണെങ്കിലോ ഫോൺ നിങ്ങളുടെ ഫിംഗർപ്രിന്റ് ആവശ്യപ്പെടും</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">ആപ്പുകളിലെ പരിശോധിച്ചുറപ്പിക്കൽ</string>
-    <string name="security_settings_biometrics_preferences_category">ഇതിന് മുഖമോ ഫിംഗർപ്രിന്റോ ഉപയോഗിക്കുക</string>
-    <string name="security_settings_biometrics_summary_both">മുഖവും ഫിംഗർപ്രിന്റും</string>
-    <string name="security_settings_biometrics_summary_face">മുഖം മാത്രം</string>
-    <string name="security_settings_biometrics_summary_fingerprint">ഫിംഗർപ്രിന്റ് മാത്രം</string>
-    <string name="security_settings_biometrics_summary_none">സജ്ജീകരിക്കാൻ ടാപ്പ് ചെയ്യുക</string>
-    <string name="security_settings_biometrics_title">ഫെയ്‌സ്, ഫിംഗർപ്രിന്റ് അൺ‌ലോക്ക്</string>
-    <string name="security_settings_biometrics_types_category">അൺലോക്ക് ചെയ്യാനുള്ള മാർഗ്ഗങ്ങൾ</string>
     <string name="security_settings_face_enroll_consent_introduction_title">ഫെയ്‌സ് അൺലോക്ക് അനുവദിക്കുക</string>
     <string name="security_settings_face_enroll_dialog_ok">ശരി</string>
     <string name="security_settings_face_enroll_done">പൂർത്തിയായി</string>
@@ -4388,13 +4406,14 @@ g.co/pixel/faceunlock -ൽ കൂടുതലറിയുക."</string>
 അവർ ഫെയ്‌സ് അൺലോക്ക് ഉപയോഗിക്കുമ്പോൾ, അവരുടെ മുഖ മോഡൽ അപ്ഡേറ്റ് ചെയ്യാൻ ചിത്രങ്ങൾ ഉപയോഗിക്കുന്നു. അവരുടെ മുഖ മോഡൽ സൃഷ്‌ടിക്കാൻ ഉപയോഗിക്കുന്ന ചിത്രങ്ങൾ സംഭരിക്കില്ലെങ്കിലും മുഖ മോഡൽ സുരക്ഷിതമായി ഫോണിൽ സംഭരിക്കുന്നു, അത് ഒരിക്കലും ഫോണിൽ നിന്ന് പുറത്ത് പോകില്ല. എല്ലാ പ്രോസസിംഗും ഫോണിൽ സുരക്ഷിതമായി നടക്കുന്നു."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"ഇത് നിങ്ങൾ തന്നെയാണെന്ന് പരിശോധിച്ചുറപ്പിക്കുന്നതിന് ഫെയ്‌സ് അൺലോക്ക് നിങ്ങളുടെ മുഖത്തിന്റെ ഒരു തനത് മോഡൽ സൃഷ്ടിക്കുന്നു. ഈ മുഖ മോഡൽ സൃഷ്ടിക്കാൻ, സജ്ജീകരണ സമയത്ത് നിങ്ങളുടെ മുഖത്തിന്റെ വ്യത്യസ്‌ത ആംഗിളുകളിൽ നിന്നുള്ള ചിത്രങ്ങളെടുക്കണം.
 
-ഫെയ്‌സ് അൺലോക്ക് ഉപയോഗിക്കുമ്പോൾ നിങ്ങളുടെ മുഖ മോഡൽ അപ്ഡേറ്റ് ചെയ്യാൻ ചിത്രങ്ങൾ ഉപയോഗിക്കുന്നു. മുഖ മോഡൽ സൃഷ്‌ടിക്കാൻ ഉപയോഗിക്കുന്ന ചിത്രങ്ങൾ സംഭരിക്കില്ലെങ്കിലും മുഖ മോഡൽ സുരക്ഷിതമായി നിങ്ങളുടെ ഫോണിൽ സംഭരിക്കുന്നു, അത് ഒരിക്കലും ഫോണിൽ നിന്ന് പുറത്ത് പോകില്ല. എല്ലാ പ്രോസസിംഗും നിങ്ങളുടെ ഫോണിൽ സുരക്ഷിതമായി നടക്കുന്നു."</string>
+നിങ്ങൾ ഫെയ്‌സ് അൺലോക്ക് ഉപയോഗിക്കുമ്പോൾ നിങ്ങളുടെ മുഖ മോഡൽ അപ്ഡേറ്റ് ചെയ്യാൻ ചിത്രങ്ങൾ ഉപയോഗിക്കുന്നു. മുഖ മോഡൽ സൃഷ്‌ടിക്കാൻ ഉപയോഗിക്കുന്ന ചിത്രങ്ങൾ സംഭരിക്കില്ലെങ്കിലും മുഖ മോഡൽ സുരക്ഷിതമായി നിങ്ങളുടെ ഫോണിൽ സംഭരിക്കുന്നു, അത് ഒരിക്കലും ഫോണിൽ നിന്ന് പുറത്ത് പോകില്ല. എല്ലാ പ്രോസസിംഗും നിങ്ങളുടെ ഫോണിൽ സുരക്ഷിതമായി നടക്കുന്നു."</string>
     <string name="security_settings_face_enroll_introduction_how_title">ഇത് എങ്ങനെ പ്രവർത്തിക്കുന്നു</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">ഫോൺ അൺലോക്ക് ചെയ്യാനോ ഇത് നിങ്ങളുടെ കുട്ടി തന്നെയാണെന്ന് പരിശോധിച്ചുറപ്പിക്കാനോ അവരുടെ കണ്ണ് തുറന്നിരിക്കാൻ ഫെയ്‌സ് അൺലോക്കിന് ആവശ്യപ്പെടാം. നിങ്ങൾക്കും നിങ്ങളുടെ കുട്ടിക്കും ക്രമീകരണത്തിൽ ഏതുസമയത്തും ഈ ഓപ്ഷൻ ഓണാക്കാനാകും.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">നിങ്ങളുടെ കുട്ടി സാധാരണ കണ്ണട ധരിക്കാറുണ്ടെങ്കിൽ, സജ്ജീകരിക്കുമ്പോൾ അവ ധരിക്കാം.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">തുറക്കാൻ ഉദ്ദേശിക്കാത്ത സന്ദർഭത്തിൽ പോലും അവർ വെറുതെ ഫോണിലേക്ക് നോക്കിയാലും അത് അൺലോക്കാകും. ഒരേ മുഖച്ഛായയുള്ള സഹോദരങ്ങളെ പോലെ, അവരുമായി വളരെയധികം സാമ്യമുള്ള ആർക്കും ഫോൺ അൺലോക്ക് ചെയ്യാനാകും, അല്ലെങ്കിൽ ഫോൺ അവരുടെ മുഖത്തിന് നേരെ പിടിച്ചാൽ മറ്റൊരാൾക്ക് അൺലോക്ക് ചെയ്യാനാകും.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">ഫോൺ അൺലോക്ക് ചെയ്യാനോ ഇത് നിങ്ങൾ തന്നെയാണെന്ന് പരിശോധിച്ചുറപ്പിക്കാനോ നിങ്ങളുടെ കണ്ണ് തുറന്നിരിക്കാൻ ഫെയ്‌സ് അൺലോക്കിന് ആവശ്യപ്പെടാം. നിങ്ങൾക്ക് ക്രമീകരണത്തിൽ ഏതുസമയത്തും ഈ ഓപ്ഷൻ ഓണാക്കാനാകും.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">ഗ്ലാസുകളോ ഇളം നിറമുള്ള സൺ ഗ്ലാസുകളോ കുഴപ്പമില്ല.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">ശക്തമായ പാറ്റേണോ പിന്നോ ഉപയോഗിച്ച് ഫോൺ അൺലോക്ക് ചെയ്യുന്നതിനേക്കാൾ സുരക്ഷ കുറവാണ് മുഖം ഉപയോഗിച്ച് ഫോൺ അൺലോക്ക് ചെയ്യൽ.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">തുറക്കാൻ ഉദ്ദേശിക്കാതെ നിങ്ങൾ വെറുതെ ഫോണിലേക്ക് നോക്കിയാലും അത് അൺലോക്കാകും. ഒരേ മുഖച്ഛായയുള്ള സഹോദരങ്ങളെ പോലെ, നിങ്ങളുമായി വളരെയധികം സാമ്യമുള്ള ആർക്കും ഫോൺ അൺലോക്ക് ചെയ്യാനാകും, മാത്രമല്ല ഫോൺ നിങ്ങളുടെ മുഖത്തിനു നേരെ നീട്ടിയും മറ്റൊരാൾക്ക് അൺലോക്ക് ചെയ്യാനാകും.</string>
     <string name="security_settings_face_enroll_introduction_info_title">ശ്രദ്ധിക്കുക</string>
     <string name="security_settings_face_enroll_introduction_message">ആപ്പുകളിലേക്ക് സൈൻ ഇൻ ചെയ്യുക, വാങ്ങൽ അംഗീകരിക്കുക പോലുള്ള സന്ദർഭങ്ങളിൽ ഫോൺ അൺലോക്ക് ചെയ്യാനോ ഇത് നിങ്ങൾ തന്നെയാണെന്ന് പരിശോധിച്ചുറപ്പിക്കാനോ നിങ്ങളുടെ മുഖം ഉപയോഗിക്കുക.</string>
@@ -4452,13 +4471,14 @@ g.co/pixel/faceunlock -ൽ കൂടുതലറിയുക."</string>
 
 രൂപസാദൃശ്യമുള്ള സഹോദരനോ സഹോദരിയോ പോലെ, നിങ്ങളുമായി ഒരുപാട് രൂപസാദൃശ്യമുള്ളയാൾക്ക് നിങ്ങളുടെ ഫോൺ അൺലോക്ക് ചെയ്യാനാകും."</string>
     <string name="security_settings_face_settings_preferences_category">ഫെയ്‌സ് അൺലോക്ക് ഉപയോഗിക്കുമ്പോൾ</string>
-    <string name="security_settings_face_settings_remove_dialog_details">നിങ്ങളുടെ മുഖ മോഡൽ ശാശ്വതമായും സുരക്ഷിതമായും ഇല്ലാതാക്കും. ഇല്ലാതാക്കിയാൽ, ഫോൺ അൺലോക്ക് ചെയ്യാനോ ആപ്പുകളിലെ പരിശോധിച്ചുറപ്പിക്കലിനോ പിൻ, പാറ്റേൺ അല്ലെങ്കിൽ പാസ്‍വേഡ് വേണ്ടി വരും.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"നിങ്ങളുടെ മുഖ മോഡൽ ശാശ്വതമായും സുരക്ഷിതമായും ഇല്ലാതാക്കും.
+
+ ഇല്ലാതാക്കിയാൽ, ഫോൺ അൺലോക്ക് ചെയ്യാനോ ആപ്പുകളിലെ പരിശോധിച്ചുറപ്പിക്കലിനോ പിൻ, പാറ്റേൺ അല്ലെങ്കിൽ പാസ്‍വേഡ് വേണ്ടി വരും."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"നിങ്ങളുടെ മുഖ മോഡൽ ശാശ്വതമായും സുരക്ഷിതമായും ഇല്ലാതാക്കും.
+
+ ഇല്ലാതാക്കിയാൽ, ഫോൺ അൺലോക്ക് ചെയ്യാൻ പിൻ, പാറ്റേൺ അല്ലെങ്കിൽ പാസ്‍വേഡ് വേണ്ടി വരും."</string>
     <string name="security_settings_face_settings_remove_dialog_title">മുഖ മോഡൽ ഇല്ലാതാക്കണോ?</string>
     <string name="security_settings_face_settings_remove_face_model">മുഖ മോഡൽ ഇല്ലാതാക്കുക</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"നിങ്ങളുടെ മുഖ മോഡൽ ശാശ്വതമായും സുരക്ഷിതമായും ഇല്ലാതാക്കപ്പെടും.
-
-ഇല്ലാതാക്കിയതിനുശേഷം ഫോൺ അൺലോക്ക് ചെയ്യാനോ ആപ്പുകളിലെ പരിശോധിച്ചുറപ്പിക്കലിനോ ഫിംഗർപ്രിന്റ്, പിൻ, പാറ്റേൺ അല്ലെങ്കിൽ പാസ്‍വേഡ് വേണം."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">മുഖ മോഡൽ ഇല്ലാതാക്കണോ?</string>
     <string name="security_settings_face_settings_require_attention">കണ്ണുകൾ തുറന്നിരിക്കണം</string>
     <string name="security_settings_face_settings_require_attention_details">ഫോൺ അൺലോക്ക് ചെയ്യാൻ, നിങ്ങളുടെ കണ്ണുകൾ തുറന്നിരിക്കണം</string>
     <string name="security_settings_face_settings_require_confirmation">എപ്പോഴും സ്ഥിരീകരണം ആവശ്യമാണ്</string>
@@ -4541,7 +4561,7 @@ g.co/pixel/faceunlock -ൽ കൂടുതലറിയുക."</string>
     <string name="security_settings_title">സുരക്ഷ</string>
     <string name="security_settings_udfps_enroll_a11y">സെൻസർ കണ്ടെത്താൻ സ്ക്രീനിലുടനീളം നിങ്ങളുടെ വിരൽ നീക്കുക. വിരലടയാള സെൻസറിൽ സ്‌പർശിച്ചുപിടിക്കുക.</string>
     <string name="security_settings_udfps_enroll_edge_message">നിങ്ങളുടെ ഫിംഗർപ്രിന്റിന്റെ വശം സെൻസറിൽ വച്ച് അമർത്തിപ്പിടിക്കുക, തുടർന്ന് മറ്റേ വശം നൽകുക</string>
-    <string name="security_settings_udfps_enroll_edge_title">അവസാനമായി, നിങ്ങളുടെ വിരലിന്റെ വശങ്ങൾ നൽകുക</string>
+    <string name="security_settings_udfps_enroll_edge_title">അവസാനമായി, നിങ്ങളുടെ വിരലിന്റെ വശങ്ങൾ ഉപയോഗിക്കുക</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">വിരലടയാള സെൻസർ നിങ്ങളുടെ സ്ക്രീനിലുണ്ട്. അടുത്ത സ്ക്രീനിൽ നിങ്ങളുടെ ഫിംഗർപ്രിന്റ് ക്യാപ്‌ചർ ചെയ്യും.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">ആരംഭിക്കുക</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">നിങ്ങളുടെ ഫിംഗർപ്രിന്റ് എങ്ങനെ സജ്ജീകരിക്കാം</string>
@@ -4550,7 +4570,7 @@ g.co/pixel/faceunlock -ൽ കൂടുതലറിയുക."</string>
     <string name="security_settings_udfps_enroll_repeat_a11y_message">ഇത് നിങ്ങളുടെ ഫിംഗർപ്രിന്റ് കൂടുതൽ സമഗ്രമായി ക്യാപ്‌ചർ ചെയ്യാൻ സഹായിക്കും</string>
     <string name="security_settings_udfps_enroll_repeat_message">ഓരോ തവണ ഫിംഗർപ്രിന്റ് ഐക്കൺ നീങ്ങുമ്പോഴും സ്‌പർശിച്ചുപിടിക്കുക. ഇത് നിങ്ങളുടെ ഫിംഗർപ്രിന്റ് കൂടുതൽ സമഗ്രമായി ക്യാപ്‌ചർ ചെയ്യാൻ സഹായിക്കും.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">ഫിംഗർപ്രിന്റ് ഐക്കൺ പിന്തുടരുക</string>
-    <string name="security_settings_udfps_enroll_start_message">വൈബ്രേഷൻ അനുഭവപ്പെടുന്നത് വരെ സെൻസറിൽ വിരൽ വയ്ക്കുക</string>
+    <string name="security_settings_udfps_enroll_start_message">വൈബ്രേഷൻ അനുഭവപ്പെടുന്നത് വരെ സെൻസറിൽ നിങ്ങളുടെ ഫിംഗർപ്രിന്റ് ചേർത്തുപിടിക്കുക</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">ഒരിക്കൽ കൂടി</string>
     <string name="security_settings_work_fingerprint_preference_title">ഔദ്യോഗിക പ്രൊഫൈലിനുള്ള Pixel Imprint</string>
     <string name="security_status_title">സുരക്ഷാ നില</string>
@@ -4576,7 +4596,6 @@ g.co/pixel/faceunlock -ൽ കൂടുതലറിയുക."</string>
     <string name="select_webview_provider_dialog_title">WebView നടപ്പാക്കൽ സജ്ജമാക്കുക</string>
     <string name="select_webview_provider_title">WebView നടപ്പാക്കൽ</string>
     <string name="select_webview_provider_toast_text">ഈ തിരഞ്ഞെടുപ്പിന് തുടർന്നങ്ങോട്ട് സാധുതയില്ല. വീണ്ടും ശ്രമിക്കുക.</string>
-    <string name="sensor_toggle_description">എല്ലാ ആപ്പുകൾക്കും സേവനങ്ങൾക്കും</string>
     <string name="sensors_off_quick_settings_title">സെൻസറുകൾ ഓഫാണ്</string>
     <string name="service_background_processes">%1$s ശൂന്യമാണ്</string>
     <string name="service_foreground_processes">%1$s ഉപ‌യോഗിച്ചു</string>
@@ -4808,6 +4827,7 @@ g.co/pixel/faceunlock -ൽ കൂടുതലറിയുക."</string>
     <string name="sound_settings_summary_silent">നിശബ്ദമാക്കിയിരിക്കുന്ന തരത്തിൽ റിംഗർ സജ്ജമാക്കി</string>
     <string name="sound_settings_summary_vibrate">വൈബ്രേറ്റുചെയ്യുന്ന തരത്തിൽ റിംഗർ സജ്ജമാക്കി</string>
     <string name="sound_work_settings">ഔദ്യോഗിക പ്രൊഫൈൽ ശബ്ദങ്ങൾ</string>
+    <string name="spatial_audio_title">സ്പേഷ്യൽ ഓഡിയോ</string>
     <string name="special_access">പ്രത്യേക ആപ്പ് ആക്‌സസ്</string>
     <string name="special_access_more">കൂടുതൽ കാണുക</string>
     <string name="speed_label_fast">വേഗത്തിൽ</string>
@@ -5619,7 +5639,7 @@ g.co/pixel/faceunlock -ൽ കൂടുതലറിയുക."</string>
     <string name="vpn_turn_on">ഓൺ ചെയ്യുക</string>
     <string name="vpn_type">തരം</string>
     <string name="vpn_username">ഉപയോക്താവിന്റെ പേര്</string>
-    <string name="vpn_version">പതിപ്പ് %s</string>
+    <string name="vpn_version">പതിപ്പ്</string>
     <string name="vr_listener_security_warning_summary">നിങ്ങൾ വെർച്വൽ റിയാലിറ്റി മോഡിൽ അപ്ലിക്കേഷനുകൾ ഉപയോഗിക്കുമ്പോൾ റൺ ചെയ്യാൻ %1$s എന്നതിനാകും.</string>
     <string name="vr_listener_security_warning_title">%1$s എന്ന സേവനത്തിന് VR സേവന ആക്‌സസ് അനുവദിക്കണോ?</string>
     <string name="vr_listeners_title">VR സഹായി സേവനങ്ങൾ</string>
@@ -5889,7 +5909,7 @@ g.co/pixel/faceunlock -ൽ കൂടുതലറിയുക."</string>
     <string name="wifi_not_in_range">പരിധിയിലില്ല</string>
     <string name="wifi_not_in_range_message">നെറ്റ്‌വർക്ക് പരിധിയിലില്ല</string>
     <string name="wifi_notify_open_networks">പൊതു നെറ്റ്‌വർക്കിനെക്കുറിച്ച് അറിയിപ്പ് നൽകുക</string>
-    <string name="wifi_notify_open_networks_summary">സ്വയമേവയുള്ള കണക്ഷൻ ലഭ്യമല്ലാത്തപ്പോൾ</string>
+    <string name="wifi_notify_open_networks_summary">ഉയർന്ന നിലവാരമുള്ള പബ്ലിക് നെറ്റ്‌വർക്ക് ലഭ്യമാകുമ്പോൾ അറിയിക്കുക</string>
     <string name="wifi_on_time">വൈഫൈ ഓൺ ടൈം</string>
     <string name="wifi_p2p_cancel_connect_message">%1$s എന്നതുമായി കണക്റ്റുചെയ്യാനുള്ള ക്ഷണം റദ്ദാക്കണോ?</string>
     <string name="wifi_p2p_cancel_connect_title">ക്ഷണം റദ്ദാക്കണോ?</string>
@@ -5977,7 +5997,6 @@ g.co/pixel/faceunlock -ൽ കൂടുതലറിയുക."</string>
     <string name="wifi_suspend_optimizations">വൈഫൈ ഒപ്റ്റിമൈസുചെയ്യൽ</string>
     <string name="wifi_suspend_optimizations_summary">വൈഫൈ ഓണായിരിക്കുമ്പോൾ ബാറ്ററി ഉപഭോഗം കുറയ്‌ക്കുക</string>
     <string name="wifi_switch_away_when_unvalidated">വൈഫൈയിൽ ഇന്‍റർനെറ്റ് ആക്‌സസ് ഇല്ലെങ്കിൽ മൊബൈൽ ഡാറ്റയിലേക്ക് മാറുക.</string>
-    <string name="wifi_switch_summary">വൈഫൈ നെറ്റ്‌വർക്കുകൾ കണ്ടെത്തി അവയിലേക്ക് കണക്റ്റ് ചെയ്യുക</string>
     <string name="wifi_tap_to_sign_in">നെറ്റ്‌വർക്കിലേക്ക് സൈൻ ഇൻ ചെയ്യാൻ ഇവിടെ ടാപ്പ് ചെയ്യുക</string>
     <string name="wifi_tether_configure_ap_text">വൈഫൈ ഹോട്ട്‌സ്പോട്ട് സജ്ജീകരിക്കുക</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

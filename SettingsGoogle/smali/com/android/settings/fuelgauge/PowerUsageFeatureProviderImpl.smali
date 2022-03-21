@@ -86,6 +86,14 @@
     return-object p0
 .end method
 
+.method public getBatteryHistoryUri()Landroid/net/Uri;
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
 .method public getEarlyWarningSignal(Landroid/content/Context;Ljava/lang/String;)Z
     .locals 0
 
@@ -110,22 +118,42 @@
     return-object p0
 .end method
 
-.method public getHideBackgroundUsageTimeList(Landroid/content/Context;)Ljava/util/List;
+.method public getHideApplicationEntries(Landroid/content/Context;)[Ljava/lang/CharSequence;
+    .locals 0
+
+    const/4 p0, 0x0
+
+    new-array p0, p0, [Ljava/lang/CharSequence;
+
+    return-object p0
+.end method
+
+.method public getHideApplicationSummary(Landroid/content/Context;)[Ljava/lang/CharSequence;
+    .locals 0
+
+    const/4 p0, 0x0
+
+    new-array p0, p0, [Ljava/lang/CharSequence;
+
+    return-object p0
+.end method
+
+.method public getHideBackgroundUsageTimeSet(Landroid/content/Context;)Ljava/util/Set;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroid/content/Context;",
             ")",
-            "Ljava/util/List<",
+            "Ljava/util/Set<",
             "Ljava/lang/CharSequence;",
             ">;"
         }
     .end annotation
 
-    new-instance p0, Ljava/util/ArrayList;
+    new-instance p0, Ljava/util/HashSet;
 
-    invoke-direct {p0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {p0}, Ljava/util/HashSet;-><init>()V
 
     return-object p0
 .end method
@@ -136,6 +164,14 @@
     const/4 p0, 0x0
 
     return-object p0
+.end method
+
+.method public isAdaptiveChargingSupported()Z
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return p0
 .end method
 
 .method public isChartGraphEnabled(Landroid/content/Context;)Z
@@ -171,7 +207,7 @@
 
     move-result-object p0
 
-    const v0, 0x1110136
+    const v0, 0x111013b
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 

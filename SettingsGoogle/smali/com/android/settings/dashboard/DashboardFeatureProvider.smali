@@ -4,12 +4,13 @@
 
 
 # virtual methods
-.method public abstract bindPreferenceToTileAndGetObservers(Landroidx/fragment/app/FragmentActivity;ZILandroidx/preference/Preference;Lcom/android/settingslib/drawer/Tile;Ljava/lang/String;I)Ljava/util/List;
+.method public abstract bindPreferenceToTileAndGetObservers(Landroidx/fragment/app/FragmentActivity;Lcom/android/settings/dashboard/DashboardFragment;ZLandroidx/preference/Preference;Lcom/android/settingslib/drawer/Tile;Ljava/lang/String;I)Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Landroidx/fragment/app/FragmentActivity;",
-            "ZI",
+            "Lcom/android/settings/dashboard/DashboardFragment;",
+            "Z",
             "Landroidx/preference/Preference;",
             "Lcom/android/settingslib/drawer/Tile;",
             "Ljava/lang/String;",

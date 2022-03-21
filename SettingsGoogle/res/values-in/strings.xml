@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Smooth Display</string>
     <string name="peak_refresh_rate_summary">Otomatis meningkatkan rasio pembaruan dari 60 menjadi 90 Hz untuk beberapa konten. Meningkatkan penggunaan baterai.</string>
     <string name="accessibility_vibration_settings_title">Getaran &amp; sentuhan</string>
+    <string name="columbus_title">Ketuk Cepat untuk memulai tindakan</string>
     <string name="emergency_gesture_screen_title">Darurat SOS</string>
     <string name="abc_action_mode_done">Selesai</string>
     <string name="vibrate_for_calls_category_title">Panggilan</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Tampilkan kontrol perangkat</string>
     <string name="lockscreen_privacy_wallet_summary">Izinkan akses ke dompet dari layar kunci dan setelan cepat</string>
     <string name="lockscreen_privacy_controls_summary">Kontrol akses saat terkunci</string>
+    <string name="lockscreen_double_line_clock_summary">Menampilkan jam dua baris jika tersedia</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Jam dua baris</string>
     <string name="abc_activity_chooser_view_see_all">Lihat semua</string>
     <string name="abc_activitychooserview_choose_application">Pilih aplikasi</string>
     <string name="abc_capital_off">NONAKTIF</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Getaran alarm</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Active Edge sudah disiapkan. Buka layar berikutnya atau lanjutkan penyesuaian.</string>
     <string name="accessibility_audio_adjustment_title">Penyesuaian audio</string>
+    <string name="accessibility_autoclick_about_title">Tentang klik otomatis (lama singgah)</string>
     <string name="accessibility_autoclick_custom_title">Kustom</string>
     <string name="accessibility_autoclick_default_title">Nonaktif</string>
     <string name="accessibility_autoclick_description">Klik otomatis berfungsi dengan mouse yang terhubung. Anda dapat menyetel kursor untuk mengklik otomatis saat kursor berhenti bergerak selama waktu tertentu.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Pelajari klik otomatis lebih lanjut (lama singgah)</string>
     <string name="accessibility_autoclick_long_summary">1 detik</string>
     <string name="accessibility_autoclick_long_title">Lama</string>
     <string name="accessibility_autoclick_longer_desc">Lebih lama</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Singkat</string>
     <string name="accessibility_autoclick_shorter_desc">Lebih singkat</string>
     <string name="accessibility_banner_message_dismiss">Tutup</string>
-    <string name="accessibility_button_description">"Akses fitur aksesibilitas dengan cepat dari layar mana pun. 
+    <string name="accessibility_button_about_title">Tentang tombol aksesibilitas</string>
+    <string name="accessibility_button_description">"Akses fitur aksesibilitas dengan cepat dari layar mana pun.
 
 Untuk memulai, buka setelan aksesibilitas dan pilih fitur. Ketuk pintasan dan pilih tombol aksesibilitas."</string>
     <string name="accessibility_button_fade_summary">Memudar setelah beberapa detik sehingga layar lebih mudah dilihat</string>
     <string name="accessibility_button_fade_title">Memudar saat tidak digunakan</string>
+    <string name="accessibility_button_gesture_about_title">Tentang tombol aksesibilitas &amp; gestur</string>
     <string name="accessibility_button_gesture_description">"Akses fitur aksesibilitas dengan cepat dari layar mana pun.
 
-Untuk memulai, buka setelan aksesibilitas dan pilih fitur. Ketuk pintasan dan pilih tombol aksesibilitas.
-
-Untuk menggunakan tombol aksesibilitas di menu navigasi, beralihlah ke navigasi 2 tombol atau navigasi 3 tombol."</string>
+Untuk memulai, buka setelan aksesibilitas dan pilih fitur. Ketuk pintasan dan pilih tombol atau gestur aksesibilitas."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Pelajari tombol aksesibilitas &amp; gestur lebih lanjut</string>
     <string name="accessibility_button_gesture_title">Tombol &amp; gestur aksesibilitas</string>
     <string name="accessibility_button_high_label">Tidak transparan</string>
     <string name="accessibility_button_intro">Menggunakan tombol aksesibilitas. Gestur tidak tersedia dengan navigasi 3 tombol.</string>
@@ -184,14 +190,23 @@ Untuk menggunakan tombol aksesibilitas di menu navigasi, beralihlah ke navigasi 
     <string name="accessibility_caption_preference_summary">Tidak semua aplikasi mendukung preferensi teks ini</string>
     <string name="accessibility_caption_primary_switch_summary">Hanya untuk aplikasi yang didukung</string>
     <string name="accessibility_caption_primary_switch_title">Tampilkan teks</string>
+    <string name="accessibility_captioning_about_title">Tentang preferensi teks</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Pelajari preferensi teks lebih lanjut</string>
     <string name="accessibility_captioning_title">Preferensi teks</string>
     <string name="accessibility_category_personal">Akun profil pribadi</string>
     <string name="accessibility_category_work">Akun profil kerja - %s</string>
+    <string name="accessibility_color_inversion_about_title">Tentang inversi warna</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Pelajari inversi warna lebih lanjut</string>
+    <string name="accessibility_control_timeout_about_title">Tentang waktu ambil tindakan (Waktu tunggu aksesibilitas)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Pelajari waktu ambil tindakan lebih lanjut (Waktu tunggu aksesibilitas)</string>
     <string name="accessibility_control_timeout_preference_summary">"Pilih durasi tampilan pesan yang perlu ditindak, tetapi hanya terlihat sementara.
 
 Tidak semua aplikasi mendukung setelan ini."</string>
     <string name="accessibility_control_timeout_preference_title">Waktu ambil tindakan</string>
+    <string name="accessibility_daltonizer_about_title">Tentang koreksi warna</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Pelajari koreksi warna lebih lanjut</string>
     <string name="accessibility_daltonizer_primary_switch_title">Gunakan koreksi warna</string>
+    <string name="accessibility_daltonizer_shortcut_title">Pintasan koreksi warna</string>
     <string name="accessibility_data_one_bar">Data satu batang.</string>
     <string name="accessibility_data_signal_full">Sinyal data penuh.</string>
     <string name="accessibility_data_three_bars">Data tiga batang.</string>
@@ -206,6 +221,7 @@ Tidak semua aplikasi mendukung setelan ini."</string>
     <string name="accessibility_display_daltonizer_preference_title">Koreksi warna</string>
     <string name="accessibility_display_inversion_preference_subtitle">Inversi warna mengubah layar terang menjadi gelap.&lt;br/>&lt;br/> Catatan: &lt;ol> &lt;li> Inversi warna juga mengubah layar gelap menjadi terang.&lt;/li> &lt;li> Warna akan berubah pada media dan gambar.&lt;/li> &lt;li> Tema gelap dapat digunakan untuk menampilkan latar belakang gelap. Tema gelap berfungsi dengan aplikasi yang didukung. Inversi warna berfungsi di semua aplikasi.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">inversi warna</string>
+    <string name="accessibility_display_inversion_shortcut_title">Pintasan inversi warna</string>
     <string name="accessibility_display_inversion_switch_title">Gunakan inversi warna</string>
     <string name="accessibility_ethernet_connected">Ethernet.</string>
     <string name="accessibility_ethernet_disconnected">Ethernet terputus.</string>
@@ -255,6 +271,8 @@ Tombol aksesibilitas mengambang di layar di atas aplikasi lainnya. Ketuk tombol 
     <string name="accessibility_phone_two_bars">Ponsel dua batang.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Tombol daya untuk tutup telepon</string>
     <string name="accessibility_preference_magnification_summary">Perbesar tampilan di layar</string>
+    <string name="accessibility_screen_magnification_about_title">Tentang pembesaran</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Pelajari pembesaran lebih lanjut</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">Gestur aksesibilitas disetel ke %1$s. Untuk menggunakan pembesaran, geser ke atas dengan dua jari dari bagian bawah layar dan tahan. Lalu, pilih pembesaran.</string>
     <string name="accessibility_screen_magnification_gestures_title">Perbesar dengan ketuk 3 kali</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">Tombol Aksesibilitas disetel ke %1$s. Untuk menggunakan fitur pembesaran, sentuh lama tombol Aksesibilitas, kemudian pilih pembesaran.</string>
@@ -272,6 +290,7 @@ Tombol aksesibilitas mengambang di layar di atas aplikasi lainnya. Ketuk tombol 
 Anda tidak dapat memperbesar keyboard atau menu navigasi."</string>
     <string name="accessibility_screen_magnification_navbar_title">Perbesar dengan pintasan</string>
     <string name="accessibility_screen_magnification_short_summary">Ketuk 3 kali untuk memperbesar</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Pintasan pembesaran</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Perbesar dengan pintasan &amp; ketuk tiga kali</string>
     <string name="accessibility_screen_magnification_summary">Perbesar layar dengan cepat untuk membuat konten terlihat lebih besar.&lt;br/>&lt;br/> &lt;b>Untuk memperbesar:&lt;/b>&lt;br/> {0,number,integer}. Gunakan pintasan untuk memulai pembesaran&lt;br/> {1,number,integer}. Ketuk layar&lt;br/> {2,number,integer}. Tarik 2 jari untuk berpindah pada layar&lt;br/> {3,number,integer}. Cubit dengan 2 jari untuk menyesuaikan zoom&lt;br/> {4,number,integer}. Gunakan pintasan untuk menghentikan pembesaran&lt;br/>&lt;br/> &lt;b>Untuk memperbesar sementara:&lt;/b>&lt;br/> {0,number,integer}. Gunakan pintasan untuk memulai pembesaran&lt;br/> {1,number,integer}. Sentuh lama di mana pun pada layar&lt;br/> {2,number,integer}. Tarik jari untuk berpindah pada layar&lt;br/> {3,number,integer}. Angkat jari untuk menghentikan pembesaran</string>
     <string name="accessibility_screen_magnification_title">pembesaran</string>
@@ -370,7 +389,7 @@ Untuk beralih antarfitur, geser ke atas dengan 3 jari dan tahan."</string>
     <string name="accessibility_tutorial_dialog_message_volume">Untuk menggunakan fitur ini, tekan dan tahan kedua tombol volume.</string>
     <string name="accessibility_tutorial_dialog_title_button">Gunakan tombol aksesibilitas untuk membuka</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Menggunakan gestur untuk membuka</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Menggunakan gestur aksesibilitas baru</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Gunakan gestur aksesibilitas</string>
     <string name="accessibility_tutorial_dialog_title_triple">Ketuk tiga kali pada layar untuk membuka</string>
     <string name="accessibility_tutorial_dialog_title_volume">Tahan tombol volume untuk membuka</string>
     <string name="accessibility_tutorial_pager">Halaman %1$d dari %2$d</string>
@@ -493,7 +512,7 @@ Admin dapat memantau serta mengelola setelan, akses, aplikasi, dan data terkait 
     <string name="advanced_battery_graph_subtext">Perkiraan sisa baterai berdasarkan pada penggunaan perangkat</string>
     <string name="advanced_battery_preference_summary">Lihat penggunaan dari pengisian daya penuh terakhir</string>
     <string name="advanced_battery_preference_summary_with_hours">Lihat penggunaan dalam 24 jam terakhir</string>
-    <string name="advanced_battery_preference_title">Penggunaan Baterai</string>
+    <string name="advanced_battery_preference_title">Pemakaian baterai</string>
     <string name="advanced_battery_title">Penggunaan baterai</string>
     <string name="advanced_section_header">Umum</string>
     <string name="advanced_security_title">Lanjutan</string>
@@ -936,6 +955,7 @@ Setelah reset, selesaikan proses dan pilih untuk memindahkan data dari ponsel se
     <string name="battery_level_title">Tingkat baterai</string>
     <string name="battery_manager_off">Nonaktif</string>
     <string name="battery_manager_summary">Memperpanjang masa pakai baterai dan mengoptimalkan pengisian daya</string>
+    <string name="battery_manager_summary_unsupported">Memperpanjang masa pakai baterai</string>
     <string name="battery_missing_link_a11y_message">Ketuk untuk mempelajari error ini lebih lanjut</string>
     <string name="battery_missing_link_message">Pelajari lebih lanjut</string>
     <string name="battery_missing_message">Terjadi masalah saat membaca indikator baterai.</string>
@@ -1014,8 +1034,8 @@ Anda selalu dapat mengaktifkan Penghemat Baterai jika daya baterai hampir habis.
 
 Saat kondisi tersebut berakhir, ponsel akan otomatis mengisi daya secara normal."</string>
     <string name="battery_tip_limited_temporarily_dialog_resume_charge">Lanjutkan pengisian daya</string>
-    <string name="battery_tip_limited_temporarily_summary">Untuk menghemat daya baterai. Pelajari lebih lanjut.</string>
-    <string name="battery_tip_limited_temporarily_title">Pengisian daya dibatasi untuk sementara</string>
+    <string name="battery_tip_limited_temporarily_summary">Untuk menjaga baterai. Pelajari lebih lanjut.</string>
+    <string name="battery_tip_limited_temporarily_title">Pengisian daya dibatasi sementara</string>
     <string name="battery_tip_low_battery_summary">Aktifkan Penghemat Baterai untuk memperpanjang masa pakai baterai</string>
     <string name="battery_tip_low_battery_title">Tingkat daya baterai rendah</string>
     <string name="battery_tip_restrict_app_dialog_message">Untuk menghemat baterai, hentikan %1$s menggunakan baterai di latar belakang. Aplikasi ini mungkin tidak berfungsi dengan baik dan notifikasi dapat tertunda.</string>
@@ -1061,6 +1081,7 @@ selama ^2"</string>
     <string name="battery_usage_screen_footer">Data penggunaan baterai merupakan perkiraan dan tidak mengukur penggunaan saat ponsel sedang diisi daya</string>
     <string name="battery_usage_screen_footer_empty">Data penggunaan baterai akan tersedia setelah Anda menggunakan ponsel selama beberapa jam</string>
     <string name="battery_usage_total_less_than_one_minute">Total: kurang dari satu menit</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s digunakan oleh %2$s</string>
     <string name="battery_used_for">Digunakan selama ^1</string>
     <string name="bearer">Operator</string>
@@ -1069,12 +1090,14 @@ selama ^2"</string>
     <string name="billing_cycle_less_than_one_day_left">Kurang dari 1 hari lagi</string>
     <string name="billing_cycle_none_left">Waktu habis</string>
     <string name="biometric_settings_category_ways_to_unlock">Cara membuka kunci</string>
-    <string name="biometric_settings_category_ways_to_use">Gunakan wajah dan sidik jari untuk</string>
     <string name="biometric_settings_hand_back_to_guardian">Serahkan kembali ponsel ke orang tua</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">Oke</string>
     <string name="biometric_settings_intro">Saat Anda menyiapkan Face Unlock dan Fingerprint Unlock, ponsel akan meminta sidik jari saat Anda memakai masker atau berada di area yang gelap</string>
-    <string name="biometric_settings_use_biometric_for_apps">Autentikasi dalam aplikasi</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">Membuka kunci ponsel</string>
+    <string name="biometric_settings_use_biometric_for_apps">Verifikasi diri Anda di aplikasi</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">Buka kunci ponsel</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Menggunakan wajah atau sidik jari</string>
+    <string name="biometric_settings_use_face_preference_summary">Menggunakan wajah</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Menggunakan sidik jari</string>
     <string name="biometrics_unlock_set_unlock_password">Sandi • Wajah • Sidik jari</string>
     <string name="biometrics_unlock_set_unlock_pattern">Pola • Wajah • Sidik jari</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN • Wajah • Sidik jari</string>
@@ -1332,7 +1355,6 @@ Pilihan"</string>
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Tampilkan perangkat Bluetooth tanpa nama</string>
     <string name="bluetooth_show_devices_without_names_summary">Perangkat Bluetooth tanpa nama (hanya alamat MAC) akan ditampilkan</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">File yang diterima melalui Bluetooth</string>
     <string name="bluetooth_show_received_files">File yang diterima</string>
     <string name="bluetooth_sim_card_access_dialog_content">"Perangkat Bluetooth bernama %1$s ingin mengakses data di kartu SIM Anda. Data ini mencakup kontak Anda.
 
@@ -1426,6 +1448,7 @@ Jika Anda menginstal Sertifikat CA, pemilik sertifikat tersebut dapat mengakses 
     <string name="calls_sms_temp_unavailable">Tidak tersedia untuk sementara</string>
     <string name="calls_sms_unavailable">tidak tersedia</string>
     <string name="calls_sms_wfc_summary">Melakukan dan menerima panggilan melalui Wi‑Fi</string>
+    <string name="cam_toggle_description">Untuk aplikasi dan layanan</string>
     <string name="camera_double_tap_power_gesture_desc">Membuka kamera dengan cepat tanpa membuka kunci layar</string>
     <string name="camera_double_tap_power_gesture_title">Tekan tombol daya dua kali untuk kamera</string>
     <string name="camera_laser_sensor_switch">Sensor Laser Kamera</string>
@@ -1925,7 +1948,7 @@ Setelan ini memengaruhi semua pengguna di ponsel ini."</string>
     <string name="data_usage_restrict_background_title">Batasi data latar belakang?</string>
     <string name="data_usage_restrict_denied_dialog">Pembatasan data latar belakang hanya dimungkinkan jika Anda telah menyetel batas data seluler.</string>
     <string name="data_usage_summary_format">%1$s data digunakan</string>
-    <string name="data_usage_summary_title">Penggunaan kuota</string>
+    <string name="data_usage_summary_title">Penggunaan data</string>
     <string name="data_usage_sweep_limit"><font size="12">batas</font>"
 "<font size="18">^1</font> <font size="9">^2</font></string>
     <string name="data_usage_sweep_warning"><font size="18">^1</font><font size="9">^2</font>"
@@ -3272,7 +3295,7 @@ Ada pengguna lain yang aktif di perangkat ini.
     <string name="memory_media_misc_usage">File lainnya</string>
     <string name="memory_media_usage">Media</string>
     <string name="memory_music_usage">Audio (musik, nada dering, podcast, dll.)</string>
-    <string name="memory_performance">Kinerja</string>
+    <string name="memory_performance">Performa</string>
     <string name="memory_settings_title">Memori</string>
     <string name="memory_size">Total ruang</string>
     <string name="memory_summary">Rata-rata %1$s dari %2$s memori digunakan</string>
@@ -3302,6 +3325,7 @@ Ada pengguna lain yang aktif di perangkat ini.
     <string name="menu_stats_total">Total penggunaan</string>
     <string name="menu_stats_unplugged">%1$s sejak dicabut</string>
     <string name="menu_use_uss">Gunakan Uss</string>
+    <string name="mic_toggle_description">Untuk aplikasi dan layanan. Jika setelan ini nonaktif, data mikrofon mungkin tetap dibagikan saat Anda menelepon nomor darurat.</string>
     <string name="mic_toggle_title">Akses mikrofon</string>
     <string name="misc_files">File Serbaneka</string>
     <string name="misc_files_selected_count">Terpilih %1$d dari %2$d</string>
@@ -3728,6 +3752,7 @@ Tindakan ini juga akan memberi aplikasi kemampuan untuk mengaktifkan atau menona
     <string name="one_handed_action_show_notification_title">Tampilkan notifikasi</string>
     <string name="one_handed_mode_enabled">Gunakan mode satu tangan</string>
     <string name="one_handed_mode_intro_text">Untuk menggunakan mode satu tangan, geser ke bawah dari tepi bawah layar. Untuk menggunakan fitur ini, pastikan navigasi gestur diaktifkan di setelan navigasi sistem.</string>
+    <string name="one_handed_mode_shortcut_title">Pintasan mode satu tangan</string>
     <string name="one_handed_mode_swipe_down_category">Geser ke bawah untuk</string>
     <string name="one_handed_mode_use_shortcut_category">Gunakan pintasan untuk</string>
     <string name="one_usercrt">satu sertifikat pengguna</string>
@@ -3803,11 +3828,11 @@ Tindakan ini juga akan memberi aplikasi kemampuan untuk mengaktifkan atau menona
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s aktif</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Kamera</string>
-    <string name="power_cell">Jaringan seluler siaga</string>
+    <string name="power_cell">Jaringan seluler</string>
     <string name="power_charge_remaining">%1$s lagi agar terisi penuh</string>
     <string name="power_charging">%1$s - %2$s</string>
     <string name="power_charging_duration">%1$s - %2$s lagi sampai penuh</string>
-    <string name="power_charging_limited">%1$s - Pengisian daya dibatasi untuk sementara</string>
+    <string name="power_charging_limited">%1$s - Pengisian daya dibatasi sementara</string>
     <string name="power_discharge_by">Akan bertahan kira-kira sampai pukul %1$s (%2$s)</string>
     <string name="power_discharge_by_enhanced">Akan bertahan kira-kira sampai %1$s berdasarkan penggunaan Anda (%2$s)</string>
     <string name="power_discharge_by_only">Akan bertahan kira-kira sampai pukul %1$s</string>
@@ -4037,6 +4062,7 @@ Tekan tombol Daya dan Naikkan volume bersamaan."</string>
     <string name="recent_notifications">Dikirim baru-baru ini</string>
     <string name="recent_notifications_see_all_title">Lihat semua dari 7 hari terakhir</string>
     <string name="recompute_size">Menghitung ulang ukuran...</string>
+    <string name="reduce_bright_colors_about_title">Tentang ekstra redup</string>
     <string name="reduce_bright_colors_intensity_end_label">Lebih cerah</string>
     <string name="reduce_bright_colors_intensity_preference_title">Intensitas</string>
     <string name="reduce_bright_colors_intensity_start_label">Lebih redup</string>
@@ -4044,6 +4070,7 @@ Tekan tombol Daya dan Naikkan volume bersamaan."</string>
     <string name="reduce_bright_colors_preference_subtitle">Buat layar Anda lebih redup agar dapat membaca dengan lebih nyaman.&lt;br/>&lt;br/> Ini dapat berguna saat: &lt;ol> &lt;li> Kecerahan minimum default ponsel masih terlalu cerah&lt;/li> &lt;li> Anda menggunakan ponsel di lingkungan yang gelap, seperti saat malam hari atau di kamar yang gelap sebelum tidur&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">Buat layar lebih redup daripada kecerahan minimum ponsel</string>
     <string name="reduce_bright_colors_preference_title">ekstra redup</string>
+    <string name="reduce_bright_colors_shortcut_title">Pintasan ekstra redup</string>
     <string name="reduce_bright_colors_switch_title">Buat layar ekstra redup</string>
     <string name="register_automatically">Pendaftaran otomatis...</string>
     <string name="register_on_network">Mendaftarkan ke %s…</string>
@@ -4249,7 +4276,6 @@ Untuk menggunakan penyematan aplikasi: \u0009
     <string name="screen_pinning_unlock_pattern">Minta pola pembuka kunci sebelum melepas sematan</string>
     <string name="screen_pinning_unlock_pin">Minta PIN sebelum melepas sematan</string>
     <string name="screen_reader_category_title">Pembaca layar</string>
-    <string name="screen_saver_main_switch_title">Gunakan screensaver</string>
     <string name="screen_time_summary_usage_today">%1$s hari ini</string>
     <string name="screen_timeout_summary">Setelah tidak aktif selama %1$s</string>
     <string name="screen_timeout_title">Layar mati</string>
@@ -4279,6 +4305,7 @@ Untuk menggunakan penyematan aplikasi: \u0009
     <string name="screensaver_settings_button">Setelan</string>
     <string name="screensaver_settings_current">Screen saver saat ini</string>
     <string name="screensaver_settings_disabled_prompt">Untuk mengontrol yang terjadi saat ponsel dipasang ke dok dan/atau sedang tidur, aktifkan screen saver.</string>
+    <string name="screensaver_settings_dream_start">Mulai sekarang</string>
     <string name="screensaver_settings_summary_dock">Selagi di dok</string>
     <string name="screensaver_settings_summary_either_long">Saat mengisi baterai atau dipasang ke dok</string>
     <string name="screensaver_settings_summary_either_short">Keduanya</string>
@@ -4329,15 +4356,6 @@ Untuk menggunakan penyematan aplikasi: \u0009
     <string name="security_settings_biometric_preference_summary_both_fp_single">Wajah dan sidik jari ditambahkan</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Ketuk untuk menyiapkan</string>
     <string name="security_settings_biometric_preference_title">Face Unlock &amp; Fingerprint Unlock</string>
-    <string name="security_settings_biometrics_description">Saat Anda menyiapkan face unlock dan buka kunci sidik jari, ponsel akan meminta sidik jari saat Anda memakai masker atau berada di area yang gelap</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Autentikasi dalam aplikasi</string>
-    <string name="security_settings_biometrics_preferences_category">Gunakan wajah atau sidik jari untuk</string>
-    <string name="security_settings_biometrics_summary_both">Wajah dan sidik jari</string>
-    <string name="security_settings_biometrics_summary_face">Hanya wajah</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Hanya sidik jari</string>
-    <string name="security_settings_biometrics_summary_none">Ketuk untuk menyiapkan</string>
-    <string name="security_settings_biometrics_title">Face unlock &amp; buka kunci sidik jari</string>
-    <string name="security_settings_biometrics_types_category">Cara membuka kunci</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Izinkan Face Unlock</string>
     <string name="security_settings_face_enroll_dialog_ok">Oke</string>
     <string name="security_settings_face_enroll_done">Selesai</string>
@@ -4383,18 +4401,19 @@ Pelajari lebih lanjut di g.co/pixel/faceunlock."</string>
 
 Pelajari lebih lanjut di g.co/pixel/faceunlock."</string>
     <string name="security_settings_face_enroll_introduction_control_title">Anda memegang kendali</string>
-    <string name="security_settings_face_enroll_introduction_how_consent_message">"Face Unlock membuat model unik dari wajah anak Anda untuk memverifikasi dirinya. Untuk membuat model wajah ini selama penyiapan, anak Anda akan mengambil gambar wajah dari berbagai sudut.
+    <string name="security_settings_face_enroll_introduction_how_consent_message">"Face Unlock membuat model unik dari wajah anak Anda untuk memverifikasi dirinya. Untuk membuat model wajah ini selama penyiapan, anak Anda perlu mengambil gambar wajah dari berbagai sudut.
 
-Saat dia menggunakan Face Unlock, gambar digunakan untuk memperbarui model wajahnya. Gambar yang digunakan untuk membuat model wajah tidak pernah disimpan, tetapi model wajahnya disimpan secara aman di ponsel dan tidak pernah dikirim ke luar ponsel. Semua pemrosesan dilakukan secara aman di ponsel."</string>
-    <string name="security_settings_face_enroll_introduction_how_message">"Face Unlock membuat model unik wajah Anda untuk memverifikasi diri Anda. Untuk membuat model wajah ini selama penyiapan, Anda akan mengambil gambar wajah dari berbagai sudut.
+Saat dia menggunakan Face Unlock, gambar digunakan untuk memperbarui model wajahnya. Gambar yang digunakan untuk membuat model wajah tidak disimpan, tetapi model wajahnya disimpan secara aman di ponsel dan tidak pernah dikirim ke luar ponsel. Semua pemrosesan dilakukan secara aman di ponsel."</string>
+    <string name="security_settings_face_enroll_introduction_how_message">"Face Unlock membuat model unik wajah Anda untuk memverifikasi diri Anda. Untuk membuat model wajah ini selama penyiapan, Anda perlu mengambil gambar wajah dari berbagai sudut.
 
-Saat Anda menggunakan Face Unlock, gambar digunakan untuk memperbarui model wajah Anda. Gambar yang digunakan untuk membuat model wajah tidak pernah disimpan, tetapi model wajah disimpan secara aman di ponsel dan tidak pernah dikirim ke luar ponsel. Semua pemrosesan dilakukan secara aman di ponsel Anda."</string>
+Saat Anda menggunakan Face Unlock, gambar digunakan untuk memperbarui model wajah Anda. Gambar yang digunakan untuk membuat model wajah tidak disimpan, tetapi model wajah disimpan secara aman di ponsel dan tidak pernah dikirim ke luar ponsel. Semua pemrosesan dilakukan secara aman di ponsel Anda."</string>
     <string name="security_settings_face_enroll_introduction_how_title">Cara kerjanya</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">Mata anak Anda harus terbuka agar terdeteksi oleh Face Unlock untuk membuka kunci ponsel atau memverifikasi diri anak. Anda dan anak Anda dapat mengaktifkan opsi ini kapan saja di Setelan.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Jika anak Anda biasanya memakai kacamata, dia dapat memakainya selama penyiapan.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Dengan melihat ponsel, dia dapat membuka kuncinya meski tidak bermaksud melakukannya. Ponselnya juga dapat dibuka kuncinya oleh seseorang yang sangat mirip dengannya, seperti saudara kembar identik, atau jika seseorang mendekatkan ponsel ke wajah anak Anda.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Mata Anda harus terbuka agar terdeteksi oleh Face Unlock untuk membuka kunci ponsel atau memverifikasi diri Anda. Anda dapat mengaktifkan opsi ini kapan saja di Setelan.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Kacamata atau kacamata berlensa warna transparan bisa digunakan.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Menggunakan wajah untuk membuka kunci ponsel mungkin kurang aman dibandingkan dengan pola atau PIN yang rumit.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Dengan melihat ponsel, Anda dapat membuka kuncinya meski tidak bermaksud untuk melakukannya. Ponsel Anda juga dapat dibuka kuncinya oleh seseorang yang sangat mirip dengan Anda, seperti saudara kembar identik, atau jika seseorang mendekatkan ponsel ke wajah Anda.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Ingat</string>
     <string name="security_settings_face_enroll_introduction_message">Gunakan wajah untuk membuka kunci ponsel atau memverifikasi diri Anda, seperti saat login ke aplikasi atau menyetujui pembelian.</string>
@@ -4452,13 +4471,14 @@ Seseorang dapat membuka kunci ponsel Anda jika dia mendekatkan ponsel ke wajah A
 
 Ponsel Anda dapat dibuka kuncinya oleh seseorang yang sangat mirip dengan Anda, seperti saudara kembar identik."</string>
     <string name="security_settings_face_settings_preferences_category">Saat menggunakan Face Unlock</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Model wajah Anda akan dihapus secara permanen dan aman. Setelah dihapus, Anda akan memerlukan PIN, pola, atau sandi untuk membuka kunci ponsel atau untuk autentikasi dalam aplikasi.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Model wajah Anda akan dihapus secara permanen dan aman.
+
+Setelah dihapus, Anda akan memerlukan PIN, pola, atau sandi untuk membuka kunci ponsel atau untuk autentikasi dalam aplikasi."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Model wajah Anda akan dihapus secara permanen dan aman.
+
+Setelah dihapus, Anda akan memerlukan PIN, pola, atau sandi untuk membuka kunci ponsel."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Hapus model wajah?</string>
     <string name="security_settings_face_settings_remove_face_model">Hapus model wajah</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Model wajah Anda akan dihapus secara permanen dan aman.
-
-Setelah dihapus, Anda akan memerlukan sidik jari, PIN, pola, atau sandi untuk membuka kunci ponsel atau untuk autentikasi dalam aplikasi."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Hapus model wajah?</string>
     <string name="security_settings_face_settings_require_attention">Haruskan mata terbuka</string>
     <string name="security_settings_face_settings_require_attention_details">Untuk membuka kunci ponsel, mata harus terbuka</string>
     <string name="security_settings_face_settings_require_confirmation">Selalu wajibkan konfirmasi</string>
@@ -4541,7 +4561,7 @@ Catatan: Anda tidak dapat menggunakan sidik jari untuk membuka kunci perangkat. 
     <string name="security_settings_title">Keamanan</string>
     <string name="security_settings_udfps_enroll_a11y">Gerakkan jari Anda di layar untuk menemukan sensor. Sentuh lama sensor sidik jari.</string>
     <string name="security_settings_udfps_enroll_edge_message">Posisikan sisi sidik jari Anda pada sensor, kemudian tahan, lalu beralihlah ke sisi lainnya</string>
-    <string name="security_settings_udfps_enroll_edge_title">Terakhir, posisikan tepi jari Anda pada sensor</string>
+    <string name="security_settings_udfps_enroll_edge_title">Terakhir, gunakan tepi jari Anda</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Sensor sidik jari ada di layar Anda. Anda akan merekam sidik jari Anda di layar berikutnya.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Mulai</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Cara menyiapkan sidik jari</string>
@@ -4550,7 +4570,7 @@ Catatan: Anda tidak dapat menggunakan sidik jari untuk membuka kunci perangkat. 
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Tindakan ini membantu mengambil sidik jari Anda secara lebih menyeluruh</string>
     <string name="security_settings_udfps_enroll_repeat_message">Sentuh lama setiap kali ikon sidik jari berpindah. Tindakan ini membantu mengambil sidik jari Anda secara lebih menyeluruh.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Ikuti ikon sidik jari</string>
-    <string name="security_settings_udfps_enroll_start_message">Letakkan jari Anda di sensor hingga terasa getaran</string>
+    <string name="security_settings_udfps_enroll_start_message">Letakkan sidik jari Anda rata pada sensor hingga terasa getaran</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Sekali lagi</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint untuk profil kerja</string>
     <string name="security_status_title">Status keamanan</string>
@@ -4576,13 +4596,12 @@ Catatan: Anda tidak dapat menggunakan sidik jari untuk membuka kunci perangkat. 
     <string name="select_webview_provider_dialog_title">Setel penerapan WebView</string>
     <string name="select_webview_provider_title">Penerapan WebView</string>
     <string name="select_webview_provider_toast_text">Pilihan ini tidak valid lagi. Coba lagi.</string>
-    <string name="sensor_toggle_description">Untuk semua aplikasi dan layanan</string>
     <string name="sensors_off_quick_settings_title">Sensor Nonaktif</string>
     <string name="service_background_processes">%1$s kosong</string>
     <string name="service_foreground_processes">%1$s digunakan</string>
     <string name="service_manage">Setelan</string>
     <string name="service_manage_description">%1$s: sedang digunakan. Ketuk Setelan untuk mengontrolnya.</string>
-    <string name="service_restarting">Memulai kembali</string>
+    <string name="service_restarting">Memulai ulang</string>
     <string name="service_started_by_app">Dimulai oleh apl.</string>
     <string name="service_stop">Berhenti</string>
     <string name="service_stop_description">Layanan ini dimulai oleh aplikasinya. Menghentikan layanan dapat mengakibatkan gagalnya apl.</string>
@@ -4808,6 +4827,7 @@ PIN Mungkin salah."</string>
     <string name="sound_settings_summary_silent">Pendering disetel senyap</string>
     <string name="sound_settings_summary_vibrate">Pendering disetel bergetar</string>
     <string name="sound_work_settings">Suara profil kerja</string>
+    <string name="spatial_audio_title">Audio spasial</string>
     <string name="special_access">Akses aplikasi khusus</string>
     <string name="special_access_more">Lihat lainnya</string>
     <string name="speed_label_fast">Cepat</string>
@@ -5619,7 +5639,7 @@ Selama panggilan suara, Anda tidak dapat menggunakan internet dan beberapa aplik
     <string name="vpn_turn_on">Aktifkan</string>
     <string name="vpn_type">Jenis</string>
     <string name="vpn_username">Nama pengguna</string>
-    <string name="vpn_version">Versi %s</string>
+    <string name="vpn_version">Versi</string>
     <string name="vr_listener_security_warning_summary">%1$s dapat dijalankan saat Anda sedang menggunakan aplikasi dalam mode virtual reality.</string>
     <string name="vr_listener_security_warning_title">Izinkan akses layanan VR untuk %1$s?</string>
     <string name="vr_listeners_title">Layanan bantuan VR</string>
@@ -5889,7 +5909,7 @@ Menyetel jaringan sebagai tersembunyi tidak akan mengubah setelan router."</stri
     <string name="wifi_not_in_range">Tidak dalam jangkauan</string>
     <string name="wifi_not_in_range_message">Jaringan di luar jangkauan</string>
     <string name="wifi_notify_open_networks">Beri tahu untuk jaringan publik</string>
-    <string name="wifi_notify_open_networks_summary">Jika koneksi otomatis tidak tersedia</string>
+    <string name="wifi_notify_open_networks_summary">Beri tahu ketika jaringan publik verkualitas tinggi tersedia</string>
     <string name="wifi_on_time">Wi-Fi berdasarkan waktu</string>
     <string name="wifi_p2p_cancel_connect_message">Apakah Anda ingin membatalkan undangan untuk terhubung dengan %1$s?</string>
     <string name="wifi_p2p_cancel_connect_title">Batalkan undangan?</string>
@@ -5977,7 +5997,6 @@ Izinkan ini untuk semua aplikasi yang ingin memindai?"</string>
     <string name="wifi_suspend_optimizations">Pengoptimalan Wi-Fi</string>
     <string name="wifi_suspend_optimizations_summary">Minimalkan penggunaan baterai saat Wi-Fi aktif</string>
     <string name="wifi_switch_away_when_unvalidated">Beralih ke data seluler jika Wi-Fi tidak memiliki akses internet.</string>
-    <string name="wifi_switch_summary">Temukan dan hubungkan ke jaringan Wi-Fi</string>
     <string name="wifi_tap_to_sign_in">Ketuk di sini untuk login ke jaringan</string>
     <string name="wifi_tether_configure_ap_text">Siapkan hotspot Wi-Fi</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

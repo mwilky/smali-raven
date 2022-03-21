@@ -83,7 +83,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f090062
+    const v0, 0x7f090065
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -99,7 +99,7 @@
 
     new-instance v2, Lcom/android/settings/accessibility/VibrationPreferenceFragment$VibrationIntensityCandidateInfo;
 
-    const v3, 0x7f04015d
+    const v3, 0x7f040171
 
     invoke-direct {v2, p0, v1, v3, v0}, Lcom/android/settings/accessibility/VibrationPreferenceFragment$VibrationIntensityCandidateInfo;-><init>(Lcom/android/settings/accessibility/VibrationPreferenceFragment;Ljava/lang/String;II)V
 
@@ -109,7 +109,7 @@
 
     new-instance v0, Lcom/android/settings/accessibility/VibrationPreferenceFragment$VibrationIntensityCandidateInfo;
 
-    const v1, 0x7f04015b
+    const v1, 0x7f04016f
 
     const/4 v2, 0x1
 
@@ -123,7 +123,7 @@
 
     new-instance v0, Lcom/android/settings/accessibility/VibrationPreferenceFragment$VibrationIntensityCandidateInfo;
 
-    const v1, 0x7f04015c
+    const v1, 0x7f040170
 
     const/4 v2, 0x2
 
@@ -137,7 +137,7 @@
 
     new-instance v0, Lcom/android/settings/accessibility/VibrationPreferenceFragment$VibrationIntensityCandidateInfo;
 
-    const v1, 0x7f04015a
+    const v1, 0x7f04016e
 
     const/4 v2, 0x3
 
@@ -154,7 +154,7 @@
 
     new-instance v2, Lcom/android/settings/accessibility/VibrationPreferenceFragment$VibrationIntensityCandidateInfo;
 
-    const v3, 0x7f041378
+    const v3, 0x7f04139d
 
     invoke-direct {v2, p0, v1, v3, v0}, Lcom/android/settings/accessibility/VibrationPreferenceFragment$VibrationIntensityCandidateInfo;-><init>(Lcom/android/settings/accessibility/VibrationPreferenceFragment;Ljava/lang/String;II)V
 
@@ -164,7 +164,7 @@
 
     new-instance v0, Lcom/android/settings/accessibility/VibrationPreferenceFragment$VibrationIntensityCandidateInfo;
 
-    const v1, 0x7f041379
+    const v1, 0x7f04139e
 
     invoke-virtual {p0}, Lcom/android/settings/accessibility/VibrationPreferenceFragment;->getDefaultVibrationIntensity()I
 

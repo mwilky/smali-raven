@@ -28,7 +28,7 @@
 
 .field private mDockName:Ljava/lang/String;
 
-.field mDockPreference:Lcom/android/settings/widget/SingleTargetGearPreference;
+.field mDockPreference:Lcom/android/settings/widget/GearPreference;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 .end field
@@ -51,7 +51,7 @@
 
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/SingleTargetGearPreference;
+    iput-object v0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/GearPreference;
 
     iput-object v0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mPreferenceContext:Landroid/content/Context;
 
@@ -99,7 +99,7 @@
 .method private updatePreference()V
     .locals 3
 
-    iget-object v0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/SingleTargetGearPreference;
+    iget-object v0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/GearPreference;
 
     if-nez v0, :cond_0
 
@@ -114,7 +114,7 @@
 
     if-eqz v0, :cond_2
 
-    iget-object v0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/SingleTargetGearPreference;
+    iget-object v0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/GearPreference;
 
     invoke-virtual {v0}, Landroidx/preference/Preference;->isVisible()Z
 
@@ -122,7 +122,7 @@
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/SingleTargetGearPreference;
+    iget-object v0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/GearPreference;
 
     const/4 v1, 0x0
 
@@ -130,7 +130,7 @@
 
     iget-object v0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDevicePreferenceCallback:Lcom/android/settings/connecteddevice/DevicePreferenceCallback;
 
-    iget-object p0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/SingleTargetGearPreference;
+    iget-object p0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/GearPreference;
 
     invoke-interface {v0, p0}, Lcom/android/settings/connecteddevice/DevicePreferenceCallback;->onDeviceRemoved(Landroidx/preference/Preference;)V
 
@@ -138,7 +138,7 @@
     return-void
 
     :cond_2
-    iget-object v0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/SingleTargetGearPreference;
+    iget-object v0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/GearPreference;
 
     iget-object v1, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mPreferenceContext:Landroid/content/Context;
 
@@ -150,7 +150,7 @@
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
-    iget-object v0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/SingleTargetGearPreference;
+    iget-object v0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/GearPreference;
 
     iget-object v1, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockName:Ljava/lang/String;
 
@@ -166,7 +166,7 @@
 
     if-nez v0, :cond_3
 
-    iget-object v0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/SingleTargetGearPreference;
+    iget-object v0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/GearPreference;
 
     iget-object v2, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockId:Ljava/lang/String;
 
@@ -176,12 +176,12 @@
 
     invoke-virtual {v0, v2}, Landroidx/preference/Preference;->setIntent(Landroid/content/Intent;)V
 
-    iget-object v0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/SingleTargetGearPreference;
+    iget-object v0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/GearPreference;
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setSelectable(Z)V
 
     :cond_3
-    iget-object v0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/SingleTargetGearPreference;
+    iget-object v0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/GearPreference;
 
     invoke-virtual {v0}, Landroidx/preference/Preference;->isVisible()Z
 
@@ -189,13 +189,13 @@
 
     if-nez v0, :cond_4
 
-    iget-object v0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/SingleTargetGearPreference;
+    iget-object v0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/GearPreference;
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setVisible(Z)V
 
     iget-object v0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDevicePreferenceCallback:Lcom/android/settings/connecteddevice/DevicePreferenceCallback;
 
-    iget-object p0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/SingleTargetGearPreference;
+    iget-object p0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/GearPreference;
 
     invoke-interface {v0, p0}, Lcom/android/settings/connecteddevice/DevicePreferenceCallback;->onDeviceAdded(Landroidx/preference/Preference;)V
 
@@ -234,7 +234,7 @@
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
-    iget-object v0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/SingleTargetGearPreference;
+    iget-object v0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/GearPreference;
 
     if-nez v0, :cond_0
 
@@ -244,19 +244,19 @@
 
     invoke-static {v0, v1}, Lcom/google/common/base/Preconditions;->checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    new-instance v0, Lcom/android/settings/widget/SingleTargetGearPreference;
+    new-instance v0, Lcom/android/settings/widget/GearPreference;
 
     iget-object v1, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mPreferenceContext:Landroid/content/Context;
 
     const/4 v2, 0x0
 
-    invoke-direct {v0, v1, v2}, Lcom/android/settings/widget/SingleTargetGearPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+    invoke-direct {v0, v1, v2}, Lcom/android/settings/widget/GearPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    iput-object v0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/SingleTargetGearPreference;
+    iput-object v0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/GearPreference;
 
     iget-object v1, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f040828
+    const v2, 0x7f040840
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -264,13 +264,13 @@
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
 
-    iget-object v0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/SingleTargetGearPreference;
+    iget-object v0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/GearPreference;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setSelectable(Z)V
 
-    iget-object p0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/SingleTargetGearPreference;
+    iget-object p0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/GearPreference;
 
     invoke-virtual {p0, v1}, Landroidx/preference/Preference;->setVisible(Z)V
 
@@ -322,7 +322,7 @@
     goto :goto_0
 
     :cond_0
-    iget-object p2, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/SingleTargetGearPreference;
+    iget-object p2, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/GearPreference;
 
     if-eqz p2, :cond_1
 
@@ -332,13 +332,13 @@
 
     if-eqz p2, :cond_1
 
-    iget-object p2, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/SingleTargetGearPreference;
+    iget-object p2, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/GearPreference;
 
     invoke-virtual {p2, p1}, Landroidx/preference/Preference;->setVisible(Z)V
 
     iget-object p1, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDevicePreferenceCallback:Lcom/android/settings/connecteddevice/DevicePreferenceCallback;
 
-    iget-object p0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/SingleTargetGearPreference;
+    iget-object p0, p0, Lcom/google/android/settings/connecteddevice/dock/ConnectedDockUpdater;->mDockPreference:Lcom/android/settings/widget/GearPreference;
 
     invoke-interface {p1, p0}, Lcom/android/settings/connecteddevice/DevicePreferenceCallback;->onDeviceRemoved(Landroidx/preference/Preference;)V
 

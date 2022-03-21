@@ -116,7 +116,7 @@
 
     if-eqz v0, :cond_0
 
-    const-string v1, "show_apn_setting_cdma_bool"
+    const-string/jumbo v1, "show_apn_setting_cdma_bool"
 
     invoke-virtual {v0, v1}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
 
@@ -220,6 +220,16 @@
     return-object p0
 .end method
 
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public handlePreferenceTreeClick(Landroidx/preference/Preference;)Z
     .locals 3
 
@@ -251,7 +261,7 @@
 
     iget v0, p0, Lcom/android/settings/network/telephony/TelephonyBasePreferenceController;->mSubId:I
 
-    const-string v2, "sub_id"
+    const-string/jumbo v2, "sub_id"
 
     invoke-virtual {p1, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 

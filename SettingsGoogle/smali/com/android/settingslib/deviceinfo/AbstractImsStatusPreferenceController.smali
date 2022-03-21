@@ -109,7 +109,7 @@
     :goto_0
     if-eqz p0, :cond_1
 
-    const-string v0, "show_ims_registration_status_bool"
+    const-string/jumbo v0, "show_ims_registration_status_bool"
 
     invoke-virtual {p0, v0}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
 

@@ -51,7 +51,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "usb_audio"
+    const-string/jumbo p0, "usb_audio"
 
     return-object p0
 .end method
@@ -67,7 +67,7 @@
 
     move-result-object v0
 
-    const-string v1, "usb_audio_automatic_routing_disabled"
+    const-string/jumbo v1, "usb_audio_automatic_routing_disabled"
 
     const/4 v2, 0x0
 
@@ -117,7 +117,7 @@
 
     move-result-object p0
 
-    const-string p2, "usb_audio_automatic_routing_disabled"
+    const-string/jumbo p2, "usb_audio_automatic_routing_disabled"
 
     invoke-static {p0, p2, p1}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
@@ -135,7 +135,7 @@
 
     move-result-object p1
 
-    const-string v0, "usb_audio_automatic_routing_disabled"
+    const-string/jumbo v0, "usb_audio_automatic_routing_disabled"
 
     const/4 v1, 0x0
 

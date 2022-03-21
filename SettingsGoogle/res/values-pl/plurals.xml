@@ -211,10 +211,10 @@
         <item quantity="many">%1$d z %2$d aplikacji ma dostęp do lokalizacji</item>
     </plurals>
     <plurals name="location_settings_summary_location_on">
-        <item quantity="other">Włączono – %1$d aplikacji ma dostęp do lokalizacji</item>
-        <item quantity="one">Włączono – %1$d aplikacja ma dostęp do lokalizacji</item>
-        <item quantity="few">Włączono – %1$d aplikacje mają dostęp do lokalizacji</item>
-        <item quantity="many">Włączono – %1$d aplikacji ma dostęp do lokalizacji</item>
+        <item quantity="other">Włączona – %1$d aplikacji ma dostęp do lokalizacji</item>
+        <item quantity="one">Włączona – %1$d aplikacja ma dostęp do lokalizacji</item>
+        <item quantity="few">Włączona – %1$d aplikacje mają dostęp do lokalizacji</item>
+        <item quantity="many">Włączona – %1$d aplikacji ma dostęp do lokalizacji</item>
     </plurals>
     <plurals name="lockpassword_password_requires_letters">
         <item quantity="other">Musi zawierać co najmniej %d litery</item>

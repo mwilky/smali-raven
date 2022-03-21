@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Gladde Vertoning</string>
     <string name="peak_refresh_rate_summary">Verhoog die herlaaikoers vir sommige inhoud outomaties van 60 na 90 Hz. Verhoog batterygebruik.</string>
     <string name="accessibility_vibration_settings_title">Vibrasie en fisiese terugvoer</string>
+    <string name="columbus_title">Dubbeltik om handelinge te begin</string>
     <string name="emergency_gesture_screen_title">Nood-SOS</string>
     <string name="abc_action_mode_done">Klaar</string>
     <string name="vibrate_for_calls_category_title">Oproepe</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Wys toestelkontroles</string>
     <string name="lockscreen_privacy_wallet_summary">Laat toegang tot beursie vanaf sluitskerm en kitsinstellings toe</string>
     <string name="lockscreen_privacy_controls_summary">Toegangkontroles wanneer dit gesluit is</string>
+    <string name="lockscreen_double_line_clock_summary">Wys dubbellynhorlosie as dit beskikbaar is</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Dubbellynhorlosie</string>
     <string name="abc_activity_chooser_view_see_all">Sien alles</string>
     <string name="abc_activitychooserview_choose_application">"Kies 'n program"</string>
     <string name="abc_capital_off">AF</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Wekkervibrasie</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Active Edge is opgestel. Gaan na die volgende skerm toe of hou aan om te verstel.</string>
     <string name="accessibility_audio_adjustment_title">Oudio-aanpassing</string>
+    <string name="accessibility_autoclick_about_title">Oor outoklik (stilstandtydtelling)</string>
     <string name="accessibility_autoclick_custom_title">Gepasmaak</string>
     <string name="accessibility_autoclick_default_title">Af</string>
     <string name="accessibility_autoclick_description">"Outoklik werk met 'n gekoppelde muis. Jy kan die muisskermpyltjie stel om outomaties te klik wanneer die skermpyltjie vir 'n sekere tydperk nie beweeg het nie."</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Kom meer te wete oor outoklik (stilstandtydtelling)</string>
     <string name="accessibility_autoclick_long_summary">1 sekonde</string>
     <string name="accessibility_autoclick_long_title">Lank</string>
     <string name="accessibility_autoclick_longer_desc">Langer</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Kort</string>
     <string name="accessibility_autoclick_shorter_desc">Korter</string>
     <string name="accessibility_banner_message_dismiss">Weier</string>
-    <string name="accessibility_button_description">"Kry van enige skerm af vinnig toegang tot toeganklikheidskenmerke. 
+    <string name="accessibility_button_about_title">Meer oor toeganklikheidknoppie</string>
+    <string name="accessibility_button_description">"Kry vinnig toegang tot toeganklikheidskenmerke op enige skerm.
 
-Gaan na toeganklikheidinstellings en kies 'n kenmerk om te begin. Tik op die kortpad en kies die toeganklikheidknoppie."</string>
+Gaan na toeganklikheidsinstellings en kies 'n kenmerk om te begin. Tik op die kortpad en kies die toeganklikheidknoppie."</string>
     <string name="accessibility_button_fade_summary">"Verdof ná 'n paar sekondes sodat dit makliker is om jou skerm te sien"</string>
     <string name="accessibility_button_fade_title">Verdof wanneer dit nie gebruik word nie</string>
+    <string name="accessibility_button_gesture_about_title">Meer oor toeganklikheidknoppie en -gebaar</string>
     <string name="accessibility_button_gesture_description">"Kry vinnig toegang tot toeganklikheidskenmerke op enige skerm.
 
-Gaan na toeganklikheidsinstellings en kies 'n kenmerk om te begin. Tik op die kortpad en kies die toeganklikheidsknoppie.
-
-Skakel oor na 2-knoppienavigasie of 3-knoppienavigasie om eerder die toeganklikheidsknoppie in die navigasiebalk te gebruik."</string>
+Gaan na toeganklikheidsinstellings en kies 'n kenmerk om te begin. Tik op die kortpad en kies die toeganklikheidknoppie of -gebaar."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Kom meer te wete oor toeganklikheidknoppie en -gebaar</string>
     <string name="accessibility_button_gesture_title">Toeganklikheidsknoppie en -gebaar</string>
     <string name="accessibility_button_high_label">Ondeursigtig</string>
     <string name="accessibility_button_intro">Gebruik tans toeganklikheidsknoppie. Die gebaar is nie beskikbaar met 3-knoppienavigasie nie.</string>
@@ -184,14 +190,23 @@ Skakel oor na 2-knoppienavigasie of 3-knoppienavigasie om eerder die toeganklikh
     <string name="accessibility_caption_preference_summary">Nie alle programme steun hierdie onderskrifvoorkeure nie</string>
     <string name="accessibility_caption_primary_switch_summary">Net vir gesteunde program</string>
     <string name="accessibility_caption_primary_switch_title">Wys onderskrifte</string>
+    <string name="accessibility_captioning_about_title">Meer oor onderskrifvoorkeure</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Kom meer te wete oor onderskrifvoorkeure</string>
     <string name="accessibility_captioning_title">Onderskrifvoorkeure</string>
     <string name="accessibility_category_personal">Persoonlikeprofielrekeninge</string>
     <string name="accessibility_category_work">Werkprofielrekeninge – %s</string>
+    <string name="accessibility_color_inversion_about_title">Meer oor kleuromkering</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Kom meer te wete oor kleuromkering</string>
+    <string name="accessibility_control_timeout_about_title">Meer oor Tyd vir Aksie (toeganklikheiduittelling)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Kom meer te wete oor Tyd vir Aksie (toeganklikheiduittelling)</string>
     <string name="accessibility_control_timeout_preference_summary">"Kies hoe lank om boodskappe te wys wat jou vra om iets te doen, maar wat net tydelik sigbaar is.
 
 Nie alle programme ondersteun hierdie instelling nie."</string>
     <string name="accessibility_control_timeout_preference_title">Tyd om iets te doen</string>
+    <string name="accessibility_daltonizer_about_title">Meer oor kleurregstelling</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Kom meer te wete oor kleurregstelling</string>
     <string name="accessibility_daltonizer_primary_switch_title">Gebruik kleurregstelling</string>
+    <string name="accessibility_daltonizer_shortcut_title">Kleurregstellingkortpad</string>
     <string name="accessibility_data_one_bar">Data, een staaf.</string>
     <string name="accessibility_data_signal_full">Datasein vol.</string>
     <string name="accessibility_data_three_bars">Data, drie stawe.</string>
@@ -206,6 +221,7 @@ Nie alle programme ondersteun hierdie instelling nie."</string>
     <string name="accessibility_display_daltonizer_preference_title">Kleurregstelling</string>
     <string name="accessibility_display_inversion_preference_subtitle">"Kleuromkering maak ligte skerms donker.&lt;br/>&lt;br/> Let wel: &lt;ol> &lt;li> Kleuromkering maak ook donker skerms lig.&lt;/li> &lt;li> Kleure in media en prente sal verander.&lt;/li> &lt;li> Donkertema kan gebruik word om 'n donker agtergrond te vertoon. Donkertema werk goed saam met gesteunde programme. Kleuromkering werk op alle programme.&lt;/li> &lt;/ol>"</string>
     <string name="accessibility_display_inversion_preference_title">Kleuromkering</string>
+    <string name="accessibility_display_inversion_shortcut_title">Kleuromkeringkortpad</string>
     <string name="accessibility_display_inversion_switch_title">Gebruik kleuromkering</string>
     <string name="accessibility_ethernet_connected">Ethernet.</string>
     <string name="accessibility_ethernet_disconnected">Ethernet is ontkoppel.</string>
@@ -255,6 +271,8 @@ Die toeganklikheidknoppie sweef op jou skerm oor ander programme. Tik dit om te 
     <string name="accessibility_phone_two_bars">Foon, twee stawe.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Kragknoppie beëindig oproep</string>
     <string name="accessibility_preference_magnification_summary">Zoem in op skerm</string>
+    <string name="accessibility_screen_magnification_about_title">Meer oor vergroting</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Kom meer te wete oor vergroting</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">Die toeganklikheidgebaar is gestel op die %1$s. Swiep met twee vingers op van die onderkant van die skerm af en hou om vergroting te gebruik. Kies dan vergroting.</string>
     <string name="accessibility_screen_magnification_gestures_title">Vergroot met trippeltik</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">Die Toeganklikheidsknoppie is gestel op %1$s. Raak en hou die Toeganklikheidsknoppie en kies vergroting as jy vergroting wil gebruik.</string>
@@ -272,6 +290,7 @@ Die toeganklikheidknoppie sweef op jou skerm oor ander programme. Tik dit om te 
 Jy kan nie op die sleutelbord of die navigasiebalk inzoem nie."</string>
     <string name="accessibility_screen_magnification_navbar_title">Vergroot met kortpad</string>
     <string name="accessibility_screen_magnification_short_summary">Tik 3 keer om te zoem</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Vergrotingkortpad</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Vergroot met kortpad en trippeltik</string>
     <string name="accessibility_screen_magnification_summary">Zoem vinnig in op die skerm om inhoud groter te maak.&lt;br/>&lt;br/> &lt;b>Zoem só in:&lt;/b>&lt;br/> {0,number,integer}. Gebruik kortpad om vergroting te begin&lt;br/> {1,number,integer}. Tik op die skerm&lt;br/> {2,number,integer}. Sleep 2 vingers om op die skerm rond te beweeg&lt;br/> {3,number,integer}. Knyp met 2 vingers om die zoem te verstel&lt;br/> {4,number,integer}. Gebruik kortpad om vergroting te stop&lt;br/>&lt;br/> &lt;b>Zoem só tydelik in:&lt;/b>&lt;br/> {0,number,integer}. Gebruik kortpad om vergroting te begin&lt;br/> {1,number,integer}. Raak en hou enige plek op die skerm&lt;br/> {2,number,integer}. Sleep vinger om op die skerm rond te beweeg&lt;br/> {3,number,integer}. Lig vinger om vergroting te stop</string>
     <string name="accessibility_screen_magnification_title">Vergroting</string>
@@ -370,7 +389,7 @@ Swiep met 3 vingers op en hou om tussen kenmerke te wissel."</string>
     <string name="accessibility_tutorial_dialog_message_volume">Druk en hou albei volumesleutels om hierdie kenmerk te gebruik.</string>
     <string name="accessibility_tutorial_dialog_title_button">Gebruik toeganklikheidknoppie om oop te maak</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Gebruik gebaar om oop te maak</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Gebruik nuwe toeganklikheidgebaar</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Gebruik toeganklikheidsgebaar</string>
     <string name="accessibility_tutorial_dialog_title_triple">Tripeltik op skerm om oop te maak</string>
     <string name="accessibility_tutorial_dialog_title_volume">Hou volumesleutels om oop te maak</string>
     <string name="accessibility_tutorial_pager">Bladsy %1$d van %2$d</string>
@@ -936,6 +955,7 @@ Nadat dit teruggestel is, volg die opstelproses en kies om jou data van jou vori
     <string name="battery_level_title">Batteryvlak</string>
     <string name="battery_manager_off">Af</string>
     <string name="battery_manager_summary">Verleng batterylewe en optimeer die laaiproses</string>
+    <string name="battery_manager_summary_unsupported">Verleng batterylewe</string>
     <string name="battery_missing_link_a11y_message">Tik om meer oor hierdie fout te wete te kom</string>
     <string name="battery_missing_link_message">Kom meer te wete</string>
     <string name="battery_missing_message">Kon nie die batterymeter lees nie.</string>
@@ -1010,7 +1030,7 @@ Jy kan altyd Batterybespaarder aanskakel as jou battery begin pap raak."</string
     <string name="battery_tip_early_heads_up_title">Skakel Batterybespaarder aan</string>
     <string name="battery_tip_high_usage_summary">Sien programme met die hoogste gebruik</string>
     <string name="battery_tip_high_usage_title">Hoër battery gebruik</string>
-    <string name="battery_tip_limited_temporarily_dialog_msg">"In sekere omstandighede, soos hoë temperature en lang laaitydperke, kan die laaiproses tot %1$s beperk word om te help om batterygesondheid in stand te hou.
+    <string name="battery_tip_limited_temporarily_dialog_msg">"In sekere omstandighede, soos hoë temperature en lang laaitydperke, kan die laaiproses tot %1$s beperk word om die battery gesond te hou.
 
 Wanneer dié omstandighede eindig, sal jou foon outomaties normaalweg laai."</string>
     <string name="battery_tip_limited_temporarily_dialog_resume_charge">Hervat laaiproses</string>
@@ -1061,6 +1081,7 @@ tydens ^2"</string>
     <string name="battery_usage_screen_footer">Battery se gebruikdata is benaderd en meet nie gebruik terwyl die foon laai nie</string>
     <string name="battery_usage_screen_footer_empty">"Batterygebruiksdata sal beskikbaar wees nadat jy jou foon 'n paar uur lank gebruik het"</string>
     <string name="battery_usage_total_less_than_one_minute">"Total: minder as 'n min."</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s gebruik deur %2$s</string>
     <string name="battery_used_for">^1 lank gebruik</string>
     <string name="bearer">Draer</string>
@@ -1069,12 +1090,14 @@ tydens ^2"</string>
     <string name="billing_cycle_less_than_one_day_left">Minder as 1 dag oor</string>
     <string name="billing_cycle_none_left">Geen tyd oor nie</string>
     <string name="biometric_settings_category_ways_to_unlock">Maniere om te ontsluit</string>
-    <string name="biometric_settings_category_ways_to_use">Gebruik gesig en vingerafdruk vir</string>
     <string name="biometric_settings_hand_back_to_guardian">Gee die foon terug vir jou ouer</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">OK</string>
     <string name="biometric_settings_intro">"Wanneer jy Gesigslot en Vingerafdrukslot opstel, sal jou foon vir jou vingerafdruk vra as jy 'n masker dra of op 'n donker plek is"</string>
-    <string name="biometric_settings_use_biometric_for_apps">Stawing in programme</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">Ontsluit tans jou foon</string>
+    <string name="biometric_settings_use_biometric_for_apps">Verifieer dat dit jy is in programme</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">Ontsluit jou foon</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Gebruik gesig of vingerafdruk</string>
+    <string name="biometric_settings_use_face_preference_summary">Gebruik gesig</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Gebruik vingerafdruk</string>
     <string name="biometrics_unlock_set_unlock_password">Wagwoord • Gesig • Vingerafdruk</string>
     <string name="biometrics_unlock_set_unlock_pattern">Patroon • Gesig • Vingerafdruk</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN • Gesig • Vingerafdruk</string>
@@ -1332,7 +1355,6 @@ Keuse"</string>
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Wys Bluetooth-toestelle sonder name</string>
     <string name="bluetooth_show_devices_without_names_summary">Bluetooth-toestelle sonder name (net MAC-adresse) sal gewys word</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Lêers deur Bluetooth ontvang</string>
     <string name="bluetooth_show_received_files">Lêers wat ontvang is</string>
     <string name="bluetooth_sim_card_access_dialog_content">"'n Bluetooth-toestel, %1$s, wil toegang tot data op jou SIM-kaart hê. Dit sluit jou kontakte in.
 
@@ -1426,6 +1448,7 @@ As jy 'n CA-sertifikaat installeer, kan die sertifikaateienaar dalk toegang kry 
     <string name="calls_sms_temp_unavailable">Tydelik nie beskikbaar nie</string>
     <string name="calls_sms_unavailable">nie beskikbaar nie</string>
     <string name="calls_sms_wfc_summary">Maak en ontvang oproepe oor wi-fi</string>
+    <string name="cam_toggle_description">Vir programme en dienste</string>
     <string name="camera_double_tap_power_gesture_desc">Maak kamera vinnig oop sonder om jou skerm te ontsluit</string>
     <string name="camera_double_tap_power_gesture_title">Druk aan/af-skakelaar 2 keer vir kamera</string>
     <string name="camera_laser_sensor_switch">Kameralasersensor</string>
@@ -3302,6 +3325,7 @@ Daar is ander gebruikers op hierdie toestel teenwoordig.
     <string name="menu_stats_total">Gebruikstotale</string>
     <string name="menu_stats_unplugged">%1$s sedert uitgeprop is</string>
     <string name="menu_use_uss">Gebruik Uss</string>
+    <string name="mic_toggle_description">"Vir programme en dienste. As hierdie instelling af is, kan mikrofoondata steeds gedeel word wanneer jy 'n noodnommer bel."</string>
     <string name="mic_toggle_title">Mikrofoontoegang</string>
     <string name="misc_files">Diverse lêers</string>
     <string name="misc_files_selected_count">het %1$d gekies uit %2$d</string>
@@ -3728,6 +3752,7 @@ Dit sal die program ook in staat stel om Moenie Steur Nie aan of af te skakel en
     <string name="one_handed_action_show_notification_title">Wys kennisgewings</string>
     <string name="one_handed_mode_enabled">Gebruik eenhandmodus</string>
     <string name="one_handed_mode_intro_text">Swiep af van die onderkant van die skerm af om eenhandmodus te gebruik. Maak seker dat gebaarnavigasie in stelselnavigasie-instellings aangeskakel is as jy hierdie kenmerk wil gebruik.</string>
+    <string name="one_handed_mode_shortcut_title">Kortpad vir eenhandmodus</string>
     <string name="one_handed_mode_swipe_down_category">Swiep af om die volgende te doen:</string>
     <string name="one_handed_mode_use_shortcut_category">Gebruik die kortpad om</string>
     <string name="one_usercrt">een gebruikersertifikaat</string>
@@ -3803,7 +3828,7 @@ Dit sal die program ook in staat stel om Moenie Steur Nie aan of af te skakel en
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s is aktief</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Kamera</string>
-    <string name="power_cell">Mobiele netwerk se bystandmodus</string>
+    <string name="power_cell">Selnetwerk</string>
     <string name="power_charge_remaining">%1$s tot gelaai</string>
     <string name="power_charging">%1$s – %2$s</string>
     <string name="power_charging_duration">%1$s – %2$s oor tot vol</string>
@@ -4037,6 +4062,7 @@ Druk tegelyk aan/af-skakelaar en volume harder."</string>
     <string name="recent_notifications">Onlangs gestuur</string>
     <string name="recent_notifications_see_all_title">Sien alles van afgelope 7 dae</string>
     <string name="recompute_size">Herbereken tans grootte…</string>
+    <string name="reduce_bright_colors_about_title">Meer oor ekstra donker</string>
     <string name="reduce_bright_colors_intensity_end_label">Helderder</string>
     <string name="reduce_bright_colors_intensity_preference_title">Intensiteit</string>
     <string name="reduce_bright_colors_intensity_start_label">Dowwer</string>
@@ -4044,6 +4070,7 @@ Druk tegelyk aan/af-skakelaar en volume harder."</string>
     <string name="reduce_bright_colors_preference_subtitle">"Maak jou skerm donkerder sodat dit geriefliker is om te lees.&lt;br/>&lt;br/> Dit kan nuttig wees wanneer: &lt;ol> &lt;li> Jou foon se verstek- minimum helderheid steeds te helder is&lt;/li> &lt;li> Jy jou foon in donker situasies gebruik, soos snags of in 'n donker vertrek voor slaaptyd&lt;/li> &lt;/ol>"</string>
     <string name="reduce_bright_colors_preference_summary">Maak skerm donkerder as jou foon se minimum helderheid</string>
     <string name="reduce_bright_colors_preference_title">Ekstra donker</string>
+    <string name="reduce_bright_colors_shortcut_title">Ekstra Donker-kortpad</string>
     <string name="reduce_bright_colors_switch_title">Maak skerm ekstra donker</string>
     <string name="register_automatically">Outomatiese registrasie …</string>
     <string name="register_on_network">Registreer tans op %s …</string>
@@ -4249,7 +4276,6 @@ Om programvasspeld te gebruik: \u0009
     <string name="screen_pinning_unlock_pattern">Vra ontsluitpatroon voordat jy ontspeld</string>
     <string name="screen_pinning_unlock_pin">Vra PIN voordat jy ontspeld</string>
     <string name="screen_reader_category_title">Skermleser</string>
-    <string name="screen_saver_main_switch_title">Gebruik sluimerskerm</string>
     <string name="screen_time_summary_usage_today">%1$s vandag</string>
     <string name="screen_timeout_summary">Na %1$s se onaktiwiteit</string>
     <string name="screen_timeout_title">Skerm skakel af</string>
@@ -4279,6 +4305,7 @@ Om programvasspeld te gebruik: \u0009
     <string name="screensaver_settings_button">Instellings</string>
     <string name="screensaver_settings_current">Huidige sluimerskerm</string>
     <string name="screensaver_settings_disabled_prompt">Skakel sluimerskerm aan om te beheer wat gebeur wanneer die foon gedok is en/of slaap.</string>
+    <string name="screensaver_settings_dream_start">Begin nou</string>
     <string name="screensaver_settings_summary_dock">Terwyl dit gedok is</string>
     <string name="screensaver_settings_summary_either_long">Terwyl dit laai of gedok is</string>
     <string name="screensaver_settings_summary_either_short">Enige een</string>
@@ -4329,15 +4356,6 @@ Om programvasspeld te gebruik: \u0009
     <string name="security_settings_biometric_preference_summary_both_fp_single">Gesig en vingerafdruk is bygevoeg</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Tik om op te stel</string>
     <string name="security_settings_biometric_preference_title">Gesigslot en vingerafdrukslot</string>
-    <string name="security_settings_biometrics_description">"Wanneer jy Gesigslot of Vingerafdrukslot opstel, sal jou foon vir jou vingerafdruk vra as jy 'n masker dra of op 'n donker plek is"</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Stawing in programme</string>
-    <string name="security_settings_biometrics_preferences_category">Gebruik gesig of vingerafdruk vir</string>
-    <string name="security_settings_biometrics_summary_both">Gesig en vingerafdruk</string>
-    <string name="security_settings_biometrics_summary_face">Net gesig</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Net vingerafdruk</string>
-    <string name="security_settings_biometrics_summary_none">Tik om op te stel</string>
-    <string name="security_settings_biometrics_title">Gesigslot en Vingerafdrukslot</string>
-    <string name="security_settings_biometrics_types_category">Maniere om te ontsluit</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Laat Gesigslot toe</string>
     <string name="security_settings_face_enroll_dialog_ok">OK</string>
     <string name="security_settings_face_enroll_done">Klaar</string>
@@ -4385,16 +4403,17 @@ Kom meer te wete by g.co/pixel/faceunlock."</string>
     <string name="security_settings_face_enroll_introduction_control_title">Jy is in beheer</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message">"Gesigslot skep 'n unieke model van jou kind se gesig om te verifieer dis hy of sy. Jou kind sal sy of haar gesig uit verskillende hoeke afneem om hierdie gesigmodel tydens die opstelling te skep.
 
-Wanneer jou kind Gesigslot gebruik, word prente gebruik om sy of haar gesigmodel op te dateer. Prente wat gebruik word om jou kind se gesigmodel te skep, word nooit geberg nie. Die gesigmodel word egter veilig op die foon geberg en verlaat nooit die foon nie. Alle verwerking vind veilig op die foon plaas."</string>
+Wanneer jou kind Gesigslot gebruik, word prente gebruik om sy of haar gesigmodel op te dateer. Prente wat gebruik word om jou kind se gesigmodel te skep, word nie geberg nie. Die gesigmodel word egter veilig op die foon geberg en verlaat nooit die foon nie. Alle verwerking vind veilig op die foon plaas."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"Gesigslot skep 'n unieke model van jou gesig om te verifieer dis jy. Jy sal jou gesig uit verskillende hoeke afneem om hierdie gesigmodel tydens die opstelling te skep.
 
-Wanneer jy Gesigslot gebruik, word prente gebruik om jou gesigmodel op te dateer. Prente wat gebruik word om jou gesigmodel te skep, word nooit geberg nie. Die gesigmodel word veilig op jou foon geberg en verlaat nooit die foon nie. Alle verwerking vind veilig op jou foon plaas."</string>
+Wanneer jy Gesigslot gebruik, word prente gebruik om jou gesigmodel op te dateer. Prente wat gebruik word om jou gesigmodel te skep, word nie geberg nie. Die gesigmodel word veilig op jou foon geberg en verlaat nooit die foon nie. Alle verwerking vind veilig op jou foon plaas."</string>
     <string name="security_settings_face_enroll_introduction_how_title">Hoe dit werk</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">Gesigslot kan vereis dat jou kind se oë oop moet wees om die foon te ontsluit of te verifieer dis hy of sy. Jy en jou kind kan enige tyd hierdie opsie in Instellings afskakel.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">"As jou kind gewoonlik 'n bril dra, kan hy of sy dit gedurende die opstelling dra."</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">"As jou kind na die foon kyk, kan dit ontsluit selfs al het hulle nie bedoel om dit te doen nie. Jou kind se foon kan ook ontsluit word deur iemand wat baie soos hy of sy lyk, soos 'n identiese broer of suster, of wanneer iemand dit voor jou kind se gesig hou."</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Gesigslot kan vereis dat jou oë oop moet wees om die foon te ontsluit of te verifieer dis jy. Jy kan hierdie opsie enige tyd in Instellings afskakel.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">"'n Bril of sonbril met ligte tint is nie 'n probleem nie."</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">"Dit kan dalk minder veilig wees om die foon met 'n gesig te ontsluit eerder as met 'n sterk patroon of PIN."</string>
     <string name="security_settings_face_enroll_introduction_info_looking">"As jy na die foon kyk, kan dit ontsluit selfs al het jy nie bedoel om dit te doen nie. Jou foon kan ook ontsluit word deur iemand wat baie soos jy lyk, soos 'n identiese broer of suster, of wanneer iemand dit voor jou gesig hou."</string>
     <string name="security_settings_face_enroll_introduction_info_title">Hou in gedagte</string>
     <string name="security_settings_face_enroll_introduction_message">"Gebruik jou gesig om jou foon te ontsluit of te verifieer dis jy, soos wanneer jy by programme aanmeld of 'n aankoop goedkeur."</string>
@@ -4452,13 +4471,14 @@ Iemand anders kan jou foon ontsluit as dit voor jou gesig gehou word, selfs as j
 
 Iemand ander wat baie soos jy lyk, soos 'n identiese broer of suster, kan jou foon ontsluit."</string>
     <string name="security_settings_face_settings_preferences_category">Wanneer jy Gesigslot gebruik</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Jou gesigmodel sal permanent en veilig uitgevee word. Nadat dit uitgevee is, sal jy jou vingerafdruk, PIN, patroon of wagwoord nodig hê om jou foon te ontsluit of vir stawing in programme.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Jou gesigmodel sal permanent en veilig uitgevee word. 
+
+Nadat dit uitgevee is, sal jy jou PIN, patroon of wagwoord nodig hê om jou foon te ontsluit of vir stawing in programme."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Jou gesigmodel sal permanent en veilig uitgevee word. 
+
+Nadat dit uitgevee is, sal jy jou PIN, patroon of wagwoord nodig hê om jou foon te ontsluit."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Vee gesigmodel uit?</string>
     <string name="security_settings_face_settings_remove_face_model">Vee gesigmodel uit</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Jou gesigmodel sal permanent en veilig uitgevee word.
-
-Nadat dit uitgevee is, sal jy jou vingerafdruk, PIN, patroon of wagwoord nodig hê om jou foon te ontsluit of vir stawing in programme."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Vee gesigmodel uit?</string>
     <string name="security_settings_face_settings_require_attention">Vereis dat oë oop moet wees</string>
     <string name="security_settings_face_settings_require_attention_details">Jou oë moet oop wees om die foon te ontsluit</string>
     <string name="security_settings_face_settings_require_confirmation">Vereis altyd bevestiging</string>
@@ -4541,7 +4561,7 @@ Let wel: Jy kan nie jou vingerafdruk gebruik om hierdie toestel te ontsluit nie.
     <string name="security_settings_title">Sekuriteit</string>
     <string name="security_settings_udfps_enroll_a11y">Beweeg jou vinger oor die skerm om die sensor te kry. Raak en hou die vingerafdruksensor.</string>
     <string name="security_settings_udfps_enroll_edge_message">Plaas die kant van jou vingerafdruk op die sensor en hou; ruil dan om na die ander kant</string>
-    <string name="security_settings_udfps_enroll_edge_title">Plaas laaste die kante van jou vinger</string>
+    <string name="security_settings_udfps_enroll_edge_title">Gebruik laastens die kante van jou vinger</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Die vingerafdruksensor is op jou skerm. Jy sal jou vingerafdruk op die volgende skerm vasvang.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Begin</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Hoe om jou vingerafdruk op te stel</string>
@@ -4550,7 +4570,7 @@ Let wel: Jy kan nie jou vingerafdruk gebruik om hierdie toestel te ontsluit nie.
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Dit help om meer van jou vingerafdruk vas te vang</string>
     <string name="security_settings_udfps_enroll_repeat_message">Raak en hou elke keer wanneer die vingerafdrukikoon skuif. Dit help om meer van jou vingerafdruk vas te vang.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Volg die vingerafdrukikoon</string>
-    <string name="security_settings_udfps_enroll_start_message">"Hou jou vinger op die sensor totdat jy 'n vibrasie voel"</string>
+    <string name="security_settings_udfps_enroll_start_message">"Hou jou vingerafdruk plat op die sensor totdat jy 'n vibrasie voel"</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Nog een keer</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint vir werk</string>
     <string name="security_status_title">Sekuriteitstatus</string>
@@ -4576,7 +4596,6 @@ Let wel: Jy kan nie jou vingerafdruk gebruik om hierdie toestel te ontsluit nie.
     <string name="select_webview_provider_dialog_title">Stel WebView-implementering</string>
     <string name="select_webview_provider_title">WebView-implementering</string>
     <string name="select_webview_provider_toast_text">Hierdie keuse is nie meer geldig nie. Probeer weer.</string>
-    <string name="sensor_toggle_description">Vir alle programme en dienste</string>
     <string name="sensors_off_quick_settings_title">Sensors Af</string>
     <string name="service_background_processes">%1$s beskikbaar</string>
     <string name="service_foreground_processes">%1$s gebruik</string>
@@ -4808,6 +4827,7 @@ Moontlik 'n verkeerde PIN."</string>
     <string name="sound_settings_summary_silent">Luitoestel is op stil gestel</string>
     <string name="sound_settings_summary_vibrate">Luitoestel is op vibreer gestel</string>
     <string name="sound_work_settings">Werkprofielklanke</string>
+    <string name="spatial_audio_title">Ruimtelike oudio</string>
     <string name="special_access">Spesiale programtoegang</string>
     <string name="special_access_more">Sien meer</string>
     <string name="speed_label_fast">Vinnig</string>
@@ -5619,7 +5639,7 @@ Jy kan nie die iternet tydens stemoproepe gebruik nie en sekere programme kan da
     <string name="vpn_turn_on">Skakel aan</string>
     <string name="vpn_type">Tipe</string>
     <string name="vpn_username">Gebruikernaam</string>
-    <string name="vpn_version">Weergawe %s</string>
+    <string name="vpn_version">Weergawe</string>
     <string name="vr_listener_security_warning_summary">%1$s sal kan werk wanneer jy programme in virtuelerealiteit-modus gebruik.</string>
     <string name="vr_listener_security_warning_title">Gee %1$s toegang tot VR-diens?</string>
     <string name="vr_listeners_title">VR-helperdienste</string>
@@ -5889,7 +5909,7 @@ As jy die netwerk op versteek stel, sal dit nie jou roeteerderinstellings verand
     <string name="wifi_not_in_range">Nie binne ontvangs nie</string>
     <string name="wifi_not_in_range_message">Netwerk nie binne sendbereik nie</string>
     <string name="wifi_notify_open_networks">Stel in kennis oor publieke netwerke</string>
-    <string name="wifi_notify_open_networks_summary">Wanneer outomatiese verbinding nie beskikbaar is nie</string>
+    <string name="wifi_notify_open_networks_summary">"Stel in kennis wanneer 'n publieke netwerk van hoë gehalte beskikbaar is"</string>
     <string name="wifi_on_time">Wi-Fi betyds</string>
     <string name="wifi_p2p_cancel_connect_message">Wil jy die uitnodiging kanselleer om met %1$s te koppel?</string>
     <string name="wifi_p2p_cancel_connect_title">Kanselleer uitnodiging?</string>
@@ -5977,7 +5997,6 @@ Laat dit toe vir alle programme wat wil skandeer?"</string>
     <string name="wifi_suspend_optimizations">Wi-Fi-optimering</string>
     <string name="wifi_suspend_optimizations_summary">Minimaliseer batterygebruik wanneer Wi-Fi aan is</string>
     <string name="wifi_switch_away_when_unvalidated">Skakel na mobiele data oor as Wi‑Fi internettoegang verloor.</string>
-    <string name="wifi_switch_summary">Soek en koppel aan wi-fi-netwerke</string>
     <string name="wifi_tap_to_sign_in">Tik hier om by die netwerk aan te meld</string>
     <string name="wifi_tether_configure_ap_text">Stel Wi-Fi-warmkol op</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

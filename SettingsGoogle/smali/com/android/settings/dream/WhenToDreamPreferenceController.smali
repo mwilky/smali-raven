@@ -30,7 +30,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "when_to_start"
+    const-string/jumbo p0, "when_to_start"
 
     return-object p0
 .end method

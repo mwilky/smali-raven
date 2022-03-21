@@ -131,7 +131,7 @@
 
     move-result-object v1
 
-    const-string v2, "title"
+    const-string/jumbo v2, "title"
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putCharSequence(Ljava/lang/String;Ljava/lang/CharSequence;)V
 
@@ -193,7 +193,7 @@
 
     move-result v1
 
-    const-string v2, "showsUserInterface"
+    const-string/jumbo v2, "showsUserInterface"
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 

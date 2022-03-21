@@ -18,8 +18,6 @@
 
 .field private final mBatteryStateChangeReceiver:Lcom/android/settings/fuelgauge/BatterySaverReceiver;
 
-.field private final mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
-
 .field private final mObserver:Landroid/database/ContentObserver;
 
 .field private final mPowerManager:Landroid/os/PowerManager;
@@ -59,16 +57,6 @@
 
     iput-object v0, p0, Lcom/android/settings/fuelgauge/BatterySaverController;->mPowerManager:Landroid/os/PowerManager;
 
-    invoke-static {p1}, Lcom/android/settings/overlay/FeatureFactory;->getFactory(Landroid/content/Context;)Lcom/android/settings/overlay/FeatureFactory;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/settings/overlay/FeatureFactory;->getMetricsFeatureProvider()Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/settings/fuelgauge/BatterySaverController;->mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
-
     new-instance v0, Lcom/android/settings/fuelgauge/BatterySaverReceiver;
 
     invoke-direct {v0, p1}, Lcom/android/settings/fuelgauge/BatterySaverReceiver;-><init>(Landroid/content/Context;)V
@@ -86,126 +74,6 @@
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/fuelgauge/BatterySaverController;->updateSummary()V
-
-    return-void
-.end method
-
-.method private logPowerSaver()V
-    .locals 11
-
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatterySaverController;->mPowerManager:Landroid/os/PowerManager;
-
-    invoke-virtual {v0}, Landroid/os/PowerManager;->isPowerSaveMode()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string v1, "automatic_power_save_mode"
-
-    const/4 v2, 0x0
-
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v1
-
-    const/4 v3, 0x2
-
-    const/16 v4, 0x6f8
-
-    const/16 v5, 0x34
-
-    const/4 v6, 0x1
-
-    if-eqz v1, :cond_1
-
-    if-eq v1, v6, :cond_2
-
-    move v3, v6
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v1, 0x3
-
-    const-string v7, "low_power_trigger_level"
-
-    invoke-static {v0, v7, v2}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v0
-
-    iget-object v7, p0, Lcom/android/settings/fuelgauge/BatterySaverController;->mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
-
-    iget-object v8, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    new-array v3, v3, [Landroid/util/Pair;
-
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v9
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v10
-
-    invoke-static {v9, v10}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
-
-    move-result-object v9
-
-    aput-object v9, v3, v2
-
-    const/16 v9, 0x6f9
-
-    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v9
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    invoke-static {v9, v0}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
-
-    move-result-object v0
-
-    aput-object v0, v3, v6
-
-    invoke-virtual {v7, v8, v5, v3}, Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;->action(Landroid/content/Context;I[Landroid/util/Pair;)V
-
-    move v3, v1
-
-    :cond_2
-    :goto_0
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/BatterySaverController;->mMetricsFeatureProvider:Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
-
-    iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
-
-    new-array v1, v6, [Landroid/util/Pair;
-
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-static {v4, v3}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
-
-    move-result-object v3
-
-    aput-object v3, v1, v2
-
-    invoke-virtual {v0, p0, v5, v1}, Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;->action(Landroid/content/Context;I[Landroid/util/Pair;)V
 
     return-void
 .end method
@@ -256,7 +124,7 @@
 .method public getAvailabilityStatus()I
     .locals 0
 
-    const/4 p0, 0x1
+    const/4 p0, 0x0
 
     return p0
 .end method
@@ -298,6 +166,16 @@
     return-object p0
 .end method
 
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public getSummary()Ljava/lang/CharSequence;
     .locals 4
 
@@ -311,7 +189,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040391
+    const v0, 0x7f0403a6
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -346,7 +224,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f04038f
+    const v1, 0x7f0403a4
 
     const/4 v3, 0x1
 
@@ -367,7 +245,7 @@
     :cond_1
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040390
+    const v0, 0x7f0403a5
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -379,7 +257,7 @@
     :cond_2
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040392
+    const v0, 0x7f0403a7
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -438,8 +316,6 @@
     .locals 0
 
     invoke-direct {p0}, Lcom/android/settings/fuelgauge/BatterySaverController;->updateSummary()V
-
-    invoke-direct {p0}, Lcom/android/settings/fuelgauge/BatterySaverController;->logPowerSaver()V
 
     return-void
 .end method

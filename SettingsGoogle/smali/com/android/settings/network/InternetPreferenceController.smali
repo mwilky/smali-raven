@@ -74,7 +74,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0202da
+    const v2, 0x7f0202e1
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -90,7 +90,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0202d9
+    const v3, 0x7f0202e0
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -106,7 +106,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0203af
+    const v4, 0x7f0203b6
 
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -122,7 +122,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0202d6
+    const v5, 0x7f0202dd
 
     invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -138,7 +138,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f020339
+    const v6, 0x7f020340
 
     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -152,7 +152,7 @@
 
     sput-object v0, Lcom/android/settings/network/InternetPreferenceController;->sSummaryMap:Ljava/util/Map;
 
-    const v6, 0x7f04060c
+    const v6, 0x7f040624
 
     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -162,7 +162,7 @@
 
     sget-object v0, Lcom/android/settings/network/InternetPreferenceController;->sSummaryMap:Ljava/util/Map;
 
-    const v6, 0x7f040daa
+    const v6, 0x7f040dd5
 
     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -180,7 +180,7 @@
 
     sget-object v0, Lcom/android/settings/network/InternetPreferenceController;->sSummaryMap:Ljava/util/Map;
 
-    const v1, 0x7f0413d1
+    const v1, 0x7f0413f6
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 

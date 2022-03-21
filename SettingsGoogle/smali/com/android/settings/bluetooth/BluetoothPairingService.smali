@@ -67,7 +67,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f040489
+    const v3, 0x7f0404a1
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -131,31 +131,33 @@
     invoke-virtual {v7, v4, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
     :cond_1
-    const/4 v4, 0x0
+    const/high16 v4, 0x4c000000    # 3.3554432E7f
 
-    const/high16 v5, 0x44000000    # 512.0f
+    const/4 v5, 0x0
 
-    invoke-static {p0, v4, v7, v5}, Landroid/app/PendingIntent;->getService(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+    invoke-static {p0, v5, v7, v4}, Landroid/app/PendingIntent;->getService(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+
+    move-result-object v4
+
+    new-instance v6, Landroid/content/Intent;
+
+    const-string v7, "com.android.settings.bluetooth.ACTION_DISMISS_PAIRING"
+
+    invoke-direct {v6, v7}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-class v7, Lcom/android/settings/bluetooth/BluetoothPairingService;
+
+    invoke-virtual {v6, p0, v7}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
+
+    iget-object v7, p0, Lcom/android/settings/bluetooth/BluetoothPairingService;->mDevice:Landroid/bluetooth/BluetoothDevice;
+
+    invoke-virtual {v6, v9, v7}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+
+    const/high16 v7, 0x44000000    # 512.0f
+
+    invoke-static {p0, v5, v6, v7}, Landroid/app/PendingIntent;->getService(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
 
     move-result-object v6
-
-    new-instance v7, Landroid/content/Intent;
-
-    const-string v8, "com.android.settings.bluetooth.ACTION_DISMISS_PAIRING"
-
-    invoke-direct {v7, v8}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const-class v8, Lcom/android/settings/bluetooth/BluetoothPairingService;
-
-    invoke-virtual {v7, p0, v8}, Landroid/content/Intent;->setClass(Landroid/content/Context;Ljava/lang/Class;)Landroid/content/Intent;
-
-    iget-object v8, p0, Lcom/android/settings/bluetooth/BluetoothPairingService;->mDevice:Landroid/bluetooth/BluetoothDevice;
-
-    invoke-virtual {v7, v9, v8}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
-
-    invoke-static {p0, v4, v7, v5}, Landroid/app/PendingIntent;->getService(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
-
-    move-result-object v5
 
     const-string v7, "android.bluetooth.device.extra.NAME"
 
@@ -218,13 +220,13 @@
 
     new-instance p1, Landroidx/core/app/NotificationCompat$Action$Builder;
 
-    const v8, 0x7f04043c
+    const v8, 0x7f040454
 
     invoke-virtual {v0, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v8
 
-    invoke-direct {p1, v4, v8, v6}, Landroidx/core/app/NotificationCompat$Action$Builder;-><init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;)V
+    invoke-direct {p1, v5, v8, v4}, Landroidx/core/app/NotificationCompat$Action$Builder;-><init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;)V
 
     invoke-virtual {p1}, Landroidx/core/app/NotificationCompat$Action$Builder;->build()Landroidx/core/app/NotificationCompat$Action;
 
@@ -238,13 +240,13 @@
 
     move-result-object v9
 
-    invoke-direct {v8, v4, v9, v5}, Landroidx/core/app/NotificationCompat$Action$Builder;-><init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;)V
+    invoke-direct {v8, v5, v9, v6}, Landroidx/core/app/NotificationCompat$Action$Builder;-><init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;)V
 
     invoke-virtual {v8}, Landroidx/core/app/NotificationCompat$Action$Builder;->build()Landroidx/core/app/NotificationCompat$Action;
 
-    move-result-object v5
+    move-result-object v6
 
-    const v8, 0x7f04048a
+    const v8, 0x7f0404a2
 
     invoke-virtual {v0, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -254,11 +256,11 @@
 
     move-result-object v8
 
-    const v9, 0x7f040488
+    const v9, 0x7f0404a0
 
     new-array v10, v3, [Ljava/lang/Object;
 
-    aput-object v7, v10, v4
+    aput-object v7, v10, v5
 
     invoke-virtual {v0, v9, v10}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -268,7 +270,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v6}, Landroidx/core/app/NotificationCompat$Builder;->setContentIntent(Landroid/app/PendingIntent;)Landroidx/core/app/NotificationCompat$Builder;
+    invoke-virtual {v0, v4}, Landroidx/core/app/NotificationCompat$Builder;->setContentIntent(Landroid/app/PendingIntent;)Landroidx/core/app/NotificationCompat$Builder;
 
     move-result-object v0
 
@@ -294,7 +296,7 @@
 
     move-result-object p1
 
-    invoke-virtual {p1, v5}, Landroidx/core/app/NotificationCompat$Builder;->addAction(Landroidx/core/app/NotificationCompat$Action;)Landroidx/core/app/NotificationCompat$Builder;
+    invoke-virtual {p1, v6}, Landroidx/core/app/NotificationCompat$Builder;->addAction(Landroidx/core/app/NotificationCompat$Action;)Landroidx/core/app/NotificationCompat$Builder;
 
     iget-object p0, p0, Lcom/android/settings/bluetooth/BluetoothPairingService;->mNm:Landroid/app/NotificationManager;
 
@@ -400,7 +402,7 @@
 
     new-instance v0, Landroid/app/NotificationChannel;
 
-    const v1, 0x7f0403ff
+    const v1, 0x7f040417
 
     invoke-virtual {p0, v1}, Landroid/app/Service;->getString(I)Ljava/lang/String;
 

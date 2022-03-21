@@ -169,6 +169,14 @@
     return-object p0
 .end method
 
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d07
+
+    return p0
+.end method
+
 .method public bridge synthetic hasAsyncUpdate()Z
     .locals 0
 
@@ -337,12 +345,12 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f0406e3
+    const v0, 0x7f0406fb
 
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f0406e2
+    const v0, 0x7f0406fa
 
     :goto_0
     iget-object v1, p0, Lcom/android/settings/display/DarkUIPreferenceController;->mPreference:Landroidx/preference/Preference;

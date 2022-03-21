@@ -24,7 +24,7 @@
 
     new-instance v0, Lcom/android/settings/notification/ConfigureNotificationSettings$2;
 
-    const v1, 0x7f150049
+    const v1, 0x7f15004a
 
     invoke-direct {v0, v1}, Lcom/android/settings/notification/ConfigureNotificationSettings$2;-><init>(I)V
 
@@ -182,7 +182,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150049
+    const p0, 0x7f15004a
 
     return p0
 .end method

@@ -67,7 +67,7 @@
 
     new-instance v0, Lcom/google/android/settings/security/SecurityHubDashboard$1;
 
-    const v1, 0x7f1500cc
+    const v1, 0x7f1500d1
 
     invoke-direct {v0, v1}, Lcom/google/android/settings/security/SecurityHubDashboard$1;-><init>(I)V
 
@@ -263,9 +263,13 @@
 .method private synthetic lambda$updateSecurityPreference$2(Landroid/os/Bundle;Landroidx/preference/Preference;)Z
     .locals 0
 
-    iget-object p0, p0, Lcom/google/android/settings/security/SecurityHubDashboard;->mSecurityContentManager:Lcom/google/android/settings/security/SecurityContentManager;
+    iget-object p2, p0, Lcom/google/android/settings/security/SecurityHubDashboard;->mSecurityContentManager:Lcom/google/android/settings/security/SecurityContentManager;
 
-    invoke-virtual {p0, p1}, Lcom/google/android/settings/security/SecurityContentManager;->handleClick(Landroid/os/Bundle;)Z
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getActivity()Landroidx/fragment/app/FragmentActivity;
+
+    move-result-object p0
+
+    invoke-virtual {p2, p1, p0}, Lcom/google/android/settings/security/SecurityContentManager;->handleClick(Landroid/os/Bundle;Landroid/app/Activity;)Z
 
     move-result p0
 
@@ -547,7 +551,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500cc
+    const p0, 0x7f1500d1
 
     return p0
 .end method

@@ -33,8 +33,6 @@
 
 .field private mPreferenceLockdown:Lcom/android/settingslib/RestrictedSwitchPreference;
 
-.field private mPreferenceVersion:Landroidx/preference/Preference;
-
 .field private final mUserId:I
 
 .field private mVpnLabel:Ljava/lang/String;
@@ -618,7 +616,7 @@
 
     iget-object p0, p0, Lcom/android/settings/vpn2/AppManagementFragment;->mPreferenceAlwaysOn:Lcom/android/settingslib/RestrictedSwitchPreference;
 
-    const v0, 0x7f04153d
+    const v0, 0x7f041562
 
     invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -637,7 +635,7 @@
 
     iget-object p0, p0, Lcom/android/settings/vpn2/AppManagementFragment;->mPreferenceAlwaysOn:Lcom/android/settingslib/RestrictedSwitchPreference;
 
-    const v0, 0x7f04153f
+    const v0, 0x7f041564
 
     invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -716,7 +714,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f150104
+    const p1, 0x7f150109
 
     invoke-virtual {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -757,14 +755,6 @@
     check-cast p1, Landroid/net/VpnManager;
 
     iput-object p1, p0, Lcom/android/settings/vpn2/AppManagementFragment;->mVpnManager:Landroid/net/VpnManager;
-
-    const-string p1, "version"
-
-    invoke-virtual {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/settings/vpn2/AppManagementFragment;->mPreferenceVersion:Landroidx/preference/Preference;
 
     const-string p1, "always_on_vpn"
 
@@ -840,7 +830,7 @@
 
     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string p2, "unknown key is clicked: "
+    const-string/jumbo p2, "unknown key is clicked: "
 
     invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -922,7 +912,7 @@
 
     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v0, "unknown key is clicked: "
+    const-string/jumbo v0, "unknown key is clicked: "
 
     invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -949,7 +939,7 @@
 .end method
 
 .method public onResume()V
-    .locals 6
+    .locals 3
 
     invoke-super {p0}, Lcom/android/settings/SettingsPreferenceFragment;->onResume()V
 
@@ -957,39 +947,60 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/settings/vpn2/AppManagementFragment;->mPreferenceVersion:Landroidx/preference/Preference;
-
-    invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    const v2, 0x7f04157e
-
-    const/4 v3, 0x1
-
-    new-array v3, v3, [Ljava/lang/Object;
-
-    const/4 v4, 0x0
-
-    iget-object v5, p0, Lcom/android/settings/vpn2/AppManagementFragment;->mPackageInfo:Landroid/content/pm/PackageInfo;
-
-    iget-object v5, v5, Landroid/content/pm/PackageInfo;->versionName:Ljava/lang/String;
-
-    aput-object v5, v3, v4
-
-    invoke-virtual {v1, v2, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
+    if-eqz v0, :cond_1
 
     invoke-direct {p0}, Lcom/android/settings/vpn2/AppManagementFragment;->updateUI()V
 
-    goto :goto_0
+    invoke-virtual {p0}, Landroidx/preference/PreferenceFragmentCompat;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "version"
+
+    invoke-virtual {v0, v1}, Landroidx/preference/PreferenceGroup;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    return-void
 
     :cond_0
+    new-instance v0, Lcom/android/settings/vpn2/AppManagementFragment$2;
+
+    invoke-virtual {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->getPrefContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-direct {v0, p0, v2}, Lcom/android/settings/vpn2/AppManagementFragment$2;-><init>(Lcom/android/settings/vpn2/AppManagementFragment;Landroid/content/Context;)V
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v2}, Landroidx/preference/Preference;->setOrder(I)V
+
+    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
+
+    const v1, 0x7f0415a3
+
+    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setTitle(I)V
+
+    iget-object v1, p0, Lcom/android/settings/vpn2/AppManagementFragment;->mPackageInfo:Landroid/content/pm/PackageInfo;
+
+    iget-object v1, v1, Landroid/content/pm/PackageInfo;->versionName:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setSummary(Ljava/lang/CharSequence;)V
+
+    invoke-virtual {v0, v2}, Landroidx/preference/Preference;->setSelectable(Z)V
+
+    invoke-virtual {p0}, Landroidx/preference/PreferenceFragmentCompat;->getPreferenceScreen()Landroidx/preference/PreferenceScreen;
+
+    move-result-object p0
+
+    invoke-virtual {p0, v0}, Landroidx/preference/PreferenceGroup;->addPreference(Landroidx/preference/Preference;)Z
+
+    goto :goto_0
+
+    :cond_1
     invoke-virtual {p0}, Lcom/android/settings/SettingsPreferenceFragment;->finish()V
 
     :goto_0

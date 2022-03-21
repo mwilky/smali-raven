@@ -262,7 +262,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "theme"
+    const-string/jumbo p0, "theme"
 
     return-object p0
 .end method
@@ -274,7 +274,7 @@
 
     move-result-object p1
 
-    const-string v0, "theme"
+    const-string/jumbo v0, "theme"
 
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -467,7 +467,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0407a5
+    const v0, 0x7f0407bd
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

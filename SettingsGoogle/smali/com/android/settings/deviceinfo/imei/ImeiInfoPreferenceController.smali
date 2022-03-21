@@ -165,7 +165,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040cc6
+    const v0, 0x7f040cde
 
     const/4 v1, 0x1
 
@@ -190,7 +190,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const p1, 0x7f0412b7
+    const p1, 0x7f0412dc
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -209,7 +209,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040a60
+    const v0, 0x7f040a78
 
     const/4 v1, 0x1
 
@@ -234,7 +234,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const p1, 0x7f0412b4
+    const p1, 0x7f0412d9
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -287,9 +287,9 @@
 .method createNewPreference(Landroid/content/Context;)Landroidx/preference/Preference;
     .locals 0
 
-    new-instance p0, Landroidx/preference/Preference;
+    new-instance p0, Lcom/android/settings/deviceinfo/PhoneNumberSummaryPreference;
 
-    invoke-direct {p0, p1}, Landroidx/preference/Preference;-><init>(Landroid/content/Context;)V
+    invoke-direct {p0, p1}, Lcom/android/settings/deviceinfo/PhoneNumberSummaryPreference;-><init>(Landroid/content/Context;)V
 
     return-object p0
 .end method
@@ -449,6 +449,16 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public getSummary()Ljava/lang/CharSequence;

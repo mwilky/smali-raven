@@ -81,7 +81,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f0416b1
+    const v0, 0x7f0416d6
 
     new-array p2, p2, [Ljava/lang/Object;
 
@@ -116,7 +116,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f0416b0
+    const p1, 0x7f0416d5
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
 

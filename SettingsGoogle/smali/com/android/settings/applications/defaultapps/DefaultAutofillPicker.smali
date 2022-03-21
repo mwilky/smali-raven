@@ -219,11 +219,11 @@
 
     invoke-virtual {v2, v3}, Landroidx/preference/Preference;->setOnPreferenceClickListener(Landroidx/preference/Preference$OnPreferenceClickListener;)V
 
-    const p0, 0x7f040f77
+    const p0, 0x7f040fa3
 
     invoke-virtual {v2, p0}, Landroidx/preference/Preference;->setTitle(I)V
 
-    const p0, 0x7f02016a
+    const p0, 0x7f020171
 
     invoke-virtual {v2, p0}, Landroidx/preference/Preference;->setIcon(I)V
 
@@ -416,7 +416,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f0402e3
+    const v0, 0x7f0402f7
 
     const/4 v1, 0x1
 
@@ -464,7 +464,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15005b
+    const p0, 0x7f15005c
 
     return p0
 .end method

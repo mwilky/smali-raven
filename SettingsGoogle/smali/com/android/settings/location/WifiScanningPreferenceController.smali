@@ -34,7 +34,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "wifi_always_scanning"
+    const-string/jumbo p0, "wifi_always_scanning"
 
     return-object p0
 .end method
@@ -46,7 +46,7 @@
 
     move-result-object v0
 
-    const-string v1, "wifi_always_scanning"
+    const-string/jumbo v1, "wifi_always_scanning"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

@@ -19,7 +19,7 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 2
 
-    const v0, 0x7f050362
+    const v0, 0x7f05036d
 
     const v1, 0x11200d8
 
@@ -39,7 +39,7 @@
 
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/settings/widget/SeekBarPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
-    const p3, 0x7f06019c
+    const p3, 0x7f0601a0
 
     invoke-virtual {p0, p3}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -141,7 +141,7 @@
 
     move-result-object v0
 
-    const v1, 0x1020466
+    const v1, 0x1020469
 
     invoke-virtual {p1, v1}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 

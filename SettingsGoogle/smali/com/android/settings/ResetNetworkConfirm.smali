@@ -141,7 +141,7 @@
 
     iget-object v0, p0, Lcom/android/settings/ResetNetworkConfirm;->mContentView:Landroid/view/View;
 
-    const v1, 0x7f0d0214
+    const v1, 0x7f0d0219
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -169,7 +169,7 @@
 
     invoke-virtual {p0, v0}, Landroid/app/ProgressDialog;->setCancelable(Z)V
 
-    const v0, 0x7f040c67
+    const v0, 0x7f040c7f
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -259,7 +259,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "subId/"
+    const-string/jumbo v2, "subId/"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -436,7 +436,7 @@
 
     if-eqz p3, :cond_0
 
-    const p0, 0x7f06015c
+    const p0, 0x7f060160
 
     invoke-virtual {p1, p0, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -476,7 +476,7 @@
     return-object p1
 
     :cond_1
-    const p2, 0x7f0601db
+    const p2, 0x7f0601df
 
     invoke-virtual {p1, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -537,7 +537,7 @@
 .method p2pFactoryReset(Landroid/content/Context;)V
     .locals 2
 
-    const-string p0, "wifip2p"
+    const-string/jumbo p0, "wifip2p"
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -578,7 +578,7 @@
 
     iget-object p0, p0, Lcom/android/settings/ResetNetworkConfirm;->mContentView:Landroid/view/View;
 
-    const v0, 0x7f0d048b
+    const v0, 0x7f0d0498
 
     invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -586,7 +586,7 @@
 
     check-cast p0, Landroid/widget/TextView;
 
-    const v0, 0x7f041018
+    const v0, 0x7f041046
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setText(I)V
 

@@ -60,7 +60,7 @@
 
     new-instance v0, Lcom/android/settings/display/ScreenTimeoutSettings$3;
 
-    const v1, 0x7f1500c9
+    const v1, 0x7f1500ce
 
     invoke-direct {v0, v1}, Lcom/android/settings/display/ScreenTimeoutSettings$3;-><init>(I)V
 
@@ -367,7 +367,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a00
+    const p0, 0x7f040a18
 
     return p0
 .end method
@@ -383,7 +383,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500c9
+    const p0, 0x7f1500ce
 
     return p0
 .end method
@@ -449,13 +449,13 @@
 
     iput-object v0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mPrivacyPreference:Lcom/android/settingslib/widget/FooterPreference;
 
-    const v1, 0x7f020302
+    const v1, 0x7f020309
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setIcon(I)V
 
     iget-object v0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mPrivacyPreference:Lcom/android/settingslib/widget/FooterPreference;
 
-    const v1, 0x7f040197
+    const v1, 0x7f0401ab
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -467,7 +467,7 @@
 
     iget-object v0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mPrivacyPreference:Lcom/android/settingslib/widget/FooterPreference;
 
-    const v1, 0x7f060198
+    const v1, 0x7f06019c
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -559,7 +559,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0401c8
+    const v1, 0x7f0401dc
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -569,7 +569,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0401ca
+    const v2, 0x7f0401de
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -644,7 +644,7 @@
 
     iput-object v0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mDisableOptionsPreference:Landroidx/preference/Preference;
 
-    const v1, 0x7f060198
+    const v1, 0x7f06019c
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -660,7 +660,7 @@
 
     iget-object v0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mDisableOptionsPreference:Landroidx/preference/Preference;
 
-    const v1, 0x7f02022a
+    const v1, 0x7f020231
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setIcon(I)V
 
@@ -788,13 +788,13 @@
 
     iput-object v0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mPrivacyPreference:Lcom/android/settingslib/widget/FooterPreference;
 
-    const v2, 0x7f020302
+    const v2, 0x7f020309
 
     invoke-virtual {v0, v2}, Landroidx/preference/Preference;->setIcon(I)V
 
     iget-object v0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mPrivacyPreference:Lcom/android/settingslib/widget/FooterPreference;
 
-    const v2, 0x7f040197
+    const v2, 0x7f0401ab
 
     invoke-virtual {v0, v2}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -806,7 +806,7 @@
 
     iget-object v0, p0, Lcom/android/settings/display/ScreenTimeoutSettings;->mPrivacyPreference:Lcom/android/settingslib/widget/FooterPreference;
 
-    const v2, 0x7f060198
+    const v2, 0x7f06019c
 
     invoke-virtual {v0, v2}, Landroidx/preference/Preference;->setLayoutResource(I)V
 

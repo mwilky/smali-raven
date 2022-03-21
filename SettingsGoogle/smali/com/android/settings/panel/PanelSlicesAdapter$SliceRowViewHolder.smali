@@ -18,8 +18,6 @@
 
 
 # instance fields
-.field private mDividerAllowedAbove:Z
-
 .field final mSliceSliderLayout:Landroid/widget/LinearLayout;
 
 .field final sliceView:Landroidx/slice/widget/SliceView;
@@ -43,29 +41,27 @@
 
     invoke-direct {p0, p2}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;-><init>(Landroid/view/View;)V
 
-    const/4 p1, 0x1
+    const p1, 0x7f0d0513
 
-    iput-boolean p1, p0, Lcom/android/settings/panel/PanelSlicesAdapter$SliceRowViewHolder;->mDividerAllowedAbove:Z
+    invoke-virtual {p2, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    const v0, 0x7f0d0504
+    move-result-object p1
 
-    invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    check-cast p1, Landroidx/slice/widget/SliceView;
 
-    move-result-object v0
+    iput-object p1, p0, Lcom/android/settings/panel/PanelSlicesAdapter$SliceRowViewHolder;->sliceView:Landroidx/slice/widget/SliceView;
 
-    check-cast v0, Landroidx/slice/widget/SliceView;
+    const/4 v0, 0x2
 
-    iput-object v0, p0, Lcom/android/settings/panel/PanelSlicesAdapter$SliceRowViewHolder;->sliceView:Landroidx/slice/widget/SliceView;
+    invoke-virtual {p1, v0}, Landroidx/slice/widget/SliceView;->setMode(I)V
 
-    const/4 v1, 0x2
+    const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Landroidx/slice/widget/SliceView;->setMode(I)V
+    invoke-virtual {p1, v1}, Landroidx/slice/widget/SliceView;->setShowTitleItems(Z)V
 
-    invoke-virtual {v0, p1}, Landroidx/slice/widget/SliceView;->setShowTitleItems(Z)V
+    invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->setImportantForAccessibility(I)V
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setImportantForAccessibility(I)V
-
-    const p1, 0x7f0d0503
+    const p1, 0x7f0d0512
 
     invoke-virtual {p2, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -76,6 +72,67 @@
     iput-object p1, p0, Lcom/android/settings/panel/PanelSlicesAdapter$SliceRowViewHolder;->mSliceSliderLayout:Landroid/widget/LinearLayout;
 
     return-void
+.end method
+
+.method private isValidSlice(Landroidx/slice/Slice;)Z
+    .locals 2
+
+    invoke-virtual {p1}, Landroidx/slice/Slice;->getHints()Ljava/util/List;
+
+    move-result-object p0
+
+    const-string v0, "error"
+
+    invoke-interface {p0, v0}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    const/4 v0, 0x0
+
+    if-eqz p0, :cond_0
+
+    return v0
+
+    :cond_0
+    invoke-virtual {p1}, Landroidx/slice/Slice;->getItems()Ljava/util/List;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :cond_1
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_2
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroidx/slice/SliceItem;
+
+    invoke-virtual {p1}, Landroidx/slice/SliceItem;->getFormat()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string/jumbo v1, "slice"
+
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
+
+    const/4 p0, 0x1
+
+    return p0
+
+    :cond_2
+    return v0
 .end method
 
 .method private synthetic lambda$onBind$0(Landroidx/lifecycle/LiveData;Landroidx/slice/widget/EventInfo;Landroidx/slice/SliceItem;)V
@@ -131,7 +188,7 @@
 .method public isDividerAllowedAbove()Z
     .locals 0
 
-    iget-boolean p0, p0, Lcom/android/settings/panel/PanelSlicesAdapter$SliceRowViewHolder;->mDividerAllowedAbove:Z
+    const/4 p0, 0x0
 
     return p0
 .end method
@@ -139,7 +196,7 @@
 .method public isDividerAllowedBelow()Z
     .locals 0
 
-    const/4 p0, 0x1
+    const/4 p0, 0x0
 
     return p0
 .end method
@@ -177,22 +234,18 @@
 
     if-eqz p2, :cond_0
 
-    invoke-virtual {p2}, Landroidx/slice/Slice;->getUri()Landroid/net/Uri;
-
-    move-result-object p2
-
-    sget-object v0, Lcom/android/settings/slices/CustomSliceRegistry;->MEDIA_OUTPUT_INDICATOR_SLICE_URI:Landroid/net/Uri;
-
-    invoke-virtual {p2, v0}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+    invoke-direct {p0, p2}, Lcom/android/settings/panel/PanelSlicesAdapter$SliceRowViewHolder;->isValidSlice(Landroidx/slice/Slice;)Z
 
     move-result p2
 
-    if-eqz p2, :cond_1
+    if-nez p2, :cond_1
 
     :cond_0
-    const/4 p2, 0x0
+    iget-object p2, p0, Lcom/android/settings/panel/PanelSlicesAdapter$SliceRowViewHolder;->sliceView:Landroidx/slice/widget/SliceView;
 
-    iput-boolean p2, p0, Lcom/android/settings/panel/PanelSlicesAdapter$SliceRowViewHolder;->mDividerAllowedAbove:Z
+    const/16 v0, 0x8
+
+    invoke-virtual {p2, v0}, Landroid/view/ViewGroup;->setVisibility(I)V
 
     :cond_1
     iget-object p2, p0, Lcom/android/settings/panel/PanelSlicesAdapter$SliceRowViewHolder;->sliceView:Landroidx/slice/widget/SliceView;

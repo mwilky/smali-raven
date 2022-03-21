@@ -47,6 +47,8 @@
 
 .field private mBucketIndex:I
 
+.field private final mCancelIsNeutral:Z
+
 .field protected mContext:Landroid/content/Context;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -66,6 +68,8 @@
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 .end field
+
+.field private final mThemeResId:I
 
 .field private mUserId:I
 
@@ -128,6 +132,26 @@
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
+    const/4 v0, 0x0
+
+    invoke-direct {p0, p1, v0}, Lcom/android/settingslib/notification/EnableZenModeDialog;-><init>(Landroid/content/Context;I)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;I)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, p1, p2, v0}, Lcom/android/settingslib/notification/EnableZenModeDialog;-><init>(Landroid/content/Context;IZ)V
+
+    return-void
+.end method
+
+.method public constructor <init>(Landroid/content/Context;IZ)V
+    .locals 1
+
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     const/4 v0, -0x1
@@ -139,6 +163,10 @@
     iput v0, p0, Lcom/android/settingslib/notification/EnableZenModeDialog;->MAX_MANUAL_DND_OPTIONS:I
 
     iput-object p1, p0, Lcom/android/settingslib/notification/EnableZenModeDialog;->mContext:Landroid/content/Context;
+
+    iput p2, p0, Lcom/android/settingslib/notification/EnableZenModeDialog;->mThemeResId:I
+
+    iput-boolean p3, p0, Lcom/android/settingslib/notification/EnableZenModeDialog;->mCancelIsNeutral:Z
 
     return-void
 .end method
@@ -198,7 +226,7 @@
 .method private foreverSummary(Landroid/content/Context;)Ljava/lang/String;
     .locals 0
 
-    const p0, 0x1040900
+    const p0, 0x1040905
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1390,7 +1418,7 @@
     return-object p0
 .end method
 
-.method public createDialog()Landroid/app/Dialog;
+.method public createDialog()Landroid/app/AlertDialog;
     .locals 3
 
     iget-object v0, p0, Lcom/android/settingslib/notification/EnableZenModeDialog;->mContext:Landroid/content/Context;
@@ -1451,19 +1479,13 @@
 
     iget-object v1, p0, Lcom/android/settingslib/notification/EnableZenModeDialog;->mContext:Landroid/content/Context;
 
-    invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    iget v2, p0, Lcom/android/settingslib/notification/EnableZenModeDialog;->mThemeResId:I
+
+    invoke-direct {v0, v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
 
     sget v1, Lcom/android/settingslib/R$string;->zen_mode_settings_turn_on_dialog_title:I
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v0
-
-    sget v1, Lcom/android/settingslib/R$string;->cancel:I
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
@@ -1477,6 +1499,24 @@
 
     move-result-object v0
 
+    iget-boolean v1, p0, Lcom/android/settingslib/notification/EnableZenModeDialog;->mCancelIsNeutral:Z
+
+    const/4 v2, 0x0
+
+    if-eqz v1, :cond_0
+
+    sget v1, Lcom/android/settingslib/R$string;->cancel:I
+
+    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNeutralButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    goto :goto_0
+
+    :cond_0
+    sget v1, Lcom/android/settingslib/R$string;->cancel:I
+
+    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    :goto_0
     invoke-virtual {p0}, Lcom/android/settingslib/notification/EnableZenModeDialog;->getContentView()Landroid/view/View;
 
     move-result-object v1

@@ -59,7 +59,7 @@
     sput-object v0, Lcom/android/settings/overlay/FeatureFactory;->sAppContext:Landroid/content/Context;
 
     :cond_1
-    const v0, 0x7f040638
+    const v0, 0x7f040650
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -115,6 +115,9 @@
 
 
 # virtual methods
+.method public abstract getAccessibilityMetricsFeatureProvider()Lcom/android/settings/accessibility/AccessibilityMetricsFeatureProvider;
+.end method
+
 .method public abstract getAccessibilitySearchFeatureProvider()Lcom/android/settings/accessibility/AccessibilitySearchFeatureProvider;
 .end method
 

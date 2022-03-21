@@ -37,6 +37,14 @@
 
     invoke-virtual {p0, v1, v0}, Landroid/app/backup/BackupAgentHelper;->addHelper(Ljava/lang/String;Landroid/app/backup/BackupHelper;)V
 
+    new-instance v0, Lcom/android/settings/fuelgauge/BatteryBackupHelper;
+
+    invoke-direct {v0, p0}, Lcom/android/settings/fuelgauge/BatteryBackupHelper;-><init>(Landroid/content/Context;)V
+
+    const-string v1, "BatteryBackupHelper"
+
+    invoke-virtual {p0, v1, v0}, Landroid/app/backup/BackupAgentHelper;->addHelper(Ljava/lang/String;Landroid/app/backup/BackupHelper;)V
+
     return-void
 .end method
 

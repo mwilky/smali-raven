@@ -20,7 +20,7 @@
 
     new-instance v0, Lcom/android/settings/deviceinfo/aboutphone/MyDeviceInfoFragment$1;
 
-    const v1, 0x7f150098
+    const v1, 0x7f15009d
 
     invoke-direct {v0, v1}, Lcom/android/settings/deviceinfo/aboutphone/MyDeviceInfoFragment$1;-><init>(I)V
 
@@ -152,7 +152,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09002e
+    const v2, 0x7f09002f
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -165,7 +165,7 @@
     return-void
 
     :cond_0
-    const v1, 0x7f0d01fe
+    const v1, 0x7f0d0203
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -213,7 +213,7 @@
 
     move-result-object v2
 
-    const-string v3, "user"
+    const-string/jumbo v3, "user"
 
     invoke-virtual {v2, v3}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -280,7 +280,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f0409d8
+    const p0, 0x7f0409f0
 
     return p0
 .end method
@@ -304,7 +304,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150098
+    const p0, 0x7f15009d
 
     return p0
 .end method

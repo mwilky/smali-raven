@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Rahat Displey</string>
     <string name="peak_refresh_rate_summary">Bəzi məzmun üçün təzələnmə tezliyini 60 Hs-dən 90 Hs-ə avtomatik yüksəldir. Enerji sərfiyyatını artırır.</string>
     <string name="accessibility_vibration_settings_title">Vibrasiya və taktil reaksiya</string>
+    <string name="columbus_title">Fəaliyyətləri başlatmaq üçün Cəld Toxunun</string>
     <string name="emergency_gesture_screen_title">Fövqəladə halda SOS</string>
     <string name="abc_action_mode_done">Hazırdır</string>
     <string name="vibrate_for_calls_category_title">Zənglər</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Cihaz nizamlayıcılarını göstərin</string>
     <string name="lockscreen_privacy_wallet_summary">Kilid ekranından və sürətli ayarlardan pulqabına girişə icazə verin</string>
     <string name="lockscreen_privacy_controls_summary">Kilidli olduqda nizamlayıcılara giriş edin</string>
+    <string name="lockscreen_double_line_clock_summary">Əlçatan olduqda ikisətirli saatı göstərin</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">İkisətirli saat</string>
     <string name="abc_activity_chooser_view_see_all">Hamısına baxın</string>
     <string name="abc_activitychooserview_choose_application">Tətbiq seçin</string>
     <string name="abc_capital_off">DEAKTİV</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Siqnal vibrasiyası</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Aktiv Kənar ayarlandı. Növbəti ekrana keçin və tənzimləyin.</string>
     <string name="accessibility_audio_adjustment_title">Audiokorreksiya</string>
+    <string name="accessibility_autoclick_about_title">Avtomatik toxunma haqqında (fasilə zamanlaması)</string>
     <string name="accessibility_autoclick_custom_title">Fərdi</string>
     <string name="accessibility_autoclick_default_title">Deaktiv</string>
     <string name="accessibility_autoclick_description">Avtomatik toxunma qoşulmuş mausla işləyir. Mausun kursoru müəyyən vaxt hərəkət etmədikdə onu avtomatik toxunacaq şəkildə ayarlaya bilərsiniz.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Avtomatik toxunma haqqında ətraflı öyrənin (fasilə zamanlaması)</string>
     <string name="accessibility_autoclick_long_summary">1 saniyə</string>
     <string name="accessibility_autoclick_long_title">Uzun</string>
     <string name="accessibility_autoclick_longer_desc">Daha uzun</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Qısa</string>
     <string name="accessibility_autoclick_shorter_desc">Daha qısa</string>
     <string name="accessibility_banner_message_dismiss">Qapadın</string>
-    <string name="accessibility_button_description">"İstənilən pəncərədən xüsusi imkanlara cəld giriş. 
+    <string name="accessibility_button_about_title">Əlçatımlılıq düyməsi haqqında</string>
+    <string name="accessibility_button_description">"İstənilən ekrandan əlçatımlılıq funksiyalarına sürətli giriş edin. 
 
-Xüsusi imkanlar ayarlarını açıb gərəkli funksiyanı seçin. Cəld aktivləşmə vasitəsi olaraq xüsusi imkanlar düyməsini seçin."</string>
+Başlamaq üçün əlçatımlılıq ayarlarına keçin və funksiya seçin. Qısayolun üzərinə toxunun və əlçatımlılıq düyməsini seçin."</string>
     <string name="accessibility_button_fade_summary">Toxunuşdan bir neçə saniyə sonra ekran şəffaflaşsın</string>
     <string name="accessibility_button_fade_title">İşləmədikcə şəffaflaşsın</string>
+    <string name="accessibility_button_gesture_about_title">Əlçatımlılıq düyməsi və jest haqqında</string>
     <string name="accessibility_button_gesture_description">"İstənilən ekrandan əlçatımlılıq funksiyalarına sürətli giriş edin. 
 
-Başlamaq üçün əlçatımlılıq ayarlarına keçin və funksiya seçin. Qısayolun üzərinə toxunun və əlçatımlılıq düyməsini seçin.
-
-Bunun əvəzinə naviqasiya bölməsindəki əlçatımlılıq düyməsini istifadə etmək üçün 2 düyməli naviqasiyaya və ya 3 düyməli naviqasiyaya keçin."</string>
+Başlamaq üçün əlçatımlılıq ayarlarına keçin və funksiya seçin. Qısayolun üzərinə toxunun və əlçatımlılıq düyməsini və ya jesti seçin."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Əlçatımlılıq düyməsi və jest haqqında ətraflı öyrənin</string>
     <string name="accessibility_button_gesture_title">Jest və xüsusi imkanlar düyməsi</string>
     <string name="accessibility_button_high_label">Qeyri-şəffaf</string>
     <string name="accessibility_button_intro">Xüsusi imkanlar düyməsi istifadə edilir. 3 düyməli naviqasiyada jest əlçatmazdır.</string>
@@ -184,14 +190,23 @@ Bunun əvəzinə naviqasiya bölməsindəki əlçatımlılıq düyməsini istifa
     <string name="accessibility_caption_preference_summary">Bu subtitr ayarları bütün tətbiqlər tərəfindən dəstəklənmir.</string>
     <string name="accessibility_caption_primary_switch_summary">Yalnız dəstəklənən tətbiq üçün</string>
     <string name="accessibility_caption_primary_switch_title">Subtitr göstərilsin</string>
+    <string name="accessibility_captioning_about_title">Altyazı tərcihləri haqqında</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Altyazı tərcihləri haqqında ətraflı öyrənin</string>
     <string name="accessibility_captioning_title">Subtitr tərcihləri</string>
     <string name="accessibility_category_personal">Şəxsi profil hesabları</string>
     <string name="accessibility_category_work">İş profili hesabları - %s</string>
+    <string name="accessibility_color_inversion_about_title">Rəng inversiyası haqqında</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Rəng inversiyası haqqında ətraflı öyrənin</string>
+    <string name="accessibility_control_timeout_about_title">Əməliyyat müddəti haqqında (Əlçatımlılıq vaxt limiti)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Əməliyyat müddəti haqqında ətraflı öyrənin (Əlçatımlılıq vaxt limiti)</string>
     <string name="accessibility_control_timeout_preference_summary">"Əməliyyatın icrasını tələb edən, lakin müvəqqəti görünən mesajların görünmə müddətini seçin.
 
 Bu ayarı bütün tətbiqlər dəstəkləmir."</string>
     <string name="accessibility_control_timeout_preference_title">Əməliyyata verilmiş vaxt</string>
+    <string name="accessibility_daltonizer_about_title">Rəng korreksiyası haqqında</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Rəng korreksiyası haqqında ətraflı öyrənin</string>
     <string name="accessibility_daltonizer_primary_switch_title">Rəng korreksiyası istifadə edilsin</string>
+    <string name="accessibility_daltonizer_shortcut_title">Rəng korreksiyası qısayolu</string>
     <string name="accessibility_data_one_bar">Data bir xətdir.</string>
     <string name="accessibility_data_signal_full">Data siqnalı tamdır.</string>
     <string name="accessibility_data_three_bars">Data üç xətdir.</string>
@@ -206,6 +221,7 @@ Bu ayarı bütün tətbiqlər dəstəkləmir."</string>
     <string name="accessibility_display_daltonizer_preference_title">Rəng korreksiyası</string>
     <string name="accessibility_display_inversion_preference_subtitle">İnversiya açıq rəngləri tünd edir.&lt;br/>&lt;br/> Diqqət edin: &lt;ol> &lt;li> Tünd rənglər açıq olacaq.&lt;/li> &lt;li> Rənglər həmçinin mediakontent və təsvirlərdə konversiya ediləcək.&lt;/li> &lt;li> Tünd ekran fonu üçün tünd tema seçin. Tünd tema bəzi tətbiqlərdə, rənglərin inversiyası hamısında dəstəklənir.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Rəng inversiyası</string>
+    <string name="accessibility_display_inversion_shortcut_title">Rəng inversiyası qısayolu</string>
     <string name="accessibility_display_inversion_switch_title">Rəng inversiyasından istifadə edin</string>
     <string name="accessibility_ethernet_connected">Ethernet.</string>
     <string name="accessibility_ethernet_disconnected">Ethernet bağlantısı kəsilib.</string>
@@ -255,6 +271,8 @@ Xüsusi imkanların üzən düyməsi bütün tətbiqlərin üzərindədir. Ekran
     <string name="accessibility_phone_two_bars">Şəbəkə iki xətdir.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Qidalanma düyməsi zəngi sonlandırır</string>
     <string name="accessibility_preference_magnification_summary">Ekranda yaxınlaşdırın</string>
+    <string name="accessibility_screen_magnification_about_title">Böyütmə haqqında</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Böyütmə haqqında ətraflı öyrənin</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">Əlçatımlılıq jesti %1$s funksiyasına ayarlanıb. Miqyasdan istifadə etmək üçün ekranın yuxarısndan iki barmağınızla sürüşdürüb saxlayın. Sonra miqyası seçin.</string>
     <string name="accessibility_screen_magnification_gestures_title">Üç dəfə klikləməklə böyüdün</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">Əlçatımlılıq düyməsi %1$s xidmətinə ayarlanıb. Böyütməni istifadə etmək üçün Əlçatımlılıq düyməsinə toxunaraq basıb saxlayın, daha sonra böyütmə seçin.</string>
@@ -272,6 +290,7 @@ Xüsusi imkanların üzən düyməsi bütün tətbiqlərin üzərindədir. Ekran
 Klaviatura və ya naviqasiya panelində yaxınlaşdıra bilməzsiniz."</string>
     <string name="accessibility_screen_magnification_navbar_title">Qısayol ilə böyüdün</string>
     <string name="accessibility_screen_magnification_short_summary">Miqyası dəyişmək üçün 3 dəfə tıklayın</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Böyütmə qısayolu</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Qısayol &amp; üç toxunuşla böyüdün</string>
     <string name="accessibility_screen_magnification_summary">Ekranda elementi böyütmək üçün cəld yaxınlaşdırın.&lt;br/>&lt;br/> &lt;b>Böyütmək üçün:&lt;/b>&lt;br/> {0,number,integer}. Böyütmək üçün qısayol istifadə edin&lt;br/> {1,number,integer}. Ekrana toxunun&lt;br/> {2,number,integer}. Ekranın ətrafında hərəkət üçün 2 barmağınızı sürüşdürün&lt;br/> {3,number,integer}. Miqyası tənzimləmək üçün 2 barmaqla yaxınlaşdırıb-uzaqlaşdırın&lt;br/> {4,number,integer}. Böyütməni dayandırmaq üçün qısayol istifadə edin&lt;br/>&lt;br/> &lt;b>Müvəqqəti böyütmək üçün:&lt;/b>&lt;br/> {0,number,integer}. Böyütmək üçün qısayol istifadə edin&lt;br/> {1,number,integer}. Ekranın istənilən yerinə toxunub saxlayın&lt;br/> {2,number,integer}. Ekranın ətrafında hərəkət etmək üçün barmağınızı sürüşdürün&lt;br/> {3,number,integer}. Böyütməni bitirmək üçün barmağınızı qaldırın</string>
     <string name="accessibility_screen_magnification_title">Böyütmə</string>
@@ -370,7 +389,7 @@ Funksiyalar arasında keçid etmək üçün 3 barmaq ilə yuxarıya sürüşdür
     <string name="accessibility_tutorial_dialog_message_volume">Bu funksiyanı istifadə etmək üçün hər iki səs düyməsini basıb saxlayın.</string>
     <string name="accessibility_tutorial_dialog_title_button">Xüsusi imkanlar düyməsini istifadə edin</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Açmaq üçün jestdən istifadə edin</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Yeni əlçatımlılıq jestindən istifadə edin</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Əlçatımlılıq jestindən istifadə edin</string>
     <string name="accessibility_tutorial_dialog_title_triple">Açmaq üçün ekrana üç dəfə toxunun</string>
     <string name="accessibility_tutorial_dialog_title_volume">Açmaq üçün səs düymələrini basıb saxlayın</string>
     <string name="accessibility_tutorial_pager">Səhifə %1$d/%2$d</string>
@@ -936,6 +955,7 @@ Sıfırlandıqdan sonra quraşdırma prosesindən keçin və əvvəlki telefonun
     <string name="battery_level_title">Enerji səviyyəsi</string>
     <string name="battery_manager_off">Deaktiv</string>
     <string name="battery_manager_summary">Batareya ömrünü uzadın və şarjı optimallaşdırın</string>
+    <string name="battery_manager_summary_unsupported">Batareya istifadəsinin müddətini artırın</string>
     <string name="battery_missing_link_a11y_message">Bu xəta haqqında əlavə məlumat üçün toxunun</string>
     <string name="battery_missing_link_message">Ətraflı məlumat</string>
     <string name="battery_missing_message">Şarj səviyyəsini öyrənmək olmur.</string>
@@ -1061,6 +1081,7 @@ arxa fon"</string>
     <string name="battery_usage_screen_footer">Enerji istifadəsi haqqında məlumat təxminidir və telefon şarj edilərkən istifadəni ölçmür</string>
     <string name="battery_usage_screen_footer_empty">Bir neçə saat telefonunuzdan istifadə etdikdən sonra batareya istifadəsi datası əlçatan olacaq</string>
     <string name="battery_usage_total_less_than_one_minute">Cəmi: bir dəqiqədən az</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%2$s %1$s batareya istifadə etdi</string>
     <string name="battery_used_for">^1 üçün istifadə olundu</string>
     <string name="bearer">Daşıyıcı</string>
@@ -1069,12 +1090,14 @@ arxa fon"</string>
     <string name="billing_cycle_less_than_one_day_left">1 gündən az vaxt qalır</string>
     <string name="billing_cycle_none_left">Vaxt qalmayıb</string>
     <string name="biometric_settings_category_ways_to_unlock">Kiliddən çıxarmağın yolları</string>
-    <string name="biometric_settings_category_ways_to_use">Bunlar üçün üz və barmaq izindən istifadə edin</string>
     <string name="biometric_settings_hand_back_to_guardian">Telefonu valideyninizə qaytarın</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">OK</string>
     <string name="biometric_settings_intro">Üz ilə kiliddən çıxarma və Barmaq izi ilə kiliddən çıxarma ayarladıqda maska taxdığınız, yaxud qaranlıq yerdə olduğunuz zaman telefonunuz barmaq izinizi istəyəcək</string>
-    <string name="biometric_settings_use_biometric_for_apps">Tətbiqlərdə əsllik yoxlaması</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">Telefonun kiliddən çıxarılması</string>
+    <string name="biometric_settings_use_biometric_for_apps">Tətbiqlərdə siz olduğunuzu doğrulayın</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">Telefonu kiliddən çıxarın</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Üz və ya barmaq izindən istifadə edərək</string>
+    <string name="biometric_settings_use_face_preference_summary">Üzdən istifadə edərək</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Barmaq izindən istifadə edərək</string>
     <string name="biometrics_unlock_set_unlock_password">Parol • Üz • Barmaq izi</string>
     <string name="biometrics_unlock_set_unlock_pattern">Model • Üz • Barmaq izi</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN • Üz • Barmaq izi</string>
@@ -1332,7 +1355,6 @@ Seçimini aktiv edin"</string>
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Bluetooth cihazları adsız göstərilsin</string>
     <string name="bluetooth_show_devices_without_names_summary">Bluetooth cihazları adsız (yalnız MAC ünvanları ilə) göstərilsin</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Bluetooth ilə əldə edilən fayllar</string>
     <string name="bluetooth_show_received_files">Qəbul edilən fayl</string>
     <string name="bluetooth_sim_card_access_dialog_content">"%1$s adlı Bluetooth cihazı SİM kartınızdakı dataya giriş etmək istəyir. Buna kontaktlarınız daxildir.
 
@@ -1426,6 +1448,7 @@ CA sertifikatı quraşdırsanız, sertifikat sahibi daxil olduğunuz veb saytlar
     <string name="calls_sms_temp_unavailable">Müvəqqəti olaraq əlçatan deyil</string>
     <string name="calls_sms_unavailable">əlçatmazdır</string>
     <string name="calls_sms_wfc_summary">Zəngləri Wi‑Fi üzərindən edin və qəbul edin</string>
+    <string name="cam_toggle_description">Tətbiqlər və xidmətlər üçün</string>
     <string name="camera_double_tap_power_gesture_desc">Ekranınızın kilidini açmadan kameranı cəld açın</string>
     <string name="camera_double_tap_power_gesture_title">Kamera üçün qidalanma düyməsini iki dəfə basın</string>
     <string name="camera_laser_sensor_switch">Kamera Lazer Sensoru</string>
@@ -3302,6 +3325,7 @@ Bu cihazda başqa istifadəçilər mövcuddur.
     <string name="menu_stats_total">Ümumi istifadə</string>
     <string name="menu_stats_unplugged">%1$s şəbəkədən ayrılandan bəri</string>
     <string name="menu_use_uss">USS istifadəsi</string>
+    <string name="mic_toggle_description">Tətbiqlər və xidmətlər üçün. Bu ayar deaktivdirsə, fövqəladə hal nömrəsinə zəng etdiyiniz zaman mikrofon datası hələ də paylaşıla bilər.</string>
     <string name="mic_toggle_title">Mikrofona giriş</string>
     <string name="misc_files">Qarışıq fayllar</string>
     <string name="misc_files_selected_count">%1$d ədəddın %2$d seçildi</string>
@@ -3728,6 +3752,7 @@ Bu, tətbiqə \"Narahat Etməyin\" rejimini aktiv və ya deaktiv etmək, həmçi
     <string name="one_handed_action_show_notification_title">Bildirişləri göstərin</string>
     <string name="one_handed_mode_enabled">Birəlli rejimi istifadə edin</string>
     <string name="one_handed_mode_intro_text">Bir əlli rejimi istifadə etmək üçün ekranın aşağı kənarından aşağı çəkin. Bu funksiyanı istifadə etmək üçün sistem naviqasiya ayarlarında jest naviqasiyasının aktiv olduğuna əmin olun.</string>
+    <string name="one_handed_mode_shortcut_title">Bir əlli rejim qısayolu</string>
     <string name="one_handed_mode_swipe_down_category">Buraya çəkin:</string>
     <string name="one_handed_mode_use_shortcut_category">Bunun üçün qısayoldan istifadə edin:</string>
     <string name="one_usercrt">istifadəçi sertifikatı</string>
@@ -3803,7 +3828,7 @@ Bu, tətbiqə \"Narahat Etməyin\" rejimini aktiv və ya deaktiv etmək, həmçi
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s aktivdir</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Kamera</string>
-    <string name="power_cell">Mobil şəbəkə gözləmə rejimi</string>
+    <string name="power_cell">Mobil şəbəkə</string>
     <string name="power_charge_remaining">Şarjın bitməsinə var: %1$s</string>
     <string name="power_charging">%1$s - %2$s</string>
     <string name="power_charging_duration">%1$s - tam şarj edilənədək %2$s qalıb</string>
@@ -4037,6 +4062,7 @@ Qidalanma və Səsin artırılması düymələrini eyni anda basın."</string>
     <string name="recent_notifications">Son göndərilənlər</string>
     <string name="recent_notifications_see_all_title">Son 7 gün ərzində olanlara baxın</string>
     <string name="recompute_size">Ölçünü yenidən hesablayır...</string>
+    <string name="reduce_bright_colors_about_title">Əlavə qaraltma haqqında</string>
     <string name="reduce_bright_colors_intensity_end_label">Daha parlaq</string>
     <string name="reduce_bright_colors_intensity_preference_title">İntensivlik</string>
     <string name="reduce_bright_colors_intensity_start_label">Daha tutqun</string>
@@ -4044,6 +4070,7 @@ Qidalanma və Səsin artırılması düymələrini eyni anda basın."</string>
     <string name="reduce_bright_colors_preference_subtitle">Rahat oxumaq üçün ekranı tündləşdirin.&lt;br/>&lt;br/> Bu hallarda faydalıdır: &lt;ol>&lt;li> minimal parlaqlıqda ekran yenə çox parlaqdır;&lt;/li> &lt;li> telefonu qaranlıqda işlədirsiniz.&lt;/li>&lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">Telefon ekranı minimal parlaqlıqdan tünd olsun</string>
     <string name="reduce_bright_colors_preference_title">Əlavə tündləşmə</string>
+    <string name="reduce_bright_colors_shortcut_title">Əlavə qaraltma qısayolu</string>
     <string name="reduce_bright_colors_switch_title">Parlaqlıq daha da azaldılsın</string>
     <string name="register_automatically">Avtomatik qeydiyyat ...</string>
     <string name="register_on_network">%s şəbəkəsində qeydiyyatdan keçirilir…</string>
@@ -4249,7 +4276,6 @@ Tətbiqi bərkitmək üçün:
     <string name="screen_pinning_unlock_pattern">Qrafik açar istənilsin</string>
     <string name="screen_pinning_unlock_pin">Ayırmadan öncə PIN istənilsin</string>
     <string name="screen_reader_category_title">Ekran oxuyucusu</string>
-    <string name="screen_saver_main_switch_title">Ekran qoruyucusundan istifadə edin</string>
     <string name="screen_time_summary_usage_today">Bu gün %1$s</string>
     <string name="screen_timeout_summary">%1$s fəaliyyətsizlikdən sonra</string>
     <string name="screen_timeout_title">Ekran sönür</string>
@@ -4279,6 +4305,7 @@ Tətbiqi bərkitmək üçün:
     <string name="screensaver_settings_button">Ayarlar</string>
     <string name="screensaver_settings_current">Cari ekran qoruyucu</string>
     <string name="screensaver_settings_disabled_prompt">Telefon doklanmış və/və ya yatan zaman baş verənlərə nəzarət edin, ekran qoruyucunu aktiv edin.</string>
+    <string name="screensaver_settings_dream_start">İndi başlayın</string>
     <string name="screensaver_settings_summary_dock">Dok-stansiyada</string>
     <string name="screensaver_settings_summary_either_long">Şarj ərzində və ya dok-stansiyada</string>
     <string name="screensaver_settings_summary_either_short">Hər ikisi</string>
@@ -4329,15 +4356,6 @@ Tətbiqi bərkitmək üçün:
     <string name="security_settings_biometric_preference_summary_both_fp_single">Üz və barmaq izi əlavə edildi</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Ayarlamaq üçün toxunun</string>
     <string name="security_settings_biometric_preference_title">Üz və barmaq izi ilə kiliddən çıxarma</string>
-    <string name="security_settings_biometrics_description">Üz və barmaq izi ilə kiliddən çıxarma ayarladıqda maska taxdığınız, yaxud qaranlıq yerdə olduğunuz zaman telefonunuz barmaq izinizi istəyəcək</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Tətbiqlərdə əsllik yoxlaması</string>
-    <string name="security_settings_biometrics_preferences_category">Bunun üçün üz və ya barmaq izi istifadə edin</string>
-    <string name="security_settings_biometrics_summary_both">Üz və barmaq izi</string>
-    <string name="security_settings_biometrics_summary_face">Yalnız üz</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Yalnız barmaq izi</string>
-    <string name="security_settings_biometrics_summary_none">Ayarlamaq üçün toxunun</string>
-    <string name="security_settings_biometrics_title">Üz və barmaq izi ilə kiliddən çıxarma</string>
-    <string name="security_settings_biometrics_types_category">Kiliddən çıxarmağın yolları</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Üz ilə kiliddən çıxarmaya icazə verin</string>
     <string name="security_settings_face_enroll_dialog_ok">OK</string>
     <string name="security_settings_face_enroll_done">Hazırdır</string>
@@ -4385,16 +4403,17 @@ Silindikdən sonra telefonunuzun kilidini açmaq, yaxud tətbiqlərdə əsllik y
     <string name="security_settings_face_enroll_introduction_control_title">Hər şey nəzarətinizdədir</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message">"Üz ilə kiliddən çıxarma övladınızı doğrulamaq üçün onun üzünün unikal modelini yaradır. Ayarlama zamanı bu üz modelini yaratmaq üçün övladınız müxtəlif bucaqlardan üzünün şəkillərini çəkəcək.
 
-Üz ilə kiliddən çıxarmadan istifadə etdikdə, onun üz modelini güncəlləmək üçün şəkillərdən istifadə olunur. Onun üz modelini yaratmaq üçün istifadə edilən şəkillər heç vaxt saxlanılmır, lakin üz modeli telefonda təhlükəsiz qaydada saxlanılır və heç vaxt telefondan başqa yerə göndərilmir. Bütün emal prosesi telefonda təhlükəsiz qaydada baş verir."</string>
+Üz ilə kiliddən çıxarmadan istifadə etdikdə, onun üz modelini güncəlləmək üçün şəkillərdən istifadə olunur. Onun üz modelini yaratmaq üçün istifadə edilən şəkillər saxlanılmır, lakin üz modeli telefonda təhlükəsiz qaydada saxlanılır və heç vaxt telefondan başqa yerə göndərilmir. Bütün emal prosesi telefonda təhlükəsiz qaydada baş verir."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"Üz ilə kiliddən çıxarma kimliyinizi doğrulamaq üçün üzünüzün unikal modelini yaradır. Ayarlama zamanı bu üz modelini yaratmaq üçün müxtəlif bucaqlardan üzünüzün şəkillərini çəkəcəksiniz.
 
-Üz ilə kiliddən çıxarmadan istifadə etdikdə, üz modelinizi güncəlləmək üçün şəkillərdən istifadə olunur. Üz modelinizi yaratmaq üçün istifadə edilən şəkillər heç vaxt saxlanılmır, lakin üz modeli telefonunuzda təhlükəsiz qaydada saxlanılır və heç vaxt telefondan başqa yerə göndərilmir. Bütün emal prosesi telefonunuzda təhlükəsiz qaydada baş verir."</string>
+Üz ilə kiliddən çıxarmadan istifadə etdikdə, üz modelinizi güncəlləmək üçün şəkillərdən istifadə olunur. Üz modelinizi yaratmaq üçün istifadə edilən şəkillər saxlanılmır, lakin üz modeli telefonunuzda təhlükəsiz qaydada saxlanılır və heç vaxt telefondan başqa yerə göndərilmir. Bütün emal prosesi telefonunuzda təhlükəsiz qaydada baş verir."</string>
     <string name="security_settings_face_enroll_introduction_how_title">İşləmə qaydası</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">Üz ilə kiliddən çıxarma telefonu kiliddən çıxarmaq, yaxud uşağınızın özü olduğunu doğrulamaq üçün onun gözlərinin açıq olmasını tələb edə bilər. Siz və uşağınız Ayarlarda bu seçimi istənilən vaxt yandıra bilərsiniz.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Övladınız normalda eynəkdən istifadə edirsə, ayarlama zamanı onu taxa bilər.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Övladınız telefona baxmaqla istəmədən telefonu kiliddən çıxara bilər. Övladınızın telefonu ona çox bənzəyən biri (məsələn, əkiz bacı/qardaş) tərəfindən, yaxud onün üzünə tutularaq də kiliddən çıxarıla bilər.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Üz ilə kiliddən çıxarma telefonu kiliddən çıxarmaq, yaxud kimliyinizi doğrulamaq üçün gözlərinizin açıq olmasını tələb edə bilər. Bu seçimi Ayarlarda istənilən vaxt yandıra bilərsiniz.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Eynək və ya solğun rəngli gün eynəyi taxa bilərsiniz.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Telefonu kiliddən çıxarmaq üçün üzdən istifadə etmək güclü bir model və ya PIN koddan daha güvənsiz ola bilər.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Telefona baxmaqla istəmədən telefonu kiliddən çıxara bilərsiniz. Telefonunuz sizə çox bənzəyən biri (məsələn, əkiz bacı/qardaş) tərəfindən, yaxud sizə doğru yönəldilərək də kiliddən çıxarıla bilər.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Unutmayın</string>
     <string name="security_settings_face_enroll_introduction_message">Tətbiqlərə daxil olmaq və ya alışı təsdiqləmək kimi hallarda telefonu kiliddən çıxarmaq və ya kimlik doğrulaması üçün üzünüzü istifadə edin.</string>
@@ -4452,13 +4471,14 @@ Telefonunuz başqası tərəfindən üzünüzə doğru tutularaq kiliddən çıx
 
 Telefonunuz sizə çox bənzəyən biri tərəfindən (məsələn, eynilə bənzəyən bacı/qardaş) kiliddən çıxarıla bilər."</string>
     <string name="security_settings_face_settings_preferences_category">Üz ilə kiliddən çıxarmadan istifadə etdikdə</string>
-    <string name="security_settings_face_settings_remove_dialog_details">"Üz modeliniz həmişəlik və təhlükəsiz qaydada silinəcək. Sildikdən sonra telefonunuzu kiliddən çıxarmaq, yaxud tətbiqlərdə əsllik yoxlaması üçün PIN'iniz, modeliniz və ya parolunuz tələb ediləcək."</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Üz modeliniz həmişəlik və təhlükəsiz qaydada silinəcək. 
+
+Sildikdən sonra telefonunuzu kiliddən çıxarmaq, yaxud tətbiqlərdə əsllik yoxlaması üçün PIN'iniz, modeliniz və ya parolunuz tələb ediləcək."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Üz modeliniz həmişəlik və təhlükəsiz qaydada silinəcək.
+
+Silindikdən sonra telefonu kiliddən çıxarmaq üçün PIN, model və ya parol tələb ediləcək."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Üz modeli silinsin?</string>
     <string name="security_settings_face_settings_remove_face_model">Üz modelini silin</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Üz modeliniz həmişəlik və təhlükəsiz qaydada silinəcək.
-
-Sildikdən sonra telefonunuzu kiliddən çıxarmaq, yaxud tətbiqlərdə əsllik yoxlaması üçün barmaq iziniz, PIN'iniz, modeliniz və ya parolunuz tələb ediləcək."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Üz modeli silinsin?</string>
     <string name="security_settings_face_settings_require_attention">Gözlər açıq olmalıdır</string>
     <string name="security_settings_face_settings_require_attention_details">Telefonu kiliddən çıxarmaq üçün gözləriniz açıq olmalıdır</string>
     <string name="security_settings_face_settings_require_confirmation">Həmişə təsdiq tələb edin</string>
@@ -4541,7 +4561,7 @@ Qeyd: barmaq izinizi bu cihazın kildiini açmaq üçün istifadə edə bilməzs
     <string name="security_settings_title">Güvənlik</string>
     <string name="security_settings_udfps_enroll_a11y">Sensoru tapmaq üçün barmağınızı ekranda hərəkət etdirin. Barmaq izi sensoruna toxunub saxlayın.</string>
     <string name="security_settings_udfps_enroll_edge_message">Barmaq izinizin yan tərəfini sensora yerləşdirib saxlayın, sonra digər tərəfə keçin</string>
-    <string name="security_settings_udfps_enroll_edge_title">Sonra, barmağınızın kənarlarını yerləşdirin</string>
+    <string name="security_settings_udfps_enroll_edge_title">Sonra, barmağınızın kənarlarını istifadə edin</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Barmaq izi sensoru ekranınızdadır. Barmaq izinizi növbəti ekranda çəkəcəksiniz.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Başlayın</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Barmaq izinizi ayarlama qaydası</string>
@@ -4550,7 +4570,7 @@ Qeyd: barmaq izinizi bu cihazın kildiini açmaq üçün istifadə edə bilməzs
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Bu, barmaq izinizi daha yaxşı çəkməyə kömək edir</string>
     <string name="security_settings_udfps_enroll_repeat_message">Hər dəfə barmaq izi ikonası hərəkət etdikdə toxunub saxlayın. Bu, barmaq izinizi daha yaxşı çəkməyə kömək edir.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Barmaq izi ikonasını izləyin</string>
-    <string name="security_settings_udfps_enroll_start_message">Vibrasiyanı hiss edənə qədər barmağınızı sensorun üzərində saxlayın</string>
+    <string name="security_settings_udfps_enroll_start_message">Vibrasiyanı hiss edənə qədər barmağınızı sensorun üzərində düz saxlayın</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Bir daha</string>
     <string name="security_settings_work_fingerprint_preference_title">İş üçün Pixel Imprint</string>
     <string name="security_status_title">Güvənlik statusu</string>
@@ -4576,7 +4596,6 @@ Qeyd: barmaq izinizi bu cihazın kildiini açmaq üçün istifadə edə bilməzs
     <string name="select_webview_provider_dialog_title">WebView servisini ayarlayın</string>
     <string name="select_webview_provider_title">WebView servisi</string>
     <string name="select_webview_provider_toast_text">Bu seçim artıq etibarlı deyil. Yenidən cəhd edin.</string>
-    <string name="sensor_toggle_description">Bütün tətbiqlər və xidmətlər üçün</string>
     <string name="sensors_off_quick_settings_title">Sensorlar Deaktivdir</string>
     <string name="service_background_processes">%1$s yaddaş yeri boşdur</string>
     <string name="service_foreground_processes">%1$s istifadə olunub</string>
@@ -4808,6 +4827,7 @@ Bəlkə PIN yanlışdır"</string>
     <string name="sound_settings_summary_silent">Zəng səsi səssiz rejimdədir</string>
     <string name="sound_settings_summary_vibrate">Zəng səsi vibrasiya rejimindədir</string>
     <string name="sound_work_settings">İş profili səsləri</string>
+    <string name="spatial_audio_title">3D audio effekti</string>
     <string name="special_access">Xüsusi tətbiq girişi</string>
     <string name="special_access_more">Ətraflı məlumat</string>
     <string name="speed_label_fast">Sürətli</string>
@@ -5619,7 +5639,7 @@ Səsli zəng zamanı internetdən istifadə edə bilməzsiniz və bəzi tətbiql
     <string name="vpn_turn_on">Aktiv edin</string>
     <string name="vpn_type">Növ</string>
     <string name="vpn_username">İstifadəçi adı</string>
-    <string name="vpn_version">Versiya %s</string>
+    <string name="vpn_version">Versiya</string>
     <string name="vr_listener_security_warning_summary">Tətbiqləri virtual reallıq rejimində istifadə etdikdə %1$s xidmətini çalışdırmaq mümkün olacaq.</string>
     <string name="vr_listener_security_warning_title">VR xidmətinə %1$s üçün girişə icazə verilsin?</string>
     <string name="vr_listeners_title">VR köməkçi xidmətləri</string>
@@ -5889,7 +5909,7 @@ Smartfon şəbəkəni tapmaq üçün həmişə siqnal yayımlayacaq deyə, güv�
     <string name="wifi_not_in_range">Diapazonda deyil</string>
     <string name="wifi_not_in_range_message">Şəbəkə aralıqda deyil</string>
     <string name="wifi_notify_open_networks">İctimai şəbəkələr barədə bildirilsin</string>
-    <string name="wifi_notify_open_networks_summary">Avtomatik qoşulma mümkün olmadıqda</string>
+    <string name="wifi_notify_open_networks_summary">Yüksək keyfiyyətli ictimai şəbəkə əlçatan olduqda bildirin</string>
     <string name="wifi_on_time">Wi-Fi vaxtında</string>
     <string name="wifi_p2p_cancel_connect_message">%1$s ilə bağlantı dəvətini ləğv etmək istədiyinizə əminsiniz?</string>
     <string name="wifi_p2p_cancel_connect_title">Dəvət ləğv olunsun?</string>
@@ -5977,7 +5997,6 @@ Axtarış etmək istəyən bütün tətbiqlər üçün buna icazə verilsin?"</s
     <string name="wifi_suspend_optimizations">Wi-Fi optimallaşdırılması</string>
     <string name="wifi_suspend_optimizations_summary">Wi-Fi aktiv olan zaman batareya istifadəsini minimuma endirin</string>
     <string name="wifi_switch_away_when_unvalidated">Wi-Fi internet bağlantısını itirsə, mobil dataya keçin.</string>
-    <string name="wifi_switch_summary">Wi‑Fi şəbəkələrini tapın və qoşulun</string>
     <string name="wifi_tap_to_sign_in">Şəbəkəyə daxil olmaq üçün bura klikləyin</string>
     <string name="wifi_tether_configure_ap_text">Wi-Fi hotspot ayarlayın</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

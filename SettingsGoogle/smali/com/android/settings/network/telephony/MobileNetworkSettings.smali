@@ -43,7 +43,7 @@
 
     new-instance v0, Lcom/android/settings/network/telephony/MobileNetworkSettings$2;
 
-    const v1, 0x7f150096
+    const v1, 0x7f15009b
 
     invoke-direct {v0, v1}, Lcom/android/settings/network/telephony/MobileNetworkSettings$2;-><init>(I)V
 
@@ -244,7 +244,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150096
+    const p0, 0x7f15009b
 
     return p0
 .end method
@@ -909,7 +909,7 @@
 
     move-result-object v1
 
-    const-string v2, "user"
+    const-string/jumbo v2, "user"
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -953,9 +953,9 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0d01eb
+    const v0, 0x7f0d01f0
 
-    const v1, 0x7f040d21
+    const v1, 0x7f040d4c
 
     const/4 v2, 0x0
 
@@ -1015,7 +1015,7 @@
 
     move-result v0
 
-    const v1, 0x7f0d01eb
+    const v1, 0x7f0d01f0
 
     if-ne v0, v1, :cond_0
 

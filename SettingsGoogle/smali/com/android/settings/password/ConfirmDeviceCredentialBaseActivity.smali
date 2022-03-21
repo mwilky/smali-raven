@@ -55,7 +55,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f0d033a
+    const v0, 0x7f0d0348
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/FragmentManager;->findFragmentById(I)Landroidx/fragment/app/Fragment;
 
@@ -227,7 +227,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f130310
+    const v0, 0x7f130315
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->setTheme(I)V
 
@@ -263,7 +263,7 @@
 
     if-ne v0, v2, :cond_2
 
-    const v0, 0x7f0d0176
+    const v0, 0x7f0d017a
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 

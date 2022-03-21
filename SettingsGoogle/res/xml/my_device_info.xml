@@ -5,21 +5,19 @@
     <PreferenceCategory android:title="@string/my_device_info_basic_info_category_title" android:selectable="false" android:key="basic_info_category">
         <com.android.settings.widget.ValidatedEditTextPreference android:title="@string/my_device_info_device_name_preference_title" android:key="device_name" android:summary="@string/summary_placeholder" android:order="1" settings:controller="com.android.settings.deviceinfo.DeviceNamePreferenceController" settings:enableCopying="true" />
         <Preference android:title="@string/my_device_info_account_preference_title" android:key="branded_account" android:summary="@string/summary_placeholder" android:order="2" settings:controller="com.android.settings.deviceinfo.BrandedAccountPreferenceController" settings:enableCopying="true" />
-        <Preference android:title="@string/status_number" android:selectable="false" android:key="phone_number" android:summary="@string/summary_placeholder" android:order="3" settings:controller="com.android.settings.deviceinfo.PhoneNumberPreferenceController" settings:enableCopying="true" />
+        <com.android.settings.deviceinfo.PhoneNumberSummaryPreference android:title="@string/status_number" android:selectable="false" android:key="phone_number" android:summary="@string/summary_placeholder" android:order="3" settings:controller="com.android.settings.deviceinfo.PhoneNumberPreferenceController" settings:enableCopying="true" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/my_device_info_legal_category_title">
         <Preference android:title="@string/legal_information" android:key="legal_container" android:order="15" android:fragment="com.android.settings.LegalSettings" />
         <Preference android:title="@string/regulatory_labels" android:key="regulatory_info" android:order="16">
             <intent android:action="android.settings.SHOW_REGULATORY_INFO" />
         </Preference>
-        <Preference android:title="@string/safety_and_regulatory_info" android:key="safety_info" android:order="17">
-            <intent android:action="android.settings.SHOW_SAFETY_AND_REGULATORY_INFO" />
-        </Preference>
+        <Preference android:title="@string/safety_and_regulatory_info" android:key="safety_info" android:order="17" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/my_device_info_device_details_category_title" android:selectable="false" android:key="device_detail_category">
         <Preference android:title="@string/sim_status_title" android:key="sim_status" android:summary="@string/summary_placeholder" android:order="18" settings:keywords="@string/keywords_sim_status" settings:enableCopying="true" />
         <Preference android:title="@string/model_info" android:key="device_model" android:summary="@string/summary_placeholder" android:order="31" android:fragment="com.android.settings.deviceinfo.hardwareinfo.HardwareInfoFragment" settings:controller="com.android.settings.deviceinfo.HardwareInfoPreferenceController" settings:keywords="@string/keywords_model_and_hardware" settings:enableCopying="true" />
-        <Preference android:title="@string/status_imei" android:key="imei_info" android:summary="@string/summary_placeholder" android:order="32" settings:controller="com.android.settings.deviceinfo.imei.ImeiInfoPreferenceController" settings:keywords="@string/keywords_imei_info" settings:enableCopying="true" />
+        <com.android.settings.deviceinfo.PhoneNumberSummaryPreference android:title="@string/status_imei" android:key="imei_info" android:summary="@string/summary_placeholder" android:order="32" settings:controller="com.android.settings.deviceinfo.imei.ImeiInfoPreferenceController" settings:keywords="@string/keywords_imei_info" settings:enableCopying="true" />
         <Preference android:title="@string/firmware_version" android:key="firmware_version" android:summary="@string/summary_placeholder" android:order="42" android:fragment="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionSettings" settings:controller="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionPreferenceController" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/my_device_info_device_identifiers_category_title">

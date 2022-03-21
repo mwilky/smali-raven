@@ -41,7 +41,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040691
+    const v1, 0x7f0406a9
 
     invoke-virtual {v0, v1}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -100,7 +100,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f040691
+    const p1, 0x7f0406a9
 
     invoke-virtual {v0, p1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -158,7 +158,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f040691
+    const p1, 0x7f0406a9
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -168,7 +168,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 0
 
-    const p2, 0x7f0600a0
+    const p2, 0x7f0600a2
 
     const/4 p3, 0x0
 
@@ -176,7 +176,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0d0127
+    const p2, 0x7f0d012b
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

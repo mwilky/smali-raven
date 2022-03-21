@@ -87,8 +87,18 @@
     return-object p0
 .end method
 
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public handlePreferenceTreeClick(Landroidx/preference/Preference;)Z
-    .locals 1
+    .locals 2
 
     invoke-virtual {p0}, Lcom/android/settings/core/BasePreferenceController;->getPreferenceKey()Ljava/lang/String;
 
@@ -96,17 +106,21 @@
 
     invoke-virtual {p1}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-static {v0, p1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+    invoke-static {v0, v1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_0
 
     iget-object p0, p0, Lcom/android/settings/privacy/WorkPolicyInfoPreferenceController;->mEnterpriseProvider:Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProvider;
 
-    invoke-interface {p0}, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProvider;->showWorkPolicyInfo()Z
+    invoke-virtual {p1}, Landroidx/preference/Preference;->getContext()Landroid/content/Context;
+
+    move-result-object p1
+
+    invoke-interface {p0, p1}, Lcom/android/settings/enterprise/EnterprisePrivacyFeatureProvider;->showWorkPolicyInfo(Landroid/content/Context;)Z
 
     const/4 p0, 0x1
 

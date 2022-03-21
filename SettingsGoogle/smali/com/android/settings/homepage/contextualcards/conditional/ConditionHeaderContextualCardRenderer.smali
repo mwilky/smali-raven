@@ -60,7 +60,7 @@
 
     iget-object v0, p1, Lcom/android/settings/homepage/contextualcards/conditional/ConditionHeaderContextualCardRenderer$ConditionHeaderCardHolder;->icons:Landroid/widget/LinearLayout;
 
-    const v1, 0x7f06008d
+    const v1, 0x7f06008f
 
     const/4 v2, 0x0
 

@@ -137,7 +137,7 @@
 
     move-result-object p2
 
-    const p3, 0x7f04063a
+    const p3, 0x7f040652
 
     invoke-virtual {p2, p3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -153,7 +153,7 @@
 
     move-result-object p2
 
-    const p3, 0x7f040644
+    const p3, 0x7f04065c
 
     invoke-virtual {p2, p3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -169,7 +169,7 @@
 
     move-result-object p2
 
-    const p3, 0x7f04062a
+    const p3, 0x7f040642
 
     invoke-virtual {p2, p3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -185,7 +185,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f040633
+    const p2, 0x7f04064b
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -368,7 +368,7 @@
 
     move-result-object v1
 
-    const-string v2, "volumeUuid"
+    const-string/jumbo v2, "volumeUuid"
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -378,7 +378,7 @@
 
     move-result-object v1
 
-    const-string v2, "volumeName"
+    const-string/jumbo v2, "volumeName"
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -398,7 +398,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040273
+    const v2, 0x7f040287
 
     invoke-virtual {v1, v2}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -472,7 +472,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040979
+    const v2, 0x7f040991
 
     invoke-virtual {v1, v2}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -590,7 +590,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f041306
+    const v0, 0x7f04132b
 
     invoke-static {p0, v0, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

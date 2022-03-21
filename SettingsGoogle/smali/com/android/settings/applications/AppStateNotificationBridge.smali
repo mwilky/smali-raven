@@ -312,7 +312,7 @@
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string p0, "|"
+    const-string/jumbo p0, "|"
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -357,7 +357,7 @@
 
     const/4 v0, 0x1
 
-    const v1, 0x7f0d0513
+    const v1, 0x7f0d0522
 
     if-ne p2, v1, :cond_1
 
@@ -369,7 +369,7 @@
 
     if-nez p2, :cond_0
 
-    const p1, 0x7f040e92
+    const p1, 0x7f040ebd
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -395,7 +395,7 @@
     return-object p0
 
     :cond_1
-    const v1, 0x7f0d0512
+    const v1, 0x7f0d0521
 
     if-ne p2, v1, :cond_3
 

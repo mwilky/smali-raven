@@ -18,6 +18,24 @@
 
 
 # direct methods
+.method public static synthetic $r8$lambda$WGwUtipRqXHoZXyYum0RAkKKLzg(ILjava/lang/Throwable;)V
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->lambda$createIllustrationViewWithImageRawResource$1(ILjava/lang/Throwable;)V
+
+    return-void
+.end method
+
+.method public static synthetic $r8$lambda$bGP8Itgu_TrQ6AkOgUSDQLTEukw(Landroid/content/Context;)Landroid/view/View;
+    .locals 0
+
+    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->lambda$createShortcutNavigationContentView$3(Landroid/content/Context;)Landroid/view/View;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
 .method public static synthetic $r8$lambda$f3VyksAhaOn4m_4xARPQYFf1Sk8(Landroid/content/DialogInterface;I)V
     .locals 0
 
@@ -30,16 +48,6 @@
     .locals 0
 
     invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->lambda$createShortcutNavigationContentView$2(Landroid/content/Context;)Landroid/view/View;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public static synthetic $r8$lambda$ts5mc0mqcAGWz8peRBZU8GycbcE(Landroid/content/Context;)Landroid/view/View;
-    .locals 0
-
-    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->lambda$createShortcutNavigationContentView$1(Landroid/content/Context;)Landroid/view/View;
 
     move-result-object p0
 
@@ -73,7 +81,7 @@
 
     sget-object p1, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->mOnClickListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const v0, 0x7f04014a
+    const v0, 0x7f04015e
 
     invoke-virtual {p0, v0, p1}, Landroidx/appcompat/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -103,7 +111,7 @@
 
     sget-object p1, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->mOnClickListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const v0, 0x7f04014a
+    const v0, 0x7f04015e
 
     invoke-virtual {p0, v0, p1}, Landroidx/appcompat/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -129,25 +137,25 @@
 .method private static createHardwareTutorialPage(Landroid/content/Context;)Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$TutorialPage;
     .locals 4
 
-    const v0, 0x7f040157
+    const v0, 0x7f04016b
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    const v1, 0x7f0200f0
+    const v1, 0x7f0200f7
 
-    invoke-static {p0, v1}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->createImageView(Landroid/content/Context;I)Landroid/widget/ImageView;
+    invoke-static {p0, v1}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->createIllustrationView(Landroid/content/Context;I)Landroid/view/View;
 
     move-result-object v1
 
-    const v2, 0x7f020166
+    const v2, 0x7f02016d
 
     invoke-static {p0, v2}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->createImageView(Landroid/content/Context;I)Landroid/widget/ImageView;
 
     move-result-object v2
 
-    const v3, 0x7f040152
+    const v3, 0x7f040166
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -159,9 +167,61 @@
 
     new-instance v3, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$TutorialPage;
 
-    invoke-direct {v3, v0, v1, v2, p0}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$TutorialPage;-><init>(Ljava/lang/CharSequence;Landroid/widget/ImageView;Landroid/widget/ImageView;Ljava/lang/CharSequence;)V
+    invoke-direct {v3, v0, v1, v2, p0}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$TutorialPage;-><init>(Ljava/lang/CharSequence;Landroid/view/View;Landroid/widget/ImageView;Ljava/lang/CharSequence;)V
 
     return-object v3
+.end method
+
+.method private static createIllustrationView(Landroid/content/Context;I)Landroid/view/View;
+    .locals 1
+
+    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->inflateAndInitIllustrationFrame(Landroid/content/Context;)Landroid/view/View;
+
+    move-result-object p0
+
+    const v0, 0x7f0d02cc
+
+    invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/airbnb/lottie/LottieAnimationView;
+
+    invoke-virtual {v0, p1}, Lcom/airbnb/lottie/LottieAnimationView;->setImageResource(I)V
+
+    return-object p0
+.end method
+
+.method private static createIllustrationViewWithImageRawResource(Landroid/content/Context;I)Landroid/view/View;
+    .locals 2
+
+    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->inflateAndInitIllustrationFrame(Landroid/content/Context;)Landroid/view/View;
+
+    move-result-object p0
+
+    const v0, 0x7f0d02cc
+
+    invoke-virtual {p0, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/airbnb/lottie/LottieAnimationView;
+
+    new-instance v1, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$$ExternalSyntheticLambda3;
+
+    invoke-direct {v1, p1}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$$ExternalSyntheticLambda3;-><init>(I)V
+
+    invoke-virtual {v0, v1}, Lcom/airbnb/lottie/LottieAnimationView;->setFailureListener(Lcom/airbnb/lottie/LottieListener;)V
+
+    invoke-virtual {v0, p1}, Lcom/airbnb/lottie/LottieAnimationView;->setAnimation(I)V
+
+    const/4 p1, -0x1
+
+    invoke-virtual {v0, p1}, Lcom/airbnb/lottie/LottieAnimationView;->setRepeatCount(I)V
+
+    invoke-virtual {v0}, Lcom/airbnb/lottie/LottieAnimationView;->playAnimation()V
+
+    return-object p0
 .end method
 
 .method private static createImageView(Landroid/content/Context;I)Landroid/widget/ImageView;
@@ -191,7 +251,7 @@
 
     check-cast v0, Landroid/view/LayoutInflater;
 
-    const v1, 0x7f06003a
+    const v1, 0x7f06003b
 
     const/4 v2, 0x0
 
@@ -215,7 +275,7 @@
 
     invoke-static {p1, v3}, Landroidx/core/util/Preconditions;->checkArgument(ZLjava/lang/Object;)V
 
-    const p1, 0x7f0d02cd
+    const p1, 0x7f0d02d7
 
     invoke-virtual {v0, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -279,7 +339,7 @@
 
     invoke-virtual {p1, v1}, Landroid/widget/ImageView;->setEnabled(Z)V
 
-    const p1, 0x7f0d05c1
+    const p1, 0x7f0d05d0
 
     invoke-virtual {v0, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -307,7 +367,7 @@
 
     invoke-virtual {v6, p1}, Landroid/widget/TextSwitcher;->setText(Ljava/lang/CharSequence;)V
 
-    const p1, 0x7f0d02dc
+    const p1, 0x7f0d02e8
 
     invoke-virtual {v0, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -335,7 +395,7 @@
 
     invoke-virtual {v7, p1}, Landroid/widget/TextSwitcher;->setText(Ljava/lang/CharSequence;)V
 
-    const p1, 0x7f0d0619
+    const p1, 0x7f0d0629
 
     invoke-virtual {v0, p1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -349,7 +409,7 @@
 
     invoke-virtual {p1, v3}, Landroidx/viewpager/widget/ViewPager;->setAdapter(Landroidx/viewpager/widget/PagerAdapter;)V
 
-    const v2, 0x7f040158
+    const v2, 0x7f04016c
 
     const/4 v3, 0x2
 
@@ -465,7 +525,7 @@
     return-object v0
 .end method
 
-.method private static createSoftwareImage(Landroid/content/Context;)Landroid/widget/ImageView;
+.method private static createSoftwareImage(Landroid/content/Context;)Landroid/view/View;
     .locals 1
 
     invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityUtil;->isFloatingMenuEnabled(Landroid/content/Context;)Z
@@ -474,15 +534,37 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0200f2
+    const v0, 0x7f0200f9
 
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f0200f1
+    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityUtil;->isGestureNavigateEnabled(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityUtil;->isTouchExploreEnabled(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const v0, 0x7f0200fb
+
+    goto :goto_0
+
+    :cond_1
+    const v0, 0x7f0200fa
+
+    goto :goto_0
+
+    :cond_2
+    const v0, 0x7f0200f8
 
     :goto_0
-    invoke-static {p0, v0}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->createImageView(Landroid/content/Context;I)Landroid/widget/ImageView;
+    invoke-static {p0, v0}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->createIllustrationView(Landroid/content/Context;I)Landroid/view/View;
 
     move-result-object p0
 
@@ -492,13 +574,11 @@
 .method private static createSoftwareTutorialPage(Landroid/content/Context;)Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$TutorialPage;
     .locals 4
 
-    const v0, 0x7f040153
-
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->getSoftwareTitle(Landroid/content/Context;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->createSoftwareImage(Landroid/content/Context;)Landroid/widget/ImageView;
+    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->createSoftwareImage(Landroid/content/Context;)Landroid/view/View;
 
     move-result-object v1
 
@@ -506,7 +586,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f020166
+    const v3, 0x7f02016d
 
     invoke-static {p0, v3}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->createImageView(Landroid/content/Context;I)Landroid/widget/ImageView;
 
@@ -518,7 +598,7 @@
 
     new-instance v3, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$TutorialPage;
 
-    invoke-direct {v3, v0, v1, p0, v2}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$TutorialPage;-><init>(Ljava/lang/CharSequence;Landroid/widget/ImageView;Landroid/widget/ImageView;Ljava/lang/CharSequence;)V
+    invoke-direct {v3, v0, v1, p0, v2}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$TutorialPage;-><init>(Ljava/lang/CharSequence;Landroid/view/View;Landroid/widget/ImageView;Ljava/lang/CharSequence;)V
 
     return-object v3
 .end method
@@ -526,25 +606,25 @@
 .method private static createTripleTapTutorialPage(Landroid/content/Context;)Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$TutorialPage;
     .locals 4
 
-    const v0, 0x7f040156
+    const v0, 0x7f04016a
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v0
 
-    const v1, 0x7f0200f5
+    const v1, 0x7f030005
 
-    invoke-static {p0, v1}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->createImageView(Landroid/content/Context;I)Landroid/widget/ImageView;
+    invoke-static {p0, v1}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->createIllustrationViewWithImageRawResource(Landroid/content/Context;I)Landroid/view/View;
 
     move-result-object v1
 
-    const v2, 0x7f040151
+    const v2, 0x7f040165
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v2
 
-    const v3, 0x7f020166
+    const v3, 0x7f02016d
 
     invoke-static {p0, v3}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->createImageView(Landroid/content/Context;I)Landroid/widget/ImageView;
 
@@ -556,13 +636,13 @@
 
     new-instance v3, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$TutorialPage;
 
-    invoke-direct {v3, v0, v1, p0, v2}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$TutorialPage;-><init>(Ljava/lang/CharSequence;Landroid/widget/ImageView;Landroid/widget/ImageView;Ljava/lang/CharSequence;)V
+    invoke-direct {v3, v0, v1, p0, v2}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$TutorialPage;-><init>(Ljava/lang/CharSequence;Landroid/view/View;Landroid/widget/ImageView;Ljava/lang/CharSequence;)V
 
     return-object v3
 .end method
 
 .method private static createTutorialDialogContentView(Landroid/content/Context;I)Landroid/view/View;
-    .locals 7
+    .locals 3
 
     const-string v0, "layout_inflater"
 
@@ -574,169 +654,118 @@
 
     const/4 v1, 0x0
 
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_2
 
     const/4 v2, 0x1
 
-    const v3, 0x7f030029
-
-    const v4, 0x7f03002a
-
-    const v5, 0x7f0d0251
-
-    const v6, 0x7f0d0253
-
-    if-eq p1, v2, :cond_3
+    if-eq p1, v2, :cond_1
 
     const/4 v2, 0x2
 
     if-eq p1, v2, :cond_0
 
-    goto :goto_4
+    goto :goto_0
 
     :cond_0
-    const p1, 0x7f060285
+    const p1, 0x7f060291
 
     invoke-virtual {v0, p1, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v1
 
-    invoke-virtual {v1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object p1
-
-    check-cast p1, Landroid/view/TextureView;
-
-    invoke-virtual {v1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityUtil;->isTouchExploreEnabled(Landroid/content/Context;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
+    invoke-static {p0, v1}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->setupGestureNavigationTextWithImage(Landroid/content/Context;Landroid/view/View;)V
 
     goto :goto_0
 
     :cond_1
-    move v3, v4
-
-    :goto_0
-    invoke-static {p0, v3, p1}, Lcom/android/settings/accessibility/VideoPlayer;->create(Landroid/content/Context;ILandroid/view/TextureView;)Lcom/android/settings/accessibility/VideoPlayer;
-
-    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityUtil;->isTouchExploreEnabled(Landroid/content/Context;)Z
-
-    move-result p0
-
-    if-eqz p0, :cond_2
-
-    const p0, 0x7f04014f
-
-    goto :goto_1
-
-    :cond_2
-    const p0, 0x7f04014e
-
-    :goto_1
-    invoke-virtual {v0, p0}, Landroid/widget/TextView;->setText(I)V
-
-    goto :goto_4
-
-    :cond_3
-    const p1, 0x7f060287
+    const p1, 0x7f060293
 
     invoke-virtual {v0, p1, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v1
 
-    invoke-virtual {v1, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-static {p0, v1}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->setupGestureNavigationTextWithImage(Landroid/content/Context;Landroid/view/View;)V
 
-    move-result-object p1
+    goto :goto_0
 
-    check-cast p1, Landroid/view/TextureView;
-
-    invoke-virtual {v1, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityUtil;->isTouchExploreEnabled(Landroid/content/Context;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_4
-
-    goto :goto_2
-
-    :cond_4
-    move v3, v4
-
-    :goto_2
-    invoke-static {p0, v3, p1}, Lcom/android/settings/accessibility/VideoPlayer;->create(Landroid/content/Context;ILandroid/view/TextureView;)Lcom/android/settings/accessibility/VideoPlayer;
-
-    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityUtil;->isTouchExploreEnabled(Landroid/content/Context;)Z
-
-    move-result p0
-
-    if-eqz p0, :cond_5
-
-    const p0, 0x7f040150
-
-    goto :goto_3
-
-    :cond_5
-    const p0, 0x7f04014d
-
-    :goto_3
-    invoke-virtual {v0, p0}, Landroid/widget/TextView;->setText(I)V
-
-    goto :goto_4
-
-    :cond_6
-    const p0, 0x7f060286
+    :cond_2
+    const p0, 0x7f060292
 
     invoke-virtual {v0, p0, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v1
 
-    :goto_4
+    :goto_0
     return-object v1
 .end method
 
 .method private static getSoftwareInstruction(Landroid/content/Context;)Ljava/lang/CharSequence;
-    .locals 1
+    .locals 2
+
+    new-instance v0, Landroid/text/SpannableStringBuilder;
+
+    invoke-direct {v0}, Landroid/text/SpannableStringBuilder;-><init>()V
 
     invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityUtil;->isFloatingMenuEnabled(Landroid/content/Context;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    const v0, 0x7f04014c
+    const v1, 0x7f040160
 
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object p0
+
+    invoke-virtual {v0, p0}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
+
+    goto :goto_1
+
+    :cond_0
+    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityUtil;->isGestureNavigateEnabled(Landroid/content/Context;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityUtil;->isTouchExploreEnabled(Landroid/content/Context;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    const v1, 0x7f040164
 
     goto :goto_0
 
-    :cond_0
-    const v0, 0x7f04014b
+    :cond_1
+    const v1, 0x7f040161
 
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    invoke-static {p0, v0}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->getSoftwareInstructionWithIcon(Landroid/content/Context;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+    :goto_0
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object p0
 
-    :goto_0
-    return-object p0
+    invoke-virtual {v0, p0}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
+
+    goto :goto_1
+
+    :cond_2
+    const v1, 0x7f04015f
+
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    invoke-static {p0, v1}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->getSoftwareInstructionWithIcon(Landroid/content/Context;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Landroid/text/SpannableStringBuilder;->append(Ljava/lang/CharSequence;)Landroid/text/SpannableStringBuilder;
+
+    :goto_1
+    return-object v0
 .end method
 
 .method private static getSoftwareInstructionWithIcon(Landroid/content/Context;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
@@ -762,7 +791,7 @@
 
     invoke-direct {v2, p0}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f020165
+    const v3, 0x7f02016c
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -805,7 +834,84 @@
     return-object v0
 .end method
 
-.method private static synthetic lambda$createShortcutNavigationContentView$1(Landroid/content/Context;)Landroid/view/View;
+.method private static getSoftwareTitle(Landroid/content/Context;)Ljava/lang/CharSequence;
+    .locals 2
+
+    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityUtil;->isFloatingMenuEnabled(Landroid/content/Context;)Z
+
+    move-result v0
+
+    const v1, 0x7f040167
+
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityUtil;->isGestureNavigateEnabled(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const v1, 0x7f040168
+
+    :cond_1
+    :goto_0
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private static inflateAndInitIllustrationFrame(Landroid/content/Context;)Landroid/view/View;
+    .locals 2
+
+    const-class v0, Landroid/view/LayoutInflater;
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/view/LayoutInflater;
+
+    const v0, 0x7f060037
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p0, v0, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method private static synthetic lambda$createIllustrationViewWithImageRawResource$1(ILjava/lang/Throwable;)V
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "Invalid image raw resource id: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string v0, "AccessibilityGestureNavigationTutorial"
+
+    invoke-static {v0, p0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    return-void
+.end method
+
+.method private static synthetic lambda$createShortcutNavigationContentView$2(Landroid/content/Context;)Landroid/view/View;
     .locals 0
 
     invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->makeTitleView(Landroid/content/Context;)Landroid/view/View;
@@ -815,7 +921,7 @@
     return-object p0
 .end method
 
-.method private static synthetic lambda$createShortcutNavigationContentView$2(Landroid/content/Context;)Landroid/view/View;
+.method private static synthetic lambda$createShortcutNavigationContentView$3(Landroid/content/Context;)Landroid/view/View;
     .locals 0
 
     invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->makeInstructionView(Landroid/content/Context;)Landroid/view/View;
@@ -865,7 +971,69 @@
     return-object v0
 .end method
 
-.method public static showGestureNavigationSettingsTutorialDialog(Landroid/content/Context;Landroid/content/DialogInterface$OnDismissListener;)V
+.method private static setupGestureNavigationTextWithImage(Landroid/content/Context;Landroid/view/View;)V
+    .locals 2
+
+    invoke-static {p0}, Lcom/android/settings/accessibility/AccessibilityUtil;->isTouchExploreEnabled(Landroid/content/Context;)Z
+
+    move-result p0
+
+    const v0, 0x7f0d02cc
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/ImageView;
+
+    if-eqz p0, :cond_0
+
+    const v1, 0x7f0203bb
+
+    goto :goto_0
+
+    :cond_0
+    const v1, 0x7f0203bc
+
+    :goto_0
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
+
+    const v0, 0x7f0d0257
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/widget/TextView;
+
+    if-eqz p0, :cond_1
+
+    const p0, 0x7f040163
+
+    goto :goto_1
+
+    :cond_1
+    const p0, 0x7f040162
+
+    :goto_1
+    invoke-virtual {p1, p0}, Landroid/widget/TextView;->setText(I)V
+
+    return-void
+.end method
+
+.method static showAccessibilityGestureTutorialDialog(Landroid/content/Context;)Landroidx/appcompat/app/AlertDialog;
+    .locals 1
+
+    const/4 v0, 0x1
+
+    invoke-static {p0, v0}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->createDialog(Landroid/content/Context;I)Landroidx/appcompat/app/AlertDialog;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public static showGestureNavigationTutorialDialog(Landroid/content/Context;Landroid/content/DialogInterface$OnDismissListener;)V
     .locals 2
 
     new-instance v0, Landroidx/appcompat/app/AlertDialog$Builder;
@@ -884,7 +1052,7 @@
 
     sget-object v0, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->mOnClickListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const v1, 0x7f04014a
+    const v1, 0x7f04015e
 
     invoke-virtual {p0, v1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -909,16 +1077,4 @@
     invoke-virtual {p0}, Landroid/app/Dialog;->show()V
 
     return-void
-.end method
-
-.method static showGestureNavigationTutorialDialog(Landroid/content/Context;)Landroidx/appcompat/app/AlertDialog;
-    .locals 1
-
-    const/4 v0, 0x1
-
-    invoke-static {p0, v0}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial;->createDialog(Landroid/content/Context;I)Landroidx/appcompat/app/AlertDialog;
-
-    move-result-object p0
-
-    return-object p0
 .end method

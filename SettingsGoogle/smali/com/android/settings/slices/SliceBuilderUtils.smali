@@ -196,22 +196,61 @@
     return-object p0
 .end method
 
-.method public static buildSearchResultPageIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)Landroid/content/Intent;
-    .locals 3
+.method public static buildSearchResultPageIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)Landroid/content/Intent;
+    .locals 4
 
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    const-string v1, ":settings:fragment_args_key"
+    const/4 v1, 0x0
 
-    invoke-virtual {v0, v1, p2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    if-eqz p5, :cond_0
 
-    new-instance v2, Lcom/android/settings/core/SubSettingLauncher;
+    invoke-virtual {p0, p5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    invoke-direct {v2, p0}, Lcom/android/settings/core/SubSettingLauncher;-><init>(Landroid/content/Context;)V
+    move-result-object p5
 
-    invoke-virtual {v2, p1}, Lcom/android/settings/core/SubSettingLauncher;->setDestination(Ljava/lang/String;)Lcom/android/settings/core/SubSettingLauncher;
+    invoke-static {p5}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Invalid menu key res from: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v3, "SliceBuilder"
+
+    invoke-static {v3, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_0
+    move-object p5, v1
+
+    :cond_1
+    :goto_0
+    const-string v2, ":settings:fragment_args_key"
+
+    invoke-virtual {v0, v2, p2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    new-instance v3, Lcom/android/settings/core/SubSettingLauncher;
+
+    invoke-direct {v3, p0}, Lcom/android/settings/core/SubSettingLauncher;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {v3, p1}, Lcom/android/settings/core/SubSettingLauncher;->setDestination(Ljava/lang/String;)Lcom/android/settings/core/SubSettingLauncher;
 
     move-result-object p0
 
@@ -231,7 +270,21 @@
 
     move-result-object p0
 
-    invoke-virtual {p0, v1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {p0, v2, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object p1
+
+    const/4 p2, 0x1
+
+    const-string p3, "is_from_slice"
+
+    invoke-virtual {p1, p3, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
+    move-result-object p1
+
+    const-string p2, "android.provider.extra.SETTINGS_EMBEDDED_DEEP_LINK_HIGHLIGHT_MENU_KEY"
+
+    invoke-virtual {p1, p2, p5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     move-result-object p1
 
@@ -241,13 +294,35 @@
 
     move-result-object p1
 
-    const/4 p2, 0x0
-
-    invoke-virtual {p1, p2}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+    invoke-virtual {p1, v1}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
     const/high16 p1, 0x14000000
 
     invoke-virtual {p0, p1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+
+    return-object p0
+.end method
+
+.method public static buildSearchResultPageIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILcom/android/settings/slices/CustomSliceable;)Landroid/content/Intent;
+    .locals 6
+
+    invoke-interface {p5}, Lcom/android/settings/slices/CustomSliceable;->getSliceHighlightMenuRes()I
+
+    move-result v5
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move-object v3, p3
+
+    move v4, p4
+
+    invoke-static/range {v0 .. v5}, Lcom/android/settings/slices/SliceBuilderUtils;->buildSearchResultPageIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)Landroid/content/Intent;
+
+    move-result-object p0
 
     return-object p0
 .end method
@@ -820,7 +895,7 @@
     goto :goto_0
 
     :cond_0
-    const v3, 0x7f0407f9
+    const v3, 0x7f040811
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -938,7 +1013,7 @@
 .end method
 
 .method public static getContentIntent(Landroid/content/Context;Lcom/android/settings/slices/SliceData;)Landroid/content/Intent;
-    .locals 4
+    .locals 8
 
     new-instance v0, Landroid/net/Uri$Builder;
 
@@ -980,17 +1055,25 @@
     move-result-object v1
 
     :goto_0
+    move-object v5, v1
+
     invoke-virtual {p1}, Lcom/android/settings/slices/SliceData;->getFragmentClassName()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
     invoke-virtual {p1}, Lcom/android/settings/slices/SliceData;->getKey()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v4
 
-    const/4 v3, 0x0
+    const/4 v6, 0x0
 
-    invoke-static {p0, v2, p1, v1, v3}, Lcom/android/settings/slices/SliceBuilderUtils;->buildSearchResultPageIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)Landroid/content/Intent;
+    invoke-virtual {p1}, Lcom/android/settings/slices/SliceData;->getHighlightMenuRes()I
+
+    move-result v7
+
+    move-object v2, p0
+
+    invoke-static/range {v2 .. v7}, Lcom/android/settings/slices/SliceBuilderUtils;->buildSearchResultPageIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)Landroid/content/Intent;
 
     move-result-object p1
 
@@ -1038,7 +1121,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0201a8
+    const v1, 0x7f0201af
 
     invoke-static {p0, v1}, Landroidx/core/graphics/drawable/IconCompat;->createWithResource(Landroid/content/Context;I)Landroidx/core/graphics/drawable/IconCompat;
 
@@ -1162,7 +1245,7 @@
 
     move-result v0
 
-    const v1, 0x7f020323
+    const v1, 0x7f02032a
 
     if-nez v0, :cond_0
 
@@ -1327,7 +1410,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f04136e
+    const v2, 0x7f041393
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

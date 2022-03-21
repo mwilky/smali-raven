@@ -83,7 +83,7 @@
 
     if-eqz v6, :cond_0
 
-    const v5, 0x7f0400c3
+    const v5, 0x7f0400d3
 
     invoke-virtual {p0, v5}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -106,7 +106,7 @@
 
     invoke-virtual {v6, v7, v2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    const-string v2, "title"
+    const-string/jumbo v2, "title"
 
     invoke-virtual {v6, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -114,7 +114,7 @@
 
     invoke-virtual {v6, v1, v0}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    const-string v0, "summary"
+    const-string/jumbo v0, "summary"
 
     invoke-virtual {v6, v0, v5}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -128,13 +128,13 @@
 
     if-nez v1, :cond_1
 
-    const v1, 0x7f0400ee
+    const v1, 0x7f0400ff
 
     invoke-virtual {p0, v1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    const-string v2, "settings_title"
+    const-string/jumbo v2, "settings_title"
 
     invoke-virtual {v6, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -146,7 +146,7 @@
 
     move-result-object v0
 
-    const-string v1, "settings_component_name"
+    const-string/jumbo v1, "settings_component_name"
 
     invoke-virtual {v6, v1, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 

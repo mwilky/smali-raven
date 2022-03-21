@@ -19,7 +19,7 @@
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f0407b4
+    const p1, 0x7f0407cc
 
     const/4 v0, 0x0
 

@@ -178,7 +178,7 @@
 
     move-result-object v3
 
-    const-string v4, "type"
+    const-string/jumbo v4, "type"
 
     invoke-virtual {v3, v4}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 

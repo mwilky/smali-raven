@@ -45,7 +45,7 @@
 
     new-instance v0, Lcom/android/settings/datausage/BillingCycleSettings$1;
 
-    const v1, 0x7f150036
+    const v1, 0x7f150037
 
     invoke-direct {v0, v1}, Lcom/android/settings/datausage/BillingCycleSettings$1;-><init>(I)V
 
@@ -117,7 +117,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150036
+    const p0, 0x7f150037
 
     return p0
 .end method
@@ -172,7 +172,7 @@
 
     iput-object p1, p0, Lcom/android/settings/datausage/BillingCycleSettings;->mBillingCycle:Landroidx/preference/Preference;
 
-    const-string p1, "set_data_warning"
+    const-string/jumbo p1, "set_data_warning"
 
     invoke-virtual {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -192,7 +192,7 @@
 
     iput-object p1, p0, Lcom/android/settings/datausage/BillingCycleSettings;->mDataWarning:Landroidx/preference/Preference;
 
-    const-string p1, "set_data_limit"
+    const-string/jumbo p1, "set_data_limit"
 
     invoke-virtual {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 

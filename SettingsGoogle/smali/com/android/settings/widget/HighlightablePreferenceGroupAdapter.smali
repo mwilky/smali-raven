@@ -107,7 +107,7 @@
 
     iput p2, p0, Lcom/android/settings/widget/HighlightablePreferenceGroupAdapter;->mNormalBackgroundRes:I
 
-    const p2, 0x7f0a0197
+    const p2, 0x7f0a0195
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getColor(I)I
 
@@ -133,7 +133,7 @@
 
     sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
-    const v2, 0x7f0d0440
+    const v2, 0x7f0d044e
 
     invoke-virtual {v0, v2, v1}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
@@ -368,7 +368,7 @@
 
     const-string v1, "HighlightableAdapter"
 
-    const v2, 0x7f0d0440
+    const v2, 0x7f0d044e
 
     if-nez p2, :cond_0
 
@@ -614,7 +614,7 @@
     :cond_0
     sget-object p2, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
-    const v1, 0x7f0d0440
+    const v1, 0x7f0d044e
 
     invoke-virtual {v0, v1}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 

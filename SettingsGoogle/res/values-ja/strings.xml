@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">スムーズ ディスプレイ</string>
     <string name="peak_refresh_rate_summary">コンテンツに応じて、リフレッシュ レートを自動的に 60 Hz から 90 Hz に変更します。バッテリー使用量が増えます。</string>
     <string name="accessibility_vibration_settings_title">バイブレーションとハプティクス</string>
+    <string name="columbus_title">クイックタップでアクションを開始</string>
     <string name="emergency_gesture_screen_title">緊急 SOS</string>
     <string name="abc_action_mode_done">完了</string>
     <string name="vibrate_for_calls_category_title">通話</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">デバイス コントロールを表示</string>
     <string name="lockscreen_privacy_wallet_summary">ロック画面とクイック設定からウォレットへのアクセスを許可します</string>
     <string name="lockscreen_privacy_controls_summary">ロック画面にデバイスのコントロールを表示します</string>
+    <string name="lockscreen_double_line_clock_summary">使用可能な場合はダブルライン時計を表示します</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">ダブルライン時計</string>
     <string name="abc_activity_chooser_view_see_all">すべて表示</string>
     <string name="abc_activitychooserview_choose_application">アプリの選択</string>
     <string name="abc_capital_off">OFF</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">アラームのバイブレーション</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Active Edge をセットアップしました。次の画面に進むか、調整を続けてください。</string>
     <string name="accessibility_audio_adjustment_title">音声の調整</string>
+    <string name="accessibility_autoclick_about_title">自動クリック（静止時間）について</string>
     <string name="accessibility_autoclick_custom_title">カスタム</string>
     <string name="accessibility_autoclick_default_title">OFF</string>
     <string name="accessibility_autoclick_description">自動クリックはマウスが接続されている場合に使えます。有効にすると、マウスのカーソルの動きを一定時間静止することで、自動的にクリックできます。</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">自動クリック（静止時間）の詳細</string>
     <string name="accessibility_autoclick_long_summary">1秒</string>
     <string name="accessibility_autoclick_long_title">長め</string>
     <string name="accessibility_autoclick_longer_desc">長い</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">短め</string>
     <string name="accessibility_autoclick_shorter_desc">短い</string>
     <string name="accessibility_banner_message_dismiss">閉じる</string>
+    <string name="accessibility_button_about_title">ユーザー補助機能ボタンについて</string>
     <string name="accessibility_button_description">"どの画面からでもユーザー補助機能にすばやくアクセスできます。
 
-開始するには、[ユーザー補助] の設定に移動し、機能を選択します。ショートカットをタップし、ユーザー補助機能ボタンを選択します。"</string>
+開始するには、ユーザー補助設定に移動し、機能を選択します。ショートカットをタップし、ユーザー補助機能ボタンを選択します。"</string>
     <string name="accessibility_button_fade_summary">画面が見やすくなるよう数秒後に透過表示に切り替えます</string>
     <string name="accessibility_button_fade_title">使用していないときの透過表示の設定</string>
+    <string name="accessibility_button_gesture_about_title">ユーザー補助機能ボタンと操作について</string>
     <string name="accessibility_button_gesture_description">"どの画面からでもユーザー補助機能にすばやくアクセスできます。
 
-開始するには、[ユーザー補助] の設定に移動し、機能を選択します。ショートカットをタップし、ユーザー補助機能ボタンを選択します。
-
-このボタンではなく、ナビゲーション バーにあるユーザー補助機能ボタンを使用するには、2 ボタン ナビゲーションまたは 3 ボタン ナビゲーションに切り替えます。"</string>
+開始するには、ユーザー補助設定に移動し、機能を選択します。ショートカットをタップし、ユーザー補助機能ボタンまたは操作を選択します。"</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">ユーザー補助機能ボタンと操作の詳細</string>
     <string name="accessibility_button_gesture_title">ユーザー補助機能ボタンと操作</string>
     <string name="accessibility_button_high_label">非透明</string>
     <string name="accessibility_button_intro">ユーザー補助機能ボタンを使用します。3 ボタン ナビゲーションでは操作は利用できません。</string>
@@ -184,14 +190,23 @@
     <string name="accessibility_caption_preference_summary">字幕設定に対応していないアプリもあります</string>
     <string name="accessibility_caption_primary_switch_summary">対応アプリでのみ利用可能です</string>
     <string name="accessibility_caption_primary_switch_title">字幕の表示</string>
+    <string name="accessibility_captioning_about_title">字幕の設定について</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">字幕の設定の詳細</string>
     <string name="accessibility_captioning_title">字幕の設定</string>
     <string name="accessibility_category_personal">個人用プロファイルアカウント</string>
     <string name="accessibility_category_work">仕事用プロファイルアカウント - %s</string>
+    <string name="accessibility_color_inversion_about_title">色反転について</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">色反転の詳細</string>
+    <string name="accessibility_control_timeout_about_title">操作までの時間（ユーザー補助タイムアウト）について</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">操作までの時間（ユーザー補助タイムアウト）の詳細</string>
     <string name="accessibility_control_timeout_preference_summary">"短い時間しか表示されない操作要求メッセージについて、表示時間を指定してください。
 
 この設定に対応していないアプリもあります。"</string>
     <string name="accessibility_control_timeout_preference_title">操作要求の表示時間</string>
+    <string name="accessibility_daltonizer_about_title">色補正について</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">色補正の詳細</string>
     <string name="accessibility_daltonizer_primary_switch_title">色補正を使用</string>
+    <string name="accessibility_daltonizer_shortcut_title">色補正のショートカット</string>
     <string name="accessibility_data_one_bar">データ信号:レベル1</string>
     <string name="accessibility_data_signal_full">データ信号:フル</string>
     <string name="accessibility_data_three_bars">データ信号:レベル3</string>
@@ -206,6 +221,7 @@
     <string name="accessibility_display_daltonizer_preference_title">色補正</string>
     <string name="accessibility_display_inversion_preference_subtitle">色反転機能を使用すると、明るい画面が暗くなります。&lt;br/>&lt;br/> 注: &lt;ol> &lt;li> 暗い画面は逆に明るくなります。&lt;/li> &lt;li> メディアや画像の色が変わります。&lt;/li> &lt;li> ダークモードを使って背景を暗くすることもできます。ダークモードはアプリ側のサポートが必要ですが、色反転機能はすべてのアプリでご利用いただけます。&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">色反転</string>
+    <string name="accessibility_display_inversion_shortcut_title">色反転のショートカット</string>
     <string name="accessibility_display_inversion_switch_title">色反転を使用</string>
     <string name="accessibility_ethernet_connected">イーサネット。</string>
     <string name="accessibility_ethernet_disconnected">イーサネット接続を解除しました。</string>
@@ -255,6 +271,8 @@
     <string name="accessibility_phone_two_bars">電波状態:レベル2</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">電源ボタンで通話を終了</string>
     <string name="accessibility_preference_magnification_summary">画面を拡大します</string>
+    <string name="accessibility_screen_magnification_about_title">拡大について</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">拡大の詳細</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">ユーザー補助操作は「%1$s」に設定されています。拡大を使用するには、2 本の指で画面の下から上にスワイプして長押しし、拡大を選択してください。</string>
     <string name="accessibility_screen_magnification_gestures_title">トリプルタップで拡大</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">[ユーザー補助機能] ボタンが [%1$s] に設定されています。拡大を使用するには、[ユーザー補助機能] ボタンを押し続けて [拡大] を選択してください。</string>
@@ -272,6 +290,7 @@
 キーボードやナビゲーション バーでは拡大操作は行えません。"</string>
     <string name="accessibility_screen_magnification_navbar_title">ショートカットで拡大</string>
     <string name="accessibility_screen_magnification_short_summary">ズームするには 3 回タップします</string>
+    <string name="accessibility_screen_magnification_shortcut_title">拡大のショートカット</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">ショートカットとトリプルタップで拡大</string>
     <string name="accessibility_screen_magnification_summary">画面をすばやくズームインして、コンテンツを拡大できます。&lt;br/>&lt;br/> &lt;b>ズームインするには:&lt;/b>&lt;br/> {0,number,integer}. ショートカットを使って拡大を開始します&lt;br/> {1,number,integer}. 画面をタップします&lt;br/> {2,number,integer}. 2 本の指でドラッグして画面上を移動します&lt;br/> {3,number,integer}. 2 本の指でピンチ操作してズームを調整します&lt;br/> {4,number,integer}. ショートカットを使って拡大を停止します&lt;br/>&lt;br/> &lt;b>一時的にズームインするには:&lt;/b>&lt;br/> {0,number,integer}. ショートカットを使って拡大を開始します&lt;br/> {1,number,integer}. 画面を長押しします&lt;br/> {2,number,integer}. 指をドラッグして画面上を移動します&lt;br/> {3,number,integer}. 指を離して拡大を停止します</string>
     <string name="accessibility_screen_magnification_title">拡大</string>
@@ -370,7 +389,7 @@
     <string name="accessibility_tutorial_dialog_message_volume">この機能を使用するには、音量大と音量小の両方のボタンを長押しします。</string>
     <string name="accessibility_tutorial_dialog_title_button">ユーザー補助機能ボタンで開く</string>
     <string name="accessibility_tutorial_dialog_title_gesture">ジェスチャーで開く</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">新しいユーザー補助操作を使用する</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">ユーザー補助操作を使用する</string>
     <string name="accessibility_tutorial_dialog_title_triple">画面をトリプルタップして開く</string>
     <string name="accessibility_tutorial_dialog_title_volume">音量大と音量小の両方ボタンを長押しして開く</string>
     <string name="accessibility_tutorial_pager">%1$d/%2$d ページ目</string>
@@ -491,8 +510,8 @@
     <string name="admin_support_more_info">詳細</string>
     <string name="advanced_apps">詳細設定</string>
     <string name="advanced_battery_graph_subtext">バッテリー残量はデバイスの使用状況に基づく推定値です</string>
-    <string name="advanced_battery_preference_summary">前回のフル充電からの使用状況を表示します</string>
-    <string name="advanced_battery_preference_summary_with_hours">過去 24 時間の使用状況を表示します</string>
+    <string name="advanced_battery_preference_summary">前回のフル充電からの使用状況を表示する</string>
+    <string name="advanced_battery_preference_summary_with_hours">過去 24 時間の使用状況を表示する</string>
     <string name="advanced_battery_preference_title">バッテリー使用量</string>
     <string name="advanced_battery_title">バッテリー使用量</string>
     <string name="advanced_section_header">全般</string>
@@ -936,6 +955,7 @@
     <string name="battery_level_title">バッテリー残量</string>
     <string name="battery_manager_off">OFF</string>
     <string name="battery_manager_summary">バッテリーを長持ちさせ、充電を最適化します</string>
+    <string name="battery_manager_summary_unsupported">バッテリーを長持ちさせる</string>
     <string name="battery_missing_link_a11y_message">タップすると、このエラーの詳細が表示されます</string>
     <string name="battery_missing_link_message">詳細</string>
     <string name="battery_missing_message">バッテリー残量の読み取り中に問題が発生しました。</string>
@@ -1061,6 +1081,7 @@
     <string name="battery_usage_screen_footer">バッテリー使用量のデータは概算値です。スマートフォンの充電中の使用量は測定されません</string>
     <string name="battery_usage_screen_footer_empty">バッテリー使用量のデータは、スマートフォンを数時間使用すると表示されます</string>
     <string name="battery_usage_total_less_than_one_minute">合計: 1 分未満</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s: %2$s</string>
     <string name="battery_used_for">^1使用</string>
     <string name="bearer">ベアラー</string>
@@ -1069,12 +1090,14 @@
     <string name="billing_cycle_less_than_one_day_left">残り 1 日未満</string>
     <string name="billing_cycle_none_left">残り時間なし</string>
     <string name="biometric_settings_category_ways_to_unlock">ロック解除方法</string>
-    <string name="biometric_settings_category_ways_to_use">顔と指紋の用途</string>
     <string name="biometric_settings_hand_back_to_guardian">スマートフォンを保護者に渡してください</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">OK</string>
     <string name="biometric_settings_intro">顔認証と指紋認証を設定した場合、マスクを付けているときや暗い場所にいるときは指紋認証が求められます</string>
-    <string name="biometric_settings_use_biometric_for_apps">アプリでの認証</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">デバイスのロック解除</string>
+    <string name="biometric_settings_use_biometric_for_apps">アプリで本人確認を行う</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">スマートフォンのロックを解除する</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">顔認証または指紋認証を使用する</string>
+    <string name="biometric_settings_use_face_preference_summary">顔認証を使用する</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">指紋認証を使用する</string>
     <string name="biometrics_unlock_set_unlock_password">パスワード • 顔 • 指紋</string>
     <string name="biometrics_unlock_set_unlock_pattern">パターン • 顔 • 指紋</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN • 顔 • 指紋</string>
@@ -1332,7 +1355,6 @@ Bluetooth が OFF の場合でもアプリやサービスは付近のデバイ�
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Bluetooth デバイスを名前なしで表示</string>
     <string name="bluetooth_show_devices_without_names_summary">Bluetooth デバイスを名前なしで（MAC アドレスのみで）表示します</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Bluetooth で受信したファイル</string>
     <string name="bluetooth_show_received_files">受信済みファイル</string>
     <string name="bluetooth_sim_card_access_dialog_content">"Bluetooth デバイス %1$s が SIM カードのデータにアクセスしようとしています。これには連絡先のデータが含まれます。
 
@@ -1426,6 +1448,7 @@ CA 証明書をインストールすると、あなたがアクセスしたウ�
     <string name="calls_sms_temp_unavailable">一時的に利用できません</string>
     <string name="calls_sms_unavailable">使用不可</string>
     <string name="calls_sms_wfc_summary">Wi-Fi を利用して通話の発信と着信を行います</string>
+    <string name="cam_toggle_description">アプリとサービス</string>
     <string name="camera_double_tap_power_gesture_desc">画面ロックを解除せずにすばやくカメラを起動します</string>
     <string name="camera_double_tap_power_gesture_title">電源ボタンを2回押してカメラを起動</string>
     <string name="camera_laser_sensor_switch">カメラのレーザー センサー</string>
@@ -1736,7 +1759,7 @@ CA 証明書をインストールすると、あなたがアクセスしたウ�
     <string name="credentials_install">証明書のインストール</string>
     <string name="credentials_install_summary">ストレージから証明書をインストールする</string>
     <string name="credentials_not_erased">認証情報ストレージを消去不可</string>
-    <string name="credentials_reset">認証ストレージの消去</string>
+    <string name="credentials_reset">認証情報の消去</string>
     <string name="credentials_reset_hint">コンテンツをすべて削除しますか？</string>
     <string name="credentials_reset_summary">証明書をすべて削除する</string>
     <string name="credentials_settings_not_available">認証情報はこのユーザーには表示されません</string>
@@ -2511,7 +2534,7 @@ Googleアカウントなど、アカウントによっては、スマートフ�
     <string name="game_mode_standard_description">ゲームのデフォルトを使用します</string>
     <string name="game_mode_standard_title">標準</string>
     <string name="game_optimization_unavailable">このゲームでは利用できません</string>
-    <string name="game_settings_summary">ゲーム ダッシュボード ショートカットやその他の機能を有効にします</string>
+    <string name="game_settings_summary">ゲーム ダッシュボード ショートカットやその他の機能を有効にする</string>
     <string name="game_settings_title">ゲームの設定</string>
     <string name="game_storage_settings">ゲーム</string>
     <string name="general_category_title">全般</string>
@@ -2525,7 +2548,7 @@ Googleアカウントなど、アカウントによっては、スマートフ�
     <string name="gentle_notifications_display_summary_shade_status_lock">プルダウン シェード、ステータスバー、ロック画面に表示されます</string>
     <string name="gentle_notifications_education">控えめな通知は常に通知音は鳴らずプルダウン シェードに表示されます</string>
     <string name="gentle_notifications_title">控えめな通知</string>
-    <string name="gesture_aware_confirmation_action_button">次へ</string>
+    <string name="gesture_aware_confirmation_action_button">OK</string>
     <string name="gesture_aware_disabled_info_dialog_content" />
     <string name="gesture_aware_footer"><annotation link="link">設定</annotation></string>
     <string name="gesture_aware_off_dialog_content" />
@@ -3302,6 +3325,7 @@ PIN は紛失・盗難時にスマートフォンを保護します。"</string>
     <string name="menu_stats_total">合計使用量</string>
     <string name="menu_stats_unplugged">電池使用時間: %1$s</string>
     <string name="menu_use_uss">Ussを使用</string>
+    <string name="mic_toggle_description">アプリとサービス。この設定が OFF の場合、緊急通報番号に発信したときは、マイクのデータが共有されることがあります。</string>
     <string name="mic_toggle_title">マイクへのアクセス</string>
     <string name="misc_files">その他のファイル</string>
     <string name="misc_files_selected_count">選択済み: %1$d/%2$d件</string>
@@ -3728,6 +3752,7 @@ PIN は紛失・盗難時にスマートフォンを保護します。"</string>
     <string name="one_handed_action_show_notification_title">通知を表示</string>
     <string name="one_handed_mode_enabled">片手モードの使用</string>
     <string name="one_handed_mode_intro_text">片手モードを使用するには、ナビゲーションバーを下方向にスワイプします。この機能を使用するには、システム ナビゲーションの設定でジェスチャー ナビゲーションが ON になっていることを確認してください。</string>
+    <string name="one_handed_mode_shortcut_title">片手モードのショートカット</string>
     <string name="one_handed_mode_swipe_down_category">下にスワイプ:</string>
     <string name="one_handed_mode_use_shortcut_category">ショートカットの使用:</string>
     <string name="one_usercrt">ユーザー証明書 1 件</string>
@@ -3803,7 +3828,7 @@ PIN は紛失・盗難時にスマートフォンを保護します。"</string>
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s は有効です</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">カメラ</string>
-    <string name="power_cell">モバイル ネットワーク スタンバイ</string>
+    <string name="power_cell">モバイル ネットワーク</string>
     <string name="power_charge_remaining">充電されるまで%1$s</string>
     <string name="power_charging">%1$s - %2$s</string>
     <string name="power_charging_duration">%1$s - 完了まであと %2$s</string>
@@ -4037,6 +4062,7 @@ PIN は紛失・盗難時にスマートフォンを保護します。"</string>
     <string name="recent_notifications">通知を最近送信したアプリ</string>
     <string name="recent_notifications_see_all_title">過去 7 日間をすべて表示</string>
     <string name="recompute_size">サイズを再計算中...</string>
+    <string name="reduce_bright_colors_about_title">さらに輝度を下げる機能について</string>
     <string name="reduce_bright_colors_intensity_end_label">明るくする</string>
     <string name="reduce_bright_colors_intensity_preference_title">輝度</string>
     <string name="reduce_bright_colors_intensity_start_label">暗くする</string>
@@ -4044,6 +4070,7 @@ PIN は紛失・盗難時にスマートフォンを保護します。"</string>
     <string name="reduce_bright_colors_preference_subtitle">画面を暗くして表示を見やすくします。&lt;br/>&lt;br/> 次のような場合に便利です。&lt;ol> &lt;li> デフォルトの最低限の明るさでも、スマートフォンの画面が明るすぎる&lt;/li> &lt;li> 夜の時間帯や就寝前の照明を消した部屋など、暗い場所でスマートフォンを使用している&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">スマートフォンで設定できる最低限の明るさよりも画面を暗くします</string>
     <string name="reduce_bright_colors_preference_title">さらに輝度を下げる</string>
+    <string name="reduce_bright_colors_shortcut_title">さらに輝度を下げる機能のショートカット</string>
     <string name="reduce_bright_colors_switch_title">画面の輝度をさらに下げる</string>
     <string name="register_automatically">自動登録...</string>
     <string name="register_on_network">%s に登録しています…</string>
@@ -4249,7 +4276,6 @@ PIN は紛失・盗難時にスマートフォンを保護します。"</string>
     <string name="screen_pinning_unlock_pattern">画面固定の解除前にロック解除パターンを要求</string>
     <string name="screen_pinning_unlock_pin">画面固定の解除前にPINを要求</string>
     <string name="screen_reader_category_title">スクリーン リーダー</string>
-    <string name="screen_saver_main_switch_title">スクリーン セーバーの使用</string>
     <string name="screen_time_summary_usage_today">今日: %1$s</string>
     <string name="screen_timeout_summary">操作が行われない状態で %1$s経過後</string>
     <string name="screen_timeout_title">画面がOFFになったとき</string>
@@ -4279,6 +4305,7 @@ PIN は紛失・盗難時にスマートフォンを保護します。"</string>
     <string name="screensaver_settings_button">設定</string>
     <string name="screensaver_settings_current">現在のスクリーンセーバー</string>
     <string name="screensaver_settings_disabled_prompt">スマートフォンのドッキング時やスリープ時の動作を管理するには、スクリーン セーバーを ON にします。</string>
+    <string name="screensaver_settings_dream_start">今すぐ起動</string>
     <string name="screensaver_settings_summary_dock">ドッキング時</string>
     <string name="screensaver_settings_summary_either_long">充電時またはドッキング時</string>
     <string name="screensaver_settings_summary_either_short">いずれか</string>
@@ -4329,15 +4356,6 @@ PIN は紛失・盗難時にスマートフォンを保護します。"</string>
     <string name="security_settings_biometric_preference_summary_both_fp_single">顔と指紋を登録しました</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">タップして設定してください</string>
     <string name="security_settings_biometric_preference_title">顔認証と指紋認証によるロック解除</string>
-    <string name="security_settings_biometrics_description">顔認証と指紋認証を設定した場合、マスクを付けているときや暗い場所にいるときは指紋認証が求められます</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">アプリでの認証</string>
-    <string name="security_settings_biometrics_preferences_category">顔認証または指紋認証の指定</string>
-    <string name="security_settings_biometrics_summary_both">顔認証と指紋認証</string>
-    <string name="security_settings_biometrics_summary_face">顔認証のみ</string>
-    <string name="security_settings_biometrics_summary_fingerprint">指紋認証のみ</string>
-    <string name="security_settings_biometrics_summary_none">タップして設定してください</string>
-    <string name="security_settings_biometrics_title">顔認証と指紋認証</string>
-    <string name="security_settings_biometrics_types_category">ロック解除方法</string>
     <string name="security_settings_face_enroll_consent_introduction_title">顔認証の許可</string>
     <string name="security_settings_face_enroll_dialog_ok">OK</string>
     <string name="security_settings_face_enroll_done">完了</string>
@@ -4395,6 +4413,7 @@ PIN は紛失・盗難時にスマートフォンを保護します。"</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">スマートフォンを見る動作を無意識に行うと、ロックが解除されることがあります。よく似た人（双子など）であったり、お子様の顔にスマートフォンを近づけられたりした場合も、ロックが解除されることがあります。</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">顔認証を使用するには、スマートフォンのロック解除または本人確認の際に目を開いていただくことが必要になる場合があります。このオプションは [設定] でいつでも ON にできます。</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">メガネやサングラス（薄い色）をかけていても大丈夫です。</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">顔を使ったスマートフォンのロック解除は、複雑なパターンや PIN よりも安全面で劣る可能性があります。</string>
     <string name="security_settings_face_enroll_introduction_info_looking">スマートフォンを見る動作を無意識に行うと、ロックが解除されることがあります。よく似た人（双子など）であったり、あなたの顔にスマートフォンを近づけられたりした場合も、ロックが解除されることがあります。</string>
     <string name="security_settings_face_enroll_introduction_info_title">注意事項</string>
     <string name="security_settings_face_enroll_introduction_message">顔を使って、スマートフォンのロック解除や本人確認（アプリへのログインや購入の承認など）を行います。</string>
@@ -4452,13 +4471,14 @@ PIN は紛失・盗難時にスマートフォンを保護します。"</string>
 
 双子など、あなたによく似た人でもスマートフォンのロックを解除されることがあります。"</string>
     <string name="security_settings_face_settings_preferences_category">顔認証を使用する場合</string>
-    <string name="security_settings_face_settings_remove_dialog_details">顔モデルは安全かつ完全に削除されます。削除後に、スマートフォンのロック解除やアプリでの認証を行うには、PIN、パターン、パスワードのいずれかが必要になります。</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"顔モデルは安全かつ完全に削除されます。
+
+削除後に、スマートフォンのロック解除やアプリでの認証を行うには、PIN、パターン、パスワードのいずれかが必要になります。"</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"顔モデルは安全かつ完全に削除されます。
+
+削除後に、スマートフォンのロックを解除するには、PIN、パターン、パスワードのいずれかが必要になります。"</string>
     <string name="security_settings_face_settings_remove_dialog_title">顔モデルを削除しますか？</string>
     <string name="security_settings_face_settings_remove_face_model">顔モデルを削除</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"顔モデルは安全かつ完全に削除されます。
-
-削除後に、スマートフォンのロック解除やアプリでの認証を行うには、指紋、PIN、パターン、パスワードのいずれかが必要になります。"</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">顔モデルを削除しますか？</string>
     <string name="security_settings_face_settings_require_attention">目を開く</string>
     <string name="security_settings_face_settings_require_attention_details">デバイスのロックを解除する際に、目を開いていることを確認します</string>
     <string name="security_settings_face_settings_require_confirmation">常に確認が必要</string>
@@ -4541,7 +4561,7 @@ PIN は紛失・盗難時にスマートフォンを保護します。"</string>
     <string name="security_settings_title">セキュリティ</string>
     <string name="security_settings_udfps_enroll_a11y">画面上で指を移動すると、センサーが見つかります。指紋認証センサーを長押ししてください。</string>
     <string name="security_settings_udfps_enroll_edge_message">指紋をセンサーに当てて長押しし、指を離してから別の部分を当ててください</string>
-    <string name="security_settings_udfps_enroll_edge_title">最後に指の縁の部分を当ててください</string>
+    <string name="security_settings_udfps_enroll_edge_title">最後に指の縁の部分を使用してください</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">指紋認証センサーは画面上にあります。次の画面で指紋を登録します。</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">開始</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">指紋の登録方法</string>
@@ -4576,7 +4596,6 @@ PIN は紛失・盗難時にスマートフォンを保護します。"</string>
     <string name="select_webview_provider_dialog_title">WebView の実装の設定</string>
     <string name="select_webview_provider_title">WebView の実装</string>
     <string name="select_webview_provider_toast_text">この選択は無効になりました。もう一度お試しください。</string>
-    <string name="sensor_toggle_description">すべてのアプリとサービスにアクセスを許可する</string>
     <string name="sensors_off_quick_settings_title">センサー OFF</string>
     <string name="service_background_processes">%1$s空き</string>
     <string name="service_foreground_processes">%1$s使用中</string>
@@ -4808,6 +4827,7 @@ PINが正しくない可能性があります。"</string>
     <string name="sound_settings_summary_silent">マナーモード着信に設定</string>
     <string name="sound_settings_summary_vibrate">バイブレーション着信に設定</string>
     <string name="sound_work_settings">仕事用プロファイルの音</string>
+    <string name="spatial_audio_title">空間音声</string>
     <string name="special_access">特別なアプリアクセス</string>
     <string name="special_access_more">詳細</string>
     <string name="speed_label_fast">速い</string>
@@ -5103,7 +5123,7 @@ PINが正しくない可能性があります。"</string>
     <string name="system_alert_window_settings">他のアプリの上に重ねて表示</string>
     <string name="system_alert_window_summary">他のアプリの上に重ねて表示できるアプリの数: %1$d / %2$d 個</string>
     <string name="system_app">（システム）</string>
-    <string name="system_dashboard_summary">言語、操作、時間、バックアップ</string>
+    <string name="system_dashboard_summary">言語、ジェスチャー、時間、バックアップ</string>
     <string name="system_default_app">（システムのデフォルト）</string>
     <string name="system_default_app_subtext">システムのデフォルト</string>
     <string name="system_package">システムアップデートは外部メディアにはインストールできません。</string>
@@ -5619,7 +5639,7 @@ PIN を削除すると、デバイスに保存されている指紋モデルも�
     <string name="vpn_turn_on">有効にする</string>
     <string name="vpn_type">タイプ</string>
     <string name="vpn_username">ユーザー名</string>
-    <string name="vpn_version">バージョン%s</string>
+    <string name="vpn_version">バージョン</string>
     <string name="vr_listener_security_warning_summary">%1$s は、アプリをバーチャル リアリティ モードで使用している場合に実行できるようになります。</string>
     <string name="vr_listener_security_warning_title">VR サービスから %1$s へのアクセスの許可</string>
     <string name="vr_listeners_title">VR ヘルパー サービス</string>
@@ -5889,7 +5909,7 @@ PIN を削除すると、デバイスに保存されている指紋モデルも�
     <string name="wifi_not_in_range">圏外</string>
     <string name="wifi_not_in_range_message">ネットワーク圏外です</string>
     <string name="wifi_notify_open_networks">利用可能なパブリック ネットワークを通知する</string>
-    <string name="wifi_notify_open_networks_summary">自動接続が利用できないときに通知する</string>
+    <string name="wifi_notify_open_networks_summary">高品質の公共ネットワークが利用可能なときに通知する</string>
     <string name="wifi_on_time">Wi-FiをONにしている時間</string>
     <string name="wifi_p2p_cancel_connect_message">%1$sとの接続への招待をキャンセルしますか？</string>
     <string name="wifi_p2p_cancel_connect_title">招待状のキャンセル</string>
@@ -5977,7 +5997,6 @@ PIN を削除すると、デバイスに保存されている指紋モデルも�
     <string name="wifi_suspend_optimizations">Wi-Fi最適化</string>
     <string name="wifi_suspend_optimizations_summary">Wi-FiがONのときに電池使用を節約する</string>
     <string name="wifi_switch_away_when_unvalidated">Wi-Fi でインターネットにアクセスできない場合にモバイルデータに切り替える</string>
-    <string name="wifi_switch_summary">Wi-Fi ネットワークを探して自動で接続</string>
     <string name="wifi_tap_to_sign_in">ここをタップしてネットワークにログイン</string>
     <string name="wifi_tether_configure_ap_text">Wi-Fiアクセスポイントをセットアップ</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

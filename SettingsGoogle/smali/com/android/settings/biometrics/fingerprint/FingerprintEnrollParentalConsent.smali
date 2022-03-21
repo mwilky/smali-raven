@@ -25,13 +25,13 @@
 
     :array_0
     .array-data 4
-        0x7f04114b
-        0x7f04115d
-        0x7f041163
-        0x7f041180
-        0x7f041181
+        0x7f041170
         0x7f041182
-        0x7f041183
+        0x7f041188
+        0x7f0411a5
+        0x7f0411a6
+        0x7f0411a7
+        0x7f0411a8
     .end array-data
 .end method
 
@@ -78,7 +78,7 @@
 .method protected getFooterMessage2()I
     .locals 0
 
-    const p0, 0x7f041180
+    const p0, 0x7f0411a5
 
     return p0
 .end method
@@ -86,7 +86,7 @@
 .method protected getFooterMessage3()I
     .locals 0
 
-    const p0, 0x7f041181
+    const p0, 0x7f0411a6
 
     return p0
 .end method
@@ -94,7 +94,7 @@
 .method protected getFooterMessage4()I
     .locals 0
 
-    const p0, 0x7f041182
+    const p0, 0x7f0411a7
 
     return p0
 .end method
@@ -102,7 +102,7 @@
 .method protected getFooterMessage5()I
     .locals 0
 
-    const p0, 0x7f041183
+    const p0, 0x7f0411a8
 
     return p0
 .end method
@@ -110,7 +110,7 @@
 .method protected getFooterTitle1()I
     .locals 0
 
-    const p0, 0x7f041163
+    const p0, 0x7f041188
 
     return p0
 .end method
@@ -118,7 +118,7 @@
 .method protected getHeaderResDefault()I
     .locals 0
 
-    const p0, 0x7f04114b
+    const p0, 0x7f041170
 
     return p0
 .end method
@@ -136,7 +136,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollIntroduction;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f04115d
+    const p1, 0x7f041182
 
     invoke-virtual {p0, p1}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setDescriptionText(I)V
 

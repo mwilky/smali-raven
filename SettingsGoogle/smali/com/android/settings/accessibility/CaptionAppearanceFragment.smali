@@ -65,7 +65,7 @@
 
     new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
 
-    const v1, 0x7f15003f
+    const v1, 0x7f150040
 
     invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
 
@@ -179,7 +179,7 @@
 
     move-result-object p0
 
-    const p2, 0x7f04055e
+    const p2, 0x7f040576
 
     if-eqz p0, :cond_1
 
@@ -209,7 +209,7 @@
 
     check-cast v0, Lcom/android/settingslib/widget/LayoutPreference;
 
-    const v1, 0x7f0d0446
+    const v1, 0x7f0d0453
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -219,7 +219,7 @@
 
     iput-object v1, p0, Lcom/android/settings/accessibility/CaptionAppearanceFragment;->mPreviewText:Lcom/android/internal/widget/SubtitleView;
 
-    const v1, 0x7f0d0449
+    const v1, 0x7f0d0456
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -227,7 +227,7 @@
 
     iput-object v1, p0, Lcom/android/settings/accessibility/CaptionAppearanceFragment;->mPreviewWindow:Landroid/view/View;
 
-    const v1, 0x7f0d0448
+    const v1, 0x7f0d0455
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -407,7 +407,7 @@
 
     aput v8, v5, v8
 
-    const v1, 0x7f0405cc
+    const v1, 0x7f0405e4
 
     invoke-virtual {p0, v1}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 
@@ -702,7 +702,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f04055f
+    const v3, 0x7f040577
 
     if-eqz v2, :cond_1
 
@@ -940,7 +940,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a0c
+    const p0, 0x7f040a24
 
     return p0
 .end method
@@ -964,7 +964,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15003f
+    const p0, 0x7f150040
 
     return p0
 .end method

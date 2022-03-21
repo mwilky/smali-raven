@@ -49,6 +49,20 @@
     return-object p0
 .end method
 
+.method public static bridge synthetic single([C)C
+    .locals 0
+    .param p0    # [C
+        .annotation build Lorg/jetbrains/annotations/NotNull;
+        .end annotation
+    .end param
+
+    invoke-static {p0}, Lkotlin/collections/ArraysKt___ArraysKt;->single([C)C
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public static bridge synthetic toMutableList([Ljava/lang/Object;)Ljava/util/List;
     .locals 0
     .param p0    # [Ljava/lang/Object;

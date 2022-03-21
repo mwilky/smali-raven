@@ -283,7 +283,7 @@
 
     const/4 p1, 0x0
 
-    const-string v0, "sys.debug.storage_slow"
+    const-string/jumbo v0, "sys.debug.storage_slow"
 
     invoke-static {v0, p1}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
 

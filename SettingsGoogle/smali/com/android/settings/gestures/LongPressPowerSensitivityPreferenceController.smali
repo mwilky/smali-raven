@@ -36,7 +36,7 @@
 
     move-result-object p1
 
-    const p2, 0x107005a
+    const p2, 0x1070061
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getIntArray(I)[I
 
@@ -109,7 +109,7 @@
 
     move-result-object p0
 
-    const v1, 0x10e007a
+    const v1, 0x10e007e
 
     invoke-virtual {p0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -283,6 +283,16 @@
     .locals 0
 
     const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
 
     return p0
 .end method

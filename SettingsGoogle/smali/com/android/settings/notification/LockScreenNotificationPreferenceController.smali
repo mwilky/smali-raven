@@ -280,19 +280,19 @@
     :goto_1
     if-nez v0, :cond_2
 
-    const p0, 0x7f040bae
+    const p0, 0x7f040bc6
 
     goto :goto_2
 
     :cond_2
     if-eqz p0, :cond_3
 
-    const p0, 0x7f040bb1
+    const p0, 0x7f040bc9
 
     goto :goto_2
 
     :cond_3
-    const p0, 0x7f040baf
+    const p0, 0x7f040bc7
 
     :goto_2
     return p0
@@ -311,7 +311,7 @@
 
     iget-object v2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f040bb1
+    const v3, 0x7f040bc9
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -335,7 +335,7 @@
 
     iget-object v2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f040baf
+    const v3, 0x7f040bc7
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -356,7 +356,7 @@
     :cond_0
     iget-object v2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f040bae
+    const v3, 0x7f040bc6
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -473,7 +473,7 @@
 
     iget-object v2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f040bb2
+    const v3, 0x7f040bca
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -497,7 +497,7 @@
 
     iget-object v2, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f040bb0
+    const v3, 0x7f040bc8
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -730,12 +730,12 @@
 
     if-eqz v0, :cond_4
 
-    const v0, 0x7f040bb2
+    const v0, 0x7f040bca
 
     goto :goto_1
 
     :cond_4
-    const v0, 0x7f040bb0
+    const v0, 0x7f040bc8
 
     :goto_1
     iput v0, p0, Lcom/android/settings/notification/LockScreenNotificationPreferenceController;->mLockscreenSelectedValueProfile:I
@@ -917,7 +917,7 @@
     return v3
 
     :cond_0
-    const p2, 0x7f040bb2
+    const p2, 0x7f040bca
 
     if-ne p1, p2, :cond_1
 
@@ -960,7 +960,7 @@
     return v3
 
     :cond_3
-    const p2, 0x7f040bae
+    const p2, 0x7f040bc6
 
     if-eq p1, p2, :cond_4
 
@@ -972,7 +972,7 @@
     move p2, v3
 
     :goto_0
-    const v0, 0x7f040bb1
+    const v0, 0x7f040bc9
 
     if-ne p1, v0, :cond_5
 

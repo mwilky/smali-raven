@@ -66,7 +66,7 @@
 
     check-cast p0, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$TutorialPage;
 
-    invoke-virtual {p0}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$TutorialPage;->getImageView()Landroid/widget/ImageView;
+    invoke-virtual {p0}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$TutorialPage;->getIllustrationView()Landroid/view/View;
 
     move-result-object p0
 
@@ -98,7 +98,7 @@
 
     check-cast p0, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$TutorialPage;
 
-    invoke-virtual {p0}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$TutorialPage;->getImageView()Landroid/widget/ImageView;
+    invoke-virtual {p0}, Lcom/android/settings/accessibility/AccessibilityGestureNavigationTutorial$TutorialPage;->getIllustrationView()Landroid/view/View;
 
     move-result-object p0
 

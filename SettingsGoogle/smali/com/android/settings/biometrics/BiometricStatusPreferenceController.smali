@@ -25,7 +25,7 @@
 
     iput p2, p0, Lcom/android/settings/biometrics/BiometricStatusPreferenceController;->mUserId:I
 
-    const-string v0, "user"
+    const-string/jumbo v0, "user"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -131,6 +131,16 @@
 .end method
 
 .method protected abstract getSettingsClassName()Ljava/lang/String;
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method protected abstract getSummaryTextEnrolled()Ljava/lang/String;

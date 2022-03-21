@@ -189,7 +189,7 @@
 
 # virtual methods
 .method protected declared-synchronized onDraw(Landroid/graphics/Canvas;)V
-    .locals 4
+    .locals 3
 
     monitor-enter p0
 
@@ -214,13 +214,21 @@
 
     iget-object v2, p0, Lcom/android/settings/accessibility/BalanceSeekBar;->mCenterMarkerRect:Landroid/graphics/Rect;
 
-    iget v3, v2, Landroid/graphics/Rect;->right:I
+    iget v2, v2, Landroid/graphics/Rect;->right:I
 
-    sub-int/2addr v1, v3
+    sub-int/2addr v1, v2
+
+    invoke-virtual {p0}, Landroid/widget/SeekBar;->getPaddingEnd()I
+
+    move-result v2
+
+    sub-int/2addr v1, v2
 
     div-int/lit8 v1, v1, 0x2
 
     int-to-float v1, v1
+
+    iget-object v2, p0, Lcom/android/settings/accessibility/BalanceSeekBar;->mCenterMarkerRect:Landroid/graphics/Rect;
 
     iget v2, v2, Landroid/graphics/Rect;->bottom:I
 

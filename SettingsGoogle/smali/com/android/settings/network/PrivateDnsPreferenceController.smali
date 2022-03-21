@@ -203,7 +203,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f090042
+    const v0, 0x7f090043
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -257,6 +257,16 @@
     const-string p0, "private_dns_settings"
 
     return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public getSummary()Ljava/lang/CharSequence;
@@ -326,7 +336,7 @@
     goto :goto_1
 
     :cond_2
-    const p0, 0x7f040f92
+    const p0, 0x7f040fbe
 
     invoke-virtual {v0, p0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -338,7 +348,7 @@
     :cond_3
     if-eqz p0, :cond_4
 
-    const p0, 0x7f040f8f
+    const p0, 0x7f040fbb
 
     invoke-virtual {v0, p0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -347,7 +357,7 @@
     goto :goto_2
 
     :cond_4
-    const p0, 0x7f040f90
+    const p0, 0x7f040fbc
 
     invoke-virtual {v0, p0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -357,7 +367,7 @@
     return-object p0
 
     :cond_5
-    const p0, 0x7f040f8e
+    const p0, 0x7f040fba
 
     invoke-virtual {v0, p0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

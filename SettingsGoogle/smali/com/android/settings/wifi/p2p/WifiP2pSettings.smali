@@ -528,7 +528,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f040a3d
+    const p0, 0x7f040a55
 
     return p0
 .end method
@@ -552,7 +552,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150114
+    const p0, 0x7f150119
 
     return p0
 .end method
@@ -566,7 +566,7 @@
 
     if-nez v0, :cond_0
 
-    const-string v0, "wifip2p"
+    const-string/jumbo v0, "wifip2p"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SettingsPreferenceFragment;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -701,9 +701,9 @@
 
     const/4 v0, 0x2
 
-    const v1, 0x7f04080a
+    const v1, 0x7f040822
 
-    const v2, 0x7f04080f
+    const v2, 0x7f040827
 
     const/4 v3, 0x0
 
@@ -749,7 +749,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f04169c
+    const v7, 0x7f0416c1
 
     new-array v0, v0, [Ljava/lang/Object;
 
@@ -776,7 +776,7 @@
 
     move-result-object v0
 
-    const v6, 0x7f04169b
+    const v6, 0x7f0416c0
 
     new-array v5, v5, [Ljava/lang/Object;
 
@@ -795,7 +795,7 @@
 
     invoke-direct {v0, v3}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f04169d
+    const v3, 0x7f0416c2
 
     invoke-virtual {v0, v3}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -840,7 +840,7 @@
     :cond_2
     if-ne p1, v0, :cond_4
 
-    const p1, 0x7f041697
+    const p1, 0x7f0416bc
 
     iget-object v0, p0, Lcom/android/settings/wifi/p2p/WifiP2pSettings;->mSelectedWifiPeer:Lcom/android/settings/wifi/p2p/WifiP2pPeer;
 
@@ -878,7 +878,7 @@
 
     invoke-direct {v6, v7}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v7, 0x7f041698
+    const v7, 0x7f0416bd
 
     invoke-virtual {v6, v7}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -945,13 +945,13 @@
 
     move-result-object p1
 
-    const v0, 0x7f0600cb
+    const v0, 0x7f0600cd
 
     invoke-virtual {p1, v0, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object p1
 
-    const v0, 0x7f0d01ed
+    const v0, 0x7f0d01f2
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1038,7 +1038,7 @@
 
     invoke-direct {v0, v3}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0416a0
+    const v3, 0x7f0416c5
 
     invoke-virtual {v0, v3}, Landroidx/appcompat/app/AlertDialog$Builder;->setTitle(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -1085,7 +1085,7 @@
 
     if-ne p1, v0, :cond_8
 
-    const p1, 0x7f041699
+    const p1, 0x7f0416be
 
     new-instance v0, Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -1152,12 +1152,12 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0416a2
+    const v0, 0x7f0416c7
 
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f0416a1
+    const v0, 0x7f0416c6
 
     :goto_0
     const/4 v1, 0x1
@@ -1174,7 +1174,7 @@
 
     const/4 v0, 0x2
 
-    const v1, 0x7f0416a0
+    const v1, 0x7f0416c5
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1572,14 +1572,14 @@
 
     if-eqz p0, :cond_1
 
-    const p0, 0x7f0416a2
+    const p0, 0x7f0416c7
 
     invoke-interface {v1, p0}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 
     goto :goto_1
 
     :cond_1
-    const p0, 0x7f0416a1
+    const p0, 0x7f0416c6
 
     invoke-interface {v1, p0}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 

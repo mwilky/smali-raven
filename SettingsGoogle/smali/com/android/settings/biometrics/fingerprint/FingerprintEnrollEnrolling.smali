@@ -397,7 +397,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b016e
+    const v2, 0x7f0b016f
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -835,7 +835,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0b016d
+    const v3, 0x7f0b016e
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1080,7 +1080,7 @@
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f04116a
+    const v0, 0x7f04118f
 
     invoke-virtual {p0, v0}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setDescriptionText(I)V
 
@@ -1088,7 +1088,7 @@
 
     :cond_2
     :goto_0
-    const v0, 0x7f04116d
+    const v0, 0x7f041192
 
     invoke-virtual {p0, v0}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setDescriptionText(I)V
 
@@ -1103,9 +1103,9 @@
 
     move-result v0
 
-    const v1, 0x7f041196
+    const v1, 0x7f0411bb
 
-    const v2, 0x7f04116b
+    const v2, 0x7f041190
 
     if-eqz v0, :cond_6
 
@@ -1125,13 +1125,13 @@
 
     move-result-object v0
 
-    const v2, 0x7f041171
+    const v2, 0x7f041196
 
     invoke-virtual {v0, v2}, Lcom/google/android/setupdesign/GlifLayout;->setHeaderText(I)V
 
     invoke-virtual {p0, v1}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setDescriptionText(I)V
 
-    const v0, 0x7f04118b
+    const v0, 0x7f0411b0
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1152,7 +1152,7 @@
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f04118d
+    const v0, 0x7f0411b2
 
     invoke-virtual {p0, v0}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setHeaderText(I)V
 
@@ -1162,21 +1162,21 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f04116a
+    const v0, 0x7f04118f
 
     invoke-virtual {p0, v0}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setDescriptionText(I)V
 
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f04118c
+    const v0, 0x7f0411b1
 
     invoke-virtual {p0, v0}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setDescriptionText(I)V
 
     goto :goto_0
 
     :cond_2
-    const v0, 0x7f041191
+    const v0, 0x7f0411b6
 
     invoke-virtual {p0, v0}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setHeaderText(I)V
 
@@ -1204,14 +1204,14 @@
 
     if-eqz v0, :cond_5
 
-    const v0, 0x7f041193
+    const v0, 0x7f0411b8
 
     invoke-virtual {p0, v0}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setDescriptionText(I)V
 
     goto :goto_0
 
     :cond_5
-    const v0, 0x7f041194
+    const v0, 0x7f0411b9
 
     invoke-virtual {p0, v0}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setDescriptionText(I)V
 
@@ -1345,30 +1345,30 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f06028e
+    const v0, 0x7f06029a
 
     invoke-virtual {p0, v0}, Landroidx/activity/ComponentActivity;->setContentView(I)V
 
     goto :goto_1
 
     :cond_1
-    const v0, 0x7f06028d
+    const v0, 0x7f060299
 
     invoke-virtual {p0, v0}, Landroidx/activity/ComponentActivity;->setContentView(I)V
 
     :goto_1
-    const v0, 0x7f041196
+    const v0, 0x7f0411bb
 
     invoke-virtual {p0, v0}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setDescriptionText(I)V
 
     goto :goto_2
 
     :cond_2
-    const v0, 0x7f0600e8
+    const v0, 0x7f0600eb
 
     invoke-virtual {p0, v0}, Landroidx/activity/ComponentActivity;->setContentView(I)V
 
-    const v0, 0x7f04116d
+    const v0, 0x7f041192
 
     invoke-virtual {p0, v0}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setDescriptionText(I)V
 
@@ -1387,17 +1387,17 @@
 
     if-eqz v0, :cond_3
 
-    invoke-direct {p0}, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->updateTitleAndDescriptionForUdfps()V
+    invoke-direct {p0}, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->updateTitleAndDescription()V
 
     goto :goto_3
 
     :cond_3
-    const v0, 0x7f04116b
+    const v0, 0x7f041190
 
     invoke-virtual {p0, v0}, Lcom/android/settings/biometrics/BiometricEnrollBase;->setHeaderText(I)V
 
     :goto_3
-    const v0, 0x7f0d020e
+    const v0, 0x7f0d0213
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1407,7 +1407,7 @@
 
     iput-object v0, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mErrorText:Landroid/widget/TextView;
 
-    const v0, 0x7f0d022e
+    const v0, 0x7f0d0233
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1445,7 +1445,7 @@
 
     invoke-direct {v1, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f041152
+    const v4, 0x7f041177
 
     invoke-virtual {v1, v4}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -1465,7 +1465,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f13021b
+    const v4, 0x7f13021d
 
     invoke-virtual {v1, v4}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -1495,7 +1495,7 @@
     :goto_4
     if-eqz v0, :cond_5
 
-    const v1, 0x7f0d022b
+    const v1, 0x7f0d0230
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/LayerDrawable;->findDrawableByLayerId(I)Landroid/graphics/drawable/Drawable;
 
@@ -1505,7 +1505,7 @@
 
     iput-object v1, p0, Lcom/android/settings/biometrics/fingerprint/FingerprintEnrollEnrolling;->mIconAnimationDrawable:Landroid/graphics/drawable/AnimatedVectorDrawable;
 
-    const v1, 0x7f0d022c
+    const v1, 0x7f0d0231
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/LayerDrawable;->findDrawableByLayerId(I)Landroid/graphics/drawable/Drawable;
 
@@ -1676,7 +1676,7 @@
 
     float-to-int p1, p2
 
-    const p2, 0x7f041192
+    const p2, 0x7f0411b7
 
     new-array v0, v0, [Ljava/lang/Object;
 

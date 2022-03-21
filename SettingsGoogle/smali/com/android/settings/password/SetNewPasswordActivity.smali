@@ -381,9 +381,11 @@
     goto :goto_0
 
     :cond_1
-    const-string p1, "Must have permission android.permission.REQUEST_PASSWORD_COMPLEXITY to use extra android.app.extra.PASSWORD_COMPLEXITY"
+    const/4 p1, 0x5
 
-    invoke-static {v0, p1}, Lcom/android/settings/password/PasswordUtils;->crashCallingApplication(Landroid/os/IBinder;Ljava/lang/String;)V
+    const-string v1, "Must have permission android.permission.REQUEST_PASSWORD_COMPLEXITY to use extra android.app.extra.PASSWORD_COMPLEXITY"
+
+    invoke-static {v0, v1, p1}, Lcom/android/settings/password/PasswordUtils;->crashCallingApplication(Landroid/os/IBinder;Ljava/lang/String;I)V
 
     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 

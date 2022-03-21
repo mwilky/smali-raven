@@ -48,11 +48,11 @@
 
     move-result p0
 
-    const p1, 0x7f06008b
+    const p1, 0x7f06008d
 
     if-eq p0, p1, :cond_1
 
-    const p1, 0x7f060099
+    const p1, 0x7f06009b
 
     if-ne p0, p1, :cond_0
 

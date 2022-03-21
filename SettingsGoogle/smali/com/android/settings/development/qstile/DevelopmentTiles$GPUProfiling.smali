@@ -34,7 +34,7 @@
 
     move-result-object p0
 
-    const-string v0, "visual_bars"
+    const-string/jumbo v0, "visual_bars"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -48,7 +48,7 @@
 
     if-eqz p1, :cond_0
 
-    const-string p0, "visual_bars"
+    const-string/jumbo p0, "visual_bars"
 
     goto :goto_0
 

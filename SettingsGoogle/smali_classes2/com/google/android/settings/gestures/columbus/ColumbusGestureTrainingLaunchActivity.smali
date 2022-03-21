@@ -99,7 +99,7 @@
     :goto_0
     if-nez p1, :cond_1
 
-    const p1, 0x7f0405ed
+    const p1, 0x7f040605
 
     const/4 v0, 0x0
 
@@ -216,13 +216,13 @@
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->setTheme(I)V
 
-    const v0, 0x7f060087
+    const v0, 0x7f060089
 
     invoke-virtual {p0, v0}, Landroidx/activity/ComponentActivity;->setContentView(I)V
 
     invoke-super {p0, p1}, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingBase;->onCreate(Landroid/os/Bundle;)V
 
-    const p1, 0x7f0d00a7
+    const p1, 0x7f0d00aa
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -276,7 +276,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b00cf
+    const v3, 0x7f0b00d0
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -299,7 +299,7 @@
 
     check-cast v3, Landroid/content/pm/LauncherActivityInfo;
 
-    const v4, 0x7f060082
+    const v4, 0x7f060084
 
     iget-object v5, p0, Lcom/google/android/settings/gestures/columbus/ColumbusGestureTrainingLaunchActivity;->mRadioGroup:Landroid/widget/RadioGroup;
 
@@ -342,7 +342,7 @@
     goto :goto_0
 
     :cond_0
-    const p1, 0x7f0d0318
+    const p1, 0x7f0d0324
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -350,7 +350,7 @@
 
     check-cast p1, Lcom/google/android/setupdesign/GlifLayout;
 
-    const v0, 0x7f0405ee
+    const v0, 0x7f040606
 
     invoke-virtual {p1, v0}, Lcom/google/android/setupdesign/GlifLayout;->setDescriptionText(I)V
 
@@ -366,7 +366,7 @@
 
     invoke-direct {v0, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f041775
+    const v1, 0x7f04179a
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -386,7 +386,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f13021a
+    const v1, 0x7f13021c
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -402,7 +402,7 @@
 
     invoke-direct {v0, p0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0405da
+    const v1, 0x7f0405f2
 
     invoke-virtual {v0, v1}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setText(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 
@@ -422,7 +422,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f13021b
+    const v0, 0x7f13021d
 
     invoke-virtual {p0, v0}, Lcom/google/android/setupcompat/template/FooterButton$Builder;->setTheme(I)Lcom/google/android/setupcompat/template/FooterButton$Builder;
 

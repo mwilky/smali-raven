@@ -18,7 +18,7 @@
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
-    const-string v0, "wifi_always_scanning_switch"
+    const-string/jumbo v0, "wifi_always_scanning_switch"
 
     invoke-direct {p0, p1, v0}, Lcom/android/settings/core/TogglePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
@@ -80,7 +80,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f090036
+    const v0, 0x7f090037
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -126,6 +126,14 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d09
+
+    return p0
 .end method
 
 .method public bridge synthetic hasAsyncUpdate()Z

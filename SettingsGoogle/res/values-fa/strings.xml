@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">نمایشگر روان</string>
     <string name="peak_refresh_rate_summary">به‌طور خودکار سرعت بازخوانی را برای بعضی محتواها، از ۶۰ هرتز تا ۹۰ هرتز بالا می‌برد. مصرف باتری را افزایش می‌دهد.</string>
     <string name="accessibility_vibration_settings_title">لرزش و فناوری لمسی</string>
+    <string name="columbus_title">ضربه سریع برای شروع کنش‌ها</string>
     <string name="emergency_gesture_screen_title">کمک اضطراری</string>
     <string name="abc_action_mode_done">تمام</string>
     <string name="vibrate_for_calls_category_title">تماس</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">نمایش کنترل‌های دستگاه</string>
     <string name="lockscreen_privacy_wallet_summary">مجاز کردن دسترسی به کیف پول از صفحه قفل و تنظیمات فوری</string>
     <string name="lockscreen_privacy_controls_summary">کنترل‌های دسترسی هنگام قفل بودن صفحه‌نمایش</string>
+    <string name="lockscreen_double_line_clock_summary">نمایش ساعت دو خطی، درصورت دردسترس بودن</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">ساعت دو خطی</string>
     <string name="abc_activity_chooser_view_see_all">دیدن همه</string>
     <string name="abc_activitychooserview_choose_application">انتخاب برنامه</string>
     <string name="abc_capital_off">خاموش</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">لرزش هشدار</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">‏Active Edge راه‌اندازی شد. به صفحه بعد بروید یا به تنظیم ادامه دهید.</string>
     <string name="accessibility_audio_adjustment_title">تنظیم صدا</string>
+    <string name="accessibility_autoclick_about_title">درباره کلیک خودکار (مدت توقف)</string>
     <string name="accessibility_autoclick_custom_title">سفارشی</string>
     <string name="accessibility_autoclick_default_title">خاموش</string>
     <string name="accessibility_autoclick_description">«کلیک خودکار» با موشواره‌ای متصل کار می‌کند. می‌توانید نشانگر موشواره را طوری تنظیم کنید که وقتی برای مدت زمان مشخصی متوقف می‌شود، به‌طور خودکار کلیک کند.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">درباره کلیک خودکار بیشتر بدانید (مدت توقف)</string>
     <string name="accessibility_autoclick_long_summary">۱ ثانیه</string>
     <string name="accessibility_autoclick_long_title">بلند</string>
     <string name="accessibility_autoclick_longer_desc">طولانی‌تر</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">کوتاه</string>
     <string name="accessibility_autoclick_shorter_desc">کوتاه‌تر</string>
     <string name="accessibility_banner_message_dismiss">رد شدن</string>
-    <string name="accessibility_button_description">"به‌سرعت از هر صفحه‌ای به ویژگی‌های دسترس‌پذیری دسترسی پیدا کنید. 
+    <string name="accessibility_button_about_title">درباره دکمه دسترس‌پذیری</string>
+    <string name="accessibility_button_description">"از هر صفحه‌ای به‌سرعت به ویژگی‌های دسترس‌پذیری دسترسی داشته باشید.
 
 برای شروع، به تنظیمات دسترس‌پذیری بروید و یکی از ویژگی‌ها را انتخاب کنید. روی میان‌بر ضربه بزنید و دکمه دسترس‌پذیری را انتخاب کنید."</string>
     <string name="accessibility_button_fade_summary">بعد از چند ثانیه محو می‌شود تا بتوانید صفحه را بهتر ببینید</string>
     <string name="accessibility_button_fade_title">محو کردن هنگام عدم استفاده</string>
-    <string name="accessibility_button_gesture_description">"از هر صفحه‌ای به ویژگی‌های دسترس‌پذیری به‌سرعت دسترسی داشته باشید.
+    <string name="accessibility_button_gesture_about_title">درباره دکمه دسترس‌پذیری و اشاره</string>
+    <string name="accessibility_button_gesture_description">"از هر صفحه‌ای به‌سرعت به ویژگی‌های دسترس‌پذیری دسترسی داشته باشید.
 
-برای شروع، به تنظیمات دسترس‌پذیری بروید و یکی از ویژگی‌ها را انتخاب کنید. روی میان‌بر ضربه بزنید و دکمه دسترس‌پذیری را انتخاب کنید.
-
-برای اینکه درعوض از دکمه دسترس‌پذیری در نوار پیمایش استفاده کنید، به پیمایش ۲دکمه‌ای یا پیمایش ۳دکمه‌ای بروید."</string>
+برای شروع، به تنظیمات دسترس‌پذیری بروید و یکی از ویژگی‌ها را انتخاب کنید. روی میان‌بر ضربه بزنید و دکمه دسترس‌پذیری یا اشاره را انتخاب کنید."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">درباره دکمه دسترس‌پذیری و اشاره بیشتر بدانید</string>
     <string name="accessibility_button_gesture_title">دکمه دسترس‌پذیری و اشاره</string>
     <string name="accessibility_button_high_label">غیرشفاف</string>
     <string name="accessibility_button_intro">درحال استفاده از دکمه دسترس‌پذیری هستید. اشاره موردنظر با پیمایش ۳دکمه‌ای دردسترس نیست.</string>
@@ -184,14 +190,23 @@
     <string name="accessibility_caption_preference_summary">همه برنامه‌ها از این اولویت‌های زیرنویس پشتیبانی نمی‌کنند</string>
     <string name="accessibility_caption_primary_switch_summary">فقط برای برنامه پشتیبانی‌شده</string>
     <string name="accessibility_caption_primary_switch_title">نشان دادن زیرنویس ناشنوایان</string>
+    <string name="accessibility_captioning_about_title">درباره اولویت‌های زیرنویس ناشنوایان</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">درباره اولویت‌های زیرنویس ناشنوایان بیشتر بدانید</string>
     <string name="accessibility_captioning_title">اولویت‌های زیرنویس</string>
     <string name="accessibility_category_personal">حساب‌های نمایه شخصی</string>
     <string name="accessibility_category_work">حساب‌های نمایه کاری - %s</string>
+    <string name="accessibility_color_inversion_about_title">درباره وارونگی رنگ</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">درباره وارونگی رنگ بیشتر بدانید</string>
+    <string name="accessibility_control_timeout_about_title">درباره زمان اقدام کردن (درنگ دسترس‌پذیری)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">درباره زمان اقدام کردن (درنگ دسترس‌پذیری) بیشتر بدانید</string>
     <string name="accessibility_control_timeout_preference_summary">"مدت‌زمان موردنظرتان را برای نمایش پیام‌هایی که می‌خواهند اقدامی بکنید، اما به‌طور موقت نمایش داده می‌شوند، انتخاب کنید.
 
 همه برنامه‌ها از این تنظیم پشتیبانی نمی‌کنند."</string>
     <string name="accessibility_control_timeout_preference_title">زمان لازم برای اقدام</string>
+    <string name="accessibility_daltonizer_about_title">درباره تصحیح رنگ</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">درباره تصحیح رنگ بیشتر بدانید</string>
     <string name="accessibility_daltonizer_primary_switch_title">استفاده از تصحیح رنگ</string>
+    <string name="accessibility_daltonizer_shortcut_title">میان‌بر «تصحیح رنگ»</string>
     <string name="accessibility_data_one_bar">یک نوار برای داده.</string>
     <string name="accessibility_data_signal_full">قدرت سیگنال داده کامل است.</string>
     <string name="accessibility_data_three_bars">سه نوار برای داده.</string>
@@ -206,6 +221,7 @@
     <string name="accessibility_display_daltonizer_preference_title">تصحیح رنگ</string>
     <string name="accessibility_display_inversion_preference_subtitle">‏«وارونگی رنگ» صفحه‌نمایش روشن را تیره می‌کند.&lt;br/>&lt;br/> توجه: &lt;ol> &lt;li> «وارونگی رنگ» صفحه‌نمایش تیره را نیز روشن می‌کند.&lt;/li> &lt;li> رنگ‌ها در رسانه‌ها و تصاویر تغییر می‌کنند.&lt;/li> &lt;li> برای نمایش پس‌زمینه تیره می‌توان از طرح‌زمینه تیره استفاده کرد. «طرح زمینه تیره» با برنامه‌های پشتیبانی‌شده کار می‌کند. وارونگی رنگ در همه برنامه‌ها کار می‌کند.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">وارونگی رنگ</string>
+    <string name="accessibility_display_inversion_shortcut_title">میان‌بر «وارونگی رنگ»</string>
     <string name="accessibility_display_inversion_switch_title">استفاده از وارونگی رنگ</string>
     <string name="accessibility_ethernet_connected">اترنت.</string>
     <string name="accessibility_ethernet_disconnected">اترنت قطع شد.</string>
@@ -255,6 +271,8 @@
     <string name="accessibility_phone_two_bars">دو نوار برای تلفن.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">قطع تماس با دکمه روشن/خاموش</string>
     <string name="accessibility_preference_magnification_summary">بزرگ کردن روی صفحه</string>
+    <string name="accessibility_screen_magnification_about_title">درباره درشت‌نمایی</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">درباره درشت‌نمایی بیشتر بدانید</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">اشاره دسترس‌پذیری روی %1$s تنظیم شده است. برای استفاده از بزرگ‌نمایی، با دو انگشت از پایین صفحه به بالا بکشید و نگه‌دارید. سپس بزرگ‌نمایی را انتخاب کنید.</string>
     <string name="accessibility_screen_magnification_gestures_title">درشت‌نمایی با سه ضربه</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">دکمه دسترس‌پذیری روی %1$s تنظیم شده است. برای استفاده از درشت‌نمایی، دکمه دسترس‌پذیری را لمس کنید و نگه‌دارید، سپس درشت‌نمایی را انتخاب کنید.</string>
@@ -272,6 +290,7 @@
 نمی‌توانید صفحه‌کلید یا نوار پیمایش را کوچک کنید."</string>
     <string name="accessibility_screen_magnification_navbar_title">درشت‌نمایی بااستفاده از میان‌بر</string>
     <string name="accessibility_screen_magnification_short_summary">برای بزرگ‌نمایی، ۳ بار ضربه بزنید</string>
+    <string name="accessibility_screen_magnification_shortcut_title">میان‌بر «درشت‌نمایی»</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">درشت‌نمایی بااستفاده از میان‌بر و سه ضربه</string>
     <string name="accessibility_screen_magnification_summary">‏به‌سرعت صفحه‌نمایش را بزرگ کنید تا محتوا بزرگ‌تر شود.&lt;br/>&lt;br/> &lt;b>برای بزرگ کردن:&lt;/b>&lt;br/> {0,number,integer}. برای فعال کردن درشت‌نمایی، از میان‌بر استفاده کنید&lt;br/> {1,number,integer}. روی صفحه‌نمایش ضربه بزنید&lt;br/> {2,number,integer}. برای حرکت کردن در صفحه، ۲ انگشت را بکشید&lt;br/> {3,number,integer}. برای تنظیم بزرگ‌نمایی، ۲ انگشت را به‌هم دور یا نزدیک کنید&lt;br/> {4,number,integer}. برای توقف درشت‌نمایی از میان‌براستفاده کنید&lt;br/>&lt;br/> &lt;b>برای بزرگ کردن موقت:&lt;/b>&lt;br/> {0,number,integer}. برای فعال کردن درشت‌نمایی، از میان‌بر استفاده کنید&lt;br/> {1,number,integer}. جایی از صفحه‌نمایش را لمس کنید و نگه دارید&lt;br/> {2,number,integer}. برای حرکت کردن در صفحه، انگشت را بکشید&lt;br/> {3,number,integer}. برای متوقف کردن درشت‌نمایی، انگشتتان را بردارید</string>
     <string name="accessibility_screen_magnification_title">بزرگ‌نمایی</string>
@@ -370,7 +389,7 @@
     <string name="accessibility_tutorial_dialog_message_volume">برای استفاده از این ویژگی، هر دو کلید میزان صدا را فشار دهید و نگه دارید.</string>
     <string name="accessibility_tutorial_dialog_title_button">استفاده از دکمه دسترس‌پذیری برای باز کردن</string>
     <string name="accessibility_tutorial_dialog_title_gesture">استفاده از اشاره برای باز کردن</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">استفاده از اشاره دسترس‌پذیری جدید</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">استفاده از اشاره دسترس‌پذیری</string>
     <string name="accessibility_tutorial_dialog_title_triple">برای باز کردن، روی صفحه‌نمایش سه ضربه سریع بزنید</string>
     <string name="accessibility_tutorial_dialog_title_volume">نگه‌داشتن کلیدهای میزان صدا برای باز کردن</string>
     <string name="accessibility_tutorial_pager">صفحه %1$d از %2$d</string>
@@ -936,6 +955,7 @@
     <string name="battery_level_title">مقدار شارژ باتری</string>
     <string name="battery_manager_off">خاموش</string>
     <string name="battery_manager_summary">افزایش عمر باتری و بهینه‌سازی شارژ</string>
+    <string name="battery_manager_summary_unsupported">افزایش عمر باتری</string>
     <string name="battery_missing_link_a11y_message">برای دریافت اطلاعات بیشتر درباره این خطا، ضربه بزنید</string>
     <string name="battery_missing_link_message">بیشتر بدانید</string>
     <string name="battery_missing_message">مشکلی در خواندن میزان باتری وجود دارد.</string>
@@ -1061,6 +1081,7 @@
     <string name="battery_usage_screen_footer">داده‌های مصرف باتری تقریبی است و وقتی تلفن درحال شارژ است مصرف اندازه‌گیری نمی‌شود</string>
     <string name="battery_usage_screen_footer_empty">بعدازاینکه چند ساعت از تلفن استفاده کنید، داده‌های مصرف باتری دردسترس قرار می‌گیرد.</string>
     <string name="battery_usage_total_less_than_one_minute">مجموع: کمتر از یک دقیقه</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%2$s %1$s از شارژ باتری را مصرف کرده است</string>
     <string name="battery_used_for">مدت‌ زمان استفاده ^1</string>
     <string name="bearer">حامل</string>
@@ -1069,12 +1090,14 @@
     <string name="billing_cycle_less_than_one_day_left">کمتر از ۱ روز باقی مانده است</string>
     <string name="billing_cycle_none_left">هیچ زمانی باقی نمانده است</string>
     <string name="biometric_settings_category_ways_to_unlock">روش‌های باز کردن قفل</string>
-    <string name="biometric_settings_category_ways_to_use">استفاده از چهره و اثر انگشت برای</string>
     <string name="biometric_settings_hand_back_to_guardian">تلفن را به ولی‌تان برگردانید</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">تأیید</string>
     <string name="biometric_settings_intro">وقتی «قفل‌گشایی با چهره» و «قفل‌گشایی با اثر انگشت» را راه‌اندازی می‌کنید، اگر ماسک به صورت داشته باشید یا در محیط تاریکی باشید، تلفن از شما می‌خواهد از اثر انگشتتان استفاده کنید.</string>
-    <string name="biometric_settings_use_biometric_for_apps">اصالت‌سنجی در برنامه‌ها</string>
+    <string name="biometric_settings_use_biometric_for_apps">تأیید هویت در برنامه‌ها</string>
     <string name="biometric_settings_use_biometric_unlock_phone">باز کردن قفل تلفن</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">استفاده از چهره یا اثر انگشت</string>
+    <string name="biometric_settings_use_face_preference_summary">استفاده از چهره</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">استفاده از اثر انگشت</string>
     <string name="biometrics_unlock_set_unlock_password">گذرواژه • چهره • اثر انگشت</string>
     <string name="biometrics_unlock_set_unlock_pattern">الگو • چهره • اثر انگشت</string>
     <string name="biometrics_unlock_set_unlock_pin">پین • چهره • اثر انگشت</string>
@@ -1332,7 +1355,6 @@
     <string name="bluetooth_settings_title">بلوتوث</string>
     <string name="bluetooth_show_devices_without_names">نمایش دستگاه‌های بلوتوث بدون نام</string>
     <string name="bluetooth_show_devices_without_names_summary">‏دستگاه‌های بلوتوث بدون نام (فقط نشانی‌های MAC) نشان داده خواهند شد</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">فایل‌های دریافتی ازطریق بلوتوث</string>
     <string name="bluetooth_show_received_files">فایل‌های دریافت‌شده</string>
     <string name="bluetooth_sim_card_access_dialog_content">"دستگاه بلوتوثی (%1$s) می‌خواهد به داده‌های سیم‌کارتتان دسترسی داشته باشد. این داده‌ها شامل مخاطبین شما می‌شود.
 
@@ -1426,6 +1448,7 @@
     <string name="calls_sms_temp_unavailable">موقتاً دردسترس نیست</string>
     <string name="calls_sms_unavailable">دردسترس نیست</string>
     <string name="calls_sms_wfc_summary">‏برقراری و دریافت تماس ازطریق Wi-Fi</string>
+    <string name="cam_toggle_description">برای برنامه‌ها و سرویس‌ها</string>
     <string name="camera_double_tap_power_gesture_desc">دوربین را سریع و بدون باز کردن قفل صفحه باز کنید</string>
     <string name="camera_double_tap_power_gesture_title">دو ضربه روی دکمه روشن/خاموش برای دوربین</string>
     <string name="camera_laser_sensor_switch">حسگر لیزری دوربین</string>
@@ -3302,6 +3325,7 @@
     <string name="menu_stats_total">مقدار کل استفاده</string>
     <string name="menu_stats_unplugged">%1$s از زمان جدا کردن</string>
     <string name="menu_use_uss">‏استفاده از Uss</string>
+    <string name="mic_toggle_description">برای برنامه‌ها و سرویس‌ها. اگر این تنظیم خاموش باشد، ممکن است وقتی با شماره تلفنی اضطراری تماس می‌گیرید داده‌های میکروفون همچنان هم‌رسانی شود.</string>
     <string name="mic_toggle_title">دسترسی میکروفون</string>
     <string name="misc_files">فایل‌های متفرقه</string>
     <string name="misc_files_selected_count">%1$d مورد از %2$d انتخاب شده</string>
@@ -3728,6 +3752,7 @@
     <string name="one_handed_action_show_notification_title">نمایش اعلان‌ها</string>
     <string name="one_handed_mode_enabled">استفاده از حالت یک‌دستی</string>
     <string name="one_handed_mode_intro_text">برای استفاده از حالت یک‌دستی، از پایین صفحه به پایین بکشید. برای استفاده از این ویژگی، مطمئن شوید پیمایش اشاره‌ای در تنظیمات پیمایش سیستم روش باشد.</string>
+    <string name="one_handed_mode_shortcut_title">میان‌بر «حالت تک‌حرکت»</string>
     <string name="one_handed_mode_swipe_down_category">برای کنش‌های زیر تند به پایین بکشید</string>
     <string name="one_handed_mode_use_shortcut_category">استفاده از میان‌بر برای</string>
     <string name="one_usercrt">یک گواهی کاربری</string>
@@ -3803,7 +3828,7 @@
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s فعال است</string>
     <string name="power_bluetooth">بلوتوث</string>
     <string name="power_camera">دوربین</string>
-    <string name="power_cell">شبکه تلفن همراه درحالت آماده‌به‌کار</string>
+    <string name="power_cell">شبکه تلفن همراه</string>
     <string name="power_charge_remaining">%1$s مانده تا شارژ کامل</string>
     <string name="power_charging">%1$s - ‏%2$s</string>
     <string name="power_charging_duration">%1$s - %2$s تا شارژ کامل باقی مانده است</string>
@@ -4037,6 +4062,7 @@
     <string name="recent_notifications">اخیراً ارسال‌شده</string>
     <string name="recent_notifications_see_all_title">مشاهده همه موارد از ۷ روز پیش</string>
     <string name="recompute_size">محاسبه مجدد اندازه…</string>
+    <string name="reduce_bright_colors_about_title">درباره بسیار کم‌نور</string>
     <string name="reduce_bright_colors_intensity_end_label">پرنورتر</string>
     <string name="reduce_bright_colors_intensity_preference_title">شدت</string>
     <string name="reduce_bright_colors_intensity_start_label">کم‌نورتر</string>
@@ -4044,6 +4070,7 @@
     <string name="reduce_bright_colors_preference_subtitle">‏صفحه را کم‌نورتر کنید تا خواندن راحت‌تر باشد.&lt;br/>&lt;br/> این کار در موارد زیر می‌تواند مفید باشد: &lt;ol> &lt;li> حداقل روشنایی پیش‌فرض تلفن همچنان خیلی روشن باشد&lt;/li> &lt;li> از تلفن در شرایط تاریک استفاده کنید، برای مثال در شب یا در اتاقی تاریک قبل‌از خواب&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">صفحه کم‌نورتر از حداقل روشنایی تلفن شود</string>
     <string name="reduce_bright_colors_preference_title">بسیار کم‌نور</string>
+    <string name="reduce_bright_colors_shortcut_title">میان‌بر «بسیار کم‌نور»</string>
     <string name="reduce_bright_colors_switch_title">بسیار کم‌نور کردن صفحه‌نمایش</string>
     <string name="register_automatically">ثبت خودکار...</string>
     <string name="register_on_network">درحال ثبت در %s...</string>
@@ -4249,7 +4276,6 @@
     <string name="screen_pinning_unlock_pattern">درخواست الگوی بازگشایی قفل قبل‌از برداشتن سنجاق</string>
     <string name="screen_pinning_unlock_pin">درخواست کد پین قبل از برداشتن پین</string>
     <string name="screen_reader_category_title">صفحه‌خوان</string>
-    <string name="screen_saver_main_switch_title">استفاده از محافظ صفحه‌نمایش</string>
     <string name="screen_time_summary_usage_today">امروز: %1$s</string>
     <string name="screen_timeout_summary">%1$s پس از غیرفعال بودن</string>
     <string name="screen_timeout_title">صفحه نمایش خاموش می‌شود</string>
@@ -4279,6 +4305,7 @@
     <string name="screensaver_settings_button">تنظیمات</string>
     <string name="screensaver_settings_current">محافظ صفحه کنونی</string>
     <string name="screensaver_settings_disabled_prompt">برای کنترل اینکه وقتی تلفن روی پایه اتصال قرار دارد و/یا در حالت خواب است چه اتفاقی بیفتد، محافظ صفحه را روشن کنید.</string>
+    <string name="screensaver_settings_dream_start">اکنون شروع شود</string>
     <string name="screensaver_settings_summary_dock">وقتی روی پایه است</string>
     <string name="screensaver_settings_summary_either_long">هنگام شارژ یا اتصال به پایه</string>
     <string name="screensaver_settings_summary_either_short">هر دو</string>
@@ -4329,15 +4356,6 @@
     <string name="security_settings_biometric_preference_summary_both_fp_single">چهره و اثر انگشت اضافه شده است</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">برای راه‌اندازی ضربه بزنید</string>
     <string name="security_settings_biometric_preference_title">قفل‌گشایی با چهره و اثر انگشت</string>
-    <string name="security_settings_biometrics_description">وقتی قفل‌گشایی با اثر انگشت یا چهره را راه‌اندازی می‌کنید، اگر ماسک به صورت داشته باشید یا در محیط تاریکی باشید، تلفنتان از شما اثر انگشت درخواست خواهد کرد</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">اصالت‌سنجی در برنامه‌ها</string>
-    <string name="security_settings_biometrics_preferences_category">استفاده از چهره یا اثر انگشت برای</string>
-    <string name="security_settings_biometrics_summary_both">چهره و اثر انگشت</string>
-    <string name="security_settings_biometrics_summary_face">فقط چهره</string>
-    <string name="security_settings_biometrics_summary_fingerprint">فقط اثر انگشت</string>
-    <string name="security_settings_biometrics_summary_none">برای راه‌اندازی ضربه بزنید</string>
-    <string name="security_settings_biometrics_title">قفل‌گشایی با چهره و اثر انگشت</string>
-    <string name="security_settings_biometrics_types_category">روش‌های باز کردن قفل</string>
     <string name="security_settings_face_enroll_consent_introduction_title">مجاز کردن «قفل‌گشایی با چهره»</string>
     <string name="security_settings_face_enroll_dialog_ok">تأیید</string>
     <string name="security_settings_face_enroll_done">تمام</string>
@@ -4385,16 +4403,17 @@
     <string name="security_settings_face_enroll_introduction_control_title">کنترل در دست شماست</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message">"«قفل‌گشایی با چهره» مدلی بی‌همتا از چهره فرزندتان ایجاد می‌کند که برای تأیید هویت او استفاده می‌شود. برای ایجاد این مدل چهره درحین راه‌اندازی، فرزندتان چند تصویر از زاویه‌های مختلف از چهره‌اش می‌گیرد.
 
-وقتی فرزندتان از «قفل‌گشایی با چهره» استفاده می‌کند، مدل چهره او به‌کمک تصاویر به‌روزرسانی می‌شود. تصاویر استفاده‌شده برای ایجاد مدل چهره فرزندتان هرگز ذخیره نمی‌شوند، اما مدل چهره به‌طور ایمن در تلفن ذخیره می‌شود و هرگز از آن خارج نمی‌شود. همه پردازش‌ها به‌طور ایمن در تلفن انجام می‌شود."</string>
+وقتی فرزندتان از «قفل‌گشایی با چهره» استفاده می‌کند، مدل چهره او به‌کمک تصاویر به‌روزرسانی می‌شود. تصاویر استفاده‌شده برای ایجاد مدل چهره فرزندتان ذخیره نمی‌شوند، اما مدل چهره به‌طور ایمن در تلفن ذخیره می‌شود و هرگز از آن خارج نمی‌شود. همه پردازش‌ها به‌طور ایمن در تلفن انجام می‌شود."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"«قفل‌گشایی با چهره» مدلی بی‌همتا از چهره‌تان ایجاد می‌کند که برای تأیید هویتتان استفاده می‌شود. برای ایجاد این مدلِ چهره درطول راه‌اندازی، چند تصویر از زاویه‌های مختلف از چهره‌تان می‌گیرید.
 
-وقتی از «قفل‌گشایی با چهره» استفاده می‌کنید، مدل چهره‌تان به‌کمک تصاویر به‌روزرسانی می‌شود. تصاویر استفاده‌شده برای ایجاد مدل چهره هرگز ذخیره نمی‌شوند، اما مدل چهره به‌طور ایمن در تلفنتان ذخیره می‌شود و هرگز از آن خارج نمی‌شود. همه پردازش‌ها به‌طور ایمن در تلفنتان انجام می‌شود."</string>
+وقتی از «قفل‌گشایی با چهره» استفاده می‌کنید، مدل چهره‌تان به‌کمک تصاویر به‌روزرسانی می‌شود. تصاویر استفاده‌شده برای ایجاد مدل چهره‌تان ذخیره نمی‌شوند، اما مدل چهره به‌طور ایمن در تلفنتان ذخیره می‌شود و هرگز از آن خارج نمی‌شود. همه پردازش‌ها به‌طور ایمن در تلفنتان انجام می‌شود."</string>
     <string name="security_settings_face_enroll_introduction_how_title">نحوه کار</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">«قفل‌گشایی با چهره» می‌تواند باز بودن چشم‌های فرزندتان را برای باز کردن قفل تلفن یا تأیید هویت او الزامی کند. شما و فرزندتان هروقت بخواهید می‌توانید این گزینه را در «تنظیمات» روشن کنید.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">اگر فرزندتان معمولاً از عینک استفاده می‌کند، می‌تواند درطول راه‌اندازی آن را به چشم بزند.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">نگاه کردن به تلفن می‌تواند قفل آن را باز کند، حتی اگر فرزندتان چنین قصدی نداشته باشد. اگر فرد دیگری تلفن را در جلوی صورت فرزندتان نگه دارد یا شباهت زیادی به او داشته باشد (مثل خواهر یا برادر دوقلو)، می‌تواند قفل تلفن را باز کند.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">«قفل‌گشایی با چهره» می‌تواند باز بودن چشم‌هایتان را برای باز کردن قفل تلفن یا تأیید هویتتان الزامی کند. هروقت بخواهید می‌توانید این گزینه را در «تنظیمات» روشن کنید.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">عینک یا عینک دودی با کمی سایه‌روشن قابل قبول است.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">استفاده از چهره برای باز کردن قفل تلفن ممکن است امنیت کمتری نسبت به الگو یا پین قوی داشته باشد.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">نگاه کردن به تلفن می‌تواند قفل آن را باز کند، حتی اگر چنین قصدی نداشته باشید. اگر فرد دیگری تلفنتان را جلوی صورتتان نگه دارد یا شباهت زیادی به شما داشته باشد (مثل خواهر یا برادر دوقلو)، می‌تواند قفل تلفنتان را باز کند.</string>
     <string name="security_settings_face_enroll_introduction_info_title">به‌خاطر داشته باشید</string>
     <string name="security_settings_face_enroll_introduction_message">از چهره‌تان برای باز کردن قفل تلفن یا به‌تأیید رساندن هویتتان (مثلاً هنگام ورود به سیستم برنامه‌ها یا تأیید خریدها) استفاده کنید.</string>
@@ -4452,13 +4471,14 @@
 
 فرد دیگری که شباهت زیادی به شما دارد - مثلاً خواهر و برادر دوقلویتان - بتواند قفل تلفنتان را باز کند."</string>
     <string name="security_settings_face_settings_preferences_category">هنگام استفاده از «قفل‌گشایی با چهره»</string>
-    <string name="security_settings_face_settings_remove_dialog_details">مدل چهره‌تان به‌صورت دائم و ایمن حذف خواهد شد. پس‌از حذف، برای باز کردن قفل تلفن یا اصالت‌سنجی در برنامه‌ها به پین، الگو، یا گذرواژه نیاز خواهید داشت.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"مدل چهره‌تان به‌طور دائم و ایمن حذف خواهد شد.
+
+پس‌از حذف، برای باز کردن قفل تلفن یا اصالت‌سنجی در برنامه‌ها به پین، الگو، یا گذرواژه نیاز خواهید داشت."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"مدل چهره شما به‌طور دائم و ایمن حذف خواهد شد.
+
+ پس‌از حذف، برای باز کردن قفل تلفن به پین، الگو، یا گذرواژه نیاز خواهید داشت."</string>
     <string name="security_settings_face_settings_remove_dialog_title">مدل چهره حذف شود؟</string>
     <string name="security_settings_face_settings_remove_face_model">حذف مدل چهره</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"مدل چهره به‌صورت دائم و ایمن حذف خواهد شد.
-
-پس‌از حذف، برای باز کردن قفل تلفن یا اصالت‌سنجی در برنامه‌ها به اثر انگشت، پین، الگو، یا گذرواژه نیاز خواهید داشت."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">مدل چهره حذف شود؟</string>
     <string name="security_settings_face_settings_require_attention">چشم‌ها باید باز باشد</string>
     <string name="security_settings_face_settings_require_attention_details">برای باز کردن قفل تلفن، چشمک‌هایتان باید باز باشد</string>
     <string name="security_settings_face_settings_require_confirmation">همیشه به تأیید نیاز است</string>
@@ -4541,7 +4561,7 @@
     <string name="security_settings_title">امنیت</string>
     <string name="security_settings_udfps_enroll_a11y">انگشتتان را روی صفحه‌نمایش حرکت دهید تا حسگر را پیدا کنید. حسگر اثر انگشت را لمس کنید و نگه دارید.</string>
     <string name="security_settings_udfps_enroll_edge_message">یک سمت انگشتتان را روی حسگر اثر انگشت قرار دهید و نگه دارید، سپس این کار را با سمت دیگر تکرار کنید</string>
-    <string name="security_settings_udfps_enroll_edge_title">در نهایت، گوشه‌های انگشتتان را روی حسگر قرار دهید</string>
+    <string name="security_settings_udfps_enroll_edge_title">در آخر، از لبه‌های انگشت استفاده کنید</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">حسگر اثر انگشت روی صفحه‌نمایش قرار دارد. اثر انگشتتان را در صفحه بعدی ثبت خواهید کرد.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">شروع</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">نحوه راه‌اندازی اثر انگشت</string>
@@ -4550,7 +4570,7 @@
     <string name="security_settings_udfps_enroll_repeat_a11y_message">این کار کمک می‌کند بخش بیشتری از اثر انگشتتان ثبت شود</string>
     <string name="security_settings_udfps_enroll_repeat_message">هر بار که نماد اثر انگشت حرکت می‌کند، لمس کنید و نگه دارید. این کار کمک می‌کند بخش بیشتری از اثر انگشتتان ثبت شود.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">دنبال کردن نماد اثر انگشت</string>
-    <string name="security_settings_udfps_enroll_start_message">تا زمانی‌که لرزش را احساس نکرده‌اید، انگشتتان را از روی حسگر برندارید</string>
+    <string name="security_settings_udfps_enroll_start_message">تا زمانی‌که لرزش را احساس نکرده‌اید، اثر انگشتتان را صاف روی حسگر نگه دارید</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">یک‌بار دیگر</string>
     <string name="security_settings_work_fingerprint_preference_title">‏Pixel Imprint برای نمایه کاری</string>
     <string name="security_status_title">وضعیت امنیتی</string>
@@ -4576,7 +4596,6 @@
     <string name="select_webview_provider_dialog_title">تنظیم اجرای وب‌نما</string>
     <string name="select_webview_provider_title">اجرای وب‌نما</string>
     <string name="select_webview_provider_toast_text">این انتخاب دیگر معتبر نیست. دوباره امتحان کنید.</string>
-    <string name="sensor_toggle_description">برای همه برنامه‌ها و سرویس‌ها</string>
     <string name="sensors_off_quick_settings_title">حسگرها خاموش است</string>
     <string name="service_background_processes">%1$s رایگان</string>
     <string name="service_foreground_processes">%1$s استفاده شده</string>
@@ -4808,6 +4827,7 @@
     <string name="sound_settings_summary_silent">زنگ روی سکوت تنظیم شده است</string>
     <string name="sound_settings_summary_vibrate">زنگ روی لرزش تنظیم شده است</string>
     <string name="sound_work_settings">صداهای نمایه کاری</string>
+    <string name="spatial_audio_title">صدای فراگیر</string>
     <string name="special_access">دسترسی ویژه برنامه‌ها</string>
     <string name="special_access_more">مشاهده محتوای بیشتر</string>
     <string name="speed_label_fast">سریع</string>
@@ -5619,7 +5639,7 @@
     <string name="vpn_turn_on">فعال کردن</string>
     <string name="vpn_type">نوع</string>
     <string name="vpn_username">نام کاربری</string>
-    <string name="vpn_version">نسخه %s</string>
+    <string name="vpn_version">نسخه</string>
     <string name="vr_listener_security_warning_summary">وقتی در حال استفاده از برنامه‌ها در حالت واقعیت مجازی باشید، %1$s می‌تواند اجرا شود.</string>
     <string name="vr_listener_security_warning_title">‏به %1$s امکان داده شود به خدمات VR دسترسی یابد؟</string>
     <string name="vr_listeners_title">‏خدمات یاور VR</string>
@@ -5670,11 +5690,11 @@
     <string name="wifi_add_app_single_network_summary">%1$s می‌خواهد شبکه‌ای را در تلفنتان ذخیره کند</string>
     <string name="wifi_add_app_single_network_title">این شبکه ذخیره شود؟</string>
     <string name="wifi_add_network">افزودن شبکه</string>
-    <string name="wifi_advanced_device_mac_address_title">‏نشانی MAC دستگاه</string>
+    <string name="wifi_advanced_device_mac_address_title">«نشانی واد» دستگاه</string>
     <string name="wifi_advanced_ip_address_title">‏نشانی IP</string>
     <string name="wifi_advanced_not_available">‏تنظیمات پیشرفته Wi‑Fi برای این کاربر در دسترس نیست</string>
-    <string name="wifi_advanced_randomized_mac_address_disconnected_title">‏نشانی MAC تصادفی (آخرین استفاده)</string>
-    <string name="wifi_advanced_randomized_mac_address_title">‏نشانی MAC تصادفی</string>
+    <string name="wifi_advanced_randomized_mac_address_disconnected_title">«نشانی واد» تصادفی (آخرین استفاده)</string>
+    <string name="wifi_advanced_randomized_mac_address_title">«نشانی واد» تصادفی</string>
     <string name="wifi_advanced_settings_label">‏تنظیمات IP</string>
     <string name="wifi_advanced_ssid_title">SSID</string>
     <string name="wifi_advanced_titlebar">‏Wi-Fi پیشرفته</string>
@@ -5810,7 +5830,7 @@
     <string name="wifi_empty_list_wifi_off">‏برای مشاهده شبکه‌های در دسترس، Wi-Fi را روشن کنید.</string>
     <string name="wifi_empty_list_wifi_on">درحال جستجوی شبکه…</string>
     <string name="wifi_enhanced_mac_randomization">‏تصادفی‌سازی MAC غیرپایای Wi-Fi</string>
-    <string name="wifi_enhanced_mac_randomization_summary">‏اگر این حالت فعال باشد، هر بار این دستگاه به شبکه‌ای متصل شود که تصادفی‌سازی MAC در آن فعال است، ممکن است نشانی MAC آن تغییر کند.</string>
+    <string name="wifi_enhanced_mac_randomization_summary">اگر این حالت فعال باشد، هر بار این دستگاه به شبکه‌ای متصل شود که تصادفی‌سازی «واپایش دسترسی رسانه» در آن فعال است، ممکن است «نشانی واد» آن تغییر کند.</string>
     <string name="wifi_error">خطا</string>
     <string name="wifi_expiry_time">در %1$s منقضی می‌شود</string>
     <string name="wifi_fail_to_scan">اسکن شبکه‌ها امکان‌پذیر نیست</string>
@@ -5889,7 +5909,7 @@
     <string name="wifi_not_in_range">در محدوده نیست</string>
     <string name="wifi_not_in_range_message">شبکه در محدوده نیست</string>
     <string name="wifi_notify_open_networks">دریافت اعلان برای شبکه‌های عمومی</string>
-    <string name="wifi_notify_open_networks_summary">زمانی‌که اتصال خودکار دردسترس نیست</string>
+    <string name="wifi_notify_open_networks_summary">وقتی شبکه عمومی‌ای با کیفیت خوب در دسترس است، اطلاع داده شود</string>
     <string name="wifi_on_time">‏Wi-Fi به موقع</string>
     <string name="wifi_p2p_cancel_connect_message">آیا می‌خواهید دعوت برای ارتباط با %1$s را لغو کنید؟</string>
     <string name="wifi_p2p_cancel_connect_title">دعوتنامه لغو شود؟</string>
@@ -5977,7 +5997,6 @@
     <string name="wifi_suspend_optimizations">‏بهینه‌سازی Wi-Fi</string>
     <string name="wifi_suspend_optimizations_summary">‏به حداقل رساندن مصرف باتری زمانی که Wi-Fi روشن است</string>
     <string name="wifi_switch_away_when_unvalidated">‏تغییر وضعیت به داده تلفن همراه در شرایطی که Wi-Fi به اینترنت دسترسی ندارد.</string>
-    <string name="wifi_switch_summary">‏پیدا کردن شبکه‌های Wi-Fi و اتصال به آن‌ها</string>
     <string name="wifi_tap_to_sign_in">برای ورود به سیستم شبکه، اینجا ضربه بزنید</string>
     <string name="wifi_tether_configure_ap_text">‏تنظیم نقطه اتصال Wi-Fi</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

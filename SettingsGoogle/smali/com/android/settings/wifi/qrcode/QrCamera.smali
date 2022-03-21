@@ -733,7 +733,7 @@
 
     check-cast v0, Landroid/content/Context;
 
-    const-string v2, "window"
+    const-string/jumbo v2, "window"
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

@@ -58,117 +58,117 @@
 .method private getPreferredNetworkModeSummaryResId(I)I
     .locals 2
 
-    const v0, 0x7f040f3e
+    const v0, 0x7f040f6a
 
     packed-switch p1, :pswitch_data_0
 
     :pswitch_0
-    const p0, 0x7f040f36
+    const p0, 0x7f040f62
 
     return p0
 
     :pswitch_1
-    const p0, 0x7f040f49
+    const p0, 0x7f040f75
 
     return p0
 
     :pswitch_2
-    const p0, 0x7f040f4b
+    const p0, 0x7f040f77
 
     return p0
 
     :pswitch_3
-    const p0, 0x7f040f4d
+    const p0, 0x7f040f79
 
     return p0
 
     :pswitch_4
-    const p0, 0x7f040f4a
+    const p0, 0x7f040f76
 
     return p0
 
     :pswitch_5
-    const p0, 0x7f040f4c
+    const p0, 0x7f040f78
 
     return p0
 
     :pswitch_6
-    const p0, 0x7f040f4e
+    const p0, 0x7f040f7a
 
     return p0
 
     :pswitch_7
-    const p0, 0x7f040f47
+    const p0, 0x7f040f73
 
     return p0
 
     :pswitch_8
-    const p0, 0x7f040f46
+    const p0, 0x7f040f72
 
     return p0
 
     :pswitch_9
-    const p0, 0x7f040f48
+    const p0, 0x7f040f74
 
     return p0
 
     :pswitch_a
-    const p0, 0x7f040f4f
+    const p0, 0x7f040f7b
 
     return p0
 
     :pswitch_b
-    const p0, 0x7f040f3f
+    const p0, 0x7f040f6b
 
     return p0
 
     :pswitch_c
-    const p0, 0x7f040f51
+    const p0, 0x7f040f7d
 
     return p0
 
     :pswitch_d
-    const p0, 0x7f040f41
+    const p0, 0x7f040f6d
 
     return p0
 
     :pswitch_e
-    const p0, 0x7f040f43
+    const p0, 0x7f040f6f
 
     return p0
 
     :pswitch_f
-    const p0, 0x7f040f53
+    const p0, 0x7f040f7f
 
     return p0
 
     :pswitch_10
-    const p0, 0x7f040f40
+    const p0, 0x7f040f6c
 
     return p0
 
     :pswitch_11
-    const p0, 0x7f040f52
+    const p0, 0x7f040f7e
 
     return p0
 
     :pswitch_12
-    const p0, 0x7f040f42
+    const p0, 0x7f040f6e
 
     return p0
 
     :pswitch_13
-    const p0, 0x7f040f55
+    const p0, 0x7f040f81
 
     return p0
 
     :pswitch_14
-    const p0, 0x7f040f54
+    const p0, 0x7f040f80
 
     return p0
 
     :pswitch_15
-    const p0, 0x7f040f44
+    const p0, 0x7f040f70
 
     return p0
 
@@ -207,32 +207,32 @@
 
     :cond_1
     :goto_0
-    const p0, 0x7f040f39
+    const p0, 0x7f040f65
 
     return p0
 
     :pswitch_18
-    const p0, 0x7f040f3d
+    const p0, 0x7f040f69
 
     return p0
 
     :pswitch_19
-    const p0, 0x7f040f3a
+    const p0, 0x7f040f66
 
     return p0
 
     :pswitch_1a
-    const p0, 0x7f040f30
+    const p0, 0x7f040f5c
 
     return p0
 
     :pswitch_1b
-    const p0, 0x7f040f35
+    const p0, 0x7f040f61
 
     return p0
 
     :pswitch_1c
-    const p0, 0x7f040f32
+    const p0, 0x7f040f5e
 
     return p0
 
@@ -245,33 +245,33 @@
 
     if-eqz p0, :cond_2
 
-    const p0, 0x7f040f33
+    const p0, 0x7f040f5f
 
     goto :goto_1
 
     :cond_2
-    const p0, 0x7f040f31
+    const p0, 0x7f040f5d
 
     :goto_1
     return p0
 
     :pswitch_1e
-    const p0, 0x7f040f38
+    const p0, 0x7f040f64
 
     return p0
 
     :pswitch_1f
-    const p0, 0x7f040f57
+    const p0, 0x7f040f83
 
     return p0
 
     :pswitch_20
-    const p0, 0x7f040f37
+    const p0, 0x7f040f63
 
     return p0
 
     :pswitch_21
-    const p0, 0x7f040f58
+    const p0, 0x7f040f84
 
     return p0
 
@@ -370,7 +370,7 @@
     goto :goto_0
 
     :cond_3
-    const-string p1, "world_phone_bool"
+    const-string/jumbo p1, "world_phone_bool"
 
     invoke-virtual {p0, p1}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
 
@@ -421,6 +421,16 @@
     return-object p0
 .end method
 
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public bridge synthetic hasAsyncUpdate()Z
     .locals 0
 
@@ -466,7 +476,7 @@
 
     if-eqz v0, :cond_0
 
-    const-string v0, "show_cdma_choices_bool"
+    const-string/jumbo v0, "show_cdma_choices_bool"
 
     invoke-virtual {p1, v0}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
 

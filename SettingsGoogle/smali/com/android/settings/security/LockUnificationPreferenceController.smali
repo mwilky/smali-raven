@@ -49,7 +49,7 @@
 .method public constructor <init>(Landroid/content/Context;Lcom/android/settings/SettingsPreferenceFragment;)V
     .locals 1
 
-    const-string v0, "unification"
+    const-string/jumbo v0, "unification"
 
     invoke-direct {p0, p1, p2, v0}, Lcom/android/settings/security/LockUnificationPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settings/SettingsPreferenceFragment;Ljava/lang/String;)V
 
@@ -131,13 +131,13 @@
 
     iget v1, p0, Lcom/android/settings/security/LockUnificationPreferenceController;->mProfileUserId:I
 
-    const-string v2, "unification_profile_id"
+    const-string/jumbo v2, "unification_profile_id"
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     iget-object v1, p0, Lcom/android/settings/security/LockUnificationPreferenceController;->mCurrentProfilePassword:Lcom/android/internal/widget/LockscreenCredential;
 
-    const-string v2, "unification_profile_credential"
+    const-string/jumbo v2, "unification_profile_credential"
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
@@ -157,7 +157,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f040bda
+    const v2, 0x7f040bf2
 
     invoke-virtual {v1, v2}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -463,7 +463,7 @@
     :cond_1
     iget-object p1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f041445
+    const v0, 0x7f04146a
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -519,7 +519,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f041446
+    const v1, 0x7f04146b
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

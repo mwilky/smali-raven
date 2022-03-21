@@ -39,7 +39,7 @@
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
-    const p1, 0x10408ed
+    const p1, 0x10408f2
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -66,7 +66,7 @@
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setOrder(I)V
 
-    const p1, 0x7f041611
+    const p1, 0x7f041636
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setSummary(I)V
 

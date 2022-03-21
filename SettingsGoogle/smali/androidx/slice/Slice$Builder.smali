@@ -638,7 +638,7 @@
 
     move-result-object v2
 
-    const-string v3, "slice"
+    const-string/jumbo v3, "slice"
 
     invoke-direct {v1, p1, v3, p2, v2}, Landroidx/slice/SliceItem;-><init>(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V
 
@@ -712,7 +712,7 @@
 
     new-instance v1, Landroidx/slice/SliceItem;
 
-    const-string v2, "text"
+    const-string/jumbo v2, "text"
 
     invoke-direct {v1, p1, v2, p2, p3}, Landroidx/slice/SliceItem;-><init>(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V
 

@@ -64,11 +64,11 @@
 
     move-result-object p0
 
-    const-string p1, "zen_mode_add_automatic_rule"
+    const-string/jumbo p1, "zen_mode_add_automatic_rule"
 
     invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    const-string p1, "zen_mode_automatic_rules"
+    const-string/jumbo p1, "zen_mode_automatic_rules"
 
     invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 

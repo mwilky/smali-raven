@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Smooth Display</string>
     <string name="peak_refresh_rate_summary">Suurendab teatud sisu puhul värskendamissagedust 60 hertsilt 90 hertsini. Akukasutus suureneb.</string>
     <string name="accessibility_vibration_settings_title">Vibreerimine ja värintagasiside</string>
+    <string name="columbus_title">Kiirpuudutus toimingute käivitamiseks</string>
     <string name="emergency_gesture_screen_title">Hädaabikõne</string>
     <string name="abc_action_mode_done">Valmis</string>
     <string name="vibrate_for_calls_category_title">Kõned</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Kuva seadmete juhtimisvidinad</string>
     <string name="lockscreen_privacy_wallet_summary">Rahakotile juurdepääsu lubamine lukustuskuvalt ja kiirseadetest</string>
     <string name="lockscreen_privacy_controls_summary">Juurdepääs juhtimisvidinatele, kui seade on lukustatud</string>
+    <string name="lockscreen_double_line_clock_summary">Kuva kaherealine kell, kui see on saadaval</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Kaherealine kell</string>
     <string name="abc_activity_chooser_view_see_all">Kuva kõik</string>
     <string name="abc_activitychooserview_choose_application">Valige rakendus</string>
     <string name="abc_capital_off">VÄLJAS</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Äratuse vibreerimine</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Active Edge on seadistatud. Minge järgmisele kuvale või jätkake kohandamist.</string>
     <string name="accessibility_audio_adjustment_title">Heli kohandamine</string>
+    <string name="accessibility_autoclick_about_title">Automaatne klikk (peatumisaeg)</string>
     <string name="accessibility_autoclick_custom_title">Kohandatud</string>
     <string name="accessibility_autoclick_default_title">Väljas</string>
     <string name="accessibility_autoclick_description">Automaatklikk toimib ühendatud hiire korral. Saate hiirekursori seadistada automaatselt klõpsama, kui kursor teatud ajaks peatub.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Lisateave automaatse kliki (peatumisaja) kohta</string>
     <string name="accessibility_autoclick_long_summary">1 sekund</string>
     <string name="accessibility_autoclick_long_title">Pikk</string>
     <string name="accessibility_autoclick_longer_desc">Pikem</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Lühike</string>
     <string name="accessibility_autoclick_shorter_desc">Lühem</string>
     <string name="accessibility_banner_message_dismiss">Loobu</string>
-    <string name="accessibility_button_description">"Pääsege juurdepääsufunktsioonidele kiiresti juurde igalt kuvalt. 
+    <string name="accessibility_button_about_title">Juurdepääsetavuse nupu teave</string>
+    <string name="accessibility_button_description">"Pääsege juurdepääsufunktsioonidele kiiresti juurde igalt kuvalt.
 
 Alustamiseks avage juurdepääsetavuse seaded ja valige funktsioon. Puudutage otseteed ja valige juurdepääsetavuse nupp."</string>
     <string name="accessibility_button_fade_summary">Hajub mõne sekundi pärast, et kuva oleks hõlpsam näha</string>
     <string name="accessibility_button_fade_title">Hajuta, kui seda ei kasutata</string>
+    <string name="accessibility_button_gesture_about_title">Juurdepääsetavuse nupu ja liigutuse teave</string>
     <string name="accessibility_button_gesture_description">"Pääsege juurdepääsufunktsioonidele kiiresti juurde igalt kuvalt.
 
-Alustamiseks avage juurdepääsetavuse seaded ja valige funktsioon. Puudutage otseteed ja valige juurdepääsetavuse nupp.
-
-Kui soovite juurdepääsetavuse nuppu hoopis navigeerimisribal kasutada, lülitage ümber kahe nupuga navigeerimisele või kolme nupuga navigeerimisele."</string>
+Alustamiseks avage juurdepääsetavuse seaded ja valige funktsioon. Puudutage otseteed ja valige juurdepääsetavuse nupp või juurdepääsuliigutus."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Lisateave juurdepääsetavuse nupu ja liigutuse kohta</string>
     <string name="accessibility_button_gesture_title">Juurdepääsetavuse nupp ja liigutus</string>
     <string name="accessibility_button_high_label">Läbipaistmatu</string>
     <string name="accessibility_button_intro">Juurdepääsetavuse nupu kasutamine. Liigutus ei ole kolme nupuga navigeerimise puhul saadaval.</string>
@@ -184,14 +190,23 @@ Kui soovite juurdepääsetavuse nuppu hoopis navigeerimisribal kasutada, lülita
     <string name="accessibility_caption_preference_summary">Kõik rakendused ei toeta neid subtiitrite eelistusi</string>
     <string name="accessibility_caption_primary_switch_summary">Ainult toetatud rakendustes</string>
     <string name="accessibility_caption_primary_switch_title">Kuva subtiitrid</string>
+    <string name="accessibility_captioning_about_title">Subtiitrite eelistuste teave</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Lisateave subtiitrite eelistuste kohta</string>
     <string name="accessibility_captioning_title">Subtiitrite eelistused</string>
     <string name="accessibility_category_personal">Isikliku profiili kontod</string>
     <string name="accessibility_category_work">Tööprofiili kontod – %s</string>
+    <string name="accessibility_color_inversion_about_title">Värvide ümberpööramise teave</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Lisateave värvide ümberpööramise kohta</string>
+    <string name="accessibility_control_timeout_about_title">Aeg toimingu tegemiseks (juurdepääsu ajalõpp)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Lisateave toimingu tegemiseks antud aja (juurdepääsu ajalõpu) kohta</string>
     <string name="accessibility_control_timeout_preference_summary">"Valige, kui kaua soovite kuvada sõnumeid, milles palutakse teil toiminguid teha, kuid mis on nähtaval ainult ajutiselt.
 
 Kõik rakendused seda seadet ei toeta."</string>
     <string name="accessibility_control_timeout_preference_title">Aeg toimingu tegemiseks</string>
+    <string name="accessibility_daltonizer_about_title">Värviparanduse teave</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Lisateave värviparanduse kohta</string>
     <string name="accessibility_daltonizer_primary_switch_title">Kasuta värvide korrigeerimist</string>
+    <string name="accessibility_daltonizer_shortcut_title">Värvide korrigeerimise otsetee</string>
     <string name="accessibility_data_one_bar">Andmesignaal: üks pulk.</string>
     <string name="accessibility_data_signal_full">Andmesignaal on tugev.</string>
     <string name="accessibility_data_three_bars">Andmeside: kolm pulka.</string>
@@ -206,6 +221,7 @@ Kõik rakendused seda seadet ei toeta."</string>
     <string name="accessibility_display_daltonizer_preference_title">Värvide korrigeerimine</string>
     <string name="accessibility_display_inversion_preference_subtitle">Värvide ümberpööramine muudab ekraanikuva tumedaks.&lt;br/>&lt;br/> Märkus. &lt;ol> &lt;li> Samuti muudab värvide ümberpööramine tumedad ekraanikuvad heledaks.&lt;/li> &lt;li> Meedia ja piltide värvid muutuvad.&lt;/li> &lt;li> Tumeda tausta kuvamiseks saab kasutada ka tumedat teemat. Tume teema töötab toetatud rakendustes. Värvide ümberpööramine töötab kõigis rakendustes.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Värvide ümberpööramine</string>
+    <string name="accessibility_display_inversion_shortcut_title">Värvide ümberpööramise otsetee</string>
     <string name="accessibility_display_inversion_switch_title">Kasuta värvide ümberpööramist</string>
     <string name="accessibility_ethernet_connected">Ethernet.</string>
     <string name="accessibility_ethernet_disconnected">Etherneti-ühendus on katkestatud.</string>
@@ -255,6 +271,8 @@ Juurdepääsetavuse nupp hõljub ekraanikuval teiste rakenduste kohal. Suurendam
     <string name="accessibility_phone_two_bars">Telefonisignaal: kaks pulka.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Toitenupp lõpetab kõne</string>
     <string name="accessibility_preference_magnification_summary">Suumige ekraanil sisse</string>
+    <string name="accessibility_screen_magnification_about_title">Suurenduse teave</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Lisateave suurenduse kohta</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">See juurdepääsetavuse liigutus on määratud teenusele %1$s. Suurenduse kasutamiseks pühkige kahe sõrmega ekraanikuva allosast üles ja hoidke sõrmi ekraanil. Seejärel tehke valik Suurendus.</string>
     <string name="accessibility_screen_magnification_gestures_title">Kolmikpuudutusega suurendamine</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">Juurdepääsetavuse nupu jaoks on valitud seade %1$s. Suurenduse kasutamiseks puudutage ja hoidke juurdepääsetavuse nuppu ning seejärel valige suurendus.</string>
@@ -272,6 +290,7 @@ Juurdepääsetavuse nupp hõljub ekraanikuval teiste rakenduste kohal. Suurendam
 Klaviatuuril ega navigeerimisribal ei saa sisse suumida."</string>
     <string name="accessibility_screen_magnification_navbar_title">Otsetee abil suurendamine</string>
     <string name="accessibility_screen_magnification_short_summary">Suumimiseks puudutage kolm korda</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Suurenduse otsetee</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Otsetee ja kolmikpuudutusega suurendamine</string>
     <string name="accessibility_screen_magnification_summary">Suumige ekraanikuval kiiresti sisse, et sisu suuremalt kuvada.&lt;br/>&lt;br/> &lt;b>Sissesuumimiseks toimige järgmiselt.&lt;/b>&lt;br/> {0,number,integer}. Kasutage suurendamise alustamiseks otseteed.&lt;br/> {1,number,integer}. Puudutage ekraani.&lt;br/> {2,number,integer}. Ekraanikuval liikumiseks lohistage kahe sõrmega.&lt;br/> {3,number,integer}. Suumi kohandamiseks liigutage ekraanil kaht sõrme kokku-lahku.&lt;br/> {4,number,integer}. Kasutage suurendamise lõpetamiseks otseteed.&lt;br/>&lt;br/> &lt;b>Ajutiseks sissesuumimiseks toimige järgmiselt.&lt;/b>&lt;br/> {0,number,integer}. Kasutage suurendamise alustamiseks otseteed.&lt;br/> {1,number,integer}. Hoidke sõrme kus tahes ekraanikuval.&lt;br/> {2,number,integer}. Lohistage ekraanikuval liikumiseks sõrme.&lt;br/> {3,number,integer}. Suurendamise lõpetamiseks tõstke sõrm ekraanikuvalt.</string>
     <string name="accessibility_screen_magnification_title">Suurendus</string>
@@ -370,7 +389,7 @@ Funktsioonide vahel vahetamiseks pühkige kolme sõrmega üles ja hoidke sõrmi 
     <string name="accessibility_tutorial_dialog_message_volume">Selle funktsiooni kasutamiseks vajutage pikalt mõlemat helitugevuse klahvi.</string>
     <string name="accessibility_tutorial_dialog_title_button">Avamiseks juurdepääsetavuse nupu kasutamine</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Kasutage avamiseks liigutust</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Kasutage uut juurdepääsetavuse liigutust</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Juurdepääsuliigutuse kasutamine</string>
     <string name="accessibility_tutorial_dialog_title_triple">Avamiseks puudutage ekraani kolm korda</string>
     <string name="accessibility_tutorial_dialog_title_volume">Avamiseks hoidke helitugevuse klahve all</string>
     <string name="accessibility_tutorial_pager">%1$d. leht %2$d-st</string>
@@ -936,6 +955,7 @@ Kui see on lähtestatud, läbige seadistusprotsess ning hankige oma eelmisest te
     <string name="battery_level_title">Aku tase</string>
     <string name="battery_manager_off">Väljas</string>
     <string name="battery_manager_summary">Pikendage aku tööiga ja optimeerige laadimist</string>
+    <string name="battery_manager_summary_unsupported">Aku tööea pikendamine</string>
     <string name="battery_missing_link_a11y_message">Puudutage, et näha selle vea kohta lisateavet</string>
     <string name="battery_missing_link_message">Lisateave</string>
     <string name="battery_missing_message">Probleem akumõõdiku lugemisel.</string>
@@ -1061,6 +1081,7 @@ taustal vähem kui minut"</string>
     <string name="battery_usage_screen_footer">Akukasutuse andmed on ligikaudsed ja kasutamist ei mõõdeta telefoni laadimise ajal</string>
     <string name="battery_usage_screen_footer_empty">Akukasutuse andmed tulevad saadavale siis, kui olete telefoni mõni tund kasutanud</string>
     <string name="battery_usage_total_less_than_one_minute">Kokku: vähem kui minut</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%2$s kasutab %1$s</string>
     <string name="battery_used_for">Kasutatud ^1</string>
     <string name="bearer">Kandja</string>
@@ -1069,12 +1090,14 @@ taustal vähem kui minut"</string>
     <string name="billing_cycle_less_than_one_day_left">Jäänud on vähem kui üks päev</string>
     <string name="billing_cycle_none_left">Rohkem aega pole jäänud</string>
     <string name="biometric_settings_category_ways_to_unlock">Võimalused avamiseks</string>
-    <string name="biometric_settings_category_ways_to_use">Kasuta nägu ja sõrmejälge:</string>
     <string name="biometric_settings_hand_back_to_guardian">Anna telefon vanema kätte tagasi</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">OK</string>
     <string name="biometric_settings_intro">Kui seadistate näoga ja sõrmejäljega avamise, küsib telefon teie sõrmejälge, kui kannate maski või olete hämaras.</string>
-    <string name="biometric_settings_use_biometric_for_apps">Autentimine rakendustes</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">Telefoni avamine</string>
+    <string name="biometric_settings_use_biometric_for_apps">Kinnitage rakendustes oma isik</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">Avage telefon</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Näo või sõrmejälje kasutamine</string>
+    <string name="biometric_settings_use_face_preference_summary">Näo kasutamine</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Sõrmejälje kasutamine</string>
     <string name="biometrics_unlock_set_unlock_password">Parool • Nägu • Sõrmejälg</string>
     <string name="biometrics_unlock_set_unlock_pattern">Muster • Nägu • Sõrmejälg</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN-kood • Nägu • Sõrmejälg</string>
@@ -1332,7 +1355,6 @@ Valik"</string>
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Kuva ilma nimedeta Bluetoothi seadmed</string>
     <string name="bluetooth_show_devices_without_names_summary">Kuvatakse ilma nimedeta (ainult MAC-aadressidega) Bluetoothi seadmed</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Bluetoothi kaudu saadud failid</string>
     <string name="bluetooth_show_received_files">Vastuvõetud failid</string>
     <string name="bluetooth_sim_card_access_dialog_content">"Bluetooth-seade %1$s soovib teie SIM-kaardi andmetele juurde pääseda. Need andmed hõlmavad teie kontakte.
 
@@ -1426,6 +1448,7 @@ Kui installite CA-sertifikaadi, pääseb sertifikaadi omanik teie külastatud ve
     <string name="calls_sms_temp_unavailable">Pole ajutiselt saadaval</string>
     <string name="calls_sms_unavailable">pole saadaval</string>
     <string name="calls_sms_wfc_summary">Helistamine WiFi kaudu</string>
+    <string name="cam_toggle_description">Rakenduste ja teenuste jaoks</string>
     <string name="camera_double_tap_power_gesture_desc">Kaamera avatakse kiirelt ekraani avamata</string>
     <string name="camera_double_tap_power_gesture_title">Kaamera avam. vajut. 2 korda toitenuppu</string>
     <string name="camera_laser_sensor_switch">Kaamera laserandur</string>
@@ -3302,6 +3325,7 @@ Seadmes on teisi kasutajaid.
     <string name="menu_stats_total">Kasutus kokku</string>
     <string name="menu_stats_unplugged">%1$s alates lahutamisest</string>
     <string name="menu_use_uss">USS-i kasutamine</string>
+    <string name="mic_toggle_description">Rakenduste ja teenuste jaoks. Isegi kui see seade on välja lülitatud, võidakse mikrofoni andmeid siiski jagada hädaabinumbrile helistades.</string>
     <string name="mic_toggle_title">Juurdepääs mikrofonile</string>
     <string name="misc_files">Mitmesugused failid</string>
     <string name="misc_files_selected_count">valitud %1$d/%2$d</string>
@@ -3728,6 +3752,7 @@ See võimaldab rakendusel ka lülitada sisse või välja funktsiooni Mitte segad
     <string name="one_handed_action_show_notification_title">Märguannete kuvamine</string>
     <string name="one_handed_mode_enabled">Kasuta ühekäerežiimi</string>
     <string name="one_handed_mode_intro_text">Ühekäerežiimi kasutamiseks pühkige ekraanikuva alaservast alla. Selle funktsiooni kasutamiseks veenduge, et liigutustega navigeerimine oleks süsteemi navigeerimisseadetes sisse lülitatud.</string>
+    <string name="one_handed_mode_shortcut_title">Ühekäerežiimi otsetee</string>
     <string name="one_handed_mode_swipe_down_category">Pühkige alla, et teha järgmist</string>
     <string name="one_handed_mode_use_shortcut_category">Kasuta otseteed järgmiseks:</string>
     <string name="one_usercrt">üks kasutaja sertifikaat</string>
@@ -3803,7 +3828,7 @@ See võimaldab rakendusel ka lülitada sisse või välja funktsiooni Mitte segad
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s on aktiivne</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Kaamera</string>
-    <string name="power_cell">Mobiilsidevõrk on ooterežiimis</string>
+    <string name="power_cell">Mobiilsidevõrk</string>
     <string name="power_charge_remaining">%1$s laadimise lõpuni</string>
     <string name="power_charging">%1$s – %2$s</string>
     <string name="power_charging_duration">%1$s – täislaadimiseks kulub %2$s</string>
@@ -4037,6 +4062,7 @@ vajutage samal ajal toitenuppu ja helitugevuse suurendamise nuppu."</string>
     <string name="recent_notifications">Hiljuti saadetud</string>
     <string name="recent_notifications_see_all_title">Kuva kõik viimase 7 päeva kohta</string>
     <string name="recompute_size">Suuruse ümberarvutamine ...</string>
+    <string name="reduce_bright_colors_about_title">Eriti tumeda režiimi teave</string>
     <string name="reduce_bright_colors_intensity_end_label">Heledam</string>
     <string name="reduce_bright_colors_intensity_preference_title">Intensiivsus</string>
     <string name="reduce_bright_colors_intensity_start_label">Tuhmim</string>
@@ -4044,6 +4070,7 @@ vajutage samal ajal toitenuppu ja helitugevuse suurendamise nuppu."</string>
     <string name="reduce_bright_colors_preference_subtitle">Muutke ekraanikuva tumedamaks, et seda oleks mugavam lugeda.&lt;br/>&lt;br/> See võib olla kasulik järgmistel juhtudel. &lt;ol> &lt;li> Teie telefoni vaikemiinimumeredus on siiski liiga ere.&lt;/li> &lt;li> Kasutate oma telefoni pimedas, näiteks öösel või pimedas ruumis enne magamaminekut.&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">Muutke ekraanikuva tumedamaks kui teie telefoni miinimumeredus</string>
     <string name="reduce_bright_colors_preference_title">Eriti tume</string>
+    <string name="reduce_bright_colors_shortcut_title">Eriti tumeda režiimi otsetee</string>
     <string name="reduce_bright_colors_switch_title">Ekraanikuva eriti tumedaks muutmine</string>
     <string name="register_automatically">Automaatne registreerimine …</string>
     <string name="register_on_network">Registreerimine võrgus %s …</string>
@@ -4249,7 +4276,6 @@ Rakenduse kinnitamise kasutamiseks toimige järgmiselt. \u0009
     <string name="screen_pinning_unlock_pattern">Enne vabastamist küsi avamismustrit</string>
     <string name="screen_pinning_unlock_pin">Enne vabastamist küsi PIN-koodi</string>
     <string name="screen_reader_category_title">Ekraanilugeja</string>
-    <string name="screen_saver_main_switch_title">Ekraanisäästja kasutamine</string>
     <string name="screen_time_summary_usage_today">Täna: %1$s</string>
     <string name="screen_timeout_summary">Pärast %1$s tegevusetust</string>
     <string name="screen_timeout_title">Ekraan lülitub välja</string>
@@ -4279,6 +4305,7 @@ Rakenduse kinnitamise kasutamiseks toimige järgmiselt. \u0009
     <string name="screensaver_settings_button">Seaded</string>
     <string name="screensaver_settings_current">Praegune ekraanisäästja</string>
     <string name="screensaver_settings_disabled_prompt">Kui soovite juhtida, mis juhtub telefoni dokkimisel ja/või puhkerežiimi lülitamisel, siis lülitage ekraanisäästja sisse.</string>
+    <string name="screensaver_settings_dream_start">Alusta kohe</string>
     <string name="screensaver_settings_summary_dock">Kui on dokitud</string>
     <string name="screensaver_settings_summary_either_long">Laadimise ajal või dokis</string>
     <string name="screensaver_settings_summary_either_short">Kui on dokitud või laeb</string>
@@ -4329,15 +4356,6 @@ Rakenduse kinnitamise kasutamiseks toimige järgmiselt. \u0009
     <string name="security_settings_biometric_preference_summary_both_fp_single">Nägu ja sõrmejälg on lisatud</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Puudutage seadistamiseks</string>
     <string name="security_settings_biometric_preference_title">Näo ja sõrmejäljega avamine</string>
-    <string name="security_settings_biometrics_description">Kui seadistate näo ja sõrmejäljega avamise, küsib telefon teie sõrmejälge, kui kannate maski või olete hämaras</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Autentimine rakendustes</string>
-    <string name="security_settings_biometrics_preferences_category">Kasuta nägu või sõrmejälge järgmiseks:</string>
-    <string name="security_settings_biometrics_summary_both">Nägu ja sõrmejälg</string>
-    <string name="security_settings_biometrics_summary_face">Ainult nägu</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Ainult sõrmejälg</string>
-    <string name="security_settings_biometrics_summary_none">Puudutage seadistamiseks</string>
-    <string name="security_settings_biometrics_title">Näo ja sõrmejäljega avamine</string>
-    <string name="security_settings_biometrics_types_category">Võimalused avamiseks</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Lubage näoga avamine</string>
     <string name="security_settings_face_enroll_dialog_ok">OK</string>
     <string name="security_settings_face_enroll_done">Valmis</string>
@@ -4385,16 +4403,17 @@ Lisateave: g.co/pixel/faceunlock."</string>
     <string name="security_settings_face_enroll_introduction_control_title">Teie juhite toimuvat</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message">"Näoga avamise funktsioon loob teie lapse näost kordumatu mudeli, mille abil tema isik kinnitada. Näomudeli loomiseks jäädvustatakse seadistamise ajal kujutised tema näost eri nurkade all.
 
-Kui ta kasutab näoga avamist, kasutatakse kujutisi tema näomudeli värskendamiseks. Näomudeli loomiseks kasutatavaid kujutisi ei salvestata mitte kunagi, kuid näomudel salvestatakse turvaliselt telefoni, kust seda välja ei saadeta. Kogu töötlus toimub turvaliselt telefonis."</string>
+Kui ta kasutab näoga avamist, kasutatakse kujutisi tema näomudeli värskendamiseks. Näomudeli loomiseks kasutatavaid kujutisi ei salvestata, kuid näomudel salvestatakse turvaliselt telefoni, kust seda välja ei saadeta. Kogu töötlus toimub turvaliselt telefonis."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"Näoga avamise funktsioon loob teie näost kordumatu mudeli, mille abil teie isik kinnitada. Näomudeli loomiseks jäädvustatakse seadistamise ajal kujutised teie näost eri nurkade all.
 
-Kui kasutate näoga avamist, kasutatakse kujutisi teie näomudeli värskendamiseks. Näomudeli loomiseks kasutatavaid kujutisi ei salvestata mitte kunagi, kuid näomudel salvestatakse turvaliselt teie telefoni, kust seda välja ei saadeta. Kogu töötlus toimub turvaliselt teie telefonis."</string>
+Kui kasutate näoga avamist, kasutatakse kujutisi teie näomudeli värskendamiseks. Näomudeli loomiseks kasutatavaid kujutisi ei salvestata, kuid näomudel salvestatakse turvaliselt teie telefoni, kust seda välja ei saadeta. Kogu töötlus toimub turvaliselt teie telefonis."</string>
     <string name="security_settings_face_enroll_introduction_how_title">Tööpõhimõtted</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">Näoga avamise funktsioon võib telefoni avamiseks või isiku kinnitamiseks nõuda, et teie lapse silmad oleksid lahti. Selle valiku saate (või saab laps) seadetes alati sisse lülitada.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Kui laps kannab tavaliselt prille, võib ta neid kanda ka seadistamise ajal.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Telefoni vaatamisel võib see avaneda ka siis, kui ta seda ei soovi. Temaga sarnane inimene, näiteks tema identne vend või õde, saab samuti tema telefoni avada. Telefoni saab avada ka nii, et keegi hoiab telefoni tema näo ees.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Näoga avamise funktsioon võib telefoni avamiseks või isiku kinnitamiseks nõuda, et teie silmad oleksid lahti. Selle valiku saate seadetes alati sisse lülitada.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Prille ja heledama klaasiga päikeseprille tohib kasutada.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Telefoni näoga avamine võib olla vähem turvaline kui tugev muster või PIN-kood.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Telefoni vaatamisel võib see avaneda ka siis, kui te seda ei soovi. Teiega sarnane inimene, näiteks teie identne vend või õde, saab samuti teie telefoni avada. Telefoni saab avada ka nii, et keegi hoiab telefoni teie näo ees.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Pidage meeles</string>
     <string name="security_settings_face_enroll_introduction_message">Kasutage oma telefoni avamiseks või oma isiku kinnitamiseks (nt rakendustesse sisselogimisel või ostude kinnitamisel) oma nägu.</string>
@@ -4452,13 +4471,14 @@ Keegi teine võib teie telefoni avada, kui seda hoitakse teie näo ees, isegi ku
 
 Võib juhtuda, et teiega sarnane inimene, näiteks identne vend/õde, saab teie telefoni avada."</string>
     <string name="security_settings_face_settings_preferences_category">Näoga avamise kasutamisel</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Teie näomudel kustutatakse jäädavalt ja turvaliselt. Pärast kustutamist vajate telefoni avamiseks või rakendustes autentimiseks PIN-koodi, mustrit või parooli.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Teie näomudel kustutatakse jäädavalt ja turvaliselt.
+
+Pärast kustutamist vajate telefoni avamiseks või rakendustes autentimiseks PIN-koodi, mustrit või parooli."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Teie näomudel kustutatakse jäädavalt ja turvaliselt.
+
+Pärast kustutamist vajate telefoni avamiseks PIN-koodi, mustrit või parooli."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Kas kustutada näomudel?</string>
     <string name="security_settings_face_settings_remove_face_model">Kustuta näomudel</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Teie näomudel kustutatakse jäädavalt ja turvaliselt.
-
-Pärast kustutamist vajate telefoni avamiseks või rakendustes autentimiseks sõrmejälge, PIN-koodi, mustrit või parooli."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Kas kustutada näomudel?</string>
     <string name="security_settings_face_settings_require_attention">Nõua avatud silmi</string>
     <string name="security_settings_face_settings_require_attention_details">Telefoni avamiseks peavad teie silmad avatud olema</string>
     <string name="security_settings_face_settings_require_confirmation">Nõua alati kinnitust</string>
@@ -4541,7 +4561,7 @@ Märkus. Te ei saa sõrmejälge kasutada selle seadme avamiseks. Lisateabe saami
     <string name="security_settings_title">Turvalisus</string>
     <string name="security_settings_udfps_enroll_a11y">Anduri leidmiseks liigutage sõrme ekraanil. Puudutage pikalt sõrmejäljeandurit.</string>
     <string name="security_settings_udfps_enroll_edge_message">Asetage oma sõrmejälje külg andurile ja hoidke all, seejärel asetage andurile sõrmejälje teine külg</string>
-    <string name="security_settings_udfps_enroll_edge_title">Lõpuks asetage andurile oma sõrme küljed</string>
+    <string name="security_settings_udfps_enroll_edge_title">Lõpuks kasutage oma sõrme külgesid</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Sõrmejäljeandur on ekraani sees. Sõrmejälje jäädvustate järgmisel ekraanikuval.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Alusta</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Kuidas sõrmejälg seadistada?</string>
@@ -4549,7 +4569,7 @@ Märkus. Te ei saa sõrmejälge kasutada selle seadme avamiseks. Lisateabe saami
     <string name="security_settings_udfps_enroll_repeat_a11y_message">See aitab jäädvustada suurema osa teie sõrmejäljest</string>
     <string name="security_settings_udfps_enroll_repeat_message">Puudutage pikalt iga kord, kui sõrmejäljeikoon liigub. See aitab jäädvustada suurema osa teie sõrmejäljest.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Järgige sõrmejälje ikooni</string>
-    <string name="security_settings_udfps_enroll_start_message">Hoidke sõrme anduril, kuni tunnete vibratsiooni.</string>
+    <string name="security_settings_udfps_enroll_start_message">Hoidke sõrmeotsa anduril, kuni tunnete vibratsiooni.</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Veel üks kord</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint töö jaoks</string>
     <string name="security_status_title">Turvalisuse olek</string>
@@ -4575,7 +4595,6 @@ Märkus. Te ei saa sõrmejälge kasutada selle seadme avamiseks. Lisateabe saami
     <string name="select_webview_provider_dialog_title">"WebView' rakendamise seadistamine"</string>
     <string name="select_webview_provider_title">"WebView' rakendamine"</string>
     <string name="select_webview_provider_toast_text">See valik ei kehti enam. Proovige uuesti.</string>
-    <string name="sensor_toggle_description">Kõikide rakenduste ja teenuste jaoks</string>
     <string name="sensors_off_quick_settings_title">Andurid on väljas</string>
     <string name="service_background_processes">%1$s vaba</string>
     <string name="service_foreground_processes">%1$s kasutusel</string>
@@ -4807,6 +4826,7 @@ Võimalik, et PIN-kood on vale."</string>
     <string name="sound_settings_summary_silent">Telefonihelin on seatud hääletuks</string>
     <string name="sound_settings_summary_vibrate">Telefonihelin on seatud vibreerima</string>
     <string name="sound_work_settings">Tööprofiili helid</string>
+    <string name="spatial_audio_title">Ruumiline heli</string>
     <string name="special_access">Rakenduse erijuurdepääs</string>
     <string name="special_access_more">Kuva rohkem</string>
     <string name="speed_label_fast">Kiire</string>
@@ -5618,7 +5638,7 @@ Te ei saa häälkõne ajal internetti kasutada ja mõni rakendus ei pruugi töö
     <string name="vpn_turn_on">Lülita sisse</string>
     <string name="vpn_type">Tüüp</string>
     <string name="vpn_username">Kasutajanimi</string>
-    <string name="vpn_version">Versioon %s</string>
+    <string name="vpn_version">Versioon</string>
     <string name="vr_listener_security_warning_summary">Virtuaalreaalses režiimis kuulajat %1$s saab käitada, kui kasutate rakendusi virtuaalreaalses režiimis.</string>
     <string name="vr_listener_security_warning_title">Kas lubada VR-teenuse juurdepääs teenusele %1$s?</string>
     <string name="vr_listeners_title">VR-abilise teenused</string>
@@ -5888,7 +5908,7 @@ Võrgu peitmisel ruuteri seadeid ei muudeta."</string>
     <string name="wifi_not_in_range">Pole vahemikus</string>
     <string name="wifi_not_in_range_message">Te ei ole võrgu levialas</string>
     <string name="wifi_notify_open_networks">Teavita avalike võrkude puhul</string>
-    <string name="wifi_notify_open_networks_summary">Kui automaatne ühendus ei ole saadaval</string>
+    <string name="wifi_notify_open_networks_summary">Teavita, kui kvaliteetne avalik võrk on saadaval</string>
     <string name="wifi_on_time">WiFi õigel ajal</string>
     <string name="wifi_p2p_cancel_connect_message">Kas soovite tühistada kutse kasutajaga %1$s ühenduse loomiseks?</string>
     <string name="wifi_p2p_cancel_connect_title">Kas tühistada kutse?</string>
@@ -5976,7 +5996,6 @@ Kas lubada see kõigi rakenduste jaoks, mis skannida tahavad?"</string>
     <string name="wifi_suspend_optimizations">WiFi optimeerimine</string>
     <string name="wifi_suspend_optimizations_summary">Minimeeri aku kasutamine, kui WiFi on sees</string>
     <string name="wifi_switch_away_when_unvalidated">Kui WiFi kaotab juurdepääsu Internetile, lülita mobiilsele andmesidele.</string>
-    <string name="wifi_switch_summary">WiFi-võrkude otsimine ja nendega ühenduse loomine</string>
     <string name="wifi_tap_to_sign_in">Puudutage siin, et võrku sisse logida</string>
     <string name="wifi_tether_configure_ap_text">WiFi-kuumkoha seadistamine</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

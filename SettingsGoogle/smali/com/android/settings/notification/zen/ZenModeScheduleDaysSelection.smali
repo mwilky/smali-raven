@@ -43,7 +43,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b03fe
+    const v2, 0x7f0b040e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -102,7 +102,7 @@
 
     aget v3, v0, v1
 
-    const v4, 0x7f0602c7
+    const v4, 0x7f0602d3
 
     invoke-virtual {p1, v4, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 

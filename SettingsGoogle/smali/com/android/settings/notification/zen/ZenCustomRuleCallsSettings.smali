@@ -39,7 +39,7 @@
 
     move-result-object v2
 
-    const-string v3, "zen_mode_calls"
+    const-string/jumbo v3, "zen_mode_calls"
 
     invoke-direct {v1, p1, v3, v2}, Lcom/android/settings/notification/zen/ZenRuleCallsPreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;Lcom/android/settingslib/core/lifecycle/Lifecycle;)V
 
@@ -57,13 +57,13 @@
 
     move-result-object v3
 
-    const v4, 0x10e00e4
+    const v4, 0x10e00e8
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v3
 
-    const-string v4, "zen_mode_repeat_callers"
+    const-string/jumbo v4, "zen_mode_repeat_callers"
 
     invoke-direct {v1, p1, v4, v2, v3}, Lcom/android/settings/notification/zen/ZenRuleRepeatCallersPreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;Lcom/android/settingslib/core/lifecycle/Lifecycle;I)V
 
@@ -79,7 +79,7 @@
 
     const/4 v3, 0x3
 
-    const-string v4, "zen_mode_starred_contacts_callers"
+    const-string/jumbo v4, "zen_mode_starred_contacts_callers"
 
     invoke-direct {v1, p1, v2, v3, v4}, Lcom/android/settings/notification/zen/ZenRuleStarredContactsPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;ILjava/lang/String;)V
 
@@ -111,7 +111,7 @@
 .method getPreferenceCategoryKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "zen_mode_settings_category_calls"
+    const-string/jumbo p0, "zen_mode_settings_category_calls"
 
     return-object p0
 .end method
@@ -119,7 +119,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15011f
+    const p0, 0x7f150124
 
     return p0
 .end method
@@ -191,7 +191,7 @@
 
     aput-object p0, v2, v3
 
-    const p0, 0x7f0417f5
+    const p0, 0x7f04181a
 
     invoke-virtual {v1, p0, v2}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

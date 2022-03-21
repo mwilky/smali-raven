@@ -608,7 +608,7 @@
 
     if-eq p1, v5, :cond_0
 
-    const-string p1, "updateHoveredVirtualView"
+    const-string/jumbo p1, "updateHoveredVirtualView"
 
     new-array v6, v4, [Ljava/lang/Class;
 
@@ -1182,7 +1182,7 @@
 
     if-nez v0, :cond_4
 
-    const-string v0, "singleLine"
+    const-string/jumbo v0, "singleLine"
 
     const/4 v2, 0x1
 

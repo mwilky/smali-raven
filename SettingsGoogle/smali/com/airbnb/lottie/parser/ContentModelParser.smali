@@ -11,7 +11,7 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    const-string v0, "ty"
+    const-string/jumbo v0, "ty"
 
     const-string v1, "d"
 
@@ -106,7 +106,7 @@
     goto/16 :goto_3
 
     :sswitch_0
-    const-string v0, "tr"
+    const-string/jumbo v0, "tr"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -122,7 +122,7 @@
     goto/16 :goto_3
 
     :sswitch_1
-    const-string v0, "tm"
+    const-string/jumbo v0, "tm"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -138,7 +138,7 @@
     goto/16 :goto_3
 
     :sswitch_2
-    const-string v0, "st"
+    const-string/jumbo v0, "st"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -154,7 +154,7 @@
     goto/16 :goto_3
 
     :sswitch_3
-    const-string v0, "sr"
+    const-string/jumbo v0, "sr"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -170,7 +170,7 @@
     goto/16 :goto_3
 
     :sswitch_4
-    const-string v0, "sh"
+    const-string/jumbo v0, "sh"
 
     invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -436,6 +436,8 @@
     invoke-virtual {p0}, Lcom/airbnb/lottie/parser/moshi/JsonReader;->endObject()V
 
     return-object v4
+
+    nop
 
     :sswitch_data_0
     .sparse-switch

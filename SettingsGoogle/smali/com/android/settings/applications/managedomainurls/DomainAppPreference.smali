@@ -4,11 +4,11 @@
 
 
 # instance fields
+.field private final mDomainVerificationManager:Landroid/content/pm/verify/domain/DomainVerificationManager;
+
 .field private final mEntry:Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
 
 .field private final mIconDrawableFactory:Landroid/util/IconDrawableFactory;
-
-.field private final mPm:Landroid/content/pm/PackageManager;
 
 
 # direct methods
@@ -19,11 +19,15 @@
 
     iput-object p2, p0, Lcom/android/settings/applications/managedomainurls/DomainAppPreference;->mIconDrawableFactory:Landroid/util/IconDrawableFactory;
 
-    invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    const-class p2, Landroid/content/pm/verify/domain/DomainVerificationManager;
+
+    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object p1
 
-    iput-object p1, p0, Lcom/android/settings/applications/managedomainurls/DomainAppPreference;->mPm:Landroid/content/pm/PackageManager;
+    check-cast p1, Landroid/content/pm/verify/domain/DomainVerificationManager;
+
+    iput-object p1, p0, Lcom/android/settings/applications/managedomainurls/DomainAppPreference;->mDomainVerificationManager:Landroid/content/pm/verify/domain/DomainVerificationManager;
 
     iput-object p3, p0, Lcom/android/settings/applications/managedomainurls/DomainAppPreference;->mEntry:Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
 
@@ -39,108 +43,55 @@
 .end method
 
 .method private getDomainsSummary(Ljava/lang/String;)Ljava/lang/CharSequence;
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/settings/applications/managedomainurls/DomainAppPreference;->mPm:Landroid/content/pm/PackageManager;
-
-    invoke-static {}, Landroid/os/UserHandle;->myUserId()I
-
-    move-result v1
-
-    invoke-virtual {v0, p1, v1}, Landroid/content/pm/PackageManager;->getIntentVerificationStatusAsUser(Ljava/lang/String;I)I
-
-    move-result v0
-
-    const v1, 0x7f04082d
-
-    const/4 v2, 0x3
-
-    if-ne v0, v2, :cond_0
+    .locals 1
 
     invoke-virtual {p0}, Landroidx/preference/Preference;->getContext()Landroid/content/Context;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+    invoke-direct {p0, p1}, Lcom/android/settings/applications/managedomainurls/DomainAppPreference;->isLinkHandlingAllowed(Ljava/lang/String;)Z
 
-    move-result-object p0
+    move-result p0
 
-    return-object p0
+    if-eqz p0, :cond_0
+
+    const p0, 0x7f040253
+
+    goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/settings/applications/managedomainurls/DomainAppPreference;->mPm:Landroid/content/pm/PackageManager;
+    const p0, 0x7f040255
 
-    invoke-static {v0, p1}, Lcom/android/settings/Utils;->getHandledDomains(Landroid/content/pm/PackageManager;Ljava/lang/String;)Landroid/util/ArraySet;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Landroid/util/ArraySet;->isEmpty()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {p0}, Landroidx/preference/Preference;->getContext()Landroid/content/Context;
-
-    move-result-object p0
-
-    invoke-virtual {p0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+    :goto_0
+    invoke-virtual {v0, p0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object p0
 
     return-object p0
+.end method
 
-    :cond_1
-    invoke-virtual {p1}, Landroid/util/ArraySet;->size()I
+.method private isLinkHandlingAllowed(Ljava/lang/String;)Z
+    .locals 0
 
-    move-result v0
+    iget-object p0, p0, Lcom/android/settings/applications/managedomainurls/DomainAppPreference;->mDomainVerificationManager:Landroid/content/pm/verify/domain/DomainVerificationManager;
 
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
-
-    if-ne v0, v1, :cond_2
-
-    invoke-virtual {p0}, Landroidx/preference/Preference;->getContext()Landroid/content/Context;
+    invoke-static {p0, p1}, Lcom/android/settings/applications/intentpicker/IntentPickerUtils;->getDomainVerificationUserState(Landroid/content/pm/verify/domain/DomainVerificationManager;Ljava/lang/String;)Landroid/content/pm/verify/domain/DomainVerificationUserState;
 
     move-result-object p0
 
-    const v0, 0x7f04082e
+    if-nez p0, :cond_0
 
-    new-array v1, v1, [Ljava/lang/Object;
+    const/4 p0, 0x0
 
-    invoke-virtual {p1, v2}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    goto :goto_0
 
-    move-result-object p1
+    :cond_0
+    invoke-virtual {p0}, Landroid/content/pm/verify/domain/DomainVerificationUserState;->isLinkHandlingAllowed()Z
 
-    aput-object p1, v1, v2
+    move-result p0
 
-    invoke-virtual {p0, v0, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_2
-    invoke-virtual {p0}, Landroidx/preference/Preference;->getContext()Landroid/content/Context;
-
-    move-result-object p0
-
-    const v0, 0x7f04082f
-
-    new-array v1, v1, [Ljava/lang/Object;
-
-    invoke-virtual {p1, v2}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object p1
-
-    aput-object p1, v1, v2
-
-    invoke-virtual {p0, v0, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
+    :goto_0
+    return p0
 .end method
 
 .method private setState()V

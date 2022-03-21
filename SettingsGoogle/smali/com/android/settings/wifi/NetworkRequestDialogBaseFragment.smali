@@ -53,7 +53,7 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f040d8c
+    const v1, 0x7f040db7
 
     invoke-virtual {p0, v1, v0}, Landroidx/fragment/app/Fragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -65,7 +65,7 @@
 .method protected getTitle()Ljava/lang/String;
     .locals 1
 
-    const v0, 0x7f040d8d
+    const v0, 0x7f040db8
 
     invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getString(I)Ljava/lang/String;
 

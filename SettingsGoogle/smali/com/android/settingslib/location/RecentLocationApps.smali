@@ -401,7 +401,7 @@
 
     iget-object v8, v0, Lcom/android/settingslib/location/RecentLocationApps;->mContext:Landroid/content/Context;
 
-    const-string v9, "user"
+    const-string/jumbo v9, "user"
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

@@ -726,7 +726,7 @@
 .method public static isAdvancedDetailsHeader(Landroid/bluetooth/BluetoothDevice;)Z
     .locals 4
 
-    const-string v0, "settings_ui"
+    const-string/jumbo v0, "settings_ui"
 
     const-string v1, "bt_advanced_header_enabled"
 

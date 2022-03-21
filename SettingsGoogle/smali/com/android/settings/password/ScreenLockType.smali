@@ -47,7 +47,7 @@
 
     const/4 v2, 0x0
 
-    const-string v3, "unlock_set_off"
+    const-string/jumbo v3, "unlock_set_off"
 
     invoke-direct {v0, v1, v2, v2, v3}, Lcom/android/settings/password/ScreenLockType;-><init>(Ljava/lang/String;IILjava/lang/String;)V
 
@@ -59,7 +59,7 @@
 
     const/4 v4, 0x1
 
-    const-string v5, "unlock_set_none"
+    const-string/jumbo v5, "unlock_set_none"
 
     invoke-direct {v1, v3, v4, v2, v5}, Lcom/android/settings/password/ScreenLockType;-><init>(Ljava/lang/String;IILjava/lang/String;)V
 
@@ -73,7 +73,7 @@
 
     const/high16 v7, 0x10000
 
-    const-string v8, "unlock_set_pattern"
+    const-string/jumbo v8, "unlock_set_pattern"
 
     invoke-direct {v3, v5, v6, v7, v8}, Lcom/android/settings/password/ScreenLockType;-><init>(Ljava/lang/String;IILjava/lang/String;)V
 
@@ -89,7 +89,7 @@
 
     const/high16 v13, 0x30000
 
-    const-string v14, "unlock_set_pin"
+    const-string/jumbo v14, "unlock_set_pin"
 
     move-object v9, v5
 
@@ -107,7 +107,7 @@
 
     const/high16 v19, 0x60000
 
-    const-string v20, "unlock_set_password"
+    const-string/jumbo v20, "unlock_set_password"
 
     move-object v15, v7
 
@@ -123,7 +123,7 @@
 
     const/high16 v11, 0x80000
 
-    const-string v12, "unlock_set_managed"
+    const-string/jumbo v12, "unlock_set_managed"
 
     invoke-direct {v8, v9, v10, v11, v12}, Lcom/android/settings/password/ScreenLockType;-><init>(Ljava/lang/String;IILjava/lang/String;)V
 

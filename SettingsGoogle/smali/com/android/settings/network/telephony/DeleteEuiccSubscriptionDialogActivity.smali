@@ -41,7 +41,7 @@
 
     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    const-string p0, "sub_id"
+    const-string/jumbo p0, "sub_id"
 
     invoke-virtual {v0, p0, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
@@ -78,13 +78,13 @@
 
     invoke-virtual {v0}, Lcom/android/settings/SidecarFragment;->reset()V
 
-    const v0, 0x7f0408cb
+    const v0, 0x7f0408e3
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f0408ca
+    const v1, 0x7f0408e2
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -116,7 +116,7 @@
 
     const-class v1, Lcom/android/settings/network/telephony/ConfirmDialogFragment$OnConfirmListener;
 
-    const v0, 0x7f0408c9
+    const v0, 0x7f0408e1
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -136,19 +136,19 @@
 
     aput-object v2, v0, v4
 
-    const v2, 0x7f0408c8
+    const v2, 0x7f0408e0
 
     invoke-virtual {p0, v2, v0}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v4
 
-    const v0, 0x7f0408c7
+    const v0, 0x7f0408df
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
-    const v0, 0x7f04054c
+    const v0, 0x7f040564
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -204,7 +204,7 @@
 
     invoke-static {v0, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const p1, 0x7f0408cc
+    const p1, 0x7f0408e4
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -231,7 +231,7 @@
 
     move-result-object v0
 
-    const-string v1, "sub_id"
+    const-string/jumbo v1, "sub_id"
 
     const/4 v2, -0x1
 

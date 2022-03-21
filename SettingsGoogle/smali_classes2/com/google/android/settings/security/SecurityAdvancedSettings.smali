@@ -13,7 +13,7 @@
 
     new-instance v0, Lcom/google/android/settings/security/SecurityAdvancedSettings$1;
 
-    const v1, 0x7f1500ca
+    const v1, 0x7f1500cf
 
     invoke-direct {v0, v1}, Lcom/google/android/settings/security/SecurityAdvancedSettings$1;-><init>(I)V
 
@@ -235,7 +235,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500ca
+    const p0, 0x7f1500cf
 
     return p0
 .end method

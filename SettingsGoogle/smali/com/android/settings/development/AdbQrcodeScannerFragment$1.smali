@@ -46,7 +46,7 @@
 
     if-eqz p1, :cond_2
 
-    const-string p1, "status"
+    const-string/jumbo p1, "status"
 
     const/4 v0, 0x0
 

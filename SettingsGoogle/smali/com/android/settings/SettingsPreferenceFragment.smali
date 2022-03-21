@@ -59,7 +59,7 @@
     .end annotation
 .end field
 
-.field public mPreferenceHighlighted:Z
+.field private mPreferenceHighlighted:Z
 
 
 # direct methods
@@ -708,7 +708,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0d0438
+    const p2, 0x7f0d0446
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -722,7 +722,7 @@
 
     move-result-object p2
 
-    const p3, 0x7f0d008d
+    const p3, 0x7f0d0090
 
     invoke-virtual {p2, p3}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1174,7 +1174,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d032c
+    const v1, 0x7f0d0338
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

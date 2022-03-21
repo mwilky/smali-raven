@@ -106,6 +106,16 @@
     return-object p0
 .end method
 
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public bridge synthetic hasAsyncUpdate()Z
     .locals 0
 
@@ -187,12 +197,12 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f040a88
+    const v0, 0x7f040aa0
 
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f04022c
+    const v0, 0x7f040240
 
     :goto_0
     iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;

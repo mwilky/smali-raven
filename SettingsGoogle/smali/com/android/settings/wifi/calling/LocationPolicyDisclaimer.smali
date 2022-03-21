@@ -24,7 +24,7 @@
 .method protected getMessageId()I
     .locals 0
 
-    const p0, 0x7f04159c
+    const p0, 0x7f0415c1
 
     return p0
 .end method
@@ -48,7 +48,7 @@
 .method protected getTitleId()I
     .locals 0
 
-    const p0, 0x7f04159d
+    const p0, 0x7f0415c2
 
     return p0
 .end method
@@ -60,7 +60,7 @@
 
     move-result-object v0
 
-    const-string v1, "show_wfc_location_privacy_policy_bool"
+    const-string/jumbo v1, "show_wfc_location_privacy_policy_bool"
 
     invoke-virtual {v0, v1}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
 
@@ -70,7 +70,7 @@
 
     if-nez v1, :cond_0
 
-    const-string v0, "shouldShow: false due to carrier config is false."
+    const-string/jumbo v0, "shouldShow: false due to carrier config is false."
 
     invoke-virtual {p0, v0}, Lcom/android/settings/wifi/calling/DisclaimerItem;->logd(Ljava/lang/String;)V
 
@@ -85,7 +85,7 @@
 
     if-eqz v0, :cond_1
 
-    const-string v0, "shouldShow: false due to WFC is on as default."
+    const-string/jumbo v0, "shouldShow: false due to WFC is on as default."
 
     invoke-virtual {p0, v0}, Lcom/android/settings/wifi/calling/DisclaimerItem;->logd(Ljava/lang/String;)V
 

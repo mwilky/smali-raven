@@ -37,7 +37,7 @@
 .method static constructor <clinit>()V
     .locals 1
 
-    const-string v0, "word"
+    const-string/jumbo v0, "word"
 
     filled-new-array {v0}, [Ljava/lang/String;
 
@@ -53,7 +53,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const v0, 0x7f0d0605
+    const v0, 0x7f0d0615
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -63,7 +63,7 @@
 
     iput-object v0, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mWordEditText:Landroid/widget/EditText;
 
-    const v1, 0x7f0d0602
+    const v1, 0x7f0d0612
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -73,7 +73,7 @@
 
     iput-object p1, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mShortcutEditText:Landroid/widget/EditText;
 
-    const-string v1, "word"
+    const-string/jumbo v1, "word"
 
     invoke-virtual {p2, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
@@ -94,7 +94,7 @@
     invoke-virtual {v0, v2}, Landroid/widget/EditText;->setSelection(I)V
 
     :cond_0
-    const-string v0, "shortcut"
+    const-string/jumbo v0, "shortcut"
 
     invoke-virtual {p2, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
@@ -143,7 +143,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const v0, 0x7f0d0605
+    const v0, 0x7f0d0615
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -153,7 +153,7 @@
 
     iput-object v0, p0, Lcom/android/settings/inputmethod/UserDictionaryAddWordContents;->mWordEditText:Landroid/widget/EditText;
 
-    const v0, 0x7f0d0602
+    const v0, 0x7f0d0612
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -241,7 +241,7 @@
 
     const/4 v8, 0x0
 
-    const-string v6, "word=? AND locale is null"
+    const-string/jumbo v6, "word=? AND locale is null"
 
     invoke-virtual/range {v3 .. v8}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
@@ -270,7 +270,7 @@
 
     const/4 v8, 0x0
 
-    const-string v6, "word=? AND locale=?"
+    const-string/jumbo v6, "word=? AND locale=?"
 
     invoke-virtual/range {v3 .. v8}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
@@ -612,7 +612,7 @@
 
     move-result-object v0
 
-    const-string v1, "word"
+    const-string/jumbo v1, "word"
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -634,7 +634,7 @@
 
     move-result-object v0
 
-    const-string v1, "shortcut"
+    const-string/jumbo v1, "shortcut"
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 

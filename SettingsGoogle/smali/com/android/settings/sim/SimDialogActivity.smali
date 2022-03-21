@@ -41,7 +41,7 @@
 
     const/4 v2, 0x2
 
-    const v3, 0x7f0411a9
+    const v3, 0x7f0411ce
 
     if-eq p1, v2, :cond_3
 
@@ -134,7 +134,7 @@
     return-object p0
 
     :cond_4
-    const p0, 0x7f0411a7
+    const p0, 0x7f0411cc
 
     invoke-static {p1, p0, v1}, Lcom/android/settings/sim/SimListDialogFragment;->newInstance(IIZ)Lcom/android/settings/sim/SimListDialogFragment;
 
@@ -143,7 +143,7 @@
     return-object p0
 
     :cond_5
-    const p0, 0x7f0411a8
+    const p0, 0x7f0411cd
 
     invoke-static {p1, p0, v0}, Lcom/android/settings/sim/SimListDialogFragment;->newInstance(IIZ)Lcom/android/settings/sim/SimListDialogFragment;
 
@@ -201,7 +201,7 @@
 
     invoke-virtual {v1, p1}, Landroid/telephony/TelephonyManager;->setDataEnabled(Z)V
 
-    const v0, 0x7f04070a
+    const v0, 0x7f040722
 
     invoke-static {p0, v0, p1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

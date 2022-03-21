@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/WifiConfigController$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/wifi/WifiConfigController;
 
-    invoke-static {p0}, Lcom/android/settings/wifi/WifiConfigController;->$r8$lambda$8QxNUVUdLJ1Jcb1KXeQ39R-VZxs(Lcom/android/settings/wifi/WifiConfigController;)V
+    invoke-static {p0}, Lcom/android/settings/wifi/WifiConfigController;->$r8$lambda$L4uN_afBvhB9NR39GKUqKu77vUg(Lcom/android/settings/wifi/WifiConfigController;)V
 
     return-void
 .end method

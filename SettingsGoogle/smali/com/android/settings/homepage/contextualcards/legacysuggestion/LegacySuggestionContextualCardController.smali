@@ -62,7 +62,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090061
+    const v1, 0x7f090064
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -242,7 +242,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f060112
+    const v4, 0x7f060116
 
     invoke-virtual {v2, v4}, Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;->setViewType(I)Lcom/android/settings/homepage/contextualcards/ContextualCard$Builder;
 

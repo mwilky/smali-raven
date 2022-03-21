@@ -67,10 +67,24 @@
 
     if-nez p1, :cond_1
 
-    const-string p1, "wifi_data_usage"
+    const-string/jumbo p1, "wifi_data_usage"
 
     invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_1
     return-object p0
+.end method
+
+.method protected isPageSearchEnabled(Landroid/content/Context;)Z
+    .locals 0
+
+    sget-object p0, Lcom/android/settings/wifi/WifiSettings;->IS_ENABLED_PROVIDER_MODEL:Ljava/lang/Boolean;
+
+    invoke-virtual {p0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result p0
+
+    xor-int/lit8 p0, p0, 0x1
+
+    return p0
 .end method

@@ -147,7 +147,7 @@
 
     iget v1, v1, Lcom/android/settings/applications/RunningState$ProcessItem;->mUid:I
 
-    const-string v2, "uid"
+    const-string/jumbo v2, "uid"
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
@@ -162,7 +162,7 @@
     :cond_0
     iget p1, p1, Lcom/android/settings/applications/RunningState$BaseItem;->mUserId:I
 
-    const-string v1, "user_id"
+    const-string/jumbo v1, "user_id"
 
     invoke-virtual {v0, v1, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
@@ -196,7 +196,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f041077
+    const v0, 0x7f0410a5
 
     invoke-virtual {p1, v0}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -259,7 +259,7 @@
 
     check-cast v0, Landroid/view/LayoutInflater;
 
-    const v1, 0x7f0601e8
+    const v1, 0x7f0601ec
 
     invoke-virtual {v0, v1, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -306,7 +306,7 @@
 
     invoke-virtual {v2, v1}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    const v1, 0x7f0601e6
+    const v1, 0x7f0601ea
 
     const/4 v2, 0x0
 
@@ -324,7 +324,7 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/RunningProcessesView;->mHeader:Landroid/view/View;
 
-    const v1, 0x7f0d0161
+    const v1, 0x7f0d0165
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -340,7 +340,7 @@
 
     iget-object v1, p0, Lcom/android/settings/applications/RunningProcessesView;->mColorBar:Landroid/widget/ProgressBar;
 
-    const v2, 0x7f0a01a9
+    const v2, 0x7f0a01a7
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getColor(I)I
 
@@ -368,7 +368,7 @@
 
     iget-object v1, p0, Lcom/android/settings/applications/RunningProcessesView;->mColorBar:Landroid/widget/ProgressBar;
 
-    const v2, 0x7f0a01a8
+    const v2, 0x7f0a01a6
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getColor(I)I
 
@@ -388,7 +388,7 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/RunningProcessesView;->mHeader:Landroid/view/View;
 
-    const v1, 0x7f0d024c
+    const v1, 0x7f0d0252
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -400,7 +400,7 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/RunningProcessesView;->mHeader:Landroid/view/View;
 
-    const v1, 0x7f0d00a9
+    const v1, 0x7f0d00ac
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -412,7 +412,7 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/RunningProcessesView;->mHeader:Landroid/view/View;
 
-    const v1, 0x7f0d058a
+    const v1, 0x7f0d0599
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -424,7 +424,7 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/RunningProcessesView;->mHeader:Landroid/view/View;
 
-    const v1, 0x7f0d024b
+    const v1, 0x7f0d0251
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -436,7 +436,7 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/RunningProcessesView;->mHeader:Landroid/view/View;
 
-    const v1, 0x7f0d00a8
+    const v1, 0x7f0d00ab
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -448,7 +448,7 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/RunningProcessesView;->mHeader:Landroid/view/View;
 
-    const v1, 0x7f0d0589
+    const v1, 0x7f0d0598
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -651,7 +651,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f041070
+    const v2, 0x7f04109e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -665,7 +665,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f04106a
+    const v2, 0x7f041098
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -682,7 +682,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f04106e
+    const v2, 0x7f04109c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -696,7 +696,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f041069
+    const v2, 0x7f041097
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -827,7 +827,7 @@
 
     aput-object v2, v11, v12
 
-    const v2, 0x7f04106d
+    const v2, 0x7f04109b
 
     invoke-virtual {v9, v2, v11}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

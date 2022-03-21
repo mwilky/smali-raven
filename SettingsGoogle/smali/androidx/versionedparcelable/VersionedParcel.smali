@@ -357,7 +357,7 @@
 
     aput-object v3, v1, v2
 
-    const-string v2, "write"
+    const-string/jumbo v2, "write"
 
     invoke-virtual {v0, v2, v1}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 

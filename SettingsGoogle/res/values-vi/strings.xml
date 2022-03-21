@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Hình ảnh mượt</string>
     <string name="peak_refresh_rate_summary">Tự động tăng tốc độ làm mới từ 60 lên 90 Hz đối với một số nội dung. Làm tăng mức sử dụng pin.</string>
     <string name="accessibility_vibration_settings_title">Rung và xúc giác</string>
+    <string name="columbus_title">Chạm nhanh để bắt đầu các thao tác</string>
     <string name="emergency_gesture_screen_title">Khẩn cấp</string>
     <string name="abc_action_mode_done">Xong</string>
     <string name="vibrate_for_calls_category_title">Cuộc gọi</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Hiện các nút điều khiển thiết bị</string>
     <string name="lockscreen_privacy_wallet_summary">Cho phép truy cập vào ví từ màn hình khóa và phần cài đặt nhanh</string>
     <string name="lockscreen_privacy_controls_summary">Truy cập vào các nút điều khiển khi thiết bị đang khóa</string>
+    <string name="lockscreen_double_line_clock_summary">Hiện đồng hồ kép khi có</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Đồng hồ kép</string>
     <string name="abc_activity_chooser_view_see_all">Xem tất cả</string>
     <string name="abc_activitychooserview_choose_application">Chọn một ứng dụng</string>
     <string name="abc_capital_off">TẮT</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Rung khi có chuông báo</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Thiết lập Active Edge. Hãy chuyển sang màn hình tiếp theo hoặc tiếp tục điều chỉnh.</string>
     <string name="accessibility_audio_adjustment_title">Điều chỉnh âm thanh</string>
+    <string name="accessibility_autoclick_about_title">Giới thiệu tính năng tự động nhấp (thời gian dừng)</string>
     <string name="accessibility_autoclick_custom_title">Tùy chỉnh</string>
     <string name="accessibility_autoclick_default_title">Tắt</string>
     <string name="accessibility_autoclick_description">Tính năng tự động nhấp hoạt động khi có kết nối với chuột. Bạn có thể đặt con trỏ chuột ở chế độ tự động nhấp khi con trỏ dừng di chuyển trong một khoảng thời gian nhất định.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Tìm hiểu thêm về tính năng tự động nhấp (thời gian dừng)</string>
     <string name="accessibility_autoclick_long_summary">1 giây</string>
     <string name="accessibility_autoclick_long_title">Dài</string>
     <string name="accessibility_autoclick_longer_desc">Lâu hơn</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Ngắn</string>
     <string name="accessibility_autoclick_shorter_desc">Ngắn hơn</string>
     <string name="accessibility_banner_message_dismiss">Đóng</string>
-    <string name="accessibility_button_description">"Truy cập nhanh vào bộ tính năng hỗ trợ tiếp cận từ mọi màn hình. 
+    <string name="accessibility_button_about_title">Giới thiệu về nút hỗ trợ tiếp cận</string>
+    <string name="accessibility_button_description">"Truy cập nhanh vào bộ tính năng hỗ trợ tiếp cận trên màn hình bất kỳ.
 
 Để bắt đầu, hãy chuyển đến phần cài đặt hỗ trợ tiếp cận rồi chọn một tính năng. Nhấn vào phím tắt rồi chọn nút hỗ trợ tiếp cận."</string>
     <string name="accessibility_button_fade_summary">Làm mờ sau vài giây để dễ nhìn thấy màn hình hơn</string>
     <string name="accessibility_button_fade_title">Làm mờ khi không sử dụng</string>
+    <string name="accessibility_button_gesture_about_title">Giới thiệu về cử chỉ và nút hỗ trợ tiếp cận</string>
     <string name="accessibility_button_gesture_description">"Truy cập nhanh vào bộ tính năng hỗ trợ tiếp cận trên màn hình bất kỳ.
 
-Để bắt đầu, hãy chuyển đến phần cài đặt hỗ trợ tiếp cận rồi chọn một tính năng. Nhấn vào phím tắt rồi chọn nút hỗ trợ tiếp cận.
-
-Để sử dụng nút hỗ trợ tiếp cận trong thanh điều hướng, hãy chuyển sang thao tác bằng 2 nút hoặc thao tác bằng 3 nút."</string>
+Để bắt đầu, hãy chuyển đến phần cài đặt hỗ trợ tiếp cận rồi chọn một tính năng. Nhấn vào phím tắt rồi chọn cử chỉ hoặc nút hỗ trợ tiếp cận."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Tìm hiểu thêm về cử chỉ và nút hỗ trợ tiếp cận</string>
     <string name="accessibility_button_gesture_title">Nút và cử chỉ hỗ trợ tiếp cận</string>
     <string name="accessibility_button_high_label">Không trong suốt</string>
     <string name="accessibility_button_intro">Sử dụng nút hỗ trợ tiếp cận. Bạn không thể sử dụng cử chỉ này với thao tác bằng 3 nút.</string>
@@ -184,14 +190,23 @@
     <string name="accessibility_caption_preference_summary">Chỉ một số ứng dụng hỗ trợ các tùy chọn phụ đề này</string>
     <string name="accessibility_caption_primary_switch_summary">Chỉ dành cho ứng dụng được hỗ trợ</string>
     <string name="accessibility_caption_primary_switch_title">Hiển thị phụ đề</string>
+    <string name="accessibility_captioning_about_title">Giới thiệu các lựa chọn ưu tiên về phụ đề</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Tìm hiểu thêm các lựa chọn ưu tiên về phụ đề</string>
     <string name="accessibility_captioning_title">Tùy chọn phụ đề</string>
     <string name="accessibility_category_personal">Tài khoản hồ sơ cá nhân</string>
     <string name="accessibility_category_work">Tài khoản hồ sơ công việc - %s</string>
+    <string name="accessibility_color_inversion_about_title">Giới thiệu về tính năng đảo màu</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Tìm hiểu thêm về tính năng đảo màu</string>
+    <string name="accessibility_control_timeout_about_title">Giới thiệu về thời gian hành động (thời gian chờ của tính năng Hỗ trợ tiếp cận)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Tìm hiểu thêm về thời gian hành động (thời gian chờ của tính năng Hỗ trợ tiếp cận)</string>
     <string name="accessibility_control_timeout_preference_summary">"Chọn thời lượng hiển thị thông báo yêu cầu bạn thực hiện hành động nhưng chỉ hiển thị tạm thời.
 
 Không phải tất cả ứng dụng đều hỗ trợ tùy chọn cài đặt này."</string>
     <string name="accessibility_control_timeout_preference_title">Thời gian thực hiện hành động</string>
+    <string name="accessibility_daltonizer_about_title">Giới thiệu về tính năng chỉnh màu</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Tìm hiểu thêm về tính năng chỉnh màu</string>
     <string name="accessibility_daltonizer_primary_switch_title">Sử dụng tính năng chỉnh màu</string>
+    <string name="accessibility_daltonizer_shortcut_title">Phím tắt chỉnh màu</string>
     <string name="accessibility_data_one_bar">Tín hiệu dữ liệu một vạch.</string>
     <string name="accessibility_data_signal_full">Tín hiệu dữ liệu đầy đủ.</string>
     <string name="accessibility_data_three_bars">Tín hiệu dữ liệu ba vạch.</string>
@@ -206,6 +221,7 @@ Không phải tất cả ứng dụng đều hỗ trợ tùy chọn cài đặt 
     <string name="accessibility_display_daltonizer_preference_title">Chỉnh màu</string>
     <string name="accessibility_display_inversion_preference_subtitle">Tính năng đảo màu làm cho màn hình chuyển từ sáng thành tối.&lt;br/>&lt;br/> Lưu ý: &lt;ol> &lt;li> Tính năng đảo màu cũng chuyển màn hình từ tối thành sáng.&lt;/li> &lt;li> Màu sắc trong nội dung nghe nhìn và hình ảnh sẽ thay đổi.&lt;/li> &lt;li> Bạn có thể dùng chế độ Giao diện tối để hiển thị nền tối. Chế độ Giao diện tối hoạt động với các ứng dụng được hỗ trợ. Trong khi đó, tính năng đảo màu hoạt động trên tất cả các ứng dụng.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Đảo màu</string>
+    <string name="accessibility_display_inversion_shortcut_title">Phím tắt đảo màu</string>
     <string name="accessibility_display_inversion_switch_title">Sử dụng tính năng đảo màu</string>
     <string name="accessibility_ethernet_connected">Ethernet.</string>
     <string name="accessibility_ethernet_disconnected">Đã ngắt kết nối Ethernet.</string>
@@ -255,6 +271,8 @@ Nút hỗ trợ tiếp cận sẽ hiển thị trên màn hình bên trên các 
     <string name="accessibility_phone_two_bars">Tín hiệu điện thoại hai vạch.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Kết thúc cuộc gọi bằng nút nguồn</string>
     <string name="accessibility_preference_magnification_summary">Phóng to trên màn hình</string>
+    <string name="accessibility_screen_magnification_about_title">Giới thiệu về tính năng phóng to</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Tìm hiểu thêm về tính năng phóng to</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">Cử chỉ hỗ trợ tiếp cận này đã được đặt thành %1$s. Để phóng to, hãy dùng 2 ngón tay vuốt từ cuối màn hình lên rồi giữ. Sau đó, chọn tùy chọn phóng to.</string>
     <string name="accessibility_screen_magnification_gestures_title">Phóng to bằng cách nhấn 3 lần</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">Nút Hỗ trợ tiếp cận được đặt thành %1$s. Để sử dụng tính năng phóng đại, hãy chạm và giữ nút Hỗ trợ tiếp cận, sau đó chọn độ phóng đại.</string>
@@ -272,6 +290,7 @@ Nút hỗ trợ tiếp cận sẽ hiển thị trên màn hình bên trên các 
 Bạn không thể phóng to trên bàn phím hoặc thanh điều hướng."</string>
     <string name="accessibility_screen_magnification_navbar_title">Phóng to bằng phím tắt</string>
     <string name="accessibility_screen_magnification_short_summary">Nhấn 3 lần để thu phóng</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Phím tắt phóng to</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Phóng to bằng phím tắt và nhấn 3 lần</string>
     <string name="accessibility_screen_magnification_summary">Nhanh chóng phóng to trên màn hình để nội dung hiển thị rõ hơn.&lt;br/>&lt;br/> &lt;b>Cách phóng to:&lt;/b>&lt;br/> {0,number,integer}. Dùng phím tắt để bắt đầu phóng to&lt;br/> {1,number,integer}. Nhấn vào màn hình&lt;br/> {2,number,integer}. Kéo 2 ngón tay để di chuyển xung quanh màn hình&lt;br/> {3,number,integer}. Chụm 2 ngón tay để điều chỉnh mức thu phóng&lt;br/> {4,number,integer}. Dùng phím tắt để dừng phóng to&lt;br/>&lt;br/> &lt;b>Cách phóng to tạm thời:&lt;/b>&lt;br/> {0,number,integer}. Dùng phím tắt để bắt đầu phóng to&lt;br/> {1,number,integer}. Chạm và giữ một vị trí bất kỳ trên màn hình&lt;br/> {2,number,integer}. Kéo ngón tay để di chuyển xung quanh màn hình&lt;br/> {3,number,integer}. Nhấc ngón tay lên để dừng phóng to</string>
     <string name="accessibility_screen_magnification_title">Phóng to</string>
@@ -370,7 +389,7 @@ Bạn không thể phóng to trên bàn phím hoặc thanh điều hướng."</s
     <string name="accessibility_tutorial_dialog_message_volume">Để sử dụng tính năng này, hãy nhấn và giữ cả hai phím âm lượng.</string>
     <string name="accessibility_tutorial_dialog_title_button">Dùng nút hỗ trợ tiếp cận để mở</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Dùng cử chỉ để mở</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Dùng cử chỉ hỗ trợ tiếp cận mới</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Sử dụng cử chỉ hỗ trợ tiếp cận</string>
     <string name="accessibility_tutorial_dialog_title_triple">Nhấn 3 lần vào màn hình để mở</string>
     <string name="accessibility_tutorial_dialog_title_volume">Giữ các phím âm lượng để mở</string>
     <string name="accessibility_tutorial_pager">Trang %1$d/%2$d</string>
@@ -936,6 +955,7 @@ Sau khi thiết bị đặt lại, hãy chuyển tới quy trình thiết lập 
     <string name="battery_level_title">Mức pin</string>
     <string name="battery_manager_off">Tắt</string>
     <string name="battery_manager_summary">Kéo dài thời lượng pin và tăng tối đa hiệu quả khi sạc</string>
+    <string name="battery_manager_summary_unsupported">Kéo dài thời lượng pin</string>
     <string name="battery_missing_link_a11y_message">Nhấn để tìm hiểu thêm về lỗi này</string>
     <string name="battery_missing_link_message">Tìm hiểu thêm</string>
     <string name="battery_missing_message">Đã xảy ra sự cố khi đọc dung lượng pin.</string>
@@ -1015,7 +1035,7 @@ Bạn luôn có thể bật Trình tiết kiệm pin nếu sắp hết pin."</st
 Khi các điều kiện đó chấm dứt, điện thoại của bạn sẽ tự động sạc như bình thường."</string>
     <string name="battery_tip_limited_temporarily_dialog_resume_charge">Tiếp tục sạc</string>
     <string name="battery_tip_limited_temporarily_summary">Để kéo dài tuổi thọ pin. Tìm hiểu thêm.</string>
-    <string name="battery_tip_limited_temporarily_title">Khả năng sạc tạm thời bị hạn chế</string>
+    <string name="battery_tip_limited_temporarily_title">Chức năng sạc tạm thời bị hạn chế</string>
     <string name="battery_tip_low_battery_summary">Bật Trình tiết kiệm pin để kéo dài thời lượng pin</string>
     <string name="battery_tip_low_battery_title">Mức pin yếu</string>
     <string name="battery_tip_restrict_app_dialog_message">Để tiết kiệm pin, hãy ngăn không cho %1$s sử dụng pin trong nền. Ứng dụng này có thể không hoạt động bình thường và thông báo có thể bị chậm trễ.</string>
@@ -1061,6 +1081,7 @@ trong khoảng thời gian ^2"</string>
     <string name="battery_usage_screen_footer">Dữ liệu về mức sử dụng pin chỉ mang tính tương đối và không đo lường mức sử dụng khi điện thoại đang sạc</string>
     <string name="battery_usage_screen_footer_empty">Bạn sẽ thấy dữ liệu về mức sử dụng pin sau khi dùng điện thoại trong một vài giờ</string>
     <string name="battery_usage_total_less_than_one_minute">Tổng: chưa đến 1 phút</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s được sử dụng bởi %2$s</string>
     <string name="battery_used_for">Đã dùng ^1</string>
     <string name="bearer">Sóng mang</string>
@@ -1069,12 +1090,14 @@ trong khoảng thời gian ^2"</string>
     <string name="billing_cycle_less_than_one_day_left">Còn chưa đến 1 ngày</string>
     <string name="billing_cycle_none_left">Không còn thời gian</string>
     <string name="biometric_settings_category_ways_to_unlock">Cách mở khóa</string>
-    <string name="biometric_settings_category_ways_to_use">Dùng khuôn mặt và vân tay để</string>
     <string name="biometric_settings_hand_back_to_guardian">Đưa lại điện thoại cho cha mẹ bạn</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">OK</string>
     <string name="biometric_settings_intro">Khi bạn thiết lập tính năng Mở khóa bằng khuôn mặt và Mở khóa bằng vân tay, điện thoại sẽ yêu cầu bạn cung cấp vân tay khi bạn đeo khẩu trang hoặc ở chỗ tối</string>
-    <string name="biometric_settings_use_biometric_for_apps">Xác thực trong các ứng dụng</string>
+    <string name="biometric_settings_use_biometric_for_apps">Xác minh danh tính trong ứng dụng</string>
     <string name="biometric_settings_use_biometric_unlock_phone">Mở khóa điện thoại</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Dùng khuôn mặt hoặc vân tay</string>
+    <string name="biometric_settings_use_face_preference_summary">Dùng khuôn mặt</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Dùng vân tay</string>
     <string name="biometrics_unlock_set_unlock_password">Mật khẩu • Khuôn mặt • Vân tay</string>
     <string name="biometrics_unlock_set_unlock_pattern">Hình mở khóa • Khuôn mặt • Vân tay</string>
     <string name="biometrics_unlock_set_unlock_pin">Mã PIN • Khuôn mặt • Vân tay</string>
@@ -1332,7 +1355,6 @@ Bạn chưa từng kết nối với %2$s."</string>
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Hiện các thiết bị Bluetooth không có tên</string>
     <string name="bluetooth_show_devices_without_names_summary">Các thiết bị Bluetooth không có tên (chỉ có địa chỉ MAC) sẽ được hiển thị</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Các tệp đã nhận qua Bluetooth</string>
     <string name="bluetooth_show_received_files">Tệp đã nhận</string>
     <string name="bluetooth_sim_card_access_dialog_content">"Một thiết bị Bluetooth là %1$s muốn truy cập vào dữ liệu trên thẻ SIM của bạn. Dữ liệu này bao gồm cả danh bạ của bạn.
 
@@ -1426,6 +1448,7 @@ Nếu bạn cài đặt một chứng chỉ CA, thì chủ sở hữu của ch�
     <string name="calls_sms_temp_unavailable">Tạm thời không sử dụng được</string>
     <string name="calls_sms_unavailable">không có sẵn</string>
     <string name="calls_sms_wfc_summary">Gọi và nhận cuộc gọi qua mạng Wi‑Fi</string>
+    <string name="cam_toggle_description">Đối với các ứng dụng và dịch vụ</string>
     <string name="camera_double_tap_power_gesture_desc">Mở nhanh máy ảnh mà không cần mở khóa màn hình của bạn</string>
     <string name="camera_double_tap_power_gesture_title">Nhấn nút nguồn hai lần để mở máy ảnh</string>
     <string name="camera_laser_sensor_switch">Cảm biến laser của máy ảnh</string>
@@ -3302,6 +3325,7 @@ Có người dùng khác trên thiết bị này.
     <string name="menu_stats_total">Tổng số sử dụng</string>
     <string name="menu_stats_unplugged">%1$s từ khi tháo đầu cắm</string>
     <string name="menu_use_uss">Sử dụng Uss</string>
+    <string name="mic_toggle_description">Đối với các ứng dụng và dịch vụ. Nếu chế độ cài đặt này tắt, dữ liệu thu được qua micrô vẫn có thể được chia sẻ khi bạn gọi đến số khẩn cấp.</string>
     <string name="mic_toggle_title">Quyền truy cập vào micrô</string>
     <string name="misc_files">Tệp khác</string>
     <string name="misc_files_selected_count">đã chọn %1$d trong tổng số %2$d</string>
@@ -3728,6 +3752,7 @@ Ngoài ra, việc này còn cho phép ứng dụng bật hoặc tắt chế đ�
     <string name="one_handed_action_show_notification_title">Hiện thông báo</string>
     <string name="one_handed_mode_enabled">Sử dụng chế độ một tay</string>
     <string name="one_handed_mode_intro_text">Để sử dụng chế độ một tay, hãy vuốt xuống từ mép dưới cùng của màn hình. Để sử dụng tính năng này, hãy nhớ bật thao tác bằng cử chỉ trong phần cài đặt di chuyển trên hệ thống.</string>
+    <string name="one_handed_mode_shortcut_title">Phím tắt chế độ một tay</string>
     <string name="one_handed_mode_swipe_down_category">Vuốt xuống để</string>
     <string name="one_handed_mode_use_shortcut_category">Dùng phím tắt để</string>
     <string name="one_usercrt">một chứng chỉ người dùng</string>
@@ -3803,7 +3828,7 @@ Ngoài ra, việc này còn cho phép ứng dụng bật hoặc tắt chế đ�
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s đang hoạt động</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Máy ảnh</string>
-    <string name="power_cell">Mạng di động ở chế độ chờ</string>
+    <string name="power_cell">Mạng di động</string>
     <string name="power_charge_remaining">%1$s để tính phí</string>
     <string name="power_charging">%1$s - %2$s</string>
     <string name="power_charging_duration">%1$s – %2$s nữa là pin đầy</string>
@@ -4037,6 +4062,7 @@ Nhấn đồng thời Nút nguồn và Nút tăng âm lượng."</string>
     <string name="recent_notifications">Đã gửi gần đây</string>
     <string name="recent_notifications_see_all_title">Xem tất cả ứng dụng trong 7 ngày qua</string>
     <string name="recompute_size">Đang tính toán lại kích thước…</string>
+    <string name="reduce_bright_colors_about_title">Giới thiệu về tính năng siêu tối</string>
     <string name="reduce_bright_colors_intensity_end_label">Sáng hơn</string>
     <string name="reduce_bright_colors_intensity_preference_title">Cường độ</string>
     <string name="reduce_bright_colors_intensity_start_label">Tối hơn</string>
@@ -4044,6 +4070,7 @@ Nhấn đồng thời Nút nguồn và Nút tăng âm lượng."</string>
     <string name="reduce_bright_colors_preference_subtitle">Giảm bớt độ sáng màn hình để đọc thoải mái hơn.&lt;br/>&lt;br/> Tính năng này có thể hữu ích khi: &lt;ol> &lt;li> Độ sáng tối thiểu mặc định của điện thoại vẫn ở mức quá cao&lt;/li> &lt;li> Bạn đang dùng điện thoại trong điều kiện thiếu ánh sáng, chẳng hạn như khi trời tối hoặc trong phòng tối trước khi đi ngủ&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">Giảm bớt độ sáng của màn hình xuống dưới độ sáng tối thiểu của điện thoại</string>
     <string name="reduce_bright_colors_preference_title">Siêu tối</string>
+    <string name="reduce_bright_colors_shortcut_title">Phím tắt siêu tối</string>
     <string name="reduce_bright_colors_switch_title">Làm cho màn hình trở nên siêu tối</string>
     <string name="register_automatically">Đăng ký tự động...</string>
     <string name="register_on_network">Đang đăng ký trên %s…</string>
@@ -4249,7 +4276,6 @@ Nếu bạn muốn chia sẻ thiết bị của mình với người khác một
     <string name="screen_pinning_unlock_pattern">Hỏi hình mở khóa trước khi bỏ ghim</string>
     <string name="screen_pinning_unlock_pin">Hỏi mã PIN trước khi bỏ ghim</string>
     <string name="screen_reader_category_title">Trình đọc màn hình</string>
-    <string name="screen_saver_main_switch_title">Sử dụng trình bảo vệ màn hình</string>
     <string name="screen_time_summary_usage_today">%1$s hôm nay</string>
     <string name="screen_timeout_summary">Sau %1$s không hoạt động</string>
     <string name="screen_timeout_title">Màn hình tắt</string>
@@ -4279,6 +4305,7 @@ Nếu bạn muốn chia sẻ thiết bị của mình với người khác một
     <string name="screensaver_settings_button">Cài đặt</string>
     <string name="screensaver_settings_current">Trình bảo vệ màn hình hiện tại</string>
     <string name="screensaver_settings_disabled_prompt">Để kiểm soát những gì diễn ra khi điện thoại được gắn đế và/hoặc ở chế độ ngủ, hãy bật trình bảo vệ màn hình.</string>
+    <string name="screensaver_settings_dream_start">Bắt đầu ngay</string>
     <string name="screensaver_settings_summary_dock">Khi gắn vào đế sạc</string>
     <string name="screensaver_settings_summary_either_long">Khi sạc hoặc gắn vào đế sạc</string>
     <string name="screensaver_settings_summary_either_short">Khi gắn đế và sạc</string>
@@ -4329,15 +4356,6 @@ Nếu bạn muốn chia sẻ thiết bị của mình với người khác một
     <string name="security_settings_biometric_preference_summary_both_fp_single">Đã thêm khuôn mặt và vân tay</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Nhấn để thiết lập</string>
     <string name="security_settings_biometric_preference_title">Mở khóa bằng khuôn mặt và vân tay</string>
-    <string name="security_settings_biometrics_description">Khi bạn thiết lập tính năng mở khóa bằng khuôn mặt và vân tay, điện thoại sẽ yêu cầu bạn cung cấp vân tay khi bạn đeo khẩu trang hoặc ở chỗ tối</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Xác thực trong ứng dụng</string>
-    <string name="security_settings_biometrics_preferences_category">Dùng khuôn mặt hoặc vân tay để</string>
-    <string name="security_settings_biometrics_summary_both">Khuôn mặt và vân tay</string>
-    <string name="security_settings_biometrics_summary_face">Chỉ dùng khuôn mặt</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Chỉ dùng vân tay</string>
-    <string name="security_settings_biometrics_summary_none">Nhấn để thiết lập</string>
-    <string name="security_settings_biometrics_title">Mở khóa bằng khuôn mặt và vân tay</string>
-    <string name="security_settings_biometrics_types_category">Cách mở khóa</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Cho phép mở khóa bằng khuôn mặt</string>
     <string name="security_settings_face_enroll_dialog_ok">OK</string>
     <string name="security_settings_face_enroll_done">Xong</string>
@@ -4385,16 +4403,17 @@ Tìm hiểu thêm tại g.co/pixel/faceunlock."</string>
     <string name="security_settings_face_enroll_introduction_control_title">Bạn nắm quyền kiểm soát</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message">"Tính năng Mở khóa bằng khuôn mặt sẽ tạo một mẫu khuôn mặt duy nhất để xác minh danh tính của con bạn. Để tạo mẫu khuôn mặt này trong khi thiết lập, con bạn cần chụp ảnh khuôn mặt mình ở nhiều góc độ.
 
-Khi con dùng tính năng Mở khóa bằng khuôn mặt, các hình ảnh sẽ được dùng để cập nhật mẫu khuôn mặt của con. Các hình ảnh dùng để tạo mẫu khuôn mặt không bao giờ được lưu trữ. Tuy nhiên, mẫu khuôn mặt sẽ được lưu trữ an toàn trên điện thoại và chỉ lưu trên điện thoại của con bạn mà thôi. Toàn bộ quá trình xử lý sẽ diễn ra một cách an toàn trên điện thoại."</string>
+Khi con dùng tính năng Mở khóa bằng khuôn mặt, các hình ảnh sẽ được dùng để cập nhật mẫu khuôn mặt của con. Các hình ảnh dùng để tạo mẫu khuôn mặt không được lưu trữ. Tuy nhiên, mẫu khuôn mặt sẽ được lưu trữ an toàn trên điện thoại và chỉ lưu trên điện thoại của con bạn mà thôi. Toàn bộ quá trình xử lý sẽ diễn ra một cách an toàn trên điện thoại."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"Tính năng Mở khóa bằng khuôn mặt sẽ tạo một mẫu khuôn mặt duy nhất để xác minh danh tính của bạn. Để tạo mẫu khuôn mặt này trong khi thiết lập, bạn cần chụp ảnh khuôn mặt mình ở nhiều góc độ.
 
-Khi bạn dùng tính năng Mở khóa bằng khuôn mặt, các hình ảnh sẽ được dùng để cập nhật mẫu khuôn mặt của bạn. Các hình ảnh dùng để tạo mẫu khuôn mặt không bao giờ được lưu trữ. Tuy nhiên, mẫu khuôn mặt sẽ được lưu trữ an toàn trên điện thoại và chỉ lưu trên điện thoại của bạn mà thôi. Toàn bộ quá trình xử lý sẽ diễn ra một cách an toàn trên điện thoại."</string>
+Khi bạn dùng tính năng Mở khóa bằng khuôn mặt, các hình ảnh sẽ được dùng để cập nhật mẫu khuôn mặt của bạn. Các hình ảnh dùng để tạo mẫu khuôn mặt không được lưu trữ. Tuy nhiên, mẫu khuôn mặt sẽ được lưu trữ an toàn trên điện thoại và chỉ lưu trên điện thoại của bạn mà thôi. Toàn bộ quá trình xử lý sẽ diễn ra một cách an toàn trên điện thoại."</string>
     <string name="security_settings_face_enroll_introduction_how_title">Cách thức hoạt động</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">Tính năng Mở khóa bằng khuôn mặt có thể yêu cầu con bạn phải mở mắt để mở khóa điện thoại hoặc xác minh danh tính của con. Bạn và con bạn có thể bật tùy chọn này bất cứ lúc nào trong phần Cài đặt.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Nếu thường đeo kính, con bạn có thể đeo kính trong khi thiết lập.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Việc nhìn vào điện thoại có thể khiến điện thoại mở khóa ngay cả khi con bạn không định làm vậy. Người khác có thể mở khóa điện thoại của con nếu họ giơ chiếc điện thoại đó ra trước mặt con. Việc này cũng xảy ra với trường hợp người khác trông giống con, chẳng hạn như anh chị em ruột giống hệt con.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Tính năng Mở khóa bằng khuôn mặt có thể yêu cầu bạn phải mở mắt để mở khóa điện thoại hoặc xác minh danh tính của bạn. Bạn có thể bật tùy chọn này bất cứ lúc nào trong phần Cài đặt.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Bạn có thể đeo kính hoặc kính râm màu nhạt.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Việc dùng khuôn mặt để mở khoá điện thoại có thể kém an toàn hơn so với dùng một hình mở khoá hoặc mã PIN mạnh.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Việc nhìn vào điện thoại có thể khiến điện thoại mở khóa ngay cả khi bạn không định làm vậy. Người khác có thể mở khóa điện thoại của bạn nếu họ giơ chiếc điện thoại đó ra trước mặt bạn. Việc này cũng xảy ra với trường hợp người khác trông giống bạn, chẳng hạn như anh chị em ruột giống hệt bạn.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Lưu ý</string>
     <string name="security_settings_face_enroll_introduction_message">Bạn có thể dùng khuôn mặt để mở khóa điện thoại hoặc xác minh danh tính, chẳng hạn như khi đăng nhập vào các ứng dụng hoặc phê duyệt một giao dịch mua.</string>
@@ -4452,13 +4471,14 @@ Người khác có thể mở khóa điện thoại của bạn khi họ giơ đ
 
 Người có diện mạo giống bạn, chẳng hạn như anh chị em ruột giống hệt bạn, có thể mở khóa điện thoại của bạn."</string>
     <string name="security_settings_face_settings_preferences_category">Khi dùng tính năng Mở khóa bằng khuôn mặt</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Mẫu khuôn mặt của bạn sẽ bị xóa vĩnh viễn theo cách an toàn. Sau khi xóa, bạn cần có mã PIN, hình mở khóa hoặc mật khẩu để mở khóa điện thoại hoặc để xác thực trong các ứng dụng.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Mẫu khuôn mặt của bạn sẽ bị xoá vĩnh viễn theo cách an toàn.
+
+Sau khi xoá, bạn cần có mã PIN, hình mở khoá hoặc mật khẩu để mở khoá điện thoại hoặc để xác thực trong các ứng dụng."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Mẫu khuôn mặt của bạn sẽ bị xoá vĩnh viễn theo cách an toàn.
+
+Sau khi xoá, bạn sẽ cần nhập mã PIN, hình mở khoá hoặc mật khẩu để mở khoá điện thoại."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Xóa mẫu khuôn mặt?</string>
     <string name="security_settings_face_settings_remove_face_model">Xóa mẫu khuôn mặt</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Mẫu khuôn mặt của bạn sẽ bị xóa vĩnh viễn theo cách an toàn.
-
-Sau khi xóa, bạn cần có vân tay, mã PIN, hình mở khóa hoặc mật khẩu để mở khóa điện thoại hoặc để xác thực trong các ứng dụng."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Xóa mẫu khuôn mặt?</string>
     <string name="security_settings_face_settings_require_attention">Yêu cầu mở mắt</string>
     <string name="security_settings_face_settings_require_attention_details">Để mở khóa điện thoại, bạn phải mở mắt</string>
     <string name="security_settings_face_settings_require_confirmation">Luôn yêu cầu xác nhận</string>
@@ -4541,7 +4561,7 @@ Lưu ý: Bạn không thể sử dụng vân tay của mình để mở khóa th
     <string name="security_settings_title">Bảo mật</string>
     <string name="security_settings_udfps_enroll_a11y">Di chuyển ngón tay trên màn hình để tìm cảm biến. Chạm và giữ cảm biến vân tay.</string>
     <string name="security_settings_udfps_enroll_edge_message">Đặt vân tay ở phần bên của ngón tay lên cảm biến rồi giữ, sau đó chuyển sang phần bên kia</string>
-    <string name="security_settings_udfps_enroll_edge_title">Cuối cùng, đặt các cạnh của ngón tay</string>
+    <string name="security_settings_udfps_enroll_edge_title">Cuối cùng, dùng các cạnh của ngón tay</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Cảm biến vân tay ở trên màn hình. Bạn sẽ chụp vân tay của mình trên màn hình tiếp theo.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Bắt đầu</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Cách thiết lập vân tay</string>
@@ -4549,7 +4569,7 @@ Lưu ý: Bạn không thể sử dụng vân tay của mình để mở khóa th
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Thao tác này giúp ghi lại được nhiều vân tay hơn</string>
     <string name="security_settings_udfps_enroll_repeat_message">Chạm và giữ mỗi khi biểu tượng vân tay di chuyển. Thao tác này giúp ghi lại được nhiều vân tay hơn.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Đi theo biểu tượng vân tay</string>
-    <string name="security_settings_udfps_enroll_start_message">Giữ ngón tay trên cảm biến cho đến khi bạn cảm thấy rung</string>
+    <string name="security_settings_udfps_enroll_start_message">Giữ thẳng ngón tay trên cảm biến cho đến khi bạn cảm thấy rung</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Vui lòng chạm lần nữa</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint cho công việc</string>
     <string name="security_status_title">Trạng thái bảo mật</string>
@@ -4575,7 +4595,6 @@ Lưu ý: Bạn không thể sử dụng vân tay của mình để mở khóa th
     <string name="select_webview_provider_dialog_title">Đặt triển khai WebView</string>
     <string name="select_webview_provider_title">Triển khai WebView</string>
     <string name="select_webview_provider_toast_text">Lựa chọn này không còn hợp lệ nữa. Hãy thử lại.</string>
-    <string name="sensor_toggle_description">Đối với tất cả các ứng dụng và dịch vụ</string>
     <string name="sensors_off_quick_settings_title">Tắt cảm biến</string>
     <string name="service_background_processes">%1$s trống</string>
     <string name="service_foreground_processes">%1$s đã dùng</string>
@@ -4807,6 +4826,7 @@ Có thể mã PIN không đúng."</string>
     <string name="sound_settings_summary_silent">Đã đặt chuông thành im lặng</string>
     <string name="sound_settings_summary_vibrate">Đã đặt chuông thành rung</string>
     <string name="sound_work_settings">Âm thanh hồ sơ công việc</string>
+    <string name="spatial_audio_title">Âm thanh không gian</string>
     <string name="special_access">Quyền truy cập đặc biệt</string>
     <string name="special_access_more">Xem thêm</string>
     <string name="speed_label_fast">Nhanh</string>
@@ -5490,7 +5510,7 @@ Mọi người dùng đều có thể cập nhật ứng dụng cho tất cả n
     <string name="user_set_lock_button">Thiết lập khóa</string>
     <string name="user_settings_footer_text">Chia sẻ điện thoại bằng cách thêm người dùng mới. Mỗi người dùng có một không gian riêng trên điện thoại dành cho các mục như Màn hình chính tùy chỉnh, tài khoản, ứng dụng, các tùy chọn cài đặt, v.v.</string>
     <string name="user_settings_title">Nhiều người dùng</string>
-    <string name="user_setup_button_setup_later">Không phải bây giờ</string>
+    <string name="user_setup_button_setup_later">Để sau</string>
     <string name="user_setup_button_setup_now">Thiết lập ngay</string>
     <string name="user_setup_dialog_message">Đảm bảo người dùng có mặt để tự thiết lập không gian của mình trên thiết bị</string>
     <string name="user_setup_dialog_title">Thiết lập người dùng ngay bây giờ?</string>
@@ -5618,7 +5638,7 @@ Trong khi gọi thoại, bạn không thể sử dụng Internet và một số 
     <string name="vpn_turn_on">Bật</string>
     <string name="vpn_type">Loại</string>
     <string name="vpn_username">Tên người dùng</string>
-    <string name="vpn_version">Phiên bản %s</string>
+    <string name="vpn_version">Phiên bản</string>
     <string name="vr_listener_security_warning_summary">%1$s có thể chạy khi bạn đang sử dụng ứng dụng ở chế độ thực tế ảo.</string>
     <string name="vr_listener_security_warning_title">Cho phép quyền truy cập dịch vụ VR đối với %1$s?</string>
     <string name="vr_listeners_title">Dịch vụ trình trợ giúp thực tế ảo</string>
@@ -5888,7 +5908,7 @@ Việc đặt mạng này là mạng ẩn sẽ không thay đổi các chế đ�
     <string name="wifi_not_in_range">Ngoài vùng phủ sóng</string>
     <string name="wifi_not_in_range_message">Đang nằm ngoài vùng phủ sóng của mạng</string>
     <string name="wifi_notify_open_networks">Thông báo về mạng công cộng</string>
-    <string name="wifi_notify_open_networks_summary">Khi không có kết nối tự động</string>
+    <string name="wifi_notify_open_networks_summary">Thông báo khi có mạng công cộng chất lượng cao</string>
     <string name="wifi_on_time">Thời gian bật Wi-Fi</string>
     <string name="wifi_p2p_cancel_connect_message">Bạn có muốn hủy lời mời kết nối với %1$s không?</string>
     <string name="wifi_p2p_cancel_connect_title">Hủy lời mời?</string>
@@ -5976,7 +5996,6 @@ Cho phép cài đặt này đối với tất cả ứng dụng muốn quét?"</
     <string name="wifi_suspend_optimizations">Tối ưu hóa Wi‑Fi</string>
     <string name="wifi_suspend_optimizations_summary">Giảm thiểu sử dụng pin khi Wi‑Fi bật</string>
     <string name="wifi_switch_away_when_unvalidated">Chuyển sang dữ liệu di động nếu Wi‑Fi không truy cập được Internet.</string>
-    <string name="wifi_switch_summary">Tìm và kết nối với mạng Wi-Fi</string>
     <string name="wifi_tap_to_sign_in">Nhấn vào đây để đăng nhập vào mạng</string>
     <string name="wifi_tether_configure_ap_text">Thiết lập điểm phát sóng Wi‑Fi</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

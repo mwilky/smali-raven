@@ -46,11 +46,11 @@
 .end method
 
 .method public getSeeMoreIntent()Landroid/content/Intent;
-    .locals 5
+    .locals 7
 
     iget-object v0, p0, Lcom/android/settings/panel/WifiPanel;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0416e4
+    const v1, 0x7f041709
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -58,21 +58,23 @@
 
     invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v4
 
     iget-object v1, p0, Lcom/android/settings/panel/WifiPanel;->mContext:Landroid/content/Context;
 
-    const-class v2, Lcom/android/settings/wifi/WifiSettings;
+    const-class v0, Lcom/android/settings/wifi/WifiSettings;
 
-    invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object v2
 
     const/4 v3, 0x0
 
-    const/16 v4, 0x67
+    const/16 v5, 0x67
 
-    invoke-static {v1, v2, v3, v0, v4}, Lcom/android/settings/slices/SliceBuilderUtils;->buildSearchResultPageIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)Landroid/content/Intent;
+    const v6, 0x7f040d0a
+
+    invoke-static/range {v1 .. v6}, Lcom/android/settings/slices/SliceBuilderUtils;->buildSearchResultPageIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;II)Landroid/content/Intent;
 
     move-result-object v0
 
@@ -124,7 +126,7 @@
 
     iget-object p0, p0, Lcom/android/settings/panel/WifiPanel;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0416e4
+    const v0, 0x7f041709
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 

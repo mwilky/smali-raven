@@ -301,7 +301,7 @@
 
     iget-object p0, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd;->mLayoutInflaternflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f06004e
+    const v1, 0x7f06004f
 
     const/4 v2, 0x0
 
@@ -309,7 +309,7 @@
 
     move-result-object p0
 
-    const v1, 0x7f0d042a
+    const v1, 0x7f0d0438
 
     invoke-virtual {p0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -317,7 +317,7 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    const v2, 0x7f0d042b
+    const v2, 0x7f0d0439
 
     invoke-virtual {p0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -325,7 +325,7 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    const v3, 0x7f0d0423
+    const v3, 0x7f0d0431
 
     invoke-virtual {p0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -788,7 +788,7 @@
 .method getEllipsizedLines()I
     .locals 1
 
-    const-string v0, "window"
+    const-string/jumbo v0, "window"
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -1500,7 +1500,7 @@
 
     invoke-direct {p1, p0}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f040fb2
+    const v1, 0x7f040fde
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -1510,13 +1510,13 @@
 
     move-result-object p1
 
-    const v1, 0x7f0601cb
+    const v1, 0x7f0601cf
 
     invoke-virtual {p1, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setView(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p1
 
-    const v1, 0x7f0401e5
+    const v1, 0x7f0401f9
 
     new-instance v2, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd$2;
 
@@ -1526,7 +1526,7 @@
 
     move-result-object p1
 
-    const v1, 0x7f04054c
+    const v1, 0x7f040564
 
     const/4 v2, 0x0
 
@@ -1556,7 +1556,7 @@
 
     invoke-virtual {v0, v6}, Landroid/widget/Button;->setFilterTouchesWhenObscured(Z)V
 
-    const v0, 0x7f0d005e
+    const v0, 0x7f0d005f
 
     invoke-virtual {p1, v0}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
 
@@ -1570,7 +1570,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v0, 0x7f0d006e
+    const v0, 0x7f0d0070
 
     invoke-virtual {p1, v0}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
 
@@ -1580,7 +1580,7 @@
 
     iput-object p1, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd;->mAdminWarning:Landroid/widget/TextView;
 
-    const v0, 0x7f0407c1
+    const v0, 0x7f0407d9
 
     new-array v1, v6, [Ljava/lang/Object;
 
@@ -1619,11 +1619,11 @@
     return-void
 
     :cond_13
-    const p1, 0x7f0600ca
+    const p1, 0x7f0600cc
 
     invoke-virtual {p0, p1}, Lcom/android/settingslib/collapsingtoolbar/CollapsingToolbarBaseActivity;->setContentView(I)V
 
-    const p1, 0x7f0d0065
+    const p1, 0x7f0d0067
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1633,7 +1633,7 @@
 
     iput-object p1, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd;->mAdminIcon:Landroid/widget/ImageView;
 
-    const p1, 0x7f0d0067
+    const p1, 0x7f0d0069
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1643,7 +1643,7 @@
 
     iput-object p1, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd;->mAdminName:Landroid/widget/TextView;
 
-    const p1, 0x7f0d0063
+    const p1, 0x7f0d0065
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1653,7 +1653,7 @@
 
     iput-object p1, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd;->mAdminDescription:Landroid/widget/TextView;
 
-    const p1, 0x7f0d045b
+    const p1, 0x7f0d0468
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1663,7 +1663,7 @@
 
     iput-object p1, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd;->mProfileOwnerWarning:Landroid/widget/TextView;
 
-    const p1, 0x7f0d005c
+    const p1, 0x7f0d005d
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1673,7 +1673,7 @@
 
     iput-object p1, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd;->mAddMsg:Landroid/widget/TextView;
 
-    const p1, 0x7f0d005d
+    const p1, 0x7f0d005e
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1707,7 +1707,7 @@
 
     invoke-virtual {p0, p1}, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd;->toggleMessageEllipsis(Landroid/view/View;)V
 
-    const p1, 0x7f0d006d
+    const p1, 0x7f0d006f
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1717,7 +1717,7 @@
 
     iput-object p1, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd;->mAdminWarning:Landroid/widget/TextView;
 
-    const p1, 0x7f0d0068
+    const p1, 0x7f0d006a
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1727,7 +1727,7 @@
 
     iput-object p1, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd;->mAdminPolicies:Landroid/view/ViewGroup;
 
-    const p1, 0x7f0d006b
+    const p1, 0x7f0d006d
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1737,7 +1737,7 @@
 
     iput-object p1, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd;->mSupportMessage:Landroid/widget/TextView;
 
-    const p1, 0x7f0d0136
+    const p1, 0x7f0d013a
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1757,7 +1757,7 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const p1, 0x7f0d05ed
+    const p1, 0x7f0d05fd
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1777,7 +1777,7 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const p1, 0x7f0d0043
+    const p1, 0x7f0d0044
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1787,7 +1787,7 @@
 
     iput-object p1, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd;->mActionButton:Landroid/widget/Button;
 
-    const p1, 0x7f0d048f
+    const p1, 0x7f0d049c
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -1893,7 +1893,7 @@
 
     invoke-virtual {p2, p1}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroidx/appcompat/app/AlertDialog$Builder;
 
-    const p1, 0x7f04080f
+    const p1, 0x7f040827
 
     new-instance v0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd$8;
 
@@ -1901,7 +1901,7 @@
 
     invoke-virtual {p2, p1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
-    const p0, 0x7f04080a
+    const p0, 0x7f040822
 
     const/4 p1, 0x0
 
@@ -2085,7 +2085,7 @@
 .method updateInterface()V
     .locals 8
 
-    const v0, 0x7f0d0490
+    const v0, 0x7f0d049d
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -2238,13 +2238,13 @@
 
     iget-object v3, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd;->mAdminWarning:Landroid/widget/TextView;
 
-    const v5, 0x7f0401cb
+    const v5, 0x7f0401df
 
     invoke-virtual {v3, v5}, Landroid/widget/TextView;->setText(I)V
 
     iget-object v3, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd;->mActionButton:Landroid/widget/Button;
 
-    const v5, 0x7f040fff
+    const v5, 0x7f04102d
 
     invoke-virtual {v3, v5}, Landroid/widget/Button;->setText(I)V
 
@@ -2296,7 +2296,7 @@
     goto/16 :goto_5
 
     :cond_5
-    const v0, 0x7f040ffe
+    const v0, 0x7f04102c
 
     if-nez v3, :cond_8
 
@@ -2325,7 +2325,7 @@
 
     iget-object v3, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd;->mAdminWarning:Landroid/widget/TextView;
 
-    const v5, 0x7f0407bf
+    const v5, 0x7f0407d7
 
     new-array v4, v4, [Ljava/lang/Object;
 
@@ -2353,7 +2353,7 @@
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v3, 0x7f040185
+    const v3, 0x7f040199
 
     invoke-virtual {p0, v3}, Lcom/android/settingslib/collapsingtoolbar/CollapsingToolbarBaseActivity;->setTitle(I)V
 
@@ -2363,7 +2363,7 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd;->mActionButton:Landroid/widget/Button;
 
-    const v3, 0x7f040ff9
+    const v3, 0x7f041027
 
     invoke-virtual {v0, v3}, Landroid/widget/Button;->setText(I)V
 
@@ -2382,7 +2382,7 @@
 
     iget-object v3, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd;->mAdminWarning:Landroid/widget/TextView;
 
-    const v4, 0x7f0401cc
+    const v4, 0x7f0401e0
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 
@@ -2397,7 +2397,7 @@
 
     iget-object v3, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd;->mAdminWarning:Landroid/widget/TextView;
 
-    const v4, 0x7f0401c9
+    const v4, 0x7f0401dd
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 
@@ -2406,7 +2406,7 @@
     :cond_a
     iget-object v3, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd;->mAdminWarning:Landroid/widget/TextView;
 
-    const v4, 0x7f0401c7
+    const v4, 0x7f0401db
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 
@@ -2464,7 +2464,7 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd;->mAdminWarning:Landroid/widget/TextView;
 
-    const v3, 0x7f0407c0
+    const v3, 0x7f0407d8
 
     new-array v5, v4, [Ljava/lang/Object;
 
@@ -2492,7 +2492,7 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v0, 0x7f0401c0
+    const v0, 0x7f0401d4
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 
@@ -2502,7 +2502,7 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/specialaccess/deviceadmin/DeviceAdminAdd;->mActionButton:Landroid/widget/Button;
 
-    const v3, 0x7f0401bf
+    const v3, 0x7f0401d3
 
     invoke-virtual {p0, v3}, Landroid/app/Activity;->getText(I)Ljava/lang/CharSequence;
 

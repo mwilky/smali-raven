@@ -50,7 +50,9 @@
     <attr name="actionProviderClass" format="string" />
     <attr name="actionTextColorAlpha" format="float" />
     <attr name="actionViewClass" format="string" />
+    <attr name="activityAction" format="string" />
     <attr name="activityChooserViewStyle" format="reference" />
+    <attr name="activityName" format="string" />
     <attr name="adjustable" format="boolean" />
     <attr name="alertDialogButtonGroupStyle" format="reference" />
     <attr name="alertDialogCenterButtons" format="boolean" />
@@ -69,6 +71,7 @@
         <flag name="SYM" value="0x00000004" />
     </attr>
     <attr name="altSrc" format="reference" />
+    <attr name="alwaysExpand" format="boolean" />
     <attr name="animate_relativeTo" format="reference" />
     <attr name="animationDuration" format="integer" />
     <attr name="animationMode">
@@ -268,6 +271,7 @@
     <attr name="chipSurfaceColor" format="color" />
     <attr name="circleRadius" format="dimension" />
     <attr name="circularProgressIndicatorStyle" format="reference" />
+    <attr name="clearTop" format="boolean" />
     <attr name="clickAction">
         <flag name="jumpToEnd" value="0x00000100" />
         <flag name="jumpToStart" value="0x00001000" />
@@ -594,6 +598,16 @@
     <attr name="fingerprint_sensor_location_color5" format="color" />
     <attr name="fingerprint_sensor_location_color6" format="color" />
     <attr name="fingerprint_sensor_location_color7" format="color" />
+    <attr name="finishPrimaryWithSecondary">
+        <enum name="adjacent" value="2" />
+        <enum name="always" value="1" />
+        <enum name="never" value="0" />
+    </attr>
+    <attr name="finishSecondaryWithPrimary">
+        <enum name="adjacent" value="2" />
+        <enum name="always" value="1" />
+        <enum name="never" value="0" />
+    </attr>
     <attr name="firstBaselineToTopHeight" format="dimension" />
     <attr name="floatingActionButtonStyle" format="reference" />
     <attr name="flow_firstHorizontalBias" format="float" />
@@ -710,6 +724,7 @@
     <attr name="hideMotionSpec" format="reference" />
     <attr name="hideOnContentScroll" format="boolean" />
     <attr name="hideOnScroll" format="boolean" />
+    <attr name="highlightableMenuKey" format="string" />
     <attr name="hintAnimationEnabled" format="boolean" />
     <attr name="hintEnabled" format="boolean" />
     <attr name="hintTextAppearance" format="reference" />
@@ -1238,6 +1253,7 @@
     </attr>
     <attr name="pivotX" format="float|fraction" />
     <attr name="pivotY" format="float|fraction" />
+    <attr name="placeholderActivityName" format="string" />
     <attr name="placeholderText" format="string" />
     <attr name="placeholderTextAppearance" format="reference" />
     <attr name="placeholderTextColor" format="color" />
@@ -1267,6 +1283,7 @@
     <attr name="prefixTextColor" format="color" />
     <attr name="preserveIconSpacing" format="boolean" />
     <attr name="pressedTranslationZ" format="dimension" />
+    <attr name="primaryActivityName" format="string" />
     <attr name="primaryDrawable" format="reference" />
     <attr name="progress" format="float" />
     <attr name="progressBarEndPadding" format="dimension" />
@@ -1306,6 +1323,8 @@
     <attr name="searchHintIcon" format="reference" />
     <attr name="searchIcon" format="reference" />
     <attr name="searchViewStyle" format="reference" />
+    <attr name="secondaryActivityAction" format="string" />
+    <attr name="secondaryActivityName" format="string" />
     <attr name="secondaryDrawable" format="reference" />
     <attr name="secureValue" format="string" />
     <attr name="seekBarIncrement" format="integer" />
@@ -1366,6 +1385,14 @@
     <attr name="spinBars" format="boolean" />
     <attr name="spinnerDropDownItemStyle" format="reference" />
     <attr name="spinnerStyle" format="reference" />
+    <attr name="splitLayoutDirection">
+        <enum name="locale" value="0" />
+        <enum name="ltr" value="1" />
+        <enum name="rtl" value="2" />
+    </attr>
+    <attr name="splitMinSmallestWidth" format="dimension" />
+    <attr name="splitMinWidth" format="dimension" />
+    <attr name="splitRatio" format="float" />
     <attr name="splitTrack" format="boolean" />
     <attr name="srcCompat" format="reference" />
     <attr name="stackFromEnd" format="boolean" />
@@ -1397,6 +1424,7 @@
     <attr name="statusBarBackground" format="reference|color" />
     <attr name="statusBarForeground" format="color" />
     <attr name="statusBarScrim" format="color" />
+    <attr name="stickyPlaceholder" format="boolean" />
     <attr name="strokeColor" format="color" />
     <attr name="strokeWidth" format="dimension" />
     <attr name="subContentEndPadding" format="dimension" />
@@ -1547,6 +1575,10 @@
         <flag name="top" value="0x00000001" />
     </attr>
     <attr name="sudStickyHeader" format="reference" />
+    <attr name="sudSwitchBarThumbOffColor" format="reference|color" />
+    <attr name="sudSwitchBarThumbOnColor" format="reference|color" />
+    <attr name="sudSwitchBarTrackOffColor" format="reference|color" />
+    <attr name="sudSwitchBarTrackOnColor" format="reference|color" />
     <attr name="sudUpscaleIcon" format="boolean" />
     <attr name="sudUseBottomProgressBar" format="boolean" />
     <attr name="sudUsePartnerHeavyTheme" format="boolean" />

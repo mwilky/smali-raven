@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Płynne wyświetlanie</string>
     <string name="peak_refresh_rate_summary">W przypadku niektórych treści automatycznie podwyższa częstotliwość odświeżania z 60 na 90 Hz. Zwiększa zużycie baterii.</string>
     <string name="accessibility_vibration_settings_title">Wibracje i reakcja na dotyk</string>
+    <string name="columbus_title">Dotknij dwukrotnie, aby rozpocząć działania</string>
     <string name="emergency_gesture_screen_title">Połączenie alarmowe</string>
     <string name="abc_action_mode_done">Gotowe</string>
     <string name="vibrate_for_calls_category_title">Połączenia</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Pokazuj sterowanie urządzeniami</string>
     <string name="lockscreen_privacy_wallet_summary">Zezwalaj na dostęp do portfela na ekranie blokady i w szybkich ustawieniach</string>
     <string name="lockscreen_privacy_controls_summary">Kontrola dostępu po zablokowaniu</string>
+    <string name="lockscreen_double_line_clock_summary">Pokazuj zegar dwuwierszowy, jeśli jest dostępny</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Zegar dwuwierszowy</string>
     <string name="abc_activity_chooser_view_see_all">Pokaż wszystko</string>
     <string name="abc_activitychooserview_choose_application">Wybierz aplikację</string>
     <string name="abc_capital_off">WYŁ.</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Budzik – wibracje</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Konfiguracja Active Edge. Przejdź na następny ekran lub kontynuuj dostosowywanie.</string>
     <string name="accessibility_audio_adjustment_title">Dostosowywanie dźwięku</string>
+    <string name="accessibility_autoclick_about_title">O automatycznym kliknięciu (czas kontaktu)</string>
     <string name="accessibility_autoclick_custom_title">Niestandardowo</string>
     <string name="accessibility_autoclick_default_title">Wyłączone</string>
     <string name="accessibility_autoclick_description">Automatyczne kliknięcie działa po podłączeniu myszy. Możesz ustawić jego wyzwalanie po zatrzymaniu przesuwającego się kursora na określony czas.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Więcej informacji o automatycznym kliknięciu (czas kontaktu)</string>
     <string name="accessibility_autoclick_long_summary">1 sekunda</string>
     <string name="accessibility_autoclick_long_title">Długo</string>
     <string name="accessibility_autoclick_longer_desc">Dłuższy</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Krótko</string>
     <string name="accessibility_autoclick_shorter_desc">Krótszy</string>
     <string name="accessibility_banner_message_dismiss">Zamknij</string>
-    <string name="accessibility_button_description">"Szybko uruchamiaj ułatwienia dostępu na dowolnym ekranie. 
+    <string name="accessibility_button_about_title">O przycisku ułatwień dostępu</string>
+    <string name="accessibility_button_description">"Szybko uruchamiaj ułatwienia dostępu na dowolnym ekranie.
 
 Aby rozpocząć, otwórz ustawienia ułatwień dostępu i wybierz funkcję. Kliknij skrót i wybierz przycisk ułatwień dostępu."</string>
     <string name="accessibility_button_fade_summary">Zanika po kilku sekundach, aby nie utrudniać oglądania ekranu</string>
     <string name="accessibility_button_fade_title">Zanikanie, gdy nie w użyciu</string>
+    <string name="accessibility_button_gesture_about_title">O przycisku i geście ułatwień dostępu</string>
     <string name="accessibility_button_gesture_description">"Szybko uruchamiaj ułatwienia dostępu na dowolnym ekranie.
 
-Aby rozpocząć, otwórz ustawienia ułatwień dostępu i wybierz funkcję. Kliknij skrót i wybierz przycisk ułatwień dostępu.
-
-Aby skorzystać z przycisku ułatwień dostępu na pasku nawigacyjnym, przełącz się na nawigację przy użyciu 2 lub 3 przycisków."</string>
+Aby rozpocząć, otwórz ustawienia ułatwień dostępu i wybierz funkcję. Kliknij skrót i wybierz przycisk lub gest ułatwień dostępu."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Więcej informacji o przycisku i geście ułatwień dostępu</string>
     <string name="accessibility_button_gesture_title">Przycisk i gest ułatwień dostępu</string>
     <string name="accessibility_button_high_label">Nieprzezroczyste</string>
     <string name="accessibility_button_intro">Używam przycisku ułatwień dostępu. Ten gest nie jest dostępny w przypadku nawigacji przy użyciu 3 przycisków.</string>
@@ -184,14 +190,23 @@ Aby skorzystać z przycisku ułatwień dostępu na pasku nawigacyjnym, przełą
     <string name="accessibility_caption_preference_summary">Nie wszystkie aplikacje obsługują te ustawienia napisów</string>
     <string name="accessibility_caption_primary_switch_summary">Tylko w obsługiwanych aplikacjach</string>
     <string name="accessibility_caption_primary_switch_title">Pokazuj napisy</string>
+    <string name="accessibility_captioning_about_title">O ustawieniach napisów</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Więcej informacji o ustawieniach napisów</string>
     <string name="accessibility_captioning_title">Ustawienia napisów</string>
     <string name="accessibility_category_personal">Konta profili osobistych</string>
     <string name="accessibility_category_work">Konta profili służbowych – %s</string>
+    <string name="accessibility_color_inversion_about_title">O odwróceniu kolorów</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Więcej informacji o odwróceniu kolorów</string>
+    <string name="accessibility_control_timeout_about_title">O czasie na działanie (limit czasu Ułatwień dostępu)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Więcej informacji o czasie na działanie (limit czasu Ułatwień dostępu)</string>
     <string name="accessibility_control_timeout_preference_summary">"Określ, jak długo mają być wyświetlane wiadomości wymagające wykonania jakiejś czynności, które są widoczne tylko tymczasowo.
 
 Nie wszystkie aplikacje obsługują to ustawienie."</string>
     <string name="accessibility_control_timeout_preference_title">Czas na działanie</string>
+    <string name="accessibility_daltonizer_about_title">O korekcji kolorów</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Więcej informacji o korekcji kolorów</string>
     <string name="accessibility_daltonizer_primary_switch_title">Używaj korekcji kolorów</string>
+    <string name="accessibility_daltonizer_shortcut_title">Skrót do korekcji kolorów</string>
     <string name="accessibility_data_one_bar">Dane: jeden pasek.</string>
     <string name="accessibility_data_signal_full">Dane: pełna moc sygnału.</string>
     <string name="accessibility_data_three_bars">Dane: trzy paski.</string>
@@ -206,6 +221,7 @@ Nie wszystkie aplikacje obsługują to ustawienie."</string>
     <string name="accessibility_display_daltonizer_preference_title">Korekcja kolorów</string>
     <string name="accessibility_display_inversion_preference_subtitle">Odwrócenie kolorów zmienia jasne ekrany w ciemne.&lt;br/>&lt;br/> Uwaga: &lt;ol> &lt;li> Odwrócenie kolorów zmienia także ciemne ekrany w jasne.&lt;/li> &lt;li> Zmienią się kolory w multimediach i na obrazach.&lt;/li> &lt;li> Ciemne tło można też wyświetlać w ciemnym motywie. Ciemny motyw działa w obsługiwanych aplikacjach. Odwrócenie kolorów działa we wszystkich aplikacjach.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Odwrócenie kolorów</string>
+    <string name="accessibility_display_inversion_shortcut_title">Skrót do odwrócenia kolorów</string>
     <string name="accessibility_display_inversion_switch_title">Odwracaj kolory</string>
     <string name="accessibility_ethernet_connected">Ethernet.</string>
     <string name="accessibility_ethernet_disconnected">Rozłączono z siecią Ethernet.</string>
@@ -255,6 +271,8 @@ Przycisk ułatwień dostępu pływa na ekranie przed innymi aplikacjami. Kliknij
     <string name="accessibility_phone_two_bars">Telefon: dwa paski.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Przycisk zasilania rozłącza</string>
     <string name="accessibility_preference_magnification_summary">Powiększenie na ekranie</string>
+    <string name="accessibility_screen_magnification_about_title">O powiększeniu</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Więcej informacji o powiększeniu</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">Gest ułatwień dostępu jest ustawiony na: %1$s. Aby użyć powiększenia, przesuń dwoma palcami w górę od dołu ekranu i przytrzymaj. Potem wybierz powiększenie.</string>
     <string name="accessibility_screen_magnification_gestures_title">Powiększ 3-krotnym kliknięciem</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">Przycisk ułatwień dostępu włącza: %1$s. Aby użyć powiększenia, naciśnij i przytrzymaj przycisk ułatwień dostępu, a następnie wybierz powiększenie.</string>
@@ -272,6 +290,7 @@ Przycisk ułatwień dostępu pływa na ekranie przed innymi aplikacjami. Kliknij
 Nie można powiększyć klawiatury ani paska nawigacji."</string>
     <string name="accessibility_screen_magnification_navbar_title">Powiększanie skrótem</string>
     <string name="accessibility_screen_magnification_short_summary">Kliknij trzy razy, by powiększyć</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Skrót do powiększenia</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Powiększanie skrótem i trzykrotnym kliknięciem</string>
     <string name="accessibility_screen_magnification_summary">Szybkie powiększenie ekranu w celu zwiększenia rozmiaru treści.&lt;br/>&lt;br/>&lt;b>Aby powiększyć:&lt;/b>&lt;br/> {0,number,integer}. Włącz powiększenie skrótem.&lt;br/> {1,number,integer}. Kliknij ekran&lt;br/> {2,number,integer}. Aby przesuwać powiększony ekran, przeciągaj po nim 2 palcami&lt;br/> {3,number,integer}. Aby regulować powiększenie, ściągaj i rozciągaj ekran 2 palcami&lt;br/> {4,number,integer}. Wyłącz powiększenie skrótem.&lt;br/>&lt;br/>&lt;b>Aby powiększyć tymczasowo:&lt;/b>&lt;br/> {0,number,integer}. Włącz powiększenie skrótem.&lt;br/> {1,number,integer}. Naciśnij i przytrzymaj dowolne miejsce na ekranie.&lt;br/> {2,number,integer}. Aby przesuwać powiększony ekran, przeciągaj po nim palcem&lt;br/> {3,number,integer}. Podnieś palec, aby wyłączyć powiększenie</string>
     <string name="accessibility_screen_magnification_title">Powiększenie</string>
@@ -370,7 +389,7 @@ Aby przełączać się między funkcjami, przesuń 3 palcami w górę i przyt
     <string name="accessibility_tutorial_dialog_message_volume">Aby użyć tej funkcji, naciśnij i przytrzymaj oba przyciski głośności.</string>
     <string name="accessibility_tutorial_dialog_title_button">Otwieraj przyciskiem ułatwień dostępu</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Otwieranie gestem</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Użyj nowego gestu ułatwień dostępu</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Użyj gestu ułatwień dostępu</string>
     <string name="accessibility_tutorial_dialog_title_triple">Kliknij ekran trzykrotnie, aby otworzyć</string>
     <string name="accessibility_tutorial_dialog_title_volume">Przytrzymaj przyciski głośności, aby otworzyć</string>
     <string name="accessibility_tutorial_pager">Strona %1$d z %2$d</string>
@@ -936,6 +955,7 @@ Po zresetowaniu przejdź proces konfiguracji i wybierz opcję przeniesienia dany
     <string name="battery_level_title">Poziom naładowania baterii</string>
     <string name="battery_manager_off">Wyłączone</string>
     <string name="battery_manager_summary">Wydłuż czas pracy na baterii i zoptymalizuj ładowanie</string>
+    <string name="battery_manager_summary_unsupported">Wydłuż czas pracy na baterii</string>
     <string name="battery_missing_link_a11y_message">Kliknij, by dowiedzieć się więcej o tym błędzie</string>
     <string name="battery_missing_link_message">Więcej informacji</string>
     <string name="battery_missing_message">Problem z odczytaniem pomiaru wykorzystania baterii</string>
@@ -1014,7 +1034,7 @@ Zawsze możesz włączyć Oszczędzanie baterii, gdy spadnie poziom jej naładow
 
 Gdy te warunki się zmienią, telefon automatycznie przejdzie do normalnego ładowania."</string>
     <string name="battery_tip_limited_temporarily_dialog_resume_charge">Wznów ładowanie</string>
-    <string name="battery_tip_limited_temporarily_summary">Aby zmniejszyć zużycie baterii. Więcej informacji.</string>
+    <string name="battery_tip_limited_temporarily_summary">Aby wydłużyć żywotność baterii. Więcej informacji.</string>
     <string name="battery_tip_limited_temporarily_title">Ładowanie tymczasowo ograniczone</string>
     <string name="battery_tip_low_battery_summary">Włącz Oszczędzanie baterii, aby wydłużyć czas pracy na baterii</string>
     <string name="battery_tip_low_battery_title">Niski poziom naładowania baterii</string>
@@ -1061,6 +1081,7 @@ w okresie ^2"</string>
     <string name="battery_usage_screen_footer">Dane o wykorzystaniu baterii są przybliżone i nie są mierzone podczas ładowania telefonu</string>
     <string name="battery_usage_screen_footer_empty">Dane o wykorzystaniu baterii będą dostępne po kilku godzinach używania telefonu</string>
     <string name="battery_usage_total_less_than_one_minute">Łącznie: niecała minuta</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s zużyte przez: %2$s</string>
     <string name="battery_used_for">Używano przez ^1</string>
     <string name="bearer">Nośnik</string>
@@ -1069,12 +1090,14 @@ w okresie ^2"</string>
     <string name="billing_cycle_less_than_one_day_left">Mniej niż dzień do końca</string>
     <string name="billing_cycle_none_left">Upłynął cały czas</string>
     <string name="biometric_settings_category_ways_to_unlock">Sposoby odblokowywania</string>
-    <string name="biometric_settings_category_ways_to_use">Używaj rozpoznawania twarzy i odcisku palca</string>
     <string name="biometric_settings_hand_back_to_guardian">Przekaż telefon z powrotem rodzicowi</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">OK</string>
     <string name="biometric_settings_intro">Jeśli ustawisz rozpoznawanie twarzy i odblokowywanie odciskiem palca, w ciemnym otoczeniu oraz w sytuacji, gdy będziesz mieć maskę, pojawi się prośba o użycie odcisku palca</string>
-    <string name="biometric_settings_use_biometric_for_apps">uwierzytelniania w aplikacjach</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">odblokowywania telefonu</string>
+    <string name="biometric_settings_use_biometric_for_apps">Potwierdzaj swoją tożsamość w aplikacjach</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">Odblokowywanie telefonu</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Przy użyciu rozpoznawania twarzy lub odcisku palca</string>
+    <string name="biometric_settings_use_face_preference_summary">Przy użyciu rozpoznawania twarzy</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Przy użyciu odcisku palca</string>
     <string name="biometrics_unlock_set_unlock_password">Hasło • Twarz • Odcisk palca</string>
     <string name="biometrics_unlock_set_unlock_pattern">Wzór • Twarz • Odcisk palca</string>
     <string name="biometrics_unlock_set_unlock_pin">Kod PIN • Twarz • Odcisk palca</string>
@@ -1332,7 +1355,6 @@ Wybór"</string>
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Pokazuj urządzenia Bluetooth bez nazw</string>
     <string name="bluetooth_show_devices_without_names_summary">Urządzenia Bluetooth będą wyświetlane bez nazw (tylko adresy MAC)</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Pliki otrzymane przez Bluetooth</string>
     <string name="bluetooth_show_received_files">Odebrane pliki</string>
     <string name="bluetooth_sim_card_access_dialog_content">"Urządzenie Bluetooth (%1$s) chce uzyskać dostęp do danych na Twojej karcie SIM. Te dane obejmują również Twoje kontakty.
 
@@ -1426,6 +1448,7 @@ Gdy zainstalujesz certyfikat CA, jego właściciel będzie mógł uzyskać dost�
     <string name="calls_sms_temp_unavailable">Chwilowo niedostępna</string>
     <string name="calls_sms_unavailable">niedostępne</string>
     <string name="calls_sms_wfc_summary">Nawiązuj i odbieraj połączenia w sieciach Wi‑Fi</string>
+    <string name="cam_toggle_description">Aplikacje i usługi</string>
     <string name="camera_double_tap_power_gesture_desc">Szybko uruchom aparat bez odblokowywania ekranu</string>
     <string name="camera_double_tap_power_gesture_title">Aparat: dwa razy naciśnij przycisk zasilania</string>
     <string name="camera_laser_sensor_switch">Czujnik lasera aparatu</string>
@@ -2038,7 +2061,7 @@ To ustawienie obowiązuje u wszystkich użytkowników tego telefonu."</string>
     <string name="device_details_title">Szczegóły urządzenia</string>
     <string name="device_feedback">Prześlij opinię o tym urządzeniu</string>
     <string name="device_info_default">Nieznany</string>
-    <string name="device_info_not_available">Niedostępna</string>
+    <string name="device_info_not_available">Niedostępny</string>
     <string name="device_picker">Wybierz urządzenie Bluetooth</string>
     <string name="device_screen_usage">Wykorzystanie przez ekran od ostatniego naładowania</string>
     <string name="device_status">Stan telefonu</string>
@@ -2515,7 +2538,7 @@ Kopia zapasowa nie wlicza się do limitu miejsca na Dysku Google. Nie zostanie t
     <string name="game_settings_title">Ustawienia gier</string>
     <string name="game_storage_settings">Gry</string>
     <string name="general_category_title">Ogólne</string>
-    <string name="general_notification_header">Zarządzaj</string>
+    <string name="general_notification_header">Zarządzanie</string>
     <string name="gentle_notifications_also_display">Inne miejsca wyświetlania</string>
     <string name="gentle_notifications_display_lock">Ekran blokady</string>
     <string name="gentle_notifications_display_status">Pasek stanu</string>
@@ -2956,7 +2979,7 @@ Możesz zmienić to ustawienie później, wybierając Ustawienia > Aplikacje i 
     <string name="lock_screen_notifs_redact_summary">Pokazuj treści poufne po zablokowaniu</string>
     <string name="lock_screen_notifs_redact_work">Poufne powiadomienia z profilu służbowego</string>
     <string name="lock_screen_notifs_redact_work_summary">Pokazuj poufne treści z profilu służbowego po zablokowaniu</string>
-    <string name="lock_screen_notifs_show_alerting">Ukryj ciche rozmowy i powiadomienia</string>
+    <string name="lock_screen_notifs_show_alerting">Ukrywaj ciche rozmowy i powiadomienia</string>
     <string name="lock_screen_notifs_show_all">Pokazuj rozmowy, domyślne i ciche</string>
     <string name="lock_screen_notifs_show_none">Nie pokazuj żadnych powiadomień</string>
     <string name="lock_screen_notifs_title">Powiadomienia na ekranie blokady</string>
@@ -3302,6 +3325,7 @@ Z tego urządzenia korzystają inni użytkownicy.
     <string name="menu_stats_total">Łączne użycie</string>
     <string name="menu_stats_unplugged">%1$s od odłączenia</string>
     <string name="menu_use_uss">Użyj USS</string>
+    <string name="mic_toggle_description">Aplikacje i usługi. Jeśli wyłączysz to ustawienie, dane mikrofonu wciąż mogą być udostępniane podczas połączenia z numerem alarmowym.</string>
     <string name="mic_toggle_title">Dostęp do mikrofonu</string>
     <string name="misc_files">Różne pliki</string>
     <string name="misc_files_selected_count">wybrano %1$d z %2$d</string>
@@ -3587,7 +3611,7 @@ Aplikacja %2$s nie będzie już domyślną aplikacją do obsługi płatności."<
 
 Ulepszone powiadomienia mogą czytać całą zawartość powiadomień, w tym informacje osobiste takie jak nazwy kontaktów i treść wiadomości. Funkcja może też zamykać powiadomienia oraz reagować na nie, np. odbierać połączenia telefoniczne i sterować trybem Nie przeszkadzać."</string>
     <string name="notification_assistant_security_warning_title">Zezwolić usłudze %1$s na dostęp do powiadomień?</string>
-    <string name="notification_assistant_summary">Otrzymuj sugestie działań oraz odpowiedzi i inne podpowiedzi</string>
+    <string name="notification_assistant_summary">Sugeruj działania, odpowiedzi itd.</string>
     <string name="notification_assistant_title">Ulepszone powiadomienia</string>
     <string name="notification_badge_title">Zezwalaj na plakietkę z powiadomieniem</string>
     <string name="notification_badging_title">Plakietka z powiadomieniem na ikonie aplikacji</string>
@@ -3728,6 +3752,7 @@ Dodatkowo aplikacja będzie mogła włączać i wyłączać tryb Nie przeszkadz
     <string name="one_handed_action_show_notification_title">Wyświetlenie powiadomienia</string>
     <string name="one_handed_mode_enabled">Korzystaj z trybu jednej ręki</string>
     <string name="one_handed_mode_intro_text">Aby korzystać z trybu jednej ręki, przesuń palcem w dół od dolnej krawędzi ekranu. Jeśli chcesz używać tej funkcji, włącz nawigację przy użyciu gestów w ustawieniach nawigacji w systemie.</string>
+    <string name="one_handed_mode_shortcut_title">Skrót do trybu jednej ręki</string>
     <string name="one_handed_mode_swipe_down_category">Przesuń w dół, aby uzyskać</string>
     <string name="one_handed_mode_use_shortcut_category">Użyj skrótu, aby</string>
     <string name="one_usercrt">jeden certyfikat użytkownika</string>
@@ -3803,7 +3828,7 @@ Dodatkowo aplikacja będzie mogła włączać i wyłączać tryb Nie przeszkadz
     <string name="post_dsds_reboot_notification_title_with_carrier">Sieć %1$s jest aktywna</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Aparat</string>
-    <string name="power_cell">Tryb gotowości w sieci komórkowej</string>
+    <string name="power_cell">Sieć komórkowa</string>
     <string name="power_charge_remaining">%1$s do naładowania</string>
     <string name="power_charging">%1$s – %2$s</string>
     <string name="power_charging_duration">%1$s – %2$s do pełnego naładowania</string>
@@ -4037,6 +4062,7 @@ Naciśnij jednocześnie przyciski zasilania i zwiększania głośności."</stri
     <string name="recent_notifications">Ostatnio wysłane</string>
     <string name="recent_notifications_see_all_title">Zobacz wszystkie z ostatnich 7 dni</string>
     <string name="recompute_size">Przeliczanie rozmiaru...</string>
+    <string name="reduce_bright_colors_about_title">O dodatkowym przyciemnieniu</string>
     <string name="reduce_bright_colors_intensity_end_label">Jaśniej</string>
     <string name="reduce_bright_colors_intensity_preference_title">Intensywność</string>
     <string name="reduce_bright_colors_intensity_start_label">Ciemniej</string>
@@ -4044,6 +4070,7 @@ Naciśnij jednocześnie przyciski zasilania i zwiększania głośności."</stri
     <string name="reduce_bright_colors_preference_subtitle">Przyciemnij ekran, aby czytać wygodniej.&lt;br/>&lt;br/> Może to być pomocne, gdy: &lt;ol> &lt;li> minimalna jasność telefonu jest zbyt wysoka;&lt;/li> &lt;li> używasz telefonu w ciemności, np. w nocy lub w ciemnym pokoju przed zaśnięciem.&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">Przyciemnij ekran bardziej niż przy minimalnej jasności telefonu</string>
     <string name="reduce_bright_colors_preference_title">Dodatkowe przyciemnienie</string>
+    <string name="reduce_bright_colors_shortcut_title">Skrót do dodatkowego przyciemnienia</string>
     <string name="reduce_bright_colors_switch_title">Dodatkowo przyciemniaj ekran</string>
     <string name="register_automatically">Automatyczna rejestracja…</string>
     <string name="register_on_network">Rejestruję w sieci %s…</string>
@@ -4249,7 +4276,6 @@ Aby używać przypinania aplikacji: \u0009
     <string name="screen_pinning_unlock_pattern">Aby odpiąć, poproś o wzór odblokowania</string>
     <string name="screen_pinning_unlock_pin">Podaj PIN, aby odpiąć</string>
     <string name="screen_reader_category_title">Czytnik ekranu</string>
-    <string name="screen_saver_main_switch_title">Używaj wygaszacza ekranu</string>
     <string name="screen_time_summary_usage_today">%1$s dzisiaj</string>
     <string name="screen_timeout_summary">Po %1$s bezczynności</string>
     <string name="screen_timeout_title">Wyłączenie ekranu</string>
@@ -4279,6 +4305,7 @@ Aby używać przypinania aplikacji: \u0009
     <string name="screensaver_settings_button">Ustawienia</string>
     <string name="screensaver_settings_current">Bieżący wygaszacz ekranu</string>
     <string name="screensaver_settings_disabled_prompt">Włącz wygaszacz ekranu, by kontrolować to, co dzieje się, gdy telefon jest w stacji dokującej i/lub w trybie uśpienia.</string>
+    <string name="screensaver_settings_dream_start">Zacznij teraz</string>
     <string name="screensaver_settings_summary_dock">Po zadokowaniu</string>
     <string name="screensaver_settings_summary_either_long">Podczas ładowania lub po zadokowaniu</string>
     <string name="screensaver_settings_summary_either_short">Po zadokowaniu lub podczas ładowania</string>
@@ -4329,15 +4356,6 @@ Aby używać przypinania aplikacji: \u0009
     <string name="security_settings_biometric_preference_summary_both_fp_single">Dodano skan twarzy i odcisk palca</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Kliknij, aby skonfigurować</string>
     <string name="security_settings_biometric_preference_title">Rozpoznawanie twarzy i odblokowywanie odciskiem palca</string>
-    <string name="security_settings_biometrics_description">Jeśli ustawisz rozpoznawanie twarzy i odblokowywanie odciskiem palca, w ciemnym otoczeniu oraz jeśli będziesz mieć na twarzy maskę, pojawi się prośba o użycie odcisku palca</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Uwierzytelnianie w aplikacjach</string>
-    <string name="security_settings_biometrics_preferences_category">Używaj rozpoznawania twarzy lub odcisku palca</string>
-    <string name="security_settings_biometrics_summary_both">Rozpoznawanie twarzy lub odcisk palca</string>
-    <string name="security_settings_biometrics_summary_face">Tylko rozpoznawanie twarzy</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Tylko odcisk palca</string>
-    <string name="security_settings_biometrics_summary_none">Kliknij, aby skonfigurować</string>
-    <string name="security_settings_biometrics_title">Rozpoznawanie twarzy i odcisk palca</string>
-    <string name="security_settings_biometrics_types_category">Sposoby odblokowywania</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Zezwól na rozpoznawanie twarzy</string>
     <string name="security_settings_face_enroll_dialog_ok">OK</string>
     <string name="security_settings_face_enroll_done">OK</string>
@@ -4395,6 +4413,7 @@ Telefon będzie też wykorzystywać obrazy z Twoich interakcji z rozpoznawanie
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Patrząc na telefon, dziecko może go niechcący odblokować. Telefon mogą również odblokować osoby podobne do dziecka, np. jego rodzeństwo, a także ktoś, kto zbliży telefon do twarzy dziecka.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Odblokowywanie telefonu oraz potwierdzanie tożsamości przez rozpoznawanie twarzy może wymagać otwartych oczu. W dowolnej chwili możesz włączyć tę opcję w Ustawieniach.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Możesz mieć okulary, nawet niezbyt ciemne okulary przeciwsłoneczne.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Używanie rozpoznawania twarzy do odblokowywania telefonu może być mniej bezpieczne niż korzystanie ze skomplikowanego wzoru lub kodu PIN.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Patrząc na telefon, możesz go niechcący odblokować. Telefon mogą również odblokować osoby podobne do Ciebie, np. Twoje rodzeństwo, jeśli zbliżą go do twarzy.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Pamiętaj</string>
     <string name="security_settings_face_enroll_introduction_message">Używaj rozpoznawania twarzy do odblokowywania telefonu i potwierdzania tożsamości, na przykład podczas logowania się w aplikacjach lub zatwierdzania zakupów.</string>
@@ -4452,13 +4471,14 @@ Inna osoba może odblokować Twój telefon, zbliżając go do Twojej twarzy (naw
 
 Istnieje możliwość, że ktoś bardzo podobny do Ciebie (np. rodzeństwo), odblokuje Twój telefon."</string>
     <string name="security_settings_face_settings_preferences_category">W przypadku rozpoznawania twarzy</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Model twarzy zostanie trwale i w bezpieczny sposób usunięty. Po usunięciu tych danych do odblokowywania telefonu i uwierzytelniania się w aplikacjach trzeba będzie używać odcisku palca, kodu PIN, wzoru lub hasła.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Model twarzy zostanie trwale i w bezpieczny sposób usunięty.
+
+Po usunięciu tych danych do odblokowywania telefonu i uwierzytelniania się w aplikacjach trzeba będzie używać kodu PIN, wzoru lub hasła."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Model twarzy zostanie trwale i bezpiecznie usunięty.
+
+Po usunięciu tych danych będziesz potrzebować kodu PIN, wzoru lub hasła do odblokowywania telefonu."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Usunąć model twarzy?</string>
     <string name="security_settings_face_settings_remove_face_model">Usuń model twarzy</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Model twarzy zostanie trwale i w bezpieczny sposób usunięty.
-
-Po usunięciu tych danych do odblokowywania telefonu i uwierzytelniania się w aplikacjach trzeba będzie używać odcisku palca, kodu PIN, wzoru lub hasła."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Usunąć model twarzy?</string>
     <string name="security_settings_face_settings_require_attention">Wymagaj otwartych oczu</string>
     <string name="security_settings_face_settings_require_attention_details">Aby odblokować telefon, musisz mieć otwarte oczy</string>
     <string name="security_settings_face_settings_require_confirmation">Zawsze wymagaj potwierdzenia</string>
@@ -4576,7 +4596,6 @@ Uwaga: nie możesz odblokowywać tego urządzenia odciskiem palca. Więcej infor
     <string name="select_webview_provider_dialog_title">Ustaw implementację WebView</string>
     <string name="select_webview_provider_title">Implementacja WebView</string>
     <string name="select_webview_provider_toast_text">Ta opcja nie jest już obsługiwana. Spróbuj ponownie.</string>
-    <string name="sensor_toggle_description">Dla wszystkich aplikacji i usług</string>
     <string name="sensors_off_quick_settings_title">Wyłącz czujniki</string>
     <string name="service_background_processes">%1$s wolne</string>
     <string name="service_foreground_processes">%1$s w użyciu</string>
@@ -4808,6 +4827,7 @@ Wpisany kod PIN może być błędny."</string>
     <string name="sound_settings_summary_silent">Dzwonek wyciszony</string>
     <string name="sound_settings_summary_vibrate">Dzwonek ustawiony na wibrowanie</string>
     <string name="sound_work_settings">Dźwięki w profilu służbowym</string>
+    <string name="spatial_audio_title">Dźwięk przestrzenny</string>
     <string name="special_access">Aplikacje ze specjalnym dostępem</string>
     <string name="special_access_more">Pokaż więcej</string>
     <string name="speed_label_fast">Szybka</string>
@@ -5619,7 +5639,7 @@ Podczas rozmowy głosowej nie możesz korzystać z internetu, a niektóre aplik
     <string name="vpn_turn_on">Włącz</string>
     <string name="vpn_type">Typ</string>
     <string name="vpn_username">Nazwa użytkownika</string>
-    <string name="vpn_version">Wersja %s</string>
+    <string name="vpn_version">Wersja</string>
     <string name="vr_listener_security_warning_summary">%1$s może działać, gdy korzystasz z aplikacji w trybie rzeczywistości wirtualnej.</string>
     <string name="vr_listener_security_warning_title">Zezwalasz usłudze %1$s na dostęp do usługi rzeczywistości wirtualnej?</string>
     <string name="vr_listeners_title">Usługi pomocnicze rzeczywistości wirtualnej</string>
@@ -5724,8 +5744,8 @@ Więcej informacji znajdziesz w polityce prywatności operatora"</string>
     <string name="wifi_cellular_data_fallback_title">Automatycznie przełączaj na mobilną transmisję danych</string>
     <string name="wifi_certificate">Certyfikat Wi‑Fi</string>
     <string name="wifi_check_password_try_again">Sprawdź hasło i spróbuj ponownie</string>
-    <string name="wifi_configure_settings_preference_summary_wakeup_off">Wi‑Fi nie włączy się automatycznie</string>
-    <string name="wifi_configure_settings_preference_summary_wakeup_on">Wi‑Fi włączy się automatycznie</string>
+    <string name="wifi_configure_settings_preference_summary_wakeup_off">Wi‑Fi nie włącza się automatycznie</string>
+    <string name="wifi_configure_settings_preference_summary_wakeup_on">Wi‑Fi włącza się automatycznie</string>
     <string name="wifi_configure_settings_preference_title">Ustawienia Wi‑Fi</string>
     <string name="wifi_connect">Połącz</string>
     <string name="wifi_connected_low_quality">Niska jakość</string>
@@ -5889,7 +5909,7 @@ Ustawienie sieci jako ukrytej nie zmienia ustawień routera."</string>
     <string name="wifi_not_in_range">Poza zasięgiem</string>
     <string name="wifi_not_in_range_message">Poza zasięgiem sieci</string>
     <string name="wifi_notify_open_networks">Powiadamiaj o sieciach publicznych</string>
-    <string name="wifi_notify_open_networks_summary">Gdy połączenie automatyczne jest niedostępne</string>
+    <string name="wifi_notify_open_networks_summary">Powiadamiaj o dostępnej publicznej sieci wysokiej jakości</string>
     <string name="wifi_on_time">Czas z włączonym Wi-Fi</string>
     <string name="wifi_p2p_cancel_connect_message">Czy chcesz anulować zaproszenie do połączenia z %1$s?</string>
     <string name="wifi_p2p_cancel_connect_title">Anulować zaproszenie?</string>
@@ -5977,7 +5997,6 @@ Zezwolić na to wszystkim aplikacjom, które chcą wykonywać skanowanie?"</stri
     <string name="wifi_suspend_optimizations">Optymalizacja Wi-Fi</string>
     <string name="wifi_suspend_optimizations_summary">Minimalizuj zużycie baterii po włączeniu Wi-Fi</string>
     <string name="wifi_switch_away_when_unvalidated">Przełącz na mobilną transmisję danych, jeśli sieć Wi-Fi utraci dostęp do internetu.</string>
-    <string name="wifi_switch_summary">Znajduj sieci Wi‑Fi i łącz się z nimi</string>
     <string name="wifi_tap_to_sign_in">Kliknij tutaj, by zalogować się w sieci</string>
     <string name="wifi_tether_configure_ap_text">Skonfiguruj hotspot Wi-Fi</string>
     <string name="wifi_tether_configure_ssid_default">Punkt dostępu Android</string>

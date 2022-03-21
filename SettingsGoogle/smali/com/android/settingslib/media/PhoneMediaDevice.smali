@@ -105,12 +105,12 @@
 
     :cond_0
     :pswitch_0
-    const-string p0, "usb_headset_media_device_id"
+    const-string/jumbo p0, "usb_headset_media_device_id"
 
     goto :goto_0
 
     :cond_1
-    const-string p0, "wired_headset_media_device_id"
+    const-string/jumbo p0, "wired_headset_media_device_id"
 
     :goto_0
     return-object p0

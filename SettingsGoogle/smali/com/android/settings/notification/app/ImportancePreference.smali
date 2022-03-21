@@ -147,7 +147,7 @@
 
     iput-object p1, p0, Lcom/android/settings/notification/app/ImportancePreference;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f02010d
+    const v0, 0x7f020113
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -157,7 +157,7 @@
 
     iget-object p1, p0, Lcom/android/settings/notification/app/ImportancePreference;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f02010e
+    const v0, 0x7f020114
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -165,7 +165,7 @@
 
     iput-object p1, p0, Lcom/android/settings/notification/app/ImportancePreference;->unselectedBackground:Landroid/graphics/drawable/Drawable;
 
-    const p1, 0x7f060161
+    const p1, 0x7f060165
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -305,7 +305,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setClickable(Z)V
 
-    const v0, 0x7f0d04f5
+    const v0, 0x7f0d0504
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -313,7 +313,7 @@
 
     iput-object v0, p0, Lcom/android/settings/notification/app/ImportancePreference;->mSilenceButton:Landroid/view/View;
 
-    const v0, 0x7f0d0073
+    const v0, 0x7f0d0075
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -467,19 +467,19 @@
 
     const/4 v1, 0x0
 
-    const v2, 0x7f0d04f8
+    const v2, 0x7f0d0507
 
-    const v3, 0x7f0d04f7
+    const v3, 0x7f0d0506
 
-    const v4, 0x7f0d04f6
+    const v4, 0x7f0d0505
 
-    const v5, 0x7f0d0076
+    const v5, 0x7f0d0078
 
-    const v6, 0x7f0d0075
+    const v6, 0x7f0d0077
 
     const/16 v7, 0x8
 
-    const v8, 0x7f0d0077
+    const v8, 0x7f0d0079
 
     if-lt p2, v0, :cond_1
 

@@ -104,7 +104,7 @@
     const/4 p3, 0x1
 
     :cond_1
-    const v0, 0x7f0d0162
+    const v0, 0x7f0d0166
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -124,7 +124,7 @@
 
     invoke-virtual {v0, p3}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    const p3, 0x7f0d0163
+    const p3, 0x7f0d0167
 
     invoke-virtual {p2, p3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

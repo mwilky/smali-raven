@@ -38,7 +38,7 @@
 
     new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
 
-    const v1, 0x7f1500bc
+    const v1, 0x7f1500c1
 
     invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
 
@@ -160,11 +160,11 @@
 
     invoke-direct {v1, p0}, Landroidx/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const p0, 0x7f040f77
+    const p0, 0x7f040fa3
 
     invoke-virtual {v1, p0}, Landroidx/preference/Preference;->setTitle(I)V
 
-    const p0, 0x7f02016a
+    const p0, 0x7f020171
 
     invoke-virtual {v1, p0}, Landroidx/preference/Preference;->setIcon(I)V
 
@@ -228,7 +228,7 @@
 .method public getHelpResource()I
     .locals 0
 
-    const p0, 0x7f0409f0
+    const p0, 0x7f040a08
 
     return p0
 .end method
@@ -290,7 +290,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f1500bc
+    const p2, 0x7f1500c1
 
     invoke-virtual {p0, p2}, Lcom/android/settings/SettingsPreferenceFragment;->addPreferencesFromResource(I)V
 
@@ -396,7 +396,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f0600d7
+    const v0, 0x7f0600da
 
     const/4 v1, 0x0
 
@@ -404,7 +404,7 @@
 
     move-result-object p2
 
-    const v0, 0x7f0d0358
+    const v0, 0x7f0d0366
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -412,7 +412,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v2, 0x7f040f7b
+    const v2, 0x7f040fa7
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -422,7 +422,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0d0060
+    const v0, 0x7f0d0061
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

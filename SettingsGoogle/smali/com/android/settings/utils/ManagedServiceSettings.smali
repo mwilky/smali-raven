@@ -111,7 +111,7 @@
 
     iget-object v0, p0, Lcom/android/settings/utils/ManagedServiceSettings;->mContext:Landroid/content/Context;
 
-    const-string v1, "user"
+    const-string/jumbo v1, "user"
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -283,7 +283,7 @@
 
     if-nez v2, :cond_1
 
-    const v2, 0x7f041780
+    const v2, 0x7f0417a5
 
     invoke-virtual {v7, v2}, Landroidx/preference/Preference;->setSummary(I)V
 

@@ -130,7 +130,7 @@
 .method private init(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 3
 
-    const v0, 0x7f0601b8
+    const v0, 0x7f0601bc
 
     invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setLayoutResource(I)V
 
@@ -148,7 +148,7 @@
 
     move-result-object v0
 
-    const/16 v1, 0x27
+    const/16 v1, 0x28
 
     const/4 v2, 0x4
 
@@ -329,7 +329,7 @@
     iput-object v0, p0, Lcom/android/settings/widget/SettingsMainSwitchPreference;->mEnforcedAdmin:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
     :cond_0
-    const v0, 0x7f0d033d
+    const v0, 0x7f0d034b
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 

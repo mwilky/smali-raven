@@ -8,7 +8,7 @@
 
 .field private static final FOOTER_HINT_KEY:Ljava/lang/String; = "power_menu_power_volume_up_hint"
 
-.field private static final KEY_CHORD_POWER_VOLUME_UP_DEFAULT_VALUE_RESOURCE:I = 0x10e006e
+.field private static final KEY_CHORD_POWER_VOLUME_UP_DEFAULT_VALUE_RESOURCE:I = 0x10e0071
 
 .field static final KEY_CHORD_POWER_VOLUME_UP_GLOBAL_ACTIONS:I = 0x2
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
@@ -60,7 +60,7 @@
 
     move-result-object p0
 
-    const v1, 0x10e006e
+    const v1, 0x10e0071
 
     invoke-virtual {p0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -107,7 +107,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040f10
+    const v1, 0x7f040f3c
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -119,7 +119,7 @@
 
     move-result-object v1
 
-    const v2, 0x1110175
+    const v2, 0x111017c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -139,7 +139,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f040f0f
+    const v2, 0x7f040f3b
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -198,7 +198,7 @@
 
     move-result-object p1
 
-    const v2, 0x10e0079
+    const v2, 0x10e007d
 
     invoke-virtual {p1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -262,7 +262,7 @@
 
     move-result-object p1
 
-    const v1, 0x10e006e
+    const v1, 0x10e0071
 
     invoke-virtual {p1, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -326,7 +326,7 @@
 
     move-result-object p0
 
-    const v0, 0x1110103
+    const v0, 0x1110106
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -374,6 +374,14 @@
     return-object p0
 .end method
 
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d11
+
+    return p0
+.end method
+
 .method public getSummary()Ljava/lang/CharSequence;
     .locals 2
 
@@ -389,7 +397,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040f13
+    const v0, 0x7f040f3f
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -404,7 +412,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040f12
+    const v0, 0x7f040f3e
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -415,7 +423,7 @@
     :cond_1
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040f11
+    const v0, 0x7f040f3d
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

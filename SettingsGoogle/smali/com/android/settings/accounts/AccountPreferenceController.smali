@@ -102,7 +102,7 @@
 
     iput v0, p0, Lcom/android/settings/accounts/AccountPreferenceController;->mAccountProfileOrder:I
 
-    const-string v0, "user"
+    const-string/jumbo v0, "user"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -406,7 +406,7 @@
 
     invoke-virtual {v5, v9, v11}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
-    const-string v9, "user_handle"
+    const-string/jumbo v9, "user_handle"
 
     invoke-virtual {v5, v9, v2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
@@ -547,7 +547,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const p2, 0x7f040c8b
+    const p2, 0x7f040ca3
 
     const/4 v0, 0x1
 
@@ -661,11 +661,11 @@
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
 
-    const v1, 0x7f0401be
+    const v1, 0x7f0401d2
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setTitle(I)V
 
-    const v1, 0x7f02016a
+    const v1, 0x7f020171
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setIcon(I)V
 
@@ -695,15 +695,15 @@
 
     invoke-direct {v0, v1}, Landroidx/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const-string v1, "work_profile_setting"
+    const-string/jumbo v1, "work_profile_setting"
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
 
-    const v1, 0x7f040c7e
+    const v1, 0x7f040c96
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setTitle(I)V
 
-    const v1, 0x7f020321
+    const v1, 0x7f020328
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setIcon(I)V
 
@@ -737,11 +737,11 @@
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setKey(Ljava/lang/String;)V
 
-    const v1, 0x7f040fff
+    const v1, 0x7f04102d
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setTitle(I)V
 
-    const v1, 0x7f0201ad
+    const v1, 0x7f0201b4
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setIcon(I)V
 
@@ -962,7 +962,7 @@
 
     iget-object v0, p0, Lcom/android/settings/accounts/AccountPreferenceController;->mProfileNotAvailablePreference:Landroidx/preference/Preference;
 
-    const v1, 0x7f020125
+    const v1, 0x7f02012b
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setIcon(I)V
 
@@ -974,7 +974,7 @@
 
     iget-object v0, p0, Lcom/android/settings/accounts/AccountPreferenceController;->mProfileNotAvailablePreference:Landroidx/preference/Preference;
 
-    const v1, 0x7f040c7d
+    const v1, 0x7f040c95
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -1093,7 +1093,7 @@
 
     invoke-virtual {v3, v4}, Landroidx/preference/Preference;->setOrder(I)V
 
-    const v4, 0x7f040175
+    const v4, 0x7f040189
 
     invoke-virtual {v3, v4}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -1105,7 +1105,7 @@
 
     if-eqz v4, :cond_3
 
-    const v4, 0x7f040174
+    const v4, 0x7f040188
 
     new-array v5, v5, [Ljava/lang/Object;
 
@@ -1144,7 +1144,7 @@
 
     if-ne v4, v6, :cond_4
 
-    const v4, 0x7f040581
+    const v4, 0x7f040599
 
     invoke-virtual {v3, v4}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -1156,7 +1156,7 @@
 
     iget-object v6, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v7, 0x7f0400bb
+    const v7, 0x7f0400c4
 
     new-array v5, v5, [Ljava/lang/Object;
 
@@ -1198,13 +1198,13 @@
 
     if-ne v1, v6, :cond_6
 
-    const v1, 0x7f040580
+    const v1, 0x7f040598
 
     invoke-virtual {v3, v1}, Landroidx/preference/Preference;->setTitle(I)V
 
     iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0400ba
+    const v4, 0x7f0400c3
 
     invoke-virtual {v1, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1737,7 +1737,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f040c7e
+    const v0, 0x7f040c96
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -1802,7 +1802,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040179
+    const v1, 0x7f04018d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1872,7 +1872,7 @@
 
     iput-object v4, v3, Landroid/provider/SearchIndexableData;->key:Ljava/lang/String;
 
-    const v4, 0x7f040fff
+    const v4, 0x7f04102d
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1891,11 +1891,11 @@
 
     invoke-direct {v3, v4}, Lcom/android/settingslib/search/SearchIndexableRaw;-><init>(Landroid/content/Context;)V
 
-    const-string v4, "work_profile_setting"
+    const-string/jumbo v4, "work_profile_setting"
 
     iput-object v4, v3, Landroid/provider/SearchIndexableData;->key:Ljava/lang/String;
 
-    const v4, 0x7f040c7e
+    const v4, 0x7f040c96
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

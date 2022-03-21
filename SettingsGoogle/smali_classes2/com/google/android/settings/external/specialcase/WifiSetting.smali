@@ -18,7 +18,7 @@
 .method private getIconResource()I
     .locals 0
 
-    const p0, 0x7f020356
+    const p0, 0x7f02035d
 
     return p0
 .end method
@@ -26,7 +26,7 @@
 .method private getScreenTitle(Landroid/content/Context;)Ljava/lang/String;
     .locals 0
 
-    const p0, 0x7f0416e4
+    const p0, 0x7f041709
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public getAccessCursor(Landroid/content/Context;Lcom/android/settings/slices/SliceData;)Landroid/database/Cursor;
-    .locals 4
+    .locals 7
 
     const-string p2, "wifi"
 
@@ -54,15 +54,21 @@
 
     const/4 v0, 0x0
 
-    const-class v1, Lcom/android/settings/wifi/WifiSettings;
+    const-class v4, Lcom/android/settings/wifi/WifiSettings;
 
     invoke-direct {p0, p1}, Lcom/google/android/settings/external/specialcase/WifiSetting;->getScreenTitle(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v5
+
+    const v6, 0x7f040d0a
 
     const-string v3, "master_wifi_toggle"
 
-    invoke-interface {p0, p1, v3, v1, v2}, Lcom/google/android/settings/external/Queryable;->getIntentString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;
+    move-object v1, p0
+
+    move-object v2, p1
+
+    invoke-interface/range {v1 .. v6}, Lcom/google/android/settings/external/Queryable;->getIntentString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object p1
 
@@ -118,7 +124,7 @@
 .end method
 
 .method public getUpdateCursor(Landroid/content/Context;Lcom/android/settings/slices/SliceData;I)Landroid/database/Cursor;
-    .locals 4
+    .locals 7
 
     const-string p2, "wifi"
 
@@ -132,15 +138,21 @@
 
     move-result v0
 
-    const-class v1, Lcom/android/settings/wifi/WifiSettings;
+    const-class v4, Lcom/android/settings/wifi/WifiSettings;
 
     invoke-direct {p0, p1}, Lcom/google/android/settings/external/specialcase/WifiSetting;->getScreenTitle(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v5
+
+    const v6, 0x7f040d0a
 
     const-string v3, "master_wifi_toggle"
 
-    invoke-interface {p0, p1, v3, v1, v2}, Lcom/google/android/settings/external/Queryable;->getIntentString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/String;
+    move-object v1, p0
+
+    move-object v2, p1
+
+    invoke-interface/range {v1 .. v6}, Lcom/google/android/settings/external/Queryable;->getIntentString(Landroid/content/Context;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object p1
 

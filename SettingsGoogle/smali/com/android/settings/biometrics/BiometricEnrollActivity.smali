@@ -152,7 +152,7 @@
 
     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :cond_0
     const/4 p1, 0x4
@@ -186,10 +186,6 @@
 
     if-nez p1, :cond_5
 
-    const-string p1, "Enrollment consent options set, starting enrollment"
-
-    invoke-static {v3, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
     iget-object p1, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mParentalConsentHelper:Lcom/android/settings/biometrics/ParentalConsentHelper;
 
     invoke-virtual {p1}, Lcom/android/settings/biometrics/ParentalConsentHelper;->getConsentResult()Landroid/os/Bundle;
@@ -202,7 +198,35 @@
 
     iput-object p1, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mParentalConsentHelper:Lcom/android/settings/biometrics/ParentalConsentHelper;
 
-    invoke-direct {p0}, Lcom/android/settings/biometrics/BiometricEnrollActivity;->startEnroll()V
+    new-instance p1, Ljava/lang/StringBuilder;
+
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string p2, "Enrollment consent options set, starting enrollment: "
+
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object p2, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mParentalOptions:Landroid/os/Bundle;
+
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {v3, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 p1, 0xfff
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+
+    move-result-object p2
+
+    invoke-static {p2}, Lcom/google/android/setupcompat/util/WizardManagerHelper;->isAnySetupWizard(Landroid/content/Intent;)Z
+
+    move-result p2
+
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/biometrics/BiometricEnrollActivity;->startEnrollWith(IZ)V
 
     goto :goto_1
 
@@ -655,7 +679,7 @@
 
     move-result-object v0
 
-    const-string v1, "skip_intro"
+    const-string/jumbo v1, "skip_intro"
 
     const/4 v2, 0x0
 
@@ -823,52 +847,6 @@
     return-void
 .end method
 
-.method private startEnroll()V
-    .locals 3
-
-    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
-
-    move-result-object v0
-
-    const-string v1, "android.provider.extra.BIOMETRIC_AUTHENTICATORS_ALLOWED"
-
-    const/16 v2, 0xff
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result v0
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "Authenticators: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string v2, "BiometricEnrollActivity"
-
-    invoke-static {v2, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/google/android/setupcompat/util/WizardManagerHelper;->isAnySetupWizard(Landroid/content/Intent;)Z
-
-    move-result v1
-
-    invoke-direct {p0, v0, v1}, Lcom/android/settings/biometrics/BiometricEnrollActivity;->startEnrollWith(IZ)V
-
-    return-void
-.end method
-
 .method private startEnrollWith(IZ)V
     .locals 6
     .param p1    # I
@@ -879,6 +857,10 @@
     const-string v0, "BiometricEnrollActivity"
 
     if-nez p2, :cond_0
+
+    iget-boolean v1, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mParentalOptionsRequired:Z
+
+    if-nez v1, :cond_0
 
     const-class v1, Landroid/hardware/biometrics/BiometricManager;
 
@@ -1140,22 +1122,148 @@
 .end method
 
 .method protected onActivityResult(IILandroid/content/Intent;)V
-    .locals 1
+    .locals 6
 
     invoke-super {p0, p1, p2, p3}, Landroidx/fragment/app/FragmentActivity;->onActivityResult(IILandroid/content/Intent;)V
 
     iget-object v0, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mParentalConsentHelper:Lcom/android/settings/biometrics/ParentalConsentHelper;
 
+    if-eqz v0, :cond_4
+
+    const/16 v0, 0x8
+
+    invoke-static {p0, v0}, Lcom/android/settings/biometrics/ParentalControlsUtils;->parentConsentRequired(Landroid/content/Context;I)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
     if-eqz v0, :cond_0
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/biometrics/BiometricEnrollActivity;->handleOnActivityResultWhileConsenting(IILandroid/content/Intent;)V
+    move v0, v1
 
     goto :goto_0
 
     :cond_0
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/biometrics/BiometricEnrollActivity;->handleOnActivityResultWhileEnrolling(IILandroid/content/Intent;)V
+    move v0, v2
 
     :goto_0
+    const/4 v3, 0x2
+
+    invoke-static {p0, v3}, Lcom/android/settings/biometrics/ParentalControlsUtils;->parentConsentRequired(Landroid/content/Context;I)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_1
+
+    move v3, v1
+
+    goto :goto_1
+
+    :cond_1
+    move v3, v2
+
+    :goto_1
+    if-eqz v0, :cond_2
+
+    iget-boolean v4, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mHasFeatureFace:Z
+
+    if-eqz v4, :cond_2
+
+    iget-boolean v4, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mIsFaceEnrollable:Z
+
+    if-eqz v4, :cond_2
+
+    move v4, v1
+
+    goto :goto_2
+
+    :cond_2
+    move v4, v2
+
+    :goto_2
+    if-eqz v3, :cond_3
+
+    iget-boolean v5, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mHasFeatureFingerprint:Z
+
+    if-eqz v5, :cond_3
+
+    goto :goto_3
+
+    :cond_3
+    move v1, v2
+
+    :goto_3
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "faceConsentRequired: "
+
+    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    const-string v0, ", fpConsentRequired: "
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    const-string v0, ", hasFeatureFace: "
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-boolean v0, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mHasFeatureFace:Z
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    const-string v0, ", hasFeatureFingerprint: "
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-boolean v0, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mHasFeatureFingerprint:Z
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    const-string v0, ", faceEnrollable: "
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-boolean v0, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mIsFaceEnrollable:Z
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    const-string v0, ", fpEnrollable: "
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-boolean v0, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mIsFingerprintEnrollable:Z
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v2, "BiometricEnrollActivity"
+
+    invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mParentalConsentHelper:Lcom/android/settings/biometrics/ParentalConsentHelper;
+
+    invoke-virtual {v0, v4, v1}, Lcom/android/settings/biometrics/ParentalConsentHelper;->setConsentRequirement(ZZ)V
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/biometrics/BiometricEnrollActivity;->handleOnActivityResultWhileConsenting(IILandroid/content/Intent;)V
+
+    goto :goto_4
+
+    :cond_4
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/settings/biometrics/BiometricEnrollActivity;->handleOnActivityResultWhileEnrolling(IILandroid/content/Intent;)V
+
+    :goto_4
     return-void
 .end method
 
@@ -1170,7 +1278,7 @@
 
     move-result p2
 
-    const v0, 0x7f1301cd
+    const v0, 0x7f1301cb
 
     const/4 v1, 0x1
 
@@ -1182,7 +1290,7 @@
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 11
+    .locals 13
 
     invoke-super {p0, p1}, Lcom/android/settings/core/InstrumentedActivity;->onCreate(Landroid/os/Bundle;)V
 
@@ -1280,7 +1388,11 @@
     :cond_1
     iget-boolean p1, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mIsEnrollActionLogged:Z
 
-    const/4 v2, 0x1
+    const/16 v2, 0xff
+
+    const-string v3, "android.provider.extra.BIOMETRIC_AUTHENTICATORS_ALLOWED"
+
+    const/4 v4, 0x1
 
     if-nez p1, :cond_6
 
@@ -1288,15 +1400,15 @@
 
     move-result-object p1
 
-    const-string v3, "android.settings.BIOMETRIC_ENROLL"
+    const-string v5, "android.settings.BIOMETRIC_ENROLL"
 
-    invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p1
 
     if-eqz p1, :cond_6
 
-    iput-boolean v2, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mIsEnrollActionLogged:Z
+    iput-boolean v4, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mIsEnrollActionLogged:Z
 
     const-class p1, Landroid/hardware/biometrics/BiometricManager;
 
@@ -1306,94 +1418,90 @@
 
     check-cast p1, Landroid/hardware/biometrics/BiometricManager;
 
-    const/16 v3, 0xc
+    const/16 v5, 0xc
 
     if-eqz p1, :cond_2
 
-    const/16 v3, 0xf
-
-    invoke-virtual {p1, v3}, Landroid/hardware/biometrics/BiometricManager;->canAuthenticate(I)I
-
-    move-result v3
-
-    const/16 v4, 0xff
-
-    invoke-virtual {p1, v4}, Landroid/hardware/biometrics/BiometricManager;->canAuthenticate(I)I
-
-    move-result v4
-
-    const v5, 0x8000
+    const/16 v5, 0xf
 
     invoke-virtual {p1, v5}, Landroid/hardware/biometrics/BiometricManager;->canAuthenticate(I)I
+
+    move-result v5
+
+    invoke-virtual {p1, v2}, Landroid/hardware/biometrics/BiometricManager;->canAuthenticate(I)I
+
+    move-result v6
+
+    const v7, 0x8000
+
+    invoke-virtual {p1, v7}, Landroid/hardware/biometrics/BiometricManager;->canAuthenticate(I)I
 
     move-result p1
 
     goto :goto_0
 
     :cond_2
-    move p1, v3
+    move p1, v5
 
-    move v4, p1
+    move v6, p1
 
     :goto_0
-    const/16 v5, 0x163
+    const/16 v7, 0x163
 
-    if-nez v3, :cond_3
+    if-nez v5, :cond_3
 
-    move v6, v2
+    move v8, v4
 
     goto :goto_1
 
     :cond_3
-    move v6, v1
+    move v8, v1
 
     :goto_1
-    if-nez v4, :cond_4
+    if-nez v6, :cond_4
 
-    move v7, v2
+    move v9, v4
 
     goto :goto_2
 
     :cond_4
-    move v7, v1
+    move v9, v1
 
     :goto_2
     if-nez p1, :cond_5
 
-    move v8, v2
+    move v10, v4
 
     goto :goto_3
 
     :cond_5
-    move v8, v1
+    move v10, v1
 
     :goto_3
-    const-string p1, "android.provider.extra.BIOMETRIC_AUTHENTICATORS_ALLOWED"
+    invoke-virtual {v0, v3}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
 
-    invoke-virtual {v0, p1}, Landroid/content/Intent;->hasExtra(Ljava/lang/String;)Z
+    move-result v11
 
-    move-result v9
+    invoke-virtual {v0, v3, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    invoke-virtual {v0, p1, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    move-result v12
 
-    move-result v10
-
-    invoke-static/range {v5 .. v10}, Lcom/android/internal/util/FrameworkStatsLog;->write(IZZZZI)V
+    invoke-static/range {v7 .. v12}, Lcom/android/internal/util/FrameworkStatsLog;->write(IZZZZI)V
 
     :cond_6
-    const-string p1, "theme"
+    const-string/jumbo p1, "theme"
 
     invoke-virtual {v0, p1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v5
 
-    if-nez v3, :cond_7
+    if-nez v5, :cond_7
 
     invoke-static {v0}, Lcom/android/settings/SetupWizardUtils;->getThemeString(Landroid/content/Intent;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {v0, p1, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v0, p1, v5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     :cond_7
     invoke-virtual {p0}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
@@ -1404,17 +1512,17 @@
 
     move-result-object p1
 
-    const-string v3, "android.hardware.fingerprint"
+    const-string v5, "android.hardware.fingerprint"
 
-    invoke-virtual {p1, v3}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
+    invoke-virtual {p1, v5}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v5
 
-    iput-boolean v3, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mHasFeatureFingerprint:Z
+    iput-boolean v5, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mHasFeatureFingerprint:Z
 
-    const-string v3, "android.hardware.biometrics.face"
+    const-string v5, "android.hardware.biometrics.face"
 
-    invoke-virtual {p1, v3}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
+    invoke-virtual {p1, v5}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
 
     move-result p1
 
@@ -1424,259 +1532,367 @@
 
     move-result-object p1
 
-    invoke-static {p1}, Lcom/google/android/setupcompat/util/WizardManagerHelper;->isAnySetupWizard(Landroid/content/Intent;)Z
+    invoke-virtual {p1, v3, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result p1
 
-    iget-boolean v3, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mHasFeatureFace:Z
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    if-eqz v3, :cond_a
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-class v3, Landroid/hardware/face/FaceManager;
+    const-string v3, "Authenticators: "
 
-    invoke-virtual {p0, v3}, Landroid/app/Activity;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    check-cast v3, Landroid/hardware/face/FaceManager;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v3}, Landroid/hardware/face/FaceManager;->getSensorPropertiesInternal()Ljava/util/List;
+    move-result-object v2
 
-    move-result-object v4
+    const-string v3, "BiometricEnrollActivity"
 
-    invoke-interface {v4}, Ljava/util/List;->isEmpty()Z
+    invoke-static {v3, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v5
+    const-string v2, "require_consent"
 
-    if-nez v5, :cond_a
+    invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    if-eqz p1, :cond_8
+    move-result v2
 
-    move v4, v2
+    iput-boolean v2, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mParentalOptionsRequired:Z
 
-    goto :goto_4
+    const-string/jumbo v2, "skip_return_to_parent"
 
-    :cond_8
-    invoke-interface {v4, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/hardware/face/FaceSensorPropertiesInternal;
-
-    iget v4, v4, Landroid/hardware/face/FaceSensorPropertiesInternal;->maxEnrollmentsPerUser:I
-
-    :goto_4
-    iget v5, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mUserId:I
-
-    invoke-virtual {v3, v5}, Landroid/hardware/face/FaceManager;->getEnrolledFaces(I)Ljava/util/List;
-
-    move-result-object v3
-
-    invoke-interface {v3}, Ljava/util/List;->size()I
-
-    move-result v3
-
-    if-ge v3, v4, :cond_9
-
-    move v3, v2
-
-    goto :goto_5
-
-    :cond_9
-    move v3, v1
-
-    :goto_5
-    iput-boolean v3, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mIsFaceEnrollable:Z
-
-    :cond_a
-    iget-boolean v3, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mHasFeatureFingerprint:Z
-
-    if-eqz v3, :cond_d
-
-    const-class v3, Landroid/hardware/fingerprint/FingerprintManager;
-
-    invoke-virtual {p0, v3}, Landroid/app/Activity;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/hardware/fingerprint/FingerprintManager;
-
-    invoke-virtual {v3}, Landroid/hardware/fingerprint/FingerprintManager;->getSensorPropertiesInternal()Ljava/util/List;
-
-    move-result-object v4
-
-    invoke-interface {v4}, Ljava/util/List;->isEmpty()Z
-
-    move-result v5
-
-    if-nez v5, :cond_d
-
-    if-eqz p1, :cond_b
-
-    move v4, v2
-
-    goto :goto_6
-
-    :cond_b
-    invoke-interface {v4, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
-
-    iget v4, v4, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->maxEnrollmentsPerUser:I
-
-    :goto_6
-    iget v5, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mUserId:I
-
-    invoke-virtual {v3, v5}, Landroid/hardware/fingerprint/FingerprintManager;->getEnrolledFingerprints(I)Ljava/util/List;
-
-    move-result-object v3
-
-    invoke-interface {v3}, Ljava/util/List;->size()I
-
-    move-result v3
-
-    if-ge v3, v4, :cond_c
-
-    move v3, v2
-
-    goto :goto_7
-
-    :cond_c
-    move v3, v1
-
-    :goto_7
-    iput-boolean v3, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mIsFingerprintEnrollable:Z
-
-    :cond_d
-    const-string v3, "require_consent"
-
-    invoke-virtual {v0, v3, v1}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
-
-    move-result v3
-
-    iput-boolean v3, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mParentalOptionsRequired:Z
-
-    const-string v3, "skip_return_to_parent"
-
-    invoke-virtual {v0, v3, v1}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
     move-result v0
 
     iput-boolean v0, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mSkipReturnToParent:Z
 
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "parentalOptionsRequired: "
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-boolean v3, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mParentalOptionsRequired:Z
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    const-string v3, ", skipReturnToParent: "
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-boolean v3, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mSkipReturnToParent:Z
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    const-string v3, ", isSetupWizard: "
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
-    const-string v3, "BiometricEnrollActivity"
+    invoke-static {v0}, Lcom/google/android/setupcompat/util/WizardManagerHelper;->isAnySetupWizard(Landroid/content/Intent;)Z
 
-    invoke-static {v3, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result v0
 
-    const/4 v0, 0x2
+    iget-boolean v2, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mHasFeatureFace:Z
 
-    if-eqz p1, :cond_e
+    if-eqz v2, :cond_8
 
-    iget-boolean v4, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mParentalOptionsRequired:Z
+    iget-boolean v2, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mHasFeatureFingerprint:Z
 
-    if-eqz v4, :cond_e
+    if-eqz v2, :cond_8
+
+    move v2, v4
+
+    goto :goto_4
+
+    :cond_8
+    move v2, v1
+
+    :goto_4
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "parentalOptionsRequired: "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-boolean v6, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mParentalOptionsRequired:Z
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    const-string v6, ", skipReturnToParent: "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-boolean v6, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mSkipReturnToParent:Z
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    const-string v6, ", isSetupWizard: "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    const-string v6, ", isMultiSensor: "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v3, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-boolean v5, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mHasFeatureFace:Z
+
+    if-eqz v5, :cond_d
+
+    const-class v5, Landroid/hardware/face/FaceManager;
+
+    invoke-virtual {p0, v5}, Landroid/app/Activity;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/hardware/face/FaceManager;
+
+    invoke-virtual {v5}, Landroid/hardware/face/FaceManager;->getSensorPropertiesInternal()Ljava/util/List;
+
+    move-result-object v6
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v7
+
+    const v8, 0x7f0e0031
+
+    invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v7
+
+    invoke-interface {v6}, Ljava/util/List;->isEmpty()Z
+
+    move-result v8
+
+    if-nez v8, :cond_d
+
+    invoke-interface {v6, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/hardware/face/FaceSensorPropertiesInternal;
+
+    if-eqz v0, :cond_9
+
+    goto :goto_5
+
+    :cond_9
+    iget v7, v6, Landroid/hardware/face/FaceSensorPropertiesInternal;->maxEnrollmentsPerUser:I
+
+    :goto_5
+    iget v8, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mUserId:I
+
+    invoke-virtual {v5, v8}, Landroid/hardware/face/FaceManager;->getEnrolledFaces(I)Ljava/util/List;
+
+    move-result-object v5
+
+    invoke-interface {v5}, Ljava/util/List;->size()I
+
+    move-result v5
+
+    if-ge v5, v7, :cond_a
+
+    move v5, v4
+
+    goto :goto_6
+
+    :cond_a
+    move v5, v1
+
+    :goto_6
+    iput-boolean v5, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mIsFaceEnrollable:Z
+
+    if-nez v0, :cond_c
+
+    iget-boolean v5, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mParentalOptionsRequired:Z
+
+    if-eqz v5, :cond_b
+
+    invoke-static {p0}, Lcom/google/android/setupcompat/util/WizardManagerHelper;->isUserSetupComplete(Landroid/content/Context;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_b
+
+    goto :goto_7
+
+    :cond_b
+    move v5, v1
+
+    goto :goto_8
+
+    :cond_c
+    :goto_7
+    move v5, v4
+
+    :goto_8
+    if-eqz v5, :cond_d
+
+    if-eqz v2, :cond_d
+
+    iget-boolean v2, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mIsFaceEnrollable:Z
+
+    if-eqz v2, :cond_d
+
+    iget v2, v6, Landroid/hardware/face/FaceSensorPropertiesInternal;->sensorStrength:I
+
+    if-nez v2, :cond_d
+
+    const-string v2, "Excluding face from SuW enrollment (STRENGTH_CONVENIENCE)"
+
+    invoke-static {v3, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iput-boolean v1, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mIsFaceEnrollable:Z
+
+    :cond_d
+    iget-boolean v2, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mHasFeatureFingerprint:Z
+
+    if-eqz v2, :cond_10
+
+    const-class v2, Landroid/hardware/fingerprint/FingerprintManager;
+
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/hardware/fingerprint/FingerprintManager;
+
+    invoke-virtual {v2}, Landroid/hardware/fingerprint/FingerprintManager;->getSensorPropertiesInternal()Ljava/util/List;
+
+    move-result-object v5
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v6
+
+    const v7, 0x7f0e0032
+
+    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v6
+
+    invoke-interface {v5}, Ljava/util/List;->isEmpty()Z
+
+    move-result v7
+
+    if-nez v7, :cond_10
+
+    if-eqz v0, :cond_e
+
+    goto :goto_9
+
+    :cond_e
+    invoke-interface {v5, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
+
+    iget v6, v5, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->maxEnrollmentsPerUser:I
+
+    :goto_9
+    iget v5, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mUserId:I
+
+    invoke-virtual {v2, v5}, Landroid/hardware/fingerprint/FingerprintManager;->getEnrolledFingerprints(I)Ljava/util/List;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Ljava/util/List;->size()I
+
+    move-result v2
+
+    if-ge v2, v6, :cond_f
+
+    move v2, v4
+
+    goto :goto_a
+
+    :cond_f
+    move v2, v1
+
+    :goto_a
+    iput-boolean v2, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mIsFingerprintEnrollable:Z
+
+    :cond_10
+    const/4 v2, 0x2
+
+    if-eqz v0, :cond_11
+
+    iget-boolean v5, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mParentalOptionsRequired:Z
+
+    if-eqz v5, :cond_11
 
     const-string p1, "Enrollment with parental consent is not supported when launched  directly from SuW - skipping enrollment"
 
     invoke-static {v3, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {p0, v0}, Landroid/app/Activity;->setResult(I)V
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->setResult(I)V
 
     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     return-void
 
-    :cond_e
-    if-eqz p1, :cond_10
+    :cond_11
+    if-eqz v0, :cond_13
 
-    iget-boolean p1, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mParentalOptionsRequired:Z
+    iget-boolean v5, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mParentalOptionsRequired:Z
 
-    if-eqz p1, :cond_10
+    if-eqz v5, :cond_13
 
-    const/16 p1, 0xa
+    const/16 v5, 0xa
 
-    invoke-static {p0, p1}, Lcom/android/settings/biometrics/ParentalControlsUtils;->parentConsentRequired(Landroid/content/Context;I)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
+    invoke-static {p0, v5}, Lcom/android/settings/biometrics/ParentalControlsUtils;->parentConsentRequired(Landroid/content/Context;I)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
-    move-result-object p1
+    move-result-object v5
 
-    if-eqz p1, :cond_f
+    if-eqz v5, :cond_12
 
-    move v1, v2
+    move v1, v4
 
-    :cond_f
-    if-eqz v1, :cond_10
+    :cond_12
+    if-eqz v1, :cond_13
 
     const-string p1, "Consent was already setup - skipping enrollment"
 
     invoke-static {v3, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {p0, v0}, Landroid/app/Activity;->setResult(I)V
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->setResult(I)V
 
     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     return-void
 
-    :cond_10
-    iget-boolean p1, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mParentalOptionsRequired:Z
+    :cond_13
+    iget-boolean v1, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mParentalOptionsRequired:Z
 
-    if-eqz p1, :cond_11
+    if-eqz v1, :cond_14
 
-    iget-object p1, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mParentalOptions:Landroid/os/Bundle;
+    iget-object v1, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mParentalOptions:Landroid/os/Bundle;
 
-    if-nez p1, :cond_11
+    if-nez v1, :cond_14
 
     new-instance p1, Lcom/android/settings/biometrics/ParentalConsentHelper;
 
-    iget-boolean v0, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mIsFaceEnrollable:Z
+    iget-object v0, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mGkPwHandle:Ljava/lang/Long;
 
-    iget-boolean v1, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mIsFingerprintEnrollable:Z
-
-    iget-object v2, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mGkPwHandle:Ljava/lang/Long;
-
-    invoke-direct {p1, v0, v1, v2}, Lcom/android/settings/biometrics/ParentalConsentHelper;-><init>(ZZLjava/lang/Long;)V
+    invoke-direct {p1, v0}, Lcom/android/settings/biometrics/ParentalConsentHelper;-><init>(Ljava/lang/Long;)V
 
     iput-object p1, p0, Lcom/android/settings/biometrics/BiometricEnrollActivity;->mParentalConsentHelper:Lcom/android/settings/biometrics/ParentalConsentHelper;
 
     invoke-direct {p0}, Lcom/android/settings/biometrics/BiometricEnrollActivity;->setOrConfirmCredentialsNow()V
 
-    goto :goto_8
+    goto :goto_b
 
-    :cond_11
-    invoke-direct {p0}, Lcom/android/settings/biometrics/BiometricEnrollActivity;->startEnroll()V
+    :cond_14
+    invoke-direct {p0, p1, v0}, Lcom/android/settings/biometrics/BiometricEnrollActivity;->startEnrollWith(IZ)V
 
-    :goto_8
+    :goto_b
     return-void
 .end method
 

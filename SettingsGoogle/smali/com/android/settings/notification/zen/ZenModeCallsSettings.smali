@@ -58,7 +58,7 @@
 
     new-instance v1, Lcom/android/settings/notification/zen/ZenModePrioritySendersPreferenceController;
 
-    const-string v2, "zen_mode_settings_category_calls"
+    const-string/jumbo v2, "zen_mode_settings_category_calls"
 
     const/4 v3, 0x0
 
@@ -68,7 +68,7 @@
 
     new-instance v1, Lcom/android/settings/notification/zen/ZenModeSendersImagePreferenceController;
 
-    const-string v2, "zen_mode_calls_image"
+    const-string/jumbo v2, "zen_mode_calls_image"
 
     invoke-direct {v1, p0, v2, p1, v3}, Lcom/android/settings/notification/zen/ZenModeSendersImagePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;Lcom/android/settingslib/core/lifecycle/Lifecycle;Z)V
 
@@ -80,7 +80,7 @@
 
     move-result-object v2
 
-    const v3, 0x10e00e4
+    const v3, 0x10e00e8
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -92,7 +92,7 @@
 
     new-instance v1, Lcom/android/settings/notification/zen/ZenModeBehaviorFooterPreferenceController;
 
-    const v2, 0x7f0417e5
+    const v2, 0x7f04180a
 
     invoke-direct {v1, p0, p1, v2}, Lcom/android/settings/notification/zen/ZenModeBehaviorFooterPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;I)V
 
@@ -138,7 +138,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15011d
+    const p0, 0x7f150122
 
     return p0
 .end method

@@ -39,7 +39,7 @@
 
     move-result-object v3
 
-    const-string v4, "zen_effect_intent"
+    const-string/jumbo v4, "zen_effect_intent"
 
     const/4 v5, 0x0
 
@@ -63,7 +63,7 @@
 
     move-result-object v3
 
-    const-string v4, "zen_effect_light"
+    const-string/jumbo v4, "zen_effect_light"
 
     const/4 v5, 0x1
 
@@ -83,7 +83,7 @@
 
     move-result-object v3
 
-    const-string v4, "zen_effect_peek"
+    const-string/jumbo v4, "zen_effect_peek"
 
     const/4 v5, 0x2
 
@@ -113,7 +113,7 @@
 
     aput v2, v7, v1
 
-    const-string v4, "zen_effect_status"
+    const-string/jumbo v4, "zen_effect_status"
 
     const/4 v5, 0x3
 
@@ -135,7 +135,7 @@
 
     move-result-object v3
 
-    const-string v4, "zen_effect_badge"
+    const-string/jumbo v4, "zen_effect_badge"
 
     const/4 v5, 0x4
 
@@ -157,7 +157,7 @@
 
     move-result-object v3
 
-    const-string v4, "zen_effect_ambient"
+    const-string/jumbo v4, "zen_effect_ambient"
 
     const/4 v5, 0x5
 
@@ -177,7 +177,7 @@
 
     move-result-object v3
 
-    const-string v4, "zen_effect_list"
+    const-string/jumbo v4, "zen_effect_list"
 
     const/4 v5, 0x6
 
@@ -223,7 +223,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f15011b
+    const p0, 0x7f150120
 
     return p0
 .end method

@@ -391,7 +391,7 @@
     invoke-virtual {p1, p2}, Landroidx/slice/Slice$Builder;->addHints([Ljava/lang/String;)Landroidx/slice/Slice$Builder;
 
     :cond_0
-    const-string p2, "title"
+    const-string/jumbo p2, "title"
 
     filled-new-array {p2}, [Ljava/lang/String;
 

@@ -8,7 +8,7 @@
 
 .field private mPreference:Landroidx/preference/Preference;
 
-.field private final mRecentLocationAccesses:Lcom/android/settingslib/location/RecentLocationAccesses;
+.field private final mRecentLocationAccesses:Lcom/android/settingslib/applications/RecentAppOpsAccess;
 
 .field private mShowSystem:Z
 
@@ -29,11 +29,11 @@
 
     iput p2, p0, Lcom/android/settings/location/RecentLocationAccessSeeAllPreferenceController;->mType:I
 
-    new-instance p2, Lcom/android/settingslib/location/RecentLocationAccesses;
+    invoke-static {p1}, Lcom/android/settingslib/applications/RecentAppOpsAccess;->createForLocation(Landroid/content/Context;)Lcom/android/settingslib/applications/RecentAppOpsAccess;
 
-    invoke-direct {p2, p1}, Lcom/android/settingslib/location/RecentLocationAccesses;-><init>(Landroid/content/Context;)V
+    move-result-object p1
 
-    iput-object p2, p0, Lcom/android/settings/location/RecentLocationAccessSeeAllPreferenceController;->mRecentLocationAccesses:Lcom/android/settingslib/location/RecentLocationAccesses;
+    iput-object p1, p0, Lcom/android/settings/location/RecentLocationAccessSeeAllPreferenceController;->mRecentLocationAccesses:Lcom/android/settingslib/applications/RecentAppOpsAccess;
 
     return-void
 .end method
@@ -95,6 +95,16 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public bridge synthetic hasAsyncUpdate()Z
@@ -195,11 +205,11 @@
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    iget-object v2, p0, Lcom/android/settings/location/RecentLocationAccessSeeAllPreferenceController;->mRecentLocationAccesses:Lcom/android/settingslib/location/RecentLocationAccesses;
+    iget-object v2, p0, Lcom/android/settings/location/RecentLocationAccessSeeAllPreferenceController;->mRecentLocationAccesses:Lcom/android/settingslib/applications/RecentAppOpsAccess;
 
     iget-boolean v3, p0, Lcom/android/settings/location/RecentLocationAccessSeeAllPreferenceController;->mShowSystem:Z
 
-    invoke-virtual {v2, v3}, Lcom/android/settingslib/location/RecentLocationAccesses;->getAppListSorted(Z)Ljava/util/List;
+    invoke-virtual {v2, v3}, Lcom/android/settingslib/applications/RecentAppOpsAccess;->getAppListSorted(Z)Ljava/util/List;
 
     move-result-object v2
 
@@ -219,11 +229,11 @@
 
     move-result-object v3
 
-    check-cast v3, Lcom/android/settingslib/location/RecentLocationAccesses$Access;
+    check-cast v3, Lcom/android/settingslib/applications/RecentAppOpsAccess$Access;
 
     iget v4, p0, Lcom/android/settings/location/RecentLocationAccessSeeAllPreferenceController;->mType:I
 
-    invoke-static {v0, v3, v4}, Lcom/android/settings/location/RecentLocationAccessPreferenceController;->isRequestMatchesProfileType(Landroid/os/UserManager;Lcom/android/settingslib/location/RecentLocationAccesses$Access;I)Z
+    invoke-static {v0, v3, v4}, Lcom/android/settings/location/RecentLocationAccessPreferenceController;->isRequestMatchesProfileType(Landroid/os/UserManager;Lcom/android/settingslib/applications/RecentAppOpsAccess$Access;I)Z
 
     move-result v4
 
@@ -246,7 +256,7 @@
 
     invoke-direct {p1, v0}, Lcom/android/settingslib/widget/AppPreference;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f040b76
+    const v0, 0x7f040b8e
 
     invoke-virtual {p1, v0}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -276,7 +286,7 @@
 
     move-result-object v1
 
-    check-cast v1, Lcom/android/settingslib/location/RecentLocationAccesses$Access;
+    check-cast v1, Lcom/android/settingslib/applications/RecentAppOpsAccess$Access;
 
     invoke-virtual {p1}, Landroidx/preference/Preference;->getContext()Landroid/content/Context;
 
@@ -284,7 +294,7 @@
 
     iget-object v3, p0, Lcom/android/settings/location/LocationBasePreferenceController;->mFragment:Lcom/android/settings/dashboard/DashboardFragment;
 
-    invoke-static {v2, v1, v3}, Lcom/android/settings/location/RecentLocationAccessPreferenceController;->createAppPreference(Landroid/content/Context;Lcom/android/settingslib/location/RecentLocationAccesses$Access;Lcom/android/settings/dashboard/DashboardFragment;)Lcom/android/settingslib/widget/AppPreference;
+    invoke-static {v2, v1, v3}, Lcom/android/settings/location/RecentLocationAccessPreferenceController;->createAppPreference(Landroid/content/Context;Lcom/android/settingslib/applications/RecentAppOpsAccess$Access;Lcom/android/settings/dashboard/DashboardFragment;)Lcom/android/settingslib/widget/AppPreference;
 
     move-result-object v1
 

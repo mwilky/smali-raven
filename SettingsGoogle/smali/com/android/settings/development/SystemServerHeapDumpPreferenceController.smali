@@ -64,7 +64,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "system_server_heap_dump"
+    const-string/jumbo p0, "system_server_heap_dump"
 
     return-object p0
 .end method
@@ -76,7 +76,7 @@
 
     move-result-object v0
 
-    const-string v1, "system_server_heap_dump"
+    const-string/jumbo v1, "system_server_heap_dump"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -94,7 +94,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f040568
+    const v2, 0x7f040580
 
     invoke-static {v0, v2, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -135,7 +135,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const p1, 0x7f0408cf
+    const p1, 0x7f0408e7
 
     invoke-static {p0, p1, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

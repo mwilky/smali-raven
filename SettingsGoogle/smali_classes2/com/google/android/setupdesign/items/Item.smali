@@ -4,6 +4,8 @@
 
 
 # instance fields
+.field private contentDescription:Ljava/lang/CharSequence;
+
 .field private enabled:Z
 
 .field private icon:Landroid/graphics/drawable/Drawable;
@@ -107,6 +109,14 @@
 
     iput-object p2, p0, Lcom/google/android/setupdesign/items/Item;->summary:Ljava/lang/CharSequence;
 
+    sget p2, Lcom/google/android/setupdesign/R$styleable;->SudItem_android_contentDescription:I
+
+    invoke-virtual {p1, p2}, Landroid/content/res/TypedArray;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object p2
+
+    iput-object p2, p0, Lcom/google/android/setupdesign/items/Item;->contentDescription:Ljava/lang/CharSequence;
+
     sget p2, Lcom/google/android/setupdesign/R$styleable;->SudItem_android_layout:I
 
     invoke-virtual {p0}, Lcom/google/android/setupdesign/items/Item;->getDefaultLayoutResource()I
@@ -150,6 +160,14 @@
 
 
 # virtual methods
+.method public getContentDescription()Ljava/lang/CharSequence;
+    .locals 0
+
+    iget-object p0, p0, Lcom/google/android/setupdesign/items/Item;->contentDescription:Ljava/lang/CharSequence;
+
+    return-object p0
+.end method
+
 .method public getCount()I
     .locals 0
 
@@ -277,6 +295,12 @@
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
     :goto_0
+    invoke-virtual {p0}, Lcom/google/android/setupdesign/items/Item;->getContentDescription()Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
+
     sget v0, Lcom/google/android/setupdesign/R$id;->sud_items_icon_container:I
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;

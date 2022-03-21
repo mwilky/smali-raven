@@ -4,6 +4,6 @@
 
 
 # static fields
-.field public static final config_hspa_data_distinguishable:I = 0x7f090016
+.field public static final config_hspa_data_distinguishable:I = 0x7f090017
 
-.field public static final config_showMin3G:I = 0x7f09001f
+.field public static final config_showMin3G:I = 0x7f090020

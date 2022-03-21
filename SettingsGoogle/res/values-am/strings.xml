@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">ለስላሳ ማሳያ</string>
     <string name="peak_refresh_rate_summary">ለአንዳንድ ይዘት የማደሻ ፍጥነቱን በራስ-ሰር ከ60 ወደ 90 ኸርዝ ያሳድገዋል። የባትሪ ፍጆታን ይጨምራል።</string>
     <string name="accessibility_vibration_settings_title">ንዝረት እና ረቂቅ ንዝረት</string>
+    <string name="columbus_title">እርምጃዎችን ለመጀመር ፈጣን መታ ያድርጉ</string>
     <string name="emergency_gesture_screen_title">የነፍስ አድን ድንገተኛ ጥሪ</string>
     <string name="abc_action_mode_done">ተከናውኗል</string>
     <string name="vibrate_for_calls_category_title">ጥሪዎች</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">የመሣሪያ መቆጣጠሪያዎችን አሳይ</string>
     <string name="lockscreen_privacy_wallet_summary">ከማያ ገጽ ቁልፍ እና ፈጣን ቅንብሮች ሆነው የኪስ ቦርሳ መድረሻን ይፍቀዱ</string>
     <string name="lockscreen_privacy_controls_summary">ሲቆለፍ መቆጣጠሪያዎችን ይድረሱ</string>
+    <string name="lockscreen_double_line_clock_summary">የሚገኝ ሲሆን ባለ ሁለት-መስመር ሰዓት አሳይ</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">ባለ ሁለት-መስመር ሰዓት</string>
     <string name="abc_activity_chooser_view_see_all">ሁሉንም ይመልከቱ</string>
     <string name="abc_activitychooserview_choose_application">አንድ መተግበሪያ ይምረጡ</string>
     <string name="abc_capital_off">አጥፋ</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">የማንቂአይ ንዝረት</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">ንቁ የEdge ቅንብር። ወደ ቀጣዩ ማያ ገጽ ይሂዱ ወይም ማስተካከል ይቀጥሉ።</string>
     <string name="accessibility_audio_adjustment_title">የድምፅ ማስተካከያ</string>
+    <string name="accessibility_autoclick_about_title">ስለራስ-ሰር ጠቅ ማድረግ (መቆያ ጊዜ)</string>
     <string name="accessibility_autoclick_custom_title">ብጁ</string>
     <string name="accessibility_autoclick_default_title">ጠፍቷል</string>
     <string name="accessibility_autoclick_description">ራስ-ሰር ጠቅታ ከተገናኘ መዳፊት ጋር ይሠራል። ለተወሰነ ያህል ጊዜ ጠቋሚው መንቀሳቀስ ሲያቆም የመዳፊት ጠቋሚውን በራስ-ሰር ጠቅ እንዲያደርግ አድርገው ሊያቀናብሩት ይችላሉ።</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">ስለራስ-ሰር ጠቅ ማድረግ (መቆያ ጊዜ) የበለጠ ይወቁ</string>
     <string name="accessibility_autoclick_long_summary">1 ሰከንድ</string>
     <string name="accessibility_autoclick_long_title">ረጅም</string>
     <string name="accessibility_autoclick_longer_desc">የበለጠ ጊዜ</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">አጭር</string>
     <string name="accessibility_autoclick_shorter_desc">አጭር</string>
     <string name="accessibility_banner_message_dismiss">አሰናብት</string>
-    <string name="accessibility_button_description">"የተደራሽነት ባህሪያትን ከማንኛውም ማያ ገጽ በፍጥነት ይድረሱ። 
+    <string name="accessibility_button_about_title">ስለተደራሽነት አዝራር</string>
+    <string name="accessibility_button_description">"የተደራሽነት ባህሪያትን ከማንኛውም ማያ ገጽ ሆነው በፍጥነት ይድረሱ።
 
 ለመጀመር ወደ የተደራሽነት ቅንብሮች ይሂዱ እና አንድ ባህሪ ይምረጡ። በአቋራጩ ላይ መታ ያድርጉ እና የተደራሽነት አዝራሩን ይምረጡ።"</string>
     <string name="accessibility_button_fade_summary">ከጥቂት ሰከንዶች በኋላ ይደበዝዛል ስለዚህ ማያ ገጽዎን ማየት ይበልጥ ቀላል ነው</string>
     <string name="accessibility_button_fade_title">ጥቅም ላይ በማይውልበት ጊዜ ይደበዝዛል</string>
+    <string name="accessibility_button_gesture_about_title">ስለተደራሽነት አዝራር እና ምልክት</string>
     <string name="accessibility_button_gesture_description">"የተደራሽነት ባህሪያትን ከማንኛውም ማያ ገጽ ሆነው በፍጥነት ይድረሱ።
 
-ለመጀመር ወደ የተደራሽነት ቅንብሮች ይሂዱ እና አንድ ባህሪ ይምረጡ። በአቋራጩ ላይ መታ ያድርጉ እና የተደራሽነት አዝራሩን ይምረጡ።
-
-በምትኩ በአሰሳ አሞሌው ውስጥ የተደራሽነት አዝራሩን ለመጠቀም ወደ 2-አዝራር አሰሳ ወይም 3-አዝራር አሰሳ ይቀይሩ።"</string>
+ለመጀመር ወደ የተደራሽነት ቅንብሮች ይሂዱ እና አንድ ባህሪ ይምረጡ። በአቋራጩ ላይ መታ ያድርጉ እና የተደራሽነት አዝራሩን ወይም ምልክት ይምረጡ።"</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">ስለተደራሽነት አዝራር እና ምልክት የበለጠ ይወቁ</string>
     <string name="accessibility_button_gesture_title">የተደራሽነት አዝራር እና የእጅ ምልክት</string>
     <string name="accessibility_button_high_label">ግልጽ አይደልም</string>
     <string name="accessibility_button_intro">የተደራሽነት አዝራርን መጠቀም። የእጅ ምልክቱ በባለ3-አዝራር ዳሰሳ አይገኝም።</string>
@@ -184,14 +190,23 @@
     <string name="accessibility_caption_preference_summary">እነዚህን መግለጫ ጽሑፍ ምርጫዎችን ሁሉም መተግበሪያዎችን አይደግፍም</string>
     <string name="accessibility_caption_primary_switch_summary">ለሚደገፍ መተግበሪያ ብቻ</string>
     <string name="accessibility_caption_primary_switch_title">መግለጫ ጽሑፎችን አሳይ</string>
+    <string name="accessibility_captioning_about_title">ስለመግለጫ ጽሑፍ ምርጫዎች</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">ስለመግለጫ ጽሑፍ ምርጫዎች የበለጠ ይወቁ</string>
     <string name="accessibility_captioning_title">የመግለጫ ጽሑፍ ምርጫዎች</string>
     <string name="accessibility_category_personal">የግል መገለጫ መለያዎች</string>
     <string name="accessibility_category_work">የስራ መገለጫ መለያዎች - %s</string>
+    <string name="accessibility_color_inversion_about_title">ስለተቃራኒ ቀለም</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">ስለተቃራኒ ቀለም የበለጠ ይወቁ</string>
+    <string name="accessibility_control_timeout_about_title">ስለእርምጃ መውሰጃ ጊዜ (የተደራሽነት ጊዜው አብቅቷል)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">ስለእርምጃ መውሰጃ ጊዜ (ተደራሽነት ጊዜው አብቅቷል) የበለጠ ይወቁ</string>
     <string name="accessibility_control_timeout_preference_summary">"እርስዎ እርምጃ እንዲወስዱ የሚጠይቁ ሆኖም ግን ለጊዜው ብቻ የሚታዩ መልዕክቶች ምን ያክል ጊዜ መታየት እንዳለባቸው ይምረጡ።
 
 ይህን ቅንብር ሁሉም መተግበሪያዎች አይደሉም የሚደግፉት።"</string>
     <string name="accessibility_control_timeout_preference_title">እርምጃ መውሰጃ ጊዜ</string>
+    <string name="accessibility_daltonizer_about_title">ስለቀለም ማስተካከያ</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">ስለቀለም ማስተካከያ የበለጠ ይወቁ</string>
     <string name="accessibility_daltonizer_primary_switch_title">የቀለም ማስተካከያን ተጠቀም</string>
+    <string name="accessibility_daltonizer_shortcut_title">የቀለም ማስተካከያ አቋራጭ</string>
     <string name="accessibility_data_one_bar">የውሂብ አንድ አሞሌ</string>
     <string name="accessibility_data_signal_full">የውሂብ አመልካች ሙሉ ነው።</string>
     <string name="accessibility_data_three_bars">የውሂብ ሦስት አሞሌዎች።</string>
@@ -206,6 +221,7 @@
     <string name="accessibility_display_daltonizer_preference_title">የቀለም ማስተካከያ</string>
     <string name="accessibility_display_inversion_preference_subtitle">ቀለም ግልበጣ የፈኩ ማያ ገጾችን ጨለማ ያደርጓቸው።&lt;br/>&lt;br/> ማስታወሻ፦ &lt;ol> &lt;li> ቀለም ግልበጣ እንዲሁም ጨለማ ማያ ገጾችን የፈኩ ያደርጓቸዋል።&lt;/li> &lt;li> ቀለሞች በሚዲያ እና ምስሎች ውስጥ ይቀየራሉ።&lt;/li> &lt;li> ጨለማ ጀርባን ለማሳየት ጨለማ ገጽታ ሥራ ላይ መዋል ይችላል። ጨለማ ገጽታ ከሚደገፉ መተግበሪያዎች ጋር ይሠራል። ቀለም ግልበጣ በሁሉም መተግበሪያዎች ላይ ይሰራል።&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">ተቃራኒ ቀለም</string>
+    <string name="accessibility_display_inversion_shortcut_title">የተቃራኒ ቀለም አቋራጭ</string>
     <string name="accessibility_display_inversion_switch_title">የቀለም ግልበጣን ተጠቀም</string>
     <string name="accessibility_ethernet_connected">ኢተርኔት።</string>
     <string name="accessibility_ethernet_disconnected">ኤተርኔት ተነቅሏል።</string>
@@ -255,6 +271,8 @@
     <string name="accessibility_phone_two_bars">የስልክ ሁለት አሞሌ</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">የኃይል አዘራር ጥሪውን ይዘገዋል</string>
     <string name="accessibility_preference_magnification_summary">በማያ ገጹ ላይ ያጉሉ</string>
+    <string name="accessibility_screen_magnification_about_title">ስለማጉላት</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">ስለማጉላት የበለጠ ይወቁ</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">የተደራሽነት ጣት ምልክት ወደ %1$s ተቀናብሯል። ማጉላትን ልለመጠቀም በሁለት ጣቶች ከማያ ገጹ ግርጌ ወደ ላይ ጠርገው ይያዙ። ከዚያ ማጉላትን ይምረጡ።</string>
     <string name="accessibility_screen_magnification_gestures_title">ሶስቴ መታ በማድረግ ያጉሉ</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">የተደራሽነት አዝራሩ ወደ %1$s ተቀናብሯል። ማጉላትን ለመጠቀም የተደራሽነት አዛሩን ነክተው ይያዙ፣ ከዚያ ማጉላትን ይምረጡ።</string>
@@ -272,6 +290,7 @@
 ቁልፍ ሰሌዳውን ወይም የአሰሳ አሞሌውን ማጉላት አይችሉም።"</string>
     <string name="accessibility_screen_magnification_navbar_title">በአቋራጭ ያጉሉ</string>
     <string name="accessibility_screen_magnification_short_summary">ለማጉላት 3 ጊዜ መታ ያድርጉ</string>
+    <string name="accessibility_screen_magnification_shortcut_title">የማጉላት አቋራጭ</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">በአቋራጭ እና ሦስቴ መታ በማድረግ ያጉሉ</string>
     <string name="accessibility_screen_magnification_summary">ይዘትን በበለጠ ትልቅ ለማድረግ በፍጥነት በማያ ገጹ ላይ ያጉሉ።&lt;br/>&lt;br/> &lt;b>ለማጉላት፦&lt;/b>&lt;br/> {0,number,integer}. ማጉላትን ለመጀመር አቋራጭ ይጠቀሙ&lt;br/> {1,number,integer}. በማያ ገጽ ላይ መታ ያድርጉ&lt;br/> {2,number,integer}. በማያ ገጹ ዙሪያ ላይ ለመንቀሳቀስ በ2 ጣቶች ይጎትቱ&lt;br/> {3,number,integer}. ማጉላትን ለማስተካከል በ2 ጣቶች ይቆንጥጡ&lt;br/> {4,number,integer}. ማጉላትን ለማስቆም አቋራጭ ይጠቀሙ&lt;br/>&lt;br/> &lt;b>To zoom in temporarily:&lt;/b>&lt;br/> {0,number,integer}. ማጉላትን ለመጀመር አቋራጭ ይጠቀሙ&lt;br/> {1,number,integer}. በማያ ገጹ ማንኛውም ቦታ ላይ ነክተው ይያዙ&lt;br/> {2,number,integer}. በማያ ገጹ ዙሪያ ላይ ለመንቀሳቀስ በጣት ይጎትቱ&lt;br/> {3,number,integer}. ማጉላትን ለማስቆም ጣትን ያንሱ</string>
     <string name="accessibility_screen_magnification_title">ማጉላት</string>
@@ -370,7 +389,7 @@
     <string name="accessibility_tutorial_dialog_message_volume">ይህን ባህሪ ለመጠቀም ሁለቱንም የድምጽ ቁልፎች ተጭነው ይያዙ።</string>
     <string name="accessibility_tutorial_dialog_title_button">ለመክፈት የተደራሽነት አዝራር ይጠቀሙ</string>
     <string name="accessibility_tutorial_dialog_title_gesture">ለመክፈት የጣት ምልክትን ይጠቀሙ</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">አዲስ የተደራሽነት የጣት ምልክትን ይጠቀሙ</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">የተደራሽነት እጅ ምልክትን ይጠቀሙ</string>
     <string name="accessibility_tutorial_dialog_title_triple">ለመክፈት ማያ ገጹን ሦስት ጊዜ መታ ያድርጉ</string>
     <string name="accessibility_tutorial_dialog_title_volume">ለመክፈት የድምጽ ቁልፎችን ይያዙ</string>
     <string name="accessibility_tutorial_pager">ገጽ %1$d ከ%2$d</string>
@@ -936,6 +955,7 @@
     <string name="battery_level_title">የባትሪደረጃ፡</string>
     <string name="battery_manager_off">አጥፋ</string>
     <string name="battery_manager_summary">የባትሪ ዕድሜን ያራዝሙና ኃይል መሙላትን ያመቻቹ</string>
+    <string name="battery_manager_summary_unsupported">የባትሪ ዕድሜን አራዝም</string>
     <string name="battery_missing_link_a11y_message">ስለዚህ ስህተት የበለጠ ለመረዳት መታ ያድርጉ</string>
     <string name="battery_missing_link_message">የበለጠ ለመረዳት</string>
     <string name="battery_missing_message">የባትሪ መለኪያውን የማንበብ ችግር።</string>
@@ -1061,6 +1081,7 @@
     <string name="battery_usage_screen_footer">የባትሪ አጠቃቀም ውሂብ ግምታዊ ነው እና ስልክ ኃይል በሚሞላበት ጊዜ አጠቃቀምን አይለካም</string>
     <string name="battery_usage_screen_footer_empty">ስልክዎን ለጥቂት ሰዓቶች ከተጠቀሙ በኋላ የባትሪ አጠቃቀም ውሂብ ይገኛል</string>
     <string name="battery_usage_total_less_than_one_minute">ጠቅላላ፦ ከአንድ ደቂቃ በታች</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%2$s %1$s ተጠቅሟል</string>
     <string name="battery_used_for">ለ^1 ጥቅም ላይ ውሏል</string>
     <string name="bearer">ተሸካሚ</string>
@@ -1069,12 +1090,14 @@
     <string name="billing_cycle_less_than_one_day_left">ከ1 ቀን በታች ቀርቷል</string>
     <string name="billing_cycle_none_left">ምንም ጊዜ አይቀርም</string>
     <string name="biometric_settings_category_ways_to_unlock">የሚከፈትባቸው መንገዶች</string>
-    <string name="biometric_settings_category_ways_to_use">መልክን እና የጣት አሻራን ለሚከተሉት ይጠቀሙ፦</string>
     <string name="biometric_settings_hand_back_to_guardian">ስልኩን መልሰው ለወላጅዎ ይስጡት</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">እሺ</string>
     <string name="biometric_settings_intro">በመልክ መክፈት እና በጣት አሻራ መክፈቻን ሲያዋቅሩ ጭምብል በለበሱበት ጊዜ ወይም ጨለማ በሆነ ቦታ ውስጥ ሲሆኑ ስልክዎ የጣት አሻራዎን ይጠይቃል</string>
-    <string name="biometric_settings_use_biometric_for_apps">በመተግበሪያዎች ውስጥ ማረጋገጫ</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">ስልክዎን መክፈት</string>
+    <string name="biometric_settings_use_biometric_for_apps">በመተግበሪያዎች ውስጥ እርስዎ መሆንዎን ያረጋግጡ</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">ስልክዎን ይክፈቱ</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">መልክን ወይም የጣት አሻራን መጠቀም</string>
+    <string name="biometric_settings_use_face_preference_summary">መልክን መጠቀም</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">የጣት አሻራን መጠቀም</string>
     <string name="biometrics_unlock_set_unlock_password">የይለፍ ቃል • መልክ • የጣት አሻራ</string>
     <string name="biometrics_unlock_set_unlock_pattern">ስርዓተ ጥለት • መልክ • የጣት አሻራ</string>
     <string name="biometrics_unlock_set_unlock_pin">ፒን • መልክ • የጣት አሻራ</string>
@@ -1332,7 +1355,6 @@
     <string name="bluetooth_settings_title">ብሉቱዝ</string>
     <string name="bluetooth_show_devices_without_names">የብሉቱዝ መሣሪያዎችን ያለ ስሞች አሳይ</string>
     <string name="bluetooth_show_devices_without_names_summary">የብሉቱዝ መሣሪያዎች ያለ ስሞች (MAC አድራሻዎች ብቻ) ይታያሉ</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">በብሉቱዝ በኩል ፋይሎች ደርሰዋል</string>
     <string name="bluetooth_show_received_files">የደረሱ ፋይሎች</string>
     <string name="bluetooth_sim_card_access_dialog_content">"አንድ የብሉቱዝ መሣሪያ %1$s በሲም ካርድዎ ላይ ውሂብን መድረስ ይፈልጋል። ይህ የእርስዎን እውቂያዎች ያካትታል።
 
@@ -1426,6 +1448,7 @@
     <string name="calls_sms_temp_unavailable">ለጊዜው አይገኝም</string>
     <string name="calls_sms_unavailable">አይገኝም</string>
     <string name="calls_sms_wfc_summary">ጥሪዎችን በWi-Fi ያድርጉ እና ይቀበሉ</string>
+    <string name="cam_toggle_description">ለመተግበሪያዎች እና አገልግሎቶች</string>
     <string name="camera_double_tap_power_gesture_desc">የእርስዎን ማያ ገጽ ሳይከፍቱ ካሜራን በፍጥነት ይክፈቱ</string>
     <string name="camera_double_tap_power_gesture_title">ለካሜራ የኃይል አዝራሩን ሁለቴ ይጫኑ</string>
     <string name="camera_laser_sensor_switch">የካሜራ ሌዘር ዳሳሽ</string>
@@ -3302,6 +3325,7 @@
     <string name="menu_stats_total">ጠቅላላ አጠቃቀም</string>
     <string name="menu_stats_unplugged">%1$sከተነቀለ ጀምሮ</string>
     <string name="menu_use_uss">ዩ ኤስ ኤስ ይጠቀሙ</string>
+    <string name="mic_toggle_description">ለመተግበሪያዎች እና አገልግሎቶች። ይህ ቅንብር ከጠፋ እርስዎ ወደ አንድ የአደጋ ጊዜ ቁጥር ሲደውሉ የማይክሮፎን ውሂብ አሁንም ሊጋራ ይችላል።</string>
     <string name="mic_toggle_title">የማይክሮፎን መዳረሻ</string>
     <string name="misc_files">ልዩ ልዩ</string>
     <string name="misc_files_selected_count">ከ%1$d%2$d ምረጥ</string>
@@ -3728,6 +3752,7 @@
     <string name="one_handed_action_show_notification_title">ማሳወቂያዎችን አሳይ</string>
     <string name="one_handed_mode_enabled">የአንድ እጅ ሁነታን ይጠቀሙ</string>
     <string name="one_handed_mode_intro_text">የአንድ እጅ ሁነታን ለመጠቀም ከማያ ገጹ ታችኛው ጫፍ ወደ ታች ያንሸራትቱ። ይህን ባህሪ ለመጠቀም የእጅ ምልክት ዳሰሳ በስርዓት አሰሳ ቅንብሮች ውስጥ መብራቱን ያረጋግጡ።</string>
+    <string name="one_handed_mode_shortcut_title">ባለአንድ እጅ ሁነታ አቋራጭ</string>
     <string name="one_handed_mode_swipe_down_category">ታች ያንሸራትቱ ወደ</string>
     <string name="one_handed_mode_use_shortcut_category">አቋራጩን ለሚከተለው ዓላማ ይጠቀሙ</string>
     <string name="one_usercrt">አንድ የተጠቃሚ እውቅና ማረጋገጫ</string>
@@ -3803,7 +3828,7 @@
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s ገቢር ነው</string>
     <string name="power_bluetooth">ብሉቱዝ</string>
     <string name="power_camera">ካሜራ</string>
-    <string name="power_cell">የተንቀሳቃሽ ስልክ አውታረ መረብ በመጠባበቅ ላይ</string>
+    <string name="power_cell">የተንቀሳቃሽ ስልክ አውታረ መረብ</string>
     <string name="power_charge_remaining">ለመሙላት %1$s ይቀረዋል</string>
     <string name="power_charging">%1$s - %2$s</string>
     <string name="power_charging_duration">%1$s - እስኪሞላ ድረስ %2$s ይቀራል</string>
@@ -4037,6 +4062,7 @@
     <string name="recent_notifications">በቅርቡ የተላኩ</string>
     <string name="recent_notifications_see_all_title">ካለፉት 7 ቀናት ወዲህ ያሉትን በሙሉ ይመልከቱ</string>
     <string name="recompute_size">መጠን ድጋሚ በማስላት ላይ...</string>
+    <string name="reduce_bright_colors_about_title">ስለተጨማሪ ደብዛዛ</string>
     <string name="reduce_bright_colors_intensity_end_label">ይበልጥ ብሩህ</string>
     <string name="reduce_bright_colors_intensity_preference_title">ክብደት</string>
     <string name="reduce_bright_colors_intensity_start_label">ማደብዘዣ</string>
@@ -4044,6 +4070,7 @@
     <string name="reduce_bright_colors_preference_subtitle">ለማንበብ የበለጠ ምቾት እንዲኖርዎ ማያ ገጽዎን የበለጠ ደብዛዛ ያድርጉት።&lt;br/>&lt;br/> ይህ ጠቃሚ ሊሆን የሚችለው፦ &lt;ol> &lt;li> የስልክዎ ነባሪ ዝቅተኛ ብሩህነት አሁንም በጣም ብሩህ ሲሆን&lt;/li> &lt;li> ስልክዎን በጨለማ ሁኔታዎች ውስጥ ሲጠቀሙ፣ ለምሳሌ ማታ ላይ ወይም በጨለማ ክፍል ውስጥ ከመተኛትዎ በፊት&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">ከስልክዎ ዝቅተኛ ብሩህነት ባሻገር ማያ ገጹን ደብዛዛ ያድርጉ</string>
     <string name="reduce_bright_colors_preference_title">ተጨማሪ ደብዛዛ</string>
+    <string name="reduce_bright_colors_shortcut_title">የተጨማሪ ደብዛዛ አቋራጭ</string>
     <string name="reduce_bright_colors_switch_title">ማያ ተጨማሪ ደብዛዛ ያድርጉ</string>
     <string name="register_automatically">ራስ-ሰር ምዝገባ…</string>
     <string name="register_on_network">በ%s ላይ በመመዝገብ ላይ…</string>
@@ -4249,7 +4276,6 @@
     <string name="screen_pinning_unlock_pattern">ከመንቀል በፊት የማስከፈቻ ስርዓተ-ጥለት ጠይቅ</string>
     <string name="screen_pinning_unlock_pin">ከመንቀል በፊት ፒን ጠይቅ</string>
     <string name="screen_reader_category_title">ማያ ገጽ አንባቢ</string>
-    <string name="screen_saver_main_switch_title">የማያ ገጽ አዳኝን ይጠቀሙ</string>
     <string name="screen_time_summary_usage_today">%1$s ዛሬ</string>
     <string name="screen_timeout_summary">ከ %1$s የእንቅስቃሴ አለመኖር በኋላ</string>
     <string name="screen_timeout_title">ማያ ገጽ የሚጠፋው</string>
@@ -4279,6 +4305,7 @@
     <string name="screensaver_settings_button">ቅንብሮች</string>
     <string name="screensaver_settings_current">የአሁኑ ማያ ገጽ ማሳረፊያ</string>
     <string name="screensaver_settings_disabled_prompt">ስልኩ ሲተከል እና/ወይም ሲተኛ ምን እንደሚከሰት ለመቆጣጠር የገጽ ማያ ማቆያን ያብሩ።</string>
+    <string name="screensaver_settings_dream_start">አሁን ጀምር</string>
     <string name="screensaver_settings_summary_dock">ተተክሎ ሳለ</string>
     <string name="screensaver_settings_summary_either_long">ኃይል እየሞላ ወይም ተተክሎ ሳለ</string>
     <string name="screensaver_settings_summary_either_short">ማናቸውም</string>
@@ -4329,15 +4356,6 @@
     <string name="security_settings_biometric_preference_summary_both_fp_single">መልክ እና የጣት አሻራ ታክለዋል</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">ለማቀናበር መታ ያድርጉ</string>
     <string name="security_settings_biometric_preference_title">በመልክ እና በጣት አሻራ መክፈት</string>
-    <string name="security_settings_biometrics_description">በመልክ እና በጣት አሻራ መክፈትን ሲያዋቅሩ ጭምብል ሲለብሱ ወይም ጨለማ በሆነ ቦታ ውስጥ ሲሆኑ ስልክዎ የጣት አሻራዎን ይጠይቃል</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">በመተግበሪያዎች ውስጥ ማረጋገጫ</string>
-    <string name="security_settings_biometrics_preferences_category">መልክን ወይም የጣት አሻራን ለሚከተለው ይጠቀሙ፦</string>
-    <string name="security_settings_biometrics_summary_both">መልክ ወይም የጣት አሻራ</string>
-    <string name="security_settings_biometrics_summary_face">መልክ ብቻ</string>
-    <string name="security_settings_biometrics_summary_fingerprint">የጣት አሻራ ብቻ</string>
-    <string name="security_settings_biometrics_summary_none">ለማዋቀር መታ ያድርጉ</string>
-    <string name="security_settings_biometrics_title">በመልክ እና በጣት አሻራ መክፈት</string>
-    <string name="security_settings_biometrics_types_category">የሚከፈትባቸው መንገዶች</string>
     <string name="security_settings_face_enroll_consent_introduction_title">በመልክ መክፈትን ይፍቀዱ</string>
     <string name="security_settings_face_enroll_dialog_ok">እሺ</string>
     <string name="security_settings_face_enroll_done">ተከናውኗል</string>
@@ -4383,18 +4401,19 @@ g.co/pixel/faceunlock ላይ የበለጠ ይወቁ።"</string>
 
 g.co/pixel/faceunlock ላይ የበለጠ ይወቁ።"</string>
     <string name="security_settings_face_enroll_introduction_control_title">እርስዎ የሚቆጣጠሩት ነው</string>
-    <string name="security_settings_face_enroll_introduction_how_consent_message">"በመልክ መክፈት እነሱ መሆናቸውን ለማረጋገጥ ልዩ የልጅዎን መልክ ሞዴልን ይፈጥራል። በሚቀናበርበት ጊዜ ይህን የመልክ ሞዴል ለመፍጠር ልጅዎ የመልካቸውን ምስሎች ከተለያዩ ማዕዘናት ያነሳሉ።
+    <string name="security_settings_face_enroll_introduction_how_consent_message">"በመልክ መክፈት እነሱ መሆናቸውን ለማረጋገጥ ልዩ የልጅዎን መልክ ሞዴል ይፈጥራል። በማዋቀር ወቅት ይህን የመልክ ሞዴል ለመፍጠር ልጅዎ የመልካቸውን ምስሎች ከተለያዩ ማዕዘናት ያነሳሉ።
 
-በመልክ መክፈትን ሲጠቀሙ ምስሎች የመልክ ሞዴላቸውን ለማዘመን ስራ ላይ ይውላሉ። የመልካቸውን ሞዴል ለመፍጠር ስራ ላይ የዋሉ ምስሎች በጭራሽ አይከማቹም፣ ነገር ግን የመልክ ሞዴሉ በስልኩ ላይ ደህንነቱ በተጠበቀ ሁኔታ የሚከማች ሲሆን በጭራሽ ከስልኩ አይወጣም። ሁሉም ሂደቶች በስልኩ ላይ ደህንነቱ በተጠበቀ ሁኔታ ይከሰታል።"</string>
-    <string name="security_settings_face_enroll_introduction_how_message">"እርስዎ መሆንዎን ለማረጋገጥ በመልክ መክፈት የመልክዎን ልዩ ሞዴልን ይፈጥራል። በሚቀናብሩበት ጊዜ ይህን የመልክ ሞዴል ለመፍጠር እርስዎ የመልክዎን ምስሎች ከተለያዩ ማዕዘናት ያነሳሉ።
+በመልክ መክፈትን ሲጠቀሙ ምስሎች የመልክ ሞዴላቸውን ለማዘመን ስራ ላይ ይውላሉ። የመልክ ሞዴላቸውን ለመፍጠር ስራ ላይ የዋሉ ምስሎች በጭራሽ አይከማቹም፣ ነገር ግን የመልክ ሞዴሉ በስልኩ ላይ ደህንነቱ በተጠበቀ ሁኔታ የሚከማች ሲሆን በጭራሽ ከስልኩ አይወጣም። ሁሉም ሂደት በስልኩ ላይ ደህንነቱ በተጠበቀ ሁኔታ ይከናወናል።"</string>
+    <string name="security_settings_face_enroll_introduction_how_message">"እርስዎ መሆንዎን ለማረጋገጥ በመልክ መክፈት የመልክዎን ልዩ ሞዴልን ይፈጥራል። በሚያቀናብሩበት ጊዜ ይህን የመልክ ሞዴል ለመፍጠር እርስዎ የመልክዎን ምስሎች ከተለያዩ ማዕዘናት ያነሳሉ።
 
-በመልክ መክፈትን ሲጠቀሙ ምስሎች የመልክዎን ሞዴል ለማዘመን ስራ ላይ ይውላሉ። የመልክዎን ሞዴል ለመፍጠር ጥቅም ላይ የዋሉ ምስሎች በጭራሽ አይከማቹም፣ ነገር ግን የመልክ ሞዴሉ በስልክዎ ላይ ደህንነቱ በተጠበቀ ሁኔታ የሚከማች ሲሆን በጭራሽ ከስልኩ አይወጣም። ሁሉም ሂደቶች በስልክዎ ላይ ደህንነቱ በተጠበቀ ሁኔታ ይከሰታል።"</string>
+በመልክ መክፈትን ሲጠቀሙ ምስሎች የመልክዎን ሞዴል ለማዘመን ስራ ላይ ይውላሉ። የመልክዎን ሞዴል ለመፍጠር ጥቅም ላይ የዋሉ ምስሎች በጭራሽ አይከማቹም፣ ነገር ግን የመልክ ሞዴሉ በስልክዎ ላይ ደህንነቱ በተጠበቀ ሁኔታ የሚከማች ሲሆን በጭራሽ ከስልኩ አይወጣም። ሁሉም ሂደት በስልክዎ ላይ ደህንነቱ በተጠበቀ ሁኔታ ይከናወናል።"</string>
     <string name="security_settings_face_enroll_introduction_how_title">እንዴት እንደሚሠራ</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">በመልክ መክፈት ስልኩን ለመክፈት ወይም እነሱ መሆናቸውን ለማረጋገጥ የልጅዎ ዓይኖች ክፍት እንዲሆኑ ሊጠይቅ ይችላል። እርስዎ እና ልጅዎ በማንኛውም ጊዜ በቅንብሮች ውስጥ ይህንን አማራጭ ማብራት ይችላሉ።</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">ልጅዎ በመደበኛነት የዓይን መነፅር የሚያደርግ ከሆነ በሚያቀናብሩበት ጊዜ ሊያደርጓቸው ይችላሉ።</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">እነሱ ሳይፈልጉም እንኳ ስልኩን መመልከት ስልኩን ሊከፍተው ይችላል። ስልካቸው እንዲሁም እንደ ተመሳሳይ ወንድም/እህት ያለ እነሱን በጣም በሚመስል ሰው ወይም አንድ ሰው ፊታቸው ላይ ከያዘው ሊከፈት ይችላል።</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">በመልክ መክፈት ስልኩን ለመክፈት ወይም እርስዎ መሆንዎን ለማረጋገጥ የእርስዎ ዓይኖች ክፍት እንዲሆኑ ሊጠይቅ ይችላል። እርስዎ በማንኛውም ጊዜ በቅንብሮች ውስጥ ይህንን አማራጭ ማብራት ይችላሉ።</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">መነጽር ወይም ትንሽ ቅልም ያላቸው የፀሐይ መነጽሮች ችግር የላቸውም።</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">ስልኩን ለመክፈት መልክን መጠቀም ከጠንካራ ስርዓተ-ጥለት ወይም ፒን ያነሰ ደህንነት ሊኖረው ይችላል።</string>
     <string name="security_settings_face_enroll_introduction_info_looking">እርስዎ ሳይፈልጉም እንኳ ስልኩን መመልከት ስልኩን ሊከፍተው ይችላል። ስልክዎ እንዲሁም እንደ ተመሳሳይ ወንድም/እህት ያለ እርስዎን በጣም በሚመስል ሰው ወይም አንድ ሰው ፊትዎ ላይ ከያዘው ሊከፈት ይችላል።</string>
     <string name="security_settings_face_enroll_introduction_info_title">ከግምት ውስጥ ያስገቡ</string>
     <string name="security_settings_face_enroll_introduction_message">እንደ ወደ መተግበሪያዎች ሲገቡ ወይም ግዢን ሲያጸድቁ ስልክዎን ለመክፈት ወይም እርስዎ መሆንዎን ለማረጋገጥ መልክዎን ይጠቀሙ።</string>
@@ -4452,13 +4471,14 @@ g.co/pixel/faceunlock ላይ የበለጠ ይወቁ።"</string>
 
 ስልክዎ እንደ መንታ ወንድም/እህት ያለ በጣም እርስዎን በሚመስል ሰው ሊከፈት ይችላል።"</string>
     <string name="security_settings_face_settings_preferences_category">በመልክ መክፈትን ሲጠቀሙ</string>
-    <string name="security_settings_face_settings_remove_dialog_details">የእርስዎ የመልክ ሞዴል በቋሚነት እና ደህንነቱ በተጠበቀ ሁኔታ ይሰረዛል። ከስረዛ በኋላ ስልክዎን ለመክፈት ወይም በመተግበሪያዎች ውስጥ ለማረጋገጥ የእርስዎ የጣት አሻራ፣ ፒን፣ ስርዓተ-ጥለት ወይም የይለፍ ቃል መጠቀም ይኖርብዎታል።</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"የእርስዎ የመልክ ሞዴል በቋሚነት እና ደህንነቱ በተጠበቀ ሁኔታ ይሰረዛል።
+
+ከስረዛ በኋላ ስልክዎን ለመክፈት ወይም በመተግበሪያዎች ውስጥ ለማረጋገጥ የእርስዎ የጣት አሻራ፣ ፒን፣ ስርዓተ-ጥለት ወይም የይለፍ ቃል መጠቀም ይኖርብዎታል።"</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"የእርስዎ የመልክ ሞዴል በቋሚነት እና ደህንነቱ በተጠበቀ መንገድ ይሰረዛል።
+
+ከስረዛ በኋላ ስልክዎን ለመክፈት የእርስዎ ፒን፣ ስርዓተ-ጥለት ወይም የይለፍ ቃል ያስፈልገዎታል።"</string>
     <string name="security_settings_face_settings_remove_dialog_title">የመልክ ሞዴል ይሰረዝ?</string>
     <string name="security_settings_face_settings_remove_face_model">የመልክ ሞዴልን ሰርዝ</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"የእርስዎ የመልክ ሞዴል እስከመጨረሻው እና ደህንነቱ በተጠበቀ ሁኔታ ይሰረዛል።
-
-ከስረዛ በኋላ ስልክዎን ለመክፈት ወይም በመተግበሪያዎች ውስጥ ለማረጋገጫ የእርስዎ የጣት አሻራ፣ ፒን፣ ስርዓተ-ጥለት ወይም የይለፍ ቃል መጠቀም ይኖርብዎታል።"</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">የመልክ ሞዴል ይሰረዝ?</string>
     <string name="security_settings_face_settings_require_attention">አይኖች ክፍት እንዲሆኑ ጠይቅ</string>
     <string name="security_settings_face_settings_require_attention_details">ስልኩን ለመክፈት አይኖችዎ ክፍት መሆን አለበት</string>
     <string name="security_settings_face_settings_require_confirmation">ሁልጊዜ ማረጋገጫን ጠይቅ</string>
@@ -4541,7 +4561,7 @@ g.co/pixel/faceunlock ላይ የበለጠ ይወቁ።"</string>
     <string name="security_settings_title">ደህንነት</string>
     <string name="security_settings_udfps_enroll_a11y">ዳሳሹን ለማግኘት ጣትዎን በማያ ገጹ ላይ ያንቀሳቅሱት። ይንኩ እና የጣት አሻራ ዳሳሹን ይያዙ።</string>
     <string name="security_settings_udfps_enroll_edge_message">የጣት አሻራዎን ጎን በዳሳሹ ላይ አስቀምጠው ይያዙት፣ ከዚያ ወደ ሌላኛው ጎን ይቀይሩ</string>
-    <string name="security_settings_udfps_enroll_edge_title">በመጨረሻም፣ የጣትዎን ጠርዞች ያስቀምጡት</string>
+    <string name="security_settings_udfps_enroll_edge_title">በመጨረሻም፣ የጣትዎን ጠርዞች ይጠቀሙ</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">የጣት አሻራ ዳሳሽ በእርስዎ ማያ ገጽ ላይ ነው። በሚቀጥለው ማያ ገጽ ላይ የጣት አሻራዎን ይይዛሉ።</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">ጀምር</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">የጣት አሻራዎን እንዴት ማዋቀር እንደሚቻል</string>
@@ -4550,7 +4570,7 @@ g.co/pixel/faceunlock ላይ የበለጠ ይወቁ።"</string>
     <string name="security_settings_udfps_enroll_repeat_a11y_message">ይህ ተጨማሪ የጣት አሻራዎን ክፍል እንዲይዝ ያግዛል</string>
     <string name="security_settings_udfps_enroll_repeat_message">የጣት አሻራ አዶው በተንቀሳቀሰ ቁጥር ነክተው ይያዙት። ይህ ተጨማሪ የጣት አሻራዎን ክፍል እንዲይዝ ያግዛል።</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">የጣት አሻራ አዶውን ይከተሉ</string>
-    <string name="security_settings_udfps_enroll_start_message">ንዝረት እስከሚሰማዎት ድረስ የእርስዎን ጣት በዳሳሹ ላይ ያቆዩት</string>
+    <string name="security_settings_udfps_enroll_start_message">ንዝረት እስከሚሰማዎት ድረስ የእርስዎን የጣት አሻራ በዳሳሹ ላይ ያቆዩት</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">አንድ ሌላ ተጨማሪ ጊዜ</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint ለሥራ</string>
     <string name="security_status_title">የደህንነት ሁኔታ</string>
@@ -4576,7 +4596,6 @@ g.co/pixel/faceunlock ላይ የበለጠ ይወቁ።"</string>
     <string name="select_webview_provider_dialog_title">የWebView ትግበራን ያዘጋጁ</string>
     <string name="select_webview_provider_title">የWebView ትግበራ</string>
     <string name="select_webview_provider_toast_text">ይህ ምርጫ ከአሁን በኋላ የሚሰራ አይደለም። እንደገና ይሞክሩ።</string>
-    <string name="sensor_toggle_description">ለሁሉም መተግበሪያዎች እና አገልግሎቶች</string>
     <string name="sensors_off_quick_settings_title">ዳሳሾች ጠፍተዋል</string>
     <string name="service_background_processes">%1$s ነፃ</string>
     <string name="service_foreground_processes">%1$s ተጠቅሟል</string>
@@ -4808,6 +4827,7 @@ g.co/pixel/faceunlock ላይ የበለጠ ይወቁ።"</string>
     <string name="sound_settings_summary_silent">ደዋዩ ወደ ጸጥታ ተቀናብሯል</string>
     <string name="sound_settings_summary_vibrate">ደዋዩ ወደ ንዘር ተቀናብሯል</string>
     <string name="sound_work_settings">የስራ መገለጫ ድምጾች</string>
+    <string name="spatial_audio_title">ከባቢያዊ ኦዲዮ</string>
     <string name="special_access">ልዩ የመተግበሪያ መዳረሻ</string>
     <string name="special_access_more">ተጨማሪ ይመልከቱ</string>
     <string name="speed_label_fast">ፈጣን</string>
@@ -5619,7 +5639,7 @@ g.co/pixel/faceunlock ላይ የበለጠ ይወቁ።"</string>
     <string name="vpn_turn_on">አብራ</string>
     <string name="vpn_type">አይነት</string>
     <string name="vpn_username">የተጠቃሚ ስም</string>
-    <string name="vpn_version">ሥሪት %s</string>
+    <string name="vpn_version">ስሪት</string>
     <string name="vr_listener_security_warning_summary">መተግበሪያዎችን በምናባዊ ዕውነታ ሁነታ ውስጥ ሲጠቀሙ %1$s መሄድ ይችላል።</string>
     <string name="vr_listener_security_warning_title">ለ%1$s የምናባዊ ዕውነታ መዳረሻ ይፈቀድለት?</string>
     <string name="vr_listeners_title">የምናባዊ ዕውነታ አጋዥ አገልግሎቶች</string>
@@ -5889,7 +5909,7 @@ g.co/pixel/faceunlock ላይ የበለጠ ይወቁ።"</string>
     <string name="wifi_not_in_range">በክልል ውስጥ የለም</string>
     <string name="wifi_not_in_range_message">አውታረ መረብ በክክል ውስጥ አይደለም</string>
     <string name="wifi_notify_open_networks">ለይፋዊ አውታረ መረቦች አሳውቅ</string>
-    <string name="wifi_notify_open_networks_summary">ራስ-ሰር ግንኙነት የማይገኝ ሲሆን</string>
+    <string name="wifi_notify_open_networks_summary">ባለከፍተኛ ጥራት ይፋዊ አውታረ መረብ የሚገኝ ሲሆን አሳውቅ</string>
     <string name="wifi_on_time">Wi-Fi በጊዜ</string>
     <string name="wifi_p2p_cancel_connect_message">ከ%1$s ጋር የመገናኘት ግብዣውን ይቅር ማለት ይፈልጋሉ?</string>
     <string name="wifi_p2p_cancel_connect_title">ግብዣ ይቅር?</string>
@@ -5977,7 +5997,6 @@ g.co/pixel/faceunlock ላይ የበለጠ ይወቁ።"</string>
     <string name="wifi_suspend_optimizations">የWi-Fi ማመቻቸት</string>
     <string name="wifi_suspend_optimizations_summary">Wi-Fi ሲበራ የባትሪ አጠቃቀም ቀንስ</string>
     <string name="wifi_switch_away_when_unvalidated">Wi-Fi የበይነመረብ መድረሻን ካጣ ወደ የተንቀሳቃሽ ስልክ ውሂብ ለውጥ።</string>
-    <string name="wifi_switch_summary">ከWi‑Fi አውታረ መረቦችን ያገኙ እና ያገናኙ</string>
     <string name="wifi_tap_to_sign_in">በመለያ ወደ አውታረ መረብ ለመግባት እዚህ ላይ መታ ያድርጉ</string>
     <string name="wifi_tether_configure_ap_text">የWi-Fi መገናኛ ነጥብ ያዋቅሩ</string>
     <string name="wifi_tether_configure_ssid_default">Android ድረስ ነጥብ</string>

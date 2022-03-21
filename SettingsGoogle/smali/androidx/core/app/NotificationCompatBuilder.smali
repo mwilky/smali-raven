@@ -913,7 +913,7 @@
 
     iget-object p1, p0, Landroidx/core/app/NotificationCompatBuilder;->mBuilder:Landroid/app/Notification$Builder;
 
-    const-string v0, "silent"
+    const-string/jumbo v0, "silent"
 
     invoke-virtual {p1, v0}, Landroid/app/Notification$Builder;->setGroup(Ljava/lang/String;)Landroid/app/Notification$Builder;
 

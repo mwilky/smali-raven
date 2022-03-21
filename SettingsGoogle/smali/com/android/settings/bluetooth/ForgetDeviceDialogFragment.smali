@@ -112,7 +112,7 @@
 .end method
 
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
-    .locals 4
+    .locals 3
 
     new-instance p1, Lcom/android/settings/bluetooth/ForgetDeviceDialogFragment$$ExternalSyntheticLambda0;
 
@@ -128,31 +128,21 @@
 
     iput-object v1, p0, Lcom/android/settings/bluetooth/ForgetDeviceDialogFragment;->mDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
-    invoke-virtual {v1}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getDevice()Landroid/bluetooth/BluetoothDevice;
+    new-instance v1, Landroidx/appcompat/app/AlertDialog$Builder;
 
-    move-result-object v1
+    invoke-direct {v1, v0}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const/4 v2, 0x6
+    const v2, 0x7f040516
 
-    invoke-static {v1, v2}, Lcom/android/settingslib/bluetooth/BluetoothUtils;->getBooleanMetaData(Landroid/bluetooth/BluetoothDevice;I)Z
-
-    move-result v1
-
-    new-instance v2, Landroidx/appcompat/app/AlertDialog$Builder;
-
-    invoke-direct {v2, v0}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
-
-    const v3, 0x7f0404ff
-
-    invoke-virtual {v2, v3, p1}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
+    invoke-virtual {v1, v2, p1}, Landroidx/appcompat/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p1
 
-    const/high16 v2, 0x1040000
+    const/high16 v1, 0x1040000
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {p1, v2, v3}, Landroidx/appcompat/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
+    invoke-virtual {p1, v1, v2}, Landroidx/appcompat/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroidx/appcompat/app/AlertDialog$Builder;
 
     move-result-object p1
 
@@ -160,25 +150,13 @@
 
     move-result-object p1
 
-    const v2, 0x7f040500
+    const v1, 0x7f040517
 
-    invoke-virtual {p1, v2}, Landroidx/appcompat/app/AppCompatDialog;->setTitle(I)V
+    invoke-virtual {p1, v1}, Landroidx/appcompat/app/AppCompatDialog;->setTitle(I)V
 
-    if-eqz v1, :cond_0
+    const/4 v1, 0x1
 
-    const v1, 0x7f040502
-
-    goto :goto_0
-
-    :cond_0
-    const v1, 0x7f0404fe
-
-    :goto_0
-    const/4 v2, 0x1
-
-    new-array v2, v2, [Ljava/lang/Object;
-
-    const/4 v3, 0x0
+    new-array v1, v1, [Ljava/lang/Object;
 
     iget-object p0, p0, Lcom/android/settings/bluetooth/ForgetDeviceDialogFragment;->mDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
@@ -186,9 +164,13 @@
 
     move-result-object p0
 
-    aput-object p0, v2, v3
+    const/4 v2, 0x0
 
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    aput-object p0, v1, v2
+
+    const p0, 0x7f040515
+
+    invoke-virtual {v0, p0, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p0
 

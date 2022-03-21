@@ -59,7 +59,7 @@
 
     new-instance v0, Lcom/android/settings/datetime/timezone/TimeZoneSettings$1;
 
-    const v1, 0x7f1500f3
+    const v1, 0x7f1500f8
 
     invoke-direct {v0, v1}, Lcom/android/settings/datetime/timezone/TimeZoneSettings$1;-><init>(I)V
 
@@ -87,7 +87,7 @@
 
     move-result-object v0
 
-    const-string v1, "time_zone_region"
+    const-string/jumbo v1, "time_zone_region"
 
     const/4 v2, 0x0
 
@@ -362,7 +362,7 @@
 
     move-result-object v0
 
-    const-string v1, "time_zone_region"
+    const-string/jumbo v1, "time_zone_region"
 
     if-nez p1, :cond_0
 
@@ -573,7 +573,7 @@
 
     iput-boolean p1, p0, Lcom/android/settings/datetime/timezone/TimeZoneSettings;->mSelectByRegion:Z
 
-    const-string v0, "time_zone_region_preference_category"
+    const-string/jumbo v0, "time_zone_region_preference_category"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -583,7 +583,7 @@
 
     invoke-direct {p0, v0, p1}, Lcom/android/settings/datetime/timezone/TimeZoneSettings;->setPreferenceCategoryVisible(Landroidx/preference/PreferenceCategory;Z)V
 
-    const-string v0, "time_zone_fixed_offset_preference_category"
+    const-string/jumbo v0, "time_zone_fixed_offset_preference_category"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -927,7 +927,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500f3
+    const p0, 0x7f1500f8
 
     return p0
 .end method
@@ -1001,7 +1001,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/dashboard/DashboardFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const-string p1, "time_zone_region_preference_category"
+    const-string/jumbo p1, "time_zone_region_preference_category"
 
     invoke-virtual {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -1013,7 +1013,7 @@
 
     invoke-direct {p0, p1, v0}, Lcom/android/settings/datetime/timezone/TimeZoneSettings;->setPreferenceCategoryVisible(Landroidx/preference/PreferenceCategory;Z)V
 
-    const-string p1, "time_zone_fixed_offset_preference_category"
+    const-string/jumbo p1, "time_zone_fixed_offset_preference_category"
 
     invoke-virtual {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -1053,13 +1053,13 @@
 
     const/4 v1, 0x1
 
-    const v2, 0x7f04189b
+    const v2, 0x7f0418c0
 
     invoke-interface {p1, v0, v1, v0, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     const/4 v1, 0x2
 
-    const v2, 0x7f04189a
+    const v2, 0x7f0418bf
 
     invoke-interface {p1, v0, v1, v0, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 

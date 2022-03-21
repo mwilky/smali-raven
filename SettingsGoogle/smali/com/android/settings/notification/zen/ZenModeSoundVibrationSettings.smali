@@ -13,7 +13,7 @@
 
     new-instance v0, Lcom/android/settings/notification/zen/ZenModeSoundVibrationSettings$1;
 
-    const v1, 0x7f150129
+    const v1, 0x7f15012e
 
     invoke-direct {v0, v1}, Lcom/android/settings/notification/zen/ZenModeSoundVibrationSettings$1;-><init>(I)V
 
@@ -60,7 +60,7 @@
 
     new-instance v1, Lcom/android/settings/notification/zen/ZenModeAlarmsPreferenceController;
 
-    const-string v2, "zen_mode_alarms"
+    const-string/jumbo v2, "zen_mode_alarms"
 
     invoke-direct {v1, p0, p1, v2}, Lcom/android/settings/notification/zen/ZenModeAlarmsPreferenceController;-><init>(Landroid/content/Context;Lcom/android/settingslib/core/lifecycle/Lifecycle;Ljava/lang/String;)V
 
@@ -130,7 +130,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150129
+    const p0, 0x7f15012e
 
     return p0
 .end method

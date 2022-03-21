@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Течен приказ</string>
     <string name="peak_refresh_rate_summary">Автоматски ја зголемува стапката на освежување од 60 на 90 Hz за одредени содржини. Го зголемува користењето на батеријата.</string>
     <string name="accessibility_vibration_settings_title">Вибрации и допир</string>
+    <string name="columbus_title">Допрете брзо за да започнете дејства</string>
     <string name="emergency_gesture_screen_title">Итна помош</string>
     <string name="abc_action_mode_done">Готово</string>
     <string name="vibrate_for_calls_category_title">Повици</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Прикажувај контроли за уреди</string>
     <string name="lockscreen_privacy_wallet_summary">Овозможете пристап до паричникот од заклучен екран и „Брзи поставки“</string>
     <string name="lockscreen_privacy_controls_summary">Пристапувајте до контролите кога екранот е заклучен</string>
+    <string name="lockscreen_double_line_clock_summary">Прикажувај часовник со двојна линија кога е достапен</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Часовник со двојна линија</string>
     <string name="abc_activity_chooser_view_see_all">Прикажи ги сите</string>
     <string name="abc_activitychooserview_choose_application">Избери апликација</string>
     <string name="abc_capital_off">ИСКЛУЧЕНО</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Вибрации на аларм</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Поставете Active Edge. Одете на следниот екран или продолжете со приспособување.</string>
     <string name="accessibility_audio_adjustment_title">Приспособување на аудиото</string>
+    <string name="accessibility_autoclick_about_title">За автоматско кликнување (време на задржување)</string>
     <string name="accessibility_autoclick_custom_title">Приспособено</string>
     <string name="accessibility_autoclick_default_title">Исклучено</string>
     <string name="accessibility_autoclick_description">Автоматското кликнување функционира со поврзано глувче. Може да поставите курсорот на глувчето да кликне автоматски кога ќе престане да се движи одредено време.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">Дознајте повеќе за автоматско кликнување (време на задржување)</string>
     <string name="accessibility_autoclick_long_summary">1 секунда</string>
     <string name="accessibility_autoclick_long_title">Долго</string>
     <string name="accessibility_autoclick_longer_desc">Подолго</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Кратко</string>
     <string name="accessibility_autoclick_shorter_desc">Пократко</string>
     <string name="accessibility_banner_message_dismiss">Отфрли</string>
-    <string name="accessibility_button_description">"Брзо пристапувајте до функциите за пристапност од секој екран. 
+    <string name="accessibility_button_about_title">За копчето за пристапност</string>
+    <string name="accessibility_button_description">"Брзо пристапувајте до функциите за пристапност од кој било екран.
 
 За да започнете, одете во поставките за пристапност и изберете функција. Допрете на кратенката и изберете го копчето за пристапност."</string>
     <string name="accessibility_button_fade_summary">Избледува по неколку секунди, па може полесно да го видите екранот</string>
     <string name="accessibility_button_fade_title">Избледува кога не се користи</string>
+    <string name="accessibility_button_gesture_about_title">За копчето за пристапност и движење</string>
     <string name="accessibility_button_gesture_description">"Брзо пристапувајте до функциите за пристапност од кој било екран.
 
-За да започнете, одете во поставките за пристапност и изберете функција. Допрете на кратенката и изберете го копчето за пристапност.
-
-За да го користите копчето за пристапност во лентата за навигација наместо тоа, префрлете се на навигација со 2 или 3 копчиња."</string>
+За да започнете, одете во поставките за пристапност и изберете функција. Допрете на кратенката и изберете го копчето за пристапност или движење."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">Дознајте повеќе за копчето за пристапност и движење</string>
     <string name="accessibility_button_gesture_title">Копче за пристапност и движење</string>
     <string name="accessibility_button_high_label">Непровидно</string>
     <string name="accessibility_button_intro">Користење на копчето за пристапност. Движењето не е достапно со навигација со 3 копчиња.</string>
@@ -184,14 +190,23 @@
     <string name="accessibility_caption_preference_summary">Некои апликации не ги поддржуваат поставкиве за титлови</string>
     <string name="accessibility_caption_primary_switch_summary">Само за поддржани апликации</string>
     <string name="accessibility_caption_primary_switch_title">Прикажувај титлови</string>
+    <string name="accessibility_captioning_about_title">За поставките за титлови</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">Дознајте повеќе за поставките за титлови</string>
     <string name="accessibility_captioning_title">Поставки за титлови</string>
     <string name="accessibility_category_personal">Сметки со личен профил</string>
     <string name="accessibility_category_work">Сметки со работен профил - %s</string>
+    <string name="accessibility_color_inversion_about_title">За инверзија на боите</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">Дознајте повеќе за инверзија на боите</string>
+    <string name="accessibility_control_timeout_about_title">За време за дејство (истек на пристапноста)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">Дознајте повеќе за време за дејство (истек на пристапноста)</string>
     <string name="accessibility_control_timeout_preference_summary">"Изберете колку долго да се прикажуваат пораките што бараат да преземете дејство, но се видливи само привремено.
 
 Некои апликации не ја поддржуваат оваа поставка."</string>
     <string name="accessibility_control_timeout_preference_title">Време за преземање дејство</string>
+    <string name="accessibility_daltonizer_about_title">За корекција на боите</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">Дознајте повеќе за корекција на боите</string>
     <string name="accessibility_daltonizer_primary_switch_title">Користи „Корекција на бои“</string>
+    <string name="accessibility_daltonizer_shortcut_title">Кратенка за корекција на боите</string>
     <string name="accessibility_data_one_bar">Податоци една цртичка.</string>
     <string name="accessibility_data_signal_full">Сигналот за податоци е исполнет.</string>
     <string name="accessibility_data_three_bars">Податоци три цртички.</string>
@@ -206,6 +221,7 @@
     <string name="accessibility_display_daltonizer_preference_title">Корекција на бои</string>
     <string name="accessibility_display_inversion_preference_subtitle">Инверзијата на бои ги претвора светлите екрани во темни.&lt;br/>&lt;br/> Забелешка: &lt;ol> &lt;li> Инверзијата на бои ги претвора и темните екрани во светли.&lt;/li> &lt;li> Ќе се променат боите во аудиовизуелните содржини и во сликите.&lt;/li> &lt;li> Темната тема може да се користи за прикажување темна заднина. Темната тема функционира кај поддржани апликации. Инверзијата на бои функционира кај сите апликации.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Инверзија на бои</string>
+    <string name="accessibility_display_inversion_shortcut_title">Кратенка за инверзија на боите</string>
     <string name="accessibility_display_inversion_switch_title">Користи „Инверзија на бои“</string>
     <string name="accessibility_ethernet_connected">Етернет.</string>
     <string name="accessibility_ethernet_disconnected">Етернетот е исклучен.</string>
@@ -255,6 +271,8 @@
     <string name="accessibility_phone_two_bars">Телефон две цртички.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">Прекини повик со копче за вклучување</string>
     <string name="accessibility_preference_magnification_summary">Зумирање на екранот</string>
+    <string name="accessibility_screen_magnification_about_title">За зголемување</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">Дознајте повеќе за зголемување</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">Ова движење за пристапност е поставено за %1$s. За да користите зголемување, повлечете нагоре со два прста од дното на екранот и задржете. Потоа изберете зголемување.</string>
     <string name="accessibility_screen_magnification_gestures_title">Зголеми со троен допир</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">Копчето за „Пристапност“ е поставено на %1$s. За да користите зголемување, допрете го и задржете го копчето за „Пристапност“, а потоа изберете „Зголемување“.</string>
@@ -272,6 +290,7 @@
 Не може да зумирате на тастатурата или на лентата за навигација."</string>
     <string name="accessibility_screen_magnification_navbar_title">Зголемување со кратенка</string>
     <string name="accessibility_screen_magnification_short_summary">Допрете три пати за да зумирате</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Кратенка за зголемување</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Зголемете со кратенка и троен допир</string>
     <string name="accessibility_screen_magnification_summary">Брзо зумирајте го екранот за да ги зголемите содржините.&lt;br/>&lt;br/> &lt;b>За да зумирате:&lt;/b>&lt;br/> {0,number,integer}. Употребете кратенка за почеток на зголемувањето&lt;br/> {1,number,integer}. Допрете го екранот&lt;br/> {2,number,integer}. Повлечете со два прста за да се движите низ екранот&lt;br/> {3,number,integer}. Штипнете со два прста за да го приспособите зумот&lt;br/> {4,number,integer}. Употребете кратенка за крај на зголемувањето&lt;br/>&lt;br/>&lt;b>За да зумирате привремено:&lt;/b>&lt;br/> {0,number,integer}. Употребете кратенка за почеток на зголемувањето&lt;br/> {1,number,integer}. Допрете и задржете каде било на екранот&lt;br/> {2,number,integer}. Повлечете со прст за да се движите низ екранот&lt;br/> {3,number,integer}. Подигнете го прстот за крај на зголемувањето</string>
     <string name="accessibility_screen_magnification_title">Зголемување</string>
@@ -370,7 +389,7 @@
     <string name="accessibility_tutorial_dialog_message_volume">За да ја користите функцијава, притиснете и задржете ги двете копчиња за јачина на звук.</string>
     <string name="accessibility_tutorial_dialog_title_button">Користете го копчето за пристапност за да отворите</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Користете движење за да отворите</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Користете го новото движење за пристапност</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Користете го движењето за пристапност</string>
     <string name="accessibility_tutorial_dialog_title_triple">Допрете го екранот трипати за отворање</string>
     <string name="accessibility_tutorial_dialog_title_volume">Држете ги копчињата за јачина на звук за отворање</string>
     <string name="accessibility_tutorial_pager">Страница %1$d од %2$d</string>
@@ -936,6 +955,7 @@
     <string name="battery_level_title">Ниво на батерија</string>
     <string name="battery_manager_off">Исклучено</string>
     <string name="battery_manager_summary">Продолжете го траењето на батеријата и оптимизирајте го полнењето</string>
+    <string name="battery_manager_summary_unsupported">Продолжете го траењето на батеријата</string>
     <string name="battery_missing_link_a11y_message">Допрете за да дознаете повеќе за оваа грешка</string>
     <string name="battery_missing_link_message">Дознајте повеќе</string>
     <string name="battery_missing_message">Проблем при читањето на мерачот на батеријата.</string>
@@ -1010,7 +1030,7 @@
     <string name="battery_tip_early_heads_up_title">Вклучете „Штедач на батерија“</string>
     <string name="battery_tip_high_usage_summary">Прегледајте ги апликациите со најголемо користење</string>
     <string name="battery_tip_high_usage_title">Поголемо користење на батеријата</string>
-    <string name="battery_tip_limited_temporarily_dialog_msg">"При одредени услови, како високи температури и долги периоди на полнење, полнењето може да се ограничи на %1$s за да помогне да се зачува состојбата на батеријата.
+    <string name="battery_tip_limited_temporarily_dialog_msg">"При одредени услови, како високи температури и долги периоди на полнење, полнењето може да се ограничи на %1$s за да се зачува состојбата на батеријата.
 
 Кога таквите услови ќе завршат, вашиот телефон автоматски ќе се полни нормално."</string>
     <string name="battery_tip_limited_temporarily_dialog_resume_charge">Продолжи со полнење</string>
@@ -1061,6 +1081,7 @@
     <string name="battery_usage_screen_footer">Податоците за батеријата се приближни и не го мерат користењето кога телефонот се полни</string>
     <string name="battery_usage_screen_footer_empty">Податоците за користењето на батеријата ќе бидат достапни откако ќе го користите телефонот неколку часа</string>
     <string name="battery_usage_total_less_than_one_minute">Вкупно: помалку од една минута</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">%1$s искористени од %2$s</string>
     <string name="battery_used_for">Користење ^1</string>
     <string name="bearer">Носител</string>
@@ -1069,12 +1090,14 @@
     <string name="billing_cycle_less_than_one_day_left">Преостанува помалку од 1 ден</string>
     <string name="billing_cycle_none_left">Нема преостанато време</string>
     <string name="biometric_settings_category_ways_to_unlock">Начини на отклучување</string>
-    <string name="biometric_settings_category_ways_to_use">Користете лик и отпечаток за</string>
     <string name="biometric_settings_hand_back_to_guardian">Дај му го телефонот на родителот</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">Во ред</string>
     <string name="biometric_settings_intro">Кога ќе поставите „Отклучување со лик“ и „Отклучување со отпечаток на прст“, телефонот ќе го побара вашиот отпечаток кога носите маска или сте на темно место</string>
-    <string name="biometric_settings_use_biometric_for_apps">Проверка во апликации</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">Отклучување телефон</string>
+    <string name="biometric_settings_use_biometric_for_apps">Потврдете дека сте вие во апликации</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">Отклучувајте го телефонот</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">со користење лик или отпечаток</string>
+    <string name="biometric_settings_use_face_preference_summary">со користење лик</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">со користење отпечаток</string>
     <string name="biometrics_unlock_set_unlock_password">Лозинка • Лик • Отпечаток</string>
     <string name="biometrics_unlock_set_unlock_pattern">Шема • Лик • Отпечаток</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN • Лик • Отпечаток</string>
@@ -1332,7 +1355,6 @@
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Прикажувај уреди со Bluetooth без имиња</string>
     <string name="bluetooth_show_devices_without_names_summary">Уредите со Bluetooth без имиња (само MAC-адреси) ќе се прикажуваат</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Датотеки примени преку Bluetooth</string>
     <string name="bluetooth_show_received_files">Примени датотеки</string>
     <string name="bluetooth_sim_card_access_dialog_content">"Уред со Bluetooth, %1$s, сака да пристапи до податоци на вашата SIM-картичка. Ова ги опфаќа и контактите.
 
@@ -1426,6 +1448,7 @@
     <string name="calls_sms_temp_unavailable">Привремено недостапен</string>
     <string name="calls_sms_unavailable">недостапно</string>
     <string name="calls_sms_wfc_summary">Упатувајте и примајте повици преку Wi‑Fi</string>
+    <string name="cam_toggle_description">За апликации и услуги</string>
     <string name="camera_double_tap_power_gesture_desc">Брзо отворете ја камерата без да го отклучувате екранот</string>
     <string name="camera_double_tap_power_gesture_title">Прит. копче за напој. двапати за камера</string>
     <string name="camera_laser_sensor_switch">Ласерски сензор за камерата</string>
@@ -3173,7 +3196,7 @@ PIN-кодот го заштитува телефонот ако го изгуб
     <string name="manage_conversations">Управувајте со разговорите</string>
     <string name="manage_device_admin">Апликации за администраторот</string>
     <string name="manage_external_storage_title">Пристап до сите датотеки</string>
-    <string name="manage_mobile_plan_title">Мобилен план</string>
+    <string name="manage_mobile_plan_title">Пакет за мобилен интернет</string>
     <string name="manage_notification_access_summary">Контролирајте кои апликации и уреди може да ги читаат известувањата</string>
     <string name="manage_notification_access_summary_zero">Апликациите не можат да читаат известувања</string>
     <string name="manage_notification_access_title">Известувања во уреди и апликации</string>
@@ -3302,6 +3325,7 @@ PIN-кодот го заштитува телефонот ако го изгуб
     <string name="menu_stats_total">Вкупна употреба</string>
     <string name="menu_stats_unplugged">%1$s од исклучување</string>
     <string name="menu_use_uss">Користи Uss</string>
+    <string name="mic_toggle_description">За апликации и услуги. Ако поставкава е исклучена, податоците за микрофонот може сепак да се споделат кога ќе се јавите на број за итни случаи.</string>
     <string name="mic_toggle_title">Пристап до микрофонот</string>
     <string name="misc_files">Разни датотеки</string>
     <string name="misc_files_selected_count">избрани %1$d од %2$d</string>
@@ -3728,6 +3752,7 @@ PIN-кодот го заштитува телефонот ако го изгуб
     <string name="one_handed_action_show_notification_title">Приказ на известувањата</string>
     <string name="one_handed_mode_enabled">Користи „Режим со една рака“</string>
     <string name="one_handed_mode_intro_text">За да користите режим со една рака, повлечете надолу од долниот раб на екранот. За да ја користите функцијава, треба да вклучите „Навигација со движења“ во поставките за „Навигација низ системот“.</string>
+    <string name="one_handed_mode_shortcut_title">Кратенка за „Режим со една рака“</string>
     <string name="one_handed_mode_swipe_down_category">Повлечете надолу за</string>
     <string name="one_handed_mode_use_shortcut_category">Користете ја кратенката за</string>
     <string name="one_usercrt">еден сертификат на корисник</string>
@@ -3803,7 +3828,7 @@ PIN-кодот го заштитува телефонот ако го изгуб
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s е активен</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Камера</string>
-    <string name="power_cell">Мобилна мрежа во мирување</string>
+    <string name="power_cell">Мобилна мрежа</string>
     <string name="power_charge_remaining">%1$s до полнење</string>
     <string name="power_charging">%1$s – %2$s</string>
     <string name="power_charging_duration">%1$s - %2$s до полна батерија</string>
@@ -4037,6 +4062,7 @@ PIN-кодот го заштитува телефонот ако го изгуб
     <string name="recent_notifications">Неодамна испратени</string>
     <string name="recent_notifications_see_all_title">Преглед на сите од минатите 7 дена</string>
     <string name="recompute_size">Повторно пресметување големина...</string>
+    <string name="reduce_bright_colors_about_title">За дополнително затемнување</string>
     <string name="reduce_bright_colors_intensity_end_label">Посветло</string>
     <string name="reduce_bright_colors_intensity_preference_title">Интензитет</string>
     <string name="reduce_bright_colors_intensity_start_label">Потемно</string>
@@ -4044,6 +4070,7 @@ PIN-кодот го заштитува телефонот ако го изгуб
     <string name="reduce_bright_colors_preference_subtitle">Затемнете го екранот за да ви биде читањето попријатно.&lt;br/>&lt;br/> Ова може да биде корисно кога: &lt;ol> &lt;li> минималната осветленост на телефонот е сепак пресветла&lt;/li> &lt;li> го користите телефонот во темни ситуации, како на пример, навечер или во темна соба пред легнување&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">Затемнете го екранот повеќе од минималната осветленост на телефонот</string>
     <string name="reduce_bright_colors_preference_title">Дополнително затемнување</string>
+    <string name="reduce_bright_colors_shortcut_title">Кратенка за дополнително затемнување</string>
     <string name="reduce_bright_colors_switch_title">Додајте дополнително затемнување</string>
     <string name="register_automatically">Автоматска регистрација…</string>
     <string name="register_on_network">Се регистрира на %s…</string>
@@ -4249,7 +4276,6 @@ PIN-кодот го заштитува телефонот ако го изгуб
     <string name="screen_pinning_unlock_pattern">Побарај шема за откл. пред откачување</string>
     <string name="screen_pinning_unlock_pin">Побарај PIN пред откачување</string>
     <string name="screen_reader_category_title">Читач на екран</string>
-    <string name="screen_saver_main_switch_title">Користи заштитник на екран</string>
     <string name="screen_time_summary_usage_today">%1$s денес</string>
     <string name="screen_timeout_summary">По %1$s неактивност</string>
     <string name="screen_timeout_title">Екранот се исклучува</string>
@@ -4279,6 +4305,7 @@ PIN-кодот го заштитува телефонот ако го изгуб
     <string name="screensaver_settings_button">Поставки</string>
     <string name="screensaver_settings_current">Тековен заштитник на екранот</string>
     <string name="screensaver_settings_disabled_prompt">За да контролирате што се случува кога телефонот е приклучен на полнач и/или е во мирување, вклучете го заштитникот на екранот.</string>
+    <string name="screensaver_settings_dream_start">Започни сега</string>
     <string name="screensaver_settings_summary_dock">Додека е приклучен на док</string>
     <string name="screensaver_settings_summary_either_long">Додека се полни или е приклучен</string>
     <string name="screensaver_settings_summary_either_short">И во двата случаи</string>
@@ -4329,15 +4356,6 @@ PIN-кодот го заштитува телефонот ако го изгуб
     <string name="security_settings_biometric_preference_summary_both_fp_single">Ликот и отпечатокот се додадени</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Допрете за поставување</string>
     <string name="security_settings_biometric_preference_title">Отклучување со лик и отпечаток на прст</string>
-    <string name="security_settings_biometrics_description">Кога ќе поставите отклучување со лик и отпечаток на прст, телефонот ќе го побара вашиот отпечаток кога носите маска или сте на темно место</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Проверка во апликации</string>
-    <string name="security_settings_biometrics_preferences_category">Користи лик или отпечаток за</string>
-    <string name="security_settings_biometrics_summary_both">Лик и отпечаток</string>
-    <string name="security_settings_biometrics_summary_face">Само лик</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Само отпечаток</string>
-    <string name="security_settings_biometrics_summary_none">Допрете за поставување</string>
-    <string name="security_settings_biometrics_title">Отклучување со лик и отпечаток на прст</string>
-    <string name="security_settings_biometrics_types_category">Начини на отклучување</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Дозволете отклучување со лик</string>
     <string name="security_settings_face_enroll_dialog_ok">Во ред</string>
     <string name="security_settings_face_enroll_done">Готово</string>
@@ -4383,18 +4401,19 @@ PIN-кодот го заштитува телефонот ако го изгуб
 
 Дознајте повеќе на g.co/pixel/faceunlock."</string>
     <string name="security_settings_face_enroll_introduction_control_title">Вие сте главни</string>
-    <string name="security_settings_face_enroll_introduction_how_consent_message">"„Отклучување со лик“ создава уникатен модел од лицето на вашето дете за да потврди дека е тоа. За да го создаде моделов на лице при поставувањето, детето ќе направи слики од своето лице од различни агли.
+    <string name="security_settings_face_enroll_introduction_how_consent_message">"„Отклучувањето со лик“ создава уникатен модел од лицето на вашето дете за да потврди дека е тоа. За да го создаде моделов на лице при поставувањето, детето ќе направи слики од своето лице од различни агли.
 
-При користење на „Отклучување со лик“, моделот на лице се ажурира со слики. Сликите што се користат за создавање на моделот на лицето на детето никогаш не се складираат, а самиот модел се складира безбедно во телефонот и никогаш не го напушта. Целата обработка се одвива безбедно во телефонот."</string>
-    <string name="security_settings_face_enroll_introduction_how_message">"„Отклучување со лик“ создава единствен модел од вашето лице за да потврди дека сте вие. За да го создадете моделов на лице при поставувањето, ќе направите слики од лицето од различни агли.
+Кога го користи „Отклучувањето со лик“, сликите се користат за ажурирање на неговиот модел на лице. Сликите што се користат за создавање на моделот на неговото лице не се складираат, а самиот модел се складира безбедно во телефонот и никогаш не го напушта. Целата обработка се одвива безбедно во телефонот."</string>
+    <string name="security_settings_face_enroll_introduction_how_message">"„Отклучувањето со лик“ создава единствен модел од вашето лице за да потврди дека сте вие. За да го создадете моделов на лице при поставувањето, ќе направите слики од лицето од различни агли.
 
-При користење на „Отклучување со лик“, моделот на вашето лице се ажурира со слики. Сликите што се користат за создавање на моделот на вашето лице никогаш не се складираат, а самиот модел се складира безбедно во телефонот и никогаш не го напушта. Целата обработка се одвива безбедно во телефонот."</string>
+Кога го користите „Отклучувањето со лик“, сликите се користат за ажурирање на моделот на вашето лице. Сликите што се користат за создавање на моделот на вашето лице не се складираат, а самиот модел се складира безбедно во телефонот и никогаш не го напушта. Целата обработка се одвива безбедно во телефонот."</string>
     <string name="security_settings_face_enroll_introduction_how_title">Како функционира</string>
     <string name="security_settings_face_enroll_introduction_info_consent_gaze">„Отклучување со лик“ може да бара очите на детето да бидат отворени за да се отклучи телефонот или да се потврди дека е тоа. Вие и вашето дете може да ја вклучите опцијава во „Поставки“ во секое време.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_glasses">Ако вашето дете вообичаено носи очила, може да ги носи при поставувањето.</string>
     <string name="security_settings_face_enroll_introduction_info_consent_looking">Ако гледа во телефонот, тој може да се отклучи дури и ако нема таква намера. Телефонот може да го отклучи и некој што многу наликува на него, на пример, идентичен близнак или ако некој го држи пред неговото лице.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">„Отклучување со лик“ може да бара очите да ви бидат отворени за да се отклучи телефонот или да се потврди дека сте вие. Може да ја вклучите опцијава во „Поставки“ во секое време.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">Очила или малку затемнети очила за сонце се во ред.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">Користењето лик за отклучување на телефонот може да биде понесигурно од силна шема или PIN.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">Ако гледате во телефонот, тој може да се отклучи дури и ако немате таква намера. Телефонот може да го отклучи и некој што многу наликува на вас, на пример, идентичен близнак или ако некој го држи пред вашето лице.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Имајте предвид</string>
     <string name="security_settings_face_enroll_introduction_message">Користете го лицето за да го отклучите телефонот или да потврдите дека сте вие, како кога се најавувате во апликации или одобрувате купување.</string>
@@ -4452,13 +4471,14 @@ PIN-кодот го заштитува телефонот ако го изгуб
 
 Телефонот може да го отклучи некој што многу наликува на вас, на пример, идентичен близнак."</string>
     <string name="security_settings_face_settings_preferences_category">При користење „Отклучување со лик“</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Вашиот модел на лице ќе биде трајно и безбедно избришан. По бришењето, ќе ви треба PIN, шема или лозинка за да го отклучите телефонот или за проверка во апликации.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Вашиот модел на лице ќе биде трајно и безбедно избришан.
+
+По бришењето, ќе ви треба PIN, шема или лозинка за да го отклучите телефонот или за проверка во апликации."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Вашиот модел на лице ќе биде трајно и безбедно избриша.
+
+По бришењето, ќе ви треба PIN, шема или лозинка за да го отклучите телефонот."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Да се избрише моделот на лице?</string>
     <string name="security_settings_face_settings_remove_face_model">Избриши го моделот на лице</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Вашиот модел на лице ќе биде трајно и безбедно избришан.
-
-По бришењето, ќе ви треба отпечаток, PIN, шема или лозинка за да го отклучите телефонот или за проверка во апликации."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Да се избрише моделот на лице?</string>
     <string name="security_settings_face_settings_require_attention">Очите треба да бидат отворени</string>
     <string name="security_settings_face_settings_require_attention_details">За да го отклучите телефонот, очите мора да ви бидат отворени</string>
     <string name="security_settings_face_settings_require_confirmation">Секогаш барај потврда</string>
@@ -4541,7 +4561,7 @@ PIN-кодот го заштитува телефонот ако го изгуб
     <string name="security_settings_title">Безбедност</string>
     <string name="security_settings_udfps_enroll_a11y">Движете го прстот низ екранот за да го најдете сензорот. Допрете и задржете ја иконата за отпечаток</string>
     <string name="security_settings_udfps_enroll_edge_message">Поставете го отпечаток странично на сензорот и задржете, а потоа направете исто со другата страна</string>
-    <string name="security_settings_udfps_enroll_edge_title">За крај, поставете ги рабовите на прстот</string>
+    <string name="security_settings_udfps_enroll_edge_title">За крај, користете ги рабовите на прстот</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Сензорот за отпечатоци се наоѓа на вашиот екран. Отпечатокот ќе го снимите на следниот екран.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Започнете</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Како да го поставите вашиот отпечаток</string>
@@ -4549,7 +4569,7 @@ PIN-кодот го заштитува телефонот ако го изгуб
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Ова помага за да се сними повеќе од отпечатокот</string>
     <string name="security_settings_udfps_enroll_repeat_message">Допрете и задржете секој пат кога иконата за отпечаток ќе се премести. Ова помага за да се сними повеќе од отпечатокот.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Следете ја иконата за отпечаток</string>
-    <string name="security_settings_udfps_enroll_start_message">Задржете го прстот на сензорот додека не почувствувате вибрации</string>
+    <string name="security_settings_udfps_enroll_start_message">Задржете го отпечатокот рамно на сензорот додека не почувствувате вибрации</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Уште еднаш</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint за работа</string>
     <string name="security_status_title">Безбедносен статус</string>
@@ -4575,7 +4595,6 @@ PIN-кодот го заштитува телефонот ако го изгуб
     <string name="select_webview_provider_dialog_title">Поставете воведување WebView</string>
     <string name="select_webview_provider_title">Примена на WebView</string>
     <string name="select_webview_provider_toast_text">Овој избор веќе не важи. Обидете се повторно.</string>
-    <string name="sensor_toggle_description">За сите апликации и услуги</string>
     <string name="sensors_off_quick_settings_title">Сензорите се исклучени</string>
     <string name="service_background_processes">Слободна %1$s</string>
     <string name="service_foreground_processes">Искористена %1$s</string>
@@ -4807,6 +4826,7 @@ PIN-кодот го заштитува телефонот ако го изгуб
     <string name="sound_settings_summary_silent">Ѕвонењето е поставено на безгласен режим</string>
     <string name="sound_settings_summary_vibrate">Ѕвонењето е поставено на вибрации</string>
     <string name="sound_work_settings">Звуци на работниот профил</string>
+    <string name="spatial_audio_title">Просторен звук</string>
     <string name="special_access">Посебни пристапи</string>
     <string name="special_access_more">Видете повеќе</string>
     <string name="speed_label_fast">Брза</string>
@@ -5618,7 +5638,7 @@ PIN-кодот го заштитува телефонот ако го изгуб
     <string name="vpn_turn_on">Вклучи</string>
     <string name="vpn_type">Тип</string>
     <string name="vpn_username">Корисничко име</string>
-    <string name="vpn_version">Верзија %s</string>
+    <string name="vpn_version">Верзија</string>
     <string name="vr_listener_security_warning_summary">%1$s ќе може да се извршува кога користите апликации во режим на виртуелна реалност.</string>
     <string name="vr_listener_security_warning_title">Дозволете пристап до VR услугата за %1$s?</string>
     <string name="vr_listeners_title">VR помошни услуги</string>
@@ -5888,7 +5908,7 @@ PIN-кодот го заштитува телефонот ако го изгуб
     <string name="wifi_not_in_range">Надвор од опсег</string>
     <string name="wifi_not_in_range_message">Мрежата не е во опсег</string>
     <string name="wifi_notify_open_networks">Известувај за јавни мрежи</string>
-    <string name="wifi_notify_open_networks_summary">Кога не е достапно автоматско поврзување</string>
+    <string name="wifi_notify_open_networks_summary">Извести ме кога ќе биде достапна јавна мрежа со висок квалитет</string>
     <string name="wifi_on_time">Wi-Fi на време</string>
     <string name="wifi_p2p_cancel_connect_message">Дали сакате да ја откажете поканата да се поврзете со %1$s?</string>
     <string name="wifi_p2p_cancel_connect_title">Откажи покана?</string>
@@ -5976,7 +5996,6 @@ PIN-кодот го заштитува телефонот ако го изгуб
     <string name="wifi_suspend_optimizations">Оптимизација на Wi-Fi</string>
     <string name="wifi_suspend_optimizations_summary">Минимизирај употреба на батерија кога е вклучена Wi-Fi</string>
     <string name="wifi_switch_away_when_unvalidated">Префрли се на мобилен интернет ако Wi-Fi мрежата го губи пристапот до интернет.</string>
-    <string name="wifi_switch_summary">Наоѓај и поврзувај се на Wi‑Fi мрежи</string>
     <string name="wifi_tap_to_sign_in">Допрете тука за да се најавите на мрежата</string>
     <string name="wifi_tether_configure_ap_text">Поставете точка на пристап со Wi-Fi</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

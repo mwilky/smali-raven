@@ -26,7 +26,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "timezone"
+    const-string/jumbo p0, "timezone"
 
     return-object p0
 .end method

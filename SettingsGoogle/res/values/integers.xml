@@ -49,4 +49,6 @@
     <integer name="sim_notification_send">104</integer>
     <integer name="status_bar_notification_info_maxnum">999</integer>
     <integer name="sudTransitionDuration">450</integer>
+    <integer name="suw_max_faces_enrollable">1</integer>
+    <integer name="suw_max_fingerprints_enrollable">1</integer>
 </resources>

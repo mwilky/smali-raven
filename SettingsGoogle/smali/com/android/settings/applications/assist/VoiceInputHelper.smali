@@ -88,7 +88,7 @@
 
     move-result-object v2
 
-    const-string v3, "voice_recognition_service"
+    const-string/jumbo v3, "voice_recognition_service"
 
     invoke-static {v2, v3}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 

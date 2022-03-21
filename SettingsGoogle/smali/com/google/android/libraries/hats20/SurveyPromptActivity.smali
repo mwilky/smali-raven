@@ -657,7 +657,7 @@
 
     if-nez v0, :cond_0
 
-    const-string v0, "sv"
+    const-string/jumbo v0, "sv"
 
     invoke-direct {p0, v0}, Lcom/google/android/libraries/hats20/SurveyPromptActivity;->setBeaconTypeAndTransmit(Ljava/lang/String;)V
 

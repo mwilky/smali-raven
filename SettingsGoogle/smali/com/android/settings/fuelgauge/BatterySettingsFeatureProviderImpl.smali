@@ -24,11 +24,3 @@
 
     return-void
 .end method
-
-
-# virtual methods
-.method public getReplacingActivity(Landroid/content/ComponentName;)Landroid/content/ComponentName;
-    .locals 0
-
-    return-object p1
-.end method

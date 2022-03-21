@@ -96,6 +96,7 @@
     <string name="peak_refresh_rate_title">Smooth Display</string>
     <string name="peak_refresh_rate_summary">Néhány tartalomnál automatikusan megemeli a frissítés gyakoriságát 60-ról 90 Hz-re. Növeli az akkumulátorhasználatot.</string>
     <string name="accessibility_vibration_settings_title">Rezgés és haptikus visszajelzés</string>
+    <string name="columbus_title">Gyors koppintás műveletek indításához</string>
     <string name="emergency_gesture_screen_title">Segélyhívás</string>
     <string name="abc_action_mode_done">Kész</string>
     <string name="vibrate_for_calls_category_title">Hívások</string>
@@ -103,6 +104,8 @@
     <string name="lockscreen_privacy_controls_setting_toggle">Eszközvezérlők megjelenítése</string>
     <string name="lockscreen_privacy_wallet_summary">Hozzáférés a tárcához a lezárási képernyőről és a Gyorsbeállításokból</string>
     <string name="lockscreen_privacy_controls_summary">Hozzáférés a vezérlőkhöz lezárt képernyő mellett</string>
+    <string name="lockscreen_double_line_clock_summary">Kétsoros óra megjelenítése, amikor rendelkezésre áll</string>
+    <string name="lockscreen_double_line_clock_setting_toggle">Kétsoros óra</string>
     <string name="abc_activity_chooser_view_see_all">Az összes megtekintése</string>
     <string name="abc_activitychooserview_choose_application">Válasszon alkalmazást</string>
     <string name="abc_capital_off">KI</string>
@@ -147,9 +150,11 @@
     <string name="accessibility_alarm_vibration_title">Ébresztés rezgése</string>
     <string name="accessibility_assist_gesture_complete_or_keep_adjusting">Az Active Edge beállítva. Továbbléphet a következő képernyőre, vagy folytathatja a finomhangolást.</string>
     <string name="accessibility_audio_adjustment_title">Hang korrigálása</string>
+    <string name="accessibility_autoclick_about_title">Az automatikus kattintásról</string>
     <string name="accessibility_autoclick_custom_title">Egyéni</string>
     <string name="accessibility_autoclick_default_title">Ki</string>
     <string name="accessibility_autoclick_description">Az automatikus kattintás csatlakoztatott egérrel működik. Beállíthatja, hogy az egérkurzor automatikusan kattintási műveletet hajtson végre, amikor egy adott ideig nem mozdul.</string>
+    <string name="accessibility_autoclick_footer_learn_more_content_description">További információ az automatikus kattintásról (tartózkodási idő)</string>
     <string name="accessibility_autoclick_long_summary">1 másodperc</string>
     <string name="accessibility_autoclick_long_title">Hosszú</string>
     <string name="accessibility_autoclick_longer_desc">Hosszabb</string>
@@ -161,16 +166,17 @@
     <string name="accessibility_autoclick_short_title">Rövid</string>
     <string name="accessibility_autoclick_shorter_desc">Rövidebb</string>
     <string name="accessibility_banner_message_dismiss">Bezárás</string>
-    <string name="accessibility_button_description">"Bármely képernyőn gyorsan hozzáférhet a kisegítő lehetőségekhez. 
+    <string name="accessibility_button_about_title">A Kisegítő lehetőségek gombról</string>
+    <string name="accessibility_button_description">"Bármely képernyőn gyorsan hozzáférhet a kisegítő lehetőségekhez.
 
 A kezdéshez lépjen a kisegítő lehetőségek beállításaihoz, és válassza ki valamelyik funkciót. Koppintson a parancsikonra, majd válassza a Kisegítő lehetőségek gombot."</string>
     <string name="accessibility_button_fade_summary">Néhány másodperc után elhalványul, így jobban látható a képernyő</string>
     <string name="accessibility_button_fade_title">Elhalványul, ha nincs használatban</string>
+    <string name="accessibility_button_gesture_about_title">A Kisegítő lehetőségek gombról és a kézmozdulatokról</string>
     <string name="accessibility_button_gesture_description">"Bármely képernyőn gyorsan hozzáférhet a kisegítő lehetőségekhez.
 
-A kezdéshez lépjen a kisegítő lehetőségek beállításaihoz, és válassza ki valamelyik funkciót. Koppintson a parancsikonra, majd használja a Kisegítő lehetőségek gombot.
-
-Ha inkább a navigációs sávon használná a Kisegítő lehetőségek gombot, váltson kétgombos vagy háromgombos navigációra."</string>
+A kezdéshez lépjen a kisegítő lehetőségek beállításaihoz, és válassza ki valamelyik funkciót. Koppintson a parancsikonra, majd használja a Kisegítő lehetőségek gombot vagy kézmozdulatot."</string>
+    <string name="accessibility_button_gesture_footer_learn_more_content_description">További információ a Kisegítő lehetőségek gombról és a kézmozdulatokról</string>
     <string name="accessibility_button_gesture_title">Kisegítő lehetőségek és kézmozdulat</string>
     <string name="accessibility_button_high_label">Nem átlátszó</string>
     <string name="accessibility_button_intro">A kisegítő lehetőségek gomb használata. Kézmozdulat nem használható háromgombos navigáció esetén.</string>
@@ -184,14 +190,23 @@ Ha inkább a navigációs sávon használná a Kisegítő lehetőségek gombot, 
     <string name="accessibility_caption_preference_summary">Nem minden alkalmazás támogatja ezeket a feliratozási beállításokat.</string>
     <string name="accessibility_caption_primary_switch_summary">Csak támogatott alkalmazásnál</string>
     <string name="accessibility_caption_primary_switch_title">Felirat megjelenítése</string>
+    <string name="accessibility_captioning_about_title">A feliratok beállításairól</string>
+    <string name="accessibility_captioning_footer_learn_more_content_description">További információ a feliratok beállításairól</string>
     <string name="accessibility_captioning_title">Feliratbeállítások</string>
     <string name="accessibility_category_personal">„Személyes profil” fiókok</string>
     <string name="accessibility_category_work">„Munkaprofil” fiókok – %s</string>
+    <string name="accessibility_color_inversion_about_title">A színek invertálásáról</string>
+    <string name="accessibility_color_inversion_footer_learn_more_content_description">További információ a színek invertálásáról</string>
+    <string name="accessibility_control_timeout_about_title">A művelet idejéről (kisegítés időkorlátja)</string>
+    <string name="accessibility_control_timeout_footer_learn_more_content_description">További információ a művelet idejéről (kisegítés időkorlátja)</string>
     <string name="accessibility_control_timeout_preference_summary">"Válassza ki, hogy mennyi ideig legyenek láthatók azok az üzenetek, amelyek művelet elvégzését kérik, de csak ideiglenesen láthatók a képernyőn.
 
 Nem minden alkalmazás támogatja ezt a beállítást."</string>
     <string name="accessibility_control_timeout_preference_title">Művelet elvégzésére szánt idő</string>
+    <string name="accessibility_daltonizer_about_title">A színjavításról</string>
+    <string name="accessibility_daltonizer_footer_learn_more_content_description">További információ a színjavításról</string>
     <string name="accessibility_daltonizer_primary_switch_title">Színkorrekció használata</string>
+    <string name="accessibility_daltonizer_shortcut_title">Színkorrekció gyorsparancsa</string>
     <string name="accessibility_data_one_bar">Adat egy sáv.</string>
     <string name="accessibility_data_signal_full">Adatjel teljes.</string>
     <string name="accessibility_data_three_bars">Adat három sáv.</string>
@@ -206,6 +221,7 @@ Nem minden alkalmazás támogatja ezt a beállítást."</string>
     <string name="accessibility_display_daltonizer_preference_title">Színkorrekció</string>
     <string name="accessibility_display_inversion_preference_subtitle">A színek invertálása sötétebbé teszi a világos képernyőket.&lt;br/>&lt;br/> Megjegyzés: &lt;ol> &lt;li> A színek invertálása egyúttal világosra változtatja a sötét képernyőt.&lt;/li> &lt;li> Megváltoznak a médiatartalmak és a képek színei.&lt;/li> &lt;li> Sötét háttér megjelenítéséhez használható a Sötét téma. A Sötét téma a támogatott alkalmazásokkal működik. A színek invertálása minden alkalmazással használható.&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_inversion_preference_title">Színek invertálása</string>
+    <string name="accessibility_display_inversion_shortcut_title">Színek invertálásának gyorsparancsa</string>
     <string name="accessibility_display_inversion_switch_title">Színinvertálás használata</string>
     <string name="accessibility_ethernet_connected">Ethernet.</string>
     <string name="accessibility_ethernet_disconnected">Ethernet leválasztva.</string>
@@ -255,6 +271,8 @@ A Kisegítő lehetőségek gomb a többi alkalmazás felett jelenik meg a képer
     <string name="accessibility_phone_two_bars">Telefon két sáv.</string>
     <string name="accessibility_power_button_ends_call_prerefence_title">A bekapcs. gomb megszakítja a hívást</string>
     <string name="accessibility_preference_magnification_summary">A képernyő nagyítása</string>
+    <string name="accessibility_screen_magnification_about_title">A nagyításról</string>
+    <string name="accessibility_screen_magnification_footer_learn_more_content_description">További információ a nagyításról</string>
     <string name="accessibility_screen_magnification_gesture_navigation_warning">A kisegítő kézmozdulat a következőre van beállítva: %1$s. A nagyítás használatához gyorsan csúsztassa fel két ujját a képernyő aljáról, majd tartsa. Ezután válassza a nagyítás lehetőséget.</string>
     <string name="accessibility_screen_magnification_gestures_title">Nagyítás három koppintással</string>
     <string name="accessibility_screen_magnification_navbar_configuration_warning">A Kisegítő lehetőségek gomb a következőre van állítva: %1$s. Nagyításhoz tartsa lenyomva a Kisegítő lehetőségek gombot, majd válassza a nagyítás lehetőséget.</string>
@@ -272,6 +290,7 @@ A "<b>nagyításhoz</b>", indítsa el a funkciót, majd koppintson a kívánt te
 A billentyűzeten és a navigációs sávon nem lehetséges a nagyítás."</string>
     <string name="accessibility_screen_magnification_navbar_title">Nagyítás gyorsparanccsal</string>
     <string name="accessibility_screen_magnification_short_summary">A nagyításhoz koppintson háromszor</string>
+    <string name="accessibility_screen_magnification_shortcut_title">Nagyítás gyorsparancsa</string>
     <string name="accessibility_screen_magnification_state_navbar_gesture">Nagyítás gyorsparanccsal és három koppintással</string>
     <string name="accessibility_screen_magnification_summary">Gyorsan nagyíthat a képernyőn a tartalom felnagyítása érdekében.&lt;br/>&lt;br/>&lt;b>A nagyításhoz:&lt;/b>&lt;br/> {0,number,integer}. Használja a gyorsparancsot a nagyítás megkezdéséhez.&lt;br/> {1,number,integer}. Koppintson a képernyőre.&lt;br/> {2,number,integer}. Két ujjának húzásával mozoghat a képernyőn.&lt;br/> {3,number,integer}. Két ujjának összehúzásával módosíthatja a nagyítási szintet.&lt;br/> {4,number,integer}. A gyorsparancs segítségével állítsa le a nagyítási funkciót.&lt;br/>&lt;br/>&lt;b>Az ideiglenes nagyításhoz:&lt;/b>&lt;br/> {0,number,integer}. Használja a gyorsparancsot a nagyítás megkezdéséhez.&lt;br/> {1,number,integer}. Tartsa lenyomva egyik ujját bárhol a képernyőn.&lt;br/> {2,number,integer}. Ujjának húzásával mozoghat a képernyőn.&lt;br/> {3,number,integer}. Emelje fel ujját a nagyítás befejezéséhez.</string>
     <string name="accessibility_screen_magnification_title">Nagyítás</string>
@@ -370,7 +389,7 @@ A funkciók közötti váltáshoz csúsztasson felfelé három ujjával, és ne 
     <string name="accessibility_tutorial_dialog_message_volume">A funkció használatához tartsa lenyomva mindkét hangerőszabályzó gombot.</string>
     <string name="accessibility_tutorial_dialog_title_button">Megnyitás a kisegítő gombbal</string>
     <string name="accessibility_tutorial_dialog_title_gesture">Megnyitás kézmozdulattal</string>
-    <string name="accessibility_tutorial_dialog_title_gesture_settings">Új kisegítő kézmozdulat használata</string>
+    <string name="accessibility_tutorial_dialog_title_gesture_settings">Kisegítő kézmozdulat használata</string>
     <string name="accessibility_tutorial_dialog_title_triple">Koppintson háromszor a képernyőn a megnyitáshoz</string>
     <string name="accessibility_tutorial_dialog_title_volume">A megnyitáshoz tartsa lenyomva a hangerőgombokat</string>
     <string name="accessibility_tutorial_pager">%2$d/%1$d. oldal</string>
@@ -936,6 +955,7 @@ Ha elkészült a visszaállítással, végezze el a beállítási folyamatot, é
     <string name="battery_level_title">Akkumulátorszint</string>
     <string name="battery_manager_off">Ki</string>
     <string name="battery_manager_summary">Az akkumulátor élettartamának növelése és a töltés optimalizálása</string>
+    <string name="battery_manager_summary_unsupported">Az akkumulátor élettartamának növelése</string>
     <string name="battery_missing_link_a11y_message">Koppintson, ha többet szeretne megtudni erről a hibáról</string>
     <string name="battery_missing_link_message">További információ</string>
     <string name="battery_missing_message">Probléma merült fel az akkumulátor-töltésmérő olvasásakor.</string>
@@ -1061,6 +1081,7 @@ a háttérben a következő időintervallumban: ^2"</string>
     <string name="battery_usage_screen_footer">Az akkumulátorhasználati adatok hozzávetőlegesek; a telefon töltése közben nem mérik a használatot</string>
     <string name="battery_usage_screen_footer_empty">Az akkumulátorhasználati adatok a telefon néhány órás használata után állnak majd rendelkezésre.</string>
     <string name="battery_usage_total_less_than_one_minute">Összesen: kevesebb mint egy perc</string>
+    <string name="battery_usage_without_time" />
     <string name="battery_used_by">A(z) %2$s %1$s-ot használt</string>
     <string name="battery_used_for">Használat ideje: ^1</string>
     <string name="bearer">Hordozószolgáltatás</string>
@@ -1069,12 +1090,14 @@ a háttérben a következő időintervallumban: ^2"</string>
     <string name="billing_cycle_less_than_one_day_left">Kevesebb mint egy nap van hátra</string>
     <string name="billing_cycle_none_left">Nincs hátralévő idő</string>
     <string name="biometric_settings_category_ways_to_unlock">Feloldási módszerek</string>
-    <string name="biometric_settings_category_ways_to_use">Arc és ujjlenyomat használata a következőhöz:</string>
     <string name="biometric_settings_hand_back_to_guardian">Add vissza szüleidnek a telefont</string>
     <string name="biometric_settings_hand_back_to_guardian_ok">OK</string>
     <string name="biometric_settings_intro">Ha beállítja az Arcalapú feloldás és a Feloldás ujjlenyomattal funkciót, telefonja az ujjlenyomatát fogja kérni, amikor Ön maszkot visel, vagy sötét helyen van.</string>
-    <string name="biometric_settings_use_biometric_for_apps">Hitelesítés az alkalmazásokban</string>
-    <string name="biometric_settings_use_biometric_unlock_phone">Zárolás feloldása</string>
+    <string name="biometric_settings_use_biometric_for_apps">Személyazonosság ellenőrzése alkalmazásokban</string>
+    <string name="biometric_settings_use_biometric_unlock_phone">A telefon zárolásának feloldása</string>
+    <string name="biometric_settings_use_face_or_fingerprint_preference_summary">Arc vagy ujjlenyomat használata</string>
+    <string name="biometric_settings_use_face_preference_summary">Arc használata</string>
+    <string name="biometric_settings_use_fingerprint_preference_summary">Ujjlenyomat használata</string>
     <string name="biometrics_unlock_set_unlock_password">Jelszó • Arc • Ujjlenyomat</string>
     <string name="biometrics_unlock_set_unlock_pattern">Minta • Arc • Ujjlenyomat</string>
     <string name="biometrics_unlock_set_unlock_pin">PIN-kód • Arc • Ujjlenyomat</string>
@@ -1332,7 +1355,6 @@ Kiválasztás"</string>
     <string name="bluetooth_settings_title">Bluetooth</string>
     <string name="bluetooth_show_devices_without_names">Név nélküli Bluetooth-eszközök megjelenítése</string>
     <string name="bluetooth_show_devices_without_names_summary">Név nélküli Bluetooth-eszközök jelennek meg (csak MAC-címekkel)</string>
-    <string name="bluetooth_show_files_received_via_bluetooth">Bluetooth-on fogadott fájlok</string>
     <string name="bluetooth_show_received_files">Fogadott fájlok</string>
     <string name="bluetooth_sim_card_access_dialog_content">"Egy Bluetooth-eszköz (%1$s) szeretne hozzáférni a SIM-kártyáján található adatokhoz (többek között a névjegyeihez is).
 
@@ -1426,6 +1448,7 @@ Ez hatással lehet a többi olyan alkalmazásra vagy beszélgetésre is, amelyek
     <string name="calls_sms_temp_unavailable">Átmenetileg nem áll rendelkezésre</string>
     <string name="calls_sms_unavailable">nem áll rendelkezésre</string>
     <string name="calls_sms_wfc_summary">Hívások indítása és fogadása Wi‑Fi-n keresztül</string>
+    <string name="cam_toggle_description">Alkalmazásoknál és szolgáltatásoknál</string>
     <string name="camera_double_tap_power_gesture_desc">A kamera gyors megnyitása a képernyő feloldása nélkül</string>
     <string name="camera_double_tap_power_gesture_title">A kamerához nyomja meg a bekapcsológombot kétszer</string>
     <string name="camera_laser_sensor_switch">A kamera lézeres érzékelője</string>
@@ -3173,7 +3196,7 @@ Más felhasználók is vannak ezen az eszközön.
     <string name="manage_conversations">Beszélgetések kezelése</string>
     <string name="manage_device_admin">Eszközrendszergazdai alkalmazások</string>
     <string name="manage_external_storage_title">Hozzáférés minden fájlhoz</string>
-    <string name="manage_mobile_plan_title">Mobil-előfizetés</string>
+    <string name="manage_mobile_plan_title">Mobilcsomag</string>
     <string name="manage_notification_access_summary">Vezérelheti, hogy mely alkalmazások és eszközök olvashatják az értesítéseket</string>
     <string name="manage_notification_access_summary_zero">Az alkalmazások nem tudják olvasni az értesítéseket</string>
     <string name="manage_notification_access_title">Eszköz- és alkalmazásértesítések</string>
@@ -3302,6 +3325,7 @@ Más felhasználók is vannak ezen az eszközön.
     <string name="menu_stats_total">Használat összesen</string>
     <string name="menu_stats_unplugged">%1$s az utolsó töltés óta</string>
     <string name="menu_use_uss">Egyedi készletméret használata</string>
+    <string name="mic_toggle_description">Alkalmazásoknál és szolgáltatásoknál. Ha ki van kapcsolva ez a beállítás, segélyhívó szám hívásakor a rendszer továbbra is megoszthatja a mikrofonadatokat.</string>
     <string name="mic_toggle_title">Hozzáférés a mikrofonhoz</string>
     <string name="misc_files">Egyéb fájlok</string>
     <string name="misc_files_selected_count">%2$d/%1$d kiválasztva</string>
@@ -3728,6 +3752,7 @@ Ezzel az alkalmazás egyúttal képes lesz a „Ne zavarjanak” funkció be- é
     <string name="one_handed_action_show_notification_title">Értesítések mutatása</string>
     <string name="one_handed_mode_enabled">Egykezes mód használata</string>
     <string name="one_handed_mode_intro_text">Az egykezes mód használatához csúsztasson lefelé a képernyő aljától. A funkció használatához győződjön meg arról, hogy be van kapcsolva a kézmozdulat-alapú navigáció a rendszernavigációs beállítások között.</string>
+    <string name="one_handed_mode_shortcut_title">Egykezes mód gyorsparancsa</string>
     <string name="one_handed_mode_swipe_down_category">Csúsztasson lefelé a következőhöz:</string>
     <string name="one_handed_mode_use_shortcut_category">A gyorsparancs segítségével a következőt hajthatja végre:</string>
     <string name="one_usercrt">egy felhasználói tanúsítvány</string>
@@ -3803,7 +3828,7 @@ Ezzel az alkalmazás egyúttal képes lesz a „Ne zavarjanak” funkció be- é
     <string name="post_dsds_reboot_notification_title_with_carrier">%1$s: aktív</string>
     <string name="power_bluetooth">Bluetooth</string>
     <string name="power_camera">Kamera</string>
-    <string name="power_cell">Mobilhálózat készenléti módban</string>
+    <string name="power_cell">Mobilhálózat</string>
     <string name="power_charge_remaining">%1$s a feltöltéshez</string>
     <string name="power_charging">%1$s – %2$s</string>
     <string name="power_charging_duration">%1$s – %2$s a teljes töltöttségig</string>
@@ -4037,6 +4062,7 @@ Nyomja le egyszerre a bekapcsológombot és a hangerő növelése gombot."</stri
     <string name="recent_notifications">Nemrég küldött</string>
     <string name="recent_notifications_see_all_title">Az összes megtekintése az utolsó hét napból</string>
     <string name="recompute_size">Méret újraszámítása...</string>
+    <string name="reduce_bright_colors_about_title">Az extrasötét módról</string>
     <string name="reduce_bright_colors_intensity_end_label">Több fényerő</string>
     <string name="reduce_bright_colors_intensity_preference_title">Intenzitás</string>
     <string name="reduce_bright_colors_intensity_start_label">Kevesebb fényerő</string>
@@ -4044,6 +4070,7 @@ Nyomja le egyszerre a bekapcsológombot és a hangerő növelése gombot."</stri
     <string name="reduce_bright_colors_preference_subtitle">Sötétítéssel könnyebben olvasható a képernyő.&lt;br/>&lt;br/> Ez például a következő esetekben lehet hasznos: &lt;ol> &lt;li> Ha a telefon alapértelmezett minimális fényereje még mindig túl nagy.&lt;/li> &lt;li> Ha a telefont sötét körülmények között használja (például éjjel vagy sötét szobában lefekvés előtt).&lt;/li> &lt;/ol></string>
     <string name="reduce_bright_colors_preference_summary">A képernyő sötétítése a telefon minimális fényerejénél sötétebbre</string>
     <string name="reduce_bright_colors_preference_title">Extrasötét</string>
+    <string name="reduce_bright_colors_shortcut_title">Extrasötét mód gyorsparancsa</string>
     <string name="reduce_bright_colors_switch_title">A képernyő legyen extrasötét</string>
     <string name="register_automatically">Automatikus regisztráció…</string>
     <string name="register_on_network">Regisztráció a(z) %s hálózaton…</string>
@@ -4249,7 +4276,6 @@ Az alkalmazásokat a következőképpen tűzheti ki: \u0009
     <string name="screen_pinning_unlock_pattern">Feloldási minta kérése a rögzítés feloldásához</string>
     <string name="screen_pinning_unlock_pin">PIN-kód kérése a kitűzés megszüntetéséhez</string>
     <string name="screen_reader_category_title">Képernyőolvasó</string>
-    <string name="screen_saver_main_switch_title">Képernyővédő használata</string>
     <string name="screen_time_summary_usage_today">Ma: %1$s</string>
     <string name="screen_timeout_summary">%1$s inaktivitás után</string>
     <string name="screen_timeout_title">A kijelző kikapcsol</string>
@@ -4279,6 +4305,7 @@ Az alkalmazásokat a következőképpen tűzheti ki: \u0009
     <string name="screensaver_settings_button">Beállítások</string>
     <string name="screensaver_settings_current">Jelenlegi képernyővédő</string>
     <string name="screensaver_settings_disabled_prompt">A képernyővédő bekapcsolásával beállíthatja, hogy mit csináljon a telefon dokkolt, illetve alvó állapotban.</string>
+    <string name="screensaver_settings_dream_start">Indítás most</string>
     <string name="screensaver_settings_summary_dock">Dokkolt állapotban</string>
     <string name="screensaver_settings_summary_either_long">Töltés és dokkolás közben</string>
     <string name="screensaver_settings_summary_either_short">Bármelyik</string>
@@ -4329,15 +4356,6 @@ Az alkalmazásokat a következőképpen tűzheti ki: \u0009
     <string name="security_settings_biometric_preference_summary_both_fp_single">Arc és ujjlenyomat hozzáadva</string>
     <string name="security_settings_biometric_preference_summary_none_enrolled">Koppintson ide a beállításhoz</string>
     <string name="security_settings_biometric_preference_title">Arc- és ujjlenyomat-alapú feloldás</string>
-    <string name="security_settings_biometrics_description">Ha beállítja az arc- és ujjlenyomat-alapú feloldást, telefonja az ujjlenyomatát fogja kérni, amikor maszkot visel vagy sötét helyen van</string>
-    <string name="security_settings_biometrics_preference_use_with_apps">Hitelesítés az alkalmazásokban</string>
-    <string name="security_settings_biometrics_preferences_category">Arc vagy ujjlenyomat használata a következőhöz:</string>
-    <string name="security_settings_biometrics_summary_both">Arc és ujjlenyomat</string>
-    <string name="security_settings_biometrics_summary_face">Csak arc</string>
-    <string name="security_settings_biometrics_summary_fingerprint">Csak ujjlenyomat</string>
-    <string name="security_settings_biometrics_summary_none">Koppintson ide a beállításhoz</string>
-    <string name="security_settings_biometrics_title">Arc- és ujjlenyomat-alapú feloldás</string>
-    <string name="security_settings_biometrics_types_category">Feloldási módszerek</string>
     <string name="security_settings_face_enroll_consent_introduction_title">Arcalapú feloldás engedélyezése</string>
     <string name="security_settings_face_enroll_dialog_ok">OK</string>
     <string name="security_settings_face_enroll_done">Kész</string>
@@ -4385,7 +4403,7 @@ További információ: g.co/pixel/faceunlock."</string>
     <string name="security_settings_face_enroll_introduction_control_title">Az irányítás az Ön kezében van</string>
     <string name="security_settings_face_enroll_introduction_how_consent_message">"Az Arcalapú feloldás egyéni modellt hoz létre az Ön gyermekének arcáról a személyazonossága ellenőrzéséhez. Az arcmodellnek a beállítás során való létrehozásához gyermekének képeket kell készítenie az arcáról különböző szögekből.
 
-Amikor gyermeke az Arcalapú feloldást használja, a rendszer felhasználja a képeket az arcmodellje frissítésére. Az arcmodell elkészítéséhez használt képeket nem tárolja, magát az arcmodellt azonban biztonságosan tárolja a telefon, és az arcmodell sosem kerül ki róla. A feldolgozás teljes mértékben és biztonságos módon a telefonon történik."</string>
+Amikor gyermeke az Arcalapú feloldást használja, a rendszer felhasználja a képeket az arcmodellje frissítésére. Az arcmodell elkészítéséhez használt képeket nem, de magát az arcmodellt biztonságosan tárolja a telefon, és az arcmodell sosem kerül ki róla. A feldolgozás teljes mértékben és biztonságos módon a telefonon történik."</string>
     <string name="security_settings_face_enroll_introduction_how_message">"Az Arcalapú feloldás egyéni modellt hoz létre az Ön arcáról a személyazonossága ellenőrzéséhez. Az arcmodellnek a beállítás során való létrehozásához képeket kell készítenie az arcáról különböző szögekből.
 
 Az Arcalapú feloldás használatakor a rendszer felhasználja a képeket az arcmodell frissítésére. Az arcmodell elkészítéséhez használt képeket nem, de magát az arcmodellt biztonságosan tárolja a telefon, és az arcmodell sosem kerül ki a róla. A feldolgozás teljes mértékben és biztonságos módon a telefonon történik."</string>
@@ -4395,6 +4413,7 @@ Az Arcalapú feloldás használatakor a rendszer felhasználja a képeket az arc
     <string name="security_settings_face_enroll_introduction_info_consent_looking">A telefonjára nézve gyermeke akkor is feloldhatja az eszközt, ha nem szeretné. A telefont olyasvalaki is feloldhatja, aki nagyon hasonlít gyermekére, például az egypetéjű ikertestvére; vagy aki az Ön gyermekének arca elé tartja a telefont.</string>
     <string name="security_settings_face_enroll_introduction_info_gaze">Az Arcalapú feloldás funkció megkövetelheti, hogy az Ön szeme nyitva legyen a telefon zárolásának feloldásához vagy a személyazonosság igazolásához. Bármikor kikapcsolhatja ezt a Beállítások menüben.</string>
     <string name="security_settings_face_enroll_introduction_info_glasses">A szemüvegek és az enyhén színezett napszemüvegek nem jelentenek problémát.</string>
+    <string name="security_settings_face_enroll_introduction_info_less_secure">A telefon arccal való feloldása kevésbé biztonságos lehet, mint egy erős minta vagy PIN-kód használata.</string>
     <string name="security_settings_face_enroll_introduction_info_looking">A telefonjára nézve akkor is feloldhatja az eszközt, ha nem szeretné. A telefont olyasvalaki is feloldhatja, aki nagyon hasonlít Önre, például az egypetéjű ikertestvére; vagy aki az Ön arca elé tartja a telefont.</string>
     <string name="security_settings_face_enroll_introduction_info_title">Fontos tudnivalók</string>
     <string name="security_settings_face_enroll_introduction_message">Használhatja az Arcalapú feloldás funkciót telefonja zárolásának feloldásához vagy személyazonossága igazolásához (például alkalmazásokba való bejelentkezés vagy vásárlás jóváhagyása során).</string>
@@ -4452,13 +4471,14 @@ Telefonját más is feloldhatja, ha az Ön arca elé tartja, még akkor is, ha a
 
 Előfordulhat, hogy telefonját az Önre nagyon hasonlító személyek is feloldhatják, például az egypetéjű ikertestvére."</string>
     <string name="security_settings_face_settings_preferences_category">Arcalapú feloldás használatakor</string>
-    <string name="security_settings_face_settings_remove_dialog_details">Arcmodellje véglegesen és biztonságosan törölve lesz. A törlés után PIN-kódot, mintát vagy jelszót kell használnia a telefon zárolásának feloldásához és az alkalmazásokban történő hitelesítéshez.</string>
+    <string name="security_settings_face_settings_remove_dialog_details">"Arcmodelljét véglegesen és biztonságosan töröljük.
+
+A törlés után PIN-kódot, mintát vagy jelszót kell használnia a telefon zárolásának feloldásához és az alkalmazásokban történő hitelesítéshez."</string>
+    <string name="security_settings_face_settings_remove_dialog_details_convenience">"Arcmodelljét véglegesen és biztonságosan töröljük.
+
+Az eltávolítás után PIN-kódra, mintára vagy jelszóra lesz szüksége a telefon feloldásához."</string>
     <string name="security_settings_face_settings_remove_dialog_title">Törli az arcmodellt?</string>
     <string name="security_settings_face_settings_remove_face_model">Arcmodell törlése</string>
-    <string name="security_settings_face_settings_remove_model_dialog_details">"Arcmodellje véglegesen és biztonságosan törölve lesz.
-
-A törlés után ujjlenyomatot, PIN-kódot, mintát vagy jelszót kell használnia a telefon zárolásának feloldásához és az alkalmazásokban történő hitelesítéshez."</string>
-    <string name="security_settings_face_settings_remove_model_dialog_title">Törli az arcmodellt?</string>
     <string name="security_settings_face_settings_require_attention">A szemének nyitva kell lennie</string>
     <string name="security_settings_face_settings_require_attention_details">A telefon feloldásához nyitva kell lennie a szemének</string>
     <string name="security_settings_face_settings_require_confirmation">Mindig kérjen megerősítést</string>
@@ -4541,7 +4561,7 @@ Megjegyzés: Az ujjlenyomat az eszköz feloldására nem használható. Ha tová
     <string name="security_settings_title">Biztonság</string>
     <string name="security_settings_udfps_enroll_a11y">Mozgassa az ujját a képernyőn, amíg megtalálja az érzékelőt. Tartsa ujját az ujjlenyomat-érzékelőn.</string>
     <string name="security_settings_udfps_enroll_edge_message">Helyezze az ujja oldalsó részét az érzékelőre, és tartsa lenyomva, majd helyezze az érzékelőre az ujja másik oldalát.</string>
-    <string name="security_settings_udfps_enroll_edge_title">Végül az ujja széleit helyezze az érzékelőre</string>
+    <string name="security_settings_udfps_enroll_edge_title">Végül az ujja széleit érintse az érzékelőhöz</string>
     <string name="security_settings_udfps_enroll_find_sensor_message">Az ujjlenyomat-érzékelő a képernyőn található. Ujjlenyomatának rögzítése a következő képernyőn történik.</string>
     <string name="security_settings_udfps_enroll_find_sensor_start_button">Kezdés</string>
     <string name="security_settings_udfps_enroll_find_sensor_title">Az ujjlenyomat beállítása</string>
@@ -4550,7 +4570,7 @@ Megjegyzés: Az ujjlenyomat az eszköz feloldására nem használható. Ha tová
     <string name="security_settings_udfps_enroll_repeat_a11y_message">Így az ujjlenyomata nagyobb részét tudja rögzíteni a rendszer.</string>
     <string name="security_settings_udfps_enroll_repeat_message">Érintse meg az ikont, és tartsa rajta az ujját. Ismételje meg ezt mindig, amikor az ikon áthelyeződik. Így az ujjlenyomata nagyobb részét rögzítheti a rendszer.</string>
     <string name="security_settings_udfps_enroll_repeat_title_touch_icon">Kövesse az ujjlenyomat ikont</string>
-    <string name="security_settings_udfps_enroll_start_message">A rezgésig tartsa ujját az érzékelőn</string>
+    <string name="security_settings_udfps_enroll_start_message">A rezgésig tartsa ujját egyenesen az érzékelőn</string>
     <string name="security_settings_udfps_enroll_title_one_more_time">Még egyszer</string>
     <string name="security_settings_work_fingerprint_preference_title">Pixel Imprint munkahelyi használatra</string>
     <string name="security_status_title">Biztonsági állapot</string>
@@ -4576,7 +4596,6 @@ Megjegyzés: Az ujjlenyomat az eszköz feloldására nem használható. Ha tová
     <string name="select_webview_provider_dialog_title">WebView-megvalósítás beállítása</string>
     <string name="select_webview_provider_title">WebView-megvalósítás</string>
     <string name="select_webview_provider_toast_text">Ez a választás már nem érvényes. Próbálkozzon újra.</string>
-    <string name="sensor_toggle_description">Minden alkalmazásnál és szolgáltatásnál</string>
     <string name="sensors_off_quick_settings_title">Érzékelők kikapcsolva</string>
     <string name="service_background_processes">%1$s szabad</string>
     <string name="service_foreground_processes">%1$s fogl</string>
@@ -4808,6 +4827,7 @@ Lehet, hogy hibás a PIN-kód."</string>
     <string name="sound_settings_summary_silent">Csengetés: néma</string>
     <string name="sound_settings_summary_vibrate">Csengetés: rezgő</string>
     <string name="sound_work_settings">Munkaprofil hangebállításai</string>
+    <string name="spatial_audio_title">Térhatású hang</string>
     <string name="special_access">Különleges alkalmazás-hozzáférés</string>
     <string name="special_access_more">Továbbiak megjelenítése</string>
     <string name="speed_label_fast">Gyors</string>
@@ -5619,7 +5639,7 @@ Hanghívás során nem használhatja az internetet, és előfordulhat, hogy nem 
     <string name="vpn_turn_on">Bekapcsolás</string>
     <string name="vpn_type">Típus</string>
     <string name="vpn_username">Felhasználónév</string>
-    <string name="vpn_version">Verzió: %s</string>
+    <string name="vpn_version">Verzió</string>
     <string name="vr_listener_security_warning_summary">A(z) %1$s futtatható lesz, ha Ön virtuális valóság módban használ alkalmazásokat.</string>
     <string name="vr_listener_security_warning_title">Engedélyezi a(z) %1$s számára a hozzáférést a virtuálisvalóság-szolgáltatáshoz?</string>
     <string name="vr_listeners_title">Virtuálisvalóság-segédszolgáltatás</string>
@@ -5889,7 +5909,7 @@ A hálózat rejtettként való beállítása nem módosítja a router beállít�
     <string name="wifi_not_in_range">Hatókörön kívül</string>
     <string name="wifi_not_in_range_message">A hálózat nincs hatókörön belül</string>
     <string name="wifi_notify_open_networks">Értesítés a nyilvános hálózatokról</string>
-    <string name="wifi_notify_open_networks_summary">Ha az automatikus kapcsolódás nem áll rendelkezésre</string>
+    <string name="wifi_notify_open_networks_summary">Értesítsen, ha rendelkezésre áll jó minőségű nyilvános hálózat</string>
     <string name="wifi_on_time">Wi-Fi időben</string>
     <string name="wifi_p2p_cancel_connect_message">Szeretné törölni a(z) %1$s eszközhöz való csatlakozásra vonatkozó meghívást?</string>
     <string name="wifi_p2p_cancel_connect_title">Törli a meghívást?</string>
@@ -5977,7 +5997,6 @@ Engedélyezi ezt az összes olyan alkalmazásnál, amely keresést akar végezni
     <string name="wifi_suspend_optimizations">Wi-Fi optimalizálása</string>
     <string name="wifi_suspend_optimizations_summary">Az akkuhasználat minimalizálása, ha a Wi-Fi be van kapcsolva</string>
     <string name="wifi_switch_away_when_unvalidated">Váltás mobiladat-kapcsolatra, ha megszakad a Wi-Fi-kapcsolat.</string>
-    <string name="wifi_switch_summary">Wi‑Fi-hálózatok keresése és csatlakozás</string>
     <string name="wifi_tap_to_sign_in">Koppintson ide a hálózatba való bejelentkezéshez</string>
     <string name="wifi_tether_configure_ap_text">Wifi-hotspot beállítása</string>
     <string name="wifi_tether_configure_ssid_default">AndroidHotspot</string>

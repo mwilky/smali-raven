@@ -26,7 +26,7 @@
 
     iput-object p2, p0, Lcom/android/settings/notification/EmergencyBroadcastPreferenceController;->mHelper:Lcom/android/settings/accounts/AccountRestrictionHelper;
 
-    const-string p2, "user"
+    const-string/jumbo p2, "user"
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -68,7 +68,7 @@
 
     move-result-object v0
 
-    const v1, 0x111009a
+    const v1, 0x111009b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -84,7 +84,7 @@
 
     move-result-object v0
 
-    const v2, 0x11100b0
+    const v2, 0x11100b1
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 

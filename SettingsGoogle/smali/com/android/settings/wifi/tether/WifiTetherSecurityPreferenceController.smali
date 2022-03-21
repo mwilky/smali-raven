@@ -175,7 +175,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const-string v0, "settings_tether_all_in_one"
+    const-string/jumbo v0, "settings_tether_all_in_one"
 
     invoke-static {p0, v0}, Landroid/util/FeatureFlagUtils;->isEnabled(Landroid/content/Context;Ljava/lang/String;)Z
 
@@ -183,12 +183,12 @@
 
     if-eqz p0, :cond_0
 
-    const-string p0, "wifi_tether_security_2"
+    const-string/jumbo p0, "wifi_tether_security_2"
 
     goto :goto_0
 
     :cond_0
-    const-string p0, "wifi_tether_security"
+    const-string/jumbo p0, "wifi_tether_security"
 
     :goto_0
     return-object p0
@@ -213,7 +213,7 @@
 
     if-nez p1, :cond_0
 
-    const-string v0, "wifi_tether_security"
+    const-string/jumbo v0, "wifi_tether_security"
 
     const-string v1, "WPA3 SAE is not supported on this device"
 

@@ -161,7 +161,7 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
 
-    const-string v0, "values"
+    const-string/jumbo v0, "values"
 
     invoke-virtual {p0, v0, v2}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
 

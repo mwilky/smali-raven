@@ -417,7 +417,7 @@
 
     invoke-virtual {v4, v1}, Landroidx/preference/Preference;->setOrder(I)V
 
-    const v1, 0x10408e8
+    const v1, 0x10408ed
 
     invoke-virtual {p0, v3}, Lcom/android/settings/network/telephony/NetworkProviderWifiCallingGroup;->queryImsState(I)Lcom/android/settings/network/ims/WifiCallingQueryImsState;
 
@@ -429,7 +429,7 @@
 
     if-eqz v5, :cond_4
 
-    const v1, 0x7f040547
+    const v1, 0x7f04055e
 
     :cond_4
     invoke-virtual {v4, v1}, Landroidx/preference/Preference;->setSummary(I)V

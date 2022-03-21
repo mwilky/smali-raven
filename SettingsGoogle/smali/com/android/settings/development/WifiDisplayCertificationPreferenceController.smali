@@ -27,7 +27,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "wifi_display_certification"
+    const-string/jumbo p0, "wifi_display_certification"
 
     return-object p0
 .end method
@@ -43,7 +43,7 @@
 
     move-result-object v0
 
-    const-string v1, "wifi_display_certification_on"
+    const-string/jumbo v1, "wifi_display_certification_on"
 
     const/4 v2, 0x0
 
@@ -73,7 +73,7 @@
 
     move-result-object p0
 
-    const-string p2, "wifi_display_certification_on"
+    const-string/jumbo p2, "wifi_display_certification_on"
 
     invoke-static {p0, p2, p1}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
@@ -91,7 +91,7 @@
 
     move-result-object p1
 
-    const-string v0, "wifi_display_certification_on"
+    const-string/jumbo v0, "wifi_display_certification_on"
 
     const/4 v1, 0x0
 

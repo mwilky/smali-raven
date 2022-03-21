@@ -35,7 +35,7 @@
 
     iput-object v0, p0, Landroidx/slice/SliceItem;->mHints:[Ljava/lang/String;
 
-    const-string v0, "text"
+    const-string/jumbo v0, "text"
 
     iput-object v0, p0, Landroidx/slice/SliceItem;->mFormat:Ljava/lang/String;
 
@@ -91,7 +91,7 @@
 
     iput-object v0, p0, Landroidx/slice/SliceItem;->mHints:[Ljava/lang/String;
 
-    const-string v0, "text"
+    const-string/jumbo v0, "text"
 
     iput-object v0, p0, Landroidx/slice/SliceItem;->mFormat:Ljava/lang/String;
 
@@ -115,7 +115,7 @@
 
     iput-object v0, p0, Landroidx/slice/SliceItem;->mFormat:Ljava/lang/String;
 
-    const-string v0, "subtype"
+    const-string/jumbo v0, "subtype"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
@@ -203,7 +203,7 @@
 
     iput-object v0, p0, Landroidx/slice/SliceItem;->mHints:[Ljava/lang/String;
 
-    const-string v0, "text"
+    const-string/jumbo v0, "text"
 
     iput-object v0, p0, Landroidx/slice/SliceItem;->mFormat:Ljava/lang/String;
 
@@ -486,7 +486,7 @@
     goto/16 :goto_0
 
     :sswitch_0
-    const-string v0, "slice"
+    const-string/jumbo v0, "slice"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -534,7 +534,7 @@
     goto :goto_0
 
     :sswitch_3
-    const-string v0, "text"
+    const-string/jumbo v0, "text"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -826,7 +826,7 @@
     goto :goto_0
 
     :sswitch_0
-    const-string v0, "slice"
+    const-string/jumbo v0, "slice"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -874,7 +874,7 @@
     goto :goto_0
 
     :sswitch_3
-    const-string v0, "text"
+    const-string/jumbo v0, "text"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1040,7 +1040,7 @@
     goto/16 :goto_0
 
     :sswitch_0
-    const-string v0, "slice"
+    const-string/jumbo v0, "slice"
 
     invoke-virtual {p3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1088,7 +1088,7 @@
     goto :goto_0
 
     :sswitch_3
-    const-string v0, "text"
+    const-string/jumbo v0, "text"
 
     invoke-virtual {p3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1723,7 +1723,7 @@
 
     iget-object v1, p0, Landroidx/slice/SliceItem;->mSubType:Ljava/lang/String;
 
-    const-string v2, "subtype"
+    const-string/jumbo v2, "subtype"
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -1848,7 +1848,7 @@
     goto :goto_0
 
     :sswitch_0
-    const-string v4, "slice"
+    const-string/jumbo v4, "slice"
 
     invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1880,7 +1880,7 @@
     goto :goto_0
 
     :sswitch_2
-    const-string v4, "text"
+    const-string/jumbo v4, "text"
 
     invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1946,7 +1946,7 @@
 
     const/16 v4, 0xa
 
-    const-string v10, "{\n"
+    const-string/jumbo v10, "{\n"
 
     packed-switch v3, :pswitch_data_0
 
@@ -2222,6 +2222,8 @@
     move-result-object p0
 
     return-object p0
+
+    nop
 
     :sswitch_data_0
     .sparse-switch

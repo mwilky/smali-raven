@@ -144,13 +144,13 @@
     :goto_1
     if-nez v4, :cond_2
 
-    const-string v6, "shortcut"
+    const-string/jumbo v6, "shortcut"
 
     const-string v7, "see_more"
 
     const-string v8, "keywords"
 
-    const-string v9, "ttl"
+    const-string/jumbo v9, "ttl"
 
     const-string v10, "last_updated"
 
@@ -227,7 +227,7 @@
 
     const/4 v1, 0x0
 
-    const-string v2, "slice"
+    const-string/jumbo v2, "slice"
 
     if-eqz v0, :cond_0
 
@@ -268,9 +268,9 @@
     iput-object v0, p0, Landroidx/slice/widget/GridContent;->mSeeMoreItem:Landroidx/slice/SliceItem;
 
     :cond_0
-    const-string v0, "shortcut"
+    const-string/jumbo v0, "shortcut"
 
-    const-string v3, "title"
+    const-string/jumbo v3, "title"
 
     filled-new-array {v0, v3}, [Ljava/lang/String;
 

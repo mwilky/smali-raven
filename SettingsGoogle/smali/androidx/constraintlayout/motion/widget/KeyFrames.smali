@@ -122,7 +122,7 @@
 
     const-string v1, "KeyFrames"
 
-    const-string v2, "unable to load"
+    const-string/jumbo v2, "unable to load"
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
@@ -246,7 +246,7 @@
     :try_start_3
     const-string v2, "KeyFrames"
 
-    const-string v3, "unable to create "
+    const-string/jumbo v3, "unable to create "
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 

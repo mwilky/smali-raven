@@ -711,7 +711,7 @@
 
     iget-object p0, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeBaseFragment;->mSummary:Landroid/widget/TextView;
 
-    const v0, 0x7f041624
+    const v0, 0x7f041649
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setText(I)V
 
@@ -730,7 +730,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f041635
+    const v0, 0x7f04165a
 
     new-array v2, v2, [Ljava/lang/Object;
 
@@ -745,7 +745,7 @@
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f041634
+    const v0, 0x7f041659
 
     new-array v2, v2, [Ljava/lang/Object;
 
@@ -913,7 +913,7 @@
 
     const/4 v0, 0x0
 
-    const v1, 0x7f041631
+    const v1, 0x7f041656
 
     :try_start_0
     new-instance v2, Lcom/android/settings/wifi/dpp/WifiQrCode;
@@ -980,7 +980,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "}"
+    const-string/jumbo v1, "}"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1052,7 +1052,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f04161c
+    const p1, 0x7f041641
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -1063,7 +1063,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f041633
+    const p1, 0x7f041658
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -1167,7 +1167,7 @@
 .method public final onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 0
 
-    const p0, 0x7f0602b2
+    const p0, 0x7f0602be
 
     const/4 p3, 0x0
 
@@ -1223,7 +1223,7 @@
 
     invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const p1, 0x7f04161f
+    const p1, 0x7f041644
 
     invoke-direct {p0, p1}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->showErrorMessageAndRestartCamera(I)V
 
@@ -1349,7 +1349,7 @@
 
     invoke-super {p0, p1, p2}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeBaseFragment;->onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
 
-    const p2, 0x7f0d0570
+    const p2, 0x7f0d057f
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1359,7 +1359,7 @@
 
     iput-object p2, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeBaseFragment;->mSummary:Landroid/widget/TextView;
 
-    const p2, 0x7f0d0447
+    const p2, 0x7f0d0454
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1371,7 +1371,7 @@
 
     invoke-virtual {p2, p0}, Landroid/view/TextureView;->setSurfaceTextureListener(Landroid/view/TextureView$SurfaceTextureListener;)V
 
-    const p2, 0x7f0d01a7
+    const p2, 0x7f0d01ab
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1393,7 +1393,7 @@
 
     if-eqz p2, :cond_1
 
-    const p2, 0x7f04161c
+    const p2, 0x7f041641
 
     new-array v1, v0, [Ljava/lang/Object;
 
@@ -1417,7 +1417,7 @@
 
     iget-object v1, p0, Lcom/android/settings/wifi/dpp/WifiDppQrCodeBaseFragment;->mSummary:Landroid/widget/TextView;
 
-    const v2, 0x7f04161e
+    const v2, 0x7f041643
 
     const/4 v3, 0x1
 
@@ -1447,7 +1447,7 @@
     throw p0
 
     :cond_1
-    const p2, 0x7f041633
+    const p2, 0x7f041658
 
     new-array v0, v0, [Ljava/lang/Object;
 
@@ -1456,7 +1456,7 @@
     invoke-direct {p0}, Lcom/android/settings/wifi/dpp/WifiDppQrCodeScannerFragment;->updateEnrolleeSummary()V
 
     :goto_0
-    const p2, 0x7f0d020d
+    const p2, 0x7f0d0212
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

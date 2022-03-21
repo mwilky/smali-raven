@@ -52,7 +52,7 @@
 
     new-instance v0, Lcom/android/settings/development/DevelopmentSettingsDashboardFragment$5;
 
-    const v1, 0x7f15005d
+    const v1, 0x7f15005e
 
     invoke-direct {v0, v1}, Lcom/android/settings/development/DevelopmentSettingsDashboardFragment$5;-><init>(I)V
 
@@ -1206,12 +1206,12 @@
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f1500b1
+    const p0, 0x7f1500b6
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f15005d
+    const p0, 0x7f15005e
 
     :goto_0
     return p0
@@ -1277,7 +1277,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0407b7
+    const v1, 0x7f0407cf
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1341,7 +1341,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0407ba
+    const v0, 0x7f0407d2
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(I)V
 

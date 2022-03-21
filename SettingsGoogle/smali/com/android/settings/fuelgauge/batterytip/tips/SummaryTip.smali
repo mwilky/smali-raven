@@ -43,7 +43,7 @@
 .method public getIconId()I
     .locals 0
 
-    const p0, 0x7f02018a
+    const p0, 0x7f020191
 
     return p0
 .end method
@@ -59,7 +59,7 @@
 .method public getSummary(Landroid/content/Context;)Ljava/lang/CharSequence;
     .locals 0
 
-    const p0, 0x7f0403cf
+    const p0, 0x7f0403e4
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -71,7 +71,7 @@
 .method public getTitle(Landroid/content/Context;)Ljava/lang/CharSequence;
     .locals 0
 
-    const p0, 0x7f0403d0
+    const p0, 0x7f0403e5
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

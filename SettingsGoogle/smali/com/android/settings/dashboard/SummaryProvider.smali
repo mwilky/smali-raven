@@ -33,7 +33,7 @@
 
     if-nez v0, :cond_1
 
-    const-string v0, "user"
+    const-string/jumbo v0, "user"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -61,7 +61,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f04150a
+    const p2, 0x7f04152f
 
     const/4 v0, 0x1
 

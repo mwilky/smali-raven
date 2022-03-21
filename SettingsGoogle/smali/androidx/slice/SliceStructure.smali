@@ -85,7 +85,7 @@
 
     move-result-object v0
 
-    const-string v1, "slice"
+    const-string/jumbo v1, "slice"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -131,7 +131,7 @@
         }
     .end annotation
 
-    const-string v0, "s{"
+    const-string/jumbo v0, "s{"
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -161,7 +161,7 @@
     goto :goto_0
 
     :cond_0
-    const-string p0, "}"
+    const-string/jumbo p0, "}"
 
     invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -200,7 +200,7 @@
     goto :goto_0
 
     :sswitch_0
-    const-string v1, "slice"
+    const-string/jumbo v1, "slice"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -239,7 +239,7 @@
     goto :goto_1
 
     :sswitch_3
-    const-string v1, "text"
+    const-string/jumbo v1, "text"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

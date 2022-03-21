@@ -249,7 +249,7 @@
 
     invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p3, "}"
+    const-string/jumbo p3, "}"
 
     invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2141,7 +2141,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "updateWifiState: "
+    const-string/jumbo v2, "updateWifiState: "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2334,7 +2334,7 @@
 
     const-wide/32 v2, 0x124f80
 
-    const-string v4, "speed_label_cache_eviction_age_millis"
+    const-string/jumbo v4, "speed_label_cache_eviction_age_millis"
 
     invoke-static {v0, v4, v2, v3}, Landroid/provider/Settings$Global;->getLong(Landroid/content/ContentResolver;Ljava/lang/String;J)J
 

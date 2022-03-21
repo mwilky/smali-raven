@@ -244,7 +244,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/biometrics/face/anim/FaceEnrollAnimationMultiAngleDrawable;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040903
+    const v1, 0x7f04091b
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

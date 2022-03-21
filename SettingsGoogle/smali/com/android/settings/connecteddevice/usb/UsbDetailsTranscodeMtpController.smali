@@ -87,7 +87,7 @@
 
     iput-object v0, p0, Lcom/android/settings/connecteddevice/usb/UsbDetailsTranscodeMtpController;->mSwitchPreference:Landroidx/preference/SwitchPreference;
 
-    const p1, 0x7f041499
+    const p1, 0x7f0414be
 
     invoke-virtual {v0, p1}, Landroidx/preference/Preference;->setTitle(I)V
 
@@ -97,7 +97,7 @@
 
     iget-object p1, p0, Lcom/android/settings/connecteddevice/usb/UsbDetailsTranscodeMtpController;->mSwitchPreference:Landroidx/preference/SwitchPreference;
 
-    const v0, 0x7f04149a
+    const v0, 0x7f0414bf
 
     invoke-virtual {p1, v0}, Landroidx/preference/TwoStatePreference;->setSummaryOn(I)V
 
@@ -113,7 +113,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "usb_transcode_mtp"
+    const-string/jumbo p0, "usb_transcode_mtp"
 
     return-object p0
 .end method
@@ -143,7 +143,7 @@
 
     move-result-object p0
 
-    const-string p1, "sys.fuse.transcode_mtp"
+    const-string/jumbo p1, "sys.fuse.transcode_mtp"
 
     invoke-static {p1, p0}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -191,7 +191,7 @@
     :goto_0
     iget-object p4, p0, Lcom/android/settings/connecteddevice/usb/UsbDetailsTranscodeMtpController;->mSwitchPreference:Landroidx/preference/SwitchPreference;
 
-    const-string v0, "sys.fuse.transcode_mtp"
+    const-string/jumbo v0, "sys.fuse.transcode_mtp"
 
     const/4 v1, 0x0
 

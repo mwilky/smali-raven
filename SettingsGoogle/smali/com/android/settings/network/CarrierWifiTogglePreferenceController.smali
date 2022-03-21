@@ -21,8 +21,6 @@
 
 .field protected mIsCarrierProvisionWifiEnabled:Z
 
-.field protected mIsProviderModelEnabled:Z
-
 .field protected mSubId:I
 
 .field protected mWifiPickerTrackerHelper:Lcom/android/settings/wifi/WifiPickerTrackerHelper;
@@ -35,12 +33,6 @@
     invoke-direct {p0, p1, p2}, Lcom/android/settings/core/TogglePreferenceController;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
     iput-object p1, p0, Lcom/android/settings/network/CarrierWifiTogglePreferenceController;->mContext:Landroid/content/Context;
-
-    invoke-static {p1}, Lcom/android/settings/Utils;->isProviderModelEnabled(Landroid/content/Context;)Z
-
-    move-result p1
-
-    iput-boolean p1, p0, Lcom/android/settings/network/CarrierWifiTogglePreferenceController;->mIsProviderModelEnabled:Z
 
     return-void
 .end method
@@ -74,25 +66,21 @@
 .end method
 
 .method public getAvailabilityStatus()I
-    .locals 2
+    .locals 0
 
-    iget-boolean v0, p0, Lcom/android/settings/network/CarrierWifiTogglePreferenceController;->mIsProviderModelEnabled:Z
-
-    const/4 v1, 0x2
-
-    if-nez v0, :cond_0
-
-    return v1
-
-    :cond_0
     iget-boolean p0, p0, Lcom/android/settings/network/CarrierWifiTogglePreferenceController;->mIsCarrierProvisionWifiEnabled:Z
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_0
 
-    const/4 v1, 0x0
+    const/4 p0, 0x0
 
-    :cond_1
-    return v1
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x2
+
+    :goto_0
+    return p0
 .end method
 
 .method public bridge synthetic getBackgroundWorkerClass()Ljava/lang/Class;
@@ -141,6 +129,14 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public getSliceHighlightMenuRes()I
+    .locals 0
+
+    const p0, 0x7f040d0a
+
+    return p0
 .end method
 
 .method public bridge synthetic hasAsyncUpdate()Z

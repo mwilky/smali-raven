@@ -17,8 +17,6 @@
 
 
 # instance fields
-.field enableTriState:Z
-
 .field private mAppButtonsPreferenceController:Lcom/android/settings/applications/appinfo/AppButtonsPreferenceController;
 
 .field mAppEntry:Lcom/android/settingslib/applications/ApplicationsState$AppEntry;
@@ -27,15 +25,21 @@
 
 .field mBackgroundPreference:Landroidx/preference/Preference;
 
+.field mBackupManager:Landroid/app/backup/BackupManager;
+
 .field mBatteryOptimizeUtils:Lcom/android/settings/fuelgauge/BatteryOptimizeUtils;
 
 .field mBatteryUtils:Lcom/android/settings/fuelgauge/BatteryUtils;
+
+.field mEnableTriState:Z
 
 .field mFooterPreference:Lcom/android/settingslib/widget/FooterPreference;
 
 .field mForegroundPreference:Landroidx/preference/Preference;
 
 .field mHeaderPreference:Lcom/android/settingslib/widget/LayoutPreference;
+
+.field mOptimizationMode:I
 
 .field mOptimizePreference:Lcom/android/settingslib/widget/RadioButtonPreference;
 
@@ -47,10 +51,10 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$d8w-AEtndX6KO2gcf2LcMpuiLww(Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;Landroid/content/Context;Landroid/view/View;)V
+.method public static synthetic $r8$lambda$ivoq80ILZgB94hn5zCXy4f9AoFc(Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;Landroid/content/Intent;Landroid/view/View;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->lambda$initPreferenceForTriState$0(Landroid/content/Context;Landroid/view/View;)V
+    invoke-direct {p0, p1, p2}, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->lambda$initPreferenceForTriState$0(Landroid/content/Intent;Landroid/view/View;)V
 
     return-void
 .end method
@@ -62,7 +66,11 @@
 
     const/4 v0, 0x1
 
-    iput-boolean v0, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->enableTriState:Z
+    iput-boolean v0, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->mEnableTriState:Z
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->mOptimizationMode:I
 
     return-void
 .end method
@@ -92,7 +100,7 @@
 
     if-gez p1, :cond_0
 
-    const p1, 0x7f040355
+    const p1, 0x7f040369
 
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -109,7 +117,7 @@
     goto :goto_0
 
     :cond_0
-    const p1, 0x7f040356
+    const p1, 0x7f04036a
 
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -143,7 +151,7 @@
 
     if-gez p1, :cond_2
 
-    const p1, 0x7f0403df
+    const p1, 0x7f0403f4
 
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -168,12 +176,12 @@
 
     if-nez p1, :cond_3
 
-    const p1, 0x7f0403e0
+    const p1, 0x7f0403f5
 
     goto :goto_1
 
     :cond_3
-    const p1, 0x7f0403dc
+    const p1, 0x7f0403f1
 
     :goto_1
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
@@ -203,7 +211,7 @@
     return-object p0
 
     :cond_4
-    const p1, 0x7f0403d7
+    const p1, 0x7f0403ec
 
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -246,109 +254,129 @@
     return-object p0
 .end method
 
-.method private getAppActiveTime(JJLjava/lang/String;)Ljava/lang/CharSequence;
-    .locals 8
+.method private getAppActiveTime(Landroid/os/Bundle;)Ljava/lang/CharSequence;
+    .locals 11
 
-    add-long v5, p1, p3
+    const-string v0, "extra_foreground_time"
 
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
-    move-result-object v0
+    move-result-wide v2
 
-    invoke-static {v0}, Lcom/android/settings/overlay/FeatureFactory;->getFactory(Landroid/content/Context;)Lcom/android/settings/overlay/FeatureFactory;
+    const-string v0, "extra_background_time"
 
-    move-result-object v0
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
 
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+    move-result-wide v4
 
-    move-result-object v1
+    const-string v0, "extra_power_usage_amount"
 
-    invoke-virtual {v0, v1}, Lcom/android/settings/overlay/FeatureFactory;->getPowerUsageFeatureProvider(Landroid/content/Context;)Lcom/android/settings/fuelgauge/PowerUsageFeatureProvider;
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
-    move-result-object v0
+    move-result v0
 
-    const-wide/16 v1, 0x0
+    const-string v1, "extra_slot_time"
 
-    cmp-long v1, v5, v1
+    const/4 v6, 0x0
 
-    if-nez v1, :cond_1
+    invoke-virtual {p1, v1, v6}, Landroid/os/Bundle;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    add-long v6, v2, v4
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
     move-result-object p1
 
-    invoke-interface {v0, p1}, Lcom/android/settings/fuelgauge/PowerUsageFeatureProvider;->isChartGraphEnabled(Landroid/content/Context;)Z
+    invoke-static {p1}, Lcom/android/settings/overlay/FeatureFactory;->getFactory(Landroid/content/Context;)Lcom/android/settings/overlay/FeatureFactory;
 
-    move-result p1
+    move-result-object p1
 
-    if-eqz p1, :cond_0
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
-    const p1, 0x7f04037f
+    move-result-object v1
+
+    invoke-virtual {p1, v1}, Lcom/android/settings/overlay/FeatureFactory;->getPowerUsageFeatureProvider(Landroid/content/Context;)Lcom/android/settings/fuelgauge/PowerUsageFeatureProvider;
+
+    move-result-object p1
+
+    const-wide/16 v9, 0x0
+
+    cmp-long v1, v6, v9
+
+    if-nez v1, :cond_2
+
+    if-lez v0, :cond_0
+
+    const v0, 0x7f0403fe
 
     goto :goto_0
 
     :cond_0
-    const p1, 0x7f04037e
+    const v0, 0x7f040394
 
     :goto_0
-    invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
-    move-result-object p0
+    move-result-object v1
+
+    invoke-interface {p1, v1}, Lcom/android/settings/fuelgauge/PowerUsageFeatureProvider;->isChartGraphEnabled(Landroid/content/Context;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
 
     goto :goto_1
 
     :cond_1
-    if-nez p5, :cond_3
+    const v0, 0x7f040393
+
+    :goto_1
+    invoke-virtual {p0, v0}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    goto :goto_2
+
+    :cond_2
+    if-nez v8, :cond_4
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 
-    move-result-object p5
+    move-result-object v0
 
-    invoke-interface {v0, p5}, Lcom/android/settings/fuelgauge/PowerUsageFeatureProvider;->isChartGraphEnabled(Landroid/content/Context;)Z
+    invoke-interface {p1, v0}, Lcom/android/settings/fuelgauge/PowerUsageFeatureProvider;->isChartGraphEnabled(Landroid/content/Context;)Z
 
-    move-result p5
+    move-result p1
 
-    if-eqz p5, :cond_2
+    if-eqz p1, :cond_3
 
-    move-object v0, p0
+    move-object v1, p0
 
-    move-wide v1, p1
-
-    move-wide v3, p3
-
-    invoke-direct/range {v0 .. v6}, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->getAppPast24HrActiveSummary(JJJ)Ljava/lang/CharSequence;
+    invoke-direct/range {v1 .. v7}, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->getAppPast24HrActiveSummary(JJJ)Ljava/lang/CharSequence;
 
     move-result-object p0
 
-    goto :goto_1
-
-    :cond_2
-    move-object v0, p0
-
-    move-wide v1, p1
-
-    move-wide v3, p3
-
-    invoke-direct/range {v0 .. v6}, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->getAppFullChargeActiveSummary(JJJ)Ljava/lang/CharSequence;
-
-    move-result-object p0
-
-    goto :goto_1
+    goto :goto_2
 
     :cond_3
-    move-object v0, p0
+    move-object v1, p0
 
-    move-wide v1, p1
-
-    move-wide v3, p3
-
-    move-object v7, p5
-
-    invoke-direct/range {v0 .. v7}, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->getAppActiveSummaryWithSlotTime(JJJLjava/lang/String;)Ljava/lang/CharSequence;
+    invoke-direct/range {v1 .. v7}, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->getAppFullChargeActiveSummary(JJJ)Ljava/lang/CharSequence;
 
     move-result-object p0
 
-    :goto_1
+    goto :goto_2
+
+    :cond_4
+    move-object v1, p0
+
+    invoke-direct/range {v1 .. v8}, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->getAppActiveSummaryWithSlotTime(JJJLjava/lang/String;)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    :goto_2
     return-object p0
 .end method
 
@@ -375,7 +403,7 @@
 
     if-gez p1, :cond_0
 
-    const p1, 0x7f040353
+    const p1, 0x7f040367
 
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -384,7 +412,7 @@
     goto :goto_0
 
     :cond_0
-    const p1, 0x7f040351
+    const p1, 0x7f040365
 
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -416,7 +444,7 @@
 
     if-gez p1, :cond_2
 
-    const p1, 0x7f0403dd
+    const p1, 0x7f0403f2
 
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -433,12 +461,12 @@
 
     if-nez p1, :cond_3
 
-    const p1, 0x7f0403d8
+    const p1, 0x7f0403ed
 
     goto :goto_1
 
     :cond_3
-    const p1, 0x7f0403da
+    const p1, 0x7f0403ef
 
     :goto_1
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
@@ -466,7 +494,7 @@
     return-object p0
 
     :cond_4
-    const p1, 0x7f0403d5
+    const p1, 0x7f0403ea
 
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -530,7 +558,7 @@
 
     if-gez p1, :cond_0
 
-    const p1, 0x7f040354
+    const p1, 0x7f040368
 
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -539,7 +567,7 @@
     goto :goto_0
 
     :cond_0
-    const p1, 0x7f040352
+    const p1, 0x7f040366
 
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -571,7 +599,7 @@
 
     if-gez p1, :cond_2
 
-    const p1, 0x7f0403de
+    const p1, 0x7f0403f3
 
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -588,12 +616,12 @@
 
     if-nez p1, :cond_3
 
-    const p1, 0x7f0403d9
+    const p1, 0x7f0403ee
 
     goto :goto_1
 
     :cond_3
-    const p1, 0x7f0403db
+    const p1, 0x7f0403f0
 
     :goto_1
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
@@ -621,7 +649,7 @@
     return-object p0
 
     :cond_4
-    const p1, 0x7f0403d6
+    const p1, 0x7f0403eb
 
     invoke-virtual {p0, p1}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -662,20 +690,55 @@
     return-object p0
 .end method
 
-.method private synthetic lambda$initPreferenceForTriState$0(Landroid/content/Context;Landroid/view/View;)V
+.method private getSelectedPreference()I
     .locals 1
 
-    const p2, 0x7f040a01
+    iget-object v0, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->mRestrictedPreference:Lcom/android/settingslib/widget/RadioButtonPreference;
 
-    invoke-virtual {p1, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {v0}, Landroidx/preference/TwoStatePreference;->isChecked()Z
 
-    move-result-object p2
+    move-result v0
 
-    const-string v0, ""
+    if-eqz v0, :cond_0
 
-    invoke-static {p1, p2, v0}, Lcom/android/settingslib/HelpUtils;->getHelpIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    const/4 p0, 0x1
 
-    move-result-object p1
+    return p0
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->mUnrestrictedPreference:Lcom/android/settingslib/widget/RadioButtonPreference;
+
+    invoke-virtual {v0}, Landroidx/preference/TwoStatePreference;->isChecked()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const/4 p0, 0x2
+
+    return p0
+
+    :cond_1
+    iget-object p0, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->mOptimizePreference:Lcom/android/settingslib/widget/RadioButtonPreference;
+
+    invoke-virtual {p0}, Landroidx/preference/TwoStatePreference;->isChecked()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_2
+
+    const/4 p0, 0x3
+
+    return p0
+
+    :cond_2
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method private synthetic lambda$initPreferenceForTriState$0(Landroid/content/Intent;Landroid/view/View;)V
+    .locals 0
 
     const/4 p2, 0x0
 
@@ -684,10 +747,106 @@
     return-void
 .end method
 
+.method private logMetricCategory(I)V
+    .locals 7
+
+    iget v0, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->mOptimizationMode:I
+
+    if-ne p1, v0, :cond_0
+
+    return-void
+
+    :cond_0
+    const/4 v0, 0x0
+
+    const/4 v1, 0x1
+
+    if-eq p1, v1, :cond_3
+
+    const/4 v1, 0x2
+
+    if-eq p1, v1, :cond_2
+
+    const/4 v1, 0x3
+
+    if-eq p1, v1, :cond_1
+
+    :goto_0
+    move v3, v0
+
+    goto :goto_1
+
+    :cond_1
+    const/16 v0, 0x6f1
+
+    goto :goto_0
+
+    :cond_2
+    const/16 v0, 0x6f0
+
+    goto :goto_0
+
+    :cond_3
+    const/16 v0, 0x6f2
+
+    goto :goto_0
+
+    :goto_1
+    if-eqz v3, :cond_5
+
+    iget-object p1, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->mBatteryOptimizeUtils:Lcom/android/settings/fuelgauge/BatteryOptimizeUtils;
+
+    invoke-virtual {p1}, Lcom/android/settings/fuelgauge/BatteryOptimizeUtils;->getPackageName()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/settings/overlay/FeatureFactory;->getFactory(Landroid/content/Context;)Lcom/android/settings/overlay/FeatureFactory;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/settings/overlay/FeatureFactory;->getMetricsFeatureProvider()Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
+
+    move-result-object v1
+
+    const/16 v2, 0x761
+
+    const/16 v4, 0x761
+
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    const-string p1, "none"
+
+    :cond_4
+    move-object v5, p1
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getArguments()Landroid/os/Bundle;
+
+    move-result-object p0
+
+    const-string p1, "extra_power_usage_amount"
+
+    invoke-virtual {p0, p1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+
+    move-result v6
+
+    invoke-virtual/range {v1 .. v6}, Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;->action(IIILjava/lang/String;I)V
+
+    :cond_5
+    return-void
+.end method
+
 .method private onCreateForTriState(Ljava/lang/String;)V
     .locals 4
 
-    const-string v0, "unrestricted_pref"
+    const-string/jumbo v0, "unrestricted_pref"
 
     invoke-virtual {p0, v0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -891,7 +1050,7 @@
 
     move-result-object p0
 
-    const v1, 0x7f040369
+    const v1, 0x7f04037d
 
     invoke-virtual {p0, v1}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -1152,7 +1311,7 @@
 
     move-result-object p0
 
-    const p2, 0x7f040369
+    const p2, 0x7f04037d
 
     invoke-virtual {p0, p2}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -1260,7 +1419,7 @@
 
     invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    iget-boolean v3, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->enableTriState:Z
+    iget-boolean v3, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->mEnableTriState:Z
 
     if-eqz v3, :cond_0
 
@@ -1328,16 +1487,16 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    iget-boolean p0, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->enableTriState:Z
+    iget-boolean p0, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->mEnableTriState:Z
 
     if-eqz p0, :cond_0
 
-    const p0, 0x7f1500b5
+    const p0, 0x7f1500ba
 
     goto :goto_0
 
     :cond_0
-    const p0, 0x7f1500b6
+    const p0, 0x7f1500bb
 
     :goto_0
     return p0
@@ -1357,11 +1516,11 @@
 .end method
 
 .method initHeader()V
-    .locals 10
+    .locals 5
 
     iget-object v0, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->mHeaderPreference:Lcom/android/settingslib/widget/LayoutPreference;
 
-    const v1, 0x7f0d01fe
+    const v1, 0x7f0d0203
 
     invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -1466,33 +1625,11 @@
     invoke-virtual {v0, v3}, Lcom/android/settings/widget/EntityHeaderController;->setIsInstantApp(Z)Lcom/android/settings/widget/EntityHeaderController;
 
     :goto_0
-    iget-boolean v3, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->enableTriState:Z
+    iget-boolean v3, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->mEnableTriState:Z
 
     if-eqz v3, :cond_2
 
-    const-string v3, "extra_foreground_time"
-
-    invoke-virtual {v2, v3}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
-
-    move-result-wide v5
-
-    const-string v3, "extra_background_time"
-
-    invoke-virtual {v2, v3}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
-
-    move-result-wide v7
-
-    const/4 v3, 0x0
-
-    const-string v4, "extra_slot_time"
-
-    invoke-virtual {v2, v4, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v9
-
-    move-object v4, p0
-
-    invoke-direct/range {v4 .. v9}, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->getAppActiveTime(JJLjava/lang/String;)Ljava/lang/CharSequence;
+    invoke-direct {p0, v2}, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->getAppActiveTime(Landroid/os/Bundle;)Ljava/lang/CharSequence;
 
     move-result-object p0
 
@@ -1527,7 +1664,7 @@
 
     iget-object v0, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->mForegroundPreference:Landroidx/preference/Preference;
 
-    const v5, 0x7f0403ea
+    const v5, 0x7f040400
 
     invoke-virtual {p0, v5}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -1555,7 +1692,7 @@
 
     iget-object v0, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->mBackgroundPreference:Landroidx/preference/Preference;
 
-    const v1, 0x7f04034c
+    const v1, 0x7f040360
 
     invoke-virtual {p0, v1}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -1593,11 +1730,11 @@
 
     const/4 v2, 0x1
 
-    const v3, 0x7f040c81
+    const v3, 0x7f040c99
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f040c83
+    const v0, 0x7f040c9b
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1622,7 +1759,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f040c88
+    const v0, 0x7f040ca0
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1639,7 +1776,7 @@
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f040c80
+    const v0, 0x7f040c98
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1650,17 +1787,31 @@
 
     invoke-virtual {v1, v0}, Landroidx/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
 
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->mFooterPreference:Lcom/android/settingslib/widget/FooterPreference;
+    const v0, 0x7f040a19
 
-    new-instance v1, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail$$ExternalSyntheticLambda0;
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;Landroid/content/Context;)V
+    move-result-object v0
 
-    invoke-virtual {v0, v1}, Lcom/android/settingslib/widget/FooterPreference;->setLearnMoreAction(Landroid/view/View$OnClickListener;)V
+    const-string v1, ""
+
+    invoke-static {p1, v0, v1}, Lcom/android/settingslib/HelpUtils;->getHelpIntent(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_2
+
+    iget-object v1, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->mFooterPreference:Lcom/android/settingslib/widget/FooterPreference;
+
+    new-instance v2, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail$$ExternalSyntheticLambda0;
+
+    invoke-direct {v2, p0, v0}, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;Landroid/content/Intent;)V
+
+    invoke-virtual {v1, v2}, Lcom/android/settingslib/widget/FooterPreference;->setLearnMoreAction(Landroid/view/View$OnClickListener;)V
 
     iget-object p0, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->mFooterPreference:Lcom/android/settingslib/widget/FooterPreference;
 
-    const v0, 0x7f040c82
+    const v0, 0x7f040c9a
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1668,6 +1819,42 @@
 
     invoke-virtual {p0, p1}, Lcom/android/settingslib/widget/FooterPreference;->setLearnMoreContentDescription(Ljava/lang/CharSequence;)V
 
+    :cond_2
+    return-void
+.end method
+
+.method notifyBackupManager()V
+    .locals 2
+
+    iget v0, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->mOptimizationMode:I
+
+    iget-object v1, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->mBatteryOptimizeUtils:Lcom/android/settings/fuelgauge/BatteryOptimizeUtils;
+
+    invoke-virtual {v1}, Lcom/android/settings/fuelgauge/BatteryOptimizeUtils;->getAppOptimizationMode()I
+
+    move-result v1
+
+    if-eq v0, v1, :cond_1
+
+    iget-object v0, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->mBackupManager:Landroid/app/backup/BackupManager;
+
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    new-instance v0, Landroid/app/backup/BackupManager;
+
+    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
+
+    move-result-object p0
+
+    invoke-direct {v0, p0}, Landroid/app/backup/BackupManager;-><init>(Landroid/content/Context;)V
+
+    :goto_0
+    invoke-virtual {v0}, Landroid/app/backup/BackupManager;->dataChanged()V
+
+    :cond_1
     return-void
 .end method
 
@@ -1751,7 +1938,7 @@
 
     move-result-object p1
 
-    iget-boolean v0, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->enableTriState:Z
+    iget-boolean v0, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->mEnableTriState:Z
 
     if-eqz v0, :cond_0
 
@@ -1805,8 +1992,51 @@
     return-void
 .end method
 
+.method public onPause()V
+    .locals 2
+
+    invoke-super {p0}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->onPause()V
+
+    iget-boolean v0, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->mEnableTriState:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-direct {p0}, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->getSelectedPreference()I
+
+    move-result v0
+
+    invoke-virtual {p0}, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->notifyBackupManager()V
+
+    invoke-direct {p0, v0}, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->logMetricCategory(I)V
+
+    iget-object p0, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->mBatteryOptimizeUtils:Lcom/android/settings/fuelgauge/BatteryOptimizeUtils;
+
+    invoke-virtual {p0, v0}, Lcom/android/settings/fuelgauge/BatteryOptimizeUtils;->setAppUsageState(I)V
+
+    new-instance p0, Ljava/lang/StringBuilder;
+
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "Leave with mode: "
+
+    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string v0, "AdvancedPowerDetail"
+
+    invoke-static {v0, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    return-void
+.end method
+
 .method public onRadioButtonClicked(Lcom/android/settingslib/widget/RadioButtonPreference;)V
-    .locals 8
+    .locals 1
 
     invoke-virtual {p1}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;
 
@@ -1824,127 +2054,6 @@
 
     invoke-direct {p0, v0, p1}, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->updatePreferenceState(Lcom/android/settingslib/widget/RadioButtonPreference;Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->mUnrestrictedPreference:Lcom/android/settingslib/widget/RadioButtonPreference;
-
-    invoke-virtual {v0}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_0
-
-    const/16 p1, 0x6f0
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->mOptimizePreference:Lcom/android/settingslib/widget/RadioButtonPreference;
-
-    invoke-virtual {v0}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    const/16 p1, 0x6f1
-
-    goto :goto_0
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->mRestrictedPreference:Lcom/android/settingslib/widget/RadioButtonPreference;
-
-    invoke-virtual {v0}, Landroidx/preference/Preference;->getKey()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_2
-
-    const/16 p1, 0x6f2
-
-    goto :goto_0
-
-    :cond_2
-    move p1, v1
-
-    :goto_0
-    if-eqz p1, :cond_3
-
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/android/settings/overlay/FeatureFactory;->getFactory(Landroid/content/Context;)Lcom/android/settings/overlay/FeatureFactory;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/settings/overlay/FeatureFactory;->getMetricsFeatureProvider()Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;
-
-    move-result-object v0
-
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
-
-    move-result-object v2
-
-    const/4 v3, 0x2
-
-    new-array v3, v3, [Landroid/util/Pair;
-
-    new-instance v4, Landroid/util/Pair;
-
-    const/4 v5, 0x1
-
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v6
-
-    iget-object v7, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->mBatteryOptimizeUtils:Lcom/android/settings/fuelgauge/BatteryOptimizeUtils;
-
-    invoke-virtual {v7}, Lcom/android/settings/fuelgauge/BatteryOptimizeUtils;->getPackageName()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-direct {v4, v6, v7}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
-
-    aput-object v4, v3, v1
-
-    new-instance v1, Landroid/util/Pair;
-
-    const/4 v4, 0x3
-
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getArguments()Landroid/os/Bundle;
-
-    move-result-object p0
-
-    const-string v6, "extra_power_usage_percent"
-
-    invoke-virtual {p0, v6}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-direct {v1, v4, p0}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
-
-    aput-object v1, v3, v5
-
-    invoke-virtual {v0, v2, p1, v3}, Lcom/android/settingslib/core/instrumentation/MetricsFeatureProvider;->action(Landroid/content/Context;I[Landroid/util/Pair;)V
-
-    :cond_3
     return-void
 .end method
 
@@ -1955,9 +2064,17 @@
 
     invoke-virtual {p0}, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->initHeader()V
 
-    iget-boolean v0, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->enableTriState:Z
+    iget-boolean v0, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->mEnableTriState:Z
 
     if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->mBatteryOptimizeUtils:Lcom/android/settings/fuelgauge/BatteryOptimizeUtils;
+
+    invoke-virtual {v0}, Lcom/android/settings/fuelgauge/BatteryOptimizeUtils;->getAppOptimizationMode()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/settings/fuelgauge/AdvancedPowerUsageDetail;->mOptimizationMode:I
 
     invoke-virtual {p0}, Landroidx/fragment/app/Fragment;->getContext()Landroid/content/Context;
 

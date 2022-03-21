@@ -43,7 +43,7 @@
 
     move-result-object p1
 
-    const-string v0, "volume_hush_gesture"
+    const-string/jumbo v0, "volume_hush_gesture"
 
     const/4 v1, 0x1
 
@@ -109,7 +109,7 @@
 
     iget-object v0, p0, Lcom/android/settings/gestures/PreventRingingSwitchPreferenceController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f040f62
+    const v1, 0x7f040f8e
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -146,7 +146,7 @@
 
     move-result-object p0
 
-    const v0, 0x1110175
+    const v0, 0x111017c
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -164,7 +164,7 @@
 
     move-result-object p1
 
-    const-string v0, "volume_hush_gesture"
+    const-string/jumbo v0, "volume_hush_gesture"
 
     const/4 v1, 0x1
 
@@ -221,7 +221,7 @@
 
     move-result-object p1
 
-    const-string v0, "volume_hush_gesture"
+    const-string/jumbo v0, "volume_hush_gesture"
 
     const/4 v1, 0x1
 

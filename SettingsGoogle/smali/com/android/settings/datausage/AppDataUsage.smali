@@ -482,7 +482,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f150023
+    const p0, 0x7f150024
 
     return p0
 .end method
@@ -640,7 +640,7 @@
 
     if-nez v1, :cond_7
 
-    const-string v1, "uid"
+    const-string/jumbo v1, "uid"
 
     const/4 v3, -0x1
 
@@ -719,7 +719,7 @@
 
     :cond_8
     :goto_6
-    const-string p1, "total_usage"
+    const-string/jumbo p1, "total_usage"
 
     invoke-virtual {p0, p1}, Lcom/android/settings/core/InstrumentedPreferenceFragment;->findPreference(Ljava/lang/CharSequence;)Landroidx/preference/Preference;
 
@@ -779,7 +779,7 @@
 
     const-string v5, "app_settings"
 
-    const-string v6, "unrestricted_data_saver"
+    const-string/jumbo v6, "unrestricted_data_saver"
 
     const/4 v7, 0x1
 

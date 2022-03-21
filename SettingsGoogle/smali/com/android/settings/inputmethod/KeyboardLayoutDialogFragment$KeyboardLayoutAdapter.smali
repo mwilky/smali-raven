@@ -136,7 +136,7 @@
 
     check-cast p2, Landroid/widget/TextView;
 
-    const v0, 0x102041b
+    const v0, 0x102041e
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -215,7 +215,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040ab6
+    const v1, 0x7f040ace
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

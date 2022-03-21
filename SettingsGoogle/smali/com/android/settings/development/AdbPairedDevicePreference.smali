@@ -45,7 +45,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f0401af
+    const v0, 0x7f0401c3
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -67,7 +67,7 @@
 .method protected getWidgetLayoutResourceId()I
     .locals 0
 
-    const p0, 0x7f0601b6
+    const p0, 0x7f0601ba
 
     return p0
 .end method
@@ -77,13 +77,13 @@
 
     invoke-super {p0, p1}, Landroidx/preference/Preference;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
 
-    const p0, 0x7f0d04d7
+    const p0, 0x7f0d04e6
 
     invoke-virtual {p1, p0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
     move-result-object p0
 
-    const v0, 0x7f0d04d8
+    const v0, 0x7f0d04e7
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 

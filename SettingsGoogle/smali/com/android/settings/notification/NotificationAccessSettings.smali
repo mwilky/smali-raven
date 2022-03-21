@@ -81,19 +81,19 @@
 
     move-result-object v0
 
-    const v1, 0x7f040e51
+    const v1, 0x7f040e7c
 
     invoke-virtual {v0, v1}, Lcom/android/settings/utils/ManagedServiceSettings$Config$Builder;->setWarningDialogTitle(I)Lcom/android/settings/utils/ManagedServiceSettings$Config$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f040e50
+    const v1, 0x7f040e7b
 
     invoke-virtual {v0, v1}, Lcom/android/settings/utils/ManagedServiceSettings$Config$Builder;->setWarningDialogSummary(I)Lcom/android/settings/utils/ManagedServiceSettings$Config$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f040df9
+    const v1, 0x7f040e24
 
     invoke-virtual {v0, v1}, Lcom/android/settings/utils/ManagedServiceSettings$Config$Builder;->setEmptyText(I)Lcom/android/settings/utils/ManagedServiceSettings$Config$Builder;
 
@@ -107,7 +107,7 @@
 
     new-instance v0, Lcom/android/settings/search/BaseSearchIndexProvider;
 
-    const v1, 0x7f1500a4
+    const v1, 0x7f1500a9
 
     invoke-direct {v0, v1}, Lcom/android/settings/search/BaseSearchIndexProvider;-><init>(I)V
 
@@ -149,7 +149,7 @@
 
     iget v0, v0, Landroid/content/pm/ApplicationInfo;->uid:I
 
-    const-string v1, "uid"
+    const-string/jumbo v1, "uid"
 
     invoke-virtual {p3, v1, v0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
@@ -191,7 +191,7 @@
 
     move-result-object p0
 
-    const p1, 0x7f040c72
+    const p1, 0x7f040c8a
 
     invoke-virtual {p0, p1}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -237,7 +237,7 @@
 
     iget-object v0, p0, Lcom/android/settings/notification/NotificationAccessSettings;->mContext:Landroid/content/Context;
 
-    const-string v1, "user"
+    const-string/jumbo v1, "user"
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -421,7 +421,7 @@
 
     if-nez v5, :cond_0
 
-    const v5, 0x7f041780
+    const v5, 0x7f0417a5
 
     invoke-virtual {v6, v5}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -474,7 +474,7 @@
 .method protected getPreferenceScreenResId()I
     .locals 0
 
-    const p0, 0x7f1500a4
+    const p0, 0x7f1500a9
 
     return p0
 .end method
@@ -598,7 +598,7 @@
 
     iget-object p1, p0, Lcom/android/settings/notification/NotificationAccessSettings;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f040e75
+    const v0, 0x7f040ea0
 
     const/4 v1, 0x0
 

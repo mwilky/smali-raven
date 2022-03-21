@@ -71,7 +71,7 @@
     goto :goto_0
 
     :cond_0
-    const v1, 0x7f041213
+    const v1, 0x7f041237
 
     const/4 v2, 0x1
 
@@ -89,7 +89,7 @@
 
     :cond_1
     :goto_0
-    const v0, 0x7f041214
+    const v0, 0x7f041238
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -107,7 +107,7 @@
 
     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    const-string p0, "sub_id"
+    const-string/jumbo p0, "sub_id"
 
     invoke-virtual {v0, p0, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
@@ -143,7 +143,7 @@
 
     if-eqz p2, :cond_0
 
-    const p2, 0x7f04121e
+    const p2, 0x7f041242
 
     new-array v1, v1, [Ljava/lang/Object;
 
@@ -162,7 +162,7 @@
 
     if-eqz p2, :cond_1
 
-    const p2, 0x7f04121d
+    const p2, 0x7f041241
 
     new-array v1, v1, [Ljava/lang/Object;
 
@@ -177,7 +177,7 @@
     return-object p0
 
     :cond_1
-    const p2, 0x7f04121f
+    const p2, 0x7f041243
 
     new-array v0, v3, [Ljava/lang/Object;
 
@@ -197,7 +197,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f04121b
+    const v0, 0x7f04123f
 
     const/4 v1, 0x1
 
@@ -220,7 +220,7 @@
     goto :goto_0
 
     :cond_0
-    const v0, 0x7f041267
+    const v0, 0x7f04128b
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -237,7 +237,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f041220
+    const v0, 0x7f041244
 
     const/4 v1, 0x1
 
@@ -260,7 +260,7 @@
     return-object p0
 
     :cond_0
-    const v0, 0x7f04121a
+    const v0, 0x7f04123e
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -301,13 +301,13 @@
 
     invoke-virtual {p0}, Lcom/android/settings/network/telephony/SubscriptionActionDialogActivity;->dismissProgressDialog()V
 
-    const v0, 0x7f04083d
+    const v0, 0x7f040855
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f04083c
+    const v1, 0x7f040854
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -447,13 +447,13 @@
 
     invoke-virtual {p0}, Lcom/android/settings/network/telephony/SubscriptionActionDialogActivity;->dismissProgressDialog()V
 
-    const v0, 0x7f040f95
+    const v0, 0x7f040fc1
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f040f94
+    const v1, 0x7f040fc0
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -530,13 +530,13 @@
 
     invoke-virtual {p0}, Lcom/android/settings/network/telephony/SubscriptionActionDialogActivity;->dismissProgressDialog()V
 
-    const v0, 0x7f041212
+    const v0, 0x7f041236
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f041211
+    const v1, 0x7f041235
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -767,7 +767,7 @@
     goto :goto_0
 
     :cond_0
-    const v1, 0x7f040f97
+    const v1, 0x7f040fc3
 
     const/4 v2, 0x1
 
@@ -785,7 +785,7 @@
 
     :cond_1
     :goto_0
-    const v0, 0x7f040f98
+    const v0, 0x7f040fc4
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -800,13 +800,13 @@
 
     const/4 v5, 0x0
 
-    const v0, 0x7f041793
+    const v0, 0x7f0417b8
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v6
 
-    const v0, 0x7f04054c
+    const v0, 0x7f040564
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -824,25 +824,25 @@
 
     const-class v1, Lcom/android/settings/network/telephony/ConfirmDialogFragment$OnConfirmListener;
 
-    const v0, 0x7f041210
+    const v0, 0x7f041234
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v0, 0x7f04120f
+    const v0, 0x7f041233
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
-    const v0, 0x7f041221
+    const v0, 0x7f041245
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
-    const v0, 0x7f041216
+    const v0, 0x7f04123a
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1017,7 +1017,7 @@
 
     move-result-object v3
 
-    const v0, 0x7f041793
+    const v0, 0x7f0417b8
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1045,25 +1045,25 @@
 
     const-class v1, Lcom/android/settings/network/telephony/ConfirmDialogFragment$OnConfirmListener;
 
-    const v0, 0x7f041219
+    const v0, 0x7f04123d
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v0, 0x7f04120f
+    const v0, 0x7f041233
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
-    const v0, 0x7f041217
+    const v0, 0x7f04123b
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object v5
 
-    const v0, 0x7f04054c
+    const v0, 0x7f040564
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1106,7 +1106,7 @@
 
     if-eq p1, v3, :cond_8
 
-    const v5, 0x7f041215
+    const v5, 0x7f041239
 
     const/4 v6, 0x2
 
@@ -1212,7 +1212,7 @@
 
     if-eqz p1, :cond_7
 
-    const p1, 0x7f04121c
+    const p1, 0x7f041240
 
     new-array p2, v3, [Ljava/lang/Object;
 
@@ -1266,7 +1266,7 @@
 
     invoke-static {v4, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const p1, 0x7f040f96
+    const p1, 0x7f040fc2
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1300,7 +1300,7 @@
 
     move-result-object v0
 
-    const-string v1, "sub_id"
+    const-string/jumbo v1, "sub_id"
 
     const/4 v2, -0x1
 

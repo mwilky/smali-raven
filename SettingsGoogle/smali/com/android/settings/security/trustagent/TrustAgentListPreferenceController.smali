@@ -157,7 +157,7 @@
     move v3, v2
 
     :goto_0
-    const-string v4, "trust_agent"
+    const-string/jumbo v4, "trust_agent"
 
     if-ge v3, v1, :cond_4
 
@@ -297,7 +297,7 @@
 
     invoke-virtual {v6, v2}, Lcom/android/settingslib/RestrictedPreference;->setEnabled(Z)V
 
-    const v7, 0x7f0407eb
+    const v7, 0x7f040803
 
     invoke-virtual {v6, v7}, Landroidx/preference/Preference;->setSummary(I)V
 
@@ -339,7 +339,7 @@
 .method public getPreferenceKey()Ljava/lang/String;
     .locals 0
 
-    const-string p0, "trust_agent"
+    const-string/jumbo p0, "trust_agent"
 
     return-object p0
 .end method
@@ -469,7 +469,7 @@
 
     move-result-object p0
 
-    const v0, 0x7f090054
+    const v0, 0x7f090055
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -483,7 +483,7 @@
 
     if-eqz p1, :cond_0
 
-    const-string v0, "trust_agent_click_intent"
+    const-string/jumbo v0, "trust_agent_click_intent"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
@@ -518,7 +518,7 @@
 
     if-eqz p0, :cond_0
 
-    const-string v0, "trust_agent_click_intent"
+    const-string/jumbo v0, "trust_agent_click_intent"
 
     invoke-virtual {p1, v0, p0}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
@@ -582,7 +582,7 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "trust_agent"
+    const-string/jumbo v6, "trust_agent"
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

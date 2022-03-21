@@ -36,7 +36,7 @@
 
     invoke-direct {p0, p1}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
-    const-string p1, "volume_hush_gesture"
+    const-string/jumbo p1, "volume_hush_gesture"
 
     invoke-static {p1}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 

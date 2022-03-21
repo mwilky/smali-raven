@@ -333,7 +333,7 @@
 
     move-result-object p0
 
-    const-string p1, "sum(_size)"
+    const-string/jumbo p1, "sum(_size)"
 
     filled-new-array {p1}, [Ljava/lang/String;
 

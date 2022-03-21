@@ -109,7 +109,7 @@
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f060299
+    const v0, 0x7f0602a5
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->setContentView(I)V
 

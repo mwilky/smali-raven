@@ -38,7 +38,7 @@
 
     move-result-object p0
 
-    const-string v0, "show_touches"
+    const-string/jumbo v0, "show_touches"
 
     const/4 v1, 0x0
 
@@ -79,7 +79,7 @@
 
     move-result-object p0
 
-    const-string v0, "show_touches"
+    const-string/jumbo v0, "show_touches"
 
     invoke-static {p0, v0, p1}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 

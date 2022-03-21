@@ -47,7 +47,7 @@
 .method public static create(Landroid/content/Context;)Lcom/android/settings/users/UserCapabilities;
     .locals 4
 
-    const-string v0, "user"
+    const-string/jumbo v0, "user"
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -274,7 +274,7 @@
 .method public updateAddUserCapabilities(Landroid/content/Context;)V
     .locals 6
 
-    const-string v0, "user"
+    const-string/jumbo v0, "user"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

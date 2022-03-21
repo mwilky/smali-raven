@@ -93,7 +93,7 @@
 
     invoke-static {p2, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const p1, 0x7f0411e7
+    const p1, 0x7f04120b
 
     const/4 p2, 0x1
 
@@ -154,7 +154,7 @@
 
     invoke-static {v1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0411ea
+    const v0, 0x7f04120e
 
     const/4 v1, 0x1
 
@@ -179,7 +179,7 @@
 
     invoke-direct {v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0411e8
+    const v1, 0x7f04120c
 
     invoke-virtual {v0, v1}, Landroidx/appcompat/app/AlertDialog$Builder;->setMessage(I)Landroidx/appcompat/app/AlertDialog$Builder;
 
@@ -227,7 +227,7 @@
 
     if-ne p2, p1, :cond_0
 
-    const p1, 0x7f0411e7
+    const p1, 0x7f04120b
 
     const/4 p2, 0x1
 

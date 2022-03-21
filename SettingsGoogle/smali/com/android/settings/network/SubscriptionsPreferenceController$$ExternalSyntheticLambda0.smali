@@ -27,7 +27,7 @@
 
     iget-object p0, p0, Lcom/android/settings/network/SubscriptionsPreferenceController$$ExternalSyntheticLambda0;->f$0:Lcom/android/settings/network/SubscriptionsPreferenceController;
 
-    invoke-static {p0, p1}, Lcom/android/settings/network/SubscriptionsPreferenceController;->$r8$lambda$xVqzKoGWO8aXu4iDN_AV8A_8OEQ(Lcom/android/settings/network/SubscriptionsPreferenceController;Landroidx/preference/Preference;)Z
+    invoke-static {p0, p1}, Lcom/android/settings/network/SubscriptionsPreferenceController;->$r8$lambda$RHwXSy0mU7z-eOxPFEnzhMM-QWI(Lcom/android/settings/network/SubscriptionsPreferenceController;Landroidx/preference/Preference;)Z
 
     move-result p0
 

@@ -97,6 +97,16 @@
     return-object p0
 .end method
 
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public getSummary()Ljava/lang/CharSequence;
     .locals 2
 
@@ -127,21 +137,21 @@
 
     if-eqz v1, :cond_1
 
-    const v0, 0x7f040310
+    const v0, 0x7f040324
 
     goto :goto_0
 
     :cond_1
     if-eqz v0, :cond_2
 
-    const v0, 0x7f040312
+    const v0, 0x7f040326
 
     goto :goto_0
 
     :cond_2
     if-eqz v1, :cond_3
 
-    const v0, 0x7f040311
+    const v0, 0x7f040325
 
     goto :goto_0
 

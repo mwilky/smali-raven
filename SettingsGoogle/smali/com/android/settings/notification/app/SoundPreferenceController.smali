@@ -242,7 +242,7 @@
 
     iget-object p0, p0, Lcom/android/settings/notification/app/NotificationPreferenceController;->mPreferenceFilter:Ljava/util/List;
 
-    const-string v0, "sound"
+    const-string/jumbo v0, "sound"
 
     invoke-interface {p0, v0}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 

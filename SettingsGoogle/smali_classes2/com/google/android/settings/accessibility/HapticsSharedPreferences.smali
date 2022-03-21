@@ -43,7 +43,7 @@
 
     iget-object p0, p0, Lcom/google/android/settings/accessibility/HapticsSharedPreferences;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f04015e
+    const v0, 0x7f040172
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

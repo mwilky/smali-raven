@@ -373,7 +373,7 @@
 
     invoke-static {p0, p1}, Lcom/android/settings/deviceinfo/legal/ModuleLicenseProvider;->checkUri(Landroid/content/Context;Landroid/net/Uri;)V
 
-    const-string p0, "text/html"
+    const-string/jumbo p0, "text/html"
 
     return-object p0
 .end method

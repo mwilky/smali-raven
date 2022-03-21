@@ -121,7 +121,7 @@
 
     new-instance p1, Ljava/net/URL;
 
-    const-string v0, "uri"
+    const-string/jumbo v0, "uri"
 
     invoke-virtual {p2, v0}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
@@ -152,7 +152,7 @@
     iput p1, p0, Lcom/android/settings/development/DSULoader$DSUPackage;->mOsVersion:I
 
     :cond_0
-    const-string p1, "vndk"
+    const-string/jumbo p1, "vndk"
 
     invoke-virtual {p2, p1}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
 
@@ -209,7 +209,7 @@
     iput-object p1, p0, Lcom/android/settings/development/DSULoader$DSUPackage;->mPubKey:Ljava/lang/String;
 
     :cond_2
-    const-string p1, "tos"
+    const-string/jumbo p1, "tos"
 
     invoke-virtual {p2, p1}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
 
@@ -228,7 +228,7 @@
     iput-object v0, p0, Lcom/android/settings/development/DSULoader$DSUPackage;->mTosUrl:Ljava/net/URL;
 
     :cond_3
-    const-string p1, "spl"
+    const-string/jumbo p1, "spl"
 
     invoke-virtual {p2, p1}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
 
@@ -238,7 +238,7 @@
 
     new-instance v0, Ljava/text/SimpleDateFormat;
 
-    const-string v1, "yyyy-MM-dd"
+    const-string/jumbo v1, "yyyy-MM-dd"
 
     invoke-direct {v0, v1}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
 
@@ -380,7 +380,7 @@
     :try_start_0
     new-instance v0, Ljava/text/SimpleDateFormat;
 
-    const-string v2, "yyyy-MM-dd"
+    const-string/jumbo v2, "yyyy-MM-dd"
 
     invoke-direct {v0, v2}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
 
@@ -561,7 +561,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "vndk:"
+    const-string/jumbo v2, "vndk:"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

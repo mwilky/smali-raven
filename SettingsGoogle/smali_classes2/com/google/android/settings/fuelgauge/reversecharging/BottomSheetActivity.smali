@@ -111,11 +111,11 @@
     return-void
 
     :cond_1
-    const p1, 0x7f0601e5
+    const p1, 0x7f0601e9
 
     invoke-virtual {p0, p1}, Landroidx/activity/ComponentActivity;->setContentView(I)V
 
-    const p1, 0x7f0d03ed
+    const p1, 0x7f0d03fb
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -123,7 +123,7 @@
 
     check-cast p1, Landroid/widget/Button;
 
-    const v0, 0x7f0d031c
+    const v0, 0x7f0d0328
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -131,7 +131,7 @@
 
     check-cast v0, Landroid/widget/Button;
 
-    const v1, 0x7f0d05cb
+    const v1, 0x7f0d05da
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -139,7 +139,7 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    const v2, 0x7f0d0288
+    const v2, 0x7f0d028d
 
     invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -159,7 +159,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d0175
+    const v5, 0x7f0d0179
 
     invoke-virtual {v4, v5, v3}, Landroidx/fragment/app/FragmentTransaction;->replace(ILandroidx/fragment/app/Fragment;)Landroidx/fragment/app/FragmentTransaction;
 
@@ -179,7 +179,7 @@
 
     invoke-virtual {v0, p1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const p1, 0x7f04104c
+    const p1, 0x7f04107a
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -193,7 +193,7 @@
 
     invoke-virtual {v1, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const p1, 0x7f04103e
+    const p1, 0x7f04106c
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 

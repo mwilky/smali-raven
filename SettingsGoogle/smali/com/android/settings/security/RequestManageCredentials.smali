@@ -515,7 +515,7 @@
 .method private loadButtons()V
     .locals 3
 
-    const v0, 0x7f0d0129
+    const v0, 0x7f0d012d
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -525,7 +525,7 @@
 
     iput-object v0, p0, Lcom/android/settings/security/RequestManageCredentials;->mButtonPanel:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f0d01db
+    const v0, 0x7f0d01df
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -533,25 +533,31 @@
 
     check-cast v0, Landroid/widget/Button;
 
-    const v1, 0x7f0d007d
+    const/4 v1, 0x1
 
-    invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setFilterTouchesWhenObscured(Z)V
 
-    move-result-object v1
+    const v2, 0x7f0d007f
 
-    check-cast v1, Landroid/widget/Button;
+    invoke-virtual {p0, v2}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
-    new-instance v2, Lcom/android/settings/security/RequestManageCredentials$$ExternalSyntheticLambda0;
+    move-result-object v2
 
-    invoke-direct {v2, p0}, Lcom/android/settings/security/RequestManageCredentials$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/security/RequestManageCredentials;)V
+    check-cast v2, Landroid/widget/Button;
 
-    invoke-virtual {v0, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, v1}, Landroid/widget/Button;->setFilterTouchesWhenObscured(Z)V
+
+    new-instance v1, Lcom/android/settings/security/RequestManageCredentials$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p0}, Lcom/android/settings/security/RequestManageCredentials$$ExternalSyntheticLambda0;-><init>(Lcom/android/settings/security/RequestManageCredentials;)V
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     new-instance v0, Lcom/android/settings/security/RequestManageCredentials$$ExternalSyntheticLambda2;
 
     invoke-direct {v0, p0}, Lcom/android/settings/security/RequestManageCredentials$$ExternalSyntheticLambda2;-><init>(Lcom/android/settings/security/RequestManageCredentials;)V
 
-    invoke-virtual {v1, v0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, v0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     return-void
 .end method
@@ -559,7 +565,7 @@
 .method private loadExtendedFloatingActionButton()V
     .locals 2
 
-    const v0, 0x7f0d021c
+    const v0, 0x7f0d0221
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -581,7 +587,7 @@
 .method private loadHeader()V
     .locals 9
 
-    const v0, 0x7f0d018b
+    const v0, 0x7f0d018f
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -589,7 +595,7 @@
 
     check-cast v0, Landroid/widget/ImageView;
 
-    const v1, 0x7f0d018c
+    const v1, 0x7f0d0190
 
     invoke-virtual {p0, v1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -599,7 +605,7 @@
 
     const/4 v2, 0x1
 
-    const v3, 0x7f041006
+    const v3, 0x7f041034
 
     const/4 v4, 0x0
 
@@ -684,7 +690,7 @@
 
     iput-object v0, p0, Lcom/android/settings/security/RequestManageCredentials;->mLayoutManager:Landroidx/recyclerview/widget/LinearLayoutManager;
 
-    const v0, 0x7f0d00aa
+    const v0, 0x7f0d00ad
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -964,9 +970,17 @@
 
     invoke-virtual {p1}, Landroid/app/admin/DevicePolicyEventLogger;->write()V
 
-    const p1, 0x7f0601d6
+    const p1, 0x7f0601da
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setContentView(I)V
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+
+    move-result-object p1
+
+    const/high16 v2, 0x80000
+
+    invoke-virtual {p1, v2}, Landroid/view/Window;->addSystemFlags(I)V
 
     invoke-virtual {p0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
 

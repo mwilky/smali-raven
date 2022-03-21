@@ -123,7 +123,7 @@
 
     iget v1, p0, Lcom/android/settings/notification/zen/ZenModeSettingsBase;->mZenMode:I
 
-    const-string v2, "zen_mode"
+    const-string/jumbo v2, "zen_mode"
 
     invoke-static {v0, v2, v1}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
@@ -146,7 +146,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "updateZenMode mZenMode="
+    const-string/jumbo v1, "updateZenMode mZenMode="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

@@ -30,7 +30,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f040635
+    const p2, 0x7f04064d
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -144,7 +144,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040635
+    const v1, 0x7f04064d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -165,7 +165,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f040eae
+    const v2, 0x7f040eda
 
     const/4 v3, 0x1
 
@@ -208,7 +208,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040635
+    const v1, 0x7f04064d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -328,7 +328,7 @@
 
     iput-object p1, p0, Lcom/android/settings/emergency/MoreSettingsPreferenceController;->mPreference:Lcom/android/settingslib/widget/LayoutPreference;
 
-    const v0, 0x7f0d011f
+    const v0, 0x7f0d0123
 
     invoke-virtual {p1, v0}, Lcom/android/settingslib/widget/LayoutPreference;->findViewById(I)Landroid/view/View;
 
@@ -408,6 +408,16 @@
     return-object p0
 .end method
 
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
+.end method
+
 .method public bridge synthetic hasAsyncUpdate()Z
     .locals 0
 
@@ -481,7 +491,7 @@
 
     move-result-object p1
 
-    const/high16 v0, 0x4000000
+    const/high16 v0, 0x14000000
 
     invoke-virtual {p1, v0}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 

@@ -70,7 +70,7 @@
 
     move-result-object v2
 
-    const-string v3, "uid"
+    const-string/jumbo v3, "uid"
 
     invoke-virtual {v0, v3, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
@@ -88,7 +88,7 @@
 
     move-result-object v2
 
-    const-string v3, "userId"
+    const-string/jumbo v3, "userId"
 
     invoke-virtual {v0, v3, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
@@ -126,7 +126,7 @@
 
     move-result-object p1
 
-    const-string v1, "totalPower"
+    const-string/jumbo v1, "totalPower"
 
     invoke-virtual {v0, v1, p1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Double;)V
 
@@ -220,7 +220,7 @@
 
     move-result-object p0
 
-    const-string p1, "timestamp"
+    const-string/jumbo p1, "timestamp"
 
     invoke-virtual {v0, p1, p0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
 
@@ -232,7 +232,7 @@
 
     move-result-object p0
 
-    const-string p1, "zoneId"
+    const-string/jumbo p1, "zoneId"
 
     invoke-virtual {v0, p1, p0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -989,7 +989,7 @@
 
     move-result-object v0
 
-    invoke-interface {v0, p0}, Lcom/android/settings/fuelgauge/PowerUsageFeatureProvider;->getHideBackgroundUsageTimeList(Landroid/content/Context;)Ljava/util/List;
+    invoke-interface {v0, p0}, Lcom/android/settings/fuelgauge/PowerUsageFeatureProvider;->getHideBackgroundUsageTimeSet(Landroid/content/Context;)Ljava/util/Set;
 
     move-result-object p0
 
@@ -1064,13 +1064,13 @@
 
     if-eqz v2, :cond_1
 
-    invoke-interface {p0}, Ljava/util/List;->isEmpty()Z
+    invoke-interface {p0}, Ljava/util/Set;->isEmpty()Z
 
     move-result v3
 
     if-nez v3, :cond_1
 
-    invoke-interface {p0, v2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+    invoke-interface {p0, v2}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
     move-result v2
 

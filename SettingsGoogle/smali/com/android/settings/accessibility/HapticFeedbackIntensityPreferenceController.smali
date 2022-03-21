@@ -11,7 +11,7 @@
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 3
 
-    const-string v0, "touch_vibration_preference_screen"
+    const-string/jumbo v0, "touch_vibration_preference_screen"
 
     const-string v1, "haptic_feedback_intensity"
 
@@ -79,6 +79,16 @@
     move-result-object p0
 
     return-object p0
+.end method
+
+.method public bridge synthetic getSliceHighlightMenuRes()I
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/settings/slices/Sliceable;->getSliceHighlightMenuRes()I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public bridge synthetic hasAsyncUpdate()Z

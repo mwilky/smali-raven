@@ -86,7 +86,7 @@
     invoke-virtual {p0, p3}, Landroidx/preference/Preference;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
     :cond_0
-    const p1, 0x7f0601bf
+    const p1, 0x7f0601c3
 
     invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setWidgetLayoutResource(I)V
 
@@ -136,7 +136,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settingslib/widget/AppPreference;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
 
-    const v0, 0x7f0d062c
+    const v0, 0x7f0d063c
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -154,7 +154,7 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x7f0203a2
+    const v1, 0x7f0203a9
 
     invoke-virtual {v0, v1, v2, v2, v2}, Landroid/widget/TextView;->setCompoundDrawablesRelativeWithIntrinsicBounds(IIII)V
 

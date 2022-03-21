@@ -609,12 +609,12 @@
         <item quantity="many">%1$d تحذيرًا</item>
     </plurals>
     <plurals name="see_all_apps_title">
-        <item quantity="other">‏عرض كل الـ %1$d تطبيق</item>
-        <item quantity="zero">‏عرض كل الـ %1$d تطبيق</item>
+        <item quantity="other">‏عرض كل التطبيقات البالغ عددها %1$d</item>
+        <item quantity="zero">‏عرض كل التطبيقات البالغ عددها %1$d</item>
         <item quantity="one">عرض كل التطبيقات</item>
         <item quantity="two">‏عرض كلا التطبيقين (%1$d)</item>
-        <item quantity="few">‏عرض كل الـ %1$d تطبيقات</item>
-        <item quantity="many">‏عرض كل الـ %1$d تطبيقًا</item>
+        <item quantity="few">‏عرض كل التطبيقات البالغ عددها %1$d</item>
+        <item quantity="many">‏عرض كل التطبيقات البالغ عددها %1$d</item>
     </plurals>
     <plurals name="settings_suggestion_header_summary_hidden_items">
         <item quantity="other">‏عرض %d عنصر مخفي</item>

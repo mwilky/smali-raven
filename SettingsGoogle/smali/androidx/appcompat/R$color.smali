@@ -20,4 +20,4 @@
 
 .field public static final abc_tint_switch_track:I = 0x7f0a002a
 
-.field public static final switch_thumb_normal_material_light:I = 0x7f0a025d
+.field public static final switch_thumb_normal_material_light:I = 0x7f0a026b

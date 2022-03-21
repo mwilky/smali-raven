@@ -123,7 +123,7 @@
 
     const/4 v0, 0x2
 
-    const v9, 0x7f04148c
+    const v9, 0x7f0414b1
 
     if-eq p2, v0, :cond_0
 
@@ -134,7 +134,7 @@
 
     if-nez p2, :cond_1
 
-    const p0, 0x7f04148d
+    const p0, 0x7f0414b2
 
     return p0
 
@@ -143,7 +143,7 @@
 
     if-nez p2, :cond_2
 
-    const p0, 0x7f041492
+    const p0, 0x7f0414b7
 
     return p0
 
@@ -152,7 +152,7 @@
 
     if-nez p2, :cond_3
 
-    const p0, 0x7f04148f
+    const p0, 0x7f0414b4
 
     return p0
 
@@ -161,7 +161,7 @@
 
     if-nez p0, :cond_4
 
-    const p0, 0x7f04148a
+    const p0, 0x7f0414af
 
     return p0
 
@@ -173,7 +173,7 @@
 
     if-nez p2, :cond_6
 
-    const p0, 0x7f04148e
+    const p0, 0x7f0414b3
 
     return p0
 
@@ -182,7 +182,7 @@
 
     if-nez p2, :cond_7
 
-    const p0, 0x7f041493
+    const p0, 0x7f0414b8
 
     return p0
 
@@ -191,7 +191,7 @@
 
     if-nez p2, :cond_8
 
-    const p0, 0x7f041490
+    const p0, 0x7f0414b5
 
     return p0
 
@@ -200,12 +200,12 @@
 
     if-nez p0, :cond_9
 
-    const p0, 0x7f04148b
+    const p0, 0x7f0414b0
 
     return p0
 
     :cond_9
-    const p0, 0x7f041491
+    const p0, 0x7f0414b6
 
     return p0
 .end method
@@ -243,7 +243,7 @@
 
     move-result-object p1
 
-    const v0, 0x7f041487
+    const v0, 0x7f0414ac
 
     invoke-virtual {p1, v0}, Lcom/android/settings/core/SubSettingLauncher;->setTitleRes(I)Lcom/android/settings/core/SubSettingLauncher;
 
@@ -321,13 +321,13 @@
 
     iput-object v0, p0, Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater;->mUsbPreference:Lcom/android/settingslib/RestrictedPreference;
 
-    const v1, 0x7f041486
+    const v1, 0x7f0414ab
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setTitle(I)V
 
     iget-object v0, p0, Lcom/android/settings/connecteddevice/usb/ConnectedUsbDeviceUpdater;->mUsbPreference:Lcom/android/settingslib/RestrictedPreference;
 
-    const v1, 0x7f02038f
+    const v1, 0x7f020396
 
     invoke-virtual {v0, v1}, Landroidx/preference/Preference;->setIcon(I)V
 

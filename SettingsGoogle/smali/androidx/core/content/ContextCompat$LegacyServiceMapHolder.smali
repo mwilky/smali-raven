@@ -46,13 +46,13 @@
 
     const-class v2, Landroid/telephony/SubscriptionManager;
 
-    const-string v3, "telephony_subscription_service"
+    const-string/jumbo v3, "telephony_subscription_service"
 
     invoke-virtual {v0, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const-class v2, Landroid/app/usage/UsageStatsManager;
 
-    const-string v3, "usagestats"
+    const-string/jumbo v3, "usagestats"
 
     invoke-virtual {v0, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -111,13 +111,13 @@
 
     const-class v2, Landroid/telecom/TelecomManager;
 
-    const-string v3, "telecom"
+    const-string/jumbo v3, "telecom"
 
     invoke-virtual {v0, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const-class v2, Landroid/media/tv/TvInputManager;
 
-    const-string v3, "tv_input"
+    const-string/jumbo v3, "tv_input"
 
     invoke-virtual {v0, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -174,7 +174,7 @@
 
     const-class v2, Landroid/os/UserManager;
 
-    const-string v3, "user"
+    const-string/jumbo v3, "user"
 
     invoke-virtual {v0, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -318,7 +318,7 @@
 
     const-class v1, Landroid/os/storage/StorageManager;
 
-    const-string v2, "storage"
+    const-string/jumbo v2, "storage"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -330,49 +330,49 @@
 
     const-class v1, Landroid/view/textservice/TextServicesManager;
 
-    const-string v2, "textservices"
+    const-string/jumbo v2, "textservices"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const-class v1, Landroid/app/UiModeManager;
 
-    const-string v2, "uimode"
+    const-string/jumbo v2, "uimode"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const-class v1, Landroid/hardware/usb/UsbManager;
 
-    const-string v2, "usb"
+    const-string/jumbo v2, "usb"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const-class v1, Landroid/os/Vibrator;
 
-    const-string v2, "vibrator"
+    const-string/jumbo v2, "vibrator"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const-class v1, Landroid/app/WallpaperManager;
 
-    const-string v2, "wallpaper"
+    const-string/jumbo v2, "wallpaper"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const-class v1, Landroid/net/wifi/p2p/WifiP2pManager;
 
-    const-string v2, "wifip2p"
+    const-string/jumbo v2, "wifip2p"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const-class v1, Landroid/net/wifi/WifiManager;
 
-    const-string v2, "wifi"
+    const-string/jumbo v2, "wifi"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const-class v1, Landroid/view/WindowManager;
 
-    const-string v2, "window"
+    const-string/jumbo v2, "window"
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 

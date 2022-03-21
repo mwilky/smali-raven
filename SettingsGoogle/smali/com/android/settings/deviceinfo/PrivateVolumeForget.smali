@@ -123,7 +123,7 @@
     return-object v1
 
     :cond_1
-    const p3, 0x7f06021a
+    const p3, 0x7f060222
 
     const/4 v0, 0x0
 
@@ -131,7 +131,7 @@
 
     move-result-object p1
 
-    const p2, 0x7f0d00ff
+    const p2, 0x7f0d0103
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -139,7 +139,7 @@
 
     check-cast p2, Landroid/widget/TextView;
 
-    const p3, 0x7f0d016b
+    const p3, 0x7f0d016f
 
     invoke-virtual {p1, p3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -147,7 +147,7 @@
 
     check-cast p3, Landroid/widget/Button;
 
-    const v1, 0x7f0412d9
+    const v1, 0x7f0412fe
 
     invoke-virtual {p0, v1}, Landroidx/fragment/app/Fragment;->getText(I)Ljava/lang/CharSequence;
 

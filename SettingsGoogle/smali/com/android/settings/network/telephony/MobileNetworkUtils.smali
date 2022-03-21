@@ -732,7 +732,7 @@
     :goto_0
     if-eqz p1, :cond_1
 
-    const p1, 0x7f040543
+    const p1, 0x7f04055a
 
     invoke-static {p0, p1}, Lcom/android/settings/network/telephony/MobileNetworkUtils;->setSummaryResId(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -770,7 +770,7 @@
     :goto_0
     if-eqz p1, :cond_1
 
-    const p1, 0x7f040543
+    const p1, 0x7f04055a
 
     invoke-static {p0, p1}, Lcom/android/settings/network/telephony/MobileNetworkUtils;->setSummaryResId(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -908,7 +908,7 @@
 
     const/4 v2, 0x0
 
-    const-string v3, "\u200f"
+    const-string/jumbo v3, "\u200f"
 
     invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->insert(ILjava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1220,7 +1220,7 @@
 
     move-result-object p4
 
-    const v0, 0x7f0b0329
+    const v0, 0x7f0b0332
 
     invoke-virtual {p4, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1353,7 +1353,7 @@
 
     if-nez v3, :cond_2
 
-    const-string v3, "world_phone_bool"
+    const-string/jumbo v3, "world_phone_bool"
 
     invoke-virtual {v2, v3}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
 
@@ -1514,7 +1514,7 @@
 
     move-result-object p0
 
-    const-string p1, "use_rcs_presence_bool"
+    const-string/jumbo p1, "use_rcs_presence_bool"
 
     invoke-virtual {p0, p1, v0}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;Z)Z
 
@@ -1742,7 +1742,7 @@
 
     if-nez p1, :cond_1
 
-    const-string p1, "world_phone_bool"
+    const-string/jumbo p1, "world_phone_bool"
 
     invoke-virtual {p0, p1}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
 
@@ -1930,7 +1930,7 @@
     return v0
 
     :cond_0
-    const-string v1, "support_tdscdma_bool"
+    const-string/jumbo v1, "support_tdscdma_bool"
 
     invoke-virtual {p0, v1}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
 
@@ -1959,7 +1959,7 @@
     const/4 p1, 0x0
 
     :goto_0
-    const-string v1, "support_tdscdma_roaming_networks_string_array"
+    const-string/jumbo v1, "support_tdscdma_roaming_networks_string_array"
 
     invoke-virtual {p0, v1}, Landroid/os/PersistableBundle;->getStringArray(Ljava/lang/String;)[Ljava/lang/String;
 
@@ -2093,7 +2093,7 @@
     goto :goto_0
 
     :cond_0
-    const-string p1, "world_mode_enabled_bool"
+    const-string/jumbo p1, "world_mode_enabled_bool"
 
     invoke-virtual {p0, p1}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
 
@@ -2688,7 +2688,7 @@
 
     aput-object v9, v7, v8
 
-    const-string v8, "showEuiccSettings: esimIgnoredDevice: %b, enabledEsimUiByDefault: %b, euiccProvisioned: %b, inDeveloperMode: %b."
+    const-string/jumbo v8, "showEuiccSettings: esimIgnoredDevice: %b, enabledEsimUiByDefault: %b, euiccProvisioned: %b, inDeveloperMode: %b."
 
     invoke-static {v8, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
